@@ -831,10 +831,20 @@ public sealed partial class WoundSystem
             return;
 
         var bodyPart = Comp<BodyPartComponent>(parentWoundableEntity);
-        if (!bodyPart.Body.HasValue)
+        if (!bodyPart.Body.HasValue
+            || !woundableComp.CanRemove)
             return;
 
         _audio.PlayPvs(woundableComp.WoundableDelimbedSound, bodyPart.Body.Value);
+
+        if (woundableComp.DamageOnAmputate != null
+            && _body.TryGetRootPart(bodyPart.Body.Value, out var rootPart))
+        {
+            var target = _body.GetTargetBodyPart(rootPart);
+
+            if (target != null)
+                _damageable.TryChangeDamage(bodyPart.Body.Value, woundableComp.DamageOnAmputate, targetPart: target);
+        }
 
         foreach (var wound in GetWoundableWounds(woundableEntity, woundableComp))
             TransferWoundDamage(parentWoundableEntity, woundableEntity, wound);

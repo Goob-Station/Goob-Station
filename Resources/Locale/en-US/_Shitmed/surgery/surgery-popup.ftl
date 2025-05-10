@@ -67,3 +67,5 @@ surgery-popup-step-SurgeryStepInsertStomach = {$user} is inserting a stomach int
 surgery-popup-step-SurgeryStepSealOrganWound = {$user} is sealing the wounds on {$target}'s {$part}.
 surgery-popup-step-SurgeryStepLobotomize = {$user} is lobotomizing {$target}!
 surgery-popup-step-SurgeryStepMendBrainTissue = {$user} is mending the brain tissue on {$target}'s {$part}.
+
+surgery-popup-step-SurgeryStepRemoveOrgan-failed = You couldn't remove the organ for some reason...

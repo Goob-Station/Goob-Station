@@ -104,8 +104,7 @@ namespace Content.Shared.Damage
         [Dependency] private readonly SharedChemistryGuideDataSystem _chemistryGuideData = default!;
 
         // Shitmed Dependencies
-        [Dependency] private readonly SharedBodySystem _body = default!; // Shitmed Change
-        [Dependency] private readonly IRobustRandom _random = default!; // Shitmed Change
+        [Dependency] private readonly SharedBodySystem _body = default!;
         [Dependency] private readonly WoundSystem _wounds = default!;
         [Dependency] private readonly IRobustRandom _LETSGOGAMBLINGEXCLAMATIONMARKEXCLAMATIONMARK = default!;
         [Dependency] private readonly IComponentFactory _factory = default!;
@@ -810,22 +809,6 @@ namespace Content.Shared.Damage
         EntityUid? Origin = null,
         bool CanBeCancelled = false, // Shitmed Change
         TargetBodyPart? TargetPart = null, // Shitmed Change
-        bool Cancelled = false);
-
-    /// <summary>
-    ///     Shitmed Change: Raised on parts before damage is done so we can cancel the damage if they evade.
-    /// </summary>
-    [ByRefEvent]
-    public record struct TryChangePartDamageEvent(
-        DamageSpecifier Damage,
-        EntityUid? Origin = null,
-        TargetBodyPart? TargetPart = null,
-        bool IgnoreResistances = false,
-        float ArmorPenetration = 0f,
-        bool CanSever = true,
-        bool CanEvade = false,
-        float PartMultiplier = 1.00f,
-        bool Evaded = false,
         bool Cancelled = false);
 
     /// <summary>

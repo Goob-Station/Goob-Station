@@ -16,6 +16,7 @@
 using System.Linq;
 using Content.Goobstation.Common.Weapons.Multishot;
 using Content.Goobstation.Shared.Weapons.MissChance;
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
 using Content.Shared.CombatMode;
@@ -43,6 +44,7 @@ public sealed class SharedMultishotSystem : EntitySystem
     [Dependency] private readonly MissChanceSystem _miss = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly StaminaSystem _staminaSystem = default!;
+    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
 
     public override void Initialize()
     {
@@ -127,9 +129,7 @@ public sealed class SharedMultishotSystem : EntitySystem
         var bodyPart = _bodySystem.GetTargetBodyPart(BodyPartType.Hand, bodySymmetry);
 
         var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>(component.HandDamageType), component.HandDamageAmount);
-        var handsDamageEv = new TryChangePartDamageEvent(damage, target, bodyPart, true);
-
-        RaiseLocalEvent(target, ref handsDamageEv);
+        _damageableSystem.TryChangeDamage(target, damage, targetPart: bodyPart);
     }
 
     private void OnRefreshModifiers(EntityUid uid, MultishotComponent comp, ref GunRefreshModifiersEvent args)

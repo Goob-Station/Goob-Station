@@ -1,4 +1,5 @@
-﻿using Content.Shared.Damage.Prototypes;
+﻿using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
 using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
@@ -138,6 +139,12 @@ public sealed partial class WoundableComponent : Component
     /// </summary>
     [ViewVariables]
     public bool IsBoneExposed = false;
+
+    /// <summary>
+    /// Damage to inflict on the root when the woundable is amputated.
+    /// </summary>
+    [DataField]
+    public DamageSpecifier? DamageOnAmputate;
 }
 
 [Serializable, NetSerializable]

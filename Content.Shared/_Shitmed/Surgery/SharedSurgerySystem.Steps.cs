@@ -451,8 +451,10 @@ public abstract partial class SharedSurgerySystem
             _body.TryGetBodyPartOrgans(args.Part, reg.Component.GetType(), out var organs);
             if (organs != null && organs.Count > 0)
             {
-                _body.RemoveOrgan(organs[0].Id, organs[0].Organ);
-                _hands.TryPickupAnyHand(args.User, organs[0].Id);
+                if (_body.TryRemoveOrgan(organs[0].Id, organs[0].Organ))
+                    _hands.TryPickupAnyHand(args.User, organs[0].Id);
+                else
+                    _popup.PopupClient(Loc.GetString("surgery-popup-step-SurgeryStepRemoveOrgan-failed"), args.User, args.User);
             }
         }
     }

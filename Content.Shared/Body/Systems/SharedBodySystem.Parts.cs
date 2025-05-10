@@ -97,7 +97,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Utility;
 
 // Shitmed Change Start
-using Content.Shared._Shitmed.Body.Events;
+using Content.Shared._Shitmed.Body.Components;
 using Content.Shared._Shitmed.Body.Part;
 using Content.Shared._Shitmed.BodyEffects;
 using Content.Shared._Shitmed.Targeting;
@@ -668,7 +668,8 @@ public partial class SharedBodySystem
         var acceleration = 0f;
         foreach (var legEntity in body.LegEntities)
         {
-            if (!TryComp<MovementBodyPartComponent>(legEntity, out var legModifier))
+            if (!TryComp<MovementBodyPartComponent>(legEntity, out var legModifier)
+                || HasComp<LimbParalyzedComponent>(legEntity)) // Shitmed Change
                 continue;
 
             walkSpeed += legModifier.WalkSpeed;

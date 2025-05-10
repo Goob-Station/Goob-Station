@@ -216,14 +216,16 @@ public abstract class SharedStunSystem : EntitySystem
         if (!TryComp(uid, out StandingStateComponent? standing))
             return;
 
-        if (TryComp(uid, out LayingDownComponent? layingDown))
+        if (TryComp(uid, out LayingDownComponent? layingDown)
+            && component.StandOnRemoval) // Shitmed Change
         {
             if (layingDown.AutoGetUp && !_container.IsEntityInContainer(uid))
                 _layingDown.TryStandUp(uid, layingDown);
             return;
         }
 
-        _standingState.Stand(uid, standing);
+        if (component.StandOnRemoval) // Shitmed Change
+            _standingState.Stand(uid, standing);
         // WD EDIT END
     }
 
@@ -287,7 +289,7 @@ public abstract class SharedStunSystem : EntitySystem
     ///     Knocks down the entity, making it fall to the ground.
     /// </summary>
     public bool TryKnockdown(EntityUid uid, TimeSpan time, bool refresh,
-        DropHeldItemsBehavior behavior, StatusEffectsComponent? status = null)
+        DropHeldItemsBehavior behavior, StatusEffectsComponent? status = null, bool standOnRemoval = true) // Shitmed Change
     {
         var modifierEv = new GetClothingStunModifierEvent(uid);
         RaiseLocalEvent(modifierEv);
@@ -301,6 +303,7 @@ public abstract class SharedStunSystem : EntitySystem
 
         var component = _componentFactory.GetComponent<KnockedDownComponent>();
         component.DropHeldItemsBehavior = behavior;
+        component.StandOnRemoval = standOnRemoval;
         if (!_statusEffect.TryAddStatusEffect(uid, "KnockedDown", time, refresh, component))
             return false;
 
@@ -350,12 +353,12 @@ public abstract class SharedStunSystem : EntitySystem
     ///     Applies knockdown and stun to the entity temporarily.
     /// </summary>
     public bool TryParalyze(EntityUid uid, TimeSpan time, bool refresh,
-        StatusEffectsComponent? status = null)
+        StatusEffectsComponent? status = null, bool standOnRemoval = true) // Shitmed Change
     {
         if (!Resolve(uid, ref status, false))
             return false;
 
-        return TryKnockdown(uid, time, refresh, DropHeldItemsBehavior.AlwaysDrop, status) &&
+        return TryKnockdown(uid, time, refresh, DropHeldItemsBehavior.AlwaysDrop, status, standOnRemoval) && // Shitmed Change
                TryStun(uid, time, refresh, status); // Goob edit
     }
 

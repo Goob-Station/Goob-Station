@@ -698,7 +698,7 @@ public partial class TraumaSystem
                     break;
             }
 
-            Log.Debug($"A new trauma (Raw Severity: {severity}) was created on target: {ToPrettyString(target)}. Type: {trauma}.");
+            //Log.Debug($"A new trauma (Raw Severity: {severity}) was created on target: {ToPrettyString(target)}. Type: {trauma}.");
         }
 
         // TODO: veins, would have been very lovely to integrate this into vascular system

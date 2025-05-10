@@ -21,7 +21,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Systems;
-
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components; // Shitmed Change
 namespace Content.Server.Heretic.EntitySystems.PathSpecific;
 
 public sealed class ChampionStanceSystem : EntitySystem
@@ -100,11 +100,19 @@ public sealed class ChampionStanceSystem : EntitySystem
     private void OnBodyPartAdded(Entity<ChampionStanceComponent> ent, ref BodyPartAddedEvent args)
     {
         // can't touch this
-        //args.Part.Comp.CanSever = false; - Pending rework lmao
+        if (!TryComp(args.Part, out WoundableComponent? woundable))
+            return;
+
+        woundable.CanRemove = false;
+        Dirty(args.Part);
     }
     private void OnBodyPartRemoved(Entity<ChampionStanceComponent> ent, ref BodyPartRemovedEvent args)
     {
         // can touch this
-        //args.Part.Comp.CanSever = true; - Pending rework lmao
+        if (!TryComp(args.Part, out WoundableComponent? woundable))
+            return;
+
+        woundable.CanRemove = true;
+        Dirty(args.Part);
     }
 }

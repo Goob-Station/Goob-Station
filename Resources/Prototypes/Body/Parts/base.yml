@@ -201,6 +201,11 @@
       Severe: 20
       Critical: 10
       Loss: 0
+    damageOnAmputate: # This seemingly arbitrary spread is the result of the default head health (65) subtracted to 200 (death threshold).
+      types:
+        Bloodloss: 45
+        Asphyxiation: 45
+        Slash: 45
   - type: WoundableVisuals
     thresholds: [ 10, 20, 30, 50, 70, 100 ]
     occupiedLayer: Head
