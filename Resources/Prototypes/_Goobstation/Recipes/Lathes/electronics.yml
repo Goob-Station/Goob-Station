@@ -63,6 +63,14 @@
 
 - type: latheRecipe
   parent: BaseCircuitboardRecipe
+  id: ConstructorCircuitboard
+  icon:
+    sprite: _Goobstation/Structures/Machines/constructor.rsi
+    state: icon
+  result: ConstructorCircuitboard
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
   id: StorageBinCircuitboard
   icon:
     sprite: _Goobstation/Structures/Machines/storage_bin.rsi

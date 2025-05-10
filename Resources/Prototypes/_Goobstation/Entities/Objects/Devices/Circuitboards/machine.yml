@@ -44,6 +44,26 @@
 
 - type: entity
   parent: BaseMachineCircuitboard
+  id: ConstructorCircuitboard
+  name: constructor machine board
+  description: A machine printed circuit board for a constructor.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    prototype: Constructor
+    stackRequirements:
+      Manipulator: 3
+      MatterBin: 2
+      Steel: 10
+      Cable: 5
+    tagRequirements:
+      BorgArm:
+        amount: 4
+        defaultPrototype: LeftArmBorg
+
+- type: entity
+  parent: BaseMachineCircuitboard
   id: StorageBinCircuitboard
   name: storage bin machine board
   description: A machine printed circuit board for a storage bin.

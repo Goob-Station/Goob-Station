@@ -1,8 +1,9 @@
 // SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 //
 // SPDX-License-Identifier: MIT
 
@@ -57,7 +58,7 @@ public sealed partial class LogicGateComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public ProtoId<SourcePortPrototype> OutputPort = "Output";
 
-    // Initial state
+    // Initial state, used to not spam invoke ports
     [DataField]
     public SignalState StateA = SignalState.Low;
 
@@ -66,14 +67,4 @@ public sealed partial class LogicGateComponent : Component
 
     [DataField]
     public bool LastOutput;
-}
-
-/// <summary>
-/// Last state of a signal port, used to not spam invoking ports.
-/// </summary>
-public enum SignalState : byte
-{
-    Momentary, // Instantaneous pulse high, compatibility behavior
-    Low,
-    High
 }

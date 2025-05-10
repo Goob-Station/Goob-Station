@@ -69,6 +69,30 @@
   name: signal-port-name-automation-slot-storage
   description: signal-port-description-automation-slot-storage
 
+# Fax Machine
+
+- type: sinkPort
+  id: AutomationSlotPaper
+  name: signal-port-name-automation-slot-paper
+  description: signal-port-description-automation-slot-paper
+
+- type: sinkPort
+  id: FaxCopy
+  name: signal-port-name-fax-copy
+  description: signal-port-description-fax-copy
+
+# Constructor / Interactor
+
+- type: sinkPort
+  id: Start
+  name: signal-port-name-machine-start
+  description: signal-port-description-machine-start
+
+- type: sinkPort
+  id: AutoStart
+  name: signal-port-name-machine-autostart
+  description: signal-port-description-machine-autostart
+
 # Interactor
 
 - type: sinkPort

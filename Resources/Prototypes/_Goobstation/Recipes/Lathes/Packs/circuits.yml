@@ -26,5 +26,6 @@
   id: EngineeringBoardsGoob
   recipes:
   - RoboticArmCircuitboard
+  - ConstructorCircuitboard
   - StorageBinCircuitboard
   - InteractorCircuitboard
