@@ -105,10 +105,10 @@
       weight: 3.0
     - id: XenoArtifactHealAll
       weight: 1.0
-    #- id: XenoArtifactTesla
-    #  weight: 10.0
-    #- id: XenoArtifactSingularity
-    #  weight: 10.0
+    - id: XenoArtifactTesla # Goob edit - funny
+      weight: 0.1
+    - id: XenoArtifactSingularity
+      weight: 0.1
     - id: XenoArtifactExplosionScary
       weight: 1.0
     - id: XenoArtifactBoom
