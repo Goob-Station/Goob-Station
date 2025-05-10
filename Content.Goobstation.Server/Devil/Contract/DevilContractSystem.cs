@@ -7,6 +7,7 @@
 
 using System.Linq;
 using System.Text.RegularExpressions;
+using Content.Goobstation.Common.Changeling;
 using Content.Goobstation.Common.Paper;
 using Content.Goobstation.Server.Possession;
 using Content.Goobstation.Shared.Devil;
@@ -155,7 +156,8 @@ public sealed partial class DevilContractSystem : EntitySystem
         // You can't sell your soul if you already sold it. (also no robits)
         if (HasComp<CondemnedComponent>(args.Signer)
             || HasComp<SiliconComponent>(args.Signer)
-            || HasComp<DroneComponent>(args.Signer))
+            || HasComp<DroneComponent>(args.Signer)
+            || HasComp<ChangelingComponent>(args.Signer))
         {
             var noSoulPopup = Loc.GetString("devil-contract-no-soul-sign-failed");
             _popupSystem.PopupEntity(noSoulPopup, args.Signer, args.Signer, PopupType.MediumCaution);

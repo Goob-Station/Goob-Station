@@ -179,7 +179,7 @@
 
 - type: clause
   id: mortality
-  clauseWeight: -100
+  clauseWeight: -135
   addedComponents:
   - type: CheatDeath
     infiniteRevives: true
