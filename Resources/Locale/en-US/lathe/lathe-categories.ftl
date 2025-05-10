@@ -8,7 +8,6 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 # Generic
-lathe-category-ammo = Ammo
 lathe-category-circuitry = Circuitry
 lathe-category-clothing = Clothing
 lathe-category-lights = Lights
