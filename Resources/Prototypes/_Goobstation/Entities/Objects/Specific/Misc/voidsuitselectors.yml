@@ -1,0 +1,64 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# paramedic
+- type: entity
+  id: UndeterminedVoidsuitParamedic
+  name: paramedic voidsuit selector
+  description: A small remote utilizing bluespace technology to drop in a voidsuit or hardsuit of your choosing.
+  parent: [ BaseItem, BaseSetSelector, BaseMedicalContraband ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/unique_teleporters.rsi
+    state: standard
+  - type: SetSelector
+    possibleSets:
+    - VoidsuitSelectorParamedicVoidsuit
+    - VoidsuitSelectorParamedicHardsuit
+
+# security
+- type: entity
+  id: UndeterminedVoidsuitSecurity
+  name: security voidsuit selector
+  description: A small remote utilizing bluespace technology to drop in a voidsuit or hardsuit of your choosing.
+  parent: [ BaseItem, BaseSetSelector, BaseSecurityContraband ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/unique_teleporters.rsi
+    state: standard
+  - type: SetSelector
+    possibleSets:
+    - VoidsuitSelectorSecurityVoidsuit
+    - VoidsuitSelectorSecurityHardsuit
+
+# head of security
+- type: entity
+  id: UndeterminedVoidsuitHeadOfSecurity
+  name: head of security voidsuit selector
+  description: A small remote utilizing bluespace technology to drop in a voidsuit or hardsuit of your choosing.
+  parent: [ BaseItem, BaseSetSelector, BaseSecurityContraband ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/unique_teleporters.rsi
+    state: standard
+  - type: SetSelector
+    possibleSets:
+    - VoidsuitSelectorHeadOfSecurityVoidsuit
+    - VoidsuitSelectorHeadOfSecurityHardsuit
+
+# engineer
+- type: entity
+  id: UndeterminedVoidsuitEngineer
+  name: engineer voidsuit selector
+  description: A small remote utilizing bluespace technology to drop in a voidsuit or hardsuit of your choosing.
+  parent: [ BaseItem, BaseSetSelector, BaseSecurityContraband ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/unique_teleporters.rsi
+    state: standard
+  - type: SetSelector
+    possibleSets:
+    - VoidsuitSelectorEngineerVoidsuit
+    - VoidsuitSelectorEngineerHardsuit
