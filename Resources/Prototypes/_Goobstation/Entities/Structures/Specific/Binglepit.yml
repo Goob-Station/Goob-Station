@@ -2,6 +2,8 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
 # SPDX-FileCopyrightText: 2025 unknown <Administrator@DESKTOP-PMRIVVA.kommune.indresogn.no>
 #
@@ -9,6 +11,7 @@
 
 - type: entity
   id: BinglePit
+  categories: [ Spawner ] # needed so tests don't sus
   name: binglepit
   description: Looks Hungry
   placement:
@@ -73,7 +76,15 @@
         Shock: -1
         Structural: -1
       groups:
-        Brute: -1
+        Brute: -3
   - type: AntiRottingContainer
   - type: SpawnOnDespawn
     prototype: CrateFunBingleLoot
+
+- type: entity
+  id: BinglePitBingleless
+  parent: BinglePit
+  suffix: no starting
+  components:
+  - type: BinglePit
+    startingBingles: 0
