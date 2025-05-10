@@ -40,6 +40,20 @@ public sealed partial class RitualRustAscendBehavior : RitualSacrificeBehavior {
     }
 }
 
+public sealed partial class RitualPathBasedSpawnBehavior : RitualCustomBehavior
+{
+    public override bool Execute(RitualData args, out string? outstr)
+    {
+        outstr = null;
+        return true;
+    }
+
+    public override void Finalize(RitualData args)
+    {
+        // do nothing
+    }
+}
+
 public sealed partial class RitualTemperatureBehavior : RitualCustomBehavior
 {
     public override bool Execute(RitualData args, out string? outstr)
