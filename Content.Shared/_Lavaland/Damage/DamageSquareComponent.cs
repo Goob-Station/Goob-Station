@@ -29,13 +29,6 @@ namespace Content.Shared._Lavaland.Damage;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class DamageSquareComponent : Component
 {
-    /// <summary>
-    /// Entity that caused this damaging square to spawn.
-    /// It will be ignored by this square.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public EntityUid OwnerEntity;
-
     [DataField(required: true), AutoNetworkedField]
     public DamageSpecifier Damage = new();
 
