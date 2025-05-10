@@ -172,6 +172,8 @@
   defaultModules:
   - BorgModuleTreatment
   - BorgModuleLollipop # Goobstation
+  - BorgModuleSurgery # Goobstation
+  - BorgModuleDefibrillator # Goobstation
 
   radioChannels:
   - Science
