@@ -85,7 +85,6 @@ using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.Changeling;
 using Content.Goobstation.Common.Religion;
-using Content.Goobstation.Common.Religion.Events;
 using Content.Shared._Goobstation.Wizard;
 using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared._Goobstation.Wizard.Chuuni;
@@ -517,7 +516,7 @@ public abstract class SharedMagicSystem : EntitySystem
             return;
 
         var denialRelay = new TouchSpellDenialRelayEvent();
-        RaiseLocalEvent(ev.Target, ref denialRelay);
+        RaiseLocalEvent(ev.Target, denialRelay);
         if (denialRelay.Cancelled)
         {
             if (ev.DoSpeech)
@@ -610,7 +609,7 @@ public abstract class SharedMagicSystem : EntitySystem
             return;
 
         var denialRelay = new TouchSpellDenialRelayEvent();
-        RaiseLocalEvent(ev.Target, ref denialRelay);
+        RaiseLocalEvent(ev.Target, denialRelay);
         if (denialRelay.Cancelled)
         {
             Speak(ev);
@@ -733,7 +732,7 @@ public abstract class SharedMagicSystem : EntitySystem
             return;
 
         var denialRelay = new TouchSpellDenialRelayEvent();
-        RaiseLocalEvent(ev.Target, ref denialRelay);
+        RaiseLocalEvent(ev.Target, denialRelay);
         if (denialRelay.Cancelled)
         {
             Speak(ev);

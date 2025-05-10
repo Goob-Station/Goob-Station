@@ -1,5 +1,5 @@
 using Content.Goobstation.Common.Religion;
-using Content.Goobstation.Common.Religion.Events;
+using Content.Goobstation.Shared.Religion.Nullrod;
 using Content.Shared.Hands.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Popups;
@@ -14,7 +14,6 @@ namespace Content.Goobstation.Shared.Religion;
 /// </summary>
 public sealed class DivineInterventionSystem : EntitySystem
 {
-
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
@@ -29,49 +28,45 @@ public sealed class DivineInterventionSystem : EntitySystem
     }
 
     //Handles denial flavour (VFX/SFX/POPUPS)
-    private void DenialEffects(EntityUid uid, EntityUid? ent)
+    private void DenialEffects(EntityUid uid, EntityUid? entNullable)
     {
-        if (ent != null
-            && TryComp<DivineInterventionComponent>(uid, out var comp)
-            && !_net.IsClient)
-        {
-            _popupSystem.PopupEntity(Loc.GetString("nullrod-spelldenial-popup"),
-                ent.Value,
-                type: PopupType.MediumCaution);
-            _audio.PlayPvs(comp.DenialSound, ent.Value);
-            Spawn(comp.EffectProto, Transform(ent.Value).Coordinates);
-        }
+        if (entNullable is not { } ent  || !TryComp<DivineInterventionComponent>(uid, out var comp) || _net.IsClient)
+            return;
+
+        _popupSystem.PopupEntity(Loc.GetString("nullrod-spelldenial-popup"), ent, PopupType.MediumCaution);
+        _audio.PlayPvs(comp.DenialSound, ent);
+        Spawn(comp.EffectProto, Transform(ent).Coordinates);
     }
 
     #region Touch Spells (Wizard)
 
-    private void OnTouchSpellAttempt(ref BeforeCastTouchSpellEvent args)
+    private void OnTouchSpellAttempt(BeforeCastTouchSpellEvent args)
     {
-        if (!HasComp<HandsComponent>(args.Target))
+        if (args.Target is not { } target
+            || !HasComp<HandsComponent>(target)
+            || !HasComp<InventoryComponent>(target))
             return;
 
-        if (!HasComp<InventoryComponent>(args.Target))
-            return;
-
-        var contains = _inventory.GetHandOrInventoryEntities(args.Target.Value);
-        foreach (var item in contains)
+        var contained = _inventory.GetHandOrInventoryEntities(target);
+        foreach (var item in contained)
         {
             if (!HasComp<DivineInterventionComponent>(item))
                 continue;
 
-            args.Cancelled = true;
+            args.Cancel();
             DenialEffects(item, args.Target.Value);
             break;
         }
     }
 
     //Relays whether denial took place so Spells in Core can be cancelled.
-    private void OnTouchSpellDenied(Entity<DivineInterventionComponent> uid, ref TouchSpellDenialRelayEvent args)
+    private void OnTouchSpellDenied(EntityUid uid, DivineInterventionComponent comp, TouchSpellDenialRelayEvent args)
     {
-        var beforeTouchSpellEvent = new BeforeCastTouchSpellEvent(uid);
-        RaiseLocalEvent(uid, ref beforeTouchSpellEvent, true);
+        var ev = new BeforeCastTouchSpellEvent(uid);
+        RaiseLocalEvent(uid, ev, true);
 
-        args.Cancelled = beforeTouchSpellEvent.Cancelled;
+        if (ev.Cancelled)
+            args.Cancel();
     }
 
     //Redundant for wizard but saving for later (heretic will use similar bool)

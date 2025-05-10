@@ -19,7 +19,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Religion.Events;
+using Content.Goobstation.Common.Religion;
+using Content.Goobstation.Shared.Religion.Nullrod;
 using Content.Server.Chat.Systems;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Heretic.Abilities;
@@ -200,7 +201,7 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
             return;
 
         var denialRelay = new TouchSpellDenialRelayEvent();
-        RaiseLocalEvent(target, ref denialRelay);
+        RaiseLocalEvent(target, denialRelay);
         if (denialRelay.Cancelled)
         {
             _actions.SetCooldown(hereticComp.MansusGrasp, ent.Comp.CooldownAfterUse);
