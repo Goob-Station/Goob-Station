@@ -49,3 +49,11 @@ signal-port-description-storage-inserted = Signal port that gets pulsed after an
 
 signal-port-name-storage-removed = Removed
 signal-port-description-storage-removed = Signal port that gets pulsed after an item is removed from a storage bin.
+
+# Fax Machine
+
+signal-port-name-automation-slot-paper = Item: Paper
+signal-port-description-automation-slot-paper = An automation slot for a fax machine's paper tray.
+
+signal-port-name-fax-copy = Copy Fax
+signal-port-description-fax-copy = Signal port to copy a fax machine's paper.
