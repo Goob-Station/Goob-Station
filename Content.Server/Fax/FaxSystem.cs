@@ -263,7 +263,7 @@ public sealed class FaxSystem : EntitySystem
         if (_itemSlotsSystem.TryGetSlot(uid, PaperSlotId, out var slot))
             component.PaperSlot = slot;
         else
-            throw new InvalidOperationException($"{ToPrettyString(uid)} missing paper slot {PaperSlotId}");
+            _itemSlotsSystem.AddItemSlot(uid, PaperSlotId, component.PaperSlot);
         // </Goobstation>
         UpdateAppearance(uid, component);
     }
