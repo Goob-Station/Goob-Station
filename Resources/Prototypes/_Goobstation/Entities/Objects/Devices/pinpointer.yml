@@ -1,0 +1,168 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: anomaly pinpointer
+  description: A handheld tracking device that locks onto any anomaly while off. Keep upright to retain accuracy.
+  id: PinpointerAnomaly
+  parent: PinpointerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: pinpointer-science
+      map: ["enum.PinpointerLayers.Base"]
+    - state: pinonnull
+      map: ["enum.PinpointerLayers.Screen"]
+      shader: unshaded
+      visible: false
+  - type: Icon
+    state: pinpointer-science
+  - type: Pinpointer
+    updateTargetName: true
+    canRetarget: true
+    retargetingWhitelist: # Goob edit: pinpointer whitelist
+      components:
+      - Anomaly
+
+- type: entity
+  name: artifact pinpointer
+  description: A handheld tracking device that tracks all near artifacts. Keep upright to retain accuracy.
+  id: PinpointerArtifact
+  parent: PinpointerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: pinpointer-science
+      map: ["enum.PinpointerLayers.Base"]
+    - state: pinonnull
+      map: ["enum.PinpointerLayers.Screen"]
+      shader: unshaded
+      visible: false
+  - type: Icon
+    state: pinpointer-science
+  - type: Pinpointer
+    targetName: artifacts
+    whitelist: # Goob edit: pinpointer whitelist
+      components:
+      - Artifact
+
+- type: entity
+  name: borg pinpointer
+  description: A handheld tracking device that locks onto any silicon while off. Keep upright to retain accuracy.
+  id: PinpointerBorg
+  parent: PinpointerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: pinpointer-way
+      map: ["enum.PinpointerLayers.Base"]
+    - state: pinonnull
+      map: ["enum.PinpointerLayers.Screen"]
+      shader: unshaded
+      visible: false
+  - type: Icon
+    state: pinpointer-way
+  - type: Pinpointer
+    updateTargetName: true
+    canRetarget: true
+    retargetingWhitelist: # Goob edit: pinpointer whitelist
+      components:
+      - BorgChassis
+
+- type: entity
+  name: generic pinpointer
+  description: A handheld tracking device that locks onto any item while off. Keep upright to retain accuracy.
+  id: PinpointerGeneric
+  parent: PinpointerBase
+  suffix: Admin
+  components:
+  - type: Sprite
+    layers:
+    - state: pinpointer-universal
+      map: ["enum.PinpointerLayers.Base"]
+    - state: pinonnull
+      map: ["enum.PinpointerLayers.Screen"]
+      shader: unshaded
+      visible: false
+  - type: Icon
+    state: pinpointer-universal
+  - type: Pinpointer
+    updateTargetName: true
+    canRetarget: true
+    retargetingWhitelist: # Goob edit: pinpointer whitelist
+      components:
+      - Item
+
+- type: entity
+  name: station pinpointer
+  description: A handheld tracking device that tracks all near stations. Keep upright to retain accuracy.
+  id: PinpointerStationGoob
+  parent: PinpointerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: pinpointer-crewprox
+      map: ["enum.PinpointerLayers.Base"]
+    - state: pinonnull
+      map: ["enum.PinpointerLayers.Screen"]
+      shader: unshaded
+      visible: false
+  - type: Icon
+    state: pinpointer-crewprox
+  - type: Pinpointer
+    targetName: nearest station
+    whitelist: # Goob edit: pinpointer whitelist
+      components:
+      - BecomesStation
+      - LavalandStation # Lavaland change
+
+- type: entity
+  name: thieving pinpointer
+  description: A handheld tracking device that can target anything worthwhile, including high risk items and stealable structures while off. Keep upright to retain accuracy.
+  id: PinpointerThief
+  parent: [ PinpointerBase, BaseMinorContraband ]
+  components:
+  - type: Sprite
+    layers:
+    - state: pinpointer_thief
+      map: ["enum.PinpointerLayers.Base"]
+    - state: pinonnull
+      map: ["enum.PinpointerLayers.Screen"]
+      shader: unshaded
+      visible: false
+  - type: Icon
+    state: pinpointer_thief
+  - type: Pinpointer
+    updateTargetName: true
+    canRetarget: true
+    retargetingWhitelist: # Goob edit: pinpointer whitelist
+      components:
+      - StealTarget # You can marker your objective with it!
+
+- type: entity
+  name: syndicate nuke pinpointer
+  description: Produced specifically for nuclear operative missions, get that nuclear bomb!
+  id: PinpointerSyndicateNuclearFission
+  parent: [ PinpointerBase, BaseSyndicateContraband ]
+  components:
+  - type: Sprite
+    layers:
+    - state: pinpointer-syndicate
+      map: ["enum.PinpointerLayers.Base"]
+    - state: pinonnull
+      map: ["enum.PinpointerLayers.Screen"]
+      shader: unshaded
+      visible: false
+  - type: Icon
+    state: pinpointer-syndicate
+  - type: Pinpointer
+    whitelist: # Goob edit: pinpointer whitelist
+      components:
+      - Nuke
+    # TODO: add a special component to Syndicate nuke, so pinpointers can
+    # ignore it and instead track only station nukes
+    targetName: nuclear fission explosive
