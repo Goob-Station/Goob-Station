@@ -1,4 +1,8 @@
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -15,7 +19,7 @@
   content:
   - StorageImplanter
   - DnaScramblerImplanter
-  - EphedrineChemistryBottle
+  - ChemistryBottleEphedrine
   - SoapOmega
   - Syringe
   - DrinkShaker
@@ -75,8 +79,8 @@
     sprite: Objects/Tanks/anesthetic.rsi
     state: icon
   content:
-  - NocturineChemistryBottle
-  - NocturineChemistryBottle
+  - ChemistryBottleNocturine
+  - ChemistryBottleNocturine
   - HypopenBox
   - NitrousOxideTankFilled
 
@@ -162,6 +166,7 @@
   - BoxHoloparasite
   - EmpImplanter
   - ScramImplanter
+  - FreedomImplanter
   - SmokeImplanter
   - KravMagaImplanter
 
@@ -301,11 +306,7 @@
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/erevolver.rsi
     state: icon
   content:
-    - WeaponEnergyRevolver # One lethal speedloader inside
-    - EnergySpeedloaderLethal
-    - EnergySpeedloaderLethal
-    - EnergySpeedloaderDisabler
-    - EnergySpeedloaderDisabler
+    - ClothingBeltHolsterFilledBlueshield # Pistol, 1+2 lethal speedloaders and 2 disabler speedloaders
 
 - type: selectableSet
   id: BSOCQCSet
@@ -396,3 +397,75 @@
     - EnergySpeedloaderPulse
     - EnergySpeedloaderPulse
     - EnergySpeedloaderDisabler
+
+# Head Of Security
+
+- type: selectableSet
+  id: HosSmgSet
+  name: selectable-set-hos-smg-name
+  description: selectable-set-hos-smg-description
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/smg.rsi
+    state: icon
+  content:
+  - WeaponHeadOfSecuritySMG
+
+- type: selectableSet
+  id: HosShotgunSet
+  name: selectable-set-hos-shotgun-name
+  description: selectable-set-hos-shotgun-description
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/shotgun.rsi
+    state: icon
+  content:
+  - WeaponHeadOfSecurityShotgun
+
+- type: selectableSet
+  id: HosSniperSet
+  name: selectable-set-hos-sniper-name
+  description: selectable-set-hos-sniper-description
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/sniper.rsi
+    state: icon
+  content:
+  - WeaponHeadOfSecuritySniper
+
+- type: selectableSet
+  id: HosRifleSet
+  name: selectable-set-hos-rifle-name
+  description: selectable-set-hos-rifle-description
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/rifle.rsi
+    state: icon
+  content:
+  - WeaponHeadOfSecurityRifle
+
+- type: selectableSet
+  id: HosSwordSet
+  name: selectable-set-hos-sword-name
+  description: selectable-set-hos-sword-description
+  sprite:
+    sprite: _Goobstation/Clothing/Belt/hossheath.rsi
+    state: sheath-sabre
+  content:
+  - ClothingBeltSheathHeadOfSecurityFilled
+
+- type: selectableSet
+  id: HosLawbringerSet
+  name: selectable-set-hos-lawbringer-name
+  description: selectable-set-hos-lawbringer-description
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/lawbringer.rsi
+    state: icon
+  content:
+  - WeaponEnergyGunLawbringer
+
+- type: selectableSet
+  id: HosUtilitySet
+  name: selectable-set-hos-utility-name
+  description: selectable-set-hos-utility-description
+  sprite:
+    sprite: _Goobstation/Clothing/Eyes/Glasses/hos-expi.rsi
+    state: icon
+  content:
+  - ClothingBackpackDuffelHosFilledUtility

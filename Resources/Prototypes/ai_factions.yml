@@ -19,7 +19,9 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 amogus <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
 #
@@ -37,6 +39,7 @@
     - AllHostile
     - Heretic # goob edit - heretics
     - Blob # Goobstation - Blob
+    - Greytide # Goobstation
   friendly: # Goobstation
     - Wizard
     - PirateFaction # goob - pirates
@@ -72,6 +75,8 @@
   - Zombie
   - Xeno
   - AllHostile
+  - Wizard
+  - Dragon
   - Blob # Goobstation - Blob
 
 - type: npcFaction
@@ -84,9 +89,11 @@
   - Zombie
   - Revolutionary
   - AllHostile
+  - Dragon
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
   - PirateFaction # goob - pirates
+  - Greytide # Goobstation
   friendly: # Goobstation
     - Wizard
 
@@ -108,6 +115,7 @@
   - Blob # Goobstation - Blob
   - Wizard # goob edit - wizard
   - PirateFaction # goob - pirates
+  - Greytide # Goobstation
 
 - type: npcFaction
   id: Xeno
@@ -119,9 +127,11 @@
   - Zombie
   - Revolutionary
   - AllHostile
+  - Dragon
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
   - PirateFaction # goob - pirates
+  - Greytide # Goobstation
   friendly: # Goobstation
     - Wizard
 
@@ -136,11 +146,13 @@
   - PetsNT
   - Revolutionary
   - AllHostile
+  - Dragon
   - Changeling # goob edit - changelings
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
   - Wizard # goob edit - wizard
   - PirateFaction # goob - pirates
+  - Greytide # Goobstation
 
 - type: npcFaction
   id: Revolutionary
@@ -153,6 +165,7 @@
   - Blob # Goobstation - Blob
   - Wizard # Goobstation - wizard
   - PirateFaction # goob - pirates
+  - Greytide # Goobstation
 
 - type: npcFaction
   id: AllHostile
@@ -173,3 +186,4 @@
   - Blob # Goobstation - Blob
   - Wizard # goob edit - wizard
   - PirateFaction # goob - pirates
+  - Greytide # Goobstation

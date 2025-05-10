@@ -1,7 +1,9 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
@@ -20,6 +22,7 @@
     Heretic: 0.11
     BlobGameMode: 0.05
     Wizard: 0.007
+    CosmicCult: 0.12 # make it semi often so we can test it
     #HonkOps: 0.01 # this test fail was real holy shit it was only a preset the entire a time i was lied too by myself
 
 
@@ -31,6 +34,7 @@
   - Zombie
   - Revolutionary
   - BlobGameMode
+  - CosmicCult
 
 - type: incompatibleModes
   id: HonkOps
@@ -40,6 +44,7 @@
   - Zombie
   - Revolutionary
   - BlobGameMode
+  - CosmicCult
 
 - type: incompatibleModes
   id: Wizard
@@ -47,20 +52,40 @@
   - Wizard
 
 - type: incompatibleModes
+  id: Heretic
+  modes:
+  - Heretic
+  - CosmicCult
+
+- type: incompatibleModes
   id: BlobGameMode
   modes:
   - BlobGameMode
   - Nukeops
+  - CosmicCult
   - HonkOps
 
 - type: incompatibleModes
   id: Zombie
   modes:
   - Nukeops
+  - CosmicCult
   - HonkOps
 
 - type: incompatibleModes
   id: Revolutionary
   modes:
   - Nukeops
+  - CosmicCult
   - HonkOps
+
+- type: incompatibleModes
+  id: CosmicCult
+  modes:
+  - Nukeops
+  - HonkOps
+  - Zombie
+  - Revolutionary
+  - BlobGameMode
+  - CosmicCult
+  - Heretic

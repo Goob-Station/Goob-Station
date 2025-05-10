@@ -54,19 +54,20 @@
       - id: CentcommStimpack
         amount: 2
       - id: OmnimedTool
-  - type: Tag
-    tags: [] # ignore "WhitelistChameleon" tag
 
 - type: entity
   id: ClothingBeltHolsterFilledCentComm
   parent: ClothingBeltHolster
   suffix: Filled, N1984
   components:
+  - type: ContainerFill
+    containers:
+      item:
+      - WeaponPistolN1984
   - type: StorageFill
     contents:
     - id: MagazineMagnum
     - id: MagazineMagnum
-    - id: WeaponPistolN1984
 
 - type: entity
   id: ClothingBeltSecurityWebbingFilledMedical
@@ -97,6 +98,16 @@
       item:
       - NavyOfficerSabre
 
+- type: entity
+  id: ClothingBeltSheathHeadOfSecurityFilled
+  parent: ClothingBeltSheathHeadOfSecurity
+  suffix: Filled, Head Of Security
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - Justice
+
 - type: entityTable
   id: BeltSecurityNoBatonEntityTable
   table: !type:AllSelector
@@ -118,13 +129,51 @@
       storagebase: !type:NestedSelector
         tableId: BeltSecurityNoBatonEntityTable
 
+- type: entity
+  id: ClothingBeltHolsterFilledChaplain
+  parent: ClothingBeltBase
+  name: Chaplains' Holster
+  description: A shoulder holster from the Gods. Contains a set of dual pistols.
+  suffix: Filled, Chaplain
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: _ShitChap/Clothing/Belt/holster.rsi
+  - type: Clothing
+    sprite: _ShitChap/Clothing/Belt/holster.rsi
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+      item: !type:ContainerSlot {}
+      item2: !type:ContainerSlot {}
+  - type: ItemSlots
+    slots:
+      item:
+        name: casul
+        whitelist:
+          tags:
+          - WeaponPistolCasul
+      item2:
+        name: jackal
+        whitelist:
+          tags:
+          - WeaponPistolJackal
+  - type: ContainerFill
+    containers:
+      item:
+      - WeaponPistolCasul
+      item2:
+      - WeaponPistolJackal
+
 - type: entityTable
   id: BeltAssaultBSOEntityTable
   table: !type:AllSelector
     children:
     - id: Stunbaton
-    - id: HandheldCrewMonitor
     - id: HoloprojectorSecurity
+    - id: GrenadeFlashBang
     - id: GrenadeFlashBang
     - id: WeaponDisabler
     - id: Zipties
@@ -165,8 +214,24 @@
     - id: LargeBeaker
     - id: OmnimedToolSyndie
     - id: DartGun
-    - id: EpinephrineChemistryBottle
+    - id: ChemistryBottleEpinephrine
       amount: 2
-    - id: EphedrineChemistryBottle
+    - id: ChemistryBottleEphedrine
       amount: 2
-    - id: OmnizineChemistryBottle
+    - id: ChemistryBottleOmnizine
+
+- type: entity
+  id: ClothingBeltHolsterFilledBlueshield
+  parent: ClothingBeltHolster
+  suffix: Filled, EG-4
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - WeaponEnergyRevolver
+  - type: StorageFill
+    contents:
+    - id: EnergySpeedloaderLethal
+    - id: EnergySpeedloaderLethal
+    - id: EnergySpeedloaderDisabler
+    - id: EnergySpeedloaderDisabler
