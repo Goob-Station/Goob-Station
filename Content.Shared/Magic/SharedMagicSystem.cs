@@ -279,7 +279,7 @@ public abstract class SharedMagicSystem : EntitySystem
         var requiredSlots = 2;
 
         // Check if the magic is being suppressed
-        if (_suppression.TryMagicSuppressed(ent))
+        if (_suppression.TryMagicSuppressed(args.Performer, true))
         {
             args.Cancelled = true;
             return;

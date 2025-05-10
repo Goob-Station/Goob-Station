@@ -22,7 +22,7 @@ public sealed partial class MagicSuppressionSystem : EntitySystem
 
     }
 
-    public bool TryMagicSuppressed(EntityUid ent)
+    public bool TryMagicSuppressed(EntityUid ent, bool predicted = false)
     {
         // Check if wearing an item that does it
         var sup = new CheckMagicSuppressionEvent();
@@ -30,7 +30,10 @@ public sealed partial class MagicSuppressionSystem : EntitySystem
 
         if (sup.Cancelled)
         {
-            _popup.PopupClient(Loc.GetString("suppression-ability-block", ("name", Name(sup.Blocker))), ent, ent, PopupType.Medium);
+            if (!predicted)
+                _popup.PopupEntity(Loc.GetString("suppression-ability-block", ("name", Name(sup.Blocker))), ent, ent, PopupType.Medium);
+            else
+                _popup.PopupClient(Loc.GetString("suppression-ability-block", ("name", Name(sup.Blocker))), ent, ent, PopupType.Medium);
             return true;
         }
 
