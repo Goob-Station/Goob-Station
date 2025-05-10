@@ -8592,3 +8592,91 @@ Entries:
         destroying them first.
   id: 983
   time: '2025-05-07T18:00:36.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Add
+      message: IPCs now have corrupted speech when low power/durability
+    - type: Add
+      message: Updated base game to 13-04-2025 release
+  id: 984
+  time: '2025-05-08T16:54:21.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        Stealthsuit no longer needs to stand still for 3 seconds to start
+        cloaking. Damage resistance changes undone.
+  id: 985
+  time: '2025-05-09T06:02:24.0000000+00:00'
+- author: CreatorBot01
+  changes:
+    - type: Add
+      message: >-
+        PTL Flatpack now can also be found in ce locker. engi may now print
+        infinite money.
+  id: 986
+  time: '2025-05-09T06:03:07.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Tweak
+      message: Dripped out the Alien Tourist
+  id: 987
+  time: '2025-05-09T06:04:18.0000000+00:00'
+- author: the_biggestbruh
+  changes:
+    - type: Fix
+      message: >-
+        THE BASEBALL BAT HAS KNOCKBACK AGAIN. The universe has found peace. Goob
+        is saved.
+  id: 988
+  time: '2025-05-09T06:05:43.0000000+00:00'
+- author: DocNite, Mocho
+  changes:
+    - type: Add
+      message: Added a top right panel to separated chat layout!
+    - type: Tweak
+      message: Inspects in chat now have a fancy box around them.
+  id: 989
+  time: '2025-05-09T06:39:30.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Wideswing stamina damage is now per target hit -1.
+  id: 990
+  time: '2025-05-09T09:02:49.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Fix
+      message: Fixed research menu sidebar/bg
+  id: 991
+  time: '2025-05-09T16:26:47.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Tweak
+      message: Token Store now displays the cost of a hat token
+  id: 992
+  time: '2025-05-09T16:35:46.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Midround shuttle events should work again.
+  id: 993
+  time: '2025-05-09T18:27:29.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix rust charge not ending when performer is thrown into space.
+  id: 994
+  time: '2025-05-10T12:04:53.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix shadow cloaked heretic dying instantly to rust mansus grasp.
+  id: 995
+  time: '2025-05-10T12:05:20.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed upgrade kits not being in the protolathe.
+  id: 996
+  time: '2025-05-10T14:21:59.0000000+00:00'
