@@ -7,7 +7,7 @@
 # I don't want to clutter battery guns with these ones.
 
 - type: entity
-  name: X-8 "McChicken"
+  name: X-8 "Station Sweeper"
   parent: [BaseWeaponBattery, BaseGunWieldable, BaseCommandContraband]
   id: WeaponHeadOfSecurityRifle
   description: An elaborately designed rifle, firing shots of pure phoron. Low fire rate, medium damage, insane capacity.
