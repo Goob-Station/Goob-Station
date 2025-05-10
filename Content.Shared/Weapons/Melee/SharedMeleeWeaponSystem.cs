@@ -120,6 +120,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.MartialArts; // Goobstation - Martial Arts
+using Content.Goobstation.Common.Melee; // Goobstation
 using Content.Shared._Shitmed.Weapons.Melee.Events; // Shitmed Change
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
@@ -662,6 +663,12 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         // somewhat messy scuffle. See also, heavy attacks.
         Interaction.DoContactInteraction(user, target);
 
+        // Goobstation - handle this event if you want the attack to do a behavior that isn't damage
+        var beforeHit = new BeforeMeleeHitEvent(meleeUid, user, (damage + hitEvent.BonusDamage).GetTotal().Float());
+        RaiseLocalEvent(target.Value, ref beforeHit);
+        if (beforeHit.Handled)
+            return;
+
         // For stuff that cares about it being attacked.
         var attackedEvent = new AttackedEvent(meleeUid, user, targetXform.Coordinates);
         RaiseLocalEvent(target.Value, attackedEvent);
@@ -827,8 +834,15 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                 continue;
             }
 
+            // Goobstation - handle this event if you want the attack to do a behavior that isn't damage
+            var beforeHit = new BeforeMeleeHitEvent(meleeUid, user, (damage + hitEvent.BonusDamage).GetTotal().Float(), true);
+            RaiseLocalEvent(entity, ref beforeHit);
+            if (beforeHit.Handled)
+                continue;
+
             var attackedEvent = new AttackedEvent(meleeUid, user, GetCoordinates(ev.Coordinates));
             RaiseLocalEvent(entity, attackedEvent);
+
             var modifiedDamage = DamageSpecifier.ApplyModifierSets(damage + hitEvent.BonusDamage + attackedEvent.BonusDamage, hitEvent.ModifiersList);
             var damageResult = Damageable.TryChangeDamage(entity, modifiedDamage, origin: user, partMultiplier: component.HeavyPartDamageMultiplier); // Shitmed Change
             var comboEv = new ComboAttackPerformedEvent(user, entity, meleeUid, ComboAttackType.HarmLight);

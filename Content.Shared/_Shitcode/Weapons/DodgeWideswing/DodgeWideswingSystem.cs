@@ -5,7 +5,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.Damage;
+using Content.Goobstation.Common.Melee;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
@@ -23,19 +23,19 @@ public sealed class DodgeWideswingSystem : EntitySystem
     {
         base.Initialize();
 
-        //SubscribeLocalEvent<DodgeWideswingComponent, BeforeDamageChangedEvent>(OnDamageChanged);
+        SubscribeLocalEvent<DodgeWideswingComponent, BeforeMeleeHitEvent>(OnBeforeHit);
     }
 
-    /*private void OnDamageChanged(EntityUid uid, DodgeWideswingComponent component, ref BeforeDamageChangedEvent args)
+    private void OnBeforeHit(EntityUid uid, DodgeWideswingComponent component, ref BeforeMeleeHitEvent args)
     {
-        if (args.HeavyAttack && (!HasComp<KnockedDownComponent>(uid) || component.WhenKnockedDown) && _random.Prob(component.Chance))
+        if (args.Heavy && (!HasComp<KnockedDownComponent>(uid) || component.WhenKnockedDown) && _random.Prob(component.Chance))
         {
-            _stamina.TakeStaminaDamage(uid, args.Damage.GetTotal().Float() * component.StaminaRatio, source: args.Origin, immediate: false);
+            _stamina.TakeStaminaDamage(uid, args.TotalDamage * component.StaminaRatio, source: args.Weapon, immediate: false);
 
             if (component.PopupId != null)
-                _popup.PopupPredicted(Loc.GetString(component.PopupId, ("target", uid)), uid, args.Origin);
+                _popup.PopupPredicted(Loc.GetString(component.PopupId, ("target", uid)), uid, args.User);
 
-            args.Cancelled = true;
+            args.Handled = true;
         }
-    }*/
+    }
 }
