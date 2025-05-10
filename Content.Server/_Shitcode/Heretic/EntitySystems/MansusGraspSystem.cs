@@ -200,9 +200,9 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
         if (_whitelist.IsBlacklistPass(comp.Blacklist, target))
             return;
 
-        var denialRelay = new TouchSpellDenialRelayEvent();
-        RaiseLocalEvent(target, denialRelay);
-        if (denialRelay.Cancelled)
+        var ev = new BeforeCastTouchSpellEvent(args.Target.Value);
+        RaiseLocalEvent(target, ev, true);
+        if (ev.Cancelled)
         {
             _actions.SetCooldown(hereticComp.MansusGrasp, ent.Comp.CooldownAfterUse);
             hereticComp.MansusGrasp = EntityUid.Invalid;
