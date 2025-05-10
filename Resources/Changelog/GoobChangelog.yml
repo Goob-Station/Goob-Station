@@ -8668,3 +8668,9 @@ Entries:
       message: Fix rust charge not ending when performer is thrown into space.
   id: 994
   time: '2025-05-10T12:04:53.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix shadow cloaked heretic dying instantly to rust mansus grasp.
+  id: 995
+  time: '2025-05-10T12:05:20.0000000+00:00'
