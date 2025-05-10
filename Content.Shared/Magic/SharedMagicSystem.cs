@@ -337,6 +337,14 @@ public abstract class SharedMagicSystem : EntitySystem
         return !ev.Cancelled;
     }
 
+    private bool IsTouchSpellDenied(EntityUid target) // Goob edit
+    {
+        var ev = new BeforeCastTouchSpellEvent(target);
+        RaiseLocalEvent(target, ev, true);
+
+        return ev.Cancelled;
+    }
+
     #region Spells
     #region Instant Spawn Spells
     /// <summary>
@@ -521,9 +529,7 @@ public abstract class SharedMagicSystem : EntitySystem
         if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
-        var denialRelay = new TouchSpellDenialRelayEvent();
-        RaiseLocalEvent(ev.Target, denialRelay);
-        if (denialRelay.Cancelled)
+        if (IsTouchSpellDenied(ev.Target))
         {
             if (ev.DoSpeech)
                 Speak(ev);
@@ -614,9 +620,7 @@ public abstract class SharedMagicSystem : EntitySystem
         if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
-        var denialRelay = new TouchSpellDenialRelayEvent();
-        RaiseLocalEvent(ev.Target, denialRelay);
-        if (denialRelay.Cancelled)
+        if (IsTouchSpellDenied(ev.Target))
         {
             Speak(ev);
             ev.Handled = true;
@@ -737,9 +741,7 @@ public abstract class SharedMagicSystem : EntitySystem
         if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
-        var denialRelay = new TouchSpellDenialRelayEvent();
-        RaiseLocalEvent(ev.Target, denialRelay);
-        if (denialRelay.Cancelled)
+        if (IsTouchSpellDenied(ev.Target)) // Goobstation
         {
             Speak(ev);
             ev.Handled = true;
