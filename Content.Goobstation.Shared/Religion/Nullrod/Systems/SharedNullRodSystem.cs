@@ -11,9 +11,11 @@
 using Content.Goobstation.Shared.Bible;
 using Content.Goobstation.Shared.Religion.Nullrod.Components;
 using Content.Shared.Damage;
+using Content.Shared.Electrocution;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Audio.Systems;
@@ -38,8 +40,7 @@ public abstract partial class SharedNullRodSystem : EntitySystem
         SubscribeLocalEvent<NullrodComponent, AttackAttemptEvent>(OnAttackAttempt);
         SubscribeLocalEvent<NullrodComponent, ShotAttemptedEvent>(OnShootAttempt);
 
-        SubscribeLocalEvent<NullrodComponent, GotEquippedHandEvent>(OnGotEquippedHand);
-        SubscribeLocalEvent<NullrodComponent, GotUnequippedHandEvent>(OnGotUnequippedHand);
+        SubscribeLocalEvent<NullrodComponent, ElectrocutionAttemptEvent>(OnNullrodElectrocutionAttempt);
     }
 
     #region Attack Attempts
@@ -79,45 +80,14 @@ public abstract partial class SharedNullRodSystem : EntitySystem
     }
     #endregion
 
-    #region Add Component Methods
+    #region Variant Specific Events
+    //Goidacode but there's always the possibility of more insulated Null Rods given the amount of YAMLMaxxers we have...
 
-    private void OnGotEquippedHand(EntityUid uid, NullrodComponent comp, GotEquippedHandEvent args)
+    private void OnNullrodElectrocutionAttempt(EntityUid uid, NullrodComponent comp, ElectrocutionAttemptEvent args)
     {
-        if (comp.Components.Count == 0) return;
-
-        if (comp.Components.Count > 1)
-        {
-            Logger.Error("Although a component registry supports multiple components, we cannot bookkeep more than 1 component for ClothingGrantComponent at this time.");
-            return;
-        }
-
-        foreach (var (name, data) in comp.Components)
-        {
-            var newComp = (Component) _componentFactory.GetComponent(name);
-
-            if (HasComp(args.User, newComp.GetType()))
-                continue;
-
-            newComp.Owner = args.User;
-
-            var temp = (object) newComp;
-            _serializationManager.CopyTo(data.Component, ref temp);
-            EntityManager.AddComponent(args.User, (Component)temp!);
-        }
+        if (comp.ShouldBeInsulated)
+            args.SiemensCoefficient = 0f;
     }
-
-    private void OnGotUnequippedHand(EntityUid uid, NullrodComponent comp, GotUnequippedHandEvent args)
-    {
-        if (comp.Components.Count == 0) return;
-
-        foreach (var (name, data) in comp.Components)
-        {
-            var newComp = (Component) _componentFactory.GetComponent(name);
-
-            RemComp(args.User, newComp.GetType());
-        }
-    }
-
     #endregion
 
 }

@@ -70,9 +70,8 @@ namespace Content.Goobstation.Shared.Religion.Nullrod.Components;
         public EntityUid? LastAttackedEntity;
 
         /// <summary>
-        /// Components that can be added to the user by the Null Rod.
+        /// Should this Null Rod be insulated?
         /// </summary>
-        [DataField("component", required: false)]
-        [AlwaysPushInheritance]
-        public ComponentRegistry Components { get; private set; } = new();
+        [DataField]
+        public bool ShouldBeInsulated = false;
     }
