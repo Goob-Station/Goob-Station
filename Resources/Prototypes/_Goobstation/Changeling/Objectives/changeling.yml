@@ -178,18 +178,6 @@
   - type: StealCondition
     stealGroup: HandTeleporter
 
-## hos
-
-- type: entity
-  parent: ChangelingStealObjective
-  id: LingLawbringerStealObjective
-  components:
-  - type: NotJobRequirement
-    job: HeadOfSecurity
-  - type: StealCondition
-    stealGroup: WeaponEnergyGunLawbringer
-    owner: job-name-hos
-
 ## warden
 
 - type: entity
