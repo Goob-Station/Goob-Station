@@ -1,5 +1,7 @@
 // SPDX-FileCopyrightText: 2025 AftrLite <61218133+AftrLite@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Coenx-flex <coengmurray@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -43,10 +45,12 @@ public sealed class CosmicGlareSystem : EntitySystem
 
     private void OnCosmicGlare(Entity<CosmicCultComponent> uid, ref EventCosmicGlare args)
     {
+        if (!_cosmicCult.TryUseAbility(args))
+            return;
+
         _audio.PlayPvs(uid.Comp.GlareSFX, uid);
         Spawn(uid.Comp.GlareVFX, Transform(uid).Coordinates);
         _cult.MalignEcho(uid);
-        args.Handled = true;
 
         _lights.Clear();
         _lookup.GetEntitiesInRange<PoweredLightComponent>(Transform(uid).Coordinates,
