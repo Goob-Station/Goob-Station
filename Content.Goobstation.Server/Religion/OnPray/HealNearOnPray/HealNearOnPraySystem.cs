@@ -20,10 +20,10 @@ public sealed partial class HealNearOnPraySystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<HealNearOnPrayComponent, NullrodPrayEvent>(OnPray);
+        SubscribeLocalEvent<HealNearOnPrayComponent, AlternatePrayEvent>(OnPray);
     }
 
-    private void OnPray(EntityUid uid, HealNearOnPrayComponent comp, ref NullrodPrayEvent args)
+    private void OnPray(EntityUid uid, HealNearOnPrayComponent comp, ref AlternatePrayEvent args)
     {
         var lookup = _lookup.GetEntitiesInRange(args.User, comp.Range);
 
