@@ -14,6 +14,7 @@
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 cheetah1984 <davidc71114@gmail.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
@@ -74,7 +75,8 @@
     Piercing: 0.9
     Shock: 1.2
     Heat: 0.8
-    Ion: 2.0
+    # GoobStation
+    Ion: 1.0
   flatReductions:
     Blunt: 3
     Heat: 2
@@ -87,7 +89,8 @@
     Piercing: 0.7
     Shock: 1.2
     Heat: 0.7
-    Ion: 2.0
+    # GoobStation
+    Ion: 1.0
   flatReductions:
     Blunt: 5
     Heat: 5
@@ -100,7 +103,8 @@
     Piercing: 0.65
     Shock: 1.4
     Heat: 0.7
-    Ion: 2.0
+    # GoobStation
+    Ion: 1.0
   flatReductions:
     Blunt: 8
     Heat: 10
@@ -113,7 +117,8 @@
     Piercing: 0.35
     Shock: 1.8
     Heat: 0.6
-    Ion: 2.0
+    # GoobStation
+    Ion: 1.0
   flatReductions:
     Blunt: 15
     Heat: 15
@@ -126,7 +131,8 @@
     Piercing: 0.6
     Shock: 1.4
     Heat: 0.75
-    Ion: 2.0
+    # GoobStation
+    Ion: 1.0
   flatReductions:
     Blunt: 8
     Heat: 5
@@ -139,7 +145,8 @@
     Piercing: 0.4
     Shock: 1.8
     Heat: 0.7
-    Ion: 2.0
+    # GoobStation
+    Ion: 1.0
   flatReductions:
     Blunt: 10
     Heat: 7
