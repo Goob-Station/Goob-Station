@@ -8,6 +8,7 @@
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
@@ -84,3 +85,15 @@
   materials:
     Steel: 250
     Silver: 50
+
+- type: latheRecipe
+  id: MedicalBeamGun
+  result: MedicalBeamGun
+  completetime: 12
+  materials:
+    Steel: 1200
+    Glass: 600
+    Plastic: 600
+    Gold: 500
+    Silver: 500
+    Plasma: 1000
