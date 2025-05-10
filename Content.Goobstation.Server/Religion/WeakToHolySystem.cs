@@ -5,18 +5,19 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Goobstation.Shared.Bible;
+using Content.Goobstation.Shared.Religion;
 using Content.Goobstation.Shared.Religion.Nullrod;
 using Content.Shared.Damage;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Timing;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Shared.Religion;
+namespace Content.Goobstation.Server.Religion;
 
 public sealed class WeakToHolySystem : EntitySystem
 {
@@ -32,7 +33,7 @@ public sealed class WeakToHolySystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<WeakToHolyComponent, DamageUnholyEvent>(OnUnholyItemDamage);
-        SubscribeLocalEvent<WeakToHolyComponent, AfterInteractUsingEvent>(AfterBibleUse);
+        SubscribeLocalEvent<WeakToHolyComponent, InteractUsingEvent>(AfterBibleUse);
 
         SubscribeLocalEvent<HereticRitualRuneComponent, StartCollideEvent>(OnCollide);
         SubscribeLocalEvent<HereticRitualRuneComponent, EndCollideEvent>(OnCollideEnd);
@@ -41,21 +42,14 @@ public sealed class WeakToHolySystem : EntitySystem
 
     }
 
-    private void AfterBibleUse(Entity<WeakToHolyComponent> ent, ref AfterInteractUsingEvent args)
+    private void AfterBibleUse(Entity<WeakToHolyComponent> ent, ref InteractUsingEvent args)
     {
-        if (!TryComp<BibleComponent>(args.Used, out var bibleComp)
-            || !TryComp(args.Used, out UseDelayComponent? useDelay)
-            || _useDelay.IsDelayed((args.Used, useDelay))
-            || !HasComp<BibleUserComponent>(args.User)
-            || args.Target is not { } target)
-            return;
-
-        _goobBible.TryDoSmite(target, bibleComp, args, useDelay);
+        _goobBible.TryDoSmite(args.Used, args.User, args.Target);
     }
 
     #region Holy Damage Dealing
 
-    private void OnDamageModify(EntityUid uid, DamageableComponent component, DamageModifyEvent args)
+    private void OnDamageModify(Entity<DamageableComponent> ent, ref DamageModifyEvent args)
     {
         var unholyEvent = new DamageUnholyEvent(args.Target, args.Origin);
         RaiseLocalEvent(args.Target, ref unholyEvent);
@@ -78,21 +72,16 @@ public sealed class WeakToHolySystem : EntitySystem
 
     private void OnUnholyItemDamage(Entity<WeakToHolyComponent> uid, ref DamageUnholyEvent args)
     {
-
         if (uid.Comp.AlwaysTakeHoly || TryComp<HereticComponent>(uid, out var heretic) && heretic.Ascended)
         {
             args.ShouldTakeHoly = true;
             return;
         }
 
-        foreach (var item in _inventorySystem.GetHandOrInventoryEntities(args.Target, SlotFlags.WITHOUT_POCKET))
-        {
-            if (!HasComp<UnholyItemComponent>(item))
-                continue;
-
+        // If any item in hand or in inventory has Unholy item, shouldtakeholy is true.
+        if (_inventorySystem.GetHandOrInventoryEntities(args.Target, SlotFlags.WITHOUT_POCKET)
+            .Any(HasComp<UnholyItemComponent>))
             args.ShouldTakeHoly = true;
-            return;
-        }
     }
 
     #endregion
@@ -120,28 +109,25 @@ public sealed class WeakToHolySystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var querySpecialHealing = EntityQueryEnumerator<WeakToHolyComponent>();
         // Healing while standing on runes.
-        while (querySpecialHealing.MoveNext(out var uid, out var comp))
+        var query = EntityQueryEnumerator<WeakToHolyComponent>();
+        while (query.MoveNext(out var uid, out var comp))
         {
-            if (comp.NextHealTick > _timing.CurTime || !comp.IsColliding)
+            if (comp.NextSpecialHealTick > _timing.CurTime || !comp.IsColliding)
                 continue;
 
             _damageableSystem.TryChangeDamage(uid, comp.HealAmount);
-
-            comp.NextHealTick = _timing.CurTime + comp.HealTickDelay;
+            comp.NextSpecialHealTick = _timing.CurTime + comp.HealTickDelay;
         }
 
-        var queryPassiveHealing = EntityQueryEnumerator<WeakToHolyComponent>();
         // Passive healing.
-        while (queryPassiveHealing.MoveNext(out var uid, out var comp))
+        while (query.MoveNext(out var uid, out var comp))
         {
-            if (comp.NextHealTick > _timing.CurTime)
+            if (comp.NextPassiveHealTick > _timing.CurTime)
                 continue;
 
             _damageableSystem.TryChangeDamage(uid, comp.PassiveAmount);
-
-            comp.NextHealTick = _timing.CurTime + comp.HealTickDelay;
+            comp.NextPassiveHealTick = _timing.CurTime + comp.HealTickDelay;
         }
     }
 
