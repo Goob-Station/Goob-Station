@@ -10,10 +10,13 @@
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -25,6 +28,9 @@
   - type: ChangelingRule
   - type: GameRule
     minPlayers: 15
+  - type: StationEvent
+    chaosScore: 600
+    eventType: Roundstart
   - type: AntagObjectives
     objectives:
     - ChangelingAbsorbObjective
@@ -51,6 +57,9 @@
   components:
   - type: GameRule
     minPlayers: 30
+  - type: StationEvent
+    chaosScore: 700
+    eventType: Roundstart
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn
     definitions:
@@ -74,6 +83,9 @@
   components:
   - type: GameRule
     minPlayers: 30
+  - type: StationEvent
+    chaosScore: 450
+    eventType: Roundstart
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn
     agentName: changeling-roundend-name
@@ -94,6 +106,9 @@
   components:
   - type: GameRule
     minPlayers: 30
+  - type: StationEvent
+    chaosScore: 1000
+    eventType: Roundstart
   - type: LoadMapRule
     mapPath: /Maps/_Goobstation/Nonstations/nukieplanet.yml
   - type: AntagSelection
@@ -161,6 +176,9 @@
   components:
   - type: GameRule
     minPlayers: 30
+  - type: StationEvent
+    chaosScore: 700
+    eventType: Roundstart
   - type: RevolutionaryRule
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn
@@ -188,6 +206,9 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: BlobRule
+  - type: StationEvent
+    chaosScore: 900
+    eventType: Roundstart
 
 - type: entity
   id: BlobGameMode
@@ -197,6 +218,9 @@
   - type: BlobRule
   - type: GameRule
     minPlayers: 15
+  - type: StationEvent
+    chaosScore: 900
+    eventType: Roundstart
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn
     definitions:
@@ -228,6 +252,8 @@
       Hostile: 200
       Death: 300
       Medical: 200
+    eventType: Roundstart
+    chaosScore: 900
   - type: BlobSpawnRule
     carrierBlobProtos:
     - SpawnPointGhostBlobRat
