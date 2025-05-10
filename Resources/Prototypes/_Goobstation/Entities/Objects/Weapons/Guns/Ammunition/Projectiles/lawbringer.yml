@@ -23,6 +23,10 @@
     layers:
     - state: omnilaser-yellow
       shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 14
   - type: ProjectileRequireWhitelist
     whitelist:
      components:
