@@ -43,7 +43,7 @@
     price: 2500
 
 - type: entity
-  name: X-6 "Large Fries"
+  name: X-6 "Threadripper"
   parent: [BaseWeaponBattery, BaseCommandContraband]
   id: WeaponHeadOfSecuritySMG
   description: An elaborately designed SMG, firing shots of pure phoron. Amazing for laying down suppressive fire.
