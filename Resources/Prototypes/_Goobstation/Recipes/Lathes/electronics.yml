@@ -76,3 +76,11 @@
     sprite: _Goobstation/Structures/Machines/storage_bin.rsi
     state: icon
   result: StorageBinCircuitboard
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: InteractorCircuitboard
+  icon:
+    sprite: _Goobstation/Structures/Machines/interactor.rsi
+    state: icon
+  result: InteractorCircuitboard

@@ -9,18 +9,18 @@
 - type: latheRecipePack
   id: SecurityBoardsStaticGoob
   recipes:
-  - ContrabandDetectorCircuitboard  
+  - ContrabandDetectorCircuitboard
 
 ## Dynamic
 - type: latheRecipePack
   id: MedicalBoardsStaticGoob
-  recipes: 
+  recipes:
   - OperatingTableCircuitboard
 
 - type: latheRecipePack
   id: MedicalBoardsGoob
   recipes:
-  - AutodocCircuitboard  
+  - AutodocCircuitboard
 
 - type: latheRecipePack
   id: EngineeringBoardsGoob
@@ -28,3 +28,4 @@
   - RoboticArmCircuitboard
   - ConstructorCircuitboard
   - StorageBinCircuitboard
+  - InteractorCircuitboard
