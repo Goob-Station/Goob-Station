@@ -151,6 +151,11 @@
     slots:
     - Back
     - suitStorage
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 15
+    autoRechargePause: true
+    autoRechargePauseTime: 20
   - type: Item
     shape:
     - 0,0,6,1
