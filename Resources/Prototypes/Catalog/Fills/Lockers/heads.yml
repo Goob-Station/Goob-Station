@@ -132,6 +132,7 @@
 # SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 StrawberrySmoothieDev <redstones563@outlook.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
 #
@@ -279,6 +280,9 @@
     - id: WeaponDisabler
     - id: ClothingEyesHudCommand
     - id: ServiceTechFabCircuitboard # Goobstation - Service Techfab
+    - id: ClothingOuterHardsuitHOP # Goobstation - HOP Hardsuit
+    - id: OxygenTankFilled # Goobstation - HOP Hardsuit
+    - id: NitrogenTankFilled # Goobstation - HOP Hardsuit
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
