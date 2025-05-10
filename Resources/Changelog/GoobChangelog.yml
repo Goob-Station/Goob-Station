@@ -8662,3 +8662,105 @@ Entries:
       message: Midround shuttle events should work again.
   id: 993
   time: '2025-05-09T18:27:29.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix rust charge not ending when performer is thrown into space.
+  id: 994
+  time: '2025-05-10T12:04:53.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix shadow cloaked heretic dying instantly to rust mansus grasp.
+  id: 995
+  time: '2025-05-10T12:05:20.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed upgrade kits not being in the protolathe.
+  id: 996
+  time: '2025-05-10T14:21:59.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: Faxes now accept automation upgrades.
+  id: 997
+  time: '2025-05-10T18:30:40.0000000+00:00'
+- author: Armok, Mocho
+  changes:
+    - type: Tweak
+      message: >-
+        HoS equipment has been reworked! The esword, lawbringer, and utility
+        items such as the thermals and hardsuits are now separate picks. Pick
+        and choose.
+    - type: Tweak
+      message: Lawbringer's pulse bullet only has two shots per charge now.
+    - type: Tweak
+      message: >-
+        Lawbringer's disabler bullet is no longer a two shot stun and now has
+        twice as much ammo.
+    - type: Tweak
+      message: >-
+        Lawbringer's execute bullet is now comparable to captain's laser in
+        terms of DPS and ammo count.
+    - type: Tweak
+      message: >-
+        Lawbringer's heat bullet cuases slightly less fire stacks and costs a
+        bit more.
+    - type: Tweak
+      message: >-
+        Lawbringer's clown shot has been buffed (Mocho's note: Did you know that
+        by removing projectile component it defaults to 14 pierce damage. Blunt
+        is easier to heal by med).
+    - type: Tweak
+      message: Removes blur on hit from all of the lawbringer projectiles but sleep.
+    - type: Tweak
+      message: Structural bullet actually does something now.
+    - type: Tweak
+      message: HOS Laser Rifle now deals 25dps with a large ammo capacity.
+    - type: Tweak
+      message: >-
+        HOS SMG deals less damage, fires faster, and has a wider area of effect
+        during prolonged shooting.
+    - type: Tweak
+      message: >-
+        HOS Sniper shoots once every 4 seconds and slows you down more when
+        wielded.
+    - type: Tweak
+      message: HOS Sniper now deals 20/20 heat shock, changed from 30/10.
+    - type: Tweak
+      message: All HOS non sniper weapons now deal heat instead of shock (which is AP).
+    - type: Tweak
+      message: The HOS sword deals boot knife level DPS when unpowered now.
+    - type: Tweak
+      message: HOS sword also has a sound now when unpowered.
+    - type: Tweak
+      message: HOS sword stun mode is a 4 hit stun at 1 hit per second.
+    - type: Tweak
+      message: >-
+        HOS sword ion mode no longer does shock and is just anti clanker
+        weaponry.
+    - type: Tweak
+      message: >-
+        HOS sword lethal mode hits twice as fast but does 2/3 the damage per
+        hit.
+    - type: Tweak
+      message: >-
+        Empowered is an all or nothing hit. Costing 1000 energy and dealing a
+        ton of shock damage.
+    - type: Tweak
+      message: >-
+        You can get the thermals, advanced boots and advanced hardsuit in a
+        unique kit, not a handout anymore.
+    - type: Tweak
+      message: HOS starts with the old hardsuit now.
+    - type: Tweak
+      message: Lawbringer is now a kit, not roundstart.
+  id: 998
+  time: '2025-05-10T18:49:24.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: Added waddling.
+  id: 999
+  time: '2025-05-10T19:03:18.0000000+00:00'
