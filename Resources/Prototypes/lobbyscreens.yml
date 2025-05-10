@@ -232,6 +232,12 @@
   background: /Textures/LobbyScreens/lostpai.webp
   name: Lost pAI
   artist: Cattom
+
+- type: lobbyBackground
+  id: moneyspread-bingle
+  background: /Textures/LobbyScreens/binglemoneyspread.webp
+  name: Bingle Flex
+  artist: LFMoth
   
 - type: lobbyBackground
   id: stargoob
