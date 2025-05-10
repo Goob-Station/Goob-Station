@@ -47,3 +47,6 @@
     cancel: true
   - type: StaminaDamageResistance
     coefficient: 0.4
+  - type: HideClothingLayerClothing
+    hiddenSlots:
+    - jumpsuit
