@@ -117,7 +117,7 @@
     - DawInstrumentMachineCircuitboard
     - MassMediaCircuitboard
     - JukeboxCircuitBoard
-    - BorgModuleLollipop # Goobstation
+    - BorgModuleLollypop # Goobstation
   position: 0,2
 
 - type: technology

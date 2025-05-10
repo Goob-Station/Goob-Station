@@ -47,7 +47,7 @@
   id: BorgModulesGoob
   recipes:
   - BorgModuleAdvancedSurgery
-  - BorgModuleLollipop
+  - BorgModuleLollypop
   - BorgModuleAdvancedMining
 
 - type: latheRecipePack

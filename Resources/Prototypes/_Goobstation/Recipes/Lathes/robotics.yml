@@ -71,8 +71,8 @@
 
 - type: latheRecipe
   parent: BaseBorgModuleRecipe
-  id: BorgModuleLollipop
-  result: BorgModuleLollipop
+  id: BorgModuleLollypop
+  result: BorgModuleLollypop
 
 - type: latheRecipe
   parent: BaseGoldBorgModuleRecipe

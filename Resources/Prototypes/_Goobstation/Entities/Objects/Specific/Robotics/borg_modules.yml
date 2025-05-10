@@ -27,9 +27,9 @@
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-weapon-module }
 
 - type: entity
-  id: BorgModuleLollipop
+  id: BorgModuleLollypop
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
-  name: lollipop cyborg module
+  name: lollypop cyborg module
   components:
   - type: Sprite
     layers:
@@ -37,7 +37,7 @@
     - state: icon-lollypop
       sprite: _Goobstation/Objects/Specific/Robotics/borgmodule.rsi
   - type: ItemBorgModule
-    moduleId: Lollipop
+    moduleId: Lollypop
     items:
     - LauncherLollypopRegenerating
     - LauncherLollypopRegeneratingTricordazine
