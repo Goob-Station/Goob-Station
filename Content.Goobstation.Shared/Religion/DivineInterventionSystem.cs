@@ -4,8 +4,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Goobstation.Common.Religion;
-using Content.Goobstation.Shared.Religion.Nullrod;
 using Content.Shared.Hands.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Popups;
@@ -40,15 +40,7 @@ public sealed class DivineInterventionSystem : EntitySystem
     public bool ShouldDeny(EntityUid ent)
     {
         var contains = _inventory.GetHandOrInventoryEntities(ent);
-        foreach (var item in contains)
-        {
-            if (!HasComp<DivineInterventionComponent>(item))
-                continue;
-
-            return true;
-        }
-
-        return false;
+        return contains.Any(HasComp<DivineInterventionComponent>);
     }
 
     #region Flavour
