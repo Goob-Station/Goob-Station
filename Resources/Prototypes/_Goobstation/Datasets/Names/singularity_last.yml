@@ -3,12 +3,9 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-- type: dataset
-  id: goob_generators_names_singularity_last
+- type: localizedDataset
+  id: GoobGeneratorsNamesSingularityLast
   values:
-  - Singuloth
-  - Singularity
-  - Singulo
-  - Singuloose
-  - Station-Eater 9000
+    prefix: goob-generators-names-singularity-last-dataset-
+    count: 5
 #  - Skibidilarity 1984
