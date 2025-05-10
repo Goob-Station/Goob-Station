@@ -507,6 +507,12 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<float> ImpactInertiaScaling =
         CVarDef.Create("shuttle.impact.inertia_scaling", 0.5f, CVar.SERVERONLY);
 
+    /// <summary>
+    /// How much should total grid inertia affect our collision damage
+    /// </summary>
+    public static readonly CVarDef<float> ImpactDebrisChance =
+        CVarDef.Create("shuttle.impact.debris_chance", 0.10f, CVar.SERVERONLY); // one debris per 10 tiles broken average
+
     #endregion
 
     #endregion

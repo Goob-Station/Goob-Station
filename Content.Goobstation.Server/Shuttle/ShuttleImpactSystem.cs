@@ -32,6 +32,7 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Threading;
 using System.Numerics;
@@ -47,6 +48,7 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly IParallelManager _parallel = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ItemToggleSystem _toggle = default!;
     [Dependency] private readonly MapSystem _mapSys = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -67,11 +69,15 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
     private float MinThrowVelocity;
     private float MassBias;
     private float InertiaScaling;
+    private float DebrisChance;
 
     private const float PlatingMass = 800f;
     private const float BaseShuttleMass = 50f; // shuttle mass to consider the neutral point for inertia scaling
 
     private readonly SoundCollectionSpecifier _shuttleImpactSound = new("ShuttleImpactSound");
+
+    private readonly EntProtoId _sparksProto = "EffectSparks";
+    private readonly EntProtoId _debrisProto = "ImpactDebris";
 
     public override void Initialize()
     {
@@ -88,6 +94,7 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
         Subs.CVar(_cfg, GoobCVars.ImpactMinThrowVelocity, value => MinThrowVelocity = value, true);
         Subs.CVar(_cfg, GoobCVars.ImpactMassBias, value => MassBias = value, true);
         Subs.CVar(_cfg, GoobCVars.ImpactInertiaScaling, value => InertiaScaling = value, true);
+        Subs.CVar(_cfg, GoobCVars.ImpactDebrisChance, value => DebrisChance = value, true);
     }
 
     /// <summary>
@@ -104,7 +111,6 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
             !TryComp<MapGridComponent>(args.OtherEntity, out var otherGrid)
         )
             return;
-
 
         var ourBody = args.OurBody;
         var otherBody = args.OtherBody;
@@ -214,8 +220,8 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
         _physics.ApplyLinearImpulse(args.OtherEntity, otherDeltaV * otherBody.FixturesMass, body: otherBody);
 
         var dir = (ourVelocity.Length() > otherVelocity.Length() ? ourVelocity : -otherVelocity).Normalized();
-        ProcessImpactZone(uid, ourGrid, ourTile, otherEnergy, -dir, ourRadius);
-        ProcessImpactZone(args.OtherEntity, otherGrid, otherTile, ourEnergy, dir, otherRadius);
+        ProcessImpactZone(uid, ourGrid, ourTile, otherEnergy, -dir, ourRadius, unelasticVel);
+        ProcessImpactZone(args.OtherEntity, otherGrid, otherTile, ourEnergy, dir, otherRadius, unelasticVel);
 
         ThrowEntitiesOnGrid(uid, ourXform, -ourDeltaV);
         ThrowEntitiesOnGrid(args.OtherEntity, otherXform, -otherDeltaV);
@@ -342,7 +348,7 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
     /// <summary>
     /// Processes a zone of tiles around the impact point
     /// </summary>
-    private void ProcessImpactZone(EntityUid uid, MapGridComponent grid, Vector2i centerTile, float energy, Vector2 dir, float radius)
+    private void ProcessImpactZone(EntityUid uid, MapGridComponent grid, Vector2i centerTile, float energy, Vector2 dir, float radius, Vector2 debrisVel)
     {
         // Skip processing if the grid has an anchor component
         if (
@@ -379,13 +385,7 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
         var brokenTiles = new List<Vector2i>();
         var sparkTiles = new List<Vector2i>();
 
-        ProcessTileBatch(uid, grid, tilesToProcess, 0, tilesToProcess.Count, brokenTiles, sparkTiles);
-
-        // Only proceed with visual effects if the entity still exists
-        if (Exists(uid))
-        {
-            ProcessBrokenTilesAndSparks(uid, grid, brokenTiles, sparkTiles);
-        }
+        ProcessTileBatch(uid, grid, tilesToProcess, 0, tilesToProcess.Count, brokenTiles, sparkTiles, debrisVel);
     }
 
     private Vector2 ToTileCenterVec = new Vector2(0.5f, 0.5f);
@@ -400,7 +400,8 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
         int startIndex,
         int endIndex,
         T brokenTiles,
-        T sparkTiles) where T : ICollection<Vector2i>
+        T sparkTiles,
+        Vector2 debrisVel) where T : ICollection<Vector2i>
     {
         for (var i = startIndex; i < endIndex; i++)
         {
@@ -459,7 +460,23 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
 
             // Mark tiles for spark effects
             if (tileData.Energy > SparkEnergy && tileData.DistanceFactor > 0.7f)
-                sparkTiles.Add(tileData.Tile);
+            {
+                var coords = grid.GridTileToLocal(tileData.Tile);
+
+                // Validate the coordinates before spawning
+                var mapId = coords.GetMapId(EntityManager);
+                if (mapId == MapId.Nullspace)
+                    continue;
+
+                if (!_mapManager.MapExists(mapId))
+                    continue;
+
+                var mapPos = coords.ToMap(EntityManager, _transform);
+                if (mapPos.MapId == MapId.Nullspace)
+                    continue;
+
+                Spawn(_sparksProto, coords);
+            }
 
             if (!canBreakTile)
                 continue;
@@ -467,42 +484,15 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
             // Mark tiles for breaking/effects
             var def = (ContentTileDefinition)_tileDef[_mapSys.GetTileRef(uid, grid, tileData.Tile).Tile.TypeId];
             if (tileData.Energy > def.Mass * TileBreakEnergyMultiplier)
-                brokenTiles.Add(tileData.Tile);
-
-        }
-    }
-
-    /// <summary>
-    /// Process visual effects and tile breaking after entity processing
-    /// </summary>
-    private void ProcessBrokenTilesAndSparks<TCollection>(
-        EntityUid uid,
-        MapGridComponent grid,
-        TCollection brokenTiles,
-        TCollection sparkTiles) where TCollection : IEnumerable<Vector2i>
-    {
-        // Break tiles
-        foreach (var tile in brokenTiles)
-            _mapSys.SetTile(new Entity<MapGridComponent>(uid, grid), tile, Tile.Empty);
-
-        // Spawn spark effects
-        foreach (var tile in sparkTiles)
-        {
-            var coords = grid.GridTileToLocal(tile);
-
-            // Validate the coordinates before spawning
-            var mapId = coords.GetMapId(EntityManager);
-            if (mapId == MapId.Nullspace)
-                continue;
-
-            if (!_mapManager.MapExists(mapId))
-                continue;
-
-            var mapPos = coords.ToMap(EntityManager, _transform);
-            if (mapPos.MapId == MapId.Nullspace)
-                continue;
-
-            Spawn("EffectSparks", coords);
+            {
+                if (_random.Prob(DebrisChance))
+                {
+                    var coords = grid.GridTileToLocal(tileData.Tile);
+                    var debris = Spawn(_debrisProto, coords);
+                    _physics.SetLinearVelocity(debris, debrisVel);
+                }
+                _mapSys.SetTile(new Entity<MapGridComponent>(uid, grid), tileData.Tile, Tile.Empty);
+            }
         }
     }
 
