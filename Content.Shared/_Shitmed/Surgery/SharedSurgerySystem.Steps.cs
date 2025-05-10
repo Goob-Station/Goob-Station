@@ -1,11 +1,13 @@
 // SPDX-FileCopyrightText: 2024 Skubman <ba.fallaria@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Janet Blackquill <uhhadd@gmail.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 pacable <igor.mamaev1@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -557,6 +559,11 @@ public abstract partial class SharedSurgerySystem
 
         if (HasComp<SanitizedComponent>(args.User))
             return;
+
+        if (TryComp<SurgeryTargetComponent>(args.Body, out var surgeryTargetComponent) &&
+            surgeryTargetComponent.SepsisImmune)
+            return;
+
         var sepsis = new DamageSpecifier(_prototypes.Index<DamageTypePrototype>("Poison"), 5);
         var ev = new SurgeryStepDamageEvent(args.User, args.Body, args.Part, args.Surgery, sepsis, 0.5f);
         RaiseLocalEvent(args.Body, ref ev);
