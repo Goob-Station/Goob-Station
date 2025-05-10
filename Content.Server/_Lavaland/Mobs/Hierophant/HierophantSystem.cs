@@ -181,6 +181,7 @@ public sealed class HierophantSystem : EntitySystem
     private void InitBoss(Entity<HierophantBossComponent> ent)
     {
         ent.Comp.Aggressive = true;
+        ent.Comp.CancelToken.Dispose();
         ent.Comp.CancelToken = new CancellationTokenSource();
         RaiseLocalEvent(ent, new MegafaunaStartupEvent());
     }

@@ -52,7 +52,7 @@ public sealed partial class DamageSquareComponent : Component
     /// Time when this square is going to deal damage. Used for prediction to work.
     /// </summary>
     [ViewVariables, AutoNetworkedField]
-    public TimeSpan DamageTime;
+    public TimeSpan DamageTime = TimeSpan.MaxValue;
 
     /// <summary>
     /// For how many seconds we add immunity to the entity we hit.

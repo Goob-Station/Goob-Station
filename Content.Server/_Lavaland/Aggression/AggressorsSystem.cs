@@ -46,12 +46,12 @@ public sealed class AggressorsSystem : SharedAggressorsSystem
         while (query.MoveNext(out var uid, out var aggressive, out var xform))
         {
             if (aggressive.ForgiveRange == null)
-                return;
+                continue;
 
             aggressive.Accumulator += frameTime;
 
             if (aggressive.Accumulator < aggressive.UpdateFrequency)
-                return;
+                continue;
 
             aggressive.Accumulator = 0f;
 

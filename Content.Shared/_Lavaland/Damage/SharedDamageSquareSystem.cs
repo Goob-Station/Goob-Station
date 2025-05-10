@@ -55,7 +55,7 @@ public abstract class SharedDamageSquareSystem : EntitySystem
         while (query.MoveNext(out var uid, out var damage, out _))
         {
             if (_timing.CurTime < damage.DamageTime)
-                return;
+                continue;
 
             Damage((uid, damage));
         }
