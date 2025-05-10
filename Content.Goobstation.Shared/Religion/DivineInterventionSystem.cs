@@ -104,10 +104,10 @@ public sealed class DivineInterventionSystem : EntitySystem
     /// <summary>
     /// Used where dependency is possible i.e. GoobMod Magic.
     /// </summary>
-    public bool TouchSpellDenied(EntityUid target)
+    public bool TouchSpellDenied(EntityUid uid)
     {
-        var ev = new BeforeCastTouchSpellEvent(target);
-        RaiseLocalEvent(target, ev, true);
+        var ev = new BeforeCastTouchSpellEvent(uid);
+        RaiseLocalEvent(uid, ev, true);
 
         return ev.Cancelled;
     }
