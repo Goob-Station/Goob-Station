@@ -54,6 +54,8 @@
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -530,8 +532,13 @@ namespace Content.Server.Construction
                 _beingBuilt[args.SenderSession].Remove(ev.Ack);
             }
 
+            // Goobstation
+            EntityUid? entWith = ev.With == null ? null : GetEntity(ev.With);
+            if (entWith == null && TryComp<HandsComponent>(user, out var hands))
+                entWith = hands.ActiveHandEntity;
+
             if (!_actionBlocker.CanInteract(user, null)
-                || !EntityManager.TryGetComponent(user, out HandsComponent? hands) || hands.ActiveHandEntity == null)
+                || entWith == null) // Goobstation
             {
                 Cleanup();
                 return;
@@ -556,7 +563,7 @@ namespace Content.Server.Construction
 
             var valid = false;
 
-            if (hands.ActiveHandEntity is not {Valid: true} holding)
+            if (entWith is not {Valid: true} holding)
             {
                 Cleanup();
                 return;
