@@ -50,6 +50,13 @@ namespace Content.Shared.Weapons.Melee.Events
         /// </summary>
         public EntityCoordinates ClickLocation { get; }
 
+        /// <summary>
+        ///     Goobstation.
+        ///     Modifier sets to apply to the hit event when it's all said and done.
+        ///     This should be modified by adding a new entry to the list.
+        /// </summary>
+        public List<DamageModifierSet> ModifiersList = new();
+
         public DamageSpecifier BonusDamage = new();
 
         public AttackedEvent(EntityUid used, EntityUid user, EntityCoordinates clickLocation)
@@ -73,6 +80,7 @@ namespace Content.Shared.Weapons.Melee.Events
         Harm,
         Disarm,
         Grab,
+        MansusGrasp,
     }
     // Goobstation end
 }

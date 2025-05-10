@@ -39,6 +39,7 @@ using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
 using Content.Shared.Timing;
+using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -198,7 +199,9 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
         if (_whitelist.IsBlacklistPass(comp.Blacklist, target))
             return;
 
-        if (_magic.SpellDenied(target))
+        var beforeEvent = new BeforeHarmfulActionEvent(args.User, HarmfulActionType.MansusGrasp);
+        RaiseLocalEvent(target, beforeEvent);
+        if (beforeEvent.Cancelled || _magic.SpellDenied(target))
         {
             _actions.SetCooldown(hereticComp.MansusGrasp, ent.Comp.CooldownAfterUse);
             hereticComp.MansusGrasp = EntityUid.Invalid;

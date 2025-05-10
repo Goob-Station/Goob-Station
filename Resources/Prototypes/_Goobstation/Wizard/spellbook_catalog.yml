@@ -784,6 +784,17 @@
   categories:
   - SpellbookEquipment
 
+- type: listing
+  id: SpellbookNinjutsuScroll
+  name: spellbook-ninjutsu-name
+  description: spellbook-ninjutsu-desc
+  productEntity: NinjutsuScroll
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookEquipment
+  disableRefund: true
+
 # Summons
 - type: listing
   id: SpellbookMagicalLamp
