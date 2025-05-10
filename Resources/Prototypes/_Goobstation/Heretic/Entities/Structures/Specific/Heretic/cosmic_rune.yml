@@ -1,0 +1,44 @@
+- type: entity
+  id: HereticRuneCosmos
+  name: cosmic rune
+  description: A strange rune, that can instantly transport people to another location.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    drawdepth: FloorEffects
+    sprite: _Goobstation/Heretic/Entities/cosmic_rune.rsi
+    layers:
+    - state: cosmic_rune
+  - type: Clickable
+  - type: IgnoresFingerprints
+  - type: Fixtures
+    fixtures:
+      rune:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.4
+        hard: false
+        mask:
+         - ItemMask
+        layer:
+         - SlipLayer
+  - type: Physics
+    bodyType: Static
+  - type: HereticCosmicRune
+
+- type: entity
+  id: HereticRuneCosmosLight
+  name: cosmic rune
+  placement:
+    mode: SnapgridCenter
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.5
+  - type: Sprite
+    drawdepth: BelowMobs
+    sprite: _Goobstation/Heretic/Entities/cosmic_rune.rsi
+    layers:
+    - state: cosmic_rune_light
+      shader: unshaded

@@ -56,3 +56,7 @@
   id: ShadowCloak
   alert: ShadowCloak
   alwaysAllowed: true
+
+- type: statusEffect
+  id: StarMark
+  alwaysAllowed: true

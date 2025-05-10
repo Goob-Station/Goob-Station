@@ -6,6 +6,7 @@
 // SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 JohnOakman <sremy2012@hotmail.fr>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
@@ -142,9 +143,9 @@ public sealed class GhoulSystem : EntitySystem
             return;
 
         var brief = Loc.GetString("heretic-ghoul-greeting-noname");
-        var master = EntityManager.GetEntity(ent.Comp.BoundHeretic);
+        var master = ent.Comp.BoundHeretic;
 
-        if (master.HasValue)
+        if (Exists(master))
             brief = Loc.GetString("heretic-ghoul-greeting", ("ent", Identity.Entity(master.Value, EntityManager)));
 
         var sound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/heretic_gain.ogg");

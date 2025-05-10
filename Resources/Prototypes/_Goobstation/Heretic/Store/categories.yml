@@ -39,6 +39,11 @@
   priority: 0
 
 - type: storeCategory
+  id: HereticPathCosmos
+  name: store-heretic-path-cosmos
+  priority: 0
+
+- type: storeCategory
   id: HereticPathSide
   name: store-heretic-path-side
   priority: 999 # lowest possible
