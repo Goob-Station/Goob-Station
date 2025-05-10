@@ -12,6 +12,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.Movement;
+using Content.Goobstation.Common.Religion;
 using Content.Goobstation.Shared.Bible;
 using Content.Server.Flash;
 using Content.Server.Heretic.Components.PathSpecific;
@@ -24,6 +25,7 @@ using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Atmos;
 using Content.Shared.Damage.Components;
 using Content.Shared.Heretic;
+using Content.Shared.Inventory;
 using Content.Shared.Maps;
 using Content.Shared.Mech.Components;
 using Content.Shared.Mobs;
@@ -43,6 +45,9 @@ namespace Content.Server.Heretic.Abilities;
 
 public sealed partial class HereticAbilitySystem
 {
+
+    [Dependency] private readonly InventorySystem _inventory = default!;
+
     public static readonly Dictionary<EntProtoId, EntProtoId> Transformations = new()
     {
         { "WallSolid", "WallSolidRust" },
@@ -104,9 +109,18 @@ public sealed partial class HereticAbilitySystem
 
         if (HasComp<HereticComponent>(ent)
             || HasComp<GhoulComponent>(ent)
-            || HasComp<GodmodeComponent>(ent)
-            || HasComp<BibleUserComponent>(ent))
+            || HasComp<GodmodeComponent>(ent))
             return;
+
+        //Ideally this should be a method in DivineInterventionSystem -
+        //Until then, I don't see it necessary to use event relays to achieve this effect between Core & Goob.
+        var contains = _inventory.GetHandOrInventoryEntities(ent.Owner);
+        foreach (var item in contains)
+        {
+            if (!HasComp<DivineInterventionComponent>(item))
+                continue;
+            return;
+        }
 
         EnsureComp<DisgustComponent>(ent);
     }
@@ -118,9 +132,18 @@ public sealed partial class HereticAbilitySystem
 
         if (HasComp<HereticComponent>(ent)
             || HasComp<GhoulComponent>(ent)
-            || HasComp<GodmodeComponent>(ent)
-            || HasComp<BibleUserComponent>(ent))
+            || HasComp<GodmodeComponent>(ent))
             return;
+
+        //Ideally this should be a method in DivineInterventionSystem -
+        //Until then, I don't see it necessary to use event relays to achieve this effect between Core & Goob.
+        var contains = _inventory.GetHandOrInventoryEntities(ent.Owner);
+        foreach (var item in contains)
+        {
+            if (!HasComp<DivineInterventionComponent>(item))
+                continue;
+            return;
+        }
 
         if (IsTileRust(Transform(ent).Coordinates, out _))
             EnsureComp<DisgustComponent>(ent);

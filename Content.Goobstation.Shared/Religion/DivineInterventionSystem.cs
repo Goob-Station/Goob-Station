@@ -33,7 +33,28 @@ public sealed class DivineInterventionSystem : EntitySystem
         SubscribeLocalEvent<DivineInterventionComponent, TouchSpellDenialRelayEvent>(OnTouchSpellDenied);
     }
 
-    //Handles denial flavour (VFX/SFX/POPUPS)
+    /// <summary>
+    /// The bare minimum, no flavor -
+    /// used for spells that do not necessarily require players to be notified of an immunity event
+    /// </summary>
+    public bool ShouldDeny(EntityUid ent)
+    {
+        var contains = _inventory.GetHandOrInventoryEntities(ent);
+        foreach (var item in contains)
+        {
+            if (!HasComp<DivineInterventionComponent>(item))
+                continue;
+
+            return true;
+        }
+
+        return false;
+    }
+
+    #region Flavour
+    /// <summary>
+    /// Handles denial flavour (VFX/SFX/POPUPS)
+    /// </summary>
     private void DenialEffects(EntityUid uid, EntityUid? entNullable)
     {
         if (entNullable is not { } ent  || !TryComp<DivineInterventionComponent>(uid, out var comp) || _net.IsClient)
@@ -43,9 +64,12 @@ public sealed class DivineInterventionSystem : EntitySystem
         _audio.PlayPvs(comp.DenialSound, ent);
         Spawn(comp.EffectProto, Transform(ent).Coordinates);
     }
+    #endregion
 
-    #region Touch Spells (Wizard)
-
+    #region EntityTargetActionEvent Spells
+    /// <summary>
+    /// Handles EntityTargetActionEvent spells.
+    /// </summary>
     private void OnTouchSpellAttempt(BeforeCastTouchSpellEvent args)
     {
         if (args.Target is not { } target
@@ -65,7 +89,9 @@ public sealed class DivineInterventionSystem : EntitySystem
         }
     }
 
-    //Relays whether denial took place so Spells in Core can be cancelled.
+    /// <summary>
+    /// Relays whether a spell denial took place - especially useful for working between Core & GoobMod
+    /// </summary>
     private void OnTouchSpellDenied(EntityUid uid, DivineInterventionComponent comp, TouchSpellDenialRelayEvent args)
     {
         var ev = new BeforeCastTouchSpellEvent(uid);
@@ -75,14 +101,16 @@ public sealed class DivineInterventionSystem : EntitySystem
             args.Cancel();
     }
 
-    //Redundant for wizard but saving for later (heretic will use similar bool)
-   // public bool TouchSpellDenied(EntityUid target)
-    //{
-        //var beforeTouchSpellEvent = new BeforeCastTouchSpellEvent(target);
-        //RaiseLocalEvent(target, ref beforeTouchSpellEvent, true);
+    /// <summary>
+    /// Used where dependency is possible i.e. GoobMod Magic.
+    /// </summary>
+    public bool TouchSpellDenied(EntityUid target)
+    {
+        var beforeTouchSpellEvent = new BeforeCastTouchSpellEvent(target);
+        RaiseLocalEvent(target, ref beforeTouchSpellEvent, true);
 
-        //return beforeTouchSpellEvent.Cancelled;
-    //}
+        return beforeTouchSpellEvent.Cancelled;
+    }
 
     #endregion
 
