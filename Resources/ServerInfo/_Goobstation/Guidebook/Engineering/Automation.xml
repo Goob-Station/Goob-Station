@@ -58,27 +58,22 @@ It will search for [bold]any entity[/bold] without a filter, even things like co
 
 It has 4 signal ports:
 - Start, used to try interacting with something
+- Auto Start, when enabled it will automatically try to interact after a successful interaction
 - Started, invoked if the interaction starts a doafter
 - Completed, invoked on interaction success OR when the doafter ends
 - Failed, invoked if it could not interact with anything
 
-<!-- NYI
-## Assembler
+## Constructor
 
-<GuideEntityEmbed Entity="BikeHorn"/>
+<GuideEntityEmbed Entity="Constructor"/>
 
-This will construct new objects like you would in the G menu.
+This will construct new objects like you would in the G menu, click it to select which thing to craft.
+It will only complete the first step, [bold]use interactors to finish multi-step constructions[/bold].
 Construction ghosts and created items both get placed infront of it.
 
-Input items are taken from the floor nearby.
+Input items are taken from the floor nearby as well as its internal storage, which doubles as a storage bin.
 
-It has 4 signal ports:
-- Start, used to start the building
-- Started, invoked when the doafter begins
-- Completed, invoked when the doafter is over
-- Failed, invoked if it there weren't enough materials or some condition failed like the area being obstructed
-
-!!! bit below is because comments are goidacode -->
+It has the same ports as an Interactor.
 
 ## Filters
 
