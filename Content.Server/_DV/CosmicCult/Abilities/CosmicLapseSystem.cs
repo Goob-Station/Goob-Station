@@ -4,7 +4,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Bible; // Goobstation - Bible
+using Content.Goobstation.Shared.Bible;
+using Content.Goobstation.Shared.Religion; // Goobstation - Bible
 using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
 using Content.Shared._DV.CosmicCult;
@@ -23,6 +24,7 @@ public sealed class CosmicLapseSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly DivineInterventionSystem _divineIntervention = default!;
 
     private static readonly ProtoId<PolymorphPrototype> HumanLapse = "CosmicLapseMobHuman";
 
@@ -37,12 +39,14 @@ public sealed class CosmicLapseSystem : EntitySystem
     {
         if (action.Handled
             || HasComp<CosmicBlankComponent>(action.Target)
-            || HasComp<CleanseCultComponent>(action.Target)
-            || HasComp<BibleUserComponent>(action.Target))
+            || HasComp<CleanseCultComponent>(action.Target))
         {
             _popup.PopupEntity(Loc.GetString("cosmicability-generic-fail"), uid, uid);
             return;
         }
+
+        if (_divineIntervention.TouchSpellDenied(action.Target))
+            return;
 
         action.Handled = true;
         var tgtpos = Transform(action.Target).Coordinates;

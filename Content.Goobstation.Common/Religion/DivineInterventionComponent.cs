@@ -25,4 +25,10 @@ public sealed partial class DivineInterventionComponent : Component
     /// </summary>
     [DataField]
     public EntProtoId EffectProto = "EffectSpark";
+
+    /// <summary>
+    /// Which loc string to display.
+    /// </summary>
+    [DataField]
+    public string DenialString = "nullrod-spelldenial-popup";
 }

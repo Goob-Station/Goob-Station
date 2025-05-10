@@ -59,8 +59,7 @@ public sealed class DivineInterventionSystem : EntitySystem
     {
         if (entNullable is not { } ent  || !TryComp<DivineInterventionComponent>(uid, out var comp) || _net.IsClient)
             return;
-
-        _popupSystem.PopupEntity(Loc.GetString("nullrod-spelldenial-popup"), ent, PopupType.MediumCaution);
+        _popupSystem.PopupEntity(Loc.GetString(comp.DenialString), ent, PopupType.MediumCaution);
         _audio.PlayPvs(comp.DenialSound, ent);
         Spawn(comp.EffectProto, Transform(ent).Coordinates);
     }

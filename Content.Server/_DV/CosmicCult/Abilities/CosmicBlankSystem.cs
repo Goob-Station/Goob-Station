@@ -6,7 +6,8 @@
 
 using System.Collections.Immutable;
 using Content.Server._DV.CosmicCult.Components;
-using Content.Goobstation.Shared.Bible; // Goobstation - Bible
+using Content.Goobstation.Shared.Bible;
+using Content.Goobstation.Shared.Religion; // Goobstation - Bible
 using Content.Server.Popups;
 using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
@@ -38,6 +39,7 @@ public sealed class CosmicBlankSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly DivineInterventionSystem _divineIntervention = default!;
 
     public override void Initialize()
     {
@@ -51,12 +53,14 @@ public sealed class CosmicBlankSystem : EntitySystem
     {
         if (_cosmicCult.EntityIsCultist(args.Target)
             || HasComp<CosmicBlankComponent>(args.Target)
-            || HasComp<BibleUserComponent>(args.Target)
             || HasComp<ActiveNPCComponent>(args.Target))
         {
             _popup.PopupEntity(Loc.GetString("cosmicability-generic-fail"), uid, uid);
             return;
         }
+
+        if (_divineIntervention.TouchSpellDenied(args.Target))
+            return;
 
         if (args.Handled)
             return;
