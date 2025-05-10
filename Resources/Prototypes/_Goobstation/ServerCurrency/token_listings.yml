@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GMWQ <garethquaile@gmail.com>
+# SPDX-FileCopyrightText: 2025 Gareth Quaile <garethquaile@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
@@ -24,7 +25,7 @@
 
 - type: tokenListing
   id: HatToken
-  name: gs-balanceui-shop-token-hat
+  name: gs-balanceui-shop-buy-token-hat
   label: gs-balanceui-shop-token-hat
   description: gs-balanceui-shop-buy-token-hat-desc
   price: 750
