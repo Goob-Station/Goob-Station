@@ -26,13 +26,12 @@ public sealed class ItemRandomizeMovementSpeedSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<ItemRandomizeMovementspeedComponent, GotEquippedHandEvent>(OnGotEquippedHand);
-        SubscribeLocalEvent<ItemRandomizeMovementspeedComponent, HeldRelayedEvent<RefreshMovementSpeedModifiersEvent>>(
-            OnRefreshMovementSpeedModifiers);
+        SubscribeLocalEvent<ItemRandomizeMovementspeedComponent, HeldRelayedEvent<RefreshMovementSpeedModifiersEvent>>(OnRefreshMovementSpeedModifiers);
     }
 
     private void OnGotEquippedHand(EntityUid uid, ItemRandomizeMovementspeedComponent comp, GotEquippedHandEvent args)
     {
-        comp.EntityUid = args.User;
+        comp.User = args.User;
     }
 
     private void OnRefreshMovementSpeedModifiers(EntityUid uid, ItemRandomizeMovementspeedComponent comp, ref HeldRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
@@ -50,7 +49,7 @@ public sealed class ItemRandomizeMovementSpeedSystem : EntitySystem
             comp.CurrentModifier = MathHelper.Lerp(comp.CurrentModifier, comp.TargetModifier, frameTime / comp.SmoothingTime);
 
             if (comp.Whitelist is not { } whitelist
-                || comp.EntityUid is not { } user
+                || comp.User is not { } user
                 || !_whitelist.IsValid(whitelist, user)
                 || _timing.CurTime < comp.NextExecutionTime)
                 continue;
@@ -58,7 +57,7 @@ public sealed class ItemRandomizeMovementSpeedSystem : EntitySystem
             if (!_hands.IsHolding(user, uid))
             {
                 _movementSpeedModifier.RefreshMovementSpeedModifiers(user);
-                comp.EntityUid = null;
+                comp.User = null;
             }
 
             _movementSpeedModifier.RefreshMovementSpeedModifiers(user);

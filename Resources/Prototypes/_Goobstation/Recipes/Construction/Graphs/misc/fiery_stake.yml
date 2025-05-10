@@ -1,5 +1,5 @@
 - type: constructionGraph
-  id: FieryCrossGraph
+  id: FieryStakeGraph
   start: start
   graph:
   - node: start
@@ -15,7 +15,7 @@
         doAfter: 1
 
   - node: BonfireNode
-    entity: FieryCross
+    entity: FieryStake
     edges:
     - to: start
       completed:

@@ -12,7 +12,6 @@
     blacklist:
       components:
       - CosmicCult
-      - BibleUser
     itemIconStyle: NoItem
     icon:
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
@@ -34,7 +33,6 @@
     blacklist:
       components:
       - CosmicCult
-      - BibleUser
     itemIconStyle: NoItem
     icon:
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
@@ -105,9 +103,6 @@
     whitelist:
       components:
         - HumanoidAppearance
-    blacklist:
-      components:
-      - BibleUser
     itemIconStyle: NoItem
     icon:
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi

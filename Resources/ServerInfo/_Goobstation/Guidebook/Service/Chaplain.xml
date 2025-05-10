@@ -19,14 +19,31 @@ If you don't already have one, build an altar and find an offering to place on-t
     <GuideEntityEmbed Entity="AltarBananium"/>
     <GuideEntityEmbed Entity="AltarChaos"/>
     <GuideEntityEmbed Entity="AltarDruid"/>
+  </Box>
+  <Box>
     <GuideEntityEmbed Entity="AltarFangs"/>
     <GuideEntityEmbed Entity="AltarHeaven"/>
     <GuideEntityEmbed Entity="AltarConvertMaint"/>
     <GuideEntityEmbed Entity="AltarNanotrasen"/>
+  </Box>
+  <Box>
     <GuideEntityEmbed Entity="AltarSpaceChristian"/>
     <GuideEntityEmbed Entity="AltarTechnology"/>
     <GuideEntityEmbed Entity="AltarToolbox"/>
   </Box>
+
+These altars can be constructed by placing the following offerings atop your base convert altar:
+
+- Bananium Altar: 1 x Bananium
+- Chaos Altar: 1 x Plasma
+- Druid Altar: 1 x Wooden Plank
+- Fanged Altar: 1 x Raw Meat
+- Heaven Altar: 1 x Templar Helmet
+- Maints Altar: 1 x Budget Insulated Gloves
+- Nanotrasen Altar: 1 x Plasteel
+- Space-Christian Altar: 1 x Nun Hood
+- Technology Altar: 1 x Capacitor
+- Toolbox Altar: 1 x Toolbox
 
 ## Holy Artefacts
 
@@ -34,7 +51,7 @@ If you don't already have one, build an altar and find an offering to place on-t
 A dated suit of plate armour that was previously used as part of a holy crusade. Provides decent armour. Wearing this armour will slightly slow your movement speed.
 
 ### Null Rod
-The obsidian rod will be your defense against the forces of evil. Having it in your possession will make you completely immune to the effects of magic.
+The obsidian rod will be your defense against the forces of evil. [color=blue][bold] Having it in your hands will make you completely immune to the effects of magic. [/bold][/color]
 
 You can transform it into a holy weapon of choice by placing it on an altar!
 
@@ -43,8 +60,11 @@ You can transform it into a holy weapon of choice by placing it on an altar!
 - Church Services: Give sermons and sing hymns.
 - Proselytizing: Most crew members are godless heathens, show them god's love.
 - Burial Services: Security or Medical may require someone, or something... to be cremated, familiarise yourself with your Chapel so you can make things quick!
+- [bold] Metaphysical Investigation: Most crew aren't aware of the threats posed by the unholy, be on the look out for anything suspicious. [/bold]
 
 ### Metaphysical Threats
-As Chaplain you are the first line of defence against metaphysical threats, ready your Null Rod - the time is now.
+As Chaplain you are the first line of defence against metaphysical threats, [bold] ready your Null Rod - the time is now. [/bold]
 
+[color=red][bold] Use of excessive force against targets which you cannot confirm are metaphysical threats may land you in trouble with the law, use caution and investigate carefully. [/bold][/color]
+  
 </Document>
