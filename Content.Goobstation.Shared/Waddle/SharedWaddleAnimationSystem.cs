@@ -111,17 +111,17 @@ public abstract class SharedWaddleAnimationSystem : EntitySystem
     public bool CanWaddle(EntityUid uid)
     {
         // can't waddle when dead
-        return _mob.IsAlive(uid) &&
+        return _mob.IsAlive(uid)
             // bouncy shoes should make you spin in 0G really but definitely not bounce up and down
-            !_gravity.IsWeightless(uid) &&
+            && !_gravity.IsWeightless(uid)
             // can't waddle if your legs are broken etc
-            _actionBlocker.CanMove(uid) &&
+            && _actionBlocker.CanMove(uid)
             // can't waddle when buckled, if you are really strong/on meth the chair/bed should waddle instead
-            !_buckle.IsBuckled(uid) &&
+            && !_buckle.IsBuckled(uid)
             // animation doesn't take being downed into account :(
-            !_standing.IsDown(uid) &&
+            && !_standing.IsDown(uid)
             // can't waddle in space... 1984
-            Transform(uid).GridUid != null;
+            && Transform(uid).GridUid != null;
     }
 
     /// <summary>
