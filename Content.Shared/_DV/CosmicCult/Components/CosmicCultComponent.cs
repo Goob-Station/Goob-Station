@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Robust.Shared.GameStates;
 using Content.Shared.StatusIcon;
 using Robust.Shared.Prototypes;
@@ -74,7 +81,7 @@ public sealed partial class CosmicCultComponent : Component
     /// The duration of Null Glare's flash/disorientation.
     /// </summary>
     [DataField]
-    public TimeSpan CosmicGlareDuration = TimeSpan.FromSeconds(8);
+    public TimeSpan CosmicGlareDuration = TimeSpan.FromSeconds(5);
 
     /// <summary>
     /// The range of Null Glare.

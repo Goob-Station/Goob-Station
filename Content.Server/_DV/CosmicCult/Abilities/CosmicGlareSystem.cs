@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2025 AftrLite <61218133+AftrLite@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -11,11 +12,14 @@ using Content.Server.Light.Components;
 using Content.Server.Light.EntitySystems;
 using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
+using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Effects;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
+using Content.Shared.Silicons.Borgs.Components;
+using Content.Shared.Stunnable;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 
@@ -31,7 +35,7 @@ public sealed class CosmicGlareSystem : EntitySystem
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
     [Dependency] private readonly SharedCosmicCultSystem _cosmicCult = default!;
     [Dependency] private readonly SharedInteractionSystem _interact = default!;
-
+    [Dependency] private readonly SharedStunSystem _stun = default!;
     private HashSet<Entity<PoweredLightComponent>> _lights = [];
 
     public override void Initialize()
@@ -82,7 +86,9 @@ public sealed class CosmicGlareSystem : EntitySystem
 
         foreach (var target in targets)
         {
-            _flash.Flash(GetEntity(target),
+            var targetEnt = GetEntity(target);
+
+            _flash.Flash(targetEnt,
                 uid,
                 args.Action,
                 (float) uid.Comp.CosmicGlareDuration.TotalMilliseconds,
@@ -91,10 +97,13 @@ public sealed class CosmicGlareSystem : EntitySystem
                 false,
                 uid.Comp.CosmicGlareStun);
 
+            if (HasComp<BorgChassisComponent>(targetEnt) // fuck them clankers
+                || HasComp<SiliconComponent>(targetEnt))
+                _stun.TryParalyze(targetEnt, uid.Comp.CosmicGlareDuration / 2, true);
+
             _color.RaiseEffect(Color.CadetBlue,
-                new List<EntityUid>() { GetEntity(target) },
-                Filter.Pvs(GetEntity(target),
-                entityManager: EntityManager));
+                new List<EntityUid>() { targetEnt },
+                Filter.Pvs(targetEnt, entityManager: EntityManager));
         }
     }
 }

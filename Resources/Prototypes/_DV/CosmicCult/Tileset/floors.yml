@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: tile
   id: FloorCosmicGlyph
   name: tiles-cosmiccult-floor-glyph
@@ -133,7 +139,7 @@
     sprite: /Textures/_DV/CosmicCult/Tileset/cosmicdecay.rsi
     state: full
   - type: IconSmooth
-    key: floor
+    key: decay
     base: decay
   - type: Tag
     tags:
