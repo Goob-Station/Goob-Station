@@ -45,7 +45,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
   ### Regeneration
   Also known as Regenerative Stasis, changelings have the ability to 'kill' themselves, and appear dead. After an uncertain amount of time, the changeling can revive at will, fully healed of all injuries and illness.
-  Entering stasis drains all of the changeling's chemicals, and leaving costs 60. Chemicals will still regenerate while a changeling is dead.
+  Entering stasis will start a timer that scales with damage taken, and leaving will cost 30 chemicals. Chemicals will still regenerate while a changeling is dead.
 
   Changelings can also choose to revive by defibrillator, making it even harder to tell if they are one or not.
 

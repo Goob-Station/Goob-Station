@@ -100,6 +100,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
+using Content.Server.Database;
 
 namespace Content.Goobstation.Server.Changeling;
 
@@ -805,7 +806,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         if (mobState.CurrentState != MobState.Dead)
         {
             var currentDamage = MathF.Min(target.TotalDamage.Float(), 180f);
-            ent.Comp.StasisTime = MathF.Max(30f, currentDamage);
+            ent.Comp.StasisTime = MathF.Max(30f, float.Round(currentDamage));
             return;
         }
 
