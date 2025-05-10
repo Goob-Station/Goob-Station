@@ -78,6 +78,7 @@
 // SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 TemporalOroboros <TemporalOroboros@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
