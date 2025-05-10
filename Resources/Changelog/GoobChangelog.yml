@@ -8764,3 +8764,11 @@ Entries:
       message: Added waddling.
   id: 999
   time: '2025-05-10T19:03:18.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: >-
+        Added constructors to Industrial Engineering which can start building
+        structures and items.
+  id: 1000
+  time: '2025-05-10T21:30:45.0000000+00:00'
