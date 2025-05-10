@@ -8680,3 +8680,9 @@ Entries:
       message: Fixed upgrade kits not being in the protolathe.
   id: 996
   time: '2025-05-10T14:21:59.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: Faxes now accept automation upgrades.
+  id: 997
+  time: '2025-05-10T18:30:40.0000000+00:00'
