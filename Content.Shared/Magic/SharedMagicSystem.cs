@@ -175,8 +175,6 @@ public abstract class SharedMagicSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<MagicComponent, BeforeCastSpellEvent>(OnBeforeCastSpell);
 
-        SubscribeLocalEvent<BeforeCastTouchSpellEvent>(OnTouchSpellAttempt);
-
         SubscribeLocalEvent<InstantSpawnSpellEvent>(OnInstantSpawn);
         SubscribeLocalEvent<TeleportSpellEvent>(OnTeleportSpell);
         SubscribeLocalEvent<WorldSpawnSpellEvent>(OnWorldSpawn);
@@ -333,40 +331,6 @@ public abstract class SharedMagicSystem : EntitySystem
         RaiseLocalEvent(spell, ref ev);
         return !ev.Cancelled;
     }
-
-    //goobstation start
-    private void OnTouchSpellAttempt(ref BeforeCastTouchSpellEvent args)
-    {
-        if (!TryComp<HandsComponent>(args.Target, out var handsComp))
-            return;
-
-        var held = _hands.EnumerateHeld(args.Target.Value, handsComp);
-        foreach (var heldEnt in held)
-        {
-            if (!TryComp<DivineInterventionComponent>(heldEnt, out var comp))
-                continue;
-
-            args.Cancelled = true;
-
-            if (_net.IsClient)
-                return;
-
-            _popupSystem.PopupEntity(Loc.GetString("nullrod-spelldenial-popup"),
-                args.Target.Value,
-                type: PopupType.MediumCaution);
-            _audio.PlayPvs(comp.DenialSound, args.Target.Value);
-            Spawn(comp.EffectProto, Transform(args.Target.Value).Coordinates);
-            break;
-        }
-    }
-
-    public bool SpellDenied(EntityUid target)
-    {
-        var beforeTouchSpellEvent = new BeforeCastTouchSpellEvent(target);
-        RaiseLocalEvent(target, ref beforeTouchSpellEvent, true);
-        return beforeTouchSpellEvent.Cancelled;
-    }
-    //goobstation end
 
     #region Spells
     #region Instant Spawn Spells
@@ -552,7 +516,9 @@ public abstract class SharedMagicSystem : EntitySystem
         if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
-        if (SpellDenied(ev.Target))
+        var denialRelay = new TouchSpellDenialRelayEvent();
+        RaiseLocalEvent(ev.Target, ref denialRelay);
+        if (denialRelay.Cancelled)
         {
             if (ev.DoSpeech)
                 Speak(ev);
@@ -643,7 +609,9 @@ public abstract class SharedMagicSystem : EntitySystem
         if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
-        if (SpellDenied(ev.Target))
+        var denialRelay = new TouchSpellDenialRelayEvent();
+        RaiseLocalEvent(ev.Target, ref denialRelay);
+        if (denialRelay.Cancelled)
         {
             Speak(ev);
             ev.Handled = true;
@@ -764,7 +732,9 @@ public abstract class SharedMagicSystem : EntitySystem
         if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
-        if (SpellDenied(ev.Target))
+        var denialRelay = new TouchSpellDenialRelayEvent();
+        RaiseLocalEvent(ev.Target, ref denialRelay);
+        if (denialRelay.Cancelled)
         {
             Speak(ev);
             ev.Handled = true;

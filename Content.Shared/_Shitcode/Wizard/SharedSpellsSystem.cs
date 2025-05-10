@@ -12,6 +12,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.Bingle;
+using Content.Goobstation.Common.Religion.Events;
 using Content.Shared._DV.Carrying;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared._Goobstation.Wizard.BindSoul;
@@ -54,7 +55,6 @@ using Content.Shared.Magic;
 using Content.Shared.Magic.Components;
 using Content.Shared.Maps;
 using Content.Shared.Mind;
-using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
@@ -203,7 +203,9 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
-        if (_magic.SpellDenied(ev.Target))
+        var denialRelay = new TouchSpellDenialRelayEvent();
+        RaiseLocalEvent(ev.Target, ref denialRelay);
+        if (denialRelay.Cancelled)
         {
             _magic.Speak(ev);
             ev.Handled = true;
@@ -227,7 +229,9 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
-        if (_magic.SpellDenied(ev.Target))
+        var denialRelay = new TouchSpellDenialRelayEvent();
+        RaiseLocalEvent(ev.Target, ref denialRelay);
+        if (denialRelay.Cancelled)
         {
             _magic.Speak(ev);
             ev.Handled = true;
@@ -257,7 +261,9 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
-        if (_magic.SpellDenied(ev.Target))
+        var denialRelay = new TouchSpellDenialRelayEvent();
+        RaiseLocalEvent(ev.Target, ref denialRelay);
+        if (denialRelay.Cancelled)
         {
             _magic.Speak(ev);
             ev.Handled = true;
@@ -441,7 +447,9 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
-        if (_magic.SpellDenied(ev.Target))
+        var denialRelay = new TouchSpellDenialRelayEvent();
+        RaiseLocalEvent(ev.Target, ref denialRelay);
+        if (denialRelay.Cancelled)
         {
             _magic.Speak(ev);
             ev.Handled = true;
@@ -607,7 +615,9 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
-        if (_magic.SpellDenied(ev.Target))
+        var denialRelay = new TouchSpellDenialRelayEvent();
+        RaiseLocalEvent(ev.Target, ref denialRelay);
+        if (denialRelay.Cancelled)
         {
             _magic.Speak(ev);
             ev.Handled = true;
@@ -717,7 +727,9 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
-        if (_magic.SpellDenied(ev.Target))
+        var denialRelay = new TouchSpellDenialRelayEvent();
+        RaiseLocalEvent(ev.Target, ref denialRelay);
+        if (denialRelay.Cancelled)
         {
             _magic.Speak(ev);
             ev.Handled = true;
@@ -770,7 +782,9 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
-        if (_magic.SpellDenied(ev.Target))
+        var denialRelay = new TouchSpellDenialRelayEvent();
+        RaiseLocalEvent(ev.Target, ref denialRelay);
+        if (denialRelay.Cancelled)
         {
             _magic.Speak(ev);
             ev.Handled = true;
@@ -1048,7 +1062,9 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
-        if (_magic.SpellDenied(ev.Target))
+        var denialRelay = new TouchSpellDenialRelayEvent();
+        RaiseLocalEvent(ev.Target, ref denialRelay);
+        if (denialRelay.Cancelled)
         {
             _magic.Speak(ev);
             ev.Handled = true;
@@ -1245,7 +1261,9 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
-        if (_magic.SpellDenied(ev.Target))
+        var denialRelay = new TouchSpellDenialRelayEvent();
+        RaiseLocalEvent(ev.Target, ref denialRelay);
+        if (denialRelay.Cancelled)
         {
             _magic.Speak(ev);
             ev.Handled = true;
@@ -1266,7 +1284,9 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
-        if (_magic.SpellDenied(ev.Target))
+        var denialRelay = new TouchSpellDenialRelayEvent();
+        RaiseLocalEvent(ev.Target, ref denialRelay);
+        if (denialRelay.Cancelled)
         {
             _magic.Speak(ev);
             ev.Handled = true;

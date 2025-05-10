@@ -19,6 +19,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Religion.Events;
 using Content.Server.Chat.Systems;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Heretic.Abilities;
@@ -198,7 +199,9 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
         if (_whitelist.IsBlacklistPass(comp.Blacklist, target))
             return;
 
-        if (_magic.SpellDenied(target))
+        var denialRelay = new TouchSpellDenialRelayEvent();
+        RaiseLocalEvent(target, ref denialRelay);
+        if (denialRelay.Cancelled)
         {
             _actions.SetCooldown(hereticComp.MansusGrasp, ent.Comp.CooldownAfterUse);
             hereticComp.MansusGrasp = EntityUid.Invalid;
