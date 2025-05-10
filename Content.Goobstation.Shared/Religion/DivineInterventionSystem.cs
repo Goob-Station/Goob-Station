@@ -106,10 +106,10 @@ public sealed class DivineInterventionSystem : EntitySystem
     /// </summary>
     public bool TouchSpellDenied(EntityUid target)
     {
-        var beforeTouchSpellEvent = new BeforeCastTouchSpellEvent(target);
-        RaiseLocalEvent(target, ref beforeTouchSpellEvent, true);
+        var ev = new BeforeCastTouchSpellEvent(target);
+        RaiseLocalEvent(target, ev, true);
 
-        return beforeTouchSpellEvent.Cancelled;
+        return ev.Cancelled;
     }
 
     #endregion
