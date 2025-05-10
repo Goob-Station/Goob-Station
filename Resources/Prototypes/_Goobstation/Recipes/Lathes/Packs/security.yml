@@ -13,8 +13,6 @@
 - type: latheRecipePack
   id: SecurityAmmoStaticGoob
   recipes:
-  - MagazineMagnumEmpty
-  - MagazineMagnum
   - MagazineBoxShotgunHighCaliber
   - MagazineBoxShotgunSlugHighCaliber
   - MagazineBoxShotgunPracticeHighCaliber
