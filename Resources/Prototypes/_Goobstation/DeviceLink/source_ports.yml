@@ -81,6 +81,13 @@
   name: signal-port-name-storage-removed
   description: signal-port-description-storage-removed
 
+# Fax Machine
+
+- type: sourcePort
+  id: AutomationSlotPaper
+  name: signal-port-name-automation-slot-paper
+  description: signal-port-description-automation-slot-paper
+
 # Constructor / Interactor
 
 - type: sourcePort
