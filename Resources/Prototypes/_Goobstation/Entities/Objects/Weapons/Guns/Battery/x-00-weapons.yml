@@ -83,6 +83,11 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
     defaultDirection: 1, 0
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 25
+    autoRechargePause: true
+    autoRechargePauseTime: 20
   - type: ProjectileBatteryAmmoProvider
     proto: BulletLaserHeavy
     fireCost: 30
