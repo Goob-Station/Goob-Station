@@ -37,10 +37,14 @@ public sealed class DivineInterventionSystem : EntitySystem
     /// The bare minimum, no flavor -
     /// used for spells that do not necessarily require players to be notified of an immunity event
     /// </summary>
-    public bool ShouldDeny(EntityUid ent)
+    public bool ShouldDeny(EntityUid target, out EntityUid? denyingItem)
     {
-        return _inventory.GetHandOrInventoryEntities(ent).Any(HasComp<DivineInterventionComponent>);
+        denyingItem = _inventory.GetHandOrInventoryEntities(target)
+            .FirstOrDefault(HasComp<DivineInterventionComponent>);
+        return denyingItem != null;
     }
+    //Overload Method
+    public bool ShouldDeny(EntityUid target) => ShouldDeny(target, out _);
 
     #region Flavour
     /// <summary>
@@ -48,7 +52,9 @@ public sealed class DivineInterventionSystem : EntitySystem
     /// </summary>
     private void DenialEffects(EntityUid uid, EntityUid? entNullable)
     {
-        if (entNullable is not { } ent  || !TryComp<DivineInterventionComponent>(uid, out var comp) || _net.IsClient)
+        if (entNullable is not { } ent
+            || !TryComp<DivineInterventionComponent>(uid, out var comp)
+            || _net.IsClient)
             return;
         _popupSystem.PopupEntity(Loc.GetString(comp.DenialString), ent, PopupType.MediumCaution);
         _audio.PlayPvs(comp.DenialSound, ent);
@@ -62,20 +68,15 @@ public sealed class DivineInterventionSystem : EntitySystem
     /// </summary>
     private void OnTouchSpellAttempt(BeforeCastTouchSpellEvent args)
     {
-        if (args.Target is not { } target
-            || !HasComp<HandsComponent>(target)
-            || !HasComp<InventoryComponent>(target))
+        if (args.Target is not { } target)
             return;
 
-        var contained = _inventory.GetHandOrInventoryEntities(target);
-        foreach (var item in contained)
+        if (ShouldDeny(target, out var denyingItem)
+            && denyingItem != null
+            && Exists(denyingItem.Value))
         {
-            if (!HasComp<DivineInterventionComponent>(item))
-                continue;
-
             args.Cancel();
-            DenialEffects(item, args.Target.Value);
-            break;
+            DenialEffects(denyingItem.Value, target);
         }
     }
 
