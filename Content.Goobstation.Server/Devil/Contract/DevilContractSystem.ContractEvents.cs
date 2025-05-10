@@ -49,6 +49,7 @@ public sealed partial class DevilContractSystem
 
         Dirty(args.Target, body);
         _sawmill.Debug($"Removed part {ToPrettyString(pick.Id)} from {ToPrettyString(args.Target)}");
+        QueueDel(pick.Id);
     }
 
     private void OnLoseLeg(DevilContractLoseLegEvent args)
@@ -68,6 +69,7 @@ public sealed partial class DevilContractSystem
 
         Dirty(args.Target, body);
         _sawmill.Debug($"Removed part {ToPrettyString(pick.Id)} from {ToPrettyString(args.Target)}");
+        QueueDel(pick.Id);
     }
 
     private void OnLoseOrgan(DevilContractLoseOrganEvent args)
