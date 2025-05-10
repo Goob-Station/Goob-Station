@@ -1,0 +1,106 @@
+- type: entity
+  name: Executive briefcase
+  parent: [BaseItem, StorePresetNTR, BaseGrandTheftContraband]
+  suffix: Empty
+  id: ExecutiveBriefcaseEmpty
+  description: A standard-issue executive briefcase for secure NanoNeT access.
+  components:
+  - type: Item
+    size: Ginormous
+    sprite: _Goobstation/Objects/Tools/executive_briefcase.rsi
+  - type: Sprite
+    sprite: _Goobstation/Objects/Tools/executive_briefcase.rsi
+    state: icon
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Store
+    balance:
+      NTLoyaltyPoint: 0
+  - type: Tag
+    tags:
+    - HighRiskItem
+  - type: StealTarget
+    stealGroup: ExecutiveBriefcase
+  - type: BriefcaseScanner
+    scanDuration: 7.5
+  - type: CorporateOverride
+  - type: ItemSlots
+    slots:
+      CorporateOverrideSlot:
+        whitelist:
+          tags:
+          - CorporateOverride
+        insertSound:
+          path: /Audio/Machines/id_insert.ogg
+  - type: NtrClientAccount
+  - type: Speech
+
+- type: entity
+  id: ExecutiveBriefcaseDebug
+  parent: ExecutiveBriefcaseEmpty
+  suffix: Debug
+  components:
+  - type: Store
+    balance:
+      NTLoyaltyPoint: 999
+    categories:
+    - NTRstation
+    - NTRpersonal
+    - NTRresponse
+    - NTRBoards
+    - NTREvil
+
+# Executive briefcase store
+# i dont want to make a bunch of new files for 1 prototype so....
+- type: entity
+  id: StorePresetNTR
+  abstract: true
+  components:
+  - type: Store
+    name: store-preset-name-ntr
+    categories:
+    - NTRstation # for stuff like buying spesos, disablers, etc
+    - NTRpersonal # for, well, personal stuff.
+#    - NTRresponse # NO, DO NOT. IM NOT RESPONSIBLE IF YOU PUT THIS IN NORMAL EXEC STORE.
+    - NTRBoards # for hard to get boards
+#    - NTREvil # for evil stuff
+    currencyWhitelist:
+    - NTLoyaltyPoint
+    sales:
+      enabled: false
+    ownerOnly: true
+
+- type: storeCategory
+  id: NTRstation
+  name: ntr-executive-tier-1-name
+  priority: 0
+
+- type: storeCategory
+  id: NTRresponse
+  name: ntr-executive-tier-2-name
+  priority: 2 # making it all the way down
+
+- type: storeCategory
+  id: NTRpersonal
+  name: ntr-executive-tier-3-name
+  priority: 1
+
+- type: storeCategory
+  id: NTRBoards
+  name: ntr-executive-tier-5-name
+  priority: 3
+
+- type: storeCategory
+  id: NTREvil
+  name: Evil
+  priority: 5
+  evil: true # lol
+
+- type: currency
+  id: NTLoyaltyPoint
+  displayName: store-currency-nt-loyalty-point
+  canWithdraw: false
