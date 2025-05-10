@@ -23,6 +23,8 @@
 # SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Gansu <68031780+GansuLalan@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 aa5g21 <aa5g21@soton.ac.uk>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -36,8 +38,9 @@
   - type: Sprite
   - type: Instrument
   - type: ActivatableUI
-    inHandsOnly: true
+    inHandsOnly: false # Goobstation
     singleUser: true
+    requireActiveHand: false # Goobstation
     verbText: verb-instrument-openui
     key: enum.InstrumentUiKey.Key
   - type: UserInterface
