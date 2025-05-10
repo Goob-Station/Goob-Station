@@ -19,8 +19,10 @@
 # SPDX-FileCopyrightText: 2024 potato1234_x <79580518+potato1234x@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 wafehling <wafehling@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Minty642 <42335609+Minty642@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 UpAndLeaves <92269094+Alpha-Two@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -126,11 +128,11 @@
   minTemp: 374
   reactants:
     Oil:
-      amount: 5
+      amount: 1 # Goob edit - revert that once we get energy chem
     Ash:
-      amount: 3
+      amount: 0.6 # Goob edit - revert that once we get energy chem
     SulfuricAcid:
-      amount: 2
+      amount: 0.4 # Goob edit - revert that once we get energy chem
   effects:
     - !type:CreateEntityReactionEffect
       entity: SheetPlastic1
