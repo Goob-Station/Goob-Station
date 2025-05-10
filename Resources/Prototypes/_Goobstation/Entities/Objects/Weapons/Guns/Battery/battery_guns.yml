@@ -377,6 +377,11 @@
     canCreateVacuum: false
     deleteAfterExplosion: false
     repeatable: true
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 25
+    autoRechargePause: true
+    autoRechargePauseTime: 50
 
 - type: entity
   name: ion rifle
