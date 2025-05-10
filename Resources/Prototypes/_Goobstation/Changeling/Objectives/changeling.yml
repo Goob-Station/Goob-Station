@@ -139,7 +139,7 @@
 
 - type: entity
   parent: LingCMOStealObjective
-  id: CMOHyposprayStealObjective
+  id: LingCMOHyposprayStealObjective
   components:
   - type: StealCondition
     stealGroup: Hypospray
