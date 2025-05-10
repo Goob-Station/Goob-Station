@@ -39,8 +39,7 @@ public sealed class DivineInterventionSystem : EntitySystem
     /// </summary>
     public bool ShouldDeny(EntityUid ent)
     {
-        var contains = _inventory.GetHandOrInventoryEntities(ent);
-        return contains.Any(HasComp<DivineInterventionComponent>);
+        return _inventory.GetHandOrInventoryEntities(ent).Any(HasComp<DivineInterventionComponent>);
     }
 
     #region Flavour
