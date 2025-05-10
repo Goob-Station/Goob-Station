@@ -13,7 +13,6 @@ using Content.Shared.Damage;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
-using Content.Shared.Timing;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
 
@@ -25,9 +24,6 @@ public sealed class WeakToHolySystem : EntitySystem
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly GoobBibleSystem _goobBible = default!;
-    [Dependency] private readonly UseDelaySystem _useDelay = default!;
-
-
     public override void Initialize()
     {
         base.Initialize();
@@ -113,22 +109,21 @@ public sealed class WeakToHolySystem : EntitySystem
         var query = EntityQueryEnumerator<WeakToHolyComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            if (comp.NextSpecialHealTick > _timing.CurTime || !comp.IsColliding)
-                continue;
+            // Rune healing
+            if (comp.NextSpecialHealTick <= _timing.CurTime && comp.IsColliding)
+            {
+                _damageableSystem.TryChangeDamage(uid, comp.HealAmount);
+                comp.NextSpecialHealTick = _timing.CurTime + comp.HealTickDelay;
+            }
 
-            _damageableSystem.TryChangeDamage(uid, comp.HealAmount);
-            comp.NextSpecialHealTick = _timing.CurTime + comp.HealTickDelay;
+            // Passive healing
+            if (comp.NextPassiveHealTick <= _timing.CurTime)
+            {
+                _damageableSystem.TryChangeDamage(uid, comp.PassiveAmount);
+                comp.NextPassiveHealTick = _timing.CurTime + comp.HealTickDelay;
+            }
         }
 
-        // Passive healing.
-        while (query.MoveNext(out var uid, out var comp))
-        {
-            if (comp.NextPassiveHealTick > _timing.CurTime)
-                continue;
-
-            _damageableSystem.TryChangeDamage(uid, comp.PassiveAmount);
-            comp.NextPassiveHealTick = _timing.CurTime + comp.HealTickDelay;
-        }
     }
 
     #endregion

@@ -18,9 +18,9 @@ public sealed partial class HealUserOnPraySystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<HealUserOnPrayComponent, NullrodPrayEvent>(OnPray);
+        SubscribeLocalEvent<HealUserOnPrayComponent, AlternatePrayEvent>(OnPray);
     }
-    private void OnPray(EntityUid uid, HealUserOnPrayComponent comp, ref NullrodPrayEvent args)
+    private void OnPray(EntityUid uid, HealUserOnPrayComponent comp, ref AlternatePrayEvent args)
     {
         _damageable.TryChangeDamage(uid, comp.Damage);
     }

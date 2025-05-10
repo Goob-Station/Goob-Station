@@ -5,7 +5,7 @@
 
 using Robust.Shared.Audio;
 
-namespace Content.Goobstation.Server.OnPray.ReloadOnPray;
+namespace Content.Goobstation.Server.Religion.OnPray.ReloadOnPray;
 
 [RegisterComponent]
 public sealed partial class ReloadOnPrayComponent : Component
