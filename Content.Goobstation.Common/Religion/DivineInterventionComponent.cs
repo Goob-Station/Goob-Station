@@ -30,5 +30,5 @@ public sealed partial class DivineInterventionComponent : Component
     /// Which loc string to display.
     /// </summary>
     [DataField]
-    public string DenialString = "nullrod-spelldenial-popup";
+    public LocId DenialString = "nullrod-spelldenial-popup";
 }

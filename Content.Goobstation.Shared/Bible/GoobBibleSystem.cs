@@ -7,6 +7,7 @@
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Exorcism;
 using Content.Goobstation.Shared.Religion;
+using Content.Goobstation.Shared.Religion.Nullrod;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Mobs.Systems;
@@ -34,7 +35,11 @@ public sealed partial class GoobBibleSystem : EntitySystem
         if (!Resolve(bible, ref useDelay, ref bibleComp))
             return false;
 
-        if (!HasComp<WeakToHolyComponent>(target)
+        var ev = new DamageUnholyEvent(target, performer);
+        RaiseLocalEvent(target, ref ev);
+
+        if (!TryComp<WeakToHolyComponent>(target, out var weakToHoly)
+            || !ev.ShouldTakeHoly
             || !HasComp<BibleUserComponent>(performer)
             || !_timing.IsFirstTimePredicted
             || _delay.IsDelayed(bible))
@@ -52,9 +57,8 @@ public sealed partial class GoobBibleSystem : EntitySystem
         if (!_mobStateSystem.IsIncapacitated(target))
         {
             var popup = Loc.GetString("weaktoholy-component-bible-sizzle", ("target", target), ("item", bible));
-            _popupSystem.PopupEntity(popup, target, PopupType.LargeCaution);
+            _popupSystem.PopupPredicted(popup, performer, target, PopupType.LargeCaution);
             _audio.PlayPvs(bibleComp.SizzleSoundPath, target);
-
             _damageableSystem.TryChangeDamage(target, bibleComp.SmiteDamage * multiplier, true, origin: bible);
             _stun.TryParalyze(target, bibleComp.SmiteStunDuration * multiplier, false);
             _delay.TryResetDelay((bible, useDelay));

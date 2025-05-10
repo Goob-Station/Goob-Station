@@ -29,22 +29,22 @@ public sealed partial class HealNearOnPraySystem : EntitySystem
     {
         var lookup = _lookup.GetEntitiesInRange(args.User, comp.Range);
 
-        foreach (var entity in lookup.Where(entity => !HasComp<WeakToHolyComponent>(entity))) // im linqing it
+        foreach (var entity in lookup.Where(HasComp<MobStateComponent>))
         {
-            if (HasComp<MobStateComponent>(entity)) //god forgive me I don't know linq
-            {
-                _damageable.TryChangeDamage(entity, comp.Healing);
-                _audio.PlayPvs(comp.HealSoundPath, entity);
-                Spawn(comp.HealEffect, Transform(entity).Coordinates);
-            }
-        }
-        foreach (var entity in lookup.Where(HasComp<WeakToHolyComponent>)) // godo
-        {
-            if (HasComp<MobStateComponent>(entity))
+            var ev = new DamageUnholyEvent(entity, args.User);
+            RaiseLocalEvent(entity, ref ev);
+
+            if (ev.ShouldTakeHoly)
             {
                 _damageable.TryChangeDamage(entity, comp.Damage);
                 _audio.PlayPvs(comp.SizzleSoundPath, entity);
                 Spawn(comp.DamageEffect, Transform(entity).Coordinates);
+            }
+            else
+            {
+                _damageable.TryChangeDamage(entity, comp.Healing);
+                _audio.PlayPvs(comp.HealSoundPath, entity);
+                Spawn(comp.HealEffect, Transform(entity).Coordinates);
             }
         }
     }

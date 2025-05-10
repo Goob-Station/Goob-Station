@@ -690,12 +690,6 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
         if (cosmicGamerule.CurrentTier == 3)
         {
-        // Goobstation Change - Shitchap
-            if (!HasComp<WeakToHolyComponent>(uid))
-                EnsureComp<WeakToHolyComponent>(uid).AlwaysTakeHoly = true;
-            else
-                cultComp.WasWeakToHoly = true;
-
             cultComp.EntropyBudget = 48; // pity balance
             cultComp.Respiration = false;
 
@@ -708,6 +702,12 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         }
         else if (cosmicGamerule.CurrentTier == 2)
         {
+            // Goobstation Change - Shitchap
+            if (!HasComp<WeakToHolyComponent>(uid))
+                EnsureComp<WeakToHolyComponent>(uid).AlwaysTakeHoly = true;
+            else
+                cultComp.WasWeakToHoly = true;
+
             cultComp.EntropyBudget = 26; // pity balance
 
             foreach (var influenceProto in _protoMan.EnumeratePrototypes<InfluencePrototype>().Where(influenceProto => influenceProto.Tier == 2))
