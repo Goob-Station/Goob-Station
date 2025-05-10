@@ -41,8 +41,8 @@
   id: NanotrasenRepresentativeBackpack
   name: loadout-group-ntr-backpack
   loadouts:
-  - NanotrasenRepresentativeSatchel
   - NanotrasenRepresentativeBackpack
+  - NanotrasenRepresentativeSatchel
   - NanotrasenRepresentativeDuffel
   - NanotrasenRepresentativeMessenger
 
@@ -213,3 +213,23 @@
   minLimit: 0
   loadouts:
   - CaptainMask
+
+# Salvage specialist
+
+- type: loadoutGroup
+  id: SalvageSpecialistNeck
+  name: loadout-group-salvage-specialist-neck
+  minLimit: 0
+  loadouts:
+  - MinerCloak
+
+# Chemist
+
+- type: loadoutGroup
+  id: ChemistHead
+  name: loadout-group-chemist-head
+  minLimit: 0
+  loadouts:
+  - MedicalBeret
+  - SeniorPhysicianBeret
+  - ChemistUshanka # Da.

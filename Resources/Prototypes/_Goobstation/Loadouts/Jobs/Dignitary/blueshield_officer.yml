@@ -103,6 +103,11 @@
   equipment:
     back: ClothingBackpackDuffelBlueshield
 
+- type: loadout
+  id: BlueshieldOfficerMessenger
+  equipment:
+    back: ClothingBackpackMessengerBlueshield
+
 # Shoes
 - type: loadout
   id: BlackCowboyBoots
