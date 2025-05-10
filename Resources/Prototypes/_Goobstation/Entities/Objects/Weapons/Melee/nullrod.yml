@@ -132,8 +132,6 @@
   - type: Sprite
     sprite: _ShitChap/Objects/Weapons/Nullrod/rosary.rsi
     state: icon
-  - type: UseDelay
-    delay: 5.0
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Effects/weak_hit1.ogg
@@ -141,7 +139,7 @@
       types:
         Blunt: 3
         Holy: 10
-  - type: SpeedModifiedOnWield # HOLY.. AURA!
+  - type: HeldSpeedModifier # HOLY.. AURA!
     walkModifier: 1.15
     sprintModifier: 1.15
   - type: Item
@@ -160,10 +158,10 @@
   - type: HealNearOnPray
     healing:
       groups:
-        Brute: -15.0
-        Burn: -15.0
+        Brute: -17.0
+        Burn: -17.0
         Toxin: -3.0
-        Airloss: -6.0
+        Airloss: -7.0
     damage:
       types:
         Holy: 30

@@ -9,6 +9,7 @@ using Content.Goobstation.Shared.Religion;
 using Content.Goobstation.Shared.Religion.Nullrod;
 using Content.Shared.Damage;
 using Content.Shared.Mobs.Components;
+using Robust.Shared.Audio.Systems;
 
 namespace Content.Goobstation.Server.OnPray.HealNearOnPray;
 
@@ -16,6 +17,7 @@ public sealed partial class HealNearOnPraySystem : EntitySystem
 {
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {
@@ -30,12 +32,20 @@ public sealed partial class HealNearOnPraySystem : EntitySystem
         foreach (var entity in lookup.Where(entity => !HasComp<WeakToHolyComponent>(entity))) // im linqing it
         {
             if (HasComp<MobStateComponent>(entity)) //god forgive me I don't know linq
+            {
                 _damageable.TryChangeDamage(entity, comp.Healing);
+                _audio.PlayPvs(comp.HealSoundPath, entity);
+                Spawn(comp.HealEffect, Transform(entity).Coordinates);
+            }
         }
         foreach (var entity in lookup.Where(HasComp<WeakToHolyComponent>)) // godo
         {
             if (HasComp<MobStateComponent>(entity))
+            {
                 _damageable.TryChangeDamage(entity, comp.Damage);
+                _audio.PlayPvs(comp.SizzleSoundPath, entity);
+                Spawn(comp.DamageEffect, Transform(entity).Coordinates);
+            }
         }
     }
 }
