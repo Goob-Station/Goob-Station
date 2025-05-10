@@ -49,6 +49,8 @@
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Momo <Rsnesrud@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -189,8 +191,8 @@
   - type: ToggleClothing
     action: ActionToggleSpeedBoots
   - type: ClothingSpeedModifier
-    walkModifier: 1.5
-    sprintModifier: 1.5
+    walkModifier: 1.25 # goob
+    sprintModifier: 1.25 # goob
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -201,7 +203,7 @@
   - type: StaticPrice
     price: 500
   - type: PowerCellDraw
-    drawRate: 4
+    drawRate: 3 # goob
   - type: ToggleCellDraw
   - type: ItemSlots
     slots:

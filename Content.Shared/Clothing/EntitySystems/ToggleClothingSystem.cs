@@ -3,6 +3,8 @@
 // SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -57,6 +59,9 @@ public sealed class ToggleClothingSystem : EntitySystem
 
     private void OnToggleAction(Entity<ToggleClothingComponent> ent, ref ToggleActionEvent args)
     {
+        if (args.Type != ToggleType.None && (args.Type & ToggleType.Clothing) == 0) // Goobstation
+            return;
+
         args.Handled = _toggle.Toggle(ent.Owner, args.Performer);
     }
 

@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
@@ -47,7 +48,7 @@
           tags:
           - ShellShotgunHeavy
   - type: Gun
-    fireRate: 0.80
+    fireRate: 0.60
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/batrifle.ogg
   - type: ChamberMagazineAmmoProvider
