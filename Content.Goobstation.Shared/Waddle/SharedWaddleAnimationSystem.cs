@@ -88,7 +88,7 @@ public abstract class SharedWaddleAnimationSystem : EntitySystem
 
     /// <summary>
     /// Enables or disables waddling for a entity, including the animation.
-    /// Unless force is true, prevents dead people etc from waddling using <see cref="CanWaddle">.
+    /// Unless force is true, prevents dead people etc from waddling using <see cref="CanWaddle"/>.
     /// </summary>
     public void SetWaddling(Entity<WaddleAnimationComponent> ent, bool waddling, bool force = false)
     {
