@@ -223,7 +223,7 @@ public sealed class CarryingSystem : EntitySystem
     {
         TimeSpan length = GetPickupDuration(carrier, carried);
 
-        if (length.TotalSeconds >= 9f)
+        if (length.TotalSeconds >= 30f) // Goobstation - increased for mech carrying
         {
             _popup.PopupClient(Loc.GetString("carry-too-heavy"), carried, carrier, PopupType.SmallCaution);
             return;

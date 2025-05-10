@@ -211,6 +211,7 @@ public sealed partial class MechSystem : SharedMechSystem
             var enterVerb = new AlternativeVerb
             {
                 Text = Loc.GetString("mech-verb-enter"),
+                Priority = 3, // Goobstation - higher than carry
                 Act = () =>
                 {
                     var doAfterEventArgs = new DoAfterArgs(EntityManager, args.User, component.EntryDelay, new MechEntryEvent(), uid, target: uid)

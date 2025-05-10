@@ -39,6 +39,7 @@
   - type: MobMover
   - type: Mech
   - type: MechAir
+  - type: Carriable # Goobstation
   - type: AirFilter
     # everything except oxygen and nitrogen
     gases:
