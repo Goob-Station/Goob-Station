@@ -4,7 +4,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Goobstation.Server.Devil.HandShake;
+namespace Content.Goobstation.Shared.Devil;
 
 [RegisterComponent]
 public sealed partial class PendingHandshakeComponent : Component

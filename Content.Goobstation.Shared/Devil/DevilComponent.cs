@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Dataset;
@@ -16,28 +23,20 @@ public sealed partial class DevilComponent : Component
     {
         "ActionCreateContract",
         "ActionShadowJaunt",
+        "ActionDevilGrip",
     };
 
     [DataField]
-    public List<EntityUid> ActionEntities;
+    public List<EntityUid>? ActionEntities;
 
     /// <summary>
     /// The amount of souls or successful contracts the entity has.
     /// </summary>
     [DataField]
-    public int Souls = 0;
+    public int Souls;
 
     [DataField]
     public ProtoId<DevilBranchPrototype> DevilBranchPrototype = "BaseDevilBranch";
-
-    /// <summary>
-    /// Should it perform startup tasks and apply items?
-    /// </summary>
-    /// <remarks>
-    /// False by default so possession doesn't bork.
-    /// Run the gamerule if you want to make someone a devil silly.
-    /// </remarks>
-    public bool DoStartup;
 
     /// <summary>
     /// The true name of the devil.
@@ -94,18 +93,16 @@ public sealed partial class DevilComponent : Component
     [DataField]
     public TimeSpan ParalyzeDurationOnTrueName = TimeSpan.FromSeconds(4);
 
-    [ViewVariables]
-    public Dictionary<DevilPowerLevel, ProtoId<PolymorphPrototype>> PowerLevelToJauntPrototypeMap = new()
-    {
-        { DevilPowerLevel.Weak, new ProtoId<PolymorphPrototype>("ShadowJaunt30") },
-        { DevilPowerLevel.Moderate, new ProtoId<PolymorphPrototype>("ShadowJaunt60") },
-        { DevilPowerLevel.Powerful, new ProtoId<PolymorphPrototype>("ShadowJaunt90") },
-    };
+    [ViewVariables(VVAccess.ReadOnly)]
+    public EntityUid? DevilGrip;
 
     // abandom all hope, all ye who enter
 
     [DataField]
     public TimeSpan PossessionDuration = TimeSpan.FromSeconds(30);
+
+    [DataField]
+    public EntProtoId GripPrototype = "DevilGrip";
 
     [DataField]
     public EntProtoId ContractPrototype = "PaperDevilContract";
@@ -115,6 +112,9 @@ public sealed partial class DevilComponent : Component
 
     [DataField]
     public EntProtoId PentagramEffectProto = "Pentagram";
+
+    [DataField]
+    public EntProtoId FireEffectProto = "FireEffect";
 
     [DataField]
     public EntProtoId JauntAnimationProto = "PolymorphShadowJauntAnimation";

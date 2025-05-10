@@ -5,14 +5,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Linq;
-using Content.Goobstation.Server.Devil.HandShake;
 using Content.Goobstation.Shared.CheatDeath;
 using Content.Goobstation.Shared.Devil;
-using Content.Goobstation.Shared.Devil.Contract;
+using Content.Goobstation.Shared.Devil.Condemned;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Verbs;
-using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Server.Devil;
@@ -31,7 +28,8 @@ public sealed partial class DevilSystem
         || !args.CanInteract
         || _state.IsIncapacitated(args.Target)
         || !HasComp<MobStateComponent>(args.Target)
-        || args.Target == args.User)
+        || args.Target == args.User
+        || HasComp<CondemnedComponent>(args.Target))
             return;
 
         InnateVerb handshakeVerb = new()
@@ -96,20 +94,7 @@ public sealed partial class DevilSystem
         var cheatdeath = EnsureComp<CheatDeathComponent>(target);
         cheatdeath.ReviveAmount = 1;
 
-        AddRandomNegativeClause(target);
-    }
-
-    private void AddRandomNegativeClause(EntityUid target)
-    {
-        var negativeClauses = _prototype.EnumeratePrototypes<DevilClausePrototype>()
-            .Where(c => c.ClauseWeight >= 0)
-            .ToList();
-
-        if (negativeClauses.Count == 0)
-            return;
-
-        var selectedClause = _random.Pick(negativeClauses);
-        _contract.ApplyEffectToTarget(target, selectedClause, null);
+        _contract.AddRandomNegativeClause(target);
     }
 
     public override void Update(float frameTime)

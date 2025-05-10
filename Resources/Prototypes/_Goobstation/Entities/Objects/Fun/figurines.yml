@@ -1,0 +1,10 @@
+- type: entity
+  parent: BaseFigurine
+  id: ToyFigurineDevil
+  name: demon figure
+  description: A figurine depicting a Demon sporting a freshly tailored suit.
+  components:
+  - type: Sprite
+    state: lawyer
+  - type: SpeakOnTrigger
+    pack: FigurinesDevil
