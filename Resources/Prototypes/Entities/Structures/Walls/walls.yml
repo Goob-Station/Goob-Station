@@ -170,6 +170,7 @@
 # SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 yahay505 <58685802+yahay505@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 yavuz <58685802+yahay505@users.noreply.github.com>
 #
@@ -226,10 +227,13 @@
   - type: StaticPrice
     price: 75
   - type: BlockWeather
-  - type: Penetratable # Goobstation - Better snipers
+  - type: SunShadowCast
+  # Goobstation
+  - type: Penetratable
     penetrateDamage: 50
     damagePenalty: 0.1
-  - type: SunShadowCast
+  - type: ExaminableDamage
+    messages: WindowMessages
 
 - type: entity
   parent: BaseWall

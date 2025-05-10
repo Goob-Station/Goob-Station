@@ -2,6 +2,8 @@
 # SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -23,3 +25,35 @@
     Glass: 100
     Plastic: 50
     Plasma: 50
+
+- type: latheRecipe
+  id: WeaponNailgun
+  result: WeaponNailgun
+  completetime: 5
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 500
+    Gold: 100
+    Plasma: 100
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineNailgun
+  result: MagazineNailgun
+  materials:
+    Steel: 200
+
+- type: latheRecipe
+  parent: BaseEmptyAmmoRecipe
+  id: MagazineNailgunEmpty
+  result: MagazineNailgunEmpty
+  materials:
+    Steel: 25
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineNailgunArmorPiercing
+  result: MagazineNailgunArmorPiercing
+  materials:
+    Steel: 400
