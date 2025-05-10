@@ -25,11 +25,16 @@
   - type: ChangelingRule
   - type: GameRule
     minPlayers: 15
+  - type: AntagRandomObjectives
+    sets:
+    - groups: ChangelingObjectiveGroups
+    maxDifficulty: 5
   - type: AntagObjectives
     objectives:
+    - ChangelingSurviveObjective
+    - ChangelingStealDNAObjective
     - ChangelingAbsorbObjective
     - EscapeIdentityObjective
-    - ChangelingSurviveObjective
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn
     agentName: changeling-roundend-name

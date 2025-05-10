@@ -279,6 +279,12 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             if (stamina.StaminaDamage >= stamina.CritThreshold || _gravity.IsWeightless(uid))
                 ToggleStrainedMuscles(uid, comp);
         }
+
+        if (comp.IsInStasis && comp.StasisTime > 0f)
+        {
+            comp.StasisTime -= 1f;
+        }
+
     }
 
     #region Helper Methods
@@ -559,18 +565,21 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         if (fingerprint.Fingerprint != null)
             data.Fingerprint = fingerprint.Fingerprint;
 
-        if (comp.AbsorbedDNA.Count >= comp.MaxAbsorbedDNA)
-            _popup.PopupEntity(Loc.GetString("changeling-sting-extract-max"), uid, uid);
-        else comp.AbsorbedDNA.Add(data);
-
         if (countObjective
         && _mind.TryGetMind(uid, out var mindId, out var mind)
-        && _mind.TryGetObjectiveComp<StealDNAConditionComponent>(mindId, out var objective, mind))
+        && _mind.TryGetObjectiveComp<StealDNAConditionComponent>(mindId, out var objective, mind)
+        && comp.AbsorbedDNA.Count < comp.MaxAbsorbedDNA) // no cheesing by spamming dna extract
         {
             objective.DNAStolen += 1;
         }
 
-        comp.TotalStolenDNA++;
+        if (comp.AbsorbedDNA.Count >= comp.MaxAbsorbedDNA)
+            _popup.PopupEntity(Loc.GetString("changeling-sting-extract-max"), uid, uid);
+        else
+        {
+            comp.AbsorbedDNA.Add(data);
+            comp.TotalStolenDNA++;
+        }
 
         return true;
     }
@@ -765,6 +774,8 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         // making sure things are right in this world
         comp.Chemicals = comp.MaxChemicals;
 
+        comp.TotalEvolutionPoints = 16; // changelings start with 16
+
         // show alerts
         UpdateChemicals(uid, comp, 0);
         // make their blood unreal
@@ -792,7 +803,11 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             return;
 
         if (mobState.CurrentState != MobState.Dead)
+        {
+            var currentDamage = MathF.Min(target.TotalDamage.Float(), 180f);
+            ent.Comp.StasisTime = MathF.Max(30f, currentDamage);
             return;
+        }
 
         if (!args.DamageIncreased)
             return;

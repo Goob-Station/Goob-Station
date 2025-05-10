@@ -22,6 +22,7 @@ public sealed partial class ChangelingObjectiveSystem : EntitySystem
 
         SubscribeLocalEvent<AbsorbConditionComponent, ObjectiveGetProgressEvent>(OnAbsorbGetProgress);
         SubscribeLocalEvent<StealDNAConditionComponent, ObjectiveGetProgressEvent>(OnStealDNAGetProgress);
+        SubscribeLocalEvent<AbsorbChangelingConditionComponent, ObjectiveGetProgressEvent>(OnAbsorbChangelingGetProgress);
     }
 
     private void OnAbsorbGetProgress(EntityUid uid, AbsorbConditionComponent comp, ref ObjectiveGetProgressEvent args)
@@ -36,6 +37,13 @@ public sealed partial class ChangelingObjectiveSystem : EntitySystem
         var target = _number.GetTarget(uid);
         if (target != 0)
             args.Progress = MathF.Min(comp.DNAStolen / target, 1f);
+        else args.Progress = 1f;
+    }
+    private void OnAbsorbChangelingGetProgress(EntityUid uid, AbsorbChangelingConditionComponent comp, ref ObjectiveGetProgressEvent args)
+    {
+        var target = _number.GetTarget(uid);
+        if (target != 0)
+            args.Progress = MathF.Min(comp.LingAbsorbed / target, 1f);
         else args.Progress = 1f;
     }
 }

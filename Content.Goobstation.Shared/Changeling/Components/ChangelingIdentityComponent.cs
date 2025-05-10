@@ -21,6 +21,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Humanoid;
 using Content.Shared.StatusIcon;
 using Robust.Shared.Audio;
@@ -86,6 +87,12 @@ public sealed partial class ChangelingIdentityComponent : Component
     public Dictionary<string, EntityUid?> Equipment = new();
 
     /// <summary>
+    ///     Time the changeling must spend in stasis
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float StasisTime = 30f;
+
+    /// <summary>
     ///     Current amount of chemicals changeling currently has.
     /// </summary>
     [DataField, AutoNetworkedField]
@@ -96,6 +103,12 @@ public sealed partial class ChangelingIdentityComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public float MaxChemicals = 100.0f;
+
+    /// <summary>
+    ///     Total evolution points gained by the changeling.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float TotalEvolutionPoints = 0f;
 
     /// <summary>
     ///     Bonus chemicals regeneration. In case

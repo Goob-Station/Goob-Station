@@ -50,7 +50,8 @@ changeling-stasis-enter = We enter regenerative stasis
 changeling-stasis-enter-fail = Can't enter stasis!
 changeling-stasis-exit = We exit regenerative stasis
 changeling-stasis-exit-fail = We're not in stasis!
-changeling-stasis-exit-fail-dead = Can't exit stasis!
+changeling-stasis-exit-fail-dead = We feel... hollow. It is over.
+changeling-stasis-exit-fail-time = Our body is still recovering!
 
 changeling-fail-hands = Need to drop something beforehand
 

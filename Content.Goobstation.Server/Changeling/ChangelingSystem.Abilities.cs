@@ -191,7 +191,7 @@ public sealed partial class ChangelingSystem
         if (TryComp<ChangelingIdentityComponent>(target, out var targetComp))
         {
             bonusChemicals += targetComp.MaxChemicals / 2;
-            bonusEvolutionPoints += 10;
+            bonusEvolutionPoints += targetComp.TotalEvolutionPoints / 2;
         }
         else
         {
@@ -199,6 +199,9 @@ public sealed partial class ChangelingSystem
             bonusChemicals += 10;
             bonusEvolutionPoints += 2;
         }
+
+        comp.TotalEvolutionPoints += bonusEvolutionPoints;
+
         TryStealDNA(uid, target, comp, true);
         comp.TotalAbsorbedEntities++;
 
@@ -212,8 +215,16 @@ public sealed partial class ChangelingSystem
         }
 
         if (_mind.TryGetMind(uid, out var mindId, out var mind))
-            if (_mind.TryGetObjectiveComp<AbsorbConditionComponent>(mindId, out var objective, mind))
-                objective.Absorbed += 1;
+        {
+            if (_mind.TryGetObjectiveComp<AbsorbConditionComponent>(mindId, out var absorbObj, mind))
+                absorbObj.Absorbed += 1;
+
+            if (_mind.TryGetObjectiveComp<AbsorbChangelingConditionComponent>(mindId, out var lingAbsorbObj, mind) && HasComp<ChangelingComponent>(target))
+                lingAbsorbObj.LingAbsorbed += 1;
+        }
+
+        UpdateChemicals(uid, comp, comp.MaxChemicals); // refill chems to max
+
     }
 
     public List<ProtoId<ReagentPrototype>> BiomassAbsorbedChemicals = new() { "Nutriment", "Protein", "UncookedAnimalProteins", "Fat" }; // fat so absorbing raw meat good
@@ -340,8 +351,6 @@ public sealed partial class ChangelingSystem
         if (!TryUseAbility(uid, comp, args, null, false)) // ignores fires
             return;
 
-        comp.Chemicals = 0f;
-
         if (_mobState.IsAlive(uid))
         {
             // fake our death
@@ -369,6 +378,11 @@ public sealed partial class ChangelingSystem
             _popup.PopupEntity(Loc.GetString("changeling-stasis-exit-fail-dead"), uid, uid);
             return;
         }
+        if (comp.StasisTime > 0)
+        {
+            _popup.PopupEntity(Loc.GetString("changeling-stasis-exit-fail-time"), uid, uid);
+            return;
+        }
 
         if (!TryUseAbility(uid, comp, args, null, false)) // ignores fires
             return;
@@ -382,6 +396,7 @@ public sealed partial class ChangelingSystem
         _popup.PopupEntity(Loc.GetString("changeling-stasis-exit"), uid, uid);
 
         comp.IsInStasis = false;
+        comp.StasisTime = 30f;
 
         // stuns or knocks down anybody grabbing you
         if (_pull.IsPulled(uid))
