@@ -191,6 +191,10 @@
   - type: ClothingSpeedModifier
     walkModifier: 1.5
     sprintModifier: 1.5
+  - type: PowerCellSlot # Goobstation - 1984 le speed boots
+    cellSlotId: cell_slot
+    fitsInCharger: true
+    maximumSize: Small
   - type: Appearance
   - type: GenericVisualizer
     visuals:
