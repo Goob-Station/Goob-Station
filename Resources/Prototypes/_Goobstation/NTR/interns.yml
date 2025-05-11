@@ -117,7 +117,7 @@
     outerClothing: ClothingOuterArmorBasic
     gloves: ClothingHandsGlovesColorBlack
     shoes: ClothingShoesLeather
-    back: ClothingBackpackCentcom
+    back: ClothingBackpackCentcomm
     ears: ClothingHeadsetGrey
     id: PassengerIDCard
     pocket1: DrinkEnergyDrinkCan
