@@ -8897,3 +8897,9 @@ Entries:
   changes: []
   id: 1016
   time: '2025-05-11T02:19:18.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: Kitchen knifes now do damage when thrown at somebody.
+  id: 1017
+  time: '2025-05-11T02:19:58.0000000+00:00'
