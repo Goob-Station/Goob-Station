@@ -216,7 +216,7 @@
   description: What began as a simple cosplay cloak was illegally reinforced with armored plates, transforming it into a functional piece of armor. Looks like it's even capable of protecting the user from the lack of pressure in space.
   components:
   - type: Sprite
-    sprite: _Goobstation/Heretic/void_cloak.rsi
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/void_cloak.rsi
     layers:
     - state: icon
       map: [ "base" ]
