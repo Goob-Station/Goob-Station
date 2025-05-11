@@ -4,7 +4,8 @@
 // SPDX-License-Identifier: MPL-2.0
 
 using System.Diagnostics.CodeAnalysis;
-using Content.Goobstation.Shared.MisandryBox.Helpers;
+using System.Linq;
+using Content.Shared.Humanoid.Markings;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using JetBrains.Annotations;
@@ -37,10 +38,14 @@ public sealed partial class SaturationRequirement : JobRequirement
         if (profile is null)
             return true;
 
-        if (profile.Appearance.HairStyleId == Bald)
+        var mark = IoCManager.Resolve<MarkingManager>();
+        var hairstyles = mark.MarkingsByCategoryAndSpecies(MarkingCategories.Hair, profile.Species).Keys.ToList();
+
+        // Check if person is bald or has a hairstyle to begin with
+        if (profile.Appearance.HairStyleId == Bald || hairstyles.Count == 0)
             return true;
 
-        var saturation = profile.Appearance.HairColor.ToHSV().S;
+        var saturation = Color.ToHsv(profile.Appearance.HairColor).Y;
         var failed = Inverted
             ? HairColorSaturation > saturation
             : HairColorSaturation < saturation;
