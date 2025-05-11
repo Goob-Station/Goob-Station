@@ -59,8 +59,6 @@
   - type: Physics
     bodyType: Dynamic
     canCollide: true
-    collisionMask: 2147483647 # AllMask
-    collisionLayer: 62 # moblayer
     fixedRotation: true
   - type: DamageOnCollision
     damage:
