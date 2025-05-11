@@ -21,8 +21,6 @@
 # SPDX-FileCopyrightText: 2024 mubururu_ <139181059+muburu@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 Arraydeess <arraygitbash@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -56,18 +54,14 @@
         stomach:
           maxVol: 50.0
         food:
-          maxVol: 10 # goob edit
+          maxVol: 5
           reagents:
-            - ReagentId: GreyMatter
-              Quantity: 5
-            - ReagentId: Cognizine # goob edit
-              Quantity: 5 # goob edit
+          - ReagentId: GreyMatter
+            Quantity: 5
         organ:
           reagents:
-            - ReagentId: Slime
-              Quantity: 10
-            - ReagentId: Cognizine # goob edit
-              Quantity: 5 # goob edit
+          - ReagentId: Slime
+            Quantity: 10
     - type: Item
       size: Small
       heldPrefix: brain

@@ -233,7 +233,7 @@ namespace Content.Shared.Containers.ItemSlots
         {
             itemSlot = null;
 
-            if (!Resolve(uid, ref component, false)) // Goobstation - sane API
+            if (!Resolve(uid, ref component))
                 return false;
 
             return component.Slots.TryGetValue(slotId, out itemSlot);

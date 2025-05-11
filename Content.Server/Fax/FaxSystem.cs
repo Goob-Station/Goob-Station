@@ -77,6 +77,8 @@
 // SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
 // SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
 // SPDX-FileCopyrightText: 2024 exincore <me@exin.xyz>
@@ -101,9 +103,6 @@
 // SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 themias <89101928+themias@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -260,12 +259,7 @@ public sealed class FaxSystem : EntitySystem
 
     private void OnComponentInit(EntityUid uid, FaxMachineComponent component, ComponentInit args)
     {
-        // <Goobstation> - define the slot in ItemSlots instead of adding it
-        if (_itemSlotsSystem.TryGetSlot(uid, PaperSlotId, out var slot))
-            component.PaperSlot = slot;
-        else
-            _itemSlotsSystem.AddItemSlot(uid, PaperSlotId, component.PaperSlot);
-        // </Goobstation>
+        _itemSlotsSystem.AddItemSlot(uid, PaperSlotId, component.PaperSlot);
         UpdateAppearance(uid, component);
     }
 
@@ -597,9 +591,6 @@ public sealed class FaxSystem : EntitySystem
 
         UpdateUserInterface(uid, component);
 
-        if (!args.Actor.IsValid()) // Goobstation - no log for automation
-            return;
-
         _adminLogger.Add(LogType.Action,
             LogImpact.Low,
             $"{ToPrettyString(args.Actor):actor} " +
@@ -663,7 +654,6 @@ public sealed class FaxSystem : EntitySystem
 
         _deviceNetworkSystem.QueuePacket(uid, component.DestinationFaxAddress, payload);
 
-        if (!args.Actor.IsValid()) // Goobstation - no log for automation
         _adminLogger.Add(LogType.Action,
             LogImpact.Low,
             $"{ToPrettyString(args.Actor):actor} " +

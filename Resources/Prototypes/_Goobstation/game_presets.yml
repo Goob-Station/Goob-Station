@@ -173,7 +173,6 @@
     - LavalandStormScheduler
     - SubGamemodesRule
     - RareIonStormScheduler
-    - SpaceTrafficControlFriendlyEventScheduler
 
 - type: gamePreset
   id: TheGuide
@@ -189,4 +188,3 @@
     - LavalandStormScheduler
     - SubGamemodesRule
     - IonStormScheduler
-    - SpaceTrafficControlEventScheduler

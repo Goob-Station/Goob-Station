@@ -170,7 +170,6 @@
   # Begin Goobstation Additions
   - UpgradeKitAutomation
   - RoboticArmCircuitboard
-  - ConstructorCircuitboard
   - StorageBinCircuitboard
   # End Goobstation Additions
   - SheetifierMachineCircuitboard

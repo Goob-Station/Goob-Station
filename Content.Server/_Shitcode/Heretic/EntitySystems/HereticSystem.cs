@@ -9,8 +9,6 @@
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -18,7 +16,6 @@
 using Content.Server.Objectives.Components;
 using Content.Server.Store.Systems;
 using Content.Goobstation.Maths.FixedPoint;
-using Content.Shared.Eye;
 using Content.Shared.Heretic;
 using Content.Shared.Mind;
 using Content.Shared.Store.Components;
@@ -139,7 +136,7 @@ public sealed class HereticSystem : EntitySystem
 
         // add influence layer
         if (TryComp<EyeComponent>(ent, out var eye))
-            _eye.SetVisibilityMask(ent, eye.VisibilityMask | (int) VisibilityFlags.EldritchInfluence);
+            _eye.SetVisibilityMask(ent, eye.VisibilityMask | EldritchInfluenceComponent.LayerMask);
 
         foreach (var knowledge in ent.Comp.BaseKnowledge)
             _knowledge.AddKnowledge(ent, ent.Comp, knowledge);

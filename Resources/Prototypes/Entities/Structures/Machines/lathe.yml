@@ -500,7 +500,6 @@
     - SpecOpsGoogles
     - MedicalMisc
     - MedicalVehiclesAdvanced
-    - UpgradeKits
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityAmmo
@@ -568,6 +567,7 @@
     - ShuttleBoards
     # Goobstation Packs
     - SharedBoards
+    - UpgradeKits
   - type: MaterialStorage
     whitelist:
       tags:
@@ -613,7 +613,7 @@
     - BorgLimbsStatic
     # Goobstation Packs
     - MechPartsStatic
-    # - BorgModulesStaticGoob #Removes surgery module, medical cyborgs start with them
+    - BorgModulesStaticGoob
     - IPCPartsStatic
     - PowerCagesStatic
     - PartsStatic

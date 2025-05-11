@@ -39,6 +39,4 @@ loadout-group-security-neck = Security neck
 
 loadout-group-captain-mask = Captain Mask
 
-loadout-group-salvage-specialist-neck = Salvage Specialist neck
 
-loadout-group-chemist-head = Chemist head

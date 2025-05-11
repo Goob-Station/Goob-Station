@@ -83,7 +83,6 @@
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 // SPDX-FileCopyrightText: 2025 themias <89101928+themias@users.noreply.github.com>
 //
@@ -171,7 +170,7 @@ public abstract partial class SharedGunSystem
         // Continuous loading
         _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, component.FillDelay, new AmmoFillDoAfterEvent(), used: uid, target: args.Target, eventTarget: uid)
         {
-            // BreakOnMove = true, // Goobstation - no
+            BreakOnMove = true,
             BreakOnDamage = false,
             NeedHand = true,
         });
