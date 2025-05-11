@@ -8435,3 +8435,383 @@ Entries:
         available in the uplink.
   id: 972
   time: '2025-05-04T05:41:22.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Tweak
+      message: Cleaned up emote wheel.
+  id: 973
+  time: '2025-05-04T18:37:51.0000000+00:00'
+- author: AftrLite
+  changes:
+    - type: Add
+      message: >-
+        Added the Deimos and Phobos modsuits, cheaper equivalents to the
+        Bloodred and Elite hardsuit.
+    - type: Add
+      message: >-
+        NEW MAJOR ANTAGONIST: THE COSMIC CULT. The Vast Nameless Unknown wants
+        you to uninstall reality. As a treat.
+    - type: Tweak
+      message: Reduced damage values on some glyph usages.
+    - type: Tweak
+      message: >-
+        If there is only one cultist, and they are the leader, they will get the
+        ability to do conversions and such with one less cultist.
+    - type: Tweak
+      message: >-
+        If cultists are reduced down to one (deconversion or RRd), the last one
+        will be promoted to a leader.
+  id: 974
+  time: '2025-05-05T01:07:43.0000000+00:00'
+- author: TheBorzoiMustConsume, SolsticeOfTheWinter, Aviu00, gusxyz
+  changes:
+    - type: Add
+      message: Nullrod & it's variants
+    - type: Add
+      message: Fiery crosses to burn heretics like it's Walpurgisnacht!
+    - type: Add
+      message: Altar Crafting Recipe/s
+    - type: Add
+      message: Heretics can now take holy damage
+    - type: Add
+      message: Unholy (Heretic) and Magic (Wizard) Nullrod/Chaplain interactions.
+    - type: Add
+      message: New equipment in the PietyVend
+    - type: Add
+      message: A new chaplain guidebook entry
+    - type: Add
+      message: New information in the heretic guidebook
+  id: 975
+  time: '2025-05-05T03:36:13.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: You can now pray at the Casul & Jackul nullrods again.
+    - type: Tweak
+      message: nerfed nullrod damages across the board. Maints hate fun
+  id: 976
+  time: '2025-05-05T09:51:45.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: >-
+        Added handheld command monitor for Blueshield Officer that only tracks
+        heads and works as a deathrattle.
+    - type: Remove
+      message: Blueshield Officer no longer gets security comms and wanted HUD.
+  id: 977
+  time: '2025-05-05T10:05:35.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed cosmic cultists not being able to use glyphs.
+  id: 978
+  time: '2025-05-05T15:30:58.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: 4 new heretic side and roundstart knowledge.
+    - type: Add
+      message: Heretic blades are now limited, use reminiscence ritual to recall them.
+    - type: Add
+      message: >-
+        Flesh path ghouls get their own blade for free, this blade cannot be
+        shattered and disappears on their death.
+    - type: Add
+      message: >-
+        You can now infuse all blades that you have created at once in the
+        inventory or in hands if you cast mansus grasp while your hands are
+        occupied.
+    - type: Add
+      message: Knowledge ritual is now one-time only but gives 1 more point.
+    - type: Add
+      message: Standing on rust as non heretic is bad for your well-being now.
+    - type: Add
+      message: >-
+        Eldritch water can now rust tiles when splashing, Space Cola removes
+        rust the same way.
+    - type: Add
+      message: Rust is now removed using a welder instead of a crowbar.
+    - type: Add
+      message: Ominous hood protects from flashes and flashbangs now.
+    - type: Tweak
+      message: Blade ascension nerfed, it is not unkillable anymore.
+    - type: Tweak
+      message: >-
+        Halved rust heretic healing on rust, rustwalkers heal the same as
+        before.
+    - type: Tweak
+      message: Void path debuff is now better.
+    - type: Tweak
+      message: Entropic Plume is 25% weaker now.
+    - type: Fix
+      message: Fixed reality shifts spawning on empty tiles.
+  id: 979
+  time: '2025-05-05T16:24:08.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: Pepperspray can now correctly refill at dispensers.
+    - type: Fix
+      message: >-
+        You can no longer blow up hos by yelling "I AM THE LAW". Looking at you
+        Conrad, not cool..
+  id: 980
+  time: '2025-05-06T16:41:12.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Added shuttle collision damage.
+    - type: Tweak
+      message: Shuttle max speed increased to 50.
+  id: 981
+  time: '2025-05-06T16:44:39.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Tweak
+      message: Cosmic Cult and Heretics may no longer roll in the same round.
+  id: 982
+  time: '2025-05-06T16:50:49.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Abductor walls can now be destroyed.
+    - type: Add
+      message: >-
+        Large grids can now deal impact damage at lower velocities. Enjoy your
+        colony drops.
+    - type: Tweak
+      message: Walls should now matter more for impact damage.
+    - type: Tweak
+      message: Shuttle speed further raised to 60.
+    - type: Tweak
+      message: Impact damage to non-structures reduced, and to structures increased.
+    - type: Fix
+      message: >-
+        Impact damage can no longer destroy tiles under things without
+        destroying them first.
+  id: 983
+  time: '2025-05-07T18:00:36.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Add
+      message: IPCs now have corrupted speech when low power/durability
+    - type: Add
+      message: Updated base game to 13-04-2025 release
+  id: 984
+  time: '2025-05-08T16:54:21.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        Stealthsuit no longer needs to stand still for 3 seconds to start
+        cloaking. Damage resistance changes undone.
+  id: 985
+  time: '2025-05-09T06:02:24.0000000+00:00'
+- author: CreatorBot01
+  changes:
+    - type: Add
+      message: >-
+        PTL Flatpack now can also be found in ce locker. engi may now print
+        infinite money.
+  id: 986
+  time: '2025-05-09T06:03:07.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Tweak
+      message: Dripped out the Alien Tourist
+  id: 987
+  time: '2025-05-09T06:04:18.0000000+00:00'
+- author: the_biggestbruh
+  changes:
+    - type: Fix
+      message: >-
+        THE BASEBALL BAT HAS KNOCKBACK AGAIN. The universe has found peace. Goob
+        is saved.
+  id: 988
+  time: '2025-05-09T06:05:43.0000000+00:00'
+- author: DocNite, Mocho
+  changes:
+    - type: Add
+      message: Added a top right panel to separated chat layout!
+    - type: Tweak
+      message: Inspects in chat now have a fancy box around them.
+  id: 989
+  time: '2025-05-09T06:39:30.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Wideswing stamina damage is now per target hit -1.
+  id: 990
+  time: '2025-05-09T09:02:49.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Fix
+      message: Fixed research menu sidebar/bg
+  id: 991
+  time: '2025-05-09T16:26:47.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Tweak
+      message: Token Store now displays the cost of a hat token
+  id: 992
+  time: '2025-05-09T16:35:46.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Midround shuttle events should work again.
+  id: 993
+  time: '2025-05-09T18:27:29.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix rust charge not ending when performer is thrown into space.
+  id: 994
+  time: '2025-05-10T12:04:53.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix shadow cloaked heretic dying instantly to rust mansus grasp.
+  id: 995
+  time: '2025-05-10T12:05:20.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed upgrade kits not being in the protolathe.
+  id: 996
+  time: '2025-05-10T14:21:59.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: Faxes now accept automation upgrades.
+  id: 997
+  time: '2025-05-10T18:30:40.0000000+00:00'
+- author: Armok, Mocho
+  changes:
+    - type: Tweak
+      message: >-
+        HoS equipment has been reworked! The esword, lawbringer, and utility
+        items such as the thermals and hardsuits are now separate picks. Pick
+        and choose.
+    - type: Tweak
+      message: Lawbringer's pulse bullet only has two shots per charge now.
+    - type: Tweak
+      message: >-
+        Lawbringer's disabler bullet is no longer a two shot stun and now has
+        twice as much ammo.
+    - type: Tweak
+      message: >-
+        Lawbringer's execute bullet is now comparable to captain's laser in
+        terms of DPS and ammo count.
+    - type: Tweak
+      message: >-
+        Lawbringer's heat bullet cuases slightly less fire stacks and costs a
+        bit more.
+    - type: Tweak
+      message: >-
+        Lawbringer's clown shot has been buffed (Mocho's note: Did you know that
+        by removing projectile component it defaults to 14 pierce damage. Blunt
+        is easier to heal by med).
+    - type: Tweak
+      message: Removes blur on hit from all of the lawbringer projectiles but sleep.
+    - type: Tweak
+      message: Structural bullet actually does something now.
+    - type: Tweak
+      message: HOS Laser Rifle now deals 25dps with a large ammo capacity.
+    - type: Tweak
+      message: >-
+        HOS SMG deals less damage, fires faster, and has a wider area of effect
+        during prolonged shooting.
+    - type: Tweak
+      message: >-
+        HOS Sniper shoots once every 4 seconds and slows you down more when
+        wielded.
+    - type: Tweak
+      message: HOS Sniper now deals 20/20 heat shock, changed from 30/10.
+    - type: Tweak
+      message: All HOS non sniper weapons now deal heat instead of shock (which is AP).
+    - type: Tweak
+      message: The HOS sword deals boot knife level DPS when unpowered now.
+    - type: Tweak
+      message: HOS sword also has a sound now when unpowered.
+    - type: Tweak
+      message: HOS sword stun mode is a 4 hit stun at 1 hit per second.
+    - type: Tweak
+      message: >-
+        HOS sword ion mode no longer does shock and is just anti clanker
+        weaponry.
+    - type: Tweak
+      message: >-
+        HOS sword lethal mode hits twice as fast but does 2/3 the damage per
+        hit.
+    - type: Tweak
+      message: >-
+        Empowered is an all or nothing hit. Costing 1000 energy and dealing a
+        ton of shock damage.
+    - type: Tweak
+      message: >-
+        You can get the thermals, advanced boots and advanced hardsuit in a
+        unique kit, not a handout anymore.
+    - type: Tweak
+      message: HOS starts with the old hardsuit now.
+    - type: Tweak
+      message: Lawbringer is now a kit, not roundstart.
+  id: 998
+  time: '2025-05-10T18:49:24.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: Added waddling.
+  id: 999
+  time: '2025-05-10T19:03:18.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: >-
+        Added constructors to Industrial Engineering which can start building
+        structures and items.
+  id: 1000
+  time: '2025-05-10T21:30:45.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Add
+      message: >-
+        Added devices for crew to pick between lighter voidsuits or beefier
+        modsuits. Available to paramedics, security officers, the head of
+        security, engineers
+    - type: Tweak
+      message: Storage fills have been edited to provide said devices
+    - type: Tweak
+      message: >-
+        The head of security's parade voidsuit has been removed, the stim
+        feature is on the modsuit now
+    - type: Tweak
+      message: >-
+        the atmospheric technician voidsuit has been effectively replaced by the
+        'aeolus' modsuit
+    - type: Tweak
+      message: >-
+        the term 'hardsuit' now applies to MODsuits, anything you had come to
+        know as a hardsuit before is now a 'voidsuit'
+  id: 1001
+  time: '2025-05-11T01:12:49.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: >-
+        Expirienced salvagers, botanists, chemists and paramedics can now choose
+        new items in loadouts.
+    - type: Add
+      message: >-
+        Nanotrasen Representative can now choose centcomm backpack and satchel
+        in the loadout.
+  id: 1002
+  time: '2025-05-11T01:41:43.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Remove
+      message: >-
+        Security techfab can no longer print light rifle cartidges and magnum
+        pistol magazines.
+  id: 1003
+  time: '2025-05-11T01:42:38.0000000+00:00'
