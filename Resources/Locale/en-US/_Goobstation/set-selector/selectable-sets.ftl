@@ -147,6 +147,10 @@ selectable-set-blueshield-hardsuit-heavy-name = heavy hardsuit
 selectable-set-blueshield-hardsuit-heavy-description =
     A heavier hardsuit, allowing for more armor at the cost of speed.
 
+selectable-set-blueshield-modsuit-name = modsuit
+selectable-set-blueshield-modsuit-description =
+    A modsuit, allowing for more customisation, at the cost of requiring power.
+
 # ERT
 
 selectable-set-ert-ballistic-name = ballistics set
