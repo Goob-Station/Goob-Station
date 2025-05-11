@@ -94,7 +94,7 @@
     jumpsuit: ClothingUniformJumpsuitCentcomOfficer
     gloves: ClothingHandsGlovesColorYellowBudget
     shoes: ClothingShoesBootsWork
-    back: ClothingBackpackCentcom
+    back: ClothingBackpackCentcomm
     ears: ClothingHeadsetGrey
     id: PassengerIDCard # let NTR give them access on bridge lol, im too lazy to make a new ID just for interns
     pocket1: WeaponLaserSvalinn
