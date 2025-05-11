@@ -35,6 +35,7 @@ using Content.Goobstation.Common.Actions;
 using Content.Goobstation.Common.Changeling;
 using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Server.Changeling.Objectives.Components;
+using Content.Goobstation.Server.Changeling.GameTicking.Rules;
 using Content.Goobstation.Shared.Flashbang;
 using Content.Goobstation.Shared.Changeling.Actions;
 using Content.Goobstation.Shared.Changeling.Components;
@@ -145,6 +146,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly RejuvenateSystem _rejuv = default!;
     [Dependency] private readonly SelectableAmmoSystem _selectableAmmo = default!;
     [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly ChangelingRuleSystem _changelingRuleSystem = default!;
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
     public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
@@ -774,7 +776,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         // making sure things are right in this world
         comp.Chemicals = comp.MaxChemicals;
 
-        comp.TotalEvolutionPoints = 16; // changelings start with 16
+        comp.TotalEvolutionPoints = _changelingRuleSystem.StartingCurrency; // make sure its set to the default
 
         // show alerts
         UpdateChemicals(uid, comp, 0);

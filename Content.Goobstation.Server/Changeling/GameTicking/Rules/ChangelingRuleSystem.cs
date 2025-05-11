@@ -47,6 +47,8 @@ public sealed class ChangelingRuleSystem : GameRuleSystem<ChangelingRuleComponen
 
     public readonly ProtoId<CurrencyPrototype> Currency = "EvolutionPoint";
 
+    public readonly int StartingCurrency = 16;
+
     [ValidatePrototypeId<EntityPrototype>] EntProtoId mindRole = "MindRoleChangeling";
 
     public override void Initialize()
@@ -96,7 +98,7 @@ public sealed class ChangelingRuleSystem : GameRuleSystem<ChangelingRuleComponen
         foreach (var category in rule.StoreCategories)
             store.Categories.Add(category);
         store.CurrencyWhitelist.Add(Currency);
-        store.Balance.Add(Currency, 16);
+        store.Balance.Add(Currency, StartingCurrency);
 
         rule.ChangelingMinds.Add(mindId);
 
