@@ -285,7 +285,7 @@
 #  - type: StealTarget
 #    stealGroup: ClothingOuterVoidsuitParamedic
 #  - type: ToggleableClothing # Goobstation - Modsuits change
-#    clothingPrototypes: 
+#    clothingPrototypes:
 #      head: ClothingHeadHelmetVoidParamed
 
 # Security voidsuit
@@ -413,5 +413,3 @@
       Epinephrine: 10
       Bicaridine: 10
       TranexamicAcid: 5
-  - type: Item
-    size: Huge

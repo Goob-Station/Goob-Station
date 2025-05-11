@@ -79,6 +79,19 @@
     descriptionText: objective-condition-steal-smsliver-description
 
 - type: entity
+  parent: BaseTraitorStealObjective
+  id: LawbringerStealObjective
+  components:
+  - type: Objective
+    # HoS will have this on them a lot of the time so..
+    difficulty: 3
+  - type: NotJobRequirement
+    job: HeadOfSecurity
+  - type: StealCondition
+    stealGroup: WeaponEnergyGunLawbringer
+    owner: job-name-hos
+
+- type: entity
   parent: BaseCMOStealObjective
   id: CMORapidSyringeGunStealObjective
   components:

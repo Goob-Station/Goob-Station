@@ -1,0 +1,23 @@
+- type: loadout
+  id: HeadofSecuritySpecialBeret
+  equipment:
+    head: ClothingHeadHatBeretHeadOfSecurityAdvanced
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterHoS
+
+- type: loadout
+  id: HeadofSecurityGreatCoat
+  equipment:
+    outerClothing: ClothingOuterArmorHoSExperimental
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterHoS
+
+- type: loadout
+  id: AdvancedJackBoots
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterHoS
+  equipment:
+    belt: ClothingShoesBootsJackAdvancedFilled

@@ -293,7 +293,7 @@
 
 - type: entity
   name: DT-12 "Lawbringer"
-  parent: [BaseWeaponBatterySmall, BaseSecurityContraband]
+  parent: [BaseWeaponBatterySmall, BaseGrandTheftContraband]
   id: WeaponEnergyGunLawbringer
   description: A versatile energy gun, with many different modes. The owner of this gun embodies the law itself.
   components:
@@ -353,8 +353,11 @@
         shader: unshaded
   - type: Tag
     tags:
+    - HighRiskItem
     - Sidearm
     - WeaponEnergyGunLawbringer
+  - type: StealTarget
+    stealGroup: WeaponEnergyGunLawbringer
   - type: RestrictById
     restrictMelee: true
     restrictRanged: true
@@ -380,9 +383,9 @@
     repeatable: true
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 25
+    autoRechargeRate: 75
     autoRechargePause: true
-    autoRechargePauseTime: 50
+    autoRechargePauseTime: 45
 
 - type: entity
   name: ion rifle

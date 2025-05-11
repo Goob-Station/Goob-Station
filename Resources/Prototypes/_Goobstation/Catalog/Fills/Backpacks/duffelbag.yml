@@ -131,15 +131,3 @@
       amount: 9
     - id: CartridgeG8Hypercharged
       amount: 9
-
-- type: entity
-  parent: ClothingBackpackDuffel
-  id: ClothingBackpackDuffelHosFilledUtility
-  name: HoS Utility bundle
-  description: This bundle holds the various HoS utility items.
-  components:
-  - type: StorageFill
-    contents:
-    - id: ClothingOuterHardsuitHeadOfSecurityExperimental
-    - id: ClothingEyesGlassesSecurityAdvanced
-    - id: ClothingShoesBootsJackAdvanced

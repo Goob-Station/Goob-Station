@@ -22,6 +22,13 @@
     state: icon
 
 - type: stealTargetGroup
+  id: WeaponEnergyGunLawbringer
+  name: steal-target-groups-weapon-lawbringer
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/lawbringer.rsi
+    state: icon
+
+- type: stealTargetGroup
   id: RapidSyringeGun
   name: steal-target-groups-rapid-syringe-gun
   sprite:

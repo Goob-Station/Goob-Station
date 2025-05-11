@@ -27,14 +27,14 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 14
+        Blunt: 5
   - type: ProjectileRequireWhitelist
     whitelist:
      components:
       - Clumsy
   - type: ProjectileThrowOnHit
     distance: 10
-    speed: 30
+    speed: 10
 
 - type: entity
   id: BulletPulse
@@ -60,12 +60,8 @@
       types:
         Blunt: 5
   - type: ProjectileThrowOnHit
-    distance: 3
-    speed: 3
-  - type: BlurOnCollide
-  - type: StaminaDamageOnCollide
-    damage: 10
-    overtime: 20
+    distance: 4
+    speed: 8
 
 - type: entity
   id: BulletDetain
@@ -89,9 +85,10 @@
   - type: Projectile
     damage:
       types:
-        Heat: 2
+        Heat: 0
   - type: StaminaDamageOnCollide
     damage: 25
+    overtime: 15
 
 - type: entity
   id: BulletExecute
@@ -115,7 +112,8 @@
   - type: Projectile
     damage:
       types:
-        Heat: 17 #fuck parity
+        Heat: 20
+        Radiation: 5 # 13 parity
 
 - type: entity
   id: BulletHotshot
@@ -139,9 +137,10 @@
   - type: Projectile
     damage:
       types:
+        Blunt: 2
         Heat: 2
   - type: IgniteOnCollide
-    fireStacks: 1.5
+    fireStacks: 2.5
 
 - type: entity
   id: BulletSleepshot
@@ -181,10 +180,6 @@
         reagents:
         - ReagentId: Haloperidol
           Quantity: 2
-  - type: StunOnCollide
-    walkSpeedMultiplier: 0.8
-    runSpeedMultiplier: 0.8
-    slowdownAmount: 2
   - type: BlurOnCollide
 
 - type: entity
@@ -209,4 +204,7 @@
   - type: Projectile
     damage:
       types:
-        Structural: 250
+        Blunt: 2
+        Heat: 2
+        Structural: 50
+    ignoreResistances: true # This needs ProjectileDamageWhitelistComponent

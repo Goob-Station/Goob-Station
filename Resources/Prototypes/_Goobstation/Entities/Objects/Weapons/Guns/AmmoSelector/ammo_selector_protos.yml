@@ -77,33 +77,33 @@
 
 - type: selectableAmmo
   id: BulletEnergyGunPulse
-  desc: Throws back enemies a fair distance, along with disorenting them.
+  desc: Throws back enemies a fair distance.
   icon:
     sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
     state: pulse
   color: blue
   protoId: BulletPulse
-  fireCost: 500
+  fireCost: 120
 
 - type: selectableAmmo
   id: BulletEnergyGunDetain
-  desc: Causes large amounts of stamina damage, and disorients the enemy.
+  desc: Causes large amounts of stamina damage.
   icon:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
     state: omnilaser
   color: blue
   protoId: BulletDetain
-  fireCost: 40
+  fireCost: 80
 
 - type: selectableAmmo
   id: BulletEnergyGunExecute
-  desc: A highly damaging bolt. Great for putting things down.
+  desc: A highly damaging, and slightly radioactive bolt. Great for putting things down.
   icon:
     sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
     state: execute
   color: green
   protoId: BulletExecute
-  fireCost: 80
+  fireCost: 160
 
 - type: selectableAmmo
   id: BulletEnergyGunHotshot
@@ -113,7 +113,7 @@
     state: hotshot
   color: red
   protoId: BulletHotshot
-  fireCost: 150
+  fireCost: 160
 
 - type: selectableAmmo
   id: BulletEnergyGunSleepshot
@@ -123,7 +123,7 @@
     state: sleepshot
   color: pink
   protoId: BulletSleepshot
-  fireCost: 50
+  fireCost: 80
 
 - type: selectableAmmo
   id: BulletEnergyGunBigshot

@@ -233,3 +233,13 @@
   - MedicalBeret
   - SeniorPhysicianBeret
   - ChemistUshanka # Da.
+
+# HOS
+
+- type: loadoutGroup
+  id: HosShoes
+  name: loadout-group-hos-shoes
+  loadouts:
+  - JackBoots
+  - SecurityWinterBoots
+  - AdvancedJackBoots

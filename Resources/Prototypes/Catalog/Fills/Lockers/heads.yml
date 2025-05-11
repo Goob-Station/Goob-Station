@@ -485,29 +485,26 @@
   id: LockerFillHeadOfSecurityNoHardsuit
   table: !type:AllSelector
     children:
-#    - id: WeaponEnergyShotgun
-    # - id: WeaponEnergyGunMultiphase # Goobstation - Security Revamp
+    #- id: WeaponEnergyShotgun # Goobstation - security revamp
     - id: BookSpaceLaw
     - id: BoxEncryptionKeySecurity
     - id: CigarGoldCase
       prob: 0.50
     - id: ClothingBeltSecurityFilled
-  #  - id: ClothingEyesGlassesSecurity # Goobstation - Security Revamp - Start
     - id: ClothingEyesGlassesSecurity
     - id: ClothingHeadsetAltSecurity
     - id: ClothingMaskNeckGaiter
-    - id: ClothingHeadHatBeretHeadOfSecurityAdvanced
     - id: ClothingOuterCoatHoSTrench
     - id: ClothingShoesBootsJack
     - id: DoorRemoteSecurity
-   # - id: HoloprojectorSecurity
-    - id: HoloprojectorSecurityAdvanced
+    - id: HoloprojectorSecurity
     - id: RubberStampHos
     - id: SecurityTechFabCircuitboard
-    - id: HeadOfSecurityWeaponUndetermined # Goobstation - Security Revamp - End
     #- id: WeaponDisabler # Goobstation (Disablers in belts)
     - id: WantedListCartridge
     - id: DrinkHosFlask
+    - id: ClothingBeltSheathHeadOfSecurityFilled # Goobstation - security revamp
+    - id: HeadOfSecurityWeaponUndetermined # Goobstation - security revamp
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable

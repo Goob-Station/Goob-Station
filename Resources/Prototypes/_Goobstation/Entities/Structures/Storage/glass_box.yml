@@ -8,7 +8,6 @@
   id: GlassBoxLawbringer
   parent: GlassBox
   suffix: Lawbringer
-  description: Budget cuts hit NTs hos harder than alchoholism.
   components:
   - type: Sprite
     noRot: true
@@ -41,4 +40,8 @@
   id: GlassBoxLawbringerFilled
   parent: GlassBoxLawbringer
   suffix: Lawbringer, Filled
-
+  components:
+  - type: ContainerFill
+    containers:
+      ItemCabinet:
+      - WeaponEnergyGunLawbringer
