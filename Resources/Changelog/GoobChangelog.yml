@@ -8933,3 +8933,11 @@ Entries:
       message: Fixed some typos.
   id: 1022
   time: '2025-05-11T03:21:52.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: >-
+        CE and HEV suit can now ignore teslas and containment fields. Enjoy
+        safely being in your tesla ballpit.
+  id: 1023
+  time: '2025-05-11T06:58:35.0000000+00:00'
