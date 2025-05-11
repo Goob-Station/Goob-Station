@@ -1,0 +1,163 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# The Modsuit Itself, This is just a Deathsquad modsuit, but reskined for CC Officials
+- type: entity
+  parent: ClothingModsuitStandard
+  id: ClothingModsuitCorporate
+  name: Corporate modsuit control
+  description: The main controller for a Corporate modsuit.
+  components:
+    - type: Sprite
+      sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/corporate.rsi
+    - type: ToggleableClothing
+      clothingPrototypes:
+        head: ClothingModsuitHelmetCorporate
+        gloves: ClothingModsuitGauntletsCorporate
+        outerClothing: ClothingModsuitChestplateCorporate
+        shoes: ClothingModsuitBootsCorporate
+    - type: ItemSlots
+      slots:
+        cell_slot:
+          name: power-cell-slot-component-slot-name-default
+          startingItem: PowerCellAntiqueProto
+          whitelist:
+            components:
+              - PowerCell
+    - type: Storage
+      maxItemSize: Huge
+      grid:
+        - 0,0,7,6
+    - type: ExplosionResistance #Dont want chain explosions in the modsuits storage
+      damageCoefficient: 0.1
+    - type: SealableClothingVisuals
+      visualLayers:
+        back:
+          - state: equipped-BACKPACK-sealed
+
+- type: entity
+  parent: ClothingModsuitGauntletsStandard
+  id: ClothingModsuitGauntletsCorporate
+  name: Corporate modsuit gauntlets
+  description: A pair of gauntlets made for the Corporate modsuit.
+  categories: [HideSpawnMenu]
+  components:
+    - type: Sprite
+      sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/corporate.rsi
+    - type: SealableClothingVisuals
+      visualLayers:
+        gloves:
+          - state: equipped-HAND-sealed
+
+- type: entity
+  parent: [ClothingModsuitHelmetStandard, ShowSecurityIcons]
+  id: ClothingModsuitHelmetCorporate
+  name: Corporate modsuit helmet
+  description: A state-of-the-art helmet designed by NanoTrasen for the Corporate modsuit. It includes a built-in HUD.
+  categories: [HideSpawnMenu]
+  components:
+    - type: Sprite
+      sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/corporate.rsi
+    - type: PressureProtection
+      highPressureMultiplier: 0.08
+      lowPressureMultiplier: 1000
+    - type: Armor
+      modifiers:
+        coefficients:
+          Blunt: 0.80
+          Slash: 0.80
+          Piercing: 0.80
+          Heat: 0.80
+          Radiation: 0.80
+          Caustic: 0.95
+    - type: ThermalVision
+      isEquipment: true
+      color: "#98EEFB"
+      lightRadius: 15
+    - type: FlashImmunity # Goobstation
+    - type: FlashSoundSuppression # Goobstation
+      protectionRange: 0
+    - type: ShowHealthBars
+      damageContainers:
+        - Biological
+    - type: PointLight
+      color: "#FFDF00"
+    - type: SealableClothingVisuals
+      visualLayers:
+        head:
+          - state: equipped-HEAD-sealed
+          - state: equipped-HEAD-sealed-unshaded
+            shader: unshaded
+
+- type: entity
+  parent: ClothingModsuitChestplateStandard
+  id: ClothingModsuitChestplateCorporate
+  name: Corporate modsuit chestplate
+  description: A state of the art chestplate designed by NanoTrasen for the Corporate Modsuit. It incorporates powered servos to reduce the equipment load.
+  categories: [HideSpawnMenu]
+  components:
+    - type: Sprite
+      sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/corporate.rsi
+    - type: ClothingSpeedModifier
+      walkModifier: 1
+      sprintModifier: 1
+    - type: Armor
+      modifiers:
+        coefficients:
+          Blunt: 0.1 #Death Squad Modsuit, but reskined for CC Officials
+          Slash: 0.1
+          Piercing: 0.1
+          Heat: 0.1
+          Radiation: 0.1
+          Caustic: 0.1
+    - type: SealableClothingVisuals
+      visualLayers:
+        outerClothing:
+          - state: equipped-OUTERCLOTHING-sealed
+    - type: StaminaDamageResistance
+      coefficient: 0 # 100%
+    - type: PressureProtection
+      highPressureMultiplier: 0.02
+      lowPressureMultiplier: 1000
+    - type: ExplosionResistance
+      damageCoefficient: 0.2
+
+- type: entity
+  parent: ClothingModsuitBootsStandard
+  id: ClothingModsuitBootsCorporate
+  name: Corporate modsuit boots
+  description: A state-of-the-art pair of magboots for the Corporate modsuit. So long as the suit is powered, these will not slow the wearer down.
+  categories: [HideSpawnMenu]
+  components:
+    - type: Appearance
+    - type: Sprite
+      sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/corporate.rsi
+    - type: Tag
+      tags:
+        - WhitelistChameleon
+    - type: ClothingSpeedModifier
+      walkModifier: 1
+      sprintModifier: 1
+    - type: ToggleClothing
+      action: ActionToggleMagboots
+    - type: ComponentToggler
+      components:
+        - type: NoSlip
+    - type: Magboots
+    - type: SealableClothingVisuals
+      visualLayers:
+        shoes:
+          - state: equipped-FEET-sealed
+
+- type: entity
+  id: SuitStorageCorporate
+  parent: SuitStorageBase
+  suffix: Corporate Modsuit
+  components:
+    - type: StorageFill
+      contents:
+          - id: OxygenTankFilled
+          - id: ClothingModsuitCorporate
+          - id: ClothingMaskBreath

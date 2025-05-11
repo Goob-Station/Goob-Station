@@ -2,13 +2,16 @@
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2024 Scruq445 <storchdamien@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Traits;
-using Content.Shared._Shitmed.Body.Events;
+using Content.Shared._Shitmed.Body.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
 
@@ -29,15 +32,6 @@ public sealed class LegsStartParalyzedSystem : EntitySystem
             return;
 
         foreach (var legEntity in body.LegEntities)
-        {
-            if (TryComp(legEntity, out BodyPartComponent? part))
-            {
-                part.CanEnable = false;
-                Dirty(legEntity, part);
-            }
-
-            var ev = new BodyPartEnableChangedEvent(false);
-            RaiseLocalEvent(legEntity, ref ev);
-        }
+            EnsureComp<LimbParalyzedComponent>(legEntity);
     }
 }
