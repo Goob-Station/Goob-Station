@@ -26,6 +26,9 @@
   # Goobstation
   - NanotrasenRepresentative
   - BlueshieldOfficer
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
 
   # Goobstation Start - I basically re-did all of deathsquads stuff so. - Sol
 

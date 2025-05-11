@@ -25,12 +25,14 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Robust.Shared.GameStates;
+
 namespace Content.Shared.Sound.Components;
 
 /// <summary>
 /// Simple sound emitter that emits sound on UseInHand
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class EmitSoundOnUseComponent : BaseEmitSoundComponent
 {
     /// <summary>
@@ -42,6 +44,6 @@ public sealed partial class EmitSoundOnUseComponent : BaseEmitSoundComponent
     ///     otherwise this might enable sound spamming, as use-delays are only initiated if the interaction was
     ///     handled.
     /// </remarks>
-    [DataField("handle")]
+    [DataField]
     public bool Handle = true;
 }

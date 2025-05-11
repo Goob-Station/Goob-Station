@@ -20,6 +20,8 @@
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Arraydeess <arraygitbash@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Martynas6ha4 <martynashagriefer@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -90,10 +92,12 @@
   - type: SolutionContainerManager
     solutions:
       organ:
-        maxVol: 10
+        maxVol: 15 # goob edit
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
+        - ReagentId: Cognizine # goob edit
+          Quantity: 5 # goob edit
       Lung:
         maxVol: 100
         canReact: False
