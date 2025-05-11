@@ -440,9 +440,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         var query = EntityManager.CompRegistryQueryEnumerator(ent.Comp.Components);
 
         while (query.MoveNext(out var update))
-        {
             SetLaws(laws.Laws, update, experiment.Comp2.LawUploadSound);
-        }
 
         var activeProv = EnsureComp<ActiveExperimentalLawProviderComponent>(ent);
         activeProv.Timer = experiment.Comp1.RewardTime;
@@ -482,9 +480,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
             var query = EntityManager.CompRegistryQueryEnumerator(updater.Components);
 
             while (query.MoveNext(out var update))
-            {
                 SetLaws(lawset, update, provider.LawRewardSound);
-            }
 
             RemCompDeferred(uid, provider);
             _research.ModifyServerPoints(researchClient.Server.Value, provider.RewardPoints);
@@ -510,18 +506,14 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         // hopefully work with existing glitched laws if there are multiple ion storms
         var baseOrder = FixedPoint2.New(1);
         foreach (var law in laws.Laws)
-        {
             if (law.Order < baseOrder)
                 baseOrder = law.Order;
-        }
 
         _robustRandom.Shuffle(laws.Laws);
 
         // change order based on shuffled position
-        for (int i = 0; i < laws.Laws.Count; i++)
-        {
+        for (var i = 0; i < laws.Laws.Count; i++)
             laws.Laws[i].Order = baseOrder + i;
-        }
 
         // remove a random law
         laws.Laws.RemoveAt(_robustRandom.Next(laws.Laws.Count));
@@ -543,29 +535,25 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         {
             laws.Laws.Insert(0,
                 new SiliconLaw
-            {
-                LawString = newLaw,
-                Order = -1,
-                LawIdentifierOverride = Loc.GetString("ion-storm-law-scrambled-number", ("length", _robustRandom.Next(5, 10)))
-            });
+                {
+                    LawString = newLaw,
+                    Order = -1,
+                    LawIdentifierOverride = Loc.GetString("ion-storm-law-scrambled-number", ("length", _robustRandom.Next(5, 10)))
+                });
         }
 
         // sets all unobfuscated laws' indentifier in order from highest to lowest priority
         // This could technically override the Obfuscation from the code above, but it seems unlikely enough to basically never happen
-        int orderDeduction = -1;
+        var orderDeduction = -1;
 
-        for (int i = 0; i < laws.Laws.Count; i++)
+        for (var i = 0; i < laws.Laws.Count; i++)
         {
             var notNullIdentifier = laws.Laws[i].LawIdentifierOverride ?? (i - orderDeduction).ToString();
 
             if (notNullIdentifier.Any(char.IsSymbol))
-            {
                 orderDeduction += 1;
-            }
             else
-            {
                 laws.Laws[i].LawIdentifierOverride = (i - orderDeduction).ToString();
-            }
         }
 
         return laws;
