@@ -121,6 +121,7 @@
 # SPDX-FileCopyrightText: 2024 Эдуард <36124833+Ertanic@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 Coolsurf6 <coolsurf24@yahoo.com.au>
@@ -492,19 +493,17 @@
       prob: 0.50
     - id: ClothingBeltSecurityFilled
   #  - id: ClothingEyesGlassesSecurity # Goobstation - Security Revamp - Start
-    - id: ClothingEyesGlassesSecurityAdvanced
+    - id: ClothingEyesGlassesSecurity
     - id: ClothingHeadsetAltSecurity
     - id: ClothingMaskNeckGaiter
     - id: ClothingHeadHatBeretHeadOfSecurityAdvanced
     - id: ClothingOuterCoatHoSTrench
-   # - id: ClothingShoesBootsJack
-    - id: ClothingShoesBootsJackAdvanced
+    - id: ClothingShoesBootsJack
     - id: DoorRemoteSecurity
    # - id: HoloprojectorSecurity
     - id: HoloprojectorSecurityAdvanced
     - id: RubberStampHos
     - id: SecurityTechFabCircuitboard
-    - id: ClothingBeltSheathHeadOfSecurityFilled
     - id: HeadOfSecurityWeaponUndetermined # Goobstation - Security Revamp - End
     #- id: WeaponDisabler # Goobstation (Disablers in belts)
     - id: WantedListCartridge
