@@ -8,7 +8,13 @@
   },
   "states": [
     {
-      "name": "battery0"
+      "name": "battery0",
+      "delays": [
+        [
+            0.5,
+            0.5
+        ]
+      ]
     },
     {
       "name": "battery1"
