@@ -145,7 +145,7 @@ selectable-set-blueshield-hardsuit-light-description =
 
 selectable-set-blueshield-hardsuit-heavy-name = heavy voidsuit
 selectable-set-blueshield-hardsuit-heavy-description =
-    A heavier boidsuit, allowing for more armor at the cost of speed.
+    A heavier voidsuit, allowing for more armor at the cost of speed.
 
 # ERT
 
