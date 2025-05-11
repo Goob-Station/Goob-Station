@@ -137,8 +137,6 @@ public sealed class MedigunSystem : SharedMedigunSystem
         }
     }
 
-
-
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -149,21 +147,19 @@ public sealed class MedigunSystem : SharedMedigunSystem
             if (!component.IsActive)
                 continue;
 
-            if (_timing.CurTime < component.NextTick || component.NextTick == null)
+            if (_timing.CurTime < component.NextTick
+                || component.NextTick == null)
                 continue;
 
             var medGunEnt = (medical, component);
-            if (_timing.CurTime > component.UberEndTime && component.UberEndTime != null)
-            {
+            if (_timing.CurTime > component.UberEndTime
+                && component.UberEndTime != null)
                 DisableUber(medGunEnt);
-            }
 
             var toHeal = component.HealedEntities.ToArray();
             foreach (var healed in toHeal)
-            {
                 if (!MediGunHealingTick(medGunEnt, healed))
                     DisableConnection(medGunEnt, healed);
-            }
 
             if (component.HealedEntities.Count == 0)
             {
@@ -174,12 +170,10 @@ public sealed class MedigunSystem : SharedMedigunSystem
             component.NextTick = _timing.CurTime + TimeSpan.FromSeconds(component.Frequency);
 
             // Add uber action if we can
-            if (component.UberPoints > component.PointsToUber &&
-                component.ParentEntity != null &&
-                !component.UberActivated)
-            {
+            if (component.UberPoints > component.PointsToUber
+                && component.ParentEntity != null
+                && !component.UberActivated)
                 _action.AddAction(component.ParentEntity.Value, ref component.UberAction, component.UberActionId, medical);
-            }
         }
     }
 
@@ -197,10 +191,7 @@ public sealed class MedigunSystem : SharedMedigunSystem
 
         if (distance > comp.MaxRange ||
             healedPos.MapId != mediGunPos.MapId)
-        {
-            // Disable
             return false;
-        }
 
         var batteryToWithdraw = comp.UberActivated ? comp.UberBatteryWithdraw: comp.BatteryWithdraw;
         if (!_battery.TryUseCharge(ent, batteryToWithdraw))
@@ -259,7 +250,8 @@ public sealed class MedigunSystem : SharedMedigunSystem
     {
         var (uid, comp) = ent;
 
-        if (args.Target == null || args.Target.Value == args.User)
+        if (args.Target == null
+            || args.Target.Value == args.User)
             return;
 
         if (_useDelay.IsDelayed(uid))
@@ -361,10 +353,8 @@ public sealed class MedigunSystem : SharedMedigunSystem
         DisableAllConnections(ent);
     }
 
-    private void OnUber(EntityUid uid, MediGunComponent component, MediGunUberActivateActionEvent args)
-    {
+    private void OnUber(EntityUid uid, MediGunComponent component, MediGunUberActivateActionEvent args) =>
         EnableUber((uid, component));
-    }
 
     /// <summary>
     /// Activates uber mode for this medigun and changes all visuals.
