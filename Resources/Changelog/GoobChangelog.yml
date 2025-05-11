@@ -8887,3 +8887,31 @@ Entries:
       message: Fix skeletons getting sepsis when recieving surgery without mask/gloves.
   id: 1014
   time: '2025-05-11T02:07:45.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: You can now reload shotguns on the go.
+  id: 1015
+  time: '2025-05-11T02:18:45.0000000+00:00'
+- author: '-'
+  changes: []
+  id: 1016
+  time: '2025-05-11T02:19:18.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: Kitchen knifes now do damage when thrown at somebody.
+  id: 1017
+  time: '2025-05-11T02:19:58.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Fix
+      message: Atlas finally has lawyer slot.
+  id: 1018
+  time: '2025-05-11T02:20:26.0000000+00:00'
+- author: cheetah1984
+  changes:
+    - type: Add
+      message: Added Plasteel to the borg construction module!
+  id: 1019
+  time: '2025-05-11T02:26:26.0000000+00:00'
