@@ -104,7 +104,7 @@
     state: execute
   color: green
   protoId: BulletExecute
-  fireCost: 160
+  fireCost: 180
 
 - type: selectableAmmo
   id: BulletEnergyGunHotshot
