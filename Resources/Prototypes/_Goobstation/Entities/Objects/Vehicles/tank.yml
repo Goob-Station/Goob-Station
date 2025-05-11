@@ -1,0 +1,84 @@
+- type: entity
+  parent: BaseVehicle # vehicle sucks but whatever lol
+  id: VehicleTank
+  name: tank
+  suffix: Admeme
+  description: Who on earth putted a tank on a space station?!? Oh right we are not on earth, makes sense.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    drawdepth: 0
+    sprite: _Goobstation/Objects/Vehicles/tank.rsi
+    layers:
+    - state: tank_base
+      offset: 0, 0
+    - state: tank_turret_0
+      offset: 0, 0
+  - type: Vehicle
+    requiredHands: 2
+  - type: Fixtures
+    fixtures:
+      rune_back:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.2,-1.8,1.2,0"
+        density: 6500 # its a fucking tank
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+      rune_side:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.2,0,1.2,2"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+  - type: ItemSlots
+    slots:
+      key_slot:
+        name: vehicle-slot-component-slot-name-keys
+        whitelist:
+          requireAll: true
+          tags:
+          - VehicleKey
+        insertSound:
+          path: /Audio/Effects/Vehicle/vehiclestartup.ogg
+          params:
+            volume: -3
+  - type: TileMovement # big vehicle brrr
+  - type: MovementSpeedModifier
+    weightlessModifier: 0
+    acceleration: 1
+    friction: 1
+    baseWalkSpeed: 1
+    baseSprintSpeed: 1
+  - type: IgnoreCollision
+  - type: Physics
+    bodyType: Dynamic
+    canCollide: true
+    collisionMask: 2147483647 # AllMask
+    collisionLayer: 62 # moblayer
+    fixedRotation: true
+  - type: DamageOnCollision
+    damage:
+      types:
+        Blunt: 15
+        Structural: 500
+    minImpactSpeed: 0
+    damageCooldown: 0
+    sound:
+      path: /Audio/Effects/hit_kick.ogg
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1500 # tank for a reason
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
