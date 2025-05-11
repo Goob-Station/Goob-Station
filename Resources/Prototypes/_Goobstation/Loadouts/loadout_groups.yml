@@ -237,7 +237,7 @@
 # HOS
 
 - type: loadoutGroup
-  id: HosShoes
+  id: HeadofSecurityShoes
   name: loadout-group-hos-shoes
   loadouts:
   - JackBoots
