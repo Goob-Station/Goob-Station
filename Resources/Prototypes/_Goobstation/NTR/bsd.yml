@@ -88,7 +88,7 @@
 # BSD names
 # i dont want to make a bunch o' files for a single reinforcement so gonna shove it in one yaml, i mean, it works
 - type: localizedDataset
-  id: BsdName
+  id: BsdNames
   values:
     prefix: bsd-names-dataset-
     count: 16
