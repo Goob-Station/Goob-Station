@@ -8841,3 +8841,11 @@ Entries:
       message: Medical cyborgs start with basic surgery and defibrillator modules
   id: 1007
   time: '2025-05-11T01:57:42.0000000+00:00'
+- author: pacable
+  changes:
+    - type: Fix
+      message: >-
+        Fixed cyborg recharging station not recharging IPCs or borgs after their
+        battery is full, preventing battery depletion while inside.
+  id: 1008
+  time: '2025-05-11T01:58:22.0000000+00:00'
