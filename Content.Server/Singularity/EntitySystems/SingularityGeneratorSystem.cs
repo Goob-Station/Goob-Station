@@ -7,6 +7,8 @@
 // SPDX-FileCopyrightText: 2024 Saphire <lattice@saphi.re>
 // SPDX-FileCopyrightText: 2024 SlamBamActionman <slambamactionman@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -191,7 +193,7 @@ public sealed class SingularityGeneratorSystem : SharedSingularityGeneratorSyste
             if (genQuery.HasComponent(result.HitEntity))
                 closestResult = result;
 
-            break;
+            // break; // Goobstation - still trigger with stuff inside the field
         }
 
         if (closestResult == null)
