@@ -139,11 +139,11 @@ selectable-set-blueshield-syringe-description =
 
 # Blueshield hardsuits
 
-selectable-set-blueshield-hardsuit-light-name = light hardsuit
+selectable-set-blueshield-hardsuit-light-name = armoured voidsuit
 selectable-set-blueshield-hardsuit-light-description =
-    A lighter hardsuit, allowing for more speed at the cost of protection.
+    An armoured hardsuit, allowing for more speed at the cost of protection.
 
-selectable-set-blueshield-hardsuit-heavy-name = heavy hardsuit
+selectable-set-blueshield-hardsuit-heavy-name = heavy voidsuit
 selectable-set-blueshield-hardsuit-heavy-description =
     A heavier hardsuit, allowing for more armor at the cost of speed.
 
