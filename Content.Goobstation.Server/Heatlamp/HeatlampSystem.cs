@@ -11,7 +11,9 @@ using Content.Server.Temperature.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Inventory;
 using Content.Shared.Popups;
+using Content.Shared.PowerCell.Components;
 using Content.Shared.Temperature;
+using Content.Shared.Toggleable;
 using Content.Shared.Verbs;
 using Robust.Server.Audio;
 using Robust.Shared.Containers;
@@ -49,26 +51,48 @@ public sealed partial class HeatlampSystem : EntitySystem
             if (heater.User is not { } user
             || heater.Setting == EntityHeaterSetting.Off)
             {
-                _item.SetSize(uid, heater.OffSize);
-                _item.SetShape(uid, heater.OffShape);
-                // set appearance here too
+                ToggleVisualsAndShape((uid, heater), false);
                 continue;
             }
 
-            _item.SetSize(uid, heater.OnSize);
-            _item.SetShape(uid, heater.OnShape);
+            ToggleVisualsAndShape((uid, heater), true);
             RegulateTemperature(user, (uid, heater), frameTime);
         }
     }
+
+    private void ToggleVisualsAndShape(Entity<HeatlampComponent> heatlamp, bool enabled, AppearanceComponent? appearance = null)
+    {
+        if (!Resolve(heatlamp, ref appearance))
+            return;
+
+        if (enabled)
+        {
+            _item.SetSize(heatlamp, heatlamp.Comp.OnSize);
+            _item.SetShape(heatlamp, heatlamp.Comp.OnShape);
+
+            _appearance.SetData(heatlamp, ToggleVisuals.Toggled, true, appearance);
+            _item.SetHeldPrefix(heatlamp, "on");
+        }
+        else
+        {
+            _item.SetSize(heatlamp, heatlamp.Comp.OffSize);
+            _item.SetShape(heatlamp, heatlamp.Comp.OffShape);
+
+            _appearance.SetData(heatlamp, ToggleVisuals.Toggled, false, appearance);
+            _item.SetHeldPrefix(heatlamp, "off");
+        }
+    }
+
 
     private void RegulateTemperature(
         EntityUid user,
         Entity<HeatlampComponent> heater,
         float frameTime,
         ThermalRegulatorComponent? regulator = null,
-        TemperatureComponent? temperature = null)
+        TemperatureComponent? temperature = null,
+        PowerCellSlotComponent? cell = null)
     {
-        if (!Resolve(user, ref regulator, ref temperature))
+        if (!Resolve(user, ref regulator, ref temperature) || !Resolve(heater, ref cell))
             return;
 
         var tempDelta = regulator.NormalBodyTemperature - temperature.CurrentTemperature;
@@ -76,7 +100,7 @@ public sealed partial class HeatlampSystem : EntitySystem
 
         var energy = heater.Comp.CurrentPowerDraw  * frameTime;
 
-        if (!_powerCell.TryUseCharge(heater, energy * frameTime))
+        if (!_powerCell.TryUseCharge(heater, energy * frameTime, cell))
         {
             ChangeSetting((heater, heater), EntityHeaterSetting.Off);
             return;

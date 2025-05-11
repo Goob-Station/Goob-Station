@@ -18,16 +18,17 @@ public sealed partial class HeatlampComponent : Component
     /// Low and medium are 33% and 66% respectively.
     /// </summary>
     [DataField]
-    public float Power = 10f;
+    public float Power = 100f;
 
     /// <summary>
     /// How much the power used is multiplied by before being turned into heat.
     /// </summary>
     [DataField]
-    public float PowerToHeatMultiplier = 600f;
+    public float PowerToHeatMultiplier = 60f;
 
     /// <summary>
-    /// The multiplier used when the temperature delta is negative, or it is cooling.
+    /// The multiplier used when the temperature delta is negative
+    /// AKA, it is cooling not heating.
     /// </summary>
     [DataField]
     public float NegativeDeltaMultiplier = -0.5f;
