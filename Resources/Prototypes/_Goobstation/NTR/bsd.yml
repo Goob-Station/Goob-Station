@@ -13,9 +13,8 @@
     prototypes: [BlueshieldDeputyGear]
   - type: RandomMetadata # funny cowboy name
     nameSegments:
-    - BSDName
-    - BSDPrefix
-    nameFormat: name-format-standard
+    - BsdNames
+    - BsdPrefix # who cares
   - type: ReplacementAccent
     accent: cowboy
   - type: MindShield
@@ -88,43 +87,14 @@
 
 # BSD names
 # i dont want to make a bunch o' files for a single reinforcement so gonna shove it in one yaml, i mean, it works
-- type: dataset
-  id: BSDName
+- type: localizedDataset
+  id: BsdName
   values:
-  - Billy
-  - Buck
-  - Clyde
-  - Dallas
-  - Duke
-  - Montana
-  - Jesse
-  - Hank
-  - Waylon
-  - Quincy
-  - Jasper
-  - Larry
-  - Wade
-  - Joe
-  - Sheldon
-  - Yancy
-  - Charlie
-# giving BSD cowboy-ish names is funny
-- type: dataset
-  id: BSDPrefix
+    prefix: bsd-names-dataset-
+    count: 16
+
+- type: localizedDataset
+  id: BsdPrefix
   values:
-  - Blackwood
-  - Boone
-  - Cassidy
-  - Cooper
-  - Cactus
-  - Mama
-  - Lasso
-  - Outlaw
-  - Rattlesnake
-  - Shotgun
-  - Yeehaw
-  - Chewin' Tobacco
-  - Sheriff # i felt so good after coming up with this
-  - Two-Tooth
-  - Whiskey
-  - Tumbleweed
+    prefix: bsd-prefix-dataset-
+    count: 16

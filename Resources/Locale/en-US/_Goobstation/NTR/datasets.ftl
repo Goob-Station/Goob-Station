@@ -1,5 +1,41 @@
 # oh boy its going to be a lot of text today
 
+# bsd.ftl when
+bsd-names-dataset-1 = Billy
+bsd-names-dataset-2 = Buck
+bsd-names-dataset-3 = Clyde
+bsd-names-dataset-4 = Dallas
+bsd-names-dataset-5 = Duke
+bsd-names-dataset-6 = Montana
+bsd-names-dataset-7 = Jesse
+bsd-names-dataset-8 = Hank
+bsd-names-dataset-9 = Waylon
+bsd-names-dataset-10 = Quincy
+bsd-names-dataset-11 = Jasper
+bsd-names-dataset-12 = Larry
+bsd-names-dataset-13 = Wade
+bsd-names-dataset-14 = Joe
+bsd-names-dataset-15 = Sheldon
+bsd-names-dataset-16 = Yancy
+bsd-names-dataset-17 = Charlie
+
+bsd-prefix-dataset-1 = Blackwood
+bsd-prefix-dataset-2 = Boone
+bsd-prefix-dataset-3 = Cassidy
+bsd-prefix-dataset-4 = Cooper
+bsd-prefix-dataset-5 = Cactus
+bsd-prefix-dataset-6 = Mama
+bsd-prefix-dataset-7 = Lasso
+bsd-prefix-dataset-8 = Outlaw
+bsd-prefix-dataset-9 = Rattlesnake
+bsd-prefix-dataset-10 = Shotgun
+bsd-prefix-dataset-11 = Yeehaw
+bsd-prefix-dataset-12 = Chewin' Tobacco
+bsd-prefix-dataset-13 = Sheriff
+bsd-prefix-dataset-14 = Two-Tooth
+bsd-prefix-dataset-15 = Whiskey
+bsd-prefix-dataset-16 = Tumbleweed
+
 # SERVICE
 # funny verbs SERVICE 1 (by reading this, you confirm that you are not)
 funny-service1-1 = a sentient mop
