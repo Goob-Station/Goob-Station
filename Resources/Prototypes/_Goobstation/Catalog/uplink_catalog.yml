@@ -30,6 +30,7 @@
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Scruq445 <storchdamien@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Weide <64257676+Lyacs@users.noreply.github.com>
@@ -460,6 +461,21 @@
     Telecrystal: 15
   categories:
     -  UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Clown
+    - Passenger
+
+- type: listing
+  id: UplinkChudimovCircuitBoard
+  name: chudimov circuit board
+  description: Nothing ever happens.
+  productEntity: ChudimovCircuitBoard
+  cost:
+    Telecrystal: 40
+  categories:
+  -  UplinkJob
   conditions:
   - !type:BuyerJobCondition
     whitelist:
@@ -993,3 +1009,18 @@
     blacklist:
       components:
       - SurplusBundle
+
+- type: listing
+  id: UplinkEnergyPickaxe
+  name: uplink-energy-pickaxe-name
+  description: uplink-energy-pickaxe-desc
+  icon: { sprite: /Textures/_NF/Objects/Weapons/Melee/energy_pickaxe.rsi, state: icon }
+  productEntity: NFEnergyPickaxe
+  cost:
+    Telecrystal: 32 # Worse than esword for combat, better for breaching
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:BuyerSpeciesCondition
+    whitelist:
+    - Dwarf # Rock and stone
