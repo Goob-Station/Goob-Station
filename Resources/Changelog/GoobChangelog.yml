@@ -8807,3 +8807,11 @@ Entries:
         in the loadout.
   id: 1002
   time: '2025-05-11T01:41:43.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Remove
+      message: >-
+        Security techfab can no longer print light rifle cartidges and magnum
+        pistol magazines.
+  id: 1003
+  time: '2025-05-11T01:42:38.0000000+00:00'
