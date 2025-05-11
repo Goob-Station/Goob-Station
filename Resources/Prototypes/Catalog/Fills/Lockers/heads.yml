@@ -505,7 +505,6 @@
     - id: WantedListCartridge
     - id: DrinkHosFlask
     - id: ClothingBeltSheathHeadOfSecurityFilled # Goobstation - security revamp
-    - id: HeadOfSecurityWeaponUndetermined # Goobstation - security revamp
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable

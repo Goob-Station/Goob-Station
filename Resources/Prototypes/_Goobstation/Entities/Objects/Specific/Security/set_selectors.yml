@@ -7,6 +7,8 @@
 
 # Head Of Security
 
+# If you want to readd this to hos, nerf lawbringer, especially the execute mode
+
 - type: entity
   id: HeadOfSecurityWeaponUndetermined
   name: X-00 Series Box

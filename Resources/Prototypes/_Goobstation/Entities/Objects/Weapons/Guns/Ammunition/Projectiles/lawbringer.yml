@@ -113,8 +113,8 @@
   - type: Projectile
     damage:
       types:
-        Heat: 20
-        Radiation: 5 # 13 parity
+        Heat: 17
+        Radiation: 2
 
 - type: entity
   id: BulletHotshot
@@ -141,7 +141,7 @@
         Blunt: 2
         Heat: 2
   - type: IgniteOnCollide
-    fireStacks: 2.5
+    fireStacks: 3
 
 - type: entity
   id: BulletSleepshot
