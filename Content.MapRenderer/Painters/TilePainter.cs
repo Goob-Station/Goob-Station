@@ -17,6 +17,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Shared.ContentPack;
@@ -47,7 +48,7 @@ namespace Content.MapRenderer.Painters
             _sMapSystem = esm.GetEntitySystem<SharedMapSystem>();
         }
 
-        public void Run(Image gridCanvas, EntityUid gridUid, MapGridComponent grid)
+        public void Run(Image gridCanvas, EntityUid gridUid, MapGridComponent grid, Vector2 customOffset = default)
         {
             var stopwatch = new Stopwatch();
             stopwatch.Start();
@@ -67,8 +68,8 @@ namespace Content.MapRenderer.Painters
                 if (string.IsNullOrWhiteSpace(path))
                     return;
 
-                var x = (int) (tile.X + xOffset);
-                var y = (int) (tile.Y + yOffset);
+                var x = (int) (tile.X + xOffset + customOffset.X);
+                var y = (int) (tile.Y + yOffset + customOffset.Y);
                 var image = images[path][tile.Tile.Variant];
 
                 gridCanvas.Mutate(o => o.DrawImage(image, new Point(x * tileSize, y * tileSize), 1));
@@ -109,7 +110,7 @@ namespace Content.MapRenderer.Painters
                 for (var i = 0; i < definition.Variants; i++)
                 {
                     var index = i;
-                    var tileImage = tileSheet.Clone(o => o.Crop(new Rectangle(tileSize * index, 0, 32, 32)));
+                    var tileImage = tileSheet.Clone(o => o.Crop(new Rectangle(tileSize * index, 0, 32, 32)).Flip(FlipMode.Vertical));
                     images[path].Add(tileImage);
                 }
             }
