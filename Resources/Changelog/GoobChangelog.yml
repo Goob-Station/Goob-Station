@@ -8829,3 +8829,9 @@ Entries:
       message: Greytide virus now emergency access doors instead of bolt open them.
   id: 1005
   time: '2025-05-11T01:53:14.0000000+00:00'
+- author: FatEngineerGaming
+  changes:
+    - type: Tweak
+      message: Overhauled the Blob guidebook
+  id: 1006
+  time: '2025-05-11T01:56:49.0000000+00:00'
