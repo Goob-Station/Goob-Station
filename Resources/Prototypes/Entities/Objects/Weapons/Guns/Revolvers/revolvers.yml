@@ -112,6 +112,17 @@
   - type: StaticPrice
     price: 500
   - type: Multishot # Goobstation
+  # backmen edit start
+  - type: EmitSoundOnPickup
+    sound:
+      collection: RevolversPickUp
+  - type: EmitSoundOnDrop
+    sound:
+      collection: RevolversDrop
+  - type: EmitSoundOnLand
+    sound:
+      collection: RevolversDrop
+  # backmen edit end
 
 - type: entity
   name: Deckard

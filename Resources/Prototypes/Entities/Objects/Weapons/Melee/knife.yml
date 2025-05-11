@@ -153,6 +153,23 @@
         Slash: 10
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
+  # backmen edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/Backmen/Items/handling/knife_pickup.ogg
+      params:
+        volume: -8
+  - type: EmitSoundOnDrop
+    sound: 
+      path: /Audio/Backmen/Items/handling/knife_drop.ogg
+      params:
+        volume: -8
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Backmen/Items/handling/knife_drop.ogg
+      params:
+        volume: -8
+  # backmen edit end
   - type: Sprite
   - type: Item
     size: Small

@@ -123,6 +123,14 @@
   name: base cup
   abstract: true
   components:
+  # backmen edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/Backmen/Items/other/Cup/pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/Backmen/Items/other/Cup/drop.ogg
+  # backmen edit end
   - type: SolutionContainerManager
     solutions:
       drink:

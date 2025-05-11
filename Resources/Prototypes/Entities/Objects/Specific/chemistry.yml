@@ -857,3 +857,11 @@
       tags:
       - Pill
   - type: Dumpable
+  # backmen edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/Backmen/Items/handling/pillbottle_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/Backmen/Items/handling/pillbottle_drop.ogg
+  # backmen edit end

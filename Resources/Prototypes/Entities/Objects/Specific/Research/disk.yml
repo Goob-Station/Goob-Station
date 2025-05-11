@@ -21,6 +21,17 @@
   name: research point disk (1000)
   description: A disk for the R&D server containing 1000 points.
   components:
+  # backmen edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/Backmen/Items/handling/disk_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/Backmen/Items/handling/disk_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Backmen/Items/handling/disk_drop.ogg
+  # backmen edit end
   - type: Sprite
     sprite: Objects/Specific/Research/researchdisk.rsi
     state: icon

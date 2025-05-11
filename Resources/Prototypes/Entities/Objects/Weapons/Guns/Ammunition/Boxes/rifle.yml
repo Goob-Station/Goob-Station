@@ -24,6 +24,17 @@
   parent: BaseItem
   id: BaseMagazineBoxRifle
   components:
+  # backmen edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/Backmen/Items/handling/ammobox_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/Backmen/Items/handling/ammobox_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Backmen/Items/handling/ammobox_drop.ogg
+  # backmen edit end
   - type: BallisticAmmoProvider
     mayTransfer: true
     whitelist:

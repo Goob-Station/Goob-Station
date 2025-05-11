@@ -96,6 +96,12 @@
         layer:
         - MachineLayer
   - type: EntityStorage
+    # backmen edit start
+    closeSound:
+      path: /Audio/Backmen/Machines/crate_close.ogg
+    openSound:
+      path: /Audio/Backmen/Machines/crate_open.ogg
+    # backmen edit end
   - type: PlaceableSurface
     isPlaceable: false # defaults to closed.
   - type: Damageable

@@ -98,6 +98,21 @@
   id: BaseItem
   abstract: true
   components:
+  # backmen edit start
+  - type: EmitSoundOnPickup
+    sound:
+      collection: GenericPickup
+      params:
+        volume: -7
+  - type: EmitSoundOnDrop
+    sound:
+      collection: GenericDrop
+      params:
+        volume: -7
+  # - type: EmitSoundOnLand
+    # sound:
+      # collection: GenericDrop
+  # backmen edit end
   - type: Item
     size: Small
   - type: Animateable

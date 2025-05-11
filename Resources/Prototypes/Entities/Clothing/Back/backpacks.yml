@@ -71,6 +71,27 @@
     quickEquip: false
     slots:
     - back
+  # backmen edit start
+    equipSound:
+      path: /Audio/Backmen/Items/handling/backpack_equip.ogg
+      params:
+        volume: -9
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/Backmen/Items/handling/backpack_pickup.ogg
+      params:
+        volume: -9
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/Backmen/Items/handling/backpack_drop.ogg
+      params:
+        volume: -11
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Backmen/Items/handling/backpack_drop.ogg
+      params:
+        volume: -11
+  # backmen edit end
   - type: Storage
     grid:
     - 0,0,6,3

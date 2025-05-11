@@ -25,6 +25,17 @@
   parent: Clothing
   id: ClothingBeltBase
   components:
+  # backmen edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/Backmen/Items/handling/toolbelt_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/Backmen/Items/handling/toolbelt_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Backmen/Items/handling/toolbelt_drop.ogg
+  # backmen edit end
   - type: Sprite
     state: icon
   - type: Item

@@ -142,6 +142,23 @@
   id: BasePaper
   abstract: true
   components:
+  # backmen edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/Backmen/Items/handling/paper_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/Backmen/Items/handling/paper_drop.ogg
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Backmen/Items/handling/paper_use.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Backmen/Items/handling/paper_drop.ogg
+  - type: EmitSoundOnThrow
+    sound:
+      path: /Audio/Backmen/Items/handling/paper_throw.ogg
+  # backmen edit end
   - type: Tag
     tags:
     - Document

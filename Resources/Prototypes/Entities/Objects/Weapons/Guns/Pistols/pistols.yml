@@ -171,6 +171,17 @@
     price: 500
   - type: Multishot # Goobstation
     spreadMultiplier: 2
+  # backmen edit start
+  - type: EmitSoundOnPickup
+    sound:
+      collection: PistolsPickUp
+  - type: EmitSoundOnDrop
+    sound:
+      collection: PistolsDrop
+  - type: EmitSoundOnLand
+    sound:
+      collection: PistolsDrop
+  # backmen edit start
 
 - type: entity
   name: viper

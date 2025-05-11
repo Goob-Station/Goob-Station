@@ -1,0 +1,39 @@
+- files: ["closet_close.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Paradise SS13"
+  source: "https://github.com/ss220-space/Paradise/blob/master220/sound/machines/closet_close.ogg"
+
+- files: ["closet_open.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Paradise SS13"
+  source: "https://github.com/ss220-space/Paradise/blob/master220/sound/machines/closet_open.ogg"
+
+- files: ["crate_close.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Paradise SS13"
+  source: "https://github.com/ss220-space/Paradise/blob/master220/sound/machines/crate_close.ogg"
+
+- files: ["crate_open.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Paradise SS13"
+  source: "https://github.com/ss220-space/Paradise/blob/master220/sound/machines/crate_open.ogg"
+
+- files: ["airlock_close.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from TauCetiClassic"
+  source: "https://github.com/TauCetiStation/TauCetiClassic/blob/master/sound/machines/airlock/close.ogg"
+
+- files: ["airlock_open.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from TauCetiClassic"
+  source: "https://github.com/TauCetiStation/TauCetiClassic/blob/master/sound/machines/airlock/open.ogg"
+
+- files: ["airlock_ext_close.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Paradise SS13"
+  source: "https://github.com/ss220-space/Paradise/blob/master220/sound/machines/airlock_ext_close.ogg"
+
+- files: ["airlock_ext_open.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Paradise SS13"
+  source: "https://github.com/ss220-space/Paradise/blob/master220/sound/machines/airlock_ext_open.ogg"

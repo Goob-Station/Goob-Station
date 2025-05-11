@@ -118,6 +118,12 @@
         layer:
         - MachineLayer
   - type: EntityStorage
+    # backmen edit start
+    closeSound:
+      path: /Audio/Backmen/Machines/closet_close.ogg
+    openSound:
+      path: /Audio/Backmen/Machines/closet_open.ogg
+    # backmen edit end
   - type: ContainerContainer
     containers:
       entity_storage: !type:Container

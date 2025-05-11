@@ -210,6 +210,14 @@
   id: DrinkGlassBase
   abstract: true
   components:
+  # backmen edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/Backmen/Items/handling/drinkglass_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/Backmen/Items/handling/drinkglass_drop.ogg
+  # backmen edit end
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Glass
