@@ -8915,3 +8915,9 @@ Entries:
       message: Added Plasteel to the borg construction module!
   id: 1019
   time: '2025-05-11T02:26:26.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Cooking plastic in chemistry now yields five times more sheets.
+  id: 1020
+  time: '2025-05-11T03:17:54.0000000+00:00'
