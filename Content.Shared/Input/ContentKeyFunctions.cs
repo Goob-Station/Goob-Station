@@ -115,6 +115,7 @@
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 yavuz <58685802+yahay505@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -153,6 +154,8 @@ namespace Content.Shared.Input
         public static readonly BoundKeyFunction SmartEquipBackpack = "SmartEquipBackpack";
         public static readonly BoundKeyFunction SmartEquipBelt = "SmartEquipBelt";
         public static readonly BoundKeyFunction SmartEquipBack = "SmartEquipBack"; // Goobstation - Smart equip to back
+        public static readonly BoundKeyFunction SmartEquipSlimeStorage = "SmartEquipSlimeStorage"; // Goobstation - Smart equip to slime storage
+        public static readonly BoundKeyFunction SmartEquipStorageImplant = "SmartEquipStorageImplant"; // Goobstation - Smart equip to storage implant
         public static readonly BoundKeyFunction OpenBackpack = "OpenBackpack";
         public static readonly BoundKeyFunction OpenBelt = "OpenBelt";
         public static readonly BoundKeyFunction OpenAHelp = "OpenAHelp";
