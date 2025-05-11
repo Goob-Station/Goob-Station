@@ -8949,3 +8949,9 @@ Entries:
         syndicates.
   id: 1024
   time: '2025-05-11T07:12:12.0000000+00:00'
+- author: rotundfan
+  changes:
+    - type: Add
+      message: Your neon characters can be captain again.
+  id: 1025
+  time: '2025-05-11T19:51:11.0000000+00:00'
