@@ -35,9 +35,12 @@
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Smith <182301147+AgentSmithRadio@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Velcroboy <107660393+IamVelcroboy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Velcroboy <107660393+iamvelcroboy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 boxxie79 <88395316+boxxie79@users.noreply.github.com>
 #
@@ -143,6 +146,8 @@
     ClothingUniformJumpsuitTacticool: 2 # +1 Goobstation
     ClothingUniformJumpskirtTacticool: 2 # +1 Goobstation
     ClothingUniformJumpsuitCasualSyndicate: 2 # Goobstation
+    ClothingUniformJumpsuitMercer: 1 # Goobstation
+    ClothingOuterCoatZeusJacket: 1 # Goobstation
     ClothingShoesRealJordans: 1 #IF YOU WANT TO REMOVE THIS, DO. I THINK ITS FUNNY AND ILYA DOES TOO SO ITS GOING IN
     ToyFigurinePassenger: 1
     ToyFigurineGreytider: 1
