@@ -80,3 +80,14 @@
   parent: BaseGoldBorgModuleRecipe
   id: BorgModuleAdvancedMining
   result: BorgModuleAdvancedMining
+
+# AI
+- type: latheRecipe
+  id: AiRemoteBrain
+  result: AiRemoteBrain
+  completetime: 4
+  materials:
+    Steel: 300
+    Glass: 400
+    Gold: 400
+    Silver: 200

@@ -38,6 +38,7 @@
   recipeUnlocks:
   - ProximitySensor
   - Drone # Goobstation
+  - AiRemoteBrain # Goobstation
   position: -1,0
 
 - type: technology
