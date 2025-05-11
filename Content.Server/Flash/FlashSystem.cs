@@ -102,6 +102,7 @@ namespace Content.Server.Flash
 
         private static readonly ProtoId<TagPrototype> TrashTag = "Trash";
         public static readonly ProtoId<TagPrototype> IgnoreResistancesTag = "FlashIgnoreResistances"; // Goobstation
+        public static readonly ProtoId<TagPrototype> FlashVulnerableTag = "FlashVulnerable"; // Goobstation
 
         public override void Initialize()
         {
@@ -181,7 +182,7 @@ namespace Content.Server.Flash
             TimeSpan? stunDuration = null)
         {
             // Goob edit start
-            if (used == null || !_tag.HasTag(used.Value, IgnoreResistancesTag) && !_tag.HasTag(target, IgnoreResistancesTag))
+            if (used == null || !_tag.HasTag(used.Value, IgnoreResistancesTag) && !_tag.HasTag(target, FlashVulnerableTag))
             {
                 var attempt = new FlashAttemptEvent(target, user, used);
                 RaiseLocalEvent(target, attempt, true);

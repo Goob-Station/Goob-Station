@@ -63,7 +63,7 @@ public sealed class FlashbangSystem : EntitySystem
 
         var protectionRange = args.Range;
 
-        if (!_tag.HasTag(ent, FlashSystem.IgnoreResistancesTag) && !_tag.HasTag(args.Target, FlashSystem.IgnoreResistancesTag))
+        if (!_tag.HasTag(ent, FlashSystem.IgnoreResistancesTag) && !_tag.HasTag(args.Target, FlashSystem.FlashVulnerableTag))
         {
             var ev = new GetFlashbangedEvent(args.Range);
             RaiseLocalEvent(args.Target, ev);

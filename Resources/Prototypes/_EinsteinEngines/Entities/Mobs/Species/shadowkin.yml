@@ -209,7 +209,7 @@
       - FootstepSound
       - DoorBumpOpener
       - ShadowkinEmotes
-      - FlashIgnoreResistances # Can't protect against flashes
+      - FlashVulnerable # Can't protect against flashes
       - Empathy # Can talk with other shadowkins by telepathy
 
 - type: entity

@@ -84,6 +84,11 @@
     - id: Medicine
     - id: Poison
     - id: Narcotic
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Heart
 
 - type: entity
   id: OrganShadowkinStomach
@@ -108,6 +113,20 @@
     groups:
     - id: Food
     - id: Drink
+  - type: FoodSequenceElement
+    sprite:
+      sprite: _EinsteinEngines/Mobs/Species/Shadowkin/organs.rsi
+      state: stomach
+    entries:
+      burger:
+        name: food-sequence-content-stomach
+      taco:
+        name: food-sequence-content-stomach
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Stomach
 
 - type: entity
   id: OrganShadowkinLiver
@@ -123,6 +142,20 @@
     groups:
     - id: Alcohol
       rateModifier: 0.1
+  - type: FoodSequenceElement
+    sprite:
+      sprite: _EinsteinEngines/Mobs/Species/Shadowkin/organs.rsi
+      state: liver
+    entries:
+      burger:
+        name: food-sequence-content-liver
+      taco:
+        name: food-sequence-content-liver
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Liver
 
 - type: entity
   id: OrganShadowkinKidneys
@@ -132,8 +165,13 @@
   - type: Sprite
     sprite: _EinsteinEngines/Mobs/Species/Shadowkin/organs.rsi
     layers:
-      - state: kidneys
+    - state: kidneys
   - type: Metabolizer
     maxReagents: 5
     metabolizerTypes: [Shadowkin]
     removeEmpty: true
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Kidneys
