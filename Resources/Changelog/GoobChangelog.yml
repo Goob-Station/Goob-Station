@@ -8795,3 +8795,15 @@ Entries:
         know as a hardsuit before is now a 'voidsuit'
   id: 1001
   time: '2025-05-11T01:12:49.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: >-
+        Expirienced salvagers, botanists, chemists and paramedics can now choose
+        new items in loadouts.
+    - type: Add
+      message: >-
+        Nanotrasen Representative can now choose centcomm backpack and satchel
+        in the loadout.
+  id: 1002
+  time: '2025-05-11T01:41:43.0000000+00:00'
