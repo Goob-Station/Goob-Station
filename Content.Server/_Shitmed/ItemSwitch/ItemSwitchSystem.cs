@@ -23,7 +23,7 @@ public sealed class ItemSwitchSystem : SharedItemSwitchSystem
     {
         base.Initialize();
         SubscribeLocalEvent<ItemSwitchComponent, ExaminedEvent>(OnExamined);
-        SubscribeLocalEvent<ItemSwitchComponent, ChargeChangedEvent>(OnBatteryChanged);
+        SubscribeLocalEvent<ItemSwitchComponent, AttemptMeleeEvent>(OnAttemptMelee);
         SubscribeLocalEvent<ItemSwitchComponent, MeleeHitEvent>(OnMeleeAttack);
     }
 
@@ -75,7 +75,7 @@ public sealed class ItemSwitchSystem : SharedItemSwitchSystem
         _battery.TryUseCharge(ent, state.EnergyPerUse, battery);
     }
 
-    private void OnBatteryChanged(EntityUid uid, ItemSwitchComponent component, ref ChargeChangedEvent args)
+    private void OnAttemptMelee(EntityUid uid, ItemSwitchComponent component, ref AttemptMeleeEvent args)
     {
         CheckPowerAndSwitchState(uid, component);
     }
