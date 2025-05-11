@@ -947,9 +947,6 @@
   description: uplink-modsuit-bloodred-desc
   icon: { sprite: /Textures/_Goobstation/Clothing/OuterClothing/Modsuits/bloodredmodsuit.rsi, state: chestplate }
   productEntity: BloodredModsuitBackpack
-  discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 15
   cost:
     Telecrystal: 25
   categories:
@@ -961,9 +958,6 @@
   description: uplink-modsuit-elitemodsuit-desc
   icon: { sprite: /Textures/_Goobstation/Clothing/OuterClothing/Modsuits/syndicateelitemodsuit.rsi, state: chestplate }
   productEntity: EliteModsuitBackpack
-  discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 30
   cost:
     Telecrystal: 60
   categories:
