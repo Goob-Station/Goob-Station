@@ -20,18 +20,25 @@
   - type: ExplosionResistance
     damageCoefficient: 0.7
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.5
-        Caustic: 0.7
-        Heat: 0.6
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.4
+        Caustic: 0.6
+        Heat: 0.5
   - type: ClothingSpeedModifier
     walkModifier: 0.90
     sprintModifier: 0.90
   - type: ToggleableClothing
-    clothingPrototypes: 
+    clothingPrototypes:
       head: GoobClothingHeadHelmetHardsuitSpirate
 
 - type: entity

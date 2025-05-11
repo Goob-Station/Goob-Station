@@ -1,0 +1,399 @@
+- type: entity
+  id: WoundBase
+  categories: [ HideSpawnMenu ]
+  abstract: true
+  components:
+  - type: Wound
+    damageType: Blunt
+  - type: ContainerContainer
+    containers:
+      Traumas: !type:Container
+        ents: [ ]
+
+- type: entity
+  id: Blunt
+  parent: WoundBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Wound
+    damageType: Blunt
+    woundType: External
+    woundVisibility: Always
+    scarWound: BluntScar
+    integrityMultiplier: 0.5 #heheheha
+  - type: TraumaInflicter
+    severityThreshold: 12
+    allowedTraumas:
+    - Dismemberment
+    - OrganDamage
+    - BoneDamage
+    - VeinsDamage
+    - NerveDamage
+    allowArmourDeduction:
+    - VeinsDamage
+    - NerveDamage
+    traumasChances:
+      Dismemberment: -0.17
+      OrganDamage: 0.17
+      BoneDamage: 0.34
+      VeinsDamage: 0
+      NerveDamage: 0
+    mangledMultipliers:
+      BoneDamage: 1
+  - type: PainInflicter
+    multiplier: 0.87
+  - type: BleedInflicter
+    scalingSpeed: 0.8
+    severityThreshold: 8
+
+- type: entity
+  id: Piercing
+  parent: WoundBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Wound
+    damageType: Piercing
+    woundType: External
+    woundVisibility: Always
+    scarWound: PiercingScar
+    integrityMultiplier: 0.3
+    mangleSeverity: Severe
+  - type: TraumaInflicter
+    severityThreshold: 12
+    allowedTraumas:
+    - Dismemberment
+    - OrganDamage
+    - BoneDamage
+    - VeinsDamage
+    - NerveDamage
+    allowArmourDeduction:
+    - Dismemberment
+    traumasChances:
+      Dismemberment: 0.01
+      OrganDamage: 0.08
+      BoneDamage: 0.14
+      VeinsDamage: -0.4 # goes through rather easy.
+      NerveDamage: -0.4
+    mangledMultipliers:
+      BoneDamage: 0.75
+  - type: PainInflicter
+    multiplier: 0.67
+  - type: BleedInflicter
+    severityThreshold: 9
+    scalingSpeed: 0.5
+
+- type: entity
+  id: ArmorPiercing
+  parent: WoundBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Wound
+    woundType: External
+    woundVisibility: Always
+    scarWound: PiercingScar
+    integrityMultiplier: 0.34
+  - type: TraumaInflicter
+    severityThreshold: 6
+    allowedTraumas:
+    - OrganDamage
+    - BoneDamage
+    - VeinsDamage
+    - NerveDamage
+    traumasChances:
+      Dismemberment: -0.34 # Bullets go THROUGH people
+      OrganDamage: 0.24
+      BoneDamage: 0.24
+      VeinsDamage: -0.4
+      NerveDamage: -0.4
+  - type: PainInflicter
+    multiplier: 0.44
+  - type: BleedInflicter
+    scalingSpeed: 0.34
+    severityThreshold: 5
+
+- type: entity
+  id: Slash
+  parent: WoundBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Wound
+    damageType: Slash
+    woundType: External
+    woundVisibility: Always
+    scarWound: SlashScar
+    integrityMultiplier: 0.17
+    mangleSeverity: Severe
+  - type: TraumaInflicter
+    severityThreshold: 9
+    allowedTraumas:
+    - Dismemberment
+    - VeinsDamage
+    - NerveDamage
+    allowArmourDeduction:
+    - Dismemberment # seems rather reasonable. Wear armour, guys
+    - VeinsDamage
+    - NerveDamage
+    traumasChances:
+      Dismemberment: 0.08
+      OrganDamage: 0
+      BoneDamage: 0
+      VeinsDamage: 0.27
+      NerveDamage: 0.27
+    mangledMultipliers:
+      BoneDamage: 0.6
+  - type: PainInflicter
+    multiplier: 0.67
+  - type: BleedInflicter
+    scalingSpeed: 1.7
+
+- type: entity
+  id: Heat
+  parent: WoundBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Wound
+    damageType: Heat
+    woundType: External
+    woundVisibility: Always
+    scarWound: BurnScar
+    integrityMultiplier: 0.34 # boiling people
+  - type: TraumaInflicter
+    severityThreshold: 17
+    allowedTraumas:
+    - OrganDamage
+    - BoneDamage
+    - VeinsDamage
+    - NerveDamage
+    allowArmourDeduction:
+    - OrganDamage # No matter what ultrasuperduper cool armour you have, while getting fucking boiled alive - YOUR VEINS AND NERVES WILL HURT.
+    - BoneDamage
+    traumasChances:
+      Dismemberment: 0
+      OrganDamage: -0.12
+      BoneDamage: -0.21
+      VeinsDamage: 0.34
+      NerveDamage: 0.34
+    mangledMultipliers:
+      BoneDamage: 1
+  - type: PainInflicter
+    multiplier: 1.1
+  - type: BleedRemover
+    severityThreshold: 3
+
+- type: entity
+  id: Cold
+  parent: WoundBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Wound
+    damageType: Cold
+    woundType: External
+    woundVisibility: Always
+    scarWound: BurnScar
+    integrityMultiplier: 0.34
+  - type: TraumaInflicter
+    severityThreshold: 12
+    allowedTraumas:
+    - VeinsDamage
+    - NerveDamage
+    traumasChances:
+      Dismemberment: 0
+      OrganDamage: 0
+      BoneDamage: 0
+      VeinsDamage: 0.5
+      NerveDamage: 0.5
+  - type: PainInflicter
+    multiplier: 1.5 # it hurts
+
+- type: entity
+  id: Holy
+  parent: WoundBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Wound
+    damageType: Holy
+    woundType: Internal
+    woundVisibility: AdvancedScanner
+    integrityMultiplier: 0
+  - type: TraumaInflicter
+    severityThreshold: 0
+    allowedTraumas:
+    - NerveDamage
+    traumasChances:
+      Dismemberment: 0
+      OrganDamage: 0
+      BoneDamage: 0
+      VeinsDamage: 0
+      NerveDamage: 0.777
+  - type: PainInflicter
+    multiplier: 0.777
+
+- type: entity
+  id: Shock
+  parent: WoundBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Wound
+    damageType: Shock
+    woundType: Internal
+    woundVisibility: HandScanner
+    scarWound: BurnScar
+    integrityMultiplier: 0.07
+  - type: TraumaInflicter
+    severityThreshold: 9
+    allowedTraumas:
+    - OrganDamage
+    - VeinsDamage
+    - NerveDamage
+    traumasChances:
+      Dismemberment: 0
+      OrganDamage: 0
+      BoneDamage: 0
+      VeinsDamage: 0.34 # People are great conductors
+      NerveDamage: 0.34
+  - type: PainInflicter
+    multiplier: 1.4
+
+- type: entity
+  id: Cellular
+  parent: WoundBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Wound
+    damageType: Cellular
+    woundType: Internal
+    woundVisibility: AdvancedScanner
+    scarWound: BurnScar
+    integrityMultiplier: 0.15
+  - type: TraumaInflicter
+    severityThreshold: 0
+    allowedTraumas:
+    - OrganDamage
+    - BoneDamage
+    - VeinsDamage
+    - NerveDamage
+    traumasChances:
+      Dismemberment: 0
+      OrganDamage: 0
+      BoneDamage: 0
+      VeinsDamage: 0.17
+      NerveDamage: 0.17
+  - type: PainInflicter
+    painType: TraumaticPain
+    multiplier: 0.67
+
+- type: entity
+  id: Caustic
+  parent: WoundBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Wound
+    damageType: Caustic
+    woundType: Internal
+    woundVisibility: AdvancedScanner
+    scarWound: BurnScar
+    integrityMultiplier: 0
+  - type: TraumaInflicter
+    severityThreshold: 12
+    allowedTraumas:
+    - VeinsDamage
+    - NerveDamage
+    traumasChances:
+      Dismemberment: 0
+      OrganDamage: 0
+      BoneDamage: 0
+      VeinsDamage: 0.5
+      NerveDamage: 0.5
+  - type: PainInflicter
+    painType: TraumaticPain
+    multiplier: 0.12
+
+- type: entity
+  id: Radiation
+  parent: WoundBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Wound
+    damageType: Radiation
+    woundType: Internal
+    woundVisibility: HandScanner
+    scarWound: RadiationScar
+    integrityMultiplier: 0
+  - type: TraumaInflicter
+    severityThreshold: 11
+    allowedTraumas:
+    - OrganDamage
+    - VeinsDamage
+    - NerveDamage
+    allowArmourDeduction:
+    - OrganDamage
+    traumasChances:
+      Dismemberment: 0
+      OrganDamage: 0.34
+      BoneDamage: 0
+      VeinsDamage: 0.34
+      NerveDamage: 0.34
+  - type: PainInflicter
+    painType: TraumaticPain
+    multiplier: 0.12
+
+- type: entity
+  id: Poison
+  parent: WoundBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Wound
+    damageType: Poison
+    woundType: Internal
+    woundVisibility: HandScanner
+    integrityMultiplier: 0
+  - type: TraumaInflicter
+    severityThreshold: 7
+    allowedTraumas:
+    - OrganDamage
+    - VeinsDamage
+    - NerveDamage
+    traumasChances:
+      Dismemberment: 0
+      OrganDamage: -0.34
+      BoneDamage: 0
+      VeinsDamage: 0.12
+      NerveDamage: 0.12
+  - type: PainInflicter
+    painType: TraumaticPain
+    multiplier: 1.4
+
+- type: entity
+  id: BoneDamage
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Trauma
+    traumaType: BoneDamage
+
+- type: entity
+  id: OrganDamage
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Trauma
+    traumaType: OrganDamage
+
+- type: entity
+  id: VeinsDamage
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Trauma
+    traumaType: VeinsDamage
+
+- type: entity
+  id: NerveDamage
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Trauma
+    traumaType: NerveDamage
+
+- type: entity
+  id: Dismemberment
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Trauma
+    traumaType: Dismemberment
