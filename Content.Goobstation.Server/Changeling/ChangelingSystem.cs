@@ -101,6 +101,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
+using Content.Shared.Medical;
 
 namespace Content.Goobstation.Server.Changeling;
 
@@ -168,6 +169,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         SubscribeLocalEvent<ChangelingIdentityComponent, MobStateChangedEvent>(OnMobStateChange);
         SubscribeLocalEvent<ChangelingIdentityComponent, DamageChangedEvent>(OnDamageChange);
         SubscribeLocalEvent<ChangelingIdentityComponent, ComponentRemove>(OnComponentRemove);
+        SubscribeLocalEvent<ChangelingIdentityComponent, TargetBeforeDefibrillatorZapsEvent>(OnDefibZap);
 
         SubscribeLocalEvent<ChangelingIdentityComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshSpeed);
 
@@ -776,7 +778,11 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         // making sure things are right in this world
         comp.Chemicals = comp.MaxChemicals;
 
-        comp.TotalEvolutionPoints = _changelingRuleSystem.StartingCurrency; // make sure its set to the default
+        // make sure its set to the default
+        comp.TotalEvolutionPoints = _changelingRuleSystem.StartingCurrency;
+
+        // don't want instant stasis
+        comp.StasisTime = comp.DefaultStasisTime;
 
         // show alerts
         UpdateChemicals(uid, comp, 0);
@@ -803,8 +809,13 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
         if (!ent.Comp.IsInStasis)
         {
-            var currentDamage = MathF.Min(target.TotalDamage.Float(), 180f);
-            ent.Comp.StasisTime = MathF.Max(30f, float.Round(currentDamage));
+            var lowestStasisTime = ent.Comp.DefaultStasisTime;
+            var highestStasisTime = 180; // 3 minutes
+
+            var damageToTime = float.Round(target.TotalDamage.Float());
+
+            var currentStasisTime = MathF.Min(damageToTime, highestStasisTime);
+            ent.Comp.StasisTime = MathF.Max(lowestStasisTime, currentStasisTime);
         }
 
         if (!TryComp<MobStateComponent>(ent, out var mobState))
@@ -822,6 +833,15 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     private void OnComponentRemove(Entity<ChangelingIdentityComponent> ent, ref ComponentRemove args)
     {
         RemoveAllChangelingEquipment(ent, ent.Comp);
+    }
+
+    private void OnDefibZap(Entity<ChangelingIdentityComponent> ent, ref TargetBeforeDefibrillatorZapsEvent args)
+    {
+        if (ent.Comp.IsInStasis) // so you don't get a free insta-rejuvenate after being defibbed
+        {
+            ent.Comp.IsInStasis = false;
+            _popup.PopupEntity(Loc.GetString("changeling-stasis-exit-defib"), ent, ent);
+        }
     }
 
     #endregion

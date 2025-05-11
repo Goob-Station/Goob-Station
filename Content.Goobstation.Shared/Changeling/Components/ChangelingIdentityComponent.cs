@@ -86,10 +86,15 @@ public sealed partial class ChangelingIdentityComponent : Component
     public Dictionary<string, EntityUid?> Equipment = new();
 
     /// <summary>
-    ///     Time the changeling must spend in stasis
+    ///     The default stasis time.
+    /// </summary>
+    public readonly int DefaultStasisTime = 30;
+
+    /// <summary>
+    ///     Time in seconds the changeling must spend in stasis.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float StasisTime = 30f;
+    public float StasisTime = 0;
 
     /// <summary>
     ///     Current amount of chemicals changeling currently has.

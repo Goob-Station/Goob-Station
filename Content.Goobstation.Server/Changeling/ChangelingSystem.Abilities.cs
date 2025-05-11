@@ -396,7 +396,7 @@ public sealed partial class ChangelingSystem
         _popup.PopupEntity(Loc.GetString("changeling-stasis-exit"), uid, uid);
 
         comp.IsInStasis = false;
-        comp.StasisTime = 30f;
+        comp.StasisTime = comp.DefaultStasisTime;
 
         // stuns or knocks down anybody grabbing you
         if (_pull.IsPulled(uid))
