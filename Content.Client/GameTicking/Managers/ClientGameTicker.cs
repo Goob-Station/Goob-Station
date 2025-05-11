@@ -35,8 +35,11 @@
 // SPDX-FileCopyrightText: 2024 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2024 wafehling <wafehling@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 SpaceManiac <tad@platymuus.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -75,6 +78,7 @@ namespace Content.Client.GameTicking.Managers
         [ViewVariables] public LobbyBackgroundPrototype? LobbyBackground { get; private set; }
         [ViewVariables] public bool DisallowedLateJoin { get; private set; }
         [ViewVariables] public string? ServerInfoBlob { get; private set; }
+        [ViewVariables] public string? InGameInfoBlob { get; private set; }
         [ViewVariables] public TimeSpan StartTime { get; private set; }
         [ViewVariables] public new bool Paused { get; private set; }
 
@@ -82,6 +86,7 @@ namespace Content.Client.GameTicking.Managers
         [ViewVariables] public IReadOnlyDictionary<NetEntity, string> StationNames => _stationNames;
 
         public event Action? InfoBlobUpdated;
+        public event Action? InGameInfoBlobUpdated;
         public event Action? LobbyStatusUpdated;
         public event Action? LobbyLateJoinStatusUpdated;
         public event Action<IReadOnlyDictionary<NetEntity, Dictionary<ProtoId<JobPrototype>, int?>>>? LobbyJobsAvailableUpdated;
@@ -93,6 +98,7 @@ namespace Content.Client.GameTicking.Managers
             SubscribeNetworkEvent<TickerJoinLobbyEvent>(JoinLobby);
             SubscribeNetworkEvent<TickerJoinGameEvent>(JoinGame);
             SubscribeNetworkEvent<TickerConnectionStatusEvent>(ConnectionStatus);
+            SubscribeNetworkEvent<TickerInGameInfoEvent>(InGameInfo);
             SubscribeNetworkEvent<TickerLobbyStatusEvent>(LobbyStatus);
             SubscribeNetworkEvent<TickerLobbyInfoEvent>(LobbyInfo);
             SubscribeNetworkEvent<TickerLobbyCountdownEvent>(LobbyCountdown);
@@ -177,6 +183,13 @@ namespace Content.Client.GameTicking.Managers
             ServerInfoBlob = message.TextBlob;
 
             InfoBlobUpdated?.Invoke();
+        }
+
+        private void InGameInfo(TickerInGameInfoEvent message)
+        {
+            InGameInfoBlob = message.InGameTextBlob;
+
+            InGameInfoBlobUpdated?.Invoke();
         }
 
         private void JoinGame(TickerJoinGameEvent message)
