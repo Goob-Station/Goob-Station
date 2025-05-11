@@ -35,9 +35,6 @@
       uiWindowPos: 0,1
       strippingWindowPos: 0,2
       displayName: Jumpsuit
-      whitelist:
-        tags:
-          - Skirt
     - name: outerClothing
       slotTexture: suit
       slotFlags: OUTERCLOTHING

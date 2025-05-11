@@ -46,8 +46,7 @@ public sealed class FlyingVisualizerSystem : EntitySystem
         if (!Resolve(entity, ref entity.Comp, false))
             return;
 
-        if (!animateLayer)
-            entity.Comp.PostShader = shader;
+        entity.Comp.PostShader = shader;
 
         if (animateLayer && layer is not null)
             entity.Comp.LayerSetShader(layer.Value, shader);
