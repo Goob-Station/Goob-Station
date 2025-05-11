@@ -94,7 +94,7 @@ public sealed partial class ChangelingIdentityComponent : Component
     ///     Time in seconds the changeling must spend in stasis.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float StasisTime = 0;
+    public float StasisTime;
 
     /// <summary>
     ///     Current amount of chemicals changeling currently has.
