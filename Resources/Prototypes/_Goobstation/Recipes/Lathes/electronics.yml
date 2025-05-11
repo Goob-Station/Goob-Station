@@ -1,7 +1,10 @@
 # SPDX-FileCopyrightText: 2024 NULL882 <gost6865@yandex.ru>
 # SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -57,6 +60,14 @@
     sprite: _Goobstation/Structures/Machines/robotic_arm.rsi
     state: icon
   result: RoboticArmCircuitboard
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: ConstructorCircuitboard
+  icon:
+    sprite: _Goobstation/Structures/Machines/constructor.rsi
+    state: icon
+  result: ConstructorCircuitboard
 
 - type: latheRecipe
   parent: BaseCircuitboardRecipe
