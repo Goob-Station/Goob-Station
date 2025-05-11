@@ -26,13 +26,21 @@
   - type: TemperatureProtection
     heatingCoefficient: 0.35 # solid protection, resists WEAKER fires
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.5
-        Heat: 0.5
-        Caustic: 0.5
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.4
+        Heat: 0.4
+        Radiation: 0.4
+        Caustic: 0.4
   - type: FireProtection
     reduction: 0.65 # made to help protect changelings against fire. gives it a real purpose to use over regular armor
   - type: ClothingSpeedModifier
