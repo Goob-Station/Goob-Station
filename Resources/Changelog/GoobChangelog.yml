@@ -8863,3 +8863,9 @@ Entries:
       message: 'New steel tile suit in hacked autodrobe for pranks. :trolled:'
   id: 1010
   time: '2025-05-11T01:59:40.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: Traitor dwarves can now purchase new energy pickaxe.
+  id: 1011
+  time: '2025-05-11T02:05:25.0000000+00:00'
