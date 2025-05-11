@@ -6,6 +6,7 @@
 using Content.Goobstation.Shared.Emoting;
 using Content.Shared.Actions;
 using Content.Shared.Gravity;
+using Content.Shared.Magic.Events;
 using Content.Shared.Movement.Components;
 using Content.Shared.Throwing;
 
@@ -36,10 +37,9 @@ public sealed class DashActionSystem : EntitySystem
         if (args.NeedsGravity && _gravity.IsWeightless(args.Performer))
             return;
 
+        args.Handled = true;
         var vec = (_transform.ToMapCoordinates(args.Target).Position -
-                   _transform.GetMapCoordinates(args.Performer).Position).Normalized() *
-                   args.Distance;
-
+                   _transform.GetMapCoordinates(args.Performer).Position).Normalized() * args.Distance;
         var speed = args.Speed;
 
         if (args.AffectedBySpeed && TryComp<MovementSpeedModifierComponent>(args.Performer, out var speedcomp))
@@ -48,7 +48,7 @@ public sealed class DashActionSystem : EntitySystem
             speed *= speedcomp.CurrentSprintSpeed / speedcomp.BaseSprintSpeed;
         }
 
-        _throwing.TryThrow(args.Performer, vec, speed, null, 0, null, false, false, false);
+        _throwing.TryThrow(args.Performer, vec, speed, animated: false);
 
         if (args.Emote != null && TryComp<AnimatedEmotesComponent>(args.Performer, out var emotes))
         {
@@ -56,7 +56,11 @@ public sealed class DashActionSystem : EntitySystem
             Dirty(args.Performer, emotes);
         }
 
-        args.Handled = true;
+        if (args.Speech != null)
+        {
+            var ev = new SpeakSpellEvent(args.Performer, args.Speech);
+            RaiseLocalEvent(ref ev);
+        }
     }
 
     private void OnComponentInit(EntityUid uid, DashActionComponent comp, ref ComponentInit args)
