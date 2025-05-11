@@ -9,6 +9,8 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Robust.Shared.Serialization;
+using Content.Goobstation.Common.ContinuousBeam;
 
 namespace Content.Goobstation.Shared.Medical.Components;
 
@@ -130,11 +132,11 @@ public sealed partial class MediGunComponent : Component
 
     [DataField, ViewVariables]
     public SpriteSpecifier BeamSprite =
-        new SpriteSpecifier.Rsi(new ResPath("_Goobstation/Objects/Specific/Medical/medigun.rsi"), "beam");
+        new SpriteSpecifier.Rsi(new ResPath("/Textures/_Goobstation/Objects/Specific/Medical/medigun.rsi"), "beam");
 
     [DataField, ViewVariables]
     public SpriteSpecifier UberBeamSprite =
-        new SpriteSpecifier.Rsi(new ResPath("_Goobstation/Objects/Specific/Medical/medigun.rsi"), "beam_uber");
+        new SpriteSpecifier.Rsi(new ResPath("/Textures/_Goobstation/Objects/Specific/Medical/medigun.rsi"), "beam_uber");
 
     /// <summary>
     /// The noise this medigun makes when it has targeted something.
@@ -153,4 +155,10 @@ public sealed partial class MediGunComponent : Component
 
     [DataField, AutoNetworkedField]
     public Color UberLineColor = Color.OrangeRed;
+}
+
+[Serializable, NetSerializable]
+public sealed partial class MedigunBeamEvent : BaseContinuousBeamEvent
+{
+    public DamageSpecifier? Healing;
 }
