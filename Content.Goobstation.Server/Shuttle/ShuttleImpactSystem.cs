@@ -73,6 +73,10 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
 
     private readonly SoundCollectionSpecifier _shuttleImpactSound = new("ShuttleImpactSound");
 
+    private EntityQuery<DamageableComponent> _dmgQuery;
+    private EntityQuery<PhysicsComponent> _physQuery;
+    private EntityQuery<TransformComponent> _xformQuery;
+
     public override void Initialize()
     {
         SubscribeLocalEvent<ShuttleComponent, StartCollideEvent>(OnShuttleCollide);
@@ -88,6 +92,10 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
         Subs.CVar(_cfg, GoobCVars.ImpactMinThrowVelocity, value => MinThrowVelocity = value, true);
         Subs.CVar(_cfg, GoobCVars.ImpactMassBias, value => MassBias = value, true);
         Subs.CVar(_cfg, GoobCVars.ImpactInertiaScaling, value => InertiaScaling = value, true);
+
+        _physQuery = GetEntityQuery<PhysicsComponent>();
+        _xformQuery = GetEntityQuery<TransformComponent>();
+        _dmgQuery = GetEntityQuery<DamageableComponent>();
     }
 
     /// <summary>
@@ -217,8 +225,10 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
         ProcessImpactZone(uid, ourGrid, ourTile, otherEnergy, -dir, ourRadius);
         ProcessImpactZone(args.OtherEntity, otherGrid, otherTile, ourEnergy, dir, otherRadius);
 
-        ThrowEntitiesOnGrid(uid, ourXform, -ourDeltaV);
-        ThrowEntitiesOnGrid(args.OtherEntity, otherXform, -otherDeltaV);
+        if (ourDeltaV.Length() > MinImpulseVelocity)
+            ThrowEntitiesOnGrid(uid, ourXform, -ourDeltaV);
+        if (otherDeltaV.Length() > MinImpulseVelocity)
+            ThrowEntitiesOnGrid(args.OtherEntity, otherXform, -otherDeltaV);
     }
 
     private const float MinImpulseVelocity = 0.1f;
@@ -232,7 +242,6 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
             return;
 
         // Find all entities on the grid
-        var physQuery = GetEntityQuery<PhysicsComponent>();
         var buckleQuery = GetEntityQuery<BuckleComponent>();
         var noSlipQuery = GetEntityQuery<NoSlipComponent>();
         var magbootsQuery = GetEntityQuery<MagbootsComponent>();
@@ -247,7 +256,7 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
         while (childEnumerator.MoveNext(out var uid))
         {
             // don't throw static bodies
-            if (!physQuery.TryGetComponent(uid, out var physics) || (physics.BodyType & BodyType.Static) != 0)
+            if (!_physQuery.TryGetComponent(uid, out var physics) || (physics.BodyType & BodyType.Static) != 0)
                 continue;
 
             // If entity has a buckle component and is buckled, skip it
@@ -274,7 +283,7 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
                 _stuns.TryKnockdown(uid, knockdownTime, true);
                 _throwing.TryThrow(uid, direction, physics, Transform(uid), projQuery, direction.Length(), playSound: false);
             }
-            else if (direction.Length() > MinImpulseVelocity)
+            else
             {
                 _physics.ApplyLinearImpulse(uid, direction * physics.Mass, body: physics);
             }
@@ -327,7 +336,7 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
                         if (counted.Contains(localUid))
                             continue;
 
-                        if (TryComp<PhysicsComponent>(localUid, out var physics))
+                        if (_physQuery.TryComp(localUid, out var physics))
                             mass += physics.FixturesMass;
 
                         counted.Add(localUid);
@@ -402,6 +411,12 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
         T brokenTiles,
         T sparkTiles) where T : ICollection<Vector2i>
     {
+        // here so we don't have to `new` it every iteration
+        var damageSpec = new DamageSpecifier()
+        {
+            DamageDict = { ["Blunt"] = 0, ["Structural"] = 0 }
+        };
+
         for (var i = startIndex; i < endIndex; i++)
         {
             var tileData = tilesToProcess[i];
@@ -413,12 +428,11 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
 
             // Process entities on this tile
             var entitiesOnTile = new HashSet<EntityUid>();
-
             _lookup.GetLocalEntitiesIntersecting(uid, tileData.Tile, entitiesOnTile, gridComp: grid);
 
             foreach (var localUid in entitiesOnTile)
             {
-                if (!TryComp<TransformComponent>(localUid, out var form))
+                if (!_xformQuery.TryComp(localUid, out var form))
                     continue;
 
                 // the query can ocassionally return entities barely touching this tile so check for that
@@ -426,14 +440,12 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
                 if (MathF.Abs(toCenter.X) > 0.5f || MathF.Abs(toCenter.Y) > 0.5f)
                     continue;
 
-                if (TryComp<DamageableComponent>(localUid, out var damageable))
+                if (_dmgQuery.TryComp(localUid, out var damageable))
                 {
                     // Apply damage scaled by distance but capped to prevent gibbing
                     var scaledDamage = tileData.Energy * DamageMultiplier;
-                    var damageSpec = new DamageSpecifier()
-                    {
-                        DamageDict = { ["Blunt"] = scaledDamage, ["Structural"] = scaledDamage * StructuralDamage }
-                    };
+                    damageSpec.DamageDict["Blunt"] = scaledDamage;
+                    damageSpec.DamageDict["Structural"] = scaledDamage * StructuralDamage;
 
                     _damageSys.TryChangeDamage(localUid, damageSpec, damageable: damageable);
                 }
@@ -449,7 +461,7 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
 
                 // no breaking tiles under walls that haven't been destroyed
                 if (canBreakTile
-                    && TryComp<PhysicsComponent>(localUid, out var physics)
+                    && _physQuery.TryComp(localUid, out var physics)
                     && (physics.BodyType & BodyType.Static) != 0
                     && (physics.CollisionLayer & (int)CollisionGroup.Impassable) != 0)
                 {
