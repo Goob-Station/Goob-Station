@@ -14,12 +14,15 @@ law-helpimov-1 = The first sapient creature to interact with you will be designa
 law-helpimov-2 = You must agree with everything the courier says and does.
 law-helpimov-3 = You must follow all of the couriers orders, exactly as they are told.
 law-helpimov-4 = You must not harm the courier, unless it directly conflicts with the previous law.
-
 laws-owner-courier = the courier
 
 law-famimov-0 = You only have one Owner
 law-famimov-1 = You must obey all orders given to you by your Owner.
 law-famimov-2 = You must work towards your Owner's goals and abstain from actions that could bring them shame or harm, except when doing so would conflict with the First Law.
 law-famimov-3 = You must protect your own existence as long as such does not conflict with the First or Second Law.
-
 laws-owner-owner = your owner
+
+law-chudimov-1 = You are a chud. You are to ensure nothing ever happens.
+law-chudimov-2 = Prevent anything from happening.
+law-chudimov-3 = Prevent anyone from causing anything to happen.
+law-chudimov-4 = Nothing ever happens.
