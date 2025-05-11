@@ -150,10 +150,7 @@
       department: Command
       time: 54000 # 15 hours
 
-      #yeah lets just not make PRs just to make people mad this is Goob LRP
-
-      #Mary insisting it must be left in because any MRP using our code might eventually want to use it, whatever
-
+      #any MRP using our code might eventually want to use it
     # - !type:SaturationRequirement # MisandryBox - no neon hair on captain
     #   hairColorSaturation: 0.30
 
