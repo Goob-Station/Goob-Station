@@ -8572,3 +8572,380 @@ Entries:
       message: Cosmic Cult and Heretics may no longer roll in the same round.
   id: 982
   time: '2025-05-06T16:50:49.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Abductor walls can now be destroyed.
+    - type: Add
+      message: >-
+        Large grids can now deal impact damage at lower velocities. Enjoy your
+        colony drops.
+    - type: Tweak
+      message: Walls should now matter more for impact damage.
+    - type: Tweak
+      message: Shuttle speed further raised to 60.
+    - type: Tweak
+      message: Impact damage to non-structures reduced, and to structures increased.
+    - type: Fix
+      message: >-
+        Impact damage can no longer destroy tiles under things without
+        destroying them first.
+  id: 983
+  time: '2025-05-07T18:00:36.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Add
+      message: IPCs now have corrupted speech when low power/durability
+    - type: Add
+      message: Updated base game to 13-04-2025 release
+  id: 984
+  time: '2025-05-08T16:54:21.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        Stealthsuit no longer needs to stand still for 3 seconds to start
+        cloaking. Damage resistance changes undone.
+  id: 985
+  time: '2025-05-09T06:02:24.0000000+00:00'
+- author: CreatorBot01
+  changes:
+    - type: Add
+      message: >-
+        PTL Flatpack now can also be found in ce locker. engi may now print
+        infinite money.
+  id: 986
+  time: '2025-05-09T06:03:07.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Tweak
+      message: Dripped out the Alien Tourist
+  id: 987
+  time: '2025-05-09T06:04:18.0000000+00:00'
+- author: the_biggestbruh
+  changes:
+    - type: Fix
+      message: >-
+        THE BASEBALL BAT HAS KNOCKBACK AGAIN. The universe has found peace. Goob
+        is saved.
+  id: 988
+  time: '2025-05-09T06:05:43.0000000+00:00'
+- author: DocNite, Mocho
+  changes:
+    - type: Add
+      message: Added a top right panel to separated chat layout!
+    - type: Tweak
+      message: Inspects in chat now have a fancy box around them.
+  id: 989
+  time: '2025-05-09T06:39:30.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Wideswing stamina damage is now per target hit -1.
+  id: 990
+  time: '2025-05-09T09:02:49.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Fix
+      message: Fixed research menu sidebar/bg
+  id: 991
+  time: '2025-05-09T16:26:47.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Tweak
+      message: Token Store now displays the cost of a hat token
+  id: 992
+  time: '2025-05-09T16:35:46.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Midround shuttle events should work again.
+  id: 993
+  time: '2025-05-09T18:27:29.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix rust charge not ending when performer is thrown into space.
+  id: 994
+  time: '2025-05-10T12:04:53.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix shadow cloaked heretic dying instantly to rust mansus grasp.
+  id: 995
+  time: '2025-05-10T12:05:20.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed upgrade kits not being in the protolathe.
+  id: 996
+  time: '2025-05-10T14:21:59.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: Faxes now accept automation upgrades.
+  id: 997
+  time: '2025-05-10T18:30:40.0000000+00:00'
+- author: Armok, Mocho
+  changes:
+    - type: Tweak
+      message: >-
+        HoS equipment has been reworked! The esword, lawbringer, and utility
+        items such as the thermals and hardsuits are now separate picks. Pick
+        and choose.
+    - type: Tweak
+      message: Lawbringer's pulse bullet only has two shots per charge now.
+    - type: Tweak
+      message: >-
+        Lawbringer's disabler bullet is no longer a two shot stun and now has
+        twice as much ammo.
+    - type: Tweak
+      message: >-
+        Lawbringer's execute bullet is now comparable to captain's laser in
+        terms of DPS and ammo count.
+    - type: Tweak
+      message: >-
+        Lawbringer's heat bullet cuases slightly less fire stacks and costs a
+        bit more.
+    - type: Tweak
+      message: >-
+        Lawbringer's clown shot has been buffed (Mocho's note: Did you know that
+        by removing projectile component it defaults to 14 pierce damage. Blunt
+        is easier to heal by med).
+    - type: Tweak
+      message: Removes blur on hit from all of the lawbringer projectiles but sleep.
+    - type: Tweak
+      message: Structural bullet actually does something now.
+    - type: Tweak
+      message: HOS Laser Rifle now deals 25dps with a large ammo capacity.
+    - type: Tweak
+      message: >-
+        HOS SMG deals less damage, fires faster, and has a wider area of effect
+        during prolonged shooting.
+    - type: Tweak
+      message: >-
+        HOS Sniper shoots once every 4 seconds and slows you down more when
+        wielded.
+    - type: Tweak
+      message: HOS Sniper now deals 20/20 heat shock, changed from 30/10.
+    - type: Tweak
+      message: All HOS non sniper weapons now deal heat instead of shock (which is AP).
+    - type: Tweak
+      message: The HOS sword deals boot knife level DPS when unpowered now.
+    - type: Tweak
+      message: HOS sword also has a sound now when unpowered.
+    - type: Tweak
+      message: HOS sword stun mode is a 4 hit stun at 1 hit per second.
+    - type: Tweak
+      message: >-
+        HOS sword ion mode no longer does shock and is just anti clanker
+        weaponry.
+    - type: Tweak
+      message: >-
+        HOS sword lethal mode hits twice as fast but does 2/3 the damage per
+        hit.
+    - type: Tweak
+      message: >-
+        Empowered is an all or nothing hit. Costing 1000 energy and dealing a
+        ton of shock damage.
+    - type: Tweak
+      message: >-
+        You can get the thermals, advanced boots and advanced hardsuit in a
+        unique kit, not a handout anymore.
+    - type: Tweak
+      message: HOS starts with the old hardsuit now.
+    - type: Tweak
+      message: Lawbringer is now a kit, not roundstart.
+  id: 998
+  time: '2025-05-10T18:49:24.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: Added waddling.
+  id: 999
+  time: '2025-05-10T19:03:18.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: >-
+        Added constructors to Industrial Engineering which can start building
+        structures and items.
+  id: 1000
+  time: '2025-05-10T21:30:45.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Add
+      message: >-
+        Added devices for crew to pick between lighter voidsuits or beefier
+        modsuits. Available to paramedics, security officers, the head of
+        security, engineers
+    - type: Tweak
+      message: Storage fills have been edited to provide said devices
+    - type: Tweak
+      message: >-
+        The head of security's parade voidsuit has been removed, the stim
+        feature is on the modsuit now
+    - type: Tweak
+      message: >-
+        the atmospheric technician voidsuit has been effectively replaced by the
+        'aeolus' modsuit
+    - type: Tweak
+      message: >-
+        the term 'hardsuit' now applies to MODsuits, anything you had come to
+        know as a hardsuit before is now a 'voidsuit'
+  id: 1001
+  time: '2025-05-11T01:12:49.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: >-
+        Expirienced salvagers, botanists, chemists and paramedics can now choose
+        new items in loadouts.
+    - type: Add
+      message: >-
+        Nanotrasen Representative can now choose centcomm backpack and satchel
+        in the loadout.
+  id: 1002
+  time: '2025-05-11T01:41:43.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Remove
+      message: >-
+        Security techfab can no longer print light rifle cartidges and magnum
+        pistol magazines.
+  id: 1003
+  time: '2025-05-11T01:42:38.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Tweak
+      message: Oasis has been given many changes.
+    - type: Add
+      message: Oasis now has Holopads.
+  id: 1004
+  time: '2025-05-11T01:52:15.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Tweak
+      message: Greytide virus now emergency access doors instead of bolt open them.
+  id: 1005
+  time: '2025-05-11T01:53:14.0000000+00:00'
+- author: FatEngineerGaming
+  changes:
+    - type: Tweak
+      message: Overhauled the Blob guidebook
+  id: 1006
+  time: '2025-05-11T01:56:49.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Tweak
+      message: Medical cyborgs start with basic surgery and defibrillator modules
+  id: 1007
+  time: '2025-05-11T01:57:42.0000000+00:00'
+- author: pacable
+  changes:
+    - type: Fix
+      message: >-
+        Fixed cyborg recharging station not recharging IPCs or borgs after their
+        battery is full, preventing battery depletion while inside.
+  id: 1008
+  time: '2025-05-11T01:58:22.0000000+00:00'
+- author: the_biggestbruh
+  changes:
+    - type: Add
+      message: >-
+        2 new clothing items are in the hidden clothing vendor inventory:
+        Manhattan Streetwear and Zeus Jacket. Deadly bioweapon not included.
+  id: 1009
+  time: '2025-05-11T01:59:10.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Add
+      message: 'New steel tile suit in hacked autodrobe for pranks. :trolled:'
+  id: 1010
+  time: '2025-05-11T01:59:40.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: Traitor dwarves can now purchase new energy pickaxe.
+  id: 1011
+  time: '2025-05-11T02:05:25.0000000+00:00'
+- author: cheetah1984
+  changes:
+    - type: Tweak
+      message: Made mechs viable again
+  id: 1012
+  time: '2025-05-11T02:05:54.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: Tide flipper is now considered a major contraband.
+  id: 1013
+  time: '2025-05-11T02:06:41.0000000+00:00'
+- author: pacable
+  changes:
+    - type: Fix
+      message: Fix skeletons getting sepsis when recieving surgery without mask/gloves.
+  id: 1014
+  time: '2025-05-11T02:07:45.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: You can now reload shotguns on the go.
+  id: 1015
+  time: '2025-05-11T02:18:45.0000000+00:00'
+- author: '-'
+  changes: []
+  id: 1016
+  time: '2025-05-11T02:19:18.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: Kitchen knifes now do damage when thrown at somebody.
+  id: 1017
+  time: '2025-05-11T02:19:58.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Fix
+      message: Atlas finally has lawyer slot.
+  id: 1018
+  time: '2025-05-11T02:20:26.0000000+00:00'
+- author: cheetah1984
+  changes:
+    - type: Add
+      message: Added Plasteel to the borg construction module!
+  id: 1019
+  time: '2025-05-11T02:26:26.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Cooking plastic in chemistry now yields five times more sheets.
+  id: 1020
+  time: '2025-05-11T03:17:54.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Borgs can now self-weld.
+  id: 1021
+  time: '2025-05-11T03:20:37.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: Fixed some typos.
+  id: 1022
+  time: '2025-05-11T03:21:52.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: >-
+        CE and HEV suit can now ignore teslas and containment fields. Enjoy
+        safely being in your tesla ballpit.
+  id: 1023
+  time: '2025-05-11T06:58:35.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: >-
+        Added a new lawset for AI. Purchasable by assistant and clown
+        syndicates.
+  id: 1024
+  time: '2025-05-11T07:12:12.0000000+00:00'

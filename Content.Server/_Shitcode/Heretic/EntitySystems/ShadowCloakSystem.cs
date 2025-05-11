@@ -2,7 +2,7 @@ using Content.Server.Buckle.Systems;
 using Content.Server.IdentityManagement;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitcode.Heretic.Systems;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
 
