@@ -356,7 +356,7 @@
       - state: base-part-inhand-right
       - state: base-stripes-inhand-right
         color: "#7B0F12"
-      
+
 
 - type: entity
   id: BaseBorgModuleSyndicateAssault
@@ -473,6 +473,7 @@
     - Wirecutter
     - MultitoolBorg
     - WelderIndustrial
+    - MeleeHammer # Goobstation
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: tool-module }
 
