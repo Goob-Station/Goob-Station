@@ -8875,3 +8875,9 @@ Entries:
       message: Made mechs viable again
   id: 1012
   time: '2025-05-11T02:05:54.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: Tide flipper is now considered a major contraband.
+  id: 1013
+  time: '2025-05-11T02:06:41.0000000+00:00'
