@@ -475,7 +475,7 @@ public sealed partial class GoobCVars
     /// Kinetic energy required to spawn sparks
     /// </summary>
     public static readonly CVarDef<float> SparkEnergy =
-        CVarDef.Create("shuttle.impact.spark_energy", 1000000f, CVar.SERVERONLY);
+        CVarDef.Create("shuttle.impact.spark_energy", 5000000f, CVar.SERVERONLY);
 
     /// <summary>
     /// Area to consider for impact calculations
