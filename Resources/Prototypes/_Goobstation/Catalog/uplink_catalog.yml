@@ -470,10 +470,10 @@
 - type: listing
   id: UplinkChudimovCircuitBoard
   name: chudimov circuit board
-  description: A very un-dangerous Lawset to use when you want to cause the A.I. to be a weirdo, use when bored.
+  description: Nothing ever happens.
   productEntity: ChudimovCircuitBoard
   cost:
-    Telecrystal: 15
+    Telecrystal: 40
   categories:
   -  UplinkJob
   conditions:
