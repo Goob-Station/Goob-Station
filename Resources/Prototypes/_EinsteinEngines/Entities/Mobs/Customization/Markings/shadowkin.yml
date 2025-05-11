@@ -7,7 +7,7 @@
   speciesRestriction: [Shadowkin]
   forcedColoring: true
   sprites:
-    - sprite: _Goobstation/Mobs/Customization/Shadowkin/ears.rsi
+    - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/ears.rsi
       state: shadowkin
 
 - type: marking
@@ -25,9 +25,9 @@
           !type:SimpleColoring
             color: "#FFFFFF"
   sprites:
-    - sprite: _Goobstation/Mobs/Customization/Shadowkin/ears.rsi
+    - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/ears.rsi
       state: shadowkin
-    - sprite: _Goobstation/Mobs/Customization/Shadowkin/ears.rsi
+    - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/ears.rsi
       state: shadowkin_stripes
 
 # Tails
@@ -39,7 +39,7 @@
   speciesRestriction: [Shadowkin]
   forcedColoring: true
   sprites:
-    - sprite: _Goobstation/Mobs/Customization/Shadowkin/tails64x32.rsi
+    - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/tails64x32.rsi
       state: shadowkin
 
 - type: marking
@@ -49,7 +49,7 @@
   speciesRestriction: [Shadowkin]
   forcedColoring: true
   sprites:
-    - sprite: _Goobstation/Mobs/Customization/Shadowkin/tails64x32.rsi
+    - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/tails64x32.rsi
       state: shadowkin_big
 
 - type: marking
@@ -59,7 +59,7 @@
   speciesRestriction: [Shadowkin]
   forcedColoring: true
   sprites:
-    - sprite: _Goobstation/Mobs/Customization/Shadowkin/tails64x32.rsi
+    - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/tails64x32.rsi
       state: shadowkin_big_fluff
 
 - type: marking
@@ -69,7 +69,7 @@
   speciesRestriction: [Shadowkin]
   forcedColoring: true
   sprites:
-    - sprite: _Goobstation/Mobs/Customization/Shadowkin/tails32x32.rsi
+    - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/tails32x32.rsi
       state: shadowkin_shorter
 
 - type: marking
@@ -79,7 +79,7 @@
   speciesRestriction: [Shadowkin]
   forcedColoring: true
   sprites:
-    - sprite: _Goobstation/Mobs/Customization/Shadowkin/tails32x32.rsi
+    - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/tails32x32.rsi
       state: shadowkin_medium
 
 - type: marking
@@ -97,7 +97,7 @@
           !type:SimpleColoring
             color: "#FFFFFF"
   sprites:
-    - sprite: _Goobstation/Mobs/Customization/Shadowkin/ears.rsi
+    - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/ears.rsi
       state: shadowkin
     - sprite: _ADT/Mobs/Customization/Shadekin/shadekin_ears_32x32.rsi
       state: motley_secondary
@@ -126,7 +126,7 @@
           !type:SimpleColoring
             color: "#FFFFFF"
   sprites:
-    - sprite: _Goobstation/Mobs/Customization/Shadowkin/ears.rsi
+    - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/ears.rsi
       state: shadowkin
     - sprite: _ADT/Mobs/Customization/Shadekin/shadekin_ears_32x32.rsi
       state: piercing_all
@@ -146,7 +146,7 @@
           !type:SimpleColoring
             color: "#FFFFFF"
   sprites:
-    - sprite: _Goobstation/Mobs/Customization/Shadowkin/ears.rsi
+    - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/ears.rsi
       state: shadowkin
     - sprite: _ADT/Mobs/Customization/Shadekin/shadekin_ears_32x32.rsi
       state: piercing_left
@@ -166,7 +166,7 @@
           !type:SimpleColoring
             color: "#FFFFFF"
   sprites:
-    - sprite: _Goobstation/Mobs/Customization/Shadowkin/ears.rsi
+    - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/ears.rsi
       state: shadowkin
     - sprite: _ADT/Mobs/Customization/Shadekin/shadekin_ears_32x32.rsi
       state: piercing_right
@@ -186,7 +186,7 @@
           !type:SimpleColoring
             color: "#FFFFFF"
   sprites:
-    - sprite: _Goobstation/Mobs/Customization/Shadowkin/ears.rsi
+    - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/ears.rsi
       state: shadowkin
     - sprite: _ADT/Mobs/Customization/Shadekin/shadekin_ears_32x32.rsi
       state: ringed_all_secondary
@@ -206,7 +206,7 @@
           !type:SimpleColoring
             color: "#FFFFFF"
   sprites:
-    - sprite: _Goobstation/Mobs/Customization/Shadowkin/ears.rsi
+    - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/ears.rsi
       state: shadowkin
     - sprite: _ADT/Mobs/Customization/Shadekin/shadekin_ears_32x32.rsi
       state: ringed_left_secondary
@@ -226,7 +226,7 @@
           !type:SimpleColoring
             color: "#FFFFFF"
   sprites:
-    - sprite: _Goobstation/Mobs/Customization/Shadowkin/ears.rsi
+    - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/ears.rsi
       state: shadowkin
     - sprite: _ADT/Mobs/Customization/Shadekin/shadekin_ears_32x32.rsi
       state: ringed_right_secondary
@@ -237,7 +237,7 @@
   markingCategory: HeadTop
   speciesRestriction: [Shadowkin]
   sprites:
-    - sprite: _Goobstation/Mobs/Customization/Shadowkin/ears.rsi
+    - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/ears.rsi
       state: shadowkin
     - sprite: _ADT/Mobs/Customization/Shadekin/shadekin_ears_32x32.rsi
       state: gauze_ear_all_default
@@ -248,7 +248,7 @@
   markingCategory: HeadTop
   speciesRestriction: [Shadowkin]
   sprites:
-    - sprite: _Goobstation/Mobs/Customization/Shadowkin/ears.rsi
+    - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/ears.rsi
       state: shadowkin
     - sprite: _ADT/Mobs/Customization/Shadekin/shadekin_ears_32x32.rsi
       state: gauze_ear_l_default
@@ -259,7 +259,7 @@
   markingCategory: HeadTop
   speciesRestriction: [Shadowkin]
   sprites:
-    - sprite: _Goobstation/Mobs/Customization/Shadowkin/ears.rsi
+    - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/ears.rsi
       state: shadowkin
     - sprite: _ADT/Mobs/Customization/Shadekin/shadekin_ears_32x32.rsi
       state: gauze_ear_r_default

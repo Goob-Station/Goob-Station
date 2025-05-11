@@ -65,7 +65,7 @@
     - type: HumanoidAppearance
       species: Shadowkin
     - type: Icon
-      sprite: _Goobstation/Mobs/Species/Shadowkin/parts.rsi
+      sprite: _EinsteinEngines/Mobs/Species/Shadowkin/parts.rsi
       state: full
     - type: Body
       prototype: Shadowkin

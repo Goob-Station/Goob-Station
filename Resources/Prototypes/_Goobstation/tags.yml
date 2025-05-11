@@ -398,9 +398,6 @@
   id: ShadowCloakAction
 
 - type: Tag
-  id: ShadowkinEmotes
-
-- type: Tag
   id: ShowWizardIcons
 
 - type: Tag

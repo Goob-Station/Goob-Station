@@ -21,3 +21,14 @@
     Radiation: 0.4
     Ion: 0.8
   ignoreArmorPierceFlags: All
+
+- type: damageModifierSet
+  id: Shadowkin
+  coefficients: # Literally the same as Tajaran, but less asphyx
+    Blunt: 1.15
+    Slash: 1.15
+    Piercing: 1.15
+    Asphyxiation: 0.50
+    Heat: 1.20
+    Cold: 0.80
+  ignoreArmorPierceFlags: All # Goobstation
