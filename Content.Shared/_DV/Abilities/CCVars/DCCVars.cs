@@ -34,7 +34,7 @@ public sealed class DCCVars
 
     /// <summary>
     /// The multiplier for the difficulty of the monument.
-    /// <summary>
+    /// </summary>
     public static readonly CVarDef<float> CosmicCultistDifficultyMultiplier =
         CVarDef.Create("cosmiccult.difficulty_multiplier", 1.5f, CVar.SERVER);
 
