@@ -7,6 +7,8 @@
 // SPDX-FileCopyrightText: 2023 Vasilis <vasilis@pikachu.systems>
 // SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
