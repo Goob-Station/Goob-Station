@@ -8835,3 +8835,9 @@ Entries:
       message: Overhauled the Blob guidebook
   id: 1006
   time: '2025-05-11T01:56:49.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Tweak
+      message: Medical cyborgs start with basic surgery and defibrillator modules
+  id: 1007
+  time: '2025-05-11T01:57:42.0000000+00:00'
