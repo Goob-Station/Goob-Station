@@ -16,10 +16,10 @@
   - type: WoundableVisuals
     damageOverlayGroups:
       Brute:
-        sprite: Mobs/Effects/brute_damage.rsi
+        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
         color: "#896e55"
       Burn:
-        sprite: Mobs/Effects/burn_damage.rsi
+        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
   - type: Icon # Shitmed Change
     sprite: Mobs/Species/Gingerbread/parts.rsi
   - type: BodyPart # Shitmed Change

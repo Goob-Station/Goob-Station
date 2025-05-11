@@ -18,10 +18,10 @@
   - type: WoundableVisuals
     damageOverlayGroups:
       Brute:
-        sprite: Mobs/Effects/brute_damage.rsi
+        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
         color: "#808A51"
       Burn:
-        sprite: Mobs/Effects/burn_damage.rsi
+        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
   - type: Icon # Shitmed Change
     sprite: Mobs/Species/Moth/parts.rsi
   - type: BodyPart # Shitmed Change

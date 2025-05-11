@@ -77,11 +77,11 @@
     occupiedLayer: Chest
     damageOverlayGroups:
       Brute:
-        sprite: Mobs/Effects/brute_damage.rsi
+        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
         color: "#FF0000"
       Burn:
-        sprite: Mobs/Effects/burn_damage.rsi
-    bleedingOverlay: Mobs/Effects/bleeding_damage.rsi
+        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
+    bleedingOverlay: _Shitmed/Mobs/Effects/bleeding_damage.rsi
 
 - type: entity
   abstract: true
@@ -95,7 +95,7 @@
     occupiedLayer: Groin
     damageOverlayGroups:
       Brute:
-        sprite: Mobs/Effects/brute_damage.rsi
+        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
         color: "#FF0000"
       Burn:
-        sprite: Mobs/Effects/burn_damage.rsi
+        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi

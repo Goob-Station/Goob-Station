@@ -61,10 +61,10 @@
   - type: WoundableVisuals
     damageOverlayGroups:
       Brute:
-        sprite: Mobs/Effects/brute_damage.rsi
+        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
         color: "#555555AA"
       Burn:
-        sprite: Mobs/Effects/burn_damage.rsi
+        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
 
 - type: entity
   parent: [ PartSkeletonBase, BaseChestInorganic ]

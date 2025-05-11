@@ -298,10 +298,10 @@
 #    - "enum.HumanoidVisualLayers.RLeg"
 #    damageOverlayGroups:
 #      Brute:
-#        sprite: Mobs/Effects/brute_damage.rsi
+#        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
 #        color: "#FF0000"
 #      Burn:
-#        sprite: Mobs/Effects/burn_damage.rsi
+#        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
   - type: GenericVisualizer
     visuals:
       enum.CreamPiedVisuals.Creamed:
