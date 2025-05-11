@@ -20,6 +20,7 @@
   name: ominous armor
   description: A ragged, dusty set of robes. Strange eyes line the inside.
   components:
+  - type: UnholyItem
   - type: Sprite
     sprite: _Goobstation/Heretic/eldritch_armor.rsi
     state: icon
@@ -33,6 +34,7 @@
         Piercing: 0.50
         Heat: 0.50
         Caustic: 0.50
+        Holy: 1.25
   - type: ExplosionResistance
     damageCoefficient: 0.25
   - type: ToggleableClothing # Goobstation - Modsuits change
@@ -50,6 +52,8 @@
   name: void cloak
   description: Black like tar, reflecting no light. Runic symbols line the outside. With each flash you lose comprehension of what you are seeing.
   components:
+  # - type: UnholyItem # This should only be active when cloak is visible. Can't simply ensure/remove this component on
+  # cloak toggle due to goobmod. Should be done when heretic is mored to goobmod probably.
   - type: Sprite
     sprite: _Goobstation/Heretic/void_cloak.rsi
     layers:
@@ -65,6 +69,7 @@
         Piercing: 0.70
         Heat: 0.70
         Caustic: 0.70
+        # Holy: 1.25
   - type: ExplosionResistance
     damageCoefficient: 0.7
   - type: ToggleableClothing # Goobstation - Modsuits change
@@ -89,15 +94,15 @@
     - 9,0,9,1
     whitelist:
       tags:
-        - HereticItem
-        - Knife
-        - Meat
+      - HereticItem
+      - Knife
+      - Meat
       components:
-        - Organ
-        - BodyPart
-        - HereticBlade
-        - CarvingKnife
-        - HereticMagicItem
+      - Organ
+      - BodyPart
+      - HereticBlade
+      - CarvingKnife
+      - HereticMagicItem
   - type: HereticClothing
   - type: PressureProtection
   - type: VoidCloak

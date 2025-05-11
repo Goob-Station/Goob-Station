@@ -90,9 +90,11 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 // SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
@@ -108,6 +110,7 @@ using Content.Shared.Damage;
 using Content.Shared.Hands.Components;
 using Content.Shared.Tag;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
@@ -125,6 +128,8 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
     ///     We'll use an excess time so stuff like finishing effects can show.
     /// </summary>
     private static readonly TimeSpan ExcessTime = TimeSpan.FromSeconds(0.5f);
+
+    private static readonly ProtoId<TagPrototype> InstantDoAftersTag = "InstantDoAfters";
 
     public override void Initialize()
     {
@@ -346,7 +351,7 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
 
         // TODO DO AFTER
         // Why does this tag exist? Just make this a bool on the component?
-        if (args.Delay <= TimeSpan.Zero || _tag.HasTag(args.User, "InstantDoAfters"))
+        if (args.Delay <= TimeSpan.Zero || _tag.HasTag(args.User, InstantDoAftersTag))
         {
             RaiseDoAfterEvents(doAfter, comp);
             // We don't store instant do-afters. This is just a lazy way of hiding them from client-side visuals.
@@ -505,5 +510,17 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
     {
         return GetStatus(entity, id, comp) == DoAfterStatus.Running;
     }
+
+    // Goobstation start
+    public bool TryGetDoAfter(DoAfterComponent comp, ushort id, [NotNullWhen(true)] out DoAfter? doAfter)
+    {
+        return comp.DoAfters.TryGetValue(id, out doAfter);
+    }
+
+    public DoAfterArgs GetArgs(DoAfter doAfter)
+    {
+        return doAfter.Args;
+    }
+    // Goobstation end
     #endregion
 }
