@@ -54,6 +54,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
+using Robust.Shared.Maths; // Goobstation
 using Robust.Shared.Utility;
 
 namespace Content.Server.Guardian
@@ -381,8 +382,15 @@ namespace Content.Server.Guardian
             if (!guardianComponent.GuardianLoose)
                 return;
 
+            // Goobstation - now moves you closer instead of retracting
             if (!_transform.InRange(guardianXform.Coordinates, hostXform.Coordinates, guardianComponent.DistanceAllowed))
-                RetractGuardian(hostUid, hostComponent, guardianUid, guardianComponent);
+            {
+                // host's position in our parent's coordinates
+                var hostPos = hostXform.Coordinates.WithEntityId(guardianXform.ParentUid, EntityManager).Position;
+                var diff = guardianXform.LocalPosition - hostPos;
+                var newDiff = diff.Normalized() * guardianComponent.DistanceAllowed;
+                _transform.SetLocalPosition(guardianUid, hostPos + newDiff, guardianXform);
+            }
         }
 
         private void ReleaseGuardian(EntityUid host, GuardianHostComponent hostComponent, EntityUid guardian, GuardianComponent guardianComponent)
