@@ -8823,3 +8823,9 @@ Entries:
       message: Oasis now has Holopads.
   id: 1004
   time: '2025-05-11T01:52:15.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Tweak
+      message: Greytide virus now emergency access doors instead of bolt open them.
+  id: 1005
+  time: '2025-05-11T01:53:14.0000000+00:00'
