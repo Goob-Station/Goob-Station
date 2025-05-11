@@ -151,11 +151,9 @@
     - !type:DepartmentTimeRequirement
       department: Command
       time: 54000 # 15 hours
-
       #any MRP using our code might eventually want to use it
     # - !type:SaturationRequirement # MisandryBox - no neon hair on captain
     #   hairColorSaturation: 0.30
-
   goobcoins: 50 #Goob content
   weight: 20
   startingGear: CaptainGear
