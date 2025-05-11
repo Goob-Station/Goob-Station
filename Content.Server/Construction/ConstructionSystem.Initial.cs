@@ -573,7 +573,7 @@ namespace Content.Server.Construction
                 entWith = hands.ActiveHandEntity;
 
             if (!_actionBlocker.CanInteract(user, null)
-                || (senderSession != null && entWith == null) // Goobstation
+                || (senderSession != null && entWith == null)) // Goobstation
             {
                 Cleanup();
                 return false;
