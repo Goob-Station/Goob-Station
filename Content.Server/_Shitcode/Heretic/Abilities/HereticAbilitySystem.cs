@@ -518,7 +518,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
                     _dmg.TryChangeDamage(uid,
                         siliconDamage,
                         ignoreResistances: true,
-                        targetPart: TargetBodyPart.Torso);
+                        targetPart: TargetBodyPart.Chest);
 
                     // Don't popup to mech
                     if (isMech)

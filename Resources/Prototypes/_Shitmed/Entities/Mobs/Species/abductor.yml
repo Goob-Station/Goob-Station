@@ -52,6 +52,13 @@
         color: "#878787"
       Burn:
         sprite: Mobs/Effects/burn_damage.rsi
+#  - type: DamageVisuals
+#    damageOverlayGroups:
+#      Brute:
+#        sprite: Mobs/Effects/brute_damage.rsi
+#        color: "#878787"
+#      Burn:
+#        sprite: Mobs/Effects/burn_damage.rsi
   - type: PassiveDamage
     allowedStates:
     - Alive

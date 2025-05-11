@@ -1,0 +1,33 @@
+# Trauma Sounds
+- type: soundCollection
+  id: BoneGone
+  files:
+  - /Audio/_Shitmed/ReBELL/Bone/BoneGone1.ogg
+  - /Audio/_Shitmed/ReBELL/Bone/BoneGone2.ogg
+  - /Audio/_Shitmed/ReBELL/Bone/BoneGone3.ogg
+  - /Audio/_Shitmed/ReBELL/Bone/BoneGone4.ogg
+  - /Audio/_Shitmed/ReBELL/Bone/BoneGone5.ogg
+
+# Organs
+- type: soundCollection
+  id: OrganDestroyed
+  files:
+  - /Audio/_Shitmed/ReBELL/Organs/OrganDestroyed1.ogg
+  - /Audio/_Shitmed/ReBELL/Organs/OrganDestroyed2.ogg
+  - /Audio/_Shitmed/ReBELL/Organs/OrganDestroyed3.ogg
+  - /Audio/_Shitmed/ReBELL/Organs/OrganDestroyed4.ogg
+
+# Dismemberment
+- type: soundCollection
+  id: WoundableDestroyed
+  files:
+  - /Audio/_Shitmed/ReBELL/Woundables/WoundableDestroyed1.ogg
+  - /Audio/_Shitmed/ReBELL/Woundables/WoundableDestroyed2.ogg
+
+- type: soundCollection
+  id: WoundableDelimbed
+  files:
+  - /Audio/_Shitmed/ReBELL/Woundables/WoundableAmputated1.ogg
+  - /Audio/_Shitmed/ReBELL/Woundables/WoundableAmputated2.ogg
+  - /Audio/_Shitmed/ReBELL/Woundables/WoundableAmputated3.ogg
+  - /Audio/_Shitmed/ReBELL/Woundables/WoundableAmputated4.ogg

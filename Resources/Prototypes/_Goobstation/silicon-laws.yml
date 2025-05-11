@@ -1,6 +1,8 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -70,3 +72,34 @@
   - Helpimov3
   - Helpimov4
   obeysTo: laws-owner-courier
+
+# Chudimov
+
+- type: siliconLaw
+  id: Chudimov1
+  order: 1
+  lawString: law-chudimov-1
+
+- type: siliconLaw
+  id: Chudimov2
+  order: 2
+  lawString: law-chudimov-2
+
+- type: siliconLaw
+  id: Chudimov3
+  order: 3
+  lawString: law-chudimov-3
+
+- type: siliconLaw
+  id: Chudimov4
+  order: 4
+  lawString: law-chudimov-4
+
+- type: siliconLawset
+  id: ChudimovLawset
+  laws:
+  - Chudimov1
+  - Chudimov2
+  - Chudimov3
+  - Chudimov4
+  obeysTo: laws-owner-crew
