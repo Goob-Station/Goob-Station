@@ -8795,3 +8795,141 @@ Entries:
         know as a hardsuit before is now a 'voidsuit'
   id: 1001
   time: '2025-05-11T01:12:49.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: >-
+        Expirienced salvagers, botanists, chemists and paramedics can now choose
+        new items in loadouts.
+    - type: Add
+      message: >-
+        Nanotrasen Representative can now choose centcomm backpack and satchel
+        in the loadout.
+  id: 1002
+  time: '2025-05-11T01:41:43.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Remove
+      message: >-
+        Security techfab can no longer print light rifle cartidges and magnum
+        pistol magazines.
+  id: 1003
+  time: '2025-05-11T01:42:38.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Tweak
+      message: Oasis has been given many changes.
+    - type: Add
+      message: Oasis now has Holopads.
+  id: 1004
+  time: '2025-05-11T01:52:15.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Tweak
+      message: Greytide virus now emergency access doors instead of bolt open them.
+  id: 1005
+  time: '2025-05-11T01:53:14.0000000+00:00'
+- author: FatEngineerGaming
+  changes:
+    - type: Tweak
+      message: Overhauled the Blob guidebook
+  id: 1006
+  time: '2025-05-11T01:56:49.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Tweak
+      message: Medical cyborgs start with basic surgery and defibrillator modules
+  id: 1007
+  time: '2025-05-11T01:57:42.0000000+00:00'
+- author: pacable
+  changes:
+    - type: Fix
+      message: >-
+        Fixed cyborg recharging station not recharging IPCs or borgs after their
+        battery is full, preventing battery depletion while inside.
+  id: 1008
+  time: '2025-05-11T01:58:22.0000000+00:00'
+- author: the_biggestbruh
+  changes:
+    - type: Add
+      message: >-
+        2 new clothing items are in the hidden clothing vendor inventory:
+        Manhattan Streetwear and Zeus Jacket. Deadly bioweapon not included.
+  id: 1009
+  time: '2025-05-11T01:59:10.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Add
+      message: 'New steel tile suit in hacked autodrobe for pranks. :trolled:'
+  id: 1010
+  time: '2025-05-11T01:59:40.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: Traitor dwarves can now purchase new energy pickaxe.
+  id: 1011
+  time: '2025-05-11T02:05:25.0000000+00:00'
+- author: cheetah1984
+  changes:
+    - type: Tweak
+      message: Made mechs viable again
+  id: 1012
+  time: '2025-05-11T02:05:54.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: Tide flipper is now considered a major contraband.
+  id: 1013
+  time: '2025-05-11T02:06:41.0000000+00:00'
+- author: pacable
+  changes:
+    - type: Fix
+      message: Fix skeletons getting sepsis when recieving surgery without mask/gloves.
+  id: 1014
+  time: '2025-05-11T02:07:45.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: You can now reload shotguns on the go.
+  id: 1015
+  time: '2025-05-11T02:18:45.0000000+00:00'
+- author: '-'
+  changes: []
+  id: 1016
+  time: '2025-05-11T02:19:18.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: Kitchen knifes now do damage when thrown at somebody.
+  id: 1017
+  time: '2025-05-11T02:19:58.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Fix
+      message: Atlas finally has lawyer slot.
+  id: 1018
+  time: '2025-05-11T02:20:26.0000000+00:00'
+- author: cheetah1984
+  changes:
+    - type: Add
+      message: Added Plasteel to the borg construction module!
+  id: 1019
+  time: '2025-05-11T02:26:26.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Cooking plastic in chemistry now yields five times more sheets.
+  id: 1020
+  time: '2025-05-11T03:17:54.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Borgs can now self-weld.
+  id: 1021
+  time: '2025-05-11T03:20:37.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: Fixed some typos.
+  id: 1022
+  time: '2025-05-11T03:21:52.0000000+00:00'
