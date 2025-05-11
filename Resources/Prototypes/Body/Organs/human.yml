@@ -120,6 +120,8 @@
 # SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Arraydeess <arraygitbash@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Martynas6ha4 <martynashagriefer@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -200,11 +202,15 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
+        - ReagentId: Cognizine # goob edit
+          Quantity: 5 # goob edit
       food:
-        maxVol: 5
+        maxVol: 10 # goob edit
         reagents:
         - ReagentId: GreyMatter
           Quantity: 5
+        - ReagentId: Cognizine # goob edit
+          Quantity: 5 # goob edit
   - type: FlavorProfile
     flavors:
       - people
