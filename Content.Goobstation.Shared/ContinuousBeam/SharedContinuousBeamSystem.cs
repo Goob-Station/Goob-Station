@@ -15,8 +15,15 @@ public abstract class SharedContinuousBeamSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly INetManager _net = default!;
-
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+
+    private EntityQuery<TransformComponent> _xformQuery;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+        _xformQuery = GetEntityQuery<TransformComponent>();
+    }
 
     public override void Update(float frameTime)
     {
@@ -33,9 +40,11 @@ public abstract class SharedContinuousBeamSystem : EntitySystem
             foreach (var (netTarget, data) in beam.Data)
             {
                 data.Lifetime -= frameTime;
+                Logger.Debug($"Lifetime is {data.Lifetime}");
 
-                if (data.Lifetime <= 0 || !TryGetEntity(netTarget, out var target) ||
-                    !TryComp(target.Value, out TransformComponent? targetXform))
+                if (data.Lifetime <= 0
+                    || !TryGetEntity(netTarget, out var target)
+                    || !_xformQuery.TryComp(target.Value, out var targetXform))
                 {
                     if (_net.IsServer)
                         data.Lifetime = 0f; // Mark it for deletion basically

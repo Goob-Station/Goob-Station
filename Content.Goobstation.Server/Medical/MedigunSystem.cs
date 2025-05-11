@@ -276,9 +276,7 @@ public sealed class MedigunSystem : SharedMedigunSystem
         }
 
         if (!_toggle.TryActivate(uid, args.User))
-        {
             return;
-        }
 
         _audio.PlayPvs(comp.SoundOnTarget, uid);
 
