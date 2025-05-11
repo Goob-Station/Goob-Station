@@ -112,7 +112,7 @@ public sealed partial class ChangelingIdentityComponent : Component
     ///     Total evolution points gained by the changeling.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float TotalEvolutionPoints = 0f;
+    public float TotalEvolutionPoints;
 
     /// <summary>
     ///     Bonus chemicals regeneration. In case
