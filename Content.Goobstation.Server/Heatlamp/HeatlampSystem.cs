@@ -4,6 +4,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Body.Components;
+using Content.Server.Examine;
 using Content.Server.Item;
 using Content.Server.PowerCell;
 using Content.Server.Temperature.Components;
@@ -16,6 +17,7 @@ using Content.Shared.Temperature;
 using Content.Shared.Toggleable;
 using Content.Shared.Verbs;
 using Robust.Server.Audio;
+using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 
 namespace Content.Goobstation.Server.Heatlamp;
@@ -29,6 +31,7 @@ public sealed partial class HeatlampSystem : EntitySystem
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly ItemSystem _item = default!;
+    [Dependency] private readonly PointLightSystem _pointLight = default!;
 
     private readonly int _settingCount = Enum.GetValues<EntityHeaterSetting>().Length;
     public override void Initialize()
@@ -70,6 +73,8 @@ public sealed partial class HeatlampSystem : EntitySystem
             _item.SetSize(heatlamp, heatlamp.Comp.OnSize);
             _item.SetShape(heatlamp, heatlamp.Comp.OnShape);
 
+            _pointLight.SetEnabled(heatlamp, true);
+
             _appearance.SetData(heatlamp, ToggleVisuals.Toggled, true, appearance);
             _item.SetHeldPrefix(heatlamp, "on");
         }
@@ -77,6 +82,8 @@ public sealed partial class HeatlampSystem : EntitySystem
         {
             _item.SetSize(heatlamp, heatlamp.Comp.OffSize);
             _item.SetShape(heatlamp, heatlamp.Comp.OffShape);
+
+            _pointLight.SetEnabled(heatlamp, false);
 
             _appearance.SetData(heatlamp, ToggleVisuals.Toggled, false, appearance);
             _item.SetHeldPrefix(heatlamp, "off");
