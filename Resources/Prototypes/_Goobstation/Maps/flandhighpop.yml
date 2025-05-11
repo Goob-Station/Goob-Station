@@ -63,7 +63,7 @@
             Botanist: [ 5, 5 ]
             Chef: [ 4, 4 ]
             Janitor: [ 6, 6 ]
-            Chaplain: [ 2, 2 ]
+            Chaplain: [ 1, 1 ]
             Librarian: [ 2, 2 ]
             ServiceWorker: [ 4, 4 ]
             #engineering
