@@ -22,9 +22,9 @@
     startingCharge: 1000
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 75
+    autoRechargeRate: 50
     autoRechargePause: true
-    autoRechargePauseTime: 45
+    autoRechargePauseTime: 40
   - type: DisarmMalus
   - type: Tag
     tags:

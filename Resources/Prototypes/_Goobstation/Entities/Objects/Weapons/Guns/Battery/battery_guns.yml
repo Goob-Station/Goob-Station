@@ -383,9 +383,9 @@
     repeatable: true
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 75
+    autoRechargeRate: 50
     autoRechargePause: true
-    autoRechargePauseTime: 45
+    autoRechargePauseTime: 40
 
 - type: entity
   name: ion rifle
