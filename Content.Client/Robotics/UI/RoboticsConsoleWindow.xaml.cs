@@ -100,7 +100,6 @@ public sealed partial class RoboticsConsoleWindow : FancyWindow
         var hasCyborgs = _cyborgs.Count > 0;
         NoCyborgs.Visible = !hasCyborgs;
         CyborgsContainer.Visible = hasCyborgs;
-        ChangeLawsButton.Disabled = !state.HasCircuitBoard || isAiControllable; // Corvax-Next-MutableLaws-AiRemoteControl
         PopulateCyborgs();
 
         PopulateData();
