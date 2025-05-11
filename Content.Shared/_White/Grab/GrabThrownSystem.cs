@@ -98,13 +98,14 @@ public sealed class GrabThrownSystem : EntitySystem
         EntityUid thrower,
         Vector2 vector,
         float grabThrownSpeed,
-        DamageSpecifier? damageToUid = null)
+        DamageSpecifier? damageToUid = null,
+        DropHeldItemsBehavior behavior = DropHeldItemsBehavior.AlwaysDrop)
     {
         var comp = EnsureComp<GrabThrownComponent>(uid);
         comp.IgnoreEntity.Add(thrower);
         comp.DamageOnCollide = damageToUid;
 
-        _layingDown.TryLieDown(uid, behavior: DropHeldItemsBehavior.AlwaysDrop);
+        _layingDown.TryLieDown(uid, behavior: behavior);
         _throwing.TryThrow(uid, vector, grabThrownSpeed, animated: false);
     }
 }

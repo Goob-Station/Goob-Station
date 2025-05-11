@@ -1,0 +1,52 @@
+- type: martialArt
+  id: KungFuDragon
+  martialArtsForm: KungFuDragon
+  roundstartCombos: KungFuDragonMoves
+
+- type: comboList
+  id: KungFuDragonMoves
+  combos:
+  - DragonClaw
+  - DragonTail
+  - DragonStrike
+
+- type: combo
+  id: DragonClaw
+  name: Dragon Claw
+  martialArtsForm: KungFuDragon
+  attacks:
+  - Disarm
+  - Disarm
+  event: !type:DragonClawPerformedEvent
+    sound:
+      path: /Audio/Weapons/genhit3.ogg
+  staminaDamage: 50
+
+- type: combo
+  id: DragonTail
+  name: Dragon Tail
+  martialArtsForm: KungFuDragon
+  attacks:
+  - Disarm
+  - Grab
+  - Harm
+  event: !type:DragonTailPerformedEvent
+    sound:
+      path: /Audio/Weapons/genhit2.ogg
+  extraDamage: 15
+  staminaDamage: 30
+  paralyzeTime: 6
+
+- type: combo
+  id: DragonStrike
+  name: Dragon Strike
+  martialArtsForm: KungFuDragon
+  attacks:
+  - Disarm
+  - Harm
+  - Harm
+  event: !type:DragonStrikePerformedEvent
+    sound:
+      path: /Audio/Weapons/genhit1.ogg
+  extraDamage: 40
+  paralyzeTime: 2 # Actual paralyze
