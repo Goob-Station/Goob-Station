@@ -8903,3 +8903,9 @@ Entries:
       message: Kitchen knifes now do damage when thrown at somebody.
   id: 1017
   time: '2025-05-11T02:19:58.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Fix
+      message: Atlas finally has lawyer slot.
+  id: 1018
+  time: '2025-05-11T02:20:26.0000000+00:00'
