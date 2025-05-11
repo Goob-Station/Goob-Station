@@ -8881,3 +8881,9 @@ Entries:
       message: Tide flipper is now considered a major contraband.
   id: 1013
   time: '2025-05-11T02:06:41.0000000+00:00'
+- author: pacable
+  changes:
+    - type: Fix
+      message: Fix skeletons getting sepsis when recieving surgery without mask/gloves.
+  id: 1014
+  time: '2025-05-11T02:07:45.0000000+00:00'
