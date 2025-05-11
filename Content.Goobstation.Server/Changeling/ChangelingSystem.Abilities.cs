@@ -21,7 +21,6 @@
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 // SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
@@ -63,7 +62,6 @@ using Content.Shared.StatusEffect;
 using Content.Shared.Eye.Blinding.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Content.Shared._Shitmed.Targeting; // Shitmed Change
 
 namespace Content.Goobstation.Server.Changeling;
 
@@ -180,7 +178,7 @@ public sealed partial class ChangelingSystem
         PlayMeatySound(args.User, comp);
 
         var dmg = new DamageSpecifier(_proto.Index(AbsorbedDamageGroup), 200);
-        _damage.TryChangeDamage(target, dmg, false, false, targetPart: TargetBodyPart.All); // Shitmed Change
+        _damage.TryChangeDamage(target, dmg, false, false);
         _blood.ChangeBloodReagent(target, "FerrochromicAcid");
         _blood.SpillAllSolutions(target);
 
@@ -639,7 +637,7 @@ public sealed partial class ChangelingSystem
 
         EnsureComp<AbsorbedComponent>(target);
         var dmg = new DamageSpecifier(_proto.Index(AbsorbedDamageGroup), 200);
-        _damage.TryChangeDamage(target, dmg, false, false, targetPart: TargetBodyPart.All); // Shitmed Change
+        _damage.TryChangeDamage(target, dmg, false, false);
         _blood.ChangeBloodReagent(target, "FerrochromicAcid");
         _blood.SpillAllSolutions(target);
 

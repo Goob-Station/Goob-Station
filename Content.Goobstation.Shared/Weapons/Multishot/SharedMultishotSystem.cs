@@ -8,7 +8,6 @@
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 //
@@ -17,7 +16,6 @@
 using System.Linq;
 using Content.Goobstation.Common.Weapons.Multishot;
 using Content.Goobstation.Shared.Weapons.MissChance;
-using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
 using Content.Shared.CombatMode;
@@ -45,7 +43,6 @@ public sealed class SharedMultishotSystem : EntitySystem
     [Dependency] private readonly MissChanceSystem _miss = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly StaminaSystem _staminaSystem = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
 
     public override void Initialize()
     {
@@ -130,7 +127,9 @@ public sealed class SharedMultishotSystem : EntitySystem
         var bodyPart = _bodySystem.GetTargetBodyPart(BodyPartType.Hand, bodySymmetry);
 
         var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>(component.HandDamageType), component.HandDamageAmount);
-        _damageableSystem.TryChangeDamage(target, damage, targetPart: bodyPart);
+        var handsDamageEv = new TryChangePartDamageEvent(damage, target, bodyPart, true);
+
+        RaiseLocalEvent(target, ref handsDamageEv);
     }
 
     private void OnRefreshModifiers(EntityUid uid, MultishotComponent comp, ref GunRefreshModifiersEvent args)

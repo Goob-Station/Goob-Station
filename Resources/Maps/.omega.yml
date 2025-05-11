@@ -77963,7 +77963,7 @@ entities:
     - type: Transform
       pos: 26.489439,14.7007885
       parent: 4812
-- proto: ChestHuman
+- proto: TorsoHuman
   entities:
   - uid: 12423
     components:

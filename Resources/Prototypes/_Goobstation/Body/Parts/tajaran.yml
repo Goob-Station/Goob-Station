@@ -22,16 +22,13 @@
         Quantity: 10
 
 - type: entity
-  id: ChestTajaran
-  name: "Tajaran chest"
-  parent: [PartTajaran, BaseChest]
+  id: TorsoTajaran
+  name: "Tajaran torso"
+  parent: [PartTajaran, BaseTorso]
   components:
   - type: Sprite
     sprite: _Goobstation/Mobs/Species/Tajaran/parts.rsi
-    state: "chest_m"
-  - type: Icon
-    sprite: _Goobstation/Mobs/Species/Tajaran/parts.rsi
-    state: "chest_m"
+    state: "torso_m"
   - type: Extractable
     juiceSolution:
       reagents:
@@ -40,24 +37,6 @@
       - ReagentId: Blood
         Quantity: 20
 
-- type: entity
-  id: GroinTajaran
-  name: "Tajaran groin"
-  parent: [PartTajaran, BaseGroin]
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Mobs/Species/Tajaran/parts.rsi
-    state: "groin_m"
-  - type: Icon
-    sprite: _Goobstation/Mobs/Species/Tajaran/parts.rsi
-    state: "groin_m"
-  - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: Fat
-        Quantity: 10
-      - ReagentId: Blood
-        Quantity: 20
 
 - type: entity
   id: HeadTajaran

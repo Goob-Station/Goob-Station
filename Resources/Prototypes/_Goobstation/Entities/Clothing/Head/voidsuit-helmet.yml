@@ -36,8 +36,6 @@
   - type: SpeechSoundsReplacer
     speechSounds: Chrono
   - type: Armor
-    coverage:
-    - Head
     modifiers:
       coefficients:
         Blunt: 0.10
@@ -73,17 +71,15 @@
     highPressureMultiplier: 0.525
     lowPressureMultiplier: 1000
   - type: Armor
-    coverage:
-    - Head
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.5
-        Heat: 0.6
-        Cold: 0.5
-        Radiation: 0.5
-        Caustic: 0.6
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+        Cold: 0.9
+        Radiation: 0.95
+        Caustic: 0.95
   - type: FlashImmunity
   - type: FlashSoundSuppression
 
@@ -106,16 +102,12 @@
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
   - type: Armor
-    coverage:
-    - Head
     modifiers:
       coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Piercing: 0.6
-        Heat: 0.6
-        Radiation: 0.55
-        Caustic: 0.7
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
   - type: ClothingGrantComponent
     component:
     - type: Stealth

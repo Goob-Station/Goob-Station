@@ -6,19 +6,15 @@
 - type: body
   id: Slimes
   name: "slimes"
-  root: chest
+  root: torso
   slots:
-    chest:
-      part: ChestSlime
+    torso:
+      part: TorsoSlime
       connections:
-      - groin
+      - legs
       organs:
         core: SentientSlimesCore
         lungs: OrganSlimesLungs
-    groin:
-      part: GroinSlime
-      connections:
-      - legs
     legs:
       part: LegsAnimal
       connections:

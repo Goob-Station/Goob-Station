@@ -22,28 +22,9 @@
     species: Vulpkanin
 
 - type: entity
-  parent: [ PartVulpkaninBase, BaseChest ]
-  id: ChestVulpkanin
-  name: "vulpkanin chest"
-  components:
-  - type: Sprite
-    sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
-    state: "chest_m"
-  - type: Icon
-    sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
-    state: "chest_m"
-
-- type: entity
-  parent: [ PartVulpkaninBase, BaseGroin ]
-  id: GroinVulpkanin
-  name: "vulpkanin groin"
-  components:
-  - type: Sprite
-    sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
-    state: "groin_m"
-  - type: Icon
-    sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
-    state: "groin_m"
+  parent: [ PartVulpkaninBase, BaseTorso ]
+  id: TorsoVulpkanin
+  name: "vulpkanin torso"
 
 - type: entity
   parent: [ PartVulpkaninBase, BaseHead ]

@@ -48,29 +48,13 @@
         Quantity: 10
 
 - type: entity
-  id: ChestHuman
-  name: "human chest"
-  parent: [PartHuman, BaseChest]
+  id: TorsoHuman
+  name: "human torso"
+  parent: [PartHuman, BaseTorso]
   components:
   - type: Sprite
     sprite: Mobs/Species/Human/parts.rsi
-    state: "chest_m"
-  - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: Fat
-        Quantity: 10
-      - ReagentId: Blood
-        Quantity: 20
-
-- type: entity
-  id: GroinHuman
-  name: "human groin"
-  parent: [PartHuman, BaseGroin]
-  components:
-  - type: Sprite
-    sprite: Mobs/Species/Human/parts.rsi
-    state: "groin_m"
+    state: "torso_m"
   - type: Extractable
     juiceSolution:
       reagents:

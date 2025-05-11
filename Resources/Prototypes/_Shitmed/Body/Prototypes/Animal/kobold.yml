@@ -14,31 +14,26 @@
 - type: body
   id: Kobold
   name: "Kobold"
-  root: chest
+  root: torso
   slots:
     head:
       part: HeadKobold
       connections:
-      - chest
+      - torso
       organs:
         brain: OrganAnimalBrain
         eyes: OrganAnimalEyes
-    chest:
-      part: ChestKobold
+    torso:
+      part: TorsoKobold
       connections:
-      - groin
       - right arm
       - left arm
+      - right leg
+      - left leg
       - head
       organs:
         heart: OrganAnimalHeart
         lungs: OrganAnimalLungs
-    groin:
-      part: GroinKobold
-      connections:
-      - right leg
-      - left leg
-      organs:
         stomach: OrganAnimalStomach
         liver: OrganAnimalLiver
         kidneys: OrganAnimalKidneys

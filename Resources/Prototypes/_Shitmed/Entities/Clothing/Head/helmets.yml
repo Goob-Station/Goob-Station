@@ -13,16 +13,14 @@
   description: Zeep Glorp!
   components:
   - type: Armor
-    coverage:
-    - Head
     modifiers:
       coefficients:
-        Blunt: 0.60
-        Slash: 0.60
-        Piercing: 0.60
-        Heat: 0.60
-        Radiation: 0.60
-        Caustic: 0.75
+        Blunt: 0.80
+        Slash: 0.80
+        Piercing: 0.80
+        Heat: 0.80
+        Radiation: 0.80
+        Caustic: 0.95
   - type: ExplosionResistance
     damageCoefficient: 0.75
   - type: Sprite

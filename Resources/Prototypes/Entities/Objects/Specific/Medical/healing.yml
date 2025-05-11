@@ -319,29 +319,20 @@
     lingering: true
     count: 10 # Goobstation
 
-# Shitmed Change - yeah this thing is effectively an entirely different tool now.
 - type: entity
   parent: BaseHealingItem
   id: Tourniquet
   name: tourniquet
   description: Stops bleeding! Hopefully.
   components:
-    - type: Item
-      heldPrefix: tourniquet
-    - type: Tourniquet
-      blockedBodyParts:
-      - Head
-      - Chest
-      - Groin
-      putOnSound:
-        path: "/Audio/Items/Medical/brutepack_begin.ogg"
-      putOffSound:
-        path: "/Audio/Items/Medical/brutepack_end.ogg"
     - type: Tag
       tags:
+        - Tourniquet #Goobstation - ParamedHypo
         - SecBeltEquip
     - type: Sprite
       state: tourniquet
+    - type: Item
+      heldPrefix: tourniquet
     - type: Healing
       damageContainers:
         - Biological

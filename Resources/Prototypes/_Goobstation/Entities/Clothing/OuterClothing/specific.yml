@@ -28,19 +28,12 @@
   - type: ExplosionResistance
     damageCoefficient: 0.7
   - type: Armor
-    coverage:
-    - Chest
-    - Groin
-    - Arm
-    - Hand
-    - Leg
-    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Shock: 0.7
+        Blunt: 0.8
+        Shock: 0.8
         Radiation: 0.05
-        Caustic: 0.55
+        Caustic: 0.65
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9

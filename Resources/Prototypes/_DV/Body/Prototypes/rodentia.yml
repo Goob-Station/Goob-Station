@@ -17,34 +17,29 @@
 - type: body
   name: species-name-rodentia
   id: Rodentia
-  root: chest
+  root: torso
   slots:
     head:
       part: HeadRodentia
       connections:
-      - chest
+      - torso
       organs:
         brain: OrganHumanBrain
         eyes: OrganHumanEyes
-    chest:
-      part: ChestRodentia
+    torso:
+      part: TorsoRodentia
       organs:
         heart: OrganAnimalHeart
         lungs: OrganHumanLungs
-      connections:
-      - groin
-      - right arm
-      - left arm
-      - head # Shitmed Change
-    groin:
-      part: GroinRodentia
-      connections:
-      - right leg
-      - left leg
-      organs:
         stomach: OrganAnimalStomach
         liver: OrganAnimalLiver
         kidneys: OrganHumanKidneys
+      connections:
+      - right arm
+      - left arm
+      - right leg
+      - left leg
+      - head # Shitmed Change
     right arm:
       part: RightArmRodentia
       connections:

@@ -10,32 +10,26 @@
 - type: body
   id: Primate
   name: "primate"
-  root: chest
+  root: torso
   slots:
     head: # Shitmed: put pun pun into a humans body
       part: HeadAnimal
       connections:
-      - chest
+      - torso
       organs:
         brain: OrganHumanBrain
         eyes: OrganHumanEyes
-    chest:
-      part: ChestAnimal
+    torso:
+      part: TorsoAnimal
       connections:
       - hands
       - legs
-      - groin
       - head # Shitmed
       organs:
         lungs: OrganAnimalLungs
-        heart: OrganAnimalHeart
-    groin:
-      part: GroinAnimal
-      connections:
-      - legs
-      organs:
         stomach: OrganAnimalStomach
         liver: OrganAnimalLiver
+        heart: OrganAnimalHeart
         kidneys: OrganAnimalKidneys
     hands:
       part: HandsAnimal

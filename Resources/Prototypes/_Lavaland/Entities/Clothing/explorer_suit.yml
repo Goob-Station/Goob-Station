@@ -34,20 +34,13 @@
   - type: Clothing
     sprite: _Lavaland/Equipment/explorer_suit.rsi
   - type: Armor
-    coverage:
-    - Chest
-    - Groin
-    - Arm
-    - Hand
-    - Leg
-    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Piercing: 0.65
-        Heat: 0.70 # parity with 13 :)
-        Caustic: 0.45
+        Blunt: 0.70
+        Slash: 0.70
+        Piercing: 0.70
+        Heat: 0.75 # parity with 13 :)
+        Caustic: 0.50
   - type: ExplosionResistance
     damageCoefficient: 0.50
   - type: ContainerContainer
@@ -84,15 +77,13 @@
     - HeadTop
     - HeadSide
   - type: Armor
-    coverage:
-    - Head
     modifiers:
       coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Piercing: 0.65
-        Heat: 0.70
-        Caustic: 0.45
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.90
+        Heat: 0.70 # parity with 13 :)
+        Caustic: 0.90
 
 - type: entity
   parent: LavalandEquipmentExplorerSuit
@@ -102,20 +93,13 @@
   description: An armoured suit for exploring harsh environments. Lightly reinforced with goliath plates.
   components:
   - type: Armor
-    coverage:
-    - Chest
-    - Groin
-    - Arm
-    - Hand
-    - Leg
-    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.60
-        Slash: 0.60
-        Piercing: 0.65
-        Heat: 0.70
-        Caustic: 0.45
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.70
+        Heat: 0.75
+        Caustic: 0.50
   - type: Sprite
     sprite: _Lavaland/Equipment/explorer_suit.rsi
     state: reinforced1-icon
@@ -143,15 +127,13 @@
     sprite: _Lavaland/Equipment/explorer_suit.rsi
     equippedState: reinforced1-equipped-HELMET
   - type: Armor
-    coverage:
-    - Head
     modifiers:
       coefficients:
-        Blunt: 0.60
-        Slash: 0.60
-        Piercing: 0.65
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.90
         Heat: 0.70
-        Caustic: 0.45
+        Caustic: 0.90
 
 - type: entity
   parent: LavalandEquipmentExplorerSuit
@@ -167,20 +149,13 @@
     sprite: _Lavaland/Equipment/explorer_suit.rsi
     equippedState: reinforced2-equipped-OUTERCLOTHING
   - type: Armor
-    coverage:
-    - Chest
-    - Groin
-    - Arm
-    - Hand
-    - Leg
-    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.55
-        Slash: 0.55
-        Piercing: 0.65
-        Heat: 0.70
-        Caustic: 0.45
+        Blunt: 0.60
+        Slash: 0.60
+        Piercing: 0.70
+        Heat: 0.75
+        Caustic: 0.50
   - type: ToggleableClothing
     clothingPrototypes:
       head: LavalandEquipmentExplorerHoodReinforced2
@@ -202,15 +177,13 @@
     sprite: _Lavaland/Equipment/explorer_suit.rsi
     equippedState: reinforced2-equipped-HELMET
   - type: Armor
-    coverage:
-    - Head
     modifiers:
       coefficients:
-        Blunt: 0.55
-        Slash: 0.55
-        Piercing: 0.65
+        Blunt: 0.80
+        Slash: 0.80
+        Piercing: 0.90
         Heat: 0.70
-        Caustic: 0.45
+        Caustic: 0.90
 
 - type: entity
   parent: LavalandEquipmentExplorerSuit
@@ -226,20 +199,13 @@
     sprite: _Lavaland/Equipment/explorer_suit.rsi
     equippedState: reinforced3-equipped-OUTERCLOTHING
   - type: Armor
-    coverage:
-    - Chest
-    - Groin
-    - Arm
-    - Hand
-    - Leg
-    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.50
-        Slash: 0.50
-        Piercing: 0.65
-        Heat: 0.70
-        Caustic: 0.45
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.70
+        Heat: 0.75
+        Caustic: 0.50
   - type: ToggleableClothing
     clothingPrototypes:
       head: LavalandEquipmentExplorerHoodReinforced3
@@ -261,12 +227,10 @@
     sprite: _Lavaland/Equipment/explorer_suit.rsi
     equippedState: reinforced3-equipped-HELMET
   - type: Armor
-    coverage:
-    - Head
     modifiers:
       coefficients:
-        Blunt: 0.50
-        Slash: 0.50
-        Piercing: 0.65
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.90
         Heat: 0.70
-        Caustic: 0.45
+        Caustic: 0.90

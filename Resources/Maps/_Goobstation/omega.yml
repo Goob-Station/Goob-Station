@@ -76621,7 +76621,7 @@ entities:
     - type: Transform
       pos: 26.489439,14.7007885
       parent: 2
-- proto: ChestHuman
+- proto: TorsoHuman
   entities:
   - uid: 11672
     components:

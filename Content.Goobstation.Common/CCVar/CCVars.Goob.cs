@@ -175,6 +175,13 @@ public sealed partial class GoobCVars
 
     #endregion PlayerListener
 
+    #region Surgery
+
+    public static readonly CVarDef<bool> CanOperateOnSelf =
+        CVarDef.Create("surgery.can_operate_on_self", true, CVar.SERVERONLY);
+
+    #endregion
+
     #region Discord AHelp Reply System
 
     /// <summary>

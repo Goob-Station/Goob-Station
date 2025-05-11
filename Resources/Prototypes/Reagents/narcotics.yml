@@ -199,9 +199,6 @@
       - !type:RemoveComponentEffect # goob edit
         component: DelayedKnockdown
         locale: reagent-effect-guidebook-remove-delayed-knockdown
-      - !type:SuppressPain # Shitmed Change
-        amount: 1.2
-        time: 10 # it accumulated 1.2*quantity and then exists for 30 seconds.
     Medicine:
       effects:
       - !type:ResetNarcolepsy
@@ -290,9 +287,6 @@
       - !type:TakeStaminaDamage # goob edit
         amount: -10
         immediate: true
-      - !type:SuppressPain
-          amount: 1.2
-          time: 30 # it accumulated 1.2*quantity and then exists for 30 seconds.
     Medicine:
       metabolismRate: 1.0
       effects:

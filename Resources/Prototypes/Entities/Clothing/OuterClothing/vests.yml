@@ -45,15 +45,12 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Vests/webvest.rsi
   - type: Armor
-    coverage:
-    - Chest
-    - Groin
     modifiers:
       coefficients:
-        Blunt: 0.5 #ballistic plates = better protection
-        Slash: 0.5
-        Piercing: 0.4 # Goob edit - shouldn't be better than bulletproof vest
-        Heat: 0.8 # Goob edit - match regular vest
+        Blunt: 0.6 #ballistic plates = better protection
+        Slash: 0.6
+        Piercing: 0.3
+        Heat: 0.9
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: ModifyDelayedKnockdown # Goobstation
@@ -107,13 +104,10 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Vests/mercwebvest.rsi
   - type: Armor
-    coverage:
-    - Chest
-    - Groin
     modifiers:
       coefficients:
         Blunt: 0.7 #slightly better overall protection but slightly worse than bulletproof armor against bullets seems sensible
-        Slash: 0.45
+        Slash: 0.7
         Piercing: 0.5
         Heat: 0.9
   - type: ExplosionResistance

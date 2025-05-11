@@ -14,31 +14,26 @@
 - type: body
   id: Monkey
   name: "Monkey"
-  root: chest
+  root: torso
   slots:
     head:
       part: HeadMonkey
       connections:
-      - chest
+      - torso
       organs:
         brain: OrganAnimalBrain
         eyes: OrganAnimalEyes
-    chest:
-      part: ChestMonkey
+    torso:
+      part: TorsoMonkey
       connections:
-      - groin
       - right arm
       - left arm
+      - right leg
+      - left leg
       - head
       organs:
         heart: OrganAnimalHeart
         lungs: OrganAnimalLungs
-    groin:
-      part: GroinMonkey
-      connections:
-      - right leg
-      - left leg
-      organs:
         stomach: OrganAnimalStomach
         liver: OrganAnimalLiver
         kidneys: OrganAnimalKidneys

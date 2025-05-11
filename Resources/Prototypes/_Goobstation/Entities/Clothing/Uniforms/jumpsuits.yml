@@ -27,17 +27,10 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/durathread_jumpsuit.rsi
   - type: Armor
-    coverage:
-    - Chest
-    - Groin
-    - Arm
-    - Hand
-    - Leg
-    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.85
-        Heat: 0.85
+        Blunt: 0.95
+        Heat: 0.95
 
 - type: entity
   parent: ClothingUniformBase
@@ -149,19 +142,12 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/navy_gold.rsi
   - type: Armor
-    coverage:
-    - Chest
-    - Groin
-    - Arm
-    - Hand
-    - Leg
-    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Piercing: 0.60
-        Heat: 0.65
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.70
+        Heat: 0.75
 
 - type: entity
   parent: ClothingUniformJumpsuitNavyGold
@@ -173,20 +159,6 @@
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/specialoperations.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/specialoperations.rsi
-  - type: Armor
-    coverage:
-    - Chest
-    - Groin
-    - Arm
-    - Hand
-    - Leg
-    - Foot
-    modifiers:
-      coefficients:
-        Blunt: 0.60
-        Slash: 0.60
-        Piercing: 0.55
-        Heat: 0.60
 
 - type: entity
   parent: ClothingUniformJumpsuitNavyGold
@@ -198,20 +170,6 @@
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/diplomat.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/diplomat.rsi
-  - type: Armor
-    coverage:
-    - Chest
-    - Groin
-    - Arm
-    - Hand
-    - Leg
-    - Foot
-    modifiers:
-      coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Piercing: 0.60
-        Heat: 0.65
 
 - type: entity
   parent: ClothingUniformBase

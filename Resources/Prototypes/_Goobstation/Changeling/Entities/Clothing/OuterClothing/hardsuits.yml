@@ -28,19 +28,12 @@
   - type: ExplosionResistance
     damageCoefficient: 0.2
   - type: Armor
-    coverage:
-    - Chest
-    - Groin
-    - Arm
-    - Hand
-    - Leg
-    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.85
-        Slash: 0.85
-        Piercing: 0.9
-        Heat: 0.4
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 1
+        Heat: 0.5
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9

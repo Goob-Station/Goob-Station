@@ -246,6 +246,3 @@
       whitelist:
         components:
         - SecretStash
-    - type: NerveSystem # backmen: wounding
-    - type: ConsciousnessRequired
-      identifier: "nerveSystem"

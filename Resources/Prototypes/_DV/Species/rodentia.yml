@@ -30,8 +30,7 @@
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
-    Chest: MobRodentiaChest
-    Groin: MobRodentiaGroin
+    Chest: MobRodentiaTorso
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
@@ -97,40 +96,22 @@
     state: head_f
 
 - type: humanoidBaseSprite
-  id: MobRodentiaChest
+  id: MobRodentiaTorso
   baseSprite:
     sprite: _DV/Mobs/Species/Rodentia/parts.rsi
-    state: chest_m
+    state: torso_m
 
 - type: humanoidBaseSprite
-  id: MobRodentiaChestMale
+  id: MobRodentiaTorsoMale
   baseSprite:
     sprite: _DV/Mobs/Species/Rodentia/parts.rsi
-    state: chest_m
+    state: torso_m
 
 - type: humanoidBaseSprite
-  id: MobRodentiaChestFemale
+  id: MobRodentiaTorsoFemale
   baseSprite:
     sprite: _DV/Mobs/Species/Rodentia/parts.rsi
-    state: chest_f
-
-- type: humanoidBaseSprite
-  id: MobRodentiaGroin
-  baseSprite:
-    sprite: _DV/Mobs/Species/Rodentia/parts.rsi
-    state: groin_m
-
-- type: humanoidBaseSprite
-  id: MobRodentiaGroinMale
-  baseSprite:
-    sprite: _DV/Mobs/Species/Rodentia/parts.rsi
-    state: groin_m
-
-- type: humanoidBaseSprite
-  id: MobRodentiaGroinFemale
-  baseSprite:
-    sprite: _DV/Mobs/Species/Rodentia/parts.rsi
-    state: groin_f
+    state: torso_f
 
 - type: humanoidBaseSprite
   id: MobRodentiaLLeg

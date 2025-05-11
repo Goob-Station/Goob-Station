@@ -186,8 +186,7 @@ namespace Content.Shared.Input
 
         // Shitmed Change Start
         public static readonly BoundKeyFunction TargetHead = "TargetHead";
-        public static readonly BoundKeyFunction TargetChest = "TargetChest";
-        public static readonly BoundKeyFunction TargetGroin = "TargetGroin";
+        public static readonly BoundKeyFunction TargetTorso = "TargetTorso";
         public static readonly BoundKeyFunction TargetLeftArm = "TargetLeftArm";
         public static readonly BoundKeyFunction TargetLeftHand = "TargetLeftHand";
         public static readonly BoundKeyFunction TargetRightArm = "TargetRightArm";

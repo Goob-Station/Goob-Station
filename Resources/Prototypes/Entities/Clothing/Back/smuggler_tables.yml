@@ -72,7 +72,7 @@
     - id: Joint
       amount: !type:RangeNumberSelector
         range: 1, 5
-    - id: BluntCigar # Shitmed Change - Name conflicts!
+    - id: Blunt
       amount: !type:RangeNumberSelector
         range: 1, 5
     - id: SmokingPipeFilledCannabis

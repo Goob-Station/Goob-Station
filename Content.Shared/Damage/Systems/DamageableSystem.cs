@@ -57,11 +57,6 @@
 // SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
-// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 kurokoTurbo <92106367+kurokoTurbo@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Trest <144359854+trest100@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
-// SPDX-FileCopyrightText: 2025 Kayzel <43700376+KayzelW@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -83,13 +78,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 // Shitmed Change
-using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
-using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
-using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
-using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Body.Systems;
-using Content.Shared.Body.Components;
-using Content.Shared.Body.Part;
+using Content.Shared._Shitmed.Targeting;
 using Robust.Shared.Random;
 
 namespace Content.Shared.Damage
@@ -99,23 +89,15 @@ namespace Content.Shared.Damage
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
         [Dependency] private readonly INetManager _netMan = default!;
+        [Dependency] private readonly SharedBodySystem _body = default!; // Shitmed Change
+        [Dependency] private readonly IRobustRandom _random = default!; // Shitmed Change
         [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
         [Dependency] private readonly IConfigurationManager _config = default!;
         [Dependency] private readonly SharedChemistryGuideDataSystem _chemistryGuideData = default!;
 
-        // Shitmed Dependencies
-        [Dependency] private readonly SharedBodySystem _body = default!;
-        [Dependency] private readonly WoundSystem _wounds = default!;
-        [Dependency] private readonly IRobustRandom _LETSGOGAMBLINGEXCLAMATIONMARKEXCLAMATIONMARK = default!;
-        [Dependency] private readonly IComponentFactory _factory = default!;
         private EntityQuery<AppearanceComponent> _appearanceQuery;
         private EntityQuery<DamageableComponent> _damageableQuery;
         private EntityQuery<MindContainerComponent> _mindContainerQuery;
-
-        // Shitmed Ent Queries
-        private EntityQuery<BodyComponent> _bodyQuery;
-        private EntityQuery<ConsciousnessComponent> _consciousnessQuery;
-        private EntityQuery<WoundableComponent> _woundableQuery;
 
         public float UniversalAllDamageModifier { get; private set; } = 1f;
         public float UniversalAllHealModifier { get; private set; } = 1f;
@@ -140,11 +122,6 @@ namespace Content.Shared.Damage
             _appearanceQuery = GetEntityQuery<AppearanceComponent>();
             _damageableQuery = GetEntityQuery<DamageableComponent>();
             _mindContainerQuery = GetEntityQuery<MindContainerComponent>();
-
-            // Shitmed Queries
-            _bodyQuery = GetEntityQuery<BodyComponent>();
-            _consciousnessQuery = GetEntityQuery<ConsciousnessComponent>();
-            _woundableQuery = GetEntityQuery<WoundableComponent>();
 
             // Damage modifier CVars are updated and stored here to be queried in other systems.
             // Note that certain modifiers requires reloading the guidebook.
@@ -184,7 +161,8 @@ namespace Content.Shared.Damage
         private void DamageableInit(EntityUid uid, DamageableComponent component, ComponentInit _)
         {
             if (component.DamageContainerID != null &&
-                _prototypeManager.TryIndex(component.DamageContainerID, out var damageContainerPrototype)) // Shitmed Change
+                _prototypeManager.TryIndex<DamageContainerPrototype>(component.DamageContainerID,
+                out var damageContainerPrototype))
             {
                 // Initialize damage dictionary, using the types and groups from the damage
                 // container prototype
@@ -235,12 +213,8 @@ namespace Content.Shared.Damage
         ///     This updates cached damage information, flags the component as dirty, and raises a damage changed event.
         ///     The damage changed event is used by other systems, such as damage thresholds.
         /// </remarks>
-        public void DamageChanged(EntityUid uid,
-            DamageableComponent component,
-            DamageSpecifier? damageDelta = null,
-            bool interruptsDoAfters = true,
-            EntityUid? origin = null,
-            bool ignoreBlockers = false)
+        public void DamageChanged(EntityUid uid, DamageableComponent component, DamageSpecifier? damageDelta = null,
+            bool interruptsDoAfters = true, EntityUid? origin = null, bool? canSever = null) // Shitmed Change
         {
             component.Damage.GetDamagePerGroup(_prototypeManager, component.DamagePerGroup);
             component.TotalDamage = component.Damage.GetTotal();
@@ -251,7 +225,7 @@ namespace Content.Shared.Damage
                 var data = new DamageVisualizerGroupData(component.DamagePerGroup.Keys.ToList());
                 _appearance.SetData(uid, DamageVisualizerKeys.DamageUpdateGroups, data, appearance);
             }
-            RaiseLocalEvent(uid, new DamageChangedEvent(component, damageDelta, interruptsDoAfters, origin, ignoreBlockers));
+            RaiseLocalEvent(uid, new DamageChangedEvent(component, damageDelta, interruptsDoAfters, origin, canSever ?? true)); // Shitmed Change
         }
 
         /// <summary>
@@ -266,293 +240,95 @@ namespace Content.Shared.Damage
         ///     Returns a <see cref="DamageSpecifier"/> with information about the actual damage changes. This will be
         ///     null if the user had no applicable components that can take damage.
         /// </returns>
-        public DamageSpecifier? TryChangeDamage(EntityUid? uid,
-            DamageSpecifier damage,
-            bool ignoreResistances = false,
-            bool interruptsDoAfters = true,
-            DamageableComponent? damageable = null,
-            EntityUid? origin = null,
-            bool canBeCancelled = false,
-            float partMultiplier = 1.00f,
-            TargetBodyPart? targetPart = null,
-            bool ignoreBlockers = false)
+        public DamageSpecifier? TryChangeDamage(EntityUid? uid, DamageSpecifier damage, bool ignoreResistances = false,
+            bool interruptsDoAfters = true, DamageableComponent? damageable = null, EntityUid? origin = null,
+            // Shitmed Change
+            bool? canSever = true, bool? canEvade = false, float? partMultiplier = 1.00f, TargetBodyPart? targetPart = null,
+            float armorPenetration = 0f,
+            // Goobstation
+            bool heavyAttack = false)
         {
             if (!uid.HasValue || !_damageableQuery.Resolve(uid.Value, ref damageable, false))
+            {
+                // TODO BODY SYSTEM pass damage onto body system
                 return null;
+            }
 
             if (damage.Empty)
+            {
                 return damage;
+            }
 
-            var before = new BeforeDamageChangedEvent(damage, origin, canBeCancelled, targetPart); // Shitmed Change
+            var before = new BeforeDamageChangedEvent(damage, origin, targetPart, canEvade ?? false, heavyAttack); // Shitmed Change // Goobstation
             RaiseLocalEvent(uid.Value, ref before);
 
             if (before.Cancelled)
                 return null;
 
-            // For entities with a body, route damage through body parts and then sum it up
-            if (_bodyQuery.HasComp(uid.Value))
-            {
-                var appliedDamage = ApplyDamageToBodyParts(uid.Value, damage, origin, ignoreResistances,
-                    interruptsDoAfters, targetPart, partMultiplier, ignoreBlockers);
+            // Shitmed Change Start
+            var partDamage = new TryChangePartDamageEvent(damage, origin, targetPart, ignoreResistances, armorPenetration, canSever ?? true, canEvade ?? false, partMultiplier ?? 1.00f);
+            RaiseLocalEvent(uid.Value, ref partDamage);
 
-                return appliedDamage;
-            }
-
-            // For entities without a body, apply damage directly
-            return ApplyDamageToEntity(uid.Value, damage, ignoreResistances, interruptsDoAfters, origin, damageable, ignoreBlockers);
-        }
-
-        /// <summary>
-        /// Applies damage to an entity with body parts, targeting specific parts as needed.
-        /// </summary>
-        private DamageSpecifier? ApplyDamageToBodyParts(
-            EntityUid uid,
-            DamageSpecifier damage,
-            EntityUid? origin,
-            bool ignoreResistances,
-            bool interruptsDoAfters,
-            TargetBodyPart? targetPart,
-            float partMultiplier,
-            bool ignoreBlockers = false)
-        {
-            DamageSpecifier? totalAppliedDamage = null;
-
-            // This cursed shitcode lets us know if the target part is a power of 2
-            // therefore having multiple parts targeted.
-            if (targetPart != null
-                && targetPart != 0 && (targetPart & (targetPart - 1)) != 0)
-            {
-                // Extract only the body parts that are targeted in the bitmask
-                var targetedBodyParts = new List<(EntityUid Id, BodyPartComponent Component)>();
-
-                // Get only the primitive flags (powers of 2) - these are the actual individual body parts
-                var primitiveFlags = Enum.GetValues<TargetBodyPart>()
-                    .Where(flag => flag != 0 && (flag & (flag - 1)) == 0) // Power of 2 check
-                    .ToList();
-
-                foreach (var flag in primitiveFlags)
-                {
-                    // Check if this specific flag is set in our targetPart bitmask
-                    if (targetPart.Value.HasFlag(flag))
-                    {
-                        var query = _body.ConvertTargetBodyPart(flag);
-                        var parts = _body.GetBodyChildrenOfType(uid, query.Type,
-                            symmetry: query.Symmetry).ToList();
-
-                        if (parts.Count > 0)
-                            targetedBodyParts.AddRange(parts);
-                    }
-                }
-
-                // If we couldn't find any of the targeted parts, fall back to all body parts
-                if (targetedBodyParts.Count == 0)
-                    targetedBodyParts = _body.GetBodyChildren(uid).ToList();
-                var bodyParts = _body.GetBodyChildren(uid).ToList();
-                if (bodyParts.Count == 0)
-                    return null;
-
-                var damagePerPart = damage / bodyParts.Count;
-                var appliedDamage = new DamageSpecifier();
-
-                foreach (var (partId, _) in bodyParts)
-                {
-                    if (!_damageableQuery.TryComp(partId, out var partDamageable))
-                        continue;
-
-                    // Apply damage to this part
-                    var partDamageResult = TryChangeDamage(partId, damagePerPart, ignoreResistances,
-                        interruptsDoAfters, partDamageable, origin, ignoreBlockers: ignoreBlockers);
-
-                    if (partDamageResult != null && !partDamageResult.Empty)
-                    {
-                        // Accumulate total damage
-                        foreach (var (type, value) in partDamageResult.DamageDict)
-                        {
-                            if (appliedDamage.DamageDict.TryGetValue(type, out var existing))
-                                appliedDamage.DamageDict[type] = existing + value;
-                            else
-                                appliedDamage.DamageDict[type] = value;
-                        }
-                    }
-                }
-
-                totalAppliedDamage = appliedDamage;
-            }
-            else
-            {
-                // Target a specific body part
-                TargetBodyPart? target;
-
-                if (targetPart != null)
-                    target = _body.GetRandomBodyPart(uid, targetPart: targetPart.Value);
-                else if (origin.HasValue)
-                    target = _body.GetRandomBodyPart(uid, origin.Value);
-                else
-                    target = _body.GetRandomBodyPart(uid);
-
-                var (partType, symmetry) = _body.ConvertTargetBodyPart(target);
-                var possibleTargets = _body.GetBodyChildrenOfType(uid, partType, symmetry: symmetry).ToList();
-
-                if (possibleTargets.Count == 0)
-                    possibleTargets = _body.GetBodyChildren(uid).ToList();
-
-                // No body parts at all?
-                if (possibleTargets.Count == 0)
-                    return null;
-
-                var chosenTarget = _LETSGOGAMBLINGEXCLAMATIONMARKEXCLAMATIONMARK.PickAndTake(possibleTargets);
-
-                if (!_damageableQuery.TryComp(chosenTarget.Id, out var partDamageable))
-                    return null;
-
-                // Apply part multiplier if needed
-                var adjustedDamage = partMultiplier != 1.0f ? damage * partMultiplier : damage;
-
-                totalAppliedDamage = TryChangeDamage(chosenTarget.Id, adjustedDamage, ignoreResistances,
-                    interruptsDoAfters, partDamageable, origin, ignoreBlockers: ignoreBlockers);
-            }
-
-            // Only process if there was actual damage applied
-            if (totalAppliedDamage != null && !totalAppliedDamage.Empty)
-            {
-                // Update the damage dictionary of the parent entity based on all body parts
-                if (_damageableQuery.TryComp(uid, out var parentDamageable))
-                {
-                    // Reset the parent's damage values
-                    foreach (var type in parentDamageable.Damage.DamageDict.Keys.ToList())
-                        parentDamageable.Damage.DamageDict[type] = FixedPoint2.Zero;
-
-                    // Sum up damage from all body parts
-                    foreach (var (partId, _) in _body.GetBodyChildren(uid))
-                    {
-                        if (!_damageableQuery.TryComp(partId, out var partDamageable))
-                            continue;
-
-                        foreach (var (type, value) in partDamageable.Damage.DamageDict)
-                        {
-                            if (parentDamageable.Damage.DamageDict.TryGetValue(type, out var existing))
-                                parentDamageable.Damage.DamageDict[type] = existing + value;
-                        }
-                    }
-
-                    // Now call DamageChanged with the actual total delta
-                    DamageChanged(uid, parentDamageable, totalAppliedDamage, interruptsDoAfters, origin, ignoreBlockers: ignoreBlockers);
-                }
-            }
-
-            return totalAppliedDamage;
-        }
-
-        /// <summary>
-        /// Applies damage directly to an entity without routing through body parts.
-        /// </summary>
-        private DamageSpecifier? ApplyDamageToEntity(
-            EntityUid uid,
-            DamageSpecifier? damage,
-            bool ignoreResistances,
-            bool interruptsDoAfters,
-            EntityUid? origin,
-            DamageableComponent? damageable = null,
-            bool ignoreBlockers = false)
-        {
-            if (!Resolve(uid, ref damageable) || damage == null)
+            if (partDamage.Evaded || partDamage.Cancelled)
                 return null;
+
+            // Shitmed Change End
 
             // Apply resistances
             if (!ignoreResistances)
             {
                 if (damageable.DamageModifierSetId != null &&
-                    _prototypeManager.TryIndex(damageable.DamageModifierSetId, out var modifierSet))
+                    _prototypeManager.TryIndex<DamageModifierSetPrototype>(damageable.DamageModifierSetId, out var modifierSet))
                 {
-                    damage = DamageSpecifier.ApplyModifierSet(damage, modifierSet);
+                    // TODO DAMAGE PERFORMANCE
+                    // use a local private field instead of creating a new dictionary here..
+                    // TODO: We need to add a check to see if the given armor covers the targeted part (if any) to modify or not.
+                    damage = DamageSpecifier.ApplyModifierSet(damage,
+                        DamageSpecifier.PenetrateArmor(modifierSet, armorPenetration)); // Goob edit
                 }
 
-                if (TryComp(uid, out BodyPartComponent? bodyPart))
-                {
-                    TargetBodyPart? target = _body.GetTargetBodyPart(bodyPart);
-                    if (bodyPart.Body != null)
-                    {
-                        // First raise the event on the parent to apply any parent modifiers
-                        var parentEv = new DamageModifyEvent(bodyPart.Body.Value, damage, origin, target);
-                        RaiseLocalEvent(bodyPart.Body.Value, parentEv);
-                        damage = parentEv.Damage;
-                    }
-
-                    // Then raise on the part itself for any part-specific modifiers
-                    var ev = new DamageModifyEvent(uid, damage, origin, target);
-                    RaiseLocalEvent(uid, ev);
-                    damage = ev.Damage;
-                }
-                else
-                {
-                    // Not a body part, just apply modifiers normally
-                    var ev = new DamageModifyEvent(uid, damage, origin);
-                    RaiseLocalEvent(uid, ev);
-                    damage = ev.Damage;
-                }
+                var ev = new DamageModifyEvent(uid.Value, damage, origin, targetPart, armorPenetration); // Shitmed + Goobstation Change
+                RaiseLocalEvent(uid.Value, ev);
+                damage = ev.Damage;
 
                 if (damage.Empty)
+                {
                     return damage;
+                }
             }
 
             damage = ApplyUniversalAllModifiers(damage);
 
+            // TODO DAMAGE PERFORMANCE
+            // Consider using a local private field instead of creating a new dictionary here.
+            // Would need to check that nothing ever tries to cache the delta.
             var delta = new DamageSpecifier();
             delta.DamageDict.EnsureCapacity(damage.DamageDict.Count);
+
             var dict = damageable.Damage.DamageDict;
-
-            // Check for integrity cap on body parts
-            float? scaleFactor = null;
-            if (_woundableQuery.TryComp(uid, out var woundable))
-            {
-                var positiveDamage = damage.DamageDict.Where(d => d.Value > 0).Sum(d => d.Value.Float());
-                if (positiveDamage > 0)
-                {
-                    var remaining = (woundable.IntegrityCap - damageable.TotalDamage).Float();
-                    if (remaining > 0)
-                    {
-                        if (remaining < positiveDamage)
-                            scaleFactor = remaining / positiveDamage;
-                        else
-                            scaleFactor = 1f;
-                    }
-                    else
-                    {
-                        scaleFactor = 0f;
-                    }
-                }
-            }
-
-            // Apply damage
             foreach (var (type, value) in damage.DamageDict)
             {
+                // CollectionsMarshal my beloved.
                 if (!dict.TryGetValue(type, out var oldValue))
                     continue;
 
-                // Scale positive damage if needed due to integrity cap
-                var adjustedValue = value;
-                if (scaleFactor is not null)
-                    adjustedValue = FixedPoint2.New(value.Float() * scaleFactor.Value);
-
-                var newValue = FixedPoint2.Max(FixedPoint2.Zero, oldValue + adjustedValue);
-                if (newValue == oldValue &&
-                    (scaleFactor is null
-                    || scaleFactor is not null
-                    && scaleFactor.Value != 0f))
+                var newValue = FixedPoint2.Max(FixedPoint2.Zero, oldValue + value);
+                if (newValue == oldValue)
                     continue;
 
                 dict[type] = newValue;
-                delta.DamageDict[type] = value; // Report original damage value in delta
+                delta.DamageDict[type] = newValue - oldValue;
             }
 
             if (delta.DamageDict.Count > 0)
-                DamageChanged(uid, damageable, delta, interruptsDoAfters, origin, ignoreBlockers);
+                DamageChanged(uid.Value, damageable, delta, interruptsDoAfters, origin, canSever); // Shitmed Change
 
             return delta;
         }
 
         /// <summary>
-        ///     Applies the two univeral "All" modifiers, if set.
+        /// Applies the two univeral "All" modifiers, if set.
+        /// Individual damage source modifiers are set in their respective code.
         /// </summary>
         /// <param name="damage">The damage to be changed.</param>
         public DamageSpecifier ApplyUniversalAllModifiers(DamageSpecifier damage)
@@ -584,98 +360,38 @@ namespace Content.Shared.Damage
         /// <summary>
         ///     Sets all damage types supported by a <see cref="DamageableComponent"/> to the specified value.
         /// </summary>
-        /// <remarks>
+        /// <remakrs>
         ///     Does nothing If the given damage value is negative.
-        /// </remarks>
+        /// </remakrs>
         public void SetAllDamage(EntityUid uid, DamageableComponent component, FixedPoint2 newValue)
         {
-            // invalid value
             if (newValue < 0)
-                return;
-
-            // If entity has a body, set damage on all body parts
-            if (_bodyQuery.HasComp(uid))
             {
-                foreach (var (part, _) in _body.GetBodyChildren(uid))
-                {
-                    if (!_damageableQuery.TryComp(part, out var partDamageable))
-                        continue;
-
-                    // I LOVE RECURSION!!!
-                    SetAllDamage(part, partDamageable, newValue);
-                }
+                // invalid value
+                return;
             }
 
             foreach (var type in component.Damage.DamageDict.Keys)
+            {
                 component.Damage.DamageDict[type] = newValue;
+            }
 
-            // Update cached values
-            component.Damage.GetDamagePerGroup(_prototypeManager, component.DamagePerGroup);
-            component.TotalDamage = component.Damage.GetTotal();
-
-            // Setting damage does not count as 'dealing' damage
+            // Setting damage does not count as 'dealing' damage, even if it is set to a larger value, so we pass an
+            // empty damage delta.
             DamageChanged(uid, component, new DamageSpecifier());
 
-            if (_woundableQuery.TryComp(uid, out var woundable))
+            // Shitmed Change Start
+            if (HasComp<TargetingComponent>(uid))
             {
-                _wounds.UpdateWoundableIntegrity(uid, woundable);
-
-                // Create wounds if damage was applied
-                if (newValue > 0 && woundable.AllowWounds)
-                    foreach (var (type, value) in component.Damage.DamageDict)
-                        _wounds.TryInduceWound(uid, type, value, out _, woundable);
-            }
-        }
-
-        public Dictionary<string, FixedPoint2> DamageSpecifierToWoundList(
-            EntityUid uid,
-            EntityUid? origin,
-            TargetBodyPart targetPart,
-            DamageSpecifier damageSpecifier,
-            DamageableComponent damageable,
-            bool ignoreResistances = false,
-            float partMultiplier = 1.00f)
-        {
-            var damageDict = new Dictionary<string, FixedPoint2>();
-
-            damageSpecifier = ApplyUniversalAllModifiers(damageSpecifier);
-
-            // some wounds like Asphyxiation and Bloodloss aren't supposed to be created.
-            if (!ignoreResistances)
-            {
-                if (damageable.DamageModifierSetId != null &&
-                    _prototypeManager.TryIndex(damageable.DamageModifierSetId, out var modifierSet))
+                foreach (var (part, _) in _body.GetBodyChildren(uid))
                 {
-                    // lol bozo
-                    var spec = new DamageSpecifier
-                    {
-                        DamageDict = damageSpecifier.DamageDict,
-                    };
+                    if (!TryComp(part, out DamageableComponent? damageComp))
+                        continue;
 
-                    damageSpecifier = DamageSpecifier.ApplyModifierSet(spec, modifierSet);
-                }
-
-                var ev = new DamageModifyEvent(uid, damageSpecifier, origin, targetPart);
-                RaiseLocalEvent(uid, ev);
-                damageSpecifier = ev.Damage;
-
-                if (damageSpecifier.Empty)
-                {
-                    return damageDict;
+                    SetAllDamage(part, damageComp, newValue);
                 }
             }
-
-            foreach (var (type, severity) in damageSpecifier.DamageDict)
-            {
-                if (!_prototypeManager.TryIndex<EntityPrototype>(type, out var woundPrototype)
-                    || !woundPrototype.TryGetComponent<WoundComponent>(out _, _factory)
-                    || severity <= 0)
-                    continue;
-
-                damageDict.Add(type, severity * partMultiplier);
-            }
-
-            return damageDict;
+            // Shitmed Change End
         }
 
         /// <summary>
@@ -792,11 +508,11 @@ namespace Content.Shared.Damage
             var delta = component.Damage - newDamage;
             delta.TrimZeros();
 
-            if (delta.Empty)
-                return;
-
-            component.Damage = newDamage;
-            DamageChanged(uid, component, delta);
+            if (!delta.Empty)
+            {
+                component.Damage = newDamage;
+                DamageChanged(uid, component, delta);
+            }
         }
     }
 
@@ -807,8 +523,25 @@ namespace Content.Shared.Damage
     public record struct BeforeDamageChangedEvent(
         DamageSpecifier Damage,
         EntityUid? Origin = null,
-        bool CanBeCancelled = false, // Shitmed Change
         TargetBodyPart? TargetPart = null, // Shitmed Change
+        bool CanEvade = false, // Lavaland Change
+        bool HeavyAttack = false, // Goobstation
+        bool Cancelled = false);
+
+    /// <summary>
+    ///     Shitmed Change: Raised on parts before damage is done so we can cancel the damage if they evade.
+    /// </summary>
+    [ByRefEvent]
+    public record struct TryChangePartDamageEvent(
+        DamageSpecifier Damage,
+        EntityUid? Origin = null,
+        TargetBodyPart? TargetPart = null,
+        bool IgnoreResistances = false,
+        float ArmorPenetration = 0f,
+        bool CanSever = true,
+        bool CanEvade = false,
+        float PartMultiplier = 1.00f,
+        bool Evaded = false,
         bool Cancelled = false);
 
     /// <summary>
@@ -877,16 +610,16 @@ namespace Content.Shared.Damage
         public readonly EntityUid? Origin;
 
         /// <summary>
-        ///     Whether or not the damage change should be blocked due to traumas or wounds
+        ///     Shitmed Change: Can this damage event sever parts?
         /// </summary>
-        public readonly bool IgnoreBlockers;
+        public readonly bool CanSever;
 
-        public DamageChangedEvent(DamageableComponent damageable, DamageSpecifier? damageDelta, bool interruptsDoAfters, EntityUid? origin, bool ignoreBlockers = false) // Shitmed Change
+        public DamageChangedEvent(DamageableComponent damageable, DamageSpecifier? damageDelta, bool interruptsDoAfters, EntityUid? origin, bool canSever = true) // Shitmed Change
         {
             Damageable = damageable;
             DamageDelta = damageDelta;
             Origin = origin;
-            IgnoreBlockers = ignoreBlockers;
+            CanSever = canSever; // Shitmed Change
             if (DamageDelta == null)
                 return;
 

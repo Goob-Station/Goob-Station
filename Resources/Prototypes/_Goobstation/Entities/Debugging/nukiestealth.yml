@@ -30,13 +30,6 @@
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: Armor
-    coverage:
-    - Chest
-    - Groin
-    - Arm
-    - Hand
-    - Leg
-    - Foot
     modifiers:
       coefficients:
         Blunt: 0.65
@@ -50,7 +43,7 @@
     sprintModifier: 0.95
   - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change
-    clothingPrototypes:
+    clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitSyndieStealthDebug
   - type: Tag
     tags:
@@ -82,13 +75,9 @@
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
   - type: Armor
-    coverage:
-    - Head
     modifiers:
       coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Piercing: 0.65
-        Heat: 0.7
-        Radiation: 0.55
-        Caustic: 0.7
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9

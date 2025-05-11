@@ -21,8 +21,7 @@
     Head: MobAbductorHead
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
-    Chest: MobAbductorChest
-    Groin: MobAbductorGroin
+    Chest: MobAbductorTorso
     Eyes: MobAbductorEyes
     LArm: MobAbductorLArm
     RArm: MobAbductorRArm
@@ -58,40 +57,22 @@
     state: head
 
 - type: humanoidBaseSprite
-  id: MobAbductorChestMale
+  id: MobAbductorTorsoMale
   baseSprite:
     sprite: _Shitmed/Mobs/Species/Abductor/parts.rsi
-    state: chest
+    state: torso
 
 - type: humanoidBaseSprite
-  id: MobAbductorChestFemale
+  id: MobAbductorTorsoFemale
   baseSprite:
     sprite: _Shitmed/Mobs/Species/Abductor/parts.rsi
-    state: chest
+    state: torso
 
 - type: humanoidBaseSprite
-  id: MobAbductorChest
+  id: MobAbductorTorso
   baseSprite:
     sprite: _Shitmed/Mobs/Species/Abductor/parts.rsi
-    state: chest
-
-- type: humanoidBaseSprite
-  id: MobAbductorGroinMale
-  baseSprite:
-    sprite: _Shitmed/Mobs/Species/Abductor/parts.rsi
-    state: groin
-
-- type: humanoidBaseSprite
-  id: MobAbductorGroinFemale
-  baseSprite:
-    sprite: _Shitmed/Mobs/Species/Abductor/parts.rsi
-    state: groin
-
-- type: humanoidBaseSprite
-  id: MobAbductorGroin
-  baseSprite:
-    sprite: _Shitmed/Mobs/Species/Abductor/parts.rsi
-    state: groin
+    state: torso
 
 - type: humanoidBaseSprite
   id: MobAbductorLLeg

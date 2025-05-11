@@ -99,10 +99,6 @@
     state: advkit
   - type: Item
     heldPrefix: advkit
-  - type: Storage # Shitmed Change
-    maxItemSize: Small
-    grid:
-    - 0,0,5,1
 
 - type: entity
   name: radiation treatment kit

@@ -570,23 +570,6 @@
             volume: -5
 
 - type: entity
-  name: medical stitches
-  parent: BaseHealingItem
-  id: MedicalStitches
-  components:
-  - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/stitches.rsi
-    state: stitches
-  - type: Item
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/stitches.rsi
-  - type: SurgeryTool
-    startSound:
-      path: /Audio/_Shitmed/Medical/Surgery/saw.ogg # TODO: SOUND
-  - type: Stitches
-  - type: StackPrice
-    price: 40
-
-- type: entity
   name: medical multitool
   id: OmnimedTool
   parent: [ BaseToolSurgery, BaseMedicalContraband ]
@@ -618,8 +601,6 @@
   - type: Tweezers
     speed: 2
   - type: Tending
-    speed: 2
-  - type: Stitches
     speed: 2
 
 - type: entity

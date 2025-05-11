@@ -26,8 +26,7 @@
   sprites:
     Head: MobArachnidHead
     Snout: MobHumanoidAnyMarking
-    Chest: MobArachnidChest
-    Groin: MobArachnidGroin
+    Chest: MobArachnidTorso
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
@@ -97,40 +96,22 @@
     state: head_f
 
 - type: humanoidBaseSprite
-  id: MobArachnidChest
+  id: MobArachnidTorso
   baseSprite:
     sprite: Mobs/Species/Arachnid/parts.rsi
-    state: chest_m
+    state: torso_m
 
 - type: humanoidBaseSprite
-  id: MobArachnidChestMale
+  id: MobArachnidTorsoMale
   baseSprite:
     sprite: Mobs/Species/Arachnid/parts.rsi
-    state: chest_m
+    state: torso_m
 
 - type: humanoidBaseSprite
-  id: MobArachnidChestFemale
+  id: MobArachnidTorsoFemale
   baseSprite:
     sprite: Mobs/Species/Arachnid/parts.rsi
-    state: chest_f
-
-- type: humanoidBaseSprite
-  id: MobArachnidGroin
-  baseSprite:
-    sprite: Mobs/Species/Arachnid/parts.rsi
-    state: groin_m
-
-- type: humanoidBaseSprite
-  id: MobArachnidGroinMale
-  baseSprite:
-    sprite: Mobs/Species/Arachnid/parts.rsi
-    state: groin_m
-
-- type: humanoidBaseSprite
-  id: MobArachnidGroinFemale
-  baseSprite:
-    sprite: Mobs/Species/Arachnid/parts.rsi
-    state: groin_f
+    state: torso_f
 
 - type: humanoidBaseSprite
   id: MobArachnidLLeg

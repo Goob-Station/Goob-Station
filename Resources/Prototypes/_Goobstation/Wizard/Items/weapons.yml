@@ -217,6 +217,8 @@
       types:
         Slash: 5
         Structural: 10
+    clickPartDamageMultiplier: 2
+    heavyPartDamageMultiplier: 1.5
     soundHit:
       path: "/Audio/Weapons/bladeslice.ogg"
     animation: WeaponArcHighFreq
@@ -264,6 +266,8 @@
     damage:
       types:
         Slash: 30
+    clickPartDamageMultiplier: 3
+    heavyPartDamageMultiplier: 2
     soundHit:
       path: "/Audio/Weapons/bladeslice.ogg"
   - type: Clothing

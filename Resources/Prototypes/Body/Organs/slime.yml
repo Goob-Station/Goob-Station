@@ -38,15 +38,9 @@
       state: brain-slime
     - type: Stomach
     - type: Organ
-      intCap: 60 # to prevent slimes from getting oneshot
-      integrity: 60
-      integrityThresholds:
-        Normal: 60
-        Damaged: 27
-        Destroyed: 0
       slotId: core
     - type: Metabolizer
-      maxPoisonsProcessable: 2 # Shitmed
+      maxReagents: 2 # Shitmed
       metabolizerTypes: [ Slime ]
       removeEmpty: true
       groups:
@@ -91,12 +85,6 @@
       - state: lung-l-slime
       - state: lung-r-slime
   - type: Organ # Shitmed
-    intCap: 21 #
-    integrity: 21
-    integrityThresholds:
-      Normal: 21
-      Damaged: 14
-      Destroyed: 0
     slotId: lungs
   - type: Lung
     alert: LowNitrogen

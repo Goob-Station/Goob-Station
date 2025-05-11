@@ -396,22 +396,5 @@ public partial class SharedBodySystem
         }
     }
 
-    /// <summary>
-    /// Tries to remove the organ if it is inside of a body part.
-    /// </summary>
-    public bool TryRemoveOrgan(EntityUid organId, OrganComponent? organ = null)
-    {
-        if (!Resolve(organId, ref organ))
-            return false;
-
-        var ev = new TryRemoveOrganEvent(organId, organ);
-        RaiseLocalEvent(organId, ref ev);
-
-        if (ev.Cancelled)
-            return false;
-
-        return RemoveOrgan(organId, organ);
-    }
-
     // Shitmed Change End
 }

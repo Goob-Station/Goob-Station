@@ -31,15 +31,12 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/Armor/durathread_web_vest.rsi
   - type: Armor
-    coverage:
-    - Chest
-    - Groin
     modifiers:
       coefficients:
-        Blunt: 0.45
-        Slash: 0.45
-        Piercing: 0.25
-        Heat: 0.25
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.50
+        Heat: 0.50
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: ModifyDelayedKnockdown # Goobstation
@@ -60,15 +57,12 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/Armor/durathread_armour.rsi
   - type: Armor
-    coverage:
-    - Chest
-    - Groin
     modifiers:
       coefficients:
-        Blunt: 0.45
-        Slash: 0.45
-        Piercing: 0.25
-        Heat: 0.25
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.50
+        Heat: 0.50
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: ModifyDelayedKnockdown # Goobstation
@@ -116,21 +110,6 @@
     sprite: _Goobstation/Clothing/Armor/bso_armour.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Armor/bso_armour.rsi
-  - type: Armor
-    coverage:
-    - Chest
-    - Groin
-    modifiers:
-      coefficients:
-        Blunt: 0.45
-        Slash: 0.45
-        Piercing: 0.45
-        Heat: 0.55
-  - type: ExplosionResistance
-    damageCoefficient: 0.8
-  - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 1
-    knockdownTimeDelta: -1
 
 - type: entity
   parent: ClothingBlueshieldArmourVest
@@ -171,13 +150,6 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/Armor/covert_armor.rsi
   - type: Armor
-    coverage:
-    - Chest
-    - Groin
-    - Arm
-    - Hand
-    - Leg
-    - Foot
     modifiers:
       coefficients:
         Blunt: 0.50
@@ -221,18 +193,11 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/Armor/chaplain_armor.rsi
   - type: Armor
-    coverage:
-    - Chest
-    - Groin
-    - Arm
-    - Hand
-    - Leg
-    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.65
+        Blunt: 0.90
         Slash: 0.10
-        Piercing: 0.65
+        Piercing: 0.90
         Heat: 1.5
   - type: ModifyDelayedKnockdown
     delayDelta: 1

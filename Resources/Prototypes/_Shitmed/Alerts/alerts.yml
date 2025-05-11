@@ -1,7 +1,0 @@
-- type: alert
-  id: BrokenBones
-  icons:
-    - sprite: /Textures/_Shitmed/Interface/Alerts/alerts.rsi
-      state: brokenbones
-  name: alerts-broken-bones-name
-  description: alerts-broken-bones-desc

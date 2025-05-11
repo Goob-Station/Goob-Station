@@ -15,11 +15,7 @@
       "name": "full"
     },
     {
-      "name": "groin_m",
-      "directions": 4
-    },
-    {
-      "name": "groin_f",
+      "name": "groin",
       "directions": 4
     },
     {
@@ -63,11 +59,7 @@
       "directions": 4
     },
     {
-      "name": "chest_m",
-      "directions": 4
-    },
-    {
-      "name": "chest_f",
+      "name": "torso",
       "directions": 4
     },
     {

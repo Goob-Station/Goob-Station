@@ -18,29 +18,24 @@
 - type: body
   id: Yowie
   name: yowie
-  root: chest
+  root: torso
   slots:
     head:
       part: HeadHuman
       connections:
-      - chest
+      - torso
       organs:
         brain: OrganHumanBrain
-    chest:
-      part: ChestHuman
+    torso:
+      part: TorsoHuman
       connections:
-      - groin
       - right arm
       - left arm
-      organs:
-        heart: OrganYowieHeart
-        lungs: OrganYowieLungs
-    groin:
-      part: GroinHuman
-      connections:
       - right leg
       - left leg
       organs:
+        heart: OrganYowieHeart
+        lungs: OrganYowieLungs
         stomach: OrganYowieStomach
         liver: OrganYowieLiver
         kidneys: OrganHumanKidneys

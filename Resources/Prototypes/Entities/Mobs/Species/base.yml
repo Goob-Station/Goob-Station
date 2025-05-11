@@ -246,7 +246,6 @@
   - type: Sprite
     layers:
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
-    - map: [ "enum.HumanoidVisualLayers.Groin" ]
     - map: [ "enum.HumanoidVisualLayers.Head" ]
     - map: [ "enum.HumanoidVisualLayers.Snout" ]
     - map: [ "enum.HumanoidVisualLayers.Eyes" ]
@@ -287,21 +286,21 @@
       sprite: "Effects/creampie.rsi"
       state: "creampie_human"
       visible: false
-#  - type: DamageVisuals
-#    thresholds: [ 10, 20, 30, 50, 70, 100 ]
-#    targetLayers:
-#      - "enum.HumanoidVisualLayers.Chest"
-#      - "enum.HumanoidVisualLayers.Head"
-#      - "enum.HumanoidVisualLayers.LArm"
-#      - "enum.HumanoidVisualLayers.LLeg"
-#    - "enum.HumanoidVisualLayers.RArm"
-#    - "enum.HumanoidVisualLayers.RLeg"
-#    damageOverlayGroups:
-#      Brute:
-#        sprite: Mobs/Effects/brute_damage.rsi
-#        color: "#FF0000"
-#      Burn:
-#        sprite: Mobs/Effects/burn_damage.rsi
+  - type: DamageVisuals
+    thresholds: [ 10, 20, 30, 50, 70, 100 ]
+    targetLayers:
+    - "enum.HumanoidVisualLayers.Chest"
+    - "enum.HumanoidVisualLayers.Head"
+    - "enum.HumanoidVisualLayers.LArm"
+    - "enum.HumanoidVisualLayers.LLeg"
+    - "enum.HumanoidVisualLayers.RArm"
+    - "enum.HumanoidVisualLayers.RLeg"
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#FF0000"
+      Burn:
+        sprite: Mobs/Effects/burn_damage.rsi
   - type: GenericVisualizer
     visuals:
       enum.CreamPiedVisuals.Creamed:
@@ -463,9 +462,6 @@
   - type: LayingDown # WD EDIT
   - type: Targeting # Shitmed Change
   - type: CanEscapeInventory # GoobStation - Escape being picked up by players
-  - type: Consciousness
-    cap: 190
-    threshold: 95
   - type: Penetratable # Goobstation - Better snipers
     penetrateDamage: 50
     damagePenalty: 0.2
@@ -561,7 +557,6 @@
     # TODO BODY Turn these into individual body parts?
     layers:
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
-    - map: [ "enum.HumanoidVisualLayers.Groin" ]
     - map: [ "enum.HumanoidVisualLayers.Head" ]
     - map: [ "enum.HumanoidVisualLayers.Snout" ]
     - map: [ "enum.HumanoidVisualLayers.Eyes" ]

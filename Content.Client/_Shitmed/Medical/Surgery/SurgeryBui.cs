@@ -1,15 +1,8 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Kayzel <43700376+KayzelW@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
-// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Trest <144359854+trest100@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-// SPDX-FileCopyrightText: 2025 kurokoTurbo <92106367+kurokoTurbo@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -139,15 +132,14 @@ public sealed class SurgeryBui : BoundUserInterface
                 return partType switch
                 {
                     BodyPartType.Head => 1,
-                    BodyPartType.Chest => 2,
-                    BodyPartType.Groin => 3,
-                    BodyPartType.Arm => 4,
-                    BodyPartType.Hand => 5,
-                    BodyPartType.Leg => 6,
-                    BodyPartType.Foot => 7,
-                    // BodyPartType.Tail => 8, No tails yet!
-                    BodyPartType.Other => 9,
-                    _ => 10
+                    BodyPartType.Torso => 2,
+                    BodyPartType.Arm => 3,
+                    BodyPartType.Hand => 4,
+                    BodyPartType.Leg => 5,
+                    BodyPartType.Foot => 6,
+                    // BodyPartType.Tail => 7, No tails yet!
+                    BodyPartType.Other => 8,
+                    _ => 9
                 };
             }
 

@@ -13,31 +13,26 @@
 - type: body
   id: Felinid
   name: "felinid"
-  root: chest
+  root: torso
   slots:
     head:
       part: HeadHuman
       connections:
-      - chest
+      - torso
       organs:
         brain: OrganHumanBrain
         eyes: OrganHumanEyes
-    chest:
-      part: ChestHuman
+    torso:
+      part: TorsoHuman
       connections: # Goobstation - fix some species having their hands the wrong way around
       - right arm
       - left arm
-      - groin
+      - right leg
+      - left leg
       - head # Shitmed Change
       organs:
         heart: OrganAnimalHeart
         lungs: OrganHumanLungs
-    groin:
-      part: GroinHuman
-      connections:
-      - right leg
-      - left leg
-      organs:
         stomach: OrganVulpkaninStomach
         liver:  OrganAnimalLiver
         kidneys: OrganHumanKidneys

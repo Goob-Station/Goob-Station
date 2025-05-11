@@ -470,7 +470,7 @@
     - id: JointRainbow
       orGroup: Smokeable1
       prob: 0.15
-    - id: BluntCigar
+    - id: Blunt
       orGroup: Smokeable1
       prob: 0.35
     - id: BluntRainbow
@@ -483,7 +483,7 @@
     - id: JointRainbow
       orGroup: Smokeable2
       prob: 0.15
-    - id: BluntCigar
+    - id: Blunt
       orGroup: Smokeable2
       prob: 0.35
     - id: BluntRainbow
@@ -496,7 +496,7 @@
     - id: JointRainbow
       orGroup: Smokeable3
       prob: 0.15
-    - id: BluntCigar
+    - id: Blunt
       orGroup: Smokeable3
       prob: 0.35
     - id: BluntRainbow

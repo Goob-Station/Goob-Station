@@ -211,21 +211,14 @@
     heatingCoefficient: 0.1
     coolingCoefficient: 0.1
   - type: Armor
-    coverage:
-    - Chest
-    - Groin
-    - Arm
-    - Hand
-    - Leg
-    - Foot
     modifiers:
       coefficients:
-        Heat: 0.8
-        Radiation: 0.5
-        Caustic: 0.3
+        Heat: 0.90
+        Radiation: 0.75
+        Caustic: 0.5
   - type: GroupExamine
   - type: StealTarget
     stealGroup: ClothingOuterHardsuitVoidParamed
   - type: ToggleableClothing # Goobstation - Modsuits change
-    clothingPrototypes:
+    clothingPrototypes: 
       head: ClothingHeadHelmetVoidParamed

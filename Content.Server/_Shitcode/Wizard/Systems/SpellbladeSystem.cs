@@ -60,7 +60,7 @@ public sealed class SpellbladeSystem : SharedSpellbladeSystem
             temporal.HitsLeft--;
             temporal.Accumulator = 0f;
 
-            _damageable.TryChangeDamage(uid, temporal.Damage, damageable: damageable, targetPart: TargetBodyPart.Chest);
+            _damageable.TryChangeDamage(uid, temporal.Damage, damageable: damageable, targetPart: TargetBodyPart.Torso);
             Audio.PlayPvs(temporal.HitSound, xform.Coordinates);
             Spawn(temporal.Effect, xform.Coordinates);
 

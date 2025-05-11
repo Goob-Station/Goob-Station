@@ -178,7 +178,7 @@ public abstract class SharedLayingDownSystem : EntitySystem
         {
             ent.Comp.AutoGetUp = false;
             Dirty(ent);
-            return;
+           return;
         }
 
         if (!TryComp(ent, out ActorComponent? actor))

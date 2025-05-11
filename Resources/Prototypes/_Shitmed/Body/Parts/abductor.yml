@@ -18,42 +18,16 @@
     sprite: _Shitmed/Mobs/Species/Abductor/parts.rsi
   - type: BodyPart
     species: Abductor
-  - type: WoundableVisuals
-    thresholds: [ 10, 20, 30, 50, 70, 100 ]
-    occupiedLayer: Chest # Default to Chest if something anomalous happens.
-    damageOverlayGroups:
-      Brute:
-        sprite: Mobs/Effects/brute_damage.rsi
-        color: "#878787"
-      Burn:
-        sprite: Mobs/Effects/burn_damage.rsi
 
 - type: entity
-  parent: [ PartAbductorBase, BaseChest ]
-  id: ChestAbductor
-  name: "abductor chest"
+  parent: [ PartAbductorBase, BaseTorso ]
+  id: TorsoAbductor
+  name: "abductor torso"
   components:
   - type: Sprite
-    state: chest
+    state: torso
   - type: Icon
-    state: chest
-  - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: Nutriment
-        Quantity: 10
-      - ReagentId: Sugar
-        Quantity: 20
-
-- type: entity
-  parent: [ PartAbductorBase, BaseGroin ]
-  id: GroinAbductor
-  name: "abductor groin"
-  components:
-  - type: Sprite
-    state: groin
-  - type: Icon
-    state: groin
+    state: torso
   - type: Extractable
     juiceSolution:
       reagents:

@@ -29,12 +29,6 @@
   abstract: true
   components:
   - type: Organ
-    intCap: 13
-    integrity: 13
-    integrityThresholds:
-      Normal: 13
-      Damaged: 6
-      Destroyed: 0
   - type: Food
   - type: Sprite
     sprite: Mobs/Species/Human/organs.rsi
@@ -77,12 +71,6 @@
     - state: lung-r
   - type: Organ
     slotId: lungs # Shitmed
-    intCap: 17 # animal lungs are less tuff than human's one
-    integrity: 17
-    integrityThresholds:
-      Normal: 17
-      Damaged: 8
-      Destroyed: 0
   - type: Lung
   - type: Metabolizer
     removeEmpty: true
@@ -121,12 +109,6 @@
     state: stomach
   - type: Organ
     slotId: stomach # Shitmed
-    intCap: 28
-    integrity: 28
-    integrityThresholds:
-      Normal: 28
-      Damaged: 16
-      Destroyed: 0
   - type: SolutionContainerManager
     solutions:
       stomach:
@@ -138,7 +120,7 @@
           Quantity: 5
   - type: Stomach
   - type: Metabolizer
-    maxPoisonsProcessable: 3
+    maxReagents: 3
     metabolizerTypes: [ Animal ]
     groups:
     - id: Food
@@ -176,14 +158,8 @@
     state: liver
   - type: Organ
     slotId: liver # Shitmed
-    intCap: 17
-    integrity: 17
-    integrityThresholds:
-      Normal: 17
-      Damaged: 8
-      Destroyed: 0
   - type: Metabolizer
-    maxPoisonsProcessable: 1
+    maxReagents: 1
     metabolizerTypes: [ Animal ]
     groups:
     - id: Alcohol
@@ -208,14 +184,8 @@
     state: heart-on
   - type: Organ
     slotId: heart # Shitmed
-    intCap: 14
-    integrity: 14
-    integrityThresholds:
-      Normal: 14
-      Damaged: 6
-      Destroyed: 0
   - type: Metabolizer
-    maxPoisonsProcessable: 2
+    maxReagents: 2
     metabolizerTypes: [ Animal ]
     groups:
     - id: Medicine
@@ -243,14 +213,8 @@
     - state: kidney-r
   - type: Organ
     slotId: kidneys # Shitmed
-    intCap: 17
-    integrity: 17
-    integrityThresholds:
-      Normal: 17
-      Damaged: 8
-      Destroyed: 0
   - type: Metabolizer
-    maxPoisonsProcessable: 5
+    maxReagents: 5
     metabolizerTypes: [ Animal ]
     removeEmpty: true
   - type: Tag # goob edit

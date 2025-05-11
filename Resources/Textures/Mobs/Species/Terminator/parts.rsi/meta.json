@@ -55,19 +55,11 @@
       "directions": 1
     },
     {
-      "name": "chest_f",
+      "name": "torso_f",
       "directions": 4
     },
     {
-      "name": "chest_m",
-      "directions": 4
-    },
-    {
-      "name": "groin_f",
-      "directions": 4
-    },
-    {
-      "name": "groin_m",
+      "name": "torso_m",
       "directions": 4
     }
   ]

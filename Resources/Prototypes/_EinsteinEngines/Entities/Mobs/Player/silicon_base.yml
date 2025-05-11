@@ -116,7 +116,6 @@
       drawdepth: Mobs
       layers:
         - map: ["enum.HumanoidVisualLayers.Chest"]
-        - map: ["enum.HumanoidVisualLayers.Groin"]
         - map: ["enum.HumanoidVisualLayers.Head"]
         - map: ["enum.HumanoidVisualLayers.Snout"]
         - map: ["enum.HumanoidVisualLayers.Eyes"]
@@ -286,19 +285,19 @@
     - type: Puller
     - type: BodyEmotes
       soundsId: GeneralBodyEmotes
-#    - type: DamageVisuals
-#      thresholds: [ 10, 20, 30, 50, 70, 100 ]
-#      targetLayers:
-#        - "enum.HumanoidVisualLayers.Chest"
-#        - "enum.HumanoidVisualLayers.Head"
-#        - "enum.HumanoidVisualLayers.LArm"
-#        - "enum.HumanoidVisualLayers.LLeg"
-#        - "enum.HumanoidVisualLayers.RArm"
-#        - "enum.HumanoidVisualLayers.RLeg"
-#      damageOverlayGroups:
-#        Brute:
-#          sprite: Mobs/Effects/brute_damage.rsi
-#          color: "#DD8822"
+    - type: DamageVisuals
+      thresholds: [ 10, 20, 30, 50, 70, 100 ]
+      targetLayers:
+        - "enum.HumanoidVisualLayers.Chest"
+        - "enum.HumanoidVisualLayers.Head"
+        - "enum.HumanoidVisualLayers.LArm"
+        - "enum.HumanoidVisualLayers.LLeg"
+        - "enum.HumanoidVisualLayers.RArm"
+        - "enum.HumanoidVisualLayers.RLeg"
+      damageOverlayGroups:
+        Brute:
+          sprite: Mobs/Effects/brute_damage.rsi
+          color: "#DD8822"
     # Organs
     - type: IdExaminable
     - type: HealthExaminable
@@ -336,9 +335,6 @@
     - type: Carriable
     - type: Targeting
     - type: LayingDown
-    - type: Consciousness
-      cap: 190
-      threshold: 95
     - type: Penetratable # Goobstation - Better snipers
       penetrateDamage: 50
       damagePenalty: 0.2

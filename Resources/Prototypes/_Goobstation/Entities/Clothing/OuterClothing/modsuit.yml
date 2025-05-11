@@ -42,13 +42,6 @@
   - type: StaminaDamageResistance
     coefficient: 0.9
   - type: Armor
-    coverage:
-    - Chest
-    - Groin
-    - Arm
-    - Hand
-    - Leg
-    - Foot
     modifiers:
       coefficients:
         Blunt: 0.85

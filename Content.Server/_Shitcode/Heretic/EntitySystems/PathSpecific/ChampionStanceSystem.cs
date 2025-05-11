@@ -21,7 +21,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Systems;
-using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components; // Shitmed Change
+
 namespace Content.Server.Heretic.EntitySystems.PathSpecific;
 
 public sealed class ChampionStanceSystem : EntitySystem
@@ -41,7 +41,7 @@ public sealed class ChampionStanceSystem : EntitySystem
         SubscribeLocalEvent<ChampionStanceComponent, ModifySlowOnDamageSpeedEvent>(OnChampionModifySpeed);
 
         // if anyone is reading through and does not have EE newmed you can remove these handlers
-        SubscribeLocalEvent<ChampionStanceComponent, BodyPartAddedEvent>(OnBodyPartAdded);
+        SubscribeLocalEvent<ChampionStanceComponent, BodyPartAttachedEvent>(OnBodyPartAttached);
         SubscribeLocalEvent<ChampionStanceComponent, BodyPartRemovedEvent>(OnBodyPartRemoved);
     }
 
@@ -97,22 +97,14 @@ public sealed class ChampionStanceSystem : EntitySystem
         args.Multiplier /= 2.5f;
     }
 
-    private void OnBodyPartAdded(Entity<ChampionStanceComponent> ent, ref BodyPartAddedEvent args)
+    private void OnBodyPartAttached(Entity<ChampionStanceComponent> ent, ref BodyPartAttachedEvent args)
     {
         // can't touch this
-        if (!TryComp(args.Part, out WoundableComponent? woundable))
-            return;
-
-        woundable.CanRemove = false;
-        Dirty(args.Part);
+        args.Part.Comp.CanSever = false;
     }
     private void OnBodyPartRemoved(Entity<ChampionStanceComponent> ent, ref BodyPartRemovedEvent args)
     {
         // can touch this
-        if (!TryComp(args.Part, out WoundableComponent? woundable))
-            return;
-
-        woundable.CanRemove = true;
-        Dirty(args.Part);
+        args.Part.Comp.CanSever = true;
     }
 }

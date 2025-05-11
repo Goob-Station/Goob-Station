@@ -147,7 +147,7 @@ public sealed class DamageOnAttackedSystem : EntitySystem
             }
         }
 
-        totalDamage = _damageableSystem.TryChangeDamage(args.User, totalDamage, entity.Comp.IgnoreResistances, origin: entity, canBeCancelled: true); // Shitmed Change
+        totalDamage = _damageableSystem.TryChangeDamage(args.User, totalDamage, entity.Comp.IgnoreResistances, origin: entity);
 
         if (totalDamage != null && totalDamage.AnyPositive())
         {

@@ -182,14 +182,12 @@
   - type: Clothing
     sprite: Clothing/Mask/gassecurity.rsi
   - type: Armor
-    coverage:
-    - Head
     modifiers:
       coefficients:
-        Blunt: 0.85
-        Slash: 0.85
-        Piercing: 0.85
-        Heat: 0.85
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
   - type: Tag # Goobstation - For survial boxes
     tags:
     - PetWearable
@@ -212,14 +210,12 @@
   - type: FlashImmunity
   - type: EyeProtection
   - type: Armor
-    coverage:
-    - Head
     modifiers:
       coefficients:
-        Blunt: 0.85
-        Slash: 0.85
-        Piercing: 0.85
-        Heat: 0.85
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
   - type: Tag  # Goobstation - For survial boxes
     tags:
     - PetWearable
@@ -239,12 +235,9 @@
   - type: Clothing
     sprite: Clothing/Mask/gasatmos.rsi
   - type: Armor
-    coverage:
-    - Head
     modifiers:
       coefficients:
-        Heat: 0.6
-
+        Heat: 0.80
 
 - type: entity
   parent: [ClothingMaskGasAtmos, BaseCommandContraband]
@@ -283,14 +276,12 @@
   - type: Clothing
     sprite: Clothing/Mask/gasexplorer.rsi
   - type: Armor
-    coverage:
-    - Head
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.85
-        Heat: 0.85
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.95
+        Heat: 0.95
 
 - type: entity
   parent: ClothingMaskPullableBase
@@ -326,14 +317,12 @@
   - type: Clothing
     sprite: Clothing/Mask/medicalsecurity.rsi
   - type: Armor
-    coverage:
-    - Head
     modifiers:
       coefficients:
-        Blunt: 0.85
-        Slash: 0.85
-        Piercing: 0.85
-        Heat: 0.85
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
 
 - type: entity
   parent: ClothingMaskPullableBase
@@ -421,14 +410,12 @@
   - type: Clothing
     sprite: Clothing/Mask/clown_security.rsi
   - type: Armor
-    coverage:
-    - Head
     modifiers:
       coefficients:
-        Blunt: 0.85
-        Slash: 0.85
-        Piercing: 0.85
-        Heat: 0.85
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
 
 - type: entity
   parent: ClothingMaskBase
@@ -565,14 +552,12 @@
     - Snout
     hideOnToggle: true
   - type: Armor
-    coverage:
-    - Head
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.85
-        Heat: 0.85
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.95
+        Heat: 0.95
   - type: IngestionBlocker # Goobstation
     blockSmokeIngestion: true
 
@@ -587,14 +572,12 @@
   - type: Clothing
     sprite: Clothing/Mask/merc.rsi
   - type: Armor
-    coverage:
-    - Head
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.85
-        Heat: 0.85
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.95
+        Heat: 0.95
   - type: IngestionBlocker # Goobstation
     blockSmokeIngestion: true
 
@@ -619,14 +602,12 @@
   - type: FlashImmunity
   - type: EyeProtection
   - type: Armor
-    coverage:
-    - Head
     modifiers:
       coefficients:
-        Blunt: 0.75
-        Slash: 0.75
-        Piercing: 0.75
-        Heat: 0.8
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
   - type: IngestionBlocker # Goobstation
     blockSmokeIngestion: true
 
@@ -641,14 +622,12 @@
   - type: Clothing
     sprite: Clothing/Mask/squadron.rsi
   - type: Armor
-    coverage:
-    - Head
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.7
-        Heat: 0.6
+        Blunt: 0.80
+        Slash: 0.80
+        Piercing: 0.90
+        Heat: 0.90
   - type: Tag
     tags: [] # ignore "WhitelistChameleon" tag
 

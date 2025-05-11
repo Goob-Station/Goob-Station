@@ -112,15 +112,6 @@
     damageProtection:
       flatReductions:
         Heat: 5 # the average lightbulb only does around four damage!
-  - type: Armor
-    coverage:
-    - Hand
-    modifiers:
-      coefficients:
-        Heat: 0.9
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
 
 - type: entity
   abstract: true

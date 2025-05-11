@@ -23,27 +23,12 @@
         Quantity: 10
 
 - type: entity
-  parent: [PartMonkey, BaseChest]
-  id: ChestMonkey
-  name: "monkey chest"
+  parent: [PartMonkey, BaseTorso]
+  id: TorsoMonkey
+  name: "monkey torso"
   components:
   - type: Sprite
-    state: "chest_m"
-  - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: Fat
-        Quantity: 10
-      - ReagentId: Blood
-        Quantity: 20
-
-- type: entity
-  parent: [PartMonkey, BaseGroin]
-  id: GroinMonkey
-  name: "monkey groin"
-  components:
-  - type: Sprite
-    state: "groin_m"
+    state: "torso_m"
   - type: Extractable
     juiceSolution:
       reagents:

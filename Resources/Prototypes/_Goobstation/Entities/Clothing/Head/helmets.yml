@@ -25,15 +25,12 @@
     heatingCoefficient: 0.1
     coolingCoefficient: 0.1
   - type: Armor
-    coverage:
-    - Head
     modifiers:
       coefficients:
-        Blunt: 0.35
-        Slash: 0.35
-        Piercing: 0.35
-        Heat: 0.35
-        Caustic: 0.5
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.8
+        Caustic: 0.7
   - type: HideLayerClothing
     slots:
     - Hair

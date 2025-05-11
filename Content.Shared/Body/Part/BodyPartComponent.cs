@@ -11,12 +11,6 @@
 // SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 kurokoTurbo <92106367+kurokoTurbo@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Trest <144359854+trest100@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
-// SPDX-FileCopyrightText: 2025 Kayzel <43700376+KayzelW@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -27,10 +21,10 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
 // Shitmed Change
+
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared._Shitmed.Medical.Surgery.Tools;
 using Content.Shared._Shitmed.Targeting;
-using Content.Shared._Shitmed.Medical.Surgery.Wounds;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Body.Part;
@@ -71,6 +65,18 @@ public sealed partial class BodyPartComponent : Component, ISurgeryToolComponent
     public float Speed { get; set; } = 1f;
 
     /// <summary>
+    /// Shitmed Change: What's the max health this body part can have?
+    /// </summary>
+    [DataField]
+    public float MinIntegrity;
+
+    /// <summary>
+    /// Whether this body part can be severed or not
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool CanSever = true;
+
+    /// <summary>
     ///     Shitmed Change: Whether this body part is enabled or not.
     /// </summary>
     [DataField, AutoNetworkedField]
@@ -87,6 +93,23 @@ public sealed partial class BodyPartComponent : Component, ISurgeryToolComponent
     /// </summary>
     [DataField]
     public bool CanAttachChildren = true;
+
+    /// <summary>
+    ///     Shitmed Change: How long it takes to run another self heal tick on the body part.
+    /// </summary>
+    [DataField]
+    public float HealingTime = 30;
+
+    /// <summary>
+    ///     Shitmed Change: How long it has been since the last self heal tick on the body part.
+    /// </summary>
+    public float HealingTimer;
+
+    /// <summary>
+    ///     Shitmed Change: How much health to heal on the body part per tick.
+    /// </summary>
+    [DataField]
+    public float SelfHealingAmount = 5;
 
     /// <summary>
     ///     Shitmed Change: The name of the container for this body part. Used in insertion surgeries.
@@ -108,19 +131,47 @@ public sealed partial class BodyPartComponent : Component, ISurgeryToolComponent
     public string Species { get; set; } = "";
 
     /// <summary>
+    ///     Shitmed Change: The total damage that has to be dealt to a body part
+    ///     to make possible severing it.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float SeverIntegrity = 90;
+
+    /// <summary>
     ///     Shitmed Change: The ID of the base layer for this body part.
     /// </summary>
     [DataField, AutoNetworkedField]
     public string? BaseLayerId;
 
     /// <summary>
-    ///     Shitmed Change: On what WoundableSeverity we should re-enable the part.
+    ///     Shitmed Change: On what TargetIntegrity we should re-enable the part.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public WoundableSeverity EnableIntegrity = WoundableSeverity.Severe;
+    public TargetIntegrity EnableIntegrity = TargetIntegrity.ModeratelyWounded;
+
+    [DataField, AutoNetworkedField]
+    public Dictionary<TargetIntegrity, float> IntegrityThresholds = new()
+    {
+        { TargetIntegrity.CriticallyWounded, 90 },
+        { TargetIntegrity.HeavilyWounded, 75 },
+        { TargetIntegrity.ModeratelyWounded, 60 },
+        { TargetIntegrity.SomewhatWounded, 40},
+        { TargetIntegrity.LightlyWounded, 20 },
+        { TargetIntegrity.Healthy, 10 },
+    };
+
 
     [DataField, AutoNetworkedField]
     public BodyPartType PartType = BodyPartType.Other;
+
+
+    // TODO BODY Replace with a simulation of organs
+    /// <summary>
+    ///     Whether or not the owning <see cref="Body"/> will die if all
+    ///     <see cref="BodyComponent"/>s of this type are removed from it.
+    /// </summary>
+    [DataField("vital"), AutoNetworkedField]
+    public bool IsVital;
 
     [DataField, AutoNetworkedField]
     public BodyPartSymmetry Symmetry = BodyPartSymmetry.None;
@@ -198,12 +249,11 @@ public partial struct BodyPartSlot
 {
     public string Id;
     public BodyPartType Type;
-    public BodyPartSymmetry Symmetry; // Shitmed Change - Adds Symmetry to BodyPartSlot
-    public BodyPartSlot(string id, BodyPartType type, BodyPartSymmetry symmetry)
+
+    public BodyPartSlot(string id, BodyPartType type)
     {
         Id = id;
         Type = type;
-        Symmetry = symmetry;
     }
 };
 

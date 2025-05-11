@@ -35,31 +35,11 @@
     sprite: Mobs/Species/Slime/parts.rsi
   - type: BodyPart
     species: SlimePerson
-  - type: WoundableVisuals
-    damageOverlayGroups:
-      Brute:
-        sprite: Mobs/Effects/brute_damage.rsi
-        color: "#2cf274"
-      Burn:
-        sprite: Mobs/Effects/burn_damage.rsi
 
 - type: entity
-  id: ChestSlime
-  name: "slime chest"
-  parent: [PartSlime, BaseChest]
-  components:
-    - type: Sprite
-      sprite: Mobs/Species/Slime/parts.rsi
-      state: "chest_m"
-
-- type: entity
-  id: GroinSlime
-  name: "slime groin"
-  parent: [PartSlime, BaseGroin]
-  components:
-    - type: Sprite
-      sprite: Mobs/Species/Slime/parts.rsi
-      state: "groin_m"
+  id: TorsoSlime
+  name: "slime torso"
+  parent: [PartSlime, BaseTorso]
 
 - type: entity
   id: HeadSlime

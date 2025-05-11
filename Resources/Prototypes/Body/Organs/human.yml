@@ -134,12 +134,6 @@
   - type: Sprite
     sprite: Mobs/Species/Human/organs.rsi
   - type: Organ
-    intCap: 15
-    integrity: 15
-    integrityThresholds:
-      Normal: 15
-      Damaged: 6
-      Destroyed: 0
   - type: Food
   - type: Extractable
     grindableSolutionName: organ
@@ -232,9 +226,6 @@
   - type: Item
     size: Small
     heldPrefix: brain
-  - type: NerveSystem
-  - type: ConsciousnessRequired
-    identifier: "nerveSystem"
 
 - type: entity
   id: OrganHumanEyes
@@ -243,12 +234,6 @@
   description: "I see you!"
   components:
   - type: Organ # Shitmed Change
-    intCap: 12
-    integrity: 12
-    integrityThresholds:
-      Normal: 12
-      Damaged: 4
-      Destroyed: 0
     slotId: eyes # Shitmed Change
   - type: Eyes # Shitmed Change
   - type: Sprite
@@ -324,12 +309,6 @@
   description: "Filters oxygen from an atmosphere, which is then sent into the bloodstream to be used as an electron carrier."
   components:
   - type: Organ # Shitmed Change
-    intCap: 17
-    integrity: 17
-    integrityThresholds:
-      Normal: 17
-      Damaged: 9
-      Destroyed: 0
     slotId: lungs # Shitmed Change
   - type: Sprite
     layers:
@@ -375,12 +354,6 @@
   components:
   - type: Heart # Shitmed Change
   - type: Organ # Shitmed Change
-    intCap: 17
-    integrity: 17
-    integrityThresholds:
-      Normal: 17
-      Damaged: 9
-      Destroyed: 0
     slotId: heart # Shitmed Change
   - type: Sprite
     state: heart-on
@@ -388,7 +361,7 @@
   # This is done because these chemicals need to have some effect even if they aren't being filtered out of your body.
   # You're technically 'immune to poison' without a heart, but.. uhh, you'll have bigger problems on your hands.
   - type: Metabolizer
-    maxPoisonsProcessable: 2
+    maxReagents: 2
     metabolizerTypes: [Human]
     groups:
     - id: Medicine
@@ -410,12 +383,6 @@
   description: "Gross. This is hard to stomach."
   components:
   - type: Organ # Shitmed Change
-    intCap: 44 # consists of a lot of pieces, thus is incredibly hard to easily destroy
-    integrity: 44
-    integrityThresholds:
-      Normal: 44
-      Damaged: 17
-      Destroyed: 0
     slotId: stomach # Shitmed Change
   - type: Sprite
     state: stomach
@@ -437,7 +404,7 @@
   # to intestines instead.
   - type: Metabolizer
     # mm yummy
-    maxPoisonsProcessable: 3
+    maxReagents: 3
     metabolizerTypes: [Human]
     groups:
     - id: Food
@@ -465,12 +432,6 @@
   components:
   - type: Liver # Shitmed Change
   - type: Organ # Shitmed Change
-    intCap: 21
-    integrity: 21
-    integrityThresholds:
-      Normal: 21
-      Damaged: 12
-      Destroyed: 0
     slotId: liver # Shitmed Change
   - type: Sprite
     state: liver
@@ -478,7 +439,7 @@
     size: Small
     heldPrefix: liver
   - type: Metabolizer # The liver metabolizes certain chemicals only, like alcohol.
-    maxPoisonsProcessable: 1
+    maxReagents: 1
     metabolizerTypes: [Human]
     groups:
     - id: Alcohol
@@ -505,12 +466,6 @@
   description: "Filters toxins from the bloodstream."
   components:
   - type: Organ # Shitmed
-    intCap: 21
-    integrity: 21
-    integrityThresholds:
-      Normal: 21
-      Damaged: 12
-      Destroyed: 0
     slotId: kidneys
   - type: Sprite
     layers:
@@ -521,7 +476,7 @@
     heldPrefix: kidneys
   # The kidneys just remove anything that doesn't currently have any metabolisms, as a stopgap.
   - type: Metabolizer
-    maxPoisonsProcessable: 5
+    maxReagents: 5
     metabolizerTypes: [Human]
     removeEmpty: true
   - type: Tag # goob edit

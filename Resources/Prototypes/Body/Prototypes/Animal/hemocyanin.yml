@@ -9,22 +9,17 @@
 - type: body
   id: AnimalHemocyanin
   name: "hemocyanin"
-  root: chest
+  root: torso
   slots:
-    chest:
-      part: ChestAnimal
-      connections:
-      - groin
-      organs:
-        lungs: OrganAnimalLungs
-        heart: OrganArachnidHeart
-    groin:
-      part: GroinAnimal
+    torso:
+      part: TorsoAnimal
       connections:
       - legs
       organs:
+        lungs: OrganAnimalLungs
         stomach: OrganAnimalStomach
         liver: OrganAnimalLiver
+        heart: OrganArachnidHeart
         kidneys: OrganAnimalKidneys
     legs:
       part: LegsAnimal

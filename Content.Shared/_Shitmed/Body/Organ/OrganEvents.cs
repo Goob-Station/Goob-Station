@@ -16,7 +16,3 @@ public readonly record struct OrganEnabledEvent(Entity<OrganComponent> Organ);
 
 [ByRefEvent]
 public readonly record struct OrganDisabledEvent(Entity<OrganComponent> Organ);
-
-[ByRefEvent]
-public record struct TryRemoveOrganEvent(EntityUid OrganId, OrganComponent? Organ = null, bool Cancelled = false);
-

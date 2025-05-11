@@ -24,8 +24,7 @@
   id: MobSkeletonSprites
   sprites:
     Head: MobSkeletonHead
-    Chest: MobSkeletonChest
-    Groin: MobSkeletonGroin
+    Chest: MobSkeletonTorso
     LArm: MobSkeletonLArm
     RArm: MobSkeletonRArm
     LHand: MobSkeletonLHand
@@ -54,40 +53,22 @@
     state: head_f
 
 - type: humanoidBaseSprite
-  id: MobSkeletonChest
+  id: MobSkeletonTorso
   baseSprite:
     sprite: Mobs/Species/Skeleton/parts.rsi
-    state: chest_m
+    state: torso_m
 
 - type: humanoidBaseSprite
-  id: MobSkeletonChestMale
+  id: MobSkeletonTorsoMale
   baseSprite:
     sprite: Mobs/Species/Skeleton/parts.rsi
-    state: chest_m
+    state: torso_m
 
 - type: humanoidBaseSprite
-  id: MobSkeletonChestFemale
+  id: MobSkeletonTorsoFemale
   baseSprite:
     sprite: Mobs/Species/Skeleton/parts.rsi
-    state: chest_f
-
-- type: humanoidBaseSprite
-  id: MobSkeletonGroin
-  baseSprite:
-    sprite: Mobs/Species/Skeleton/parts.rsi
-    state: groin_m
-
-- type: humanoidBaseSprite
-  id: MobSkeletonGroinMale
-  baseSprite:
-    sprite: Mobs/Species/Skeleton/parts.rsi
-    state: groin_m
-
-- type: humanoidBaseSprite
-  id: MobSkeletonGroinFemale
-  baseSprite:
-    sprite: Mobs/Species/Skeleton/parts.rsi
-    state: groin_f
+    state: torso_f
 
 - type: humanoidBaseSprite
   id: MobSkeletonLLeg

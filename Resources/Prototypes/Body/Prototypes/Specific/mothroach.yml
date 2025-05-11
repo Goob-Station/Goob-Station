@@ -9,10 +9,10 @@
 - type: body
   id: Mothroach
   name: "mothroach"
-  root: chest
+  root: torso
   slots:
-    chest:
-      part: ChestAnimal
+    torso:
+      part: TorsoAnimal
       organs:
         lungs: OrganAnimalLungs
         stomach: OrganMothStomach

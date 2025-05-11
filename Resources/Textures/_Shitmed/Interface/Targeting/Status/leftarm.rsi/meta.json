@@ -26,7 +26,13 @@
         "name": "leftarm_5"
         },
         {
-        "name": "leftarm_6unused"
+        "name": "leftarm_6"
+        },
+        {
+        "name": "leftarm_7"
+        },
+        {
+        "name": "leftarm_8"
         }
     ]
 }

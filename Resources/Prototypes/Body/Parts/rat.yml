@@ -15,13 +15,13 @@
 # Just copypasta of some animal basic body parts for interaction,
 # It's basically as animals except a different torso with different organs
 - type: entity
-  id: ChestRat
-  name: "rat chest"
-  parent: ChestAnimal # Shitmed Change
+  id: TorsoRat
+  name: "animal torso"
+  parent: TorsoAnimal # Shitmed Change
   categories: [ HideSpawnMenu ]
   components:
   - type: BodyPart
-    partType: Chest
+    partType: Torso
   - type: Damageable
     damageContainer: Biological
   - type: Tag
@@ -31,8 +31,7 @@
   # currently their torso is just a small dead rat....
   - type: Sprite
     sprite: Mobs/Animals/mouse.rsi
-    layers:
-    - state: "splat-0"
+    state: splat-0
   - type: Icon # Shitmed Change
     sprite: Mobs/Animals/mouse.rsi
-    state: "splat-0"
+    state: splat-0

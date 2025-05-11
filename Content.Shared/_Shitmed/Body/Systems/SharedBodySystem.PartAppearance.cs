@@ -89,9 +89,10 @@ public partial class SharedBodySystem
         var speciesProto = _prototypeManager.Index(bodyAppearance.Species);
         var baseSprites = _prototypeManager.Index<HumanoidSpeciesBaseSpritesPrototype>(speciesProto.SpriteSet);
 
-        return baseSprites.Sprites.TryGetValue(part, out var value)
-            ? HumanoidVisualLayersExtension.GetSexMorph(part, bodyAppearance.Sex, value)
-            : null;
+        if (!baseSprites.Sprites.ContainsKey(part))
+            return null;
+
+        return HumanoidVisualLayersExtension.GetSexMorph(part, bodyAppearance.Sex, baseSprites.Sprites[part]);
     }
 
     public void ModifyMarkings(EntityUid uid,
@@ -196,7 +197,6 @@ public partial class SharedBodySystem
         if (!TryComp(entity, out HumanoidAppearanceComponent? bodyAppearance))
             return;
 
-        _humanoid.SetLayerVisibility(entity, component.Type, false);
         foreach (var (visualLayer, markingList) in component.Markings)
         {
             _humanoid.SetLayerVisibility((entity, bodyAppearance), visualLayer, false);

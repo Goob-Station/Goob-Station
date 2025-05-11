@@ -31,20 +31,13 @@
           state: icon
         components:
         - type: Armor
-          coverage:
-          - Chest
-          - Groin
-          - Arm
-          - Hand
-          - Leg
-          - Foot
           modifiers:
             coefficients:
-              Blunt: 0.65
-              Slash: 0.65
-              Heat: 0.65
-              Piercing: 0.65
-              Radiation: 0.65
+              Blunt: 0.85
+              Slash: 0.85
+              Heat: 0.85
+              Piercing: 0.85
+              Radiation: 0.85
               Caustic: 0.25
         - type: ExplosionResistance
           damageCoefficient: 0.85
@@ -61,20 +54,13 @@
           state: combat-icon
         components:
         - type: Armor
-          coverage:
-          - Chest
-          - Groin
-          - Arm
-          - Hand
-          - Leg
-          - Foot
           modifiers:
             coefficients:
-              Blunt: 0.3
-              Slash: 0.3
-              Heat: 0.3
-              Piercing: 0.3
-              Radiation: 0.3
+              Blunt: 0.5
+              Slash: 0.5
+              Heat: 0.5
+              Piercing: 0.5
+              Radiation: 0.5
               Caustic: 0.1
         - type: StaminaDamageResistance
           coefficient: 0.25
@@ -97,26 +83,13 @@
   - type: Clothing
     sprite: _Shitmed/Clothing/OuterClothing/Coats/abductor.rsi
   - type: Armor
-    coverage:
-    - Chest
-    - Groin
-    - Arm
-    - Hand
-    - Leg
-    - Foot
-    traumaDeductions:
-      Dismemberment: 0.4
-      OrganDamage: 0.4
-      BoneDamage: 0.4
-      VeinsDamage: 0
-      NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.45
-        Slash: 0.45
-        Heat: 0.45
-        Piercing: 0.45
-        Radiation: 0.45
+        Blunt: 0.85
+        Slash: 0.85
+        Heat: 0.85
+        Piercing: 0.85
+        Radiation: 0.85
         Caustic: 0.25
   - type: ExplosionResistance
     damageCoefficient: 0.85

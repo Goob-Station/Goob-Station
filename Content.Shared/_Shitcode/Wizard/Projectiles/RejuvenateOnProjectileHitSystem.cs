@@ -56,7 +56,8 @@ public sealed class RejuvenateOnProjectileHitSystem : EntitySystem
             _damageable.TryChangeDamage(target,
                 comp.Damage,
                 true,
-                targetPart: TargetBodyPart.Chest);
+                canSever: false,
+                targetPart: TargetBodyPart.Torso);
         }
     }
 }

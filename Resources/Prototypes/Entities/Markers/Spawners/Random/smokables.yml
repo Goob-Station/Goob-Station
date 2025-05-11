@@ -76,7 +76,7 @@
         - id: Joint
         - id: JointRainbow
           weight: 0.5
-        - id: BluntCigar # Shitmed Change
+        - id: Blunt
         - id: BluntRainbow
           weight: 0.5
       - !type:GroupSelector

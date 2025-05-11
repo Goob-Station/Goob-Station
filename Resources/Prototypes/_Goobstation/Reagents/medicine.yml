@@ -920,14 +920,6 @@
     Medicine:
       metabolismRate: 0.1
       effects:
-      - !type:SuppressPain
-        amount: 1.2
-        time: 30
-      - !type:AdjustPainFeels
-        conditions:
-        - !type:ReagentThreshold
-          min: 15
-        amount: 0.04
       - !type:HealthChange
         damage:
           groups:
@@ -956,15 +948,6 @@
         - !type:OrganType
           type: Yowie
           shouldHave: false
-      - !type:AdjustConsciousness
-        conditions:
-        - !type:ReagentThreshold
-          min: 10
-        allowNewModifiers: true
-        modifierType: Pain
-        identifier: Suffocation
-        amount: -2.4
-        time: 12
 
 # Externally applied meds
 

@@ -33,14 +33,14 @@
         - MobMask
         layer:
         - MobLayer
-#  - type: DamageVisuals
-#    thresholds: [ 10, 30, 50, 70 ]
-#    damageOverlayGroups:
-#      Brute:
-#        sprite: _Floofstation/Mobs/Effects/Resomi/brute_damage.rsi
-#        color: "#C048C2"
-#      Burn:
-#        sprite: _Floofstation/Mobs/Effects/Resomi/burn_damage.rsi
+  - type: DamageVisuals
+    thresholds: [ 10, 30, 50, 70 ]
+    damageOverlayGroups:
+      Brute:
+        sprite: _Floofstation/Mobs/Effects/Resomi/brute_damage.rsi
+        color: "#C048C2"
+      Burn:
+        sprite: _Floofstation/Mobs/Effects/Resomi/burn_damage.rsi
   - type: FireVisuals
     sprite: _Floofstation/Mobs/Effects/onfire.rsi
     normalState: Resomi_minor_burning

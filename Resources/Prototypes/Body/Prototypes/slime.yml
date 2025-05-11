@@ -11,27 +11,23 @@
 - type: body
   id: Slime
   name: "slime"
-  root: chest
+  root: torso
   slots:
     head:
       part: HeadSlime
       connections:
-      - chest
-    chest:
-      part: ChestSlime
+      - torso
+    torso:
+      part: TorsoSlime
       connections:
       - right arm
       - left arm
-      - groin
+      - right leg
+      - left leg
       - head # Shitmed
       organs:
         core: SentientSlimeCore
         lungs: OrganSlimeLungs
-    groin:
-      part: GroinSlime
-      connections:
-      - right leg
-      - left leg
     right arm:
       part: RightArmSlime
       connections:

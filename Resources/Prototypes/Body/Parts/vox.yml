@@ -38,51 +38,16 @@
     sprite: Mobs/Species/Vox/parts.rsi
   - type: BodyPart # Shitmed Change
     species: Vox
-  - type: WoundableVisuals
-    damageOverlayGroups:
-      Brute:
-        sprite: Mobs/Effects/brute_damage.rsi
-        color: "#7a8bf2"
-      Burn:
-        sprite: Mobs/Effects/burn_damage.rsi
 
 - type: entity
-  parent: [ PartVoxBase, BaseChest ]
-  id: ChestVox
-  name: "vox chest"
+  parent: [ PartVoxBase, BaseTorso ]
+  id: TorsoVox
+  name: "vox torso"
   components:
-    - type: Sprite
-      sprite: Mobs/Species/Vox/parts.rsi
-      state: "chest_m"
-    - type: Icon
-      sprite: Mobs/Species/Vox/parts.rsi
-      state: "chest_m"
-    - type: Extractable
-      juiceSolution:
-        reagents:
-        - ReagentId: Fat
-          Quantity: 3
-        - ReagentId: Blood
-          Quantity: 10
-
-- type: entity
-  parent: [ PartVoxBase, BaseGroin ]
-  id: GroinVox
-  name: "vox groin"
-  components:
-    - type: Sprite
-      sprite: Mobs/Species/Vox/parts.rsi
-      state: "groin_m"
-    - type: Icon
-      sprite: Mobs/Species/Vox/parts.rsi
-      state: "groin_m"
-    - type: Extractable
-      juiceSolution:
-        reagents:
-        - ReagentId: Fat
-          Quantity: 3
-        - ReagentId: Blood
-          Quantity: 10
+  - type: Sprite
+    state: "torso"
+  - type: Icon
+    state: "torso"
 
 - type: entity
   parent: [ PartVoxBase, BaseHead ]

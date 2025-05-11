@@ -90,7 +90,7 @@
       fireSpread: true #If you walk into incredibly dense, flaming vines, you can expect to burn.
       damage:
         types:
-          Heat: 1.5
+          Heat: 3
     - type: Reactive
       groups:
         Flammable: [Touch]
@@ -260,7 +260,7 @@
       fireSpread: true
       damage:
        types:
-         Heat: 1.5
+         Heat: 3
     - type: AtmosExposed
     - type: SpeedModifierContacts
       walkSpeedModifier: 0.3

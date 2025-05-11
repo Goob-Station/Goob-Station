@@ -28,28 +28,9 @@
     species: Harpy
 
 - type: entity
-  parent: [ PartHarpyBase, BaseChest ]
-  id: ChestHarpy
-  name: "harpy chest"
-  components:
-  - type: Sprite
-    sprite: _DV/Mobs/Species/Harpy/parts.rsi
-    state: "chest_m"
-  - type: Icon
-    sprite: _DV/Mobs/Species/Harpy/parts.rsi
-    state: "chest_m"
-
-- type: entity
-  parent: [ PartHarpyBase, BaseGroin ]
-  id: GroinHarpy
-  name: "harpy groin"
-  components:
-  - type: Sprite
-    sprite: _DV/Mobs/Species/Harpy/parts.rsi
-    state: "groin_m"
-  - type: Icon
-    sprite: _DV/Mobs/Species/Harpy/parts.rsi
-    state: "groin_m"
+  parent: [ PartHarpyBase, BaseTorso ]
+  id: TorsoHarpy
+  name: "harpy torso"
 
 - type: entity
   parent: [ PartHarpyBase, BaseHead ]

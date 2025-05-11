@@ -24,8 +24,7 @@
     Head: MobSlimeHead
     Hair: MobSlimeMarkingFollowSkin
     FacialHair: MobSlimeMarkingFollowSkin
-    Chest: MobSlimeChest
-    Groin: MobSlimeGroin
+    Chest: MobSlimeTorso
     Eyes: MobHumanoidEyes
     LArm: MobSlimeLArm
     RArm: MobSlimeRArm
@@ -79,40 +78,22 @@
     state: head_f
 
 - type: humanoidBaseSprite
-  id: MobSlimeChest
+  id: MobSlimeTorso
   baseSprite:
     sprite: Mobs/Species/Slime/parts.rsi
-    state: chest_m
+    state: torso_m
 
 - type: humanoidBaseSprite
-  id: MobSlimeChestMale
+  id: MobSlimeTorsoMale
   baseSprite:
     sprite: Mobs/Species/Slime/parts.rsi
-    state: chest_m
+    state: torso_m
 
 - type: humanoidBaseSprite
-  id: MobSlimeChestFemale
+  id: MobSlimeTorsoFemale
   baseSprite:
     sprite: Mobs/Species/Slime/parts.rsi
-    state: chest_f
-
-- type: humanoidBaseSprite
-  id: MobSlimeGroin
-  baseSprite:
-    sprite: Mobs/Species/Slime/parts.rsi
-    state: groin_m
-
-- type: humanoidBaseSprite
-  id: MobSlimeGroinMale
-  baseSprite:
-    sprite: Mobs/Species/Slime/parts.rsi
-    state: groin_m
-
-- type: humanoidBaseSprite
-  id: MobSlimeGroinFemale
-  baseSprite:
-    sprite: Mobs/Species/Slime/parts.rsi
-    state: groin_f
+    state: torso_f
 
 - type: humanoidBaseSprite
   id: MobSlimeLLeg

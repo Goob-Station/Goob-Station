@@ -257,8 +257,6 @@
     heatingCoefficient: 0.1
     coolingCoefficient: 0.1
   - type: Armor
-    coverage:
-    - Head
     modifiers:
       coefficients:
         Blunt: 0.90
@@ -266,12 +264,6 @@
         Piercing: 0.95
         Heat: 0.90
         Radiation: 0.25
-    traumaDeductions:
-      Dismemberment: 0
-      OrganDamage: 0.12
-      BoneDamage: 0.12
-      VeinsDamage: 0
-      NerveDamage: 0
   - type: GroupExamine
   - type: IngestionBlocker
   - type: Tag

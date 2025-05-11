@@ -147,18 +147,10 @@
     heatingCoefficient: 0.1
     coolingCoefficient: 0.1
   - type: Armor
-    coverage:
-    - Head
     modifiers:
       coefficients:
         Heat: 0.90
         Radiation: 0.75
-    traumaDeductions:
-      Dismemberment: 0
-      OrganDamage: 0.14
-      BoneDamage: 0.14
-      VeinsDamage: 0
-      NerveDamage: 0
 
 #Ancient Void Helmet
 - type: entity

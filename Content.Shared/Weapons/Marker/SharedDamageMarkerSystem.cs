@@ -36,10 +36,10 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
-using Content.Shared._Shitmed.Targeting; // Shitmed Change
 // Lavaland Change
 using Content.Shared._Lavaland.Weapons.Marker;
 using Content.Shared._Lavaland.Mobs;
+
 namespace Content.Shared.Weapons.Marker;
 
 public abstract class SharedDamageMarkerSystem : EntitySystem
@@ -66,7 +66,7 @@ public abstract class SharedDamageMarkerSystem : EntitySystem
         _audio.PlayPredicted(component.Sound, uid, args.User);
 
         if (TryComp<LeechOnMarkerComponent>(args.Used, out var leech))
-            _damageable.TryChangeDamage(args.User, leech.Leech * 11f, true, false, origin: args.Used, targetPart: TargetBodyPart.All); // Shitmed Change
+            _damageable.TryChangeDamage(args.User, leech.Leech, true, false, origin: args.Used);
 
         if (HasComp<DamageBoostOnMarkerComponent>(args.Used))
         {

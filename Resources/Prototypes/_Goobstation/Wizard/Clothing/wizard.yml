@@ -44,21 +44,14 @@
   suffix: Wizard Clothes
   components:
   - type: Armor
-    coverage:
-    - Chest
-    - Groin
-    - Arm
-    - Hand
-    - Leg
-    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.8
-        Heat: 0.8
-        Caustic: 0.8
-        Radiation: 0.8
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+        Caustic: 0.9
+        Radiation: 0.9
   - type: ExplosionResistance
     damageCoefficient: 0.8
   - type: GroupExamine
@@ -69,19 +62,12 @@
   suffix: Wizard Clothes
   components:
   - type: Armor
-    coverage:
-    - Chest
-    - Groin
-    - Arm
-    - Hand
-    - Leg
-    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.60
-        Slash: 0.60
-        Piercing: 0.60
-        Heat: 0.60
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.65
+        Heat: 0.65
         Radiation: 0.1
         Caustic: 0.1
   - type: ExplosionResistance
@@ -312,19 +298,12 @@
     - type: SupermatterImmune
   - type: SupermatterImmune
   - type: Armor
-    coverage:
-    - Chest
-    - Groin
-    - Arm
-    - Hand
-    - Leg
-    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.45
-        Slash: 0.45
-        Piercing: 0.45
-        Heat: 0.45
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.65
+        Heat: 0.65
         Radiation: 0
         Caustic: 0.1
   - type: ToggleableClothing

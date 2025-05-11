@@ -4,16 +4,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Body.Systems;
-using Content.Shared.Body.Organ;
 using Content.Shared.Body.Components;
 using Content.Shared._Shitmed.Body.Organ;
-using Content.Shared._Shitmed.Medical.Surgery.Traumas;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Eye.Blinding.Systems;
-using Robust.Shared.Containers;
 
-namespace Content.Server._Shitmed.Body.Systems
+namespace Content.Server.Body.Systems
 {
     public sealed class EyesSystem : EntitySystem
     {
@@ -25,59 +21,61 @@ namespace Content.Server._Shitmed.Body.Systems
         {
             base.Initialize();
 
-            SubscribeLocalEvent<EyesComponent, OrganIntegrityChangedEvent>(OnOrganIntegrityChanged);
             SubscribeLocalEvent<EyesComponent, OrganEnabledEvent>(OnOrganEnabled);
             SubscribeLocalEvent<EyesComponent, OrganDisabledEvent>(OnOrganDisabled);
-            SubscribeLocalEvent<EyesComponent, EntGotRemovedFromContainerMessage>(OnEyesRemoved);
         }
 
-        private void CheckMissingEyes(EntityUid body, EntityUid eye)
+        private void HandleSight(EntityUid newEntity, EntityUid oldEntity)
         {
-            if (TerminatingOrDeleted(body) || TerminatingOrDeleted(eye))
+            if (TerminatingOrDeleted(newEntity) || TerminatingOrDeleted(oldEntity))
                 return;
+
+            BlindableComponent? newSight;
+            BlindableComponent? oldSight;
+            //transfer existing component to organ
+            if (!TryComp(newEntity, out newSight))
+                newSight = EnsureComp<BlindableComponent>(newEntity);
+
+            if (!TryComp(oldEntity, out oldSight))
+                oldSight = EnsureComp<BlindableComponent>(oldEntity);
+
+            //give new sight all values of old sight
+            _blindableSystem.TransferBlindness(newSight, oldSight, newEntity);
 
             var hasOtherEyes = false;
-
-            if (TryComp<BodyComponent>(body, out var bodyComp))
-                if (_bodySystem.TryGetBodyOrganEntityComps<EyesComponent>((body, bodyComp), out var eyes)
-                    && eyes.Count > 1)
+            //check for other eye components on owning body and owning body organs (if old entity has a body)
+            if (TryComp<BodyComponent>(oldEntity, out var body))
+            {
+                if (TryComp<EyesComponent>(oldEntity, out var bodyEyes)) //some bodies see through their skin!!! (slimes)
                     hasOtherEyes = true;
+                else
+                {
+                    foreach (var (organ, _) in _bodySystem.GetBodyOrgans(oldEntity, body))
+                    {
+                        if (TryComp<EyesComponent>(organ, out var eyes))
+                        {
+                            hasOtherEyes = true;
+                            break;
+                        }
+                    }
+                    //TODO (MS14): Should we do this for body parts too? might be a little overpowered but could be funny/interesting
+                }
+            }
 
-            if (!hasOtherEyes
-                && HasComp<EyesComponent>(eye)
-                && TryComp(body, out BlindableComponent? blindable))
-                _blindableSystem.SetEyeDamage((body, blindable), blindable.MaxDamage);
-        }
+            //if there are no existing eye components for the old entity - set old sight to be blind otherwise leave it as is
+            if (!hasOtherEyes && !TryComp<EyesComponent>(oldEntity, out var self))
+                _blindableSystem.AdjustEyeDamage((oldEntity, oldSight), oldSight.MaxDamage);
 
-        // Too much shit would break if I were to nuke blindablecomponent rn. Guess we shitcoding this one.
-        private void OnOrganIntegrityChanged(EntityUid uid, EyesComponent component, OrganIntegrityChangedEvent args)
-        {
-            if (args.NewIntegrity <= 0
-                || !TryComp(uid, out OrganComponent? organ)
-                || !organ.Body.HasValue
-                || !TryComp(organ.Body.Value, out BlindableComponent? blindable)
-                || organ.IntegrityCap - organ.OrganIntegrity <= 0)
-                return;
-
-            var adjustment = (int)(organ.IntegrityCap - organ.OrganIntegrity);
-
-            if (adjustment == 0)
-                return;
-
-            _blindableSystem.SetEyeDamage((organ.Body.Value, blindable), adjustment);
         }
 
         private void OnOrganEnabled(EntityUid uid, EyesComponent component, OrganEnabledEvent args)
         {
             if (TerminatingOrDeleted(uid)
-            || args.Organ.Comp.Body is not { Valid: true } body
-            || !TryComp(body, out BlindableComponent? blindable))
+            || args.Organ.Comp.Body is not { Valid: true } body)
                 return;
 
-            // We add the current eye damage since in any context, the organ being enabled means that it was
-            // either removed or disabled, so the BlindableComponent must have some prior damage already.
-            var adjustment = (int)(args.Organ.Comp.IntegrityCap - args.Organ.Comp.OrganIntegrity);
-            _blindableSystem.SetEyeDamage((body, blindable), adjustment);
+            RemComp<TemporaryBlindnessComponent>(body);
+            HandleSight(uid, body);
         }
 
         private void OnOrganDisabled(EntityUid uid, EyesComponent component, OrganDisabledEvent args)
@@ -86,18 +84,8 @@ namespace Content.Server._Shitmed.Body.Systems
             || args.Organ.Comp.Body is not { Valid: true } body)
                 return;
 
-            CheckMissingEyes(body, uid);
-        }
-
-        private void OnEyesRemoved(EntityUid uid, EyesComponent component, EntGotRemovedFromContainerMessage args)
-        {
-            if (TerminatingOrDeleted(uid)
-                || !TryComp(args.Entity, out OrganComponent? organ)
-                || !organ.Body.HasValue
-                || !TryComp(organ.Body.Value, out BlindableComponent? blindable))
-                return;
-
-            CheckMissingEyes(organ.Body.Value, uid);
+            EnsureComp<TemporaryBlindnessComponent>(body);
+            HandleSight(body, uid);
         }
     }
 }

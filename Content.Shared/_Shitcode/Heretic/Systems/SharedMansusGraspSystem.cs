@@ -111,7 +111,7 @@ public abstract class SharedMansusGraspSystem : EntitySystem
                         new DamageSpecifier(_proto.Index<DamageTypePrototype>("Slash"), 10),
                         ignoreResistances: true,
                         origin: performer,
-                        targetPart: TargetBodyPart.Chest);
+                        targetPart: TargetBodyPart.Torso);
                 }
 
                 break;
@@ -186,7 +186,7 @@ public abstract class SharedMansusGraspSystem : EntitySystem
                         ignoreResistances: true,
                         damageable: damageable,
                         origin: performer,
-                        targetPart: TargetBodyPart.Chest);
+                        targetPart: TargetBodyPart.Torso);
                 }
 
                 break;

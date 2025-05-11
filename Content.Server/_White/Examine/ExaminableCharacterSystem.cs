@@ -11,7 +11,6 @@ using Content.Goobstation.Common.CCVar; // Goobstation Change
 using Content.Shared._Goobstation.Heretic.Components; // Goobstation Change
 using Content.Shared.Chat;
 using Content.Shared.Examine;
-using Content.Shared._White.Examine;
 using Content.Shared.Inventory;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
