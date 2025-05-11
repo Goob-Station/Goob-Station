@@ -489,7 +489,8 @@ namespace Content.Server.Construction
                     GetCoordinates(ev.Location),
                     ev.Angle,
                     ev.Ack,
-                    args.SenderSession);
+                    args.SenderSession,
+                    ev.With);
         }
 
         /// <summary>
@@ -501,7 +502,8 @@ namespace Content.Server.Construction
             EntityCoordinates location,
             Angle angle,
             int ack = 0,
-            ICommonSession? senderSession = null)
+            ICommonSession? senderSession = null,
+            NetEntity? with = null)
         {
             // </Goobstation>
             if (!PrototypeManager.TryIndex(prototypeName, out ConstructionPrototype? constructionPrototype))
@@ -568,7 +570,7 @@ namespace Content.Server.Construction
             }
 
             // Goobstation
-            EntityUid? entWith = ev.With == null ? null : GetEntity(ev.With);
+            EntityUid? entWith = with == null ? null : GetEntity(with);
             if (entWith == null && TryComp<HandsComponent>(user, out var hands))
                 entWith = hands.ActiveHandEntity;
 
