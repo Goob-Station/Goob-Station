@@ -4,7 +4,6 @@
                      Title="{Loc ai-remote-ui-menu-title}"
                      MinSize="355 100"
                      SetSize="355 415">
-                     
     <BoxContainer Orientation="Vertical"
                   HorizontalExpand="True"
                   VerticalExpand="True">

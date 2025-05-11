@@ -1,19 +1,13 @@
 using Content.Shared._CorvaxNext.Silicons.Borgs.Components;
 using Content.Shared.Actions;
-using Content.Shared.Emag.Systems;
 using Content.Shared.Mind;
 using Content.Shared.Silicons.StationAi;
-using Content.Shared.Species;
-using Content.Shared.StationAi;
-using Content.Shared.Tag;
-using Content.Shared.Verbs;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._CorvaxNext.Silicons.Borgs
 {
-    public abstract partial class SharedAiRemoteControlSystem : EntitySystem
+    public abstract class SharedAiRemoteControlSystem : EntitySystem
     {
-
         [Dependency] private readonly SharedStationAiSystem _stationAiSystem = default!;
         [Dependency] private readonly SharedTransformSystem _xformSystem = default!;
         [Dependency] private readonly SharedMindSystem _mind = default!;
@@ -22,41 +16,45 @@ namespace Content.Shared._CorvaxNext.Silicons.Borgs
         {
             base.Initialize();
         }
-        public void ReturnMindIntoAi(Entity<AiRemoteControllerComponent> entity, ref ReturnMindIntoAiEvent args)
+
+        public void ReturnMindIntoAi(EntityUid entity)
         {
-            if (entity.Comp.AiHolder == null || !_stationAiSystem.TryGetCore(entity.Comp.AiHolder.Value, out var stationAiCore) || stationAiCore.Comp?.RemoteEntity == null)
+            if (!TryComp<AiRemoteControllerComponent>(entity, out var remoteComp))
                 return;
 
-            if (entity.Comp.LinkedMind == null)
+            if (remoteComp?.AiHolder == null || !_stationAiSystem.TryGetCore(remoteComp.AiHolder.Value, out var stationAiCore) || stationAiCore.Comp?.RemoteEntity == null)
                 return;
 
-            if (!TryComp<StationAiHeldComponent>(entity.Comp.AiHolder, out var stationAiHeldComp))
+            if (remoteComp.LinkedMind == null)
+                return;
+
+            if (!TryComp<StationAiHeldComponent>(remoteComp.AiHolder, out var stationAiHeldComp))
                 return;
 
             stationAiHeldComp.CurrentConnectedEntity = null;
 
-            _mind.TransferTo(entity.Comp.LinkedMind.Value, entity.Comp.AiHolder);
+            _mind.TransferTo(remoteComp.LinkedMind.Value, remoteComp.AiHolder);
 
             _stationAiSystem.SwitchRemoteEntityMode(stationAiCore, true);
-            entity.Comp.AiHolder = null;
-            entity.Comp.LinkedMind = null;
+            remoteComp.AiHolder = null;
+            remoteComp.LinkedMind = null;
 
             _xformSystem.SetCoordinates(stationAiCore.Comp.RemoteEntity.Value, Transform(entity).Coordinates);
         }
+    }
+    public sealed partial class ReturnMindIntoAiEvent : InstantActionEvent
+    {
 
-        public sealed partial class ReturnMindIntoAiEvent : InstantActionEvent
-        {
+    }
 
-        }
-        public sealed partial class ToggleRemoteDevicesScreenEvent : InstantActionEvent
-        {
+    public sealed partial class ToggleRemoteDevicesScreenEvent : InstantActionEvent
+    {
 
-        }
+    }
 
-        [Serializable, NetSerializable]
-        public enum RemoteDeviceUiKey : byte
-        {
-            Key
-        }
+    [Serializable, NetSerializable]
+    public enum RemoteDeviceUiKey : byte
+    {
+        Key
     }
 }

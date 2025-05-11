@@ -26,7 +26,7 @@ namespace Content.Server._CorvaxNext.Silicons.Borgs
         {
             base.Initialize();
 
-            SubscribeLocalEvent<AiRemoteControllerComponent, ReturnMindIntoAiEvent>(ReturnMindIntoAi);
+            SubscribeLocalEvent<AiRemoteControllerComponent, ReturnMindIntoAiEvent>(OnReturnMindIntoAi);
             SubscribeLocalEvent<AiRemoteControllerComponent, MapInitEvent>(OnMapInit);
             SubscribeLocalEvent<AiRemoteControllerComponent, ComponentShutdown>(OnShutdown);
             SubscribeLocalEvent<AiRemoteControllerComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs);
@@ -58,7 +58,7 @@ namespace Content.Server._CorvaxNext.Silicons.Borgs
             if (TryComp(entity, out ActiveRadioComponent? activeRadio) && entity.Comp.PreviouslyActiveRadioChannels != null)
                 activeRadio.Channels = [.. entity.Comp.PreviouslyActiveRadioChannels];
 
-            ReturnMindIntoAi(entity, ref backArgs);
+            ReturnMindIntoAi(entity);
         }
 
         private void OnGetVerbs(Entity<AiRemoteControllerComponent> entity, ref GetVerbsEvent<AlternativeVerb> args)
@@ -79,6 +79,10 @@ namespace Content.Server._CorvaxNext.Silicons.Borgs
             args.Verbs.Add(verb);
         }
 
+        private void OnReturnMindIntoAi(Entity<AiRemoteControllerComponent> entity, ref ReturnMindIntoAiEvent args)
+        {
+            ReturnMindIntoAi(entity);
+        }
         public void AiTakeControl(EntityUid ai, EntityUid entity)
         {
             if (!_mind.TryGetMind(ai, out var mindId, out var mind))
@@ -150,16 +154,21 @@ namespace Content.Server._CorvaxNext.Silicons.Borgs
 
         private void OnUiRemoteAction(EntityUid uid, StationAiHeldComponent component, AiRemoteControllerComponent.RemoteDeviceActionMessage msg)
         {
+            var target = GetEntity(msg.RemoteAction?.Target);
+
+            if (!HasComp<AiRemoteControllerComponent>(target))
+                return;
+
             if (msg.RemoteAction?.ActionType == RemoteDeviceActionEvent.RemoteDeviceActionType.MoveToDevice)
             {
                 if (!_stationAiSystem.TryGetCore(uid, out var stationAiCore) || stationAiCore.Comp?.RemoteEntity == null)
                     return;
-                _xformSystem.SetCoordinates(stationAiCore.Comp.RemoteEntity.Value, Transform(GetEntity(msg.RemoteAction.Target)).Coordinates);
+                _xformSystem.SetCoordinates(stationAiCore.Comp.RemoteEntity.Value, Transform(target.Value).Coordinates);
             }
 
             if (msg.RemoteAction?.ActionType == RemoteDeviceActionEvent.RemoteDeviceActionType.TakeControl)
             {
-                AiTakeControl(uid, GetEntity(msg.RemoteAction.Target));
+                AiTakeControl(uid, target.Value);
             }
         }
 
@@ -178,7 +187,5 @@ namespace Content.Server._CorvaxNext.Silicons.Borgs
 
             _lawSystem.SetLawsSilent(fromLaws.Laws, to);
         }
-
-
     }
 }

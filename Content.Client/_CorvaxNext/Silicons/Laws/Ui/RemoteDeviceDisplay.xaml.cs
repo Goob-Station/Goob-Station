@@ -12,7 +12,6 @@ namespace Content.Client._CorvaxNext.Silicons.Laws.Ui
         public RemoteDeviceDisplay(NetEntity netEntityUid, String diplayName)
         {
             RobustXamlLoader.Load(this);
-            IoCManager.InjectDependencies(this);
 
             DeviceName.SetMessage(diplayName);
 

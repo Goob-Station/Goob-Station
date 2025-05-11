@@ -15,7 +15,8 @@ namespace Content.Shared._CorvaxNext.Silicons.Borgs.Components
         [DataField]
         public EntProtoId BackToAiAction = "ActionBackToAi";
 
-        [DataField] public EntityUid? BackToAiActionEntity;
+        [DataField]
+        public EntityUid? BackToAiActionEntity;
 
         [Serializable, NetSerializable]
         public sealed class RemoteDeviceActionMessage : BoundUserInterfaceMessage

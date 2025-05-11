@@ -12,9 +12,6 @@ namespace Content.Client._CorvaxNext.Silicons.Laws.Ui
         public RemoteDevicesMenu()
         {
             RobustXamlLoader.Load(this);
-            IoCManager.InjectDependencies(this);
-
-
         }
         public void Update(EntityUid uid, RemoteDevicesBuiState state)
         {
@@ -29,7 +26,6 @@ namespace Content.Client._CorvaxNext.Silicons.Laws.Ui
 
                 control.OnRemoteDeviceAction += (action) =>
                 {
-
                     OnRemoteDeviceAction?.Invoke(action);
                 };
 
