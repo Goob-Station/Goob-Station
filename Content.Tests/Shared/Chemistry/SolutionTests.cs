@@ -15,7 +15,7 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Chemistry.Components;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using NUnit.Framework;
 using Robust.Shared.IoC;
 using Robust.Shared.Prototypes;
