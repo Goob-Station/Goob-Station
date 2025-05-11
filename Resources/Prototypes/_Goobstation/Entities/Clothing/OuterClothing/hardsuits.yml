@@ -324,7 +324,7 @@
     delayDelta: 2
     knockdownTimeDelta: -2
   - type: StaminaResistance
-    coefficient: 0.6
+    damageCoefficient: 0.6
 
 ## Heady of security voidsuit
 #- type: entity

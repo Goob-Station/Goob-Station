@@ -119,7 +119,7 @@
         outerClothing:
         - state: equipped-OUTERCLOTHING-sealed
     - type: StaminaResistance
-      coefficient: 0 # 100%
+      damageCoefficient: 0 # 100%
     - type: PressureProtection
       highPressureMultiplier: 0.02
       lowPressureMultiplier: 1000
