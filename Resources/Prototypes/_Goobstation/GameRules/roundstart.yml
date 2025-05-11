@@ -327,7 +327,7 @@
     - prefRoles: [ Devil ]
       max: 2
       playerRatio: 20
-      jobBlacklist: [ Chaplain ]
+      jobBlacklist: [ Chaplain, Mime ] # Chaplain is obvious. Mime can't write.
       mindRoles:
       - DevilMindRole
       startingGear: DevilStartingGear
