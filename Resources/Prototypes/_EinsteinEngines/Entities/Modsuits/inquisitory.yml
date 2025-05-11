@@ -110,7 +110,7 @@
       visualLayers:
         outerClothing:
           - state: equipped-OUTERCLOTHING-sealed
-    - type: StaminaDamageResistance
+    - type: StaminaResistance
       coefficient: 0.5 # 50%
     - type: FireProtection
       reduction: 1
