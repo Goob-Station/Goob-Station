@@ -123,6 +123,7 @@
     HandTeleporterStealObjective: 0.5
     EnergyShotgunStealObjective: 0.5
     StealSupermatterSliverObjective: 0.5 # Goobstation - supermatter
+    ExecutiveBriefcaseStealObjective: 0.5 # Goobstation - NTR rework
 
 - type: weightedRandom
   id: TraitorObjectiveGroupKill
