@@ -179,7 +179,7 @@ selectable-set-security-voidsuit-desc =
     A light voidsuit with an in-built plate carrier to provide
     moderate protection while remaining mobile for low intensity kinetic ops.
 
-selectable-set-security-modsuit-name = Security 'dragoon' hardsuit
+selectable-set-security-modsuit-name = Security 'soldat' hardsuit
 selectable-set-security-modsuit-desc =
     A modular hardsuit with ceramic inserts to provide more protection
     than the voidsuit counterpart, but with less mobility.
