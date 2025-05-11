@@ -48,6 +48,8 @@ using Content.Shared.PowerCell.Components;
 using Content.Shared.Rejuvenate;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
+using Content.Shared.Movement.Systems; // Goobstation Change - TOTAL IPC DEATH.
+using Content.Shared.Inventory; // Goobstation Change - TOTAL IPC DEATH.
 
 namespace Content.Shared.PowerCell;
 
@@ -67,6 +69,8 @@ public abstract class SharedPowerCellSystem : EntitySystem
         SubscribeLocalEvent<PowerCellSlotComponent, EntInsertedIntoContainerMessage>(OnCellInserted);
         SubscribeLocalEvent<PowerCellSlotComponent, EntRemovedFromContainerMessage>(OnCellRemoved);
         SubscribeLocalEvent<PowerCellSlotComponent, ContainerIsInsertingAttemptEvent>(OnCellInsertAttempt);
+        SubscribeLocalEvent<PowerCellSlotComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovementSpeedModifiers); // Goobstation Change - TOTAL IPC DEATH.
+        SubscribeLocalEvent<PowerCellSlotComponent, InventoryRelayedEvent<RefreshMovementSpeedModifiersEvent>>(OnRefreshMovementSpeedModifiers);
     }
 
     private void OnMapInit(Entity<PowerCellDrawComponent> ent, ref MapInitEvent args)
@@ -114,6 +118,24 @@ public abstract class SharedPowerCellSystem : EntitySystem
             return;
         _appearance.SetData(uid, PowerCellSlotVisuals.Enabled, false);
         RaiseLocalEvent(uid, new PowerCellChangedEvent(true), false);
+    }
+
+    private void OnRefreshMovementSpeedModifiers(EntityUid uid, PowerCellSlotComponent component, RefreshMovementSpeedModifiersEvent args)
+    {
+        // We do a little trolling.
+        if (component.MaximumSize is null
+            || !_itemSlots.TryGetSlot(uid, component.CellSlotId, out var cellSlot)
+            || cellSlot.Item == null
+            || !TryComp(cellSlot.Item.Value, out PowerCellComponent? powerCell)
+            || powerCell.Size <= component.MaximumSize)
+            return;
+
+        args.ModifySpeed(0.2f, 0.2f);
+    }
+
+    private void OnRefreshMovementSpeedModifiers(EntityUid uid, PowerCellSlotComponent component, InventoryRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
+    {
+        OnRefreshMovementSpeedModifiers(uid, component, args.Args);
     }
 
     /// <summary>

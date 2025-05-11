@@ -55,6 +55,7 @@
   - type: PowerCellSlot
     cellSlotId: cell_slot
     fitsInCharger: true
+    maximumSize: Small
   - type: ItemSlots
     slots:
       cell_slot:

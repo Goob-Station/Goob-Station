@@ -391,6 +391,8 @@
     walkModifier: 0.8
     sprintModifier: 0.8
   - type: HeldSpeedModifier
+  - type: PowerCell
+    size: Large
 
 - type: entity
   id: PowerCageSmall

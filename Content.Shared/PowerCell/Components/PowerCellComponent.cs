@@ -24,6 +24,9 @@ namespace Content.Shared.PowerCell;
 public sealed partial class PowerCellComponent : Component
 {
     public const int PowerCellVisualsLevels = 2;
+
+    [DataField]
+    public PowerCellSize Size = PowerCellSize.Small;
 }
 
 [Serializable, NetSerializable]
@@ -36,3 +39,13 @@ public enum PowerCellSlotVisuals : byte
 {
     Enabled
 }
+
+// Goobstation Change - TOTAL IPC DEATH.
+[Serializable, NetSerializable]
+public enum PowerCellSize : int
+{
+    Small = 1,
+    Large = 2
+}
+
+

@@ -33,6 +33,10 @@ public sealed partial class PowerCellSlotComponent : Component
     [DataField("fitsInCharger")]
     public bool FitsInCharger = true;
 
+    // Goobstation Change - TOTAL IPC DEATH.
+    [DataField]
+    public PowerCellSize? MaximumSize;
+
 }
 
 /// <summary>
