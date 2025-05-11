@@ -290,6 +290,7 @@
     - Hardsuit
     - WhitelistChameleon
 
+
 ## paramedic voidsuit
 #- type: entity
 #  parent: [ ClothingOuterEVASuitBase, ClothingOuterBaseToggleable ]
