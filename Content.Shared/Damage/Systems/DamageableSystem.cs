@@ -64,7 +64,7 @@ using System.Linq;
 using Content.Shared.CCVar;
 using Content.Shared.Chemistry;
 using Content.Shared.Damage.Prototypes;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Inventory;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Components;
@@ -109,6 +109,7 @@ namespace Content.Shared.Damage
         public float UniversalExplosionDamageModifier { get; private set; } = 1f;
         public float UniversalThrownDamageModifier { get; private set; } = 1f;
         public float UniversalTopicalsHealModifier { get; private set; } = 1f;
+        public float UniversalMobDamageModifier { get; private set; } = 1f;
 
         public override void Initialize()
         {
@@ -151,6 +152,7 @@ namespace Content.Shared.Damage
             Subs.CVar(_config, CCVars.PlaytestExplosionDamageModifier, value => UniversalExplosionDamageModifier = value, true);
             Subs.CVar(_config, CCVars.PlaytestThrownDamageModifier, value => UniversalThrownDamageModifier = value, true);
             Subs.CVar(_config, CCVars.PlaytestTopicalsHealModifier, value => UniversalTopicalsHealModifier = value, true);
+            Subs.CVar(_config, CCVars.PlaytestMobDamageModifier, value => UniversalMobDamageModifier = value, true);
         }
 
         /// <summary>
@@ -435,7 +437,7 @@ namespace Content.Shared.Damage
             component.TotalDamage = component.Damage.GetTotal();
         }
 
-        public void SetDamageModifierSetId(EntityUid uid, string damageModifierSetId, DamageableComponent? comp = null)
+        public void SetDamageModifierSetId(EntityUid uid, string? damageModifierSetId, DamageableComponent? comp = null)
         {
             if (!_damageableQuery.Resolve(uid, ref comp))
                 return;

@@ -333,7 +333,6 @@
         path: /Audio/Effects/explosion_small1.ogg
     - type: Reflect # Goob edit
       reflectProb: .5
-      otherTypeReflectProb: .1
       reflects:
         - Energy
       spread: 90

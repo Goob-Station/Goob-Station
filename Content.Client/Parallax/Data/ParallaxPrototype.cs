@@ -12,7 +12,7 @@ namespace Content.Client.Parallax.Data;
 /// <summary>
 /// Prototype data for a parallax.
 /// </summary>
-[Prototype("parallax")]
+[Prototype]
 public sealed partial class ParallaxPrototype : IPrototype
 {
     /// <inheritdoc/>

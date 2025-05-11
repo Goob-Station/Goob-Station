@@ -169,8 +169,8 @@
     - GasMaskFullDefault # goob edit
     - Mask # goob edit
   - type: HideLayerClothing
-    slots:
-    - Snout
+    layers:
+      Snout: Mask
     hideOnToggle: true
   - type: Construction # Goobstation
     graph: GasMaskHalf
