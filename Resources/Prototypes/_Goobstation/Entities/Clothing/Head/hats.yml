@@ -10,6 +10,7 @@
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 grub <unalterableness@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
 #
@@ -166,8 +167,6 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/Head/Hats/trainer_beret.rsi
 
-
-
 - type: entity
   parent: [ClothingHeadBase, BaseSecurityCommandContraband]
   id: ClothingHeadHatBeretHeadOfSecurityAdvanced
@@ -191,3 +190,14 @@
     tags:
     - ClothMade
     - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretSeniorBotanist
+  name: botanical beret
+  description: A green beret featuring a small blue flower given to experienced botanists.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hats/beret_botany.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hats/beret_botany.rsi
