@@ -8941,11 +8941,3 @@ Entries:
         safely being in your tesla ballpit.
   id: 1023
   time: '2025-05-11T06:58:35.0000000+00:00'
-- author: SolsticeOfTheWinter
-  changes:
-    - type: Add
-      message: >-
-        Added a new lawset for AI. Purchasable by assistant and clown
-        syndicates.
-  id: 1024
-  time: '2025-05-11T07:12:12.0000000+00:00'
