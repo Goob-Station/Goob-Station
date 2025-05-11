@@ -44,7 +44,7 @@
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsSecurity
-  name: dragoon modsuit boots
+  name: soldat modsuit boots
   description: THE IRON BOOTS OF THE LAW.
   categories: [ HideSpawnMenu ]
   components:
@@ -112,9 +112,9 @@
       - state: equipped-FEET-sealed
   - type: ClothingSlowOnDamageModifier
     modifier: 0.5
-  - type: ClothingModifyStunTime # Goobstation
-    modifier: 0.8
-  - type: ModifyStandingUpTime # Goobstation
+  - type: ClothingModifyStunTime
+    modifier: 0.75
+  - type: ModifyStandingUpTime
     multiplier: 0.5
 
 - type: entity

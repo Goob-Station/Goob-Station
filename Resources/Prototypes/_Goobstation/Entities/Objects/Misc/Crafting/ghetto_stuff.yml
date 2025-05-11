@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 LuciferEOS <stepanteliatnik2022@gmail.com>
+# SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -198,7 +199,7 @@
 
 - type: entity
   id: TideFlipperZero
-  parent: [ DoorRemoteDefault, BaseMinorContraband ]
+  parent: [ DoorRemoteDefault, BaseMajorContraband ]
   name: tide flipper
   description: A makeshift device that can hack doors without access.
   components:
