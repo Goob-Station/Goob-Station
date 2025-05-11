@@ -8927,3 +8927,9 @@ Entries:
       message: Borgs can now self-weld.
   id: 1021
   time: '2025-05-11T03:20:37.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: Fixed some typos.
+  id: 1022
+  time: '2025-05-11T03:21:52.0000000+00:00'
