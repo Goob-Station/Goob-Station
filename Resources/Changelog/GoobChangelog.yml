@@ -8772,3 +8772,26 @@ Entries:
         structures and items.
   id: 1000
   time: '2025-05-10T21:30:45.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Add
+      message: >-
+        Added devices for crew to pick between lighter voidsuits or beefier
+        modsuits. Available to paramedics, security officers, the head of
+        security, engineers
+    - type: Tweak
+      message: Storage fills have been edited to provide said devices
+    - type: Tweak
+      message: >-
+        The head of security's parade voidsuit has been removed, the stim
+        feature is on the modsuit now
+    - type: Tweak
+      message: >-
+        the atmospheric technician voidsuit has been effectively replaced by the
+        'aeolus' modsuit
+    - type: Tweak
+      message: >-
+        the term 'hardsuit' now applies to MODsuits, anything you had come to
+        know as a hardsuit before is now a 'voidsuit'
+  id: 1001
+  time: '2025-05-11T01:12:49.0000000+00:00'
