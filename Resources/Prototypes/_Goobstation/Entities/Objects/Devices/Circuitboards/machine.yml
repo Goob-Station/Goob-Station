@@ -1,6 +1,9 @@
 # SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -37,6 +40,26 @@
     tagRequirements:
       BorgArm:
         amount: 2
+        defaultPrototype: LeftArmBorg
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: ConstructorCircuitboard
+  name: constructor machine board
+  description: A machine printed circuit board for a constructor.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    prototype: Constructor
+    stackRequirements:
+      Manipulator: 3
+      MatterBin: 2
+      Steel: 10
+      Cable: 5
+    tagRequirements:
+      BorgArm:
+        amount: 4
         defaultPrototype: LeftArmBorg
 
 - type: entity

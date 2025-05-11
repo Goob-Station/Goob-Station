@@ -9,6 +9,7 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 LuciferEOS <stepanteliatnik2022@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -36,7 +37,7 @@
     sprintModifier: 0.9
   - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change
-    clothingPrototypes: 
+    clothingPrototypes:
       head: ClothingHeadHelmetHEV
   - type: ClothingGrantComponent
     component: # same as CE suit
@@ -82,3 +83,14 @@
     - type: Clothing
       sprite: _Goobstation/Clothing/OuterClothing/Misc/nopro.rsi
       quickEquip: true
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterSteelTile
+  name: steel tile suit
+  description: A suit made to blend in with the tiles of the station.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/budget_stealth.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/budget_stealth.rsi
