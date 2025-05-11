@@ -6,7 +6,7 @@
 using Content.Server.Singularity.Events;
 using Content.Shared.Whitelist;
 
-namespace Content.Goobstation.Server.EventHorizon;
+namespace Content.Goobstation.Server.Singularity.EventHorizon;
 
 public sealed class EventHorizonIgnoreSystem : EntitySystem
 {
