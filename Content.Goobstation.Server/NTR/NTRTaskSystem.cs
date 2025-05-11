@@ -450,6 +450,7 @@ public sealed class NtrTaskSystem : EntitySystem
         UpdateTaskConsoles();
     }
 #endregion
+
 #region Console logic
 
     private void OnBalanceUpdated(EntityUid uid, NtrClientAccountComponent clientComp, ref NtrAccountBalanceUpdatedEvent args)
