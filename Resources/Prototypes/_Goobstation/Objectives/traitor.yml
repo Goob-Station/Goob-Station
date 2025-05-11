@@ -97,6 +97,7 @@
   - type: Objective
     difficulty: 3 # Slightly more than normal as it does not fit into storage implant
 
+
 - type: entity
   parent: BaseTraitorStealObjective
   id: ExecutiveBriefcaseStealObjective
