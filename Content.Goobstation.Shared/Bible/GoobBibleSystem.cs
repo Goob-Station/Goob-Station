@@ -8,7 +8,6 @@
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Exorcism;
 using Content.Goobstation.Shared.Religion;
-using Content.Goobstation.Shared.Religion.Nullrod;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Mobs.Systems;
@@ -16,6 +15,7 @@ using Content.Shared.Popups;
 using Content.Shared.Stunnable;
 using Content.Shared.Timing;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Network;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Bible;
@@ -30,17 +30,18 @@ public sealed partial class GoobBibleSystem : EntitySystem
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly INetManager _netManager = default!;
 
     public bool TryDoSmite(EntityUid bible, EntityUid performer, EntityUid target, UseDelayComponent? useDelay = null, BibleComponent? bibleComp = null)
     {
+        if (!_netManager.IsServer)
+            return false;
+
         if (!Resolve(bible, ref useDelay, ref bibleComp))
             return false;
 
-        var ev = new DamageUnholyEvent(target, performer);
-        RaiseLocalEvent(target, ref ev);
-
         if (!TryComp<WeakToHolyComponent>(target, out var weakToHoly)
-            || !ev.ShouldTakeHoly
+            || weakToHoly is {AlwaysTakeHoly: false}
             || !HasComp<BibleUserComponent>(performer)
             || !_timing.IsFirstTimePredicted
             || _delay.IsDelayed(bible))
@@ -58,7 +59,7 @@ public sealed partial class GoobBibleSystem : EntitySystem
         if (!_mobStateSystem.IsIncapacitated(target))
         {
             var popup = Loc.GetString("weaktoholy-component-bible-sizzle", ("target", target), ("item", bible));
-            _popupSystem.PopupPredicted(popup, performer, target, PopupType.LargeCaution);
+            _popupSystem.PopupPredicted(popup, target, performer, PopupType.LargeCaution);
             _audio.PlayPvs(bibleComp.SizzleSoundPath, target);
             _damageableSystem.TryChangeDamage(target, bibleComp.SmiteDamage * multiplier, true, origin: bible);
             _stun.TryParalyze(target, bibleComp.SmiteStunDuration * multiplier, false);

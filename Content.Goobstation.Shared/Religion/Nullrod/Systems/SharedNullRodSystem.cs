@@ -8,12 +8,14 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Goobstation.Shared.Bible;
 using Content.Goobstation.Shared.Religion.Nullrod.Components;
 using Content.Shared.Damage;
 using Content.Shared.Electrocution;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
+using Content.Shared.Heretic;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
 using Content.Shared.Popups;
@@ -32,6 +34,7 @@ public abstract partial class SharedNullRodSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IComponentFactory _componentFactory = default!;
     [Dependency] private readonly ISerializationManager _serializationManager = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
 
     public override void Initialize()
     {
@@ -40,7 +43,7 @@ public abstract partial class SharedNullRodSystem : EntitySystem
         SubscribeLocalEvent<NullrodComponent, AttackAttemptEvent>(OnAttackAttempt);
         SubscribeLocalEvent<NullrodComponent, ShotAttemptedEvent>(OnShootAttempt);
 
-        SubscribeLocalEvent<NullrodComponent, ElectrocutionAttemptEvent>(OnNullrodElectrocutionAttempt);
+        SubscribeLocalEvent<ElectrocutionAttemptEvent>(OnNullrodElectrocutionAttempt);
     }
 
     #region Attack Attempts
@@ -82,11 +85,16 @@ public abstract partial class SharedNullRodSystem : EntitySystem
 
     #region Variant Specific Events
     //Goidacode but there's always the possibility of more insulated Null Rods given the amount of YAMLMaxxers we have...
-
-    private void OnNullrodElectrocutionAttempt(EntityUid uid, NullrodComponent comp, ElectrocutionAttemptEvent args)
+    private void OnNullrodElectrocutionAttempt(ref ElectrocutionAttemptEvent args)
     {
-        if (comp.ShouldBeInsulated)
-            args.SiemensCoefficient = 0f;
+        var contains = _inventory.GetHandOrInventoryEntities(args.TargetUid, SlotFlags.WITHOUT_POCKET);
+
+        foreach (var item in contains)
+        {
+            if (TryComp<NullrodComponent>(item, out var comp))
+                args.SiemensCoefficient = comp.SiemensCoefficient;
+        }
+
     }
     #endregion
 

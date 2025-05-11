@@ -465,7 +465,7 @@
       types:
         Blunt: 50
     UntrainedUseString: nullrod-uristhand-untrained-usage-popup
-    shouldBeInsulated: true
+    siemensCoefficient: 0
   - type: MeleeThrowOnHit
     distance: 1
   - type: Tag

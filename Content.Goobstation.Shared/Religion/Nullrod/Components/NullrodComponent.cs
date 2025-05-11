@@ -69,9 +69,6 @@ namespace Content.Goobstation.Shared.Religion.Nullrod.Components;
         [DataField]
         public EntityUid? LastAttackedEntity;
 
-        /// <summary>
-        /// Should this Null Rod be insulated?
-        /// </summary>
         [DataField]
-        public bool ShouldBeInsulated = false;
+        public float SiemensCoefficient = 1;
     }
