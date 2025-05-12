@@ -66,6 +66,8 @@
 // SPDX-FileCopyrightText: 2024 stellar-novas <stellar_novas@riseup.net>
 // SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -75,6 +77,7 @@ using Content.Shared.Chat;
 using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.Hands.Components;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Item;
 using Content.Shared.Mind;
@@ -84,8 +87,9 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 using Content.Shared._EinsteinEngines.Silicon.Components;
-
+using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components; // Shitmed Change
 
 namespace Content.Server.Chat;
 
@@ -98,6 +102,8 @@ public sealed class SuicideSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly GhostSystem _ghostSystem = default!;
     [Dependency] private readonly SharedSuicideSystem _suicide = default!;
+
+    private static readonly ProtoId<TagPrototype> CannotSuicideTag = "CannotSuicide";
 
     public override void Initialize()
     {
@@ -132,7 +138,7 @@ public sealed class SuicideSystem : EntitySystem
 
         // Suicide is considered a fail if the user wasn't able to ghost
         // Suiciding with the CannotSuicide tag will ghost the player but not kill the body
-        if (!suicideGhostEvent.Handled || _tagSystem.HasTag(victim, "CannotSuicide"))
+        if (!suicideGhostEvent.Handled || _tagSystem.HasTag(victim, CannotSuicideTag))
             return false;
 
         var suicideEvent = new SuicideEvent(victim);
@@ -147,6 +153,7 @@ public sealed class SuicideSystem : EntitySystem
         {
             _adminLogger.Add(LogType.Mind, $"{EntityManager.ToPrettyString(victim):player} suicided.");
         }
+
         return true;
     }
 
@@ -167,7 +174,7 @@ public sealed class SuicideSystem : EntitySystem
 
         // CannotSuicide tag will allow the user to ghost, but also return to their mind
         // This is kind of weird, not sure what it applies to?
-        if (_tagSystem.HasTag(victim, "CannotSuicide"))
+        if (_tagSystem.HasTag(victim, CannotSuicideTag))
             args.CanReturnToBody = true;
 
         if (_ghostSystem.OnGhostAttempt(victim.Comp.Mind.Value, args.CanReturnToBody, mind: mindComponent))
@@ -222,7 +229,7 @@ public sealed class SuicideSystem : EntitySystem
         if (args.Handled)
             return;
 
-        var othersMessage = Loc.GetString("suicide-command-default-text-others", ("name", victim));
+        var othersMessage = Loc.GetString("suicide-command-default-text-others", ("name", Identity.Entity(victim, EntityManager)));
         _popup.PopupEntity(othersMessage, victim, Filter.PvsExcept(victim), true);
 
         var selfMessage = Loc.GetString("suicide-command-default-text-self");
@@ -238,9 +245,10 @@ public sealed class SuicideSystem : EntitySystem
         if (HasComp<SiliconComponent>(victim)) // Goobstation
             args.DamageType ??= "Shock";
         else
-            args.DamageType ??= "Bloodloss";
+            args.DamageType ??= "Slash";
 
         _suicide.ApplyLethalDamage(victim, args.DamageType);
+
         args.Handled = true;
     }
 }

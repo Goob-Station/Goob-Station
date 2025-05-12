@@ -6,8 +6,10 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 JoeHammad1844 <130668733+JoeHammad1844@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 JoeHammad1844 <finiansalas2@gmail.com>
+# SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -25,10 +27,17 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/durathread_jumpsuit.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.95
-        Heat: 0.95
+        Blunt: 0.85
+        Heat: 0.85
 
 - type: entity
   parent: ClothingUniformBase
@@ -140,12 +149,19 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/navy_gold.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.75
-        Slash: 0.75
-        Piercing: 0.70
-        Heat: 0.75
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.60
+        Heat: 0.65
 
 - type: entity
   parent: ClothingUniformJumpsuitNavyGold
@@ -157,6 +173,20 @@
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/specialoperations.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/specialoperations.rsi
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    modifiers:
+      coefficients:
+        Blunt: 0.60
+        Slash: 0.60
+        Piercing: 0.55
+        Heat: 0.60
 
 - type: entity
   parent: ClothingUniformJumpsuitNavyGold
@@ -168,6 +198,20 @@
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/diplomat.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/diplomat.rsi
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.60
+        Heat: 0.65
 
 - type: entity
   parent: ClothingUniformBase
@@ -209,3 +253,14 @@
         Slash: 0.75
         Piercing: 0.70
         Heat: 0.75
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitMercer
+  name: manhattan streetwear
+  description: Only someone who would try to run away with Earth's deadliest bioweapon would want to wear this.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/mercer.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/mercer.rsi
