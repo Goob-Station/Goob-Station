@@ -114,10 +114,6 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 #When adding new hardsuits, please try to keep the organization consistent with hardsuit.yml (if possible.)
 
-#For now, since locational damage is not a thing, all "combat" hardsuits (with the exception of the deathsquad hardsuit) have the equvilent of a helmet in terms of armor.
-#This is so people don't need to wear both regular, on-station helmets and hardsuits to get full protection.
-#Generally, unless you're adding something like caustic damage, you should probably avoid messing with armor here outside of the above scenario.
-
 #CREW HARDSUITS
 #Standard Hardsuit
 - type: entity
@@ -321,8 +317,6 @@
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
   - type: Armor
-    coverage:
-    - Head
     modifiers:
       coefficients:
         Blunt: 0.6
@@ -353,8 +347,6 @@
     highPressureMultiplier: 0.525
     lowPressureMultiplier: 1000
   - type: Armor
-    coverage:
-    - Head
     modifiers:
       coefficients:
         Blunt: 0.6
@@ -384,8 +376,6 @@
   - type: PointLight
     color: "#00FFFF"
   - type: Armor
-    coverage:
-    - Head
     modifiers:
       coefficients:
         Blunt: 0.65
@@ -423,8 +413,6 @@
     highPressureMultiplier: 0.525
     lowPressureMultiplier: 1000
   - type: Armor
-    coverage:
-    - Head
     modifiers:
       coefficients:
         Blunt: 0.6
@@ -456,15 +444,13 @@
     lowPressureMultiplier: 1000
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
-  - type: Armor #Backmen edit: armour coverage
+  - type: Armor
     traumaDeductions:
       Dismemberment: 0
       OrganDamage: 0.14
       BoneDamage: 0.14
       VeinsDamage: 0
       NerveDamage: 0
-    coverage:
-    - Head
     modifiers:
       coefficients:
         Blunt: 0.65
@@ -542,8 +528,6 @@
     highPressureMultiplier: 0.45
     lowPressureMultiplier: 1000
   - type: Armor
-    coverage:
-    - Head
     traumaDeductions:
       Dismemberment: 0.42
       OrganDamage: 0.42
@@ -596,8 +580,6 @@
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
   - type: Armor
-    coverage:
-    - Head
     traumaDeductions:
       Dismemberment: 0.42
       OrganDamage: 0.42
@@ -630,8 +612,6 @@
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
   - type: Armor
-    coverage:
-    - Head
     traumaDeductions:
       Dismemberment: 0.42
       OrganDamage: 0.42
@@ -671,8 +651,6 @@
   - type: FireProtection
     reduction: 0.2
   - type: Armor
-    coverage:
-    - Head
     traumaDeductions:
       Dismemberment: 0.42
       OrganDamage: 0.42
@@ -705,8 +683,6 @@
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
   - type: Armor
-    coverage:
-    - Head
     traumaDeductions:
       Dismemberment: 0.42
       OrganDamage: 0.42
@@ -737,8 +713,6 @@
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
   - type: Armor
-    coverage:
-    - Head
     traumaDeductions: # prevents traumas at all (kinda)
       Dismemberment: 1
       OrganDamage: 1
@@ -773,14 +747,6 @@
     highPressureMultiplier: 0.27
     lowPressureMultiplier: 1000
   - type: Armor # Goob edit
-    coverage:
-    - Head
-    traumaDeductions: # prevents traumas at all (kinda)
-      Dismemberment: 1
-      OrganDamage: 1
-      BoneDamage: 1
-      VeinsDamage: 1
-      NerveDamage: 1
     modifiers:
       coefficients:
         Blunt: 0.5
@@ -854,21 +820,6 @@
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertleader.rsi
   - type: PointLight
     color: "#addbff"
-  - type: Armor
-    coverage:
-    - Head
-    traumaDeductions:
-      Dismemberment: 0.42
-      OrganDamage: 0.42
-      BoneDamage: 0.42
-      VeinsDamage: 0
-      NerveDamage: 0
-    modifiers:
-      coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.5
-        Heat: 0.4
 
 #ERT Chaplain Hardsuit
 - type: entity
@@ -897,21 +848,6 @@
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertengineer.rsi
   - type: PointLight
     color: "#f4ffad"
-  - type: Armor
-    coverage:
-    - Head
-    traumaDeductions:
-      Dismemberment: 0.42
-      OrganDamage: 0.42
-      BoneDamage: 0.42
-      VeinsDamage: 0
-      NerveDamage: 0
-    modifiers:
-      coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.5
-        Heat: 0.4
 
 #ERT Medical Hardsuit
 - type: entity
@@ -940,21 +876,6 @@
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertsecurity.rsi
   - type: PointLight
     color: "#ffadc6"
-  - type: Armor
-    coverage:
-    - Head
-    traumaDeductions:
-      Dismemberment: 0.42
-      OrganDamage: 0.42
-      BoneDamage: 0.42
-      VeinsDamage: 0
-      NerveDamage: 0
-    modifiers:
-      coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.5
-        Heat: 0.4
 
 #ERT Janitor Hardsuit
 - type: entity
@@ -1002,8 +923,6 @@
     heatingCoefficient: 0.005
     coolingCoefficient: 0.005
   - type: Armor
-    coverage:
-    - Head
     traumaDeductions:
       Dismemberment: 0.42
       OrganDamage: 0.42
@@ -1037,8 +956,6 @@
   - type: FireProtection
     reduction: 0.2
   - type: Armor
-    coverage:
-    - Head
     traumaDeductions: # prevents traumas at all (kinda)
       Dismemberment: 1
       OrganDamage: 1

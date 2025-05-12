@@ -117,6 +117,15 @@
     sprite: Clothing/Head/Helmets/eva_syndicate.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/eva_syndicate.rsi
+  - type: Armor # Goob
+    coverage:
+    - Head
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Radiation: 0.5
 
 #Cosmonaut Helmet
 - type: entity
@@ -151,8 +160,9 @@
     - Head
     modifiers:
       coefficients:
-        Heat: 0.90
+        Heat: 0.9
         Radiation: 0.75
+        Caustic: 0.5
     traumaDeductions:
       Dismemberment: 0
       OrganDamage: 0.14

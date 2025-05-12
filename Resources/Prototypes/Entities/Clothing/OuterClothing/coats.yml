@@ -579,12 +579,9 @@
   - type: ModifyDelayedKnockdown # GOOB
     delayDelta: 1
     knockdownTimeDelta: -1
-  - type: TemperatureProtection # OOB
+  - type: TemperatureProtection # GOOB
     heatingCoefficient: 1.1 # the robes keep you warm but lets go of heat poorly
     coolingCoefficient: 0.5
-  - type: ClothingSpeedModifier # OOB
-    walkModifier: 1
-    sprintModifier: 1.0
 
 - type: entity
   parent: [ClothingOuterStorageBase, BaseMajorContraband]
