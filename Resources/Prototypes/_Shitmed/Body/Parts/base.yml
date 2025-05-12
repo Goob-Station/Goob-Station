@@ -13,36 +13,8 @@
   id: BasePart
   components:
   - type: Damageable
-    damageContainer: OrganicPart # Shitmed Change
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Blunt
-        damage: 110
-      behaviors:
-      - !type:GibPartBehavior { }
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Slash
-        damage: 150
-      behaviors:
-      - !type:GibPartBehavior { }
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Heat
-        damage: 200
-      behaviors:
-      - !type:SpawnEntitiesBehavior
-        spawnInContainer: true
-        spawn:
-          Ash:
-            min: 1
-            max: 1
-      - !type:BurnBodyBehavior { }
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MeatLaserImpact
+    damageContainer: Biological # Shitmed Change
+  - type: Nerve
   - type: Extractable
     juiceSolution:
       reagents:
@@ -59,9 +31,11 @@
 # this doesn't affect gibbing bodies as there is code to prevent torso gibbing while part of a body
 - type: entity
   abstract: true
-  parent: BaseTorsoInorganic
-  id: BaseTorso
+  parent: BaseChestInorganic
+  id: BaseChest
   components:
+  - type: Woundable
+    damageContainer: Biological
   - type: Destructible
     thresholds:
     - trigger:
@@ -98,3 +72,30 @@
         Quantity: 10
       - ReagentId: Blood
         Quantity: 20
+  - type: WoundableVisuals
+    thresholds: [ 10, 20, 30, 50, 70, 100 ]
+    occupiedLayer: Chest
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#FF0000"
+      Burn:
+        sprite: Mobs/Effects/burn_damage.rsi
+    bleedingOverlay: Mobs/Effects/bleeding_damage.rsi
+
+- type: entity
+  abstract: true
+  id: BaseGroin
+  parent: BaseGroinInorganic
+  components:
+  - type: Woundable
+    damageContainer: Biological
+  - type: WoundableVisuals
+    thresholds: [ 10, 20, 30, 50, 70, 100 ]
+    occupiedLayer: Groin
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#FF0000"
+      Burn:
+        sprite: Mobs/Effects/burn_damage.rsi
