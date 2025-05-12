@@ -30,12 +30,12 @@
       maxItemSize: Huge
       grid:
         - 0,0,10,3
-    - type: ExplosionResistance #Dont want chain explosions in the modsuits storage
-      damageCoefficient: 0.1
+    - type: ExplosionResistance
+      damageCoefficient: 0.9
     - type: SealableClothingVisuals
       visualLayers:
         back:
-          - state: equipped-BACKPACK-sealed
+        - state: equipped-BACKPACK-sealed
 
 - type: entity
   parent: ClothingModsuitGauntletsStandard
@@ -68,10 +68,14 @@
     - type: Armor
       modifiers:
         coefficients:
-          Blunt: 0.9
-          Slash: 0.9
-          Piercing: 0.9
-          Heat: 0.9
+          Blunt: 0.7
+          Slash: 0.3 # Goobstation - CBURN should protect against zombie attacks
+          Piercing: 0.6
+          Heat: 0.10
+          Cold: 0.10
+          Shock: 0.15
+          Radiation: 0.1
+          Caustic: 0.1
     - type: FlashImmunity # Goobstation
     - type: FlashSoundSuppression # Goobstation
       protectionRange: 0
@@ -105,12 +109,14 @@
     - type: Armor
       modifiers:
         coefficients:
-          Blunt: 0.4
-          Slash: 0.4
-          Piercing: 0.3
-          Heat: 0.5
-          Radiation: 0.25
-          Caustic: 0.4
+          Blunt: 0.7
+          Slash: 0.3 # Goobstation - CBURN should protect against zombie attacks
+          Piercing: 0.6
+          Heat: 0.10
+          Cold: 0.10
+          Shock: 0.15
+          Radiation: 0.1
+          Caustic: 0.1
     - type: SealableClothingVisuals
       visualLayers:
         outerClothing:
@@ -122,6 +128,7 @@
     - type: ClothingGrantComponent
       component:
         - type: SupermatterImmune
+
 - type: entity
   parent: ClothingModsuitBootsStandard
   id: ClothingModsuitBootsResponsoryEngineering

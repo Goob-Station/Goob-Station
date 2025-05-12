@@ -474,7 +474,7 @@
     delayDelta: 3
     knockdownTimeDelta: -3
 
-#Security Hardsuit
+#Security Hardsuit (goob - not used)
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseSecurityContraband]
   id: ClothingOuterHardsuitSecurity
@@ -491,6 +491,12 @@
   - type: ExplosionResistance
     damageCoefficient: 0.4
   - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.6
@@ -562,6 +568,12 @@
   - type: ExplosionResistance
     damageCoefficient: 0.4
   - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.4
@@ -599,6 +611,12 @@
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.8
@@ -758,6 +776,12 @@
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.65
@@ -837,6 +861,12 @@
   - type: ExplosionResistance
     damageCoefficient: 0.45
   - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.45
@@ -881,11 +911,6 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
-  - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 3
-    knockdownTimeDelta: -3
-  - type: StaminaDamageResistance # Goobstation
-    coefficient: 0.5
 
 #Syndicate Elite Hardsuit
 - type: entity
@@ -909,6 +934,12 @@
   - type: FireProtection
     reduction: 0.8
   - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.55
@@ -947,8 +978,14 @@
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.5
+    damageCoefficient: 0.4
   - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.6
+      OrganDamage: 0.6
+      BoneDamage: 0.6
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.35
@@ -1061,7 +1098,7 @@
     - WhitelistChameleon
     - SyringeArmor
 
-#Ling Space Suit
+#Ling Space Suit (goob - not used)
 - type: entity
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitLing
@@ -1286,7 +1323,7 @@
     heatingCoefficient: 0.001
     coolingCoefficient: 0.001
   - type: ExplosionResistance
-    damageCoefficient: 0.05
+    damageCoefficient: 0.1
   - type: FireProtection
     reduction: 0.8
   - type: StaminaDamageResistance # Goobstation - Start

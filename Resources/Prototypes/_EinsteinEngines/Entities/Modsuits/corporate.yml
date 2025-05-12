@@ -64,14 +64,22 @@
       highPressureMultiplier: 0.08
       lowPressureMultiplier: 1000
     - type: Armor
+      traumaDeductions: # prevents traumas at all (kinda)
+        Dismemberment: 1
+        OrganDamage: 1
+        BoneDamage: 1
+        VeinsDamage: 1
+        NerveDamage: 1
       modifiers:
         coefficients:
-          Blunt: 0.80
-          Slash: 0.80
-          Piercing: 0.80
-          Heat: 0.80
-          Radiation: 0.80
-          Caustic: 0.95
+          Blunt: 0.1 # Best armor in the game - Yeah no shit.
+          Slash: 0.1
+          Piercing: 0.1
+          Heat: 0.1
+          Cold: 0.1
+          Cellular: 0.1
+          Radiation: 0.1
+          Caustic: 0.1
     - type: ThermalVision
       isEquipment: true
       color: "#98EEFB"
@@ -104,12 +112,20 @@
       walkModifier: 1
       sprintModifier: 1
     - type: Armor
+      traumaDeductions: # prevents traumas at all (kinda)
+        Dismemberment: 1
+        OrganDamage: 1
+        BoneDamage: 1
+        VeinsDamage: 1
+        NerveDamage: 1
       modifiers:
         coefficients:
-          Blunt: 0.1 #Death Squad Modsuit, but reskined for CC Officials
+          Blunt: 0.1 # Best armor in the game - Yeah no shit.
           Slash: 0.1
           Piercing: 0.1
           Heat: 0.1
+          Cold: 0.1
+          Cellular: 0.1
           Radiation: 0.1
           Caustic: 0.1
     - type: SealableClothingVisuals

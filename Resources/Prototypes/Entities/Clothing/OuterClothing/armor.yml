@@ -258,9 +258,9 @@
     - Groin
     - Tail
     traumaDeductions:
-      Dismemberment: 0.07
-      OrganDamage: 0.07
-      BoneDamage: 0.07
+      Dismemberment: 0.1
+      OrganDamage: 0.1
+      BoneDamage: 0.1
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
@@ -323,9 +323,9 @@
     - Foot
     - Tail
     traumaDeductions:
-      Dismemberment: 0.4
-      OrganDamage: 0.4
-      BoneDamage: 0.4
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:

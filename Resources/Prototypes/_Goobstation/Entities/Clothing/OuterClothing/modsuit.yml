@@ -51,6 +51,12 @@
     - Foot
     - Tail
     - Other
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.85
@@ -107,6 +113,12 @@
   - type: StaminaDamageResistance
     coefficient: 0.7
   - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
     coverage:
     - Chest
     - Groin
@@ -173,6 +185,12 @@
   - type: StaminaDamageResistance
     coefficient: 0.7
   - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
     coverage:
     - Chest
     - Groin
@@ -239,6 +257,12 @@
   - type: ExplosionResistance
     damageCoefficient: 0.85
   - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
     coverage:
     - Chest
     - Groin
@@ -305,6 +329,12 @@
   - type: ExplosionResistance
     damageCoefficient: 0.35
   - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
     coverage:
     - Chest
     - Groin
@@ -372,6 +402,12 @@
   - type: ExplosionResistance
     damageCoefficient: 0.6
   - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
     coverage:
     - Chest
     - Groin
@@ -437,6 +473,12 @@
   - type: ExplosionResistance
     damageCoefficient: 0.1
   - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
     coverage:
     - Chest
     - Groin
@@ -504,6 +546,12 @@
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
     coverage:
     - Chest
     - Groin
