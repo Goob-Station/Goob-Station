@@ -1,0 +1,66 @@
+- type: startingGear
+  id: SyndicateGuardRangedTier1
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitOperative
+    head: ClothingHeadHatOutlawHat
+    mask: ClothingMaskNeckGaiter
+    gloves: ClothingHandsGlovesCombat
+    shoes: ClothingShoesBootsCombat
+    id: SyndiPDA
+  inhand:
+    - Simplemobpistol
+
+- type: startingGear
+  id: SyndicateGuardRangedTier2
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitOperative
+    head: ClothingHeadHatSyndieMAA
+    mask: ClothingMaskNeckGaiter
+    outerClothing: ClothingOuterCoatSyndieCapArmored
+    gloves: ClothingHandsGlovesCombat
+    shoes: ClothingShoesBootsCombat
+    id: SyndiPDA
+  inhand:
+    - SimpleMobSMG
+
+- type: startingGear
+  id: SyndicateGuardMeleeTier1
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitOperative
+    head: ClothingHeadHatSyndie
+    mask: ClothingMaskGasSyndicate
+    outerClothing: ClothingOuterArmorBasic
+    gloves: ClothingHandsGlovesCombat
+    shoes: ClothingShoesBootsCombat
+    id: SyndiPDA
+  inhand:
+    - IntegratedMachete
+
+- type: startingGear
+  id: SyndicateGuardMeleeTier2
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitOperative
+    head: ClothingHeadHelmetSwatSyndicate
+    mask: ClothingMaskGasSyndicate
+    outerClothing: ClothingOuterVestWeb
+    gloves: ClothingHandsGlovesCombat
+    shoes: ClothingShoesBootsCombat
+    id: SyndiPDA
+  inhand:
+    - ContractorBatonSimplemob
+
+- type: startingGear
+  id: SyndicateOverseer
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSyndieFormal
+    eyes: ClothingEyesGlassesSunglasses
+    head: ClothingHeadHatSyndieMAA
+    ears: ClothingHeadsetAltSyndicate
+    mask: ClothingMaskGasSyndicate
+    outerClothing: ClothingOuterWinterSyndieCapArmored
+    gloves: ClothingHandsKnuckleDustersSyndicate
+    shoes: ClothingShoesBootsCombat
+    id: SyndiPDA
+    back: ClothingBackpackSyndicate
+    pocket1: WeaponPistolViper
+    pocket2: EncryptionKeyStationMaster

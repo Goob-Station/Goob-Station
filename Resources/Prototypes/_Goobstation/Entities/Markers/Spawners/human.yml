@@ -1,0 +1,44 @@
+- type: entity
+  name: syndicate Melee T1 Spawner
+  id: SpawnMobSyndicateMeleeT1
+  parent: SpawnMobSyndicateFootSoldier
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - SyndicateGuardMeleeTier1
+
+- type: entity
+  name: syndicate Melee T2 Spawner
+  id: SpawnMobSyndicateMeleeT2
+  parent: SpawnMobSyndicateFootSoldier
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - SyndicateGuardMeleeTier2
+
+- type: entity
+  name: syndicate Ranged T1 Spawner
+  id: SpawnMobSyndicateRangedT1
+  parent: SpawnMobSyndicateFootSoldier
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - SyndicateGuardMeleeTier1
+
+- type: entity
+  name: syndicate Ranged T2 Spawner
+  id: SpawnMobSyndicateRangedT2
+  parent: SpawnMobSyndicateFootSoldier
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - SyndicateGuardMeleeTier1
+
+- type: entity
+  name: syndicate overseer
+  id: SpawnMobSyndicateOverseer
+  parent: SpawnMobSyndicateFootSoldier
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - SyndicateOverseer

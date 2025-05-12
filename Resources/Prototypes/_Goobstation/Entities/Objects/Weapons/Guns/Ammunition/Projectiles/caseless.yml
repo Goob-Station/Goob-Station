@@ -31,3 +31,15 @@
     layers:
     - state: bullet
       shader: unshaded
+
+- type: entity
+  id: BulletCaselessRifleWeak
+  name: bullet (9.5mm HP) # Goobstation edit
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 5 # Goobstation edit
+    armorPenetration: -0.3 # Goobstation

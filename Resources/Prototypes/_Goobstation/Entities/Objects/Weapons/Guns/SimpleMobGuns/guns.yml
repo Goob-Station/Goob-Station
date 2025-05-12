@@ -1,0 +1,77 @@
+- type: entity
+  categories: [ HideSpawnMenu ]
+  name: integrated viper
+  parent: WeaponPistolViper
+  id: WeaponPistolViperUnremovable
+  description: A small, easily concealable, but somewhat underpowered gun. Surgically attached to your arm when you joined the syndicate salvager defense team.
+  components:
+  - type: Unremoveable
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  name: integrated M-90
+  parent: WeaponRifleM90GrenadeLauncher
+  id: WeaponIntegratedRifleM90GrenadeLauncher
+  description: An older bullpup carbine model, fused to your upper arm to ensure it cannot be taken by any means. Uses .20 rifle ammo.
+  components:
+  - type: Unremoveable
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: WeaponPistolAnaconda
+  id: Simplemobpistol
+  name: Anaconda
+  suffix: DO NOT MAP, SIMPLEMOB ONLY
+  description: A heavy pistol capable of supplying itself with the ammo on the way using a built-in fabricator.
+  components:
+  - type: Unremoveable
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 0.5
+    rechargeSound:
+      path: /Audio/Weapons/Guns/Cock/shotgun_close.ogg
+  - type: Gun
+    fireRate: 2
+    availableModes:
+      - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/hpistol.ogg
+  - type: BasicEntityAmmoProvider
+    proto: BulletCaselessRifleWeak
+    capacity: 7
+    count: 7
+
+- type: entity
+  name: integrated Drozd
+  parent: Simplemobpistol
+  id: SimpleMobSMG
+  description: An excellent burst-fire Heavy SMG.
+  components:
+  - type: Unremoveable
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/SMGs/drozd.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Wieldable
+    unwieldOnUse: false
+  - type: GunWieldBonus
+    minAngle: -19
+    maxAngle: -16
+  - type: Gun
+    minAngle: 21
+    maxAngle: 32
+    fireRate: 6
+    burstFireRate: 12
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
+    availableModes:
+    - Burst
+    selectedMode: Burst
+    shotsPerBurst: 5
+    burstCooldown: 0.75 # Goobstation - end
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 0.1
+    rechargeSound:
+      path: /Audio/Weapons/Guns/Cock/shotgun_close.ogg
