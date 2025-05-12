@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -15,8 +16,8 @@ using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
-
-namespace Content.Goobstation.Server.Religion;
+using Content.Shared._Shitmed.Targeting; // Shitmed Change
+namespace Content.Goobstation.Shared.Religion;
 
 public sealed class WeakToHolySystem : EntitySystem
 {
@@ -116,12 +117,9 @@ public sealed class WeakToHolySystem : EntitySystem
                 comp.NextSpecialHealTick = _timing.CurTime + comp.HealTickDelay;
             }
 
-            // Passive healing
-            if (comp.NextPassiveHealTick <= _timing.CurTime)
-            {
-                _damageableSystem.TryChangeDamage(uid, comp.PassiveAmount);
-                comp.NextPassiveHealTick = _timing.CurTime + comp.HealTickDelay;
-            }
+            _damageableSystem.TryChangeDamage(uid, comp.HealAmount * 11f, targetPart: TargetBodyPart.All); // Shitmed Change
+
+            comp.NextHealTick = _timing.CurTime + comp.HealTickDelay;
         }
 
     }

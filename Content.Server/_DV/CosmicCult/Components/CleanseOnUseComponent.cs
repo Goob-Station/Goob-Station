@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -27,7 +28,10 @@ public sealed partial class CleanseOnUseComponent : Component
     public SoundSpecifier MalignSound = new SoundPathSpecifier("/Audio/_DV/CosmicCult/glyph_trigger.ogg");
 
     [DataField]
-    public EntProtoId CleanseVFX = "CleanseEffectVFX";
+    public EntProtoId CleanseVFX = "NoosphericVFX2";
+
+    [DataField]
+    public EntProtoId ReboundVFX = "NoosphericVFX1";
 
     [DataField]
     public EntProtoId MalignVFX = "CosmicGenericVFX";
