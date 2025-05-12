@@ -50,9 +50,12 @@ public sealed class DevourSystem : SharedDevourSystem
             _bloodstreamSystem.TryAddToChemicals(uid, ichorInjection);
         }
         // Goobstation start - Item devouring
-        else if (HasComp<ItemComponent>(args.Args.Target))
+        else if (args.Args.Target is { } target && HasComp<ItemComponent>(target))
         {
-            ContainerSystem.Insert(args.Args.Target.Value, component.Stomach);
+            if (component.ShouldStoreDevoured)
+                ContainerSystem.Insert(target, component.Stomach);
+            else
+                QueueDel(target);
         }
         // Goobstation end
         //TODO: Figure out a better way of removing structures via devour that still entails standing still and waiting for a DoAfter. Somehow.
