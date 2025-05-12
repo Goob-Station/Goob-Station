@@ -176,16 +176,6 @@
     walkModifier: 0.9
     sprintModifier: 0.85
 
-  - type: Armor
-    coverage:
-    - Hand
-    modifiers:
-      coefficients:
-        Blunt: 0.95
-        Slash: 0.95
-        Piercing: 0.95
-        Shock: 0.5
-
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsAtmostech
