@@ -172,7 +172,7 @@ namespace Content.Server._CorvaxNext.Silicons.Borgs
             {
                 if (!_stationAiSystem.TryGetCore(uid, out var stationAiCore) || stationAiCore.Comp?.RemoteEntity == null)
                     return;
-                _xformSystem.SetCoordinates(stationAiCore.Comp.RemoteEntity.Value, Transform(targetEntity).Coordinates);
+                _xformSystem.SetCoordinates(stationAiCore.Comp.RemoteEntity.Value, Transform(target.Value).Coordinates);
             }
 
             if (msg.RemoteAction.ActionType == RemoteDeviceActionEvent.RemoteDeviceActionType.TakeControl)
