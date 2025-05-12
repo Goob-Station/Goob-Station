@@ -9130,3 +9130,13 @@ Entries:
       message: Fixed chemicals being 1/11th of their intended values.
   id: 1032
   time: '2025-05-12T16:35:02.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: >-
+        Added the Interactor which can use a tool on anything you configure it
+        to. Tider sweatshops rejoice!
+    - type: Tweak
+      message: Autodoc now supports automation upgrades.
+  id: 1033
+  time: '2025-05-12T17:19:44.0000000+00:00'
