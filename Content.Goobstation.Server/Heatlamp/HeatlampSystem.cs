@@ -124,7 +124,7 @@ public sealed partial class HeatlampSystem : EntitySystem
 
         var energy = heater.Comp.CurrentPowerDraw  * frameTime;
 
-        if (heater.Comp.NeedsPower && !_powerCell.TryUseCharge(heater, energy * frameTime, cell))
+        if (heater.Comp.NeedsPower && !_powerCell.TryUseCharge(heater, energy, cell))
         {
             ChangeSetting((heater, heater), EntityHeaterSetting.Off);
             return;
@@ -134,7 +134,7 @@ public sealed partial class HeatlampSystem : EntitySystem
             && _container.TryGetContainingContainer(heater.Owner, out var container)
             && HasComp<StorageComponent>(container.Owner))
         {
-            energy /= heater.Comp.ContainerMultiplier;
+            energy *= heater.Comp.ContainerMultiplier;
         }
 
 

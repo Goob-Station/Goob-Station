@@ -23,13 +23,17 @@ public sealed partial class GoobTemperatureSystem : EntitySystem
 
         if (userFlammable.FireStacks > 0 && targetFlammable.FireStacks < targetFlammable.MaximumFireStacks)
         {
-            _flammable.AdjustFireStacks(target, userFlammable.FireStacks, ignite: true);
-            _flammable.AdjustFireStacks(user, -userFlammable.FireStacks, ignite: true);
+            var transferable = MathF.Min(userFlammable.FireStacks, targetFlammable.MaximumFireStacks - targetFlammable.FireStacks);
+
+            _flammable.AdjustFireStacks(target, transferable, ignite: true);
+            _flammable.AdjustFireStacks(user, -transferable, ignite: true);
         }
         else if (targetFlammable.FireStacks > 0 && userFlammable.FireStacks < userFlammable.MaximumFireStacks)
         {
-            _flammable.AdjustFireStacks(user, targetFlammable.FireStacks, ignite: true);
-            _flammable.AdjustFireStacks(target, -targetFlammable.FireStacks, ignite: true);
+            var transferable = MathF.Min(targetFlammable.FireStacks, userFlammable.MaximumFireStacks - userFlammable.FireStacks);
+
+            _flammable.AdjustFireStacks(user, transferable, ignite: true);
+            _flammable.AdjustFireStacks(target, -transferable, ignite: true);
         }
     }
 }
