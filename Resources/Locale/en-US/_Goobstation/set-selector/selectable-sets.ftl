@@ -143,9 +143,9 @@ selectable-set-blueshield-hardsuit-light-name = armoured voidsuit
 selectable-set-blueshield-hardsuit-light-description =
     An armoured voidsuit, allowing for more speed at the cost of protection.
 
-selectable-set-blueshield-modsuit-name = modsuit
+selectable-set-blueshield-modsuit-name = blueshield hardsuit
 selectable-set-blueshield-modsuit-description =
-    A modsuit, allowing for more customisation, at the cost of requiring power.
+    A custom hardsuit, allowing for more customisation, at the cost of requiring power.
 
 # ERT
 
