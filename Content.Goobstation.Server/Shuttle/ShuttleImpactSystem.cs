@@ -77,6 +77,7 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
 
     private EntityQuery<DamageableComponent> _dmgQuery;
     private EntityQuery<PhysicsComponent> _physQuery;
+    private EntityQuery<ProjectileComponent> _projQuery;
     private EntityQuery<TransformComponent> _xformQuery;
 
     public override void Initialize()
@@ -98,6 +99,7 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
         _physQuery = GetEntityQuery<PhysicsComponent>();
         _xformQuery = GetEntityQuery<TransformComponent>();
         _dmgQuery = GetEntityQuery<DamageableComponent>();
+        _projQuery = GetEntityQuery<ProjectileComponent>();
     }
 
     /// <summary>
@@ -247,13 +249,13 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
         var noSlipQuery = GetEntityQuery<NoSlipComponent>();
         var magbootsQuery = GetEntityQuery<MagbootsComponent>();
         var itemToggleQuery = GetEntityQuery<ItemToggleComponent>();
-        var projQuery = GetEntityQuery<ProjectileComponent>();
         var knockdownTime = TimeSpan.FromSeconds(5);
 
         // Get all entities with MobState component on the grid
         var query = EntityQueryEnumerator<MobStateComponent, TransformComponent>();
 
         var childEnumerator = xform.ChildEnumerator;
+        var minsq = MinThrowVelocity * MinThrowVelocity;
         while (childEnumerator.MoveNext(out var uid))
         {
             // don't throw static bodies
@@ -279,10 +281,10 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
                 )
                 continue;
 
-            if (direction.Length() > MinThrowVelocity)
+            if (direction.LengthSquared() > minsq)
             {
                 _stuns.TryKnockdown(uid, knockdownTime, true);
-                _throwing.TryThrow(uid, direction, physics, Transform(uid), projQuery, direction.Length(), playSound: false);
+                _throwing.TryThrow(uid, direction, physics, Transform(uid), _projQuery, direction.Length(), playSound: false);
             }
             else
             {
@@ -294,19 +296,7 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
     /// <summary>
     /// Structure to hold impact tile processing data
     /// </summary>
-    private readonly struct ImpactTileData
-    {
-        public readonly Vector2i Tile;
-        public readonly float Energy;
-        public readonly float DistanceFactor;
-
-        public ImpactTileData(Vector2i tile, float energy, float distanceFactor)
-        {
-            Tile = tile;
-            Energy = energy;
-            DistanceFactor = distanceFactor;
-        }
-    }
+    private record struct ImpactTileData(Vector2i Tile, float Energy, float DistanceFactor);
 
     private float GetRegionMass(EntityUid uid, MapGridComponent grid, Vector2i centerTile, float radius, out int tileCount)
     {
@@ -314,21 +304,22 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
         var mass = 0f;
         var ceilRadius = (int)MathF.Ceiling(radius);
         HashSet<EntityUid> counted = new();
+        HashSet<EntityUid> intersecting = new();
         foreach (var tileRef in _mapSys.GetLocalTilesIntersecting(uid, grid, new Circle(centerTile, radius)))
         {
             var def = (ContentTileDefinition)_tileDef[tileRef.Tile.TypeId];
             mass += def.Mass;
             tileCount++;
 
-            foreach (var localUid in _lookup.GetLocalEntitiesIntersecting(uid, tileRef.GridIndices, gridComp: grid))
+            intersecting.Clear();
+            _lookup.GetLocalEntitiesIntersecting(uid, tileRef.GridIndices, intersecting, gridComp: grid);
+            foreach (var localUid in intersecting)
             {
-                if (counted.Contains(localUid))
+                if (!counted.Add(localUid))
                     continue;
 
                 if (_physQuery.TryComp(localUid, out var physics))
                     mass += physics.FixturesMass;
-
-                counted.Add(localUid);
             }
         }
         return mass;
@@ -339,14 +330,6 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
     /// </summary>
     private void ProcessImpactZone(EntityUid uid, MapGridComponent grid, Vector2i centerTile, float energy, Vector2 dir, float radius)
     {
-        // Skip processing if the grid has an anchor component
-        if (
-            // Goob - not real
-            //HasComp<PreventGridAnchorChangesComponent>(uid) ||
-            //HasComp<ForceAnchorComponent>(uid) ||
-            !HasComp<Robust.Shared.Physics.BroadphaseComponent>(uid))
-            return;
-
         // Create a list of all tiles to process
         var tilesToProcess = new List<ImpactTileData>();
 
@@ -395,17 +378,15 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
             DamageDict = { ["Blunt"] = 0, ["Structural"] = 0 }
         };
 
+        var entitiesOnTile = new HashSet<Entity<TransformComponent>>();
         for (var i = startIndex; i < endIndex; i++)
         {
             var tileData = tilesToProcess[i];
 
-            if (!HasComp<Robust.Shared.Physics.BroadphaseComponent>(uid))
-                continue;
-
             bool canBreakTile = true;
 
             // Process entities on this tile
-            var entitiesOnTile = new HashSet<Entity<TransformComponent>>();
+            entitiesOnTile.Clear();
             _lookup.GetLocalEntitiesIntersecting(uid, tileData.Tile, entitiesOnTile, gridComp: grid);
 
             // this loop is a hotspot so tell if you know how to optimise it
@@ -429,15 +410,19 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
                 if (TerminatingOrDeleted(localEnt) || EntityManager.IsQueuedForDeletion(localEnt))
                     continue;
 
-                _throwing.TryThrow(localEnt, throwDirection * tileData.DistanceFactor);
+                if (!_physQuery.TryComp(localEnt, out var physics))
+                    continue;
 
                 // no breaking tiles under walls that haven't been destroyed
-                if (canBreakTile
-                    && _physQuery.TryComp(localEnt, out var physics)
-                    && (physics.BodyType & BodyType.Static) != 0
+                if ((physics.BodyType & BodyType.Static) != 0
                     && (physics.CollisionLayer & (int)CollisionGroup.Impassable) != 0)
                 {
                     canBreakTile = false;
+                }
+                else
+                {
+                    var direction = throwDirection * tileData.DistanceFactor;
+                    _throwing.TryThrow(localEnt, direction, physics, localEnt.Comp, _projQuery, direction.Length(), playSound: false);
                 }
             }
 
@@ -493,17 +478,14 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
     private bool OnOrNearGrid(
         Entity<MapGridComponent> grid,
         EntityCoordinates at,
-        int tolerance = 3
+        float tolerance = 3f
     )
     {
-        for (int x = -tolerance; x <= tolerance; x++)
-        {
-            for (int y = -tolerance; y <= tolerance; y++)
-            {
-                if (_mapSys.GetTileRef(grid, grid.Comp, at.Offset(new Vector2(x, y))).Tile != Tile.Empty)
-                    return true;
-            }
-        }
+        var bounds = new Box2(at.Position - new Vector2(tolerance, tolerance), at.Position + new Vector2(tolerance, tolerance));
+        // this only finds non-empty tiles so return true if we find anything
+        foreach (var tileRef in _mapSys.GetLocalTilesIntersecting(grid, grid.Comp, bounds))
+            return true;
+
         return false;
     }
 }
