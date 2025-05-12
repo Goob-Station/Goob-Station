@@ -36,8 +36,7 @@ public sealed partial class TargetingComponent : Component
         {
             TargetBodyPart.Chest, new Dictionary<TargetBodyPart, float>
             {
-                { TargetBodyPart.Chest, 0.8f },
-                { TargetBodyPart.Groin, 0.2f },
+                { TargetBodyPart.Chest, 1f }, // If you change this, suicide system won't work properly. So I couldn't even tell you to kill yourself for doing this.
             }
         },
         {
@@ -50,17 +49,19 @@ public sealed partial class TargetingComponent : Component
         {
             TargetBodyPart.RightArm, new Dictionary<TargetBodyPart, float>
             {
-                { TargetBodyPart.RightArm, 0.3f },
+                { TargetBodyPart.RightArm, 0.25f },
                 { TargetBodyPart.Chest, 0.6f },
-                { TargetBodyPart.RightHand, 0.1f },
+                { TargetBodyPart.Groin, 0.1f },
+                { TargetBodyPart.RightHand, 0.05f },
             }
         },
         {
             TargetBodyPart.LeftArm, new Dictionary<TargetBodyPart, float>
             {
-                { TargetBodyPart.LeftArm, 0.3f },
+                { TargetBodyPart.LeftArm, 0.25f },
                 { TargetBodyPart.Chest, 0.6f },
-                { TargetBodyPart.LeftHand, 0.1f },
+                { TargetBodyPart.Groin, 0.1f },
+                { TargetBodyPart.LeftHand, 0.05f },
             }
         },
         {
@@ -84,19 +85,19 @@ public sealed partial class TargetingComponent : Component
         {
             TargetBodyPart.RightLeg, new Dictionary<TargetBodyPart, float>
             {
-                { TargetBodyPart.RightLeg, 0.2f },
-                { TargetBodyPart.Chest, 0.5f },
-                { TargetBodyPart.Groin, 0.2f },
-                { TargetBodyPart.RightFoot, 0.1f },
+                { TargetBodyPart.RightLeg, 0.25f },
+                { TargetBodyPart.Chest, 0.6f },
+                { TargetBodyPart.Groin, 0.1f },
+                { TargetBodyPart.RightFoot, 0.05f },
             }
         },
         {
             TargetBodyPart.LeftLeg, new Dictionary<TargetBodyPart, float>
             {
-                { TargetBodyPart.LeftLeg, 0.2f },
-                { TargetBodyPart.Chest, 0.5f },
-                { TargetBodyPart.Groin, 0.2f },
-                { TargetBodyPart.LeftFoot, 0.1f },
+                { TargetBodyPart.LeftLeg, 0.25f },
+                { TargetBodyPart.Chest, 0.6f },
+                { TargetBodyPart.Groin, 0.1f },
+                { TargetBodyPart.LeftFoot, 0.05f },
             }
         },
         {
