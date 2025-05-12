@@ -43,7 +43,7 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.7
+        Blunt: 0.75
         Shock: 0.7
         Radiation: 0.01
         Caustic: 0.5
@@ -100,9 +100,9 @@
     - Head
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.5
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.55
         Heat: 0.7
   - type: PressureProtection
     lowPressureMultiplier: 1000

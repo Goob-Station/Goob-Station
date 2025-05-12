@@ -898,7 +898,7 @@
     delayDelta: 3
     knockdownTimeDelta: -3
   - type: StaminaDamageResistance # Goobstation
-    coefficient: 0.5
+    coefficient: 0.45
 
 # Syndicate Medic Hardsuit
 - type: entity
@@ -968,7 +968,7 @@
     delayDelta: 3
     knockdownTimeDelta: -3
   - type: StaminaDamageResistance # Goobstation
-    coefficient: 0.5
+    coefficient: 0.55
 
 #Syndicate Commander Hardsuit
 - type: entity
@@ -1012,7 +1012,7 @@
     delayDelta: 3
     knockdownTimeDelta: -3
   - type: StaminaDamageResistance # Goobstation
-    coefficient: 0.4
+    coefficient: 0.35
 
 #Cybersun Juggernaut Hardsuit
 - type: entity

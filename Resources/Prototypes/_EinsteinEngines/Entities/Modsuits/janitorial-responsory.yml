@@ -79,10 +79,10 @@
         NerveDamage: 0
       modifiers:
         coefficients:
-          Blunt: 0.45
-          Slash: 0.45
-          Piercing: 0.45
-          Heat: 0.45
+          Blunt: 0.5
+          Slash: 0.5
+          Piercing: 0.5
+          Heat: 0.5
           Radiation: 0.45
           Caustic: 0.45
     - type: FlashImmunity # Goobstation

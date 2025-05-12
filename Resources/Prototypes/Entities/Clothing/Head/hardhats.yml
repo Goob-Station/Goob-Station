@@ -96,9 +96,9 @@
     coverage:
     - Head
     traumaDeductions:
-      Dismemberment: 0.07
-      OrganDamage: 0.12
-      BoneDamage: 0.12
+      Dismemberment: 0.1
+      OrganDamage: 0.1
+      BoneDamage: 0.15
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:

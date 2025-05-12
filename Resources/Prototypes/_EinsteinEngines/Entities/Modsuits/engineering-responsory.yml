@@ -70,10 +70,10 @@
     - type: Armor
       modifiers:
         coefficients:
-          Blunt: 0.7
-          Slash: 0.3 # Goobstation - CBURN should protect against zombie attacks
-          Piercing: 0.6
-          Heat: 0.10
+          Blunt: 0.75
+          Slash: 0.4 # Goobstation - Solstice: CBURN should protect against zombie attacks # pheenty: why tf is ert engineer inherited from cburn
+          Piercing: 0.65
+          Heat: 0.15
           Cold: 0.10
           Shock: 0.15
           Radiation: 0.1
