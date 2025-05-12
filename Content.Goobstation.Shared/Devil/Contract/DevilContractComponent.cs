@@ -24,7 +24,7 @@ public sealed partial class DevilContractComponent : Component
     /// All current clauses.
     /// </summary>
     [DataField]
-    public List<DevilClausePrototype> CurrentClauses = [];
+    public HashSet<DevilClausePrototype> CurrentClauses = [];
 
     /// <summary>
     /// Has the contract been signed by the signer?

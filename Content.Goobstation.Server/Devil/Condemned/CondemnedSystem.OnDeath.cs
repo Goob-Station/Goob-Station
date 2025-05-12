@@ -21,8 +21,10 @@ public sealed partial class CondemnedSystem
         if (args.NewMobState != MobState.Dead || comp.SoulOwnedNotDevil || !comp.CondemnOnDeath)
             return;
 
-        if (TryComp<CheatDeathComponent>(uid, out var cheatDeath) && cheatDeath.ReviveAmount > 0)
-            return;
+        // if you have one, or unlimited revives, stop!
+        if (TryComp<CheatDeathComponent>(uid, out var cheatDeath))
+            if (cheatDeath.ReviveAmount is > 0 or -1)
+             return;
 
         StartCondemnation(uid, behavior: CondemnedBehavior.Delete);
     }

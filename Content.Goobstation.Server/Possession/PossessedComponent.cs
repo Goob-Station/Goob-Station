@@ -21,16 +21,10 @@ public sealed partial class PossessedComponent : Component
     public EntityUid OriginalEntity;
 
     [ViewVariables]
-    public MindComponent OriginalMindComponent;
-
-    [ViewVariables]
     public EntityUid PossessorMindId;
 
     [ViewVariables]
     public EntityUid PossessorOriginalEntity;
-
-    [ViewVariables]
-    public MindComponent PossessorMindComponent;
 
     [ViewVariables]
     public TimeSpan PossessionEndTime;
@@ -42,11 +36,11 @@ public sealed partial class PossessedComponent : Component
     public bool WasPacified;
 
     [ViewVariables]
-    public bool DoPacify;
+    public bool WasWeakToHoly;
 
     [ViewVariables]
     public Container PossessedContainer;
 
     [ViewVariables]
-    public SoundPathSpecifier PossessionSoundPath = new ("/Audio/_Goobstation/Effects/bone_crack.ogg");
+    public readonly SoundPathSpecifier PossessionSoundPath = new ("/Audio/_Goobstation/Effects/bone_crack.ogg");
 }

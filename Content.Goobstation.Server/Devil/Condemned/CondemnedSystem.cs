@@ -29,7 +29,7 @@ public sealed partial class CondemnedSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<CondemnedComponent, ExaminedEvent>(OnExamined);
-        SubscribeLocalEvent<CondemnedComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<CondemnedComponent, MapInitEvent>(OnStartup);
         SubscribeLocalEvent<CondemnedComponent, ComponentRemove>(OnRemoved);
         SubscribeLocalEvent<CondemnedComponent, UpdateCanMoveEvent>(OnMoveAttempt);
         InitializeOnDeath();
@@ -54,14 +54,22 @@ public sealed partial class CondemnedSystem : EntitySystem
         }
     }
 
-    private void OnStartup(EntityUid uid, CondemnedComponent comp, ComponentStartup args)
+    private void OnStartup(EntityUid uid, CondemnedComponent comp, MapInitEvent args)
     {
-        EnsureComp<WeakToHolyComponent>(uid);
-        comp.WasWeakToHoly = true;
+        if (comp.SoulOwnedNotDevil)
+            return;
+
+        if (HasComp<WeakToHolyComponent>(uid))
+            comp.WasWeakToHoly = true;
+        else
+            EnsureComp<WeakToHolyComponent>(uid).AlwaysTakeHoly = true;
     }
 
     private void OnRemoved(EntityUid uid, CondemnedComponent comp, ComponentRemove args)
     {
+        if (comp.SoulOwnedNotDevil)
+            return;
+
         if (!comp.WasWeakToHoly)
             RemComp<WeakToHolyComponent>(uid);
     }
@@ -126,7 +134,6 @@ public sealed partial class CondemnedSystem : EntitySystem
         TryDoCondemnedBehavior(uid, comp);
 
         comp.CurrentPhase = CondemnedPhase.Complete;
-        RemComp(uid, comp);
     }
 
     private void TryDoCondemnedBehavior(EntityUid uid, CondemnedComponent comp)
@@ -140,6 +147,8 @@ public sealed partial class CondemnedSystem : EntitySystem
                 _poly.PolymorphEntity(uid, comp.BanishProto);
                 break;
         }
+
+        RemComp(uid, comp);
     }
 
     private void OnExamined(EntityUid uid, CondemnedComponent comp, ExaminedEvent args)

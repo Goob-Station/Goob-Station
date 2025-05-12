@@ -9,6 +9,7 @@
 // SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -24,6 +25,8 @@
 using Content.Shared.Damage;
 using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
+using Robust.Shared.Audio;
+using Robust.Shared.Utility;
 
 namespace Content.Shared.Weapons.Marker;
 
@@ -50,6 +53,18 @@ public sealed partial class DamageMarkerOnCollideComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("amount"), AutoNetworkedField]
     public int Amount = 1;
+
+    /// <summary>
+    /// Sprite to apply to the entity while damagemarker is applied.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField("effect"), AutoNetworkedField]
+    public SpriteSpecifier.Rsi? Effect = default!; //new(new ResPath("/Textures/Objects/Weapons/Effects.rsi"), "shield2");
+
+    /// <summary>
+    /// Sound to play when the damage marker is procced.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField("sound"), AutoNetworkedField]
+    public SoundSpecifier? Sound; //= new SoundPathSpecifier("/Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg");
 
     /// <summary>
     ///     Lavaland Change: Whether the marker can only be applied to fauna.

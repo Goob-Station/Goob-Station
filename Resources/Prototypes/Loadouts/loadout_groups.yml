@@ -117,7 +117,6 @@
 # SPDX-FileCopyrightText: 2024 redfire1331 <Redfire1331@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 stroopwafel <j.o.luijkx@student.tudelft.nl>
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
@@ -143,7 +142,9 @@
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 # SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
+# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 starch <starchpersonal@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -242,6 +243,7 @@
   - LoadoutSpeciesVoxNitrogen
   - LoadoutSpeciesHeatingTool # Goobstation
 
+# nitrogen or oxygen tank, depending on what your species needs
 - type: loadoutGroup
   id: GroupEVATank
   name: loadout-group-EVA-tank
@@ -249,6 +251,14 @@
   loadouts:
   - LoadoutSpeciesEVANitrogen
   - LoadoutSpeciesEVAOxygen
+
+# vox get a nitrogen tank, other species get nothing
+- type: loadoutGroup
+  id: GroupEVATankVox
+  name: loadout-group-vox-tank
+  hidden: true
+  loadouts:
+  - LoadoutSpeciesVoxNitrogen
 
 - type: loadoutGroup
   id: GroupPocketTankDouble
@@ -593,6 +603,7 @@
   loadouts:
   - BotanistHead
   - BotanistBandana
+  - BotanistBeret # Goobstation
 
 - type: loadoutGroup
   id: BotanistJumpsuit
@@ -1166,6 +1177,7 @@
   loadouts:
   - HeadofSecurityHead
   - HeadofSecurityBeret
+  - HeadofSecuritySpecialBeret # Goobstation
 
 - type: loadoutGroup
   id: HeadofSecurityJumpsuit
@@ -1192,6 +1204,7 @@
   name: loadout-group-head-of-security-outerclothing
   loadouts:
   - HeadofSecurityCoat
+  - HeadofSecurityGreatCoat # Goobstation
   - HeadofSecurityWinterCoat
   - ArmorVest #Goobstation change
   - ArmorVestSlim #Goobstation change
@@ -1345,6 +1358,7 @@
   loadouts:
   - ChiefMedicalOfficerBeret
   - CMOMedicalHeadMirror
+  - ChemistUshanka # Goobstation
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerJumpsuit
@@ -1466,6 +1480,8 @@
   loadouts:
   - ChemistJumpsuit
   - ChemistJumpskirt
+  - SeniorPhysicianJumpsuit # Goobstation
+  - SeniorPhysicianJumpskirt # Goobstation
   - ChemistMJ # goob
 
 - type: loadoutGroup
@@ -1476,6 +1492,7 @@
   - RegularLabCoat
   - ChemistLabCoat
   - ChemistWintercoat
+  - SeniorPhysicianLabCoat # Goobstation
 
 - type: loadoutGroup
   id: ChemistBackpack
@@ -1492,6 +1509,7 @@
   minLimit: 0
   loadouts:
   - ParamedicHead
+  - SeniorPhysicianBeret # Goobstation
 
 - type: loadoutGroup
   id: ParamedicJumpsuit
@@ -1499,6 +1517,8 @@
   loadouts:
   - ParamedicJumpsuit
   - ParamedicJumpskirt
+  - SeniorPhysicianJumpsuit # Goobstation
+  - SeniorPhysicianJumpskirt # Goobstation
   - ParamedMJ # goob
 
 - type: loadoutGroup
@@ -1508,6 +1528,7 @@
   loadouts:
   - ParamedicWindbreaker
   - ParamedicWintercoat
+  - SeniorPhysicianLabCoat # Goobstation
 
 - type: loadoutGroup
   id: ParamedicShoes

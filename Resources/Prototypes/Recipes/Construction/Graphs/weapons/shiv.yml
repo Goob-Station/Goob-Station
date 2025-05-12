@@ -14,6 +14,10 @@
     entity: ShardGlass
     edges:
     - to: icon
+      completed:
+      - !type:AdminLog
+        message: "Construction"
+        impact: High
       steps:
       - material: Cloth
         amount: 1
@@ -28,6 +32,10 @@
   - node: start
     edges:
     - to: icon
+      completed:
+      - !type:AdminLog
+        message: "Construction"
+        impact: High
       steps:
       - tag: GlassShard
         name: glass shard
@@ -49,6 +57,10 @@
     entity: ShardGlassReinforced
     edges:
     - to: icon
+      completed:
+      - !type:AdminLog
+        message: "Construction"
+        impact: High
       steps:
       - material: Cloth
         amount: 1
@@ -63,6 +75,10 @@
   - node: start
     edges:
     - to: icon
+      completed:
+      - !type:AdminLog
+        message: "Construction"
+        impact: High
       steps:
       - tag: ReinforcedGlassShard
         name: reinforced glass shard
@@ -84,6 +100,10 @@
     entity: ShardGlassPlasma
     edges:
     - to: icon
+      completed:
+      - !type:AdminLog
+        message: "Construction"
+        impact: High
       steps:
       - material: Cloth
         amount: 1
@@ -98,6 +118,10 @@
   - node: start
     edges:
     - to: icon
+      completed:
+      - !type:AdminLog
+        message: "Construction"
+        impact: High
       steps:
       - tag: PlasmaGlassShard
         name: plasma glass shard
@@ -119,6 +143,10 @@
     entity: ShardGlassUranium
     edges:
     - to: icon
+      completed:
+      - !type:AdminLog
+        message: "Construction"
+        impact: High
       steps:
       - material: Cloth
         amount: 1
@@ -133,6 +161,10 @@
   - node: start
     edges:
     - to: icon
+      completed:
+      - !type:AdminLog
+        message: "Construction"
+        impact: High
       steps:
       - tag: UraniumGlassShard
         name: uranium glass shard
