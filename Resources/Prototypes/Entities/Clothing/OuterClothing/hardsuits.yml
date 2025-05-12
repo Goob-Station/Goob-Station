@@ -1,5 +1,80 @@
 # SPDX-FileCopyrightText: 2020 FrostMando <68990565+FrostMando@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2020 Swept <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <zddm@outlook.es>
+# SPDX-FileCopyrightText: 2020 Ygg01 <daniel.fath7@gmail.com>
+# SPDX-FileCopyrightText: 2021 Elijahrane <60792108+Elijahrane@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Mith-randalf <84274729+Mith-randalf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
+# SPDX-FileCopyrightText: 2021 xRiriq <94037592+xRiriq@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 xRiriq <xRiriq.git@gmail.com>
+# SPDX-FileCopyrightText: 2022 Fishfish458 <47410468+Fishfish458@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 HoidC <99100948+HoidC@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Pancake <Pangogie@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 fishfish458 <fishfish458>
+# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 rolfero <45628623+rolfero@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Alekshhh <44923899+Alekshhh@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 CrigCrag <137215465+CrigCrag@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 EnDecc <33369477+Endecc@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Genkail <50331122+Genkail@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Maxtone <124747282+MagnusCrowe@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Puro <103608145+PuroSlavKing@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 StanTheCarpenter <66203777+StanTheCarpenter@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 crazybrain23 <44417085+crazybrain23@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2023 lapatison <100279397+lapatison@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 AlexUm & XGabriel08X <159550239+AlexUmAndXGabriel08X@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Archylle <81660513+Archylle@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 ERROR404 <100093430+ERORR404V1@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Hmeister-real <118129069+Hmeister-real@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 PoTeletubby <ajcraigaz@gmail.com>
+# SPDX-FileCopyrightText: 2024 Tonk-GCR <ryantrujillo82@gmail.com>
+# SPDX-FileCopyrightText: 2024 VMSolidus <evilexecutive@gmail.com>
+# SPDX-FileCopyrightText: 2024 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 inquisitor-star <thecatankha@gmail.com>
+# SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 August Sun <45527070+august-sun@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Gareth Quaile <garethquaile@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 Killerqu00 <killerqueen1777@gmail.com>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# SPDX-FileCopyrightText: 2020 FrostMando <68990565+FrostMando@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 Swept <sweptwastaken@protonmail.com>
 # SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <zddm@outlook.es>
 # SPDX-FileCopyrightText: 2020 Ygg01 <daniel.fath7@gmail.com>
@@ -125,10 +200,13 @@
 # SPDX-FileCopyrightText: 2025 GMWQ <garethquaile@gmail.com>
 # SPDX-FileCopyrightText: 2025 Gareth Quaile <garethquaile@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <killerqueen1777@gmail.com>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Michael <107807667+doc-michael@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
@@ -145,8 +223,8 @@
 - type: entity
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitBasic
-  name: basic hardsuit
-  description: A basic, universal hardsuit that protects the wearer against the horrors of life in space. Beats not having a hardsuit, at least.
+  name: basic voidsuit # Goob edit
+  description: A basic, universal voidsuit that protects the wearer against the horrors of life in space. Beats not having a hardsuit, at least. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/basic.rsi
@@ -155,12 +233,19 @@
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Caustic: 0.9
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Caustic: 0.8
   - type: ClothingSpeedModifier
     walkModifier: 0.80
     sprintModifier: 0.80
@@ -173,7 +258,7 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseEngineeringContraband]
   id: ClothingOuterHardsuitAtmos
-  name: atmos hardsuit
+  name: atmos voidsuit # Goob edit
   description: A special suit that protects against hazardous, low pressure environments. Has thermal shielding.
   components:
   - type: Sprite
@@ -191,13 +276,21 @@
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.8
-        Radiation: 0.5
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.3
+        Radiation: 0.4
+        Caustic: 0.4
   - type: ClothingSpeedModifier
     walkModifier: 0.7
     sprintModifier: 0.7
@@ -206,12 +299,12 @@
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitAtmos
 
-#Engineering Hardsuit
+# Engineering hardsuit, heavily edited by goobstation
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseEngineeringContraband]
   id: ClothingOuterHardsuitEngineering
-  name: engineering hardsuit
-  description: A special suit that protects against hazardous, low pressure environments. Has radiation shielding.
+  name: engineering voidsuit
+  description: A special voidsuit that protects against hazardous, low pressure environments. Has radiation shielding.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/engineering.rsi
@@ -223,28 +316,33 @@
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Shock: 0.8
+        Shock: 0.5
         Caustic: 0.5
         Radiation: 0.2
   - type: ClothingSpeedModifier
-    walkModifier: 0.7
-    sprintModifier: 0.7
+    walkModifier: 0.85
+    sprintModifier: 0.85
   - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitEngineering
 
+
 #Spationaut Hardsuit
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseCargoContraband]
   id: ClothingOuterHardsuitSpatio
-  name: spationaut hardsuit
-  description: A lightweight hardsuit designed for industrial EVA in zero gravity.
+  name: spationaut voidsuit # Goob edit
+  description: A lightweight voidsuit designed for industrial EVA in zero gravity. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/spatio.rsi
@@ -254,11 +352,18 @@
     highPressureMultiplier: 0.7
     lowPressureMultiplier: 1000
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
         Radiation: 0.3 #salv is supposed to have radiation hazards in the future
         Caustic: 0.8
   - type: ClothingSpeedModifier
@@ -283,7 +388,7 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseCargoContraband]
   id: ClothingOuterHardsuitSalvage
-  name: mining hardsuit
+  name: mining voidsuit # Goob edit
   description: A special suit that protects against hazardous, low pressure environments. Has reinforced plating for wildlife encounters.
   components:
   - type: Sprite
@@ -296,11 +401,19 @@
   - type: ExplosionResistance
     damageCoefficient: 0.3
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.7 #Goobstation
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.4
+        Heat: 0.5
         Radiation: 0.4
         Caustic: 0.7
   - type: ClothingSpeedModifier
@@ -320,8 +433,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseCargoContraband]
   id: ClothingOuterHardsuitGoliath
-  name: goliath hardsuit
-  description: A lightweight hardsuit, adorned with a patchwork of thick, chitinous goliath hide.
+  name: goliath voidsuit # Goob edit
+  description: A lightweight voidsuit, adorned with a patchwork of thick, chitinous goliath hide. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/goliath.rsi
@@ -333,12 +446,19 @@
   - type: ExplosionResistance
     damageCoefficient: 0.3
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.5
-        Heat: 0.7 #Goliath hide gets grilled instead of you
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.34
+        Heat: 0.5 #Goliath hide gets grilled instead of you
         Radiation: 0.3
         Caustic: 0.8
   - type: ClothingSpeedModifier
@@ -361,7 +481,7 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseCargoContraband]
   id: ClothingOuterHardsuitMaxim
-  name: salvager maxim hardsuit
+  name: salvager maxim voidsuit # Goob edit
   description: Fire. Heat. These things forge great weapons, they also forge great salvagers.
   components:
   - type: Sprite
@@ -375,11 +495,18 @@
     walkModifier: 0.75
     sprintModifier: 0.75
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.3 #Goobstation
-        Slash: 0.5
-        Piercing: 0.5
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.3
         Heat: 0.3
         Radiation: 0.1
   - type: ExplosionResistance
@@ -411,15 +538,22 @@
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.4
+    damageCoefficient: 0.3
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.6
-        Heat: 0.8
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.4
         Caustic: 0.7
+        Heat: 0.5
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75
@@ -437,8 +571,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseSecurityContraband]
   id: ClothingOuterHardsuitBrigmedic
-  name: brigmedic hardsuit
-  description: Special hardsuit of the guardian angel of the brig. It is the medical version of the security hardsuit.
+  name: brigmedic voidsuit # Goob edit
+  description: Special voidsuit of the guardian angel of the brig. It is the medical version of the security voidsuit. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/brigmedic.rsi
@@ -448,12 +582,20 @@
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.7
-        Heat: 0.7 # Goobstation
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.3
+        Heat: 0.5
+        Caustic: 0.5
   - type: ClothingSpeedModifier
     walkModifier: 0.65
     sprintModifier: 0.65
@@ -471,7 +613,7 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseSecurityContraband]
   id: ClothingOuterHardsuitWarden
-  name: warden's hardsuit
+  name: warden's voidsuit # Goob edit
   description: A specialized riot suit geared to combat low pressure environments.
   components:
   - type: Sprite
@@ -484,16 +626,23 @@
   - type: ExplosionResistance
     damageCoefficient: 0.4
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.4
-        Slash: 0.5
-        Piercing: 0.6
-        Heat: 0.8
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.3
         Caustic: 0.7
+        Heat: 0.5
   - type: ClothingSpeedModifier
-    walkModifier: 0.7
-    sprintModifier: 0.7
+    walkModifier: 0.8
+    sprintModifier: 0.8
   - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
@@ -521,13 +670,20 @@
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.6
-        Heat: 0.5
-        Radiation: 0.5
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.3
+        Heat: 0.3
+        Radiation: 0.6
         Caustic: 0.6
   - type: ClothingSpeedModifier
     walkModifier: 0.8
@@ -546,8 +702,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseCommandContraband]
   id: ClothingOuterHardsuitEngineeringWhite
-  name: chief engineer's hardsuit
-  description: A special hardsuit that protects against hazardous, low pressure environments, made for the chief engineer of the station.
+  name: chief engineer's voidsuit # Goob edit
+  description: A special voidsuit that protects against hazardous, low pressure environments, made for the chief engineer of the station. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/engineering-white.rsi
@@ -561,11 +717,18 @@
   - type: ExplosionResistance
     damageCoefficient: 0.2
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.8
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.4
         Heat: 0.4
         Radiation: 0.0
         Caustic: 0.7
@@ -579,13 +742,20 @@
   - type: ClothingGrantComponent # Goobstation - Make sure the CE doesn't get cooked by supermatter
     component:
     - type: SupermatterImmune
+    # tesla immunity too
+    - type: EventHorizonIgnore
+      horizonWhitelist:
+        tags:
+        - Tesla
+    # can touch containment fields safely
+    - type: ContainmentFieldIgnore
 
 #Chief Medical Officer's Hardsuit
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseCommandContraband]
   id: ClothingOuterHardsuitMedical
-  name: chief medical officer's hardsuit
-  description: A special suit that protects against hazardous, low pressure environments. Built with lightweight materials for easier movement.
+  name: chief medical officer's voidsuit # Goob edit
+  description: A special suit that protects against hazardous, low pressure environments. Built with lightweight materials for easier movement. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/medical.rsi
@@ -594,10 +764,23 @@
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Caustic: 0.1
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.4
+        Caustic: 0.5
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.95
@@ -610,7 +793,7 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseGrandTheftContraband]
   id: ClothingOuterHardsuitRd
-  name: experimental research hardsuit
+  name: experimental research voidsuit # Goob edit
   description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor.
   components:
   - type: Sprite
@@ -621,14 +804,21 @@
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.8
-        Piercing: 0.9
-        Heat: 0.3
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.4
         Radiation: 0.1
-        Caustic: 0.2
+        Caustic: 0.1
   - type: ExplosionResistance
     damageCoefficient: 0.1
   - type: ClothingSpeedModifier
@@ -656,12 +846,12 @@
   - type: StaminaDamageResistance # Goobstation
     coefficient: 0.5
 
-#Head of Security's Hardsuit
+#Head of Security's Hardsuit, heavily edited by goob
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseCommandContraband]
   id: ClothingOuterHardsuitSecurityRed
-  name: head of security's hardsuit
-  description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor.
+  name: head of security's voidsuit
+  description: Lighter and more protective than the standard security voidsuit, but not by much.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/security-red.rsi
@@ -671,19 +861,26 @@
     highPressureMultiplier: 0.45
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.5
+    damageCoefficient: 0.2
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.5
-        Piercing: 0.5
-        Heat: 0.8
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.3
+        Heat: 0.6
         Radiation: 0.5
-        Caustic: 0.6
+        Caustic: 0.5
   - type: ClothingSpeedModifier
-    walkModifier: 0.8
-    sprintModifier: 0.8
+    walkModifier: 0.9
+    sprintModifier: 0.9
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototypes:
@@ -698,8 +895,8 @@
 - type: entity
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitLuxury #DO NOT MAP - https://github.com/space-wizards/space-station-14/pull/19738#issuecomment-1703486738
-  name: luxury mining hardsuit
-  description: A refurbished mining hardsuit, fashioned after the Quartermaster's colors. Graphene lining provides less protection, but is much easier to move.
+  name: luxury mining voidsuit # Goob edit
+  description: A refurbished mining voidsuit, fashioned after the Quartermaster's colors. Graphene lining provides less protection, but is much easier to move. # Goob edit
   categories: [ DoNotMap ]
   components:
   - type: Sprite
@@ -712,13 +909,20 @@
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.8
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.5
         Radiation: 0.5
-        Caustic: 0.8
+        Caustic: 0.5
   - type: ClothingSpeedModifier
     walkModifier: 0.85
     sprintModifier: 0.9
@@ -737,8 +941,8 @@
 - type: entity
   parent: [ ClothingOuterHardsuitBase, BaseSyndicateContraband ]
   id: ClothingOuterHardsuitSyndie
-  name: blood-red hardsuit
-  description: A heavily armored hardsuit designed for work in special operations. Property of Gorlex Marauders.
+  name: blood-red voidsuit # Goob edit
+  description: A heavily armored voidsuit designed for work in special operations. Property of Gorlex Marauders.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/syndicate.rsi
@@ -750,14 +954,21 @@
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.5
+    damageCoefficient: 0.2 #goob
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.5
-        Heat: 0.5
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.3
+        Heat: 0.3
         Radiation: 0.5
         Caustic: 0.5
   - type: ClothingSpeedModifier
@@ -782,8 +993,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitSyndie, BaseSyndicateContraband]
   id: ClothingOuterHardsuitSyndieMedic
-  name: blood-red medic hardsuit
-  description: A heavily armored and agile advanced hardsuit specifically designed for field medic operations.
+  name: blood-red medic voidsuit # Goob edit
+  description: A heavily armored and agile advanced voidsuit specifically designed for field medic operations.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/syndiemedic.rsi
@@ -806,8 +1017,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseSyndicateContraband]
   id: ClothingOuterHardsuitSyndieElite
-  name: syndicate elite hardsuit
-  description: An elite version of the blood-red hardsuit, with improved mobility and fireproofing. Property of Gorlex Marauders.
+  name: syndicate elite voidsuit # Goob edit
+  description: An elite version of the blood-red voidsuit, with improved mobility and fireproofing. Property of Gorlex Marauders. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/syndieelite.rsi
@@ -824,12 +1035,19 @@
   - type: FireProtection
     reduction: 0.8
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.6
-        Heat: 0.2
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.3
+        Heat: 0.3
         Radiation: 0.01
         Caustic: 0.5
   - type: Item
@@ -851,8 +1069,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseSyndicateContraband]
   id: ClothingOuterHardsuitSyndieCommander
-  name: syndicate commander hardsuit
-  description: A bulked up version of the blood-red hardsuit, purpose-built for the commander of a syndicate operative squad. Has significantly improved armor for those deadly front-lines firefights.
+  name: syndicate commander voidsuit # Goob edit
+  description: A bulked up version of the blood-red voidsuit, purpose-built for the commander of a syndicate operative squad. Has significantly improved armor for those deadly front-lines firefights. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/syndiecommander.rsi
@@ -864,14 +1082,21 @@
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.4
-        Slash: 0.4
+        Blunt: 0.3
+        Slash: 0.3
         Piercing: 0.3
         Heat: 0.5
-        Radiation: 0.25
-        Caustic: 0.4
+        Radiation: 0.5
+        Caustic: 0.5
   - type: ClothingSpeedModifier
     walkModifier: 1.0
     sprintModifier: 1.0
@@ -902,14 +1127,28 @@
   - type: ExplosionResistance
     damageCoefficient: 0.3
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    traumaDeductions: # prevents traumas at all (kinda)
+      Dismemberment: 1
+      OrganDamage: 1
+      BoneDamage: 1
+      VeinsDamage: 1
+      NerveDamage: 1
     modifiers:
       coefficients:
-        Blunt: 0.2
-        Slash: 0.2
+        Blunt: 0.1
+        Slash: 0.1
         Piercing: 0.2
         Heat: 0.2
-        Radiation: 0.2
-        Caustic: 0.2
+        Radiation: 0.1
+        Caustic: 0.1
+        # TODO: Add different gun damage types to balance this shit.
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.65
@@ -927,7 +1166,7 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, ClothingOuterWizardBaseArmor, BaseMagicContraband] # Goob edit
   id: ClothingOuterHardsuitWizard
-  name: wizard hardsuit
+  name: wizard voidsuit # Goob edit
   description: A bizarre gem-encrusted suit that radiates magical energies.
   components:
   - type: Sprite
@@ -938,12 +1177,19 @@
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
   - type: Armor # Goob edit
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.4
-        Slash: 0.4
-        Piercing: 0.4
-        Heat: 0.4
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.3
+        Heat: 0.3
         Radiation: 0.1
         Caustic: 0.1
   - type: ClothingSpeedModifier
@@ -981,12 +1227,19 @@
   - type: ExplosionResistance
     damageCoefficient: 0.2
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.95
-        Slash: 0.95
-        Piercing: 1
-        Heat: 0.5
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.85
+        Heat: 0.4
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
@@ -1015,13 +1268,20 @@
   - type: ExplosionResistance
     damageCoefficient: 0.7
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.9
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.8
         Heat: 0.4
-        Caustic: 0.75
+        Caustic: 0.6
   - type: ClothingSpeedModifier
     walkModifier: 0.6
     sprintModifier: 0.6
@@ -1041,8 +1301,8 @@
 - type: entity
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitPirateCap
-  name: pirate captain's hardsuit
-  description: An ancient armored hardsuit, perfect for defending against space scurvy and toolbox-wielding scallywags.
+  name: pirate captain's voidsuit # Goob edit
+  description: An ancient armored voidsuit, perfect for defending against space scurvy and toolbox-wielding scallywags. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/piratecaptain.rsi
@@ -1054,13 +1314,20 @@
   - type: ExplosionResistance
     damageCoefficient: 0.6
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.8
-        Piercing: 0.85
-        Heat: 0.4
-        Caustic: 0.75
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.5
+        Heat: 0.3
+        Caustic: 0.5
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
@@ -1081,8 +1348,8 @@
 - type: entity
   parent: [ BaseCentcommContraband, ClothingOuterHardsuitSyndieCommander ]
   id: ClothingOuterHardsuitERTLeader
-  name: ERT leader's hardsuit
-  description: A protective hardsuit worn by the leader of an emergency response team.
+  name: ERT leader's voidsuit # Goob edit
+  description: A protective voidsuit worn by the leader of an emergency response team. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertleader.rsi
@@ -1096,8 +1363,8 @@
 - type: entity
   parent: [ BaseCentcommContraband, ClothingOuterHardsuitJuggernaut ]
   id: ClothingOuterHardsuitERTChaplain
-  name: ERT chaplain's hardsuit
-  description: A protective hardsuit worn by the chaplains of an Emergency Response Team.
+  name: ERT chaplain's voidsuit # Goob edit
+  description: A protective voidsuit worn by the chaplains of an Emergency Response Team. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertchaplain.rsi #if you change this, please update the humanoid.yml with a better markers sprite.
@@ -1111,8 +1378,8 @@
 - type: entity
   parent: ClothingOuterHardsuitCBURN
   id: ClothingOuterHardsuitERTEngineer
-  name: ERT engineer's hardsuit
-  description: A protective hardsuit worn by the engineers of an emergency response team.
+  name: ERT engineer's voidsuit # Goob edit
+  description: A protective voidsuit worn by the engineers of an emergency response team. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertengineer.rsi
@@ -1126,8 +1393,8 @@
 - type: entity
   parent: [ BaseCentcommContraband, ClothingOuterHardsuitSyndieMedic ]
   id: ClothingOuterHardsuitERTMedical
-  name: ERT medic's hardsuit
-  description: A protective hardsuit worn by the medics of an emergency response team.
+  name: ERT medic's voidsuit # Goob edit
+  description: A protective voidsuit worn by the medics of an emergency response team. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertmedical.rsi
@@ -1141,8 +1408,8 @@
 - type: entity
   parent: [ BaseCentcommContraband, ClothingOuterHardsuitSyndie ]
   id: ClothingOuterHardsuitERTSecurity
-  name: ERT security's hardsuit
-  description: A protective hardsuit worn by the security officers of an emergency response team.
+  name: ERT security's voidsuit # Goob edit
+  description: A protective voidsuit worn by the security officers of an emergency response team. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertsecurity.rsi
@@ -1160,8 +1427,8 @@
 - type: entity
   parent: ClothingOuterHardsuitCBURN
   id: ClothingOuterHardsuitERTJanitor
-  name: ERT janitor's hardsuit
-  description: A protective hardsuit worn by the janitors of an emergency response team.
+  name: ERT janitor's voidsuit # Goob edit
+  description: A protective voidsuit worn by the janitors of an emergency response team. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertjanitor.rsi
@@ -1175,8 +1442,8 @@
 - type: entity # Goobstation - Start
   parent: [ BaseCentcommContraband, ClothingOuterHardsuitBase ]
   id: ClothingOuterHardsuitDeathsquad # Todo - This should be a modsuit when those are done.
-  name: PI-52 "Lucifer" hardsuit
-  description: A highly classified hardsuit for use by Central Commands death-squadrons.
+  name: PI-52 "Lucifer" voidsuit # Goob edit
+  description: A famous voidsuit used by Central Commands death-squadrons, often shown in movies by nanotrasen intended to increase recruitment. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/deathsquad.rsi
@@ -1189,7 +1456,7 @@
     heatingCoefficient: 0.001
     coolingCoefficient: 0.001
   - type: ExplosionResistance
-    damageCoefficient: 0.05
+    damageCoefficient: 0.0
   - type: FireProtection
     reduction: 0.8
   - type: StaminaDamageResistance # Goobstation - Start
@@ -1201,16 +1468,21 @@
   - type: ModifyStandingUpTime
     multiplier: 0.1
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.1 # Best armor in the game - Yeah no shit.
-        Slash: 0.1
-        Piercing: 0.05 # This is just to fuck over syringes
-        Heat: 0.1
-        Cold: 0.1
-        Cellular: 0.1
-        Radiation: 0.1
-        Caustic: 0.1
+        Blunt: 0.05
+        Slash: 0.05
+        Piercing: 0.05
+        Heat: 0.05
+        Radiation: 0.05
+        Caustic: 0.05
   - type: ClothingSpeedModifier
     walkModifier: 1.0
     sprintModifier: 1.0
@@ -1241,16 +1513,23 @@
     heatingCoefficient: 0.001
     coolingCoefficient: 0.001
   - type: ExplosionResistance
-    damageCoefficient: 0.7
+    damageCoefficient: 0.3
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.3 # Goobstation - CBURN should protect against zombie attacks
-        Piercing: 0.6
-        Heat: 0.10
-        Cold: 0.10
-        Shock: 0.15
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.5
+        Heat: 0.05
+        Cold: 0.05
+        Shock: 0.05
         Radiation: 0.1
         Caustic: 0.1
   - type: ClothingSpeedModifier
@@ -1271,8 +1550,8 @@
 - type: entity
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitClown
-  name: clown hardsuit
-  description: A custom-made clown hardsuit.
+  name: clown voidsuit # Goob edit
+  description: A custom-made clown voidsuit. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/clown.rsi
@@ -1284,10 +1563,17 @@
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
+        Blunt: 0.8
+        Slash: 0.8
         Piercing: 0.9
         Caustic: 0.8
   - type: ClothingSpeedModifier
@@ -1308,8 +1594,8 @@
 - type: entity
   parent: ClothingOuterHardsuitClown
   id: ClothingOuterHardsuitMime
-  name: mime hardsuit
-  description: A custom-made mime hardsuit.
+  name: mime voidsuit # Goob edit
+  description: A custom-made mime voidsuit. # Goob edit.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/mime.rsi
@@ -1326,8 +1612,8 @@
 - type: entity
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitSanta
-  name: Santa's hardsuit
-  description: A festive, cheerful hardsuit that protects the jolly gift-giver while on sleighrides in space. Offers some resistance against asteroid strikes.
+  name: Santa's voidsuit # Goob edit
+  description: A festive, cheerful voidsuit that protects the jolly gift-giver while on sleighrides in space. Offers some resistance against asteroid strikes. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/santahardsuit.rsi
@@ -1339,11 +1625,18 @@
   - type: ExplosionResistance
     damageCoefficient: 0.85
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.85
-        Slash: 0.9
-        Piercing: 0.85
+        Blunt: 0.7 # to protect santa from filthy santa deniers
+        Slash: 0.7
+        Piercing: 0.8
         Caustic: 0.8
   - type: ClothingSpeedModifier
     walkModifier: 0.9

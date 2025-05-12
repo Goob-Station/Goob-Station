@@ -77,6 +77,8 @@
       head:
       - state: equipped-HEAD-sealed
   - type: Armor
+    coverage:
+    - Head
     modifiers:
       coefficients:
         Blunt: 0.90
@@ -141,7 +143,7 @@
 - type: entity
   parent: BaseClothingModsuitHelmet
   id: ClothingModsuitHelmetSecurity
-  name: dragoon modsuit helmet
+  name: soldat modsuit helmet
   description: A robust brain bucket for holding your brain in place just enough for it to be salvageable.
   categories: [ HideSpawnMenu ]
   components:

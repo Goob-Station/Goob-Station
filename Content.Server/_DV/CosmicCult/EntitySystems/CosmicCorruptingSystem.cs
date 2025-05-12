@@ -1,5 +1,12 @@
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
 using Content.Server._DV.CosmicCult.Components;
+using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.Maps;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
@@ -113,6 +120,11 @@ public sealed class CosmicCorruptingSystem : EntitySystem
                     if (ent.Comp.EntityConversionDict.TryGetValue(proto?.ID!, out var conversion))
                     {
                         Spawn(conversion, Transform(convertedEnt).Coordinates);
+                        QueueDel(convertedEnt);
+                    }
+                    else if (TryComp<CosmicCorruptibleComponent>(convertedEnt, out var corruptible))
+                    {
+                        Spawn(corruptible.ConvertTo, Transform(convertedEnt).Coordinates);
                         QueueDel(convertedEnt);
                     }
                 }

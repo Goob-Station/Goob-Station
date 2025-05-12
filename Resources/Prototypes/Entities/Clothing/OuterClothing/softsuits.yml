@@ -82,8 +82,11 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Velken <8467292+Velken@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -190,8 +193,8 @@
 - type: entity
   parent: [ ClothingOuterEVASuitBase, ClothingOuterBaseToggleable ]
   id: ClothingOuterHardsuitVoidParamed
-  name: paramedic void suit
-  description: A void suit made for paramedics.
+  name: paramedic voidsuit # Goob edit
+  description: A voidsuit made for paramedics. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
@@ -208,14 +211,21 @@
     heatingCoefficient: 0.1
     coolingCoefficient: 0.1
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Heat: 0.90
-        Radiation: 0.75
-        Caustic: 0.5
+        Heat: 0.8
+        Radiation: 0.5
+        Caustic: 0.3
   - type: GroupExamine
   - type: StealTarget
     stealGroup: ClothingOuterHardsuitVoidParamed
   - type: ToggleableClothing # Goobstation - Modsuits change
-    clothingPrototypes: 
+    clothingPrototypes:
       head: ClothingHeadHelmetVoidParamed
