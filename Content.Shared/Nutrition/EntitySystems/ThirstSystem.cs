@@ -153,7 +153,7 @@ public sealed class ThirstSystem : EntitySystem
 
             DirtyField(uid, component, nameof(ThirstComponent.CurrentThirst));
         }
-        component.NextUpdateTime = _timing.CurTime;
+        component.NextUpdateTime = _timing.CurTime + component.NextUpdateTime;
         component.CurrentThirstThreshold = GetThirstThreshold(component, component.CurrentThirst);
         component.LastThirstThreshold = ThirstThreshold.Okay; // TODO: Potentially change this -> Used Okay because no effects.
         // TODO: Check all thresholds make sense and throw if they don't.

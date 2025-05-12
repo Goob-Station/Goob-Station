@@ -23,15 +23,20 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Bio/general.rsi
   - type: Armor
+    coverage:
+    - Head
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Caustic: 0.75
+        Caustic: 0.2
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.35
   - type: GroupExamine
-  - type: ClothingSpeedModifier
-    walkModifier: 1
-    sprintModifier: 0.95
 
 - type: entity
   parent: ClothingOuterBioGeneral
@@ -84,12 +89,22 @@
     sprite: Clothing/OuterClothing/Bio/security.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Bio/security.rsi
-  - type: Armor
+  - type: Armor #Based on /tg/ but slightly compensated to fit the fact that armor stacks in SS14.
+    coverage:
+    - Head
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Caustic: 0.8
-        Slash: 0.6
-        Piercing: 0.8
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.70
+        Heat: 0.80
+        Caustic: 0.2
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.4
 

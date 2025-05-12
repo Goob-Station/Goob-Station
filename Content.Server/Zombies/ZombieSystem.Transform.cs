@@ -87,6 +87,7 @@ using Content.Shared.Tag;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Shared.Roles;
+using Content.Server.Animals.Components;
 
 namespace Content.Server.Zombies;
 
