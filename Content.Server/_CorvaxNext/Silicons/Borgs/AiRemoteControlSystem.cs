@@ -46,7 +46,7 @@ namespace Content.Server._CorvaxNext.Silicons.Borgs
             var visionComp = EnsureComp<StationAiVisionComponent>(entity.Owner);
             EntityUid? actionEnt = null;
 
-            _actions.AddAction(entity, ref actionEnt, entity.Comp.BackToAiAction);
+            _actions.AddAction(entity.Owner, ref actionEnt, entity.Comp.BackToAiAction);
 
             if (actionEnt != null)
                 entity.Comp.BackToAiActionEntity = actionEnt.Value;
@@ -160,6 +160,9 @@ namespace Content.Server._CorvaxNext.Silicons.Borgs
 
         private void OnUiRemoteAction(EntityUid uid, StationAiHeldComponent component, AiRemoteControllerComponent.RemoteDeviceActionMessage msg)
         {
+            if (msg.RemoteAction == null)
+                return;
+
             var target = GetEntity(msg.RemoteAction?.Target);
 
             if (!HasComp<AiRemoteControllerComponent>(target))

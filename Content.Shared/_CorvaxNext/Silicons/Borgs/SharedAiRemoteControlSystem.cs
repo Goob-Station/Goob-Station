@@ -33,7 +33,7 @@ namespace Content.Shared._CorvaxNext.Silicons.Borgs
             if (remoteComp.LinkedMind == null)
                 return;
 
-            if (!TryComp<StationAiHeldComponent>(remoteComp.AiHolder, out var stationAiHeldComp))
+            if (!TryComp<StationAiHeldComponent>(remoteComp.AiHolder.Value, out var stationAiHeldComp))
                 return;
 
             stationAiHeldComp.CurrentConnectedEntity = null;

@@ -256,21 +256,11 @@ public sealed partial class BorgSystem : SharedBorgSystem
 
     private void OnMindAdded(EntityUid uid, BorgChassisComponent component, MindAddedMessage args)
     {
-        // Corvax-Next-AiRemoteControl-Start
-        if (HasComp<AiRemoteControllerComponent>(uid))
-            return;
-        // Corvax-Next-AiRemoteControl-End
-
         BorgActivate(uid, component);
     }
 
     private void OnMindRemoved(EntityUid uid, BorgChassisComponent component, MindRemovedMessage args)
     {
-        // Corvax-Next-AiRemoteControl-Start
-        if (HasComp<AiRemoteControllerComponent>(uid))
-            return;
-        // Corvax-Next-AiRemoteControl-End
-
         BorgDeactivate(uid, component);
     }
 

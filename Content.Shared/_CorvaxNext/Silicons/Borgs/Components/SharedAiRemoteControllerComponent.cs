@@ -11,17 +11,14 @@ namespace Content.Shared._CorvaxNext.Silicons.Borgs.Components
     [RegisterComponent]
     public sealed partial class AiRemoteControllerComponent : Component
     {
-        public EntityUid? AiHolder;
-        public EntityUid? LinkedMind;
+        [DataField] public EntityUid? AiHolder;
+        [DataField] public EntityUid? LinkedMind;
 
         [DataField] public string[]? PreviouslyTransmitterChannels;
         [DataField] public string[]? PreviouslyActiveRadioChannels;
 
-        [DataField]
-        public EntProtoId BackToAiAction = "ActionBackToAi";
-
-        [DataField]
-        public EntityUid? BackToAiActionEntity;
+        [DataField] public EntProtoId BackToAiAction = "ActionBackToAi";
+        [DataField] public EntityUid? BackToAiActionEntity;
 
         [Serializable, NetSerializable]
         public sealed class RemoteDeviceActionMessage : BoundUserInterfaceMessage

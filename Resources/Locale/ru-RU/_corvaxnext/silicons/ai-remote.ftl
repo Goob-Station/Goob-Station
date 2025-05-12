@@ -11,7 +11,7 @@ ent-ActionOpenRemoteDevicesMenu = Открыть список удалённых
 
 # Ents
 ent-AiRemoteBrain = модуль удалённого управления Б.О.Р.И.С
-    .desc = Карта управления киборгом Искуственным Интеллектом.
+    .desc = Карта управления киборгом Искусственный Интеллектом.
 ent-PlayerBorgAiRemote = { ent-BorgChassisSelectable }
     .suffix = Батарея, Управляемый ИИ
     .desc = { ent-BorgChassisSelectable.desc }
