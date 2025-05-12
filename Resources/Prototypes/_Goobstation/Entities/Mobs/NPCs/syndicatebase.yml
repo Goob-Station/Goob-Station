@@ -33,6 +33,33 @@
 - type: entity
   name: syndicate guard
   parent: BaseMobHuman
+  id: MobSyndicateGuardMeleeT2
+  suffix: meleeT2
+  components:
+    - type: RandomHumanoidAppearance
+    - type: NpcFactionMember
+      factions:
+        - Syndicate
+    - type: Loadout
+      prototypes:
+        - SyndicateGuardMeleeTier2
+    - type: InputMover
+    - type: MobMover
+    - type: HTN
+      rootTask:
+        task: SimpleHumanoidHostileCompound
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        100: Dead
+    - type: AutoImplant
+      implants:
+      - DeathAcidifierImplant
+      - SpaceProofImplant
+
+- type: entity
+  name: syndicate guard
+  parent: BaseMobHuman
   id: MobSyndicateGuardRangedT1
   suffix: rangedT1
   components:
@@ -70,33 +97,6 @@
     - type: Loadout
       prototypes:
         - SyndicateGuardRangedTier2
-    - type: InputMover
-    - type: MobMover
-    - type: HTN
-      rootTask:
-        task: SimpleHumanoidHostileCompound
-    - type: MobThresholds
-      thresholds:
-        0: Alive
-        100: Dead
-    - type: AutoImplant
-      implants:
-      - DeathAcidifierImplant
-      - SpaceProofImplant
-
-- type: entity
-  name: syndicate guard
-  parent: BaseMobHuman
-  id: MobSyndicateGuardMeleeT2
-  suffix: meleeT2
-  components:
-    - type: RandomHumanoidAppearance
-    - type: NpcFactionMember
-      factions:
-        - Syndicate
-    - type: Loadout
-      prototypes:
-        - SyndicateGuardMeleeTier2
     - type: InputMover
     - type: MobMover
     - type: HTN
