@@ -567,10 +567,8 @@
     table: !type:GroupSelector
       children:
       - id: MobGoliath
-        weight: 35
+        weight: 45
       - id: MobHivelord
-        weight: 30
-      #- id: MobArgocyteLeviathing #goobstation
-      #  weight: 10
-      #- id: MobArgocyteFounder
-      #  weight: 25
+        weight: 35
+      - id: MobBasilisk
+        weight: 20
