@@ -199,7 +199,7 @@
     - WhitelistChameleon
 
 - type: entity
-  parent: ClothingHeadHatBeret # Goob
+  parent: ClothingHeadHatBeret
   id: ClothingHeadHatBeretSecurity
   name: security beret
   description: A stylish clothing option for security officers.
@@ -323,7 +323,7 @@
     - WhitelistChameleon
 
 - type: entity
-  parent: ClothingHeadHatBeretRND # Goob
+  parent: ClothingHeadHatBeretRND
   id: ClothingHeadHatBeretHoS
   name: head of security's beret
   description: A black beret with a commander's rank emblem. For officers that are more inclined towards style than safety.
