@@ -66,16 +66,18 @@ public sealed partial class TargetingComponent : Component
         {
             TargetBodyPart.RightHand, new Dictionary<TargetBodyPart, float>
             {
-                { TargetBodyPart.RightHand, 0.4f },
-                { TargetBodyPart.Chest, 0.5f },
+                { TargetBodyPart.RightHand, 0.2f },
+                { TargetBodyPart.Chest, 0.6f },
+                { TargetBodyPart.Groin, 0.1f },
                 { TargetBodyPart.RightArm, 0.1f },
             }
         },
         {
             TargetBodyPart.LeftHand, new Dictionary<TargetBodyPart, float>
             {
-                { TargetBodyPart.LeftHand, 0.4f },
-                { TargetBodyPart.Chest, 0.5f },
+                { TargetBodyPart.LeftHand, 0.2f },
+                { TargetBodyPart.Chest, 0.6f },
+                { TargetBodyPart.Groin, 0.1f },
                 { TargetBodyPart.LeftArm, 0.1f },
             }
         },
@@ -100,8 +102,8 @@ public sealed partial class TargetingComponent : Component
         {
             TargetBodyPart.RightFoot, new Dictionary<TargetBodyPart, float>
             {
-                { TargetBodyPart.RightFoot, 0.3f },
-                { TargetBodyPart.Chest, 0.5f },
+                { TargetBodyPart.RightFoot, 0.2f },
+                { TargetBodyPart.Chest, 0.6f },
                 { TargetBodyPart.Groin, 0.1f },
                 { TargetBodyPart.RightLeg, 0.1f },
             }
@@ -109,8 +111,8 @@ public sealed partial class TargetingComponent : Component
         {
             TargetBodyPart.LeftFoot, new Dictionary<TargetBodyPart, float>
             {
-                { TargetBodyPart.LeftFoot, 0.3f },
-                { TargetBodyPart.Chest, 0.5f },
+                { TargetBodyPart.LeftFoot, 0.2f },
+                { TargetBodyPart.Chest, 0.6f },
                 { TargetBodyPart.Groin, 0.1f },
                 { TargetBodyPart.LeftLeg, 0.1f },
             }
