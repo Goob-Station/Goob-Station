@@ -9060,3 +9060,11 @@ Entries:
       message: Delimbing now has slightly fancier animations, still kinda jank though.
   id: 1026
   time: '2025-05-11T20:38:01.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: >-
+        Bloodpacks are no longer vampiric. (This means they actually restore
+        blood.)
+  id: 1027
+  time: '2025-05-12T01:57:15.0000000+00:00'
