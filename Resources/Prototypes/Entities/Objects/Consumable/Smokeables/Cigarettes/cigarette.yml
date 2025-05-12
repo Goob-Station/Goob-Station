@@ -117,7 +117,7 @@
   - type: SolutionContainerManager
     solutions:
       smokable:
-        maxVol: 40
+        maxVol: 20
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
@@ -132,7 +132,7 @@
   - type: SolutionContainerManager
     solutions:
       smokable:
-        maxVol: 40
+        maxVol: 20
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
@@ -147,7 +147,7 @@
   - type: SolutionContainerManager
     solutions:
       smokable:
-        maxVol: 40
+        maxVol: 20
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
@@ -162,7 +162,7 @@
   - type: SolutionContainerManager
     solutions:
       smokable:
-        maxVol: 40
+        maxVol: 20
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
@@ -177,7 +177,7 @@
   - type: SolutionContainerManager
     solutions:
       smokable:
-        maxVol: 40
+        maxVol: 20
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
@@ -192,7 +192,7 @@
   - type: SolutionContainerManager
     solutions:
       smokable:
-        maxVol: 40
+        maxVol: 20
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
@@ -200,19 +200,19 @@
             Quantity: 10
 
 - type: entity
-  id: CigaretteIpecac
+  id: CigaretteNutriment
   parent: SoakedCigarette
   name: Grandma's Christmas Fruitcake
   components:
   - type: SolutionContainerManager
     solutions:
       smokable:
-        maxVol: 40
+        maxVol: 20
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
-          - ReagentId: Ipecac
-            Quantity: 2
+          - ReagentId: Nutriment
+            Quantity: 10
 
 - type: entity
   id: CigaretteBicaridine
@@ -222,7 +222,7 @@
   - type: SolutionContainerManager
     solutions:
       smokable:
-        maxVol: 40
+        maxVol: 20
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
@@ -237,7 +237,7 @@
   - type: SolutionContainerManager
     solutions:
       smokable:
-        maxVol: 40
+        maxVol: 20
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
@@ -245,19 +245,19 @@
             Quantity: 10
 
 - type: entity
-  id: CigarettePax
+  id: CigaretteSaline
   parent: SoakedCigarette
-  name: Switzerland Express
+  name: North Atlantic Cruise
   components:
   - type: SolutionContainerManager
     solutions:
       smokable:
-        maxVol: 40
+        maxVol: 20
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
-          - ReagentId: Pax
-            Quantity: 2
+          - ReagentId: Saline
+            Quantity: 10
 
 - type: entity
   id: CigaretteBbqSauce
@@ -267,7 +267,7 @@
   - type: SolutionContainerManager
     solutions:
       smokable:
-        maxVol: 40
+        maxVol: 20
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
@@ -275,18 +275,18 @@
             Quantity: 10
 
 - type: entity
-  id: CigaretteBlackPepper
+  id: CigaretteFrezon
   parent: SoakedCigarette
-  name: English Spice
+  name: Atmospheric Adventure
   components:
   - type: SolutionContainerManager
     solutions:
       smokable:
-        maxVol: 40
+        maxVol: 20
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
-          - ReagentId: Blackpepper
+          - ReagentId: Frezon
             Quantity: 10
 
 - type: entity
@@ -297,7 +297,7 @@
   - type: SolutionContainerManager
     solutions:
       smokable:
-        maxVol: 40
+        maxVol: 20
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
@@ -305,77 +305,79 @@
             Quantity: 10
 
 - type: entity
-  id: CigaretteBread
+  id: CigaretteRadium
   parent: SoakedCigarette
-  name: Double Toasted
+  name: Ex Ray
   components:
   - type: SolutionContainerManager
     solutions:
       smokable:
-        maxVol: 40
+        maxVol: 20
         reagents:
           - ReagentId: Nicotine
+            Quantity: 10
+          - ReagentId: Radium
             Quantity: 10
 
 - type: entity
-  id: CigaretteMilk
+  id: CigaretteHaloperidol
   parent: SoakedCigarette
-  name: Bovine Extract
+  name: Warm Bovine Extract
   components:
   - type: SolutionContainerManager
     solutions:
       smokable:
-        maxVol: 40
+        maxVol: 20
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
-          - ReagentId: Milk
+          - ReagentId: Haloperidol
             Quantity: 10
 
 - type: entity
-  id: CigaretteBanana
+  id: CigaretteLaughter
   parent: SoakedCigarette
-  name: Clown Adjancency Bonus
+  name: Clown Adjacency Bonus
   components:
   - type: SolutionContainerManager
     solutions:
       smokable:
-        maxVol: 40
+        maxVol: 20
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
-          - ReagentId: BananaHonk
+          - ReagentId: Laughter
             Quantity: 10
 
 - type: entity
-  id: CigaretteSpaceDrugs
+  id: CigaretteLipolicide
   parent: SoakedCigarette
-  name: 80's Power Hour
+  name: 80's Workout Routine
   components:
   - type: SolutionContainerManager
     solutions:
       smokable:
-        maxVol: 40
+        maxVol: 20
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
-          - ReagentId: SpaceDrugs
+          - ReagentId: Lipolicide
             Quantity: 10
 
 - type: entity
-  id: CigaretteMuteToxin
+  id: CigaretteSodiumPolyacrylate
   parent: SoakedCigarette
-  name: Mixed Lozenges
+  name: Unhealthy Habits
   components:
   - type: SolutionContainerManager
     solutions:
       smokable:
-        maxVol: 40
+        maxVol: 20
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
-          - ReagentId: MuteToxin
-            Quantity: 2
+          - ReagentId: SodiumPolyacrylate
+            Quantity: 10
 
 - type: entity
   id: CigaretteMold
@@ -385,12 +387,12 @@
   - type: SolutionContainerManager
     solutions:
       smokable:
-        maxVol: 40
+        maxVol: 20
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
           - ReagentId: Mold
-            Quantity: 2
+            Quantity: 10
 
 - type: entity
   id: CigaretteLicoxide
@@ -400,12 +402,12 @@
   - type: SolutionContainerManager
     solutions:
       smokable:
-        maxVol: 40
+        maxVol: 20
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
           - ReagentId: Licoxide
-            Quantity: 5
+            Quantity: 10
 
 - type: entity
   id: CigaretteWeldingFuel
@@ -415,24 +417,69 @@
   - type: SolutionContainerManager
     solutions:
       smokable:
-        maxVol: 40
+        maxVol: 20
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
           - ReagentId: WeldingFuel
-            Quantity: 5
+            Quantity: 10
 
 - type: entity
-  id: CigaretteTHC
+  id: CigaretteRobustHarvest
   parent: SoakedCigarette
-  name: Hippy Romance Novel
+  name: Hippie Romance Novel
   components:
   - type: SolutionContainerManager
     solutions:
       smokable:
-        maxVol: 40
+        maxVol: 20
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
-          - ReagentId: THC
-            Quantity: 5
+          - ReagentId: RobustHarvest
+            Quantity: 10
+
+- type: entity
+  id: CigarettePhlogiston
+  parent: SoakedCigarette
+  name: Dragon Dating Sim
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 10
+        - ReagentId: Phlogiston
+          Quantity: 10
+
+- type: entity
+  id: CigaretteBanana
+  parent: SoakedCigarette
+  name: Pun Pun's Tropical Getaway
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 10
+        - ReagentId: Potassium
+          Quantity: 10
+
+- type: entity
+  id: CigaretteBlackPepper
+  parent: SoakedCigarette
+  name: English Spice
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 10
+        - ReagentId: Blackpepper
+          Quantity: 10
