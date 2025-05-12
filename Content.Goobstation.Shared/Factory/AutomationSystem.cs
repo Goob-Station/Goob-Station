@@ -6,6 +6,8 @@
 
 using Content.Goobstation.Shared.Factory.Slots;
 using Content.Shared.Prototypes;
+using Robust.Shared.Physics.Components;
+using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Factory;
@@ -13,6 +15,7 @@ namespace Content.Goobstation.Shared.Factory;
 public sealed class AutomationSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
 
     private EntityQuery<AutomationSlotsComponent> _slotsQuery;
     private EntityQuery<AutomatedComponent> _automatedQuery;
@@ -34,6 +37,8 @@ public sealed class AutomationSystem : EntitySystem
 
         SubscribeLocalEvent<AutomatedComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<AutomatedComponent, ComponentShutdown>(OnShutdown);
+
+        SubscribeLocalEvent<PhysicsComponent, AnchorStateChangedEvent>(OnAnchorChanged);
 
         SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypesReloaded);
         CacheEntities();
@@ -68,6 +73,14 @@ public sealed class AutomationSystem : EntitySystem
         {
             slot.RemovePorts();
         }
+    }
+
+    private void OnAnchorChanged(Entity<PhysicsComponent> ent, ref AnchorStateChangedEvent args)
+    {
+        // force collision events so machines can react to objects getting unanchored
+        // should get reset after a tick due to collision wake
+        if (!args.Anchored)
+            _physics.WakeBody(ent);
     }
 
     private void OnPrototypesReloaded(PrototypesReloadedEventArgs args)

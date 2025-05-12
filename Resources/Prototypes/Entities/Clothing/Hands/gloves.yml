@@ -245,6 +245,8 @@
     fiberMaterial: fibers-durathread
     fiberColor: fibers-black
   - type: Armor
+    coverage:
+    - Hand
     modifiers:
       coefficients:
         Slash: 0.95
@@ -293,6 +295,11 @@
     fiberMaterial: fibers-leather
     fiberColor: fibers-brown
   - type: FingerprintMask
+  - type: DamageOnInteractProtection
+    damageProtection:
+      flatReductions:
+        Heat: 10
+        Caustic: 5
 
 - type: entity
   parent: ClothingHandsBase
