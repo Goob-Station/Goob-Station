@@ -1,4 +1,9 @@
-﻿using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
