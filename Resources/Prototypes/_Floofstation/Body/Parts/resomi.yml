@@ -5,14 +5,22 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  id: TorsoResomi
-  name: "resomi torso"
-  parent: TorsoHuman
+  id: ChestResomi
+  name: "resomi chest"
+  parent: ChestHuman
   components:
   - type: Sprite
     sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
-    state: "torso_m"
+    state: "chest_m"
 
+- type: entity
+  id: GroinResomi
+  name: "resomi groin"
+  parent: GroinHuman
+  components:
+  - type: Sprite
+    sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
+    state: "groin_m"
 
 - type: entity
   id: HeadResomi
