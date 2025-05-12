@@ -50,6 +50,13 @@
     sprite: _Goobstation/Clothing/Head/Helmets/hev.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Head/Helmets/hev.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Shock: 0.7
+        Radiation: 0.01
+        Caustic: 0.5
 
 - type: entity
   parent: ClothingHeadHelmetBasic
