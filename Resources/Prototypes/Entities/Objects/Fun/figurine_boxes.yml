@@ -2,6 +2,8 @@
 # SPDX-FileCopyrightText: 2023 DerbyX <50932435+DerbyX@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 #
 # SPDX-License-Identifier: MIT
 
@@ -139,4 +141,7 @@
         orGroup: SpacemenFig
       - id: ToyFigurineHamlet
         prob: 0.20
+        orGroup: SpacemenFig
+      - id: ToyFigurineCosmicCultist # DeltaV Figurine
+        prob: 0.50
         orGroup: SpacemenFig
