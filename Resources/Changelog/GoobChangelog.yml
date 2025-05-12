@@ -9114,3 +9114,19 @@ Entries:
       message: Woundmed shouldn't passively lag out the server anymore.
   id: 1031
   time: '2025-05-12T07:26:35.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Tweak
+      message: >-
+        Reduced paincrit duration, increased adrenaline pain reduction and pain
+        thresholds, and reduced wound pain multipliers.
+    - type: Tweak
+      message: Added stitches and bonesetters to borg inventories and lathes.
+    - type: Fix
+      message: Attempted some fixes at PVS/flickering issues
+    - type: Fix
+      message: Dragons, goliaths, watchers and cyborgs are not immortal anymore.
+    - type: Fix
+      message: Fixed chemicals being 1/11th of their intended values.
+  id: 1032
+  time: '2025-05-12T16:35:02.0000000+00:00'
