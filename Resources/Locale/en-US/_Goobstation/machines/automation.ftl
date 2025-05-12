@@ -49,3 +49,28 @@ signal-port-description-storage-inserted = Signal port that gets pulsed after an
 
 signal-port-name-storage-removed = Removed
 signal-port-description-storage-removed = Signal port that gets pulsed after an item is removed from a storage bin.
+
+# Fax Machine
+
+signal-port-name-automation-slot-paper = Item: Paper
+signal-port-description-automation-slot-paper = An automation slot for a fax machine's paper tray.
+
+signal-port-name-fax-copy = Copy Fax
+signal-port-description-fax-copy = Signal port to copy a fax machine's paper.
+
+# Constructor / Interactor
+
+signal-port-name-machine-start = Start
+signal-port-description-machine-start = Signal port to start a machine once.
+
+signal-port-name-machine-autostart = Auto Start
+signal-port-description-machine-autostart = Signal port to control starting after completing automatically.
+
+signal-port-name-machine-started = Started
+signal-port-description-machine-started = Signal port that gets pulsed after a machine starts.
+
+signal-port-name-machine-completed = Completed
+signal-port-description-machine-completed = Signal port that gets pulsed after a machine completes its work.
+
+signal-port-name-machine-failed = Failed
+signal-port-description-machine-failed = Signal port that gets pulsed after a machine fails to start.
