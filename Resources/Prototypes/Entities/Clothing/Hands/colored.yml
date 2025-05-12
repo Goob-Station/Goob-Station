@@ -434,8 +434,6 @@
     fiberMaterial: fibers-insulative
     fiberColor: fibers-yellow
   - type: Armor # Goob
-    coverage:
-    - Hand
     modifiers:
       coefficients:
         Blunt: 0.95
@@ -472,6 +470,12 @@
   - type: Tag
     tags:
       - BudgetInsuls
+  - type: Armor # Goob
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
 
 # Conductive Insulated Gloves
 - type: entity

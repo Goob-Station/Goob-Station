@@ -233,6 +233,13 @@
     fiberMaterial: fibers-durathread
     fiberColor: fibers-regal-blue
   - type: FingerprintMask
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Shock: 0.75
 
 - type: entity
   parent: ClothingHandsBase
@@ -248,11 +255,11 @@
     fiberMaterial: fibers-durathread
     fiberColor: fibers-black
   - type: Armor
-    coverage:
-    - Hand
     modifiers:
       coefficients:
-        Slash: 0.95
+        Blunt: 0.95
+        Slash: 0.8
+        Piercing: 0.95
   - type: FingerprintMask
 
 #### Medical
@@ -401,8 +408,6 @@
   - type: Fiber
     fiberMaterial: fibers-insulative
   - type: Armor # Goob
-    coverage:
-    - Hand
     modifiers:
       coefficients:
         Blunt: 0.9
@@ -424,6 +429,13 @@
   - type: Insulated
   - type: Fiber
     fiberColor: fibers-black
+  - type: Armor # Goob
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Shock: 0.75
 
 - type: entity
   parent: [ BaseSecurityCargoContraband, ClothingHandsGlovesCombat ]

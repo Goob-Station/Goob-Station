@@ -68,9 +68,7 @@
       - state: equipped-FEET-sealed
   - type: ClothingSlowOnDamageModifier
     modifier: 0.5
-  - type: ClothingModifyStunTime # Goobstation
-    modifier: 0.8
-  - type: ModifyStandingUpTime # Goobstation
+  - type: ModifyStandingUpTime
     multiplier: 0.5
 
 - type: entity
@@ -103,8 +101,6 @@
       - state: equipped-FEET-sealed
   - type: ClothingSlowOnDamageModifier
     modifier: 0.5
-  - type: ClothingModifyStunTime
-    modifier: 0.8
   - type: ModifyStandingUpTime
     multiplier: 0.5
 
