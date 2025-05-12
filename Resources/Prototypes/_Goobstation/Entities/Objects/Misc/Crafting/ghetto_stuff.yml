@@ -247,6 +247,7 @@
       types:
         Blunt: 12
         Structural: 7
+  - heavyStaminaCost: 85 # goob edit
   - type: IncreaseDamageOnWield
     damage:
       types:
@@ -256,8 +257,8 @@
     graph: MetalBaseballBatGraph
     node: final
   - type: SpeedModifiedOnWield # heavy stuff leh
-    walkModifier: 0.85
-    sprintModifier: 0.85
+    walkModifier: 0.75
+    sprintModifier: 0.75
 
 - type: entity
   id: MakeshiftJammer
@@ -289,40 +290,6 @@
   - type: Construction
     graph: MakeshiftJammerGraph
     node: final
-
-- type: entity
-  parent: IDCardStandard
-  id: IDCardTide
-  name: tide ID card
-  description: Makeshift t-ID-e card, made from god knows what.
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Devices/makeshift_id.rsi
-    state: icon
-  - type: PresetIdCard
-    job: GreyTider
-  - type: Construction
-    graph: MakeshiftIDCardGraph
-    node: final
-
-- type: entity
-  parent: BaseItem
-  id: IDCardTideUnfinished
-  description: God have mercy.
-  name: unfinished makeshift ID card
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Devices/makeshift_id.rsi
-    state: icon_unfinished
-  - type: Construction
-    graph: MakeshiftIDCardGraph
-    node: mid
-  - type: InternalTemperature
-    thickness: 0.02
-    area: 0.02
-  - type: AtmosExposed
-  - type: Temperature
-    currentTemperature: 290
 
 # grey toolbox
 - type: entity
@@ -456,3 +423,19 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.95 # you wouldn't notice
     sprintModifier: 0.95
+
+- type: entity
+  parent: [ BaseItem , BaseMinorContraband ]
+  id: MaintenenceComponents
+  name: Maintenence Components
+  description: An oily old box containing miscellaneous parts. Made by a forgotten company in a forgotten time.
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Objects/Materials/materials.rsi
+      state: maintsparts
+    - type: PhysicalComposition
+      materialComposition:
+        Steel: 200
+    - type: Tag
+      tags:
+      - MaintsParts

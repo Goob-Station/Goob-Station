@@ -108,19 +108,6 @@
   objectType: Item
 
 - type: construction
-  id: MakeshiftIDCard
-  name: makeshift id card
-  category: construction-category-misc
-  description: Makeshift ID card for tiding purposes.
-  graph: MakeshiftIDCardGraph
-  startNode: start
-  targetNode: final
-  icon:
-    sprite: _Goobstation/Objects/Devices/makeshift_id.rsi
-    state: icon
-  objectType: Item
-
-- type: construction
   id: MakeshiftToolbox
   name: makeshift toolbox
   category: construction-category-weapons

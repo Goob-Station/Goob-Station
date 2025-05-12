@@ -28,9 +28,11 @@
     edges:
     - to: coreIntegration
       steps:
-      - material: HexNut
-        amount: 2
-        doAfter: 2
+      - tag: MaintsParts
+        name: Maintenence Components
+        icon:
+          sprite: _Goobstation/Objects/Materials/materials.rsi
+          state: maintsparts
       - tool: Screwing
         doAfter: 2
 
@@ -89,9 +91,11 @@
     edges:
     - to: industrialCore
       steps:
-      - material: HexNut
-        amount: 4
-        doAfter: 2
+      - tag: MaintsParts
+        name: Maintenence Components
+        icon:
+          sprite: _Goobstation/Objects/Materials/materials.rsi
+          state: maintsparts
       - material: MetalRod
         amount: 2
 
@@ -129,65 +133,3 @@
 
   - node: welderSwordIndustrial
     entity: EnergySwordWelderIndustrial
-
-# exp
-- type: constructionGraph
-  id: WelderSwordExperimental
-  start: start
-  graph:
-  - node: start
-    edges:
-    - to: plasmaFrame
-      steps:
-      - component: GasTank
-        name: gas tank
-        icon:
-          sprite: Objects/Tanks/oxygen.rsi
-          state: icon
-        doAfter: 5
-      - material: Cable
-        amount: 15
-
-  - node: plasmaFrame
-    entity: UnfinishedWelderSwordExperimental
-    edges:
-    - to: plasmaIntegration
-      steps:
-      - material: HexNut
-        amount: 6
-        doAfter: 2
-      - material: MetalRod
-        amount: 4
-
-  - node: plasmaIntegration
-    edges:
-    - to: plasmaForging
-      steps:
-      - tool: Welding
-        fuel: 10
-        doAfter: 8
-      - material: PlasmaGlass
-        amount: 2
-
-  - node: plasmaForging
-    edges:
-    - to: experimentalAssembly
-      steps:
-      - tool: Cutting
-        doAfter: 5
-      - tool: Screwing
-        doAfter: 4
-
-  - node: experimentalAssembly
-    edges:
-    - to: welderSwordExperimental
-      steps:
-      - tag: WelderExperimental
-        name: experimental welding tool
-        icon:
-          sprite: Objects/Tools/welder_experimental.rsi
-          state: icon
-        doAfter: 10
-
-  - node: welderSwordExperimental
-    entity: EnergySwordWelderExperimental

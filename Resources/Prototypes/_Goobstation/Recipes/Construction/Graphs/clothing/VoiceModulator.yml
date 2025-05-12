@@ -19,6 +19,12 @@
                 sprite: Clothing/Mask/gas.rsi
                 state: icon
 
+            - tag: MaintsParts
+              name: Maintenence Components
+              icon:
+                sprite: _Goobstation/Objects/Materials/materials.rsi
+                state: maintsparts
+
             - tag: VoiceTrigger
               icon:
                 sprite: Objects/Devices/voice.rsi

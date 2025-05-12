@@ -458,6 +458,12 @@
   id: ToySword
 
 - type: Tag
+  id: DoorJack
+
+- type: Tag
+  id: MaintsParts
+
+- type: Tag
   id: Undead
 
 - type: Tag
