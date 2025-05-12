@@ -1,3 +1,4 @@
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
@@ -8,6 +9,7 @@
 
 using Content.Goobstation.Shared.Bible;
 using Content.Goobstation.Shared.Religion.Nullrod;
+using Content.Shared.Bible.Components;
 using Content.Shared.Damage;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
@@ -43,6 +45,9 @@ public sealed class WeakToHolySystem : EntitySystem
 
     private void AfterBibleUse(Entity<WeakToHolyComponent> ent, ref AfterInteractUsingEvent args)
     {
+        if (!_timing.IsFirstTimePredicted || !ent.Comp.AlwaysTakeHoly)
+            return;
+
         if (!TryComp<BibleComponent>(args.Used, out var bibleComp)
             || !TryComp(args.Used, out UseDelayComponent? useDelay)
             || _useDelay.IsDelayed((args.Used, useDelay))
@@ -50,7 +55,8 @@ public sealed class WeakToHolySystem : EntitySystem
             || args.Target is not { } target)
             return;
 
-        _goobBible.TryDoSmite(target, bibleComp, args, useDelay);
+        if (_goobBible.TryDoSmite(target, bibleComp, args, useDelay))
+            args.Handled = true;
     }
 
     #region Holy Damage Dealing

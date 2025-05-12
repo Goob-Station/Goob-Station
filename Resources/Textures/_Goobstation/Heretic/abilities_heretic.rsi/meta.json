@@ -8,6 +8,18 @@
     },
     "states": [
         {
+            "name": "cosmic_domain"
+        },
+        {
+            "name": "star_touch"
+        },
+        {
+            "name": "star_blast"
+        },
+        {
+            "name": "cosmic_rune"
+        },
+        {
             "name": "god_transmit"
         },
         {

@@ -17,6 +17,7 @@ using System.Linq;
 using System.Text;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Goobstation.Wizard.SanguineStrike;
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Atmos.Rotting;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
@@ -28,12 +29,19 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Teleportation;
 using Content.Shared.Weapons.Melee.Events;
+using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Network;
+using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Shared._Shitcode.Heretic.Systems;
 
 public abstract class SharedHereticBladeSystem : EntitySystem
 {
+    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly EntityLookupSystem _lookupSystem = default!;
@@ -41,6 +49,9 @@ public abstract class SharedHereticBladeSystem : EntitySystem
     [Dependency] private readonly SharedRottingSystem _rotting = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedSanguineStrikeSystem _sanguine = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly CosmosComboSystem _combo = default!;
+    [Dependency] private readonly ExamineSystemShared _examine = default!;
 
     public override void Initialize()
     {
@@ -172,6 +183,67 @@ public abstract class SharedHereticBladeSystem : EntitySystem
                         },
                     };
                     break;
+                case "Cosmos":
+                    args.BonusDamage += new DamageSpecifier
+                    {
+                        DamageDict =
+                        {
+                            { "Heat", 5f },
+                        },
+                    };
+
+                    if (_net.IsClient)
+                        break;
+
+                    var hitEnts = args.HitEntities;
+
+                    if (hitEnts.Count == 0)
+                        break;
+
+                    _combo.ComboProgress(args.User, hitEnts);
+
+                    var user = args.User;
+                    var coords = Transform(user).Coordinates;
+                    var areaEnts = _lookupSystem.GetEntitiesInRange<MobStateComponent>(coords, 3f, LookupFlags.Dynamic);
+                    var damage = new DamageSpecifier
+                    {
+                        DamageDict =
+                        {
+                            { "Slash", 8 },
+                        },
+                    };
+
+                    var sound = ent.Comp.CosmosAoeSound;
+                    var effect = ent.Comp.CosmosAoeEffect;
+
+                    foreach (var (areaEnt, _) in areaEnts)
+                    {
+                        if (args.User == areaEnt || hitEnts.Contains(areaEnt) ||
+                            !TryComp(areaEnt, out DamageableComponent? damageable) ||
+                            HasComp<HereticComponent>(areaEnt) || HasComp<GhoulComponent>(areaEnt))
+                            continue;
+
+                        if (!_examine.InRangeUnOccluded(args.User, areaEnt))
+                            continue;
+
+                        // Spawning timer because effects appearing at once is ugly and annoying
+                        Timer.Spawn(TimeSpan.FromSeconds(_random.NextFloat(0.1f, 1f)),
+                            () =>
+                            {
+                                if (!Exists(user) || !Exists(areaEnt) || !Resolve(areaEnt, ref damageable, false) ||
+                                    !TryComp(areaEnt, out TransformComponent? xform))
+                                    return;
+
+                                _damageable.TryChangeDamage(areaEnt,
+                                    damage,
+                                    damageable: damageable,
+                                    origin: user,
+                                    targetPart: TargetBodyPart.Torso);
+                                _audio.PlayPvs(sound, areaEnt);
+                                Spawn(effect, xform.Coordinates);
+                            });
+                    }
+                    break;
             }
         }
 
@@ -179,15 +251,15 @@ public abstract class SharedHereticBladeSystem : EntitySystem
 
         foreach (var hit in args.HitEntities)
         {
-            // does not work on other heretics (Edit: yes it does)
-            // if (HasComp<HereticComponent>(hit))
-            //    continue;
-
             if (hit == args.User)
                 continue;
 
             if (TryComp(hit, out MobStateComponent? mobState) && mobState.CurrentState != MobState.Dead)
                 aliveMobsCount++;
+
+            if (TryComp(hit, out HereticComponent? targetHeretic) &&
+                targetHeretic.CurrentPath == hereticComp.CurrentPath)
+                continue;
 
             if (TryComp<HereticCombatMarkComponent>(hit, out var mark))
                 _combatMark.ApplyMarkEffect(hit, mark, ent.Comp.Path, args.User);

@@ -54,6 +54,7 @@
   - type: Tag
     tags:
     - Sheet
+    - SheetGlass # Goobstation
     - DroneUsable # Goobstation
   - type: Material
   - type: Damageable

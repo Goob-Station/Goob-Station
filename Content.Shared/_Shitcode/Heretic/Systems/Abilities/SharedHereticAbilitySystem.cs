@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
@@ -10,9 +16,12 @@ using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
 using Content.Shared.Throwing;
+using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
+using Robust.Shared.Physics.Systems;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._Shitcode.Heretic.Systems.Abilities;
@@ -32,6 +41,9 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
     [Dependency] private readonly ThrowingSystem _throw = default!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly SharedGunSystem _gun = default!;
+    [Dependency] private readonly SharedStarMarkSystem _starMark = default!;
 
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
 
@@ -41,6 +53,7 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
 
         SubscribeBlade();
         SubscribeRust();
+        SubscribeCosmos();
         SubscribeSide();
 
         SubscribeLocalEvent<HereticComponent, EventHereticShadowCloak>(OnShadowCloak);
@@ -104,5 +117,34 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
         return false;
     }
 
-    protected virtual void SpeakAbility(EntityUid ent, HereticActionComponent args) {}
+    protected void ShootProjectileSpell(EntityUid performer,
+        EntityCoordinates coords,
+        EntProtoId toSpawn,
+        float speed,
+        EntityUid? target)
+    {
+        if (_net.IsClient)
+            return;
+
+        var xform = Transform(performer);
+        var fromCoords = xform.Coordinates;
+        var toCoords = coords;
+
+        var fromMap = _transform.ToMapCoordinates(fromCoords);
+        var spawnCoords = _mapMan.TryFindGridAt(fromMap, out var gridUid, out _)
+            ? _transform.WithEntityId(fromCoords, gridUid)
+            : new(_map.GetMap(fromMap.MapId), fromMap.Position);
+
+        var userVelocity = _physics.GetMapLinearVelocity(spawnCoords);
+
+        var projectile = Spawn(toSpawn, spawnCoords);
+        var direction = _transform.ToMapCoordinates(toCoords).Position -
+                        _transform.ToMapCoordinates(spawnCoords).Position;
+        _gun.ShootProjectile(projectile, direction, userVelocity, performer, performer, speed);
+
+        if (target != null)
+            _gun.SetTarget(projectile, target.Value, out _);
+    }
+
+    protected virtual void SpeakAbility(EntityUid ent, HereticActionComponent args) { }
 }

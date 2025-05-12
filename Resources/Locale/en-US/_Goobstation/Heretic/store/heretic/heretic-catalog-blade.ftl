@@ -27,7 +27,8 @@ knowledge-path-blade-s1-desc =
     Our great ancestors forged swords and practiced sparring on the eve of great battles.
 
     Follow the path of blades.
-    Transmute 2 knives into a sundered blade. Limit of four at a time.
+    Transmute two knives into a sundered blade.
+    You can create up to four at a time.
 
 knowledge-path-blade-s2-name = Grasp of the Blade
 knowledge-path-blade-s2-desc =

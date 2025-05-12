@@ -400,6 +400,60 @@
   path: Rust
   event: !type:HereticAscensionRustEvent
 
+## cosmos path
+- type: hereticKnowledge
+  id: EternalGate
+  path: Cosmos
+  stage: 1
+  ritualPrototypes:
+  - BladeCosmos
+
+- type: hereticKnowledge
+  id: GraspOfCosmos
+  path: Cosmos
+  stage: 2
+
+- type: hereticKnowledge
+  id: CosmicRunes
+  path: Cosmos
+  sideKnowledge: true
+  stage: 3
+  actionPrototypes:
+  - ActionHereticCosmicRune
+
+- type: hereticKnowledge
+  id: MarkOfCosmos
+  path: Cosmos
+  stage: 4
+
+- type: hereticKnowledge
+  id: StarTouch
+  path: Cosmos
+  stage: 5
+  actionPrototypes:
+  - ActionHereticStarTouch
+
+- type: hereticKnowledge
+  id: StarBlast
+  path: Cosmos
+  sideKnowledge: true
+  stage: 6
+  actionPrototypes:
+  - ActionHereticStarBlast
+
+- type: hereticKnowledge
+  id: CosmicBlade
+  path: Cosmos
+  stage: 7
+
+- type: hereticKnowledge
+  id: CosmicExpansion
+  path: Cosmos
+  sideKnowledge: true
+  stage: 8
+  actionPrototypes:
+  - ActionHereticCosmicExpansion
+
 ### side paths
 - type: hereticKnowledge
   id: RitualOfKnowledge
