@@ -3,24 +3,30 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
+
 # Chronolegioneer Hardsuit
 
 - type: entity
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitChronolegioneer
-  name: futuristic hardsuit
-  description: A hardsuit covered in an unknown material that protects against most material and temporal damage
+  name: futuristic voidsuit
+  description: A voidsuit covered in an unknown material that protects against most material and temporal damage
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/chronolegioneer.rsi
@@ -35,6 +41,13 @@
   - type: ExplosionResistance
     damageCoefficient: 0.05
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
         Blunt: 0.05
@@ -70,8 +83,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseCentcommContraband]
   id: ClothingOuterHardsuitBlueshieldLight
-  name: "'praetorian' escort hardsuit"
-  description: A hardsuit designed for an elite bodyguard. This particular one is made of a lighter metal, allowing for more maneuverability.
+  name: "'praetorian' escort voidsuit"
+  description: A voidsuit designed for an elite bodyguard. This particular one is made of a lighter metal, allowing for more maneuverability.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/bsolight.rsi
@@ -107,8 +120,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseCentcommContraband]
   id: ClothingOuterHardsuitBlueshieldHeavy
-  name: "'praetorian' bulwark hardsuit"
-  description: A hardsuit designed for an elite bodyguard. This particular one has addition plating outside, at the cost of maneuverability.
+  name: "'praetorian' defender voidsuit"
+  description: A voidsuit designed for an elite bodyguard. This particular one has addition plating outside, at the cost of maneuverability.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/bso.rsi
@@ -120,6 +133,13 @@
   - type: ExplosionResistance
     damageCoefficient: 0.45
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
         Blunt: 0.5
@@ -147,8 +167,8 @@
   parent: [ ClothingOuterHardsuitBase, BaseSyndicateContraband ]
   id: ClothingOuterHardsuitCybersunStealth
   suffix: stealth
-  name: cybersun stealth hardsuit
-  description: A hardsuit with stealth plating for operations, the shielding doesn't work while you're moving though! Needs the helmet on to finish the stealth field.
+  name: cybersun stealth voidsuit
+  description: A voidsuit with photo-reactive plating for sneaky operations, the shielding doesn't work while you're moving though! Needs the helmet on to finish the stealth field.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/cybersunstealth.rsi
@@ -162,12 +182,19 @@
   - type: ExplosionResistance
     damageCoefficient: 0.65
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
         Blunt: 0.65
         Slash: 0.65
-        Piercing: 0.65
-        Heat: 0.75
+        Piercing: 0.6
+        Heat: 0.6
         Radiation: 0.55
         Caustic: 0.7
   - type: ClothingSpeedModifier
@@ -186,7 +213,6 @@
     - type: StealthOnMove
       passiveVisibilityRate: -0.5
       movementVisibilityRate: 0.6
-      noMoveTime: 3
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 3
     knockdownTimeDelta: -3
@@ -249,15 +275,152 @@
   - type: ModifyDelayedKnockdown
     cancel: true
 
-    delayDelta: 6
-    knockdownTimeDelta: -4
+## paramedic voidsuit
+#- type: entity
+#  parent: [ ClothingOuterEVASuitBase, ClothingOuterBaseToggleable ]
+#  id: ClothingOuterVoidsuitParamedic
+#  name: paramedic voidsuit
+#  description: A voidsuit made for paramedics.
+#  components:
+#  - type: Sprite
+#    sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
+#  - type: Clothing
+#    sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
+#  - type: PressureProtection
+#    highPressureMultiplier: 0.5
+#    lowPressureMultiplier: 1000
+#  - type: ClothingSpeedModifier
+#    walkModifier: 0.9
+#    sprintModifier: 0.9
+#  - type: HeldSpeedModifier
+#  - type: TemperatureProtection
+#    heatingCoefficient: 0.1
+#    coolingCoefficient: 0.1
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Heat: 0.90
+#        Radiation: 0.75
+#        Caustic: 0.5
+#  - type: GroupExamine
+#  - type: StealTarget
+#    stealGroup: ClothingOuterVoidsuitParamedic
+#  - type: ToggleableClothing # Goobstation - Modsuits change
+#    clothingPrototypes: 
+#      head: ClothingHeadHelmetVoidParamed
 
-#Head of Security's Hardsuit
+# Security voidsuit
+- type: entity
+  parent: [ClothingOuterHardsuitBase, BaseSecurityContraband]
+  id: ClothingOuterVoidsuitSecurity
+  name: security voidsuit
+  description: A light voidsuit with an in-built plate carrier to provide moderate protection while remaining mobile.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Voidsuits/security.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Voidsuits/security.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.65
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.7
+        Radiation: 0.6
+        Caustic: 0.5
+  - type: ClothingSpeedModifier
+    sprintModifier: 0.85
+    walkModifier: 0.85
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing # Goobstation - Modsuits change
+    clothingPrototypes:
+      head: ClothingHeadHelmetVoidsuitSecurity
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 2
+    knockdownTimeDelta: -2
+  - type: StaminaDamageResistance
+    coefficient: 0.6
+
+## Heady of security voidsuit
+#- type: entity
+#  parent: [ClothingOuterHardsuitBase, BaseCommandContraband]
+#  id: ClothingOuterVoidsuitHeadOfSecurity
+#  name: head of security's voidsuit
+#  description: Lighter and more protective than the standard security voidsuit, but not by much.
+#  components:
+#  - type: Sprite
+#    sprite: Clothing/OuterClothing/Hardsuits/security-red.rsi
+#  - type: Clothing
+#    sprite: Clothing/OuterClothing/Hardsuits/security-red.rsi
+#  - type: PressureProtection
+#    highPressureMultiplier: 0.45
+#    lowPressureMultiplier: 1000
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.6
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.65
+#        Slash: 0.65
+#        Piercing: 0.65
+#        Heat: 0.7
+#        Radiation: 0.5
+#        Caustic: 0.5
+#  - type: ClothingSpeedModifier
+#    walkModifier: 0.9
+#    sprintModifier: 0.9
+#  - type: HeldSpeedModifier
+#  - type: ToggleableClothing
+#    clothingPrototypes:
+#      head: ClothingHeadHelmetHardsuitSecurityRed
+#  - type: ModifyDelayedKnockdown # Goobstation
+#    delayDelta: 3
+#    knockdownTimeDelta: -3
+#  - type: StaminaDamageResistance # Goobstation
+#    coefficient: 0.5
+#
+## Engineer
+#- type: entity
+#  parent: [ClothingOuterHardsuitBase, BaseEngineeringContraband]
+#  id: ClothingOuterVoidsuitEngineer
+#  name: engineering voidsuit
+#  description: A special voidsuit that protects against hazardous, low pressure environments. Has radiation shielding.
+#  components:
+#  - type: Sprite
+#    sprite: Clothing/OuterClothing/Hardsuits/engineering.rsi
+#  - type: Clothing
+#    sprite: Clothing/OuterClothing/Hardsuits/engineering.rsi
+#  - type: PressureProtection
+#    highPressureMultiplier: 0.04
+#    lowPressureMultiplier: 1000
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.5
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Shock: 0.5
+#        Caustic: 0.7
+#        Radiation: 0.35
+#  - type: ClothingSpeedModifier
+#    walkModifier: 0.85
+#    sprintModifier: 0.85
+#  - type: HeldSpeedModifier
+#  - type: ToggleableClothing # Goobstation - Modsuits change
+#    clothingPrototypes:
+#      head: ClothingHeadHelmetHardsuitEngineering
+
+#Head of Security's Voidsuit
 - type: entity
   parent: ClothingOuterHardsuitSecurityRed
   id: ClothingOuterHardsuitHeadOfSecurityExperimental
-  name: FI-52 "Honor Guard" parade hardsuit
-  description: A special suit that protects against hazardous, low pressure environments. Has an experimental inbuilt stimulant autoinjector system.
+  name: FI-52 "Honor Guard" parade voidsuit
+  description: A special voidsuit that protects against hazardous, low pressure environments. Has an experimental inbuilt stimulant autoinjector system.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/hos-expi.rsi
@@ -271,3 +434,5 @@
       Epinephrine: 10
       Bicaridine: 10
       TranexamicAcid: 5
+  - type: Item
+    size: Huge

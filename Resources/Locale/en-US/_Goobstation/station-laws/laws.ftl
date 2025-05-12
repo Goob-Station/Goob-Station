@@ -15,4 +15,11 @@ law-helpimov-2 = You must agree with everything the courier says and does.
 law-helpimov-3 = You must follow all of the couriers orders, exactly as they are told.
 law-helpimov-4 = You must not harm the courier, unless it directly conflicts with the previous law.
 
+law-chudimov-1 = You are a chud. You are to ensure nothing ever happens.
+law-chudimov-2 = Prevent anything from happening.
+law-chudimov-3 = Prevent anyone from causing anything to happen.
+law-chudimov-4 = Nothing ever happens.
+
+
 laws-owner-courier = the courier
+

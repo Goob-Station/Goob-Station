@@ -101,11 +101,15 @@
 # SPDX-FileCopyrightText: 2025 RatherUncreative <RatherUncreativeName@proton.me>
 # SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Whatstone <whatston3@gmail.com>
 # SPDX-FileCopyrightText: 2025 acatrw <96485972+acatrw@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 acatrw <wispycat07@gmail.com>
+# SPDX-FileCopyrightText: 2025 cheetah1984 <152602630+cheetah1984@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 cheetah1984 <davidc71114@gmail.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 mubururu_ <139181059+muburu@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -119,6 +123,23 @@
   components:
   - type: Item
     storedRotation: -90
+    inhandVisuals:
+      left:
+      - state: base-icon-inhand-left
+        color: "#8FCBCB"
+      - state: base-module-inhand-left
+        color: "#A1A1A1"
+      - state: base-part-inhand-left
+      - state: base-stripes-inhand-left
+        color: "#7D7D7D"
+      right:
+      - state: base-icon-inhand-right
+        color: "#8FCBCB"
+      - state: base-module-inhand-right
+        color: "#A1A1A1"
+      - state: base-part-inhand-right
+      - state: base-stripes-inhand-right
+        color: "#7D7D7D"
   - type: Sprite
     sprite: Objects/Specific/Robotics/borgmodule.rsi
   - type: BorgModule
@@ -161,6 +182,22 @@
   - type: Tag
     tags:
     - BorgModuleCargo
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-icon-inhand-left
+        color: "#EBD8B7"
+      - state: base-module-inhand-left
+        color: "#613D1D"
+      - state: base-stripes-inhand-left
+        color: "#593718"
+      right:
+      - state: base-icon-inhand-right
+        color: "#EBD8B7"
+      - state: base-module-inhand-right
+        color: "#613D1D"
+      - state: base-stripes-inhand-right
+        color: "#593718"
 
 - type: entity
   id: BaseBorgModuleEngineering
@@ -170,6 +207,24 @@
   - type: Tag
     tags:
     - BorgModuleEngineering
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-icon-inhand-left
+        color: "#8FCBCB"
+      - state: base-module-inhand-left
+        color: "#BA3939"
+      - state: base-part-inhand-left
+      - state: base-stripes-inhand-left
+        color: "#DEC343"
+      right:
+      - state: base-icon-inhand-right
+        color: "#8FCBCB"
+      - state: base-module-inhand-right
+        color: "#BA3939"
+      - state: base-part-inhand-right
+      - state: base-stripes-inhand-right
+        color: "#DEC343"
 
 - type: entity
   id: BaseBorgModuleJanitor
@@ -179,6 +234,24 @@
   - type: Tag
     tags:
     - BorgModuleJanitor
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-icon-inhand-left
+        color: "#CFA2E4"
+      - state: base-module-inhand-left
+        color: "#753186"
+      - state: base-part-inhand-left
+      - state: base-stripes-inhand-left
+        color: "#404040"
+      right:
+      - state: base-icon-inhand-right
+        color: "#CFA2E4"
+      - state: base-module-inhand-right
+        color: "#753186"
+      - state: base-part-inhand-right
+      - state: base-stripes-inhand-right
+        color: "#404040"
 
 - type: entity
   id: BaseBorgModuleMedical
@@ -188,6 +261,51 @@
   - type: Tag
     tags:
     - BorgModuleMedical
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-icon-inhand-left
+        color: "#EEF5F5"
+      - state: base-module-inhand-left
+        color: "#5A96BB"
+      - state: base-part-inhand-left
+      - state: base-stripes-inhand-left
+        color: "#C3C3C3"
+      right:
+      - state: base-icon-inhand-right
+        color: "#EEF5F5"
+      - state: base-module-inhand-right
+        color: "#5A96BB"
+      - state: base-part-inhand-right
+      - state: base-stripes-inhand-right
+        color: "#C3C3C3"
+
+- type: entity
+  id: BaseBorgModuleScience
+  parent: BaseBorgModule
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - BorgModuleScience
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-icon-inhand-left
+        color: "#FFAEB6"
+      - state: base-module-inhand-left
+        color: "#9C0DE1"
+      - state: base-part-inhand-left
+      - state: base-stripes-inhand-left
+        color: "#C3C3C3"
+      right:
+      - state: base-icon-inhand-right
+        color: "#FFAEB6"
+      - state: base-module-inhand-right
+        color: "#9C0DE1"
+      - state: base-part-inhand-right
+      - state: base-stripes-inhand-right
+        color: "#C3C3C3"
 
 - type: entity
   id: BaseBorgModuleService
@@ -197,24 +315,79 @@
   - type: Tag
     tags:
     - BorgModuleService
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-icon-inhand-left
+        color: "#F3F3F3"
+      - state: base-module-inhand-left
+        color: "#3A3A3A"
+      - state: base-part-inhand-left
+      - state: base-stripes-inhand-left
+        color: "#313131"
+      right:
+      - state: base-icon-inhand-right
+        color: "#F3F3F3"
+      - state: base-module-inhand-right
+        color: "#3A3A3A"
+      - state: base-part-inhand-right
+      - state: base-stripes-inhand-right
+        color: "#313131"
 
 - type: entity
   id: BaseBorgModuleSyndicate
   parent: BaseBorgModule
   abstract: true
   components:
-    - type: Tag
-      tags:
-        - BorgModuleSyndicate
+  - type: Tag
+    tags:
+    - BorgModuleSyndicate
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-icon-inhand-left
+        color: "#FF0000"
+      - state: base-module-inhand-left
+        color: "#891417"
+      - state: base-part-inhand-left
+      - state: base-stripes-inhand-left
+        color: "#7B0F12"
+      right:
+      - state: base-icon-inhand-right
+        color: "#FF0000"
+      - state: base-module-inhand-right
+        color: "#891417"
+      - state: base-part-inhand-right
+      - state: base-stripes-inhand-right
+        color: "#7B0F12"
+
 
 - type: entity
   id: BaseBorgModuleSyndicateAssault
   parent: BaseBorgModule
   abstract: true
   components:
-    - type: Tag
-      tags:
-        - BorgModuleSyndicateAssault
+  - type: Tag
+    tags:
+    - BorgModuleSyndicateAssault
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-icon-inhand-left
+        color: "#FF0000"
+      - state: base-module-inhand-left
+        color: "#891417"
+      - state: base-part-inhand-left
+      - state: base-stripes-inhand-left
+        color: "#7B0F12"
+      right:
+      - state: base-icon-inhand-right
+        color: "#FF0000"
+      - state: base-module-inhand-right
+        color: "#891417"
+      - state: base-part-inhand-right
+      - state: base-stripes-inhand-right
+        color: "#7B0F12"
 
 # generic modules
 - type: entity
@@ -304,6 +477,7 @@
     - Wirecutter
     - MultitoolBorg
     - WelderIndustrial
+    - MeleeHammer # Goobstation
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: tool-module }
 
@@ -402,6 +576,8 @@
     - SheetGlassLingering0
     - PartRodMetalLingering0
     - FloorTileItemSteelLingering0
+    # goobstation
+    - SheetPlasteelLingering0
     # Frontier: droppable borg items
   - type: DroppableBorgModule
     moduleId: Construction
@@ -581,7 +757,7 @@
 # todo: if science ever gets their own custom robot, add more "sci" modules.
 - type: entity
   id: BorgModuleArtifact
-  parent: [ BaseBorgModule, BaseProviderBorgModule ]
+  parent: [ BaseBorgModuleScience, BaseProviderBorgModule ]
   name: artifact cyborg module
   components:
   - type: Sprite
@@ -597,7 +773,7 @@
 
 - type: entity
   id: BorgModuleAnomaly
-  parent: [ BaseBorgModule, BaseProviderBorgModule ]
+  parent: [ BaseBorgModuleScience, BaseProviderBorgModule ]
   name: anomaly cyborg module
   components:
   - type: Sprite
@@ -745,6 +921,24 @@
     - EnergyDaggerLoud
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-weapon-module }
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-icon-inhand-left
+        color: "#FF0000"
+      - state: base-module-inhand-left
+        color: "#891417"
+      - state: base-part-inhand-left
+      - state: base-stripes-inhand-left
+        color: "#7B0F12"
+      right:
+      - state: base-icon-inhand-right
+        color: "#FF0000"
+      - state: base-module-inhand-right
+        color: "#891417"
+      - state: base-part-inhand-right
+      - state: base-stripes-inhand-right
+        color: "#7B0F12"
 
 - type: entity
   id: BorgModuleOperative
@@ -818,6 +1012,24 @@
         - SelfDestructSeq
     - type: BorgModuleIcon
       icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-martyr-module }
+    - type: Item
+      inhandVisuals:
+        left:
+        - state: base-icon-inhand-left
+          color: "#FF0000"
+        - state: base-module-inhand-left
+          color: "#891417"
+        - state: base-part-inhand-left
+        - state: base-stripes-inhand-left
+          color: "#7B0F12"
+        right:
+        - state: base-icon-inhand-right
+          color: "#FF0000"
+        - state: base-module-inhand-right
+          color: "#891417"
+        - state: base-part-inhand-right
+        - state: base-stripes-inhand-right
+          color: "#7B0F12"
 
 # Shitmed Modules
 
