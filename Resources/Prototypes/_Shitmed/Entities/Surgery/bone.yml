@@ -31,6 +31,3 @@
     sprite: Objects/Materials/materials.rsi
     state: bones
   - type: Appearance
-  
-  
-

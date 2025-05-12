@@ -3,11 +3,11 @@ using Robust.Shared.GameStates;
 using Content.Shared.Damage.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 
 [RegisterComponent, NetworkedComponent]
+[EntityCategory("Wounds")]
 public sealed partial class WoundComponent : Component
 {
     /// <summary>
@@ -51,8 +51,8 @@ public sealed partial class WoundComponent : Component
     /// <summary>
     /// Damage type of this wound.
     /// </summary>
-    [DataField(required: true, customTypeSerializer: typeof(PrototypeIdSerializer<DamageTypePrototype>))]
-    public string DamageType;
+    [DataField(required: true)]
+    public ProtoId<DamageTypePrototype> DamageType;
 
     /// <summary>
     /// Scar wound prototype, what will be spawned upon healing this wound.
