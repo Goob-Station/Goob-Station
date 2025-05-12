@@ -243,11 +243,11 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Melee/Ghetto/metal_bat.rsi
   - type: MeleeWeapon # the difference? +2 damage compared to a normal bat, shoudlnt be an op weapon
+    heavyStaminaCost: 85
     damage:
       types:
         Blunt: 12
         Structural: 7
-  - heavyStaminaCost: 85 # goob edit
   - type: IncreaseDamageOnWield
     damage:
       types:
