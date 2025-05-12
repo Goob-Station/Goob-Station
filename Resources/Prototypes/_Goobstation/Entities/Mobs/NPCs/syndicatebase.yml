@@ -8,7 +8,6 @@
   parent: BaseMobHuman
   id: MobSyndicateGuardMeleeT1
   suffix: meleeT1
-  special:
   components:
     - type: RandomHumanoidAppearance
     - type: NpcFactionMember
@@ -36,7 +35,6 @@
   parent: BaseMobHuman
   id: MobSyndicateGuardRangedT1
   suffix: rangedT1
-  special:
   components:
     - type: RandomHumanoidAppearance
     - type: NpcFactionMember
@@ -64,7 +62,6 @@
   parent: BaseMobHuman
   id: MobSyndicateGuardRangedT2
   suffix: rangedT2
-  special:
   components:
     - type: RandomHumanoidAppearance
     - type: NpcFactionMember
@@ -92,7 +89,6 @@
   parent: BaseMobHuman
   id: MobSyndicateGuardMeleeT2
   suffix: meleeT2
-  special:
   components:
     - type: RandomHumanoidAppearance
     - type: NpcFactionMember
@@ -120,7 +116,6 @@
   parent: BaseMobHuman
   id: SyndicateOverseer
   suffix: ghostrole
-  special:
   components:
     - type: GhostTakeoverAvailable
     - type: GhostRole
