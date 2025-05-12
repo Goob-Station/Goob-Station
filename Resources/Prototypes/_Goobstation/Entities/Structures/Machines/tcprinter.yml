@@ -48,6 +48,11 @@
           tags:
           - Telecrystal
   - type: ContainerContainer
+    containers:
+      tc_slot: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
   - type: Transform
     anchored: true
   - type: Physics
