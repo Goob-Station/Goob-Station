@@ -1,14 +1,19 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Shared.Factory.Slots;
+using Robust.Shared.Physics.Components;
+using Robust.Shared.Physics.Systems;
 
 namespace Content.Goobstation.Shared.Factory;
 
 public sealed class AutomationSystem : EntitySystem
 {
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+
     private EntityQuery<AutomationSlotsComponent> _slotsQuery;
     private EntityQuery<AutomatedComponent> _automatedQuery;
 
@@ -23,6 +28,8 @@ public sealed class AutomationSystem : EntitySystem
 
         SubscribeLocalEvent<AutomatedComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<AutomatedComponent, ComponentShutdown>(OnShutdown);
+
+        SubscribeLocalEvent<PhysicsComponent, AnchorStateChangedEvent>(OnAnchorChanged);
     }
 
     private void OnInit(Entity<AutomationSlotsComponent> ent, ref ComponentInit args)
@@ -54,6 +61,14 @@ public sealed class AutomationSystem : EntitySystem
         {
             slot.RemovePorts();
         }
+    }
+
+    private void OnAnchorChanged(Entity<PhysicsComponent> ent, ref AnchorStateChangedEvent args)
+    {
+        // force collision events so machines can react to objects getting unanchored
+        // should get reset after a tick due to collision wake
+        if (!args.Anchored)
+            _physics.WakeBody(ent);
     }
 
     #region Public API
