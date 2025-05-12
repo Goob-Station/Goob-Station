@@ -41,13 +41,13 @@
         spawn:
           SheetPlasteel1:
             min: 0
-            max: 3
+            max: 2
           SheetPlastic1:
             min: 0
-            max: 3
+            max: 2
           ShardGlass:
             min: 0
-            max: 3
+            max: 2
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: Storage

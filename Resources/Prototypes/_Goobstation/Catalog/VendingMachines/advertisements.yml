@@ -26,7 +26,7 @@
   id: SolsnackAds
   values:
     prefix: advertisement-solsnack-
-    count: 3
+    count: 4
 
 - type: localizedDataset
   id: WeebVendAds
