@@ -9,11 +9,11 @@ namespace Content.Client._CorvaxNext.Silicons.Laws.Ui
     public sealed partial class RemoteDeviceDisplay : Control
     {
         public event Action<RemoteDeviceActionEvent>? OnRemoteDeviceAction;
-        public RemoteDeviceDisplay(NetEntity netEntityUid, String diplayName)
+        public RemoteDeviceDisplay(NetEntity netEntityUid, String displayName)
         {
             RobustXamlLoader.Load(this);
 
-            DeviceName.SetMessage(diplayName);
+            DeviceName.SetMessage(displayName);
 
             MoveButton.OnPressed += _ =>
             {
