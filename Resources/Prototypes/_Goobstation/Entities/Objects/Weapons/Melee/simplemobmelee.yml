@@ -42,23 +42,3 @@
   - type: TelescopicBaton
     alwaysDropItems: true
 
-- type: entity
-  name: machete
-  parent: [ BaseSword, BaseMajorContraband ]
-  id: Machete
-  description: A large, vicious looking blade.
-  components:
-  - type: Tag
-    tags:
-    - Machete
-  - type: Sprite
-    sprite: Objects/Weapons/Melee/machete.rsi
-  - type: MeleeWeapon
-    damage:
-      types:
-        Slash: 15
-    soundHit:
-        path: /Audio/Weapons/bladeslice.ogg
-  - type: Item
-    sprite: Objects/Weapons/Melee/machete.rsi
-  - type: DisarmMalus
