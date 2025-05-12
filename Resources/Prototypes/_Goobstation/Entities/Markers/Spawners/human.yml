@@ -10,7 +10,7 @@
   components:
   - type: ConditionalSpawner
     prototypes:
-    - SyndicateGuardMeleeTier1
+    - MobSyndicateGuardMeleeT1
 
 - type: entity
   name: syndicate Melee T2 Spawner
@@ -19,7 +19,7 @@
   components:
   - type: ConditionalSpawner
     prototypes:
-    - SyndicateGuardMeleeTier2
+    - MobSyndicateGuardMeleeT2
 
 - type: entity
   name: syndicate Ranged T1 Spawner
@@ -28,7 +28,7 @@
   components:
   - type: ConditionalSpawner
     prototypes:
-    - SyndicateGuardMeleeTier1
+    - MobSyndicateGuardRangedT1
 
 - type: entity
   name: syndicate Ranged T2 Spawner
@@ -37,7 +37,7 @@
   components:
   - type: ConditionalSpawner
     prototypes:
-    - SyndicateGuardMeleeTier1
+    - MobSyndicateGuardRangedT2
 
 - type: entity
   name: syndicate overseer
