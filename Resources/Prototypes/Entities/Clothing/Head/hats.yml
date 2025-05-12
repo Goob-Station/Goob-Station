@@ -199,7 +199,7 @@
     - WhitelistChameleon
 
 - type: entity
-  parent: [ClothingHeadHatBeret, ClothingHeadHelmetBase] # Goob
+  parent: ClothingHeadHatBeret # Goob
   id: ClothingHeadHatBeretSecurity
   name: security beret
   description: A stylish clothing option for security officers.
@@ -213,9 +213,24 @@
     - ClothMade
     - HamsterWearable
     - WhitelistChameleon
+  - type: Armor # Goob
+    coverage:
+    - Head
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.65
+        Heat: 0.75
 
 - type: entity
-  parent: [ClothingHeadHatBeret, ClothingHeadHelmetBase] # Goob
+  parent: ClothingHeadHatBeret
   id: ClothingHeadHatSecurityTrooper
   name: trooper hat
   description: A campaign hat for the Nanotrasen Troopers, comes with a case too, but you lost it.
@@ -228,6 +243,21 @@
     tags:
     - ClothMade
     - WhitelistChameleon
+  - type: Armor # Goob
+    coverage:
+    - Head
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.65
+        Heat: 0.75
 
 - type: entity
   parent: ClothingHeadHatBeret
@@ -293,7 +323,7 @@
     - WhitelistChameleon
 
 - type: entity
-  parent: [ClothingHeadHatBeretRND, ClothingHeadHelmetBase] # Goob
+  parent: ClothingHeadHatBeretRND # Goob
   id: ClothingHeadHatBeretHoS
   name: head of security's beret
   description: A black beret with a commander's rank emblem. For officers that are more inclined towards style than safety.
@@ -307,6 +337,21 @@
     - ClothMade
     - HamsterWearable
     - WhitelistChameleon
+  - type: Armor # Goob
+    coverage:
+    - Head
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.65
+        Heat: 0.75
 
 - type: entity
   parent: ClothingHeadHatBeretRND
@@ -490,7 +535,7 @@
     - WhitelistChameleon
 
 - type: entity
-  parent: [ClothingHeadBase, ClothingHeadHelmetBase, BaseCommandContraband] # Goob
+  parent: [ClothingHeadBase, BaseCommandContraband]
   id: ClothingHeadHatHoshat
   name: head of security cap
   description: The robust standard-issue cap of the Head of Security. For showing the officers who's in charge.
@@ -504,6 +549,21 @@
     - ClothMade
     - HamsterWearable
     - WhitelistChameleon
+  - type: Armor # Goob
+    coverage:
+    - Head
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.65
+        Heat: 0.75
 
 - type: entity
   parent: ClothingHeadBase
