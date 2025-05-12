@@ -53,6 +53,12 @@ public sealed partial class HeatlampComponent : Component
     public bool NeedsPower = true;
 
     /// <summary>
+    /// Should the temperature change happen regardless of resistances?
+    /// </summary>
+    [DataField]
+    public bool ForceHeat;
+
+    /// <summary>
     /// What amount is the efficiency multiplied by when contained.
     /// </summary>
     [DataField]

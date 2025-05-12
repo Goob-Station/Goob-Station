@@ -147,6 +147,7 @@
   - type: Heatlamp
     powerToHeatMultiplier: 200
     containerMultiplier: 1
+    forceHeat: true
     activatedDamage:
       types:
         Heat: 15

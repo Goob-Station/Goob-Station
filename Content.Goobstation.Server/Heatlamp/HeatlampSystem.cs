@@ -143,7 +143,7 @@ public sealed partial class HeatlampSystem : EntitySystem
         if (deltaIsNegative)
             totalTransfer *= heater.Comp.NegativeDeltaMultiplier;
 
-        _temperature.ChangeHeat(user, totalTransfer);
+        _temperature.ChangeHeat(user, totalTransfer, heater.Comp.ForceHeat);
     }
     private void OnInsertedContainer(Entity<HeatlampComponent> lamp, ref EntGotInsertedIntoContainerMessage args)
     {
