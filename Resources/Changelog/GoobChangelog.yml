@@ -9080,3 +9080,31 @@ Entries:
       message: Cyborgs now get hammers in their tool modules. Go crazy.
   id: 1029
   time: '2025-05-12T06:41:59.0000000+00:00'
+- author: AftrLite, sowelipililimute, mocho
+  changes:
+    - type: Add
+      message: Null Glare now affects IPCs and Silicons in general!
+    - type: Add
+      message: Added a special lawboard for cosmic cult.
+    - type: Add
+      message: >-
+        Added a funny figurine after being ~~threatened~~ inspired by The
+        Unknown.
+    - type: Fix
+      message: >-
+        Popups now display properly if you pick up a cosmic cult weapon as non
+        cult.
+    - type: Tweak
+      message: Increased speed of the cosmic cult speed ability.
+    - type: Tweak
+      message: Increased interaction time to usher in the end by 6 seconds.
+    - type: Tweak
+      message: Astral Razor doesn't sound like a PKA anymore!
+    - type: Fix
+      message: Fixed the monument being invisible upon disconnection and reconnection.
+    - type: Fix
+      message: >-
+        Fixed the monument having a sprite fade that would make it impossible to
+        interact with it normally.
+  id: 1030
+  time: '2025-05-12T06:43:03.0000000+00:00'
