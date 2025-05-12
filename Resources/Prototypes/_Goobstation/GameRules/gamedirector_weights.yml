@@ -21,7 +21,7 @@
     Zombie: 0.04
     Heretic: 0.11
     BlobGameMode: 0.05
-    Wizard: 0.02
+    Wizard: 0.025
     CosmicCult: 0.12 # make it semi often so we can test it
     #HonkOps: 0.01 # this test fail was real holy shit it was only a preset the entire a time i was lied too by myself
 
