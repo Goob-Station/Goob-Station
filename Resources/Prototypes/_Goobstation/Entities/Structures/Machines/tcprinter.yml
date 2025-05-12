@@ -13,7 +13,7 @@
   - type: ApcPowerReceiver
     powerLoad: 10000
   - type: TelecrystalMiner
-    required: 60 # 600/(10*1) = 10min
+    required: 60 # breakeven
   - type: ItemMiner
     interval: 10
     amount: 1

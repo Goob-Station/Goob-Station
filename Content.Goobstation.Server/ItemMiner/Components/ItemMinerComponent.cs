@@ -42,7 +42,7 @@ public sealed partial class ItemMinerComponent : Component
     /// Sound to loop while working
     /// </summary>
     [DataField]
-    public SoundSpecifier? MiningSound = new SoundPathSpecifier("/Audio/Ambience/Objects/server_fans.ogg");
+    public SoundSpecifier? MiningSound = new SoundPathSpecifier("/Audio/Ambience/Objects/server_fans.ogg", AudioParams.Default.WithVolume(-7));
 
     /// <summary>
     /// How often to produce the item
