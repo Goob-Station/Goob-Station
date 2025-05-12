@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Damage;
 using Robust.Shared.Audio;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
@@ -50,7 +56,7 @@ public sealed partial class CosmicFinaleComponent : Component
     public SoundSpecifier? SelectedSong;
 
     [DataField]
-    public TimeSpan InteractionTime = TimeSpan.FromSeconds(8);
+    public TimeSpan InteractionTime = TimeSpan.FromSeconds(14);
 
     [DataField]
     public SoundSpecifier BufferMusic = new SoundPathSpecifier("/Audio/_DV/CosmicCult/premonition.ogg");

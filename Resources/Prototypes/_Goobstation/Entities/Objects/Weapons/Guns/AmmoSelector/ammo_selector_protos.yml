@@ -1,5 +1,8 @@
 # SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -80,7 +83,7 @@
     state: pulse
   color: blue
   protoId: BulletPulse
-  fireCost: 80
+  fireCost: 500
 
 - type: selectableAmmo
   id: BulletEnergyGunDetain
@@ -90,17 +93,17 @@
     state: omnilaser
   color: blue
   protoId: BulletDetain
-  fireCost: 80
+  fireCost: 40
 
 - type: selectableAmmo
   id: BulletEnergyGunExecute
-  desc: A highly damaging, and slightly radioactive bolt. Great for putting things down.
+  desc: A highly damaging bolt. Great for putting things down.
   icon:
     sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
     state: execute
   color: green
   protoId: BulletExecute
-  fireCost: 120
+  fireCost: 80
 
 - type: selectableAmmo
   id: BulletEnergyGunHotshot
@@ -110,7 +113,7 @@
     state: hotshot
   color: red
   protoId: BulletHotshot
-  fireCost: 100
+  fireCost: 150
 
 - type: selectableAmmo
   id: BulletEnergyGunSleepshot
@@ -120,7 +123,7 @@
     state: sleepshot
   color: pink
   protoId: BulletSleepshot
-  fireCost: 120
+  fireCost: 50
 
 - type: selectableAmmo
   id: BulletEnergyGunBigshot
