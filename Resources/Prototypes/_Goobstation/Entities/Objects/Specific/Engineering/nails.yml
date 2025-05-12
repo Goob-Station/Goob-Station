@@ -36,7 +36,7 @@
     soundHit:
       path: /Audio/Weapons/pierce.ogg
   - type: Projectile
-    armorPenetration: -1 # Very shitty against armor
+    armorPenetration: -0.75 # Very shitty against armor
     onlyCollideWhenShot: true
     damage:
       types:
