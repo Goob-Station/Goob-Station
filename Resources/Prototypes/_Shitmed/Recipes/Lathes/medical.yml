@@ -63,3 +63,10 @@
     Gold: 300
     Silver: 300
     Plasma: 300
+
+- type: latheRecipe
+  id: MedicalStitches
+  result: MedicalStitches
+  completetime: 2
+  materials:
+    Steel: 500
