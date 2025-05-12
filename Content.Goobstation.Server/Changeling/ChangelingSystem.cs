@@ -103,6 +103,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
 using Content.Shared.Medical;
+using Content.Shared.Rejuvenate;
 
 namespace Content.Goobstation.Server.Changeling;
 
@@ -171,6 +172,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         SubscribeLocalEvent<ChangelingIdentityComponent, DamageChangedEvent>(OnDamageChange);
         SubscribeLocalEvent<ChangelingIdentityComponent, ComponentRemove>(OnComponentRemove);
         SubscribeLocalEvent<ChangelingIdentityComponent, TargetBeforeDefibrillatorZapsEvent>(OnDefibZap);
+        SubscribeLocalEvent<ChangelingIdentityComponent, RejuvenateEvent>(OnRejuvenate);
 
         SubscribeLocalEvent<ChangelingIdentityComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshSpeed);
 
@@ -804,12 +806,19 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         if (!ent.Comp.IsInStasis)
         {
             var lowestStasisTime = ent.Comp.DefaultStasisTime;
-            var highestStasisTime = 180; // 3 minutes
+            var highestStasisTime = ent.Comp.MaxStasisTime; // 1.5 minutes
+            var catastrophicStasisTime = ent.Comp.CatastrophicStasisTime; // 2 minutes
+            var catastrophicDamage = 200f; // 100% dead
 
-            var damageToTime = float.Round(target.TotalDamage.Float());
+            var damageTaken = float.Round(target.TotalDamage.Float());
+            var damageToTime = MathF.Min(damageTaken, highestStasisTime);
 
-            var currentStasisTime = MathF.Min(damageToTime, highestStasisTime);
-            ent.Comp.StasisTime = MathF.Max(lowestStasisTime, currentStasisTime);
+            var newStasisTime = MathF.Max(lowestStasisTime, damageToTime);
+
+            if (damageTaken < catastrophicDamage)
+                ent.Comp.StasisTime = newStasisTime;
+            else
+                ent.Comp.StasisTime = catastrophicStasisTime;
         }
 
         if (!TryComp<MobStateComponent>(ent, out var mobState))
@@ -838,5 +847,14 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         }
     }
 
+    // this is more for admin rejuvenate, rather than stasis (even though stasis does rejuvenate)
+    private void OnRejuvenate(Entity<ChangelingIdentityComponent> ent, ref RejuvenateEvent args)
+    {
+        if (ent.Comp.IsInStasis)
+        {
+            ent.Comp.IsInStasis = false;
+            ent.Comp.StasisTime = ent.Comp.DefaultStasisTime;
+        }
+    }
     #endregion
 }

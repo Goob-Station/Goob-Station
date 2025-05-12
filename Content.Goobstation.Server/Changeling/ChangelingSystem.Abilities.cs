@@ -359,10 +359,19 @@ public sealed partial class ChangelingSystem
             // fake our death
             var othersMessage = Loc.GetString("suicide-command-default-text-others", ("name", uid));
             _popup.PopupEntity(othersMessage, uid, Filter.PvsExcept(uid), true);
-
-            var selfMessage = Loc.GetString("changeling-stasis-enter");
-            _popup.PopupEntity(selfMessage, uid, uid);
         }
+
+        var currentTime = comp.StasisTime;
+        var lowestTime = comp.DefaultStasisTime;
+        var highestTime = comp.CatastrophicStasisTime;
+
+        /// tell the changeling how bad they screwed up
+        if (currentTime == lowestTime)
+            _popup.PopupEntity(Loc.GetString("changeling-stasis-enter"), uid, uid);
+        else if (currentTime > lowestTime && currentTime < highestTime)
+            _popup.PopupEntity(Loc.GetString("changeling-stasis-enter-damaged"), uid, uid);
+        else
+            _popup.PopupEntity(Loc.GetString("changeling-stasis-enter-catastrophic"), uid, uid);
 
         if (!_mobState.IsDead(uid))
             _mobState.ChangeMobState(uid, MobState.Dead);
