@@ -225,7 +225,7 @@
     - type: Absorbent
       pickupAmount: 100
     - type: UseDelay
-      delay: 1.0
+      delay: 0.12
     - type: SolutionRegeneration
       solution: absorbed
       generated:
