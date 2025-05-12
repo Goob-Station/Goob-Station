@@ -31,6 +31,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
+    deselectOnMiss: true
     canTargetSelf: true
     useDelay: 120
     whitelist:
@@ -105,6 +106,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
+    deselectOnMiss: true
     canTargetSelf: true
     useDelay: 24
     whitelist:
@@ -140,6 +142,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
+    deselectOnMiss: true
     useDelay: 5
     whitelist:
       components:
@@ -205,6 +208,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
+    deselectOnMiss: true
     useDelay: 5
     whitelist:
       components:
@@ -227,6 +231,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
+    deselectOnMiss: true
     useDelay: 55
     whitelist:
       components:
