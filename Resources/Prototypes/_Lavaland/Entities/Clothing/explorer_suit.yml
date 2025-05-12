@@ -41,9 +41,9 @@
     - Leg
     - Tail
     traumaDeductions:
-      Dismemberment: 0.33
-      OrganDamage: 0.33
-      BoneDamage: 0.33
+      Dismemberment: 0.25
+      OrganDamage: 0.25
+      BoneDamage: 0.25
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
@@ -89,6 +89,12 @@
     - HeadTop
     - HeadSide
   - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.25
+      OrganDamage: 0.25
+      BoneDamage: 0.25
+      VeinsDamage: 0
+      NerveDamage: 0
     coverage:
     - Head
     modifiers:

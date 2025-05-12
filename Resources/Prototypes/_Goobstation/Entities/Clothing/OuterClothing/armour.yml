@@ -245,12 +245,12 @@
     - Tail
     modifiers:
       coefficients:
-        Blunt: 0.55
-        Slash: 0.55
-        Piercing: 0.55
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
         Heat: 0.7
   - type: ExplosionResistance
-    damageCoefficient: 0.85
+    damageCoefficient: 0.8
   - type: ToggleableClothing
     stripDelay: null
     clothingPrototypes:

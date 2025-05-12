@@ -24,16 +24,6 @@
   - type: TemperatureProtection
     heatingCoefficient: 0.1
     coolingCoefficient: 0.1
-  - type: Armor
-    coverage:
-    - Head
-    modifiers:
-      coefficients:
-        Blunt: 0.35
-        Slash: 0.35
-        Piercing: 0.35
-        Heat: 0.35
-        Caustic: 0.5
   - type: HideLayerClothing
     slots:
     - Hair
@@ -106,11 +96,13 @@
   - type: Clothing
     sprite: Clothing/Head/Hoods/voidcloak.rsi
   - type: Armor
+    coverage:
+    - Head
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.7
   - type: PressureProtection
     lowPressureMultiplier: 1000
