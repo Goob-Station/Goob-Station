@@ -23,7 +23,7 @@ public sealed class InteractorSystem : SharedInteractorSystem
         SubscribeLocalEvent<InteractorComponent, MachineStartedEvent>(OnStarted);
     }
 
-    private void OnStarted(Entity<InteractorComponent> ent, ref MachineStartedEvent)
+    private void OnStarted(Entity<InteractorComponent> ent, ref MachineStartedEvent args)
     {
         // nothing there or another doafter is already running
         var count = ent.Comp.TargetEntities.Count;
