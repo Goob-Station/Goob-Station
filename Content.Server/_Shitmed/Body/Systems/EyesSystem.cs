@@ -56,15 +56,10 @@ namespace Content.Server._Shitmed.Body.Systems
                 || !TryComp(uid, out OrganComponent? organ)
                 || !organ.Body.HasValue
                 || !TryComp(organ.Body.Value, out BlindableComponent? blindable)
-                || organ.IntegrityCap - organ.OrganIntegrity <= 0)
+                || organ.OrganIntegrity <= 0)
                 return;
 
-            var adjustment = (int)(organ.IntegrityCap - organ.OrganIntegrity);
-
-            if (adjustment == 0)
-                return;
-
-            _blindableSystem.SetEyeDamage((organ.Body.Value, blindable), adjustment);
+            _blindableSystem.SetEyeDamage((organ.Body.Value, blindable), (int) organ.OrganIntegrity);
         }
 
         private void OnOrganEnabled(EntityUid uid, EyesComponent component, OrganEnabledEvent args)

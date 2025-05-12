@@ -105,7 +105,6 @@ public sealed class BlindableSystem : EntitySystem
     {
         if (!Resolve(blindable, ref blindable.Comp, false))
             return;
-
         blindable.Comp.EyeDamage = amount;
         UpdateEyeDamage(blindable, true);
     }

@@ -50,6 +50,7 @@ using Robust.Shared.Utility;
 // Shitmed Change
 using Content.Shared._Shitmed.Body.Events;
 using Content.Shared._Shitmed.Body.Part;
+using Content.Shared._Shitmed.CCVar;
 using Content.Shared._Shitmed.Humanoid.Events;
 using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
@@ -66,6 +67,7 @@ using Content.Shared.Standing;
 using Robust.Shared.Network;
 using Content.Shared.Rejuvenate;
 using Content.Shared.Popups;
+using Robust.Shared.Configuration;
 using Robust.Shared.Timing;
 using Content.Goobstation.Maths.FixedPoint;
 
@@ -89,10 +91,12 @@ public partial class SharedBodySystem
     [Dependency] private readonly WoundSystem _woundSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly TraumaSystem _trauma = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
     // Shitmed Change End
 
     private const float GibletLaunchImpulse = 8;
     private const float GibletLaunchImpulseVariance = 3;
+    private float _medicalHealingTickrate = 2f;
 
     private void InitializeBody()
     {
@@ -110,6 +114,7 @@ public partial class SharedBodySystem
 
         // Shitmed Change: to prevent people from falling immediately as rejuvenated
         SubscribeLocalEvent<BodyComponent, RejuvenateEvent>(OnRejuvenate);
+        Subs.CVar(_cfg, SurgeryCVars.MedicalHealingTickrate, val => _medicalHealingTickrate = val, true);
     }
 
     private void OnAttemptStopPulling(Entity<BodyComponent> ent, ref AttemptStopPullingEvent args) // Goobstation
@@ -174,6 +179,13 @@ public partial class SharedBodySystem
     {
         // Setup the initial container.
         ent.Comp.RootContainer = Containers.EnsureContainer<ContainerSlot>(ent, BodyRootContainerId);
+
+        if (_timing.IsFirstTimePredicted)
+        {
+            Logger.Debug($"Init {ToPrettyString(ent)}");
+            ent.Comp.HealAt = _timing.CurTime + TimeSpan.FromSeconds(1f / _medicalHealingTickrate);
+            _woundSystem.AddToHealQueue((ent, ent.Comp));
+        }
     }
 
     private void OnBodyMapInit(Entity<BodyComponent> ent, ref MapInitEvent args)

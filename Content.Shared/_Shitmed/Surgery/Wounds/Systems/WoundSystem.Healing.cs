@@ -320,7 +320,6 @@ public partial class WoundSystem
     {
         if (healable)
             return GetWoundableWounds(woundable)
-                .Where(wound => CanHealWound(wound, wound))
                 .Any(wound => wound.Comp.DamageType == damageType);
 
         return GetWoundableWounds(woundable).Any(wound => wound.Comp.DamageType == damageType);
@@ -333,7 +332,6 @@ public partial class WoundSystem
     {
         if (healable)
             return GetWoundableWounds(woundable)
-                .Where(wound => CanHealWound(wound, wound))
                 .Any(wound => wound.Comp.DamageGroup?.ID == damageGroup);
 
         return GetWoundableWounds(woundable).Any(wound => wound.Comp.DamageGroup?.ID == damageGroup);

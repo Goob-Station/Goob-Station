@@ -522,6 +522,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         {
             if (name is null
                 || name == BloodstreamComponent.DefaultBloodTemporarySolutionName
+                || name == "print" // I hate this so fucking much.
                 || !TryGetNetEntity(solution, out var netSolution))
                 continue;
 

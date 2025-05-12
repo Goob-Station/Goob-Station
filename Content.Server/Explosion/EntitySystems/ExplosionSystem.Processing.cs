@@ -576,7 +576,8 @@ public sealed partial class ExplosionSystem
 
                 // TODO EXPLOSIONS turn explosions into entities, and pass the the entity in as the damage origin.
                 // Shitmed Change Start
-                if (TryComp<BodyComponent>(entity, out var body) && HasComp<ConsciousnessComponent>(entity))
+                if (TryComp<BodyComponent>(entity, out var body)
+                    && HasComp<ConsciousnessComponent>(entity))
                 {
                     var bodyParts = _body.GetBodyChildren(entity, body).ToList();
                                         _robustRandom.Shuffle(bodyParts);
@@ -601,13 +602,15 @@ public sealed partial class ExplosionSystem
 
                     foreach (var part in prioritisedParts)
                     {
-                        _damageableSystem.TryChangeDamage(part, damage / prioritisedParts.Count, ignoreResistances: true);
+                        var targetPart = _body.GetTargetBodyPart(part);
+                        _damageableSystem.TryChangeDamage(uid, damage / prioritisedParts.Count, ignoreResistances: true, targetPart: targetPart);
                     }
 
                     foreach (var bodyPart in bodyParts)
                     {
                         // Distribute the last damage on the other parts... for the cinematic effect :3
-                        _damageableSystem.TryChangeDamage(bodyPart.Id, damage / bodyParts.Count, ignoreResistances: true);
+                        var targetPart = _body.GetTargetBodyPart(bodyPart.Id);
+                        _damageableSystem.TryChangeDamage(uid, damage / bodyParts.Count, ignoreResistances: true, targetPart: targetPart);
                     }
                 }
                 else

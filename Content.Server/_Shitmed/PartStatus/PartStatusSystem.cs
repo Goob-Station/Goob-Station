@@ -114,7 +114,8 @@ public sealed class PartStatusSystem : EntitySystem
 
         foreach (var wound in _woundSystem.GetWoundableWounds(woundable))
         {
-            if (wound.Comp.DamageGroup == null)
+            if (wound.Comp.DamageGroup == null
+                || wound.Comp.WoundSeverity == WoundSeverity.Healed)
                 continue;
 
             if (!damageSeverities.TryGetValue(wound.Comp.DamageType, out var existingSeverity) ||

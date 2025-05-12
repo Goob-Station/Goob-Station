@@ -57,7 +57,7 @@ public sealed partial class WoundSystem : EntitySystem
     [Dependency] private readonly TraumaSystem _trauma = default!;
 
     private float _medicalHealingTickrate = 2f;
-    private Queue<Entity<WoundableComponent?>> _healQueue = new(); // evil stateful data in system
+    private Queue<Entity<BodyComponent?>> _healQueue = new(); // evil stateful data in system
 
     public override void Initialize()
     {
@@ -143,6 +143,7 @@ public sealed partial class WoundSystem : EntitySystem
 
         if (component.WoundSeverityPoint != state.WoundSeverityPoint)
         {
+            Logger.Debug($"NETWORK: Wound Severity Point Changed: {component.WoundSeverityPoint} -> {state.WoundSeverityPoint}");
             var ev = new WoundSeverityPointChangedEvent(component,
                 component.WoundSeverityPoint,
                 state.WoundSeverityPoint);
@@ -303,6 +304,11 @@ public sealed partial class WoundSystem : EntitySystem
         component.WoundableSeverity = state.WoundableSeverity;
     }
 
+    public void AddToHealQueue(Entity<BodyComponent?> ent)
+    {
+        _healQueue.Enqueue(ent);
+    }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -314,9 +320,8 @@ public sealed partial class WoundSystem : EntitySystem
         do
         {
             var ent = _healQueue.Peek();
-            BodyComponent? body = null;
             // remove it from queue and go on if it's not real
-            if (TerminatingOrDeleted(ent) || !Resolve(ent, ref ent.Comp, ref body))
+            if (TerminatingOrDeleted(ent) || !Resolve(ent, ref ent.Comp))
             {
                 _healQueue.Dequeue();
                 if (ent == beginEnt && _healQueue.Count != 0)
@@ -325,17 +330,19 @@ public sealed partial class WoundSystem : EntitySystem
             }
 
             // queue is supposed to be sorted time-wise
-            if (body.HealAt > _timing.CurTime)
+            if (ent.Comp.HealAt > _timing.CurTime)
                 break;
 
+            Logger.Debug($"Healing {ToPrettyString(ent)} from update loop");
             // it's real and it's time, move it to the end of the queue
-            body.HealAt += TimeSpan.FromSeconds(1f / _medicalHealingTickrate);
+            ent.Comp.HealAt += TimeSpan.FromSeconds(1f / _medicalHealingTickrate);
             _healQueue.Dequeue();
             _healQueue.Enqueue(ent);
 
-            if (Paused(ent) || !_body.TryGetRootPart(ent, out var rootPart, body: body))
+            if (Paused(ent) || !_body.TryGetRootPart(ent, out var rootPart, body: ent.Comp))
                 continue;
 
+            Logger.Debug($"Processing healing for {ToPrettyString(rootPart.Value)}");
             foreach (var woundable in GetAllWoundableChildren(rootPart.Value))
                 ProcessHealing(woundable, frameTime);
 
@@ -357,6 +364,7 @@ public sealed partial class WoundSystem : EntitySystem
         if (bleedWounds.Length > 0)
         {
             var bleedTreatment = woundable.Comp.BleedingTreatmentAbility / bleedWounds.Length;
+            Logger.Debug($"Bleeding Amount: {bleedingAmount}, Bleeding Treatment Ability: {bleedTreatment}, Bleed Wounds Length: {bleedWounds.Length}");
             TryHealBleedingWounds(woundable, (float) -bleedTreatment, out _, woundable);
         }
 
