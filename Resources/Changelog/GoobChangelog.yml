@@ -9074,3 +9074,9 @@ Entries:
       message: Music instruments no longer need to be in your active hand.
   id: 1028
   time: '2025-05-12T06:41:36.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Cyborgs now get hammers in their tool modules. Go crazy.
+  id: 1029
+  time: '2025-05-12T06:41:59.0000000+00:00'
