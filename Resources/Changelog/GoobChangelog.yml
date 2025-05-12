@@ -8915,3 +8915,228 @@ Entries:
       message: Added Plasteel to the borg construction module!
   id: 1019
   time: '2025-05-11T02:26:26.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Cooking plastic in chemistry now yields five times more sheets.
+  id: 1020
+  time: '2025-05-11T03:17:54.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Borgs can now self-weld.
+  id: 1021
+  time: '2025-05-11T03:20:37.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: Fixed some typos.
+  id: 1022
+  time: '2025-05-11T03:21:52.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: >-
+        CE and HEV suit can now ignore teslas and containment fields. Enjoy
+        safely being in your tesla ballpit.
+  id: 1023
+  time: '2025-05-11T06:58:35.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: >-
+        Added a new lawset for AI. Purchasable by assistant and clown
+        syndicates.
+  id: 1024
+  time: '2025-05-11T07:12:12.0000000+00:00'
+- author: rotundfan
+  changes:
+    - type: Add
+      message: Your neon characters can be captain again.
+  id: 1025
+  time: '2025-05-11T19:51:11.0000000+00:00'
+- author: Mocho, Rxup, Trest, Rouden, CPT, gusxyz
+  changes:
+    - type: Remove
+      message: Changelings are no longer sever immune!
+    - type: Remove
+      message: >-
+        Removed mice dodging wideswing - not because i dislike it, but because
+        the way it was implemented was supercode. ILYA WE HAVE A WHOLE FUCKING
+        EVENT BUS, USE IT, DONT SHOVE MORE SHIT IN TRYCHANGEDAMAGE.
+    - type: Tweak
+      message: >-
+        Abductor organs can no longer be removed! Blame the metagamers for
+        ruining it :trollface:
+    - type: Tweak
+      message: >-
+        Removed Clickpartdamage and Heavypartdamage multipliers from most
+        weapons (esword, hyper freq blade, etc).
+    - type: Tweak
+      message: >-
+        Damage has been partially reworked! Now instead of your body taking
+        damage and routing it to each part, your body's damage is a summation of
+        the total damage taken by all your parts. This opens up avenues for
+        medical to strategically amputate very fucked up limbs to reduce the
+        amount of healing they need to do.
+    - type: Add
+      message: >-
+        The consequences of damage have also been reworked. Every instance of
+        damage inflicts or updates a matching "wound". Which is an interface for
+        consequences from every damage type.
+    - type: Add
+      message: >-
+        Added traumas! Consequences for damage which are associated with wound
+        infliction. They are rolled for by chance based on the type of wound.
+        For instance a slash wound would have a VERY high chance to inflict a
+        delimbing trauma. And a blunt wound would have a very high chance to
+        inflict organ damage and bone damage traumas. Each trauma has a minimum
+        damage threshold that an attack must inflict in order to do its thing.
+        (this prevents shotguns from being gigabusted :trollface:)
+    - type: Add
+      message: >-
+        Added a pain & consciousness system. For now its temporarily disabled,
+        but the gist of it is that your brain is a nerveous system, which is
+        connected to a bunch of nerves. Each body part is a nerve, and by taking
+        damage, this contributes to the overall pain of the entity, which causes
+        consequences at different levels. Ideally I want it to work like
+        Monkestation's where it also doubles as a vascular system-lite with
+        somewhat balanced values.
+    - type: Tweak
+      message: >-
+        Delimbing now requires two things, one being damaging a part enough to
+        expose the bone, and the other being breaking the bone, it has 3 levels,
+        with crunchier noises every time. You'll learn to tell them apart real
+        fast. When a hit is done and the bone is broken, you'll roll a chance
+        for a delimbing trauma.
+    - type: Tweak
+      message: >-
+        Breaking bones now doesn't outright disable your hands... however if you
+        try to swing anything with them, you might trip and fall, or your
+        weapons might fly off your hands. It will also make your doafters
+        ungodly slow.
+    - type: Tweak
+      message: >-
+        Added groins! Still need someone to code butt attachment surgeries to
+        them :)
+    - type: Tweak
+      message: >-
+        Armor is now localized! This means for instance a web vest no longer
+        protects your entire body. Only your chest and some of your arms. RIP to
+        the 15TC goat.
+    - type: Tweak
+      message: >-
+        Armor can also protect against different wounds/traumas depending on the
+        type.
+    - type: Tweak
+      message: >-
+        You can no longer fully heal via topicals. Severe enough wounds will
+        force you to get surgery.
+    - type: Tweak
+      message: >-
+        Your body doll might not be fully accurate and representative of the
+        actual state of your body. Pay attention to your chat log for injuries!
+    - type: Tweak
+      message: >-
+        Added tourniquets. They allow you to quickly nullify some of the pain
+        when a limb is lost, or when they are heavily bleeding.
+    - type: Tweak
+      message: >-
+        Barotrauma damage is now capped so that it will not automatically
+        nuggetify you (I think).
+    - type: Tweak
+      message: >-
+        Explosions now dont damage your entire body! They instead pick an "area"
+        and localize their damage on the limbs around that area.
+    - type: Tweak
+      message: Surgeries now inflict pain!
+    - type: Tweak
+      message: >-
+        People now have a chance to scream, tweak and/or whimper when receiving
+        damage, or in crit.
+    - type: Tweak
+      message: Feet now contribute to your movement speed's values. Don't lose them!
+    - type: Tweak
+      message: Delimbing now has slightly fancier animations, still kinda jank though.
+  id: 1026
+  time: '2025-05-11T20:38:01.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: >-
+        Bloodpacks are no longer vampiric. (This means they actually restore
+        blood.)
+  id: 1027
+  time: '2025-05-12T01:57:15.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Music instruments no longer need to be in your active hand.
+  id: 1028
+  time: '2025-05-12T06:41:36.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Cyborgs now get hammers in their tool modules. Go crazy.
+  id: 1029
+  time: '2025-05-12T06:41:59.0000000+00:00'
+- author: AftrLite, sowelipililimute, mocho
+  changes:
+    - type: Add
+      message: Null Glare now affects IPCs and Silicons in general!
+    - type: Add
+      message: Added a special lawboard for cosmic cult.
+    - type: Add
+      message: >-
+        Added a funny figurine after being ~~threatened~~ inspired by The
+        Unknown.
+    - type: Fix
+      message: >-
+        Popups now display properly if you pick up a cosmic cult weapon as non
+        cult.
+    - type: Tweak
+      message: Increased speed of the cosmic cult speed ability.
+    - type: Tweak
+      message: Increased interaction time to usher in the end by 6 seconds.
+    - type: Tweak
+      message: Astral Razor doesn't sound like a PKA anymore!
+    - type: Fix
+      message: Fixed the monument being invisible upon disconnection and reconnection.
+    - type: Fix
+      message: >-
+        Fixed the monument having a sprite fade that would make it impossible to
+        interact with it normally.
+  id: 1030
+  time: '2025-05-12T06:43:03.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Woundmed shouldn't passively lag out the server anymore.
+  id: 1031
+  time: '2025-05-12T07:26:35.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Tweak
+      message: >-
+        Reduced paincrit duration, increased adrenaline pain reduction and pain
+        thresholds, and reduced wound pain multipliers.
+    - type: Tweak
+      message: Added stitches and bonesetters to borg inventories and lathes.
+    - type: Fix
+      message: Attempted some fixes at PVS/flickering issues
+    - type: Fix
+      message: Dragons, goliaths, watchers and cyborgs are not immortal anymore.
+    - type: Fix
+      message: Fixed chemicals being 1/11th of their intended values.
+  id: 1032
+  time: '2025-05-12T16:35:02.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: >-
+        Added the Interactor which can use a tool on anything you configure it
+        to. Tider sweatshops rejoice!
+    - type: Tweak
+      message: Autodoc now supports automation upgrades.
+  id: 1033
+  time: '2025-05-12T17:19:44.0000000+00:00'
