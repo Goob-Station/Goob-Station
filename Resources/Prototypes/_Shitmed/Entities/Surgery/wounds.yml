@@ -1,6 +1,5 @@
 - type: entity
   id: WoundBase
-  categories: [ HideSpawnMenu ]
   abstract: true
   components:
   - type: Wound
@@ -13,7 +12,6 @@
 - type: entity
   id: Blunt
   parent: WoundBase
-  categories: [ HideSpawnMenu ]
   components:
   - type: Wound
     damageType: Blunt
@@ -49,7 +47,6 @@
 - type: entity
   id: Piercing
   parent: WoundBase
-  categories: [ HideSpawnMenu ]
   components:
   - type: Wound
     damageType: Piercing
@@ -85,7 +82,6 @@
 - type: entity
   id: ArmorPiercing
   parent: WoundBase
-  categories: [ HideSpawnMenu ]
   components:
   - type: Wound
     woundType: External
@@ -114,7 +110,6 @@
 - type: entity
   id: Slash
   parent: WoundBase
-  categories: [ HideSpawnMenu ]
   components:
   - type: Wound
     damageType: Slash
@@ -149,7 +144,6 @@
 - type: entity
   id: Heat
   parent: WoundBase
-  categories: [ HideSpawnMenu ]
   components:
   - type: Wound
     damageType: Heat
@@ -183,7 +177,6 @@
 - type: entity
   id: Cold
   parent: WoundBase
-  categories: [ HideSpawnMenu ]
   components:
   - type: Wound
     damageType: Cold
@@ -208,7 +201,6 @@
 - type: entity
   id: Holy
   parent: WoundBase
-  categories: [ HideSpawnMenu ]
   components:
   - type: Wound
     damageType: Holy
@@ -231,7 +223,6 @@
 - type: entity
   id: Shock
   parent: WoundBase
-  categories: [ HideSpawnMenu ]
   components:
   - type: Wound
     damageType: Shock
@@ -257,7 +248,6 @@
 - type: entity
   id: Cellular
   parent: WoundBase
-  categories: [ HideSpawnMenu ]
   components:
   - type: Wound
     damageType: Cellular
@@ -285,7 +275,6 @@
 - type: entity
   id: Caustic
   parent: WoundBase
-  categories: [ HideSpawnMenu ]
   components:
   - type: Wound
     damageType: Caustic
@@ -311,7 +300,6 @@
 - type: entity
   id: Radiation
   parent: WoundBase
-  categories: [ HideSpawnMenu ]
   components:
   - type: Wound
     damageType: Radiation
@@ -340,7 +328,6 @@
 - type: entity
   id: Poison
   parent: WoundBase
-  categories: [ HideSpawnMenu ]
   components:
   - type: Wound
     damageType: Poison
@@ -365,35 +352,30 @@
 
 - type: entity
   id: BoneDamage
-  categories: [ HideSpawnMenu ]
   components:
   - type: Trauma
     traumaType: BoneDamage
 
 - type: entity
   id: OrganDamage
-  categories: [ HideSpawnMenu ]
   components:
   - type: Trauma
     traumaType: OrganDamage
 
 - type: entity
   id: VeinsDamage
-  categories: [ HideSpawnMenu ]
   components:
   - type: Trauma
     traumaType: VeinsDamage
 
 - type: entity
   id: NerveDamage
-  categories: [ HideSpawnMenu ]
   components:
   - type: Trauma
     traumaType: NerveDamage
 
 - type: entity
   id: Dismemberment
-  categories: [ HideSpawnMenu ]
   components:
   - type: Trauma
     traumaType: Dismemberment
