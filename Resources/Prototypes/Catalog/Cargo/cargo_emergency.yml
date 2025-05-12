@@ -86,7 +86,7 @@
     sprite: Objects/Tanks/red.rsi
     state: icon
   product: CrateNitrogenInternals
-  cost: 350
+  cost: 400 # Goobstation
   category: cargoproduct-category-name-emergency
   group: market
 
