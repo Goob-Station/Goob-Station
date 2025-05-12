@@ -433,6 +433,9 @@
   id: Table
 
 - type: Tag
+  id: Telecrystal
+
+- type: Tag
   id: TemplarHelmet
 
 - type: Tag
@@ -449,9 +452,6 @@
 
 - type: Tag
   id: ToySword
-
-- type: Tag
-  id: Telecrystal
 
 - type: Tag
   id: Undead

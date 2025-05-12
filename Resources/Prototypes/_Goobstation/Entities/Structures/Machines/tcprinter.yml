@@ -1,27 +1,32 @@
 - type: entity
   id: TCminer
   name: telecrystal miner
-  parent: [BaseMachine, BaseSyndicateContraband]
+  parent: [BaseMachinePowered, BaseSyndicateContraband]
   description: A very loud machine that uses bluespace blockchain technology to generate telecrystals every 10 seconds when powered.
   components:
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: -1000000 # god bless shitcode
-  - type: PowerConsumer
-    voltage: High
-    drawRate: 10000 # todo: tweak these numbes
+  - type: ApcPowerReceiver
+    powerLoad: 10000
   - type: TelecrystalMiner
-  - type: Battery
-    maxCharge: 1000 # you dont care about this because of negative-self-recharger
-    pricePerJoule: 0.0003
+    required: 60 # 600/(10*1) = 10min
+  - type: ItemMiner
+    interval: 10
+    amount: 1
+    proto: Telecrystal1
+    itemSlotId: tc_slot
   - type: Sprite
     noRot: true
     sprite: _Goobstation/Structures/Machines/tc_printer.rsi
     layers:
     - map: ["computerLayerBody"]
       state: icon
-    - map: ["computerLayerScreen"]
+    - map: ["enum.PowerDeviceVisualLayers.Powered"]
       state: unshaded
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: True }
+          False: { visible: False }
   - type: ItemSlots
     slots:
       tc_slot:
@@ -57,7 +62,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 25
+        damage: 50
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
