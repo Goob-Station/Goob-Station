@@ -107,7 +107,7 @@
 - type: entity
   parent: ClothingModsuitStandard
   id: ClothingModsuitSecurity
-  name: security dragoon hardsuit control unit
+  name: security soldat hardsuit control unit
   description: A robust modular hardsuit control module unit for thrashing commies in spess.
   components:
   - type: Sprite

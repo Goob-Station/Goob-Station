@@ -3,6 +3,9 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -77,3 +80,27 @@
   id: StorageRemoved
   name: signal-port-name-storage-removed
   description: signal-port-description-storage-removed
+
+# Fax Machine
+
+- type: sourcePort
+  id: AutomationSlotPaper
+  name: signal-port-name-automation-slot-paper
+  description: signal-port-description-automation-slot-paper
+
+# Constructor / Interactor
+
+- type: sourcePort
+  id: Started
+  name: signal-port-name-machine-started
+  description: signal-port-description-machine-started
+
+- type: sourcePort
+  id: Completed
+  name: signal-port-name-machine-completed
+  description: signal-port-description-machine-completed
+
+- type: sourcePort
+  id: Failed
+  name: signal-port-name-machine-failed
+  description: signal-port-description-machine-failed

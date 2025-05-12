@@ -1,0 +1,163 @@
+# SPDX-FileCopyrightText: 2025 CliveOcelot <165305605+Orion-416@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# The Modsuit Itself, This is just a ERT modsuit
+- type: entity
+  parent: ClothingModsuitStandard
+  id: ClothingModsuitPraetorian
+  name: Praetorian modsuit control
+  description: The main controller for a Praetorian modsuit.
+  components:
+    - type: Sprite
+      sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/praetorian.rsi
+    - type: ToggleableClothing
+      clothingPrototypes:
+        head: ClothingModsuitHelmetPraetorian
+        gloves: ClothingModsuitGauntletsPraetorian
+        outerClothing: ClothingModsuitChestplatePraetorian
+        shoes: ClothingModsuitBootsPraetorian
+    - type: ItemSlots
+      slots:
+        cell_slot:
+          name: power-cell-slot-component-slot-name-default
+          startingItem: PowerCellHyper
+          whitelist:
+            components:
+              - PowerCell
+    - type: Storage
+      maxItemSize: Huge
+      grid:
+        - 0,0,6,3
+    - type: ExplosionResistance #Dont want chain explosions in the modsuits storage
+      damageCoefficient: 0.1
+    - type: SealableClothingVisuals
+      visualLayers:
+        back:
+          - state: equipped-BACKPACK-sealed
+    - type: ClothingSpeedModifier
+      walkModifier: 0.9
+      sprintModifier: 0.9
+
+- type: entity
+  parent: ClothingModsuitGauntletsStandard
+  id: ClothingModsuitGauntletsPraetorian
+  name: Praetorian modsuit gauntlets
+  description: A pair of gauntlets made for the Praetorian modsuit.
+  categories: [HideSpawnMenu]
+  components:
+    - type: Sprite
+      sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/praetorian.rsi
+    - type: SealableClothingVisuals
+      visualLayers:
+        gloves:
+          - state: equipped-HAND-sealed
+          - state: equipped-HAND-sealed-unshaded
+            shader: unshaded
+
+- type: entity
+  parent: ClothingModsuitHelmetStandard
+  id: ClothingModsuitHelmetPraetorian
+  name: Praetorian modsuit helmet
+  description: A state-of-the-art helmet designed by NanoTrasen for the Praetorian modsuit.
+  categories: [HideSpawnMenu]
+  components:
+    - type: Sprite
+      sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/praetorian.rsi
+    - type: PressureProtection
+      highPressureMultiplier: 0.05
+      lowPressureMultiplier: 1000
+    - type: Armor
+      modifiers:
+        coefficients:
+          Blunt: 0.9
+          Slash: 0.9
+          Piercing: 0.9
+          Heat: 0.9
+          Cold: 0.9
+          Radiation: 0.95
+          Caustic: 0.95
+    - type: FlashImmunity # Goobstation
+    - type: FlashSoundSuppression # Goobstation
+    - type: PointLight
+      color: "#4d7ae3"
+    - type: SealableClothingVisuals
+      visualLayers:
+        head:
+          - state: equipped-HEAD-sealed
+          - state: equipped-HEAD-sealed-unshaded
+            shader: unshaded
+
+- type: entity
+  parent: ClothingModsuitChestplateStandard
+  id: ClothingModsuitChestplatePraetorian
+  name: Praetorian modsuit chestplate
+  description: A state of the art chestplate designed by NanoTrasen for the Praetorian Modsuit. It incorporates powered servos to reduce the equipment load.
+  categories: [HideSpawnMenu]
+  components:
+    - type: Sprite
+      sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/praetorian.rsi
+    - type: ClothingSpeedModifier
+      walkModifier: 0.80
+      sprintModifier: 0.80
+    - type: Armor
+      modifiers:
+        coefficients:
+          Blunt: 0.5
+          Slash: 0.5
+          Piercing: 0.45
+          Radiation: 0.5
+          Heat: 0.45
+          Caustic: 0.5
+    - type: SealableClothingVisuals
+      visualLayers:
+        outerClothing:
+          - state: equipped-OUTERCLOTHING-sealed
+    - type: ModifyDelayedKnockdown
+      delayDelta: 2
+      knockdownTimeDelta: -2
+    - type: PressureProtection
+      highPressureMultiplier: 0.05
+      lowPressureMultiplier: 1000
+    - type: ExplosionResistance
+      damageCoefficient: 0.45
+
+- type: entity
+  parent: ClothingModsuitBootsStandard
+  id: ClothingModsuitBootsPraetorian
+  name: Praetorian modsuit boots
+  description: A state-of-the-art pair of magboots for the Praetorian modsuit. So long as the suit is powered, these will not slow the wearer down.
+  categories: [HideSpawnMenu]
+  components:
+    - type: Appearance
+    - type: Sprite
+      sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/praetorian.rsi
+    - type: Tag
+      tags:
+        - WhitelistChameleon
+    - type: ToggleClothing
+      action: ActionToggleMagboots
+    - type: ComponentToggler
+      components:
+        - type: NoSlip
+    - type: Magboots
+    - type: SealableClothingVisuals
+      visualLayers:
+        shoes:
+          - state: equipped-FEET-sealed
+    - type: ClothingSpeedModifier
+      walkModifier: 0.9
+      sprintModifier: 0.9
+
+- type: entity
+  id: SuitStoragePraetorian
+  parent: SuitStorageBase
+  suffix: Praetorian Modsuit
+  components:
+    - type: StorageFill
+      contents:
+        - id: OxygenTankFilled
+        - id: ClothingModsuitPraetorian
+        - id: ClothingMaskBreath

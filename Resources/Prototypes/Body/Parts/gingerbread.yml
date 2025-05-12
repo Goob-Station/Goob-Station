@@ -13,6 +13,13 @@
   name: "gingerbread body part"
   abstract: true
   components:
+  - type: WoundableVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#896e55"
+      Burn:
+        sprite: Mobs/Effects/burn_damage.rsi
   - type: Icon # Shitmed Change
     sprite: Mobs/Species/Gingerbread/parts.rsi
   - type: BodyPart # Shitmed Change
@@ -26,13 +33,29 @@
         Quantity: 10
 
 - type: entity
-  id: TorsoGingerbread
-  name: "gingerbread torso"
-  parent: [PartGingerbread, BaseTorso]
+  id: ChestGingerbread
+  name: "gingerbread chest"
+  parent: [PartGingerbread, BaseChest]
   components:
   - type: Sprite
     sprite: Mobs/Species/Gingerbread/parts.rsi
-    state: "torso_m"
+    state: "chest_m"
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+      - ReagentId: Sugar
+        Quantity: 20
+
+- type: entity
+  id: GroinGingerbread
+  name: "gingerbread groin"
+  parent: [PartGingerbread, BaseGroin]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Gingerbread/parts.rsi
+    state: "groin_m"
   - type: Extractable
     juiceSolution:
       reagents:
