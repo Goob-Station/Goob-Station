@@ -102,7 +102,7 @@ public sealed partial class TargetingComponent : Component
             {
                 { TargetBodyPart.RightFoot, 0.3f },
                 { TargetBodyPart.Chest, 0.5f },
-                { TargetBodyPart.Groin, 0.2f },
+                { TargetBodyPart.Groin, 0.1f },
                 { TargetBodyPart.RightLeg, 0.1f },
             }
         },
@@ -111,7 +111,7 @@ public sealed partial class TargetingComponent : Component
             {
                 { TargetBodyPart.LeftFoot, 0.3f },
                 { TargetBodyPart.Chest, 0.5f },
-                { TargetBodyPart.Groin, 0.2f },
+                { TargetBodyPart.Groin, 0.1f },
                 { TargetBodyPart.LeftLeg, 0.1f },
             }
         },
