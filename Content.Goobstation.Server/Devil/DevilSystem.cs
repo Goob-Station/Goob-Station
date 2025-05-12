@@ -131,13 +131,6 @@ public sealed partial class DevilSystem : EntitySystem
         foreach (var actionId in devil.Comp.BaseDevilActions)
             _actions.AddAction(devil, actionId);
 
-        // no slicy the devil you goober
-        foreach (var (id, part) in _body.GetBodyChildren(devil))
-        {
-            part.CanSever = false;
-            Dirty(id, part);
-        }
-
         // Self Explanatory
         GenerateTrueName(devil);
     }
