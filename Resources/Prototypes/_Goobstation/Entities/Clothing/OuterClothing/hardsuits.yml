@@ -87,9 +87,9 @@
   description: A voidsuit designed for an elite bodyguard. This particular one is made of a lighter metal, allowing for more maneuverability.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/bso.rsi
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/bsolight.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/bso.rsi
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/bsolight.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
