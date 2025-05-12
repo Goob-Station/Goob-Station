@@ -45,20 +45,15 @@
   components:
   - type: Armor
     coverage:
-    - Chest
-    - Groin
-    - Arm
-    - Hand
-    - Leg
-    - Foot
+    - Head
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.8
-        Heat: 0.8
-        Caustic: 0.8
-        Radiation: 0.8
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.6
+        Caustic: 0.1
+        Radiation: 0.1
   - type: ExplosionResistance
     damageCoefficient: 0.8
   - type: GroupExamine
@@ -69,19 +64,21 @@
   suffix: Wizard Clothes
   components:
   - type: Armor
-    coverage:
+    coverage: # full coverage, idk, magic
     - Chest
     - Groin
     - Arm
     - Hand
     - Leg
     - Foot
+    - Tail
+    - Other
     modifiers:
       coefficients:
-        Blunt: 0.60
-        Slash: 0.60
-        Piercing: 0.60
-        Heat: 0.60
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.6
         Radiation: 0.1
         Caustic: 0.1
   - type: ExplosionResistance

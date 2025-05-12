@@ -30,8 +30,13 @@
       heatingCoefficient: 1.1
       coolingCoefficient: 0.1
     - type: Armor
+      coverage:
+      - Chest
+      - Groin
+      - Tail
+      - Arm
       modifiers:
         coefficients:
-          Slash: 0.95
-          Heat: 0.90
+          Slash: 0.9
+          Heat: 0.8
       showArmorOnExamine: false

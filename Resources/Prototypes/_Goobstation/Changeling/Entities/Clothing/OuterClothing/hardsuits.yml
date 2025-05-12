@@ -35,6 +35,8 @@
     - Hand
     - Leg
     - Foot
+    - Tail
+    - Other
     modifiers:
       coefficients:
         Blunt: 0.85

@@ -20,3 +20,12 @@
     highPressureMultiplier: 0.225
     lowPressureMultiplier: 1000
   - type: Unremoveable
+  - type: Armor
+    coverage:
+    - Head
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.9
+        Heat: 0.4

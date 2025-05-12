@@ -128,9 +128,9 @@
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.7
-        Piercing: 0.7
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.55
         Heat: 0.7
   - type: Tag
     tags:
@@ -184,12 +184,12 @@
     - Head
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.6
-        Heat: 0.6
-        Radiation: 0.9
-        Caustic: 0.9 # why
+        Blunt: 0.25
+        Slash: 0.25
+        Piercing: 0.25
+        Heat: 0.25
+        Radiation: 0.75
+        Caustic: 0.75
   - type: ExplosionResistance
     damageCoefficient: 0.75
   - type: FlashSoundSuppression # Goobstation
@@ -224,9 +224,9 @@
     - Head
     modifiers:
       coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Piercing: 0.65
+        Blunt: 0.25
+        Slash: 0.25
+        Piercing: 0.55
 
 #Bombsuit Helmet
 - type: entity
@@ -247,10 +247,10 @@
     - Head
     modifiers:
       coefficients:
-        Heat: 0.87
-        Blunt: 0.87
-        Slash: 0.87
-        Piercing: 0.87
+        Heat: 0.8
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
   - type: HideLayerClothing
     slots:
     - Hair
@@ -288,10 +288,10 @@
     - Head
     modifiers:
       coefficients:
-        Blunt: 0.75
-        Slash: 0.75
-        Piercing: 0.75
-        Heat: 0.75
+        Blunt: 0.35
+        Slash: 0.35
+        Piercing: 0.35
+        Heat: 0.35
 
 #Space Ninja Helmet
 - type: entity
@@ -315,6 +315,15 @@
     - Snout
     - HeadTop
     - HeadSide
+  - type: Armor # Goobstation
+    coverage:
+    - Head
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.8
 
 #Knight Helmet
 - type: entity
@@ -359,14 +368,14 @@
   - type: IngestionBlocker
   - type: IdentityBlocker
   - type: Armor # Goobstation
+    coverage:
+    - Head
     modifiers:
       coefficients:
-        Blunt: 0.85
-        Slash: 0.85
-        Piercing: 0.85
-        Heat: 0.85
-        Caustic: 0.9
-        Radiation: 0.9
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.4
+        Heat: 0.4
 
 #Fire Helmet
 - type: entity
@@ -454,10 +463,11 @@
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.5
-        Heat: 0.9
+        Blunt: 0.45
+        Slash: 0.45
+        Piercing: 0.45
+        Heat: 0.45
+        Caustic: 0.45
 
 #ERT HELMETS
 #ERT Leader Helmet
@@ -541,10 +551,11 @@
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.6
-        Heat: 0.6
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.3
+        Heat: 0.3
+        Caustic: 0.3
 
 #Bone Helmet
 - type: entity
