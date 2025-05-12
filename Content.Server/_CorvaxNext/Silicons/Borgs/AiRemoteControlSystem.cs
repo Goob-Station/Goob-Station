@@ -168,16 +168,16 @@ namespace Content.Server._CorvaxNext.Silicons.Borgs
             if (!HasComp<AiRemoteControllerComponent>(target))
                 return;
 
-            if (msg.RemoteAction?.ActionType == RemoteDeviceActionEvent.RemoteDeviceActionType.MoveToDevice)
+            if (msg.RemoteAction.ActionType == RemoteDeviceActionEvent.RemoteDeviceActionType.MoveToDevice)
             {
                 if (!_stationAiSystem.TryGetCore(uid, out var stationAiCore) || stationAiCore.Comp?.RemoteEntity == null)
                     return;
-                _xformSystem.SetCoordinates(stationAiCore.Comp.RemoteEntity.Value, Transform(target.Value).Coordinates);
+                _xformSystem.SetCoordinates(stationAiCore.Comp.RemoteEntity.Value, Transform(targetEntity).Coordinates);
             }
 
-            if (msg.RemoteAction?.ActionType == RemoteDeviceActionEvent.RemoteDeviceActionType.TakeControl)
+            if (msg.RemoteAction.ActionType == RemoteDeviceActionEvent.RemoteDeviceActionType.TakeControl)
             {
-                AiTakeControl(uid, target.Value);
+                AiTakeControl(uid, targetEntity);
             }
         }
 
