@@ -9,7 +9,7 @@
 
 - type: body
   id: LaserRaptor
-  name: "space dragon"
+  name: "laser raptor"
   root: chest
   slots:
     head:

@@ -83,6 +83,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 // Shitmed Change
+using Content.Shared._Shitmed.Body;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
@@ -290,7 +291,8 @@ namespace Content.Shared.Damage
                 return null;
 
             // For entities with a body, route damage through body parts and then sum it up
-            if (_bodyQuery.HasComp(uid.Value))
+            if (_bodyQuery.TryGetComponent(uid.Value, out var body)
+                && body.BodyType == BodyType.Complex)
             {
                 var appliedDamage = ApplyDamageToBodyParts(uid.Value, damage, origin, ignoreResistances,
                     interruptsDoAfters, targetPart, partMultiplier, ignoreBlockers);

@@ -500,10 +500,14 @@ public partial class TraumaSystem
         FixedPoint2 severity,
         (BodyPartType, BodyPartSymmetry)? targetType = null)
     {
+        if (TerminatingOrDeleted(inflicter))
+            return EntityUid.Invalid;
+
         foreach (var trauma in inflicter.Comp.TraumaContainer.ContainedEntities)
         {
             var containedTraumaComp = Comp<TraumaComponent>(trauma);
-            if (containedTraumaComp.TraumaType != traumaType || containedTraumaComp.TraumaTarget != target)
+            if (containedTraumaComp.TraumaType != traumaType
+                || containedTraumaComp.TraumaTarget != target)
                 continue;
             // Check for TraumaTarget isn't really necessary..
             // Right now wounds on a specified woundable can't wound other woundables, but in case IF something happens or IF someone decides to do that
@@ -647,8 +651,11 @@ public partial class TraumaSystem
                 case TraumaType.OrganDamage:
                     var traumaEnt = AddTrauma(targetChosen.Value, target, inflicter, TraumaType.OrganDamage, severity);
 
-                    if (!TryChangeOrganDamageModifier(targetChosen.Value, severity, traumaEnt, "WoundableDamage"))
+                    if (traumaEnt != EntityUid.Invalid
+                        && !TryChangeOrganDamageModifier(targetChosen.Value, severity, traumaEnt, "WoundableDamage"))
+                    {
                         TryCreateOrganDamageModifier(targetChosen.Value, severity, traumaEnt, "WoundableDamage");
+                    }
 
                     break;
 

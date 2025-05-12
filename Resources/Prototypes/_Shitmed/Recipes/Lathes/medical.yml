@@ -14,6 +14,22 @@
     Plasma: 200
 
 - type: latheRecipe
+  id: MedicalStitches
+  result: MedicalStitches
+  completetime: 2
+  materials:
+    Steel: 300
+    Plastic: 10
+
+- type: latheRecipe
+  id: Bonesetter
+  result: Bonesetter
+  completetime: 2
+  materials:
+    Steel: 400
+    Plastic: 200
+
+- type: latheRecipe
   id: MedicalCyberneticEyes
   result: MedicalCyberneticEyes
   categories:

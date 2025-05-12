@@ -41,7 +41,7 @@
     mangledMultipliers:
       BoneDamage: 1
   - type: PainInflicter
-    multiplier: 0.87
+    multiplier: 0.48
   - type: BleedInflicter
     scalingSpeed: 0.8
     severityThreshold: 8
@@ -77,7 +77,7 @@
     mangledMultipliers:
       BoneDamage: 0.75
   - type: PainInflicter
-    multiplier: 0.67
+    multiplier: 0.32
   - type: BleedInflicter
     severityThreshold: 9
     scalingSpeed: 0.5
@@ -106,7 +106,7 @@
       VeinsDamage: -0.4
       NerveDamage: -0.4
   - type: PainInflicter
-    multiplier: 0.44
+    multiplier: 0.24
   - type: BleedInflicter
     scalingSpeed: 0.34
     severityThreshold: 5
@@ -142,7 +142,7 @@
     mangledMultipliers:
       BoneDamage: 0.6
   - type: PainInflicter
-    multiplier: 0.67
+    multiplier: 0.32
   - type: BleedInflicter
     scalingSpeed: 1.7
 
@@ -176,7 +176,7 @@
     mangledMultipliers:
       BoneDamage: 1
   - type: PainInflicter
-    multiplier: 1.1
+    multiplier: 0.6
   - type: BleedRemover
     severityThreshold: 3
 
@@ -203,7 +203,7 @@
       VeinsDamage: 0.5
       NerveDamage: 0.5
   - type: PainInflicter
-    multiplier: 1.5 # it hurts
+    multiplier: 0.75 # it hurts
 
 - type: entity
   id: Holy
@@ -226,7 +226,7 @@
       VeinsDamage: 0
       NerveDamage: 0.777
   - type: PainInflicter
-    multiplier: 0.777
+    multiplier: 0.34
 
 - type: entity
   id: Shock
@@ -252,7 +252,7 @@
       VeinsDamage: 0.34 # People are great conductors
       NerveDamage: 0.34
   - type: PainInflicter
-    multiplier: 1.4
+    multiplier: 0.7
 
 - type: entity
   id: Cellular
@@ -280,7 +280,7 @@
       NerveDamage: 0.17
   - type: PainInflicter
     painType: TraumaticPain
-    multiplier: 0.67
+    multiplier: 0.32
 
 - type: entity
   id: Caustic
@@ -361,7 +361,7 @@
       NerveDamage: 0.12
   - type: PainInflicter
     painType: TraumaticPain
-    multiplier: 1.4
+    multiplier: 0.7
 
 - type: entity
   id: BoneDamage

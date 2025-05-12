@@ -33,6 +33,8 @@
   id: SurgeryStaticGoob
   recipes:
   - BoneGel
+  - MedicalStitches
+  - Bonesetter
 
 - type: latheRecipePack
   id: MedicalVehiclesStatic

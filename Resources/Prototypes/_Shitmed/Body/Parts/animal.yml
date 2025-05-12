@@ -14,3 +14,93 @@
   - type: Sprite
     layers:
     - state: head_m
+
+- type: entity
+  parent: [PartAnimalBase, ChestAnimal]
+  id: ChestGoliath
+  name: goliath chest
+  components:
+  - type: Woundable
+    integrity: 350
+    integrityCap: 350
+    thresholds:
+      Minor: 315
+      Moderate: 240
+      Severe: 120
+      Critical: 60
+      Loss: 0
+
+- type: entity
+  parent: [PartAnimalBase, GroinAnimal]
+  id: GroinGoliath
+  name: goliath groin
+  components:
+  - type: Woundable
+    integrity: 350
+    integrityCap: 350
+    thresholds:
+      Minor: 315
+      Moderate: 240
+      Severe: 120
+      Critical: 60
+      Loss: 0
+
+- type: entity
+  parent: [PartAnimalBase, LegsAnimal]
+  id: LegsGoliath
+  name: goliath legs
+  components:
+  - type: Woundable
+    integrity: 350
+    integrityCap: 350
+    thresholds:
+      Minor: 315
+      Moderate: 240
+      Severe: 120
+      Critical: 60
+      Loss: 0
+
+- type: entity
+  parent: [PartAnimalBase, ChestAnimal]
+  id: ChestDragon
+  name: dragon chest
+  components:
+  - type: Woundable
+    integrity: 500
+    integrityCap: 500
+    thresholds:
+      Minor: 450
+      Moderate: 350
+      Severe: 200
+      Critical: 100
+      Loss: 0
+
+- type: entity
+  parent: [PartAnimalBase, GroinAnimal]
+  id: GroinDragon
+  name: dragon groin
+  components:
+  - type: Woundable
+    integrity: 500
+    integrityCap: 500
+    thresholds:
+      Minor: 450
+      Moderate: 350
+      Severe: 200
+      Critical: 100
+      Loss: 0
+
+- type: entity
+  parent: [PartAnimalBase, LegsAnimal]
+  id: LegsDragon
+  name: dragon legs
+  components:
+  - type: Woundable
+    integrity: 500
+    integrityCap: 500
+    thresholds:
+      Minor: 450
+      Moderate: 350
+      Severe: 200
+      Critical: 100
+      Loss: 0

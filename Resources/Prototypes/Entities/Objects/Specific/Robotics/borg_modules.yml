@@ -1052,6 +1052,8 @@
     - Cautery
     - SawElectric
     - BoneGel
+    - MedicalStitches
+    - Bonesetter
     # Frontier: droppable borg items
   - type: DroppableBorgModule
     moduleId: Surgery
@@ -1082,6 +1084,8 @@
     - EnergyCautery
     - AdvancedRetractor
     - BoneGel
+    - Bonesetter
+    - MedicalStitches
     # Frontier: droppable borg items
   - type: DroppableBorgModule
     moduleId: AdvancedSurgery

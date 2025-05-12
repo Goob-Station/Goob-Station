@@ -14,14 +14,14 @@
   root: chest
   slots:
     chest:
-      part: ChestAnimal
+      part: ChestDragon
       connections:
       - groin
       organs:
         lungs: OrganDragonLungs # Fire breathing
         heart: OrganSpaceAnimalHeart # Immunity to pressure
     groin:
-      part: GroinAnimal
+      part: GroinDragon
       connections:
       - legs
       organs:
@@ -29,7 +29,7 @@
         stomach: OrganAnimalStomach
         kidneys: OrganAnimalKidneys
     legs:
-      part: LegsAnimal
+      part: LegsDragon
       connections:
       - feet
     feet:

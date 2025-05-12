@@ -103,7 +103,7 @@ namespace Content.Server.EntityEffects.Effects
 
         [DataField]
         [JsonPropertyName("healingDamageMultiplier")]
-        public float HealingDamageMultiplier = 11f; // Shitmed Change
+        public float HealingDamageMultiplier = 220f; // Shitmed Change
 
         [DataField]
         [JsonPropertyName("damageMultiplier")]
@@ -245,7 +245,7 @@ namespace Content.Server.EntityEffects.Effects
             args.EntityManager.System<DamageableSystem>()
                 .TryChangeDamage(
                     args.TargetEntity,
-                    damageSpec * scale, // 8 represents the average number of parts on a humanoid.
+                    damageSpec * scale,
                     IgnoreResistances,
                     interruptsDoAfters: false,
                     targetPart: TargetBodyPart.All,

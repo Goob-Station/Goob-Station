@@ -789,7 +789,7 @@ public partial class PainSystem
                 TryAddPainMultiplier(
                     nerveSys,
                     PainAdrenalineIdentifier,
-                    0.7f,
+                    0.3f,
                     PainDamageTypes.WoundPain,
                     nerveSys,
                     nerveSys.Comp.PainShockAdrenalineTime);

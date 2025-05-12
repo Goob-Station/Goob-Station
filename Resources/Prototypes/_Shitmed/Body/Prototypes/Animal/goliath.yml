@@ -13,14 +13,14 @@
   root: chest
   slots:
     chest:
-      part: ChestAnimal
+      part: ChestGoliath
       connections:
       - groin
       organs:
         lungs: OrganAnimalLungs
         heart: OrganGoliathHeart # Allows you to use a slower version of their tentacles.
     groin:
-      part: GroinAnimal
+      part: GroinGoliath
       connections:
       - legs
       organs:
@@ -28,7 +28,7 @@
         liver: OrganAnimalLiver
         kidneys: OrganAnimalKidneys
     legs:
-      part: LegsAnimal
+      part: LegsGoliath
       connections:
       - feet
     feet:
