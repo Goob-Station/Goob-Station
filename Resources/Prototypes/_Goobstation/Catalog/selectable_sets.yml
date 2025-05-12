@@ -360,16 +360,6 @@
     - ClothingOuterHardsuitBlueshieldLight
 
 - type: selectableSet
-  id: BSOHardsuitHeavySet
-  name: selectable-set-blueshield-hardsuit-heavy-name
-  description: selectable-set-blueshield-hardsuit-heavy-description
-  sprite:
-    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/bso.rsi
-    state: icon
-  content:
-    - ClothingOuterHardsuitBlueshieldHeavy
-
-- type: selectableSet
   id: BSOModsuitSet
   name: selectable-set-blueshield-modsuit-name
   description: selectable-set-blueshield-modsuit-description
