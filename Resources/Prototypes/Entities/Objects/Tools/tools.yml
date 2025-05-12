@@ -267,6 +267,10 @@
       collection: Screwdriver
     endSound:
       path: /Audio/_Shitmed/Medical/Surgery/retractor2.ogg
+  - type: Clothing # Goobstation
+    slots:
+    - ears
+
 
 - type: entity
   name: wrench
