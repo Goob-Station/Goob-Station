@@ -54,18 +54,22 @@ public sealed class ItemMinerSystem : EntitySystem
                 || miner.NeedsAnchored && !xform.Anchored)
             {
                 miner.NextAt += TimeSpan.FromSeconds(frameTime);
+                QueueDel(miner.AudioUid);
                 continue;
             }
 
-            if (miner.Interval < _minInterval)
-            {
-                Log.Error($"Item miner {ToPrettyString(uid)} had very low interval {miner.Interval}, change Amount instead");
-                miner.NextAt += TimeSpan.FromSeconds(1f); // don't spam it
-                continue;
-            }
+            if (TerminatingOrDeleted(miner.AudioUid) && miner.MiningSound != null)
+                miner.AudioUid = _audio.PlayPvs(miner.MiningSound, uid, audioParams: miner.MiningSound.Params.WithLoop(true))?.Entity;
 
             if (miner.NextAt < _timing.CurTime)
             {
+                if (miner.Interval < _minInterval)
+                {
+                    Log.Error($"Item miner {ToPrettyString(uid)} had very low interval {miner.Interval}, change Amount instead");
+                    miner.NextAt += TimeSpan.FromSeconds(1f); // don't spam it
+                    continue;
+                }
+
                 miner.NextAt += miner.Interval;
 
                 // how much we actually spawned
@@ -117,14 +121,12 @@ public sealed class ItemMinerSystem : EntitySystem
                 }
                 else if (slot == null)
                 {
-                    spawned = miner.Amount;
                     for (var i = 0; i < miner.Amount - spawned; i++)
                         Spawn(miner.Proto, xform.Coordinates);
+                    spawned = miner.Amount;
                 }
                 // if it's not stackable and we're using a slot, just don't spawn more than 1
                 // TODO: bool for spillover? not needed right now
-
-                _audio.PlayPvs(miner.MiningSound, uid);
 
                 var ev = new ItemMinedEvent(minedUid, spawned);
                 RaiseLocalEvent(uid, ev);

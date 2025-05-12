@@ -34,16 +34,15 @@ public sealed partial class ItemMinerComponent : Component
     /// <summary>
     /// ID of item slot to add items into
     /// Spawns on floor if null
-    /// Only supported for stackable entities
     /// </summary>
     [DataField]
     public string? ItemSlotId = "miner_slot";
 
     /// <summary>
-    /// Miner working SFX
+    /// Sound to loop while working
     /// </summary>
     [DataField]
-    public SoundSpecifier MiningSound = new SoundPathSpecifier("/Audio/Ambience/Objects/server_fans.ogg");
+    public SoundSpecifier? MiningSound = new SoundPathSpecifier("/Audio/Ambience/Objects/server_fans.ogg");
 
     /// <summary>
     /// How often to produce the item
@@ -62,6 +61,9 @@ public sealed partial class ItemMinerComponent : Component
     /// </summary>
     [DataField]
     public bool NeedsPower = true;
+
+    [ViewVariables]
+    public EntityUid? AudioUid = null;
 
     // if you want to add a planetary miner or other varieties of miner, don't add more stuff to this, make a new comp and use events
 }

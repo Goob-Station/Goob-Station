@@ -44,12 +44,7 @@
         whitelist:
           tags:
           - Telecrystal
-  - type: NodeContainer
-    examinable: true
-    nodes:
-      input:
-        !type:CableDeviceNode
-        nodeGroupID: HVPower
+  - type: ContainerContainer
   - type: Transform
     anchored: true
   - type: Physics
