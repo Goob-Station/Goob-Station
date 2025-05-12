@@ -9060,3 +9060,57 @@ Entries:
       message: Delimbing now has slightly fancier animations, still kinda jank though.
   id: 1026
   time: '2025-05-11T20:38:01.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: >-
+        Bloodpacks are no longer vampiric. (This means they actually restore
+        blood.)
+  id: 1027
+  time: '2025-05-12T01:57:15.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Music instruments no longer need to be in your active hand.
+  id: 1028
+  time: '2025-05-12T06:41:36.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Cyborgs now get hammers in their tool modules. Go crazy.
+  id: 1029
+  time: '2025-05-12T06:41:59.0000000+00:00'
+- author: AftrLite, sowelipililimute, mocho
+  changes:
+    - type: Add
+      message: Null Glare now affects IPCs and Silicons in general!
+    - type: Add
+      message: Added a special lawboard for cosmic cult.
+    - type: Add
+      message: >-
+        Added a funny figurine after being ~~threatened~~ inspired by The
+        Unknown.
+    - type: Fix
+      message: >-
+        Popups now display properly if you pick up a cosmic cult weapon as non
+        cult.
+    - type: Tweak
+      message: Increased speed of the cosmic cult speed ability.
+    - type: Tweak
+      message: Increased interaction time to usher in the end by 6 seconds.
+    - type: Tweak
+      message: Astral Razor doesn't sound like a PKA anymore!
+    - type: Fix
+      message: Fixed the monument being invisible upon disconnection and reconnection.
+    - type: Fix
+      message: >-
+        Fixed the monument having a sprite fade that would make it impossible to
+        interact with it normally.
+  id: 1030
+  time: '2025-05-12T06:43:03.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Woundmed shouldn't passively lag out the server anymore.
+  id: 1031
+  time: '2025-05-12T07:26:35.0000000+00:00'
