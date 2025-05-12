@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: 2020 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2020 Exp <theexp111@gmail.com>
 # SPDX-FileCopyrightText: 2020 Metal Gear Sloth <metalgearsloth@gmail.com>
-# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2020 Ygg01 <daniel.fath7@gmail.com>
 # SPDX-FileCopyrightText: 2020 py01 <pyronetics01@gmail.com>
 # SPDX-FileCopyrightText: 2021 Galactic Chimp <GalacticChimpanzee@gmail.com>
@@ -567,11 +567,11 @@
   - type: HitscanBatteryAmmoProvider
     proto: RedHeavyLaser
     fireCost: 100
-  # Goobstation
   - type: Tag
     tags:
-    - Rifle
-  - type: Item
+    - TurretCompatibleWeapon
+    - Rifle # Goobstation
+  - type: Item # Goobstation
     size: Huge
     shape:
     - 0,0,4,1

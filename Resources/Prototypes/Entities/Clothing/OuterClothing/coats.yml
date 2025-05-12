@@ -194,13 +194,17 @@
   id: ClothingOuterArmorHoS
   components:
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
     modifiers:
       coefficients:
         Blunt: 0.65
         Slash: 0.65
-        Piercing: 0.6
-        Heat: 0.7
-        Caustic: 0.75 # not the full 90% from ss13 because of the head
+        Piercing: 0.65
+        Heat: 0.65
+        Caustic: 0.1 # the full 90% from ss13
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: ModifyDelayedKnockdown # Goobstation
@@ -215,6 +219,10 @@
   id: ClothingOuterArmorWarden
   components:
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
     modifiers:
       coefficients:
         Blunt: 0.65
@@ -269,9 +277,13 @@
     heatingCoefficient: 0.1
     coolingCoefficient: 0.1
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
     modifiers:
       coefficients:
-        Slash: 0.95
+        Slash: 0.9
   - type: Food
     requiresSpecialDigestion: true
   - type: SolutionContainerManager
@@ -293,9 +305,13 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/labcoat.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
     modifiers:
       coefficients:
-        Caustic: 0.75
+        Caustic: 0.65
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLab]
@@ -313,9 +329,13 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/labcoat_chem.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
     modifiers:
       coefficients:
-        Caustic: 0.75
+        Caustic: 0.65
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabChem]
@@ -333,9 +353,13 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/labcoat_viro.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
     modifiers:
       coefficients:
-        Caustic: 0.75
+        Caustic: 0.65
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabViro]
@@ -353,9 +377,13 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/labcoat_gene.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
     modifiers:
       coefficients:
-        Caustic: 0.75
+        Caustic: 0.65
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabGene]
@@ -373,11 +401,15 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/labcoat_cmo.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
     modifiers:
       coefficients:
-        Slash: 0.95
-        Heat: 0.95
-        Caustic: 0.65
+        Slash: 0.84
+        Heat: 0.84
+        Caustic: 0.4
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabCmo]
@@ -395,9 +427,13 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/labcoat_sci.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
     modifiers:
       coefficients:
-        Caustic: 0.75
+        Caustic: 0.65
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatRnd]
@@ -415,9 +451,13 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/labcoat_robo.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
     modifiers:
       coefficients:
-        Caustic: 0.75
+        Caustic: 0.65
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatRobo]
@@ -435,10 +475,19 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/labcoat_rd.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    - Other
     modifiers:
       coefficients:
-        Caustic: 0.75
-        Radiation: 0.9
+        Caustic: 0.9
+        Radiation: 0.6
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatRD]
@@ -514,11 +563,15 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/dogi.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.65
-        Piercing: 0.85
+        Blunt: 0.6
+        Slash: 0.47
+        Piercing: 0.6
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 2
     knockdownTimeDelta: -2
@@ -569,6 +622,10 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/brigmedic.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
     modifiers:
       coefficients:
         Blunt: 0.8
@@ -583,7 +640,7 @@
     coefficient: 0.7
 
 - type: entity
-  parent: ClothingOuterStorageBase
+  parent: ClothingOuterStorageFoldableBase
   id: ClothingOuterCoatLabSeniorResearcher
   name: senior researcher lab coat
   description: A suit that protects against minor chemical spills. Has a purple collar and wrist trims.
@@ -593,12 +650,21 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/labcoat_senior_researcher.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
     modifiers:
       coefficients:
-        Caustic: 0.75
+        Caustic: 0.65
 
 - type: entity
-  parent: ClothingOuterStorageBase
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabSeniorResearcher]
+  id: ClothingOuterCoatLabSeniorResearcherOpened
+  name: senior researcher lab coat
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
   id: ClothingOuterCoatLabSeniorPhysician
   name: senior physician lab coat
   description: A suit that protects against minor chemical spills. Has light blue sleeves and an orange waist trim.
@@ -608,9 +674,18 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/labcoat_senior_physician.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
     modifiers:
       coefficients:
-        Caustic: 0.75
+        Caustic: 0.65
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabSeniorPhysician]
+  id: ClothingOuterCoatLabSeniorPhysicianOpened
+  name: senior physician lab coat
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -624,7 +699,7 @@
     sprite: Clothing/OuterClothing/Coats/space_asshole.rsi
 
 - type: entity
-  parent: ClothingOuterStorageBase
+  parent: ClothingOuterStorageFoldableBase
   id: ClothingOuterCoatExpensive
   name: expensive coat
   description: Very fluffy pink coat, made out of very expensive fur (clearly).
@@ -633,3 +708,8 @@
     sprite: Clothing/OuterClothing/Coats/expensive_coat.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/expensive_coat.rsi
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatExpensive]
+  id: ClothingOuterCoatExpensiveOpened
+  name: expensive coat

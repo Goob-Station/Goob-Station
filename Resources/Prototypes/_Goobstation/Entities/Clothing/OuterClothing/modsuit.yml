@@ -42,6 +42,13 @@
   - type: StaminaDamageResistance
     coefficient: 0.9
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
         Blunt: 0.85
@@ -63,7 +70,7 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateSecurity
-  name: dragoon MODsuit chestplate
+  name: soldat MODsuit chestplate
   description: A robust modular suit cover with ceramic inserts for extra protection.
   categories: [ HideSpawnMenu ]
   components:
@@ -150,19 +157,19 @@
   - type: ExplosionResistance
     damageCoefficient: 0.4
   - type: ModifyDelayedKnockdown
-    delayDelta: 3
-    knockdownTimeDelta: -3
+    delayDelta: 6
+    knockdownTimeDelta: -4
   - type: StaminaDamageResistance
     coefficient: 0.7
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.6
+        Blunt: 0.5
         Slash: 0.5
-        Piercing: 0.5
+        Piercing: 0.45
         Heat: 0.5
-        Caustic: 0.6
-        Radiation: 0.6
+        Caustic: 0.5
+        Radiation: 0.5
   - type: ComponentToggler
     components:
     - type: PressureProtection
@@ -173,6 +180,11 @@
       heatingCoefficient: 0.4
   - type: FireProtection
     reduction: 0.5
+  - type: ClothingAutoInject
+    reagents:
+      Epinephrine: 10
+      Bicaridine: 10
+      TranexamicAcid: 5
 
 - type: entity
   parent: ClothingOuterBase
