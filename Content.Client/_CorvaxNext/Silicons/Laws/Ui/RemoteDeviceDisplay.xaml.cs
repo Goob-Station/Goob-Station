@@ -14,7 +14,7 @@ namespace Content.Client._CorvaxNext.Silicons.Laws.Ui
     public sealed partial class RemoteDeviceDisplay : Control
     {
         public event Action<RemoteDeviceActionEvent>? OnRemoteDeviceAction;
-        public RemoteDeviceDisplay(NetEntity netEntityUid, String displayName)
+        public RemoteDeviceDisplay(NetEntity netEntityUid, string displayName)
         {
             RobustXamlLoader.Load(this);
 
