@@ -555,7 +555,7 @@
     Ping:
       path: /Audio/Effects/Cargo/ping.ogg
     Boop: # Goobstation - IPC sounds
-      path: /Audio/_EinsteinEngines/Voice/IPC/beep_500.ogg
+      path: /Audio/_EE/Voice/IPC/beep_500.ogg
     Whirr: # Goobstation - IPC sounds
       collection: IPCWhirrs
       params:

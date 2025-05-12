@@ -13,7 +13,7 @@ using Content.Goobstation.Server.Changeling.GameTicking.Rules;
 using Content.Goobstation.Server.Devil.GameTicking.Rules;
 using Content.Server.Administration.Managers;
 using Content.Server.Antag;
-using Content.Shared._EinsteinEngines.Silicon.Components;
+using Content.Shared._EE.Silicon.Components;
 using Content.Shared.Administration;
 using Content.Shared.Database;
 using Content.Shared.Mind.Components;

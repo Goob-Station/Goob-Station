@@ -26,7 +26,7 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
-using Content.Shared._EinsteinEngines.Flight; // Goobstation
+using Content.Shared._EE.Flight; // Goobstation
 
 namespace Content.Shared.Gravity
 {

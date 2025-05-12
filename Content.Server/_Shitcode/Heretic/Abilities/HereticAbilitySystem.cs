@@ -57,7 +57,7 @@ using Content.Server.Jittering;
 using Content.Server.Speech.EntitySystems;
 using Content.Server.Temperature.Components;
 using Content.Server.Weapons.Ranged.Systems;
-using Content.Shared._EinsteinEngines.Silicon.Components;
+using Content.Shared._EE.Silicon.Components;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitcode.Heretic.Systems.Abilities;

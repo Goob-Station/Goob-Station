@@ -87,7 +87,7 @@ using Content.Server.Antag;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Zombies;
-using Content.Shared._EinsteinEngines.Silicon.Components;
+using Content.Shared._EE.Silicon.Components;
 using Content.Shared.Administration;
 using Content.Shared.Database;
 using Content.Shared.Humanoid;

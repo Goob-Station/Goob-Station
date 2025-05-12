@@ -14,9 +14,9 @@
   id: CyberneticPartBase
   components:
   - type: Sprite
-    sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
+    sprite: _EE/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
   - type: Icon
-    sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
+    sprite: _EE/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
   - type: Damageable
     damageContainer: Silicon
   - type: Cybernetics

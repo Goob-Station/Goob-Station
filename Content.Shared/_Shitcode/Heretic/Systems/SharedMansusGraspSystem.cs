@@ -5,7 +5,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Heretic.Components.PathSpecific;
-using Content.Shared._EinsteinEngines.Silicon.Components;
+using Content.Shared._EE.Silicon.Components;
 using Content.Shared._Goobstation.Heretic.Systems;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitmed.Targeting;

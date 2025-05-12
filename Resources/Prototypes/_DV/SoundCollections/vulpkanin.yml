@@ -44,8 +44,8 @@
 - type: soundCollection # EE
   id: VulpkaninScreams
   files:
-  - /Audio/_EinsteinEngines/Voice/Vulpkanin/vulpscream1.ogg
-  - /Audio/_EinsteinEngines/Voice/Vulpkanin/vulpscream2.ogg
-  - /Audio/_EinsteinEngines/Voice/Vulpkanin/vulpscream3.ogg
-  - /Audio/_EinsteinEngines/Voice/Vulpkanin/vulpscream4.ogg
-  - /Audio/_EinsteinEngines/Voice/Vulpkanin/vulpscream5.ogg
+  - /Audio/_EE/Voice/Vulpkanin/vulpscream1.ogg
+  - /Audio/_EE/Voice/Vulpkanin/vulpscream2.ogg
+  - /Audio/_EE/Voice/Vulpkanin/vulpscream3.ogg
+  - /Audio/_EE/Voice/Vulpkanin/vulpscream4.ogg
+  - /Audio/_EE/Voice/Vulpkanin/vulpscream5.ogg

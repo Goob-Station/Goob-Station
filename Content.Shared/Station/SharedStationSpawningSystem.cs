@@ -98,7 +98,7 @@ using Content.Shared.Storage;
 using Content.Shared.Storage.EntitySystems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Content.Shared._EinsteinEngines.Silicon.IPC; // DeltaV
+using Content.Shared._EE.Silicon.IPC; // DeltaV
 
 namespace Content.Shared.Station;
 

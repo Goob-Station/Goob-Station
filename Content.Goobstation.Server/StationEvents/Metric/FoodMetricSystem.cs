@@ -6,7 +6,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Server.StationEvents.Metric.Components;
-using Content.Shared._EinsteinEngines.Silicon.Components;
+using Content.Shared._EE.Silicon.Components;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;

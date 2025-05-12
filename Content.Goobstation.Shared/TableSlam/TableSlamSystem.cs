@@ -12,7 +12,7 @@
 
 using System.Linq;
 using Content.Goobstation.Common.MartialArts;
-using Content.Shared._EinsteinEngines.Contests;
+using Content.Shared._EE.Contests;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Actions.Events;
 using Content.Shared.Climbing.Components;

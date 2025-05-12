@@ -374,7 +374,7 @@
   name: selectable-set-blueshield-modsuit-name
   description: selectable-set-blueshield-modsuit-description
   sprite:
-    sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/praetorian.rsi
+    sprite: _EE/Clothing/NanoTrasen/Modsuits/praetorian.rsi
     state: control
   content:
     - ClothingModsuitPraetorian

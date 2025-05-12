@@ -10,7 +10,7 @@
   components:
   - type: Cybernetics
   - type: Sprite
-    sprite: _EinsteinEngines/Mobs/Species/IPC/organs.rsi
+    sprite: _EE/Mobs/Species/IPC/organs.rsi
     state: "eyes"
 
 - type: entity

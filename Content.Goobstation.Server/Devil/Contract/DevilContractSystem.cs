@@ -14,7 +14,7 @@ using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devil.Condemned;
 using Content.Goobstation.Shared.Devil.Contract;
 using Content.Server.Body.Systems;
-using Content.Shared._EinsteinEngines.Silicon.Components;
+using Content.Shared._EE.Silicon.Components;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Paper;

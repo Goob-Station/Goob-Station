@@ -70,7 +70,7 @@
     onAdd: # Shitmed Change
     - type: Flight
       isLayerAnimated: true
-      layer: "/Textures/_EinsteinEngines/Mobs/Customization/Harpy/harpy_wings.rsi"
+      layer: "/Textures/_EE/Mobs/Customization/Harpy/harpy_wings.rsi"
       animationKey: "Flap"
 
 - type: entity

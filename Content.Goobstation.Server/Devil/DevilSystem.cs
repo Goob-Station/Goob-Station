@@ -30,7 +30,7 @@ using Content.Server.Speech.Components;
 using Content.Server.Stunnable;
 using Content.Server.Temperature.Components;
 using Content.Server.Zombies;
-using Content.Shared._EinsteinEngines.Silicon.Components;
+using Content.Shared._EE.Silicon.Components;
 using Content.Shared._Shitmed.Body.Components;
 using Content.Shared.Actions;
 using Content.Shared.CombatMode;
