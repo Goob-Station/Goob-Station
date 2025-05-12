@@ -9068,3 +9068,9 @@ Entries:
         blood.)
   id: 1027
   time: '2025-05-12T01:57:15.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Music instruments no longer need to be in your active hand.
+  id: 1028
+  time: '2025-05-12T06:41:36.0000000+00:00'
