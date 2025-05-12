@@ -17,6 +17,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using System; // Goobstation
 
 namespace Content.Shared.Body.Components;
 
@@ -59,4 +60,11 @@ public sealed partial class BodyComponent : Component
     [DataField, AutoNetworkedField]
     public bool ThermalVisibility = true;
     // WD EDIT END
+
+    // Goobstation
+    /// <summary>
+    /// When should  wounds on this be healed.
+    /// </summary>
+    [ViewVariables, AutoNetworkedField, Access(Other = AccessPermissions.ReadWrite)]
+    public TimeSpan HealAt;
 }
