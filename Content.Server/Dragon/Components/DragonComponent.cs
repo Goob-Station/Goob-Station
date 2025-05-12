@@ -82,5 +82,39 @@ namespace Content.Server.Dragon
         /// </summary>
         [DataField]
         public ProtoId<NpcFactionPrototype> Faction = "Dragon";
+
+        #region Goobstation
+
+        [DataField]
+        public EntityUid? SpawnCarpsActionEntity;
+
+        [DataField]
+        public EntProtoId SpawnCarpsAction = "ActionRiseFish";
+
+        [DataField]
+        public EntProtoId CarpProtoId = "MobCarpDragon";
+
+        [DataField]
+        public int CarpAmount = 3;
+
+        [DataField]
+        public EntityUid? RoarActionEntity;
+
+        [DataField]
+        public EntProtoId RoarAction = "ActionDragonRoar";
+
+        [DataField]
+        public float RoarRange = 4f;
+
+        [DataField]
+        public float RoarStunTime = 2f;
+
+        [DataField]
+        public float CarpRiftHealingRange = 3f;
+
+        [DataField]
+        public float RiftHealingRate = 0.05f;
+
+        #endregion
     }
 }

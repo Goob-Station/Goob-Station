@@ -252,3 +252,13 @@
   id: StructuralImmunity
   coefficients:
     Structural: 0
+
+- type: damageModifierSet
+  id: Dragon
+  coefficients:
+    Blunt: 0.9
+    Slash: 0.85
+    Piercing: 0.8
+    Shock: 1.2 # I guess snakes better conduct electricity????????
+    Heat: 0.7
+  ignoreArmorPierceFlags: All # Goobstation

@@ -13,6 +13,7 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Devour;
 using Content.Shared.Devour.Components;
 using Content.Shared.Humanoid;
+using Content.Shared.Item; // Goobstation
 
 namespace Content.Server.Devour;
 
@@ -46,7 +47,12 @@ public sealed class DevourSystem : SharedDevourSystem
             }
             _bloodstreamSystem.TryAddToChemicals(uid, ichorInjection);
         }
-
+        // Goobstation start - Item devouring
+        else if (HasComp<ItemComponent>(args.Args.Target))
+        {
+            ContainerSystem.Insert(args.Args.Target.Value, component.Stomach);
+        }
+        // Goobstation end
         //TODO: Figure out a better way of removing structures via devour that still entails standing still and waiting for a DoAfter. Somehow.
         //If it's not human, it must be a structure
         else if (args.Args.Target != null)
@@ -56,7 +62,7 @@ public sealed class DevourSystem : SharedDevourSystem
 
         _audioSystem.PlayPvs(component.SoundDevour, uid);
     }
-    
+
     private void OnGibContents(EntityUid uid, DevourerComponent component, ref BeingGibbedEvent args)
     {
         if (!component.ShouldStoreDevoured)

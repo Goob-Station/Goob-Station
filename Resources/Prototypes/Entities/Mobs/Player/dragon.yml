@@ -285,6 +285,7 @@
       components:
       - MobState
       - Door
+      - Item # Goobstation
       tags:
       - Wall
   - type: Tag
@@ -295,12 +296,16 @@
   # Goobstation - Collective mind
   - type: CollectiveMind
     defaultChannel: Dragonmind
+  - type: Damageable # Goobstation
+    damageContainer: Biological
+    damageModifierSet: Dragon
   - type: Puller
     needsHands: false
   - type: NightVision # Goobstation - Nigthvision
     color: "#808080"
     activateSound: null
     deactivateSound: null
+  - type: ThermalVision # Goobstation - Thermal vision
   - type: CombatPower # Goobstation
     factor: 4 # times more dangerous than a crew-member
 
@@ -405,3 +410,31 @@
     checkCanAccess: false
     range: 0
     itemIconStyle: BigAction
+
+# Goobstation start: dragon rework
+- type: entity
+  id: ActionRiseFish
+  name: Summon Carp Horde
+  description: Summons 3 carps on the spot to protect you from danger!
+  components:
+  - type: InstantAction
+    icon:
+      sprite: _Goobstation/Actions/dragon.rsi
+      state: carp_horde
+    event: !type:DragonSpawnCarpHordeActionEvent
+    useDelay: 90
+    priority: 4
+
+- type: entity
+  id: ActionDragonRoar
+  name: Dragon's Roar
+  description: Roar with all your strength to make enemies fear you!
+  components:
+  - type: InstantAction
+    icon:
+      sprite: _Goobstation/Actions/dragon.rsi
+      state: carp_horde
+    event: !type:DragonRoarActionEvent
+    useDelay: 45
+    priority: 5
+# Goobstation end
