@@ -26,7 +26,10 @@
     - map: ["computerLayerBody"]
       state: icon
     - map: ["enum.PowerDeviceVisualLayers.Powered"]
+      visible: false
       state: unshaded
+      shader: unshaded
+  - type: Appearance
   - type: GenericVisualizer
     visuals:
       enum.PowerDeviceVisuals.Powered:
