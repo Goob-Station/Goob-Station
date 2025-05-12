@@ -14,7 +14,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  name: integrated mechete
+  name: integrated machete
   parent: Machete
   id: IntegratedMachete
   components:
