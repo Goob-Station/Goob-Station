@@ -430,6 +430,15 @@
   - type: Fiber
     fiberMaterial: fibers-insulative
     fiberColor: fibers-yellow
+  - type: Armor # Goob
+    coverage:
+    - Hand
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Shock: 0.75
 
 # Budget Insulated Gloves
 - type: entity

@@ -397,6 +397,15 @@
   - type: Insulated
   - type: Fiber
     fiberMaterial: fibers-insulative
+  - type: Armor # Goob
+    coverage:
+    - Hand
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Shock: 0.75
 
 # can't parent combat gloves since they are butcherable
 - type: entity

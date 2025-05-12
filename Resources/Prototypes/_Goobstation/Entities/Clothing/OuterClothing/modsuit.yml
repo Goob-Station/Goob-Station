@@ -70,8 +70,8 @@
       highPressureMultiplier: 0.3
       lowPressureMultiplier: 1000
     - type: TemperatureProtection
-      coolingCoefficient: 0.1
-      heatingCoefficient: 0.4
+      coolingCoefficient: 0.01
+      heatingCoefficient: 0.01
   - type: FireProtection
     reduction: 0.5
 
@@ -96,8 +96,8 @@
     unequipSound: /Audio/Mecha/mechmove03.ogg
     slots: [ outerClothing ]
   - type: ClothingSpeedModifier
-    walkModifier: 0.75
-    sprintModifier: 0.75
+    walkModifier: 0.8
+    sprintModifier: 0.8
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-chestplate
     sealDownPopup: sealable-clothing-seal-down-chestplate
@@ -141,8 +141,8 @@
       highPressureMultiplier: 0.3
       lowPressureMultiplier: 1000
     - type: TemperatureProtection
-      coolingCoefficient: 0.1
-      heatingCoefficient: 0.4
+      coolingCoefficient: 0.01
+      heatingCoefficient: 0.01
   - type: FireProtection
     reduction: 0.5
 
@@ -214,8 +214,8 @@
       highPressureMultiplier: 0.3
       lowPressureMultiplier: 1000
     - type: TemperatureProtection
-      coolingCoefficient: 0.1
-      heatingCoefficient: 0.4
+      coolingCoefficient: 0.01
+      heatingCoefficient: 0.01
   - type: FireProtection
     reduction: 0.5
   - type: ClothingAutoInject
@@ -286,8 +286,8 @@
       highPressureMultiplier: 0.3
       lowPressureMultiplier: 1000
     - type: TemperatureProtection
-      coolingCoefficient: 0.1
-      heatingCoefficient: 0.4
+      coolingCoefficient: 0.01
+      heatingCoefficient: 0.01
   - type: ModifyDelayedKnockdown
     delayDelta: 1
     knockdownTimeDelta: -1
@@ -317,8 +317,8 @@
     unequipSound: /Audio/Mecha/mechmove03.ogg
     slots: [ outerClothing ]
   - type: ClothingSpeedModifier
-    walkModifier: 0.7
-    sprintModifier: 0.7
+    walkModifier: 0.75
+    sprintModifier: 0.75
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-chestplate
     sealDownPopup: sealable-clothing-seal-down-chestplate
@@ -359,15 +359,15 @@
       highPressureMultiplier: 0.3
       lowPressureMultiplier: 1000
     - type: TemperatureProtection
-      coolingCoefficient: 0.1
-      heatingCoefficient: 0.4
+      coolingCoefficient: 0.01
+      heatingCoefficient: 0.01
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 1
     knockdownTimeDelta: -1
   - type: StaminaDamageResistance
     coefficient: 0.9
   - type: FireProtection
-    reduction: 0.75
+    reduction: 0.7
 
 - type: entity
   parent: ClothingOuterBase
@@ -390,8 +390,8 @@
     unequipSound: /Audio/Mecha/mechmove03.ogg
     slots: [ outerClothing ]
   - type: ClothingSpeedModifier
-    walkModifier: 0.7
-    sprintModifier: 0.7
+    walkModifier: 0.75
+    sprintModifier: 0.75
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-chestplate
     sealDownPopup: sealable-clothing-seal-down-chestplate
@@ -400,7 +400,7 @@
       outerClothing:
       - state: equipped-OUTERCLOTHING-sealed
   - type: ExplosionResistance
-    damageCoefficient: 0.6
+    damageCoefficient: 0.45
   - type: Armor
     traumaDeductions:
       Dismemberment: 0.2
@@ -430,15 +430,15 @@
       highPressureMultiplier: 0.3
       lowPressureMultiplier: 1000
     - type: TemperatureProtection
-      coolingCoefficient: 0.1
-      heatingCoefficient: 0.4
+      coolingCoefficient: 0.001
+      heatingCoefficient: 0.001
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 1
     knockdownTimeDelta: -1
   - type: StaminaDamageResistance
     coefficient: 0.9
   - type: FireProtection
-    reduction: 1.0
+    reduction: 0.75
 
 - type: entity
   parent: ClothingOuterBase
@@ -503,15 +503,15 @@
       highPressureMultiplier: 0.3
       lowPressureMultiplier: 1000
     - type: TemperatureProtection
-      coolingCoefficient: 0.1
-      heatingCoefficient: 0.4
+      coolingCoefficient: 0.01
+      heatingCoefficient: 0.01
   - type: ModifyDelayedKnockdown
     delayDelta: 3
     knockdownTimeDelta: -3
   - type: StaminaDamageResistance
     coefficient: 0.9
   - type: FireProtection
-    reduction: 0.75
+    reduction: 0.7
 
 - type: entity
   parent: ClothingOuterBase
@@ -574,8 +574,8 @@
       highPressureMultiplier: 0.3
       lowPressureMultiplier: 1000
     - type: TemperatureProtection
-      coolingCoefficient: 0.1
-      heatingCoefficient: 0.4
+      coolingCoefficient: 0.01
+      heatingCoefficient: 0.01
   - type: ModifyDelayedKnockdown
     delayDelta: 3
     knockdownTimeDelta: -3

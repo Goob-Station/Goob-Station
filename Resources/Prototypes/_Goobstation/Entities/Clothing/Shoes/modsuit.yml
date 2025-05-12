@@ -104,7 +104,7 @@
   - type: ClothingSlowOnDamageModifier
     modifier: 0.5
   - type: ClothingModifyStunTime
-    modifier: 0.75
+    modifier: 0.8
   - type: ModifyStandingUpTime
     multiplier: 0.5
 
@@ -138,7 +138,7 @@
       - state: equipped-FEET-sealed
 
 - type: entity
-  parent: ClothingShoesBase
+  parent: [ ClothingShoesBase, BaseToggleClothing ]
   id: ClothingModsuitBootsEngineer
   name: sapper modsuit boots
   description: Made to get oily.
@@ -165,6 +165,26 @@
     visualLayers:
       shoes:
       - state: equipped-FEET-sealed
+  - type: ToggleClothing
+    action: ActionToggleMagboots
+    mustEquip: false
+  - type: ComponentToggler
+    components:
+    - type: NoSlip
+  - type: Magboots
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.85
+
+  - type: Armor
+    coverage:
+    - Hand
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Shock: 0.5
 
 - type: entity
   parent: ClothingShoesBase
@@ -194,6 +214,8 @@
     visualLayers:
       shoes:
       - state: equipped-FEET-sealed
+  - type: FireProtection # lmao
+    reduction: 0.25
 
 - type: entity
   parent: ClothingShoesBase
