@@ -34,7 +34,7 @@ public sealed partial class TargetingComponent : Component
         {
             TargetBodyPart.Chest, new Dictionary<TargetBodyPart, float>
             {
-                { TargetBodyPart.Chest, 0.7f },
+                { TargetBodyPart.Chest, 0.8f },
                 { TargetBodyPart.Groin, 0.1f },
                 { TargetBodyPart.RightArm, 0.05f },
                 { TargetBodyPart.LeftArm, 0.05f },
@@ -43,7 +43,7 @@ public sealed partial class TargetingComponent : Component
         {
             TargetBodyPart.Groin, new Dictionary<TargetBodyPart, float>
             {
-                { TargetBodyPart.Groin, 0.7f },
+                { TargetBodyPart.Groin, 0.8f },
                 { TargetBodyPart.Chest, 0.1f },
                 { TargetBodyPart.RightLeg, 0.05f },
                 { TargetBodyPart.LeftLeg, 0.05f },
