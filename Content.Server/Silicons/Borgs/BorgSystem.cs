@@ -196,7 +196,7 @@ public sealed partial class BorgSystem : SharedBorgSystem
         if (component.BrainEntity == null && aiBrain != null &&
     _whitelistSystem.IsWhitelistPassOrNull(component.BrainWhitelist, used))
         {
-            AddComp<AiRemoteControllerComponent>(uid);
+            EnsureComp<AiRemoteControllerComponent>(uid);
             _container.Insert(used, component.BrainContainer);
             _adminLog.Add(LogType.Action, LogImpact.Medium,
                 $"{ToPrettyString(args.User):player} installed ai remote brain {ToPrettyString(used)} into borg {ToPrettyString(uid)}");

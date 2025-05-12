@@ -92,6 +92,7 @@ public sealed partial class BorgSystem
                 1f,
                 0,
                 hasBrain,
+                false,
                 false);
 
             var payload = new NetworkPayload()

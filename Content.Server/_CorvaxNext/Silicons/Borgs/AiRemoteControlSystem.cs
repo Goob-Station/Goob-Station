@@ -37,7 +37,7 @@ namespace Content.Server._CorvaxNext.Silicons.Borgs
 
         private void OnMapInit(Entity<AiRemoteControllerComponent> entity, ref MapInitEvent args)
         {
-            var visionComp = AddComp<StationAiVisionComponent>(entity.Owner);
+            var visionComp = EnsureComp<StationAiVisionComponent>(entity.Owner);
             EntityUid? actionEnt = null;
 
             _actions.AddAction(entity, ref actionEnt, entity.Comp.BackToAiAction);
