@@ -6,6 +6,7 @@
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 ImHoks <142083149+ImHoks@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 ImHoks <imhokzzzz@gmail.com>
 // SPDX-FileCopyrightText: 2025 KillanGenifer <killangenifer@gmail.com>

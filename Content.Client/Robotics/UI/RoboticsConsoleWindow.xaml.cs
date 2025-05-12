@@ -6,6 +6,7 @@
 // SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 ImHoks <imhokzzzz@gmail.com>
 // SPDX-FileCopyrightText: 2025 KillanGenifer <killangenifer@gmail.com>
 //
