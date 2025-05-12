@@ -111,12 +111,6 @@ public sealed partial class WoundableComponent : Component
     public WoundableSeverity WoundableSeverity;
 
     /// <summary>
-    /// How much time in seconds had this woundable accumulated from the last healing tick.
-    /// </summary>
-    [ViewVariables]
-    public float HealingRateAccumulated;
-
-    /// <summary>
     /// Container potentially holding wounds.
     /// </summary>
     [ViewVariables]

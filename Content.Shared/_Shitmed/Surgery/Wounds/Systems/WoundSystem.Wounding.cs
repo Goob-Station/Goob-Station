@@ -58,6 +58,12 @@ public sealed partial class WoundSystem
         comp.RootWoundable = uid;
         comp.Wounds = _container.EnsureContainer<Container>(uid, WoundContainerId);
         comp.Bone = _container.EnsureContainer<Container>(uid, BoneContainerId);
+
+        if (TryComp<BodyComponent>(uid, out var body) && _timing.IsFirstTimePredicted)
+        {
+            body.HealAt = _timing.CurTime + TimeSpan.FromSeconds(1f / _medicalHealingTickrate);
+            _healQueue.Enqueue((uid, comp));
+        }
     }
 
     private void OnWoundableMapInit(EntityUid uid, WoundableComponent comp, MapInitEvent args)
