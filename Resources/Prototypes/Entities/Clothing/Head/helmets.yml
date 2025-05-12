@@ -115,12 +115,14 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+# Armor values heavily edited by Goobstation due to woundmed
+
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHelmetBase
   abstract: true
   components:
-  - type: Armor #Values seem to let the user survive one extra hit if attacked consistently.
+  - type: Armor
     coverage:
     - Head
     traumaDeductions:

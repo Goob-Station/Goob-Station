@@ -36,7 +36,7 @@
     - Tail
     modifiers:
       coefficients:
-        Caustic: 0.35
+        Caustic: 0.75
 
 - type: entity
   parent: ClothingOuterBioGeneral
@@ -85,7 +85,7 @@
     sprite: Clothing/OuterClothing/Bio/security.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Bio/security.rsi
-  - type: Armor #Based on /tg/ but slightly compensated to fit the fact that armor stacks in SS14.
+  - type: Armor
     coverage:
     - Chest
     - Groin
@@ -100,7 +100,7 @@
         Slash: 0.7
         Piercing: 0.7
         Heat: 0.8
-        Caustic: 0.35
+        Caustic: 0.8
 
 - type: entity
   parent: ClothingOuterBioGeneral

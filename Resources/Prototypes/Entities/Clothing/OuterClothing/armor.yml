@@ -148,6 +148,8 @@
 # Numbers for armor here largely taken from /tg/.
 # NOTE: Half of the kind of armor you're probably thinking of is in vests.yml. These should probably be merged some day.
 
+# Armor values heavily edited by Goobstation due to woundmed
+
 #Basic armor vest for inheritance
 - type: entity
   parent: [ClothingOuterBaseMedium, AllowSuitStorageClothing, BaseSecurityContraband]
