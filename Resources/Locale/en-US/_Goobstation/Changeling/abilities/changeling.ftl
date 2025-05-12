@@ -46,11 +46,11 @@ changeling-sting-extract-max = Need to get rid of the stored DNA beforehand
 
 changeling-dartgun-no-stings = We don't have any reagent stings evolved!
 
-changeling-stasis-enter = We enter regenerative stasis.
-changeling-stasis-enter-damaged = We enter regenerative stasis. Our sustained injuries will prove troublesome to heal.
-changeling-stasis-enter-catastrophic = We enter regenerative stasis. Our catastrophic injuries will take extreme time to heal.
+changeling-stasis-enter = We enter regenerative stasis...
+changeling-stasis-enter-damaged = We enter regenerative stasis. Our sustained injuries will prove troublesome to heal...
+changeling-stasis-enter-catastrophic = We enter regenerative stasis. Our catastrophic injuries will take extreme time to heal...
 changeling-stasis-enter-fail = Can't enter stasis!
-changeling-stasis-exit = We exit regenerative stasis, clear of wounds and injuries.
+changeling-stasis-exit = We exit regenerative stasis, clear of wounds and injuries...
 changeling-stasis-exit-fail = We're not in stasis!
 changeling-stasis-exit-fail-dead = We feel... hollow. It is over.
 changeling-stasis-exit-fail-time = Our body is still recovering!
