@@ -12,6 +12,10 @@
   id: BaseHeatLamp
   components:
   - type: Heatlamp
+    activatedDamage:
+      types:
+        Heat: 1
+        Blunt: 5
     offShape:
     - 0,0,0,1
     onShape:
@@ -51,6 +55,16 @@
     radius: 1.5
     energy: 1
     color: "#FFC458"
+  - type: MeleeWeapon
+    angle: 0
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 5
+    bluntStaminaDamageFactor: 0.5
+    animation: WeaponArcThrust
+    soundHit:
+      collection: MetalThud
 
 - type: entity
   parent: BaseHeatLamp
@@ -59,6 +73,7 @@
   description: A hand held temperature stabilization lamp commonly utilized by cold-blooded species to warm up. Affectionately referred to as a "Lizard Lamp"
   components:
   - type: Heatlamp
+    powerToHeatMultiplier: 100
     offShape:
     - 0,0,0,1
     onShape:
@@ -78,10 +93,10 @@
   parent: BaseHeatLamp
   id: HeatLampTierTwo
   name: advanced heat lamp
-  description: An advanced temperature stabilization device. A tag on the side reads "Apply directly to torso. Prolonged usage is disadvised."
+  description: An advanced temperature stabilization device. A tag on the side reads "Apply directly to torso. Prolonged usage is dis-advised."
   components:
   - type: Heatlamp
-    powerToHeatMultiplier: 100
+    powerToHeatMultiplier: 150
     containerMultiplier: 0.5
     offShape:
     - 0,0,1,1
@@ -102,46 +117,57 @@
   parent: BaseHeatLamp
   id: HeatLampTierThree
   name: phoron temperature stabilizer
-  description: An phoron-based temperature stabilization device. Keeps you cold in the hottest of fires, and hot in the coldest depths of space.
+  description: An phoron-based temperature stabilization device that doesn't need external power. Fixes almost any temperature deviation at lightning fast speeds.
   components:
   - type: Heatlamp
-    powerToHeatMultiplier: 150
+    needsPower: false
+    powerToHeatMultiplier: 600
     containerMultiplier: 1
     offShape:
     - 0,0,0,1
     onShape:
     - 0,0,0,2
   - type: Sprite
-    sprite: _Goobstation/Objects/Devices/Heatlamps/upgraded.rsi # todo , sprites
+    sprite: _Goobstation/Objects/Devices/Heatlamps/phoron.rsi
     state: icon-off
   - type: Item
     size: Normal
-    sprite: _Goobstation/Objects/Devices/Heatlamps/upgraded.rsi
+    sprite: _Goobstation/Objects/Devices/Heatlamps/phoron.rsi
   - type: Clothing
-    sprite: _Goobstation/Objects/Devices/Heatlamps/upgraded.rsi
+    sprite: _Goobstation/Objects/Devices/Heatlamps/phoron.rsi
     slots:
     - Belt
 
 - type: entity
-  parent: BaseHeatLamp
+  parent: [BaseHeatLamp, BaseSyndicateContraband]
   id: HeatLampEvil
   name: syndicate heat lamp
   description: A cybersun design, utilized by cold-blooded operatives in their sieges. Also an effective melee weapon in a pinch.
   components:
   - type: Heatlamp
-    powerToHeatMultiplier: 150
+    powerToHeatMultiplier: 200
     containerMultiplier: 1
+    activatedDamage:
+      types:
+        Heat: 15
+        Blunt: 5
     offShape:
     - 0,0,1,1
     onShape:
     - 0,0,1,3
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHigh
   - type: Sprite
-    sprite: _Goobstation/Objects/Devices/Heatlamps/upgraded.rsi # todo , sprites
+    sprite: _Goobstation/Objects/Devices/Heatlamps/syndicate.rsi
     state: icon-off
   - type: Item
     size: Normal
-    sprite: _Goobstation/Objects/Devices/Heatlamps/upgraded.rsi
+    sprite: _Goobstation/Objects/Devices/Heatlamps/syndicate.rsi
   - type: Clothing
-    sprite: _Goobstation/Objects/Devices/Heatlamps/upgraded.rsi
+    sprite: _Goobstation/Objects/Devices/Heatlamps/syndicate.rsi
     slots:
     - Belt
+

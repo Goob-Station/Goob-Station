@@ -3,6 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Damage;
 using Content.Shared.Item;
 using Content.Shared.Temperature;
 using Robust.Shared.Audio;
@@ -46,6 +47,12 @@ public sealed partial class HeatlampComponent : Component
     public bool LowerEfficiencyWhenContained = true;
 
     /// <summary>
+    /// Does this lamp require an internal battery to function?
+    /// </summary>
+    [DataField]
+    public bool NeedsPower = true;
+
+    /// <summary>
     /// What amount is the efficiency multiplied by when contained.
     /// </summary>
     [DataField]
@@ -78,10 +85,28 @@ public sealed partial class HeatlampComponent : Component
     [ViewVariables]
     public EntityUid? User;
 
+    /// <summary>
+    /// The shape when off.
+    /// </summary>
     [DataField]
     public List<Box2i> OffShape;
 
+    /// <summary>
+    /// The shape when on.
+    /// </summary>
     [DataField]
     public List<Box2i> OnShape;
+
+    /// <summary>
+    /// The damage when on.
+    /// </summary>
+    [DataField]
+    public DamageSpecifier? ActivatedDamage;
+
+    /// <summary>
+    /// The damage when off.
+    /// </summary>
+    [DataField]
+    public DamageSpecifier? DeactivatedDamage;
 
 }

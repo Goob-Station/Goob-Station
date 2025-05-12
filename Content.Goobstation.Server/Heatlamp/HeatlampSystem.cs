@@ -11,12 +11,17 @@ using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Inventory;
+using Content.Shared.Item.ItemToggle;
+using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Popups;
 using Content.Shared.PowerCell.Components;
+using Content.Shared.Storage;
 using Content.Shared.Temperature;
 using Content.Shared.Toggleable;
 using Content.Shared.Verbs;
+using Content.Shared.Weapons.Melee;
 using Robust.Server.Audio;
+using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 
@@ -32,6 +37,7 @@ public sealed partial class HeatlampSystem : EntitySystem
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly ItemSystem _item = default!;
     [Dependency] private readonly PointLightSystem _pointLight = default!;
+    [Dependency] private readonly ContainerSystem _container = default!;
 
     private readonly int _settingCount = Enum.GetValues<EntityHeaterSetting>().Length;
     public override void Initialize()
@@ -54,18 +60,18 @@ public sealed partial class HeatlampSystem : EntitySystem
             if (heater.User is not { } user
             || heater.Setting == EntityHeaterSetting.Off)
             {
-                ToggleVisualsAndShape((uid, heater), false);
+                ToggleAbilities((uid, heater), false);
                 continue;
             }
 
-            ToggleVisualsAndShape((uid, heater), true);
+            ToggleAbilities((uid, heater), true);
             RegulateTemperature(user, (uid, heater), frameTime);
         }
     }
 
-    private void ToggleVisualsAndShape(Entity<HeatlampComponent> heatlamp, bool enabled, AppearanceComponent? appearance = null)
+    private void ToggleAbilities(Entity<HeatlampComponent> heatlamp, bool enabled, AppearanceComponent? appearance = null, MeleeWeaponComponent? melee = null)
     {
-        if (!Resolve(heatlamp, ref appearance))
+        if (!Resolve(heatlamp, ref appearance, ref melee))
             return;
 
         if (enabled)
@@ -77,6 +83,14 @@ public sealed partial class HeatlampSystem : EntitySystem
 
             _appearance.SetData(heatlamp, ToggleVisuals.Toggled, true, appearance);
             _item.SetHeldPrefix(heatlamp, "on");
+
+
+            if (heatlamp.Comp.ActivatedDamage == null)
+                return;
+
+            heatlamp.Comp.DeactivatedDamage ??= melee.Damage;
+            melee.Damage = heatlamp.Comp.ActivatedDamage;
+
         }
         else
         {
@@ -87,6 +101,9 @@ public sealed partial class HeatlampSystem : EntitySystem
 
             _appearance.SetData(heatlamp, ToggleVisuals.Toggled, false, appearance);
             _item.SetHeldPrefix(heatlamp, "off");
+
+            if (heatlamp.Comp.DeactivatedDamage != null)
+                melee.Damage = heatlamp.Comp.DeactivatedDamage;
         }
     }
 
@@ -107,14 +124,19 @@ public sealed partial class HeatlampSystem : EntitySystem
 
         var energy = heater.Comp.CurrentPowerDraw  * frameTime;
 
-        if (!_powerCell.TryUseCharge(heater, energy * frameTime, cell))
+        if (heater.Comp.NeedsPower && !_powerCell.TryUseCharge(heater, energy * frameTime, cell))
         {
             ChangeSetting((heater, heater), EntityHeaterSetting.Off);
             return;
         }
 
-        if (heater.Comp.LowerEfficiencyWhenContained)
+        if (heater.Comp.LowerEfficiencyWhenContained
+            && _container.TryGetContainingContainer(heater.Owner, out var container)
+            && HasComp<StorageComponent>(container.Owner))
+        {
             energy /= heater.Comp.ContainerMultiplier;
+        }
+
 
         var totalTransfer = energy * heater.Comp.PowerToHeatMultiplier;
 

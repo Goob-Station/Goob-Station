@@ -297,6 +297,22 @@
   - UplinkWearables
 
 - type: listing
+  id: UplinkHeatLamp
+  name: uplink-heat-lamp-name
+  description: uplink-heat-lamp-desc
+  icon: { sprite: /Textures/_Goobstation/Objects/Devices/Heatlamps/syndicate.rsi, state: icon-on }
+  productEntity: HeatLampEvil
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkWearables
+  #conditions: # Blacklist this from nukies if dreadsuits abuse it too much.
+  #- !type:StoreWhitelistCondition
+  #  blacklist:
+  #    tags:
+  #    - NukeOpsUplink
+
+- type: listing
   id: UplinkHardsuitSyndieMedic
   name: uplink-hardsuit-syndiemedic-name
   description: uplink-hardsuit-syndiemedic-desc

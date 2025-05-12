@@ -237,6 +237,7 @@
   - EmergencyNitrogen
   - EmergencyOxygen
   - LoadoutSpeciesVoxNitrogen
+  - LoadoutSpeciesHeatingTool # Goobstation
 
 - type: loadoutGroup
   id: GroupEVATank
@@ -1558,12 +1559,13 @@
 - type: loadoutGroup
   id: SurvivalSyndicate
   name: loadout-group-survival-syndicate
-  minLimit: 2
+  minLimit: 3 # Goobstation
   hidden: true
   loadouts:
   - EmergencyNitrogenSyndicate
   - EmergencyOxygenSyndicate
   - LoadoutSpeciesVoxNitrogen
+  - LoadoutSpeciesHeatlampSyndicate # Goobstation
 
 - type: loadoutGroup
   id: GroupSpeciesBreathTool
