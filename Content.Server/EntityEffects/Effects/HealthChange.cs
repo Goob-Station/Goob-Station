@@ -103,7 +103,7 @@ namespace Content.Server.EntityEffects.Effects
 
         [DataField]
         [JsonPropertyName("healingDamageMultiplier")]
-        public float HealingDamageMultiplier = 220f; // Shitmed Change
+        public float HealingDamageMultiplier = 11f; // Shitmed Change
 
         [DataField]
         [JsonPropertyName("damageMultiplier")]
@@ -230,16 +230,13 @@ namespace Content.Server.EntityEffects.Effects
             var universalReagentHealModifier =
                 args.EntityManager.System<DamageableSystem>().UniversalReagentHealModifier;
 
-            if (Math.Abs(universalReagentDamageModifier - 1) > 1 || Math.Abs(universalReagentHealModifier - 1) > 1)
+            foreach (var (type, val) in damageSpec.DamageDict)
             {
-                foreach (var (type, val) in damageSpec.DamageDict)
-                {
-                    if (val < 0f)
-                        damageSpec.DamageDict[type] = val * universalReagentHealModifier * HealingDamageMultiplier;
+                if (val < 0f)
+                    damageSpec.DamageDict[type] = val * universalReagentHealModifier * HealingDamageMultiplier;
 
-                    if (val > 0f)
-                        damageSpec.DamageDict[type] = val * universalReagentDamageModifier * DamageMultiplier;
-                }
+                if (val > 0f)
+                    damageSpec.DamageDict[type] = val * universalReagentDamageModifier * DamageMultiplier;
             }
 
             args.EntityManager.System<DamageableSystem>()
