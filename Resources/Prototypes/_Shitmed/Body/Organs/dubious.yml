@@ -120,7 +120,7 @@
     state: mindshock
   - type: Organ
     onAdd:
-    - type: Artifact
+    - type: XenoArtifact
     - type: RandomStatusActivation
       statusEffects:
         ActivateArtifactEffect: ActivateArtifactEffect

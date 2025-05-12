@@ -14,6 +14,7 @@
     exclusiveAntag: true
     antagPrototype: LoneAbductorAntag
     roleType: SoloAntagonist
+    subtype: role-subtype-abductor
   - type: Abductor
 
 - type: entity
@@ -25,6 +26,7 @@
     exclusiveAntag: true
     antagPrototype: AbductorAgentAntag
     roleType: TeamAntagonist
+    subtype: role-subtype-abductor
   - type: Abductor
 
 - type: entity
@@ -36,6 +38,7 @@
     exclusiveAntag: true
     antagPrototype: AbductorScientistAntag
     roleType: TeamAntagonist
+    subtype: role-subtype-abductor
   - type: Abductor
 
 - type: entity
@@ -45,4 +48,5 @@
   components:
   - type: MindRole
     antagPrototype: AbductorVictimAntag
+    subtype: role-subtype-abductor-victim
   - type: AbductorVictim

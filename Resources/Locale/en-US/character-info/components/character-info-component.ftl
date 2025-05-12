@@ -8,6 +8,6 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 character-info-title = Character
-character-info-roles-antagonist-text = Antagonist Roles
+character-info-roles-antagonist-text = You have no special Roles
 character-info-objectives-label = Objectives
 character-info-no-profession = No Profession

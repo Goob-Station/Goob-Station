@@ -1,102 +1,11 @@
-# SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2023 Scribbles0 <91828755+Scribbles0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 CaasGit <87243814+CaasGit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 EmoGarbage404 <retron404@gmail.com>
-# SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
-# SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Hrosts <35345601+Hrosts@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ian <ignaz.k@live.de>
-# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Joel Zimmerman <JoelZimmerman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ko4ergaPunk <62609550+Ko4ergaPunk@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Kukutis96513 <146854220+Kukutis96513@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Lye <128915833+Lyroth001@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MerrytheManokit <167581110+MerrytheManokit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MureixloI <132683811+MureixloI@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 NakataRin <45946146+NakataRin@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 OrangeMoronage9622 <whyteterry0092@gmail.com>
-# SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Preston Smith <92108534+thetolbean@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Repo <47093363+Titian3@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 RiceMar1244 <138547931+RiceMar1244@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Spanky <scott@wearejacob.com>
-# SPDX-FileCopyrightText: 2024 Stalen <33173619+stalengd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
-# SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
-# SPDX-FileCopyrightText: 2024 Vigers Ray <60344369+VigersRay@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Wrexbe (Josh) <81056464+wrexbe@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 bibbly <thomaspisklak@gmail.com>
-# SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
-# SPDX-FileCopyrightText: 2024 dylanstrategie <188926747+dylanstrategie@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 dylanstrategie <188926747+dylanstrategie@users.noreply.github.com~>
-# SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-# SPDX-FileCopyrightText: 2024 foboscheshir <156405958+foboscheshir@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 hamurlik <75280571+hamurlik@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 hamurlik <renoDeath@protonmail.com>
-# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-# SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 stroopwafel <j.o.luijkx@student.tudelft.nl>
-# SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 wrexbe <wrexbe@protonmail.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 RatherUncreative <RatherUncreativeName@proton.me>
-# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 meta:
   format: 7
   category: Map
-  engineVersion: 247.2.0
+  engineVersion: 255.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/29/2025 00:38:16
-  entityCount: 2522
+  time: 05/10/2025 18:05:18
+  entityCount: 2525
 maps:
 - 1
 grids:
@@ -1669,7 +1578,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         28:
-        - DoorStatus: DoorBolt
+        - - DoorStatus
+          - DoorBolt
   - uid: 28
     components:
     - type: Transform
@@ -1678,7 +1588,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         27:
-        - DoorStatus: DoorBolt
+        - - DoorStatus
+          - DoorBolt
 - proto: AirlockExternalGlassCargoLocked
   entities:
   - uid: 29
@@ -1696,7 +1607,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         31:
-        - DoorStatus: DoorBolt
+        - - DoorStatus
+          - DoorBolt
   - uid: 31
     components:
     - type: Transform
@@ -1705,7 +1617,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         30:
-        - DoorStatus: DoorBolt
+        - - DoorStatus
+          - DoorBolt
 - proto: AirlockExternalGlassShuttleArrivals
   entities:
   - uid: 32
@@ -2162,8 +2075,11 @@ entities:
   - uid: 95
     components:
     - type: Transform
-      pos: 2.4605155,-3.2763605
+      pos: 6.7229905,-4.344304
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: BoxFolderQmClipboard
   entities:
   - uid: 1942
@@ -6112,12 +6028,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 24.5,3.5
       parent: 2
-  - uid: 867
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 21.5,-0.5
-      parent: 2
   - uid: 870
     components:
     - type: Transform
@@ -6611,7 +6521,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         1070:
-        - ArtifactAnalyzerSender: ArtifactAnalyzerReceiver
+        - - ArtifactAnalyzerSender
+          - ArtifactAnalyzerReceiver
 - proto: ComputerAtmosMonitoring
   entities:
   - uid: 1289
@@ -6634,6 +6545,45 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 1.5,7.5
+      parent: 2
+- proto: ComputerCargoOrdersEngineering
+  entities:
+  - uid: 2523
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -18.5,1.5
+      parent: 2
+- proto: ComputerCargoOrdersMedical
+  entities:
+  - uid: 1724
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 2.5,-3.5
+      parent: 2
+- proto: ComputerCargoOrdersScience
+  entities:
+  - uid: 2524
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -1.5,10.5
+      parent: 2
+- proto: ComputerCargoOrdersSecurity
+  entities:
+  - uid: 1734
+    components:
+    - type: Transform
+      pos: 14.5,5.5
+      parent: 2
+- proto: ComputerCargoOrdersService
+  entities:
+  - uid: 2525
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -14.5,-0.5
       parent: 2
 - proto: ComputerCargoShuttle
   entities:
@@ -6666,6 +6616,14 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 19.5,-0.5
+      parent: 2
+- proto: ComputerFundingAllocation
+  entities:
+  - uid: 867
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 21.5,-0.5
       parent: 2
 - proto: ComputerId
   entities:
@@ -6831,8 +6789,11 @@ entities:
   - uid: 2408
     components:
     - type: Transform
-      pos: -18.519308,1.468835
+      pos: -16.749168,-2.207485
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: CryogenicSleepUnitSpawnerLateJoin
   entities:
   - uid: 967
@@ -12379,13 +12340,6 @@ entities:
     - type: Transform
       pos: 7.5,2.5
       parent: 2
-- proto: PottedPlant21
-  entities:
-  - uid: 1724
-    components:
-    - type: Transform
-      pos: 2.4826317,-3.6277924
-      parent: 2
 - proto: PottedPlant22
   entities:
   - uid: 1725
@@ -12434,13 +12388,6 @@ entities:
     components:
     - type: Transform
       pos: 10.2875805,-1.5445261
-      parent: 2
-- proto: PottedPlantBioluminscent
-  entities:
-  - uid: 1734
-    components:
-    - type: Transform
-      pos: 14.5,5.5
       parent: 2
 - proto: PowerCellHyper
   entities:
@@ -13073,6 +13020,9 @@ entities:
     - type: Transform
       pos: 10.483304,-6.5229325
       parent: 2
+    - type: CollisionWake
+      enabled: False
+    - type: Conveyed
 - proto: SalvageMagnet
   entities:
   - uid: 1711
@@ -13717,11 +13667,14 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         1850:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1857:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1849:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
   - uid: 1947
     components:
     - type: Transform
@@ -13731,7 +13684,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         1853:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
   - uid: 1948
     components:
     - type: Transform
@@ -13741,9 +13695,11 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         1851:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1852:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
 - proto: SignalSwitchDirectional
   entities:
   - uid: 1802
@@ -13754,7 +13710,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         910:
-        - Status: Toggle
+        - - Status
+          - Toggle
 - proto: SignAtmos
   entities:
   - uid: 2296
@@ -14880,9 +14837,12 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         2398:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Reverse
+        - - Middle
+          - Off
   - uid: 2105
     components:
     - type: Transform
@@ -14891,13 +14851,19 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         956:
-        - Right: Forward
-        - Left: Reverse
-        - Middle: Off
+        - - Right
+          - Forward
+        - - Left
+          - Reverse
+        - - Middle
+          - Off
         957:
-        - Left: Reverse
-        - Right: Forward
-        - Middle: Off
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
   - uid: 2106
     components:
     - type: Transform
@@ -14906,9 +14872,12 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         1823:
-        - Left: Reverse
-        - Right: Forward
-        - Middle: Off
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
   - uid: 2107
     components:
     - type: Transform
@@ -14917,25 +14886,40 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         958:
-        - Middle: Off
-        - Right: Forward
-        - Left: Reverse
+        - - Middle
+          - Off
+        - - Right
+          - Forward
+        - - Left
+          - Reverse
         959:
-        - Left: Reverse
-        - Right: Forward
-        - Middle: Off
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
         960:
-        - Left: Reverse
-        - Right: Forward
-        - Middle: Off
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
         961:
-        - Left: Reverse
-        - Right: Forward
-        - Middle: Off
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
         962:
-        - Left: Reverse
-        - Right: Forward
-        - Middle: Off
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
 - proto: VendingMachineBooze
   entities:
   - uid: 2108
@@ -16568,12 +16552,6 @@ entities:
     - type: Transform
       pos: 18.57877,-2.4324293
       parent: 2
-    - type: AccessReader
-      accessLog: []
-      accessKeys: []
-      access:
-      - - HeadOfSecurity
-      denyTags: []
     - type: ActiveListener
       range: 2
 - proto: WeaponEnergyShotgun

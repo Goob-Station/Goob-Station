@@ -85,7 +85,7 @@
     sprite: Objects/Materials/Sheets/other.rsi
     state: plasma_3
   product: CrateMaterialPlasma
-  cost: 1500 # Goobstation
+  cost: 1500
   category: cargoproduct-category-name-materials
   group: market
 
@@ -106,6 +106,16 @@
     state: paper_3
   product: CrateMaterialPaper
   cost: 1000
+  category: cargoproduct-category-name-materials
+  group: market
+
+- type: cargoProduct
+  id: MaterialBasic
+  icon:
+    sprite: Objects/Materials/Sheets/other.rsi
+    state: generic_materials
+  product: CrateMaterialBasicResource
+  cost: 1660
   category: cargoproduct-category-name-materials
   group: market
 

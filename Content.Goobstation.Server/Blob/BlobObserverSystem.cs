@@ -106,7 +106,7 @@ public sealed class BlobObserverSystem : SharedBlobObserverSystem
 
     private void SendBlobBriefing(EntityUid mind)
     {
-        if (_mindSystem.TryGetSession(mind, out var session))
+        if (_playerManager.TryGetSessionByEntity(mind, out var session))
         {
             _chatManager.DispatchServerMessage(session, Loc.GetString("blob-role-greeting"));
         }
@@ -144,7 +144,11 @@ public sealed class BlobObserverSystem : SharedBlobObserverSystem
 
         if (!isNewMind)
         {
-            var name = mind.Session?.Name ?? "???";
+            String name;
+            if (_playerManager.TryGetSessionById(mind.UserId, out var session1))
+                name = session1.Name;
+            else
+                name = "???";
             _mindSystem.WipeMind(mindId, mind);
             mindId = _mindSystem.CreateMind(args.UserId, $"Blob Player ({name})");
             mind = Comp<MindComponent>(mindId);

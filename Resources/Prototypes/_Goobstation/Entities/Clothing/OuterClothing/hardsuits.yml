@@ -68,8 +68,8 @@
       head: ClothingHeadHelmetHardsuitChronolegioneer
   - type: ModifyDelayedKnockdown
     cancel: true
-  - type: StaminaDamageResistance
-    coefficient: 0
+  - type: StaminaResistance
+    damageCoefficient: 0
 
 - type: entity
   parent: ClothingOuterHardsuitChronolegioneer
@@ -114,8 +114,8 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 2
     knockdownTimeDelta: -2
-  - type: StaminaDamageResistance
-    coefficient: 0.6
+  - type: StaminaResistance
+    damageCoefficient: 0.6
 
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseCentcommContraband]
@@ -158,8 +158,8 @@
   - type: ModifyDelayedKnockdown
     delayDelta: 3
     knockdownTimeDelta: -3
-  - type: StaminaDamageResistance
-    coefficient: 0.5
+  - type: StaminaResistance
+    damageCoefficient: 0.5
 
 # Cybersun Stealth
 
@@ -216,8 +216,8 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 3
     knockdownTimeDelta: -3
-  - type: StaminaDamageResistance
-    coefficient: 0.5
+  - type: StaminaResistance
+    damageCoefficient: 0.5
 
 # cybersun dreadnought suit
 
@@ -270,8 +270,8 @@
           Slash: 0.3
       interval: 1.0
       ignoreResistances: true
-  - type: StaminaDamageResistance
-    coefficient: 0
+  - type: StaminaResistance
+    damageCoefficient: 0
   - type: ModifyDelayedKnockdown
     cancel: true
 
@@ -344,8 +344,8 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 2
     knockdownTimeDelta: -2
-  - type: StaminaDamageResistance
-    coefficient: 0.6
+  - type: StaminaResistance
+    damageCoefficient: 0.6
 
 ## Heady of security voidsuit
 #- type: entity
@@ -382,7 +382,7 @@
 #  - type: ModifyDelayedKnockdown # Goobstation
 #    delayDelta: 3
 #    knockdownTimeDelta: -3
-#  - type: StaminaDamageResistance # Goobstation
+#  - type: StaminaResistance # Goobstation
 #    coefficient: 0.5
 #
 ## Engineer
