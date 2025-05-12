@@ -78,7 +78,6 @@
     sprite: _EinsteinEngines/Mobs/Species/Shadowkin/organs.rsi
     state: heart
   - type: Metabolizer
-    maxReagents: 2
     metabolizerTypes: [Shadowkin]
     groups:
     - id: Medicine
@@ -108,7 +107,6 @@
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
   - type: Metabolizer
-    maxReagents: 3
     metabolizerTypes: [Shadowkin]
     groups:
     - id: Food
@@ -137,7 +135,6 @@
     sprite: _EinsteinEngines/Mobs/Species/Shadowkin/organs.rsi
     state: liver
   - type: Metabolizer
-    maxReagents: 1
     metabolizerTypes: [Shadowkin]
     groups:
     - id: Alcohol
@@ -167,7 +164,6 @@
     layers:
     - state: kidneys
   - type: Metabolizer
-    maxReagents: 5
     metabolizerTypes: [Shadowkin]
     removeEmpty: true
   - type: Tag # goob edit

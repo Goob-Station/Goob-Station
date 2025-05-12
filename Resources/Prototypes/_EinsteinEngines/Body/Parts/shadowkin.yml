@@ -5,156 +5,130 @@
 
 - type: entity
   id: PartShadowkin
-  parent: BaseItem
+  parent: [BaseItem, BasePart]
   name: "Shadowkin body part"
   abstract: true
   components:
-    - type: Sprite
-      netsync: false
-      sprite: _EinsteinEngines/Mobs/Species/Shadowkin/parts.rsi
-    - type: Icon
-      sprite: _EinsteinEngines/Mobs/Species/Shadowkin/parts.rsi
-    - type: Damageable
-      damageContainer: OrganicPart # Shitmed
-    - type: BodyPart
-    - type: ContainerContainer
-      containers:
-        bodypart: !type:Container
-          ents: []
+  - type: Sprite
+    sprite: _EinsteinEngines/Mobs/Species/Shadowkin/parts.rsi
+    state: "chest_m"
+  - type: Icon
+    sprite: _EinsteinEngines/Mobs/Species/Shadowkin/parts.rsi
+    state: "chest_m"
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 3
+      - ReagentId: Blood
+        Quantity: 10
 
 - type: entity
-  id: TorsoShadowkin
-  name: "Shadowkin torso"
-  parent: PartShadowkin
+  id: ChestShadowkin
+  name: "Shadowkin chest"
+  parent: [PartShadowkin, BaseChest]
   components:
     - type: Sprite
-      state: "torso_m"
+      state: "chest_m"
     - type: Icon
-      state: "torso_m"
-    - type: BodyPart
-      partType: Torso
+      state: "chest_m"
+
+- type: entity
+  id: GroinShadowkin
+  name: "Shadowkin groin"
+  parent: [PartShadowkin, BaseGroin]
+  components:
+    - type: Sprite
+      state: "groin_m"
+    - type: Icon
+      state: "groin_m"
 
 - type: entity
   id: HeadShadowkin
   name: "Shadowkin head"
-  parent: PartShadowkin
+  parent: [PartShadowkin, BaseHead]
   components:
     - type: Sprite
       state: "head_m"
     - type: Icon
       state: "head_m"
-    - type: BodyPart
-      partType: Head
-    - type: Input
-      context: "ghost"
-    - type: MovementSpeedModifier
-      baseWalkSpeed: 0
-      baseSprintSpeed: 0
-    - type: InputMover
-    - type: GhostOnMove
 
 - type: entity
   id: LeftArmShadowkin
   name: "left Shadowkin arm"
-  parent: PartShadowkin
+  parent: [PartShadowkin, BaseLeftArm]
   components:
     - type: Sprite
       state: "l_arm"
     - type: Icon
       state: "l_arm"
-    - type: BodyPart
-      partType: Arm
-      symmetry: Left
 
 - type: entity
   id: RightArmShadowkin
   name: "right Shadowkin arm"
-  parent: PartShadowkin
+  parent: [PartShadowkin, BaseRightArm]
   components:
     - type: Sprite
       state: "r_arm"
     - type: Icon
       state: "r_arm"
-    - type: BodyPart
-      partType: Arm
-      symmetry: Right
 
 - type: entity
   id: LeftHandShadowkin
   name: "left Shadowkin hand"
-  parent: PartShadowkin
+  parent: [PartShadowkin, BaseLeftHand]
   components:
     - type: Sprite
       state: "l_hand"
     - type: Icon
       state: "l_hand"
-    - type: BodyPart
-      partType: Hand
-      symmetry: Left
 
 - type: entity
   id: RightHandShadowkin
   name: "right Shadowkin hand"
-  parent: PartShadowkin
+  parent: [PartShadowkin, BaseRightHand]
   components:
     - type: Sprite
       state: "r_hand"
     - type: Icon
       state: "r_hand"
-    - type: BodyPart
-      partType: Hand
-      symmetry: Right
 
 - type: entity
   id: LeftLegShadowkin
   name: "left Shadowkin leg"
-  parent: PartShadowkin
+  parent: [PartShadowkin, BaseLeftLeg]
   components:
     - type: Sprite
       state: "l_leg"
     - type: Icon
       state: "l_leg"
-    - type: BodyPart
-      partType: Leg
-      symmetry: Left
-    - type: MovementBodyPart
 
 - type: entity
   id: RightLegShadowkin
   name: "right Shadowkin leg"
-  parent: PartShadowkin
+  parent: [PartShadowkin, BaseRightLeg]
   components:
     - type: Sprite
       state: "r_leg"
     - type: Icon
       state: "r_leg"
-    - type: BodyPart
-      partType: Leg
-      symmetry: Right
-    - type: MovementBodyPart
 
 - type: entity
   id: LeftFootShadowkin
   name: "left Shadowkin foot"
-  parent: PartShadowkin
+  parent: [PartShadowkin, BaseLeftFoot]
   components:
     - type: Sprite
       state: "l_foot"
     - type: Icon
       state: "l_foot"
-    - type: BodyPart
-      partType: Foot
-      symmetry: Left
 
 - type: entity
   id: RightFootShadowkin
   name: "right Shadowkin foot"
-  parent: PartShadowkin
+  parent: [PartShadowkin, BaseRightFoot]
   components:
     - type: Sprite
       state: "r_foot"
     - type: Icon
       state: "r_foot"
-    - type: BodyPart
-      partType: Foot
-      symmetry: Right

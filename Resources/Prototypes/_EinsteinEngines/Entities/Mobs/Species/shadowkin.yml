@@ -1,7 +1,7 @@
 - type: entity
   save: false
   parent:
-    - BaseMobSpeciesOrganic
+  - BaseMobSpeciesOrganic
   id: MobShadowkinBase
   name: Urist McShadow
   abstract: true
@@ -86,11 +86,11 @@
     - type: Damageable
       damageContainer: Biological # Shadowkin
       damageModifierSet: Shadowkin
-    - type: DamageVisuals
-      damageOverlayGroups:
-        Brute:
-          sprite: Mobs/Effects/brute_damage.rsi
-          color: "#1c1624"
+#    - type: DamageVisuals
+#      damageOverlayGroups:
+#        Brute:
+#          sprite: Mobs/Effects/brute_damage.rsi
+#          color: "#1c1624"
     - type: Barotrauma
       damage:
         types:
