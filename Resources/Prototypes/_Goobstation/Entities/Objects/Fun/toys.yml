@@ -773,7 +773,7 @@
 - type: entity
   parent: PlushieLizard
   id: PlushieFern
-  name: fern plushie
+  name: mystical lizard plushie
   description: You feel as if something else is watching you... just out of sight, in the shadows.
   components:
   - type: Sprite
@@ -795,7 +795,7 @@
 - type: entity
   parent: BasePlushie
   id: PlushieHexadecimal
-  name: hexadecimal plushie
+  name: strange IPC plushie
   description: You feel a slight imbalance in the universe you inhabit, as if something maybe a little better off than others... ENERGY LOW.
   components:
   - type: Sprite
@@ -817,7 +817,7 @@
 - type: entity
   parent: PlushieMoth
   id: PlushieFlint
-  name: flint plushie
+  name: criminal moth plushie
   description: Has commited lots of war crimes.
   components:
   - type: Sprite
@@ -839,7 +839,7 @@
 - type: entity
   parent: PlushieLizard
   id: PlushieSeesTheStars
-  name: sees-the-stars plushie
+  name: blue lizard plushie
   description: Your stereotypical blue lizard, follows the "Does-The-Noun" naming convention. Gets mistaken surprisingly often for a certain purple lizard.
   components:
   - type: Sprite
@@ -849,7 +849,7 @@
 - type: entity
   parent: BasePlushie
   id: PlushiePistachio
-  name: Pistachio plushie
+  name: blue wizard plushie
   description: The Great Wizard himself, he claims the nut Pistachio was named after him, and definitely not the other way around. A user of the Arcane magics, he is not to be underestimated.
   components:
   - type: Sprite
@@ -881,7 +881,7 @@
 - type: entity
   parent: BasePlushie
   id: PlushieSqueaks
-  name: squeaks d'cheeseh plushie
+  name: grey rodentia plushie
   description: Cheesed to meet you?
   components:
   - type: Sprite
@@ -903,7 +903,7 @@
 - type: entity
   parent: BasePlushie
   id: PlushieHaato
-  name: haato plushie
+  name: annoying human plushie
   description: Watch her sing "Station is Mine"!
   components:
   - type: Sprite
@@ -925,7 +925,7 @@
 - type: entity
   parent: PlushieLizard
   id: PlushieChewsTheShoes
-  name: chews-the-shoes plushie
+  name: frilled lizard plushie
   description: Eats your shoes.
   components:
   - type: Sprite
@@ -935,7 +935,7 @@
 - type: entity
   parent: BasePlushie
   id: PlushieTinyLane
-  name: tiny lane plushie
+  name: tiny tider plushie
   description: Just a goofy little guy.
   components:
   - type: Sprite
