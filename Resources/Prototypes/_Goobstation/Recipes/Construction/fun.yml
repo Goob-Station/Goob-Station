@@ -53,8 +53,8 @@
   objectType: Item
 
 - type: construction
-  name: Boomerang
-  id: Boomerang
+  name: boomerang
+  id: boomerang
   graph: boomerangGraph
   startNode: start
   targetNode: boomerangFinish

@@ -15,4 +15,4 @@
               amount: 5
               doAfter: 2
     - node: boomerangFinish
-      entity: Boomerang
+      entity: boomerang
