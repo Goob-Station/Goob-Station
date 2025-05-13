@@ -307,7 +307,7 @@
       coefficients:
         Shock: 0.5
         Caustic: 0.7
-        Radiation: 0.95
+        Radiation: 0.05
   - type: ClothingSpeedModifier
     walkModifier: 0.85
     sprintModifier: 0.85

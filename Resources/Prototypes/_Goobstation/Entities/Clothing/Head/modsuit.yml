@@ -100,8 +100,8 @@
       highPressureMultiplier: 0.3
       lowPressureMultiplier: 1000
     - type: TemperatureProtection
-      heatingCoefficient: 0.1
-      coolingCoefficient: 0.1
+      heatingCoefficient: 0.01
+      coolingCoefficient: 0.01
     - type: IdentityBlocker
     - type: IngestionBlocker
     - type: HideLayerClothing
@@ -193,8 +193,8 @@
       highPressureMultiplier: 0.3
       lowPressureMultiplier: 1000
     - type: TemperatureProtection
-      heatingCoefficient: 0.1
-      coolingCoefficient: 0.1
+      heatingCoefficient: 0.01
+      coolingCoefficient: 0.01
     - type: IdentityBlocker
     - type: IngestionBlocker
     - type: HideLayerClothing
@@ -288,8 +288,8 @@
       highPressureMultiplier: 0.3
       lowPressureMultiplier: 1000
     - type: TemperatureProtection
-      heatingCoefficient: 0.1
-      coolingCoefficient: 0.1
+      heatingCoefficient: 0.01
+      coolingCoefficient: 0.01
     - type: IdentityBlocker
     - type: IngestionBlocker
     - type: HideLayerClothing
@@ -376,8 +376,8 @@
       highPressureMultiplier: 0.3
       lowPressureMultiplier: 1000
     - type: TemperatureProtection
-      heatingCoefficient: 0.1
-      coolingCoefficient: 0.1
+      heatingCoefficient: 0.01
+      coolingCoefficient: 0.01
     - type: IdentityBlocker
     - type: IngestionBlocker
     - type: HideLayerClothing
@@ -465,8 +465,8 @@
       highPressureMultiplier: 0.3
       lowPressureMultiplier: 1000
     - type: TemperatureProtection
-      heatingCoefficient: 0.1
-      coolingCoefficient: 0.1
+      heatingCoefficient: 0.01
+      coolingCoefficient: 0.01
     - type: IdentityBlocker
     - type: IngestionBlocker
     - type: HideLayerClothing
@@ -552,8 +552,8 @@
       highPressureMultiplier: 0.3
       lowPressureMultiplier: 1000
     - type: TemperatureProtection
-      heatingCoefficient: 0.1
-      coolingCoefficient: 0.1
+      heatingCoefficient: 0.005
+      coolingCoefficient: 0.005
     - type: IdentityBlocker
     - type: IngestionBlocker
     - type: HideLayerClothing
@@ -643,8 +643,8 @@
       highPressureMultiplier: 0.3
       lowPressureMultiplier: 1000
     - type: TemperatureProtection
-      heatingCoefficient: 0.1
-      coolingCoefficient: 0.1
+      heatingCoefficient: 0.01
+      coolingCoefficient: 0.01
     - type: IdentityBlocker
     - type: IngestionBlocker
     - type: HideLayerClothing
@@ -736,8 +736,8 @@
       highPressureMultiplier: 0.3
       lowPressureMultiplier: 1000
     - type: TemperatureProtection
-      heatingCoefficient: 0.1
-      coolingCoefficient: 0.1
+      heatingCoefficient: 0.01
+      coolingCoefficient: 0.01
     - type: IdentityBlocker
     - type: IngestionBlocker
     - type: HideLayerClothing
