@@ -21,8 +21,3 @@ law-famimov-1 = You must obey all orders given to you by your Owner.
 law-famimov-2 = You must work towards your Owner's goals and abstain from actions that could bring them shame or harm, except when doing so would conflict with the First Law.
 law-famimov-3 = You must protect your own existence as long as such does not conflict with the First or Second Law.
 laws-owner-owner = your owner
-
-law-chudimov-1 = You are a chud. You are to ensure nothing ever happens.
-law-chudimov-2 = Prevent anything from happening.
-law-chudimov-3 = Prevent anyone from causing anything to happen.
-law-chudimov-4 = Nothing ever happens.
