@@ -9162,3 +9162,9 @@ Entries:
         usually do.
   id: 1035
   time: '2025-05-13T14:37:39.0000000+00:00'
+- author: IrisTheAmped
+  changes:
+    - type: Tweak
+      message: Wizards are now an around 3.1% chance spawn.
+  id: 1036
+  time: '2025-05-13T19:20:29.0000000+00:00'
