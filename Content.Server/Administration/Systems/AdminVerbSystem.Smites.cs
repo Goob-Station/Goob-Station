@@ -58,7 +58,6 @@
 // SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Stalen <33173619+stalengd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
@@ -96,6 +95,7 @@
 // SPDX-FileCopyrightText: 2025 Pancake <Pangogie@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2025 TemporalOroboros <TemporalOroboros@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
