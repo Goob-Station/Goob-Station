@@ -921,24 +921,24 @@
     sound:
       path: /Audio/Animals/mouse_squeak.ogg
 
-  - type: entity
-    parent: BasePlushie
-    id: PlushieHaato
-    name: haato plushie
-    description: Watch her sing "Station is Mine"!
-    components:
-    - type: Sprite
-      sprite: _Goobstation/Objects/Fun/selfinsert.rsi
-      state: plushie_haato
-    - type: EmitSoundOnUse
-      sound:
-        path: /Audio/Voice/Human/femalescream_3.ogg
-    - type: EmitSoundOnLand
-      sound:
-        path: /Audio/Effects/bodyfall3.ogg
-    - type: EmitSoundOnActivate
-      sound:
-        path: /Audio/Voice/Human/womanlaugh.ogg
-    - type: EmitSoundOnTrigger
-      sound:
-        path: /Audio/Voice/Human/womanlaugh.ogg
+- type: entity
+  parent: BasePlushie
+  id: PlushieHaato
+  name: haato plushie
+  description: Watch her sing "Station is Mine"!
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    state: plushie_haato
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Human/femalescream_3.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Effects/bodyfall3.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Human/womanlaugh.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Human/womanlaugh.ogg
