@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
@@ -30,6 +36,7 @@ public sealed class RustChargeSystem : EntitySystem
         SubscribeLocalEvent<RustChargeComponent, StartCollideEvent>(OnCollide);
         SubscribeLocalEvent<RustChargeComponent, PreventCollideEvent>(OnPreventCollide);
         SubscribeLocalEvent<RustChargeComponent, LandEvent>(OnLand);
+        SubscribeLocalEvent<RustChargeComponent, StopThrowEvent>(OnStopThrow);
         SubscribeLocalEvent<RustChargeComponent, DownAttemptEvent>(OnDownAttempt);
         SubscribeLocalEvent<RustChargeComponent, InteractionAttemptEvent>(OnInteractAttempt);
         SubscribeLocalEvent<RustChargeComponent, BeforeStatusEffectAddedEvent>(OnBeforeRustChargeStatusEffect);
@@ -72,6 +79,11 @@ public sealed class RustChargeSystem : EntitySystem
             args.Cancelled = true;
     }
 
+    private void OnStopThrow(Entity<RustChargeComponent> ent, ref StopThrowEvent args)
+    {
+        RemCompDeferred(ent.Owner, ent.Comp);
+    }
+
     private void OnLand(Entity<RustChargeComponent> ent, ref LandEvent args)
     {
         RemCompDeferred(ent.Owner, ent.Comp);
@@ -105,7 +117,7 @@ public sealed class RustChargeSystem : EntitySystem
                 false,
                 true,
                 damageable,
-                targetPart: TargetBodyPart.Torso);
+                targetPart: TargetBodyPart.Chest);
 
             return;
         }
