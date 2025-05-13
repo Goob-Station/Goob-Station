@@ -14,7 +14,7 @@
     edges:
     - to: hardsuitGoliath
       steps:
-      - tag: HardsuitSpatio
+      - tag: ExplorerSuit
         icon:
           sprite: _Lavaland/Equipment/explorer_suit.rsi
           state: icon
