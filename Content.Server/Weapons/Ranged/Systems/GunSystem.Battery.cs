@@ -111,7 +111,7 @@ public sealed partial class GunSystem
         _damageExamine.AddDamageExamine(args.Message, Damageable.ApplyUniversalAllModifiers(damageSpec), damageType);
 
         // Goobstation - partial armor penetration TODO: hitscan armor penetration
-        if (component is not ProjectileBatteryAmmoProviderComponent p)
+        if (entity.Comp is not ProjectileBatteryAmmoProviderComponent p)
             return;
 
         var ap = GetProjectilePenetration(p.Prototype);

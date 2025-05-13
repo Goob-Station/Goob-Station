@@ -45,7 +45,7 @@ public sealed partial class TakeStaminaDamage : EntityEffect
                 return;
         }
 
-        args.EntityManager.System<StaminaSystem>()
+        args.EntityManager.System<SharedStaminaSystem>()
             .TakeStaminaDamage(args.TargetEntity, Amount, visual: false, immediate: Immediate);
     }
 }

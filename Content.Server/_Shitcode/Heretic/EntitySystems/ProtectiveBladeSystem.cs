@@ -93,9 +93,12 @@ public sealed partial class ProtectiveBladeSystem : EntitySystem
         if (args.Cancelled)
             return;
 
+        if (!TryComp<ReflectComponent>(ent, out var reflect))
+            return;
+
         foreach (var blade in GetBlades(ent))
         {
-            if (!_reflect.TryReflectProjectile(ent, blade, args.ProjUid))
+            if (!_reflect.TryReflectProjectile((ent, reflect), blade, args.ProjUid))
                 continue;
 
             args.Cancelled = true;
@@ -109,9 +112,13 @@ public sealed partial class ProtectiveBladeSystem : EntitySystem
         if (args.Reflected)
             return;
 
+        if (!TryComp<ReflectComponent>(ent, out var reflect))
+            return;
+
         foreach (var blade in GetBlades(ent))
         {
-            if (!_reflect.TryReflectHitscan(ent,
+            if (!_reflect.TryReflectHitscan(
+                    (ent, reflect),
                     blade,
                     args.Shooter,
                     args.SourceItem,

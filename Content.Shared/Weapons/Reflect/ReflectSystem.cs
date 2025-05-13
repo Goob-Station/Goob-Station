@@ -237,7 +237,7 @@ public sealed class ReflectSystem : EntitySystem
         return true;
     }
 
-    private bool TryReflectHitscan(
+    public bool TryReflectHitscan( // Goob edit
         Entity<ReflectComponent> reflector,
         EntityUid user,
         EntityUid? shooter,
