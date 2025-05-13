@@ -82,7 +82,8 @@ autodoc-add-step-wait = WAIT 等
 autodoc-add-step-wait-prompt = Seconds to wait
 
 autodoc-body-part-Other = Other
-autodoc-body-part-Torso = Torso
+autodoc-body-part-Chest = Chest
+autodoc-body-part-Groin = Groin
 autodoc-body-part-Head = Head
 autodoc-body-part-Arm = Arm
 autodoc-body-part-Hand = Hand
