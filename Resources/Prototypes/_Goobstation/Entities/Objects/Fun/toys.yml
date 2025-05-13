@@ -797,7 +797,6 @@
     requiresSpecialDigestion: true
     useSound:
       path: /Audio/Effects/pop_high.ogg
-<<<<<<< HEAD
 
 - type: entity
   parent: PlushieLizard
@@ -950,11 +949,3 @@
   - type: EmitSoundOnTrigger
     sound:
       path: /Audio/Voice/Human/womanlaugh.ogg
-=======
-  - type: GibThisGuy
-    requireBoth: false
-    icNames:
-    - Grub
-    ocNames:
-    - Muppet
->>>>>>> 5c33c0455e4da07a51f32f082e4b4b215f6b1b6d
