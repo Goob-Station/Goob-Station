@@ -441,37 +441,6 @@
   categories:
     - UplinkAllies
 
-
-- type: listing
-  id: UplinkJermovCircuitBoard
-  name: jermov circuit board
-  description: A very un-dangerous Lawset to use when you want to cause the A.I. to get brainrot, use when bored.
-  productEntity: JermovCircuitBoard
-  cost:
-    Telecrystal: 15
-  categories:
-    -  UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Clown
-    - Passenger
-
-- type: listing
-  id: UplinkZooimovCircuitBoard
-  name: zooimov circuit board
-  description: A lawset for when you wanna keep all the stations animals safe and protected.
-  productEntity: ZooimovCircuitBoard
-  cost:
-    Telecrystal: 15
-  categories:
-    -  UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Zookeeper
-  saleLimit: 1
-
 - type: listing
   id: uplinkBeeNades    #goob - bee update
   name: uplink-beenades-name
