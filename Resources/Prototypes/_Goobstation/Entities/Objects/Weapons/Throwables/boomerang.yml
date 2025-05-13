@@ -31,7 +31,7 @@
   id: boomerangIncomplete
   parent: BaseItem
   name: incomplete boomerang
-  description: Apply knife to get a fresh boomerang
+  description: Apply knife to get a fresh boomerang.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Throwable/boomerangIncomplete.rsi
