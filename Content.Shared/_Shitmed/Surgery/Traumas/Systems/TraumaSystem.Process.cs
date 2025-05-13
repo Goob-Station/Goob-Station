@@ -1,4 +1,10 @@
-﻿using System.Linq;
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using System.Linq;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Pain;
@@ -500,10 +506,14 @@ public partial class TraumaSystem
         FixedPoint2 severity,
         (BodyPartType, BodyPartSymmetry)? targetType = null)
     {
+        if (TerminatingOrDeleted(inflicter))
+            return EntityUid.Invalid;
+
         foreach (var trauma in inflicter.Comp.TraumaContainer.ContainedEntities)
         {
             var containedTraumaComp = Comp<TraumaComponent>(trauma);
-            if (containedTraumaComp.TraumaType != traumaType || containedTraumaComp.TraumaTarget != target)
+            if (containedTraumaComp.TraumaType != traumaType
+                || containedTraumaComp.TraumaTarget != target)
                 continue;
             // Check for TraumaTarget isn't really necessary..
             // Right now wounds on a specified woundable can't wound other woundables, but in case IF something happens or IF someone decides to do that
@@ -647,8 +657,11 @@ public partial class TraumaSystem
                 case TraumaType.OrganDamage:
                     var traumaEnt = AddTrauma(targetChosen.Value, target, inflicter, TraumaType.OrganDamage, severity);
 
-                    if (!TryChangeOrganDamageModifier(targetChosen.Value, severity, traumaEnt, "WoundableDamage"))
+                    if (traumaEnt != EntityUid.Invalid
+                        && !TryChangeOrganDamageModifier(targetChosen.Value, severity, traumaEnt, "WoundableDamage"))
+                    {
                         TryCreateOrganDamageModifier(targetChosen.Value, severity, traumaEnt, "WoundableDamage");
+                    }
 
                     break;
 
