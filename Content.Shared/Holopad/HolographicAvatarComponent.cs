@@ -14,5 +14,5 @@ public sealed partial class HolographicAvatarComponent : Component
     /// The prototype sprite layer data for the hologram
     /// </summary>
     [DataField, AutoNetworkedField]
-    public PrototypeLayerData[] LayerData;
+    public PrototypeLayerData[]? LayerData = null;
 }
