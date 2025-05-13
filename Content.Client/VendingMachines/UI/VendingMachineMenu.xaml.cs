@@ -115,6 +115,7 @@ using Robust.Client.UserInterface;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.IdentityManagement;
 using Robust.Client.Graphics;
+using Robust.Shared.Utility;
 
 namespace Content.Client.VendingMachines.UI
 {
@@ -267,7 +268,9 @@ namespace Content.Client.VendingMachines.UI
                     continue;
 
                 var dummy = _dummies[proto];
-                var amount = cachedInventory.First(o => o.ID == proto).Amount;
+                if (!cachedInventory.TryFirstOrDefault(o => o.ID == proto, out var entry))
+                    continue;
+                var amount = entry.Amount;
                 // Could be better? Problem is all inventory entries get squashed.
                 var text = GetItemText(dummy, amount);
 

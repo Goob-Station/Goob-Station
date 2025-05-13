@@ -21,7 +21,7 @@ public sealed partial class RCDDeconstructableComponent : Component
     /// Number of charges consumed when the deconstruction is completed
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public FixedPoint2 Cost = 1;
+    public int Cost = 1;
 
     /// <summary>
     /// The length of the deconstruction-

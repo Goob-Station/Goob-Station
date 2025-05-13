@@ -28,7 +28,7 @@
 // SPDX-FileCopyrightText: 2021 mirrorcult <notzombiedude@gmail.com>
 // SPDX-FileCopyrightText: 2021 scrato <Mickaello2003@gmx.de>
 // SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Júlio César Ueti <52474532+Mirino97@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 J�lio C�sar Ueti <52474532+Mirino97@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
 // SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <gradientvera@outlook.com>
 // SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
@@ -61,6 +61,7 @@ using Content.Shared.Database;
 using Content.Shared.Gravity;
 using Content.Shared.Physics;
 using Content.Shared.Movement.Pulling.Events;
+using Robust.Shared.Network;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
@@ -74,10 +75,11 @@ namespace Content.Shared.Throwing
     /// </summary>
     public sealed class ThrownItemSystem : EntitySystem
     {
-        [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
-        [Dependency] private readonly SharedBroadphaseSystem _broadphase = default!;
+        [Dependency] private readonly INetManager _netMan = default!;
+        [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
         [Dependency] private readonly FixtureSystem _fixtures = default!;
+        [Dependency] private readonly SharedBroadphaseSystem _broadphase = default!;
         [Dependency] private readonly SharedPhysicsSystem _physics = default!;
         [Dependency] private readonly SharedGravitySystem _gravity = default!;
 
@@ -168,8 +170,9 @@ namespace Content.Shared.Throwing
                 }
             }
 
-            EntityManager.EventBus.RaiseLocalEvent(uid, new StopThrowEvent { User = thrownItemComponent.Thrower }, true);
-            EntityManager.RemoveComponent<ThrownItemComponent>(uid);
+            var ev = new StopThrowEvent(thrownItemComponent.Thrower);
+            RaiseLocalEvent(uid, ref ev);
+            RemComp<ThrownItemComponent>(uid);
         }
 
         public void LandComponent(EntityUid uid, ThrownItemComponent thrownItem, PhysicsComponent physics, bool playSound)
@@ -213,16 +216,14 @@ namespace Content.Shared.Throwing
         {
             base.Update(frameTime);
 
-            // TODO predicted throwing - remove this check
-            // We don't want to predict landing or stopping, since throwing isn't actually predicted.
-            // If we do, the landing/stop will occur prematurely on the client.
-            if (_gameTiming.InPrediction)
-                return;
-
             var query = EntityQueryEnumerator<ThrownItemComponent, PhysicsComponent>();
             var frozenQuery = GetEntityQuery<FrozenComponent>(); // Goobstation
             while (query.MoveNext(out var uid, out var thrown, out var physics))
             {
+                // If you remove this check verify slipping for other entities is networked properly.
+                if (_netMan.IsClient && !physics.Predict)
+                    continue;
+
                 if (frozenQuery.HasComp(uid)) // Goobstation
                     continue;
 

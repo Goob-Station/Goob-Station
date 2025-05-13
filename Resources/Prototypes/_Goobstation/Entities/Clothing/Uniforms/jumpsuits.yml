@@ -237,7 +237,7 @@
 
 
 - type: entity
-  parent: [ClothingUniformJumpsuitLawyerBlack, BaseMagicContraband]
+  parent: [ClothingUniformJumpsuitLawyerBlack, BaseMagicalContraband]
   id: ClothingUniformJumpsuitDevil
   name: devilish suit
   description: A stylish black suit made of materials not from this dimension. Warm to the touch.

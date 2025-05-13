@@ -15,24 +15,21 @@
 # Normal
         - to: ShelfWood
           completed:
-            - !type:SnapToGrid
-              southRotation: true
+            - !type:SnapToGrid {}
           steps:
             - material: WoodPlank
               amount: 4
               doAfter: 2
         - to: ShelfMetal
           completed:
-            - !type:SnapToGrid
-              southRotation: true
+            - !type:SnapToGrid {}
           steps:
             - material: Steel
               amount: 5
               doAfter: 3
         - to: ShelfGlass
           completed:
-            - !type:SnapToGrid
-              southRotation: true
+            - !type:SnapToGrid {}
           steps:
             - material: Glass
               amount: 4
@@ -40,8 +37,7 @@
 # Reinforced
         - to: ShelfRWood
           completed:
-            - !type:SnapToGrid
-              southRotation: true
+            - !type:SnapToGrid {}
           steps:
             - material: WoodPlank
               amount: 8
@@ -51,8 +47,7 @@
               doAfter: 1
         - to: ShelfRMetal
           completed:
-            - !type:SnapToGrid
-              southRotation: true
+            - !type:SnapToGrid {}
           steps:
             - material: Plasteel
               amount: 5
@@ -65,8 +60,7 @@
               doAfter: 1
         - to: ShelfRGlass
           completed:
-            - !type:SnapToGrid
-              southRotation: true
+            - !type:SnapToGrid {}
           steps:
             - material: Plastic
               amount: 5
@@ -80,16 +74,14 @@
 # Departmental
         - to: ShelfBar
           completed:
-            - !type:SnapToGrid
-              southRotation: true
+            - !type:SnapToGrid {}
           steps:
             - material: WoodPlank
               amount: 6
               doAfter: 2
         - to: ShelfKitchen
           completed:
-            - !type:SnapToGrid
-              southRotation: true
+            - !type:SnapToGrid {}
           steps:
             - material: MetalRod
               amount: 2
@@ -101,8 +93,7 @@
               doAfter: 2
         - to: ShelfChemistry
           completed:
-            - !type:SnapToGrid
-              southRotation: true
+            - !type:SnapToGrid {}
           steps:
             - material: Plasteel
               amount: 2

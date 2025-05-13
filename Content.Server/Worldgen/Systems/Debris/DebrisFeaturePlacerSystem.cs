@@ -35,6 +35,8 @@ public sealed class DebrisFeaturePlacerSystem : BaseWorldSystem
 
     private ISawmill _sawmill = default!;
 
+    private List<Entity<MapGridComponent>> _mapGrids = new();
+
     /// <inheritdoc />
     public override void Initialize()
     {
@@ -148,7 +150,14 @@ public sealed class DebrisFeaturePlacerSystem : BaseWorldSystem
 
         component.DoSpawns = false; // Don't repeat yourself if this crashes.
 
-        var chunk = Comp<WorldChunkComponent>(args.Chunk);
+        if (!TryComp<WorldChunkComponent>(args.Chunk, out var chunk))
+            return;
+
+        var chunkMap = chunk.Map;
+
+        if (!TryComp<MapComponent>(chunkMap, out var map))
+            return;
+
         var densityChannel = component.DensityNoiseChannel;
         var density = _noiseIndex.Evaluate(uid, densityChannel, chunk.Coordinates + new Vector2(0.5f, 0.5f));
         if (density == 0)
@@ -166,7 +175,9 @@ public sealed class DebrisFeaturePlacerSystem : BaseWorldSystem
                 .ToList();
         }
 
-        points ??= GeneratePointsInChunk(args.Chunk, density, chunk.Coordinates, chunk.Map);
+        points ??= GeneratePointsInChunk(args.Chunk, density, chunk.Coordinates, chunkMap);
+
+        var mapId = map.MapId;
 
         var safetyBounds = Box2.UnitCentered.Enlarged(component.SafetyZoneRadius);
         var failures = 0; // Avoid severe log spam.
@@ -182,11 +193,10 @@ public sealed class DebrisFeaturePlacerSystem : BaseWorldSystem
             if (pointDensity == 0 && component.DensityClip || _random.Prob(component.RandomCancellationChance))
                 continue;
 
-            var coords = new EntityCoordinates(chunk.Map, point);
+            if (HasCollisions(mapId, safetyBounds.Translated(point)))
+                continue;
 
-            if (_mapManager
-                .FindGridsIntersecting(Comp<MapComponent>(chunk.Map).MapId, safetyBounds.Translated(point)).Any())
-                continue; // Oops, gonna collide.
+            var coords = new EntityCoordinates(chunkMap, point);
 
             var preEv = new PrePlaceDebrisFeatureEvent(coords, args.Chunk);
             RaiseLocalEvent(uid, ref preEv);
@@ -223,6 +233,19 @@ public sealed class DebrisFeaturePlacerSystem : BaseWorldSystem
 
         if (failures > 0)
             _sawmill.Error($"Failed to place {failures} debris at chunk {args.Chunk}");
+    }
+
+    /// <summary>
+    /// Checks to see if the potential spawn point is clear
+    /// </summary>
+    /// <param name="mapId"></param>
+    /// <param name="point"></param>
+    /// <returns></returns>
+    private bool HasCollisions(MapId mapId, Box2 point)
+    {
+        _mapGrids.Clear();
+        _mapManager.FindGridsIntersecting(mapId, point, ref _mapGrids);
+        return _mapGrids.Count > 0;
     }
 
     /// <summary>

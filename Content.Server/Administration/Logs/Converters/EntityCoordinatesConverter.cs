@@ -78,6 +78,6 @@ public readonly struct SerializableEntityCoordinates
         EntityUid = coordinates.EntityId;
         X = coordinates.X;
         Y = coordinates.Y;
-        MapUid = coordinates.GetMapUid(entityManager);
+        MapUid = entityManager.System<SharedTransformSystem>().GetMap(coordinates);
     }
 }

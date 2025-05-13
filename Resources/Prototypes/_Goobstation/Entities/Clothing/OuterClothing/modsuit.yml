@@ -39,8 +39,8 @@
       outerClothing:
       - state: equipped-OUTERCLOTHING-sealed
         shader: unshaded
-  - type: StaminaDamageResistance
-    coefficient: 0.9
+  - type: StaminaResistance
+    damageCoefficient: 0.9
   - type: Armor
     coverage:
     - Chest
@@ -102,8 +102,8 @@
   - type: ModifyDelayedKnockdown
     delayDelta: 2
     knockdownTimeDelta: -2
-  - type: StaminaDamageResistance
-    coefficient: 0.7
+  - type: StaminaResistance
+    damageCoefficient: 0.7
   - type: Armor
     modifiers:
       coefficients:
@@ -159,8 +159,8 @@
   - type: ModifyDelayedKnockdown
     delayDelta: 6
     knockdownTimeDelta: -4
-  - type: StaminaDamageResistance
-    coefficient: 0.7
+  - type: StaminaResistance
+    damageCoefficient: 0.7
   - type: Armor
     modifiers:
       coefficients:
@@ -238,8 +238,8 @@
   - type: ModifyDelayedKnockdown
     delayDelta: 1
     knockdownTimeDelta: -1
-  - type: StaminaDamageResistance
-    coefficient: 0.9
+  - type: StaminaResistance
+    damageCoefficient: 0.9
   - type: FireProtection
     reduction: 0.5
 
@@ -296,8 +296,8 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 1
     knockdownTimeDelta: -1
-  - type: StaminaDamageResistance
-    coefficient: 0.9
+  - type: StaminaResistance
+    damageCoefficient: 0.9
   - type: FireProtection
     reduction: 0.0
 
@@ -352,8 +352,8 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 1
     knockdownTimeDelta: -1
-  - type: StaminaDamageResistance
-    coefficient: 0.9
+  - type: StaminaResistance
+    damageCoefficient: 0.9
   - type: FireProtection
     reduction: 0.0
 
@@ -410,8 +410,8 @@
   - type: ModifyDelayedKnockdown
     delayDelta: 3
     knockdownTimeDelta: -3
-  - type: StaminaDamageResistance
-    coefficient: 0.9
+  - type: StaminaResistance
+    damageCoefficient: 0.9
   - type: FireProtection
     reduction: 0.5
 
@@ -466,7 +466,7 @@
   - type: ModifyDelayedKnockdown
     delayDelta: 3
     knockdownTimeDelta: -3
-  - type: StaminaDamageResistance
-    coefficient: 0.7
+  - type: StaminaResistance
+    damageCoefficient: 0.7
   - type: FireProtection
     reduction: 0.5

@@ -26,7 +26,7 @@ namespace Content.Client.Decals
         [Dependency] private readonly IOverlayManager _overlayManager = default!;
         [Dependency] private readonly SpriteSystem _sprites = default!;
 
-        private DecalOverlay _overlay = default!;
+        private DecalOverlay? _overlay;
 
         private HashSet<uint> _removedUids = new();
         private readonly List<Vector2i> _removedChunks = new();
@@ -44,6 +44,9 @@ namespace Content.Client.Decals
 
         public void ToggleOverlay()
         {
+            if (_overlay == null)
+                return;
+
             if (_overlayManager.HasOverlay<DecalOverlay>())
             {
                 _overlayManager.RemoveOverlay(_overlay);
@@ -57,6 +60,10 @@ namespace Content.Client.Decals
         public override void Shutdown()
         {
             base.Shutdown();
+
+            if (_overlay == null)
+                return;
+
             _overlayManager.RemoveOverlay(_overlay);
         }
 

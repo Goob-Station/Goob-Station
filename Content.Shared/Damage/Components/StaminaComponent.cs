@@ -20,6 +20,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Alert;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -66,6 +67,7 @@ public sealed partial class StaminaComponent : Component
     /// <summary>
     /// A dictionary of active stamina drains, with the key being the source of the drain,
     /// DrainRate how much it changes per tick, and ModifiesSpeed if it should slow down the user.
+    /// Goobstation
     /// </summary>
     [DataField, AutoNetworkedField]
     public Dictionary<EntityUid, (float DrainRate, bool ModifiesSpeed)> ActiveDrains = new();
@@ -86,6 +88,25 @@ public sealed partial class StaminaComponent : Component
     [DataField]
     public ProtoId<AlertPrototype> StaminaAlert = "Stamina";
 
+    // Goobstation
     [DataField]
     public float StaminaOnShove = 7.5f;
+
+    /// <summary>
+    /// This flag indicates whether the value of <see cref="StaminaDamage"/> decreases after the entity exits stamina crit.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool AfterCritical;
+
+    /// <summary>
+    /// This float determines how fast stamina will regenerate after exiting the stamina crit.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float AfterCritDecayMultiplier = 5f;
+
+    /// <summary>
+    /// Thresholds that determine an entity's slowdown as a function of stamina damage.
+    /// </summary>
+    [DataField]
+    public Dictionary<FixedPoint2, float> StunModifierThresholds = new() { {0, 1f }, { 60, 0.7f }, { 80, 0.5f } };
 }

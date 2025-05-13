@@ -73,10 +73,13 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Construction.EntitySystems;
 using Content.Shared.DragDrop;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
+using Content.Shared.Popups;
+using Robust.Shared.Physics.Components;
 
 namespace Content.Shared.Foldable;
 
@@ -84,6 +87,8 @@ public sealed class DeployFoldableSystem : EntitySystem
 {
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly FoldableSystem _foldable = default!;
+    [Dependency] private readonly AnchorableSystem _anchorable = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -131,6 +136,13 @@ public sealed class DeployFoldableSystem : EntitySystem
 
         if (!TryComp<FoldableComponent>(ent, out var foldable))
             return;
+
+        if (!TryComp(ent.Owner, out PhysicsComponent? anchorBody)
+            || !_anchorable.TileFree(args.ClickLocation, anchorBody))
+        {
+            _popup.PopupPredicted(Loc.GetString("foldable-deploy-fail", ("object", ent)), ent, args.User);
+            return;
+        }
 
         if (!TryComp(args.User, out HandsComponent? hands)
             || !_hands.TryDrop(args.User, args.Used, targetDropLocation: args.ClickLocation, handsComp: hands))

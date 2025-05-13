@@ -3,8 +3,8 @@
 // SPDX-FileCopyrightText: 2020 Git-Nivrak <59925169+Git-Nivrak@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2020 Swept <jamesurquhartwebb@gmail.com>
 // SPDX-FileCopyrightText: 2020 Tyler Young <tyler.young@impromptu.ninja>
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <zddm@outlook.es>
+// SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <zddm@outlook.es>
 // SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
 // SPDX-FileCopyrightText: 2021 Metal Gear Sloth <metalgearsloth@gmail.com>
 // SPDX-FileCopyrightText: 2021 Paul <ritter.paul1+git@googlemail.com>
@@ -108,6 +108,13 @@ namespace Content.Shared.Stacks
         [DataField("layerStates")]
         [ViewVariables(VVAccess.ReadWrite)]
         public List<string> LayerStates = new();
+
+        /// <summary>
+        /// An optional function to convert the amounts used to adjust a stack's appearance.
+        /// Useful for different denominations of cash, for example.
+        /// </summary>
+        [DataField]
+        public StackLayerFunction LayerFunction = StackLayerFunction.None;
     }
 
     [Serializable, NetSerializable]
@@ -124,5 +131,20 @@ namespace Content.Shared.Stacks
             MaxCount = maxCount;
             Lingering = lingering;
         }
+    }
+
+    [Serializable, NetSerializable]
+    public enum StackLayerFunction : byte
+    {
+        // <summary>
+        // No operation performed.
+        // </summary>
+        None,
+
+        // <summary>
+        // Arbitrarily thresholds the stack amount for each layer.
+        // Expects entity to have StackLayerThresholdComponent.
+        // </summary>
+        Threshold
     }
 }

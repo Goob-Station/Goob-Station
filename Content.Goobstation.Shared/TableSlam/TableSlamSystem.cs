@@ -42,7 +42,7 @@ public sealed class TableSlamSystem : EntitySystem
     [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly StaminaSystem _staminaSystem = default!;
+    [Dependency] private readonly SharedStaminaSystem _staminaSystem = default!;
     [Dependency] private readonly SharedStunSystem _stunSystem = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly ContestsSystem _contestsSystem = default!;

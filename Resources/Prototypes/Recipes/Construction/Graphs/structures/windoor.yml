@@ -130,7 +130,7 @@
       steps:
       - component: DoorElectronics
         store: board
-        name: "door electronics circuit board"
+        name: construction-graph-component-door-electronics-circuit-board
         icon:
           sprite: "Objects/Misc/module.rsi"
           state: "door_electronics"
@@ -204,7 +204,7 @@
       steps:
       - tag: DoorElectronics
         store: board
-        name: "door electronics circuit board"
+        name: construction-graph-tag-door-electronics-circuit-board
         icon:
           sprite: "Objects/Misc/module.rsi"
           state: "door_electronics"
@@ -278,7 +278,7 @@
       steps:
       - tag: DoorElectronics
         store: board
-        name: "door electronics circuit board"
+        name: construction-graph-tag-door-electronics-circuit-board
         icon:
           sprite: "Objects/Misc/module.rsi"
           state: "door_electronics"
@@ -400,7 +400,7 @@
       steps:
       - component: DoorElectronics
         store: board
-        name: "door electronics circuit board"
+        name: construction-graph-component-door-electronics-circuit-board
         icon:
           sprite: "Objects/Misc/module.rsi"
           state: "door_electronics"
@@ -512,7 +512,7 @@
       steps:
       - tag: DoorElectronics
         store: board
-        name: "door electronics circuit board"
+        name: construction-graph-tag-door-electronics-circuit-board
         icon:
           sprite: "Objects/Misc/module.rsi"
           state: "door_electronics"
@@ -587,7 +587,7 @@
       steps:
       - tag: DoorElectronics
         store: board
-        name: "door electronics circuit board"
+        name: construction-graph-tag-door-electronics-circuit-board
         icon:
           sprite: "Objects/Misc/module.rsi"
           state: "door_electronics"
@@ -665,7 +665,7 @@
       steps:
       - tag: DoorElectronics
         store: board
-        name: "door electronics circuit board"
+        name: construction-graph-tag-door-electronics-circuit-board
         icon:
           sprite: "Objects/Misc/module.rsi"
           state: "door_electronics"
