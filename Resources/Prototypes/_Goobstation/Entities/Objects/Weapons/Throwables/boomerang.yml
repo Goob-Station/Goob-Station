@@ -1,0 +1,23 @@
+- type: entity
+  id: Boomerang
+  parent: BaseItem
+  name: Boomerang
+  description: Made from wood. You should give this to a monkey.
+  components:
+  - type: LandAtCursor
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Throwable/boomerang.rsi # GoobStation Edit
+    layers:
+    - state: icon
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 6
+  - type: StaminaDamageOnCollide
+    damage: 7
+  - type: Item
+    size: Small
+  - type: Boomerang # Goobstation
+  - type: Construction
+    graph: boomerangGraph
+    node: boomerangFinish

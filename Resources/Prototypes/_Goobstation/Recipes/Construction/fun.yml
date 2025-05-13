@@ -51,3 +51,13 @@
   icon: { sprite: _Goobstation/Objects/Weapons/Melee/e_sword_welder.rsi, state: icon }
   objectType: Item
 
+- type: construction
+  name: Boomerang
+  id: Boomerang
+  graph: boomerangGraph
+  startNode: start
+  targetNode: boomerangFinish
+  category: construction-category-weapons
+  description: A makeshift boomerang! Now if you only had some balloons to throw it at. # BTD6 reference
+  icon: { sprite: _Goobstation/Objects/Weapons/Throwable/boomerang.rsi, state: icon }
+  objectType: Item

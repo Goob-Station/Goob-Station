@@ -1,0 +1,13 @@
+- type: constructionGraph
+  id: boomerangGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: boomerangFinish
+          steps:
+            - material: WoodPlank
+              amount: 5
+              doAfter: 2
+    - node: boomerangFinish
+      entity: Boomerang
