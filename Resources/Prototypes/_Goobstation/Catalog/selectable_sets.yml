@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 CliveOcelot <165305605+Orion-416@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
@@ -264,6 +265,8 @@
     - Handcuffs
     - MindcontrolImplanter
     - MindcontrolImplanter
+    - MindcontrolImplanter
+    - MindcontrolImplanter
     - WeaponSniperMosin
     - WeaponSniperMosin
     - WeaponSniperMosin
@@ -359,16 +362,6 @@
     state: icon
   content:
     - ClothingOuterHardsuitBlueshieldLight
-
-- type: selectableSet
-  id: BSOHardsuitHeavySet
-  name: selectable-set-blueshield-hardsuit-heavy-name
-  description: selectable-set-blueshield-hardsuit-heavy-description
-  sprite:
-    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/bso.rsi
-    state: icon
-  content:
-    - ClothingOuterHardsuitBlueshieldHeavy
 
 - type: selectableSet
   id: BSOModsuitSet

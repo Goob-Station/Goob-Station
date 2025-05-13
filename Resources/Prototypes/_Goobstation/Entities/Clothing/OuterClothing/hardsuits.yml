@@ -41,22 +41,22 @@
   - type: ExplosionResistance
     damageCoefficient: 0.05
   - type: Armor
-    coverage:
-    - Chest
-    - Groin
-    - Arm
-    - Hand
-    - Leg
-    - Foot
+    traumaDeductions: # prevents traumas at all (kinda)
+      Dismemberment: 1
+      OrganDamage: 1
+      BoneDamage: 1
+      VeinsDamage: 1
+      NerveDamage: 1
     modifiers:
       coefficients:
-        Blunt: 0.05
-        Slash: 0.05
-        Piercing: 0.05
-        Heat: 0.05
-        Cold: 0.05
-        Radiation: 0.05
-        Caustic: 0.05
+        Blunt: 0.01
+        Slash: 0.01
+        Piercing: 0.01
+        Heat: 0.01
+        Cold: 0.01
+        Shock: 0.01
+        Caustic: 0.01
+        Radiation: 0.01
   - type: ClothingSpeedModifier
     walkModifier: 0.70
     sprintModifier: 0.70
@@ -96,6 +96,12 @@
   - type: ExplosionResistance
     damageCoefficient: 0.65
   - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.6
@@ -116,50 +122,6 @@
     knockdownTimeDelta: -2
   - type: StaminaDamageResistance
     coefficient: 0.6
-
-- type: entity
-  parent: [ClothingOuterHardsuitBase, BaseCentcommContraband]
-  id: ClothingOuterHardsuitBlueshieldHeavy
-  name: "'praetorian' defender voidsuit"
-  description: A voidsuit designed for an elite bodyguard. This particular one has addition plating outside, at the cost of maneuverability.
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/bso.rsi
-  - type: Clothing
-    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/bso.rsi
-  - type: PressureProtection
-    highPressureMultiplier: 0.05
-    lowPressureMultiplier: 1000
-  - type: ExplosionResistance
-    damageCoefficient: 0.45
-  - type: Armor
-    coverage:
-    - Chest
-    - Groin
-    - Arm
-    - Hand
-    - Leg
-    - Foot
-    modifiers:
-      coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.45
-        Radiation: 0.5
-        Caustic: 0.5
-        Heat: 0.45
-  - type: ClothingSpeedModifier
-    sprintModifier: 0.75
-    walkModifier: 1
-  - type: HeldSpeedModifier
-  - type: ToggleableClothing
-    clothingPrototypes:
-      head: ClothingHeadHelmetHardsuitBlueshield
-  - type: ModifyDelayedKnockdown
-    delayDelta: 3
-    knockdownTimeDelta: -3
-  - type: StaminaDamageResistance
-    coefficient: 0.5
 
 # Cybersun Stealth
 
@@ -182,20 +144,19 @@
   - type: ExplosionResistance
     damageCoefficient: 0.65
   - type: Armor
-    coverage:
-    - Chest
-    - Groin
-    - Arm
-    - Hand
-    - Leg
-    - Foot
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.65
-        Slash: 0.65
+        Blunt: 0.6
+        Slash: 0.6
         Piercing: 0.6
         Heat: 0.6
-        Radiation: 0.55
+        Radiation: 0.5
         Caustic: 0.7
   - type: ClothingSpeedModifier
     walkModifier: 0.8
@@ -225,7 +186,7 @@
   parent: [ ClothingOuterHardsuitBase, BaseSyndicateContraband ]
   id: ClothingOuterHardsuitCybersunDreadnought
   name: cybersun dreadnought suit
-  description: The syndicate places it's glory on your shoulders, do not dissapoint.
+  description: The Syndicate places its glory on your shoulders, do not disappoint.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/dreadnought.rsi
@@ -243,6 +204,12 @@
   - type: FireProtection
     reduction: 0.9 # atmos fire suit is 0.8, so i guess this is fine? Reduction goes the opossite way right?
   - type: Armor
+    traumaDeductions: # not full protection so its damage can actually harm you
+      Dismemberment: 0.9
+      OrganDamage: 0.9
+      BoneDamage: 0.9
+      VeinsDamage: 0.9
+      NerveDamage: 0.9
     modifiers:
       coefficients:
         Blunt: 0.1
@@ -275,41 +242,7 @@
   - type: ModifyDelayedKnockdown
     cancel: true
 
-## paramedic voidsuit
-#- type: entity
-#  parent: [ ClothingOuterEVASuitBase, ClothingOuterBaseToggleable ]
-#  id: ClothingOuterVoidsuitParamedic
-#  name: paramedic voidsuit
-#  description: A voidsuit made for paramedics.
-#  components:
-#  - type: Sprite
-#    sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
-#  - type: Clothing
-#    sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
-#  - type: PressureProtection
-#    highPressureMultiplier: 0.5
-#    lowPressureMultiplier: 1000
-#  - type: ClothingSpeedModifier
-#    walkModifier: 0.9
-#    sprintModifier: 0.9
-#  - type: HeldSpeedModifier
-#  - type: TemperatureProtection
-#    heatingCoefficient: 0.1
-#    coolingCoefficient: 0.1
-#  - type: Armor
-#    modifiers:
-#      coefficients:
-#        Heat: 0.90
-#        Radiation: 0.75
-#        Caustic: 0.5
-#  - type: GroupExamine
-#  - type: StealTarget
-#    stealGroup: ClothingOuterVoidsuitParamedic
-#  - type: ToggleableClothing # Goobstation - Modsuits change
-#    clothingPrototypes:
-#      head: ClothingHeadHelmetVoidParamed
-
-# Security voidsuit
+# Security voidsuit - used this instead of security hardsuit
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseSecurityContraband]
   id: ClothingOuterVoidsuitSecurity
@@ -326,12 +259,18 @@
   - type: ExplosionResistance
     damageCoefficient: 0.65
   - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.7
         Slash: 0.7
         Piercing: 0.7
-        Heat: 0.7
+        Heat: 0.8
         Radiation: 0.6
         Caustic: 0.5
   - type: ClothingSpeedModifier
@@ -347,75 +286,7 @@
   - type: StaminaDamageResistance
     coefficient: 0.6
 
-## Heady of security voidsuit
-#- type: entity
-#  parent: [ClothingOuterHardsuitBase, BaseCommandContraband]
-#  id: ClothingOuterVoidsuitHeadOfSecurity
-#  name: head of security's voidsuit
-#  description: Lighter and more protective than the standard security voidsuit, but not by much.
-#  components:
-#  - type: Sprite
-#    sprite: Clothing/OuterClothing/Hardsuits/security-red.rsi
-#  - type: Clothing
-#    sprite: Clothing/OuterClothing/Hardsuits/security-red.rsi
-#  - type: PressureProtection
-#    highPressureMultiplier: 0.45
-#    lowPressureMultiplier: 1000
-#  - type: ExplosionResistance
-#    damageCoefficient: 0.6
-#  - type: Armor
-#    modifiers:
-#      coefficients:
-#        Blunt: 0.65
-#        Slash: 0.65
-#        Piercing: 0.65
-#        Heat: 0.7
-#        Radiation: 0.5
-#        Caustic: 0.5
-#  - type: ClothingSpeedModifier
-#    walkModifier: 0.9
-#    sprintModifier: 0.9
-#  - type: HeldSpeedModifier
-#  - type: ToggleableClothing
-#    clothingPrototypes:
-#      head: ClothingHeadHelmetHardsuitSecurityRed
-#  - type: ModifyDelayedKnockdown # Goobstation
-#    delayDelta: 3
-#    knockdownTimeDelta: -3
-#  - type: StaminaDamageResistance # Goobstation
-#    coefficient: 0.5
-#
-## Engineer
-#- type: entity
-#  parent: [ClothingOuterHardsuitBase, BaseEngineeringContraband]
-#  id: ClothingOuterVoidsuitEngineer
-#  name: engineering voidsuit
-#  description: A special voidsuit that protects against hazardous, low pressure environments. Has radiation shielding.
-#  components:
-#  - type: Sprite
-#    sprite: Clothing/OuterClothing/Hardsuits/engineering.rsi
-#  - type: Clothing
-#    sprite: Clothing/OuterClothing/Hardsuits/engineering.rsi
-#  - type: PressureProtection
-#    highPressureMultiplier: 0.04
-#    lowPressureMultiplier: 1000
-#  - type: ExplosionResistance
-#    damageCoefficient: 0.5
-#  - type: Armor
-#    modifiers:
-#      coefficients:
-#        Shock: 0.5
-#        Caustic: 0.7
-#        Radiation: 0.35
-#  - type: ClothingSpeedModifier
-#    walkModifier: 0.85
-#    sprintModifier: 0.85
-#  - type: HeldSpeedModifier
-#  - type: ToggleableClothing # Goobstation - Modsuits change
-#    clothingPrototypes:
-#      head: ClothingHeadHelmetHardsuitEngineering
-
-#Head of Security's Voidsuit
+# Head of Security's experimental voidsuit
 - type: entity
   parent: ClothingOuterHardsuitSecurityRed
   id: ClothingOuterHardsuitHeadOfSecurityExperimental
