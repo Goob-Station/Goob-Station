@@ -53,7 +53,12 @@
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 veprolet <68151557+veprolet@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <killerqueen1777@gmail.com>
+# SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SeamLesss <kai.julian.watson@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -187,6 +192,8 @@
     - Brutepack
   - type: Sprite
     state: brutepack
+  - type: Item
+    heldPrefix: brutepack
   - type: Healing
     damageContainers:
       - Biological
@@ -279,6 +286,8 @@
   id: Bloodpack
   suffix: Full
   components:
+  - type: Item
+    heldPrefix: bloodpack
   - type: Tag
     tags:
     - Bloodpack
@@ -290,7 +299,7 @@
     damage:
       types:
         Bloodloss: -2.5 #lowers bloodloss damage, was .5 buffed due to Limb Damage Changes (Goobstation)
-    ModifyBloodLevel: 30 #used to restore 5% blood per use, now restores about 10% blood per use on standard Buffed due to Limb Damage Changes (Goobstation)
+    ModifyBloodLevel: -30 #used to restore 5% blood per use, now restores about 10% blood per use on standard Buffed due to Limb Damage Changes (Goobstation)
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
     healingEndSound:
@@ -315,15 +324,26 @@
     lingering: true
     count: 10 # Goobstation
 
+# Shitmed Change - yeah this thing is effectively an entirely different tool now.
 - type: entity
   parent: BaseHealingItem
   id: Tourniquet
   name: tourniquet
   description: Stops bleeding! Hopefully.
   components:
+    - type: Item
+      heldPrefix: tourniquet
+    - type: Tourniquet
+      blockedBodyParts:
+      - Head
+      - Chest
+      - Groin
+      putOnSound:
+        path: "/Audio/Items/Medical/brutepack_begin.ogg"
+      putOffSound:
+        path: "/Audio/Items/Medical/brutepack_end.ogg"
     - type: Tag
       tags:
-        - Tourniquet #Goobstation - ParamedHypo
         - SecBeltEquip
     - type: Sprite
       state: tourniquet
@@ -354,6 +374,8 @@
     - Gauze
   - type: Sprite
     state: gauze
+  - type: Item
+    heldPrefix: gauze
   - type: Construction
     graph: Gauze
     node: gauze

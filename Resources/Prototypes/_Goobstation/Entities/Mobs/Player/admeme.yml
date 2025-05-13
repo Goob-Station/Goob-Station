@@ -41,8 +41,9 @@
     state: icon
   - type: RandomMetadata
     nameSegments:
-    - NamesFirstMilitaryLeader
-    - NamesLastMilitary
+    - NamesMilitaryFirstLeader
+    - NamesMilitaryLast
+    nameFormat: name-format-standard 
   - type: RandomHumanoidSpawner
     settings: NavyOfficer
 
@@ -64,8 +65,9 @@
     roleLoadout: [ RoleSurvivalEVA ]
   - type: RandomMetadata
     nameSegments:
-    - NamesFirstMilitaryLeader
-    - NamesLastMilitary
+    - NamesMilitaryFirstLeader
+    - NamesMilitaryLast
+    nameFormat: name-format-standard 
 
 # Navy Captain
 
@@ -79,8 +81,9 @@
     state: icon
   - type: RandomMetadata
     nameSegments:
-    - NamesFirstMilitaryHighRank
-    - NamesLastMilitary
+    - NamesMilitaryFirstHighRank
+    - NamesMilitaryLast
+    nameFormat: name-format-standard
   - type: RandomHumanoidSpawner
     settings: NavyCaptain
 
@@ -102,8 +105,9 @@
     roleLoadout: [ RoleSurvivalEVA ]
   - type: RandomMetadata
     nameSegments:
-    - NamesFirstMilitaryHighRank
-    - NamesLastMilitary
+    - NamesMilitaryFirstHighRank
+    - NamesMilitaryLast
+    nameFormat: name-format-standard 
 
 # Navy Undercover Officer
 
@@ -117,8 +121,9 @@
     state: icon
   - type: RandomMetadata
     nameSegments:
-    - NamesFirstMilitaryLeader
-    - NamesLastMilitary
+    - NamesMilitaryFirstLeader
+    - NamesMilitaryLast
+    nameFormat: name-format-standard 
   - type: RandomHumanoidSpawner
     settings: NavyOfficerUndercover
 
@@ -140,8 +145,9 @@
     roleLoadout: [ RoleSurvivalEVA ]
   - type: RandomMetadata
     nameSegments:
-    - NamesFirstMilitaryLeader
-    - NamesLastMilitary
+    - NamesMilitaryFirstLeader
+    - NamesMilitaryLast
+    nameFormat: name-format-standard 
 
 # Special Operations Officer
 
@@ -155,8 +161,9 @@
     state: icon
   - type: RandomMetadata
     nameSegments:
-    - NamesFirstMilitaryHighRank
-    - NamesLastMilitary
+    - NamesMilitaryFirstHighRank
+    - NamesMilitaryLast
+    nameFormat: name-format-standard 
   - type: RandomHumanoidSpawner
     settings: SpecialOperationsOfficer
 
@@ -178,8 +185,9 @@
     roleLoadout: [ RoleSurvivalEVA ]
   - type: RandomMetadata
     nameSegments:
-    - NamesFirstMilitaryHighRank
-    - NamesLastMilitary
+    - NamesMilitaryFirstHighRank
+    - NamesMilitaryLast
+    nameFormat: name-format-standard 
 
 # Diplomat
 
@@ -193,8 +201,9 @@
     state: icon
   - type: RandomMetadata
     nameSegments:
-    - NamesFirstMilitaryPolitical
-    - names_last
+    - NamesMilitaryFirstPolitical
+    - NamesLast
+    nameFormat: name-format-standard 
   - type: RandomHumanoidSpawner
     settings: DiplomatGear
 
@@ -216,8 +225,9 @@
     roleLoadout: [ RoleSurvivalEVA ]
   - type: RandomMetadata
     nameSegments:
-    - NamesFirstMilitaryPolitical
-    - names_last
+    - NamesMilitaryFirstPolitical
+    - NamesLast
+    nameFormat: name-format-standard 
 
 # Inspector
 
@@ -232,7 +242,8 @@
   - type: RandomMetadata
     nameSegments:
     - NamesFirstInspector
-    - names_last
+    - NamesLast
+    nameFormat: name-format-standard 
   - type: RandomHumanoidSpawner
     settings: InspectorGear
 
@@ -255,7 +266,8 @@
   - type: RandomMetadata
     nameSegments:
     - NamesFirstInspector
-    - names_last
+    - NamesLast
+    nameFormat: name-format-standard 
 
 ## Other Shit
 
@@ -269,7 +281,7 @@
     sprite: Mobs/Species/Human/parts.rsi
     state: full
   - type: RandomMetadata
-    nameSegments: [ names_borer ]
+    nameSegments: [ NamesBorer ]
   - type: RandomHumanoidSpawner
     settings: ChronoLegionnaire
 
@@ -283,6 +295,7 @@
     nameSegments:
     - NamesMilitaryFirstLeader
     - NamesMilitaryLast
+    nameFormat: name-format-standard 
 
 # HECU
 
@@ -298,6 +311,7 @@
     nameSegments:
     - NamesMilitaryFirst
     - NamesMilitaryLast
+    nameFormat: name-format-standard 
   - type: RandomHumanoidSpawner
     settings: HecuSoldier
 
@@ -319,6 +333,7 @@
     nameSegments:
     - NamesMilitaryFirstLeader
     - NamesMilitaryLast
+    nameFormat: name-format-standard
 
 # G-Man
 
@@ -350,7 +365,7 @@
   - type: Loadout
     prototypes: [GovernmentManGear]
   - type: RandomMetadata
-    nameSegments: [ names_gman ]
+    nameSegments: [ NamesGman ]
   - type: Tag
     tags:
     - InstantDoAfters
@@ -403,7 +418,7 @@
   - type: Loadout
     prototypes: [ConquestGear]
   - type: RandomMetadata
-    nameSegments: [ names_conquest ]
+    nameSegments: [ NamesConquest ]
   - type: Puller
     needsHands: false
     throwCooldown: 0.1
