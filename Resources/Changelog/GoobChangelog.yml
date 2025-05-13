@@ -9114,3 +9114,51 @@ Entries:
       message: Woundmed shouldn't passively lag out the server anymore.
   id: 1031
   time: '2025-05-12T07:26:35.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Tweak
+      message: >-
+        Reduced paincrit duration, increased adrenaline pain reduction and pain
+        thresholds, and reduced wound pain multipliers.
+    - type: Tweak
+      message: Added stitches and bonesetters to borg inventories and lathes.
+    - type: Fix
+      message: Attempted some fixes at PVS/flickering issues
+    - type: Fix
+      message: Dragons, goliaths, watchers and cyborgs are not immortal anymore.
+    - type: Fix
+      message: Fixed chemicals being 1/11th of their intended values.
+  id: 1032
+  time: '2025-05-12T16:35:02.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: >-
+        Added the Interactor which can use a tool on anything you configure it
+        to. Tider sweatshops rejoice!
+    - type: Tweak
+      message: Autodoc now supports automation upgrades.
+  id: 1033
+  time: '2025-05-12T17:19:44.0000000+00:00'
+- author: Creatorbot01
+  changes:
+    - type: Tweak
+      message: Mindcontrol implant price changed from 50 tc to 25 tc
+    - type: Tweak
+      message: Friendship bundle now contains 2 more extra mindcontrol implants
+  id: 1034
+  time: '2025-05-13T14:27:22.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        All (or at least most, maybe I missed something) armor values are now
+        woundmed-friendly.
+    - type: Tweak
+      message: Hitting limbs is now more likely to miss and hit another limb instead.
+    - type: Fix
+      message: >-
+        Modsuits now shouldn't ocassionally draw 30x more power than they
+        usually do.
+  id: 1035
+  time: '2025-05-13T14:37:39.0000000+00:00'
