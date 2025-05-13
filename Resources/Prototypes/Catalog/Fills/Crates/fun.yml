@@ -234,6 +234,8 @@
         weight: 0.65
       - id: PlushieSqueaks
         weight: 0.65
+      - id: PlushieHaato
+        weight: 0.65
 
 - type: entity
   id: CrateFunPlushie

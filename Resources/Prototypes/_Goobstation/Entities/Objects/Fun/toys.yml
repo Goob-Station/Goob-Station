@@ -812,8 +812,6 @@
   - type: EmitSoundOnTrigger
     sound:
       path: /Audio/_Goobstation/Wizard/charge.ogg
-    useSound:
-      path: /Audio/_Goobstation/Wizard/charge.ogg
 
 - type: entity
   parent: BasePlushie
@@ -836,8 +834,6 @@
   - type: EmitSoundOnTrigger
     sound:
       path: /Audio/_EinsteinEngines/Voice/IPC/robot-scream.ogg
-    useSound:
-      path: /Audio/_EinsteinEngines/Voice/IPC/robot-scream.ogg
 
 - type: entity
   parent: PlushieMoth
@@ -859,8 +855,6 @@
       path: /Audio/Voice/Moth/moth_scream.ogg
   - type: EmitSoundOnTrigger
     sound:
-      path: /Audio/Voice/Moth/moth_scream.ogg
-    useSound:
       path: /Audio/Voice/Moth/moth_scream.ogg
 
 - type: entity
@@ -894,8 +888,6 @@
   - type: EmitSoundOnTrigger
     sound:
       path: /Audio/_Goobstation/Wizard/charge.ogg
-    useSound:
-      path: /Audio/_Goobstation/Wizard/charge.ogg
 
 - type: entity
   parent: PlushieLizard
@@ -928,5 +920,25 @@
   - type: EmitSoundOnTrigger
     sound:
       path: /Audio/Animals/mouse_squeak.ogg
-    useSound:
-      path: /Audio/Animals/mouse_squeak.ogg
+
+  - type: entity
+    parent: BasePlushie
+    id: PlushieHaato
+    name: haato plushie
+    description: Watch her sing "Station is Mine"!
+    components:
+    - type: Sprite
+      sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+      state: plushie_haato
+    - type: EmitSoundOnUse
+      sound:
+        path: /Audio/Voice/Human/femalescream_3.ogg
+    - type: EmitSoundOnLand
+      sound:
+        path: /Audio/Effects/bodyfall3.ogg
+    - type: EmitSoundOnActivate
+      sound:
+        path: /Audio/Voice/Human/womanlaugh.ogg
+    - type: EmitSoundOnTrigger
+      sound:
+        path: /Audio/Voice/Human/womanlaugh.ogg
