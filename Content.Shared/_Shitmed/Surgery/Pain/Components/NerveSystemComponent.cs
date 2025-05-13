@@ -57,7 +57,7 @@ public sealed partial class NerveSystemComponent : Component
     public TimeSpan PainReactionTime = TimeSpan.FromSeconds(0.07f);
 
     [DataField("adrenalineTime")]
-    public TimeSpan PainShockAdrenalineTime = TimeSpan.FromSeconds(60f);
+    public TimeSpan PainShockAdrenalineTime = TimeSpan.FromSeconds(30f);
 
     [DataField]
     public TimeSpan CritScreamsIntervalMin = TimeSpan.FromSeconds(13f);
@@ -241,13 +241,13 @@ public sealed partial class NerveSystemComponent : Component
     [DataField("reflexThresholds"), ViewVariables(VVAccess.ReadOnly)]
     public Dictionary<PainThresholdTypes, FixedPoint2> PainThresholds = new()
     {
-        { PainThresholdTypes.PainFlinch, 35 },
-        { PainThresholdTypes.Agony, 50 },
+        { PainThresholdTypes.PainFlinch, 12 },
+        { PainThresholdTypes.Agony, 40 },
         // Just having 'PainFlinch' is lame, people scream for a few seconds before passing out / getting pain shocked, so I added agony.
         // A lot of screams (individual pain screams poll), for the funnies.
-        { PainThresholdTypes.PainShock, 72 },
+        { PainThresholdTypes.PainShock, 65 },
         // usually appears after an explosion. or some ultra big damage output thing, you might survive, and most importantly, you will fall down in pain.
         // :troll:
-        { PainThresholdTypes.PainShockAndAgony, 100 },
+        { PainThresholdTypes.PainShockAndAgony, 90 },
     };
 }

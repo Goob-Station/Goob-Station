@@ -330,7 +330,7 @@
   name: brute auto-injector
   parent: ChemicalMedipen
   id: BruteAutoInjector
-  description: A rapid dose of bicaridine, salicylic acid, and tranexamic acid, intended for combat applications. Usage of multiple highly recommended against. # goobstation
+  description: A rapid dose of bicaridine, salicylic acid, tranexamic acid, and tramadol, intended for combat applications. Usage of multiple highly recommended against. # goobstation
   components:
   - type: Item
     inhandVisuals:
@@ -355,7 +355,7 @@
     emptySpriteName: bicpen_empty
   - type: Hypospray
     solutionName: pen
-    transferAmount: 20
+    transferAmount: 25 # Goobstation
     onlyAffectsMobs: false
     injectOnly: true
   - type: SolutionContainerManager
@@ -369,6 +369,8 @@
           Quantity: 5
         - ReagentId: TranexamicAcid
           Quantity: 5
+        - ReagentId: Tramadol # goobstation
+          Quantity: 5
   - type: Tag
     tags: []
 
@@ -376,7 +378,7 @@
   name: burn auto-injector
   parent: ChemicalMedipen
   id: BurnAutoInjector
-  description: A rapid dose of oxandrolone and leporazine, intended for combat applications. # goobstation
+  description: A rapid dose of oxandrolone, leporazine, and tramadol, intended for combat applications. # goobstation
   components:
   - type: Item
     inhandVisuals:
@@ -401,7 +403,7 @@
     emptySpriteName: dermpen_empty
   - type: Hypospray
     solutionName: pen
-    transferAmount: 20
+    transferAmount: 25 # Goobstation
     onlyAffectsMobs: false
     injectOnly: true
   - type: SolutionContainerManager
@@ -413,6 +415,8 @@
           Quantity: 10
         - ReagentId: Leporazine
           Quantity: 10
+        - ReagentId: Tramadol # goobstation
+          Quantity: 5
   - type: Tag
     tags: []
 
