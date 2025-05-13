@@ -32,7 +32,7 @@
     slots:
     - Belt
   - type: MeleeWeapon
-    armorPenetration: 0.35
+    armorPenetration: 0.3
     wideAnimationRotation: -125
     damage:
       types:

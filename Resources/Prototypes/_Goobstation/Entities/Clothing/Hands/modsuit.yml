@@ -50,7 +50,7 @@
   parent: ClothingHandsBase
   id: ClothingModsuitGauntletsSecurity
   name: soldat modsuit gauntlets
-  description: Robust modular suit gloves for gripping perps and guns tight. Insulated.
+  description: Robust modular suit gloves for gripping perps and guns tight.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -69,7 +69,6 @@
     damageProtection:
       flatReductions:
         Heat: 10
-  - type: Insulated
   - type: Fiber
     fiberMaterial: fibers-modular
     fiberColor: fibers-black
@@ -86,7 +85,7 @@
   parent: ClothingHandsBase
   id: ClothingModsuitGauntletsParamedic
   name: sanitater modsuit gauntlets
-  description: Black and white modular suit gloves for gripping percs and patients tight. Insulated.
+  description: Black and white modular suit gloves for gripping percs and patients tight.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -105,7 +104,6 @@
     damageProtection:
       flatReductions:
         Heat: 10
-  - type: Insulated
   - type: Fiber
     fiberMaterial: fibers-modular
     fiberColor: fibers-black
@@ -117,6 +115,12 @@
     visualLayers:
       gloves:
       - state: equipped-HAND-sealed
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
 
 - type: entity
   parent: ClothingHandsBase
@@ -153,6 +157,13 @@
     visualLayers:
       gloves:
       - state: equipped-HAND-sealed
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Shock: 0.75
 
 - type: entity
   parent: ClothingHandsBase
@@ -189,6 +200,13 @@
     visualLayers:
       gloves:
       - state: equipped-HAND-sealed
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Shock: 0.5
 
 - type: entity
   parent: ClothingHandsBase
@@ -225,6 +243,14 @@
     visualLayers:
       gloves:
       - state: equipped-HAND-sealed
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.9
+        Shock: 0.75
 
 - type: entity
   parent: ClothingHandsBase
@@ -261,6 +287,13 @@
     visualLayers:
       gloves:
       - state: equipped-HAND-sealed
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Shock: 0.75
 
 - type: entity
   parent: ClothingHandsBase
@@ -326,3 +359,11 @@
         gloves:
         - state: equipped-HAND-sealed
     - type: Insulated
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Shock: 0.75
+
