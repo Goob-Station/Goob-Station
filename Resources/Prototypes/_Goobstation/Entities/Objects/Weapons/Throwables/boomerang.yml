@@ -26,3 +26,19 @@
   - type: Construction
     graph: boomerangGraph
     node: boomerangFinish
+
+- type: entity
+  id: boomerangIncomplete
+  parent: BaseItem
+  name: Incomplete Boomerang
+  description: Apply knife to get a fresh boomerang
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Throwable/boomerangIncomplete.rsi
+    layers:
+    - state: icon
+  - type: Item
+    size: Small
+  - type: Construction
+    graph: boomerangGraph
+    node: boomerangIncomplete

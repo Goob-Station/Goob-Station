@@ -9,10 +9,17 @@
   graph:
     - node: start
       edges:
-        - to: boomerangFinish
+        - to: boomerangIncomplete
           steps:
             - material: WoodPlank
               amount: 5
               doAfter: 2
+    - node: boomerangIncomplete 
+      entity: boomerangIncomplete # Create a piece of wood to work with
+      edges: 
+        - to: boomerangFinish
+          steps:
+            - tool: Slicing     # Carve the boomerang out of the wood
+              doAfter: 4
     - node: boomerangFinish
       entity: boomerang
