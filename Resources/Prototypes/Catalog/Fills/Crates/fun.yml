@@ -217,6 +217,22 @@
         weight: 0.65
       - id: PlushieGrub
         weight: 0.65
+      - id: PlushieFern
+        weight: 0.65
+      - id: PlushieHexadecimal
+        weight: 0.65
+      - id: PlushieFlint
+        weight: 0.65
+      - id: PlushiePistachio
+        weight: 0.65
+      - id: PlushieSeesTheStars
+        weight: 0.65
+      - id: PlushieDumbLizard
+        weight: 0.65
+      - id: PlushieSqueaks
+        weight: 0.65
+      - id: PlushieHaato
+        weight: 0.65
 
 
 - type: entity

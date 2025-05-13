@@ -66,6 +66,31 @@
         },
         {
             "name": "plushie_grub"
+        },
+        {
+            "name": "plushie_fern"
+        },
+        {
+            "name": "plushie_hexadecimal"
+        },
+        {
+            "name": "plushie_flint"
+        },
+        {
+            "name": "plushie_sees_the_stars"
+        },
+        {
+            "name": "plushie_pistachio"
+        },
+        {
+            "name": "plushie_dumb_lizard"
+        },
+        {
+            "name": "plushie_squeaks"
+        },
+        {
+            "name": "plushie_haato"
         }
     ]
 }
+

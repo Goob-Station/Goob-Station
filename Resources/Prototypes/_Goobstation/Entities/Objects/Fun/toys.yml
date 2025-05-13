@@ -768,3 +768,155 @@
     - Grub
     ocNames:
     - Muppet
+
+- type: entity
+  parent: PlushieLizard
+  id: PlushieFern
+  name: fern plushie
+  description: You feel as if something else is watching you... just out of sight, in the shadows.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    state: plushie_fern
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Goobstation/Wizard/charge.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Wizard/teleport_app.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_Goobstation/Wizard/charge.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Goobstation/Wizard/charge.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieHexadecimal
+  name: hexadecimal plushie
+  description: You feel a slight imbalance in the universe you inhabit, as if something maybe a little better off than others... ENERGY LOW.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    state: plushie_hexadecimal
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_EinsteinEngines/Voice/IPC/robot-scream.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Effects/Cargo/ping.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_EinsteinEngines/Voice/IPC/robot-scream.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_EinsteinEngines/Voice/IPC/robot-scream.ogg
+
+- type: entity
+  parent: PlushieMoth
+  id: PlushieFlint
+  name: flint plushie
+  description: Has commited lots of war crimes.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    state: plushie_flint
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Moth/moth_scream.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Moth/moth_scream.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Moth/moth_scream.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Moth/moth_scream.ogg
+
+- type: entity
+  parent: PlushieLizard
+  id: PlushieSeesTheStars
+  name: sees-the-stars plushie
+  description: Your stereotypical blue lizard, follows the "Does-The-Noun" naming convention. Gets mistaken surprisingly often for a certain purple lizard.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    state: plushie_sees_the_stars
+
+- type: entity
+  parent: BasePlushie
+  id: PlushiePistachio
+  name: Pistachio plushie
+  description: The Great Wizard himself, he claims the nut Pistachio was named after him, and definitely not the other way around. A user of the Arcane magics, he is not to be underestimated.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    state: plushie_pistachio
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Goobstation/Wizard/charge.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Wizard/teleport_app.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_Goobstation/Wizard/charge.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Goobstation/Wizard/charge.ogg
+
+- type: entity
+  parent: PlushieLizard
+  id: PlushieDumbLizard
+  name: stupid dumb blue lizard plushie
+  description: Unfortunately this plushie won't thump their tail.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    state: plushie_dumb_lizard
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieSqueaks
+  name: squeaks d'cheeseh plushie
+  description: Cheesed to meet you?
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    state: plushie_squeaks
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Animals/mouse_squeak.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Animals/mouse_squeak.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Animals/mouse_squeak.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Animals/mouse_squeak.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieHaato
+  name: haato plushie
+  description: Watch her sing "Station is Mine"!
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    state: plushie_haato
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Human/femalescream_3.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Effects/bodyfall3.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Human/womanlaugh.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Human/womanlaugh.ogg

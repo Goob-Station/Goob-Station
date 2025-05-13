@@ -67,6 +67,14 @@
         - PlushieAhti
         - PlushieSparkle
         - PlushieGrub
+        - PlushieFern
+        - PlushieHexadecimal
+        - PlushieFlint
+        - PlushiePistachio
+        - PlushieSeesTheStars
+        - PlushieDumbLizard
+        - PlushieSqueaks
+        - PlushieHaato
       rareChance: 0.03
       prototypes:
         - PlushieBee
