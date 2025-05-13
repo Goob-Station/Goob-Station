@@ -19,7 +19,6 @@
   category: construction-category-weapons
   description: An extremely slippery toy sword made from bananium.
   icon: { sprite: _Goobstation/Objects/Weapons/Melee/e_sword_bananium.rsi, state: icon }
-
   objectType: Item
 
 - type: construction
@@ -31,5 +30,4 @@
   category: construction-category-weapons
   description: A makeshift boomerang! Now if you only had some balloons to throw it at. # BTD6 reference
   icon: { sprite: _Goobstation/Objects/Weapons/Throwable/boomerang.rsi, state: icon }
-
   objectType: Item
