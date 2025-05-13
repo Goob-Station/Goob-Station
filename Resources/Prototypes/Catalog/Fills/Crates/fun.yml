@@ -233,6 +233,10 @@
         weight: 0.65
       - id: PlushieHaato
         weight: 0.65
+      - id: PlushieTinyLane
+        weight: 0.65
+      - id: PlushieChewsTheShoes
+        weight: 0.65
 
 
 - type: entity

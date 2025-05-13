@@ -920,3 +920,23 @@
   - type: EmitSoundOnTrigger
     sound:
       path: /Audio/Voice/Human/womanlaugh.ogg
+
+- type: entity
+  parent: PlushieLizard
+  id: PlushieChewsTheShoes
+  name: chews-the-shoes plushie
+  description: Eats your shoes.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    state: plushie_chews
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieTinyLane
+  name: tiny lane plushie
+  description: Just a goofy little guy.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    state: plushie_tinylane

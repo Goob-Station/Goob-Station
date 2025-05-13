@@ -75,6 +75,10 @@
         - PlushieDumbLizard
         - PlushieSqueaks
         - PlushieHaato
+        - PlushieTinyLane
+        - PlushieChewsTheShoes
+
+
       rareChance: 0.03
       prototypes:
         - PlushieBee

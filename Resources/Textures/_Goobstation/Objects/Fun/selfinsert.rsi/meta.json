@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-4.0",
-    "copyright": "Muppet",
+    "copyright": "Muppet, OnsenCapy, Bobbble, Phantom, Mr Cheeese123",
     "size": {
         "x": 32,
         "y": 32
@@ -90,6 +90,12 @@
         },
         {
             "name": "plushie_haato"
+        },
+        {
+            "name": "plushie_chews"
+        },
+        {
+            "name": "plushie_tinylane"
         }
     ]
 }
