@@ -361,7 +361,7 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 20
+        maxVol: 25
         reagents:
         - ReagentId: SalicylicAcid # goobstation
           Quantity: 10
@@ -409,7 +409,7 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 20
+        maxVol: 25
         reagents:
         - ReagentId: Oxandrolone # Goobstation
           Quantity: 10

@@ -1518,7 +1518,7 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: 5
+            Poison: 0.8
         conditions:
         - !type:ReagentThreshold
           min: 15.5
@@ -1548,13 +1548,11 @@
       metabolismRate: 0.1
       effects:
       - !type:SuppressPain
-        amount: 200
+        amount: 0
         time: 30
       - !type:AdjustPainFeels
         conditions:
-        - !type:ReagentThreshold
-          min: 15
-        amount: 0.04
+        amount: 200
       - !type:GenericStatusEffect
         key: Adrenaline
         component: IgnoreSlowOnDamage
@@ -1562,7 +1560,7 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: 10
+            Poison: 1.2
         conditions:
         - !type:ReagentThreshold
           min: 10.5

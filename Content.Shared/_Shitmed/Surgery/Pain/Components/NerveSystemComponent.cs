@@ -241,13 +241,13 @@ public sealed partial class NerveSystemComponent : Component
     [DataField("reflexThresholds"), ViewVariables(VVAccess.ReadOnly)]
     public Dictionary<PainThresholdTypes, FixedPoint2> PainThresholds = new()
     {
-        { PainThresholdTypes.PainFlinch, 12 },
+        { PainThresholdTypes.PainFlinch, 10 },
         { PainThresholdTypes.Agony, 40 },
         // Just having 'PainFlinch' is lame, people scream for a few seconds before passing out / getting pain shocked, so I added agony.
         // A lot of screams (individual pain screams poll), for the funnies.
-        { PainThresholdTypes.PainShock, 65 },
+        { PainThresholdTypes.PainShock, 59 },
         // usually appears after an explosion. or some ultra big damage output thing, you might survive, and most importantly, you will fall down in pain.
         // :troll:
-        { PainThresholdTypes.PainShockAndAgony, 90 },
+        { PainThresholdTypes.PainShockAndAgony, 75 },
     };
 }
