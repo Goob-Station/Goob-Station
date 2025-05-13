@@ -87,6 +87,7 @@
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Джексон Миссиссиппи <tripwiregamer@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
@@ -1043,7 +1044,6 @@ public sealed partial class AdminVerbSystem
                 EnsureComp<SpanishAccentComponent>(args.Target);
                 EnsureComp<StutteringAccentComponent>(args.Target);
                 EnsureComp<MedievalAccentComponent>(args.Target); // Goobtation
-                EnsureComp<MaoistAccentComponent>(args.Target); // Goobtation
                 EnsureComp<OhioAccentComponent>(args.Target); // Goobtation
                 EnsureComp<PirateAccentComponent>(args.Target); // Goobtation
                 EnsureComp<VulgarAccentComponent>(args.Target); // Goobtation
