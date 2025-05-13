@@ -17,18 +17,10 @@
       projectile:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.15,-0.3,0.15,0.3"
+          bounds: "-0.2,-0.2,0.2,0.2"
         hard: false
         mask:
         - Opaque
-      fly-by: &flybyfixture
-        shape: !type:PhysShapeCircle
-          radius: 1.5
-        layer:
-        - Impassable
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
   - type: Reflective
     reflective:
     - Energy
@@ -43,6 +35,7 @@
     - state: omnilaser-yellow
       shader: unshaded
   - type: Projectile
+    impactEffect: BulletImpactEffectOrangeDisabler
     damage:
       types:
         Blunt: 5
@@ -65,11 +58,10 @@
       projectile:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.15,-0.3,0.15,0.3"
+          bounds: "-0.2,-0.2,0.2,0.2"
         hard: false
         mask:
         - Opaque
-      fly-by: *flybyfixture
   - type: Reflective
     reflective:
     - Energy
@@ -84,6 +76,7 @@
     - state: omnilaser-blue
       shader: unshaded
   - type: Projectile
+    impactEffect: BulletImpactEffectDisabler
     damage:
       types:
         Blunt: 5
@@ -102,11 +95,10 @@
       projectile:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.15,-0.3,0.15,0.3"
+          bounds: "-0.2,-0.2,0.2,0.2"
         hard: false
         mask:
         - Opaque
-      fly-by: *flybyfixture
   - type: Reflective
     reflective:
     - Energy
@@ -121,6 +113,7 @@
     - state: omnilaser
       shader: unshaded
   - type: Projectile
+    impactEffect: BulletImpactEffectDisabler
     damage:
       types:
         Heat: 0
@@ -139,11 +132,10 @@
       projectile:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.15,-0.3,0.15,0.3"
+          bounds: "-0.2,-0.2,0.2,0.2"
         hard: false
         mask:
         - Opaque
-      fly-by: *flybyfixture
   - type: Reflective
     reflective:
     - Energy
@@ -158,6 +150,7 @@
     - state: omnilaser-green
       shader: unshaded
   - type: Projectile
+    impactEffect: BulletImpactEffectOrangeDisabler
     damage:
       types:
         Heat: 17
@@ -174,11 +167,10 @@
       projectile:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.15,-0.3,0.15,0.3"
+          bounds: "-0.2,-0.2,0.2,0.2"
         hard: false
         mask:
         - Opaque
-      fly-by: *flybyfixture
   - type: Reflective
     reflective:
     - Energy
@@ -193,6 +185,7 @@
     - state: heavylaser
       shader: unshaded
   - type: Projectile
+    impactEffect: BulletImpactEffectOrangeDisabler
     damage:
       types:
         Blunt: 2
@@ -211,11 +204,10 @@
       projectile:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.15,-0.3,0.15,0.3"
+          bounds: "-0.2,-0.2,0.2,0.2"
         hard: false
         mask:
         - Opaque
-      fly-by: *flybyfixture
   - type: Reflective
     reflective:
     - Energy
@@ -230,6 +222,7 @@
     - state: omnilaser-pink
       shader: unshaded
   - type: Projectile
+    impactEffect: BulletImpactEffectDisabler
     damage:
       types:
         Heat: 0
@@ -261,11 +254,10 @@
       projectile:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.15,-0.3,0.15,0.3"
+          bounds: "-0.2,-0.2,0.2,0.2"
         hard: false
         mask:
         - Opaque
-      fly-by: *flybyfixture
   - type: Reflective
     reflective:
     - Energy
@@ -280,6 +272,7 @@
     - state: omnilaser_greyscale
       shader: unshaded
   - type: Projectile
+    impactEffect: BulletImpactEffectKinetic
     damage:
       types:
         Blunt: 2
