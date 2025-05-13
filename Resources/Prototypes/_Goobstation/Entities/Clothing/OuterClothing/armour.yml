@@ -33,13 +33,12 @@
   - type: Armor
     coverage:
     - Chest
-    - Groin
     modifiers:
       coefficients:
-        Blunt: 0.45
-        Slash: 0.45
+        Blunt: 0.4
+        Slash: 0.4
         Piercing: 0.25
-        Heat: 0.25
+        Heat: 0.55
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: ModifyDelayedKnockdown # Goobstation
@@ -62,13 +61,12 @@
   - type: Armor
     coverage:
     - Chest
-    - Groin
     modifiers:
       coefficients:
-        Blunt: 0.45
-        Slash: 0.45
-        Piercing: 0.25
-        Heat: 0.25
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.3
+        Heat: 0.3
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: ModifyDelayedKnockdown # Goobstation
@@ -116,21 +114,6 @@
     sprite: _Goobstation/Clothing/Armor/bso_armour.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Armor/bso_armour.rsi
-  - type: Armor
-    coverage:
-    - Chest
-    - Groin
-    modifiers:
-      coefficients:
-        Blunt: 0.45
-        Slash: 0.45
-        Piercing: 0.45
-        Heat: 0.55
-  - type: ExplosionResistance
-    damageCoefficient: 0.8
-  - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 1
-    knockdownTimeDelta: -1
 
 - type: entity
   parent: ClothingBlueshieldArmourVest
@@ -173,17 +156,12 @@
   - type: Armor
     coverage:
     - Chest
-    - Groin
-    - Arm
-    - Hand
-    - Leg
-    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.50
-        Slash: 0.50
-        Piercing: 0.50
-        Heat: 0.50
+        Blunt: 0.35
+        Slash: 0.35
+        Piercing: 0.35
+        Heat: 0.35
   - type: ExplosionResistance
     damageCoefficient: 0.2
   - type: ModifyDelayedKnockdown
@@ -211,9 +189,9 @@
         type: ChameleonBoundUserInterface
 
 - type: entity
-  parent: [ ClothingOuterBaseMedium, AllowSuitStorageClothing, ]
+  parent: [ ClothingOuterBaseMedium, AllowSuitStorageClothing ]
   id: TemplarArmor
-  name: Templar Armor
+  name: templar armor
   description: An armoured set from a time long ago.
   components:
   - type: Sprite
@@ -225,9 +203,8 @@
     - Chest
     - Groin
     - Arm
-    - Hand
     - Leg
-    - Foot
+    - Tail
     modifiers:
       coefficients:
         Blunt: 0.65
@@ -258,14 +235,22 @@
   - type: Clothing
     sprite: _Goobstation/Heretic/void_cloak.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    - Tail
     modifiers:
       coefficients:
-        Blunt: 0.55
-        Slash: 0.55
-        Piercing: 0.55
-        Heat: 0.75
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.7
   - type: ExplosionResistance
-    damageCoefficient: 0.65 # 65% damage received
+    damageCoefficient: 0.8
   - type: ToggleableClothing
     stripDelay: null
     clothingPrototypes:
@@ -282,7 +267,7 @@
 - type: entity
   parent: [BaseSyndicateContraband, ClothingOuterArmourInvisible]
   id: ClothingOuterArmourInvisibleSyndie
-  name: bluespace assisted armor
+  name: redspace assisted armor
   description: An armored vest that utilizes redspace technology to appear invisible and not mess with your business style.
   components:
   - type: Sprite
@@ -292,33 +277,20 @@
   - type: ModifyDelayedKnockdown # Nerfed
     delayDelta: 2
     knockdownTimeDelta: -2
-  - type: StaminaDamageResistance
-    coefficient: 0.5
   - type: TemperatureProtection # No
     heatingCoefficient: 1
     coolingCoefficient: 1
 
 - type: entity
-  parent: [ ClothingOuterBaseMedium, AllowSuitStorageClothing, ]
+  parent: [ ClothingOuterClownPriest ]
   id: MonkRobes
-  name: Monk's Robes
+  name: monk's robes
   description: The robes of a long forgotten tradition.
   components:
   - type: Sprite
     sprite: _ShitChap/Clothing/OuterClothing/Misc/monkrobe.rsi
   - type: Clothing
     sprite: _ShitChap/Clothing/OuterClothing/Misc/monkrobe.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Slash: 0.70
-        Heat: 1.5
   - type: ModifyDelayedKnockdown
-    delayDelta: 1
-    knockdownTimeDelta: -1
-  - type: TemperatureProtection
-    heatingCoefficient: 1.1 # the robes keep you warm but lets go of heat poorly
-    coolingCoefficient: 0.5
-  - type: ClothingSpeedModifier
-    walkModifier: 1
-    sprintModifier: 1.0
+    delayDelta: 0
+    knockdownTimeDelta: 0
