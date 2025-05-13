@@ -30,7 +30,7 @@
 - type: entity
   id: boomerangIncomplete
   parent: BaseItem
-  name: Incomplete Boomerang
+  name: incomplete boomerang
   description: Apply knife to get a fresh boomerang
   components:
   - type: Sprite
