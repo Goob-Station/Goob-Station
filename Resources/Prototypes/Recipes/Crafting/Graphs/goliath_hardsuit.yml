@@ -14,7 +14,7 @@
       steps:
       - tag: HardsuitSpatio
         icon:
-          sprite: Clothing/OuterClothing/Hardsuits/spatio.rsi
+          sprite: _Lavaland/Equipment/explorer_suit.rsi
           state: icon
         name: ExplorerSuit # Goobstation - It's almost impossible to find spationaut hardsuits
         doAfter: 10
