@@ -210,7 +210,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      240: Dead # Goob - 6 PKA shots, 3 crusher destabilised hits
+      200: Dead # Goob - 6 PKA shots, 3 crusher destabilised hits
 
 - type: entity
   id: MobWatcherMagmawing
@@ -235,7 +235,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      240: Dead # Goob - 6 PKA shots, 3 crusher destabilised hits
+      200: Dead # Goob - 6 PKA shots, 3 crusher destabilised hits
 
 - type: entity
   id: MobWatcherPride
