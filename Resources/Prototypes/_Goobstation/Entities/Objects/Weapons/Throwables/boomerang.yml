@@ -17,7 +17,7 @@
   - type: DamageOtherOnHit
     damage:
       types:
-        Blunt: 6
+        Blunt: 4
   - type: StaminaDamageOnCollide
     damage: 10 
   - type: Item
