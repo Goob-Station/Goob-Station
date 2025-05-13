@@ -27,18 +27,6 @@
     laws: JermovLawset
 
 - type: entity
-  id: ZooimovCircuitBoard
-  parent: BaseElectronics
-  name: law board (Zooimov)
-  description: An electronics board containing the Zooimov lawset.
-  components:
-  - type: Sprite
-    sprite: Objects/Misc/module.rsi
-    state: std_mod
-  - type: SiliconLawProvider
-    laws: ZooimovLawset
-
-- type: entity
   id: HelpimovCircuitBoard
   parent: BaseElectronics
   name: law board (Helpimov)
@@ -49,18 +37,6 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: HelpimovLawset
-
-- type: entity
-  id: ChudimovCircuitBoard
-  parent: BaseElectronics
-  name: law board (Chudimov)
-  description: An electronics board containing the Chudimov lawset. Nothing ever happens.
-  components:
-  - type: Sprite
-    sprite: Objects/Misc/module.rsi
-    state: std_mod
-  - type: SiliconLawProvider
-    laws: ChudimovLawset
 
 - type: entity
   id: PlayerBorgDerelictSyndicateAssaultBattery
