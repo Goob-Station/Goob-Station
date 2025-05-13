@@ -103,6 +103,3 @@
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/budget_stealth.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/budget_stealth.rsi
-  - type: ClothingGrantComponent
-    component:
-    - type: TileMovement
