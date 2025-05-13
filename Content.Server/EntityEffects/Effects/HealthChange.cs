@@ -40,12 +40,14 @@
 // SPDX-FileCopyrightText: 2023 moonheart08 <moonheart08@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 KrasnoshchekovPavel <119816022+KrasnoshchekovPavel@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -230,22 +232,19 @@ namespace Content.Server.EntityEffects.Effects
             var universalReagentHealModifier =
                 args.EntityManager.System<DamageableSystem>().UniversalReagentHealModifier;
 
-            if (Math.Abs(universalReagentDamageModifier - 1) > 1 || Math.Abs(universalReagentHealModifier - 1) > 1)
+            foreach (var (type, val) in damageSpec.DamageDict)
             {
-                foreach (var (type, val) in damageSpec.DamageDict)
-                {
-                    if (val < 0f)
-                        damageSpec.DamageDict[type] = val * universalReagentHealModifier * HealingDamageMultiplier;
+                if (val < 0f)
+                    damageSpec.DamageDict[type] = val * universalReagentHealModifier * HealingDamageMultiplier;
 
-                    if (val > 0f)
-                        damageSpec.DamageDict[type] = val * universalReagentDamageModifier * DamageMultiplier;
-                }
+                if (val > 0f)
+                    damageSpec.DamageDict[type] = val * universalReagentDamageModifier * DamageMultiplier;
             }
 
             args.EntityManager.System<DamageableSystem>()
                 .TryChangeDamage(
                     args.TargetEntity,
-                    damageSpec * scale, // 8 represents the average number of parts on a humanoid.
+                    damageSpec * scale,
                     IgnoreResistances,
                     interruptsDoAfters: false,
                     targetPart: TargetBodyPart.All,
