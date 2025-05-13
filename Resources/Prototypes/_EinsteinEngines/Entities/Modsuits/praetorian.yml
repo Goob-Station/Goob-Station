@@ -1,12 +1,13 @@
 # SPDX-FileCopyrightText: 2025 CliveOcelot <165305605+Orion-416@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-# The Modsuit Itself, This is just a ERT modsuit
+# The Modsuit Itself, This is just a bso modsuit
 - type: entity
-  parent: ClothingModsuitStandard
+  parent: [ ClothingModsuitStandard, BaseCentcommContraband ]
   id: ClothingModsuitPraetorian
   name: Praetorian modsuit control
   description: The main controller for a Praetorian modsuit.
@@ -27,19 +28,10 @@
           whitelist:
             components:
               - PowerCell
-    - type: Storage
-      maxItemSize: Huge
-      grid:
-        - 0,0,6,3
-    - type: ExplosionResistance #Dont want chain explosions in the modsuits storage
-      damageCoefficient: 0.1
     - type: SealableClothingVisuals
       visualLayers:
         back:
           - state: equipped-BACKPACK-sealed
-    - type: ClothingSpeedModifier
-      walkModifier: 0.9
-      sprintModifier: 0.9
 
 - type: entity
   parent: ClothingModsuitGauntletsStandard
@@ -70,15 +62,20 @@
       highPressureMultiplier: 0.05
       lowPressureMultiplier: 1000
     - type: Armor
+      traumaDeductions:
+        Dismemberment: 0.3
+        OrganDamage: 0.3
+        BoneDamage: 0.3
+        VeinsDamage: 0
+        NerveDamage: 0
       modifiers:
         coefficients:
-          Blunt: 0.9
-          Slash: 0.9
-          Piercing: 0.9
-          Heat: 0.9
-          Cold: 0.9
-          Radiation: 0.95
-          Caustic: 0.95
+          Blunt: 0.55
+          Slash: 0.55
+          Piercing: 0.5
+          Radiation: 0.5
+          Heat: 0.5
+          Caustic: 0.5
     - type: FlashImmunity # Goobstation
     - type: FlashSoundSuppression # Goobstation
     - type: PointLight
@@ -100,9 +97,15 @@
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/praetorian.rsi
     - type: ClothingSpeedModifier
-      walkModifier: 0.80
-      sprintModifier: 0.80
+      walkModifier: 0.75
+      sprintModifier: 0.75
     - type: Armor
+      traumaDeductions:
+        Dismemberment: 0.3
+        OrganDamage: 0.3
+        BoneDamage: 0.3
+        VeinsDamage: 0
+        NerveDamage: 0
       modifiers:
         coefficients:
           Blunt: 0.5
@@ -128,7 +131,7 @@
   parent: ClothingModsuitBootsStandard
   id: ClothingModsuitBootsPraetorian
   name: Praetorian modsuit boots
-  description: A state-of-the-art pair of magboots for the Praetorian modsuit. So long as the suit is powered, these will not slow the wearer down.
+  description: A state-of-the-art pair of magboots for the Praetorian modsuit.
   categories: [HideSpawnMenu]
   components:
     - type: Appearance
@@ -137,18 +140,20 @@
     - type: Tag
       tags:
         - WhitelistChameleon
-    - type: ToggleClothing
-      action: ActionToggleMagboots
-    - type: ComponentToggler
-      components:
-        - type: NoSlip
-    - type: Magboots
     - type: SealableClothingVisuals
       visualLayers:
         shoes:
           - state: equipped-FEET-sealed
+    - type: ItemToggle
+    - type: ToggleClothing
+      action: ActionToggleMagboots
+    - type: ComponentToggler
+      components:
+      - type: NoSlip
+    - type: Magboots
+      enabledPrefix: null
     - type: ClothingSpeedModifier
-      walkModifier: 0.9
+      walkModifier: 0.95
       sprintModifier: 0.9
 
 - type: entity
