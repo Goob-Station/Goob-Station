@@ -34,13 +34,14 @@
     - Hand
     - Leg
     - Foot
+    - Tail
     modifiers:
       coefficients:
-        Blunt: 0.40
-        Slash: 0.40
-        Piercing: 0.40
-        Heat: 0.40
-        Caustic: 0.40
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.5
+        Caustic: 0.5
         Holy: 1.25
   - type: ExplosionResistance
     damageCoefficient: 0.25
@@ -69,13 +70,21 @@
   - type: Clothing
     sprite: _Goobstation/Heretic/void_cloak.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    - Tail
     modifiers:
       coefficients:
-        Blunt: 0.70
-        Slash: 0.70
-        Piercing: 0.70
-        Heat: 0.70
-        Caustic: 0.70
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.7
+        Caustic: 0.7
         # Holy: 1.25
   - type: ExplosionResistance
     damageCoefficient: 0.7
