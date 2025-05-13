@@ -23,5 +23,4 @@
 - type: latheRecipePack
   id: EmagCubesStatic
   recipes:
-  - SkibidiCube
   - FelinidCube

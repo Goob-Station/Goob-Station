@@ -8,20 +8,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: latheRecipe
-  id: SkibidiCube
-  result: SkibidiCube
-  completetime: 30
-  materials: 
-    Biomass: 25
-    Uranium: 200
-    Plasma: 200
-    Plastic: 500
-
-- type: latheRecipe
   id: HumanCube
   result: HumanCube
   completetime: 30
-  materials: 
+  materials:
     Biomass: 70 # Cloning needs that amount
     Plasma: 250
 
@@ -29,7 +19,7 @@
   id: DionaCube
   result: DionaCube
   completetime: 30
-  materials: 
+  materials:
     Biomass: 70
     Plasma: 250
 
@@ -37,7 +27,7 @@
   id: FelinidCube
   result: FelinidCube
   completetime: 30
-  materials: 
+  materials:
     Biomass: 70
     Plasma: 250
 
@@ -45,7 +35,7 @@
   id: GingerbreadCube
   result: GingerbreadCube
   completetime: 30
-  materials: 
+  materials:
     Biomass: 70
     Plasma: 250
 
@@ -53,7 +43,7 @@
   id: MothCube
   result: MothCube
   completetime: 30
-  materials: 
+  materials:
     Biomass: 70
     Plasma: 250
 
@@ -61,7 +51,7 @@
   id: DwarfCube
   result: DwarfCube
   completetime: 30
-  materials: 
+  materials:
     Biomass: 70
     Plasma: 250
 
@@ -69,7 +59,7 @@
   id: HarpyCube
   result: HarpyCube
   completetime: 30
-  materials: 
+  materials:
     Biomass: 70
     Plasma: 250
 
@@ -77,7 +67,7 @@
   id: RodentiaCube
   result: RodentiaCube
   completetime: 30
-  materials: 
+  materials:
     Biomass: 70
     Plasma: 250
 
@@ -85,7 +75,7 @@
   id: ReptilianCube
   result: ReptilianCube
   completetime: 30
-  materials: 
+  materials:
     Biomass: 70
     Plasma: 250
 
@@ -101,7 +91,7 @@
   id: VulpkaninCube
   result: VulpkaninCube
   completetime: 30
-  materials: 
+  materials:
     Biomass: 70
     Plasma: 250
 
@@ -109,7 +99,7 @@
   id: SlimePersonCube
   result: SlimePersonCube
   completetime: 30
-  materials: 
+  materials:
     Biomass: 70
     Plasma: 250
 
@@ -117,7 +107,7 @@
   id: YowieCube
   result: YowieCube
   completetime: 30
-  materials: 
+  materials:
     Biomass: 70
     Plasma: 250
 
@@ -125,6 +115,6 @@
   id: VoxCube
   result: VoxCube
   completetime: 30
-  materials: 
+  materials:
     Biomass: 70
     Plasma: 250
