@@ -85,6 +85,40 @@
             "stopAtEntry": false
         },
         {
+            "name": "ServerCursor",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/Content.Server/Content.Server.dll",
+            "args": [],
+            "console": "integratedTerminal",
+            "stopAtEntry": false,
+            "pipeTransport": {
+                "pipeCwd": "${workspaceFolder}",
+                "pipeProgram": "powershell",
+                "pipeArgs": ["-Command"],
+                "debuggerPath": "C:/netcoredbg-win64/netcoredbg/netcoredbg.exe",
+                "debuggerArgs": ["--interpreter=vscode"],
+                "quoteArgs": true
+            },
+        },
+        {
+            "name": "ClientCursor",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/Content.Client/Content.Client.dll",
+            "args": [],
+            "console": "integratedTerminal",
+            "stopAtEntry": false,
+            "pipeTransport": {
+                "pipeCwd": "${workspaceFolder}",
+                "pipeProgram": "powershell",
+                "pipeArgs": ["-Command"],
+                "debuggerPath": "C:/netcoredbg-win64/netcoredbg/netcoredbg.exe",
+                "debuggerArgs": ["--interpreter=vscode"],
+                "quoteArgs": true
+            },
+        },
+        {
             "name": "Server - Tools",
             "type": "coreclr",
             "request": "launch",
@@ -104,19 +138,15 @@
             "console": "integratedTerminal",
             "stopAtEntry": false
         },
-        // Discord
-        {
-            "name": "Discord Bot",
-            "type": "coreclr",
-            "request": "launch",
-            "preLaunchTask": "build-discord-bot",
-            "program": "${workspaceFolder}/Content.DiscordBot/bin/Debug/net8.0/Content.DiscordBot.dll",
-            "args": [],
-            "console": "integratedTerminal",
-            "stopAtEntry": false
-        },
     ],
     "compounds": [
+        {
+            "name": "Server/Client - Cursor",
+            "configurations": [
+                "ServerCursor",
+                "ClientCursor"
+            ],
+        },
         {
             "name": "Server/Client",
             "configurations": [

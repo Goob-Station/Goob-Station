@@ -63,6 +63,9 @@ ghost-role-information-inspector-description = Perform inspections on the statio
 
 ghost-role-information-sentient-shark-name = Sentient Sharkminnow
 
+ghost-role-information-greytider-name = Grey Tider
+ghost-role-information-greytider-description = Be Robust.
+
 # Half Life
 
 ghost-role-information-Gman-name = The G-Man

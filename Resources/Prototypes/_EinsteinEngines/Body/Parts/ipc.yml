@@ -35,11 +35,20 @@
         damage: 150
       behaviors:
       - !type:GibPartBehavior { }
+  - type: WoundableVisuals
+    thresholds: [ 10, 20, 30, 50, 70, 100 ]
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#DD8822"
+      Burn:
+        sprite: Mobs/Effects/burn_damage.rsi
+  - type: Nerve
 
 - type: entity
-  parent: [ PartIPCBase, BaseTorsoInorganic ]
-  id: TorsoIPC
-  name: "ipc torso"
+  parent: [ PartIPCBase, BaseChestInorganic ]
+  id: ChestIPC
+  name: "ipc chest"
   components:
   - type: BodyPart
     organs:
@@ -61,6 +70,11 @@
         damage: 400
       behaviors:
       - !type:GibPartBehavior { }
+
+- type: entity
+  parent: [ PartIPCBase, BaseGroinInorganic ]
+  id: GroinIPC
+  name: "ipc groin"
 
 - type: entity
   parent: [ PartIPCBase, BaseHead ]

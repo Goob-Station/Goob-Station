@@ -35,3 +35,6 @@ marking-ScarFace1 = Face Scar (Large)
 
 marking-ScarFace2-scar_face_2 = Face Scar
 marking-ScarFace2 = Face Scar (Small)
+
+marking-BodyScarr-scar_chest = Rightsides scar
+marking-BodyScarr = Rightsides scar
