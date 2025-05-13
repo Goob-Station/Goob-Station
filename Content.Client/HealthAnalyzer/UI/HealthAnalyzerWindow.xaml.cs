@@ -55,6 +55,15 @@
 // SPDX-FileCopyrightText: 2024 stellar-novas <stellar_novas@riseup.net>
 // SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Kayzel <43700376+KayzelW@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Trest <144359854+trest100@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 kurokoTurbo <92106367+kurokoTurbo@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -62,10 +71,9 @@ using System.Linq;
 using System.Numerics;
 using Content.Shared.Atmos;
 using Content.Client.UserInterface.Controls;
-using Content.Shared._Shitmed.Targeting; // Shitmed
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.IdentityManagement;
@@ -81,6 +89,17 @@ using Robust.Client.ResourceManagement;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
+// Shitmed Change
+using Content.Shared._Shitmed.Targeting;
+using Content.Shared._Shitmed.Medical.HealthAnalyzer;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
+using Content.Shared.Atmos.Rotting;
+using Content.Shared.Body.Part;
+using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.Reagent;
+using System.Globalization;
+
 namespace Content.Client.HealthAnalyzer.UI
 {
     [GenerateTypedNameReferences]
@@ -92,7 +111,9 @@ namespace Content.Client.HealthAnalyzer.UI
         private readonly IResourceCache _cache;
 
         // Shitmed Change Start
+        private readonly WoundSystem _wound;
         public event Action<TargetBodyPart?, EntityUid>? OnBodyPartSelected;
+        public event Action<HealthAnalyzerMode, EntityUid>? OnModeChanged;
         private EntityUid _spriteViewEntity;
 
         [ValidatePrototypeId<EntityPrototype>]
@@ -112,10 +133,11 @@ namespace Content.Client.HealthAnalyzer.UI
             _prototypes = dependencies.Resolve<IPrototypeManager>();
             _cache = dependencies.Resolve<IResourceCache>();
             // Shitmed Change Start
+            _wound = _entityManager.System<WoundSystem>();
             _bodyPartControls = new Dictionary<TargetBodyPart, TextureButton>
             {
                 { TargetBodyPart.Head, HeadButton },
-                { TargetBodyPart.Torso, ChestButton },
+                { TargetBodyPart.Chest, ChestButton },
                 { TargetBodyPart.Groin, GroinButton },
                 { TargetBodyPart.LeftArm, LeftArmButton },
                 { TargetBodyPart.LeftHand, LeftHandButton },
@@ -133,6 +155,9 @@ namespace Content.Client.HealthAnalyzer.UI
                 bodyPartButton.Value.OnPressed += _ => SetActiveBodyPart(bodyPartButton.Key, bodyPartButton.Value);
             }
             ReturnButton.OnPressed += _ => ResetBodyPart();
+            BodyButton.OnPressed += _ => SetMode(HealthAnalyzerMode.Body);
+            OrgansButton.OnPressed += _ => SetMode(HealthAnalyzerMode.Organs);
+            ChemicalsButton.OnPressed += _ => SetMode(HealthAnalyzerMode.Chemicals);
             // Shitmed Change End
         }
 
@@ -142,8 +167,15 @@ namespace Content.Client.HealthAnalyzer.UI
             if (_target == null)
                 return;
 
-            // Bit of the ole shitcode until we have Groins in the prototypes.
-            OnBodyPartSelected?.Invoke(part == TargetBodyPart.Groin ? TargetBodyPart.Torso : part, _target.Value);
+            OnBodyPartSelected?.Invoke(part, _target.Value);
+        }
+
+        public void SetMode(HealthAnalyzerMode mode)
+        {
+            if (_target == null)
+                return;
+
+            OnModeChanged?.Invoke(mode, _target.Value);
         }
 
         public void ResetBodyPart()
@@ -160,30 +192,15 @@ namespace Content.Client.HealthAnalyzer.UI
                 button.Value.Visible = isHumanoid;
         }
 
-        // Not all of this function got messed with, but it was spread enough to warrant being covered entirely by a Shitmed Change
-        public void Populate(HealthAnalyzerScannedUserMessage msg)
+        public bool TrySetupEntity(HealthAnalyzerBaseMessage msg)
         {
-            // Start-Shitmed
-            _target = _entityManager.GetEntity(msg.TargetEntity);
-            EntityUid? part = msg.Part != null ? _entityManager.GetEntity(msg.Part.Value) : null;
-            var isPart = part != null;
-
-            if (_target == null
-                || !_entityManager.TryGetComponent<DamageableComponent>(isPart ? part : _target, out var damageable))
+            if (_target is null)
             {
                 NoPatientDataText.Visible = true;
-                return;
+                return false;
             }
 
             SetActiveButtons(_entityManager.HasComponent<TargetingComponent>(_target.Value));
-
-            ReturnButton.Visible = isPart;
-            PartNameLabel.Visible = isPart;
-
-            if (part != null)
-                PartNameLabel.Text = _entityManager.HasComponent<MetaDataComponent>(part)
-                    ? Identity.Name(part.Value, _entityManager)
-                    : Loc.GetString("health-analyzer-window-entity-unknown-value-text");
 
             NoPatientDataText.Visible = false;
 
@@ -199,7 +216,9 @@ namespace Content.Client.HealthAnalyzer.UI
 
             // Patient Information
 
-            SpriteView.SetEntity(SetupIcon(msg.Body) ?? _target.Value);
+            SpriteView.SetEntity(_entityManager.HasComponent<HumanoidAppearanceComponent>(_target.Value)
+                ? SetupIcon(msg.Body)
+                : _target.Value);
             SpriteView.Visible = msg.ScanMode.HasValue && msg.ScanMode.Value;
             PartView.Visible = SpriteView.Visible;
             NoDataTex.Visible = !SpriteView.Visible;
@@ -232,37 +251,31 @@ namespace Content.Client.HealthAnalyzer.UI
                     ? GetStatus(mobStateComponent.CurrentState)
                     : Loc.GetString("health-analyzer-window-entity-unknown-text");
 
-            // Total Damage
+            return true;
+        }
 
+        // All of this shit got fucked with, we're cooked hometh :wilted_rose: shitmod when
+        public void Populate(HealthAnalyzerBodyMessage msg)
+        {
+            _target = _entityManager.GetEntity(msg.TargetEntity);
+            EntityUid? part = msg.SelectedPart != null ? _entityManager.GetEntity(msg.SelectedPart.Value) : null;
+            var isPart = part != null;
+
+            if (!TrySetupEntity(msg)
+                || _target is null
+                || !_entityManager.TryGetComponent<DamageableComponent>(isPart ? part : _target, out var damageable))
+                return;
+
+            ReturnButton.Visible = isPart;
+            PartNameLabel.Visible = isPart;
+            DamageLabelHeading.Visible = true;
+            DamageLabel.Visible = true;
             DamageLabel.Text = damageable.TotalDamage.ToString();
 
-            // Alerts
-
-            var showAlerts = msg.Unrevivable == true || msg.Bleeding == true;
-
-            AlertsDivider.Visible = showAlerts;
-            AlertsContainer.Visible = showAlerts;
-
-            if (showAlerts)
-                AlertsContainer.DisposeAllChildren();
-
-            if (msg.Unrevivable == true)
-                AlertsContainer.AddChild(new RichTextLabel
-                {
-                    Text = Loc.GetString("health-analyzer-window-entity-unrevivable-text"),
-                    Margin = new Thickness(0, 4),
-                    MaxWidth = 300
-                });
-
-            if (msg.Bleeding == true)
-                AlertsContainer.AddChild(new RichTextLabel
-                {
-                    Text = Loc.GetString("health-analyzer-window-entity-bleeding-text"),
-                    Margin = new Thickness(0, 4),
-                    MaxWidth = 300
-                });
-
-            // Damage Groups
+            if (part != null)
+                PartNameLabel.Text = _entityManager.HasComponent<MetaDataComponent>(part)
+                    ? Identity.Name(part.Value, _entityManager)
+                    : Loc.GetString("health-analyzer-window-entity-unknown-value-text");
 
             var damageSortedGroups =
                 damageable.DamagePerGroup.OrderByDescending(damage => damage.Value)
@@ -271,6 +284,178 @@ namespace Content.Client.HealthAnalyzer.UI
             IReadOnlyDictionary<string, FixedPoint2> damagePerType = damageable.Damage.DamageDict;
 
             DrawDiagnosticGroups(damageSortedGroups, damagePerType);
+
+            ConditionsListContainer.RemoveAllChildren();
+
+            if (msg.Unrevivable == true)
+                ConditionsListContainer.AddChild(new RichTextLabel
+                {
+                    Text = Loc.GetString("condition-body-unrevivable", ("entity", Identity.Name(_target.Value, _entityManager))),
+                    Margin = new Thickness(0, 4),
+                });
+
+            if (msg.Bleeding == true)
+                ConditionsListContainer.AddChild(new RichTextLabel
+                {
+                    Text = Loc.GetString("condition-body-bleeding", ("entity", Identity.Name(_target.Value, _entityManager))),
+                    Margin = new Thickness(0, 4),
+                });
+
+            foreach (var (woundableTrauma, traumas) in msg.Traumas)
+            {
+                if (!TryGetEntityName(woundableTrauma, out var woundableName)
+                    || isPart
+                    && woundableTrauma != msg.SelectedPart)
+                    continue;
+
+                foreach (var trauma in traumas)
+                {
+                    // TODO: Once these string conditionals are better defined, rewrite to use a switch case based on trauma types.
+                    string locString;
+                    if (trauma.TargetType.HasValue)
+                        locString = Loc.GetString($"condition-body-trauma-{trauma.TraumaType}",
+                            ("targetSymmetry", trauma.TargetType.Value.Item2 != BodyPartSymmetry.None
+                                ? $"{trauma.TargetType.Value.Item2.ToString().ToLower()} " // This is so fucking ugly.
+                                : ""),
+                            ("targetType", trauma.TargetType.Value.Item1.ToString().ToLower()));
+                    else
+                        locString = trauma.SeverityString != null
+                            ? Loc.GetString($"condition-body-trauma-{trauma.TraumaType}-{trauma.SeverityString}", ("woundable", woundableName))
+                            : Loc.GetString($"condition-body-trauma-{trauma.TraumaType}", ("woundable", woundableName));
+
+                    ConditionsListContainer.AddChild(new RichTextLabel
+                    {
+                        Text = locString,
+                        Margin = new Thickness(0, 4),
+                    });
+                }
+            }
+
+            foreach (var (woundablePain, pain) in msg.NervePainFeels)
+            {
+                if (pain == 1.0
+                    || !TryGetEntityName(woundablePain, out var woundableName)
+                    || isPart
+                    && woundablePain != msg.SelectedPart)
+                    continue;
+
+                var painString = pain > 1.0 ? "increased" : "decreased";
+                var locString = Loc.GetString($"condition-body-pain-{painString}", ("woundable", woundableName));
+
+                ConditionsListContainer.AddChild(new RichTextLabel
+                {
+                    Text = locString,
+                    Margin = new Thickness(0, 4),
+                });
+            }
+
+            if (ConditionsListContainer.ChildCount == 0)
+            {
+                ConditionsListContainer.AddChild(new RichTextLabel
+                {
+                    Text = Loc.GetString("condition-none"),
+                    Margin = new Thickness(0, 4),
+                });
+            }
+        }
+        public void Populate(HealthAnalyzerOrgansMessage msg)
+        {
+            _target = _entityManager.GetEntity(msg.TargetEntity);
+
+            if (!TrySetupEntity(msg))
+                return;
+
+            ReturnButton.Visible = false;
+            PartNameLabel.Visible = false;
+            DamageLabelHeading.Visible = false;
+            DamageLabel.Visible = false;
+
+            ConditionsListContainer.RemoveAllChildren();
+            GroupsContainer.RemoveAllChildren();
+            foreach (var (organ, data) in msg.Organs)
+            {
+                var organEnt = _entityManager.GetEntity(organ);
+
+                if (!TryGetEntityName(organEnt, out var organName)
+                    || data.IntegrityCap == 0) // avoid division by zero
+                    continue;
+
+                DrawOrganDiagnostics(organEnt, organName, data.Integrity / data.IntegrityCap * 100);
+
+                if (_entityManager.HasComponent<RottingComponent>(organEnt))
+                {
+                    ConditionsListContainer.AddChild(new RichTextLabel
+                    {
+                        Text = Loc.GetString("condition-organ-rotting", ("organ", organName)),
+                        Margin = new Thickness(0, 4),
+                    });
+                }
+
+                /*if (data.Integrity > data.IntegrityCap * 0.90) // Organs without at LEAST some significant damage wont be shown.
+                    return;
+*/
+                ConditionsListContainer.AddChild(new RichTextLabel
+                {
+                    Text = Loc.GetString($"condition-organ-damage-{data.Severity.ToString()}", ("organ", organName)),
+                    Margin = new Thickness(0, 4),
+                });
+            }
+
+            if (ConditionsListContainer.ChildCount == 0)
+            {
+                ConditionsListContainer.AddChild(new RichTextLabel
+                {
+                    Text = Loc.GetString("condition-none"),
+                    Margin = new Thickness(0, 4),
+                });
+            }
+        }
+
+        public void Populate(HealthAnalyzerChemicalsMessage msg)
+        {
+            _target = _entityManager.GetEntity(msg.TargetEntity);
+
+            if (!TrySetupEntity(msg))
+                return;
+
+            ReturnButton.Visible = false;
+            PartNameLabel.Visible = false;
+            DamageLabelHeading.Visible = false;
+            DamageLabel.Visible = false;
+
+            ConditionsListContainer.RemoveAllChildren();
+            GroupsContainer.RemoveAllChildren();
+
+            DrawSolutionDiagnostics(msg.Solutions);
+
+            ConditionsListContainer.AddChild(new RichTextLabel
+            {
+                Text = Loc.GetString("condition-none"),
+                Margin = new Thickness(0, 4),
+            });
+        }
+
+        private bool TryGetEntityName(NetEntity ent, out string name)
+        {
+            name = Loc.GetString("health-analyzer-window-entity-unknown-value-text");
+            var targetedEnt = _entityManager.GetEntity(ent);
+
+            if (!_entityManager.HasComponent<MetaDataComponent>(targetedEnt))
+                return false;
+
+            name = Identity.Name(targetedEnt, _entityManager);
+            return true;
+        }
+
+        private bool TryGetEntityName(EntityUid ent, out string name)
+        {
+            name = Loc.GetString("health-analyzer-window-entity-unknown-value-text");
+
+            if (!_entityManager.HasComponent<MetaDataComponent>(ent))
+                return false;
+
+            name = Identity.Name(ent, _entityManager);
+            return true;
         }
         // Shitmed Change End
         private static string GetStatus(MobState mobState)
@@ -330,6 +515,66 @@ namespace Content.Client.HealthAnalyzer.UI
             }
         }
 
+        private void DrawOrganDiagnostics(EntityUid ent, string name, FixedPoint2 damage)
+        {
+            TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
+            var groupTitleText = $"{Loc.GetString(
+                "group-organ-status",
+                ("organ", textInfo.ToTitleCase(name)),
+                ("capacity", damage)
+            )}";
+
+            var groupContainer = new BoxContainer
+            {
+                Align = BoxContainer.AlignMode.Begin,
+                Orientation = BoxContainer.LayoutOrientation.Vertical,
+            };
+
+            groupContainer.AddChild(CreateDiagnosticGroupTitle(groupTitleText, ent));
+
+            GroupsContainer.AddChild(groupContainer);
+        }
+
+        private void DrawSolutionDiagnostics(Dictionary<NetEntity, Solution> solutions)
+        {
+            TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
+            foreach (var (ent, data) in solutions)
+            {
+                var groupTitleText = $"{Loc.GetString(
+                    "group-solution-name",
+                    ("solution", data.Name ?? Loc.GetString("group-solution-unknown"))
+                )}";
+
+                var groupContainer = new BoxContainer
+                {
+                    Align = BoxContainer.AlignMode.Begin,
+                    Orientation = BoxContainer.LayoutOrientation.Vertical,
+                };
+
+                groupContainer.AddChild(CreateDiagnosticGroupTitle(textInfo.ToTitleCase(groupTitleText), "metaphysical"));
+
+                GroupsContainer.AddChild(groupContainer);
+
+                foreach (var reagent in data.Contents)
+                {
+                    if (reagent.Quantity == 0)
+                        continue;
+
+                    var reagentName = Loc.GetString("chem-master-window-unknown-reagent-text");
+                    if (_prototypes.TryIndex(reagent.Reagent.Prototype, out ReagentPrototype? proto))
+                        reagentName = proto.LocalizedName;
+
+                    var reagentString = $"{Loc.GetString(
+                        "group-solution-contents",
+                        ("reagent", textInfo.ToTitleCase(reagentName)),
+                        ("quantity", reagent.Quantity)
+                    )}";
+
+                    groupContainer.AddChild(CreateDiagnosticItemLabel(reagentString.Insert(0, " · ")));
+                }
+            }
+        }
+
         private Texture GetTexture(string texture)
         {
             var rsiPath = new ResPath("/Textures/Objects/Devices/health_analyzer.rsi");
@@ -372,11 +617,46 @@ namespace Content.Client.HealthAnalyzer.UI
             return rootContainer;
         }
 
+        private BoxContainer CreateDiagnosticGroupTitle(string text, EntityUid ent, string? TextureOverride = null)
+        {
+            var rootContainer = new BoxContainer
+            {
+                Margin = new Thickness(0, 6, 0, 0),
+                VerticalAlignment = VAlignment.Bottom,
+                Orientation = BoxContainer.LayoutOrientation.Horizontal,
+            };
+
+            if (TextureOverride != null)
+            {
+                rootContainer.AddChild(new TextureRect
+                {
+                    SetSize = new Vector2(30, 30),
+                    Texture = GetTexture(TextureOverride.ToLower())
+                });
+            }
+            else
+            {
+                var spriteView = new SpriteView
+                {
+                    SetSize = new Vector2(30, 30),
+                    OverrideDirection = Direction.South,
+                };
+
+                spriteView.SetEntity(ent);
+
+                rootContainer.AddChild(spriteView);
+            }
+
+            rootContainer.AddChild(CreateDiagnosticItemLabel(text));
+
+            return rootContainer;
+        }
+
         // Shitmed Change Start
         /// <summary>
         /// Sets up the Body Doll using Alert Entity to use in Health Analyzer.
         /// </summary>
-        private EntityUid? SetupIcon(Dictionary<TargetBodyPart, TargetIntegrity>? body)
+        private EntityUid? SetupIcon(Dictionary<TargetBodyPart, WoundableSeverity>? body)
         {
             if (body is null)
                 return null;

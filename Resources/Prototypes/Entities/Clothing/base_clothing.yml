@@ -41,6 +41,12 @@
   - type: FlavorProfile #yes not every peice of clothing is edible, but this way every edible piece of clothing should have the flavor without me having to track down what specific clothing can and cannot be eaten.
     flavors:
     - fiber
+  - type: Armor
+    coverage:
+      - Other
+      - Chest
+      - Groin
+    modifiers: {}
 
 - type: entity
   abstract: true
@@ -86,6 +92,8 @@
   # to show explosion resistance examine
   - type: GroupExamine
   - type: Armor
+    coverage:
+    - Other
     modifiers: {}
 
 # for clothing that can be toggled, like magboots
