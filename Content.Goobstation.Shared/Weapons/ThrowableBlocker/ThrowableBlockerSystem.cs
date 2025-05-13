@@ -9,9 +9,11 @@
 using System.Linq;
 using Content.Shared.Damage;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Inventory;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Popups;
+using Content.Shared.Projectiles;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Reflect;
 using Robust.Shared.Audio.Systems;
@@ -35,12 +37,11 @@ public sealed class ThrowableBlockerSystem : EntitySystem
     {
         base.Initialize();
 
-        // This uses ReflectUserComponent because I'm too lazy
-        SubscribeLocalEvent<ReflectUserComponent, ThrowHitByEvent>(OnThrowHit,
-            before: new[] { typeof(SharedCreamPieSystem) });
+        Subs.SubscribeWithRelay<ReflectComponent, ThrowHitByEvent>(
+            OnThrowHit, baseEvent: false);
     }
 
-    private void OnThrowHit(Entity<ReflectUserComponent> ent, ref ThrowHitByEvent args)
+    private void OnThrowHit(Entity<ReflectComponent> ent, ref ThrowHitByEvent args)
     {
         var thrown = args.Thrown;
 

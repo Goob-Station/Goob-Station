@@ -58,7 +58,7 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Events;
 using Content.Shared.Database;
 using Content.Shared.Effects;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Jittering;
 using Content.Shared.Projectiles;
 using Content.Shared.Rejuvenate;

@@ -400,6 +400,7 @@ public abstract class SharedStunSystem : EntitySystem
     /// Otherwise, the slowdown component is created or updated with the provided modifiers,
     /// and the movement speed is refreshed accordingly.
     /// </summary>
+    /// <remarks>Goob edit - no slowdown, only jitter</remarks>
     /// <param name="ent">Entity whose movement speed should be updated.</param>
     /// <param name="walkSpeedModifier">New walk speed modifier. Default is 1f (normal speed).</param>
     /// <param name="runSpeedModifier">New run (sprint) speed modifier. Default is 1f (normal speed).</param>
@@ -410,6 +411,15 @@ public abstract class SharedStunSystem : EntitySystem
         if (!Resolve(ent, ref ent.Comp))
             return;
 
+        // goob edit - stunmeta
+        // no slowdown because funny
+        // Choose bigger of speed modifiers (usually sprint) and use it to scale Crowd Control effect time
+        var cCFactor = Math.Clamp(1 - Math.Min(walkSpeedModifier, runSpeedModifier), 0, 1);
+        var cCTime = TimeSpan.FromSeconds(10f);
+        _jitter.DoJitter(ent, cCFactor * cCTime, true);
+        _stutter.DoStutter(ent, cCFactor * cCTime, true);
+
+        /*
         if (
             (MathHelper.CloseTo(walkSpeedModifier, 1f) && MathHelper.CloseTo(runSpeedModifier, 1f) && ent.Comp.StaminaDamage == 0f) ||
             (walkSpeedModifier == 0f && runSpeedModifier == 0f)
@@ -426,6 +436,7 @@ public abstract class SharedStunSystem : EntitySystem
         comp.SprintSpeedModifier = runSpeedModifier;
 
         _movementSpeedModifier.RefreshMovementSpeedModifiers(ent);
+        */
 
         Dirty(ent);
     }
@@ -434,6 +445,7 @@ public abstract class SharedStunSystem : EntitySystem
     /// A convenience overload of <see cref="UpdateStunModifiers(EntityUid, float, float, StaminaComponent?)"/> that sets both
     /// walk and run speed modifiers to the same value.
     /// </summary>
+    /// <remarks>Goob edit - no slowdown, only jitter</remarks>
     /// <param name="ent">Entity whose movement speed should be updated.</param>
     /// <param name="speedModifier">New walk and run speed modifier. Default is 1f (normal speed).</param>
     /// <param name="component">

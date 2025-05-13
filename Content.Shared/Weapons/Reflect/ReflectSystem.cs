@@ -176,7 +176,7 @@ public sealed class ReflectSystem : EntitySystem
         if (args.Reflected)
             return;
 
-        if (TryReflectHitscan(ent, ent.Owner, args.Shooter, args.SourceItem, args.Direction, args.Reflective, out var dir))
+        if (TryReflectHitscan(ent, ent.Owner, args.Shooter, args.SourceItem, args.Direction, args.Reflective, args.Damage, out var dir))
         {
             args.Direction = dir.Value;
             args.Reflected = true;
@@ -188,7 +188,7 @@ public sealed class ReflectSystem : EntitySystem
         if (!TryComp<ReflectiveComponent>(projectile, out var reflective) ||
             (reflector.Comp.Reflects & reflective.Reflective) == 0x0 ||
             !_toggle.IsActivated(reflector.Owner) ||
-            !_random.Prob(reflect.ReflectProb) ||
+            !_random.Prob(reflector.Comp.ReflectProb) ||
             !TryComp<PhysicsComponent>(projectile, out var physics))
         {
             return false;
@@ -216,9 +216,9 @@ public sealed class ReflectSystem : EntitySystem
         if (Resolve(projectile, ref projectile.Comp, false))
         {
             // WD EDIT START
-            if (projectile.Comp2.DamageOnReflectModifier != 0)
+            if (reflector.Comp.DamageOnReflectModifier != 0)
             {
-                _damageable.TryChangeDamage(reflector, projectile.Comp.Damage * reflect.DamageOnReflectModifier,
+                _damageable.TryChangeDamage(reflector, projectile.Comp.Damage * reflector.Comp.DamageOnReflectModifier,
                     projectile.Comp.IgnoreResistances, origin: projectile.Comp.Shooter);
             }
             // WD EDIT END
@@ -238,6 +238,7 @@ public sealed class ReflectSystem : EntitySystem
     }
 
     private bool TryReflectHitscan(
+        Entity<ReflectComponent> reflector,
         EntityUid user,
         EntityUid? shooter,
         EntityUid shotSource,
@@ -263,7 +264,7 @@ public sealed class ReflectSystem : EntitySystem
             _damageable.TryChangeDamage(reflector, damage * reflector.Comp.DamageOnReflectModifier, origin: shooter);
         // WD EDIT END
 
-        var spread = _random.NextAngle(-reflect.Spread / 2, reflect.Spread / 2);
+        var spread = _random.NextAngle(-reflector.Comp.Spread / 2, reflector.Comp.Spread / 2);
         newDirection = -spread.RotateVec(direction);
 
         if (shooter != null)
@@ -281,13 +282,12 @@ public sealed class ReflectSystem : EntitySystem
         {
             _popup.PopupEntity(Loc.GetString("reflect-shot"), user);
             _audio.PlayPvs(reflect.SoundOnReflect, user);
-        RefreshReflectUser(args.Equipee);
+        }
     }
 
     private void OnReflectEquipped(Entity<ReflectComponent> ent, ref GotEquippedEvent args)
     {
         ent.Comp.InRightPlace = (ent.Comp.SlotFlags & args.SlotFlags) == args.SlotFlags;
-        EnsureComp<ReflectUserComponent>(args.User);
     }
 
     private void OnReflectUnequipped(Entity<ReflectComponent> ent, ref GotUnequippedEvent args)
@@ -305,6 +305,5 @@ public sealed class ReflectSystem : EntitySystem
     private void OnReflectHandUnequipped(Entity<ReflectComponent> ent, ref GotUnequippedHandEvent args)
     {
         ent.Comp.InRightPlace = false;
-        RemCompDeferred<ReflectUserComponent>(user);
     }
 }

@@ -46,7 +46,7 @@ public sealed class CarvingKnifeSystem : EntitySystem
     [Dependency] private readonly GravitySystem _gravity = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly NavMapSystem _navMap = default!;
-    [Dependency] private readonly StaminaSystem _stamina = default!;
+    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly MindSystem _mind = default!;
