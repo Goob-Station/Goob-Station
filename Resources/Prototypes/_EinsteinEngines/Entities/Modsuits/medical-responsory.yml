@@ -7,7 +7,7 @@
 
 # The Modsuit Itself, This is just a ERT modsuit
 - type: entity
-  parent: ClothingModsuitStandard
+  parent: [ ClothingModsuitStandard, BaseCentcommContraband ]
   id: ClothingModsuitResponsoryMedical
   name: Medical Responsory modsuit control
   description: The main controller for a Medical Responsory modsuit.
@@ -29,18 +29,12 @@
             components:
               - PowerCell
     - type: Storage
-      maxItemSize: Huge
       grid:
         - 0,0,10,3
-    - type: ExplosionResistance
-      damageCoefficient: 0.9
     - type: SealableClothingVisuals
       visualLayers:
         back:
         - state: equipped-BACKPACK-sealed
-    - type: ClothingSpeedModifier
-      walkModifier: 0.95
-      sprintModifier: 0.95
 
 - type: entity
   parent: ClothingModsuitGauntletsStandard
@@ -137,14 +131,14 @@
         outerClothing:
           - state: equipped-OUTERCLOTHING-sealed
     - type: StaminaDamageResistance
-      coefficient: 0.5 # 50%
+      coefficient: 0.45
 
 
 - type: entity
   parent: ClothingModsuitBootsStandard
   id: ClothingModsuitBootsResponsoryMedical
   name: Medical Responsory modsuit boots
-  description: A state-of-the-art pair of magboots for the Medical Responsory modsuit. So long as the suit is powered, these will not slow the wearer down.
+  description: A state-of-the-art pair of magboots for the Medical Responsory modsuit.
   categories: [HideSpawnMenu]
   components:
     - type: Appearance
@@ -153,19 +147,21 @@
     - type: Tag
       tags:
         - WhitelistChameleon
-    - type: ClothingSpeedModifier
-      walkModifier: 1
-      sprintModifier: 1
-    - type: ToggleClothing
-      action: ActionToggleMagboots
-    - type: ComponentToggler
-      components:
-        - type: NoSlip
-    - type: Magboots
     - type: SealableClothingVisuals
       visualLayers:
         shoes:
           - state: equipped-FEET-sealed
+    - type: ItemToggle
+    - type: ToggleClothing
+      action: ActionToggleMagboots
+    - type: ComponentToggler
+      components:
+      - type: NoSlip
+    - type: Magboots
+      enabledPrefix: null
+    - type: ClothingSpeedModifier
+      walkModifier: 0.95
+      sprintModifier: 0.95
 
 - type: entity
   id: SuitStorageResponsoryMedical

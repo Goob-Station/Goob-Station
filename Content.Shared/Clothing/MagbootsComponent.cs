@@ -34,4 +34,10 @@ public sealed partial class MagbootsComponent : Component
     /// </summary>
     [DataField]
     public string Slot = "shoes";
+
+    /// <summary>
+    /// Goobstation - EquippedPrefix for enabled state
+    /// </summary>
+    [DataField]
+    public string? EnabledPrefix = "on";
 }

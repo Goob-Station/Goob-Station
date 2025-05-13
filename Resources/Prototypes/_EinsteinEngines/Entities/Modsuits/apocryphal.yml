@@ -7,7 +7,7 @@
 
 # The Modsuit Itself, This is just a Deathsquad modsuit
 - type: entity
-  parent: ClothingModsuitStandard
+  parent: [ ClothingModsuitStandard, BaseCentcommContraband ]
   id: ClothingModsuitApocryphal
   name: Apocryphal modsuit control
   description: The main controller for a Apocryphal modsuit.
@@ -29,10 +29,9 @@
             components:
               - PowerCell
     - type: Storage
-      maxItemSize: Huge
       grid:
         - 0,0,7,6
-    - type: ExplosionResistance #Dont want chain explosions in the modsuits storage
+    - type: ExplosionResistance
       damageCoefficient: 0.1
     - type: SealableClothingVisuals
       visualLayers:
@@ -156,22 +155,21 @@
     - type: Appearance
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/apocryphal.rsi
-    - type: Tag
-      tags:
-        - WhitelistChameleon
-    - type: ClothingSpeedModifier
-      walkModifier: 1
-      sprintModifier: 1
-    - type: ToggleClothing
-      action: ActionToggleMagboots
-    - type: ComponentToggler
-      components:
-        - type: NoSlip
-    - type: Magboots
     - type: SealableClothingVisuals
       visualLayers:
         shoes:
         - state: equipped-FEET-sealed
+    - type: ItemToggle
+    - type: ToggleClothing
+      action: ActionToggleMagboots
+    - type: ComponentToggler
+      components:
+      - type: NoSlip
+    - type: Magboots
+      enabledPrefix: null
+    - type: ClothingSpeedModifier
+      walkModifier: 1.1
+      sprintModifier: 1.1
 
 - type: entity
   id: SuitStorageApocryphal

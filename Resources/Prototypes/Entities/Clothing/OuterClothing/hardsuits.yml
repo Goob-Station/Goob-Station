@@ -805,8 +805,8 @@
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitSecurityRed
   - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 3
-    knockdownTimeDelta: -3
+    delayDelta: 2.5
+    knockdownTimeDelta: -2.5
   - type: StaminaDamageResistance # Goobstation
     coefficient: 0.5
 

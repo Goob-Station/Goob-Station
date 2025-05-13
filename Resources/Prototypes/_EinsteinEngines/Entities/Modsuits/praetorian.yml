@@ -7,7 +7,7 @@
 
 # The Modsuit Itself, This is just a bso modsuit
 - type: entity
-  parent: ClothingModsuitStandard
+  parent: [ ClothingModsuitStandard, BaseCentcommContraband ]
   id: ClothingModsuitPraetorian
   name: Praetorian modsuit control
   description: The main controller for a Praetorian modsuit.
@@ -28,19 +28,10 @@
           whitelist:
             components:
               - PowerCell
-    - type: Storage
-      maxItemSize: Huge
-      grid:
-        - 0,0,6,3
-    - type: ExplosionResistance
-      damageCoefficient: 0.9
     - type: SealableClothingVisuals
       visualLayers:
         back:
           - state: equipped-BACKPACK-sealed
-    - type: ClothingSpeedModifier
-      walkModifier: 0.95
-      sprintModifier: 0.95
 
 - type: entity
   parent: ClothingModsuitGauntletsStandard
@@ -140,7 +131,7 @@
   parent: ClothingModsuitBootsStandard
   id: ClothingModsuitBootsPraetorian
   name: Praetorian modsuit boots
-  description: A state-of-the-art pair of magboots for the Praetorian modsuit. So long as the suit is powered, these will not slow the wearer down.
+  description: A state-of-the-art pair of magboots for the Praetorian modsuit.
   categories: [HideSpawnMenu]
   components:
     - type: Appearance
@@ -149,18 +140,20 @@
     - type: Tag
       tags:
         - WhitelistChameleon
-    - type: ToggleClothing
-      action: ActionToggleMagboots
-    - type: ComponentToggler
-      components:
-        - type: NoSlip
-    - type: Magboots
     - type: SealableClothingVisuals
       visualLayers:
         shoes:
           - state: equipped-FEET-sealed
+    - type: ItemToggle
+    - type: ToggleClothing
+      action: ActionToggleMagboots
+    - type: ComponentToggler
+      components:
+      - type: NoSlip
+    - type: Magboots
+      enabledPrefix: null
     - type: ClothingSpeedModifier
-      walkModifier: 0.9
+      walkModifier: 0.95
       sprintModifier: 0.9
 
 - type: entity

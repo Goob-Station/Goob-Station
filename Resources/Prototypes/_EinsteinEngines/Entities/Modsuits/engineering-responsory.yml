@@ -7,7 +7,7 @@
 
 # The Modsuit Itself, This is just a ERT modsuit
 - type: entity
-  parent: ClothingModsuitStandard
+  parent: [ ClothingModsuitStandard, BaseCentcommContraband ]
   id: ClothingModsuitResponsoryEngineering
   name: Engineering Responsory modsuit control
   description: The main controller for a Engineering Responsory modsuit.
@@ -32,8 +32,9 @@
       maxItemSize: Huge
       grid:
         - 0,0,10,3
-    - type: ExplosionResistance
-      damageCoefficient: 0.9
+    - type: ClothingSpeedModifier
+      walkModifier: 1
+      sprintModifier: 1
     - type: SealableClothingVisuals
       visualLayers:
         back:
@@ -144,19 +145,21 @@
     - type: Tag
       tags:
         - WhitelistChameleon
-    - type: ClothingSpeedModifier
-      walkModifier: 1
-      sprintModifier: 1
-    - type: ToggleClothing
-      action: ActionToggleMagboots
-    - type: ComponentToggler
-      components:
-        - type: NoSlip
-    - type: Magboots
     - type: SealableClothingVisuals
       visualLayers:
         shoes:
           - state: equipped-FEET-sealed
+    - type: ItemToggle
+    - type: ToggleClothing
+      action: ActionToggleMagboots
+    - type: ComponentToggler
+      components:
+      - type: NoSlip
+    - type: Magboots
+      enabledPrefix: null
+    - type: ClothingSpeedModifier
+      walkModifier: 1
+      sprintModifier: 1
 
 - type: entity
   id: SuitStorageResponsoryEngineering

@@ -7,11 +7,14 @@
 
 # The Modsuit Itself, This is just a ERT modsuit
 - type: entity
-  parent: ClothingModsuitStandard
+  parent: [ ClothingModsuitStandard, BaseCentcommContraband ]
   id: ClothingModsuitResponsoryLeader
   name: Leader Responsory modsuit control
   description: The main controller for a Leader Responsory modsuit.
   components:
+    - type: ClothingSpeedModifier
+      walkModifier: 1
+      sprintModifier: 1
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/leader-responsory.rsi
     - type: ToggleableClothing
@@ -29,11 +32,8 @@
             components:
               - PowerCell
     - type: Storage
-      maxItemSize: Huge
       grid:
         - 0,0,10,3
-    - type: ExplosionResistance
-      damageCoefficient: 0.9
     - type: SealableClothingVisuals
       visualLayers:
         back:
@@ -134,7 +134,7 @@
         outerClothing:
           - state: equipped-OUTERCLOTHING-sealed
     - type: StaminaDamageResistance
-      coefficient: 0.5 # 50%
+      coefficient: 0.35
     - type: FireProtection
       reduction: 1
     - type: ClothingGrantComponent
@@ -154,19 +154,21 @@
     - type: Tag
       tags:
         - WhitelistChameleon
-    - type: ClothingSpeedModifier
-      walkModifier: 1
-      sprintModifier: 1
-    - type: ToggleClothing
-      action: ActionToggleMagboots
-    - type: ComponentToggler
-      components:
-        - type: NoSlip
-    - type: Magboots
     - type: SealableClothingVisuals
       visualLayers:
         shoes:
           - state: equipped-FEET-sealed
+    - type: ItemToggle
+    - type: ToggleClothing
+      action: ActionToggleMagboots
+    - type: ComponentToggler
+      components:
+      - type: NoSlip
+    - type: Magboots
+      enabledPrefix: null
+    - type: ClothingSpeedModifier
+      walkModifier: 1
+      sprintModifier: 1
 
 - type: entity
   id: SuitStorageResponsoryLeader

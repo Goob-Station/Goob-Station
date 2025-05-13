@@ -5,7 +5,7 @@
 
 # The Modsuit Itself, This is just a ERT modsuit
 - type: entity
-  parent: ClothingModsuitStandard
+  parent: [ ClothingModsuitStandard, BaseCentcommContraband ]
   id: ClothingModsuitResponsorySecurity
   name: Security Responsory modsuit control
   description: The main controller for a Security Responsory modsuit.
@@ -27,18 +27,12 @@
             components:
               - PowerCell
     - type: Storage
-      maxItemSize: Huge
       grid:
         - 0,0,10,3
-    - type: ExplosionResistance
-      damageCoefficient: 0.9
     - type: SealableClothingVisuals
       visualLayers:
         back:
         - state: equipped-BACKPACK-sealed
-    - type: ClothingSpeedModifier
-      walkModifier: 0.95
-      sprintModifier: 0.95
 
 - type: entity
   parent: ClothingModsuitGauntletsStandard
@@ -135,14 +129,14 @@
         outerClothing:
           - state: equipped-OUTERCLOTHING-sealed
     - type: StaminaDamageResistance
-      coefficient: 0.5 # 50%
+      coefficient: 0.45
 
 
 - type: entity
   parent: ClothingModsuitBootsStandard
   id: ClothingModsuitBootsResponsorySecurity
   name: Security Responsory modsuit boots
-  description: A state-of-the-art pair of magboots for the Security Responsory modsuit. So long as the suit is powered, these will not slow the wearer down.
+  description: A state-of-the-art pair of magboots for the Security Responsory modsuit.
   categories: [HideSpawnMenu]
   components:
     - type: Appearance
@@ -151,19 +145,17 @@
     - type: Tag
       tags:
         - WhitelistChameleon
-    - type: ClothingSpeedModifier
-      walkModifier: 1
-      sprintModifier: 1
+    - type: ItemToggle
     - type: ToggleClothing
       action: ActionToggleMagboots
     - type: ComponentToggler
       components:
-        - type: NoSlip
+      - type: NoSlip
     - type: Magboots
-    - type: SealableClothingVisuals
-      visualLayers:
-        shoes:
-          - state: equipped-FEET-sealed
+      enabledPrefix: null
+    - type: ClothingSpeedModifier
+      walkModifier: 0.95
+      sprintModifier: 0.95
 
 - type: entity
   id: SuitStorageResponsorySecurity

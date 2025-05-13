@@ -70,6 +70,18 @@
     modifier: 0.5
   - type: ModifyStandingUpTime
     multiplier: 0.5
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.1
+      OrganDamage: 0.1
+      BoneDamage: 0.1
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
 
 - type: entity
   parent: ClothingShoesBase
@@ -103,6 +115,18 @@
     modifier: 0.5
   - type: ModifyStandingUpTime
     multiplier: 0.5
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.1
+      OrganDamage: 0.1
+      BoneDamage: 0.1
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
 
 - type: entity
   parent: ClothingShoesBase
@@ -134,7 +158,7 @@
       - state: equipped-FEET-sealed
 
 - type: entity
-  parent: [ ClothingShoesBase, BaseToggleClothing ]
+  parent: ClothingShoesBase
   id: ClothingModsuitBootsEngineer
   name: sapper modsuit boots
   description: Made to get oily.
@@ -161,16 +185,17 @@
     visualLayers:
       shoes:
       - state: equipped-FEET-sealed
+  - type: ItemToggle
   - type: ToggleClothing
     action: ActionToggleMagboots
-    mustEquip: false
   - type: ComponentToggler
     components:
     - type: NoSlip
   - type: Magboots
+    enabledPrefix: null
   - type: ClothingSpeedModifier
     walkModifier: 0.9
-    sprintModifier: 0.85
+    sprintModifier: 0.9
 
 - type: entity
   parent: ClothingShoesBase

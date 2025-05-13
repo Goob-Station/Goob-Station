@@ -108,8 +108,8 @@
   - type: ExplosionResistance
     damageCoefficient: 0.4
   - type: ModifyDelayedKnockdown
-    delayDelta: 2
-    knockdownTimeDelta: -2
+    delayDelta: 2.5
+    knockdownTimeDelta: -2.5
   - type: StaminaDamageResistance
     coefficient: 0.7
   - type: Armor
@@ -180,8 +180,8 @@
   - type: ExplosionResistance
     damageCoefficient: 0.4
   - type: ModifyDelayedKnockdown
-    delayDelta: 6
-    knockdownTimeDelta: -4
+    delayDelta: 3
+    knockdownTimeDelta: -3
   - type: StaminaDamageResistance
     coefficient: 0.7
   - type: Armor
@@ -509,7 +509,7 @@
     delayDelta: 3
     knockdownTimeDelta: -3
   - type: StaminaDamageResistance
-    coefficient: 0.9
+    coefficient: 0.5
   - type: FireProtection
     reduction: 0.7
 
