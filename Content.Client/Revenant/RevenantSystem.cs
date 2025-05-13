@@ -15,6 +15,7 @@ namespace Content.Client.Revenant;
 public sealed class RevenantSystem : EntitySystem
 {
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
@@ -31,18 +32,18 @@ public sealed class RevenantSystem : EntitySystem
 
         if (_appearance.TryGetData<bool>(uid, RevenantVisuals.Harvesting, out var harvesting, args.Component) && harvesting)
         {
-            args.Sprite.LayerSetState(0, component.HarvestingState);
+            _sprite.LayerSetRsiState((uid, args.Sprite), 0, component.HarvestingState);
         }
         else if (_appearance.TryGetData<bool>(uid, RevenantVisuals.Stunned, out var stunned, args.Component) && stunned)
         {
-            args.Sprite.LayerSetState(0, component.StunnedState);
+            _sprite.LayerSetRsiState((uid, args.Sprite), 0, component.StunnedState);
         }
         else if (_appearance.TryGetData<bool>(uid, RevenantVisuals.Corporeal, out var corporeal, args.Component))
         {
             if (corporeal)
-                args.Sprite.LayerSetState(0, component.CorporealState);
+                _sprite.LayerSetRsiState((uid, args.Sprite), 0, component.CorporealState);
             else
-                args.Sprite.LayerSetState(0, component.State);
+                _sprite.LayerSetRsiState((uid, args.Sprite), 0, component.State);
         }
     }
 
@@ -51,10 +52,9 @@ public sealed class RevenantSystem : EntitySystem
         if (args.Alert.ID != ent.Comp.EssenceAlert)
             return;
 
-        var sprite = args.SpriteViewEnt.Comp;
         var essence = Math.Clamp(ent.Comp.Essence.Int(), 0, 999);
-        sprite.LayerSetState(RevenantVisualLayers.Digit1, $"{(essence / 100) % 10}");
-        sprite.LayerSetState(RevenantVisualLayers.Digit2, $"{(essence / 10) % 10}");
-        sprite.LayerSetState(RevenantVisualLayers.Digit3, $"{essence % 10}");
+        _sprite.LayerSetRsiState(args.SpriteViewEnt.AsNullable(), RevenantVisualLayers.Digit1, $"{(essence / 100) % 10}");
+        _sprite.LayerSetRsiState(args.SpriteViewEnt.AsNullable(), RevenantVisualLayers.Digit2, $"{(essence / 10) % 10}");
+        _sprite.LayerSetRsiState(args.SpriteViewEnt.AsNullable(), RevenantVisualLayers.Digit3, $"{essence % 10}");
     }
 }
