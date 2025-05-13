@@ -20,7 +20,7 @@
   description: An extremely slippery toy sword made from bananium.
   icon: { sprite: _Goobstation/Objects/Weapons/Melee/e_sword_bananium.rsi, state: icon }
   objectType: Item
-
+  
 - type: construction
   name: boomerang
   id: boomerang
