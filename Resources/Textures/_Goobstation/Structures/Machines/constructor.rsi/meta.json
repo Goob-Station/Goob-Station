@@ -8,10 +8,12 @@
     },
     "states": [
         {
-            "name": "icon"
+            "name": "icon",
+            "directions": 4
         },
         {
-            "name": "powered"
+            "name": "powered",
+            "directions": 4
         }
     ]
 }
