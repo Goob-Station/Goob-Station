@@ -1,0 +1,52 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  id: BulletG8Demolishing
+  name: bullet (G8 demolishing "The Spear of Ares")
+  components:
+  - type: Sprite
+    layers:
+    - state: piercing
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 30
+        Structural: 1000
+    ignoreResistances: true
+    penetrationThreshold: 1337
+  - type: StaminaDamageOnCollide
+    damage: 150
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBulletTrigger
+  id: BulletG8Hypercharged
+  name: bullet (G8 hypercharged "The Bolt of Zeus")
+  components:
+  - type: Sprite
+    layers:
+    - state: spark
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Ion: 65 # 65
+    deleteOnCollide: false
+  - type: Electrified
+    shockDamage: 1
+    shockTime: 1
+    requirePower: false
+    ignoreInsulation: true
+  - type: TimedDespawn
+    lifetime: 0.25 # 1984
+  # SpawnOnTrigger is kinda broken so we do this, totally not shitcode, also allows more control to where to place the
+  # vortex as you need to hover your cursor over the needed entity, because the others will be shocked and knocked down
+  - type: AnchorOnTrigger
+  - type: SpawnOnDespawn
+    prototype: EnergyVortex

@@ -1,4 +1,3 @@
-# SPDX-FileCopyrightText: 2023 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
 # SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 J. Brown <DrMelon@users.noreply.github.com>
@@ -9,6 +8,10 @@
 # SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -18,7 +21,7 @@
   components:
   - type: Clickable
   - type: Physics
-    bodyType: KinematicController
+    bodyType: Dynamic # Goobstation
     bodyStatus: InAir
     sleepingAllowed: false
   - type: CanMoveInAir
@@ -45,6 +48,8 @@
     shootMaxInterval: 10
     shootRange: 3
     lightningPrototype: Lightning
+  # Goobstation
+  - type: ContainmentFieldIgnore # to replace the cursed mass threshold system
 
 - type: entity
   id: TeslaEnergyBall
@@ -59,10 +64,11 @@
           !type:PhysShapeCircle
             radius: 0.55
         hard: true
-        restitution: 0.8
-        density: 99999
+        restitution: 1.0 # Goobstation - fun
+        density: 5000 # Goobstation - make it not absurdly heavy
         mask:
         - Opaque
+        - Impassable # Goobstation - needed so they collide with each other
         layer:
         - GlassLayer
       EventHorizonConsumer:
@@ -84,6 +90,16 @@
     consumerFixtureId: EventHorizonConsumer
     consumeTiles: false
     consumeEntities: false
+  # <Goobstation>
+  # tesla ball pit
+  - type: EventHorizonIgnore
+    horizonWhitelist:
+      tags:
+      - Tesla # no being eaten by other teslas
+  - type: Tag
+    tags:
+    - Tesla
+  # </Goobstation>
   - type: TeslaEnergyBall
     spawnProto: TeslaMiniEnergyBall
     soundCollapse:
@@ -126,8 +142,9 @@
   - type: MetaData # Goobstation
   - type: RandomMetadata # Goobstation
     nameSegments:
-    - goob_generators_names_first
-    - goob_generators_names_tesla_last
+    - GoobGeneratorsNamesFirst
+    - GoobGeneratorsNamesTeslaLast
+    nameFormat: name-format-standard 
   - type: GuideHelp # For the curious among the brave.
     guides:
     - TeslaEngine

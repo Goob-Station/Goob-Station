@@ -44,6 +44,8 @@
 // SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -62,7 +64,7 @@ using System.Linq;
 using Content.Shared.CCVar;
 using Content.Shared.Chemistry;
 using Content.Shared.Damage.Prototypes;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Inventory;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Components;
@@ -107,6 +109,7 @@ namespace Content.Shared.Damage
         public float UniversalExplosionDamageModifier { get; private set; } = 1f;
         public float UniversalThrownDamageModifier { get; private set; } = 1f;
         public float UniversalTopicalsHealModifier { get; private set; } = 1f;
+        public float UniversalMobDamageModifier { get; private set; } = 1f;
 
         public override void Initialize()
         {
@@ -149,6 +152,7 @@ namespace Content.Shared.Damage
             Subs.CVar(_config, CCVars.PlaytestExplosionDamageModifier, value => UniversalExplosionDamageModifier = value, true);
             Subs.CVar(_config, CCVars.PlaytestThrownDamageModifier, value => UniversalThrownDamageModifier = value, true);
             Subs.CVar(_config, CCVars.PlaytestTopicalsHealModifier, value => UniversalTopicalsHealModifier = value, true);
+            Subs.CVar(_config, CCVars.PlaytestMobDamageModifier, value => UniversalMobDamageModifier = value, true);
         }
 
         /// <summary>
@@ -390,7 +394,50 @@ namespace Content.Shared.Damage
             // Shitmed Change End
         }
 
-        public void SetDamageModifierSetId(EntityUid uid, string damageModifierSetId, DamageableComponent? comp = null)
+        /// <summary>
+        ///     Change the DamageContainer of a DamageableComponent. - Goobstation, Rubin Code
+        /// </summary>
+        public void ChangeDamageContainer(EntityUid uid, string newDamageContainerId, DamageableComponent? component = null)
+        {
+            if (!Resolve(uid, ref component, logMissing: false)
+                || newDamageContainerId == component.DamageContainerID)
+            {
+                return;
+            }
+
+            // Try to get the new DamageContainerPrototype
+            if (!_prototypeManager.TryIndex<DamageContainerPrototype>(newDamageContainerId, out var damageContainerPrototype))
+            {
+                // Return early if no DamageContainerPrototype is found
+                return;
+            }
+
+            // Update the DamageContainerID
+            component.DamageContainerID = new ProtoId<DamageContainerPrototype>(newDamageContainerId);
+
+            // Clear the existing damage dictionary
+            component.Damage.DamageDict.Clear();
+
+            // Initialize damage dictionary, using the types and groups from the damage container prototype
+            foreach (var type in damageContainerPrototype.SupportedTypes)
+            {
+                component.Damage.DamageDict.TryAdd(type, FixedPoint2.Zero);
+            }
+
+            foreach (var groupId in damageContainerPrototype.SupportedGroups)
+            {
+                var group = _prototypeManager.Index<DamageGroupPrototype>(groupId);
+                foreach (var type in group.DamageTypes)
+                {
+                    component.Damage.DamageDict.TryAdd(type, FixedPoint2.Zero);
+                }
+            }
+
+            component.Damage.GetDamagePerGroup(_prototypeManager, component.DamagePerGroup);
+            component.TotalDamage = component.Damage.GetTotal();
+        }
+
+        public void SetDamageModifierSetId(EntityUid uid, string? damageModifierSetId, DamageableComponent? comp = null)
         {
             if (!_damageableQuery.Resolve(uid, ref comp))
                 return;
@@ -398,6 +445,17 @@ namespace Content.Shared.Damage
             comp.DamageModifierSetId = damageModifierSetId;
             Dirty(uid, comp);
         }
+
+        // Begin DeltaV Additions - We need to be able to change DamageContainer to make cultists vulnerable to Holy Damage
+        public void SetDamageContainerID(Entity<DamageableComponent?> ent, string damageContainerId)
+        {
+            if (!_damageableQuery.Resolve(ent, ref ent.Comp))
+                return;
+
+            ent.Comp.DamageContainerID = damageContainerId;
+            Dirty(ent);
+        }
+        // End DeltaV Additions
 
         private void DamageableGetState(EntityUid uid, DamageableComponent component, ref ComponentGetState args)
         {

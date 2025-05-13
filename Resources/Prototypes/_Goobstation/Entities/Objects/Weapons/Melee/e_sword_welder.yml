@@ -1,0 +1,194 @@
+# SPDX-FileCopyrightText: 2025 BeBright <98597725+be1bright@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 LuciferEOS <stepanteliatnik2022@gmail.com>
+# SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: welder energy sword
+  parent: [BaseMeleeWeaponEnergy, BaseMinorContraband]
+  id: EnergySwordWelder
+  description: Roughly converted from a welding tool, this energy sword hums an unstable flame. It looks like it's about to fall apart.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/e_sword_welder.rsi
+    layers:
+    - state: welder_sword
+    - state: welder_sword_blade_simple
+      visible: false
+      shader: unshaded
+      map: [ "blade" ]
+  - type: Item
+    sprite: _Goobstation/Objects/Weapons/Melee/e_sword_welder-inhands.rsi
+  - type: MeleeWeapon
+    clickPartDamageMultiplier: 2 #goob content
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnHit:
+      path: /Audio/_Goobstation/Weapons/EswordWelder/eblade1.ogg
+      params:
+        variation: 0.250
+    activatedSoundOnHitNoDamage:
+      path: /Audio/_Goobstation/Weapons/EswordWelder/eblade1.ogg
+      params:
+        variation: 0.250
+        volume: -10
+    activatedSoundOnSwing:
+      path: /Audio/_Goobstation/Weapons/EswordWelder/swing.ogg
+      params:
+        variation: 0.125
+    activatedDamage:
+        types:
+            Slash: 5
+            Heat: 10
+  - type: ItemToggle
+    predictable: false
+    soundActivate:
+      path: /Audio/_Goobstation/Weapons/EswordWelder/on.ogg
+    soundDeactivate:
+      path: /Audio/_Goobstation/Weapons/EswordWelder/off.ogg
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/_Goobstation/Weapons/EswordWelder/hum.ogg
+  - type: SurgeryTool # Shitmed
+    startSound:
+      path: /Audio/_Goobstation/Weapons/EswordWelder/hum.ogg
+      params:
+        volume: -3
+    endSound:
+      path: /Audio/_Goobstation/Weapons/EswordWelder/eblade1.ogg
+      params:
+        variation: 0.250
+  - type: Reflect
+    reflectProb: 0.1
+    reflects:
+      - Energy
+  - type: Welder
+    fuelConsumption: 3
+  - type: SolutionContainerManager
+    solutions:
+      Welder:
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 100
+        maxVol: 100
+  - type: EnergySword
+    activatedColor: LightSalmon
+    colorOptions: []
+  - type: RefillableSolution
+    solution: Welder
+  - type: Construction
+    graph: WelderSword
+    node: welderSword
+
+- type: entity
+  name: welder energy sword
+  parent: EnergySwordWelder
+  categories: [ HideSpawnMenu ]
+  id: EnergySwordWelderIndustrial
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/e_sword_welder.rsi
+    state: icon_industrial
+    layers:
+    - state: welder_sword_industrial
+    - state: welder_sword_blade_industrial
+      visible: false
+      shader: unshaded
+      map: [ "blade" ]
+  - type: SolutionContainerManager
+    solutions:
+      Welder:
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 250
+        maxVol: 250
+  - type: Construction
+    graph: WelderSwordIndustrial
+    node: welderSwordIndustrial
+
+- type: entity
+  name: welder energy sword
+  parent: EnergySwordWelder
+  categories: [ HideSpawnMenu ]
+  id: EnergySwordWelderExperimental
+  description: A very loud & dangerous sword with a beam made of pure, concentrated plasma. Cuts through unarmored targets like butter.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/e_sword_welder.rsi
+    state: icon_experimental
+    layers:
+    - state: welder_sword_experimental
+    - state: welder_sword_blade_experimental
+      visible: false
+      shader: unshaded
+      map: [ "blade" ]
+  - type: EnergySword
+    activatedColor: LightBlue
+  - type: SolutionContainerManager
+    solutions:
+      Welder:
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 1000
+        maxVol: 1000
+  - type: Construction
+    graph: WelderSwordExperimental
+    node: welderSwordExperimental
+  - type: SolutionRegeneration
+    solution: Welder
+    generated:
+      reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 3 # Cuz fuelConsumption is 3
+
+- type: entity
+  name: unfinished welder sword
+  parent: BaseItem
+  id: UnfinishedWelderSword
+  description: A crude assembly of parts that vaguely resembles a weapon. It's completely non-functional.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/e_sword_welder.rsi
+    layers:
+    - state: welder_sword
+    - state: welder_sword_blade_simple
+      visible: false
+      shader: unshaded
+      map: ["blade"]
+  - type: Item
+    sprite: _Goobstation/Objects/Weapons/Melee/e_sword_welder-inhands.rsi
+  - type: Construction
+    graph: WelderSword
+    node: frameAssembly
+
+- type: entity
+  name: unfinished industrial welder sword
+  parent: UnfinishedWelderSword
+  id: UnfinishedWelderSwordIndustrial
+  components:
+  - type: Sprite
+    layers:
+    - state: welder_sword_industrial
+    - state: welder_sword_blade_industrial
+      visible: false
+  - type: Construction
+    graph: WelderSwordIndustrial
+    node: reinforcedFrameInd
+
+- type: entity
+  name: unfinished experimental welder sword
+  parent: UnfinishedWelderSword
+  id: UnfinishedWelderSwordExperimental
+  components:
+  - type: Sprite
+    layers:
+    - state: welder_sword_experimental
+    - state: welder_sword_blade_experimental
+      visible: false
+  - type: Construction
+    graph: WelderSwordExperimental
+    node: plasmaFrame

@@ -27,22 +27,22 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-# Surplus Hardsuits
+# Surplus Voidsuits
 
-uplink-hardsuit-syndiemedic-name = Gorlex Agent Hardsuit
-uplink-hardsuit-syndiemedic-desc = A bundle with a surplus combat medic hardsuit, from the Gorlex Marauders.
+uplink-hardsuit-syndiemedic-name = Gorlex Agent Voidsuit
+uplink-hardsuit-syndiemedic-desc = A bundle with a surplus combat medic voidsuit, from the Gorlex Marauders.
 
-uplink-hardsuit-syndiecommander-name = Gorlex Commander Hardsuit
-uplink-hardsuit-syndiecommander-desc = A surplus commander hardsuit, from the Gorlex Marauders. Too bulky to put in a bundle, so no tanks included!
+uplink-hardsuit-syndiecommander-name = Gorlex Commander Voidsuit
+uplink-hardsuit-syndiecommander-desc = A surplus commander voidsuit, from the Gorlex Marauders. Too bulky to put in a bundle, so no tanks included!
 
 # Cybersun Stealth
 
-uplink-hardsuit-cybersun-stealth-name = Cybersun Stealth Hardsuit
-uplink-hardsuit-cybersun-stealth-desc = Reversed engineered from Spider Clan technology, this hardsuit has stealth plating in it for those special ops. Slightly slower and less armor than the default hardsuits.
+uplink-hardsuit-cybersun-stealth-name = Cybersun Stealth Voidsuit
+uplink-hardsuit-cybersun-stealth-desc = Reversed engineered from Spider Clan technology, this voidsuit has stealth plating in it for those special ops. Slightly slower and less armor than the default voidsuits.
 
 # Cybersun Dreadnought suit
 uplink-hardsuit-cybersun-dreadnought-name = Cybersun Dreadnought suit
-uplink-hardsuit-cybersun-dreadnought-desc = An insanely tough combat hardsuit utilizing hyper-bluespace enhanced plasteel to make an almost impenetrable wall out of the wearer. However, only the absolutely insane syndicate followers will put this on. Because of its weight, it must be tightened very hard, to the point of impaling the user and being unable to be taken off without completely ripping off their skin. The syndicate sends their regards.
+uplink-hardsuit-cybersun-dreadnought-desc = An insanely tough combat voidsuit utilizing hyper-bluespace enhanced plasteel to make an almost impenetrable wall out of the wearer. However, only the absolutely insane syndicate followers will put this on. Because of its weight, it must be tightened very hard, to the point of impaling the user and being unable to be taken off without completely ripping off their skin. The syndicate sends their regards.
 
 # Misc
 
@@ -85,7 +85,7 @@ uplink-weapon-burner-name = Burner Heavy Rifle
 uplink-weapon-burner-desc = The Burner Heavy Rifle, an excellent breaching and suppression weapon.
 
 uplink-WSPR-name = WSPR
-uplink-WSPR-desc = This burst-fire rifle does its job silently and uses 9.5mm caseless magnum hollow-point bullets.
+uplink-WSPR-desc = This burst-fire rifle does its job silently and uses 9.5mm caseless magnum hollow-point bullets, which do more damage to flesh but fair worse against armour.
 
 uplink-c20r-name = C-20r
 uplink-c20r-desc = Old faithful: The classic C-20r Submachine Gun.
@@ -114,8 +114,11 @@ uplink-whimsy-bundle-desc = Do YOU like spreading joy & whimsy? Well, Donk Co. h
 uplink-m7s-name = M7S "Ventilator"
 uplink-m7s-desc = The spread of this submachine gun gets tighter the longer you suppress your foes with it. The gunshots are suppressed too. Pretty convenient.
 
-uplink-heavensgate-name = Heaven's gate
-uplink-heavensgate = An old anti tank rifle used by the syndicate's finest. Comes with two types of ammunition, armour piercing for use against infantry and anti-tank for use against structures.
+uplink-combat-shotgun-name = 'Bojevic' Combat shotgun
+uplink-combat-shotgun-desc = A beefy pump-action shotgun chambered in 8 gauge, with a 5 round magazine tube.
+
+uplink-he1sg8-bundle-name = HE1S-G8 Bundle
+uplink-he1sg8-bundle-desc = High Energy One-Shell rifle bundle. Comes with 10 demolishing and 9 hypercharged Gauss-8 cartridges for some extra funny.
 
 # Ammo
 
@@ -137,17 +140,17 @@ uplink-pistol-magazine-caseless-saphe-desc = 10 rounds of 9.5mm caseless magnum 
 uplink-l6-box-name = Magazine Box (.30 rifle)
 uplink-l6-box-desc = Magazine box with 100 catridges. Compatible with the L6 SAW.
 
-uplink-shotgun-magazine-name = Shotgun Drum (.50 pellet)
+uplink-shotgun-magazine-name = Shotgun Drum (12 Gauge pellet)
 uplink-shotgun-magazine-desc = Shotgun drum with 8 pellet shells. Compatible with the Bulldog.
 
-uplink-shotgun-magazine-slug-name = Shotgun Drum (.50 slug)
+uplink-shotgun-magazine-slug-name = Shotgun Drum (12 Gauge slug)
 uplink-shotgun-magazine-slug-desc = Shotgun drum with 8 slug shells. Compatible with the Bulldog.
 
-uplink-high-caliber-magazine-name = Heavy Rifle Magazine (.50 anti-materiel)
-uplink-high-caliber-magazine-desc = Rifle magazine with 15 cartridges. Compatible with the Burner.
+uplink-high-caliber-magazine-name = Rifle Magazine (.50 anti-materiel)
+uplink-high-caliber-magazine-desc = Heavy rifle magazine with 15 cartridges. Compatible with the Burner.
 
-uplink-high-caliber-explosive-magazine-name = Heavy Rifle Magazine (.50 high-explosive)
-uplink-high-caliber-explosive-magazine-desc = Rifle magazine with 15 explosive cartridges. Compatible with the Burner.
+uplink-high-caliber-explosive-magazine-name = Rifle Magazine (.50 HEI)
+uplink-high-caliber-explosive-magazine-desc = Heavy rifle magazine with 15 High Explosive Incendiary cartridges. Compatible with the Burner.
 
 uplink-high-caliber-box-name = .50 Ammo box
 uplink-high-caliber-box-desc = A box of 30 .50 caliber anti-materiel rounds.
@@ -158,11 +161,23 @@ uplink-highcap-pistol-mag-desc = High capacity pistol magazine holds 4 extra bul
 uplink-m7s-mag-name = Side-mounted SMG Magazine (5x23mm)
 uplink-m7s-mag-desc = A 48 round 5x23mm rifle magazine. Compatible with M7S.
 
-uplink-92-AP-name = box of .92 armour piercing rounds
-uplink-92-AP-desc = 10 .92 armour Piercing rounds for the heaven's gate sniper rifle. effective for anti-infantry use.
+uplink-cartridge-G8-demolishing-name = G8 demolishing cartridge
+uplink-cartridge-G8-demolishing-desc = This cartridge shots "The Spear of Ares" bullet, demolishing whole lines of walls, dealing massive stamina damage to people and overcharging energy vortexes. Used by HE1S-G8.
 
-uplink-92-AT-name = box of .92 anti-tank rounds
-uplink-92-AT-desc = 10 .92 anti-tank rounds for the heaven's gate sniper rifle. effective for anti-structure use.
+uplink-cartridge-G8-hypercharged-name = G8 hypercharged cartridge
+uplink-cartridge-G8-hypercharged-desc = This cartridge shots "The Bolt of Zeus" bullet, shocking everyone on its way and creating an energy vortex at its destination point, that creates a massive explosion on overcharge. Used by HE1S-G8.
+
+uplink-high-caliber-shotgun-box-name = 8 Gauge shell box
+uplink-high-caliber-shotgun-box-desc = 16 shells of 8 Gauge shells, for the combat shotgun.
+
+uplink-high-caliber-shotgun-box-slug-name = 8 Gauge slug box
+uplink-high-caliber-shotgun-box-slug-desc = 16 shells of 8 Gauge slugs, for the combat shotgun.
+
+uplink-high-caliber-shotgun-box-flash-slug-name = 8 Gauge flash shell box
+uplink-high-caliber-shotgun-box-flash-slug-desc = 16 shells of 8 Gauge flashbang shells, for the combat shotgun. Doesn't down those without hearing protection.
+
+uplink-high-caliber-shotgun-box-sarin-name = 8 Gauge sarin gas shell box
+uplink-high-caliber-shotgun-box-sarin-desc = 16 shells of 8 Gauge sarin shells for the combat shotgun, which release a small plus-shaped cloud of sarin gas.
 
 # Grenades
 
@@ -218,9 +233,6 @@ uplink-reverse-bear-trap-desc = An ingenious execution device worn on (or forced
 uplink-clothing-explosive-gloves-name = Explosive Insulated Gloves
 uplink-clothing-explosive-gloves-desc = Gloves that look just like normal insulated gloves, but explode a second after being shocked, disabling the user's hands.
 
-uplink-smugglers-satchel-name = Smuggler's Satchel
-uplink-smugglers-satchel-desc = A rugged satchel that can be hidden under floor tiles. Simply remove a floor tile, anchor the satchel to the plating, then put the tile back!
-
 # Disruption
 
 uplink-syndicate-weapon-module-advanced-name = advanced weapons module
@@ -232,7 +244,8 @@ uplink-cqc-name = CQC Manual
 uplink-cqc-desc = A manual that teaches a single user tactical Close-Quarters Combat before self-destructing. Does not restrict weapon usage. Your disarms will inflict some stamina damage while making people temporarily slur their words, your grabs will immobilize for a second making it easier to reinforce them, your harm attacks will deal moderate stamina damage, and you will get a set of combos that allow you to efficiently knockdown, disarm or stun your opponent. You can find more information on CQC and its combos here.
 
 uplink-sleeping-carp-name = Way of the Sleeping Carp Scroll
-uplink-sleeping-carp-desc = This scroll contains the secrets of an ancient martial arts technique. You will master unarmed combat, deflecting ranged weapon fire. Learning this art means you will also refuse to use dishonorable ranged weaponry. Unable to be understood by vampire and changeling agents.
+uplink-sleeping-carp-desc = This scroll contains the secrets of an ancient martial arts technique. You will master unarmed combat, deflecting ranged weapon fire, and space carp will become friendly to you. Learning this art means you will also refuse to use dishonorable ranged weaponry. Unable to be understood by changelings.
+
 
 # Misc
 
@@ -244,3 +257,9 @@ uplink-pizza-bomb-desc = First pioneered by terrorists, now is used by the syndi
 
 uplink-pizza-party-crate-name = Pizza Party Crate
 uplink-pizza-party-crate-desc = A crate coming in the form of disaster pizza delivery. Filled with pizzas and pizza bombs to throw the most explosive pizza party ever. Unfortunately you can't seem to remember which one is which.
+
+uplink-undetermined-bundle-name = Undetermined Bundle Crate
+uplink-undetermined-bundle-desc = This crate comes with three random bundles and allows to choose one of them. Guaranteed to include Syndicate encryption key.
+
+uplink-energy-pickaxe-name = Energy Pickaxe
+uplink-energy-pickaxe-desc = A holographic mining tool with blades comprised of hard light that also serves a deadly melee weapon. Rock and stone!
