@@ -51,7 +51,7 @@
   table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
     children:
     - id: LoneOpsSpawn
-    - id: UnknownShuttleManOWar
+    #- id: UnknownShuttleManOWar # Goob - Nuke the man-o-war
     - id: UnknownShuttleInstigator
 
 # Shuttle Game Rules
@@ -240,21 +240,22 @@
   - type: LoadMapRule
     preloadedGrid: Lambordeere
 
-- type: entity
-  id: UnknownShuttleManOWar
-  parent: BaseUnknownShuttleRule
-  components:
-  - type: StationEvent
-    startAnnouncement: station-event-unknown-shuttle-incoming #Leaving this one because theyre like primitives and its funnier
-    weight: 1 # lower because antags
-    earliestStart: 50 # late to hopefully have enough ghosts to fill all roles quickly. (4) & antags
-    chaos: # Goobstation
-      # it's 4 free agent barely-equipped dudes
-      Hostile: 60
-      Medical: 20
-      Death: 20
-  - type: LoadMapRule
-    preloadedGrid: ManOWar
+# Goob - Nuke the man-o-war
+#- type: entity
+#  id: UnknownShuttleManOWar
+#  parent: BaseUnknownShuttleRule
+#  components:
+#  - type: StationEvent
+#    startAnnouncement: station-event-unknown-shuttle-incoming #Leaving this one because theyre like primitives and its funnier
+#    weight: 1 # lower because antags
+#    earliestStart: 50 # late to hopefully have enough ghosts to fill all roles quickly. (4) & antags
+#    chaos: # Goobstation
+#      # it's 4 free agent barely-equipped dudes
+#      Hostile: 60
+#      Medical: 20
+#      Death: 20
+#  - type: LoadMapRule
+#    preloadedGrid: ManOWar
 
 - type: entity
   id: UnknownShuttleMeatZone

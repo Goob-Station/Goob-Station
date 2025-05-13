@@ -46,7 +46,6 @@
 # SPDX-FileCopyrightText: 2024 Hrosts <35345601+Hrosts@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Ian <ignaz.k@live.de>
-# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Jackal298 <129199891+Jackal298@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Joel Zimmerman <JoelZimmerman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
@@ -112,10 +111,14 @@
 # SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Coolsurf6 <coolsurf24@yahoo.com.au>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 James <40279265+ViceEmargo@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 tetra <169831122+Foralemes@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -230,6 +233,13 @@
     fiberMaterial: fibers-durathread
     fiberColor: fibers-regal-blue
   - type: FingerprintMask
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Shock: 0.75
 
 - type: entity
   parent: ClothingHandsBase
@@ -247,7 +257,9 @@
   - type: Armor
     modifiers:
       coefficients:
-        Slash: 0.95
+        Blunt: 0.95
+        Slash: 0.8
+        Piercing: 0.95
   - type: FingerprintMask
 
 #### Medical
@@ -293,6 +305,11 @@
     fiberMaterial: fibers-leather
     fiberColor: fibers-brown
   - type: FingerprintMask
+  - type: DamageOnInteractProtection
+    damageProtection:
+      flatReductions:
+        Heat: 10
+        Caustic: 5
 
 - type: entity
   parent: ClothingHandsBase
@@ -390,6 +407,13 @@
   - type: Insulated
   - type: Fiber
     fiberMaterial: fibers-insulative
+  - type: Armor # Goob
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Shock: 0.75
 
 # can't parent combat gloves since they are butcherable
 - type: entity
@@ -405,6 +429,13 @@
   - type: Insulated
   - type: Fiber
     fiberColor: fibers-black
+  - type: Armor # Goob
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Shock: 0.75
 
 - type: entity
   parent: [ BaseSecurityCargoContraband, ClothingHandsGlovesCombat ]

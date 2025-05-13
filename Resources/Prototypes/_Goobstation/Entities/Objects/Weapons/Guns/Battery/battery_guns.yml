@@ -1,4 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Icepick <122653407+Icepicked@users.noreply.github.com>
@@ -6,16 +5,19 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -288,9 +290,10 @@
         whitelist:
           tags:
             - EnergyMagAmmo
+
 - type: entity
   name: DT-12 "Lawbringer"
-  parent: [BaseWeaponBatterySmall, BaseGrandTheftContraband]
+  parent: [BaseWeaponBatterySmall, BaseSecurityContraband]
   id: WeaponEnergyGunLawbringer
   description: A versatile energy gun, with many different modes. The owner of this gun embodies the law itself.
   components:
@@ -350,11 +353,8 @@
         shader: unshaded
   - type: Tag
     tags:
-    - HighRiskItem
     - Sidearm
     - WeaponEnergyGunLawbringer
-  - type: StealTarget
-    stealGroup: WeaponEnergyGunLawbringer
   - type: RestrictById
     restrictMelee: true
     restrictRanged: true
@@ -363,7 +363,8 @@
     price: 750
   - type: TriggerOnVoiceIdLocked
     keyPhrase: "lawbringer-phrase"
-    listenRange: 0 # only the holder
+    listenRange: 1
+    holderOnly: true
   - type: AccessReader
     access: [['HeadOfSecurity']]
   - type: ActiveListener
@@ -382,8 +383,6 @@
     autoRechargeRate: 25
     autoRechargePause: true
     autoRechargePauseTime: 50
-
-
 
 - type: entity
   name: ion rifle

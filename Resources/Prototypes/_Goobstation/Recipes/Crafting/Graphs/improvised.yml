@@ -1,0 +1,982 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 LuciferEOS <stepanteliatnik2022@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# hex nut
+- type: constructionGraph
+  id: HexNutDoubleGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: HexNutStack
+      completed:
+      - !type:SetStackCount
+        amount: 2
+      steps:
+      - material: Steel
+        amount: 1
+  - node: HexNutStack
+    entity: MaterialHexNutSingle
+
+# screw
+
+- type: constructionGraph
+  id: ScrewGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: ScrewStack
+      completed:
+      - !type:SetStackCount
+        amount: 2
+      steps:
+      - material: Steel
+        amount: 1
+  - node: ScrewStack
+    entity: MaterialScrewSingle
+
+# contra bag
+# graph made by a program that mades graphs easier to make so lets hope it works
+# total mats: steel: 7, plastic: 5, cable: 10
+- type: constructionGraph
+  id: ContrabandSatchelGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: mid
+      steps:
+      - material: Steel
+        amount: 5
+        doAfter: 5
+      - material: Plastic
+        amount: 3
+        doAfter: 5
+  - node: mid
+    entity: ContrabandBagUnfinished
+    edges:
+    - to: final
+      steps:
+      - tool: Welding
+        doAfter: 5
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 2
+      - material: HexNut
+        amount: 2
+        doAfter: 3
+      - tool: Anchoring
+        doAfter: 1
+      - tool: Anchoring
+        doAfter: 1
+      - material: Cable
+        amount: 10
+        doAfter: 2
+      - tool: Cutting
+        doAfter: 2
+      - tool: Cutting
+        doAfter: 2
+      - tool: Cutting
+        doAfter: 2
+  - node: final
+    entity: ContrabandBag
+
+# stupidly over complicated makeshift defib craft:
+# total mats: steel: 22, Cable: 12, power cell, 4 cloth
+- type: constructionGraph
+  id: MakeshiftDefibGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: screwing
+      steps:
+      - material: Steel
+        amount: 10
+        doAfter: 5
+      - material: Cable
+        amount: 2
+        doAfter: 5
+  - node: screwing
+    entity: MakeshiftDefibUnfinished
+    edges:
+    - to: final
+      steps:
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: HexNut
+        amount: 2
+        doAfter: 2
+      - tool: Anchoring
+        doAfter: 1
+      - tool: Anchoring
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: HexNut
+        amount: 2
+        doAfter: 2
+      - tool: Anchoring
+        doAfter: 1
+      - tool: Anchoring
+        doAfter: 1
+      - material: Cable
+        amount: 8
+        doAfter: 4
+      - tool: Cutting
+        doAfter: 2
+      - tool: Welding
+        doAfter: 5
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Screw
+        amount: 4
+        doAfter: 4
+      - tool: Screwing
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - material: Cable
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 5
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Cloth
+        amount: 4
+        doAfter: 3
+      - material: Screw
+        amount: 8
+        doAfter: 4
+      - tool: Screwing
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+  - node: final
+    edges: []
+    entity: MakeshiftDefib
+
+# tide flipper zero
+# total mats: remote signaller: 1, multitool: 1, steel: 2, cable: 8, id: 2
+- type: constructionGraph
+  id: TideFlipperZeroGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: screwing
+      steps:
+      - tag: Payload
+        name: remote signaller
+        icon:
+          sprite: Objects/Devices/signaller.rsi
+          state: signaller
+        doAfter: 5
+      - tag: Multitool
+        name: multitool
+        icon:
+          sprite: Objects/Tools/multitool.rsi
+          state: icon
+        doAfter: 5
+  - node: screwing
+    entity: TideFlipperZeroUnfinished
+    edges:
+    - to: final
+      steps:
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: Cable
+        amount: 8
+        doAfter: 4
+      - tool: Cutting
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - component: IdCard
+        doAfter: 2
+        name: id card
+        icon:
+          sprite: Objects/Misc/id_cards.rsi
+          state: idpassenger
+      - tool: Pulsing
+        doAfter: 8
+      - component: IdCard # go rob someone for this
+        doAfter: 2
+        name: id card
+        icon:
+          sprite: Objects/Misc/id_cards.rsi
+          state: idpassenger
+      - tool: Pulsing
+        doAfter: 8
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+  - node: final
+    edges: []
+    entity: TideFlipperZero
+
+# metal baseball bat
+# total mats: Wood: 5, Steel: 12
+- type: constructionGraph
+  id: MetalBaseballBatGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: Metaling
+      steps:
+      - material: WoodPlank
+        amount: 5
+        doAfter: 5
+  - node: Metaling
+    entity: WoodenHandleBat
+    edges:
+    - to: final
+      steps:
+      - material: Steel
+        amount: 5
+        doAfter: 4
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 2
+      - material: Steel
+        amount: 5
+        doAfter: 4
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+  - node: final
+    edges: []
+    entity: MetalBaseballBat
+
+# makeshift hammer
+# total mats: wood: 2, steel: 3
+- type: constructionGraph
+  id: HammerConstructionGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: mid
+      steps:
+      - material: WoodPlank
+        amount: 2
+        doAfter: 5
+  - node: mid
+    entity: WoodenHandleHammer
+    edges:
+    - to: final
+      steps:
+      - material: Screw
+        amount: 1
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 1
+      - material: Screw
+        amount: 1
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 1
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 5
+  - node: final
+    entity: MeleeHammer
+
+
+# makeshift jammer
+# total mats: Remote signaller: 1, multitool: 1, cable: 8, enc key: 1
+- type: constructionGraph
+  id: MakeshiftJammerGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: mid
+      steps:
+      - tag: Payload
+        name: remote signaller
+        icon:
+          sprite: Objects/Devices/signaller.rsi
+          state: signaller
+        doAfter: 10
+      - tag: Multitool
+        name: multitool
+        icon:
+          sprite: Objects/Tools/multitool.rsi
+          state: icon
+        doAfter: 5
+  - node: mid
+    entity: MakeshiftJammerUnfinished
+    edges:
+    - to: final
+      steps:
+      - material: Cable
+        amount: 8
+        doAfter: 4
+      - tool: Cutting
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - tool: Pulsing
+        doAfter: 4
+      - component: EncryptionKey
+        doAfter: 5
+        name: encryption key
+        icon:
+          sprite: Objects/Devices/encryption_keys.rsi
+          state: crypt_gray
+      - tool: Screwing
+        doAfter: 2
+  - node: final
+    entity: MakeshiftJammer
+    edges: []
+
+# makeshift id
+- type: constructionGraph
+  id: MakeshiftIDCardGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: mid
+      steps:
+      - material: Plastic
+        amount: 4
+        doAfter: 5
+  - node: mid
+    entity: IDCardTideUnfinished
+    edges:
+    - to: final
+      steps:
+      - tool: Hammering
+        doAfter: 1
+      - material: Cable
+        amount: 4
+        doAfter: 4
+      - tool: Cutting
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - material: Cable
+        amount: 4
+        doAfter: 4
+      - tool: Cutting
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+  - node: final
+    entity: IDCardTide
+    edges: []
+
+# grey toolbox
+- type: constructionGraph
+  id: MakeshiftToolboxGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: mid
+      steps:
+      - material: Steel
+        amount: 3
+        doAfter: 5
+  - node: mid
+    entity: ToolboxGreyUnfinished
+    edges:
+    - to: final
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 3
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 3
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+  - node: final
+    entity: ToolboxGrey
+# clothing
+
+# heavy boots
+# total mats: Steel: 9
+- type: constructionGraph
+  id: HeavyBootsGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: mid
+      steps:
+      - material: Steel
+        amount: 3
+        doAfter: 5
+  - node: mid
+    entity: ScrapBoots
+    edges:
+    - to: final
+      steps:
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 2
+  - node: final
+    entity: ClothingShoesHeavyBoots
+    edges: []
+
+
+# helmet
+# total mats: steel: 12, cable: 4. glass: 4
+- type: constructionGraph
+  id: MakeshiftHelmetGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: mid
+      steps:
+      - material: Steel
+        amount: 5
+        doAfter: 5
+  - node: mid
+    entity: ScrapHelmet
+    edges:
+    - to: final
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Cable
+        amount: 4
+        doAfter: 4
+      - tool: Cutting
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: Glass
+        amount: 4
+        doAfter: 4
+      - tool: Welding
+        doAfter: 8
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+  - node: final
+    entity: ClothingHeadMakeshiftHelmet
+    edges: []
+
+
+# light vest
+# total mats: Steel: 23, Cable: 16
+- type: constructionGraph
+  id: MakeshiftLightVestGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: mid
+      steps:
+      - material: Steel
+        amount: 5
+        doAfter: 5
+  - node: mid
+    entity: ScrapLightVest
+    edges:
+    - to: final
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: HexNut
+        amount: 2
+        doAfter: 2
+      - tool: Anchoring
+        doAfter: 1
+      - tool: Anchoring
+        doAfter: 1
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Cable
+        amount: 8
+        doAfter: 8
+      - tool: Cutting
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - material: Cable
+        amount: 8
+        doAfter: 8
+      - tool: Cutting
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - material: HexNut
+        amount: 2
+        doAfter: 2
+      - tool: Anchoring
+        doAfter: 1
+      - tool: Anchoring
+        doAfter: 1
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 2
+  - node: final
+    entity: ClothingOuterArmorMakeshiftVestLight
+
+# heavy vest
+# gab forgive me for making these crafts so long
+# its for the balance i swear
+# total mats: Steel: 15, Plasteel: 8, Cable: 16
+- type: constructionGraph
+  id: MakeshiftHeavyVestGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: mid
+      steps:
+      - material: Steel
+        amount: 5
+        doAfter: 5
+  - node: mid
+    entity: ScrapHeavyVest
+    edges:
+    - to: final
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: Plasteel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Plasteel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: HexNut
+        amount: 2
+        doAfter: 2
+      - tool: Anchoring
+        doAfter: 1
+      - tool: Anchoring
+        doAfter: 1
+      - material: Cable
+        amount: 8
+        doAfter: 4
+      - tool: Cutting
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - material: Cable
+        amount: 8
+        doAfter: 4
+      - tool: Cutting
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: Plasteel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Plasteel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+  - node: final
+    entity: ClothingOuterArmorMakeshiftVestHeavy
+    edges: []
