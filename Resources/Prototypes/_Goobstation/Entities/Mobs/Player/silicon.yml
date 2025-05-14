@@ -15,30 +15,6 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  id: JermovCircuitBoard
-  parent: BaseElectronics
-  name: law board (Jermov)
-  description: An electronics board containing the Jermov lawset.
-  components:
-  - type: Sprite
-    sprite: Objects/Misc/module.rsi
-    state: std_mod
-  - type: SiliconLawProvider
-    laws: JermovLawset
-
-- type: entity
-  id: ZooimovCircuitBoard
-  parent: BaseElectronics
-  name: law board (Zooimov)
-  description: An electronics board containing the Zooimov lawset.
-  components:
-  - type: Sprite
-    sprite: Objects/Misc/module.rsi
-    state: std_mod
-  - type: SiliconLawProvider
-    laws: ZooimovLawset
-
-- type: entity
   id: HelpimovCircuitBoard
   parent: BaseElectronics
   name: law board (Helpimov)

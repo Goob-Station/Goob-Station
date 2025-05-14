@@ -9188,3 +9188,57 @@ Entries:
       message: Surplus rolling surplus
   id: 1038
   time: '2025-05-13T20:44:10.0000000+00:00'
+- author: ARMOKS
+  changes:
+    - type: Remove
+      message: Remove stupid fucking singulo / tesla / SM names
+    - type: Remove
+      message: Remove stupid fucking skibidi toilet
+    - type: Remove
+      message: Remove stupid fucking admin sportikus, mariah carry, and OSRS NPC
+    - type: Remove
+      message: Remove stupid fucking mao accent
+    - type: Remove
+      message: Remove stupid fucking sigma juice
+  id: 1039
+  time: '2025-05-13T21:25:52.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Remove
+      message: Jermov lawboard
+    - type: Remove
+      message: Zooimov lawboard
+    - type: Remove
+      message: Tide accent
+  id: 1040
+  time: '2025-05-13T21:37:14.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Remove
+      message: Temporarly remove lavaland due to lag
+    - type: Add
+      message: Tiders get -50 GC per round (due to unfixable bug)
+    - type: Remove
+      message: Remove heretic pending rework
+    - type: Remove
+      message: Remove slipping pending rework
+    - type: Tweak
+      message: Laying down does knee damage, get to medbay
+    - type: Tweak
+      message: Patreons get 10X goob coin and a daily antag token
+    - type: Tweak
+      message: Wizard is only rollable via antag token
+  id: 1041
+  time: '2025-05-13T22:55:20.0000000+00:00'
+- author: rotundfan
+  changes:
+    - type: Add
+      message: Bingle Moneyspread Lobby Art
+  id: 1042
+  time: '2025-05-14T01:21:43.0000000+00:00'
+- author: kipdotnet
+  changes:
+    - type: Tweak
+      message: Resprited the Robotic Arm, Storage Bin and Constructor.
+  id: 1043
+  time: '2025-05-14T06:05:22.0000000+00:00'
