@@ -252,3 +252,17 @@
   id: StructuralImmunity
   coefficients:
     Structural: 0
+
+- type: damageModifierSet
+  id: StrongCrates
+  coefficients:
+    Blunt: 0.5
+    Slash: 0.5
+    Piercing: 0.5
+    heat: 0.5
+  flatReductions:
+    Blunt: 20
+    Slash: 20
+    Piercing: 20
+    Heat: 20
+    Structural: 30
