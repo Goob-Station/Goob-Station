@@ -75,9 +75,6 @@
   whitelist:
     components:
     - Vocal
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-scream"]
   chatTriggers:
     - scream
@@ -105,9 +102,6 @@
   whitelist:
     components:
     - Vocal
-  blacklist:
-    components:
-    - BorgChassis
   chatMessages: ["chat-emote-msg-laugh"]
   chatTriggers:
     - laugh
