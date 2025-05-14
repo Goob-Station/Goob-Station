@@ -124,6 +124,12 @@
       - !type:Emote # Now a bunch of emotes
         emote: Scream
         probability: 0.05
+    Medicine:
+      metabolismRate: 0.05
+      effects:
+      - !type:SuppressPain # fent does this
+        amount: 400
+        time: 30
 
 - type: reagent
   id: BlindToxin
