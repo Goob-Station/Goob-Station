@@ -35,7 +35,7 @@
       - !type:ExplodeBehavior
       - !type:SpawnEntitiesBehavior
         spawn:
-          moltovfire:
+          molotovfire:
             min: 1
             max: 1
 
