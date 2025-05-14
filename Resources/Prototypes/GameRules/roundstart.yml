@@ -113,7 +113,11 @@
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+<<<<<<< HEAD
 # SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
+=======
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+>>>>>>> origin/master
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Velcroboy <107660393+IamVelcroboy@users.noreply.github.com>
@@ -151,7 +155,7 @@
     - id: Heretic # goob edit
       prob: 0.2
     - id: Devil # Goob
-      prob: 0.3
+      prob: 0.1
 
 - type: entity
   parent: BaseGameRule
