@@ -483,14 +483,14 @@
   name: pill canister
   parent: PillCanister
   id: PillCanisterDexalin
-  suffix: Dexalin 10u, 7
+  suffix: Dexalin 10u, 10 # Goobstation
   components:
   - type: Label
     currentLabel: dexalin 10u
   - type: StorageFill
     contents:
     - id: PillDexalin
-      amount: 7
+      amount: 10 # Goobstation
 
 - type: entity
   name: pill
@@ -516,14 +516,14 @@
   name: pill canister
   parent: PillCanister
   id: PillCanisterDylovene
-  suffix: Dylovene 10u, 5
+  suffix: Dylovene 10u, 10 # Goobstation
   components:
   - type: Label
     currentLabel: dylovene 10u
   - type: StorageFill
     contents:
     - id: PillDylovene
-      amount: 5
+      amount: 10 # Goobstation
 
 - type: entity
   name: pill
@@ -549,14 +549,14 @@
   name: pill canister
   parent: PillCanister
   id: PillCanisterHyronalin
-  suffix: Hyronalin 10u, 5
+  suffix: Hyronalin 10u, 10 # Goobstation
   components:
   - type: Label
     currentLabel: hyronalin 10u
   - type: StorageFill
     contents:
     - id: PillHyronalin
-      amount: 5
+      amount: 10 # Goobstation
 
 - type: entity
   name: pill
@@ -582,14 +582,14 @@
   name: pill canister
   parent: PillCanister
   id: PillCanisterPotassiumIodide
-  suffix: Potassium iodide 10u, 5
+  suffix: Potassium iodide 10u, 10 # Goobstation
   components:
   - type: Label
     currentLabel: potassium iodide 10u
   - type: StorageFill
     contents:
     - id: PillPotassiumIodide
-      amount: 5
+      amount: 10 # Goobstation
 
 - type: entity
   name: pill
@@ -635,27 +635,27 @@
   name: pill canister
   parent: PillCanister
   id: PillCanisterIron
-  suffix: Iron 10u, 5
+  suffix: Iron 10u, 10 # Goobstation
   components:
   - type: Label
     currentLabel: iron 10u
   - type: StorageFill
     contents:
     - id: PillIron
-      amount: 5
+      amount: 10 # Goobstation
 
 - type: entity
   name: pill canister
   parent: PillCanister
   id: PillCanisterCopper
-  suffix: Copper 10u, 5
+  suffix: Copper 10u, 10 # Goobstation
   components:
   - type: Label
     currentLabel: copper 10u
   - type: StorageFill
     contents:
     - id: PillCopper
-      amount: 5
+      amount: 10 # Goobstation
 
 - type: entity
   name: pill
@@ -681,14 +681,14 @@
   name: pill canister
   parent: PillCanister
   id: PillCanisterKelotane
-  suffix: Kelotane 10u, 5
+  suffix: Kelotane 10u, 10 # Goobstation
   components:
   - type: Label
     currentLabel: kelotane 10u
   - type: StorageFill
     contents:
     - id: PillKelotane
-      amount: 5
+      amount: 10 # Goobstation
 
 - type: entity
   name: pill
@@ -714,14 +714,14 @@
   name: pill canister
   parent: PillCanister
   id: PillCanisterDermaline
-  suffix: Dermaline 10u, 5
+  suffix: Dermaline 10u, 10 # Goobstation
   components:
   - type: Label
     currentLabel: dermaline 10u
   - type: StorageFill
     contents:
     - id: PillDermaline
-      amount: 5
+      amount: 10 # Goobstation
 
 - type: entity
   name: space mirage
@@ -760,14 +760,14 @@
   name: pill canister
   parent: PillCanister
   id: PillCanisterTricordrazine
-  suffix: Tricordrazine 10u, 5
+  suffix: Tricordrazine 10u, 10 # Goobstation
   components:
   - type: Label
     currentLabel: tricordrazine 10u
   - type: StorageFill
     contents:
     - id: PillTricordrazine
-      amount: 5
+      amount: 10 # Goobstation
 
 - type: entity
   name: pill
@@ -793,18 +793,18 @@
   name: pill canister
   parent: PillCanister
   id: PillCanisterBicaridine
-  suffix: Bicaridine 10u, 5
+  suffix: Bicaridine 10u, 10 # Goobstation
   components:
   - type: Label
     currentLabel: bicaridine 10u
   - type: StorageFill
     contents:
     - id: PillBicaridine
-      amount: 5
+      amount: 10 # Goobstation
 
 - type: entity
   name: pill
-  suffix: Charcoal 10u
+  suffix: Charcoal 10u, 10 # Goobstation
   parent: Pill
   id: PillCharcoal
   components:
@@ -826,14 +826,14 @@
   name: pill canister
   parent: PillCanister
   id: PillCanisterCharcoal
-  suffix: Charcoal 10u, 3
+  suffix: Charcoal 10u
   components:
   - type: Label
     currentLabel: charcoal 10u
   - type: StorageFill
     contents:
     - id: PillCharcoal
-      amount: 3
+      amount: 10 # Goobstation
 
 - type: entity
   name: romerol pill

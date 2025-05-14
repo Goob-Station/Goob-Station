@@ -71,3 +71,69 @@
           Quantity: 10
         - ReagentId: Amatoxin
           Quantity: 5
+
+- type: entity
+  name: pill
+  suffix: Tramadol 10u
+  parent: Pill
+  id: PillTramadol
+  components:
+  - type: Pill
+    pillType: 18
+  - type: Sprite
+    state: pill16
+  - type: Label
+    currentLabel: dexalin 10u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Tramadol
+          Quantity: 10
+
+- type: entity
+  name: pill canister
+  parent: PillCanister
+  id: PillCanisterDexalin
+  suffix: Tramadol 10u, 10
+  components:
+  - type: Label
+    currentLabel: tramadol 10u
+  - type: StorageFill
+    contents:
+    - id: PillTramadol
+      amount: 10
+
+- type: entity
+  name: pill
+  suffix: Oxycodone 10u
+  parent: Pill
+  id: PillOxycodone
+  components:
+  - type: Pill
+    pillType: 18
+  - type: Sprite
+    state: pill16
+  - type: Label
+    currentLabel: oxycodone 10u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Oxycodone
+          Quantity: 10
+
+- type: entity
+  name: pill canister
+  parent: PillCanister
+  id: PillCanisterDexalin
+  suffix: Tramadol 10u, 10
+  components:
+  - type: Label
+    currentLabel: oxycodone 10u
+  - type: StorageFill
+    contents:
+    - id: PillOxycodone
+      amount: 10
