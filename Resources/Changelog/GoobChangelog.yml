@@ -9256,3 +9256,9 @@ Entries:
         time, you stay in the fucking bar.
   id: 1045
   time: '2025-05-14T07:08:15.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: 1x1 tesla setups should no longer loose.
+  id: 1046
+  time: '2025-05-14T10:47:20.0000000+00:00'
