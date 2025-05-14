@@ -104,8 +104,6 @@ guide-entry-teslaengine = Tesla Engine
 guide-entry-solarpanels = Solar Panels
 guide-entry-teg = Thermo-electric Generator (TEG)
 guide-entry-rtg = RTG
-# GoobStation - Supermatter
-guide-entry-sm = Supermatter Engine
 guide-entry-jobs = Jobs
 guide-entry-cargo = Cargo
 guide-entry-cargo-bounties = Cargo Bounties

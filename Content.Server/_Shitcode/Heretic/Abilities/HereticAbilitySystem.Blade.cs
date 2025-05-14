@@ -19,6 +19,7 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Heretic;
 using Content.Shared.CombatMode.Pacification;
 using Robust.Shared.Timing;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components; // Shitmed Change
 
 namespace Content.Server.Heretic.Abilities;
 
@@ -74,9 +75,14 @@ public sealed partial class HereticAbilitySystem
 
     private void OnChampionStance(Entity<HereticComponent> ent, ref HereticChampionStanceEvent args)
     {
-        // remove limbloss
         foreach (var part in _body.GetBodyChildren(ent))
-            part.Component.CanSever = false;
+        {
+            if (!TryComp(part.Id, out WoundableComponent? woundable))
+                continue;
+
+            woundable.CanRemove = false;
+            Dirty(part.Id, woundable);
+        }
 
         EnsureComp<ChampionStanceComponent>(ent);
     }
