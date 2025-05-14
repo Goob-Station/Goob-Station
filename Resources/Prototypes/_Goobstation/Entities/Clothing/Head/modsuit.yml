@@ -796,6 +796,8 @@
     - type: Sprite
       sprite: _Goobstation/Clothing/Head/Modsuits/bloodredmodsuit.rsi
     - type: Armor
+      coverage:
+      - Head
       traumaDeductions:
         Dismemberment: 0.5
         OrganDamage: 0.5
@@ -830,6 +832,8 @@
     - type: Sprite
       sprite: _Goobstation/Clothing/Head/Modsuits/syndicateelitemodsuit.rsi
     - type: Armor
+      coverage:
+      - Head 
       traumaDeductions:
         Dismemberment: 0.5
         OrganDamage: 0.5
