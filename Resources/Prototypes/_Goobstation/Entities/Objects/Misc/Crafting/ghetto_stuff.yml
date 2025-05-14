@@ -93,14 +93,14 @@
     node: mid
 
 
-- type: entity
-  parent: ScrapBase
-  id: ScrapHeavyVest
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Construction
-    graph: MakeshiftHeavyVestGraph
-    node: mid
+#- type: entity
+#  parent: ScrapBase
+#  id: ScrapHeavyVest
+#  categories: [ HideSpawnMenu ]
+#  components:
+#  - type: Construction
+#    graph: MakeshiftHeavyVestGraph
+#    node: mid
 
 - type: entity
   parent: ScrapBase
@@ -452,6 +452,36 @@
     graph: MakeshiftLightVestGraph
     node: final
 
+- type: entity
+  id: MakeshiftJetpack
+  name: makeshift jetpack
+  description: A makeshit jetpack made from 2 gas tanks, fire extinguisher, some cables and hope, that it works.
+  parent: BaseJetpack
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/jetpack_improv.rsi
+  - type: Item
+    sprite: _Goobstation/Objects/Devices/jetpack_improv.rsi
+  - type: Construction
+    graph: MakeshiftJetpackGraph
+    node: final
+
+- type: entity
+  id: MakeshiftJetpackUnfinished
+  name: makeshift jetpack
+  description: 2 gas tanks and cable, meh.
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/jetpack_improv.rsi
+    state: icon-unfinished
+  - type: Item
+    sprite: _Goobstation/Objects/Devices/jetpack_improv.rsi
+    size: Huge
+  - type: Construction
+    graph: MakeshiftJetpackGraph
+    node: mid
+
 # heavy armor
 
 - type: entity
@@ -467,8 +497,8 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
+        Blunt: 0.6
+        Slash: 0.6
         Piercing: 0.7 # slightly worse than a secvest
         Heat: 0.9
   - type: ModifyDelayedKnockdown
@@ -477,8 +507,8 @@
   - type: StaminaDamageResistance
     coefficient: 1.2
   - type: Construction
-    graph: MakeshiftHeavyVestGraph
+    graph: MakeshiftLightVestGraph
     node: final
   - type: ClothingSpeedModifier
-    walkModifier: 0.95 # you wouldn't notice
-    sprintModifier: 0.95
+    walkModifier: 0.9
+    sprintModifier: 0.9

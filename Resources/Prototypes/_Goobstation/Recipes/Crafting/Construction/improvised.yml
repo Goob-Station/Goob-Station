@@ -60,20 +60,45 @@
   objectType: Item
 
 - type: construction
-  id: TideFlipperCraft
-  name: makeshift tide flipper
-  category: construction-category-misc
-  description: Makeshift hand remote that can be used to hack doors without access.
-  graph: TideFlipperZeroGraph
+  id: MakeshiftFlareCraft
+  name: emergency flare
+  description: Some paper and matchsticks folded together.
+  graph: MakeshiftFlare
+  startNode: start
+  targetNode: flare
+  icon:
+    sprite: Objects/Misc/flare.rsi
+    state: icon
+  objectType: Item
+
+- type: construction
+  id: MakeshiftJetpackCraft
+  name: makeshit jetpack
+  description: Gas tanks, fire extinguisher, cable and dream that you can fly - all you need.
+  graph: MakeshiftJetpackGraph
   startNode: start
   targetNode: final
   icon:
-    sprite: _Goobstation/Objects/Devices/tideflipper.rsi
+    sprite: _Goobstation/Objects/Devices/jetpack_improv.rsi
     state: icon
   objectType: Item
   entityWhitelist:
     tags:
     - MakeshiftCrafter
+
+# TODO: redo tide flipper to not be overpowered, then introduce it back into the game.
+#- type: construction
+#  id: TideFlipperCraft
+#  name: makeshift tide flipper
+#  category: construction-category-misc
+#  description: Makeshift hand remote that can be used to hack doors without access.
+#  graph: TideFlipperZeroGraph
+#  startNode: start
+#  targetNode: final
+#  icon:
+#    sprite: _Goobstation/Objects/Devices/tideflipper.rsi
+#    state: icon
+#  objectType: Item
 
 - type: construction
   id: MetalBaseballBatCrafting
@@ -187,31 +212,46 @@
 
 - type: construction
   id: MakeshiftLightVestCraft
-  name: makeshift light vest
+  name: makeshift vest
   category: construction-category-clothing
-  description: Complex makeshift light vest for protection. Open a blacksmith man.
+  description: Complex makeshift vest for protection. Can be upgraded into a heavy vest.
   graph: MakeshiftLightVestGraph
   startNode: start
   targetNode: final
   icon:
-    sprite: _Goobstation/Clothing/Armor/light_armor.rsi
+    sprite: _Goobstation/Clothing/Armor/heavy_armor.rsi
     state: icon
   objectType: Item
   entityWhitelist:
     tags:
     - MakeshiftCrafter
 
+#- type: construction
+#  id: MakeshiftHeavyVestCraft
+#  name: makeshift heavy vest
+#  category: construction-category-clothing
+#  description: A complex heavy armor vest, made with steel, plasteel, and nails.
+#  graph: MakeshiftHeavyVestGraph
+#  startNode: mid
+#  targetNode: final
+#  icon:
+#    sprite: _Goobstation/Clothing/Armor/heavy_armor.rsi
+#    state: icon
+#  objectType: Item
+
+# structures
 - type: construction
-  id: MakeshiftHeavyVestCraft
-  name: makeshift heavy vest
-  category: construction-category-clothing
-  description: A complex heavy armor vest, made with steel, plasteel, and nails.
-  graph: MakeshiftHeavyVestGraph
+  id: MakeshiftOvenCraft
+  name: makeshift oven
+  description: A not-so complex makeshift oven for heating things. You would probably use this for heating steel.
+  graph: MakeshiftOvenEmptyGraph
   startNode: start
-  targetNode: final
+  targetNode: lit
   icon:
-    sprite: _Goobstation/Clothing/Armor/heavy_armor.rsi
-    state: icon
+    sprite: _Goobstation/Structures/Specific/Ghetto/forge.rsi
+    state: empty
+  objectType: Item # because the craft uses a vending machine :sob:
+  placementMode: SnapgridCenter
   objectType: Item
   entityWhitelist:
     tags:
