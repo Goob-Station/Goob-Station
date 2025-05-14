@@ -5,6 +5,31 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
+  id: DiyMaintsBook
+  parent: [ BaseItem, BaseMajorContraband ]
+  name: DIY for shitters
+  description: A book written by a forgotten mastermind, that lets you build all kinds of makeshift stuff.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/Crafting/diy_manual.rsi
+    state: icon_maint
+  - type: TagGrant
+    tag: MakeshiftCrafter
+    uses: 1
+    popup: diy-book-grant
+
+- type: entity
+  id: DiyRevBook
+  parent: [ DiyMaintsBook, BaseSyndicateContraband ]
+  name: Sun Tzu - the art of war
+  description: A great book to teach an army to craft makeshift weapons.
+  components:
+  - type: Sprite
+    state: icon_rev
+  - type: TagGrant
+    uses: 9999999 # i mean it works
+
+- type: entity
   id: WoodenHandle
   parent: BaseItem
   name: wooden handle

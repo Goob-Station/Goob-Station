@@ -41,9 +41,12 @@
     sprite: _Goobstation/Objects/Storage/contra_satchel.rsi
     state: icon
   objectType: Item
+  entityWhitelist:
+    tags:
+    - MakeshiftCrafter
 
 - type: construction
-  id: MakeshiftDefibCraft
+  id: MakeshiftDefibCraft # not a shitter item, let everyone craft it, ghetto med real
   name: makeshift defibrillator
   category: construction-category-misc
   description: Stupidly complex makeshift defibrillator for all your needs.
@@ -67,6 +70,9 @@
     sprite: _Goobstation/Objects/Devices/tideflipper.rsi
     state: icon
   objectType: Item
+  entityWhitelist:
+    tags:
+    - MakeshiftCrafter
 
 - type: construction
   id: MetalBaseballBatCrafting
@@ -80,6 +86,9 @@
     sprite: _Goobstation/Objects/Weapons/Melee/Ghetto/metal_bat.rsi
     state: icon
   objectType: Item
+  entityWhitelist:
+    tags:
+    - MakeshiftCrafter
 
 - type: construction
   id: HandmadeHammerCrafting
@@ -106,6 +115,9 @@
     sprite: _Goobstation/Objects/Devices/makeshift_jammer.rsi
     state: jammer
   objectType: Item
+  entityWhitelist:
+    tags:
+    - MakeshiftCrafter
 
 - type: construction
   id: MakeshiftIDCard
@@ -119,6 +131,9 @@
     sprite: _Goobstation/Objects/Devices/makeshift_id.rsi
     state: icon
   objectType: Item
+  entityWhitelist:
+    tags:
+    - MakeshiftCrafter
 
 - type: construction
   id: MakeshiftToolbox
@@ -132,6 +147,9 @@
     sprite: _Goobstation/Objects/Storage/grey_toolbox.rsi
     state: icon
   objectType: Item
+  entityWhitelist:
+    tags:
+    - MakeshiftCrafter
 # clothing
 
 - type: construction
@@ -146,6 +164,9 @@
     sprite: _Goobstation/Clothing/Shoes/Boots/heavy_boots.rsi
     state: icon
   objectType: Item
+  entityWhitelist:
+    tags:
+    - MakeshiftCrafter
 
 - type: construction
   id: MakeshiftHelmetCraft
@@ -159,6 +180,9 @@
     sprite: _Goobstation/Clothing/Head/Helmets/helmet.rsi
     state: icon
   objectType: Item
+  entityWhitelist:
+    tags:
+    - MakeshiftCrafter
 
 - type: construction
   id: MakeshiftLightVestCraft
@@ -172,6 +196,9 @@
     sprite: _Goobstation/Clothing/Armor/light_armor.rsi
     state: icon
   objectType: Item
+  entityWhitelist:
+    tags:
+    - MakeshiftCrafter
 
 - type: construction
   id: MakeshiftHeavyVestCraft
@@ -185,3 +212,6 @@
     sprite: _Goobstation/Clothing/Armor/heavy_armor.rsi
     state: icon
   objectType: Item
+  entityWhitelist:
+    tags:
+    - MakeshiftCrafter
