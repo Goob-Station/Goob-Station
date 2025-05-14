@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
@@ -8,6 +9,7 @@
 
 using Content.Goobstation.Shared.Chemistry;
 using Content.Goobstation.Shared.Clothing;
+using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Flashbang;
 using Content.Goobstation.Shared.Stunnable;
 using Content.Shared._Goobstation.Wizard.Chuuni;
@@ -37,6 +39,7 @@ public partial class GoobInventorySystem
         SubscribeLocalEvent<InventoryComponent, GetMessagePostfixEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, ClothingAutoInjectRelayedEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, ModifyStunTimeEvent>(RefRelayInventoryEvent);
+        SubscribeLocalEvent<InventoryComponent, IsEyesCoveredCheckEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<Overlays.NightVisionComponent>>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, TakeStaminaDamageEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<Overlays.ThermalVisionComponent>>(RefRelayInventoryEvent);
