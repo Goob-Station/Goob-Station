@@ -274,7 +274,7 @@ namespace Content.Server.Database
         Task SetServerCurrency(NetUserId userId, int currency); // Goobstation
         Task<int> ModifyServerCurrency(NetUserId userId, int currencyDelta); // Goobstation
 
-        Task SetLastRolledAntag(NetUserId userId, TimeSpan to); // Goobstation
+        Task<bool> SetLastRolledAntag(NetUserId userId, TimeSpan to); // Goobstation
         Task<TimeSpan> GetLastRolledAntag(NetUserId userId); // Goobstation
         #endregion
 
@@ -771,7 +771,7 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.GetLastRolledAntag(userId));
         }
 
-        public Task SetLastRolledAntag(NetUserId userId, TimeSpan to) // Goobstation
+        public Task<bool> SetLastRolledAntag(NetUserId userId, TimeSpan to) // Goobstation
         {
             DbReadOpsMetric.Inc();
             return RunDbCommand(() => _db.SetLastRolledAntag(userId, to));
