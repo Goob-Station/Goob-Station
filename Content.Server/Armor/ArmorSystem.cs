@@ -9,6 +9,13 @@
 // SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Kayzel <43700376+KayzelW@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Trest <144359854+trest100@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 kurokoTurbo <92106367+kurokoTurbo@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -36,7 +43,7 @@ public sealed class ArmorSystem : SharedArmorSystem
         foreach (var modifier in component.Modifiers.Coefficients)
         {
             var damageType = _protoManager.Index<DamageTypePrototype>(modifier.Key);
-            args.Price += component.PriceMultiplier * damageType.ArmorPriceCoefficient * 100 * (1 - modifier.Value);
+            args.Price += component.PriceMultiplier * damageType.ArmorPriceCoefficient * 45 * (1 - modifier.Value); // Shitmed Change
         }
 
         foreach (var modifier in component.Modifiers.FlatReduction)
