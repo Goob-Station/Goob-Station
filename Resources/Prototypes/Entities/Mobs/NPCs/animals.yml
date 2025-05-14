@@ -240,6 +240,7 @@
 # SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Sparlight <twiksparlight@gmail.com>
 # SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
@@ -1593,6 +1594,10 @@
     - map: [ "enum.HumanoidVisualLayers.LArm" ]
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    - state: monkey_skinned # Goobstation - Fuck pun-pun
+      sprite: /Textures/Mobs/Animals/monkey.rsi
+      visible: false
+      map: [ "enum.ToggleVisuals.Layer" ]
     - map: ["jumpsuit"]
     - map: ["enum.HumanoidVisualLayers.LFoot"]
     - map: ["enum.HumanoidVisualLayers.RFoot"]
@@ -1630,6 +1635,11 @@
         clownedon:
           True: {visible: true}
           False: {visible: false}
+      enum.ToggleVisuals.Toggled: # Goobstation - Skinnable monkey
+        enum.ToggleVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+
   - type: Body # Shitmed Change
     prototype: Monkey
     requiredLegs: 2
@@ -1691,6 +1701,7 @@
       effects:
       - !type:WashCreamPieReaction
   - type: LayingDown # Goobstation
+  - type: Skinnable # Goobstation - Fuck pun-pun
   - type: Vocal # Goobstation
     sounds:
       Male: MonkeyMode
