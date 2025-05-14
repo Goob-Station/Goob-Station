@@ -407,7 +407,6 @@
     state: icon-unfinished
   - type: Item
     sprite: _Goobstation/Objects/Devices/jetpack_improv.rsi
-    state: icon-unfinished
     size: Huge
   - type: Construction
     graph: MakeshiftJetpackGraph

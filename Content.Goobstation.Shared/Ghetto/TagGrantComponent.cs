@@ -12,12 +12,12 @@ namespace Content.Goobstation.Shared.Ghetto;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class TagGrantComponent : Component
 {
-    [DataField("uses")]
+    [DataField]
     public int Uses = 1;
 
-    [DataField("tag")]
+    [DataField]
     public ProtoId<TagPrototype> Tag = string.Empty;
 
-    [DataField("popup")]
+    [DataField]
     public LocId Popup = string.Empty;
 }
