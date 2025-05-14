@@ -1,14 +1,9 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
-using System;
+﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Content.Server.Database.Migrations.Postgres
+namespace Content.Server.Database.Migrations.Sqlite
 {
     /// <inheritdoc />
     public partial class AntagPity : Migration
@@ -19,9 +14,8 @@ namespace Content.Server.Database.Migrations.Postgres
             migrationBuilder.AddColumn<TimeSpan>(
                 name: "last_rolled_antag",
                 table: "player",
-                type: "interval",
-                nullable: false,
-                defaultValue: new TimeSpan(0, 0, 0, 0, 0));
+                type: "TEXT",
+                nullable: true);
         }
 
         /// <inheritdoc />
