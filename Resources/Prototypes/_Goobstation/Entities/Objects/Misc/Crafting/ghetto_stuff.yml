@@ -426,12 +426,12 @@
     sprite: _Goobstation/Clothing/Shoes/Boots/heavy_boots.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Shoes/Boots/heavy_boots.rsi
-  - type: ClothingSlowOnDamageModifier # 2 times the jackboots
-    modifier: 0.75
+  - type: ClothingSlowOnDamageModifier # jackboots
+    modifier: 0.50
   - type: ClothingModifyStunTime
-    modifier: 0.9
+    modifier: 0.50
   - type: ModifyStandingUpTime
-    multiplier: 0.75
+    multiplier: 0.50
   - type: Construction
     graph: HeavyBootsGraph
     node: final
@@ -451,8 +451,8 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.95 # worse than a sec helmet
-        Piercing: 0.95
+        Blunt: 0.90 # sec helmet stats
+        Piercing: 0.90
   - type: Construction
     graph: MakeshiftHelmetGraph
     node: final
@@ -472,9 +472,9 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.8
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: ModifyDelayedKnockdown # how tf does this work
@@ -501,9 +501,9 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.7 # slightly worse than a secvest
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.6 # slightly worse than a secvest
         Heat: 0.9
   - type: ModifyDelayedKnockdown
     delayDelta: -1.25
