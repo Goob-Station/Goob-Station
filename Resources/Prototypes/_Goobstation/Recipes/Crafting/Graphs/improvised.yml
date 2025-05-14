@@ -51,10 +51,6 @@
     - to: heated steel
       steps:
       - minTemperature: 3143 # boiling point of steel, actually just to make heating steel longer
-      - tool: Hammering
-        doAfter: 0.5
-      - material: Steel
-        amount: 9
   - node: heated steel
     entity: MaterialHeatedSteel
 
