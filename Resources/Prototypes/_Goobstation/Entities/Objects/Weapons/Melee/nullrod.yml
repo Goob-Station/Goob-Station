@@ -155,16 +155,16 @@
     UntrainedUseString: nullrod-rosary-untrained-usage-popup
   - type: AlternatePrayable
     repeatPrayer: true
-  - type: HealNearOnPray
+  - type: HealNearOnPray # These numbers look high but WoundMed...
     healing:
       groups:
-        Brute: -17.0
-        Burn: -17.0
-        Toxin: -3.0
-        Airloss: -7.0
+        Brute: -25.0
+        Burn: -25.0
+        Toxin: -11.0
+        Airloss: -15.0
     damage:
       types:
-        Holy: 30
+        Holy: 25
   - type: Tag
     tags:
     - Rosary

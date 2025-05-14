@@ -20,7 +20,8 @@ using Robust.Shared.Timing;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
-using Content.Shared.Mobs.Components; // Shitmed Change
+using Content.Shared.Mobs.Components;
+using Content.Shared.Timing; // Shitmed Change
 namespace Content.Goobstation.Shared.Religion;
 
 public sealed class WeakToHolySystem : EntitySystem
@@ -31,6 +32,7 @@ public sealed class WeakToHolySystem : EntitySystem
     [Dependency] private readonly GoobBibleSystem _goobBible = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly WoundSystem _wound = default!;
+    [Dependency] private readonly UseDelaySystem _useDelay = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -47,7 +49,15 @@ public sealed class WeakToHolySystem : EntitySystem
 
     private void AfterBibleUse(Entity<WeakToHolyComponent> ent, ref InteractUsingEvent args)
     {
-        _goobBible.TryDoSmite(args.Used, args.User, args.Target);
+        if (!TryComp<BibleComponent>(args.Used, out var bibleComp))
+            return;
+
+        if (!TryComp(args.Used, out UseDelayComponent? useDelay)
+            || _useDelay.IsDelayed((args.Used, useDelay))
+            || !HasComp<BibleUserComponent>(args.User))
+            return;
+
+        _goobBible.TryDoSmite(args.Used, args.User, args.Target, useDelay);
     }
 
     #region Holy Damage Dealing
@@ -70,7 +80,8 @@ public sealed class WeakToHolySystem : EntitySystem
             },
         };
 
-        BodyComponent? body = null;
+        if (!TryComp<BodyComponent>(ent, out var body))
+            return;
 
         if (!_body.TryGetRootPart(ent, out var rootPart, body: body))
             return;

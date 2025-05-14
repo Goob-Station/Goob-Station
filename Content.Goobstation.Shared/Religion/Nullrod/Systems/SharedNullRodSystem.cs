@@ -11,6 +11,7 @@
 using System.Linq;
 using Content.Goobstation.Shared.Bible;
 using Content.Goobstation.Shared.Religion.Nullrod.Components;
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
 using Content.Shared.Electrocution;
 using Content.Shared.Hands;
@@ -68,7 +69,7 @@ public abstract partial class SharedNullRodSystem : EntitySystem
         if (_timing.CurTime < ent.Comp.NextPopupTime)
             return;
 
-        if (_damageableSystem.TryChangeDamage(user, ent.Comp.DamageOnUntrainedUse, origin: ent) is null)
+        if (_damageableSystem.TryChangeDamage(user, ent.Comp.DamageOnUntrainedUse, origin: ent, targetPart: TargetBodyPart.All, ignoreBlockers: true) is null)
             return;
 
         _popupSystem.PopupEntity(Loc.GetString(ent.Comp.UntrainedUseString), user, user, PopupType.MediumCaution);

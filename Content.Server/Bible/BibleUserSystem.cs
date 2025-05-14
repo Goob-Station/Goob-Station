@@ -30,6 +30,7 @@
 using Content.Goobstation.Shared.Bible;
 using Content.Server.Ghost.Roles.Events;
 using Content.Server.Popups;
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
 using Content.Shared.Bible;
@@ -136,7 +137,7 @@ namespace Content.Server.Bible
                 _popupSystem.PopupEntity(Loc.GetString("bible-sizzle"), args.User, args.User);
 
                 _audio.PlayPvs(component.SizzleSoundPath, args.User);
-                _damageableSystem.TryChangeDamage(args.User, component.DamageOnUntrainedUse, true, origin: uid);
+                _damageableSystem.TryChangeDamage(args.User, component.DamageOnUntrainedUse, true, origin: uid, targetPart: TargetBodyPart.All, ignoreBlockers: true);
                 _delay.TryResetDelay((uid, useDelay));
 
                 return;
@@ -160,7 +161,7 @@ namespace Content.Server.Bible
                 }
             }
 
-            var damage = _damageableSystem.TryChangeDamage(args.Target.Value, component.Damage, true, origin: uid);
+            var damage = _damageableSystem.TryChangeDamage(args.Target.Value, component.Damage * 11f, true, origin: uid, targetPart: TargetBodyPart.All, ignoreBlockers: true);
 
             if (damage == null || damage.Empty)
             {

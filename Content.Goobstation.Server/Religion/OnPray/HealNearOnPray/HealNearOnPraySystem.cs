@@ -37,13 +37,13 @@ public sealed partial class HealNearOnPraySystem : EntitySystem
 
             if (ev.ShouldTakeHoly)
             {
-                _damageable.TryChangeDamage(uid, comp.Damage, ignoreBlockers: true, targetPart: TargetBodyPart.All);
+                _damageable.TryChangeDamage(entity, comp.Damage, targetPart: TargetBodyPart.All, ignoreBlockers: true);
                 _audio.PlayPvs(comp.SizzleSoundPath, entity);
                 Spawn(comp.DamageEffect, Transform(entity).Coordinates);
             }
             else
             {
-                _damageable.TryChangeDamage(entity, comp.Healing, ignoreBlockers: true, targetPart: TargetBodyPart.All);
+                _damageable.TryChangeDamage(entity, comp.Healing * 17f, targetPart: TargetBodyPart.All, ignoreBlockers: true);
                 _audio.PlayPvs(comp.HealSoundPath, entity);
                 Spawn(comp.HealEffect, Transform(entity).Coordinates);
             }
