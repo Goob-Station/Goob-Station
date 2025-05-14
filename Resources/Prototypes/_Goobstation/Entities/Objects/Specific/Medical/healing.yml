@@ -76,7 +76,7 @@
 
 - type: entity
   name: pill
-  suffix: Tramadol 10u
+  suffix: Tramadol 7.5u
   parent: Pill
   id: PillTramadol
   components:
@@ -85,23 +85,23 @@
   - type: Sprite
     state: pill18
   - type: Label
-    currentLabel: dexalin 10u
+    currentLabel: tramadol 7.5u
   - type: SolutionContainerManager
     solutions:
       food:
         maxVol: 20
         reagents:
         - ReagentId: Tramadol
-          Quantity: 10
+          Quantity: 7.5 # Half OD
 
 - type: entity
   name: pill canister
   parent: PillCanister
   id: PillCanisterTramadol
-  suffix: Tramadol 10u, 10
+  suffix: Tramadol 7.5u, 10
   components:
   - type: Label
-    currentLabel: tramadol 10u
+    currentLabel: tramadol 7.5u
   - type: StorageFill
     contents:
     - id: PillTramadol
