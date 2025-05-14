@@ -833,17 +833,17 @@ namespace Content.Server.Database
             return dbPlayer.ServerCurrency;
         }
 
-        public async Task<DateTimeOffset> GetLastRolledAntag(NetUserId userId) // Goobstation
+        public async Task<TimeSpan> GetLastRolledAntag(NetUserId userId) // Goobstation
         {
             await using var db = await GetDb();
 
-            return NormalizeDatabaseTime(await db.DbContext.Player
+            return await db.DbContext.Player
                 .Where(dbPlayer => dbPlayer.UserId == userId)
                 .Select(dbPlayer => dbPlayer.LastRolledAntag)
-                .SingleOrDefaultAsync());
+                .SingleOrDefaultAsync();
         }
 
-        public async Task SetLastRolledAntag(NetUserId userId, DateTimeOffset to) // Goobstation
+        public async Task SetLastRolledAntag(NetUserId userId, TimeSpan to) // Goobstation
         {
             await using var db = await GetDb();
 
@@ -851,7 +851,7 @@ namespace Content.Server.Database
             if (dbPlayer == null)
                 return;
 
-            dbPlayer.LastRolledAntag = to.UtcDateTime;
+            dbPlayer.LastRolledAntag = to;
             await db.DbContext.SaveChangesAsync();
         }
 

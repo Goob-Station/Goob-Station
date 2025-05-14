@@ -5,7 +5,8 @@ using Robust.Shared.Network;
 using System;
 using System.Threading.Tasks;
 
-namespace Content.Goobstation.Server.Antag
+// has to be in Content.Server to exist
+namespace Content.Server._Goobstation.Antag
 {
     public sealed class LastRolledAntagManager
     {
@@ -31,7 +32,7 @@ namespace Content.Goobstation.Server.Antag
         /// <summary>
         /// Sets a player's last rolled antag time.
         /// </summary>
-        public DateTimeOffset SetLastRolled(NetUserId userId, DateTimeOffset to)
+        public TimeSpan SetLastRolled(NetUserId userId, TimeSpan to)
         {
             var oldTime = Task.Run(() => SetTimeAsync(userId, to)).GetAwaiter().GetResult();
             _sawmill.Info($"Setting {userId} last rolled antag to {to} from {oldTime}");
@@ -41,7 +42,7 @@ namespace Content.Goobstation.Server.Antag
         /// <summary>
         /// Gets a player's last rolled antag time.
         /// </summary>
-        public DateTimeOffset GetLastRolled(NetUserId userId)
+        public TimeSpan GetLastRolled(NetUserId userId)
         {
             return Task.Run(() => GetTimeAsync(userId)).GetAwaiter().GetResult();
         }
@@ -51,7 +52,7 @@ namespace Content.Goobstation.Server.Antag
         /// <summary>
         /// Sets a player's last rolled antag time.
         /// </summary>
-        private async Task SetTimeAsyncInternal(NetUserId userId, DateTimeOffset time, DateTimeOffset oldTime)
+        private async Task SetTimeAsyncInternal(NetUserId userId, TimeSpan time, TimeSpan oldTime)
         {
             var task = Task.Run(() => _db.SetLastRolledAntag(userId, time));
             TrackPending(task);
@@ -61,7 +62,7 @@ namespace Content.Goobstation.Server.Antag
         /// <summary>
         /// Sets a player's last rolled antag time.
         /// </summary>
-        private async Task<DateTimeOffset> SetTimeAsync(NetUserId userId, DateTimeOffset to)
+        private async Task<TimeSpan> SetTimeAsync(NetUserId userId, TimeSpan to)
         {
             var oldTime = GetLastRolled(userId);
             await SetTimeAsyncInternal(userId, to, oldTime);
@@ -71,7 +72,7 @@ namespace Content.Goobstation.Server.Antag
         /// <summary>
         /// Gets a player's last rolled antag time.
         /// </summary>
-        private async Task<DateTimeOffset> GetTimeAsync(NetUserId userId) => await _db.GetLastRolledAntag(userId);
+        private async Task<TimeSpan> GetTimeAsync(NetUserId userId) => await _db.GetLastRolledAntag(userId);
 
         /// <summary>
         /// Track a database save task to make sure we block server shutdown on it.
