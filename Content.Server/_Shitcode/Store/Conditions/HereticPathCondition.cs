@@ -15,9 +15,17 @@ namespace Content.Server.Store.Conditions;
 
 public sealed partial class HereticPathCondition : ListingCondition
 {
-    [DataField] public HashSet<string>? Whitelist;
-    [DataField] public HashSet<string>? Blacklist;
-    [DataField] public int Stage = 0;
+    [DataField]
+    public HashSet<string>? Whitelist;
+
+    [DataField]
+    public HashSet<string>? Blacklist;
+
+    [DataField]
+    public int Stage;
+
+    [DataField]
+    public bool RequiresCanAscend;
 
     public override bool Condition(ListingConditionArgs args)
     {
@@ -28,6 +36,9 @@ public sealed partial class HereticPathCondition : ListingCondition
             return false;
 
         if (!ent.TryGetComponent<HereticComponent>(args.Buyer, out var hereticComp))
+            return false;
+
+        if (RequiresCanAscend && !hereticComp.CanAscend)
             return false;
 
         if (Stage > hereticComp.PathStage)

@@ -21,10 +21,14 @@ using Content.Shared.StatusEffect;
 using Robust.Shared.Prototypes;
 using System.Linq;
 using System.Numerics;
+using Content.Server.Buckle.Systems;
 using Content.Server.Heretic.Abilities;
 using Content.Shared._Goobstation.Heretic.Systems;
 using Content.Shared._Shitcode.Heretic.Components;
-using Content.Shared._Shitcode.Heretic.Systems.Abilities;
+using Content.Shared.Damage.Components;
+using Content.Shared.Mobs.Systems;
+using Content.Shared.Physics;
+using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Events;
@@ -48,6 +52,9 @@ public sealed partial class ProtectiveBladeSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly ReflectSystem _reflect = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
+    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
 
     public static readonly EntProtoId BladePrototype = "HereticProtectiveBlade";
     public static readonly EntProtoId BladeProjecilePrototype = "HereticProtectiveBladeProjectile";
@@ -60,9 +67,11 @@ public sealed partial class ProtectiveBladeSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ProtectiveBladeComponent, ComponentInit>(OnInit);
-        SubscribeLocalEvent<ProtectiveBladeComponent, InteractHandEvent>(OnInteract);
+        SubscribeLocalEvent<ProtectiveBladeComponent, InteractHandEvent>(OnInteract,
+            after: [typeof(BuckleSystem)]);
 
-        SubscribeLocalEvent<HereticComponent, InteractHandEvent>(OnHereticInteract);
+        SubscribeLocalEvent<HereticComponent, InteractHandEvent>(OnHereticInteract,
+            after: [typeof(BuckleSystem)]);
         SubscribeLocalEvent<HereticComponent, BeforeDamageChangedEvent>(OnTakeDamage);
         SubscribeLocalEvent<HereticComponent, BeforeHarmfulActionEvent>(OnBeforeHarmfulAction,
             after: [typeof(HereticAbilitySystem), typeof(RiposteeSystem)]);
@@ -203,7 +212,12 @@ public sealed partial class ProtectiveBladeSystem : EntitySystem
         var pos = _xform.GetWorldPosition(origin);
 
         var lookup = _lookup.GetEntitiesInRange(origin, range, flags: LookupFlags.Dynamic)
-            .Where(e => e != origin && HasComp<StatusEffectsComponent>(e));
+            .Where(e => e != origin && _mobState.IsAlive(e) && _interaction.InRangeUnobstructed(
+                origin,
+                e,
+                range,
+                CollisionGroup.BulletImpassable,
+                x => TryComp(x, out RequireProjectileTargetComponent? requireTargetComp) && requireTargetComp.Active));
 
         float? nearestPoint = null;
         EntityUid? ret = null;
@@ -266,17 +280,21 @@ public sealed partial class ProtectiveBladeSystem : EntitySystem
 
         var tgt = target ?? GetNearestTarget(origin);
 
-        var (pos, rot) = _xform.GetWorldPositionRotation(origin);
+        if (tgt == null)
+        {
+            _popup.PopupEntity(Loc.GetString("heretic-protective-blade-component-no-targets"), origin, origin);
+            return false;
+        }
 
-        var direction = rot.ToWorldVec();
-
-        if (tgt != null)
-            direction = _xform.GetWorldPosition(tgt.Value) - pos;
+        var pos = _xform.GetWorldPosition(origin);
+        var direction = _xform.GetWorldPosition(tgt.Value) - pos;
 
         var proj = Spawn(BladeProjecilePrototype, Transform(origin).Coordinates);
         _gun.ShootProjectile(proj, direction, Vector2.Zero, origin, origin);
-        if (tgt != null)
-            _gun.SetTarget(proj, tgt.Value, out _);
+        _gun.SetTarget(proj, tgt.Value, out _);
+
+        var ev = new ProtectiveBladeUsedEvent() { Used = pblade.Value };
+        RaiseLocalEvent(origin, ev);
 
         QueueDel(pblade.Value);
 

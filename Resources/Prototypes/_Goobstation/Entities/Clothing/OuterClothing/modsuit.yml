@@ -29,8 +29,8 @@
     unequipSound: /Audio/Mecha/mechmove03.ogg
     slots: [ outerClothing ]
   - type: ClothingSpeedModifier
-    walkModifier: 0.9
-    sprintModifier: 0.9
+    walkModifier: 0.8
+    sprintModifier: 0.8
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-chestplate
     sealDownPopup: sealable-clothing-seal-down-chestplate
@@ -42,28 +42,43 @@
   - type: StaminaDamageResistance
     coefficient: 0.9
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    - Tail
+    - Other
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.85
         Slash: 0.85
         Piercing: 0.85
         Heat: 0.85
-        Radiation: 0.6
+        Radiation: 0.2
   - type: ComponentToggler
     components:
     - type: PressureProtection
       highPressureMultiplier: 0.3
       lowPressureMultiplier: 1000
     - type: TemperatureProtection
-      coolingCoefficient: 0.1
-      heatingCoefficient: 0.4
+      coolingCoefficient: 0.01
+      heatingCoefficient: 0.01
   - type: FireProtection
     reduction: 0.5
 
 - type: entity
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateSecurity
-  name: dragoon MODsuit chestplate
+  name: soldat MODsuit chestplate
   description: A robust modular suit cover with ceramic inserts for extra protection.
   categories: [ HideSpawnMenu ]
   components:
@@ -81,8 +96,8 @@
     unequipSound: /Audio/Mecha/mechmove03.ogg
     slots: [ outerClothing ]
   - type: ClothingSpeedModifier
-    walkModifier: 0.80
-    sprintModifier: 0.80
+    walkModifier: 0.8
+    sprintModifier: 0.8
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-chestplate
     sealDownPopup: sealable-clothing-seal-down-chestplate
@@ -93,11 +108,26 @@
   - type: ExplosionResistance
     damageCoefficient: 0.4
   - type: ModifyDelayedKnockdown
-    delayDelta: 2
-    knockdownTimeDelta: -2
+    delayDelta: 2.5
+    knockdownTimeDelta: -2.5
   - type: StaminaDamageResistance
     coefficient: 0.7
   - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    - Tail
+    - Other
     modifiers:
       coefficients:
         Blunt: 0.6
@@ -111,8 +141,8 @@
       highPressureMultiplier: 0.3
       lowPressureMultiplier: 1000
     - type: TemperatureProtection
-      coolingCoefficient: 0.1
-      heatingCoefficient: 0.4
+      coolingCoefficient: 0.01
+      heatingCoefficient: 0.01
   - type: FireProtection
     reduction: 0.5
 
@@ -138,8 +168,8 @@
     unequipSound: /Audio/Mecha/mechmove03.ogg
     slots: [ outerClothing ]
   - type: ClothingSpeedModifier
-    walkModifier: 0.90
-    sprintModifier: 0.90
+    walkModifier: 0.8
+    sprintModifier: 0.8
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-chestplate
     sealDownPopup: sealable-clothing-seal-down-chestplate
@@ -155,24 +185,44 @@
   - type: StaminaDamageResistance
     coefficient: 0.7
   - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    - Tail
+    - Other
     modifiers:
       coefficients:
-        Blunt: 0.6
+        Blunt: 0.5
         Slash: 0.5
-        Piercing: 0.5
+        Piercing: 0.45
         Heat: 0.5
-        Caustic: 0.6
-        Radiation: 0.6
+        Caustic: 0.5
+        Radiation: 0.5
   - type: ComponentToggler
     components:
     - type: PressureProtection
       highPressureMultiplier: 0.3
       lowPressureMultiplier: 1000
     - type: TemperatureProtection
-      coolingCoefficient: 0.1
-      heatingCoefficient: 0.4
+      coolingCoefficient: 0.01
+      heatingCoefficient: 0.01
   - type: FireProtection
     reduction: 0.5
+  - type: ClothingAutoInject
+    reagents:
+      Epinephrine: 10
+      Bicaridine: 10
+      TranexamicAcid: 5
 
 - type: entity
   parent: ClothingOuterBase
@@ -207,6 +257,21 @@
   - type: ExplosionResistance
     damageCoefficient: 0.85
   - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    - Tail
+    - Other
     modifiers:
       coefficients:
         Blunt: 0.9
@@ -214,15 +279,15 @@
         Piercing: 0.85
         Heat: 0.8
         Caustic: 0.6
-        Radiation: 0.6
+        Radiation: 0.3
   - type: ComponentToggler
     components:
     - type: PressureProtection
       highPressureMultiplier: 0.3
       lowPressureMultiplier: 1000
     - type: TemperatureProtection
-      coolingCoefficient: 0.1
-      heatingCoefficient: 0.4
+      coolingCoefficient: 0.01
+      heatingCoefficient: 0.01
   - type: ModifyDelayedKnockdown
     delayDelta: 1
     knockdownTimeDelta: -1
@@ -252,8 +317,8 @@
     unequipSound: /Audio/Mecha/mechmove03.ogg
     slots: [ outerClothing ]
   - type: ClothingSpeedModifier
-    walkModifier: 0.85
-    sprintModifier: 0.85
+    walkModifier: 0.75
+    sprintModifier: 0.75
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-chestplate
     sealDownPopup: sealable-clothing-seal-down-chestplate
@@ -264,30 +329,45 @@
   - type: ExplosionResistance
     damageCoefficient: 0.35
   - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    - Tail
+    - Other
     modifiers:
       coefficients:
         Blunt: 0.8
         Slash: 0.8
-        Piercing: 0.85
+        Piercing: 0.8
         Heat: 0.7
         Shock: 0.8
         Caustic: 0.5
-        Radiation: 0.2
+        Radiation: 0.01
   - type: ComponentToggler
     components:
     - type: PressureProtection
       highPressureMultiplier: 0.3
       lowPressureMultiplier: 1000
     - type: TemperatureProtection
-      coolingCoefficient: 0.1
-      heatingCoefficient: 0.4
+      coolingCoefficient: 0.01
+      heatingCoefficient: 0.01
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 1
     knockdownTimeDelta: -1
   - type: StaminaDamageResistance
     coefficient: 0.9
   - type: FireProtection
-    reduction: 0.0
+    reduction: 0.7
 
 - type: entity
   parent: ClothingOuterBase
@@ -310,8 +390,8 @@
     unequipSound: /Audio/Mecha/mechmove03.ogg
     slots: [ outerClothing ]
   - type: ClothingSpeedModifier
-    walkModifier: 0.85
-    sprintModifier: 0.85
+    walkModifier: 0.75
+    sprintModifier: 0.75
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-chestplate
     sealDownPopup: sealable-clothing-seal-down-chestplate
@@ -320,30 +400,45 @@
       outerClothing:
       - state: equipped-OUTERCLOTHING-sealed
   - type: ExplosionResistance
-    damageCoefficient: 0.6
+    damageCoefficient: 0.45
   - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    - Tail
+    - Other
     modifiers:
       coefficients:
         Blunt: 0.8
         Slash: 0.85
         Piercing: 0.85
         Heat: 0.2
-        Radiation: 0.3
+        Radiation: 0.05
   - type: ComponentToggler
     components:
     - type: PressureProtection
       highPressureMultiplier: 0.3
       lowPressureMultiplier: 1000
     - type: TemperatureProtection
-      coolingCoefficient: 0.1
-      heatingCoefficient: 0.4
+      coolingCoefficient: 0.001
+      heatingCoefficient: 0.001
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 1
     knockdownTimeDelta: -1
   - type: StaminaDamageResistance
     coefficient: 0.9
   - type: FireProtection
-    reduction: 0.0
+    reduction: 0.75
 
 - type: entity
   parent: ClothingOuterBase
@@ -366,8 +461,8 @@
     unequipSound: /Audio/Mecha/mechmove03.ogg
     slots: [ outerClothing ]
   - type: ClothingSpeedModifier
-    walkModifier: 0.85
-    sprintModifier: 0.85
+    walkModifier: 0.75
+    sprintModifier: 0.75
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-chestplate
     sealDownPopup: sealable-clothing-seal-down-chestplate
@@ -378,11 +473,26 @@
   - type: ExplosionResistance
     damageCoefficient: 0.1
   - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    - Tail
+    - Other
     modifiers:
       coefficients:
         Blunt: 0.5
-        Slash: 0.8
-        Piercing: 0.85
+        Slash: 0.7
+        Piercing: 0.8
         Heat: 0.3
         Shock: 0.8
         Caustic: 0.5
@@ -393,15 +503,15 @@
       highPressureMultiplier: 0.3
       lowPressureMultiplier: 1000
     - type: TemperatureProtection
-      coolingCoefficient: 0.1
-      heatingCoefficient: 0.4
+      coolingCoefficient: 0.01
+      heatingCoefficient: 0.01
   - type: ModifyDelayedKnockdown
     delayDelta: 3
     knockdownTimeDelta: -3
   - type: StaminaDamageResistance
-    coefficient: 0.9
+    coefficient: 0.5
   - type: FireProtection
-    reduction: 0.5
+    reduction: 0.7
 
 - type: entity
   parent: ClothingOuterBase
@@ -424,8 +534,8 @@
     unequipSound: /Audio/Mecha/mechmove03.ogg
     slots: [ outerClothing ]
   - type: ClothingSpeedModifier
-    walkModifier: 0.90
-    sprintModifier: 0.90
+    walkModifier: 0.8
+    sprintModifier: 0.8
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-chestplate
     sealDownPopup: sealable-clothing-seal-down-chestplate
@@ -436,21 +546,36 @@
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    - Tail
+    - Other
     modifiers:
       coefficients:
-        Blunt: 0.75
-        Slash: 0.75
-        Piercing: 0.6
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.55
         Heat: 0.5
-        Radiation: 0.4
+        Radiation: 0.1
   - type: ComponentToggler
     components:
     - type: PressureProtection
       highPressureMultiplier: 0.3
       lowPressureMultiplier: 1000
     - type: TemperatureProtection
-      coolingCoefficient: 0.1
-      heatingCoefficient: 0.4
+      coolingCoefficient: 0.01
+      heatingCoefficient: 0.01
   - type: ModifyDelayedKnockdown
     delayDelta: 3
     knockdownTimeDelta: -3
