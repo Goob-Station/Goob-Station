@@ -1287,6 +1287,7 @@
     - state: xenoborg_generic
     - state: icon-xenoborg-basic
   - type: ItemBorgModule
+    moduleId: XenoborgBasic
     items:
     - MaterialBag
     - PinpointerMothership
@@ -1305,6 +1306,7 @@
     - state: xenoborg_generic
     - state: icon-xenoborg-tools
   - type: ItemBorgModule
+    moduleId: XenoborgTool
     items:
     - Crowbar
     - Wrench
@@ -1326,6 +1328,7 @@
     - state: xenoborg_engi
     - state: icon-xenoborg-access-breaker
   - type: ItemBorgModule
+    moduleId: XenoborgAccessBreaker
     items:
     - AccessBreaker
   - type: BorgModuleIcon
@@ -1342,6 +1345,7 @@
     - state: xenoborg_engi
     - state: icon-xenoborg-fire-extinguisher
   - type: ItemBorgModule
+    moduleId: XenoborgFireExtinguisher
     items:
     - SelfRechargingFireExtinguisher
   - type: BorgModuleIcon
@@ -1358,6 +1362,7 @@
     - state: xenoborg_heavy
     - state: icon-xenoborg-jammer
   - type: ItemBorgModule
+    moduleId: XenoborgJammer
     items:
     - XenoborgRadioJammer
   - type: BorgModuleIcon
@@ -1374,6 +1379,7 @@
     - state: xenoborg_heavy
     - state: icon-xenoborg-laser
   - type: ItemBorgModule
+    moduleId: XenoborgLaser
     items:
     - XenoborgLaserGun
   - type: BorgModuleIcon
@@ -1390,6 +1396,7 @@
     - state: xenoborg_heavy
     - state: icon-xenoborg-laser2
   - type: ItemBorgModule
+    moduleId: XenoborgHeavyLaser
     items:
     - XenoborgHeavyLaserGun
   - type: BorgModuleIcon
@@ -1406,6 +1413,7 @@
     - state: xenoborg_scout
     - state: icon-xenoborg-space-movement
   - type: ItemBorgModule
+    moduleId: XenoborgSpaceMovement
     items:
     - HandheldGPSBasic
     - HandHeldMassScannerBorg
@@ -1426,6 +1434,7 @@
     - state: xenoborg_scout
     - state: icon-xenoborg-sword
   - type: ItemBorgModule
+    moduleId: XenoborgSword
     items:
     - EnergyDaggerLoudBlue
     - JetpackXenoborg
@@ -1443,6 +1452,7 @@
     - state: xenoborg_scout
     - state: icon-xenoborg-sword2
   - type: ItemBorgModule
+    moduleId: XenoborgFastSword
     items:
     - WeaponCrusherDagger
     - JetpackXenoborg
@@ -1460,6 +1470,7 @@
     - state: xenoborg_stealth
     - state: icon-xenoborg-hypo
   - type: ItemBorgModule
+    moduleId: XenoborgHypo
     items:
     - NocturineHypo
   - type: BorgModuleIcon
@@ -1476,6 +1487,7 @@
     - state: xenoborg_stealth
     - state: icon-xenoborg-projector
   - type: ItemBorgModule
+    moduleId: XenoborgChameleonProjector
     items:
     - ChameleonProjector
   - type: BorgModuleIcon
@@ -1492,6 +1504,7 @@
     - state: xenoborg_stealth
     - state: icon-xenoborg-cloak
   - type: ItemBorgModule
+    moduleId: XenoborgCloakDevice
     items:
     - CloakingDevice
   - type: BorgModuleIcon

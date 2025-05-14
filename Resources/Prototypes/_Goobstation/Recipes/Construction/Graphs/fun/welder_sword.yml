@@ -15,7 +15,7 @@
     - to: frameAssembly
       steps:
       - component: GasTank
-        name: gas tank
+        name: construction-graph-component-gas-tank
         icon:
           sprite: Objects/Tanks/oxygen.rsi
           state: icon
@@ -56,8 +56,8 @@
     edges:
     - to: welderSword
       steps:
-      - tag: Welder
-        name: welding tool
+      - tag: Welders
+        name: construction-graph-tag-welders
         icon:
           sprite: Objects/Tools/welder.rsi
           state: icon
@@ -76,7 +76,7 @@
     - to: reinforcedFrameInd
       steps:
       - component: GasTank
-        name: gas tank
+        name: construction-graph-component-gas-tank
         icon:
           sprite: Objects/Tanks/oxygen.rsi
           state: icon
@@ -119,7 +119,7 @@
     - to: welderSwordIndustrial
       steps:
       - tag: WelderIndustrial
-        name: industrial welding tool
+        name: construction-graph-tag-welder-industrial
         icon:
           sprite: Objects/Tools/welder_industrial.rsi
           state: icon
@@ -140,7 +140,7 @@
     - to: plasmaFrame
       steps:
       - component: GasTank
-        name: gas tank
+        name: construction-graph-component-gas-tank
         icon:
           sprite: Objects/Tanks/oxygen.rsi
           state: icon
@@ -183,7 +183,7 @@
     - to: welderSwordExperimental
       steps:
       - tag: WelderExperimental
-        name: experimental welding tool
+        name: construction-graph-tag-welder-experimental
         icon:
           sprite: Objects/Tools/welder_experimental.rsi
           state: icon

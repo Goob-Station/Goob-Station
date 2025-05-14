@@ -241,9 +241,9 @@
   - HonkerTargetingElectronics
   - MechEquipmentHorn
   # Goobstation R&D Console rework start
-  position: 0,5
+  position: 0,6
   technologyPrerequisites:
-  - CritterMechs
+  - PushHorn
   - RipleyAPLU
   # Goobstation R&D Console rework end
 
@@ -294,6 +294,11 @@
   cost: 4000
   recipeUnlocks:
   - PushHorn
+  # Goobstation R&D Console rework start
+  position: 0,5
+  technologyPrerequisites:
+  - CritterMechs
+  # Goobstation R&D Console rework end
 
 # Tier 3
 

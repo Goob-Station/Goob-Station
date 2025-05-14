@@ -198,13 +198,13 @@
     - to: screwing
       steps:
       - tag: Payload
-        name: remote signaller
+        name: construction-graph-tag-remote-signaller
         icon:
           sprite: Objects/Devices/signaller.rsi
           state: signaller
         doAfter: 5
       - tag: Multitool
-        name: multitool
+        name: construction-graph-tag-multitool
         icon:
           sprite: Objects/Tools/multitool.rsi
           state: icon
@@ -237,7 +237,7 @@
         doAfter: 1
       - component: IdCard
         doAfter: 2
-        name: id card
+        name: construction-graph-component-id-card
         icon:
           sprite: Objects/Misc/id_cards.rsi
           state: idpassenger
@@ -245,7 +245,7 @@
         doAfter: 8
       - component: IdCard # go rob someone for this
         doAfter: 2
-        name: id card
+        name: construction-graph-component-id-card
         icon:
           sprite: Objects/Misc/id_cards.rsi
           state: idpassenger
@@ -359,13 +359,13 @@
     - to: mid
       steps:
       - tag: Payload
-        name: remote signaller
+        name: construction-graph-tag-remote-signaller
         icon:
           sprite: Objects/Devices/signaller.rsi
           state: signaller
         doAfter: 10
       - tag: Multitool
-        name: multitool
+        name: construction-graph-tag-multitool
         icon:
           sprite: Objects/Tools/multitool.rsi
           state: icon
@@ -386,7 +386,7 @@
         doAfter: 4
       - component: EncryptionKey
         doAfter: 5
-        name: encryption key
+        name: construction-graph-component-encryption-key
         icon:
           sprite: Objects/Devices/encryption_keys.rsi
           state: crypt_gray

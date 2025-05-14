@@ -1369,15 +1369,11 @@
 
 - type: construction
   name: recipes-secret-door-name
-  desc: recipes-secret-door-desc
   id: SolidSecretDoor
   graph: SecretDoor
   startNode: start
   targetNode: solidSecretDoor
   category: construction-category-structures
-  icon:
-    sprite: Structures/Furniture/Altars/Cults/bananium.rsi
-    state: full
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -1386,7 +1382,6 @@
 
 - type: construction
   name: recipes-secret-door-reinforced-name
-  desc: recipes-secret-door-reinforced-desc
   id: ReinforcedSecretDoor
   graph: ReinforcedSecretDoor
   startNode: start

@@ -49,7 +49,7 @@
         amount: 2
         doAfter: 2
       - tag: ContrabandDetectorCircuitboard
-        name: contraband detector electronics
+        name: construction-graph-tag-contraband-detector-circuitboard
         icon:
           sprite: "Objects/Misc/module.rsi"
           state: "security"
@@ -69,10 +69,10 @@
     - to: assemble
       steps:
       - tag: ProximitySensor
+        name: construction-graph-tag-proximity-sensor
         icon:
           sprite: Objects/Misc/proximity_sensor.rsi
           state: icon
-        name: proximity sensor
         doAfter: 2
     - to: electronics
       steps:
@@ -135,4 +135,3 @@
       steps:
       - tool: Welding
         doAfter: 10
-      

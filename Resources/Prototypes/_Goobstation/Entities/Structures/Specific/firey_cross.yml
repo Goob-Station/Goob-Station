@@ -60,15 +60,10 @@
 
 - type: construction
   id: FieryCross
-  name: fiery cross
-  description: But God demonstrates his own love for us in this... While we were still sinners, Christ died for us!
   graph: FieryCrossGraph
   startNode: start
   targetNode: BonfireNode
   category: construction-category-furniture
-  icon:
-    sprite: _ShitChap/Structures/bonfire.rsi
-    state: bonfire
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false

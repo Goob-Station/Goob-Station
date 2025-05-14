@@ -74,6 +74,7 @@
         southRotation: true
       steps:
       - tag: TemplarHelmet
+        name: construction-graph-tag-templar-helmet
         doAfter: 3
     - to: MaintsAltarNode
       completed:
@@ -81,6 +82,7 @@
         southRotation: true
       steps:
       - tag: BudgetInsuls
+        name: construction-graph-tag-budget-insuls
         doAfter: 3
     - to: NanotrasenAltarNode
       completed:
@@ -96,6 +98,7 @@
         southRotation: true
       steps:
       - tag: Bible
+        name: construction-graph-tag-bible
         doAfter: 3
     - to: TechnologyAltarNode
       completed:
@@ -103,6 +106,7 @@
         southRotation: true
       steps:
       - tag: CapacitorStockPart
+        name: construction-graph-tag-capacitor
         doAfter: 3
     - to: ToolAltarNode
       completed:
@@ -110,6 +114,7 @@
         southRotation: true
       steps:
       - tag: Toolbox
+        name: construction-graph-tag-toolbox
         doAfter: 3
   #Nullrod Altars
   - node: BananiumAltarNode

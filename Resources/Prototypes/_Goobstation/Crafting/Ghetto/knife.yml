@@ -65,14 +65,9 @@
 
 - type: construction
   id: HeatedKnifeConstruction
-  name: handmade kitchen knife
-  description: A normal kitchen knife. May be hot!
   graph: HeatedKnifeGraph
   startNode: start
   targetNode: BladeForged
-  icon:
-    sprite: _Goobstation/Objects/Weapons/Melee/Ghetto/heated_knife.rsi
-    state: icon
   objectType: Item
 
 
