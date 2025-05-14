@@ -379,6 +379,7 @@
     graph: MakeshiftToolboxGraph
     node: mid
 
+# makeshift jetpack
 - type: entity
   id: MakeshiftJetpack
   name: makeshift jetpack
