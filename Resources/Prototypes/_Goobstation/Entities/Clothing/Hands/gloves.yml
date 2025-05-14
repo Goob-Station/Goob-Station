@@ -364,19 +364,6 @@
     node: icon
 
 - type: entity
-  parent: [ClothingHandsKnuckleDustersBase, BaseSyndicateContraband]
-  id: ClothingHandsKnuckleDustersSyndicate
-  name: syndicate knuckle dusters
-  description: Plastitanium knuckle dusters branded with the syndicate logo. A real man beats someone to death with these.
-  components:
-  - type: Sprite
-    state: syndicateknuckleduster
-  - type: MeleeWeapon
-    damage:
-      types:
-        Blunt: 16
-
-- type: entity
   parent: [ClothingHandsKnuckleDustersBase, BaseGrandTheftContraband]
   id: ClothingHandsKnucklesQuartermaster
   suffix: DO NOT MAP

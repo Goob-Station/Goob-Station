@@ -35,14 +35,14 @@
       path: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
       params:
         volume: 1
-  - type: RandomTimerTrigger
-    min: 0
-    max: 15
+  - type: RandomTimerTrigger #goob change
+    min: 5
+    max: 7
   - type: Explosive # Weak explosion in a very small radius. Ignites surrounding entities.
     explosionType: FireBomb
-    totalIntensity: 25
+    totalIntensity: 25 #goob change
     intensitySlope: 5
-    maxIntensity: 3
+    maxIntensity: 5
     canCreateVacuum: false
   - type: ExplodeOnTrigger
   - type: Appearance
@@ -116,3 +116,4 @@
     defaultTarget: firebomb
   - type: Tag
     tags: []
+

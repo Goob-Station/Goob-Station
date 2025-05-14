@@ -107,7 +107,7 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Piercing: 12
+        Piercing: 11 #Goob 15DPS
     angle: 0
     animation: WeaponArcThrust
     soundHit:
@@ -115,9 +115,11 @@
   - type: DamageOtherOnHit
     damage:
       types:
-        Piercing: 15
+        Piercing: 20 #Goob
   - type: Item
     size: Large # goobstation
+    shape:
+    - 0,0,8,0
   - type: Clothing
     quickEquip: false
     slots:
@@ -204,11 +206,11 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Piercing: 15
+        Piercing: 13 # Goob station - 17 DPS
   - type: DamageOtherOnHit
     damage:
       types:
-        Piercing: 17
+        Piercing: 20 # Goob
   - type: Construction
     graph: SpearReinforced
 
@@ -225,11 +227,11 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Piercing: 18
+        Piercing: 15 # Goob station - 19 DPS
   - type: DamageOtherOnHit
     damage:
       types:
-        Piercing: 21
+        Piercing: 20 #Goob change
   - type: Construction
     graph: SpearPlasma
 
@@ -246,13 +248,13 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Piercing: 10
+        Piercing: 5 #Goob station - 17 DPS with 8AP
         Radiation: 8
   - type: DamageOtherOnHit
     damage:
       types:
-        Piercing: 12
-        Radiation: 9
+        Piercing: 15 #Goob change - 25 throw damage
+        Radiation: 10
   - type: Construction
     graph: SpearUranium
 

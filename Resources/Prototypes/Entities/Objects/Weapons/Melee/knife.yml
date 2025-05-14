@@ -396,7 +396,7 @@
     attackRate: 1.5
     damage:
       types:
-        Slash: 9
+        Slash: 8
   - type: Item
     sprite: Objects/Weapons/Melee/plasma_shiv.rsi
   - type: Sprite
@@ -415,7 +415,7 @@
     attackRate: 1.5
     damage:
       types:
-        Slash: 7
+        Slash: 5
         Radiation: 4
   - type: Item
     sprite: Objects/Weapons/Melee/uranium_shiv.rsi

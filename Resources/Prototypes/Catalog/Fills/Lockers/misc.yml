@@ -258,7 +258,6 @@
     - id: BalloonSyn
     - id: WeaponSniperMosin
       weight: 2
-    - id: ClothingHandsKnuckleDustersSyndicate
 
 - type: entityTable
   id: MaintenanceLockerLoot

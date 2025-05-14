@@ -217,9 +217,6 @@ uplink-nutriment-implant-desc = Removes the users need to consume food and/or dr
 uplink-jaunter-implanter-name = Jaunter Implanter
 uplink-jaunter-implanter-desc = Swaps position of the user and target upon activation. Recharges passively.
 
-uplink-krav-maga-implant-name = Krav Maga Implanter
-uplink-krav-maga-implant-desc = Allows the user to perform various Krav Maga moves.
-
 # Wearables
 
 uplink-helmet-swat-name = Syndicate SWAT Helmet

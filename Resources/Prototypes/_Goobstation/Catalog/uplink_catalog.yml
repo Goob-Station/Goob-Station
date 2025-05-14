@@ -123,17 +123,6 @@
     stock: 1
 
 - type: listing
-  id: UplinkGlovesKnuckleDusters
-  name: uplink-gloves-knuckleduster-name
-  description: uplink-gloves-knuckleduster-desc
-  icon: { sprite: _Goobstation/Clothing/Hands/Gloves/knuckleduster.rsi, state: syndicateknuckleduster }
-  productEntity: ClothingHandsKnuckleDustersSyndicate
-  cost:
-    Telecrystal: 20
-  categories:
-  - UplinkWeaponry
-
-- type: listing
   id: UplinkM90
   name: uplink-m90-name
   description: uplink-m90-desc
@@ -566,17 +555,6 @@
 #    Telecrystal: 40
 #  categories:
 #  - UplinkImplants
-
-- type: listing
-  id: UplinkKravMagaImplanter
-  name: uplink-krav-maga-implant-name
-  description: uplink-krav-maga-implant-desc
-  icon: { sprite: /Textures/_Goobstation/Clothing/Hands/Gloves/kravgloves.rsi, state: icon }
-  productEntity: KravMagaImplanter
-  cost:
-    Telecrystal: 40
-  categories:
-    - UplinkImplants
 
 # Deception
 

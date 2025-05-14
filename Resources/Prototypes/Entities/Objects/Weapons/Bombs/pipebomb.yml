@@ -22,14 +22,14 @@
     initialBeepDelay: 0
     beepSound: /Audio/Effects/lightburn.ogg
   - type: RandomTimerTrigger
-    min: 1
-    max: 10
+    min: 5
+    max: 7
   - type: ExplodeOnTrigger
   - type: Explosive # Weak explosion in a very small radius. Doesn't break underplating.
     explosionType: Default
-    totalIntensity: 50
+    totalIntensity: 10
     intensitySlope: 5
-    maxIntensity: 6
+    maxIntensity: 2.5
     canCreateVacuum: false
   - type: Appearance
   - type: TimerTriggerVisuals

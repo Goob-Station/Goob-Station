@@ -73,7 +73,9 @@
     distance: 1 # Goobstation
     speed: 5
   - type: Item
-    size: Normal
+    size: Large
+    shape:
+    - 0,0,5,1
   - type: Tool
     qualities:
     - Rolling

@@ -33,6 +33,9 @@
     - id: Katana
       orGroup: Sword
       prob: 0.5
+    - id: ClothingHandsKnuckleDustersBrass
+      orGroup: Sword
+      prob: 0.5
     - id: CaneSheathFilled
       orGroup: Sword
       prob: 0.3

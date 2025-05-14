@@ -20,7 +20,7 @@
     attackRate: 1
     damage:
       types:
-        Blunt: 12
+        Blunt: 10
     heavyStaminaCost: 6
     soundHit:
       collection: MetalThud
