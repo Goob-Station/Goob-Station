@@ -166,6 +166,7 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
+    requiresCanAscend: true
     stage: 8
     whitelist:
     - Rust

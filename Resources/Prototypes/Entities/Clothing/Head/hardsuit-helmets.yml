@@ -94,6 +94,7 @@
 # SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 August Sun <45527070+august-sun@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
@@ -102,25 +103,26 @@
 # SPDX-FileCopyrightText: 2025 Gareth Quaile <garethquaile@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <killerqueen1777@gmail.com>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Sparlight <twiksparlight@gmail.com>
 # SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Velken <8467292+Velken@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 august-sun <45527070+august.sun@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 #When adding new hardsuits, please try to keep the organization consistent with hardsuit.yml (if possible.)
-
-#For now, since locational damage is not a thing, all "combat" hardsuits (with the exception of the deathsquad hardsuit) have the equvilent of a helmet in terms of armor.
-#This is so people don't need to wear both regular, on-station helmets and hardsuits to get full protection.
-#Generally, unless you're adding something like caustic damage, you should probably avoid messing with armor here outside of the above scenario.
+#Almost every armor comp is added by goobstation due to woundmed
 
 #CREW HARDSUITS
 #Standard Hardsuit
 - type: entity
   parent: ClothingHeadHardsuitBase
   id: ClothingHeadHelmetHardsuitBasic
-  name: basic hardsuit helmet
-  description: A basic-looking hardsuit helmet that provides minor protection against most sources of damage.
+  name: basic voidsuit helmet # Goob edit
+  description: A basic-looking voidsuit helmet that provides minor protection against most sources of damage. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/basic.rsi
@@ -132,13 +134,20 @@
     - Snout
     - HeadTop
     - HeadSide
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Caustic: 0.9
 
 #Atmospherics Hardsuit
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitAtmos
-  name: atmos hardsuit helmet
-  description: A special hardsuit helmet designed for working in low-pressure, high thermal environments.
+  name: atmos voidsuit helmet # Goob edit
+  description: A special voidsuit helmet designed for working in low-pressure, high thermal environments. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/atmospherics.rsi
@@ -181,13 +190,21 @@
     coolingCoefficient: 0.005
   - type: FireProtection
     reduction: 0.2
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.8
+        Radiation: 0.15
 
 #Engineering Hardsuit
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitEngineering
-  name: engineering hardsuit helmet
-  description: An engineering hardsuit helmet designed for working in low-pressure, high radioactive environments.
+  name: engineering voidsuit helmet # Goob edit
+  description: An engineering voidsuit helmet designed for working in low-pressure, high radioactive environments. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/engineering.rsi
@@ -198,13 +215,19 @@
   - type: PressureProtection
     highPressureMultiplier: 0.1
     lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Shock: 0.5
+        Caustic: 0.7
+        Radiation: 0.05
 
 #Spationaut Hardsuit
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitSpatio
-  name: spationaut hardsuit helmet
-  description: A sturdy helmet designed for complex industrial operations in space.
+  name: spationaut voidsuit helmet # Goob edit
+  description: A sturdy helmet designed for complex industrial operations in space. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/spatiohelm.rsi
@@ -241,13 +264,21 @@
   - type: PressureProtection
     highPressureMultiplier: 0.72
     lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Radiation: 0.1
+        Caustic: 0.8
 
 #Salvage Hardsuit
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitSalvage
-  name: salvage hardsuit helmet
-  description: A special helmet designed for work in a hazardous, low pressure environment. Has reinforced plating for wildlife encounters and dual floodlights.
+  name: salvage voidsuit helmet # Goob edit
+  description: A special helmet designed for work in a hazardous, low pressure environment. Has reinforced plating for wildlife encounters and dual floodlights. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/salvage.rsi
@@ -259,12 +290,21 @@
   - type: PointLight
     radius: 7
     energy: 3
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.65
+        Piercing: 0.75
+        Heat: 0.75
+        Radiation: 0.1
+        Caustic: 0.7
 
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitGoliath
-  name: goliath hardsuit helmet
-  description: A sturdy hardsuit helmet, infused with a goliath's hide and an eerie, unblinking eye cut from its mass.
+  name: goliath voidsuit helmet # Goob edit
+  description: A sturdy voidsuit helmet, infused with a goliath's hide and an eerie, unblinking eye cut from its mass. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/goliathhelm.rsi
@@ -301,6 +341,15 @@
   - type: PressureProtection
     highPressureMultiplier: 0.72
     lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.55
+        Heat: 0.75 #Goliath hide gets grilled instead of you
+        Radiation: 0.1
+        Caustic: 0.8
 
 - type: entity
   parent: ClothingHeadHardsuitBase
@@ -317,14 +366,21 @@
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
   - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.55
+        Heat: 0.35
+        Radiation: 0.01
 
-#Security Hardsuit
+#Security Hardsuit - Goob deprecated
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitSecurity
@@ -341,12 +397,19 @@
     highPressureMultiplier: 0.525
     lowPressureMultiplier: 1000
   - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.65
+        Heat: 0.8
+        Caustic: 0.7
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
 
@@ -354,8 +417,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitBrigmedic
-  name: brigmedic hardsuit helmet
-  description: The lightweight helmet of the brigmedic hardsuit. Protects against viruses, and clowns.
+  name: brigmedic voidsuit helmet # Goob edit
+  description: The lightweight helmet of the brigmedic voidsuit. Protects against viruses, and clowns.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/brigmedic.rsi
@@ -366,12 +429,10 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.95
-        Slash: 0.95
-        Piercing: 0.95
-        Heat: 0.95
-        Radiation: 0.90
-        Caustic: 0.90
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.75
+        Heat: 0.75 # Goobstation
   - type: PressureProtection
     highPressureMultiplier: 0.6
     lowPressureMultiplier: 1000
@@ -382,7 +443,7 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitWarden
-  name: warden's hardsuit helmet
+  name: warden's voidsuit helmet # Goob edit
   description: A modified riot helmet. Oddly comfortable.
   components:
   - type: Sprite
@@ -395,12 +456,19 @@
     highPressureMultiplier: 0.525
     lowPressureMultiplier: 1000
   - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.9
-        Heat: 0.9
+        Blunt: 0.45
+        Slash: 0.55
+        Piercing: 0.65
+        Heat: 0.8
+        Caustic: 0.7
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
 
@@ -408,8 +476,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitCap
-  name: captain's hardsuit helmet
-  description: Special hardsuit helmet, made for the captain of the station.
+  name: captain's spacesuit helmet # Goob edit
+  description: Special spacesuit helmet, made for the captain of the station. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/capspace.rsi
@@ -420,13 +488,28 @@
     lowPressureMultiplier: 1000
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.65
+        Heat: 0.6
+        Radiation: 0.15
+        Caustic: 0.6
 
 #Chief Engineer's Hardsuit
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitEngineeringWhite
-  name: chief engineer's hardsuit helmet
-  description: Special hardsuit helmet, made for the chief engineer of the station.
+  name: chief engineer's voidsuit helmet # Goob edit
+  description: Special voidsuit helmet, made for the chief engineer of the station. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/engineering-white.rsi
@@ -439,13 +522,22 @@
     lowPressureMultiplier: 1000
   - type: FireProtection
     reduction: 0.2
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.4
+        Radiation: 0.0
+        Caustic: 0.7
 
 #Chief Medical Officer's Hardsuit
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitMedical
-  name: chief medical officer's hardsuit helmet
-  description: Lightweight medical hardsuit helmet that doesn't restrict your head movements.
+  name: chief medical officer's voidsuit helmet # Goob edit
+  description: Lightweight medical voidsuit helmet that doesn't restrict your head movements. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/medical.rsi
@@ -456,13 +548,17 @@
   - type: PressureProtection
     highPressureMultiplier: 0.6
     lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.1
 
 #Research Director's Hardsuit
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitRd
-  name: experimental research hardsuit helmet
-  description: Lightweight hardsuit helmet that doesn't restrict your head movements.
+  name: experimental research voidsuit helmet # Goob edit
+  description: Lightweight voidsuit helmet that doesn't restrict your head movements. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/rd.rsi
@@ -473,30 +569,47 @@
   - type: PressureProtection
     highPressureMultiplier: 0.60
     lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.8
+        Piercing: 0.9
+        Heat: 0.35
+        Radiation: 0.01
+        Caustic: 0.2
 
 #Head of Security's hardsuit
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitSecurityRed
-  name: FI-52 "Honor Guard" hardsuit helmet
-  description: Security hardsuit helmet with the latest top secret NT-HUD software. Belongs to the HoS.
+  name: head of security's voidsuit helmet # Goob edit
+  description: Security voidsuit helmet with the latest top secret NT-HUD software. Belongs to the HoS. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/security-red.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/security-red.rsi
   - type: PointLight
-    color: "#ffeead"
+    color: "#b7d4de"
   - type: PressureProtection
     highPressureMultiplier: 0.45
     lowPressureMultiplier: 1000
   - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.8
+        Radiation: 0.5
+        Caustic: 0.5
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
 
@@ -504,8 +617,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitLuxury #DO NOT MAP - https://github.com/space-wizards/space-station-14/pull/19738#issuecomment-1703486738
-  name: luxury mining hardsuit helmet
-  description: A refurbished mining hardsuit helmet, fitted with satin cushioning and an extra (non-functioning) antenna, because you're that extra.
+  name: luxury mining voidsuit helmet # Goob edit
+  description: A refurbished mining voidsuit helmet, fitted with satin cushioning and an extra (non-functioning) antenna, because you're that extra. # Goob edit
   categories: [ DoNotMap ]
   components:
   - type: Sprite
@@ -518,13 +631,21 @@
   - type: PointLight
     radius: 7
     energy: 3
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.8
+        Piercing: 0.9
+        Radiation: 0.15
+        Caustic: 0.8
 
 #ANTAG HARDSUITS
 #Blood-red Hardsuit
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitSyndie
-  name: blood-red hardsuit helmet
+  name: blood-red voidsuit helmet # Goob edit
   description: A heavily armored helmet designed for work in special operations. Property of Gorlex Marauders.
   components:
   - type: Sprite
@@ -537,47 +658,41 @@
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
   - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.5
+        Radiation: 0.5
+        Caustic: 0.5
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
 
 #Blood-red Medic Hardsuit
 - type: entity
-  parent: ClothingHeadHardsuitWithLightBase
+  parent: ClothingHeadHelmetHardsuitSyndie # Goob
   id: ClothingHeadHelmetHardsuitSyndieMedic
-  name: blood-red medic hardsuit helmet
-  description: An advanced red hardsuit helmet specifically designed for field medic operations.
+  name: blood-red medic voidsuit helmet # Goob edit
+  description: An advanced red voidsuit helmet specifically designed for field medic operations. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/syndiemedic.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/syndiemedic.rsi
-  - type: PointLight
-    color: green
-  - type: PressureProtection
-    highPressureMultiplier: 0.08
-    lowPressureMultiplier: 1000
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
-  - type: FlashImmunity # Goobstation
-  - type: FlashSoundSuppression # Goobstation
 
 #Syndicate Elite Hardsuit
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitSyndieElite
-  name: syndicate elite helmet
-  description: An elite version of the blood-red hardsuit's helmet, with improved armor and fireproofing. Property of Gorlex Marauders.
+  name: syndicate elite voidsuit helmet # Goob edit
+  description: An elite version of the blood-red voidsuit's helmet, with improved armor and fireproofing. Property of Gorlex Marauders. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/syndieelite.rsi
@@ -594,12 +709,20 @@
   - type: FireProtection
     reduction: 0.2
   - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.25
+        Radiation: 0.01
+        Caustic: 0.4
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
 
@@ -607,8 +730,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitSyndieCommander
-  name: syndicate commander helmet
-  description: A bulked up version of the blood-red hardsuit's helmet, purpose-built for the commander of a syndicate operative squad. Has significantly improved armor for those deadly front-lines firefights.
+  name: syndicate voidsuit helmet # Goob edit
+  description: A bulked up version of the blood-red voidsuit's helmet, purpose-built for the commander of a syndicate operative squad. Has significantly improved armor for those deadly front-lines firefights. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/syndiecommander.rsi
@@ -620,12 +743,20 @@
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
   - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.6
+      OrganDamage: 0.6
+      BoneDamage: 0.6
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.35
+        Heat: 0.5
+        Radiation: 0.2
+        Caustic: 0.4
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
 
@@ -644,12 +775,20 @@
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
   - type: Armor
+    traumaDeductions: # prevents traumas at all (kinda)
+      Dismemberment: 1
+      OrganDamage: 1
+      BoneDamage: 1
+      VeinsDamage: 1
+      NerveDamage: 1
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
+        Blunt: 0.2
+        Slash: 0.2
+        Piercing: 0.2
+        Heat: 0.2
+        Radiation: 0.2
+        Caustic: 0.2
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
 
@@ -657,7 +796,7 @@
 - type: entity
   parent: [ClothingHeadHardsuitWithLightBase, ClothingHeadHatWizardBaseArmor] # Goob edit
   id: ClothingHeadHelmetHardsuitWizard
-  name: wizard hardsuit helmet
+  name: wizard voidsuit helmet # Goob edit
   description: A bizarre gem-encrusted helmet that radiates magical energies.
   components:
   - type: Sprite
@@ -672,14 +811,20 @@
     highPressureMultiplier: 0.27
     lowPressureMultiplier: 1000
   - type: Armor # Goob edit
+    traumaDeductions: # prevents traumas at all (kinda)
+      Dismemberment: 1
+      OrganDamage: 1
+      BoneDamage: 1
+      VeinsDamage: 1
+      NerveDamage: 1
     modifiers:
       coefficients:
-        Blunt: 0.85
-        Slash: 0.85
-        Piercing: 0.85
-        Heat: 0.85
-        Caustic: 0.9
-        Radiation: 0.9
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.4
+        Heat: 0.4
+        Radiation: 0.05
+        Caustic: 0.1
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
   - type: WizardClothes # Goobstation
@@ -698,6 +843,10 @@
   - type: PressureProtection
     highPressureMultiplier: 0.225
     lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Heat: 0.5
 
 #Pirate EVA Suit (Deep Space EVA Suit)
 - type: entity
@@ -714,14 +863,22 @@
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.9
+        Heat: 0.4
+        Caustic: 0.75
 
 #Pirate Captain Hardsuit
 - type: entity
   parent: ClothingHeadHardsuitBase
   id: ClothingHeadHelmetHardsuitPirateCap
-  name: pirate captain's hardsuit helmet
+  name: pirate captain's voidsuit helmet # Goob edit
   suffix: Pirate
-  description: A special hardsuit helmet, made for the captain of a pirate ship.
+  description: A special voidsuit helmet, made for the captain of a pirate ship. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/piratecaptainhelm.rsi
@@ -732,14 +889,22 @@
     lowPressureMultiplier: 1000
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.8
+        Piercing: 0.85
+        Heat: 0.4
+        Caustic: 0.75
 
 #CENTCOMM / ERT HARDSUITS
 #ERT Leader Hardsuit
 - type: entity
   parent: [ BaseCentcommContraband, ClothingHeadHelmetHardsuitSyndieCommander ]
   id: ClothingHeadHelmetHardsuitERTLeader
-  name: ERT leader hardsuit helmet
-  description: A special hardsuit helmet worn by members of an emergency response team.
+  name: ERT leader voidsuit helmet # Goob edit
+  description: A special voidsuit helmet worn by members of an emergency response team. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertleader.rsi
@@ -747,20 +912,13 @@
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertleader.rsi
   - type: PointLight
     color: "#addbff"
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
 
 #ERT Chaplain Hardsuit
 - type: entity
   parent: [ BaseCentcommContraband, ClothingHeadHelmetHardsuitSyndie ]
   id: ClothingHeadHelmetHardsuitERTChaplain
-  name: ERT chaplain hardsuit helmet
-  description: A special hardsuit helmet worn by members of an emergency response team.
+  name: ERT chaplain voidsuit helmet # Goob edit
+  description: A special voidsuit helmet worn by members of an emergency response team. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertchaplain.rsi
@@ -773,8 +931,8 @@
 - type: entity
   parent: [ BaseCentcommContraband, ClothingHeadHelmetHardsuitSyndie ]
   id: ClothingHeadHelmetHardsuitERTEngineer
-  name: ERT engineer hardsuit helmet
-  description: A special hardsuit helmet worn by members of an emergency response team.
+  name: ERT engineer voidsuit helmet # Goob edit
+  description: A special voidsuit helmet worn by members of an emergency response team. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertengineer.rsi
@@ -782,20 +940,13 @@
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertengineer.rsi
   - type: PointLight
     color: "#f4ffad"
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
 
 #ERT Medical Hardsuit
 - type: entity
   parent: [ BaseCentcommContraband, ClothingHeadHelmetHardsuitSyndieElite ]
   id: ClothingHeadHelmetHardsuitERTMedical
-  name: ERT medic hardsuit helmet
-  description: A special hardsuit helmet worn by members of an emergency response team.
+  name: ERT medic voidsuit helmet # Goob edit
+  description: A special voidsuit helmet worn by members of an emergency response team. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertmedical.rsi
@@ -808,8 +959,8 @@
 - type: entity
   parent: [ BaseCentcommContraband, ClothingHeadHelmetHardsuitSyndie ]
   id: ClothingHeadHelmetHardsuitERTSecurity
-  name: ERT security hardsuit helmet
-  description: A special hardsuit helmet worn by members of an emergency response team.
+  name: ERT security voidsuit helmet # Goob edit
+  description: A special voidsuit helmet worn by members of an emergency response team. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertsecurity.rsi
@@ -817,20 +968,13 @@
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertsecurity.rsi
   - type: PointLight
     color: "#ffadc6"
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
 
 #ERT Janitor Hardsuit
 - type: entity
   parent: [ BaseCentcommContraband, ClothingHeadHelmetHardsuitSyndie ]
   id: ClothingHeadHelmetHardsuitERTJanitor
-  name: ERT janitor hardsuit helmet
-  description: A special hardsuit helmet worn by members of an emergency response team.
+  name: ERT janitor voidsuit helmet # Goob edit
+  description: A special voidsuit helmet worn by members of an emergency response team. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertjanitor.rsi
@@ -873,10 +1017,14 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
+        Blunt: 0.75
+        Slash: 0.4 # Goobstation - CBURN should protect against zombie attacks
+        Piercing: 0.65
+        Heat: 0.15
+        Cold: 0.10
+        Shock: 0.15
+        Radiation: 0.1
+        Caustic: 0.1
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
 
@@ -884,7 +1032,7 @@
 - type: entity
   parent: [ BaseCentcommContraband, ClothingHeadHardsuitWithLightBase ]
   id: ClothingHeadHelmetHardsuitDeathsquad
-  name: deathsquad hardsuit helmet
+  name: deathsquad voidsuit helmet # Goob edit
   description: A robust helmet for special operations.
   components:
   - type: BreathMask
@@ -898,14 +1046,22 @@
   - type: FireProtection
     reduction: 0.2
   - type: Armor
+    traumaDeductions: # prevents traumas at all (kinda)
+      Dismemberment: 1
+      OrganDamage: 1
+      BoneDamage: 1
+      VeinsDamage: 1
+      NerveDamage: 1
     modifiers:
       coefficients:
-        Blunt: 0.80
-        Slash: 0.80
-        Piercing: 0.80
-        Heat: 0.80
-        Radiation: 0.80
-        Caustic: 0.95
+        Blunt: 0.15 # Best armor in the game - Yeah no shit.
+        Slash: 0.15
+        Piercing: 0.15
+        Heat: 0.15
+        Cold: 0.1
+        Cellular: 0.1
+        Radiation: 0.1
+        Caustic: 0.1
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
     protectionRange: 0
@@ -929,8 +1085,8 @@
 - type: entity
   parent: ClothingHeadHelmetHardsuitSecurity
   id: ClothingHeadHelmetHardsuitClown
-  name: clown hardsuit helmet
-  description: A clown hardsuit helmet.
+  name: clown voidsuit helmet # Goob edit
+  description: A clown voidsuit helmet. # Goob edit
   components:
   - type: BreathMask
   - type: Sprite
@@ -939,26 +1095,52 @@
     sprite: Clothing/Head/Hardsuits/clown.rsi
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Effects/Emotes/parp1.ogg
+  - type: Armor
+    traumaDeductions: # why the fuck is it parented from sec helmet
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Caustic: 0.8
 
 #Mime Hardsuit
 - type: entity
   parent: ClothingHeadHelmetHardsuitSecurity
   id: ClothingHeadHelmetHardsuitMime
-  name: mime hardsuit helmet
-  description: A mime hardsuit helmet.
+  name: mime voidsuit helmet # Goob edit
+  description: A mime voidsuit helmet. # Goob edit
   components:
   - type: BreathMask
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/mime.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/mime.rsi
+  - type: Armor
+    traumaDeductions: # why the fuck is it parented from sec helmet
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Caustic: 0.8
 
 #Santas Hardsuit
 - type: entity
   parent: ClothingHeadHardsuitBase
   id: ClothingHeadHelmetHardsuitSanta
-  name: Santa's hardsuit helmet
-  description: A festive-looking hardsuit helmet that provides the jolly gift-giver protection from low-pressure environments.
+  name: Santa's voidsuit helmet # Goob edit
+  description: A festive-looking voidsuit helmet that provides the jolly gift-giver protection from low-pressure environments. # Goob edit
   components:
   - type: BreathMask
   - type: Sprite
@@ -969,3 +1151,10 @@
     color: "#f4ffad"
     radius: 5
     energy: 2
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.9
+        Piercing: 0.85
+        Caustic: 0.8

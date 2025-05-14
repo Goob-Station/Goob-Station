@@ -21,6 +21,8 @@
 # SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -50,6 +52,14 @@
     - ClothMade
     - WhitelistChameleon
   - type: ProtectedFromStepTriggers
+  - type: Armor # provide minimal covering to your feet
+    coverage:
+    - Foot
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
 
 - type: entity
   abstract: true
@@ -77,6 +87,23 @@
           tags:
           - Knife
           - Sidearm
+  # Goobstation
+  - type: ClothingSlowOnDamageModifier
+    modifier: 0.5
+  - type: ModifyStandingUpTime
+    multiplier: 0.5
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.1
+      OrganDamage: 0.1
+      BoneDamage: 0.1
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
 
 - type: entity
   abstract: true
@@ -96,4 +123,4 @@
   components:
   - type: TemperatureProtection
     heatingCoefficient: 1.025
-    coolingCoefficient: 0.5
+    coolingCoefficient: 0.25

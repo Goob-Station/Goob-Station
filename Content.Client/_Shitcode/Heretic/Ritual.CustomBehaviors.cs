@@ -4,6 +4,8 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
@@ -67,6 +69,62 @@ public sealed partial class RitualReagentPuddleBehavior : RitualCustomBehavior
 }
 
 public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
+{
+    public override bool Execute(RitualData args, out string? outstr)
+    {
+        outstr = null;
+        return true;
+    }
+
+    public override void Finalize(RitualData args)
+    {
+        // do nothing
+    }
+}
+
+public sealed partial class RitualCreateBladeBehavior : RitualCustomBehavior
+{
+    public override bool Execute(RitualData args, out string? outstr)
+    {
+        outstr = null;
+        return true;
+    }
+
+    public override void Finalize(RitualData args)
+    {
+        // do nothing
+    }
+}
+
+public sealed partial class RitualRecallBladeBehavior : RitualCustomBehavior
+{
+    public override bool Execute(RitualData args, out string? outstr)
+    {
+        outstr = null;
+        return true;
+    }
+
+    public override void Finalize(RitualData args)
+    {
+        // do nothing
+    }
+}
+
+public sealed partial class RitualFeastOfOwlsBehavior : RitualCustomBehavior
+{
+    public override bool Execute(RitualData args, out string? outstr)
+    {
+        outstr = null;
+        return true;
+    }
+
+    public override void Finalize(RitualData args)
+    {
+        // do nothing
+    }
+}
+
+public sealed partial class RitualCanAscend : RitualCustomBehavior
 {
     public override bool Execute(RitualData args, out string? outstr)
     {

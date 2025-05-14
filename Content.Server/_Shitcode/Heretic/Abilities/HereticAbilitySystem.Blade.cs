@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
@@ -18,6 +19,7 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Heretic;
 using Content.Shared.CombatMode.Pacification;
 using Robust.Shared.Timing;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components; // Shitmed Change
 
 namespace Content.Server.Heretic.Abilities;
 
@@ -65,17 +67,22 @@ public sealed partial class HereticAbilitySystem
         _standing.Stand(ent);
         RemCompDeferred<DelayedKnockdownComponent>(ent);
         _pulling.StopAllPulls(ent, stopPuller: false);
-        _statusEffect.TryAddStatusEffect<PacifiedComponent>(ent, "Pacified", TimeSpan.FromSeconds(10f), true);
-        _statusEffect.TryAddStatusEffect<RealignmentComponent>(ent, "Realignment", TimeSpan.FromSeconds(10f), true);
+        if (_statusEffect.TryAddStatusEffect<PacifiedComponent>(ent, "Pacified", TimeSpan.FromSeconds(10f), true))
+            _statusEffect.TryAddStatusEffect<RealignmentComponent>(ent, "Realignment", TimeSpan.FromSeconds(10f), true);
 
         args.Handled = true;
     }
 
     private void OnChampionStance(Entity<HereticComponent> ent, ref HereticChampionStanceEvent args)
     {
-        // remove limbloss
         foreach (var part in _body.GetBodyChildren(ent))
-            part.Component.CanSever = false;
+        {
+            if (!TryComp(part.Id, out WoundableComponent? woundable))
+                continue;
+
+            woundable.CanRemove = false;
+            Dirty(part.Id, woundable);
+        }
 
         EnsureComp<ChampionStanceComponent>(ent);
     }
