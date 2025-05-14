@@ -732,3 +732,11 @@
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-vox
+
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconMeeting
+  suffix: Meeting Room
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-meeting
