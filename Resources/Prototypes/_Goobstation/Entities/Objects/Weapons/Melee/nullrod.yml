@@ -472,6 +472,9 @@
     tags:
     - UristHand
     - Multitool
+  - type: HeldGrantComponent
+    components:
+    - type: Insulated
 
 - type: entity
   name: his holy chainsaw
