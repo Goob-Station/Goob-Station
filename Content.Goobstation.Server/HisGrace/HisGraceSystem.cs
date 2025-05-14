@@ -4,6 +4,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.HisGrace;
 using Content.Goobstation.Shared.Overlays;
 using Content.Server.Atmos.Components;
@@ -15,7 +16,6 @@ using Content.Shared._Shitmed.Body.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
-using Content.Shared.FixedPoint;
 using Content.Shared.Hands;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction.Components;
@@ -256,7 +256,7 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
     {
         _damageable.TryChangeDamage(user,
             hisGrace.Comp.DamageOnFail,
-            targetPart: TargetBodyPart.Torso,
+            targetPart: TargetBodyPart.Chest,
             origin: hisGrace,
             ignoreResistances: true);
 
@@ -309,7 +309,7 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
         var popUp = Loc.GetString("hisgrace-too-far");
         _popup.PopupEntity(popUp, user, user, PopupType.LargeCaution);
 
-        _damageable.TryChangeDamage(user, hisGrace.Comp.BaseDamage, targetPart: TargetBodyPart.Torso, ignoreResistances: true);
+        _damageable.TryChangeDamage(user, hisGrace.Comp.BaseDamage, targetPart: TargetBodyPart.Chest, ignoreResistances: true);
     }
 
     private void HandleGroundAttacks(Entity<HisGraceComponent> hisGrace, MeleeWeaponComponent melee, TransformComponent xform)
@@ -330,7 +330,7 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
             var angle = _transform.GetRelativePosition(xform, entity, GetEntityQuery<TransformComponent>()).ToAngle();
 
             // do damage and animation
-            _damageable.TryChangeDamage(entity, melee.Damage, targetPart: TargetBodyPart.Torso, origin: hisGrace);
+            _damageable.TryChangeDamage(entity, melee.Damage, targetPart: TargetBodyPart.Chest, origin: hisGrace);
             _melee.DoLunge(hisGrace, hisGrace, angle, coordinates.Position, null, angle, false, false);
 
             _audio.PlayPvs(melee.HitSound, hisGrace);
