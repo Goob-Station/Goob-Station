@@ -271,10 +271,8 @@
       prob: 0.15
     - id: DoorJack
       prob: 0.05 #Goob content
-    - id: IDCardTide # Goobstation
-      prob: 0.025
-    - id: TideFlipperZero # Goobstation
-      prob: 0.01
+    - id: DiyMaintsBook # Goobstation
+      prob: 0.001
     # Tools
     - !type:NestedSelector
       tableId: MaintToolsTable
