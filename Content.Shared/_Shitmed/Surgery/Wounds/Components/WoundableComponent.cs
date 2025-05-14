@@ -80,7 +80,13 @@ public sealed partial class WoundableComponent : Component
     /// Healing will be shared across those 2 wounds.
     /// </summary>
     [DataField]
-    public FixedPoint2 HealAbility = 0.1;
+    public FixedPoint2 HealAbility = 0.03;
+
+    /// <summary>
+    /// Whether the woundable is bleeding.
+    /// </summary>
+    [ViewVariables]
+    public bool IsBleeding = false;
 
     /// <summary>
     /// How much bleeds will the woundable treat per tick

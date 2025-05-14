@@ -313,15 +313,19 @@ public sealed partial class WoundSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        if (!_timing.IsFirstTimePredicted || _healQueue.Count == 0)
+        if (!_timing.IsFirstTimePredicted
+            || _healQueue.Count == 0)
             return;
 
         var beginEnt = _healQueue.Peek();
         do
         {
             var ent = _healQueue.Peek();
+            DamageableComponent? damageable = null;
             // remove it from queue and go on if it's not real
-            if (TerminatingOrDeleted(ent) || !Resolve(ent, ref ent.Comp))
+            if (TerminatingOrDeleted(ent)
+                || !Resolve(ent, ref ent.Comp, false)
+                || !Resolve(ent, ref damageable, false))
             {
                 _healQueue.Dequeue();
                 if (ent == beginEnt && _healQueue.Count != 0)
@@ -333,7 +337,6 @@ public sealed partial class WoundSystem : EntitySystem
             if (ent.Comp.HealAt > _timing.CurTime)
                 break;
 
-            Logger.Debug($"Healing {ToPrettyString(ent)} from update loop");
             // it's real and it's time, move it to the end of the queue
             ent.Comp.HealAt += TimeSpan.FromSeconds(1f / _medicalHealingTickrate);
             _healQueue.Dequeue();
@@ -342,14 +345,13 @@ public sealed partial class WoundSystem : EntitySystem
             if (Paused(ent) || !_body.TryGetRootPart(ent, out var rootPart, body: ent.Comp))
                 continue;
 
-            Logger.Debug($"Processing healing for {ToPrettyString(rootPart.Value)}");
             foreach (var woundable in GetAllWoundableChildren(rootPart.Value))
-                ProcessHealing(woundable, frameTime);
+                ProcessHealing(ent, woundable, damageable.Damage.GetTotal() > 0);
 
         } while (_healQueue.Count != 0 && _healQueue.Peek() != beginEnt);
     }
 
-    private void ProcessHealing(Entity<WoundableComponent> woundable, float frameTime)
+    private void ProcessHealing(EntityUid body, Entity<WoundableComponent> woundable, bool isDamaged)
     {
         var bleedWounds = GetWoundableWoundsWithComp<BleedInflicterComponent>(woundable)
             .Where(wound => wound.Comp2.BleedingAmount > 0)
@@ -358,28 +360,47 @@ public sealed partial class WoundSystem : EntitySystem
         var bleedingAmount = bleedWounds.Aggregate(FixedPoint2.Zero,
             (current, wound) => current + wound.Comp2.BleedingAmount);
 
-        if (bleedingAmount > woundable.Comp.BleedsThreshold)
-            return;
-
-        if (bleedWounds.Length > 0)
+        if (bleedingAmount < woundable.Comp.BleedsThreshold
+            && bleedWounds.Length > 0)
         {
             var bleedTreatment = woundable.Comp.BleedingTreatmentAbility / bleedWounds.Length;
             Logger.Debug($"Bleeding Amount: {bleedingAmount}, Bleeding Treatment Ability: {bleedTreatment}, Bleed Wounds Length: {bleedWounds.Length}");
             TryHealBleedingWounds(woundable, (float) -bleedTreatment, out _, woundable);
         }
 
-        var woundsToHeal = GetWoundableWounds(woundable).Where(wound => CanHealWound(wound, wound)).ToList();
-
-        if (woundsToHeal.Count == 0)
+        if (!isDamaged)
             return;
+
+        var woundsToHeal = GetWoundableWounds(woundable)
+            .Where(wound => CanHealWound(wound, wound))
+            .ToList();
 
         var healAmount = -woundable.Comp.HealAbility / woundsToHeal.Count;
 
-        foreach (var x in woundsToHeal)
+        // Create a DamageSpecifier with negative values for each wound type
+        var damageSpecifier = new DamageSpecifier();
+
+        foreach (var wound in woundsToHeal)
         {
-            ApplyWoundSeverity(x,
-                ApplyHealingRateMultipliers(x, woundable, healAmount),
-                x);
+            // Get the damage type from the wound
+            var damageType = wound.Comp.DamageType;
+
+            // Apply healing multipliers to determine actual healing amount
+            var adjustedHealAmount = ApplyHealingRateMultipliers(wound, woundable, healAmount);
+
+            // Add or update the damage type in the specifier (negative for healing)
+            if (damageSpecifier.DamageDict.TryGetValue(damageType, out var existingAmount))
+                damageSpecifier.DamageDict[damageType] = existingAmount + adjustedHealAmount;
+            else
+                damageSpecifier.DamageDict.TryAdd(damageType, adjustedHealAmount);
+        }
+
+        if (damageSpecifier.DamageDict.Count > 0)
+        {
+            _damageable.TryChangeDamage(body,
+                damageSpecifier,
+                ignoreResistances: false,
+                targetPart: _body.GetTargetBodyPart(woundable));
         }
     }
 }

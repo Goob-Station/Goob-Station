@@ -1129,7 +1129,7 @@ public partial class SharedBodySystem
         return TargetBodyPart.Chest; // Default to torso if something goes wrong
     }
 
-    public TargetBodyPart? GetRandomBodyPart(EntityUid target,
+    public TargetBodyPart GetRandomBodyPart(EntityUid target,
         TargetBodyPart targetPart = TargetBodyPart.Chest,
         TargetingComponent? targetComp = null)
     {
@@ -1153,28 +1153,64 @@ public partial class SharedBodySystem
         return targetPart;
     }
 
-    public TargetBodyPart? GetRandomBodyPart(EntityUid target)
+    public TargetBodyPart GetRandomBodyPart(EntityUid target)
     {
         var children = GetBodyChildren(target).ToList();
         if (children.Count == 0)
-            return null;
+            return TargetBodyPart.Chest;
 
         return GetTargetBodyPart(_random.PickAndTake(children));
     }
 
-    public TargetBodyPart? GetTargetBodyPart(EntityUid partId)
+    public TargetBodyPart GetRandomBodyPart(EntityUid target,
+        EntityUid? attacker,
+        TargetBodyPart? targetPart = null,
+        TargetingComponent? targetComp = null)
+    {
+        if (!Resolve(target, ref targetComp, false))
+            return TargetBodyPart.Chest;
+
+        if (targetPart.HasValue)
+            return GetRandomBodyPart(target, targetPart: targetPart.Value);
+
+        if (attacker.HasValue
+            && TryComp(attacker.Value, out TargetingComponent? attackerComp))
+            return GetRandomBodyPart(target, targetPart: attackerComp.Target);
+
+        return GetRandomBodyPart(target);
+    }
+
+    public TargetBodyPart GetTargetBodyPart(EntityUid target,
+        EntityUid? attacker,
+        TargetBodyPart? targetPart = null,
+        TargetingComponent? targetComp = null)
+    {
+        if (!Resolve(target, ref targetComp, false))
+            return TargetBodyPart.Chest;
+
+        if (targetPart.HasValue)
+            return targetPart.Value;
+
+        if (attacker.HasValue
+            && TryComp(attacker.Value, out TargetingComponent? attackerComp))
+            return attackerComp.Target;
+
+        return GetRandomBodyPart(target);
+    }
+
+    public TargetBodyPart GetTargetBodyPart(EntityUid partId)
     {
         if (!TryComp(partId, out BodyPartComponent? part))
-            return null;
+            return TargetBodyPart.Chest;
 
         return GetTargetBodyPart(part);
     }
-    public TargetBodyPart? GetTargetBodyPart(Entity<BodyPartComponent> part)
+    public TargetBodyPart GetTargetBodyPart(Entity<BodyPartComponent> part)
     {
         return GetTargetBodyPart(part.Comp.PartType, part.Comp.Symmetry);
     }
 
-    public TargetBodyPart? GetTargetBodyPart(BodyPartComponent part)
+    public TargetBodyPart GetTargetBodyPart(BodyPartComponent part)
     {
         return GetTargetBodyPart(part.PartType, part.Symmetry);
     }
@@ -1182,7 +1218,7 @@ public partial class SharedBodySystem
     /// <summary>
     /// Converts Enums from BodyPartType to their Targeting system equivalent.
     /// </summary>
-    public TargetBodyPart? GetTargetBodyPart(BodyPartType type, BodyPartSymmetry symmetry)
+    public TargetBodyPart GetTargetBodyPart(BodyPartType type, BodyPartSymmetry symmetry)
     {
         return (type, symmetry) switch
         {
@@ -1197,7 +1233,7 @@ public partial class SharedBodySystem
             (BodyPartType.Leg, BodyPartSymmetry.Right) => TargetBodyPart.RightLeg,
             (BodyPartType.Foot, BodyPartSymmetry.Left) => TargetBodyPart.LeftFoot,
             (BodyPartType.Foot, BodyPartSymmetry.Right) => TargetBodyPart.RightFoot,
-            _ => null,
+            _ => TargetBodyPart.Chest,
         };
     }
 

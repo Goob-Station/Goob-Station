@@ -47,6 +47,7 @@ public abstract class SharedBloodstreamSystem : EntitySystem
                 Dirty(ent, bleeds);
 
             bleeds.IsBleeding = canBleed;
+
             if (!bleeds.IsBleeding)
                 continue;
 
@@ -275,7 +276,6 @@ public abstract class SharedBloodstreamSystem : EntitySystem
         component.ScalingFinishesAt = _gameTiming.CurTime + TimeSpan.FromSeconds(formula);
         component.ScalingStartsAt = _gameTiming.CurTime;
         component.IsBleeding = true;
-        Logger.Debug($"Wound Added: {args.Component.WoundSeverityPoint}, formula: {formula}, scaling finishes at: {component.ScalingFinishesAt}, scaling starts at: {component.ScalingStartsAt}");
 
         Dirty(uid, component);
 
@@ -300,8 +300,6 @@ public abstract class SharedBloodstreamSystem : EntitySystem
             || args.NewSeverity < args.OldSeverity)
             return;
 
-        Logger.Debug($"Logging for {ToPrettyString(uid)}, attached to {ToPrettyString(args.Component.HoldingWoundable)}");
-        Logger.Debug($"Bleeding Amount Raw: {component.BleedingAmountRaw}, old severity: {args.OldSeverity}, new severity: {args.NewSeverity}");
         var oldBleedsAmount = args.OldSeverity * _cfg.GetCVar(SurgeryCVars.BleedingSeverityTrade);
         component.BleedingAmountRaw = args.NewSeverity * _cfg.GetCVar(SurgeryCVars.BleedingSeverityTrade);
 

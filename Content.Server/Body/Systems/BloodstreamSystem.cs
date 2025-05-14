@@ -155,6 +155,7 @@ using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Pain.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared.Body.Components;
 using Content.Shared._Shitmed.CCVar;
@@ -280,12 +281,20 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem // Shitmed Chang
                 {
                     foreach (var (bodyPart, _) in _body.GetBodyChildren(uid))
                     {
+                        var isBleeding = false;
                         foreach (var wound in _wound.GetWoundableWounds(bodyPart))
                         {
                             if (!TryComp<BleedInflicterComponent>(wound, out var bleeds) || !bleeds.IsBleeding)
                                 continue;
 
                             totalBleedAmount += bleeds.BleedingAmount;
+                            isBleeding = true;
+                        }
+
+                        if (TryComp<WoundableComponent>(bodyPart, out var woundable))
+                        {
+                            woundable.IsBleeding = isBleeding;
+                            Dirty(bodyPart, woundable);
                         }
                     }
                 }

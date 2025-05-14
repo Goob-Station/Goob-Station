@@ -37,7 +37,8 @@ public enum WoundableSeverity : byte
     Moderate,
     Severe,
     Critical,
-    Loss,
+    Mangled,
+    Severed,
 }
 
 [Serializable, NetSerializable]

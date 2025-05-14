@@ -217,7 +217,7 @@ namespace Content.Client.HealthAnalyzer.UI
             // Patient Information
 
             SpriteView.SetEntity(_entityManager.HasComponent<HumanoidAppearanceComponent>(_target.Value)
-                ? SetupIcon(msg.Body)
+                ? SetupIcon(msg.Body, msg.Bleeding)
                 : _target.Value);
             SpriteView.Visible = msg.ScanMode.HasValue && msg.ScanMode.Value;
             PartView.Visible = SpriteView.Visible;
@@ -294,12 +294,19 @@ namespace Content.Client.HealthAnalyzer.UI
                     Margin = new Thickness(0, 4),
                 });
 
-            if (msg.Bleeding == true)
+            foreach (var (bodyPart, isBleeding) in msg.Bleeding)
+            {
+                if (!isBleeding)
+                    continue;
+
+                var locString = Loc.GetString($"condition-body-bleeding-{bodyPart.ToString()}", ("entity", Identity.Name(_target.Value, _entityManager)));
+
                 ConditionsListContainer.AddChild(new RichTextLabel
                 {
-                    Text = Loc.GetString("condition-body-bleeding", ("entity", Identity.Name(_target.Value, _entityManager))),
+                    Text = locString,
                     Margin = new Thickness(0, 4),
                 });
+            }
 
             foreach (var (woundableTrauma, traumas) in msg.Traumas)
             {
@@ -331,7 +338,7 @@ namespace Content.Client.HealthAnalyzer.UI
                 }
             }
 
-            foreach (var (woundablePain, pain) in msg.NervePainFeels)
+            /*foreach (var (woundablePain, pain) in msg.NervePainFeels)
             {
                 if (pain == 1.0
                     || !TryGetEntityName(woundablePain, out var woundableName)
@@ -347,7 +354,7 @@ namespace Content.Client.HealthAnalyzer.UI
                     Text = locString,
                     Margin = new Thickness(0, 4),
                 });
-            }
+            }*/
 
             if (ConditionsListContainer.ChildCount == 0)
             {
@@ -656,7 +663,8 @@ namespace Content.Client.HealthAnalyzer.UI
         /// <summary>
         /// Sets up the Body Doll using Alert Entity to use in Health Analyzer.
         /// </summary>
-        private EntityUid? SetupIcon(Dictionary<TargetBodyPart, WoundableSeverity>? body)
+        private EntityUid? SetupIcon(Dictionary<TargetBodyPart, WoundableSeverity>? body,
+            Dictionary<TargetBodyPart, bool> bleeding)
         {
             if (body is null)
                 return null;
@@ -675,16 +683,30 @@ namespace Content.Client.HealthAnalyzer.UI
                 // TODO: PartStatusUIController and make it use layers instead of TextureRects when EE refactors alerts.
                 string enumName = Enum.GetName(typeof(TargetBodyPart), bodyPart) ?? "Unknown";
                 int enumValue = (int) integrity;
-                var rsi = new SpriteSpecifier.Rsi(new ResPath($"/Textures/_Shitmed/Interface/Targeting/Status/{enumName.ToLowerInvariant()}.rsi"), $"{enumName.ToLowerInvariant()}_{enumValue}");
+                var baseRsiPath = new ResPath($"/Textures/_Shitmed/Interface/Targeting/Status/{enumName.ToLowerInvariant()}.rsi");
+                var rsi = new SpriteSpecifier.Rsi(baseRsiPath, $"{enumName.ToLowerInvariant()}_{enumValue}");
                 // Shitcode with love from Russia :)
-                if (!sprite.TryGetLayer(layer, out _))
-                    sprite.AddLayer(_spriteSystem.Frame0(rsi));
-                else
-                    sprite.LayerSetTexture(layer, _spriteSystem.Frame0(rsi));
-                sprite.LayerSetScale(layer, new Vector2(3f, 3f));
+                CreateOrAddToLayer(sprite, rsi, layer);
                 layer++;
+
+                if (bleeding.TryGetValue(bodyPart, out var isBleeding) && isBleeding)
+                {
+                    var bleedRsi = new SpriteSpecifier.Rsi(baseRsiPath, $"{enumName.ToLowerInvariant()}_bleed");
+                    CreateOrAddToLayer(sprite, bleedRsi, layer);
+                    layer++;
+                }
             }
             return _spriteViewEntity;
+        }
+
+        private void CreateOrAddToLayer(SpriteComponent sprite, SpriteSpecifier rsi, int layer)
+        {
+            if (!sprite.TryGetLayer(layer, out _))
+                sprite.AddLayer(_spriteSystem.Frame0(rsi));
+            else
+                sprite.LayerSetTexture(layer, _spriteSystem.Frame0(rsi));
+
+            sprite.LayerSetScale(layer, new Vector2(3f, 3f));
         }
         // Shitmed Change End
     }

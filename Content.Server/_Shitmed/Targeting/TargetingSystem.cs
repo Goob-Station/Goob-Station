@@ -40,7 +40,7 @@ public sealed class TargetingSystem : SharedTargetingSystem
         {
             foreach (var part in GetValidParts())
             {
-                component.BodyStatus[part] = WoundableSeverity.Loss;
+                component.BodyStatus[part] = WoundableSeverity.Severed;
                 changed = true;
             }
         }

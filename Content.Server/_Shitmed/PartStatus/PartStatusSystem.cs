@@ -21,6 +21,15 @@ using Content.Shared.Mobs.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
 
+using Content.Goobstation.Common.Examine; // Goobstation Change
+using Content.Shared.Damage;
+using Content.Shared.Examine;
+using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.IdentityManagement;
+using Content.Shared.Verbs;
+using Robust.Shared.Utility;
+using Content.Shared.HealthExaminable;
+
 namespace Content.Server._Shitmed.PartStatus;
 
 public sealed class PartStatusSystem : EntitySystem
@@ -30,6 +39,7 @@ public sealed class PartStatusSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly TraumaSystem _trauma = default!;
     [Dependency] private readonly IChatManager _chat = default!;
+    [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
 
     private static readonly IReadOnlyList<BodyPartType> BodyPartOrder = new List<BodyPartType>
     {
@@ -42,7 +52,7 @@ public sealed class PartStatusSystem : EntitySystem
         BodyPartType.Foot,
     }.AsReadOnly();
 
-    private static List<BodyPartSymmetry> SymmetryPriority =
+    private static List<BodyPartSymmetry> _symmetryPriority =
     [
         BodyPartSymmetry.Left,
         BodyPartSymmetry.Right,
@@ -56,6 +66,7 @@ public sealed class PartStatusSystem : EntitySystem
     {
         base.Initialize();
         SubscribeNetworkEvent<GetPartStatusEvent>(OnGetPartStatus);
+        SubscribeLocalEvent<HealthExaminableComponent, GetVerbsEvent<ExamineVerb>>(OnGetExamineVerbs);
     }
 
     private void OnGetPartStatus(GetPartStatusEvent message, EntitySessionEventArgs args)
@@ -79,6 +90,47 @@ public sealed class PartStatusSystem : EntitySystem
             actor.PlayerSession.Channel,
             recordReplay: false);
     }
+
+
+    private void OnGetExamineVerbs(EntityUid uid, HealthExaminableComponent component, GetVerbsEvent<ExamineVerb> args)
+    {
+        if (!TryComp<DamageableComponent>(uid, out var damage))
+            return;
+
+        var detailsRange = _examineSystem.IsInDetailsRange(args.User, uid);
+
+        var verb = new ExamineVerb()
+        {
+            Act = () =>
+            {
+                var markup = CreateMarkup(uid, args.User, component, damage);
+                _examineSystem.SendExamineTooltip(args.User, uid, markup, false, false);
+                var examineCompletedEvent = new ExamineCompletedEvent(markup, uid, args.User, true); // Goobstation
+                RaiseLocalEvent(uid, examineCompletedEvent); // Goobstation
+            },
+            Text = Loc.GetString("health-examinable-verb-text"),
+            Category = VerbCategory.Examine,
+            Disabled = !detailsRange,
+            Message = detailsRange ? null : Loc.GetString("health-examinable-verb-disabled"),
+            Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/rejuvenate.svg.192dpi.png"))
+        };
+
+        args.Verbs.Add(verb);
+    }
+
+    public FormattedMessage CreateMarkup(EntityUid uid, EntityUid examiner, HealthExaminableComponent component, DamageableComponent damage)
+    {
+        if (!_bodySystem.TryGetRootPart(uid, out var rootPart))
+            return new FormattedMessage();
+
+        var partStatusSet = CollectPartStatuses(rootPart.Value);
+        var text = GetExamineText(uid, examiner, partStatusSet, false);
+        // Anything else want to add on to this?
+        RaiseLocalEvent(uid, new HealthBeingExaminedEvent(text), true);
+
+        return text;
+    }
+
 
     private HashSet<PartStatus> CollectPartStatuses(Entity<BodyPartComponent> rootPart)
     {
@@ -129,29 +181,43 @@ public sealed class PartStatusSystem : EntitySystem
         return (damageSeverities, isBleeding);
     }
 
-    private FormattedMessage GetExamineText(EntityUid entity, EntityUid examiner, HashSet<PartStatus> partStatusSet)
+    private FormattedMessage GetExamineText(EntityUid entity,
+        EntityUid examiner,
+        HashSet<PartStatus> partStatusSet,
+        bool styling = true)
     {
         var message = new FormattedMessage();
-        message.PushTag(new MarkupNode("examineborder", null, null)); // border
-        message.PushNewline();
-        message.AddText(Loc.GetString("inspect-part-status-title"));
+        if (styling)
+        {
+            message.PushTag(new MarkupNode("examineborder", null, null)); // border
+            message.PushNewline();
+        }
+
+        message.AddText(Loc.GetString(entity == examiner
+            ? "inspect-part-status-title"
+            : "inspect-part-status-title-other", ("entity", Identity.Name(entity, EntityManager))));
         message.PushNewline();
         AddLine(message);
-        CreateBodyPartMessage(partStatusSet, entity == examiner, ref message);
-        AddLine(message);
-        message.Pop();
+        CreateBodyPartMessage(partStatusSet, entity == examiner, ref message, !styling);
+
+        if (styling)
+        {
+            message.Pop();
+            message.PushNewline();
+        }
 
         return message;
     }
 
     private void CreateBodyPartMessage(HashSet<PartStatus> partStatusSet,
         bool inspectingSelf,
-        ref FormattedMessage message)
+        ref FormattedMessage message,
+        bool styleless = false)
     {
         var orderedParts = BodyPartOrder
             .SelectMany(partType => partStatusSet.Where(p => p.PartType == partType)
                 .ToList()
-                .OrderBy(p => SymmetryPriority.IndexOf(p.PartSymmetry)))
+                .OrderBy(p => _symmetryPriority.IndexOf(p.PartSymmetry)))
             .ToList();
 
         foreach (var partStatus in orderedParts)
@@ -161,10 +227,18 @@ public sealed class PartStatusSystem : EntitySystem
                 ? Loc.GetString("inspect-part-status-you")
                 : Loc.GetString("inspect-part-status-their");
 
-            message.AddText("    " + Loc.GetString("inspect-part-status-line",
+            var locString = "inspect-part-status-line";
+
+            if (styleless)
+            {
+                locString += "-styleless";
+            }
+
+            message.AddText("    " + Loc.GetString(locString,
                 ("possessive", possessive),
                 ("part", partStatus.PartName),
                 ("status", statusDescription)));
+
             message.PushNewline();
         }
     }
