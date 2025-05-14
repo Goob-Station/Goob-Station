@@ -428,8 +428,6 @@
     sprite: _Goobstation/Clothing/Shoes/Boots/heavy_boots.rsi
   - type: ClothingSlowOnDamageModifier # jackboots
     modifier: 0.50
-  - type: ClothingModifyStunTime
-    modifier: 0.50
   - type: ModifyStandingUpTime
     multiplier: 0.50
   - type: Construction
