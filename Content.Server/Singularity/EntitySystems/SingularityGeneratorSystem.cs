@@ -68,6 +68,9 @@ public sealed class SingularityGeneratorSystem : SharedSingularityGeneratorSyste
 
         SetPower(uid, 0, comp);
         EntityManager.SpawnEntity(comp.SpawnPrototype, Transform(uid).Coordinates);
+
+        // Goobstation - since it's reusable also trigger failsafe to avoid unintentional tesla spam
+        comp.NextFailsafe = _timing.CurTime + comp.FailsafeCooldown;
     }
 
     #region Getters/Setters

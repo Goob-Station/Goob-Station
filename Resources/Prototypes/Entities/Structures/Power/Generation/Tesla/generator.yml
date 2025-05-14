@@ -35,11 +35,16 @@
         - MachineMask
         layer:
         - Opaque
-  # Goobstation
+  # <Goobstation>
   - type: EventHorizonIgnore
     horizonWhitelist:
       tags:
       - Tesla # no being eaten by other teslas
+  - type: PreventCollide
+    whitelist:
+      tags:
+      - Tesla
+  # </Goobstation>
   - type: Anchorable
   - type: GuideHelp
     guides:
