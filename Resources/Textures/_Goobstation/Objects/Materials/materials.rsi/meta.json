@@ -21,6 +21,15 @@
     },
     {
       "name": "screw_1"
+    },
+    {
+      "name": "heated_steel"
+    },
+    {
+      "name": "heated_steel_2"
+    },
+    {
+      "name": "heated_steel_3"
     }
   ]
 }

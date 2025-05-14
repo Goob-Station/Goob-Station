@@ -483,10 +483,16 @@
   id: WeaponEnergyGunLawbringer
 
 - type: Tag
-  id: WeaponPistolCasul
+  id: Welder
 
 - type: Tag
-  id: WeaponPistolJackal
+  id: WelderExperimental
+
+- type: Tag
+  id: WoodenHandle
+
+- type: Tag
+  id: WelderIndustrial
 
 - type: Tag
   id: WinterCoat

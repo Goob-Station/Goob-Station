@@ -272,7 +272,7 @@
     - id: DoorJack
       prob: 0.05 #Goob content
     - id: DiyMaintsBook # Goobstation
-      prob: 0.001
+      prob: 0.005
     # Tools
     - !type:NestedSelector
       tableId: MaintToolsTable
