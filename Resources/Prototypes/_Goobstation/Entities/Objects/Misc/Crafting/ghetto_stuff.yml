@@ -487,36 +487,6 @@
     graph: MakeshiftLightVestGraph
     node: final
 
-- type: entity
-  id: MakeshiftJetpack
-  name: makeshift jetpack
-  description: A makeshit jetpack made from 2 gas tanks, fire extinguisher, some cables and hope, that it works.
-  parent: BaseJetpack
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Devices/jetpack_improv.rsi
-  - type: Item
-    sprite: _Goobstation/Objects/Devices/jetpack_improv.rsi
-  - type: Construction
-    graph: MakeshiftJetpackGraph
-    node: final
-
-- type: entity
-  id: MakeshiftJetpackUnfinished
-  name: makeshift jetpack
-  description: 2 gas tanks and cable, meh.
-  parent: BaseItem
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Devices/jetpack_improv.rsi
-    state: icon-unfinished
-  - type: Item
-    sprite: _Goobstation/Objects/Devices/jetpack_improv.rsi
-    size: Huge
-  - type: Construction
-    graph: MakeshiftJetpackGraph
-    node: mid
-
 # heavy armor
 
 - type: entity

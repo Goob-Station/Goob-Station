@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tg at https://github.com/tgstation/tgstation/blob/master/icons/obj/stack_objects.dmi. Screw, hex and heated steel sprites by LuciferEOS",
+  "copyright": "Taken from tg at https://github.com/tgstation/tgstation/blob/master/icons/obj/stack_objects.dmi.",
   "size": {
     "x": 32,
     "y": 32
@@ -15,15 +15,6 @@
     },
     {
       "name": "bluespace_crystal_3"
-    },
-    {
-      "name": "heated_steel"
-    },
-    {
-      "name": "heated_steel_2"
-    },
-    {
-      "name": "heated_steel_3"
     },
     {
       "name": "hex_1"

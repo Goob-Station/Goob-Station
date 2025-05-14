@@ -252,8 +252,6 @@
     sprite: _Goobstation/Structures/Specific/Ghetto/forge.rsi
     state: empty
   objectType: Item # because the craft uses a vending machine :sob:
-  placementMode: SnapgridCenter
-  objectType: Item
   entityWhitelist:
     tags:
     - MakeshiftCrafter
