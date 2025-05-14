@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 # Devil Specific
 
 - type: entity
@@ -13,7 +19,6 @@
       sprite: _Goobstation/Actions/devil.rsi
       state: summon-contract
     event: !type:CreateContractEvent {}
-  - type: DevilAction
 
 - type: entity
   id: ActionCreateRevivalContract
@@ -28,7 +33,6 @@
       sprite: _Goobstation/Actions/devil.rsi
       state: summon-contract-revival
     event: !type:CreateRevivalContractEvent {}
-  - type: DevilAction
 
 - type: entity
   id: ActionShadowJaunt
@@ -37,13 +41,12 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    useDelay: 5
+    useDelay: 40 # Stop running you cowardly fucks.
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Actions/devil.rsi
       state: shadow-jaunt
     event: !type:ShadowJauntEvent {}
-  - type: DevilAction
 
 - type: entity
   id: ActionDevilPossess
@@ -52,7 +55,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
-    useDelay: 45
+    useDelay: 70
     whitelist:
       components:
       - Body
@@ -63,8 +66,34 @@
       sprite: _Goobstation/Actions/devil.rsi
       state: possess
     event: !type:DevilPossessionEvent {}
-  - type: DevilAction
-    soulsRequired: 2
+
+- type: entity
+  id: ActionEndPossession
+  name: End possession
+  description: Cancel this possession early.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    checkCanInteract: false
+    checkConsciousness: false
+    icon:
+      sprite: _Goobstation/Actions/devil.rsi
+      state: possess
+    event: !type:EndPossessionEarlyEvent {}
+
+- type: entity
+  id: ActionDevilGrip
+  name: Devils Grip
+  description: What little fraction of your power remains in this realm, channeled into your hands.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Actions/devil.rsi
+      state: devil-grip
+    event: !type:DevilGripEvent {}
 
 # Deals
 
@@ -76,7 +105,7 @@
   components:
   - type: InstantAction
     itemIconStyle: NoItem
-    useDelay: 180
+    useDelay: 250
     checkCanInteract: false
     checkConsciousness: false
     icon:
