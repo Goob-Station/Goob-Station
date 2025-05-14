@@ -7,6 +7,9 @@
 # SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Tiniest Shark <head.rebel@yahoo.com>
 #
 # SPDX-License-Identifier: MIT
 # ied crafted from random stuff
@@ -35,14 +38,14 @@
       path: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
       params:
         volume: 1
-  - type: RandomTimerTrigger
-    min: 0
-    max: 15
+  - type: RandomTimerTrigger #goob change
+    min: 5
+    max: 7
   - type: Explosive # Weak explosion in a very small radius. Ignites surrounding entities.
     explosionType: FireBomb
-    totalIntensity: 25
+    totalIntensity: 25 #goob change
     intensitySlope: 5
-    maxIntensity: 3
+    maxIntensity: 5
     canCreateVacuum: false
   - type: ExplodeOnTrigger
   - type: Appearance
@@ -116,3 +119,4 @@
     defaultTarget: firebomb
   - type: Tag
     tags: []
+
