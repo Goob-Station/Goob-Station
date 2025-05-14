@@ -30,7 +30,7 @@
       Moderate: 240
       Severe: 120
       Critical: 60
-      Loss: 0
+      Mangled: 0
 
 - type: entity
   parent: [PartAnimalBase, GroinAnimal]
@@ -45,7 +45,7 @@
       Moderate: 240
       Severe: 120
       Critical: 60
-      Loss: 0
+      Mangled: 0
 
 - type: entity
   parent: [PartAnimalBase, LegsAnimal]
@@ -60,7 +60,7 @@
       Moderate: 240
       Severe: 120
       Critical: 60
-      Loss: 0
+      Mangled: 0
 
 - type: entity
   parent: [PartAnimalBase, ChestAnimal]
@@ -75,7 +75,7 @@
       Moderate: 350
       Severe: 200
       Critical: 100
-      Loss: 0
+      Mangled: 0
 
 - type: entity
   parent: [PartAnimalBase, GroinAnimal]
@@ -90,7 +90,7 @@
       Moderate: 350
       Severe: 200
       Critical: 100
-      Loss: 0
+      Mangled: 0
 
 - type: entity
   parent: [PartAnimalBase, LegsAnimal]
@@ -105,4 +105,4 @@
       Moderate: 350
       Severe: 200
       Critical: 100
-      Loss: 0
+      Mangled: 0
