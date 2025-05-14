@@ -31,7 +31,10 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pacable <igor.mamaev1@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -57,13 +60,13 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Skeleton
-  - type: DamageVisuals
-    damageOverlayGroups:
-      Brute:
-        sprite: Mobs/Effects/brute_damage.rsi
-        color: "#555555AA"
-      Burn:
-        sprite: Mobs/Effects/burn_damage.rsi
+#  - type: DamageVisuals
+#    damageOverlayGroups:
+#      Brute:
+#        sprite: Mobs/Effects/brute_damage.rsi
+#        color: "#555555AA"
+#      Burn:
+#        sprite: Mobs/Effects/burn_damage.rsi
   - type: MobState
   - type: MobThresholds
     thresholds:
@@ -150,6 +153,8 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
+  - type: SurgeryTarget # Goobstation
+    sepsisImmune: true
   - type: Tag # Goobstation
     tags:
     - CanPilot
