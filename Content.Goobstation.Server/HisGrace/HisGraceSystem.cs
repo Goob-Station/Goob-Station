@@ -417,12 +417,10 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
         if (_mind.TryGetMind(target, out _, out _)
             && HasComp<HumanoidAppearanceComponent>(target))
         {
-
+            var ev = new HisGraceEntityConsumedEvent();
+            RaiseLocalEvent(hisGrace, ref ev);
         }
-
-        var ev = new HisGraceEntityConsumedEvent();
-        RaiseLocalEvent(hisGrace, ref ev);
-
+    
         return true;
     }
 
