@@ -32,7 +32,8 @@
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
-    Chest: MobResomiTorso
+    Chest: MobResomiChest
+    Groin: MobResomiGroin
     Eyes: MobResomiEyes
     LArm: MobResomiLArm
     RArm: MobResomiRArm
@@ -95,22 +96,40 @@
     state: head_f
 
 - type: humanoidBaseSprite
-  id: MobResomiTorso
+  id: MobResomiChest
   baseSprite:
     sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobResomiTorsoMale
+  id: MobResomiChestMale
   baseSprite:
     sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobResomiTorsoFemale
+  id: MobResomiChestFemale
   baseSprite:
     sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
-    state: torso_f
+    state: chest_f
+
+- type: humanoidBaseSprite
+  id: MobResomiGroin
+  baseSprite:
+    sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobResomiGroinMale
+  baseSprite:
+    sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobResomiGroinFemale
+  baseSprite:
+    sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
+    state: groin_f
 
 - type: humanoidBaseSprite
   id: MobResomiLLeg

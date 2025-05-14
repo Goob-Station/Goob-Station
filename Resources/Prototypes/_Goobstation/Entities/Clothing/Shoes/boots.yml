@@ -60,8 +60,6 @@
     - WhitelistChameleon
   - type: ClothingSlowOnDamageModifier
     modifier: 0.5
-  - type: ClothingModifyStunTime
-    modifier: 0.6
   - type: ModifyStandingUpTime
     multiplier: 0.5
   - type: GasTank

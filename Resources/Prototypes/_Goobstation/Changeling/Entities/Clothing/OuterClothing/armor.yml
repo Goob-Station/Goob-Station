@@ -7,6 +7,8 @@
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Marcus F <marcus2008stoke@gmail.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
 #
@@ -26,13 +28,28 @@
   - type: TemperatureProtection
     heatingCoefficient: 0.35 # solid protection, resists WEAKER fires
   - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    - Tail
+    - Other
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.5
-        Heat: 0.5
-        Caustic: 0.5
+        Blunt: 0.45
+        Slash: 0.45
+        Piercing: 0.45
+        Heat: 0.45
+        Caustic: 0.45
   - type: FireProtection
     reduction: 0.65 # made to help protect changelings against fire. gives it a real purpose to use over regular armor
   - type: ClothingSpeedModifier
