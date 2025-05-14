@@ -10,13 +10,17 @@ using System.Linq;
 using Content.Goobstation.Shared.Bible;
 using Content.Goobstation.Shared.Religion;
 using Content.Goobstation.Shared.Religion.Nullrod;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
-using Content.Shared._Shitmed.Targeting; // Shitmed Change
+using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Body.Components;
+using Content.Shared.Body.Systems;
+using Content.Shared.Mobs.Components; // Shitmed Change
 namespace Content.Goobstation.Shared.Religion;
 
 public sealed class WeakToHolySystem : EntitySystem
@@ -25,6 +29,8 @@ public sealed class WeakToHolySystem : EntitySystem
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly GoobBibleSystem _goobBible = default!;
+    [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private readonly WoundSystem _wound = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -35,7 +41,7 @@ public sealed class WeakToHolySystem : EntitySystem
         SubscribeLocalEvent<HereticRitualRuneComponent, StartCollideEvent>(OnCollide);
         SubscribeLocalEvent<HereticRitualRuneComponent, EndCollideEvent>(OnCollideEnd);
 
-        SubscribeLocalEvent<DamageableComponent, DamageModifyEvent>(OnDamageModify);
+        SubscribeLocalEvent<DamageableComponent, DamageModifyEvent>(OnHolyDamageModify);
 
     }
 
@@ -46,7 +52,7 @@ public sealed class WeakToHolySystem : EntitySystem
 
     #region Holy Damage Dealing
 
-    private void OnDamageModify(Entity<DamageableComponent> ent, ref DamageModifyEvent args)
+    private void OnHolyDamageModify(Entity<DamageableComponent> ent, ref DamageModifyEvent args)
     {
         var unholyEvent = new DamageUnholyEvent(args.Target, args.Origin);
         RaiseLocalEvent(args.Target, ref unholyEvent);
@@ -64,7 +70,16 @@ public sealed class WeakToHolySystem : EntitySystem
             },
         };
 
-        args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, modifierSet);
+        BodyComponent? body = null;
+
+        if (!_body.TryGetRootPart(ent, out var rootPart, body: body))
+            return;
+
+        foreach (var woundable in _wound.GetAllWoundableChildren(rootPart.Value))
+        {
+            if (HasComp<DamageableComponent>(woundable))
+                args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, modifierSet);
+        }
     }
 
     private void OnUnholyItemDamage(Entity<WeakToHolyComponent> uid, ref DamageUnholyEvent args)
@@ -105,23 +120,31 @@ public sealed class WeakToHolySystem : EntitySystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
+        BodyComponent? body = null;
 
-        // Healing while standing on runes.
+        // Holy damage healing.
         var query = EntityQueryEnumerator<WeakToHolyComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            // Rune healing
+            if (!TryComp<DamageableComponent>(uid, out var damageable))
+                return;
+
+            if (TerminatingOrDeleted(uid)
+                || !_body.TryGetRootPart(uid, out var rootPart, body: body)
+                || !damageable.Damage.DamageDict.TryGetValue("Holy", out _))
+                return;
+
+            // Rune healing.
             if (comp.NextSpecialHealTick <= _timing.CurTime && comp.IsColliding)
             {
-                _damageableSystem.TryChangeDamage(uid, comp.HealAmount);
+                _damageableSystem.TryChangeDamage(uid, comp.HealAmount, ignoreBlockers: true, targetPart: TargetBodyPart.All);
                 comp.NextSpecialHealTick = _timing.CurTime + comp.HealTickDelay;
             }
 
-            _damageableSystem.TryChangeDamage(uid, comp.HealAmount * 11f, targetPart: TargetBodyPart.All); // Shitmed Change
-
-            comp.NextHealTick = _timing.CurTime + comp.HealTickDelay;
+            // Passive healing.
+            _damageableSystem.TryChangeDamage(uid, comp.HealAmount, ignoreBlockers: true, targetPart: TargetBodyPart.All);
+            comp.NextPassiveHealTick = _timing.CurTime + comp.HealTickDelay;
         }
-
     }
 
     #endregion
