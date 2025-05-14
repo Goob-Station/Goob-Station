@@ -600,6 +600,15 @@
       walkModifier: 0.9
       sprintModifier: 0.9
     - type: Armor
+      coverage:
+      - Chest
+      - Groin
+      - Arm
+      - Hand
+      - Leg
+      - Foot
+      - Tail
+      - Other
       traumaDeductions:
         Dismemberment: 0.5
         OrganDamage: 0.5
@@ -642,6 +651,15 @@
     - type: FireProtection
       reduction: 0.9
     - type: Armor
+      coverage:
+      - Chest
+      - Groin
+      - Arm
+      - Hand
+      - Leg
+      - Foot
+      - Tail
+      - Other
       traumaDeductions:
         Dismemberment: 0.5
         OrganDamage: 0.5
