@@ -183,7 +183,6 @@ public partial class SharedBodySystem
 
         if (_timing.IsFirstTimePredicted)
         {
-            Logger.Debug($"Init {ToPrettyString(ent)}");
             ent.Comp.HealAt = _timing.CurTime + TimeSpan.FromSeconds(1f / _medicalHealingTickrate);
             _woundSystem.AddToHealQueue((ent, ent.Comp));
         }

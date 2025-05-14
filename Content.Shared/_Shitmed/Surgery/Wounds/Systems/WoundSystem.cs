@@ -145,7 +145,6 @@ public sealed partial class WoundSystem : EntitySystem
 
         if (component.WoundSeverityPoint != state.WoundSeverityPoint)
         {
-            Logger.Debug($"NETWORK: Wound Severity Point Changed: {component.WoundSeverityPoint} -> {state.WoundSeverityPoint}");
             var ev = new WoundSeverityPointChangedEvent(component,
                 component.WoundSeverityPoint,
                 state.WoundSeverityPoint);
@@ -366,7 +365,6 @@ public sealed partial class WoundSystem : EntitySystem
             && bleedWounds.Length > 0)
         {
             var bleedTreatment = woundable.Comp.BleedingTreatmentAbility / bleedWounds.Length;
-            Logger.Debug($"Bleeding Amount: {bleedingAmount}, Bleeding Treatment Ability: {bleedTreatment}, Bleed Wounds Length: {bleedWounds.Length}");
             TryHealBleedingWounds(woundable, (float) -bleedTreatment, out _, woundable);
         }
 
