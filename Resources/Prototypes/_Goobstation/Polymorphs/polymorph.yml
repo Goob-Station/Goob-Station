@@ -4,9 +4,11 @@
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BeeRobynn <166929042+BeeRobynn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
 #
@@ -69,6 +71,16 @@
     revertOnCrit: true
 
 - type: polymorph
+  id: MobFrogPolymorph
+  configuration:
+    entity: MobFrog
+    forced: true
+    inventory: Transfer
+    revertOnDeath: true
+    transferName: true
+    revertOnCrit: true
+
+- type: polymorph
   id: BinglePolymorph
   configuration:
     entity: MobBingleUpgraded
@@ -88,27 +100,10 @@
     attachToGridOrMap: true
 
 - type: polymorph
-  id: ShadowJaunt30
+  id: ShadowJauntPermanent
   configuration:
     entity: PolymorphShadowJaunt
     forced: true
-    duration: 30
-    attachToGridOrMap: true
-
-- type: polymorph
-  id: ShadowJaunt60
-  configuration:
-    entity: PolymorphShadowJaunt
-    forced: true
-    duration: 60
-    attachToGridOrMap: true
-
-- type: polymorph
-  id: ShadowJaunt90
-  configuration:
-    entity: PolymorphShadowJaunt
-    forced: true
-    duration: 90
     attachToGridOrMap: true
 
 - type: polymorph

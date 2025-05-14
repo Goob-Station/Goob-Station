@@ -9162,3 +9162,193 @@ Entries:
         usually do.
   id: 1035
   time: '2025-05-13T14:37:39.0000000+00:00'
+- author: IrisTheAmped
+  changes:
+    - type: Tweak
+      message: Wizards are now an around 3.1% chance spawn.
+  id: 1036
+  time: '2025-05-13T19:20:29.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: Added a guidebook for automation.
+  id: 1037
+  time: '2025-05-13T20:11:08.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Remove
+      message: All the tide stuff
+    - type: Remove
+      message: Welder Eswords
+    - type: Remove
+      message: Chudimov
+    - type: Remove
+      message: Tile suit
+    - type: Remove
+      message: Surplus rolling surplus
+  id: 1038
+  time: '2025-05-13T20:44:10.0000000+00:00'
+- author: ARMOKS
+  changes:
+    - type: Remove
+      message: Remove stupid fucking singulo / tesla / SM names
+    - type: Remove
+      message: Remove stupid fucking skibidi toilet
+    - type: Remove
+      message: Remove stupid fucking admin sportikus, mariah carry, and OSRS NPC
+    - type: Remove
+      message: Remove stupid fucking mao accent
+    - type: Remove
+      message: Remove stupid fucking sigma juice
+  id: 1039
+  time: '2025-05-13T21:25:52.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Remove
+      message: Jermov lawboard
+    - type: Remove
+      message: Zooimov lawboard
+    - type: Remove
+      message: Tide accent
+  id: 1040
+  time: '2025-05-13T21:37:14.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Remove
+      message: Temporarly remove lavaland due to lag
+    - type: Add
+      message: Tiders get -50 GC per round (due to unfixable bug)
+    - type: Remove
+      message: Remove heretic pending rework
+    - type: Remove
+      message: Remove slipping pending rework
+    - type: Tweak
+      message: Laying down does knee damage, get to medbay
+    - type: Tweak
+      message: Patreons get 10X goob coin and a daily antag token
+    - type: Tweak
+      message: Wizard is only rollable via antag token
+  id: 1041
+  time: '2025-05-13T22:55:20.0000000+00:00'
+- author: rotundfan
+  changes:
+    - type: Add
+      message: Bingle Moneyspread Lobby Art
+  id: 1042
+  time: '2025-05-14T01:21:43.0000000+00:00'
+- author: kipdotnet
+  changes:
+    - type: Tweak
+      message: Resprited the Robotic Arm, Storage Bin and Constructor.
+  id: 1043
+  time: '2025-05-14T06:05:22.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Remove
+      message: Bananium ORE is no longer radioactive.
+  id: 1044
+  time: '2025-05-14T07:02:18.0000000+00:00'
+- author: SolsticeOfTheWinter, PETA
+  changes:
+    - type: Add
+      message: >-
+        You can now skin pun-pun alive or dead with a sharp object. Maybe next
+        time, you stay in the fucking bar.
+  id: 1045
+  time: '2025-05-14T07:08:15.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: 1x1 tesla setups should no longer loose.
+  id: 1046
+  time: '2025-05-14T10:47:20.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Fix
+      message: >-
+        Fixed self heal being broken. This might reintroduce lag though! Let me
+        know how bad it gets...
+    - type: Fix
+      message: Fixed infinite bleeding.
+    - type: Fix
+      message: Fixed invisible unremoveable bleeds.
+    - type: Fix
+      message: >-
+        Fixed the guidebook entries for pain killers having a bottle of vodka
+        and wearing adidas.
+    - type: Fix
+      message: Fixed broken autodoc FTL strings.
+    - type: Fix
+      message: Fixed the weird FTL strings on self inspect with healed wounds.
+    - type: Fix
+      message: Fixed tend wounds not working and also self disabling on dead people.
+    - type: Fix
+      message: Fixed blindness being permanent upon a single usage of welder torch.
+    - type: Fix
+      message: >-
+        Fixed explosions not killing you on the spot, but only after some other
+        source of damage refreshes your shit.
+    - type: Fix
+      message: Nuked some more PVS issues and resolves.
+    - type: Fix
+      message: >-
+        Nuked the footprint solution showing up in health analyzer (WHY THE FUCK
+        IS IT APPENDED TO YOUR ENTITY LIKE THAT DOG WHAT)
+    - type: Tweak
+      message: >-
+        Changed the colors of the body doll! Now the main color when your part
+        is about to get lopped off is pure red. It will be gray when you have no
+        parts, and will have the old crit/disabled reddish color when its
+        bleeding. 
+    - type: Tweak
+      message: >-
+        The health analyzer now displays what parts are bleeding, and shows it
+        as well in the integrated body doll! The design is TBD, mostly made do
+        with what we already had...
+    - type: Tweak
+      message: >-
+        The health analyzer no longer displays pain (will be reimplemented later
+        when its more relevant for a doctor to know if the patient is tweaking
+        or not)
+    - type: Tweak
+      message: >-
+        Changed the detailed health inspect to work using the same system as the
+        one for the body doll (Did you know you can self inspect your injuries
+        by clicking on it?)
+    - type: Fix
+      message: >-
+        Fun fact! Topicals were actually being affected by miss chances on
+        attacks! So some of the weird behavior was actually the 30%-50% for the
+        ""attack"" to not hit the correct body part, teehee.
+    - type: Fix
+      message: >-
+        Fixed invincible medibots, firebots, and whatever other manner of those
+        fucking mini clankers somehow got a hold of the title card.
+        Blobbernauts, polymorphs and random entities may still be subject to
+        this!
+    - type: Fix
+      message: 'Fixed slime cores being unremoveable/insertable in surgery! '
+  id: 1047
+  time: '2025-05-14T19:19:22.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Added more clauses for the Devil.
+    - type: Add
+      message: 'New devil ability: Devil Grip.'
+    - type: Add
+      message: >-
+        Devils and soulless people can now wear glasses/masks to cover their
+        properties.
+    - type: Fix
+      message: Fixed several other bugs with devil.
+    - type: Tweak
+      message: Devil hours reqired have been changed.
+    - type: Tweak
+      message: Increased cooldown of the Devils jaunt.
+    - type: Tweak
+      message: Mindshielded people can no longer sign contracts.
+    - type: Tweak
+      message: Devil can now only possess people who have sold their souls.
+  id: 1048
+  time: '2025-05-14T20:29:17.0000000+00:00'
