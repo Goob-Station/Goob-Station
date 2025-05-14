@@ -14,12 +14,39 @@
   - type: Clothing
     sprite: Nyanotrasen/Clothing/Armor/touseigusoku.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    - Tail
+    - Other
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.70
+        Blunt: 0.7
         Slash: 0.55
         Piercing: 0.65
-        Heat: 0.70
+        Heat: 0.7
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 1.0
+  - type: HeldSpeedModifier
+  - type: ExplosionResistance
+    damageCoefficient: 0.65
+  - type: GroupExamine
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 2.5
+    knockdownTimeDelta: -2.5
+  - type: StaminaDamageResistance # Goobstation
+    coefficient: 0.6
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: ModifyDelayedKnockdown # Goobstation
