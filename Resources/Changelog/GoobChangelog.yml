@@ -9242,3 +9242,17 @@ Entries:
       message: Resprited the Robotic Arm, Storage Bin and Constructor.
   id: 1043
   time: '2025-05-14T06:05:22.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Remove
+      message: Bananium ORE is no longer radioactive.
+  id: 1044
+  time: '2025-05-14T07:02:18.0000000+00:00'
+- author: SolsticeOfTheWinter, PETA
+  changes:
+    - type: Add
+      message: >-
+        You can now skin pun-pun alive or dead with a sharp object. Maybe next
+        time, you stay in the fucking bar.
+  id: 1045
+  time: '2025-05-14T07:08:15.0000000+00:00'
