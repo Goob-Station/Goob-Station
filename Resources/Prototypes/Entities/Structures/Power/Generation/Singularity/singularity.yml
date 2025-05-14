@@ -72,6 +72,7 @@
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
@@ -187,13 +188,4 @@
             sprite: Structures/Power/Generation/Singularity/singularity_6.rsi
             state: singularity_6
             scale: .9,.9
-  # <Goobstation>
-  - type: SupermatterImmune
-  - type: ContainmentFieldIgnore # to replace the cursed mass threshold system
-  - type: MetaData
-  - type: RandomMetadata
-    nameSegments:
-    - GoobGeneratorsNamesFirst
-    - GoobGeneratorsNamesSingularityLast
-    nameFormat: name-format-standard
-  # </Goobstation>
+  - type: SupermatterImmune # Goobstation
