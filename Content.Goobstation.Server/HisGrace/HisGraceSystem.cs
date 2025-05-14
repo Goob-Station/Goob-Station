@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -417,12 +418,10 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
         if (_mind.TryGetMind(target, out _, out _)
             && HasComp<HumanoidAppearanceComponent>(target))
         {
-
+            var ev = new HisGraceEntityConsumedEvent();
+            RaiseLocalEvent(hisGrace, ref ev);
         }
-
-        var ev = new HisGraceEntityConsumedEvent();
-        RaiseLocalEvent(hisGrace, ref ev);
-
+    
         return true;
     }
 
