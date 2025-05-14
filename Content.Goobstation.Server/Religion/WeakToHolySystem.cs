@@ -120,11 +120,10 @@ public sealed class WeakToHolySystem : EntitySystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
-        BodyComponent? body = null;
 
         // Holy damage healing.
-        var query = EntityQueryEnumerator<WeakToHolyComponent>();
-        while (query.MoveNext(out var uid, out var comp))
+        var query = EntityQueryEnumerator<BodyComponent, WeakToHolyComponent>();
+        while (query.MoveNext(out var uid, out var body, out var weakToHoly))
         {
             if (!TryComp<DamageableComponent>(uid, out var damageable))
                 return;
@@ -135,15 +134,15 @@ public sealed class WeakToHolySystem : EntitySystem
                 return;
 
             // Rune healing.
-            if (comp.NextSpecialHealTick <= _timing.CurTime && comp.IsColliding)
+            if (weakToHoly.NextSpecialHealTick <= _timing.CurTime && weakToHoly.IsColliding)
             {
-                _damageableSystem.TryChangeDamage(uid, comp.HealAmount, ignoreBlockers: true, targetPart: TargetBodyPart.All);
-                comp.NextSpecialHealTick = _timing.CurTime + comp.HealTickDelay;
+                _damageableSystem.TryChangeDamage(uid, weakToHoly.HealAmount, ignoreBlockers: true, targetPart: TargetBodyPart.All);
+                weakToHoly.NextSpecialHealTick = _timing.CurTime + weakToHoly.HealTickDelay;
             }
 
             // Passive healing.
-            _damageableSystem.TryChangeDamage(uid, comp.HealAmount, ignoreBlockers: true, targetPart: TargetBodyPart.All);
-            comp.NextPassiveHealTick = _timing.CurTime + comp.HealTickDelay;
+            _damageableSystem.TryChangeDamage(uid, weakToHoly.PassiveAmount, ignoreBlockers: true, targetPart: TargetBodyPart.All);
+            weakToHoly.NextPassiveHealTick = _timing.CurTime + weakToHoly.HealTickDelay;
         }
     }
 
