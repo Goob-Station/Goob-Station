@@ -1,0 +1,89 @@
+- type: entity
+  parent: BaseStructure
+  id: BaseAutosurgeon
+  name: autosurgeon (empty)
+  description: A single-use autosurgeon for upgrading your limb or organ with a cybernetic implant. Rip that station apart and make it a part of you.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/autosurgeon.rsi
+    state: icon
+    noRot: true
+  - type: Item
+    size: Huge
+  - type: PartUpgrader
+  - type: ItemToggle
+    onUse: false
+  - type: DoAfter
+  - type: Physics
+    bodyType: Dynamic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.05"
+        density: 190
+        mask:
+        - TableMask
+  - type: Strap
+    position: Down
+    rotation: -90
+    buckleOffset: 0.05,-0.15
+  - type: Transform
+    anchored: false
+    noRot: true
+  - type: Anchorable
+  - type: Pullable
+
+- type: entity
+  parent: [BaseAutosurgeon, BaseSyndicateContraband]
+  id: BaseAutosurgeonSyndicate
+  name: syndicate autosurgeon (empty)
+  components:
+  - type: Sprite
+    state: icon-syndie
+
+- type: entity
+  parent: BaseAutosurgeonSyndicate
+  id: AutosurgeonRightMantisBlade
+  name: syndicate autosurgeon (right mantis blade)
+  components:
+  - type: Sprite
+    state: icon-syndie
+  - type: PartUpgrader
+    targetBodyPart: Arm
+    targetBodyPartSymmetry: Right
+    componentsToPart:
+    - type: MantisBladeArm
+    componentsToUser:
+    - type: RightMantisBladeUser
+
+- type: entity
+  parent: BaseAutosurgeonSyndicate
+  id: AutosurgeonLeftMantisBlade
+  name: syndicate autosurgeon (left mantis blade)
+  components:
+  - type: Sprite
+    state: icon-syndie
+  - type: PartUpgrader
+    targetBodyPart: Arm
+    targetBodyPartSymmetry: Left
+    componentsToPart:
+    - type: MantisBladeArm
+    componentsToUser:
+    - type: LeftMantisBladeUser
+
+#- type: entity
+#  parent: BaseAutosurgeonSyndicate
+#  id: AutosurgeonSandevistan
+#  name: syndicate autosurgeon (sandevistan)
+#  components:
+#  - type: Sprite
+#    state: icon-syndie
+#  - type: PartUpgrader
+#    targetBodyPart: Chest
+#    targetBodyOrgan: Heart
+#    componentsToPart:
+#    - type: Sandevistan
+#    componentsToUser:
+#    - type: SandevistanUser

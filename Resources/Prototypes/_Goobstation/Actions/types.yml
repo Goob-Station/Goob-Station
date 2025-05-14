@@ -75,3 +75,41 @@
       params:
         volume: 6.5
     event: !type:DashActionEvent
+
+- type: entity
+  id: ActionToggleRightMantisBlade
+  name: Toggle Right Mantis Blade
+  description: Extend or retract the mantis blade in your right arm.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 2
+    icon: { sprite: _Goobstation/Objects/Weapons/Melee/mantis_blade.rsi, state: icon }
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Items/unsheath.ogg
+    event: !type:ToggleRightMantisBladeEvent
+
+- type: entity
+  id: ActionToggleLeftMantisBlade
+  name: Toggle Left Mantis Blade
+  description: Extend or retract the mantis blade in your left arm.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 2
+    icon: { sprite: _Goobstation/Objects/Weapons/Melee/mantis_blade.rsi, state: icon-mirrored }
+    itemIconStyle: BigAction
+    event: !type:ToggleLeftMantisBladeEvent
+
+- type: entity
+  id: ActionToggleSandevistan
+  name: Toggle Sandevistan
+  description: Extend or retract the mantis blade in your left arm.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 3
+    icon: { sprite: _Goobstation/Objects/Weapons/Melee/mantis_blade.rsi, state: icon-mirrored }
+    itemIconStyle: BigAction
+    event: !type:ToggleSandevistanEvent

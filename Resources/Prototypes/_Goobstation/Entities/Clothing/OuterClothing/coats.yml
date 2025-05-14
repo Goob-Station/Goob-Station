@@ -28,3 +28,14 @@
   - type: ToggleableClothing
     clothingPrototypes:
       head: ClothingHeadHatHoodZeusHood
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterDavidsJacket
+  name: David's jacket
+  description: A jacket for a true edgerunner.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Vests/hazard.rsi # placeholder
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Vests/hazard.rsi

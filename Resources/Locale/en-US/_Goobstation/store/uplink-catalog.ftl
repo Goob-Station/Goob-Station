@@ -220,6 +220,13 @@ uplink-jaunter-implanter-desc = Swaps position of the user and target upon activ
 uplink-krav-maga-implant-name = Krav Maga Implanter
 uplink-krav-maga-implant-desc = Allows the user to perform various Krav Maga moves.
 
+uplink-autosurgeon-right-mantis-blade-name = Right Mantis Blade Autosurgeon
+uplink-autosurgeon-left-mantis-blade-name = Left Mantis Blade Autosurgeon
+uplink-autosurgeon-mantis-blade-desc = Modifies the user's arm to include the Mantis Blade cyberware - a blade extending from the arm at will, works best when paired. Requires too much fine tuning for a human to provide, comes with a one-use autosurgeon for installation.
+
+uplink-autosurgeon-sandevistan-name = Sandevistan Autosurgeon
+uplink-autosurgeon-sandevistan-desc = Modifies the user's heart to include the Sandevistan cyberware - an operating system that drastically increases the user's speed at the cost of their endurance. Requires too much fine tuning for a human to provide, comes with a one-use autosurgeon for installation.
+
 # Wearables
 
 uplink-helmet-swat-name = Syndicate SWAT Helmet

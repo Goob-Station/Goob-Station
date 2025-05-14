@@ -168,12 +168,15 @@
     state: implanter0
   content:
   - RadioImplanter
-  - BoxHoloparasite
   - EmpImplanter
   - ScramImplanter
   - FreedomImplanter
   - SmokeImplanter
   - KravMagaImplanter
+  - ClothingOuterDavidsJacket
+  - AutosurgeonRightMantisBlade
+  - AutosurgeonLeftMantisBlade
+  # - UplinkAutosurgeonSandevistan
 
 - type: selectableSet
   id: SyndicateHackerSet
@@ -261,12 +264,15 @@
     - EncryptionKeySyndie
     - EncryptionKeySyndie
     - EncryptionKeySyndie
+    - EncryptionKeySyndie
+    - EncryptionKeySyndie
     - ContractorBaton
     - Handcuffs
     - MindcontrolImplanter
     - MindcontrolImplanter
     - MindcontrolImplanter
     - MindcontrolImplanter
+    - WeaponSniperMosin
     - WeaponSniperMosin
     - WeaponSniperMosin
     - WeaponSniperMosin
