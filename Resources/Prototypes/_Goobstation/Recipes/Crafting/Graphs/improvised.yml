@@ -1,6 +1,5 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 LuciferEOS <stepanteliatnik2022@gmail.com>
-# SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -274,7 +273,7 @@
     entity: TideFlipperZero
 
 # metal baseball bat
-# total mats: Wood: 5, Heated steel: 6, Steel: 2
+# total mats: Wood: 5, Heated steel: 12, Steel: 2
 - type: constructionGraph
   id: MetalBaseballBatGraph
   start: start
@@ -292,8 +291,8 @@
     - to: final
       steps:
       - material: HeatedSteel
-        amount: 2
-        doAfter: 2
+        amount: 5
+        doAfter: 4
       - tool: Hammering
         doAfter: 1
       - tool: Hammering
@@ -313,8 +312,8 @@
       - tool: Screwing
         doAfter: 0.5
       - material: HeatedSteel
-        amount: 2
-        doAfter: 2
+        amount: 5
+        doAfter: 4
       - tool: Hammering
         doAfter: 1
       - tool: Hammering
@@ -623,7 +622,7 @@
 # clothing
 
 # heavy boots
-# total mats: Steel: 7, Heated steel:4
+# total mats: Steel: 7, Heated steel: 10
 - type: constructionGraph
   id: HeavyBootsGraph
   start: start
@@ -647,14 +646,14 @@
       - tool: Hammering
         doAfter: 1
       - material: HeatedSteel
-        amount: 2
+        amount: 5
         doAfter: 2
       - tool: Hammering
         doAfter: 1
       - tool: Hammering
         doAfter: 1
       - material: HeatedSteel
-        amount: 2
+        amount: 5
         doAfter: 2
       - tool: Hammering
         doAfter: 1
@@ -682,7 +681,7 @@
 
 
 # helmet
-# total mats: steel: 6, cable: 4. glass: 4, Heated steel: 9
+# total mats: steel: 6, cable: 4. glass: 4, Heated steel: 20 (20 heated steel != 20 steel)
 - type: constructionGraph
   id: MakeshiftHelmetGraph
   start: start
@@ -700,22 +699,22 @@
     - to: final
       steps:
       - material: HeatedSteel
-        amount: 2
-        doAfter: 2
+        amount: 5
+        doAfter: 4
       - tool: Hammering
         doAfter: 1
       - tool: Hammering
         doAfter: 1
       - material: HeatedSteel
-        amount: 2
-        doAfter: 2
+        amount: 5
+        doAfter: 4
       - tool: Hammering
         doAfter: 1
       - tool: Hammering
         doAfter: 1
       - material: HeatedSteel
-        amount: 2
-        doAfter: 2
+        amount: 5
+        doAfter: 4
       - tool: Hammering
         doAfter: 1
       - tool: Hammering
@@ -740,7 +739,7 @@
       - tool: Welding
         doAfter: 4
       - material: HeatedSteel
-        amount: 2
+        amount: 5
         doAfter: 2
       - tool: Hammering
         doAfter: 1
@@ -752,7 +751,7 @@
 
 
 # light vest
-# total mats: Steel: 13, Cable: 16, Heated steel: 10
+# total mats: Steel: 13, Cable: 16, Heated steel: 20
 - type: constructionGraph
   id: MakeshiftLightVestGraph
   start: start
@@ -770,8 +769,8 @@
     - to: heavy vest
       steps:
       - material: HeatedSteel
-        amount: 2
-        doAfter: 2
+        amount: 5
+        doAfter: 4
       - tool: Hammering
         doAfter: 1
       - tool: Hammering
@@ -790,14 +789,14 @@
       - tool: Hammering
         doAfter: 1
       - material: HeatedSteel
-        amount: 2
+        amount: 5
         doAfter: 2
       - tool: Hammering
         doAfter: 1
       - tool: Hammering
         doAfter: 1
       - material: HeatedSteel
-        amount: 2
+        amount: 5
         doAfter: 2
       - tool: Hammering
         doAfter: 1
@@ -818,7 +817,7 @@
       - tool: Cutting
         doAfter: 0.5
       - material: HeatedSteel
-        amount: 2
+        amount: 5
         doAfter: 2
       - tool: Hammering
         doAfter: 1
@@ -832,7 +831,7 @@
       - tool: Screwing
         doAfter: 0.5
       - material: HeatedSteel
-        amount: 2
+        amount: 5
         doAfter: 2
       - tool: Hammering
         doAfter: 1
@@ -859,64 +858,64 @@
     edges:
     - to: final
       steps:
-        - material: HeatedSteel
-          amount: 2
-          doAfter: 2
-        - tool: Hammering
-          doAfter: 1
-        - tool: Hammering
-          doAfter: 1
-        - material: HeatedSteel
-          amount: 2
-          doAfter: 2
-        - tool: Hammering
-          doAfter: 1
-        - tool: Hammering
-          doAfter: 1
-        - material: Screw
-          amount: 2
-          doAfter: 2
-        - tool: Screwing
-          doAfter: 0.5
-        - tool: Screwing
-          doAfter: 0.5
-        - material: Screw
-          amount: 2
-          doAfter: 2
-        - tool: Screwing
-          doAfter: 0.5
-        - tool: Screwing
-          doAfter: 0.5
-        - material: Plasteel
-          amount: 2
-          doAfter: 2
-        - tool: Welding
-          doAfter: 4
-        - tool: Hammering
-          doAfter: 1
-        - tool: Hammering
-          doAfter: 1
-        - tool: Welding
-          doAfter: 4
-        - tool: Hammering
-          doAfter: 1
-        - tool: Hammering
-          doAfter: 1
-        - material: Plasteel
-          amount: 2
-          doAfter: 2
-        - tool: Welding
-          doAfter: 4
-        - tool: Hammering
-          doAfter: 1
-        - tool: Hammering
-          doAfter: 1
-        - tool: Welding
-          doAfter: 4
-        - tool: Hammering
-          doAfter: 1
-        - tool: Hammering
-          doAfter: 1
+      - material: HeatedSteel
+        amount: 5
+        doAfter: 2
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: HeatedSteel
+        amount: 5
+        doAfter: 2
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 0.5
+      - tool: Screwing
+        doAfter: 0.5
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 0.5
+      - tool: Screwing
+        doAfter: 0.5
+      - material: Plasteel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 4
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - tool: Welding
+        doAfter: 4
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Plasteel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 4
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - tool: Welding
+        doAfter: 4
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
   - node: final
     entity: ClothingOuterArmorMakeshiftVestHeavy
 

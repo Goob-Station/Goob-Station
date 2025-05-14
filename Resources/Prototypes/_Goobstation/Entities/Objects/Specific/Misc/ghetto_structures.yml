@@ -1,0 +1,126 @@
+- type: entity
+  parent: BaseStructure
+  id: MakeshiftSmithingOvenEmpty
+  name: makeshift heating oven
+  description: Poorly constructed makeshift oven, made to slowly heat steel and anything that is inside. Requires something flammable to work, and a bit of power to power the remaining vending systems that you forgot to remove. Use crowbar and wood to refill.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Specific/Ghetto/forge.rsi
+    state: empty
+  - type: Appearance
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
+  - type: Transform
+    noRot: true
+    anchored: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.3,-0,0.3,0.6" # looks cursed but its for the better player experience, trust.
+        layer:
+        - Impassable
+        - MidImpassable
+        - LowImpassable
+        - MachineLayer
+        mask:
+        - MobMask
+        - ItemMask
+  - type: Construction
+    graph: MakeshiftOvenEmptyGraph
+    node: wood1
+  - type: Anchorable
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Electronic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+
+- type: entity
+  parent: MakeshiftSmithingOvenEmpty
+  id: MakeshiftSmithingOvenIncomplete
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Specific/Ghetto/forge.rsi
+    state: progress
+  - type: Transform
+    noRot: true
+    anchored: true
+  - type: Construction
+    graph: MakeshiftOvenEmptyGraph
+    node: mid
+  - type: Anchorable
+
+- type: entity
+  parent: MakeshiftSmithingOvenEmpty
+  id: MakeshiftSmithingOvenWood
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Specific/Ghetto/forge.rsi
+    state: full
+  - type: Construction
+    graph: MakeshiftOvenEmptyGraph
+    node: wood1
+  - type: Anchorable
+
+- type: entity
+  parent: MakeshiftSmithingOvenEmpty
+  id: MakeshiftSmithingOvenEmptyUsed
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Construction
+    graph: MakeshiftOvenEmptyGraph
+    node: refill
+
+- type: entity
+  parent: MakeshiftSmithingOvenWood
+  id: MakeshiftSmithingOvenLit
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Specific/Ghetto/forge.rsi
+    state: burning
+  - type: Construction
+    graph: MakeshiftOvenEmptyGraph
+    node: lit
+  - type: Transform
+    anchored: true
+  - type: EntityHeater
+    power: 10
+    setting: Medium # entityheater is pure goidacode, i would love to refactor it but meh
+    settingSound:
+      path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
+      params:
+        volume: -4
+  - type: ItemPlacer
+    maxEntities: 2
+    whitelist:
+      components:
+      - Temperature
+  - type: PlaceableSurface
+    placeCentered: true
+    positionOffset: 0, -0.25
+  - type: ApcPowerReceiver # shitcode is requiring it
+    powerLoad: 0
+  - type: ExtensionCableReceiver
+  - type: TimedDespawn
+    lifetime: 300.0 # 5 minutes, should be enough
+  - type: SpawnOnDespawn
+    prototype: MakeshiftSmithingOvenEmptyUsed
+  - type: Anchorable
+  - type: PointLight
+    color: OrangeRed
+    radius: 3
+    energy: 1
