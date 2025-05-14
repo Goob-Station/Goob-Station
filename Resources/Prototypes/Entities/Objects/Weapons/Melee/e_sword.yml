@@ -509,7 +509,7 @@
     size: Small
     sprite: Objects/Weapons/Melee/e_sword_double-inhands.rsi
   - type: Reflect # Goob edit
-    reflectProb: .85
+    reflectProb: .8
     spread: 75
   - type: FlipOnHit # WD EDIT
   - type: ThrowableBlocker # Goobstation
