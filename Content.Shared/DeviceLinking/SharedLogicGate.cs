@@ -1,7 +1,8 @@
 // SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2024 0tito <147736056+0tito@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -46,4 +47,16 @@ public enum LogicGateLayers : byte
     InputA,
     InputB,
     Output
+}
+
+/// <summary>
+/// The possible states of a logic-capable signal.
+/// Stored in network payload data of device network messages.
+/// </summary>
+[Serializable, NetSerializable]
+public enum SignalState : byte
+{
+    Momentary, // Instantaneous pulse high, compatibility behavior
+    Low,
+    High
 }

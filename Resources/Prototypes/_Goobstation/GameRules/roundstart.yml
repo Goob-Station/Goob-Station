@@ -16,6 +16,7 @@
 # SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 #
@@ -349,7 +350,8 @@
     definitions:
     - prefRoles: [ Devil ]
       max: 2
-      playerRatio: 12
+      playerRatio: 20
+      jobBlacklist: [ Chaplain, Mime ] # Chaplain is obvious. Mime can't write.
       mindRoles:
       - DevilMindRole
       startingGear: DevilStartingGear

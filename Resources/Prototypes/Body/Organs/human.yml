@@ -120,6 +120,8 @@
 # SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Arraydeess <arraygitbash@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Martynas6ha4 <martynashagriefer@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -132,6 +134,12 @@
   - type: Sprite
     sprite: Mobs/Species/Human/organs.rsi
   - type: Organ
+    intCap: 15
+    integrity: 15
+    integrityThresholds:
+      Normal: 15
+      Damaged: 6
+      Destroyed: 0
   - type: Food
   - type: Extractable
     grindableSolutionName: organ
@@ -200,11 +208,15 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
+        - ReagentId: Cognizine # goob edit
+          Quantity: 5 # goob edit
       food:
-        maxVol: 5
+        maxVol: 10 # goob edit
         reagents:
         - ReagentId: GreyMatter
           Quantity: 5
+        - ReagentId: Cognizine # goob edit
+          Quantity: 5 # goob edit
   - type: FlavorProfile
     flavors:
       - people
@@ -220,6 +232,9 @@
   - type: Item
     size: Small
     heldPrefix: brain
+  - type: NerveSystem
+  - type: ConsciousnessRequired
+    identifier: "nerveSystem"
 
 - type: entity
   id: OrganHumanEyes
@@ -228,6 +243,12 @@
   description: "I see you!"
   components:
   - type: Organ # Shitmed Change
+    intCap: 12
+    integrity: 12
+    integrityThresholds:
+      Normal: 12
+      Damaged: 4
+      Destroyed: 0
     slotId: eyes # Shitmed Change
   - type: Eyes # Shitmed Change
   - type: Sprite
@@ -303,6 +324,12 @@
   description: "Filters oxygen from an atmosphere, which is then sent into the bloodstream to be used as an electron carrier."
   components:
   - type: Organ # Shitmed Change
+    intCap: 17
+    integrity: 17
+    integrityThresholds:
+      Normal: 17
+      Damaged: 9
+      Destroyed: 0
     slotId: lungs # Shitmed Change
   - type: Sprite
     layers:
@@ -348,6 +375,12 @@
   components:
   - type: Heart # Shitmed Change
   - type: Organ # Shitmed Change
+    intCap: 17
+    integrity: 17
+    integrityThresholds:
+      Normal: 17
+      Damaged: 9
+      Destroyed: 0
     slotId: heart # Shitmed Change
   - type: Sprite
     state: heart-on
@@ -355,7 +388,7 @@
   # This is done because these chemicals need to have some effect even if they aren't being filtered out of your body.
   # You're technically 'immune to poison' without a heart, but.. uhh, you'll have bigger problems on your hands.
   - type: Metabolizer
-    maxReagents: 2
+    maxPoisonsProcessable: 2
     metabolizerTypes: [Human]
     groups:
     - id: Medicine
@@ -377,6 +410,12 @@
   description: "Gross. This is hard to stomach."
   components:
   - type: Organ # Shitmed Change
+    intCap: 44 # consists of a lot of pieces, thus is incredibly hard to easily destroy
+    integrity: 44
+    integrityThresholds:
+      Normal: 44
+      Damaged: 17
+      Destroyed: 0
     slotId: stomach # Shitmed Change
   - type: Sprite
     state: stomach
@@ -398,7 +437,7 @@
   # to intestines instead.
   - type: Metabolizer
     # mm yummy
-    maxReagents: 3
+    maxPoisonsProcessable: 3
     metabolizerTypes: [Human]
     groups:
     - id: Food
@@ -426,6 +465,12 @@
   components:
   - type: Liver # Shitmed Change
   - type: Organ # Shitmed Change
+    intCap: 21
+    integrity: 21
+    integrityThresholds:
+      Normal: 21
+      Damaged: 12
+      Destroyed: 0
     slotId: liver # Shitmed Change
   - type: Sprite
     state: liver
@@ -433,7 +478,7 @@
     size: Small
     heldPrefix: liver
   - type: Metabolizer # The liver metabolizes certain chemicals only, like alcohol.
-    maxReagents: 1
+    maxPoisonsProcessable: 1
     metabolizerTypes: [Human]
     groups:
     - id: Alcohol
@@ -460,6 +505,12 @@
   description: "Filters toxins from the bloodstream."
   components:
   - type: Organ # Shitmed
+    intCap: 21
+    integrity: 21
+    integrityThresholds:
+      Normal: 21
+      Damaged: 12
+      Destroyed: 0
     slotId: kidneys
   - type: Sprite
     layers:
@@ -470,7 +521,7 @@
     heldPrefix: kidneys
   # The kidneys just remove anything that doesn't currently have any metabolisms, as a stopgap.
   - type: Metabolizer
-    maxReagents: 5
+    maxPoisonsProcessable: 5
     metabolizerTypes: [Human]
     removeEmpty: true
   - type: Tag # goob edit

@@ -2,6 +2,8 @@
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2024 VMSolidus <evilexecutive@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
@@ -38,11 +40,12 @@ public sealed class ClothingGrantingSystem : EntitySystem
 
         if (!clothing.Slots.HasFlag(args.SlotFlags)) return;
 
-        if (component.Components.Count > 1)
-        {
-            Logger.Error("Although a component registry supports multiple components, we cannot bookkeep more than 1 component for ClothingGrantComponent at this time.");
-            return;
-        }
+        // Goobstation
+        //if (component.Components.Count > 1)
+        //{
+        //    Logger.Error("Although a component registry supports multiple components, we cannot bookkeep more than 1 component for ClothingGrantComponent at this time.");
+        //    return;
+        //}
 
         foreach (var (name, data) in component.Components)
         {
@@ -57,22 +60,29 @@ public sealed class ClothingGrantingSystem : EntitySystem
             _serializationManager.CopyTo(data.Component, ref temp);
             EntityManager.AddComponent(args.Equipee, (Component)temp!);
 
-            component.IsActive = true;
+            component.Active[name] = true; // Goobstation
         }
     }
 
     private void OnCompUnequip(EntityUid uid, ClothingGrantComponentComponent component, GotUnequippedEvent args)
     {
-        if (!component.IsActive) return;
+        // Goobstation
+        //if (!component.IsActive) return;
 
         foreach (var (name, data) in component.Components)
         {
+            // Goobstation
+            if (!component.Active.ContainsKey(name) || !component.Active[name])
+                continue;
+
             var newComp = (Component) _componentFactory.GetComponent(name);
 
             RemComp(args.Equipee, newComp.GetType());
+            component.Active[name] = false; // Goobstation
         }
 
-        component.IsActive = false;
+        // Goobstation
+        //component.IsActive = false;
     }
 
 
