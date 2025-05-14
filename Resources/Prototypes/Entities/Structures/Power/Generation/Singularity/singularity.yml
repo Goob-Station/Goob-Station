@@ -189,4 +189,4 @@
             state: singularity_6
             scale: .9,.9
   - type: SupermatterImmune # Goobstation
-  - type: ContainmentFieldIgnore
+  - type: ContainmentFieldIgnore # goob
