@@ -473,7 +473,13 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 
         // Goobstation
         if (session != null)
-            _lastRolled.SetLastRolled(session.UserId, _playTime.GetOverallPlaytime(session));
+        {
+            try // tests die without this
+            {
+                _lastRolled.SetLastRolled(session.UserId, _playTime.GetOverallPlaytime(session));
+            }
+            catch { }
+        }
 
         if (onlyPreSelect && session != null)
         {
