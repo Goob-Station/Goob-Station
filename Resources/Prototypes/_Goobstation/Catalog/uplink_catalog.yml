@@ -968,3 +968,17 @@
   - !type:BuyerSpeciesCondition
     whitelist:
     - Dwarf # Rock and stone
+
+- type: listing
+  id: UplinkDiyBook
+  name: uplink-diy-book-name
+  description: uplink-diy-book-desc
+  productEntity: DiyMaintsBook
+  cost:
+    Telecrystal: 20 # i guess fair?
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Passenger

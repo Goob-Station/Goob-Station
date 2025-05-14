@@ -263,3 +263,6 @@ uplink-undetermined-bundle-desc = This crate comes with three random bundles and
 
 uplink-energy-pickaxe-name = Energy Pickaxe
 uplink-energy-pickaxe-desc = A holographic mining tool with blades comprised of hard light that also serves a deadly melee weapon. Rock and stone!
+
+uplink-diy-book-name = DIY book
+uplink-diy-book-desc = An old book that can teach you how to make makeshift armor, weapons, and other disruption tools.
