@@ -9330,3 +9330,31 @@ Entries:
       message: 'Fixed slime cores being unremoveable/insertable in surgery! '
   id: 1047
   time: '2025-05-14T19:19:22.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Added more clauses for the Devil.
+    - type: Add
+      message: 'New devil ability: Devil Grip.'
+    - type: Add
+      message: >-
+        Devils and soulless people can now wear glasses/masks to cover their
+        properties.
+    - type: Fix
+      message: Fixed several other bugs with devil.
+    - type: Tweak
+      message: Devil hours reqired have been changed.
+    - type: Tweak
+      message: Increased cooldown of the Devils jaunt.
+    - type: Tweak
+      message: Mindshielded people can no longer sign contracts.
+    - type: Tweak
+      message: Devil can now only possess people who have sold their souls.
+  id: 1048
+  time: '2025-05-14T20:29:17.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: Added molotov cocktail
+  id: 1049
+  time: '2025-05-14T21:52:26.0000000+00:00'

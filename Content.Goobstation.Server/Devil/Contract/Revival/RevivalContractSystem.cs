@@ -5,6 +5,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Shared.Devil;
+using Content.Goobstation.Shared.Devil.Condemned;
 using Content.Goobstation.Shared.Devil.UI;
 using Content.Server.Administration.Systems;
 using Content.Server.Mind;
@@ -33,7 +34,7 @@ public sealed partial class PendingRevivalContractSystem : EntitySystem
 
     private void AfterInteract(Entity<RevivalContractComponent> ent, ref AfterInteractEvent args)
     {
-        if (args.Target is not { Valid: true } target
+        if (args.Target is not { } target
             || !TryComp<MobStateComponent>(target, out var mobState)
             || mobState.CurrentState != MobState.Dead)
             return;
@@ -53,7 +54,7 @@ public sealed partial class PendingRevivalContractSystem : EntitySystem
         }
 
         // You can't offer two deals at once.
-        if (HasComp<PendingRevivalContractComponent>(ghost))
+        if (HasComp<PendingRevivalContractComponent>(ghost) || HasComp<CondemnedComponent>(target))
         {
             var failedPopup = Loc.GetString("revival-contract-use-failed");
             _popupSystem.PopupEntity(failedPopup, args.User, args.User);
