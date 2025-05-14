@@ -98,7 +98,7 @@ using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Damage;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Ghost;
 using Content.Shared.Gibbing.Events;
 using Content.Shared.Hands.Components;
@@ -174,7 +174,8 @@ public abstract class SharedMagicSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<MagicComponent, BeforeCastSpellEvent>(OnBeforeCastSpell);
-        SubscribeLocalEvent<MagicComponent, BeforeCastTouchSpellEvent>(OnTouchSpellAttempt);
+
+        SubscribeLocalEvent<BeforeCastTouchSpellEvent>(OnTouchSpellAttempt);
 
         SubscribeLocalEvent<InstantSpawnSpellEvent>(OnInstantSpawn);
         SubscribeLocalEvent<TeleportSpellEvent>(OnTeleportSpell);
@@ -334,28 +335,35 @@ public abstract class SharedMagicSystem : EntitySystem
     }
 
     //goobstation start
-    private void OnTouchSpellAttempt(Entity<MagicComponent> ent, ref BeforeCastTouchSpellEvent args)
+    private void OnTouchSpellAttempt(ref BeforeCastTouchSpellEvent args)
     {
         if (!TryComp<HandsComponent>(args.Target, out var handsComp))
             return;
 
-        if (handsComp.ActiveHandEntity != null
-            && TryComp<DivineInterventionComponent>(handsComp.ActiveHandEntity, out var comp))
+        var held = _hands.EnumerateHeld(args.Target.Value, handsComp);
+        foreach (var heldEnt in held)
         {
+            if (!TryComp<DivineInterventionComponent>(heldEnt, out var comp))
+                continue;
+
             args.Cancelled = true;
 
-            if (_timing.IsFirstTimePredicted)
+            if (_net.IsClient)
                 return;
-            _popupSystem.PopupPredicted(Loc.GetString("nullrod-spelldenial-popup"), args.Target.Value, args.Target.Value, PopupType.MediumCaution);
-            _audio.PlayPredicted(comp.DenialSound, args.Target.Value, ent);
+
+            _popupSystem.PopupEntity(Loc.GetString("nullrod-spelldenial-popup"),
+                args.Target.Value,
+                type: PopupType.MediumCaution);
+            _audio.PlayPvs(comp.DenialSound, args.Target.Value);
             Spawn(comp.EffectProto, Transform(args.Target.Value).Coordinates);
+            break;
         }
     }
 
-    public bool SpellDenied(EntityUid spell, EntityUid target)
+    public bool SpellDenied(EntityUid target)
     {
         var beforeTouchSpellEvent = new BeforeCastTouchSpellEvent(target);
-        RaiseLocalEvent(spell, ref beforeTouchSpellEvent);
+        RaiseLocalEvent(target, ref beforeTouchSpellEvent, true);
         return beforeTouchSpellEvent.Cancelled;
     }
     //goobstation end
@@ -530,7 +538,7 @@ public abstract class SharedMagicSystem : EntitySystem
         var ent = Spawn(ev.Prototype, spawnCoords);
         var direction = toCoords.ToMapPos(EntityManager, _transform) -
                         spawnCoords.ToMapPos(EntityManager, _transform);
-        _gunSystem.ShootProjectile(ent, direction, userVelocity, ev.Performer, ev.Performer);
+        _gunSystem.ShootProjectile(ent, direction, userVelocity, ev.Performer, ev.Performer, ev.Speed); // Goob edit
 
         if (ev.Entity != null) // Goobstation
             _gunSystem.SetTarget(ent, ev.Entity.Value, out _);
@@ -541,10 +549,16 @@ public abstract class SharedMagicSystem : EntitySystem
     // staves.yml ActionRGB light
     private void OnChangeComponentsSpell(ChangeComponentsSpellEvent ev)
     {
-        if (ev.Handled
-            || !PassesSpellPrerequisites(ev.Action, ev.Performer)
-            || SpellDenied(ev.Action, ev.Target))
+        if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
+
+        if (SpellDenied(ev.Target))
+        {
+            if (ev.DoSpeech)
+                Speak(ev);
+            ev.Handled = true;
+            return;
+        }
 
         ev.Handled = true;
         if (ev.DoSpeech)
@@ -626,10 +640,15 @@ public abstract class SharedMagicSystem : EntitySystem
     #region Smite Spells
     private void OnSmiteSpell(SmiteSpellEvent ev)
     {
-        if (ev.Handled
-            || !PassesSpellPrerequisites(ev.Action, ev.Performer)
-            || SpellDenied(ev.Action, ev.Target))
+        if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
+
+        if (SpellDenied(ev.Target))
+        {
+            Speak(ev);
+            ev.Handled = true;
+            return;
+        }
 
         ev.Handled = true;
         Speak(ev);
@@ -742,10 +761,15 @@ public abstract class SharedMagicSystem : EntitySystem
 
     private void OnMindSwapSpell(MindSwapSpellEvent ev)
     {
-        if (ev.Handled
-            || !PassesSpellPrerequisites(ev.Action, ev.Performer)
-            || SpellDenied(ev.Action, ev.Target))
+        if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
+
+        if (SpellDenied(ev.Target))
+        {
+            Speak(ev);
+            ev.Handled = true;
+            return;
+        }
 
         // Goobstation start
         if (_mobState.IsIncapacitated(ev.Target) || HasComp<ZombieComponent>(ev.Target))
@@ -955,11 +979,10 @@ public abstract class SharedMagicSystem : EntitySystem
             if (invocationEv.ToHeal.GetTotal() > FixedPoint2.Zero)
             {
                 _damageable.TryChangeDamage(args.Performer,
-                    -invocationEv.ToHeal,
+                    -invocationEv.ToHeal * 11f,
                     true,
                     false,
-                    canSever: false,
-                    targetPart: TargetBodyPart.All);
+                    targetPart: TargetBodyPart.All); // Shitmed Change
             }
         }
 

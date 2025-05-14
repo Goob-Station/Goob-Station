@@ -15,7 +15,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Dataset
 {
-    [Prototype("dataset")]
+    [Prototype]
     public sealed partial class DatasetPrototype : IPrototype
     {
         [ViewVariables]
