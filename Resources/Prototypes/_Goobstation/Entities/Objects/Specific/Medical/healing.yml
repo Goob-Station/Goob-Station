@@ -83,7 +83,7 @@
   - type: Pill
     pillType: 18
   - type: Sprite
-    state: pill16
+    state: pill18
   - type: Label
     currentLabel: dexalin 10u
   - type: SolutionContainerManager
@@ -116,7 +116,7 @@
   - type: Pill
     pillType: 19
   - type: Sprite
-    state: pill16
+    state: pill19
   - type: Label
     currentLabel: oxycodone 5u
   - type: SolutionContainerManager
@@ -131,7 +131,7 @@
   name: pill canister
   parent: PillCanister
   id: PillCanisterOxycodone
-  suffix: Tramadol 10u, 10
+  suffix: Oxycodone 5u, 10
   components:
   - type: Label
     currentLabel: oxycodone 10u

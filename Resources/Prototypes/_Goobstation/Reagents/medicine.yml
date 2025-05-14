@@ -1525,9 +1525,6 @@
           type: Yowie
           shouldHave: false
       - !type:AdjustConsciousness
-        conditions:
-        - !type:ReagentThreshold
-          min: 10
         allowNewModifiers: true
         modifierType: Pain
         identifier: Suffocation
@@ -1550,8 +1547,7 @@
         amount: 400
         time: 30
       - !type:AdjustPainFeels
-        conditions:
-        amount: -400
+        amount: 400
       - !type:GenericStatusEffect
         key: Adrenaline
         component: IgnoreSlowOnDamage
@@ -1567,11 +1563,8 @@
           type: Yowie
           shouldHave: false
       - !type:AdjustConsciousness
-        conditions:
-        - !type:ReagentThreshold
-          min: 10
         allowNewModifiers: true
         modifierType: Pain
         identifier: Suffocation
-        amount: -100.4
+        amount: -400
         time: 12
