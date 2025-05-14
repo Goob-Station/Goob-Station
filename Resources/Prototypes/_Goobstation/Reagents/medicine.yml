@@ -1507,9 +1507,6 @@
       - !type:SuppressPain
         amount: 25
         time: 30
-      - !type:AdjustPainFeels
-        conditions:
-        amount: 25
       - !type:GenericStatusEffect
         key: Adrenaline
         component: IgnoreSlowOnDamage
@@ -1546,8 +1543,6 @@
       - !type:SuppressPain
         amount: 400
         time: 30
-      - !type:AdjustPainFeels
-        amount: 400
       - !type:GenericStatusEffect
         key: Adrenaline
         component: IgnoreSlowOnDamage
