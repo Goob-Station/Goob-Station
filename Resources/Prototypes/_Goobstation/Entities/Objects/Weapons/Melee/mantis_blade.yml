@@ -25,11 +25,9 @@
       path: /Audio/Weapons/bladeslice.ogg
   - type: Multihit
     multihitWhitelist:
-      tags:
+      components:
       - MantisBlade
-  - type: Tag
-    tags:
-    - MantisBlade
+  - type: MantisBlade
   - type: Item
     size: Ginormous
   - type: Scalpel

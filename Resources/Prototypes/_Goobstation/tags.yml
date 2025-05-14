@@ -93,7 +93,7 @@
 
 - type: Tag
   id: CannotSuicideAny
-  
+
 - type: Tag
   id: Chair
 
@@ -315,9 +315,6 @@
 
 - type: Tag
   id: MagazineSmart
-
-- type: Tag
-  id: MantisBlade
 
 - type: Tag
   id: Mask

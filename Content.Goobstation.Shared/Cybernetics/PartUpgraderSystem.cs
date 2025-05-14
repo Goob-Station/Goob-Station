@@ -7,7 +7,6 @@ using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
@@ -15,6 +14,7 @@ using Robust.Shared.Serialization.Manager;
 
 namespace Content.Goobstation.Shared.Cybernetics;
 
+// Pure goidacode inside, you are warned.
 public sealed class PartUpgraderSystem : EntitySystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -30,7 +30,6 @@ public sealed class PartUpgraderSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<PartUpgraderComponent, ItemToggleActivateAttemptEvent>(OnActivated);
-        SubscribeLocalEvent<PartUpgraderComponent, ItemToggleDeactivateAttemptEvent>(OnDeactivated);
         SubscribeLocalEvent<PartUpgraderComponent, PartUpgraderDoAfterEvent>(OnDoAfter);
         SubscribeLocalEvent<PartUpgraderComponent, ExaminedEvent>(OnExamined);
     }
@@ -54,7 +53,7 @@ public sealed class PartUpgraderSystem : EntitySystem
             return;
         }
 
-        if (_netManager.IsClient)
+        if (_netManager.IsClient) // Fuck sound networking
             return;
 
         var sound = _audio.PlayPvs(ent.Comp.Sound, ent);
@@ -62,16 +61,11 @@ public sealed class PartUpgraderSystem : EntitySystem
             ent.Comp.ActiveSound = sound.Value.Entity;
     }
 
-    private void OnDeactivated(Entity<PartUpgraderComponent> ent, ref ItemToggleDeactivateAttemptEvent args)
-    {
-        args.Cancelled = true;
-    }
-
     private void OnDoAfter(Entity<PartUpgraderComponent> ent, ref PartUpgraderDoAfterEvent args)
     {
         if (args.Cancelled || args.Handled || args.Target == null)
         {
-            Del(ent.Comp.ActiveSound);
+            _audio.Stop(ent.Comp.ActiveSound);
             _toggle.TryDeactivate(ent.Owner);
             args.Handled = true;
             return;
@@ -83,20 +77,27 @@ public sealed class PartUpgraderSystem : EntitySystem
 
         if (!part.Valid)
         {
-            Del(ent.Comp.ActiveSound);
+            _audio.Stop(ent.Comp.ActiveSound);
             _toggle.TryDeactivate(ent.Owner);
             args.Handled = true;
             return;
         }
 
-        AddComponents(part, ent.Comp.ComponentsToPart);
+        var addedToPart = AddComponents(part, ent.Comp.ComponentsToPart); // if none were actually added the part is probably already modified
+        if (addedToPart != null && !addedToPart.Any()) // null indicates there were no components to add in the first place, so it's fine
+        {
+            _audio.Stop(ent.Comp.ActiveSound);
+            _toggle.TryDeactivate(ent.Owner);
+            args.Handled = true;
+            return;
+        }
 
         if (ent.Comp.TargetOrgan == null)
             HandleBodyPart(args.Target.Value, part, ent.Comp.ComponentsToUser);
         else
             HandleOrgan(args.Target.Value, part, ent.Comp.ComponentsToUser);
 
-        Del(ent.Comp.ActiveSound);
+        _audio.Stop(ent.Comp.ActiveSound);
         _toggle.TryDeactivate(ent.Owner);
         args.Handled = true;
 
@@ -167,17 +168,9 @@ public sealed class PartUpgraderSystem : EntitySystem
         }
     }
 
-
     private void OnExamined(Entity<PartUpgraderComponent> ent, ref ExaminedEvent args)
     {
-        if (ent.Comp.Used)
-        {
-            args.PushMarkup(Loc.GetString("gun-cartridge-spent"));
-        }
-        else
-        {
-            args.PushMarkup(Loc.GetString("gun-cartridge-unspent"));
-        }
+        args.PushMarkup(ent.Comp.Used ? Loc.GetString("gun-cartridge-spent") : Loc.GetString("gun-cartridge-unspent")); // Yes gun locale, and?
     }
 
     private ComponentRegistry? AddComponents(EntityUid ent, ComponentRegistry? comps) // Returns actually added components
@@ -194,7 +187,7 @@ public sealed class PartUpgraderSystem : EntitySystem
                 continue;
 
             newComp.Owner = ent;
-            var temp = (object)newComp;
+            object? temp = newComp;
             _serializationManager.CopyTo(data.Component, ref temp);
             EntityManager.AddComponent(ent, (Component)temp!);
 

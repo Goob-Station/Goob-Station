@@ -36,6 +36,6 @@
   description: A jacket for a true edgerunner.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Vests/hazard.rsi # placeholder
+    sprite: _Goobstation/Clothing/OuterClothing/Coats/david_jacket.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Vests/hazard.rsi
+    sprite: _Goobstation/Clothing/OuterClothing/Coats/david_jacket.rsi

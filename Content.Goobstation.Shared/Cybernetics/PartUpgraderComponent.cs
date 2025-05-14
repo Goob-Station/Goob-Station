@@ -8,7 +8,7 @@ using Robust.Shared.Serialization;
 namespace Content.Goobstation.Shared.Cybernetics;
 
 /// <summary>
-/// Upgrades an existing organ of the user
+/// Autosurgeon that upgrades an existing part of the user. TODO: autosurgeon for replacing parts.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class PartUpgraderComponent : Component
@@ -32,7 +32,8 @@ public sealed partial class PartUpgraderComponent : Component
     public ComponentRegistry? ComponentsToUser;
 
     /// <summary>
-    /// These components will be added to the organ itself, for example, CyberneticsComponent
+    /// These components will be added to the organ itself, for example, MantisBladeArm.
+    /// If this is not null but the recipient part has all of them already, the surgery would fail.
     /// </summary>
     [DataField]
     public ComponentRegistry? ComponentsToPart;
@@ -47,7 +48,7 @@ public sealed partial class PartUpgraderComponent : Component
     public TimeSpan DoAfterTime = TimeSpan.FromSeconds(15);
 
     [DataField] // If you're changing this, do not forget the loop
-    public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/_Goobstation/Machines/autosurgeon.ogg", AudioParams.Default.WithLoop(true).WithVolume(-6));
+    public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/_Goobstation/Machines/autosurgeon.ogg", AudioParams.Default.WithLoop(true));
 
     [ViewVariables(VVAccess.ReadOnly)]
     public EntityUid? ActiveSound;

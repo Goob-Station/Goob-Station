@@ -12,7 +12,7 @@ public sealed partial class RightMantisBladeUserComponent : Component, IMantisBl
     public EntityUid? ActionUid;
 
     [DataField]
-    public SoundSpecifier? ExtendSound { get; set; } = new SoundPathSpecifier("/Audio/Items/unsheath.ogg");
+    public SoundSpecifier? ExtendSound { get; set; } = new SoundPathSpecifier("/Audio/Items/unsheath.ogg"); // TODO: better sounds
 
     [DataField]
     public SoundSpecifier? RetractSound { get; set; } = new SoundPathSpecifier("/Audio/Items/sheath.ogg");
