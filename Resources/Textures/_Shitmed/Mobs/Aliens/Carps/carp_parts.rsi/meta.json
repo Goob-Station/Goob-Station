@@ -11,7 +11,10 @@
             "name": "tail"
         },
         {
-            "name": "torso"
+            "name": "chest"
+        },
+        {
+            "name": "groin"
         }
     ]
 }
