@@ -351,6 +351,7 @@
       solution: tank
       reagents:
         WeldingFuel: 1
+        Blood: 1 # Goobstation
     - type: SolutionContainerManager
       solutions:
         tank:
