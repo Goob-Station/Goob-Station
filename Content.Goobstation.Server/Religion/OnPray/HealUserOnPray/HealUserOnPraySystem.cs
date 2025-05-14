@@ -7,6 +7,7 @@
 
 using Content.Goobstation.Server.OnPray.HealNearOnPray;
 using Content.Goobstation.Shared.Religion.Nullrod;
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
 
 namespace Content.Goobstation.Server.OnPray.HealUserOnPray;
@@ -22,6 +23,6 @@ public sealed partial class HealUserOnPraySystem : EntitySystem
     }
     private void OnPray(EntityUid uid, HealUserOnPrayComponent comp, ref AlternatePrayEvent args)
     {
-        _damageable.TryChangeDamage(uid, comp.Damage);
+        _damageable.TryChangeDamage(uid, comp.Damage, ignoreBlockers: true, targetPart: TargetBodyPart.All);
     }
 }

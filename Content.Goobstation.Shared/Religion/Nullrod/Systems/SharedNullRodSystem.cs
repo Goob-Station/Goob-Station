@@ -32,9 +32,6 @@ public abstract partial class SharedNullRodSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IComponentFactory _componentFactory = default!;
-    [Dependency] private readonly ISerializationManager _serializationManager = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
 
     public override void Initialize()
     {
@@ -42,8 +39,6 @@ public abstract partial class SharedNullRodSystem : EntitySystem
 
         SubscribeLocalEvent<NullrodComponent, AttackAttemptEvent>(OnAttackAttempt);
         SubscribeLocalEvent<NullrodComponent, ShotAttemptedEvent>(OnShootAttempt);
-
-        SubscribeLocalEvent<ElectrocutionAttemptEvent>(OnNullrodElectrocutionAttempt);
     }
 
     #region Attack Attempts
@@ -80,21 +75,6 @@ public abstract partial class SharedNullRodSystem : EntitySystem
         _audio.PlayPvs(ent.Comp.UntrainedUseSound, user);
 
         ent.Comp.NextPopupTime = _timing.CurTime + ent.Comp.PopupCooldown;
-    }
-    #endregion
-
-    #region Variant Specific Events
-    //Goidacode but there's always the possibility of more insulated Null Rods given the amount of YAMLMaxxers we have...
-    private void OnNullrodElectrocutionAttempt(ref ElectrocutionAttemptEvent args)
-    {
-        var contains = _inventory.GetHandOrInventoryEntities(args.TargetUid, SlotFlags.WITHOUT_POCKET);
-
-        foreach (var item in contains)
-        {
-            if (TryComp<NullrodComponent>(item, out var comp))
-                args.SiemensCoefficient = comp.SiemensCoefficient;
-        }
-
     }
     #endregion
 

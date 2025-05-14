@@ -10,13 +10,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Clothing.Components;
-using Content.Shared.Clothing.Components;
 using Content.Shared.Hands;
-using Content.Shared.Inventory.Events;
-using Content.Shared.Item;
-using Robust.Shared.Containers;
-using Robust.Shared.Sandboxing;
 using Robust.Shared.Serialization.Manager;
 
 namespace Content.Goobstation.Shared.Held;
@@ -25,7 +19,6 @@ public sealed class HeldGrantComponentSystem : EntitySystem
 {
     [Dependency] private readonly IComponentFactory _componentFactory = default!;
     [Dependency] private readonly ISerializationManager _serializationManager = default!;
-    [Dependency] private readonly ISandboxHelper _sandboxHelper = default!;
 
     public override void Initialize()
     {
@@ -37,7 +30,6 @@ public sealed class HeldGrantComponentSystem : EntitySystem
 
     private void OnCompEquip(Entity<HeldGrantComponentComponent> ent, ref GotEquippedHandEvent args)
     {
-        Log.Info("TEST");
         foreach (var (name, data) in ent.Comp.Components)
         {
             var newComp = (Component) _componentFactory.GetComponent(name);

@@ -7,6 +7,7 @@
 using System.Linq;
 using Content.Goobstation.Shared.Religion;
 using Content.Goobstation.Shared.Religion.Nullrod;
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Audio.Systems;
@@ -36,13 +37,13 @@ public sealed partial class HealNearOnPraySystem : EntitySystem
 
             if (ev.ShouldTakeHoly)
             {
-                _damageable.TryChangeDamage(entity, comp.Damage);
+                _damageable.TryChangeDamage(uid, comp.Damage, ignoreBlockers: true, targetPart: TargetBodyPart.All);
                 _audio.PlayPvs(comp.SizzleSoundPath, entity);
                 Spawn(comp.DamageEffect, Transform(entity).Coordinates);
             }
             else
             {
-                _damageable.TryChangeDamage(entity, comp.Healing);
+                _damageable.TryChangeDamage(entity, comp.Healing, ignoreBlockers: true, targetPart: TargetBodyPart.All);
                 _audio.PlayPvs(comp.HealSoundPath, entity);
                 Spawn(comp.HealEffect, Transform(entity).Coordinates);
             }

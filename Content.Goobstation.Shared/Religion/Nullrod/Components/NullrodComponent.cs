@@ -68,7 +68,4 @@ namespace Content.Goobstation.Shared.Religion.Nullrod.Components;
         /// </summary>
         [DataField]
         public EntityUid? LastAttackedEntity;
-
-        [DataField]
-        public float SiemensCoefficient = 1;
     }
