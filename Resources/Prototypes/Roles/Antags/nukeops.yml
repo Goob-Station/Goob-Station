@@ -85,6 +85,10 @@
 # SPDX-FileCopyrightText: 2024 vorkathbruh <152932728+vorkathbruh@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 terminatorbo <kovalevb059@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -120,12 +124,12 @@
     jumpsuit: ClothingUniformJumpsuitOperative
     back: ClothingBackpackDuffelSyndicate
     mask: ClothingMaskGasSyndicate
-    eyes: ClothingEyesHudSyndicate
+    eyes: ClothingEyesNightVisionGogglesNukie # Goobstation
     ears: ClothingHeadsetAltSyndicate
     gloves: ClothingHandsGlovesCombat
     #outerClothing: ClothingOuterHardsuitSyndie # goobstation - duke nukies
     shoes: ClothingShoesBootsCombatFilled
-    id: SyndiPDA
+    id: SyndiPDANukie # Goobstation
     pocket2: PlushieCarp
     belt: ClothingBeltMilitaryWebbing
   storage:
@@ -157,24 +161,25 @@
   id: SyndicateOperativeMedicFull
   parent: SyndicateOperativeGearFullNoUplink
   equipment:
-    eyes: ClothingEyesHudSyndicateAgent
+    back: ClothingBackpackDuffelSyndicateMedical # Goobstation
+    eyes: ClothingEyesNightVisionGogglesNukie # Goobstation
     #outerClothing: ClothingOuterHardsuitSyndieMedic # goobstation - duke nukies
     shoes: ClothingShoesBootsMagSyndie
     id: SyndiAgentPDA
-    belt: ClothingBeltMilitaryWebbingMedFilled
+    belt: ClothingBeltChemBagSyndiFilled # Goobstation
     pocket2: BaseUplinkRadio225TCMedic
   storage:
     back:
     - SyndiHypo
-    - SawAdvanced
-    - Cautery
+    #- SawAdvanced # Shitmed
+    #- Cautery # Shitmed
     - CombatKnife
     - WeaponPistolViper
     - PinpointerSyndicateNuclear
-    - HandheldHealthAnalyzer
+    #- HandheldHealthAnalyzer # Goobstation
     - CombatMedipen
     - DeathAcidifierImplanter
-    - OmnimedToolSyndie # Shitmed
+    - MedkitCombatFilled # Goobstation
 
 #Lone Operative Gear
 - type: startingGear
@@ -182,4 +187,4 @@
   parent: SyndicateOperativeGearFull
   equipment:
     # Goobstation - Telecrystal rework
-    pocket2: LoneOpsUplink350TC
+    pocket2: BaseUplinkRadio350TC

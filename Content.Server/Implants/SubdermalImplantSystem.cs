@@ -79,8 +79,12 @@
 // SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 12rabbits <53499656+12rabbits@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
+// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Zachary Higgs <compgeek223@gmail.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 themias <89101928+themias@users.noreply.github.com>
 //
@@ -111,7 +115,12 @@ using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Server.IdentityManagement;
 using Content.Shared.DetailExaminable;
+using Content.Shared.DoAfter;
+using Content.Shared.Ensnaring;
+using Content.Shared.Ensnaring.Components;
 using Content.Shared.Store.Components;
+using Content.Shared.Teleportation;
+using Content.Shared.Stunnable;
 
 namespace Content.Server.Implants;
 
@@ -128,6 +137,10 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly IdentitySystem _identity = default!;
     [Dependency] private readonly TeleportSystem _teleportSys = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+
 
     public override void Initialize()
     {
@@ -163,13 +176,34 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
         _popup.PopupEntity(msg, args.User, args.User);
     }
 
+    // Heavily edited by goobstation to make freedom useful
     private void OnFreedomImplant(EntityUid uid, SubdermalImplantComponent component, UseFreedomImplantEvent args)
     {
-        if (!TryComp<CuffableComponent>(component.ImplantedEntity, out var cuffs) || cuffs.Container.ContainedEntities.Count < 1)
+        if (component.ImplantedEntity == null)
             return;
 
-        _cuffable.Uncuff(component.ImplantedEntity.Value, cuffs.LastAddedCuffs, cuffs.LastAddedCuffs);
-        args.Handled = true;
+        var user = component.ImplantedEntity.Value;
+
+        if (TryComp<CuffableComponent>(user, out var cuffs) && cuffs.Container.ContainedEntities.Count > 0)
+        {
+            _cuffable.Uncuff(user, cuffs.LastAddedCuffs, cuffs.LastAddedCuffs);
+            args.Handled = true;
+        }
+
+        if (TryComp<PullableComponent>(user, out var pullable) && pullable.Puller.HasValue)
+        {
+            _stun.TryParalyze(pullable.Puller.Value, TimeSpan.FromSeconds(args.StunTime), true);
+            args.Handled = true;
+        }
+
+        if (TryComp<EnsnareableComponent>(user, out var ensnareable) && ensnareable.Container.ContainedEntities.Count > 0)
+        {
+            var bola = ensnareable.Container.ContainedEntities[0];
+            // Yes this is dumb, but trust me this is the best way to do this. Bola code is fucking awful.
+            _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, 0, new EnsnareableDoAfterEvent(), user, user, bola));
+            _transform.DropNextTo(bola, user);
+            args.Handled = true;
+        }
     }
 
     private void OnActivateImplantEvent(EntityUid uid, SubdermalImplantComponent component, ActivateImplantEvent args)

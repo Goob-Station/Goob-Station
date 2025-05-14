@@ -72,7 +72,10 @@
     shoes: ClothingShoesColorWhite
     id: ReporterPDA
     ears: ClothingHeadsetService
-  storage:
+  storage: # DeltaV: Give reporters tape recording equipment
     back:
+    - TapeRecorder
+    - CassetteTape
+    - CassetteTape
     - MicrophoneInstrument # Goobstation
 

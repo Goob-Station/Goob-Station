@@ -2,6 +2,8 @@
 // SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 FaDeOkno <logkedr18@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 //
@@ -82,6 +84,8 @@ public sealed partial class FancyResearchConsoleMenu : FancyWindow
         _sprite = _entity.System<SpriteSystem>();
         _accessReader = _entity.System<AccessReaderSystem>();
         StaticSprite.SetFromSpriteSpecifier(new SpriteSpecifier.Rsi(new("_Goobstation/Interface/rnd-static.rsi"), "static"));
+        StaticSprite.DisplayRect.CanShrink = true;
+        StaticSprite.DisplayRect.Stretch = TextureRect.StretchMode.Scale;
 
         ServerButton.OnPressed += _ => OnServerButtonPressed?.Invoke();
         DragContainer.OnKeyBindDown += OnKeybindDown;

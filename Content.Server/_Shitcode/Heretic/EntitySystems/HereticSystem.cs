@@ -5,14 +5,20 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Objectives.Components;
 using Content.Server.Store.Systems;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Eye;
 using Content.Shared.Heretic;
 using Content.Shared.Mind;
 using Content.Shared.Store.Components;
@@ -23,11 +29,14 @@ using Content.Server.Heretic.Components;
 using Content.Server.Antag;
 using Robust.Shared.Random;
 using System.Linq;
+using Content.Goobstation.Shared.Enchanting.Components;
+using Content.Goobstation.Shared.Religion;
 using Content.Server._Goobstation.Objectives.Components;
 using Content.Server.Actions;
 using Content.Shared.Humanoid;
 using Robust.Server.Player;
 using Content.Server.Revolutionary.Components;
+using Content.Shared.GameTicking;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Preferences;
 using Content.Shared.Random.Helpers;
@@ -53,8 +62,8 @@ public sealed class HereticSystem : EntitySystem
     [Dependency] private readonly IPlayerManager _playerMan = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
 
-    private float _timer = 0f;
-    private float _passivePointCooldown = 20f * 60f;
+    private float _timer;
+    private const float PassivePointCooldown = 20f * 60f;
 
     public override void Initialize()
     {
@@ -65,6 +74,13 @@ public sealed class HereticSystem : EntitySystem
         SubscribeLocalEvent<HereticComponent, EventHereticUpdateTargets>(OnUpdateTargets);
         SubscribeLocalEvent<HereticComponent, EventHereticRerollTargets>(OnRerollTargets);
         SubscribeLocalEvent<HereticComponent, EventHereticAscension>(OnAscension);
+
+        SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRestart);
+    }
+
+    private void OnRestart(RoundRestartCleanupEvent ev)
+    {
+        _timer = 0f;
     }
 
     public override void Update(float frameTime)
@@ -73,7 +89,7 @@ public sealed class HereticSystem : EntitySystem
 
         _timer += frameTime;
 
-        if (_timer < _passivePointCooldown)
+        if (_timer < PassivePointCooldown)
             return;
 
         _timer = 0f;
@@ -85,9 +101,9 @@ public sealed class HereticSystem : EntitySystem
         }
     }
 
-    public void UpdateKnowledge(EntityUid uid, HereticComponent comp, float amount)
+    public void UpdateKnowledge(EntityUid uid, HereticComponent comp, float amount, StoreComponent? store = null)
     {
-        if (TryComp<StoreComponent>(uid, out var store))
+        if (Resolve(uid, ref store, false))
         {
             _store.TryAddCurrency(new Dictionary<string, FixedPoint2> { { "KnowledgePoint", amount } }, uid, store);
             _store.UpdateUserInterface(uid, uid, store);
@@ -120,9 +136,10 @@ public sealed class HereticSystem : EntitySystem
 
     private void OnCompInit(Entity<HereticComponent> ent, ref ComponentInit args)
     {
+
         // add influence layer
         if (TryComp<EyeComponent>(ent, out var eye))
-            _eye.SetVisibilityMask(ent, eye.VisibilityMask | EldritchInfluenceComponent.LayerMask);
+            _eye.SetVisibilityMask(ent, eye.VisibilityMask | (int) VisibilityFlags.EldritchInfluence);
 
         foreach (var knowledge in ent.Comp.BaseKnowledge)
             _knowledge.AddKnowledge(ent, ent.Comp, knowledge);
@@ -170,7 +187,8 @@ public sealed class HereticSystem : EntitySystem
                 continue;
 
             // pick and take
-            var picked = _rand.PickAndTake(list);
+            var picked = _rand.Pick(list);
+            targets.Remove(picked);
             pickedTargets.Add(picked);
         }
 
@@ -250,10 +268,13 @@ public sealed class HereticSystem : EntitySystem
     private void OnAscension(Entity<HereticComponent> ent, ref EventHereticAscension args)
     {
         // you've already ascended, man.
-        if (ent.Comp.Ascended)
+        if (ent.Comp.Ascended || !ent.Comp.CanAscend)
             return;
 
         ent.Comp.Ascended = true;
+        ent.Comp.KnownRituals.Remove("FeastOfOwls");
+        ent.Comp.ChosenRitual = null;
+        Dirty(ent);
 
         // how???
         if (ent.Comp.CurrentPath == null)

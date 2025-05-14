@@ -102,7 +102,9 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Alpha-Two <92269094+Alpha-Two@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 blobadoodle <me@bloba.dev>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 #
@@ -125,6 +127,9 @@
   # Goobstation
   - NanotrasenRepresentative
   - BlueshieldOfficer
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   id: ERTLeaderGear
@@ -198,6 +203,9 @@
   - !type:AddComponentSpecial
     components:
     - type: BibleUser #Lets them heal with bibles
+    - type: CanEnchant #GoobStation
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   id: ERTChaplainGear
@@ -222,12 +230,12 @@
     - DrinkWaterMelonJuiceJug
     - Lantern
     - Lantern
-    - Bible
+    - ChaplainUndeterminedBible
     - CrowbarRed
     - FoodBakedBunHotX
     - FoodBakedBunHotX
     - FoodBakedBunHotX
-    - FoodBakedBunHotX
+    - Nullrod
     - Lighter
     - ExecutiveIDCard # Goobstation - Executive Access!
 
@@ -254,7 +262,7 @@
     - DrinkWaterMelonJuiceJug
     - Lantern
     - Lantern
-    - Bible
+    - ChaplainUndeterminedBible
     - CrowbarRed
     - FoodBakedBunHotX
     - FoodBakedBunHotX
@@ -281,6 +289,9 @@
   # Goobstation
   - NanotrasenRepresentative
   - BlueshieldOfficer
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   id: ERTEngineerGear
@@ -358,6 +369,9 @@
   # Goobstation
   - NanotrasenRepresentative
   - BlueshieldOfficer
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   id: ERTSecurityGear
@@ -454,6 +468,9 @@
   # Goobstation
   - NanotrasenRepresentative
   - BlueshieldOfficer
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   id: ERTMedicalGear
@@ -476,7 +493,7 @@
     - CentCommHypo
     - MedkitAdvancedFilled
     - CrowbarRed
-    - OmnizineChemistryBottle
+    - ChemistryBottleOmnizine
     - JugOxandrolone
     - JugSalicylicAcid
     - ParamedHypo
@@ -527,6 +544,9 @@
   # Goobstation
   - NanotrasenRepresentative
   - BlueshieldOfficer
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   id: ERTJanitorGear

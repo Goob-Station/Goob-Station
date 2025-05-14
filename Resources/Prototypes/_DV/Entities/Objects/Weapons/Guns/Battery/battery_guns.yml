@@ -1,9 +1,11 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-- type: entity
+- type: entity # I will just say this gun fucking sucks. holy shit.
   name: X-01 Multiphase
   parent: [BaseWeaponBatterySmall, BaseGrandTheftContraband]
   id: WeaponEnergyGunMultiphase
@@ -79,4 +81,3 @@
   - type: StaticPrice
     price: 750
   - type: Multishot
-    spreadMultiplier: 1

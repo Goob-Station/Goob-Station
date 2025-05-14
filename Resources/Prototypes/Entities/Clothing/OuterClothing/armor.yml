@@ -128,10 +128,13 @@
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 John <35928781+sporkyz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Michael <107807667+doc-michael@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Sparlight <twiksparlight@gmail.com>
@@ -155,11 +158,20 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/security.rsi
   - type: Armor #Based on /tg/ but slightly compensated to fit the fact that armor stacks in SS14.
+    coverage:
+    - Chest
+    - Groin
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Piercing: 0.67 #Can save you, but bullets will still hurt. Will take about 10 shots from a Viper before critting, as opposed to 7 while unarmored and 16~ with a bulletproof vest.
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7 #Can save you, but bullets will still hurt. Will take about 10 shots from a Viper before critting, as opposed to 7 while unarmored and 16~ with a bulletproof vest.
         Heat: 0.80
   - type: ExplosionResistance
     damageCoefficient: 0.90
@@ -198,12 +210,26 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/riot.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    traumaDeductions:
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.4
         Slash: 0.4
         Piercing: 0.7
-        Heat: 0.9
+        Heat: 0.7
         Caustic: 0.9
   - type: ExplosionResistance
     damageCoefficient: 0.9
@@ -225,6 +251,16 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/bulletproof.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
+    traumaDeductions:
+      Dismemberment: 0.07
+      OrganDamage: 0.07
+      BoneDamage: 0.07
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.9
@@ -232,7 +268,7 @@
         Piercing: 0.4
         Heat: 0.9
   - type: ExplosionResistance
-    damageCoefficient: 0.80
+    damageCoefficient: 0.60
 
 - type: entity
   parent: ClothingOuterArmorBase
@@ -245,12 +281,17 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/armor_reflec.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
+    # Does not give dismemberment deduction because of reflection. yeah do with it somehow
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.4 # this technically means it protects against fires pretty well? -heat is just for lasers and stuff, not atmos temperature
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.33 # this technically means it protects against fires pretty well? -heat is just for lasers and stuff, not atmos temperature
   - type: Reflect
     reflectProb: 1
     reflects:
@@ -273,6 +314,20 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/syndie-raid.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    - Tail
+    traumaDeductions:
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.35
@@ -348,6 +403,20 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/cult_armour.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    - Tail
+    traumaDeductions:
+      Dismemberment: 0.33
+      OrganDamage: 0.33
+      BoneDamage: 0.33
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.5
@@ -372,6 +441,20 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/heavy.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    - Tail
+    traumaDeductions: # prevents traumas at all (kinda)
+      Dismemberment: 1
+      OrganDamage: 1
+      BoneDamage: 1
+      VeinsDamage: 1
+      NerveDamage: 1
     modifiers:
       coefficients:
         Blunt: 0.2
@@ -421,12 +504,19 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/magusblue.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.5
-        Heat: 0.5
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.3
+        Heat: 0.3
         Radiation: 0.1
         Caustic: 0.1
   - type: ClothingSpeedModifier # Goobstation
@@ -459,6 +549,16 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/captain_carapace.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.5
@@ -501,6 +601,22 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/lingarmor.rsi
   - type: Armor
+    coverage:
+    - Head
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    - Tail
+    - Other
+    traumaDeductions:
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.5
@@ -533,6 +649,21 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/bone_armor.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    - Tail
+    - Other
+    traumaDeductions:
+      Dismemberment: -1
+      OrganDamage: -1
+      BoneDamage: 1 # this is bones dude
+      VeinsDamage: -1
+      NerveDamage: -1
     modifiers:
       coefficients:
         Blunt: 0.6
@@ -566,6 +697,21 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/podwars_armor.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    - Tail
+    - Other
+    traumaDeductions:
+      Dismemberment: 0.27
+      OrganDamage: 0.27
+      BoneDamage: 0.27
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.5
