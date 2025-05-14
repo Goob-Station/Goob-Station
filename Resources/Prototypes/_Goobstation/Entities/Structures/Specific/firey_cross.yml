@@ -50,9 +50,6 @@
     ignited: true
   - type: TriggerOnCollide
     fixtureID: ignition
-  - type: IgniteOnCollide
-    fireStacks: 5
-    count: 1000
   - type: AlwaysHot
   - type: Construction
     graph: FieryCrossGraph

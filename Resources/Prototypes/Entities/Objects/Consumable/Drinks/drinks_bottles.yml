@@ -205,6 +205,12 @@
   - type: PhysicalComposition
     materialComposition:
       Glass: 100
+  - type: Construction #Goob content
+    graph: MolotovConstruction
+    node: start
+  - type: Tag
+    tags:
+    - MolotovConstruction #Goobstation
 
 - type: entity
   id: DrinkBottleVisualsOpenable

@@ -1,0 +1,30 @@
+- type: constructionGraph
+  id: MolotovConstruction
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: UnlitMolotov
+          completed:
+          - !type:AdminLog
+            message: "Construction"
+            impact: High
+          steps:
+            - tag: MolotovConstruction
+              name: Glass Bottle
+              icon:
+                sprite: Objects/Consumable/Drinks/vodkabottle.rsi
+                state: icon
+              doAfter: 1
+            - material: Cloth
+              amount: 1
+              doAfter: 1
+    - node: UnlitMolotov
+      entity: UnlitMolotov
+      edges:
+        - to: LitMolotov
+          steps:
+            - tool: Ignition
+              doAfter: 0
+    - node: LitMolotov
+      entity: Molotov

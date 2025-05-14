@@ -221,6 +221,9 @@
       - Energy
   - type: IgnitionSource
     temperature: 700
+  - type: Tool
+    qualities:
+    - Ignition
 
 - type: entity
   name: energy sword
