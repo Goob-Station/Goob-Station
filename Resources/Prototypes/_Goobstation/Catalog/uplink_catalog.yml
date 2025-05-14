@@ -20,7 +20,6 @@
 # SPDX-FileCopyrightText: 2025 Aineias1 <142914808+Aineias1@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
@@ -34,7 +33,6 @@
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Scruq445 <storchdamien@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Weide <64257676+Lyacs@users.noreply.github.com>
@@ -79,16 +77,6 @@
     Telecrystal: 8
   categories:
     -  UplinkDisruption
-
-- type: listing
-  id: UplinkBoxSkibidiRizz
-  name: Box of Skibidi Rizz
-  description: Contains 3 Skibidi Toilet cubes and 3 glasses of SigmaJuice... Chat, is this real?
-  productEntity: BoxSkibidiRizz
-  cost:
-    Telecrystal: 30
-  categories:
-    - UplinkDisruption
 
 - type: listing
   id: UplinkSarinGasGrenade
@@ -478,52 +466,6 @@
     Telecrystal: 30
   categories:
     - UplinkAllies
-
-
-- type: listing
-  id: UplinkJermovCircuitBoard
-  name: jermov circuit board
-  description: A very un-dangerous Lawset to use when you want to cause the A.I. to get brainrot, use when bored.
-  productEntity: JermovCircuitBoard
-  cost:
-    Telecrystal: 15
-  categories:
-    -  UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Clown
-    - Passenger
-
-- type: listing
-  id: UplinkChudimovCircuitBoard
-  name: chudimov circuit board
-  description: Nothing ever happens.
-  productEntity: ChudimovCircuitBoard
-  cost:
-    Telecrystal: 40
-  categories:
-  -  UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Clown
-    - Passenger
-
-- type: listing
-  id: UplinkZooimovCircuitBoard
-  name: zooimov circuit board
-  description: A lawset for when you wanna keep all the stations animals safe and protected.
-  productEntity: ZooimovCircuitBoard
-  cost:
-    Telecrystal: 15
-  categories:
-    -  UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Zookeeper
-  saleLimit: 1
 
 - type: listing
   id: uplinkBeeNades    #goob - bee update
