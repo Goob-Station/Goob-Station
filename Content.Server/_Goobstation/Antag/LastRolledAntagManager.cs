@@ -59,9 +59,14 @@ namespace Content.Server._Goobstation.Antag
         /// </summary>
         private async Task SetTimeAsyncInternal(NetUserId userId, TimeSpan time, TimeSpan oldTime)
         {
-            var task = Task.Run(() => _db.SetLastRolledAntag(userId, time));
-            TrackPending(task);
-            await task;
+            Task<bool> setTimeTask = _db.SetLastRolledAntag(userId, time, cancellationToken);
+            TrackPending(setTimeTask); // Track the Task<bool>
+            bool success = await setTimeTask;
+
+            if (success)
+                _sawmill.Debug($"Successfully set LastRolledAntag for {userId} from {oldTime} to {time}");
+            else
+                _sawmill.Error($"Failed to set LastRolledAntag for {userId}. Player not found or other issue.");
         }
 
         /// <summary>
