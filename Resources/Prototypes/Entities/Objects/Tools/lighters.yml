@@ -175,7 +175,9 @@
       collection: lighterOnSounds
     endSound:
       collection: lighterOffSounds
-
+  - type: Tool #Goob
+    qualities:
+    - Ignition
 
 - type: entity
   name: cheap lighter

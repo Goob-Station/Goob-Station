@@ -28,7 +28,6 @@
       map: ["enum.TriggerVisualLayers.Base"]
     - state: fuel
     - state: wires
-  - type: LandAtCursor
   - type: Item
     sprite: Objects/Weapons/Bombs/ied.rsi
   - type: OnUseTimerTrigger
