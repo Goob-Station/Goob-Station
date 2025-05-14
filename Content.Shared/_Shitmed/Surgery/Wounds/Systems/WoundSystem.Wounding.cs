@@ -143,7 +143,7 @@ public sealed partial class WoundSystem
     private void OnWoundableSeverityChanged(EntityUid uid, WoundableComponent component, WoundableSeverityChangedEvent args)
     {
         if (TerminatingOrDeleted(uid)
-            || args.NewSeverity >= WoundableSeverity.Mangled
+            || args.NewSeverity != WoundableSeverity.Mangled
             || component.Bone.ContainedEntities.FirstOrNull() is { } bone
             && TryComp(bone, out BoneComponent? boneComp)
             && boneComp.BoneSeverity != BoneSeverity.Broken)
