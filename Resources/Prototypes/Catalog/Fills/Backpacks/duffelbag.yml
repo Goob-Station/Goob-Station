@@ -139,6 +139,7 @@
       - id: Cautery
       - id: Retractor
       - id: Scalpel
+      - id: ClothingMaskSterile # Goobstation
       - id: BoneGel # Shitmed Change
       - id: MedicalStitches # Shitmed Change
 
@@ -157,6 +158,7 @@
       - id: ScalpelAdvanced
       - id: ClothingHandsGlovesNitrile
       - id: EmergencyRollerBedSpawnFolded
+      - id: ClothingMaskSterile # Goobstation
       - id: BoneGel # Shitmed Change
       - id: MedicalStitches # Shitmed Change
 

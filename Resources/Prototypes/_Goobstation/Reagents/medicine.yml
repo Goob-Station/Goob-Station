@@ -1505,17 +1505,15 @@
       metabolismRate: 0.1
       effects:
       - !type:SuppressPain
-        amount: 20
+        amount: 25
         time: 30
       - !type:AdjustPainFeels
         conditions:
-        - !type:ReagentThreshold
-          min: 15
-        amount: 0.04
+        amount: 25
       - !type:GenericStatusEffect
         key: Adrenaline
         component: IgnoreSlowOnDamage
-        time: 5
+        time: 2
       - !type:HealthChange
         damage:
           types:
@@ -1549,11 +1547,11 @@
       metabolismRate: 0.1
       effects:
       - !type:SuppressPain
-        amount: 0
+        amount: 400
         time: 30
       - !type:AdjustPainFeels
         conditions:
-        amount: 200
+        amount: -400
       - !type:GenericStatusEffect
         key: Adrenaline
         component: IgnoreSlowOnDamage
