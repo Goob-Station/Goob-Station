@@ -1,0 +1,42 @@
+- type: entity
+  id: BaseOverlayAnimation
+  abstract: true
+  components:
+  - type: OverlayAnimation
+
+- type: entity
+  id: DebugOverlayAnimation
+  parent: BaseOverlayAnimation
+  name: debug overlay effect
+  suffix: Debug
+  components:
+  - type: OverlayAnimation
+    scale: 10.0
+    position: 100,100
+    animations:
+    - !type:FadeOverlayAnimation
+      startDelay: 1.0
+      duration: 1.0
+      startOpacity: 1.0
+      endOpacity: 0.0
+    - !type:FadeOverlayAnimation
+      startDelay: 2.0
+      duration: 1.0
+      startOpacity: 0.0
+      endOpacity: 1.0
+    - !type:FadeOverlayAnimation
+      startDelay: 3.0
+      duration: 1.0
+      startOpacity: 1.0
+      endOpacity: 0.0
+    - !type:FadeOverlayAnimation
+      startDelay: 4.0
+      duration: 1.0
+      startOpacity: 0.0
+      endOpacity: 1.0
+  - type: OverlaySprite
+  - type: Sprite
+    sprite: Tiles/Misc/floortrap.rsi
+    state: floortrap
+  - type: TimedDespawn
+    lifetime: 5

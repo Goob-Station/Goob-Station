@@ -510,4 +510,14 @@ public sealed partial class GoobCVars
     #endregion
 
     #endregion
+
+    #region Overlay Animations
+
+    /// <summary>
+    ///     Should we render overlay animations on the screen. Disable this to reduce lag
+    /// </summary>
+    public static readonly CVarDef<bool> OverlayAnimationsEnabled =
+        CVarDef.Create("overlay_animations.enabled", true, CVar.CLIENT | CVar.ARCHIVE);
+
+    #endregion
 }

@@ -1,0 +1,18 @@
+﻿namespace Content.Goobstation.Shared.OverlaysAnimation.Components;
+
+/// <summary>
+/// Draws a sprite on AnimationsOverlay.
+/// Also requires OverlayAnimationComponent and SpriteComponent on parent entity to work
+/// </summary>
+[RegisterComponent]
+public sealed partial class OverlaySpriteComponent : OverlayObjectComponent
+{
+    /// <summary>
+    /// If specified, will copy SpriteComponent of this entity BEFORE initialize.
+    /// </summary>
+    /// <remarks>
+    /// Set this value BEFORE the entity is initialized, otherwise it will be too late!!
+    /// </remarks>
+    [ViewVariables]
+    public NetEntity? OverrideSprite;
+}
