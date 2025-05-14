@@ -36,7 +36,7 @@
       endOpacity: 1.0
   - type: OverlaySprite
   - type: Sprite
-    sprite: Tiles/Misc/floortrap.rsi
-    state: floortrap
+    sprite: /Textures/Objects/Fun/goldbikehorn.rsi
+    state: icon
   - type: TimedDespawn
     lifetime: 5
