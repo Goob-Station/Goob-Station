@@ -146,7 +146,7 @@
       temperature: 293.15
     tankLowPressure: 30.0
   - type: Explosive
-    explosionType: Default
+    explosionType: MicroBomb
     maxIntensity: 20
   - type: MeleeWeapon
     animationRotation: -45 # WWDP
