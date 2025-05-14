@@ -837,7 +837,7 @@ namespace Content.Server.Database
         public async Task<TimeSpan> GetLastRolledAntag(NetUserId userId) // Goobstation
         {
             await using var db = await GetDb();
-            Timespan? lastRolled = await db.DbContext.Player
+            TimeSpan? lastRolled = await db.DbContext.Player
                 .Where(dbPlayer => dbPlayer.UserId == userId)
                 .Select(dbPlayer => dbPlayer.LastRolledAntag)
                 .SingleOrDefaultAsync();
