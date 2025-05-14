@@ -59,7 +59,7 @@ namespace Content.Server._Goobstation.Antag
         /// </summary>
         private async Task SetTimeAsyncInternal(NetUserId userId, TimeSpan time, TimeSpan oldTime)
         {
-            Task<bool> setTimeTask = _db.SetLastRolledAntag(userId, time, cancellationToken);
+            Task<bool> setTimeTask = _db.SetLastRolledAntag(userId, time);
             TrackPending(setTimeTask); // Track the Task<bool>
             bool success = await setTimeTask;
 
