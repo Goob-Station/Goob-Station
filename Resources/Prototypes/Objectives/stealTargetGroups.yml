@@ -286,13 +286,6 @@
     state: icon
 
 - type: stealTargetGroup
-  id: Bible
-  name: steal-target-groups-bible
-  sprite:
-    sprite: Objects/Specific/Chapel/bible.rsi
-    state: icon
-
-- type: stealTargetGroup
   id: ClothingNeckGoldmedal
   name: steal-target-groups-clothing-neck-goldmedal
   sprite:

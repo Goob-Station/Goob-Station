@@ -46,7 +46,6 @@ steal-target-groups-ame-part-flatpack =  AME flatpack
 steal-target-groups-salvage-expeditions-computer-circuitboard = salvage expeditions computer board
 steal-target-groups-cargo-shuttle-console-circuitboard = cargo shuttle console board
 steal-target-groups-clothing-eyes-hud-beer = beer goggles
-steal-target-groups-bible = bible
 steal-target-groups-clothing-neck-goldmedal = gold medal of crewmanship
 steal-target-groups-clothing-neck-clownmedal = clown medal
 steal-target-groups-wanted-list-cartridge = wanted list cartridge
