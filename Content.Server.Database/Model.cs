@@ -774,6 +774,8 @@ namespace Content.Server.Database
 
         public int ServerCurrency { get; set; } // Goobstation - Goob coin
 
+        public DateTime LastRolledAntag { get; set; } // Goobstation
+
         public DateTime? LastReadRules { get; set; }
 
         public List<AdminNote> AdminNotesReceived { get; set; } = null!;

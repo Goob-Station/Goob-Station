@@ -272,6 +272,9 @@ namespace Content.Server.Database
         Task<int> GetServerCurrency(NetUserId userId); // Goobstation
         Task SetServerCurrency(NetUserId userId, int currency); // Goobstation
         Task<int> ModifyServerCurrency(NetUserId userId, int currencyDelta); // Goobstation
+
+        Task SetLastRolledAntag(NetUserId userId, DateTimeOffset to); // Goobstation
+        Task<DateTimeOffset> GetLastRolledAntag(NetUserId userId); // Goobstation
         #endregion
 
         #region Connection Logs
@@ -759,6 +762,18 @@ namespace Content.Server.Database
         {
             DbReadOpsMetric.Inc();
             return RunDbCommand(() => _db.ModifyServerCurrency(userId, currencyDelta));
+        }
+
+        public Task<DateTimeOffset> GetLastRolledAntag(NetUserId userId) // Goobstation
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetLastRolledAntag(userId));
+        }
+
+        public Task SetLastRolledAntag(NetUserId userId, DateTimeOffset to) // Goobstation
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.SetLastRolledAntag(userId, to));
         }
 
         public Task<int> AddConnectionLogAsync(

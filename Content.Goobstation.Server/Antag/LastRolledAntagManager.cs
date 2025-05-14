@@ -1,0 +1,95 @@
+using Content.Server.Database;
+using Robust.Server.Player;
+using Robust.Shared.Asynchronous;
+using Robust.Shared.Network;
+using System;
+using System.Threading.Tasks;
+
+namespace Content.Goobstation.Server.Antag
+{
+    public sealed class LastRolledAntagManager
+    {
+        [Dependency] private readonly IServerDbManager _db = default!;
+        [Dependency] private readonly ITaskManager _task = default!;
+        [Dependency] private readonly IPlayerManager _player = default!;
+        private readonly List<Task> _pendingSaveTasks = new();
+        private ISawmill _sawmill = default!;
+
+        public void Initialize()
+        {
+            _sawmill = Logger.GetSawmill("last_antag");
+        }
+
+        /// <summary>
+        /// Saves last rolled values to the database before allowing the server to shutdown.
+        /// </summary>
+        public void Shutdown()
+        {
+            _task.BlockWaitOnTask(Task.WhenAll(_pendingSaveTasks));
+        }
+
+        /// <summary>
+        /// Sets a player's last rolled antag time.
+        /// </summary>
+        public DateTimeOffset SetLastRolled(NetUserId userId, DateTimeOffset to)
+        {
+            var oldTime = Task.Run(() => SetTimeAsync(userId, to)).GetAwaiter().GetResult();
+            _sawmill.Info($"Setting {userId} last rolled antag to {to} from {oldTime}");
+            return oldTime;
+        }
+
+        /// <summary>
+        /// Gets a player's last rolled antag time.
+        /// </summary>
+        public DateTimeOffset GetLastRolled(NetUserId userId)
+        {
+            return Task.Run(() => GetTimeAsync(userId)).GetAwaiter().GetResult();
+        }
+
+        #region Internal/Async tasks
+
+        /// <summary>
+        /// Sets a player's last rolled antag time.
+        /// </summary>
+        private async Task SetTimeAsyncInternal(NetUserId userId, DateTimeOffset time, DateTimeOffset oldTime)
+        {
+            var task = Task.Run(() => _db.SetLastRolledAntag(userId, time));
+            TrackPending(task);
+            await task;
+        }
+
+        /// <summary>
+        /// Sets a player's last rolled antag time.
+        /// </summary>
+        private async Task<DateTimeOffset> SetTimeAsync(NetUserId userId, DateTimeOffset to)
+        {
+            var oldTime = GetLastRolled(userId);
+            await SetTimeAsyncInternal(userId, to, oldTime);
+            return oldTime;
+        }
+
+        /// <summary>
+        /// Gets a player's last rolled antag time.
+        /// </summary>
+        private async Task<DateTimeOffset> GetTimeAsync(NetUserId userId) => await _db.GetLastRolledAntag(userId);
+
+        /// <summary>
+        /// Track a database save task to make sure we block server shutdown on it.
+        /// </summary>
+        private async void TrackPending(Task task)
+        {
+            _pendingSaveTasks.Add(task);
+
+            try
+            {
+                await task;
+            }
+            finally
+            {
+                _pendingSaveTasks.Remove(task);
+            }
+        }
+
+        #endregion
+    }
+}
