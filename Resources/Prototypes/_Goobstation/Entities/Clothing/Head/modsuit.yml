@@ -796,6 +796,12 @@
     - type: Sprite
       sprite: _Goobstation/Clothing/Head/Modsuits/bloodredmodsuit.rsi
     - type: Armor
+      traumaDeductions:
+        Dismemberment: 0.5
+        OrganDamage: 0.5
+        BoneDamage: 0.5
+        VeinsDamage: 0
+        NerveDamage: 0
       modifiers:
         coefficients:
           Blunt: 0.90
@@ -824,6 +830,12 @@
     - type: Sprite
       sprite: _Goobstation/Clothing/Head/Modsuits/syndicateelitemodsuit.rsi
     - type: Armor
+      traumaDeductions:
+        Dismemberment: 0.5
+        OrganDamage: 0.5
+        BoneDamage: 0.5
+        VeinsDamage: 0
+        NerveDamage: 0
       modifiers:
         coefficients:
           Blunt: 0.90
