@@ -10,22 +10,29 @@
 - type: body
   id: LaserRaptor
   name: "space dragon"
-  root: torso
+  root: chest
   slots:
     head:
       part: HeadAnimal
+      connections:
+      - chest
       organs:
         eyes: OrganLaserEyes
-    torso:
-      part: TorsoAnimal
+    chest:
+      part: ChestAnimal
       connections:
-      - legs
+      - groin
       - head
       organs:
         lungs: OrganAnimalLungs
+        heart: OrganAnimalHeart
+    groin:
+      part: GroinAnimal
+      connections:
+      - legs
+      organs:
         stomach: OrganAnimalStomach
         liver: OrganAnimalLiver
-        heart: OrganAnimalHeart
         kidneys: OrganAnimalKidneys
     legs:
       part: LegsAnimal

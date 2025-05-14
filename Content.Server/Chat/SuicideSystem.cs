@@ -66,6 +66,8 @@
 // SPDX-FileCopyrightText: 2024 stellar-novas <stellar_novas@riseup.net>
 // SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -87,7 +89,7 @@ using Content.Shared.Tag;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Shared._EinsteinEngines.Silicon.Components;
-
+using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components; // Shitmed Change
 
 namespace Content.Server.Chat;
 
@@ -151,6 +153,7 @@ public sealed class SuicideSystem : EntitySystem
         {
             _adminLogger.Add(LogType.Mind, $"{EntityManager.ToPrettyString(victim):player} suicided.");
         }
+
         return true;
     }
 
@@ -242,9 +245,10 @@ public sealed class SuicideSystem : EntitySystem
         if (HasComp<SiliconComponent>(victim)) // Goobstation
             args.DamageType ??= "Shock";
         else
-            args.DamageType ??= "Bloodloss";
+            args.DamageType ??= "Slash";
 
         _suicide.ApplyLethalDamage(victim, args.DamageType);
+
         args.Handled = true;
     }
 }
