@@ -21,3 +21,15 @@ group-organ-status = {$organ} at {$capacity}% functioning capacity
 group-solution-name = {$solution}
 group-solution-unknown = Unknown
 group-solution-contents = {$reagent}: {$quantity}
+
+condition-body-bleeding-Head = • {$entity}'s head is bleeding.
+condition-body-bleeding-Chest = • {$entity}'s torso is bleeding.
+condition-body-bleeding-Groin = • {$entity}'s groin is bleeding.
+condition-body-bleeding-LeftArm = • {$entity}'s left arm is bleeding.
+condition-body-bleeding-RightArm = • {$entity}'s right arm is bleeding.
+condition-body-bleeding-LeftLeg = • {$entity}'s left leg is bleeding.
+condition-body-bleeding-RightLeg = • {$entity}'s right leg is bleeding.
+condition-body-bleeding-LeftHand = • {$entity}'s left hand is bleeding.
+condition-body-bleeding-RightHand = • {$entity}'s right hand is bleeding.
+condition-body-bleeding-LeftFoot = • {$entity}'s left foot is bleeding.
+condition-body-bleeding-RightFoot = • {$entity}'s right foot is bleeding.
