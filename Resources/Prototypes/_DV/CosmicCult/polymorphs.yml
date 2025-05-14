@@ -76,6 +76,16 @@
     duration: 12
     polymorphSound: /Audio/_DV/CosmicCult/ability_lapse.ogg
 
+- type: polymorph
+  id: CosmicFragmentationWisp
+  configuration:
+    entity: CosmicPolymorphEntChantryWisp
+    forced: true
+    inventory: None
+    transferName: true
+    transferDamage: false
+    duration: 999
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: BaseStructure
@@ -196,3 +206,27 @@
     layers:
       - state: crab
         shader: unshaded
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: CosmicPolymorphEnt
+  id: CosmicPolymorphEntChantryWisp
+  components:
+  - type: Sprite
+    sprite: _DV/CosmicCult/Mobs/wisp.rsi
+    layers:
+      - state: wisp
+        shader: unshaded
+  - type: Speech
+    enabled: true
+  - type: Transform
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        mask:
+        - LargeMobMask
+        layer:
+        - WallLayer

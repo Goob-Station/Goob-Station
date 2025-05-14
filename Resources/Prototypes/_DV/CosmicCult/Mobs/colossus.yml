@@ -1,0 +1,128 @@
+- type: entity
+  parent: [ BaseSimpleMob, FlyingMobBase ]
+  id: MobCosmicColossus
+  name: entropic colossus
+  components:
+  - type: CosmicColossus
+  - type: AntagImmune
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _DV/CosmicCult/Mobs/colossus.rsi
+    layers:
+    - state: unshaded_bg
+      shader: unshaded
+    - state: colossus
+    - state: unshaded_fg
+      shader: unshaded
+  - type: Physics
+    bodyType: KinematicController
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.25
+        density: 2500
+        mask:
+        - FlyingMobMask
+        layer:
+        - FlyingMobLayer
+  - type: WarpPoint
+    follow: true
+  - type: Body
+    prototype: Animal
+  - type: Speech
+    speechSounds: Bass
+    speechVerb: Robotic
+    allowedEmotes: []
+  - type: TypingIndicator
+    proto: robot
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: epicene
+  - type: ProtectedFromStepTriggers
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 3
+  - type: AmbientSound
+    volume: +2
+    range: 18
+    sound:
+      path: /Audio/_DV/CosmicCult/colossus_ambience.ogg
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - DoorBumpOpener
+    - Unimplantable
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      500: Dead
+  - type: PointLight
+    color: "#42a4ae"
+    radius: 4
+    energy: 4
+    softness: 1
+    castShadows: false
+  - type: LightBehaviour
+    behaviours:
+    - !type:FadeBehaviour
+      interpolate: Linear
+      minDuration: 5.5
+      maxDuration: 5.5
+      startValue: 1
+      endValue: 4
+      property: Energy
+      enabled: true
+      isLooped: true
+      reverseWhenFinished: true
+  - type: ComplexInteraction
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Binary
+    - Common
+    - Science
+    - CosmicRadio
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Common
+    - Science
+    - CosmicRadio
+  - type: ZombieImmune
+  - type: UserInterface
+    interfaces:
+      enum.SiliconLawsUiKey.Key:
+        type: SiliconLawBoundUserInterface
+        requireInputValidation: false
+      # enum.BorgUiKey.Key:
+      #   type: BorgBoundUserInterface
+  # - type: ActivatableUI
+  #   key: enum.BorgUiKey.Key
+  - type: SiliconLawBound
+  - type: ActionGrant
+    actions:
+    - ActionViewLaws
+  - type: SiliconLawProvider
+    laws: CosmicCultLaws
+
+  - type: NoSlip
+  - type: Puller
+    needsHands: false
+  - type: CombatMode
+  - type: MeleeWeapon
+    altDisarm: false
+    soundHit:
+        path: /Audio/Weapons/Xeno/alien_claw_flesh1.ogg
+    angle: 0
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 12
+        Piercing: 8

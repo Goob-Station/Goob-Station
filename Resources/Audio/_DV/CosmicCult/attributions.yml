@@ -35,6 +35,8 @@
   - glyph_trigger.ogg
   - door_open.ogg
   - door_close.ogg
+  - chantry_alarm.ogg
+  - colossus_ambience.ogg
   - cosmicweapon_swing.ogg
   - cosmicsword_hit.ogg
   - cosmicsword_glance.ogg
@@ -55,3 +57,9 @@
   license: "CC-BY-SA-3.0"
   copyright: "By AftrLite(GitHub) for Cosmic Cult. Made using a combination of (Creative Commons 0) samples from freesound.org and personally-recorded foley."
   source: "https://freesound.org/"
+
+- files:
+  - antag_cosmic_AI_briefing.ogg
+  license: "CC-BY-SA-3.0"
+  copyright: "A bitcrushy and digitized edit of Octofoss' antag_cosmic_briefing.ogg by AftrLite(Github)."
+  source: "https://octofoss.bandcamp.com/"

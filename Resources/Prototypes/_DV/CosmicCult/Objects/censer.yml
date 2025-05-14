@@ -8,7 +8,7 @@
 - type: entity
   parent: BaseItem
   id: CosmicCenser
-  name: censer
+  name: ardent censer
   description: Cleanses and sanctifies the air around it.
   components:
   - type: Item

@@ -6,6 +6,7 @@
 
 using Content.Goobstation.Common.Religion;
 using Content.Server._DV.CosmicCult.Components;
+using Content.Server.Actions;
 using Content.Server.Atmos.Components;
 using Content.Goobstation.Shared.Bible; // Goobstation - Bible
 using Content.Server.Popups;
@@ -22,6 +23,7 @@ namespace Content.Server._DV.CosmicCult.EntitySystems;
 
 public sealed class CosmicRiftSystem : EntitySystem
 {
+    [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
@@ -59,6 +61,12 @@ public sealed class CosmicRiftSystem : EntitySystem
         if (cultist.CosmicEmpowered)
         {
             _popup.PopupEntity(Loc.GetString("cosmiccult-rift-alreadyempowered"), args.User, args.User);
+            return;
+        }
+
+        if (cultist.WasEmpowered)
+        {
+            _popup.PopupEntity(Loc.GetString("cosmiccult-rift-wasempowered"), args.User, args.User);
             return;
         }
 
@@ -134,13 +142,18 @@ public sealed class CosmicRiftSystem : EntitySystem
 
         args.Handled = true;
         var tgtpos = Transform(target).Coordinates;
+        var actionEnt = _actions.AddAction(uid, uid.Comp.CosmicFragmentationAction);
         Spawn(uid.Comp.AbsorbVFX, tgtpos);
+        comp.ActionEntities.Add(actionEnt);
+        comp.WasEmpowered = true;
         comp.CosmicEmpowered = true;
         comp.CosmicSiphonQuantity = 2;
         comp.CosmicGlareRange = 10;
         comp.CosmicGlareDuration = TimeSpan.FromSeconds(10);
         comp.CosmicGlareStun = TimeSpan.FromSeconds(1);
-        comp.CosmicImpositionDuration = TimeSpan.FromSeconds(7.2);
+        comp.CosmicImpositionDuration = TimeSpan.FromSeconds(7.4);
+        comp.CosmicBlankDuration = TimeSpan.FromSeconds(26);
+        comp.CosmicBlankDelay = TimeSpan.FromSeconds(0.4);
         comp.Respiration = false;
         EnsureComp<CosmicEmpoweredSpeedComponent>(args.User);
         EnsureComp<PressureImmunityComponent>(args.User);

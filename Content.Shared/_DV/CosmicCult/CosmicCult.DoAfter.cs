@@ -21,10 +21,5 @@ public sealed partial class StartFinaleDoAfterEvent : SimpleDoAfterEvent;
 [Serializable, NetSerializable]
 public sealed partial class CancelFinaleDoAfterEvent : SimpleDoAfterEvent;
 
-
-// Rogue Ascended
 [Serializable, NetSerializable]
-public sealed partial class EventRogueInfectionDoAfter : SimpleDoAfterEvent;
-
-[Serializable, NetSerializable]
-public sealed partial class EventRogueSlumberDoAfter : SimpleDoAfterEvent;
+public sealed partial class EventCosmicFragmentationDoAfter : SimpleDoAfterEvent;

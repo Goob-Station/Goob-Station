@@ -14,6 +14,6 @@
     sprite: _DV/CosmicCult/Objects/lawboard.rsi
     state: icon
   - type: SiliconLawProvider
-    lawUploadSound: /Audio/_DV/CosmicCult/antag_cosmic_briefing.ogg
+    lawUploadSound: /Audio/_DV/CosmicCult/antag_cosmic_AI_briefing.ogg
     subverted: true
     laws: CosmicCultLaws

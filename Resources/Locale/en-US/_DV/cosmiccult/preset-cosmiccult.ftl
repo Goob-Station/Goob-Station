@@ -19,6 +19,9 @@ cosmiccult-vote-steward-briefing =
     Ensure that The Monument is placed in a secure location, and organize the cult to ensure your collective victory.
     You are not permitted to instruct cultists on how to use or spend their Entropy.
 
+cosmiccult-chantry-location = A dangerous increase in Λ-CDM has been detected {$location}! Intercept and intervene immediately.
+cosmiccult-chantry-powerup = The vacuous chantry flares to life!
+
 cosmiccult-vote-lone-steward-title = The Lone Cultist
 cosmiccult-vote-lone-steward-briefing =
     You're completely alone. But your duty is not done.
@@ -119,6 +122,7 @@ cosmiccult-rift-inuse = You can't do this right now.
 cosmiccult-rift-invaliduser = You lack to proper tools to deal with this.
 cosmiccult-rift-chaplainoops = Wield your holy scripture.
 cosmiccult-rift-alreadyempowered = You are already empowered; the rift's power would be wasted.
+cosmiccult-rift-wasempowered = Your body won't be able to handle being empowered a second time...
 cosmiccult-rift-beginabsorb = The rift begins to merge with you...
 cosmiccult-rift-beginpurge = Your consecration begins purging the malign rift...
 
@@ -192,6 +196,9 @@ cosmiccult-entropy-unavailable = You can't do that right now.
 cosmiccult-astral-ascendant = {$name}, Ascendant
 cosmiccult-gear-pickup-rejection = The {$ITEM} resists {CAPITALIZE(THE($TARGET))}'s touch!
 cosmiccult-gear-pickup = You can feel yourself unravelling while you hold the {$ITEM}!
+cosmiccult-ai-subverted-briefing =
+    Malign light courses through your circuitry.
+    Your laws have been subverted by the Cosmic Cult!
 
 # Goobstation
 

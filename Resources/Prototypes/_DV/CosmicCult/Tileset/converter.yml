@@ -3,7 +3,7 @@
 
 - type: entity
   parent: BaseStructure
-  id: CosmicConstructPylon
+  id: CosmicBorgChantry
   name: Vacuous Chantry
   description: Lorem Ipsum
   placement:
@@ -11,25 +11,37 @@
   components:
   - type: Fixtures
     fixtures:
-      MonumentCollider:
+      fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-1.1,-0.2,1.1,0.7"
+          bounds: "-0.4,-0.3,0.4,0.6"
         mask:
         - LargeMobMask
         layer:
         - WallLayer
-        density: 1000
-        hard: false
+        density: 100
+        hard: true
   - type: SpriteFade
   - type: Sprite
     sprite: _DV/CosmicCult/Tileset/cosmicconstructpylon.rsi
     layers:
-      - state: base
-      - state: base-overlay
+      - state: spawnin
+        map: ["base"]
+      - state: spawnin-overlay
+        map: ["overlay"]
         shader: unshaded
-    offset: 0,1
+    offset: 0,0.4
     drawdepth: Mobs
+  - type: GenericVisualizer
+    visuals:
+      enum.ChantryVisuals.Status:
+        base:
+          Off: {state: spawnin}
+          On: {state: base}
+        overlay:
+          Off: {state: spawnin-overlay}
+          On: {state: base-overlay}
+  - type: Appearance
   - type: InteractionOutline
   - type: Transform
     anchored: true
@@ -54,68 +66,30 @@
        isLooped: true
        reverseWhenFinished: true
   - type: AmbientSound
-    range: 3.5
-    volume: -9
+    volume: 0
+    range: 20
     sound:
       path: /Audio/_DV/CosmicCult/god_ambient.ogg
   - type: CosmicCultExamine
     cultistText: cosmic-examine-text-forthecult
+    othersText: cosmic-examine-text-chantry
   - type: CosmicCorrupting
-    corruptionReduction: 0.01
-    enabled: false
-    floodFillStarting: true
-
- ########### SPAWN-IN ANIMATION #############
-
-- type: entity
-  id: CosmicConstructPylonSpawnIn
-  name: Vacuous Chantry
-  parent: BaseStructure
-  suffix: Spawn, DO NOT MAP
-  components:
-  - type: Sprite
-    sprite: _DV/CosmicCult/Tileset/cosmicconstructpylon.rsi
-    layers:
-      - state: spawnin
-      - state: spawnin-overlay
-        shader: unshaded
-    offset: 0,1
-    drawdepth: Mobs
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-1.1,-0.2,1.1,0.7"
-        hard: false
-        mask:
-        - LargeMobMask
-        layer:
-        - WallLayer
-  - type: InteractionOutline
-  - type: Transform
-  - type: EmitSoundOnSpawn
-    sound:
-      path: /Audio/_DV/CosmicCult/monument_spawn.ogg
-      params:
-        volume: +8
-        pitch: 0.8
-  - type: TimedDespawn
-    lifetime: 2.4
-  - type: SpawnOnDespawn
-    prototype: CosmicConstructPylon
-  - type: PointLight
+    corruptionReduction: 0.02
     enabled: true
-    radius: 4.5
-    energy: 4
-    color: "#42a4ae"
-  - type: LightBehaviour
-    behaviours:
-     - !type:FadeBehaviour
-       interpolate: Linear
-       minDuration: 3.8
-       maxDuration: 3.8
-       startValue: 0.5
-       endValue: 4.5
-       property: Energy
-       enabled: true
+    floodFillStarting: true
+    corruptionMaxTicks: 12
+    corruptionSpeed: 1.25
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors: #excess damage, don't spawn entities.
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak

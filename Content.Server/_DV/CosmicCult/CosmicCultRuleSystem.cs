@@ -178,8 +178,15 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             component.StewardVoteTimer = null;
             StewardVote();
         }
-        if (component.PrepareFinaleTimer is { } finalePrepTimer
-            && _timing.CurTime >= finalePrepTimer)
+        if (component.ExtraRiftTimer is { } riftTimer && _timing.CurTime >= riftTimer)
+        {
+            component.ExtraRiftTimer = _timing.CurTime + _rand.Next(TimeSpan.FromSeconds(230), TimeSpan.FromSeconds(360)); //3min50 to 6min between new rifts. Seconds instead of minutes for granularity.
+            if (TryFindRandomTile(out var _, out var _, out var _, out var coords))
+            {
+                Spawn("CosmicMalignRift", coords);
+            }
+        }
+        if (component.PrepareFinaleTimer is { } finalePrepTimer && _timing.CurTime >= finalePrepTimer)
         {
             component.PrepareFinaleTimer = null;
 
@@ -193,11 +200,14 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         if (component.Tier3DelayTimer is { } tier3Timer && _timing.CurTime >= tier3Timer)
         {
             component.Tier3DelayTimer = null;
+            component.ExtraRiftTimer = null; // stop spawning more rifts
 
             //do spooky things
             var query = EntityQueryEnumerator<CosmicCultComponent>();
             while (query.MoveNext(out var cultist, out var cultComp))
+            {
                 EnsureComp<CosmicStarMarkComponent>(cultist);
+            }
 
             var sender = Loc.GetString("cosmiccult-announcement-sender");
             var mapData = _map.GetMap(_transform.GetMapId(component.MonumentInGame.Owner.ToCoordinates()));
@@ -250,6 +260,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         if (component.Tier2DelayTimer is { } tier2Timer && _timing.CurTime >= tier2Timer)
         {
             component.Tier2DelayTimer = null;
+            component.ExtraRiftTimer = _timing.CurTime + TimeSpan.FromSeconds(15);
 
             //do spooky effects
             var sender = Loc.GetString("cosmiccult-announcement-sender");
@@ -263,7 +274,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
                 Color.FromHex("#cae8e8"));
             _audio.PlayGlobal(_tier2Sound, Filter.Broadcast(), false, AudioParams.Default);
 
-            for (var i = 0; i < component.TotalCrew / 4; i++) // spawn # malign rifts equal to 25% of the playercount
+            for (var i = 0; i < component.TotalCrew / 6; i++) // spawn # malign rifts equal to 16.67% of the playercount
             {
                 if (!TryFindRandomTile(out var _, out var _, out var _, out var coords))
                     continue;
@@ -532,7 +543,9 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         var query = EntityQueryEnumerator<CosmicEntropyConditionComponent>();
 
         while (query.MoveNext(out _, out var entropyComp))
+        {
             entropyComp.Siphoned = cult.Comp.EntropySiphoned;
+        }
     }
     #endregion
 
@@ -603,7 +616,9 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
             var cultistQuery = EntityQueryEnumerator<CosmicCultComponent>();
             while (cultistQuery.MoveNext(out var cultist, out var cultistComp))
+            {
                 _antag.SendBriefing(cultist, Loc.GetString("cosmiccult-monument-stage3-briefing", ("time", _t3RevealDelay.TotalSeconds)), Color.FromHex("#4cabb3"), _monumentAlert);
+            }
 
             _monument.MonumentTier3(uid);
             _monument.UpdateMonumentReqsForTier(uid, cult.Comp.CurrentTier);
@@ -617,7 +632,9 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
             var cultistQuery = EntityQueryEnumerator<CosmicCultComponent>();
             while (cultistQuery.MoveNext(out var cultist, out var cultistComp))
+            {
                 _antag.SendBriefing(cultist, Loc.GetString("cosmiccult-monument-stage2-briefing", ("time", _t2RevealDelay.TotalSeconds)), Color.FromHex("#4cabb3"), _monumentAlert);
+            }
 
             _monument.MonumentTier2(uid);
             cult.Comp.CurrentTier = 2;
@@ -764,7 +781,9 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             cultComp.EntropyBudget = 26; // pity balance
 
             foreach (var influenceProto in _protoMan.EnumeratePrototypes<InfluencePrototype>().Where(influenceProto => influenceProto.Tier == 2))
+            {
                 cultComp.UnlockedInfluences.Add(influenceProto.ID);
+            }
         }
 
         Dirty(uid, cultComp);
@@ -839,6 +858,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         cosmicGamerule.TotalCult--;
         cosmicGamerule.Cultists.Remove(uid);
 
+        // Goobstation?
         // You cut the heads of the snake, but the snake will grow a new head.
         if (cosmicGamerule.TotalCult == 1)
         {
