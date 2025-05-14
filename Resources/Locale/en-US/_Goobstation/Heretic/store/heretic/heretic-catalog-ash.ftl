@@ -28,7 +28,7 @@ knowledge-path-ash-s1-desc =
     The City Guard know their watch. If you ask them at night, they may tell you about the ashy lantern.
 
     Opens up the Path of Ash to you.
-    Allows you to transmute a match and a knife into an Ashen Blade.
+    Allows you to transmute a match and a knife into an Ashen Blade. Limit of two at a time.
 
 knowledge-path-ash-s2-name = Grasp of Ash
 knowledge-path-ash-s2-desc =
@@ -50,6 +50,7 @@ knowledge-path-ash-s4-desc =
 
     Your Mansus Grasp now applies the Mark of Ash. The mark is triggered from an attack with your Ashen Blade.
     When triggered, the victim takes additional stamina and burn damage, and the mark is transferred to a nearby heathen.
+    Damage dealt is decreased with each transfer.
 
 knowledge-path-ash-s5-name = Volcanic Blast
 knowledge-path-ash-s5-desc =

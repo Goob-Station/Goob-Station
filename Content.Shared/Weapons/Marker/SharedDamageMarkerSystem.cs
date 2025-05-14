@@ -15,6 +15,7 @@
 // SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -35,10 +36,10 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
+using Content.Shared._Shitmed.Targeting; // Shitmed Change
 // Lavaland Change
 using Content.Shared._Lavaland.Weapons.Marker;
 using Content.Shared._Lavaland.Mobs;
-
 namespace Content.Shared.Weapons.Marker;
 
 public abstract class SharedDamageMarkerSystem : EntitySystem
@@ -65,7 +66,7 @@ public abstract class SharedDamageMarkerSystem : EntitySystem
         _audio.PlayPredicted(component.Sound, uid, args.User);
 
         if (TryComp<LeechOnMarkerComponent>(args.Used, out var leech))
-            _damageable.TryChangeDamage(args.User, leech.Leech, true, false, origin: args.Used);
+            _damageable.TryChangeDamage(args.User, leech.Leech * 11f, true, false, origin: args.Used, targetPart: TargetBodyPart.All); // Shitmed Change
 
         if (HasComp<DamageBoostOnMarkerComponent>(args.Used))
         {
@@ -110,7 +111,10 @@ public abstract class SharedDamageMarkerSystem : EntitySystem
         marker.Damage = new DamageSpecifier(component.Damage);
         marker.Marker = projectile.Weapon.Value;
         marker.EndTime = _timing.CurTime + component.Duration;
+        marker.Effect = component.Effect; // Pass the effect to the marker
+        marker.Sound = component.Sound; // Pass the effect to the marker
         component.Amount--;
+
         Dirty(args.OtherEntity, marker);
 
         if (_netManager.IsServer)

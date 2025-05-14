@@ -86,7 +86,7 @@
     soundHit:
       collection: MeatLaserImpact
 
-- type: entity #Goobstation, put here so the X-01 stuff isnt spread everywhere.
+- type: entity # Goobstation, put here so the X-01 stuff isnt spread everywhere.
   name: magnum bolt
   id: BulletEnergyGunMagnum
   parent: BaseBullet
@@ -101,9 +101,9 @@
       params:
         volume: 5
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/energy_bolt.rsi
     layers:
-    - state: heavylaser
+    - state: bolt_red_heavy
       shader: unshaded
   - type: Ammo
   - type: Physics

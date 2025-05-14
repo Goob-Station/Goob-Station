@@ -186,7 +186,11 @@
     speedModifier: 2.0
     useSound:
       collection: Welder
-    qualities: Welding
+    qualities:
+    - Welding
+    - Axing # Goobstation
+  - type: ToolTileCompatible # Goobstation
+    delay: 2
   - type: GuideHelp
     guides:
     - Abductors
