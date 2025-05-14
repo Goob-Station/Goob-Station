@@ -48,6 +48,9 @@
   - type: IgnitionSource
     temperature: 400
     ignited: true
+  - type: IgniteOnCollide
+    fireStacks: 5
+    count: 1000
   - type: TriggerOnCollide
     fixtureID: ignition
   - type: AlwaysHot

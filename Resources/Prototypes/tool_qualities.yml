@@ -55,8 +55,8 @@
 
 - type: tool
   id: Slicing
-  name: tool-quality-ignition-name
-  toolName: tool-quality-ignition-tool-name
+  name: tool-quality-slicing-name
+  toolName: tool-quality-slicing-tool-name
   spawn: KitchenKnife
   icon: { sprite: Objects/Weapons/Melee/kitchen_knife.rsi, state: icon }
 
