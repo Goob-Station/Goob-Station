@@ -6,7 +6,7 @@
   startingGear: MercenaryGear
   icon: "JobIconMercenary"
   supervisors: job-supervisors-captain
-  canBeAntag: false
+  canBeAntag: true
   access:
   - Maintenance
   - Service
