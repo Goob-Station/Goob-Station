@@ -602,7 +602,7 @@ public partial class PainSystem
 
     private void UpdatePainFeels(EntityUid nerveUid, NerveComponent? nerveComp = null)
     {
-        if (!Resolve(nerveUid, ref nerveComp))
+        if (!Resolve(nerveUid, ref nerveComp, false))
             return;
 
         var bodyPart = Comp<BodyPartComponent>(nerveUid);
@@ -699,7 +699,7 @@ public partial class PainSystem
 
     private void UpdateNerveSystemPain(EntityUid uid, NerveSystemComponent? nerveSys = null)
     {
-        if (!Resolve(uid, ref nerveSys)
+        if (!Resolve(uid, ref nerveSys, false)
             || !TryComp<OrganComponent>(uid, out var organ)
             || organ.Body == null)
             return;
@@ -871,7 +871,7 @@ public partial class PainSystem
         PainDamageTypes painType,
         NerveComponent? nerve = null)
     {
-        if (!Resolve(nerveUid, ref nerve))
+        if (!Resolve(nerveUid, ref nerve, false))
             return pain;
 
         var modifiedPain = pain * nerve.PainMultiplier;
