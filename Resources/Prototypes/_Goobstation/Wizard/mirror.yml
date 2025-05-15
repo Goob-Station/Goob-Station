@@ -41,6 +41,7 @@
     - Kobold
     - Monkey
     - Tajaran
+    - Shadowkin
   - type: ActivatableUI
     key: enum.WizardMirrorUiKey.Key
     singleUser: true
