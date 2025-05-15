@@ -9,15 +9,13 @@
     noRot: True
   - type: Item
     size: Huge
-  - type: EntityStorage # way of storing bloons inside bloons
-    canOpen: false
   - type: Damageable
     damageContainer: RubberBalloon # default damage container
   - type: Physics # has dynamic physics
     bodyType: Dynamic
   - type: Penetratable # projectile Able to pierce balloons
     penetrateDamage: 1
-    damagePenalty: 0.5
+    damagePenalty: 0.9
   - type: InteractionOutline
   - type: Fixtures # give it locker collision
     fixtures:
@@ -30,6 +28,15 @@
         - MachineMask
         layer:
         - MachineLayer
+        
+# Red Balloon
+- type: entity
+  name: red balloon
+  parent: BaseBalloon
+  id: redBalloon
+  components:
+  - type: Sprite
+    state: red
   - type: Destructible
     thresholds:
     - trigger:
@@ -41,18 +48,14 @@
           path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
           params:
             variation: 0.125
+      - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
+         spawn:
+          SpaceCash:    
+            min: 1
+            max: 10
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
         
-# Red Balloon
-- type: entity
-  name: red balloon
-  parent: BaseBalloon
-  id: redBalloon
-  components:
-  - type: Sprite
-    state: red
-   
 # Blue Balloon
 - type: entity
   name: blue balloon
@@ -61,17 +64,28 @@
   components:
   - type: Sprite
     state: blue
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:AllSelector
-        children:
-        - id: redBalloon
-          amount: !type:ConstantNumberSelector # <-- This will select exactly 3 of the specified entity
-          value: 1  
-    
-    
-    
-    
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1           # balloon health
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
+          params:
+            variation: 0.125
+      - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
+         spawn:
+          SpaceCash:    
+            min: 1
+            max: 10
+          redBalloon:    
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+   
 # Green Balloon
 - type: entity
   name: green balloon
@@ -80,6 +94,27 @@
   components:
   - type: Sprite
     state: green
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1           # balloon health
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
+          params:
+            variation: 0.125
+      - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
+         spawn:
+          SpaceCash:    
+            min: 1
+            max: 10
+          blueBalloon:    
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 # Yellow Balloon
 - type: entity
@@ -89,7 +124,28 @@
   components:
   - type: Sprite
     state: yellow
-    
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1           # balloon health
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
+          params:
+            variation: 0.125
+      - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
+         spawn:
+          SpaceCash:    
+            min: 1
+            max: 10
+          greenBalloon:    
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+        
 # Pink Balloon
 - type: entity
   name: pink balloon
@@ -98,7 +154,27 @@
   components:
   - type: Sprite
     state: pink
-    
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1           # balloon health
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
+          params:
+            variation: 0.125
+      - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
+         spawn:
+          SpaceCash:    
+            min: 1
+            max: 10
+          yellowBalloon:    
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 # Black Balloon
 - type: entity
   name: black balloon
@@ -109,7 +185,27 @@
     state: black
   - type: Damageable
     damageContainer: BlackBalloon
-
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1           # balloon health
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
+          params:
+            variation: 0.125
+      - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
+         spawn:
+          SpaceCash:    
+            min: 5
+            max: 10
+          pinkBalloon:    
+            min: 2
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 # White Balloon
 - type: entity
   name: white balloon
@@ -118,3 +214,119 @@
   components:
   - type: Sprite
     state: white
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1           # balloon health
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
+          params:
+            variation: 0.125
+      - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
+         spawn:
+          SpaceCash:    
+            min: 5
+            max: 10
+          pinkBalloon:    
+            min: 2
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ] 
+# Zebra Balloon
+- type: entity
+  name: zebra balloon
+  parent: BaseBalloon
+  id: zebraBalloon
+  components:
+  - type: Sprite
+    state: zebra
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1           # balloon health
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
+          params:
+            variation: 0.125
+      - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
+         spawn:
+          SpaceCash:    
+            min: 10
+            max: 15
+          whiteBalloon:    
+            min: 1
+            max: 1
+          blackBalloon:    
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+# steel balloon
+- type: entity
+  name: steel balloon
+  parent: BaseBalloon
+  id: steelBalloon
+  components:
+  - type: Sprite
+    state: steel
+  - type: Damageable        # only damagable via heat
+    damageContainer: SteelBalloon
+  - type: Penetratable # projectile Able to pierce balloons
+    penetrateDamage: 1000
+    damagePenalty: 1000
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1           # balloon health
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
+          params:
+            variation: 0.125
+      - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
+         spawn:
+          SpaceCash:    
+            min: 10
+            max: 15
+          blackBalloon:    
+            min: 2
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+# rainbow balloon
+- type: entity
+  name: rainbow balloon
+  parent: BaseBalloon
+  id: rainbowBalloon
+  components:
+  - type: Sprite
+    state: rainbow
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1           # balloon health
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
+          params:
+            variation: 0.125
+      - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
+         spawn:
+          SpaceCash:    
+            min: 20
+            max: 25
+          zebraBalloon:    
+            min: 2
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]

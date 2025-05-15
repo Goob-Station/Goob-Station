@@ -8,3 +8,8 @@
   id: BlackBalloon
   supportedGroups:
   - Brute
+  
+- type: damageContainer
+  id: SteelBalloon
+  supportedGroups:
+  - Burn
