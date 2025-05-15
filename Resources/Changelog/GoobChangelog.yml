@@ -9358,3 +9358,13 @@ Entries:
       message: Added molotov cocktail
   id: 1049
   time: '2025-05-14T21:52:26.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Added a big shotgun 150 telecrystals.
+    - type: Fix
+      message: >-
+        You can now shoot while lying down, your bullets won't hit absolutely
+        everything even if you don't aim your cursor.
+  id: 1050
+  time: '2025-05-15T01:56:12.0000000+00:00'
