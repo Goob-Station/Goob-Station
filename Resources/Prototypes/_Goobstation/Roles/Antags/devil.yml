@@ -22,13 +22,11 @@
     time: 18000 # 5 hours
   - !type:RoleTimeRequirement
     role: JobLawyer
-  - !type: RoleTimeRequirement
-    role: JobLawyer
     time: 18000 # 5 Hours
-  - !type: RoleTimeRequirement
+  - !type:RoleTimeRequirement
     role: JobNanotrasenRepresentative
     time: 18000 # 5 Hours
-  - !type: RoleTimeRequirement
+  - !type:RoleTimeRequirement
     role: JobHeadOfPersonnel
     time: 18000 # 5 Hours
 
