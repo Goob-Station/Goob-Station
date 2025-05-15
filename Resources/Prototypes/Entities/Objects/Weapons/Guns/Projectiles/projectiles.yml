@@ -945,8 +945,8 @@
     layers:
       - state: frag
   - type: EmpOnTrigger
-    range: 5
-    energyConsumption: 50000
+    range: 3 # Goobstation
+    energyConsumption: 360 # Goobstation
     disableDuration: 10
   - type: Ammo
     muzzleFlash: null

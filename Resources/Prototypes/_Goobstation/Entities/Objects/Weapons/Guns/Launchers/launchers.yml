@@ -20,6 +20,8 @@
     - Back
     - suitStorage
   - type: GunRequiresWield
+  - type: Gun
+    fireRate: 0.5
   - type: Item
     size: Huge
     sprite: _Goobstation/Objects/Weapons/Guns/Launchers/riotlauncher.rsi
