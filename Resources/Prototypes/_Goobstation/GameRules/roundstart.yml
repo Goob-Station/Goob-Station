@@ -324,7 +324,7 @@
     - prefRoles: [ Devil ]
       max: 2
       playerRatio: 12
-      jobBlacklist: [ Chaplain ]
+      jobBlacklist: [ Chaplain ] # GOOBSTATION
       mindRoles:
       - DevilMindRole
       startingGear: DevilStartingGear
