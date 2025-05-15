@@ -1,5 +1,7 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 // SPDX-FileCopyrightText: 2025 Scruq445 <storchdamien@gmail.com>
+// SPDX-FileCopyrightText: 2025 crasg <109207982+Scruq445@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
