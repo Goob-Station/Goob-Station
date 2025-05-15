@@ -1,0 +1,35 @@
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: constructionGraph
+  id: MolotovConstruction
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: UnlitMolotov
+          completed:
+          - !type:AdminLog
+            message: "Construction"
+            impact: High
+          steps:
+            - tag: MolotovConstruction
+              name: Glass Bottle
+              icon:
+                sprite: Objects/Consumable/Drinks/vodkabottle.rsi
+                state: icon
+              doAfter: 1
+            - material: Cloth
+              amount: 1
+              doAfter: 1
+    - node: UnlitMolotov
+      entity: UnlitMolotov
+      edges:
+        - to: LitMolotov
+          steps:
+            - tool: Ignition
+              doAfter: 0
+    - node: LitMolotov
+      entity: Molotov
