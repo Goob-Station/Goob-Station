@@ -1,6 +1,8 @@
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -56,15 +58,10 @@ namespace Content.Server._Shitmed.Body.Systems
                 || !TryComp(uid, out OrganComponent? organ)
                 || !organ.Body.HasValue
                 || !TryComp(organ.Body.Value, out BlindableComponent? blindable)
-                || organ.IntegrityCap - organ.OrganIntegrity <= 0)
+                || organ.OrganIntegrity <= 0)
                 return;
 
-            var adjustment = (int)(organ.IntegrityCap - organ.OrganIntegrity);
-
-            if (adjustment == 0)
-                return;
-
-            _blindableSystem.SetEyeDamage((organ.Body.Value, blindable), adjustment);
+            _blindableSystem.SetEyeDamage((organ.Body.Value, blindable), (int) organ.OrganIntegrity);
         }
 
         private void OnOrganEnabled(EntityUid uid, EyesComponent component, OrganEnabledEvent args)

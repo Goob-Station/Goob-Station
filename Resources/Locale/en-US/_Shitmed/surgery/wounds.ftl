@@ -1,6 +1,6 @@
-inspect-wound-Bleeding-minor = It's minorly bleeding
-inspect-wound-Bleeding-moderate = It's bleeding
-inspect-wound-Bleeding-severe = It's bleeding profusely
+inspect-wound-Bleeding-minor = minorly bleeding
+inspect-wound-Bleeding-moderate = bleeding
+inspect-wound-Bleeding-severe = bleeding profusely
 inspect-wound-Brute-minor = looks bruised
 inspect-wound-Brute-moderate = looks battered
 inspect-wound-Brute-severe = looks mangled
