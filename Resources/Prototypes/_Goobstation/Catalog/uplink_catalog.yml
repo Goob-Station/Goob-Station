@@ -18,9 +18,10 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
@@ -74,16 +75,6 @@
     Telecrystal: 8
   categories:
     -  UplinkDisruption
-
-- type: listing
-  id: UplinkBoxSkibidiRizz
-  name: Box of Skibidi Rizz
-  description: Contains 3 Skibidi Toilet cubes and 3 glasses of SigmaJuice... Chat, is this real?
-  productEntity: BoxSkibidiRizz
-  cost:
-    Telecrystal: 30
-  categories:
-    - UplinkDisruption
 
 - type: listing
   id: UplinkSarinGasGrenade
@@ -197,6 +188,17 @@
   productEntity: WeaponRifleBurner
   cost:
     Telecrystal: 100 # don't kill me piras
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkWeaponShotgunHeavy
+  name: uplink-weapon-heavy-shotgun-name
+  description: uplink-weapon-heavy-shotgun-desc
+  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Shotguns/magshot.rsi, state: icon }
+  productEntity: WeaponShotgunHeavy
+  cost:
+    Telecrystal: 150
   categories:
   - UplinkWeaponry
 
@@ -450,37 +452,6 @@
   categories:
     - UplinkAllies
 
-
-- type: listing
-  id: UplinkJermovCircuitBoard
-  name: jermov circuit board
-  description: A very un-dangerous Lawset to use when you want to cause the A.I. to get brainrot, use when bored.
-  productEntity: JermovCircuitBoard
-  cost:
-    Telecrystal: 15
-  categories:
-    -  UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Clown
-    - Passenger
-
-- type: listing
-  id: UplinkZooimovCircuitBoard
-  name: zooimov circuit board
-  description: A lawset for when you wanna keep all the stations animals safe and protected.
-  productEntity: ZooimovCircuitBoard
-  cost:
-    Telecrystal: 15
-  categories:
-    -  UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Zookeeper
-  saleLimit: 1
-
 - type: listing
   id: uplinkBeeNades    #goob - bee update
   name: uplink-beenades-name
@@ -562,7 +533,7 @@
   icon: { sprite: /Textures/Objects/Specific/Medical/syndi_implanter.rsi, state: implanter0 }
   productEntity: MindcontrolImplanter
   cost:
-    Telecrystal: 50 # Half the budget
+    Telecrystal: 25 # Half the budget #bounty someone want it cheaper.
   categories:
     - UplinkImplants
   conditions:
@@ -719,6 +690,28 @@
 #    Telecrystal: 40 # ammo should be a big cost for this
 #  categories:
 #  - UplinkAmmo
+
+- type: listing
+  id: UplinkMagazineShotgunHeavy
+  name: uplink-heavy-shotgun-magazine-name
+  description: uplink-heavy-shotgun-magazine-desc
+  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_shotgun.rsi, state: icon }
+  productEntity: MagazineShotgunHeavy
+  cost:
+    Telecrystal: 30
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: UplinkMagazineShotgunHeavySlug
+  name: uplink-heavy-shotgun-magazine-slug-name
+  description: uplink-heavy-shotgun-magazine-slug-desc
+  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_shotgun.rsi, state: icon2 }
+  productEntity: MagazineShotgunHeavySlug
+  cost:
+    Telecrystal: 40
+  categories:
+  - UplinkAmmo
 
 # 弾薬
 - type: listing
@@ -993,3 +986,18 @@
     blacklist:
       components:
       - SurplusBundle
+
+- type: listing
+  id: UplinkEnergyPickaxe
+  name: uplink-energy-pickaxe-name
+  description: uplink-energy-pickaxe-desc
+  icon: { sprite: /Textures/_NF/Objects/Weapons/Melee/energy_pickaxe.rsi, state: icon }
+  productEntity: NFEnergyPickaxe
+  cost:
+    Telecrystal: 32 # Worse than esword for combat, better for breaching
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:BuyerSpeciesCondition
+    whitelist:
+    - Dwarf # Rock and stone
