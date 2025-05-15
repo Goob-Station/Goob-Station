@@ -1,4 +1,4 @@
-namespace Content.Goobstation.Server.MantisBlades;
+namespace Content.Goobstation.Shared.MantisBlades;
 
 /// <summary>
 /// This component serves purely for examining the arm.

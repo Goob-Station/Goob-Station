@@ -1,6 +1,6 @@
 using Robust.Shared.Audio;
 
-namespace Content.Goobstation.Server.MantisBlades;
+namespace Content.Goobstation.Shared.MantisBlades;
 
 [RegisterComponent]
 public sealed partial class RightMantisBladeUserComponent : Component, IMantisBladeUserComponent
@@ -22,7 +22,4 @@ public sealed partial class RightMantisBladeUserComponent : Component, IMantisBl
 
     [ViewVariables(VVAccess.ReadOnly)]
     public EntityUid? BladeUid { get; set; }
-
-    [ViewVariables(VVAccess.ReadOnly)]
-    public bool DisabledByEmp { get; set; }
 }

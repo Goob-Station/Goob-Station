@@ -1,6 +1,6 @@
 using Robust.Shared.Audio;
 
-namespace Content.Goobstation.Server.MantisBlades;
+namespace Content.Goobstation.Shared.MantisBlades;
 
 public interface IMantisBladeUserComponent
 {
@@ -11,6 +11,4 @@ public interface IMantisBladeUserComponent
     SoundSpecifier? ExtendSound { get; set; }
 
     SoundSpecifier? RetractSound { get; set; }
-
-    bool DisabledByEmp { get; set; }
 }

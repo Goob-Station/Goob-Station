@@ -1,8 +1,7 @@
 using System.Linq;
 using Content.Goobstation.Shared.MantisBlades;
 using Content.Server.Emp;
-using Content.Shared.Actions;
-using Content.Shared.Examine;
+using Content.Shared.Emp;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Popups;
@@ -12,7 +11,6 @@ namespace Content.Goobstation.Server.MantisBlades;
 
 public sealed class MantisBladesSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -24,19 +22,8 @@ public sealed class MantisBladesSystem : EntitySystem
         SubscribeLocalEvent<RightMantisBladeUserComponent, ToggleRightMantisBladeEvent>(OnToggleRight);
         SubscribeLocalEvent<LeftMantisBladeUserComponent, ToggleLeftMantisBladeEvent>(OnToggleLeft);
 
-        SubscribeLocalEvent<RightMantisBladeUserComponent, ComponentInit>(OnInitRight);
-        SubscribeLocalEvent<LeftMantisBladeUserComponent, ComponentInit>(OnInitLeft);
-
         SubscribeLocalEvent<RightMantisBladeUserComponent, EmpPulseEvent>(OnEmpRight);
         SubscribeLocalEvent<LeftMantisBladeUserComponent, EmpPulseEvent>(OnEmpLeft);
-
-        SubscribeLocalEvent<RightMantisBladeUserComponent, EmpDisabledRemoved>(OnEmpDisabledRight);
-        SubscribeLocalEvent<LeftMantisBladeUserComponent, EmpDisabledRemoved>(OnEmpDisabledLeft);
-
-        SubscribeLocalEvent<RightMantisBladeUserComponent, ComponentShutdown>(OnShutdownRight);
-        SubscribeLocalEvent<LeftMantisBladeUserComponent, ComponentShutdown>(OnShutdownLeft);
-
-        SubscribeLocalEvent<MantisBladeArmComponent, ExaminedEvent>(OnExamined);
     }
 
     private bool ToggleBlade<T>(EntityUid ent) where T : Component, IMantisBladeUserComponent
@@ -44,17 +31,13 @@ public sealed class MantisBladesSystem : EntitySystem
         if (!TryComp<T>(ent, out var comp))
             return false;
 
-        if (comp.DisabledByEmp)
+        if (HasComp<EmpDisabledComponent>(ent))
         {
             _popup.PopupEntity(Loc.GetString("mantis-blade-emp"), ent, ent);
             return false;
         }
 
-        var location = typeof(T) == typeof(RightMantisBladeUserComponent)
-            ? HandLocation.Right
-            : HandLocation.Left;
-
-        var hand = _hands.EnumerateHands(ent).FirstOrDefault(hand => hand.Location == location);
+        var hand = _hands.EnumerateHands(ent).FirstOrDefault(hand => hand.Location == (typeof(T) == typeof(RightMantisBladeUserComponent) ? HandLocation.Right : HandLocation.Left));
         if (hand == null)
             return false;
 
@@ -79,7 +62,6 @@ public sealed class MantisBladesSystem : EntitySystem
         comp.BladeUid = newBlade;
         return true;
     }
-
     private void OnToggleRight(EntityUid uid, RightMantisBladeUserComponent component, ToggleRightMantisBladeEvent args)
     {
         args.Handled = ToggleBlade<RightMantisBladeUserComponent>(uid);
@@ -90,48 +72,15 @@ public sealed class MantisBladesSystem : EntitySystem
         args.Handled = ToggleBlade<LeftMantisBladeUserComponent>(uid);
     }
 
-    private void OnInitRight(Entity<RightMantisBladeUserComponent> ent, ref ComponentInit args)
+    private void OnEmpRight(EntityUid uid, RightMantisBladeUserComponent comp, ref EmpPulseEvent args)
     {
-        ent.Comp.ActionUid = _actions.AddAction(ent, ent.Comp.ActionProto);
+        args.Affected = true;
+        args.Disabled = true;
     }
 
-    private void OnInitLeft(Entity<LeftMantisBladeUserComponent> ent, ref ComponentInit args)
+    private void OnEmpLeft(EntityUid uid, LeftMantisBladeUserComponent comp, ref EmpPulseEvent args)
     {
-        ent.Comp.ActionUid = _actions.AddAction(ent, ent.Comp.ActionProto);
-    }
-
-    private void OnEmpRight(EntityUid uid, RightMantisBladeUserComponent comp, EmpPulseEvent args)
-    {
-        comp.DisabledByEmp = true;
-    }
-
-    private void OnEmpLeft(EntityUid uid, LeftMantisBladeUserComponent comp, EmpPulseEvent args)
-    {
-        comp.DisabledByEmp = true;
-    }
-    private void OnEmpDisabledRight(EntityUid uid, RightMantisBladeUserComponent comp, EmpDisabledRemoved args)
-    {
-        comp.DisabledByEmp = false;
-    }
-    private void OnEmpDisabledLeft(EntityUid uid, LeftMantisBladeUserComponent comp, EmpDisabledRemoved args)
-    {
-        comp.DisabledByEmp = false;
-    }
-
-    private void OnShutdownRight(Entity<RightMantisBladeUserComponent> ent, ref ComponentShutdown args)
-    {
-        Del(ent.Comp.BladeUid);
-        _actions.RemoveAction(ent.Comp.ActionUid);
-    }
-
-    private void OnShutdownLeft(Entity<LeftMantisBladeUserComponent> ent, ref ComponentShutdown args)
-    {
-        Del(ent.Comp.BladeUid);
-        _actions.RemoveAction(ent.Comp.ActionUid);
-    }
-
-    private void OnExamined(EntityUid uid, MantisBladeArmComponent component, ExaminedEvent args)
-    {
-        args.PushMarkup(Loc.GetString("mantis-blade-arm-examine"));
+        args.Affected = true;
+        args.Disabled = true;
     }
 }
