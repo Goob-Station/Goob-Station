@@ -248,6 +248,88 @@
       types:
         Piercing: 15
 
+# Heavy shotgun
+
+# Pellet
+- type: entity
+  id: BulletPelletHeavyHighExplosive
+  name: pellet (2 gauge)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBulletTrigger
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: ball
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 10
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: HardBomb # Boom
+    maxIntensity: 1
+    intensitySlope: 2
+    totalIntensity: 1
+
+- type: entity
+  id: BulletShrapnelHeavyHighExplosive
+  name: explosive shrapnel
+  categories: [ HideSpawnMenu ]
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: ball
+  - type: Explosive
+    explosionType: DemolitionCharge
+    totalIntensity: 15
+    intensitySlope: 5
+    maxIntensity: 5
+  - type: ExplodeOnTrigger
+  - type: TimedDespawn
+    lifetime: 6
+
+- type: entity
+  id: HeavyPelletShotgunSpread
+  categories: [ HideSpawnMenu ]
+  parent: BulletPelletHeavyHighExplosive
+  components:
+  - type: ProjectileSpread
+    proto: BulletPelletHeavyHighExplosive
+    count: 6
+    spread: 45
+
+- type: entity
+  id: BulletSlugHeavyHighExplosive
+  name: slug (2 gauge)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBulletTrigger
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: grenade
+  - type: Projectile
+    deleteOnCollide: false # ScatteringGrenade manages deletion
+    damage:
+      types:
+        Piercing: 30
+    armorPenetration: 0.5
+  - type: StaminaDamageOnCollide
+    damage: 40
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
+  - type: ScatteringGrenade
+    fillPrototype: BulletShrapnelHeavyHighExplosive
+    delayBeforeTriggerContents: 0.5
+    intervalBetweenTriggersMax: 0.2
+    capacity: 6
+    randomDistance: true
+    randomThrowDistanceMin: 4
+    randomThrowDistanceMax: 8
+    velocity: 6
+
+
 # MP-APERS
 - type: entity
   id: HighCaliberPelletGrenade
@@ -272,3 +354,4 @@
     proto: HighCaliberPelletGrenade
     count: 20
     spread: 15
+
