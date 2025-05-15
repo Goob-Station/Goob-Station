@@ -264,6 +264,7 @@
   - type: InputMover
   - type: MobMover
   - type: Body
+    bodyType: Simple
     prototype: Bot
   - type: GuideHelp
     guides:
