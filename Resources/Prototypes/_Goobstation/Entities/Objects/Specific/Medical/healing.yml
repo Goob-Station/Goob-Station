@@ -57,6 +57,23 @@
           Quantity: 7
 
 - type: entity
+  suffix: fent
+  parent: PrefilledSyringe
+  name: fentanyl syringe
+  description: What the fuck?!
+  id: SyringePoisonFentFull # Damn you for not naming the USED fent syringe something different
+  components:
+  - type: Label
+    currentLabel: fentanyl
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 15
+        reagents:
+        - ReagentId: Fentanyl
+          Quantity: 15
+
+- type: entity
   parent: PrefilledSyringe
   name: lethal injection syringe
   description: A somewhat humane way to put down prisoners.
@@ -172,3 +189,67 @@
     contents:
     - id: PillIbuprofen
       amount: 15
+
+- type: entity
+  parent: PrefilledSyringe
+  name: syringe
+  description: A potent painkiller.
+  id: SyringeTramadol
+  components:
+  - type: Label
+    currentLabel: Tramadol
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 15
+        reagents:
+        - ReagentId: Tramadol
+          Quantity: 15
+
+- type: entity
+  parent: PrefilledSyringe
+  name: syringe
+  description: A potent painkiller.
+  id: SyringeOxycodone
+  components:
+  - type: Label
+    currentLabel: Oxycodone
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 15
+        reagents:
+        - ReagentId: Oxycodone
+          Quantity: 15
+
+- type: entity
+  parent: PrefilledSyringe
+  name: syringe
+  description: A mild painkiller.
+  id: SyringeIbuprofen
+  components:
+  - type: Label
+    currentLabel: Ibuprofen
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 15
+        reagents:
+        - ReagentId: Ibuprofen
+          Quantity: 15
+
+- type: entity
+  parent: PrefilledSyringe
+  name: syringe
+  description: Damn.
+  id: SyringeHeroin
+  components:
+  - type: Label
+    currentLabel: Heroin
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 15
+        reagents:
+        - ReagentId: Heroin
+          Quantity: 15
