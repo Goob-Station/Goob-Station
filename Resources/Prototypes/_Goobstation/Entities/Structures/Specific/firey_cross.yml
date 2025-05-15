@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: FieryCross
   parent: BaseStructure
@@ -48,11 +55,11 @@
   - type: IgnitionSource
     temperature: 400
     ignited: true
-  - type: TriggerOnCollide
-    fixtureID: ignition
   - type: IgniteOnCollide
     fireStacks: 5
     count: 1000
+  - type: TriggerOnCollide
+    fixtureID: ignition
   - type: AlwaysHot
   - type: Construction
     graph: FieryCrossGraph

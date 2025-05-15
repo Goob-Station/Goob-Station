@@ -68,7 +68,9 @@
 # SPDX-FileCopyrightText: 2024 stellar-novas <stellar_novas@riseup.net>
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Eagle <lincoln.mcqueen@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 # SPDX-FileCopyrightText: 2025 vanx <61917534+Vaaankas@users.noreply.github.com>
@@ -173,6 +175,9 @@
       collection: lighterOnSounds
     endSound:
       collection: lighterOffSounds
+  - type: Tool #Goob
+    qualities:
+    - Ignition
 
 - type: entity
   name: cheap lighter
