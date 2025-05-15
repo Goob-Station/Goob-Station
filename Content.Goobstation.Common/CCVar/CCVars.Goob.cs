@@ -426,8 +426,8 @@ public sealed partial class GoobCVars
     /// <summary>
     /// Fire damage
     /// </summary>
-    public static readonly CVarDef<int> FireDamage =
-        CVarDef.Create("misc.fire_damage", 1500, CVar.SERVER);
+    public static readonly CVarDef<int> FireStackHeat =
+        CVarDef.Create("misc.fire_stack_heat", 1500, CVar.SERVER);
 
     #endregion
 
