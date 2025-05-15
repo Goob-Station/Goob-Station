@@ -125,11 +125,14 @@ uplink-he1sg8-bundle-desc = High Energy One-Shell rifle bundle. Comes with 10 de
 
 # Ammo
 
-uplink-blast-grenade-name = Blast Grenade
+uplink-blast-grenade-name = Blast Grenade (40mm)
 uplink-blast-grenade-desc = Higher damage, smaller radius. Compatible with the China-Lake.
 
-uplink-frag-grenade-name = Frag Grenade
+uplink-frag-grenade-name = Frag Grenade (40mm)
 uplink-frag-grenade-desc = Lower damage, bigger radius. Compatible with the China-Lake.
+
+uplink-mpapers-grenade-name = MP-APERS shell (40mm)
+uplink-mpapers-grenade-desc = Fires out 20 small pellets to turn your grenade launcher into a shotgun. Compatible with the China-Lake.
 
 uplink-rifle-mag-name = Rifle Magazine (.20)
 uplink-rifle-mag-desc = A 25 round magazine containing .20 rifle bullets. Supports the Lecter and M-90.
