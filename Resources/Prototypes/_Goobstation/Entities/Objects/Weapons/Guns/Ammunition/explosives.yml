@@ -1,0 +1,42 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: GrenadeMPAPERS
+  name: MP-APERS shell (40mm)
+  parent: BaseGrenade
+  components:
+  - type: CartridgeAmmo
+    proto: HighCaliberPelletGrenadeSpread
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    layers:
+    - state: apers
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+    state: apers
+#    suffix: false - Goobstation
+
+- type: entity
+  id: GrenadeTeargas
+  name: tear gas shell (40mm)
+  parent: BaseGrenade
+  components:
+  - type: CartridgeAmmo
+    proto: BulletGrenadeTeargas
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    layers:
+    - state: teargas
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+    state: teargas
+  - type: Tag
+    tags:
+     - Grenade
+     - NonLethalGrenade
+#    suffix: false - Goobstation

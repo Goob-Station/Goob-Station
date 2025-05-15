@@ -134,7 +134,7 @@
 
 - type: entity
   id: BulletSlugEnsnaring
-  name: bullet (8 Gauge caliber ensnaring slug)
+  name: bullet (8 Gauge ensnaring slug)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -158,7 +158,7 @@
 
 - type: entity
   id: BulletSlugEMP
-  name: bullet (8 Gauge caliber EMP slug)
+  name: bullet (8 Gauge EMP slug)
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -185,7 +185,7 @@
 
 - type: entity
   id: BulletSlugFlash
-  name: bullet (8 Gauge caliber flash slug)
+  name: bullet (8 Gauge flash slug)
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -247,7 +247,6 @@
     damage:
       types:
         Piercing: 15
-
 
 # Heavy shotgun
 
@@ -329,3 +328,30 @@
     randomThrowDistanceMin: 4
     randomThrowDistanceMax: 8
     velocity: 6
+
+
+# MP-APERS
+- type: entity
+  id: HighCaliberPelletGrenade
+  name: pellet (MP-APERS)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: buckshot
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 6 # Total 120 damage
+
+- type: entity
+  id: HighCaliberPelletGrenadeSpread
+  categories: [ HideSpawnMenu ]
+  parent: HighCaliberPelletGrenade
+  components:
+  - type: ProjectileSpread
+    proto: HighCaliberPelletGrenade
+    count: 20
+    spread: 15
+
