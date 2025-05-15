@@ -1,0 +1,10 @@
+- type: damageContainer
+  id: RubberBalloon
+  supportedGroups:
+  - Burn
+  - Brute
+  
+- type: damageContainer
+  id: BlackBalloon
+  supportedGroups:
+  - Brute

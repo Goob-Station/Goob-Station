@@ -1,0 +1,120 @@
+- type: entity
+  name: balloon
+  parent: BaseStructureDynamic
+  id: BaseBalloon       # Base balloon
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/balloons.rsi
+    state: icon
+    noRot: True
+  - type: Item
+    size: Huge
+  - type: EntityStorage # way of storing bloons inside bloons
+    canOpen: false
+  - type: Damageable
+    damageContainer: RubberBalloon # default damage container
+  - type: Physics # has dynamic physics
+    bodyType: Dynamic
+  - type: Penetratable # projectile Able to pierce balloons
+    penetrateDamage: 1
+    damagePenalty: 0.5
+  - type: InteractionOutline
+  - type: Fixtures # give it locker collision
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.48,0.25,0.48"
+        density: 75
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1           # balloon health
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
+          params:
+            variation: 0.125
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+        
+# Red Balloon
+- type: entity
+  name: red balloon
+  parent: BaseBalloon
+  id: redBalloon
+  components:
+  - type: Sprite
+    state: red
+   
+# Blue Balloon
+- type: entity
+  name: blue balloon
+  parent: BaseBalloon
+  id: blueBalloon
+  components:
+  - type: Sprite
+    state: blue
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: redBalloon
+          amount: !type:ConstantNumberSelector # <-- This will select exactly 3 of the specified entity
+          value: 1  
+    
+    
+    
+    
+# Green Balloon
+- type: entity
+  name: green balloon
+  parent: BaseBalloon
+  id: greenBalloon
+  components:
+  - type: Sprite
+    state: green
+
+# Yellow Balloon
+- type: entity
+  name: yellow balloon
+  parent: BaseBalloon
+  id: yellowBalloon
+  components:
+  - type: Sprite
+    state: yellow
+    
+# Pink Balloon
+- type: entity
+  name: pink balloon
+  parent: BaseBalloon
+  id: pinkBalloon
+  components:
+  - type: Sprite
+    state: pink
+    
+# Black Balloon
+- type: entity
+  name: black balloon
+  parent: BaseBalloon
+  id: blackBalloon
+  components:
+  - type: Sprite
+    state: black
+  - type: Damageable
+    damageContainer: BlackBalloon
+
+# White Balloon
+- type: entity
+  name: white balloon
+  parent: BaseBalloon
+  id: whiteBalloon
+  components:
+  - type: Sprite
+    state: white
