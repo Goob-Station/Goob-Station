@@ -502,5 +502,15 @@ public sealed partial class GoobCVars
 
     #endregion
 
+    #region dimensions
+
+    /// <summary>
+    /// Whether the antag planet should spawn
+    /// </summary>
+    public static readonly CVarDef<bool> AntagPlanetEnabled =
+        CVarDef.Create("dimension.antag_planet", false, CVar.SERVERONLY);
+
+    #endregion
+
     #endregion
 }
