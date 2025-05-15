@@ -165,7 +165,7 @@
   - type: Item
     size: Small
     heldPrefix: stomach
-  - type: Stomach
+  - type: Stomach #goobedit - allow mice eat more shit(bounty)
     specialDigestible:
       tags:
       - ClothMade
