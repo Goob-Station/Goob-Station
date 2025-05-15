@@ -75,9 +75,10 @@
 
 - type: entity
   parent: PrefilledSyringe
-  name: lethal injection syringe
+  name: syringe
   description: A somewhat humane way to put down prisoners.
   id: SyringePoisonLethalInjection
+  suffix: lethal injection
   components:
   - type: Label
     currentLabel: Lethal Injection
@@ -195,6 +196,7 @@
   name: syringe
   description: A potent painkiller.
   id: SyringeTramadol
+  suffix: Tramadol 15u
   components:
   - type: Label
     currentLabel: Tramadol
@@ -211,6 +213,7 @@
   name: syringe
   description: A potent painkiller.
   id: SyringeOxycodone
+  suffix: Oxycodone 15u
   components:
   - type: Label
     currentLabel: Oxycodone
@@ -227,6 +230,7 @@
   name: syringe
   description: A mild painkiller.
   id: SyringeIbuprofen
+  suffix: Ibuprofen 15u
   components:
   - type: Label
     currentLabel: Ibuprofen
@@ -243,6 +247,7 @@
   name: syringe
   description: Damn.
   id: SyringeHeroin
+  suffix: heroin 15u
   components:
   - type: Label
     currentLabel: Heroin
