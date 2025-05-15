@@ -105,7 +105,7 @@
   - type: StorageFill
     contents:
     - id: PillTramadol
-      amount: 10
+      amount: 15
 
 - type: entity
   name: pill
@@ -138,7 +138,7 @@
   - type: StorageFill
     contents:
     - id: PillOxycodone
-      amount: 10
+      amount: 15
 
 - type: entity
   name: pill
@@ -171,4 +171,4 @@
   - type: StorageFill
     contents:
     - id: PillIbuprofen
-      amount: 10
+      amount: 15
