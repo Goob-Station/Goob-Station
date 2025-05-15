@@ -88,7 +88,7 @@
   - type: LeechOnMarker
     leech:
       groups:
-        Brute: -17
+        Brute: -20
         Airloss: -10
   - type: Clothing
     sprite: _ShitChap/Objects/Weapons/Nullrod/holyclaymore.rsi
