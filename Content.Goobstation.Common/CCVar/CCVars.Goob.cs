@@ -422,6 +422,12 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<bool> DetailedExamine =
         CVarDef.Create("misc.detailed_examine", true, CVar.CLIENT | CVar.ARCHIVE | CVar.REPLICATED);
 
+    /// <summary>
+    /// Fire damage
+    /// </summary>
+    public static readonly CVarDef<int> FireDamage =
+        CVarDef.Create("misc.fire_damage", 1500, CVar.SERVER);
+
     #endregion
 
     #region Shuttle CVars

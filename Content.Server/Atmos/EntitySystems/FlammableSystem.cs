@@ -123,6 +123,7 @@ using Content.Server.Stunnable;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Server.Damage.Components;
+using Content.Goobstation.Common.CCVar;
 using Content.Shared._Goobstation.Wizard.Spellblade;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Alert;
@@ -148,6 +149,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Random;
+using Robust.Shared.Configuration;
 
 namespace Content.Server.Atmos.EntitySystems
 {
@@ -169,6 +171,7 @@ namespace Content.Server.Atmos.EntitySystems
         [Dependency] private readonly AudioSystem _audio = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly SpellbladeSystem _spellblade = default!; // Goobstation
+        [Dependency] private readonly IConfigurationManager _cfg = default!;
 
         private EntityQuery<InventoryComponent> _inventoryQuery;
         private EntityQuery<PhysicsComponent> _physicsQuery;
@@ -180,6 +183,7 @@ namespace Content.Server.Atmos.EntitySystems
 
         private readonly Dictionary<Entity<FlammableComponent>, float> _fireEvents = new();
 
+        private int _flameDamage = 1500;
         public override void Initialize()
         {
             UpdatesAfter.Add(typeof(AtmosphereSystem));
@@ -203,6 +207,8 @@ namespace Content.Server.Atmos.EntitySystems
             SubscribeLocalEvent<ExtinguishOnInteractComponent, ActivateInWorldEvent>(OnExtinguishActivateInWorld);
 
             SubscribeLocalEvent<IgniteOnHeatDamageComponent, DamageChangedEvent>(OnDamageChanged);
+
+            _flameDamage = _cfg.GetCVar(GoobCVars.FireDamage);
         }
 
         private void OnMeleeHit(EntityUid uid, IgniteOnMeleeHitComponent component, MeleeHitEvent args)
@@ -568,7 +574,7 @@ namespace Content.Server.Atmos.EntitySystems
                     _ignitionSourceSystem.SetIgnited((uid, source));
 
                     if (TryComp(uid, out TemperatureComponent? temp))
-                        _temperatureSystem.ChangeHeat(uid, 1500 * flammable.FireStacks, false, temp); // goob edit: 12500 -> 1500
+                        _temperatureSystem.ChangeHeat(uid, _flameDamage * flammable.FireStacks, false, temp); // goob edit: 12500 -> 1500
 
                     var ev = new GetFireProtectionEvent(uid); // Goobstation
                     // let the thing on fire handle it
