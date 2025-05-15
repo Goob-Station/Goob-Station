@@ -370,6 +370,9 @@
   id: Muzzle
 
 - type: Tag
+  id: NonLethalGrenade
+
+- type: Tag
   id: NukeOpsCommanderUplink
 
 - type: Tag
@@ -521,9 +524,6 @@
 
 - type: Tag
   id: ReverseBearTrapKey
-
-- type: Tag
-  id: Bomb
 
 - type: Tag
   id: Rifle
