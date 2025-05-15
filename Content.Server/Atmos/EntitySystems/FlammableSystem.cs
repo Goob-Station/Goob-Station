@@ -568,7 +568,7 @@ namespace Content.Server.Atmos.EntitySystems
                     _ignitionSourceSystem.SetIgnited((uid, source));
 
                     if (TryComp(uid, out TemperatureComponent? temp))
-                        _temperatureSystem.ChangeHeat(uid, 5000 * flammable.FireStacks, false, temp); // goob edit: 12500 -> 5000
+                        _temperatureSystem.ChangeHeat(uid, 0 * flammable.FireStacks, false, temp); // goob edit: 12500 -> 0
 
                     var ev = new GetFireProtectionEvent(uid); // Goobstation
                     // let the thing on fire handle it
@@ -578,7 +578,7 @@ namespace Content.Server.Atmos.EntitySystems
                         _inventory.RelayEvent((uid, inv), ref ev);
 
                     if (ev.Multiplier > 0f && !_spellblade.IsHoldingItemWithComponent<FireSpellbladeEnchantmentComponent>(uid)) // Goob edit
-                        _damageableSystem.TryChangeDamage(uid, flammable.Damage * flammable.FireStacks * ev.Multiplier, interruptsDoAfters: false, partMultiplier: 0.3f); // Lavaland: Nerf fire delimbing
+                        _damageableSystem.TryChangeDamage(uid, flammable.Damage * flammable.FireStacks * ev.Multiplier, interruptsDoAfters: false, partMultiplier: 2f); // Lavaland: Nerf fire delimbing
 
                     AdjustFireStacks(uid, flammable.FirestackFade * (flammable.Resisting ? 10f : 1f), flammable, flammable.OnFire);
                 }

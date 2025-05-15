@@ -119,6 +119,8 @@ public partial class TraumaSystem
     }
 
     public bool HasAssociatedTrauma(
+        EntityUid woundable,
+        WoundableComponent woundableComp,
         EntityUid woundInflicter,
         TraumaType? traumaType = null,
         TraumaInflicterComponent? component = null)
@@ -134,6 +136,11 @@ public partial class TraumaSystem
             if (trauma.Comp.TraumaType != traumaType && traumaType != null)
                 continue;
 
+            if (trauma.Comp.TraumaType == TraumaType.BoneDamage
+                && (woundableComp.Bone.ContainedEntities.FirstOrNull() is not { } bone
+                || !TryComp(bone, out BoneComponent? boneComp)
+                || boneComp.BoneSeverity != BoneSeverity.Broken))
+                continue;
             return true;
         }
 
@@ -178,7 +185,7 @@ public partial class TraumaSystem
             if (!TryComp<TraumaInflicterComponent>(woundEnt, out var inflicterComp))
                 continue;
 
-            if (HasAssociatedTrauma(woundEnt, traumaType, inflicterComp))
+            if (HasAssociatedTrauma(woundable, woundableComp, woundEnt, traumaType, inflicterComp))
                 return true;
         }
 

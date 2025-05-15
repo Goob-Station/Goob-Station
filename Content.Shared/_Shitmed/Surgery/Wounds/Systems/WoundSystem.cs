@@ -347,12 +347,12 @@ public sealed partial class WoundSystem : EntitySystem
                 continue;
 
             foreach (var woundable in GetAllWoundableChildren(rootPart.Value))
-                ProcessHealing(ent, woundable, damageable.Damage.GetTotal() > 0);
+                ProcessHealing(ent, frameTime, woundable, damageable.Damage.GetTotal() > 0);
 
         } while (_healQueue.Count != 0 && _healQueue.Peek() != beginEnt);
     }
 
-    private void ProcessHealing(EntityUid body, Entity<WoundableComponent> woundable, bool isDamaged)
+    private void ProcessHealing(EntityUid body, float frameTime, Entity<WoundableComponent> woundable, bool isDamaged)
     {
         var bleedWounds = GetWoundableWoundsWithComp<BleedInflicterComponent>(woundable)
             .Where(wound => wound.Comp2.BleedingAmount > 0)
@@ -398,7 +398,7 @@ public sealed partial class WoundSystem : EntitySystem
         if (damageSpecifier.DamageDict.Count > 0)
         {
             _damageable.TryChangeDamage(body,
-                damageSpecifier,
+                (damageSpecifier * frameTime),
                 ignoreResistances: false,
                 targetPart: _body.GetTargetBodyPart(woundable));
         }
