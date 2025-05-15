@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 namespace Content.Goobstation.Common.Clothing;
 /// <summary>
 ///     Represents the results of a lookup in terms of "equippability" for an entity considering their species, body part availability, and clothing presence.
