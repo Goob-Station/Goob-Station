@@ -393,7 +393,7 @@
     Phlogiston:
       amount: 2
   products:
-    Herignis: 5  
+    Herignis: 5
 
 - type: reaction
   id: Tramadol

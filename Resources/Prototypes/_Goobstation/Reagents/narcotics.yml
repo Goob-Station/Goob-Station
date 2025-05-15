@@ -444,12 +444,12 @@
       - !type:GenericStatusEffect
         key: Adrenaline
         component: IgnoreSlowOnDamage
-        time: 1
+        time: 1.5
       - !type:HealthChange
         damage:
           types:
             Poison: 2
-            Cold: -0.5
+            Cold: 0.25
             Asphyxiation: 0.75
         conditions:
         - !type:ReagentThreshold

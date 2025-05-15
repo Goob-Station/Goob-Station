@@ -1905,7 +1905,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 24
+        maxVol: 24 # Goobstation
         reagents:
         - ReagentId: Nutriment
           Quantity: 2
