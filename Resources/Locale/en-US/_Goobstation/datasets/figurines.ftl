@@ -1,0 +1,11 @@
+figurines-devil-1 = Won't you shake a poor sinner's hand?
+figurines-devil-2 = Of course you can trust me! Just sign this contract!
+figurines-devil-3 = The chaplain is a scammer, don't you trust him!
+figurines-devil-4 = Have you heard of the next big investment crypto? It's called "Goobcoin" and it's going to the moon!
+figurines-devil-5 = Contractor? Contractee? It's really the same thing.
+figurines-devil-6 = CHAPLAIN!! I'M CREW!! I'M CREW!!
+figurines-devil-7 = Hey! Where are you going with my codex? Give that back!
+figurines-devil-8 = What? No, "Strength" will make you stronger, just trust me!
+figurines-devil-9 = I said I wanted your "Soul", not "Sole". Take the shoes back!
+figurines-devil-10 = No bitches? I can help with that.
+figurines-devil-11 = True name? You don't need to worry about that.
