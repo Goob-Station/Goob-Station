@@ -9374,3 +9374,9 @@ Entries:
       message: Cyborgs now can scream!
   id: 1051
   time: '2025-05-15T05:47:36.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Tweak
+      message: storage implant is normal sized again
+  id: 1052
+  time: '2025-05-15T07:18:22.0000000+00:00'
