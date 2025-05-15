@@ -6,11 +6,14 @@
 using Content.Goobstation.Client.Overlays;
 using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Shared.OverlaysAnimation.Components;
+using Content.Shared.EntityTable;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Configuration;
+using Robust.Shared.Map;
 using Robust.Shared.Player;
+using Robust.Shared.Spawners;
 
 namespace Content.Goobstation.Client.OverlaysAnimation;
 
@@ -20,6 +23,7 @@ public sealed partial class OverlayAnimationSystem : EntitySystem
     [Dependency] private readonly IOverlayManager _overlayMan = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly EntityTableSystem _table = default!;
 
     private SpecialAnimationOverlay _overlay = default!;
 
@@ -35,6 +39,7 @@ public sealed partial class OverlayAnimationSystem : EntitySystem
         SubscribeLocalEvent<OverlaysAnimationViewerComponent, LocalPlayerDetachedEvent>(OnPlayerDetached);
 
         SubscribeLocalEvent<OverlaySpriteComponent, ComponentStartup>(OnSpriteAnimationStartup);
+        SubscribeLocalEvent<OverlayAnimationSpawnerComponent, ComponentStartup>(OnSpawnerStartup);
 
         _overlay = new();
 
@@ -76,5 +81,14 @@ public sealed partial class OverlayAnimationSystem : EntitySystem
 
         var animSprite = EnsureComp<SpriteComponent>(uid);
         animSprite.CopyFrom(sourceSprite);
+    }
+
+    private void OnSpawnerStartup(EntityUid uid, OverlayAnimationSpawnerComponent component, ComponentStartup args)
+    {
+        var toSpawn = _table.GetSpawns(component.AnimationsTable);
+        foreach (var animation in toSpawn)
+        {
+            Spawn(animation, MapCoordinates.Nullspace);
+        }
     }
 }

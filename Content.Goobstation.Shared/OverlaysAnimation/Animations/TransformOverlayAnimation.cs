@@ -9,11 +9,26 @@ namespace Content.Goobstation.Shared.OverlaysAnimation.Animations;
 
 [Serializable, NetSerializable]
 [DataDefinition]
-public sealed partial class TransformOverlayAnimation : OverlayAnimation
+public sealed partial class TransformOverlayAnimation : IOverlayAnimation
 {
     [DataField]
     public Vector2i StartPos;
 
     [DataField]
     public Vector2i EndPos;
+
+    [DataField]
+    public string? Name { get; set; }
+
+    [DataField]
+    public AnimationType AnimationType { get; set; }
+
+    [DataField]
+    public float StartDelay { get; set; }
+
+    [DataField]
+    public float Duration { get; set; }
+
+    [DataField]
+    public float? ExponentSpeed { get; set; }
 }

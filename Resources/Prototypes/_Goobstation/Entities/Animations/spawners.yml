@@ -1,0 +1,9 @@
+- type: entity
+  id: DebugAnimationSpawner
+  name: debug overlay animation
+  suffix: Debug
+  components:
+  - type: OverlayAnimationSpawner
+    animationsTable: !type:AllSelector
+      children:
+      - id: DebugOverlayAnimation

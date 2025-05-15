@@ -12,9 +12,9 @@ namespace Content.Goobstation.Client.OverlaysAnimation;
 
 public sealed partial class OverlayAnimationSystem
 {
-    public override void FrameUpdate(float frameTime)
+    public override void Update(float frameTime)
     {
-        base.FrameUpdate(frameTime);
+        base.Update(frameTime);
 
         if (!AnimationsEnabled)
             return;
@@ -28,8 +28,8 @@ public sealed partial class OverlayAnimationSystem
             foreach (var animation in animationComp.Animations)
             {
                 // Process the animation only in the specified timing
-                if (animation.StartDelay < animationComp.TimePos
-                    || animation.StartDelay + animation.Duration > animationComp.TimePos)
+                if (animation.StartDelay > animationComp.TimePos
+                    || animation.StartDelay + animation.Duration < animationComp.TimePos)
                     continue;
 
                 switch (animation)

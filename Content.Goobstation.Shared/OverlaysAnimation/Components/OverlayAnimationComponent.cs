@@ -30,7 +30,7 @@ public sealed partial class OverlayAnimationComponent : Component
     /// List of animations to complete.
     /// </summary>
     [DataField]
-    public List<OverlayAnimation> Animations = new();
+    public List<IOverlayAnimation> Animations = new();
 
     [DataField]
     public Angle Angle;

@@ -12,33 +12,40 @@
 - type: entity
   id: DebugOverlayAnimation
   parent: BaseOverlayAnimation
-  name: debug overlay effect
-  suffix: Debug
+  categories: [ HideSpawnMenu ]
   components:
   - type: OverlayAnimation
     scale: 10.0
     position: 100,100
     animations:
     - !type:FadeOverlayAnimation
+      name: Debug1
       startDelay: 1.0
       duration: 1.0
       startOpacity: 1.0
       endOpacity: 0.0
+      animationType: Linear
     - !type:FadeOverlayAnimation
+      name: Debug2
       startDelay: 2.0
       duration: 1.0
       startOpacity: 0.0
       endOpacity: 1.0
+      animationType: Linear
     - !type:FadeOverlayAnimation
+      name: Debug3
       startDelay: 3.0
       duration: 1.0
       startOpacity: 1.0
       endOpacity: 0.0
+      animationType: Linear
     - !type:FadeOverlayAnimation
+      name: Debug4
       startDelay: 4.0
       duration: 1.0
       startOpacity: 0.0
       endOpacity: 1.0
+      animationType: Linear
   - type: OverlaySprite
   - type: Sprite
     sprite: /Textures/Objects/Fun/goldbikehorn.rsi
