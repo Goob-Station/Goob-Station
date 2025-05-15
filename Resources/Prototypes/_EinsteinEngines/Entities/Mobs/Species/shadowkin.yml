@@ -73,16 +73,15 @@
       damage:
         types:
           Heat: 1.5 # burn more
-# TODO: uncomment this when actual psionics or other powerful gimmicks for Shadowkins are going to be added.
-#    - type: MobThresholds
-#      thresholds: # Weak
-#        0: Alive
-#        80: Critical
-#        180: Dead
-#    - type: SlowOnDamage
-#      speedModifierThresholds:
-#        48: 0.85
-#        64: 0.65
+    - type: MobThresholds
+      thresholds: # Weak
+        0: Alive
+        80: Critical
+        180: Dead
+    - type: SlowOnDamage
+      speedModifierThresholds:
+        48: 0.85
+        64: 0.65
     - type: Damageable
       damageContainer: Biological # Shadowkin
       damageModifierSet: Shadowkin
