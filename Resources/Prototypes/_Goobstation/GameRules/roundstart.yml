@@ -324,6 +324,7 @@
     - prefRoles: [ Devil ]
       max: 2
       playerRatio: 12
+      jobBlacklist: [ Chaplain ]
       mindRoles:
       - DevilMindRole
       startingGear: DevilStartingGear
