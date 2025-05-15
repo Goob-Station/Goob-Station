@@ -51,7 +51,8 @@ public sealed partial class BuyerDepartmentCondition : ListingCondition
 
         var mind = args.Buyer; // Goob start
 
-        if (!ent.TryGetComponent<MindComponent> (args.Buyer, out var _) && !ent.System<SharedMindSystem>().TryGetMind(args.Buyer, out mind, out _))
+        if (!ent.TryGetComponent<MindComponent>(args.Buyer, out var _)
+        && !ent.System<SharedMindSystem>().TryGetMind(args.Buyer, out mind, out _))
             return true;
 
         var jobs = ent.System<SharedJobSystem>();
