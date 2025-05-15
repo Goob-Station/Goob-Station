@@ -14,8 +14,11 @@
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 108000 # 30h
-  - !type:DepartmentTimeRequirement
-    department: Command
+  - !type:RoleTimeRequirement 
+    role: JobHeadOfPersonnel
+    time: 18000 # 5 hours
+  - !type:RoleTimeRequirement 
+    role: JobNanotrasenRepresentative
     time: 18000 # 5 hours
   - !type:RoleTimeRequirement
     role: JobLawyer
