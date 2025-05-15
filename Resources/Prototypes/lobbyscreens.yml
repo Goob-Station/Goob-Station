@@ -127,6 +127,12 @@
   artist: Unknown
 
 - type: lobbyBackground
+  id: captaintheresnukies
+  background: /Textures/LobbyScreens/CAPTAINTHERE'SNUKIES.webp
+  name: Captain there's Nukies!
+  artist: Zethine
+
+- type: lobbyBackground
   id: clownassassin
   background: /Textures/LobbyScreens/clownassassin.webp
   name: Clown Assassin
@@ -239,7 +245,7 @@
   background: /Textures/LobbyScreens/binglemoneyspread.webp
   name: Bingle Flex
   artist: LFMoth
-  
+
 - type: lobbyBackground
   id: stargoob
   background: /Textures/LobbyScreens/StarGoob.webp
