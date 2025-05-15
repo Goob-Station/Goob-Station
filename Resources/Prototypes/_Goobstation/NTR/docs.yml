@@ -2,43 +2,89 @@
   id: SecurityDocument
   startingText: security-starting-text
   template: security-document-text
-  textKeys: ["funny-sec1", "funny-sec2", "funny-sec3", "funny-sec4"]
-  textCounts: [15, 4, 2, 8]
+  textKeys:
+  - funny-sec1
+  - funny-sec2
+  - funny-sec3
+  - funny-sec4
+  textCounts:
+  - 15
+  - 4
+  - 2
+  - 8
 
 - type: documentType
   id: CargoDocument
   startingText: cargo-starting-text
   template: cargo-document-text
-  textKeys: ["funny-cargo1", "funny-cargo2", "funny-cargo3"]
-  textCounts: [5, 8, 9]
+  textKeys:
+  - funny-cargo1
+  - funny-cargo2
+  - funny-cargo3
+  textCounts:
+  - 5
+  - 8
+  - 9
 
 - type: documentType
   id: MedicalDocument
   startingText: medical-starting-text
   template: medical-document-text
-  textKeys: ["funny-med1", "funny-med2", "funny-med3", "funny-med4"]
-  textCounts: [2, 8, 6, 10]
+  textKeys:
+  - funny-med1
+  - funny-med2
+  - funny-med3
+  - funny-med4
+  textCounts:
+  - 2
+  - 8
+  - 6
+  - 10
 
 - type: documentType
   id: ServiceDocument
   startingText: service-starting-text
   template: service-document-text
-  textKeys: ["funny-service1", "funny-service2", "funny-service3", "funny-service4"]
-  textCounts: [15, 15, 15, 15]
+  textKeys:
+  - funny-service1
+  - funny-service2
+  - funny-service3
+  - funny-service4
+  textCounts:
+  - 15
+  - 15
+  - 15
+  - 15
 
 - type: documentType
   id: ScienceDocument
   startingText: science-starting-text
   template: science-document-text
-  textKeys: ["funny-sci1", "funny-sci2", "funny-sci3", "funny-sci4"]
-  textCounts: [8, 10, 16,8]
+  textKeys:
+  - funny-sci1
+  - funny-sci2
+  - funny-sci3
+  - funny-sci4
+  textCounts:
+  - 8
+  - 19
+  - 16
+  - 8
 
 - type: documentType
   id: EngineeringDocument
   startingText: engineering-starting-text
   template: engineering-document-text
-  textKeys: ["funny-engi1", "funny-engi2", "funny-engi3", "funny-engi4"]
-  textCounts: [5, 10, 9, 10]
+  textKeys:
+  - funny-engi1
+  - funny-engi2
+  - funny-engi3
+  - funny-engi4
+  textCounts:
+  - 5
+  - 10
+  - 9
+  - 10no
 
 - type: spamType
   id: ObviousSpam
