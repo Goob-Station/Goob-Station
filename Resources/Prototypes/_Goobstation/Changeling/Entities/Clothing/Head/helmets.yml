@@ -18,6 +18,8 @@
     sprite: _Goobstation/Changeling/ling_armor_helmet.rsi
   - type: Clothing
     sprite: _Goobstation/Changeling/ling_armor_helmet.rsi
+  - type: FireProtection
+    reduction: 0.15
   - type: Armor
     traumaDeductions:
       Dismemberment: 0.3
