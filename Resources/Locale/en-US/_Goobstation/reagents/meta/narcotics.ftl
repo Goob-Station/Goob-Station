@@ -28,3 +28,6 @@ reagent-desc-mousebites = Did you try the medicine drug?
 
 reagent-name-oleoresin-capsaicin = Oleoresin Capsaicin
 reagent-desc-oleoresin-capsaicin = An oily resin derived from Capsaicin. Causes severe irritation when touching the eyes or mouth.
+
+reagent-name-heroin = heroin
+reagent-desc-heroin = An illegal street drug that was once used in medicine, but replace by tramadol.

@@ -1525,7 +1525,7 @@
         allowNewModifiers: true
         modifierType: Pain
         identifier: Suffocation
-        amount: -10.4
+        amount: -10.5
         time: 12
 
 - type: reagent
@@ -1561,5 +1561,5 @@
         allowNewModifiers: true
         modifierType: Pain
         identifier: Suffocation
-        amount: -400
+        amount: -50
         time: 12

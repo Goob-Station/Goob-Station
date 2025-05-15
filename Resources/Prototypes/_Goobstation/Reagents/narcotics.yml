@@ -425,3 +425,52 @@
       - !type:MovespeedModifier
         walkSpeedModifier: 0.3
         sprintSpeedModifier: 0.3
+
+- type: reagent
+  id: Heroin
+  name: reagent-name-heroin
+  group: Medicine
+  desc: reagent-desc-heroin
+  physicalDesc: reagent-physical-desc-thick
+  flavor: medicine
+  color: "#a8a8af"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.5
+      effects:
+      - !type:SuppressPain
+        amount: 15
+        time: 30
+      - !type:GenericStatusEffect
+        key: Adrenaline
+        component: IgnoreSlowOnDamage
+        time: 1
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 2
+            Cold: -0.5
+            Asphyxiation: 0.75
+        conditions:
+        - !type:ReagentThreshold
+          min: 10.5
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+      - !type:GenericStatusEffect # tripping balls, duh
+        conditions:
+        - !type:ReagentThreshold
+          min: 10.5
+        key: SeeingRainbows
+        component: SeeingRainbows
+        type: Add
+        time: 20
+        refresh: false
+      - !type:Drunk
+        boozePower: 10
+      - !type:AdjustConsciousness
+        allowNewModifiers: true
+        modifierType: Pain
+        identifier: Suffocation
+        amount: -5
+        time: 12

@@ -412,9 +412,9 @@
   reactants:
     Tramadol:
       amount: 1
-    Ethanol:
+    Heroin: # replace with heroin
       amount: 1
-    Ephinephrine:
+    Epinephrine:
       amount: 1
     Plasma:
       amount: 5
