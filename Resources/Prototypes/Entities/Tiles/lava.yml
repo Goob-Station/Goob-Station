@@ -10,12 +10,14 @@
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
 # SPDX-FileCopyrightText: 2025 DoutorWhite <thedoctorwhite@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ed <96445749+TheShuEd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 # SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -62,6 +64,13 @@
       walkSpeedModifier: 0.6
       sprintSpeedModifier: 0.6
   # Lavaland Change end
+  # Goobstation - fishing
+  - type: FishingSpot
+    fishList: !type:NestedSelector
+      tableId: LavaFishingLootTable
+    fishDefaultTimer: 25.0
+    fishTimerVariety: 15.0
+  # Goobstation - fishing
   - type: Transform
     anchored: true
   - type: SyncSprite
@@ -77,6 +86,8 @@
     state: full
   - type: IconSmooth
     key: floor
+    additionalKeys:
+    - walls
     base: lava
   - type: Physics
     bodyType: Static
@@ -92,6 +103,20 @@
           - ItemMask
         density: 1000
         hard: false
+    # Goobstation - fishing
+      fishing:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.4
+        layer:
+        - ItemMask
+        mask:
+        - HighImpassable
+        density: 1000
+        hard: false
+    # Goobstation - fishing
   - type: Tag
     tags:
       - HideContextMenu
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: FloorCosmicDecay

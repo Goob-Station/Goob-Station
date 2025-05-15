@@ -1,0 +1,28 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: GasFilterBase
+  id: GasFilterInline
+  name: inline gas filter
+  description: Filters gases from a pipenet without splitting it in two.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Piping/inlinegasfilter.rsi
+  - type: GasFilter
+    inlet: pipe
+    outlet: pipe
+  - type: NodeContainer
+    nodes:
+      pipe:
+        !type:PipeNode
+        nodeGroupID: Pipe
+        pipeDirection: Longitudinal
+      filter:
+        !type:PipeNode
+        nodeGroupID: Pipe
+        pipeDirection: West
+  - type: Construction
+    node: inline_filter

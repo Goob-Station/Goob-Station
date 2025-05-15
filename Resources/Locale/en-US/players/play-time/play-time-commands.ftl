@@ -1,4 +1,12 @@
-﻿parse-minutes-fail = Unable to parse '{$minutes}' as minutes
+# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+parse-minutes-fail = Unable to parse '{$minutes}' as minutes
 parse-session-fail = Did not find session for '{$username}'
 
 ## Role Timer Commands

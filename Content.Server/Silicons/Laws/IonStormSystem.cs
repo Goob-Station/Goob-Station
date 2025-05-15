@@ -20,7 +20,7 @@
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Dataset;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Silicons.Laws;
@@ -258,7 +258,7 @@ public sealed class IonStormSystem : EntitySystem
         return _robustRandom.Next(0, 40) switch // Goobstation
         {
             0  => Loc.GetString("ion-storm-law-on-station", ("joined", joined), ("subjects", triple)),
-            1  => Loc.GetString("ion-storm-law-no-shuttle", ("joined", joined), ("subjects", triple)),
+            1  => Loc.GetString("ion-storm-law-call-shuttle", ("joined", joined), ("subjects", triple)),
             2  => Loc.GetString("ion-storm-law-crew-are", ("who", crewAll), ("joined", joined), ("subjects", objectsThreats)),
             3  => Loc.GetString("ion-storm-law-subjects-harmful", ("adjective", adjective), ("subjects", triple)),
             4  => Loc.GetString("ion-storm-law-must-harmful", ("must", must)),

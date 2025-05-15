@@ -9,6 +9,7 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ichaie <167008606+Ichaie@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 // SPDX-FileCopyrightText: 2025 JORJ949 <159719201+JORJ949@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 MortalBaguette <169563638+MortalBaguette@users.noreply.github.com>
@@ -18,6 +19,7 @@
 // SPDX-FileCopyrightText: 2025 PuroSlavKing <103608145+PuroSlavKing@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 // SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
 // SPDX-FileCopyrightText: 2025 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
@@ -27,8 +29,10 @@
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2025 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 kamkoi <poiiiple1@gmail.com>
+// SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 shibe <95730644+shibechef@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 tetra <169831122+Foralemes@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 vanx <61917534+Vaaankas@users.noreply.github.com>
@@ -115,6 +119,12 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<bool> SiloEnabled =
         CVarDef.Create("goob.silo_enabled", true, CVar.SERVER | CVar.REPLICATED);
 
+    /// <summary>
+    ///     Set a max drunk time in seconds to prevent permanent drunkeness.
+    /// </summary>
+    public static readonly CVarDef<float> MaxDrunkTime =
+        CVarDef.Create("goob.max_drunk_time", 1500f, CVar.SERVER | CVar.REPLICATED);
+
     #region Player Listener
 
     /// <summary>
@@ -164,13 +174,6 @@ public sealed partial class GoobCVars
         CVarDef.Create("ragequit.discord_webhook", "", CVar.SERVERONLY | CVar.CONFIDENTIAL);
 
     #endregion PlayerListener
-
-    #region Surgery
-
-    public static readonly CVarDef<bool> CanOperateOnSelf =
-        CVarDef.Create("surgery.can_operate_on_self", true, CVar.SERVERONLY);
-
-    #endregion
 
     #region Discord AHelp Reply System
 
@@ -291,75 +294,76 @@ public sealed partial class GoobCVars
 
     #endregion
 
-  #region Contests System
+    #region Contests System
 
-        /// <summary>
-        ///     The MASTER TOGGLE for the entire Contests System.
-        ///     ALL CONTESTS BELOW, regardless of type or setting will output 1f when false.
-        /// </summary>
-        public static readonly CVarDef<bool> DoContestsSystem =
-            CVarDef.Create("contests.do_contests_system", true, CVar.REPLICATED | CVar.SERVER);
+    /// <summary>
+    ///     The MASTER TOGGLE for the entire Contests System.
+    ///     ALL CONTESTS BELOW, regardless of type or setting will output 1f when false.
+    /// </summary>
+    public static readonly CVarDef<bool> DoContestsSystem =
+        CVarDef.Create("contests.do_contests_system", true, CVar.REPLICATED | CVar.SERVER);
 
-        /// <summary>
-        ///     Contest functions normally include an optional override to bypass the clamp set by max_percentage.
-        ///     This CVar disables the bypass when false, forcing all implementations to comply with max_percentage.
-        /// </summary>
-        public static readonly CVarDef<bool> AllowClampOverride =
-            CVarDef.Create("contests.allow_clamp_override", true, CVar.REPLICATED | CVar.SERVER);
-        /// <summary>
-        ///     Toggles all MassContest functions. All mass contests output 1f when false
-        /// </summary>
-        public static readonly CVarDef<bool> DoMassContests =
-            CVarDef.Create("contests.do_mass_contests", true, CVar.REPLICATED | CVar.SERVER);
+    /// <summary>
+    ///     Contest functions normally include an optional override to bypass the clamp set by max_percentage.
+    ///     This CVar disables the bypass when false, forcing all implementations to comply with max_percentage.
+    /// </summary>
+    public static readonly CVarDef<bool> AllowClampOverride =
+        CVarDef.Create("contests.allow_clamp_override", true, CVar.REPLICATED | CVar.SERVER);
+    /// <summary>
+    ///     Toggles all MassContest functions. All mass contests output 1f when false
+    /// </summary>
+    public static readonly CVarDef<bool> DoMassContests =
+        CVarDef.Create("contests.do_mass_contests", true, CVar.REPLICATED | CVar.SERVER);
 
-        /// <summary>
-        ///     Toggles all StaminaContest functions. All stamina contests output 1f when false
-        /// </summary>
-        public static readonly CVarDef<bool> DoStaminaContests =
-            CVarDef.Create("contests.do_stamina_contests", true, CVar.REPLICATED | CVar.SERVER);
+    /// <summary>
+    ///     Toggles all StaminaContest functions. All stamina contests output 1f when false
+    /// </summary>
+    public static readonly CVarDef<bool> DoStaminaContests =
+        CVarDef.Create("contests.do_stamina_contests", true, CVar.REPLICATED | CVar.SERVER);
 
-        /// <summary>
-        ///     Toggles all HealthContest functions. All health contests output 1f when false
-        /// </summary>
-        public static readonly CVarDef<bool> DoHealthContests =
-            CVarDef.Create("contests.do_health_contests", true, CVar.REPLICATED | CVar.SERVER);
+    /// <summary>
+    ///     Toggles all HealthContest functions. All health contests output 1f when false
+    /// </summary>
+    public static readonly CVarDef<bool> DoHealthContests =
+        CVarDef.Create("contests.do_health_contests", true, CVar.REPLICATED | CVar.SERVER);
 
-        /// <summary>
-        ///     Toggles all MindContest functions. All mind contests output 1f when false.
-        ///     MindContests are not currently implemented, and are awaiting completion of the Psionic Refactor
-        /// </summary>
-        public static readonly CVarDef<bool> DoMindContests =
-            CVarDef.Create("contests.do_mind_contests", true, CVar.REPLICATED | CVar.SERVER);
+    /// <summary>
+    ///     Toggles all MindContest functions. All mind contests output 1f when false.
+    ///     MindContests are not currently implemented, and are awaiting completion of the Psionic Refactor
+    /// </summary>
+    public static readonly CVarDef<bool> DoMindContests =
+        CVarDef.Create("contests.do_mind_contests", true, CVar.REPLICATED | CVar.SERVER);
 
-        /// <summary>
-        ///     The maximum amount that Mass Contests can modify a physics multiplier, given as a +/- percentage
-        ///     Default of 0.25f outputs between * 0.75f and 1.25f
-        /// </summary>
-        public static readonly CVarDef<float> MassContestsMaxPercentage =
-            CVarDef.Create("contests.max_percentage", 1f, CVar.REPLICATED | CVar.SERVER);
+    /// <summary>
+    ///     The maximum amount that Mass Contests can modify a physics multiplier, given as a +/- percentage
+    ///     Default of 0.25f outputs between * 0.75f and 1.25f
+    /// </summary>
+    public static readonly CVarDef<float> MassContestsMaxPercentage =
+        CVarDef.Create("contests.max_percentage", 1f, CVar.REPLICATED | CVar.SERVER);
 
-        #endregion
+    #endregion
 
-        #region Shoving - WD Port
-        /// <summary>
-        /// Shove range multiplier.
-        /// </summary>
-        public static readonly CVarDef<float> ShoveRange =
-            CVarDef.Create("game.shove_range", 3f, CVar.SERVER | CVar.ARCHIVE);
+    #region Shoving - WD Port
+    /// <summary>
+    /// Shove range multiplier.
+    /// </summary>
+    public static readonly CVarDef<float> ShoveRange =
+        CVarDef.Create("game.shove_range", 3f, CVar.SERVER | CVar.ARCHIVE);
 
-        /// <summary>
-        /// Shove speed multiplier, does not affect range.
-        /// </summary>
-        public static readonly CVarDef<float> ShoveSpeed =
-            CVarDef.Create("game.shove_speed", 4f, CVar.SERVER | CVar.ARCHIVE);
+    /// <summary>
+    /// Shove speed multiplier, does not affect range.
+    /// </summary>
+    public static readonly CVarDef<float> ShoveSpeed =
+        CVarDef.Create("game.shove_speed", 4f, CVar.SERVER | CVar.ARCHIVE);
 
-        /// <summary>
-        /// How much should the mass difference affect shove range & speed.
-        /// </summary>
-        public static readonly CVarDef<float> ShoveMassFactor =
-            CVarDef.Create("game.shove_mass_factor", 5f, CVar.SERVER | CVar.ARCHIVE);
-        #endregion
-    #region Chat highlights
+    /// <summary>
+    /// How much should the mass difference affect shove range & speed.
+    /// </summary>
+    public static readonly CVarDef<float> ShoveMassFactor =
+        CVarDef.Create("game.shove_mass_factor", 5f, CVar.SERVER | CVar.ARCHIVE);
+    #endregion
+
+    #region Chat
 
     /// <summary>
     /// A string containing a list of newline-separated words to be highlighted in the chat.
@@ -379,6 +383,124 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<string> ChatHighlightsColor =
         CVarDef.Create("chat.highlights_color", "#17FFC1FF", CVar.CLIENTONLY | CVar.ARCHIVE, "The color in which the highlights will be displayed.");
 
+    /// <summary>
+    /// Whether or not to log actions in the chat.
+    /// </summary>
+    public static readonly CVarDef<bool> LogInChat =
+        CVarDef.Create("chat.log_in_chat", true, CVar.CLIENT | CVar.ARCHIVE | CVar.REPLICATED);
+
+    /// <summary>
+    /// Whether or not to coalesce identical messages in the chat.
+    /// </summary>
+    public static readonly CVarDef<bool> CoalesceIdenticalMessages =
+         CVarDef.Create("chat.coalesce_identical_messages", true, CVar.CLIENT | CVar.ARCHIVE | CVar.CLIENTONLY);
+
     #endregion
 
+    #region Queue
+
+    /// <summary>
+    ///     Controls if the connections queue is enabled
+    ///     If enabled plyaers will be added to a queue instead of being kicked after SoftMaxPlayers is reached
+    /// </summary>
+    public static readonly CVarDef<bool> QueueEnabled =
+        CVarDef.Create("queue.enabled", false, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     If enabled patrons will be sent to the front of the queue.
+    /// </summary>
+    public static readonly CVarDef<bool> PatreonSkip =
+        CVarDef.Create("queue.patreon_skip", true, CVar.SERVERONLY);
+
+    #endregion
+
+    #region Misc
+
+    /// <summary>
+    /// Whether or not to show detailed examine text.
+    /// </summary>
+    public static readonly CVarDef<bool> DetailedExamine =
+        CVarDef.Create("misc.detailed_examine", true, CVar.CLIENT | CVar.ARCHIVE | CVar.REPLICATED);
+
+    #endregion
+
+    #region Shuttle CVars
+
+    /// <summary>
+    /// The maximum speed a shuttle can reach with thrusters
+    /// </summary>
+    public static readonly CVarDef<float> MaxShuttleSpeed =
+        CVarDef.Create("shuttle.max_speed", 60f, CVar.SERVERONLY);
+
+    #region Grid impacts
+
+    /// <summary>
+    /// Minimum impact inertia to trigger special shuttle impact behaviors when impacting slower than MinimumImpactVelocity.
+    /// </summary>
+    public static readonly CVarDef<float> MinimumImpactInertia =
+        CVarDef.Create("shuttle.impact.minimum_inertia", 5f * 50f, CVar.SERVERONLY); // 100tile grid (cargo shuttle) going at 5 m/
+
+    /// <summary>
+    /// Minimum velocity difference between 2 bodies for a shuttle impact to be guaranteed to trigger any special behaviors like damage.
+    /// </summary>
+    public static readonly CVarDef<float> MinimumImpactVelocity =
+        CVarDef.Create("shuttle.impact.minimum_velocity", 15f, CVar.SERVERONLY); // needed so that random space debris can be rammed
+
+    /// <summary>
+    /// Multiplier of Kinetic energy required to dismantle a single tile in relation to its mass
+    /// </summary>
+    public static readonly CVarDef<float> TileBreakEnergyMultiplier =
+        CVarDef.Create("shuttle.impact.tile_break_energy", 3000f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Multiplier of damage done to entities on colliding areas
+    /// </summary>
+    public static readonly CVarDef<float> ImpactDamageMultiplier =
+        CVarDef.Create("shuttle.impact.damage_multiplier", 0.00005f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Multiplier of additional structural damage to do
+    /// </summary>
+    public static readonly CVarDef<float> ImpactStructuralDamage =
+        CVarDef.Create("shuttle.impact.structural_damage", 5f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Kinetic energy required to spawn sparks
+    /// </summary>
+    public static readonly CVarDef<float> SparkEnergy =
+        CVarDef.Create("shuttle.impact.spark_energy", 1000000f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Area to consider for impact calculations
+    /// </summary>
+    public static readonly CVarDef<float> ImpactRadius =
+        CVarDef.Create("shuttle.impact.radius", 4f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Affects slowdown on impact
+    /// </summary>
+    public static readonly CVarDef<float> ImpactSlowdown =
+        CVarDef.Create("shuttle.impact.slowdown", 0.2f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Minimum velocity change from impact to throw entities on-grid
+    /// </summary>
+    public static readonly CVarDef<float> ImpactMinThrowVelocity =
+        CVarDef.Create("shuttle.impact.min_throw_velocity", 1f, CVar.SERVERONLY); // due to how it works this is about 16 m/s for cargo shuttle
+
+    /// <summary>
+    /// Affects how much damage reduction to give to grids with higher mass
+    /// </summary>
+    public static readonly CVarDef<float> ImpactMassBias =
+        CVarDef.Create("shuttle.impact.mass_bias", 0.65f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// How much should total grid inertia affect our collision damage
+    /// </summary>
+    public static readonly CVarDef<float> ImpactInertiaScaling =
+        CVarDef.Create("shuttle.impact.inertia_scaling", 0.5f, CVar.SERVERONLY);
+
+    #endregion
+
+    #endregion
 }

@@ -1,0 +1,31 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: antag
+  id: Devil
+  name: roles-antag-devil-name
+  antagonist: true
+  setPreference: true
+  objective: roles-antag-devil-description
+  guides: [ Devil ]
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 108000 # 30h
+  - !type:DepartmentTimeRequirement
+    department: Command
+    time: 18000 # 5 hours
+  - !type:RoleTimeRequirement
+    role: JobLawyer
+    time: 3600 # 1 Hour
+
+- type: startingGear
+  id: DevilStartingGear
+  storage:
+    back:
+    - GuidebookCodexUmbra
+    - PenDevil
+    - ClothingEyesGlassesSunglasses
+    - ClothingUniformJumpsuitDevil

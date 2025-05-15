@@ -1,0 +1,193 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# The ID is what is searched for on the paper, coming after the target identifier.
+# Any spaces on the written portion will be removed, so keep it all lowercase and one word.
+
+- type: clause
+  id: soulownership
+  clauseWeight: 25
+  event: !type:DevilContractSoulOwnershipEvent
+
+# self antag clause
+#- type: clause
+#  id: pride
+#  clauseWeight: -70
+#  implants:
+#  - UplinkImplant
+
+- type: clause
+  id: weakness
+  clauseWeight: -35
+  damageModifierSet: DevilDealPositive
+
+- type: clause
+  id: fearoffire
+  clauseWeight: -20
+  damageModifierSet: HellSpawn
+
+- type: clause
+  id: brokeness
+  clauseWeight: -20
+  spawnedItems:
+  - ClothingShoesRealJordansAutographed
+
+- type: clause
+  id: fearofspace
+  clauseWeight: -30
+  addedComponents:
+  - type: BreathingImmunity
+  - type: PressureImmunity
+  - type: SpecialLowTempImmunity
+
+- type: clause
+  id: fearofdeath
+  clauseWeight: -25
+  addedComponents:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Critical
+      201: Dead
+
+- type: clause
+  id: fearoflight
+  clauseWeight: -15
+  addedComponents:
+  - type: FlashImmunity
+
+- type: clause
+  id: fearofelectricity
+  clauseWeight: -15
+  addedComponents:
+  - type: Insulated
+
+- type: clause
+  id: gluttony
+  clauseWeight: -15
+  removedComponents:
+  - type: Hunger
+  - type: Thirst
+
+- type: clause
+  id: greed
+  clauseWeight: -10
+  spawnedItems:
+  - SpaceCash30000
+
+- type: clause
+  id: pain
+  clauseWeight: -5
+  addedComponents:
+  - type: PainNumbness
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      60: 1
+      80: 1
+
+- type: clause
+  id: chance
+  clauseWeight: -20
+  event: !type:DevilContractChanceEvent
+
+- type: clause
+  id: shadows
+  clauseWeight: -25
+  addedComponents:
+  - type: Stealth
+  - type: StealthOnMove
+
+- type: clause
+  id: humanity
+  clauseWeight: 25
+  polymorph: MobFrogPolymorph
+
+- type: clause
+  id: strength
+  clauseWeight: 30
+  damageModifierSet: DevilDealNegative
+
+- type: clause
+  id: willtofight
+  clauseWeight: 60
+  addedComponents:
+  - type: Pacified
+
+- type: clause
+  id: sight
+  clauseWeight: 60
+  addedComponents:
+  - type: PermanentBlindness
+
+- type: clause
+  id: coherence
+  clauseWeight: 30
+  addedComponents:
+  - type: BackwardsAccent
+  - type: Clumsy
+
+- type: clause
+  id: voice
+  clauseWeight: 20
+  addedComponents:
+  - type: Muted
+
+- type: clause
+  id: aleg
+  clauseWeight: 30
+  event: !type:DevilContractLoseLegEvent
+
+- type: clause
+  id: ahand
+  clauseWeight: 30
+  event: !type:DevilContractLoseHandEvent
+
+- type: clause
+  id: awake
+  clauseWeight: 40
+  addedComponents:
+  - type: Narcolepsy
+    timeBetweenIncidents: 300, 600
+    durationOfIncident: 10, 30
+
+- type: clause
+  id: anorgan
+  clauseWeight: 45
+  event: !type:DevilContractLoseOrganEvent
+
+- type: clause
+  id: legs
+  clauseWeight: 40
+  addedComponents:
+  - type: LegsParalyzed
+
+- type: clause
+  id: innerpeace
+  clauseWeight: 5
+  addedComponents:
+  - type: TileMovement
+
+- type: clause
+  id: death
+  clauseWeight: -25
+  addedComponents:
+  - type: CheatDeath
+    reviveAmount: 1
+
+- type: clause
+  id: mortality
+  clauseWeight: -135
+  addedComponents:
+  - type: CheatDeath
+    infiniteRevives: true
+
+- type: clause
+  id: time
+  clauseWeight: 150
+  addedComponents:
+  - type: DelayedDeath
+    deathTime: 300
+    deathMessageId: devil-deal-time-ran-out

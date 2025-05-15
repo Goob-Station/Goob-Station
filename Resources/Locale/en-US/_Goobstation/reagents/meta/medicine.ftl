@@ -1,13 +1,26 @@
+# SPDX-FileCopyrightText: 2024 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 reagent-name-stasizium = Stasizium
 reagent-desc-stasizium = An unstable fluid of future capable of restoring the patient's body to its original state. However, an overdose can tear the body apart.
 
 reagent-name-fleshmend = Changeling Fleshmenders
 reagent-desc-fleshmend = Tons of singlecell organisms focused soley on restoring the changeling to peak physical health
-reagent-popup-fleshmend = Your body twists and contorts into shape.
+reagent-popup-fleshmend = Our wounds knit together and dissipate.
 
 reagent-name-panacea = Changeling Panacea
 reagent-desc-panacea = Tons of singlecell organisms focused soley on purging the changeling of toxic chemicals.
-reagent-popup-panacea = Poison drains out of you onto the floor.
+reagent-popup-panacea = Our cells reconstruct.
+
+reagent-name-lingdrenaline = Changeling Adrenaline
+reagent-desc-lingdrenaline = A reserve of potent adrenaline stored in a gland capable of immediately recovering a changeling from any fatigue.
+reagent-popup-lingdrenaline = Our entire body violently jitters and shakes.
 
 reagent-name-probital = probital
 reagent-desc-probital = Forces patient's body to spend its energy creating more healing compounds. Overdose exhausts body, forcing what effectively amounts to power naps.

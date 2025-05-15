@@ -102,7 +102,9 @@
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
 //
@@ -146,6 +148,9 @@ namespace Content.Client.Administration.UI.Bwoink
             RobustXamlLoader.Load(this);
             IoCManager.InjectDependencies(this);
 
+            var newPlayerThreshold = 0;
+            _cfg.OnValueChanged(CCVars.NewPlayerThreshold, (val) => { newPlayerThreshold = val; }, true);
+
             var uiController = _ui.GetUIController<AHelpUIController>();
             if (uiController.UIHelper is not AdminAHelpUIHandler helper)
                 return;
@@ -169,9 +174,9 @@ namespace Content.Client.Administration.UI.Bwoink
                 var sb = new StringBuilder();
 
                 if (info.Connected)
-                    sb.Append('●');
+                    sb.Append(info.ActiveThisRound ? '⚫' : '◐');
                 else
-                    sb.Append(info.ActiveThisRound ? '○' : '·');
+                    sb.Append(info.ActiveThisRound ? '⭘' : '·');
 
                 sb.Append(' ');
                 if (AHelpHelper.TryGetChannel(info.SessionId, out var panel) && panel.Unread > 0)
@@ -183,16 +188,31 @@ namespace Content.Client.Administration.UI.Bwoink
                     sb.Append(' ');
                 }
 
+                // Mark antagonists with symbol
                 if (info.Antag && info.ActiveThisRound)
                     sb.Append(new Rune(0x1F5E1)); // 🗡
 
-                if (info.OverallPlaytime <= TimeSpan.FromMinutes(_cfg.GetCVar(CCVars.NewPlayerThreshold)))
+                // Mark new players with symbol
+                if (IsNewPlayer(info))
                     sb.Append(new Rune(0x23F2)); // ⏲
 
                 sb.AppendFormat("\"{0}\"", text);
 
                 return sb.ToString();
             };
+
+            // <summary>
+            // Returns true if the player's overall playtime is under the set threshold
+            // </summary>
+            bool IsNewPlayer(PlayerInfo info)
+            {
+                // Don't show every disconnected player as new, don't show 0-minute players as new if threshold is
+                if (newPlayerThreshold <= 0 || info.OverallPlaytime is null && !info.Connected)
+                    return false;
+
+                return (info.OverallPlaytime is null
+                        || info.OverallPlaytime < TimeSpan.FromMinutes(newPlayerThreshold));
+            }
 
             ChannelSelector.Comparison = (a, b) =>
             {
@@ -203,31 +223,37 @@ namespace Content.Client.Administration.UI.Bwoink
                 if (a.IsPinned != b.IsPinned)
                     return a.IsPinned ? -1 : 1;
 
-                // First, sort by unread. Any chat with unread messages appears first.
+                // Then, any chat with unread messages.
                 var aUnread = ach.Unread > 0;
                 var bUnread = bch.Unread > 0;
                 if (aUnread != bUnread)
                     return aUnread ? -1 : 1;
 
-                // Sort by recent messages during the current round.
+                // Then, any chat with recent messages from the current round
                 var aRecent = a.ActiveThisRound && ach.LastMessage != DateTime.MinValue;
                 var bRecent = b.ActiveThisRound && bch.LastMessage != DateTime.MinValue;
                 if (aRecent != bRecent)
                     return aRecent ? -1 : 1;
 
-                // Next, sort by connection status. Any disconnected players are grouped towards the end.
+                // Sort by connection status. Disconnected players will be last.
                 if (a.Connected != b.Connected)
                     return a.Connected ? -1 : 1;
 
-                // Sort connected players by New Player status, then by Antag status
+                // Sort connected players by whether they have joined the round, then by New Player status, then by Antag status
                 if (a.Connected && b.Connected)
                 {
-                    var aNewPlayer = a.OverallPlaytime <= TimeSpan.FromMinutes(_cfg.GetCVar(CCVars.NewPlayerThreshold));
-                    var bNewPlayer = b.OverallPlaytime <= TimeSpan.FromMinutes(_cfg.GetCVar(CCVars.NewPlayerThreshold));
+                    var aNewPlayer = IsNewPlayer(a);
+                    var bNewPlayer = IsNewPlayer(b);
 
+                    //  Players who have joined the round will be listed before players in the lobby
+                    if (a.ActiveThisRound != b.ActiveThisRound)
+                        return a.ActiveThisRound ? -1 : 1;
+
+                    //  Within both the joined group and lobby group, new players will be grouped and listed first
                     if (aNewPlayer != bNewPlayer)
                         return aNewPlayer ? -1 : 1;
 
+                    //  Within all four previous groups, antagonists will be listed first.
                     if (a.Antag != b.Antag)
                         return a.Antag ? -1 : 1;
                 }

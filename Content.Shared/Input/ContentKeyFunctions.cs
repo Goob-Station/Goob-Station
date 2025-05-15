@@ -110,6 +110,8 @@
 // SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
@@ -180,10 +182,12 @@ namespace Content.Shared.Input
         public static readonly BoundKeyFunction ZoomIn = "ZoomIn";
         public static readonly BoundKeyFunction ResetZoom = "ResetZoom";
         public static readonly BoundKeyFunction ToggleStanding = "ToggleStanding"; // WD EDIT
+        public static readonly BoundKeyFunction ResistGrab = "ResistGrab"; // Goobstation - Grab Intent
 
         // Shitmed Change Start
         public static readonly BoundKeyFunction TargetHead = "TargetHead";
-        public static readonly BoundKeyFunction TargetTorso = "TargetTorso";
+        public static readonly BoundKeyFunction TargetChest = "TargetChest";
+        public static readonly BoundKeyFunction TargetGroin = "TargetGroin";
         public static readonly BoundKeyFunction TargetLeftArm = "TargetLeftArm";
         public static readonly BoundKeyFunction TargetLeftHand = "TargetLeftHand";
         public static readonly BoundKeyFunction TargetRightArm = "TargetRightArm";

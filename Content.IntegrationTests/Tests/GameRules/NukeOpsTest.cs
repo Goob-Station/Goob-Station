@@ -95,7 +95,7 @@ using Content.Server.Shuttles.Components;
 using Content.Server.Station.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Damage;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.GameTicking;
 using Content.Shared.Hands.Components;
 using Content.Shared.Inventory;
@@ -239,7 +239,7 @@ public sealed class NukeOpsTest
         // The game rule exists, and all the stations/shuttles/maps are properly initialized
         var rule = entMan.AllComponents<NukeopsRuleComponent>().Single();
         var ruleComp = rule.Component;
-        var gridsRule = entMan.AllComponents<RuleGridsComponent>().Single().Component;
+        var gridsRule = entMan.GetComponent<RuleGridsComponent>(rule.Uid);
         foreach (var grid in gridsRule.MapGrids)
         {
             Assert.That(entMan.EntityExists(grid));

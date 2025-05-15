@@ -76,6 +76,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                         PlaceHolder="0"
                         Text="1"
                         HorizontalExpand="True" />
+                    <Label Name="RecipeCount" Margin="8 0 8 0" MinWidth="90" Align="Right" />
                 </BoxContainer>
             </BoxContainer>
         </BoxContainer>

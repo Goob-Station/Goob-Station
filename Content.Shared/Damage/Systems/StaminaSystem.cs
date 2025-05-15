@@ -35,11 +35,14 @@
 // SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 Eagle <lincoln.mcqueen@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 // SPDX-FileCopyrightText: 2025 vanx <61917534+Vaaankas@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -49,6 +52,7 @@ using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Common.Stunnable; // Goobstation - Martial Arts
 using Content.Shared.Administration.Logs;
 using Content.Shared.Alert;
+using Content.Shared.CCVar;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Events;
@@ -66,6 +70,7 @@ using Content.Shared.Weapons.Melee.Events;
 using JetBrains.Annotations;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Configuration;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Random; // Goob - Shove
@@ -83,6 +88,7 @@ public sealed partial class StaminaSystem : EntitySystem
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
     [Dependency] private readonly SharedStunSystem _stunSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly IConfigurationManager _config = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!; // goob edit
     [Dependency] private readonly SharedStutteringSystem _stutter = default!; // goob edit
     [Dependency] private readonly SharedJitteringSystem _jitter = default!; // goob edit
@@ -93,6 +99,8 @@ public sealed partial class StaminaSystem : EntitySystem
     /// How much of a buffer is there between the stun duration and when stuns can be re-applied.
     /// </summary>
     private static readonly TimeSpan StamCritBufferTime = TimeSpan.FromSeconds(3f);
+
+    public float UniversalStaminaDamageModifier { get; private set; } = 1f;
 
     public override void Initialize()
     {
@@ -112,6 +120,8 @@ public sealed partial class StaminaSystem : EntitySystem
         SubscribeLocalEvent<StaminaDamageOnCollideComponent, ThrowDoHitEvent>(OnThrowHit);
 
         SubscribeLocalEvent<StaminaDamageOnHitComponent, MeleeHitEvent>(OnMeleeHit);
+
+        Subs.CVar(_config, CCVars.PlaytestStaminaDamageModifier, value => UniversalStaminaDamageModifier = value, true);
     }
 
     private void OnStamHandleState(EntityUid uid, StaminaComponent component, ref AfterAutoHandleStateEvent args)
@@ -175,7 +185,7 @@ public sealed partial class StaminaSystem : EntitySystem
         if (component.Critical)
             return;
 
-        TakeStaminaDamage(uid, args.StaminaDamage, component, source: args.Source);
+        TakeStaminaDamage(uid, args.StaminaDamage, component, source: args.Source, applyResistances: true);
 
         args.PopupPrefix = "disarm-action-shove-";
         args.IsStunned = component.Critical;
@@ -233,6 +243,8 @@ public sealed partial class StaminaSystem : EntitySystem
             var damageOvertime = component.Overtime;
             damageImmediate *= hitEvent.Multiplier;
             damageImmediate += hitEvent.FlatModifier;
+            damageOvertime *= hitEvent.Multiplier;
+            damageOvertime += hitEvent.FlatModifier;
 
             if (args.Direction == null)
             {
@@ -255,7 +267,7 @@ public sealed partial class StaminaSystem : EntitySystem
         if (!TryComp<StaminaComponent>(args.Embedded, out var stamina))
             return;
 
-        TakeStaminaDamage(args.Embedded, component.Damage, stamina, source: uid);
+        TakeStaminaDamage(args.Embedded, component.Damage, stamina, source: uid, applyResistances: true);
     }
 
     private void OnThrowHit(EntityUid uid, StaminaDamageOnCollideComponent component, ThrowDoHitEvent args)
@@ -283,13 +295,15 @@ public sealed partial class StaminaSystem : EntitySystem
             return;
 
         var damage = component.Damage;
+        var overtime = component.Overtime;
 
         damage *= hitEvent.Multiplier;
-
         damage += hitEvent.FlatModifier;
+        overtime *= hitEvent.Multiplier;
+        overtime += hitEvent.FlatModifier;
 
         TakeStaminaDamage(target, damage, source: uid, sound: component.Sound);
-        TakeOvertimeStaminaDamage(target, component.Overtime); // Goobstation
+        TakeOvertimeStaminaDamage(target, overtime); // Goobstation
     }
 
     private void SetStaminaAlert(EntityUid uid, StaminaComponent? component = null)
@@ -337,7 +351,7 @@ public sealed partial class StaminaSystem : EntitySystem
 
     // goob edit - stunmeta
     public void TakeStaminaDamage(EntityUid uid, float value, StaminaComponent? component = null,
-        EntityUid? source = null, EntityUid? with = null, bool visual = true, SoundSpecifier? sound = null, bool immediate = true)
+        EntityUid? source = null, EntityUid? with = null, bool visual = true, SoundSpecifier? sound = null, bool immediate = true, bool applyResistances = false)
     {
         if (!Resolve(uid, ref component, false)
         || value == 0) // no damage???
@@ -348,9 +362,23 @@ public sealed partial class StaminaSystem : EntitySystem
         if (ev.Cancelled)
             return;
 
+        value = UniversalStaminaDamageModifier * value;
+
         // Have we already reached the point of max stamina damage?
         if (component.Critical)
             return;
+
+        if (applyResistances)
+        {
+            var hitEvent = new TakeStaminaDamageEvent((uid, component));
+            RaiseLocalEvent(uid, hitEvent);
+
+            if (hitEvent.Handled)
+                return;
+
+            value *= hitEvent.Multiplier;
+            value += hitEvent.FlatModifier;
+        }
 
         var oldDamage = component.StaminaDamage;
         component.StaminaDamage = MathF.Max(0f, component.StaminaDamage + value);

@@ -99,7 +99,9 @@
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
 # SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Firewars763 <35506916+Firewars763@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
@@ -165,6 +167,18 @@
           path: /Audio/Effects/break_stone.ogg
           params:
             volume: -6
+  # Goobstation
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 2000 # heavy
 
 # Ore veins
 - type: entity
@@ -191,6 +205,29 @@
           visible: false # Lavaland Change
 
 - type: entity
+  id: AsteroidRockCoalCrab
+  parent: AsteroidRock
+  description: An ore vein rich with coal.
+  suffix: Coal Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreCoalCrab
+    - type: Sprite
+      layers:
+        - state: rock_asteroid
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_asteroid_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_asteroid_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_asteroid_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_asteroid_west
+        - state: rock_coal
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+
+- type: entity
   id: AsteroidRockGold
   parent: AsteroidRock
   suffix: Gold
@@ -212,6 +249,29 @@
         - state: rock_gold
           map: [ "enum.MiningScannerVisualLayers.Overlay" ]
           visible: false # Lavaland Change
+
+- type: entity
+  id: AsteroidRockGoldCrab
+  parent: AsteroidRock
+  description: An ore vein rich with gold.
+  suffix: Gold Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreGoldCrab
+    - type: Sprite
+      layers:
+        - state: rock_asteroid
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_asteroid_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_asteroid_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_asteroid_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_asteroid_west
+        - state: rock_gold
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ]
 
 - type: entity
   id: AsteroidRockDiamond

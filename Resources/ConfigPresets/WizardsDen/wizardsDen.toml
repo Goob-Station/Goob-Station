@@ -1,3 +1,24 @@
+# SPDX-FileCopyrightText: 2023 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Zoldorf <silvertorch5@gmail.com>
+# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 LankLTE <135308300+LankLTE@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 TurboTracker <130304754+TurboTrackerss14@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Myra <vasilis@pikachu.systems>
+# SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2025 crazybrain23 <44417085+crazybrain23@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 # Base configuration preset used on all Wizard's Den servers.
 # Loaded before server-specific config presets by configuration.
 
@@ -15,6 +36,8 @@ panic_bunker.custom_reason = "You have not played on a Wizard's Den server long 
 # IPIntel stuff
 ipintel_enabled = true
 ipintel_contact_email = "telecommunications@spacestation14.com"
+ipintel_bad_rating = 0.99
+ipintel_alert_admin_warn_rating = 0.95
 
 [infolinks]
 bug_report = "https://github.com/space-wizards/space-station-14/issues/new/choose"
@@ -28,6 +51,9 @@ appeal     = "https://appeal.ss14.io"
 
 [server]
 rules_file = "StandardRuleset"
+
+[movement]
+mob_pushing = true
 
 [net]
 max_connections = 1024

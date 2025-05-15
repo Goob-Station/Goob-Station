@@ -1,0 +1,36 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseGameRule
+  id: IonStormScheduler
+  components:
+  - type: GameRule
+  - type: BasicStationEventScheduler
+    minimumTimeUntilFirstEvent: 600 # 10 min - first storm between 20 to 50 min in
+    minMaxEventTiming:
+      min: 600 # 10 min
+      max: 2400 # 40 min
+    scheduledGameRules: !type:NestedSelector
+      tableId: BasicIonStormEventsTable
+
+- type: entity
+  parent: BaseGameRule
+  id: RareIonStormScheduler
+  components:
+  - type: GameRule
+  - type: BasicStationEventScheduler
+    minimumTimeUntilFirstEvent: 900 # 15 min - first storm between 30 to 75 min in
+    minMaxEventTiming:
+      min: 900 # 15 min
+      max: 3600 # 60 min
+    scheduledGameRules: !type:NestedSelector
+      tableId: BasicIonStormEventsTable
+
+- type: entityTable
+  id: BasicIonStormEventsTable
+  table: !type:AllSelector
+    children:
+    - id: IonStorm

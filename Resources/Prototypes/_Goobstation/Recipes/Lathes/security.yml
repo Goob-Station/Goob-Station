@@ -10,8 +10,11 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
@@ -28,6 +31,16 @@
   materials:
     Steel: 100
     Plastic: 100
+
+- type: latheRecipe
+  id: HoloprojectorSecurityAdvanced
+  result: HoloprojectorSecurityAdvanced
+  completetime: 6
+  materials:
+    Steel: 500
+    Plastic: 200
+    Glass: 300
+    Plasma: 200
 
 - type: latheRecipe
   id: BolaEnergy
@@ -135,6 +148,15 @@
     Silver: 500
     Gold: 500
     Glass: 850
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponEnergyIonRifle
+  result: WeaponEnergyIonRifle
+  materials:
+    Steel: 1200
+    Plastic: 600
+    Gold: 300
 
 - type: latheRecipe
   id: Terminus
@@ -310,10 +332,28 @@
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
+  id: EnergyMagRifleOverchargeLethal
+  result: EnergyMagRifleOverchargeLethal
+  materials:
+    Steel: 400
+    Gold: 300
+    Glass: 300
+    Plasma: 500
+    Uranium: 300
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
   id: MagazinePistolCaselessRifle
   result: MagazinePistolCaselessRifle
   materials:
     Steel: 145
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineLowCaliberM7S
+  result: MagazineLowCaliberM7S
+  materials:
+    Steel: 700
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
@@ -372,7 +412,7 @@
     Steel: 165
 
 - type: latheRecipe
-  parent: BaseAmmoRecipe
+  parent: BaseEmptyAmmoRecipe
   id: MagazineShotgunLeverRifleEmpty
   result: MagazineShotgunLeverRifleEmpty
   materials:
@@ -432,14 +472,14 @@
     Steel: 160
 
 - type: latheRecipe
-  parent: BaseAmmoRecipe
+  parent: BaseEmptyAmmoRecipe
   id: MagazinePistolCaselessRifleEmpty
   result: MagazinePistolCaselessRifleEmpty
   materials:
     Steel: 25
 
 - type: latheRecipe
-  parent: BaseAmmoRecipe
+  parent: BaseEmptyAmmoRecipe
   id: MagazineCaselessRifleEmpty
   result: MagazineCaselessRifleEmpty
   materials:
@@ -460,7 +500,7 @@
     Steel: 1500
 
 - type: latheRecipe
-  parent: BaseAmmoRecipe
+  parent: BaseEmptyAmmoRecipe
   id: MagazinePistolHighCapacityEmpty
   result: MagazinePistolHighCapacityEmpty
   materials:

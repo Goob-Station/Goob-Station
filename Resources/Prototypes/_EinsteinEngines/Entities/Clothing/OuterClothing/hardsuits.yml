@@ -1,5 +1,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Standard Combat Hardsuits
@@ -19,6 +21,13 @@
   - type: ExplosionResistance
     damageCoefficient: 0.50
   - type: Armor # Good armour resistance across the board, comparable to the standard security hardsuit.
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
         Blunt: 0.60
@@ -34,9 +43,11 @@
     clothingPrototypes: #goobstation change
       head: ClothingHeadHelmetHardsuitCombatStandard
   - type: AllowSuitStorage
+  - type: StaminaDamageResistance # Goobstation
+    coefficient: 0.6
   - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 1
-    knockdownTimeDelta: -1
+    delayDelta: 3
+    knockdownTimeDelta: -3
 
 - type: entity
   parent: [ClothingOuterHardsuitCombatStandard,BaseCommandContraband]
@@ -69,6 +80,13 @@
   - type: ExplosionResistance
     damageCoefficient: 0.60
   - type: Armor # Slightly less armour than the standard hardsuit, but far higher mobility.
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
         Blunt: 0.65
@@ -84,9 +102,11 @@
     clothingPrototypes: #goobstation change
       head: ClothingHeadHelmetHardsuitCombatMedical
   - type: AllowSuitStorage
+  - type: StaminaDamageResistance # Goobstation
+    coefficient: 0.6
   - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 1
-    knockdownTimeDelta: -1
+    delayDelta: 3
+    knockdownTimeDelta: -3
 
 # Riot Combat Hardsuits
 - type: entity
@@ -105,6 +125,13 @@
   - type: ExplosionResistance
     damageCoefficient: 0.40
   - type: Armor # More protective than a standard security hardsuit, but far slower.
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
         Blunt: 0.50
@@ -120,3 +147,7 @@
     clothingPrototypes: #goobstation change
       head: ClothingHeadHelmetHardsuitCombatRiot
   - type: AllowSuitStorage
+  - type: StaminaDamageResistance # Goobstation
+    coefficient: 0.5
+  - type: ModifyDelayedKnockdown # Goobstation
+    cancel: true
