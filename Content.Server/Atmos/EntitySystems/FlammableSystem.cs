@@ -568,7 +568,7 @@ namespace Content.Server.Atmos.EntitySystems
                     _ignitionSourceSystem.SetIgnited((uid, source));
 
                     if (TryComp(uid, out TemperatureComponent? temp))
-                        _temperatureSystem.ChangeHeat(uid, 0 * flammable.FireStacks, false, temp); // goob edit: 12500 -> 0
+                        _temperatureSystem.ChangeHeat(uid, 1500 * flammable.FireStacks, false, temp); // goob edit: 12500 -> 1500
 
                     var ev = new GetFireProtectionEvent(uid); // Goobstation
                     // let the thing on fire handle it
