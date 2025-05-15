@@ -41,11 +41,11 @@ public sealed partial class NtrTaskMenu : FancyWindow
     public void UpdateEntries(List<NtrTaskData> tasks, List<NtrTaskHistoryData> history, TimeSpan untilNextSkip)
     {
         BountyEntriesContainer.Children.Clear();
-        foreach (var t in tasks)
+        foreach (var task in tasks)
         {
-            var entry = new TaskEntry(t, untilNextSkip);
-            entry.OnLabelButtonPressed += () => OnLabelButtonPressed?.Invoke(t.Id);
-            entry.OnSkipButtonPressed += () => OnSkipButtonPressed?.Invoke(t.Id);
+            var entry = new TaskEntry(task, untilNextSkip);
+            entry.OnLabelButtonPressed += () => OnLabelButtonPressed?.Invoke(task.Id);
+            entry.OnSkipButtonPressed += () => OnSkipButtonPressed?.Invoke(task.Id);
 
             BountyEntriesContainer.AddChild(entry);
         }

@@ -102,11 +102,10 @@ public sealed partial class StoreListingControl : Control
     {
         if (!_prototype.TryIndex<ListingPrototype>(listing.ID, out var prototype))
             return;
-            if (prototype.ResetRestockOnPurchase)
-        {
+
+        if (prototype.ResetRestockOnPurchase)
             listing.RestockTime = _timing.CurTime + prototype.RestockDuration;
-        }
-    }// goob end
+    } //goob end
 
     protected override void FrameUpdate(FrameEventArgs args)
     {

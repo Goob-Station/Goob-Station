@@ -20,9 +20,7 @@ namespace Content.Goobstation.Server.NTR
         private void OnMapInit(EntityUid uid, EventTriggerComponent component, MapInitEvent args)
         {
             if (!string.IsNullOrEmpty(component.EventId))
-            {
                 _gt.StartGameRule(component.EventId, out _);
-            }
             // deleting the entityt after it has done its job of making a gamerule
             QueueDel(uid);
         }

@@ -24,14 +24,10 @@ public sealed class NtrTaskBoundUserInterface(EntityUid owner, Enum uiKey) : Bou
         _menu.OpenCentered();
 
         _menu.OnLabelButtonPressed += id =>
-        {
             SendMessage(new TaskPrintLabelMessage(id));
-        };
 
         _menu.OnSkipButtonPressed += id =>
-        {
             SendMessage(new TaskSkipMessage(id));
-        };
     }
     protected override void Dispose(bool disposing)
     {

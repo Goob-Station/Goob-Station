@@ -7,8 +7,9 @@
 using System.Text;
 using Content.Goobstation.Shared.NTR.Documents;
 using Content.Shared.Paper;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-// mocho please we need content.shitcode asap ;-;
+
 namespace Content.Goobstation.Server.NTR.Documents
 {
     public sealed class SpamDocumentSystem : EntitySystem
@@ -16,24 +17,7 @@ namespace Content.Goobstation.Server.NTR.Documents
         [Dependency] private readonly ILocalizationManager _loc = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly PaperSystem _paper = default!;
-
-        private readonly List<(string department, int varCount)> _departments =
-        [ //maybe put this inside a comp or smth
-            ("security", 4),
-            ("cargo", 3), // cuz cargo has only 3 texts while every other department has 4
-            ("medical", 4),
-            ("engineering", 4),
-            ("science", 4),
-        ];//oh and also, service sucks ass so i removed that, womp womp
-
-        private readonly Dictionary<string, string> _departmentShortNames = new()
-        {
-            {"security", "sec"},
-            {"cargo", "cargo"},
-            {"medical", "med"},
-            {"engineering", "engi"},
-            {"science", "sci"}
-        };
+        [Dependency] private readonly IPrototypeManager _proto = default!;
 
         public override void Initialize()
         {
@@ -42,19 +26,21 @@ namespace Content.Goobstation.Server.NTR.Documents
 
         private void OnDocumentInit(EntityUid uid, SpamDocumentComponent component, MapInitEvent args)
         {
-            var text = GenerateSpamText(component.stype);
+            var text = GenerateSpamText(component.SpamType);
             if (TryComp<PaperComponent>(uid, out var paper))
             {
                 _paper.SetContent((uid, paper), text);
             }
         }
-
-        private string GenerateSpamText(SpamDocumentComponent.SpamType type)
+        private string GenerateSpamText(ProtoId<SpamTypePrototype> spamType)
         {
-            return type switch
+            if (!_proto.TryIndex(spamType, out var spamProto))
+                return GenerateObviousSpam();
+
+            return spamProto.ID switch
             {
-                SpamDocumentComponent.SpamType.Obvious => GenerateObviousSpam(),
-                SpamDocumentComponent.SpamType.Mimic => GenerateMimicSpam(),
+                "ObviousSpam" => GenerateObviousSpam(),
+                "MimicSpam" => GenerateMimicSpam(spamProto),
                 _ => GenerateObviousSpam()
             };
         }
@@ -64,26 +50,24 @@ namespace Content.Goobstation.Server.NTR.Documents
             return _loc.GetString($"spam-obvious-text-{_random.Next(1, 11)}");
         }
 
-        private string GenerateMimicSpam()
+        private string GenerateMimicSpam(SpamTypePrototype spamProto)
         {
-            //random date, 2-60 days offset
+            // Random date offset (2-60 days)
             var dateOffset = _random.Next(2, 60);
             var curDate = DateTime.Now.AddYears(1000);
-            var fakeDate = _random.Prob(0.5f)
-                ? curDate.AddDays(dateOffset)   // positive days offset
-                : curDate.AddDays(-dateOffset); // negative days offset
+            var fakeDate = _random.Prob(0.5f) ? curDate.AddDays(dateOffset) : curDate.AddDays(-dateOffset);
             var dateString = fakeDate.ToString("dd.MM.yyyy");
-            // 10% chance of mimic document being just 100% legit but with an offset date to mess with NTRs
+
+            // 10% chance of perfect mimic
             if (_random.Prob(0.1f))
             {
-                var (department, _) = _random.Pick(_departments);
-                var args = GetDepartmentArgs(department, dateString);
-                return _loc.GetString($"{department}-document-text", args.ToArray());
+                var docProto = _proto.Index<DocumentTypePrototype>(_random.Pick(spamProto.LegitDocuments));
+                return GenerateDocumentContent(docProto, dateString);
             }
 
-            if (_random.Prob(0.2f)) // 20% chance
+            // 20% chance of bingle doc
+            if (_random.Prob(0.2f))
             {
-                // bingle doc
                 var randomNum = _random.Next(1000, 9999);
                 var args = new List<(string, object)>
                 {
@@ -94,85 +78,29 @@ namespace Content.Goobstation.Server.NTR.Documents
                 };
                 return _loc.GetString("spam-mimic-bingle-text", args.ToArray());
             }
-            else
-            {   //not bingle doc
-                var (department, varCount) = _random.Pick(_departments);
-                // generating starting text with an invalid date
-                var startingArgs = new List<(string, object)> { ("date", dateString) };
-                var startingText = _loc.GetString($"{department}-starting-text", startingArgs.ToArray());
-                //spam part
-                var legitText = GenerateLegitDepartmentText(department, varCount);
-                var fullArgs = new List<(string, object)>
-                {
-                    ("start", startingText),
-                    ("content", legitText),
-                };
 
-                return _loc.GetString("spam-mimic-template", fullArgs.ToArray());
-            }
+            // Regular mimic
+            var targetDoc = _proto.Index<DocumentTypePrototype>(_random.Pick(spamProto.MimicDocuments));
+            var content = GenerateDocumentContent(targetDoc, dateString);
+            return _loc.GetString("spam-mimic-template", ("content", content));
         }
 
-        private string GenerateLegitDepartmentText(string department, int varCount)
+        private string GenerateDocumentContent(DocumentTypePrototype docProto, string dateString)
         {
-            var result = new StringBuilder();
-            var shortName = _departmentShortNames[department];
-
-            for (var i = 1; i <= varCount; i++)
+            var args = new List<(string, object)>
             {
-                var textKey = $"funny-{shortName}{i}-{_random.Next(1, 3)}";
-                if (_loc.HasString(textKey))
-                {
-                    result.AppendLine(_loc.GetString(textKey));
-                }
-            }
-            return result.ToString();
-        }
-        // department args
-        // todo: integrate RandomDocumentSystem into this instead of just copy-pasting code...
-        private List<(string, object)> GetDepartmentArgs(string department, string date)
-        {
-            return department switch
-            {
-                "security" =>
-                [
-                    ("start", _loc.GetString("security-starting-text", ("date", date))),
-                    ("text1", _loc.GetString($"funny-sec1-{_random.Next(1, 16)}")),
-                    ("text2", _loc.GetString($"funny-sec2-{_random.Next(1, 5)}")),
-                    ("text3", _loc.GetString($"funny-sec3-{_random.Next(1, 3)}")),
-                    ("text4", _loc.GetString($"funny-sec4-{_random.Next(1, 9)}")),
-                ],
-                "cargo" =>
-                [
-                    ("start", _loc.GetString("cargo-starting-text", ("date", date))),
-                    ("text1", _loc.GetString($"funny-cargo1-{_random.Next(1, 6)}")),
-                    ("text2", _loc.GetString($"funny-cargo2-{_random.Next(1, 9)}")),
-                    ("text3", _loc.GetString($"funny-cargo3-{_random.Next(1, 10)}")),
-                ],
-                "medical" =>
-                [
-                    ("start", _loc.GetString("medical-starting-text", ("date", date))),
-                    ("text1", _loc.GetString($"funny-med1-{_random.Next(1, 3)}")),
-                    ("text2", _loc.GetString($"funny-med2-{_random.Next(1, 9)}")),
-                    ("text3", _loc.GetString($"funny-med3-{_random.Next(1, 7)}")),
-                    ("text4", _loc.GetString($"funny-med4-{_random.Next(1, 11)}")),
-                ],
-                "engineering" =>
-                [
-                    ("start", _loc.GetString("engineering-starting-text", ("date", date))),
-                    ("text1", _loc.GetString($"funny-engi1-{_random.Next(1, 6)}")),
-                    ("text2", _loc.GetString($"funny-engi2-{_random.Next(1, 11)}")),
-                    ("text3", _loc.GetString($"funny-engi3-{_random.Next(1, 10)}")),
-                    ("text4", _loc.GetString($"funny-engi4-{_random.Next(1, 11)}")),
-                ],
-                _ =>
-                [
-                    ("start", _loc.GetString("science-starting-text", ("date", date))),
-                    ("text1", _loc.GetString($"funny-sci1-{_random.Next(1, 8)}")),
-                    ("text2", _loc.GetString($"funny-sci2-{_random.Next(1, 10)}")),
-                    ("text3", _loc.GetString($"funny-sci3-{_random.Next(1, 16)}")),
-                    ("text4", _loc.GetString($"funny-sci4-{_random.Next(1, 8)}")),
-                ]
+                ("start", _loc.GetString(docProto.StartingText, ("date", dateString)))
             };
+
+            for (var i = 0; i < docProto.TextKeys.Length; i++)
+            {
+                var key = docProto.TextKeys[i];
+                var count = docProto.TextCounts[i];
+                var value = _loc.GetString($"{key}-{_random.Next(1, count + 1)}");
+                args.Add(($"text{i + 1}", value));
+            }
+
+            return _loc.GetString(docProto.Template, args.ToArray());
         }
     }
 }

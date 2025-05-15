@@ -1,3 +1,66 @@
+- type: documentType
+  id: SecurityDocument
+  startingText: security-starting-text
+  template: security-document-text
+  textKeys: ["funny-sec1", "funny-sec2", "funny-sec3", "funny-sec4"]
+  textCounts: [15, 4, 2, 8]
+
+- type: documentType
+  id: CargoDocument
+  startingText: cargo-starting-text
+  template: cargo-document-text
+  textKeys: ["funny-cargo1", "funny-cargo2", "funny-cargo3"]
+  textCounts: [5, 8, 9]
+
+- type: documentType
+  id: MedicalDocument
+  startingText: medical-starting-text
+  template: medical-document-text
+  textKeys: ["funny-med1", "funny-med2", "funny-med3", "funny-med4"]
+  textCounts: [2, 8, 6, 10]
+
+- type: documentType
+  id: ServiceDocument
+  startingText: service-starting-text
+  template: service-document-text
+  textKeys: ["funny-service1", "funny-service2", "funny-service3", "funny-service4"]
+  textCounts: [15, 15, 15, 15]
+
+- type: documentType
+  id: ScienceDocument
+  startingText: science-starting-text
+  template: science-document-text
+  textKeys: ["funny-sci1", "funny-sci2", "funny-sci3", "funny-sci4"]
+  textCounts: [8, 10, 16,8]
+
+- type: documentType
+  id: EngineeringDocument
+  startingText: engineering-starting-text
+  template: engineering-document-text
+  textKeys: ["funny-engi1", "funny-engi2", "funny-engi3", "funny-engi4"]
+  textCounts: [5, 10, 9, 10]
+
+- type: spamType
+  id: ObviousSpam
+  legitDocuments: [] # not used for obvious spam
+  mimicDocuments: []
+
+- type: spamType
+  id: MimicSpam
+  legitDocuments:
+  - SecurityDocument
+  - CargoDocument
+  - MedicalDocument
+  - EngineeringDocument
+  - ScienceDocument
+  mimicDocuments:
+  - SecurityDocument
+  - CargoDocument
+  - MedicalDocument
+  - EngineeringDocument
+  - ScienceDocument
+
+# Documents
 - type: entity
   name: Corporate Document
   id: CorporateDocument
@@ -6,84 +69,78 @@
   description: An official NanoTrasen document. Looks like a ton of spam, as always.
   components:
   - type: RandomDocument
-    dtype: Service
+    documentType: ServiceDocument # Default fallback
 
+# Regular Documents
 - type: entity
-  suffix: Service
   id: ServiceDocument
   parent: CorporateDocument
   components:
   - type: RandomDocument
-    dtype: Service
+    documentType: ServiceDocument
     tasks:
     - TaskStampHop
 
 - type: entity
-  suffix: Security
   id: SecurityDocument
   parent: CorporateDocument
   components:
   - type: RandomDocument
+    documentType: SecurityDocument
     tasks:
     - TaskStampHos
-    dtype: Security
 
 - type: entity
-  suffix: Cargo
   id: CargoDocument
   parent: CorporateDocument
   components:
   - type: RandomDocument
-    dtype: Cargo
+    documentType: CargoDocument
     tasks:
     - TaskStampQm
 
 - type: entity
-  suffix: Medical
   id: MedicalDocument
   parent: CorporateDocument
   components:
   - type: RandomDocument
-    dtype: Medical
+    documentType: MedicalDocument
     tasks:
     - TaskStampCmo
 
 - type: entity
-  suffix: Engineering
   id: EngineeringDocument
   parent: CorporateDocument
   components:
   - type: RandomDocument
-    dtype: Engineering
+    documentType: EngineeringDocument
     tasks:
     - TaskStampCe
 
 - type: entity
-  suffix: Science
   id: ScienceDocument
   parent: CorporateDocument
   components:
   - type: RandomDocument
-    dtype: Science
+    documentType: ScienceDocument
     tasks:
     - TaskStampRd
 
+# Spam Documents
 - type: entity
   id: SpamDocumentObvious
   name: Corporate Document
-  suffix: spam, obvious
   parent: Paper
-  description: An official NanoTrasen document. Looks like a ton of spam, as always.
+  description: An official NanoTrasen document. Obviously fake spam.
   components:
   - type: SpamDocument
-    stype: Obvious
+    spamType: ObviousSpam
 
 - type: entity
   id: SpamDocumentMimic
-  suffix: spam, mimic
   name: Corporate Document
   parent: Paper
-  description: An official NanoTrasen document. Looks like a ton of spam, as always.
+  description: An official NanoTrasen document. Sophisticated mimic spam.
   components:
   - type: SpamDocument
-    stype: Mimic
+    spamType: MimicSpam

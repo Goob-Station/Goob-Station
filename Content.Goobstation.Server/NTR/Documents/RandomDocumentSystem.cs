@@ -6,7 +6,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Shared.NTR.Documents; //amount of times this whole system was re-done: 3
-using Content.Shared.Paper;                     //amount of hours wasted trying to understand papersystem: 29
+using Content.Shared.Paper;
+using Robust.Shared.Prototypes; //amount of hours wasted trying to understand papersystem: 29
 using Robust.Shared.Random;                     //skill issue.
 
 // todo: clean these usings
@@ -17,6 +18,7 @@ namespace Content.Goobstation.Server.NTR.Documents
         [Dependency] private readonly ILocalizationManager _loc = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly PaperSystem _paper = default!;
+        [Dependency] private readonly IPrototypeManager _proto = default!;
 
         public override void Initialize()
         {
@@ -24,109 +26,35 @@ namespace Content.Goobstation.Server.NTR.Documents
         }
         private void OnDocumentInit(EntityUid uid, RandomDocumentComponent component, MapInitEvent args)
         {
-            var text = GenerateDocument(component.dtype);
+            var text = GenerateDocument(component.DocumentType);
             if (TryComp<PaperComponent>(uid, out var paperComp))
             {
                 _paper.SetContent((uid, paperComp), text);
             }
         }
 
-        private string GenerateDocument(RandomDocumentComponent.DocumentType type)
+        private string GenerateDocument(ProtoId<DocumentTypePrototype> docType)
         {
-            var template = type switch
-            {
-                RandomDocumentComponent.DocumentType.Security => "security-document-text",
-                RandomDocumentComponent.DocumentType.Cargo => "cargo-document-text",
-                RandomDocumentComponent.DocumentType.Medical => "medical-document-text",
-                RandomDocumentComponent.DocumentType.Engineering => "engineering-document-text",
-                RandomDocumentComponent.DocumentType.Science => "science-document-text",
-                _ => "service-document-text" // if not specified, use service
-            };
+            if (!_proto.TryIndex(docType, out var docProto))
+                return string.Empty;
 
-            var curDate = DateTime.Now.AddYears(1000); //lore?
+            var curDate = DateTime.Now.AddYears(1000);
             var dateString = curDate.ToString("dd.MM.yyyy");
-            var args = type switch
+
+            var args = new List<(string, object)>
             {
-                RandomDocumentComponent.DocumentType.Security => GetSecurityArgs(dateString),
-                RandomDocumentComponent.DocumentType.Cargo => GetCargoArgs(dateString),
-                RandomDocumentComponent.DocumentType.Medical => GetMedicalArgs(dateString),
-                RandomDocumentComponent.DocumentType.Engineering => GetEngineeringArgs(dateString),
-                RandomDocumentComponent.DocumentType.Science => GetScienceArgs(dateString),
-                _ => GetServiceArgs(dateString)
+                ("start", _loc.GetString(docProto.StartingText, ("date", dateString)))
             };
 
-            var result = _loc.GetString(template, args);
-            return result;
-        }
-        private (string, object)[] GetServiceArgs(string date)
-        {
-            return
-            [
-                ("start", _loc.GetString("service-starting-text", ("date", date))),
-                ("text1", _loc.GetString($"funny-service1-{_random.Next(1, 16)}")),
-                ("text2", _loc.GetString($"funny-service2-{_random.Next(1, 16)}")),
-                ("text3", _loc.GetString($"funny-service3-{_random.Next(1, 16)}")),
-                ("text4", _loc.GetString($"funny-service4-{_random.Next(1, 16)}")),
-            ];
-            //return args.ToArray();
-        }
+            for (var i = 0; i < docProto.TextKeys.Length; i++)
+            {
+                var key = docProto.TextKeys[i];
+                var count = docProto.TextCounts[i];
+                var value = _loc.GetString($"{key}-{_random.Next(1, count + 1)}");
+                args.Add(($"text{i + 1}", value));
+            }
 
-        private (string, object)[] GetSecurityArgs(string date)
-        {
-            return
-            [
-                ("start", _loc.GetString("security-starting-text", ("date", date))),
-                ("text1", _loc.GetString($"funny-sec1-{_random.Next(1, 16)}")),
-                ("text2", _loc.GetString($"funny-sec2-{_random.Next(1, 5)}")),
-                ("text3", _loc.GetString($"funny-sec3-{_random.Next(1, 3)}")),
-                ("text4", _loc.GetString($"funny-sec4-{_random.Next(1, 9)}")),
-            ];
-        }
-
-        private (string, object)[] GetCargoArgs(string date)
-        {
-            return
-            [
-                ("start", _loc.GetString("cargo-starting-text", ("date", date))),
-                ("text1", _loc.GetString($"funny-cargo1-{_random.Next(1, 6)}")),
-                ("text2", _loc.GetString($"funny-cargo2-{_random.Next(1, 9)}")),
-                ("text3", _loc.GetString($"funny-cargo3-{_random.Next(1, 10)}")),
-            ];
-        }
-
-        private (string, object)[] GetMedicalArgs(string date)
-        {
-            return
-            [
-                ("start", _loc.GetString("medical-starting-text", ("date", date))),
-                ("text1", _loc.GetString($"funny-med1-{_random.Next(1, 3)}")),
-                ("text2", _loc.GetString($"funny-med2-{_random.Next(1, 9)}")),
-                ("text3", _loc.GetString($"funny-med3-{_random.Next(1, 7)}")),
-                ("text4", _loc.GetString($"funny-med4-{_random.Next(1, 11)}")),
-            ];
-        }
-
-        private (string, object)[] GetEngineeringArgs(string date)
-        {
-            return
-            [
-                ("start", _loc.GetString("engineering-starting-text", ("date", date))),
-                ("text1", _loc.GetString($"funny-engi1-{_random.Next(1, 6)}")),
-                ("text2", _loc.GetString($"funny-engi2-{_random.Next(1, 11)}")),
-                ("text3", _loc.GetString($"funny-engi3-{_random.Next(1, 10)}")),
-                ("text4", _loc.GetString($"funny-engi4-{_random.Next(1, 11)}")),
-            ];
-        }
-        private (string, object)[] GetScienceArgs(string date)
-        {
-            return
-            [
-                ("start", _loc.GetString("science-starting-text", ("date", date))),
-                ("text1", _loc.GetString($"funny-sci1-{_random.Next(1, 8)}")),
-                ("text2", _loc.GetString($"funny-sci2-{_random.Next(1, 10)}")),
-                ("text3", _loc.GetString($"funny-sci3-{_random.Next(1, 16)}")),
-                ("text4", _loc.GetString($"funny-sci4-{_random.Next(1, 8)}")),
-            ];
+            return _loc.GetString(docProto.Template, args.ToArray());
         }
     }
 }

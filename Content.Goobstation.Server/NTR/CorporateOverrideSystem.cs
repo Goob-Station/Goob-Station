@@ -24,12 +24,12 @@ public sealed class CorporateOverrideSystem : EntitySystem
 
     private void OnInit(EntityUid uid, CorporateOverrideComponent comp, ComponentInit args)
     {
-        comp.OverrideSlot = _container.EnsureContainer<ContainerSlot>(uid, "CorporateOverrideSlot");
-    } // shitcod was taken from the sharedvehiclesystem
+        comp.OverrideSlot = _container.EnsureContainer<ContainerSlot>(uid, CorporateOverrideComponent.ContainerId);
+    }
 
     private void OnItemInserted(EntityUid uid, CorporateOverrideComponent comp, EntInsertedIntoContainerMessage args)
     {
-        if (args.Container.ID != "CorporateOverrideSlot" || !TryComp<StoreComponent>(uid, out var store))
+        if (args.Container.ID != CorporateOverrideComponent.ContainerId || !TryComp<StoreComponent>(uid, out var store))
             return;
 
         if (store.Categories.Add(comp.UnlockedCategory))
@@ -40,7 +40,7 @@ public sealed class CorporateOverrideSystem : EntitySystem
 
     private void OnItemRemoved(EntityUid uid, CorporateOverrideComponent comp, EntRemovedFromContainerMessage args)
     {
-        if (args.Container.ID != "CorporateOverrideSlot" || !TryComp<StoreComponent>(uid, out var store))
+        if (args.Container.ID != CorporateOverrideComponent.ContainerId || !TryComp<StoreComponent>(uid, out var store))
             return;
 
         if (!store.Categories.Contains(comp.UnlockedCategory))

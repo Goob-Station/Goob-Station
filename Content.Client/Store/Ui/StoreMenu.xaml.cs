@@ -267,10 +267,9 @@ public sealed partial class StoreMenu : DefaultWindow
                 StyleClasses = { "OpenBoth" }
             };
 
-            if (proto.Evil) // Goobstation start
-            {
+            if (proto.Evil) // Goobstation
                 catButton.AddStyleClass("ButtonColorRed");
-            } // Goobstation end
+
             catButton.OnPressed += args => OnCategoryButtonPressed?.Invoke(args, catButton.Id);
             CategoryListContainer.AddChild(catButton);
         }

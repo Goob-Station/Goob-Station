@@ -14,5 +14,6 @@ namespace Content.Goobstation.Server.NTR
         public string UnlockedCategory = "NTREvil";
 
         public ContainerSlot OverrideSlot = default!;
+        public const string ContainerId = "CorporateOverrideSlot";
 }
 }
