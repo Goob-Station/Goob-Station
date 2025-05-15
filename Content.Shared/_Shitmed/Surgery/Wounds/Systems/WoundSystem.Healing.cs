@@ -1,4 +1,10 @@
-﻿using System.Diagnostics.CodeAnalysis;
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -320,7 +326,6 @@ public partial class WoundSystem
     {
         if (healable)
             return GetWoundableWounds(woundable)
-                .Where(wound => CanHealWound(wound, wound))
                 .Any(wound => wound.Comp.DamageType == damageType);
 
         return GetWoundableWounds(woundable).Any(wound => wound.Comp.DamageType == damageType);
@@ -333,7 +338,6 @@ public partial class WoundSystem
     {
         if (healable)
             return GetWoundableWounds(woundable)
-                .Where(wound => CanHealWound(wound, wound))
                 .Any(wound => wound.Comp.DamageGroup?.ID == damageGroup);
 
         return GetWoundableWounds(woundable).Any(wound => wound.Comp.DamageGroup?.ID == damageGroup);

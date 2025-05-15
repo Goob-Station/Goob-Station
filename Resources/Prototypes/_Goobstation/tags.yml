@@ -6,6 +6,7 @@
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 BeBright <98597725+be1bright@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
@@ -95,6 +96,9 @@
 - type: Tag
   id: CartridgeG8
 
+- type: Tag
+  id: CannotSuicideAny
+  
 - type: Tag
   id: Chair
 
@@ -315,6 +319,9 @@
   id: MagazineMagnumLeverRifle
 
 - type: Tag
+  id: MagazineShotgunHeavy
+
+- type: Tag
   id: MagazineSmart
 
 - type: Tag
@@ -432,6 +439,9 @@
   id: SyndicateBreathMask
 
 - type: Tag
+  id: ShellShotgunHeavier
+
+- type: Tag
   id: ShellShotgunHeavy
 
 - type: Tag
@@ -457,6 +467,12 @@
 
 - type: Tag
   id: ToySword
+
+- type: Tag
+  id: MolotovConstruction
+
+- type: Tag
+  id: IgnitionSource
 
 - type: Tag
   id: Undead
