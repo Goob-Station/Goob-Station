@@ -165,6 +165,12 @@
   - type: Item
     size: Small
     heldPrefix: stomach
+  - type: Stomach
+    specialDigestible:
+      tags:
+      - ClothMade
+      - Paper
+      - Trash
 
 - type: entity
   id: OrganAnimalLiver
