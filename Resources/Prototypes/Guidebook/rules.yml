@@ -176,6 +176,7 @@
   - RuleR17
   - RuleR18
   - RuleR19
+  - RuleR20
 
 - type: guideEntry
   id: RuleR1
@@ -322,6 +323,12 @@
   name: guide-entry-rules-r19
   priority: 19
   text: "/ServerInfo/Guidebook/ServerRules/RoleplayRules/RuleR19VH.xml"
+
+- type: guideEntry
+  id: RuleR20
+  name: guide-entry-rules-r20
+  priority: 20
+  text: "/ServerInfo/Guidebook/ServerRules/RoleplayRules/RuleR20NewLifeRule.xml"
 
 - type: guideEntry
   id: SiliconRules
