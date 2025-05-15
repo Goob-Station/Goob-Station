@@ -160,7 +160,7 @@
       groups:
         Brute: -25.0
         Burn: -25.0
-        Toxin: -11.0
+        Toxin: -10.0
         Airloss: -15.0
     damage:
       types:
