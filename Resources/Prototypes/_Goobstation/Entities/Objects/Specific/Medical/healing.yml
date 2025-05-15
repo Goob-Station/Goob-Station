@@ -134,8 +134,41 @@
   suffix: Oxycodone 5u, 10
   components:
   - type: Label
-    currentLabel: oxycodone 10u
+    currentLabel: oxycodone 5u
   - type: StorageFill
     contents:
     - id: PillOxycodone
+      amount: 10
+
+- type: entity
+  name: pill
+  suffix: Ibuprofen 10u
+  parent: Pill
+  id: PillIbuprofen
+  components:
+  - type: Pill
+    pillType: 1
+  - type: Sprite
+    state: pill1
+  - type: Label
+    currentLabel: Ibuprofen 10u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Ibuprofen
+          Quantity: 10
+
+- type: entity
+  name: pill canister
+  parent: PillCanister
+  id: PillCanisterIbuprofen
+  suffix: Ibuprofen 10u, 15
+  components:
+  - type: Label
+    currentLabel: Ibuprofen 10u
+  - type: StorageFill
+    contents:
+    - id: PillIbuprofen
       amount: 10
