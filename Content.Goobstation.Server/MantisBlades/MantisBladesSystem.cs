@@ -38,7 +38,7 @@ public sealed class MantisBladesSystem : EntitySystem
 
         if (HasComp<EmpDisabledComponent>(ent))
         {
-            _popup.PopupEntity(Loc.GetString("mantis-blade-emp"), ent, ent);
+            _popup.PopupEntity(Loc.GetString("cyberware-disabled-emp"), ent, ent);
             return false;
         }
 
