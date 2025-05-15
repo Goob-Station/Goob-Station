@@ -19,7 +19,11 @@
     time: 18000 # 5 hours
   - !type:RoleTimeRequirement
     role: JobLawyer
-    time: 3600 # 1 Hour
+    time: 18000 # 5 Hours
+    role: JobNanotrasenRepresentative
+    time: 18000 # 5 Hours
+    role: JobHeadOfPersonnel
+    time: 18000 # 5 Hours
 
 - type: startingGear
   id: DevilStartingGear
