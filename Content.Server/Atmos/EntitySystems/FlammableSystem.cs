@@ -185,7 +185,7 @@ namespace Content.Server.Atmos.EntitySystems
 
         private readonly Dictionary<Entity<FlammableComponent>, float> _fireEvents = new();
 
-        private int _flameDamage = 1500;
+        private int _fireStackDamage = 1500;
         public override void Initialize()
         {
             UpdatesAfter.Add(typeof(AtmosphereSystem));
@@ -210,7 +210,7 @@ namespace Content.Server.Atmos.EntitySystems
 
             SubscribeLocalEvent<IgniteOnHeatDamageComponent, DamageChangedEvent>(OnDamageChanged);
 
-            _flameDamage = _cfg.GetCVar(GoobCVars.FireDamage);
+            _fireStackDamage = _cfg.GetCVar(GoobCVars.FireDamage);
         }
 
         private void OnMeleeHit(EntityUid uid, IgniteOnMeleeHitComponent component, MeleeHitEvent args)
@@ -576,7 +576,7 @@ namespace Content.Server.Atmos.EntitySystems
                     _ignitionSourceSystem.SetIgnited((uid, source));
 
                     if (TryComp(uid, out TemperatureComponent? temp))
-                        _temperatureSystem.ChangeHeat(uid, _flameDamage * flammable.FireStacks, false, temp); // goob edit: 12500 -> 1500
+                        _temperatureSystem.ChangeHeat(uid, _fireStackDamage * flammable.FireStacks, false, temp); // goob edit: 12500 -> 1500
 
                     var ev = new GetFireProtectionEvent(uid); // Goobstation
                     // let the thing on fire handle it
