@@ -98,7 +98,7 @@
   name: pill canister
   parent: PillCanister
   id: PillCanisterTramadol
-  suffix: Tramadol 7.5u, 10
+  suffix: Tramadol 7.5u, 15
   components:
   - type: Label
     currentLabel: tramadol 7.5u
@@ -109,7 +109,7 @@
 
 - type: entity
   name: pill
-  suffix: Oxycodone 10u
+  suffix: Oxycodone 5u
   parent: Pill
   id: PillOxycodone
   components:
@@ -131,7 +131,7 @@
   name: pill canister
   parent: PillCanister
   id: PillCanisterOxycodone
-  suffix: Oxycodone 5u, 10
+  suffix: Oxycodone 5u, 15
   components:
   - type: Label
     currentLabel: oxycodone 5u
@@ -142,7 +142,7 @@
 
 - type: entity
   name: pill
-  suffix: Ibuprofen 10u
+  suffix: Ibuprofen 10u, 15
   parent: Pill
   id: PillIbuprofen
   components:

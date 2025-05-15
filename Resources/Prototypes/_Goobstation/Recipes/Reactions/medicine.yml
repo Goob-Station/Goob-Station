@@ -412,7 +412,9 @@
   reactants:
     Tramadol:
       amount: 1
-    Ethanol:
+    HeartbreakerToxin:
+      amount: 1
+    Ephinephrine:
       amount: 1
     Plasma:
       amount: 5
