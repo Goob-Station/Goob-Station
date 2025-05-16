@@ -111,15 +111,11 @@ public sealed partial class HereticAbilitySystem
             || HasComp<GodmodeComponent>(ent))
             return;
 
-        //Ideally this should be a method in DivineInterventionSystem -
-        //Until then, I don't see it necessary to use event relays to achieve this effect between Core & Goob.
-        var contains = _inventory.GetHandOrInventoryEntities(ent.Owner, SlotFlags.WITHOUT_POCKET);
-        foreach (var item in contains)
-        {
-            if (!HasComp<DivineInterventionComponent>(item))
-                continue;
+        //Ideally this should use DivineInterventionSystem -
+        //Until GoobMod Heretic, I don't see it necessary to use event relays to achieve this effect between Core & Goob.
+        if (_inventory.GetHandOrInventoryEntities(args.OtherEntity, SlotFlags.WITHOUT_POCKET)
+            .Any(item => HasComp<DivineInterventionComponent>(item)))
             return;
-        }
 
         EnsureComp<DisgustComponent>(ent);
     }
@@ -134,15 +130,11 @@ public sealed partial class HereticAbilitySystem
             || HasComp<GodmodeComponent>(ent))
             return;
 
-        //Ideally this should be a method in DivineInterventionSystem -
-        //Until then, I don't see it necessary to use event relays to achieve this effect between Core & Goob.
-        var contains = _inventory.GetHandOrInventoryEntities(ent.Owner, SlotFlags.WITHOUT_POCKET);
-        foreach (var item in contains)
-        {
-            if (!HasComp<DivineInterventionComponent>(item))
-                continue;
+        //Ideally this should use DivineInterventionSystem -
+        //Until GoobMod Heretic, I don't see it necessary to use event relays to achieve this effect between Core & Goob.
+        if (_inventory.GetHandOrInventoryEntities(args.OtherEntity, SlotFlags.WITHOUT_POCKET)
+            .Any(item => HasComp<DivineInterventionComponent>(item)))
             return;
-        }
 
         if (IsTileRust(Transform(ent).Coordinates, out _))
             EnsureComp<DisgustComponent>(ent);
