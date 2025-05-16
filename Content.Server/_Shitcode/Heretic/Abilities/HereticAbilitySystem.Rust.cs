@@ -113,7 +113,7 @@ public sealed partial class HereticAbilitySystem
 
         //Ideally this should use DivineInterventionSystem -
         //Until GoobMod Heretic, I don't see it necessary to use event relays to achieve this effect between Core & Goob.
-        if (_inventory.GetHandOrInventoryEntities(ent, SlotFlags.WITHOUT_POCKET)
+        if (_inventory.GetHandOrInventoryEntities(ent.Owner, SlotFlags.WITHOUT_POCKET)
             .Any(item => HasComp<DivineInterventionComponent>(item)))
             return;
 
@@ -132,7 +132,7 @@ public sealed partial class HereticAbilitySystem
 
         //Ideally this should use DivineInterventionSystem -
         //Until GoobMod Heretic, I don't see it necessary to use event relays to achieve this effect between Core & Goob.
-        if (_inventory.GetHandOrInventoryEntities(ent, SlotFlags.WITHOUT_POCKET)
+        if (_inventory.GetHandOrInventoryEntities(ent.Owner, SlotFlags.WITHOUT_POCKET)
             .Any(item => HasComp<DivineInterventionComponent>(item)))
             return;
 
