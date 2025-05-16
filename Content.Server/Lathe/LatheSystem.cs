@@ -101,6 +101,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Server.Chat.Systems;
+using Content.Shared.Chat;
 
 namespace Content.Server.Lathe
 {

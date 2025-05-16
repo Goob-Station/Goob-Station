@@ -9,6 +9,7 @@
 using Content.Goobstation.Shared.Hailer;
 using Content.Server.Chat.Systems;
 using Content.Shared.Actions;
+using Content.Shared.Chat;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Robust.Shared.Audio.Systems;

@@ -12,6 +12,7 @@ using Content.Goobstation.Shared.Vehicles.Clowncar;
 using Content.Server.Chat.Systems;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Buckle;
+using Content.Shared.Chat;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Verbs;

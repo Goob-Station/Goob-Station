@@ -20,6 +20,7 @@ using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Systems;
 using Content.Shared.Cargo.Components;
+using Content.Shared.Chat;
 using Content.Shared.Destructible;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;

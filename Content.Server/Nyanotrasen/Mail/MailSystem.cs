@@ -57,6 +57,7 @@ using Content.Shared.Tag;
 using Robust.Shared.Audio.Systems;
 using Timer = Robust.Shared.Timing.Timer;
 using Content.Server._DV.Cargo.Systems;
+using Content.Shared.Chat;
 
 namespace Content.Server.Mail
 {
@@ -207,7 +208,7 @@ namespace Content.Server.Mail
             {
                 _idCardSystem.TryGetIdCard(args.Used, out var pdaID);
                 idCard = pdaID;
-            }   
+            }
 
             if (HasComp<IdCardComponent>(args.Used)) /// Or are they using an id card directly?
                 idCard = Comp<IdCardComponent>(args.Used);

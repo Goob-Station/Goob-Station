@@ -33,6 +33,7 @@ using Content.Server.Lightning;
 using Content.Server.Popups;
 using Content.Server.Station.Systems;
 using Content.Shared.Atmos;
+using Content.Shared.Chat;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;

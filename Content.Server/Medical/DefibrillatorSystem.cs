@@ -114,6 +114,7 @@ using Content.Shared.Timing;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
+using Content.Shared.Chat;
 
 namespace Content.Server.Medical;
 

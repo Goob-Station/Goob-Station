@@ -37,7 +37,7 @@ public sealed class RevolutionaryConverterSystem : EntitySystem
     {
         if(_speechLocalizationKeys == null || _speechLocalizationKeys.Count == 0)
             return;
-            
+
         var message = _speechLocalizationKeys[System.Random.Shared.Next(_speechLocalizationKeys.Count)];
         _chat.TrySendInGameICMessage(args.User, Loc.GetString(message), InGameICChatType.Speak, hideChat: false, hideLog: false);
 
@@ -79,7 +79,7 @@ public sealed class RevolutionaryConverterSystem : EntitySystem
             _chat.TrySendInGameICMessage(user, Loc.GetString(message), InGameICChatType.Speak, hideChat: false, hideLog: false);
          }
 
-        _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, converter.Comp.ConversionDuration, new RevolutionaryConverterDoAfterEvent(), converter.Owner, target: target, used: converter.Owner)
+        _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, converter.Comp.ConversionDuration, new RevolutionaryConverterDoAfterEvent(), converter.Owner, target: target, used: converter.Owner, showTo: converter.Owner)
         {
             BreakOnMove = false,
             BreakOnWeightlessMove = false,

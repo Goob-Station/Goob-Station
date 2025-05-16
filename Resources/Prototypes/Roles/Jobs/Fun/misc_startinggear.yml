@@ -258,13 +258,6 @@
     - AccessConfiguratorUniversal
     - Multitool
 
-#Head Rev Gear
-- type: startingGear
-  id: HeadRevGear
-  storage:
-    back:
-    - RevolutionaryManifesto
-
 #Gladiator with spear
 - type: startingGear
   id: GladiatorGear
