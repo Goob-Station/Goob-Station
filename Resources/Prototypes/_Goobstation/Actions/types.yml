@@ -85,12 +85,13 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
+    checkCanInteract: false
     useDelay: 2
     icon: { sprite: _Goobstation/Objects/Weapons/Melee/mantis_blade.rsi, state: icon }
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
       path: /Audio/Items/unsheath.ogg
-    event: !type:ToggleRightExtendableEvent
+    event: !type:ToggleRightMantisBladeEvent
 
 - type: entity
   id: ActionToggleLeftMantisBlade
@@ -99,10 +100,11 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
+    checkCanInteract: false
     useDelay: 2
     icon: { sprite: _Goobstation/Objects/Weapons/Melee/mantis_blade.rsi, state: icon-mirrored }
     itemIconStyle: BigAction
-    event: !type:ToggleLeftExtendableEvent
+    event: !type:ToggleLeftMantisBladeEvent
 
 - type: entity
   id: ActionToggleSandevistan
@@ -111,8 +113,8 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    useDelay: 3
+    checkCanInteract: false
+    useDelay: 5
     icon: { sprite: _Goobstation/Objects/Misc/sandevistan.rsi, state: icon }
     itemIconStyle: BigAction
     event: !type:ToggleSandevistanEvent
-

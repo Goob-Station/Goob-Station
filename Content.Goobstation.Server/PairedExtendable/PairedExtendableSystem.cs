@@ -24,7 +24,7 @@ public sealed class PairedExtendableSystem : EntitySystem
         if (!TryComp<T>(ent, out var comp))
             return false;
 
-        var hand = _hands.EnumerateHands(ent).FirstOrDefault(hand => hand.Location == (comp.Right ? HandLocation.Right : HandLocation.Left));
+        var hand = _hands.EnumerateHands(ent).FirstOrDefault(hand => hand.Location == (comp is RightPairedExtendableUserComponent ? HandLocation.Right : HandLocation.Left));
         if (hand == null)
             return false;
 

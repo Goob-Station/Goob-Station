@@ -14,12 +14,6 @@ namespace Content.Goobstation.Shared.PairedExtendable;
 [RegisterComponent]
 public abstract partial class PairedExtendableUserComponent : Component
 {
-    /// <summary>
-    /// False for left, and should be overriden by true for right, obviously.
-    /// </summary>
-    [DataField]
-    public bool Right;
-
     [ViewVariables(VVAccess.ReadOnly)]
     public EntityUid? ActionUid;
 
@@ -38,3 +32,6 @@ public abstract partial class PairedExtendableUserComponent : Component
     [DataField]
     public bool MakeUnremovable = true; // Maybe make a component registry of components to add to the extendable?
 }
+
+public abstract partial class RightPairedExtendableUserComponent : PairedExtendableUserComponent;
+public abstract partial class LeftPairedExtendableUserComponent : PairedExtendableUserComponent;

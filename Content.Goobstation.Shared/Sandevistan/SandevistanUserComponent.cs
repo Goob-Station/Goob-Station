@@ -4,6 +4,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared._Goobstation.Wizard.Projectiles;
+using Content.Shared.Abilities;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Robust.Shared.Audio;
@@ -17,15 +19,24 @@ public sealed partial class SandevistanUserComponent : Component
     public bool Enabled;
 
     [DataField]
+    public TimeSpan StatusEffectTime = TimeSpan.FromSeconds(5);
+
+    [DataField]
     public TimeSpan UpdateDelay = TimeSpan.FromSeconds(1);
 
     [ViewVariables(VVAccess.ReadOnly)]
     public TimeSpan NextExecutionTime = TimeSpan.Zero;
 
     [DataField]
-    public string ActionProto = "ActionToggleSandevistan";
+    public TimeSpan PopupDelay = TimeSpan.FromSeconds(3);
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public TimeSpan NextPopupTime = TimeSpan.Zero;
 
     [DataField]
+    public string ActionProto = "ActionToggleSandevistan";
+
+    [ViewVariables(VVAccess.ReadOnly)]
     public EntityUid? ActionUid;
 
     [ViewVariables(VVAccess.ReadWrite)]
@@ -35,7 +46,7 @@ public sealed partial class SandevistanUserComponent : Component
     public float LoadPerActiveSecond = 1f;
 
     [DataField]
-    public float LoadPerInactiveSecond = -0.1f;
+    public float LoadPerInactiveSecond = -0.15f;
 
     [DataField]
     public SortedDictionary<SandevistanState, FixedPoint2> Thresholds = new()
@@ -43,28 +54,26 @@ public sealed partial class SandevistanUserComponent : Component
         { SandevistanState.Normal, 0 },
         { SandevistanState.Warning, 10 },
         { SandevistanState.Shaking, 20 },
-        { SandevistanState.Pain, 30 },
+        { SandevistanState.Stamina, 30 },
         { SandevistanState.Damage, 40 },
-        { SandevistanState.Stun, 50 },
+        { SandevistanState.Knockdown, 50 },
+        { SandevistanState.Disable, 60 },
     };
 
     [DataField]
-    public float Stamina = 5f; // Not used but I'll leave this for yaml warriors
-
-    [DataField]
-    public float Pain = 69f; // I have no clue on pain values, will adjust later
+    public float StaminaDamage = 5f;
 
     [DataField]
     public DamageSpecifier Damage = new()
     {
         DamageDict = new Dictionary<string, FixedPoint2>
         {
-            { "Blunt", 7.5 },
+            { "Blunt", 6.5 },
         },
     };
 
-    [DataField]
-    public TimeSpan StunTime = TimeSpan.FromSeconds(10);
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float ColorAccumulator = 0f;
 
     [DataField]
     public float MovementSpeedModifier = 2f;
@@ -79,10 +88,16 @@ public sealed partial class SandevistanUserComponent : Component
     public SoundSpecifier? EndSound = new SoundPathSpecifier("/Audio/_Goobstation/Misc/sande_end.ogg");
 
     [DataField] // So it fits the audio
-    public TimeSpan? Delay = TimeSpan.FromSeconds(3);
+    public TimeSpan ShiftDelay = TimeSpan.FromSeconds(2);
 
-    [DataField]
+    [ViewVariables(VVAccess.ReadOnly)]
     public EntityUid? RunningSound;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public TrailComponent? Trail;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public DogVisionComponent? DogVision;
 }
 
 public sealed partial class ToggleSandevistanEvent : InstantActionEvent;

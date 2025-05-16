@@ -34,8 +34,8 @@
 - type: entity
   parent: ClothingOuterStorageBase
   id: ClothingOuterDavidsJacket
-  name: David's jacket
-  description: A jacket for a cosplaying an edgerunner.
+  name: EMT jacket
+  description: A bright yellow signal jacket, beloved by paramedics of the end of the 21st century.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Coats/david_jacket.rsi
@@ -45,10 +45,10 @@
     accent: StreetpunkAccent
 
 - type: entity
-  parent: [ClothingOuterDavidsJacket, BaseMinorContraband]
+  parent: [ClothingOuterDavidsJacket, BaseMajorContraband]
   id: ClothingOuterDavidsJacketValid
-  name: true David's jacket
-  description: A jacket for a true edgerunner.
+  name: edgerunner's jacket
+  description: You're right on the edge. Show 'em you got this.
   components:
   - type: Clothing
     clothingVisuals:

@@ -35,7 +35,7 @@ public sealed class SharedMantisBladeSystem : EntitySystem
             });
     }
 
-    private void OnExamined(EntityUid uid, MantisBladeArmComponent component, ExaminedEvent args)
+    private void OnExamined(EntityUid uid, MantisBladeArmComponent component, ref ExaminedEvent args)
     {
         args.PushMarkup(Loc.GetString("mantis-blade-arm-examine"));
     }

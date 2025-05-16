@@ -286,6 +286,9 @@ public sealed class TrailSystem : EntitySystem
 
         foreach (var data in trail.TrailData)
         {
+            if (trail.LerpDelay > _timing.CurTime - data.SpawnTime)
+                return;
+
             if (trail.AlphaLerpAmount > 0f)
             {
                 var alphaTarget = trail.AlphaLerpTarget is >= 0f and <= 1f ? trail.AlphaLerpTarget : 0f;

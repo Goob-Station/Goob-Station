@@ -8,11 +8,8 @@ using Content.Shared.Actions;
 namespace Content.Goobstation.Shared.PairedExtendable.MantisBlades;
 
 [RegisterComponent]
-public abstract partial class RightMantisBladeUserComponent : PairedExtendableUserComponent
+public sealed partial class RightMantisBladeUserComponent : RightPairedExtendableUserComponent
 {
-    [DataField]
-    public new bool Right = true;
-
     [DataField]
     public string ActionProto = "ActionToggleRightMantisBlade";
 }

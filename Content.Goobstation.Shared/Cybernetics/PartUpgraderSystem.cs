@@ -10,7 +10,6 @@ using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
-using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
@@ -28,7 +27,6 @@ public sealed class PartUpgraderSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly ISerializationManager _serializationManager = default!;
-    [Dependency] private readonly ItemToggleSystem _toggle = default!;
 
     public override void Initialize()
     {
@@ -41,7 +39,10 @@ public sealed class PartUpgraderSystem : EntitySystem
 
     private void OnActivated(Entity<PartUpgraderComponent> ent, ref ItemToggleActivateAttemptEvent args)
     {
-        if (args.User == null || ent.Comp.Used || !_doAfter.TryStartDoAfter(new DoAfterArgs(
+        _audio.Stop(ent.Comp.ActiveSound);
+        args.Cancelled = true;
+
+        if (_netManager.IsClient || ent.Comp.Used || args.User == null || !_doAfter.TryStartDoAfter(new DoAfterArgs(
                     EntityManager,
                     ent.Owner,
                     ent.Comp.DoAfterTime,
@@ -50,15 +51,10 @@ public sealed class PartUpgraderSystem : EntitySystem
                     args.User,
                     ent.Owner)
                 {
-                    MovementThreshold = 0.2f,
                     BreakOnMove = true,
+                    DistanceThreshold = 0.1f,
+                    MovementThreshold = 0.1f,
                 }))
-        {
-            args.Cancelled = true;
-            return;
-        }
-
-        if (_netManager.IsClient) // Fuck sound networking
             return;
 
         var sound = _audio.PlayPvs(ent.Comp.Sound, ent);
@@ -68,10 +64,9 @@ public sealed class PartUpgraderSystem : EntitySystem
 
     private void OnDoAfter(Entity<PartUpgraderComponent> ent, ref PartUpgraderDoAfterEvent args)
     {
-        if (args.Cancelled || args.Handled || args.Target == null)
+        if (args.Cancelled || ent.Comp.Used || args.Target == null || args.Handled)
         {
             _audio.Stop(ent.Comp.ActiveSound);
-            _toggle.TryDeactivate(ent.Owner);
             args.Handled = true;
             return;
         }
@@ -83,7 +78,6 @@ public sealed class PartUpgraderSystem : EntitySystem
         if (!part.Valid)
         {
             _audio.Stop(ent.Comp.ActiveSound);
-            _toggle.TryDeactivate(ent.Owner);
             args.Handled = true;
             return;
         }
@@ -92,7 +86,6 @@ public sealed class PartUpgraderSystem : EntitySystem
         if (addedToPart != null && !addedToPart.Any()) // null indicates there were no components to add in the first place, so it's fine
         {
             _audio.Stop(ent.Comp.ActiveSound);
-            _toggle.TryDeactivate(ent.Owner);
             args.Handled = true;
             return;
         }
@@ -103,7 +96,6 @@ public sealed class PartUpgraderSystem : EntitySystem
             HandleOrgan(args.Target.Value, part, ent.Comp.ComponentsToUser);
 
         _audio.Stop(ent.Comp.ActiveSound);
-        _toggle.TryDeactivate(ent.Owner);
         args.Handled = true;
 
         if (ent.Comp.OneTimeUse)

@@ -1,0 +1,16 @@
+- type: loadoutEffectGroup
+  id: CyberParamedic
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobParamedic
+      time: 74772 #20.77 hours
+
+- type: loadout
+  id: ParamedicDavidsJacket
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: CyberParamedic
+  equipment:
+    outerClothing: ClothingOuterDavidsJacket
