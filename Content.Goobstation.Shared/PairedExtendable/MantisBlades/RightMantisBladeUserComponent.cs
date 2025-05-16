@@ -5,13 +5,16 @@
 
 using Content.Shared.Actions;
 
-namespace Content.Goobstation.Shared.PairedExtendable;
+namespace Content.Goobstation.Shared.PairedExtendable.MantisBlades;
 
 [RegisterComponent]
-public sealed partial class RightPairedExtendableUserComponent : PairedExtendableUserComponent
+public abstract partial class RightMantisBladeUserComponent : PairedExtendableUserComponent
 {
+    [DataField]
+    public new bool Right = true;
+
     [DataField]
     public string ActionProto = "ActionToggleRightMantisBlade";
 }
 
-public sealed partial class ToggleRightExtendableEvent : InstantActionEvent;
+public sealed partial class ToggleRightMantisBladeEvent : InstantActionEvent;

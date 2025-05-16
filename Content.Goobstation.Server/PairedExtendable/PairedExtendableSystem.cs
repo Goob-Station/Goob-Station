@@ -5,10 +5,9 @@
 
 using System.Linq;
 using Content.Goobstation.Shared.PairedExtendable;
-using Content.Server.Emp;
-using Content.Shared.Emp;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Interaction.Components;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
 
@@ -20,29 +19,12 @@ public sealed class PairedExtendableSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<RightPairedExtendableUserComponent, ToggleRightExtendableEvent>(OnToggleRight);
-        SubscribeLocalEvent<LeftPairedExtendableUserComponent, ToggleLeftExtendableEvent>(OnToggleLeft);
-
-        SubscribeLocalEvent<RightPairedExtendableUserComponent, EmpPulseEvent>(OnEmpRight);
-        SubscribeLocalEvent<LeftPairedExtendableUserComponent, EmpPulseEvent>(OnEmpLeft);
-    }
-
-    private bool ToggleExtendable<T>(EntityUid ent) where T : PairedExtendableUserComponent
+    public bool ToggleExtendable<T>(EntityUid ent) where T : PairedExtendableUserComponent
     {
         if (!TryComp<T>(ent, out var comp))
             return false;
 
-        if (HasComp<EmpDisabledComponent>(ent) && comp.AffectedByEmp)
-        {
-            _popup.PopupEntity(Loc.GetString("cyberware-disabled-emp"), ent, ent);
-            return false;
-        }
-
-        var hand = _hands.EnumerateHands(ent).FirstOrDefault(hand => hand.Location == (typeof(T) == typeof(RightPairedExtendableUserComponent) ? HandLocation.Right : HandLocation.Left));
+        var hand = _hands.EnumerateHands(ent).FirstOrDefault(hand => hand.Location == (comp.Right ? HandLocation.Right : HandLocation.Left));
         if (hand == null)
             return false;
 
@@ -65,33 +47,9 @@ public sealed class PairedExtendableSystem : EntitySystem
 
         _audio.PlayPvs(comp.ExtendSound, ent);
         comp.ExtendableUid = newExtendable;
+        if (comp.MakeUnremovable)
+            EnsureComp<UnremoveableComponent>(newExtendable);
+
         return true;
-    }
-    private void OnToggleRight(EntityUid uid, RightPairedExtendableUserComponent component, ToggleRightExtendableEvent args)
-    {
-        args.Handled = ToggleExtendable<RightPairedExtendableUserComponent>(uid);
-    }
-
-    private void OnToggleLeft(EntityUid uid, LeftPairedExtendableUserComponent component, ToggleLeftExtendableEvent args)
-    {
-        args.Handled = ToggleExtendable<LeftPairedExtendableUserComponent>(uid);
-    }
-
-    private void OnEmpRight(EntityUid uid, RightPairedExtendableUserComponent comp, ref EmpPulseEvent args)
-    {
-        if (!comp.AffectedByEmp)
-            return;
-
-        args.Affected = true;
-        args.Disabled = true;
-    }
-
-    private void OnEmpLeft(EntityUid uid, LeftPairedExtendableUserComponent comp, ref EmpPulseEvent args)
-    {
-        if (!comp.AffectedByEmp)
-            return;
-
-        args.Affected = true;
-        args.Disabled = true;
     }
 }

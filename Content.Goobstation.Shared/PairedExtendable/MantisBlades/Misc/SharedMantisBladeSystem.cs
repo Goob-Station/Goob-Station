@@ -7,9 +7,10 @@ using Content.Shared.Examine;
 using Content.Shared.Item;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Shared.PairedExtendable;
+namespace Content.Goobstation.Shared.PairedExtendable.MantisBlades;
 
-// This is hardcoded, but it's not like this is going to be used anywhere else right?
+// This has no business with PairedExtendable functionality, just misc mantis blades stuff.
+// And yes this is hardcoded, but it's not like this is going to be used anywhere else right?
 public sealed class SharedMantisBladeSystem : EntitySystem
 {
     [Dependency] private readonly SharedItemSystem _item = default!;

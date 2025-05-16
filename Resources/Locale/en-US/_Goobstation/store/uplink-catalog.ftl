@@ -234,10 +234,10 @@ uplink-krav-maga-implant-desc = Allows the user to perform various Krav Maga mov
 
 uplink-autosurgeon-right-mantis-blade-name = Right Mantis Blade Autosurgeon
 uplink-autosurgeon-left-mantis-blade-name = Left Mantis Blade Autosurgeon
-uplink-autosurgeon-mantis-blade-desc = Modifies the user's arm to include the Mantis Blade cyberware - a blade extending from the arm at will, works best when paired. Requires too much fine tuning for a human to provide, comes with a one-use autosurgeon for installation.
+uplink-autosurgeon-mantis-blade-desc = Modifies the user's arm to include the Mantis Blade cyberware extending from it at will, works best when paired. Requires too much fine tuning for a human to provide, comes with a one-use autosurgeon for installation.
 
 uplink-autosurgeon-sandevistan-name = Sandevistan Autosurgeon
-uplink-autosurgeon-sandevistan-desc = Modifies the user's heart to include the Sandevistan cyberware - an operating system that drastically increases the user's speed at the cost of their endurance. Requires too much fine tuning for a human to provide, comes with a one-use autosurgeon for installation.
+uplink-autosurgeon-sandevistan-desc = Modifies the user's heart to include the Sandevistan cyberware that drastically increases the user's speed at the cost of their endurance. Requires too much fine tuning for a human to provide, comes with a one-use autosurgeon for installation.
 
 uplink-davids-jacket-name = David's Jacket
 uplink-davids-jacket-desc = A jacket for those particularly interested in improving their bodies, just like you.

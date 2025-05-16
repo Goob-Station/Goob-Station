@@ -7,9 +7,19 @@ using Robust.Shared.Audio;
 
 namespace Content.Goobstation.Shared.PairedExtendable;
 
+/// <summary>
+/// Abstract component for easier work with PairedExtendableSystem.
+/// Check (or copy-paste) RightMantisBladeUserComponent and server-side MantisBladesSystem for reference.
+/// </summary>
 [RegisterComponent]
 public abstract partial class PairedExtendableUserComponent : Component
 {
+    /// <summary>
+    /// False for left, and should be overriden by true for right, obviously.
+    /// </summary>
+    [DataField]
+    public bool Right;
+
     [ViewVariables(VVAccess.ReadOnly)]
     public EntityUid? ActionUid;
 
@@ -26,5 +36,5 @@ public abstract partial class PairedExtendableUserComponent : Component
     public EntityUid? ExtendableUid;
 
     [DataField]
-    public bool AffectedByEmp = true;
+    public bool MakeUnremovable = true; // Maybe make a component registry of components to add to the extendable?
 }
