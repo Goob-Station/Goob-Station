@@ -10,6 +10,7 @@
 # SPDX-FileCopyrightText: 2025 RatherUncreative <RatherUncreativeName@proton.me>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Tier 1
@@ -32,6 +33,7 @@
   - EnergyCautery
   - AdvancedRetractor
   - BorgModuleAdvancedSurgery
+  - OmnimedTool
   technologyPrerequisites:
   - AdvancedEntertainment
   position: -2,4
@@ -74,20 +76,3 @@
   position: -2,6
   technologyPrerequisites:
   - CyberneticEnhancements
-
-# Tier 3
-
-- type: technology
-  id: HighEndSurgery
-  name: research-technology-high-end-surgery
-  icon:
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/omnimed.rsi
-    state: omnimed
-  discipline: CivilianServices
-  tier: 3
-  cost: 10000
-  recipeUnlocks:
-  - OmnimedTool
-  technologyPrerequisites:
-  - Autodoc
-  position: -2,7
