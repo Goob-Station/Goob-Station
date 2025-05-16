@@ -364,14 +364,7 @@
         sound:
           collection: MetalBreak
       - !type:ExplodeBehavior
-  - type: Damageable
-    damageModifierSet: StrongCrates
-  - type: Explosive
-    explosionType: Default
-    totalIntensity: 40
-    intensitySlope: 5
-    maxIntensity: 4.5
-    canCreateVacuum: false #GOOB END
+
 
 - type: entity
   parent: [ CrateBaseSecure, BaseSecurityContraband ]
