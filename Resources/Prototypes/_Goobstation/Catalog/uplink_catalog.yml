@@ -1217,6 +1217,6 @@
   icon: { sprite: _Goobstation/Objects/Fun/bloodmonica.rsi, state: icon }
   productEntity: BloodredCasette
   cost:
-    Telecrystal: 5
+    Telecrystal: 3
   categories:
-  - UplinkWearables
+  - UplinkPointless
