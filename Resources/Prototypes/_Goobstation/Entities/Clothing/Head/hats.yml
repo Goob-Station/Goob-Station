@@ -265,8 +265,10 @@
     sprite: _Goobstation/Clothing/Head/Hats/trainer_beret.rsi
 
 - type: entity
-  id: ClothingHeadHatHeadOfSecurityArmor
-  abstract: true
+  parent: [ClothingHeadBase, BaseSecurityCommandContraband]
+  id: ClothingHeadHatBeretHeadOfSecurityAdvanced
+  name: head of security's parade beret
+  description: A particularly gilded beret, designed for the Head of Security.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hats/hos-expi.rsi
