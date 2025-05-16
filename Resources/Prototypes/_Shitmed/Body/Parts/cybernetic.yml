@@ -144,7 +144,7 @@
   components:
   - type: MovementBodyPart
     walkSpeed: 3.125
-    sprintSpeed: 5.625
+    sprintSpeed: 4.95
 
 - type: entity
   parent: RightLegCyberneticBase
@@ -154,7 +154,7 @@
   components:
   - type: MovementBodyPart
     walkSpeed: 3.125
-    sprintSpeed: 5.625
+    sprintSpeed: 4.95
 
 - type: entity
   id: DexLeftHand
