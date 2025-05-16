@@ -9472,3 +9472,35 @@ Entries:
       message: Added a new lobby screen by Zethine.
   id: 1061
   time: '2025-05-16T17:59:51.0000000+00:00'
+- author: TheBorzoiMustConsume
+  changes:
+    - type: Tweak
+      message: Chaplain is no longer effected by Rust tiles or Entropic Plume.
+    - type: Tweak
+      message: Holy Damage now heals passively at a rate of 6~/minute
+    - type: Tweak
+      message: Null Rod balance adjustments.
+    - type: Tweak
+      message: >-
+        Rosary has received additional VFX/SFX whilst using to the Null Rod
+        variant's unique prayer mechanic.
+    - type: Tweak
+      message: Chaos Altar & Fanged Altar are now 1 sheet of plasma, or 1 raw meat.
+    - type: Tweak
+      message: Oni chaplains can now use Chaplain's pistols.
+    - type: Tweak
+      message: Chaplain Guidebook now displays the offerings required for each Altar!
+    - type: Tweak
+      message: Null Rod Magic Denial has been completely reworked - you'll see.
+    - type: Fix
+      message: Ascended Heretics now take holy damage regardless of equipment.
+    - type: Fix
+      message: Space-Christian Altar is buildable again.
+    - type: Fix
+      message: Grey Emperor's Glove now properly grants Insulated.
+    - type: Fix
+      message: All Chaplain mechanics involving damage or healing are now woundmed.
+    - type: Fix
+      message: no more meta-gaming heretics with the bible godo
+  id: 1062
+  time: '2025-05-16T18:38:23.0000000+00:00'
