@@ -14,18 +14,18 @@ namespace Content.Goobstation.Shared.Vehicles.Components;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class DamageOnCollisionComponent : Component
 {
-    [DataField("damage", required: true)]
+    [DataField(required: true)]
     public DamageSpecifier Damage = default!;
 
-    [DataField("sound")]
+    [DataField]
     public SoundSpecifier? Sound;
 
-    [DataField("minImpactSpeed")]
+    [DataField]
     public float MinImpactSpeed = 5f;
 
-    [DataField("damageCooldown")]
+    [DataField]
     public float DamageCooldown = 0.5f;
 
-    [DataField("lastHit", customTypeSerializer: typeof(TimeOffsetSerializer))]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan? LastHit;
 }

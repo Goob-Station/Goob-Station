@@ -25,9 +25,6 @@ public sealed partial class VehicleDamageSystem : EntitySystem
 
     private void OnCollide(EntityUid uid, DamageOnCollisionComponent component, ref StartCollideEvent args)
     {
-        // if (args.OurFixtureId != "Hard" || args.OtherFixtureId != "Hard")
-        //     return;
-
         if (component.LastHit != null && _gameTiming.CurTime < component.LastHit + TimeSpan.FromSeconds(component.DamageCooldown))
             return;
 
