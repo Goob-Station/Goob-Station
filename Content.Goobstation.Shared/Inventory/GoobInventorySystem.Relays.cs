@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Coenx-flex <coengmurray@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
@@ -14,11 +15,11 @@ using Content.Goobstation.Shared.Flashbang;
 using Content.Goobstation.Shared.Stunnable;
 using Content.Shared._Goobstation.Wizard.Chuuni;
 using Content.Shared._White.Standing;
+using Content.Shared.AbilitySuppression;
 using Content.Shared.Damage.Events;
 using Content.Shared.Heretic;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
-using Content.Shared.Mobs;
 
 namespace Content.Goobstation.Shared.Inventory;
 
@@ -32,6 +33,7 @@ public partial class GoobInventorySystem
         SubscribeLocalEvent<InventoryComponent, DelayedKnockdownAttemptEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, VaporCheckEyeProtectionEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, CheckMagicItemEvent>(RelayInventoryEvent);
+        SubscribeLocalEvent<InventoryComponent, CheckMagicSuppressionEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, GetFlashbangedEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, FlashDurationMultiplierEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, GetStandingUpTimeMultiplierEvent>(RelayInventoryEvent);
