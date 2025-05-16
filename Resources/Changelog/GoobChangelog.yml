@@ -9436,3 +9436,9 @@ Entries:
       message: High tier bone fractures do prevent topicals, do not let them build up.
   id: 1055
   time: '2025-05-15T21:38:59.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Nukies cannot get surplus crates.
+  id: 1056
+  time: '2025-05-16T01:30:43.0000000+00:00'
