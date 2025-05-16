@@ -79,7 +79,6 @@
     slots:
     - neck
   - type: ActivatableUI
-    inHandsOnly: false  
   - type: Tag
     tags:
     - WoodwindInstrument
