@@ -9466,3 +9466,9 @@ Entries:
       message: kobolds are no longer skinnable
   id: 1060
   time: '2025-05-16T17:54:35.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Added a new lobby screen by Zethine.
+  id: 1061
+  time: '2025-05-16T17:59:51.0000000+00:00'
