@@ -165,8 +165,8 @@
   name: selectable-set-syndicate-implants-name
   description: selectable-set-syndicate-implants-description
   sprite:
-    sprite: Objects/Specific/Medical/syndi_implanter.rsi
-    state: implanter0
+    sprite: _Goobstation/Clothing/OuterClothing/Coats/david_jacket.rsi
+    state: icon
   content:
   - RadioImplanter
   - EmpImplanter
@@ -174,10 +174,10 @@
   - FreedomImplanter
   - SmokeImplanter
   - KravMagaImplanter
-  - ClothingOuterDavidsJacket
+  - ClothingOuterDavidsJacketValid
   - AutosurgeonRightMantisBlade
   - AutosurgeonLeftMantisBlade
-  # - UplinkAutosurgeonSandevistan
+  - AutosurgeonSandevistan
 
 - type: selectableSet
   id: SyndicateHackerSet

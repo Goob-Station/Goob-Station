@@ -106,11 +106,11 @@
 - type: entity
   id: ActionToggleSandevistan
   name: Toggle Sandevistan
-  description: Extend or retract the mantis blade in your left arm.
+  description: Enable or disable your improved reflexes provided by the Sandevistan.
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     useDelay: 3
-    icon: { sprite: _Goobstation/Objects/Weapons/Melee/mantis_blade.rsi, state: icon-mirrored }
+    icon: { sprite: _Goobstation/Objects/Misc/sandevistan.rsi, state: icon }
     itemIconStyle: BigAction
     event: !type:ToggleSandevistanEvent

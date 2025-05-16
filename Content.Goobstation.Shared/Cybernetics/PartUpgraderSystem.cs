@@ -58,8 +58,8 @@ public sealed class PartUpgraderSystem : EntitySystem
             return;
         }
 
-        if (_netManager.IsClient) // Fuck sound networking
-            return;
+        //if (_netManager.IsClient) // Fuck sound networking // okay what if
+        //    return;
 
         var sound = _audio.PlayPvs(ent.Comp.Sound, ent);
         if (sound.HasValue)

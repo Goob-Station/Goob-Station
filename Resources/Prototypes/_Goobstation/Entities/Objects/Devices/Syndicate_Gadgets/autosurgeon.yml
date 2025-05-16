@@ -78,17 +78,17 @@
     componentsToUser:
     - type: LeftMantisBladeUser
 
-#- type: entity
-#  parent: BaseAutosurgeonSyndicate
-#  id: AutosurgeonSandevistan
-#  name: syndicate autosurgeon (sandevistan)
-#  components:
-#  - type: Sprite
-#    state: icon-syndie
-#  - type: PartUpgrader
-#    targetBodyPart: Chest
-#    targetBodyOrgan: Heart
-#    componentsToPart:
-#    - type: Sandevistan
-#    componentsToUser:
-#    - type: SandevistanUser
+- type: entity
+  parent: BaseAutosurgeonSyndicate
+  id: AutosurgeonSandevistan
+  name: syndicate autosurgeon (sandevistan)
+  components:
+  - type: Sprite
+    state: icon-syndie
+  - type: PartUpgrader
+    targetBodyPart: Chest
+    targetBodyOrgan: Heart
+    componentsToPart:
+    - type: Sandevistan
+    componentsToUser:
+    - type: SandevistanUser

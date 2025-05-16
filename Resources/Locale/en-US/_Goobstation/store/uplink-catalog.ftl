@@ -239,6 +239,9 @@ uplink-autosurgeon-mantis-blade-desc = Modifies the user's arm to include the Ma
 uplink-autosurgeon-sandevistan-name = Sandevistan Autosurgeon
 uplink-autosurgeon-sandevistan-desc = Modifies the user's heart to include the Sandevistan cyberware - an operating system that drastically increases the user's speed at the cost of their endurance. Requires too much fine tuning for a human to provide, comes with a one-use autosurgeon for installation.
 
+uplink-davids-jacket-name = David's Jacket
+uplink-davids-jacket-desc = A jacket for those particularly interested in improving their bodies, just like you.
+
 # Wearables
 
 uplink-helmet-swat-name = Syndicate SWAT Helmet

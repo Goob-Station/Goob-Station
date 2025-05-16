@@ -17,10 +17,10 @@ public sealed partial class RightMantisBladeUserComponent : Component, IMantisBl
     public EntityUid? ActionUid;
 
     [DataField]
-    public SoundSpecifier? ExtendSound { get; set; } = new SoundPathSpecifier("/Audio/Items/unsheath.ogg"); // TODO: better sounds
+    public SoundSpecifier? ExtendSound { get; set; } = new SoundPathSpecifier("/Audio/_Goobstation/Weapons/MantisBlades/mantis_extend.ogg");
 
     [DataField]
-    public SoundSpecifier? RetractSound { get; set; } = new SoundPathSpecifier("/Audio/Items/sheath.ogg");
+    public SoundSpecifier? RetractSound { get; set; } = new SoundCollectionSpecifier("MantisBladeRetract");
 
     [DataField]
     public string BladeProto { get; set; } = "MantisBlade";
