@@ -975,11 +975,6 @@
       amount: 2
   - type: Extractable
     grindableSolutionName: food
-  - type: LanguageKnowledge
-    speaks:
-    - ValyrianStandard
-    understands:
-    - ValyrianStandard
   - type: Vocal
     sounds:
       Male: SoundsHarpy
@@ -1007,12 +1002,6 @@
     - Mouse
   - type: Body
     prototype: Squackroach
-  - type: StepTriggerImmune
-    whitelist:
-      types:
-      - Shard
-      - Landmine
-      - Mousetrap
   - type: Destructible
     thresholds:
     - trigger:
