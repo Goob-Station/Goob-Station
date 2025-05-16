@@ -1,0 +1,25 @@
+- type: entity
+  id: BasePouch
+  parent: BaseStorageItem
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Storage/Pouches/misc.rsi
+    layers:
+      - state: basic
+  - type: Item
+    sprite: _Goobstation/Objects/Storage/Pouches/misc.rsi
+    layers:
+      - state: basic
+    size: Small
+    shape:
+    - 0,0,3,3
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,3,1
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 100
+  - type: StaticPrice
+    price: 10

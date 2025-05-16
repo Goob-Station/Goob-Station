@@ -1,0 +1,66 @@
+- type: entity
+  name: utility pouch
+  parent: [BasePouch, BaseSecurityContraband]
+  id: PouchSecurityUtility
+  description: A small pouch for holding extra security goodies.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Storage/Pouches/misc.rsi
+    layers:
+      - state: utility
+  - type: StorageFill
+    contents:
+    - id: Zipties
+    - id: PepperSpray
+    - id: GrenadeFlashBang
+    - id: BolaEnergy
+    - id: Zipties # Looks weird but needed to look good in-game
+    whitelist:
+      tags:
+        - CigPack
+        - SecBeltEquip
+        - Radio
+        - BolaEnergy
+      components:
+        - FlashOnTrigger
+        - SmokeOnTrigger
+        - Flash
+        - Handcuff
+        - CartridgeAmmo
+        - DoorRemote
+        - Whistle
+        - BalloonPopper
+
+- type: entity
+  name: first aid pouch
+  parent: [BasePouch, BaseSecurityContraband]
+  id: PouchSecurityFirstaid
+  description: A small pouch for holding extra security goodies.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Storage/Pouches/medical.rsi
+    layers:
+      - state: firstaid
+  - type: StorageFill
+    contents:
+    - id: SecHypo
+    - id: CartridgeBicaridine
+    - id: Tourniquet
+    - id: PillCanisterIron # Tramadol when that gets merged
+    - id: CartridgeDermaline
+    - id: PillCanisterTricordrazine
+    whitelist:
+      tags:
+        - Brutepack
+        - Bloodpack
+        - Gauze
+        - Ointment
+        - CigPack
+        - PillCanister
+        - Tourniquet
+        - MedicalPatch
+        - AutoinjectorCartridge
+      components:
+        - Hypospray
+        - Injector
+        - Pill
