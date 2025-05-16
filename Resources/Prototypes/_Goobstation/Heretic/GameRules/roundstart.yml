@@ -29,7 +29,7 @@
     agentName: heretic-roundend-name
     definitions:
     - prefRoles: [ Heretic ]
-      max: 5
+      max: 3
       playerRatio: 15
       lateJoinAdditional: true
       jobBlacklist: [ Chaplain ] # GOOBSTATION
@@ -59,8 +59,8 @@
     agentName: heretic-roundend-name
     definitions:
     - prefRoles: [ Heretic ]
-      max: 3
-      playerRatio: 15
+      max: 2
+      playerRatio: 20
       lateJoinAdditional: true
       jobBlacklist: [ Chaplain ] # GOOBSTATION
       mindRoles:

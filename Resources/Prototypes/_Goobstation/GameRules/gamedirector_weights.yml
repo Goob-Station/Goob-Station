@@ -31,6 +31,10 @@
   id: Nukeops
   modes:
   - Nukeops
+  - Changeling
+  - Traitor
+  - Heretic
+  - Wizard
   - HonkOps
   - Zombie
   - Revolutionary
@@ -41,6 +45,10 @@
   id: HonkOps
   modes:
   - Nukeops
+  - Changeling
+  - Traitor
+  - Heretic
+  - Wizard
   - HonkOps
   - Zombie
   - Revolutionary
@@ -70,23 +78,45 @@
   id: Zombie
   modes:
   - Nukeops
-  - CosmicCult
-  - HonkOps
-
-- type: incompatibleModes
-  id: Revolutionary
-  modes:
-  - Nukeops
-  - CosmicCult
-  - HonkOps
-
-- type: incompatibleModes
-  id: CosmicCult
-  modes:
-  - Nukeops
+  - Changeling
+  - Traitor
+  - Heretic
+  - Wizard
   - HonkOps
   - Zombie
   - Revolutionary
   - BlobGameMode
   - CosmicCult
+
+- type: incompatibleModes
+  id: Revolutionary
+  modes:
+  - Nukeops
+  - Changeling
+  - Traitor
   - Heretic
+  - Wizard
+  - HonkOps
+  - Zombie
+  - Revolutionary
+  - BlobGameMode
+  - CosmicCult
+
+- type: incompatibleModes
+  id: CosmicCult
+  modes:
+  - Nukeops
+  - Changeling
+  - Traitor
+  - Heretic
+  - Wizard
+  - HonkOps
+  - Zombie
+  - Revolutionary
+  - BlobGameMode
+  - CosmicCult
+
+- type: incompatibleModes
+  id: Traitor
+  modes:
+  - Traitor
