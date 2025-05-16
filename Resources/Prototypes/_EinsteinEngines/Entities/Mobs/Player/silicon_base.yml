@@ -1,6 +1,5 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
@@ -185,15 +184,15 @@
     #  bloodlossDamage:
     #    types:
     #      Burn: 1.5
+    #  bloodlossHealDamage:
+    #    types:
+    #      Burn: 0
     - type: Flammable
       fireSpread: true
       canResistFire: true
       damage:
         types:
           Heat: 0 # GoobStation: Replaced fire damage with overheating shutdown
-    #  bloodlossHealDamage:
-    #    types:
-    #      Burn: 0
     # - type: Barotrauma # Not particularly modifiable. In the future, some response to pressure changes would be nice.
     #   damage:
     #     types:

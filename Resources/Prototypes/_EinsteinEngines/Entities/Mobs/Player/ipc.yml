@@ -141,7 +141,12 @@
   - type: WeldingHealable
   - type: DamagedSiliconAccent
   - type: Uncloneable
-
+  - type: Flammable
+    fireSpread: true
+    canResistFire: false
+    damage:
+      types:
+        Heat: 1
 - type: entity
   save: false
   name: Urist McPositronic
