@@ -1,0 +1,45 @@
+- type: job
+  id: Brigmedic
+  name: job-name-brigmedic
+  description: job-description-brigmedic
+  playTimeTracker: JobBrigmedic
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Medical
+    time: 36000 # 10 hrs
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 36000 # 10 hrs
+  startingGear: BrigmedicGearGoob
+  icon: "JobIconBrigmedic"
+  supervisors: job-supervisors-hos
+  canBeAntag: false
+  goobcoins: 30
+  access: # intentionally no medical, not even hos has it, ask chemists instead of silently stealing meds
+  - Security
+  - Brig
+  - Maintenance
+  - Service
+  - External
+  - Cryogenics
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+    - type: SecurityStaff
+
+- type: startingGear
+  id: BrigmedicGearGoob
+  equipment:
+    head: ClothingHeadHatBeretBrigmedic
+    outerClothing: ClothingOuterCoatAMG
+    id: BrigmedicPDA
+    ears: ClothingHeadsetAltSecurityRegular
+    belt: ClothingBeltMedicalFilled
+    pocket1: WeaponDisabler
+  storage:
+    back:
+    - Flash
+    - ClothingMaskGasSecurity
+    - TelescopicBaton

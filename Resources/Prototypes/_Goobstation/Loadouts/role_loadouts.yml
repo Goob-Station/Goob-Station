@@ -136,3 +136,16 @@
   - SurvivalSyndicate
   - GroupHonkopsMask
   - GroupPocketTankDouble
+
+- type: roleLoadout
+  id: JobBrigmedic
+  groups:
+  - MedicalMask
+  - BrigmedicJumpsuit
+  - MedicalGloves
+  - BrigmedicBackpack
+  - SecurityShoes
+  - Glasses
+  - SurvivalSecurity
+  - Trinkets
+  - GroupSpeciesBreathToolSecurity

@@ -840,7 +840,6 @@
     dynamicPacks:
     - Chemistry
     # Goobstation Packs
-    - MedicalSurgery
     - MedicalCybernetics
     - MedicalMisc
     - MedicalMiscRestricted

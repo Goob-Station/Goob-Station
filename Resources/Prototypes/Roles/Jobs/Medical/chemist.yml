@@ -81,7 +81,7 @@
   - !type:AddComponentSpecial
     components:
     - type: SurgerySpeedModifier
-      speedModifier: 1.75
+      speedModifier: 1.5
 
 - type: startingGear
   id: ChemistGear

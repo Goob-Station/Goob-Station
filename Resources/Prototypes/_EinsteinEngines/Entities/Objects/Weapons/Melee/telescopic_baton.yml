@@ -7,7 +7,7 @@
 
 - type: entity
   id: TelescopicBaton
-  parent: [BaseItem, BaseCommandContraband] # Goob edit
+  parent: [BaseItem, BaseSecurityCommandContraband] # Goob edit
   name: telescopic baton
   description: A compact and harmless personal defense weapon. Sturdy enough to knock the feet out from under attackers. If you hit a person immediately after extending the baton, it will force them drop held items as well. # Goob edit
   components:

@@ -149,16 +149,16 @@
   description: A large duffel bag containing a full suite of surgical tools.
   components:
   - type: StorageFill
-    contents:
+    contents: # goob edited
       - id: DefibrillatorSyndicate
       - id: SawAdvanced
       - id: EnergyCautery
       - id: AdvancedRetractor
       - id: ScalpelAdvanced
+      - id: Drill
+      - id: AdvancedBoneGel
       - id: ClothingHandsGlovesNitrile
       - id: EmergencyRollerBedSpawnFolded
-      - id: BoneGel # Shitmed Change
-      - id: MedicalStitches # Shitmed Change
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle

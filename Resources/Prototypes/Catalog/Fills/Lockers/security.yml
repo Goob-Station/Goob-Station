@@ -182,36 +182,38 @@
   parent: LockerBrigmedic
   components:
   - type: StorageFill
-    contents:
-      - id: ClothingEyesGlassesSecurity
-      - id: WeaponDisabler
-      - id: TrackingImplanter
-        amount: 2
-      - id: ClothingOuterHardsuitBrigmedic
+    contents: # heavily good edited
+      - id: ParamedHypo
+      - id: CartridgeSaline
+        amount: 3
+      - id: CartridgeBicaridine
+        amount: 3
+      - id: CartridgeDermaline
+        amount: 3
+      - id: OmnimedTool
+      - id: ClothingEyesGlassesMed
+      - id: ClothingOuterCoatAMG
+      - id: ClothingOuterHardsuitBrigmedic # This is bullshit but it's being changed in another PR so I'll let it slide
       - id: OxygenTankFilled
       - id: NitrogenTankFilled
-      - id: BoxSterileMask
-      - id: ClothingHeadHatBeretBrigmedic
-      - id: ClothingOuterCoatAMG
-      - id: ClothingUniformJumpsuitBrigmedic
-      - id: ClothingUniformJumpskirtBrigmedic
-      - id: ClothingUniformJumpskirtOfLife
-        prob: 0.1
+      - id: MedkitOxygenFilled # This one is guaranteed
+      # Plus 3 medkits on average, should be more than enough round start
       - id: MedkitFilled
-      - id: MedkitCombatFilled
-        prob: 0.6
-      - id: MedkitAdvancedFilled
-        prob: 0.4
-      - id: MedkitOxygenFilled
-        prob: 0.3
+        prob: 0.75
       - id: MedkitBruteFilled
-        prob: 0.3
+        prob: 0.5
+      - id: MedkitBurnFilled
+        prob: 0.5
       - id: MedkitToxinFilled
         prob: 0.3
-      - id: MedkitBurnFilled
-        prob: 0.7
+      - id: MedkitRadiationFilled
+        prob: 0.3
+      - id: MedkitAdvancedFilled
+        prob: 0.2
+      - id: MedkitCombatFilled
+        prob: 0.1
       - id: ClothingNeckCloakMoth #bzzz Moth-pocalypse
-        prob: 0.15
+        prob: 0.65 # 65% for moth obviozzzsly
 
 - type: entity
   id: LockerDetectiveFilled

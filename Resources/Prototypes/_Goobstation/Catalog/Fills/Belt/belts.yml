@@ -79,10 +79,10 @@
   components:
   - type: StorageFill
     contents:
-    - id: EnergyCautery
     - id: EnergyScalpel
     - id: AdvancedRetractor
-    - id: BoneGel
+    - id: EnergyCautery
+    - id: AdvancedBoneGel
     - id: MedicatedSuture
     - id: RegenerativeMesh
     - id: Bloodpack
