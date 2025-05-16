@@ -1,3 +1,4 @@
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
@@ -7,15 +8,21 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Religion.Events;
+using System.Linq;
 using Content.Goobstation.Shared.Bible;
 using Content.Goobstation.Shared.Religion.Nullrod.Components;
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
+using Content.Shared.Electrocution;
+using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
+using Content.Shared.Heretic;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Religion.Nullrod.Systems;
@@ -62,7 +69,7 @@ public abstract partial class SharedNullRodSystem : EntitySystem
         if (_timing.CurTime < ent.Comp.NextPopupTime)
             return;
 
-        if (_damageableSystem.TryChangeDamage(user, ent.Comp.DamageOnUntrainedUse, origin: ent) is null)
+        if (_damageableSystem.TryChangeDamage(user, ent.Comp.DamageOnUntrainedUse, origin: ent, targetPart: TargetBodyPart.All, ignoreBlockers: true) is null)
             return;
 
         _popupSystem.PopupEntity(Loc.GetString(ent.Comp.UntrainedUseString), user, user, PopupType.MediumCaution);
