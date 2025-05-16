@@ -1214,7 +1214,7 @@
 - type: listing
   id: UplinkBloodredCasette
   name: uplink-bloodred-casette-name
-  descirption: uplink-bloodred-casette-name
+  description: uplink-bloodred-casette-name
   icon: { sprite: _Goobstation/Objects/Fun/bloodmonica.rsi, state: icon }
   productEntity: BloodredCasette
   cost:
