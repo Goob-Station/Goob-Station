@@ -9256,3 +9256,207 @@ Entries:
         time, you stay in the fucking bar.
   id: 1045
   time: '2025-05-14T07:08:15.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: 1x1 tesla setups should no longer loose.
+  id: 1046
+  time: '2025-05-14T10:47:20.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Fix
+      message: >-
+        Fixed self heal being broken. This might reintroduce lag though! Let me
+        know how bad it gets...
+    - type: Fix
+      message: Fixed infinite bleeding.
+    - type: Fix
+      message: Fixed invisible unremoveable bleeds.
+    - type: Fix
+      message: >-
+        Fixed the guidebook entries for pain killers having a bottle of vodka
+        and wearing adidas.
+    - type: Fix
+      message: Fixed broken autodoc FTL strings.
+    - type: Fix
+      message: Fixed the weird FTL strings on self inspect with healed wounds.
+    - type: Fix
+      message: Fixed tend wounds not working and also self disabling on dead people.
+    - type: Fix
+      message: Fixed blindness being permanent upon a single usage of welder torch.
+    - type: Fix
+      message: >-
+        Fixed explosions not killing you on the spot, but only after some other
+        source of damage refreshes your shit.
+    - type: Fix
+      message: Nuked some more PVS issues and resolves.
+    - type: Fix
+      message: >-
+        Nuked the footprint solution showing up in health analyzer (WHY THE FUCK
+        IS IT APPENDED TO YOUR ENTITY LIKE THAT DOG WHAT)
+    - type: Tweak
+      message: >-
+        Changed the colors of the body doll! Now the main color when your part
+        is about to get lopped off is pure red. It will be gray when you have no
+        parts, and will have the old crit/disabled reddish color when its
+        bleeding. 
+    - type: Tweak
+      message: >-
+        The health analyzer now displays what parts are bleeding, and shows it
+        as well in the integrated body doll! The design is TBD, mostly made do
+        with what we already had...
+    - type: Tweak
+      message: >-
+        The health analyzer no longer displays pain (will be reimplemented later
+        when its more relevant for a doctor to know if the patient is tweaking
+        or not)
+    - type: Tweak
+      message: >-
+        Changed the detailed health inspect to work using the same system as the
+        one for the body doll (Did you know you can self inspect your injuries
+        by clicking on it?)
+    - type: Fix
+      message: >-
+        Fun fact! Topicals were actually being affected by miss chances on
+        attacks! So some of the weird behavior was actually the 30%-50% for the
+        ""attack"" to not hit the correct body part, teehee.
+    - type: Fix
+      message: >-
+        Fixed invincible medibots, firebots, and whatever other manner of those
+        fucking mini clankers somehow got a hold of the title card.
+        Blobbernauts, polymorphs and random entities may still be subject to
+        this!
+    - type: Fix
+      message: 'Fixed slime cores being unremoveable/insertable in surgery! '
+  id: 1047
+  time: '2025-05-14T19:19:22.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Added more clauses for the Devil.
+    - type: Add
+      message: 'New devil ability: Devil Grip.'
+    - type: Add
+      message: >-
+        Devils and soulless people can now wear glasses/masks to cover their
+        properties.
+    - type: Fix
+      message: Fixed several other bugs with devil.
+    - type: Tweak
+      message: Devil hours reqired have been changed.
+    - type: Tweak
+      message: Increased cooldown of the Devils jaunt.
+    - type: Tweak
+      message: Mindshielded people can no longer sign contracts.
+    - type: Tweak
+      message: Devil can now only possess people who have sold their souls.
+  id: 1048
+  time: '2025-05-14T20:29:17.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: Added molotov cocktail
+  id: 1049
+  time: '2025-05-14T21:52:26.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Added a big shotgun 150 telecrystals.
+    - type: Fix
+      message: >-
+        You can now shoot while lying down, your bullets won't hit absolutely
+        everything even if you don't aim your cursor.
+  id: 1050
+  time: '2025-05-15T01:56:12.0000000+00:00'
+- author: Scruq445
+  changes:
+    - type: Add
+      message: Cyborgs now can scream!
+  id: 1051
+  time: '2025-05-15T05:47:36.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Tweak
+      message: storage implant is normal sized again
+  id: 1052
+  time: '2025-05-15T07:18:22.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Add
+      message: >-
+        Added the GL-06 riot grenade launcher for security, which can only fire
+        non lethal grenades, to be mapped soon
+    - type: Add
+      message: >-
+        Added the MP-APERS shell for the china lake, which turns it into a
+        shotgun with a ton of pellets
+    - type: Add
+      message: >-
+        Added the grenadier belt to replace the grenadier chest rig, it holds
+        twice the amount of grenades and has a slot for pistols and pistol
+        magazines. Try it with a china lake and an anaconda! does not come
+        filled.
+    - type: Tweak
+      message: Reworked grenadier syndiekit to use the grenadier rig and other items
+    - type: Tweak
+      message: Renamed china lake shells to 40mm
+    - type: Tweak
+      message: Resprited 40mm shells
+    - type: Tweak
+      message: >-
+        Significantly reduced handheld grenade prices in the uplink, especially
+        for nuke ops
+    - type: Add
+      message: traitors can now buy sarin gas grenades at an increased price
+    - type: Fix
+      message: Fixed spent 40mm shell sprite error
+  id: 1053
+  time: '2025-05-15T07:26:12.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Tweak
+      message: Changelings and Heretics can no longer be made revolutionaries
+    - type: Add
+      message: Headrevs are back on the menu for all you ling enjoyers
+    - type: Remove
+      message: >-
+        Your studies of the mansus are no longer superseded by being shown The
+        Death of Stalin (2017)
+  id: 1054
+  time: '2025-05-15T07:35:25.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: >-
+        Fix firestack damage, no longer heats you up as much but deals more
+        damage
+    - type: Tweak
+      message: Low tier bone fractures no longer prevent topical use.
+    - type: Tweak
+      message: High tier bone fractures do prevent topicals, do not let them build up.
+  id: 1055
+  time: '2025-05-15T21:38:59.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Nukies cannot get surplus crates.
+  id: 1056
+  time: '2025-05-16T01:30:43.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Mop is faster
+  id: 1057
+  time: '2025-05-16T01:32:20.0000000+00:00'
+- author: John Kameroni
+  changes:
+    - type: Add
+      message: 65%
+  id: 1058
+  time: '2025-05-16T05:30:29.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Add
+      message: Mapped the security riot launcher on 13 space stations
+  id: 1059
+  time: '2025-05-16T07:18:53.0000000+00:00'
