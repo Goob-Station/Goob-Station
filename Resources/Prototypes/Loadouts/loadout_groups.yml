@@ -1276,7 +1276,6 @@
   loadouts:
   - ArmorVest
   - ArmorVestSlim
-  - ArmorVestWebSec # Goobstation
   - SecurityOfficerWintercoat
 
 - type: loadoutGroup
