@@ -59,13 +59,14 @@ public sealed class DevilRuleSystem : GameRuleSystem<DevilRuleComponent>
 
         if (ent is null)
             return;
+
         args.Append(MakeBriefing(ent.Value));
     }
 
     private string MakeBriefing(EntityUid ent)
     {
         return !TryComp<DevilComponent>(ent, out var devilComp)
-            ? default!
+            ? null!
             : Loc.GetString("devil-role-greeting", ("trueName", devilComp.TrueName), ("playerName", Name(ent)));
     }
 
@@ -74,16 +75,19 @@ public sealed class DevilRuleSystem : GameRuleSystem<DevilRuleComponent>
     {
         var mostContractsName = string.Empty;
         var mostContracts = 0f;
-        foreach (var devil in EntityQuery<DevilComponent>())
+
+        var query = EntityQueryEnumerator<DevilComponent>();
+        while (query.MoveNext(out var devil, out var devilComp))
         {
-            if (!_mind.TryGetMind(devil.Owner, out var mindId, out var mind))
+            if (!_mind.TryGetMind(devil, out var mindId, out var mind))
                 continue;
-            var metaData = MetaData(devil.Owner);
-            if (devil.Souls > mostContracts)
-            {
-                mostContracts = devil.Souls;
-                mostContractsName = _objective.GetTitle((mindId, mind), metaData.EntityName);
-            }
+
+            var metaData = MetaData(devil);
+            if (devilComp.Souls < mostContracts)
+                continue;
+
+            mostContracts = devilComp.Souls;
+            mostContractsName = _objective.GetTitle((mindId, mind), metaData.EntityName);
         }
         var sb = new StringBuilder();
         sb.AppendLine(Loc.GetString($"roundend-prepend-devil-contracts{(!string.IsNullOrWhiteSpace(mostContractsName) ? "-named" : "")}", ("name", mostContractsName), ("number", mostContracts)));

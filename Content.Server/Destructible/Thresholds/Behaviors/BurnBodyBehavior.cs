@@ -12,6 +12,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
+using Content.Shared.IdentityManagement;
 
 namespace Content.Server.Destructible.Thresholds.Behaviors;
 
@@ -35,16 +36,7 @@ public sealed partial class BurnBodyBehavior : IThresholdBehavior
         }
 
         var bodyIdentity = Identity.Entity(bodyId, system.EntityManager);
-        if (system.EntityManager.TryGetComponent<BodyPartComponent>(bodyId, out var bodyPart))
-        {
-            if (bodyPart.CanSever
-                && system.BodySystem.BurnPart(bodyId, bodyPart))
-                sharedPopupSystem.PopupCoordinates(Loc.GetString("bodyburn-text-others", ("name", bodyIdentity)), transformSystem.GetMoverCoordinates(bodyId), PopupType.LargeCaution);
-        }
-        else
-        {
-            sharedPopupSystem.PopupCoordinates(Loc.GetString("bodyburn-text-others", ("name", bodyIdentity)), transformSystem.GetMoverCoordinates(bodyId), PopupType.LargeCaution);
-            system.EntityManager.QueueDeleteEntity(bodyId);
-        }
+        sharedPopupSystem.PopupCoordinates(Loc.GetString("bodyburn-text-others", ("name", bodyIdentity)), transformSystem.GetMoverCoordinates(bodyId), PopupType.LargeCaution);
+        system.EntityManager.QueueDeleteEntity(bodyId);
     }
 }

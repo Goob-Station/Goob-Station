@@ -1,0 +1,26 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: ClothingBackpackSyndicateFilledGrenadier
+  parent: ClothingBackpackSyndicate
+  suffix: Grenadier bundle, filled
+  components:         # How many nades do you want?
+  - type: StorageFill # Yes.
+    contents:         # If seriously this is like 100 TC worth of explosives.
+    - id: CleanerGrenade
+    - id: MetalFoamGrenade
+    - id: GrenadeFlashBang
+    - id: TearGasGrenade
+    - id: GrenadeStinger
+    - id: WhiteholeGrenade
+    - id: SmokeGrenade
+    - id: EmpGrenade
+    - id: C4
+    - id: GrenadeShrapnel
+    - id: GrenadeIncendiary
+    - id: ExGrenade
+    - id: SarinGasGrenade
+    - id: SupermatterGrenade
