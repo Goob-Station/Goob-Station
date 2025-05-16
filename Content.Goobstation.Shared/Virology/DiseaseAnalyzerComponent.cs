@@ -22,9 +22,6 @@ public sealed partial class DiseaseAnalyzerComponent : Component
     [ViewVariables]
     public TimeSpan AnalysisDuration = TimeSpan.FromSeconds(5);
 
-    [ViewVariables]
-    public TimeSpan? EndTime = null;
-
     [DataField]
     public string? IdleState;
 
