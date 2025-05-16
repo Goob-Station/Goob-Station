@@ -113,10 +113,13 @@ public sealed partial class NavMapSystem : SharedNavMapSystem
 
     private void OnTileChanged(ref TileChangedEvent ev)
     {
+        if (!_navQuery.TryComp(ev.Entity, out var navMap))
+            return;
+
         foreach (var change in ev.Changes)
         {
-            if (!change.EmptyChanged || !_navQuery.TryComp(ev.Entity, out var navMap))
-                return;
+            if (!change.EmptyChanged)
+                continue;
 
             var tile = change.GridIndices;
             var chunkOrigin = SharedMapSystem.GetChunkIndices(tile, ChunkSize);
@@ -131,7 +134,7 @@ public sealed partial class NavMapSystem : SharedNavMapSystem
             {
                 tileData = 0;
                 if (PruneEmpty((ev.Entity, navMap), chunk))
-                    return;
+                    continue;
             }
             else
             {
