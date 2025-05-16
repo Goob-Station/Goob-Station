@@ -95,6 +95,7 @@
   components:
   - type: Contraband
     allowedDepartments: [ Medical ]
+    allowedJobs: [ Brigmedic, BlueshieldOfficer ] # goob
 
 - type: entity
   id: BaseCivilianContraband

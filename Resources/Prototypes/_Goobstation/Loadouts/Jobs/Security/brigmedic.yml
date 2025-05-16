@@ -1,0 +1,29 @@
+- type: loadout
+  id: BrigmedicJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitBrigmedic
+
+- type: loadout
+  id: BrigmedicJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtBrigmedic
+
+- type: loadout
+  id: BrigmedicBackpack
+  equipment:
+    back: ClothingBackpackBrigmedic
+
+- type: loadout
+  id: BrigmedicSatchel
+  equipment:
+    back: ClothingBackpackSatchelBrigmedic
+
+- type: loadout
+  id: BrigmedicDuffel
+  equipment:
+    back: ClothingBackpackDuffelBrigmedic
+
+- type: loadout
+  id: BrigmedicMessenger
+  equipment:
+    back: ClothingBackpackMessengerSecurity # TODO brigmedic messenger

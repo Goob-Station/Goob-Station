@@ -41,7 +41,7 @@
   table: !type:AllSelector
     children:
     - id: DefibrillatorCompact
-    - id: SecHypo
+    - id: ParamedHypo
     - id: MedkitBSOFilled
     - id: MedkitBSOIPCFilled
     - id: FlippoLighterBlueshield
