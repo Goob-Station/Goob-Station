@@ -1025,21 +1025,6 @@
         type: InstrumentBoundUserInterface
         requireInputValidation: false
 
-- type: entity
-  parent: MobSquackroach
-  id: MobSquackroachPet
-  components:
-  - type: HTN
-    rootTask:
-      task: FollowCompound
-    blackboard:
-      IdleRange: !type:Single
-        1.5
-      FollowCloseRange: !type:Single
-        1.0
-      FollowRange: !type:Single
-        2.0
-
 # Note that the mallard duck is actually a male drake mallard, with the brown duck being the female variant of the same species, however ss14 lacks sex specific textures
 # The white duck is more akin to a pekin or call duck.
 
