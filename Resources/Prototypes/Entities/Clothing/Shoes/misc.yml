@@ -206,7 +206,7 @@
   - type: StaticPrice
     price: 500
   - type: PowerCellDraw
-    drawRate: 200 #Goob
+    drawRate: 20 #Goob
   - type: ToggleCellDraw
   - type: ItemSlots
     slots:
