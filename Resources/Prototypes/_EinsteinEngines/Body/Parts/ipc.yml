@@ -91,6 +91,7 @@
   - type: Tag
     tags:
     - POrgHead #Goobstation
+    - Head
 
 - type: entity
   parent: [ PartIPCBase, BaseLeftArm ]

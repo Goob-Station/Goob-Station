@@ -56,7 +56,6 @@
 using Content.Server.Actions;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
-using Content.Server.Database.Migrations.Postgres;
 using Content.Server.DeviceNetwork.Systems;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Hands.Systems;
@@ -369,13 +368,13 @@ public sealed partial class BorgSystem : SharedBorgSystem
     public void BorgActivate(EntityUid uid, BorgChassisComponent component)
     {
         // Goobstation set pOrg name if a pAI wakes up inside it
+        string? pAIName = null;
         if (!_container.TryGetContainer(uid, component.BrainContainerId, out var brainContainer))
             return;
         foreach (var containedEntity in brainContainer.ContainedEntities)
         {
             if (!TryComp<PAIComponent>(containedEntity, out var paiComponent))
-                return;
-            string? pAIName = null;
+                continue;
             if (paiComponent.LastUser != null)
             {
                 var userName = Name(paiComponent.LastUser.Value);
@@ -384,7 +383,6 @@ public sealed partial class BorgSystem : SharedBorgSystem
             }
             _metaData.SetEntityName(uid, $"pOrg{pAIName}");
         }
-
 
         Popup.PopupEntity(Loc.GetString("borg-mind-added", ("name", Identity.Name(uid, EntityManager))), uid);
         if (_powerCell.HasDrawCharge(uid))
@@ -410,7 +408,7 @@ public sealed partial class BorgSystem : SharedBorgSystem
             foreach (var containedEntity in brainContainer.ContainedEntities)
             {
                 if (!HasComp<PAIComponent>(containedEntity))
-                    return;
+                    continue;
                 _metaData.SetEntityName(uid, $"pOrg (personal ai device)");
                 break;
             }

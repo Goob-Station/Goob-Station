@@ -161,8 +161,8 @@
 
 - type: entity
   parent: [BaseMob, StripableInventoryBase]
-  id: BaseBorgChassis
-  name: cyborg
+  id: BaseBaseBorgChassis
+  name: stockcyborg
   description: A man-machine hybrid that assists in station activity. They love being asked to state their laws over and over.
   save: false
   abstract: true
@@ -191,9 +191,6 @@
         - MobMask
         layer:
         - MobLayer
-  - type: MovementSpeedModifier
-    baseWalkSpeed : 2.5
-    baseSprintSpeed : 4.5
   - type: Sprite
     sprite: Mobs/Silicon/chassis.rsi
   - type: RotationVisuals
@@ -231,9 +228,6 @@
         type: BorgBoundUserInterface
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
-      # Only used for NT borgs that can switch type, defined here to avoid copy-pasting the rest of this component.
-      enum.BorgSwitchableTypeUiKey.SelectBorgType:
-        type: BorgSelectTypeUserInterface
       # Goobstation - Add the station map interface to the borg
       enum.StationMapUiKey.Key:
         type: StationMapBoundUserInterface
@@ -249,11 +243,6 @@
   - type: ActionGrant
     actions:
     - ActionViewLaws
-  - type: EmagSiliconLaw
-    stunTime: 5
-  - type: SiliconLawProvider
-    laws: Crewsimov
-  - type: IonStormTarget
   - type: Inventory
     templateId: borg
   - type: Hands
@@ -277,9 +266,6 @@
     doAfterDelay: 10
     # allowSelfRepair: false # Goobstation
   - type: BorgChassis
-    brainBlacklist: #Goobstation
-      components:
-      - PAI
   - type: LockingWhitelist
     blacklist:
       components:
@@ -291,12 +277,6 @@
   - type: ContainerContainer
     containers:
       borg_brain: !type:ContainerSlot { }
-      cell_slot: !type:ContainerSlot { }
-      borg_module: !type:Container { }
-      part-container: !type:Container
-  - type: PowerCellSlot
-    cellSlotId: cell_slot
-    fitsInCharger: true
   - type: ItemToggle
     onActivate: false # You should not be able to turn off a borg temporarily.
     activated: false # gets activated when a mind is added
@@ -305,13 +285,6 @@
   - type: AccessToggle
   # TODO: refactor movement to just be based on toggle like speedboots but for the boots themselves
   # TODO: or just have sentient speedboots be fast idk
-  - type: PowerCellDraw
-    drawRate: 0.6
-  # no ToggleCellDraw since dont want to lose access when power is gone
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
   - type: Body
     bodyType: Simple
   - type: StatusEffects
@@ -423,6 +396,148 @@
   - type: Penetratable # Goobstation - Better snipers
     penetrateDamage: 75 # It's harder to kill iron golem
     damagePenalty: 0.25
+
+- type: entity
+  parent: [BaseBaseBorgChassis]
+  id: BaseBorgChassis
+  name: cyborg
+  description: A man-machine hybrid that assists in station activity. They love being asked to state their laws over and over.
+  save: false
+  abstract: true
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 150
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2.5
+    baseSprintSpeed : 4.5
+  - type: Sprite
+    sprite: Mobs/Silicon/chassis.rsi
+  - type: UserInterface
+    interfaces:
+      enum.SiliconLawsUiKey.Key:
+        type: SiliconLawBoundUserInterface
+        requireInputValidation: false
+      enum.BorgUiKey.Key:
+        type: BorgBoundUserInterface
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      # Only used for NT borgs that can switch type, defined here to avoid copy-pasting the rest of this component.
+      enum.BorgSwitchableTypeUiKey.SelectBorgType:
+        type: BorgSelectTypeUserInterface
+      # Goobstation - Add the station map interface to the borg
+      enum.StationMapUiKey.Key:
+        type: StationMapBoundUserInterface
+  # Goobstation - Add the station map interface to the borg
+  - type: IntrinsicUI
+    uis:
+      enum.StationMapUiKey.Key:
+        toggleAction: ActionAGhostShowStationMap
+  - type: EmagSiliconLaw
+    stunTime: 5
+  - type: SiliconLawProvider
+    laws: Crewsimov
+  - type: IonStormTarget
+  - type: Inventory
+    templateId: borg
+  - type: Hands
+    showInHands: false
+    disableExplosionRecursion: true
+    canBeStripped: false
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Binary
+    - Common
+    - Science
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Common
+    - Science
+  - type: BorgChassis
+    brainBlacklist: #Goobstation
+      components:
+      - PAI
+  - type: LockingWhitelist
+    blacklist:
+      components:
+      - RoboticsConsole
+  - type: NameIdentifier
+    group: Silicon
+  - type: ContainerContainer
+    containers:
+      cell_slot: !type:ContainerSlot { }
+      borg_module: !type:Container { }
+      part-container: !type:Container
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+    fitsInCharger: true
+  - type: PowerCellDraw
+    drawRate: 0.6
+  # no ToggleCellDraw since dont want to lose access when power is gone
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+  - type: TypingIndicator
+    proto: robot
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Borg
+  - type: Vocal
+    sounds:
+      Unsexed: UnisexSilicon
+  - type: DamagedSiliconAccent
+  - type: Construction
+    graph: Cyborg
+    node: cyborg
+    containers:
+    - part-container
+    - cell_slot
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 75
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Machines/warning_buzzer.ogg
+          params:
+            volume: 5
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:EmptyContainersBehaviour
+        containers:
+        - borg_brain
+        - borg_module
+        - cell_slot
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - FootstepSound
+    - CanPilot
+    - Unimplantable
+  - type: GuideHelp
+    guides:
+    - Cyborgs
+    - Robotics
+
 
 - type: entity
   abstract: true

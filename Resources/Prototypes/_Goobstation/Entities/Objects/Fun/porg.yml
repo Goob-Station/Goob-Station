@@ -35,11 +35,25 @@
     defaultTarget: porg
 
 - type: entity
-  parent: [BaseMob, StripableInventoryBase]
+  parent: [BaseBaseBorgChassis]
   id: POrg
   name: pOrg
   description: pAI Observational Roaming Gadget, a simple locomotion unit for your wallet sized friend.
   components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 90
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 3
+    baseSprintSpeed : 7.5
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/porg.rsi
     layers:
@@ -53,60 +67,53 @@
       shader: unshaded
       map: ["light","enum.BorgVisualLayers.LightStatus"]
       visible: false
+  - type: UserInterface
+    interfaces:
+      enum.SiliconLawsUiKey.Key:
+        type: SiliconLawBoundUserInterface
+        requireInputValidation: false
+      enum.BorgUiKey.Key:
+        type: BorgBoundUserInterface
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
+      enum.StationMapUiKey.Key:
+        type: StationMapBoundUserInterface
+  - type: IntrinsicUI
+    uis:
+      enum.StationMapUiKey.Key:
+        toggleAction: ActionAGhostShowStationMap
+  - type: ActionGrant
+    actions:
+    - ActionPAIPlayMidi
+  - type: SiliconLawProvider
+    laws: FamimovLawset
+  - type: Inventory
+    templateId: borgShort
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Binary
+    - Common
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Common
+  - type: BorgChassis
+    maxModules: 0
+    hasMindState: porg_e
+    noMindState: porg_e_r
+    brainWhitelist:
+      components:
+      - PAI
+  - type: TypingIndicator
+    proto: robot
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Pai
   - type: Construction
     graph: POrg
     node: porg
-  - type: Carriable
-  - type: Pullable
-  - type: Puller
-    needsHands: false
-  - type: NoSlip
-  - type: MovementSpeedModifier
-    baseWalkSpeed : 3
-    baseSprintSpeed : 7.5
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.35
-        density: 90
-        mask:
-        - MobMask
-        layer:
-        - MobLayer
-  - type: CombatMode
-  - type: Targeting # Shitmed Change
-  - type: MeleeWeapon
-    hidden: true
-    damage:
-      types:
-        Blunt: 0
-  - type: StaminaDamageOnHit
-    damage: 10
-  - type: Reactive
-    groups:
-      Acidic: [Touch]
-  - type: DamageOnHighSpeedImpact
-    damage:
-      types:
-        Blunt: 5
-    soundHit:
-      collection: MetalThud
-  - type: Damageable
-    damageContainer: Silicon
-    damageModifierSet: Silicon #Goobstation - Iondamage
-  - type: MobThresholds
-    thresholds:
-      0: Alive
-      100: Critical
-      150: Dead
-    stateAlertDict:
-      Alive: BorgHealth
-      Critical: BorgCrit
-      Dead: BorgDead
-    showOverlays: false
-    allowRevives: true
   - type: Destructible
     thresholds:
     - trigger:
@@ -130,170 +137,40 @@
         - borg_brain
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: RotationVisuals
-    horizontalRotation: 90
-  - type: MobState
-    allowedStates:
-    - Alive
-    - Critical
-    - Dead
-  - type: ProtectedFromStepTriggers
-  - type: DamageOnInteractProtection
-    damageProtection:
-      flatReductions:
-        Heat: 10 # capable of touching light bulbs and stoves without feeling pain!
-  - type: Penetratable # Goobstation - Better snipers
-    penetrateDamage: 75 # It's harder to kill iron golem
-    damagePenalty: 0.25
-  - type: HealthExaminable
-    examinableTypes:
-      - Blunt
-      - Slash
-      - Piercing
-      - Heat
-      - Shock
-    locPrefix: silicon
-  - type: ActionGrant
-    actions:
-    - ActionViewLaws
-    - ActionPAIPlayMidi
-  - type: Instrument
-    allowPercussion: false
-    handheld: false
-    bank: 1
-    program: 2
-  - type: UserInterface
-    interfaces:
-      enum.InstrumentUiKey.Key:
-        type: InstrumentBoundUserInterface
-        requireInputValidation: false
-      enum.StationMapUiKey.Key:
-        type: StationMapBoundUserInterface
-        requireInputValidation: false
-      enum.StrippingUiKey.Key:
-        type: StrippableBoundUserInterface
-      enum.SiliconLawsUiKey.Key:
-        type: SiliconLawBoundUserInterface
-        requireInputValidation: false
-      enum.BorgUiKey.Key:
-        type: BorgBoundUserInterface
-  - type: IntrinsicUI
-    uis:
-      enum.StationMapUiKey.Key:
-        toggleAction: ActionAGhostShowStationMap
-  - type: ActivatableUI
-    key: enum.BorgUiKey.Key
-  - type: BorgChassis
-    maxModules: 0
-    hasMindState: porg_e
-    noMindState: porg_e_r
-    brainWhitelist:
-      components:
-      - PAI
-  - type: SiliconLawBound
-  - type: SiliconLawProvider
-    laws: FamimovLawset
-  - type: ComplexInteraction
-  - type: Access
-    enabled: false
-    tags:
-    - Borg
-    - External
-    - Maintenance
-  - type: IntrinsicRadioReceiver
-  - type: IntrinsicRadioTransmitter
-    channels:
-    - Binary
-    - Common
-  - type: ActiveRadio
-    channels:
-    - Binary
-    - Common
-  - type: ZombieImmune
-  - type: Repairable
-    doAfterDelay: 10
-    allowSelfRepair: false
-  - type: ContainerContainer
-    containers:
-      borg_brain: !type:ContainerSlot { }
-  - type: ItemToggle
-    onActivate: false # You should not be able to turn off a borg temporarily.
-    activated: false # gets activated when a mind is added
-    onUse: false # no item-borg toggling sorry
-  - type: ItemTogglePointLight
-  - type: AccessToggle
-  - type: Body
-  - type: Inventory
-    templateId: borgShort
-  - type: StatusEffects
-    allowed:
-    - Stun
-    - KnockedDown
-    - SlowedDown
-    - Flashed
-  - type: TypingIndicator
-    proto: robot
-  - type: Speech
-    speechVerb: Robotic
-    speechSounds: Pai
-  - type: UnblockableSpeech
-  - type: FootstepModifier
-    footstepSoundCollection:
-      collection: FootstepBorg
-  - type: Lock
-    locked: true
-    unlockOnClick: false
-  - type: WiresPanel
-    openDelay: 1.5
-  - type: ActivatableUIRequiresPanel
-  - type: ActivatableUIRequiresLock
-  - type: LockedWiresPanel
-  - type: InteractionPopup
-    interactSuccessString: petting-success-porg
-    interactFailureString: petting-failure-porg
-  - type: StandingState
   - type: Tag
     tags:
     - DoorBumpOpener
     - FootstepSound
     - VimPilot
-  - type: Emoting
-  - type: Examiner
+    - Unimplantable
   - type: GuideHelp
     guides:
-    - Cyborgs
     - Robotics
-  - type: HandheldLight
-    toggleOnInteract: false
-    wattage: 0.2
-    blinkingBehaviourId: blinking
-    radiatingBehaviourId: radiating
+  - type: MeleeWeapon
+    hidden: true
+    damage:
+      types:
+        Blunt: 0
+  - type: StaminaDamageOnHit
+    damage: 10
+  - type: Instrument
+    allowPercussion: false
+    handheld: false
+    bank: 1
+    program: 2
   - type: Battery
     maxCharge: 100
     startingCharge: 100
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 5
-  - type: LightBehaviour
-    behaviours:
-    - !type:FadeBehaviour
-      id: radiating
-      maxDuration: 2.0
-      startValue: 3.0
-      endValue: 2.0
-      isLooped: true
-      reverseWhenFinished: true
-    - !type:PulseBehaviour
-      id: blinking
-      interpolate: Nearest
-      maxDuration: 1.0
-      minValue: 0.1
-      maxValue: 2.0
-      isLooped: true
-  - type: ToggleableLightVisuals
-  - type: PointLight
+  - type: InteractionPopup
+    interactSuccessString: petting-success-porg
+    interactFailureString: petting-failure-porg
+  - type: Access
     enabled: false
-    mask: /Textures/Effects/LightMasks/cone.png
-    autoRot: true
-    radius: 4
-    netsync: false
+    tags:
+    - Borg
+    - External
+    - Maintenance
+  - type: Carriable
