@@ -646,6 +646,9 @@
   components:
     - type: Sprite
       sprite: _Goobstation/Clothing/OuterClothing/Modsuits/syndicateelitemodsuit.rsi
+    - type: ClothingSpeedModifier
+      walkModifier: 1
+      sprintModifier: 1
     - type: ExplosionResistance
       damageCoefficient: 0.4
     - type: FireProtection
