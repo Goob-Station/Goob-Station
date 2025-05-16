@@ -53,6 +53,7 @@ using Content.Client.Ghost;
 using Content.Shared.Administration;
 using Content.Shared.Chat;
 using Robust.Client.Console;
+using Robust.Shared.Network;
 using Robust.Shared.Utility;
 
 namespace Content.Client.Chat.Managers;
@@ -80,6 +81,23 @@ internal sealed class ChatManager : IChatManager
     public void SendAdminAlert(EntityUid player, string message)
     {
         // See server-side manager. This just exists for shared code.
+    }
+
+    public void ChatMessageToAll(
+        ChatChannel channel,
+        string message,
+        string wrappedMessage,
+        EntityUid source,
+        bool hideChat,
+        bool recordReplay,
+        Color? colorOverride = null,
+        string? audioPath = null,
+        float audioVolume = 0,
+        NetUserId? author = null,
+        bool ignoreChatStack = false
+    )
+    {
+        // See server-side code. This method only exists for shared.
     }
 
     public void SendMessage(string text, ChatSelectChannel channel)

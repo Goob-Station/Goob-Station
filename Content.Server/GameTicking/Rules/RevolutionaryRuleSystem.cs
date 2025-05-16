@@ -70,6 +70,7 @@ using System.Linq;
 using Content.Goobstation.Shared.Revolutionary;
 using Content.Server.Chat.Systems;
 
+
 namespace Content.Server.GameTicking.Rules;
 
 /// <summary>
@@ -103,7 +104,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         base.Initialize();
         SubscribeLocalEvent<CommandStaffComponent, MobStateChangedEvent>(OnCommandMobStateChanged);
 
-        SubscribeLocalEvent<HeadRevolutionaryComponent, AfterFlashedEvent>(OnPostFlash);
+        SubscribeLocalEvent<HeadRevolutionaryComponent, RevolutionaryConverterSystem.AfterConvertedEvent>(OnPostConvert);
         SubscribeLocalEvent<CommunicationConsoleCallShuttleAttemptEvent>(OnTryCallEvac); // goob edit
         SubscribeLocalEvent<HeadRevolutionaryComponent, MobStateChangedEvent>(OnHeadRevMobStateChanged);
 
@@ -200,9 +201,9 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
     }
 
     /// <summary>
-    /// Called when a Head Rev uses a flash in melee to convert somebody else.
+    /// Called when a Head Rev uses a Revolutionary Manifesto to convert somebody else.
     /// </summary>
-    private void OnPostFlash(EntityUid uid, HeadRevolutionaryComponent comp, ref AfterFlashedEvent ev)
+    private void OnPostConvert(EntityUid uid, HeadRevolutionaryComponent comp, ref RevolutionaryConverterSystem.AfterConvertedEvent ev)
     {
         // GoobStation - check if headRev's ability enabled
         if (!comp.ConvertAbilityEnabled)
