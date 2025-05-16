@@ -9460,3 +9460,9 @@ Entries:
       message: Mapped the security riot launcher on 13 space stations
   id: 1059
   time: '2025-05-16T07:18:53.0000000+00:00'
+- author: cheetah1984
+  changes:
+    - type: Fix
+      message: kobolds are no longer skinnable
+  id: 1060
+  time: '2025-05-16T17:54:35.0000000+00:00'
