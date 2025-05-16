@@ -9442,3 +9442,9 @@ Entries:
       message: Nukies cannot get surplus crates.
   id: 1056
   time: '2025-05-16T01:30:43.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Mop is faster
+  id: 1057
+  time: '2025-05-16T01:32:20.0000000+00:00'
