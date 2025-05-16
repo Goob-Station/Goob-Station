@@ -187,12 +187,6 @@
     #  bloodlossHealDamage:
     #    types:
     #      Burn: 0
-    - type: Flammable
-      fireSpread: true
-      canResistFire: true
-      damage:
-        types:
-          Heat: 0 # GoobStation: Replaced fire damage with overheating shutdown
     # - type: Barotrauma # Not particularly modifiable. In the future, some response to pressure changes would be nice.
     #   damage:
     #     types:
