@@ -15,6 +15,9 @@ public readonly partial record struct NtrTaskHistoryData
     [DataField]
     public string Id { get; init; } = string.Empty;
 
+    [DataField]
+    public double CompletionTime { get; init; }
+
     /// <summary>
     /// Whether this bounty was completed or skipped.
     /// </summary>
@@ -32,9 +35,6 @@ public readonly partial record struct NtrTaskHistoryData
     /// </summary>
     [DataField]
     public TimeSpan Timestamp { get; init; } = TimeSpan.MinValue;
-
-    [DataField("completionTime")]
-    public double CompletionTime { get; init; }
 
     /// <summary>
     /// The prototype containing information about the bounty.

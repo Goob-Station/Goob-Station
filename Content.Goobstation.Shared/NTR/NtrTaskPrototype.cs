@@ -50,13 +50,13 @@ public sealed class NtrTaskPrototype : IPrototype
     [DataField]
     public float Weight = 1.0f;
 
-    [DataField("cooldown")]
+    [DataField]
     public float Cooldown; //in seconds
 
-    [DataField("reagents")]
+    [DataField]
     public Dictionary<ProtoId<ReagentPrototype>, FixedPoint2> Reagents { get; init; } = new();
 
-    [DataField("solutionName")]
+    [DataField]
     public string SolutionName { get; private set; } = "drink"; // i want to end it all already
 
     [DataField("reagentTask")] // shitcod

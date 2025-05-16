@@ -39,7 +39,6 @@ public sealed class NtrTaskSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutions = default!;
     [Dependency] private readonly ILocalizationManager _loc = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
 
