@@ -48,5 +48,5 @@ public sealed partial class DashActionEvent : WorldTargetActionEvent
     public ProtoId<EmotePrototype>? Emote = "Flip";
 
     [DataField]
-    public string? Speech = "65!";
+    public string? Speech;
 }
