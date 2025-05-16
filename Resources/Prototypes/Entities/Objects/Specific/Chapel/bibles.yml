@@ -166,7 +166,6 @@
   #  bibleUserOnly: true
   - type: AlternatePrayable # Goobstation
     requireBibleUser: false
-  - type: HealUserOnPray # Goobstation - Heal that holy damage
   - type: Summonable
     specialItem: SpawnPointGhostRemilia
   - type: ReactionMixer
