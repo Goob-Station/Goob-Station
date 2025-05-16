@@ -85,7 +85,7 @@
     whitelist:
       tags:
         - CartridgePistol
-    capacity: 16
+    capacity: 17 # goob edit
   - type: Item
     size: Small
   - type: ContainerContainer
@@ -103,6 +103,9 @@
     steps: 6
     zeroVisible: false
   - type: Appearance
+  - type: Item # goob
+    shape:
+    - 0,0,2,0
 
 - type: entity
   id: BaseMagazinePistolSubMachineGun  # Yeah it's weird but it's pistol caliber

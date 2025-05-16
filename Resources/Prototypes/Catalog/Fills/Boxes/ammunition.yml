@@ -149,7 +149,7 @@
   - type: StorageFill
     contents:
       - id: MagazinePistolHighCapacity
-        amount: 4
+        amount: 3 # goob edit
 
 - type: entity
   name: box of machine pistol .35 auto (practice) magazines
@@ -160,7 +160,7 @@
   - type: StorageFill
     contents:
       - id: MagazinePistolHighCapacityPractice
-        amount: 4
+        amount: 3 # goob edit
 
 - type: entity
   name: box of SMG .35 auto magazines

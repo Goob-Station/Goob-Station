@@ -21,8 +21,6 @@
 - type: latheRecipePack
   id: SyndicateAmmoHeavyStatic
   recipes:
-  - MagazinePistolHighCapacityEmpty
-  - MagazinePistolHighCapacity
   - MagazineLightRifleBoxEmpty
   - MagazineLightRifleBox
   - MagazineHighCaliberEmpty
