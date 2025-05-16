@@ -1,0 +1,72 @@
+# SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: HelpimovCircuitBoard
+  parent: BaseElectronics
+  name: law board (Helpimov)
+  description: An electronics board containing the Helpimov lawset.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: HelpimovLawset
+
+- type: entity
+  id: PlayerBorgDerelictSyndicateAssaultBattery
+  parent: BorgChassisDerelictSyndicateAssault
+  suffix: Battery, Module, Operative, Derelict
+  components:
+  - type: NukeOperative
+  - type: ContainerFill
+    containers:
+      borg_brain:
+      - PositronicBrain
+      borg_module:
+      - BorgModuleOperative
+      - BorgModuleSyndicateWeaponAdvanced
+      # - BorgModuleL6C - No L6 for the derelicts
+      # - BorgModuleEsword - Replaced
+      - BorgModuleTool
+      - BorgModuleFireExtinguisher
+      - BorgModuleGPS
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMedium
+  - type: RandomMetadata
+    nameSegments: [ NamesBorg ]
+
+- type: entity
+  id: PlayerBorgDerelictSyndicateAssaultGhostRole
+  parent: PlayerBorgDerelictSyndicateAssaultBattery
+  suffix: Ghost role, Derelict
+  components:
+  - type: GhostRole
+    name: ghost-role-information-derelict-cyborg-syndicate-name
+    description: ghost-role-information-derelict-cyborg-syndicate-description
+    rules: ghost-role-information-silicon-rules
+    mindRoles:
+    - MindRoleGhostRoleSilicon
+    raffle:
+      settings: default
+    requirements: # Goobstation - ghost roles requirements
+    - !type:RoleTimeRequirement
+      role: JobBorg
+      time: 3600 #1 hour
+  - type: GhostTakeoverAvailable

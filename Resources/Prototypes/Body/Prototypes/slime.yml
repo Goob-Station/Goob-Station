@@ -25,10 +25,11 @@
       - groin
       - head # Shitmed
       organs:
-        core: SentientSlimeCore
         lungs: OrganSlimeLungs
     groin:
       part: GroinSlime
+      organs:
+        core: SentientSlimeCore
       connections:
       - right leg
       - left leg

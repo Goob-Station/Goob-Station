@@ -8,6 +8,7 @@
 // SPDX-FileCopyrightText: 2024 SlamBamActionman <slambamactionman@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -68,6 +69,9 @@ public sealed class SingularityGeneratorSystem : SharedSingularityGeneratorSyste
 
         SetPower(uid, 0, comp);
         EntityManager.SpawnEntity(comp.SpawnPrototype, Transform(uid).Coordinates);
+
+        // Goobstation - since it's reusable also trigger failsafe to avoid unintentional tesla spam
+        comp.NextFailsafe = _timing.CurTime + comp.FailsafeCooldown;
     }
 
     #region Getters/Setters
