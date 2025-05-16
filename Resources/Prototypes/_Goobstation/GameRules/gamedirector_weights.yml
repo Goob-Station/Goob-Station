@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
@@ -31,6 +32,10 @@
   id: Nukeops
   modes:
   - Nukeops
+  - Changeling
+  - Traitor
+  - Heretic
+  - Wizard
   - HonkOps
   - Zombie
   - Revolutionary
@@ -41,6 +46,10 @@
   id: HonkOps
   modes:
   - Nukeops
+  - Changeling
+  - Traitor
+  - Heretic
+  - Wizard
   - HonkOps
   - Zombie
   - Revolutionary
@@ -70,23 +79,45 @@
   id: Zombie
   modes:
   - Nukeops
-  - CosmicCult
-  - HonkOps
-
-- type: incompatibleModes
-  id: Revolutionary
-  modes:
-  - Nukeops
-  - CosmicCult
-  - HonkOps
-
-- type: incompatibleModes
-  id: CosmicCult
-  modes:
-  - Nukeops
+  - Changeling
+  - Traitor
+  - Heretic
+  - Wizard
   - HonkOps
   - Zombie
   - Revolutionary
   - BlobGameMode
   - CosmicCult
+
+- type: incompatibleModes
+  id: Revolutionary
+  modes:
+  - Nukeops
+  - Changeling
+  - Traitor
   - Heretic
+  - Wizard
+  - HonkOps
+  - Zombie
+  - Revolutionary
+  - BlobGameMode
+  - CosmicCult
+
+- type: incompatibleModes
+  id: CosmicCult
+  modes:
+  - Nukeops
+  - Changeling
+  - Traitor
+  - Heretic
+  - Wizard
+  - HonkOps
+  - Zombie
+  - Revolutionary
+  - BlobGameMode
+  - CosmicCult
+
+- type: incompatibleModes
+  id: Traitor
+  modes:
+  - Traitor
