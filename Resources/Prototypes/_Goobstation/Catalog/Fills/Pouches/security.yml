@@ -40,7 +40,7 @@
   name: first aid pouch
   parent: [BasePouch, BaseSecurityContraband]
   id: PouchSecurityFirstaid
-  description: A small pouch for holding extra security goodies.
+  description: A small pouch for holding emergency medication.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Storage/Pouches/medical.rsi
