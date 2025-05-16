@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.Botany.Components;
 using Content.Server.Botany.Systems;
 using Content.Server.Chat.Systems;

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Silicons.Bots;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
