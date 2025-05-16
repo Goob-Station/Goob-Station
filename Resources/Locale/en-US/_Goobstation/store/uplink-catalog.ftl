@@ -275,3 +275,6 @@ uplink-undetermined-bundle-desc = This crate comes with three random bundles and
 
 uplink-energy-pickaxe-name = Energy Pickaxe
 uplink-energy-pickaxe-desc = A holographic mining tool with blades comprised of hard light that also serves a deadly melee weapon. Rock and stone!
+
+uplink-bloodred-casette-name = Bloodred Casette Player
+uplink-bloodred-casette-name = Provided by the most egotistical fashion designers of Cybersun, a wearable music player!
