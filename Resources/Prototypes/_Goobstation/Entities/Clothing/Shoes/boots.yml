@@ -3,8 +3,10 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 GMWQ <garethquaile@gmail.com>
+# SPDX-FileCopyrightText: 2025 Gareth Quaile <garethquaile@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -60,8 +62,6 @@
     - WhitelistChameleon
   - type: ClothingSlowOnDamageModifier
     modifier: 0.5
-  - type: ClothingModifyStunTime
-    modifier: 0.6
   - type: ModifyStandingUpTime
     multiplier: 0.5
   - type: GasTank
@@ -188,3 +188,41 @@
     modifier: 0.75 # Nobodies gonna know it's just slightly better than normal ones. The main advantage is drip.
   - type: ModifyStandingUpTime
     multiplier: 0.5
+
+- type: entity
+  parent: ClothingShoesRealJordans
+  id: ClothingShoesRealJordansAutographed
+  name: air jordans
+  description: These aren't just any Jordans, these were signed my Micheal Jordan himself. These must be worth a FORTUNE.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Shoes/Boots/jordans.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Shoes/Boots/jordans.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 1.2
+    sprintModifier: 1.2
+  - type: StaticPrice
+    price: 8000
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200 # good luck creasing these mfs
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Items/bow_pull.ogg
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ClothingShoesCreasedJordans:
+            min: 1
+            max: 1
+  - type: Tag
+    tags:
+    - WhitelistChameleon

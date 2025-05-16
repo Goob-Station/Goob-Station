@@ -1,5 +1,8 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
@@ -65,7 +68,7 @@ public partial class DelayedDeathSystem : EntitySystem
         // can't defib someone without a heart or brain pal
         args.Cancel();
 
-        _chat.TrySendInGameICMessage(args.Defib, Loc.GetString("defibrillator-missing-organs"),
-            InGameICChatType.Speak, true);
+        var failPopup = Loc.GetString(ent.Comp.DeathMessageId); // Goobstation
+        _chat.TrySendInGameICMessage(args.Defib, failPopup, InGameICChatType.Speak, true);
     }
 }
