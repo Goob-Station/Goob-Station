@@ -1849,18 +1849,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -1.5,3.5
       parent: 1
-- proto: CrateSyndicateSurplusBundle
-  entities:
-  - uid: 459
-    components:
-    - type: Transform
-      pos: -7.5,9.5
-      parent: 1
-  - uid: 460
-    components:
-    - type: Transform
-      pos: -7.5,8.5
-      parent: 1
 - proto: CyberPen
   entities:
   - uid: 328
@@ -3145,7 +3133,7 @@ entities:
     - type: Transform
       pos: 8.5,-0.5
       parent: 1
-- proto: SuitStorageSyndie
+- proto: SuitStorageEvaSyndicate
   entities:
   - uid: 452
     components:
