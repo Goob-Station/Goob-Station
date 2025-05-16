@@ -9358,3 +9358,105 @@ Entries:
       message: Added molotov cocktail
   id: 1049
   time: '2025-05-14T21:52:26.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Added a big shotgun 150 telecrystals.
+    - type: Fix
+      message: >-
+        You can now shoot while lying down, your bullets won't hit absolutely
+        everything even if you don't aim your cursor.
+  id: 1050
+  time: '2025-05-15T01:56:12.0000000+00:00'
+- author: Scruq445
+  changes:
+    - type: Add
+      message: Cyborgs now can scream!
+  id: 1051
+  time: '2025-05-15T05:47:36.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Tweak
+      message: storage implant is normal sized again
+  id: 1052
+  time: '2025-05-15T07:18:22.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Add
+      message: >-
+        Added the GL-06 riot grenade launcher for security, which can only fire
+        non lethal grenades, to be mapped soon
+    - type: Add
+      message: >-
+        Added the MP-APERS shell for the china lake, which turns it into a
+        shotgun with a ton of pellets
+    - type: Add
+      message: >-
+        Added the grenadier belt to replace the grenadier chest rig, it holds
+        twice the amount of grenades and has a slot for pistols and pistol
+        magazines. Try it with a china lake and an anaconda! does not come
+        filled.
+    - type: Tweak
+      message: Reworked grenadier syndiekit to use the grenadier rig and other items
+    - type: Tweak
+      message: Renamed china lake shells to 40mm
+    - type: Tweak
+      message: Resprited 40mm shells
+    - type: Tweak
+      message: >-
+        Significantly reduced handheld grenade prices in the uplink, especially
+        for nuke ops
+    - type: Add
+      message: traitors can now buy sarin gas grenades at an increased price
+    - type: Fix
+      message: Fixed spent 40mm shell sprite error
+  id: 1053
+  time: '2025-05-15T07:26:12.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Tweak
+      message: Changelings and Heretics can no longer be made revolutionaries
+    - type: Add
+      message: Headrevs are back on the menu for all you ling enjoyers
+    - type: Remove
+      message: >-
+        Your studies of the mansus are no longer superseded by being shown The
+        Death of Stalin (2017)
+  id: 1054
+  time: '2025-05-15T07:35:25.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: >-
+        Fix firestack damage, no longer heats you up as much but deals more
+        damage
+    - type: Tweak
+      message: Low tier bone fractures no longer prevent topical use.
+    - type: Tweak
+      message: High tier bone fractures do prevent topicals, do not let them build up.
+  id: 1055
+  time: '2025-05-15T21:38:59.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Nukies cannot get surplus crates.
+  id: 1056
+  time: '2025-05-16T01:30:43.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Mop is faster
+  id: 1057
+  time: '2025-05-16T01:32:20.0000000+00:00'
+- author: John Kameroni
+  changes:
+    - type: Add
+      message: 65%
+  id: 1058
+  time: '2025-05-16T05:30:29.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Add
+      message: Mapped the security riot launcher on 13 space stations
+  id: 1059
+  time: '2025-05-16T07:18:53.0000000+00:00'
