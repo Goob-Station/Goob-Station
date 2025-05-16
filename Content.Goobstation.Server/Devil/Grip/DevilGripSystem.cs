@@ -1,15 +1,17 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Shared.Devil;
+using Content.Goobstation.Shared.Religion;
 using Content.Server.Chat.Systems;
 using Content.Server.Speech.EntitySystems;
 using Content.Shared.Actions;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Interaction;
-using Content.Shared.Magic;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Whitelist;
@@ -26,7 +28,8 @@ public sealed class DevilGripSystem : EntitySystem
     [Dependency] private readonly RatvarianLanguageSystem _language = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedMagicSystem _magic = default!;
+    [Dependency] private readonly DivineInterventionSystem _divineIntervention = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -43,7 +46,7 @@ public sealed class DevilGripSystem : EntitySystem
             || !TryComp<DevilComponent>(args.User, out var devilComp))
             return;
 
-        if (_magic.SpellDenied(target))
+        if (_divineIntervention.ShouldDeny(target))
         {
             _actions.SetCooldown(devilComp.DevilGrip, ent.Comp.CooldownAfterUse);
             devilComp.DevilGrip = null;

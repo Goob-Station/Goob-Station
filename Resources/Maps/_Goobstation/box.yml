@@ -1,11 +1,81 @@
+<<<<<<< HEAD
+=======
+# SPDX-FileCopyrightText: 2021 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 E F R <602406+Efruit@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Elijahrane <60792108+Elijahrane@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Mith-randalf <84274729+Mith-randalf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
+# SPDX-FileCopyrightText: 2021 buletsponge <96000213+buletsponge@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 wrexbe <81056464+wrexbe@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 20kdc <asdd2808@gmail.com>
+# SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Morbo <14136326+Morb0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Myctai <108953437+Myctai@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 OldDanceJacket <98985560+OldDanceJacket@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 TaralGit <76408146+TaralGit@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 TimrodDX <timrod@gmail.com>
+# SPDX-FileCopyrightText: 2022 and_a <and_a@DESKTOP-RJENGIR>
+# SPDX-FileCopyrightText: 2022 corentt <36075110+corentt@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
+# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 moonheart08 <moonheart08@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Eoin Mcloughlin <helloworld@eoinrul.es>
+# SPDX-FileCopyrightText: 2023 Filler <130583174+FillerVK@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Jackrost <jackrost@mail.ru>
+# SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
+# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 MisterMecky <mrmecky@hotmail.com>
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 PeterFuto <futo.petr@gmail.com>
+# SPDX-FileCopyrightText: 2023 Ubaser <134914314+UbaserB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 eoineoineoin <github@eoinrul.es>
+# SPDX-FileCopyrightText: 2023 faint <46868845+ficcialfaint@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 RatherUncreative <RatherUncreativeName@proton.me>
+# SPDX-FileCopyrightText: 2024 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 joshepvodka <86210200+joshepvodka@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+>>>>>>> master
 meta:
   format: 7
   category: Map
   engineVersion: 251.0.0
   forkId: ""
   forkVersion: ""
+<<<<<<< HEAD
   time: 05/16/2025 16:21:10
   entityCount: 27384
+=======
+  time: 05/15/2025 09:02:08
+  entityCount: 27823
+>>>>>>> master
 maps:
 - 1
 grids:
@@ -11571,7 +11641,11 @@ entities:
       pos: 24.5,16.5
       parent: 2
     - type: Door
+<<<<<<< HEAD
       secondsUntilStateChange: -39373.89
+=======
+      secondsUntilStateChange: -31610.688
+>>>>>>> master
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -62518,12 +62592,6 @@ entities:
     - type: Transform
       pos: 1.5,50.5
       parent: 2
-  - uid: 10493
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 6.5,40.5
-      parent: 2
   - uid: 10494
     components:
     - type: Transform
@@ -62966,6 +63034,22 @@ entities:
       pos: 21.5,-20.5
       parent: 2
 - proto: ChemistryBottleRobustHarvest
+<<<<<<< HEAD
+=======
+  entities:
+  - uid: 21559
+    components:
+    - type: Transform
+      pos: -19.744875,7.720537
+      parent: 2
+  - uid: 21560
+    components:
+    - type: Transform
+      rot: 2.9154674848541617E-05 rad
+      pos: -22.735086,7.7025566
+      parent: 2
+- proto: ChemistryHotplate
+>>>>>>> master
   entities:
   - uid: 21559
     components:
@@ -67511,20 +67595,20 @@ entities:
       parent: 2
 - proto: ClothingMaskGasSecurity
   entities:
-  - uid: 10938
+  - uid: 10516
     components:
     - type: Transform
-      pos: 4.830586,32.536835
+      pos: 3.6215515,33.30945
       parent: 2
-  - uid: 10939
+  - uid: 10517
     components:
     - type: Transform
-      pos: 4.547027,32.818085
+      pos: 3.6215515,33.30945
       parent: 2
-  - uid: 10940
+  - uid: 10518
     components:
     - type: Transform
-      pos: 4.656402,32.724335
+      pos: 3.6215515,33.30945
       parent: 2
 - proto: ClothingMaskSterile
   entities:
@@ -67760,6 +67844,25 @@ entities:
     - type: Transform
       pos: 66.509186,-76.72045
       parent: 2
+<<<<<<< HEAD
+=======
+- proto: ClothingOuterHardsuitSecurity
+  entities:
+  - uid: 10982
+    components:
+    - type: Transform
+      parent: 10981
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 10984
+    components:
+    - type: Transform
+      parent: 10983
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+>>>>>>> master
 - proto: ClothingOuterHoodieGrey
   entities:
   - uid: 10985
@@ -67812,6 +67915,18 @@ entities:
     components:
     - type: Transform
       pos: 3.6323543,-55.32425
+      parent: 2
+- proto: ClothingOuterVoidsuitSecurity
+  entities:
+  - uid: 10512
+    components:
+    - type: Transform
+      pos: 0.31661248,35.576057
+      parent: 2
+  - uid: 10514
+    components:
+    - type: Transform
+      pos: 0.31661248,35.576057
       parent: 2
 - proto: ClothingOuterWinterAtmos
   entities:
@@ -82615,7 +82730,11 @@ entities:
       pos: -34.5,-14.5
       parent: 2
     - type: Door
+<<<<<<< HEAD
       secondsUntilStateChange: -33562.43
+=======
+      secondsUntilStateChange: -25799.223
+>>>>>>> master
       state: Closing
   - uid: 13393
     components:
@@ -83108,7 +83227,11 @@ entities:
       pos: -4.5,-71.5
       parent: 2
     - type: Door
+<<<<<<< HEAD
       secondsUntilStateChange: -25310.166
+=======
+      secondsUntilStateChange: -17546.955
+>>>>>>> master
       state: Closing
   - uid: 14038
     components:
@@ -118993,10 +119116,22 @@ entities:
       parent: 2
 - proto: GunSafeDisabler
   entities:
+<<<<<<< HEAD
   - uid: 18719
     components:
     - type: Transform
       pos: 3.5,33.5
+=======
+  - uid: 10511
+    components:
+    - type: Transform
+      pos: 21.5,32.5
+      parent: 2
+  - uid: 18718
+    components:
+    - type: Transform
+      pos: -0.5,39.5
+>>>>>>> master
       parent: 2
 - proto: GunSafeLaserCarbine
   entities:
@@ -119007,10 +119142,17 @@ entities:
       parent: 2
 - proto: GunSafeLauncherNonLethal
   entities:
+<<<<<<< HEAD
   - uid: 18417
     components:
     - type: Transform
       pos: 1.5,39.5
+=======
+  - uid: 10513
+    components:
+    - type: Transform
+      pos: 0.5,33.5
+>>>>>>> master
       parent: 2
 - proto: GunSafeRifleLecter
   entities:
@@ -122523,9 +122665,13 @@ entities:
       parent: 2
     - type: DeviceLinkSource
       linkedPorts:
+<<<<<<< HEAD
         940:
         - MaterialSilo: MaterialSiloUtilizer
         19151:
+=======
+        10493:
+>>>>>>> master
         - MaterialSilo: MaterialSiloUtilizer
 - proto: MaterialWoodPlank
   entities:
@@ -130184,6 +130330,7 @@ entities:
       parent: 2
 - proto: Rack
   entities:
+<<<<<<< HEAD
   - uid: 10509
     components:
     - type: Transform
@@ -130205,6 +130352,12 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -1.5,-27.5
+=======
+  - uid: 10515
+    components:
+    - type: Transform
+      pos: 3.5,33.5
+>>>>>>> master
       parent: 2
   - uid: 20183
     components:
@@ -136967,8 +137120,12 @@ entities:
   - uid: 16899
     components:
     - type: Transform
+<<<<<<< HEAD
       rot: 3.141592653589793 rad
       pos: 2.5652716,-24.039434
+=======
+      pos: 3.4364183,-14.443886
+>>>>>>> master
       parent: 2
 - proto: RockGuitarInstrument
   entities:
@@ -137182,6 +137339,13 @@ entities:
       parent: 2
 - proto: SecurityTechFab
   entities:
+  - uid: 10493
+    components:
+    - type: Transform
+      pos: 6.5,40.5
+      parent: 2
+    - type: SiloUtilizer
+      silo: 27911
   - uid: 21596
     components:
     - type: Transform
@@ -143643,6 +143807,11 @@ entities:
       parent: 2
 - proto: SuitStorageSec
   entities:
+  - uid: 10510
+    components:
+    - type: Transform
+      pos: 9.5,35.5
+      parent: 2
   - uid: 10981
     components:
     - type: Transform
@@ -143712,12 +143881,15 @@ entities:
           occludes: True
           ents:
           - 10984
+<<<<<<< HEAD
           - 18414
   - uid: 22605
     components:
     - type: Transform
       pos: 0.5,33.5
       parent: 2
+=======
+>>>>>>> master
   - uid: 22606
     components:
     - type: Transform
@@ -168737,6 +168909,24 @@ entities:
     - type: Transform
       pos: 49.5,12.5
       parent: 2
+- proto: WallWeaponCapacitorRecharger
+  entities:
+  - uid: 10507
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 18.5,31.5
+      parent: 2
+  - uid: 10508
+    components:
+    - type: Transform
+      pos: 10.5,34.5
+      parent: 2
+  - uid: 10509
+    components:
+    - type: Transform
+      pos: 8.5,42.5
+      parent: 2
 - proto: WardrobeAtmospherics
   entities:
   - uid: 27410
@@ -169801,8 +169991,11 @@ entities:
   - uid: 27498
     components:
     - type: Transform
-      pos: 4.4614744,33.066376
+      pos: 3.4098191,33.559624
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: WeaponDisablerPractice
   entities:
   - uid: 27499

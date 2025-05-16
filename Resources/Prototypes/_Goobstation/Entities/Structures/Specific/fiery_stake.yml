@@ -6,9 +6,9 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  id: FieryCross
+  id: FieryStake
   parent: BaseStructure
-  name: fiery cross
+  name: fiery stake
   description: But God demonstrates his own love for us in this... While we were still sinners, Christ died for us!
   components:
   - type: Sprite
@@ -38,38 +38,24 @@
     range: 5
     sound:
       path: /Audio/Ambience/Objects/fireplace.ogg
-  - type: Fixtures
-    fixtures:
-      ignition:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.5,-0.5,0.5,1"
-        hard: true
-        mask:
-        - ItemMask
-        layer:
-        - SlipLayer
   - type: Strap
     position: Stand
     buckleOffset: "0,0.25"
+  - type: IgniteOnBuckle
+    fireStacks: 15
   - type: IgnitionSource
     temperature: 400
     ignited: true
-  - type: IgniteOnCollide
-    fireStacks: 5
-    count: 1000
-  - type: TriggerOnCollide
-    fixtureID: ignition
   - type: AlwaysHot
   - type: Construction
-    graph: FieryCrossGraph
+    graph: FieryStakeGraph
     node: BonfireNode
 
 - type: construction
-  id: FieryCross
-  name: fiery cross
+  id: FieryStake
+  name: fiery stake
   description: But God demonstrates his own love for us in this... While we were still sinners, Christ died for us!
-  graph: FieryCrossGraph
+  graph: FieryStakeGraph
   startNode: start
   targetNode: BonfireNode
   category: construction-category-furniture
