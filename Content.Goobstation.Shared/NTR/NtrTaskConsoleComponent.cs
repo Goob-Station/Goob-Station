@@ -25,13 +25,13 @@ public sealed partial class NtrTaskConsoleComponent : Component
     /// <summary>
     /// The sound made when the bounty is skipped.
     /// </summary>
-    [DataField("skipSound")]
+    [DataField]
     public SoundSpecifier SkipSound = new SoundPathSpecifier("/Audio/Effects/Cargo/ping.ogg");
 
     /// <summary>
     /// The sound made when bounty skipping is denied due to lacking access.
     /// </summary>
-    [DataField("denySound")]
+    [DataField]
     public SoundSpecifier DenySound = new SoundPathSpecifier("/Audio/Effects/Cargo/buzz_two.ogg");
 
     /// <summary>
@@ -49,19 +49,19 @@ public sealed partial class NtrTaskConsoleComponent : Component
     /// <summary>
     /// The time between prints.
     /// </summary>
-    [DataField("printDelay")]
+    [DataField]
     public TimeSpan PrintDelay = TimeSpan.FromSeconds(5);
 
     /// <summary>
     /// The sound made when printing occurs
     /// </summary>
-    [DataField("printSound")]
+    [DataField]
     public SoundSpecifier PrintSound = new SoundPathSpecifier("/Audio/Machines/printer.ogg");
 
     [DataField]
     public HashSet<string> ActiveTaskIds = new();
 
-    [DataField("slotId")]
+    [DataField]
     public string SlotId = "taskSlot";
 }
 

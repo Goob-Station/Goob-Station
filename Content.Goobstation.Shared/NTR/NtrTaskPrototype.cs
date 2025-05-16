@@ -61,6 +61,9 @@ public sealed class NtrTaskPrototype : IPrototype
 
     [DataField("reagentTask")] // shitcod
     public bool IsReagentTask { get; init; }
+
+    [DataField]
+    public int Penalty { get; } = 1;
 }
 
 [DataDefinition, Serializable, NetSerializable]

@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2025 BeBright <98597725+be1bright@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 LuciferEOS <stepanteliatnik2022@gmail.com>
-// SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 LuciferMkshelter <stepanteliatnik2022@gmail.com>
-// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Goobstation.Common.NTR;
@@ -25,233 +16,364 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Database;
 using Content.Shared.IdentityManagement;
-using Content.Shared.NameIdentifier;
 using Content.Shared.Paper;
 using Content.Shared.Store.Components;
 using Content.Shared.Tag;
-using JetBrains.Annotations;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
-// Lucifer: goidacore & PURE SHITCODE inside
-// pheenty: This is true, I've checked...
 namespace Content.Goobstation.Server.NTR;
 
 public sealed class NtrTaskSystem : EntitySystem
 {
-    [Dependency] private readonly NameIdentifierSystem _nameIdentifier = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly IGameTiming _timing = default!; // how did this even happen
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly AccessReaderSystem _accessReaderSystem = default!;
+    [Dependency] private readonly AccessReaderSystem _accessReader = default!;
+    [Dependency] private readonly NameIdentifierSystem _nameIdentifier = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solutions = default!;
     [Dependency] private readonly ILocalizationManager _loc = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
 
-    private readonly ProtoId<NameIdentifierGroupPrototype> _nameIdentifierGroup = "Task";
-
-    // TODO: Make calculating & balance update in new methods for less code duplication
+    private const string NameIdentifierGroup = "Task";
 
     public override void Initialize()
     {
-        base.Initialize();
         SubscribeLocalEvent<NtrClientAccountComponent, NtrAccountBalanceUpdatedEvent>(OnBalanceUpdated);
         SubscribeLocalEvent<NtrClientAccountComponent, NtrListingPurchaseEvent>(OnPurchase);
-        SubscribeLocalEvent<NtrTaskConsoleComponent, BoundUIOpenedEvent>(OnOpened);
-        SubscribeLocalEvent<NtrTaskConsoleComponent, TaskPrintLabelMessage>(OnPrintLabelMessage);
-        SubscribeLocalEvent<NtrTaskConsoleComponent, TaskSkipMessage>(OnTaskSkipMessage);
-        SubscribeLocalEvent<NtrTaskDatabaseComponent, MapInitEvent>(OnMapInit);
-
+        SubscribeLocalEvent<NtrTaskConsoleComponent, BoundUIOpenedEvent>(OnConsoleOpened);
+        SubscribeLocalEvent<NtrTaskDatabaseComponent, MapInitEvent>(OnDatabaseInit);
         SubscribeLocalEvent<NtrTaskConsoleComponent, TaskFailedEvent>(OnTaskFailed);
         SubscribeLocalEvent<NtrTaskConsoleComponent, TaskCompletedEvent>(OnTaskCompleted);
+        SubscribeLocalEvent<NtrTaskConsoleComponent, ItemSlotInsertAttemptEvent>(OnItemInsertAttempt);
+        SubscribeLocalEvent<NtrTaskConsoleComponent, TaskPrintLabelMessage>(OnPrintLabelMessage);
+        SubscribeLocalEvent<NtrTaskConsoleComponent, TaskSkipMessage>(OnTaskSkipMessage);
+    }
 
-        SubscribeLocalEvent<NtrTaskConsoleComponent, ItemSlotInsertAttemptEvent>(OnInsertAttempt);
+    #region Balance Management
+    private void OnBalanceUpdated(EntityUid uid, NtrClientAccountComponent client, ref NtrAccountBalanceUpdatedEvent args)
+    {
+        if (!TryComp<StoreComponent>(uid, out var store))
+            return;
 
-        // SubscribeLocalEvent<DocumentInsertedEvent>(OnDocumentInserted);
+        store.Balance["NTLoyaltyPoint"] = FixedPoint2.New(Math.Max(0, args.Balance));
+        Dirty(uid, store);
     }
 
     private void OnPurchase(EntityUid uid, NtrClientAccountComponent component, NtrListingPurchaseEvent args)
     {
-        if (_station.GetOwningStation(uid) is not { } station ||
-            !TryComp<NtrBankAccountComponent>(station, out var ntrAccount))
+        if (_station.GetOwningStation(uid) is not { } station
+            || !TryComp<NtrBankAccountComponent>(station, out var account))
             return;
-        ntrAccount.Balance -= args.Cost.Int();
+
+        account.Balance = Math.Max(0, account.Balance - args.Cost.Int());
     }
+
+    private void UpdateAccountBalance(EntityUid station, int delta)
+    {
+        if (!TryComp<NtrBankAccountComponent>(station, out var account))
+            return;
+
+        account.Balance = Math.Max(0, account.Balance + delta);
+        RaiseBalanceUpdatedEvent(station, account.Balance);
+    }
+
+    private void RaiseBalanceUpdatedEvent(EntityUid station, int newBalance)
+    {
+        var ev = new NtrAccountBalanceUpdatedEvent(station, newBalance);
+        var query = EntityQueryEnumerator<NtrClientAccountComponent>();
+        while (query.MoveNext(out var client, out _))
+            RaiseLocalEvent(client, ev);
+    }
+    private void OnPrintLabelMessage(EntityUid uid, NtrTaskConsoleComponent component, TaskPrintLabelMessage args)
+    {
+        if (_timing.CurTime < component.NextPrintTime)
+            return;
+
+        if (component.ActiveTaskIds.Contains(args.TaskId))
+        {
+            _audio.PlayPvs(component.DenySound, uid);
+            return;
+        }
+
+        if (_station.GetOwningStation(uid) is not { } station ||
+            !TryComp<NtrTaskDatabaseComponent>(station, out var db) ||
+            !TryGetTaskFromId(station, args.TaskId, out var taskData))
+            return;
+
+        if (!_prototypes.TryIndex(taskData.Value.Task, out var taskProto))
+            return;
+        for (int i = 0; i < db.Tasks.Count; i++)
+        {
+            if (db.Tasks[i].Id == taskData.Value.Id)
+            {
+                var updated = db.Tasks[i];
+                updated.IsActive = true;
+                updated.ActiveTime = _timing.CurTime;
+                db.Tasks[i] = updated;
+                break;
+            }
+        }
+
+        var vial = Spawn(taskProto.Proto, Transform(uid).Coordinates);
+        component.ActiveTaskIds.Add(args.TaskId);
+        component.NextPrintTime = _timing.CurTime + component.PrintDelay;
+        _audio.PlayPvs(component.PrintSound, uid);
+        UpdateTaskConsoles();
+    }
+
+    private void OnTaskSkipMessage(EntityUid uid, NtrTaskConsoleComponent component, TaskSkipMessage args)
+    {
+        if (_station.GetOwningStation(uid) is not { } station ||
+            !TryComp<NtrTaskDatabaseComponent>(station, out var db) ||
+            _timing.CurTime < db.NextSkipTime)
+            return;
+
+        if (TryRemoveTask(station, args.TaskId, true, args.Actor))
+        {
+            db.NextSkipTime = _timing.CurTime + db.SkipDelay;
+            UpdateConsoleUi(uid, db);
+            _audio.PlayPvs(component.SkipSound, uid);
+        }
+    }
+    #endregion
+
+    #region Task Lifecycle
     public override void Update(float frameTime)
     {
-        base.Update(frameTime);
-
         var query = EntityQueryEnumerator<NtrTaskDatabaseComponent>();
         while (query.MoveNext(out var uid, out var db))
         {
-            foreach (var task in db.Tasks.ToArray())
-            {
-                if (task.IsActive && (_timing.CurTime - task.ActiveTime) > db.MaxActiveTime)
-                {
-                    TryRemoveTask(uid, task.Id, true);
-                }
-            }
-
-            if (_timing.CurTime >= db.NextTaskGenerationTime && db.Tasks.Count < db.MaxTasks)
-            {
-                if (TryAddTask(uid, db))
-                {
-                    db.NextTaskGenerationTime = _timing.CurTime + db.TaskGenerationDelay;
-                    UpdateTaskConsoles();
-                }
-            }
+            CleanExpiredTasks(uid, db);
+            GenerateNewTasks(uid, db);
         }
     }
-#region Task logic
 
-    private void OnInsertAttempt(EntityUid uid, NtrTaskConsoleComponent component, ItemSlotInsertAttemptEvent args)
-    { // times this system was re-done: 7 :death:
-        var item = args.Item;
-        args.Cancelled = true;
-
-        // If one of the checks succeeds, we return
-        // do not mess up the order please or it would not work, i beg you
-        if (TryHandleSpamDocument(item, uid, component)
-        || TryHandleVial(item, uid, component)
-        || TryHandleRegularDocument(item, uid, component)) { }
+    private void CleanExpiredTasks(EntityUid uid, NtrTaskDatabaseComponent db)
+    {
+        foreach (var task in db.Tasks.ToArray())
+        {
+            if (task.IsActive && (_timing.CurTime - task.ActiveTime) > db.MaxActiveTime)
+                TryRemoveTask(uid, task.Id, true);
+        }
     }
 
-    private bool TryHandleSpamDocument(EntityUid item, EntityUid console, NtrTaskConsoleComponent component)
-    {// todo: make this actually work and appear
-        if (!HasComp<SpamDocumentComponent>(item))
-            return false;
+    private void GenerateNewTasks(EntityUid uid, NtrTaskDatabaseComponent db)
+    {
+        while (_timing.CurTime >= db.NextTaskGenerationTime &&
+               db.Tasks.Count < db.MaxTasks)
+        {
+            var availableTasks = GetAvailableTasks(db);
 
-        // _popup.PopupEntity(Loc.GetString("ntr-console-spam-penalty"), console);
-        _audio.PlayPvs(component.DenySound, console);
+            var task = PickWeightedTask(availableTasks);
 
-        // var ev = new TaskFailedEvent();
-        // RaiseLocalEvent(console, ev);
+            if (task == null || !TryAddTask(uid, task, db))
+                break;
 
-        return true;
+            db.NextTaskGenerationTime = _timing.CurTime + db.TaskGenerationDelay;
+        }
+    }
+
+    private void OnTaskCompleted(EntityUid uid, NtrTaskConsoleComponent component, TaskCompletedEvent args)
+    {
+        if (_station.GetOwningStation(uid) is not { } station)
+            return;
+
+        HandleTaskOutcome(uid, station, args.Task, success: true);
+        _audio.PlayPvs(component.SkipSound, uid);
+    }
+
+    private void OnTaskFailed(EntityUid uid, NtrTaskConsoleComponent component, TaskFailedEvent args)
+    {
+        if (_station.GetOwningStation(uid) is not { } station)
+            return;
+
+        HandleTaskOutcome(uid, station, args.Task, success: false);
+        _audio.PlayPvs(component.DenySound, uid);
+
+        if (Exists(args.User))
+            _popup.PopupEntity(_loc.GetString("ntr-console-spam-penalty"), uid, args.User);
+    }
+
+    private void HandleTaskOutcome(EntityUid console, EntityUid station, NtrTaskPrototype task, bool success)
+    {
+        if (!TryComp<NtrTaskDatabaseComponent>(station, out var db) ||
+            !TryComp<NtrBankAccountComponent>(station, out var account))
+            return;
+
+        var amount = success ? task.Reward : -task.Penalty;
+        UpdateAccountBalance(station, amount);
+        RaiseBalanceUpdatedEvent(station, account.Balance);
+
+        if (TryGetTaskFromId(station, task.ID, out var taskData, db))
+        {
+            for (int i = 0; i < db.Tasks.Count; i++)
+            {
+                if (db.Tasks[i].Id == taskData.Value.Id)
+                {
+                    var updatedTask = db.Tasks[i];
+                    updatedTask.IsActive = false;
+                    db.Tasks[i] = updatedTask;
+                    break;
+                }
+            }
+            db.History.Add(new NtrTaskHistoryData(
+                taskData.Value,
+                success ? NtrTaskHistoryData.TaskResult.Completed
+                    : NtrTaskHistoryData.TaskResult.Failed,
+                _timing.CurTime,
+                null
+            ));
+        }
+
+        UpdateTaskConsoles();
+        UpdateConsoleUi(console, db);
+    }
+    private bool TryGetActiveTask(EntityUid station, NtrTaskPrototype proto, [NotNullWhen(true)] out NtrTaskData? task)
+    {
+        task = null;
+        return TryComp<NtrTaskDatabaseComponent>(station, out var db) &&
+               (task = db.Tasks.FirstOrDefault(t => t.Task == proto.ID && t.IsActive)) != null;
+    }
+
+    public bool TryGetTaskId(EntityUid uid, NtrTaskPrototype taskProto, [NotNullWhen(true)] out string? taskId)
+    {
+        taskId = null;
+        return TryComp<NtrTaskDatabaseComponent>(uid, out var db) &&
+               db.Tasks.FirstOrDefault(t => t.Task == taskProto.ID) is {} taskData &&
+               (taskId = taskData.Id) != null;
+    }
+    #endregion
+
+    #region Document Processing
+    private void OnItemInsertAttempt(EntityUid uid, NtrTaskConsoleComponent component, ItemSlotInsertAttemptEvent args)
+    {
+        args.Cancelled = true;
+        var item = args.Item;
+
+        if (TryHandleVial(item, uid, component))
+            return;
+
+        TryHandleRegularDocument(item, uid, component);
     }
 
     private bool TryHandleVial(EntityUid item, EntityUid console, NtrTaskConsoleComponent component)
     {
-        if (!HasTag(item, "Vial") || !HasComp<SolutionContainerManagerComponent>(item))
+        if (!HasTag(item, "Vial") && !HasTag(item, "Bottle"))
             return false;
 
-        var stationEnt = _station.GetOwningStation(console);
-        if (stationEnt == null || !TryComp<NtrTaskDatabaseComponent>(stationEnt.Value, out var db))
+        var station = _station.GetOwningStation(console);
+        if (station is null || !TryComp<NtrTaskDatabaseComponent>(station, out var db))
             return false;
-        foreach (var taskData in db.Tasks.ToList())
+
+        foreach (var task in db.Tasks.Where(t => t.IsActive))
         {
-            if (!taskData.IsActive)
+            if (!_prototypes.TryIndex(task.Task, out var proto) || !proto.IsReagentTask)
                 continue;
 
-            if (!_protoMan.TryIndex(taskData.Task, out var taskProto) || !taskProto.IsReagentTask)
-                continue;
-
-            if (CheckReagentRequirements(item, taskProto))
-            {
-                if (ProcessSuccessfulSubmission(item, console, component, taskProto.ID))
-                {
-                    return true;
-                }
-            }
+            if (ValidateReagentRequirements(item, proto))
+                return ProcessTaskSubmission(item, console, proto.ID);
         }
 
         return false;
     }
+
     private bool TryHandleRegularDocument(EntityUid item, EntityUid console, NtrTaskConsoleComponent component)
     {
-        if (!TryComp<RandomDocumentComponent>(item, out var documentComp) || documentComp.Tasks.Count == 0)
+        if (!TryComp<RandomDocumentComponent>(item, out var doc) || doc.Tasks.Count == 0)
             return false;
-        if (!HasValidStamps(item))
+
+        if (!ValidateDocumentStamps(item))
         {
             _popup.PopupEntity(_loc.GetString("ntr-console-insert-deny"), console);
             _audio.PlayPvs(component.DenySound, console);
             return true;
         }
-        for (var i = 0; i < documentComp.Tasks.Count; i++)
+
+        for (var i = 0; i < doc.Tasks.Count; i++)
         {
-            var taskId = documentComp.Tasks[i];
-            if (ProcessSuccessfulSubmission(item, console, component, taskId))
+            if (ProcessTaskSubmission(item, console, doc.Tasks[i]))
             {
-                documentComp.Tasks.RemoveAt(i);
+                doc.Tasks.RemoveAt(i);
                 UpdateTaskConsoles();
                 return true;
             }
         }
         return false;
     }
-    private bool ProcessSuccessfulSubmission(EntityUid item, EntityUid console, NtrTaskConsoleComponent component, string taskId)
+
+    private bool ProcessTaskSubmission(EntityUid item, EntityUid console, string taskId)
     {
-        var stationEnt = _station.GetOwningStation(console);
-        if (stationEnt == null)
+        var station = _station.GetOwningStation(console);
+        if (station is null
+            || !TryComp<NtrTaskDatabaseComponent>(station, out var db)
+            || !_prototypes.TryIndex(taskId, out NtrTaskPrototype? task))
             return false;
 
-        if (!TryComp<NtrTaskDatabaseComponent>(stationEnt.Value, out var db))
+        if (!TryGetActiveTask(station.Value, task, out var taskData))
             return false;
 
-        if (!TryComp<NtrBankAccountComponent>(stationEnt.Value, out var account))
-            return false;
-
-        if (!_protoMan.TryIndex(taskId, out NtrTaskPrototype? taskProto))
+        if (task.Entries.Any(e => e.IsEvent))
         {
-            _popup.PopupEntity(_loc.GetString("ntr-console-task-fail"), console);
-            return false;
+            HandleTaskOutcome(console, station.Value, task, true);
+            return true;
         }
 
-        if (!TryGetActiveTask(stationEnt.Value, taskProto, out var taskData))
-            return false;
+        RaiseLocalEvent(console, new TaskCompletedEvent(task));
 
-        var ev = new TaskCompletedEvent(taskProto);
-        RaiseLocalEvent(console, ev);
-
-        if (TryRemoveTask(stationEnt.Value, taskData.Value.Id, false))
+        if (TryRemoveTask(station.Value, taskData.Value.Id, false))
         {
             db.History.Add(new NtrTaskHistoryData(
                 taskData.Value,
                 NtrTaskHistoryData.TaskResult.Completed,
-                _gameTiming.CurTime,
+                _timing.CurTime,
                 null
             ));
         }
-        UpdateClientBalances(account);
-        QueueDel(item);
-        _audio.PlayPvs(component.PrintSound, console);
 
+        QueueDel(item);
+        _audio.PlayPvs(Comp<NtrTaskConsoleComponent>(console).PrintSound, console);
         return true;
     }
-    private void UpdateClientBalances(NtrBankAccountComponent account)
+
+    private bool ValidateDocumentStamps(EntityUid paper)
     {
-        var query = EntityQueryEnumerator<NtrClientAccountComponent>();
-        while (query.MoveNext(out var client, out _))
+        if (!TryComp<PaperComponent>(paper, out var paperComp)
+            || !TryComp<RandomDocumentComponent>(paper, out var docComp))
+            return false;
+
+        var requiredStamps = GetRequiredStamps(docComp);
+        return requiredStamps.Count > 0 && ValidateStampPresence(paperComp, requiredStamps);
+    }
+
+    private HashSet<string> GetRequiredStamps(RandomDocumentComponent doc)
+    {
+        var stamps = new HashSet<string>();
+        foreach (var taskId in doc.Tasks)
         {
-            var balanceEv = new NtrAccountBalanceUpdatedEvent(client, account.Balance);
-            RaiseLocalEvent(client, balanceEv);
+            if (_prototypes.TryIndex(taskId, out var task))
+                stamps.UnionWith(task.Entries.SelectMany(e => e.Stamps));
         }
+        return stamps;
     }
-    private bool HasTag(EntityUid item, string tag)
+
+    private bool ValidateStampPresence(PaperComponent paper, HashSet<string> requiredStamps)
     {
-        return EntityManager.System<TagSystem>().HasTag(item, tag);
+        return requiredStamps.All(rs =>
+            paper.StampedBy.Any(s => s.StampedName.Contains(rs)));
     }
-    private string? GetActorName(EntityUid actor)
-    {
-        var getIdentityEvent = new TryGetIdentityShortInfoEvent(
-            actor,
-            actor,
-            true
-        );
-        RaiseLocalEvent(getIdentityEvent);
-        return getIdentityEvent.Title;
-    }
-#endregion
-#region reagent shit
-    public bool CheckReagentRequirements(EntityUid container, NtrTaskPrototype task)
+    #endregion
+
+    #region Reagent Handling
+    private bool ValidateReagentRequirements(EntityUid container, NtrTaskPrototype task)
     {
         if (!_solutionContainer.TryGetSolution(container, task.SolutionName, out _, out var solution))
         {
@@ -261,7 +383,7 @@ public sealed class NtrTaskSystem : EntitySystem
 
         foreach (var (reagentProtoId, requiredAmount) in task.Reagents)
         {
-            if (!_protoMan.TryIndex(reagentProtoId, out var requiredReagentProto))
+            if (!_prototypes.TryIndex(reagentProtoId, out var requiredReagentProto))
             {
                 _popup.PopupEntity(_loc.GetString("ntr-console-invalid-reagent-proto", ("reagentId", reagentProtoId)), container);
                 return false;
@@ -291,438 +413,168 @@ public sealed class NtrTaskSystem : EntitySystem
 
         return true;
     }
-#endregion
-#region More task logic
-    private bool TryGetActiveTask(EntityUid station, NtrTaskPrototype proto, [NotNullWhen(true)] out NtrTaskData? task)
-    {
-        task = null;
-        return TryComp<NtrTaskDatabaseComponent>(station, out var db) &&
-            (task = db.Tasks.FirstOrDefault(t =>
-                t.Task == proto.ID && t.IsActive)) != null;
-    }
-    private bool HasValidStamps(EntityUid paper)
-    {
-        if (!TryComp<PaperComponent>(paper, out var paperComp) ||
-            !TryComp<RandomDocumentComponent>(paper, out var documentComp))
-            return false;
+    #endregion
 
-        var requiredStamps = GetRequiredStamps(documentComp);
-        return requiredStamps.Count != 0 && AreStampsCorrect(paperComp, requiredStamps);
+    #region UI Management
+    private void OnConsoleOpened(EntityUid uid, NtrTaskConsoleComponent component, BoundUIOpenedEvent args)
+    {
+        if (_station.GetOwningStation(uid) is { } station
+            && TryComp<NtrTaskDatabaseComponent>(station, out var db))
+            UpdateConsoleUi(uid, db);
     }
 
-    private HashSet<string> GetRequiredStamps(RandomDocumentComponent documentComp)
+    private void UpdateConsoleUi(EntityUid console, NtrTaskDatabaseComponent db)
     {
-        var requiredStamps = new HashSet<string>();
-        foreach (var taskId in documentComp.Tasks)
+        var state = new NtrTaskConsoleState(
+            db.Tasks,
+            db.History,
+            db.NextSkipTime - _timing.CurTime,
+            Comp<NtrTaskConsoleComponent>(console).ActiveTaskIds
+        );
+        _ui.SetUiState(console, NtrTaskUiKey.Key, state);
+    }
+    private void UpdateTaskConsoles()
+    {
+        var query = EntityQueryEnumerator<NtrTaskConsoleComponent, UserInterfaceComponent>();
+        while (query.MoveNext(out var uid, out var comp, out var ui))
         {
-            if (!_protoMan.TryIndex(taskId, out var taskProto))
-                continue;
-
-            foreach (var entry in taskProto.Entries)
-                requiredStamps.UnionWith(entry.Stamps);
+            if (_station.GetOwningStation(uid) is { } station
+                && TryComp<NtrTaskDatabaseComponent>(station, out var db))
+                UpdateConsoleUi(uid, db);
         }
-        return requiredStamps;
     }
-    private bool AreStampsCorrect(PaperComponent paperComp, HashSet<string> requiredStamps)
-    {
-        if (paperComp.StampedBy.Count == 0 || requiredStamps.Count == 0)
-            return false;
+    #endregion
 
-        foreach (var requiredStamp in requiredStamps)
+    #region Database Management
+    private void OnDatabaseInit(EntityUid uid, NtrTaskDatabaseComponent db, MapInitEvent args)
+    {
+        db.Tasks.Clear();
+        db.History.Clear();
+        db.NextTaskGenerationTime = _timing.CurTime;
+        db.NextPowerGridTime = _timing.CurTime;
+
+        for (var i = 0; i < db.MaxTasks; i++)
         {
-            var found = false;
-            foreach (var stamp in paperComp.StampedBy)
-            {
-                if (stamp.StampedName != requiredStamp)
-                    continue;
-                found = true;
+            var available = GetAvailableTasks(db);
+            var task = PickWeightedTask(available);
+            if (task == null || !TryAddTask(uid, task, db))
                 break;
-            }
-            if (!found)
-                return false;
         }
+
+        UpdateTaskConsoles();
+    }
+
+    public bool TryAddTask(EntityUid uid, NtrTaskPrototype task, NtrTaskDatabaseComponent? db = null)
+    {
+        if (!Resolve(uid, ref db) || db.Tasks.Count >= db.MaxTasks)
+            return false;
+        if (string.IsNullOrEmpty(task.ID))
+            return false;
+
+        _nameIdentifier.GenerateUniqueName(uid, NameIdentifierGroup, out var id);
+        var newId = id.ToString();
+
+        if (db.Tasks.Any(b => b.Id == newId))
+            return false;
+        var stringId = id.ToString();
+
+        db.Tasks.Add(new NtrTaskData(task, stringId) {
+            IsActive = true,
+            ActiveTime = _timing.CurTime
+        });
+
         return true;
     }
-    public bool TryGetTaskId(EntityUid uid, NtrTaskPrototype taskProto, [NotNullWhen(true)] out string? taskId)
+    private List<NtrTaskPrototype> GetAvailableTasks(NtrTaskDatabaseComponent db)
     {
-        taskId = null;
-
-        if (_station.GetOwningStation(uid) is not { } station || !TryComp<NtrTaskDatabaseComponent>(station, out var db))
-            return false;
-
-        foreach (var taskData in db.Tasks)
-        {
-            if (taskData.Task == taskProto.ID)
-            {
-                taskId = taskData.Id;
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private void OnTaskCompleted(EntityUid uid, NtrTaskConsoleComponent component, TaskCompletedEvent args)
-    {
-        if (_station.GetOwningStation(uid) is not { } station ||
-            !TryComp<NtrTaskDatabaseComponent>(station, out var db))
-            return;
-        if (!TryGetTaskId(station, args.Task, out _))
-            return;
-        if (!TryComp<NtrBankAccountComponent>(station, out var ntrAccount))
-            return;
-        ntrAccount.Balance += args.Task.Reward;
-        var query = EntityQueryEnumerator<NtrClientAccountComponent>();
-        while (query.MoveNext(out var client, out _))
-        {
-            var balanceEv = new NtrAccountBalanceUpdatedEvent(client, ntrAccount.Balance);
-            RaiseLocalEvent(client, balanceEv);
-        }
-
-        if (TryGetTaskId(station, args.Task, out var taskId))
-        {
-            component.ActiveTaskIds.Remove(taskId);
-            TryRemoveTask(station, taskId, false);
-        }
-        UpdateTaskConsoles();
-        var untilNextSkip = db.NextSkipTime - _timing.CurTime;
-        _uiSystem.SetUiState(uid,
-            NtrTaskUiKey.Key,
-            new NtrTaskConsoleState(db.Tasks, db.History, untilNextSkip));
-        _audio.PlayPvs(component.SkipSound, uid);
-    }
-
-    private void OnPrintLabelMessage(EntityUid uid, NtrTaskConsoleComponent component, TaskPrintLabelMessage args)
-    {
-        if (_timing.CurTime < component.NextPrintTime)
-            return;
-
-        if (component.ActiveTaskIds.Contains(args.TaskId))
-        {
-            _audio.PlayPvs(component.DenySound, uid);
-            return;
-        }
-
-        if (_station.GetOwningStation(uid) is not { } station ||
-            !TryComp<NtrTaskDatabaseComponent>(station, out var db))
-            return;
-
-        if (!TryGetTaskFromId(station, args.TaskId, out var task))
-            return;
-        for (var i = 0; i < db.Tasks.Count; i++)
-        {
-            if (db.Tasks[i].Id != task.Value.Id)
-                continue;
-            db.Tasks[i] = db.Tasks[i].AsActive(_timing.CurTime);
-            break;
-        }
-
-        if (!_protoMan.TryIndex(task.Value.Task, out var ntrPrototype))
-            return;
-
-        if (ntrPrototype.Entries.Any(e => e.IsEvent))
-        {
-            var ev = new TaskCompletedEvent(ntrPrototype);
-            RaiseLocalEvent(uid, ev);
-        }
-        var vial = Spawn(ntrPrototype.Proto, Transform(uid).Coordinates);
-
-        if (HasComp<SolutionContainerManagerComponent>(vial))
-        {
-            if (_solutionContainer.EnsureSolution(vial, "drink", out var beakerSolution, FixedPoint2.New(30)))
-            {
-                beakerSolution.RemoveAllSolution();
-                component.ActiveTaskIds.Add(args.TaskId);
-            }
-        }
-        if (!task.Value.IsActive)
-        {
-            for (var i = 0; i < db.Tasks.Count; i++)
-            {
-                if (db.Tasks[i].Id != task.Value.Id)
-                    continue;
-                db.Tasks[i] = db.Tasks[i].AsActive(_timing.CurTime);
-                break;
-            }
-        }
-        component.ActiveTaskIds.Add(args.TaskId);
-        component.NextPrintTime = _timing.CurTime + component.PrintDelay;
-        _audio.PlayPvs(component.PrintSound, uid);
-        UpdateTaskConsoles();
-    }
-#endregion
-
-#region Console logic
-
-    private void OnBalanceUpdated(EntityUid uid, NtrClientAccountComponent clientComp, ref NtrAccountBalanceUpdatedEvent args)
-    {
-        if (!TryComp<StoreComponent>(uid, out var storeComp))
-            return;
-        // there was a bug that i couldnt replicate, that made the account ballance
-        // go negative, so yeah... shitcod
-        var newBalance = Math.Max(0, args.Balance);
-
-        Log.Debug($"Old storeComp.Balance = {storeComp.Balance.First().Value.Value}; args.Balance = {args.Balance}");
-        storeComp.Balance["NTLoyaltyPoint"] = FixedPoint2.New(newBalance);
-        Log.Debug($"New storeComp.Balance = {storeComp.Balance.First().Value.Value}");
-        Dirty(uid, storeComp);
-        Log.Debug($"Check {storeComp.Balance.First().Value.Value}");
-    }
-    private void OnOpened(EntityUid uid, NtrTaskConsoleComponent component, BoundUIOpenedEvent args)
-    {
-        if (_station.GetOwningStation(uid) is not { } station ||
-            !TryComp<NtrTaskDatabaseComponent>(station, out var taskDb))
-            return;
-
-        var untilNextSkip = taskDb.NextSkipTime - _timing.CurTime;
-        var state = new NtrTaskConsoleState(
-            taskDb.Tasks,
-            taskDb.History,
-            untilNextSkip,
-            new HashSet<string>()
-        );
-        _uiSystem.SetUiState(uid, NtrTaskUiKey.Key, state);
-    }
-
-    private void OnTaskSkipMessage(EntityUid uid, NtrTaskConsoleComponent component, TaskSkipMessage args)
-    {
-        if (_station.GetOwningStation(uid) is not { } station || !TryComp<NtrTaskDatabaseComponent>(station, out var db))
-            return;
-
-        if (_timing.CurTime < db.NextSkipTime)
-            return;
-
-        if (!TryGetTaskFromId(station, args.TaskId, out var task))
-            return;
-
-        if (args.Actor is not { Valid: true } mob)
-            return;
-
-        if (TryComp<AccessReaderComponent>(uid, out var accessReaderComponent) &&
-            !_accessReaderSystem.IsAllowed(mob, uid, accessReaderComponent))
-        {
-            _audio.PlayPvs(component.DenySound, uid);
-            return;
-        }
-
-        if (!TryRemoveTask(station, task.Value, true, args.Actor))
-            return;
-
-        FillTasksDatabase(station);
-        db.NextSkipTime = _timing.CurTime + db.SkipDelay;
-        var untilNextSkip = db.NextSkipTime - _timing.CurTime;
-        _uiSystem.SetUiState(uid, NtrTaskUiKey.Key, new NtrTaskConsoleState(db.Tasks, db.History, untilNextSkip));
-        _audio.PlayPvs(component.SkipSound, uid);
-    }
-    private void OnMapInit(EntityUid uid, NtrTaskDatabaseComponent component, MapInitEvent args)
-    {
-        //create all max tasks on init
-        while (component.Tasks.Count < component.MaxTasks && TryAddTask(uid, component))
-        {
-            // this supposed to loop this until its the max ammount of tasks
-        }
-
-        //set initial generation timer
-        component.NextTaskGenerationTime = _timing.CurTime + component.TaskGenerationDelay;
-    }
-    public void FillTasksDatabase(EntityUid uid, NtrTaskDatabaseComponent? component = null)
-    {
-        if (!Resolve(uid, ref component))
-            return;
-
-        while (component.Tasks.Count < component.MaxTasks)
-        {
-            if (!TryAddTask(uid, component))
-                break;
-        }
-
-        UpdateTaskConsoles();
-    }
-
-    public void RerollTasksDatabase(Entity<NtrTaskDatabaseComponent?> entity)
-    {
-        if (!Resolve(entity, ref entity.Comp))
-            return;
-
-        entity.Comp.Tasks.Clear();
-        FillTasksDatabase(entity);
-    }
-
-    [PublicAPI]
-    public bool TryAddTask(EntityUid uid, NtrTaskDatabaseComponent? component = null)
-    {
-        if (!Resolve(uid, ref component))
-            return false;
-        // powergridcheck task should not be super common
-
-        var availableTasks = GetAvailableTasks(uid, component);
-        if (availableTasks.Count == 0)
-            return false;
-        var task = PickWeightedTask(availableTasks);
-        if (task == null)
-            return false;
-
-        if (task.ID == "PowerGridCheck")
-        {
-            component.NextPowerGridTime = _timing.CurTime + component.PowerGridCooldown;
-        }
-
-        return TryAddTask(uid, task, component);
-    }
-    private List<NtrTaskPrototype> GetAvailableTasks(EntityUid _, NtrTaskDatabaseComponent component)
-    {
-        var currentTime = _timing.CurTime.TotalSeconds;
-
-        return _protoMan.EnumeratePrototypes<NtrTaskPrototype>()
-            .Where(proto =>
-                proto.ID != "PowerGridCheck" ||
-                (_timing.CurTime >= component.NextPowerGridTime))
-            .Where(proto =>
-                !component.Tasks.Any(b => b.Task == proto.ID && !b.IsActive) &&
-                component.History
-                    .Where(h => h.Task == proto.ID)
-                    .All(h => (currentTime - h.CompletionTime) >= proto.Cooldown)
-            )
+        return _prototypes.EnumeratePrototypes<NtrTaskPrototype>()
+            .Where(proto => IsTaskAvailable(proto, db))
             .ToList();
     }
-    // weight pick for future tasks
+
+    private bool IsTaskAvailable(NtrTaskPrototype proto, NtrTaskDatabaseComponent db)
+    {
+        var currentTime = _timing.CurTime.TotalSeconds;
+        return (proto.ID != "PowerGridCheck" || _timing.CurTime >= db.NextPowerGridTime)
+               && !db.Tasks.Any(b => b.Task == proto.ID && b.IsActive)
+               && db.History.Where(h => h.Task == proto.ID)
+                   .All(h => (currentTime - h.CompletionTime) >= proto.Cooldown);
+    }
+
     private NtrTaskPrototype? PickWeightedTask(List<NtrTaskPrototype> tasks)
     {
-        if (tasks.Count == 0)
-            return null;
+        if (tasks.Count == 0) return null;
 
-        var totalWeight = tasks.Sum(t => t.Weight);
-        if (totalWeight <= 0)
-            return _random.Pick(tasks);
-
-        var randomValue = _random.NextFloat() * totalWeight;
-        var currentSum = 0f;
+        var total = tasks.Sum(t => t.Weight);
+        var roll = _random.NextFloat() * total;
+        var current = 0f;
 
         foreach (var task in tasks)
         {
-            currentSum += task.Weight;
-            if (randomValue <= currentSum)
+            current += task.Weight;
+            if (roll <= current)
                 return task;
         }
-
         return _random.Pick(tasks);
     }
 
-    public bool TryAddTask(EntityUid uid, NtrTaskPrototype task, NtrTaskDatabaseComponent? component = null)
+    public bool TryRemoveTask(EntityUid uid, string taskId, bool skipped, EntityUid? actor = null)
     {
-        if (!Resolve(uid, ref component))
-            return false;
-
-        if (component.Tasks.Count >= component.MaxTasks)
-            return false;
-        _nameIdentifier.GenerateUniqueName(uid, _nameIdentifierGroup, out var randomVal);
-        var newTask = new NtrTaskData(task, randomVal);
-        // This bounty id already exists! Probably because NameIdentifierSystem ran out of ids.
-        if (component.Tasks.Any(b => b.Id == newTask.Id))
-        {
-            Log.Error("Failed to add bounty {ID} because another one with the same ID already existed!", newTask.Id);
-            return false;
-        }
-        component.Tasks.Add(new NtrTaskData(task, randomVal));
-        _adminLogger.Add(LogType.Action, LogImpact.Low, $"Added bounty \"{task.ID}\" (id:{component.TotalTasks}) to station {ToPrettyString(uid)}");
-        component.TotalTasks++;
-        return true;
+        return TryComp<NtrTaskDatabaseComponent>(uid, out var db)
+            && TryGetTaskFromId(uid, taskId, out var task, db)
+            && TryRemoveTask(uid, task.Value, skipped, actor);
     }
 
-    [PublicAPI]
-    public bool TryRemoveTask(Entity<NtrTaskDatabaseComponent?> ent,
-        string dataId,
-        bool skipped,
-        EntityUid? actor = null)
+    private bool TryRemoveTask(EntityUid uid, NtrTaskData task, bool skipped, EntityUid? actor = null)
     {
-        if (!TryGetTaskFromId(ent.Owner, dataId, out var data, ent.Comp))
+        if (!TryComp<NtrTaskDatabaseComponent>(uid, out var db))
             return false;
 
-        return TryRemoveTask(ent, data.Value, skipped, actor);
-    }
-
-    /// <summary>
-    /// ??? shitcode from bounty system
-    /// </summary>
-    public bool TryRemoveTask(Entity<NtrTaskDatabaseComponent?> ent,
-        NtrTaskData data,
-        bool skipped,
-        EntityUid? actor = null)
-    {
-        if (!Resolve(ent, ref ent.Comp))
-            return false;
-        var removed = ent.Comp.Tasks.RemoveAll(t => t.Id == data.Id) > 0;
-
+        var removed = db.Tasks.RemoveAll(t => t.Id == task.Id) > 0;
         if (removed)
         {
-            ent.Comp.History.Add(new NtrTaskHistoryData(
-            data,
-            skipped ? NtrTaskHistoryData.TaskResult.Skipped
+            db.History.Add(new NtrTaskHistoryData(
+                task,
+                skipped ? NtrTaskHistoryData.TaskResult.Skipped
                     : NtrTaskHistoryData.TaskResult.Completed,
-            _gameTiming.CurTime,
-            actor.HasValue ? GetActorName(actor.Value) : null
-        ));
+                _timing.CurTime,
+                actor.HasValue ? GetActorName(actor.Value) : null
+            ));
         }
-
         return removed;
     }
-    public bool TryGetTaskFromId(
-        EntityUid uid,
-        string id,
-        [NotNullWhen(true)] out NtrTaskData? task,
-        NtrTaskDatabaseComponent? component = null)
+
+    public bool TryGetTaskFromId(EntityUid uid, string id, [NotNullWhen(true)] out NtrTaskData? task, NtrTaskDatabaseComponent? db = null)
     {
         task = null;
-        if (!Resolve(uid, ref component))
-            return false;
-
-        foreach (var taskData in component.Tasks)
-        {
-            if (taskData.Id != id)
-                continue;
-            task = taskData;
-            break;
-        }
-
-        return task != null;
+        return Resolve(uid, ref db)
+            && (task = db.Tasks.FirstOrDefault(t => t.Id == id)) != null;
     }
-    private void UpdateTaskConsoles()
-    { // refactored this whole thing because i hate myself
-        var query = EntityQueryEnumerator<NtrTaskConsoleComponent, UserInterfaceComponent>();
-        while (query.MoveNext(out var uid, out var provider, out var ui))
-        {
-            if (_station.GetOwningStation(uid) is not { } station ||
-                !TryComp<NtrTaskDatabaseComponent>(station, out var db))
-                continue;
+    #endregion
 
-            var untilNextSkip = db.NextSkipTime - _timing.CurTime;
-            var state = new NtrTaskConsoleState(
-                db.Tasks,
-                db.History,
-                untilNextSkip,
-                provider.ActiveTaskIds
-            );
-            _uiSystem.SetUiState((uid, ui), NtrTaskUiKey.Key, state);
-        }
-    }
-    private void OnTaskFailed(EntityUid uid, NtrTaskConsoleComponent component, TaskFailedEvent args)
+    #region Utility Methods
+    private bool HasTag(EntityUid uid, string tag)
     {
-        if (_station.GetOwningStation(uid) is not { } station ||
-            !TryComp<NtrBankAccountComponent>(station, out var ntrAccount))
-            return;
-        // apply penalty
-        ntrAccount.Balance = Math.Max(0, ntrAccount.Balance - args.Penalty);
+        return EntityManager.System<TagSystem>().HasTag(uid, tag);
+    }
 
-        var ev = new NtrAccountBalanceUpdatedEvent(uid, ntrAccount.Balance);
-        var query = EntityQueryEnumerator<NtrClientAccountComponent>();
-        while (query.MoveNext(out var client, out _))
-        {
-            RaiseLocalEvent(client, ev);
-        }
-        // del the spam document
-        if (Exists(args.User))
-            _popup.PopupEntity(_loc.GetString("ntr-console-spam-penalty"), uid, args.User);
+    private string? GetActorName(EntityUid actor)
+    {
+        return Identity.Name(actor, EntityManager);
+    }
+    #endregion
+}
 
-        _audio.PlayPvs(component.DenySound, uid);
+public sealed class TaskFailedEvent : EntityEventArgs
+{
+    public EntityUid User;
+    public NtrTaskPrototype Task;
+    public int Penalty;
+
+    public TaskFailedEvent(EntityUid user, NtrTaskPrototype task, int penalty)
+    {
+        User = user;
+        Task = task;
+        Penalty = penalty;
     }
 }
-#endregion

@@ -31,7 +31,7 @@ public partial record struct NtrTaskData
     [DataField]
     public bool IsCompleted = false;
 
-    public NtrTaskData(NtrTaskPrototype task, int uniqueIdentifier)
+    public NtrTaskData(NtrTaskPrototype task, string uniqueIdentifier)
     {
         Task = task.ID;
         Id = $"{task.IdPrefix}{uniqueIdentifier:D3}";

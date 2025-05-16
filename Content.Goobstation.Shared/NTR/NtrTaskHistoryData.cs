@@ -66,5 +66,7 @@ public readonly partial record struct NtrTaskHistoryData
         /// Bounty was explicitly skipped by some actor
         /// </summary>
         Skipped = 1,
+
+        Failed = 2,
     }
 }

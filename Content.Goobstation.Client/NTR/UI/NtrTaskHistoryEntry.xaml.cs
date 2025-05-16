@@ -25,10 +25,25 @@ public sealed partial class NtrTaskHistoryEntry : BoxContainer
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
 
-        if (!_prototype.TryIndex(task.Task, out var taskPrototype))
+        if (string.IsNullOrEmpty(task.Task))
+        {
+            Visible = false;
             return;
+        }
+
+        if (!_prototype.TryIndex(task.Task, out NtrTaskPrototype? taskPrototype))
+        {
+            Visible = false;
+            return;
+        }
 
         var items = new List<string>();
+        var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
+        if (!prototypeManager.TryIndex(task.Task, out NtrTaskPrototype? proto))
+        {//to not crash the game if something goes wrong
+            Visible = false;
+            return;
+        }
         foreach (var entry in taskPrototype.Entries)
         {
             items.Add(Loc.GetString("ntr-bounty-console-manifest-entry",
