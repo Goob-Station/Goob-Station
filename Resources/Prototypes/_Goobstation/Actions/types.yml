@@ -89,7 +89,7 @@
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
       path: /Audio/Items/unsheath.ogg
-    event: !type:ToggleRightMantisBladeEvent
+    event: !type:ToggleRightExtendableEvent
 
 - type: entity
   id: ActionToggleLeftMantisBlade
@@ -101,7 +101,7 @@
     useDelay: 2
     icon: { sprite: _Goobstation/Objects/Weapons/Melee/mantis_blade.rsi, state: icon-mirrored }
     itemIconStyle: BigAction
-    event: !type:ToggleLeftMantisBladeEvent
+    event: !type:ToggleLeftExtendableEvent
 
 - type: entity
   id: ActionToggleSandevistan

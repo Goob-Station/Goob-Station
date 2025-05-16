@@ -1,6 +1,7 @@
+paired-extendable-hand-busy = Your hand must be free in order to extend this.
+
 cyberware-disabled-emp = The cyberware is disabled by a EMP and is not responding.
 
-mantis-blade-hand-busy = Your hand must be free in order to use the mantis blade.
 mantis-blade-arm-examine = [color=red]This arm contains an illegal cyberware that allows the user to extend a mantis blade from it.[/color]
 
 sandevistan-overload-1 = Your heart pounds on your chest.

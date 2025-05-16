@@ -19,7 +19,7 @@ using Robust.Shared.Serialization.Manager;
 
 namespace Content.Goobstation.Shared.Cybernetics;
 
-// Pure goidacode inside, you are warned.
+// There might be some goidacode inside, I warned you.
 public sealed class PartUpgraderSystem : EntitySystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -58,8 +58,8 @@ public sealed class PartUpgraderSystem : EntitySystem
             return;
         }
 
-        //if (_netManager.IsClient) // Fuck sound networking // okay what if
-        //    return;
+        if (_netManager.IsClient) // Fuck sound networking
+            return;
 
         var sound = _audio.PlayPvs(ent.Comp.Sound, ent);
         if (sound.HasValue)

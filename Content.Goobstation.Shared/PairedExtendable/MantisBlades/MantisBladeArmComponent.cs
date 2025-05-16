@@ -3,10 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Goobstation.Shared.MantisBlades;
+namespace Content.Goobstation.Shared.PairedExtendable;
 
-/// <summary>
-/// This component serves purely for examining the arm.
-/// </summary>
 [RegisterComponent]
 public sealed partial class MantisBladeArmComponent : Component;
