@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server._NF.Speech.Components;
 using Content.Server.Speech;
 using Content.Server.Speech.EntitySystems;
