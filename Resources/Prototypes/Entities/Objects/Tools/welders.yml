@@ -197,6 +197,7 @@
     qualities:
     - Welding
     - Axing # Goobstation
+    - Ignition
   - type: ToolTileCompatible # Goobstation
     delay: 2
   - type: Welder
