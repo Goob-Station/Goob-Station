@@ -80,7 +80,7 @@
     quickEquip: false
     slots:
     - neck
-  - type: ActivatableUI
+#  - type: ActivatableUI # Goob edit
 #    inHandsOnly: false # Goob edit
   - type: Tag
     tags:
