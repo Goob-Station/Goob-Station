@@ -58,7 +58,7 @@
     selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ Traitor ]
-      max: 5
+      max: 3
       playerRatio: 15
       blacklist:
         components:
@@ -325,7 +325,7 @@
     agentName: devil-roundend-name
     definitions:
     - prefRoles: [ Devil ]
-      max: 2
+      max: 1
       playerRatio: 20
       jobBlacklist: [ Chaplain, Mime ] # Chaplain is obvious. Mime can't write.
       mindRoles:

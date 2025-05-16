@@ -445,8 +445,8 @@
   - type: AntagSelection
     definitions:
     - prefRoles: [ InitialInfected ]
-      max: 6
-      playerRatio: 10
+      max: 10
+      playerRatio: 8
       blacklist:
         components:
         - ZombieImmune

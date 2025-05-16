@@ -9,10 +9,10 @@
   components:
   - type: GameRule
   - type: BasicStationEventScheduler
-    minimumTimeUntilFirstEvent: 600 # 10 min - first storm between 20 to 50 min in
+    minimumTimeUntilFirstEvent: 1800 # Ion happens between ( 31 - 2hr)
     minMaxEventTiming:
-      min: 600 # 10 min
-      max: 2400 # 40 min
+      min: 60 # 1 min
+      max: 5340 # 89 min
     scheduledGameRules: !type:NestedSelector
       tableId: BasicIonStormEventsTable
 
@@ -22,10 +22,10 @@
   components:
   - type: GameRule
   - type: BasicStationEventScheduler
-    minimumTimeUntilFirstEvent: 900 # 15 min - first storm between 30 to 75 min in
+    minimumTimeUntilFirstEvent: 2700 # Ion happens between ( 46 - 2hr 46 minutes)
     minMaxEventTiming:
-      min: 900 # 15 min
-      max: 3600 # 60 min
+      min: min: 60 # 1 min
+      max: max: 7200 # 120 min
     scheduledGameRules: !type:NestedSelector
       tableId: BasicIonStormEventsTable
 
