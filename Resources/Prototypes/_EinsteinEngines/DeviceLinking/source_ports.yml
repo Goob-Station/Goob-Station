@@ -1,10 +1,4 @@
 - type: sourcePort
-  id: MaterialSilo
-  name: signal-port-name-material-silo
-  description: signal-port-description-material-silo
-  defaultLinks: [ MaterialSiloUtilizer ]
-
-- type: sourcePort
   id: FillItems # Used by Fillbot
   name: signal-port-name-fillitems
   description: signal-port-description-fillitems

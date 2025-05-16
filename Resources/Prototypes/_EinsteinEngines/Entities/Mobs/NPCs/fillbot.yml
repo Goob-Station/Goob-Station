@@ -6,7 +6,7 @@
   components:
   - type: Fillbot
   - type: Sprite
-    sprite: Mobs/Silicon/Bots/fillbot.rsi
+    sprite: _EinsteinEngines/Mobs/Silicon/Bots/fillbot.rsi
     state: fillbot
   - type: Construction
     graph: FillBot

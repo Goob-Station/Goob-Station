@@ -1,23 +1,19 @@
 - type: entity
   id: RightArmSiliconIndestructible
   name: "right silicon arm"
-  parent: [BaseItem, BaseRightArm]
+  parent: [PartSiliconBase, BaseRightArm]
   components:
-    - type: Damageable
-    - type: BodyPart
-      partType: Arm
-      symmetry: Right
-      toolName: "a right arm" # Shitmed Change
-      canSever: false
+  - type: Sprite
+    state: borg_r_arm
+  - type: Icon
+    state: borg_r_arm
 
 - type: entity
   id: RightHandSiliconIndestructible
   name: "right silicon hand"
-  parent: [BaseItem, BaseRightArm]
+  parent: [PartSiliconBase, BaseRightHand]
   components:
-    - type: Damageable
-    - type: BodyPart
-      partType: Hand
-      symmetry: Right
-      toolName: "a right hand" # Shitmed Change
-      canSever: false
+  - type: Sprite
+    state: borg_r_arm
+  - type: Icon
+    state: borg_r_arm

@@ -6,7 +6,7 @@
   components:
   - type: Plantbot
   - type: Sprite
-    sprite: Mobs/Silicon/Bots/plantbot.rsi
+    sprite: _EinsteinEngines/Mobs/Silicon/Bots/plantbot.rsi
     state: plantbot
   - type: HTN
     rootTask:

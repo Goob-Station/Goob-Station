@@ -19,8 +19,8 @@ namespace Content.Server._EinsteinEngines.NPC.HTN.PrimitiveTasks.Operators.Speci
 public sealed partial class PickNearbyFillableItemOperator : HTNOperator
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
 
+    private EntityWhitelistSystem _whitelistSystem = default!;
     private SharedMaterialStorageSystem _sharedMaterialStorage = default!;
     private EntityLookupSystem _lookup = default!;
     private PathfindingSystem _pathfinding = default!;
@@ -45,6 +45,7 @@ public sealed partial class PickNearbyFillableItemOperator : HTNOperator
     public override void Initialize(IEntitySystemManager sysManager)
     {
         base.Initialize(sysManager);
+        _whitelistSystem = sysManager.GetEntitySystem<EntityWhitelistSystem>();
         _lookup = sysManager.GetEntitySystem<EntityLookupSystem>();
         _pathfinding = sysManager.GetEntitySystem<PathfindingSystem>();
         _sharedMaterialStorage = sysManager.GetEntitySystem<SharedMaterialStorageSystem>();

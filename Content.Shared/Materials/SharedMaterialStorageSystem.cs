@@ -325,7 +325,6 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
         EntityUid toInsert,
         EntityUid receiver,
         MaterialStorageComponent? storage = null,
-        MaterialSiloUtilizerComponent? utilizer = null,
         MaterialComponent? material = null,
         PhysicalCompositionComponent? composition = null
     )
@@ -342,12 +341,12 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
         var totalVolume = 0;
         foreach (var (mat, vol) in composition.MaterialComposition)
         {
-            if (!CanChangeMaterialAmount(receiver, mat, vol * multiplier, storage, utilizer))
+            if (!CanChangeMaterialAmount(receiver, mat, vol * multiplier, storage))
                 return false;
             totalVolume += vol * multiplier;
         }
 
-        return CanTakeVolume(receiver, totalVolume, storage, utilizer);
+        return CanTakeVolume(receiver, totalVolume, storage);
     }
 
     /// <summary>

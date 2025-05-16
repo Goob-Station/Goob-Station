@@ -5,7 +5,7 @@
   description: A miner's best friend!
   components:
   - type: Sprite
-    sprite: Mobs/Silicon/Bots/minebot.rsi
+    sprite: _EinsteinEngines/Mobs/Silicon/Bots/minebot.rsi
     state: minebot
   - type: Construction
     graph: MineBot
@@ -52,11 +52,11 @@
         Piercing: 3
         Structural: 20
     bluntStaminaDamageFactor: 2.0
-    heavyDamageBaseModifier: 1.75
-    maxTargets: 5
     angle: 80
   - type: DamageOtherOnHit
-    staminaCost: 5
+    damage:
+      types:
+        Piercing: 5
   - type: MobThresholds
     thresholds:
       0: Alive

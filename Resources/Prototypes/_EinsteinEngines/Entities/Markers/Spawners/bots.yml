@@ -34,7 +34,7 @@
   - type: Sprite
     layers:
       - state: green
-      - sprite: Mobs/Silicon/Bots/plantbot.rsi
+      - sprite: _EinsteinEngines/Mobs/Silicon/Bots/plantbot.rsi
         state: plantbot
   - type: ConditionalSpawner
     prototypes:
