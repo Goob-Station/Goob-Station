@@ -1,3 +1,4 @@
+// SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
@@ -119,6 +120,8 @@ public partial class TraumaSystem
     }
 
     public bool HasAssociatedTrauma(
+        EntityUid woundable,
+        WoundableComponent woundableComp,
         EntityUid woundInflicter,
         TraumaType? traumaType = null,
         TraumaInflicterComponent? component = null)
@@ -134,6 +137,11 @@ public partial class TraumaSystem
             if (trauma.Comp.TraumaType != traumaType && traumaType != null)
                 continue;
 
+            if (trauma.Comp.TraumaType == TraumaType.BoneDamage
+                && (woundableComp.Bone.ContainedEntities.FirstOrNull() is not { } bone
+                || !TryComp(bone, out BoneComponent? boneComp)
+                || boneComp.BoneSeverity != BoneSeverity.Broken))
+                continue;
             return true;
         }
 
@@ -178,7 +186,7 @@ public partial class TraumaSystem
             if (!TryComp<TraumaInflicterComponent>(woundEnt, out var inflicterComp))
                 continue;
 
-            if (HasAssociatedTrauma(woundEnt, traumaType, inflicterComp))
+            if (HasAssociatedTrauma(woundable, woundableComp, woundEnt, traumaType, inflicterComp))
                 return true;
         }
 
