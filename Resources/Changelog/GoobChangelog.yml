@@ -9436,3 +9436,27 @@ Entries:
       message: High tier bone fractures do prevent topicals, do not let them build up.
   id: 1055
   time: '2025-05-15T21:38:59.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Nukies cannot get surplus crates.
+  id: 1056
+  time: '2025-05-16T01:30:43.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Mop is faster
+  id: 1057
+  time: '2025-05-16T01:32:20.0000000+00:00'
+- author: John Kameroni
+  changes:
+    - type: Add
+      message: 65%
+  id: 1058
+  time: '2025-05-16T05:30:29.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Add
+      message: Mapped the security riot launcher on 13 space stations
+  id: 1059
+  time: '2025-05-16T07:18:53.0000000+00:00'
