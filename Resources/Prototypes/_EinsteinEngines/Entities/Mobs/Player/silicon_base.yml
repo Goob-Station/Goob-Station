@@ -184,6 +184,12 @@
     #  bloodlossDamage:
     #    types:
     #      Burn: 1.5
+    - type: Flammable
+      fireSpread: true
+      canResistFire: true
+      damage:
+        types:
+          Heat: 0 # GoobStation: Replaced fire damage with overheating shutdown
     #  bloodlossHealDamage:
     #    types:
     #      Burn: 0
