@@ -3,7 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Server._Goobstation.Weapons.BatterySlotRequiresItemToggle;
+namespace Content.Goobstation.Server.Weapons.BatterySlotRequiresItemToggle;
 
 [RegisterComponent]
 public sealed partial class BatterySlotRequiresToggleComponent : Component
