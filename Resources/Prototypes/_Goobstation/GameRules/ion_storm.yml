@@ -24,8 +24,8 @@
   - type: BasicStationEventScheduler
     minimumTimeUntilFirstEvent: 2700 # Ion happens between ( 46 - 2hr 46 minutes)
     minMaxEventTiming:
-      min: min: 60 # 1 min
-      max: max: 7200 # 120 min
+      min: 60 # 1 min
+      max: 7200 # 120 min
     scheduledGameRules: !type:NestedSelector
       tableId: BasicIonStormEventsTable
 
