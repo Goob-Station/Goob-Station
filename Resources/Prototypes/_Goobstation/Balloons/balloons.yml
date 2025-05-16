@@ -9,13 +9,14 @@
     noRot: True
   - type: Item
     size: Huge
+  - type: Balloon
   - type: Damageable
     damageContainer: RubberBalloon # default damage container
   - type: Physics # has dynamic physics
     bodyType: Dynamic
   - type: Penetratable # projectile Able to pierce balloons
     penetrateDamage: 1
-    damagePenalty: 0.9
+    damagePenalty: 0.5
   - type: InteractionOutline
   - type: Fixtures # give it locker collision
     fixtures:
@@ -25,9 +26,9 @@
           bounds: "-0.25,-0.48,0.25,0.48"
         density: 75
         mask:
-        - MachineMask
+        - TabletopMachineMask
         layer:
-        - MachineLayer
+        - TabletopMachineLayer
         
 # Red Balloon
 - type: entity

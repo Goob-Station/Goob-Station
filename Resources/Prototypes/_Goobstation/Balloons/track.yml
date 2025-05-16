@@ -1,0 +1,70 @@
+- type: entity
+  name: straight track
+  id: trackStraight
+  parent: BaseItem
+  placement:    # able to place
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/balloons_track.rsi
+    state: straight
+    drawdepth: ThinPipe # goes under balloons
+  - type: Transform
+    anchored: true
+  - type: Visibility
+    layer: 1
+  - type: BloonTrack    # Custom component signalling that this item is a track for balloons
+  - type: Damageable    # can be damaged
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: CollideOnAnchor
+  - type: Anchorable
+  - type: Rotatable
+  - type: Pullable
+  - type: Destructible
+    thresholds:
+    - trigger: # for nukes
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+    - trigger: # regular damage trigger (replace with broken pipe)
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Breakage"]
+             
+    - type: Physics
+      canCollide: false
+      bodyType: static
+      
+- type: entity
+  name:  track bend
+  id: trackBend
+  parent: trackStraight
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/balloons_track.rsi
+    state: bend
+    
+    # end
+- type: entity
+  name:  track end
+  id: trackEnd
+  parent: trackStraight
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/balloons_track.rsi
+    state: end
+    
+    # start
+- type: entity
+  name:  track start
+  id: trackStart
+  parent: trackStraight
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/balloons_track.rsi
+    state: start
