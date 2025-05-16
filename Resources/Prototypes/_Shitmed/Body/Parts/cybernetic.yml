@@ -145,10 +145,6 @@
   - type: MovementBodyPart
     walkSpeed: 3.125
     sprintSpeed: 5.625
-  - type: BodyPart
-    onAdd:
-    - type: NoSlip
-    - type: ProtectedFromStepTriggers
 
 - type: entity
   parent: RightLegCyberneticBase
@@ -159,10 +155,6 @@
   - type: MovementBodyPart
     walkSpeed: 3.125
     sprintSpeed: 5.625
-  - type: BodyPart
-    onAdd:
-    - type: NoSlip
-    - type: ProtectedFromStepTriggers
 
 - type: entity
   id: DexLeftHand
