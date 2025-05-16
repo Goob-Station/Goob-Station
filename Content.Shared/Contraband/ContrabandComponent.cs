@@ -43,4 +43,8 @@ public sealed partial class ContrabandComponent : Component
     [DataField]
     [AutoNetworkedField]
     public HashSet<ProtoId<JobPrototype>> AllowedJobs = new();
+
+    [DataField]
+    [AutoNetworkedField]
+    public float CriminalPoints = 0f;
 }

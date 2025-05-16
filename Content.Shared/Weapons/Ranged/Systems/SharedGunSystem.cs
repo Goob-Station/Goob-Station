@@ -100,6 +100,8 @@ using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared.Item;
 using Content.Goobstation.Common.Weapons.Multishot;
+using Content.Shared.CombatMode.Pacification;
+using Content.Shared.Security.Components;
 
 namespace Content.Shared.Weapons.Ranged.Systems;
 
@@ -165,6 +167,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         SubscribeLocalEvent<GunComponent, CycleModeEvent>(OnCycleMode);
         SubscribeLocalEvent<GunComponent, HandSelectedEvent>(OnGunSelected);
         SubscribeLocalEvent<GunComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<GunComponent, GetCriminalPointsEvent>(OnCriminalPoints);
     }
 
     private void OnMapInit(Entity<GunComponent> gun, ref MapInitEvent args)
@@ -177,6 +180,14 @@ public abstract partial class SharedGunSystem : EntitySystem
 #endif
 
         RefreshModifiers((gun, gun));
+    }
+
+    private void OnCriminalPoints(EntityUid uid, GunComponent component, GetCriminalPointsEvent args)
+    {
+        if (HasComp<PacifismAllowedGunComponent>(uid))
+            return;
+
+        args.Points *= component.CriminalPointMultiplier;
     }
 
     private void OnGunMelee(EntityUid uid, GunComponent component, MeleeHitEvent args)

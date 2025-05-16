@@ -393,6 +393,7 @@
     sprite: Objects/Misc/ensnare.rsi
     state: icon
   - type: AnimationPlayer
+  - type: CriminalRecord
   - type: Buckle
   - type: CombatMode
     canDisarm: true

@@ -103,7 +103,7 @@ public abstract partial class SharedHandsSystem
     /// </summary>
     public bool TryDrop(EntityUid uid, EntityCoordinates? targetDropLocation = null, bool checkActionBlocker = true, bool doDropInteraction = true, HandsComponent? handsComp = null)
     {
-        if (!Resolve(uid, ref handsComp))
+        if (!Resolve(uid, ref handsComp, false))
             return false;
 
         if (handsComp.ActiveHand == null)

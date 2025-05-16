@@ -324,6 +324,5 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
                 }
             }
         }
-        RemComp<CriminalRecordComponent>(uid);
     }
 }

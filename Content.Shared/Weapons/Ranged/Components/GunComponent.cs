@@ -321,6 +321,13 @@ public sealed partial class GunComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public float BurstCooldownModified;
+
+    /// <summary>
+    /// Myra-Sector
+    /// Securitron.
+    /// </summary>
+    [DataField]
+    public float CriminalPointMultiplier = 3.5f;
 }
 
 [Flags]

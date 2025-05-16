@@ -479,7 +479,64 @@
     range: 0
 
 - type: entity
+  parent:- type: entity
   parent:
+  - MobSiliconBase
+  - ShowSecurityIcons
+  - StripableInventoryBase
+  - BaseStunbaton
+  id: MobSecuritron
+  name: securitron
+  description: Tiders hate this one simple trick!
+  components:
+  - type: Sprite
+    sprite: Mobs/Silicon/Bots/securitron.rsi
+    state: secbot
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 50
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: HTN
+    rootTask:
+      task: SecbotCompound
+  - type: CombatMode
+  - type: MeleeWeapon
+    hidden: true
+    animation: WeaponArcThrust
+    damage:
+      types:
+        Blunt: 0
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 40
+  - type: CanForceHandcuff
+    handcuffsId: Zipties
+    requireHands: false
+  - type: Construction
+    graph: SecBot
+    node: bot
+  - type: SentienceTarget
+    flavorKind: station-event-random-sentience-flavor-mechanical
+  - type: Anchorable
+  - type: InteractionPopup
+    interactSuccessString: petting-success-secbot
+    interactFailureString: petting-failure-secbot
+    interactSuccessSound:
+      path: /Audio/Ambience/Objects/periodic_beep.ogg
+  - type: Inventory
+    templateId: medibot
+  - type: ActiveRadio
+    channels:
+    - Hexadecimal
+    - Common
+    - Security
   - MobSiliconBase
   - ShowMedicalIcons
   - StripableInventoryBase
@@ -653,3 +710,81 @@
     - Supply
   - type: StationAiVision # Goobstation - AI can see through NT silicon
     range: 1
+
+- type: entity
+  parent:
+  - MobSiliconBase
+  - ShowSecurityIcons
+  - StripableInventoryBase
+  - BaseStunbaton
+  id: MobSecuritron
+  name: securitron
+  description: Tiders hate this one simple trick!
+  components:
+  - type: Sprite
+    sprite: Mobs/Silicon/Bots/securitron.rsi
+    state: secbot
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 50
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: HTN
+    rootTask:
+      task: SecbotCompound
+  - type: CombatMode
+  - type: MeleeWeapon
+    hidden: true
+    animation: WeaponArcThrust
+    damage:
+      types:
+        Blunt: 0
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 40
+  - type: CanForceHandcuff
+    handcuffsId: Zipties
+    requireHands: false
+  - type: Construction
+    graph: SecBot
+    node: bot
+  - type: SentienceTarget
+    flavorKind: station-event-random-sentience-flavor-mechanical
+  - type: Anchorable
+  - type: InteractionPopup
+    interactSuccessString: petting-success-secbot
+    interactFailureString: petting-failure-secbot
+    interactSuccessSound:
+      path: /Audio/Ambience/Objects/periodic_beep.ogg
+  - type: Inventory
+    templateId: medibot
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Hexadecimal
+    - Security
+  - type: ActiveRadio
+    channels:
+    - Hexadecimal
+    - Common
+    - Security
+
+- type: entity
+  parent: MobSecuritron
+  id: MobBeepsky
+  name: Officer Beepsky
+  description: It's Commander Beep O'sky! Officially the superior officer of all bots on station, Beepsky remains as humble and dedicated to the law as the day he was first fabricated.
+  components:
+  - type: HTN
+    rootTask:
+      task: SecbotCompound
+    blackboard:
+      TargetFoundSound: !type:SoundCollectionSpecifier
+        collection: BeepskyTargetFound
+      TargetArrestedSound: !type:SoundCollectionSpecifier
+        collection: BeepskyTargetArrested

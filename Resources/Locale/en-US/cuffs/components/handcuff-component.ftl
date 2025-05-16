@@ -32,3 +32,5 @@ handcuff-component-cuff-interrupt-self-message = You were interrupted while rest
 handcuff-component-cuff-interrupt-buckled-message = You can't buckle while restrained!
 handcuff-component-cuff-interrupt-unbuckled-message = You can't unbuckle while restrained!
 handcuff-component-cannot-drop-cuffs = You are unable to put the restraints on {$target}
+
+force-handcuff-verb-get-data-text = Cuff

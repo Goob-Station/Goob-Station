@@ -1,0 +1,13 @@
+- type: soundCollection
+  id: BeepskyTargetFound
+  files:
+    - /Audio/Voice/Silicon/Beepsky/creep.ogg
+    - /Audio/Voice/Silicon/Beepsky/criminal.ogg
+    - /Audio/Voice/Silicon/Beepsky/freeze.ogg
+    - /Audio/Voice/Silicon/Beepsky/justice.ogg
+
+- type: soundCollection
+  id: BeepskyTargetArrested
+  files:
+    - /Audio/Voice/Silicon/Beepsky/iamthelaw.ogg
+    - /Audio/Voice/Silicon/Beepsky/secureday.ogg
