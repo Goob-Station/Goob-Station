@@ -32,6 +32,7 @@
   - EnergyCautery
   - AdvancedRetractor
   - BorgModuleAdvancedSurgery
+  - OmnimedTool
   technologyPrerequisites:
   - AdvancedEntertainment
   position: -2,4
@@ -74,20 +75,3 @@
   position: -2,6
   technologyPrerequisites:
   - CyberneticEnhancements
-
-# Tier 3
-
-- type: technology
-  id: HighEndSurgery
-  name: research-technology-high-end-surgery
-  icon:
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/omnimed.rsi
-    state: omnimed
-  discipline: CivilianServices
-  tier: 3
-  cost: 10000
-  recipeUnlocks:
-  - OmnimedTool
-  technologyPrerequisites:
-  - Autodoc
-  position: -2,7

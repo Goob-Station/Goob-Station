@@ -94,7 +94,7 @@
   - !type:AddComponentSpecial
     components:
     - type: SurgerySpeedModifier
-      speedModifier: 1.75
+      speedModifier: 2
 
 
 - type: startingGear

@@ -72,9 +72,18 @@
     Plasma: 150
 
 - type: latheRecipe
+  id: AdvancedBoneGel
+  result: AdvancedBoneGel
+  completetime: 2
+  materials:
+    Steel: 600
+    Glass: 150
+    Plasma: 150
+
+- type: latheRecipe
   id: OmnimedTool
   result: OmnimedTool
-  completetime: 2
+  completetime: 4
   materials:
     Steel: 1200
     Glass: 300

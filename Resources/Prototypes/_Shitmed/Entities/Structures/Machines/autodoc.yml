@@ -115,6 +115,28 @@
 - type: entity
   parent: OmnimedTool
   id: OmnimedToolAutodoc
-  suffix: Unremoveable
+  suffix: Unremoveable, Autodoc
   components:
   - type: Unremoveable
+  - type: Hemostat
+    speed: 2
+  - type: Scalpel
+    speed: 2
+  - type: Drill
+    speed: 2
+  - type: BoneSetter
+    speed: 2
+  - type: Retractor
+    speed: 2
+  - type: Cautery
+    speed: 2
+  - type: BoneGel
+    speed: 2
+  - type: BoneSaw
+    speed: 2
+  - type: Tweezers
+    speed: 2
+  - type: Tending
+    speed: 2
+  - type: Stitches
+    speed: 2

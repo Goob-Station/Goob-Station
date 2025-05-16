@@ -50,7 +50,7 @@
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
     - id: BlueshieldUndeterminedHardsuit
-    - id: ClothingBackpackDuffelSurgeryFilled
+    - id: OmnimedTool
     - id: HandheldCrewMonitorBSO
     - id: BlueshieldUndeterminedWeapon
     - id: PlushieSamantha

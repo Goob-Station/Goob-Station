@@ -50,17 +50,13 @@
 
 ## Dynamic
 - type: latheRecipePack
-  id: MedicalSurgery
-  parent: Surgery
-  recipes:
-  - OmnimedTool
-
-- type: latheRecipePack
   id: Surgery
   recipes:
   - EnergyScalpel
-  - EnergyCautery
   - AdvancedRetractor
+  - EnergyCautery
+  - AdvancedBoneGel
+  - OmnimedTool
 
 - type: latheRecipePack
   id: MedicalCybernetics
