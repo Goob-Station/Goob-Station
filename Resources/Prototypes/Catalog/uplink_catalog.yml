@@ -1203,7 +1203,7 @@
   - !type:StoreWhitelistCondition
     blacklist:
       tags:
-      - ContravendUplink
+      - NukeOpsUplink
   - !type:BuyerWhitelistCondition
     blacklist:
       components:
