@@ -208,18 +208,6 @@ public abstract class SharedEntropicPlumeSystem : EntitySystem
             if (HasComp<HereticComponent>(ent.Owner) || HasComp<GhoulComponent>(ent.Owner))
                 continue;
 
-
-            foreach (var item in contains)
-            {
-                if (!HasComp<DivineInterventionComponent>(item))
-                    continue;
-                hasDivineItem = true;
-                break;
-            }
-
-            if (hasDivineItem)
-                continue;
-
             if (_examine.InRangeUnOccluded(attacker, ent, range + 1f))
                 result.Add(ent);
         }
