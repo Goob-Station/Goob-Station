@@ -1,11 +1,77 @@
+<<<<<<< HEAD
+=======
+# SPDX-FileCopyrightText: 2021 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 E F R <602406+Efruit@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Elijahrane <60792108+Elijahrane@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Mith-randalf <84274729+Mith-randalf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
+# SPDX-FileCopyrightText: 2021 buletsponge <96000213+buletsponge@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 wrexbe <81056464+wrexbe@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 0x6273 <0x40@keemail.me>
+# SPDX-FileCopyrightText: 2022 20kdc <asdd2808@gmail.com>
+# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Morbo <14136326+Morb0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Myctai <108953437+Myctai@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 TaralGit <76408146+TaralGit@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 TimrodDX <timrod@gmail.com>
+# SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
+# SPDX-FileCopyrightText: 2022 and_a <and_a@DESKTOP-RJENGIR>
+# SPDX-FileCopyrightText: 2022 corentt <36075110+corentt@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 moonheart08 <moonheart08@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 778b <33431126+778b@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Eoin Mcloughlin <helloworld@eoinrul.es>
+# SPDX-FileCopyrightText: 2023 Jackrost <jackrost@mail.ru>
+# SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
+# SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Ubaser <134914314+UbaserB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 eoineoineoin <github@eoinrul.es>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 Spanky <scott@wearejacob.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 Emisse <99158783+Emisse@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 TytosB <54259736+TytosB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TytosB <dunlaintytos@yahoo.com>
+# SPDX-FileCopyrightText: 2025 flymo5678 <86871317+flymo5678@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+>>>>>>> master
 meta:
   format: 7
   category: Map
   engineVersion: 251.0.0
   forkId: ""
   forkVersion: ""
+<<<<<<< HEAD
   time: 05/15/2025 22:33:35
   entityCount: 17909
+=======
+  time: 05/15/2025 09:18:54
+  entityCount: 17832
+>>>>>>> master
 maps:
 - 1
 grids:
@@ -7312,7 +7378,11 @@ entities:
       pos: -30.5,13.5
       parent: 2
     - type: Door
+<<<<<<< HEAD
       secondsUntilStateChange: -58748.176
+=======
+      secondsUntilStateChange: -58198.105
+>>>>>>> master
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -41717,23 +41787,6 @@ entities:
       linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
-- proto: ClothingOuterHardsuitSecurity
-  entities:
-  - uid: 6625
-    components:
-    - type: Transform
-      pos: -28.677435,39.61053
-      parent: 2
-  - uid: 6626
-    components:
-    - type: Transform
-      pos: -28.739935,39.469906
-      parent: 2
-  - uid: 6627
-    components:
-    - type: Transform
-      pos: -28.807816,39.532406
-      parent: 2
 - proto: ClothingOuterHoodieChaplain
   entities:
   - uid: 6628
@@ -41800,6 +41853,74 @@ entities:
     - type: Transform
       pos: -21.386913,97.475044
       parent: 2
+- proto: ClothingOuterVoidsuitSecurity
+  entities:
+  - uid: 6274
+    components:
+    - type: Transform
+      pos: -28.68087,39.585342
+      parent: 2
+  - uid: 6275
+    components:
+    - type: Transform
+      pos: -28.68087,39.5228
+      parent: 2
+  - uid: 6276
+    components:
+    - type: Transform
+      pos: -28.691292,39.449833
+      parent: 2
+    - type: GroupExamine
+      group:
+      - hoverMessage: ""
+        contextText: verb-examine-group-other
+        icon: /Textures/Interface/examine-star.png
+        components:
+        - Armor
+        - ClothingSpeedModifier
+        entries:
+        - message: This decreases your speed by [color=yellow]15%[/color].
+          priority: 0
+          component: ClothingSpeedModifier
+        - message: >-
+            It provides the following protection:
+
+            - [color=yellow]This armor reduces incoming damage to your chest[/color]
+
+            - [color=yellow]This armor reduces incoming damage to your groin[/color]
+
+            - [color=yellow]This armor reduces incoming damage to your arms[/color]
+
+            - [color=yellow]This armor reduces incoming damage to your hands[/color]
+
+            - [color=yellow]This armor reduces incoming damage to your legs[/color]
+
+            - [color=yellow]This armor reduces incoming damage to your feet[/color]
+
+            - [color=yellow]This armor reduces incoming damage to your tail[/color]
+
+            - [color=yellow]Blunt[/color] damage reduced by [color=lightblue]30%[/color].
+
+            - [color=yellow]Slash[/color] damage reduced by [color=lightblue]30%[/color].
+
+            - [color=yellow]Piercing[/color] damage reduced by [color=lightblue]30%[/color].
+
+            - [color=yellow]Heat[/color] damage reduced by [color=lightblue]20%[/color].
+
+            - [color=yellow]Radiation[/color] damage reduced by [color=lightblue]40%[/color].
+
+            - [color=yellow]Caustic[/color] damage reduced by [color=lightblue]50%[/color].
+
+            - [color=aqua]Stamina[/color] damage reduced by [color=lightblue]40%[/color].
+
+            - [color=green]Increases[/color] stun baton delayed knockdown delay by [color=lightblue]2 seconds[/color].
+
+            - [color=green]Decreases[/color] stun baton delayed knockdown time by [color=lightblue]2 seconds[/color].
+
+            - [color=orange]Explosion[/color] damage reduced by [color=lightblue]35%[/color].
+          priority: 0
+          component: Armor
+        title: null
 - proto: ClothingShoesBootsMag
   entities:
   - uid: 6638
@@ -43420,47 +43541,6 @@ entities:
     - type: Transform
       pos: -68.5,25.5
       parent: 2
-- proto: CrateMindShieldImplants
-  entities:
-  - uid: 6884
-    components:
-    - type: Transform
-      pos: -27.5,42.5
-      parent: 2
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.14673
-        moles:
-        - 1.7459903
-        - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 6885
-          - 6886
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
 - proto: CrateNPCChicken
   entities:
   - uid: 6887
@@ -43561,6 +43641,13 @@ entities:
     - type: Transform
       pos: 6.5,56.5
       parent: 2
+- proto: CrateSecurityTrackingMindshieldImplants
+  entities:
+  - uid: 6278
+    components:
+    - type: Transform
+      pos: -23.5,42.5
+      parent: 2
 - proto: CrateServiceJanitorialSupplies
   entities:
   - uid: 6896
@@ -43575,46 +43662,6 @@ entities:
     - type: Transform
       pos: 16.5,24.5
       parent: 2
-- proto: CrateTrackingImplants
-  entities:
-  - uid: 6898
-    components:
-    - type: Transform
-      pos: -23.5,42.5
-      parent: 2
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.14673
-        moles:
-        - 1.7459903
-        - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 6899
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
 - proto: CrayonBox
   entities:
   - uid: 6900
@@ -43811,7 +43858,11 @@ entities:
       pos: -9.5,51.5
       parent: 2
     - type: Door
+<<<<<<< HEAD
       secondsUntilStateChange: -306503.72
+=======
+      secondsUntilStateChange: -305953.66
+>>>>>>> master
       state: Opening
   - uid: 6931
     components:
@@ -43819,7 +43870,11 @@ entities:
       pos: -8.5,51.5
       parent: 2
     - type: Door
+<<<<<<< HEAD
       secondsUntilStateChange: -306504.44
+=======
+      secondsUntilStateChange: -305954.38
+>>>>>>> master
       state: Opening
   - uid: 6932
     components:
@@ -43827,7 +43882,11 @@ entities:
       pos: -6.5,51.5
       parent: 2
     - type: Door
+<<<<<<< HEAD
       secondsUntilStateChange: -306503
+=======
+      secondsUntilStateChange: -305952.94
+>>>>>>> master
       state: Opening
   - uid: 6933
     components:
@@ -43835,7 +43894,11 @@ entities:
       pos: -5.5,51.5
       parent: 2
     - type: Door
+<<<<<<< HEAD
       secondsUntilStateChange: -306502.38
+=======
+      secondsUntilStateChange: -305952.3
+>>>>>>> master
       state: Opening
 - proto: CyberPen
   entities:
@@ -75734,6 +75797,13 @@ entities:
           showEnts: False
           occludes: True
           ent: null
+- proto: GunSafeLauncherNonLethal
+  entities:
+  - uid: 6277
+    components:
+    - type: Transform
+      pos: -27.5,42.5
+      parent: 2
 - proto: GunSafePistolMk58
   entities:
   - uid: 11472
@@ -78249,6 +78319,10 @@ entities:
     - type: Transform
       pos: -10.5,72.5
       parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        6280:
+        - MaterialSilo: MaterialSiloUtilizer
 - proto: MaterialWoodPlank
   entities:
   - uid: 11810
@@ -78490,22 +78564,6 @@ entities:
     - type: Transform
       pos: -42.615143,55.5447
       parent: 2
-- proto: MindShieldImplanter
-  entities:
-  - uid: 6885
-    components:
-    - type: Transform
-      parent: 6884
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 6886
-    components:
-    - type: Transform
-      parent: 6884
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: MiningDrill
   entities:
   - uid: 11853
@@ -85217,6 +85275,11 @@ entities:
       parent: 2
 - proto: RandomSpawner100
   entities:
+  - uid: 6279
+    components:
+    - type: Transform
+      pos: -35.5,45.5
+      parent: 2
   - uid: 13012
     components:
     - type: Transform
@@ -85655,11 +85718,6 @@ entities:
     components:
     - type: Transform
       pos: -61.5,21.5
-      parent: 2
-  - uid: 13099
-    components:
-    - type: Transform
-      pos: -27.5,40.5
       parent: 2
   - uid: 13100
     components:
@@ -88632,6 +88690,13 @@ entities:
       parent: 2
 - proto: SecurityTechFab
   entities:
+  - uid: 6280
+    components:
+    - type: Transform
+      pos: -40.5,42.5
+      parent: 2
+    - type: SiloUtilizer
+      silo: 11809
   - uid: 13644
     components:
     - type: Transform
@@ -98424,15 +98489,6 @@ entities:
     - type: Transform
       pos: -65.95986,56.574608
       parent: 2
-- proto: TrackingImplanter
-  entities:
-  - uid: 6899
-    components:
-    - type: Transform
-      parent: 6898
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: TrainingBomb
   entities:
   - uid: 15176
