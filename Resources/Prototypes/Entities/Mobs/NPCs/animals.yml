@@ -1701,7 +1701,6 @@
       effects:
       - !type:WashCreamPieReaction
   - type: LayingDown # Goobstation
-  - type: Skinnable # Goobstation - Fuck pun-pun
   - type: Vocal # Goobstation
     sounds:
       Male: MonkeyMode
@@ -1737,6 +1736,7 @@
     mindRoles:
     - MindRoleGhostRoleFreeAgent
   - type: GhostTakeoverAvailable
+  - type: Skinnable # Goobstation - Fuck pun-pun
   - type: Clumsy
     gunShootFailDamage:
       types:
