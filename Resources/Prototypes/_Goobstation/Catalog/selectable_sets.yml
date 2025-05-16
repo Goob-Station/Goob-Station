@@ -1,9 +1,14 @@
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 CliveOcelot <165305605+Orion-416@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -212,17 +217,11 @@
     sprite: Objects/Weapons/Grenades/syndgrenade.rsi
     state: icon
   content:
+  - ClothingBeltMilitaryRigGrenadierFilled
+  - ClothingBackpackSyndicateFilledGrenadier
+  - ClothingOuterSuitBomb
+  - ClothingHeadHelmetBombSuit
   - EncryptionKeySyndie
-  - SyndieMiniBomb
-  - ExGrenade
-  - GrenadeIncendiary
-  - GrenadeShrapnel
-  - EmpGrenade
-  - SupermatterGrenade
-  - WhiteholeGrenade
-  - SmokeGrenade
-  - GrenadeFlashBang
-  - C4
 
 - type: selectableSet
   id: SyndicateFluclearSet
@@ -241,8 +240,8 @@
   - JetpackBlackFilled
   - ClothingBackpackDuffelSyndicateHardsuitBundle
   - ClothingUniformJumpsuitOperative
-  - SyndiPDA
-  - ClothingEyesHudSyndicate
+  - SyndiPDANukie
+  - ClothingEyesNightVisionGogglesNukie
   - ClothingShoesBootsCombatFilled
   - ClothingBeltMilitaryWebbing
 
@@ -259,6 +258,8 @@
     - EncryptionKeySyndie
     - ContractorBaton
     - Handcuffs
+    - MindcontrolImplanter
+    - MindcontrolImplanter
     - MindcontrolImplanter
     - MindcontrolImplanter
     - WeaponSniperMosin
@@ -358,14 +359,14 @@
     - ClothingOuterHardsuitBlueshieldLight
 
 - type: selectableSet
-  id: BSOHardsuitHeavySet
-  name: selectable-set-blueshield-hardsuit-heavy-name
-  description: selectable-set-blueshield-hardsuit-heavy-description
+  id: BSOModsuitSet
+  name: selectable-set-blueshield-modsuit-name
+  description: selectable-set-blueshield-modsuit-description
   sprite:
-    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/bso.rsi
-    state: icon
+    sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/praetorian.rsi
+    state: control
   content:
-    - ClothingOuterHardsuitBlueshieldHeavy
+    - ClothingModsuitPraetorian
 
 # ERT
 
