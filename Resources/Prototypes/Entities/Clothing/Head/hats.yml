@@ -324,10 +324,10 @@
     - WhitelistChameleon
 
 - type: entity
-  parent: [ClothingHeadHatBeretRND, ClothingHeadHatHeadOfSecurityArmor, BaseSecurityCommandContraband] # Goob edit
+  parent: [ClothingHeadHatBeretRND, BaseSecurityCommandContraband] # Goob edit
   id: ClothingHeadHatBeretHoS
   name: head of security's beret
-  description: A black armored beret with a commander's rank emblem. For officers that are inclined towards style. # Goob edit
+  description: A black beret with a commander's rank emblem. For officers that are more inclined towards style than safety.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/beret_hos.rsi
@@ -596,7 +596,7 @@
     - WhitelistChameleon
 
 - type: entity
-  parent: [ClothingHeadBase, ClothingHeadHatHeadOfSecurityArmor, BaseSecurityCommandContraband] # Goob edit
+  parent: [ClothingHeadBase, BaseCommandContraband]
   id: ClothingHeadHatHoshat
   name: head of security cap
   description: The robust standard-issue cap of the Head of Security. For showing the officers who's in charge.
