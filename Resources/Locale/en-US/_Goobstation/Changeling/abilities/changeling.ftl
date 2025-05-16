@@ -84,3 +84,5 @@ changeling-hivemind-start = We tune our brainwaves to match the hivemind frequen
 changeling-lastresort-activate = CURRENT BODY WILL BE LOST! Use it again to confirm.
 
 changeling-onfire = Our cells writhe with agony, failing to perform the action!
+
+changeling-rejuvenate = An strange energy pulses through our body, rejuvenating our cells and restoring our chemicals!

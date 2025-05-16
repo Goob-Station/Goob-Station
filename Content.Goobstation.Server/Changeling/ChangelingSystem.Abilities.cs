@@ -65,6 +65,7 @@ using Content.Shared.Eye.Blinding.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Shared._Shitmed.Targeting; // Shitmed Change
+using Content.Shared.Rejuvenate;
 
 namespace Content.Goobstation.Server.Changeling;
 
@@ -403,12 +404,10 @@ public sealed partial class ChangelingSystem
             return;
 
         // heal of everything
-        _rejuv.PerformRejuvenate(uid);
+        var stasisEv = new RejuvenateEvent(false, true);
+        RaiseLocalEvent(uid, stasisEv);
 
         _popup.PopupEntity(Loc.GetString("changeling-stasis-exit"), uid, uid);
-
-        comp.IsInStasis = false;
-        comp.StasisTime = comp.DefaultStasisTime;
 
         // stuns or knocks down anybody grabbing you
         if (_pull.IsPulled(uid))

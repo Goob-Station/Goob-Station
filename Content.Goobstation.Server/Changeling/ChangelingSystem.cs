@@ -810,7 +810,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             var catastrophicStasisTime = ent.Comp.CatastrophicStasisTime; // 2 minutes
             var catastrophicDamage = 200f; // 100% dead
 
-            var damageTaken = float.Round(target.TotalDamage.Float());
+            var damageTaken = float.Round(target.TotalDamage.Float()) / 2;
             var damageToTime = MathF.Min(damageTaken, highestStasisTime);
 
             var newStasisTime = MathF.Max(lowestStasisTime, damageToTime);
@@ -847,13 +847,18 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         }
     }
 
-    // this is more for admin rejuvenate, rather than stasis (even though stasis does rejuvenate)
+    // triggered by leaving stasis and by admin rejuvenate
     private void OnRejuvenate(Entity<ChangelingIdentityComponent> ent, ref RejuvenateEvent args)
     {
-        if (ent.Comp.IsInStasis)
+        if (ent.Comp.IsInStasis) // only triggered if event raised by stasis (or admin rejuv'd in stasis)
         {
             ent.Comp.IsInStasis = false;
             ent.Comp.StasisTime = ent.Comp.DefaultStasisTime;
+        }
+        else
+        {
+            ent.Comp.Chemicals = ent.Comp.MaxChemicals; // only by admin rejuv, for testing and whatevs
+            _popup.PopupEntity(Loc.GetString("changeling-rejuvenate"), ent, ent); // woah...
         }
     }
     #endregion
