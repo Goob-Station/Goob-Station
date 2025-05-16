@@ -246,7 +246,7 @@
 
 - type: entity
   abstract: true
-  parent: [ClothingOuterBase, GeigerCounterClothing, AllowSuitStorageClothing]
+  parent: [ClothingOuterStorageBase, GeigerCounterClothing, AllowSuitStorageClothing]
   id: ClothingOuterHardsuitBase
   name: base hardsuit
   components:
@@ -289,10 +289,14 @@
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:Container {}
+      storagebase: !type:Container
+        ents: []
   - type: UserInterface
     interfaces:
       enum.ToggleClothingUiKey.Key:
         type: ToggleableClothingBoundUserInterface
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
   - type: GroupExamine
   - type: Tag
     tags:

@@ -7,3 +7,14 @@
   id: SecurityJudoBelt
   equipment:
     belt: ClothingBeltCorporateJudoFilled
+
+- type: loadout
+  id: ArmorVestWebSec
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Security
+      time: 86400 # 24 hrs
+  equipment:
+    outerClothing: ClothingOuterVestWebSecurity
