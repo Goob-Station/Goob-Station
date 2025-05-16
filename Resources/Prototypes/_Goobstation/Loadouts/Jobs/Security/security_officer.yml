@@ -13,8 +13,8 @@
   effects:
   - !type:JobRequirementLoadoutEffect
     requirement:
-      !type:DepartmentTimeRequirement
-      department: Security
+      !type:RoleTimeRequirement
+      role: JobSecurityOfficer
       time: 86400 # 24 hrs
   equipment:
     outerClothing: ClothingOuterVestWebSecurity
