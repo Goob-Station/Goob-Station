@@ -5,7 +5,9 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
@@ -321,13 +323,20 @@
   locName: knowledge-path-side-s3-armor-name
   locDesc: knowledge-path-side-s3-armor-desc
   icon:
-    sprite: _Goobstation/Heretic/eldritch_armor.rsi
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/eldritch_armor.rsi
     state: icon
   requiredTags:
     Table: 1
     GasMask: 1
-  output:
-    ClothingOuterArmorHeretic: 1
+  customBehaviors:
+  - !type:RitualPathBasedSpawnBehavior
+    fallbackEntity: ClothingOuterArmorHeretic
+    spawnedEntities:
+      Ash: ClothingOuterArmorHereticAsh
+      Void: ClothingOuterArmorHereticVoid
+      Flesh: ClothingOuterArmorHereticFlesh
+      Blade: ClothingOuterArmorHereticBlade
+      Rust: ClothingOuterArmorHeretic
 
 - type: hereticRitual
   id: PriestRitual
@@ -361,7 +370,7 @@
   locName: knowledge-path-side-s3-void-cloak-name
   locDesc: knowledge-path-side-s3-void-cloak-desc
   icon:
-    sprite: _Goobstation/Heretic/void_cloak.rsi
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/void_cloak.rsi
     state: icon
   requiredTags:
     GlassShard: 1

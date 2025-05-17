@@ -4,6 +4,10 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -15,10 +19,10 @@
   components:
   - type: HereticMagicItem
   - type: Sprite
-    sprite: _Goobstation/Heretic/eldritch_hood.rsi
+    sprite: _Goobstation/Heretic/Clothing/Head/eldritch_hood.rsi
     state: icon
   - type: Clothing
-    sprite: _Goobstation/Heretic/eldritch_hood.rsi
+    sprite: _Goobstation/Heretic/Clothing/Head/eldritch_hood.rsi
   - type: Tag
     tags:
     - WhitelistChameleon
@@ -40,16 +44,56 @@
         Holy: 1.25
 
 - type: entity
+  parent: ClothingHeadHatHoodHeretic
+  id: ClothingHeadHatHoodHereticVoid
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Clothing/Head/void_hood.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Heretic/Clothing/Head/void_hood.rsi
+
+- type: entity
+  parent: ClothingHeadHatHoodHeretic
+  id: ClothingHeadHatHoodHereticAsh
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Clothing/Head/ashen_hood.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Heretic/Clothing/Head/ashen_hood.rsi
+
+- type: entity
+  parent: ClothingHeadHatHoodHeretic
+  id: ClothingHeadHatHoodHereticFlesh
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Clothing/Head/flesh_hood.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Heretic/Clothing/Head/flesh_hood.rsi
+
+- type: entity
+  parent: ClothingHeadHatHoodHeretic
+  id: ClothingHeadHatHoodHereticBlade
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Clothing/Head/blade_hood.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Heretic/Clothing/Head/blade_hood.rsi
+
+- type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatHoodVoidCloakHeretic
   name: void hood
   description: Black like tar, reflecting no light. Runic symbols line the outside. With each flash you lose comprehension of what you are seeing.
   components:
   - type: Sprite
-    sprite: _Goobstation/Heretic/void_hood.rsi
+    sprite: _Goobstation/Heretic/Clothing/Head/void_cloak_hood.rsi
     state: icon
   - type: Clothing
-    sprite: _Goobstation/Heretic/void_hood.rsi
+    sprite: _Goobstation/Heretic/Clothing/Head/void_cloak_hood.rsi
   - type: Tag
     tags: [ ]
   - type: StripMenuInvisible
