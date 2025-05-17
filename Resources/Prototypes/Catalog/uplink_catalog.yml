@@ -553,7 +553,7 @@
   description: uplink-exploding-syndicate-bomb-desc
   productEntity: SyndicateBomb
   cost:
-    Telecrystal: 52 # goob
+    Telecrystal: 50 # goob
   categories:
     - UplinkExplosives
   restockTime: 1800
@@ -569,7 +569,7 @@
   description: uplink-exploding-syndicate-bomb-desc
   productEntity: SyndicateBomb
   cost:
-    Telecrystal: 26 # goob - cheap explosive for nukies
+    Telecrystal: 25 # goob - cheap explosive for nukies
   categories:
     - UplinkExplosives
   conditions:
