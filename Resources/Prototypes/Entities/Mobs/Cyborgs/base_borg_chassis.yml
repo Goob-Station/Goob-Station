@@ -455,7 +455,7 @@
   components:
   - type: RandomMetadata
     nameSegments:
-      - NamesBorg
+      - names_borg
   - type: NpcFactionMember
     factions:
     - NanoTrasen
