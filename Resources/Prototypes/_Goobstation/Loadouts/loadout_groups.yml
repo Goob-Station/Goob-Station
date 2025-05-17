@@ -233,3 +233,21 @@
   - MedicalBeret
   - SeniorPhysicianBeret
   - ChemistUshanka # Da.
+
+# Brigmedic
+
+- type: loadoutGroup
+  id: BrigmedicJumpsuit
+  name: loadout-group-brigmedic-jumpsuit
+  loadouts:
+  - BrigmedicJumpsuit
+  - BrigmedicJumpskirt
+
+- type: loadoutGroup
+  id: BrigmedicBackpack
+  name: loadout-group-brigmedic-backpack
+  loadouts:
+  - ClothingBackpackBrigmedic
+  - ClothingBackpackSatchelBrigmedic
+  - ClothingBackpackDuffelBrigmedic
+  - ClothingBackpackMessengerSecurity
