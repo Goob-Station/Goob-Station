@@ -9512,3 +9512,9 @@ Entries:
         information!
   id: 1063
   time: '2025-05-17T03:52:29.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: Steel costs less ore to smelt.
+  id: 1064
+  time: '2025-05-17T19:03:05.0000000+00:00'
