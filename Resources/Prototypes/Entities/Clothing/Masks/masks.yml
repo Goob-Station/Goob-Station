@@ -129,7 +129,9 @@
 # SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GMWQ <garethquaile@gmail.com>
 # SPDX-FileCopyrightText: 2025 Gareth Quaile <garethquaile@gmail.com>
@@ -143,6 +145,7 @@
 # SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 paige404 <59348003+paige404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
@@ -168,11 +171,16 @@
     - HamsterWearable
     - WhitelistChameleon
     - GasMask # goob edit
+    - GasMaskFullDefault # goob edit
     - Mask # goob edit
   - type: HideLayerClothing
     layers:
       Snout: Mask
     hideOnToggle: true
+  - type: Construction # Goobstation
+    graph: GasMaskHalf
+    node: start
+    deconstructionTarget: null
 
 - type: entity
   parent: [ClothingMaskGas, BaseSecurityContraband]
@@ -249,7 +257,12 @@
     modifiers:
       coefficients:
         Heat: 0.5
-
+  - type: Tag # Goobstation
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+    - GasMask
+    - Mask
 
 - type: entity
   parent: [ClothingMaskGasAtmos, BaseCommandContraband]
@@ -296,6 +309,12 @@
         Slash: 0.8
         Piercing: 0.9
         Heat: 0.9
+  - type: Tag # Goobstation
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+    - GasMask
+    - Mask
 
 - type: entity
   parent: ClothingMaskPullableBase
@@ -603,6 +622,12 @@
         Heat: 0.8
   - type: IngestionBlocker # Goobstation
     blockSmokeIngestion: true
+  - type: Tag # Goobstation
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+    - GasMask
+    - Mask
 
 - type: entity
   parent: [ ClothingMaskGas, BaseCentcommContraband ]

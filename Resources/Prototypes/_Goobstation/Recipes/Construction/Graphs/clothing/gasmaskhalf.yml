@@ -1,0 +1,20 @@
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: constructionGraph
+  id: GasMaskHalf
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: end
+          conditions:
+          - !type:HasTag
+            tag: GasMaskFullDefault
+          steps:
+            - tool: Slicing
+              doAfter: 2
+    - node: end
+      entity: ClothingMaskGasHalf

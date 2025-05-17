@@ -79,6 +79,8 @@
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
@@ -86,6 +88,7 @@
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <killerqueen1777@gmail.com>
 # SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
@@ -129,6 +132,9 @@
     - WhitelistChameleon
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
+  - type: HideClothingLayerClothing # Goobstation
+    hiddenSlots:
+    - jumpsuit
 
 - type: entity
   parent: ClothingOuterSuitBomb
@@ -187,6 +193,9 @@
   - type: GroupExamine
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
+  - type: HideClothingLayerClothing # Goobstation
+    hiddenSlots:
+    - jumpsuit
 
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing]
@@ -236,6 +245,9 @@
   - type: GroupExamine
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
+  - type: HideClothingLayerClothing # Goobstation
+    hiddenSlots:
+    - jumpsuit
 
 - type: entity
   parent: [ ClothingOuterBaseLarge, GeigerCounterClothing, AllowSuitStorageClothing, ClothingOuterBaseToggleable ]
@@ -267,6 +279,9 @@
       head: ClothingHeadHatHoodRad
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
+  - type: HideClothingLayerClothing # Goobstation
+    hiddenSlots:
+    - jumpsuit
 
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing, BaseToggleClothing, BaseMajorContraband]
@@ -346,6 +361,9 @@
         whitelist:
           tags:
             - PowerCell
+  - type: HideClothingLayerClothing # Goobstation
+    hiddenSlots:
+    - jumpsuit
 
 - type: entity
   parent: ClothingOuterBase
@@ -359,6 +377,9 @@
     sprite: Clothing/OuterClothing/Suits/chicken.rsi
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
+  - type: HideClothingLayerClothing # Goobstation
+    hiddenSlots:
+    - jumpsuit
 
 - type: entity
   parent: ClothingOuterBase
@@ -397,6 +418,9 @@
       toggleable-clothing: !type:Container {}
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
+  - type: HideClothingLayerClothing # Goobstation
+    hiddenSlots:
+    - jumpsuit
 
 - type: entity
   parent: [ ClothingOuterBase, ClothingOuterBaseToggleable ]
@@ -418,6 +442,9 @@
     node: suit
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
+  - type: HideClothingLayerClothing # Goobstation
+    hiddenSlots:
+    - jumpsuit
 
 - type: entity
   parent: [ ClothingOuterBase, ClothingOuterBaseToggleable ]
@@ -435,6 +462,9 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodCarp
+  - type: HideClothingLayerClothing # Goobstation
+    hiddenSlots:
+    - jumpsuit
 
 - type: entity
   parent: ClothingOuterSuitCarp
@@ -451,3 +481,6 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitCarp
+  - type: HideClothingLayerClothing # Goobstation
+    hiddenSlots:
+    - jumpsuit

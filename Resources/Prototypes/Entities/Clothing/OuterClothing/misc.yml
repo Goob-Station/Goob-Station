@@ -28,9 +28,12 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -129,6 +132,9 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+  - type: HideClothingLayerClothing
+    hiddenSlots:
+    - jumpsuit
 
 - type: entity
   parent: ClothingOuterBaseToggleable
@@ -167,6 +173,9 @@
     sprite: Clothing/OuterClothing/Misc/cultrobes.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/cultrobes.rsi
+  - type: HideClothingLayerClothing
+    hiddenSlots:
+    - jumpsuit
 
 - type: entity
   parent: ClothingOuterBase
@@ -178,6 +187,9 @@
     sprite: Clothing/OuterClothing/Misc/judge.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/judge.rsi
+  - type: HideClothingLayerClothing
+    hiddenSlots:
+    - jumpsuit
 
 - type: entity
   parent: ClothingOuterBase
@@ -202,6 +214,9 @@
     sprite: Clothing/OuterClothing/Misc/santa.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/santa.rsi
+  - type: HideClothingLayerClothing
+    hiddenSlots:
+    - jumpsuit
 
 - type: entity
   abstract: true
