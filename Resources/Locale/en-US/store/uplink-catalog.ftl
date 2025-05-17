@@ -437,7 +437,7 @@ uplink-hardsuit-syndie-name = Syndicate Voidsuit
 uplink-hardsuit-syndie-desc = The Syndicate's well known armored blood red voidsuit, capable of space walks and bullet resistant.
 
 uplink-syndie-raid-name = Syndicate Raid Suit
-uplink-syndie-raid-desc = A very durable and reasonably flexible suit of blood-red armor, reinforced against all common forms of damage but not capable of space walks. Comes with a sick helmet.
+uplink-syndie-raid-desc = A moderately durable and flexible suit of blood-red armor, not capable of space walks. When active, this suit speeds up the wearer at a cost of battery charge. Comes with a sick helmet.
 
 uplink-hardsuit-syndieelite-name = Syndicate Elite Voidsuit
 uplink-hardsuit-syndieelite-desc = An elite version of the blood-red voidsuit, with improved mobility and fireproofing. Property of Gorlex Marauders.
@@ -462,7 +462,7 @@ uplink-snack-box-name = Syndicate Snack Box
 uplink-snack-box-desc = A box of delicious snacks and drinks to eat alone or with your team. Includes 1 toy you didn't want.
 
 uplink-eshield-name = Energy Shield
-uplink-eshield-desc = Exotic energy shield that reflects all laser beams and offers a little protection from bullets and other physical attacks. It is discharged from received damage and is able to recharge automatically. Warning: EMP pulses are able to discharge energy shield internal battery.
+uplink-eshield-desc = Exotic energy shield that reflects all laser beams and offers a little protection from bullets and other physical attacks. It is discharged from received damage and is able to recharge automatically. This shield attaches to your hand so that you wouldn't lose it on disarm or knockdown. Warning: EMP pulses are able to discharge energy shield internal battery.
 
 uplink-soap-name = Soap
 uplink-soap-desc = An untrustworthy bar of soap. Smells of fear.

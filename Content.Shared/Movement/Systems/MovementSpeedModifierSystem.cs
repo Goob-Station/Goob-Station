@@ -76,6 +76,8 @@
 // SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -100,12 +102,17 @@ namespace Content.Shared.Movement.Systems
             var ev = new RefreshMovementSpeedModifiersEvent();
             RaiseLocalEvent(uid, ev);
 
-            if (MathHelper.CloseTo(ev.WalkSpeedModifier, move.WalkSpeedModifier) &&
-                MathHelper.CloseTo(ev.SprintSpeedModifier, move.SprintSpeedModifier))
+            // Goobstation start - limit modifiers
+            var walkSpeedModifier = Math.Min(ev.WalkSpeedModifier, move.MaxWalkSpeedModifier);
+            var sprintSpeedModifier = Math.Min(ev.SprintSpeedModifier, move.MaxSprintSpeedModifier);
+
+            if (MathHelper.CloseTo(walkSpeedModifier, move.WalkSpeedModifier) &&
+                MathHelper.CloseTo(sprintSpeedModifier, move.SprintSpeedModifier))
                 return;
 
-            move.WalkSpeedModifier = ev.WalkSpeedModifier;
-            move.SprintSpeedModifier = ev.SprintSpeedModifier;
+            move.WalkSpeedModifier = walkSpeedModifier;
+            move.SprintSpeedModifier = sprintSpeedModifier;
+            // Goobstation end
             Dirty(uid, move);
         }
 

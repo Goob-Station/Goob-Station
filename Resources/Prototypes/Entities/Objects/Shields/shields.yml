@@ -112,8 +112,10 @@
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 DieselMohawk <173439801+DieselMohawk@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
@@ -497,7 +499,6 @@
   description: Exotic energy shield, when folded, can even fit in your pocket.
   components:
     - type: ItemToggle
-      predictable: false # WD EDIT
       soundActivate:
         path: /Audio/Weapons/ebladeon.ogg
       soundDeactivate:
@@ -513,10 +514,8 @@
         path: /Audio/Weapons/ebladehum.ogg
     - type: ItemToggleSize
       activatedSize: Huge
-    - type: ComponentToggler
-      components:
-      - type: DisarmMalus
-        malus: 0.6
+    - type: DisarmMalus # Goobstation
+      malus: 1
     - type: Sprite
       sprite: Objects/Weapons/Melee/e_shield.rsi
       layers:
@@ -527,7 +526,7 @@
           shader: unshaded
           map: [ "shield" ]
     - type: Item
-      size: Small
+      size: Tiny # Goob
       sprite: Objects/Weapons/Melee/e_shield.rsi
       heldPrefix: eshield
     - type: UseDelay
@@ -574,13 +573,14 @@
       damageContainer: Shield
     - type: StaticPrice
       price: 350
+    - type: HeldItemNoDrop # Goobstation
       # WD EDIT START
     - type: Battery
-      maxCharge: 20
-      startingCharge: 20
+      maxCharge: 30
+      startingCharge: 30
     - type: BatterySelfRecharger
       autoRecharge: true
-      autoRechargeRate: 2
+      autoRechargeRate: 4
     - type: RechargeableBlocking
       # WD EDIT END
 
@@ -595,7 +595,7 @@
       state: eshield-icon
     - type: Item
       sprite: Objects/Weapons/Melee/e_shield.rsi
-      size: Small
+      size: Tiny # Goob
       heldPrefix: eshield
 
 - type: entity
