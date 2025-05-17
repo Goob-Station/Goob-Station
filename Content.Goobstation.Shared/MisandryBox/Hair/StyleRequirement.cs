@@ -39,7 +39,9 @@ public sealed partial class StyleRequirement : JobRequirement
 
         var sb = new StringBuilder();
 
-        sb.Append("[color=orange]");
+        var haircolor = profile.Appearance.HairColor.ToHex();
+
+        sb.Append($"[color={haircolor}]");
 
         foreach (var s in Styles)
         {
