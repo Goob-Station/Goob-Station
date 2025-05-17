@@ -125,12 +125,6 @@
 # SPDX-FileCopyrightText: 2025 Thesia <lindner.thorben@gmx.de>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 9a73f90acbf881edfaf1e8fb30ec40c305b4f9f1
 # SPDX-FileCopyrightText: 2021 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2021 E F R <602406+Efruit@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2021 Elijahrane <60792108+Elijahrane@users.noreply.github.com>
@@ -186,7 +180,7 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-<<<<<<< HEAD
+
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
@@ -194,8 +188,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
->>>>>>> master
-=======
+
 # SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
@@ -203,8 +196,6 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
->>>>>>> 9a73f90acbf881edfaf1e8fb30ec40c305b4f9f1
->>>>>>> 99a5903e50c80bbf94bcad35fea80afd479d67ed
 meta:
   format: 7
   category: Map
