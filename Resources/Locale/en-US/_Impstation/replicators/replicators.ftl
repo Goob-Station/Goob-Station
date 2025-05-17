@@ -7,7 +7,7 @@ replicator-on-replicator-attack-fail = You cannot harm your kin.
 replicator-on-nest-attack-fail = You cannot harm the nest.
 
 replicator-nest-end-of-round = The Replicator Hive:
-                               - Colonized {$location}
+                               - Colonized [color=#d70aa0]{$location}[/color]
                                - Grew to a maximum [color=#d70aa0]Level[/color] of [color=#d70aa0]{$level}[/color].
                                - Produced a total of [color=#d70aa0]{$replicators} Replicators[/color].
                                - Amassed a total of [color=#d70aa0]{$points} points[/color].
