@@ -114,19 +114,6 @@
         - id: ClothingMaskBreath
 
 #HARDSUITS
-#Basic hardsuit
-- type: entity
-  id: SuitStorageBasic
-  parent: SuitStorageBase
-  suffix: Basic Hardsuit
-  components:
-  - type: StorageFill
-    contents:
-        - id: OxygenTankFilled
-        - id: NitrogenTankFilled
-        - id: ClothingOuterHardsuitBasic
-        - id: ClothingMaskBreath
-
 #Engineering hardsuit
 - type: entity
   id: SuitStorageEngi
