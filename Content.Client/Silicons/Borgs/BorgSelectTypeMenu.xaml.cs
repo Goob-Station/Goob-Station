@@ -32,6 +32,7 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
     private BorgTypePrototype? _selectedBorgType;
 
     public event Action<ProtoId<BorgTypePrototype>>? ConfirmedBorgType;
+    // Goobstation: Customizable borgs sprites
     public event Action<ProtoId<BorgSubtypePrototype>>? ConfirmedBorgSubtype;
 
     [ValidatePrototypeId<GuideEntryPrototype>]
@@ -44,6 +45,7 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
 
         foreach (var borgType in _prototypeManager.EnumeratePrototypes<BorgTypePrototype>().OrderBy(PrototypeName))
         {
+            // Goobstation-Start: Customizable borgs sprites
             var chassisList = new EntityPrototypeView
             {
                 Scale = new Vector2(2, 2),
@@ -64,6 +66,7 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
 
         SubtypeSelection.SubtypeSelected += () =>
             ConfirmTypeButton.Disabled = false;
+        // Goobstation-End: Customizable borgs sprites
     }
 
     private void UpdateInformation(BorgTypePrototype prototype)
@@ -78,6 +81,7 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
         DescriptionLabel.Text = Loc.GetString($"borg-type-{prototype.ID}-desc");
         ChassisView.SetPrototype(prototype.DummyPrototype);
 
+        // Goobstation: Customizable borgs sprites
         SubtypeSelection.FillContainer(prototype);
         ConfirmTypeButton.Disabled = true;
     }
@@ -89,6 +93,7 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
 
         ConfirmedBorgType?.Invoke(_selectedBorgType);
 
+        // Goobstation: Customizable borgs sprites
         if (SubtypeSelection.SelectedBorgSubtype == null || SubtypeSelection.SelectedBorgSubtype.ParentBorgType != _selectedBorgType)
             return;
 

@@ -38,6 +38,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                     </BoxContainer>
                 </Control>
 
+                <!-- Goobstation: Customizable borgs sprites -->
                 <subtype:SubtypeSelection Name="SubtypeSelection"/>
 
                 <controls:ConfirmButton Name="ConfirmTypeButton" Text="{Loc 'borg-select-type-menu-confirm'}"

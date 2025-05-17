@@ -7,7 +7,6 @@ using Content.Goobstation.Shared.Silicons.Borgs;
 using Content.Shared.Silicons.Borgs;
 using Content.Shared.Silicons.Borgs.Components;
 using Robust.Client.GameObjects;
-using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations;

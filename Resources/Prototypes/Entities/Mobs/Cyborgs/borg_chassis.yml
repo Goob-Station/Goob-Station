@@ -73,7 +73,7 @@
     inherentRadioChannels:
     - Common
     - Binary
-  - type: BorgSwitchableSubtype
+  - type: BorgSwitchableSubtype # Goobstation
 
 - type: entity
   id: BorgChassisGeneric

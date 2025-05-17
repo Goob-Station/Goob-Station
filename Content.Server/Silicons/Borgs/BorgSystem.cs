@@ -229,6 +229,7 @@ public sealed partial class BorgSystem : SharedBorgSystem
     {
         BorgActivate(uid, component);
 
+        // Goobstation: Customizable borgs sprites
         if (TryComp<BorgSwitchableTypeComponent>(uid, out var switchable))
         {
             if (switchable.SelectedBorgType == null)
