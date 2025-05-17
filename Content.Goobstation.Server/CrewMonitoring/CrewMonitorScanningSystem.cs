@@ -1,4 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Baptr0b0t <152836416+Baptr0b0t@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -9,6 +11,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
 using Content.Shared.Whitelist;
+using Content.Shared.Implants;
 
 namespace Content.Goobstation.Server.CrewMonitoring;
 
@@ -16,6 +19,11 @@ public sealed class CrewMonitorScanningSystem : EntitySystem
 {
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+
+    [Dependency] private readonly SharedSubdermalImplantSystem _implantSystem = default!;
+
+    private const string CommandTrackerImplant = "CommandTrackingImplant";
+
     public override void Initialize()
     {
         base.Initialize();
@@ -33,17 +41,19 @@ public sealed class CrewMonitorScanningSystem : EntitySystem
 
     private void OnScanComplete(EntityUid uid, CrewMonitorScanningComponent comp, CrewMonitorScanningDoAfterEvent args)
     {
+        var implantProto = new string(CommandTrackerImplant);
         if (args.Cancelled || args.Handled || args.Target == null || comp.ScannedEntities.Contains(args.Target.Value))
             return;
 
         if (_whitelist.IsWhitelistFail(comp.Whitelist, args.Target.Value))
             return;
 
-        comp.ScannedEntities.Add(args.Target.Value);
-        if (!comp.ApplyDeathrattle)
-            return;
+        comp.ScannedEntities.Add(args.Target.Value); //Keep for don't double implant
+        _implantSystem.AddImplant(args.Target.Value, implantProto);
 
-        EnsureComp<RelayedDeathrattleComponent>(args.Target.Value).Target = uid;
+        if (comp.ApplyDeathrattle)
+            EnsureComp<RelayedDeathrattleComponent>(args.Target.Value).Target = uid;
+
         args.Handled = true;
     }
 }
