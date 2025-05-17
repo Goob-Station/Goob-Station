@@ -487,6 +487,31 @@
     tags:
     - EmergencyMedipen
 
+- type: entity
+  name: first aid autoinjector
+  parent: ChemicalMedipen
+  id: FirstAidAutoinjector
+  description: A safe and effective mix for first aid, containing tricordrazine, omnizine, epinephrine, along with blood clotters and painkillers.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 30
+        reagents:
+        - ReagentId: Tricordrazine
+          Quantity: 10
+        - ReagentId: Omnizine
+          Quantity: 5
+        - ReagentId: Epinephrine
+          Quantity: 5
+        - ReagentId: TranexamicAcid
+          Quantity: 5
+        - ReagentId: Ibuprofen # Tramadol
+          Quantity: 5
+  - type: Tag
+    tags:
+    - EmergencyMedipen
+
 # Actual hyposprays
 
 - type: entity

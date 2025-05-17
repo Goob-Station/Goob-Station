@@ -7,7 +7,7 @@
   name: cartridge autoinjector pouch
   parent: [BasePouch, BaseMedicalContraband]
   id: PouchMedicalCartridgeInjector
-  description: A small pouch for holding autoinjectors, with a pouch for the autoinjector itself.
+  description: A small pouch for holding autoinjector carridges, with a holster for the injector itself.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Storage/Pouches/medical.rsi
@@ -58,7 +58,7 @@
       - state: firstaidinjector
   - type: Storage
     grid:
-    - 0,0,3,1
+    - 0,0,5,1 # Has to be better than cig pack
     whitelist:
       components:
         - Hypospray
@@ -68,10 +68,14 @@
     - id: BurnAutoInjector
     - id: AntiPoisonMedipen
     - id: AirlossAutoInjector
+    - id: FirstAidAutoinjector
+      amount: 2
     - id: BruteAutoInjector
     - id: BurnAutoInjector
     - id: AntiPoisonMedipen
     - id: AirlossAutoInjector
+    - id: FirstAidAutoinjector
+      amount: 2
 
 - type: entity
   name: pill canister pouch
@@ -100,3 +104,27 @@
     - id: PillCanisterHyronalin
     - id: PillCanisterDylovene
 #    - id: PillCanisterTramadol
+
+- type: entity
+  name: surgery pouch
+  parent: [BasePouch, BaseMedicalContraband]
+  id: PouchMedicalSurgery
+  description: A sterile pouch for holding pokey bits that go in people.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Storage/Pouches/medical.rsi
+    layers:
+      - state: surgery
+  - type: Storage
+    grid:
+    - 0,0,4,1
+    whitelist:
+      components:
+        - SurgeryTool
+  - type: StorageFill
+    contents:
+    - id: Scalpel
+    - id: Hemostat
+    - id: Retractor
+    - id: MedicalStitches
+    - id: BoneGel
