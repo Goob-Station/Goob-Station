@@ -279,7 +279,6 @@ namespace Content.Client.Lobby.UI
             _requirements = requirements;
             _controller = UserInterfaceManager.GetUIController<LobbyUIController>();
             _sprite = _entManager.System<SpriteSystem>();
-
             ImportButton.OnPressed += args =>
             {
                 ImportProfile();
