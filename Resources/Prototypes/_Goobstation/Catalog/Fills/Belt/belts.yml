@@ -222,6 +222,8 @@
     - id: ChemistryBottleEphedrine
       amount: 2
     - id: ChemistryBottleOmnizine
+    - id: ChemistryBottleTramadol
+    - id: ChemistryBottleOxycodone
 
 - type: entity
   id: ClothingBeltHolsterFilledBlueshield

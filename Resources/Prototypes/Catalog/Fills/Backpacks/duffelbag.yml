@@ -119,7 +119,9 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ColonicAcid <claudiomota1990@googlemail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 PicklOH <62030853+semensponge@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 #
@@ -139,6 +141,7 @@
       - id: Cautery
       - id: Retractor
       - id: Scalpel
+      - id: ClothingMaskSterile # Goobstation
       - id: BoneGel # Shitmed Change
       - id: MedicalStitches # Shitmed Change
 
@@ -157,6 +160,7 @@
       - id: ScalpelAdvanced
       - id: ClothingHandsGlovesNitrile
       - id: EmergencyRollerBedSpawnFolded
+      - id: ClothingMaskSterile # Goobstation
       - id: BoneGel # Shitmed Change
       - id: MedicalStitches # Shitmed Change
 
