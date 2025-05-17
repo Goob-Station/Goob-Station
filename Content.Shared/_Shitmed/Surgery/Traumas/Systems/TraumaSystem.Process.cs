@@ -1,3 +1,4 @@
+// SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
@@ -109,7 +110,7 @@ public partial class TraumaSystem
         EntityUid woundInflicter,
         TraumaInflicterComponent? component = null)
     {
-        if (!Resolve(woundInflicter, ref component))
+        if (!Resolve(woundInflicter, ref component, false))
             yield break;
 
         foreach (var trauma in component.TraumaContainer.ContainedEntities)
@@ -119,11 +120,13 @@ public partial class TraumaSystem
     }
 
     public bool HasAssociatedTrauma(
+        EntityUid woundable,
+        WoundableComponent woundableComp,
         EntityUid woundInflicter,
         TraumaType? traumaType = null,
         TraumaInflicterComponent? component = null)
     {
-        if (!Resolve(woundInflicter, ref component))
+        if (!Resolve(woundInflicter, ref component, false))
             return false;
 
         foreach (var trauma in GetAllWoundTraumas(woundInflicter, component))
@@ -134,6 +137,11 @@ public partial class TraumaSystem
             if (trauma.Comp.TraumaType != traumaType && traumaType != null)
                 continue;
 
+            if (trauma.Comp.TraumaType == TraumaType.BoneDamage
+                && (woundableComp.Bone.ContainedEntities.FirstOrNull() is not { } bone
+                || !TryComp(bone, out BoneComponent? boneComp)
+                || boneComp.BoneSeverity != BoneSeverity.Broken))
+                continue;
             return true;
         }
 
@@ -147,7 +155,7 @@ public partial class TraumaSystem
         TraumaInflicterComponent? component = null)
     {
         traumas = null;
-        if (!Resolve(woundInflicter, ref component))
+        if (!Resolve(woundInflicter, ref component, false))
             return false;
 
         traumas = new List<Entity<TraumaComponent>>();
@@ -170,7 +178,7 @@ public partial class TraumaSystem
         TraumaType? traumaType = null,
         WoundableComponent? woundableComp = null)
     {
-        if (!Resolve(woundable, ref woundableComp))
+        if (!Resolve(woundable, ref woundableComp, false))
             return false;
 
         foreach (var woundEnt in _wound.GetWoundableWounds(woundable, woundableComp))
@@ -178,7 +186,7 @@ public partial class TraumaSystem
             if (!TryComp<TraumaInflicterComponent>(woundEnt, out var inflicterComp))
                 continue;
 
-            if (HasAssociatedTrauma(woundEnt, traumaType, inflicterComp))
+            if (HasAssociatedTrauma(woundable, woundableComp, woundEnt, traumaType, inflicterComp))
                 return true;
         }
 
@@ -192,7 +200,7 @@ public partial class TraumaSystem
         WoundableComponent? woundableComp = null)
     {
         traumas = null;
-        if (!Resolve(woundable, ref woundableComp))
+        if (!Resolve(woundable, ref woundableComp, false))
             return false;
 
         traumas = new List<Entity<TraumaComponent>>();
@@ -213,7 +221,7 @@ public partial class TraumaSystem
         TraumaType? traumaType = null,
         BodyComponent? bodyComp = null)
     {
-        return Resolve(body, ref bodyComp) && _body.GetBodyChildren(body, bodyComp).Any(bodyPart => HasWoundableTrauma(bodyPart.Id, traumaType));
+        return Resolve(body, ref bodyComp, false) && _body.GetBodyChildren(body, bodyComp).Any(bodyPart => HasWoundableTrauma(bodyPart.Id, traumaType));
     }
 
     public bool TryGetBodyTraumas(
@@ -223,7 +231,7 @@ public partial class TraumaSystem
         BodyComponent? bodyComp = null)
     {
         traumas = null;
-        if (!Resolve(body, ref bodyComp))
+        if (!Resolve(body, ref bodyComp, false))
             return false;
 
         traumas = new List<Entity<TraumaComponent>>();
@@ -243,7 +251,7 @@ public partial class TraumaSystem
         WoundableComponent? woundable = null)
     {
         var traumaList = new List<TraumaType>();
-        if (!Resolve(target, ref woundable))
+        if (!Resolve(target, ref woundable, false))
             return traumaList;
 
 
@@ -315,8 +323,8 @@ public partial class TraumaSystem
         WoundableComponent? woundableComp = null,
         TraumaInflicterComponent? inflicterComponent = null)
     {
-        if (!Resolve(wound, ref inflicterComponent)
-            || !Resolve(woundable, ref woundableComp)
+        if (!Resolve(wound, ref inflicterComponent, false)
+            || !Resolve(woundable, ref woundableComp, false)
             || inflicterComponent.MangledMultipliers == null)
             return;
 
