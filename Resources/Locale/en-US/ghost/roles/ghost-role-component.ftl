@@ -83,6 +83,9 @@ ghost-role-information-mouse-description = A hungry and mischievous mouse. Use +
 ghost-role-information-mothroach-name = Mothroach
 ghost-role-information-mothroach-description = A cute but mischievous mothroach.
 
+ghost-role-information-squackroach-name = Squackroach
+ghost-role-information-squackroach-description = A diabolical but nearly harmless squackroach.
+
 ghost-role-information-snail-name = Snail
 ghost-role-information-snail-description = A little snail who doesn't mind a bit of space. Just stay on grid!
 
