@@ -224,6 +224,14 @@
   - type: Implanter
     implant: StopTimeImplant
 
+- type: entity
+  id: NaniteMenderImplanter
+  suffix: nanite mender, DO NOT MAP
+  parent: BaseImplantOnlyImplanterCentcomm
+  components:
+  - type: Implanter
+    implant: NaniteMenderImplant
+
 # Antag Planet
 
 - type: entity

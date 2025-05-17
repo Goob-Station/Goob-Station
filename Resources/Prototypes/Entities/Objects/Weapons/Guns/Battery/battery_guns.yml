@@ -487,6 +487,19 @@
   - type: HitscanBatteryAmmoProvider
     proto: Pulse
     fireCost: 200
+  - type: AmmoSelector # Goobstation - Start
+    prototypes:
+    - Pulse
+    - StunPulse
+  - type: UserInterface
+    interfaces:
+      enum.AmmoSelectorUiKey.Key:
+        type: AmmoSelectorMenuBoundUserInterface
+  - type: ActivatableUI
+    altVerb: true
+    verbOnly: true
+    verbText: mode-select-verb-text
+    key: enum.AmmoSelectorUiKey.Key # Goobstation - End
   - type: Battery
     maxCharge: 5000
     startingCharge: 5000
@@ -525,8 +538,22 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
   - type: HitscanBatteryAmmoProvider
-    proto: HeavyPulse # Goobstation - Deathsquad revamp
+    proto: HeavyPulse # Goobstation - Start
     fireCost: 100
+  - type: AmmoSelector
+    prototypes:
+    - HeavyPulse
+    - LightPulse
+    - StunPulse
+  - type: UserInterface
+    interfaces:
+      enum.AmmoSelectorUiKey.Key:
+        type: AmmoSelectorMenuBoundUserInterface
+  - type: ActivatableUI
+    altVerb: true
+    verbOnly: true
+    verbText: mode-select-verb-text
+    key: enum.AmmoSelectorUiKey.Key # Goobstation - End
   - type: Battery
     maxCharge: 40000
     startingCharge: 40000
