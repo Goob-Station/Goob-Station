@@ -677,6 +677,7 @@
         - SmallMobMask
         layer:
         - SmallMobLayer
+  - type: TileMovement
   - type: HTN
     rootTask:
       task: SecbotCompound
