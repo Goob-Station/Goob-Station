@@ -320,6 +320,7 @@
     - id: RCD
     - id: RCDAmmo
     - id: RubberStampCE
+    - id: MetalFoamGrenade
     # Goobstation V
     - id: BaseHandheldStationMapPowerCe
     - id: EngineeringTechFabCircuitboard
@@ -329,6 +330,7 @@
     - id: MachinePowerTransmissionLaserFlatpack
     - id: WeaponNailgun
     - id: MagazineNailgun
+  
 # Hardsuit table, used for suit storage as well
 - type: entityTable
   id: FillChiefEngineerHardsuit

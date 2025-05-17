@@ -200,6 +200,7 @@
       - id: RCD
       - id: RCDAmmo
       - id: WeaponNailgun # Goobstation
+      - id: MetalFoamGrenade
 
 - type: entity
   id: LockerEngineerFilled
@@ -214,6 +215,7 @@
       - id: RCD
       - id: RCDAmmo
       - id: WeaponNailgun # Goobstation
+      - id: MetalFoamGrenade
 
 - type: entity
   id: ClosetRadiationSuitFilled
