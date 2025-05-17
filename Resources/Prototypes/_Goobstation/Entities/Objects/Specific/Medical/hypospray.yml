@@ -43,6 +43,9 @@
   - type: HyposprayBlockNonMobInjection
   - type: UseDelay
     delay: 30 # up this later if its too low
+  - type: Tag
+    tags:
+      - CartridgeAutoinjector
   - type: ContainerContainer
     containers:
       item: !type:ContainerSlot

@@ -13,13 +13,10 @@
     sprite: _Goobstation/Objects/Storage/Pouches/misc.rsi
     layers:
       - state: utility
-  - type: StorageFill
-    contents:
-    - id: Zipties
-    - id: PepperSpray
-    - id: GrenadeFlashBang
-    - id: BolaEnergy
-    - id: Zipties # Looks weird but needed to look good in-game
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,3,1
     whitelist:
       tags:
         - CigPack
@@ -35,6 +32,14 @@
         - DoorRemote
         - Whistle
         - BalloonPopper
+  - type: StorageFill
+    contents:
+    - id: Zipties
+    - id: PepperSpray
+    - id: GrenadeFlashBang
+    - id: BolaEnergy
+    - id: Zipties # Looks weird but needed to look good in-game
+
 
 - type: entity
   name: first aid pouch
@@ -46,21 +51,12 @@
     sprite: _Goobstation/Objects/Storage/Pouches/medical.rsi
     layers:
       - state: smallfirstaid
-  - type: StorageFill
-    contents:
-    - id: SecHypo
-    - id: CartridgeBicaridine
-    - id: Tourniquet
-    - id: PillCanisterIron # Tramadol when that gets merged
-    - id: CartridgeDermaline
-    - id: PillCanisterTricordrazine
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,3,1
     whitelist:
       tags:
-        - Brutepack
-        - Bloodpack
-        - Gauze
-        - Ointment
-        - CigPack
         - PillCanister
         - Tourniquet
         - MedicalPatch
@@ -69,3 +65,11 @@
         - Hypospray
         - Injector
         - Pill
+  - type: StorageFill
+    contents:
+    - id: SecHypo
+    - id: CartridgeBicaridine
+    - id: Tourniquet
+    - id: PillCanisterIron # Tramadol when that gets merged
+    - id: CartridgeDermaline
+    - id: PillCanisterTricordrazine

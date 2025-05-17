@@ -1,0 +1,42 @@
+- type: entity
+  name: cartridge autoinjector pouch
+  parent: [BasePouch, BaseSecurityContraband]
+  id: PouchMedicalCartridgeInjector
+  description: A small pouch for holding emergency medication.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Storage/Pouches/medical.rsi
+    layers:
+      - state: cartautoinjector
+  - type: Storage
+    grid:
+    - 0,0,7,1
+    whitelist:
+      tags:
+        - AutoinjectorCartridge
+  - type: ContainerContainer
+    containers:
+      item: !type:ContainerSlot
+      storagebase: !type:Container
+        ents: []
+  - type: ItemSlots
+    slots:
+      item:
+        name: Injector
+        whitelist:
+          tags:
+          - CartridgeAutoinjector
+  - type: StorageFill
+    contents:
+    - id: CartridgeSaline
+      amount: 2
+    - id: CartridgeAtropine
+      amount: 2
+    - id: CartridgeBicaridine
+      amount: 2
+    - id: CartridgeDermaline
+      amount: 2
+  - type: ContainerFill
+    containers:
+      item:
+      - ParamedHypo

@@ -345,6 +345,7 @@
     - type: Tag
       tags:
         - SecBeltEquip
+        - Tourniquet # Goobstation
     - type: Sprite
       state: tourniquet
     - type: Healing
