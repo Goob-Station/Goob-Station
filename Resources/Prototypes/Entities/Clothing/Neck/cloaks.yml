@@ -41,6 +41,10 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Momo <Rsnesrud@gmail.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -206,11 +210,13 @@
     - Chest
     - Groin
     - Tail
+    - Arm
+    - Leg
     modifiers:
      coefficients:
-      Blunt: 0.65
-      Slash: 0.65
-      Piercing: 0.65
+      Blunt: 0.8
+      Slash: 0.8
+      Piercing: 0.8
   - type: Construction
     graph: GoliathCloak
     node: cloak

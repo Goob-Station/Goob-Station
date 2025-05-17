@@ -1,4 +1,10 @@
-﻿using System.Diagnostics.CodeAnalysis;
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -596,7 +602,7 @@ public partial class PainSystem
 
     private void UpdatePainFeels(EntityUid nerveUid, NerveComponent? nerveComp = null)
     {
-        if (!Resolve(nerveUid, ref nerveComp))
+        if (!Resolve(nerveUid, ref nerveComp, false))
             return;
 
         var bodyPart = Comp<BodyPartComponent>(nerveUid);
@@ -693,7 +699,7 @@ public partial class PainSystem
 
     private void UpdateNerveSystemPain(EntityUid uid, NerveSystemComponent? nerveSys = null)
     {
-        if (!Resolve(uid, ref nerveSys)
+        if (!Resolve(uid, ref nerveSys, false)
             || !TryComp<OrganComponent>(uid, out var organ)
             || organ.Body == null)
             return;
@@ -789,7 +795,7 @@ public partial class PainSystem
                 TryAddPainMultiplier(
                     nerveSys,
                     PainAdrenalineIdentifier,
-                    0.7f,
+                    0.3f,
                     PainDamageTypes.WoundPain,
                     nerveSys,
                     nerveSys.Comp.PainShockAdrenalineTime);
@@ -865,7 +871,7 @@ public partial class PainSystem
         PainDamageTypes painType,
         NerveComponent? nerve = null)
     {
-        if (!Resolve(nerveUid, ref nerve))
+        if (!Resolve(nerveUid, ref nerve, false))
             return pain;
 
         var modifiedPain = pain * nerve.PainMultiplier;
