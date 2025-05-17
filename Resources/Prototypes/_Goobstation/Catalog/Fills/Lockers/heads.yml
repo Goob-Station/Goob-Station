@@ -49,7 +49,6 @@
     - id: BoxZiptie
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
-    - id: ClothingHeadHelmetSwat
     - id: BlueshieldUndeterminedHardsuit
     - id: ClothingBackpackDuffelSurgeryFilled
     - id: HandheldCrewMonitorBSO

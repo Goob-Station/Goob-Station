@@ -42,6 +42,7 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 Perry Fraser <perryprog@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -77,7 +78,7 @@ public abstract class SharedPowerCellSystem : EntitySystem
 
     private void OnMapInit(Entity<PowerCellDrawComponent> ent, ref MapInitEvent args)
     {
-        QueueUpdate((ent, ent.Comp));
+        ent.Comp.NextUpdateTime = Timing.CurTime + ent.Comp.Delay;
     }
 
     private void OnRejuvenate(EntityUid uid, PowerCellSlotComponent component, RejuvenateEvent args)
@@ -153,6 +154,9 @@ public abstract class SharedPowerCellSystem : EntitySystem
     {
         if (!Resolve(ent, ref ent.Comp, false) || ent.Comp.Enabled == enabled)
             return;
+
+        if (enabled)
+            ent.Comp.NextUpdateTime = Timing.CurTime;
 
         ent.Comp.Enabled = enabled;
         Dirty(ent, ent.Comp);
