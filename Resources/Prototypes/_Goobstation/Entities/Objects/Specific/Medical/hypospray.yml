@@ -498,8 +498,10 @@
       pen:
         maxVol: 30
         reagents:
-        - ReagentId: Tricordrazine
-          Quantity: 10
+        - ReagentId: SalicylicAcid
+          Quantity: 5
+        - ReagentId: Oxandrolone
+          Quantity: 5
         - ReagentId: Omnizine
           Quantity: 5
         - ReagentId: Epinephrine
