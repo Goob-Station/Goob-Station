@@ -11,8 +11,8 @@
       "name": "m_satyr_fluff_normal",
       "directions": 4
     },
-    {
-      "name": "f_satyr_fluff_normal",
+	{
+      "name": "m_satyr_fluff_hooves",
       "directions": 4
     }
   ]

@@ -65,6 +65,24 @@
         - MobMask
         layer:
         - MobLayer
+  - type: Vocal
+    sounds:
+      Male: Goat
+      Female: Goat
+      Unsexed: Goat
+  - type: Speech
+    speechSounds: Goat
+    speechVerb: Goat
+  - type: StepTriggerImmune #Hooves moment
+    whitelist:
+      types:
+      - Shard
+      - Mousetrap
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepHighHeels
+      params:
+        variation: 0.09
 
 - type: entity
   parent: BaseSpeciesDummy

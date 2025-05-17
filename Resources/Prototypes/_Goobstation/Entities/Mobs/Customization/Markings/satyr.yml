@@ -1,6 +1,7 @@
+# Leg/foot markings are fucked up so im just gonna do whatever they did with harpies it seems to work
 - type: marking
   id: SatyrFluff
-  bodyPart: LLeg, RLeg
+  bodyPart: LLeg
   markingCategory: Legs
   speciesRestriction: [Satyr] 
   coloring:
@@ -11,6 +12,20 @@
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Satyr/satyr_fluff.rsi
     state: m_satyr_fluff_normal
+
+- type: marking
+  id: SatyrFluffHoof
+  bodyPart: RFoot
+  markingCategory: Legs
+  speciesRestriction: [Satyr] 
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#6D4824"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Satyr/satyr_fluff.rsi
+    state: m_satyr_fluff_hooves
 
 - type: marking
   id: SatyrTailShort

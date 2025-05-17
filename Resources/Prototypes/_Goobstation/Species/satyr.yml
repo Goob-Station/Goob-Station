@@ -51,9 +51,9 @@
       points: 1
       required: false
     Legs:
-      points: 1
-      required: True # Cover that shi up
-      defaultMarkings: [ SatyrFluff ]
+      points: 2
+      required: true # Cover that shi up
+      defaultMarkings: [ SatyrFluff, SatyrFluffHoof ]
     Arms:
       points: 2
       required: false
