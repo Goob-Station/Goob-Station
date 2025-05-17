@@ -1,0 +1,173 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: OrganShadowkinBrain
+  parent: OrganHumanBrain
+  description: "Oops, I should put this back where I found it."
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Mobs/Species/Shadowkin/organs.rsi
+    state: brain
+
+- type: entity
+  id: OrganShadowkinEyes
+  parent: OrganHumanEyes
+  description: "I see beyond anything you ever will!"
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Mobs/Species/Shadowkin/organs.rsi
+    layers:
+    - state: eyes
+  - type: Organ
+    onAdd:
+    - type: NightVision # Goobstation - Nightvision
+      color: Gray
+      activateSound: null
+      deactivateSound: null
+
+- type: entity
+  id: OrganShadowkinEars
+  parent: OrganHumanEars
+  description: "Hey, listen!"
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Mobs/Species/Shadowkin/organs.rsi
+    state: ears
+
+- type: entity
+  id: OrganShadowkinCore
+  parent: OrganHumanLungs
+  description: "What is this thing?"
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Mobs/Species/Shadowkin/organs.rsi
+    layers:
+    - state: core
+
+
+- type: entity
+  id: OrganShadowkinTongue
+  parent: OrganHumanTongue
+  description: "What does this do again?"
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Mobs/Species/Shadowkin/organs.rsi
+    state: tongue
+
+
+- type: entity
+  id: OrganShadowkinAppendix
+  parent: OrganHumanAppendix
+  description: "I think it does nothing..."
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Mobs/Species/Shadowkin/organs.rsi
+    layers:
+      - state: appendix
+
+
+- type: entity
+  id: OrganShadowkinHeart
+  parent: OrganHumanHeart
+  description: "Oops, I think this belongs to someone!"
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Mobs/Species/Shadowkin/organs.rsi
+    state: heart
+  - type: Metabolizer
+    metabolizerTypes: [Shadowkin]
+    groups:
+    - id: Medicine
+    - id: Poison
+    - id: Narcotic
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Heart
+
+- type: entity
+  id: OrganShadowkinStomach
+  parent: OrganHumanStomach
+  description: '"Yummy!", says the stomach, although you are unable to hear it.'
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Mobs/Species/Shadowkin/organs.rsi
+    state: stomach
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 40
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+  - type: Metabolizer
+    metabolizerTypes: [Shadowkin]
+    groups:
+    - id: Food
+    - id: Drink
+  - type: FoodSequenceElement
+    sprite:
+      sprite: _EinsteinEngines/Mobs/Species/Shadowkin/organs.rsi
+      state: stomach
+    entries:
+      burger:
+        name: food-sequence-content-stomach
+      taco:
+        name: food-sequence-content-stomach
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Stomach
+
+- type: entity
+  id: OrganShadowkinLiver
+  parent: OrganHumanLiver
+  description: "Live 'er? I hardly know 'er!"
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Mobs/Species/Shadowkin/organs.rsi
+    state: liver
+  - type: Metabolizer
+    metabolizerTypes: [Shadowkin]
+    groups:
+    - id: Alcohol
+      rateModifier: 0.1
+  - type: FoodSequenceElement
+    sprite:
+      sprite: _EinsteinEngines/Mobs/Species/Shadowkin/organs.rsi
+      state: liver
+    entries:
+      burger:
+        name: food-sequence-content-liver
+      taco:
+        name: food-sequence-content-liver
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Liver
+
+- type: entity
+  id: OrganShadowkinKidneys
+  parent: OrganHumanKidneys
+  description: "Give the kid their knees back, please, this is the third time this week."
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Mobs/Species/Shadowkin/organs.rsi
+    layers:
+    - state: kidneys
+  - type: Metabolizer
+    metabolizerTypes: [Shadowkin]
+    removeEmpty: true
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Kidneys

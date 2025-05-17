@@ -1,0 +1,11 @@
+- type: soundCollection
+  id: SlimeMaleScreams
+  files:
+    - /Audio/_EinsteinEngines/Voice/Slime/slime_scream_m1.ogg
+    - /Audio/_EinsteinEngines/Voice/Slime/slime_scream_m2.ogg
+
+- type: soundCollection
+  id: SlimeFemaleScreams
+  files:
+    - /Audio/_EinsteinEngines/Voice/Slime/slime_scream_f1.ogg
+    - /Audio/_EinsteinEngines/Voice/Slime/slime_scream_f2.ogg
