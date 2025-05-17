@@ -1,8 +1,11 @@
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+﻿// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 BeBright <98597725+be1bright@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Silicons.Borgs;
 using Content.Shared.Silicons.Borgs.Components;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
@@ -31,5 +34,7 @@ public sealed class BorgSelectTypeUserInterface : BoundUserInterface
 
         _menu = this.CreateWindow<BorgSelectTypeMenu>();
         _menu.ConfirmedBorgType += prototype => SendMessage(new BorgSelectTypeMessage(prototype));
+        // Goobstation: Customizable borgs sprites
+        _menu.ConfirmedBorgSubtype += subtype => SendPredictedMessage(new BorgSelectSubtypeMessage(subtype));
     }
 }

@@ -44,7 +44,9 @@
 // SPDX-FileCopyrightText: 2024 stellar-novas <stellar_novas@riseup.net>
 // SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 BeBright <98597725+be1bright@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 eoineoineoin <github@eoinrul.es>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
@@ -226,6 +228,13 @@ public sealed partial class BorgSystem : SharedBorgSystem
     private void OnMindAdded(EntityUid uid, BorgChassisComponent component, MindAddedMessage args)
     {
         BorgActivate(uid, component);
+
+        // Goobstation: Customizable borgs sprites
+        if (TryComp<BorgSwitchableTypeComponent>(uid, out var switchable))
+        {
+            if (switchable.SelectedBorgType == null)
+                _ui.TryOpenUi(uid, BorgSwitchableTypeUiKey.SelectBorgType, uid);
+        }
     }
 
     private void OnMindRemoved(EntityUid uid, BorgChassisComponent component, MindRemovedMessage args)
