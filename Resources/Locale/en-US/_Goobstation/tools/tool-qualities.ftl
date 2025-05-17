@@ -9,3 +9,6 @@ tool-quality-axing-tool-name = Fireaxe
 
 tool-quality-painting-name = Painting
 tool-quality-painting-tool-name = Spray Painter
+
+tool-quality-mining-name = Mining
+tool-quality-mining-tool-name = Pickaxe

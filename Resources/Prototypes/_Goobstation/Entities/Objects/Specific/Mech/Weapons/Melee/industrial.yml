@@ -17,6 +17,10 @@
     tags:
     - Pickaxe
     - IndustrialMech
+  - type: Tool
+    speedModifier: 3 # better than handheld drill
+    qualities:
+    - Mining
   - type: MeleeWeapon
     canWideSwing: false
     autoAttack: true
@@ -44,6 +48,10 @@
     tags:
     - Pickaxe
     - IndustrialMech
+  - type: Tool
+    speedModifier: 6 # better than handheld diamond drill
+    qualities:
+    - Mining
   - type: MeleeWeapon
     canWideSwing: false
     autoAttack: true

@@ -14,6 +14,12 @@
     activatedShape:
     - 0,0,2,0
     - 1,1,1,2
+  - type: Tool # Goobstation
+    speedModifier: 2
+    qualities:
+    - Ignition
+    - Mining
+  - type: ItemToggleTool # Goobstation - you can only mine when it's on
   - type: ItemToggleMeleeWeapon
     activatedDamage:
       groups:

@@ -134,6 +134,11 @@
   - type: IconSmooth
     key: walls
     mode: NoSprite
+  - type: Gatherable # Goobstation - supercode has 2 different rock parents for no reason
+    toolWhitelist:
+      tags:
+      - Pickaxe
+  - type: ToolGatherable # Goobstation
   - type: SmoothEdge
   - type: Icon
     sprite: Structures/Walls/rock.rsi
@@ -162,11 +167,11 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
-      - !type:PlaySoundBehavior
-        sound:
-          path: /Audio/Effects/break_stone.ogg
-          params:
-            volume: -6
+      #- !type:PlaySoundBehavior # Goobstation - ToolGatherable plays a sound already
+      #  sound:
+      #    path: /Audio/Effects/break_stone.ogg
+      #    params:
+      #      volume: -6
   # Goobstation
   - type: Fixtures
     fixtures:
@@ -845,11 +850,12 @@
   components:
     - type: Transform
       noRot: true
-    - type: SoundOnGather
+    #- type: SoundOnGather # Goobstation - ToolGatherable plays predicted sound instead
     - type: Gatherable
       toolWhitelist:
-        tags: [] # Lavaland Change
-        #- Pickaxe
+        tags:
+        - Pickaxe
+    - type: ToolGatherable # Goobstation
     - type: Damageable
       damageContainer: StructuralInorganic
       damageModifierSet: Rock # Lavaland Change

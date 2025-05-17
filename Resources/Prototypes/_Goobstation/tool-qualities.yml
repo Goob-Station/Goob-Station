@@ -18,3 +18,10 @@
   toolName: tool-quality-painting-tool-name
   spawn: SprayPainter
   icon: { sprite: Objects/Tools/spray_painter.rsi, state: spray_painter }
+
+- type: tool
+  id: Mining
+  name: tool-quality-mining-name
+  toolName: tool-quality-mining-tool-name
+  spawn: Pickaxe
+  icon: { sprite: Objects/Weapons/Melee/pickaxe.rsi, state: pickaxe }

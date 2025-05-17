@@ -97,7 +97,7 @@
 - type: damageModifierSet
   id: Rock
   coefficients:
-    Structural: 4
+    Structural: 0.25 # Goobstation
     Blunt: 0.5
     Slash: 0.25
     Piercing: 0.75

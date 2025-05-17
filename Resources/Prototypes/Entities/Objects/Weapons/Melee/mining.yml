@@ -118,6 +118,9 @@
     materialComposition:
       Steel: 250
       Wood: 125
+  - type: Tool # Goobstation - Mining tool quality
+    speedModifier: 1
+    qualities: [ Mining ]
 
 - type: entity
   name: mining drill
@@ -151,6 +154,9 @@
     materialComposition:
       Steel: 125
       Plastic: 25
+  - type: Tool # Goobstation - Mining tool quality
+    speedModifier: 1.666667 # 1 / 0.6
+    qualities: [ Mining ]
 
 - type: entity
   name: diamond tipped mining drill
@@ -180,6 +186,8 @@
       Plastic: 50
       Silver: 50
       Diamond: 25
+  - type: Tool # Goobstation - Mining tool quality
+    speedModifier: 5 # 1 / 0.2
 
 - type: entity
   abstract: true
@@ -257,6 +265,10 @@
       types:
         Blunt: 19
         Slash: 11
+  - type: Tool # Goobstation - Mining tool quality
+    speedModifier: 1.1428571428571 # not SS13 parity, just got from swing speed relative to pickaxe
+    qualities:
+    - Mining
 
 - type: entity
   parent: [ BaseKnife, BaseWeaponCrusher, BaseSecurityCargoContraband]
