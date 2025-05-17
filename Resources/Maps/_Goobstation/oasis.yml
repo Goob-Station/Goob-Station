@@ -57,7 +57,7 @@
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 OnsenCapy <lucasgrds166@gmail.com>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 #
@@ -66,11 +66,11 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 248.0.2
+  engineVersion: 251.0.0
   forkId: ""
   forkVersion: ""
-  time: 05/04/2025 23:38:59
-  entityCount: 29975
+  time: 05/15/2025 09:29:11
+  entityCount: 29979
 maps:
 - 1
 grids:
@@ -613,6 +613,7 @@ entities:
             2971: 15,-40
             2972: 15,-41
             3711: 38,-31
+            3717: 32,-23
         - node:
             color: '#FFFFFFFF'
             id: BotLeft
@@ -637,6 +638,12 @@ entities:
           decals:
             3634: -15,45
             3635: -16,45
+            3718: 37,-23
+            3719: 37,-24
+            3720: 37,-25
+            3721: 37,-26
+            3722: 37,-27
+            3723: 35,-24
         - node:
             color: '#FFFFFFFF'
             id: BotRightGreyscale
@@ -13505,7 +13512,7 @@ entities:
       pos: 0.5,48.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -20.554565
+      secondsUntilStateChange: -142.21964
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -13737,7 +13744,7 @@ entities:
       pos: 46.5,-40.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -485497.75
+      secondsUntilStateChange: -485619.4
       state: Opening
   - uid: 355
     components:
@@ -13925,7 +13932,7 @@ entities:
       pos: 9.5,-50.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -24675.297
+      secondsUntilStateChange: -24796.963
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -14269,7 +14276,7 @@ entities:
       pos: -3.5,-35.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -601665.44
+      secondsUntilStateChange: -601787.1
       state: Opening
   - uid: 422
     components:
@@ -76445,11 +76452,6 @@ entities:
       parent: 2
 - proto: ClosetBombFilled
   entities:
-  - uid: 4970
-    components:
-    - type: Transform
-      pos: 38.5,-26.5
-      parent: 2
   - uid: 7826
     components:
     - type: Transform
@@ -137491,6 +137493,13 @@ entities:
     - type: Transform
       pos: 38.5,-30.5
       parent: 2
+- proto: GunSafeLauncherNonLethal
+  entities:
+  - uid: 16505
+    components:
+    - type: Transform
+      pos: 32.5,-22.5
+      parent: 2
 - proto: GunSafePistolMk58
   entities:
   - uid: 15468
@@ -167557,6 +167566,11 @@ entities:
       parent: 2
 - proto: VendingMachineTankDispenserEVA
   entities:
+  - uid: 4970
+    components:
+    - type: Transform
+      pos: 38.5,-26.5
+      parent: 2
   - uid: 19511
     components:
     - type: Transform
@@ -187906,6 +187920,16 @@ entities:
     - type: Transform
       pos: 34.733612,-26.450434
       parent: 2
+  - uid: 29978
+    components:
+    - type: Transform
+      pos: 34.713047,-26.572287
+      parent: 2
+  - uid: 29979
+    components:
+    - type: Transform
+      pos: 35.39047,-26.572287
+      parent: 2
 - proto: WeaponLaserCarbinePractice
   entities:
   - uid: 22290
@@ -187997,11 +188021,6 @@ entities:
     components:
     - type: Transform
       pos: 52.5,22.5
-      parent: 2
-  - uid: 16505
-    components:
-    - type: Transform
-      pos: 32.5,-22.5
       parent: 2
   - uid: 29539
     components:
@@ -188413,7 +188432,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -25369.576
+      secondsUntilStateChange: -25491.242
       state: Opening
     - type: Airlock
       autoClose: False
@@ -188429,6 +188448,12 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 5.5,-1.5
       parent: 22618
+  - uid: 29977
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 38.5,-22.5
+      parent: 2
 - proto: WindoorServiceLocked
   entities:
   - uid: 22366
@@ -189696,6 +189721,12 @@ entities:
     - type: Transform
       pos: 32.5,-20.5
       parent: 2
+  - uid: 29976
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 37.5,-22.5
+      parent: 2
 - proto: Wirecutter
   entities:
   - uid: 22581
@@ -189776,7 +189807,7 @@ entities:
       pos: 24.5,2.5
       parent: 22618
     - type: Door
-      secondsUntilStateChange: -379797
+      secondsUntilStateChange: -379918.66
       state: Opening
   - uid: 29025
     components:
@@ -189785,7 +189816,7 @@ entities:
       pos: -46.5,28.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -33753.332
+      secondsUntilStateChange: -33874.996
       state: Opening
 - proto: WoodenBench
   entities:
