@@ -27,3 +27,4 @@ research-technology-accessibility = Crew Assistance Technologies
 research-technology-bluespace-theory = Bluespace Theory
 research-technology-rescue = Advanced Rescue Equipment
 research-technology-energy-bolt-weaponry = Energy Bolt Weaponry
+research-technology-pinpointing = Pinpointing Technologies
