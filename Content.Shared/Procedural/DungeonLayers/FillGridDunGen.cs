@@ -7,7 +7,7 @@
 using Content.Shared.Maps;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.Procedural.DungeonGenerators;
+namespace Content.Shared.Procedural.DungeonLayers;
 
 /// <summary>
 /// Fills unreserved tiles with the specified entity prototype.
@@ -23,4 +23,7 @@ public sealed partial class FillGridDunGen : IDunGenLayer
     /// </summary>
     [DataField]
     public HashSet<ProtoId<ContentTileDefinition>>? AllowedTiles;
+
+    [DataField(required: true)]
+    public EntProtoId Entity;
 }

@@ -20,24 +20,13 @@ public sealed partial class DungeonJob
     /// </summary>
     private async Task<Dungeon> PostGen(
         SplineDungeonConnectorDunGen gen,
-        DungeonData data,
         List<Dungeon> dungeons,
         HashSet<Vector2i> reservedTiles,
         Random random)
     {
-        // TODO: The path itself use the tile
-        // Widen it randomly (probably for each tile offset it by some changing amount).
-
         // NOOP
         if (dungeons.Count <= 1)
             return Dungeon.Empty;
-
-        if (!data.Tiles.TryGetValue(DungeonDataKey.FallbackTile, out var fallback) ||
-            !data.Tiles.TryGetValue(DungeonDataKey.WidenTile, out var widen))
-        {
-            LogDataError(typeof(SplineDungeonConnectorDunGen));
-            return Dungeon.Empty;
-        }
 
         var nodes = new List<Vector2i>();
 
@@ -62,7 +51,8 @@ public sealed partial class DungeonJob
         var tiles = new List<(Vector2i Index, Tile Tile)>();
         var pathfinding = _entManager.System<PathfindingSystem>();
         var allTiles = new HashSet<Vector2i>();
-        var fallbackTile = new Tile(_prototype.Index(fallback).TileId);
+        var pathTile = new Tile(_prototype.Index(gen.Tile).TileId);
+        var widen = _prototype.Index(gen.WidenTile ?? gen.Tile);
 
         foreach (var pair in tree)
         {
@@ -117,7 +107,7 @@ public sealed partial class DungeonJob
 
                 if (random.Prob(0.9f))
                 {
-                    tile = new Tile(_prototype.Index(widen).TileId);
+                    tile = new Tile(widen.TileId);
                 }
                 else
                 {
@@ -137,7 +127,7 @@ public sealed partial class DungeonJob
                     continue;
 
                 allTiles.Add(node);
-                tiles.Add((node, fallbackTile));
+                tiles.Add((node, pathTile));
             }
 
             _maps.SetTiles(_gridUid, _grid, tiles);
