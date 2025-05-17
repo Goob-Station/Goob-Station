@@ -1,30 +1,4 @@
 - type: construction
-  name: batonbot
-  id: batonbot
-  graph: BatonBot
-  startNode: start
-  targetNode: bot
-  category: construction-category-utilities
-  objectType: Item
-  description: Defends the station from hostile wildlife.
-  icon:
-    sprite: _EinsteinEngines/Mobs/Silicon/Bots/batonbot.rsi
-    state: batonbot
-
-- type: construction
-  name: disablerbot
-  id: disablerbot
-  graph: DisablerBot
-  startNode: start
-  targetNode: bot
-  category: construction-category-utilities
-  objectType: Item
-  description: Defends the station from hostile wildlife.
-  icon:
-    sprite: _EinsteinEngines/Mobs/Silicon/Bots/disablerbot.rsi
-    state: disablerbot
-
-- type: construction
   name: weldbot
   id: weldbot
   graph: WeldBot

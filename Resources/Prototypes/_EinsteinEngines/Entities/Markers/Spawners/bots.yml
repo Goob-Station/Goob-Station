@@ -1,32 +1,4 @@
 - type: entity
-  name: disablerbot spawner
-  id: SpawnMobDisablerBot
-  parent: MarkerBase
-  components:
-  - type: Sprite
-    layers:
-      - state: green
-      - sprite: _EinsteinEngines/Mobs/Silicon/Bots/disablerbot.rsi
-        state: disablerbot
-  - type: ConditionalSpawner
-    prototypes:
-      - MobDisablerBot
-
-- type: entity
-  name: batonbot spawner
-  id: SpawnMobBatonBot
-  parent: MarkerBase
-  components:
-  - type: Sprite
-    layers:
-      - state: green
-      - sprite: _EinsteinEngines/Mobs/Silicon/Bots/batonbot.rsi
-        state: batonbot
-  - type: ConditionalSpawner
-    prototypes:
-      - MobBatonBot
-
-- type: entity
   name: plantbot spawner
   id: SpawnMobPlantbot
   parent: MarkerBase
