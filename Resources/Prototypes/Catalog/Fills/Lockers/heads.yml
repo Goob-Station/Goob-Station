@@ -136,6 +136,7 @@
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -309,12 +310,15 @@
     - id: RCD
     - id: RCDAmmo
     - id: RubberStampCE
+    # Goobstation V
     - id: BaseHandheldStationMapPowerCe
-    - id: EngineeringTechFabCircuitboard # Goobstation - Engineering Techfab
+    - id: EngineeringTechFabCircuitboard
     - id: CartridgeRocketSingularityBuster
     - id: CartridgeRocketSingularityBuster
     - id: WeaponLauncherSingularityBuster
-    - id: MachinePowerTransmissionLaserFlatpack # Goobstation - Engi printing money pr
+    - id: MachinePowerTransmissionLaserFlatpack
+    - id: WeaponNailgun
+    - id: MagazineNailgun
 # Hardsuit table, used for suit storage as well
 - type: entityTable
   id: FillChiefEngineerHardsuit
