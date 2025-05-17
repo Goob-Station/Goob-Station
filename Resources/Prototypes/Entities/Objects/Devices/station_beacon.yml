@@ -742,10 +742,6 @@
   - type: Tag
     tags:
     - GhostOnlyWarp
-  - type: WarpPoint
-    blacklist:
-      tags:
-      - GhostOnlyWarp
 
 # CentComm Beacons
 - type: entity
