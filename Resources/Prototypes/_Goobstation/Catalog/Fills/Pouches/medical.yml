@@ -1,6 +1,6 @@
 - type: entity
   name: cartridge autoinjector pouch
-  parent: [BasePouch, BaseSecurityContraband]
+  parent: [BasePouch, BaseMedicalContraband]
   id: PouchMedicalCartridgeInjector
   description: A small pouch for holding emergency medication.
   components:
