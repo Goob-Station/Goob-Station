@@ -17,11 +17,11 @@ public sealed partial class PTLComponent : Component
 
     [DataField, AutoNetworkedField] public double SpesosHeld = 0f;
 
-    [DataField] public double MinShootPower = 1e6; // 1 MJ
-    [DataField] public double MaxEnergyPerShot = 1e9; // 1 GJ
+    [DataField] public double MinShootPower = 1e6; // 1 MJ 
+    [DataField] public double MaxEnergyPerShot = 2.5e8; // 250 MJ which can be achieved at 4-8min with a standard powernet
 
-    [DataField, AutoNetworkedField] public float ShootDelay = 10f;
-    [DataField, AutoNetworkedField] public MinMax ShootDelayThreshold = new MinMax(2, 10);
+    [DataField, AutoNetworkedField] public float ShootDelay = 30f; //So Laser can build a charge
+    [DataField, AutoNetworkedField] public MinMax ShootDelayThreshold = new MinMax(60, 120);
     [DataField, AutoNetworkedField] public bool ReversedFiring = false;
     [ViewVariables(VVAccess.ReadOnly)] public TimeSpan NextShotAt = TimeSpan.Zero;
 
@@ -30,5 +30,5 @@ public sealed partial class PTLComponent : Component
     /// <summary>
     ///     Amount of power required to start emitting radiation and blinding people that come nearby
     /// </summary>
-    [DataField] public double PowerEvilThreshold = 50; // 50 MJ;
+    [DataField] public double PowerEvilThreshold = 50e6; // 50 MJ Chudstation had this at 50J thats why it kept irradiating people
 }
