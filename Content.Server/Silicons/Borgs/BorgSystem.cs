@@ -60,6 +60,7 @@ using Content.Server.DeviceNetwork.Systems;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Hands.Systems;
 using Content.Server.Instruments;
+using Content.Server.Power.Components;
 using Content.Server.PowerCell;
 using Content.Shared.Alert;
 using Content.Shared.Database;
@@ -342,15 +343,18 @@ public sealed partial class BorgSystem : SharedBorgSystem
 
     private void UpdateBatteryAlert(Entity<BorgChassisComponent> ent, PowerCellSlotComponent? slotComponent = null)
     {
-        if (!_powerCell.TryGetBatteryFromSlot(ent, out var battery, slotComponent))
+
+        if (!_powerCell.TryGetBatteryFromSlot(ent, out var battery, slotComponent) && !HasComp<BatteryComponent>(ent)) // Goobstation: checks for if borg has no battery inserted and also if it doesnt have one built in
         {
             _alerts.ClearAlert(ent, ent.Comp.BatteryAlert);
             _alerts.ShowAlert(ent, ent.Comp.NoBatteryAlert);
             return;
         }
-
-        var chargePercent = (short) MathF.Round(battery.CurrentCharge / battery.MaxCharge * 10f);
-
+        short? chargePercent = 0;
+        if (battery != null)
+            chargePercent = (short) MathF.Round(battery.CurrentCharge / battery.MaxCharge * 10f); // Goobstation: if battery exists, read charge
+        if (TryComp<BatteryComponent>(ent, out var internalBattery))
+            chargePercent = (short) MathF.Round(internalBattery.CurrentCharge / internalBattery.MaxCharge * 10f); // Goobstation: if internal battery exists, read charge
         // we make sure 0 only shows if they have absolutely no battery.
         // also account for floating point imprecision
         if (chargePercent == 0 && _powerCell.HasDrawCharge(ent, cell: slotComponent))

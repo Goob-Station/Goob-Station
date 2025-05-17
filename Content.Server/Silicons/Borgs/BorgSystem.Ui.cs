@@ -17,6 +17,7 @@ using Content.Shared.PowerCell.Components;
 using Content.Shared.Preferences;
 using Content.Shared.Silicons.Borgs;
 using Content.Shared.Silicons.Borgs.Components;
+using Content.Server.Power.Components;
 
 namespace Content.Server.Silicons.Borgs;
 
@@ -115,6 +116,11 @@ public sealed partial class BorgSystem
         {
             hasBattery = true;
             chargePercent = battery.CurrentCharge / battery.MaxCharge;
+        }
+        else if (TryComp<BatteryComponent>(uid, out var internalBattery))
+        {
+            hasBattery = true;
+            chargePercent = internalBattery.CurrentCharge / internalBattery.MaxCharge;
         }
 
         var state = new BorgBuiState(chargePercent, hasBattery);
