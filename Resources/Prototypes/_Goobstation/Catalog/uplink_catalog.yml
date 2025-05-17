@@ -20,6 +20,7 @@
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
@@ -1196,6 +1197,27 @@
       - SurplusBundle
 
 - type: listing
+  id: UplinkHardsuitBloodRedModsuit
+  name: uplink-modsuit-bloodred-name
+  description: uplink-modsuit-bloodred-desc
+  icon: { sprite: /Textures/_Goobstation/Clothing/OuterClothing/Modsuits/bloodredmodsuit.rsi, state: chestplate }
+  productEntity: BloodredModsuitBackpack
+  cost:
+    Telecrystal: 25
+  categories:
+  - UplinkWearables
+
+- type: listing
+  id: UplinkHardsuitSyndicateEliteModsuit
+  name: uplink-modsuit-elitemodsuit-name
+  description: uplink-modsuit-elitemodsuit-desc
+  icon: { sprite: /Textures/_Goobstation/Clothing/OuterClothing/Modsuits/syndicateelitemodsuit.rsi, state: chestplate }
+  productEntity: EliteModsuitBackpack
+  cost:
+    Telecrystal: 60
+  categories:
+  - UplinkWearables
+
   id: UplinkEnergyPickaxe
   name: uplink-energy-pickaxe-name
   description: uplink-energy-pickaxe-desc
@@ -1209,3 +1231,4 @@
   - !type:BuyerSpeciesCondition
     whitelist:
     - Dwarf # Rock and stone
+

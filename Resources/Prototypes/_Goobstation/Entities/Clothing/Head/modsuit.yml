@@ -1,11 +1,14 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -782,3 +785,78 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 2
+
+- type: entity
+  parent: [ClothingModsuitHelmetStandard, ShowSecurityIcons, BaseSyndicateContraband]
+  id: ClothingModsuitHelmetBloodredModsuit
+  name: Syndicate "Deimos" Modsuit Helm
+  description: A helmet made for the "Deimos" modsuit.
+  categories: [HideSpawnMenu]
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Clothing/Head/Modsuits/bloodredmodsuit.rsi
+    - type: Armor
+      coverage:
+      - Head
+      traumaDeductions:
+        Dismemberment: 0.5
+        OrganDamage: 0.5
+        BoneDamage: 0.5
+        VeinsDamage: 0
+        NerveDamage: 0
+      modifiers:
+        coefficients:
+         Blunt: 0.70
+          Slash: 0.70
+          Piercing: 0.80
+          Heat: 0.70
+          Radiation: 0.70
+    - type: SealableClothingVisuals
+      visualLayers:
+        head:
+          - state: equipped-HEAD-sealed
+          - state: equipped-HEAD-sealed-glow
+            shader: unshaded
+    - type: ShowHealthBars
+      damageContainers:
+        - Biological
+    - type: PointLight
+      color: "#21A52E"
+
+- type: entity
+  parent: [ClothingModsuitHelmetStandard, ShowSecurityIcons, BaseSyndicateContraband]
+  id: ClothingModsuitHelmetEliteSyndicateModsuit
+  name: Elite Syndicate "Phobos" Modsuit Helm
+  description: A helmet made for the "Phobos" modsuit.
+  categories: [HideSpawnMenu]
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Clothing/Head/Modsuits/syndicateelitemodsuit.rsi
+    - type: Armor
+      coverage:
+      - Head 
+      traumaDeductions:
+        Dismemberment: 0.5
+        OrganDamage: 0.5
+        BoneDamage: 0.5
+        VeinsDamage: 0
+        NerveDamage: 0
+      modifiers:
+        coefficients:
+          Blunt: 0.70
+          Slash: 0.70
+          Piercing: 0.80
+          Heat: 0.40
+          Radiation: 0.30
+          Caustic: 0.6
+    - type: SealableClothingVisuals
+      visualLayers:
+        head:
+          - state: equipped-HEAD-sealed
+          - state: equipped-HEAD-sealed-glow
+            shader: unshaded
+    - type: ShowHealthBars
+      damageContainers:
+        - Biological
+    - type: PointLight
+      color: "#ffd480"
