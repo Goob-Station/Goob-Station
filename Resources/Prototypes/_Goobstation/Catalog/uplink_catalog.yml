@@ -17,6 +17,8 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aineias1 <142914808+Aineias1@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
@@ -325,6 +327,10 @@
     Telecrystal: 50
   categories:
   - UplinkWeaponry
+  conditions:
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Oni 
 
 - type: listing
   id: UplinkFireAxeFlaming
@@ -361,6 +367,10 @@
     Telecrystal: 65 # fire
   categories:
   - UplinkWeaponry
+  conditions:
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Oni # goob
 
 - type: listing
   id: UplinkWeaponRifleBurner
@@ -372,6 +382,10 @@
     Telecrystal: 100 # don't kill me piras
   categories:
   - UplinkWeaponry
+  conditions:
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Oni # goob
 
 - type: listing
   id: UplinkWeaponShotgunHeavy
@@ -410,6 +424,10 @@
     Telecrystal: 50
   categories:
   - UplinkWeaponry
+  conditions:
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Oni # goob
 
 - type: listing
   id: UplinkPistolAnaconda
@@ -430,6 +448,10 @@
     Telecrystal: 25
   categories:
     - UplinkWeaponry
+  conditions:
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Oni # goob
 
 - type: listing
   id: UplinkWeaponM7S
@@ -440,6 +462,10 @@
     Telecrystal: 60
   categories:
     -  UplinkWeaponry
+  conditions:
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Oni # goob
 
 - type: listing
   id: UplinkWeaponHE1SG8
@@ -527,7 +553,7 @@
   icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndiecommander.rsi, state: icon }
   productEntity: ClothingOuterHardsuitSyndieCommander
   cost:
-    Telecrystal: 100 # novelty item for the larp, doesnt come with bundle though because bulky fuck
+    Telecrystal: 100 # novelty item for the larp, doesnt come with bundle though because bulky fuck. Lmao you lazy ass, could've just copypasted juggernaut bundle.
   categories:
   - UplinkWearables
   conditions:

@@ -1,0 +1,57 @@
+# SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterArmorTouseiGusoku
+  name: tousei-gusoku
+  description: A modern replica of a Ni-mai-do Gusoku armor set. 
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Armor/touseigusoku.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Armor/touseigusoku.rsi
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    - Tail
+    - Other
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.55
+        Piercing: 0.65
+        Heat: 0.7
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 1.0
+  - type: HeldSpeedModifier
+  - type: ExplosionResistance
+    damageCoefficient: 0.65
+  - type: GroupExamine
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 2.5
+    knockdownTimeDelta: -2.5
+  - type: StaminaDamageResistance # Goobstation
+    coefficient: 0.6
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 2
+    knockdownTimeDelta: -2
+  - type: StaminaDamageResistance # Goobstation
+    coefficient: 0.7
+        
