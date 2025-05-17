@@ -1,0 +1,56 @@
+- type: body
+  id: Satyr
+  name: "satyr"
+  root: chest
+  slots:
+    head:
+      part: HeadSatyr
+      connections:
+      - chest
+      organs:
+        brain: OrganHumanBrain
+        eyes: OrganHumanEyes
+    chest:
+      part: ChestSatyr
+      connections:
+      - groin
+      - right arm
+      - left arm
+      - head
+      organs:
+        heart: OrganHumanHeart
+        lungs: OrganHumanLungs
+    groin:
+      part: GroinSatyr
+      connections:
+      - right leg
+      - left leg
+      organs:
+        stomach: OrganAnimalRuminantStomach
+        stomach2: OrganAnimalRuminantStomach2
+        liver: OrganSatyrLiver
+        kidneys: OrganHumanKidneys
+    right arm:
+      part: RightArmSatyr
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmSatyr
+      connections:
+      - left hand
+    right hand:
+      part: RightHandSatyr
+    left hand:
+      part: LeftHandSatyr
+    right leg:
+      part: RightLegSatyr
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegSatyr
+      connections:
+      - left foot
+    right foot:
+      part: RightFootSatyr
+    left foot:
+      part: LeftFootSatyr

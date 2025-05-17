@@ -1,0 +1,139 @@
+- type: entity
+  id: PartSatyr
+  parent: [BaseItem, BasePart]
+  name: "satyr body part"
+  abstract: true
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 3
+      - ReagentId: Blood
+        Quantity: 10
+
+- type: entity
+  id: ChestSatyr
+  name: "satyr chest"
+  parent: [PartSatyr, BaseChest]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Species/Satyr/parts.rsi
+    state: "chest_m"
+  - type: Icon
+    sprite: _Goobstation/Mobs/Species/Satyr/parts.rsi
+    state: "chest_m"
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20
+
+- type: entity
+  id: GroinSatyr
+  name: "satyr groin"
+  parent: [PartSatyr, BaseGroin]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Species/Satyr/parts.rsi
+    state: "groin_m"
+  - type: Icon
+    sprite: _Goobstation/Mobs/Species/Satyr/parts.rsi
+    state: "groin_m"
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20
+
+- type: entity
+  id: HeadSatyr
+  name: "satyr head"
+  parent: [PartSatyr, BaseHead]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Species/Satyr/parts.rsi
+    state: "head_m"
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 5
+      - ReagentId: Blood
+        Quantity: 10
+
+- type: entity
+  id: LeftArmSatyr
+  name: "left satyr arm"
+  parent: [PartSatyr, BaseLeftArm]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Species/Satyr/parts.rsi
+    state: "l_arm"
+
+- type: entity
+  id: RightArmSatyr
+  name: "right satyr arm"
+  parent: [PartSatyr, BaseRightArm]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Species/Satyr/parts.rsi
+    state: "r_arm"
+
+- type: entity
+  id: LeftHandSatyr
+  name: "left satyr hand"
+  parent: [PartSatyr, BaseLeftHand]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Species/Satyr/parts.rsi
+    state: "l_hand"
+
+- type: entity
+  id: RightHandSatyr
+  name: "right satyr hand"
+  parent: [PartSatyr, BaseRightHand]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Species/Satyr/parts.rsi
+    state: "r_hand"
+
+- type: entity
+  id: LeftLegSatyr
+  name: "left satyr leg"
+  parent: [PartSatyr, BaseLeftLeg]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Species/Satyr/parts.rsi
+    state: "l_leg"
+
+- type: entity
+  id: RightLegSatyr
+  name: "right satyr leg"
+  parent: [PartSatyr, BaseRightLeg]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Species/Satyr/parts.rsi
+    state: "r_leg"
+
+- type: entity
+  id: LeftFootSatyr
+  name: "left satyr foot"
+  parent: [PartSatyr, BaseLeftFoot]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Species/Satyr/parts.rsi
+    state: "l_foot"
+
+- type: entity
+  id: RightFootSatyr
+  name: "right satyr foot"
+  parent: [PartSatyr, BaseRightFoot]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Species/Satyr/parts.rsi
+    state: "r_foot"
