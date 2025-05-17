@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "m_satyr_fluff_normal",
+      "directions": 4
+    },
+    {
+      "name": "f_satyr_fluff_normal",
+      "directions": 4
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 48
+  },
+  "states": [
+    {
+      "name": "m_satyr_horns_paintedpoints",
+      "directions": 4
+    },
+    {
+      "name": "m_satyr_horns_whoshorns",
+      "directions": 4
+    },
+    {
+      "name": "m_satyr_horns_highrisehorns",
+      "directions": 4
+    },
+    {
+      "name": "m_satyr_horns_lifted",
+      "directions": 4
+    },
+    {
+      "name": "m_satyr_horns_newcurly",
+      "directions": 4
+    },
+    {
+      "name": "m_satyr_horns_upwardshorns",
+      "directions": 4
+    },
+    {
+      "name": "m_satyr_horns_sideswept",
+      "directions": 4
+    },
+    {
+      "name": "m_satyr_horns_crippledbull",
+      "directions": 4
+    },
+    {
+      "name": "m_satyr_horns_ticketrack",
+      "directions": 4
+    },
+    {
+      "name": "m_satyr_horns_broadcurls",
+      "directions": 4
+    }
+  ]
+}
