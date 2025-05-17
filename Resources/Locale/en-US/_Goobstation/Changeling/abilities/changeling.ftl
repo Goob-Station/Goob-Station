@@ -46,11 +46,15 @@ changeling-sting-extract-max = Need to get rid of the stored DNA beforehand
 
 changeling-dartgun-no-stings = We don't have any reagent stings evolved!
 
-changeling-stasis-enter = We enter regenerative stasis
+changeling-stasis-enter = We enter regenerative stasis...
+changeling-stasis-enter-damaged = We enter regenerative stasis. Our sustained injuries will prove troublesome to heal...
+changeling-stasis-enter-catastrophic = We enter regenerative stasis. Our catastrophic injuries will take extreme time to heal...
 changeling-stasis-enter-fail = Can't enter stasis!
-changeling-stasis-exit = We exit regenerative stasis
+changeling-stasis-exit = We exit regenerative stasis, clear of wounds and injuries...
 changeling-stasis-exit-fail = We're not in stasis!
-changeling-stasis-exit-fail-dead = Can't exit stasis!
+changeling-stasis-exit-fail-dead = We feel... hollow. It is over.
+changeling-stasis-exit-fail-time = Our body is still recovering!
+changeling-stasis-exit-defib = A shock pulses through us. Our stasis has been interrupted!
 
 changeling-fail-hands = Need to drop something beforehand
 
@@ -80,3 +84,5 @@ changeling-hivemind-start = We tune our brainwaves to match the hivemind frequen
 changeling-lastresort-activate = CURRENT BODY WILL BE LOST! Use it again to confirm.
 
 changeling-onfire = Our cells writhe with agony, failing to perform the action!
+
+changeling-rejuvenate = An strange energy pulses through our body, rejuvenating our cells and restoring our chemicals!

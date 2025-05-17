@@ -86,6 +86,27 @@ public sealed partial class ChangelingIdentityComponent : Component
     public Dictionary<string, EntityUid?> Equipment = new();
 
     /// <summary>
+    ///     The default stasis time (in s).
+    /// </summary>
+    public readonly int DefaultStasisTime = 30;
+
+    /// <summary>
+    ///     The typical longest time that stasis can last (in s).
+    /// </summary>
+    public readonly int MaxStasisTime = 90;
+
+    /// <summary>
+    ///     The time a changeling must stay in stasis upon taking catastrophic damage (in s).
+    /// </summary>
+    public readonly int CatastrophicStasisTime = 120;
+
+    /// <summary>
+    ///     Time in seconds the changeling must spend in stasis.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float StasisTime;
+
+    /// <summary>
     ///     Current amount of chemicals changeling currently has.
     /// </summary>
     [DataField, AutoNetworkedField]
@@ -96,6 +117,12 @@ public sealed partial class ChangelingIdentityComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public float MaxChemicals = 100.0f;
+
+    /// <summary>
+    ///     Total evolution points gained by the changeling.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float TotalEvolutionPoints;
 
     /// <summary>
     ///     Bonus chemicals regeneration. In case
