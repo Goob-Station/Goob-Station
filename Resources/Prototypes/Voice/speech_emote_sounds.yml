@@ -603,6 +603,26 @@
     Scream: # Goobstation - Cyborg Scream
       path: /Audio/_Goobstation/Voice/Cyborg/borgscream.ogg
 
+- type: emoteSounds
+  id: UnisexSiliconXenoborg
+  params:
+    variation: 0.05
+  sounds:
+    Laugh:
+      collection: XenoborgLaugh
+    Beep:
+      collection: XenoborgBeep
+    Chime:
+      collection: XenoborgChime
+    Buzz:
+      collection: XenoborgBuzz
+    Buzz-Two:
+      collection: XenoborgBuzzTwo
+    Honk:
+      collection: XenoborgBikeHorn
+    Ping:
+      collection: XenoborgPing
+
 # body emotes
 - type: emoteSounds
   id: GeneralBodyEmotes
