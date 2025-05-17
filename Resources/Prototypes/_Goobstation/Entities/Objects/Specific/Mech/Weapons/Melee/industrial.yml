@@ -1,6 +1,8 @@
 # SPDX-FileCopyrightText: 2024 NULL882 <gost6865@yandex.ru>
 # SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -17,6 +19,10 @@
     tags:
     - Pickaxe
     - IndustrialMech
+  - type: Tool
+    speedModifier: 3 # better than handheld drill
+    qualities:
+    - Mining
   - type: MeleeWeapon
     canWideSwing: false
     autoAttack: true
@@ -44,6 +50,10 @@
     tags:
     - Pickaxe
     - IndustrialMech
+  - type: Tool
+    speedModifier: 6 # better than handheld diamond drill
+    qualities:
+    - Mining
   - type: MeleeWeapon
     canWideSwing: false
     autoAttack: true
