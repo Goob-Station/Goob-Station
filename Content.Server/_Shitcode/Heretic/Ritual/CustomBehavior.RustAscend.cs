@@ -6,7 +6,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._EinsteinEngines.Silicon.Components;
+using Content.Shared._EE.Silicon.Components;
 using Content.Shared.Atmos.Rotting;
 using Content.Shared.Heretic.Prototypes;
 using Robust.Server.GameObjects;

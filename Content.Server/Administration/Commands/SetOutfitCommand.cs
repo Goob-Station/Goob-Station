@@ -116,7 +116,7 @@ using Content.Shared.Station;
 using Robust.Shared.Console;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Content.Shared._EinsteinEngines.Silicon.IPC; // Goobstation
+using Content.Shared._EE.Silicon.IPC; // Goobstation
 using Content.Shared.Radio.Components; // Goobstation
 
 namespace Content.Server.Administration.Commands
