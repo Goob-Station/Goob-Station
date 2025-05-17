@@ -1,7 +1,7 @@
 - type: marking
   id: SatyrFluff
-  bodyPart: Groin, LLeg, RLeg
-  markingCategory: Overlay
+  bodyPart: LLeg, RLeg
+  markingCategory: Legs
   speciesRestriction: [Satyr] 
   coloring:
     default:

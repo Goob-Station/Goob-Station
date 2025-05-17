@@ -2,9 +2,8 @@
   id: OrganSatyrLiver
   parent: OrganHumanLiver
   name: satyr liver
-  description: "By some freak genetic accident or magical mutation, this liver responds to alcohol opposite to how a regular one would."
-  - type: Metabolizer # The liver metabolizes certain chemicals only, like alcohol.
-    maxPoisonsProcessable: 1
+  components:
+  - type: Metabolizer
     metabolizerTypes: [Satyr]
     groups:
     - id: Alcohol

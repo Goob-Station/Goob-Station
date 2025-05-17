@@ -43,3 +43,19 @@
         - MobMask
         layer:
         - MobLayer
+
+- type: entity
+  parent: BaseSpeciesDummy
+  id: MobSatyrDummy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HumanoidAppearance
+    species: Satyr
+  - type: Inventory
+    templateId: satyr
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female

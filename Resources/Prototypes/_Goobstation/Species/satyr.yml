@@ -51,15 +51,12 @@
       points: 1
       required: false
     Legs:
-      points: 2
-      required: false
+      points: 1
+      required: True # Cover that shi up
+      defaultMarkings: [ SatyrFluff ]
     Arms:
       points: 2
       required: false
-    Overlay:
-      points: 1
-      required: true
-      defaultMarkings: [ SatyrFluff ]
     Snout:
       points: 1
       required: false
