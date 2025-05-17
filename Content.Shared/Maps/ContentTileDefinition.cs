@@ -4,7 +4,7 @@
 // SPDX-FileCopyrightText: 2019 PrPleGoo <felix.leeuwen@gmail.com>
 // SPDX-FileCopyrightText: 2019 Silver <Silvertorch5@gmail.com>
 // SPDX-FileCopyrightText: 2020 Rohesie <rohesie@gmail.com>
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
 // SPDX-FileCopyrightText: 2021 Galactic Chimp <GalacticChimpanzee@gmail.com>
 // SPDX-FileCopyrightText: 2021 Kara D <lunarautomaton6@gmail.com>
@@ -99,6 +99,12 @@ namespace Content.Shared.Maps
         /// </summary>
         [DataField]
         public float DeconstructTimeMultiplier { get; private set; }
+
+        /// <summary>
+        /// Effective mass of this tile for grid impacts.
+        /// </summary>
+        [DataField]
+        public float Mass = 800f;
 
         /// <remarks>
         /// Legacy AF but nice to have.
