@@ -242,3 +242,18 @@
         Caustic: 0.5
   - type: FlashImmunity
   - type: FlashSoundSuppression
+
+# ntr
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitNanorep
+  name: nanorep hardsuit helmet
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Helmets/ntr_helmet.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Helmets/ntr_helmet.rsi
+  - type: PointLight
+    color: green
+  - type: PressureProtection
+    highPressureMultiplier: 0.525

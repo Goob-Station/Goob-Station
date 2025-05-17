@@ -1,0 +1,19 @@
+# SPDX-FileCopyrightText: 2024 BeeRobynn <166929042+BeeRobynn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- files: ["closet_open.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "Sounds taken from TGStation https://github.com/tgstation/tgstation/blob/f157d623a167431ee05432fe0f8b8090baa073e1"
+  source: "https://github.com/tgstation/tgstation/blob/f157d623a167431ee05432fe0f8b8090baa073e1"
+
+- files: ["podwoosh.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "Sounds taken from TGStation https://github.com/tgstation/tgstation/blob/f157d623a167431ee05432fe0f8b8090baa073e1"
+  source: "https://github.com/tgstation/tgstation/blob/f157d623a167431ee05432fe0f8b8090baa073e1"
+
+- files: ["supplypodlandig.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "Sounds taken from TGStation https://github.com/tgstation/tgstation/blob/f157d623a167431ee05432fe0f8b8090baa073e1"
+  source: "https://github.com/tgstation/tgstation/blob/f157d623a167431ee05432fe0f8b8090baa073e1"
