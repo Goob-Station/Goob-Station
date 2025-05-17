@@ -14,6 +14,7 @@
 // SPDX-FileCopyrightText: 2022 Julian Giebel <juliangiebel@live.de>
 // SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
 // SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Tomás Alves <tomasalves35@gmail.com>
 // SPDX-FileCopyrightText: 2022 Tom�s Alves <tomasalves35@gmail.com>
 // SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
@@ -46,8 +47,10 @@
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tim <timfalken@hotmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later

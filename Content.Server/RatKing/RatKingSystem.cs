@@ -10,6 +10,8 @@
 // SPDX-FileCopyrightText: 2024 Centronias <me@centronias.com>
 // SPDX-FileCopyrightText: 2024 Jake Huxell <JakeHuxell@pm.me>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tim <timfalken@hotmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
