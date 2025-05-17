@@ -1,0 +1,16 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: localizedDataset
+  id: NamesChitinidFirstMale
+  values:
+    prefix: names-chitinid-male-dataset-
+    count: 33
+
+- type: localizedDataset
+  id: NamesChitinidFirstFemale
+  values:
+    prefix: names-chitinid-female-dataset-
+    count: 31
