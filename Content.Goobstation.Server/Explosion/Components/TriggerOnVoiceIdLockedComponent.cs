@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -30,8 +31,17 @@ namespace Content.Server._Goobstation.Explosion.Components
         [DataField]
         public TimeSpan ActivationCooldown = TimeSpan.FromSeconds(5);
 
+        /// <summary>
+        /// trigger only if the entity saying the phrase is the entity holding it
+        /// </summary>
         [DataField]
+        public bool HolderOnly;
+
+        [ViewVariables]
         public TimeSpan NextActivationTime;
+
+        [ViewVariables]
+        public EntityUid? User;
 
     }
 }
