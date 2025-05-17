@@ -1202,10 +1202,8 @@
   name: loadout-group-head-of-security-outerclothing
   loadouts:
   - HeadofSecurityCoat
-  - HeadofSecurityGreatCoat # Goobstation
   - HeadofSecurityWinterCoat
-  - ArmorVest #Goobstation change
-  - ArmorVestSlim #Goobstation change
+  - HeadofSecurityGreatCoat # Goobstation
 
 - type: loadoutGroup
   id: WardenHead

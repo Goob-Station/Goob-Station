@@ -1,8 +1,10 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -23,7 +25,7 @@ public sealed class ItemSwitchSystem : SharedItemSwitchSystem
     {
         base.Initialize();
         SubscribeLocalEvent<ItemSwitchComponent, ExaminedEvent>(OnExamined);
-        SubscribeLocalEvent<ItemSwitchComponent, ChargeChangedEvent>(OnBatteryChanged);
+        SubscribeLocalEvent<ItemSwitchComponent, AttemptMeleeEvent>(OnAttemptMelee);
         SubscribeLocalEvent<ItemSwitchComponent, MeleeHitEvent>(OnMeleeAttack);
     }
 
@@ -75,7 +77,7 @@ public sealed class ItemSwitchSystem : SharedItemSwitchSystem
         _battery.TryUseCharge(ent, state.EnergyPerUse, battery);
     }
 
-    private void OnBatteryChanged(EntityUid uid, ItemSwitchComponent component, ref ChargeChangedEvent args)
+    private void OnAttemptMelee(EntityUid uid, ItemSwitchComponent component, ref AttemptMeleeEvent args)
     {
         CheckPowerAndSwitchState(uid, component);
     }

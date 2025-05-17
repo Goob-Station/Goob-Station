@@ -1,5 +1,7 @@
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -10,3 +12,10 @@
   - /Audio/_Goobstation/Effects/Footsteps/heavy2.ogg
   - /Audio/_Goobstation/Effects/Footsteps/heavy3.ogg
   - /Audio/_Goobstation/Effects/Footsteps/heavy4.ogg
+
+- type: soundCollection
+  id: StepHeavyBoots
+  files:
+  - /Audio/_Goobstation/Effects/Footsteps/step_heavyboots_1.ogg
+  - /Audio/_Goobstation/Effects/Footsteps/step_heavyboots_2.ogg
+  - /Audio/_Goobstation/Effects/Footsteps/step_heavyboots_3.ogg

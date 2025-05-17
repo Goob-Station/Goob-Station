@@ -1,0 +1,28 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: loadout
+  id: HeadofSecuritySpecialBeret
+  equipment:
+    head: ClothingHeadHatBeretHeadOfSecurityAdvanced
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterHoS
+
+- type: loadout
+  id: HeadofSecurityGreatCoat
+  equipment:
+    outerClothing: ClothingOuterArmorHoSExperimental
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterHoS
+
+- type: loadout
+  id: AdvancedJackBoots
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterHoS
+  equipment:
+    belt: ClothingShoesBootsJackAdvancedFilled
