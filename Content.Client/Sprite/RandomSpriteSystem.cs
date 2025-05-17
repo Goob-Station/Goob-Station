@@ -21,6 +21,7 @@ public sealed class RandomSpriteSystem : SharedRandomSpriteSystem
 {
     [Dependency] private readonly IReflectionManager _reflection = default!;
     [Dependency] private readonly ClientClothingSystem _clothing = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
@@ -73,10 +74,10 @@ public sealed class RandomSpriteSystem : SharedRandomSpriteSystem
             int index;
             if (_reflection.TryParseEnumReference(layer.Key, out var @enum))
             {
-                if (!sprite.LayerMapTryGet(@enum, out index, logError: true))
+                if (!_sprite.LayerMapTryGet((uid, sprite), @enum, out index, logMissing: true))
                     continue;
             }
-            else if (!sprite.LayerMapTryGet(layer.Key, out index))
+            else if (!_sprite.LayerMapTryGet((uid, sprite), layer.Key, out index, false))
             {
                 if (layer.Key is not { } strKey || !int.TryParse(strKey, out index))
                 {
@@ -84,8 +85,8 @@ public sealed class RandomSpriteSystem : SharedRandomSpriteSystem
                     continue;
                 }
             }
-            sprite.LayerSetState(index, layer.Value.State);
-            sprite.LayerSetColor(index, layer.Value.Color ?? Color.White);
+            _sprite.LayerSetRsiState((uid, sprite), index, layer.Value.State);
+            _sprite.LayerSetColor((uid, sprite), index, layer.Value.Color ?? Color.White);
         }
     }
 }
