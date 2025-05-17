@@ -1046,9 +1046,6 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:SuppressPain # Goobstation
-        amount: 4
-        time: 30
       - !type:HealthChange
         conditions:
         - !type:TotalDamage
