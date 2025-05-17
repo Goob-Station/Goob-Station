@@ -1,0 +1,173 @@
+- type: species
+  id: Satyr
+  name: species-name-satyr
+  roundStart: true
+  prototype: MobSatyr
+  sprites: MobSatyrSprites
+  markingLimits: MobSatyrMarkingLimits
+  dollPrototype: MobSatyrDummy
+  skinColoration: HumanToned
+
+- type: speciesBaseSprites
+  id: MobSatyrSprites
+  sprites:
+    Head: MobSatyrHead
+    HeadTop: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
+    Hair: MobHumanoidAnyMarking
+    FacialHair: MobHumanoidAnyMarking
+    Snout: MobHumanoidAnyMarking
+    Chest: MobSatyrChest
+    Groin: MobSatyrGroin
+    Eyes: MobSatyrEyes
+    LArm: MobSatyrLArm
+    RArm: MobSatyrRArm
+    LHand: MobSatyrLHand
+    RHand: MobSatyrRHand
+    LLeg: MobSatyrLLeg
+    RLeg: MobSatyrRLeg
+    Tail: MobHumanoidAnyMarking
+    LFoot: MobSatyrLFoot
+    RFoot: MobSatyrRFoot
+
+- type: markingPoints
+  id: MobSatyrMarkingLimits
+  points:
+    Hair:
+      points: 1
+      required: false
+    FacialHair:
+      points: 1
+      required: false
+    Tail:
+      points: 1
+      required: true
+      defaultMarkings: [ SatyrTailShort ]
+    HeadTop:
+      points: 1
+      required: false
+      defaultMarkings: [ SatyrHornsNewCurly ]
+    Chest:
+      points: 1
+      required: false
+    Legs:
+      points: 2
+      required: false
+    Arms:
+      points: 2
+      required: false
+    Overlay:
+      points: 1
+      required: true
+      defaultMarkings: [ SatyrFluff ]
+    Snout:
+      points: 1
+      required: false
+
+- type: humanoidBaseSprite
+  id: MobSatyrEyes
+  baseSprite:
+    sprite: Mobs/Customization/eyes.rsi
+    state: eyes
+
+- type: humanoidBaseSprite
+  id: MobSatyrHead
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Satyr/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobSatyrHeadMale
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Satyr/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobSatyrHeadFemale
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Satyr/parts.rsi
+    state: head_f
+
+- type: humanoidBaseSprite
+  id: MobSatyrChest
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Satyr/parts.rsi
+    state: chest_m
+
+- type: humanoidBaseSprite
+  id: MobSatyrChestMale
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Satyr/parts.rsi
+    state: chest_m
+
+- type: humanoidBaseSprite
+  id: MobSatyrChestFemale
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Satyr/parts.rsi
+    state: chest_f
+
+- type: humanoidBaseSprite
+  id: MobSatyrGroin
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Satyr/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobSatyrGroinMale
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Satyr/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobSatyrGroinFemale
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Satyr/parts.rsi
+    state: groin_f
+
+- type: humanoidBaseSprite
+  id: MobSatyrLLeg
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Satyr/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobSatyrLArm
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Satyr/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobSatyrLHand
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Satyr/parts.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobSatyrLFoot
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Satyr/parts.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobSatyrRLeg
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Satyr/parts.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobSatyrRArm
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Satyr/parts.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobSatyrRHand
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Satyr/parts.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobSatyrRFoot
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Satyr/parts.rsi
+    state: r_foot

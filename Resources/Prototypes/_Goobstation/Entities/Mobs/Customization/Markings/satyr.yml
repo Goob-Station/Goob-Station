@@ -1,0 +1,112 @@
+- type: marking
+  id: SatyrFluff
+  bodyPart: Groin, LLeg, RLeg
+  markingCategory: Overlay
+  speciesRestriction: [Satyr] 
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#6D4824"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Satyr/satyr_fluff.rsi
+    state: m_satyr_fluff_normal
+
+- type: marking
+  id: SatyrTailShort
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Satyr]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Satyr/satyr_tail.rsi
+    state: satyr_tail_short
+
+- type: marking
+  id: SatyrHornsBroadCurls
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Satyr]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Satyr/satyr_horns.rsi
+    state: m_satyr_horns_broadcurls
+
+- type: marking
+  id: SatyrHornsCrippledBull
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Satyr]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Satyr/satyr_horns.rsi
+    state: m_satyr_horns_crippledbull
+
+- type: marking
+  id: SatyrHornsHighRise
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Satyr]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Satyr/satyr_horns.rsi
+    state: m_satyr_horns_highrisehorns
+
+- type: marking
+  id: SatyrHornsLifted
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Satyr]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Satyr/satyr_horns.rsi
+    state: m_satyr_horns_lifted
+
+- type: marking
+  id: SatyrHornsNewCurly
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Satyr]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Satyr/satyr_horns.rsi
+    state: m_satyr_horns_newcurly
+
+- type: marking
+  id: SatyrHornsPaintedPoints
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Satyr]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Satyr/satyr_horns.rsi
+    state: m_satyr_horns_paintedpoints
+
+- type: marking
+  id: SatyrHornsSideSwept
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Satyr]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Satyr/satyr_horns.rsi
+    state: m_satyr_horns_sideswept
+
+- type: marking
+  id: SatyrHornsTicketrack
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Satyr]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Satyr/satyr_horns.rsi
+    state: m_satyr_horns_ticketrack
+
+- type: marking
+  id: SatyrHornsUpwardsHorns
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Satyr]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Satyr/satyr_horns.rsi
+    state: m_satyr_horns_upwardshorns
+
+- type: marking
+  id: SatyrHornsWhosHorns
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Satyr]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/Satyr/satyr_horns.rsi
+    state: m_satyr_horns_whoshorns
