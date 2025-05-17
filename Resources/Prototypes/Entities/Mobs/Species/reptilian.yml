@@ -71,7 +71,6 @@
 # SPDX-FileCopyrightText: 2024 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Spatison <137375981+Spatison@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Stalen <33173619+stalengd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
@@ -114,8 +113,13 @@
 # SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 PuroSlavKing <103608145+PuroSlavKing@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -173,8 +177,9 @@
       types:
         Slash: 5
   - type: Temperature
-    heatDamageThreshold: 400
+    heatDamageThreshold: 450 # Goobstation
     coldDamageThreshold: 285
+    atmosTemperatureTransferEfficiency: 0.4 # Goobstation - Coldblooded lizards.
     currentTemperature: 310.15
     specificHeat: 42
     coldDamage:
@@ -185,10 +190,18 @@
         Heat : 1.5 #per second, scales with temperature & other constants
   - type: TemperatureSpeed
     thresholds:
-      301: 0.8
+      289: 0.7 # Toss em a bone, since they're so easily freezable. # Goobstation
       295: 0.6
       285: 0.4
   - type: Wagging
+  - type: ThermalRegulator # Goobstation - Start
+    metabolismHeat: 0
+    radiatedHeat: 0
+    implicitHeatRegulation: 0
+    sweatHeatRegulation: 0
+    shiveringHeatRegulation: 0
+    normalBodyTemperature: 310.15
+    thermalRegulationTemperatureThreshold: 500 # Goobstation - End
   - type: Inventory
     speciesId: reptilian
     # WWDP-Edit-Start
