@@ -1,0 +1,11 @@
+- type: localizedDataset
+  id: NamesChitinidFirstMale
+  values:
+    prefix: names-chitinid-male-dataset-
+    count: 33
+
+- type: localizedDataset
+  id: NamesChitinidFirstFemale
+  values:
+    prefix: names-chitinid-female-dataset-
+    count: 31
