@@ -7,7 +7,7 @@
   name: cartridge autoinjector pouch
   parent: [BasePouch, BaseMedicalContraband]
   id: PouchMedicalCartridgeInjector
-  description: A small pouch for holding emergency medication.
+  description: A small pouch for holding autoinjectors, with a pouch for the autoinjector itself.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Storage/Pouches/medical.rsi
@@ -45,3 +45,58 @@
     containers:
       item:
       - ParamedHypo
+
+- type: entity
+  name: autoinjector pouch
+  parent: [BasePouch, BaseMedicalContraband]
+  id: PouchMedicalAutoinjectors
+  description: A small pouch for holding multiple autoinjectors.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Storage/Pouches/medical.rsi
+    layers:
+      - state: firstaidinjector
+  - type: Storage
+    grid:
+    - 0,0,3,1
+    whitelist:
+      components:
+        - Hypospray
+  - type: StorageFill
+    contents:
+    - id: BruteAutoInjector
+    - id: BurnAutoInjector
+    - id: AntiPoisonMedipen
+    - id: AirlossAutoInjector
+    - id: BruteAutoInjector
+    - id: BurnAutoInjector
+    - id: AntiPoisonMedipen
+    - id: AirlossAutoInjector
+
+- type: entity
+  name: pill canister pouch
+  parent: [BasePouch, BaseMedicalContraband]
+  id: PouchMedicalPills
+  description: A small pouch for holding multiple pill canisters.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Storage/Pouches/medical.rsi
+    layers:
+      - state: firstaid
+  - type: Storage
+    grid:
+    - 0,0,3,1
+    whitelist:
+      tags:
+        - PillCanister
+        - Pill
+  - type: StorageFill
+    contents:
+    - id: PillCanisterBicaridine
+    - id: PillCanisterTricordrazine
+    - id: PillCanisterIron
+    - id: PillCanisterDexalin
+    - id: PillCanisterDermaline
+    - id: PillCanisterHyronalin
+    - id: PillCanisterDylovene
+#    - id: PillCanisterTramadol
