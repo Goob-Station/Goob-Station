@@ -111,6 +111,7 @@
   id: SpaceLube
   name: reagent-name-space-lube
   desc: reagent-desc-space-lube
+  sticksToSkin: false # Goobstation
   slippery: true
   physicalDesc: reagent-physical-desc-shiny
   flavor: funny
@@ -120,7 +121,7 @@
   meltingPoint: 18.2
   tileReactions:
     - !type:SpillTileReaction
-      requiredSlipSpeed: 1
+      requiredSlipSpeed: 0.1 # Goobstation - no crawling to avoid it
       superSlippery: true
 
 - type: reagent

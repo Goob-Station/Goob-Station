@@ -210,6 +210,13 @@ namespace Content.Shared.Chemistry.Reagent
         [DataField]
         public bool MetamorphicChangeColor { get; private set; } = true;
 
+        // Goobstation
+        /// <summary>
+        /// If false, reagent will be put back into the puddle after slip on puddle.
+        /// </summary>
+        [DataField]
+        public bool SticksToSkin = true;
+
         /// <summary>
         /// If this reagent is part of a puddle is it slippery.
         /// </summary>
