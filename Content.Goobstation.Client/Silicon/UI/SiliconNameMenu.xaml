@@ -1,0 +1,8 @@
+<BoxContainer xmlns="https://spacestation14.io">
+    <BoxContainer HorizontalExpand="True">
+        <Label Text="{Loc 'humanoid-profile-editor-borgname-label'}" />
+        <Control HorizontalExpand="True"/>
+        <LineEdit Name="BorgNameEdit" MinSize="270 0" HorizontalAlignment="Right" />
+        <Button Name="BorgNameRandomize" Text="{Loc 'humanoid-profile-editor-name-random-button'}" />
+    </BoxContainer>
+</BoxContainer>

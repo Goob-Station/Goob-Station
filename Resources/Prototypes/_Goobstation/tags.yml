@@ -411,9 +411,6 @@
   id: ShowWizardIcons
 
 - type: Tag
-  id: Silicon
-
-- type: Tag
   id: SnapPop
 
 - type: Tag

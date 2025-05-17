@@ -96,7 +96,7 @@ using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences;
 using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Roles;
-using Content.Shared.Tag;
+using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Traits;
 using Robust.Client.Player;
 using Robust.Client.ResourceManagement;
@@ -275,11 +275,8 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
 
         var dummy = LoadProfileEntity(humanoid, null, true);
         PreviewPanel.SetSprite(dummy);
-        if (_entityManager.HasComponent<TagComponent>(dummy))
+        if (_entityManager.TryGetComponent<BorgChassisComponent>(dummy, out var _))
         {
-            var tags = _entityManager.GetComponent<TagComponent>(dummy).Tags;
-            if (!tags.Contains("Silicon"))
-                return;
             PreviewPanel.SetSummaryText(humanoid.SummaryBorg);
             return;
         }
