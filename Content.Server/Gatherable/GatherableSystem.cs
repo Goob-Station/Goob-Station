@@ -47,10 +47,11 @@ public sealed partial class GatherableSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<GatherableComponent, ActivateInWorldEvent>(OnActivate);
-        SubscribeLocalEvent<GatherableComponent, AttackedEvent>(OnAttacked);
+        //SubscribeLocalEvent<GatherableComponent, AttackedEvent>(OnAttacked); // Goobstation - handled by ToolGatherableSystem instead
         InitializeProjectile();
     }
 
+    /* Goobstation - handled by ToolGatherableSystem instead
     private void OnAttacked(Entity<GatherableComponent> gatherable, ref AttackedEvent args)
     {
         if (_whitelistSystem.IsWhitelistFailOrNull(gatherable.Comp.ToolWhitelist, args.Used))
@@ -58,6 +59,7 @@ public sealed partial class GatherableSystem : EntitySystem
 
         Gather(gatherable, args.User);
     }
+    */
 
     private void OnActivate(Entity<GatherableComponent> gatherable, ref ActivateInWorldEvent args)
     {
