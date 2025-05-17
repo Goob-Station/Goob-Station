@@ -23,10 +23,10 @@
     occupiedLayer: Chest # Default to Chest if something anomalous happens.
     damageOverlayGroups:
       Brute:
-        sprite: Mobs/Effects/brute_damage.rsi
+        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
         color: "#878787"
       Burn:
-        sprite: Mobs/Effects/burn_damage.rsi
+        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
 
 - type: entity
   parent: [ PartAbductorBase, BaseChest ]

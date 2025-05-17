@@ -26,7 +26,6 @@
 # SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Spatison <137375981+Spatison@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
@@ -34,6 +33,9 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pacable <77161122+pxc1984@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pacable <igor.mamaev1@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -63,10 +65,10 @@
 #  - type: DamageVisuals
 #    damageOverlayGroups:
 #      Brute:
-#        sprite: Mobs/Effects/brute_damage.rsi
+#        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
 #        color: "#555555AA"
 #      Burn:
-#        sprite: Mobs/Effects/burn_damage.rsi
+#        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
   - type: MobState
   - type: MobThresholds
     thresholds:
