@@ -1,5 +1,8 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 August Sun <45527070+august-sun@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Speebro <100388782+Speebr0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Speebro <speebro@notreal.com>
 # SPDX-FileCopyrightText: 2025 august-sun <45527070+august.sun@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -12,17 +15,17 @@
     edges:
     - to: hardsuitGoliath
       steps:
-      - tag: HardsuitSpatio
+      - tag: ExplorerSuit
         icon:
-          sprite: Clothing/OuterClothing/Hardsuits/spatio.rsi
+          sprite: _Lavaland/Equipment/explorer_suit.rsi
           state: icon
-        name: spationaut hardsuit
+        name: ExplorerSuit # Goobstation - It's almost impossible to find spationaut hardsuits
         doAfter: 10
       - material: Durathread
         amount: 5
         doAfter: 10
       - material: GoliathHide
-        amount: 12
+        amount: 5
         doAfter: 10
   - node: hardsuitGoliath
     entity: ClothingOuterHardsuitGoliath
