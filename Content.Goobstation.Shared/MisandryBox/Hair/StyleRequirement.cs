@@ -17,7 +17,7 @@ namespace Content.Goobstation.Shared.MisandryBox.Hair;
 
 public sealed partial class StyleRequirement : JobRequirement
 {
-    [Dependency] private readonly MarkingManager _mark = default!;
+    private MarkingManager? _mark;
 
     [DataField(required: true)]
     public HashSet<ProtoId<MarkingPrototype>> Styles;
@@ -33,7 +33,7 @@ public sealed partial class StyleRequirement : JobRequirement
         if (profile is null)
             return true;
 
-        IoCManager.InjectDependencies(this);
+        _mark ??= IoCManager.Resolve<MarkingManager>();
 
         if (!_mark.HasHair(profile.Species))
             return true;
