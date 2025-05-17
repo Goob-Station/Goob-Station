@@ -30,6 +30,28 @@
         Blunt: 8
   - type: Inventory
     templateId: satyr
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Goobstation/Mobs/Species/Satyr/displacement.rsi
+            state: jumpsuit-female
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Goobstation/Mobs/Species/Satyr/displacement.rsi
+            state: jumpsuit-female  
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Goobstation/Mobs/Species/Satyr/displacement.rsi
+            state: jumpsuit
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Goobstation/Mobs/Species/Satyr/displacement.rsi
+            state: jumpsuit
   - type: BleatingAccent
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
