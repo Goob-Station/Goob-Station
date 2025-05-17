@@ -17,6 +17,8 @@
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -36,4 +38,10 @@ public sealed partial class SiliconLawUpdaterComponent : Component
     /// </summary>
     [DataField(required: true)]
     public ComponentRegistry Components;
+
+    /// <summary>
+    /// Goob edit: the last lawset that was loaded with this updater.
+    /// </summary>
+    [ViewVariables]
+    public ProtoId<SiliconLawsetPrototype> LastLawset = "Crewsimov";
 }
