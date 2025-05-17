@@ -15,10 +15,11 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   Acceptable:
   - A traitor ignores orders from a nuclear operative commander.
   - An antagonist ignores orders from the captain.
-  - An engineer tells the Chief Engineer that they don't think it's a good idea to setup the singularity, but does so anyway when ordered to.
-  - An engineer tells the Chief Engineer that they don't know how to setup the singularity correctly, so refuses orders to, but accepts an offer to be taught how.
+  - An antagonist ignores orders from the head of their department.
+  - An engineer tells the Chief Engineer that they don't think it's a good idea to set up the singularity, but does so anyway when ordered to.
+  - An engineer tells the Chief Engineer that they don't know how to set up the singularity correctly, so refuses orders to, but accepts an offer to be taught how.
   - An atmospheric technician refuses an order from the captain that would create an atmospheric hazard on the station.
-  - A doctor refuses an order from the Chief Engineer about who to give medical treatment to first.
+  - A doctor refuses an order from the Chief Engineer about whom to give medical treatment to first.
   - A revolutionary refuses a suicide mission from a head revolutionary.
   - The Chief Engineer doesn't follow an order from the captain to setup backup power because there is an unrelated engineering emergency that the Chief Engineer needs to prioritize.
   - The captain orders command to give the nuclear authentication disk to nuclear operatives, so command arrests the captain and picks a new captain.
@@ -29,5 +30,6 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   - The Chief Engineer refuses an order from the captain to setup backup power because the Chief Engineer doesn't think backup power is necessary.
   - An engineer refuses an order from the Chief Engineer to setup the singularity because they prefer a different power source.
   - An engineer refuses to perform a task because they don't know how to do it, and refuses to be taught for no reason.
+  - A department crew member refuses an order from their department head to do something that is not dangerous or unreasonable.
   - A head revolutionary orders revolutionaries to blend in and not do anything illegal until they are told to reveal themselves. Instead, revolutionaries collect weapons and attack security.
 </Document>
