@@ -6,6 +6,8 @@
 // SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Bandit <queenjess521@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -32,6 +34,13 @@ public sealed partial class BorgChassisComponent : Component
     /// </summary>
     [DataField("brainWhitelist")]
     public EntityWhitelist? BrainWhitelist;
+
+    // Goobstation
+    /// <summary>
+    /// A blacklist for which entities don't count as valid brains
+    /// </summary>
+    [DataField("brainBlacklist")]
+    public EntityWhitelist? BrainBlacklist;
 
     /// <summary>
     /// The container ID for the brain

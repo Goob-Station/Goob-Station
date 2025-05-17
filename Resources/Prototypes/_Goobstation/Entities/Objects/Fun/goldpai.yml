@@ -1,4 +1,6 @@
+# SPDX-FileCopyrightText: 2025 Bandit <queenjess521@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 grub <unalterableness@gmail.com>
 # SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -7,7 +9,7 @@
 - type: entity
   parent: PersonalAI
   id: GoldPersonalAI
-  name: golden deluxe personal ai device
+  name: reinforced gilded personal ai device
   description: Your electronic pal who's fun to be with, now with 200% more shine!
   components:
   - type: Sprite
