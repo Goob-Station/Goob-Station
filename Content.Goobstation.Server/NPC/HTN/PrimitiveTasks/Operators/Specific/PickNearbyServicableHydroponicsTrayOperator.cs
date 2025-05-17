@@ -4,16 +4,16 @@
 
 using System.Threading;
 using System.Threading.Tasks;
+using Content.Goobstation.Shared.Silicon.Bots;
 using Content.Server.Botany.Components;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN.PrimitiveTasks;
 using Content.Server.NPC.Pathfinding;
-using Content.Shared._EinsteinEngines.Silicon.Bots;
 using Content.Shared.Emag.Components;
 using Content.Shared.Interaction;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._EinsteinEngines.NPC.HTN.PrimitiveTasks.Operators.Specific;
+namespace Content.Goobstation.Server.NPC.HTN.PrimitiveTasks.Operators.Specific;
 
 public sealed partial class PickNearbyServicableHydroponicsTrayOperator : HTNOperator
 {

@@ -2,17 +2,16 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Silicon.Components;
 using Content.Shared.Emag.Systems;
 using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.NPC.Systems;
-using Content.Shared.Silicon.Components;
 using Content.Shared.Stunnable;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 
-
-namespace Content.Shared.Silicon.Systems;
+namespace Content.Goobstation.Shared.Silicon;
 
 /// <summary>
 /// Handles emagging entities to change their factions.

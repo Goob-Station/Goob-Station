@@ -4,7 +4,7 @@
 
 using Robust.Shared.Audio;
 
-namespace Content.Shared._EinsteinEngines.Silicon.Bots;
+namespace Content.Goobstation.Shared.Silicon.Bots;
 
 /// <summary>
 /// Used by the server for NPC Plantbot servicing.

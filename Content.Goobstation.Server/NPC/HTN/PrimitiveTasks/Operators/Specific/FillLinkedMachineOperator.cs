@@ -2,11 +2,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Silicon.Bots;
 using Content.Server.Disposal.Unit.Components;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.HTN.PrimitiveTasks;
-using Content.Shared._EinsteinEngines.Silicon.Bots;
 using Content.Shared.Body.Part;
 using Content.Shared.DeviceLinking;
 using Content.Shared.Disposal;
@@ -14,7 +14,7 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Materials;
 
-namespace Content.Server._EinsteinEngines.NPC.HTN.PrimitiveTasks.Operators.Specific;
+namespace Content.Goobstation.Server.NPC.HTN.PrimitiveTasks.Operators.Specific;
 
 public sealed partial class FillLinkedMachineOperator : HTNOperator
 {

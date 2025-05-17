@@ -5,12 +5,12 @@
 using Content.Shared.Emag.Systems;
 using Robust.Shared.Audio.Systems;
 
-namespace Content.Shared._EinsteinEngines.Silicon.Bots;
+namespace Content.Goobstation.Shared.Silicon.Bots;
 
 /// <summary>
-/// Handles emagging Plantbots
+/// Handles emagging Weldbots
 /// </summary>
-public sealed class PlantbotSystem : EntitySystem
+public sealed class WeldbotSystem : EntitySystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
 
@@ -18,10 +18,10 @@ public sealed class PlantbotSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<PlantbotComponent, GotEmaggedEvent>(OnEmagged);
+        SubscribeLocalEvent<WeldbotComponent, GotEmaggedEvent>(OnEmagged);
     }
 
-    private void OnEmagged(EntityUid uid, PlantbotComponent comp, ref GotEmaggedEvent args)
+    private void OnEmagged(EntityUid uid, WeldbotComponent comp, ref GotEmaggedEvent args)
     {
         _audio.PlayPredicted(comp.EmagSparkSound, uid, args.UserUid);
 

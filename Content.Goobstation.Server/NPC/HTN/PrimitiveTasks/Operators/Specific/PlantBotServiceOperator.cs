@@ -2,13 +2,14 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Silicon.Bots;
+using Content.Server.Botany.Components;
+using Content.Server.Botany.Systems;
 using Content.Server.Chat.Systems;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.HTN.PrimitiveTasks;
-using Content.Shared._EinsteinEngines.Silicon.Bots;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Prototypes;
 using Content.Shared.Emag.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
@@ -16,20 +17,25 @@ using Content.Shared.Tag;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._EinsteinEngines.NPC.HTN.PrimitiveTasks.Operators.Specific;
+namespace Content.Goobstation.Server.NPC.HTN.PrimitiveTasks.Operators.Specific;
 
-public sealed partial class WeldbotWeldOperator : HTNOperator
+public sealed partial class PlantbotServiceOperator : HTNOperator
 {
     [Dependency] private readonly IEntityManager _entMan = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+
     private ChatSystem _chat = default!;
-    private WeldbotSystem _weldbot = default!;
     private SharedAudioSystem _audio = default!;
     private SharedInteractionSystem _interaction = default!;
     private SharedPopupSystem _popup = default!;
+    private PlantHolderSystem _plantHolderSystem = default!;
     private DamageableSystem _damageableSystem = default!;
     private TagSystem _tagSystem = default!;
 
+    public const float RequiredWaterLevelToService = 80f;
+    public const float RequiredWeedsAmountToWeed = 1f;
+    public const float WaterTransferAmount = 10f;
+    public const float WeedsRemovedAmount = 1f;
     public const string SiliconTag = "SiliconMob";
 
     /// <summary>
@@ -41,13 +47,12 @@ public sealed partial class WeldbotWeldOperator : HTNOperator
     public override void Initialize(IEntitySystemManager sysManager)
     {
         base.Initialize(sysManager);
+
         _chat = sysManager.GetEntitySystem<ChatSystem>();
-        _weldbot = sysManager.GetEntitySystem<WeldbotSystem>();
         _audio = sysManager.GetEntitySystem<SharedAudioSystem>();
         _interaction = sysManager.GetEntitySystem<SharedInteractionSystem>();
         _popup = sysManager.GetEntitySystem<SharedPopupSystem>();
-        _damageableSystem = sysManager.GetEntitySystem<DamageableSystem>();
-        _tagSystem = sysManager.GetEntitySystem<TagSystem>();
+        _plantHolderSystem = sysManager.GetEntitySystem<PlantHolderSystem>();
     }
 
     public override void TaskShutdown(NPCBlackboard blackboard, HTNOperatorStatus status)
@@ -63,34 +68,34 @@ public sealed partial class WeldbotWeldOperator : HTNOperator
         if (!blackboard.TryGetValue<EntityUid>(TargetKey, out var target, _entMan) || _entMan.Deleted(target))
             return HTNOperatorStatus.Failed;
 
-        var tagPrototype = _prototypeManager.Index<TagPrototype>(SiliconTag);
-
-        if (!_entMan.TryGetComponent<TagComponent>(target, out var tagComponent) || !_tagSystem.HasTag(tagComponent, tagPrototype)
-            || !_entMan.TryGetComponent<WeldbotComponent>(owner, out var botComp)
-            || !_entMan.TryGetComponent<DamageableComponent>(target, out var damage)
+        if (!_entMan.TryGetComponent<PlantbotComponent>(owner, out var botComp)
+            || !_entMan.TryGetComponent<PlantHolderComponent>(target, out var plantHolderComponent)
             || !_interaction.InRangeUnobstructed(owner, target)
-            || (damage.DamagePerGroup["Brute"].Value == 0 && !_entMan.HasComponent<EmaggedComponent>(owner)))
+            || (plantHolderComponent is { WaterLevel: >= RequiredWaterLevelToService, WeedLevel: <= RequiredWeedsAmountToWeed } && (!_entMan.HasComponent<EmaggedComponent>(owner) || plantHolderComponent.Dead || plantHolderComponent.WaterLevel <= 0f)))
             return HTNOperatorStatus.Failed;
 
         if (botComp.IsEmagged)
         {
-            if (!_prototypeManager.TryIndex<DamageGroupPrototype>("Burn", out var prototype))
-                return HTNOperatorStatus.Failed;
-
-            _damageableSystem.TryChangeDamage(target, new DamageSpecifier(prototype, 10), true, false, damage);
+            _plantHolderSystem.AdjustWater(target, -WaterTransferAmount);
+            _audio.PlayPvs(botComp.RemoveWaterSound, target);
         }
         else
         {
-            if (!_prototypeManager.TryIndex<DamageGroupPrototype>("Brute", out var prototype))
+            if (plantHolderComponent.WaterLevel <= RequiredWaterLevelToService)
+            {
+                _plantHolderSystem.AdjustWater(target, 10);
+                _audio.PlayPvs(botComp.WaterSound, target);
+                _chat.TrySendInGameICMessage(owner, Loc.GetString("plantbot-add-water"), InGameICChatType.Speak, hideChat: true, hideLog: true);
+            }
+            else if (plantHolderComponent.WeedLevel >= RequiredWeedsAmountToWeed)
+            {
+                plantHolderComponent.WeedLevel -= WeedsRemovedAmount;
+                _audio.PlayPvs(botComp.WeedSound, target);
+                _chat.TrySendInGameICMessage(owner, Loc.GetString("plantbot-remove-weeds"), InGameICChatType.Speak, hideChat: true, hideLog: true);
+            }
+            else
                 return HTNOperatorStatus.Failed;
-
-            _damageableSystem.TryChangeDamage(target, new DamageSpecifier(prototype, -50), true, false, damage);
         }
-
-        _audio.PlayPvs(botComp.WeldSound, target);
-
-        if(damage.DamagePerGroup["Brute"].Value == 0) //only say "all done if we're actually done!"
-            _chat.TrySendInGameICMessage(owner, Loc.GetString("weldbot-finish-weld"), InGameICChatType.Speak, hideChat: true, hideLog: true);
 
         return HTNOperatorStatus.Finished;
     }

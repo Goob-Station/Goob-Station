@@ -6,7 +6,7 @@ using Content.Shared.DeviceLinking;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Hands.EntitySystems;
 
-namespace Content.Shared._EinsteinEngines.Silicon.Bots;
+namespace Content.Goobstation.Shared.Silicon.Bots;
 
 public sealed class FillbotSystem : EntitySystem
 {

@@ -5,11 +5,11 @@
 
 using System.Threading;
 using System.Threading.Tasks;
+using Content.Goobstation.Shared.Silicon.Bots;
 using Content.Server.Disposal.Unit.Components;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN.PrimitiveTasks;
 using Content.Server.NPC.Pathfinding;
-using Content.Shared._EinsteinEngines.Silicon.Bots;
 using Content.Shared.Body.Part;
 using Content.Shared.DeviceLinking;
 using Content.Shared.Hands.EntitySystems;
@@ -19,7 +19,7 @@ using Content.Shared.Tag;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._EinsteinEngines.NPC.HTN.PrimitiveTasks.Operators.Specific;
+namespace Content.Goobstation.Server.NPC.HTN.PrimitiveTasks.Operators.Specific;
 
 public sealed partial class PickNearbyFillableItemOperator : HTNOperator
 {

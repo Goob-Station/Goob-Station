@@ -6,7 +6,7 @@ using Content.Shared.Silicons.Bots;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.Silicon.Components;
+namespace Content.Goobstation.Shared.Silicon.Components;
 
 /// <summary>
 /// Replaces the entities' factions when emagged.

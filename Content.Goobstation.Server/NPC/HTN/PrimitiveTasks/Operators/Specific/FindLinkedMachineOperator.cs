@@ -4,14 +4,14 @@
 
 using System.Threading;
 using System.Threading.Tasks;
+using Content.Goobstation.Shared.Silicon.Bots;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN.PrimitiveTasks;
 using Content.Server.NPC.Pathfinding;
-using Content.Shared._EinsteinEngines.Silicon.Bots;
 using Content.Shared.DeviceLinking;
 using Content.Shared.Interaction;
 
-namespace Content.Server._EinsteinEngines.NPC.HTN.PrimitiveTasks.Operators.Specific;
+namespace Content.Goobstation.Server.NPC.HTN.PrimitiveTasks.Operators.Specific;
 
 public sealed partial class FindLinkedMachineOperator : HTNOperator
 {

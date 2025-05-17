@@ -2,7 +2,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Shared._EinsteinEngines.Silicon.Bots;
+namespace Content.Goobstation.Shared.Silicon.Bots;
 
 [RegisterComponent]
 [Access(typeof(FillbotSystem))]
