@@ -12,6 +12,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared._Shitmed.Autodoc.Components;
 using Content.Shared._Shitmed.Autodoc.Systems;
+using Content.Shared.Chat;
 
 namespace Content.Server._Shitmed.Autodoc.Systems;
 

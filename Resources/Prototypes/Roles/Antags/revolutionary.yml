@@ -34,7 +34,6 @@
   id: HeadRevGear
   storage:
     back:
-    - Flash
-    - ClothingEyesGlassesSunglasses
+    - RevolutionaryManifesto
     - EncryptionKeySyndie # Goobstation
     - RevsFastDrawImplanter # Goobstation
