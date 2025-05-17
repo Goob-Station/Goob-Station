@@ -27,3 +27,7 @@ research-technology-accessibility = Crew Assistance Technologies
 research-technology-bluespace-theory = Bluespace Theory
 research-technology-rescue = Advanced Rescue Equipment
 research-technology-energy-bolt-weaponry = Energy Bolt Weaponry
+research-technology-mag-fed-pistol = Energy Cell Handguns
+research-technology-mag-fed-smg = Energy Cell Sub Machine Guns
+research-technology-mag-fed-sniper = Energy Cell Snipers
+research-technology-mag-fed-lmg = Energy Cell Light Machine Guns

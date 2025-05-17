@@ -300,6 +300,12 @@
   id: Kidneys
 
 - type: Tag
+  id: LaserLMG
+
+- type: Tag
+  id: LaserLMGBackpack
+
+- type: Tag
   id: Liver
 
 - type: Tag
@@ -334,6 +340,21 @@
 
 - type: Tag
   id: MedicalPatch
+
+- type: Tag
+  id: MilitaryPowerCell
+
+- type: Tag
+  id: MilitaryPowerCellLMG
+
+- type: Tag
+  id: MilitaryPowerCellRevolver
+
+- type: Tag
+  id: MilitaryPowerCellSniper
+
+- type: Tag
+  id: MilitaryPowerCellSMG
 
 - type: Tag
   id: ModsuitBoots
