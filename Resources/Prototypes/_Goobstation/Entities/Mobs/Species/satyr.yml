@@ -1,0 +1,45 @@
+- type: entity
+  parent: BaseMobSpeciesOrganic
+  id: BaseMobSatyr
+  name: Urist McGoat
+  abstract: true
+  components:
+  - type: Hunger
+  - type: Icon # It will not have an icon in the adminspawn menu without this. Body parts seem fine for whatever reason.
+    sprite: _Goobstation/Mobs/Species/Satyr/parts.rsi
+    state: full
+  - type: Thirst
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeat
+      amount: 5
+  - type: Body
+    prototype: Satyr
+    requiredLegs: 2
+  - type: HumanoidAppearance
+    species: Satyr
+    hideLayersOnEquip:
+    - Hair
+    - Snout
+  - type: MeleeWeapon
+    altDisarm: false
+    heavyStaminaCost: 1.5
+    damage:
+      types:
+        Blunt: 8
+  - type: Inventory
+    templateId: satyr
+  - type: BleatingAccent
+  - type: Fixtures
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 195 # a little dense
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
