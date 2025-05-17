@@ -7,6 +7,8 @@
 // SPDX-FileCopyrightText: 2023 Vasilis <vasilis@pikachu.systems>
 // SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -24,6 +26,9 @@ namespace Content.Shared.PowerCell;
 public sealed partial class PowerCellComponent : Component
 {
     public const int PowerCellVisualsLevels = 2;
+
+    [DataField]
+    public PowerCellSize Size = PowerCellSize.Small;
 }
 
 [Serializable, NetSerializable]
@@ -36,3 +41,13 @@ public enum PowerCellSlotVisuals : byte
 {
     Enabled
 }
+
+// Goobstation Change - TOTAL IPC DEATH.
+[Serializable, NetSerializable]
+public enum PowerCellSize : int
+{
+    Small = 1,
+    Large = 2
+}
+
+
