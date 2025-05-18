@@ -9658,3 +9658,13 @@ Entries:
       message: Reduced DEsword reflect chance slightly.
   id: 1081
   time: '2025-05-18T20:35:44.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        The binary channel now uses the collective mind system. Silicons should
+        now use +b to speak in binary.
+    - type: Remove
+      message: Binary translator keys.
+  id: 1082
+  time: '2025-05-18T20:47:11.0000000+00:00'
