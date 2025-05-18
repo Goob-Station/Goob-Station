@@ -297,7 +297,7 @@
 #        - "enum.HumanoidVisualLayers.RLeg"
 #      damageOverlayGroups:
 #        Brute:
-#          sprite: Mobs/Effects/brute_damage.rsi
+#          sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
 #          color: "#DD8822"
     # Organs
     - type: IdExaminable
