@@ -9530,3 +9530,23 @@ Entries:
         can be used on your objectives to start tracking them down.
   id: 1065
   time: '2025-05-18T15:29:01.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Add
+      message: Psyclogist to loop
+    - type: Add
+      message: mail to loop
+    - type: Add
+      message: office chairs to loop
+    - type: Add
+      message: public lavaland to loop
+    - type: Tweak
+      message: AI sat on loop
+    - type: Tweak
+      message: silo position
+    - type: Tweak
+      message: armory
+    - type: Fix
+      message: NTR and BSO spawn
+  id: 1066
+  time: '2025-05-18T16:24:11.0000000+00:00'
