@@ -159,6 +159,9 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+
+# Goobstation
+# This entity? This stupid entity right here? This is the future of borg technology baby. Even more customizable than BaseBorgChassis already was.
 - type: entity
   parent: [BaseMob, StripableInventoryBase]
   id: BaseBaseBorgChassis
@@ -272,8 +275,6 @@
       - RoboticsConsole
   - type: WiresPanel
   - type: ActivatableUIRequiresPanel
-  - type: NameIdentifier
-    group: Silicon
   - type: ContainerContainer
     containers:
       borg_brain: !type:ContainerSlot { }

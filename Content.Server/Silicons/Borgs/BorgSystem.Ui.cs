@@ -119,7 +119,7 @@ public sealed partial class BorgSystem
             hasBattery = true;
             chargePercent = battery.CurrentCharge / battery.MaxCharge;
         }
-        else if (TryComp<BatteryComponent>(uid, out var internalBattery))
+        else if (TryComp<BatteryComponent>(uid, out var internalBattery)) // goob edit, some borgs have batteries built in
         {
             hasBattery = true;
             chargePercent = internalBattery.CurrentCharge / internalBattery.MaxCharge;

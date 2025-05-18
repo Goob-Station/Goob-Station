@@ -218,17 +218,17 @@ public sealed partial class BorgSystem : SharedBorgSystem
         /* Goobstation
            Save the name of the pAI.*/
         if (HasComp<PAIComponent>(args.Entity))
-            pAIName = $" ({Name(args.Entity)})";
+            pAIName = $"({Name(args.Entity)})";
         if (HasComp<BorgBrainComponent>(args.Entity) && _mind.TryGetMind(args.Entity, out var mindId, out var mind) && args.Container == component.BrainContainer)
         {
             _mind.TransferTo(mindId, uid, mind: mind);
-            /* Goobstation
-             * apply the saved name (example: Urist McHands pAI) to the end of the pOrgs
-             * if anyone ever steals this code but wants to append pAI name onto normal borgs they can just change the fixed string of pOrg
-             */
         }
+        /* Goobstation
+        * apply the saved name (example: Urist McHands pAI) to the end of the pOrgs
+        * if anyone ever steals this code but wants to append pAI name onto normal borgs they can just change the fixed string of pOrg
+        */
         if (pAIName != null)
-            _metaData.SetEntityName(args.Container.Owner, $"pOrg{pAIName}");
+            _metaData.SetEntityName(args.Container.Owner, $"pOrg {pAIName}");
     }
 
     protected override void OnRemoved(EntityUid uid, BorgChassisComponent component, EntRemovedFromContainerMessage args)
@@ -381,11 +381,11 @@ public sealed partial class BorgSystem : SharedBorgSystem
                 continue;
             if (paiComponent.LastUser != null)
             {
-                var userName = Name(paiComponent.LastUser.Value);
+                string? userName = Loc.GetString("pai-system-pai-name", ("owner", paiComponent.LastUser));
                 if (!string.IsNullOrWhiteSpace(userName))
-                    pAIName = $" ({userName}'s pAI)";
+                    pAIName = $"({userName}'s pAI)";
             }
-            _metaData.SetEntityName(uid, $"pOrg{pAIName}");
+            _metaData.SetEntityName(uid, $"pOrg {pAIName}");
         }
 
         Popup.PopupEntity(Loc.GetString("borg-mind-added", ("name", Identity.Name(uid, EntityManager))), uid);
