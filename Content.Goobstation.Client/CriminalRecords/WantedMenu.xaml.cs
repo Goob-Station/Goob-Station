@@ -93,14 +93,10 @@ public sealed partial class WantedMenu : FancyWindow
         PersonJob.Text = stationRecord.JobTitle ?? "Unknown";
 
         if (_prototypeManager.TryIndex<JobIconPrototype>(stationRecord.JobIcon, out var proto))
-        {
             PersonJobIcon.Texture = _spriteSystem.Frame0(proto.Icon);
-        }
-
         if (criminalRecord.Status != SecurityStatus.None)
-        {
             specifier = new SpriteSpecifier.Rsi(new ResPath("Interface/Misc/security_icons.rsi"),  GetStatusIcon(criminalRecord.Status));
-        }
+
         PersonStatusTX.SetFromSpriteSpecifier(specifier);
         PersonStatusTX.DisplayRect.TextureScale = new Vector2(3f, 3f);
 
@@ -110,14 +106,9 @@ public sealed partial class WantedMenu : FancyWindow
             var message = FormattedMessage.FromMarkupOrThrow(Loc.GetString("criminal-records-console-wanted-reason"));
 
             if (criminalRecord.Status == SecurityStatus.Suspected)
-            {
                 message = FormattedMessage.FromMarkupOrThrow(Loc.GetString("criminal-records-console-suspected-reason"));
-            }
-
             if (criminalRecord.Status == SecurityStatus.Suspected)
-            {
                 message = FormattedMessage.FromMarkupOrThrow(Loc.GetString("criminal-records-console-suspected-reason"));
-            }
             message.AddText($": {reason}");
 
             WantedReason.SetMessage(message);

@@ -96,9 +96,7 @@ public sealed class IdExaminableSystem : EntitySystem
             Act = () =>
             {
                 if (_net.IsClient)
-                {
                     _examineSystem.SendExamineTooltip(args.User, uid, markup, true, false);
-                }
                 if (!_inventorySystem.TryGetSlotEntity(args.User, "eyes", out var eyes))
                     return;
                 if (!TryComp<ShowCriminalRecordIconsComponent>(eyes, out var _))
