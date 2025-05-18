@@ -41,5 +41,5 @@ names-borg-dataset-40 = Clanker
 names-borg-dataset-41 = Is-The-Robot
 names-borg-dataset-42 = 9 of 7
 names-borg-dataset-43 = Dank bot
-names-borg-dataset-44 = Ski-Botty
-names-borg-dataset-45 = Hawk-2A
+names-borg-dataset-44 = AUT0
+names-borg-dataset-45 = Delta
