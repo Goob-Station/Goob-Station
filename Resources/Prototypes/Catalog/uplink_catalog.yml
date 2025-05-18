@@ -1184,6 +1184,7 @@
   - !type:StoreWhitelistCondition
     blacklist:
       tags:
+      - NukeOpsUplink
       - ContravendUplink
   - !type:BuyerWhitelistCondition
     blacklist:
@@ -1203,6 +1204,7 @@
   - !type:StoreWhitelistCondition
     blacklist:
       tags:
+      - NukeOpsUplink
       - ContravendUplink
   - !type:BuyerWhitelistCondition
     blacklist:
