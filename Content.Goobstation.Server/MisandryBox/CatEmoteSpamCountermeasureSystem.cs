@@ -3,11 +3,10 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Linq;
 using Content.Goobstation.Common.MisandryBox;
-using Content.Goobstation.Common.Speech;
 using Content.Goobstation.Shared.MisandryBox.Smites;
 using Content.Server.Chat.Systems;
+using Content.Shared.Chat.Prototypes;
 using Content.Shared.Speech;
 
 namespace Content.Goobstation.Server.MisandryBox;
@@ -63,14 +62,8 @@ public sealed class CatEmoteSpamCountermeasureSystem : EntitySystem
 
     private void OnEmoteEvent(Entity<SpeechComponent> ent, ref EmoteEvent args)
     {
-        if (args.Emote.Whitelist?.Tags is null)
-            return;
-
-        foreach (var tag in args.Emote.Whitelist.Tags
-                     .Where(tag => _emoteTags.Contains(tag.Id)))
-        {
+        if (args.Emote.Category is EmoteCategory.Vocal or EmoteCategory.Farts)
             Add(ent.Owner);
-        }
     }
 
     private void Add(EntityUid uid)
