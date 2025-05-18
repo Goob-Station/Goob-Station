@@ -412,7 +412,7 @@
   reactants:
     Tramadol:
       amount: 1
-    Heroin: # replace with heroin
+    Heroin:
       amount: 1
     Epinephrine:
       amount: 1
