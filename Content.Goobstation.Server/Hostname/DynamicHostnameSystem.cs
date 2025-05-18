@@ -45,6 +45,7 @@ public sealed class DynamicHostnameSystem : EntitySystem
         _originalHostname = _configuration.GetCVar(CVars.GameHostName);
         _nextUpdateTime = _gameTiming.CurTime + _updateInterval;
         _messages = _proto.Index(_messagesProto);
+        UpdateHostname()
     }
 
     private void OnHubAdIntChange(int newValue)
