@@ -9518,3 +9518,15 @@ Entries:
       message: Steel costs less ore to smelt.
   id: 1064
   time: '2025-05-17T19:03:05.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Add
+      message: >-
+        Added 4 new types of pinpointers: Artifact, Anomaly, Borg and Station.
+        They're obtainable in RnD.
+    - type: Add
+      message: >-
+        Added Thieving pinpointer to Thief's starting inventory. While off, it
+        can be used on your objectives to start tracking them down.
+  id: 1065
+  time: '2025-05-18T15:29:01.0000000+00:00'
