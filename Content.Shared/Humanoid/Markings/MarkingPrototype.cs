@@ -9,6 +9,7 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Goobstation.Common.MisandryBox;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
@@ -45,6 +46,9 @@ namespace Content.Shared.Humanoid.Markings
 
         [DataField("sprites", required: true)]
         public List<SpriteSpecifier> Sprites { get; private set; } = default!;
+
+        [DataField(serverOnly: true)]
+        public MarkingSpecial[] Special { get; private set; } = [];
 
         public Marking AsMarking()
         {

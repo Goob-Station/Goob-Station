@@ -103,6 +103,10 @@
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: floorlength_bedhead
+  special: # misandrybox
+  - !type:AddComponentSpecial
+    components:
+    - type: IgniteMultiplier
 - type: marking
   id: HumanHairBeehive
   bodyPart: Hair
@@ -355,6 +359,10 @@
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: classicfloorlength_bedhead
+  special: # misandrybox
+  - !type:AddComponentSpecial
+    components:
+    - type: IgniteMultiplier
 - type: marking
   id: HumanHairClassicModern
   bodyPart: Hair

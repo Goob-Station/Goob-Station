@@ -126,6 +126,7 @@ using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Server.Damage.Components;
 using Content.Goobstation.Common.CCVar;
+using Content.Goobstation.Common.MisandryBox;
 using Content.Shared._Goobstation.Wizard.Spellblade;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Alert;
@@ -409,7 +410,11 @@ namespace Content.Server.Atmos.EntitySystems
             if (!Resolve(uid, ref flammable))
                 return;
 
-            SetFireStacks(uid, flammable.FireStacks + relativeFireStacks, flammable, ignite);
+            // Goob - Ignite multiplier
+            var ev = new BeforeIgniteFirestacksEvent(uid, relativeFireStacks);
+            RaiseLocalEvent(uid, ref ev);
+
+            SetFireStacks(uid, flammable.FireStacks + ev.FireStacks, flammable, ignite);
         }
 
         public void SetFireStacks(EntityUid uid, float stacks, FlammableComponent? flammable = null, bool ignite = false)
