@@ -137,6 +137,7 @@
   name: guide-entry-sop-security
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Security/SecuritySOP.xml"
   children:
+  - Brigmedic SOP
   - Warden SOP
   - OfficerCadet SOP
   - Detective SOP
@@ -384,6 +385,12 @@
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Science/RoboticistSOP.xml"
 
 # Security SOP Entries
+
+- type: guideEntry
+  id: Brigmedic SOP
+  name: guide-entry-sop-brigmedic
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Security/BrigmedicSOP.xml"
+
 - type: guideEntry
   id: Detective SOP
   name: guide-entry-sop-detective

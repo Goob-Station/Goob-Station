@@ -43,3 +43,20 @@
         amount: 1
   - type: Sprite
     sprite: _Goobstation/Objects/Storage/boxes.rsi
+
+- type: entity
+  name: autoinjector cartridge box
+  parent: BoxCardboard
+  id: BoxAutoinjectorCartidges
+  description: A box with autoinjector cartridges.
+  components:
+  - type: StorageFill
+    contents:
+    - id: CartridgeSaline
+      amount: 3
+    - id: CartridgeBicaridine
+      amount: 3
+    - id: CartridgeDermaline
+      amount: 3
+  - type: Sprite
+    sprite: _Goobstation/Objects/Storage/boxes.rsi

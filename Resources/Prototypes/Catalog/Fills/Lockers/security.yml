@@ -185,20 +185,16 @@
   - type: StorageFill
     contents: # heavily good edited
       - id: ParamedHypo
-      - id: CartridgeSaline
-        amount: 3
-      - id: CartridgeBicaridine
-        amount: 3
-      - id: CartridgeDermaline
-        amount: 3
-      - id: ClothingBackpackDuffelSurgeryFilled #- id: OmnimedTool
+      - id: BoxAutoinjectorCartidges
+      - id: ClothingBackpackDuffelSurgeryFilled #- id: OmnimedTool - uncomment after omnitool nerf
       - id: ClothingEyesGlassesMed
+      - id: ClothingHeadHatBeretBrigmedic
       - id: ClothingOuterCoatAMG
-      - id: ClothingOuterHardsuitBrigmedic # This is bullshit but it's being changed in another PR so I'll let it slide
+      - id: ClothingOuterHardsuitBrigmedic
       - id: OxygenTankFilled
       - id: NitrogenTankFilled
       - id: MedkitOxygenFilled # This one is guaranteed
-      # Plus 3 medkits on average, should be more than enough round start
+      # And extra 3 medkits on average, with autoinjectors and surgery tools should be more than enough round start
       - id: MedkitFilled
         prob: 0.75
       - id: MedkitBruteFilled
