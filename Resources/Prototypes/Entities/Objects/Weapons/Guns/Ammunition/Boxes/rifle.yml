@@ -24,17 +24,17 @@
   parent: BaseItem
   id: BaseMagazineBoxRifle
   components:
-  # backmen edit start
+  # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
-      path: /Audio/Backmen/Items/handling/ammobox_pickup.ogg
+      path: /Audio/_Goobstation/Items/handling/ammobox_pickup.ogg
   - type: EmitSoundOnDrop
     sound:
-      path: /Audio/Backmen/Items/handling/ammobox_drop.ogg
+      path: /Audio/_Goobstation/Items/handling/ammobox_drop.ogg
   - type: EmitSoundOnLand
     sound:
-      path: /Audio/Backmen/Items/handling/ammobox_drop.ogg
-  # backmen edit end
+      path: /Audio/_Goobstation/Items/handling/ammobox_drop.ogg
+  # Goobstation edit end
   - type: BallisticAmmoProvider
     mayTransfer: true
     whitelist:

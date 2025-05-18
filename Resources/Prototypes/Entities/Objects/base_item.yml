@@ -98,7 +98,7 @@
   id: BaseItem
   abstract: true
   components:
-  # backmen edit start
+  # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
       collection: GenericPickup
@@ -112,7 +112,7 @@
   # - type: EmitSoundOnLand
     # sound:
       # collection: GenericDrop
-  # backmen edit end
+  # Goobstation edit end
   - type: Item
     size: Small
   - type: Animateable

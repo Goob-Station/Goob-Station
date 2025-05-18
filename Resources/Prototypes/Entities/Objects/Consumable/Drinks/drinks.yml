@@ -210,14 +210,14 @@
   id: DrinkGlassBase
   abstract: true
   components:
-  # backmen edit start
+  # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
-      path: /Audio/Backmen/Items/handling/drinkglass_pickup.ogg
+      path: /Audio/_Goobstation/Items/handling/drinkglass_pickup.ogg
   - type: EmitSoundOnDrop
     sound:
-      path: /Audio/Backmen/Items/handling/drinkglass_drop.ogg
-  # backmen edit end
+      path: /Audio/_Goobstation/Items/handling/drinkglass_drop.ogg
+  # Goobstation edit end
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Glass
@@ -2490,7 +2490,7 @@
       drink:
         maxVol: 30
         reagents:
-        - ReagentId: Daiquiri 
+        - ReagentId: Daiquiri
           Quantity: 30
   - type: Icon
     sprite: Objects/Consumable/Drinks/daiquiri.rsi

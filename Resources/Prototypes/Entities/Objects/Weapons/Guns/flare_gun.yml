@@ -68,23 +68,23 @@
       - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/flaregun.ogg
-  # backmen edit start
+  # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
-      path: /Audio/Backmen/Items/handling/gun_pickup.ogg
+      path: /Audio/_Goobstation/Items/handling/gun_pickup.ogg
       params:
         volume: -8
   - type: EmitSoundOnDrop
-    sound: 
-      path: /Audio/Backmen/Items/handling/gun_drop.ogg
+    sound:
+      path: /Audio/_Goobstation/Items/handling/gun_drop.ogg
       params:
         volume: -8
   - type: EmitSoundOnLand
     sound:
-      path: /Audio/Backmen/Items/handling/gun_drop.ogg
+      path: /Audio/_Goobstation/Items/handling/gun_drop.ogg
       params:
         volume: -8
-  # backmen edit end
+  # Goobstation edit end
 
 - type: entity
   name: security shell gun

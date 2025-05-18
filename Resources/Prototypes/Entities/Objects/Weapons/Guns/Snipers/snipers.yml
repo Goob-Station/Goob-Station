@@ -107,7 +107,7 @@
         ents: []
   - type: StaticPrice
     price: 500
-  # backmen edit start
+  # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
       collection: SnipersPickUp
@@ -117,7 +117,7 @@
   - type: EmitSoundOnLand
     sound:
       collection: SnipersDrop
-  # backmen edit start
+  # Goobstation edit start
 
 # Goobstation - Start - I decided to put it here, because it changes Hristov.
 - type: entity

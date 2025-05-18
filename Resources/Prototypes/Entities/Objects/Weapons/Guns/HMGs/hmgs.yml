@@ -110,7 +110,7 @@
   - type: StaticPrice
     price: 500
   # No chamber because HMG may want its own
-  # backmen edit start
+  # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
       collection: SnipersPickUp
@@ -120,7 +120,7 @@
   - type: EmitSoundOnLand
     sound:
       collection: SnipersDrop
-  # backmen edit start
+  # Goobstation edit start
 
 - type: entity
   name: minigun

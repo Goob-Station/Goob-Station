@@ -33,14 +33,14 @@
   id: ClothingHeadHatHardhatBase
   abstract: true
   components:
-  # backmen edit start
+  # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
-      path: /Audio/Backmen/Items/handling/helmet_pickup.ogg
+      path: /Audio/_Goobstation/Items/handling/helmet_pickup.ogg
   - type: EmitSoundOnDrop
     sound:
-      path: /Audio/Backmen/Items/handling/helmet_drop.ogg
-  # backmen edit end
+      path: /Audio/_Goobstation/Items/handling/helmet_drop.ogg
+  # Goobstation edit end
   - type: Sprite
     layers:
     - state: icon

@@ -146,7 +146,7 @@
     wideAnimationRotation: 90 # when/if bayonets get added (to rifles) set this to -90
     soundHit:
       collection: MetalThud # Goobstation ^
-  # backmen edit start
+  # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
       collection: RiflesPickUp
@@ -156,7 +156,7 @@
   - type: EmitSoundOnLand
     sound:
       collection: RiflesDrop
-  # backmen edit start
+  # Goobstation edit start
 
 - type: entity
   name: AKM

@@ -87,14 +87,14 @@
   id: BaseCrowbar
   abstract: true
   components:
-  # backmen edit start
+  # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
-      path: /Audio/Backmen/Items/handling/crowbar_pickup.ogg
+      path: /Audio/_Goobstation/Items/handling/crowbar_pickup.ogg
   - type: EmitSoundOnDrop
     sound:
       path: /Audio/Items/crowbar_drop.ogg
-  # backmen edit end
+  # Goobstation edit end
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Items/crowbar_drop.ogg

@@ -24,17 +24,17 @@
   description: What?
   abstract: true
   components:
-    # backmen edit start
+    # Goobstation edit start
     - type: EmitSoundOnPickup
       sound:
-        path: /Audio/Backmen/Items/handling/component_pickup.ogg
+        path: /Audio/_Goobstation/Items/handling/component_pickup.ogg
     - type: EmitSoundOnDrop
       sound:
-        path: /Audio/Backmen/Items/handling/component_drop.ogg
+        path: /Audio/_Goobstation/Items/handling/component_drop.ogg
     - type: EmitSoundOnLand
       sound:
-        path: /Audio/Backmen/Items/handling/component_drop.ogg
-    # backmen edit end
+        path: /Audio/_Goobstation/Items/handling/component_drop.ogg
+    # Goobstation edit end
     - type: Sprite
       sprite: Objects/Misc/stock_parts.rsi
     - type: Item

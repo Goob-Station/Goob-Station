@@ -123,14 +123,14 @@
   name: base cup
   abstract: true
   components:
-  # backmen edit start
+  # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
-      path: /Audio/Backmen/Items/other/Cup/pickup.ogg
+      path: /Audio/_Goobstation/Items/other/Cup/pickup.ogg
   - type: EmitSoundOnDrop
     sound:
-      path: /Audio/Backmen/Items/other/Cup/drop.ogg
-  # backmen edit end
+      path: /Audio/_Goobstation/Items/other/Cup/drop.ogg
+  # Goobstation edit end
   - type: SolutionContainerManager
     solutions:
       drink:

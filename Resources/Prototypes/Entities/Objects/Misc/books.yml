@@ -100,17 +100,17 @@
   id: BookBase
   description: A hardcover book.
   components:
-   # backmen edit start
+   # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
-      path: /Audio/Backmen/Items/handling/book_pickup.ogg
+      path: /Audio/_Goobstation/Items/handling/book_pickup.ogg
   - type: EmitSoundOnDrop
     sound:
-      path: /Audio/Backmen/Items/handling/book_drop.ogg
+      path: /Audio/_Goobstation/Items/handling/book_drop.ogg
   - type: EmitSoundOnLand
     sound:
-      path: /Audio/Backmen/Items/handling/book_drop.ogg
-  # backmen edit end
+      path: /Audio/_Goobstation/Items/handling/book_drop.ogg
+  # Goobstation edit end
   - type: Sprite
     sprite: Objects/Misc/books.rsi
     layers:

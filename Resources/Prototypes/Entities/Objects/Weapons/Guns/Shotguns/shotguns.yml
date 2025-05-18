@@ -112,7 +112,7 @@
         ents: []
   - type: StaticPrice
     price: 500
-  # backmen edit start
+  # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
       collection: ShotgunsPickUp
@@ -122,7 +122,7 @@
   - type: EmitSoundOnLand
     sound:
       collection: ShotgunsDrop
-  # backmen edit start
+  # Goobstation edit start
 
 - type: entity
   name: Bulldog

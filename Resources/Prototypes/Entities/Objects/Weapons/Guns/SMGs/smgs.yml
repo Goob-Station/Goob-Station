@@ -119,7 +119,7 @@
   - type: StaticPrice
     price: 500
   - type: Multishot # Goobstation
-  # backmen edit start
+  # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
       collection: SMGPickUp
@@ -129,7 +129,7 @@
   - type: EmitSoundOnLand
     sound:
       collection: SMGDrop
-  # backmen edit start
+  # Goobstation edit start
 
 - type: entity
   name: Atreides

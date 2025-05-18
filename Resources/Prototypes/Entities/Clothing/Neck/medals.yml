@@ -17,17 +17,17 @@
   name: bronzeheart medal
   description: Given to crewmates for exemplary bravery in the face of danger.
   components:
-  # backmen edit start
+  # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
-      path: /Audio/Backmen/Items/handling/accessory_pickup.ogg
+      path: /Audio/_Goobstation/Items/handling/accessory_pickup.ogg
   - type: EmitSoundOnDrop
     sound:
-      path: /Audio/Backmen/Items/handling/accessory_drop.ogg
+      path: /Audio/_Goobstation/Items/handling/accessory_drop.ogg
   - type: EmitSoundOnLand
     sound:
-      path: /Audio/Backmen/Items/handling/accessory_drop.ogg
-  # backmen edit end
+      path: /Audio/_Goobstation/Items/handling/accessory_drop.ogg
+  # Goobstation edit end
   - type: Sprite
     sprite: Clothing/Neck/Medals/bronzeheart.rsi
   - type: Clothing
@@ -42,17 +42,17 @@
   name: gold medal of crewmanship
   description: Given to crewmates who display excellent crewmanship.
   components:
-  # backmen edit start
+  # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
-      path: /Audio/Backmen/Items/handling/accessory_pickup.ogg
+      path: /Audio/_Goobstation/Items/handling/accessory_pickup.ogg
   - type: EmitSoundOnDrop
     sound:
-      path: /Audio/Backmen/Items/handling/accessory_drop.ogg
+      path: /Audio/_Goobstation/Items/handling/accessory_drop.ogg
   - type: EmitSoundOnLand
     sound:
-      path: /Audio/Backmen/Items/handling/accessory_drop.ogg
-  # backmen edit end
+      path: /Audio/_Goobstation/Items/handling/accessory_drop.ogg
+  # Goobstation edit end
   - type: Sprite
     sprite: Clothing/Neck/Medals/gold.rsi
   - type: Clothing
@@ -69,17 +69,17 @@
   name: cargo medal
   description: Given for the best work in the cargo department.
   components:
-  # backmen edit start
+  # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
-      path: /Audio/Backmen/Items/handling/accessory_pickup.ogg
+      path: /Audio/_Goobstation/Items/handling/accessory_pickup.ogg
   - type: EmitSoundOnDrop
     sound:
-      path: /Audio/Backmen/Items/handling/accessory_drop.ogg
+      path: /Audio/_Goobstation/Items/handling/accessory_drop.ogg
   - type: EmitSoundOnLand
     sound:
-      path: /Audio/Backmen/Items/handling/accessory_drop.ogg
-  # backmen edit end
+      path: /Audio/_Goobstation/Items/handling/accessory_drop.ogg
+  # Goobstation edit end
   - type: Sprite
     sprite: Clothing/Neck/Medals/cargomedal.rsi
   - type: Clothing
@@ -94,17 +94,17 @@
   name: engineer medal
   description: Given for the best work in the engineering department.
   components:
-  # backmen edit start
+  # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
-      path: /Audio/Backmen/Items/handling/accessory_pickup.ogg
+      path: /Audio/_Goobstation/Items/handling/accessory_pickup.ogg
   - type: EmitSoundOnDrop
     sound:
-      path: /Audio/Backmen/Items/handling/accessory_drop.ogg
+      path: /Audio/_Goobstation/Items/handling/accessory_drop.ogg
   - type: EmitSoundOnLand
     sound:
-      path: /Audio/Backmen/Items/handling/accessory_drop.ogg
-  # backmen edit end
+      path: /Audio/_Goobstation/Items/handling/accessory_drop.ogg
+  # Goobstation edit end
   - type: Sprite
     sprite: Clothing/Neck/Medals/engineermedal.rsi
   - type: Clothing
@@ -119,17 +119,17 @@
   name: medical medal
   description: Given for the best work in the medical department.
   components:
-  # backmen edit start
+  # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
-      path: /Audio/Backmen/Items/handling/accessory_pickup.ogg
+      path: /Audio/_Goobstation/Items/handling/accessory_pickup.ogg
   - type: EmitSoundOnDrop
     sound:
-      path: /Audio/Backmen/Items/handling/accessory_drop.ogg
+      path: /Audio/_Goobstation/Items/handling/accessory_drop.ogg
   - type: EmitSoundOnLand
     sound:
-      path: /Audio/Backmen/Items/handling/accessory_drop.ogg
-  # backmen edit end
+      path: /Audio/_Goobstation/Items/handling/accessory_drop.ogg
+  # Goobstation edit end
   - type: Sprite
     sprite: Clothing/Neck/Medals/medicalmedal.rsi
   - type: Clothing
@@ -144,17 +144,17 @@
   name: science medal
   description: Given for the best work in the science department.
   components:
-  # backmen edit start
+  # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
-      path: /Audio/Backmen/Items/handling/accessory_pickup.ogg
+      path: /Audio/_Goobstation/Items/handling/accessory_pickup.ogg
   - type: EmitSoundOnDrop
     sound:
-      path: /Audio/Backmen/Items/handling/accessory_drop.ogg
+      path: /Audio/_Goobstation/Items/handling/accessory_drop.ogg
   - type: EmitSoundOnLand
     sound:
-      path: /Audio/Backmen/Items/handling/accessory_drop.ogg
-  # backmen edit end
+      path: /Audio/_Goobstation/Items/handling/accessory_drop.ogg
+  # Goobstation edit end
   - type: Sprite
     sprite: Clothing/Neck/Medals/sciencemedal.rsi
   - type: Clothing
@@ -169,17 +169,17 @@
   name: security medal
   description: Given for the best work in the security department.
   components:
-  # backmen edit start
+  # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
-      path: /Audio/Backmen/Items/handling/accessory_pickup.ogg
+      path: /Audio/_Goobstation/Items/handling/accessory_pickup.ogg
   - type: EmitSoundOnDrop
     sound:
-      path: /Audio/Backmen/Items/handling/accessory_drop.ogg
+      path: /Audio/_Goobstation/Items/handling/accessory_drop.ogg
   - type: EmitSoundOnLand
     sound:
-      path: /Audio/Backmen/Items/handling/accessory_drop.ogg
-  # backmen edit end
+      path: /Audio/_Goobstation/Items/handling/accessory_drop.ogg
+  # Goobstation edit end
   - type: Sprite
     sprite: Clothing/Neck/Medals/securitymedal.rsi
   - type: Clothing
@@ -194,17 +194,17 @@
   name: clown medal
   description: Given for the best joke in the universe. HONK!
   components:
-  # backmen edit start
+  # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
-      path: /Audio/Backmen/Items/handling/accessory_pickup.ogg
+      path: /Audio/_Goobstation/Items/handling/accessory_pickup.ogg
   - type: EmitSoundOnDrop
     sound:
-      path: /Audio/Backmen/Items/handling/accessory_drop.ogg
+      path: /Audio/_Goobstation/Items/handling/accessory_drop.ogg
   - type: EmitSoundOnLand
     sound:
-      path: /Audio/Backmen/Items/handling/accessory_drop.ogg
-  # backmen edit end
+      path: /Audio/_Goobstation/Items/handling/accessory_drop.ogg
+  # Goobstation edit end
   - type: Sprite
     sprite: Clothing/Neck/Medals/clownmedal.rsi
   - type: Clothing

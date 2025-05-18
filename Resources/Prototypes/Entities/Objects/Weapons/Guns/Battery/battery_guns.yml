@@ -176,7 +176,7 @@
     endSound:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
   - type: AlwaysHot # Goobstation
-  # backmen edit start
+  # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
       collection: LasersPickUp
@@ -186,7 +186,7 @@
   - type: EmitSoundOnLand
     sound:
       collection: LasersDrop
-  # backmen edit start
+  # Goobstation edit start
 
 - type: entity
   id: BaseWeaponPowerCell

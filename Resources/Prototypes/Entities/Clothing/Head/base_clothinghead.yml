@@ -108,10 +108,10 @@
   - type: Clothing
     slots:
     - HEAD
-  # backmen edit start
+  # Goobstation edit start
     equipSound:
       collection: GenericEquip
-  # backmen edit end
+  # Goobstation edit end
   - type: Sprite
     state: icon
   - type: Item

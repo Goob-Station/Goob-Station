@@ -96,12 +96,12 @@
         layer:
         - MachineLayer
   - type: EntityStorage
-    # backmen edit start
+    # Goobstation edit start
     closeSound:
-      path: /Audio/Backmen/Machines/crate_close.ogg
+      path: /Audio/_Goobstation/Machines/crate_close.ogg
     openSound:
-      path: /Audio/Backmen/Machines/crate_open.ogg
-    # backmen edit end
+      path: /Audio/_Goobstation/Machines/crate_open.ogg
+    # Goobstation edit end
   - type: PlaceableSurface
     isPlaceable: false # defaults to closed.
   - type: Damageable

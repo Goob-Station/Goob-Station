@@ -33,16 +33,16 @@
   - type: Tag # goob edit
     tags:
     - Mask
-  # backmen edit start
+  # Goobstation edit start
     equipSound:
       collection: GenericEquip
   - type: EmitSoundOnPickup
     sound:
-      path: /Audio/Backmen/Items/handling/generic_small_pickup.ogg
+      path: /Audio/_Goobstation/Items/handling/generic_small_pickup.ogg
   - type: EmitSoundOnDrop
     sound:
-      path: /Audio/Backmen/Items/handling/generic_small_drop.ogg
-  # backmen edit end
+      path: /Audio/_Goobstation/Items/handling/generic_small_drop.ogg
+  # Goobstation edit end
   - type: StaticPrice
     price: 25
   - type: Armor # provide minimal covering to your head

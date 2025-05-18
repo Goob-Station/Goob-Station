@@ -142,23 +142,23 @@
   id: BasePaper
   abstract: true
   components:
-  # backmen edit start
+  # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
-      path: /Audio/Backmen/Items/handling/paper_pickup.ogg
+      path: /Audio/_Goobstation/Items/handling/paper_pickup.ogg
   - type: EmitSoundOnDrop
     sound:
-      path: /Audio/Backmen/Items/handling/paper_drop.ogg
+      path: /Audio/_Goobstation/Items/handling/paper_drop.ogg
   - type: EmitSoundOnUse
     sound:
-      path: /Audio/Backmen/Items/handling/paper_use.ogg
+      path: /Audio/_Goobstation/Items/handling/paper_use.ogg
   - type: EmitSoundOnCollide
     sound:
-      path: /Audio/Backmen/Items/handling/paper_drop.ogg
+      path: /Audio/_Goobstation/Items/handling/paper_drop.ogg
   - type: EmitSoundOnThrow
     sound:
-      path: /Audio/Backmen/Items/handling/paper_throw.ogg
-  # backmen edit end
+      path: /Audio/_Goobstation/Items/handling/paper_throw.ogg
+  # Goobstation edit end
   - type: Tag
     tags:
     - Document

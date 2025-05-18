@@ -108,14 +108,14 @@
   id: Welder
   description: "Melts anything as long as it's fueled, don't forget your eye protection!"
   components:
-  # backmen edit start
+  # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
-      path: /Audio/Backmen/Items/handling/weldingtool_pickup.ogg
+      path: /Audio/_Goobstation/Items/handling/weldingtool_pickup.ogg
   - type: EmitSoundOnDrop
     sound:
       path: /Audio/Items/welder_drop.ogg
-  # backmen edit end
+  # Goobstation edit end
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Items/welder_drop.ogg

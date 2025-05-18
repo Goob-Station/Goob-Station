@@ -27,17 +27,17 @@
   parent: Clothing
   id: UnsensoredClothingUniformBase
   components:
-  # backmen edit start
+  # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
-      path: /Audio/Backmen/Items/handling/cloth_pickup.ogg
+      path: /Audio/_Goobstation/Items/handling/cloth_pickup.ogg
   - type: EmitSoundOnDrop
     sound:
-      path: /Audio/Backmen/Items/handling/cloth_drop.ogg
+      path: /Audio/_Goobstation/Items/handling/cloth_drop.ogg
   - type: EmitSoundOnLand
     sound:
-      path: /Audio/Backmen/Items/handling/cloth_drop.ogg
-  # backmen edit end
+      path: /Audio/_Goobstation/Items/handling/cloth_drop.ogg
+  # Goobstation edit end
   - type: Sprite
     state: icon
   - type: Clothing

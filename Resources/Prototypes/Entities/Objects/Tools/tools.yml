@@ -158,14 +158,14 @@
   id: Wirecutter
   description: This kills the wire.
   components:
-  # backmen edit start
+  # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
-      path: /Audio/Backmen/Items/handling/wirecutter_pickup.ogg
+      path: /Audio/_Goobstation/Items/handling/wirecutter_pickup.ogg
   - type: EmitSoundOnDrop
     sound:
       path: /Audio/Items/wirecutter_drop.ogg
-  # backmen edit end
+  # Goobstation edit end
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Items/wirecutter_drop.ogg
@@ -227,14 +227,14 @@
   id: Screwdriver
   description: Industrial grade torque in a small screwdriving package.
   components:
-  # backmen edit start
+  # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
-      path: /Audio/Backmen/Items/handling/screwdriver_pickup.ogg
+      path: /Audio/_Goobstation/Items/handling/screwdriver_pickup.ogg
   - type: EmitSoundOnDrop
     sound:
       path: /Audio/Items/screwdriver_drop.ogg
-  # backmen edit end
+  # Goobstation edit end
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Items/screwdriver_drop.ogg
@@ -290,14 +290,14 @@
   id: Wrench
   description: 'A common tool for assembly and disassembly. Remember: lefty latchy, righty removey.'
   components:
-  # backmen edit start
+  # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
-      path: /Audio/Backmen/Items/handling/wrench_pickup.ogg
+      path: /Audio/_Goobstation/Items/handling/wrench_pickup.ogg
   - type: EmitSoundOnDrop
     sound:
       path: /Audio/Items/wrench_drop.ogg
-  # backmen edit end
+  # Goobstation edit end
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Items/wrench_drop.ogg
@@ -342,14 +342,14 @@
   id: Multitool
   description: An advanced tool to copy, store, and send electrical pulses and signals through wires and machines.
   components:
-  # backmen edit start
+  # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
-      path: /Audio/Backmen/Items/handling/multitool_pickup.ogg
+      path: /Audio/_Goobstation/Items/handling/multitool_pickup.ogg
   - type: EmitSoundOnDrop
     sound:
       path: /Audio/Items/multitool_drop.ogg
-  # backmen edit end
+  # Goobstation edit end
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Items/multitool_drop.ogg

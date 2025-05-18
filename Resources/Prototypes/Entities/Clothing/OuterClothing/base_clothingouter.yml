@@ -139,7 +139,7 @@
   parent: Clothing
   id: ClothingOuterBase
   components:
-  # backmen edit start
+  # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
       collection: GenericPickup
@@ -160,7 +160,7 @@
     - outerClothing
     equipSound:
       collection: GenericEquip
-  # backmen edit end
+  # Goobstation edit end
   - type: Sprite
     state: icon
 
@@ -324,23 +324,23 @@
       flatReductions:
         Heat: 10 # the average lightbulb only does around four damage!
     slots: OUTERCLOTHING
-  # backmen edit start
+  # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
-      path: /Audio/Backmen/Items/handling/backpack_pickup.ogg
+      path: /Audio/_Goobstation/Items/handling/backpack_pickup.ogg
       params:
         volume: -4
   - type: EmitSoundOnDrop
     sound:
-      path: /Audio/Backmen/Items/handling/backpack_drop.ogg
+      path: /Audio/_Goobstation/Items/handling/backpack_drop.ogg
       params:
         volume: -4
   - type: EmitSoundOnLand
     sound:
-      path: /Audio/Backmen/Items/handling/backpack_drop.ogg
+      path: /Audio/_Goobstation/Items/handling/backpack_drop.ogg
       params:
         volume: -4
-  # backmen edit end
+  # Goobstation edit end
 
 - type: entity
   abstract: true

@@ -131,7 +131,7 @@
   parent: BaseItem
   abstract: true
   components:
-  # backmen edit start
+  # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
       collection: OrganInteraction
@@ -141,7 +141,7 @@
   - type: EmitSoundOnLand
     sound:
       collection: OrganInteraction
-  # backmen edit end
+  # Goobstation edit end
   - type: Sprite
     sprite: Mobs/Species/Human/organs.rsi
   - type: Organ
