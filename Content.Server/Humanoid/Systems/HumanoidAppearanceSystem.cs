@@ -79,8 +79,6 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
             return;
         }
 
-        humanoid.MarkingSet.Remove(category, index);
-
         foreach (var mark in markings)
         {
             if (!_markingManager.Markings.TryGetValue(mark.MarkingId, out var prototype))
@@ -88,6 +86,8 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
 
             ProcessSpecials(uid, prototype, false);
         }
+
+        humanoid.MarkingSet.Remove(category, index);
 
         Dirty(uid, humanoid);
     }
