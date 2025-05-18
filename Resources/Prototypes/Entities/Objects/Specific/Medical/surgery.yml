@@ -590,7 +590,7 @@
   name: bone multitool
   id: AdvancedBoneGel
   parent: BoneGel
-  description: A mechanized bone healer, also serves as bone settler in its powered state.
+  description: A mechanized bone healer, also serves as bone setter in its powered state.
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-bone-gel.rsi
@@ -599,9 +599,9 @@
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-bone-gel.rsi
   - type: SurgeryTool
     startSound:
-      path: /Audio/_Shitmed/Medical/Surgery/bone_settler.ogg
+      path: /Audio/_Shitmed/Medical/Surgery/bone_setter.ogg
     endSound:
-      path: /Audio/_Shitmed/Medical/Surgery/bone_settler.ogg
+      path: /Audio/_Shitmed/Medical/Surgery/bone_setter.ogg
   - type: MeleeWeapon
     damage:
       types:
@@ -635,7 +635,7 @@
           sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-bone-gel.rsi # placeholder
           state: e-bone-gel-on
         components:
-        - type: BoneSettler
+        - type: BoneSetter
           speed: 1.5
         soundStateActivate:
           collection: sparks
