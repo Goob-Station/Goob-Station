@@ -481,7 +481,7 @@ public sealed partial class GoobCVars
     /// Kinetic energy required to spawn sparks
     /// </summary>
     public static readonly CVarDef<float> SparkEnergy =
-        CVarDef.Create("shuttle.impact.spark_energy", 1000000f, CVar.SERVERONLY);
+        CVarDef.Create("shuttle.impact.spark_energy", 5000000f, CVar.SERVERONLY);
 
     /// <summary>
     /// Area to consider for impact calculations
@@ -493,7 +493,7 @@ public sealed partial class GoobCVars
     /// Affects slowdown on impact
     /// </summary>
     public static readonly CVarDef<float> ImpactSlowdown =
-        CVarDef.Create("shuttle.impact.slowdown", 0.2f, CVar.SERVERONLY);
+        CVarDef.Create("shuttle.impact.slowdown", 0.8f, CVar.SERVERONLY);
 
     /// <summary>
     /// Minimum velocity change from impact to throw entities on-grid
