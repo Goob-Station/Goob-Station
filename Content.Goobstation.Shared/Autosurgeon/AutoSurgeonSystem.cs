@@ -16,10 +16,11 @@ using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
 
-namespace Content.Goobstation.Shared.Cybernetics;
+namespace Content.Goobstation.Shared.Autosurgeon;
 
 // There might be some goidacode inside, I warned you.
-public sealed class PartUpgraderSystem : EntitySystem
+// It should also maybe be in _Shitmed instead of here, but who cares.
+public sealed class AutoSurgeonSystem : EntitySystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
@@ -32,12 +33,12 @@ public sealed class PartUpgraderSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<PartUpgraderComponent, ItemToggleActivateAttemptEvent>(OnActivated);
-        SubscribeLocalEvent<PartUpgraderComponent, PartUpgraderDoAfterEvent>(OnDoAfter);
-        SubscribeLocalEvent<PartUpgraderComponent, ExaminedEvent>(OnExamined);
+        SubscribeLocalEvent<AutoSurgeonComponent, ItemToggleActivateAttemptEvent>(OnActivated);
+        SubscribeLocalEvent<AutoSurgeonComponent, AutoSurgeonDoAfterEvent>(OnDoAfter);
+        SubscribeLocalEvent<AutoSurgeonComponent, ExaminedEvent>(OnExamined);
     }
 
-    private void OnActivated(Entity<PartUpgraderComponent> ent, ref ItemToggleActivateAttemptEvent args)
+    private void OnActivated(Entity<AutoSurgeonComponent> ent, ref ItemToggleActivateAttemptEvent args)
     {
         _audio.Stop(ent.Comp.ActiveSound);
         args.Cancelled = true;
@@ -46,7 +47,7 @@ public sealed class PartUpgraderSystem : EntitySystem
                     EntityManager,
                     ent.Owner,
                     ent.Comp.DoAfterTime,
-                    new PartUpgraderDoAfterEvent(),
+                    new AutoSurgeonDoAfterEvent(),
                     ent.Owner,
                     args.User,
                     ent.Owner)
@@ -62,23 +63,79 @@ public sealed class PartUpgraderSystem : EntitySystem
             ent.Comp.ActiveSound = sound.Value.Entity;
     }
 
-    private void OnDoAfter(Entity<PartUpgraderComponent> ent, ref PartUpgraderDoAfterEvent args)
+    private void OnDoAfter(Entity<AutoSurgeonComponent> ent, ref AutoSurgeonDoAfterEvent args)
     {
-        if (args.Cancelled || ent.Comp.Used || args.Target == null || args.Handled)
+        if (args.Cancelled || ent.Comp.Used || args.Target == null)
         {
             _audio.Stop(ent.Comp.ActiveSound);
-            args.Handled = true;
             return;
         }
 
-        var part = ent.Comp.TargetOrgan == null
+        var isBodyPart = ent.Comp.TargetOrgan == null;
+
+        // Handle replacing the part
+        if (ent.Comp.NewPartProto != null)
+        {
+            var parent = _body.GetBodyChildrenOfType(args.Target.Value, ent.Comp.TargetBodyPart, symmetry: ent.Comp.TargetBodyPartSymmetry).FirstOrDefault().Id;
+
+            if (!parent.Valid || !TryComp<BodyPartComponent>(parent, out var parentComp))
+            {
+                _audio.Stop(ent.Comp.ActiveSound);
+                return;
+            }
+
+            var newPart = Spawn(ent.Comp.NewPartProto, Transform(args.Target.Value).Coordinates);
+
+            if (isBodyPart)
+            {
+                if (!TryComp<BodyPartComponent>(newPart, out var newPartComp)
+                || !parentComp.Children.ContainsKey(_body.GetSlotFromBodyPart(newPartComp))) // why is there no method for this
+                {
+                    Del(newPart);
+                    _audio.Stop(ent.Comp.ActiveSound);
+                    return;
+                }
+
+                var oldPart = _body.GetBodyChildrenOfType(args.Target.Value, newPartComp.PartType, symmetry: newPartComp.Symmetry).FirstOrDefault().Id;
+                if (oldPart.Valid)
+                    _body.DetachPart(parent, _body.GetSlotFromBodyPart(newPartComp), oldPart);
+
+                _body.AttachPart(parent, _body.GetSlotFromBodyPart(newPartComp), newPart);
+            }
+            else
+            {
+                if (!TryComp<OrganComponent>(newPart, out var newOrganComp)
+                || !_body.CanInsertOrgan(parent, newOrganComp.SlotId))
+                {
+                    Del(newPart);
+                    _audio.Stop(ent.Comp.ActiveSound);
+                    return;
+                }
+
+                var oldOrgan = _body.GetPartOrgans(parent).FirstOrDefault(organ => organ.Component.SlotId == newOrganComp.SlotId).Id;
+                if (!_body.AddOrganToFirstValidSlot(parent, newPart) && oldOrgan.Valid)
+                {
+                    _body.RemoveOrgan(oldOrgan);
+                    _body.InsertOrgan(parent, newPart, newOrganComp.SlotId);
+                }
+            }
+
+            _audio.Stop(ent.Comp.ActiveSound);
+
+            if (ent.Comp.OneTimeUse)
+                ent.Comp.Used = true;
+            Dirty(ent);
+            return;
+        }
+
+        // If we didn't replace it, then we upgrade it.
+        var part = isBodyPart
             ? _body.GetBodyChildrenOfType(args.Target.Value, ent.Comp.TargetBodyPart, symmetry: ent.Comp.TargetBodyPartSymmetry).FirstOrDefault().Id
             : _body.GetBodyOrgans(args.Target).FirstOrDefault(organ => organ.Component.SlotId == ent.Comp.TargetOrgan).Id;
 
         if (!part.Valid)
         {
             _audio.Stop(ent.Comp.ActiveSound);
-            args.Handled = true;
             return;
         }
 
@@ -86,7 +143,6 @@ public sealed class PartUpgraderSystem : EntitySystem
         if (addedToPart != null && !addedToPart.Any()) // null indicates there were no components to add in the first place, so it's fine
         {
             _audio.Stop(ent.Comp.ActiveSound);
-            args.Handled = true;
             return;
         }
 
@@ -96,7 +152,6 @@ public sealed class PartUpgraderSystem : EntitySystem
             HandleOrgan(args.Target.Value, part, ent.Comp.ComponentsToUser);
 
         _audio.Stop(ent.Comp.ActiveSound);
-        args.Handled = true;
 
         if (ent.Comp.OneTimeUse)
             ent.Comp.Used = true;
@@ -165,7 +220,7 @@ public sealed class PartUpgraderSystem : EntitySystem
         }
     }
 
-    private void OnExamined(Entity<PartUpgraderComponent> ent, ref ExaminedEvent args)
+    private void OnExamined(Entity<AutoSurgeonComponent> ent, ref ExaminedEvent args)
     {
         args.PushMarkup(ent.Comp.Used ? Loc.GetString("gun-cartridge-spent") : Loc.GetString("gun-cartridge-unspent")); // Yes gun locale, and?
     }

@@ -47,7 +47,7 @@
 - type: entity
   parent: [ClothingOuterDavidsJacket, BaseMajorContraband]
   id: ClothingOuterDavidsJacketValid
-  name: edgerunner's jacket
+  name: edgerunner jacket
   description: You're right on the edge. Show 'em you got this.
   components:
   - type: Clothing

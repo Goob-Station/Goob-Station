@@ -8,7 +8,6 @@ using Content.Shared.Abilities;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
-using Content.Shared.Examine;
 using Content.Shared.Jittering;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
@@ -47,8 +46,6 @@ public sealed class SandevistanSystem : EntitySystem
         SubscribeLocalEvent<SandevistanUserComponent, MeleeAttackEvent>(OnMeleeAttack);
         SubscribeLocalEvent<SandevistanUserComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<SandevistanUserComponent, ComponentShutdown>(OnShutdown);
-
-        SubscribeLocalEvent<SandevistanComponent, ExaminedEvent>(OnExamined);
     }
 
     public override void Update(float frameTime)
@@ -221,10 +218,5 @@ public sealed class SandevistanSystem : EntitySystem
             RemComp(uid, comp.Trail);
             comp.Trail = null;
         }
-    }
-
-    private void OnExamined(EntityUid uid, SandevistanComponent component, ref ExaminedEvent args)
-    {
-        args.PushMarkup(Loc.GetString("sandevistan-heart-examine"));
     }
 }

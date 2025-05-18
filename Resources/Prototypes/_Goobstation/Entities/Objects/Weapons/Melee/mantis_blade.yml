@@ -42,7 +42,6 @@
   - type: SurgeryTool
     startSound:
       path: /Audio/_Shitmed/Medical/Surgery/scalpel1.ogg
-  - type: Unremoveable
   - type: Tool
     qualities:
     - Slicing

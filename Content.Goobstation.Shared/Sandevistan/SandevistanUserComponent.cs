@@ -10,6 +10,7 @@ using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Robust.Shared.Audio;
 
+// Ideally speaking this should be on the heart itself... but this also works.
 namespace Content.Goobstation.Shared.Sandevistan;
 
 [RegisterComponent]
