@@ -32,20 +32,20 @@ public sealed partial class BorgChassisComponent : Component
     /// <summary>
     /// A whitelist for which entities count as valid brains
     /// </summary>
-    [DataField("brainWhitelist")]
+    [DataField]
     public EntityWhitelist? BrainWhitelist;
 
     // Goobstation
     /// <summary>
     /// A blacklist for which entities don't count as valid brains
     /// </summary>
-    [DataField("brainBlacklist")]
+    [DataField]
     public EntityWhitelist? BrainBlacklist;
 
     /// <summary>
     /// The container ID for the brain
     /// </summary>
-    [DataField("brainContainerId")]
+    [DataField]
     public string BrainContainerId = "borg_brain";
 
     [ViewVariables(VVAccess.ReadWrite)]
@@ -58,19 +58,19 @@ public sealed partial class BorgChassisComponent : Component
     /// <summary>
     /// A whitelist for what types of modules can be installed into this borg
     /// </summary>
-    [DataField("moduleWhitelist")]
+    [DataField]
     public EntityWhitelist? ModuleWhitelist;
 
     /// <summary>
     /// How many modules can be installed in this borg
     /// </summary>
-    [DataField("maxModules"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
     public int MaxModules = 3;
 
     /// <summary>
     /// The ID for the module container
     /// </summary>
-    [DataField("moduleContainerId")]
+    [DataField]
     public string ModuleContainerId = "borg_module";
 
     [ViewVariables(VVAccess.ReadWrite)]
