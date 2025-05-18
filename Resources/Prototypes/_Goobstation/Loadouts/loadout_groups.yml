@@ -247,7 +247,7 @@
   id: BrigmedicBackpack
   name: loadout-group-brigmedic-backpack
   loadouts:
-  - ClothingBackpackBrigmedic
-  - ClothingBackpackSatchelBrigmedic
-  - ClothingBackpackDuffelBrigmedic
-  - ClothingBackpackMessengerSecurity
+  - BrigmedicBackpack
+  - BrigmedicSatchel
+  - BrigmedicDuffel
+  - BrigmedicMessenger

@@ -539,15 +539,15 @@
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.6
+    damageCoefficient: 0.65
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.6
-        Heat: 0.8
-        Caustic: 0.6
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.65
+        Heat: 0.85
+        Caustic: 0.65
   - type: ClothingSpeedModifier
     walkModifier: 0.85
     sprintModifier: 0.85
@@ -556,7 +556,7 @@
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitBrigmedic
   - type: StaminaDamageResistance # Goobstation
-    coefficient: 0.7
+    coefficient: 0.65
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 2.5
     knockdownTimeDelta: -2.5
