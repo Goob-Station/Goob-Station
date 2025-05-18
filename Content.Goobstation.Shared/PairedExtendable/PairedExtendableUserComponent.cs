@@ -11,7 +11,6 @@ namespace Content.Goobstation.Shared.PairedExtendable;
 /// Abstract component for easier work with PairedExtendableSystem.
 /// Check (or copy-paste) RightMantisBladeUserComponent and server-side MantisBladesSystem for reference.
 /// </summary>
-[RegisterComponent]
 public abstract partial class PairedExtendableUserComponent : Component
 {
     [ViewVariables(VVAccess.ReadOnly)]

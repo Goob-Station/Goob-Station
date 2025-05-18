@@ -45,6 +45,9 @@
     ClothingHeadHatSantahat: 2
     ClothingHeadHatXmasCrown: 2
 
+  contrabandInventory: # Goobstation
+    ClothingOuterDavidsJacket: 1
+
   emaggedInventory:
     ClothingNeckScarfStripedSyndieGreen: 3
     ClothingNeckScarfStripedSyndieRed: 3
