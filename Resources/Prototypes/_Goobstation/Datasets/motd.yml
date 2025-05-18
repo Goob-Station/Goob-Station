@@ -1,0 +1,5 @@
+- type: localizedDataset
+  id: MOTDS
+  values:
+    prefix: motd-
+    count: 47

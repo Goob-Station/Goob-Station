@@ -429,6 +429,12 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<int> FireStackHeat =
         CVarDef.Create("misc.fire_stack_heat", 1500, CVar.SERVER);
 
+    /// <summary>
+    /// Set to true to enable the dynamic hostname system.
+    /// </summary>
+    public static readonly CVarDef<bool> UseDynamicHostname =
+        CVarDef.Create("game.use_dynamic_hostname", true, CVar.SERVERONLY);
+
     #endregion
 
     #region Shuttle CVars
