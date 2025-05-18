@@ -9620,3 +9620,9 @@ Entries:
       message: Setoutfit command can now support implants and filling backpacks.
   id: 1076
   time: '2025-05-18T16:37:05.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Fix
+      message: Nukies can no longer buy job specific items
+  id: 1077
+  time: '2025-05-18T17:44:04.0000000+00:00'
