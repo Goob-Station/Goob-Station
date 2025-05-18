@@ -10,6 +10,7 @@ using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
+using Content.Shared.Forensics;
 using Content.Shared.Item.ItemToggle.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
@@ -43,7 +44,7 @@ public sealed class AutoSurgeonSystem : EntitySystem
         _audio.Stop(ent.Comp.ActiveSound);
         args.Cancelled = true;
 
-        if (_netManager.IsClient || ent.Comp.Used || args.User == null || !_doAfter.TryStartDoAfter(new DoAfterArgs(
+        if (ent.Comp.Used || args.User == null || !_doAfter.TryStartDoAfter(new DoAfterArgs(
                     EntityManager,
                     ent.Owner,
                     ent.Comp.DoAfterTime,
@@ -56,6 +57,12 @@ public sealed class AutoSurgeonSystem : EntitySystem
                     DistanceThreshold = 0.1f,
                     MovementThreshold = 0.1f,
                 }))
+            return;
+
+        var ev = new TransferDnaEvent { Donor = args.User.Value, Recipient = ent };
+        RaiseLocalEvent(ent, ref ev);
+
+        if (_netManager.IsClient) // Fuck sound networking
             return;
 
         var sound = _audio.PlayPvs(ent.Comp.Sound, ent);
