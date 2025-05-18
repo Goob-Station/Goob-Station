@@ -46,14 +46,14 @@
     contents:
       - id: MedkitCombatFilled
         amount: 1
-      - id: AdvancedCombatMedipen
-        amount: 2
       - id: PunctAutoInjector
         amount: 2
+      - id: AdvancedCombatMedipen
+        amount: 1
       - id: PyraAutoInjector
         amount: 2
       - id: AirlossAutoInjector
-        amount: 2
+        amount: 1
       - id: CentcommStimpack
         amount: 2
       - id: OmnimedTool
