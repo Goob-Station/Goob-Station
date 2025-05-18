@@ -15,12 +15,11 @@
     weight: 3 # rare
     duration: 1
     # no occurences limit so newly arriving tiders can also get it
-  - type: JobAddTagsRule
+  - type: JobAddCollectiveMindRule
     message: station-event-tidemind-message
     affected:
       - Passenger
-    tags:
-      - TidemindMind
+    channel: Tidemind
 
 - type: entity
   parent: BaseGameRule
