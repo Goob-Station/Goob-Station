@@ -47,7 +47,12 @@ public sealed class DynamicHostnameSystem : EntitySystem
 
     private void OnHubAdIntChange(int newValue) => _updateInterval = TimeSpan.FromSeconds(newValue);
 
-    private void OnDynHostChange(bool newValue) => _dynHostEnabled = newValue;
+    private void OnDynHostChange(bool newValue)
+    {
+        _dynHostEnabled = newValue;
+        if (!_dynHostEnabled)
+            _configuration.SetCVar(CVars.GameHostName, _originalHostname);
+    }
 
     public override void Update(float frameTime)
     {
