@@ -9668,3 +9668,19 @@ Entries:
       message: Binary translator keys.
   id: 1082
   time: '2025-05-18T20:47:11.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: >-
+        You can now hug other players to equalize your temperature. Hug your
+        lizard friends!
+    - type: Add
+      message: You can now hug players to transfer fire stacks. It's like hot potato!
+    - type: Add
+      message: >-
+        Lizards now start with specialized heating lamps to keep their
+        temperature stable.
+    - type: Tweak
+      message: Lizards are now cold-blooded. Have fun!
+  id: 1083
+  time: '2025-05-18T21:59:08.0000000+00:00'
