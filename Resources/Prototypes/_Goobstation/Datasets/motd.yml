@@ -1,5 +1,5 @@
 - type: localizedDataset
-  id: MOTDS
+  id: MessageOfTheDay
   values:
     prefix: motd-
     count: 47
