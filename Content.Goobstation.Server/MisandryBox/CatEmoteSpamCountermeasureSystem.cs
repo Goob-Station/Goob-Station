@@ -15,6 +15,7 @@ public sealed class CatEmoteSpamCountermeasureSystem : EntitySystem
     [Dependency] private readonly ThunderstrikeSystem _thunderstrike = default!;
 
     private const string CatEmoteTag = "FelinidEmotes";
+    private const float ClearInterval = 15.0f;
 
     [ViewVariables(VVAccess.ReadWrite)]
     private int _maxEmotes = 5;
@@ -23,19 +24,24 @@ public sealed class CatEmoteSpamCountermeasureSystem : EntitySystem
     public bool DrasticMeasures = false;
 
     private Dictionary<EntityUid, int> _meowTracker = [];
+    private float _timeSinceLastClear = 0f;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<SpeechComponent, EmoteEvent>(OnEmoteEvent);
-
-        Robust.Shared.Timing.Timer.SpawnRepeating(TimeSpan.FromSeconds(15), ClearTable, CancellationToken.None);
     }
 
-    public void ClearTable()
+    public override void Update(float frameTime)
     {
+        _timeSinceLastClear += frameTime;
+
+        if (!(_timeSinceLastClear >= ClearInterval))
+            return;
+
         _meowTracker.Clear();
+        _timeSinceLastClear = 0f;
     }
 
     private void OnEmoteEvent(Entity<SpeechComponent> ent, ref EmoteEvent args)
