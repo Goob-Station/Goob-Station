@@ -9590,3 +9590,9 @@ Entries:
       message: You can't avoid slippage by crawl-walking over it either.
   id: 1072
   time: '2025-05-18T16:29:43.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Antag roll chance is now proportional to playtime since last roll.
+  id: 1073
+  time: '2025-05-18T16:31:52.0000000+00:00'
