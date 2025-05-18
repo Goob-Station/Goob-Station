@@ -20,5 +20,6 @@ public sealed partial class GoobAdminVerbSystem : EntitySystem
     private void GetVerbs(GetVerbsEvent<Verb> args)
     {
         AddAntagVerbs(args);
+        AddSmiteVerbs(args);
     }
 }
