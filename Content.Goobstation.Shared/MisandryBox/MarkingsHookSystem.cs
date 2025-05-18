@@ -2,6 +2,7 @@
 using Content.Shared._Shitmed.Humanoid.Events;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
+using Content.Shared.MagicMirror;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.MisandryBox;

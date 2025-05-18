@@ -19,4 +19,11 @@ public sealed partial class AddComponentSpecial : MarkingSpecial
         var entMan = IoCManager.Resolve<IEntityManager>();
         entMan.AddComponents(mob, Components, removeExisting: RemoveExisting);
     }
+
+    /// <remarks>This completely removes any components markings have added. If you are replacing existing comps - YOU'RE FUCKED</remarks>
+    public override void AfterUnequip(EntityUid mob)
+    {
+        var entMan = IoCManager.Resolve<IEntityManager>();
+        entMan.RemoveComponents(mob, Components);
+    }
 }

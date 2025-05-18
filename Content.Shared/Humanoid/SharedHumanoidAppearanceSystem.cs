@@ -509,6 +509,8 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
 
         humanoid.MarkingSet.AddBack(prototype.MarkingCategory, markingObject);
 
+        ProcessSpecials(uid, prototype, true); // MisandryBox
+
         if (sync)
             Dirty(uid, humanoid);
     }
@@ -542,6 +544,8 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         var markingObject = new Marking(marking, colors);
         markingObject.Forced = forced;
         humanoid.MarkingSet.AddBack(prototype.MarkingCategory, markingObject);
+
+        ProcessSpecials(uid, prototype, true);
 
         if (sync)
             Dirty(uid, humanoid);
@@ -580,5 +584,17 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         }
 
         return Loc.GetString("identity-age-old");
+    }
+
+    public void ProcessSpecials(EntityUid mob, MarkingPrototype prototype, bool equip)
+    {
+        // MisandryBox - marking special
+        foreach (var special in prototype.Special)
+        {
+            if (equip)
+                special.AfterEquip(mob);
+            else
+                special.AfterUnequip(mob);
+        }
     }
 }

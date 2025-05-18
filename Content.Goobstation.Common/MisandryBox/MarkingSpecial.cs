@@ -7,4 +7,6 @@
 public abstract partial class MarkingSpecial
 {
     public abstract void AfterEquip(EntityUid mob);
+
+    public abstract void AfterUnequip(EntityUid mob);
 }

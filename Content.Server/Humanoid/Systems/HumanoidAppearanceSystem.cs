@@ -54,6 +54,8 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
 
         humanoid.MarkingSet.Remove(prototype.MarkingCategory, marking);
 
+        ProcessSpecials(uid, prototype, false); // MisandryBox
+
         if (sync)
             Dirty(uid, humanoid);
     }
@@ -76,6 +78,15 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
         }
 
         humanoid.MarkingSet.Remove(category, index);
+
+        foreach (var mark in markings)
+        {
+            if (!_markingManager.Markings.TryGetValue(mark.MarkingId, out var prototype))
+                continue;
+
+            ProcessSpecials(uid, prototype, false);
+        }
+
         Dirty(uid, humanoid);
     }
 
@@ -98,11 +109,22 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
             return;
         }
 
+        // Get current marking
+        foreach (var mark in markings)
+        {
+            if (!_markingManager.TryGetMarking(mark, out var proto))
+                continue;
+
+            ProcessSpecials(uid, proto, false);
+        }
+
         var marking = markingPrototype.AsMarking();
         for (var i = 0; i < marking.MarkingColors.Count && i < markings[index].MarkingColors.Count; i++)
         {
             marking.SetColor(i, markings[index].MarkingColors[i]);
         }
+
+        ProcessSpecials(uid, markingPrototype, true);
 
         humanoid.MarkingSet.Replace(category, index, marking);
         Dirty(uid, humanoid);
