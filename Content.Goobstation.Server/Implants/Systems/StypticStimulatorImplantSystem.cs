@@ -16,7 +16,6 @@ using Content.Shared.Damage;
 using Content.Shared.Implants;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
-using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Server.Implants.Systems;
 
