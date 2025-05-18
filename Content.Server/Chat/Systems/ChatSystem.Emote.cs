@@ -21,6 +21,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Collections.Frozen;
+using Content.Goobstation.Common.MisandryBox;
 using Content.Shared.Chat;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Speech;
@@ -174,6 +175,14 @@ public partial class ChatSystem
 
         // if general params for all sounds set - use them
         var param = proto.GeneralParams ?? sound.Params;
+
+        // Goobstation/MisandryBox - Emote spam countermeasures
+        var ev = new EmoteSoundPitchShiftEvent();
+        RaiseLocalEvent(uid, ref ev);
+
+        param.Pitch += ev.Pitch;
+        // Goobstation/MisandryBox
+
         _audio.PlayPvs(sound, uid, param);
         return true;
     }

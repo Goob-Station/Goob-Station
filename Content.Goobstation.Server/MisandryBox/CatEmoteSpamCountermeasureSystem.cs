@@ -4,6 +4,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Common.MisandryBox;
+using Content.Goobstation.Common.Speech;
 using Content.Goobstation.Shared.MisandryBox.Smites;
 using Content.Server.Chat.Systems;
 using Content.Shared.Speech;
@@ -11,6 +13,7 @@ using Content.Shared.Speech;
 namespace Content.Goobstation.Server.MisandryBox;
 
 // Now that's a mouthful
+// "ZE KOUNTERMEASURES!" t. turbotracker
 public sealed class CatEmoteSpamCountermeasureSystem : EntitySystem
 {
     [Dependency] private readonly ThunderstrikeSystem _thunderstrike = default!;
@@ -24,6 +27,7 @@ public sealed class CatEmoteSpamCountermeasureSystem : EntitySystem
     [ViewVariables(VVAccess.ReadWrite)]
     public bool DrasticMeasures = false;
 
+    private const float _factor = 0.15f;
     private Dictionary<EntityUid, int> _meowTracker = [];
     private float _timeSinceLastClear = 0f;
 
@@ -32,6 +36,18 @@ public sealed class CatEmoteSpamCountermeasureSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<SpeechComponent, EmoteEvent>(OnEmoteEvent);
+        SubscribeLocalEvent<SpeechComponent, EmoteSoundPitchShiftEvent>(OnGetPitchShiftEvent);
+    }
+
+    private void OnGetPitchShiftEvent(Entity<SpeechComponent> ent, ref EmoteSoundPitchShiftEvent ev)
+    {
+        var shift = GetCount(ent.Owner);
+        ev.Pitch = shift * _factor;
+    }
+
+    private int GetCount(EntityUid entity)
+    {
+        return _meowTracker.TryGetValue(entity, out var count) ? count : 0;
     }
 
     public override void Update(float frameTime)
