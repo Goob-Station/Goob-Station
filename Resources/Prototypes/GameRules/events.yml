@@ -684,7 +684,6 @@
       Hostile: 20
       Medical: 50
   - type: VentCrittersRule
-    playerRatio: 35 # DeltaV: Clown spiders are very robust
     entries:
     - id: MobClownSpider
       prob: 0.05

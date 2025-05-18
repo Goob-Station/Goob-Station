@@ -12,7 +12,6 @@
 
 using Content.Server.StationEvents.Events;
 using Content.Shared.Storage;
-using Robust.Shared.Map; // DeltaV
 
 namespace Content.Server.StationEvents.Components;
 
