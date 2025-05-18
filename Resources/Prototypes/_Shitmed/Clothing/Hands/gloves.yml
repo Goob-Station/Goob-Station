@@ -1,0 +1,17 @@
+- type: entity
+  parent: [ ClothingHandsButcherable, BaseMedicalContraband ]
+  id: ClothingHandsGlovesSurgical
+  name: bluespace surgical gloves
+  description: These experimental gloves utilize bluespace technology to allow their user to perform surgery through clothing.
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Clothing/Hands/surgery_gloves.rsi
+  - type: Clothing
+    sprite: _Shitmed/Clothing/Hands/surgery_gloves.rsi
+  - type: Fiber
+    fiberColor: fibers-blue
+    fiberMaterial: fibers-latex
+  - type: FingerprintMask
+  - type: ClothingGrantComponent
+    component:
+    - type: SurgeryIgnoreClothing

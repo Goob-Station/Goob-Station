@@ -593,15 +593,15 @@
   description: A mechanized bone healer, also serves as bone settler in its powered state.
   components:
   - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-cautery.rsi # placeholder
-    state: e-cautery-on
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-bone-gel.rsi
+    state: e-bone-gel-on
   - type: Item
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-cautery.rsi # placeholder
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-bone-gel.rsi
   - type: SurgeryTool
     startSound:
-      path: /Audio/_Shitmed/Medical/Surgery/cautery1.ogg # placeholder
+      path: /Audio/_Shitmed/Medical/Surgery/bone_settler.ogg
     endSound:
-      path: /Audio/_Shitmed/Medical/Surgery/cautery2.ogg # placeholder
+      path: /Audio/_Shitmed/Medical/Surgery/bone_settler.ogg
   - type: MeleeWeapon
     damage:
       types:
@@ -618,13 +618,13 @@
       bonegel: !type:ItemSwitchState
         verb: bonegel
         sprite:
-          sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-cautery.rsi # placeholder
-          state: e-cautery
+          sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-bone-gel.rsi
+          state: e-bone-gel
         components:
         - type: BoneGel # should be unlimited when the actual bone gel becomes limited
           speed: 1.5
         soundStateActivate:
-          collection: WelderOn
+          collection: sparks
           params:
             variation: 0.125
             volume: -5
@@ -632,8 +632,8 @@
       bonesetter: !type:ItemSwitchState
         verb: bonesetter
         sprite:
-          sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-cautery.rsi # placeholder
-          state: e-cautery-on
+          sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-bone-gel.rsi # placeholder
+          state: e-bone-gel-on
         components:
         - type: BoneSettler
           speed: 1.5
@@ -646,7 +646,7 @@
 - type: entity
   name: surgical omnitool
   id: OmnimedTool
-  parent: BaseToolSurgeryBase
+  parent: BaseToolSurgery
   description: A compact surgical omnitool conveniently packed like a Swiss Army knife.
   components:
   - type: Sprite
@@ -685,43 +685,22 @@
   parent: [ OmnimedTool, BaseSyndicateContraband ]
   id: OmnimedToolSyndie
   name: gorlex surgical omnitool
-  description: A compact surgical omnitool conveniently packed like a Swiss Army knife, except that its user has probably violated a couple Swiss conventions.
+  description: A compact surgical omnitool conveniently packed like a Swiss Army knife, except that its user has probably violated a couple of Swiss conventions. Can perform surgery through clothing.
   components:
   - type: Sprite
     state: evil
   - type: Item
     size: Small
     heldPrefix: evil
-  - type: SurgeryTool
-    startSound:
-      path: /Audio/_Shitmed/Medical/Surgery/saw.ogg
-  - type: Hemostat
-    speed: 1.5
-  - type: Scalpel
-    speed: 1.5
-  - type: Drill
-    speed: 1.5
-  - type: BoneSetter
-    speed: 1.5
-  - type: Retractor
-    speed: 1.5
-  - type: Cautery
-    speed: 1.5
-  - type: BoneGel
-    speed: 1.5
-  - type: BoneSaw
-    speed: 1.5
-  - type: Tweezers
-    speed: 1.5
-  - type: Tending
-    speed: 1.5
-  - type: Stitches
-    speed: 1.5
+  - type: HeldGrantComponent
+    components:
+    - type: SurgeryIgnoreClothing
 
 - type: entity
   id: OmnimedToolDebug
-  parent: OmnimedTool
+  parent: OmnimedToolSyndie
   suffix: Admeme
+  name: experimental surgical omnitool
   components:
   - type: Hemostat
     speed: 10
@@ -745,3 +724,6 @@
     speed: 10
   - type: Stitches
     speed: 10
+  - type: HeldGrantComponent
+    components:
+    - type: SurgeryIgnoreClothing

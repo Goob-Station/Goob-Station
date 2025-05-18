@@ -278,7 +278,7 @@
         factions:
         - Syndicate
       - type: SurgerySpeedModifier # shitmed
-        speedModifier: 2
+        speedModifier: 2.5
       mindRoles:
       - MindRoleNukeopsMedic
     - prefRoles: [ Nukeops ]

@@ -86,8 +86,18 @@
   result: OmnimedTool
   completetime: 4
   materials:
-    Steel: 1200
-    Glass: 300
+    Steel: 1800
+    Glass: 600
+    Plasma: 600
     Gold: 300
     Silver: 300
-    Plasma: 300
+
+- type: latheRecipe
+  id: ClothingHandsGlovesSurgical
+  result: ClothingHandsGlovesSurgical
+  completetime: 2
+  materials:
+    Plastic: 300
+    Durathread: 300
+    Cloth: 300
+    BSCrystal: 100
