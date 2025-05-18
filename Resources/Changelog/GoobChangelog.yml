@@ -9640,3 +9640,9 @@ Entries:
         any ear protection regardless of distance now.
   id: 1078
   time: '2025-05-18T20:26:17.0000000+00:00'
+- author: be1bright
+  changes:
+    - type: Add
+      message: Added feature to set criminal status with security hud items.
+  id: 1079
+  time: '2025-05-18T20:30:02.0000000+00:00'
