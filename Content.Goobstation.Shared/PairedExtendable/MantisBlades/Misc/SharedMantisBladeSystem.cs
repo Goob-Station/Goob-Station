@@ -25,8 +25,6 @@ public sealed class SharedMantisBladeSystem : EntitySystem
 
     private void OnInit(Entity<MantisBladeComponent> ent, ref ComponentInit args)
     {
-        _item.SetHeldPrefix(ent, "popout");
-
         Timer.Spawn(TimeSpan.FromSeconds(0.3),
             () =>
             {

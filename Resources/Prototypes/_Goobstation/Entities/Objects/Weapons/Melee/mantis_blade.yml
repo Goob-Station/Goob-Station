@@ -35,6 +35,7 @@
   - type: MantisBlade
   - type: Item
     size: Ginormous
+    heldPrefix: popout
   - type: Scalpel
     speed: 0.3
   - type: BoneSaw
