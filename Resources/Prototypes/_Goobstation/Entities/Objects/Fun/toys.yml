@@ -342,6 +342,40 @@
       path: /Audio/Weapons/Guns/Hits/taser_hit.ogg
 
 - type: entity
+  parent: BasePlushie
+  id: PlushieBlob
+  name: blob plushie
+  description: A plushie resembling some sort of alien monster.
+  components:
+  - type: Item
+    size: Normal
+  - type: Sprite
+    scale: 0.7, 0.7
+    sprite: _Goobstation/Blob/Mobs/blob.rsi
+    state: blob_core
+    color: "#637b19"
+  - type: MeleeWeapon
+    wideAnimationRotation: -90
+    soundHit:
+      path: /Audio/Animals/Blob/blobattack.ogg
+    angle: 0
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Animals/Blob/blobattack.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Animals/Blob/blobattack.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Animals/Blob/blobattack.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Animals/Blob/blobattack.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Animals/Blob/blobattack.ogg
+
+- type: entity
   id: GrenadeToy
   name: prank grenade
   parent: BaseGrenade
