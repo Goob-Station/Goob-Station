@@ -161,6 +161,7 @@
       - id: DoorRemoteFirefight # Goobstation - re adding fire door remote
       - id: RCD
       - id: RCDAmmo
+      - id: AirGrenade
       - id: ClothingHandsGlovesAtmosInsulated # Goobstation - insulated atmos gloves
       - id: ClothingBackpackFirefighterTank # Assmos - Firefighter nozzle
 
@@ -183,6 +184,7 @@
       - id: RCDAmmo
       - id: ClothingHandsGlovesAtmosInsulated # Goobstation - insulated atmos gloves
       - id: ClothingBackpackFirefighterTank # Assmos - Firefighter nozzle
+      - id: AirGrenade
 
 - type: entity
   id: LockerEngineerFilledHardsuit
