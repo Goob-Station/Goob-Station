@@ -9,12 +9,20 @@ namespace Content.Goobstation.Server.Implants.Components;
 public sealed partial class NutrimentPumpImplantComponent : Component
 {
     /// <summary>
-    /// Did the entity have thirst before being implanted?
+    /// Amount to modify hunger by.
     /// </summary>
-    [DataField] public bool HadThirst = false;
+    [DataField]
+    public float FoodRate = 15f;
 
     /// <summary>
-    /// Did the entity have hunger before being implanted?
+    /// Amount to modify thirst by.
     /// </summary>
-    [DataField] public bool HadHunger = false;
+    [DataField]
+    public float DrinkRate = 40f;
+
+    /// <summary>
+    /// Next execution time. (Explanatory, I know.)
+    /// </summary>
+    [DataField]
+    public TimeSpan NextExecutionTime = TimeSpan.Zero;
 }
