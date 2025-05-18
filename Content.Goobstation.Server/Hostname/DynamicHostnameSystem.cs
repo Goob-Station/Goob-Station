@@ -73,7 +73,7 @@ public sealed class DynamicHostnameSystem : EntitySystem
         if (_queue.PlayerInQueueCount > 0)
             hostname += " | Queue: " + _queue.PlayerInQueueCount + " players";
 
-        if (_messages != null)
+        if (_messages != null && _messages.Values.Count > 0)
             hostname += " | " + _random.Pick(_messages);
 
         _configuration.SetCVar(CVars.GameHostName, hostname);
