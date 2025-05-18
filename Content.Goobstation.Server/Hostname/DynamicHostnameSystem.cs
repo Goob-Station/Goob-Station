@@ -30,7 +30,7 @@ public sealed class DynamicHostnameSystem : EntitySystem
     [Dependency] private readonly IJoinQueueManager _queue = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
 
-    private static ProtoId<LocalizedDatasetPrototype> _messagesProto = "MessageOfTheDay";
+    private static readonly ProtoId<LocalizedDatasetPrototype> _messagesProto = "MessageOfTheDay";
     private LocalizedDatasetPrototype? _messages;
     private string _originalHostname = string.Empty;
     private TimeSpan _nextUpdateTime;
