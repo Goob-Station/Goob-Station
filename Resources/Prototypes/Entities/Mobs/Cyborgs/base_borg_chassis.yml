@@ -459,14 +459,18 @@
     canBeStripped: false
   - type: IntrinsicRadioTransmitter
     channels:
-    - Binary
+    #- Binary
     - Common
     - Science
   - type: ActiveRadio
     channels:
-    - Binary
+    #- Binary
     - Common
     - Science
+  - type: CollectiveMind
+    defaultChannel: Binary
+    channels:
+    - Binary
   - type: BorgChassis
     brainBlacklist: #Goobstation
       components:

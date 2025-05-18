@@ -91,13 +91,15 @@
     laws: FamimovLawset
   - type: Inventory
     templateId: borgShort
-  - type: IntrinsicRadioTransmitter
+  - type: CollectiveMind
+    defaultChannel: Binary
     channels:
     - Binary
+  - type: IntrinsicRadioTransmitter
+    channels:
     - Common
   - type: ActiveRadio
     channels:
-    - Binary
     - Common
   - type: BorgChassis
     maxModules: 0
