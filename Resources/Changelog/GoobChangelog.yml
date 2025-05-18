@@ -9596,3 +9596,9 @@ Entries:
       message: Antag roll chance is now proportional to playtime since last roll.
   id: 1073
   time: '2025-05-18T16:31:52.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Shuttle collisions should now cause much less lag.
+  id: 1074
+  time: '2025-05-18T16:33:46.0000000+00:00'
