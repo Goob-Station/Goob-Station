@@ -3,7 +3,10 @@
 # SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
@@ -42,9 +45,10 @@
       tags:
         - HidesHair
         - BlobMob
-        - BlobMind
     - type: CollectiveMind
       defaultChannel: Blobmind
+      channels:
+      - Blobmind
     - type: IngestionBlocker
     - type: IdentityBlocker
     - type: BlobPod
@@ -132,9 +136,10 @@
       tags:
         - Blobbernaut
         - BlobMob
-        - BlobMind
     - type: CollectiveMind
       defaultChannel: Blobmind
+      channels:
+      - Blobmind
     - type: GhostRole
       name: ghost-role-information-blobbernaut-name
       description: ghost-role-information-blobbernaut-description
@@ -280,6 +285,7 @@
     - type: Tag
       tags:
       - BypassInteractionRangeChecks
-      - BlobMind
     - type: CollectiveMind
       defaultChannel: Blobmind
+      channels:
+      - Blobmind

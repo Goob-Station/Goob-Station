@@ -256,14 +256,19 @@
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
-    - Binary
+    # - Binary # Goobstation - replaced with collective mind
     - Common
     - Science
   - type: ActiveRadio
     channels:
-    - Binary
+    # - Binary # Goobstation - replaced with collective mind
     - Common
     - Science
+  # Goobstation
+  - type: CollectiveMind
+    defaultChannel: Binary
+    channels:
+    - Binary
   - type: ZombieImmune
   - type: Repairable
     doAfterDelay: 10
@@ -616,7 +621,7 @@
     subverted: true
   - type: IntrinsicRadioTransmitter
     channels:
-    - Binary
+    # - Binary  # Goobstation - replaced with collective mind
     - Syndicate
   - type: ActiveRadio
     channels:

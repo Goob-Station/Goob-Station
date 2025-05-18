@@ -1,5 +1,7 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 // SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -16,7 +18,7 @@ public sealed class CollectiveMindUpdateSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IComponentFactory _componentFactory = default!;
     [Dependency] private readonly TagSystem _tag = default!;
-    
+
     private static Dictionary<string, int> _currentId = new();
 
     public void UpdateCollectiveMind(EntityUid uid, CollectiveMindComponent collective)
@@ -26,16 +28,12 @@ public sealed class CollectiveMindUpdateSystem : EntitySystem
             if (!_currentId.ContainsKey(prototype.ID))
                 _currentId[prototype.ID] = 0;
 
-            foreach (var component in prototype.RequiredComponents)
-                if (EntityManager.HasComponent(uid, _componentFactory.GetRegistration(component).Type) && !collective.Minds.ContainsKey(prototype.ID))
-                    collective.Minds.Add(prototype.ID, ++_currentId[prototype.ID]);
-                else if (!EntityManager.HasComponent(uid, _componentFactory.GetRegistration(component).Type) && collective.Minds.ContainsKey(prototype.ID))
-                    collective.Minds.Remove(prototype.ID);
-            foreach (var tag in prototype.RequiredTags)
-                if (_tag.HasTag(uid, tag) && !collective.Minds.ContainsKey(prototype.ID))
-                    collective.Minds.Add(prototype.ID, ++_currentId[prototype.ID]);
-                else if (!_tag.HasTag(uid, tag) && collective.Minds.ContainsKey(prototype.ID))
-                    collective.Minds.Remove(prototype.ID);
+            bool hasChannel = collective.Channels.Contains(prototype.ID);
+            bool alreadyAdded = collective.Minds.ContainsKey(prototype.ID);
+            if (hasChannel && !alreadyAdded)
+                collective.Minds.Add(prototype.ID, ++_currentId[prototype.ID]);
+            else if (!hasChannel && alreadyAdded)
+                collective.Minds.Remove(prototype.ID);
         }
     }
 }
