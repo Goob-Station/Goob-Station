@@ -9424,3 +9424,205 @@ Entries:
         Death of Stalin (2017)
   id: 1054
   time: '2025-05-15T07:35:25.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: >-
+        Fix firestack damage, no longer heats you up as much but deals more
+        damage
+    - type: Tweak
+      message: Low tier bone fractures no longer prevent topical use.
+    - type: Tweak
+      message: High tier bone fractures do prevent topicals, do not let them build up.
+  id: 1055
+  time: '2025-05-15T21:38:59.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Nukies cannot get surplus crates.
+  id: 1056
+  time: '2025-05-16T01:30:43.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Mop is faster
+  id: 1057
+  time: '2025-05-16T01:32:20.0000000+00:00'
+- author: John Kameroni
+  changes:
+    - type: Add
+      message: 65%
+  id: 1058
+  time: '2025-05-16T05:30:29.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Add
+      message: Mapped the security riot launcher on 13 space stations
+  id: 1059
+  time: '2025-05-16T07:18:53.0000000+00:00'
+- author: cheetah1984
+  changes:
+    - type: Fix
+      message: kobolds are no longer skinnable
+  id: 1060
+  time: '2025-05-16T17:54:35.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Added a new lobby screen by Zethine.
+  id: 1061
+  time: '2025-05-16T17:59:51.0000000+00:00'
+- author: TheBorzoiMustConsume
+  changes:
+    - type: Tweak
+      message: Chaplain is no longer effected by Rust tiles or Entropic Plume.
+    - type: Tweak
+      message: Holy Damage now heals passively at a rate of 6~/minute
+    - type: Tweak
+      message: Null Rod balance adjustments.
+    - type: Tweak
+      message: >-
+        Rosary has received additional VFX/SFX whilst using to the Null Rod
+        variant's unique prayer mechanic.
+    - type: Tweak
+      message: Chaos Altar & Fanged Altar are now 1 sheet of plasma, or 1 raw meat.
+    - type: Tweak
+      message: Oni chaplains can now use Chaplain's pistols.
+    - type: Tweak
+      message: Chaplain Guidebook now displays the offerings required for each Altar!
+    - type: Tweak
+      message: Null Rod Magic Denial has been completely reworked - you'll see.
+    - type: Fix
+      message: Ascended Heretics now take holy damage regardless of equipment.
+    - type: Fix
+      message: Space-Christian Altar is buildable again.
+    - type: Fix
+      message: Grey Emperor's Glove now properly grants Insulated.
+    - type: Fix
+      message: All Chaplain mechanics involving damage or healing are now woundmed.
+    - type: Fix
+      message: no more meta-gaming heretics with the bible godo
+  id: 1062
+  time: '2025-05-16T18:38:23.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Add
+      message: >-
+        Added New Life Rule "Death Amnesia". Check `Roleplay Rules #20` for more
+        information!
+  id: 1063
+  time: '2025-05-17T03:52:29.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: Steel costs less ore to smelt.
+  id: 1064
+  time: '2025-05-17T19:03:05.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Add
+      message: >-
+        Added 4 new types of pinpointers: Artifact, Anomaly, Borg and Station.
+        They're obtainable in RnD.
+    - type: Add
+      message: >-
+        Added Thieving pinpointer to Thief's starting inventory. While off, it
+        can be used on your objectives to start tracking them down.
+  id: 1065
+  time: '2025-05-18T15:29:01.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Add
+      message: Psyclogist to loop
+    - type: Add
+      message: mail to loop
+    - type: Add
+      message: office chairs to loop
+    - type: Add
+      message: public lavaland to loop
+    - type: Tweak
+      message: AI sat on loop
+    - type: Tweak
+      message: silo position
+    - type: Tweak
+      message: armory
+    - type: Fix
+      message: NTR and BSO spawn
+  id: 1066
+  time: '2025-05-18T16:24:11.0000000+00:00'
+- author: Fat-Engineer-Gaming
+  changes:
+    - type: Remove
+      message: Removed stupid fucking borg names
+    - type: Add
+      message: Added good borg names to replace the stupid ones
+  id: 1067
+  time: '2025-05-18T16:26:17.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: Hostname now displays MOTDs and queue count.
+  id: 1068
+  time: '2025-05-18T16:26:44.0000000+00:00'
+- author: ImWeax
+  changes:
+    - type: Remove
+      message: Removed tesla ballpits
+  id: 1069
+  time: '2025-05-18T16:27:22.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: SM grenade doesnt push as erratically anymore
+  id: 1070
+  time: '2025-05-18T16:28:14.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: No more 20 antags per shift
+  id: 1071
+  time: '2025-05-18T16:29:14.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: You can't mop lube by slipping on it anymore.
+    - type: Fix
+      message: You can't avoid slippage by crawl-walking over it either.
+  id: 1072
+  time: '2025-05-18T16:29:43.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Antag roll chance is now proportional to playtime since last roll.
+  id: 1073
+  time: '2025-05-18T16:31:52.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Shuttle collisions should now cause much less lag.
+  id: 1074
+  time: '2025-05-18T16:33:46.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: >-
+        Borgs can now click-and-drag items to use them, including for
+        construction or insertion.
+  id: 1075
+  time: '2025-05-18T16:36:51.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: CBURN operatives have some snazzy new equipment.
+    - type: Tweak
+      message: Deathsquad is a WHOLE lot stronger. Good luck!
+    - type: Tweak
+      message: Setoutfit command can now support implants and filling backpacks.
+  id: 1076
+  time: '2025-05-18T16:37:05.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Fix
+      message: Nukies can no longer buy job specific items
+  id: 1077
+  time: '2025-05-18T17:44:04.0000000+00:00'
