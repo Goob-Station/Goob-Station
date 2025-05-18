@@ -9610,3 +9610,13 @@ Entries:
         construction or insertion.
   id: 1075
   time: '2025-05-18T16:36:51.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: CBURN operatives have some snazzy new equipment.
+    - type: Tweak
+      message: Deathsquad is a WHOLE lot stronger. Good luck!
+    - type: Tweak
+      message: Setoutfit command can now support implants and filling backpacks.
+  id: 1076
+  time: '2025-05-18T16:37:05.0000000+00:00'
