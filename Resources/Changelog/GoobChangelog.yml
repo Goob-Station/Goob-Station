@@ -9652,3 +9652,9 @@ Entries:
       message: Enabled suit storage for all outer clothing.
   id: 1080
   time: '2025-05-18T20:34:42.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Tweak
+      message: Reduced DEsword reflect chance slightly.
+  id: 1081
+  time: '2025-05-18T20:35:44.0000000+00:00'
