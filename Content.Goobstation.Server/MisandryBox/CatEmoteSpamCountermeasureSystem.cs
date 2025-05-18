@@ -4,13 +4,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using System.Threading;
 using Content.Goobstation.Shared.MisandryBox.Smites;
 using Content.Server.Chat.Systems;
 using Content.Shared.Speech;
-using Content.Shared.Speech.Muting;
-using Content.Shared.Tag;
-using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.MisandryBox;
 
@@ -19,7 +15,7 @@ public sealed class CatEmoteSpamCountermeasureSystem : EntitySystem
 {
     [Dependency] private readonly ThunderstrikeSystem _thunderstrike = default!;
 
-    private const string CatEmoteTag = "FelinidEmotes";
+    private readonly string[] _emoteTags = new string[] { "FelinidEmotes", "VulpEmotes" };
     private const float ClearInterval = 15.0f;
 
     [ViewVariables(VVAccess.ReadWrite)]
@@ -55,7 +51,7 @@ public sealed class CatEmoteSpamCountermeasureSystem : EntitySystem
             return;
 
         foreach (var tag in args.Emote.Whitelist.Tags
-                     .Where(tag => tag == CatEmoteTag))
+                     .Where(tag => _emoteTags.Contains(tag.Id)))
         {
             Add(ent.Owner);
         }
