@@ -142,6 +142,16 @@
 
 - type: entity
   parent: BaseSubdermalImplant
+  id: NaniteMenderImplant
+  name: nanite mender implant
+  description: This implant allows the user to heal entities with microscopic nanites.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    implantAction: ActionNaniteMend
+
+- type: entity
+  parent: BaseSubdermalImplant
   id: ShiftImplant
   name: shift implant
   description: This implant allows the user to teleport to a point in range.

@@ -134,3 +134,46 @@
   color: gray
   protoId: BulletBigshot
   fireCost: 120
+
+
+# Pulse Rifle
+
+- type: selectableAmmo
+  id: HeavyPulse
+  desc: Decimate
+  icon:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    state: omnilaser
+  color: "#00B2FF"
+  protoId: HeavyPulse
+  fireCost: 250
+
+- type: selectableAmmo
+  id: Pulse
+  desc: Terminate.
+  icon:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    state: omnilaser
+  color: "#00B2FF"
+  protoId: Pulse
+  fireCost: 200
+
+- type: selectableAmmo
+  id: LightPulse
+  desc: Kill.
+  icon:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    state: heavylaser
+  color: red
+  protoId: LightPulse
+  fireCost: 100
+
+- type: selectableAmmo
+  id: StunPulse
+  desc: Stun.
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
+    state: omnilaser-blue
+  color: blue
+  protoId: StunPulse
+  fireCost: 20
