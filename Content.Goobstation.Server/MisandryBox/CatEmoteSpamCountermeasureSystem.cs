@@ -17,7 +17,6 @@ public sealed class CatEmoteSpamCountermeasureSystem : EntitySystem
 {
     [Dependency] private readonly ThunderstrikeSystem _thunderstrike = default!;
 
-    private readonly string[] _emoteTags = new string[] { "FelinidEmotes", "VulpEmotes" };
     private const float ClearInterval = 15.0f;
 
     [ViewVariables(VVAccess.ReadWrite)]
