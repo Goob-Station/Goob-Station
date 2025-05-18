@@ -7,6 +7,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared._Shitmed.Body;
 using Content.Shared._Shitmed.CCVar;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
@@ -17,6 +18,7 @@ using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using Content.Shared.Throwing;
@@ -30,7 +32,6 @@ using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Robust.Shared.Threading;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -47,17 +48,18 @@ public sealed partial class WoundSystem : EntitySystem
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IParallelManager _parallel = default!;
 
     [Dependency] private readonly SharedBodySystem _body = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+
     // I'm the one.... who throws........
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
@@ -181,7 +183,9 @@ public sealed partial class WoundSystem : EntitySystem
         var state = new WoundComponentState
         {
             HoldingWoundable =
-                TryGetNetEntity(comp.HoldingWoundable, out var holdingWoundable) ? holdingWoundable.Value : NetEntity.Invalid,
+                TryGetNetEntity(comp.HoldingWoundable, out var holdingWoundable)
+                    ? holdingWoundable.Value
+                    : NetEntity.Invalid,
 
             WoundSeverityPoint = comp.WoundSeverityPoint,
             WoundableIntegrityMultiplier = comp.WoundableIntegrityMultiplier,
@@ -243,11 +247,14 @@ public sealed partial class WoundSystem : EntitySystem
                 }
             }
         }
+
         component.HoldingWoundable = holdingWoundable;
 
         if (component.WoundSeverityPoint != state.WoundSeverityPoint)
         {
-            var ev = new WoundSeverityPointChangedEvent(component, component.WoundSeverityPoint, state.WoundSeverityPoint);
+            var ev = new WoundSeverityPointChangedEvent(component,
+                component.WoundSeverityPoint,
+                state.WoundSeverityPoint);
             RaiseLocalEvent(uid, ref ev);
 
             // TODO: On body changed events aren't predicted, welp
@@ -288,13 +295,15 @@ public sealed partial class WoundSystem : EntitySystem
         var state = new WoundableComponentState
         {
             ParentWoundable = TryGetNetEntity(comp.ParentWoundable, out var parentWoundable) ? parentWoundable : null,
-            RootWoundable = TryGetNetEntity(comp.RootWoundable, out var rootWoundable) ? rootWoundable.Value : NetEntity.Invalid,
+            RootWoundable = TryGetNetEntity(comp.RootWoundable, out var rootWoundable)
+                ? rootWoundable.Value
+                : NetEntity.Invalid,
 
             ChildWoundables =
                 comp.ChildWoundables
                     .Select(woundable => TryGetNetEntity(woundable, out var ne)
-                    ? ne.Value
-                    : NetEntity.Invalid)
+                        ? ne.Value
+                        : NetEntity.Invalid)
                     .ToHashSet(),
             // Attached and Detached -Woundable events are handled on client with containers
 
@@ -310,16 +319,17 @@ public sealed partial class WoundSystem : EntitySystem
             SeverityMultipliers =
                 comp.SeverityMultipliers
                     .Select(multiplier
-                        => (TryGetNetEntity(multiplier.Key, out var ne) ? ne.Value : NetEntity.Invalid, multiplier.Value))
+                        => (TryGetNetEntity(multiplier.Key, out var ne) ? ne.Value : NetEntity.Invalid,
+                            multiplier.Value))
                     .ToDictionary(),
             HealingMultipliers =
                 comp.HealingMultipliers
                     .Select(multiplier
-                        => (TryGetNetEntity(multiplier.Key, out var ne) ? ne.Value : NetEntity.Invalid, multiplier.Value))
+                        => (TryGetNetEntity(multiplier.Key, out var ne) ? ne.Value : NetEntity.Invalid,
+                            multiplier.Value))
                     .ToDictionary(),
 
             WoundableSeverity = comp.WoundableSeverity,
-            HealingRateAccumulated = comp.HealingRateAccumulated,
         };
 
         args.State = state;
@@ -336,8 +346,8 @@ public sealed partial class WoundSystem : EntitySystem
 
         component.ChildWoundables = state.ChildWoundables
             .Select(x => TryGetEntity(x, out var y) ? y.Value : EntityUid.Invalid)
-                .Where(x => x.Valid)
-                .ToHashSet();
+            .Where(x => x.Valid)
+            .ToHashSet();
         // Attached and Detached -Woundable events are handled on client with containers
 
         component.AllowWounds = state.AllowWounds;
@@ -392,6 +402,7 @@ public sealed partial class WoundSystem : EntitySystem
                 RaiseLocalEvent(bodyPart.Body.Value, ref ev1);
             }
         }
+
         component.WoundableIntegrity = state.WoundableIntegrity;
 
         if (component.WoundableSeverity != state.WoundableSeverity)

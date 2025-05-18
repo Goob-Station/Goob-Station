@@ -76,7 +76,6 @@
 // SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
 // SPDX-FileCopyrightText: 2024 foboscheshir <156405958+foboscheshir@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
@@ -91,13 +90,17 @@
 // SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 kurokoTurbo <92106367+kurokoTurbo@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Trest <144359854+trest100@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Kayzel <43700376+KayzelW@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Minemoder5000 <minemoder50000@gmail.com>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Trest <144359854+trest100@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Zachary Higgs <compgeek223@gmail.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 kurokoTurbo <92106367+kurokoTurbo@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -368,7 +371,8 @@ public sealed class HealthAnalyzerSystem : EntitySystem
     /// <param name="part">Shitmed Change: The body part being scanned, if any</param>
     public void UpdateScannedUser(EntityUid healthAnalyzer, EntityUid target, bool scanMode, HealthAnalyzerMode mode, EntityUid? part = null)
     {
-        if (!_uiSystem.HasUi(healthAnalyzer, HealthAnalyzerUiKey.Key))
+        if (!_uiSystem.HasUi(healthAnalyzer, HealthAnalyzerUiKey.Key)
+            || !TryComp<BodyComponent>(target, out var body))
             return;
 
         var bodyTemperature = float.NaN;
@@ -377,29 +381,20 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             bodyTemperature = temp.CurrentTemperature;
 
         var bloodAmount = float.NaN;
-        var bleeding = false;
 
         if (TryComp<BloodstreamComponent>(target, out var bloodstream) &&
             _solutionContainerSystem.ResolveSolution(target, bloodstream.BloodSolutionName,
                 ref bloodstream.BloodSolution, out var bloodSolution))
-        {
             bloodAmount = bloodSolution.FillFraction;
-            bleeding = bloodstream.BleedAmount > 0;
-        }
 
-        // Shitmed Change Start
-        Dictionary<TargetBodyPart, WoundableSeverity>? body = null;
-        if (HasComp<BodyComponent>(target))
-            body = _woundSystem.GetDamageableStatesOnBody(target);
-        // Shitmed Change End
+        var bodyStatus = _woundSystem.GetDamageableStatesOnBody(target);
+        Dictionary<TargetBodyPart, bool> bleeding = new();
 
         switch (mode)
         {
             case HealthAnalyzerMode.Body:
                 var unrevivable = false;
-                var woundables = _bodySystem.GetBodyChildren(target);
-                var traumas = FetchTraumaData(target, woundables);
-                var pain = FetchPainData(target, woundables);
+                FetchBodyData(target, body, out var traumas, out var pain, out bleeding);
                 if (TryComp<UnrevivableComponent>(target, out var unrevivableComp) && unrevivableComp.Analyzable)
                     unrevivable = true;
 
@@ -408,9 +403,9 @@ public sealed class HealthAnalyzerSystem : EntitySystem
                     bodyTemperature,
                     bloodAmount,
                     scanMode,
-                    bleeding,
                     unrevivable,
-                    body,
+                    bodyStatus,
+                    bleeding,
                     traumas,
                     pain,
                     part != null ? GetNetEntity(part) : null
@@ -418,25 +413,29 @@ public sealed class HealthAnalyzerSystem : EntitySystem
                 break;
 
             case HealthAnalyzerMode.Organs:
+                bleeding = FetchBleedData(body);
                 var organs = FetchOrganData(target);
                 _uiSystem.ServerSendUiMessage(healthAnalyzer, HealthAnalyzerUiKey.Key, new HealthAnalyzerOrgansMessage(
                     GetNetEntity(target),
                     bodyTemperature,
                     bloodAmount,
                     scanMode,
-                    body,
+                    bleeding,
+                    bodyStatus,
                     organs
                 ));
                 break;
 
             case HealthAnalyzerMode.Chemicals:
+                bleeding = FetchBleedData(body);
                 var chemicals = FetchChemicalData(target);
                 _uiSystem.ServerSendUiMessage(healthAnalyzer, HealthAnalyzerUiKey.Key, new HealthAnalyzerChemicalsMessage(
                     GetNetEntity(target),
                     bodyTemperature,
                     bloodAmount,
                     scanMode,
-                    body,
+                    bleeding,
+                    bodyStatus,
                     chemicals
                 ));
                 break;
@@ -460,7 +459,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         {
             traumas.Add(GetNetEntity(woundable), FetchTraumaData(woundable, component));
             pain.Add(GetNetEntity(woundable), FetchPainData(woundable, component));
-            bleeding.Add(_bodySystem.GetTargetBodyPart(woundable), component.IsBleeding);
+            bleeding.Add(_bodySystem.GetTargetBodyPart(woundable), component.Bleeds > 0);
         }
     }
 
@@ -486,45 +485,33 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         {
             foreach (var trauma in traumasFound)
             {
-                List<WoundableTraumaData> woundableTraumasList = new();
-                foreach (var trauma in traumasFound)
+                if (trauma.Comp.TraumaType == TraumaType.BoneDamage
+                    && trauma.Comp.TraumaTarget is { } boneWoundable
+                    && TryComp(boneWoundable, out BoneComponent? boneComp))
                 {
-                    if (trauma.Comp.TraumaType == TraumaType.BoneDamage
-                        && trauma.Comp.TraumaTarget is { } boneWoundable
-                        && TryComp(boneWoundable, out BoneComponent? boneComp))
-                    {
-                        woundableTraumasList.Add(new WoundableTraumaData(ToPrettyString(bodyPartId),
-                            trauma.Comp.TraumaType.ToString(), trauma.Comp.TraumaSeverity, boneComp.BoneSeverity.ToString(), trauma.Comp.TargetType));
+                    traumasList.Add(new WoundableTraumaData(ToPrettyString(target),
+                        trauma.Comp.TraumaType.ToString(), trauma.Comp.TraumaSeverity, boneComp.BoneSeverity.ToString(), trauma.Comp.TargetType));
 
-                        continue;
-                    }
-
-                    woundableTraumasList.Add(new WoundableTraumaData(ToPrettyString(trauma),
-                            trauma.Comp.TraumaType.ToString(), trauma.Comp.TraumaSeverity, targetType: trauma.Comp.TargetType));
+                    continue;
                 }
 
-                if (woundableTraumasList.Count() > 0)
-                    traumasList.Add(GetNetEntity(bodyPartId), woundableTraumasList);
+                traumasList.Add(new WoundableTraumaData(ToPrettyString(trauma),
+                        trauma.Comp.TraumaType.ToString(), trauma.Comp.TraumaSeverity, targetType: trauma.Comp.TargetType));
             }
         }
 
         return traumasList;
     }
 
-    private Dictionary<NetEntity, FixedPoint2> FetchPainData(EntityUid target,
-        IEnumerable<(EntityUid Id, BodyPartComponent Component)> woundables)
+    private FixedPoint2 FetchPainData(EntityUid target,
+        WoundableComponent woundable)
     {
-        var painList = new Dictionary<NetEntity, FixedPoint2>();
+        var pain = FixedPoint2.Zero;
 
-        foreach (var (bodyPartId, _) in woundables)
-        {
-            if (!TryComp<NerveComponent>(bodyPartId, out var nerve))
-                continue;
+        if (!TryComp<NerveComponent>(target, out var nerve))
+            return pain;
 
-            painList.Add(GetNetEntity(bodyPartId), nerve.PainFeels);
-        }
-
-        return painList;
+        return nerve.PainFeels;
     }
 
     private Dictionary<NetEntity, OrganTraumaData> FetchOrganData(EntityUid target)
@@ -557,6 +544,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         {
             if (name is null
                 || name == BloodstreamComponent.DefaultBloodTemporarySolutionName
+                || name == "print" // I hate this so fucking much.
                 || !TryGetNetEntity(solution, out var netSolution))
                 continue;
 

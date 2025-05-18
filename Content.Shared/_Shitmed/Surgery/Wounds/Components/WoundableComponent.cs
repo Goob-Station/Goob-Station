@@ -1,4 +1,12 @@
-﻿using Content.Shared.Damage;
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.Audio;
@@ -133,12 +141,6 @@ public sealed partial class WoundableComponent : Component
     /// </summary>
     [DataField]
     public WoundableSeverity WoundableSeverity;
-
-    /// <summary>
-    /// How much time in seconds had this woundable accumulated from the last healing tick.
-    /// </summary>
-    [ViewVariables]
-    public float HealingRateAccumulated;
 
     /// <summary>
     /// Container potentially holding wounds.
