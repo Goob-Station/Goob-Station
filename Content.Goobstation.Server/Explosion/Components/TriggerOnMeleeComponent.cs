@@ -10,5 +10,3 @@ namespace Content.Goobstation.Server.Explosion.Components;
 /// </summary>
 [RegisterComponent]
 public sealed partial class TriggerOnMeleeComponent : Component;
-
-
