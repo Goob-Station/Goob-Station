@@ -9646,3 +9646,9 @@ Entries:
       message: Added feature to set criminal status with security hud items.
   id: 1079
   time: '2025-05-18T20:30:02.0000000+00:00'
+- author: NikaVichy
+  changes:
+    - type: Add
+      message: Enabled suit storage for all outer clothing.
+  id: 1080
+  time: '2025-05-18T20:34:42.0000000+00:00'
