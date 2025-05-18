@@ -3,6 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using System.Threading;
 using Content.Shared.Electrocution;
 using Content.Shared.Popups;
@@ -20,6 +21,29 @@ public sealed class ThunderstrikeSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     private const string Sound = "/Audio/_Goobstation/Effects/Smites/Thunderstrike/thunderstrike.ogg";
+
+    private readonly Dictionary<EntityUid, TimeSpan> _pending = new();
+    private float _accumulator;
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        if (_pending.Count == 0)
+            return;
+
+        _accumulator += frameTime;
+        for (var i = _pending.Count - 1; i >= 0; i--)
+        {
+            var (entity, expiryTime) = _pending.ElementAt(i);
+
+            if (!(_accumulator >= expiryTime.TotalSeconds))
+                continue;
+
+            _pending.Remove(entity);
+            Del(entity);
+        }
+    }
 
     // efcc gon get u alaye...
     public void Smite(EntityUid mumu, bool kill = true, TransformComponent? transform = null)
@@ -50,6 +74,6 @@ public sealed class ThunderstrikeSystem : EntitySystem
         var sound = new SoundPathSpecifier(Sound);
         _audio.PlayPvs(sound, coordinates, AudioParams.Default.WithVolume(150f));
 
-        Robust.Shared.Timing.Timer.Spawn(TimeSpan.FromMilliseconds(125), () => Del(ent), CancellationToken.None);
+        _pending[ent] = TimeSpan.FromSeconds(_accumulator + 0.125);
     }
 }
