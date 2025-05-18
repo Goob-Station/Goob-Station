@@ -11,8 +11,9 @@
 // SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <zddm@outlook.es>
 // SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -27,8 +28,6 @@ namespace Content.Shared.Throwing
     /// <summary>
     /// Raised when a thrown entity is no longer moving.
     /// </summary>
-    public sealed class StopThrowEvent : EntityEventArgs
-    {
-        public EntityUid? User;
-    }
+    [ByRefEvent]
+    public record struct StopThrowEvent(EntityUid? User);
 }
