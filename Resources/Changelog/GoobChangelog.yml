@@ -9558,3 +9558,9 @@ Entries:
       message: Added good borg names to replace the stupid ones
   id: 1067
   time: '2025-05-18T16:26:17.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: Hostname now displays MOTDs and queue count.
+  id: 1068
+  time: '2025-05-18T16:26:44.0000000+00:00'
