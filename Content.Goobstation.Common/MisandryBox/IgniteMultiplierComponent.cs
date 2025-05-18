@@ -11,6 +11,6 @@ public sealed partial class IgniteMultiplierComponent : Component
     /// <summary>
     /// Multiply received burn stacks by this value
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public float Factor { get; set; } = 2;
 }

@@ -109,13 +109,11 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
             return;
         }
 
-        // Get current marking
-        foreach (var mark in markings)
+        // MisandryBox - specials
+        var currentMarking = markings[index];
+        if (_markingManager.TryGetMarking(currentMarking, out var currentProto))
         {
-            if (!_markingManager.TryGetMarking(mark, out var proto))
-                continue;
-
-            ProcessSpecials(uid, proto, false);
+            ProcessSpecials(uid, currentProto, false);
         }
 
         var marking = markingPrototype.AsMarking();
@@ -124,6 +122,7 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
             marking.SetColor(i, markings[index].MarkingColors[i]);
         }
 
+        // MisandryBox - specials
         ProcessSpecials(uid, markingPrototype, true);
 
         humanoid.MarkingSet.Replace(category, index, marking);
