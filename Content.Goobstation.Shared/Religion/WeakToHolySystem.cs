@@ -125,7 +125,7 @@ public sealed class WeakToHolySystem : EntitySystem
             if (comp.NextHealTick > _timing.CurTime || !comp.IsColliding)
                 continue;
 
-            _damageableSystem.TryChangeDamage(uid, comp.HealAmount * 11f, targetPart: TargetBodyPart.All); // Shitmed Change
+            _damageableSystem.TryChangeDamage(uid, comp.HealAmount, targetPart: TargetBodyPart.All, partMultiplier: 11f); // Shitmed Change
 
             comp.NextHealTick = _timing.CurTime + comp.HealTickDelay;
         }

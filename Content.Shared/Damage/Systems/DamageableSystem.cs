@@ -91,6 +91,7 @@ using Content.Shared.Body.Systems;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Shared.Damage
 {
@@ -108,6 +109,7 @@ namespace Content.Shared.Damage
         [Dependency] private readonly WoundSystem _wounds = default!;
         [Dependency] private readonly IRobustRandom _LETSGOGAMBLINGEXCLAMATIONMARKEXCLAMATIONMARK = default!;
         [Dependency] private readonly IComponentFactory _factory = default!;
+        [Dependency] private readonly IGameTiming _timing = default!;
         private EntityQuery<AppearanceComponent> _appearanceQuery;
         private EntityQuery<DamageableComponent> _damageableQuery;
         private EntityQuery<MindContainerComponent> _mindContainerQuery;
@@ -183,9 +185,11 @@ namespace Content.Shared.Damage
         /// </summary>
         private void DamageableInit(EntityUid uid, DamageableComponent component, ComponentInit _)
         {
+            Logger.Debug($"INITIALIZING DAMAGEABLE COMPONENT: {ToPrettyString(uid)}");
             if (component.DamageContainerID != null &&
                 _prototypeManager.TryIndex(component.DamageContainerID, out var damageContainerPrototype)) // Shitmed Change
             {
+                Logger.Debug($"DAMAGE CONTAINER PROTOTYPE FOUND FOR: {ToPrettyString(uid)}");
                 // Initialize damage dictionary, using the types and groups from the damage
                 // container prototype
                 foreach (var type in damageContainerPrototype.SupportedTypes)
@@ -204,6 +208,7 @@ namespace Content.Shared.Damage
             }
             else
             {
+                Logger.Debug($"NO DAMAGE CONTAINER PROTOTYPE FOUND FOR: {ToPrettyString(uid)}");
                 // No DamageContainerPrototype was given. So we will allow the container to support all damage types
                 foreach (var type in _prototypeManager.EnumeratePrototypes<DamageTypePrototype>())
                 {
@@ -244,6 +249,7 @@ namespace Content.Shared.Damage
         {
             component.Damage.GetDamagePerGroup(_prototypeManager, component.DamagePerGroup);
             component.TotalDamage = component.Damage.GetTotal();
+            component.LastModifiedTime = _timing.CurTime; // Shitmed Change
             Dirty(uid, component);
 
             if (_appearanceQuery.TryGetComponent(uid, out var appearance) && damageDelta != null)
@@ -316,7 +322,7 @@ namespace Content.Shared.Damage
             bool ignoreBlockers = false)
         {
             DamageSpecifier? totalAppliedDamage = null;
-
+            var adjustedDamage = damage * partMultiplier;
             // This cursed shitcode lets us know if the target part is a power of 2
             // therefore having multiple parts targeted.
             if (targetPart != null
@@ -351,7 +357,7 @@ namespace Content.Shared.Damage
                 if (bodyParts.Count == 0)
                     return null;
 
-                var damagePerPart = damage / bodyParts.Count;
+                var damagePerPart = adjustedDamage / bodyParts.Count;
                 var appliedDamage = new DamageSpecifier();
 
                 foreach (var (partId, _) in bodyParts)
@@ -404,9 +410,6 @@ namespace Content.Shared.Damage
 
                 if (!_damageableQuery.TryComp(chosenTarget.Id, out var partDamageable))
                     return null;
-
-                // Apply part multiplier if needed
-                var adjustedDamage = partMultiplier != 1.0f ? damage * partMultiplier : damage;
 
                 totalAppliedDamage = TryChangeDamage(chosenTarget.Id, adjustedDamage, ignoreResistances,
                     interruptsDoAfters, partDamageable, origin, ignoreBlockers: ignoreBlockers);

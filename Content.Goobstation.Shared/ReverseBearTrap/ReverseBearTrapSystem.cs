@@ -32,6 +32,12 @@ using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 
+// Shitmed Change
+using Content.Shared.Body.Part;
+using Content.Shared.Body.Systems;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
+
 namespace Content.Goobstation.Shared.ReverseBearTrap;
 
 public sealed partial class ReverseBearTrapSystem : EntitySystem
@@ -49,7 +55,8 @@ public sealed partial class ReverseBearTrapSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
     [Dependency] private readonly TagSystem _tag = default!;
-
+    [Dependency] private readonly WoundSystem _wound = default!; // Shitmed Change
+    [Dependency] private readonly SharedBodySystem _body = default!; // Shitmed Change
     public override void Initialize()
     {
         base.Initialize();
@@ -410,6 +417,11 @@ public sealed partial class ReverseBearTrapSystem : EntitySystem
         var damage = new DamageSpecifier();
         damage.DamageDict.Add("Blunt", 300);
         _damageable.TryChangeDamage(wearer, damage, true, origin: uid, targetPart: Content.Shared._Shitmed.Targeting.TargetBodyPart.Head);
+        var head = _body.GetBodyChildrenOfType(wearer.Value, BodyPartType.Head).FirstOrDefault();
+        if (head != default
+            && TryComp<WoundableComponent>(head.Id, out var woundable)
+            && woundable.ParentWoundable.HasValue)
+            _wound.AmputateWoundable(woundable.ParentWoundable.Value, head.Id, woundable);
     }
 
     private void AttemptEscape(EntityUid uid, ReverseBearTrapComponent trap, EntityUid user)

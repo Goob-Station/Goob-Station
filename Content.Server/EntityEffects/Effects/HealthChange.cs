@@ -235,12 +235,18 @@ namespace Content.Server.EntityEffects.Effects
                 foreach (var (type, val) in damageSpec.DamageDict)
                 {
                     if (val < 0f)
-                        damageSpec.DamageDict[type] = val * universalReagentHealModifier * HealingDamageMultiplier;
+                    {
+                        damageSpec.DamageDict[type] = val * universalReagentHealModifier;
+                    }
 
                     if (val > 0f)
-                        damageSpec.DamageDict[type] = val * universalReagentDamageModifier * DamageMultiplier;
+                    {
+                        damageSpec.DamageDict[type] = val * universalReagentDamageModifier;
+                    }
                 }
             }
+
+            var partMultiplier = damageSpec.GetTotal() > 0 ? HealingDamageMultiplier : DamageMultiplier;
 
             args.EntityManager.System<DamageableSystem>()
                 .TryChangeDamage(
@@ -249,6 +255,7 @@ namespace Content.Server.EntityEffects.Effects
                     IgnoreResistances,
                     interruptsDoAfters: false,
                     targetPart: TargetBodyPart.All,
+                    partMultiplier: partMultiplier,
                     ignoreBlockers: true); // Shitmed Change
 
         }

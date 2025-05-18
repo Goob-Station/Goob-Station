@@ -31,6 +31,8 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
+using Content.Shared._Shitmed.Targeting; // Shitmed Change
+
 namespace Content.Server._DV.CosmicCult;
 
 public sealed class MonumentSystem : SharedMonumentSystem
@@ -76,7 +78,7 @@ public sealed class MonumentSystem : SharedMonumentSystem
                 entities.RemoveWhere(entity => !HasComp<InfluenceVitalityComponent>(entity));
 
                 foreach (var entity in entities)
-                    _damage.TryChangeDamage(entity, monuComp.MonumentHealing * -1);
+                    _damage.TryChangeDamage(entity, monuComp.MonumentHealing * -1, targetPart: TargetBodyPart.All); // Shitmed Change
 
                 monuComp.CheckTimer = _timing.CurTime + monuComp.CheckWait;
             }

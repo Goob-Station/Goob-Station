@@ -161,7 +161,7 @@ namespace Content.Server.Bed
                     if (HasComp<SleepingComponent>(healedEntity))
                         damage *= bedComponent.SleepMultiplier;
 
-                    _damageableSystem.TryChangeDamage(healedEntity, damage * 11f, true, origin: uid, targetPart: TargetBodyPart.All); // Shitmed Change
+                    _damageableSystem.TryChangeDamage(healedEntity, damage, true, origin: uid, partMultiplier: 11f, targetPart: TargetBodyPart.All); // Shitmed Change
                 }
             }
         }

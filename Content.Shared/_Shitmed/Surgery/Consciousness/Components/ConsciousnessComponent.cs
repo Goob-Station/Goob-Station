@@ -91,4 +91,7 @@ public sealed partial class ConsciousnessComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public bool IsConscious = true;
     // Forceful control attributes, it's recommended not to use them directly.
+
+    [DataField]
+    public bool HasPainScreams;
 }

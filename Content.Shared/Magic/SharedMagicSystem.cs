@@ -979,9 +979,10 @@ public abstract class SharedMagicSystem : EntitySystem
             if (invocationEv.ToHeal.GetTotal() > FixedPoint2.Zero)
             {
                 _damageable.TryChangeDamage(args.Performer,
-                    -invocationEv.ToHeal * 11f,
+                    -invocationEv.ToHeal,
                     true,
                     false,
+                    partMultiplier: 11f,
                     targetPart: TargetBodyPart.All); // Shitmed Change
             }
         }

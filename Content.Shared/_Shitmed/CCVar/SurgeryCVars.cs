@@ -18,7 +18,13 @@ public sealed class SurgeryCVars : CVars
     /// How many times per second do we want to heal wounds.
     /// </summary>
     public static readonly CVarDef<float> MedicalHealingTickrate =
-        CVarDef.Create("medical.heal_tickrate", 2f, CVar.SERVER | CVar.REPLICATED);
+        CVarDef.Create("medical.heal_tickrate", 0.5f, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    /// The minimum time an entity must spend without taking more damage before healing can start.
+    /// </summary>
+    public static readonly CVarDef<float> MinimumTimeBeforeHeal =
+        CVarDef.Create("medical.minimum_time_before_heal", 2f, CVar.SERVER | CVar.REPLICATED);
 
     /// <summary>
     /// The name is self-explanatory

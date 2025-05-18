@@ -1631,6 +1631,7 @@
           True: {visible: true}
           False: {visible: false}
   - type: Body # Shitmed Change
+    bodyType: Complex
     prototype: Monkey
     requiredLegs: 2
   - type: CreamPied
@@ -1698,6 +1699,7 @@
       Unsexed: MonkeyMode
     wilhelmProbability: 0.001
   - type: Consciousness
+    hasPainScreams: false
     threshold: 70
     cap: 140
 

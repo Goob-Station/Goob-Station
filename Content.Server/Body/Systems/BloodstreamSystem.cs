@@ -280,12 +280,19 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem // Shitmed Chang
                 {
                     foreach (var (bodyPart, _) in _body.GetBodyChildren(uid))
                     {
+                        var totalPartBleeds = FixedPoint2.Zero;
                         foreach (var wound in _wound.GetWoundableWounds(bodyPart))
                         {
                             if (!TryComp<BleedInflicterComponent>(wound, out var bleeds) || !bleeds.IsBleeding)
                                 continue;
 
-                            totalBleedAmount += bleeds.BleedingAmount;
+                            totalPartBleeds += bleeds.BleedingAmount;
+                        }
+
+                        if (TryComp<WoundableComponent>(bodyPart, out var woundable))
+                        {
+                            woundable.Bleeds = totalPartBleeds;
+                            Dirty(bodyPart, woundable);
                         }
                     }
                 }
@@ -339,8 +346,8 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem // Shitmed Chang
                 // If they're healthy, we'll try and heal some bloodloss instead.
                 _damageableSystem.TryChangeDamage(
                     uid,
-                    bloodstream.BloodlossHealDamage * bloodPercentage * 11f,
-                    ignoreResistances: true, interruptsDoAfters: false, targetPart: TargetBodyPart.All); // Shitmed Change
+                    bloodstream.BloodlossHealDamage * bloodPercentage,
+                    ignoreResistances: true, interruptsDoAfters: false, partMultiplier: 11f, targetPart: TargetBodyPart.All); // Shitmed Change
 
                 // Remove the drunk effect when healthy. Should only remove the amount of drunk and stutter added by low blood level
                 _drunkSystem.TryRemoveDrunkenessTime(uid, bloodstream.StatusTime.TotalSeconds);

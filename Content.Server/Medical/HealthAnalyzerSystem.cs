@@ -125,6 +125,7 @@ using Robust.Shared.Timing;
 // Shitmed Change
 using Content.Shared._Shitmed.Medical.HealthAnalyzer;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Pain.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas;
@@ -442,14 +443,48 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         }
     }
 
-    private Dictionary<NetEntity, List<WoundableTraumaData>> FetchTraumaData(EntityUid target,
-        IEnumerable<(EntityUid Id, BodyPartComponent Component)> woundables)
+    private void FetchBodyData(EntityUid target,
+        BodyComponent body,
+        out Dictionary<NetEntity, List<WoundableTraumaData>> traumas,
+        out Dictionary<NetEntity, FixedPoint2> pain,
+        out Dictionary<TargetBodyPart, bool> bleeding)
     {
-        var traumasList = new Dictionary<NetEntity, List<WoundableTraumaData>>();
+        traumas = new();
+        pain = new();
+        bleeding = new();
 
-        foreach (var (bodyPartId, _) in woundables)
+        if (body.RootContainer.ContainedEntity is not { } rootPart)
+            return;
+
+        foreach (var (woundable, component) in _woundSystem.GetAllWoundableChildren(rootPart))
         {
-            if (_trauma.TryGetWoundableTrauma(bodyPartId, out var traumasFound))
+            traumas.Add(GetNetEntity(woundable), FetchTraumaData(woundable, component));
+            pain.Add(GetNetEntity(woundable), FetchPainData(woundable, component));
+            bleeding.Add(_bodySystem.GetTargetBodyPart(woundable), component.IsBleeding);
+        }
+    }
+
+    private Dictionary<TargetBodyPart, bool> FetchBleedData(BodyComponent body)
+    {
+        var bleeding = new Dictionary<TargetBodyPart, bool>();
+
+        if (body.RootContainer.ContainedEntity is not { } rootPart)
+            return bleeding;
+
+        foreach (var (woundable, component) in _woundSystem.GetAllWoundableChildren(rootPart))
+            bleeding.Add(_bodySystem.GetTargetBodyPart(woundable), component.Bleeds > 0);
+
+        return bleeding;
+    }
+
+    private List<WoundableTraumaData> FetchTraumaData(EntityUid target,
+        WoundableComponent woundable)
+    {
+        var traumasList = new List<WoundableTraumaData>();
+
+        if (_trauma.TryGetWoundableTrauma(target, out var traumasFound))
+        {
+            foreach (var trauma in traumasFound)
             {
                 List<WoundableTraumaData> woundableTraumasList = new();
                 foreach (var trauma in traumasFound)

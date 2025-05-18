@@ -92,6 +92,7 @@
     woundVisibility: Always
     scarWound: PiercingScar
     integrityMultiplier: 0.34
+    selfHealMultiplier: 0
   - type: TraumaInflicter
     severityThreshold: 6
     allowedTraumas:
@@ -265,6 +266,7 @@
     woundVisibility: AdvancedScanner
     scarWound: BurnScar
     integrityMultiplier: 0.15
+    selfHealMultiplier: 0
   - type: TraumaInflicter
     severityThreshold: 0
     allowedTraumas:
@@ -319,6 +321,7 @@
     woundVisibility: HandScanner
     scarWound: RadiationScar
     integrityMultiplier: 0
+    selfHealMultiplier: 0
   - type: TraumaInflicter
     severityThreshold: 11
     allowedTraumas:
