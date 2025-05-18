@@ -385,19 +385,23 @@ namespace Content.Shared.Damage
             {
                 // Target a specific body part
                 TargetBodyPart? target;
+                var totalDamage = damage.GetTotal();
 
-                if (targetPart != null)
-                    target = _body.GetRandomBodyPart(uid, targetPart: targetPart.Value);
-                else if (origin.HasValue)
-                    target = _body.GetRandomBodyPart(uid, origin.Value);
+                if (totalDamage <= 0) // Whoops i think i fucked up damage here.
+                    target = _body.GetTargetBodyPart(uid, origin, targetPart);
                 else
-                    target = _body.GetRandomBodyPart(uid);
+                    target = _body.GetRandomBodyPart(uid, origin, targetPart);
 
                 var (partType, symmetry) = _body.ConvertTargetBodyPart(target);
                 var possibleTargets = _body.GetBodyChildrenOfType(uid, partType, symmetry: symmetry).ToList();
 
                 if (possibleTargets.Count == 0)
+                {
+                    if (totalDamage <= 0)
+                        return null;
+
                     possibleTargets = _body.GetBodyChildren(uid).ToList();
+                }
 
                 // No body parts at all?
                 if (possibleTargets.Count == 0)
