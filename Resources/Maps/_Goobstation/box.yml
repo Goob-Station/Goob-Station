@@ -69111,7 +69111,7 @@ entities:
     - type: Transform
       pos: 66.509186,-76.72045
       parent: 2
-- proto: ClothingOuterVoidsuitSecurity
+- proto: ClothingOuterHardsuitSecurity
   entities:
   - uid: 10982
     components:
