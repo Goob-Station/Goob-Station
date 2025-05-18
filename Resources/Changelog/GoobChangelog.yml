@@ -9570,3 +9570,9 @@ Entries:
       message: Removed tesla ballpits
   id: 1069
   time: '2025-05-18T16:27:22.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: SM grenade doesnt push as erratically anymore
+  id: 1070
+  time: '2025-05-18T16:28:14.0000000+00:00'
