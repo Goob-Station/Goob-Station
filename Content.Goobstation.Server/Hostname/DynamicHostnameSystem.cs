@@ -16,8 +16,7 @@ using Content.Goobstation.Common.JoinQueue;
 using Robust.Shared.Timing;
 using System;
 
-namespace Content.Server.DynamicHostname;
-
+namespace Content.Goobstation.Server.Hostname;
 
 /// <summary>
 /// This handles dynamically updating hostnames.
