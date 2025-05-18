@@ -630,7 +630,8 @@ public abstract partial class SharedSurgerySystem
     {
         foreach (var woundEnt in _wounds.GetWoundableWounds(args.Part))
         {
-            if (!TryComp<BleedInflicterComponent>(woundEnt, out var bleedsInflicter) || !bleedsInflicter.IsBleeding)
+            if (!TryComp<BleedInflicterComponent>(woundEnt, out var bleedsInflicter)
+                || !bleedsInflicter.IsBleeding)
                 continue;
 
             args.Cancelled = true;
@@ -849,8 +850,8 @@ public abstract partial class SharedSurgerySystem
         if (!IsSurgeryValid(body, targetPart, surgeryId, stepId, user, out var surgery, out var part, out var step))
             return false;
 
-        if (!PreviousStepsComplete(body, part, surgery, stepId) ||
-            IsStepComplete(body, part, stepId, surgery))
+        if (!PreviousStepsComplete(body, part, surgery, stepId)
+            || IsStepComplete(body, part, stepId, surgery))
             return false;
 
         if (!CanPerformStep(user, body, part, step, true, out _, out _, out var validTools))
@@ -902,6 +903,7 @@ public abstract partial class SharedSurgerySystem
             DuplicateCondition = DuplicateConditions.SameEvent,
             NeedHand = true,
             BreakOnHandChange = true,
+            AttemptFrequency = AttemptFrequency.EveryTick,
         };
 
         if (!_doAfter.TryStartDoAfter(doAfter))

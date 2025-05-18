@@ -672,6 +672,7 @@
       behaviors:
       - !type:GibBehavior # Shitmed Change
         gibContents: Skip # Shitmed Change
+        recursive: false # Shitmed Change
   - type: NonSpreaderZombie
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
@@ -842,7 +843,9 @@
         damageType: Blunt
         damage: 60
       behaviors:
-      - !type:GibBehavior { }
+      - !type:GibBehavior
+        gibContents: Skip
+        recursive: false
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
@@ -2160,6 +2163,16 @@
   - type: GroupRetaliation
     range: 5 # slightly lower for mice
   # </Goobstation>
+  - type: Destructible # Shitmed Change
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 100
+      behaviors:
+      - !type:GibBehavior
+        gibContents: Skip
+        recursive: false
 
 - type: entity
   parent: MobMouse

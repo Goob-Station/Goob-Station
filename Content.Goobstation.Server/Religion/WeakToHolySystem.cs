@@ -152,7 +152,7 @@ public sealed class WeakToHolySystem : EntitySystem
             }
 
             // Passive healing.
-            _damageableSystem.TryChangeDamage(uid, weakToHoly.PassiveAmount, ignoreBlockers: true, targetPart: TargetBodyPart.All);
+            _damageableSystem.TryChangeDamage(uid, weakToHoly.PassiveAmount, ignoreBlockers: true, targetPart: TargetBodyPart.All, splitDamage: false);
             weakToHoly.NextPassiveHealTick = _timing.CurTime + weakToHoly.HealTickDelay;
         }
     }

@@ -248,8 +248,6 @@ namespace Content.Server.EntityEffects.Effects
                 }
             }
 
-            var partMultiplier = damageSpec.GetTotal() > 0 ? HealingDamageMultiplier : DamageMultiplier;
-
             args.EntityManager.System<DamageableSystem>()
                 .TryChangeDamage(
                     args.TargetEntity,
@@ -257,8 +255,8 @@ namespace Content.Server.EntityEffects.Effects
                     IgnoreResistances,
                     interruptsDoAfters: false,
                     targetPart: TargetBodyPart.All,
-                    partMultiplier: partMultiplier,
-                    ignoreBlockers: true); // Shitmed Change
+                    ignoreBlockers: true,
+                    splitDamage: damageSpec.GetTotal() > 0); // Shitmed Change
 
         }
     }

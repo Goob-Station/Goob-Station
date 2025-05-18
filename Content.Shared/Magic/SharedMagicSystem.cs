@@ -960,8 +960,8 @@ public abstract class SharedMagicSystem : EntitySystem
                     -invocationEv.ToHeal,
                     true,
                     false,
-                    partMultiplier: 11f,
-                    targetPart: TargetBodyPart.All); // Shitmed Change
+                    targetPart: TargetBodyPart.All,
+                    splitDamage: false); // Shitmed Change
             }
         }
 

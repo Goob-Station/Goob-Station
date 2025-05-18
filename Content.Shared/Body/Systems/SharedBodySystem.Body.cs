@@ -180,12 +180,6 @@ public partial class SharedBodySystem
     {
         // Setup the initial container.
         ent.Comp.RootContainer = Containers.EnsureContainer<ContainerSlot>(ent, BodyRootContainerId);
-
-        if (_timing.IsFirstTimePredicted)
-        {
-            ent.Comp.HealAt = _timing.CurTime + TimeSpan.FromSeconds(1f / _medicalHealingTickrate);
-            _woundSystem.AddToHealQueue((ent, ent.Comp));
-        }
     }
 
     private void OnBodyMapInit(Entity<BodyComponent> ent, ref MapInitEvent args)

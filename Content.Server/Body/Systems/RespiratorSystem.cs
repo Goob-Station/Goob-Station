@@ -461,7 +461,7 @@ public sealed class RespiratorSystem : EntitySystem
             }
         }
 
-        _damageableSys.TryChangeDamage(ent, ent.Comp.DamageRecovery, partMultiplier: 8f, targetPart: TargetBodyPart.All, ignoreBlockers: true);
+        _damageableSys.TryChangeDamage(ent, ent.Comp.DamageRecovery, targetPart: TargetBodyPart.All, ignoreBlockers: true, splitDamage: false);
         // The 8f multiplier is an arbitrary number chosen to make the damage not absolute shit when considering that its split across usually 11 body parts.
         // Shitmed Change End
     }

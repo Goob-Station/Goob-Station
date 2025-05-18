@@ -35,6 +35,9 @@
         damage: 150
       behaviors:
       - !type:GibPartBehavior { }
+  - type: Damageable
+    damageContainer: SiliconRadiation
+    damageModifierSet: IPC
   - type: WoundableVisuals
     thresholds: [ 10, 20, 30, 50, 70, 100 ]
     damageOverlayGroups:

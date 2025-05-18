@@ -187,11 +187,9 @@ namespace Content.Shared.Damage
         /// </summary>
         private void DamageableInit(EntityUid uid, DamageableComponent component, ComponentInit _)
         {
-            Logger.Debug($"INITIALIZING DAMAGEABLE COMPONENT: {ToPrettyString(uid)}");
             if (component.DamageContainerID != null &&
                 _prototypeManager.TryIndex(component.DamageContainerID, out var damageContainerPrototype)) // Shitmed Change
             {
-                Logger.Debug($"DAMAGE CONTAINER PROTOTYPE FOUND FOR: {ToPrettyString(uid)}");
                 // Initialize damage dictionary, using the types and groups from the damage
                 // container prototype
                 foreach (var type in damageContainerPrototype.SupportedTypes)
@@ -210,7 +208,6 @@ namespace Content.Shared.Damage
             }
             else
             {
-                Logger.Debug($"NO DAMAGE CONTAINER PROTOTYPE FOUND FOR: {ToPrettyString(uid)}");
                 // No DamageContainerPrototype was given. So we will allow the container to support all damage types
                 foreach (var type in _prototypeManager.EnumeratePrototypes<DamageTypePrototype>())
                 {
@@ -283,7 +280,9 @@ namespace Content.Shared.Damage
             bool canBeCancelled = false,
             float partMultiplier = 1.00f,
             TargetBodyPart? targetPart = null,
-            bool ignoreBlockers = false)
+            bool ignoreBlockers = false,
+            bool splitDamage = true,
+            bool canMiss = true)
         {
             if (!uid.HasValue || !_damageableQuery.Resolve(uid.Value, ref damageable, false))
                 return null;
@@ -302,7 +301,7 @@ namespace Content.Shared.Damage
                 && body.BodyType == BodyType.Complex)
             {
                 var appliedDamage = ApplyDamageToBodyParts(uid.Value, damage, origin, ignoreResistances,
-                    interruptsDoAfters, targetPart, partMultiplier, ignoreBlockers);
+                    interruptsDoAfters, targetPart, partMultiplier, ignoreBlockers, splitDamage, canMiss);
 
                 return appliedDamage;
             }
@@ -322,7 +321,9 @@ namespace Content.Shared.Damage
             bool interruptsDoAfters,
             TargetBodyPart? targetPart,
             float partMultiplier,
-            bool ignoreBlockers = false)
+            bool ignoreBlockers = false,
+            bool splitDamage = true,
+            bool canMiss = true)
         {
             DamageSpecifier? totalAppliedDamage = null;
             var adjustedDamage = damage * partMultiplier;
@@ -360,7 +361,7 @@ namespace Content.Shared.Damage
                 if (bodyParts.Count == 0)
                     return null;
 
-                var damagePerPart = adjustedDamage / bodyParts.Count;
+                var damagePerPart = splitDamage ? adjustedDamage / bodyParts.Count : adjustedDamage;
                 var appliedDamage = new DamageSpecifier();
 
                 foreach (var (partId, _) in bodyParts)
@@ -393,7 +394,7 @@ namespace Content.Shared.Damage
                 TargetBodyPart? target;
                 var totalDamage = damage.GetTotal();
 
-                if (totalDamage <= 0) // Whoops i think i fucked up damage here.
+                if (totalDamage <= 0 || !canMiss) // Whoops i think i fucked up damage here.
                     target = _body.GetTargetBodyPart(uid, origin, targetPart);
                 else
                     target = _body.GetRandomBodyPart(uid, origin, targetPart);

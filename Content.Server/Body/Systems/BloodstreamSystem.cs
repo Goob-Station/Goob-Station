@@ -350,7 +350,7 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem // Shitmed Chang
                 _damageableSystem.TryChangeDamage(
                     uid,
                     bloodstream.BloodlossHealDamage * bloodPercentage,
-                    ignoreResistances: true, interruptsDoAfters: false, partMultiplier: 11f, targetPart: TargetBodyPart.All); // Shitmed Change
+                    ignoreResistances: true, interruptsDoAfters: false, targetPart: TargetBodyPart.All, splitDamage: false); // Shitmed Change
 
                 // Remove the drunk effect when healthy. Should only remove the amount of drunk and stutter added by low blood level
                 _drunkSystem.TryRemoveDrunkenessTime(uid, bloodstream.StatusTime.TotalSeconds);
