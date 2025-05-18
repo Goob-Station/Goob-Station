@@ -52,7 +52,9 @@ public sealed class DynamicHostnameSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        if (_gameTiming.CurTime >= _nextUpdateTime && _dynHostEnabled)
+        if (_dynHostEnabled)
+            _configuration.SetCVar(CVars.GameHostName, _originalHostname);
+        else if (_gameTiming.CurTime >= _nextUpdateTime)
         {
             UpdateHostname();
             _nextUpdateTime = _gameTiming.CurTime + _updateInterval;
