@@ -433,7 +433,7 @@ public sealed partial class GoobCVars
     /// Set to true to enable the dynamic hostname system.
     /// </summary>
     public static readonly CVarDef<bool> UseDynamicHostname =
-        CVarDef.Create("game.use_dynamic_hostname", true, CVar.SERVERONLY);
+        CVarDef.Create("hub.use_dynamic_hostname", false, CVar.SERVERONLY);
 
     #endregion
 
