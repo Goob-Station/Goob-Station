@@ -1,12 +1,16 @@
 // SPDX-FileCopyrightText: 2025 AftrLite <61218133+AftrLite@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Shared.Bible; // Goobstation - Bible
+using Content.Goobstation.Common.Religion;
+using Content.Goobstation.Shared.Bible;
+using Content.Goobstation.Shared.Religion; // Goobstation - Bible
 using Content.Server.Flash;
 using Content.Server.Light.Components;
 using Content.Server.Light.EntitySystems;
@@ -16,6 +20,7 @@ using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Effects;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
+using Content.Shared.Inventory;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
 using Content.Shared.Silicons.Borgs.Components;
@@ -36,6 +41,8 @@ public sealed class CosmicGlareSystem : EntitySystem
     [Dependency] private readonly SharedCosmicCultSystem _cosmicCult = default!;
     [Dependency] private readonly SharedInteractionSystem _interact = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly DivineInterventionSystem _divineIntervention = default!;
+
     private HashSet<Entity<PoweredLightComponent>> _lights = [];
 
     public override void Initialize()
@@ -70,7 +77,7 @@ public sealed class CosmicGlareSystem : EntitySystem
             if (!HasComp<MobStateComponent>(ent)
                 || !HasComp<HumanoidAppearanceComponent>(ent)
                 || _cosmicCult.EntityIsCultist(ent)
-                || HasComp<BibleUserComponent>(ent))
+                || _divineIntervention.ShouldDeny(ent))
                 return true;
 
             return !_interact.InRangeUnobstructed((uid, Transform(uid)),
