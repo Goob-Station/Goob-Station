@@ -613,9 +613,9 @@
       Plasma: 37
   - type: ItemSwitch
     showLabel: true
-    state: bonegel
+    state: bone gel
     states:
-      bonegel: !type:ItemSwitchState
+      bone gel: !type:ItemSwitchState
         verb: bonegel
         sprite:
           sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-bone-gel.rsi
