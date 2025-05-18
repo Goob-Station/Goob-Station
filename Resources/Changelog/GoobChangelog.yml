@@ -9602,3 +9602,11 @@ Entries:
       message: Shuttle collisions should now cause much less lag.
   id: 1074
   time: '2025-05-18T16:33:46.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: >-
+        Borgs can now click-and-drag items to use them, including for
+        construction or insertion.
+  id: 1075
+  time: '2025-05-18T16:36:51.0000000+00:00'
