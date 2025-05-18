@@ -4,6 +4,11 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: loadout
+  id: HeadofSecurityVestWeb
+  equipment:
+    outerClothing: ClothingOuterArmorHoSVestWeb
+
+- type: loadout
   id: HeadofSecuritySpecialBeret
   equipment:
     head: ClothingHeadHatBeretHeadOfSecurityAdvanced
