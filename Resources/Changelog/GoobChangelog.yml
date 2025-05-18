@@ -9626,3 +9626,17 @@ Entries:
       message: Nukies can no longer buy job specific items
   id: 1077
   time: '2025-05-18T17:44:04.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Added new HoS armor to loadout.
+    - type: Tweak
+      message: HoS Justice empowered mode was reworked.
+    - type: Tweak
+      message: All HoS head wear have the same stats.
+    - type: Tweak
+      message: >-
+        Mech flashbang launcher grenades do not stun or knockdown people with
+        any ear protection regardless of distance now.
+  id: 1078
+  time: '2025-05-18T20:26:17.0000000+00:00'
