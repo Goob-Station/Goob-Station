@@ -210,7 +210,7 @@
       - id: MedkitCombatFilled
         prob: 0.1
       - id: ClothingNeckCloakMoth #bzzz Moth-pocalypse
-        prob: 0.65 # 65% for moth obviozzzsly
+        prob: 0.065 # 6,5% for moth obviozzzsly
 
 - type: entity
   id: LockerDetectiveFilled
