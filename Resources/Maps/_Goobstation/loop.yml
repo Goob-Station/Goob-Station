@@ -4,8 +4,8 @@ meta:
   engineVersion: 251.0.0
   forkId: ""
   forkVersion: ""
-  time: 05/18/2025 10:32:06
-  entityCount: 17955
+  time: 05/18/2025 10:48:23
+  entityCount: 17958
 maps:
 - 1
 grids:
@@ -7180,11 +7180,6 @@ entities:
     - type: Transform
       pos: -28.5,71.5
       parent: 2
-  - uid: 177
-    components:
-    - type: Transform
-      pos: -13.5,73.5
-      parent: 2
 - proto: AirlockDetectiveLocked
   entities:
   - uid: 178
@@ -7207,7 +7202,7 @@ entities:
       pos: -30.5,13.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -62354.273
+      secondsUntilStateChange: -62618.094
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -41841,8 +41836,11 @@ entities:
   - uid: 6637
     components:
     - type: Transform
-      pos: -21.386913,97.475044
+      pos: -15.560904,95.58163
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: ClothingShoesBootsMag
   entities:
   - uid: 6638
@@ -42390,19 +42388,13 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 21.5,40.5
       parent: 2
-- proto: ComputerRoboticsControl
-  entities:
-  - uid: 6724
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 22.5,44.5
-      parent: 2
   - uid: 6725
     components:
     - type: Transform
       pos: 18.5,33.5
       parent: 2
+- proto: ComputerRoboticsControl
+  entities:
   - uid: 13967
     components:
     - type: Transform
@@ -43871,7 +43863,7 @@ entities:
       pos: -9.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -310109.8
+      secondsUntilStateChange: -310373.62
       state: Opening
   - uid: 6931
     components:
@@ -43879,7 +43871,7 @@ entities:
       pos: -8.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -310110.53
+      secondsUntilStateChange: -310374.34
       state: Opening
   - uid: 6932
     components:
@@ -43887,7 +43879,7 @@ entities:
       pos: -6.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -310109.1
+      secondsUntilStateChange: -310372.9
       state: Opening
   - uid: 6933
     components:
@@ -43895,7 +43887,7 @@ entities:
       pos: -5.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -310108.47
+      secondsUntilStateChange: -310372.28
       state: Opening
   - uid: 11495
     components:
@@ -76052,6 +76044,13 @@ entities:
     - type: Transform
       pos: -25.5,43.5
       parent: 2
+- proto: HighSecCommandLocked
+  entities:
+  - uid: 177
+    components:
+    - type: Transform
+      pos: -13.5,73.5
+      parent: 2
 - proto: HolofanProjector
   entities:
   - uid: 11489
@@ -78017,6 +78016,13 @@ entities:
     - type: Transform
       pos: 24.282629,16.96738
       parent: 2
+- proto: MailTeleporter
+  entities:
+  - uid: 17957
+    components:
+    - type: Transform
+      pos: 5.5,66.5
+      parent: 2
 - proto: MaintenanceFluffSpawner
   entities:
   - uid: 11744
@@ -79149,6 +79155,11 @@ entities:
     components:
     - type: Transform
       pos: -34.5,60.5
+      parent: 2
+  - uid: 17958
+    components:
+    - type: Transform
+      pos: 22.5,44.5
       parent: 2
 - proto: PaperCNCSheet
   entities:
@@ -97085,6 +97096,11 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -34.5,40.5
       parent: 2
+  - uid: 6724
+    components:
+    - type: Transform
+      pos: 22.5,44.5
+      parent: 2
   - uid: 7766
     components:
     - type: Transform
@@ -98967,6 +98983,13 @@ entities:
     components:
     - type: Transform
       pos: -8.5,60.5
+      parent: 2
+- proto: VendingMachineMailDrobe
+  entities:
+  - uid: 17956
+    components:
+    - type: Transform
+      pos: 4.5,69.5
       parent: 2
 - proto: VendingMachineMedical
   entities:
