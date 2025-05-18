@@ -225,10 +225,6 @@
   parent: ClothingBeltHolster
   suffix: Filled, EG-4
   components:
-  - type: ContainerFill
-    containers:
-      item:
-      - WeaponEnergyRevolver
   - type: StorageFill
     contents:
     - id: EnergySpeedloaderLethal
