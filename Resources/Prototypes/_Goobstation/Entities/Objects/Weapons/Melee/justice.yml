@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
@@ -146,7 +147,7 @@
           params:
             variation: 0.250
 
-      empowered: !type:ItemSwitchState # Waiting for lord Aviu to make this good
+      empowered: !type:ItemSwitchState
         verb: empowered
         energyPerUse: 350
         sprite:
@@ -156,29 +157,26 @@
         - type: Item
           sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
           heldPrefix: empowered
+          storedRotation: -90
           size: Ginormous
-        - type: IgniteOnMeleeHit
-          fireStacks: 3
-        - type: TriggerOnMelee
         - type: Explosive
           explosionType: Default
-          maxIntensity: 1
+          totalIntensity: 16
           intensitySlope: 0.5
-          totalIntensity: 3
+          maxIntensity: 1.6
           canCreateVacuum: false
           deleteAfterExplosion: false
           repeatable: true
-        - type: ExplodeOnTrigger
+        - type: ExplodeOnMeleeHit
         - type: MeleeWeapon
           wideAnimationRotation: -135
-          attackRate: 0.75
-          angle: 30
+          attackRate: 0.5
+          angle: 0
           animation: WeaponArcThrust
           damage:
             types:
-              Slash: 12
-              Heat: 24
-              Shock: 6
+              Slash: 25
+              Heat: 25
           soundHit:
             path: /Audio/_Goobstation/Weapons/Effects/energy-short-sword-swing.ogg
         soundStateActivate:
