@@ -33,8 +33,7 @@ public sealed class DynamicHostnameSystem : EntitySystem
     private LocalizedDatasetPrototype? _messages;
     private string _originalHostname = string.Empty;
     private TimeSpan _nextUpdateTime;
--   private static TimeSpan _updateInterval = TimeSpan.FromSeconds(10);
-+   private TimeSpan _updateInterval = TimeSpan.FromSeconds(10);
+    private TimeSpan _updateInterval = TimeSpan.FromSeconds(10);
     private bool _dynHostEnabled = false;
 
     public override void Initialize()
