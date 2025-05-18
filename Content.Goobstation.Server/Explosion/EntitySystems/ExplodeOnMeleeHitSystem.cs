@@ -3,7 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server._Goobstation.Explosion.Components;
+using Content.Goobstation.Server.Explosion.Components;
 using Content.Server._Shitmed.ItemSwitch;
 using Content.Server.Explosion.EntitySystems;
 using Content.Shared.Explosion.Components;
@@ -19,8 +19,7 @@ public sealed class ExplodeOnMeleeHitSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ExplodeOnMeleeHitComponent, MeleeHitEvent>(OnHit,
-            before: new[] { typeof(ItemSwitchSystem) });
+        SubscribeLocalEvent<ExplodeOnMeleeHitComponent, MeleeHitEvent>(OnHit, before: [typeof(ItemSwitchSystem)]);
     }
 
     private void OnHit(Entity<ExplodeOnMeleeHitComponent> ent, ref MeleeHitEvent args)

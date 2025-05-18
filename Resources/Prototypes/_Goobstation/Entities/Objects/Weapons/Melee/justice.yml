@@ -169,9 +169,8 @@
           repeatable: true
         - type: ExplodeOnMeleeHit
         - type: MeleeWeapon
-          wideAnimationRotation: -135
+          canWideSwing: false
           attackRate: 0.5
-          angle: 0
           animation: WeaponArcThrust
           damage:
             types:

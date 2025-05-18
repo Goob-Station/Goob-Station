@@ -3,10 +3,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Goobstation.Server.Explosion.Components.OnTrigger;
+namespace Content.Goobstation.Server.Explosion.Components;
 
 /// <summary>
-/// Drops the entities held items on <see cref="TriggerEvent"/>
+/// Sends a trigger when a melee attack is performed.
 /// </summary>
 [RegisterComponent]
-public sealed partial class DropOnTriggerComponent : Component;
+public sealed partial class TriggerOnMeleeComponent : Component;
+
+

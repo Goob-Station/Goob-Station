@@ -3,9 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Server._Goobstation.Explosion.Components;
+namespace Content.Goobstation.Server.Explosion.Components;
 
 [RegisterComponent]
-public sealed partial class ExplodeOnMeleeHitComponent : Component
-{
-}
+public sealed partial class ExplodeOnMeleeHitComponent : Component;

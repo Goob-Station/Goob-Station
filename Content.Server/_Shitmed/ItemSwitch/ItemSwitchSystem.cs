@@ -28,7 +28,7 @@ public sealed class ItemSwitchSystem : SharedItemSwitchSystem
         base.Initialize();
         SubscribeLocalEvent<ItemSwitchComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<ItemSwitchComponent, AttemptMeleeEvent>(OnAttemptMelee);
-        SubscribeLocalEvent<ItemSwitchComponent, MeleeHitEvent>(OnMeleeAttack);
+        SubscribeLocalEvent<ItemSwitchComponent, MeleeHitEvent>(OnMeleeAttack, after: [typeof(StaminaSystem)]);
     }
 
     /// <summary>
