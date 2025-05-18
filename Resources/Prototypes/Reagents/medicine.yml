@@ -302,6 +302,7 @@
   physicalDesc: reagent-physical-desc-fizzy
   flavor: medicine
   color: "#0091ff"
+  worksOnTheDead: true
   plantMetabolism:
   - !type:PlantAdjustToxins
     amount: -5
@@ -312,6 +313,8 @@
   metabolisms:
     Medicine:
       effects:
+        - !type:ModifyBloodLevel
+          amount: 4
         - !type:HealthChange
           conditions:
           - !type:Temperature
