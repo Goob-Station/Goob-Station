@@ -61272,7 +61272,7 @@ entities:
     - type: Transform
       pos: -16.428204,45.62322
       parent: 2
-- proto: ClothingOuterHardsuitSecurity
+- proto: ClothingOuterVoidsuitSecurity
   entities:
   - uid: 9772
     components:
