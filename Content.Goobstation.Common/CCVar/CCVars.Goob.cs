@@ -429,6 +429,12 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<int> FireStackHeat =
         CVarDef.Create("misc.fire_stack_heat", 1500, CVar.SERVER);
 
+    /// <summary>
+    /// Set to true to enable the dynamic hostname system.
+    /// </summary>
+    public static readonly CVarDef<bool> UseDynamicHostname =
+        CVarDef.Create("hub.use_dynamic_hostname", false, CVar.SERVERONLY);
+
     #endregion
 
     #region Shuttle CVars
@@ -475,7 +481,7 @@ public sealed partial class GoobCVars
     /// Kinetic energy required to spawn sparks
     /// </summary>
     public static readonly CVarDef<float> SparkEnergy =
-        CVarDef.Create("shuttle.impact.spark_energy", 1000000f, CVar.SERVERONLY);
+        CVarDef.Create("shuttle.impact.spark_energy", 5000000f, CVar.SERVERONLY);
 
     /// <summary>
     /// Area to consider for impact calculations
@@ -487,7 +493,7 @@ public sealed partial class GoobCVars
     /// Affects slowdown on impact
     /// </summary>
     public static readonly CVarDef<float> ImpactSlowdown =
-        CVarDef.Create("shuttle.impact.slowdown", 0.2f, CVar.SERVERONLY);
+        CVarDef.Create("shuttle.impact.slowdown", 0.8f, CVar.SERVERONLY);
 
     /// <summary>
     /// Minimum velocity change from impact to throw entities on-grid
