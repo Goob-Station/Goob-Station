@@ -29,6 +29,8 @@
     icon:
       sprite: _Lavaland/Objects/Specific/Lavaland/loot.rsi
       state: cursed_heart
+    checkCanInteract: false
+    checkConsciousness: false
     itemIconStyle: BigAction
     event: !type:PumpHeartActionEvent
     useDelay: 1
