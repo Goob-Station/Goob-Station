@@ -11,16 +11,15 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Atmos.Components;
-using Content.Server.Body.Components;
+using Content.Goobstation.Shared.Atmos.Components;
+using Content.Goobstation.Shared.Body.Components;
+using Content.Goobstation.Shared.Temperature.Components;
 using Content.Server.Heretic.Components.PathSpecific;
 using Content.Server.Magic;
-using Content.Server.Temperature.Components;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Heretic;
-using Content.Shared.Temperature.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Physics.Components;
 using System.Linq;
@@ -41,13 +40,12 @@ public sealed partial class HereticAbilitySystem
 
     private void OnAristocratWay(Entity<HereticComponent> ent, ref HereticAristocratWayEvent args)
     {
-        RemComp<TemperatureComponent>(ent);
-        RemComp<TemperatureSpeedComponent>(ent);
-        RemComp<RespiratorComponent>(ent);
+        EnsureComp<SpecialLowTempImmunityComponent>(ent);
+        EnsureComp<SpecialBreathingImmunityComponent>(ent);
     }
     private void OnAscensionVoid(Entity<HereticComponent> ent, ref HereticAscensionVoidEvent args)
     {
-        RemComp<BarotraumaComponent>(ent);
+        EnsureComp<SpecialPressureImmunityComponent>(ent);
         EnsureComp<AristocratComponent>(ent);
     }
 

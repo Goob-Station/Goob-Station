@@ -13,21 +13,19 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.Atmos;
 using Content.Shared.Damage;
 using Content.Shared.Heretic;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
-using Content.Shared.Mobs.Systems;
-using Content.Shared.Temperature.Components;
 using Content.Server.Atmos.Components;
-using Content.Server.Body.Components;
-using Content.Server.Temperature.Components;
 using Robust.Shared.Map.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 using System.Linq;
 using System.Threading.Tasks;
+using Content.Goobstation.Shared.Body.Components;
+using Content.Goobstation.Shared.Temperature.Components;
+using Content.Goobstation.Shared.Atmos.Components;
 
 namespace Content.Server.Heretic.Abilities;
 
@@ -164,10 +162,10 @@ public sealed partial class HereticAbilitySystem
 
     private void OnAscensionAsh(Entity<HereticComponent> ent, ref HereticAscensionAshEvent args)
     {
-        RemComp<TemperatureComponent>(ent);
-        RemComp<TemperatureSpeedComponent>(ent);
-        RemComp<RespiratorComponent>(ent);
-        RemComp<BarotraumaComponent>(ent);
+        EnsureComp<SpecialLowTempImmunityComponent>(ent);
+        EnsureComp<SpecialHighTempImmunityComponent>(ent);
+        EnsureComp<SpecialBreathingImmunityComponent>(ent);
+        EnsureComp<SpecialPressureImmunityComponent>(ent);
 
         // fire immunity
         var flam = EnsureComp<FlammableComponent>(ent);
