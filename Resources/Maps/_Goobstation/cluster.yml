@@ -4,7 +4,7 @@ meta:
   engineVersion: 251.0.0
   forkId: ""
   forkVersion: ""
-  time: 05/19/2025 11:18:21
+  time: 05/19/2025 11:44:39
   entityCount: 12709
 maps:
 - 1
@@ -5789,6 +5789,14 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 42.5,29.5
       parent: 2
+- proto: AirlockBrigLocked
+  entities:
+  - uid: 278
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 22.5,4.5
+      parent: 2
 - proto: AirlockCaptainLocked
   entities:
   - uid: 81
@@ -7033,11 +7041,6 @@ entities:
     components:
     - type: Transform
       pos: -23.5,19.5
-      parent: 2
-  - uid: 278
-    components:
-    - type: Transform
-      pos: 22.5,4.5
       parent: 2
   - uid: 279
     components:
@@ -81291,6 +81294,20 @@ entities:
     - type: Transform
       pos: 36.5,13.5
       parent: 2
+- proto: WindoorSecureBrigLocked
+  entities:
+  - uid: 4048
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 21.5,7.5
+      parent: 2
+  - uid: 4049
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 22.5,7.5
+      parent: 2
 - proto: WindoorSecureCargoLocked
   entities:
   - uid: 12644
@@ -81446,18 +81463,6 @@ entities:
       parent: 2
 - proto: WindoorSecureSecurityLocked
   entities:
-  - uid: 12668
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 21.5,7.5
-      parent: 2
-  - uid: 12669
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 22.5,7.5
-      parent: 2
   - uid: 12670
     components:
     - type: Transform
