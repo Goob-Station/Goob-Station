@@ -27,7 +27,7 @@ public sealed class CrewMonitorScanningSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popup = default!;
 
     private const string CommandTrackerImplant = "CommandTrackingImplant";
-    private const string CommandTrackerImplantNane = "command tracking implant";
+    private const string CommandTrackerImplantName = "command tracking implant";
 
     public override void Initialize()
     {
@@ -51,14 +51,13 @@ public sealed class CrewMonitorScanningSystem : EntitySystem
 
     private void OnScanComplete(EntityUid uid, CrewMonitorScanningComponent comp, CrewMonitorScanningDoAfterEvent args)
     {
-        var implantProto = new string(CommandTrackerImplant);
         if (args.Cancelled || args.Handled || args.Target == null)
             return;
         var name = Identity.Name(args.Target.Value, EntityManager, args.User);
 
         if (comp.ScannedEntities.Contains(args.Target.Value))
         {
-            var msg = Loc.GetString("implanter-component-implant-already", ("implant", CommandTrackerImplantNane), ("target", name));
+            var msg = Loc.GetString("implanter-component-implant-already", ("implant", CommandTrackerImplantName), ("target", name));
             _popup.PopupEntity(msg, args.Target.Value, args.User);
             return;
         }
@@ -66,13 +65,13 @@ public sealed class CrewMonitorScanningSystem : EntitySystem
         if (_whitelist.IsWhitelistFail(comp.Whitelist, args.Target.Value))
         {
 
-            var msg = Loc.GetString("implanter-component-implant-failed", ("implant", CommandTrackerImplantNane), ("target", name));
+            var msg = Loc.GetString("implanter-component-implant-failed", ("implant", CommandTrackerImplantName), ("target", name));
             _popup.PopupEntity(msg, args.Target.Value, args.User);
             return;
         }
 
         comp.ScannedEntities.Add(args.Target.Value); //Keep for don't double implant
-        _implantSystem.AddImplant(args.Target.Value, implantProto);
+        _implantSystem.AddImplant(args.Target.Value, CommandTrackerImplant);
 
         if (comp.ApplyDeathrattle)
             EnsureComp<RelayedDeathrattleComponent>(args.Target.Value).Target = uid;
