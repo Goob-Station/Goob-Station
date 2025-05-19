@@ -1,4 +1,8 @@
-﻿using System.Numerics;
+// SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using System.Numerics;
 using System.Threading.Tasks;
 using Content.Client.Resources;
 using Content.Goobstation.Shared.MisandryBox.JumpScare;
