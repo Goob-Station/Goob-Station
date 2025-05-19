@@ -218,7 +218,8 @@ public sealed class TemperatureSystem : EntitySystem
         ShouldUpdateDamage.Clear();
     }
 
-    private void OnCheckLowTemperatureImmunity(Entity<SpecialLowTempImmunityComponent> ent, ref TemperatureImmunityEvent args) // Goob edit
+    // Goob start
+    private void OnCheckLowTemperatureImmunity(Entity<SpecialLowTempImmunityComponent> ent, ref TemperatureImmunityEvent args)
     {
         if (args.CurrentTemperature < args.IdealTemperature)
             args.CurrentTemperature = MathF.Max(args.CurrentTemperature, args.IdealTemperature);
@@ -229,6 +230,8 @@ public sealed class TemperatureSystem : EntitySystem
         if (args.CurrentTemperature > args.IdealTemperature)
             args.CurrentTemperature = MathF.Min(args.CurrentTemperature, args.IdealTemperature);
     }
+    // Goob end
+
     public void ForceChangeTemperature(EntityUid uid, float temp, TemperatureComponent? temperature = null)
     {
         if (!Resolve(uid, ref temperature))
