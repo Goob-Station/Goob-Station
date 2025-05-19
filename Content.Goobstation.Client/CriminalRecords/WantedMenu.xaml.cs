@@ -19,8 +19,6 @@ using Robust.Shared.Utility;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Numerics;
-using Content.Shared.Inventory;
-using Content.Shared.Overlays;
 
 namespace Content.Goobstation.Client.CriminalRecords;
 
