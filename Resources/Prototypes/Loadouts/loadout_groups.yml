@@ -242,7 +242,6 @@
   - EmergencyNitrogen
   - EmergencyOxygen
   - LoadoutSpeciesVoxNitrogen
-  - LoadoutSpeciesHeatingTool # Goobstation
 
 # nitrogen or oxygen tank, depending on what your species needs
 - type: loadoutGroup

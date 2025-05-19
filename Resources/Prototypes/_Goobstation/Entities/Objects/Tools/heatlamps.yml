@@ -10,6 +10,7 @@
 - type: entity
   parent: BaseItem
   id: BaseHeatLamp
+  abstract: true
   components:
   - type: Heatlamp
     activatedDamage:
@@ -56,8 +57,6 @@
     energy: 1
     color: "#FFC458"
   - type: MeleeWeapon
-    angle: 0
-    wideAnimationRotation: -135
     damage:
       types:
         Blunt: 5
@@ -123,6 +122,7 @@
     needsPower: false
     powerToHeatMultiplier: 600
     containerMultiplier: 1
+    forceHeat: true
     offShape:
     - 0,0,0,1
     onShape:
@@ -146,7 +146,7 @@
   components:
   - type: Heatlamp
     powerToHeatMultiplier: 200
-    containerMultiplier: 1
+    lowerEfficiencyWhenContained: false
     forceHeat: true
     activatedDamage:
       types:

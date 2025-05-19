@@ -24,6 +24,7 @@ using Robust.Server.Audio;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
+using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Heatlamp;
 
@@ -38,6 +39,7 @@ public sealed partial class HeatlampSystem : EntitySystem
     [Dependency] private readonly ItemSystem _item = default!;
     [Dependency] private readonly PointLightSystem _pointLight = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     private readonly int _settingCount = Enum.GetValues<EntityHeaterSetting>().Length;
     public override void Initialize()
@@ -116,18 +118,21 @@ public sealed partial class HeatlampSystem : EntitySystem
         TemperatureComponent? temperature = null,
         PowerCellSlotComponent? cell = null)
     {
-        if (!Resolve(user, ref regulator, ref temperature) || !Resolve(heater, ref cell))
+        if (!Resolve(user, ref regulator, ref temperature)
+            || !Resolve(heater, ref cell))
             return;
 
         var tempDelta = regulator.NormalBodyTemperature - temperature.CurrentTemperature;
-        var deltaIsNegative = tempDelta < 0;
-
         var energy = heater.Comp.CurrentPowerDraw  * frameTime;
 
-        if (heater.Comp.NeedsPower && !_powerCell.TryUseCharge(heater, energy, cell))
+        if (heater.Comp.NeedsPower && heater.Comp.NextTick < _timing.CurTime)
         {
-            ChangeSetting((heater, heater), EntityHeaterSetting.Off);
-            return;
+            heater.Comp.NextTick = _timing.CurTime + heater.Comp.TickDelay;
+            if (!_powerCell.TryUseCharge(heater, energy, cell))
+            {
+                ChangeSetting((heater, heater), EntityHeaterSetting.Off);
+                return;
+            }
         }
 
         if (heater.Comp.LowerEfficiencyWhenContained
@@ -137,10 +142,9 @@ public sealed partial class HeatlampSystem : EntitySystem
             energy *= heater.Comp.ContainerMultiplier;
         }
 
-
         var totalTransfer = energy * heater.Comp.PowerToHeatMultiplier;
 
-        if (deltaIsNegative)
+        if (tempDelta < 0)
             totalTransfer *= heater.Comp.NegativeDeltaMultiplier;
 
         _temperature.ChangeHeat(user, totalTransfer, heater.Comp.ForceHeat);

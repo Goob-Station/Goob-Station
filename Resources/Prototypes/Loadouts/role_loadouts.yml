@@ -125,6 +125,7 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobHeadOfPersonnel
@@ -139,6 +140,7 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 # Silicons
 #- type: roleLoadout
@@ -167,6 +169,7 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobBartender
@@ -180,6 +183,7 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobServiceWorker
@@ -191,6 +195,7 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobChef
@@ -205,6 +210,7 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobLibrarian
@@ -216,6 +222,7 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobLawyer
@@ -228,6 +235,7 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobChaplain
@@ -243,6 +251,7 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobJanitor
@@ -258,6 +267,7 @@
   - Trinkets
   - JanitorPlunger
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobBotanist
@@ -271,6 +281,7 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobClown
@@ -284,6 +295,7 @@
   - Glasses
   - SurvivalClown
   - Trinkets
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobMime
@@ -298,6 +310,7 @@
   - Glasses
   - SurvivalMime
   - Trinkets
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobMusician
@@ -311,6 +324,7 @@
   - Trinkets
   - Instruments
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 # Cargo
 - type: roleLoadout
@@ -327,6 +341,7 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobCargoTechnician
@@ -341,6 +356,7 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobSalvageSpecialist
@@ -354,6 +370,7 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 # Engineering
 - type: roleLoadout
@@ -369,6 +386,7 @@
   - SurvivalExtended
   - Trinkets
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobTechnicalAssistant
@@ -379,6 +397,7 @@
   - SurvivalExtended
   - Trinkets
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobStationEngineer
@@ -393,6 +412,7 @@
   - SurvivalExtended
   - Trinkets
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobAtmosphericTechnician
@@ -406,6 +426,7 @@
   - SurvivalExtended
   - Trinkets
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 # Science
 - type: roleLoadout
@@ -423,6 +444,7 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobScientist
@@ -440,6 +462,7 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobResearchAssistant
@@ -451,6 +474,7 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 # Security
 - type: roleLoadout
@@ -467,6 +491,7 @@
   - Trinkets
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobWarden
@@ -482,6 +507,7 @@
   - Trinkets
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobSecurityOfficer
@@ -498,6 +524,7 @@
   - Trinkets
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobDetective
@@ -512,6 +539,7 @@
   - Trinkets
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobSecurityCadet
@@ -523,6 +551,7 @@
   - SecurityOuterClothing # Goobstation - Why not.
   - Trinkets
   - GroupSpeciesBreathToolSecurity
+  - GroupSpeciesHeatingTool # Goobstation
 
 # Medical
 - type: roleLoadout
@@ -541,6 +570,7 @@
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobMedicalDoctor
@@ -558,6 +588,7 @@
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobMedicalIntern
@@ -569,6 +600,7 @@
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobChemist
@@ -584,6 +616,7 @@
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobParamedic
@@ -600,6 +633,7 @@
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
+  - GroupSpeciesHeatingTool # Goobstation
 
 # Wildcards
 - type: roleLoadout
@@ -611,6 +645,7 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobReporter
@@ -623,6 +658,7 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 
 - type: roleLoadout
@@ -635,6 +671,7 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobBoxer
@@ -647,6 +684,7 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs
 # They will be used without player configuration, thus they will only ever apply what is forced by MinLimit
@@ -672,12 +710,14 @@
   - Survival
   - GroupSpeciesBreathTool
   - GroupTankHarness
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: RoleSurvivalClown
   groups:
   - SurvivalClown
   - GroupTankHarness
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: RoleSurvivalExtended
@@ -685,6 +725,7 @@
   - SurvivalExtended
   - GroupSpeciesBreathTool
   - GroupTankHarness
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: RoleSurvivalMedical
@@ -692,6 +733,7 @@
   - SurvivalMedical
   - GroupSpeciesBreathToolMedical
   - GroupTankHarness
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: RoleSurvivalSecurity
@@ -699,6 +741,7 @@
   - SurvivalSecurity
   - GroupSpeciesBreathToolSecurity
   - GroupTankHarness
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: RoleSurvivalSyndicate
@@ -706,6 +749,7 @@
   - SurvivalSyndicate
   - GroupSpeciesBreathTool
   - GroupTankHarness
+  - GroupSpeciesHeatingToolSyndicate # Goobstation
 
 - type: roleLoadout
   id: RoleSurvivalNukie
@@ -713,6 +757,7 @@
   - SurvivalSyndicate
   - GroupSpeciesBreathTool
   - GroupPocketTankDouble
+  - GroupSpeciesHeatingToolSyndicate # Goobstation
 
 - type: roleLoadout
   id: RoleSurvivalEVA

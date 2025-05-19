@@ -99,6 +99,7 @@
   - Glasses
   - Trinkets
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool
   - Survival
 
 - type: roleLoadout
@@ -113,6 +114,7 @@
   - BlueshieldOfficerShoes
   - Trinkets
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool
   - SurvivalSecurity
 
 - type: roleLoadout
@@ -128,6 +130,7 @@
   - NanotrasenTrainerBelt
   - Trinkets
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool
   - Survival
 
 - type: roleLoadout

@@ -22,6 +22,18 @@ public sealed partial class HeatlampComponent : Component
     public float Power = 100f;
 
     /// <summary>
+    /// Delay between power ticks.
+    /// </summary>
+    [DataField]
+    public TimeSpan TickDelay = TimeSpan.FromSeconds(1);
+
+    /// <summary>
+    /// When the next power tick is.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
+    public TimeSpan NextTick;
+
+    /// <summary>
     /// How much the power used is multiplied by before being turned into heat.
     /// </summary>
     [DataField]
