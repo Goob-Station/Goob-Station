@@ -82384,13 +82384,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 17.5,-143.5
       parent: 2
-- proto: Protolathe
-  entities:
-  - uid: 12465
-    components:
-    - type: Transform
-      pos: -4.5,-299.5
-      parent: 2
 - proto: PumpkinLantern
   entities:
   - uid: 12466

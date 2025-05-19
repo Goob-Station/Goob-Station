@@ -81567,13 +81567,6 @@ entities:
     - type: Transform
       pos: -23.544806,55.64897
       parent: 2
-- proto: Protolathe
-  entities:
-  - uid: 10169
-    components:
-    - type: Transform
-      pos: -21.5,28.5
-      parent: 2
 - proto: ProtolatheMachineCircuitboard
   entities:
   - uid: 11106

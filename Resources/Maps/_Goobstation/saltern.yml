@@ -54521,13 +54521,6 @@ entities:
     - type: Transform
       pos: -22.5,17.5
       parent: 2
-- proto: Protolathe
-  entities:
-  - uid: 11955
-    components:
-    - type: Transform
-      pos: -27.5,7.5
-      parent: 2
 - proto: Rack
   entities:
   - uid: 8660

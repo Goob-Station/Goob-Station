@@ -44799,13 +44799,6 @@ entities:
     - type: Transform
       pos: -57.5,2.5
       parent: 2
-- proto: Protolathe
-  entities:
-  - uid: 6729
-    components:
-    - type: Transform
-      pos: -13.5,14.5
-      parent: 2
 - proto: Rack
   entities:
   - uid: 6730

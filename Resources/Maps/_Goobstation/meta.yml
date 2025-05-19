@@ -126705,13 +126705,6 @@ entities:
       parent: 2
     - type: ApcPowerReceiver
       powerLoad: 0
-- proto: Protolathe
-  entities:
-  - uid: 19272
-    components:
-    - type: Transform
-      pos: -17.5,17.5
-      parent: 2
 - proto: ProtolatheMachineCircuitboard
   entities:
   - uid: 19273

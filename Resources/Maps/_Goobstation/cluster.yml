@@ -61100,13 +61100,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -42.5,-23.5
       parent: 2
-- proto: Protolathe
-  entities:
-  - uid: 12768
-    components:
-    - type: Transform
-      pos: -3.5,-20.5
-      parent: 2
 - proto: Rack
   entities:
   - uid: 9203

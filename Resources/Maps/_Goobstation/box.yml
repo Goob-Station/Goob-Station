@@ -131726,13 +131726,6 @@ entities:
       parent: 2
     - type: ApcPowerReceiver
       powerLoad: 0
-- proto: Protolathe
-  entities:
-  - uid: 22964
-    components:
-    - type: Transform
-      pos: -41.5,1.5
-      parent: 2
 - proto: PsychBed
   entities:
   - uid: 20178

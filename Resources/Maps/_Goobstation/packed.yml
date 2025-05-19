@@ -72521,13 +72521,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 41.5,-12.5
       parent: 2
-- proto: Protolathe
-  entities:
-  - uid: 5786
-    components:
-    - type: Transform
-      pos: 30.5,-17.5
-      parent: 2
 - proto: ProtolatheMachineCircuitboard
   entities:
   - uid: 10817
