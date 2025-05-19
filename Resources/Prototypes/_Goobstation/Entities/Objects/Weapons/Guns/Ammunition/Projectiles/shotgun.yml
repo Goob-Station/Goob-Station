@@ -263,7 +263,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 10
+        Piercing: 7
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: HardBomb # Boom

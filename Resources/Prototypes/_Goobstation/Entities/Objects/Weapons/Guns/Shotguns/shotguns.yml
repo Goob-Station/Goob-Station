@@ -132,9 +132,9 @@
   - type: AmmoCounter
   - type: GunRequiresWield
   - type: Gun
-    fireRate: 2
+    fireRate: 1.25
     burstFireRate: 10
-    shotsPerBurst: 3
+    shotsPerBurst: 2
     burstCooldown: 1
     lockOnTargetBurst: true
     selectedMode: Burst

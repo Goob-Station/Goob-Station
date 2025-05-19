@@ -381,7 +381,7 @@
   icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Shotguns/magshot.rsi, state: icon }
   productEntity: WeaponShotgunHeavy
   cost:
-    Telecrystal: 150
+    Telecrystal: 200
   categories:
   - UplinkWeaponry
 
