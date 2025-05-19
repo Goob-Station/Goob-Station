@@ -68,6 +68,8 @@
 // SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
 // SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 // SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
@@ -344,7 +346,7 @@ namespace Content.Shared.Containers.ItemSlots
             }
 
             // Drop the held item onto the floor. Return if the user cannot drop.
-            if (!_handsSystem.TryDrop(args.User, args.Used, handsComp: hands))
+            if (_handsSystem.IsHolding(args.User, args.Used) && !_handsSystem.TryDrop(args.User, args.Used, handsComp: hands)) // Goobstation - don't try to drop if not holding
                 return;
 
             slots.Sort(SortEmpty);
