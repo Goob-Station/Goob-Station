@@ -16,7 +16,6 @@ namespace Content.Goobstation.Server.Implants.Systems;
 
 public sealed class NutrimentPumpImplantSystem : EntitySystem
 {
-    [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly HungerSystem _hunger = default!;
     [Dependency] private readonly ThirstSystem _thirst = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
@@ -38,13 +37,11 @@ public sealed class NutrimentPumpImplantSystem : EntitySystem
                 if (pumpImplant.NextExecutionTime > _gameTiming.CurTime)
                     continue;
 
-                if (!TryComp<HungerComponent>(uid, out var hungerComponent))
-                    continue;
-                _hunger.ModifyHunger(uid, pumpImplant.FoodRate, hungerComponent);
+                if (TryComp<HungerComponent>(uid, out var hungerComponent))
+                    _hunger.ModifyHunger(uid, pumpImplant.FoodRate, hungerComponent);
 
-                if (!TryComp<ThirstComponent>(uid, out var thirstComponent))
-                    continue;
-                _thirst.ModifyThirst(uid, thirstComponent, pumpImplant.DrinkRate); // why the fuck is the order of arguments different for ModifyThirst????
+                if (TryComp<ThirstComponent>(uid, out var thirstComponent))
+                    _thirst.ModifyThirst(uid, thirstComponent, pumpImplant.DrinkRate); // why the fuck is the order of arguments different for ModifyThirst????
 
                 pumpImplant.NextExecutionTime = _gameTiming.CurTime + ExecutionInterval;
             }
