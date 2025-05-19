@@ -1,0 +1,15 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: latheRecipe
+  id: ExperimentalCircuitBoard
+  result: ExperimentalCircuitBoard
+  completetime: 7
+  materials:
+    Steel: 100
+    Glass: 500
+    Silver: 200
+    Gold: 200
+    Diamond: 100
