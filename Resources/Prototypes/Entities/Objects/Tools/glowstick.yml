@@ -55,6 +55,7 @@
     - type: Item
       sprite: Objects/Misc/glowstick.rsi
       heldPrefix: unlit
+      size: Tiny
     - type: Appearance
     - type: PointLight
       enabled: false

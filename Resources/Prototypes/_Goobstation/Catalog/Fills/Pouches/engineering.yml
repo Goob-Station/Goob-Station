@@ -1,0 +1,114 @@
+- type: entity
+  name: light pouch
+  parent: [BasePouch, BaseEngineeringContraband]
+  id: PouchEngineeringLight
+  description: A small pouch for holding extra lights incase power isn't up.. it's your fault.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Storage/Pouches/engineering.rsi
+    layers:
+      - state: electronics
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,6,1
+    whitelist:
+      tags:
+        - Flare
+        - Radio
+      components:
+        - HandheldLight
+        - ExpendableLight
+  - type: StorageFill
+    contents:
+    - id: RadioHandheld
+    - id: Lantern
+    - id: Flare
+      amount: 5
+    - id: GlowstickBase # Green
+      amount: 5
+
+- type: entity
+  name: wire pouch
+  parent: [BasePouch, BaseEngineeringContraband]
+  id: PouchEngineeringWire
+  description: A small pouch for holding extra wire for hanging tiders.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Storage/Pouches/engineering.rsi
+    layers:
+      - state: electronics
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,3,1
+    whitelist:
+      tags:
+        - CableCoil
+        - Radio
+  - type: StorageFill
+    contents:
+    - id: RadioHandheld
+    - id: CableApcStack
+    - id: CableMVStack
+    - id: CableHVStack
+
+- type: entity
+  name: Inflatables pouch
+  parent: [BasePouch, BaseEngineeringContraband]
+  id: PouchEngineeringInflatables
+  description: A pouch for holding inflatable walls and doors as a temporary spacing fix.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Storage/Pouches/engineering.rsi
+    layers:
+      - state: construction
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,4,1
+    whitelist:
+      components:
+        - SpawnAfterInteract
+  - type: StorageFill
+    contents:
+    - id: InflatableWallStack
+      amount: 3
+    - id: InflatableDoorStack
+      amount: 2
+
+- type: entity
+  name: Construction pouch
+  parent: [BasePouch, BaseMedicalContraband]
+  id: PouchEngineeringConstruction
+  description: A pouch for holding construction material, including sheets of metal or RCD cartridges. Has a clip to store an RCD.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Storage/Pouches/engineering.rsi
+    layers:
+      - state: construction
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,3,1
+    whitelist:
+      tags:
+        - Sheet
+      components:
+        - RCD
+        - RCDAmmo
+  - type: ContainerContainer
+    containers:
+      item: !type:ContainerSlot
+      storagebase: !type:Container
+        ents: []
+  - type: ItemSlots
+    slots:
+      item:
+        name: RCD
+        whitelist:
+          components:
+          - RCD
+  - type: StorageFill
+    contents:
+    - id: RCDAmmo
