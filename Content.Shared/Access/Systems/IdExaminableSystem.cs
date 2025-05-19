@@ -138,6 +138,9 @@ public sealed class IdExaminableSystem : EntitySystem
     {
         if (!args.CanInteract || !args.CanAccess)
             return;
+        if (!_inventorySystem.TryGetSlotEntity(args.User, "eyes", out var eyes) ||
+            !TryComp<ShowCriminalRecordIconsComponent>(eyes, out var _))
+            return;
         args.Verbs.Add(new AlternativeVerb()
         {
             Act = () => OpenWantedUI(args.User, uid),

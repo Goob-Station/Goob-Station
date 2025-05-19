@@ -19,6 +19,8 @@ using Robust.Shared.Utility;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Numerics;
+using Content.Shared.Inventory;
+using Content.Shared.Overlays;
 
 namespace Content.Goobstation.Client.CriminalRecords;
 
@@ -95,7 +97,7 @@ public sealed partial class WantedMenu : FancyWindow
         if (_prototypeManager.TryIndex<JobIconPrototype>(stationRecord.JobIcon, out var proto))
             PersonJobIcon.Texture = _spriteSystem.Frame0(proto.Icon);
         if (criminalRecord.Status != SecurityStatus.None)
-            specifier = new SpriteSpecifier.Rsi(new ResPath("Interface/Misc/security_icons.rsi"),  GetStatusIcon(criminalRecord.Status));
+            specifier = new SpriteSpecifier.Rsi(new ResPath("Interface/Misc/security_icons.rsi"), GetStatusIcon(criminalRecord.Status));
 
         PersonStatusTX.SetFromSpriteSpecifier(specifier);
         PersonStatusTX.DisplayRect.TextureScale = new Vector2(3f, 3f);
@@ -103,12 +105,7 @@ public sealed partial class WantedMenu : FancyWindow
         StatusOptionButton.SelectId((int)criminalRecord.Status);
         if (criminalRecord.Reason is { } reason)
         {
-            var message = FormattedMessage.FromMarkupOrThrow(Loc.GetString("criminal-records-console-wanted-reason"));
-
-            if (criminalRecord.Status == SecurityStatus.Suspected)
-                message = FormattedMessage.FromMarkupOrThrow(Loc.GetString("criminal-records-console-suspected-reason"));
-            if (criminalRecord.Status == SecurityStatus.Suspected)
-                message = FormattedMessage.FromMarkupOrThrow(Loc.GetString("criminal-records-console-suspected-reason"));
+            var message = FormattedMessage.FromMarkupOrThrow(Loc.GetString($"criminal-records-console-{criminalRecord.Status.ToString().ToLower()}-reason"));
             message.AddText($": {reason}");
 
             WantedReason.SetMessage(message);
@@ -146,8 +143,10 @@ public sealed partial class WantedMenu : FancyWindow
 
         var field = "reason";
         var title = Loc.GetString("criminal-records-status-" + status.ToString().ToLower());
-        var placeholders = _prototypeManager.Index<DatasetPrototype>(ReasonPlaceholders);
-        var placeholder = Loc.GetString("criminal-records-console-reason-placeholder", ("placeholder", _random.Pick(placeholders.Values))); // just funny it doesn't actually get used
+        var placeholders = _prototypeManager.Index<LocalizedDatasetPrototype>(ReasonPlaceholders);
+        var placeholderKey = _random.Pick(placeholders.Values);
+        var placeholderValue = Loc.GetString(placeholderKey);
+        var placeholder = Loc.GetString("criminal-records-console-reason-placeholder", ("placeholder", placeholderValue)); // just funny it doesn't actually get used
         var prompt = Loc.GetString("criminal-records-console-reason");
         var entry = new QuickDialogEntry(field, QuickDialogEntryType.LongText, prompt, placeholder);
         var entries = new List<QuickDialogEntry>() { entry };
