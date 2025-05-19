@@ -188,11 +188,13 @@
       - id: BoxAutoinjectorCartidges
       - id: ClothingBackpackDuffelSurgeryFilled #- id: OmnimedTool - uncomment after omnitool nerf
       - id: ClothingEyesGlassesMed
-      - id: ClothingHeadHatBeretBrigmedic
-      - id: ClothingOuterCoatAMG
       - id: ClothingOuterHardsuitBrigmedic
       - id: OxygenTankFilled
       - id: NitrogenTankFilled
+      - id: ClothingHeadHatBeretBrigmedic
+      - id: ClothingOuterCoatAMG
+      - id: ClothingUniformJumpskirtOfLife
+        prob: 0.1
       - id: MedkitOxygenFilled # This one is guaranteed
       # And extra 3 medkits on average, with autoinjectors and surgery tools should be more than enough round start
       - id: MedkitFilled
