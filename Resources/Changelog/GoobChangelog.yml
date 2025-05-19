@@ -9512,3 +9512,184 @@ Entries:
         information!
   id: 1063
   time: '2025-05-17T03:52:29.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: Steel costs less ore to smelt.
+  id: 1064
+  time: '2025-05-17T19:03:05.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Add
+      message: >-
+        Added 4 new types of pinpointers: Artifact, Anomaly, Borg and Station.
+        They're obtainable in RnD.
+    - type: Add
+      message: >-
+        Added Thieving pinpointer to Thief's starting inventory. While off, it
+        can be used on your objectives to start tracking them down.
+  id: 1065
+  time: '2025-05-18T15:29:01.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Add
+      message: Psyclogist to loop
+    - type: Add
+      message: mail to loop
+    - type: Add
+      message: office chairs to loop
+    - type: Add
+      message: public lavaland to loop
+    - type: Tweak
+      message: AI sat on loop
+    - type: Tweak
+      message: silo position
+    - type: Tweak
+      message: armory
+    - type: Fix
+      message: NTR and BSO spawn
+  id: 1066
+  time: '2025-05-18T16:24:11.0000000+00:00'
+- author: Fat-Engineer-Gaming
+  changes:
+    - type: Remove
+      message: Removed stupid fucking borg names
+    - type: Add
+      message: Added good borg names to replace the stupid ones
+  id: 1067
+  time: '2025-05-18T16:26:17.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: Hostname now displays MOTDs and queue count.
+  id: 1068
+  time: '2025-05-18T16:26:44.0000000+00:00'
+- author: ImWeax
+  changes:
+    - type: Remove
+      message: Removed tesla ballpits
+  id: 1069
+  time: '2025-05-18T16:27:22.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: SM grenade doesnt push as erratically anymore
+  id: 1070
+  time: '2025-05-18T16:28:14.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: No more 20 antags per shift
+  id: 1071
+  time: '2025-05-18T16:29:14.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: You can't mop lube by slipping on it anymore.
+    - type: Fix
+      message: You can't avoid slippage by crawl-walking over it either.
+  id: 1072
+  time: '2025-05-18T16:29:43.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Antag roll chance is now proportional to playtime since last roll.
+  id: 1073
+  time: '2025-05-18T16:31:52.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Shuttle collisions should now cause much less lag.
+  id: 1074
+  time: '2025-05-18T16:33:46.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: >-
+        Borgs can now click-and-drag items to use them, including for
+        construction or insertion.
+  id: 1075
+  time: '2025-05-18T16:36:51.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: CBURN operatives have some snazzy new equipment.
+    - type: Tweak
+      message: Deathsquad is a WHOLE lot stronger. Good luck!
+    - type: Tweak
+      message: Setoutfit command can now support implants and filling backpacks.
+  id: 1076
+  time: '2025-05-18T16:37:05.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Fix
+      message: Nukies can no longer buy job specific items
+  id: 1077
+  time: '2025-05-18T17:44:04.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Added new HoS armor to loadout.
+    - type: Tweak
+      message: HoS Justice empowered mode was reworked.
+    - type: Tweak
+      message: All HoS head wear have the same stats.
+    - type: Tweak
+      message: >-
+        Mech flashbang launcher grenades do not stun or knockdown people with
+        any ear protection regardless of distance now.
+  id: 1078
+  time: '2025-05-18T20:26:17.0000000+00:00'
+- author: be1bright
+  changes:
+    - type: Add
+      message: Added feature to set criminal status with security hud items.
+  id: 1079
+  time: '2025-05-18T20:30:02.0000000+00:00'
+- author: NikaVichy
+  changes:
+    - type: Add
+      message: Enabled suit storage for all outer clothing.
+  id: 1080
+  time: '2025-05-18T20:34:42.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Tweak
+      message: Reduced DEsword reflect chance slightly.
+  id: 1081
+  time: '2025-05-18T20:35:44.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        The binary channel now uses the collective mind system. Silicons should
+        now use +b to speak in binary.
+    - type: Remove
+      message: Binary translator keys.
+  id: 1082
+  time: '2025-05-18T20:47:11.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: >-
+        You can now hug other players to equalize your temperature. Hug your
+        lizard friends!
+    - type: Add
+      message: You can now hug players to transfer fire stacks. It's like hot potato!
+    - type: Add
+      message: >-
+        Lizards now start with specialized heating lamps to keep their
+        temperature stable.
+    - type: Tweak
+      message: Lizards are now cold-blooded. Have fun!
+  id: 1083
+  time: '2025-05-18T21:59:08.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Add
+      message: >-
+        Added experimental law boards. When inserted in ai upload console, gives
+        ionstormed laws to the station AI, and after 2 minutes turns laws back
+        to normal giving research points to RnD. 
+  id: 1084
+  time: '2025-05-19T07:58:24.0000000+00:00'

@@ -78,6 +78,10 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 Damn Feds <20566341+K-Dynamic@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Thesia <lindner.thorben@gmx.de>
 # SPDX-FileCopyrightText: 2025 TytosB <54259736+TytosB@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TytosB <dunalintytos@yahoo.com>
 #
@@ -104,6 +108,8 @@
           availableJobs:
             #command
             Captain: [ 1, 1 ]
+            NanotrasenRepresentative: [ 1, 1 ]
+            BlueshieldOfficer: [ 1, 1 ]
             #service
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 2, 2 ]
@@ -123,6 +129,7 @@
             Chemist: [ 2, 2 ]
             MedicalDoctor: [ 4, 5 ]
             Paramedic: [ 2, 2 ]
+            Psychologist: [ 1, 1 ]
             MedicalIntern: [ 4, 4 ]
             #science
             ResearchDirector: [ 1, 1 ]
