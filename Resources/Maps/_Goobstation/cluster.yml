@@ -1,10 +1,10 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 248.0.2
+  engineVersion: 251.0.0
   forkId: ""
   forkVersion: ""
-  time: 04/18/2025 09:59:55
+  time: 05/19/2025 11:18:21
   entityCount: 12709
 maps:
 - 1
@@ -8174,6 +8174,13 @@ entities:
     - type: Transform
       pos: 16.5,24.5
       parent: 2
+- proto: BedsheetBrigmedic
+  entities:
+  - uid: 550
+    components:
+    - type: Transform
+      pos: 23.5,6.5
+      parent: 2
 - proto: BedsheetCaptain
   entities:
   - uid: 477
@@ -8644,15 +8651,15 @@ entities:
       parent: 2
 - proto: BoxBodyBag
   entities:
-  - uid: 550
-    components:
-    - type: Transform
-      pos: 23.488127,5.639096
-      parent: 2
   - uid: 551
     components:
     - type: Transform
       pos: -22.480776,15.689974
+      parent: 2
+  - uid: 4044
+    components:
+    - type: Transform
+      pos: 23.500057,7.435218
       parent: 2
 - proto: BoxFlashbang
   entities:
@@ -56439,6 +56446,13 @@ entities:
     - type: Transform
       pos: 5.5,-1.5
       parent: 2
+- proto: LockerBrigmedicFilled
+  entities:
+  - uid: 4043
+    components:
+    - type: Transform
+      pos: 21.5,5.5
+      parent: 2
 - proto: LockerCaptainFilled
   entities:
   - uid: 4288
@@ -56737,11 +56751,6 @@ entities:
     components:
     - type: Transform
       pos: -23.5,9.5
-      parent: 2
-  - uid: 8498
-    components:
-    - type: Transform
-      pos: 21.5,5.5
       parent: 2
 - proto: LockerMedicineFilled
   entities:
@@ -57524,11 +57533,6 @@ entities:
     - type: Transform
       pos: 5.540815,19.460373
       parent: 2
-  - uid: 8637
-    components:
-    - type: Transform
-      pos: 23.535002,7.498471
-      parent: 2
   - uid: 8638
     components:
     - type: Transform
@@ -57563,11 +57567,6 @@ entities:
       parent: 2
 - proto: MedkitOxygenFilled
   entities:
-  - uid: 8644
-    components:
-    - type: Transform
-      pos: 23.535002,7.373471
-      parent: 2
   - uid: 8645
     components:
     - type: Transform
@@ -57644,6 +57643,33 @@ entities:
       parent: 2
 - proto: Morgue
   entities:
+  - uid: 4046
+    components:
+    - type: Transform
+      pos: 20.5,7.5
+      parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.1462
+        moles:
+        - 1.606311
+        - 6.042789
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
   - uid: 8657
     components:
     - type: Transform
@@ -57689,6 +57715,28 @@ entities:
       rot: 3.141592653589793 rad
       pos: 20.5,5.5
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
 - proto: MouseTimedSpawner
   entities:
   - uid: 8665
@@ -67528,6 +67576,13 @@ entities:
     - type: Transform
       pos: 3.5,-3.5
       parent: 2
+- proto: SpawnPointBrigmedic
+  entities:
+  - uid: 4045
+    components:
+    - type: Transform
+      pos: 22.5,6.5
+      parent: 2
 - proto: SpawnPointCaptain
   entities:
   - uid: 10312
@@ -71764,11 +71819,6 @@ entities:
     components:
     - type: Transform
       pos: -20.5,11.5
-      parent: 2
-  - uid: 10936
-    components:
-    - type: Transform
-      pos: 20.5,7.5
       parent: 2
 - proto: VendingMachineMediDrobe
   entities:
@@ -81691,17 +81741,17 @@ entities:
       parent: 2
 - proto: WindowReinforcedDirectional
   entities:
+  - uid: 4047
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 20.5,7.5
+      parent: 2
   - uid: 12721
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -4.5,48.5
-      parent: 2
-  - uid: 12722
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 20.5,7.5
       parent: 2
   - uid: 12723
     components:
