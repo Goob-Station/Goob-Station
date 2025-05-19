@@ -1702,13 +1702,9 @@
             !type:PhysShapeAabb
             bounds: "-0.5,-0.5,0.5,0.5"
           mask:
-            - FullTileMask
-          layer: # Goob edit
-            - Opaque
-            - HighImpassable
-            - MidImpassable
-            - LowImpassable
-            - BulletImpassable
+            - SpecialWallLayer
+          layer:
+            - SpecialWallLayer
     - type: Airtight
     - type: Sprite
       sprite: Structures/Magic/forcewall.rsi
