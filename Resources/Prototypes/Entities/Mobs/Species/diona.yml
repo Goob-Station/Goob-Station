@@ -26,13 +26,16 @@
 # SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 # SPDX-FileCopyrightText: 2024 Timemaster99 <57200767+Timemaster99@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 VMSolidus <evilexecutive@gmail.com>
-# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
 # SPDX-FileCopyrightText: 2024 pocl v <24708225+Pinkbat5@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -61,10 +64,10 @@
 #  - type: DamageVisuals
 #    damageOverlayGroups:
 #      Brute:
-#        sprite: Mobs/Effects/brute_damage.rsi
+#        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
 #        color: "#cd7314"
 #      Burn:
-#        sprite: Mobs/Effects/burn_damage.rsi
+#        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
   - type: Butcherable
     butcheringType: Spike
     spawned:
