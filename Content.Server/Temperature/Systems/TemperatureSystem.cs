@@ -222,13 +222,13 @@ public sealed class TemperatureSystem : EntitySystem
     private void OnCheckLowTemperatureImmunity(Entity<SpecialLowTempImmunityComponent> ent, ref TemperatureImmunityEvent args)
     {
         if (args.CurrentTemperature < args.IdealTemperature)
-            args.CurrentTemperature = MathF.Max(args.CurrentTemperature, args.IdealTemperature);
+            args.CurrentTemperature = args.IdealTemperature;
     }
 
     private void OnCheckHighTemperatureImmunity(Entity<SpecialHighTempImmunityComponent> ent, ref TemperatureImmunityEvent args)
     {
         if (args.CurrentTemperature > args.IdealTemperature)
-            args.CurrentTemperature = MathF.Min(args.CurrentTemperature, args.IdealTemperature);
+            args.CurrentTemperature = args.IdealTemperature;
     }
     // Goob end
 
