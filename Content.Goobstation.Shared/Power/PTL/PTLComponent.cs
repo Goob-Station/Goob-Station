@@ -20,10 +20,10 @@ public sealed partial class PTLComponent : Component
     [DataField, AutoNetworkedField] public double SpesosHeld = 0f;
 
     [DataField] public double MinShootPower = 1e6; // 1 MJ 
-    [DataField] public double MaxEnergyPerShot = 2.5e8; // 250 MJ which can be achieved at 4-8min with a standard powernet
+    [DataField] public double MaxEnergyPerShot = 1e7; // 100MJ so powernet isnt nuked
 
-    [DataField, AutoNetworkedField] public float ShootDelay = 30f; //So Laser can build a charge
-    [DataField, AutoNetworkedField] public MinMax ShootDelayThreshold = new MinMax(60, 120);
+    [DataField, AutoNetworkedField] public float ShootDelay = 15f; //So Laser can build a charge
+    [DataField, AutoNetworkedField] public MinMax ShootDelayThreshold = new MinMax(15, 60);
     [DataField, AutoNetworkedField] public bool ReversedFiring = false;
     [ViewVariables(VVAccess.ReadOnly)] public TimeSpan NextShotAt = TimeSpan.Zero;
 
