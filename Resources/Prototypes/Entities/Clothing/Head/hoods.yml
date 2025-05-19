@@ -114,8 +114,6 @@
   - type: BreathMask
   - type: IngestionBlocker
   - type: GroupExamine
-  - type: Armor
-    modifiers: { }
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.9
   - type: Tag

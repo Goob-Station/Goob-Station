@@ -95,7 +95,6 @@
   - type: Alerts
   - type: ProtectedFromStepTriggers
   - type: Targeting # Shitmed Change
-  - type: CollectiveMind # Goobstation
   - type: TypingIndicator # Goob
     proto: robot
   - type: Speech # Goob
