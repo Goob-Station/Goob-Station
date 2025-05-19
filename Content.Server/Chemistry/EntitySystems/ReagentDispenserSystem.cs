@@ -84,7 +84,7 @@ namespace Content.Server.Chemistry.EntitySystems
             SubscribeLocalEvent<ReagentDispenserComponent, ReagentDispenserEjectContainerMessage>(OnEjectReagentMessage);
             SubscribeLocalEvent<ReagentDispenserComponent, ReagentDispenserClearContainerSolutionMessage>(OnClearContainerSolutionMessage);
 
-            SubscribeLocalEvent<ReagentDispenserComponent, MapInitEvent>(OnMapInit, before: new []{typeof(ItemSlotsSystem)});
+            SubscribeLocalEvent<ReagentDispenserComponent, MapInitEvent>(OnMapInit, before: new[] { typeof(ItemSlotsSystem) });
         }
 
         private void SubscribeUpdateUiState<T>(Entity<ReagentDispenserComponent> ent, ref T ev)
@@ -168,7 +168,7 @@ namespace Content.Server.Chemistry.EntitySystems
             // Ensure that the reagent is something this reagent dispenser can dispense.
             var storageLocation = message.StorageLocation;
             var storedContainer = storage.StoredItems.FirstOrDefault(kvp => kvp.Value == storageLocation).Key;
-            if (storedContainer == null)
+            if (storedContainer == EntityUid.Invalid)
                 return;
 
             var outputContainer = _itemSlotsSystem.GetItemOrNull(reagentDispenser, SharedReagentDispenser.OutputSlotName);
@@ -199,7 +199,7 @@ namespace Content.Server.Chemistry.EntitySystems
 
             var storageLocation = message.StorageLocation;
             var storedContainer = storage.StoredItems.FirstOrDefault(kvp => kvp.Value == storageLocation).Key;
-            if (storedContainer == null)
+            if (storedContainer == EntityUid.Invalid)
                 return;
 
             _handsSystem.TryPickupAnyHand(message.Actor, storedContainer);
