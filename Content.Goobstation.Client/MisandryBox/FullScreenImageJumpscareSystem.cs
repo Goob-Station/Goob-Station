@@ -51,8 +51,7 @@ public sealed class ClientFullScreenImageJumpscare : IFullScreenImageJumpscare, 
     public void Jumpscare(SpriteSpecifier.Texture image, ICommonSession? session = null)
     {
         // Damn bro, you reinvented loading from PNG just because you were lazy to use rsi?
-        var stream = _cache.ContentFileRead(image.TexturePath);
-        var text = _clyde.LoadTextureFromPNGStream(stream);
+        var text = _cache.GetResource<TextureResource>(image.TexturePath);
         var texture = new TextureRect
         {
             Texture = text,
