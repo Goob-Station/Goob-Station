@@ -5,7 +5,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Client.JoinQueue;
+using Content.Goobstation.Client.MisandryBox;
 using Content.Goobstation.Client.Redial;
+using Content.Goobstation.Shared.MisandryBox.JumpScare;
 using Robust.Shared.IoC;
 
 namespace Content.Goobstation.Client.IoC;
@@ -18,5 +20,6 @@ internal static class ContentGoobClientIoC
 
         collection.Register<RedialManager>();
         collection.Register<JoinQueueManager>();
+        collection.Register<IFullScreenImageJumpscare, ClientFullScreenImageJumpscare>();
     }
 }

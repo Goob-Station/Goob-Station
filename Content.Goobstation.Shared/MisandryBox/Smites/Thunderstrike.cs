@@ -5,22 +5,28 @@
 
 using System.Linq;
 using System.Threading;
+using Content.Goobstation.Shared.MisandryBox.JumpScare;
 using Content.Shared.Electrocution;
 using Content.Shared.Popups;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
+using Robust.Shared.Player;
+using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.MisandryBox.Smites;
 
 public sealed class ThunderstrikeSystem : EntitySystem
 {
+    [Dependency] private readonly IFullScreenImageJumpscare _jumpscare = default!;
+    [Dependency] private readonly ISharedPlayerManager _player = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPointLightSystem _light = default!;
     [Dependency] private readonly SharedElectrocutionSystem _elect = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     private const string Sound = "/Audio/_Goobstation/Effects/Smites/Thunderstrike/thunderstrike.ogg";
+    private const string God = "/Textures/_Goobstation/MisandryBox/For he does not need no fucking rsi.png";
 
     private readonly Dictionary<EntityUid, TimeSpan> _pending = new();
     private float _accumulator;
@@ -55,8 +61,11 @@ public sealed class ThunderstrikeSystem : EntitySystem
 
         _elect.TryDoElectrocution(mumu, null, 250, TimeSpan.FromSeconds(1), false, ignoreInsulation: true);
 
-        if (!kill)
+        if (!kill || !_player.TryGetSessionByEntity(mumu, out var sesh))
             return;
+
+        var text = new SpriteSpecifier.Texture(new ResPath(God));
+        _jumpscare.Jumpscare(text, sesh);
 
         QueueDel(mumu);
         Spawn("Ash", transform.Coordinates);
