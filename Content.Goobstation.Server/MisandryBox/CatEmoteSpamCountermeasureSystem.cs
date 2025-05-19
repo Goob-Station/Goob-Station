@@ -17,15 +17,18 @@ public sealed class CatEmoteSpamCountermeasureSystem : EntitySystem
 {
     [Dependency] private readonly ThunderstrikeSystem _thunderstrike = default!;
 
-    private const float ClearInterval = 15.0f;
+    private const float ClearInterval = 20.0f;
+    private const float PitchModulo = 0.08f;
 
     [ViewVariables(VVAccess.ReadWrite)]
-    private int _maxEmotes = 5;
+    private int _maxEmotes = 20;
 
+    /// <summary>
+    /// Ash offenders on proc? Tell them what they should do?
+    /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public bool DrasticMeasures = false;
+    public bool DrasticMeasures = true;
 
-    private const float _factor = 0.15f;
     private Dictionary<EntityUid, int> _meowTracker = [];
     private float _timeSinceLastClear = 0f;
 
@@ -40,7 +43,7 @@ public sealed class CatEmoteSpamCountermeasureSystem : EntitySystem
     private void OnGetPitchShiftEvent(Entity<SpeechComponent> ent, ref EmoteSoundPitchShiftEvent ev)
     {
         var shift = GetCount(ent.Owner);
-        ev.Pitch = shift * _factor;
+        ev.Pitch = shift * PitchModulo;
     }
 
     private int GetCount(EntityUid entity)
