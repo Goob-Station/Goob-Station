@@ -18,6 +18,7 @@ namespace Content.Client.Doors;
 public sealed class FirelockSystem : SharedFirelockSystem
 {
     [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
@@ -28,7 +29,7 @@ public sealed class FirelockSystem : SharedFirelockSystem
     protected override void OnComponentStartup(Entity<FirelockComponent> ent, ref ComponentStartup args)
     {
         base.OnComponentStartup(ent, ref args);
-        if(!TryComp<DoorComponent>(ent.Owner, out var door))
+        if (!TryComp<DoorComponent>(ent.Owner, out var door))
             return;
 
         door.ClosedSpriteStates.Add((DoorVisualLayers.BaseUnlit, ent.Comp.WarningLightSpriteState));
@@ -67,7 +68,7 @@ public sealed class FirelockSystem : SharedFirelockSystem
             ||  state == DoorState.Denying
             || (_appearanceSystem.TryGetData<bool>(uid, DoorVisuals.ClosedLights, out var closedLights, args.Component) && closedLights);
 
-        args.Sprite.LayerSetVisible(DoorVisualLayers.BaseUnlit, unlitVisible && !boltedVisible);
-        args.Sprite.LayerSetVisible(DoorVisualLayers.BaseBolted, boltedVisible);
+        _sprite.LayerSetVisible((uid, args.Sprite), DoorVisualLayers.BaseUnlit, unlitVisible && !boltedVisible);
+        _sprite.LayerSetVisible((uid, args.Sprite), DoorVisualLayers.BaseBolted, boltedVisible);
     }
 }

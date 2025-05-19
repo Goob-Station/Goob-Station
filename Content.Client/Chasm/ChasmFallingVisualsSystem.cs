@@ -18,6 +18,7 @@ namespace Content.Client.Chasm;
 public sealed class ChasmFallingVisualsSystem : EntitySystem
 {
     [Dependency] private readonly AnimationPlayerSystem _anim = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     private readonly string _chasmFallAnimationKey = "chasm_fall";
 
@@ -53,7 +54,7 @@ public sealed class ChasmFallingVisualsSystem : EntitySystem
         if (!TryComp<SpriteComponent>(uid, out var sprite))
             return;
 
-        sprite.Scale = component.OriginalScale;
+        _sprite.SetScale((uid, sprite), component.OriginalScale);
 
         if (!TryComp<AnimationPlayerComponent>(uid, out var player))
             return;
