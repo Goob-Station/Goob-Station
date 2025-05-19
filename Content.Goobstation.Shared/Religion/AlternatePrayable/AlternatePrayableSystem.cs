@@ -6,8 +6,8 @@
 
 using Content.Goobstation.Shared.Bible;
 using Content.Goobstation.Shared.Religion.Nullrod;
-using Content.Goobstation.Shared.Religion.Nullrod.Systems;
 using Content.Shared.DoAfter;
+using Content.Shared.Item;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using Robust.Shared.Timing;
@@ -15,7 +15,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.Religion.AlternatePrayable;
 
-public sealed partial class NullRodSystem : SharedNullRodSystem
+public sealed partial class AlternatePrayableSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
@@ -26,11 +26,14 @@ public sealed partial class NullRodSystem : SharedNullRodSystem
         base.Initialize();
 
         SubscribeLocalEvent<AlternatePrayableComponent, GetVerbsEvent<InteractionVerb>>(OnGetVerbs);
-        SubscribeLocalEvent<AlternatePrayableComponent, NullrodPrayDoAfterEvent>(OnPrayDoAfter);
+        SubscribeLocalEvent<AlternatePrayableComponent, AlternatePrayDoAfterEvent>(OnPrayDoAfter);
     }
     private void OnGetVerbs(Entity<AlternatePrayableComponent> ent, ref GetVerbsEvent<InteractionVerb> args)
     {
-        if (!args.CanAccess || !args.CanInteract)
+        if (!args.CanAccess
+            || !args.CanInteract
+            || args.Using is not { } item
+            || !TryComp<ItemComponent>(item, out var itemComp))
             return;
 
         if (ent.Comp.RequireBibleUser && !HasComp<BibleUserComponent>(args.User))
@@ -44,8 +47,9 @@ public sealed partial class NullRodSystem : SharedNullRodSystem
             {
                 StartPrayDoAfter(user, ent, ent.Comp);
             },
-            Text = Loc.GetString("nullrod-pray-prompt"),
-            Icon = new SpriteSpecifier.Rsi(new("_ShitChap/Objects/Weapons/Nullrod/nullrod.rsi"), "icon"),
+            Text = Loc.GetString("alternate-pray-prompt", ("item",item)),
+            Icon = new SpriteSpecifier.Rsi(new ResPath("Objects/Specific/Chapel/bible.rsi"), "icon"),
+            Priority = 30,
         };
 
         args.Verbs.Add(prayVerb);
@@ -56,8 +60,8 @@ public sealed partial class NullRodSystem : SharedNullRodSystem
     {
         if (_timing.CurTime > comp.NextPopup)
         {
-            var popup = Loc.GetString("nullrod-pray-start", ("user", Name(user)), ("nullrod", Name(nullRod)));
-            _popupSystem.PopupEntity(popup, user);
+            var popup = Loc.GetString("alternate-pray-start", ("user", Name(user)), ("item", Name(nullRod)));
+            _popupSystem.PopupPredicted(popup, user, user);
 
             comp.NextPopup = _timing.CurTime + comp.PopupDelay;
         }
@@ -65,7 +69,7 @@ public sealed partial class NullRodSystem : SharedNullRodSystem
         var doAfterArgs = new DoAfterArgs(EntityManager,
             user,
             comp.PrayDoAfterDuration,
-            new NullrodPrayDoAfterEvent(),
+            new AlternatePrayDoAfterEvent(),
             nullRod,
             user,
             nullRod)
@@ -81,12 +85,12 @@ public sealed partial class NullRodSystem : SharedNullRodSystem
         _doAfterSystem.TryStartDoAfter(doAfterArgs);
     }
 
-    private void OnPrayDoAfter(EntityUid uid, AlternatePrayableComponent comp, ref NullrodPrayDoAfterEvent args)
+    private void OnPrayDoAfter(EntityUid uid, AlternatePrayableComponent comp, ref AlternatePrayDoAfterEvent args)
     {
         if (args.Cancelled || args.Handled || TerminatingOrDeleted(args.User))
             return;
 
-        var ev = new NullrodPrayEvent(args.User);
+        var ev = new AlternatePrayEvent(args.User);
         RaiseLocalEvent(uid, ref ev);
 
         args.Repeat = comp.RepeatPrayer;
