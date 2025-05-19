@@ -27,7 +27,7 @@ public sealed class CrewMonitorScanningSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popup = default!;
 
     private const string CommandTrackerImplant = "CommandTrackingImplant";
-    private const string CommandTrackerImplantNane = "command cracking implant";
+    private const string CommandTrackerImplantNane = "command tracking implant";
 
     public override void Initialize()
     {
