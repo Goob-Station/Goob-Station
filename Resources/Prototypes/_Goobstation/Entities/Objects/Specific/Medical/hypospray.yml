@@ -491,7 +491,7 @@
   name: first aid autoinjector
   parent: ChemicalMedipen
   id: FirstAidAutoinjector
-  description: A safe and effective mix for first aid, containing tricordrazine, omnizine, epinephrine, along with blood clotters and painkillers.
+  description: A safe and effective mix for first aid; contains omnizine, epinephrine, along with blood clotters and painkillers.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -508,7 +508,7 @@
           Quantity: 5
         - ReagentId: TranexamicAcid
           Quantity: 5
-        - ReagentId: Ibuprofen # Tramadol
+        - ReagentId: Ibuprofen
           Quantity: 5
   - type: Tag
     tags:
