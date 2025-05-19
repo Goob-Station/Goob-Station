@@ -457,7 +457,7 @@
         - !type:OrganType
           type: Yowie
           shouldHave: false
-      - !type:GenericStatusEffect # tripping balls, duh
+      - !type:GenericStatusEffect # tripping balls
         conditions:
         - !type:ReagentThreshold
           min: 10.5
@@ -468,6 +468,9 @@
         refresh: false
       - !type:Drunk
         boozePower: 10
+        conditions:
+        - !type:ReagentThreshold
+          min: 10.5
       - !type:AdjustConsciousness
         allowNewModifiers: true
         modifierType: Pain
