@@ -1,8 +1,11 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
@@ -12,6 +15,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.Bingle;
+using Content.Goobstation.Common.Religion;
 using Content.Shared._DV.Carrying;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared._Goobstation.Wizard.BindSoul;
@@ -52,9 +56,9 @@ using Content.Shared.Item;
 using Content.Shared.Jittering;
 using Content.Shared.Magic;
 using Content.Shared.Magic.Components;
+using Content.Shared.Magic.Events;
 using Content.Shared.Maps;
 using Content.Shared.Mind;
-using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
@@ -203,7 +207,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
-        if (_magic.SpellDenied(ev.Target))
+        if (IsTouchSpellDenied(ev.Target))
         {
             _magic.Speak(ev);
             ev.Handled = true;
@@ -227,7 +231,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
-        if (_magic.SpellDenied(ev.Target))
+        if (IsTouchSpellDenied(ev.Target))
         {
             _magic.Speak(ev);
             ev.Handled = true;
@@ -257,7 +261,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
-        if (_magic.SpellDenied(ev.Target))
+        if (IsTouchSpellDenied(ev.Target))
         {
             _magic.Speak(ev);
             ev.Handled = true;
@@ -441,7 +445,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
-        if (_magic.SpellDenied(ev.Target))
+        if (IsTouchSpellDenied(ev.Target))
         {
             _magic.Speak(ev);
             ev.Handled = true;
@@ -607,7 +611,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
-        if (_magic.SpellDenied(ev.Target))
+        if (IsTouchSpellDenied(ev.Target))
         {
             _magic.Speak(ev);
             ev.Handled = true;
@@ -717,7 +721,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
-        if (_magic.SpellDenied(ev.Target))
+        if (IsTouchSpellDenied(ev.Target))
         {
             _magic.Speak(ev);
             ev.Handled = true;
@@ -770,7 +774,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
-        if (_magic.SpellDenied(ev.Target))
+        if (IsTouchSpellDenied(ev.Target))
         {
             _magic.Speak(ev);
             ev.Handled = true;
@@ -1048,7 +1052,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
-        if (_magic.SpellDenied(ev.Target))
+        if (IsTouchSpellDenied(ev.Target))
         {
             _magic.Speak(ev);
             ev.Handled = true;
@@ -1245,7 +1249,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
-        if (_magic.SpellDenied(ev.Target))
+        if (IsTouchSpellDenied(ev.Target))
         {
             _magic.Speak(ev);
             ev.Handled = true;
@@ -1266,7 +1270,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
-        if (_magic.SpellDenied(ev.Target))
+        if (IsTouchSpellDenied(ev.Target))
         {
             _magic.Speak(ev);
             ev.Handled = true;
@@ -1437,6 +1441,14 @@ public abstract class SharedSpellsSystem : EntitySystem
     private void PopupLoc(EntityUid uid, string locMessage, PopupType type = PopupType.Small)
     {
         _popup.PopupClient(locMessage, uid, uid, type);
+    }
+
+    private bool IsTouchSpellDenied(EntityUid target)
+    {
+        var ev = new BeforeCastTouchSpellEvent(target);
+        RaiseLocalEvent(target, ev, true);
+
+        return ev.Cancelled;
     }
 
     private void SpawnHomingProjectile(EntProtoId proto,

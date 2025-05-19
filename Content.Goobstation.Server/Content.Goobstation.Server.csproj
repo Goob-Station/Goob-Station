@@ -23,6 +23,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <PackageReference Include="JetBrains.Annotations" PrivateAssets="All" />
   </ItemGroup>
     <ItemGroup>
+      <ProjectReference Include="..\Content.Goobstation.Maths\Content.Goobstation.Maths.csproj" />
       <ProjectReference Include="..\Content.Goobstation.Shared\Content.Goobstation.Shared.csproj" />
       <ProjectReference Include="..\Content.Server\Content.Server.csproj" />
       <ProjectReference Include="..\RobustToolbox\Robust.Shared\Robust.Shared.csproj" />
