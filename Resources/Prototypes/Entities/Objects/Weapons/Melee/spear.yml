@@ -103,6 +103,8 @@
       map: ["enum.SolutionContainerLayers.Fill"]
       visible: false
   - type: MeleeWeapon
+    range: 2.2 # Goob
+    attackRate: 0.65 # Goob
     animationRotation: -135 # WWDP
     wideAnimationRotation: -135
     damage:
@@ -115,9 +117,12 @@
   - type: DamageOtherOnHit
     damage:
       types:
-        Piercing: 15
+        Piercing: 20 # Goob edit
   - type: Item
-    size: Large # goobstation
+    size: Large # Goob edit
+    shape: # Goob
+    - 0,0,5,0
+    storedRotation: 45 # Goob
   - type: Clothing
     quickEquip: false
     slots:
@@ -146,7 +151,7 @@
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Piercing: 4
+        Piercing: 7 # Goob edit
   # Goobstation - nuh uh
   #- type: Damageable
   #  damageContainer: Inorganic
@@ -208,7 +213,7 @@
   - type: DamageOtherOnHit
     damage:
       types:
-        Piercing: 17
+        Piercing: 24 # Goob edit
   - type: Construction
     graph: SpearReinforced
 
@@ -229,7 +234,7 @@
   - type: DamageOtherOnHit
     damage:
       types:
-        Piercing: 21
+        Piercing: 27 # Goob edit
   - type: Construction
     graph: SpearPlasma
 
@@ -246,13 +251,13 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Piercing: 10
-        Radiation: 8
+        Piercing: 8 # Goob edit
+        Radiation: 10 # Goob edit
   - type: DamageOtherOnHit
     damage:
       types:
-        Piercing: 12
-        Radiation: 9
+        Piercing: 16 # Goob edit
+        Radiation: 11 # Goob edit
   - type: Construction
     graph: SpearUranium
 
