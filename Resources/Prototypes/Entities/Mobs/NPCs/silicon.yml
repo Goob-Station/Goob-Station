@@ -710,6 +710,7 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 40
+  - type: DoAfter
   - type: CanForceHandcuff
     handcuffsId: Zipties
     requireHands: false
