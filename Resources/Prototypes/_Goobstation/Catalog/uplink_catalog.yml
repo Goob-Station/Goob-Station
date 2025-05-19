@@ -18,9 +18,10 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
@@ -77,24 +78,196 @@
     -  UplinkDisruption
 
 - type: listing
-  id: UplinkBoxSkibidiRizz
-  name: Box of Skibidi Rizz
-  description: Contains 3 Skibidi Toilet cubes and 3 glasses of SigmaJuice... Chat, is this real?
-  productEntity: BoxSkibidiRizz
-  cost:
-    Telecrystal: 30
-  categories:
-    - UplinkDisruption
-
-- type: listing
   id: UplinkSarinGasGrenade
   name: uplink-sarin-gas-grenade-name
   description: uplink-sarin-gas-grenade-desc
   productEntity: SarinGasGrenade
   cost:
+    Telecrystal: 10
+  categories:
+  - UplinkExplosives
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
+# Same explosives for nukies, but cheaper
+
+- type: listing
+  id: UplinkSarinGasGrenadeNukeops
+  name: uplink-sarin-gas-grenade-name
+  description: uplink-sarin-gas-grenade-desc
+  productEntity: SarinGasGrenade
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkExplosives
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkExplosiveGrenadeNukeops
+  name: uplink-explosive-grenade-name
+  description: uplink-explosive-grenade-desc
+  productEntity: ExGrenade
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkExplosives
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkSmokeGrenadeNukeops
+  name: uplink-smoke-grenade-name
+  description: uplink-smoke-grenade-desc
+  productEntity: SmokeGrenade
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkExplosives
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkSyndieMiniBombNukeops
+  name: uplink-mini-bomb-name
+  description: uplink-mini-bomb-desc
+  productEntity: SyndieMiniBomb
+  cost:
     Telecrystal: 12
   categories:
-    -  UplinkDisruption
+  - UplinkExplosives
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkSupermatterGrenadeNukeops
+  name: uplink-supermatter-grenade-name
+  description: uplink-supermatter-grenade-desc
+  productEntity: SupermatterGrenade
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkExplosives
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkWhiteholeGrenadeNukeops
+  name: uplink-whitehole-grenade-name
+  description: uplink-whitehole-grenade-desc
+  productEntity: WhiteholeGrenade
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkExplosives
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkC4Nukeops
+  name: uplink-c4-name
+  description: uplink-c4-desc
+  productEntity: C4
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkExplosives
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkC4BundleNukeops
+  name: uplink-c4-bundle-name
+  description: uplink-c4-bundle-desc
+  productEntity: ClothingBackpackDuffelSyndicateC4tBundle
+  cost:
+    Telecrystal: 26
+  categories:
+  - UplinkExplosives
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkEmpGrenadeNukeops
+  name: uplink-emp-grenade-name
+  description: uplink-emp-grenade-desc
+  productEntity: EmpGrenade
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkExplosives
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkClusterGrenadeNukeops
+  name: uplink-cluster-grenade-name
+  description: uplink-cluster-grenade-desc
+  productEntity: ClusterGrenade
+  cost:
+    Telecrystal: 11
+  categories:
+  - UplinkExplosives
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkGrenadeShrapnelNukeops
+  name: uplink-shrapnel-grenade-name
+  description: uplink-shrapnel-grenade-desc
+  productEntity: GrenadeShrapnel
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkExplosives
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkGrenadeIncendiaryNukeops
+  name: uplink-incendiary-grenade-name
+  description: uplink-incendiary-grenade-desc
+  productEntity: GrenadeIncendiary
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkExplosives
   conditions:
   - !type:StoreWhitelistCondition
     whitelist:
@@ -202,6 +375,17 @@
   - UplinkWeaponry
 
 - type: listing
+  id: UplinkWeaponShotgunHeavy
+  name: uplink-weapon-heavy-shotgun-name
+  description: uplink-weapon-heavy-shotgun-desc
+  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Shotguns/magshot.rsi, state: icon }
+  productEntity: WeaponShotgunHeavy
+  cost:
+    Telecrystal: 150
+  categories:
+  - UplinkWeaponry
+
+- type: listing
   id: UplinkBowHardlight
   name: uplink-hardlight-bow-name
   description: uplink-hardlight-bow-desc
@@ -293,6 +477,21 @@
   - UplinkWearables
 
 - type: listing
+  id: UplinkClothingBeltMilitaryRigGrenadier
+  name: uplink-belt-rig-name
+  description: uplink-belt-rig-desc
+  productEntity: ClothingBeltMilitaryRigGrenadier
+  cost:
+    Telecrystal: 4
+  categories:
+  -  UplinkWearables
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
   id: UplinkClothingHeadHelmetSwatSyndicate
   name: uplink-helmet-swat-name
   description: uplink-helmet-swat-desc
@@ -302,6 +501,22 @@
     Telecrystal: 10
   categories:
   - UplinkWearables
+
+- type: listing
+  id: UplinkHeatLamp
+  name: uplink-heat-lamp-name
+  description: uplink-heat-lamp-desc
+  icon: { sprite: /Textures/_Goobstation/Objects/Devices/Heatlamps/syndicate.rsi, state: icon-on }
+  productEntity: HeatLampEvil
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkWearables
+  #conditions: # Blacklist this from nukies if dreadsuits abuse it too much.
+  #- !type:StoreWhitelistCondition
+  #  blacklist:
+  #    tags:
+  #    - NukeOpsUplink
 
 - type: listing
   id: UplinkHardsuitSyndieMedic
@@ -451,52 +666,6 @@
   categories:
     - UplinkAllies
 
-
-- type: listing
-  id: UplinkJermovCircuitBoard
-  name: jermov circuit board
-  description: A very un-dangerous Lawset to use when you want to cause the A.I. to get brainrot, use when bored.
-  productEntity: JermovCircuitBoard
-  cost:
-    Telecrystal: 15
-  categories:
-    -  UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Clown
-    - Passenger
-
-- type: listing
-  id: UplinkChudimovCircuitBoard
-  name: chudimov circuit board
-  description: Nothing ever happens.
-  productEntity: ChudimovCircuitBoard
-  cost:
-    Telecrystal: 40
-  categories:
-  -  UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Clown
-    - Passenger
-
-- type: listing
-  id: UplinkZooimovCircuitBoard
-  name: zooimov circuit board
-  description: A lawset for when you wanna keep all the stations animals safe and protected.
-  productEntity: ZooimovCircuitBoard
-  cost:
-    Telecrystal: 15
-  categories:
-    -  UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Zookeeper
-  saleLimit: 1
-
 - type: listing
   id: uplinkBeeNades    #goob - bee update
   name: uplink-beenades-name
@@ -578,7 +747,7 @@
   icon: { sprite: /Textures/Objects/Specific/Medical/syndi_implanter.rsi, state: implanter0 }
   productEntity: MindcontrolImplanter
   cost:
-    Telecrystal: 50 # Half the budget
+    Telecrystal: 25 # Half the budget #bounty someone want it cheaper.
   categories:
     - UplinkImplants
   conditions:
@@ -671,6 +840,17 @@
   - UplinkAmmo
 
 - type: listing
+  id: UplinkGrenadeMPAPERS
+  name: uplink-mpapers-grenade-name
+  description: uplink-mpapers-grenade-desc
+  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi, state: apers }
+  productEntity: GrenadeMPAPERS
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkAmmo
+
+- type: listing
   id: UplinkMagazineShotgun
   name: uplink-shotgun-magazine-name
   description: uplink-shotgun-magazine-desc
@@ -735,6 +915,28 @@
 #    Telecrystal: 40 # ammo should be a big cost for this
 #  categories:
 #  - UplinkAmmo
+
+- type: listing
+  id: UplinkMagazineShotgunHeavy
+  name: uplink-heavy-shotgun-magazine-name
+  description: uplink-heavy-shotgun-magazine-desc
+  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_shotgun.rsi, state: icon }
+  productEntity: MagazineShotgunHeavy
+  cost:
+    Telecrystal: 30
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: UplinkMagazineShotgunHeavySlug
+  name: uplink-heavy-shotgun-magazine-slug-name
+  description: uplink-heavy-shotgun-magazine-slug-desc
+  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_shotgun.rsi, state: icon2 }
+  productEntity: MagazineShotgunHeavySlug
+  cost:
+    Telecrystal: 40
+  categories:
+  - UplinkAmmo
 
 # 弾薬
 - type: listing

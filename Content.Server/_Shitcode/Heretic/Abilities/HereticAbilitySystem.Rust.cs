@@ -4,6 +4,7 @@
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -11,6 +12,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.Movement;
+using Content.Goobstation.Common.Religion;
 using Content.Server.Flash;
 using Content.Server.Heretic.Components.PathSpecific;
 using Content.Server.Shuttles.Components;
@@ -22,6 +24,7 @@ using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Atmos;
 using Content.Shared.Damage.Components;
 using Content.Shared.Heretic;
+using Content.Shared.Inventory;
 using Content.Shared.Maps;
 using Content.Shared.Mech.Components;
 using Content.Shared.Mobs;
@@ -41,6 +44,9 @@ namespace Content.Server.Heretic.Abilities;
 
 public sealed partial class HereticAbilitySystem
 {
+
+    [Dependency] private readonly InventorySystem _inventory = default!;
+
     public static readonly Dictionary<EntProtoId, EntProtoId> Transformations = new()
     {
         { "WallSolid", "WallSolidRust" },
@@ -100,7 +106,15 @@ public sealed partial class HereticAbilitySystem
         if (args.Tile is not { ID: RustTile })
             return;
 
-        if (HasComp<HereticComponent>(ent) || HasComp<GhoulComponent>(ent) || HasComp<GodmodeComponent>(ent))
+        if (HasComp<HereticComponent>(ent)
+            || HasComp<GhoulComponent>(ent)
+            || HasComp<GodmodeComponent>(ent))
+            return;
+
+        //Ideally this should use DivineInterventionSystem -
+        //Until GoobMod Heretic, I don't see it necessary to use event relays to achieve this effect between Core & Goob.
+        if (_inventory.GetHandOrInventoryEntities(ent.Owner, SlotFlags.WITHOUT_POCKET)
+            .Any(item => HasComp<DivineInterventionComponent>(item)))
             return;
 
         EnsureComp<DisgustComponent>(ent);
@@ -111,7 +125,15 @@ public sealed partial class HereticAbilitySystem
         if (ent.Comp.CurrentState == MobState.Dead)
             return;
 
-        if (HasComp<HereticComponent>(ent) || HasComp<GhoulComponent>(ent) || HasComp<GodmodeComponent>(ent))
+        if (HasComp<HereticComponent>(ent)
+            || HasComp<GhoulComponent>(ent)
+            || HasComp<GodmodeComponent>(ent))
+            return;
+
+        //Ideally this should use DivineInterventionSystem -
+        //Until GoobMod Heretic, I don't see it necessary to use event relays to achieve this effect between Core & Goob.
+        if (_inventory.GetHandOrInventoryEntities(ent.Owner, SlotFlags.WITHOUT_POCKET)
+            .Any(item => HasComp<DivineInterventionComponent>(item)))
             return;
 
         if (IsTileRust(Transform(ent).Coordinates, out _))

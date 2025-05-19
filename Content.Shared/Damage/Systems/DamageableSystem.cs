@@ -34,20 +34,25 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Kayzel <43700376+KayzelW@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 // SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Trest <144359854+trest100@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
@@ -55,13 +60,9 @@
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 kurokoTurbo <92106367+kurokoTurbo@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
-// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 kurokoTurbo <92106367+kurokoTurbo@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Trest <144359854+trest100@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
-// SPDX-FileCopyrightText: 2025 Kayzel <43700376+KayzelW@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -83,6 +84,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 // Shitmed Change
+using Content.Shared._Shitmed.Body;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
@@ -290,7 +292,8 @@ namespace Content.Shared.Damage
                 return null;
 
             // For entities with a body, route damage through body parts and then sum it up
-            if (_bodyQuery.HasComp(uid.Value))
+            if (_bodyQuery.TryGetComponent(uid.Value, out var body)
+                && body.BodyType == BodyType.Complex)
             {
                 var appliedDamage = ApplyDamageToBodyParts(uid.Value, damage, origin, ignoreResistances,
                     interruptsDoAfters, targetPart, partMultiplier, ignoreBlockers);
@@ -382,19 +385,23 @@ namespace Content.Shared.Damage
             {
                 // Target a specific body part
                 TargetBodyPart? target;
+                var totalDamage = damage.GetTotal();
 
-                if (targetPart != null)
-                    target = _body.GetRandomBodyPart(uid, targetPart: targetPart.Value);
-                else if (origin.HasValue)
-                    target = _body.GetRandomBodyPart(uid, origin.Value);
+                if (totalDamage <= 0) // Whoops i think i fucked up damage here.
+                    target = _body.GetTargetBodyPart(uid, origin, targetPart);
                 else
-                    target = _body.GetRandomBodyPart(uid);
+                    target = _body.GetRandomBodyPart(uid, origin, targetPart);
 
                 var (partType, symmetry) = _body.ConvertTargetBodyPart(target);
                 var possibleTargets = _body.GetBodyChildrenOfType(uid, partType, symmetry: symmetry).ToList();
 
                 if (possibleTargets.Count == 0)
+                {
+                    if (totalDamage <= 0)
+                        return null;
+
                     possibleTargets = _body.GetBodyChildren(uid).ToList();
+                }
 
                 // No body parts at all?
                 if (possibleTargets.Count == 0)

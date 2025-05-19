@@ -1,6 +1,8 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -80,7 +82,13 @@ public sealed partial class WoundableComponent : Component
     /// Healing will be shared across those 2 wounds.
     /// </summary>
     [DataField]
-    public FixedPoint2 HealAbility = 0.1;
+    public FixedPoint2 HealAbility = 0.03;
+
+    /// <summary>
+    /// Whether the woundable is bleeding.
+    /// </summary>
+    [ViewVariables]
+    public bool IsBleeding = false;
 
     /// <summary>
     /// How much bleeds will the woundable treat per tick

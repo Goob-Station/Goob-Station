@@ -125,7 +125,9 @@
 # SPDX-FileCopyrightText: 2024 zzylex <146784470+zzylex@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -171,7 +173,7 @@
       absorbed:
         maxVol: 100
   - type: UseDelay
-    delay: 1
+    delay: 0.25
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Plastic: 25
@@ -223,7 +225,7 @@
     - type: Absorbent
       pickupAmount: 100
     - type: UseDelay
-      delay: 1.0
+      delay: 0.12
     - type: SolutionRegeneration
       solution: absorbed
       generated:

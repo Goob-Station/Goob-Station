@@ -74,3 +74,13 @@ signal-port-description-machine-completed = Signal port that gets pulsed after a
 
 signal-port-name-machine-failed = Failed
 signal-port-description-machine-failed = Signal port that gets pulsed after a machine fails to start.
+
+# Interactor
+
+signal-port-name-automation-slot-tool = Item: Tool
+signal-port-description-automation-slot-tool = An automation slot for an interactor's held tool.
+
+# Autodoc
+
+signal-port-name-automation-slot-autodoc-hand = Item: Autodoc Hand
+signal-port-description-automation-slot-autodoc-hand = An automation slot for an autodoc's held organ/part/etc from STORE ITEM / GRAB ITEM instructions.
