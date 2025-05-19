@@ -1,4 +1,4 @@
-# Pouches
+# Medical
 
 - type: loadout
   id: MedicalPouchCartridgeInjector
@@ -19,3 +19,15 @@
   id: MedicalPouchSurgery
   equipment:
     pocket2: PouchMedicalSurgery
+
+# Security
+
+- type: loadout
+  id: SecurityPouchUtility
+  equipment:
+    pocket2: PouchSecurityUtility
+
+- type: loadout
+  id: SecurityPouchFirstAid
+  equipment:
+    pocket2: PouchSecurityFirstaid

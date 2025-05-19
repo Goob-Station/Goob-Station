@@ -467,6 +467,7 @@
   - Trinkets
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
+  - SecurityPouch # Goobstation - Pouches
 
 - type: roleLoadout
   id: JobWarden
@@ -482,6 +483,7 @@
   - Trinkets
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
+  - SecurityPouch # Goobstation - Pouches
 
 - type: roleLoadout
   id: JobSecurityOfficer
@@ -498,6 +500,7 @@
   - Trinkets
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
+  - SecurityPouch # Goobstation - Pouches
 
 - type: roleLoadout
   id: JobDetective
@@ -512,6 +515,7 @@
   - Trinkets
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
+  - SecurityPouch # Goobstation - Pouches
 
 - type: roleLoadout
   id: JobSecurityCadet
@@ -523,6 +527,7 @@
   - SecurityOuterClothing # Goobstation - Why not.
   - Trinkets
   - GroupSpeciesBreathToolSecurity
+  - SecurityPouch # Goobstation - Pouches
 
 # Medical
 - type: roleLoadout
@@ -541,7 +546,7 @@
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
-  - MedicalPouch
+  - MedicalPouch # Goobstation - Pouches
 
 - type: roleLoadout
   id: JobMedicalDoctor
@@ -559,7 +564,7 @@
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
-  - MedicalPouch
+  - MedicalPouch # Goobstation - Pouches
 
 - type: roleLoadout
   id: JobMedicalIntern
@@ -571,7 +576,7 @@
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
-  - MedicalPouch
+  - MedicalPouch # Goobstation - Pouches
 
 - type: roleLoadout
   id: JobChemist
@@ -587,7 +592,7 @@
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
-  - MedicalPouch
+  - MedicalPouch # Goobstation - Pouches
 
 - type: roleLoadout
   id: JobParamedic
@@ -604,7 +609,7 @@
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
-  - MedicalPouch
+  - MedicalPouch # Goobstation - Pouches
 
 # Wildcards
 - type: roleLoadout

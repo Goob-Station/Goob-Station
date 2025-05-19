@@ -84,7 +84,7 @@
 
 - type: entity
   name: Construction pouch
-  parent: [BasePouch, BaseMedicalContraband]
+  parent: [BasePouch, BaseEngineeringContraband]
   id: PouchEngineeringConstruction
   description: A pouch for holding construction material, including sheets of metal or RCD cartridges. Has a clip to store an RCD.
   components:
