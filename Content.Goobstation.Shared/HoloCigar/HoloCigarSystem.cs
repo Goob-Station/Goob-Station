@@ -1,5 +1,7 @@
 // SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 Bandit <queenjess521@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
@@ -15,11 +17,15 @@ using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
 using Content.Shared.Item;
+using Content.Shared.Mobs;
 using Content.Shared.Smoking;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameStates;
+using Robust.Shared.Network;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
@@ -35,6 +41,8 @@ public sealed class HoloCigarSystem : EntitySystem
     [Dependency] private readonly SharedItemSystem _items = default!;
     [Dependency] private readonly SharedGunSystem _gun = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
 
     private const string LitPrefix = "lit";
@@ -52,6 +60,7 @@ public sealed class HoloCigarSystem : EntitySystem
         SubscribeLocalEvent<TheManWhoSoldTheWorldComponent, PickupAttemptEvent>(OnPickupAttempt);
         SubscribeLocalEvent<TheManWhoSoldTheWorldComponent, MapInitEvent>(OnMapInitEvent);
         SubscribeLocalEvent<TheManWhoSoldTheWorldComponent, ComponentShutdown>(OnComponentShutdown);
+        SubscribeLocalEvent<TheManWhoSoldTheWorldComponent, MobStateChangedEvent>(OnMobStateChangedEvent);
     }
 
     private void OnAddInteractVerb(Entity<HoloCigarComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
@@ -77,11 +86,24 @@ public sealed class HoloCigarSystem : EntitySystem
 
     #region Event Methods
 
+    private void OnMobStateChangedEvent(Entity<TheManWhoSoldTheWorldComponent> ent, ref MobStateChangedEvent args)
+    {
+        if (!TryComp<HoloCigarComponent>(ent.Comp.HoloCigarEntity, out var holoCigarComponent))
+            return;
+
+        if (args.NewMobState == MobState.Dead)
+            _audio.Stop(holoCigarComponent.MusicEntity); // no music out of mouth duh
+
+        if (_net.IsServer)
+            _audio.PlayPvs(ent.Comp.DeathAudio, ent, AudioParams.Default.WithVolume(3f));
+    }
+
     private void OnComponentShutdown(Entity<TheManWhoSoldTheWorldComponent> ent, ref ComponentShutdown args)
     {
         if (!TryComp<HoloCigarComponent>(ent.Comp.HoloCigarEntity, out var holoCigarComponent))
             return;
 
+        _audio.Stop(holoCigarComponent.MusicEntity);
         ShutDownEnumerateRemoval(ent);
 
         if (!ent.Comp.AddedNoWieldNeeded)
@@ -163,6 +185,21 @@ public sealed class HoloCigarSystem : EntitySystem
         _appearance.SetData(ent, SmokingVisuals.Smoking, state, appearance);
         _clothing.SetEquippedPrefix(ent, prefix, clothing);
         _items.SetHeldPrefix(ent, prefix);
+
+        if (!_net.IsServer) // mary copium right here
+            return;
+
+        if (ent.Comp.Lit == false)
+        {
+            var audio = _audio.PlayPvs(ent.Comp.Music, ent);
+
+            if (audio is null)
+                return;
+            ent.Comp.MusicEntity = audio.Value.Entity;
+            return;
+        }
+
+        _audio.Stop(ent.Comp.MusicEntity);
     }
 
     private void OnComponentHandleState(Entity<HoloCigarComponent> ent, ref ComponentHandleState args)
