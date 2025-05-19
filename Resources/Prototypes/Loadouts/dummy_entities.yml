@@ -13,3 +13,135 @@
   - type: Sprite
     sprite: Objects/Misc/candles.rsi
     state: loadout
+
+- type: entity
+  id: LoadoutDummyAiDefault
+  categories: [ HideSpawnMenu ]
+  name: default screen
+  description: The familiar blue face of the satacion.
+  components:
+  - type: Sprite
+    sprite: Mobs/Silicon/station_ai.rsi
+    layers:
+      - state: base
+      - state: ai
+
+- type: entity
+  id: LoadoutDummyAiAlien
+  categories: [ HideSpawnMenu ]
+  name: alien screen
+  description: Visitors from the marines.
+  components:
+  - type: Sprite
+    sprite: Mobs/Silicon/station_ai.rsi
+    layers:
+      - state: base
+      - state: alien
+
+- type: entity
+  id: LoadoutDummyAiBliss
+  categories: [ HideSpawnMenu ]
+  name: bliss screen
+  description: Grass from long ago.
+  components:
+  - type: Sprite
+    sprite: Mobs/Silicon/station_ai.rsi
+    layers:
+      - state: base
+      - state: bliss
+
+- type: entity
+  id: LoadoutDummyAiClown
+  categories: [ HideSpawnMenu ]
+  name: clown screen
+  description: Seems the clown installed a virus.
+  components:
+  - type: Sprite
+    sprite: Mobs/Silicon/station_ai.rsi
+    layers:
+      - state: base
+      - state: clown
+
+- type: entity
+  id: LoadoutDummyAiDatabase
+  categories: [ HideSpawnMenu ]
+  name: database screen
+  description: Itterate over the whole NT staff visibly.
+  components:
+  - type: Sprite
+    sprite: Mobs/Silicon/station_ai.rsi
+    layers:
+      - state: base
+      - state: database
+
+- type: entity
+  id: LoadoutDummyAiGentoo
+  categories: [ HideSpawnMenu ]
+  name: gentoo screen
+  description: i use gentoo btw
+  components:
+  - type: Sprite
+    sprite: Mobs/Silicon/station_ai.rsi
+    layers:
+      - state: base
+      - state: gentoo
+
+- type: entity
+  id: LoadoutDummyAiGlitchman
+  categories: [ HideSpawnMenu ]
+  name: glitchman screen
+  description: Ominous figure stands in your way.
+  components:
+  - type: Sprite
+    sprite: Mobs/Silicon/station_ai.rsi
+    layers:
+      - state: base
+      - state: glitchman
+
+- type: entity
+  id: LoadoutDummyAiHouse
+  categories: [ HideSpawnMenu ]
+  name: house screen
+  description: The house always wins.
+  components:
+  - type: Sprite
+    sprite: Mobs/Silicon/station_ai.rsi
+    layers:
+      - state: base
+      - state: house
+
+- type: entity
+  id: LoadoutDummyAiNotMalf
+  categories: [ HideSpawnMenu ]
+  name: 100% not malf
+  description: Look at you hacker...
+  components:
+  - type: Sprite
+    sprite: Mobs/Silicon/station_ai.rsi
+    layers:
+      - state: base
+      - state: not_malf
+
+- type: entity
+  id: LoadoutDummyAiStatic
+  categories: [ HideSpawnMenu ]
+  name: static screen
+  description: The damn AI is out of tune again.
+  components:
+  - type: Sprite
+    sprite: Mobs/Silicon/station_ai.rsi
+    layers:
+      - state: base
+      - state: static
+
+- type: entity
+  id: LoadoutDummyAiThinking
+  categories: [ HideSpawnMenu ]
+  name: thinking screen
+  description: Thonking
+  components:
+  - type: Sprite
+    sprite: Mobs/Silicon/station_ai.rsi
+    layers:
+      - state: base
+      - state: thinking

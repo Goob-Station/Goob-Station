@@ -1583,6 +1583,22 @@
 
 # Other
 - type: loadoutGroup
+  id: AiScreen
+  name: loadout-group-ai-screen
+  loadouts:
+  - AiDefault
+  - AiAlien
+  - AiBliss
+  - AiClown
+  - AiDatabase
+  - AiGentoo
+  - AiGlitchman
+  - AiHouse
+  - AiNotMalf
+  - AiStatic
+  - AiThinking
+
+- type: loadoutGroup
   id: SurvivalSyndicate
   name: loadout-group-survival-syndicate
   minLimit: 3 # Goobstation

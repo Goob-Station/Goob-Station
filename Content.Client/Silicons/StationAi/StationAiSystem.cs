@@ -21,14 +21,17 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Silicons.StationAi;
+using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
+using Robust.Shared.Containers;
 using Robust.Shared.Player;
 
 namespace Content.Client.Silicons.StationAi;
 
 public sealed partial class StationAiSystem : SharedStationAiSystem
 {
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly IOverlayManager _overlayMgr = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
 
@@ -44,6 +47,7 @@ public sealed partial class StationAiSystem : SharedStationAiSystem
         SubscribeLocalEvent<StationAiOverlayComponent, LocalPlayerDetachedEvent>(OnAiDetached);
         SubscribeLocalEvent<StationAiOverlayComponent, ComponentInit>(OnAiOverlayInit);
         SubscribeLocalEvent<StationAiOverlayComponent, ComponentRemove>(OnAiOverlayRemove);
+        SubscribeLocalEvent<StationAiHolderComponent, AppearanceChangeEvent>(OnAppearanceChanged);
     }
 
     private void OnAiOverlayInit(Entity<StationAiOverlayComponent> ent, ref ComponentInit args)
@@ -64,6 +68,26 @@ public sealed partial class StationAiSystem : SharedStationAiSystem
             return;
 
         RemoveOverlay();
+    }
+
+    private void OnAppearanceChanged(Entity<StationAiHolderComponent> ent, ref AppearanceChangeEvent args)
+    {
+        if (args.Sprite == null)
+            return;
+
+        if (!_appearance.TryGetData<StationAiState>(ent, StationAiVisualState.Key, out var state, args.Component))
+            return;
+
+        if (!ent.Comp.Visuals.ContainsKey(state))
+            return;
+
+        foreach (var (layer, sprite) in ent.Comp.Visuals[state])
+        {
+            if (!args.Sprite.LayerExists(layer))
+                continue;
+
+            args.Sprite.LayerSetSprite(layer, sprite);
+        }
     }
 
     private void AddOverlay()

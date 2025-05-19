@@ -409,16 +409,29 @@
     sprite: Objects/Devices/ai_card.rsi
     layers:
     - state: base
+      map: [ "enum.StationAiVisualLayers.Base" ]
     - state: full
-      map: ["unshaded"]
+      map: [ "enum.StationAiVisualLayers.Screen" ]
       shader: unshaded
-  - type: Appearance
-  - type: GenericVisualizer
+  - type: StationAiHolder
+    slot:
+      name: station-ai-mind-slot
+      locked: false
+      disableEject: true
+      whitelist:
+        tags:
+        - StationAi
+    updateSprite: false
     visuals:
-      enum.StationAiVisualState.Key:
-        unshaded:
-          Empty: { state: empty }
-          Occupied: { state: full }
+      Empty:
+        Screen:
+          sprite: Objects/Devices/ai_card.rsi
+          state: empty
+      Occupied:
+        Screen:
+          sprite: Objects/Devices/ai_card.rsi
+          state: full
+  - type: Appearance
   - type: Intellicard
 
 - type: entity
@@ -465,9 +478,27 @@
     sprite: Mobs/Silicon/station_ai.rsi
     layers:
     - state: base
+      map: [ "enum.StationAiVisualLayers.Base" ]
     - state: ai_empty
-      map: ["unshaded"]
+      map: [ "enum.StationAiVisualLayers.Screen" ]
       shader: unshaded
+  - type: StationAiHolder
+    slot:
+      name: station-ai-mind-slot
+      locked: false
+      disableEject: true
+      whitelist:
+        tags:
+        - StationAi
+    visuals:
+      Empty:
+        Screen:
+          sprite: Mobs/Silicon/station_ai.rsi
+          state: ai_empty
+      Occupied:
+        Screen:
+          sprite: Mobs/Silicon/station_ai.rsi
+          state: ai
   - type: Appearance
   - type: InteractionPopup
     interactSuccessString: petting-success-station-ai
@@ -475,12 +506,6 @@
     messagePerceivedByOthers: petting-success-station-ai-others # Otherwise AI cannot tell its being pet as It's just a brain inside of the core, not the core itself.
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
-  - type: GenericVisualizer
-    visuals:
-      enum.StationAiVisualState.Key:
-        unshaded:
-          Empty: { state: ai_empty }
-          Occupied: { state: ai }
   - type: Telephone
     compatibleRanges:
     - Grid
@@ -512,7 +537,9 @@
     sprite: Mobs/Silicon/station_ai.rsi
     layers:
     - state: base
+      map: [ "enum.StationAiVisualLayers.Base" ]
     - state: ai
+      map: [ "enum.StationAiVisualLayers.Screen" ]
       shader: unshaded
 
 # The actual brain inside the core

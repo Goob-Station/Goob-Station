@@ -150,6 +150,8 @@
   id: JobStationAi
   nameDataset: NamesAI
   canCustomizeName: true
+  groups:
+  - AiScreen
 
 # Civilian
 - type: roleLoadout

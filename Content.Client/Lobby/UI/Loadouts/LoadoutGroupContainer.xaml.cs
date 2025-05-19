@@ -80,6 +80,11 @@ public sealed partial class LoadoutGroupContainer : BoxContainer
             if (!protoMan.TryIndex(loadoutProto, out var loadProto))
                 continue;
 
+            if (loadProto.DummyEntity != null)
+            {
+                loadoutDummy = loadProto.DummyEntity;
+            }
+
             var matchingLoadout = selected.FirstOrDefault(e => e.Prototype == loadoutProto);
             var pressed = matchingLoadout != null;
 
