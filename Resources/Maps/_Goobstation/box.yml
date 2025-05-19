@@ -1,73 +1,11 @@
-# SPDX-FileCopyrightText: 2021 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 E F R <602406+Efruit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Elijahrane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Mith-randalf <84274729+Mith-randalf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-# SPDX-FileCopyrightText: 2021 buletsponge <96000213+buletsponge@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 wrexbe <81056464+wrexbe@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 20kdc <asdd2808@gmail.com>
-# SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Morbo <14136326+Morb0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Myctai <108953437+Myctai@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 OldDanceJacket <98985560+OldDanceJacket@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 TaralGit <76408146+TaralGit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 TimrodDX <timrod@gmail.com>
-# SPDX-FileCopyrightText: 2022 and_a <and_a@DESKTOP-RJENGIR>
-# SPDX-FileCopyrightText: 2022 corentt <36075110+corentt@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
-# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 moonheart08 <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Eoin Mcloughlin <helloworld@eoinrul.es>
-# SPDX-FileCopyrightText: 2023 Filler <130583174+FillerVK@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Jackrost <jackrost@mail.ru>
-# SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
-# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 MisterMecky <mrmecky@hotmail.com>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 PeterFuto <futo.petr@gmail.com>
-# SPDX-FileCopyrightText: 2023 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 eoineoineoin <github@eoinrul.es>
-# SPDX-FileCopyrightText: 2023 faint <46868845+ficcialfaint@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2024 RatherUncreative <RatherUncreativeName@proton.me>
-# SPDX-FileCopyrightText: 2024 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 joshepvodka <86210200+joshepvodka@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
-# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
-# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 meta:
   format: 7
   category: Map
-  engineVersion: 251.0.0
+  engineVersion: 255.0.0
   forkId: ""
   forkVersion: ""
-  time: 05/15/2025 09:02:08
-  entityCount: 27823
+  time: 05/19/2025 12:00:35
+  entityCount: 27826
 maps:
 - 1
 grids:
@@ -11085,7 +11023,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         245:
-        - DoorStatus: DoorBolt
+        - - DoorStatus
+          - DoorBolt
   - uid: 245
     components:
     - type: Transform
@@ -11094,7 +11033,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         244:
-        - DoorStatus: DoorBolt
+        - - DoorStatus
+          - DoorBolt
 - proto: AirlockExternalEngineeringLocked
   entities:
   - uid: 246
@@ -11106,9 +11046,11 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         261:
-        - DoorStatus: DoorBolt
+        - - DoorStatus
+          - DoorBolt
         257:
-        - DoorStatus: DoorBolt
+        - - DoorStatus
+          - DoorBolt
   - uid: 247
     components:
     - type: Transform
@@ -11117,7 +11059,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         248:
-        - DoorStatus: DoorBolt
+        - - DoorStatus
+          - DoorBolt
   - uid: 248
     components:
     - type: Transform
@@ -11126,7 +11069,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         247:
-        - DoorStatus: DoorBolt
+        - - DoorStatus
+          - DoorBolt
 - proto: AirlockExternalGlass
   entities:
   - uid: 249
@@ -11139,7 +11083,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         374:
-        - DoorStatus: Close
+        - - DoorStatus
+          - Close
   - uid: 250
     components:
     - type: Transform
@@ -11180,7 +11125,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         375:
-        - DoorStatus: Close
+        - - DoorStatus
+          - Close
 - proto: AirlockExternalGlassAtmosphericsLocked
   entities:
   - uid: 257
@@ -11191,7 +11137,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         246:
-        - DoorStatus: DoorBolt
+        - - DoorStatus
+          - DoorBolt
 - proto: AirlockExternalGlassCargoLocked
   entities:
   - uid: 258
@@ -11220,7 +11167,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         246:
-        - DoorStatus: DoorBolt
+        - - DoorStatus
+          - DoorBolt
   - uid: 262
     components:
     - type: Transform
@@ -11229,7 +11177,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         263:
-        - DoorStatus: DoorBolt
+        - - DoorStatus
+          - DoorBolt
   - uid: 263
     components:
     - type: Transform
@@ -11238,7 +11187,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         262:
-        - DoorStatus: DoorBolt
+        - - DoorStatus
+          - DoorBolt
   - uid: 264
     components:
     - type: Transform
@@ -11255,7 +11205,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         266:
-        - DoorStatus: DoorBolt
+        - - DoorStatus
+          - DoorBolt
   - uid: 266
     components:
     - type: Transform
@@ -11264,7 +11215,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         265:
-        - DoorStatus: DoorBolt
+        - - DoorStatus
+          - DoorBolt
   - uid: 267
     components:
     - type: Transform
@@ -11273,7 +11225,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         373:
-        - DoorStatus: Close
+        - - DoorStatus
+          - Close
   - uid: 268
     components:
     - type: Transform
@@ -11282,7 +11235,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         298:
-        - DoorStatus: DoorBolt
+        - - DoorStatus
+          - DoorBolt
   - uid: 269
     components:
     - type: Transform
@@ -11291,7 +11245,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         295:
-        - DoorStatus: DoorBolt
+        - - DoorStatus
+          - DoorBolt
   - uid: 270
     components:
     - type: Transform
@@ -11300,7 +11255,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         307:
-        - DoorStatus: Close
+        - - DoorStatus
+          - Close
   - uid: 271
     components:
     - type: Transform
@@ -11309,7 +11265,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         309:
-        - DoorStatus: Close
+        - - DoorStatus
+          - Close
   - uid: 272
     components:
     - type: Transform
@@ -11318,7 +11275,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         308:
-        - DoorStatus: Close
+        - - DoorStatus
+          - Close
   - uid: 273
     components:
     - type: Transform
@@ -11327,7 +11285,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         274:
-        - DoorStatus: DoorBolt
+        - - DoorStatus
+          - DoorBolt
   - uid: 274
     components:
     - type: Transform
@@ -11336,7 +11295,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         273:
-        - DoorStatus: DoorBolt
+        - - DoorStatus
+          - DoorBolt
   - uid: 275
     components:
     - type: Transform
@@ -11345,7 +11305,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         299:
-        - DoorStatus: DoorBolt
+        - - DoorStatus
+          - DoorBolt
   - uid: 276
     components:
     - type: Transform
@@ -11354,7 +11315,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         302:
-        - DoorStatus: DoorBolt
+        - - DoorStatus
+          - DoorBolt
   - uid: 277
     components:
     - type: Transform
@@ -11363,7 +11325,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         303:
-        - DoorStatus: DoorBolt
+        - - DoorStatus
+          - DoorBolt
 - proto: AirlockExternalGlassShuttleArrivals
   entities:
   - uid: 278
@@ -11461,7 +11424,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         310:
-        - DoorStatus: Close
+        - - DoorStatus
+          - Close
   - uid: 292
     components:
     - type: Transform
@@ -11471,7 +11435,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         306:
-        - DoorStatus: Close
+        - - DoorStatus
+          - Close
   - uid: 293
     components:
     - type: Transform
@@ -11480,7 +11445,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         304:
-        - DoorStatus: DoorBolt
+        - - DoorStatus
+          - DoorBolt
   - uid: 294
     components:
     - type: Transform
@@ -11494,7 +11460,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         269:
-        - DoorStatus: DoorBolt
+        - - DoorStatus
+          - DoorBolt
   - uid: 296
     components:
     - type: Transform
@@ -11503,7 +11470,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         297:
-        - DoorStatus: DoorBolt
+        - - DoorStatus
+          - DoorBolt
   - uid: 297
     components:
     - type: Transform
@@ -11512,7 +11480,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         296:
-        - DoorStatus: DoorBolt
+        - - DoorStatus
+          - DoorBolt
   - uid: 298
     components:
     - type: Transform
@@ -11521,7 +11490,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         268:
-        - DoorStatus: DoorBolt
+        - - DoorStatus
+          - DoorBolt
   - uid: 299
     components:
     - type: Transform
@@ -11530,7 +11500,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         275:
-        - DoorStatus: DoorBolt
+        - - DoorStatus
+          - DoorBolt
   - uid: 300
     components:
     - type: Transform
@@ -11539,7 +11510,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         301:
-        - DoorStatus: DoorBolt
+        - - DoorStatus
+          - DoorBolt
   - uid: 301
     components:
     - type: Transform
@@ -11548,7 +11520,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         300:
-        - DoorStatus: DoorBolt
+        - - DoorStatus
+          - DoorBolt
   - uid: 302
     components:
     - type: Transform
@@ -11557,7 +11530,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         276:
-        - DoorStatus: DoorBolt
+        - - DoorStatus
+          - DoorBolt
   - uid: 303
     components:
     - type: Transform
@@ -11566,7 +11540,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         277:
-        - DoorStatus: DoorBolt
+        - - DoorStatus
+          - DoorBolt
   - uid: 304
     components:
     - type: Transform
@@ -11575,7 +11550,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         293:
-        - DoorStatus: DoorBolt
+        - - DoorStatus
+          - DoorBolt
   - uid: 305
     components:
     - type: Transform
@@ -11592,7 +11568,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         292:
-        - DoorStatus: Close
+        - - DoorStatus
+          - Close
   - uid: 307
     components:
     - type: Transform
@@ -11602,7 +11579,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         270:
-        - DoorStatus: Close
+        - - DoorStatus
+          - Close
   - uid: 308
     components:
     - type: Transform
@@ -11611,7 +11589,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         272:
-        - DoorStatus: Close
+        - - DoorStatus
+          - Close
   - uid: 309
     components:
     - type: Transform
@@ -11620,7 +11599,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         271:
-        - DoorStatus: Close
+        - - DoorStatus
+          - Close
   - uid: 310
     components:
     - type: Transform
@@ -11630,7 +11610,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         291:
-        - DoorStatus: Close
+        - - DoorStatus
+          - Close
 - proto: AirlockFreezer
   entities:
   - uid: 311
@@ -11686,7 +11667,7 @@ entities:
       pos: 24.5,16.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -31610.688
+      secondsUntilStateChange: -31825.502
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -12034,7 +12015,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         267:
-        - DoorStatus: Close
+        - - DoorStatus
+          - Close
       lastSignals:
         DoorStatus: False
         DockStatus: True
@@ -12049,7 +12031,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         249:
-        - DoorStatus: Close
+        - - DoorStatus
+          - Close
     - type: DeviceLinkSink
       invokeCounter: 1
   - uid: 375
@@ -12061,7 +12044,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         256:
-        - DoorStatus: Close
+        - - DoorStatus
+          - Close
     - type: DeviceLinkSink
       invokeCounter: 1
   - uid: 27913
@@ -17232,8 +17216,10 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         27619:
-        - Start: Close
-        - Timer: Open
+        - - Start
+          - Close
+        - - Timer
+          - Open
   - uid: 1235
     components:
     - type: Transform
@@ -17242,8 +17228,10 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         27620:
-        - Start: Close
-        - Timer: Open
+        - - Start
+          - Close
+        - - Timer
+          - Open
   - uid: 1236
     components:
     - type: Transform
@@ -17252,8 +17240,10 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         27621:
-        - Start: Close
-        - Timer: Open
+        - - Start
+          - Close
+        - - Timer
+          - Open
 - proto: Bucket
   entities:
   - uid: 1237
@@ -69919,7 +69909,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         18999:
-        - ArtifactAnalyzerSender: ArtifactAnalyzerReceiver
+        - - ArtifactAnalyzerSender
+          - ArtifactAnalyzerReceiver
 - proto: computerBodyScanner
   entities:
   - uid: 11118
@@ -69980,6 +69971,45 @@ entities:
     components:
     - type: Transform
       pos: -22.5,-21.5
+      parent: 2
+- proto: ComputerCargoOrdersEngineering
+  entities:
+  - uid: 10522
+    components:
+    - type: Transform
+      pos: -1.5,-66.5
+      parent: 2
+- proto: ComputerCargoOrdersMedical
+  entities:
+  - uid: 10521
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 37.5,-34.5
+      parent: 2
+- proto: ComputerCargoOrdersScience
+  entities:
+  - uid: 10524
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 71.5,-20.5
+      parent: 2
+- proto: ComputerCargoOrdersSecurity
+  entities:
+  - uid: 10523
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 6.5,30.5
+      parent: 2
+- proto: ComputerCargoOrdersService
+  entities:
+  - uid: 10520
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 31.5,-10.5
       parent: 2
 - proto: ComputerCargoShuttle
   entities:
@@ -70101,6 +70131,13 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 45.5,-44.5
+      parent: 2
+- proto: ComputerFundingAllocation
+  entities:
+  - uid: 10519
+    components:
+    - type: Transform
+      pos: -9.5,-21.5
       parent: 2
 - proto: ComputerId
   entities:
@@ -82326,11 +82363,6 @@ entities:
     - type: Transform
       pos: 69.5,-49.5
       parent: 2
-  - uid: 13125
-    components:
-    - type: Transform
-      pos: -9.5,-21.5
-      parent: 2
   - uid: 13126
     components:
     - type: Transform
@@ -84329,7 +84361,7 @@ entities:
       pos: -34.5,-14.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -25799.223
+      secondsUntilStateChange: -26014.037
       state: Closing
   - uid: 13393
     components:
@@ -84822,7 +84854,7 @@ entities:
       pos: -4.5,-71.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -17546.955
+      secondsUntilStateChange: -17761.77
       state: Closing
 - proto: Fireplace
   entities:
@@ -121630,10 +121662,10 @@ entities:
       parent: 2
 - proto: Jukebox
   entities:
-  - uid: 18851
+  - uid: 10525
     components:
     - type: Transform
-      pos: 31.5,-10.5
+      pos: 23.5,-5.5
       parent: 2
 - proto: KitchenElectricGrill
   entities:
@@ -122119,9 +122151,11 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         491:
-        - Pressed: Open
+        - - Pressed
+          - Open
         492:
-        - Pressed: Open
+        - - Pressed
+          - Open
 - proto: LockerAtmosphericsFilledHardsuit
   entities:
   - uid: 18912
@@ -123929,7 +123963,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         10493:
-        - MaterialSilo: MaterialSiloUtilizer
+        - - MaterialSilo
+          - MaterialSiloUtilizer
 - proto: MaterialWoodPlank
   entities:
   - uid: 19037
@@ -127071,11 +127106,6 @@ entities:
     components:
     - type: Transform
       pos: 16.5,-0.5
-      parent: 2
-  - uid: 19528
-    components:
-    - type: Transform
-      pos: 37.493153,-34.77379
       parent: 2
 - proto: PottedPlant6
   entities:
@@ -139961,21 +139991,29 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         21685:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21684:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21683:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21714:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21720:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21715:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21689:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21688:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
   - uid: 21778
     components:
     - type: Transform
@@ -139984,11 +140022,14 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         21773:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21772:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21771:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
   - uid: 21779
     components:
     - type: Transform
@@ -139997,7 +140038,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         1074:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
   - uid: 21780
     components:
     - type: Transform
@@ -140006,7 +140048,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         1063:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
   - uid: 21781
     components:
     - type: Transform
@@ -140015,7 +140058,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         1089:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
   - uid: 21782
     components:
     - type: Transform
@@ -140024,7 +140068,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         1061:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
   - uid: 21783
     components:
     - type: Transform
@@ -140033,11 +140078,14 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         21690:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21691:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21719:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
   - uid: 21784
     components:
     - type: Transform
@@ -140046,11 +140094,14 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         1078:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1079:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1080:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
   - uid: 21785
     components:
     - type: Transform
@@ -140059,7 +140110,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         21704:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
   - uid: 21786
     components:
     - type: Transform
@@ -140068,7 +140120,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         1068:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
   - uid: 21787
     components:
     - type: Transform
@@ -140077,21 +140130,29 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         21760:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21761:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21762:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21763:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21764:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21765:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21766:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21768:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
   - uid: 21788
     components:
     - type: Transform
@@ -140100,13 +140161,17 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         21703:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21700:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21701:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21702:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
   - uid: 21789
     components:
     - type: Transform
@@ -140115,13 +140180,17 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         21753:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21754:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21755:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21756:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
   - uid: 21790
     components:
     - type: Transform
@@ -140130,19 +140199,26 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         21743:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21742:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21741:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21740:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21739:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21738:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21737:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
   - uid: 21791
     components:
     - type: Transform
@@ -140151,11 +140227,14 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         1101:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1099:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1100:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
   - uid: 21792
     components:
     - type: Transform
@@ -140164,11 +140243,14 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         1102:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1103:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1104:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
   - uid: 21793
     components:
     - type: Transform
@@ -140177,11 +140259,14 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         1069:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1071:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1065:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
   - uid: 21794
     components:
     - type: Transform
@@ -140191,19 +140276,26 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         21709:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21682:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21712:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21707:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21681:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21706:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21711:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
   - uid: 21795
     components:
     - type: Transform
@@ -140212,9 +140304,11 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         1077:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1076:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
   - uid: 21796
     components:
     - type: Transform
@@ -140223,11 +140317,14 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         1087:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1086:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1085:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
   - uid: 21797
     components:
     - type: Transform
@@ -140236,31 +140333,44 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         21752:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21751:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21750:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21749:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21748:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21747:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21746:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21745:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21744:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21699:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21698:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21696:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21697:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
   - uid: 21798
     components:
     - type: Transform
@@ -140269,9 +140379,11 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         1106:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1107:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
   - uid: 21799
     components:
     - type: Transform
@@ -140280,13 +140392,17 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         1083:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1084:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1090:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1075:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
   - uid: 21800
     components:
     - type: Transform
@@ -140295,11 +140411,14 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         21694:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21693:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21692:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
   - uid: 21801
     components:
     - type: Transform
@@ -140308,11 +140427,14 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         1064:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1073:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1072:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
   - uid: 21802
     components:
     - type: Transform
@@ -140321,9 +140443,11 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         1093:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1094:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
   - uid: 21803
     components:
     - type: Transform
@@ -140332,9 +140456,11 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         1091:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1092:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
   - uid: 21804
     components:
     - type: Transform
@@ -140343,23 +140469,32 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         21721:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21722:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21723:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21724:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21725:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21726:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21727:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21729:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21728:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
   - uid: 21805
     components:
     - type: Transform
@@ -140368,13 +140503,17 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         21733:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21732:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21735:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21734:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
 - proto: SignalButtonDirectional
   entities:
   - uid: 21806
@@ -140386,9 +140525,11 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         1097:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1098:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
   - uid: 21807
     components:
     - type: Transform
@@ -140398,11 +140539,14 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         1095:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1096:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         1105:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
   - uid: 21808
     components:
     - type: Transform
@@ -140411,11 +140555,14 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         21695:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21730:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         21731:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
   - uid: 21809
     components:
     - type: Transform
@@ -140424,7 +140571,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         21677:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
   - uid: 21810
     components:
     - type: Transform
@@ -140434,7 +140582,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         134:
-        - Pressed: DoorBolt
+        - - Pressed
+          - DoorBolt
   - uid: 21811
     components:
     - type: Transform
@@ -140444,7 +140593,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         133:
-        - Pressed: DoorBolt
+        - - Pressed
+          - DoorBolt
   - uid: 21812
     components:
     - type: Transform
@@ -140454,7 +140604,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         132:
-        - Pressed: DoorBolt
+        - - Pressed
+          - DoorBolt
   - uid: 21813
     components:
     - type: Transform
@@ -140464,7 +140615,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         131:
-        - Pressed: DoorBolt
+        - - Pressed
+          - DoorBolt
   - uid: 21814
     components:
     - type: Transform
@@ -140474,7 +140626,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         130:
-        - Pressed: DoorBolt
+        - - Pressed
+          - DoorBolt
   - uid: 21815
     components:
     - type: Transform
@@ -140484,7 +140637,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         129:
-        - Pressed: DoorBolt
+        - - Pressed
+          - DoorBolt
 - proto: SignalSwitch
   entities:
   - uid: 21816
@@ -148945,11 +149099,6 @@ entities:
     - type: Transform
       pos: 37.5,-35.5
       parent: 2
-  - uid: 23075
-    components:
-    - type: Transform
-      pos: -1.5,-66.5
-      parent: 2
   - uid: 23076
     components:
     - type: Transform
@@ -151794,17 +151943,26 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         21678:
-        - Left: Open
-        - Right: Open
-        - Middle: Close
+        - - Left
+          - Open
+        - - Right
+          - Open
+        - - Middle
+          - Close
         21679:
-        - Left: Open
-        - Right: Open
-        - Middle: Close
+        - - Left
+          - Open
+        - - Right
+          - Open
+        - - Middle
+          - Close
         21680:
-        - Left: Open
-        - Right: Open
-        - Middle: Close
+        - - Left
+          - Open
+        - - Right
+          - Open
+        - - Middle
+          - Close
   - uid: 23593
     components:
     - type: Transform
@@ -151818,37 +151976,61 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         11216:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Reverse
+        - - Middle
+          - Off
         11215:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Reverse
+        - - Middle
+          - Off
         11222:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Reverse
+        - - Middle
+          - Off
         11217:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Reverse
+        - - Middle
+          - Off
         11223:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Reverse
+        - - Middle
+          - Off
         11224:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Reverse
+        - - Middle
+          - Off
         11227:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Reverse
+        - - Middle
+          - Off
         11225:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Reverse
+        - - Middle
+          - Off
   - uid: 23595
     components:
     - type: Transform
@@ -151857,61 +152039,103 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         11210:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Reverse
+        - - Middle
+          - Off
         11209:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Reverse
+        - - Middle
+          - Off
         11208:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Reverse
+        - - Middle
+          - Off
         11207:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Reverse
+        - - Middle
+          - Off
         11206:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Reverse
+        - - Middle
+          - Off
         11205:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Reverse
+        - - Middle
+          - Off
         11204:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Reverse
+        - - Middle
+          - Off
         11211:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Reverse
+        - - Middle
+          - Off
         11212:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Reverse
+        - - Middle
+          - Off
         11213:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Reverse
+        - - Middle
+          - Off
         11214:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Reverse
+        - - Middle
+          - Off
         11228:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Reverse
+        - - Middle
+          - Off
         11203:
-        - Right: Reverse
-        - Left: Forward
-        - Middle: Off
+        - - Right
+          - Reverse
+        - - Left
+          - Forward
+        - - Middle
+          - Off
         20586:
-        - Right: Reverse
-        - Left: Forward
-        - Middle: Off
+        - - Right
+          - Reverse
+        - - Left
+          - Forward
+        - - Middle
+          - Off
   - uid: 23596
     components:
     - type: Transform
@@ -151920,9 +152144,12 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         20587:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Reverse
+        - - Middle
+          - Off
   - uid: 23597
     components:
     - type: Transform
@@ -151931,9 +152158,12 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         1070:
-        - Left: Open
-        - Right: Open
-        - Middle: Close
+        - - Left
+          - Open
+        - - Right
+          - Open
+        - - Middle
+          - Close
   - uid: 23598
     components:
     - type: Transform
@@ -151942,21 +152172,33 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         11226:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Reverse
+        - - Middle
+          - Off
         11229:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Reverse
+        - - Middle
+          - Off
         11219:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Reverse
+        - - Middle
+          - Off
         11202:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
+        - - Left
+          - Forward
+        - - Right
+          - Reverse
+        - - Middle
+          - Off
   - uid: 23599
     components:
     - type: Transform
@@ -172575,7 +172817,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         27556:
-        - DoorStatus: DoorBolt
+        - - DoorStatus
+          - DoorBolt
   - uid: 27538
     components:
     - type: Transform
@@ -172715,7 +172958,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         27537:
-        - DoorStatus: DoorBolt
+        - - DoorStatus
+          - DoorBolt
   - uid: 27557
     components:
     - type: MetaData
