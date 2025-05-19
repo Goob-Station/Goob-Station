@@ -98,7 +98,7 @@ public sealed partial class PTLSystem : EntitySystem
 
         var charge = ent.Comp2.CurrentCharge / megajoule;
         // some random formula i found in bounty thread i popped it into desmos i think it looks good
-        var spesos = (int) (charge * 144.9 / (Math.Log(charge * 2) + 1)); // Updated formula that equates to around 4333 spesos per shot at 100% at 250MJ you're still looking at 5-10min per max shot
+        var spesos = (int) (charge * 150 / (Math.Log(charge * 5) + 1));
 
         if (charge <= 0 || !double.IsFinite(spesos) || spesos < 0) return;
 
