@@ -12,6 +12,9 @@ using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
 using Content.Shared.Whitelist;
 using Content.Shared.Implants;
+using Content.Shared.IdentityManagement;
+using Content.Server.Popups;
+using Content.Shared.Popups;
 
 namespace Content.Goobstation.Server.CrewMonitoring;
 
@@ -21,8 +24,10 @@ public sealed class CrewMonitorScanningSystem : EntitySystem
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
 
     [Dependency] private readonly SharedSubdermalImplantSystem _implantSystem = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
 
     private const string CommandTrackerImplant = "CommandTrackingImplant";
+    private const string CommandTrackerImplantNane = "command cracking implant";
 
     public override void Initialize()
     {
@@ -36,17 +41,35 @@ public sealed class CrewMonitorScanningSystem : EntitySystem
         if (args.Target == null || !args.CanReach || !HasComp<HumanoidAppearanceComponent>(args.Target))
             return;
 
+        var userName = Identity.Entity(args.User, EntityManager);
+        _popup.PopupEntity(Loc.GetString("injector-component-injecting-user"), args.Target.Value, args.User);
+        if (args.User != args.Target.Value)
+            _popup.PopupEntity(Loc.GetString("implanter-component-implanting-target", ("user", userName)), args.User, args.Target.Value, PopupType.LargeCaution);
+
         _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, comp.DoAfterTime, new CrewMonitorScanningDoAfterEvent(), uid, args.Target, uid) { NeedHand = true, BreakOnMove = true });
     }
 
     private void OnScanComplete(EntityUid uid, CrewMonitorScanningComponent comp, CrewMonitorScanningDoAfterEvent args)
     {
         var implantProto = new string(CommandTrackerImplant);
-        if (args.Cancelled || args.Handled || args.Target == null || comp.ScannedEntities.Contains(args.Target.Value))
+        if (args.Cancelled || args.Handled || args.Target == null)
             return;
+        var name = Identity.Name(args.Target.Value, EntityManager, args.User);
+
+        if (comp.ScannedEntities.Contains(args.Target.Value))
+        {
+            var msg = Loc.GetString("implanter-component-implant-already", ("implant", CommandTrackerImplantNane), ("target", name));
+            _popup.PopupEntity(msg, args.Target.Value, args.User);
+            return;
+        }
 
         if (_whitelist.IsWhitelistFail(comp.Whitelist, args.Target.Value))
+        {
+
+            var msg = Loc.GetString("implanter-component-implant-failed", ("implant", CommandTrackerImplantNane), ("target", name));
+            _popup.PopupEntity(msg, args.Target.Value, args.User);
             return;
+        }
 
         comp.ScannedEntities.Add(args.Target.Value); //Keep for don't double implant
         _implantSystem.AddImplant(args.Target.Value, implantProto);

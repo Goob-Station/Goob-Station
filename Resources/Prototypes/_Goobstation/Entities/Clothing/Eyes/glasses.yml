@@ -165,7 +165,7 @@
   parent: [ClothingEyesBase, ShowHealthRelatedIcons, BaseCentcommContraband, ClothingEyesGlassesSunglasses]
   id: ClothingEyesGlassesBSO
   name: blueshield officer glasses
-  description: Sunglasses with a medical, security and diagnostic hud.
+  description: Sunglasses with a medical, job and diagnostic hud.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Eyes/Glasses/bsoglasses.rsi
