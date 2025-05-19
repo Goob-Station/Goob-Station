@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 #
@@ -167,28 +168,24 @@
           heldPrefix: empowered
           storedRotation: -90
           size: Huge
-        - type: IgniteOnMeleeHit
-          fireStacks: 4
-        - type: TriggerOnMelee
         - type: Explosive
           explosionType: Default
-          maxIntensity: 4
-          intensitySlope: 1
-          totalIntensity: 4
+          totalIntensity: 16
+          intensitySlope: 0.5
+          maxIntensity: 1.6
           canCreateVacuum: false
           deleteAfterExplosion: false
           repeatable: true
-        - type: ExplodeOnTrigger
+        - type: ExplodeOnMeleeHit
         - type: MeleeWeapon
           wideAnimationRotation: -135
           attackRate: 0.5
-          angle: 30
+          angle: 0
           animation: WeaponArcThrust
           damage:
             types:
-              Slash: 12
-              Heat: 8
-              Shock: 30
+              Slash: 25
+              Heat: 25
           soundHit:
             path: /Audio/_Goobstation/Weapons/Effects/energy-short-sword-swing.ogg
         soundStateActivate:
