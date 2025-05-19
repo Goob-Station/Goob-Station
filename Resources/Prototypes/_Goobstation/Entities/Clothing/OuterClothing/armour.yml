@@ -106,6 +106,18 @@
     autoRot: true
     netsync: false
 
+# HoS web vest
+- type: entity
+  parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase, BaseSecurityCommandContraband]
+  id: ClothingOuterArmorHoSVestWeb
+  name: head of security's web vest
+  description: A high-quality armored vest made from a hard synthetic material. It is surprisingly flexible and light, despite formidable armor plating.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Armor/web_vest_hos.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Armor/web_vest_hos.rsi
+
 # Blueshield Armour Vest
 - type: entity
   parent: [ BaseCentcommContraband, ClothingOuterArmorCaptainCarapace ]
