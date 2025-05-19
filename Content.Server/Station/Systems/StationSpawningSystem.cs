@@ -299,6 +299,20 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
         return entity.Value;
     }
 
+    private void EquipLoadout(EntityUid entity, string jobLoadout, RoleLoadout loadout, RoleLoadoutPrototype roleProto, JobPrototype? prototype, HumanoidCharacterProfile? profile)
+    {
+        EquipRoleLoadout(entity, loadout, roleProto);
+
+        if (prototype?.StartingGear != null)
+        {
+            var startingGear = _prototypeManager.Index<StartingGearPrototype>(prototype.StartingGear);
+            EquipStartingGear(entity, startingGear, raiseEvent: false);
+        }
+
+        var gearEquippedEv = new StartingGearEquippedEvent(entity);
+        RaiseLocalEvent(entity, ref gearEquippedEv);
+    }
+
     private void DoJobSpecials(ProtoId<JobPrototype>? job, EntityUid entity)
     {
         if (!_prototypeManager.TryIndex(job ?? string.Empty, out JobPrototype? prototype))

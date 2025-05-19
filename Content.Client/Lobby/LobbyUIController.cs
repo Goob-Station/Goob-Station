@@ -564,24 +564,20 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
                 {
                     foreach (var items in group.Value)
                     {
-            }
-                }
-                    }
-                        }
-                            break;
-                            dummy = loadoutProto.DummyEntity.Value;
-                        {
-                        if (loadoutProto.UseDummyEntityLobbyDummy && loadoutProto.DummyEntity != null)
-                            isDummy = true;
-
-                        }
-                            continue;
-                        {
                         if (!_prototypeManager.TryIndex(items.Prototype, out var loadoutProto))
-        }
-        else
-        {
-            dummy ??= _prototypeManager.Index<SpeciesPrototype>(SharedHumanoidAppearanceSystem.DefaultSpecies).DollPrototype;
+                            continue;
+
+                        if (loadoutProto is { UseDummyEntityLobbyDummy: true, DummyEntity: not null })
+                        {
+                            isDummy = true;
+                            dummy = loadoutProto.DummyEntity.Value;
+                            break;
+                        }
+                    }
+                }
+            }
+            else
+                dummy ??= _prototypeManager.Index<SpeciesPrototype>(SharedHumanoidAppearanceSystem.DefaultSpecies).DollPrototype;
         }
 
         var dummyEnt = EntityManager.SpawnEntity(dummy, MapCoordinates.Nullspace);
