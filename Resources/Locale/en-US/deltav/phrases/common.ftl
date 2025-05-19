@@ -103,3 +103,5 @@ phrase-call = Call
 phrase-this = This
 phrase-actiondrink = Drink
 phrase-know = Know
+phrase-think = Think
+phrase-eat = Eat

@@ -203,6 +203,16 @@
   parent: BaseSubjectPhrase
   text: phrase-upgrade
 
+- type: quickPhrase
+  id: GlovesPhrase
+  parent: BaseSubjectPhrase
+  text: phrase-gloves
+
+- type: quickPhrase
+  id: ShoesPhrase
+  parent: BaseSubjectPhrase
+  text: phrase-shoes
+
 # Materials
 
 - type: quickPhrase

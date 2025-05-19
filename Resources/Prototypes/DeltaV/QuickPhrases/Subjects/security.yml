@@ -72,3 +72,13 @@
   id: LogProbePhrase
   parent: BaseSecuritySubjectPhrase
   text: phrase-log-probe
+
+- type: quickPhrase
+  id: ReleasePhrase
+  parent: BaseSecuritySubjectPhrase
+  text: phrase-release
+
+- type: quickPhrase
+  id: ParolePhrase
+  parent: BaseSecuritySubjectPhrase
+  text: phrase-parole

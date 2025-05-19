@@ -63,8 +63,33 @@
   id: SpeciesVoxPhrase
   parent: BaseCrewSpeciesPhrase
   text: species-name-vox
-  
+
 - type: quickPhrase
   id: SpeciesRodentiaPhrase
   parent: BaseCrewSpeciesPhrase
-  text: species-name-rodentia  
+  text: species-name-rodentia
+
+- type: quickPhrase
+  id: SpeciesFeroxiPhrase
+  parent: BaseCrewSpeciesPhrase
+  text: species-name-feroxi
+
+- type: quickPhrase
+  id: SpeciesKitsunePhrase
+  parent: BaseCrewSpeciesPhrase
+  text: species-name-kitsune
+
+- type: quickPhrase
+  id: SpeciesIPCPhrase
+  parent: BaseCrewSpeciesPhrase
+  text: species-name-ipc
+
+- type: quickPhrase
+  id: SpeciesKThavenPhrase
+  parent: BaseCrewSpeciesPhrase
+  text: species-name-thaven
+
+- type: quickPhrase
+  id: SpeciesChitnidePhrase
+  parent: BaseCrewSpeciesPhrase
+  text: species-name-chitinid

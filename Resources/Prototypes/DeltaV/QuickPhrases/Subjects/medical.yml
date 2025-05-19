@@ -182,3 +182,8 @@
   id: MedicalChemicalsPhrase
   parent: BaseMedicinePhrase
   text: phrase-chemicals
+
+- type: quickPhrase
+  id: LimbsPhrase
+  parent: BaseMedicinePhrase
+  text: phrase-limbs
