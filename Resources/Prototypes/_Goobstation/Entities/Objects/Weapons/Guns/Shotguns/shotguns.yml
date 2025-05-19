@@ -136,7 +136,7 @@
   - type: Gun
     fireRate: 1.25
     burstFireRate: 10
-    shotsPerBurst: 2
+    shotsPerBurst: 3
     burstCooldown: 1
     lockOnTargetBurst: true
     selectedMode: Burst
