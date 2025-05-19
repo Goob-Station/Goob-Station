@@ -1,0 +1,21 @@
+# Pouches
+
+- type: loadout
+  id: MedicalPouchCartridgeInjector
+  equipment:
+    pocket2: PouchMedicalCartridgeInjector
+
+- type: loadout
+  id: MedicalPouchAutoInjectors
+  equipment:
+    pocket2: PouchMedicalAutoinjectors
+
+- type: loadout
+  id: MedicalPouchPills
+  equipment:
+    pocket2: PouchMedicalPills
+
+- type: loadout
+  id: MedicalPouchSurgery
+  equipment:
+    pocket2: PouchMedicalSurgery

@@ -233,3 +233,15 @@
   - MedicalBeret
   - SeniorPhysicianBeret
   - ChemistUshanka # Da.
+
+# Medical doctor
+
+- type: loadoutGroup
+  id: MedicalPouch
+  name: loadout-group-pouch-medical
+  minLimit: 0
+  loadouts:
+  - MedicalPouchCartridgeInjector
+  - MedicalPouchAutoInjectors
+  - MedicalPouchPills
+  - MedicalPouchSurgery
