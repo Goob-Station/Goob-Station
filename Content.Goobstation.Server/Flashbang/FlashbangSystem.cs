@@ -1,6 +1,8 @@
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
@@ -63,13 +65,13 @@ public sealed class FlashbangSystem : EntitySystem
 
         if (!_tag.HasTag(ent, FlashSystem.IgnoreResistancesTag))
         {
-            var ev = new GetFlashbangedEvent(args.Range);
+            var ev = new GetFlashbangedEvent(MathF.Max(args.Range, ent.Comp.MinProtectionRange + 1f));
             RaiseLocalEvent(args.Target, ev);
 
             protectionRange = ev.ProtectionRange;
         }
 
-        if (protectionRange <= 0f)
+        if (protectionRange <= ent.Comp.MinProtectionRange)
             return;
 
         var distance = MathF.Max(0f, args.Distance);
