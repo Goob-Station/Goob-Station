@@ -1,3 +1,4 @@
+using Content.Shared._EinsteinEngines.Revolutionary.Components;
 using Content.Shared.Chat;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
@@ -5,8 +6,7 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Revolutionary.Components;
 
-
-namespace Content.Shared.Revolutionary;
+namespace Content.Shared._EinsteinEngines.Revolutionary;
 
 public sealed class RevolutionaryConverterSystem : EntitySystem
 {
@@ -35,13 +35,20 @@ public sealed class RevolutionaryConverterSystem : EntitySystem
 
     private void OnUseInHand(Entity<RevolutionaryConverterComponent> ent, ref UseInHandEvent args)
     {
-        if(_speechLocalizationKeys == null || _speechLocalizationKeys.Count == 0)
+        if (!SpeakPropaganda(ent, args.User))
             return;
 
-        var message = _speechLocalizationKeys[System.Random.Shared.Next(_speechLocalizationKeys.Count)];
-        _chat.TrySendInGameICMessage(args.User, Loc.GetString(message), InGameICChatType.Speak, hideChat: false, hideLog: false);
-
         args.Handled = true;
+    }
+
+    private bool SpeakPropaganda(Entity<RevolutionaryConverterComponent> conversionToolEntity, EntityUid user)
+    {
+        if(_speechLocalizationKeys == null || _speechLocalizationKeys.Count == 0 || conversionToolEntity.Comp.Silent)
+            return false;
+
+        var message = _speechLocalizationKeys[System.Random.Shared.Next(_speechLocalizationKeys.Count)];
+        _chat.TrySendInGameICMessage(user, Loc.GetString(message), InGameICChatType.Speak, hideChat: false, hideLog: false);
+        return true;
     }
 
     public void OnConvertDoAfter(Entity<RevolutionaryConverterComponent> entity, ref RevolutionaryConverterDoAfterEvent args)
@@ -73,11 +80,7 @@ public sealed class RevolutionaryConverterSystem : EntitySystem
         if (user == target)
             return;
 
-        if(_speechLocalizationKeys != null && _speechLocalizationKeys.Count > 0)
-        {
-            var message = _speechLocalizationKeys[System.Random.Shared.Next(_speechLocalizationKeys.Count)];
-            _chat.TrySendInGameICMessage(user, Loc.GetString(message), InGameICChatType.Speak, hideChat: false, hideLog: false);
-         }
+        SpeakPropaganda(converter, user);
 
         _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, converter.Comp.ConversionDuration, new RevolutionaryConverterDoAfterEvent(), converter.Owner, target: target, used: converter.Owner, showTo: converter.Owner)
         {

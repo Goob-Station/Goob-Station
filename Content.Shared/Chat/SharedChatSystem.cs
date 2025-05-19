@@ -405,7 +405,7 @@ public abstract class SharedChatSystem : EntitySystem
 ///     InGame IC chat is for chat that is specifically ingame (not lobby) but is also in character, i.e. speaking.
 /// </summary>
 // ReSharper disable once InconsistentNaming
-public enum InGameICChatType : byte
+public enum InGameICChatType : byte // Einstein Engines - Make InGameIIChatType available in Shared
 {
     Speak,
     Emote,

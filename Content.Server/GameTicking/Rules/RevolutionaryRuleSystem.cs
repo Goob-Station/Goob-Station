@@ -71,6 +71,7 @@ using Content.Server.Communications;
 using System.Linq;
 using Content.Goobstation.Shared.Revolutionary;
 using Content.Server.Chat.Systems;
+using Content.Shared._EinsteinEngines.Revolutionary;
 
 
 namespace Content.Server.GameTicking.Rules;
@@ -106,7 +107,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         base.Initialize();
         SubscribeLocalEvent<CommandStaffComponent, MobStateChangedEvent>(OnCommandMobStateChanged);
 
-        SubscribeLocalEvent<HeadRevolutionaryComponent, RevolutionaryConverterSystem.AfterConvertedEvent>(OnPostConvert);
+        SubscribeLocalEvent<HeadRevolutionaryComponent, RevolutionaryConverterSystem.AfterConvertedEvent>(OnPostConvert); // Einstein Engines - Revolutionary Manifesto
         SubscribeLocalEvent<CommunicationConsoleCallShuttleAttemptEvent>(OnTryCallEvac); // goob edit
         SubscribeLocalEvent<HeadRevolutionaryComponent, MobStateChangedEvent>(OnHeadRevMobStateChanged);
 
@@ -207,6 +208,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
     /// </summary>
     private void OnPostConvert(EntityUid uid, HeadRevolutionaryComponent comp, ref RevolutionaryConverterSystem.AfterConvertedEvent ev)
     {
+        // Einstein Engines - Revolutionary Manifesto - Use RevolutionaryConverterSystem instead of hardcoding flashes
         // GoobStation - check if headRev's ability enabled
         if (!comp.ConvertAbilityEnabled)
             return;

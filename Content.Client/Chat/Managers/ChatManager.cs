@@ -85,7 +85,7 @@ internal sealed class ChatManager : IChatManager
         // See server-side manager. This just exists for shared code.
     }
 
-    public void ChatMessageToAll(
+    public void ChatMessageToAll( // Einstein Engines: Make ChatMessageToAll available in Shared
         ChatChannel channel,
         string message,
         string wrappedMessage,

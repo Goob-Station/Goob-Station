@@ -14,7 +14,7 @@
       - state: detail_bookmark
         color: "#aaaa24"
     - type: RevolutionaryConverter
-      conversionDuration: 3
+      conversionDuration: 2
     - type: UseDelay
       delay: 2
     - type: Appearance
