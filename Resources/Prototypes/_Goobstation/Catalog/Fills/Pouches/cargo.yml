@@ -1,0 +1,33 @@
+- type: entity
+  name: bureaucracy pouch
+  parent: [BasePouch, BaseEngineeringContraband]
+  id: PouchCargoBureaucracy
+  description: A small pouch for holding everything you need to make a clown cry when he just wants to order a toy crate.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Storage/Pouches/misc.rsi
+    layers:
+      - state: basic
+  - type: Storage
+    maxItemSize: Normal # Needed so folders will fit, you can't store storage items of the same size inside
+    grid:
+    - 0,0,4,1
+    whitelist:
+      tags:
+        - Folder
+        - Pen
+        - Write
+        - Paper
+        - Document
+      components:
+        - Stamp
+        - Welder # For the lighter lol, not like anybody would abuse it.. right?
+  - type: StorageFill
+    contents:
+    - id: BoxFolderBlack
+    - id: BoxFolderRed
+    - id: BoxFolderBlue
+    - id: RubberStampApproved
+    - id: Pen
+    - id: RubberStampDenied
+    - id: FlippoLighter
