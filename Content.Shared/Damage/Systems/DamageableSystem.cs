@@ -468,15 +468,10 @@ namespace Content.Shared.Damage
             // Apply resistances
             if (!ignoreResistances)
             {
-                if (damageable.DamageModifierSetId != null
-                    && _prototypeManager.TryIndex(damageable.DamageModifierSetId, out var modifierSet)
-                    && _body.TryGetRootPart(uid, out var rootPart)) // Goobstation - Start
+                if (damageable.DamageModifierSetId != null &&
+                    _prototypeManager.TryIndex(damageable.DamageModifierSetId, out var modifierSet))
                 {
-                    foreach (var woundableChild in _wounds.GetAllWoundableChildren(rootPart.Value))
-                    {
-                        if (HasComp<DamageableComponent>(woundableChild))
-                            damage = DamageSpecifier.ApplyModifierSet(damage, modifierSet); // Goobstation - End
-                    }
+                    damage = DamageSpecifier.ApplyModifierSet(damage, modifierSet);
                 }
 
                 if (TryComp(uid, out BodyPartComponent? bodyPart))
