@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by alzore_(Discord) for SS14 using the colors of the blood-red hardsuit",
+  "copyright": "Made by alzore_(Discord) for SS14 using the colors of the blood-red hardsuit, - resomi part made by Pofitlo (taken from Corvax_next)",
   "size": {
     "x": 32,
     "y": 32
@@ -35,6 +35,14 @@
     },
     {
       "name": "inhand-right",
+      "directions": 4
+    },
+        {
+      "name": "equipped-OUTERCLOTHING-resomi",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-light-resomi",
       "directions": 4
     }
   ]
