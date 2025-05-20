@@ -64,7 +64,7 @@
     - type: TriggerImplantAction
     - type: SmokeOnTrigger
       spreadAmount: 25
-      duration: 15
+      duration: 10
     - type: SoundOnTrigger
       sound: /Audio/Effects/smoke.ogg
 
