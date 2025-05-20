@@ -36,3 +36,32 @@
   id: SecurityPouchFirstAid
   equipment:
     pocket2: PouchSecurityFirstaid
+
+# Engineering
+
+- type: loadout
+  id: EngineeringPouchLight
+  equipment:
+    pocket2: PouchEngineeringLight
+
+- type: loadout
+  id: EngineeringPouchWire
+  equipment:
+    pocket2: PouchEngineeringWire
+
+- type: loadout
+  id: EngineeringPouchInflatables
+  equipment:
+    pocket2: PouchEngineeringInflatables
+
+- type: loadout
+  id: EngineeringPouchConstruction
+  equipment:
+    pocket2: PouchEngineeringConstruction
+
+# Cargo
+
+- type: loadout
+  id: CargoPouchBureaucracy
+  equipment:
+    pocket2: PouchCargoBureaucracy

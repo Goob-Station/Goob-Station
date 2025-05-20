@@ -195,14 +195,6 @@
   loadouts:
   - Bodycam
 
-- type: loadoutGroup
-  id: SecurityPouch
-  name: loadout-group-pouch-security
-  minLimit: 0
-  loadouts:
-  - SecurityPouchUtility
-  - SecurityPouchFirstAid
-
 #honkops
 
 - type: loadoutGroup
@@ -243,7 +235,7 @@
   - SeniorPhysicianBeret
   - ChemistUshanka # Da.
 
-# Medical doctor
+# Medical pouch
 
 - type: loadoutGroup
   id: MedicalPouch
@@ -254,3 +246,34 @@
   - MedicalPouchAutoInjectors
   - MedicalPouchPills
   - MedicalPouchSurgery
+
+# Security pouch
+
+- type: loadoutGroup
+  id: SecurityPouch
+  name: loadout-group-pouch-security
+  minLimit: 0
+  loadouts:
+  - SecurityPouchUtility
+  - SecurityPouchFirstAid
+
+# Engineering pouch
+
+- type: loadoutGroup
+  id: EngineeringPouch
+  name: loadout-group-pouch-engineering
+  minLimit: 0
+  loadouts:
+  - EngineeringPouchLight
+  - EngineeringPouchWire
+  - EngineeringPouchInflatables
+  - EngineeringPouchConstruction
+
+# Cargo pouch
+
+- type: loadoutGroup
+  id: CargoPouch
+  name: loadout-group-pouch-cargo
+  minLimit: 0
+  loadouts:
+  - CargoPouchBureaucracy
