@@ -9684,3 +9684,24 @@ Entries:
       message: Lizards are now cold-blooded. Have fun!
   id: 1083
   time: '2025-05-18T21:59:08.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Add
+      message: >-
+        Added experimental law boards. When inserted in ai upload console, gives
+        ionstormed laws to the station AI, and after 2 minutes turns laws back
+        to normal giving research points to RnD. 
+  id: 1084
+  time: '2025-05-19T07:58:24.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Cursed heart works while crit
+  id: 1085
+  time: '2025-05-20T05:36:17.0000000+00:00'
+- author: bebright
+  changes:
+    - type: Fix
+      message: Fixed wanted menu.
+  id: 1086
+  time: '2025-05-20T05:36:39.0000000+00:00'
