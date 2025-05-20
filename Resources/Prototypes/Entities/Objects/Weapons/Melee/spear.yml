@@ -153,7 +153,7 @@
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Piercing: 7 # Goob edit
+        Piercing: 6 # Goob edit
   # Goobstation - nuh uh
   #- type: Damageable
   #  damageContainer: Inorganic
@@ -215,7 +215,7 @@
   - type: DamageOtherOnHit
     damage:
       types:
-        Piercing: 24 # Goob edit
+        Piercing: 25 # Goob edit
   - type: Construction
     graph: SpearReinforced
 
@@ -236,7 +236,7 @@
   - type: DamageOtherOnHit
     damage:
       types:
-        Piercing: 27 # Goob edit
+        Piercing: 30 # Goob edit
   - type: Construction
     graph: SpearPlasma
 
@@ -253,13 +253,13 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Piercing: 8 # Goob edit
-        Radiation: 10 # Goob edit
+        Piercing: 10
+        Radiation: 8
   - type: DamageOtherOnHit
     damage:
       types:
-        Piercing: 16 # Goob edit
-        Radiation: 11 # Goob edit
+        Piercing: 20 # Goob edit
+        Radiation: 10 # Goob edit
   - type: Construction
     graph: SpearUranium
 
