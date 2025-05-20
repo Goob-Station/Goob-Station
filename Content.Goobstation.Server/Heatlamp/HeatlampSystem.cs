@@ -131,7 +131,7 @@ public sealed partial class HeatlampSystem : EntitySystem
             heater.Comp.NextTick = _timing.CurTime + heater.Comp.TickDelay;
             if (!_powerCell.TryUseCharge(heater, energy, cell))
             {
-                ChangeSetting((heater, heater), EntityHeaterSetting.Off);
+                ChangeSetting(heater, EntityHeaterSetting.Off);
                 return;
             }
         }
