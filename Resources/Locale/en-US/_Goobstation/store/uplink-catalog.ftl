@@ -234,6 +234,9 @@ uplink-krav-maga-implant-desc = Allows the user to perform various Krav Maga mov
 
 # Wearables
 
+uplink-heat-lamp-name = Cybersun Heat Lamp
+uplink-heat-lamp-desc = A cybersun design, often utilized by cold-blooded Gorlex Marauders in their sieges. Also functions as an effective melee weapon in a pinch.
+
 uplink-helmet-swat-name = Syndicate SWAT Helmet
 uplink-helmet-swat-desc = Robust helmet that offers good protection and also suppresses flashbang sounds to some extent.
 
