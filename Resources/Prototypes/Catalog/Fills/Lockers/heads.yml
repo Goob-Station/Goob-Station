@@ -445,6 +445,7 @@
       prob: 0.15 # GoobStation - RD needs cigs for uhh... science...
     - id: ScienceTechFabCircuitboard # Goobstation - Science Techfab
     - id: MMI # Goobstation
+    - id: Omnitool # Goobstation
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
