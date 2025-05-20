@@ -9699,3 +9699,9 @@ Entries:
       message: Cursed heart works while crit
   id: 1085
   time: '2025-05-20T05:36:17.0000000+00:00'
+- author: bebright
+  changes:
+    - type: Fix
+      message: Fixed wanted menu.
+  id: 1086
+  time: '2025-05-20T05:36:39.0000000+00:00'
