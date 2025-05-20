@@ -13,6 +13,7 @@
 // SPDX-FileCopyrightText: 2024 chavonadelal <156101927+chavonadelal@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 BeBright <98597725+be1bright@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 BeBright <98597725+bebr3ght@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -137,6 +138,9 @@ public sealed class IdExaminableSystem : EntitySystem
             GetVerbsEvent<AlternativeVerb> args) // Goobstation-WantedMenu
     {
         if (!args.CanInteract || !args.CanAccess)
+            return;
+        if (!_inventorySystem.TryGetSlotEntity(args.User, "eyes", out var eyes) ||
+            !TryComp<ShowCriminalRecordIconsComponent>(eyes, out var _))
             return;
         args.Verbs.Add(new AlternativeVerb()
         {
