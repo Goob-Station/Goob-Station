@@ -87,13 +87,31 @@
     Silver: 50
 
 - type: latheRecipe
-  id: MedicalBeamGun
-  result: MedicalBeamGun
-  completetime: 12
+  id: HeatLamp
+  result: HeatLamp
+  completetime: 10
   materials:
-    Steel: 1200
-    Glass: 600
-    Plastic: 600
+    Steel: 500
+    Glass: 500
+    Plastic: 500
+
+- type: latheRecipe
+  id: HeatLampTierTwo
+  result: HeatLampTierTwo
+  completetime: 10
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 500
+    Gold: 100
+
+- type: latheRecipe
+  id: HeatLampTierThree
+  result: HeatLampTierThree
+  completetime: 10
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 500
     Gold: 500
-    Silver: 500
-    Plasma: 1000
+    Plasma: 500

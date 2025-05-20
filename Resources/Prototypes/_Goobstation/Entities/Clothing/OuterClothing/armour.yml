@@ -15,7 +15,9 @@
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -102,6 +104,18 @@
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
     netsync: false
+
+# HoS web vest
+- type: entity
+  parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase, BaseSecurityCommandContraband]
+  id: ClothingOuterArmorHoSVestWeb
+  name: head of security's web vest
+  description: A high-quality armored vest made from a hard synthetic material. It is surprisingly flexible and light, despite formidable armor plating.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Armor/web_vest_hos.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Armor/web_vest_hos.rsi
 
 # Blueshield Armour Vest
 - type: entity

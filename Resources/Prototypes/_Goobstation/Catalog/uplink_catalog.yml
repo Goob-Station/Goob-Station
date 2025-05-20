@@ -34,6 +34,7 @@
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Scruq445 <storchdamien@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Weide <64257676+Lyacs@users.noreply.github.com>
@@ -503,6 +504,22 @@
     Telecrystal: 10
   categories:
   - UplinkWearables
+
+- type: listing
+  id: UplinkHeatLamp
+  name: uplink-heat-lamp-name
+  description: uplink-heat-lamp-desc
+  icon: { sprite: /Textures/_Goobstation/Objects/Devices/Heatlamps/syndicate.rsi, state: icon-on }
+  productEntity: HeatLampEvil
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkWearables
+  #conditions: # Blacklist this from nukies if dreadsuits abuse it too much.
+  #- !type:StoreWhitelistCondition
+  #  blacklist:
+  #    tags:
+  #    - NukeOpsUplink
 
 - type: listing
   id: UplinkHardsuitSyndieMedic

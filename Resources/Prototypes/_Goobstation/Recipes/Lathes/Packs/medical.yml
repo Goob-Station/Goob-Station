@@ -76,6 +76,9 @@
   recipes:
   - PrescriptionGlasses
   - VehicleHoverchairSci
+  - HeatLamp
+  - HeatLampTierTwo
+  - HeatLampTierThree
 
 - type: latheRecipePack
   id: MedicalMiscRestricted
@@ -83,4 +86,3 @@
   - SyringeGun
   - HandheldCrewMonitor
   - DefibrillatorCompact
-  - MedicalBeamGun
