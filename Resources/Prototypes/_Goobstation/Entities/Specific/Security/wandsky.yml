@@ -1,0 +1,59 @@
+- type: entity
+  name: commander beepsky
+  parent: [BaseItem, BaseSecurityContraband]
+  id: Wandsky
+  description: A technological marvel used for directing securitrons.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Tools/commander_wandsky.rsi
+    state: icon
+  - type: StaminaDamageOnCollide
+    damage: 25
+    overtime: 40
+    sound: /Audio/Weapons/egloves.ogg
+  - type: LandAtCursor # it deals stamina damage when thrown
+  - type: Item
+    size: Normal
+  - type: Clothing
+    sprite: _Goobstation/Objects/Tools/commander_wandsky.rsi
+    quickEquip: false
+    slots:
+    - Belt
+  - type: DisarmMalus
+    malus: 0.225
+  - type: Appearance
+  - type: Commander
+    waypointEntityUid: SecuritronWaypoint
+  - type: ActionGrant
+    actions:
+    - ActionTogglePatrol # Make an action which creates an entity at the mouse location after a short do-after, add that entity to a list, using this action on an entity that is already in the list should remove it.
+    - ActionCRWaypoint # Make an action which clears that list.
+    - ActionClearWaypoints
+  - type: ItemActionGrant
+    actions:
+    - ActionTogglePatrol
+    - ActionCRWaypoint
+    - ActionClearWaypoints
+
+- type: entity
+  id: SecuritronWaypoint
+  name: securitron waypoint
+  categories: [ DoNotMap ]
+  components:
+  - type: Transform
+    anchored: true
+  - type: Sprite # Sprite data is dynamically set in Client.HolopadSystem
+  - type: Appearance
+  - type: HolopadHologram
+    rsiPath: Mobs/Silicon/Bots/securitron.rsi
+    rsiState: secbot
+    shaderName: Hologram
+    color1: "#65b8e2"
+    color2: "#3a6981"
+    alpha: 0.9
+    intensity: 2
+    scrollRate: 0.125
+  - type: Waypoint
+  - type: Tag
+    tags:
+    - HideContextMenu

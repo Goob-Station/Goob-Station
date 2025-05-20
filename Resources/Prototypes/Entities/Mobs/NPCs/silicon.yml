@@ -682,9 +682,9 @@
           radius: 0.35
         density: 50
         mask:
-        - SmallMobMask
+        - MobMask
         layer:
-        - SmallMobLayer
+        - MobLayer
   - type: TileMovement
   - type: HTN
     rootTask:
@@ -731,11 +731,17 @@
     channels:
     - Hexadecimal
     - Security
+  - type: Slave
   - type: ActiveRadio
     channels:
     - Hexadecimal
     - Common
     - Security
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - Bot
+    - Unimplantable
 
 - type: entity
   parent: MobSecuritron
