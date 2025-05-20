@@ -2,6 +2,8 @@
 // SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 // SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -119,9 +121,22 @@ public sealed class FootprintSystem : EntitySystem
         if (!_solution.EnsureSolutionEntity(entity.Owner, FootprintOwnerSolution, out _, out var solution, FixedPoint2.Max(entity.Comp.MaxFootVolume, entity.Comp.MaxBodyVolume)))
             return false;
 
+        var puddleSolSol = puddleSolution.Value.Comp.Solution;
+        // don't transfer reagents that don't stick to skin to our footsteps
+        var nonStickProtos = new List<string>(); // has to be string or it dies
+        foreach (var (proto, amt) in puddleSolSol.GetReagentPrototypes(_prototype))
+        {
+            if (!proto.SticksToSkin)
+                nonStickProtos.Add(proto.ID);
+        }
+        var addBack = puddleSolSol.SplitSolutionWithOnly(puddleSolSol.Volume, nonStickProtos.ToArray());
+
         _solution.TryTransferSolution(puddleSolution.Value, solution.Value.Comp.Solution, GetFootprintVolume(entity, solution.Value));
 
-        _solution.TryTransferSolution(solution.Value, puddleSolution.Value.Comp.Solution, FixedPoint2.Max(0, (standing ? entity.Comp.MaxFootVolume : entity.Comp.MaxBodyVolume) - solution.Value.Comp.Solution.Volume));
+        _solution.TryTransferSolution(solution.Value, puddleSolSol, FixedPoint2.Max(0, (standing ? entity.Comp.MaxFootVolume : entity.Comp.MaxBodyVolume) - solution.Value.Comp.Solution.Volume));
+
+        // add back whatever we temporarily took out
+        puddleSolSol.AddSolution(addBack, _prototype);
 
         _solution.UpdateChemicals(puddleSolution.Value, false);
 

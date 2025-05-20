@@ -9,9 +9,11 @@
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
@@ -250,6 +252,19 @@
     count: 5
     spread: 30
 
+- type: hitscan
+  id: StunPulse
+  staminaDamage: 80
+  muzzleFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: muzzle_blue
+  travelFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: beam_blue
+  impactFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: impact_blue
+
 - type: entity
   id: BulletTemperatureCold
   name: cold temperature bolt
@@ -343,6 +358,32 @@
     forceSound: true
 
 - type: entity
+  id: BulletGrenadeTeargas
+  name: tear gas grenade
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+      - state: grenade
+  - type: SmokeOnTrigger
+    duration: 10
+    smokePrototype: Smoke
+    solution:
+      reagents:
+      - ReagentId: TearGas
+        Quantity: 20
+    spreadAmount: 5
+  - type: ActiveTimerTrigger
+    timeRemaining: 5
+  - type: DeleteOnTrigger
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 1
+
+- type: entity
   id: HolyBulletCharge
   name: holy bolt
   parent: BaseBullet
@@ -388,5 +429,5 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 4
+        Piercing: 5
         Holy: 4
