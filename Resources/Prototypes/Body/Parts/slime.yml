@@ -44,6 +44,8 @@
         color: "#2cf274"
       Burn:
         sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
+  - type: Damageable # Shitmed
+    damageModifierSet: Slime
 
 - type: entity
   id: ChestSlime

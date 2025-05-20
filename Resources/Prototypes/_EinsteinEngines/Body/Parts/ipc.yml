@@ -45,6 +45,8 @@
       Burn:
         sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
   - type: Nerve
+  - type: Damageable # Shitmed
+    damageModifierSet: IPC
 
 - type: entity
   parent: [ PartIPCBase, BaseChestInorganic ]

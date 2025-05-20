@@ -33,6 +33,8 @@
         Quantity: 3
       - ReagentId: Sugar
         Quantity: 10
+  - type: Damageable # Shitmed
+    damageModifierSet: Gingerbread
 
 - type: entity
   id: ChestGingerbread

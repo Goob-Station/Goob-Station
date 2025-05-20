@@ -20,6 +20,10 @@
         Quantity: 3
       - ReagentId: Blood
         Quantity: 10
+  - type: BodyPart # Shitmed
+    species: Tajaran
+  - type: Damageable # Shitmed
+    damageModifierSet: Tajaran
 
 - type: entity
   id: ChestTajaran

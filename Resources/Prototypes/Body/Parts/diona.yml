@@ -47,6 +47,8 @@
     sprite: Mobs/Species/Diona/parts.rsi
   - type: BodyPart # Shitmed Change
     species: Diona
+  - type: Damageable # Shitmed
+    damageModifierSet: Diona
 
 - type: entity
   id: ChestDiona

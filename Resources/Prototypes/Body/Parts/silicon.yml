@@ -119,6 +119,8 @@
     guides:
     - Cyborgs
     - Robotics
+  - type: Damageable # Shitmed
+    damageModifierSet: Silicon
 
 - type: entity
   parent: [ PartSiliconBase, BaseLeftArm ]

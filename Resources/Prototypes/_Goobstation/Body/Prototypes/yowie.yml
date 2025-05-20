@@ -21,13 +21,13 @@
   root: chest
   slots:
     head:
-      part: HeadHuman
+      part: HeadYowie
       connections:
       - chest
       organs:
         brain: OrganHumanBrain
     chest:
-      part: ChestHuman
+      part: ChestYowie
       connections:
       - groin
       - right arm
@@ -36,7 +36,7 @@
         heart: OrganYowieHeart
         lungs: OrganYowieLungs
     groin:
-      part: GroinHuman
+      part: GroinYowie
       connections:
       - right leg
       - left leg
@@ -45,11 +45,11 @@
         liver: OrganYowieLiver
         kidneys: OrganHumanKidneys
     right arm:
-      part: RightArmHuman
+      part: RightArmYowie
       connections:
       - right hand
     left arm:
-      part: LeftArmHuman
+      part: LeftArmYowie
       connections:
       - left hand
     right hand:
@@ -57,14 +57,14 @@
     left hand:
       part: LeftHandYowie
     right leg:
-      part: RightLegHuman
+      part: RightLegYowie
       connections:
       - right foot
     left leg:
-      part: LeftLegHuman
+      part: LeftLegYowie
       connections:
       - left foot
     right foot:
-      part: RightFootHuman
+      part: RightFootYowie
     left foot:
-      part: LeftFootHuman
+      part: LeftFootYowie

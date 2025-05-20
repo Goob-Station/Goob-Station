@@ -66,6 +66,8 @@
         color: "#555555AA"
       Burn:
         sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
+  - type: Damageable # Shitmed
+    damageModifierSet: Skeleton
 
 - type: entity
   parent: [ PartSkeletonBase, BaseChestInorganic ]

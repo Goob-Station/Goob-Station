@@ -48,6 +48,8 @@
         Quantity: 3
       - ReagentId: Blood
         Quantity: 10
+  - type: Damageable # Shitmed
+    damageModifierSet: Scale
 
 - type: entity
   id: ChestReptilian

@@ -20,6 +20,8 @@
     sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
   - type: BodyPart
     species: Vulpkanin
+  - type: Damageable # Shitmed
+    damageModifierSet: Vulpkanin
 
 - type: entity
   parent: [ PartVulpkaninBase, BaseChest ]

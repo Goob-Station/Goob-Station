@@ -22,6 +22,8 @@
     sprite: _DV/Mobs/Species/Rodentia/parts.rsi
   - type: BodyPart
     species: Rodentia
+  - type: Damageable # Shitmed
+    damageModifierSet: Rodentia
 
 - type: entity
   parent: [ PartRodentiaBase, BaseChest ]
