@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.Pinpointer;
 using Content.Server.Radio.EntitySystems;
 using Content.Shared.IdentityManagement;
