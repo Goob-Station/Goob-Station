@@ -1,19 +1,18 @@
 using Content.Goobstation.Common.Silicon.Bots;
+using Content.Goobstation.Shared.Silicon.Bots.Securitron;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Network;
 
-namespace Content.Goobstation.Shared.Silicon.Bots.Securitron;
+namespace Content.Goobstation.Server.Silicon.Bots;
 
 /// <summary>
 /// This handles system handles Commander Beepsky's actions.
 /// </summary>
-public sealed class SharedWandskySystem : EntitySystem
+public sealed class WandskySystem : EntitySystem
 {
 
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     public override void Initialize()
@@ -31,9 +30,6 @@ public sealed class SharedWandskySystem : EntitySystem
 
     public void OnGetSlave(Entity<SlaveComponent> ent, ref InteractUsingEvent args)
     {
-        if (!_net.IsServer)
-            return;
-
         if (!TryComp<CommanderComponent>(args.Used, out var commander))
         {
             return;
@@ -58,9 +54,6 @@ public sealed class SharedWandskySystem : EntitySystem
 
     public void OnTogglePatrol(Entity<CommanderComponent> ent, ref TogglePatrolActionEvent args)
     {
-        if (!_net.IsServer)
-            return;
-
         if (ent.Comp.SlaveEntity is null
             || !TryComp<SlaveComponent>(ent.Comp.SlaveEntity, out var slave))
         {
@@ -80,9 +73,6 @@ public sealed class SharedWandskySystem : EntitySystem
 
     public void OnWaypointAction(Entity<CommanderComponent> ent, ref WaypointActionEvent args)
     {
-        if (!_net.IsServer)
-            return;
-
         if (args.Entity is {} targetEntity
             && HasComp<WaypointComponent>(targetEntity)) // Does not currently work...
         {
@@ -104,9 +94,6 @@ public sealed class SharedWandskySystem : EntitySystem
     {
         var waypoints = ent.Comp.Waypoints;
         var count = waypoints.Count;
-
-        if (!_net.IsServer)
-            return;
 
         if (count == 0)
         {
