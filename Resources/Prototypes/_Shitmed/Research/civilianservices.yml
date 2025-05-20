@@ -89,7 +89,6 @@
   cost: 10000
   recipeUnlocks:
   - OmnimedTool
-  - MedicalBeamGun
   technologyPrerequisites:
   - Autodoc
   position: -2,7
