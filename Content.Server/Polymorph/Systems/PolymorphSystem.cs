@@ -352,7 +352,7 @@ public sealed partial class PolymorphSystem : EntitySystem
         MakeSentientCommand.MakeSentient(child, EntityManager, configuration.AllowMovement);
         // Goob edit end
 
-        var polymorphedComp = _compFact.GetComponent<PolymorphedEntityComponent>();
+        var polymorphedComp = Factory.GetComponent<PolymorphedEntityComponent>();
         polymorphedComp.Parent = uid;
         polymorphedComp.Configuration = configuration;
         AddComp(child, polymorphedComp);

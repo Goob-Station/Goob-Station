@@ -25,7 +25,6 @@ namespace Content.Server.Clothing.Systems;
 public sealed class ChameleonClothingSystem : SharedChameleonClothingSystem
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IComponentFactory _factory = default!;
     [Dependency] private readonly IdentitySystem _identity = default!;
 
     public override void Initialize()
@@ -83,7 +82,7 @@ public sealed class ChameleonClothingSystem : SharedChameleonClothingSystem
 
     private void UpdateIdentityBlocker(EntityUid uid, ChameleonClothingComponent component, EntityPrototype proto)
     {
-        if (proto.HasComponent<IdentityBlockerComponent>(_factory))
+        if (proto.HasComponent<IdentityBlockerComponent>(Factory))
             EnsureComp<IdentityBlockerComponent>(uid);
         else
             RemComp<IdentityBlockerComponent>(uid);

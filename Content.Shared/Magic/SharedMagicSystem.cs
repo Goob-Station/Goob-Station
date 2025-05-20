@@ -153,7 +153,6 @@ public abstract class SharedMagicSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!; // Goobstation
     [Dependency] private readonly ISerializationManager _seriMan = default!;
-    [Dependency] private readonly IComponentFactory _compFact = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -592,7 +591,7 @@ public abstract class SharedMagicSystem : EntitySystem
             if (HasComp(target, data.Component.GetType()))
                 continue;
 
-            var component = (Component)_compFact.GetComponent(name);
+            var component = (Component)Factory.GetComponent(name);
             var temp = (object)component;
             _seriMan.CopyTo(data.Component, ref temp);
             EntityManager.AddComponent(target, (Component)temp!);
@@ -603,7 +602,7 @@ public abstract class SharedMagicSystem : EntitySystem
     {
         foreach (var toRemove in comps)
         {
-            if (_compFact.TryGetRegistration(toRemove, out var registration))
+            if (Factory.TryGetRegistration(toRemove, out var registration))
                 RemComp(target, registration.Type);
         }
     }
