@@ -1584,13 +1584,12 @@
 - type: loadoutGroup
   id: SurvivalSyndicate
   name: loadout-group-survival-syndicate
-  minLimit: 3 # Goobstation
+  minLimit: 2 # Goobstation
   hidden: true
   loadouts:
   - EmergencyNitrogenSyndicate
   - EmergencyOxygenSyndicate
   - LoadoutSpeciesVoxNitrogen
-  - LoadoutSpeciesHeatlampSyndicate # Goobstation
 
 - type: loadoutGroup
   id: GroupSpeciesBreathTool
