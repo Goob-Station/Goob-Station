@@ -1,0 +1,9 @@
+- type: cargoProduct
+  id: CargoOrderPlantBox
+  icon:
+    sprite: _NF/Structures/Storage/plantbox.rsi
+    state: plantbox
+  product: PlantBox
+  cost: 1000
+  category: cargoproduct-category-name-hydroponics
+  group: market
