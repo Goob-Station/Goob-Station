@@ -4,8 +4,8 @@ meta:
   engineVersion: 251.0.0
   forkId: ""
   forkVersion: ""
-  time: 05/21/2025 12:38:26
-  entityCount: 15843
+  time: 05/21/2025 13:30:26
+  entityCount: 15845
 maps:
 - 1
 grids:
@@ -3896,7 +3896,8 @@ entities:
           -10,0:
             0: 4083
           -10,-1:
-            0: 47547
+            0: 47539
+            4: 8
           -10,1:
             2: 61713
             0: 3822
@@ -4770,6 +4771,25 @@ entities:
           moles:
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.14975
+          moles:
+          - 20.078888
+          - 75.53487
           - 0
           - 0
           - 0
@@ -41041,6 +41061,17 @@ entities:
     - type: Transform
       pos: -27.72337,-19.783873
       parent: 2
+- proto: ClothingOuterHardsuitWarden
+  entities:
+  - uid: 4361
+    components:
+    - type: Transform
+      parent: 1206
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: ClothingOuterWinterChef
   entities:
   - uid: 300
@@ -51411,42 +51442,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 2.5,48.5
-      parent: 2
-  - uid: 4361
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 1.5,49.5
-      parent: 2
-  - uid: 4362
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 1.5,50.5
-      parent: 2
-  - uid: 4363
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 1.5,51.5
-      parent: 2
-  - uid: 4364
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -0.5,51.5
-      parent: 2
-  - uid: 4365
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -0.5,50.5
-      parent: 2
-  - uid: 4366
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -0.5,49.5
       parent: 2
   - uid: 4375
     components:
@@ -68694,6 +68689,40 @@ entities:
       rot: 3.141592653589793 rad
       pos: -3.5,47.5
       parent: 2
+  - uid: 4362
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -0.5,51.5
+      parent: 2
+  - uid: 4363
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -0.5,50.5
+      parent: 2
+  - uid: 4364
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -0.5,49.5
+      parent: 2
+  - uid: 4365
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 1.5,49.5
+      parent: 2
+    - type: GasVolumePump
+      transferRate: 40
+  - uid: 4366
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 1.5,50.5
+      parent: 2
+    - type: GasVolumePump
+      transferRate: 40
   - uid: 4368
     components:
     - type: Transform
@@ -68722,6 +68751,14 @@ entities:
       rot: 3.141592653589793 rad
       pos: 41.5,18.5
       parent: 2
+  - uid: 15780
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 1.5,51.5
+      parent: 2
+    - type: GasVolumePump
+      transferRate: 40
 - proto: Gauze
   entities:
   - uid: 5314
@@ -78993,6 +79030,12 @@ entities:
     - type: Transform
       pos: 1.5,-10.5
       parent: 2
+  - uid: 15781
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -35.5,-1.5
+      parent: 2
 - proto: PoweredlightExterior
   entities:
   - uid: 7518
@@ -85771,12 +85814,35 @@ entities:
     - type: Transform
       pos: -36.5,-3.5
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
           showEnts: False
           occludes: True
           ents:
+          - 4361
           - 1207
 - proto: Supermatter
   entities:
