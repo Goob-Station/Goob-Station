@@ -7,6 +7,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared.Humanoid.Markings;
+using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using JetBrains.Annotations;
@@ -14,7 +15,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
-namespace Content.Goobstation.Shared.MisandryBox.Saturation;
+namespace Content.Goobstation.Shared.MisandryBox.Hair;
 
 /// <summary>
 /// Requires the character to have hair color of less saturation than required for this job
@@ -40,10 +41,9 @@ public sealed partial class SaturationRequirement : JobRequirement
             return true;
 
         var mark = IoCManager.Resolve<MarkingManager>();
-        var hairstyles = mark.MarkingsByCategoryAndSpecies(MarkingCategories.Hair, profile.Species).Keys.ToList();
 
         // Check if person is bald or has a hairstyle to begin with
-        if (profile.Appearance.HairStyleId == Bald || hairstyles.Count == 0)
+        if (profile.Appearance.HairStyleId == Bald || !mark.HasHair(profile.Species))
             return true;
 
         var saturation = Color.ToHsv(profile.Appearance.HairColor).Y;
