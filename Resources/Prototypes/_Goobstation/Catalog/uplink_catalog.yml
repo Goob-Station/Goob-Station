@@ -600,7 +600,8 @@
     - Clown
   - !type:BuyerWhitelistCondition
     blacklist:
-    - NukieBundle
+      components:
+      - NukieBundle
 
 - type: listing
   id: UplinkSyndicateWhimsyBundle
@@ -617,7 +618,8 @@
     - Clown
   - !type:BuyerWhitelistCondition
     blacklist:
-    - NukieBundle
+      components:
+      - NukieBundle
 
 - type: listing
   id: UplinkLubeGrenade
@@ -635,7 +637,8 @@
     - Mime
   - !type:BuyerWhitelistCondition
     blacklist:
-    - NukieBundle
+      components:
+      - NukieBundle
 
 - type: listing
   id: UplinkGlueGrenade
@@ -653,7 +656,8 @@
     - Mime
   - !type:BuyerWhitelistCondition
     blacklist:
-    - NukieBundle
+      components:
+      - NukieBundle
 
 - type: listing
   id: UplinkClowncar
@@ -671,7 +675,8 @@
     - Clown
   - !type:BuyerWhitelistCondition
     blacklist:
-    - NukieBundle
+      components:
+      - NukieBundle
 
 - type: listing
   id: UplinkMobRoachMicrobomb
@@ -700,7 +705,8 @@
     - Zookeeper
   - !type:BuyerWhitelistCondition
     blacklist:
-    - NukieBundle
+      components:
+      - NukieBundle
 
 - type: listing
   id: UplinkDartGun
@@ -717,7 +723,8 @@
     - Medical
   - !type:BuyerWhitelistCondition
     blacklist:
-    - NukieBundle
+      components:
+      - NukieBundle
 
 # chemicals
 
