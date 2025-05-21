@@ -198,6 +198,8 @@
   - type: Hailer # Goobstation - Hailer
   - type: IngestionBlocker # Goobstation
     blockSmokeIngestion: true
+  - type: SpeechSoundsReplacer
+    speechSounds: Chrono # why? its badass.
 
 - type: entity
   parent: [ClothingMaskGas, BaseSyndicateContraband]
