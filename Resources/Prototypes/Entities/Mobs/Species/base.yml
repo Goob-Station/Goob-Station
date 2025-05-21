@@ -479,6 +479,8 @@
     penetrateDamage: 50
     damagePenalty: 0.2
   - type: ExaminableCharacter # WWDP
+  - type: TransferHeatOnInteract # Goobstation
+    transferRatio: 0.45
 
 - type: entity
   save: false

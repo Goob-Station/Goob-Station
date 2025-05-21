@@ -9668,3 +9668,60 @@ Entries:
       message: Binary translator keys.
   id: 1082
   time: '2025-05-18T20:47:11.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: >-
+        You can now hug other players to equalize your temperature. Hug your
+        lizard friends!
+    - type: Add
+      message: You can now hug players to transfer fire stacks. It's like hot potato!
+    - type: Add
+      message: >-
+        Lizards now start with specialized heating lamps to keep their
+        temperature stable.
+    - type: Tweak
+      message: Lizards are now cold-blooded. Have fun!
+  id: 1083
+  time: '2025-05-18T21:59:08.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Add
+      message: >-
+        Added experimental law boards. When inserted in ai upload console, gives
+        ionstormed laws to the station AI, and after 2 minutes turns laws back
+        to normal giving research points to RnD. 
+  id: 1084
+  time: '2025-05-19T07:58:24.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Cursed heart works while crit
+  id: 1085
+  time: '2025-05-20T05:36:17.0000000+00:00'
+- author: bebright
+  changes:
+    - type: Fix
+      message: Fixed wanted menu.
+  id: 1086
+  time: '2025-05-20T05:36:39.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Tweak
+      message: Durk victory.
+  id: 1087
+  time: '2025-05-21T03:29:46.0000000+00:00'
+- author: TurboTrackerss14
+  changes:
+    - type: Tweak
+      message: Smoke Implant cooldown increase
+    - type: Tweak
+      message: Smoke Implant smoke duration reduced
+  id: 1088
+  time: '2025-05-21T17:39:43.0000000+00:00'
+- author: SolsticeOfTheWinter, Jvne
+  changes:
+    - type: Add
+      message: Added a plushie themed after a very specific and beloved game admin.
+  id: 1089
+  time: '2025-05-21T18:01:21.0000000+00:00'
