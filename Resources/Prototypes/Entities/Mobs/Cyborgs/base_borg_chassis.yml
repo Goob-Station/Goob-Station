@@ -334,6 +334,7 @@
   - type: Vocal
     sounds:
       Unsexed: UnisexSilicon
+    wilhelmProbability: 0
   - type: DamagedSiliconAccent
   - type: UnblockableSpeech
   - type: FootstepModifier
