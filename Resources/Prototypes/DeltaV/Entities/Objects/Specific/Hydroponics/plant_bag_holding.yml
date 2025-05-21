@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2024 Alchebun <47635328+jimmy12or@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   name: plant bag of holding
   id: PlantBagOfHolding
