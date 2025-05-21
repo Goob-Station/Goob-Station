@@ -179,4 +179,7 @@
         - Produce
         - Seed
   - type: Dumpable
-  - type: PlantBag
+  - type: RelayInteractionStorage # Goobstation
+    whitelist:
+      components:
+      - ProduceMaterialExtractor
