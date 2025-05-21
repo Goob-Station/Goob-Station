@@ -75,3 +75,4 @@
   id: ServiceTools
   recipes:
   - PlantAnalyzer # Frontier
+  - PlantBagOfHolding # DeltaV
