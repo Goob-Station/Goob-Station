@@ -22,6 +22,12 @@ public sealed partial class MeleeDashComponent : Component
     public string? EmoteOnDash = "Flip"; // this sucks to have to turn into a fucking string but i dont have access to content prototypes
 
     [DataField]
+    public string Delay = "default";
+
+    [DataField]
+    public bool RequiresWield;
+
+    [DataField]
     public SoundSpecifier? DashSound = new SoundPathSpecifier("/Audio/_Goobstation/Weapons/Effects/throwhard.ogg");
 
     [DataField]
