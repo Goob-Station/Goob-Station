@@ -17,4 +17,7 @@ public sealed partial class RevolutionaryConverterComponent : Component
 
     [DataField]
     public bool Silent { get; set; }
+
+    [DataField]
+    public bool VisibleDoAfter { get; set; }
 }
