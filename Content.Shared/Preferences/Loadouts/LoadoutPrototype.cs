@@ -103,15 +103,6 @@ public sealed partial class LoadoutPrototype : IPrototype, IEquipmentLoadout
     [DataField]
     public EntProtoId? DummyEntity;
 
-    /// <summary>
-    /// Use the dummy entity as the loadout dummy doll in the lobby screen.
-    /// </summary>
-    /// <remarks>
-    /// This is a stupid fucking name
-    /// </remarks>
-    [DataField]
-    public bool UseDummyEntityLobbyDummy = false;
-
     [DataField]
     public ProtoId<StartingGearPrototype>? StartingGear;
 
@@ -121,12 +112,6 @@ public sealed partial class LoadoutPrototype : IPrototype, IEquipmentLoadout
     /// </summary>
     [DataField]
     public List<LoadoutEffect> Effects = new();
-
-    /// <summary>
-    /// Overides the players entity
-    /// </summary>
-    [DataField]
-    public string? Entity { get; set; }
 
     /// <inheritdoc />
     [DataField]
@@ -139,8 +124,4 @@ public sealed partial class LoadoutPrototype : IPrototype, IEquipmentLoadout
     /// <inheritdoc />
     [DataField]
     public Dictionary<string, List<EntProtoId>> Storage { get; set; } = new();
-
-    /// <inheritdoc />
-    [DataField]
-    public ComponentRegistry Components { get; set; } = new();
 }

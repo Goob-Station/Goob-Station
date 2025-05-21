@@ -535,8 +535,7 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
     /// </summary>
     public EntityUid LoadProfileEntity(HumanoidCharacterProfile? humanoid, JobPrototype? job, bool jobClothes)
     {
-        string? dummy = null;
-        bool isDummy = false;
+        EntityUid dummyEnt;
 
         EntProtoId? previewEntity = null;
         if (humanoid != null && jobClothes)
@@ -549,50 +548,20 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
         if (previewEntity != null)
         {
             // Special type like borg or AI, do not spawn a human just spawn the entity.
-            isDummy = true;
-            dummy = previewEntity;
+            dummyEnt = EntityManager.SpawnEntity(previewEntity, MapCoordinates.Nullspace);
+            return dummyEnt;
         }
-
-        if (humanoid is not null)
+        else if (humanoid is not null)
         {
-            job ??= GetPreferredJob(humanoid);
-            var jobLoadout = LoadoutSystem.GetJobPrototype(job.ID);
-            humanoid.Loadouts.TryGetValue(jobLoadout, out var loadoutValue);
-
-            dummy ??= _prototypeManager.Index<SpeciesPrototype>(humanoid.Species).DollPrototype;
-
-            if (loadoutValue != null)
-            {
-                foreach (var group in loadoutValue.SelectedLoadouts)
-                {
-                    foreach (var items in group.Value)
-                    {
-            }
-                }
-                    }
-                        }
-                            break;
-                            dummy = loadoutProto.DummyEntity.Value;
-                        {
-                        if (loadoutProto.UseDummyEntityLobbyDummy && loadoutProto.DummyEntity != null)
-                            isDummy = true;
-
-                        }
-                            continue;
-                        {
-                        if (!_prototypeManager.TryIndex(items.Prototype, out var loadoutProto))
+            var dummy = _prototypeManager.Index<SpeciesPrototype>(humanoid.Species).DollPrototype;
+            dummyEnt = EntityManager.SpawnEntity(dummy, MapCoordinates.Nullspace);
         }
         else
         {
-            dummy ??= _prototypeManager.Index<SpeciesPrototype>(SharedHumanoidAppearanceSystem.DefaultSpecies).DollPrototype;
+            dummyEnt = EntityManager.SpawnEntity(_prototypeManager.Index<SpeciesPrototype>(SharedHumanoidAppearanceSystem.DefaultSpecies).DollPrototype, MapCoordinates.Nullspace);
         }
 
-        var dummyEnt = EntityManager.SpawnEntity(dummy, MapCoordinates.Nullspace);
-
-        if (!isDummy)
-        {
-            _humanoid.LoadProfile(dummyEnt, humanoid);
-        }
+        _humanoid.LoadProfile(dummyEnt, humanoid);
 
         if (humanoid != null && jobClothes)
         {

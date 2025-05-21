@@ -267,8 +267,6 @@ public abstract class SharedStationSpawningSystem : EntitySystem
             }
         }
 
-        EntityManager.AddComponents(entity, startingGear.Components);
-
         if (raiseEvent)
         {
             var ev = new StartingGearEquippedEvent(entity);
