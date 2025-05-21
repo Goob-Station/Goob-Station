@@ -17,7 +17,7 @@ using System.Numerics;
 using Content.Goobstation.Common.Bingle;
 using Content.Goobstation.Common.Religion;
 using Content.Shared._DV.Carrying;
-using Content.Shared._EinsteinEngines.Silicon.Components;
+using Content.Shared._EE.Silicon.Components;
 using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared._Goobstation.Wizard.Chuuni;
 using Content.Shared._Goobstation.Wizard.Components;

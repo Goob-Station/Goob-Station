@@ -263,6 +263,6 @@
   components:
   - type: InstantAction
     checkCanInteract: false
-    icon: { sprite: _EinsteinEngines/Interface/Actions/flight.rsi, state: flight_off }
-    iconOn: { sprite : _EinsteinEngines/Interface/Actions/flight.rsi, state: flight_on }
+    icon: { sprite: _EE/Interface/Actions/flight.rsi, state: flight_off }
+    iconOn: { sprite : _EE/Interface/Actions/flight.rsi, state: flight_on }
     event: !type:ToggleFlightEvent
