@@ -79,8 +79,6 @@ public sealed partial class LoadoutGroupContainer : BoxContainer
 
         foreach (var loadoutProto in _groupProto.Loadouts)
         {
-            var loadoutDummy = string.Empty;
-
             if (!protoMan.TryIndex(loadoutProto, out var loadProto))
                 continue;
 
@@ -93,7 +91,7 @@ public sealed partial class LoadoutGroupContainer : BoxContainer
             var pressed = matchingLoadout != null;
 
             var enabled = loadout.IsValid(profile, session, loadoutProto, collection, out var reason);
-            var loadoutContainer = new LoadoutContainer(loadoutProto, !enabled, reason, loadoutDummy);
+            var loadoutContainer = new LoadoutContainer(loadoutProto, !enabled, reason);
             loadoutContainer.Select.Pressed = pressed;
             loadoutContainer.Text = loadoutSystem.GetName(loadProto);
 

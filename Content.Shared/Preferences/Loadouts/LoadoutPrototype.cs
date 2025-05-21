@@ -106,6 +106,9 @@ public sealed partial class LoadoutPrototype : IPrototype, IEquipmentLoadout
     /// <summary>
     /// Use the dummy entity as the loadout dummy doll in the lobby screen.
     /// </summary>
+    /// <remarks>
+    /// This is a stupid fucking name
+    /// </remarks>
     [DataField]
     public bool UseDummyEntityLobbyDummy = false;
 
