@@ -200,10 +200,10 @@ public sealed class PlantAnalyzerSystem : EntitySystem
         MutationFlags ret = MutationFlags.None;
         if (plant.TurnIntoKudzu) ret |= MutationFlags.TurnIntoKudzu;
         if (plant.Seedless) ret |= MutationFlags.Seedless;
-        if (plant.Slip) ret |= MutationFlags.Slip;
-        if (plant.Sentient) ret |= MutationFlags.Sentient;
+        //if (plant.Slip) ret |= MutationFlags.Slip;
+        //if (plant.Sentient) ret |= MutationFlags.Sentient;
         if (plant.Ligneous) ret |= MutationFlags.Ligneous;
-        // if (plant.Bioluminescent) ret |= MutationFlags.Bioluminescent;
+        //if (plant.Bioluminescent) ret |= MutationFlags.Bioluminescent;
         if (plant.CanScream) ret |= MutationFlags.CanScream;
 
         return ret;
