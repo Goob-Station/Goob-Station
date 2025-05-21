@@ -110,3 +110,5 @@
 - type: lobbyBackground
   id: thecrew
   background: /Textures/LobbyScreens/thecrew.png
+  name: The Crew
+  artist: F4T4L Blitz
