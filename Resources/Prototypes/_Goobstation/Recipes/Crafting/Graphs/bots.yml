@@ -8,5 +8,5 @@
   objectType: Item
   description: Tiders hate this one simple trick!
   icon:
-    sprite: Mobs/Silicon/Bots/securitron.rsi
+    sprite: _Goobstation/Mobs/Silicon/Bots/securitron.rsi
     state: secbot

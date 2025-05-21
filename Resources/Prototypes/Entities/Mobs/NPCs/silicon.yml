@@ -672,7 +672,7 @@
   description: Tiders hate this one simple trick!
   components:
   - type: Sprite
-    sprite: Mobs/Silicon/Bots/securitron.rsi
+    sprite: _Goobstation/Mobs/Silicon/Bots/securitron.rsi
     state: secbot
   - type: Fixtures
     fixtures:
@@ -729,12 +729,10 @@
     templateId: medibot
   - type: IntrinsicRadioTransmitter
     channels:
-    - Hexadecimal
     - Security
   - type: Slave
   - type: ActiveRadio
     channels:
-    - Hexadecimal
     - Common
     - Security
   - type: Tag
