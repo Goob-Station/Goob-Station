@@ -278,3 +278,6 @@ uplink-undetermined-bundle-desc = This crate comes with three random bundles and
 
 uplink-energy-pickaxe-name = Energy Pickaxe
 uplink-energy-pickaxe-desc = A holographic mining tool with blades comprised of hard light that also serves a deadly melee weapon. Rock and stone!
+
+uplink-nukie-bundle-name = Nuclear Operative Crate
+uplink-nukie-bundle-desc = Your bosses would be upset with you. Luckily they don't care as long as the job gets done, but they limit it only to one per Agent.

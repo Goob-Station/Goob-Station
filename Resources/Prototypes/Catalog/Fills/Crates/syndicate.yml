@@ -47,3 +47,15 @@
   components:
     - type: SurplusBundle
       totalPrice: 625
+
+- type: entity #Gooooooooooooooob editin - NukeOps specific Surplus
+  id: CrateNukieBundle
+  parent: [ CrateSyndicate, StorePresetUplink, BaseSyndicateContraband ]
+  name: Nuclear Operative Crate
+  description: Contains 250 telecrystals worth of completely random Nuclear Operative items. You should be ashamed of yourself, but we know you aren't.
+  components:
+    - type: NukieBundle
+      totalPrice: 250
+    - type: Tag
+      tags:
+      - NukeOpsUplink

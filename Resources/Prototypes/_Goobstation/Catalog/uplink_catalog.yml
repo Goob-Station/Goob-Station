@@ -512,11 +512,16 @@
     Telecrystal: 20
   categories:
   - UplinkWearables
-  #conditions: # Blacklist this from nukies if dreadsuits abuse it too much.
-  #- !type:StoreWhitelistCondition
+  conditions:
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - NukieBundle #Blacklisted due to possibility of using a large chunk of your crate on something for a set species.
+  #- !type:StoreWhitelistCondition # Blacklist this from nukies if dreadsuits abuse it too much.
   #  blacklist:
   #    tags:
   #    - NukeOpsUplink
+
 
 - type: listing
   id: UplinkHardsuitSyndieMedic
@@ -593,6 +598,9 @@
   - !type:BuyerJobCondition
     whitelist:
     - Clown
+  - !type:BuyerWhitelistCondition
+    blacklist:
+    - NukieBundle
 
 - type: listing
   id: UplinkSyndicateWhimsyBundle
@@ -607,7 +615,9 @@
   - !type:BuyerJobCondition
     whitelist:
     - Clown
-
+  - !type:BuyerWhitelistCondition
+    blacklist:
+    - NukieBundle
 
 - type: listing
   id: UplinkLubeGrenade
@@ -623,7 +633,9 @@
     whitelist:
     - Clown
     - Mime
-
+  - !type:BuyerWhitelistCondition
+    blacklist:
+    - NukieBundle
 
 - type: listing
   id: UplinkGlueGrenade
@@ -639,6 +651,9 @@
     whitelist:
     - Clown
     - Mime
+  - !type:BuyerWhitelistCondition
+    blacklist:
+    - NukieBundle
 
 - type: listing
   id: UplinkClowncar
@@ -654,6 +669,9 @@
   - !type:BuyerJobCondition
     whitelist:
     - Clown
+  - !type:BuyerWhitelistCondition
+    blacklist:
+    - NukieBundle
 
 - type: listing
   id: UplinkMobRoachMicrobomb
@@ -680,6 +698,9 @@
     whitelist:
     - Botanist
     - Zookeeper
+  - !type:BuyerWhitelistCondition
+    blacklist:
+    - NukieBundle
 
 - type: listing
   id: UplinkDartGun
@@ -694,6 +715,9 @@
   - !type:BuyerDepartmentCondition
     whitelist:
     - Medical
+  - !type:BuyerWhitelistCondition
+    blacklist:
+    - NukieBundle
 
 # chemicals
 
@@ -987,6 +1011,7 @@
     blacklist:
       components:
       - SurplusBundle
+      - NukieBundle
 
 - type: listing
   id: UplinkSyndicateWeaponModuleAdvanced
@@ -1226,3 +1251,25 @@
   - !type:BuyerSpeciesCondition
     whitelist:
     - Dwarf # Rock and stone
+
+- type: listing
+  id: UplinkNukieBundle
+  name: uplink-nukie-bundle-name
+  description: uplink-nukie-bundle-desc
+  productEntity: CrateNukieBundle
+  cost:
+    Telecrystal: 100
+  categories:
+  - UplinkDisruption
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+      - ContravendUplink
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - NukieBundle
+  - !type:ListingLimitedStockCondition
+    stock: 1
