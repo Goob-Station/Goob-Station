@@ -1,5 +1,5 @@
 - type: latheRecipe
-  id: Plantanalyzer
+  id: PlantAnalyzer
   result: PlantAnalyzerEmpty
   completetime: 2
   materials:
