@@ -84,7 +84,7 @@ public sealed class RevolutionaryConverterSystem : EntitySystem
 
         _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, converter.Comp.ConversionDuration, new RevolutionaryConverterDoAfterEvent(), converter.Owner, target: target, used: converter.Owner, showTo: converter.Owner)
         {
-            Hidden = !converter.VisibleDoAfter,
+            Hidden = !converter.Comp.VisibleDoAfter,
             BreakOnMove = false,
             BreakOnWeightlessMove = false,
             BreakOnDamage = true,
