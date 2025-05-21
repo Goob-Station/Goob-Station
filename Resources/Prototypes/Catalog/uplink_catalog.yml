@@ -1595,7 +1595,7 @@
       blacklist:
         components:
           - SurplusBundle
-          - ContravendUplink
+          - NukieBundle
 
 - type: listing
   id: UplinkFakeMindshield
