@@ -1,0 +1,100 @@
+# SPDX-FileCopyrightText: 2025 Doru991 <dorurogoveanu123@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseMobSpeciesOrganic
+  id: BaseMobSatyr
+  name: Urist McGoat
+  abstract: true
+  components:
+  - type: Hunger
+  - type: Icon # It will not have an icon in the adminspawn menu without this. Body parts seem fine for whatever reason.
+    sprite: _Goobstation/Mobs/Species/Satyr/parts.rsi
+    state: full
+  - type: Thirst
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeat
+      amount: 5
+  - type: Body
+    prototype: Satyr
+    requiredLegs: 2
+  - type: HumanoidAppearance
+    species: Satyr
+    hideLayersOnEquip:
+    - Hair
+    - Snout
+  - type: Inventory
+    templateId: satyr
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Goobstation/Mobs/Species/Satyr/displacement.rsi
+            state: jumpsuit-female
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Goobstation/Mobs/Species/Satyr/displacement.rsi
+            state: jumpsuit-female  
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Goobstation/Mobs/Species/Satyr/displacement.rsi
+            state: jumpsuit
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Goobstation/Mobs/Species/Satyr/displacement.rsi
+            state: jumpsuit
+  - type: BleatingAccent
+  - type: Fixtures
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 195 # a little dense
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Vocal
+    sounds:
+      Male: Goat
+      Female: Goat
+      Unsexed: Goat
+  - type: Speech
+    speechSounds: Goat
+    speechVerb: Goat
+  - type: StepTriggerImmune #Hooves moment
+    whitelist:
+      types:
+      - Shard
+      - Mousetrap
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepHighHeels
+      params:
+        variation: 0.09
+
+- type: entity
+  parent: BaseSpeciesDummy
+  id: MobSatyrDummy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HumanoidAppearance
+    species: Satyr
+  - type: Inventory
+    templateId: satyr
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
