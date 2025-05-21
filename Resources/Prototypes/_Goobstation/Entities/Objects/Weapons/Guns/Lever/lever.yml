@@ -80,3 +80,65 @@
     shape:
     - 0,0,4,1
     storedRotation: 45
+
+     type: entity
+  name: TideBreaker
+  parent: [ BaseWeaponShotgun, BaseGunWieldable, BaseSyndicateContraband ]
+  id: WeaponLeverTidebreaker
+  description: Our excitement shows the way.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Lever/tidebreaker.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Guns/Lever/tidebreaker.rsi
+  - type: Gun
+    fireRate: 3
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/batrifle.ogg
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - ShellShotgun
+    capacity: 4
+    proto: ShellShotgun
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
+  - type: Appearance
+  - type: UseDelay
+    delay: 0.1
+    delays:
+      dash:
+        length: 3
+  - type: UseDelayBlockShoot
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: MeleeWeapon
+    damage:
+      types:
+       Slash: 20
+       Piercing: 20
+    angle: 0
+    wideAnimationRotation: 135
+    animation: WeaponArcThrust
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: StaminaDamageOnHit
+    damage: 35
+  - type: MeleeRequiresWield
+  - type: MeleeSpeech
+  - type: ActivatableUI
+    key: enum.MeleeSpeechUiKey.Key
+    verbOnly: true
+  - type: Actions
+  - type: UserInterface
+    interfaces:
+      enum.MeleeSpeechUiKey.Key:
+        type: MeleeSpeechBoundUserInterface
+  - type: MeleeDash
+    emoteOnDash: null
+    delay: dash
+    maxDashLength: 3
+    requiresWield: true
