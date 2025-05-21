@@ -154,6 +154,8 @@
       Unsexed: UnisexMoth
   - type: MovementSpeedModifier
     weightlessAcceleration: 3 # Goobstation value
+    weightlessModifier: 1.1
+    weightlessFriction: 2 # makes you turn more sharply while weightless
   - type: Flammable
     damage:
       types:
