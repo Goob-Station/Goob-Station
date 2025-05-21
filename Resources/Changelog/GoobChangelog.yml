@@ -9711,3 +9711,11 @@ Entries:
       message: Durk victory.
   id: 1087
   time: '2025-05-21T03:29:46.0000000+00:00'
+- author: TurboTrackerss14
+  changes:
+    - type: Tweak
+      message: Smoke Implant cooldown increase
+    - type: Tweak
+      message: Smoke Implant smoke duration reduced
+  id: 1088
+  time: '2025-05-21T17:39:43.0000000+00:00'
