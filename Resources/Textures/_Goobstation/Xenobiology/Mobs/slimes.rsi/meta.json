@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "grey-core"
+    },
+    {
+      "name": "grey-baby",
+      "delays": [
+        [
+          1,
+          0.2,
+          0.4,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "grey-baby-dead"
+    },
+    {
+      "name": "grey-adult",
+      "delays": [
+        [
+          1,
+          0.2,
+          0.4,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "grey-adult-dead"
+    }
+  ]
+}
