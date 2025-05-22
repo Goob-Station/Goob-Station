@@ -43,3 +43,14 @@
   product: CrateFunRedCaviar
   cost: 1000
   group: market
+  
+  
+- type: cargoProduct
+  id: FunBalloonPack
+  icon:
+    sprite: _Goobstation/Objects/Fun/balloons.rsi
+    state: red
+  product: CrateBalloonPackage
+  cost: 2000
+  category: cargoproduct-category-name-fun
+  group: market

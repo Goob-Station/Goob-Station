@@ -9,7 +9,6 @@
     noRot: True
   - type: Item
     size: Huge
-  - type: Balloon
   - type: Damageable
     damageContainer: RubberBalloon # default damage container
   - type: Physics # has dynamic physics
