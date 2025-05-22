@@ -280,6 +280,7 @@
     fuelCost: 15
   - type: FloatingVisuals
   - type: Body
+    bodyType: Simple
   - type: StatusIcon
     bounds: -0.5,-0.5,0.5,0.5
   - type: NameIdentifier
