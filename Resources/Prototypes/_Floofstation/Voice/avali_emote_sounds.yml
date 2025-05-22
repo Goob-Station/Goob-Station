@@ -16,14 +16,14 @@
     - /Audio/_Floofstation/Voice/Avali/avali_laugh.ogg
 
 - type: emoteSounds
-  id: MaleAvali
+  id: MaleAvaliEmote
   params:
     variation: 0.125
   sounds:
     Scream:
       collection: AvaliScreams
     Laugh:
-      collection: AvaliLaugh # taken from RMC-14
+      collection: AvaliLaugh 
     Sneeze:
       collection: MaleSneezes
     Cough:
@@ -50,16 +50,24 @@
       collection: Whistles
     Weh:
       collection: Weh
+    Trill:
+      collection: Trill
+    Warble:
+      collection: Warble
+    Wurble:
+      collection: Wurble
+    Chirp:
+      collection: Chirp
 
 - type: emoteSounds
-  id: FemaleAvali
+  id: FemaleAvaliEmote
   params:
     variation: 0.125
   sounds:
     Scream:
       collection: AvaliScreams
     Laugh:
-      collection: AvaliLaugh
+      collection: AvaliLaugh 
     Sneeze:
       collection: FemaleSneezes
     Cough:
@@ -86,3 +94,11 @@
       collection: Whistles
     Weh:
       collection: Weh
+    Trill:
+      collection: Trill
+    Warble:
+      collection: Warble
+    Wurble:
+      collection: Wurble
+    ResomiChirp:
+      collection: ResomiChirp

@@ -154,3 +154,60 @@
    - flaps her wings
    - flaps their wings
    - flaps its wings
+
+- type: emote
+  id: Trill
+  name: chat-emote-name-trill
+  category: Vocal
+  available: false
+  icon: _Goobstation/Interface/Emotes/caw.png
+  whitelist:
+    components:
+      - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-trill"]
+  chatTriggers:
+    - trill
+    - trills
+    - trilling
+    - trilled
+
+- type: emote
+  id: Warble
+  name: chat-emote-name-warble
+  category: Vocal
+  available: false
+  icon: _Goobstation/Interface/Emotes/caw.png
+  whitelist:
+    components:
+      - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-warble"]
+  chatTriggers:
+    - warble
+    - warbles
+    - warbling
+    - warbled
+
+- type: emote
+  id: Wurble
+  name: chat-emote-name-wurble
+  category: Vocal
+  available: false
+  icon: _Goobstation/Interface/Emotes/caw.png
+  whitelist:
+    components:
+      - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-wurble"]
+  chatTriggers:
+    - wurble
+    - wurbles
+    - wurbling
+    - wurbled

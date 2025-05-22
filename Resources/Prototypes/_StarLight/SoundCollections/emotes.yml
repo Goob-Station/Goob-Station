@@ -1,0 +1,8 @@
+- type: soundCollection
+  id: ResomiChirp
+  files:
+    - /Audio/Voice/Resomi/resomi_chirp1.ogg
+    - /Audio/Voice/Resomi/resomi_chirp2.ogg
+    - /Audio/Voice/Resomi/resomi_chirp3.ogg
+    - /Audio/Voice/Resomi/resomi_chirp4.ogg
+    - /Audio/Voice/Resomi/resomi_chirp5.ogg

@@ -56,11 +56,18 @@
   - type: Speech
     speechVerb: Parrot
     speechSounds: MaleAvali
+    allowedEmotes: ['ResomiChirp', 'Trill', 'Warble', 'Wurble'] #goob
   - type: Vocal
     sounds:
-      Male: MaleAvali
-      Unsexed: MaleAvali
-      Female: FemaleAvali
+      Male: MaleAvaliEmote
+      Unsexed: MaleAvaliEmote
+      Female: FemaleAvaliEmote
+  - type: Tag
+    tags:         # Goob - What the fuck is FootstepSound and DoorBumpOpener for if they work without them - rest fixes anoms though.
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
   - type: Hands
     handDisplacement:
       sizeMaps:
