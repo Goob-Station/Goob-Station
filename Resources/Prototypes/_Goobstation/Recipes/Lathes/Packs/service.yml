@@ -14,7 +14,6 @@
   id: ServiceWeapons
   recipes:
   - WeaponLaserSvalinn
-  - WeaponCivilianDisabler
 
 - type: latheRecipePack
   id: TapeRecorderStatic
