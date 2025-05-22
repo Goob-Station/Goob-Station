@@ -81,7 +81,7 @@
   icon: "JobIconPassenger"
   supervisors: job-supervisors-everyone
   goobcoins: 0 #Goob content
-  access:
+ # access:
  #  - Maintenance
 
 - type: startingGear
