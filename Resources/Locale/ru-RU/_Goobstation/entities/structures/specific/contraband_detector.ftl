@@ -1,0 +1,10 @@
+ent-ContrabandDetector = детектор контрабанды
+    .desc = Входите с уверенностью, выходите с СБшниками, преследующими вас.
+    .suffix = разблокирован
+ent-ContrabandDetectorAnchored = { ent-ContrabandDetector }
+    .suffix = заблокирован
+    .desc = { ent-ContrabandDetector.desc }
+ent-ContrabandDetectorFrame = рамка детектора контрабанды
+    .desc = { "" }
+ent-ContrabandDetectorCircuitboard = плата детектора контрабанды
+    .desc = An electronics board used in contraband detector.

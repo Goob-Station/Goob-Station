@@ -1,0 +1,16 @@
+descriptions-atv-dataset-1 = Асфальто-Тканый Вездеход
+descriptions-atv-dataset-2 = АнтиТараканий Вездеход
+descriptions-atv-dataset-3 = Агро-Транспортный-Вкус
+descriptions-atv-dataset-4 = АбсолютноТандемный Выход
+descriptions-atv-dataset-5 = АдаптивноТипизированный Ввод
+descriptions-atv-dataset-6 = Аварийно-Травматическая Версия
+descriptions-atv-dataset-7 = Алгоритмически-Транслируемый Вирус
+descriptions-atv-dataset-8 = Алко-Трезвый Воспитатель
+descriptions-atv-dataset-9 = Адски Травмирующий Вулкан
+descriptions-atv-dataset-10 = Астра-Теле-Видение
+descriptions-atv-dataset-11 = Анекдотично Танцующий Вояка
+descriptions-atv-dataset-12 = Арт-Трагедийный Волонтер
+descriptions-atv-dataset-13 = Авто-Тако Вояж
+descriptions-atv-dataset-14 = Ангельски-Трогательный Вид
+descriptions-atv-dataset-15 = Абсолютно-Туристический Вояджер
+descriptions-atv-dataset-16 = Адово-Тряский Вездеход

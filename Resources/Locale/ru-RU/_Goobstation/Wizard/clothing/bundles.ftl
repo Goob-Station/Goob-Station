@@ -1,0 +1,15 @@
+ent-ClothingBackpackWizardClownBundle = { ent-ClothingBackpackClown }
+    .suffix = Набор клоуна-мага
+    .desc = { ent-ClothingBackpackClown.desc }
+ent-ClothingBackpackWizardMimeBundle = { ent-ClothingBackpackMime }
+    .suffix = Набор мима-мага
+    .desc = { ent-ClothingBackpackMime.desc }
+ent-ClothingBackpackOblivionEnforcerBundle = { ent-ClothingBackpack }
+    .suffix = Набор стража-мага забвения
+    .desc = { ent-ClothingBackpack.desc }
+ent-ToolboxTider = { ent-ToolboxMechanical }
+    .desc = Вы готовы к грейтайду?
+    .suffix = Тайд
+ent-ToolboxTiderFilled = { ent-ToolboxTider }
+    .suffix = Набор мага-тайдера
+    .desc = { ent-ToolboxTider.desc }

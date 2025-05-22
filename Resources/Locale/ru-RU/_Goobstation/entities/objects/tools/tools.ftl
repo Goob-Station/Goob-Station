@@ -1,0 +1,9 @@
+ent-SonicScrewdriver = звуковая отвертка
+    .desc = Вззззз....
+ent-RCDChrono = футуристичный РСУ
+    .desc = Инструмент, который может построить станцию с нуля за считанные минуты..
+ent-HandheldFax = ручной факс
+    .desc = Инструмент, который может отправить тонну бумаги на фак ЦК.
+ent-HandheldFaxNanorep = ручной факс ПНТ
+    .suffix = Nanotrasen Representative
+    .desc = { ent-HandheldFax.desc }

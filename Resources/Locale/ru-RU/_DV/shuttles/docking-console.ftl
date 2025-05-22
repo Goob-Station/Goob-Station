@@ -1,0 +1,12 @@
+docking-console-no-shuttle = Шаттла не замечено
+docking-console-ftl = БСС
+docking-console-call = Вызвать шаттл
+mining-console-window-title = Консоль Управления Шатлом
+shuttle-destination-lavaland = Лаваленд
+shuttle-destination-glacier-surface = Ледник
+docking-console-ftl-message-Unknown = Получение состояния БСС...
+docking-console-ftl-message-Ready = Все системы готовы.
+docking-console-ftl-message-NoSelection = Выберите одно из назначений.
+docking-console-ftl-message-NoAccess = ERROR: Доступ запрещен.
+docking-console-ftl-message-RechargingFtl = ВНИМАНИЕ: Система БСС не готова.
+docking-console-ftl-message-InFtl = БСС запущен!

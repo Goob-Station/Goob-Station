@@ -1,0 +1,14 @@
+ent-MobGondola = Гондола
+    .desc = Не имея рук, он воплощает даосский принцип ву-вэй (бездействие), а его улыбающееся выражение лица показывает его полное и полное принятие мира таким, какой он есть.
+ent-MobMothSyndy = СиндиЛичинка
+    .desc = Взрывная личинка.
+ent-MobSyndieAngryBee = пчела синдиката
+    .desc = Как хороша пчелка. О нет, она злая и хочет мою пиццу!!!
+    .suffix = Angry, syndicate
+ent-MobAngryBeeWeak = { ent-MobAngryBee }
+    .suffix = Angry, weak
+    .desc = { ent-MobAngryBee.desc }
+ent-MobLootbug = Лутбаг
+    .desc = Оно ест метал, может быть, оно съело что-то ценное?
+ent-MobCarpSentient = космический карп
+    .desc = Это космический карп. Раньше был человеком.

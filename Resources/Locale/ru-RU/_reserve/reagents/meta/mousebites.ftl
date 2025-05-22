@@ -1,0 +1,3 @@
+mousebites-effects-vexes = Это меня раздражает...
+mousebites-effects-stupid = Неужели я попробовал этот дурацкий наркотик?
+mousebites-effects-metoo = Я тоже участвую в этом эпизоде.

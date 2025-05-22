@@ -1,0 +1,15 @@
+ent-LauncherLollypopRegeneratingTricordazine = диспенсер для леденцов трикодразина
+    .desc = Utilizes a in-built fabricator to generate tricordrazine lollypops from energy.
+    .suffix = Regenerating, DO NOT MAP
+ent-LauncherLollypopRegeneratingOmnizine = диспенсер для леденцов омнизина
+    .desc = Utilizes a in-built fabricator to generate omnizine lollypops from energy.
+    .suffix = Regenerating, DO NOT MAP
+ent-LauncherLollypopRegeneratingWeh = диспенсер для леденцов Weh!
+    .desc = Utilizes a in-built fabricator to generate Weh! lollypops from energy. Weh!
+    .suffix = Regenerating, DO NOT MAP
+ent-LauncherLollypopRegenerating = диспенсер леденцов
+    .desc = Utilizes a in-built fabricator to generate lollypops from energy.
+    .suffix = Regenerating, DO NOT MAP
+ent-LauncherCreamPieRegenerating = пирогомёт
+    .desc = Регенирирующий пирогомёт.
+    .suffix = Regenerating

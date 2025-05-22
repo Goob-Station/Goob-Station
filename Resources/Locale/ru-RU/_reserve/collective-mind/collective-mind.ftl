@@ -1,0 +1,9 @@
+collective-mind-dragon = Космический дракон
+collective-mind-lingmind = Улей
+collective-mind-tidemind = Тайд
+collective-mind-blobmind = Блоб
+collective-mind-mansus-link = Мансус
+collective-mind-abductormind = Глорп
+collective-mind-binary = Двоичный
+collective-mind-mousemind = Мышиный
+collective-mind-dronemind = Дроны
