@@ -1,0 +1,37 @@
+#Tier 0 Start
+- type: mutation
+  name: Grey Slime
+  id: GreyMutation
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: slime-baby
+  - type: SlimeComponent
+    mutation: GreyMutation
+    offspring: 4
+    mutationChance: 0.45
+    potentialMutations:
+    - OrangeMutation
+#Tier 0 End
+
+#Tier 1 Start
+- type: mutation
+  name: Orange Slime
+  id: OrangeMutation
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: slime-baby
+      color: Orange
+  - type: SlimeComponent
+    mutation: OrangeMutation
+    offspring: 4
+    mutationChance: 0.45
+    potentialMutations:
+    - GreyMutation

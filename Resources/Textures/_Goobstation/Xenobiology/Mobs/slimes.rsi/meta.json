@@ -8,35 +8,39 @@
   },
   "states": [
     {
-      "name": "grey-core"
+      "name": "slime-core"
     },
     {
-      "name": "grey-baby",
+      "name": "slime-baby",
       "delays": [
         [
-          1,
-          0.2,
-          0.4,
-          0.2
+          0.15,
+          0.15,
+          0.15,
+          0.15,
+          0.15,
+          0.15,
+          0.15
         ]
       ]
     },
     {
-      "name": "grey-baby-dead"
+      "name": "slime-dead"
     },
     {
-      "name": "grey-adult",
+      "name": "slime-adult",
       "delays": [
         [
-          1,
-          0.2,
-          0.4,
-          0.2
+          0.15,
+          0.15,
+          0.15,
+          0.15,
+          0.15,
+          0.15,
+          0.15,
+          0.15
         ]
       ]
-    },
-    {
-      "name": "grey-adult-dead"
     }
   ]
 }

@@ -10,13 +10,13 @@
     sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
-      state: grey-baby
+      state: slime-baby
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: grey-baby
+        Base: slime-baby
       Dead:
-        Base: grey-baby-dead
+        Base: slime-dead
   - type: Fixtures
     fixtures:
       fix1:
@@ -121,18 +121,14 @@
 # Begin Slimes
 
 - type: entity
-  name: grey slime
-  id: MobGreySlime
+  name: slime
+  id: MobXenoSlime
   parent: BaseMobXenoSlime
   description: It looks so much like jelly. I wonder what it tastes like?
   components:
-  - type: Sprite
-    layers:
-    - map: [ "enum.DamageStateVisualLayers.Base" ]
-      state: grey-baby
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: grey-baby
-      Dead:
-        Base: grey-baby-dead
+  - type: SlimeComponent
+    mutation: GreyMutation
+    offspring: 4
+    mutationChance: 0.45
+    potentialMutations:
+    - GreyMutation
