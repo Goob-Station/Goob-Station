@@ -35,7 +35,9 @@ enable_during_round = true
 flavor_text = false
 
 [hub]
+advertise = false
 tags = "lang:ru,region:moon,rp:none"
 
 [net]
 tickrate = 30
+upnp = true
