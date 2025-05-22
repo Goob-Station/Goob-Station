@@ -135,9 +135,6 @@
   id: CursedAnimalMask
 
 - type: Tag
-  id: DroneMind
-
-- type: Tag
   id: Durand
 
 - type: Tag
@@ -202,6 +199,9 @@
 
 - type: Tag
   id: FlashIgnoreResistances
+
+- type: Tag
+  id: FlashVulnerable
 
 - type: Tag
   id: FollowerStayOnPolymorph
