@@ -199,7 +199,7 @@
       baseWalkSpeed: 2.7
       baseSprintSpeed: 4.5
     - type: Speech
-      allowedEmotes: ['Mars', 'Wurble']
+      #allowedEmotes: ['Mars', 'Wurble']
     - type: CollectiveMind
       defaultChannel: Empathy
       channels:

@@ -108,10 +108,10 @@
       collection: FelinidGrowls
     Purr:
       collection: FelinidPurrs
-    Mars:
-      collection: Mars
-    Wurble:
-      collection: Wurble
+    #Mars:
+    #  collection: Mars
+    #Wurble:
+    #  collection: Wurble
 
 - type: emoteSounds
   id: FemaleShadowkin
@@ -150,7 +150,7 @@
       collection: FelinidGrowls
     Purr:
       collection: FelinidPurrs
-    Mars:
-      collection: Mars
-    Wurble:
-      collection: Wurble
+    #Mars:
+    #  collection: Mars
+    #Wurble:
+    #  collection: Wurble
