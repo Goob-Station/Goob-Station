@@ -9725,3 +9725,12 @@ Entries:
       message: Added a plushie themed after a very specific and beloved game admin.
   id: 1089
   time: '2025-05-21T18:01:21.0000000+00:00'
+- author: Rouden, FoxxoTrystan, SixplyDev, Diggy0, RocketBoss360
+  changes:
+    - type: Add
+      message: >-
+        Ported Shadowkins from EE. Instead of psionics they have night vision
+        and Empathy channel, but they are weak to physical damage and can't
+        resist flashes even with flash protection.
+  id: 1090
+  time: '2025-05-22T01:19:01.0000000+00:00'
