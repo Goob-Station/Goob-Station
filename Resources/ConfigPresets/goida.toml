@@ -35,7 +35,7 @@ enable_during_round = true
 flavor_text = false
 
 [hub]
-advertise = false
+advertise = true
 tags = "lang:ru,region:moon,rp:none"
 
 [net]
