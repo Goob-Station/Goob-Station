@@ -56,7 +56,7 @@
       collection: Warble
     Wurble:
       collection: Wurble
-    ResomiChirp:
+    Chirp:
       collection: ResomiChirp
 
 - type: emoteSounds
@@ -100,5 +100,5 @@
       collection: Warble
     Wurble:
       collection: Wurble
-    ResomiChirp:
+    Chirp:
       collection: ResomiChirp
