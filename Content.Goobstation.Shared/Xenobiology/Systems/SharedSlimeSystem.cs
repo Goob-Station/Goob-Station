@@ -32,7 +32,8 @@ public sealed class SharedSlimeSystem : EntitySystem
 
         SubscribeLocalEvent<SlimeComponent, ComponentInit>(OnCompInit);
     }
-
+    
+    // While the component is initializing, we push the fields in the provided mutation prototype onto the Slime.
     public void OnCompInit(Entity<SlimeComponent> ent, ref ComponentInit args)
     {
         var protoId = ent.Comp.Mutation;
@@ -47,11 +48,12 @@ public sealed class SharedSlimeSystem : EntitySystem
 
                 var temp = (object) comp;
                 _serializationManager.CopyTo(data.Component, ref temp);
-                EntityManager.AddComponent(ent.Owner, (Component)temp!, true);
+                EntityManager.AddComponent(ent.Owner, (Component)temp!, true); //The overwrite parameter should ensure any existing components of the same type are overwritten.
             }
         }
     }
 
+    //This method handles slime mitosis, for each offspring, a mutation is selected from their potential mutations - if mutation is successful, the products of mitosis will have the new mutation.
     public void DoMitosis(Entity<SlimeComponent> ent)
     {
         for (int i = 0; i < ent.Comp.Offspring; i++)
@@ -74,6 +76,7 @@ public sealed class SharedSlimeSystem : EntitySystem
         }
     }
 
+    //A helper method which clones slimes and updates the mutation field.
     private EntityUid SpawnSlime(EntityUid original, string mutation)
     {
         var transform = Transform(original);
@@ -89,6 +92,7 @@ public sealed class SharedSlimeSystem : EntitySystem
         return newEntity;
     }
 
+    //Checks the hunger of slimes, if they've reached the threshhold set in SlimeComponent, the mitosis method is called.
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
