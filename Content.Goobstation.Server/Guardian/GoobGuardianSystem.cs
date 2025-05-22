@@ -21,10 +21,10 @@ namespace Content.Goobstation.Server.Guardian
             SubscribeLocalEvent<GuardianComponent, GuardianToggleSelfActionEvent>(OnPerformSelfAction); // Goobstation
         }
 
-        private void OnPerformSelfAction(EntityUid uid, GuardianComponent component, GuardianToggleSelfActionEvent args)
+        private void OnPerformSelfAction(Entity<GuardianComponent> ent, GuardianToggleSelfActionEvent args)
         {
-            if (component.Host != null && TryComp<GuardianHostComponent>(component.Host, out var hostComp) && component.GuardianLoose)
-                _guardian.ToggleGuardian(component.Host.Value, hostComp);
+            if (ent.Comp.Host != null && TryComp<GuardianHostComponent>(ent.Comp.Host, out var hostComp) && ent.Comp.GuardianLoose)
+                _guardian.ToggleGuardian(ent.Comp.Host.Value, hostComp);
 
             args.Handled = true;
         }
