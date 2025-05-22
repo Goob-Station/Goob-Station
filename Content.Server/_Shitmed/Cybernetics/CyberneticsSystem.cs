@@ -49,7 +49,7 @@ internal sealed class CyberneticsSystem : EntitySystem
                 {
                     var shock = new DamageSpecifier(_prototypes.Index<DamageTypePrototype>("Shock"), 30);
                     var targetPart = _body.GetTargetBodyPart(part);
-                    _damageable.TryChangeDamage(part.Body.Value, shock, targetPart: targetPart, damageable: damageable);
+                    _damageable.TryChangeDamage(part.Body.Value, shock, ignoreResistances: true, targetPart: targetPart, damageable: damageable);
                     Dirty(cyberEnt, damageable);
                 }
             }

@@ -123,6 +123,10 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
+// Shitmed Change
+using Content.Shared._Shitmed.Targeting;
+using Content.Shared._EinsteinEngines.Silicon.Components;
+
 namespace Content.Server.Ghost
 {
     public sealed class GhostSystem : SharedGhostSystem
@@ -657,9 +661,6 @@ namespace Content.Server.Ghost
                 {
                     canReturn = true;
 
-                    //todo: what if they dont breathe lol
-                    //cry deeply
-
                     FixedPoint2 dealtDamage = 200;
 
                     if (TryComp<DamageableComponent>(playerEntity, out var damageable)
@@ -669,9 +670,14 @@ namespace Content.Server.Ghost
                         dealtDamage = playerDeadThreshold - damageable.TotalDamage;
                     }
 
-                    DamageSpecifier damage = new(_prototypeManager.Index<DamageTypePrototype>("Asphyxiation"), dealtDamage);
+                    // Shitmed Change Start
+                    var damageType = HasComp<SiliconComponent>(playerEntity)
+                        ? "Ion"
+                        : "Asphyxiation";
+                    DamageSpecifier damage = new(_prototypeManager.Index<DamageTypePrototype>(damageType), dealtDamage);
 
-                    _damageable.TryChangeDamage(playerEntity, damage, true);
+                    _damageable.TryChangeDamage(playerEntity, damage, true, targetPart: TargetBodyPart.All, splitDamage: false);
+                    // Shitmed Change End
                 }
             }
 

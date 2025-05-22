@@ -134,6 +134,7 @@ public sealed class WoundableVisualsSystem : VisualizerSystem<WoundableVisualsCo
         {
             if (TryComp(uid, out SpriteComponent? partSprite))
                 UpdateWoundableVisuals(uid, component, partSprite);
+
             return;
         }
 

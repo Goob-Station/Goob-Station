@@ -13,6 +13,7 @@ using Content.Shared._Shitmed.Medical.Surgery.Pain.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas;
 using Content.Shared.Body.Organ;
 using Content.Shared.Body.Part;
+using Content.Shared.Damage.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Popups;
 using Robust.Shared.Audio;
@@ -509,7 +510,8 @@ public partial class PainSystem
         string? screamString = null)
     {
         if (!_screamsEnabled
-            || !_random.Prob(_screamChance))
+            || !_random.Prob(_screamChance)
+            || _mobState.IsDead(body))
             return null;
 
         CleanupSounds(nerveSys);
@@ -630,8 +632,9 @@ public partial class PainSystem
         if (!_timing.IsFirstTimePredicted
             || TerminatingOrDeleted(nerveSysEnt)
             || !TryComp<OrganComponent>(nerveSysEnt, out var nerveSysOrgan)
-            || nerveSysOrgan.Body is not {} body
-            || _mobState.IsDead(nerveSysOrgan.Body.Value))
+            || nerveSysOrgan.Body is not { } body
+            || _mobState.IsDead(body)
+            || HasComp<GodmodeComponent>(body))
             return;
 
         if (nerveSys.LastPainThreshold != nerveSys.Pain)

@@ -102,8 +102,18 @@ public partial class TraumaSystem
             return;
 
         foreach (var trauma in GetAllWoundTraumas(inflicter, inflicter))
+        {
             if (TraumasBlockingHealing.Contains(trauma.Comp.TraumaType))
+            {
+                if (trauma.Comp.TraumaType == TraumaType.BoneDamage
+                    && args.Woundable.Comp.Bone.ContainedEntities.FirstOrNull() is { } bone
+                    && TryComp(bone, out BoneComponent? boneComp)
+                    && boneComp.BoneSeverity != BoneSeverity.Broken)
+                    continue;
+
                 args.Cancelled = true;
+            }
+        }
     }
 
     #region Public API
