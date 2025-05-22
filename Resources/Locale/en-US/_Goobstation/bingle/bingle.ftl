@@ -10,6 +10,7 @@ bingle-accent-2 = Bing
 bingle-accent-3 = Bongle
 bingle-accent-4 = Bong
 bingle-accent-5 = BINGLE
+bingle-accent-6 = Durkle
 
 chat-speech-verb-name-bingle = Bingle
 bingle-verb-1 = Croaks
