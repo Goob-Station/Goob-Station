@@ -20,4 +20,5 @@ panic_bunker.enable_without_admins = false
 panic_bunker.custom_reason = ""
 
 [hub]
+advertise = true
 tags = "lang:en,region:am_n_e,rp:low"

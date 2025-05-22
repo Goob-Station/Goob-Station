@@ -5,7 +5,7 @@
 // SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
-
+/*
 using Robust.Shared;
 using Robust.Shared.Configuration;
 using Content.Goobstation.Common.CCVar;
@@ -80,3 +80,4 @@ public sealed class DynamicHostnameSystem : EntitySystem
         _configuration.SetCVar(CVars.GameHostName, hostname);
     }
 }
+*/

@@ -1,5 +1,5 @@
-server-currency-name-singular = Резерв Коин
-server-currency-name-plural = Резерв Коины
+server-currency-name-singular = Гойдакоин
+server-currency-name-plural = Гойдакоины
 
 ## Команды
 
@@ -42,7 +42,7 @@ gs-balanceui-gift-player-tooltip = Вставьте имя игрока, кот�
 gs-balanceui-gift-value = Значение
 gs-balanceui-gift-value-tooltip = Сумма перевода
 
-gs-balanceui-shop-label = Магазин Резерва
+gs-balanceui-shop-label = Гойда Стор
 gs-balanceui-shop-empty = Нет в наличии!
 gs-balanceui-shop-buy = Купить
 gs-balanceui-shop-footer = ⚠ Напишите в ахелп для использования вашего токена. Только 1 использование в день.
@@ -50,11 +50,11 @@ gs-balanceui-shop-footer = ⚠ Напишите в ахелп для испол�
 gs-balanceui-shop-token-label = Токены
 gs-balanceui-shop-tittle-label = Названия
 
-gs-balanceui-shop-buy-token-hightier-antag = Купить hightier антаг токен - {$price} Резерв Койнов
-gs-balanceui-shop-buy-token-midtier-antag = Купить midtier антаг токен - {$price} Резерв Койнов
-gs-balanceui-shop-buy-token-lowtier-antag = Купить lowtier - {$price} Резерв Койнов
-gs-balanceui-shop-buy-token-admin-abuse = Купить админ абуз токен - {$price} Резерв Койнов
-gs-balanceui-shop-buy-token-ghost = Купить гостроль токен - {$price} Резерв Койнов
+gs-balanceui-shop-buy-token-hightier-antag = Купить hightier антаг токен - {$price} Гойдакоинов
+gs-balanceui-shop-buy-token-midtier-antag = Купить midtier антаг токен - {$price} Гойдакоинов
+gs-balanceui-shop-buy-token-lowtier-antag = Купить lowtier - {$price} Гойдакойнов
+gs-balanceui-shop-buy-token-admin-abuse = Купить админ абуз токен - {$price} Гойдакоинов
+gs-balanceui-shop-buy-token-ghost = Купить гостроль токен - {$price} Гойдакоинов
 
 gs-balanceui-shop-token-hightier-antag = HighTier Антаг Токен
 gs-balanceui-shop-token-midtier-antag = MidTier Антаг Токен
