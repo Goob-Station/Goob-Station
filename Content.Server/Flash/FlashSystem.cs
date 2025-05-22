@@ -50,6 +50,7 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 // SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tim <timfalken@hotmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
@@ -102,6 +103,7 @@ namespace Content.Server.Flash
 
         private static readonly ProtoId<TagPrototype> TrashTag = "Trash";
         public static readonly ProtoId<TagPrototype> IgnoreResistancesTag = "FlashIgnoreResistances"; // Goobstation
+        public static readonly ProtoId<TagPrototype> FlashVulnerableTag = "FlashVulnerable"; // Goobstation
 
         public override void Initialize()
         {
@@ -181,7 +183,7 @@ namespace Content.Server.Flash
             TimeSpan? stunDuration = null)
         {
             // Goob edit start
-            if (used == null || !_tag.HasTag(used.Value, IgnoreResistancesTag))
+            if (used == null || !_tag.HasTag(used.Value, IgnoreResistancesTag) && !_tag.HasTag(target, FlashVulnerableTag))
             {
                 var attempt = new FlashAttemptEvent(target, user, used);
                 RaiseLocalEvent(target, attempt, true);
