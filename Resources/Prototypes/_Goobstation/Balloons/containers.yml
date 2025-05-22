@@ -3,13 +3,37 @@
   supportedGroups:
   - Burn
   - Brute
-  
+  - Genetic
+  - Toxin
 - type: damageContainer
   id: BlackBalloon
   supportedGroups:
   - Brute
-  
+  - Genetic
+  - Toxin
+  supportedTypes:
+    - Cold
+    - Caustic
+    
 - type: damageContainer
   id: SteelBalloon
   supportedGroups:
   - Burn
+  - Genetic
+  - Toxin
+  
+- type: damageContainer
+  id: WhiteBalloon
+  supportedGroups:
+  - Brute
+  - Genetic
+  - Toxin
+  supportedTypes:
+    - Heat
+    - Caustic
+- type: damageContainer
+  id: ZebraBalloon
+  supportedGroups:
+  - Brute
+  - Genetic
+  - Toxin

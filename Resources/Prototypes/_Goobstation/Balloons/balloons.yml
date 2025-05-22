@@ -33,6 +33,7 @@
 - type: entity
   name: red balloon
   parent: BaseBalloon
+  description: The weakest balloon.
   id: redBalloon
   components:
   - type: Sprite
@@ -60,6 +61,7 @@
 - type: entity
   name: blue balloon
   parent: BaseBalloon
+  description: A pretty relaxed balloon.
   id: blueBalloon
   components:
   - type: Sprite
@@ -90,6 +92,7 @@
 - type: entity
   name: green balloon
   parent: BaseBalloon
+  description: The most strategically minded balloon of the bunch. Capable of planning advanced waves, if only it had a track to follow.
   id: greenBalloon
   components:
   - type: Sprite
@@ -120,6 +123,7 @@
 - type: entity
   name: yellow balloon
   parent: BaseBalloon
+  description: The greediest balloon, always flaunting its wealth to the other balloons.
   id: yellowBalloon
   components:
   - type: Sprite
@@ -150,6 +154,7 @@
 - type: entity
   name: pink balloon
   parent: BaseBalloon
+  description: The most annoying and insufferable balloon.
   id: pinkBalloon
   components:
   - type: Sprite
@@ -175,10 +180,12 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+        
 # Black Balloon
 - type: entity
   name: black balloon
   parent: BaseBalloon
+  description: The edgiest balloon, never grew out of its emo phase. Immune to heat and shock damage!
   id: blackBalloon
   components:
   - type: Sprite
@@ -210,10 +217,13 @@
 - type: entity
   name: white balloon
   parent: BaseBalloon
+  description: The most emotionless balloon. Immune to cold damage!
   id: whiteBalloon
   components:
   - type: Sprite
     state: white
+  - type: Damageable
+    damageContainer: WhiteBalloon
   - type: Destructible
     thresholds:
     - trigger:
@@ -235,14 +245,18 @@
             max: 2
       - !type:DoActsBehavior
         acts: [ "Destruction" ] 
+        
 # Zebra Balloon
 - type: entity
   name: zebra balloon
   parent: BaseBalloon
+  description: Belongs in a zoo. Immune to all burn damage!
   id: zebraBalloon
   components:
   - type: Sprite
     state: zebra
+  - type: Damageable
+    damageContainer: ZebraBalloon
   - type: Destructible
     thresholds:
     - trigger:
@@ -267,10 +281,12 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+        
 # steel balloon
 - type: entity
   name: steel balloon
   parent: BaseBalloon
+  description: The most armored balloon. Immune to brute damage!
   id: steelBalloon
   components:
   - type: Sprite
@@ -301,10 +317,12 @@
             max: 2
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+        
 # rainbow balloon
 - type: entity
   name: rainbow balloon
   parent: BaseBalloon
+  description: The most evil balloon of them all. Don't let the pretty colors fool you.
   id: rainbowBalloon
   components:
   - type: Sprite
