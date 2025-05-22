@@ -171,13 +171,13 @@ namespace Content.Client.Stylesheets
                 {
                     $"/Fonts/NotoSans{ds}/NotoSans{ds}-{sv}.ttf",
                     $"/Fonts/NotoSans/NotoSansSymbols-{sv}.ttf",
-                    "/Fonts/NotoSans/NotoSansSymbols2-Regular.ttf",
-                    "/Fonts/NotoSans/NotoSansSC-Regular.ttf",
+                    "/Fonts/Minecraft/Minecraftia.ttf",
+                    "/Fonts/Minecraft/Minecraftia.ttf",
                 },
                 size
             );
         }
-        public static Font NotoStack2ElectricBoogaloo(this IResourceCache resCache, string path = "/Fonts/NotoSans/NotoSans-Regular.ttf", int size = 10)
+        public static Font NotoStack2ElectricBoogaloo(this IResourceCache resCache, string path = "/Fonts/Minecraft/Minecraftia.ttf", int size = 10)
         {
             return resCache.GetFont
             (
@@ -185,9 +185,9 @@ namespace Content.Client.Stylesheets
                 new[]
                 {
                     path,
-                    $"/Fonts/NotoSans/NotoSansSymbols-Regular.ttf",
-                    "/Fonts/NotoSans/NotoSansSymbols2-Regular.ttf",
-                    "/Fonts/NotoSans/NotoSansSC-Regular.ttf",
+                    $"/Fonts/Minecraft/Minecraftia.ttf",
+                    "/Fonts/Minecraft/Minecraftia.ttf",
+                    "/Fonts/Minecraft/Minecraftia.ttf",
                 },
                 size
             );
@@ -666,7 +666,7 @@ namespace Content.Client.Stylesheets
             var sliderFillBlue = new StyleBoxTexture(sliderFillBox) { Modulate = Color.Blue };
             var sliderFillWhite = new StyleBoxTexture(sliderFillBox) { Modulate = Color.White };
 
-            var boxFont13 = resCache.NotoStack2ElectricBoogaloo("/Fonts/Boxfont-round/Boxfont Round.ttf", 13); // Goobstation - ZH text support
+            var boxFont13 = resCache.NotoStack2ElectricBoogaloo("/Fonts/Minecraft/Minecrafter_3.ttf", 13); // Goobstation - ZH text support
 
             var insetBack = new StyleBoxTexture
             {

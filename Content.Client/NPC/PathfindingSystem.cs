@@ -179,7 +179,7 @@ namespace Content.Client.NPC
             _system = system;
             _mapSystem = mapSystem;
             _transformSystem = transformSystem;
-            _font = new VectorFont(cache.GetResource<FontResource>("/Fonts/NotoSans/NotoSans-Regular.ttf"), 10);
+            _font = new VectorFont(cache.GetResource<FontResource>("/Fonts/Minecraft/Minecraftia.ttf"), 10);
         }
 
         protected override void Draw(in OverlayDrawArgs args)

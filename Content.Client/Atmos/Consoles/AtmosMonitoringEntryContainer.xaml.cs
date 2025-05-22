@@ -39,8 +39,8 @@ public sealed partial class AtmosMonitoringEntryContainer : BoxContainer
         NetworkColorStripe.Modulate = data.Color;
 
         // Load fonts
-        var headerFont = new VectorFont(_cache.GetResource<FontResource>("/Fonts/NotoSans/NotoSans-Bold.ttf"), 11);
-        var normalFont = new VectorFont(_cache.GetResource<FontResource>("/Fonts/NotoSansDisplay/NotoSansDisplay-Regular.ttf"), 11);
+        var headerFont = new VectorFont(_cache.GetResource<FontResource>("/Fonts/Minecraft/Minecraftia.ttf"), 11);
+        var normalFont = new VectorFont(_cache.GetResource<FontResource>("/Fonts/Minecraft/Minecraftia.ttf"), 11);
 
         // Set fonts
         TemperatureHeaderLabel.FontOverride = headerFont;
@@ -58,7 +58,7 @@ public sealed partial class AtmosMonitoringEntryContainer : BoxContainer
     public void UpdateEntry(AtmosMonitoringConsoleEntry updatedData, bool isFocus)
     {
         // Load fonts
-        var normalFont = new VectorFont(_cache.GetResource<FontResource>("/Fonts/NotoSansDisplay/NotoSansDisplay-Regular.ttf"), 11);
+        var normalFont = new VectorFont(_cache.GetResource<FontResource>("/Fonts/Minecraft/Minecraftia.ttf"), 11);
 
         // Update name and values
         if (!string.IsNullOrEmpty(updatedData.Address))
