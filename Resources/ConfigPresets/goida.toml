@@ -43,3 +43,6 @@ flavor_text = false
 
 [hub]
 tags = "lang:ru,region:moon,rp:none"
+
+[net]
+tickrate = 30
