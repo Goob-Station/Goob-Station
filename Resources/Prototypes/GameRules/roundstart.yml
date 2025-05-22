@@ -150,14 +150,14 @@
     - id: Devil # Goob
       prob: 0.3
 
-#- type: entity
-#  parent: BaseGameRule
-#  id: DummyNonAntagChance
-#  components:
-#  - type: SubGamemodes
-#    rules:
-#    - id: DummyNonAntag
-#      prob: 0.3
+- type: entity
+  parent: BaseGameRule
+  id: DummyNonAntagChance
+  components:
+  - type: SubGamemodes
+    rules:
+    - id: DummyNonAntag
+      prob: 0.3
 
 - type: entity
   id: DeathMatch31
