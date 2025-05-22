@@ -56,8 +56,8 @@
       collection: Warble
     Wurble:
       collection: Wurble
-    Chirp:
-      collection: Chirp
+    ResomiChirp:
+      collection: ResomiChirp
 
 - type: emoteSounds
   id: FemaleAvaliEmote
