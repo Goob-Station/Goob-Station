@@ -24,7 +24,7 @@ public sealed class DiseaseSwabSystem : EntitySystem
 
     private void OnAfterInteract(Entity<DiseaseSwabComponent> ent, ref AfterInteractEvent args)
     {
-        if (!args.CanReach || args.Target == null || args.Target == args.User)
+        if (!args.CanReach || args.Target == null)
             return;
 
         // Target must have diseases
