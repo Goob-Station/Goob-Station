@@ -9734,3 +9734,9 @@ Entries:
         resist flashes even with flash protection.
   id: 1090
   time: '2025-05-22T01:19:01.0000000+00:00'
+- author: JarlElbowses
+  changes:
+    - type: Remove
+      message: Maints access from assistants
+  id: 1091
+  time: '2025-05-22T03:21:23.0000000+00:00'
