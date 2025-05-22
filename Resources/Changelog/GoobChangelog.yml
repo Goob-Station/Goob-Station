@@ -9711,3 +9711,103 @@ Entries:
       message: Durk victory.
   id: 1087
   time: '2025-05-21T03:29:46.0000000+00:00'
+- author: TurboTrackerss14
+  changes:
+    - type: Tweak
+      message: Smoke Implant cooldown increase
+    - type: Tweak
+      message: Smoke Implant smoke duration reduced
+  id: 1088
+  time: '2025-05-21T17:39:43.0000000+00:00'
+- author: SolsticeOfTheWinter, Jvne
+  changes:
+    - type: Add
+      message: Added a plushie themed after a very specific and beloved game admin.
+  id: 1089
+  time: '2025-05-21T18:01:21.0000000+00:00'
+- author: Rouden, FoxxoTrystan, SixplyDev, Diggy0, RocketBoss360
+  changes:
+    - type: Add
+      message: >-
+        Ported Shadowkins from EE. Instead of psionics they have night vision
+        and Empathy channel, but they are weak to physical damage and can't
+        resist flashes even with flash protection.
+  id: 1090
+  time: '2025-05-22T01:19:01.0000000+00:00'
+- author: JarlElbowses
+  changes:
+    - type: Remove
+      message: Maints access from assistants
+  id: 1091
+  time: '2025-05-22T03:21:23.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Fix
+      message: Fixed god mode not preventing bone damage or pain.
+    - type: Fix
+      message: Fixed bleed and damage visuals not reverting themselves.
+    - type: Fix
+      message: >-
+        Fixed wounds healing themselves leading to removing the entire trauma.
+        (yes surely healing my leftover cuts will undo the shattered bones)
+    - type: Fix
+      message: Succumb ghosting now fuckin permakills you kiddo.
+    - type: Fix
+      message: Removed richtext formatting in self-inspect popups (lol)
+    - type: Fix
+      message: Fixed reverse bear trap not actually cutting your head.
+    - type: Fix
+      message: >-
+        Fixed polymorph making entities [TITLE CARD], and added some more
+        safeguards to prevent other entities from becoming [TITLE CARD]
+    - type: Fix
+      message: Fixed bone mend surgery counting as finished before intended.
+    - type: Fix
+      message: Fixed the fix constant blood output surgery having wonky conditionals.
+    - type: Fix
+      message: >-
+        Fixed some bugs around IPC healing, and weld healing. (If you didnt
+        notice, it works the same as topicals, you need to target the part you
+        want to heal)
+    - type: Fix
+      message: >-
+        Fixed medical borgs being unable to see step labels and icons on
+        surgery.
+    - type: Fix
+      message: >-
+        Fixed burning your hands on a light bulb resulting on random part
+        damage.
+    - type: Tweak
+      message: >-
+        Attempted some fixes at woundmed related lag. Will keep an eye on the
+        performance metrics to see if it needs to be more aggressive.
+    - type: Fix
+      message: Fixed IPC not having groins.
+    - type: Fix
+      message: Fixed monkeys and kobolds having normal human screams.
+    - type: Fix
+      message: Fixed dead entities having pain screams (lol)
+    - type: Fix
+      message: >-
+        Fixed repeatable surgeries getting performed one more step than
+        intended.
+    - type: Fix
+      message: Fixed missing FTL strings for targeting binds.
+    - type: Fix
+      message: Fixed IPC being unable to heal Ion damage.
+    - type: Fix
+      message: Fixed cellular and radiation damage self healing.
+    - type: Tweak
+      message: >-
+        Self heal now requires you to be alive, and spend at least 2s without
+        receiving damage per heal tick.
+    - type: Tweak
+      message: Mice and roaches should not drop organs when gibbed anymore.
+  id: 1092
+  time: '2025-05-22T07:38:31.0000000+00:00'
+- author: SoundingExpert
+  changes:
+    - type: Tweak
+      message: Made PTL actually useable
+  id: 1093
+  time: '2025-05-22T08:09:14.0000000+00:00'
