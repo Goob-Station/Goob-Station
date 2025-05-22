@@ -43,7 +43,7 @@
   - type: Stomach
   - type: Metabolizer
     # mm very yummy
-    maxReagents: 5
+    maxPoisonsProcessable: 5
     metabolizerTypes: [Yowie]
 
 - type: entity
@@ -62,7 +62,7 @@
       rateModifier: 1
     - id: Alcohol # Same as parent
       rateModifier: 0.1
-    maxReagents: 3 # For proper processing of chems instead of heart
+    maxPoisonsProcessable: 3 # For proper processing of chems instead of heart
 
 - type: entity
   id: OrganYowieHeart

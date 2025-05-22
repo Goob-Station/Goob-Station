@@ -51,7 +51,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Content.Goobstation.Shared\Content.Goobstation.Shared.csproj" />
-    <ProjectReference Include="..\Content.Goobstation.UIKit.Client\Content.Goobstation.UIKit.Client.csproj" />
+    <ProjectReference Include="..\Content.Goobstation.UIKit\Content.Goobstation.UIKit.csproj" />
     <ProjectReference Include="..\RobustToolbox\Lidgren.Network\Lidgren.Network.csproj" />
     <ProjectReference Include="..\RobustToolbox\Robust.Shared.Maths\Robust.Shared.Maths.csproj" />
     <ProjectReference Include="..\RobustToolbox\Robust.Shared\Robust.Shared.csproj" />

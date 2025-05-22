@@ -4,9 +4,11 @@
 # SPDX-FileCopyrightText: 2024 starch <starchpersonal@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
@@ -129,3 +131,15 @@
       amount: 9
     - id: CartridgeG8Hypercharged
       amount: 9
+
+- type: entity
+  parent: ClothingBackpackDuffel
+  id: ClothingBackpackDuffelHosFilledUtility
+  name: HoS Utility bundle
+  description: This bundle holds the various HoS utility items.
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingOuterHardsuitHeadOfSecurityExperimental
+    - id: ClothingEyesGlassesSecurityAdvanced
+    - id: ClothingShoesBootsJackAdvanced

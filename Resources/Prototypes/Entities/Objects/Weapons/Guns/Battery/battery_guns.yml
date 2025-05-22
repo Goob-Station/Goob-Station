@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: 2020 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2020 Exp <theexp111@gmail.com>
 # SPDX-FileCopyrightText: 2020 Metal Gear Sloth <metalgearsloth@gmail.com>
-# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2020 Ygg01 <daniel.fath7@gmail.com>
 # SPDX-FileCopyrightText: 2020 py01 <pyronetics01@gmail.com>
 # SPDX-FileCopyrightText: 2021 Galactic Chimp <GalacticChimpanzee@gmail.com>
@@ -487,6 +487,19 @@
   - type: HitscanBatteryAmmoProvider
     proto: Pulse
     fireCost: 200
+  - type: AmmoSelector # Goobstation - Start
+    prototypes:
+    - Pulse
+    - StunPulse
+  - type: UserInterface
+    interfaces:
+      enum.AmmoSelectorUiKey.Key:
+        type: AmmoSelectorMenuBoundUserInterface
+  - type: ActivatableUI
+    altVerb: true
+    verbOnly: true
+    verbText: mode-select-verb-text
+    key: enum.AmmoSelectorUiKey.Key # Goobstation - End
   - type: Battery
     maxCharge: 5000
     startingCharge: 5000
@@ -525,8 +538,22 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
   - type: HitscanBatteryAmmoProvider
-    proto: HeavyPulse # Goobstation - Deathsquad revamp
+    proto: HeavyPulse # Goobstation - Start
     fireCost: 100
+  - type: AmmoSelector
+    prototypes:
+    - HeavyPulse
+    - LightPulse
+    - StunPulse
+  - type: UserInterface
+    interfaces:
+      enum.AmmoSelectorUiKey.Key:
+        type: AmmoSelectorMenuBoundUserInterface
+  - type: ActivatableUI
+    altVerb: true
+    verbOnly: true
+    verbText: mode-select-verb-text
+    key: enum.AmmoSelectorUiKey.Key # Goobstation - End
   - type: Battery
     maxCharge: 40000
     startingCharge: 40000
@@ -567,11 +594,11 @@
   - type: HitscanBatteryAmmoProvider
     proto: RedHeavyLaser
     fireCost: 100
-  # Goobstation
   - type: Tag
     tags:
-    - Rifle
-  - type: Item
+    - TurretCompatibleWeapon
+    - Rifle # Goobstation
+  - type: Item # Goobstation
     size: Huge
     shape:
     - 0,0,4,1

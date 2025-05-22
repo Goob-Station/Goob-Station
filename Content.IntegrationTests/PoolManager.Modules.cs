@@ -22,8 +22,7 @@ public static partial class PoolManager
     // So, Content.Shared, Content.Client, Content.Server are "core" modules
     // Content.Common is not a thing by default but will be considered a core module if found.
     private static readonly string ContentPrefix = "Content.";
-    private static readonly string[] Suffixes = [".Shared", ".Client", ".Server", ".Common", ".UIKit"]; // GoobMod - UIKit
-
+    private static readonly string[] Suffixes = [".Shared", ".Client", ".Server", ".Common", ".UIKit", ".Maths"];
     private static readonly Assembly CurrentAssembly = typeof(PoolManager).Assembly;
 
     private static readonly HashSet<Assembly> Client = [];

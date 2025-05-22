@@ -3,13 +3,16 @@
 // SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Damage.Components;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Timing;
-
+using Content.Shared._Shitmed.Targeting; // Shitmed Change
 namespace Content.Shared.Damage;
 
 public sealed class PassiveDamageSystem : EntitySystem
@@ -51,10 +54,8 @@ public sealed class PassiveDamageSystem : EntitySystem
 
             // Damage them
             foreach (var allowedState in comp.AllowedStates)
-            {
-                if(allowedState == mobState.CurrentState)
-                    _damageable.TryChangeDamage(uid, comp.Damage, true, false, damage);
-            }
+                if (allowedState == mobState.CurrentState)
+                    _damageable.TryChangeDamage(uid, comp.Damage, true, false, damage, targetPart: TargetBodyPart.All); // Shitmed Change
         }
     }
 }

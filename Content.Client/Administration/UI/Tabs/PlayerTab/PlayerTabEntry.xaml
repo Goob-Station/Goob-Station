@@ -30,11 +30,6 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                HorizontalExpand="True"
                ClipText="True"/>
         <customControls:VSeparator/>
-        <Label Name="AntagonistLabel"
-               SizeFlagsStretchRatio="1"
-               HorizontalExpand="True"
-               ClipText="True"/>
-        <customControls:VSeparator/>
         <Label Name="RoleTypeLabel"
                SizeFlagsStretchRatio="2"
                HorizontalExpand="True"

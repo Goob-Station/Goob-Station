@@ -62,6 +62,7 @@ public sealed class ThermalRegulatorSystem : EntitySystem
         if (!Resolve(ent, ref ent.Comp2, logMissing: false))
             return;
 
+        // TODO: Why do we have two datafields for this if they are only ever used once here?
         var totalMetabolismTempChange = ent.Comp1.MetabolismHeat - ent.Comp1.RadiatedHeat;
 
         // implicit heat regulation
@@ -85,7 +86,7 @@ public sealed class ThermalRegulatorSystem : EntitySystem
 
         // if body temperature is not within comfortable, thermal regulation
         // processes starts
-        if (tempDiff > ent.Comp1.ThermalRegulationTemperatureThreshold)
+        if (tempDiff < ent.Comp1.ThermalRegulationTemperatureThreshold)
             return;
 
         if (ent.Comp2.CurrentTemperature > ent.Comp1.NormalBodyTemperature)

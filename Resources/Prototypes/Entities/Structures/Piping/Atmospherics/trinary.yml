@@ -89,54 +89,57 @@
   parent: GasTrinaryBase
   id: GasFilterBase
   components:
-  - type: Sprite
-    sprite: Structures/Piping/Atmospherics/gasfilter.rsi
-    layers:
-      - sprite: Structures/Piping/Atmospherics/pipe.rsi
-        state: pipeTrinaryConnectors
-        map: [ "enum.PipeVisualLayers.Pipe" ]
-      - state: gasFilter
-        map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
-  - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.FilterVisuals.Enabled:
-        enabled:
-          True: { state: gasFilterOn }
-          False: { state: gasFilter }
-  - type: PipeColorVisuals
-  - type: UserInterface
-    interfaces:
-      enum.GasFilterUiKey.Key:
-        type: GasFilterBoundUserInterface
-  - type: GasFilter
-    enabled: false
-    transferRate: 1000
-    maxTransferRate: 1000
-  - type: Construction
-    graph: GasTrinary
-    node: filter
-  - type: AmbientSound
-    enabled: false
-    volume: -9
-    range: 5
-    sound:
-      path: /Audio/Ambience/Objects/gas_hiss.ogg
-  - type: AtmosMonitoringConsoleDevice
-    navMapBlip: GasFlowRegulator
-  - type: GuideHelp
-    guides:
-    - MixingAndFiltering
-  - type: VentCrawlerTube # Goobstation - ventcrawl
-    containerId: VentCrawlerTube
-  - type: VentCrawlerJunction # Goobstation - ventcrawl
-    degrees:
-      - 0
-      - -90
-      - 180
-  - type: ContainerContainer # Goobstation - ventcrawl
-    containers:
-      VentCrawlerTube: !type:Container
+    - type: SubFloorHide
+      visibleLayers:
+      - enum.SubfloorLayers.FirstLayer
+    - type: Sprite
+      sprite: Structures/Piping/Atmospherics/gasfilter.rsi
+      layers:
+        - sprite: Structures/Piping/Atmospherics/pipe.rsi
+          state: pipeTrinaryConnectors
+          map: [ "enum.PipeVisualLayers.Pipe" ]
+        - state: gasFilter
+          map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
+    - type: Appearance
+    - type: GenericVisualizer
+      visuals:
+        enum.FilterVisuals.Enabled:
+          enabled:
+            True: { state: gasFilterOn }
+            False: { state: gasFilter }
+    - type: PipeColorVisuals
+    - type: UserInterface
+      interfaces:
+        enum.GasFilterUiKey.Key:
+          type: GasFilterBoundUserInterface
+    - type: GasFilter
+      enabled: false
+      transferRate: 1000
+      maxTransferRate: 1000
+    - type: Construction
+      graph: GasTrinary
+      node: filter
+    - type: AmbientSound
+      enabled: false
+      volume: -9
+      range: 5
+      sound:
+        path: /Audio/Ambience/Objects/gas_hiss.ogg
+    - type: AtmosMonitoringConsoleDevice
+      navMapBlip: GasFlowRegulator
+    - type: GuideHelp
+      guides:
+      - MixingAndFiltering
+    - type: VentCrawlerTube # Goobstation - ventcrawl
+      containerId: VentCrawlerTube
+    - type: VentCrawlerJunction # Goobstation - ventcrawl
+      degrees:
+        - 0
+        - -90
+        - 180
+    - type: ContainerContainer # Goobstation - ventcrawl
+      containers:
+        VentCrawlerTube: !type:Container
 
 # Goobstation - reparent to new base filter proto
 - type: entity
@@ -154,6 +157,9 @@
   parent: [GasFilter, GasTrinaryFlippedBase]
   id: GasFilterFlipped
   components:
+  - type: SubFloorHide
+    visibleLayers:
+    - enum.SubfloorLayers.FirstLayer
   - type: Sprite
     layers:
     - sprite: Structures/Piping/Atmospherics/pipe.rsi

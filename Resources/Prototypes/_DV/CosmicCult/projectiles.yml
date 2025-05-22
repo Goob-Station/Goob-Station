@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: ProjectileCosmicNova
   name: Astral Nova
@@ -67,7 +74,6 @@
     layers:
       - state: razor
         shader: unshaded
-  - type: GatheringProjectile
   - type: DamageMarkerOnCollide
     whitelist:
       components:
@@ -83,14 +89,14 @@
         Cold: 10
         Asphyxiation: 5
     soundHit:
-      path: /Audio/Weapons/Guns/Hits/bullet_hit.ogg
+      path: /Audio/_DV/CosmicCult/projectile_razor_hit.ogg
   - type: Ammo
     muzzleFlash: null
   # Short lifespan
   - type: TimedDespawn
     lifetime: 0.6
   - type: SingularityDistortion
-    intensity: +10
+    intensity: +5
     falloffPower: 1.5
   - type: PointLight
     color: "#42a4ae"

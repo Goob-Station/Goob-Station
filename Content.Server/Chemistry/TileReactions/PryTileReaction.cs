@@ -79,7 +79,7 @@
 
 using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Chemistry.Reagent;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Maps;
 using JetBrains.Annotations;
 using Robust.Shared.Map;
