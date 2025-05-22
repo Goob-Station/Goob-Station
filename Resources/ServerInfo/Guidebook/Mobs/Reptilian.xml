@@ -13,12 +13,26 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="MobReptilian" Caption=""/>
   </Box>
 
-  They can eat raw meat and drink blood without any ill effects.
-  They prefer a somewhat higher temperature range than humans.
-  They can drag objects with their tail, keeping both their hands free.
+  ## Fresh means healthy!
 
-  Their unarmed claw attacks deal Slash damage instead of Blunt.
+  Reptilians are capable of and are usually quite happy to eat things other species cannot, this includes things like raw meat, live animals, and even blood!
 
-  They take [color=#ffa500]30% more Cold damage.[/color]
+  ## Is it cold in here?
+
+  Unlike other species, Reptilians are cold-blooded. This means they have no internal way of regulating their temperature and require external sources to assist.
+  Luckily, Nanotrasen (and The Syndicate!) issue all Reptillian crewmembers their very own heating lamps, capable of keeping them warm when it would otherwise be too cold to work.
+
+  These lamps take power cells and have three seperate modes: Low, Medium, and High.
+  They can be worn on the belt, held in the hand, or placed inside a backpack. When inside a backpack, they do not function as well as they would otherwise.
+
+  Due to this, they can also tolerate much higher temperatures than humans.
+  But, they take [color=#ffa500]30% more Cold damage.[/color]
+
+  ## Well, what about the tail?
+
+  Reptillians can drag objects and people with their tail, allowing them to keep both of their hands free.
+  A crafty lizard can use this in combat to their advantage. Maybe try dragging a teammate out of fire next time?
+
+  Because of their claws, a Reptilians unarmed attack deals Slash damage instead of Blunt.
 
 </Document>

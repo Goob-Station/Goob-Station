@@ -3,10 +3,15 @@
 # SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
@@ -61,8 +66,9 @@
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
     nameSegments:
-    - names_first
-    - names_last
+    - NamesFirst
+    - NamesLast
+    nameFormat: name-format-standard
 
 - type: entity
   parent: MobDiona
@@ -73,8 +79,9 @@
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
     nameSegments:
-    - DionaFirst
-    - DionaLast
+    - NamesDionaFirst
+    - NamesDionaLast
+    nameFormat: name-format-standard
 
 - type: entity
   parent: MobFelinid
@@ -85,8 +92,9 @@
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
     nameSegments:
-    - names_first
-    - names_last
+    - NamesFirst
+    - NamesLast
+    nameFormat: name-format-standard
 
 - type: entity
   parent: MobTajaran
@@ -99,6 +107,7 @@
     nameSegments:
     - NamesTajaranFirst
     - NamesTajaranLast
+    nameFormat: name-format-standard
 
 
 - type: entity
@@ -110,8 +119,9 @@
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
     nameSegments:
-    - names_first
-    - names_last
+    - NamesFirst
+    - NamesLast
+    nameFormat: name-format-standard
 
 - type: entity
   parent: MobMoth
@@ -122,8 +132,9 @@
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
     nameSegments:
-    - names_moth_first_female
-    - names_moth_last
+    - NamesMothFirstFemale
+    - NamesMothLast
+    nameFormat: name-format-standard
 
 - type: entity
   parent: MobDwarf
@@ -134,8 +145,9 @@
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
     nameSegments:
-    - names_first
-    - names_last
+    - NamesFirst
+    - NamesLast
+    nameFormat: name-format-standard
 
 - type: entity
   parent: MobHarpy
@@ -146,8 +158,9 @@
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
     nameSegments:
-    - names_first
-    - names_last
+    - NamesFirst
+    - NamesLast
+    nameFormat: name-format-standard
 
 - type: entity
   parent: MobRodentia
@@ -160,6 +173,7 @@
     nameSegments:
     - NamesRodentiaMale
     - NamesRodentiaLast
+    nameFormat: name-format-standard
 
 - type: entity
   parent: MobReptilian
@@ -170,7 +184,7 @@
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
     nameSegments:
-    - names_reptilian_male
+    - NamesReptilianMale
 
 - type: entity
   parent: MobVulpkanin
@@ -183,6 +197,7 @@
     nameSegments:
     - NamesVulpakinMale
     - NamesVulpakinLast
+    nameFormat: name-format-standard
 
 - type: entity
   parent: MobSlimePerson
@@ -193,8 +208,9 @@
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
     nameSegments:
-    - names_first
-    - names_last
+    - NamesFirst
+    - NamesLast
+    nameFormat: name-format-standard
 
 - type: entity
   parent: MobYowie
@@ -216,4 +232,16 @@
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
     nameSegments:
-    - names_vox
+    - NamesVox
+
+- type: entity
+  parent: MobShadowkin
+  id: MobShadowkinRandom
+  name: Urist McShadowkin
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - NamesShadowkin
+    nameFormat: random-metadata-name-format-default

@@ -25,6 +25,8 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
 # SPDX-FileCopyrightText: 2025 ss14-Starlight <ss14-Starlight@outlook.com>
@@ -61,13 +63,35 @@
           pipeDirection: South
 
 - type: entity
-  parent: GasTrinaryBase
-  id: GasFilter
-  name: gas filter
-  description: Very useful for filtering gases.
-  placement:
-    mode: SnapgridCenter
+  abstract: true
+  id: GasTrinaryFlippedBase
+  suffix: Flipped
   components:
+  - type: NodeContainer
+    nodes:
+      inlet:
+        !type:PipeNode
+        nodeGroupID: Pipe
+        pipeDirection: South
+      filter:
+        !type:PipeNode
+        nodeGroupID: Pipe
+        pipeDirection: West
+      outlet:
+        !type:PipeNode
+        nodeGroupID: Pipe
+        pipeDirection: North
+
+# Goobstation
+# a non-flippable filter
+- type: entity
+  abstract: true
+  parent: GasTrinaryBase
+  id: GasFilterBase
+  components:
+    - type: SubFloorHide
+      visibleLayers:
+      - enum.SubfloorLayers.FirstLayer
     - type: Sprite
       sprite: Structures/Piping/Atmospherics/gasfilter.rsi
       layers:
@@ -92,8 +116,6 @@
       enabled: false
       transferRate: 1000
       maxTransferRate: 1000
-    - type: Flippable
-      mirrorEntity: GasFilterFlipped
     - type: Construction
       graph: GasTrinary
       node: filter
@@ -119,16 +141,26 @@
       containers:
         VentCrawlerTube: !type:Container
 
+# Goobstation - reparent to new base filter proto
 - type: entity
-  parent: GasFilter
-  id: GasFilterFlipped
+  parent: GasFilterBase
+  id: GasFilter
   name: gas filter
-  suffix: Flipped
-  placement:
-    mode: SnapgridCenter
+  description: Very useful for filtering gases.
   components:
+  - type: Flippable
+    mirrorEntity: GasFilterFlipped
+  # Goobstation - if you see a merge conflict here, move all new components to GasFilterBase
+
+# Goobstation - reparent to new base protos
+- type: entity
+  parent: [GasFilter, GasTrinaryFlippedBase]
+  id: GasFilterFlipped
+  components:
+  - type: SubFloorHide
+    visibleLayers:
+    - enum.SubfloorLayers.FirstLayer
   - type: Sprite
-    sprite: Structures/Piping/Atmospherics/gasfilter.rsi
     layers:
     - sprite: Structures/Piping/Atmospherics/pipe.rsi
       state: pipeTrinaryConnectors
@@ -137,7 +169,6 @@
       map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
   - type: Flippable
     mirrorEntity: GasFilter
-  - type: Appearance
   - type: GenericVisualizer
     visuals:
       enum.FilterVisuals.Enabled:
@@ -146,32 +177,7 @@
           False: { state: gasFilterF }
   - type: Construction
     node: filterflipped
-
-  - type: PipeColorVisuals
-  - type: NodeContainer
-    nodes:
-      inlet:
-        !type:PipeNode
-        nodeGroupID: Pipe
-        pipeDirection: South
-      filter:
-        !type:PipeNode
-        nodeGroupID: Pipe
-        pipeDirection: West
-      outlet:
-        !type:PipeNode
-        nodeGroupID: Pipe
-        pipeDirection: North
-  - type: VentCrawlerTube # Goobstation - ventcrawl
-    containerId: VentCrawlerTube
-  - type: VentCrawlerJunction # Goobstation - ventcrawl
-    degrees:
-      - 0
-      - -90
-      - 180
-  - type: ContainerContainer # Goobstation - ventcrawl
-    containers:
-      VentCrawlerTube: !type:Container
+  # Goobstation - if you see a merge conflict here, move all new components to GasFilterBase
 
 - type: entity
   parent: GasTrinaryBase

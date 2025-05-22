@@ -5,10 +5,13 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 GMWQ <garethquaile@gmail.com>
+# SPDX-FileCopyrightText: 2025 Gareth Quaile <garethquaile@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 crasg <109207982+Scruq445@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -114,7 +117,7 @@
     borderColor: "#00842e"
 
 - type: entity
-  parent: ERTLeaderPDA
+  parent: BaseMedicalPDA
   id: BlueshieldPDA
   name: blueshield officer PDA
   description: The silver shield of the Blueshield is engraved on the front.
@@ -156,6 +159,9 @@
     state: pda-deathsquad
   - type: Tag
     tags: [] # ignore "WhitelistChameleon" tag
+  - type: PdaBorderColor
+    borderColor: "#04040a"
+    accentVColor: "#16bab5"
 
 - type: entity
   parent: CentcomPDA
@@ -232,3 +238,11 @@
   - type: Pda
     id: CentcomIDCardInspector
 
+- type: entity
+  parent: BasePDA
+  id: SyndiPDANukie
+  name: syndicate PDA
+  description: Ok, time to be a productive member of- oh cool I'm a bad guy time to kill people!
+  components:
+  - type: Pda
+    id: NukieAgentIDCard

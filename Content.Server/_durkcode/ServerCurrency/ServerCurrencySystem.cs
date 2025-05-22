@@ -19,6 +19,7 @@ using Content.Shared.Roles.Jobs;
 using Content.Shared.Silicons.Borgs.Components;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
+using Content.Server._RMC14.LinkAccount;
 
 namespace Content.Server._durkcode.ServerCurrency
 {
@@ -33,6 +34,7 @@ namespace Content.Server._durkcode.ServerCurrency
         [Dependency] private readonly SharedJobSystem _jobs = default!;
         [Dependency] private readonly IPlayerManager _players = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;
+        [Dependency] private readonly LinkAccountManager _linkAccount = default!;
 
         private int _goobcoinsPerPlayer = 10;
         private int _goobcoinsNonAntagMultiplier = 1;
@@ -91,6 +93,9 @@ namespace Content.Server._durkcode.ServerCurrency
                         if (_goobcoinsServerMultiplier != 1)
                             money *= _goobcoinsServerMultiplier;
 
+                        if (session != null && _linkAccount.GetPatron(session)?.Tier != null)
+                            money *= 2;
+
                         _currencyMan.AddCurrency(mind.OriginalOwnerUserId.Value, money);
                     }
                 }
@@ -114,7 +119,8 @@ namespace Content.Server._durkcode.ServerCurrency
             RaiseNetworkEvent(new PlayerBalanceUpdateEvent(ev.NewBalance, ev.OldBalance), ev.UserSes);
 
 
-            if(ev.UserSes.AttachedEntity.HasValue){
+            if (ev.UserSes.AttachedEntity.HasValue)
+            {
                 var userEnt = ev.UserSes.AttachedEntity.Value;
                 if (ev.NewBalance > ev.OldBalance)
                     _popupSystem.PopupEntity("+" + _currencyMan.Stringify(ev.NewBalance - ev.OldBalance), userEnt, userEnt, PopupType.Medium);

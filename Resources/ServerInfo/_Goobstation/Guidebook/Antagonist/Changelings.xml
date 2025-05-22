@@ -61,14 +61,17 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
   ### Going Solo or Teaming Up
   Like traitors, changelings operate individually and are in no way obligated to assist each other. It is not required for changelings to even reveal their identity to each other, as it's not uncommon for changelings to backstab each other to remove competition.
-  Even so, [colopr=red]a coordinated group of changelings is truly a terror to behold[/color].
+  Even so, [color=red]a coordinated group of changelings is truly a terror to behold[/color].
 
   ## Identifying a changeling
   Changelings have a different blood type. Even if a changeling is pretending to be a diona, vox or a moth person, they have one blood type.
   Also, when put in a centrifuge, the changeling's blood reacts violently.
   You cannot identify changelings in any other possible way, unless they're dead obvious and start going loud.
 
-[textlink="Learn about the changeling abilities." link="ChangelingsAbilities"]
+  ## Your true weakness...
+  [color=orange]Kill it with fire![/color]
+  - While on fire, they are [color=red]unable to use or toggle most of their combat, defensive and utility oriented abilities.[/color]
+  - Changelings also suffer a massive reduction to their chemical generation, being [color=red]reduced to a 1/4 of its current amount[/color] when on fire!
+
+  [textlink="Learn about the changeling abilities." link="ChangelingsAbilities"]
 </Document>
-
-

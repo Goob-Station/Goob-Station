@@ -18,7 +18,7 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Reactions;
 using Content.Shared.Chemistry.Components;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using JetBrains.Annotations;
 
 namespace Content.Server.Atmos.Reactions

@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <RootNamespace>Content.Goobstation.Maths</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Content.ModuleManager\Content.ModuleManager.csproj" />
+      <ProjectReference Include="..\RobustToolbox\Robust.Shared\Robust.Shared.csproj" />
+    </ItemGroup>
+
+</Project>

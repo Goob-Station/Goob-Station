@@ -9,10 +9,15 @@
 // SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+// SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Marcus F <marcus2008stoke@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -72,6 +77,10 @@ public sealed partial class ChangelingIdentityComponent : Component
 
     public bool IsInLastResort = false;
 
+    public bool ChameleonActive = false;
+
+    public bool VoidAdaptActive = false;
+
     public List<EntityUid>? ActiveArmor = null;
 
     public Dictionary<string, EntityUid?> Equipment = new();
@@ -80,19 +89,25 @@ public sealed partial class ChangelingIdentityComponent : Component
     ///     Current amount of chemicals changeling currently has.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float Chemicals = 100f;
+    public float Chemicals = 100.0f;
 
     /// <summary>
     ///     Maximum amount of chemicals changeling can have.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float MaxChemicals = 100f;
+    public float MaxChemicals = 100.0f;
 
     /// <summary>
     ///     Bonus chemicals regeneration. In case
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float BonusChemicalRegen = 0f;
+    public float BonusChemicalRegen = 0.0f;
+
+    /// <summary>
+    ///     Chemicals regeneration rate multiplier from certain abilities.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float ChemicalRegenMultiplier = 1.0f;
 
     /// <summary>
     ///     Cooldown between chem regen events.

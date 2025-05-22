@@ -165,3 +165,12 @@
       emergencyLightColor: Ivory
       forceEnableEmergencyLights: true
       shuttleTime: 2400
+    octarine: # DeltaV - Cosmic Cult
+      announcement: alert-level-octarine-announcement
+      selectable: false
+      sound: /Audio/Announcements/Alerts/code_octarine.ogg
+      disableSelection: true
+      color: CadetBlue
+      emergencyLightColor: CadetBlue
+      forceEnableEmergencyLights: true
+      shuttleTime: 600

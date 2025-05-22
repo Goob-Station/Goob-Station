@@ -19,6 +19,9 @@
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -52,7 +55,7 @@ public sealed partial class TraitorRuleComponent : Component
     public ProtoId<LocalizedDatasetPrototype> CodewordVerbs = "Verbs";
 
     [DataField]
-    public ProtoId<LocalizedDatasetPrototype> ObjectiveIssuers = "TraitorCorporations";
+    public ProtoId<DatasetPrototype> ObjectiveIssuers = "TraitorFlavor"; // Goobstation
 
     /// <summary>
     /// Give this traitor an Uplink on spawn.

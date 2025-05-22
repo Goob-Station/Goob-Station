@@ -5,6 +5,12 @@
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 kurokoTurbo <92106367+kurokoTurbo@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Trest <144359854+trest100@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+// SPDX-FileCopyrightText: 2025 Kayzel <43700376+KayzelW@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -133,10 +139,10 @@ public sealed class GibbingSystem : EntitySystem
         foreach (var container in _containerSystem.GetAllContainers(gibbable))
         {
             var valid = true;
-            if (allowedContainers != null)
-                valid = allowedContainers.Contains(container.ID);
-            if (excludedContainers != null)
-                valid = valid && !excludedContainers.Contains(container.ID);
+            if (gibContentsAttempt.AllowedContainers != null)
+                valid = gibContentsAttempt.AllowedContainers.Contains(container.ID);
+            if (gibContentsAttempt.ExcludedContainers != null)
+                valid = valid && !gibContentsAttempt.ExcludedContainers.Contains(container.ID);
             if (valid)
                 validContainers.Add(container);
         }

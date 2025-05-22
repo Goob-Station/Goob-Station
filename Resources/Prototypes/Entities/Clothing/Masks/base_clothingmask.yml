@@ -14,6 +14,8 @@
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -33,6 +35,20 @@
     - Mask
   - type: StaticPrice
     price: 25
+  - type: Armor # provide minimal covering to your head
+    coverage:
+    - Head
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+    traumaDeductions:
+      Dismemberment: 0
+      OrganDamage: 0.05
+      BoneDamage: 0.05
+      VeinsDamage: 0
+      NerveDamage: 0
 
 - type: entity
   abstract: true
