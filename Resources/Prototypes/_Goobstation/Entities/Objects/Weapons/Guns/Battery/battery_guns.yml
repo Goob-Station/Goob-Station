@@ -214,7 +214,7 @@
   description: A non-lethal self-defense weapon for agents not trustable with traditional lethals. Recharges over time.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/disabler.rsi
+    sprite: _EinsteinEngines/Objects/Weapons/Guns/Battery/ccdisabler.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -222,7 +222,7 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/disabler.rsi
+    sprite: _EinsteinEngines/Objects/Weapons/Guns/Battery/ccdisabler.rsi
     quickEquip: false
     slots:
     - suitStorage
@@ -234,6 +234,53 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 40
+
+- type: entity
+  name: civilian disabler
+  parent: BaseWeaponBatterySmall
+  id: WeaponCivilianDisabler
+  description: The original prototype disablers refitted for civilian self defence use and put in a shiny new shell. It has a much lower power output than the modern disabler in use by Security, and as such requires no license to carry.
+  components:
+    - type: Tag
+      tags:
+        - Taser
+        - Sidearm
+    - type: Item
+      size: Small
+      shape:
+      - 0,0,1,1
+    - type: Sprite
+      sprite: _EinsteinEngines/Objects/Weapons/Guns/Battery/civilian-disabler.rsi
+      layers:
+        - state: base
+          map: ["enum.GunVisualLayers.Base"]
+        - state: mag-unshaded-0
+          map: ["enum.GunVisualLayers.MagUnshaded"]
+          shader: unshaded
+    - type: Clothing
+      sprite: _EinsteinEngines/Objects/Weapons/Guns/Battery/civilian-disabler.rsi
+      quickEquip: false
+      slots:
+        - suitStorage
+        - Belt
+    - type: Gun
+      fireRate: 2
+      soundGunshot:
+        path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
+    - type: ProjectileBatteryAmmoProvider
+      proto: BulletCivilianDisabler
+      fireCost: 100
+    - type: MagazineVisuals
+      magState: mag
+      steps: 5
+      zeroVisible: true
+    - type: Appearance
+    - type: MeleeWeapon
+      damage:
+        types:
+          Blunt: 3.0
+      bluntStaminaDamageFactor: 2
+      wideAnimationRotation: 90
 
 - type: entity
   name: advanced pulse carbine

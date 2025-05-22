@@ -64,7 +64,7 @@
   abstract: true
   id: BaseWeaponRecipe
   categories:
-  - Weapons
+    - Weapons
   completetime: 2
   materials:
     Steel: 300
@@ -80,7 +80,7 @@
   abstract: true
   id: BaseAmmoRecipe
   categories:
-  - Ammo
+    - Ammo
   completetime: 5
 
 - type: latheRecipe
@@ -157,6 +157,15 @@
   materials:
     Steel: 2000
     Gold: 500
+
+- type: latheRecipe # Goobstation
+  parent: BaseWeaponRecipeLong
+  id: WeaponCivilianDisabler
+  result: WeaponCivilianDisabler
+  materials:
+    Steel: 100
+    Glass: 100
+    Plastic: 400
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong

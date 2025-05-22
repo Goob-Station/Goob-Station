@@ -74,6 +74,7 @@
   - EnergyMagRifleIon
   - EnergyMagRifleDisabler
   - EnergyMagRifleLethal
+  - WeaponCivilianDisabler
   technologyPrerequisites:
   - WaveParticleHarnessing
   position: 6,1
