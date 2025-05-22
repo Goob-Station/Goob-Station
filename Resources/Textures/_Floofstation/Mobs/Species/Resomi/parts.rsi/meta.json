@@ -65,6 +65,11 @@
         {
             "name": "groin_m",
             "directions": 4
+        },
+        {
+            "name": "PartsMcRaptor",
+            "directions": 4
         }
+
     ]
 }
