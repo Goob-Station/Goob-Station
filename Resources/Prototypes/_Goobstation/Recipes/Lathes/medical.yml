@@ -84,3 +84,33 @@
   materials:
     Steel: 250
     Silver: 50
+
+- type: latheRecipe
+  id: HeatLamp
+  result: HeatLamp
+  completetime: 10
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 500
+
+- type: latheRecipe
+  id: HeatLampTierTwo
+  result: HeatLampTierTwo
+  completetime: 10
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 500
+    Gold: 100
+
+- type: latheRecipe
+  id: HeatLampTierThree
+  result: HeatLampTierThree
+  completetime: 10
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 500
+    Gold: 500
+    Plasma: 500
