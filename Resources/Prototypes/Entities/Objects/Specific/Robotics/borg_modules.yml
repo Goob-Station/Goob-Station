@@ -958,7 +958,7 @@
     - type: ItemBorgModule
       moduleId: Operative
       items:
-      - Crowbar
+      # - Crowbar
       - Emag
       - AccessBreaker
       - PinpointerSyndicateNuclear
