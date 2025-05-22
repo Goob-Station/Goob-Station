@@ -1,0 +1,32 @@
+
+- type: entity
+  parent: [ClothingBeltBase, ClothingSlotBase, BaseCommandContraband]
+  id: ClothingBeltRedsSheath
+  name: red's sabre sheath
+  description: An ornate sheath designed to hold an officer's blade. This one is a little larger than typical sabre sheaths.
+  components:
+  - type: Sprite
+    sprite: _RA/Objects/Clothing/Belt/reimoldsheath.rsi
+    state: sheath
+  - type: Clothing
+    sprite: _RA/Objects/Clothing/Belt/reimoldsheath.rsi
+  - type: Item
+    size: Ginormous
+  - type: ItemSlots
+    slots:
+      item:
+        name: Sabre
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/Items/sheath.ogg
+        ejectSound: /Audio/Items/unsheath.ogg
+        whitelist:
+          tags:
+          - CaptainSabre
+  - type: ItemMapper
+    mapLayers:
+      sheath-sabre:
+        whitelist:
+          tags:
+          - CaptainSabre
+  - type: Appearance

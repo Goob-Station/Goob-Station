@@ -1,0 +1,9 @@
+- type: entity
+  id: ClothingBeltRedsSheathFilled
+  parent: ClothingBeltRedsSheath
+  suffix: Filled, Captain # Goobstation
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - RedsSabre

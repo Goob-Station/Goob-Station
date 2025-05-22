@@ -469,7 +469,7 @@
   parent: BaseGameRule
   components:
   - type: GameRule
-    minPlayers: 5
+    minPlayers: 1
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn # Pre-selection before jobs; assignment doesn't really matter though, we only care about the pre-selection to block other antags.
     removeUponFailedSpawn: false

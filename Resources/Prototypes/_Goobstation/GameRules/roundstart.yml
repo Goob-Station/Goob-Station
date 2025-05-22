@@ -313,7 +313,7 @@
   components:
   - type: DevilRule
   - type: GameRule
-    minPlayers: 15
+    minPlayers: 1
   - type: AntagObjectives
     objectives:
     - DevilContractObjective
@@ -322,8 +322,8 @@
     agentName: devil-roundend-name
     definitions:
     - prefRoles: [ Devil ]
-      max: 2
-      playerRatio: 12
+      max: 1
+      playerRatio: 5
       mindRoles:
       - DevilMindRole
       startingGear: DevilStartingGear

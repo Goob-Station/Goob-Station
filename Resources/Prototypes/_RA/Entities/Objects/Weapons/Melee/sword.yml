@@ -10,6 +10,7 @@
   - type: Sprite
     sprite: _RA/Objects/Weapons/Melee/bladesofchaos.rsi
   - type: MeleeWeapon
+    heavyStaminaCost: -1
     attackRate: 1.8
     damage:
       types:
@@ -35,3 +36,97 @@
     slots:
     - back
     - suitStorage
+
+- type: entity
+  name: red's sabre
+  parent: [ BaseSword, BaseCommandContraband ]
+  id: RedsSabre
+  description: A well-loved variation of the typical captain's sabre with a thicker blade and energy enhancements. Designed for and tested against invaders of the station.
+  components:
+  - type: Tag
+    tags:
+    - CaptainSabre
+  - type: Sprite
+    sprite: _RA/Objects/Weapons/Melee/reds_sabre.rsi
+    layers:
+    - state: sabre
+    - state: sabre_blade
+      color: "#a31a43"
+      visible: false
+      shader: unshaded
+      map: [ "blade" ]
+  - type: MeleeWeapon
+    animationRotation: -95 # WWDP
+    wideAnimationRotation: -135 # WWDP
+    heavyStaminaCost: -1 
+    attackRate: 1.5
+    damage:
+      types:
+        Slash: 20 
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: ItemToggle
+    soundFailToActivate:
+      path: /Audio/Machines/button.ogg
+      params:
+        variation: 0.250
+    soundActivate:
+      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
+    soundDeactivate:
+      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyoff.ogg
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyhum.ogg
+  - type: ItemToggleHot
+  - type: ItemToggleSize
+    activatedSize: Huge
+  - type: ItemTogglePointLight
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnHit:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
+    activatedSoundOnHitNoDamage:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
+        volume: -10
+    activatedSoundOnSwing:
+      path: /Audio/Weapons/eblademiss.ogg
+      params:
+        variation: 0.125
+    activatedDamage:
+      types:
+        Slash: 15
+        Heat: 15
+  - type: UseDelay
+    delay: 1.0
+  - type: PointLight
+    enabled: false
+    radius: 2
+    energy: 2
+    color: white
+    netsync: false
+  - type: Appearance
+  - type: ToggleableLightVisuals # Add support for multiple layers
+    spriteLayer: blade
+    inhandVisuals:
+      left:
+      - state: inhand-left-blade
+        shader: unshaded
+      right:
+      - state: inhand-right-blade
+        shader: unshaded
+  - type: Reflect 
+    reflectProb: .5
+    spread: 90
+  - type: IgnitionSource
+    temperature: 700
+  - type: Item
+    sprite: _RA/Objects/Weapons/Melee/reds_sabre.rsi
+  - type: DisarmMalus
+  - type: SentienceTarget
+    flavorKind: station-event-random-sentience-flavor-inanimate
+    weight: 0.0002 # 5,000 times less likely than 1 regular animal
+  - type: PirateAccent
+    # not putting a BlockMovement component here cause that's funny.

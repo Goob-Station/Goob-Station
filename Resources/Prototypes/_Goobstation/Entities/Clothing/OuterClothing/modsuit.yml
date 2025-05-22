@@ -88,8 +88,8 @@
     unequipSound: /Audio/Mecha/mechmove03.ogg
     slots: [ outerClothing ]
   - type: ClothingSpeedModifier
-    walkModifier: 0.80
-    sprintModifier: 0.80
+    walkModifier: 0.90
+    sprintModifier: 0.90
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-chestplate
     sealDownPopup: sealable-clothing-seal-down-chestplate
@@ -107,10 +107,10 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.6
-        Heat: 0.6
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.4
+        Heat: 0.5
         Radiation: 0.6
   - type: ComponentToggler
     components:
@@ -160,16 +160,16 @@
     delayDelta: 6
     knockdownTimeDelta: -4
   - type: StaminaDamageResistance
-    coefficient: 0.7
+    coefficient: 0.5
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.45
-        Heat: 0.5
-        Caustic: 0.5
-        Radiation: 0.5
+        Blunt: 0.2
+        Slash: 0.2
+        Piercing: 0.2
+        Heat: 0.3
+        Caustic: 0.4
+        Radiation: 0.4
   - type: ComponentToggler
     components:
     - type: PressureProtection
@@ -436,8 +436,8 @@
     unequipSound: /Audio/Mecha/mechmove03.ogg
     slots: [ outerClothing ]
   - type: ClothingSpeedModifier
-    walkModifier: 0.90
-    sprintModifier: 0.90
+    walkModifier: 0.95
+    sprintModifier: 0.95
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-chestplate
     sealDownPopup: sealable-clothing-seal-down-chestplate
@@ -450,9 +450,9 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.75
-        Slash: 0.75
-        Piercing: 0.6
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.3
         Heat: 0.5
         Radiation: 0.4
   - type: ComponentToggler
