@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 #MISSING SATANA
 
 - type: constructionGraph
@@ -49,7 +55,7 @@
       - !type:SnapToGrid
         southRotation: true
       steps:
-      - material: ArtifactFragment
+      - material: Plasma
         amount: 1
         doAfter: 3
     - to: DruidAltarNode
@@ -65,8 +71,7 @@
       - !type:SnapToGrid
         southRotation: true
       steps:
-      - material: WebSilk
-        amount: 1
+      - tag: Meat
         doAfter: 3
     - to: HeavenAltarNode
       completed:
@@ -95,7 +100,7 @@
       - !type:SnapToGrid
         southRotation: true
       steps:
-      - tag: Bible
+      - tag: NunHood
         doAfter: 3
     - to: TechnologyAltarNode
       completed:
@@ -130,7 +135,7 @@
     - to: AltarConvertNode
       completed:
       - !type:SpawnPrototype
-        prototype: ArtifactFragment1
+        prototype: SheetPlasma1
         amount: 1
       steps:
       - tool: Prying
@@ -154,7 +159,7 @@
     - to: AltarConvertNode
       completed:
       - !type:SpawnPrototype
-        prototype: MaterialWebSilk1
+        prototype: FoodMeatFish
         amount: 1
       steps:
       - tool: Prying
