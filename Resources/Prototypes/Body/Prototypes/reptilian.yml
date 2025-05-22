@@ -11,29 +11,34 @@
 - type: body
   name: "reptilian"
   id: Reptilian
-  root: torso
+  root: chest
   slots:
     head:
       part: HeadReptilian
       connections:
-      - torso
+      - chest
       organs:
         brain: OrganHumanBrain
         eyes: OrganHumanEyes
-    torso:
-      part: TorsoReptilian
+    chest:
+      part: ChestReptilian
       organs:
         heart: OrganAnimalHeart
         lungs: OrganHumanLungs
-        stomach: OrganReptilianStomach
-        liver: OrganAnimalLiver
-        kidneys: OrganHumanKidneys
       connections:
       - right arm
       - left arm
+      - groin
+      - head # Shitmed
+    groin:
+      part: GroinReptilian
+      connections:
       - right leg
       - left leg
-      - head # Shitmed
+      organs:
+        stomach: OrganReptilianStomach
+        liver: OrganAnimalLiver
+        kidneys: OrganHumanKidneys
     right arm:
       part: RightArmReptilian
       connections:

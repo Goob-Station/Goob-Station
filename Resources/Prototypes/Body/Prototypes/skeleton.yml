@@ -13,20 +13,24 @@
 - type: body
   id: Skeleton
   name: "skeleton"
-  root: torso
+  root: chest
   slots:
     head:
       part: HeadSkeleton
       connections:
-      - torso
-    torso:
-      part: TorsoSkeleton
+      - chest
+    chest:
+      part: ChestSkeleton
       connections:
       - right arm
       - left arm
+      - head # Shitmed
+      - groin # Shitmed
+    groin:
+      part: GroinSkeleton
+      connections:
       - right leg
       - left leg
-      - head # Shitmed
     right arm:
       part: RightArmSkeleton
       connections:

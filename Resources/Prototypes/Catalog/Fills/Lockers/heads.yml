@@ -121,13 +121,17 @@
 # SPDX-FileCopyrightText: 2024 Эдуард <36124833+Ertanic@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 Coolsurf6 <coolsurf24@yahoo.com.au>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 JORJ949 <159719201+JORJ949@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Martynas6ha4 <martynashagriefer@gmail.com>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 RatherUncreative <RatherUncreativeName@proton.me>
 # SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
@@ -435,7 +439,7 @@
     #- id: ProtolatheMachineCircuitboard # Goobstation - Science Techfab
     - id: ResearchComputerCircuitboard
     - id: RubberStampRd
-    - id: EncryptionKeyBinary # goobstation - readd the cool binary channel access. fuck you.
+    # - id: EncryptionKeyBinary # goobstation - readd the cool binary channel access. fuck you. # Goobstation - WYCI + malf ai major
     - id: AnomalyLocator # GoobStation - adding anomaly locator to the RD locker to reduce the amount of anoms that crit
     - id: CigarCase
       prob: 0.15 # GoobStation - RD needs cigs for uhh... science...
@@ -491,19 +495,17 @@
       prob: 0.50
     - id: ClothingBeltSecurityFilled
   #  - id: ClothingEyesGlassesSecurity # Goobstation - Security Revamp - Start
-    - id: ClothingEyesGlassesSecurityAdvanced
+    - id: ClothingEyesGlassesSecurity
     - id: ClothingHeadsetAltSecurity
     - id: ClothingMaskNeckGaiter
     - id: ClothingHeadHatBeretHeadOfSecurityAdvanced
     - id: ClothingOuterCoatHoSTrench
-   # - id: ClothingShoesBootsJack
-    - id: ClothingShoesBootsJackAdvanced
+    - id: ClothingShoesBootsJack
     - id: DoorRemoteSecurity
    # - id: HoloprojectorSecurity
     - id: HoloprojectorSecurityAdvanced
     - id: RubberStampHos
     - id: SecurityTechFabCircuitboard
-    - id: ClothingBeltSheathHeadOfSecurityFilled
     - id: HeadOfSecurityWeaponUndetermined # Goobstation - Security Revamp - End
     #- id: WeaponDisabler # Goobstation (Disablers in belts)
     - id: WantedListCartridge
@@ -515,8 +517,7 @@
   table: !type:AllSelector
     children:
     - id: ClothingMaskGasSwat
-    #- id: ClothingOuterHardsuitSecurityRed # Goobstation
-    - id: ClothingOuterHardsuitHeadOfSecurityExperimental  # Goobstation
+    - id: UndeterminedVoidsuitHeadOfSecurity # Goob edit
     - id: JetpackSecurityFilled
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
