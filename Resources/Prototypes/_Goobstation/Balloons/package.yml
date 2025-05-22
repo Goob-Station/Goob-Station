@@ -68,9 +68,13 @@
       amount: 1
     - id: BoxDarts
       amount: 1
+    - id: MonkeyCube
+      prob: 0.7
     - id: ClothingOuterSuitMonkey   # Extra
       amount: 1
       prob: 0.4
     - id: BoxDarts
       amount: 1
+      prob: 0.4
+    - id: MonkeyCube
       prob: 0.4
