@@ -7,13 +7,11 @@ using Content.Goobstation.Shared.Guardian;
 using Content.Server.Guardian;
 using Content.Shared.Actions;
 using Content.Shared.Guardian;
-using Content.Shared.Popups;
 
 namespace Content.Goobstation.Server.Guardian
 {
     public sealed class GoobGuardianSystem : EntitySystem
     {
-        [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly GuardianSystem _guardian = default!;
 
         public override void Initialize()
@@ -26,8 +24,9 @@ namespace Content.Goobstation.Server.Guardian
         private void OnPerformSelfAction(EntityUid uid, GuardianComponent component, GuardianToggleSelfActionEvent args)
         {
             if (component.Host != null && TryComp<GuardianHostComponent>(component.Host, out var hostComp) && component.GuardianLoose)
-                _guardian.ToggleGuardian(component.Host, hostComp);
+                _guardian.ToggleGuardian(component.Host.Value, hostComp);
 
             args.Handled = true;
         }
+    }
 }
