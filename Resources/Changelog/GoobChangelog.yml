@@ -9805,3 +9805,9 @@ Entries:
       message: Mice and roaches should not drop organs when gibbed anymore.
   id: 1092
   time: '2025-05-22T07:38:31.0000000+00:00'
+- author: SoundingExpert
+  changes:
+    - type: Tweak
+      message: Made PTL actually useable
+  id: 1093
+  time: '2025-05-22T08:09:14.0000000+00:00'
