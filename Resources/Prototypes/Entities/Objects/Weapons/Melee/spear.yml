@@ -105,6 +105,7 @@
       map: ["enum.SolutionContainerLayers.Fill"]
       visible: false
   - type: MeleeWeapon
+    canWideSwing: false # Goob
     range: 2.2 # Goob
     attackRate: 0.8 # Goob
     animationRotation: -135 # WWDP
@@ -119,7 +120,7 @@
   - type: DamageOtherOnHit
     damage:
       types:
-        Piercing: 20 # Goob edit
+        Piercing: 24 # Goob edit
   - type: Item
     size: Large # Goob edit
     shape: # Goob
@@ -215,7 +216,7 @@
   - type: DamageOtherOnHit
     damage:
       types:
-        Piercing: 25 # Goob edit
+        Piercing: 30 # Goob edit
   - type: Construction
     graph: SpearReinforced
 
@@ -236,7 +237,7 @@
   - type: DamageOtherOnHit
     damage:
       types:
-        Piercing: 30 # Goob edit
+        Piercing: 36 # Goob edit
   - type: Construction
     graph: SpearPlasma
 
@@ -258,8 +259,8 @@
   - type: DamageOtherOnHit
     damage:
       types:
-        Piercing: 20 # Goob edit
-        Radiation: 10 # Goob edit
+        Piercing: 24 # Goob edit
+        Radiation: 12 # Goob edit
   - type: Construction
     graph: SpearUranium
 
