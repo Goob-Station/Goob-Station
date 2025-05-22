@@ -64,7 +64,7 @@
     bluntStaminaDamageFactor: 0.5
     animation: WeaponArcThrust
     soundHit:
-      collection: MetalThud
+      path: /Audio/_Goobstation/Weapons/Effects/metalcrush.ogg
   - type: StaminaDamageOnHit
     damage: 40
     overtime: 40

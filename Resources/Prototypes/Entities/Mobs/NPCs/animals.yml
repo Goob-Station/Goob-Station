@@ -232,6 +232,7 @@
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
@@ -2077,7 +2078,6 @@
     - ChefPilot
     - Mouse
     - Meat
-    - MouseMind # Goobstation
   - type: Respirator
     damage:
       types:
@@ -2162,6 +2162,10 @@
     attackMemoryLength: 5 # stop caring fast if you don't keep hitting
   - type: GroupRetaliation
     range: 5 # slightly lower for mice
+  - type: CollectiveMind
+    defaultChannel: Mousemind
+    channels:
+    - Mousemind
   # </Goobstation>
   - type: Destructible # Shitmed Change
     thresholds:
