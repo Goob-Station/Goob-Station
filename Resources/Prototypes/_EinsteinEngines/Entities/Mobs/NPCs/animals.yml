@@ -43,7 +43,7 @@
     - map: ["enum.DamageStateVisualLayers.Base", "movement"]
       state: squackroach
     - map: [ "singingLayer" ]
-      sprite: Effects/harpysinger.rsi
+      sprite: _DV\Effects\harpysinger.rsi
       state: singing_music_notes
       visible: false
   - type: SpriteMovement
