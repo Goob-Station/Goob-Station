@@ -19,9 +19,6 @@ mob_pushing = false
 [biomass]
 easy_mode = false
 
-[net]
-max_connections = 32
-
 [vote]
 restart_required_ratio = 0.5
 
@@ -41,3 +38,4 @@ tags = "lang:ru,region:moon,rp:none"
 [net]
 tickrate = 30
 upnp = true
+max_connections = 32
