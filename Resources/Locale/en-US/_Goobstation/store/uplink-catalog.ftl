@@ -84,6 +84,9 @@ uplink-contractor-baton-desc = A compact, specialised baton assigned to Syndicat
 uplink-weapon-burner-name = Burner Heavy Rifle
 uplink-weapon-burner-desc = The Burner Heavy Rifle, an excellent breaching and suppression weapon.
 
+uplink-weapon-heavy-shotgun-name = NZ CSG-242 Heavy Shotgun
+uplink-weapon-heavy-shotgun-desc = Merciless heavy explosive weapon. The recoil when firing it is so extreme that it can knock you off your feet.
+
 uplink-WSPR-name = WSPR
 uplink-WSPR-desc = This burst-fire rifle does its job silently and uses 9.5mm caseless magnum hollow-point bullets, which do more damage to flesh but fair worse against armour.
 
@@ -122,11 +125,14 @@ uplink-he1sg8-bundle-desc = High Energy One-Shell rifle bundle. Comes with 10 de
 
 # Ammo
 
-uplink-blast-grenade-name = Blast Grenade
+uplink-blast-grenade-name = Blast Grenade (40mm)
 uplink-blast-grenade-desc = Higher damage, smaller radius. Compatible with the China-Lake.
 
-uplink-frag-grenade-name = Frag Grenade
+uplink-frag-grenade-name = Frag Grenade (40mm)
 uplink-frag-grenade-desc = Lower damage, bigger radius. Compatible with the China-Lake.
+
+uplink-mpapers-grenade-name = MP-APERS shell (40mm)
+uplink-mpapers-grenade-desc = Fires out 20 small pellets to turn your grenade launcher into a shotgun. Compatible with the China-Lake.
 
 uplink-rifle-mag-name = Rifle Magazine (.20)
 uplink-rifle-mag-desc = A 25 round magazine containing .20 rifle bullets. Supports the Lecter and M-90.
@@ -140,10 +146,10 @@ uplink-pistol-magazine-caseless-saphe-desc = 10 rounds of 9.5mm caseless magnum 
 uplink-l6-box-name = Magazine Box (.30 rifle)
 uplink-l6-box-desc = Magazine box with 100 catridges. Compatible with the L6 SAW.
 
-uplink-shotgun-magazine-name = Shotgun Drum (12 Gauge pellet)
+uplink-shotgun-magazine-name = Shotgun Drum (12 gauge pellet)
 uplink-shotgun-magazine-desc = Shotgun drum with 8 pellet shells. Compatible with the Bulldog.
 
-uplink-shotgun-magazine-slug-name = Shotgun Drum (12 Gauge slug)
+uplink-shotgun-magazine-slug-name = Shotgun Drum (12 gauge slug)
 uplink-shotgun-magazine-slug-desc = Shotgun drum with 8 slug shells. Compatible with the Bulldog.
 
 uplink-high-caliber-magazine-name = Rifle Magazine (.50 anti-materiel)
@@ -157,6 +163,12 @@ uplink-high-caliber-box-desc = A box of 30 .50 caliber anti-materiel rounds.
 
 uplink-highcap-pistol-mag-name = High Capacity Pistol Magazine (.35 auto)
 uplink-highcap-pistol-mag-desc = High capacity pistol magazine holds 4 extra bullets for a total of 16 rounds.
+
+uplink-heavy-shotgun-magazine-name = Heavy Shotgun Drum (2 gauge HE pellet)
+uplink-heavy-shotgun-magazine-desc = Shotgun magazine with 15 high-explosive pellet shells. Compatible with the NZ CSG-242.
+
+uplink-heavy-shotgun-magazine-slug-name = Heavy Shotgun Drum (2 gauge HE slug)
+uplink-heavy-shotgun-magazine-slug-desc = Shotgun magazine with 15 high-eplosive shrapnel slug shells. Compatible with the NZ CSG-242.
 
 uplink-m7s-mag-name = Side-mounted SMG Magazine (5x23mm)
 uplink-m7s-mag-desc = A 48 round 5x23mm rifle magazine. Compatible with M7S.
@@ -221,6 +233,9 @@ uplink-krav-maga-implant-name = Krav Maga Implanter
 uplink-krav-maga-implant-desc = Allows the user to perform various Krav Maga moves.
 
 # Wearables
+
+uplink-heat-lamp-name = Cybersun Heat Lamp
+uplink-heat-lamp-desc = A cybersun design, often utilized by cold-blooded Gorlex Marauders in their sieges. Also functions as an effective melee weapon in a pinch.
 
 uplink-helmet-swat-name = Syndicate SWAT Helmet
 uplink-helmet-swat-desc = Robust helmet that offers good protection and also suppresses flashbang sounds to some extent.

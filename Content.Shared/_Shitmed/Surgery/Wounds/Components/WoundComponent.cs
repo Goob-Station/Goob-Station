@@ -97,6 +97,12 @@ public sealed partial class WoundComponent : Component
     /// </summary>
     [DataField]
     public string TextString = "wound";
+
+    /// <summary>
+    /// Multiplier for self-healing.
+    /// </summary>
+    [DataField]
+    public float SelfHealMultiplier = 1.0f;
 }
 
 
@@ -122,4 +128,6 @@ public sealed class WoundComponentState : ComponentState
     public WoundVisibility WoundVisibility;
 
     public bool CanBeHealed;
+
+    public float SelfHealMultiplier;
 }
