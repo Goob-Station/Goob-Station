@@ -4,6 +4,7 @@
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Rane <60792108+Elijahrane@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 bedroomvampire <leannetoni@proton.me>
+// SPDX-FileCopyrightText: 2025 starch <starchpersonal@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
