@@ -14,8 +14,3 @@
   id: Mars
   files:
     - /Audio/_EinsteinEngines/Voice/Shadowkin/mar.ogg
-
-- type: soundCollection
-  id: Wurble
-  files:
-    - /Audio/_EinsteinEngines/Voice/Shadowkin/wurble.ogg

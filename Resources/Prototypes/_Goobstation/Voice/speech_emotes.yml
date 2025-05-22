@@ -200,6 +200,9 @@
   available: false
   icon: _Goobstation/Interface/Emotes/caw.png
   whitelist:
+    tags:
+    - ShadowkinEmotes
+    - HarpyEmotes
     components:
       - Vocal
   blacklist:
