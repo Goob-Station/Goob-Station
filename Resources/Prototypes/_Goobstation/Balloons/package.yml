@@ -23,19 +23,19 @@
       orGroup: BalloonRandom
     - id: whiteBalloon
       orGroup: BalloonRandom # higher tier balloons are rarer
-      prob: 0.7
+      prob: 0.33
     - id: blackBalloon
       orGroup: BalloonRandom
-      prob: 0.7
+      prob: 0.33
     - id: steelBalloon
       orGroup: BalloonRandom
-      prob: 0.7
+      prob: 0.33
     - id: zebraBalloon
       orGroup: BalloonRandom
-      prob: 0.7
+      prob: 0.33
     - id: rainbowBalloon
       orGroup: BalloonRandom
-      prob: 0.5
+      prob: 0.2
     sound:
       path: /Audio/Effects/unwrap.ogg
    
@@ -58,7 +58,7 @@
   id: CrateBalloonPackage
   parent: CratePlastic
   name: balloon popper's package
-  description: A crate containing balloons and equipment to help pop them.
+  description: A crate containing 2 full balloon boxes and some additional popping equipment.
   components:
   - type: StorageFill
     contents:

@@ -52,8 +52,8 @@
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
           SpaceCash:    
-            min: 1
-            max: 10
+            min: 10
+            max: 15
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
         
@@ -61,7 +61,7 @@
 - type: entity
   name: blue balloon
   parent: BaseBalloon
-  description: A pretty relaxed balloon.
+  description: A pretty chill balloon.
   id: blueBalloon
   components:
   - type: Sprite
@@ -80,8 +80,8 @@
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
           SpaceCash:    
-            min: 1
-            max: 10
+            min: 10
+            max: 15
           redBalloon:    
             min: 1
             max: 1
@@ -111,8 +111,8 @@
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
           SpaceCash:    
-            min: 1
-            max: 10
+            min: 10
+            max: 15
           blueBalloon:    
             min: 1
             max: 1
@@ -142,8 +142,8 @@
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
           SpaceCash:    
-            min: 1
-            max: 10
+            min: 10
+            max: 15
           greenBalloon:    
             min: 1
             max: 1
@@ -173,8 +173,8 @@
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
           SpaceCash:    
-            min: 1
-            max: 10
+            min: 10
+            max: 15
           yellowBalloon:    
             min: 1
             max: 1
@@ -206,8 +206,8 @@
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
           SpaceCash:    
-            min: 5
-            max: 10
+            min: 10
+            max: 15
           pinkBalloon:    
             min: 2
             max: 2
@@ -238,8 +238,8 @@
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
           SpaceCash:    
-            min: 5
-            max: 10
+            min: 10
+            max: 15
           pinkBalloon:    
             min: 2
             max: 2
@@ -341,8 +341,8 @@
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
           SpaceCash:    
-            min: 20
-            max: 25
+            min: 10
+            max: 15
           zebraBalloon:    
             min: 2
             max: 2
