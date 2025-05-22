@@ -9811,3 +9811,9 @@ Entries:
       message: Made PTL actually useable
   id: 1093
   time: '2025-05-22T08:09:14.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Counterfeit spesos 10->50 per craft.
+  id: 1094
+  time: '2025-05-22T18:33:43.0000000+00:00'
