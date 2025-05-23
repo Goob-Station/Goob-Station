@@ -1,0 +1,35 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: GL-06 riot grenade launcher
+  parent: [WeaponFlareGun, BaseGunWieldable, BaseSecurityContraband]
+  id: WeaponLauncherNonLethal
+  description: Essentially a scaled up flare gun that takes 40mm shells; mechanical safety features prevent the loading and firing of lethal grenades.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Launchers/riotlauncher.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Guns/Launchers/riotlauncher.rsi
+    slots:
+    - Back
+    - suitStorage
+  - type: GunRequiresWield
+  - type: Gun
+    fireRate: 0.5
+  - type: Item
+    size: Huge
+    sprite: _Goobstation/Objects/Weapons/Guns/Launchers/riotlauncher.rsi
+  - type: ItemSlots
+    slots:
+      gun_chamber:
+        name: Chamber
+        priority: 1
+        whitelist:
+          tags:
+            - NonLethalGrenade

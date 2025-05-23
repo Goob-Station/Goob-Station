@@ -24,6 +24,7 @@ public sealed partial class EyeCursorOffsetSystem : EntitySystem
     [Dependency] private readonly IUserInterfaceManager _uiManager = default!; // Goob - grabbed wizden PR #35087
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly IClyde _clyde = default!;
 
     // This value is here to make sure the user doesn't have to move their mouse
     // all the way out to the edge of the screen to get the full offset.

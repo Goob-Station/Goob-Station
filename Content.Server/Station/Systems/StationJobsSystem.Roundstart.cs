@@ -23,6 +23,7 @@
 using System.Linq;
 using Content.Server.Administration.Managers;
 using Content.Server.Antag;
+using Content.Server.Antag.Components;
 using Content.Server.Players.PlayTimeTracking;
 using Content.Server.Station.Components;
 using Content.Server.Station.Events;
@@ -30,6 +31,7 @@ using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Robust.Server.Player;
 using Robust.Shared.Network;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
@@ -367,9 +369,11 @@ public sealed partial class StationJobsSystem
     private Dictionary<NetUserId, List<string>> GetPlayersJobCandidates(int? weight, JobPriority? selectedPriority, Dictionary<NetUserId, HumanoidCharacterProfile> profiles)
     {
         var outputDict = new Dictionary<NetUserId, List<string>>(profiles.Count);
+        var antagBlacklists = _antag.GetPreSelectedAntagSessionsWithBlacklist(); //GOOBSTATION
 
         foreach (var (player, profile) in profiles)
         {
+
             var roleBans = _banManager.GetJobBans(player);
             var antagBlocked = _antag.GetPreSelectedAntagSessions();
             var profileJobs = profile.JobPriorities.Keys.Select(k => new ProtoId<JobPrototype>(k)).ToList();
@@ -377,6 +381,8 @@ public sealed partial class StationJobsSystem
             RaiseLocalEvent(ref ev);
 
             List<string>? availableJobs = null;
+            ICommonSession? session = null; //GOOBSTATION
+            bool hasSession = _playerManager.TryGetSessionById(player, out session); //GOOBSTATION
 
             foreach (var jobId in profileJobs)
             {
@@ -388,7 +394,14 @@ public sealed partial class StationJobsSystem
                 if (!_prototypeManager.TryIndex(jobId, out var job))
                     continue;
 
-                if (!job.CanBeAntag && (!_playerManager.TryGetSessionById(player, out var session) || antagBlocked.Contains(session)))
+                // Check if this job is blacklisted for the player's session || GOOBSTATION
+                if (hasSession && session != null && antagBlacklists.TryGetValue(session, out var blacklistedJobs))
+                {
+                    if (blacklistedJobs.Contains(jobId))
+                        continue;
+                }
+
+                if (!job.CanBeAntag && (!_playerManager.TryGetSessionById(player, out var newSession) || antagBlocked.Contains(newSession)))
                     continue;
 
                 if (weight is not null && job.Weight != weight.Value)

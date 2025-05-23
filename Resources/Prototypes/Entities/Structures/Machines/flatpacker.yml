@@ -5,6 +5,8 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Benjamin Velliquette <32338704+bVelliquette@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -78,6 +80,18 @@
           components:
           - MachineBoard
           - ComputerBoard
+  - type: AutomationSlots # Goobstation
+    slots:
+    - !type:AutomatedItemSlot
+      input: AutomationSlotBoard
+      output: AutomationSlotBoard
+      slotId: board_slot
+    - !type:AutomatedMaterialStorage
+      input: AutomationSlotMaterials
+      output: null # no automatic silo stealer...
+    - !type:AutomatedPorts
+      sinks:
+      - On
   - type: ContainerContainer
     containers:
       machine_board: !type:Container

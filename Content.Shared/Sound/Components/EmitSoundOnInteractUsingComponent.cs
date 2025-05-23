@@ -16,6 +16,9 @@ namespace Content.Shared.Sound.Components;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class EmitSoundOnInteractUsingComponent : BaseEmitSoundComponent
 {
+    /// <summary>
+    /// The <see cref="EntityWhitelist"/> for the entities that can use this item.
+    /// </summary>
     [DataField(required: true)]
     public EntityWhitelist Whitelist = new();
 }

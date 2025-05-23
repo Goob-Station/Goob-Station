@@ -45,7 +45,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
   In the eyes of the public, changelings are an exterminated predatory lifeform and their potential existence on the station is shielded.
   This metashield prohibits players from crew bloodtesting until the metashield is revealed.
-  
+
   Knowledge about the abilities of changelings is not shielded.
 
   The revealing condition for this shield is any of the following:
@@ -58,19 +58,32 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   ## Heretics
 
   To normal people, heretics are generally unknown. Security and Command may be aware that a group of people following a rogue god exists, but it's an absurd reality.
-  This metashield prohibits normal players from knowing what runes or reality fractures are. Security may be suspicious of them. 
+  This metashield prohibits normal players from knowing what runes or reality fractures are. Security may be suspicious of them.
 
   Knowledge about the ability of heretics is not shielded.
 
   The revealing condition for this shield is any of the following:
-  - witnessing a crewmember drawing a rune  
-  - witnessing a crewmember harvesting a reality fracture 
+  - witnessing a crewmember drawing a rune
+  - witnessing a crewmember harvesting a reality fracture
   - witnessing a crewmember using their powers
+
+  ## Devils
+
+  To most ordinary people, a Devil is a fake fairy tale made to scare people from talking to strangers.
+  This metashield prohibits players from knowing that a player is a devil from their equipment alone, although they may distrust them as much as they wish.
+
+  Knowledge about the abilities and consequences of a Devil deal are not shielded.
+
+  The revealing condition for this shield is any of the following:
+  - You are a Devil.
+  - You are the Chaplain, a lawyer, or a member of Central Command. (Including BSO and NTR)
+  - You have made a deal with the Devil.
+  - You have witnessed someone make a deal.
 
   ## Zombies
 
   Zombies are known galaxy-wide, but not as real-life, instead, as fiction.
-  Nuclear Operatives and Syndicate Agents are aware of Romerol and what it can do, but are prohibited of speaking about it publicly - unless they want their families to die. 
+  Nuclear Operatives and Syndicate Agents are aware of Romerol and what it can do, but are prohibited of speaking about it publicly - unless they want their families to die.
 
   Revealing conditions to the "Zombie" Shield:
   - You are a Nuclear Operative
@@ -92,7 +105,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
   Deathsquad is known to exist - per the posters on the station, but they are not known as a crew killsquad, instead known as an elite team sent into stations to handle extreme threats even the best of ERT Security leaders could handle.
   The station's Nanotrasen Representative and Blueshield Officer are aware that Deathsquad is a crew killsquad, but are heavily prohibited to mention it, and will be dealt with after, or during, the shift.
-   
+
   In private conversations, faxes, or phone calls, both BSO & NTR are advised to use the term 'Janitor Squad' to refer to the Deathsquad.
   Crew can also choose to roleplay as if they've seen deathsquad movies, knowing limited aspects of their gear one would reasonably know watching an action-movie.
 
@@ -102,7 +115,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   - You are the Nanotrasen Representative (NTR)
   - You are the Blueshield Officer (BSO)
   - A Central Command Official (Non-NTR/BSO) mentions Deathsquad as a [bold]Killsquad[/bold]
-   
+
   ## Implanted Implants
 
   Implanted implants are shielded.

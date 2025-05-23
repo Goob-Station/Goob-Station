@@ -7,7 +7,7 @@
 
 using Content.Server.Spreader;
 using Content.Shared.Anomaly.Components;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Prometheus;
 
 namespace Content.Goobstation.Server.StationEvents.Metric;

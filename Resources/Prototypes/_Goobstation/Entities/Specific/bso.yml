@@ -22,3 +22,39 @@
   - type: StaticPrice
     price: 3000
   - type: GrantCqc
+
+- type: entity
+  parent: [BaseItem, BaseCentcommContraband]
+  id: HandheldCrewMonitorBSO
+  name: handheld command monitor
+  description: A handheld crew monitor modified for blueshield officer's needs. Will only track scanned command personnel and alarm you about them being in danger. Works on a built-in microreactor cell.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Security/bso_monitor.rsi
+    state: scanner
+  - type: Item
+    size: Small
+  - type: CrewMonitorScanning
+    whitelist:
+      components:
+      - CommandStaff
+  - type: ActivatableUI
+    key: enum.CrewMonitoringUIKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.CrewMonitoringUIKey.Key:
+        type: CrewMonitoringBoundUserInterface
+  - type: CrewMonitoringConsole
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: CrewMonitor
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: StationLimitedNetwork
+  - type: StaticPrice
+    price: 1000
+  - type: Tag
+    tags:
+    - HandheldCrewMonitor
+  - type: Speech
+    speechSounds: Borg

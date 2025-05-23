@@ -5,13 +5,13 @@
 
 namespace Content.Shared.Module;
 
-public record struct RequiredAssembly(string AssemblyName, bool Server = true, bool Client = false)
+public record struct RequiredAssembly(string AssemblyName, bool IsServer = true, bool IsClient = false)
 {
-    public static RequiredAssembly ForServer(string assembly) => new(assembly, Server: true, Client: false);
+    public static RequiredAssembly Server(string assembly) => new(assembly, IsServer: true, IsClient: false);
 
-    public static RequiredAssembly ForClient(string assembly) => new(assembly, Server: false, Client: true);
+    public static RequiredAssembly Client(string assembly) => new(assembly, IsServer: false, IsClient: true);
 
-    public static RequiredAssembly ForBoth(string assembly) => new(assembly, Server: true, Client: true);
+    public static RequiredAssembly Shared(string assembly) => new(assembly, IsServer: true, IsClient: true);
 }
 
 public abstract class ModulePack

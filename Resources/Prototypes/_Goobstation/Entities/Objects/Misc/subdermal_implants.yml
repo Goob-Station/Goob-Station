@@ -10,6 +10,7 @@
 # SPDX-FileCopyrightText: 2025 Scruq445 <storchdamien@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TurboTracker <130304754+TurboTrackerss14@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 crasg <109207982+Scruq445@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
@@ -64,7 +65,7 @@
     - type: TriggerImplantAction
     - type: SmokeOnTrigger
       spreadAmount: 25
-      duration: 15
+      duration: 10
     - type: SoundOnTrigger
       sound: /Audio/Effects/smoke.ogg
 
@@ -76,6 +77,20 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: KravMagaImplant
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: AutoinjectorImplant
+  name: autoinjector implant
+  description: This implant allows the user to inject themselves with a chemical on use. Ephedrine by default.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    implantAction: ActionActivateAutoinjector
+  - type: Tag
+    tags:
+    - SubdermalImplant
+    - HideContextMenu
 
 - type: entity
   parent: BaseSubdermalImplant
@@ -125,6 +140,16 @@
   components:
   - type: SubdermalImplant
     implantAction: ActionVaporizeFreeman
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: NaniteMenderImplant
+  name: nanite mender implant
+  description: This implant allows the user to heal entities with microscopic nanites.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    implantAction: ActionNaniteMend
 
 - type: entity
   parent: BaseSubdermalImplant

@@ -5,6 +5,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Server._Goobstation.Wizard.Components;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
@@ -13,11 +14,14 @@ using Content.Shared.Damage;
 using Content.Shared.Projectiles;
 using Content.Shared.Temperature;
 using Content.Shared.Whitelist;
+using Robust.Shared.Random;
 
 namespace Content.Server._Goobstation.Wizard.Systems;
 
 public sealed class IceCubeSystem : SharedIceCubeSystem
 {
+    [Dependency] private readonly IRobustRandom _random = default!;
+
     [Dependency] private readonly TemperatureSystem _temperature = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
 
@@ -43,14 +47,43 @@ public sealed class IceCubeSystem : SharedIceCubeSystem
         if (!TryComp(uid, out TemperatureComponent? temperature))
             return;
 
-        if (args is not { DamageIncreased: true, DamageDelta: not null } ||
-            !args.DamageDelta.DamageDict.TryGetValue("Heat", out var heat))
+        if (args is not { DamageIncreased: true, DamageDelta: not null })
             return;
 
-        _temperature.ForceChangeTemperature(uid,
-            MathF.Min(comp.UnfreezeTemperatureThreshold + 10f,
-                temperature.CurrentTemperature + heat.Float() * comp.TemperaturePerHeatDamageIncrease),
-            temperature);
+        if (args.DamageDelta.DamageDict.TryGetValue("Heat", out var heat))
+        {
+            _temperature.ForceChangeTemperature(uid,
+                MathF.Min(comp.UnfreezeTemperatureThreshold + 10f,
+                    temperature.CurrentTemperature + heat.Float() * comp.TemperaturePerHeatDamageIncrease),
+                temperature);
+        }
+
+        var realDamage = args.DamageDelta.DamageDict.Where(kvp => kvp.Key is "Blunt" or "Slash" or "Piercing" or "Heat")
+            .Sum(kvp => kvp.Value.Float());
+
+        if (realDamage <= 0f)
+            return;
+
+        ent.Comp.SustainedDamage += realDamage;
+        if (ent.Comp.SustainedDamage <= comp.DamageMeltProbabilityThreshold)
+            return;
+
+        var probability = Math.Clamp(ent.Comp.SustainedDamage * ent.Comp.SustainedDamageMeltProbabilityMultiplier /
+            100f * InverseLerp(ent.Comp.FrozenTemperature,
+            ent.Comp.UnfrozenTemperature,
+            temperature.CurrentTemperature),
+            0.2f, // At least 20%
+            1f);
+
+        if (_random.Prob(probability))
+            RemCompDeferred(ent.Owner, ent.Comp);
+
+        return;
+
+        float InverseLerp(float min, float max, float value)
+        {
+            return max <= min ? 1f : Math.Clamp((value - min) / (max - min), 0f , 1f);
+        }
     }
 
     private void OnTemperatureChange(Entity<IceCubeComponent> ent, ref OnTemperatureChangeEvent args)

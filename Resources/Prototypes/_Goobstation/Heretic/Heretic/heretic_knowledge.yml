@@ -53,6 +53,21 @@
   actionPrototypes:
   - ActionHereticLivingHeart
 
+- type: hereticKnowledge
+  id: CloakOfShadow
+  actionPrototypes:
+  - ActionHereticShadowCloak
+
+- type: hereticKnowledge
+  id: Reminiscence
+  ritualPrototypes:
+  - Reminiscence
+
+- type: hereticKnowledge
+  id: FeastOfOwls
+  ritualPrototypes:
+  - FeastOfOwls
+
 ### ash path
 - type: hereticKnowledge
   id: NightwatcherSecret
@@ -421,6 +436,13 @@
   ritualPrototypes:
   - VoidCloak
 
+- type: hereticKnowledge
+  id: MysteriesOfCreation
+  sideKnowledge: true
+  stage: 3
+  actionPrototypes:
+  - ActionHereticIceSpear
+
 ## stage 6
 - type: hereticKnowledge
   id: RustedRitual
@@ -443,3 +465,10 @@
   stage: 8
   actionPrototypes:
   - ActionHereticCleave
+
+- type: hereticKnowledge
+  id: RustCharge
+  sideKnowledge: true
+  stage: 8
+  actionPrototypes:
+  - ActionHereticRustCharge

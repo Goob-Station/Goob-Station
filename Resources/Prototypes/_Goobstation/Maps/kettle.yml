@@ -60,7 +60,7 @@
             Botanist: [ 3, 4 ]
             Chef: [ 2, 3 ]
             Janitor: [ 4, 4 ]
-            Chaplain: [ 1, 2 ]
+            Chaplain: [ 1, 1 ]
             Librarian: [ 1, 2 ]
             Lawyer: [ 2, 3 ]
             Zookeeper: [ 1, 1 ]

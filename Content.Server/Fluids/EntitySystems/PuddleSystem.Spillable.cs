@@ -50,15 +50,18 @@
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Solutions;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Chemistry;
 using Content.Shared.Database;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Fluids.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Nutrition.EntitySystems;
@@ -121,6 +124,13 @@ public sealed partial class PuddleSystem
             return;
 
         args.Handled = true;
+
+        if (hitCount == 0 && args.Direction == null)
+        {
+            var puddleEv = new SpillableCreatePuddleOnHitEvent(args.User, args.Coords, totalSplit.Float());
+            RaiseLocalEvent(entity, ref puddleEv);
+            return;
+        }
 
         // First update the hit count so anything that is not reactive wont count towards the total!
         foreach (var hit in args.HitEntities)

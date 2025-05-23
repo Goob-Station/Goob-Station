@@ -25,3 +25,6 @@ reagent-desc-aranesp = A difficult to synthesize performance enhancer, most famo
 
 reagent-name-mousebites = Mouse bites
 reagent-desc-mousebites = Did you try the medicine drug?
+
+reagent-name-oleoresin-capsaicin = Oleoresin Capsaicin
+reagent-desc-oleoresin-capsaicin = An oily resin derived from Capsaicin. Causes severe irritation when touching the eyes or mouth.

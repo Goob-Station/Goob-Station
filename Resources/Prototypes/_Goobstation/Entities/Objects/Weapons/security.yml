@@ -1,0 +1,175 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: hypercharged flash
+  parent: [BaseItem, BaseCentcommContraband]
+  id: HyperFlash
+  suffix: DO NOT MAP
+  description: An ultrabright flashbulb with a trigger. This one seems to be much more potent than an ordinary one.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/flash.rsi
+    layers:
+    - state: flash
+      map: [ "enum.FlashVisuals.BaseLayer" ]
+    - state: flashing
+      map: [ "enum.FlashVisuals.LightLayer" ]
+      visible: false
+      shader: unshaded
+  - type: Flash
+    duration: 20000
+    aoeFlashDuration: 10000
+    slowTo: 0.2
+    range: 15
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    damage:
+      types:
+        Blunt: 0
+    angle: 10
+  - type: Item
+    size: Small
+    sprite: Objects/Weapons/Melee/flash.rsi
+  - type: UseDelay
+  - type: StaticPrice
+    price: 700
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FlashVisuals.Burnt:
+        enum.FlashVisuals.BaseLayer:
+          True: {state: burnt}
+      enum.FlashVisuals.Flashing:
+        enum.FlashVisuals.LightLayer:
+          True: {visible: true}
+          False: {visible: false}
+
+# This is used by HE1S-G8 overcharged cartridge, idk where to put it
+- type: entity
+  id: EnergyVortex
+  name: energy vortex
+  components:
+  - type: Sprite
+    sprite: Structures/Power/Generation/Tesla/energy_ball.rsi
+    shader: unshaded
+    layers:
+    - state: energy_ball
+    scale: 0.5, 0.5
+  - type: ScaleData
+    scale: 0.5, 0.5
+  - type: Physics
+    bodyType: KinematicController
+    bodyStatus: InAir
+    sleepingAllowed: false
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.5
+        layer:
+        - BulletImpassable
+  - type: Clickable
+  - type: GravityWell
+    maxRange: 4
+    baseRadialAcceleration: 20
+    baseTangentialAcceleration: 20
+    gravPulsePeriod: 0.1
+  - type: SingularityDistortion
+    intensity: 2
+    falloffPower: 1
+  - type: LightningArcShooter
+    maxLightningArc: 2
+    arcDepth: 2
+    shootMaxInterval: 2
+    shootRange: 4
+  - type: Electrified
+    shockDamage: 1
+    requirePower: false
+    ignoreInsulation: true # 1984, you cannot just pass near A FUCKING ENERGY BALL wearing insuls
+  - type: AmbientSound
+    volume: 0
+    range: 10
+    sound:
+      path: /Audio/Effects/tesla.ogg
+  - type: Damageable
+    damageContainer: OnlyStructural
+    damageModifierSet: StructuralImmunity # So only the demolishing round can even damage it
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Structural
+        damage: 777
+      behaviors:
+      - !type:ExplodeBehavior
+  - type: Explosive
+    explosionType: Electrical
+    maxIntensity: 15
+    intensitySlope: 5
+    totalIntensity: 300
+  - type: TriggerOnSpawn
+  - type: EmpOnTrigger
+    range: 4
+    energyConsumption: 720
+    disableDuration: 15
+  - type: TimedDespawn
+    lifetime: 7.5
+
+
+- type: entity
+  name: pepperspray
+  id: PepperSpray
+  parent: [BaseItem, BaseSecurityContraband]
+  suffix: Filled
+  description: A small 50u canister of Oleoresin Capsaicin. Capable of blinding and stunning targets who aren't wearing protective gear.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Objects/Specific/Security/pepperspray.rsi
+    layers:
+    - state: icon
+  - type: Item
+    size: Small
+    sprite: /Textures/_Goobstation/Objects/Specific/Security/pepperspray.rsi
+  - type: RefillableSolution
+    solution: spray
+  - type: DrainableSolution
+    solution: spray
+  - type: SolutionTransfer
+    canChangeTransferAmount: true
+  - type: SolutionItemStatus
+    solution: spray
+  - type: TrashOnSolutionEmpty
+    solution: spray
+  - type: ExaminableSolution
+    solution: spray
+  - type: SolutionContainerManager
+    solutions:
+      spray:
+        maxVol: 50
+        reagents:
+        - ReagentId: OleoresinCapsaicin
+          Quantity: 50
+  - type: Spray
+    transferAmount: 10
+    sprayVelocity: 3
+    sprayDistance: 2.5
+    spraySound:
+      path: /Audio/Effects/spray2.ogg
+  - type: UseDelay
+  - type: StaticPrice
+    price: 25
+  - type: Tag
+    tags:
+    - Spray
+    - PepperSpray
+    - Trash

@@ -15,6 +15,7 @@
 // SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
 // SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2022 Tomás Alves <tomasalves35@gmail.com>
+// SPDX-FileCopyrightText: 2022 Tom�s Alves <tomasalves35@gmail.com>
 // SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
 // SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
@@ -46,7 +47,10 @@
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 // SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
@@ -77,6 +81,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using InventoryComponent = Content.Shared.Inventory.InventoryComponent;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Flash
 {
@@ -95,7 +100,9 @@ namespace Content.Server.Flash
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
 
+        private static readonly ProtoId<TagPrototype> TrashTag = "Trash";
         public static readonly ProtoId<TagPrototype> IgnoreResistancesTag = "FlashIgnoreResistances"; // Goobstation
+        public static readonly ProtoId<TagPrototype> FlashVulnerableTag = "FlashVulnerable"; // Goobstation
 
         public override void Initialize()
         {
@@ -152,7 +159,7 @@ namespace Content.Server.Flash
             if (_charges.IsEmpty(uid, charges))
             {
                 _appearance.SetData(uid, FlashVisuals.Burnt, true);
-                _tag.AddTag(uid, "Trash");
+                _tag.AddTag(uid, TrashTag);
                 _popup.PopupEntity(Loc.GetString("flash-component-becomes-empty"), user);
             }
 
@@ -175,7 +182,7 @@ namespace Content.Server.Flash
             TimeSpan? stunDuration = null)
         {
             // Goob edit start
-            if (used == null || !_tag.HasTag(used.Value, IgnoreResistancesTag))
+            if (used == null || !_tag.HasTag(used.Value, IgnoreResistancesTag) && !_tag.HasTag(target, FlashVulnerableTag))
             {
                 var attempt = new FlashAttemptEvent(target, user, used);
                 RaiseLocalEvent(target, attempt, true);

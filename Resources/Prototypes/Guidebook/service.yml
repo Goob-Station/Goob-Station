@@ -28,9 +28,10 @@
   children:
   - Bartender
   - Botany
+  - Chaplain
   - Chef
   - Janitorial
-  
+
 - type: guideEntry
   id: Bartender
   name: guide-entry-bartender
