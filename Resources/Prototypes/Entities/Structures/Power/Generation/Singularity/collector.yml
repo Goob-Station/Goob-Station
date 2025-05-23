@@ -109,6 +109,18 @@
         whitelist:
           components:
           - GasTank
+  - type: RadCollectorSignal # Goobstation
+  - type: AutomationSlots # Goobstation
+    slots:
+    - !type:AutomatedItemSlot
+      input: AutomationSlotGasTank
+      output: AutomationSlotGasTank
+      slotId: gas_tank
+    - !type:AutomatedPorts
+      sources:
+      - RadEmpty
+      - RadLow
+      - RadFull
   - type: UseDelay
     delay: 1
 
