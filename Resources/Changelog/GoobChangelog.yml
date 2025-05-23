@@ -9833,3 +9833,11 @@ Entries:
       message: Holoparasites now have an action to recall self.
   id: 1096
   time: '2025-05-22T20:55:37.0000000+00:00'
+- author: Nanotrasen
+  changes:
+    - type: Tweak
+      message: >-
+        Lightened up hair restrictions for Heads of Security. We implore you to
+        have the utmost care while handling lathes and incendiary weaponry.
+  id: 1097
+  time: '2025-05-22T22:18:17.0000000+00:00'
