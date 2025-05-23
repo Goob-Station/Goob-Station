@@ -44,8 +44,6 @@
   - type: Armor
     coverage:
     - Chest
-    - Groin
-    - Tail
     traumaDeductions:
       Dismemberment: 0.2
       OrganDamage: 0.2
