@@ -233,7 +233,7 @@
   parent: [ClothingShoesMilitaryBase, ClothingShoesBaseWinterBoots, BaseSecurityContraband]
   id: ClothingShoesWinterCombatBoots
   name: snowjacks boots
-  description: design to be use in winter on active combat field.
+  description: Nanotrasen-issue Security combat boots for combat scenarios or combat situations. Now in winter edition.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Shoes/Boots/winterbootsjackboot.rsi
