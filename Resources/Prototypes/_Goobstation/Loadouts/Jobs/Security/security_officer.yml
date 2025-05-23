@@ -7,3 +7,16 @@
   id: SecurityJudoBelt
   equipment:
     belt: ClothingBeltCorporateJudoFilled
+
+- type: loadout #Goobstation
+  id: WinterCoatSecArmored
+  equipment:
+    outerClothing: ClothingOuterWinterSecArmored
+
+- type: loadout #Goobstation
+  id: WinterCoatSeniorSecArmored
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorOfficer
+  equipment:
+    outerClothing: ClothingOuterWinterSeniorSecArmored

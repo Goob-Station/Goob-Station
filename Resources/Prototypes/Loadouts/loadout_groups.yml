@@ -1280,6 +1280,8 @@
   - ArmorVest
   - ArmorVestSlim
   - SecurityOfficerWintercoat
+  - WinterCoatSecArmored # Goobstation - [Bounty] Armored winter coat
+  - WinterCoatSeniorSecArmored # Goobstation - [Bounty] Armored winter coat
 
 - type: loadoutGroup
   id: SecurityShoes
