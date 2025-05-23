@@ -40,7 +40,7 @@ public sealed partial class MechMalfunctionComponent : Component
     [DataField]
     public ProtoId<WeightedRandomPrototype> MalfunctionWeights = "MechMalfunctionWeights";
 
-    [DataField, ViewVariables]
+    [DataField, ViewVariables, NonSerialized]
     public Dictionary<string, BaseMalfunctionEvent> Malfunctions = new()
     {
         { "ShortCircuit", new ShortCircuitEvent() },

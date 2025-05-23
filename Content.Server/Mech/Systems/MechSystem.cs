@@ -423,16 +423,20 @@ public sealed partial class MechSystem : SharedMechSystem
                         {
                             if (component.ArmorContainer.ContainedEntities.Count >= 1)
                             {
+                                var modifiedCoeff = new Dictionary<string, float>(modifierSet.Coefficients);
                                 // Take original coefficients
                                 if (origCoeff == null)
                                     origCoeff = new Dictionary<string, float>(modifierSet.Coefficients);
                                 // Degree the defense coefficient by armor plates count
-                                foreach (var (t1, a1) in modifierSet.Coefficients)
+                                foreach (var (type, amount) in modifierSet.Coefficients)
                                 {
-                                    var damageReductionFactor = Math.Pow(a1, component.ArmorContainer.Count);
-                                    modifierSet.Coefficients[t1] = (float) damageReductionFactor;
+                                    var damageReductionFactor = Math.Pow(amount, component.ArmorContainer.Count);
+                                    modifiedCoeff[type] = (float) damageReductionFactor;
                                 }
-                                updatedDamage = DamageSpecifier.ApplyModifierSet(updatedDamage, modifierSet);
+
+                                var modifiedModifierSet = new DamageModifierSetPrototype();
+                                modifiedModifierSet.Coefficients = modifiedCoeff;
+                                updatedDamage = DamageSpecifier.ApplyModifierSet(updatedDamage, modifiedModifierSet);
                                 modifierSet.Coefficients = origCoeff;
                             }
                         }
@@ -517,9 +521,8 @@ public sealed partial class MechSystem : SharedMechSystem
             return false;
 
         _battery.SetCharge(battery!.Value, batteryComp.CurrentCharge + delta.Float(), batteryComp);
-        if (batteryComp.CurrentCharge != component.Energy) //if there's a discrepency, we have to resync them
+        if (batteryComp.CurrentCharge != component.Energy) // if there's a discrepancy, we have to resync them
         {
-            Log.Debug($"Battery charge was not equal to mech charge. Battery {batteryComp.CurrentCharge}. Mech {component.Energy}");
             component.Energy = batteryComp.CurrentCharge;
             Dirty(uid, component);
         }

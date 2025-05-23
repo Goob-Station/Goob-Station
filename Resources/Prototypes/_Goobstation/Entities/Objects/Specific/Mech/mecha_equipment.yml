@@ -68,7 +68,7 @@
   description: A sturdy armor plate made from steel.
   components:
   - type: Sprite
-    sprite: _GoobStation/Objects/Specific/Mech/armor_plates.rsi
+    sprite: _Goobstation/Objects/Specific/Mech/armor_plates.rsi
     state: armor_steel
   - type: ArmorPlate
     damageModifierSet: SteelArmorPlate
@@ -85,7 +85,7 @@
   description: A lightweight armor plate made from kevlar.
   components:
   - type: Sprite
-    sprite: _GoobStation/Objects/Specific/Mech/armor_plates.rsi
+    sprite: _Goobstation/Objects/Specific/Mech/armor_plates.rsi
     state: armor_kevlar
   - type: ArmorPlate
     damageModifierSet: KevlarArmorPlate
@@ -102,7 +102,7 @@
   description: A durable armor plate made from titanium.
   components:
   - type: Sprite
-    sprite: _GoobStation/Objects/Specific/Mech/armor_plates.rsi
+    sprite: _Goobstation/Objects/Specific/Mech/armor_plates.rsi
     state: armor_titanium
   - type: ArmorPlate
     damageModifierSet: TitaniumArmorPlate
@@ -118,7 +118,7 @@
   description: A high-tech armor plate designed to absorb energy attacks.
   components:
   - type: Sprite
-    sprite: _GoobStation/Objects/Specific/Mech/armor_plates.rsi
+    sprite: _Goobstation/Objects/Specific/Mech/armor_plates.rsi
     state: armor_energy
   - type: ArmorPlate
     damageModifierSet: EnergyArmorPlate
