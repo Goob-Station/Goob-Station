@@ -232,7 +232,7 @@
 - type: entity
   parent: [ClothingShoesMilitaryBase, ClothingShoesBaseWinterBoots, BaseSecurityContraband]
   id: ClothingShoesWinterCombatBoots
-  name: snow jacks boots
+  name: snowjacks boots
   description: design to be use in winter on active combat field.
   components:
   - type: Sprite
