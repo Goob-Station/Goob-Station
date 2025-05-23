@@ -40,9 +40,9 @@ public sealed class DynamicHostnameSystem : EntitySystem
     {
         base.Initialize();
 
+        _originalHostname = _configuration.GetCVar(CVars.GameHostName);
         Subs.CVar(_configuration, GoobCVars.UseDynamicHostname, OnDynHostChange, true);
         Subs.CVar(_configuration, CVars.HubAdvertiseInterval, OnHubAdIntChange, true);
-        _originalHostname = _configuration.GetCVar(CVars.GameHostName);
         _nextUpdateTime = _gameTiming.CurTime + _updateInterval;
         _messages = _proto.Index(_messagesProto);
     }
