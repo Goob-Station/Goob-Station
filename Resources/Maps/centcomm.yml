@@ -29,9 +29,6 @@
 # SPDX-FileCopyrightText: 2025 crasg <109207982+Scruq445@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
-
-<<<<<<< HEAD
-=======
 # SPDX-FileCopyrightText: 2022 0x6273 <0x40@keemail.me>
 # SPDX-FileCopyrightText: 2022 20kdc <asdd2808@gmail.com>
 # SPDX-FileCopyrightText: 2022 Francesco <frafonia@gmail.com>
@@ -63,7 +60,6 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
->>>>>>> b4a446df53647326e5a8673465b7082bd18ec4e6
 meta:
   format: 7
   category: Grid
