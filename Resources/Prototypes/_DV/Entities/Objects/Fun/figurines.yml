@@ -1,0 +1,19 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseFigurine
+  id: ToyFigurineCosmicCultist
+  name: cosmic cultist figure
+  description: A figurine depicting an iridescent, alien looking hardsuit. You can feel the gaze of the abyss in its lack-of-a-face.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Fun/figurines.rsi
+    layers:
+      - state: cosmiccultist
+      - state: cosmiccultist_unshaded
+        shader: unshaded
+  - type: SpeakOnTrigger
+    pack: FigurinesCosmicCultist

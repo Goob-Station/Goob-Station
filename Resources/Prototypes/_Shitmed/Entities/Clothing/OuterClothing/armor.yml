@@ -31,14 +31,26 @@
           state: icon
         components:
         - type: Armor
+          traumaDeductions:
+            Dismemberment: 0.4
+            OrganDamage: 0.4
+            BoneDamage: 0.4
+            VeinsDamage: 0
+            NerveDamage: 0
+          coverage:
+          - Chest
+          - Groin
+          - Arm
+          - Leg
+          - Tail
           modifiers:
             coefficients:
-              Blunt: 0.85
-              Slash: 0.85
-              Heat: 0.85
-              Piercing: 0.85
-              Radiation: 0.85
-              Caustic: 0.25
+              Blunt: 0.6
+              Slash: 0.6
+              Heat: 0.6
+              Piercing: 0.6
+              Radiation: 0.6
+              Caustic: 0.4
         - type: ExplosionResistance
           damageCoefficient: 0.85
         - type: Clothing
@@ -54,13 +66,25 @@
           state: combat-icon
         components:
         - type: Armor
+          traumaDeductions:
+            Dismemberment: 0.4
+            OrganDamage: 0.4
+            BoneDamage: 0.4
+            VeinsDamage: 0
+            NerveDamage: 0
+          coverage:
+          - Chest
+          - Groin
+          - Arm
+          - Leg
+          - Tail
           modifiers:
             coefficients:
-              Blunt: 0.5
-              Slash: 0.5
-              Heat: 0.5
-              Piercing: 0.5
-              Radiation: 0.5
+              Blunt: 0.25
+              Slash: 0.25
+              Heat: 0.25
+              Piercing: 0.25
+              Radiation: 0.25
               Caustic: 0.1
         - type: StaminaDamageResistance
           coefficient: 0.25
@@ -83,13 +107,25 @@
   - type: Clothing
     sprite: _Shitmed/Clothing/OuterClothing/Coats/abductor.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Leg
+    - Tail
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.85
-        Slash: 0.85
-        Heat: 0.85
-        Piercing: 0.85
-        Radiation: 0.85
-        Caustic: 0.25
+        Blunt: 0.6
+        Slash: 0.6
+        Heat: 0.6
+        Piercing: 0.6
+        Radiation: 0.6
+        Caustic: 0.4
   - type: ExplosionResistance
-    damageCoefficient: 0.85
+    damageCoefficient: 0.75

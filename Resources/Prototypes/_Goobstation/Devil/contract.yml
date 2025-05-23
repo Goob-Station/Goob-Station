@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: BaseDevilContract
   parent: [BaseItem, BaseMagicContraband]
@@ -20,7 +26,7 @@
         type: PaperBoundUserInterface
   - type: Item
     sprite: _Goobstation/Objects/Misc/devil_contract.rsi
-    size: Normal
+    size: Small
   - type: Sprite
     sprite: Objects/Misc/bureaucracy.rsi
     state: contract-written
