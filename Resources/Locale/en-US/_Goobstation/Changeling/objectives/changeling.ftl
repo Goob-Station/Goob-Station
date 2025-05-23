@@ -7,8 +7,8 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-objective-condition-absorb-title = Absorb {$count} humanoids.
-objective-condition-absorb-description = I must absorb {$count} humanoids. It is necessary for my survival and further evolution.
+objective-condition-absorb-title = Absorb at least {$count} humanoids.
+objective-condition-absorb-description = I must absorb at the very least {$count} humanoids. It is necessary for my survival to further my evolution as much as possible.
 
 objective-condition-stealdna-title = Extract {$count} compatible genomes.
 objective-condition-stealdna-description = I must extract {$count} unique genomes.
