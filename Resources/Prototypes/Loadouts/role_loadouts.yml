@@ -456,11 +456,11 @@
 - type: roleLoadout
   id: JobHeadOfSecurity
   groups:
-  - SecurityMelee # Goobstation
   - HeadofSecurityHead
   - HeadofSecurityNeck
   - HeadofSecurityJumpsuit
   - SecurityBackpack
+  - SecurityMelee # Goobstation
   - SecurityBelt
   - HeadofSecurityOuterClothing
   - SecurityShoes
@@ -472,10 +472,10 @@
 - type: roleLoadout
   id: JobWarden
   groups:
-  - SecurityMelee # Goobstation
   - WardenHead
   - WardenJumpsuit
   - SecurityBackpack
+  - SecurityMelee # Goobstation
   - SecurityNeck
   - SecurityBelt
   - WardenOuterClothing
@@ -488,10 +488,10 @@
 - type: roleLoadout
   id: JobSecurityOfficer
   groups:
-  - SecurityMelee # Goobstation
   - SecurityHead
   - SecurityJumpsuit
   - SecurityBackpack
+  - SecurityMelee # Goobstation
   - SecurityOuterClothing
   - SecurityShoes
   - SecurityNeck
@@ -519,9 +519,9 @@
 - type: roleLoadout
   id: JobSecurityCadet
   groups:
-  - SecurityMelee # Goobstation
   - SecurityCadetJumpsuit
   - SecurityBackpack
+  - SecurityMelee # Goobstation
   - SurvivalSecurity
   - SecurityNeck
   - SecurityOuterClothing # Goobstation - Why not.

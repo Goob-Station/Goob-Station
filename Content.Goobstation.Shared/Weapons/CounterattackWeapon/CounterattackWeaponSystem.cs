@@ -5,6 +5,7 @@ using Content.Shared.Timing;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Containers;
+using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Weapons.CounterattackWeapon;
 
@@ -13,8 +14,9 @@ public sealed class CounterattackWeaponSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly UseDelaySystem _delay = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedItemSwitchSystem _switch = default!;
     [Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
+    [Dependency] private readonly SharedItemSwitchSystem _switch = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -29,7 +31,7 @@ public sealed class CounterattackWeaponSystem : EntitySystem
 
     private void OnAttacked(Entity<CounterattackWeaponUserComponent> ent, ref AttackedEvent args)
     {
-        if (ent.Owner == args.User)
+        if (!_timing.IsFirstTimePredicted || ent.Owner == args.User)
             return;
 
         var meleeWeapon = ent.Comp.Weapons.FirstOrDefault(EntityUid.Invalid);

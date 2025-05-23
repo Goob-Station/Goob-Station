@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Item;
@@ -20,7 +21,8 @@ public sealed class GoobMultiHandedItemSystem : EntitySystem
 
     private void OnComponentInit(Entity<MultiHandedItemComponent> ent, ref ComponentInit args)
     {
-        if (!_container.TryGetContainingContainer((ent, null, null), out var container))
+        if (!_container.TryGetContainingContainer((ent, null, null), out var container)
+        || !HasComp<HandsComponent>(container.Owner))
             return;
 
         // dropOthers: true in TrySpawnVirtualItemInHand didn't work properly so here we have this linq monstrosity

@@ -178,7 +178,7 @@
               walkModifier: 0.5
               sprintModifier: 0.5
             - type: MeleeWeapon
-              attackRate: 0.001 # This thing shouldn't be able to attack at all but setting it to 0 breaks stuff
+              mustBeEquippedToUse: true # This thing shouldn't be able to attack at all but setting attackRate to 0 breaks stuff
               damage:
                 types:
                   Blunt: 30
