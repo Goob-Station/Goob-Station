@@ -154,6 +154,17 @@
           rotationsEnabled: false
           volume: 1
     - type: ItemSlots
+    - type: AutomationSlots # Goobstation
+      slots:
+      - !type:AutomatedItemSlot
+        input: AutomationSlotGasTank
+        output: AutomationSlotGasTank
+        slotId: tank_slot
+      - !type:AutomatedPorts
+        sinks:
+        - Open
+        - Close
+        - Toggle
     - type: GasPortable
     - type: GasCanister
       gasTankSlot:
