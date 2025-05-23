@@ -100,8 +100,8 @@ public sealed class CursedHeartSystem : EntitySystem
 
         args.Handled = true;
         _audio.PlayGlobal(new SoundPathSpecifier("/Audio/_Lavaland/heartbeat.ogg"), uid);
-        _damage.TryChangeDamage(uid, new DamageSpecifier(_proto.Index<DamageGroupPrototype>("Brute"), -5) * 11f, true, false, targetPart: TargetBodyPart.All); // Shitmed Change
-        _damage.TryChangeDamage(uid, new DamageSpecifier(_proto.Index<DamageGroupPrototype>("Airloss"), -5) * 11f, true, false, targetPart: TargetBodyPart.All); // Shitmed Change
+        _damage.TryChangeDamage(uid, new DamageSpecifier(_proto.Index<DamageGroupPrototype>("Brute"), -5), true, false, targetPart: TargetBodyPart.All, splitDamage: false); // Shitmed Change
+        _damage.TryChangeDamage(uid, new DamageSpecifier(_proto.Index<DamageGroupPrototype>("Airloss"), -5), true, false, targetPart: TargetBodyPart.All, splitDamage: false); // Shitmed Change
         //_bloodstream.TryModifyBloodLevel(uid, 17);
         comp.LastPump = _timing.CurTime;
     }
