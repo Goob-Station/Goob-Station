@@ -1,5 +1,5 @@
 #Tier 0 Start
-- type: mutation
+- type: breed
   name: Grey Slime
   id: GreyMutation
   components:
@@ -9,8 +9,9 @@
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: slime-baby
+      color: Grey
   - type: SlimeComponent
-    mutation: GreyMutation
+    breed: GreyMutation
     offspring: 4
     mutationChance: 0.45
     potentialMutations:
@@ -18,7 +19,7 @@
 #Tier 0 End
 
 #Tier 1 Start
-- type: mutation
+- type: breed
   name: Orange Slime
   id: OrangeMutation
   components:
@@ -30,7 +31,7 @@
       state: slime-baby
       color: Orange
   - type: SlimeComponent
-    mutation: OrangeMutation
+    breed: OrangeMutation
     offspring: 4
     mutationChance: 0.45
     potentialMutations:

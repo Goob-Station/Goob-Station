@@ -4,11 +4,11 @@ using Robust.Shared.Serialization;
 namespace Content.Goobstation.Common.Xenobiology;
 
 /// <summary>
-/// This prototype stores information about different slime mutations.
+/// This prototype stores information about different slime breeds.
 /// </summary>
-[Prototype("mutation")]
+[Prototype("breed")]
 [Serializable, NetSerializable, DataDefinition]
-public sealed partial class MutationPrototype : IPrototype
+public sealed partial class BreedPrototype : IPrototype
 {
     [IdDataField] public string ID { get; private set; } = default!;
 

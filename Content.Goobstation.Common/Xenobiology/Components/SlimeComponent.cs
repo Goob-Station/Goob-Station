@@ -10,7 +10,7 @@ namespace Content.Goobstation.Common.Xenobiology.Components;
 public sealed partial class SlimeComponent : Component
 {
     [DataField(required: true), AutoNetworkedField]
-    public ProtoId<MutationPrototype> Mutation = "GreyMutation";
+    public ProtoId<BreedPrototype> Breed = "GreyMutation";
 
     [DataField, AutoNetworkedField]
     public int Offspring = 4;
@@ -19,7 +19,7 @@ public sealed partial class SlimeComponent : Component
     public float MutationChance = 0.45f;
 
     [DataField, AutoNetworkedField]
-    public HashSet<MutationPrototype> PotentialMutations { get; set; } = new HashSet<MutationPrototype>();
+    public HashSet<BreedPrototype> PotentialMutations { get; set; } = new HashSet<BreedPrototype>();
 
     [DataField, AutoNetworkedField]
     public float MitosisHunger = 20f;

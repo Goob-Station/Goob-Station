@@ -127,7 +127,7 @@
   description: It looks so much like jelly. I wonder what it tastes like?
   components:
   - type: SlimeComponent
-    mutation: GreyMutation
+    breed: GreyMutation
     offspring: 4
     mutationChance: 0.45
     potentialMutations:
