@@ -4950,18 +4950,6 @@ entities:
     - type: Transform
       pos: 16.5,1.5
       parent: 1668
-- proto: ActionHailer
-  entities:
-  - uid: 7272
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 2919
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 2919
-      attachedEntity: 2919
 - proto: AdminHypo
   entities:
   - uid: 797
