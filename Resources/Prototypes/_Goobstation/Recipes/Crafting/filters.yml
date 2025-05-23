@@ -38,6 +38,19 @@
   objectType: Item
 
 - type: construction
+  id: AutomationFilterPressure
+  graph: AutomationFilter
+  startNode: start
+  targetNode: pressure
+  category: construction-category-misc
+  name: pressure filter
+  description: A filter that can be installed in factory machines. This one has a barometer to check the pressure of gases.
+  icon:
+    sprite: _Goobstation/Objects/Misc/filter.rsi
+    state: icon
+  objectType: Item
+
+- type: construction
   name: combined filter
   id: AutomationFilterCombined
   graph: AutomationFilter

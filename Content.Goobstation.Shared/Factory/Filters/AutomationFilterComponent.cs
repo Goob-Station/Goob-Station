@@ -16,9 +16,10 @@ public sealed partial class AutomationFilterComponent : Component;
 
 /// <summary>
 /// Event raised on a filter to determine if it should block an item.
+/// If <c>CouldAllow</c> is set to true, IsAlwaysBlocked will return false.
 /// </summary>
 [ByRefEvent]
-public record struct AutomationFilterEvent(EntityUid Item, bool Allowed = false);
+public record struct AutomationFilterEvent(EntityUid Item, bool Allowed = false, bool CouldAllow = false);
 
 /// <summary>
 /// Event raised on a filter to get its stack split size.

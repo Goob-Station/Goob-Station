@@ -30,6 +30,17 @@
       - material: Cable
         amount: 4
         doAfter: 2
+    - to: pressure
+      steps:
+      - material: Steel
+        amount: 3
+        doAfter: 2
+      - material: Glass
+        amount: 1
+        doAfter: 2
+      - material: Cable
+        amount: 4
+        doAfter: 1
     - to: combined
       steps:
       - material: Steel
@@ -47,5 +58,7 @@
     entity: AutomationFilterName
   - node: stack
     entity: AutomationFilterStack
+  - node: pressure
+    entity: AutomationFilterPressure
   - node: combined
     entity: AutomationFilterCombined
