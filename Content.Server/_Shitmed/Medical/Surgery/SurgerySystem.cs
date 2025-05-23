@@ -104,7 +104,7 @@ public sealed class SurgerySystem : SharedSurgerySystem
         // kinda funky but still works
         // TODO: Also the scar treating surgery too, fuck. I hate this system and by every second I have to spend working with THIS I want to kill myself more and more
         _wounds.TryHaltAllBleeding(part, force: true);
-        _damageable.TryChangeDamage(part, damage, true, origin: user, partMultiplier: partMultiplier, targetPart: _body.GetTargetBodyPart(partComp));
+        _damageable.TryChangeDamage(body, damage, true, origin: user, partMultiplier: partMultiplier, targetPart: _body.GetTargetBodyPart(partComp));
     }
 
     private void AttemptStartSurgery(Entity<SurgeryToolComponent> ent, EntityUid user, EntityUid target)
