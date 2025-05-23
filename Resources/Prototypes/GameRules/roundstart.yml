@@ -104,6 +104,7 @@
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
@@ -448,8 +449,8 @@
   - type: AntagSelection
     definitions:
     - prefRoles: [ InitialInfected ]
-      max: 6
-      playerRatio: 10
+      max: 10
+      playerRatio: 8
       jobBlacklist: [ Chaplain ]
       blacklist:
         components:

@@ -68,7 +68,7 @@
   - type: SurgeryStep
     tool:
     - type: Stitches
-    add:
+    remove:
     - type: BleedersClamped
     duration: 5
   - type: Sprite
