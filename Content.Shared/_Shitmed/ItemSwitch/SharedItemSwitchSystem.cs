@@ -50,8 +50,7 @@ public abstract class SharedItemSwitchSystem : EntitySystem
 
         _query = GetEntityQuery<ItemSwitchComponent>();
 
-        //SubscribeLocalEvent<ItemSwitchComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<ItemSwitchComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<ItemSwitchComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<ItemSwitchComponent, UseInHandEvent>(OnUseInHand);
         SubscribeLocalEvent<ItemSwitchComponent, GetVerbsEvent<ActivationVerb>>(OnActivateVerb);
         SubscribeLocalEvent<ItemSwitchComponent, ActivateInWorldEvent>(OnActivate);
@@ -60,19 +59,9 @@ public abstract class SharedItemSwitchSystem : EntitySystem
         SubscribeLocalEvent<ClothingComponent, ItemSwitchedEvent>(UpdateClothingLayer);
     }
 
-
-    /*private void OnStartup(Entity<ItemSwitchComponent> ent, ref ComponentStartup args)
+    private void OnInit(Entity<ItemSwitchComponent> ent, ref ComponentInit args)
     {
-        var state = ent.Comp.State;
-        state ??= ent.Comp.States.Keys.FirstOrDefault();
-        if (state != null)
-            Switch((ent, ent.Comp), state, predicted: ent.Comp.Predictable);
-    }*/
-
-    private void OnMapInit(Entity<ItemSwitchComponent> ent, ref MapInitEvent args)
-    {
-        var state = ent.Comp.State;
-        Switch((ent, ent.Comp), state, predicted: ent.Comp.Predictable);
+        Switch((ent, ent.Comp), ent.Comp.State, predicted: ent.Comp.Predictable);
     }
 
     private void OnSwitchAttempt(EntityUid uid, ItemSwitchComponent comp, ref ItemSwitchAttemptEvent args)
@@ -157,10 +146,10 @@ public abstract class SharedItemSwitchSystem : EntitySystem
     /// Used when an item is attempted to be toggled.
     /// Sets its state to the opposite of what it is.
     /// </summary>
-    /// <returns>Same as <see cref="TrySetActive"/></returns>
-    public bool Switch(Entity<ItemSwitchComponent?> ent, string key, EntityUid? user = null, bool predicted = true)
+    /// <returns>false if the attempt fails for any reason</returns>
+    public bool Switch(Entity<ItemSwitchComponent?> ent, string? key, EntityUid? user = null, bool predicted = true)
     {
-        if (!_query.Resolve(ent, ref ent.Comp, false) || !ent.Comp.States.TryGetValue(key, out var state))
+        if (key == null || !_query.Resolve(ent, ref ent.Comp, false) || !ent.Comp.States.TryGetValue(key, out var state))
             return false;
 
         var uid = ent.Owner;
@@ -181,8 +170,7 @@ public abstract class SharedItemSwitchSystem : EntitySystem
             nextAttack = meleeComp.NextAttack;
 
         if (ent.Comp.States.TryGetValue(ent.Comp.State, out var prevState)
-            && prevState.RemoveComponents
-            && prevState.Components is not null)
+            && prevState is { RemoveComponents: true, Components: not null })
             EntityManager.RemoveComponents(ent, prevState.Components);
 
         if (state.Components is not null)
@@ -191,7 +179,8 @@ public abstract class SharedItemSwitchSystem : EntitySystem
         if (TryComp(ent, out meleeComp) && nextAttack.Ticks != 0)
             meleeComp.NextAttack = nextAttack;
 
-        if (!comp.Predictable) predicted = false;
+        if (!comp.Predictable)
+            predicted = false;
 
         if (attempt.Cancelled)
         {

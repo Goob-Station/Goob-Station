@@ -47,15 +47,10 @@ public sealed class CounterattackWeaponSystem : EntitySystem
 
         meleeComp.NextAttack = TimeSpan.Zero;
         _melee.AttemptLightAttack(ent, meleeWeapon, meleeComp, args.User);
-
-        if (TryComp<UseDelayComponent>(meleeWeapon, out var delay))
-            _delay.ResetAllDelays((meleeWeapon, delay));
-
-        if (counterattack.SetItemSwitch == null)
-            return;
-
         meleeComp.NextAttack = TimeSpan.Zero;
         _switch.Switch(meleeWeapon, counterattack.SetItemSwitch);
+        if (TryComp<UseDelayComponent>(meleeWeapon, out var delay))
+            _delay.ResetAllDelays((meleeWeapon, delay));
     }
 
     private void OnStartup(Entity<CounterattackWeaponComponent> ent, ref ComponentInit args)
