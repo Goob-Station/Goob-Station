@@ -401,6 +401,7 @@
     state: e-cautery-on
   - type: Item
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-cautery.rsi
+    heldPrefix: cautery
   - type: SurgeryTool
     startSound:
       path: /Audio/_Shitmed/Medical/Surgery/cautery1.ogg
@@ -416,6 +417,8 @@
       Steel: 150
       Glass: 37
       Plasma: 37
+  - type: Cautery
+    speed: 1.5
   - type: ItemSwitch
     showLabel: true
     state: cautery
@@ -459,6 +462,7 @@
     state: e-scalpel-on
   - type: Item
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-scalpel.rsi
+    heldPrefix: scalpel
   - type: SurgeryTool
     startSound:
       path: /Audio/_Shitmed/Medical/Surgery/scalpel1.ogg
@@ -474,6 +478,8 @@
       Steel: 150
       Glass: 37
       Gold: 37
+  - type: Scalpel
+    speed: 1.5
   - type: ItemSwitch
     showLabel: true
     state: scalpel
@@ -518,6 +524,7 @@
     state: adv-retractor-on
   - type: Item
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/adv-retractor.rsi
+    heldPrefix: retractor
   - type: SurgeryTool
     startSound:
       path: /Audio/_Shitmed/Medical/Surgery/retractor1.ogg
@@ -533,6 +540,8 @@
       Steel: 150
       Glass: 37
       Silver: 37
+  - type: Retractor
+    speed: 1.5
   - type: ItemSwitch
     showLabel: true
     state: retractor

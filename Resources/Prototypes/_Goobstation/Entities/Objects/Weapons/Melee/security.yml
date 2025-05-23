@@ -144,6 +144,22 @@
       malus: 0.5
     - type: UseDelay
       delay: 10
+    - type: Item
+      heldPrefix: off
+      sprite: _Goobstation/Objects/Weapons/Melee/betty.rsi
+      shape:
+      - 0,0,2,0
+      storedRotation: 45
+    - type: Sharp
+    - type: MeleeWeapon
+      animationRotation: 225
+      wideAnimationRotation: -135
+      attackRate: 0.8
+      damage:
+        types:
+          Slash: 18
+      soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
     - type: ItemSwitch
       state: off
       states:
