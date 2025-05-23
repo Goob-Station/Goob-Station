@@ -127,6 +127,7 @@
 using Content.Server.EntityEffects.Effects;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
+using Content.Shared.EntityEffects.Effects;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Chemistry.Reagent;
