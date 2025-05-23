@@ -26,4 +26,4 @@
 - type: loadout
   id: WinterCombatBoots
   equipment:
-    outerClothing: ClothingShoesWinterCombatBoots
+    shoes: ClothingShoesWinterCombatBoots
