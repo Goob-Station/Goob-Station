@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+﻿// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
@@ -242,7 +242,7 @@ public sealed partial class WoundSystem
         // Skip if there was no damage delta or if wounds aren't allowed
         if (args.DamageDelta == null
             || !component.AllowWounds
-            || !_timing.IsFirstTimePredicted)
+            || !_net.IsServer)
             return;
 
         // Create or update wounds based on damage changes
@@ -426,7 +426,8 @@ public sealed partial class WoundSystem
         var proto = _prototype.Index(id);
         foreach (var wound in GetWoundableWounds(uid, woundable))
         {
-            if (proto.ID != wound.Comp.DamageType)
+            if (proto.ID != wound.Comp.DamageType
+                || wound.Comp.IsScar)
                 continue;
 
             ApplyWoundSeverity(wound, severity, wound);
@@ -539,7 +540,7 @@ public sealed partial class WoundSystem
             : old + severity;
 
         wound.WoundSeverityPoint = FixedPoint2.Clamp(rawValue, 0, _cfg.GetCVar(SurgeryCVars.MaxWoundSeverity));
-
+        Dirty(uid, wound);
         if (wound.WoundSeverityPoint != old || rawValue > wound.WoundSeverityPoint)
         {
             // We keep track of this overflow variable to allow continuous damage on wounds that have been capped
@@ -1107,6 +1108,11 @@ public sealed partial class WoundSystem
 
         UpdateWoundableIntegrity(wound.HoldingWoundable, woundable);
         CheckWoundableSeverityThresholds(wound.HoldingWoundable, woundable);
+
+        // We prevent removal if theres at least one wound holding traumas left.
+        foreach (var trauma in _trauma.GetAllWoundTraumas(woundEntity))
+            if (Traumas.Systems.TraumaSystem.TraumasBlockingHealing.Contains(trauma.Comp.TraumaType))
+                return false;
 
         _container.Remove(woundEntity, woundable.Wounds!, false, true);
 
