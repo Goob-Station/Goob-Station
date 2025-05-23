@@ -10,7 +10,7 @@
   id: Chloris
   mapName: 'Chloris'
   mapPath: /Maps/_Goobstation/chloris.yml
-  minPlayers: 70
+  minPlayers: 80
   stations:
     Chloris:
       stationProto: StandardNanotrasenStation
