@@ -53,7 +53,7 @@ public sealed partial class MalfunctionSystem : EntitySystem
     }
     private void OnEngineBroken(EntityUid uid, MechComponent component, EngineBrokenEvent args)
     {
-        AddComp<EngineBrokenComponent>(uid);
+        EnsureComp<EngineBrokenComponent>(uid);
         _actionBlocker.UpdateCanMove(uid);
         _popup.PopupEntity(Loc.GetString("goobstation-mech-engine-broken"), uid);
     }
