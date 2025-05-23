@@ -3737,9 +3737,6 @@ entities:
     - type: Transform
       pos: -28.5,14.5
       parent: 2
-    - type: DeviceLinkSource
-      lastSignals:
-        DoorStatus: True
   - uid: 65
     components:
     - type: Transform
@@ -3750,9 +3747,6 @@ entities:
     - type: Transform
       pos: -24.5,16.5
       parent: 2
-    - type: DeviceLinkSource
-      lastSignals:
-        DoorStatus: True
   - uid: 67
     components:
     - type: Transform
@@ -4311,9 +4305,6 @@ entities:
     - type: Transform
       pos: 18.5,-6.5
       parent: 2
-    - type: DeviceLinkSource
-      lastSignals:
-        DoorStatus: True
   - uid: 151
     components:
     - type: Transform
@@ -4324,9 +4315,6 @@ entities:
     - type: Transform
       pos: -13.5,-8.5
       parent: 2
-    - type: DeviceLinkSource
-      lastSignals:
-        DoorStatus: True
   - uid: 153
     components:
     - type: Transform
@@ -4607,9 +4595,6 @@ entities:
     - type: Transform
       pos: -6.5,17.5
       parent: 2
-    - type: DeviceLinkSource
-      lastSignals:
-        DoorStatus: True
 - proto: AirlockMedicalGlass
   entities:
   - uid: 202
@@ -4752,9 +4737,6 @@ entities:
     - type: Transform
       pos: -13.5,2.5
       parent: 2
-    - type: DeviceLinkSource
-      lastSignals:
-        DoorStatus: True
 - proto: AirlockServiceLocked
   entities:
   - uid: 226
