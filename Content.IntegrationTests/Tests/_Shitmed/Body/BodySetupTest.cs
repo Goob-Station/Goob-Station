@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -9,15 +10,21 @@ using Content.Server.Administration.Systems;
 using Content.Server.Body.Systems;
 using Content.Server.Hands.Systems;
 using Content.Server.Tools.Innate;
+using Content.Shared._Shitmed.Body;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Pain.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Organ;
 using Content.Shared.Body.Part;
+using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Humanoid.Prototypes;
 using Robust.Shared.GameObjects;
@@ -315,6 +322,87 @@ public sealed class BodySetupTest
                         Assert.That(entMan.HasComponent<BoneComponent>(bone));
                     });
                 }
+            }
+        });
+
+        await pair.CleanReturnAsync();
+    }
+
+    [Test]
+    public async Task AllMobsCanDie()
+    {
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings
+        {
+            Dirty = true,
+            Connected = true,
+            InLobby = false,
+        });
+
+        var server = pair.Server;
+
+        var entMan = server.ResolveDependency<IEntityManager>();
+        var protoMan = server.ResolveDependency<IPrototypeManager>();
+        var mobStateSystem = entMan.System<MobStateSystem>();
+        var mobThresholdSystem = entMan.System<MobThresholdSystem>();
+        var damageableSystem = entMan.System<DamageableSystem>();
+        var bodySystem = entMan.System<BodySystem>();
+
+        await server.WaitAssertion(() =>
+        {
+            // Find all non-abstract entities with MobStateComponent
+            var entityPrototypes = protoMan.EnumeratePrototypes<EntityPrototype>()
+                .Where(p => !p.Abstract
+                            && p.Components.ContainsKey("MobState")
+                            && !p.Components.ContainsKey("Godmode")
+                            && !p.Components.ContainsKey("HierophantBoss")) // Hiero is immune to attacks without an origin.
+                .ToList();
+
+            foreach (var entityProto in entityPrototypes)
+            {
+                // Skip any specifically ignored prototypes if needed
+                if (_ignoredPrototypes.Contains(entityProto.ID))
+                    continue;
+
+                var entity = entMan.Spawn(entityProto.ID);
+
+                Assert.That(entity, Is.Not.EqualTo(EntityUid.Invalid), $"Failed to spawn entity: {entityProto.ID}");
+
+                if (!entMan.TryGetComponent<MobStateComponent>(entity, out var mobState) ||
+                    !entMan.TryGetComponent<DamageableComponent>(entity, out var damageable) ||
+                    !entMan.TryGetComponent<MobThresholdsComponent>(entity, out var thresholds))
+                {
+                    // Skip entities missing required components
+                    continue;
+                }
+
+                // Try to get dead threshold
+                if (!mobThresholdSystem.TryGetDeadThreshold(entity, out var deadThreshold))
+                {
+                    Assert.Fail($"Entity {entityProto.ID} has MobState but no death threshold");
+                    continue;
+                }
+
+                // Apply lethal damage
+                var lethalDamage = deadThreshold.Value + FixedPoint2.New(10);
+                var damageSpecifier = new DamageSpecifier(protoMan.Index<DamageTypePrototype>("Blunt"), lethalDamage);
+                if (entMan.TryGetComponent<BodyComponent>(entity, out var body)
+                    && body.BodyType == BodyType.Complex)
+                {
+                    if (!bodySystem.TryGetRootPart(entity, out var rootPart, body))
+                    {
+                        Assert.Fail($"Entity {entityProto.ID} has MobState but no root part");
+                        continue;
+                    }
+
+                    damageableSystem.TryChangeDamage(entity, damageSpecifier, true, targetPart: bodySystem.GetTargetBodyPart(rootPart.Value));
+                }
+                else
+                {
+                    damageableSystem.TryChangeDamage(entity, damageSpecifier, true);
+                }
+
+                Assert.That(mobStateSystem.IsDead(entity, mobState),
+                    $"Entity {entityProto.ID} should be dead after taking lethal damage ({lethalDamage}), but isn't.");
             }
         });
 
