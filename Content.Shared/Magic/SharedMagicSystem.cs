@@ -82,6 +82,7 @@
 // SPDX-FileCopyrightText: 2025 TemporalOroboros <TemporalOroboros@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
@@ -957,10 +958,11 @@ public abstract class SharedMagicSystem : EntitySystem
             if (invocationEv.ToHeal.GetTotal() > FixedPoint2.Zero)
             {
                 _damageable.TryChangeDamage(args.Performer,
-                    -invocationEv.ToHeal * 11f,
+                    -invocationEv.ToHeal,
                     true,
                     false,
-                    targetPart: TargetBodyPart.All); // Shitmed Change
+                    targetPart: TargetBodyPart.All,
+                    splitDamage: false); // Shitmed Change
             }
         }
 
