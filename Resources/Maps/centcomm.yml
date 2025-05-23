@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 # SPDX-FileCopyrightText: 2022 0x6273 <0x40@keemail.me>
 # SPDX-FileCopyrightText: 2022 20kdc <asdd2808@gmail.com>
 # SPDX-FileCopyrightText: 2022 Francesco <frafonia@gmail.com>
@@ -29,14 +31,15 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+>>>>>>> b4a446df53647326e5a8673465b7082bd18ec4e6
 meta:
   format: 7
   category: Grid
   engineVersion: 251.0.0
   forkId: ""
   forkVersion: ""
-  time: 05/17/2025 17:53:40
-  entityCount: 9736
+  time: 05/23/2025 18:45:02
+  entityCount: 9734
 maps: []
 grids:
 - 1668
@@ -140,7 +143,7 @@ entities:
           version: 6
         -1,-2:
           ind: -1,-2
-          tiles: eQAAAAAAWQAAAAAAWQAAAAAAeQAAAAAAHQAAAAACDAAAAAABDAAAAAADDAAAAAACDAAAAAABeQAAAAAAAQAAAAAAeQAAAAAAHQAAAAABeQAAAAAAHQAAAAABHQAAAAADeQAAAAAAWQAAAAADWQAAAAABHQAAAAADHQAAAAABDAAAAAAADAAAAAAADAAAAAADDAAAAAABeQAAAAAAAQAAAAAAeQAAAAAAHQAAAAACeQAAAAAAHQAAAAABHQAAAAADeQAAAAAAWQAAAAACWQAAAAABeQAAAAAAHQAAAAACHQAAAAABHQAAAAADHQAAAAACHQAAAAAAeQAAAAAAAQAAAAAAeQAAAAAAHQAAAAAAeQAAAAAAHQAAAAACHQAAAAABeQAAAAAAWQAAAAACWQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAHQAAAAABWQAAAAABWQAAAAAAWQAAAAACWQAAAAAAWQAAAAACWQAAAAADWQAAAAABWQAAAAAAWQAAAAAAWQAAAAABWQAAAAABWQAAAAABWQAAAAABWQAAAAACWQAAAAAAWQAAAAAAWQAAAAACWQAAAAABWQAAAAABWQAAAAADWQAAAAACWQAAAAAAWQAAAAADWQAAAAACWQAAAAABWQAAAAAAWQAAAAAAWQAAAAABWQAAAAAAWQAAAAACWQAAAAAAWQAAAAADWQAAAAABWQAAAAAAWQAAAAAAWQAAAAABWQAAAAADWQAAAAACWQAAAAACWQAAAAADWQAAAAACWQAAAAABWQAAAAABWQAAAAABWQAAAAACWQAAAAACWQAAAAADWQAAAAACeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAWQAAAAAAWQAAAAADeQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeQAAAAAAHQAAAAABWQAAAAADWQAAAAABAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAHQAAAAACWQAAAAACWQAAAAADAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAHQAAAAACWQAAAAAAWQAAAAABAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAHQAAAAADWQAAAAACWQAAAAABeQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeQAAAAAAHQAAAAADWQAAAAAAWQAAAAABeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAHQAAAAADWQAAAAABWQAAAAAAeQAAAAAAGAAAAAAAGAAAAAAAeQAAAAAADwAAAAAADwAAAAAAeQAAAAAAFQAAAAAAFQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAACgAAAAAAHQAAAAACWQAAAAADWQAAAAABeQAAAAAAGAAAAAAAGAAAAAAAeQAAAAAADwAAAAAADwAAAAAAeQAAAAAAFQAAAAAAFQAAAAAAeQAAAAAAeQAAAAAAaAAAAAAAeQAAAAAAHQAAAAAAWQAAAAADWQAAAAAC
+          tiles: eQAAAAAAWQAAAAAAWQAAAAAAeQAAAAAAHQAAAAACDAAAAAABDAAAAAADDAAAAAACDAAAAAABeQAAAAAAAQAAAAAAeQAAAAAAHQAAAAABeQAAAAAAHQAAAAABHQAAAAADeQAAAAAAWQAAAAADWQAAAAABHQAAAAADHQAAAAABDAAAAAAADAAAAAAADAAAAAADDAAAAAABeQAAAAAAAQAAAAAAeQAAAAAAHQAAAAACeQAAAAAAHQAAAAABHQAAAAADeQAAAAAAWQAAAAACWQAAAAABeQAAAAAAHQAAAAACHQAAAAABHQAAAAADHQAAAAACHQAAAAAAeQAAAAAAAQAAAAAAeQAAAAAAHQAAAAAAeQAAAAAAHQAAAAACHQAAAAABeQAAAAAAWQAAAAACWQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAHQAAAAABWQAAAAABWQAAAAAAWQAAAAACWQAAAAAAWQAAAAACWQAAAAADWQAAAAABWQAAAAAAWQAAAAAAWQAAAAABWQAAAAABWQAAAAABWQAAAAABWQAAAAACWQAAAAAAWQAAAAAAWQAAAAACWQAAAAABWQAAAAABWQAAAAADWQAAAAACWQAAAAAAWQAAAAADWQAAAAACWQAAAAABWQAAAAAAWQAAAAAAWQAAAAABWQAAAAAAWQAAAAACWQAAAAAAWQAAAAADWQAAAAABWQAAAAAAWQAAAAAAWQAAAAABWQAAAAADWQAAAAACWQAAAAACWQAAAAADWQAAAAACWQAAAAABWQAAAAABWQAAAAABWQAAAAACWQAAAAACWQAAAAADWQAAAAACeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAWQAAAAAAWQAAAAADeQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeQAAAAAAHQAAAAABWQAAAAADWQAAAAABAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAHQAAAAACWQAAAAACWQAAAAADAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAHQAAAAACWQAAAAAAWQAAAAABAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAHQAAAAADWQAAAAACWQAAAAABeQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeQAAAAAAHQAAAAADWQAAAAAAWQAAAAABeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAAHQAAAAADWQAAAAABWQAAAAAAeQAAAAAAGAAAAAAAGAAAAAAAeQAAAAAAEAAAAAAAEAAAAAAAeQAAAAAAFQAAAAAAFQAAAAAAeQAAAAAAeQAAAAAAeQAAAAAACgAAAAAAHQAAAAACWQAAAAADWQAAAAABeQAAAAAAGAAAAAAAGAAAAAAAeQAAAAAAEAAAAAAAEAAAAAAAeQAAAAAAFQAAAAAAFQAAAAAAeQAAAAAAeQAAAAAAaAAAAAAAeQAAAAAAHQAAAAAAWQAAAAADWQAAAAAC
           version: 6
         2,-2:
           ind: 2,-2
@@ -7409,14 +7412,6 @@ entities:
     components:
     - type: Transform
       pos: 10.462108,-8.316433
-      parent: 1668
-- proto: Bonfire
-  entities:
-  - uid: 9396
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -11.5,-17.5
       parent: 1668
 - proto: BookshelfFilled
   entities:
@@ -22712,17 +22707,6 @@ entities:
     - type: Transform
       pos: -38.305424,13.6884775
       parent: 1668
-  - uid: 9694
-    components:
-    - type: Transform
-      parent: 9399
-    - type: Clothing
-      inSlotFlag: HEAD
-      inSlot: head
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
   - uid: 9703
     components:
     - type: Transform
@@ -22771,6 +22755,13 @@ entities:
       angularDamping: 0
       linearDamping: 0
       canCollide: False
+- proto: ClothingHeadHatFancyCrown
+  entities:
+  - uid: 9692
+    components:
+    - type: Transform
+      pos: -8.542099,-17.364147
+      parent: 1668
 - proto: ClothingHeadHatPirateTricord
   entities:
   - uid: 9706
@@ -22985,19 +22976,6 @@ entities:
     - type: Transform
       pos: -25.354895,-17.517006
       parent: 1668
-- proto: ClothingMaskClown
-  entities:
-  - uid: 9693
-    components:
-    - type: Transform
-      parent: 9399
-    - type: Clothing
-      inSlotFlag: MASK
-      inSlot: mask
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
 - proto: ClothingMaskGasAtmos
   entities:
   - uid: 8770
@@ -23138,7 +23116,7 @@ entities:
       inSlotFlag: MASK
       inSlot: mask
     - type: Hailer
-      hailActionEntity: 7272
+      hailActionEntity: invalid
     - type: Physics
       angularDamping: 0
       linearDamping: 0
@@ -23231,17 +23209,6 @@ entities:
     - type: Transform
       pos: -26.582266,-16.37928
       parent: 1668
-  - uid: 9692
-    components:
-    - type: Transform
-      parent: 9399
-    - type: Clothing
-      inSlotFlag: NECK
-      inSlot: neck
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
 - proto: ClothingNeckCloakNanotrasen
   entities:
   - uid: 9340
@@ -24730,6 +24697,16 @@ entities:
       parent: 1668
 - proto: CurtainsBlack
   entities:
+  - uid: 6119
+    components:
+    - type: Transform
+      pos: -11.5,-15.5
+      parent: 1668
+  - uid: 7272
+    components:
+    - type: Transform
+      pos: -10.5,-15.5
+      parent: 1668
   - uid: 8772
     components:
     - type: Transform
@@ -24781,7 +24758,7 @@ entities:
       pos: -23.5,-9.5
       parent: 1668
     - type: Door
-      secondsUntilStateChange: -7313.39
+      secondsUntilStateChange: -7417.995
       state: Closing
 - proto: CurtainsOrangeOpen
   entities:
@@ -44352,11 +44329,11 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 7272
+          - invalid
     - type: ActionsContainer
     - type: Actions
       actions:
-      - 7272
+      - invalid
   - uid: 3239
     components:
     - type: MetaData
@@ -44441,47 +44418,6 @@ entities:
           showEnts: False
           occludes: False
           ent: null
-  - uid: 9399
-    components:
-    - type: Transform
-      pos: -10.5,-17.5
-      parent: 1668
-    - type: ContainerContainer
-      containers:
-        jumpsuit: !type:ContainerSlot
-          showEnts: False
-          occludes: False
-          ent: null
-        outerClothing: !type:ContainerSlot
-          showEnts: False
-          occludes: False
-          ent: null
-        neck: !type:ContainerSlot
-          showEnts: False
-          occludes: False
-          ent: 9692
-        mask: !type:ContainerSlot
-          showEnts: False
-          occludes: False
-          ent: 9693
-        eyes: !type:ContainerSlot
-          showEnts: False
-          occludes: False
-          ent: null
-        head: !type:ContainerSlot
-          showEnts: False
-          occludes: False
-          ent: 9694
-        suitstorage: !type:ContainerSlot
-          showEnts: False
-          occludes: False
-          ent: null
-        back: !type:ContainerSlot
-          showEnts: False
-          occludes: False
-          ent: null
-    - type: Godmode
-      oldDamage: {}
   - uid: 9716
     components:
     - type: Transform
@@ -51464,14 +51400,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -30.5,-15.5
       parent: 1668
-  - uid: 6119
-    components:
-    - type: MetaData
-      desc: Head of Staff
-      name: Tikibomb
-    - type: Transform
-      pos: -9.5,-15.5
-      parent: 1668
   - uid: 6120
     components:
     - type: MetaData
@@ -53861,6 +53789,16 @@ entities:
     components:
     - type: Transform
       pos: -38.5,-17.5
+      parent: 1668
+  - uid: 9396
+    components:
+    - type: Transform
+      pos: -11.5,-17.5
+      parent: 1668
+  - uid: 9399
+    components:
+    - type: Transform
+      pos: -10.5,-17.5
       parent: 1668
 - proto: TableFancyOrange
   entities:
