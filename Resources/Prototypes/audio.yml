@@ -160,6 +160,7 @@
     - /Audio/Voice/Misc/lowHiss3.ogg
     - /Audio/Voice/Misc/lowHiss4.ogg
     - /Audio/Ambience/maintambience.ogg
+    - /Audio/_Goobstation/Ambience/ambihullcreak.ogg # Goobstation
 
 - type: soundCollection
   id: AmbienceMedical
