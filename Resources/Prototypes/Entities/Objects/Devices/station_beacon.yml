@@ -740,10 +740,6 @@
   parent: DefaultStationBeacon
   id: DefaultStationBeaconGhost
   suffix: Boo
-  components:
-  - type: Tag
-    tags:
-    - GhostOnlyWarp
 
 # CentComm Beacons
 - type: entity
