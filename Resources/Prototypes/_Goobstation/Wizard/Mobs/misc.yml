@@ -178,6 +178,7 @@
   - type: Buckle
   - type: StandingState
   - type: Body
+    bodyType: Simple
   - type: StatusIcon
     bounds: -0.5,-0.5,0.5,0.5
   - type: MeleeWeapon

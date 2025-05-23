@@ -1,7 +1,9 @@
 # SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 blobadoodle <me@bloba.dev>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 #
@@ -24,9 +26,9 @@
   # Goobstation
   - NanotrasenRepresentative
   - BlueshieldOfficer
-  special:
+  special: # Goobstation
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear # Goobstation - Start - Sol
   id: CBURNGear
@@ -34,14 +36,14 @@
     jumpsuit: ClothingUniformJumpsuitColorBrown
     back: ClothingBackpackDuffelCBURN
     mask: ClothingMaskGasERT
-    neck: ExecutiveIDCard # Executive Access! - Todo: Add more to this card.
+    neck: ExecutiveIDCard # Executive Access!
     eyes: ClothingEyesGlassesMedSec # Better glasses
     ears: ClothingHeadsetAltCentCom
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitCBURN
     shoes: ClothingShoesBootsMagEmergencyResponseTeam # Goobstation
     id: CBURNPDA # Todo - Replace it.
-    pocket1: RadioHandheld # Todo - Replace this probably. Have never seen it used.
+    pocket1: InfectionScannerCburn # Goob
     pocket2: WeaponPulsePistol
     belt: ClothingBeltSecurityFilled # No shotgun, no bandolier.
   storage:

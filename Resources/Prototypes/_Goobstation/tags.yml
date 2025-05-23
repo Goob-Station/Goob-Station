@@ -136,9 +136,6 @@
   id: CursedAnimalMask
 
 - type: Tag
-  id: DroneMind
-
-- type: Tag
   id: Durand
 
 - type: Tag
@@ -203,6 +200,9 @@
 
 - type: Tag
   id: FlashIgnoreResistances
+
+- type: Tag
+  id: FlashVulnerable
 
 - type: Tag
   id: FollowerStayOnPolymorph
@@ -370,6 +370,9 @@
   id: Muzzle
 
 - type: Tag
+  id: NonLethalGrenade
+
+- type: Tag
   id: NukeOpsCommanderUplink
 
 - type: Tag
@@ -380,6 +383,9 @@
 
 - type: Tag
   id: Nullrod
+
+- type: Tag
+  id: NunHood
 
 - type: Tag
   id: Organ
@@ -533,9 +539,6 @@
 
 - type: Tag
   id: ReverseBearTrapKey
-
-- type: Tag
-  id: Bomb
 
 - type: Tag
   id: Rifle

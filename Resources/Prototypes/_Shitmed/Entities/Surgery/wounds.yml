@@ -98,6 +98,7 @@
     woundVisibility: Always
     scarWound: PiercingScar
     integrityMultiplier: 0.34
+    selfHealMultiplier: 0
   - type: TraumaInflicter
     severityThreshold: 6
     allowedTraumas:
@@ -187,6 +188,38 @@
     severityThreshold: 3
 
 - type: entity
+  id: Ion
+  parent: WoundBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Wound
+    damageType: Ion
+    woundType: External
+    woundVisibility: Always
+    scarWound: BurnScar
+    integrityMultiplier: 0.34 # boiling people
+  - type: TraumaInflicter
+    severityThreshold: 17
+    allowedTraumas:
+    - OrganDamage
+    - BoneDamage
+    - VeinsDamage
+    - NerveDamage
+    allowArmourDeduction:
+    - OrganDamage # No matter what ultrasuperduper cool armour you have, while getting fucking boiled alive - YOUR VEINS AND NERVES WILL HURT.
+    - BoneDamage
+    traumasChances:
+      Dismemberment: 0
+      OrganDamage: -0.12
+      BoneDamage: -0.21
+      VeinsDamage: 0.34
+      NerveDamage: 0.34
+    mangledMultipliers:
+      BoneDamage: 1
+  - type: PainInflicter
+    multiplier: 0.6
+
+- type: entity
   id: Cold
   parent: WoundBase
   categories: [ HideSpawnMenu ]
@@ -271,6 +304,7 @@
     woundVisibility: AdvancedScanner
     scarWound: BurnScar
     integrityMultiplier: 0.15
+    selfHealMultiplier: 0
   - type: TraumaInflicter
     severityThreshold: 0
     allowedTraumas:
@@ -325,6 +359,7 @@
     woundVisibility: HandScanner
     scarWound: RadiationScar
     integrityMultiplier: 0
+    selfHealMultiplier: 0
   - type: TraumaInflicter
     severityThreshold: 11
     allowedTraumas:
