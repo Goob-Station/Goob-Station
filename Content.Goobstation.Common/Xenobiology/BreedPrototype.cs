@@ -16,7 +16,7 @@ public sealed partial class BreedPrototype : IPrototype
     /// Used to set the slime's name.
     /// </summary>
     [DataField(required: true)]
-    public string SlimeName = string.Empty;
+    public string BreedName = string.Empty;
 
     //  /// <summary>
     // /// What components should be given to the slime mob? Usually SlimeComponent.

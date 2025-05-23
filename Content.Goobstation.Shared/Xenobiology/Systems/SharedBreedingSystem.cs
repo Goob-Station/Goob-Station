@@ -20,13 +20,14 @@ public sealed class SharedBreedingSystem : EntitySystem
     [Dependency] private readonly IComponentFactory _componentFactory = default!;
     [Dependency] private readonly ISerializationManager _serializationManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly HungerSystem _hunger = default!;
     [Dependency] private readonly RobustRandom _random = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private readonly MetaDataSystem _metaData = default!;
 
-    private readonly EntProtoId _defaultSlime = "MobXenoSlime";
-    private readonly ProtoId<BreedPrototype> _defaultSlimeMutation = "GreyMutation";
+    [Dependency] private readonly EntProtoId _defaultSlime = "MobXenoSlime";
+    [Dependency] private readonly ProtoId<BreedPrototype> _defaultSlimeMutation = "GreyMutation";
 
     private TimeSpan _nextUpdateTime;
     private TimeSpan _updateInterval = TimeSpan.FromSeconds(1);
@@ -87,12 +88,12 @@ public sealed class SharedBreedingSystem : EntitySystem
         var baseCompReg = defaultBreed.Components;
         var newCompReg = newBreed.Components;
 
-        //Remove all comps not present on default slime.
+        //Comps to remove are placed in a list.
         var toRemove = EntityManager.GetComponents(ent)
             .Where(c => !baseCompReg.ContainsKey(c.GetType().Name))
-            .ToList();
+            .ToHashSet();
 
-        //Add comps from selected breed.
+        //Comps to add are placed in a list.
         var toAdd = newCompReg
             .Select(kvp =>
             {
@@ -103,17 +104,22 @@ public sealed class SharedBreedingSystem : EntitySystem
                 _serializationManager.CopyTo(kvp.Value.Component, ref temp);
                 return (Component)temp!;
             })
-            .ToList();
+            .ToHashSet();
 
+        //Comps are removed.
         foreach (var component in toRemove)
         {
             EntityManager.RemoveComponent(ent, component.GetType());
         }
 
+        //Comps are added.
         foreach (var component in toAdd)
         {
             EntityManager.AddComponent(ent, component, true);
         }
+
+        //Ensures the slimes are correctly renamed based on breed.
+        _metaData.SetEntityName(ent, newBreed.BreedName);
 
         DirtyEntity(ent);
     }

@@ -1,6 +1,6 @@
 #Tier 0 Start
 - type: breed
-  name: Grey Slime
+  breedName: grey slime
   id: GreyMutation
   components:
   - type: Sprite
@@ -20,7 +20,7 @@
 
 #Tier 1 Start
 - type: breed
-  name: Orange Slime
+  breedName: orange slime
   id: OrangeMutation
   components:
   - type: Sprite

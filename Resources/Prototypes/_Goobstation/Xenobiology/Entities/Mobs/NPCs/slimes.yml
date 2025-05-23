@@ -121,14 +121,21 @@
 # Begin Slimes
 
 - type: entity
-  name: slime
+  name: grey slime
   id: MobXenoSlime
   parent: BaseMobXenoSlime
   description: It looks so much like jelly. I wonder what it tastes like?
   components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: slime-baby
+      color: Grey
   - type: SlimeComponent
     breed: GreyMutation
     offspring: 4
     mutationChance: 0.45
     potentialMutations:
-    - GreyMutation
+    - OrangeMutation
