@@ -197,6 +197,7 @@
   - CryoPodMachineCircuitboard
   - CryostasisBeaker
   - SyringeCryostasis
+  - HeatLampTierTwo # Goobstation
   # Goobstation R&D Console rework start
   position: 3,5
   technologyPrerequisites:
@@ -314,6 +315,7 @@
   recipeUnlocks:
   - BluespaceBeaker
   - SyringeBluespace
+  - HeatLampTierThree # Goobstation
   # Goobstation R&D Console rework start
   position: 2,6
   technologyPrerequisites:
