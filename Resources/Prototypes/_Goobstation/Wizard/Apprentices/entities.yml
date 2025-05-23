@@ -13,8 +13,9 @@
     randomizeName: false
   - type: RandomMetadata
     nameSegments:
-    - wizard_first
-    - wizard_last
+    - WizardFirst
+    - WizardLast
+    nameFormat: name-format-standard
   - type: Loadout
     prototypes: [ApprenticeGearBlue]
     roleLoadout: [RoleSurvivalEVA]

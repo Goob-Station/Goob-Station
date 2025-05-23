@@ -1,6 +1,13 @@
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.Heretic.Components.PathSpecific;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared._Goobstation.Heretic.Systems;
+using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._White.BackStab;
 using Content.Shared.Damage;
@@ -104,7 +111,7 @@ public abstract class SharedMansusGraspSystem : EntitySystem
                         new DamageSpecifier(_proto.Index<DamageTypePrototype>("Slash"), 10),
                         ignoreResistances: true,
                         origin: performer,
-                        targetPart: TargetBodyPart.Torso);
+                        targetPart: TargetBodyPart.Chest);
                 }
 
                 break;
@@ -169,6 +176,7 @@ public abstract class SharedMansusGraspSystem : EntitySystem
                     return false;
                 else if (TryComp(target, out DamageableComponent? damageable) && // Is it even damageable?
                          !_tag.HasTag(target, "Meat") && // Is it not organic body part or organ?
+                         !HasComp<ShadowCloakEntityComponent>(target) && // No instakilling shadow cloak heretics
                          (!HasComp<MobStateComponent>(target) || HasComp<SiliconComponent>(target) ||
                           HasComp<BorgChassisComponent>(target) ||
                           _tag.HasTag(target, "Bot"))) // Check for ingorganic target
@@ -178,7 +186,7 @@ public abstract class SharedMansusGraspSystem : EntitySystem
                         ignoreResistances: true,
                         damageable: damageable,
                         origin: performer,
-                        targetPart: TargetBodyPart.Torso);
+                        targetPart: TargetBodyPart.Chest);
                 }
 
                 break;

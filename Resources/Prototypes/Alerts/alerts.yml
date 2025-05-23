@@ -155,6 +155,7 @@
     - alertType: Corporeal
     - alertType: Stun
     - alertType: KnockedDown # goobstation
+    - alertType: BrokenBones # Shitmed Change
     - category: Breathing # Vox gang not calling this oxygen
     - category: Pressure
     - alertType: Bleed
