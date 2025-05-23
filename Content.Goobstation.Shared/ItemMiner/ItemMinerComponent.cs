@@ -7,8 +7,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using System;
 
-// in common because it can be in common
-namespace Content.Goobstation.Common.ItemMiner;
+namespace Content.Goobstation.Shared.ItemMiner;
 
 [RegisterComponent]
 public sealed partial class ItemMinerComponent : Component

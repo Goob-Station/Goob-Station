@@ -4,6 +4,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.ItemMiner;
+using Content.Goobstation.Shared.ItemMiner;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Stacks;
 using Content.Server.Power.EntitySystems;
