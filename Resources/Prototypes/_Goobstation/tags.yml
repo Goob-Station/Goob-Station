@@ -205,6 +205,9 @@
   id: FlashIgnoreResistances
 
 - type: Tag
+  id: FlashVulnerable
+
+- type: Tag
   id: FollowerStayOnPolymorph
 
 - type: Tag
