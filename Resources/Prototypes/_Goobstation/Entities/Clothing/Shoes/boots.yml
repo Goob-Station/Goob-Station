@@ -239,3 +239,19 @@
     sprite: _Goobstation/Clothing/Shoes/Boots/winterbootsjackboot.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Shoes/Boots/winterbootsjackboot.rsi
+  - type: ClothingSlowOnDamageModifier
+    modifier: 0.6
+  - type: ModifyStandingUpTime
+    multiplier: 0.6
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.1
+      OrganDamage: 0.1
+      BoneDamage: 0.1
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.95
+        Piercing: 0.95
