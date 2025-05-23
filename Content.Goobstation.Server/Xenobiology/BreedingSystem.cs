@@ -1,24 +1,21 @@
 using System.Linq;
-using Content.Goobstation.Common.Xenobiology;
-using Content.Goobstation.Common.Xenobiology.Components;
+using Content.Goobstation.Shared.Xenobiology;
+using Content.Goobstation.Shared.Xenobiology.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Shared.Xenobiology.Systems;
+namespace Content.Goobstation.Server.Xenobiology;
 
 /// <summary>
 /// This handles slime breeding and mutation.
 /// </summary>
-public sealed class SharedBreedingSystem : EntitySystem
+public sealed class BreedingSystem : EntitySystem
 {
 
-    [Dependency] private readonly IComponentFactory _componentFactory = default!;
-    [Dependency] private readonly ISerializationManager _serializationManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
@@ -26,8 +23,8 @@ public sealed class SharedBreedingSystem : EntitySystem
     [Dependency] private readonly RobustRandom _random = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
 
-    [Dependency] private readonly EntProtoId _defaultSlime = "MobXenoSlime";
-    [Dependency] private readonly ProtoId<BreedPrototype> _defaultSlimeMutation = "GreyMutation";
+    private readonly EntProtoId _defaultSlime = "MobXenoSlime";
+    private readonly ProtoId<BreedPrototype> _defaultSlimeMutation = "GreyMutation";
 
     private TimeSpan _nextUpdateTime;
     private TimeSpan _updateInterval = TimeSpan.FromSeconds(1);
@@ -37,6 +34,7 @@ public sealed class SharedBreedingSystem : EntitySystem
         base.Initialize();
 
         _nextUpdateTime = _gameTiming.CurTime + _updateInterval;
+
     }
 
     //Mitosis doesn't need to be checked for every frame.
@@ -77,51 +75,19 @@ public sealed class SharedBreedingSystem : EntitySystem
 
     #region Helpers
 
-    //Mutates slimes based on the selected mutation.
-    private void DoBreeding(EntityUid ent, ProtoId<BreedPrototype> selectedBreed)
+    //Spawns a slime with a given mutation
+    private void DoBreeding(EntityUid parent, EntProtoId newEntity, ProtoId<BreedPrototype> selectedBreed)
     {
-        if (!HasComp<SlimeComponent>(ent)
-            || !_prototypeManager.TryIndex<EntityPrototype>(_defaultSlimeMutation, out var defaultBreed)
-            || !_prototypeManager.TryIndex<BreedPrototype>(selectedBreed.Id, out var newBreed))
+        if (!_prototypeManager.TryIndex(selectedBreed, out var newBreed))
             return;
 
-        var baseCompReg = defaultBreed.Components;
-        var newCompReg = newBreed.Components;
+        var ent = SpawnNextToOrDrop(newEntity, parent);
 
-        //Comps to remove are placed in a list.
-        var toRemove = EntityManager.GetComponents(ent)
-            .Where(c => !baseCompReg.ContainsKey(c.GetType().Name))
-            .ToHashSet();
-
-        //Comps to add are placed in a list.
-        var toAdd = newCompReg
-            .Select(kvp =>
-            {
-                var comp = (Component)_componentFactory.GetComponent(kvp.Key);
-                comp.Owner = ent;
-
-                var temp = (object)comp;
-                _serializationManager.CopyTo(kvp.Value.Component, ref temp);
-                return (Component)temp!;
-            })
-            .ToHashSet();
-
-        //Comps are removed.
-        foreach (var component in toRemove)
-        {
-            EntityManager.RemoveComponent(ent, component.GetType());
-        }
-
-        //Comps are added.
-        foreach (var component in toAdd)
-        {
-            EntityManager.AddComponent(ent, component, true);
-        }
+        //Add new registry
+        EntityManager.AddComponents(ent, newBreed.Components);
 
         //Ensures the slimes are correctly renamed based on breed.
         _metaData.SetEntityName(ent, newBreed.BreedName);
-
-        DirtyEntity(ent);
     }
 
     //Handles slime mitosis, for each offspring, a mutation is selected from their potential mutations - if mutation is successful, the products of mitosis will have the new mutation.
@@ -130,20 +96,18 @@ public sealed class SharedBreedingSystem : EntitySystem
         for (int i = 0; i < ent.Comp.Offspring; i++)
         {
             bool success = _random.NextDouble() < ent.Comp.MutationChance;
-            var selectedMutation = ent.Comp.Breed;
+            var selectedBreed = ent.Comp.Breed;
 
             if (success && ent.Comp.PotentialMutations.Count > 0)
             {
                 var randomIndex = _random.Next(0, ent.Comp.PotentialMutations.Count);
-                selectedMutation = ent.Comp.PotentialMutations.ToArray()[randomIndex];
+                selectedBreed = ent.Comp.PotentialMutations.ToArray()[randomIndex];
 
-                var newEntity = Spawn(_defaultSlime);
-                DoBreeding(newEntity, selectedMutation);
+                DoBreeding(ent, _defaultSlime, selectedBreed);
             }
             else
             {
-                var newEntity = Spawn(_defaultSlime);
-                DoBreeding(newEntity, selectedMutation);
+                DoBreeding(ent, _defaultSlime, selectedBreed);
             }
 
         }

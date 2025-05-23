@@ -86,7 +86,7 @@
 
 - type: entity
   name: basic slime
-  id: BaseMobAdultSlimes
+  id: BaseMobAdultSlime
   parent: [ SimpleMobBase, MobCombat ]
   abstract: true
   description: It looks so much like jelly. I wonder what it tastes like?
@@ -203,7 +203,7 @@
 - type: entity
   name: basic slime
   id: MobAdultSlimes
-  parent: BaseMobAdultSlimesrey
+  parent: BaseMobAdultSlime
   abstract: true
   description: It looks so much like jelly. I wonder what it tastes like?
   components:

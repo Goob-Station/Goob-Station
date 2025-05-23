@@ -1,7 +1,7 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Common.Xenobiology.Components;
+namespace Content.Goobstation.Shared.Xenobiology.Components;
 
 /// <summary>
 /// Stores important information about slimes.
@@ -19,7 +19,7 @@ public sealed partial class SlimeComponent : Component
     public float MutationChance = 0.45f;
 
     [DataField, AutoNetworkedField]
-    public HashSet<BreedPrototype> PotentialMutations { get; set; } = new HashSet<BreedPrototype>();
+    public HashSet<ProtoId<BreedPrototype>> PotentialMutations = new();
 
     [DataField, AutoNetworkedField]
     public float MitosisHunger = 20f;
