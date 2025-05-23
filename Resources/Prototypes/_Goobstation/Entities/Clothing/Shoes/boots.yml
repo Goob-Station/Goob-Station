@@ -226,3 +226,14 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+
+- type: entity
+  parent: [ClothingShoesMilitaryBase, ClothingShoesBaseWinterBoots, BaseSecurityContraband]
+  id: ClothingShoesWinterCombatBoots
+  name: snow jacks boots
+  description: design to be use in winter on active combat field.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Shoes/Boots/winterbootsjackboot.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Shoes/Boots/winterbootsjackboot.rsi

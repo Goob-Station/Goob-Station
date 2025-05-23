@@ -1290,6 +1290,7 @@
   loadouts:
   - JackBoots
   - SecurityWinterBoots
+  - WinterCombatBoots # Goobstation - [Bounty] Armored winter coat
 
 - type: loadoutGroup
   id: SecurityPDA
