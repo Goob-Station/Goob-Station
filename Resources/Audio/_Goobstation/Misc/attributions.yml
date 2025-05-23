@@ -8,3 +8,8 @@
   license: "CC-BY-SA-3.0"
   copyright: "Made by SolsticeOfTheWinter"
   source: "https://uppbeat.io/sfx/category/alert"
+
+- files: ["omicron.ogg"]
+  license: "CC0-1.0"
+  copyright: "ValentinPetiteau"
+  source: "https://freesound.org/people/ValentinPetiteau/sounds/628659/"

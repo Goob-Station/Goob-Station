@@ -47,7 +47,7 @@ public sealed class MeleeThrowOnHitSystem : EntitySystem
         if (!args.IsHit)
             return;
 
-        if (_delay.IsDelayed(weapon.Owner))
+        if (!weapon.Comp.ThrowWhileOnDelay && _delay.IsDelayed(weapon.Owner))
             return;
 
         if (args.HitEntities.Count == 0)

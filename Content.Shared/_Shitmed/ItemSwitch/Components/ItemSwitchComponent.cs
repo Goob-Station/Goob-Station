@@ -78,7 +78,7 @@ public sealed partial class ItemSwitchComponent : Component
 public sealed partial class ItemSwitchState : BoundUserInterfaceMessage
 {
     [DataField]
-    public string Verb;
+    public string? Verb;
 
     [DataField]
     public SoundSpecifier? SoundStateActivate;

@@ -11,17 +11,17 @@ namespace Content.Server._EinsteinEngines.TelescopicBaton;
 public sealed partial class TelescopicBatonComponent : Component
 {
     [DataField]
-    public bool CanDropItems; // Goob edit
+    public bool CanDropItems;
 
     [DataField]
-    public bool AlwaysDropItems; // Goobstation
+    public bool AlwaysDropItems;
 
     /// <summary>
     ///     The amount of time during which the baton will be able to knockdown someone after activating it.
     /// </summary>
     [DataField]
-    public TimeSpan AttackTimeframe = TimeSpan.FromSeconds(1.8f); // Goob edit
+    public TimeSpan AttackTimeframe = TimeSpan.FromSeconds(1.8f);
 
     [ViewVariables(VVAccess.ReadOnly)]
-    public TimeSpan TimeframeAccumulator = TimeSpan.FromSeconds(0);
+    public TimeSpan TimeframeAccumulator = TimeSpan.Zero;
 }

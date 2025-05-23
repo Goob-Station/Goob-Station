@@ -75,6 +75,13 @@ public sealed partial class WieldableComponent : Component
     public string? WieldedInhandPrefix = "wielded";
 
     public string? OldInhandPrefix = null;
+
+    // Goobstation
+    [DataField]
+    public bool ApplyNewPrefixOnShutdown;
+
+    [DataField]
+    public string? NewPrefixOnShutdown;
 }
 
 [Serializable, NetSerializable]

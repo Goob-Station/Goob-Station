@@ -126,8 +126,8 @@
   id: SecurityCadetGear
   equipment:
     eyes: ClothingEyesGlassesSecurity #Goobstation
-    shoes: ClothingShoesBootsJackFilled
-    outerClothing: ClothingOuterArmorBasic
+    shoes: ClothingShoesBootsJack # Goobstation edit
+    #outerClothing: ClothingOuterArmorBasic # Goobstation
     id: SecurityCadetPDA
     ears: ClothingHeadsetAltSecurityRegular # Goobstation
     belt: ClothingBeltSecurityFilled

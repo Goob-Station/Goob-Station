@@ -51,6 +51,12 @@ public sealed partial class MeleeThrowOnHitComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool ActivateOnThrown;
+
+    /// <summary>
+    /// Goobstation - should it throw while being on delay?
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool ThrowWhileOnDelay;
 }
 
 /// <summary>

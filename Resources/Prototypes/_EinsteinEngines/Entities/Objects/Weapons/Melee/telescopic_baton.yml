@@ -14,8 +14,8 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Melee/telebaton.rsi # Goob edit
     layers:
-    - state: icon
-      map: [ "enum.TelescopicBatonVisuals.Layer" ]
+    - state: icon-off
+      map: [ "enum.ItemToggleVisuals.Layer" ]
   - type: Item
     sprite: _Goobstation/Objects/Weapons/Melee/telebaton.rsi # Goob edit
     heldPrefix: off # Goobstation
@@ -66,10 +66,11 @@
       types:
         Blunt: 1
   - type: Appearance
+  - type: ItemToggleVisuals # Goobstation
   - type: GenericVisualizer
     visuals:
-      enum.TelescopicBatonVisuals.State:
-        enum.TelescopicBatonVisuals.Layer:
+      enum.ItemToggleVisuals.State:
+        enum.ItemToggleVisuals.Layer:
           True: { state: icon }
           False: { state: icon-off }
   - type: Clothing # Goobstation

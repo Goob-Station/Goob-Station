@@ -201,7 +201,6 @@
   - HoloprojectorSecurity
   - WeaponDisablerSMG
   # Goobstation R&D Console rework start
-  - Terminus
   position: 3,3
   technologyPrerequisites:
   - NonlethalAmmunition

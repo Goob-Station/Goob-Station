@@ -238,6 +238,7 @@
       - id: BoxEvidenceMarkers
       - id: HandLabeler
       - id: BoxTapeRecorder # DeltaV
+      - id: Betty # Goobstation
 
 - type: entity
   id: ClosetBombFilled

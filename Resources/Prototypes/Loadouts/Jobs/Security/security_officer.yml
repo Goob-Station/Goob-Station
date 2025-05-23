@@ -218,17 +218,17 @@
 - type: loadout
   id: CombatBoots
   equipment:
-    shoes: ClothingShoesBootsCombatFilled
+    shoes: ClothingShoesBootsCombat # Goobstation
 
 - type: loadout
   id: JackBoots
   equipment:
-    shoes: ClothingShoesBootsJackFilled
+    shoes: ClothingShoesBootsJack # Goobstation
 
 - type: loadout
   id: SecurityWinterBoots
   equipment:
-    shoes: ClothingShoesBootsWinterSecFilled
+    shoes: ClothingShoesBootsWinterSec # Goobstation
 
 # PDA
 - type: loadout
