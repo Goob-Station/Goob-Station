@@ -522,6 +522,7 @@
   components:
   - type: Appearance
   - type: AllowSuitStorage
+  - type: GroupExamine
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Modsuits/captain.rsi
     layers:
