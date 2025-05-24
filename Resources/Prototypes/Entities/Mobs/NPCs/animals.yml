@@ -1689,6 +1689,7 @@
   - type: NpcFactionMember
     factions:
       - Passive
+      - Monkey  # Goob Balloons Edit
   - type: HTN
     rootTask:
       task: SimpleHostileCompound

@@ -68,6 +68,7 @@
   id: PetsNT
   hostile:
   - Mouse
+  - Balloon # Goob Balloon Edit
   - SimpleHostile
   - Zombie
   - Xeno

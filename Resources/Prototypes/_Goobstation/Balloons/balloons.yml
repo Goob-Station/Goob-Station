@@ -22,6 +22,15 @@
   - type: Penetratable # projectile Able to pierce balloons
     penetrateDamage: 1
     damagePenalty: 0.5
+  - type: NpcFactionMember
+    factions:
+      - Balloon
+  - type: MobState # To get mobs to attack:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Critical
+      200: Dead
   - type: InteractionOutline
   - type: Fixtures # give it locker collision
     fixtures:

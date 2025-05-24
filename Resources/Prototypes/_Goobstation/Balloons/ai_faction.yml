@@ -1,0 +1,10 @@
+# A custom AI faction copyied from Simple Hostile
+
+- type: npcFaction
+  id: Balloon
+  # Balloons can't attack
+  
+- type: npcFaction
+  id: Monkey
+  hostile:
+  - Balloon
