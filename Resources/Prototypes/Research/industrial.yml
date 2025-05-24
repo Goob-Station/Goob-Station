@@ -211,6 +211,7 @@
   recipeUnlocks:
   - ThermomachineFreezerMachineCircuitBoard
   - GasRecyclerMachineCircuitboard
+  - ElectrolyzerMachineCircuitboard # Assmos - /tg/ gases TODO: move to tier 2 when mapped in
   # Goobstation R&D Console rework start
   position: -2,-4
   technologyPrerequisites:

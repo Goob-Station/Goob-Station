@@ -708,3 +708,84 @@
     knockdownTimeDelta: -2.5
   - type: StaminaDamageResistance # Goobstation
     coefficient: 0.6
+
+# Assmos - Metal Hydrogen
+- type: entity
+  parent: ClothingOuterArmorBase
+  id: ClothingOuterArmorMetalHydrogen
+  name: metal hydrogen armor
+  description: A superb armor made with the toughest and rarest materials available to man.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Armor/metal_hydrogen_armor.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Armor/metal_hydrogen_armor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.7
+  - type: ExplosionResistance
+    damageCoefficient: 0.90
+  - type: Construction
+    graph: MetalHydrogenArmor
+    node: armor
+  - type: Tag
+    tags:
+      - MetalHydrogenArmor
+
+- type: entity
+  parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing]
+  id: ClothingOuterArmorAtmosian
+  name: atmosian armor
+  description: An atmos fire suit bolstered by the defensive power of metal hydrogen using techniques passed down through generations of atmospheric technicians.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Armor/atmosian_armor.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Armor/atmosian_armor.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.001
+    coolingCoefficient: 0.05
+  - type: FireProtection
+    reduction: 0.8 # atmos firesuit offers best protection, hardsuits are a little vulnerable
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    - Tail
+    - Other
+    traumaDeductions: # having a suit on saves your limbs
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.7
+        Cold: 0.75
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85 # Goob edit
+    sprintModifier: 0.85
+  - type: HeldSpeedModifier
+  - type: GroupExamine
+  - type: ProtectedFromStepTriggers
+    slots: WITHOUT_POCKET
+  - type: ExplosionResistance
+    damageCoefficient: 0.90
+  - type: Construction
+    graph: AtmosianArmor
+    node: armor

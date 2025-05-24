@@ -242,3 +242,15 @@
   description: Brass knuckle dusters; a classic in the field of beating people to death.
   icon: { sprite: _Goobstation/Clothing/Hands/Gloves/knuckleduster.rsi, state: brassknuckleduster } # Goobstation
   objectType: Item
+
+# Assmos - Metal Hydrogen
+- type: construction
+  name: metal hydrogen axe
+  id: MetalHydrogenAxeConstruct
+  graph: MetalHydrogenAxeConstruct
+  startNode: start
+  targetNode: icon
+  category: construction-category-weapons
+  description: A lightweight crowbar with an extreme sharp fire axe head attached. It trades its heft as a weapon by making it easier to carry around when holstered to suits without having to sacrifice your backpack.
+  icon: { sprite: _Goobstation/Objects/Weapons/Melee/metal_hydrogen_axe.rsi, state: icon }
+  objectType: Item

@@ -841,3 +841,23 @@
           shouldHave: false
         walkSpeedModifier: 0.4
         sprintSpeedModifier: 0.4
+
+# Assmos - /tg/ gases
+- type: reagent
+  id: BZMetabolites
+  name: reagent-name-bz-metabolites
+  group: Toxins
+  desc: reagent-desc-bz-metabolites
+  flavor: bitter
+  color: "#b19cd9"
+  physicalDesc: reagent-physical-desc-nondescript
+  metabolisms:
+    Poison:
+      effects:
+      - !type:AdjustLingChemicals
+        conditions:
+        - !type:LingCondition {}
+        - !type:ReagentThreshold
+          reagent: BZMetabolites
+          min: 0.2
+        amount: -8
