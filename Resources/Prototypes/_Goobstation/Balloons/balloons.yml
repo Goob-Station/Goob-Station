@@ -44,7 +44,7 @@
           - TabletopMachineMask
         layer:
           - TabletopMachineLayer
-        
+
 # Red Balloon
 - type: entity
   name: red balloon
@@ -68,12 +68,12 @@
             volume: -4
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
         spawn:
-          SpaceCash:    
+          SpaceCash:
             min: 10
             max: 15
-      - !type:DoActsBehavior
+      - !git type:DoActsBehavior
         acts: [ "Destruction" ]
-        
+
 # Blue Balloon
 - type: entity
   name: blue balloon
@@ -97,15 +97,15 @@
             volume: -4
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
-          SpaceCash:    
+          SpaceCash:
             min: 10
             max: 15
-          redBalloon:    
+          redBalloon:
             min: 1
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-   
+
 # Green Balloon
 - type: entity
   name: green balloon
@@ -129,10 +129,10 @@
             volume: -4
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
-          SpaceCash:    
+          SpaceCash:
             min: 10
             max: 15
-          blueBalloon:    
+          blueBalloon:
             min: 1
             max: 1
       - !type:DoActsBehavior
@@ -161,15 +161,15 @@
             volume: -4
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
-          SpaceCash:    
+          SpaceCash:
             min: 10
             max: 15
-          greenBalloon:    
+          greenBalloon:
             min: 1
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-        
+
 # Pink Balloon
 - type: entity
   name: pink balloon
@@ -193,15 +193,15 @@
             volume: -4
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
-          SpaceCash:    
+          SpaceCash:
             min: 10
             max: 15
-          yellowBalloon:    
+          yellowBalloon:
             min: 1
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-        
+
 # Black Balloon
 - type: entity
   name: black balloon
@@ -227,10 +227,10 @@
             volume: -4
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
-          SpaceCash:    
+          SpaceCash:
             min: 10
             max: 15
-          pinkBalloon:    
+          pinkBalloon:
             min: 2
             max: 2
       - !type:DoActsBehavior
@@ -260,15 +260,15 @@
             volume: -4
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
-          SpaceCash:    
+          SpaceCash:
             min: 10
             max: 15
-          pinkBalloon:    
+          pinkBalloon:
             min: 2
             max: 2
       - !type:DoActsBehavior
-        acts: [ "Destruction" ] 
-        
+        acts: [ "Destruction" ]
+
 # Zebra Balloon
 - type: entity
   name: zebra balloon
@@ -294,18 +294,18 @@
             volume: -4
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
-          SpaceCash:    
+          SpaceCash:
             min: 10
             max: 15
-          whiteBalloon:    
+          whiteBalloon:
             min: 1
             max: 1
-          blackBalloon:    
+          blackBalloon:
             min: 1
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-        
+
 # steel balloon
 - type: entity
   name: steel balloon
@@ -334,15 +334,15 @@
             volume: -4
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
-          SpaceCash:    
+          SpaceCash:
             min: 10
             max: 15
-          blackBalloon:    
+          blackBalloon:
             min: 2
             max: 2
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-        
+
 # rainbow balloon
 - type: entity
   name: rainbow balloon
@@ -366,10 +366,10 @@
             volume: -4
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
          spawn:
-          SpaceCash:    
+          SpaceCash:
             min: 10
             max: 15
-          zebraBalloon:    
+          zebraBalloon:
             min: 2
             max: 2
       - !type:DoActsBehavior
