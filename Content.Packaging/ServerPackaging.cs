@@ -131,6 +131,7 @@ public static class ServerPackaging
         // Python script had Npgsql. though we want Npgsql.dll as well soooo
         "Npgsql",
         "Microsoft",
+        "Discord",
         "Concentus",
         "NetCord",
         "0Harmony", // Omu include harmony in packaging, remove on upstreaming to latest RT.
