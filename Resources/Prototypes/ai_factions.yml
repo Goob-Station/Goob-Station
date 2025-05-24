@@ -73,7 +73,7 @@
   id: PetsNT
   hostile:
   - Mouse
-  - Balloon # Goob Balloon Edit
+  - Balloon # Goob Balloon Edit     Pets can join the fight against the balloons
   - SimpleHostile
   - Zombie
   - Xeno

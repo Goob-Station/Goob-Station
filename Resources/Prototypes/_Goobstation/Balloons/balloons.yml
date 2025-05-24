@@ -12,6 +12,7 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/balloons.rsi
     state: icon
+    drawdepth: Overdoors # just so it renders above spesos
     noRot: True
   - type: Item
     size: Huge

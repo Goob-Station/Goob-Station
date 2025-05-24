@@ -1,9 +1,12 @@
+
 # SPDX-FileCopyrightText: 2025 Arraydeess <arraygitbash@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-# A custom AI faction copyied from Simple Hostile
+
+# A custom AI faction 
+
 
 - type: npcFaction
   id: Balloon
@@ -12,4 +15,4 @@
 - type: npcFaction
   id: Monkey
   hostile:
-  - Balloon
+  - Balloon     # Custom faction specifically for attacking bloons
