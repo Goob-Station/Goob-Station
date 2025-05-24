@@ -162,6 +162,12 @@ public sealed partial class ChangelingIdentityComponent : Component
     public int TotalAbsorbedEntities = 0;
 
     /// <summary>
+    ///     Total absorbed changelings. Used as a 'bonus' for its respective objective.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public int TotalChangelingsAbsorbed = 0;
+
+    /// <summary>
     ///     Total stolen DNA. Counts towards objectives.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]

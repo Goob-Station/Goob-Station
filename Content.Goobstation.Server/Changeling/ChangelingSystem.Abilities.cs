@@ -193,10 +193,12 @@ public sealed partial class ChangelingSystem
         var popup = Loc.GetString("changeling-absorb-end-self-ling");
         var bonusChemicals = 0f;
         var bonusEvolutionPoints = 0f;
+        var bonusChangelingAbsorbs = 0;
         if (TryComp<ChangelingIdentityComponent>(target, out var targetComp))
         {
             bonusChemicals += targetComp.MaxChemicals / 2;
             bonusEvolutionPoints += targetComp.TotalEvolutionPoints / 2;
+            bonusChangelingAbsorbs += targetComp.TotalChangelingsAbsorbed + 1;
         }
         else
         {
@@ -209,6 +211,7 @@ public sealed partial class ChangelingSystem
 
         TryStealDNA(uid, target, comp, true);
         comp.TotalAbsorbedEntities++;
+        comp.TotalChangelingsAbsorbed += bonusChangelingAbsorbs;
 
         _popup.PopupEntity(popup, args.User, args.User);
         comp.MaxChemicals += bonusChemicals;
@@ -224,8 +227,9 @@ public sealed partial class ChangelingSystem
             if (_mind.TryGetObjectiveComp<AbsorbConditionComponent>(mindId, out var absorbObj, mind))
                 absorbObj.Absorbed += 1;
 
-            if (_mind.TryGetObjectiveComp<AbsorbChangelingConditionComponent>(mindId, out var lingAbsorbObj, mind) && HasComp<ChangelingComponent>(target))
-                lingAbsorbObj.LingAbsorbed += 1;
+            if (_mind.TryGetObjectiveComp<AbsorbChangelingConditionComponent>(mindId, out var lingAbsorbObj, mind)
+                && TryComp<ChangelingIdentityComponent>(target, out var absorbed))
+                lingAbsorbObj.LingAbsorbed += absorbed.TotalChangelingsAbsorbed + 1;
         }
 
         UpdateChemicals(uid, comp, comp.MaxChemicals); // refill chems to max
