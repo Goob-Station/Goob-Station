@@ -1,15 +1,19 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._Shitmed.Targeting.Events;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness;
+using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Pain.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas;
 using Content.Shared.Body.Organ;
 using Content.Shared.Body.Part;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Damage.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Popups;
 using Robust.Shared.Audio;
@@ -18,6 +22,10 @@ using Robust.Shared.CPUJob.JobQueues;
 using Robust.Shared.CPUJob.JobQueues.Queues;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Pain.Systems;
 
@@ -502,7 +510,8 @@ public partial class PainSystem
         string? screamString = null)
     {
         if (!_screamsEnabled
-            || !_random.Prob(_screamChance))
+            || !_random.Prob(_screamChance)
+            || _mobState.IsDead(body))
             return null;
 
         CleanupSounds(nerveSys);
@@ -536,7 +545,9 @@ public partial class PainSystem
         string? screamString = null)
     {
         if (!_screamsEnabled
-            || !_random.Prob(_screamChance))
+            || !_random.Prob(_screamChance)
+            || !TryComp(body, out ConsciousnessComponent? consciousness)
+            || !consciousness.HasPainScreams)
             return null;
 
         var sound = _IHaveNoMouthAndIMustScream.PlayPvs(specifier, body, audioParams);
@@ -596,7 +607,7 @@ public partial class PainSystem
 
     private void UpdatePainFeels(EntityUid nerveUid, NerveComponent? nerveComp = null)
     {
-        if (!Resolve(nerveUid, ref nerveComp))
+        if (!Resolve(nerveUid, ref nerveComp, false))
             return;
 
         var bodyPart = Comp<BodyPartComponent>(nerveUid);
@@ -620,7 +631,10 @@ public partial class PainSystem
     {
         if (!_timing.IsFirstTimePredicted
             || TerminatingOrDeleted(nerveSysEnt)
-            || !TryComp<OrganComponent>(nerveSysEnt, out var nerveSysOrgan))
+            || !TryComp<OrganComponent>(nerveSysEnt, out var nerveSysOrgan)
+            || nerveSysOrgan.Body is not { } body
+            || _mobState.IsDead(body)
+            || HasComp<GodmodeComponent>(body))
             return;
 
         if (nerveSys.LastPainThreshold != nerveSys.Pain)
@@ -634,18 +648,17 @@ public partial class PainSystem
 
         if (_timing.CurTime > nerveSys.NextCritScream)
         {
-            var body = nerveSysOrgan.Body;
-            if (body != null && _mobState.IsCritical(body.Value))
+            if (_mobState.IsCritical(body))
             {
                 var sex = Sex.Unsexed;
                 if (TryComp<HumanoidAppearanceComponent>(body, out var humanoid))
                     sex = humanoid.Sex;
 
                 CleanupSounds(nerveSys);
-                if (_trauma.HasBodyTrauma(body.Value, TraumaType.OrganDamage) && _random.Prob(0.22f))
+                if (_trauma.HasBodyTrauma(body, TraumaType.OrganDamage) && _random.Prob(0.22f))
                 {
                     // If the person suffers organ damage, do funny gaggling sound :3
-                    PlayPainSound(body.Value,
+                    PlayPainSound(body,
                         nerveSys,
                         nerveSys.OrganDamageWhimpersSounds[sex],
                         AudioParams.Default.WithVolume(-12f));
@@ -654,10 +667,10 @@ public partial class PainSystem
                 {
                     // Play screaming with less chance
                     if (_random.Prob(0.34f))
-                        PlayPainSound(body.Value, nerveSys, nerveSys.PainShockScreams[sex], AudioParams.Default.WithVolume(12f));
+                        PlayPainSound(body, nerveSys, nerveSys.PainShockScreams[sex], AudioParams.Default.WithVolume(12f));
                     else
                         // Whimpering
-                        PlayPainSound(body.Value,
+                        PlayPainSound(body,
                             nerveSys,                    // Pained or normal
                             _random.Prob(0.34f) ? nerveSys.PainShockWhimpers[sex] : nerveSys.CritWhimpers[sex],
                             AudioParams.Default.WithVolume(-12f));
@@ -693,7 +706,7 @@ public partial class PainSystem
 
     private void UpdateNerveSystemPain(EntityUid uid, NerveSystemComponent? nerveSys = null)
     {
-        if (!Resolve(uid, ref nerveSys)
+        if (!Resolve(uid, ref nerveSys, false)
             || !TryComp<OrganComponent>(uid, out var organ)
             || organ.Body == null)
             return;
@@ -789,7 +802,7 @@ public partial class PainSystem
                 TryAddPainMultiplier(
                     nerveSys,
                     PainAdrenalineIdentifier,
-                    0.7f,
+                    0.3f,
                     PainDamageTypes.WoundPain,
                     nerveSys,
                     nerveSys.Comp.PainShockAdrenalineTime);
@@ -865,7 +878,7 @@ public partial class PainSystem
         PainDamageTypes painType,
         NerveComponent? nerve = null)
     {
-        if (!Resolve(nerveUid, ref nerve))
+        if (!Resolve(nerveUid, ref nerve, false))
             return pain;
 
         var modifiedPain = pain * nerve.PainMultiplier;

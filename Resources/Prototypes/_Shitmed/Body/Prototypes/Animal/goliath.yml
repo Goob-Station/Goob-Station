@@ -2,8 +2,10 @@
 # SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr@gmail.com>
 # SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
 # SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -13,14 +15,14 @@
   root: chest
   slots:
     chest:
-      part: ChestAnimal
+      part: ChestGoliath
       connections:
       - groin
       organs:
         lungs: OrganAnimalLungs
         heart: OrganGoliathHeart # Allows you to use a slower version of their tentacles.
     groin:
-      part: GroinAnimal
+      part: GroinGoliath
       connections:
       - legs
       organs:
@@ -28,7 +30,7 @@
         liver: OrganAnimalLiver
         kidneys: OrganAnimalKidneys
     legs:
-      part: LegsAnimal
+      part: LegsGoliath
       connections:
       - feet
     feet:

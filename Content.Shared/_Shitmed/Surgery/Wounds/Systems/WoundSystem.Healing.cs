@@ -1,4 +1,10 @@
-﻿using System.Diagnostics.CodeAnalysis;
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -17,21 +23,6 @@ namespace Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 
 public partial class WoundSystem
 {
-    private record struct IntegrityJob : IParallelRobustJob
-    {
-        private readonly WoundSystem _self;
-        private readonly Entity<WoundableComponent> _ent;
-        public WoundSystem System { get; init; }
-        public Entity<WoundableComponent> Owner { get; init; }
-        public List<Entity<WoundComponent>> WoundsToHeal { get; init; }
-        public FixedPoint2 HealAmount { get; init; }
-        public void Execute(int index)
-        {
-            System.ApplyWoundSeverity(WoundsToHeal[index],
-                System.ApplyHealingRateMultipliers(WoundsToHeal[index], Owner, HealAmount, Owner));
-        }
-    }
-
     #region Public API
 
     public bool TryHaltAllBleeding(EntityUid woundable, WoundableComponent? component = null, bool force = false)
@@ -152,6 +143,8 @@ public partial class WoundSystem
                 bleeds.BleedingAmountRaw -= modifiedBleed;
                 modifiedBleed = 0;
             }
+
+            Dirty(wound, bleeds);
         }
         return modifiedBleed != -bleedStopAbility;
     }
@@ -320,7 +313,6 @@ public partial class WoundSystem
     {
         if (healable)
             return GetWoundableWounds(woundable)
-                .Where(wound => CanHealWound(wound, wound))
                 .Any(wound => wound.Comp.DamageType == damageType);
 
         return GetWoundableWounds(woundable).Any(wound => wound.Comp.DamageType == damageType);
@@ -333,7 +325,6 @@ public partial class WoundSystem
     {
         if (healable)
             return GetWoundableWounds(woundable)
-                .Where(wound => CanHealWound(wound, wound))
                 .Any(wound => wound.Comp.DamageGroup?.ID == damageGroup);
 
         return GetWoundableWounds(woundable).Any(wound => wound.Comp.DamageGroup?.ID == damageGroup);

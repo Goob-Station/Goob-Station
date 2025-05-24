@@ -74,3 +74,22 @@
       MatterBin: 2
       Manipulator: 2
       Steel: 1
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: InteractorCircuitboard
+  name: interactor machine board
+  description: A machine printed circuit board for an interactor.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    prototype: Interactor
+    stackRequirements:
+      Manipulator: 4
+      Plastic: 4
+      Cable: 5
+    tagRequirements:
+      BorgArm:
+        amount: 1
+        defaultPrototype: LeftArmBorg

@@ -138,12 +138,17 @@
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Sparlight <twiksparlight@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Numbers for armor here largely taken from /tg/.
 # NOTE: Half of the kind of armor you're probably thinking of is in vests.yml. These should probably be merged some day.
+
+# Armor values heavily edited by Goobstation due to woundmed
 
 #Basic armor vest for inheritance
 - type: entity
@@ -157,10 +162,9 @@
     sprite: Clothing/OuterClothing/Armor/security.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/security.rsi
-  - type: Armor #Based on /tg/ but slightly compensated to fit the fact that armor stacks in SS14.
+  - type: Armor
     coverage:
     - Chest
-    - Groin
     traumaDeductions:
       Dismemberment: 0.2
       OrganDamage: 0.2
@@ -169,10 +173,10 @@
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.7 #Can save you, but bullets will still hurt. Will take about 10 shots from a Viper before critting, as opposed to 7 while unarmored and 16~ with a bulletproof vest.
-        Heat: 0.80
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.55
+        Heat: 0.7
   - type: ExplosionResistance
     damageCoefficient: 0.90
   - type: ModifyDelayedKnockdown # Goobstation
@@ -213,11 +217,9 @@
     coverage:
     - Chest
     - Groin
-    - Tail
     - Arm
-    - Hand
     - Leg
-    - Foot
+    - Tail
     traumaDeductions:
       Dismemberment: 0.4
       OrganDamage: 0.4
@@ -226,11 +228,11 @@
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.4
-        Slash: 0.4
-        Piercing: 0.7
-        Heat: 0.7
-        Caustic: 0.9
+        Blunt: 0.35
+        Slash: 0.35
+        Piercing: 0.6
+        Heat: 0.6
+        Caustic: 0.75
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: GroupExamine
@@ -256,19 +258,19 @@
     - Groin
     - Tail
     traumaDeductions:
-      Dismemberment: 0.07
-      OrganDamage: 0.07
-      BoneDamage: 0.07
+      Dismemberment: 0.1
+      OrganDamage: 0.1
+      BoneDamage: 0.1
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.4
-        Heat: 0.9
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.3
+        Heat: 0.8
   - type: ExplosionResistance
-    damageCoefficient: 0.60
+    damageCoefficient: 0.8
 
 - type: entity
   parent: ClothingOuterArmorBase
@@ -283,15 +285,13 @@
   - type: Armor
     coverage:
     - Chest
-    - Groin
-    - Tail
     # Does not give dismemberment deduction because of reflection. yeah do with it somehow
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.8
-        Heat: 0.33 # this technically means it protects against fires pretty well? -heat is just for lasers and stuff, not atmos temperature
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.25
   - type: Reflect
     reflectProb: 1
     reflects:
@@ -323,18 +323,18 @@
     - Foot
     - Tail
     traumaDeductions:
-      Dismemberment: 0.4
-      OrganDamage: 0.4
-      BoneDamage: 0.4
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.35
-        Slash: 0.35
-        Piercing: 0.35
-        Heat: 0.35
-        Caustic: 0.5
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.3
+        Heat: 0.3
+        Caustic: 0.3
   - type: ExplosionResistance
     damageCoefficient: 0.35
   - type: ClothingSpeedModifier
@@ -406,11 +406,9 @@
     coverage:
     - Chest
     - Groin
-    - Arm
-    - Hand
-    - Leg
-    - Foot
     - Tail
+    - Arm
+    - Leg
     traumaDeductions:
       Dismemberment: 0.33
       OrganDamage: 0.33
@@ -419,10 +417,10 @@
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.6
-        Heat: 0.5
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.4
+        Heat: 0.3
   - type: GroupExamine
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 2.5
@@ -504,19 +502,12 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Armor/magusblue.rsi
   - type: Armor
-    coverage:
-    - Chest
-    - Groin
-    - Arm
-    - Hand
-    - Leg
-    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.3
-        Slash: 0.3
-        Piercing: 0.3
-        Heat: 0.3
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.4
+        Heat: 0.4
         Radiation: 0.1
         Caustic: 0.1
   - type: ClothingSpeedModifier # Goobstation
@@ -551,8 +542,6 @@
   - type: Armor
     coverage:
     - Chest
-    - Groin
-    - Tail
     traumaDeductions:
       Dismemberment: 0.2
       OrganDamage: 0.2
@@ -561,11 +550,11 @@
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.6
-        Heat: 0.5
-        Caustic: 0.9
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.4
+        Heat: 0.3
+        Caustic: 0.75
   - type: ClothingSpeedModifier
     walkModifier: 1.0
     sprintModifier: 1.0
@@ -602,7 +591,6 @@
     sprite: Clothing/OuterClothing/Armor/lingarmor.rsi
   - type: Armor
     coverage:
-    - Head
     - Chest
     - Groin
     - Arm
@@ -619,11 +607,11 @@
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.5
-        Heat: 0.9
-        Radiation: 0.8
+        Blunt: 0.45
+        Slash: 0.45
+        Piercing: 0.45
+        Heat: 0.45
+        Caustic: 0.45
   - type: ClothingSpeedModifier
     walkModifier: 0.7
     sprintModifier: 0.65
@@ -653,11 +641,8 @@
     - Chest
     - Groin
     - Arm
-    - Hand
     - Leg
-    - Foot
     - Tail
-    - Other
     traumaDeductions:
       Dismemberment: -1
       OrganDamage: -1
@@ -666,9 +651,9 @@
       NerveDamage: -1
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.8
-        Piercing: 0.4
+        Blunt: 0.4
+        Slash: 0.7
+        Piercing: 0.25
   - type: ClothingSpeedModifier
     walkModifier: 0.8
   - type: HeldSpeedModifier
@@ -701,11 +686,8 @@
     - Chest
     - Groin
     - Arm
-    - Hand
     - Leg
-    - Foot
     - Tail
-    - Other
     traumaDeductions:
       Dismemberment: 0.27
       OrganDamage: 0.27
@@ -714,10 +696,10 @@
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.6
-        Heat: 0.5
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.4
+        Heat: 0.3
   - type: GroupExamine
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
