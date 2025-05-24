@@ -9952,3 +9952,11 @@ Entries:
       message: Added pressure filters which can check tank/canister pressure.
   id: 1110
   time: '2025-05-24T22:15:14.0000000+00:00'
+- author: IrisTheAmped
+  changes:
+    - type: Fix
+      message: >-
+        After a long legal battle, Nanotrasen has decided Shadowkin can have
+        Survival Boxes.
+  id: 1111
+  time: '2025-05-24T22:20:42.0000000+00:00'
