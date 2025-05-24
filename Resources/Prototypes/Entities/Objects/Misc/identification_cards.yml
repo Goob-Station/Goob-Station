@@ -334,9 +334,8 @@
   name: chemist ID card
   components:
   - type: Sprite
-    layers:
-    - state: default
-    - state: idchemist
+    sprite: _Goobstation/Objects/Misc/id_cards.rsi # Goobstation - Chemist card
+    state: chemist
   - type: PresetIdCard
     job: Chemist
 
