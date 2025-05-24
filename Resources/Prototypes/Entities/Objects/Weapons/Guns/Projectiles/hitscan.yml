@@ -55,6 +55,7 @@
   damage:
     types:
       Heat: 14
+      Piercing: 3.5
   muzzleFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: muzzle_laser
@@ -85,6 +86,7 @@
   damage:
     types:
       Heat: 17
+      Piercing: 4.25
   muzzleFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: muzzle_laser
@@ -100,6 +102,7 @@
   damage:
     types:
       Heat: 7
+      Piercing: 1.75
   muzzleFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: muzzle_laser
@@ -132,6 +135,7 @@
   damage:
     types:
       Heat: 28
+      Piercing: 7
   muzzleFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: muzzle_beam_heavy
