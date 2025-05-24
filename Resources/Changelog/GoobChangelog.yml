@@ -9966,3 +9966,17 @@ Entries:
       message: 'BSO Hardsuit internal storage is now satchel instead of backpack '
   id: 1112
   time: '2025-05-24T22:21:46.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Tweak
+      message: Several stations have had their AI cores changed. A.I. mains rejoice!
+    - type: Add
+      message: >-
+        AI now has AI turrets, though the control panel has not yet been
+        implemented. Manual activation of each turret is required by the AI.
+    - type: Add
+      message: Fland now has Holopads!
+    - type: Add
+      message: Origin now has Holopads!
+  id: 1113
+  time: '2025-05-24T22:24:39.0000000+00:00'
