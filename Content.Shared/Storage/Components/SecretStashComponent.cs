@@ -83,6 +83,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.GameStates;
 using Robust.Shared.Audio;
 using Content.Shared.Whitelist;
+using Content.Shared.Damage;
 
 namespace Content.Shared.Storage.Components
 {
@@ -133,6 +134,12 @@ namespace Content.Shared.Storage.Components
         /// </summary>
         [DataField]
         public string? SecretStashName;
+
+        /// <summary>
+        /// How much damage is delt to something after eating a secret stash that contains an item.
+        /// </summary>
+        [DataField]
+        public DamageSpecifier? DamageEatenItemInside;
 
         /// <summary>
         ///     Container used to keep secret stash item.

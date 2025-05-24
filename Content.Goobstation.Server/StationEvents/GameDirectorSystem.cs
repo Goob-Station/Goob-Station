@@ -213,7 +213,7 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
         if (selectedRules == null)
             return;
 
-        if(!_event.TryBuildLimitedEvents(selectedRules.ScheduledGameRules, out var possibleEvents))
+        if(!_event.TryBuildLimitedEvents(selectedRules.ScheduledGameRules, _event.AvailableEvents(), out var possibleEvents))
             return;
 
         foreach (var entry in possibleEvents)

@@ -51,8 +51,12 @@
     sprite: Objects/Tools/blueprint.rsi
     state: icon
   - type: Item
-    sprite: Objects/Tools/blueprint.rsi
     size: Normal
+    shape:
+    - 0,0,2,0
+    storedSprite:
+      sprite: Objects/Tools/blueprint.rsi
+      state: storage
   - type: Blueprint
   - type: StaticPrice
     price: 1000
@@ -69,6 +73,7 @@
   - type: Blueprint
     providedRecipes:
     - Fulton
+    - FultonBeacon
 
 - type: entity
   parent: BaseBlueprint

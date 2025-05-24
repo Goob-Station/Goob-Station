@@ -16,6 +16,7 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Server.DeviceNetwork.Components;
+using Content.Shared.DeviceNetwork.Events;
 using JetBrains.Annotations;
 
 namespace Content.Server.DeviceNetwork.Systems

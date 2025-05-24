@@ -128,8 +128,8 @@
       visualLayers:
         outerClothing:
           - state: equipped-OUTERCLOTHING-sealed
-    - type: StaminaDamageResistance
-      coefficient: 0.45
+    - type: StaminaResistance
+      damageCoefficient: 0.45
 
 
 - type: entity

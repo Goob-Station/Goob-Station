@@ -1,59 +1,62 @@
 {
-    "version": 1,
-    "size": {
-        "x": 32,
-        "y": 32
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "license": "CC-BY-SA-3.0",
+  "copyright": "https://github.com/discordia-space/CEV-Eris/raw/e1d495c3faf4642b6ec1c4be8acc7cd5bc51d785/icons/obj/ammo.dmi,  ball, glassshot and grapeshot Made by Alekshhh (Github) for ss1, emp made by TheShuEd (github), buster modified from rpg by Spessmann, cleanade made by southbridge-fur (github)",
+  "states": [
+    {
+      "name": "baton"
     },
-    "license": "CC-BY-SA-3.0",
-    "copyright": "https://github.com/discordia-space/CEV-Eris/raw/e1d495c3faf4642b6ec1c4be8acc7cd5bc51d785/icons/obj/ammo.dmi,  ball, glassshot and grapeshot Made by Alekshhh (Github) for ss1, emp made by TheShuEd (github), buster modified from rpg by Spessmann",
-    "states": [
-        {
-            "name": "baton"
-        },
-        {
-            "name": "blast"
-        },
-        {
-            "name": "flash"
-        },
-        {
-            "name": "frag"
-        },
-        {
-            "name": "rpg"
-        },
-        {
-            "name": "ball"
-        },
-        {
-            "name": "emp"
-        },
-        {
-            "name": "grapeshot"
-        },
-        {
-            "name": "glassshot"
-        },
-        {
-            "name": "buster"
-        },
-        {
-            "name": "spent"
-	    },
-        {
-            "name": "blast-spent"
-	    },
-        {
-            "name": "frag-spent"
-	    },
-        {
-            "name": "baton-spent"
-	    },
-        {
-            "name": "emp-spent"
-	    },
-        {
-            "name": "flash-spent"
-	    }
-    ]
+    {
+      "name": "blast"
+    },
+    {
+      "name": "flash"
+    },
+    {
+      "name": "frag"
+    },
+    {
+      "name": "rpg"
+    },
+    {
+      "name": "ball"
+    },
+    {
+      "name": "emp"
+    },
+    {
+      "name": "grapeshot"
+    },
+    {
+      "name": "glassshot"
+    },
+    {
+      "name": "spent"
+    },
+    {
+      "name": "buster"
+    },
+    {
+      "name": "cleanade"
+    },
+    {
+      "name": "blast-spent"
+    },
+    {
+      "name": "frag-spent"
+    },
+    {
+      "name": "baton-spent"
+    },
+    {
+      "name": "emp-spent"
+    },
+    {
+      "name": "flash-spent"
+    }
+  ]
 }

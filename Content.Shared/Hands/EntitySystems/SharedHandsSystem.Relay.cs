@@ -7,6 +7,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Atmos;
 using Content.Shared.Camera;
 using Content.Shared.Hands.Components;
 using Content.Shared.Heretic;
@@ -22,14 +23,31 @@ public abstract partial class SharedHandsSystem
         SubscribeLocalEvent<HandsComponent, GetEyePvsScaleRelayedEvent>(RelayEvent);
         SubscribeLocalEvent<HandsComponent, RefreshMovementSpeedModifiersEvent>(RelayEvent);
         SubscribeLocalEvent<HandsComponent, CheckMagicItemEvent>(RelayEvent); // goob edit - heretics
+
+        // By-ref events.
+        SubscribeLocalEvent<HandsComponent, ExtinguishEvent>(RefRelayEvent);
     }
 
     private void RelayEvent<T>(Entity<HandsComponent> entity, ref T args) where T : EntityEventArgs
     {
+        CoreRelayEvent(entity, ref args);
+    }
+
+    private void RefRelayEvent<T>(Entity<HandsComponent> entity, ref T args)
+    {
+        var ev = CoreRelayEvent(entity, ref args);
+        args = ev.Args;
+    }
+
+    private HeldRelayedEvent<T> CoreRelayEvent<T>(Entity<HandsComponent> entity, ref T args)
+    {
         var ev = new HeldRelayedEvent<T>(args);
+
         foreach (var held in EnumerateHeld(entity, entity.Comp))
         {
             RaiseLocalEvent(held, ref ev);
         }
+
+        return ev;
     }
 }

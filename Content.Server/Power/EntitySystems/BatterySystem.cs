@@ -42,7 +42,7 @@ namespace Content.Server.Power.EntitySystems
     public sealed class BatterySystem : EntitySystem
     {
         [Dependency] private readonly SharedContainerSystem _containers = default!; // WD EDIT
-        [Dependency] protected readonly IGameTiming Timing = default!;
+        [Dependency] private readonly IGameTiming Timing = default!;
 
         public override void Initialize()
         {
