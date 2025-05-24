@@ -1,0 +1,10 @@
+# SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- files:
+  - thunderstrike.ogg
+  license: Custom
+  source: https://pixabay.com/sound-effects/heavy-thunder-sound-effect-no-copyright-338980/
+  copyright: '"heavy thunder sound effect - no copyright" by SerialArtist on pixabay.com. It clearly says "no copyright" in the name, must be true'
