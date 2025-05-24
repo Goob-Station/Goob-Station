@@ -14,7 +14,7 @@ namespace Content.Shared._EinsteinEngines.Revolutionary;
 
 public sealed class RevolutionaryConverterSystem : EntitySystem
 {
-    private static readonly ProtoID<LocalizedDatasetPrototype> RevConvertSpeechProto = "RevolutionaryConverterSpeech";
+    private static readonly ProtoId<LocalizedDatasetPrototype> RevConvertSpeechProto = "RevolutionaryConverterSpeech";
 
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedChatSystem _chat = default!;
