@@ -65,7 +65,7 @@ public sealed partial class GoobDragDropSystem : SharedGoobDragDropSystem
 
     private void CanDropTargetGhost(Entity<ConstructionGhostComponent> ent, ref CanDropTargetEvent args)
     {
-        if (HasComp<ItemComponent>(args.Dragged) || !CanDragDrop(args.User))
+        if (HasComp<ItemComponent>(args.Dragged) && CanDragDrop(args.User))
         {
             args.CanDrop = true;
             args.Handled = true;
