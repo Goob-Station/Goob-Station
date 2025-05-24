@@ -1,5 +1,4 @@
 using System.Linq;
-using Content.Goobstation.Shared.Xenobiology;
 using Content.Goobstation.Shared.Xenobiology.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
@@ -8,19 +7,19 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Server.Xenobiology;
+namespace Content.Goobstation.Shared.Xenobiology;
 
 /// <summary>
 /// This handles slime breeding and mutation.
 /// </summary>
-public sealed class BreedingSystem : EntitySystem
+public sealed class SharedBreedingSystem : EntitySystem
 {
 
+    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly HungerSystem _hunger = default!;
-    [Dependency] private readonly RobustRandom _random = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
 
     private readonly EntProtoId _defaultSlime = "MobXenoSlime";
@@ -53,14 +52,13 @@ public sealed class BreedingSystem : EntitySystem
     private void UpdateMitosis()
     {
         var query = EntityQueryEnumerator<SlimeComponent, HungerComponent>();
-        var eligibleSlimes = new List<Entity<SlimeComponent, HungerComponent>>();
-        while (query.MoveNext(out var uid, out var slime, out var hunger))
+        var eligibleSlimes = new HashSet<Entity<SlimeComponent, HungerComponent>>();
+        while (query.MoveNext(out var ent, out var slime, out var hunger))
         {
-
-            if (_mobState.IsDead(uid))
+            if (_mobState.IsDead(ent))
                 continue;
 
-            eligibleSlimes.Add((uid, slime, hunger));
+            eligibleSlimes.Add((ent, slime, hunger));
         }
 
         foreach (var ent in eligibleSlimes)
@@ -68,9 +66,10 @@ public sealed class BreedingSystem : EntitySystem
             if (_hunger.GetHunger(ent) < ent.Comp1.MitosisHunger)
                 continue;
 
-            _hunger.ModifyHunger(ent, -ent.Comp1.MitosisHunger, ent.Comp2);
             DoMitosis(ent);
+            Logger.Debug("mitosis called");
         }
+
     }
 
     #region Helpers
@@ -78,16 +77,17 @@ public sealed class BreedingSystem : EntitySystem
     //Spawns a slime with a given mutation
     private void DoBreeding(EntityUid parent, EntProtoId newEntity, ProtoId<BreedPrototype> selectedBreed)
     {
+        if (!_gameTiming.IsFirstTimePredicted)
+            return;
+
         if (!_prototypeManager.TryIndex(selectedBreed, out var newBreed))
             return;
 
-        var ent = SpawnNextToOrDrop(newEntity, parent);
+        var ent = SpawnNextToOrDrop(newEntity, parent, null, newBreed.Components);
+        Logger.Debug("spawned");
 
-        //Add new registry
-        EntityManager.AddComponents(ent, newBreed.Components);
-
-        //Ensures the slimes are correctly renamed based on breed.
         _metaData.SetEntityName(ent, newBreed.BreedName);
+        DirtyEntity(ent);
     }
 
     //Handles slime mitosis, for each offspring, a mutation is selected from their potential mutations - if mutation is successful, the products of mitosis will have the new mutation.
@@ -104,10 +104,12 @@ public sealed class BreedingSystem : EntitySystem
                 selectedBreed = ent.Comp.PotentialMutations.ToArray()[randomIndex];
 
                 DoBreeding(ent, _defaultSlime, selectedBreed);
+                Logger.Debug("DoMitosis");
             }
             else
             {
                 DoBreeding(ent, _defaultSlime, selectedBreed);
+                Logger.Debug("DoMitosis");
             }
 
         }

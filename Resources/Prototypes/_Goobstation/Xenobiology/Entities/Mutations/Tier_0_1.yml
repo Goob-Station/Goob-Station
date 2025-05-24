@@ -9,8 +9,8 @@
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: slime-baby
-      color: Grey
-  - type: SlimeComponent
+      color: "#828282"
+  - type: Slime
     breed: GreyMutation
     offspring: 4
     mutationChance: 0.45
@@ -29,8 +29,8 @@
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: slime-baby
-      color: Orange
-  - type: SlimeComponent
+      color: "#ff9f1a"
+  - type: Slime
     breed: OrangeMutation
     offspring: 4
     mutationChance: 0.45

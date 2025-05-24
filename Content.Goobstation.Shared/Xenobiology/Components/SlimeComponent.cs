@@ -22,6 +22,6 @@ public sealed partial class SlimeComponent : Component
     public HashSet<ProtoId<BreedPrototype>> PotentialMutations = new();
 
     [DataField, AutoNetworkedField]
-    public float MitosisHunger = 20f;
+    public float MitosisHunger = 100f;
 
 }

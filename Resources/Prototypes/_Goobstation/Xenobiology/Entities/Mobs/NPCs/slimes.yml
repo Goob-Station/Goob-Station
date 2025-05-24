@@ -5,6 +5,16 @@
   abstract: true
   description: It looks so much like jelly. I wonder what it tastes like?
   components:
+  - type: Hunger
+    startingHunger: 25
+    thresholds:
+      Overfed: 100
+      Okay: 50
+      Peckish: 25
+      Starving: 10
+      Dead: 0
+    baseDecayRate: 0
+    starvingSlowdownModifier: 0
   - type: Sprite
     drawdepth: Mobs
     sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
@@ -132,8 +142,8 @@
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: slime-baby
-      color: Grey
-  - type: SlimeComponent
+      color: "#828282"
+  - type: Slime
     breed: GreyMutation
     offspring: 4
     mutationChance: 0.45
