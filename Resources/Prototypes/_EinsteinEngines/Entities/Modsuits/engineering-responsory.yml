@@ -36,7 +36,8 @@
       walkModifier: 1
       sprintModifier: 1
     - type: SealableClothingVisuals
-      visualLayers:
+      spriteLayer: sealed
+      clothingVisuals:
         back:
         - state: equipped-BACKPACK-sealed
 
@@ -50,11 +51,12 @@
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/engineering-responsory.rsi
     - type: SealableClothingVisuals
-      visualLayers:
+      spriteLayer: sealed
+      clothingVisuals:
         gloves:
-          - state: equipped-HAND-sealed
-          - state: equipped-HAND-sealed-unshaded
-            shader: unshaded
+        - state: equipped-HAND-sealed
+        - state: equipped-HAND-sealed-unshaded
+          shader: unshaded
 
 - type: entity
   parent: [ClothingModsuitHelmetStandard, ShowSecurityIcons]
@@ -91,11 +93,12 @@
     - type: PointLight
       color: "#FFDF00"
     - type: SealableClothingVisuals
-      visualLayers:
+      spriteLayer: sealed
+      clothingVisuals:
         head:
-          - state: equipped-HEAD-sealed
-          - state: equipped-HEAD-sealed-unshaded
-            shader: unshaded
+        - state: equipped-HEAD-sealed
+        - state: equipped-HEAD-sealed-unshaded
+          shader: unshaded
 
 - type: entity
   parent: ClothingModsuitChestplateStandard
@@ -121,9 +124,10 @@
           Radiation: 0.1
           Caustic: 0.1
     - type: SealableClothingVisuals
-      visualLayers:
+      spriteLayer: sealed
+      clothingVisuals:
         outerClothing:
-          - state: equipped-OUTERCLOTHING-sealed
+        - state: equipped-OUTERCLOTHING-sealed
     - type: StaminaDamageResistance
       coefficient: 0.5 # 50%
     - type: FireProtection
@@ -146,9 +150,10 @@
       tags:
         - WhitelistChameleon
     - type: SealableClothingVisuals
-      visualLayers:
+      spriteLayer: sealed
+      clothingVisuals:
         shoes:
-          - state: equipped-FEET-sealed
+        - state: equipped-FEET-sealed
     - type: ItemToggle
     - type: ToggleClothing
       action: ActionToggleMagboots

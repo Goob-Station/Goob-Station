@@ -82,7 +82,8 @@
     sealUpPopup: sealable-clothing-seal-up-helmet
     sealDownPopup: sealable-clothing-seal-down-helmet
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       head:
       - state: equipped-HEAD-sealed
   - type: Armor
@@ -169,7 +170,8 @@
     sealUpPopup: sealable-clothing-seal-up-helmet
     sealDownPopup: sealable-clothing-seal-down-helmet
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       head:
       - state: equipped-HEAD-sealed
   - type: Armor
@@ -263,7 +265,8 @@
     sealUpPopup: sealable-clothing-seal-up-helmet
     sealDownPopup: sealable-clothing-seal-down-helmet
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       head:
       - state: equipped-HEAD-sealed
   - type: Armor
@@ -357,7 +360,8 @@
     sealUpPopup: sealable-clothing-seal-up-helmet
     sealDownPopup: sealable-clothing-seal-down-helmet
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       head:
       - state: equipped-HEAD-sealed
   - type: Armor
@@ -445,9 +449,12 @@
     sealUpPopup: sealable-clothing-seal-up-helmet
     sealDownPopup: sealable-clothing-seal-down-helmet
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       head:
       - state: equipped-HEAD-sealed
+      head-resomi:
+      - state: equipped-HEAD-sealed-resomi
   - type: Armor
     modifiers:
       coefficients:
@@ -520,6 +527,11 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
+    clothingVisuals:
+      head:
+      - state: equipped-HEAD
+      head-resomi:
+      - state: equipped-HEAD-resomi
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Modsuits/atmostech.rsi
     layers:
@@ -534,9 +546,12 @@
     sealUpPopup: sealable-clothing-seal-up-helmet
     sealDownPopup: sealable-clothing-seal-down-helmet
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       head:
       - state: equipped-HEAD-sealed
+      head-resomi:
+      - state: equipped-HEAD-sealed-resomi
   - type: Armor
     modifiers:
       coefficients:
@@ -623,7 +638,8 @@
     sealUpPopup: sealable-clothing-seal-up-helmet
     sealDownPopup: sealable-clothing-seal-down-helmet
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       head:
       - state: equipped-HEAD-sealed
   - type: Armor
@@ -712,9 +728,12 @@
     sealUpPopup: sealable-clothing-seal-up-helmet
     sealDownPopup: sealable-clothing-seal-down-helmet
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       head:
       - state: equipped-HEAD-sealed
+      head-resomi:
+      - state: equipped-HEAD-sealed-resomi
   - type: Armor
     traumaDeductions:
       Dismemberment: 0.3

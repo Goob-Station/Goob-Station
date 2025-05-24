@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "From Baystation12 - https://github.com/Baystation12/Baystation12/pull/34564",
+  "copyright": "From Baystation12 - https://github.com/Baystation12/Baystation12/pull/34564 - resomi edit by Marty",
   "size": {
     "x": 32,
     "y": 32
@@ -19,6 +19,14 @@
 		},
 		{
 			"name": "equipped-OUTERCLOTHING-sealed",
+			"directions": 4
+		},
+    {
+			"name": "equipped-OUTERCLOTHING-resomi",
+			"directions": 4
+		},
+		{
+			"name": "equipped-OUTERCLOTHING-sealed-resomi",
 			"directions": 4
 		}
   ]

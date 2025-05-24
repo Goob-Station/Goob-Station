@@ -29,9 +29,10 @@
             components:
               - PowerCell
     - type: SealableClothingVisuals
-      visualLayers:
+      spriteLayer: sealed
+      clothingVisuals:
         back:
-          - state: equipped-BACKPACK-sealed
+        - state: equipped-BACKPACK-sealed
 
 - type: entity
   parent: ClothingModsuitGauntletsStandard
@@ -43,11 +44,12 @@
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/praetorian.rsi
     - type: SealableClothingVisuals
-      visualLayers:
+      spriteLayer: sealed
+      clothingVisuals:
         gloves:
-          - state: equipped-HAND-sealed
-          - state: equipped-HAND-sealed-unshaded
-            shader: unshaded
+        - state: equipped-HAND-sealed
+        - state: equipped-HAND-sealed-unshaded
+          shader: unshaded
 
 - type: entity
   parent: ClothingModsuitHelmetStandard
@@ -81,11 +83,12 @@
     - type: PointLight
       color: "#4d7ae3"
     - type: SealableClothingVisuals
-      visualLayers:
+      spriteLayer: sealed
+      clothingVisuals:
         head:
-          - state: equipped-HEAD-sealed
-          - state: equipped-HEAD-sealed-unshaded
-            shader: unshaded
+        - state: equipped-HEAD-sealed
+        - state: equipped-HEAD-sealed-unshaded
+          shader: unshaded
 
 - type: entity
   parent: ClothingModsuitChestplateStandard
@@ -115,9 +118,12 @@
           Heat: 0.45
           Caustic: 0.5
     - type: SealableClothingVisuals
-      visualLayers:
+      spriteLayer: sealed
+      clothingVisuals:
         outerClothing:
-          - state: equipped-OUTERCLOTHING-sealed
+        - state: equipped-OUTERCLOTHING-sealed
+        outerClothing-resomi:
+        - state: equipped-OUTERCLOTHING-sealed-resomi
     - type: ModifyDelayedKnockdown
       delayDelta: 2
       knockdownTimeDelta: -2
@@ -141,9 +147,10 @@
       tags:
         - WhitelistChameleon
     - type: SealableClothingVisuals
-      visualLayers:
+      spriteLayer: sealed
+      clothingVisuals:
         shoes:
-          - state: equipped-FEET-sealed
+        - state: equipped-FEET-sealed
     - type: ItemToggle
     - type: ToggleClothing
       action: ActionToggleMagboots

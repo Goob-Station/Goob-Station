@@ -13,6 +13,7 @@ using Content.Client.Clothing;
 using Content.Goobstation.Client.Clothing.Components;
 using Content.Goobstation.Shared.Clothing;
 using Content.Shared.Clothing;
+using Content.Shared.Inventory;
 using Content.Shared.Item;
 using Robust.Client.GameObjects;
 
@@ -50,7 +51,18 @@ public sealed class SealableClothingVisualizerSystem : VisualizerSystem<Sealable
             || !isSealed)
             return;
 
-        if (!comp.VisualLayers.TryGetValue(args.Slot, out var layers))
+        if (!comp.ClothingVisuals.TryGetValue(args.Slot, out var layers))
+            return;
+
+        if (!TryComp(args.Equipee, out InventoryComponent? inventory))
+            return;
+
+        // attempt to get species specific data || Goob - everything else here is taken from toggleflaslight might as well take the species stuff
+        if (inventory.SpeciesId != null)
+            comp.ClothingVisuals.TryGetValue($"{args.Slot}-{inventory.SpeciesId}", out layers);
+
+        // No species specific data.  Try to default to generic data.
+        if (layers == null && !comp.ClothingVisuals.TryGetValue(args.Slot, out layers))
             return;
 
         var i = 0;

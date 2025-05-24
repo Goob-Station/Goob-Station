@@ -34,7 +34,8 @@
     - type: ExplosionResistance
       damageCoefficient: 0.1
     - type: SealableClothingVisuals
-      visualLayers:
+      spriteLayer: sealed
+      clothingVisuals:
         back:
         - state: equipped-BACKPACK-sealed
 
@@ -48,7 +49,8 @@
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/apocryphal.rsi
     - type: SealableClothingVisuals
-      visualLayers:
+      spriteLayer: sealed
+      clothingVisuals:
         gloves:
         - state: equipped-HAND-sealed
         - state: equipped-HAND-sealed-unshaded
@@ -96,7 +98,8 @@
     - type: PointLight
       color: "#FFDF00"
     - type: SealableClothingVisuals
-      visualLayers:
+      spriteLayer: sealed
+      clothingVisuals:
         head:
         - state: equipped-HEAD-sealed
         - state: equipped-HEAD-sealed-unshaded
@@ -132,7 +135,8 @@
           Radiation: 0.1
           Caustic: 0.1
     - type: SealableClothingVisuals
-      visualLayers:
+      spriteLayer: sealed
+      clothingVisuals:
         outerClothing:
         - state: equipped-OUTERCLOTHING-sealed
     - type: StaminaDamageResistance
@@ -156,7 +160,8 @@
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/apocryphal.rsi
     - type: SealableClothingVisuals
-      visualLayers:
+      spriteLayer: sealed
+      clothingVisuals:
         shoes:
         - state: equipped-FEET-sealed
     - type: ItemToggle
