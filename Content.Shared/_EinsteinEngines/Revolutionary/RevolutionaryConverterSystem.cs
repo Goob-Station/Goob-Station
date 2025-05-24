@@ -1,10 +1,13 @@
 using Content.Shared._EinsteinEngines.Revolutionary.Components;
 using Content.Shared.Chat;
+using Content.Shared.Dataset;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Random.Helpers;
 using Content.Shared.Revolutionary.Components;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Shared._EinsteinEngines.Revolutionary;
@@ -16,8 +19,9 @@ public sealed class RevolutionaryConverterSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedChatSystem _chat = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
-    private List<string> _speechLocalizationKeys = new();
+    private LocalizedDatasetPrototype? _speechLocalization;
 
     public override void Initialize()
     {
@@ -27,12 +31,7 @@ public sealed class RevolutionaryConverterSystem : EntitySystem
         SubscribeLocalEvent<RevolutionaryConverterComponent, UseInHandEvent>(OnUseInHand);
         SubscribeLocalEvent<RevolutionaryConverterComponent, AfterInteractEvent>(OnConverterAfterInteract);
 
-        var i = 1;
-        while (Loc.HasString($"{RevConvertSpeechBaseKey}{i}"))
-        {
-            _speechLocalizationKeys.Add($"{RevConvertSpeechBaseKey}{i}");
-            i++;
-        }
+        _speechLocalization = _prototypeManager.Index<LocalizedDatasetPrototype>("revolutionary_converter_speech");
     }
 
     private void OnUseInHand(Entity<RevolutionaryConverterComponent> ent, ref UseInHandEvent args)
@@ -45,10 +44,10 @@ public sealed class RevolutionaryConverterSystem : EntitySystem
 
     private bool SpeakPropaganda(Entity<RevolutionaryConverterComponent> conversionToolEntity, EntityUid user)
     {
-        if(_speechLocalizationKeys == null || _speechLocalizationKeys.Count == 0 || conversionToolEntity.Comp.Silent)
+        if(_speechLocalization == null || _speechLocalization.Values.Count == 0 || conversionToolEntity.Comp.Silent)
             return false;
 
-        var message = _random.Pick(_speechLocalizationKeys);
+        var message = _random.Pick(_speechLocalization);
         _chat.TrySendInGameICMessage(user, Loc.GetString(message), InGameICChatType.Speak, hideChat: false, hideLog: false);
         return true;
     }

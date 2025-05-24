@@ -37,7 +37,6 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Antag;
 using Content.Server.EUI;
-using Content.Server.Flash;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Mind;
 using Content.Server.Popups;
@@ -229,7 +228,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
             || HasComp<CommandStaffComponent>(ev.Target)) // goob edit - rev no command flashing
         {
             if(ev.User != null)
-                _popup.PopupPredicted("The conversion failed!", ev.User.Value, ev.User);
+                _popup.PopupEntity("The conversion failed!", ev.User.Value, ev.User.Value);
 
             return;
         }
