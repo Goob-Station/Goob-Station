@@ -9938,3 +9938,9 @@ Entries:
       message: Speed legs give you +5% speed per leg
   id: 1108
   time: '2025-05-24T22:09:38.0000000+00:00'
+- author: Arraydeess
+  changes:
+    - type: Add
+      message: Added a Craftable Boomerang!
+  id: 1109
+  time: '2025-05-24T22:12:38.0000000+00:00'
