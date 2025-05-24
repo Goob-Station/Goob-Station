@@ -148,7 +148,7 @@
 #    - id: ClericalError
     - id: CockroachMigration
     - id: GasLeak
-    - id: GreytideVirus
+#    - id: GreytideVirus
     - id: IonStorm # its calm like 90% of the time smh
     - id: KudzuGrowth
     - id: MassHallucinations
@@ -848,26 +848,26 @@
 #      Thirst: 10
 #  - type: MobReplacementRule
 
-- type: entity
-  id: GreytideVirus
-  parent: BaseStationEventShortDelay
-  components:
-  - type: StationEvent
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
-    weight: 5
-    minimumPlayers: 1
-    maxOccurrences: 1 # can only happen once per round
-    chaos: # Goobstation
-      Atmos: 15
-      Mess: 30
-  - type: GreytideVirusRule
-    accessGroups:
-    - Cargo
-    - Research
-    - Service
-    blacklist:
-    - External # don't space everything
+#- type: entity
+#  id: GreytideVirus
+#  parent: BaseStationEventShortDelay
+#  components:
+#  - type: StationEvent
+#    startAudio:
+#      path: /Audio/Announcements/attention.ogg
+#    weight: 5
+#    minimumPlayers: 1
+#    maxOccurrences: 1 # can only happen once per round
+#    chaos: # Goobstation
+#      Atmos: 15
+#      Mess: 30
+#  - type: GreytideVirusRule
+#    accessGroups:
+#    - Cargo
+#    - Research
+#    - Service
+#    blacklist:
+#    - External # don't space everything
 
 - type: entity
   parent: BaseGameRule
