@@ -153,6 +153,7 @@ public sealed class TemperatureSystem : EntitySystem
         SubscribeLocalEvent<ChangeTemperatureOnCollideComponent, ProjectileHitEvent>(ChangeTemperatureOnCollide);
 
         SubscribeLocalEvent<SpecialLowTempImmunityComponent, TemperatureImmunityEvent>(OnCheckLowTemperatureImmunity); // Goob edit
+        SubscribeLocalEvent<SpecialHighTempImmunityComponent, TemperatureImmunityEvent>(OnCheckHighTemperatureImmunity); // Goob edit
 
         // Allows overriding thresholds based on the parent's thresholds.
         SubscribeLocalEvent<TemperatureComponent, EntParentChangedMessage>(OnParentChange);
@@ -217,10 +218,19 @@ public sealed class TemperatureSystem : EntitySystem
         ShouldUpdateDamage.Clear();
     }
 
-    private void OnCheckLowTemperatureImmunity(Entity<SpecialLowTempImmunityComponent> ent, ref TemperatureImmunityEvent args) // Goob edit
+    // Goob start
+    private void OnCheckLowTemperatureImmunity(Entity<SpecialLowTempImmunityComponent> ent, ref TemperatureImmunityEvent args)
     {
-        args.CurrentTemperature = MathF.Max(args.CurrentTemperature, args.IdealTemperature);
+        if (args.CurrentTemperature < args.IdealTemperature)
+            args.CurrentTemperature = args.IdealTemperature;
     }
+
+    private void OnCheckHighTemperatureImmunity(Entity<SpecialHighTempImmunityComponent> ent, ref TemperatureImmunityEvent args)
+    {
+        if (args.CurrentTemperature > args.IdealTemperature)
+            args.CurrentTemperature = args.IdealTemperature;
+    }
+    // Goob end
 
     public void ForceChangeTemperature(EntityUid uid, float temp, TemperatureComponent? temperature = null)
     {
