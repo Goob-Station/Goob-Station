@@ -61,3 +61,11 @@
   icon: { sprite: Objects/Materials/Sheets/metal.rsi, state: plasteel }
   color: "#696969" #Okay, this is epic
   price: 0.3 # Goobstation - Cargo repricing
+
+# Assmos
+- type: material
+  id: MetalHydrogen
+  stackEntity: MetalHydrogen1
+  name: materials-metal-hydrogen
+  icon: { sprite: Objects/Materials/ingots.rsi, state: hydrogen }
+  price: 2.50 # $250 for 1 unit

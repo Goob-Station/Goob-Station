@@ -200,3 +200,93 @@
   components:
     - type: GasMiner
       spawnGas: NitrousOxide
+
+# Assmos - /tg/ gases
+- type: entity
+  name: bz gas miner
+  parent: GasMinerBase
+  id: GasMinerBZ
+  components:
+    - type: GasMiner
+      spawnGas: BZ
+
+- type: entity
+  name: healium gas miner
+  parent: GasMinerBase
+  id: GasMinerHealium
+  components:
+    - type: GasMiner
+      spawnGas: Healium
+
+- type: entity
+  name: nitrium gas miner
+  parent: GasMinerBase
+  id: GasMinerNitrium
+  components:
+    - type: GasMiner
+      spawnGas: Nitrium
+
+- type: entity
+  name: pluoxium gas miner
+  parent: GasMinerBase
+  id: GasMinerPluoxium
+  components:
+    - type: GasMiner
+      spawnGas: Pluoxium
+
+- type: entity
+  name: hydrogen gas miner
+  parent: GasMinerBase
+  id: GasMinerHydrogen
+  components:
+    - type: GasMiner
+      spawnGas: Hydrogen
+
+- type: entity
+  name: hyper-noblium gas miner
+  parent: GasMinerBase
+  id: GasMinerHyperNoblium
+  components:
+    - type: GasMiner
+      spawnGas: HyperNoblium
+
+- type: entity
+  name: proto-nitrate gas miner
+  parent: GasMinerBase
+  id: GasMinerProtoNitrate
+  components:
+    - type: GasMiner
+      spawnGas: ProtoNitrate
+
+- type: entity
+  name: zauker gas miner
+  parent: GasMinerBase
+  id: GasMinerZauker
+  components:
+    - type: GasMiner
+      spawnGas: Zauker
+
+- type: entity
+  name: halon gas miner
+  parent: GasMinerBase
+  id: GasMinerHalon
+  components:
+    - type: GasMiner
+      spawnGas: Halon
+
+- type: entity
+  name: helium gas miner
+  parent: GasMinerBase
+  id: GasMinerHelium
+  components:
+    - type: GasMiner
+      spawnGas: Helium
+
+- type: entity
+  name: anti-noblium gas miner
+  parent: GasMinerBase
+  id: GasMinerAntiNoblium
+  components:
+    - type: GasMiner
+      spawnGas: AntiNoblium
+# End of assmos changes
