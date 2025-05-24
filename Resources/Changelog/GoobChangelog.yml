@@ -9888,3 +9888,13 @@ Entries:
       message: Borgs can now properly build mechs.
   id: 1103
   time: '2025-05-24T22:00:42.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Warden's and head of security's armored winter coats now have very
+        slightly less armor.
+    - type: Tweak
+      message: Blueshield's armor vest is now 2x2.
+  id: 1104
+  time: '2025-05-24T22:01:58.0000000+00:00'
