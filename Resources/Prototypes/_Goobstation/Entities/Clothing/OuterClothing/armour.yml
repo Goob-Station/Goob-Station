@@ -155,6 +155,30 @@
   - type: Item
     size: Normal
 
+- type: entity
+  parent: [ ClothingBlueshieldArmourVest, ClothingOuterWinterCoatToggleable ]
+  id: ClothingOuterWinterBlueshield
+  name: blueshield's armored winter coat
+  description: A blue winter coat reinforced with kevlar in the chest area.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/bso_winter_coat.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/bso_winter_coat.rsi
+  - type: Item
+    size: Normal
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.5
+        Heat: 0.4
+        Caustic: 0.65
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHatHoodWinterBso
+
 # CentralCommand
 
 - type: entity

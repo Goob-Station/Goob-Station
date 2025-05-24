@@ -69,6 +69,11 @@
   equipment:
     outerClothing: ClothingBlueshieldArmoredCowboyJacket
 
+- type: loadout
+  id: BlueshieldOfficerOuterBlueshieldCowboyVest
+  equipment:
+    outerClothing: ClothingBlueshieldArmoredCowboyJacket
+
 # Neck
 - type: loadout
   id: BlueshieldOfficerOuterBlueshieldMantle
@@ -113,3 +118,8 @@
   id: BlackCowboyBoots
   equipment:
     shoes: ClothingShoesBootsCowboyBlackFilled
+
+- type: loadout
+  id: SnowjacksBso
+  equipment:
+    shoes: ClothingShoesBootsWinterSnowjackBso
