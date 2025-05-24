@@ -10046,3 +10046,9 @@ Entries:
         supports it)
   id: 1117
   time: '2025-05-24T23:13:47.0000000+00:00'
+- author: ImHoks
+  changes:
+    - type: Add
+      message: Guardians can now target limbs.
+  id: 1118
+  time: '2025-05-24T23:42:54.0000000+00:00'
