@@ -9869,3 +9869,9 @@ Entries:
       message: Added even more crew plushies!
   id: 1101
   time: '2025-05-24T20:16:37.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Fix
+      message: Species once again have their damage modifier sets.
+  id: 1102
+  time: '2025-05-24T21:37:30.0000000+00:00'
