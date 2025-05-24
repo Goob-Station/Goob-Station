@@ -206,7 +206,7 @@
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 0.1
     rechargeSound:
-      path: /Audio/_DV/CosmicCult/cosmiclance_impact.ogg
+      path: /Audio/_DV/CosmicCult/projectile_razor_reload.ogg
   - type: BasicEntityAmmoProvider
     proto: ProjectileCosmicRazor
     capacity: 1
