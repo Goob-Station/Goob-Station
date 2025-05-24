@@ -9,7 +9,7 @@
   name: X-01 Multiphase
   parent: [BaseWeaponBatterySmall, BaseGrandTheftContraband]
   id: WeaponEnergyGunMultiphase
-  description: This is an expensive, modern recreation of the antique laser gun. This gun has several unique firemodes, but lacks the ability to recharge over time.
+  description: This is an expensive, modern recreation of the antique laser gun. This gun has several unique firemodes. It recharges 1 shot every two seconds.
   components:
   - type: Sprite
     sprite: _DV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
@@ -45,6 +45,9 @@
       - BulletDisabler
       - BulletEnergyGunLaser
       - BulletEnergyGunIon
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 25
   - type: UserInterface
     interfaces:
       enum.AmmoSelectorUiKey.Key:
