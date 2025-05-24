@@ -122,12 +122,14 @@
   parent: [ BaseCentcommContraband, ClothingOuterArmorCaptainCarapace ]
   id: ClothingBlueshieldArmourVest
   name: blueshield's security armour
-  description: An armoured vest with the badge of the blueshield.
+  description: An armoured vest with the badge of the blueshield. Utilizes bluespace technology to be more compact.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Armor/bso_armour.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Armor/bso_armour.rsi
+  - type: Item
+    size: Normal
 
 - type: entity
   parent: ClothingBlueshieldArmourVest
@@ -139,8 +141,6 @@
     sprite: _Goobstation/Clothing/OuterClothing/Armor/blueshield_jacket.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/OuterClothing/Armor/blueshield_jacket.rsi
-  - type: Item
-    size: Normal
 
 - type: entity
   parent: ClothingBlueshieldArmourVest
@@ -152,8 +152,6 @@
     sprite: _Goobstation/Clothing/OuterClothing/Armor/blueshield_cowboy_jacket.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/OuterClothing/Armor/blueshield_cowboy_jacket.rsi
-  - type: Item
-    size: Normal
 
 # CentralCommand
 
