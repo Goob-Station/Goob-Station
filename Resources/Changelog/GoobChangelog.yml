@@ -9875,3 +9875,16 @@ Entries:
       message: Species once again have their damage modifier sets.
   id: 1102
   time: '2025-05-24T21:37:30.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Lack of 1984. (Mice can't build girders and windows anymore.)
+    - type: Fix
+      message: >-
+        Biomass reclaimer should work again. - Mocho Note: Keep in mind it still
+        only works with catatonic entities, so behead anything you throw in
+        there to defeat the point of it
+    - type: Fix
+      message: Borgs can now properly build mechs.
+  id: 1103
+  time: '2025-05-24T22:00:42.0000000+00:00'
