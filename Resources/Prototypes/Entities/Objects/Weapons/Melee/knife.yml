@@ -260,6 +260,7 @@
   - type: ThrowingAngle
     angle: 225
   - type: ThrowableBlocked # Goobstation
+  - type: AttachmentBayonet # Lavaland Change
 
 - type: entity
   name: survival knife
@@ -275,7 +276,6 @@
     storedSprite:
       state: storage
       sprite: Objects/Weapons/Melee/survival_knife.rsi
-  - type: AttachmentBayonet # Lavaland Change
 
 - type: entity
   name: kukri knife

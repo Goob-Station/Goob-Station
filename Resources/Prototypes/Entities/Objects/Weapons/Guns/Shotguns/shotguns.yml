@@ -112,6 +112,16 @@
         ents: []
   - type: StaticPrice
     price: 500
+  - type: AltFireMelee # Goobstation V
+    attackType: Heavy
+  - type: MeleeWeapon
+    damage:
+      types:
+       Blunt: 12
+    angle: 0
+    wideAnimationRotation: 90 # -90 if it takes bayonets (hits with muzzle) 90 if not (hits with butt)
+    soundHit:
+      collection: MetalThud # Goobstation ^
 
 - type: entity
   name: Bulldog
