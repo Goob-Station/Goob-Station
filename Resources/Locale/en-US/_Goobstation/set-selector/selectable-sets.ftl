@@ -207,10 +207,12 @@ selectable-set-engineering-modsuit-desc =
 
 selectable-set-captain-voidsuit-name = Captain's voidsuit
 selectable-set-captain-voidsuit-desc =
-    Captain's light voidsuit for the average shift leading the station.
+    Captain's light voidsuit made custom fitted for formal occasions, lightly
+    armored to protect during the average shift, all while still retaining
+    common spacewalking capabilities.
 
 selectable-set-captain-modsuit-name = Captain's 'Magnate' hardsuit
 selectable-set-captain-modsuit-desc =
-    A modular hardsuit perfectly shined, adorned, and armored to fit the best of the best,
-    fitted with custom plating, cooling fluid, and fitting to make even the toughest of
-    times leading seem like nothing to you.
+    A modular hardsuit perfectly shined, adorned, and armored to fit the best of
+    the best, fitted with custom plating, cooling fluid, and diamonds to
+    make even the toughest of times leading seem like nothing to you.
