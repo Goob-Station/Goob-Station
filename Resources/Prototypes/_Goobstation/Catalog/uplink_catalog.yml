@@ -1035,6 +1035,7 @@
   categories:
   - UplinkWearables
 
+- type: listing
   id: UplinkEnergyPickaxe
   name: uplink-energy-pickaxe-name
   description: uplink-energy-pickaxe-desc
@@ -1048,4 +1049,3 @@
   - !type:BuyerSpeciesCondition
     whitelist:
     - Dwarf # Rock and stone
-

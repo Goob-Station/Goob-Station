@@ -333,7 +333,7 @@
       - state: equipped-HAND-sealed
 
 - type: entity
-  parent: [ClothingModsuitGauntletsStandard]
+  parent: [ClothingModsuitGauntletsStandard, BaseSyndicateContraband]
   id: ClothingModsuitGauntletsBloodredModsuit
   name: CSA-99MS "Deimos" Modsuit Gauntlets
   description: A set of armored gauntlets for the "Deimos" modsuit.
@@ -359,12 +359,4 @@
       visualLayers:
         gloves:
         - state: equipped-HAND-sealed
-    - type: Insulated
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.95
-        Slash: 0.95
-        Piercing: 0.95
-        Shock: 0.75
 
