@@ -9898,3 +9898,11 @@ Entries:
       message: Blueshield's armor vest is now 2x2.
   id: 1104
   time: '2025-05-24T22:01:58.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Bingle pit now comes with 3 additional starting bingles.
+    - type: Fix
+      message: Fixed bingle pit not regenerating.
+  id: 1105
+  time: '2025-05-24T22:05:06.0000000+00:00'
