@@ -1,10 +1,11 @@
+// SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Linq;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Pain;
@@ -13,13 +14,14 @@ using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
 using Content.Shared.Armor;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Damage.Components;
 using Content.Shared.Inventory;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
 
@@ -75,7 +77,8 @@ public partial class TraumaSystem
         Entity<TraumaInflicterComponent> woundEnt,
         ref WoundSeverityPointChangedEvent args)
     {
-        if (!_timing.IsFirstTimePredicted)
+        if (!_timing.IsFirstTimePredicted
+            || HasComp<GodmodeComponent>(args.Component.HoldingWoundable))
             return;
 
         // Overflow is only used when we are capping the wound, so we use it over the computed delta
@@ -99,8 +102,18 @@ public partial class TraumaSystem
             return;
 
         foreach (var trauma in GetAllWoundTraumas(inflicter, inflicter))
+        {
             if (TraumasBlockingHealing.Contains(trauma.Comp.TraumaType))
+            {
+                if (trauma.Comp.TraumaType == TraumaType.BoneDamage
+                    && args.Woundable.Comp.Bone.ContainedEntities.FirstOrNull() is { } bone
+                    && TryComp(bone, out BoneComponent? boneComp)
+                    && boneComp.BoneSeverity != BoneSeverity.Broken)
+                    continue;
+
                 args.Cancelled = true;
+            }
+        }
     }
 
     #region Public API
@@ -109,7 +122,7 @@ public partial class TraumaSystem
         EntityUid woundInflicter,
         TraumaInflicterComponent? component = null)
     {
-        if (!Resolve(woundInflicter, ref component))
+        if (!Resolve(woundInflicter, ref component, false))
             yield break;
 
         foreach (var trauma in component.TraumaContainer.ContainedEntities)
@@ -119,11 +132,15 @@ public partial class TraumaSystem
     }
 
     public bool HasAssociatedTrauma(
+        EntityUid woundable,
         EntityUid woundInflicter,
+        WoundableComponent? woundableComp = null,
         TraumaType? traumaType = null,
-        TraumaInflicterComponent? component = null)
+        TraumaInflicterComponent? component = null,
+        bool showAll = true)
     {
-        if (!Resolve(woundInflicter, ref component))
+        if (!Resolve(woundInflicter, ref component, false)
+            || !Resolve(woundable, ref woundableComp, false))
             return false;
 
         foreach (var trauma in GetAllWoundTraumas(woundInflicter, component))
@@ -133,6 +150,16 @@ public partial class TraumaSystem
 
             if (trauma.Comp.TraumaType != traumaType && traumaType != null)
                 continue;
+
+            if (!showAll)
+            {
+                // TODO: Fill this with other blocking traumas.
+                if (trauma.Comp.TraumaType == TraumaType.BoneDamage
+                    && (woundableComp.Bone.ContainedEntities.FirstOrNull() is not { } bone
+                    || !TryComp(bone, out BoneComponent? boneComp)
+                    || boneComp.BoneSeverity != BoneSeverity.Broken))
+                    continue;
+            }
 
             return true;
         }
@@ -147,7 +174,7 @@ public partial class TraumaSystem
         TraumaInflicterComponent? component = null)
     {
         traumas = null;
-        if (!Resolve(woundInflicter, ref component))
+        if (!Resolve(woundInflicter, ref component, false))
             return false;
 
         traumas = new List<Entity<TraumaComponent>>();
@@ -168,9 +195,10 @@ public partial class TraumaSystem
     public bool HasWoundableTrauma(
         EntityUid woundable,
         TraumaType? traumaType = null,
-        WoundableComponent? woundableComp = null)
+        WoundableComponent? woundableComp = null,
+        bool showAll = true) // Used to skip certain non-lethal traumas like minor bone fractures.
     {
-        if (!Resolve(woundable, ref woundableComp))
+        if (!Resolve(woundable, ref woundableComp, false))
             return false;
 
         foreach (var woundEnt in _wound.GetWoundableWounds(woundable, woundableComp))
@@ -178,7 +206,7 @@ public partial class TraumaSystem
             if (!TryComp<TraumaInflicterComponent>(woundEnt, out var inflicterComp))
                 continue;
 
-            if (HasAssociatedTrauma(woundEnt, traumaType, inflicterComp))
+            if (HasAssociatedTrauma(woundable, woundEnt, woundableComp, traumaType, inflicterComp, showAll))
                 return true;
         }
 
@@ -192,7 +220,7 @@ public partial class TraumaSystem
         WoundableComponent? woundableComp = null)
     {
         traumas = null;
-        if (!Resolve(woundable, ref woundableComp))
+        if (!Resolve(woundable, ref woundableComp, false))
             return false;
 
         traumas = new List<Entity<TraumaComponent>>();
@@ -213,7 +241,7 @@ public partial class TraumaSystem
         TraumaType? traumaType = null,
         BodyComponent? bodyComp = null)
     {
-        return Resolve(body, ref bodyComp) && _body.GetBodyChildren(body, bodyComp).Any(bodyPart => HasWoundableTrauma(bodyPart.Id, traumaType));
+        return Resolve(body, ref bodyComp, false) && _body.GetBodyChildren(body, bodyComp).Any(bodyPart => HasWoundableTrauma(bodyPart.Id, traumaType));
     }
 
     public bool TryGetBodyTraumas(
@@ -223,7 +251,7 @@ public partial class TraumaSystem
         BodyComponent? bodyComp = null)
     {
         traumas = null;
-        if (!Resolve(body, ref bodyComp))
+        if (!Resolve(body, ref bodyComp, false))
             return false;
 
         traumas = new List<Entity<TraumaComponent>>();
@@ -243,7 +271,7 @@ public partial class TraumaSystem
         WoundableComponent? woundable = null)
     {
         var traumaList = new List<TraumaType>();
-        if (!Resolve(target, ref woundable))
+        if (!Resolve(target, ref woundable, false))
             return traumaList;
 
 
@@ -315,8 +343,8 @@ public partial class TraumaSystem
         WoundableComponent? woundableComp = null,
         TraumaInflicterComponent? inflicterComponent = null)
     {
-        if (!Resolve(wound, ref inflicterComponent)
-            || !Resolve(woundable, ref woundableComp)
+        if (!Resolve(wound, ref inflicterComponent, false)
+            || !Resolve(woundable, ref woundableComp, false)
             || inflicterComponent.MangledMultipliers == null)
             return;
 
