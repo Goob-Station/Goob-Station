@@ -114,7 +114,9 @@
 // SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Trest <144359854+trest100@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Zachary Higgs <compgeek223@gmail.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 kurokoTurbo <92106367+kurokoTurbo@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 //
@@ -155,6 +157,7 @@ using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Pain.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared.Body.Components;
 using Content.Shared._Shitmed.CCVar;
@@ -280,12 +283,19 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem // Shitmed Chang
                 {
                     foreach (var (bodyPart, _) in _body.GetBodyChildren(uid))
                     {
+                        var totalPartBleeds = FixedPoint2.Zero;
                         foreach (var wound in _wound.GetWoundableWounds(bodyPart))
                         {
                             if (!TryComp<BleedInflicterComponent>(wound, out var bleeds) || !bleeds.IsBleeding)
                                 continue;
 
-                            totalBleedAmount += bleeds.BleedingAmount;
+                            totalPartBleeds += bleeds.BleedingAmount;
+                        }
+
+                        if (TryComp<WoundableComponent>(bodyPart, out var woundable))
+                        {
+                            woundable.Bleeds = totalPartBleeds;
+                            Dirty(bodyPart, woundable);
                         }
                     }
                 }
@@ -339,8 +349,8 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem // Shitmed Chang
                 // If they're healthy, we'll try and heal some bloodloss instead.
                 _damageableSystem.TryChangeDamage(
                     uid,
-                    bloodstream.BloodlossHealDamage * bloodPercentage * 11f,
-                    ignoreResistances: true, interruptsDoAfters: false, targetPart: TargetBodyPart.All); // Shitmed Change
+                    bloodstream.BloodlossHealDamage * bloodPercentage,
+                    ignoreResistances: true, interruptsDoAfters: false, targetPart: TargetBodyPart.All, splitDamage: false); // Shitmed Change
 
                 // Remove the drunk effect when healthy. Should only remove the amount of drunk and stutter added by low blood level
                 _drunkSystem.TryRemoveDrunkenessTime(uid, bloodstream.StatusTime.TotalSeconds);

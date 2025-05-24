@@ -1,5 +1,7 @@
-// SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -49,7 +51,7 @@ internal sealed class CyberneticsSystem : EntitySystem
                 {
                     var shock = new DamageSpecifier(_prototypes.Index<DamageTypePrototype>("Shock"), 30);
                     var targetPart = _body.GetTargetBodyPart(part);
-                    _damageable.TryChangeDamage(part.Body.Value, shock, targetPart: targetPart, damageable: damageable);
+                    _damageable.TryChangeDamage(part.Body.Value, shock, ignoreResistances: true, targetPart: targetPart, damageable: damageable);
                     Dirty(cyberEnt, damageable);
                 }
             }

@@ -57,9 +57,12 @@
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Scruq445 <storchdamien@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # species
@@ -560,6 +563,8 @@
       collection: IPCWhirrs
       params:
         variation: 0
+    Scream: # Goobstation - Cyborg Scream
+      path: /Audio/_Goobstation/Voice/Cyborg/borgscream.ogg
 
 - type: emoteSounds
   id: UnisexSiliconSyndicate
@@ -580,6 +585,8 @@
       path: /Audio/Items/bikehorn.ogg
     Ping:
       path: /Audio/Effects/Cargo/ping.ogg
+    Scream: # Goobstation - Cyborg Scream
+      path: /Audio/_Goobstation/Voice/Cyborg/borgscream.ogg
 
 # body emotes
 - type: emoteSounds

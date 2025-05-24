@@ -11,6 +11,8 @@
 guide-entry-space-law = Space Law
 guide-entry-medpatches = Medical Patches
 guide-entry-rules-nrp = NRP Ruleset
+guide-entry-sm = Supermatter Engine
+guide-entry-automation = Automation
 
 # Goob SOP
 # - Main Directories

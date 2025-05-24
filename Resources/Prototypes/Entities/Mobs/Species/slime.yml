@@ -45,7 +45,6 @@
 # SPDX-FileCopyrightText: 2024 Tyzemol <85772526+Tyzemol@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
@@ -53,8 +52,11 @@
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -119,22 +121,22 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Slime
-  - type: PassiveDamage # Around 8 damage a minute healed
-    allowedStates:
-    - Alive
-    damageCap: 65
-    damage:
-      types:
-        Heat: -0.14
-      groups:
-        Brute: -0.14
+#  - type: PassiveDamage # Around 8 damage a minute healed
+#    allowedStates:
+#    - Alive
+#    damageCap: 65
+#    damage:
+#      types:
+#        Heat: -0.14
+#      groups:
+#        Brute: -0.14
   #  - type: DamageVisuals
   #    damageOverlayGroups:
   #      Brute:
-  #        sprite: Mobs/Effects/brute_damage.rsi
+  #        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
   #        color: "#2cf274"
   #      Burn:
-  #        sprite: Mobs/Effects/burn_damage.rsi
+  #        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
   - type: Bloodstream
     bloodReagent: Slime # TODO Color slime blood based on their slime color or smth
   - type: Barotrauma

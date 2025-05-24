@@ -28,12 +28,14 @@
     - Hand
     - Leg
     - Foot
+    - Tail
+    - Other
     modifiers:
       coefficients:
         Blunt: 0.8
         Slash: 0.8
         Piercing: 0.8
-        Radiation: 0.65
+        Radiation: 0.5
   - type: Tag
     tags:
     - SuitEVA

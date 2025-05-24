@@ -172,6 +172,7 @@
   - RoboticArmCircuitboard
   - ConstructorCircuitboard
   - StorageBinCircuitboard
+  - InteractorCircuitboard
   # End Goobstation Additions
   - SheetifierMachineCircuitboard
   # Goobstation R&D Console rework start

@@ -10,12 +10,17 @@
 // SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Coolsurf6 <coolsurf24@yahoo.com.au>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 kurokoTurbo <92106367+kurokoTurbo@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Trest <144359854+trest100@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Kayzel <43700376+KayzelW@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Trest <144359854+trest100@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 kurokoTurbo <92106367+kurokoTurbo@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -24,6 +29,7 @@ using System.Linq;
 using Content.Shared.Alert;
 using Content.Shared.Damage;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared._Shitmed.Body;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Events;
 using Robust.Shared.GameStates;
@@ -33,10 +39,12 @@ using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Robust.Shared.Serialization;
 using Robust.Shared.Network;
+using Robust.Shared.Utility;
 
 namespace Content.Shared.Mobs.Systems;
 
@@ -156,7 +164,7 @@ public sealed class MobThresholdSystem : EntitySystem
         MobThresholdsComponent? thresholdComponent = null)
     {
         threshold = null;
-        if (!Resolve(target, ref thresholdComponent))
+        if (!Resolve(target, ref thresholdComponent, false)) // Goobstation
             return false;
 
         foreach (var pair in thresholdComponent.Thresholds)
@@ -285,39 +293,16 @@ public sealed class MobThresholdSystem : EntitySystem
     /// <param name="target1">The entity whose damage will be scaled</param>
     /// <param name="target2">The entity whose health the damage will scale to</param>
     /// <param name="damage">The newly scaled damage. Can be null</param>
-    public bool GetScaledDamage(EntityUid target1, EntityUid target2, out DamageSpecifier? damage)
+    public bool GetScaledDamage(EntityUid target1,
+        EntityUid target2,
+        out DamageSpecifier? damage,
+        out Dictionary<TargetBodyPart, DamageSpecifier>? woundableDamage)
     {
         damage = null;
+        woundableDamage = null;
 
         if (!TryComp<DamageableComponent>(target1, out var oldDamage))
             return false;
-
-        // Shitmed Change Start
-        var entDamage = oldDamage.Damage;
-        if (TryComp<BodyComponent>(target1, out var body) && HasComp<ConsciousnessComponent>(target1))
-        {
-            var damageDict = new Dictionary<string, FixedPoint2>();
-            foreach (var bodyPart in _body.GetBodyChildren(target1, body))
-            {
-                if (!TryComp<WoundableComponent>(bodyPart.Id, out var woundable))
-                    continue;
-
-                foreach (var woundEnt in _wound.GetWoundableWounds(bodyPart.Id, woundable))
-                {
-                    if (!damageDict.TryAdd(woundEnt.Comp.DamageType, woundEnt.Comp.WoundSeverityPoint))
-                    {
-                        damageDict[woundEnt.Comp.DamageType] = woundEnt.Comp.WoundSeverityPoint;
-                    }
-                }
-            }
-
-            entDamage = new DamageSpecifier
-            {
-                DamageDict = damageDict,
-            };
-        }
-
-        // Shitmed Change End
 
         if (!TryComp<MobThresholdsComponent>(target1, out var threshold1) ||
             !TryComp<MobThresholdsComponent>(target2, out var threshold2))
@@ -329,7 +314,35 @@ public sealed class MobThresholdSystem : EntitySystem
         if (!TryGetThresholdForState(target2, MobState.Dead, out var ent2DeadThreshold, threshold2))
             ent2DeadThreshold = 0;
 
-        damage = (entDamage / ent1DeadThreshold.Value) * ent2DeadThreshold.Value;
+        // Shitmed Change Start
+        Dictionary<TargetBodyPart, DamageSpecifier> entWoundablesDamage = new();
+
+        // If the receiver is a simplemob, we don't care about any of this. Just grab the damage and go.
+        if (TryComp<BodyComponent>(target2, out var body)
+            && body.BodyType == BodyType.Complex)
+        {
+            // However if they are valid for woundmed, we first check if the sender is also valid for it to build a dict.
+            if (TryComp<BodyComponent>(target1, out var oldBody)
+                && oldBody.BodyType == BodyType.Complex
+                && _body.TryGetRootPart(target1, out var parentRootPart))
+            {
+                foreach (var woundable in _wound.GetAllWoundableChildren(parentRootPart.Value))
+                {
+                    if (woundable.Comp.WoundableIntegrity >= woundable.Comp.IntegrityCap
+                        || !TryComp<DamageableComponent>(parentRootPart.Value, out var damageable)
+                        || damageable.Damage.GetTotal() == 0)
+                        continue;
+
+                    var bodyPart = _body.GetTargetBodyPart(woundable);
+                    var modifiedDamage = damageable.Damage / ent1DeadThreshold.Value * ent2DeadThreshold.Value;
+                    if (!entWoundablesDamage.TryAdd(bodyPart, modifiedDamage))
+                        entWoundablesDamage[bodyPart] += modifiedDamage;
+                }
+            }
+        }
+
+        damage = oldDamage.Damage / ent1DeadThreshold.Value * ent2DeadThreshold.Value;
+        // Shitmed Change End
         return true;
     }
 
@@ -441,7 +454,7 @@ public sealed class MobThresholdSystem : EntitySystem
 
         if (!threshold.StateAlertDict.TryGetValue(currentMobState, out var currentAlert))
         {
-            Log.Error($"No alert alert for mob state {currentMobState} for entity {ToPrettyString(target)}");
+            Log.Warning($"No alert alert for mob state {currentMobState} for entity {ToPrettyString(target)}");
             return;
         }
 

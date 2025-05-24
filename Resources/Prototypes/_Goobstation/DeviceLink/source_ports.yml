@@ -104,3 +104,17 @@
   id: Failed
   name: signal-port-name-machine-failed
   description: signal-port-description-machine-failed
+
+# Interactor
+
+- type: sourcePort
+  id: AutomationSlotTool
+  name: signal-port-name-automation-slot-tool
+  description: signal-port-description-automation-slot-tool
+
+# Autodoc
+
+- type: sourcePort
+  id: AutomationSlotAutodocHand
+  name: signal-port-name-automation-slot-autodoc-hand
+  description: signal-port-description-automation-slot-autodoc-hand

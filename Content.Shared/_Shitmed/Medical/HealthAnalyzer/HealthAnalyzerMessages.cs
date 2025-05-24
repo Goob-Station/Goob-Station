@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared._Shitmed.Medical.Surgery.Traumas;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds;
@@ -17,6 +23,7 @@ public abstract class HealthAnalyzerBaseMessage : BoundUserInterfaceMessage
     public readonly bool? ScanMode;
     public readonly HealthAnalyzerMode ActiveMode;
     public Dictionary<TargetBodyPart, WoundableSeverity>? Body;
+    public Dictionary<TargetBodyPart, bool> Bleeding;
 
     public HealthAnalyzerBaseMessage(
         NetEntity? targetEntity,
@@ -24,7 +31,8 @@ public abstract class HealthAnalyzerBaseMessage : BoundUserInterfaceMessage
         float bloodLevel,
         bool? scanMode,
         HealthAnalyzerMode activeMode,
-        Dictionary<TargetBodyPart, WoundableSeverity>? body)
+        Dictionary<TargetBodyPart, WoundableSeverity>? body,
+        Dictionary<TargetBodyPart, bool> bleeding)
     {
         TargetEntity = targetEntity;
         Temperature = temperature;
@@ -32,6 +40,7 @@ public abstract class HealthAnalyzerBaseMessage : BoundUserInterfaceMessage
         ScanMode = scanMode;
         ActiveMode = activeMode;
         Body = body;
+        Bleeding = bleeding;
     }
 }
 
@@ -39,7 +48,6 @@ public abstract class HealthAnalyzerBaseMessage : BoundUserInterfaceMessage
 [Serializable, NetSerializable]
 public sealed class HealthAnalyzerBodyMessage : HealthAnalyzerBaseMessage
 {
-    public readonly bool? Bleeding;
     public readonly bool? Unrevivable;
     public readonly NetEntity? SelectedPart;
     public readonly Dictionary<NetEntity, List<WoundableTraumaData>> Traumas;
@@ -50,15 +58,14 @@ public sealed class HealthAnalyzerBodyMessage : HealthAnalyzerBaseMessage
         float temperature,
         float bloodLevel,
         bool? scanMode,
-        bool? bleeding,
         bool? unrevivable,
         Dictionary<TargetBodyPart, WoundableSeverity>? body,
+        Dictionary<TargetBodyPart, bool> bleeding,
         Dictionary<NetEntity, List<WoundableTraumaData>> traumas,
         Dictionary<NetEntity, FixedPoint2> nervePainFeels,
         NetEntity? selectedPart = null)
-        : base(targetEntity, temperature, bloodLevel, scanMode, HealthAnalyzerMode.Body, body)
+        : base(targetEntity, temperature, bloodLevel, scanMode, HealthAnalyzerMode.Body, body, bleeding)
     {
-        Bleeding = bleeding;
         Unrevivable = unrevivable;
         SelectedPart = selectedPart;
         Traumas = traumas;
@@ -77,9 +84,10 @@ public sealed class HealthAnalyzerOrgansMessage : HealthAnalyzerBaseMessage
         float temperature,
         float bloodLevel,
         bool? scanMode,
+        Dictionary<TargetBodyPart, bool> bleeding,
         Dictionary<TargetBodyPart, WoundableSeverity>? body,
         Dictionary<NetEntity, OrganTraumaData> organs)
-        : base(targetEntity, temperature, bloodLevel, scanMode, HealthAnalyzerMode.Organs, body)
+        : base(targetEntity, temperature, bloodLevel, scanMode, HealthAnalyzerMode.Organs, body, bleeding)
     {
         Organs = organs;
     }
@@ -96,9 +104,10 @@ public sealed class HealthAnalyzerChemicalsMessage : HealthAnalyzerBaseMessage
         float temperature,
         float bloodLevel,
         bool? scanMode,
+        Dictionary<TargetBodyPart, bool> bleeding,
         Dictionary<TargetBodyPart, WoundableSeverity>? body,
         Dictionary<NetEntity, Solution> solutions)
-        : base(targetEntity, temperature, bloodLevel, scanMode, HealthAnalyzerMode.Chemicals, body)
+        : base(targetEntity, temperature, bloodLevel, scanMode, HealthAnalyzerMode.Chemicals, body, bleeding)
     {
         Solutions = solutions;
     }
