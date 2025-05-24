@@ -1,5 +1,5 @@
 - type: localizedDataset
-  id: revolutionary_converter_speech
+  id: RevolutionaryConverterSpeech
   values:
     prefix: revolutionary-converter-speech-
     count: 110

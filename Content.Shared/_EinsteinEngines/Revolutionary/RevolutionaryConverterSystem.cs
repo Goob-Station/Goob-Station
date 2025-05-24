@@ -14,7 +14,7 @@ namespace Content.Shared._EinsteinEngines.Revolutionary;
 
 public sealed class RevolutionaryConverterSystem : EntitySystem
 {
-    private const string RevConvertSpeechBaseKey = "revolutionary-converter-speech-";
+    private static readonly ProtoID<LocalizedDatasetPrototype> RevConvertSpeechProto = "RevolutionaryConverterSpeech";
 
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedChatSystem _chat = default!;
@@ -31,7 +31,7 @@ public sealed class RevolutionaryConverterSystem : EntitySystem
         SubscribeLocalEvent<RevolutionaryConverterComponent, UseInHandEvent>(OnUseInHand);
         SubscribeLocalEvent<RevolutionaryConverterComponent, AfterInteractEvent>(OnConverterAfterInteract);
 
-        _speechLocalization = _prototypeManager.Index<LocalizedDatasetPrototype>("revolutionary_converter_speech");
+        _speechLocalization = _prototypeManager.Index<LocalizedDatasetPrototype>(RevConvertSpeechProto);
     }
 
     private void OnUseInHand(Entity<RevolutionaryConverterComponent> ent, ref UseInHandEvent args)
