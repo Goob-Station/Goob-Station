@@ -123,12 +123,14 @@
   parent: [ BaseCentcommContraband, ClothingOuterArmorCaptainCarapace ]
   id: ClothingBlueshieldArmourVest
   name: blueshield's security armour
-  description: An armoured vest with the badge of the blueshield.
+  description: An armoured vest with the badge of the blueshield. Utilizes bluespace technology to be more compact.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Armor/bso_armour.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Armor/bso_armour.rsi
+  - type: Item
+    size: Normal
 
 - type: entity
   parent: ClothingBlueshieldArmourVest
@@ -140,8 +142,6 @@
     sprite: _Goobstation/Clothing/OuterClothing/Armor/blueshield_jacket.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/OuterClothing/Armor/blueshield_jacket.rsi
-  - type: Item
-    size: Normal
 
 - type: entity
   parent: ClothingBlueshieldArmourVest
@@ -153,8 +153,6 @@
     sprite: _Goobstation/Clothing/OuterClothing/Armor/blueshield_cowboy_jacket.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/OuterClothing/Armor/blueshield_cowboy_jacket.rsi
-  - type: Item
-    size: Normal
 
 # CentralCommand
 
@@ -243,7 +241,7 @@
   description: What began as a simple cosplay cloak was illegally reinforced with armored plates, transforming it into a functional piece of armor. Looks like it's even capable of protecting the user from the lack of pressure in space.
   components:
   - type: Sprite
-    sprite: _Goobstation/Heretic/void_cloak.rsi
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/void_cloak.rsi
     layers:
     - state: icon
       map: [ "base" ]
