@@ -77,7 +77,7 @@
       - tag: AtmosFireSuit
         name: atmos fire suit
         icon:
-          sprite: _Goobstation/Clothing/OuterClothing/Suits/atmos_firesuit.rsi
+          sprite: Clothing/OuterClothing/Suits/atmos_firesuit.rsi
           state: icon
         doAfter: 15
       - material: Cable
