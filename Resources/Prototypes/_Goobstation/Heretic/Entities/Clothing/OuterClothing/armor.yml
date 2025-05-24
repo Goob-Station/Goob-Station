@@ -11,6 +11,9 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -22,10 +25,10 @@
   components:
   - type: UnholyItem
   - type: Sprite
-    sprite: _Goobstation/Heretic/eldritch_armor.rsi
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/eldritch_armor.rsi
     state: icon
   - type: Clothing
-    sprite: _Goobstation/Heretic/eldritch_armor.rsi
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/eldritch_armor.rsi
   - type: Armor
     coverage:
     - Chest
@@ -55,6 +58,62 @@
     coefficient: 0.5
 
 - type: entity
+  parent: ClothingOuterArmorHeretic
+  id: ClothingOuterArmorHereticVoid
+  suffix: Void
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/void_armor.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/void_armor.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHatHoodHereticVoid
+
+- type: entity
+  parent: ClothingOuterArmorHeretic
+  id: ClothingOuterArmorHereticAsh
+  suffix: Ash
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/ashen_armor.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/ashen_armor.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHatHoodHereticAsh
+
+- type: entity
+  parent: ClothingOuterArmorHeretic
+  id: ClothingOuterArmorHereticFlesh
+  suffix: Flesh
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/flesh_armor.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/flesh_armor.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHatHoodHereticFlesh
+
+- type: entity
+  parent: ClothingOuterArmorHeretic
+  id: ClothingOuterArmorHereticBlade
+  suffix: Blade
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/blade_armor.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/blade_armor.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHatHoodHereticBlade
+
+- type: entity
   parent: [ ClothingOuterBaseMedium, ClothingOuterStorageToggleableBase, AllowSuitStorageClothing, BaseMagicContraband ]
   id: ClothingOuterArmorCloakVoid
   name: void cloak
@@ -63,12 +122,12 @@
   # - type: UnholyItem # This should only be active when cloak is visible. Can't simply ensure/remove this component on
   # cloak toggle due to goobmod. Should be done when heretic is mored to goobmod probably.
   - type: Sprite
-    sprite: _Goobstation/Heretic/void_cloak.rsi
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/void_cloak.rsi
     layers:
     - state: icon
       map: [ "base" ]
   - type: Clothing
-    sprite: _Goobstation/Heretic/void_cloak.rsi
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/void_cloak.rsi
   - type: Armor
     coverage:
     - Chest

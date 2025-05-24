@@ -11,12 +11,6 @@
             "name": "plushie_benny"
         },
         {
-            "name": "plushie_byrrne"
-        },
-        {
-            "name": "plushie_byrrne_gibbed"
-        },
-        {
             "name": "plushie_cairo"
         },
         {
@@ -27,9 +21,6 @@
         },
         {
             "name": "plushie_knott"
-        },
-        {
-            "name": "plushie_kury"
         },
         {
             "name": "plushie_pash"
@@ -99,4 +90,3 @@
         }
     ]
 }
-
