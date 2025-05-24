@@ -1,10 +1,14 @@
 // SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared._Shitmed.Body;
 using Content.Shared._Shitmed.CCVar;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
@@ -13,12 +17,14 @@ using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using Content.Shared.Throwing;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.CPUJob.JobQueues;
+using Robust.Shared.CPUJob.JobQueues.Queues;
 using Robust.Shared.Configuration;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
@@ -27,6 +33,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 
@@ -50,14 +58,43 @@ public sealed partial class WoundSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
 
     // I'm the one.... who throws........
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly TraumaSystem _trauma = default!;
+    private float _medicalHealingTickrate = 0.5f;
+    private TimeSpan _minimumTimeBeforeHeal = TimeSpan.FromSeconds(2f);
 
-    private float _medicalHealingTickrate = 2f;
-    private Queue<Entity<WoundableComponent?>> _healQueue = new(); // evil stateful data in system
+    private const double WoundJobTime = 0.005;
+    private readonly JobQueue _woundJobQueue = new(WoundJobTime);
+    public sealed class WoundJob : Job<object>
+    {
+        private readonly WoundSystem _self;
+        private readonly Entity<WoundableComponent> _ent;
+        private readonly EntityUid _bodyEnt;
+        public WoundJob(WoundSystem self, Entity<WoundableComponent> ent, EntityUid bodyEnt, double maxTime, CancellationToken cancellation = default) : base(maxTime, cancellation)
+        {
+            _self = self;
+            _ent = ent;
+            _bodyEnt = bodyEnt;
+        }
+
+        public WoundJob(WoundSystem self, Entity<WoundableComponent> ent, EntityUid bodyEnt, double maxTime, IStopwatch stopwatch, CancellationToken cancellation = default) : base(maxTime, stopwatch, cancellation)
+        {
+            _self = self;
+            _ent = ent;
+            _bodyEnt = bodyEnt;
+        }
+
+        protected override Task<object?> Process()
+        {
+            _self.ProcessHealing(_ent, _bodyEnt);
+
+            return Task.FromResult<object?>(null);
+        }
+    }
 
     public override void Initialize()
     {
@@ -68,6 +105,77 @@ public sealed partial class WoundSystem : EntitySystem
         SubscribeLocalEvent<WoundableComponent, ComponentHandleState>(OnWoundableComponentHandleState);
         InitWounding();
         Subs.CVar(_cfg, SurgeryCVars.MedicalHealingTickrate, val => _medicalHealingTickrate = val, true);
+        Subs.CVar(_cfg, SurgeryCVars.MinimumTimeBeforeHeal, val => _minimumTimeBeforeHeal = TimeSpan.FromSeconds(val), true);
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+        _woundJobQueue.Process();
+
+        if (!_timing.IsFirstTimePredicted)
+            return;
+
+        // If this still causes lag, we go with the nuclear option of also checking for ConsciousnessComponent :niceportrait:
+        using var query = EntityQueryEnumerator<BodyComponent, DamageableComponent>();
+        while (query.MoveNext(out var ent, out var body, out var damageable))
+        {
+            if (TerminatingOrDeleted(ent)
+                || Paused(ent)
+                || body.BodyType == BodyType.Simple
+                || _timing.CurTime - damageable.LastModifiedTime < _minimumTimeBeforeHeal
+                || _timing.CurTime < body.HealAt
+                || _mobState.IsDead(ent)
+                || !_body.TryGetRootPart(ent, out var rootPart, body: body)
+                || damageable.Damage.GetTotal() <= 0)
+                continue;
+
+            body.HealAt += TimeSpan.FromSeconds(1f / _medicalHealingTickrate);
+            foreach (var woundable in GetAllWoundableChildren(rootPart.Value))
+                if (woundable.Comp.CanHealDamage || woundable.Comp.CanHealBleeds)
+                    _woundJobQueue.EnqueueJob(new WoundJob(this, woundable, ent, WoundJobTime));
+        }
+    }
+
+    private void ProcessHealing(Entity<WoundableComponent> woundable, EntityUid bodyEnt)
+    {
+        if (woundable.Comp.CanHealBleeds)
+            TryHealBleedingWounds(woundable, (float) -woundable.Comp.BleedingTreatmentAbility, out _, woundable);
+
+        if (!woundable.Comp.CanHealDamage)
+            return;
+
+        var woundsToHeal = GetWoundableWounds(woundable)
+            .Where(wound => CanHealWound(wound, wound))
+            .ToList();
+
+        var healAmount = -woundable.Comp.HealAbility / woundsToHeal.Count;
+        var damageSpecifier = new DamageSpecifier();
+        var anythingToHeal = false;
+        foreach (var wound in woundsToHeal)
+        {
+            if (wound.Comp.SelfHealMultiplier <= 0)
+                continue;
+
+            var damageType = wound.Comp.DamageType;
+            var adjustedHealAmount = ApplyHealingRateMultipliers(wound, woundable, healAmount);
+
+            if (adjustedHealAmount != 0)
+                anythingToHeal = true;
+
+            if (damageSpecifier.DamageDict.TryGetValue(damageType, out var existingAmount))
+                damageSpecifier.DamageDict[damageType] = existingAmount + adjustedHealAmount;
+            else
+                damageSpecifier.DamageDict.TryAdd(damageType, adjustedHealAmount);
+        }
+
+        if (!anythingToHeal)
+            return;
+
+        _damageable.TryChangeDamage(bodyEnt,
+            damageSpecifier,
+            ignoreResistances: false,
+            targetPart: _body.GetTargetBodyPart(woundable));
     }
 
     private void OnWoundComponentGet(EntityUid uid, WoundComponent comp, ref ComponentGetState args)
@@ -95,6 +203,7 @@ public sealed partial class WoundSystem : EntitySystem
             WoundVisibility = comp.WoundVisibility,
 
             CanBeHealed = comp.CanBeHealed,
+            SelfHealMultiplier = comp.SelfHealMultiplier
         };
 
         args.State = state;
@@ -178,6 +287,7 @@ public sealed partial class WoundSystem : EntitySystem
         component.WoundSeverity = state.WoundSeverity;
         component.WoundVisibility = state.WoundVisibility;
         component.CanBeHealed = state.CanBeHealed;
+        component.SelfHealMultiplier = state.SelfHealMultiplier;
     }
 
     private void OnWoundableComponentGet(EntityUid uid, WoundableComponent comp, ref ComponentGetState args)
@@ -202,7 +312,7 @@ public sealed partial class WoundSystem : EntitySystem
             DamageContainerID = comp.DamageContainerID,
 
             DodgeChance = comp.DodgeChance,
-
+            Bleeds = comp.Bleeds,
             WoundableIntegrity = comp.WoundableIntegrity,
             HealAbility = comp.HealAbility,
 
@@ -246,6 +356,7 @@ public sealed partial class WoundSystem : EntitySystem
 
         component.DodgeChance = state.DodgeChance;
         component.HealAbility = state.HealAbility;
+        component.Bleeds = state.Bleeds;
 
         component.SeverityMultipliers =
             state.SeverityMultipliers
@@ -299,79 +410,6 @@ public sealed partial class WoundSystem : EntitySystem
             var ev = new WoundableSeverityChangedEvent(component.WoundableSeverity, state.WoundableSeverity);
             RaiseLocalEvent(uid, ref ev);
         }
-
         component.WoundableSeverity = state.WoundableSeverity;
-    }
-
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-
-        if (!_timing.IsFirstTimePredicted || _healQueue.Count == 0)
-            return;
-
-        var beginEnt = _healQueue.Peek();
-        do
-        {
-            var ent = _healQueue.Peek();
-            BodyComponent? body = null;
-            // remove it from queue and go on if it's not real
-            if (TerminatingOrDeleted(ent) || !Resolve(ent, ref ent.Comp, ref body))
-            {
-                _healQueue.Dequeue();
-                if (ent == beginEnt && _healQueue.Count != 0)
-                    beginEnt = _healQueue.Peek();
-                continue;
-            }
-
-            // queue is supposed to be sorted time-wise
-            if (body.HealAt > _timing.CurTime)
-                break;
-
-            // it's real and it's time, move it to the end of the queue
-            body.HealAt += TimeSpan.FromSeconds(1f / _medicalHealingTickrate);
-            _healQueue.Dequeue();
-            _healQueue.Enqueue(ent);
-
-            if (Paused(ent) || !_body.TryGetRootPart(ent, out var rootPart, body: body))
-                continue;
-
-            foreach (var woundable in GetAllWoundableChildren(rootPart.Value))
-                ProcessHealing(woundable, frameTime);
-
-        } while (_healQueue.Count != 0 && _healQueue.Peek() != beginEnt);
-    }
-
-    private void ProcessHealing(Entity<WoundableComponent> woundable, float frameTime)
-    {
-        var bleedWounds = GetWoundableWoundsWithComp<BleedInflicterComponent>(woundable)
-            .Where(wound => wound.Comp2.BleedingAmount > 0)
-            .ToArray();
-
-        var bleedingAmount = bleedWounds.Aggregate(FixedPoint2.Zero,
-            (current, wound) => current + wound.Comp2.BleedingAmount);
-
-        if (bleedingAmount > woundable.Comp.BleedsThreshold)
-            return;
-
-        if (bleedWounds.Length > 0)
-        {
-            var bleedTreatment = woundable.Comp.BleedingTreatmentAbility / bleedWounds.Length;
-            TryHealBleedingWounds(woundable, (float) -bleedTreatment, out _, woundable);
-        }
-
-        var woundsToHeal = GetWoundableWounds(woundable).Where(wound => CanHealWound(wound, wound)).ToList();
-
-        if (woundsToHeal.Count == 0)
-            return;
-
-        var healAmount = -woundable.Comp.HealAbility / woundsToHeal.Count;
-
-        foreach (var x in woundsToHeal)
-        {
-            ApplyWoundSeverity(x,
-                ApplyHealingRateMultipliers(x, woundable, healAmount),
-                x);
-        }
     }
 }

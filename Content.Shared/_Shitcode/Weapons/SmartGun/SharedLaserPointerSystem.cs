@@ -1,5 +1,7 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
@@ -7,8 +9,8 @@
 
 using System.Linq;
 using System.Numerics;
+using Content.Shared._DV.Abilities;
 using Content.Shared.Damage.Components;
-using Content.Shared.Standing;
 using Content.Shared.Wieldable;
 using Content.Shared.Wieldable.Components;
 using Robust.Shared.Audio.Systems;
@@ -128,9 +130,8 @@ public abstract class SharedLaserPointerSystem : EntitySystem
 
         var rayLength = 15f;
 
-        // Lying people hit every object even if they are not aiming at it.
-        var lying = TryComp(xform.ParentUid, out StandingStateComponent? standingState) &&
-                    standingState.CurrentState != StandingState.Standing;
+        // People crawling under objects hit every object even if they are not aiming at it.
+        var crawling = TryComp<CrawlUnderObjectsComponent>(xform.ParentUid, out var crawl) && crawl.Enabled;
 
         var (pos, rot) = _transform.GetWorldPositionRotation(parentXform);
         var dir = direction ?? rot.ToWorldVec();
@@ -149,7 +150,7 @@ public abstract class SharedLaserPointerSystem : EntitySystem
         var hit = _physics.IntersectRay(xform.MapID, ray, rayLength, xform.ParentUid, false)
             .OrderBy(x => x.Distance)
             .FirstOrNull(x =>
-                x.HitEntity == targetedEntity || lying ||
+                x.HitEntity == targetedEntity || crawling ||
                 !requiresTargetQuery.TryComp(x.HitEntity, out var requiresTarget) || !requiresTarget.Active);
         if (hit != null)
             rayLength = hit.Value.Distance;

@@ -33,6 +33,9 @@ tool-quality-pulsing-tool-name = Multitool
 tool-quality-slicing-name = Slicing
 tool-quality-slicing-tool-name = Knife
 
+tool-quality-ignition-name = Ignition
+tool-quality-ignition-tool-name = Match
+
 tool-quality-sawing-name = Sawing
 tool-quality-sawing-tool-name = Saw
 
