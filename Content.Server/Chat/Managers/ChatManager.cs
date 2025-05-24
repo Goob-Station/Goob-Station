@@ -184,6 +184,7 @@ using System.Runtime.InteropServices;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.Administration.Systems;
+using Content.Server.Discord.DiscordLink;
 using Content.Server.Players.RateLimiting;
 using Content.Server.Preferences.Managers;
 using Content.Shared.Administration;
@@ -216,7 +217,6 @@ internal sealed partial class ChatManager : IChatManager
 
     [Dependency] private readonly IReplayRecordingManager _replay = default!;
     [Dependency] private readonly IServerNetManager _netManager = default!;
-    //[Dependency] private readonly IMoMMILink _mommiLink = default!; // Goobstation?
     [Dependency] private readonly IAdminManager _adminManager = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IServerPreferencesManager _preferencesManager = default!;
@@ -225,7 +225,7 @@ internal sealed partial class ChatManager : IChatManager
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly PlayerRateLimitManager _rateLimitManager = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
-    //[Dependency] private readonly DiscordChatLink _discordLink = default!; // Goobstation?
+    [Dependency] private readonly DiscordChatLink _discordLink = default!;
     [Dependency] private readonly ILogManager _logManager = default!;
     [Dependency] private readonly LinkAccountManager _linkAccount = default!; // RMC - Patreon
 
@@ -388,6 +388,13 @@ internal sealed partial class ChatManager : IChatManager
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Hook OOC from {sender}: {message}");
     }
 
+    public void SendHookAdmin(string sender, string message)
+    {
+        var wrappedMessage = Loc.GetString("chat-manager-send-hook-admin-wrap-message", ("senderName", sender), ("message", FormattedMessage.EscapeText(message)));
+        ChatMessageToAll(ChatChannel.AdminChat, message, wrappedMessage, source: EntityUid.Invalid, hideChat: false, recordReplay: false);
+        _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Hook admin from {sender}: {message}");
+    }
+
     #endregion
 
     #region Public OOC Chat API
@@ -469,7 +476,7 @@ internal sealed partial class ChatManager : IChatManager
 
         //TODO: player.Name color, this will need to change the structure of the MsgChatMessage
         ChatMessageToAll(ChatChannel.OOC, message, wrappedMessage, EntityUid.Invalid, hideChat: false, recordReplay: true, colorOverride: colorOverride, author: player.UserId);
-        //_mommiLink.SendOOCMessage(player.Name, message.Replace("@", "\\@").Replace("<", "\\<").Replace("/", "\\/")); // @ and < are both problematic for discord due to pinging. / is sanitized solely to kneecap links to murder embeds via blunt force
+        _discordLink.SendMessage(message, player.Name, ChatChannel.OOC);
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"OOC from {player:Player}: {message}");
     }
 
@@ -500,6 +507,7 @@ internal sealed partial class ChatManager : IChatManager
                 author: player.UserId);
         }
 
+        _discordLink.SendMessage(message, player.Name, ChatChannel.AdminChat);
         _adminLogger.Add(LogType.Chat, $"Admin chat from {player:Player}: {message}");
     }
 

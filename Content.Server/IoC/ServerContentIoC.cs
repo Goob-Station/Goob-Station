@@ -174,13 +174,13 @@ using Content.Server.Chat.Managers;
 using Content.Server.Connection;
 using Content.Server.Database;
 using Content.Server.Discord;
+using Content.Server.Discord.DiscordLink;
 using Content.Server.Discord.WebhookMessages;
 using Content.Server.EUI;
 using Content.Server.GhostKick;
 using Content.Server.Info;
 using Content.Server.Mapping;
 using Content.Server.Maps;
-using Content.Server.MoMMI;
 using Content.Server.NodeContainer.NodeGroups;
 using Content.Server.Players.JobWhitelist;
 using Content.Server.Players.PlayTimeTracking;
@@ -245,8 +245,8 @@ internal static class ServerContentIoC
         deps.Register<ConnectionManager>();
         deps.Register<MultiServerKickManager>();
         deps.Register<CVarControlManager>();
-        //deps.Register<DiscordLink>();
-        //deps.Register<DiscordChatLink>();
+        deps.Register<DiscordLink>();
+        deps.Register<DiscordChatLink>();
         deps.Register<LastRolledAntagManager>(); // Goobstation - antag pity
         deps.Register<LinkAccountManager>(); // RMC - Patreon
     }

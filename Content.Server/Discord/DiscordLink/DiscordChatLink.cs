@@ -1,14 +1,14 @@
-﻿using Content.Server.Chat.Managers;
+using System.Threading.Tasks;
+using Content.Server.Chat.Managers;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
-using NetCord;
-using NetCord.Gateway;
+using Discord.WebSocket;
 using Robust.Shared.Asynchronous;
 using Robust.Shared.Configuration;
 
 namespace Content.Server.Discord.DiscordLink;
 
-public sealed class DiscordChatLink : IPostInjectInit
+public sealed class DiscordChatLink
 {
     [Dependency] private readonly DiscordLink _discordLink = default!;
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;
@@ -71,24 +71,24 @@ public sealed class DiscordChatLink : IPostInjectInit
         _adminChannelId = ulong.Parse(channelId);
     }
 
-    private void OnMessageReceived(Message message)
+    private void OnMessageReceived(SocketMessage message)
     {
         if (message.Author.IsBot)
             return;
 
         var contents = message.Content.ReplaceLineEndings(" ");
 
-        if (message.ChannelId == _oocChannelId)
+        if (message.Channel.Id == _oocChannelId)
         {
             _taskManager.RunOnMainThread(() => _chatManager.SendHookOOC(message.Author.Username, contents));
         }
-        else if (message.ChannelId == _adminChannelId)
+        else if (message.Channel.Id == _adminChannelId)
         {
             _taskManager.RunOnMainThread(() => _chatManager.SendHookAdmin(message.Author.Username, contents));
         }
     }
 
-    public async void SendMessage(string message, string author, ChatChannel channel)
+    public async Task SendMessage(string message, string author, ChatChannel channel)
     {
         var channelId = channel switch
         {
@@ -106,18 +106,6 @@ public sealed class DiscordChatLink : IPostInjectInit
         // @ and < are both problematic for discord due to pinging. / is sanitized solely to kneecap links to murder embeds via blunt force
         message = message.Replace("@", "\\@").Replace("<", "\\<").Replace("/", "\\/");
 
-        try
-        {
-            await _discordLink.SendMessageAsync(channelId.Value, $"**{channel.GetString()}**: `{author}`: {message}");
-        }
-        catch (Exception e)
-        {
-            _sawmill.Error($"Error while sending Discord message: {e}");
-        }
-    }
-
-    void IPostInjectInit.PostInject()
-    {
-        _sawmill = _logManager.GetSawmill("discord.chat");
+        await _discordLink.SendMessageAsync(channelId.Value, $"**{channel.GetString()}**: `{author}`: {message}");
     }
 }

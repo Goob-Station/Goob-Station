@@ -143,6 +143,7 @@ using Content.Server.Afk;
 using Content.Server.Chat.Managers;
 using Content.Server.Connection;
 using Content.Server.Database;
+using Content.Server.Discord.DiscordLink;
 using Content.Server.EUI;
 using Content.Server.GameTicking;
 using Content.Server.GhostKick;
@@ -296,8 +297,8 @@ namespace Content.Server.Entry
             _admin.Initialize();
             _afk.Initialize();
             _rules.Initialize();
-            //_discordLink.Initialize();
-            //_discordChatLink.Initialize();
+            _discordLink.Initialize();
+            _discordChatLink.Initialize();
             _euiManager.Initialize();
             _gameMap.Initialize();
             _entSys.GetEntitySystem<GameTicker>().PostInitialize();

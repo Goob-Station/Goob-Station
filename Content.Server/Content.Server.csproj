@@ -49,6 +49,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <ServerGarbageCollection>true</ServerGarbageCollection>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Discord.Net" />
     <PackageReference Include="JetBrains.Annotations" PrivateAssets="All" />
   </ItemGroup>
   <ItemGroup>
