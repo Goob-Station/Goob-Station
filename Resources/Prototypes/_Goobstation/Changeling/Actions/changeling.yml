@@ -711,3 +711,22 @@
     chemicalCost: 0
     useInLesserForm: true
     useInLastResort: true
+
+
+- type: entity
+  id: ActionChemicalOverdrive
+  name: Chemical Overdrive
+  description: Start using your own biomass for more chemically production. There's no going back.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    checkConsciousness: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: chemical_overdrive
+    event: !type:ActionChemicalOverdriveEvent {}
+  - type: ChangelingAction
+    chemicalCost: 0
+    useInLesserForm: true

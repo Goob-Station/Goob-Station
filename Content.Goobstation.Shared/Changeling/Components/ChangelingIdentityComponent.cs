@@ -67,6 +67,11 @@ public sealed partial class ChangelingIdentityComponent : Component
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public ProtoId<FactionIconPrototype> StatusIcon { get; set; } = "HivemindFaction";
 
+    [DataField]
+    public bool IsOverdriveActive = false;
+    [DataField]
+    public TimeSpan NextBiomassDrainTime = TimeSpan.Zero;
+
     #endregion
 
     public bool IsInStasis = false;
@@ -139,6 +144,29 @@ public sealed partial class ChangelingIdentityComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public int TotalStolenDNA = 0;
+
+    /// <summary>
+    ///     How often biomass is drained, while under ChemicalOverdrive; lasts 20 minutes.
+    /// </summary>
+    public TimeSpan BiomassDrainRate = TimeSpan.FromSeconds(12);
+
+    /// <summary>
+    ///     How much biomass is drained, while under ChemicalOverdrive.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float BiomassDrain = 1f;
+
+    /// <summary>
+    ///     Current amount of biomass.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float Biomass = 100f;
+
+    /// <summary>
+    ///     Maximum amount of Biomass.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float MaxBiomass = 100f;
 
     [ViewVariables(VVAccess.ReadOnly)]
     public TransformData? CurrentForm;

@@ -401,6 +401,20 @@
     stock: 1
 
 - type: listing
+  id: EvolutionMenuUtilityChemicalOverdrive
+  name: evolutionmenu-utility-chemicaloverdrive-name
+  description: evolutionmenu-utility-chemicaloverdrive-desc
+  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: hivemind_access }
+  productAction: ActionChemicalOverdrive
+  cost:
+    EvolutionPoint: 0
+  categories:
+  - ChangelingAbilityUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
   id: EvolutionMenuUtilityAbsorbBiomatter
   name: evolutionmenu-utility-absorbbiomatter-name
   description: evolutionmenu-utility-absorbbiomatter-desc

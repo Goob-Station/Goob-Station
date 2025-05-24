@@ -65,6 +65,7 @@ using Content.Shared.StatusEffect;
 using Content.Shared.Eye.Blinding.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 using Content.Shared._Shitmed.Targeting; // Shitmed Change
 
 namespace Content.Goobstation.Server.Changeling;
@@ -111,6 +112,7 @@ public sealed partial class ChangelingSystem
         SubscribeLocalEvent<ChangelingIdentityComponent, ActionLesserFormEvent>(OnLesserForm);
         SubscribeLocalEvent<ChangelingIdentityComponent, ActionVoidAdaptEvent>(OnVoidAdapt);
         SubscribeLocalEvent<ChangelingIdentityComponent, ActionHivemindAccessEvent>(OnHivemindAccess);
+        SubscribeLocalEvent<ChangelingIdentityComponent, ActionChemicalOverdriveEvent>(OnChemicalOverdrive);
         SubscribeLocalEvent<ChangelingIdentityComponent, AbsorbBiomatterEvent>(OnAbsorbBiomatter);
         SubscribeLocalEvent<ChangelingIdentityComponent, AbsorbBiomatterDoAfterEvent>(OnAbsorbBiomatterDoAfter);
     }
@@ -208,6 +210,9 @@ public sealed partial class ChangelingSystem
 
         _popup.PopupEntity(popup, args.User, args.User);
         comp.MaxChemicals += bonusChemicals;
+
+        comp.Biomass = comp.MaxBiomass; //Gives back full biomass when you eat someone
+        comp.Dirty();
 
         if (TryComp<StoreComponent>(args.User, out var store))
         {
@@ -858,6 +863,24 @@ public sealed partial class ChangelingSystem
 
         _popup.PopupEntity(Loc.GetString("changeling-hivemind-start"), uid, uid);
     }
+
+    private void OnChemicalOverdrive(EntityUid uid, ChangelingIdentityComponent comp, ref ActionChemicalOverdriveEvent args)
+    {
+        if (!TryUseAbility(uid, comp, args, null, false))
+            return;
+
+        if (comp.IsOverdriveActive)
+        {
+            _popup.PopupEntity("Chemical Overdrive is already active!", uid, uid);
+            return;
+        }
+
+        comp.ChemicalRegenMultiplier += 0.25f;
+        comp.IsOverdriveActive = true;
+        comp.NextBiomassDrainTime = _timing.CurTime + TimeSpan.FromSeconds(2);
+        _popup.PopupEntity("We begin consuming ourselves. We are stronger.", uid, uid);
+    }
+
 
     #endregion
 }

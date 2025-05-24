@@ -234,16 +234,24 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         if (!_timing.IsFirstTimePredicted)
             return;
 
+        var now = _timing.CurTime;
+
         foreach (var comp in EntityManager.EntityQuery<ChangelingIdentityComponent>())
         {
             var uid = comp.Owner;
 
-            if (_timing.CurTime < comp.UpdateTimer)
-                continue;
+            if (now >= comp.UpdateTimer)
+            {
+                comp.UpdateTimer = now + TimeSpan.FromSeconds(comp.UpdateCooldown);
+                Cycle(uid, comp);
+            }
 
-            comp.UpdateTimer = _timing.CurTime + TimeSpan.FromSeconds(comp.UpdateCooldown);
-
-            Cycle(uid, comp);
+            // Stuff for Overdrive Biomass ability
+            if (comp.IsOverdriveActive && now >= comp.NextBiomassDrainTime)
+            {
+                comp.NextBiomassDrainTime = now + comp.BiomassDrainRate;
+                UpdateBiomass(uid, comp, comp.BiomassDrain);
+            }
         }
     }
     public void Cycle(EntityUid uid, ChangelingIdentityComponent comp)
@@ -270,6 +278,19 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         Dirty(uid, comp);
         _alerts.ShowAlert(uid, "ChangelingChemicals");
     }
+
+    private void UpdateBiomass(EntityUid uid, ChangelingIdentityComponent comp, float drainAmount)
+    {
+        comp.Biomass -= drainAmount;
+        comp.Biomass = Math.Clamp(comp.Biomass, 0, comp.MaxBiomass);
+        _alerts.ShowAlert(uid, "ChangelingBiomass");
+        if (comp.Biomass <= 0)
+        {
+            // Rest in peace </3
+            _damage.TryChangeDamage(uid, new DamageSpecifier(_proto.Index(AbsorbedDamageGroup), 50), true);
+        }
+    }
+
     private void UpdateAbilities(EntityUid uid, ChangelingIdentityComponent comp)
     {
         _speed.RefreshMovementSpeedModifiers(uid);
