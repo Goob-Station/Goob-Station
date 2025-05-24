@@ -316,7 +316,7 @@
   parent: [ClothingModsuitStandard, BaseCommandContraband]
   id: ClothingModsuitCaptain
   name: captain's magnate hardsuit control unit
-  description: A gem encrysted, mirror shined and absolutely MAGNATE armored hardsuit, the cooling fluid is dragons blood watered down with dr gibb. This shit is nothing to you, man.
+  description: A gem encrusted, mirror shined and absolutely MAGNATE armored hardsuit, the cooling fluid is dragons blood watered down with dr gibb. This shit is nothing to you, man.
   components:
   - type: Appearance
   - type: Sprite
