@@ -248,6 +248,7 @@
     - type: ActionGrant
       actions:
         - ActionSelfToggleGuardian
+    - type: Targeting
     # </Goobstation>
 
 # From the uplink injector
