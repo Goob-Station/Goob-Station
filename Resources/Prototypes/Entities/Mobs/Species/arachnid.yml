@@ -34,6 +34,7 @@
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tiniest Shark <head.rebel@yahoo.com>
 # SPDX-FileCopyrightText: 2025 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
@@ -97,10 +98,10 @@
 #  - type: DamageVisuals
 #    damageOverlayGroups:
 #      Brute:
-#        sprite: Mobs/Effects/brute_damage.rsi
+#        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
 #        color: "#162581"
 #      Burn:
-#        sprite: Mobs/Effects/burn_damage.rsi
+#        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
   - type: Speech
     speechVerb: Arachnid
     speechSounds: Arachnid
