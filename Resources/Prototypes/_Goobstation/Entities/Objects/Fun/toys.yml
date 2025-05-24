@@ -596,16 +596,6 @@
     state: plushie_knott
 
 - type: entity
-  parent: BasePlushie
-  id: PlushieKury
-  name: evil vulpkanin plushie
-  description: A cute stuffed toy that resembles a specific vulpkanin.
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
-    state: plushie_kury
-
-- type: entity
   parent: PlushieSlime
   id: PlushieZlorb
   name: extravagant slime plushie
@@ -714,45 +704,6 @@
   - type: EmitSoundOnLand
     sound:
       path: /Audio/_Goobstation/Weapons/ChronoLegionnaire/stasisgun_reload.ogg
-
-- type: entity
-  parent: [BasePlushie, BaseMajorContraband]
-  id: PlushieByrrne
-  name: despised resomi plushie
-  description: Depending on who you ask, this resomi is either the most hated crew member on every station, the funniest or the best most loved resomi. Either way, you feel the urge to stab it with a knife and try to tear its limbs off, but should you?
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
-    state: plushie_byrrne
-  - type: Damageable
-    damageContainer: Inorganic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 30
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          path: /Audio/Effects/gib1.ogg
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          PlushieByrrneGibbed:
-            min: 1
-            max: 1
-
-- type: entity
-  parent: BasePlushie
-  id: PlushieByrrneGibbed # special gib mechanic
-  name: gibbed despised resomi plushie
-  suffix: gibbed
-  description: No... it can't be... IT SHOULD'VE BEEN ME THAT DID IT.. But was it worth it..? Deep inside, you feel like it cared about your coins... your goob coins.. even.
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
-    state: plushie_byrrne_gibbed
 
 - type: entity
   parent: BasePlushie

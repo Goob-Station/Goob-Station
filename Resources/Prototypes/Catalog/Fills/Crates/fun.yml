@@ -193,8 +193,6 @@
         weight: 0.65
       - id: PlushieKnott
         weight: 0.65
-      - id: PlushieKury
-        weight: 0.65
       - id: PlushieZlorb
         weight: 0.65
       - id: PlushieTiderMoth
@@ -202,8 +200,6 @@
       - id: PlushieCommandHuman
         weight: 0.65
       - id: PlushieRanork
-        weight: 0.65
-      - id: PlushieByrrne
         weight: 0.65
       - id: PlushieWehWinter
         weight: 0.65
