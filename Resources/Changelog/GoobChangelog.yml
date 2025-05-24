@@ -9980,3 +9980,9 @@ Entries:
       message: Origin now has Holopads!
   id: 1113
   time: '2025-05-24T22:24:39.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Ominous armor appearance now depends on heretic chosen path.
+  id: 1114
+  time: '2025-05-24T22:27:58.0000000+00:00'
