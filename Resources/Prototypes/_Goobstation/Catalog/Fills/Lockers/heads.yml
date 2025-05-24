@@ -53,8 +53,6 @@
     - id: ClothingBackpackDuffelSurgeryFilled
     - id: HandheldCrewMonitorBSO
     - id: BlueshieldUndeterminedWeapon
-    - id: PlushieSamantha
-      prob: 0.20
 
 - type: entity
   id: LockerBlueshieldOfficerFilled
