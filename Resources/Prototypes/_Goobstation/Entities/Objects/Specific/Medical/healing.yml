@@ -44,7 +44,7 @@
   parent: PrefilledSyringe
   name: used fent syringe
   description: What the fuck?!
-  id: SyringePoisonFent
+  id: SyringePoisonFentUsed
   components:
   - type: Label
     currentLabel: fentanyl
@@ -61,7 +61,7 @@
   parent: PrefilledSyringe
   name: fentanyl syringe
   description: What the fuck?!
-  id: SyringePoisonFentFull # Damn you for not naming the USED fent syringe something different
+  id: SyringePoisonFent
   components:
   - type: Label
     currentLabel: fentanyl
