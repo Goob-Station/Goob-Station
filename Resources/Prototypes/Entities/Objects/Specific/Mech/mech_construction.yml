@@ -38,6 +38,7 @@
   - type: GuideHelp
     guides:
     - Robotics
+  - type: DragDropTargetable # Goobstation - so you can drag-drop onto harnesses
 
 # Ripley APLU
 

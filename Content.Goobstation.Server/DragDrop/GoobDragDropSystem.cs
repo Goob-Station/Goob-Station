@@ -21,16 +21,18 @@ public sealed partial class GoobDragDropSystem : SharedGoobDragDropSystem
         base.Initialize();
 
         SubscribeLocalEvent<ConstructionComponent, DragDropTargetEvent>(OnDragDropConstruction);
+        SubscribeLocalEvent<DragDropTargetableComponent, DragDropTargetEvent>(OnDragDropTargetable);
     }
 
     // this is cursed but making construction system code handle DragDropTargetEvent would be even more cursed
     // if it works it works
     private void OnDragDropConstruction(Entity<ConstructionComponent> ent, ref DragDropTargetEvent args)
     {
-        if (!CanDragDrop(args.User))
-            return;
+        OnDragDrop(ent, ref args);
+    }
 
-        _interaction.InteractUsing(args.User, args.Dragged, ent, Transform(ent).Coordinates);
-        args.Handled = true;
+    private void OnDragDropTargetable(Entity<DragDropTargetableComponent> ent, ref DragDropTargetEvent args)
+    {
+        OnDragDrop(ent, ref args);
     }
 }

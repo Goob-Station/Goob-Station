@@ -6,12 +6,17 @@
 
 using Content.Shared.DragDrop;
 using Content.Shared.Hands.Components;
+using Content.Shared.Interaction;
 using Content.Shared.Item;
+using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.DragDrop;
 
 public abstract partial class SharedGoobDragDropSystem : EntitySystem
 {
+    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -29,5 +34,24 @@ public abstract partial class SharedGoobDragDropSystem : EntitySystem
     public bool CanDragDrop(EntityUid uid)
     {
         return HasComp<HandsComponent>(uid);
+    }
+
+    // copypaste avoidance methods
+    protected void OnDragDrop(EntityUid uid, ref DragDropTargetEvent args)
+    {
+        if (!_timing.IsFirstTimePredicted || !CanDragDrop(args.User))
+            return;
+
+        _interaction.InteractUsing(args.User, args.Dragged, uid, Transform(uid).Coordinates);
+        args.Handled = true;
+    }
+
+    protected void CanDropTarget(EntityUid uid, ref CanDropTargetEvent args)
+    {
+        if (HasComp<ItemComponent>(args.Dragged) && CanDragDrop(args.User))
+        {
+            args.CanDrop = true;
+            args.Handled = true;
+        }
     }
 }
