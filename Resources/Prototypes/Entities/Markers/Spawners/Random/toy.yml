@@ -45,29 +45,6 @@
         - sprite: Objects/Fun/toys.rsi
           state: plushie_h
     - type: RandomSpawner
-      rarePrototypes:
-        - FoamBlade
-        - PlushieGhost
-        - PlushieBenny
-        - PlushieCairo
-        - PlushiePash
-        - PlushieDelta
-        - PlushieRaki
-        - PlushieTina
-        - PlushieKnott
-        - PlushieKury
-        - PlushieZlorb
-        - PlushieTiderMoth
-        - PlushieCommandHuman
-        - PlushieRanork
-        - PlushieByrrne
-        - PlushieWehWinter
-        - PlushieHaleigh
-        - PlushieStoop
-        - PlushieAhti
-        - PlushieSparkle
-        - PlushieGrub
-      rareChance: 0.03
       prototypes:
         - PlushieBee
         - PlushieAtmosian
@@ -90,7 +67,6 @@
         - PlushieDiona
         - PlushieArachind
         - PlushieBingle # Goobstation
-        - PlushieSamantha # Goobstation
         - PlushieAbductor # Goobstation
       chance: 0.5
       offset: 0.2
