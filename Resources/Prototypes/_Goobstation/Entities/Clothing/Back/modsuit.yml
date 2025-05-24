@@ -4,7 +4,9 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -79,10 +81,10 @@
   - type: SealableClothingControl
   - type: SealableClothingRequiresPower
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       back:
       - state: equipped-BACKPACK-sealed
-        shader: unshaded
   - type: Construction
     graph: Modsuit
     node: standard
@@ -122,6 +124,11 @@
   - type: Construction
     graph: Modsuit
     node: security
+  - type: SealableClothingVisuals
+    spriteLayer: sealed
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK-sealed
 
 - type: entity
   parent: ClothingModsuitSecurity
@@ -155,6 +162,11 @@
   - type: Construction
     graph: Modsuit
     node: headofsecurity
+  - type: SealableClothingVisuals
+    spriteLayer: sealed
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK-sealed
 
 - type: entity
   parent: ClothingModsuitHeadOfSecurity
@@ -193,6 +205,11 @@
   - type: Construction
     graph: Modsuit
     node: paramedic
+  - type: SealableClothingVisuals
+    spriteLayer: sealed
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK-sealed
 
 - type: entity
   parent: ClothingModsuitParamedic
@@ -226,6 +243,13 @@
   - type: Construction
     graph: Modsuit
     node: engineer
+  - type: SealableClothingVisuals
+    spriteLayer: sealed
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK-sealed
+      back-resomi:
+      - state: equipped-BACKPACK-sealed-resomi
 
 - type: entity
   parent: ClothingModsuitEngineer
@@ -259,6 +283,13 @@
   - type: Construction
     graph: Modsuit
     node: atmostech
+  - type: SealableClothingVisuals
+    spriteLayer: sealed
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK-sealed
+      back-resomi:
+      - state: equipped-BACKPACK-sealed-resomi
 
 - type: entity
   parent: ClothingModsuitAtmostech
@@ -292,6 +323,11 @@
   - type: Construction
     graph: Modsuit
     node: rd
+  - type: SealableClothingVisuals
+    spriteLayer: sealed
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK-sealed
 #  - type: StealTarget
 #    stealGroup: ClothingOuterHardsuitRd
 #  - type: Tag
@@ -330,6 +366,13 @@
   - type: Construction
     graph: Modsuit
     node: captain
+  - type: SealableClothingVisuals
+    spriteLayer: sealed
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK-sealed
+      back-resomi:
+      - state: equipped-BACKPACK-sealed-resomi
 
 - type: entity
   parent: ClothingModsuitCaptain
