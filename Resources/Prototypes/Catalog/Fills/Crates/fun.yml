@@ -115,9 +115,13 @@
 # SPDX-FileCopyrightText: 2024 xprospero <116504990+xprospero@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Plyush <121322002+Plyushsune@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 RatherUncreative <RatherUncreativeName@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SpaceLizard <the.justice.league.of.canada@gmail.com>
+# SPDX-FileCopyrightText: 2025 TeenSarlacc <46608342+TeenSarlacc@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 grub <unalterableness@gmail.com>
 # SPDX-FileCopyrightText: 2025 plyush <121322002+toasterpm87@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
 #
@@ -216,6 +220,26 @@
       - id: PlushieSparkle
         weight: 0.65
       - id: PlushieGrub
+        weight: 0.65
+      - id: PlushieFern
+        weight: 0.65
+      - id: PlushieHexadecimal
+        weight: 0.65
+      - id: PlushieFlint
+        weight: 0.65
+      - id: PlushiePistachio
+        weight: 0.65
+      - id: PlushieSeesTheStars
+        weight: 0.65
+      - id: PlushieDumbLizard
+        weight: 0.65
+      - id: PlushieSqueaks
+        weight: 0.65
+      - id: PlushieHaato
+        weight: 0.65
+      - id: PlushieTinyLane
+        weight: 0.65
+      - id: PlushieChewsTheShoes
         weight: 0.65
 
 
@@ -602,3 +626,13 @@
       - id: PlushieAhti
       - id: PlushieSparkle
       - id: PlushieGrub
+      - id: PlushieFern
+      - id: PlushieHexadecimal
+      - id: PlushieFlint
+      - id: PlushiePistachio
+      - id: PlushieSeesTheStars
+      - id: PlushieDumbLizard
+      - id: PlushieSqueaks
+      - id: PlushieHaato
+      - id: PlushieTinyLane
+      - id: PlushieChewsTheShoes
