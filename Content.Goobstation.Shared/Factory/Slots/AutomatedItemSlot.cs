@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -20,19 +21,28 @@ public sealed partial class AutomatedItemSlot : AutomationSlot
 
     private ItemSlotsSystem _slots;
 
+    private ItemSlot? _slot;
+
     [ViewVariables]
-    public ItemSlot Slot;
+    public ItemSlot Slot
+    {
+        get
+        {
+            if (_slot is {} slot)
+                return slot;
+
+            if (_slots.TryGetSlot(Owner, SlotId, out _slot))
+                return _slot;
+
+            throw new InvalidOperationException($"Entity {EntMan.ToPrettyString(Owner)} had no item slot {SlotId}");
+        }
+    }
 
     public override void Initialize()
     {
         base.Initialize();
 
         _slots = EntMan.System<ItemSlotsSystem>();
-
-        if (_slots.TryGetSlot(Owner, SlotId, out var slot))
-            Slot = slot;
-        else
-            throw new InvalidOperationException($"Entity {EntMan.ToPrettyString(Owner)} had no item slot {SlotId}");
     }
 
     public override bool Insert(EntityUid item)
