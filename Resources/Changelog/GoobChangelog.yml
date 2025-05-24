@@ -9926,3 +9926,15 @@ Entries:
       message: Baseball bat now deals more stamina damage, but is 2x4.
   id: 1107
   time: '2025-05-24T22:06:14.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Slipping while wearing speedboots takes much longer to stand up
+    - type: Tweak
+      message: Speed legs dont give noslip
+    - type: Tweak
+      message: Speed boots drain battery much much faster
+    - type: Tweak
+      message: Speed legs give you +5% speed per leg
+  id: 1108
+  time: '2025-05-24T22:09:38.0000000+00:00'
