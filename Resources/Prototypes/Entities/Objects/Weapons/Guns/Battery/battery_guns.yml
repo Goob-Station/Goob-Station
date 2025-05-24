@@ -604,6 +604,71 @@
     - 0,0,4,1
 
 - type: entity
+  name: XG-42 "Buzzsaw"
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband]
+  id: WeaponLaserMG
+  description: A heavy duty LMG vaunted for it's ability to hold the line against the galaxy's most terrifying opponents.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Battery/laser_cannon.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Battery/laser_cannon.rsi
+  - type: Gun
+    cameraRecoilScalar: 0.5
+    selectedMode: FullAuto
+    fireRate: 4.5
+    availableModes:
+      - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+  - type: HitscanBatteryAmmoProvider
+    proto: RedMediumLaser
+    fireCost: 50 #40 shots per charge
+  - type: Battery
+    maxCharge: 2000
+    startingCharge: 2000
+  - type: Tag
+    tags:
+    - TurretCompatibleWeapon
+    - Rifle # Goobstation
+  - type: Item # Goobstation
+    size: Ginormous
+    shape:
+    - 0,0,4,1
+
+- type: entity
+  name: LR-25 "Le Frelon"
+  parent: [WeaponLaserCarbinePractice, BaseGunWieldable, BaseSecurityContraband]
+  id: WeaponLaserCarbineAutomatic
+  description: Favored by senior nanotrasen security officers for putting down savage greyshirts once they kick the hornet's nest.
+  components:
+  - type: StaticPrice
+    price: 1000
+  - type: HitscanBatteryAmmoProvider
+    proto: RedLaser
+    fireCost: 40
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: Gun
+    cameraRecoilScalar: 0.5
+    selectedMode: FullAuto
+    fireRate: 3
+    availableModes:
+      - FullAuto
+
+- type: entity
   name: portable particle decelerator
   parent: BaseWeaponBattery
   id: WeaponParticleDecelerator
