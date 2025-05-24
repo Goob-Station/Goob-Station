@@ -567,6 +567,8 @@
     knockdownTimeDelta: -2.5
   - type: StaminaDamageResistance # Goobstation
     coefficient: 0.6
+  - type: StaticPrice # Goob
+    price: 1000
 
 - type: entity # This is from upstream, so it goes in wizden code.
   parent: [ClothingOuterArmorCaptainCarapace, BaseCentcommContraband]
