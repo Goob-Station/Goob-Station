@@ -70,9 +70,9 @@
     outerClothing: ClothingBlueshieldArmoredCowboyJacket
 
 - type: loadout
-  id: BlueshieldOfficerOuterBlueshieldCowboyVest
+  id: BlueshieldOfficerOuterWinterBlueshield
   equipment:
-    outerClothing: ClothingBlueshieldArmoredCowboyJacket
+    outerClothing: ClothingOuterWinterBlueshield
 
 # Neck
 - type: loadout

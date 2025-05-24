@@ -103,6 +103,7 @@
   - BlueshieldOfficerOuterBlueshieldArmorVest
   - BlueshieldOfficerOuterBlueshieldArmoredJacket
   - BlueshieldOfficerOuterBlueshieldCowboyVest
+  - BlueshieldOfficerOuterWinterBlueshield
 
 - type: loadoutGroup
   id: BlueshieldOfficerNeck
