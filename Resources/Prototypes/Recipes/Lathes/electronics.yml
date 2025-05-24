@@ -650,7 +650,7 @@
 
 - type: latheRecipe
   parent: BaseCircuitboardRecipe
-  icon: { sprite:  Structures/Power/Generation/Singularity/emitter.rsi, state: emitter2 } # Goobstation
+  icon: { sprite:  Structures/Power/Generation/Singularity/emitter.rsi, state: emitter }
   id: EmitterCircuitboard
   result: EmitterCircuitboard
 

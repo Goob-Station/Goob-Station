@@ -232,6 +232,8 @@
     - DoorBumpOpener
     - FootstepSound
     - Gygax
+  - type: PointLight # Corvax-Next mech-light
+    color: green
 
 - type: entity
   id: MechGygaxBattery
@@ -298,6 +300,8 @@
     - DoorBumpOpener
     - FootstepSound
     - Durand
+  - type: PointLight # Corvax-Next mech-light
+    color: green
 
 - type: entity
   id: MechDurandBattery
@@ -362,6 +366,8 @@
     doAfterDelay: 15
   - type: StaticPrice
     price: 15000 # Some respect if you steal one of these.
+  - type: PointLight # Corvax-Next mech-light
+    color: green
 
 - type: entity
   id: MechMarauderBattery
@@ -436,6 +442,8 @@
     doAfterDelay: 20
   - type: StaticPrice
     price: 30000 # My respects if you manage to steal one of these.
+  - type: PointLight # Corvax-Next mech-light
+    color: red
 
 - type: entity
   id: MechSeraphBattery
@@ -513,6 +521,8 @@
     doAfterDelay: 20
   - type: StaticPrice
     price: 15000 # Some respect if you steal one of these.
+  - type: PointLight # Corvax-Next mech-light
+    color: red
 
 - type: entity
   id: MechGygaxSyndieBattery
@@ -587,6 +597,8 @@
     doAfterDelay: 25
   - type: StaticPrice
     price: 30000 # Some respect if you steal one of these.
+  - type: PointLight # Corvax-Next mech-light
+    color: red
 
 - type: entity
   id: MechMaulerSyndieBattery

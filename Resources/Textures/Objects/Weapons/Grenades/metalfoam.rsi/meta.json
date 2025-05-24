@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Created by EmoGarbage404. Inhands by TiniestShark (github)",
+  "copyright": "Resprited by @mishutka09 (discord:1152277579206774854). Inhands by TiniestShark (github)",
   "size": {
     "x": 32,
     "y": 32
@@ -14,7 +14,7 @@
       "name": "primed",
       "delays": [
         [
-          0.2,
+          0.1,
           0.1
         ]
       ]

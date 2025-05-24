@@ -41,4 +41,7 @@
   id: GlassBoxLawbringerFilled
   parent: GlassBoxLawbringer
   suffix: Lawbringer, Filled
-
+  - type: ContainerFill
+    containers:
+      ItemCabinet:
+      - WeaponEnergyGunLawbringer

@@ -5,7 +5,7 @@
       "y":32
    },
    "license":"CC-BY-SA-3.0",
-   "copyright":"Taken from https://github.com/ParadiseSS13/Paradise/",
+   "copyright":"Taken from https://github.com/BeeStation/BeeStation-Hornet at commit 4ccd79de285e79e504308bcd6fa5908d6b7685f7",
    "states":[
       {
          "name":"vent_passive",
@@ -21,15 +21,17 @@
       },
       {
          "name":"vent_out",
-         "delays":[ [ 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1 ] ]
+         "directions" : 4,
+         "delays":[ [ 0.08, 0.08, 0.08, 0.08 ], [ 0.08, 0.08, 0.08, 0.08 ], [ 0.08, 0.08, 0.08, 0.08 ], [ 0.08, 0.08, 0.08, 0.08 ] ]
       },
       {
          "name":"vent_in",
-         "delays":[ [ 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1 ] ]
+         "directions" : 4,
+         "delays":[ [ 0.08, 0.08, 0.08, 0.08 ], [ 0.08, 0.08, 0.08, 0.08 ], [ 0.08, 0.08, 0.08, 0.08 ], [ 0.08, 0.08, 0.08, 0.08 ] ]
       },
       {
          "name":"vent_lockout",
-         "delays":[ [ 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1 ] ]
+         "directions" : 4
       }
    ]
 }

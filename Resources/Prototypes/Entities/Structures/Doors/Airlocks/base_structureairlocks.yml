@@ -129,11 +129,6 @@
       shader: unshaded
       visible: false
       map: ["enum.ElectrifiedLayers.HUD"]
-    - state: electrified
-      sprite: Effects/electricity.rsi
-      shader: unshaded
-      visible: false
-      map: ["enum.ElectrifiedLayers.Sparks"]
   - type: AnimationPlayer
   - type: Physics
   - type: Fixtures
@@ -172,15 +167,10 @@
     fuel: 5
     time: 3
   - type: Airlock
+    openUnlitVisible: true # Corvax-Resprite-Airlocks
   - type: NavMapDoor
   - type: DoorBolt
   - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.ElectrifiedVisuals.ShowSparks:
-        enum.ElectrifiedLayers.Sparks:
-          True: { visible: True }
-          False: { visible: False }
   - type: WiresVisuals
   - type: ElectrocutionHUDVisuals
   - type: ApcPowerReceiver
@@ -251,6 +241,9 @@
     - board
   - type: PlacementReplacement
     key: walls
+  - type: IconSmooth
+    key: walls
+    mode: NoSprite
   - type: PaintableAirlock
     group: Standard
     department: Civilian
@@ -264,14 +257,6 @@
       # This tag is used to nagivate the Airlock construction graph. It's needed because the construction graph is shared between Airlock, AirlockGlass, and HighSecDoor
   - type: PryUnpowered
   - type: BlockWeather
-  - type: GuideHelp
-    guides:
-    - Airlocks
-    - WirePanels
-    - Networking
-  - type: Penetratable # Goobstation - Better snipers
-    penetrateDamage: 75
-    damagePenalty: 0.2
   placement:
     mode: SnapgridCenter
 
@@ -318,6 +303,8 @@
     node: glassAirlock
   - type: PaintableAirlock
     group: Glass
+  - type: RadiationBlocker
+    resistance: 2
   - type: Tag
     tags:
       - GlassAirlock
