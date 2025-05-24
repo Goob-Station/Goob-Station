@@ -24,4 +24,7 @@ public sealed partial class SlimeComponent : Component
     [DataField, AutoNetworkedField]
     public float MitosisHunger = 100f;
 
+    [DataField, AutoNetworkedField]
+    public Color SlimeColor = Color.FromHex("#828282");
+
 }

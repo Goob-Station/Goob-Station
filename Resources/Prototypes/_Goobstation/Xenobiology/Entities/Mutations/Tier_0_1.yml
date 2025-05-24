@@ -3,15 +3,9 @@
   breedName: grey slime
   id: GreyMutation
   components:
-  - type: Sprite
-    drawdepth: Mobs
-    sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
-    layers:
-    - map: [ "enum.DamageStateVisualLayers.Base" ]
-      state: slime-baby
-      color: "#828282"
   - type: Slime
     breed: GreyMutation
+    slimeColor: "#828282"
     offspring: 4
     mutationChance: 0.45
     potentialMutations:
@@ -23,14 +17,8 @@
   breedName: orange slime
   id: OrangeMutation
   components:
-  - type: Sprite
-    drawdepth: Mobs
-    sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
-    layers:
-    - map: [ "enum.DamageStateVisualLayers.Base" ]
-      state: slime-baby
-      color: "#ff9f1a"
   - type: Slime
+    slimeColor: "#ff9f1a"
     breed: OrangeMutation
     offspring: 4
     mutationChance: 0.45

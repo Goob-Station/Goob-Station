@@ -1,3 +1,10 @@
-namespace Content.Goobstation.Shared.Xenobiology;
+using Robust.Shared.Serialization;
 
-public enum SlimeColorVisuals {  }
+namespace Content.Goobstation.Shared.Xenobiology
+{
+    [Serializable, NetSerializable]
+    public enum SlimeColorVisuals
+    {
+        Color,
+    }
+}

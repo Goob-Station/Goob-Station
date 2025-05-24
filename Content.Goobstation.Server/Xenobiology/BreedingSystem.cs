@@ -28,29 +28,41 @@ public sealed class BreedingSystem : EntitySystem
     [Dependency] private readonly MetaDataSystem _metaData = default!;
 
     private readonly EntProtoId _defaultSlime = "MobXenoSlime";
-    private readonly ProtoId<BreedPrototype> _defaultSlimeMutation = "GreyMutation";
 
+    private readonly TimeSpan _updateInterval = TimeSpan.FromSeconds(1);
     private TimeSpan _nextUpdateTime;
-    private TimeSpan _updateInterval = TimeSpan.FromSeconds(1);
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        _nextUpdateTime = _gameTiming.CurTime + _updateInterval;
+    }
 
     //Mitosis doesn't need to be checked for every frame.
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        if (_gameTiming.CurTime < _nextUpdateTime)
+        if (_nextUpdateTime > _gameTiming.CurTime)
             return;
 
         _nextUpdateTime = _gameTiming.CurTime + _updateInterval;
+        UpdateMitosis();
+    }
 
+    // Checks slime entity hunger threshholds, if the threshhold required by SlimeComponent is met -> DoMitosis.
+    private void UpdateMitosis()
+    {
         var query = EntityQueryEnumerator<SlimeComponent, HungerComponent>();
         var eligibleSlimes = new HashSet<Entity<SlimeComponent, HungerComponent>>();
-        while (query.MoveNext(out var ent, out var slime, out var hunger))
+        while (query.MoveNext(out var uid, out var slime, out var hunger))
         {
-            if (_mobState.IsDead(ent))
+
+            if (_mobState.IsDead(uid))
                 continue;
 
-            eligibleSlimes.Add((ent, slime, hunger));
+            eligibleSlimes.Add((uid, slime, hunger));
         }
 
         foreach (var ent in eligibleSlimes)
@@ -76,9 +88,8 @@ public sealed class BreedingSystem : EntitySystem
 
         var ent = SpawnNextToOrDrop(newEntity, parent, null, newBreed.Components);
 
-        if (TryComp<SlimeComponent>(ent, out var slime)
-            && TryComp<AppearanceComponent>(ent, out var app))
-            _appearance.SetData(ent, SlimeColorVisuals.Color, slime.SlimeColor, app);
+        if (TryComp<SlimeComponent>(ent, out var slime))
+            _appearance.SetData(ent, SlimeColorVisuals.Color, slime.SlimeColor);
 
         _metaData.SetEntityName(ent, newBreed.BreedName);
     }
