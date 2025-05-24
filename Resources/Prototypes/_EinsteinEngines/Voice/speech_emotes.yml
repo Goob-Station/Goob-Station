@@ -56,6 +56,8 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [ mars ]
+  chatMessages: ["chat-emote-msg-mars"]
   chatTriggers:
     - mars
+    - marsing
+    - marsed

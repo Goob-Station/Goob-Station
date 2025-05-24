@@ -14,6 +14,7 @@ chat-emote-name-flap = Flap
 chat-emote-name-trill = Trill
 chat-emote-name-warble = Warble
 chat-emote-name-wurble = Wurble
+chat-emote-name-mars = Mars
 
 # Message
 chat-emote-msg-fart = farts.
@@ -23,6 +24,7 @@ chat-emote-msg-flap = flaps {POSS-ADJ($entity)} wings.
 chat-emote-msg-trill = trills!
 chat-emote-msg-warble = warbles!
 chat-emote-msg-wurble = wurbles!
+chat-emote-msg-mars = mars.
 
 
 # Misc
