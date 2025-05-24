@@ -25,6 +25,7 @@
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
 # SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
 # SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
@@ -502,6 +503,7 @@
   categories:
   - UplinkWearables
 
+
 - type: listing
   id: UplinkHardsuitSyndieMedic
   name: uplink-hardsuit-syndiemedic-name
@@ -577,6 +579,10 @@
   - !type:BuyerJobCondition
     whitelist:
     - Clown
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - NukieBundle
 
 - type: listing
   id: UplinkSyndicateWhimsyBundle
@@ -591,7 +597,10 @@
   - !type:BuyerJobCondition
     whitelist:
     - Clown
-
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - NukieBundle
 
 - type: listing
   id: UplinkLubeGrenade
@@ -607,7 +616,10 @@
     whitelist:
     - Clown
     - Mime
-
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - NukieBundle
 
 - type: listing
   id: UplinkGlueGrenade
@@ -623,6 +635,10 @@
     whitelist:
     - Clown
     - Mime
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - NukieBundle
 
 - type: listing
   id: UplinkClowncar
@@ -638,6 +654,10 @@
   - !type:BuyerJobCondition
     whitelist:
     - Clown
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - NukieBundle
 
 - type: listing
   id: UplinkMobRoachMicrobomb
@@ -664,6 +684,10 @@
     whitelist:
     - Botanist
     - Zookeeper
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - NukieBundle
 
 - type: listing
   id: UplinkDartGun
@@ -678,6 +702,10 @@
   - !type:BuyerDepartmentCondition
     whitelist:
     - Medical
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - NukieBundle
 
 # chemicals
 
@@ -971,6 +999,7 @@
     blacklist:
       components:
       - SurplusBundle
+      - NukieBundle
 
 - type: listing
   id: UplinkSyndicateWeaponModuleAdvanced
@@ -1210,3 +1239,25 @@
   - !type:BuyerSpeciesCondition
     whitelist:
     - Dwarf # Rock and stone
+
+- type: listing
+  id: UplinkNukieBundle
+  name: uplink-nukie-bundle-name
+  description: uplink-nukie-bundle-desc
+  productEntity: CrateNukieBundle
+  cost:
+    Telecrystal: 100
+  categories:
+  - UplinkDisruption
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+      - ContravendUplink
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - NukieBundle
+  - !type:ListingLimitedStockCondition
+    stock: 1
