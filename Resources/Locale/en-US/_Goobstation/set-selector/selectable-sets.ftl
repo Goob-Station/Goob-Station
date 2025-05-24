@@ -213,6 +213,6 @@ selectable-set-captain-voidsuit-desc =
 
 selectable-set-captain-modsuit-name = Captain's 'Magnate' hardsuit
 selectable-set-captain-modsuit-desc =
-    A modular hardsuit perfectly shined, adorned, and armored to fit the best of
+    A modular hardsuit perfectly shined, adorned, and armored for the best of
     the best, fitted with custom plating, cooling fluid, and diamonds to
     make even the toughest of times leading seem like nothing to you.
