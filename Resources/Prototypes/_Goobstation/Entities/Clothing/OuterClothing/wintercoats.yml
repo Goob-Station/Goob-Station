@@ -30,10 +30,10 @@
     sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/trainer.rsi
 
 - type: entity
-  parent: [ClothingOuterWinterCoatToggleable, BaseSecurityContraband]
+  parent: [ClothingOuterArmorBase, ClothingOuterWinterCoatToggleable, BaseSecurityContraband]
   id: ClothingOuterWinterSecArmored
   name: security armored winter coat
-  description: A sturdy, utilitarian winter coat designed to protect a security members from any brig-bound threats and hypothermic events.
+  description: A sturdy, utilitarian winter coat designed to protect security members from any threats and hypothermic events.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/secvestcoat.rsi
@@ -45,14 +45,6 @@
   - type: StaticPrice 
     price: 220
   - type: Armor
-    coverage:
-    - Chest
-    traumaDeductions:
-      Dismemberment: 0.2
-      OrganDamage: 0.2
-      BoneDamage: 0.2
-      VeinsDamage: 0
-      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.65
@@ -61,17 +53,12 @@
         Heat: 0.6
   - type: ExplosionResistance
     damageCoefficient: 0.95
-  - type: ModifyDelayedKnockdown 
-    delayDelta: 2
-    knockdownTimeDelta: -2
-  - type: StaminaDamageResistance 
-    coefficient: 0.75
 
 - type: entity
   parent: ClothingOuterWinterSecArmored
   id: ClothingOuterWinterSeniorSecArmored
   name: senior security armored winter coat
-  description: just like the security armored winter coat but with more styles.
+  description: A sturdy, utilitarian winter coat designed to protect senior security members from any threats and hypothermic events.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/seniorsecvestcoat.rsi

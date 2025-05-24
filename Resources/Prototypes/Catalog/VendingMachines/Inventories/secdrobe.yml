@@ -51,8 +51,8 @@
     ClothingUniformJumpsuitSecBlue: 3
     ClothingHeadsetAltSecurityRegular: 3 # Goobstation
     ClothingOuterWinterSec: 2
-    ClothingOuterWinterSecArmored : 2 # Goobstation - [Bounty] Armored winter coat
-    ClothingShoesWinterCombatBoots : 2 # Goobstation - [Bounty] Armored winter coat
+    ClothingOuterWinterSecArmored : 2 # Goobstation
+    ClothingShoesWinterCombatBoots : 2 # Goobstation
     ClothingOuterArmorBasic: 2
     ClothingNeckScarfStripedRed: 3
     ClothingOuterArmorBasicSlim: 2
