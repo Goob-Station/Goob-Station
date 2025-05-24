@@ -166,8 +166,6 @@
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
-# TODO: Find remaining cans and move to drinks_cans
-# TODO: Find empty containers (e.g. mug, pitcher) and move to their own yml
 # File for the metamorphic glass and pre-filled drinks
 # TODO Autogenerate prototypes so this file isn't 1000s of lines
 # When adding new drinks also add to random spawner located in Resources\Prototypes\Entities\Markers\Spawners\Random\Food_Drinks\drinks_glass.yml
@@ -1288,18 +1286,18 @@
 
 - type: entity
   parent: DrinkGlass
-  id: DrinkIrishCarBomb
-  suffix: irish car bomb
+  id: DrinkIrishSlammer
+  suffix: grenade penguin
   components:
   - type: SolutionContainerManager
     solutions:
       drink:
         maxVol: 30
         reagents:
-        - ReagentId: IrishCarBomb
+        - ReagentId: IrishSlammer
           Quantity: 30
   - type: Icon
-    sprite: Objects/Consumable/Drinks/irishcarbomb.rsi
+    sprite: Objects/Consumable/Drinks/irishslammer.rsi
     state: icon
 
 - type: entity
@@ -1970,16 +1968,16 @@
   id: DrinkCogChampBase
   suffix: cogchamp
   components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          maxVol: 30
-          reagents:
-            - ReagentId: CogChamp
-              Quantity: 30
-    - type: Icon
-      sprite: Objects/Consumable/Drinks/cogchamp.rsi
-      state: icon
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: CogChamp
+          Quantity: 30
+  - type: Icon
+    sprite: Objects/Consumable/Drinks/cogchamp.rsi
+    state: icon
 
 - type: entity
   parent: DrinkGlass
@@ -2242,16 +2240,16 @@
   id: DrinkTheMartinez
   suffix: the martinez
   components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          maxVol: 30
-          reagents:
-            - ReagentId: TheMartinez
-              Quantity: 30
-    - type: Icon
-      sprite: Objects/Consumable/Drinks/the_martinez.rsi
-      state: icon
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: TheMartinez
+          Quantity: 30
+  - type: Icon
+    sprite: Objects/Consumable/Drinks/the_martinez.rsi
+    state: icon
 
 - type: entity
   parent: DrinkGlass
@@ -2736,16 +2734,16 @@
   id: DrinkBloodGlass
   suffix: blood
   components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          maxVol: 30
-          reagents:
-            - ReagentId: Blood
-              Quantity: 30
-    - type: Icon
-      sprite: Objects/Consumable/Drinks/bloodglass.rsi
-      state: icon
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Blood
+          Quantity: 30
+  - type: Icon
+    sprite: Objects/Consumable/Drinks/bloodglass.rsi
+    state: icon
 
 - type: entity
   parent: DrinkGlass
@@ -2762,4 +2760,22 @@
           Quantity: 30
   - type: Icon
     sprite: Objects/Consumable/Drinks/bacchusblessing.rsi
+    state: icon
+
+# Goobstation i think? Move me if you're reading me, upstreamer is lazy.
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkIrishCarBomb
+  suffix: irish car bomb
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: IrishCarBomb
+          Quantity: 30
+  - type: Icon
+    sprite: Objects/Consumable/Drinks/irishcarbomb.rsi
     state: icon

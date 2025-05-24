@@ -260,9 +260,9 @@
   - type: Sprite
     sprite: Objects/Consumable/Drinks/jigger.rsi
     state: icon
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition
     materialComposition:
-      Steel: 50
+      Steel: 20
 
 - type: entity
   parent: [DrinkBaseMaterialStrongMetal, DrinkBase, DrinkVisualsFill]
