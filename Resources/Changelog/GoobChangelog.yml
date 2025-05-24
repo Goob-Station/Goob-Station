@@ -10034,3 +10034,15 @@ Entries:
         get high.
   id: 1116
   time: '2025-05-24T23:11:01.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Add
+      message: >-
+        Shotguns, SMGs and pistols can now melee bash, for 12, 10 and 8 damage
+        respectively
+    - type: Tweak
+      message: >-
+        Combat knives and kukris can now be used as bayonets (still only the PKA
+        supports it)
+  id: 1117
+  time: '2025-05-24T23:13:47.0000000+00:00'
