@@ -71,6 +71,7 @@ using System.Numerics;
 using Content.Server.Cargo.Systems;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
+using Content.Shared.Cargo;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Server.Vocalization.Systems;

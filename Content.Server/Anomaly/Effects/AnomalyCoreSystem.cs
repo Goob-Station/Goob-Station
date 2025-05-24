@@ -6,6 +6,7 @@
 
 using Content.Server.Cargo.Systems;
 using Content.Shared.Anomaly.Components;
+using Content.Shared.Cargo;
 using Robust.Shared.Timing;
 
 namespace Content.Server.Anomaly.Effects;

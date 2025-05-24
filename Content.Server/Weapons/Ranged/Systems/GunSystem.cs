@@ -123,8 +123,8 @@ using Content.Goobstation.Common.Projectiles; // Goobstation
 using Content.Shared.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Cargo.Systems;
-using Content.Server.Power.EntitySystems;
 using Content.Server.Weapons.Ranged.Components;
+using Content.Shared.Cargo;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Projectiles;
@@ -142,7 +142,6 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Robust.Shared.Containers;
-using Content.Server.PowerCell;
 using Content.Shared._Lavaland.Weapons.Ranged.Events; // Lavaland Change
 using Robust.Server.GameObjects; // Goobstation
 using Content.Goobstation.Common.Weapons.Ranged;
@@ -150,6 +149,7 @@ using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Effects;
+using Content.Shared.PowerCell;
 using Robust.Shared.Random; // Lavaland Change
 
 namespace Content.Server.Weapons.Ranged.Systems;

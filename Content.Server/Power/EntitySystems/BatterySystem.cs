@@ -33,6 +33,7 @@ using Content.Server._White.Blocking;
 using Content.Server.Cargo.Systems;
 using Content.Server.Emp;
 using Content.Server.Power.Components;
+using Content.Shared.Cargo;
 using Content.Shared.Emp; // Goobstation
 using Content.Shared.Examine;
 using Content.Shared.Power;
