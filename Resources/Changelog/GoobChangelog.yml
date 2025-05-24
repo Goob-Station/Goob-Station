@@ -9944,3 +9944,11 @@ Entries:
       message: Added a Craftable Boomerang!
   id: 1109
   time: '2025-05-24T22:12:38.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: Gas canisters and radiation collectors can now be automated.
+    - type: Add
+      message: Added pressure filters which can check tank/canister pressure.
+  id: 1110
+  time: '2025-05-24T22:15:14.0000000+00:00'
