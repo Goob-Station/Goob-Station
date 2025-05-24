@@ -27,13 +27,14 @@
   tier: 2
   cost: 10000
   recipeUnlocks:
+  - OmnimedTool # Shitmed
+  - EnergyScalpel # Shitmed
+  - AdvancedRetractor # Shitmed
+  - EnergyCautery # Shitmed
+  - AdvancedBoneGel # Shitmed
   - BorgModuleAdvancedTreatment
   # - BorgModuleDefibrillator # Goobstation, medical cyborgs start with this
-  - EnergyScalpel
-  - EnergyCautery
-  - AdvancedRetractor
-  - BorgModuleAdvancedSurgery
-  - OmnimedTool
+  - BorgModuleAdvancedSurgery # Shitmed
   technologyPrerequisites:
   - AdvancedEntertainment
   position: -2,4
