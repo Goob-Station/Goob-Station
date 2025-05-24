@@ -20,8 +20,6 @@ public sealed class NutrimentPumpImplantSystem : EntitySystem
     [Dependency] private readonly ThirstSystem _thirst = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
 
-    private static readonly TimeSpan ExecutionInterval = TimeSpan.FromSeconds(1f);
-
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -43,7 +41,7 @@ public sealed class NutrimentPumpImplantSystem : EntitySystem
                 if (TryComp<ThirstComponent>(uid, out var thirstComponent))
                     _thirst.ModifyThirst(uid, thirstComponent, pumpImplant.DrinkRate); // why the fuck is the order of arguments different for ModifyThirst????
 
-                pumpImplant.NextExecutionTime = _gameTiming.CurTime + ExecutionInterval;
+                pumpImplant.NextExecutionTime = _gameTiming.CurTime + pumpImplant.ExecutionInterval;
             }
         }
     }

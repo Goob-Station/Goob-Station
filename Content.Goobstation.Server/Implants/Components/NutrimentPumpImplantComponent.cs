@@ -27,4 +27,11 @@ public sealed partial class NutrimentPumpImplantComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan NextExecutionTime = TimeSpan.Zero;
+
+    /// <summary>
+    /// The time between each execution.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    [AutoNetworkedField]
+    public TimeSpan ExecutionInterval = TimeSpan.FromSeconds(1);
 }

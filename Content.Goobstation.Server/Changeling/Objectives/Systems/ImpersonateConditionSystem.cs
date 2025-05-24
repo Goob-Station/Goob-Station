@@ -59,7 +59,7 @@ public sealed class ImpersonateConditionSystem : EntitySystem
         if (!_target.GetTarget(uid, out var target))
             return;
 
-        if (!TryComp<MindComponent>(target, out var targetMind) || targetMind.CharacterName == null)
+        if (!TryComp<MindComponent>(target, out var targetMind) || targetMind.CharacterName == null || targetMind.CurrentEntity)
             return;
 
         comp.Name = targetMind.CharacterName;
