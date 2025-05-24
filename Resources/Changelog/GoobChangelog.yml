@@ -9912,3 +9912,17 @@ Entries:
       message: 'Bloodred Walkman to uplink. '
   id: 1106
   time: '2025-05-24T22:05:43.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Spears are 1x9, deal slightly more damage per hit and much more throwing
+        damage, have higher attack range but hit slightly slower.
+    - type: Tweak
+      message: >-
+        All shivs deal slightly more damage, except the uranium one, it deals
+        slightly less.
+    - type: Tweak
+      message: Baseball bat now deals more stamina damage, but is 2x4.
+  id: 1107
+  time: '2025-05-24T22:06:14.0000000+00:00'
