@@ -5,6 +5,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Revolutionary.Components;
+using Robust.Shared.Random;
 
 namespace Content.Shared._EinsteinEngines.Revolutionary;
 
@@ -14,6 +15,7 @@ public sealed class RevolutionaryConverterSystem : EntitySystem
 
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedChatSystem _chat = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     private List<string> _speechLocalizationKeys = new();
 
@@ -46,7 +48,7 @@ public sealed class RevolutionaryConverterSystem : EntitySystem
         if(_speechLocalizationKeys == null || _speechLocalizationKeys.Count == 0 || conversionToolEntity.Comp.Silent)
             return false;
 
-        var message = _speechLocalizationKeys[System.Random.Shared.Next(_speechLocalizationKeys.Count)];
+        var message = _random.Pick(_speechLocalizationKeys);
         _chat.TrySendInGameICMessage(user, Loc.GetString(message), InGameICChatType.Speak, hideChat: false, hideLog: false);
         return true;
     }

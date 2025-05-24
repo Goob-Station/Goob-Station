@@ -12,7 +12,7 @@ public sealed partial class RevolutionaryConverterDoAfterEvent : SimpleDoAfterEv
 [RegisterComponent, NetworkedComponent]
 public sealed partial class RevolutionaryConverterComponent : Component
 {
-    [DataField]
+    [DataField(required: true)]
     public TimeSpan ConversionDuration { get; set; }
 
     [DataField]

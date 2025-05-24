@@ -15,6 +15,9 @@
         color: "#aaaa24"
     - type: RevolutionaryConverter
       conversionDuration: 2
+    - type: Tag
+      tags:
+        - Book
     - type: UseDelay
       delay: 2
     - type: Appearance

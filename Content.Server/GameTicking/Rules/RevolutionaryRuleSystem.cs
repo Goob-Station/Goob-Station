@@ -228,6 +228,9 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
             HasComp<ChangelingComponent>(ev.Target) // goob edit - no more ling or heretic revs
             || HasComp<CommandStaffComponent>(ev.Target)) // goob edit - rev no command flashing
         {
+            if(ev.User != null)
+                _popup.PopupPredicted("The conversion failed!", ev.User.Value, ev.User);
+
             return;
         }
 
