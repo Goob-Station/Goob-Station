@@ -9863,3 +9863,9 @@ Entries:
       message: Suit storage depends on the armor once again.
   id: 1100
   time: '2025-05-24T15:01:50.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: Added even more crew plushies!
+  id: 1101
+  time: '2025-05-24T20:16:37.0000000+00:00'
