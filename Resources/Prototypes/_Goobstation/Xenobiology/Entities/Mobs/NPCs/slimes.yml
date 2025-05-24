@@ -23,8 +23,6 @@
       state: slime-baby
   - type: DamageStateVisuals
     states:
-      Alive:
-        Base: slime-baby
       Dead:
         Base: slime-dead
   - type: Fixtures
@@ -143,6 +141,12 @@
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: slime-baby
       color: "#828282"
+  - type: MobGrowth
+    hungerRequired: 100
+    currentStage: slime-baby
+    stages:
+    - slime-baby
+    - slime-adult
   - type: Slime
     breed: GreyMutation
     offspring: 4

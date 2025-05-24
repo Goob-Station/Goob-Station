@@ -54,15 +54,17 @@ public sealed class BreedingSystem : EntitySystem
     // Checks slime entity hunger threshholds, if the threshhold required by SlimeComponent is met -> DoMitosis.
     private void UpdateMitosis()
     {
-        var query = EntityQueryEnumerator<SlimeComponent, HungerComponent>();
-        var eligibleSlimes = new HashSet<Entity<SlimeComponent, HungerComponent>>();
-        while (query.MoveNext(out var uid, out var slime, out var hunger))
+        var query = EntityQueryEnumerator<SlimeComponent, MobGrowthComponent, HungerComponent>();
+        var eligibleSlimes = new HashSet<Entity<SlimeComponent, MobGrowthComponent, HungerComponent>>();
+        while (query.MoveNext(out var uid, out var slime, out var growth, out var hunger))
         {
-
             if (_mobState.IsDead(uid))
                 continue;
 
-            eligibleSlimes.Add((uid, slime, hunger));
+            if (growth.CurrentStage == growth.Stages[0])
+                continue;
+
+            eligibleSlimes.Add((uid, slime, growth, hunger));
         }
 
         foreach (var ent in eligibleSlimes)
@@ -89,7 +91,7 @@ public sealed class BreedingSystem : EntitySystem
         var ent = SpawnNextToOrDrop(newEntity, parent, null, newBreed.Components);
 
         if (TryComp<SlimeComponent>(ent, out var slime))
-            _appearance.SetData(ent, SlimeColorVisuals.Color, slime.SlimeColor);
+            _appearance.SetData(ent, XenoSlimeVisuals.Color, slime.SlimeColor);
 
         _metaData.SetEntityName(ent, newBreed.BreedName);
     }
