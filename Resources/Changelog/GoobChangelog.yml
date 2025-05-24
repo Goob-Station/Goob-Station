@@ -9906,3 +9906,9 @@ Entries:
       message: Fixed bingle pit not regenerating.
   id: 1105
   time: '2025-05-24T22:05:06.0000000+00:00'
+- author: rotundfan
+  changes:
+    - type: Add
+      message: 'Bloodred Walkman to uplink. '
+  id: 1106
+  time: '2025-05-24T22:05:43.0000000+00:00'
