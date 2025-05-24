@@ -17,7 +17,12 @@
       "name": "idchrono"
     },
 	{
-      "name": "chemist"
+      "name": "chemist-inhand-left",
+      "directions": 4
     },
+    {
+      "name": "chemist-inhand-right",
+      "directions": 4
+    }
   ]
 }

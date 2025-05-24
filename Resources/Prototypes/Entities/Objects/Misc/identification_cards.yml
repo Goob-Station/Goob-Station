@@ -334,10 +334,14 @@
   name: chemist ID card
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Misc/id_cards.rsi # Goobstation - Chemist card
-    state: chemist
+    layers:
+    - state: chemist # Goobstation - Chemist card
+    - state: idchemist
   - type: PresetIdCard
     job: Chemist
+  - type: Item # Goobstation - Chemist card
+    heldPrefix: chemist
+    sprite: _Goobstation/Objects/Misc/id_cards.rsi
 
 - type: entity
   parent: IDCardStandard
