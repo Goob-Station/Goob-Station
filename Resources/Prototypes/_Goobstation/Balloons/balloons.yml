@@ -41,9 +41,9 @@
           bounds: "-0.25,-0.48,0.25,0.48"
         density: 75
         mask:
-        - TabletopMachineMask
+          - TabletopMachineMask
         layer:
-        - TabletopMachineLayer
+          - TabletopMachineLayer
         
 # Red Balloon
 - type: entity
