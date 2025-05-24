@@ -729,6 +729,7 @@
         Piercing: 0.6
         Heat: 0.6
         Radiation: 0.1
+        Caustic: 0.55
   - type: ComponentToggler
     components:
     - type: BreathMask

@@ -569,6 +569,7 @@
         Piercing: 0.55
         Heat: 0.5
         Radiation: 0.1
+        Caustic: 0.5
   - type: ComponentToggler
     components:
     - type: PressureProtection
@@ -581,6 +582,6 @@
     delayDelta: 3
     knockdownTimeDelta: -3
   - type: StaminaDamageResistance
-    coefficient: 0.7
+    coefficient: 0.6
   - type: FireProtection
     reduction: 0.5
