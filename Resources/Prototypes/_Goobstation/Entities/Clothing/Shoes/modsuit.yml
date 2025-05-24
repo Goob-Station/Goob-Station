@@ -1,10 +1,12 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -285,3 +287,51 @@
     visualLayers:
       shoes:
       - state: equipped-FEET-sealed
+
+- type: entity
+  parent: [ClothingModsuitBootsStandard, BaseSyndicateContraband]
+  id: ClothingModsuitBootsBloodredModsuit
+  name: Syndicate "Deimos" Modsuit Boots
+  description: A set of greaves made for the "Deimos" modsuit.
+  categories: [HideSpawnMenu]
+  components:
+    - type: Appearance
+    - type: Sprite
+      sprite: _Goobstation/Clothing/Shoes/Modsuits/bloodredmodsuit.rsi
+    - type: Tag
+      tags:
+        - WhitelistChameleon
+    - type: ToggleClothing
+      action: ActionToggleMagboots
+    - type: Magboots
+    - type: SealableClothingVisuals
+      visualLayers:
+        shoes:
+        - state: equipped-FEET-sealed
+
+- type: entity
+  parent: [ClothingModsuitBootsStandard, BaseSyndicateContraband]
+  id: ClothingModsuitBootsEliteSyndicateModsuit
+  name: Elite Syndicate "Phobos" Modsuit Boots
+  description: A pair of greaves made for the "Phobos" modsuit.
+  categories: [HideSpawnMenu]
+  components:
+    - type: Appearance
+    - type: Sprite
+      sprite: _Goobstation/Clothing/Shoes/Modsuits/syndicateelitemodsuit.rsi
+    - type: Tag
+      tags:
+        - WhitelistChameleon
+    - type: ClothingSpeedModifier
+      walkModifier: 1
+      sprintModifier: 1
+    - type: ToggleClothing
+      action: ActionToggleMagboots
+    - type: ComponentToggler
+      components:
+        - type: NoSlip
+    - type: Magboots
+    - type: SealableClothingVisuals
+      visualLayers:
+        shoes:
+        - state: equipped-FEET-sealed

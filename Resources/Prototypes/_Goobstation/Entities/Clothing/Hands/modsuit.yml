@@ -1,10 +1,12 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -329,10 +331,32 @@
     visualLayers:
       gloves:
       - state: equipped-HAND-sealed
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.95
-        Slash: 0.95
-        Piercing: 0.95
-        Shock: 0.75
+
+- type: entity
+  parent: [ClothingModsuitGauntletsStandard, BaseSyndicateContraband]
+  id: ClothingModsuitGauntletsBloodredModsuit
+  name: CSA-99MS "Deimos" Modsuit Gauntlets
+  description: A set of armored gauntlets for the "Deimos" modsuit.
+  categories: [HideSpawnMenu]
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Clothing/Hands/Modsuits/bloodredmodsuit.rsi
+    - type: SealableClothingVisuals
+      visualLayers:
+        gloves:
+        - state: equipped-HAND-sealed
+
+- type: entity
+  parent: [ClothingModsuitGauntletsStandard, BaseSyndicateContraband]
+  id: ClothingModsuitGauntletsEliteSyndicateModsuit
+  name: Elite Syndicate "Phobos" Modsuit Gauntlets
+  description: A pair of gauntlets made for the "Phobos" modsuit.
+  categories: [HideSpawnMenu]
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Clothing/Hands/Modsuits/syndicateelitemodsuit.rsi
+    - type: SealableClothingVisuals
+      visualLayers:
+        gloves:
+        - state: equipped-HAND-sealed
+
