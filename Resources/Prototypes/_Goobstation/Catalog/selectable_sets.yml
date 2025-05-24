@@ -558,3 +558,25 @@
     state: icon
   content:
   - ClothingBackpackDuffelHosFilledUtility
+
+# Captain
+
+- type: selectableSet
+  id: VoidsuitSelectorCaptainVoidsuit
+  name: selectable-set-captain-voidsuit-name
+  description: selectable-set-captain-voidsuit-desc
+  sprite:
+    sprite: Clothing/OuterClothing/Hardsuits/capspace.rsi
+    state: icon
+  content:
+  - ClothingOuterHardsuitCap
+
+- type: selectableSet
+  id: VoidsuitSelectorCaptainHardsuit
+  name: selectable-set-captain-modsuit-name
+  description: selectable-set-captain-modsuit-desc
+  sprite:
+    sprite: _Goobstation/Clothing/Back/Modsuits/captain.rsi
+    state: control
+  content:
+  - ClothingModsuitCaptainPowerCell

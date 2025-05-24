@@ -62,3 +62,18 @@
     possibleSets:
     - VoidsuitSelectorEngineerVoidsuit
     - VoidsuitSelectorEngineerHardsuit
+
+# Cappy Suit
+- type: entity
+  id: UndeterminedVoidsuitCaptain
+  name: captain voidsuit selector
+  description: A small remote utilizing bluespace technology to drop in a voidsuit or hardsuit of your choosing.
+  parent: [ BaseItem, BaseSetSelector, BaseCommandContraband ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/unique_teleporters.rsi
+    state: standard
+  - type: SetSelector
+    possibleSets:
+    - VoidsuitSelectorCaptainVoidsuit
+    - VoidsuitSelectorCaptainHardsuit

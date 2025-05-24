@@ -204,3 +204,13 @@ selectable-set-engineering-modsuit-desc =
     A modular hardsuit with increased blast plating and the large vulnerable visor
     replaced with external cameras to better protect against explosions
     and other external threats.
+
+selectable-set-captain-voidsuit-name = Captain's voidsuit
+selectable-set-captain-voidsuit-desc =
+    Captain's light voidsuit for the average shift leading the station.
+
+selectable-set-captain-modsuit-name = Captain's 'Magnate' hardsuit
+selectable-set-captain-modsuit-desc =
+    A modular hardsuit perfectly shined, adorned, and armored to fit the best of the best,
+    fitted with custom plating, cooling fluid, and fitting to make even the toughest of
+    times leading seem like nothing to you.
