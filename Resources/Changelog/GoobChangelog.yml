@@ -10026,3 +10026,11 @@ Entries:
         ranged / area control weapon.
   id: 1115
   time: '2025-05-24T23:10:39.0000000+00:00'
+- author: rotundfan
+  changes:
+    - type: Add
+      message: >-
+        Getting a joker card thrown at you makes you honk and laugh and maybe
+        get high.
+  id: 1116
+  time: '2025-05-24T23:11:01.0000000+00:00'
