@@ -527,11 +527,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
-    clothingVisuals:
-      head:
-      - state: equipped-HEAD
-      head-resomi:
-      - state: equipped-HEAD-resomi
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Modsuits/atmostech.rsi
     layers:
