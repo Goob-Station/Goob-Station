@@ -67,7 +67,7 @@
             variation: 0.125
             volume: -4
       - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
-         spawn:
+        spawn:
           SpaceCash:    
             min: 10
             max: 15
