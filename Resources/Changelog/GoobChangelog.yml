@@ -9960,3 +9960,9 @@ Entries:
         Survival Boxes.
   id: 1111
   time: '2025-05-24T22:20:42.0000000+00:00'
+- author: rotundfan
+  changes:
+    - type: Tweak
+      message: 'BSO Hardsuit internal storage is now satchel instead of backpack '
+  id: 1112
+  time: '2025-05-24T22:21:46.0000000+00:00'
