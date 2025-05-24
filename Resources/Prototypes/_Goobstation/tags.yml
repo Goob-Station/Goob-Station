@@ -17,6 +17,7 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 GreenArg7 <GreenArc12@outlook.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 LuciferEOS <stepanteliatnik2022@gmail.com>
 # SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
@@ -327,6 +328,9 @@
   id: Mask
 
 - type: Tag
+  id: MakeshiftCrafter
+
+- type: Tag
   id: MechAirTank
 
 - type: Tag
@@ -489,6 +493,9 @@
   id: VulpEmotes
 
 - type: Tag
+  id: VendingMachine
+
+- type: Tag
   id: WaterTank
 
 - type: Tag
@@ -498,11 +505,23 @@
   id: WeaponEnergyGunLawbringer
 
 - type: Tag
-  id: WeaponPistolCasul
+  id: Welder
+
+- type: Tag
+  id: WelderExperimental
+
+- type: Tag
+  id: WoodenHandle
+
+- type: Tag
+  id: WelderIndustrial
 
 - type: Tag
   id: WeaponPistolJackal
 
+- type: Tag
+  id: WeaponPistolCasul
+  
 - type: Tag
   id: WinterCoat
 

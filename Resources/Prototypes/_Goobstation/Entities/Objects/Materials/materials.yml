@@ -8,6 +8,7 @@
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 LuciferEOS <stepanteliatnik2022@gmail.com>
 # SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
@@ -73,6 +74,147 @@
   parent: MaterialBSCrystalUnprocessed
   id: MaterialBSCrystal1Unprocessed
   name: unprocessed bluespace crystal
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1
+
+# a bunch of stuff were copied from metalrod with some numbers tweaked
+- type: entity
+  parent: PartBase
+  id: MaterialHexNut
+  name: steel hex nut
+  suffix: Full
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 10
+  - type: Stack
+    stackType: HexNut
+    count: 10
+    baseLayer: base
+    layerStates:
+    - hex_1
+    - hex_1 # todo
+    - hex_1
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
+  - type: Sprite
+    sprite: _Goobstation/Objects/Materials/materials.rsi
+    state: hex_1
+    layers:
+    - state: hex_1
+      map: ["base"]
+  - type: Item
+    size: Small
+    heldPrefix: hex
+  - type: Construction
+    graph: HexNutDoubleGraph
+    node: HexNutStack
+  - type: Appearance
+  - type: StaticPrice
+    price: 0
+  - type: StackPrice
+    price: 5
+
+- type: entity
+  id: MaterialHexNutSingle
+  parent: MaterialHexNut
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1
+
+# screw
+- type: entity
+  parent: PartBase
+  id: MaterialScrew
+  name: steel screw
+  suffix: Full
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 10
+  - type: Stack
+    stackType: Screw
+    count: 10
+    baseLayer: base
+    layerStates:
+    - screw_1
+    - screw_1 # todo
+    - screw_1
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
+  - type: Sprite
+    sprite: _Goobstation/Objects/Materials/materials.rsi
+    state: screw_1
+    layers:
+    - state: screw_1
+      map: ["base"]
+  - type: Item
+    size: Small
+    heldPrefix: screw
+  - type: Construction
+    graph: HexNutDoubleGraph
+    node: HexNutStack
+  - type: Appearance
+  - type: StaticPrice
+    price: 0
+  - type: StackPrice
+    price: 5
+
+- type: entity
+  parent: MaterialScrew
+  id: MaterialScrewSingle
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1
+
+# heated steel
+
+- type: entity
+  parent: PartBase
+  id: MaterialHeatedSteel
+  suffix: 10
+  name: heated steel
+  description: A bunch of heated steel. Its melting!
+  components:
+  - type: Stack
+    stackType: HeatedSteel
+    count: 10
+    baseLayer: base
+    layerStates:
+    - heated_steel
+    - heated_steel_2
+    - heated_steel_3
+  - type: Sprite
+    sprite: _Goobstation/Objects/Materials/materials.rsi
+    state: heated_steel
+    layers:
+    - state: heated_steel
+      map: [ "base" ]
+  - type: Appearance
+  - type: DamageOnInteract # hot
+    damage:
+      types:
+        Heat: 4
+    popupText: powered-light-component-burn-hand
+  - type: Construction
+    graph: HeatedSteelGraph # okay so the problem is that it would make 10 heated steel even if there was 1 or 30 steel used, instead of fixing i just made it despawn after 2 minutes, have fun.
+    node: heated steel
+  - type: TimedDespawn
+    lifetime: 120.0 # 2 minutes until the steel becomes nothing, be quick
+  - type: SpawnOnDespawn
+    prototype: FoodBadRecipe
+
+- type: entity
+  parent: MaterialHeatedSteel
+  id: MaterialHeatedSteel1
   suffix: Single
   components:
   - type: Stack

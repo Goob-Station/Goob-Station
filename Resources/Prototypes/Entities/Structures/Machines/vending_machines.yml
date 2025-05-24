@@ -72,7 +72,6 @@
 # SPDX-FileCopyrightText: 2024 Hrosts <35345601+Hrosts@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Ian <ignaz.k@live.de>
-# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Jeff <velcroboy333@hotmail.com>
 # SPDX-FileCopyrightText: 2024 Joel Zimmerman <JoelZimmerman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
@@ -141,8 +140,12 @@
 # SPDX-FileCopyrightText: 2025 Dorragon <101672978+Dorragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 LuciferEOS <stepanteliatnik2022@gmail.com>
+# SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
@@ -280,6 +283,9 @@
     price: 100
   - type: Appearance
   - type: WiresVisuals
+  - type: Tag # Goobstation
+    tags:
+    - VendingMachine
 
 - type: entity
   parent: VendingMachine
@@ -552,6 +558,7 @@
   - type: Tag
     tags:
       - DroneUsable # Goobstation
+      - VendingMachine # Goobstation
 
 - type: entity
   parent: VendingMachine
@@ -588,6 +595,7 @@
   - type: Tag
     tags:
     - DroneUsable # Goobstation
+    - VendingMachine # Goobstation
 
 - type: entity
   parent: VendingMachine
@@ -1121,7 +1129,8 @@
     rotateWhilePulling: true
   - type: Tag
     tags:
-    - DroneUsable # Goobstation
+    - DroneUsable
+    - VendingMachine # Goobstation
 
 - type: entity
   parent: VendingMachine
@@ -1547,6 +1556,7 @@
   - type: Tag
     tags:
     - DroneUsable # Goobstation
+    - VendingMachine # Goobstation
 
 - type: entity
   parent: VendingMachine
@@ -1671,6 +1681,8 @@
   - type: Tag
     tags:
     - DroneUsable # Goobstation
+    - VendingMachine # Goobstation
+
 
 - type: entity
   parent: VendingMachine
