@@ -1,5 +1,7 @@
 using Content.Server.RoundEnd;
 using Content.Shared._DV.CosmicCult.Components;
+using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server._DV.CosmicCult.Components;
@@ -33,6 +35,22 @@ public sealed partial class CosmicCultRuleComponent : Component
     /// </summary>
     [DataField]
     public LocId RoundEndTextAnnouncement = "cosmiccult-elimination-announcement";
+
+    /// <summary>
+    /// List of entities non-cultists are turned into at the end of the round.
+    /// </summary>
+    [DataField]
+    public List<EntProtoId> CosmicMobs =
+    [
+        "MobCosmicCustodian",
+        "MobCosmicOracle",
+    ];
+
+    /// <summary>
+    /// The entity cultists are turned into at the end of the round.
+    /// </summary>
+    [DataField]
+    public EntProtoId CosmicAscended = "MobCosmicAstralAscended";
 
     /// <summary>
     /// Time for emergency shuttle arrival.
@@ -110,6 +128,10 @@ public sealed partial class CosmicCultRuleComponent : Component
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan? ExtraRiftTimer;
+
+    [DataField] public SoundSpecifier WarpSFX = new SoundPathSpecifier("/Audio/_DV/CosmicCult/ability_blank.ogg");
+
+    [DataField] public EntProtoId WarpVFX = "CosmicBlankAbilityVFX";
 }
 
 public enum WinType : byte

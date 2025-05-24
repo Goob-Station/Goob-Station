@@ -13,34 +13,31 @@ namespace Content.Shared._DV.CosmicCult.Components;
 [AutoGenerateComponentPause]
 public sealed partial class CosmicChantryComponent : Component
 {
-    [DataField]
-    public EntityUid PolyVictim;
-
-    [DataField]
-    public EntityUid Victim;
-
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
-    [AutoPausedField]
+    [AutoPausedField, DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan SpawnTimer = default!;
 
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
-    [AutoPausedField]
+    [AutoPausedField, DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan CountdownTimer = default!;
 
-    [DataField]
-    public bool Spawned;
+    [DataField] public TimeSpan SpawningTime = TimeSpan.FromSeconds(2.4);
 
-    [DataField]
-    public bool Completed;
+    [DataField] public TimeSpan EventTime = TimeSpan.FromSeconds(150);
 
-    [DataField]
-    public SoundSpecifier ChantryAlarm = new SoundPathSpecifier("/Audio/_DV/CosmicCult/chantry_alarm.ogg");
+    [DataField] public bool Spawned;
 
-    [DataField]
-    public EntProtoId Colossus = "MobCosmicColossus";
+    [DataField] public bool Completed;
 
-    [DataField]
-    public EntProtoId SpawnVFX = "CosmicGlareAbilityVFX";
+    [DataField] public EntityUid PolyVictim;
+
+    [DataField] public EntityUid Victim;
+
+    [DataField] public SoundSpecifier ChantryAlarm = new SoundPathSpecifier("/Audio/_DV/CosmicCult/chantry_alarm.ogg");
+
+    [DataField] public SoundSpecifier SpawnSFX = new SoundPathSpecifier("/Audio/_DV/CosmicCult/colossus_spawn.ogg");
+
+    [DataField] public EntProtoId Colossus = "MobCosmicColossus";
+
+    [DataField] public EntProtoId SpawnVFX = "CosmicGlareAbilityVFX";
 }
 
 [Serializable, NetSerializable]

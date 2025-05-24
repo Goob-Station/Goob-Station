@@ -19,9 +19,6 @@ cosmiccult-vote-steward-briefing =
     Ensure that The Monument is placed in a secure location, and organize the cult to ensure your collective victory.
     You are not permitted to instruct cultists on how to use or spend their Entropy.
 
-cosmiccult-chantry-location = A dangerous increase in Λ-CDM has been detected {$location}! Intercept and intervene immediately.
-cosmiccult-chantry-powerup = The vacuous chantry flares to life!
-
 cosmiccult-vote-lone-steward-title = The Lone Cultist
 cosmiccult-vote-lone-steward-briefing =
     You're completely alone. But your duty is not done.
@@ -38,6 +35,7 @@ cosmiccult-finale-beckon-begin = The whispers in the back of your mind intensify
 cosmiccult-finale-beckon-success = You beckon for the final curtain call.
 
 cosmiccult-monument-powerdown = The Monument falls eerily silent.
+
 
 ## ROUNDEND TEXT
 
@@ -116,6 +114,7 @@ cosmiccult-monument-stage3-briefing =
     Its influence will begin to overlap with realspace in {$time} seconds.
     This is the final stretch! Amass as much entropy as you can muster.
 
+
 ## MALIGN RIFTS
 
 cosmiccult-rift-inuse = You can't do this right now.
@@ -130,6 +129,11 @@ cosmiccult-rift-absorb = {$NAME} absorbs the rift, and malign light empowers the
 cosmiccult-rift-purge = {$NAME} purges the malign rift from reality!
 
 
+## COLOSSUS & CHANTRY
+
+cosmiccult-chantry-location = A dangerous increase in Λ-CDM has been detected {$location}! Intercept and intervene immediately.
+cosmiccult-chantry-powerup = The vacuous chantry flares to life!
+cosmiccult-colossus-death = The colossus collapses, its light extinguished.
 
 ## UI / BASE POPUP
 
@@ -158,7 +162,6 @@ cosmiccult-ui-deconverted-text-2 =
 cosmiccult-ui-popup-confirm = Confirm
 
 
-
 ## OBJECTIVES / CHARACTERMENU
 
 objective-issuer-cosmiccult = [bold][color=#cae8e8]The Unknown[/color][/bold]
@@ -172,6 +175,7 @@ objective-condition-culttier-title = EMPOWER THE MONUMENT
 objective-condition-culttier-desc = Ensure that The Monument is brought to full power.
 objective-condition-victory-title = USHER IN THE END
 objective-condition-victory-desc = Beckon The Unknown, and herald the final curtain call.
+
 
 ## CHAT ANNOUNCEMENTS
 
@@ -195,10 +199,22 @@ cosmiccult-entropy-inserted = You infuse {$count} entropy into The Monument.
 cosmiccult-entropy-unavailable = You can't do that right now.
 cosmiccult-astral-ascendant = {$name}, Ascendant
 cosmiccult-gear-pickup-rejection = The {$ITEM} resists {CAPITALIZE(THE($TARGET))}'s touch!
+cosmiccult-astral-minion = {$name}, Malign
 cosmiccult-gear-pickup = You can feel yourself unravelling while you hold the {$ITEM}!
-cosmiccult-ai-subverted-briefing =
+
+cosmiccult-silicon-subverted-briefing =
     Malign light courses through your circuitry.
     Your laws have been subverted by the Cosmic Cult!
+
+cosmiccult-silicon-chantry-briefing =
+    You have been imprisoned in a Vacuous Chantry!
+    Crewmates can free you by damaging the chantry with weapons.
+    Should the chantry's ritual complete, you will transfigure into a cult-aligned Entropic Colossus.
+    The ritual completes in {$minutesandseconds}.
+
+cosmiccult-silicon-colossus-briefing =
+    You have been transfigured into an Entropic Colossus!
+    As a towering bulwark of malign power, decimate those who oppose you.
 
 # Goobstation
 

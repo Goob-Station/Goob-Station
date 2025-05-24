@@ -1,3 +1,4 @@
+using Content.Server.Antag;
 using Content.Server.Audio;
 using Content.Server.Chat.Systems;
 using Content.Server.Pinpointer;
@@ -13,6 +14,7 @@ namespace Content.Server._DV.CosmicCult.EntitySystems;
 
 public sealed class CosmicChantrySystem : EntitySystem
 {
+    [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly ChatSystem _chatSystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
@@ -52,6 +54,8 @@ public sealed class CosmicChantrySystem : EntitySystem
                 var tgtpos = Transform(uid).Coordinates;
                 var colossus = Spawn(comp.Colossus, tgtpos);
                 _mind.TransferTo(mindEnt, colossus);
+                _antag.SendBriefing(colossus, Loc.GetString("cosmiccult-silicon-colossus-briefing"), Color.FromHex("#4cabb3"), null);
+                _audio.PlayPvs(comp.SpawnSFX, tgtpos);
                 Spawn(comp.SpawnVFX, tgtpos);
                 QueueDel(comp.PolyVictim);
                 QueueDel(uid);
@@ -62,17 +66,18 @@ public sealed class CosmicChantrySystem : EntitySystem
     private void OnChantryStarted(Entity<CosmicChantryComponent> ent, ref ComponentInit args)
     {
         var indicatedLocation = FormattedMessage.RemoveMarkupOrThrow(_navMap.GetNearestBeaconString((ent, Transform(ent))));
+        var comp = ent.Comp;
 
-        ent.Comp.SpawnTimer = _timing.CurTime + TimeSpan.FromSeconds(2.4);
-        ent.Comp.CountdownTimer = _timing.CurTime + TimeSpan.FromSeconds(15);
+        comp.SpawnTimer = _timing.CurTime + comp.SpawningTime;
+        comp.CountdownTimer = _timing.CurTime + comp.EventTime;
 
-        _sound.PlayGlobalOnStation(ent, _audio.ResolveSound(ent.Comp.ChantryAlarm));
+        _sound.PlayGlobalOnStation(ent, _audio.ResolveSound(comp.ChantryAlarm));
         _chatSystem.DispatchStationAnnouncement(ent,
         Loc.GetString("cosmiccult-chantry-location", ("location", indicatedLocation)),
         null, false, null,
         Color.FromHex("#cae8e8"));
 
-        if (_mind.TryGetMind(ent.Comp.PolyVictim, out _, out var mind))
+        if (_mind.TryGetMind(comp.PolyVictim, out _, out var mind))
             mind.PreventGhosting = true;
     }
 

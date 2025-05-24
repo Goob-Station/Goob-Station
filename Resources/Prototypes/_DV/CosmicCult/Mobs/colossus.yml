@@ -11,9 +11,43 @@
     layers:
     - state: unshaded_bg
       shader: unshaded
+      map: ["underlay"]
     - state: colossus
+      map: ["base"]
+    - state: dead
+      visible: false
+      map: ["corpse"]
     - state: unshaded_fg
       shader: unshaded
+      map: ["overlay"]
+    - state: attacking
+      shader: unshaded
+      visible: false
+      map: ["attack"]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ColossusVisuals.Status:
+        underlay:
+          Alive: { visible: true }
+          Dead: { visible: false }
+          Attacking: { visible: false }
+        base:
+          Alive: { visible: true }
+          Dead: { visible: false }
+          Attacking: { visible: false }
+        corpse:
+          Alive: { visible: false }
+          Dead: { visible: true }
+          Attacking: { visible: false }
+        overlay:
+          Alive: { visible: true }
+          Dead: { visible: false }
+          Attacking: { visible: false }
+        attack:
+          Alive: { visible: false }
+          Dead: { visible: false }
+          Attacking: { visible: true }
   - type: Physics
     bodyType: KinematicController
   - type: Fixtures
@@ -46,7 +80,7 @@
     baseWalkSpeed: 2
     baseSprintSpeed: 3
   - type: AmbientSound
-    volume: +2
+    volume: +8
     range: 18
     sound:
       path: /Audio/_DV/CosmicCult/colossus_ambience.ogg
@@ -68,7 +102,6 @@
     radius: 4
     energy: 4
     softness: 1
-    castShadows: false
   - type: LightBehaviour
     behaviours:
     - !type:FadeBehaviour
@@ -81,7 +114,9 @@
       enabled: true
       isLooped: true
       reverseWhenFinished: true
-  - type: ComplexInteraction
+  - type: StatusEffects
+    allowed:
+    - Stutter
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
@@ -101,28 +136,134 @@
       enum.SiliconLawsUiKey.Key:
         type: SiliconLawBoundUserInterface
         requireInputValidation: false
-      # enum.BorgUiKey.Key:
-      #   type: BorgBoundUserInterface
-  # - type: ActivatableUI
-  #   key: enum.BorgUiKey.Key
   - type: SiliconLawBound
   - type: ActionGrant
     actions:
     - ActionViewLaws
+    - ActionCosmicColossusSunder
+    - ActionCosmicColossusIngress
   - type: SiliconLawProvider
     laws: CosmicCultLaws
-
   - type: NoSlip
   - type: Puller
     needsHands: false
   - type: CombatMode
   - type: MeleeWeapon
     altDisarm: false
-    soundHit:
-        path: /Audio/Weapons/Xeno/alien_claw_flesh1.ogg
-    angle: 0
-    animation: WeaponArcClaw
+    animation: WeaponArcCosmic
+    attackRate: 0.4
     damage:
       types:
-        Slash: 12
-        Piercing: 8
+        Blunt: 25
+        Asphyxiation: 5
+        Cold: 5
+        Structural: 60
+    soundHit:
+      path: /Audio/_DV/CosmicCult/cosmicsword_glance.ogg
+      params:
+        variation: 0.2
+        volume: 1
+    soundSwing:
+      path: /Audio/_DV/CosmicCult/cosmicweapon_swing.ogg
+      params:
+        variation: 0.125
+        volume: -4
+  - type: MeleeThrowOnHit
+    speed: 8
+    distance: 7
+  - type: Reflect
+    reflectProb: .21
+    spread: 120
+    soundOnReflect:
+      path: /Audio/_DV/CosmicCult/cosmicsword_glance.ogg
+      params:
+        variation: 0.2
+        volume: -6
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: MobTileDamageZone
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Transform
+    anchored: true
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/_DV/CosmicCult/tile_detonate.ogg
+  - type: TimedDespawn
+    lifetime: 8
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: MobTileDamageArea
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: TimedDespawn
+    lifetime: 0.6
+  - type: Transform
+    anchored: true
+  - type: Sprite
+    sprite: _DV/CosmicCult/Effects/tile_attacks.rsi
+    offset: 0,0.27
+    layers:
+    - state: tiledamage_start
+      shader: unshaded
+  - type: Tag
+    tags:
+    - HideContextMenu
+  - type: SpawnOnDespawn
+    prototype: MobTileDamageIssuer
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  id: MobTileDamageIssuer
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Sprite
+    sprite: _DV/CosmicCult/Effects/tile_attacks.rsi
+    offset: 0,0.27
+    layers:
+    - state: tiledamage_end
+      shader: unshaded
+  - type: Transform
+    anchored: true
+  - type: TimedDespawn
+    lifetime: 1
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+          - SlipLayer
+        mask:
+          - ItemMask
+        density: 2500
+        hard: false
+  - type: StepTrigger
+    requiredTriggeredSpeed: 0
+    intersectRatio: 0.1
+    ignoreWeightless: true
+    blacklist:
+      components:
+        - CosmicCult
+      tags:
+        - Catwalk
+  - type: TileEntityEffect
+    effects:
+    - !type:HealthChange
+      damage:
+        types:
+          Cold: 10

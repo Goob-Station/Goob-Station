@@ -142,7 +142,7 @@
   parent: BaseAction
   id: ActionCosmicGlare
   name: Null Glare
-  description: Emit a horrific pulse of cosmic light, slowing and disorienting everyone around you.
+  description: Emit a horrific pulse of cosmic light, slowing and disorienting everyone around you. Its effects are amplified against silicon-based entities.
   components:
   - type: ConfirmableAction
     popup: cosmicability-glare-confirm
@@ -214,8 +214,8 @@
 
 - type: entity
   id: ActionCosmicFragmentation
-  name: Malign Fragmentation
-  description: Transfer your malign empowerment into a digital system, such as an AI Upload Console, corrupting it in the process. Doing so will expend your empowerment.
+  name: Null Fragmentation
+  description: Transfer your malign empowerment into a digital system, such as an AI Upload Console or Cyborg, corrupting it in the process. Doing so will expend your empowerment.
   components:
   - type: LimitedCharges
     maxCharges: 1
@@ -223,10 +223,43 @@
     useDelay: 25
     whitelist:
       components:
-      # - BorgChassisComponent // Commented out for now
+      - BorgChassis
       - SiliconLawUpdater
     itemIconStyle: NoItem
     icon:
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
       state: corruption
     event: !type:EventCosmicFragmentation {}
+
+## COLOSSUS ACTIONS
+
+- type: entity
+  id: ActionCosmicColossusSunder
+  name: Entropic Sunder
+  description: Warp to the target location and unleash a cascading detonation of malign energy.
+  components:
+  - type: WorldTargetAction
+    useDelay: 20
+    range: 7
+    itemIconStyle: NoItem
+    icon:
+      sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
+      state: sunder
+    event: !type:EventCosmicColossusSunder
+
+- type: entity
+  id: ActionCosmicColossusIngress
+  name: Colossal Ingress
+  description: Use your colossal strength to force open a doorway.
+  components:
+  - type: EntityTargetAction
+    useDelay: 10
+    range: 2
+    whitelist:
+      components:
+        - Door
+    itemIconStyle: NoItem
+    icon:
+      sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
+      state: ingress
+    event: !type:EventCosmicColossusIngress

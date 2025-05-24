@@ -33,12 +33,6 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<RogueAscendedInfectionComponent, ComponentStartup>(OnAscendedInfectionAdded);
-        SubscribeLocalEvent<RogueAscendedInfectionComponent, ComponentShutdown>(OnAscendedInfectionRemoved);
-
-        SubscribeLocalEvent<RogueAscendedAuraComponent, ComponentStartup>(OnAscendedAuraAdded);
-        SubscribeLocalEvent<RogueAscendedAuraComponent, ComponentShutdown>(OnAscendedAuraRemoved);
-
         SubscribeLocalEvent<CosmicStarMarkComponent, ComponentStartup>(OnCosmicStarMarkAdded);
         SubscribeLocalEvent<CosmicStarMarkComponent, ComponentShutdown>(OnCosmicStarMarkRemoved);
 
@@ -81,28 +75,6 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     #endregion
 
     #region Layer Additions
-    private void OnAscendedInfectionAdded(Entity<RogueAscendedInfectionComponent> uid, ref ComponentStartup args)
-    {
-        if (!TryComp<SpriteComponent>(uid, out var sprite) || sprite.LayerMapTryGet(AscendedInfectionKey.Key, out _))
-            return;
-
-        var layer = sprite.AddLayer(uid.Comp.Sprite);
-
-        sprite.LayerMapSet(AscendedInfectionKey.Key, layer);
-        sprite.LayerSetShader(layer, "unshaded");
-    }
-
-    private void OnAscendedAuraAdded(Entity<RogueAscendedAuraComponent> uid, ref ComponentStartup args)
-    {
-        if (!TryComp<SpriteComponent>(uid, out var sprite) || sprite.LayerMapTryGet(AscendedAuraKey.Key, out _))
-            return;
-
-        var layer = sprite.AddLayer(uid.Comp.Sprite);
-
-        sprite.LayerMapSet(AscendedAuraKey.Key, layer);
-        sprite.LayerSetShader(layer, "unshaded");
-    }
-
     private void OnCosmicStarMarkAdded(Entity<CosmicStarMarkComponent> uid, ref ComponentStartup args)
     {
         if (!TryComp<SpriteComponent>(uid, out var sprite) || sprite.LayerMapTryGet(CosmicRevealedKey.Key, out _))
@@ -132,22 +104,6 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     #endregion
 
     #region Layer Removals
-    private void OnAscendedInfectionRemoved(Entity<RogueAscendedInfectionComponent> uid, ref ComponentShutdown args)
-    {
-        if (!TryComp<SpriteComponent>(uid, out var sprite))
-            return;
-
-        sprite.RemoveLayer(AscendedInfectionKey.Key);
-    }
-
-    private void OnAscendedAuraRemoved(Entity<RogueAscendedAuraComponent> uid, ref ComponentShutdown args)
-    {
-        if (!TryComp<SpriteComponent>(uid, out var sprite))
-            return;
-
-        sprite.RemoveLayer(AscendedAuraKey.Key);
-    }
-
     private void OnCosmicStarMarkRemoved(Entity<CosmicStarMarkComponent> uid, ref ComponentShutdown args)
     {
         if (!TryComp<SpriteComponent>(uid, out var sprite))

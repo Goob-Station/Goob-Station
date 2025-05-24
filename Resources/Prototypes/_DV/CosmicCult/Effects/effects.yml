@@ -51,7 +51,7 @@
     anchored: true
   - type: Sprite
     layers:
-    - sprite: _DV/CosmicCult/Effects/tiles_spawn.rsi
+    - sprite: _DV/CosmicCult/Effects/tile_spawn.rsi
       state: floorglow
       shader: unshaded
     drawdepth: Mobs
@@ -350,6 +350,42 @@
     energy: 1.6
     castShadows: false
     color: "#42a4ae"
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseCosmicVFX
+  id: CosmicColossusAttack1Vfx
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Transform
+    anchored: true
+  - type: TimedDespawn
+    lifetime: 1.5
+  - type: Sprite
+    layers:
+    - sprite: _DV/CosmicCult/Effects/colossus_attack.rsi
+      state: attack1
+      shader: unshaded
+  - type: PointLight
+    color: "#42a4ae"
+    radius: 5
+    energy: 5
+    castShadows: true
+  - type: LightBehaviour
+    behaviours:
+    - !type:FadeBehaviour
+      interpolate: Linear
+      minDuration: 1.5
+      maxDuration: 1.5
+      startValue: 0.1
+      endValue: 5
+      property: Energy
+      enabled: true
+      isLooped: true
+      reverseWhenFinished: true
 
 - type: entity
   categories: [ HideSpawnMenu ]

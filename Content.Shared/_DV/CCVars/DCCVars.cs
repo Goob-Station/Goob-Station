@@ -64,17 +64,17 @@ public sealed partial class DCCVars
     /// The delay between the monument getting upgraded to tier 2 and the crew learning of that fact. the monument cannot be upgraded again in this time.
     /// </summary>
     public static readonly CVarDef<int> CosmicCultT2RevealDelaySeconds =
-        CVarDef.Create("cosmiccult.t2_reveal_delay_seconds", 120, CVar.SERVER);
+        CVarDef.Create("cosmiccult.t2_reveal_delay_seconds", 180, CVar.SERVER);
 
     /// <summary>
     /// The delay between the monument getting upgraded to tier 3 and the crew learning of that fact. the monument cannot be upgraded again in this time.
     /// </summary>
     public static readonly CVarDef<int> CosmicCultT3RevealDelaySeconds =
-        CVarDef.Create("cosmiccult.t3_reveal_delay_seconds", 60, CVar.SERVER);
+        CVarDef.Create("cosmiccult.t3_reveal_delay_seconds", 100, CVar.SERVER);
 
     /// <summary>
     /// The delay between the monument getting upgraded to tier 3 and the finale starting.
     /// </summary>
     public static readonly CVarDef<int> CosmicCultFinaleDelaySeconds =
-        CVarDef.Create("cosmiccult.extra_entropy_for_finale", 150, CVar.SERVER);
+        CVarDef.Create("cosmiccult.extra_entropy_for_finale", 120, CVar.SERVER);
 }

@@ -31,7 +31,7 @@ entities:
   - uid: 2
     components:
     - type: MetaData
-      name: grid
+      name: Cosmic Void Pocket Dimension
     - type: Transform
       pos: -5.5451565,-0.26048148
       parent: 1

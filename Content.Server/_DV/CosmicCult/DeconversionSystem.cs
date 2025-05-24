@@ -105,13 +105,6 @@ public sealed class DeconversionSystem : EntitySystem
             _audio.PlayPvs(censer.CleanseSound, targetPosition, AudioParams.Default.WithVolume(4f));
             _popup.PopupEntity(Loc.GetString("cleanse-deconvert-attempt-success", ("target", Identity.Entity(target.Value, EntityManager))), args.User, args.User);
         }
-        else if (HasComp<RogueAscendedInfectionComponent>(target))
-        {
-            Spawn(censer.CleanseVFX, targetPosition);
-            RemComp<RogueAscendedInfectionComponent>(target.Value);
-            _audio.PlayPvs(censer.CleanseSound, targetPosition, AudioParams.Default.WithVolume(4f));
-            _popup.PopupEntity(Loc.GetString("cleanse-deconvert-attempt-success", ("target", Identity.Entity(target.Value, EntityManager))), args.User, args.User);
-        }
         else
         {
             Spawn(censer.ReboundVFX, userPosition);
@@ -128,6 +121,5 @@ public sealed class DeconversionSystem : EntitySystem
     private void DeconvertCultist(EntityUid uid)
     {
         RemComp<CosmicCultComponent>(uid);
-        RemComp<RogueAscendedInfectionComponent>(uid);
     }
 }

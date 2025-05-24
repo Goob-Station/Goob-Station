@@ -5,7 +5,7 @@
   parent: BaseStructure
   id: CosmicBorgChantry
   name: Vacuous Chantry
-  description: Lorem Ipsum
+  description: Its surface churns with rampant malign light.
   placement:
     mode: AlignTileAny
   components:
@@ -86,8 +86,8 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
-      behaviors: #excess damage, don't spawn entities.
+        damage: 400
+      behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
       - !type:PlaySoundBehavior
