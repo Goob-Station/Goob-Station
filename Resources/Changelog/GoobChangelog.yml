@@ -9817,3 +9817,43 @@ Entries:
       message: Counterfeit spesos 10->50 per craft.
   id: 1094
   time: '2025-05-22T18:33:43.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Ghosts can now access mass scanner UI.
+  id: 1095
+  time: '2025-05-22T19:50:38.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        Holoparasites now get pulled in when out of range instead of being
+        retracted.
+    - type: Add
+      message: Holoparasites now have an action to recall self.
+  id: 1096
+  time: '2025-05-22T20:55:37.0000000+00:00'
+- author: Nanotrasen
+  changes:
+    - type: Tweak
+      message: >-
+        Lightened up hair restrictions for Heads of Security. We implore you to
+        have the utmost care while handling lathes and incendiary weaponry.
+  id: 1097
+  time: '2025-05-22T22:18:17.0000000+00:00'
+- author: Timfa2112
+  changes:
+    - type: Tweak
+      message: >-
+        The Centcom disabler was ported to Goob without its sprite--this is
+        fixed now, and the sprite has been added.
+  id: 1098
+  time: '2025-05-23T09:17:50.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Tweak
+      message: >-
+        Resprited the syndicate voidsuit, Humans, reptilians and vox now get
+        uniform sprites that conform to their body. from bay12
+  id: 1099
+  time: '2025-05-24T07:42:15.0000000+00:00'
