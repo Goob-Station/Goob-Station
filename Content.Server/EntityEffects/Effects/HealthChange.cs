@@ -232,13 +232,20 @@ namespace Content.Server.EntityEffects.Effects
             var universalReagentHealModifier =
                 args.EntityManager.System<DamageableSystem>().UniversalReagentHealModifier;
 
-            foreach (var (type, val) in damageSpec.DamageDict)
+            if (Math.Abs(universalReagentDamageModifier - 1) > 1 || Math.Abs(universalReagentHealModifier - 1) > 1)
             {
-                if (val < 0f)
-                    damageSpec.DamageDict[type] = val * universalReagentHealModifier * HealingDamageMultiplier;
+                foreach (var (type, val) in damageSpec.DamageDict)
+                {
+                    if (val < 0f)
+                    {
+                        damageSpec.DamageDict[type] = val * universalReagentHealModifier;
+                    }
 
-                if (val > 0f)
-                    damageSpec.DamageDict[type] = val * universalReagentDamageModifier * DamageMultiplier;
+                    if (val > 0f)
+                    {
+                        damageSpec.DamageDict[type] = val * universalReagentDamageModifier;
+                    }
+                }
             }
 
             args.EntityManager.System<DamageableSystem>()
@@ -248,7 +255,8 @@ namespace Content.Server.EntityEffects.Effects
                     IgnoreResistances,
                     interruptsDoAfters: false,
                     targetPart: TargetBodyPart.All,
-                    ignoreBlockers: true); // Shitmed Change
+                    ignoreBlockers: true,
+                    splitDamage: damageSpec.GetTotal() > 0); // Shitmed Change
 
         }
     }
