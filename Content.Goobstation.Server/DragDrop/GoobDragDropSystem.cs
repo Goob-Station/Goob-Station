@@ -6,6 +6,7 @@
 using Content.Goobstation.Shared.DragDrop;
 using Content.Server.Construction.Components;
 using Content.Shared.DragDrop;
+using Content.Shared.Hands.Components;
 using Content.Shared.Interaction;
 
 namespace Content.Goobstation.Server.DragDrop;
@@ -25,6 +26,10 @@ public sealed partial class GoobDragDropSystem : SharedGoobDragDropSystem
     // if it works it works
     private void OnDragDropConstruction(Entity<ConstructionComponent> ent, ref DragDropTargetEvent args)
     {
+        if (!CanDragDrop(args.User))
+            return;
+
         _interaction.InteractUsing(args.User, args.Dragged, ent, Transform(ent).Coordinates);
+        args.Handled = true;
     }
 }
