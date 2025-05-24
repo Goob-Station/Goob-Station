@@ -9849,3 +9849,80 @@ Entries:
         fixed now, and the sprite has been added.
   id: 1098
   time: '2025-05-23T09:17:50.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Tweak
+      message: >-
+        Resprited the syndicate voidsuit, Humans, reptilians and vox now get
+        uniform sprites that conform to their body. from bay12
+  id: 1099
+  time: '2025-05-24T07:42:15.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Suit storage depends on the armor once again.
+  id: 1100
+  time: '2025-05-24T15:01:50.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: Added even more crew plushies!
+  id: 1101
+  time: '2025-05-24T20:16:37.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Fix
+      message: Species once again have their damage modifier sets.
+  id: 1102
+  time: '2025-05-24T21:37:30.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Lack of 1984. (Mice can't build girders and windows anymore.)
+    - type: Fix
+      message: >-
+        Biomass reclaimer should work again. - Mocho Note: Keep in mind it still
+        only works with catatonic entities, so behead anything you throw in
+        there to defeat the point of it
+    - type: Fix
+      message: Borgs can now properly build mechs.
+  id: 1103
+  time: '2025-05-24T22:00:42.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Warden's and head of security's armored winter coats now have very
+        slightly less armor.
+    - type: Tweak
+      message: Blueshield's armor vest is now 2x2.
+  id: 1104
+  time: '2025-05-24T22:01:58.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Bingle pit now comes with 3 additional starting bingles.
+    - type: Fix
+      message: Fixed bingle pit not regenerating.
+  id: 1105
+  time: '2025-05-24T22:05:06.0000000+00:00'
+- author: rotundfan
+  changes:
+    - type: Add
+      message: 'Bloodred Walkman to uplink. '
+  id: 1106
+  time: '2025-05-24T22:05:43.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Spears are 1x9, deal slightly more damage per hit and much more throwing
+        damage, have higher attack range but hit slightly slower.
+    - type: Tweak
+      message: >-
+        All shivs deal slightly more damage, except the uranium one, it deals
+        slightly less.
+    - type: Tweak
+      message: Baseball bat now deals more stamina damage, but is 2x4.
+  id: 1107
+  time: '2025-05-24T22:06:14.0000000+00:00'
