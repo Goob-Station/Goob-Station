@@ -10088,3 +10088,13 @@ Entries:
       message: The ghost bar is now a planet.
   id: 1122
   time: '2025-05-25T00:05:39.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: CSG shotgun price 150tc -> 200tc.
+    - type: Tweak
+      message: CSG shotgun has slower fire rate now.
+    - type: Tweak
+      message: CSG shotgun no longer instakills at mid range.
+  id: 1123
+  time: '2025-05-25T00:11:48.0000000+00:00'
