@@ -53,6 +53,7 @@
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 plyush <121322002+toasterpm87@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -63,8 +64,8 @@ meta:
   engineVersion: 251.0.0
   forkId: ""
   forkVersion: ""
-  time: 05/15/2025 08:53:28
-  entityCount: 26430
+  time: 05/19/2025 11:35:46
+  entityCount: 26424
 maps:
 - 1
 grids:
@@ -7842,8 +7843,7 @@ entities:
           12,-4:
             0: 47935
           12,-3:
-            0: 65289
-            6: 2
+            0: 65291
           12,-2:
             0: 65295
           -5,8:
@@ -7989,9 +7989,9 @@ entities:
           11,12:
             0: 12173
           12,8:
-            0: 26480
+            0: 26608
           12,9:
-            0: 1774
+            0: 1766
           12,10:
             0: 34862
           12,11:
@@ -8000,20 +8000,16 @@ entities:
             1: 24576
           12,12:
             0: 98
-          13,8:
-            1: 63232
           13,9:
-            1: 32767
+            1: 32752
           13,10:
             1: 17
           13,11:
             0: 16416
           13,12:
             0: 1026
-          14,8:
-            1: 4096
           14,9:
-            1: 273
+            1: 272
           12,4:
             1: 544
           12,-1:
@@ -8344,7 +8340,7 @@ entities:
             1: 32768
           -9,-4:
             0: 64748
-            7: 17
+            6: 17
           -8,-3:
             0: 65535
           -9,-3:
@@ -8537,7 +8533,7 @@ entities:
           -10,-9:
             0: 64767
           -10,-4:
-            7: 238
+            6: 238
             0: 57344
           -9,-9:
             0: 63743
@@ -9358,7 +9354,7 @@ entities:
             1: 1152
           -16,-4:
             0: 16
-            7: 128
+            6: 128
           -17,-3:
             0: 2048
           -16,-3:
@@ -10334,29 +10330,10 @@ entities:
           - 0
           - 0
         - volume: 2500
-          temperature: 293.15
-          moles:
-          - 21.6852
-          - 81.57766
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
           temperature: 235
           moles:
-          - 21.824879
-          - 82.10312
+          - 27.225372
+          - 102.419266
           - 0
           - 0
           - 0
@@ -13209,12 +13186,6 @@ entities:
     - type: Transform
       pos: -5.5,-58.5
       parent: 2
-    - type: Door
-      secondsUntilStateChange: -5689.3257
-      state: Opening
-    - type: DeviceLinkSource
-      lastSignals:
-        DoorStatus: True
   - uid: 346
     components:
     - type: Transform
@@ -18202,6 +18173,13 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -13.5,10.5
+      parent: 2
+- proto: BedsheetBrigmedic
+  entities:
+  - uid: 9674
+    components:
+    - type: Transform
+      pos: 52.5,-13.5
       parent: 2
 - proto: BedsheetBrown
   entities:
@@ -61313,13 +61291,6 @@ entities:
     - type: Transform
       pos: -61.605972,-48.389294
       parent: 2
-- proto: ChemistryBottleEpinephrine
-  entities:
-  - uid: 11946
-    components:
-    - type: Transform
-      pos: 52.71888,-11.25818
-      parent: 2
 - proto: ChemistryHotplate
   entities:
   - uid: 9806
@@ -65421,6 +65392,11 @@ entities:
       parent: 2
 - proto: ClothingHandsGlovesLatex
   entities:
+  - uid: 9677
+    components:
+    - type: Transform
+      pos: 52.991013,-11.414973
+      parent: 2
   - uid: 10007
     components:
     - type: Transform
@@ -65811,13 +65787,6 @@ entities:
     components:
     - type: Transform
       pos: -30.605223,25.633827
-      parent: 2
-- proto: ClothingMaskSterile
-  entities:
-  - uid: 10068
-    components:
-    - type: Transform
-      pos: 51.434788,-11.631462
       parent: 2
 - proto: ClothingNeckAromanticPin
   entities:
@@ -118547,6 +118516,13 @@ entities:
         - 0
         - 0
         - 0
+- proto: LockerBrigmedicFilled
+  entities:
+  - uid: 9679
+    components:
+    - type: Transform
+      pos: 51.5,-11.5
+      parent: 2
 - proto: LockerCaptainFilled
   entities:
   - uid: 18025
@@ -119218,13 +119194,6 @@ entities:
     components:
     - type: Transform
       pos: -37.5,-44.5
-      parent: 2
-- proto: LockerMedicineFilled
-  entities:
-  - uid: 18054
-    components:
-    - type: Transform
-      pos: 51.5,-13.5
       parent: 2
 - proto: LockerParamedicFilled
   entities:
@@ -120522,6 +120491,11 @@ entities:
       parent: 2
 - proto: MedicalBed
   entities:
+  - uid: 9678
+    components:
+    - type: Transform
+      pos: 52.5,-13.5
+      parent: 2
   - uid: 18201
     components:
     - type: Transform
@@ -120605,11 +120579,6 @@ entities:
     - type: Transform
       pos: -33.42429,-34.390564
       parent: 2
-  - uid: 18216
-    components:
-    - type: Transform
-      pos: 51.66197,-11.517933
-      parent: 2
 - proto: MedkitCombatFilled
   entities:
   - uid: 18217
@@ -120629,22 +120598,12 @@ entities:
     - type: Transform
       pos: 9.5825615,-13.455949
       parent: 2
-  - uid: 18220
-    components:
-    - type: Transform
-      pos: 52.158924,-11.361831
-      parent: 2
 - proto: MedkitOxygenFilled
   entities:
   - uid: 18221
     components:
     - type: Transform
       pos: -33.980503,-34.161953
-      parent: 2
-  - uid: 18222
-    components:
-    - type: Transform
-      pos: 51.485634,-11.378353
       parent: 2
 - proto: MedkitRadiationFilled
   entities:
@@ -120813,6 +120772,34 @@ entities:
       parent: 2
 - proto: Morgue
   entities:
+  - uid: 9676
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 51.5,-13.5
+      parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
   - uid: 18251
     components:
     - type: Transform
@@ -122060,18 +122047,6 @@ entities:
     components:
     - type: Transform
       pos: -46.64603,-24.582241
-      parent: 2
-- proto: PillKelotane
-  entities:
-  - uid: 18431
-    components:
-    - type: Transform
-      pos: 52.59388,-11.41443
-      parent: 2
-  - uid: 18432
-    components:
-    - type: Transform
-      pos: 52.46888,-11.617555
       parent: 2
 - proto: PineappleSeeds
   entities:
@@ -135867,11 +135842,6 @@ entities:
     - type: Transform
       pos: 53.5,-13.5
       parent: 2
-  - uid: 20800
-    components:
-    - type: Transform
-      pos: 52.5,-13.5
-      parent: 2
 - proto: RubberStampApproved
   entities:
   - uid: 20801
@@ -141509,6 +141479,13 @@ entities:
     - type: Transform
       pos: -34.5,-18.5
       parent: 2
+- proto: SpawnPointBrigmedic
+  entities:
+  - uid: 9675
+    components:
+    - type: Transform
+      pos: 52.5,-12.5
+      parent: 2
 - proto: SpawnPointCaptain
   entities:
   - uid: 21656
@@ -144525,11 +144502,6 @@ entities:
       - SurveillanceCameraEntertainment
 - proto: Syringe
   entities:
-  - uid: 22097
-    components:
-    - type: Transform
-      pos: 52.00274,-11.546314
-      parent: 2
   - uid: 22098
     components:
     - type: Transform
@@ -144544,6 +144516,11 @@ entities:
       parent: 2
 - proto: Table
   entities:
+  - uid: 9680
+    components:
+    - type: Transform
+      pos: 53.5,-11.5
+      parent: 2
   - uid: 22100
     components:
     - type: Transform
@@ -144785,11 +144762,6 @@ entities:
     components:
     - type: Transform
       pos: 52.5,-11.5
-      parent: 2
-  - uid: 22148
-    components:
-    - type: Transform
-      pos: 51.5,-11.5
       parent: 2
   - uid: 22149
     components:
@@ -148292,11 +148264,6 @@ entities:
     components:
     - type: Transform
       pos: -16.5,-28.5
-      parent: 2
-  - uid: 22739
-    components:
-    - type: Transform
-      pos: 53.5,-11.5
       parent: 2
 - proto: VendingMachineMediDrobe
   entities:
@@ -167073,12 +167040,6 @@ entities:
     components:
     - type: Transform
       pos: 44.5,-3.5
-      parent: 2
-  - uid: 26208
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 53.5,-12.5
       parent: 2
   - uid: 26209
     components:
