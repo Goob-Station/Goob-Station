@@ -10118,3 +10118,11 @@ Entries:
       message: reporter and news room on box
   id: 1125
   time: '2025-05-25T01:40:45.0000000+00:00'
+- author: Speebr0
+  changes:
+    - type: Tweak
+      message: Goliath hardsuits now only take an explorer suit and five plates!
+    - type: Tweak
+      message: Reinforcing an explorer suit only takes one plate each time now
+  id: 1126
+  time: '2025-05-25T01:41:12.0000000+00:00'
