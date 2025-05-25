@@ -4,6 +4,7 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 ImHoks <imhokzzzz@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
@@ -80,3 +81,14 @@
   parent: BaseGoldBorgModuleRecipe
   id: BorgModuleAdvancedMining
   result: BorgModuleAdvancedMining
+
+# AI
+- type: latheRecipe
+  id: AiRemoteBrain
+  result: AiRemoteBrain
+  completetime: 4
+  materials:
+    Steel: 300
+    Glass: 400
+    Gold: 400
+    Silver: 200
