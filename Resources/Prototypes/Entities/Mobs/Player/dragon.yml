@@ -312,6 +312,7 @@
   - type: ThermalVision # Goobstation - Thermal vision
   - type: CombatPower # Goobstation
     factor: 4 # times more dangerous than a crew-member
+  - type: Fauna # Lavaland Change
 
 - type: entity
   parent: BaseMobDragon
@@ -328,7 +329,6 @@
   - type: GuideHelp
     guides:
     - MinorAntagonists
-  - type: Fauna # Lavaland Change
 
 - type: entity
   categories: [ HideSpawnMenu ]

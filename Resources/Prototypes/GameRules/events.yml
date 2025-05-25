@@ -313,8 +313,8 @@
   id: DragonSpawn
   components:
   - type: StationEvent
-    weight: 2
-    earliestStart: 75
+    weight: 3
+    earliestStart: 45
     reoccurrenceDelay: 20
     minimumPlayers: 60
     duration: null
