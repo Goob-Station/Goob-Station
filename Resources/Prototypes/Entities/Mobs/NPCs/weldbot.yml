@@ -1,0 +1,59 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: MobSiliconBase
+  id: MobWeldbot
+  name: weldbot
+  description: No substitute for an engineer, but better than nothing.
+  components:
+  - type: Weldbot
+  - type: Sprite
+    sprite: _EinsteinEngines/Mobs/Silicon/Bots/weldbot.rsi
+    state: weldbot
+  - type: HTN
+    rootTask:
+      task: WeldbotCompound
+  - type: Construction
+    graph: WeldBot
+    node: bot
+  - type: NoSlip
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 110
+      behaviors:
+      - !type:TriggerBehavior
+    - trigger:
+        !type:DamageTrigger
+        damage: 120
+      behaviors:
+      - !type:SpillBehavior
+        solution: tank
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 100
+  - type: SentienceTarget
+    flavorKind: station-event-random-sentience-flavor-mechanical
+  - type: Anchorable
+  - type: InteractionPopup
+    interactSuccessString: petting-success-weldbot
+    interactFailureString: petting-failure-weldbot
+    interactSuccessSound:
+      path: /Audio/Ambience/Objects/periodic_beep.ogg
+  - type: ShowHealthBars
+    damageContainers:
+    - Inorganic
+    - Silicon
+  - type: ShowHealthIcons
+    damageContainers:
+    - Inorganic
+    - Silicon

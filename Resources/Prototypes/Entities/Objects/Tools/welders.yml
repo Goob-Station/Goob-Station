@@ -235,6 +235,7 @@
   - type: Tag
     tags:
     - DroneUsable # Goobstation
+    - WeldingTool # Einstein Engines
 
 - type: entity
   name: industrial welding tool

@@ -1,0 +1,32 @@
+- type: constructionGraph
+  id: PlantBot
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: bot
+      steps:
+      - tag: Bucket
+        icon:
+          sprite: Objects/Tools/bucket.rsi
+          state: icon
+        name: bucket
+      - tag: ProximitySensor
+        icon:
+          sprite: Objects/Misc/proximity_sensor.rsi
+          state: icon
+        name: proximity sensor
+        doAfter: 2
+      - tag: BorgArm
+        icon:
+          sprite: Mobs/Silicon/drone.rsi
+          state: l_hand
+        name: borg arm
+      - tag: HydroponicsToolClippers
+        icon:
+          sprite: Objects/Tools/Hydroponics/clippers.rsi
+          state: icon
+        name: plant clippers
+        doAfter: 2
+  - node: bot
+    entity: MobPlantbot
