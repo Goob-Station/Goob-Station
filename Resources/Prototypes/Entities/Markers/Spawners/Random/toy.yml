@@ -25,9 +25,13 @@
 # SPDX-FileCopyrightText: 2025 Bandit <queenjess521@gmail.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
+# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Shy Bandit <92641277+rotundfan@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 # SPDX-FileCopyrightText: 2025 grub <unalterableness@gmail.com>
 # SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
@@ -55,18 +59,28 @@
         - PlushieRaki
         - PlushieTina
         - PlushieKnott
-        - PlushieKury
         - PlushieZlorb
         - PlushieTiderMoth
         - PlushieCommandHuman
         - PlushieRanork
-        - PlushieByrrne
         - PlushieWehWinter
         - PlushieHaleigh
         - PlushieStoop
         - PlushieAhti
         - PlushieSparkle
         - PlushieGrub
+        - PlushieFern
+        - PlushieHexadecimal
+        - PlushieFlint
+        - PlushiePistachio
+        - PlushieSeesTheStars
+        - PlushieDumbLizard
+        - PlushieSqueaks
+        - PlushieHaato
+        - PlushieTinyLane
+        - PlushieChewsTheShoes
+
+
       rareChance: 0.03
       prototypes:
         - PlushieBee
@@ -91,6 +105,7 @@
         - PlushieArachind
         - PlushieBingle # Goobstation
         - PlushieSamantha # Goobstation
+        - PlushieJvne # Goobstation
         - PlushieAbductor # Goobstation
       chance: 0.5
       offset: 0.2
