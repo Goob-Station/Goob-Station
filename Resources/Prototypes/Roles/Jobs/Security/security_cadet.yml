@@ -131,7 +131,7 @@
     id: SecurityCadetPDA
     ears: ClothingHeadsetAltSecurityRegular # Goobstation
     belt: ClothingBeltSecurityFilled
-    pocket1: LaserSidearm #Goobstation
+    pocket1: WeaponLaserSidearm #Goobstation
     pocket2: BookSecurity
   storage:
     back:

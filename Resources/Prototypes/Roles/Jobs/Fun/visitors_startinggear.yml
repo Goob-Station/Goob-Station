@@ -241,7 +241,7 @@
     mask: ClothingMaskGasSecurity # Goobstation
     eyes: ClothingEyesGlassesSecurity
     outerClothing: ClothingOuterArmorBasic
-    pocket1: LaserSidearm
+    pocket1: WeaponLaserSidearm
   inhand:
   - FlashlightSeclite
 
@@ -259,7 +259,7 @@
     mask: ClothingMaskGasSecurity # Goobstation
     eyes: ClothingEyesGlassesSecurity
     outerClothing: ClothingOuterArmorBasicSlim
-    pocket1: LaserSidearm
+    pocket1: WeaponLaserSidearm
   inhand:
   - FlashlightSeclite
 
@@ -276,7 +276,7 @@
     mask: ClothingMaskGasSecurity # Goobstation
     eyes: ClothingEyesGlassesSecurity
     outerClothing: ClothingOuterArmorBasic
-    pocket1: LaserSidearm
+    pocket1: WeaponLaserSidearm
   inhand:
   - FlashlightSeclite
 
@@ -294,7 +294,7 @@
     mask: ClothingMaskGasSecurity # Goobstation
     eyes: ClothingEyesGlassesSecurity
     outerClothing: ClothingOuterArmorBasicSlim
-    pocket1: LaserSidearm
+    pocket1: WeaponLaserSidearm
   inhand:
   - FlashlightSeclite
 

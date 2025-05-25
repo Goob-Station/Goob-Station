@@ -112,7 +112,7 @@
   equipment:
     eyes: ClothingEyesGlassesSecurity
     ears: ClothingHeadsetAltSecurityRegular # Goobstation
-    pocket1: LaserSidearm #Goobstation
+    pocket1: WeaponLaserSidearm #Goobstation
   storage:
     back:
     - Flash
