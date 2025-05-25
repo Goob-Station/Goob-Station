@@ -10175,3 +10175,13 @@ Entries:
         it.
   id: 1128
   time: '2025-05-25T02:02:22.0000000+00:00'
+- author: Baptr0b0t
+  changes:
+    - type: Tweak
+      message: Command monitor now uses a private tracker implant.
+    - type: Fix
+      message: >-
+        Command monitor no longer stays idle when the crew monitoring server is
+        offline.
+  id: 1129
+  time: '2025-05-25T02:02:52.0000000+00:00'
