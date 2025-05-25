@@ -10098,3 +10098,90 @@ Entries:
       message: CSG shotgun no longer instakills at mid range.
   id: 1123
   time: '2025-05-25T00:11:48.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Added telecrystal miner for purchase for syndicate agents.
+  id: 1124
+  time: '2025-05-25T01:01:05.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Tweak
+      message: Teg setup on box
+    - type: Add
+      message: holopads on box
+    - type: Add
+      message: AI turrets on box
+    - type: Add
+      message: public lavaland on box
+    - type: Add
+      message: reporter and news room on box
+  id: 1125
+  time: '2025-05-25T01:40:45.0000000+00:00'
+- author: Speebr0
+  changes:
+    - type: Tweak
+      message: Goliath hardsuits now only take an explorer suit and five plates!
+    - type: Tweak
+      message: Reinforcing an explorer suit only takes one plate each time now
+  id: 1126
+  time: '2025-05-25T01:41:12.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: BSO now has an armored winter coat and winter jackboots.
+  id: 1127
+  time: '2025-05-25T01:45:25.0000000+00:00'
+- author: the_biggestbruh
+  changes:
+    - type: Add
+      message: >-
+        Changelings now have more objectives. These can either be high-risk
+        requests given by the Tiger Cooperative, or just your own instinct.
+    - type: Add
+      message: >-
+        Changeling "Extract x DNA samples" has returned. This cannot be
+        progressed if your DNA capacity has capped (meaning you are forced to
+        swap identities!).
+    - type: Tweak
+      message: >-
+        Stasis has been reworked - it no longer fully drains your chemicals, and
+        costs 30 to exit. The duration that you have to stay in stasis scales
+        with the damage you took - minimum of 30s up to 90s. If entered with 200
+        damage, it will instead last 120s. It also no longer uncuffs. 1984.
+    - type: Tweak
+      message: Absorbing will now fully restore your chemical storage.
+    - type: Tweak
+      message: >-
+        Absorbing other changelings will now net you half of their total
+        evolution points.
+    - type: Tweak
+      message: >-
+        Nuked some outdated information from the changeling guide. New
+        information (relating to the above changes) was added.
+    - type: Tweak
+      message: Chitinous armour helmet now has 15% reduction to fire damage
+    - type: Fix
+      message: >-
+        Banished that one stray pixel on the Chitinous Armour sprite to the deep
+        abyss. You will not be missed
+    - type: Fix
+      message: >-
+        Being defibbed while in stasis will no longer result in you having a
+        rejuvenate on demand.
+    - type: Fix
+      message: >-
+        Using stasis while dead should now actually inform you that you entered
+        it.
+  id: 1128
+  time: '2025-05-25T02:02:22.0000000+00:00'
+- author: Baptr0b0t
+  changes:
+    - type: Tweak
+      message: Command monitor now uses a private tracker implant.
+    - type: Fix
+      message: >-
+        Command monitor no longer stays idle when the crew monitoring server is
+        offline.
+  id: 1129
+  time: '2025-05-25T02:02:52.0000000+00:00'
