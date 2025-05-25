@@ -1,0 +1,644 @@
+#region Undertale
+
+- type: bark
+  id: BarksUndertaleAlphys
+  name: Alphys (Undertale)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/voice_alphys.ogg"
+
+- type: bark
+  id: BarksUndertaleAsgore
+  name: Asgore (Undertale)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/voice_asgore.ogg"
+
+- type: bark
+  id: BarksUndertaleFlowey
+  name: Flowey (Undertale)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/voice_flowey_1.ogg"
+
+- type: bark
+  id: BarksUndertaleFloweyEvil
+  name: Evil Flowey (Undertale)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/voice_flowey_2.ogg"
+
+- type: bark
+  id: BarksUndertaleGaster
+  name: Gaster (Undertale)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/voice_gaster_1.ogg"
+    - "/Audio/Corvax/Voice/Barks/voice_gaster_2.ogg"
+    - "/Audio/Corvax/Voice/Barks/voice_gaster_3.ogg"
+    - "/Audio/Corvax/Voice/Barks/voice_gaster_4.ogg"
+    - "/Audio/Corvax/Voice/Barks/voice_gaster_5.ogg"
+    - "/Audio/Corvax/Voice/Barks/voice_gaster_6.ogg"
+    - "/Audio/Corvax/Voice/Barks/voice_gaster_7.ogg"
+
+- type: bark
+  id: BarksUndertaleMettaton
+  name: Mettaton (Undertale)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/voice_metta_1.ogg"
+
+- type: bark
+  id: BarksUndertaleMonster1
+  name: Monster 1 (Undertale)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/voice_monster1.ogg"
+
+- type: bark
+  id: BarksUndertaleMonster2
+  name: Monster 2 (Undertale)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/voice_monster2.ogg"
+
+- type: bark
+  id: BarksUndertalePapyrus
+  name: Papyrus (Undertale)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/voice_papyrus.ogg"
+
+- type: bark
+  id: BarksUndertaleSans
+  name: Sans (Undertale)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/voice_sans.ogg"
+
+- type: bark
+  id: BarksUndertaleTemmie
+  name: Temmie (Undertale)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/voice_temmie.ogg"
+
+- type: bark
+  id: BarksUndertaleToriel
+  name: Toriel (Undertale)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/voice_toriel.ogg"
+
+- type: bark
+  id: BarksUndertaleUndyne
+  name: Undyne (Undertale)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/voice_undyne.ogg"
+
+#region Deltarune
+
+- type: bark
+  id: BarksUndertaleRalsei
+  name: Ralsei (Deltarune)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/voice_ralsei.ogg"
+
+- type: bark
+  id: BarksUndertaleSusie
+  name: Susie (Deltarune)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/voice_susie.ogg"
+
+#region Don't Starve
+
+- type: bark
+  id: BarksDontStarveWilson
+  name: Wilson (Don't Starve)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/wilson_bark.ogg"
+
+- type: bark
+  id: BarksDontStarveWolfgang
+  name: Wolfgang (Don't Starve)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/wolfgang_bark.ogg"
+
+- type: bark
+  id: BarksDontStarveWoodie
+  name: Woodie (Don't Starve)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/woodie_bark.ogg"
+
+- type: bark
+  id: BarksDontStarveWurt
+  name: Wurt (Don't Starve)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/wurt_bark.ogg"
+
+- type: bark
+  id: BarksDontStarveWX78
+  name: WX-78 (Don't Starve)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/wx78_bark.ogg"
+
+#region Goon Station
+
+- type: bark
+  id: BarksGoonBlub
+  name: Blub (Goon Station)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/blub.ogg"
+
+- type: bark
+  id: BarksGoonBottalk1
+  name: Bottalk 1 (Goon Station)
+  roundStart: false
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/bottalk_1.ogg"
+
+- type: bark
+  id: BarksGoonBottalk2
+  name: Bottalk 2 (Goon Station)
+  roundStart: false
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/bottalk_2.ogg"
+
+- type: bark
+  id: BarksGoonBottalk3
+  name: Bottalk 3 (Goon Station)
+  roundStart: false
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/bottalk_3.ogg"
+
+- type: bark
+  id: BarksGoonBottalk4
+  name: Bottalk 4 (Goon Station)
+  roundStart: false
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/bottalk_4.ogg"
+
+- type: bark
+  id: BarksGoonBuwoo
+  name: Buwoo (Goon Station)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/buwoo.ogg"
+
+- type: bark
+  id: BarksGoonCow
+  name: Cow (Goon Station)
+  roundStart: false
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/cow.ogg"
+
+- type: bark
+  id: BarksGoonLizard
+  name: Lizard (Goon Station)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/lizard.ogg"
+
+- type: bark
+  id: BarksGoonPug
+  name: Pug (Goon Station)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/pug.ogg"
+
+- type: bark
+  id: BarksGoonPugg
+  name: Pugg (Goon Station)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/pugg.ogg"
+
+- type: bark
+  id: BarksGoonRadio1
+  name: Radio 1 (Goon Station)
+  roundStart: false
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/radio.ogg"
+
+- type: bark
+  id: BarksGoonRadio2
+  name: Radio 2 (Goon Station)
+  roundStart: false
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/radio2.ogg"
+
+- type: bark
+  id: BarksGoonRadio3
+  name: Radio (AI) (Goon Station)
+  roundStart: false
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/radio_ai.ogg"
+
+- type: bark
+  id: BarksGoonRoach
+  name: Roach (Goon Station)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/roach.ogg"
+
+- type: bark
+  id: BarksGoonSkelly
+  name: Skelly (Goon Station)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/skelly.ogg"
+
+- type: bark
+  id: BarksGoonSpeak1
+  name: Speak 1 (Goon Station)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/speak_1.ogg"
+
+- type: bark
+  id: BarksGoonSpeak2
+  name: Speak 2 (Goon Station)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/speak_2.ogg"
+
+- type: bark
+  id: BarksGoonSpeak3
+  name: Speak 3 (Goon Station)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/speak_3.ogg"
+
+- type: bark
+  id: BarksGoonSpeak4
+  name: Speak 4 (Goon Station)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/speak_4.ogg"
+
+#region Ace Attorney
+
+- type: bark
+  id: BarksAceAttorneyTalk1
+  name: Ace Talk 1 (Ace Attorney)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/aa_blip.ogg"
+
+- type: bark
+  id: BarksAceAttorneyTalk2
+  name: Ace Talk 2 (Ace Attorney)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/aa_dd_blip.ogg"
+
+- type: bark
+  id: BarksAceAttorneyTalk3
+  name: Ace Talk 3 (Ace Attorney)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/aa_tgaa_blip.ogg"
+
+- type: bark
+  id: BarksAceAttorneyTalk4
+  name: Ace Typewriter (Ace Attorney)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/aa_blip_typewriter.ogg"
+
+#region Banjo-Kazooie
+
+- type: bark
+  id: BarksBanjoKazooieAhuh
+  name: Ahuh (Banjo-Kazooie)
+  roundStart: false
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/ahuh.ogg"
+
+- type: bark
+  id: BarksBanjoKazooieBirdwhistle1
+  name: Whistle 1 (Banjo-Kazooie)
+  roundStart: false
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/birdwhistle.ogg"
+
+- type: bark
+  id: BarksBanjoKazooieBirdwhistle2
+  name: Whistle 2 (Banjo-Kazooie)
+  roundStart: false
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/birdwhistle2.ogg"
+
+- type: bark
+  id: BarksBanjoKazooieCaw1
+  name: Caw 1 (Banjo-Kazooie)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/caw.ogg"
+
+- type: bark
+  id: BarksBanjoKazooieCaw2
+  name: Caw 2 (Banjo-Kazooie)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/caw2.ogg"
+
+- type: bark
+  id: BarksBanjoKazooieCaw3
+  name: Caw 3 (Banjo-Kazooie)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/caw3.ogg"
+
+- type: bark
+  id: BarksBanjoKazooieDwoop
+  name: Dwoop (Banjo-Kazooie)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/dwoop.ogg"
+
+- type: bark
+  id: BarksBanjoKazooieEhh1
+  name: Ehh 1 (Banjo-Kazooie)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/ehh.ogg"
+
+- type: bark
+  id: BarksBanjoKazooieEhh2
+  name: Ehh 2 (Banjo-Kazooie)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/ehh2.ogg"
+
+- type: bark
+  id: BarksBanjoKazooieEhh3
+  name: Ehh 3 (Banjo-Kazooie)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/ehh3.ogg"
+
+- type: bark
+  id: BarksBanjoKazooieEhh4
+  name: Ehh 4 (Banjo-Kazooie)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/ehh4.ogg"
+
+- type: bark
+  id: BarksBanjoKazooieEhh5
+  name: Ehh 5 (Banjo-Kazooie)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/ehh5.ogg"
+
+- type: bark
+  id: BarksBanjoKazooieEugh
+  name: Eugh (Banjo-Kazooie)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/eugh.ogg"
+
+- type: bark
+  id: BarksBanjoKazooieFaucet1
+  name: Faucet 1 (Banjo-Kazooie)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/faucet.ogg"
+
+- type: bark
+  id: BarksBanjoKazooieFaucet2
+  name: Faucet 2 (Banjo-Kazooie)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/faucet2.ogg"
+
+- type: bark
+  id: BarksBanjoKazooieGrowl1
+  name: Growl 1 (Banjo-Kazooie)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/growl.ogg"
+
+- type: bark
+  id: BarksBanjoKazooieGrowl2
+  name: Growl 2 (Banjo-Kazooie)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/growl2.ogg"
+
+- type: bark
+  id: BarksBanjoKazooieHaha
+  name: Haha (Banjo-Kazooie)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/haha.ogg"
+
+- type: bark
+  id: BarksBanjoKazooieHoot
+  name: Hoot (Banjo-Kazooie)
+  roundStart: false
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/hoot.ogg"
+
+- type: bark
+  id: BarksBanjoKazooieRaah1
+  name: Raah 1 (Banjo-Kazooie)
+  roundStart: false
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/raah1.ogg"
+
+- type: bark
+  id: BarksBanjoKazooieRaah2
+  name: Raah 2 (Banjo-Kazooie)
+  roundStart: false
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/raah2.ogg"
+
+- type: bark
+  id: BarksBanjoKazooieRibbit
+  name: Ribbit (Banjo-Kazooie)
+  roundStart: false
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/ribbit.ogg"
+
+- type: bark
+  id: BarksBanjoKazooieSlurp
+  name: Slurp (Banjo-Kazooie)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/slurp.ogg"
+
+- type: bark
+  id: BarksBanjoKazooieTweet
+  name: Tweet (Banjo-Kazooie)
+  roundStart: false
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/tweet.ogg"
+
+- type: bark
+  id: BarksBanjoKazooieUhm
+  name: Uhm (Banjo-Kazooie)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/uhm.ogg"
+
+- type: bark
+  id: BarksBanjoKazooieZap
+  name: Zap (Banjo-Kazooie)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/zap.ogg"
+
+#region Citadel Station
+
+- type: bark
+  id: BarksCitadelMutedString1
+  name: Muted String Low (Citadel Station)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/c2.ogg"
+
+- type: bark
+  id: BarksCitadelMutedString2
+  name: Muted String Medium (Citadel Station)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/c3.ogg"
+
+- type: bark
+  id: BarksCitadelMutedString3
+  name: Muted String High (Citadel Station)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/c4.ogg"
+
+- type: bark
+  id: BarksCitadelBanjo1
+  name: Banjo Medium (Citadel Station)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/cn3.ogg"
+
+- type: bark
+  id: BarksCitadelBanjo2
+  name: Banjo High (Citadel Station)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/cn4.ogg"
+
+- type: bark
+  id: BarksCitadelSqueaky
+  name: Squeaky (Citadel Station)
+  roundStart: false
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/toysqueak1.ogg"
+
+- type: bark
+  id: BarksCitadelBeepy
+  name: Beepy (Citadel Station)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/terminal_select.ogg"
+
+- type: bark
+  id: BarksCitadelChittery
+  name: Chittery (Citadel Station)
+  roundStart: false
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/chitter.ogg"
+
+- type: bark
+  id: BarksCitadelSynthetic1
+  name: Synthetic Grunt (Citadel Station)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/bloop.ogg"
+
+- type: bark
+  id: BarksCitadelSynthetic2
+  name: Synthetic Normal (Citadel Station)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/uplinkerror.ogg"
+
+- type: bark
+  id: BarksCitadelWindy
+  name: Windy (Citadel Station)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/bulletflyby.ogg"
+
+- type: bark
+  id: BarksCitadelBrassy
+  name: Brassy (Citadel Station)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/integration_cog_install.ogg"
+
+- type: bark
+  id: BarksCitadelMerp
+  name: Merp (Citadel Station)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/merp.ogg"
+
+- type: bark
+  id: BarksCitadelBark
+  name: Bark (Citadel Station)
+  roundStart: false
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/bark1.ogg"
+
+- type: bark
+  id: BarksCitadelNya
+  name: Nya (Citadel Station)
+  roundStart: false
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/nya.ogg"
+
+- type: bark
+  id: BarksCitadelWeh
+  name: Weh (Citadel Station)
+  roundStart: false
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/weh.ogg"
+
+#region Other
+
+- type: bark
+  id: BarksOtherBleat
+  name: Bleat (Other)
+  roundStart: false
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/bleat_bark.ogg"
+
+- type: bark
+  id: BarksOtherMoffSqueak
+  name: Moff Squeak (Other)
+  roundStart: false
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/mothsqueak.ogg"
+
+- type: bark
+  id: BarksOtherNomi
+  name: Nomi (Other)
+  roundStart: true
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/nomi.ogg"
+
+- type: bark
+  id: BarksOtherBelial
+  name: Belial (Other)
+  roundStart: false
+  soundFiles:
+    - "/Audio/Corvax/Voice/Barks/poyo.ogg"

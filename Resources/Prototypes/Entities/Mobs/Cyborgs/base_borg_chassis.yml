@@ -422,6 +422,8 @@
   - type: Penetratable # Goobstation - Better snipers
     penetrateDamage: 75 # It's harder to kill iron golem
     damagePenalty: 0.25
+  - type: SpeechSynthesis # Corvax-Frontier-Barks
+    voice: BarksCitadelSynthetic2 # Corvax-Frontier-Barks
 
 - type: entity
   abstract: true
