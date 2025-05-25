@@ -4,10 +4,9 @@
   name: oven
   description: It's magic, now adult sized.
   components:
-  - type: Microwave
-    capacity: 10
-    canMicrowaveIdsSafely: false # Goobstation
-    explosionChance: .25 # Goobstation
+  - type: CookingMachines
+    isOven: true
+    isOn: true
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -59,14 +58,6 @@
       shader: unshaded
       map: ["bloodyunshaded"]
       visible: false
-  - type: ActivatableUI
-    key: enum.MicrowaveUiKey.Key
-  - type: UserInterface
-    interfaces:
-      enum.MicrowaveUiKey.Key:
-        type: MicrowaveBoundUserInterface
-  - type: SolutionContainerCooking
-    useUI: false
   - type: EntityStorageVisuals
     stateBaseClosed: oven0     # Base layer
     stateDoorClosed: oven      # Door layer when closed

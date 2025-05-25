@@ -1,0 +1,8 @@
+- type: cookingRecipe
+  id: CookPizza
+  name: Pizza
+  input:
+    - FoodDough
+  output: FoodDoughCornmeal
+  requiredMachine: Oven
+  requiredTime: 5.0
