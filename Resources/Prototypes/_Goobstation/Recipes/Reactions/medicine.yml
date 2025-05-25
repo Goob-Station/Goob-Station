@@ -2,6 +2,8 @@
 # SPDX-FileCopyrightText: 2024 tiderwithagun <notrightnow@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 #
@@ -391,4 +393,31 @@
     Phlogiston:
       amount: 2
   products:
-    Herignis: 5  
+    Herignis: 5
+
+- type: reaction
+  id: Tramadol
+  reactants:
+    Acetone:
+      amount: 1
+    Inaprovaline:
+      amount: 1
+    Ethanol:
+      amount: 1
+  products:
+    Tramadol: 3
+
+- type: reaction
+  id: Oxycodone
+  reactants:
+    Tramadol:
+      amount: 1
+    Heroin:
+      amount: 1
+    Epinephrine:
+      amount: 1
+    Plasma:
+      amount: 5
+      catalyst: true
+  products:
+    Oxycodone: 1

@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 #
@@ -47,7 +48,7 @@
     mangledMultipliers:
       BoneDamage: 1
   - type: PainInflicter
-    multiplier: 0.48
+    multiplier: 0.87
   - type: BleedInflicter
     scalingSpeed: 0.8
     severityThreshold: 8
@@ -83,7 +84,7 @@
     mangledMultipliers:
       BoneDamage: 0.75
   - type: PainInflicter
-    multiplier: 0.32
+    multiplier: 0.67
   - type: BleedInflicter
     severityThreshold: 9
     scalingSpeed: 0.5
@@ -113,7 +114,7 @@
       VeinsDamage: -0.4
       NerveDamage: -0.4
   - type: PainInflicter
-    multiplier: 0.24
+    multiplier: 0.44
   - type: BleedInflicter
     scalingSpeed: 0.34
     severityThreshold: 5
@@ -149,7 +150,7 @@
     mangledMultipliers:
       BoneDamage: 0.6
   - type: PainInflicter
-    multiplier: 0.32
+    multiplier: 0.67
   - type: BleedInflicter
     scalingSpeed: 1.7
 
@@ -183,7 +184,7 @@
     mangledMultipliers:
       BoneDamage: 1
   - type: PainInflicter
-    multiplier: 0.6
+    multiplier: 0.8
   - type: BleedRemover
     severityThreshold: 3
 
@@ -265,7 +266,7 @@
       VeinsDamage: 0
       NerveDamage: 0.777
   - type: PainInflicter
-    multiplier: 0.34
+    multiplier: 0.77
 
 - type: entity
   id: Shock
