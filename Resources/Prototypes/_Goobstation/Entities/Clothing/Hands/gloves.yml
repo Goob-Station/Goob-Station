@@ -162,6 +162,8 @@
   - type: Fiber
     fiberMaterial: fibers-classified
     fiberColor: fibers-pitch-black
+  - type: Item
+    heldPrefix: null
   - type: ClothingGrantComponent
     component:
     - type: Prying
