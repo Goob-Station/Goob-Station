@@ -20,7 +20,7 @@
             ]
 		},
 		{
-			"name": "scalpel-inhand-left",
+			"name": "scalpel-inhand-right",
 			"directions": 4
 		},
 		{
@@ -32,7 +32,7 @@
 			"directions": 4
 		},
 		{
-			"name": "drill-inhand-right",
+			"name": "drill-inhand-left",
 			"directions": 4
 		}
 	]
