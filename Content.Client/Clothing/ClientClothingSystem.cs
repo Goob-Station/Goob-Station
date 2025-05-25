@@ -24,6 +24,9 @@
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2024 charlie <charlie.sc.wong@veiwsonic.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 paige404 <59348003+paige404@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -31,6 +34,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Client.DisplacementMap;
 using Content.Client.Inventory;
+using Content.Goobstation.Common.Clothing;
 using Content.Shared.Clothing;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.EntitySystems;
@@ -292,9 +296,22 @@ public sealed class ClientClothingSystem : ClothingSystem
             return;
         }
 
+        // Goob edit start
+        var slotLayerExists = false;
+        var index = 0;
+        var mapLayerEv = new GetActualMapLayerEvent(slot);
+        RaiseLocalEvent(equipment, ref mapLayerEv);
+        if (mapLayerEv.MapLayer != slot)
+            slotLayerExists = sprite.LayerMapTryGet(mapLayerEv.MapLayer, out index);
+
         // temporary, until layer draw depths get added. Basically: a layer with the key "slot" is being used as a
         // bookmark to determine where in the list of layers we should insert the clothing layers.
-        bool slotLayerExists = sprite.LayerMapTryGet(slot, out var index);
+        if (!slotLayerExists)
+            slotLayerExists = sprite.LayerMapTryGet(slot, out index);
+
+        var hiddenEv = new CheckClothingSlotHiddenEvent(slot);
+        RaiseLocalEvent(equipee, ref hiddenEv);
+        // Goob edit end
 
         // Select displacement maps
         var displacementData = inventory.Displacements.GetValueOrDefault(slot); //Default unsexed map
@@ -335,6 +352,8 @@ public sealed class ClientClothingSystem : ClothingSystem
                     sprite.LayerSetColor(key, layerData.Color.Value);
                 if (layerData.Scale != null)
                     sprite.LayerSetScale(key, layerData.Scale.Value);
+                if (!hiddenEv.Visible) // Goobstation
+                    sprite.LayerSetVisible(key, false);
             }
             else
                 index = sprite.LayerMapReserveBlank(key);
@@ -353,6 +372,8 @@ public sealed class ClientClothingSystem : ClothingSystem
 
             sprite.LayerSetData(index, layerData);
             layer.Offset += slotDef.Offset;
+            if (!hiddenEv.Visible) // Goobstation
+                layer.Visible = false;
 
             if (displacementData is not null)
             {

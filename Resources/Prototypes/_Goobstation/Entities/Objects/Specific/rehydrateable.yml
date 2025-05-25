@@ -134,3 +134,12 @@
   - type: Rehydratable
     possibleSpawns:
     - MobVoxRandom
+
+- type: entity
+  parent: MonkeyCube
+  id: ShadowkinCube
+  name: Shadowkin cube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobShadowkinRandom

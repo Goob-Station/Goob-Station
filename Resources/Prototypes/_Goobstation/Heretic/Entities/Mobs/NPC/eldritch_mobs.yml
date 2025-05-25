@@ -78,11 +78,10 @@
     - MindRoleGhostRoleFamiliar
     raffle:
       settings: short
-  - type: Tag
-    tags:
-    - MansusLinkMind
   - type: CollectiveMind
     defaultChannel: MansusLink
+    channels:
+    - MansusLink
 
 - type: entity
   parent: BaseMobGhoul
@@ -238,11 +237,10 @@
     rules: ghostrole-ghoul-rules
     raffle:
       settings: short
-  - type: Tag
-    tags:
-    - MansusLinkMind
   - type: CollectiveMind
     defaultChannel: MansusLink
+    channels:
+    - MansusLink
   - type: FactionException
   - type: NpcFactionMember
     factions:
@@ -282,6 +280,7 @@
     fuelCost: 15
   - type: FloatingVisuals
   - type: Body
+    bodyType: Simple
   - type: StatusIcon
     bounds: -0.5,-0.5,0.5,0.5
   - type: NameIdentifier
