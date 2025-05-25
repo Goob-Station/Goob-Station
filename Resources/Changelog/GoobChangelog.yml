@@ -10185,3 +10185,9 @@ Entries:
         offline.
   id: 1129
   time: '2025-05-25T02:02:52.0000000+00:00'
+- author: SlopsticeOfTheWinter, Lehmin
+  changes:
+    - type: Add
+      message: Chemists now have a unique ID card.
+  id: 1130
+  time: '2025-05-25T02:27:51.0000000+00:00'
