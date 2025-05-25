@@ -159,8 +159,6 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
     equippedPrefix: gauntlet
-  - type: Item
-    heldPrefix: gauntlet
   - type: Fiber
     fiberMaterial: fibers-classified
     fiberColor: fibers-pitch-black
@@ -195,6 +193,8 @@
           sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
           state: icon
         components:
+          - type: Item
+            heldPrefix: null
           - type: MeleeWeapon
             attackRate: 1.2
             damage:
@@ -220,6 +220,8 @@
           sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
           state: icon-on
         components:
+          - type: Item
+            heldPrefix: null
           - type: MeleeWeapon
             attackRate: 2
             autoAttack: true

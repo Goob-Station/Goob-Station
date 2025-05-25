@@ -374,7 +374,6 @@
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/bonesetter.rsi
     state: bonesetter
   - type: Item
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/bonesetter.rsi
   - type: BoneSetter
   - type: SurgeryTool
     startSound:
@@ -400,7 +399,6 @@
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/stitches.rsi
     state: stitches
   - type: Item
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/stitches.rsi
   - type: SurgeryTool
     startSound:
       path: /Audio/_Shitmed/Medical/Surgery/saw.ogg # TODO: SOUND
@@ -418,7 +416,6 @@
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-scalpel.rsi
     state: e-scalpel-on
   - type: Item
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-scalpel.rsi
     heldPrefix: scalpel
   - type: SurgeryTool
     startSound:
@@ -483,7 +480,6 @@
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/adv-retractor.rsi
     state: adv-retractor-on
   - type: Item
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/adv-retractor.rsi
     heldPrefix: retractor
   - type: SurgeryTool
     startSound:
@@ -547,7 +543,6 @@
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-cautery.rsi
     state: e-cautery-on
   - type: Item
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-cautery.rsi
     heldPrefix: cautery
   - type: SurgeryTool
     startSound:
@@ -607,7 +602,6 @@
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-bone-gel.rsi
     state: e-bone-gel-on
   - type: Item
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-bone-gel.rsi
     heldPrefix: bonegel
   - type: SurgeryTool
     startSound:
@@ -629,8 +623,8 @@
     showLabel: true
     state: bonegel
     states:
-      bone gel: !type:ItemSwitchState
-        verb: bonegel
+      bonegel: !type:ItemSwitchState
+        verb: bone gel
         sprite:
           sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-bone-gel.rsi
           state: e-bone-gel
@@ -644,7 +638,7 @@
             volume: -5
 
       bonesetter: !type:ItemSwitchState
-        verb: bonesetter
+        verb: bone setter
         sprite:
           sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-bone-gel.rsi
           state: e-bone-gel-on
