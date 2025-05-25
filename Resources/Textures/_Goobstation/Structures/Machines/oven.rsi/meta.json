@@ -1,0 +1,41 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from /tg/station at commit 9065b811726ae52be5d1889f436c01a24efbf47a, edited by github user @Flareguy for Space Station 14",
+    "states": [
+        {
+            "name": "oven"
+        },
+        {
+            "name": "oven_unlit"
+        },
+        {
+            "name": "oven0"
+        },
+        {
+            "name": "oven_running_unlit"
+        },
+        {
+            "name": "ovenb"
+        },
+        {
+            "name": "ovenbloody"
+        },
+        {
+            "name": "ovenbloody0"
+        },
+        {
+            "name": "ovenbloody1"
+        },
+        {
+            "name": "ovenbloodyo"
+        },
+        {
+            "name": "oveno"
+        }
+      ]
+    }
