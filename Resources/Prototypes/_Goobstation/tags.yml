@@ -217,6 +217,9 @@
   id: GasMask
 
 - type: Tag
+  id: GasMaskFullDefault
+
+- type: Tag
   id: GodHand
 
 - type: Tag
