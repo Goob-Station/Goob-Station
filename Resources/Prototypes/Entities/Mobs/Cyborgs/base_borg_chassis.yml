@@ -451,6 +451,8 @@
     intensitySlope: 20
     maxIntensity: 20
     canCreateVacuum: false # its for killing the borg not the station
+  - type: SignatureFont # imp
+    font: Sixtyfour
 
 - type: entity
   id: BaseBorgChassisNT

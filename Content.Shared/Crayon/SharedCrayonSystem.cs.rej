@@ -1,0 +1,7 @@
+diff a/Content.Shared/Crayon/SharedCrayonSystem.cs b/Content.Shared/Crayon/SharedCrayonSystem.cs	(rejected hunks)
+@@ -1,4 +1,4 @@
+-﻿namespace Content.Shared.Crayon;
++namespace Content.Shared.Crayon;
+ 
+ [Virtual]
+ public abstract class SharedCrayonSystem : EntitySystem { }

@@ -1,0 +1,16 @@
+diff a/Resources/Prototypes/Entities/Structures/Machines/lathe.yml b/Resources/Prototypes/Entities/Structures/Machines/lathe.yml	(rejected hunks)
+@@ -1237,14 +1237,6 @@
+       - ClothingOuterVestWebDurathread # Goobstation - adding durathread armoured clothing
+       - ClothingOuterArmourDurathread # Goobstation - adding durathread armoured clothing
+       - ClothingUniformJumpsuitDurathread # Goobstation - adding durathread armoured clothing
+-      # Begin DeltaV Additions
+-      - ClothingUniformCybersunAttorney
+-      - ClothingUniformCybersunHazard
+-      - ClothingUniformCybersunCasual
+-      - ClothingUniformCybersunRND
+-      - ClothingOuterCybersunOvercoat
+-      - ClothingBeltSyndicateUtility
+-      # End DeltaV Additions
+   - type: MaterialStorage
+     whitelist:
+       tags:

@@ -1,0 +1,10 @@
+diff a/Resources/Prototypes/_DV/Roles/Antags/recruiter.yml b/Resources/Prototypes/_DV/Roles/Antags/recruiter.yml	(rejected hunks)
+@@ -20,7 +20,7 @@
+     gloves: ClothingHandsGlovesColorWhite
+     outerClothing: ClothingOuterCybersunOvercoat
+     shoes: ClothingShoesLeather
+-    id: UndercoverPDA
++    id: PassengerPDA
+     ears: ClothingHeadsetGrey
+     pocket1: PenRecruiter
+     pocket2: RubberStampSyndicate

@@ -1,0 +1,17 @@
+﻿- type: entity
+  parent: BriefcaseBrown
+  id: CybersunBriefcase
+  name: cybersun briefcase
+  description: A black, metal briefcase produced by Cybersun.
+  components:
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 12
+    soundHit:
+      path: "/Audio/Weapons/smash.ogg"
+  - type: Sprite
+    sprite: _DV/Objects/Storage/Briefcases/briefcase_cybersun.rsi
+    state: icon
+  - type: Item
+    sprite: _DV/Objects/Storage/Briefcases/briefcase_cybersun.rsi

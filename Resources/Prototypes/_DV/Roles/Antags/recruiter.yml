@@ -1,0 +1,29 @@
+﻿- type: antag
+  id: Recruiter
+  name: roles-antag-syndicate-recruiter-name
+  objective: roles-antag-syndicate-recruiter-objective
+  antagonist: false # you ask questions and write papers not kill people
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 86400 # 24h so you probably know some general lore or something
+  - !type:RoleTimeRequirement
+    role: JobLawyer
+    time: 3600 # 1h as lawyer so you maybe know how to paperwork
+
+- type: startingGear
+  id: SyndicateRecruiterGear
+  equipment:
+    jumpsuit: ClothingUniformCybersunAttorney
+    back: ClothingBackpackSatchel
+    head: ClothingHeadHatFedoraBrown
+    eyes: ClothingEyesGlassesSunglasses
+    gloves: ClothingHandsGlovesColorWhite
+    outerClothing: ClothingOuterCybersunOvercoat
+    shoes: ClothingShoesLeather
+    id: PassengerPDA
+    ears: ClothingHeadsetGrey
+    pocket1: PenRecruiter
+    pocket2: RubberStampSyndicate
+    belt: ClothingBeltSyndicateUtility
+  inhand:
+  - CybersunBriefcase

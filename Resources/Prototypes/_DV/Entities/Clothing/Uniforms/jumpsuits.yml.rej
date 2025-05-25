@@ -1,0 +1,15 @@
+diff a/Resources/Prototypes/_DV/Entities/Clothing/Uniforms/jumpsuits.yml b/Resources/Prototypes/_DV/Entities/Clothing/Uniforms/jumpsuits.yml	(rejected hunks)
+@@ -32,3 +32,13 @@
+   - type: Clothing
+     sprite: _DV/Clothing/Uniforms/Jumpsuit/cybersunrnd.rsi
+ 
++- type: entity
++  parent: ClothingUniformBase
++  id: ClothingUniformCybersunAttorney
++  name: cybersun attorney suit
++  description: This durable Suit Jacket and Turtleneck Combo doubles as an Accounting suit, and includes an extra button. Take that, Nerd-otrasen!
++  components:
++  - type: Sprite
++    sprite: _DV/Clothing/Uniforms/Jumpsuit/cybersunattorney.rsi
++  - type: Clothing
++    sprite: _DV/Clothing/Uniforms/Jumpsuit/cybersunattorney.rsi

@@ -1,0 +1,25 @@
+diff a/Resources/Prototypes/Catalog/Fills/Items/briefcases.yml b/Resources/Prototypes/Catalog/Fills/Items/briefcases.yml	(rejected hunks)
+@@ -45,7 +45,7 @@
+ 
+ - type: entity
+   id: BriefcaseSyndieLobbyingBundleFilled
+-  parent: BriefcaseSyndie
++  parent: CybersunBriefcase # DeltaV
+   suffix: Syndicate, Spesos
+   components:
+   - type: StorageFill
+@@ -56,8 +56,12 @@
+       - id: EncryptionKeySyndie
+       - id: RubberStampTrader
+       - id: PhoneInstrumentSyndicate
+-      - id: ClothingUniformJumpsuitTacticool
+-      - id: ClothingOuterCoatJensen
++      # begin DeltaV
++      # - id: ClothingUniformJumpsuitTacticool
++      # - id: ClothingOuterCoatJensen
++      - id: ClothingOuterCybersunOvercoat
++      - id: ClothingUniformCybersunAttorney
++      # end DeltaV
+       - id: ClothingHandsGlovesCombat
+       - id: ClothingMaskNeckGaiter
+       - id: SyndieHandyFlag

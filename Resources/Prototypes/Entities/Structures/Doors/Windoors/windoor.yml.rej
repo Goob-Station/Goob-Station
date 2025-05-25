@@ -1,0 +1,16 @@
+diff a/Resources/Prototypes/Entities/Structures/Doors/Windoors/windoor.yml b/Resources/Prototypes/Entities/Structures/Doors/Windoors/windoor.yml	(rejected hunks)
+@@ -600,14 +600,3 @@
+   - type: ContainerFill
+     containers:
+       board: [ DoorElectronicsNukeop ]
+-
+-# begin imp
+-- type: entity
+-  parent: WindoorSecurePlasma
+-  id: PlasmaWindoorSecureSyndicateLocked
+-  suffix: Syndicate, Locked, Plasma
+-  components:
+-  - type: ContainerFill
+-    containers:
+-      board: [ DoorElectronicsSyndicateAgent ]
+-# end imp

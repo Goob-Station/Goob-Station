@@ -1,0 +1,11 @@
+diff a/Resources/Prototypes/Entities/Mobs/NPCs/revenant.yml b/Resources/Prototypes/Entities/Mobs/NPCs/revenant.yml	(rejected hunks)
+@@ -20,6 +20,9 @@
+     allowed:
+     - Stun
+     - Corporeal
++  - type: Hands # imp start
++    showInHands: false
++    disableExplosionRecursion: true # imp end
+   - type: Damageable
+     damageContainer: ManifestedSpirit
+     damageModifierSet: ManifestedSpirit

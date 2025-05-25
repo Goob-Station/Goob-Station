@@ -1,0 +1,20 @@
+diff a/Resources/Prototypes/Catalog/revenant_catalog.yml b/Resources/Prototypes/Catalog/revenant_catalog.yml	(rejected hunks)
+@@ -49,3 +49,18 @@
+   conditions:
+   - !type:ListingLimitedStockCondition
+     stock: 1
++
++# imp begin
++- type: listing
++  id: RevenantBloodWriting
++  name: revenant-blood-writing-name
++  description: revenant-blood-writing-desc
++  productAction: ActionRevenantBloodWriting
++  cost:
++    StolenEssence: 2
++  categories:
++  - RevenantAbilities
++  conditions:
++  - !type:ListingLimitedStockCondition
++    stock: 1
++# imp end

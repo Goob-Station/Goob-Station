@@ -1,0 +1,10 @@
+diff a/Resources/Prototypes/GameRules/unknown_shuttles.yml b/Resources/Prototypes/GameRules/unknown_shuttles.yml	(rejected hunks)
+@@ -28,7 +28,7 @@
+   table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+     children:
+     - !type:NestedSelector # DeltaV
+-      tableId: UnknownShuttlesFreelanceTableDeltaV
++      tableId: UnknownShuttlesFreelanceTableDV
+     - id: UnknownShuttleSyndieEvacPod
+ 
+ - type: entityTable

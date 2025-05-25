@@ -1,0 +1,14 @@
+diff a/Content.Server/Crayon/CrayonComponent.cs b/Content.Server/Crayon/CrayonComponent.cs	(rejected hunks)
+@@ -21,6 +21,12 @@ public sealed partial class CrayonComponent : SharedCrayonComponent
+         [DataField("capacity")]
+         public int Capacity { get; set; } = 30;
+ 
++        // begin imp
++        [ViewVariables(VVAccess.ReadWrite)]
++        [DataField("infinite")]
++        public bool Infinite { get; set; } = false;
++        // end imp
++
+         [ViewVariables(VVAccess.ReadWrite)]
+         [DataField("deleteEmpty")]
+         public bool DeleteEmpty = true;

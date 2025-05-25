@@ -1,0 +1,9 @@
+diff a/Resources/Prototypes/_DV/GameRules/unknown_shuttles.yml b/Resources/Prototypes/_DV/GameRules/unknown_shuttles.yml	(rejected hunks)
+@@ -9,7 +9,6 @@
+   id: SyndicateRecruiter
+   components:
+   - type: StationEvent
+-    startAnnouncement: false
+     weight: 4
+     minimumPlayers: 20
+     maxOccurrences: 1

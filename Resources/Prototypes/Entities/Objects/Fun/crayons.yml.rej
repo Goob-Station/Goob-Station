@@ -1,0 +1,10 @@
+diff a/Resources/Prototypes/Entities/Objects/Fun/crayons.yml b/Resources/Prototypes/Entities/Objects/Fun/crayons.yml	(rejected hunks)
+@@ -38,7 +38,7 @@
+   - type: StaticPrice
+     price: 5
+   - type: SignatureWriter # imp
+-    font: /Fonts/_DV/ComicNeue/ComicNeue-Bold.ttf
++    font: ComicNeueBold
+ 
+ - type: entity
+   parent: Crayon
