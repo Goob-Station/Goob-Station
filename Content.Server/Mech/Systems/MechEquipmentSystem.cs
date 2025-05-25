@@ -9,6 +9,8 @@
 // SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 BeBright <98597725+be1bright@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -53,7 +55,7 @@ public sealed class MechEquipmentSystem : EntitySystem
         if (args.User == mechComp.PilotSlot.ContainedEntity)
             return;
 
-        if (mechComp.EquipmentContainer.ContainedEntities.Count >= mechComp.MaxEquipmentAmount)
+        if (mechComp.EquipmentContainer.ContainedEntities.Count >= mechComp.MaxEquipmentAmount || mechComp.ArmorContainer.ContainedEntities.Count >= mechComp.MaxArmorAmount)
             return;
 
         if (_whitelistSystem.IsWhitelistFail(mechComp.EquipmentWhitelist, args.Used))
