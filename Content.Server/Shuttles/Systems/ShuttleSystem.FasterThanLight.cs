@@ -61,6 +61,7 @@
 // SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 FaDeOkno <logkedr18@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
@@ -82,6 +83,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
+using Content.Server._Goobstation.DropPod;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
 using Content.Server.Station.Events;
@@ -569,6 +571,13 @@ public sealed partial class ShuttleSystem
         QueueDel(entity.Comp1.VisualizerEntity);
         entity.Comp1.VisualizerEntity = null;
 
+        // Goobstation droppod start
+        var overridesEv = new DoFTLArrivingOverrideEvent();
+        RaiseLocalEvent(uid, ref overridesEv);
+        if (overridesEv.Cancelled)
+            return;
+        // Goobstation droppod end
+
         if (!Exists(entity.Comp1.TargetCoordinates.EntityId))
         {
             // Uhh good luck
@@ -626,8 +635,14 @@ public sealed partial class ShuttleSystem
         _thruster.DisableLinearThrusters(entity.Comp2);
 
         comp.TravelStream = _audio.Stop(comp.TravelStream);
-        var audio = _audio.PlayPvs(_arrivalSound, uid);
-        _audio.SetGridAudio(audio);
+
+        // Goobstation droppod start
+        if (overridesEv.PlaySound)
+        {
+            var audio = _audio.PlayPvs(_arrivalSound, uid);
+            _audio.SetGridAudio(audio);
+        }
+        // Goobstation droppod end
 
         if (TryComp<FTLDestinationComponent>(uid, out var dest))
         {
