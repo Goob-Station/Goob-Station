@@ -1,4 +1,6 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Bandit <queenjess521@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 RadsammyT <32146976+RadsammyT@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -690,5 +692,47 @@
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: syndicate_joker
-
+  - type: EmbeddableProjectile
+    sound: /Audio/Weapons/star_hit.ogg
+  - type: ThrowingAngle
+    angularVelocity: true # spins
+  - type: ThrowableBlocked # Goobstation
+  - type: LandAtCursor
+  - type: DamageOtherOnHit
+    ignoreResistances: true
+    damage:
+      types:
+        Slash: 6
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 7
+        reagents:
+        - ReagentId: Tirizene
+          Quantity: 3
+        - ReagentId: Bananadine
+          Quantity: 1.5
+        - ReagentId: Honk
+          Quantity: 0.5
+        - ReagentId: Laughter
+          Quantity: 2
+  - type: SolutionRegeneration
+    solution: injector
+    duration: 0.25
+    generated:
+      reagents:
+      - ReagentId: Tirizene
+        Quantity: 3
+      - ReagentId: Bananadine
+        Quantity: 1.5
+      - ReagentId: Honk
+        Quantity: 0.5
+      - ReagentId: Laughter
+        Quantity: 2
+  - type: SolutionInjectWhileEmbedded
+    transferAmount: 7
+    updateInterval: 0.1
+    maxInjections: 1
+    solution: injector
+    pierceArmor: false
 # endregion Syndicate Cards
