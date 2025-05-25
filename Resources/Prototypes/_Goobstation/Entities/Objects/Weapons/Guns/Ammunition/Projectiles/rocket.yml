@@ -35,23 +35,23 @@
   name: 93mm thermobaric rocket
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/thermobaricrocket.rsi
     layers:
-      - state: smallfrag
+      - state: thermobaric
   - type: Projectile
     damage:
       types:
-        Blunt: 25
-        Heat: 50
+        Blunt: 15
+        Heat: 15
         Structural: 50
   - type: StaminaDamageOnCollide
     damage: 150 # It's a fucking rocket
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: Firebomb
-    maxIntensity: 3
+    explosionType: Thermobaric
+    maxIntensity: 5
     intensitySlope: 1.5
-    totalIntensity: 12
+    totalIntensity: 70
     maxTileBreak: 0
   - type: PointLight
     radius: 3.5
