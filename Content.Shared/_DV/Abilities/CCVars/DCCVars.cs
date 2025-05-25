@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
@@ -44,7 +45,7 @@ public sealed class DCCVars
     /// How much entropy a convert is worth towards the next monument tier.
     /// </summary>
     public static readonly CVarDef<int> CosmicCultistEntropyValue =
-        CVarDef.Create("cosmiccult.cultist_entropy_value", 7, CVar.SERVER);
+        CVarDef.Create("cosmiccult.cultist_entropy_value", 5, CVar.SERVER);
 
     /// <summary>
     /// How much of the crew the cult is aiming to convert for a tier 3 monument.
