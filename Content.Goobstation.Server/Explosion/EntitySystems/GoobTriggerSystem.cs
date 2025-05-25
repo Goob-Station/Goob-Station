@@ -59,7 +59,8 @@ public sealed class GoobTriggerSystem : EntitySystem
 
     private void OnMeleeHit(Entity<TriggerOnMeleeComponent> ent, ref MeleeHitEvent args)
     {
-        if (!args.IsHit || args.HitEntities.Count <= 0)
+        if (!args.IsHit
+            || args.HitEntities.Count <= 0)
             return;
 
         _trigger.Trigger(ent, ent);
