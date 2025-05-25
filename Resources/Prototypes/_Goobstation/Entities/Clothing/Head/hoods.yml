@@ -1,5 +1,7 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+# SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -20,3 +22,14 @@
   - type: HideLayerClothing
     slots:
     - Hair
+
+- type: entity
+  parent: ClothingHeadHatHoodWinterBase
+  id: ClothingHeadHatHoodWinterBso
+  categories: [ HideSpawnMenu ]
+  name: blueshield's winter coat hood
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hoods/bso_winter_hood.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hoods/bso_winter_hood.rsi

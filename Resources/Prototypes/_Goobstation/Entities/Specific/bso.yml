@@ -1,7 +1,10 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Baptr0b0t <152836416+Baptr0b0t@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
@@ -27,7 +30,7 @@
   parent: [BaseItem, BaseCentcommContraband]
   id: HandheldCrewMonitorBSO
   name: handheld command monitor
-  description: A handheld crew monitor modified for blueshield officer's needs. Will only track scanned command personnel and alarm you about them being in danger. Works on a built-in microreactor cell.
+  description: A handheld crew monitor modified for blueshield officer's needs. Designed to inject a tracking device into command personnel and alarm you about them being in danger. Works on a built-in microreactor cell.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Security/bso_monitor.rsi
