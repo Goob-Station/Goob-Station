@@ -1,5 +1,7 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
@@ -111,7 +113,8 @@ public sealed class MeleeDashSystem : EntitySystem
         var weapon = GetEntity(msg.Weapon);
 
         if (!TryComp(weapon, out MeleeDashComponent? dash) ||
-            !TryComp(weapon, out UseDelayComponent? delay) || _useDelay.IsDelayed((weapon, delay)))
+            !TryComp(weapon, out UseDelayComponent? delay) || _useDelay.IsDelayed((weapon, delay), dash.Delay) ||
+            dash.RequiresWield && (!TryComp(weapon, out WieldableComponent? wieldable) || !wieldable.Wielded))
             return;
 
         var length = MathF.Min(msg.Direction.Length(), dash.MaxDashLength);
@@ -119,7 +122,7 @@ public sealed class MeleeDashSystem : EntitySystem
             return;
         var dir = msg.Direction.Normalized() * length;
 
-        _useDelay.TryResetDelay((weapon, delay));
+        _useDelay.TryResetDelay((weapon, delay), false, dash.Delay);
 
         var dashing = EnsureComp<DashingComponent>(user);
 

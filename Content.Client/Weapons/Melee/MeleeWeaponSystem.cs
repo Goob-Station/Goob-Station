@@ -36,8 +36,10 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Eagle <lincoln.mcqueen@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
@@ -173,30 +175,6 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
             coordinates = TransformSystem.ToCoordinates(_map.GetMap(mousePos.MapId), mousePos);
         }
 
-        // If the gun has AltFireComponent, it can be used to attack.
-        if (TryComp<GunComponent>(weaponUid, out var gun) && gun.UseKey)
-        {
-            if (!TryComp<AltFireMeleeComponent>(weaponUid, out var altFireComponent) || altDown != BoundKeyState.Down)
-                return;
-
-            switch(altFireComponent.AttackType)
-            {
-                case AltFireAttackType.Light:
-                    ClientLightAttack(entity, mousePos, coordinates, weaponUid, weapon);
-                    break;
-
-                case AltFireAttackType.Heavy:
-                    ClientHeavyAttack(entity, coordinates, weaponUid, weapon);
-                    break;
-
-                case AltFireAttackType.Disarm:
-                    ClientDisarm(entity, mousePos, coordinates);
-                    break;
-            }
-
-            return;
-        }
-
         // Heavy attack.
         if (altDown == BoundKeyState.Down)
         {
@@ -206,7 +184,27 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
                 ClientDisarm(entity, mousePos, coordinates);
                 return;
             }
+            // If the gun has AltFireComponent, it can be used to attack.
+            if (TryComp<GunComponent>(weaponUid, out var gun) && gun.UseKey &&
+                TryComp<AltFireMeleeComponent>(weaponUid, out var altFireComponent))
+            {
+                switch (altFireComponent.AttackType)
+                {
+                    case AltFireAttackType.Light:
+                        ClientLightAttack(entity, mousePos, coordinates, weaponUid, weapon);
+                        break;
 
+                    case AltFireAttackType.Heavy:
+                        ClientHeavyAttack(entity, coordinates, weaponUid, weapon);
+                        break;
+
+                    case AltFireAttackType.Disarm:
+                        ClientDisarm(entity, mousePos, coordinates);
+                        break;
+                }
+
+                return;
+            }
             // Goobstation start; TODO: put this more in-line with new structure
             // Blink, WD edit
             if (TryComp(weaponUid, out BlinkComponent? blink) && blink.IsActive)

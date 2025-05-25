@@ -114,6 +114,9 @@ uplink-bulk-mosin-desc = 10 WW4-era rifles to arm you, your friends, and your ca
 uplink-whimsy-bundle-name = Syndicate Joy & Whimsy Bundle
 uplink-whimsy-bundle-desc = Do YOU like spreading joy & whimsy? Well, Donk Co. has the solution for you! Contains a LIMITED EDITION axe and enough candy to kill a man.
 
+uplink-tidebreaker-name = Tidebreaker
+uplink-tidebreaker-desc = A shotgun specialized in rushing down opponents and breaking stalemates. It has a huge bayonet attachment, allowing it to charge and pierce whoever is in its way.
+
 uplink-m7s-name = M7S "Ventilator"
 uplink-m7s-desc = The spread of this submachine gun gets tighter the longer you suppress your foes with it. The gunshots are suppressed too. Pretty convenient.
 
