@@ -21,7 +21,10 @@
 # SPDX-FileCopyrightText: 2024 Speebro <speebro@notreal.com>
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Smith <182301147+AgentSmithRadio@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -48,6 +51,8 @@
     ClothingUniformJumpsuitSecBlue: 3
     ClothingHeadsetAltSecurityRegular: 3 # Goobstation
     ClothingOuterWinterSec: 2
+    ClothingOuterWinterSecArmored : 2 # Goobstation
+    ClothingShoesWinterCombatBoots : 2 # Goobstation
     ClothingOuterArmorBasic: 2
     ClothingNeckScarfStripedRed: 3
     ClothingOuterArmorBasicSlim: 2
