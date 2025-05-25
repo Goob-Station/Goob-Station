@@ -276,5 +276,12 @@ uplink-undetermined-bundle-desc = This crate comes with three random bundles and
 uplink-energy-pickaxe-name = Energy Pickaxe
 uplink-energy-pickaxe-desc = A holographic mining tool with blades comprised of hard light that also serves a deadly melee weapon. Rock and stone!
 
+
 uplink-nukie-bundle-name = Nuclear Operative Crate
 uplink-nukie-bundle-desc = Your bosses would be upset with you. Luckily they don't care as long as the job gets done, but they limit it only to one per Agent.
+
+uplink-tcminer-name = Telecrystal miner
+uplink-tcminer-desc = Contains a flatpack with telecrystal miner, A very loud machine that uses bluespace blockchain technology to generate telecrystals every 10 seconds when powered. Requires 10kW of energy and a connection to the primary station's grid. Multitool not included.
+
+uplink-bloodred-casette-name = Bloodred Casette Player
+uplink-bloodred-casette-desc = Provided by the most egotistical fashion designers of Cybersun, a portable music player!

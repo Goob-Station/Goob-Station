@@ -20,6 +20,7 @@
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 Bandit <queenjess521@gmail.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
@@ -27,10 +28,14 @@
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
 # SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
+# SPDX-FileCopyrightText: 2025 LuciferEOS <stepanteliatnik2022@gmail.com>
 # SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 LuciferMkshelter <stepanteliatnik2022@gmail.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Scruq445 <storchdamien@gmail.com>
+# SPDX-FileCopyrightText: 2025 Shy Bandit <92641277+rotundfan@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
@@ -275,6 +280,16 @@
       tags:
       - NukeOpsUplink
 
+- type: listing
+  id: UplinkTelecrystalMiner
+  name: uplink-tcminer-name
+  description: uplink-tcminer-desc
+  productEntity: TCminerFlatpack
+  cost:
+    Telecrystal: 60
+  categories:
+    - UplinkDisruption
+
 # Weaponry
 
 # - type: listing
@@ -382,7 +397,7 @@
   icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Shotguns/magshot.rsi, state: icon }
   productEntity: WeaponShotgunHeavy
   cost:
-    Telecrystal: 150
+    Telecrystal: 200
   categories:
   - UplinkWeaponry
 
@@ -1261,3 +1276,14 @@
       - NukieBundle
   - !type:ListingLimitedStockCondition
     stock: 1
+
+  id: UplinkBloodredCasette
+  name: uplink-bloodred-casette-name
+  description: uplink-bloodred-casette-desc
+  icon: { sprite: _Goobstation/Objects/Fun/bloodmonica.rsi, state: icon }
+  productEntity: BloodredCasette
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkPointless
+
