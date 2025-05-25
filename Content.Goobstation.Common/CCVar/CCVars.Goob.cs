@@ -18,6 +18,7 @@
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Poips <Hanakohashbrown@gmail.com>
 // SPDX-FileCopyrightText: 2025 PuroSlavKing <103608145+PuroSlavKing@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 // SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
@@ -514,6 +515,16 @@ public sealed partial class GoobCVars
         CVarDef.Create("shuttle.impact.inertia_scaling", 0.5f, CVar.SERVERONLY);
 
     #endregion
+
+    #endregion
+
+    #region Overlay Animations
+
+    /// <summary>
+    ///     Should we render overlay animations on the screen. Disable this to reduce lag
+    /// </summary>
+    public static readonly CVarDef<bool> OverlayAnimationsEnabled =
+        CVarDef.Create("overlay_animations.enabled", true, CVar.CLIENT | CVar.ARCHIVE);
 
     #endregion
 }
