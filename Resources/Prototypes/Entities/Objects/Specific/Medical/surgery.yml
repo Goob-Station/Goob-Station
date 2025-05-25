@@ -416,6 +416,7 @@
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-scalpel.rsi
     state: e-scalpel-on
   - type: Item
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-scalpel.rsi
     heldPrefix: scalpel
   - type: SurgeryTool
     startSound:
@@ -480,6 +481,7 @@
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/adv-retractor.rsi
     state: adv-retractor-on
   - type: Item
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/adv-retractor.rsi
     heldPrefix: retractor
   - type: SurgeryTool
     startSound:
@@ -543,6 +545,7 @@
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-cautery.rsi
     state: e-cautery-on
   - type: Item
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-cautery.rsi
     heldPrefix: cautery
   - type: SurgeryTool
     startSound:
