@@ -1,7 +1,9 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -70,45 +72,51 @@ public sealed partial class TrailComponent : Component
     /// <summary>
     /// Whether the trail should slowly fade out even when the entity was deleted.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool SpawnRemainingTrail = true;
 
     /// <summary>
     /// Used for spread, if <see cref="ParticleAmount"/> is greater than one.
     /// Zero angle faces towards projectile direction.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public Angle StartAngle;
 
     /// <summary>
     /// <inheritdoc cref="StartAngle"/>
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public Angle EndAngle;
 
     /// <summary>
     /// The less this value is, the more frequent the particles will be. This is basically time of each cycle.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float Frequency = 0.2f;
 
     /// <summary>
     /// Lifetime of one particle.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float Lifetime = 1f;
+
+    /// <summary>
+    /// Delay before a particle starts lerping.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public TimeSpan LerpDelay = TimeSpan.Zero;
 
     /// <summary>
     /// Velocity of a particle, aimed towards somewhere between <see cref="StartAngle"/> and <see cref="EndAngle"/>.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float Velocity;
 
     /// <summary>
     /// Less value for smoother lerps and more lag. You can get away with much less value, really.
     /// Affects <see cref="AlphaLerpAmount"/>, <see cref="ScaleLerpAmount"/> and <see cref="Velocity"/>
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float LerpTime = 0.05f;
 
     /// <summary>

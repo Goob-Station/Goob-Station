@@ -1528,6 +1528,7 @@
   loadouts:
   - ParamedicWindbreaker
   - ParamedicWintercoat
+  - ParamedicDavidsJacket # Goobstation
   - SeniorPhysicianLabCoat # Goobstation
 
 - type: loadoutGroup

@@ -8,6 +8,8 @@
 # SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aineias1 <142914808+Aineias1@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -44,6 +46,9 @@
     ClothingOuterCoatBomber: 3
     ClothingHeadHatSantahat: 2
     ClothingHeadHatXmasCrown: 2
+
+  contrabandInventory: # Goobstation
+    ClothingOuterDavidsJacket: 1
 
   emaggedInventory:
     ClothingNeckScarfStripedSyndieGreen: 3
