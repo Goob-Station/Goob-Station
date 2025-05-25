@@ -46,6 +46,7 @@ public sealed partial class ChangelingObjectiveSystem : EntitySystem
         var target = _number.GetTarget(uid);
         if (target != 0)
             args.Progress = MathF.Min(comp.LingAbsorbed / target, 1f);
-        else args.Progress = 1f;
+        else
+            args.Progress = 1f;
     }
 }
