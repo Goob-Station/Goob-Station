@@ -371,5 +371,3 @@
         Blunt: 0
     soundHit:
       path: /Audio/_DV/Voice/Vulpkanin/dog_snarl2.ogg
-    soundNoDamage:
-      path: /Audio/_DV/Voice/Vulpkanin/dog_snarl2.ogg
