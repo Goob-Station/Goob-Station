@@ -96,8 +96,8 @@ public sealed partial class BorgSystem
                 1f,
                 0,
                 hasBrain,
-                false,
-                false); // Corvax-Next-AiRemoteControl
+                false, // Corvax-Next-AiRemoteControl
+                false);
 
             var payload = new NetworkPayload()
             {
