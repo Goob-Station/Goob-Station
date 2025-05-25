@@ -50,6 +50,7 @@
 # SPDX-FileCopyrightText: 2025 terminatorbo <kovalevb059@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
+
 # Disruption
 
 - type: listing
@@ -1166,6 +1167,38 @@
     Telecrystal: 50  # Goob Bundle, get 8 pizza bombs and 7 regular pizzas. Bundle + Pizza boxes not telling the dangerous ones justifies the discount.
   categories:
   - UplinkExplosives
+
+- type: listing
+  id: UplinkM172
+  name: uplink-M172LAW-name
+  description: uplink-M172LAW-desc
+  productEntity: WeaponLauncherRocketDisposable
+  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Launchers/m172.rsi, state: icon }
+  cost:
+    Telecrystal: 6 # Basically a worse C4 but ranged
+  categories:
+  - UplinkExplosives
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkRPOA
+  name: uplink-RPOA-name
+  description: uplink-RPOA-desc
+  productEntity: WeaponLauncherRocketDisposableThermobaric
+  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Launchers/shmel.rsi, state: icon }
+  cost:
+    Telecrystal: 8 # you could buy two incendiary grenades for the same price
+  categories:
+  - UplinkExplosives
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
 
 # Misc
 - type: listing
