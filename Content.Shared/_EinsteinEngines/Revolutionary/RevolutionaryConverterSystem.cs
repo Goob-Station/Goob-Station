@@ -44,7 +44,9 @@ public sealed class RevolutionaryConverterSystem : EntitySystem
 
     private bool SpeakPropaganda(Entity<RevolutionaryConverterComponent> conversionToolEntity, EntityUid user)
     {
-        if(_speechLocalization == null || _speechLocalization.Values.Count == 0 || conversionToolEntity.Comp.Silent)
+        if(_speechLocalization == null
+            || _speechLocalization.Values.Count == 0
+            || conversionToolEntity.Comp.Silent)
             return false;
 
         var message = _random.Pick(_speechLocalization);
@@ -54,7 +56,8 @@ public sealed class RevolutionaryConverterSystem : EntitySystem
 
     public void OnConvertDoAfter(Entity<RevolutionaryConverterComponent> entity, ref RevolutionaryConverterDoAfterEvent args)
     {
-        if (args.Target == null || args.Cancelled)
+        if (args.Target == null
+            || args.Cancelled)
             return;
 
         var ev = new AfterConvertedEvent(args.Target!.Value, args.User, args.Used);
@@ -66,10 +69,13 @@ public sealed class RevolutionaryConverterSystem : EntitySystem
 
     public void OnConverterAfterInteract(Entity<RevolutionaryConverterComponent> entity, ref AfterInteractEvent args)
     {
-        if (args.Handled || !args.CanReach)
+        if (args.Handled
+            || !args.CanReach)
             return;
 
-        if (args.Target is not { Valid: true } target || !HasComp<MobStateComponent>(target) || !HasComp<HeadRevolutionaryComponent>(args.User))
+        if (args.Target is not { Valid: true } target
+            || !HasComp<MobStateComponent>(target)
+            || !HasComp<HeadRevolutionaryComponent>(args.User))
             return;
 
         ConvertDoAfter(entity, target, args.User);
@@ -83,7 +89,14 @@ public sealed class RevolutionaryConverterSystem : EntitySystem
 
         SpeakPropaganda(converter, user);
 
-        _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, converter.Comp.ConversionDuration, new RevolutionaryConverterDoAfterEvent(), converter.Owner, target: target, used: converter.Owner, showTo: converter.Owner)
+        _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager,
+            user,
+            converter.Comp.ConversionDuration,
+            new RevolutionaryConverterDoAfterEvent(),
+            converter.Owner,
+            target: target,
+            used: converter.Owner,
+            showTo: converter.Owner)
         {
             Hidden = !converter.Comp.VisibleDoAfter,
             BreakOnMove = false,
