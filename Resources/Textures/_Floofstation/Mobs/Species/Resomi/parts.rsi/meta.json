@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Created by EmoGarbage",
+    "copyright": "Created by EmoGarbage, touch-ups by Salem",
     "size": {
         "x": 32,
         "y": 32
@@ -65,6 +65,11 @@
         {
             "name": "groin_m",
             "directions": 4
+        },
+        {
+            "name": "PartsMcRaptor",
+            "directions": 4
         }
+
     ]
 }
