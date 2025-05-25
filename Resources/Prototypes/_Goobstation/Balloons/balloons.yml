@@ -71,7 +71,7 @@
           SpaceCash:
             min: 10
             max: 15
-      - !git type:DoActsBehavior
+      - !type:DoActsBehavior
         acts: [ "Destruction" ]
 
 # Blue Balloon
