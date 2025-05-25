@@ -9849,3 +9849,365 @@ Entries:
         fixed now, and the sprite has been added.
   id: 1098
   time: '2025-05-23T09:17:50.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Tweak
+      message: >-
+        Resprited the syndicate voidsuit, Humans, reptilians and vox now get
+        uniform sprites that conform to their body. from bay12
+  id: 1099
+  time: '2025-05-24T07:42:15.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Suit storage depends on the armor once again.
+  id: 1100
+  time: '2025-05-24T15:01:50.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: Added even more crew plushies!
+  id: 1101
+  time: '2025-05-24T20:16:37.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Fix
+      message: Species once again have their damage modifier sets.
+  id: 1102
+  time: '2025-05-24T21:37:30.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Lack of 1984. (Mice can't build girders and windows anymore.)
+    - type: Fix
+      message: >-
+        Biomass reclaimer should work again. - Mocho Note: Keep in mind it still
+        only works with catatonic entities, so behead anything you throw in
+        there to defeat the point of it
+    - type: Fix
+      message: Borgs can now properly build mechs.
+  id: 1103
+  time: '2025-05-24T22:00:42.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Warden's and head of security's armored winter coats now have very
+        slightly less armor.
+    - type: Tweak
+      message: Blueshield's armor vest is now 2x2.
+  id: 1104
+  time: '2025-05-24T22:01:58.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Bingle pit now comes with 3 additional starting bingles.
+    - type: Fix
+      message: Fixed bingle pit not regenerating.
+  id: 1105
+  time: '2025-05-24T22:05:06.0000000+00:00'
+- author: rotundfan
+  changes:
+    - type: Add
+      message: 'Bloodred Walkman to uplink. '
+  id: 1106
+  time: '2025-05-24T22:05:43.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Spears are 1x9, deal slightly more damage per hit and much more throwing
+        damage, have higher attack range but hit slightly slower.
+    - type: Tweak
+      message: >-
+        All shivs deal slightly more damage, except the uranium one, it deals
+        slightly less.
+    - type: Tweak
+      message: Baseball bat now deals more stamina damage, but is 2x4.
+  id: 1107
+  time: '2025-05-24T22:06:14.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Slipping while wearing speedboots takes much longer to stand up
+    - type: Tweak
+      message: Speed legs dont give noslip
+    - type: Tweak
+      message: Speed boots drain battery much much faster
+    - type: Tweak
+      message: Speed legs give you +5% speed per leg
+  id: 1108
+  time: '2025-05-24T22:09:38.0000000+00:00'
+- author: Arraydeess
+  changes:
+    - type: Add
+      message: Added a Craftable Boomerang!
+  id: 1109
+  time: '2025-05-24T22:12:38.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: Gas canisters and radiation collectors can now be automated.
+    - type: Add
+      message: Added pressure filters which can check tank/canister pressure.
+  id: 1110
+  time: '2025-05-24T22:15:14.0000000+00:00'
+- author: IrisTheAmped
+  changes:
+    - type: Fix
+      message: >-
+        After a long legal battle, Nanotrasen has decided Shadowkin can have
+        Survival Boxes.
+  id: 1111
+  time: '2025-05-24T22:20:42.0000000+00:00'
+- author: rotundfan
+  changes:
+    - type: Tweak
+      message: 'BSO Hardsuit internal storage is now satchel instead of backpack '
+  id: 1112
+  time: '2025-05-24T22:21:46.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Tweak
+      message: Several stations have had their AI cores changed. A.I. mains rejoice!
+    - type: Add
+      message: >-
+        AI now has AI turrets, though the control panel has not yet been
+        implemented. Manual activation of each turret is required by the AI.
+    - type: Add
+      message: Fland now has Holopads!
+    - type: Add
+      message: Origin now has Holopads!
+  id: 1113
+  time: '2025-05-24T22:24:39.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Ominous armor appearance now depends on heretic chosen path.
+  id: 1114
+  time: '2025-05-24T22:27:58.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Cultists worth slightly less when leveling up cult
+    - type: Tweak
+      message: Picking up cult gear is extremely dangerous for non-cultists
+    - type: Tweak
+      message: Entropic decay works on IPCs and is far faster acting
+    - type: Tweak
+      message: 'T3 healing passive heals faster '
+    - type: Tweak
+      message: Siphon use delay 50 > 10 seconds
+    - type: Tweak
+      message: Freeze use delay 45 > 24 seconds
+    - type: Tweak
+      message: Glare use delay 55 > 10 seconds (its a goddamn flash)
+    - type: Tweak
+      message: Door ability delay 40 > 5 seconds
+    - type: Tweak
+      message: T3 invincibility ability delay 180 > 60 seconds
+    - type: Tweak
+      message: Cult armor is better against most stuff now
+    - type: Tweak
+      message: >-
+        All abilities are cheaper (it used to cost 10 points to not need water
+        and food, they were really strangely priced)
+    - type: Tweak
+      message: Cult weapons deal airloss damage rather than cold damage
+    - type: Tweak
+      message: Cult weapons all deal Ion damage
+    - type: Tweak
+      message: Sword attacks faster but deals less overall damage
+    - type: Tweak
+      message: Spear is worse at melee but a strong throwing weapon
+    - type: Tweak
+      message: >-
+        Scythe is no longer unobtainable, is terrible at melee, but is a decent
+        ranged / area control weapon.
+  id: 1115
+  time: '2025-05-24T23:10:39.0000000+00:00'
+- author: rotundfan
+  changes:
+    - type: Add
+      message: >-
+        Getting a joker card thrown at you makes you honk and laugh and maybe
+        get high.
+  id: 1116
+  time: '2025-05-24T23:11:01.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Add
+      message: >-
+        Shotguns, SMGs and pistols can now melee bash, for 12, 10 and 8 damage
+        respectively
+    - type: Tweak
+      message: >-
+        Combat knives and kukris can now be used as bayonets (still only the PKA
+        supports it)
+  id: 1117
+  time: '2025-05-24T23:13:47.0000000+00:00'
+- author: ImHoks
+  changes:
+    - type: Add
+      message: Guardians can now target limbs.
+  id: 1118
+  time: '2025-05-24T23:42:54.0000000+00:00'
+- author: the_biggestbruh
+  changes:
+    - type: Tweak
+      message: >-
+        Aristocrat's way, void ascension and ash ascension have received a minor
+        refactor with regards to how it handles environmental immunities. This
+        won't change much, except for the fact that Aristocrat's way no longer
+        protects from high temperatures. 1984.
+  id: 1119
+  time: '2025-05-24T23:55:43.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Half gas mask. Cut gas mask with a sharp object to get it.
+    - type: Add
+      message: You can now wear masks underneath your hair by alt-clicking them.
+    - type: Fix
+      message: Jumpskirts no longer clip through hardsuits.
+  id: 1120
+  time: '2025-05-25T00:02:22.0000000+00:00'
+- author: IrisTheAmped
+  changes:
+    - type: Add
+      message: Captain suit selector. Captain's expensive af modsuit is now selectable.
+    - type: Tweak
+      message: >-
+        Captain voidsuit values have been adjusted to fit the lighter vs armored
+        choice now given.
+  id: 1121
+  time: '2025-05-25T00:04:37.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: The ghost bar is now a planet.
+  id: 1122
+  time: '2025-05-25T00:05:39.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: CSG shotgun price 150tc -> 200tc.
+    - type: Tweak
+      message: CSG shotgun has slower fire rate now.
+    - type: Tweak
+      message: CSG shotgun no longer instakills at mid range.
+  id: 1123
+  time: '2025-05-25T00:11:48.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Added telecrystal miner for purchase for syndicate agents.
+  id: 1124
+  time: '2025-05-25T01:01:05.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Tweak
+      message: Teg setup on box
+    - type: Add
+      message: holopads on box
+    - type: Add
+      message: AI turrets on box
+    - type: Add
+      message: public lavaland on box
+    - type: Add
+      message: reporter and news room on box
+  id: 1125
+  time: '2025-05-25T01:40:45.0000000+00:00'
+- author: Speebr0
+  changes:
+    - type: Tweak
+      message: Goliath hardsuits now only take an explorer suit and five plates!
+    - type: Tweak
+      message: Reinforcing an explorer suit only takes one plate each time now
+  id: 1126
+  time: '2025-05-25T01:41:12.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: BSO now has an armored winter coat and winter jackboots.
+  id: 1127
+  time: '2025-05-25T01:45:25.0000000+00:00'
+- author: the_biggestbruh
+  changes:
+    - type: Add
+      message: >-
+        Changelings now have more objectives. These can either be high-risk
+        requests given by the Tiger Cooperative, or just your own instinct.
+    - type: Add
+      message: >-
+        Changeling "Extract x DNA samples" has returned. This cannot be
+        progressed if your DNA capacity has capped (meaning you are forced to
+        swap identities!).
+    - type: Tweak
+      message: >-
+        Stasis has been reworked - it no longer fully drains your chemicals, and
+        costs 30 to exit. The duration that you have to stay in stasis scales
+        with the damage you took - minimum of 30s up to 90s. If entered with 200
+        damage, it will instead last 120s. It also no longer uncuffs. 1984.
+    - type: Tweak
+      message: Absorbing will now fully restore your chemical storage.
+    - type: Tweak
+      message: >-
+        Absorbing other changelings will now net you half of their total
+        evolution points.
+    - type: Tweak
+      message: >-
+        Nuked some outdated information from the changeling guide. New
+        information (relating to the above changes) was added.
+    - type: Tweak
+      message: Chitinous armour helmet now has 15% reduction to fire damage
+    - type: Fix
+      message: >-
+        Banished that one stray pixel on the Chitinous Armour sprite to the deep
+        abyss. You will not be missed
+    - type: Fix
+      message: >-
+        Being defibbed while in stasis will no longer result in you having a
+        rejuvenate on demand.
+    - type: Fix
+      message: >-
+        Using stasis while dead should now actually inform you that you entered
+        it.
+  id: 1128
+  time: '2025-05-25T02:02:22.0000000+00:00'
+- author: Baptr0b0t
+  changes:
+    - type: Tweak
+      message: Command monitor now uses a private tracker implant.
+    - type: Fix
+      message: >-
+        Command monitor no longer stays idle when the crew monitoring server is
+        offline.
+  id: 1129
+  time: '2025-05-25T02:02:52.0000000+00:00'
+- author: SlopsticeOfTheWinter, Lehmin
+  changes:
+    - type: Add
+      message: Chemists now have a unique ID card.
+  id: 1130
+  time: '2025-05-25T02:27:51.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Add
+      message: Resomi may now Chirp, Trill, Warble, and Wurble.
+    - type: Fix
+      message: Fixed resomi not being able to host anomalies.
+  id: 1131
+  time: '2025-05-25T02:52:44.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: HoS equipment is reworked, again.
+  id: 1132
+  time: '2025-05-25T03:35:00.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: Rules clean up. Space law updates.
+  id: 1133
+  time: '2025-05-25T06:15:24.0000000+00:00'

@@ -118,3 +118,27 @@
   id: AutomationSlotAutodocHand
   name: signal-port-name-automation-slot-autodoc-hand
   description: signal-port-description-automation-slot-autodoc-hand
+
+# Gas Canister
+
+- type: sourcePort
+  id: AutomationSlotGasTank
+  name: signal-port-name-automation-slot-gas-tank
+  description: signal-port-description-automation-slot-gas-tank
+
+# Radiation Collector
+
+- type: sourcePort
+  id: RadEmpty
+  name: signal-port-name-rad-empty
+  description: signal-port-description-rad-empty
+
+- type: sourcePort
+  id: RadLow
+  name: signal-port-name-rad-low
+  description: signal-port-description-rad-low
+
+- type: sourcePort
+  id: RadFull
+  name: signal-port-name-rad-full
+  description: signal-port-description-rad-full
