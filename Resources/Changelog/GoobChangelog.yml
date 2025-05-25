@@ -10098,3 +10098,9 @@ Entries:
       message: CSG shotgun no longer instakills at mid range.
   id: 1123
   time: '2025-05-25T00:11:48.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Added telecrystal miner for purchase for syndicate agents.
+  id: 1124
+  time: '2025-05-25T01:01:05.0000000+00:00'
