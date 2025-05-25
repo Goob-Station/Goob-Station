@@ -49,7 +49,7 @@
   id: DefaultMapPool
   maps:
   - Atlas
-  #- Amber TODO: goob amber
+  - Amber
   - Bagel
   - Box
   - Cluster

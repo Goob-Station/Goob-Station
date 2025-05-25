@@ -172,6 +172,7 @@ namespace Content.IntegrationTests.Tests
             "/Maps/_Goobstation/bagel.yml",
             "/Maps/_Goobstation/barratry.yml",
             "/Maps/_Goobstation/cluster.yml",
+            "/Maps/_Goobstation/amber.yml",
             "/Maps/_Goobstation/kettle.yml",
             "/Maps/_Goobstation/lambda.yml",
             "/Maps/_Goobstation/leonid.yml",
@@ -219,7 +220,7 @@ namespace Content.IntegrationTests.Tests
             "Submarine", // Goobstation - add Submarine
             "Lambda", // Goobstation - add Lambda
             "Leonid", // Goobstation - add Leonid
-            //"Amber", // NO AMBER DHH
+            "Amber", 
             "Gate", // Goobstation - goob changes
             "Lavatest", // Lavaland Change
             "Loop",
