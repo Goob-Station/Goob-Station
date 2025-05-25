@@ -10205,3 +10205,9 @@ Entries:
       message: HoS equipment is reworked, again.
   id: 1132
   time: '2025-05-25T03:35:00.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: Rules clean up. Space law updates.
+  id: 1133
+  time: '2025-05-25T06:15:24.0000000+00:00'
