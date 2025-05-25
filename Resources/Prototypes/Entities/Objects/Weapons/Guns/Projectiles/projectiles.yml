@@ -608,6 +608,12 @@
     - state: buster
   - type: SinguloFood
     energy: -500
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 8 # Goob
+    intensitySlope: 1 # Goob
+    totalIntensity: 200
+    maxTileBreak: 1
 
 - type: entity
   id: BulletCharge
@@ -830,8 +836,8 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    maxIntensity: 8 # Goob
-    intensitySlope: 1 # Goob
+    maxIntensity: 40
+    intensitySlope: 6
     totalIntensity: 200
     maxTileBreak: 1
   - type: PointLight
