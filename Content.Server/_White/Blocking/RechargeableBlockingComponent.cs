@@ -10,10 +10,10 @@ namespace Content.Server._White.Blocking;
 public sealed partial class RechargeableBlockingComponent : Component
 {
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float DischargedRechargeRate = 1.33f;
+    public float DischargedRechargeRate = 2f;
 
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float ChargedRechargeRate = 2f;
+    public float ChargedRechargeRate = 3f;
 
     [ViewVariables]
     public bool Discharged;

@@ -516,7 +516,7 @@
     - type: ComponentToggler
       components:
       - type: DisarmMalus
-        malus: 0.6
+        malus: 1 # Goob edit
     - type: Sprite
       sprite: Objects/Weapons/Melee/e_shield.rsi
       layers:
@@ -559,7 +559,7 @@
           Blunt: 1.0
           Slash: 0.9
           Piercing: 0.85
-          Heat: 0.5 # WD EDIT
+          Heat: 0.6
       activeBlockModifier:
         coefficients:
           Blunt: 1.2
@@ -576,11 +576,11 @@
       price: 350
       # WD EDIT START
     - type: Battery
-      maxCharge: 20
-      startingCharge: 20
+      maxCharge: 35
+      startingCharge: 35
     - type: BatterySelfRecharger
       autoRecharge: true
-      autoRechargeRate: 2
+      autoRechargeRate: 3
     - type: RechargeableBlocking
       # WD EDIT END
 
