@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2025 Agronomist-NN <glebikanov@gmail.com>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - files:
     - "accessory_drop.ogg"
     - "accessory_pickup.ogg"
