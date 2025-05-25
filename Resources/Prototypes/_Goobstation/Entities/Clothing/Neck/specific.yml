@@ -1,5 +1,7 @@
 # SPDX-FileCopyrightText: 2024 Weide <64257676+Lyacs@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Coenx-flex <coengmurray@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -35,3 +37,20 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/Neck/Misc/nopro.rsi
     quickEquip: true
+
+- type: entity
+  parent: ClothingNeckBase
+  id: MagicSuppressionAmulet
+  name: magic suppression amulet
+  description: An amulet that restricts the use of magic.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Misc/magic_suppression_amulet.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Misc/magic_suppression_amulet.rsi
+  - type: MagicSuppression
+  - type: ClothingAccessLock
+  - type: AccessReader
+    access: [ [ "Command" ], [ "Security" ], [ "Chapel" ] ]
+
+
