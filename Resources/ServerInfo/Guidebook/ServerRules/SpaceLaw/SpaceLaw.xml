@@ -39,10 +39,11 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
   - [bold]Mind Shields[/bold]: Shields can be administered to any inmate who has been clearly mind controlled, lost control of themselves, or a suspect charged with unlawful control. Unlike standard implantation you may hold a prisoner until you finish issuing Mind Shields, so long as it's done in a timely fashion. If a suspect refuses cooperate or the implant fails to function they can be charged with Refusal of Mental Shielding.
 
-  - Usage of contraband implanters is a detainable offense, but it's not reasonable to detain someone solely for having an unidentified implant inside them.
-
-  ### Removal
+  ## Removal
   - A suspect can be forced to receive implant removal if there is strong reasonable proof that they have been implanted, such as an officer seeing them use one or their prints being on a discarded injector. Unlike implantation procedure a prisoner can have their sentence entirely delayed or extended until they comply with the procedure, as long as security are actively making attempts to preform it. Akin to implanting, if an inmate gives their clear permission, implant removal can proceed without proof.
+
+  ## Blood testing
+  - Blood testing is a procedure that can be used to determine if a person is a [textlink="Changeling" link="Changelings"]. Blood testing may only be forced when there has been confirmation of changelings existence on the station.
 
   ## Sentencing
   - All sentencing is to be handled by the Warden, if no Warden is available the HoS is to take over that duty, if there's no HoS it falls onto the highest ranking command member.
@@ -59,7 +60,12 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
 
   # Execution
-  - [bold]All executions are to be confirmed and overseen by the Captain. A prisoner may request a specific execution method, if reasonable. Otherwise the most humane method is prefered. Refer to Standard Operating Procedure to further understand any guidelines applied to execution.[/bold]
+  - [bold]All executions are to be confirmed and overseen by the Captain. Exceptions to this rule exist. A prisoner may request a specific execution method, if reasonable. Otherwise the most humane method is prefered. Refer to Standard Operating Procedure to further understand any guidelines applied to execution.[/bold]
+
+  # Exceptions
+  - [bold]If a changeling is discovered they are kill on sight.[/bold]
+  - [bold]Any unauthorised magic use should be treated seriously and may be kill on sight[/bold]
+  - [bold]Any cases of weapons of mass destruction,extreme terrorism or clear intention to destroy the station are kill on sight[/bold]
 
   ## SOP guidelines
   - [textlink="Legal" link="Legal SOP"] refer to, for more in-depth guidelines.
