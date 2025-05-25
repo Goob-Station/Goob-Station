@@ -10132,3 +10132,46 @@ Entries:
       message: BSO now has an armored winter coat and winter jackboots.
   id: 1127
   time: '2025-05-25T01:45:25.0000000+00:00'
+- author: the_biggestbruh
+  changes:
+    - type: Add
+      message: >-
+        Changelings now have more objectives. These can either be high-risk
+        requests given by the Tiger Cooperative, or just your own instinct.
+    - type: Add
+      message: >-
+        Changeling "Extract x DNA samples" has returned. This cannot be
+        progressed if your DNA capacity has capped (meaning you are forced to
+        swap identities!).
+    - type: Tweak
+      message: >-
+        Stasis has been reworked - it no longer fully drains your chemicals, and
+        costs 30 to exit. The duration that you have to stay in stasis scales
+        with the damage you took - minimum of 30s up to 90s. If entered with 200
+        damage, it will instead last 120s. It also no longer uncuffs. 1984.
+    - type: Tweak
+      message: Absorbing will now fully restore your chemical storage.
+    - type: Tweak
+      message: >-
+        Absorbing other changelings will now net you half of their total
+        evolution points.
+    - type: Tweak
+      message: >-
+        Nuked some outdated information from the changeling guide. New
+        information (relating to the above changes) was added.
+    - type: Tweak
+      message: Chitinous armour helmet now has 15% reduction to fire damage
+    - type: Fix
+      message: >-
+        Banished that one stray pixel on the Chitinous Armour sprite to the deep
+        abyss. You will not be missed
+    - type: Fix
+      message: >-
+        Being defibbed while in stasis will no longer result in you having a
+        rejuvenate on demand.
+    - type: Fix
+      message: >-
+        Using stasis while dead should now actually inform you that you entered
+        it.
+  id: 1128
+  time: '2025-05-25T02:02:22.0000000+00:00'
