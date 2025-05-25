@@ -8,6 +8,8 @@
 # SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -57,6 +59,8 @@
     chaos: # Goobstation
       Hunger: -80
       Thirst: -40
+    chaosScore: -15 # Goobstation
+    eventType: FreeStuff # Goobstation
   - type: CargoGiftsRule
     description: cargo-gift-pizza-small
     dest: cargo-gift-dest-bar
@@ -78,6 +82,8 @@
     chaos: # Goobstation
       Hunger: -300
       Thirst: -120
+    chaosScore: -30 # Goobstation
+    eventType: FreeStuff # Goobstation
   - type: CargoGiftsRule
     description: cargo-gift-pizza-large
     dest: cargo-gift-dest-bar
@@ -98,6 +104,8 @@
     chaos: # Goobstation
       Atmos: -300
       Power: -100
+    chaosScore: -40 # Goobstation
+    eventType: FreeStuffUseful # Goobstation
   - type: CargoGiftsRule
     description: cargo-gift-eng
     dest: cargo-gift-dest-eng
@@ -121,6 +129,8 @@
     chaos: # Goobstation
       Hunger: -100
       Thirst: -100
+    chaosScore: -20 # Goobstation
+    eventType: FreeStuff # Goobstation
   - type: CargoGiftsRule
     description: cargo-gift-vending
     dest: cargo-gift-dest-supp
@@ -143,6 +153,8 @@
     earliestStart: 20
     chaos: # Goobstation
       Mess: -200
+    chaosScore: -20 # Goobstation
+    eventType: FreeStuff # Goobstation
   - type: CargoGiftsRule
     description: cargo-gift-cleaning
     dest: cargo-gift-dest-janitor
@@ -163,6 +175,8 @@
     chaos: #Goobstation
       Medical: -200
       Friend: 10
+    chaosScore: -40 # Goobstation
+    eventType: FreeStuffUseful # Goobstation
   - type: CargoGiftsRule
     description: cargo-gift-medical-supply
     dest: cargo-gift-dest-med
@@ -184,6 +198,8 @@
     minimumPlayers: 40
     chaos: # Goobstation
       Atmos: -300
+    chaosScore: -40 # Goobstation
+    eventType: FreeStuffUseful # Goobstation
   - type: CargoGiftsRule
     description: cargo-gift-space-protection
     dest: cargo-gift-dest-supp
@@ -205,6 +221,8 @@
     minimumPlayers: 40
     chaos: # Goobstation
       Atmos: -200
+    chaosScore: -35 # Goobstation
+    eventType: FreeStuffUseful # Goobstation
   - type: CargoGiftsRule
     description: cargo-gift-fire-protection
     dest: cargo-gift-dest-supp
@@ -225,6 +243,8 @@
     chaos: # Goobstation
       Hostile: -100
       Combat: -100
+    chaosScore: -90 # Goobstation
+    eventType: FreeStuffUseful # Goobstation
   - type: CargoGiftsRule
     description: cargo-gift-security-guns
     dest: cargo-gift-dest-sec
@@ -246,6 +266,8 @@
     chaos: # Goobstation
       Hostile: -30
       Combat: -30
+    chaosScore: -80 # Goobstation
+    eventType: FreeStuffUseful # Goobstation
   - type: CargoGiftsRule
     description: cargo-gift-security-riot
     dest: cargo-gift-dest-sec
