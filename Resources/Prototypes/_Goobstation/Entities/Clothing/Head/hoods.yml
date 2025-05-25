@@ -33,3 +33,20 @@
     sprite: _Goobstation/Clothing/Head/Hoods/bso_winter_hood.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Head/Hoods/bso_winter_hood.rsi
+
+- type: entity
+  parent: ClothingHeadHatHoodWinterBase
+  id: ClothingHeadHatHoodWinterSecarmored
+  categories: [ HideSpawnMenu ]
+  name: security winter coat hood
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hoods/secvestcoathead.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hoods/secvestcoathead.rsi
+
+- type: entity
+  parent: ClothingHeadHatHoodWinterSecarmored #totally not bloat
+  id: ClothingHeadHatHoodWinterSecSeniorarmored
+  categories: [ HideSpawnMenu ]
+  name: senior security winter coat hood
