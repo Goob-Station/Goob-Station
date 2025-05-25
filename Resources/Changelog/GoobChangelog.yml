@@ -10211,3 +10211,13 @@ Entries:
       message: Rules clean up. Space law updates.
   id: 1133
   time: '2025-05-25T06:15:24.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: >-
+        Science can now research new bluespace surgical gloves that allow to
+        perform surgery through clothing.
+    - type: Tweak
+      message: T2 surgery equipment and medical multitool were reworked.
+  id: 1134
+  time: '2025-05-25T06:49:12.0000000+00:00'
