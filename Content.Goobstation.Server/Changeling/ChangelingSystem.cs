@@ -16,6 +16,7 @@
 // SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Marcus F <marcus2008stoke@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Moony <ultimoprmo@gmail.com>
 // SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
@@ -240,16 +241,24 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         if (!_timing.IsFirstTimePredicted)
             return;
 
+        var now = _timing.CurTime;
+
         foreach (var comp in EntityManager.EntityQuery<ChangelingIdentityComponent>())
         {
             var uid = comp.Owner;
 
-            if (_timing.CurTime < comp.UpdateTimer)
-                continue;
+            if (now >= comp.UpdateTimer)
+            {
+                comp.UpdateTimer = now + TimeSpan.FromSeconds(comp.UpdateCooldown);
+                Cycle(uid, comp);
+            }
 
-            comp.UpdateTimer = _timing.CurTime + TimeSpan.FromSeconds(comp.UpdateCooldown);
-
-            Cycle(uid, comp);
+            // Stuff for Overdrive Biomass ability
+            if (comp.IsOverdriveActive && now >= comp.NextBiomassDrainTime)
+            {
+                comp.NextBiomassDrainTime = now + comp.BiomassDrainRate;
+                UpdateBiomass(uid, comp, comp.BiomassDrain);
+            }
         }
     }
     public void Cycle(EntityUid uid, ChangelingIdentityComponent comp)
@@ -276,6 +285,19 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         Dirty(uid, comp);
         _alerts.ShowAlert(uid, "ChangelingChemicals");
     }
+
+    private void UpdateBiomass(EntityUid uid, ChangelingIdentityComponent comp, float drainAmount)
+    {
+        comp.Biomass -= drainAmount;
+        comp.Biomass = Math.Clamp(comp.Biomass, 0, comp.MaxBiomass);
+        _alerts.ShowAlert(uid, "ChangelingBiomass");
+        if (comp.Biomass <= 0)
+        {
+            // Rest in peace </3
+            _damage.TryChangeDamage(uid, new DamageSpecifier(_proto.Index(AbsorbedDamageGroup), 50), true);
+        }
+    }
+
     private void UpdateAbilities(EntityUid uid, ChangelingIdentityComponent comp)
     {
         _speed.RefreshMovementSpeedModifiers(uid);

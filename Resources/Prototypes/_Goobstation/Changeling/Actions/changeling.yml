@@ -29,6 +29,7 @@
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Marcus F <marcus2008stoke@gmail.com>
+# SPDX-FileCopyrightText: 2025 Moony <ultimoprmo@gmail.com>
 # SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
@@ -711,3 +712,22 @@
     chemicalCost: 0
     useInLesserForm: true
     useInLastResort: true
+
+
+- type: entity
+  id: ActionChemicalOverdrive
+  name: Chemical Overdrive
+  description: Start using your own biomass for more chemically production. There's no going back.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    checkConsciousness: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: chemical_overdrive
+    event: !type:ActionChemicalOverdriveEvent {}
+  - type: ChangelingAction
+    chemicalCost: 0
+    useInLesserForm: true

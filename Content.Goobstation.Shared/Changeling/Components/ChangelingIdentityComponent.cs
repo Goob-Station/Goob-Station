@@ -14,6 +14,7 @@
 // SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Marcus F <marcus2008stoke@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Moony <ultimoprmo@gmail.com>
 // SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
@@ -66,6 +67,11 @@ public sealed partial class ChangelingIdentityComponent : Component
 
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public ProtoId<FactionIconPrototype> StatusIcon { get; set; } = "HivemindFaction";
+
+    [DataField]
+    public bool IsOverdriveActive = false;
+    [DataField]
+    public TimeSpan NextBiomassDrainTime = TimeSpan.Zero;
 
     #endregion
 
@@ -172,6 +178,29 @@ public sealed partial class ChangelingIdentityComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public int TotalStolenDNA = 0;
+
+    /// <summary>
+    ///     How often biomass is drained, while under ChemicalOverdrive; lasts 20 minutes.
+    /// </summary>
+    public TimeSpan BiomassDrainRate = TimeSpan.FromSeconds(12);
+
+    /// <summary>
+    ///     How much biomass is drained, while under ChemicalOverdrive.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float BiomassDrain = 1f;
+
+    /// <summary>
+    ///     Current amount of biomass.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float Biomass = 100f;
+
+    /// <summary>
+    ///     Maximum amount of Biomass.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float MaxBiomass = 100f;
 
     [ViewVariables(VVAccess.ReadOnly)]
     public TransformData? CurrentForm;

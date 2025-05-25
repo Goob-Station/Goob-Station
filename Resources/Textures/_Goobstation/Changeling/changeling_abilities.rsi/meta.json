@@ -115,8 +115,11 @@
         {
             "name": "hammer"
         },
-	{
+	    {
             "name": "void_adaptation"
+        },
+        {
+            "name": "chemical_overdrive"
         }
     ]
 }

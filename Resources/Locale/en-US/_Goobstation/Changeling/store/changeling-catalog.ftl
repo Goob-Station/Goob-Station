@@ -174,6 +174,10 @@ evolutionmenu-utility-hivemindaccess-desc =
     Tunes our chemical receptors for hivemind communication, allowing us to recognize and communicate with other changelings who have also evolved this ability.
     Default key is +h
 
+evolutionmenu-utility-chemicaloverdrive-name = Chemical Overdrive
+evolutionmenu-utility-chemicaloverdrive-desc =
+    Begin slowly eating our own DNA, eventually killing us but allowing us to regenrate chemicals faster. The only way to avoid death is not going too long without absorbing someone. Carefull! There's no going back!
+
 evolutionmenu-utility-absorbbiomatter-name = Absorb Biomatter
 evolutionmenu-utility-absorbbiomatter-desc =
     Absorbs an organic food item, letting you regain chemicals depending on its contents.
