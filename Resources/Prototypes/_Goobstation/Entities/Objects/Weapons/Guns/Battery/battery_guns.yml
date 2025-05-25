@@ -15,6 +15,9 @@
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Tim <timfalken@hotmail.com>
+# SPDX-FileCopyrightText: 2025 Tim Falken <tim@sparklingsociety.net>
+# SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
@@ -214,7 +217,7 @@
   description: A non-lethal self-defense weapon for agents not trustable with traditional lethals. Recharges over time.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/disabler.rsi
+    sprite: _EinsteinEngines/Objects/Weapons/Guns/Battery/ccdisabler.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -222,7 +225,7 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/disabler.rsi
+    sprite: _EinsteinEngines/Objects/Weapons/Guns/Battery/ccdisabler.rsi
     quickEquip: false
     slots:
     - suitStorage
@@ -293,7 +296,7 @@
 
 - type: entity
   name: DT-12 "Lawbringer"
-  parent: [BaseWeaponBatterySmall, BaseSecurityContraband]
+  parent: [BaseWeaponBatterySmall, BaseGrandTheftContraband]
   id: WeaponEnergyGunLawbringer
   description: A versatile energy gun, with many different modes. The owner of this gun embodies the law itself.
   components:
@@ -353,8 +356,11 @@
         shader: unshaded
   - type: Tag
     tags:
+    - HighRiskItem
     - Sidearm
     - WeaponEnergyGunLawbringer
+  - type: StealTarget
+    stealGroup: WeaponEnergyGunLawbringer
   - type: RestrictById
     restrictMelee: true
     restrictRanged: true
@@ -380,9 +386,9 @@
     repeatable: true
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 25
+    autoRechargeRate: 50
     autoRechargePause: true
-    autoRechargePauseTime: 50
+    autoRechargePauseTime: 40
 
 - type: entity
   name: ion rifle

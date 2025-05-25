@@ -1,5 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Baptr0b0t <152836416+Baptr0b0t@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+
 // SPDX-FileCopyrightText: 2025 Tim <timfalken@hotmail.com>
 // SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 //
@@ -29,24 +31,6 @@ public sealed class RelayedDeathrattleSystem : EntitySystem
         if (comp.Target == null)
             return;
 
-        if (comp.RequireCrewMonitor && TryComp<CrewMonitoringConsoleComponent>(comp.Target, out var monitor))
-        {
-            var found = false;
-            foreach (var pair in monitor.ConnectedSensors)
-            {
-                if (found)
-                    continue;
-
-                var sensorUid = GetEntity(pair.Value.SuitSensorUid);
-                if (!HasComp<TransformComponent>(sensorUid))
-                    continue;
-
-                if (uid == Transform(sensorUid).ParentUid)
-                    found = true;
-            }
-            if (!found)
-                return;
-        }
 
         bool dead;
         var posText = FormattedMessage.RemoveMarkupOrThrow(_navMap.GetNearestBeaconString(uid));
