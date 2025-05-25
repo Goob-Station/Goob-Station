@@ -165,13 +165,6 @@
     receiveFrequencyId: Fax
     transmitFrequencyId: Fax
   - type: ItemSlots
-    slots:
-      Paper:
-        insertSound: /Audio/Machines/scanning.ogg
-        ejectSound: /Audio/Machines/tray_eject.ogg
-        whitelist:
-          components:
-            - FaxableObject #used to be PaperComponent - brainfood1183
   - type: ContainerContainer
     containers:
       Paper: !type:ContainerSlot
