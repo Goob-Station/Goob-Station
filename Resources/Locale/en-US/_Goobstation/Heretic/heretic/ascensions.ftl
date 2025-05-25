@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 heretic-ascension-ash =
     The Watch is dead, the Nightwatcher burned with it. Yet his fire burns evermore,
     for the Nightwatcher brought forth the rite to mankind! His gaze continues, as now I am one with the flames,
@@ -21,3 +30,8 @@ heretic-ascension-void =
     The world falls into darkness. I stand in an empty plane, small flakes of ice fall from the sky.
     The Aristocrat stands before me, beckoning. We will play a waltz to the whispers of dying reality,
     as the world is destroyed before our eyes. The void will return all to nothing, WITNESS MY ASCENSION!
+
+heretic-ascension-rust =
+    Champion of rust. Corruptor of steel.
+    Fear the dark, for the RUSTBRINGER has come!
+    The Blacksmith forges ahead! Rusted Hills, CALL MY NAME! WITNESS MY ASCENSION!

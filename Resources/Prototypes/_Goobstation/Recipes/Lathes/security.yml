@@ -1,3 +1,29 @@
+# SPDX-FileCopyrightText: 2024 NULL882 <gost6865@yandex.ru>
+# SPDX-FileCopyrightText: 2024 Remuchi <72476615+Remuchi@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 VMSolidus <evilexecutive@gmail.com>
+# SPDX-FileCopyrightText: 2024 a_person <40855173+a-person5660@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
+# SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: latheRecipe
   id: GrenadeFlashBang
   result: GrenadeFlashBang
@@ -5,6 +31,16 @@
   materials:
     Steel: 100
     Plastic: 100
+
+- type: latheRecipe
+  id: HoloprojectorSecurityAdvanced
+  result: HoloprojectorSecurityAdvanced
+  completetime: 6
+  materials:
+    Steel: 500
+    Plastic: 200
+    Glass: 300
+    Plasma: 200
 
 - type: latheRecipe
   id: BolaEnergy
@@ -16,6 +52,14 @@
 - type: latheRecipe
   id: CartridgeEpinephrine
   result: CartridgeEpinephrine
+  completetime: 1
+  materials:
+    Steel: 100
+    Glass: 300
+
+- type: latheRecipe
+  id: CartridgeAtropine
+  result: CartridgeAtropine
   completetime: 1
   materials:
     Steel: 100
@@ -38,14 +82,21 @@
     Glass: 300
 
 - type: latheRecipe
+  id: CartridgeSaline
+  result: CartridgeSaline
+  completetime: 1
+  materials:
+    Steel: 100
+    Glass: 300
+
+- type: latheRecipe
   id: CartridgeEphedrine
   result: CartridgeEphedrine
   completetime: 1
   materials:
     Steel: 200
-    Glass: 500
+    Glass: 400
     Plasma: 200
-    Gold: 200
 
 - type: latheRecipe
   id: CartridgePuncturase
@@ -53,9 +104,17 @@
   completetime: 1
   materials:
     Steel: 200
-    Glass: 500
-    Plasma: 500
-    Gold: 200
+    Glass: 400
+    Plasma: 200
+
+- type: latheRecipe
+  id: CartridgeTirizene
+  result: CartridgeTirizene
+  completetime: 1
+  materials:
+    Steel: 200
+    Glass: 400
+    Plasma: 200
 
 - type: latheRecipe
   id: SecHypo
@@ -67,11 +126,72 @@
     Glass: 1200
     Gold: 500
 
+# Guns
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponTemperatureGun
+  result: WeaponTemperatureGun
+  materials:
+    Steel: 1500
+    Glass: 800
+    Plastic: 500
+    Plasma: 500
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponEnergyRifle
+  result: WeaponEnergyRifle
+  materials:
+    Steel: 1500
+    Plastic: 1000
+    Silver: 500
+    Gold: 500
+    Glass: 850
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponEnergyIonRifle
+  result: WeaponEnergyIonRifle
+  materials:
+    Steel: 1200
+    Plastic: 600
+    Gold: 300
+
+- type: latheRecipe
+  id: Terminus
+  result: Terminus # Einstein Engines
+  completetime: 6
+  materials:
+    Steel: 1250
+    Plastic: 750
+    Gold: 500
+
+# Smartgun
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponSubMachineSmart
+  result: WeaponSubMachineSmart
+  materials:
+    Steel: 1800
+    Plastic: 750
+    Silver: 500
+    Gold: 500
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineSmart
+  result: MagazineSmart
+  materials:
+    Steel: 550
+
 # Mech Weapons
 - type: latheRecipe
   id: WeaponMechCombatImmolationGun
   result: WeaponMechCombatImmolationGun
-  category: MechWeapons
+  categories:
+  - MechWeapons
   completetime: 10
   materials:
     Steel: 2800
@@ -82,7 +202,8 @@
 - type: latheRecipe
   id: WeaponMechCombatSolarisLaser
   result: WeaponMechCombatSolarisLaser
-  category: MechWeapons
+  categories:
+  - MechWeapons
   completetime: 10
   materials:
     Steel: 1650
@@ -93,7 +214,8 @@
 - type: latheRecipe
   id: WeaponMechCombatFiredartLaser
   result: WeaponMechCombatFiredartLaser
-  category: MechWeapons
+  categories:
+  - MechWeapons
   completetime: 10
   materials:
     Steel: 1200
@@ -104,7 +226,8 @@
 - type: latheRecipe
   id: WeaponMechCombatUltraRifle
   result: WeaponMechCombatUltraRifle
-  category: MechWeapons
+  categories:
+  - MechWeapons
   completetime: 10
   materials:
     Steel: 1000
@@ -113,7 +236,8 @@
 - type: latheRecipe
   id: WeaponMechCombatShotgun
   result: WeaponMechCombatShotgun
-  category: MechWeapons
+  categories:
+  - MechWeapons
   completetime: 10
   materials:
     Steel: 1600
@@ -122,7 +246,8 @@
 - type: latheRecipe
   id: WeaponMechCombatShotgunIncendiary
   result: WeaponMechCombatShotgunIncendiary
-  category: MechWeapons
+  categories:
+  - MechWeapons
   completetime: 10
   materials:
     Steel: 1500
@@ -132,7 +257,8 @@
 - type: latheRecipe
   id: WeaponMechCombatDisabler
   result: WeaponMechCombatDisabler
-  category: MechWeapons
+  categories:
+  - MechWeapons
   completetime: 10
   materials:
     Steel: 750
@@ -142,7 +268,8 @@
 - type: latheRecipe
   id: WeaponMechCombatFlashbangLauncher
   result: WeaponMechCombatFlashbangLauncher
-  category: MechWeapons
+  categories:
+  - MechWeapons
   completetime: 10
   materials:
     Steel: 1200
@@ -152,7 +279,8 @@
 - type: latheRecipe
   id: WeaponMechCombatMissileRack8
   result: WeaponMechCombatMissileRack8
-  category: MechWeapons
+  categories:
+  - MechWeapons
   completetime: 10
   materials:
     Steel: 2500
@@ -162,7 +290,8 @@
 - type: latheRecipe
   id: MechEquipmentKineticAccelerator
   result: WeaponMechIndustrialKineticAccelerator
-  category: MechEquipment
+  categories:
+  - MechWeapons
   completetime: 10
   materials:
     Steel: 1500
@@ -173,10 +302,58 @@
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
+  id: EnergyMagRifleLethal
+  result: EnergyMagRifleLethal
+  materials:
+    Steel: 400
+    Gold: 200
+    Glass: 300
+    Plasma: 200
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: EnergyMagRifleDisabler
+  result: EnergyMagRifleDisabler
+  materials:
+    Steel: 400
+    Gold: 200
+    Glass: 300
+    Plasma: 200
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: EnergyMagRifleIon
+  result: EnergyMagRifleIon
+  materials:
+    Steel: 400
+    Gold: 200
+    Glass: 300
+    Plasma: 200
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: EnergyMagRifleOverchargeLethal
+  result: EnergyMagRifleOverchargeLethal
+  materials:
+    Steel: 400
+    Gold: 300
+    Glass: 300
+    Plasma: 500
+    Uranium: 300
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
   id: MagazinePistolCaselessRifle
   result: MagazinePistolCaselessRifle
   materials:
     Steel: 145
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineLowCaliberM7S
+  result: MagazineLowCaliberM7S
+  materials:
+    Steel: 700
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
@@ -235,15 +412,112 @@
     Steel: 165
 
 - type: latheRecipe
-  parent: BaseAmmoRecipe
-  id: MagazineMagnumLeverRifleEmpty
-  result: MagazineMagnumLeverRifleEmpty
+  parent: BaseEmptyAmmoRecipe
+  id: MagazineShotgunLeverRifleEmpty
+  result: MagazineShotgunLeverRifleEmpty
   materials:
     Steel: 25
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
-  id: MagazineMagnumLeverRifle
-  result: MagazineMagnumLeverRifle
+  id: MagazineShotgunLeverRifle
+  result: MagazineShotgunLeverRifle
   materials:
-    Steel: 185
+    Steel: 240
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxShotgunHighCaliber
+  result: MagazineBoxShotgunHighCaliber
+  materials:
+    Steel: 480
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxShotgunSlugHighCaliber
+  result: MagazineBoxShotgunSlugHighCaliber
+  materials:
+    Steel: 480
+    Plastic: 160
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxShotgunIncendiaryHighCaliber
+  result: MagazineBoxShotgunIncendiaryHighCaliber
+  materials:
+    Steel: 160
+    Plastic: 320
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxShotgunUraniumHighCaliber
+  result: MagazineBoxShotgunUraniumHighCaliber
+  materials:
+    Plastic: 640
+    Uranium: 480
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxShotgunBeanbagHighCaliber
+  result: MagazineBoxShotgunBeanbagHighCaliber
+  materials:
+    Steel: 320
+    Plastic: 240
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxShotgunPracticeHighCaliber
+  result: MagazineBoxShotgunPracticeHighCaliber
+  materials:
+    Steel: 160
+
+- type: latheRecipe
+  parent: BaseEmptyAmmoRecipe
+  id: MagazinePistolCaselessRifleEmpty
+  result: MagazinePistolCaselessRifleEmpty
+  materials:
+    Steel: 25
+
+- type: latheRecipe
+  parent: BaseEmptyAmmoRecipe
+  id: MagazineCaselessRifleEmpty
+  result: MagazineCaselessRifleEmpty
+  materials:
+    Steel: 25
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineCaselessRifle
+  result: MagazineCaselessRifle
+  materials:
+    Steel: 400
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxAntiMateriel
+  result: MagazineBoxAntiMateriel
+  materials:
+    Steel: 1500
+
+- type: latheRecipe
+  parent: BaseEmptyAmmoRecipe
+  id: MagazinePistolHighCapacityEmpty
+  result: MagazinePistolHighCapacityEmpty
+  materials:
+    Steel: 25
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazinePistolHighCapacity
+  result: MagazinePistolHighCapacity
+  materials:
+    Steel: 285
+
+# Circuitboards
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  icon: { sprite: _Goobstation/Structures/Machines/contraband_detector.rsi, state: icon }
+  id: ContrabandDetectorCircuitboard
+  result: ContrabandDetectorCircuitboard
+  completetime: 4

@@ -1,3 +1,13 @@
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Alpaccalypse <21291379+Alpaccalypse@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Dorragon <101672978+Dorragon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: localizedDataset
   id: BoozeOMatGoodbyes
   values:
@@ -38,6 +48,18 @@
   id: RobustSoftdrinksGoodbyes
   values:
     prefix: thankyou-cola-
+    count: 4
+
+- type: localizedDataset
+  id: DrGibbGoodbyes
+  values:
+    prefix: thankyou-gibb-
+    count: 4
+
+- type: localizedDataset
+  id: SmiteGoodbyes
+  values:
+    prefix: thankyou-smite-
     count: 4
 
 - type: localizedDataset
@@ -105,3 +127,9 @@
   values:
     prefix: thankyou-syndiedrobe-
     count: 5
+
+- type: localizedDataset
+  id: PrideDrobeGoodbyes
+  values:
+    prefix: thankyou-pride-
+    count: 3

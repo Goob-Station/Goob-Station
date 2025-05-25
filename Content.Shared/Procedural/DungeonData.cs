@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Maps;
 using Content.Shared.Storage;
 using Content.Shared.Whitelist;
@@ -13,7 +20,7 @@ namespace Content.Shared.Procedural;
 /// This lets us share data between different dungeon configs without having to repeat entire configs.
 /// </remarks>
 [DataRecord]
-public sealed class DungeonData
+public sealed partial class DungeonData
 {
     // I hate this but it also significantly reduces yaml bloat if we add like 10 variations on the same set of layers
     // e.g. science rooms, engi rooms, cargo rooms all under PlanetBase for example.

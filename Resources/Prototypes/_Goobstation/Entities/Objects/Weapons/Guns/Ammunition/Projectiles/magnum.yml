@@ -1,77 +1,37 @@
-- type: entity
-  id: BulletMagnumEnsnaring
-  name: bullet (.45 magnum ensnaring)
-  parent: BaseBullet
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-    layers:
-    - state: rubber
-  - type: Projectile
-    deleteOnCollide: false
-    damage:
-      types:
-        Piercing: 15 #Low damage, but ensnaring
-  - type: Ensnaring
-    canThrowTrigger: true
-    destroyOnRemove: true
-    breakoutTime: 2
-    freeTime: 2
-    sprintSpeed: 0.7
-    walkSpeed: 0.7
-    staminaDamage: 10
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  id: BulletMagnumEMP
-  name: bullet (.45 magnum EMP)
-  parent: BaseBulletTrigger
+  id: BulletMagnumNeurotoxin
+  name: bullet (.45 subsonic neurotoxin)
   categories: [ HideSpawnMenu ]
+  parent: BaseBulletPractice
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     layers:
     - state: rubber
-      color: "#009eff"
-  - type: EmpOnTrigger
-    range: 0.2
-    energyConsumption: 80
-    disableDuration: 1
-  - type: Ammo
-    muzzleFlash: null
-  - type: PointLight
-    radius: 1.5
-    color: blue
-    energy: 0.5
   - type: Projectile
     damage:
       types:
-        Piercing: 10
-        Ion: 20
-
-- type: entity
-  id: BulletMagnumFlash
-  name: bullet (.45 magnum flash)
-  parent: BaseBulletTrigger
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-    layers:
-    - state: rubber
-      color: "#fff94d"
-  - type: FlashOnTrigger
-    range: 5
-    duration: 4
-  - type: SpawnOnTrigger
-    proto: GrenadeFlashEffect
-  - type: Ammo
-    muzzleFlash: null
-  - type: PointLight
-    radius: 1.5
-    color: yellow
-    energy: 1
-  - type: Projectile
-    damage:
-      types:
-        Piercing: 18
+        Blunt: 1
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        maxVol: 15
+  - type: RefillableSolution
+    solution: ammo
+  - type: DrainableSolution
+    solution: ammo
+  - type: SolutionInjectOnProjectileHit
+    transferAmount: 15
+    solution: ammo
+  - type: InjectableSolution
+    solution: ammo

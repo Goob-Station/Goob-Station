@@ -1,0 +1,242 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+## Buckshot
+
+# Buckshot
+- type: entity
+  id: ShellShotgunHighCaliber
+  name: shell (8 Gauge carpshot)
+  parent: BaseShellShotgun
+  components:
+  - type: Tag
+    tags:
+     - Cartridge
+     - ShellShotgunHeavy
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Cartridges/highcaliber-shell.rsi
+    layers:
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: CartridgeAmmo
+    proto: HighCaliberPelletShotgunSpread
+  - type: SpentAmmoVisuals
+    state: "base"
+
+- type: entity
+  id: ShellShotgunHighCaliberIncendiary
+  name: shell (8 Gauge dragons breath)
+  parent: ShellShotgunHighCaliber
+  components:
+    - type: Tag
+      tags:
+        - Cartridge
+        - ShellShotgunHeavy
+    - type: Sprite
+      layers:
+        - state: incendiary
+          map: [ "enum.AmmoVisualLayers.Base" ]
+    - type: CartridgeAmmo
+      proto: HighCaliberPelletShotgunIncendiarySpread
+    - type: SpentAmmoVisuals
+      state: "incendiary"
+
+- type: entity
+  id: ShellShotgunHighCaliberPractice
+  name: shell (8 Gauge practice)
+  parent: ShellShotgunHighCaliber
+  components:
+    - type: Tag
+      tags:
+        - Cartridge
+        - ShellShotgunHeavy
+    - type: Sprite
+      layers:
+        - state: practice
+          map: [ "enum.AmmoVisualLayers.Base" ]
+    - type: CartridgeAmmo
+      proto: HighCaliberPelletShotgunPracticeSpread
+    - type: SpentAmmoVisuals
+      state: "practice"
+
+- type: entity
+  id: ShellShotgunHighCaliberUranium
+  name: shell (8 Gauge depleted uranium)
+  parent: ShellShotgunHighCaliber
+  components:
+    - type: Tag
+      tags:
+        - Cartridge
+        - ShellShotgunHeavy
+    - type: Sprite
+      layers:
+        - state: depleted-uranium
+          map: [ "enum.AmmoVisualLayers.Base" ]
+    - type: CartridgeAmmo
+      proto: HighCaliberPelletShotgunUraniumSpread
+    - type: SpentAmmoVisuals
+      state: "depleted-uranium"
+
+## Slugs
+
+# Slug
+- type: entity
+  id: ShellShotgunSlugHighCaliber
+  name: shell (8 Gauge slug)
+  parent: BaseShellShotgun
+  components:
+    - type: Tag
+      tags:
+        - Cartridge
+        - ShellShotgunHeavy
+    - type: Sprite
+      sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Cartridges/highcaliber-shell.rsi
+      layers:
+        - state: slug
+          map: [ "enum.AmmoVisualLayers.Base" ]
+    - type: CartridgeAmmo
+      proto: PelletShotgunSlugHighCaliber
+    - type: SpentAmmoVisuals
+      state: "slug"
+
+# Ensnaring
+- type: entity
+  id: ShellShotgunSlugEnsnaring
+  name: cartridge (8 Gauge caliber ensnaring slug)
+  parent: ShellShotgunSlugHighCaliber
+  components:
+  - type: Tag
+    tags:
+      - Cartridge
+      - ShellShotgunHeavy
+  - type: CartridgeAmmo
+    proto: BulletSlugEnsnaring
+  - type: Sprite
+    layers:
+    - state: snare
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: SpentAmmoVisuals
+    state: "snare"
+
+# EMP
+- type: entity
+  id: ShellShotgunSlugEMP
+  name: cartridge (8 Gauge caliber EMP slug)
+  parent: ShellShotgunSlugHighCaliber
+  components:
+  - type: Tag
+    tags:
+     - Cartridge
+     - ShellShotgunHeavy
+  - type: CartridgeAmmo
+    proto: BulletSlugEMP
+  - type: Sprite
+    layers:
+    - state: emp
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: SpentAmmoVisuals
+    state: "emp"
+
+# Flash
+- type: entity
+  id: ShellShotgunSlugFlash
+  name: cartridge (8 Gauge caliber flash slug)
+  parent: ShellShotgunSlugHighCaliber
+  components:
+  - type: Tag
+    tags:
+     - Cartridge
+     - ShellShotgunHeavy
+  - type: CartridgeAmmo
+    proto: BulletSlugFlash
+  - type: Sprite
+    layers:
+    - state: flash
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: SpentAmmoVisuals
+    state: "flash"
+
+# Beanbag
+- type: entity
+  id: ShellShotgunBeanbagHighCaliber
+  name: shell (8 Gauge beanbag)
+  parent: ShellShotgunSlugHighCaliber
+  components:
+  - type: Tag
+    tags:
+     - Cartridge
+     - ShellShotgunHeavy
+  - type: Sprite
+    layers:
+    - state: beanbag
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: CartridgeAmmo
+    proto: BulletSlugBeanbagHighCaliber
+  - type: SpentAmmoVisuals
+    state: "beanbag"
+
+- type: entity
+  id: ShellShotgunHighCaliberSarin
+  name: shell (8 Gauge sarin gas)
+  parent: ShellShotgunSlugHighCaliber
+  components:
+    - type: Tag
+      tags:
+        - Cartridge
+        - ShellShotgunHeavy
+    - type: Sprite
+      layers:
+        - state: practice
+          map: [ "enum.AmmoVisualLayers.Base" ]
+    - type: CartridgeAmmo
+      proto: BulletShotgunHeavySlugSarin
+    - type: SpentAmmoVisuals
+      state: "practice"
+
+
+# Heavy shotgun
+
+# Pellet
+- type: entity
+  id: ShellShotgunHeavyHighExplosive
+  name: shell (2 Gauge pellet)
+  parent: BaseShellShotgun
+  components:
+  - type: Tag
+    tags:
+     - Cartridge
+     - ShellShotgunHeavier
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Cartridges/magshot.rsi
+    layers:
+    - state: gshell
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: CartridgeAmmo
+    proto: HeavyPelletShotgunSpread
+  - type: SpentAmmoVisuals
+    state: "gshell"
+
+# Slug
+- type: entity
+  id: ShellShotgunSlugHeavyHighExplosive
+  name: shell (2 Gauge slug)
+  parent: BaseShellShotgun
+  components:
+  - type: Tag
+    tags:
+     - Cartridge
+     - ShellShotgunHeavier
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Cartridges/magshot.rsi
+    layers:
+    - state: fshell
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: CartridgeAmmo
+    proto: BulletSlugHeavyHighExplosive
+  - type: SpentAmmoVisuals
+    state: "fshell"

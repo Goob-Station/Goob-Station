@@ -1,0 +1,33 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+
+- type: entity
+  parent: PersonalAI
+  id: GoldPersonalAI
+  name: golden deluxe personal ai device
+  description: Your electronic pal who's fun to be with, now with 200% more shine!
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/goldpai.rsi
+    layers:
+    - state: goldpai-base
+    - state: goldpai-off-overlay
+      shader: unshaded
+      map: ["screen"]
+  - type: ToggleableGhostRole
+    roleName: pai-system-role-name-gold
+    roleDescription: pai-system-role-description-gold
+    roleRules: ghost-role-information-familiar-rules
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableGhostRoleVisuals.Status:
+        screen:
+          Off: { state: goldpai-off-overlay }
+          Searching: { state: goldpai-searching-overlay }
+          On: { state: goldpai-on-overlay }

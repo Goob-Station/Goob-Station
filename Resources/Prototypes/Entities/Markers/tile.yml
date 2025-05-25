@@ -1,0 +1,43 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 DoutorWhite <thedoctorwhite@gmail.com>
+# SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: BaseRoofMarker
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+  - type: Sprite
+    drawdepth: Overdoors
+    sprite: Markers/cross.rsi
+
+- type: entity
+  id: RoofMarker
+  name: Roof
+  suffix: Enabled
+  parent: BaseRoofMarker
+  components:
+  - type: SetRoof
+    value: true
+  - type: Sprite
+    layers:
+    - state: green
+      shader: unshaded
+
+- type: entity
+  id: NoRoofMarker
+  name: Roof
+  suffix: Disabled
+  parent: BaseRoofMarker
+  components:
+  - type: SetRoof
+    value: false
+  - type: Sprite
+    layers:
+    - state: red
+      shader: unshaded

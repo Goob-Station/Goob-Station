@@ -1,0 +1,51 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: DT-8 "Terminus"
+  parent: BaseItem
+  id: Terminus
+  description: An advanced weapon crafted specifically for an oni. Capable of firing a spread of disabler shots from its tip.
+  components:
+  - type: Sprite
+    sprite: /Textures/_EinsteinEngines/Objects/Weapons/Melee/terminus.rsi
+    state: icon
+  - type: AmmoCounter
+  - type: UseDelay
+    delay: 1
+  - type: Gun
+    soundGunshot: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+    fireRate: 1.5
+    useKey: false
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletDisablerSmgSpread
+    fireCost: 100
+  - type: MeleeWeapon
+    attackRate: 0.75
+    damage:
+      types:
+        Blunt: 15
+        Slash: 15
+    soundHit:
+      collection: MetalThud
+  - type: StaminaDamageOnHit
+    damage: 20
+  - type: Wieldable
+  - type: GunRequiresWield
+  - type: MeleeRequiresWield
+    fumbleOnAttempt: true
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,4,2
+  - type: DisarmMalus

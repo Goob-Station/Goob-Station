@@ -1,0 +1,70 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: BaseEnergySpeedloader
+  abstract: true
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_speedloader.rsi
+    state: icon-lethal
+  - type: Battery
+    maxCharge: 600
+    startingCharge: 600
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 20
+  - type: AmmoCounter
+  - type: Appearance
+  - type: Tag
+    tags:
+      - EnergySpeedloader
+
+- type: entity
+  id: EnergySpeedloaderLethal
+  parent: [ BaseEnergySpeedloader, BaseCentcommContraband ]
+  name: energy speedloader (lethal)
+  description: A rather volatile powercell utilizing phoron to charge lethal bolts over time. Phoron will make us all rich.
+  components:
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletEnergyGunMagnum
+    fireCost: 100
+  - type: Tag
+    tags:
+      - EnergySpeedloader
+      - EnergySpeedloaderLethal
+
+- type: entity
+  id: EnergySpeedloaderDisabler
+  parent: [ BaseEnergySpeedloader, BaseCentcommContraband ]
+  name: energy speedloader (disabler)
+  description: A rather volatile powercell utilizing phoron to charge disabling bolts over time. Phoron will make us all rich.
+  components:
+  - type: Sprite
+    state: icon-disabling
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletEnergyGunDisabler
+    fireCost: 50
+  - type: Tag
+    tags:
+      - EnergySpeedloader
+      - EnergySpeedloaderDisabler
+
+- type: entity
+  id: EnergySpeedloaderPulse
+  parent: [ BaseEnergySpeedloader, BaseCentcommContraband ]
+  name: energy speedloader (pulse)
+  description: A rather volatile powercell utilizing phoron to charge destructive energy pulses over time. Phoron will make us all rich.
+  components:
+  - type: HitscanBatteryAmmoProvider
+    proto: LightPulse
+    fireCost: 50
+  - type: Tag
+    tags:
+    - EnergySpeedloader
+    - EnergySpeedloaderPulse

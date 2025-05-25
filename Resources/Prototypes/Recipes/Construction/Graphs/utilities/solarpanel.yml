@@ -1,4 +1,17 @@
-﻿- type: constructionGraph
+# SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
+# SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2021 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 CaasGit <87243814+CaasGit@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: constructionGraph
   id: SolarPanel
   start: start
   graph:
@@ -25,6 +38,24 @@
           steps:
             - tool: Screwing
               doAfter: 2
+        - to: solarpanelplasma
+          conditions:
+            - !type:EntityAnchored
+          steps:
+            - material: PlasmaGlass
+              amount: 2
+              doAfter: 0.5
+          completed:
+            - !type:SnapToGrid
+        - to: solarpaneluranium
+          conditions:
+            - !type:EntityAnchored
+          steps:
+            - material: UraniumGlass
+              amount: 2
+              doAfter: 0.5
+          completed:
+            - !type:SnapToGrid
         - to: solarpanel
           conditions:
             - !type:EntityAnchored
@@ -42,13 +73,47 @@
               name: solar tracker electronics
               icon:
                 sprite: Objects/Misc/module.rsi
-                state: id_mod
+                state: engineering
               doAfter: 1
             - material: Glass
               amount: 2
               doAfter: 2
           completed:
             - !type:SnapToGrid
+
+    - node: solarpanelplasma
+      entity: SolarPanelPlasma
+      edges:
+        - to: solarassembly
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+            - !type:SpawnPrototype
+              prototype: SheetPGlass1
+              amount: 2
+          conditions:
+            - !type:EntityAnchored
+              anchored: true
+          steps:
+            - tool: Prying
+              doAfter: 0.5
+
+    - node: solarpaneluranium
+      entity: SolarPanelUranium
+      edges:
+        - to: solarassembly
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+            - !type:SpawnPrototype
+              prototype: SheetUGlass1
+              amount: 2
+          conditions:
+            - !type:EntityAnchored
+              anchored: true
+          steps:
+            - tool: Prying
+              doAfter: 0.5
 
     - node: solarpanel
       entity: SolarPanel
@@ -83,6 +148,40 @@
           steps:
             - tool: Prying
               doAfter: 0.5
+
+    - node: solarpanelplasma_broken
+      entity: SolarPanelPlasmaBroken
+      edges:
+      - to: solarassembly
+        completed:
+        - !type:SnapToGrid
+          southRotation: true
+        - !type:SpawnPrototype
+          prototype: ShardGlassPlasma
+          amount: 2
+        conditions:
+        - !type:EntityAnchored
+          anchored: true
+        steps:
+        - tool: Prying
+          doAfter: 0.5
+
+    - node: solarpaneluranium_broken
+      entity: SolarPanelUraniumBroken
+      edges:
+      - to: solarassembly
+        completed:
+        - !type:SnapToGrid
+          southRotation: true
+        - !type:SpawnPrototype
+          prototype: ShardGlassUranium
+          amount: 2
+        conditions:
+        - !type:EntityAnchored
+          anchored: true
+        steps:
+        - tool: Prying
+          doAfter: 0.5
 
     - node: solartracker
       entity: SolarTracker

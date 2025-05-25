@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
 - type: entity
   name: medibot spawner
   id: SpawnMobMedibot
@@ -25,4 +31,3 @@
   - type: ConditionalSpawner
     prototypes:
       - MobCleanBot
-

@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: OrganHumanEyes
   abstract: true
@@ -15,6 +20,12 @@
   description: A pair of cybernetic eyes that enhance your vision, and protect you from eye damage.
   components:
   - type: Organ
+    intCap: 21
+    integrity: 21
+    integrityThresholds:
+      Normal: 21
+      Damaged: 11
+      Destroyed: 0  
     onAdd:
     - type: FlashImmunity
     - type: EyeProtection
@@ -26,6 +37,12 @@
   description: A pair of cybernetic eyes that enhance your vision, featuring an integrated SecHUD.
   components:
   - type: Organ
+    intCap: 21
+    integrity: 21
+    integrityThresholds:
+      Normal: 21
+      Damaged: 11
+      Destroyed: 0  
     onAdd:
     - type: FlashImmunity
     - type: EyeProtection
@@ -40,6 +57,12 @@
   description: A pair of cybernetic eyes that enhance your vision, featuring an integrated MedHUD.
   components:
   - type: Organ
+    intCap: 21
+    integrity: 21
+    integrityThresholds:
+      Normal: 21
+      Damaged: 11
+      Destroyed: 0  
     onAdd:
     - type: FlashImmunity
     - type: EyeProtection

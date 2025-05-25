@@ -1,3 +1,43 @@
+# SPDX-FileCopyrightText: 2020 Git-Nivrak <59925169+Git-Nivrak@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 Paul Ritter <ritter.paul1@googlemail.com>
+# SPDX-FileCopyrightText: 2020 Peter Wedder <burneddi@gmail.com>
+# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 Ygg01 <daniel.fath7@gmail.com>
+# SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Galactic Chimp <GalacticChimpanzee@gmail.com>
+# SPDX-FileCopyrightText: 2021 Metal Gear Sloth <metalgearsloth@gmail.com>
+# SPDX-FileCopyrightText: 2021 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <zddm@outlook.es>
+# SPDX-FileCopyrightText: 2022 Fishfish458 <47410468+Fishfish458@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2022 fishfish458 <fishfish458>
+# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Ilya Chvilyov <90278813+Telyonok@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 PixelTK <85175107+PixelTheKermit@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2024 MACMAN2003 <macman2003c@gmail.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ps3Moira <113228053+ps3moira@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: TableFrame
   # BaseStructure and not BaseTable, since these shouldn't be climbable/placeable.
@@ -195,6 +235,9 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: metaltable
+    base: state_
   - type: Construction
     graph: Table
     node: Table
@@ -236,6 +279,8 @@
             max: 2
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: metalreinforcedtable
   - type: Construction
     graph: Table
     node: TableReinforced
@@ -246,6 +291,8 @@
       types:
         Blunt: 8
     bonkTime: 3
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicTable
 
 - type: entity
   id: TableGlass
@@ -292,12 +339,16 @@
         node: TableFrame
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: glasstable
   - type: Construction
     graph: Table
     node: TableGlass
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepTile
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicTable
 
 - type: entity
   id: TableReinforcedGlass
@@ -347,12 +398,16 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: reinforcedglasstable
   - type: Construction
     graph: Table
     node: TableReinforcedGlass
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepTile
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicTable
 
 - type: entity
   id: TablePlasmaGlass
@@ -402,12 +457,16 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: plasmaglasstable
   - type: Construction
     graph: Table
     node: TablePlasmaGlass
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepTile
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicTable
 
 - type: entity
   id: TableBrass
@@ -446,9 +505,13 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: brasstable
   - type: Construction
     graph: Table
     node: TableBrass
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicTable
 
 - type: entity
   id: TableWood
@@ -487,15 +550,20 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: woodtable
   - type: Construction
     graph: Table
     node: TableWood
   - type: Tag
     tags:
     - Wooden
+    - Table # goob
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepWood
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicTable
 
 - type: entity
   id: TableCarpet
@@ -528,15 +596,20 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: woodgambletable
   - type: Construction
     graph: Table
     node: TableCarpet
   - type: Tag
     tags:
     - Wooden
+    - Table # goob
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepCarpet
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicTable
 
 - type: entity
   id: TableStone
@@ -559,9 +632,13 @@
           path: /Audio/Effects/picaxe2.ogg
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: stonetable
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepFloor
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicTable
 
 - type: entity
   id: TableWeb
@@ -588,12 +665,16 @@
       Brute:
         path:
           "/Audio/Weapons/slash.ogg"
+  - type: IconSmooth
+    key: webtable
   - type: Construction
     graph: WebStructures
     node: table
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepCarpet
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicTable
 
 # Fancy tables
 
@@ -625,12 +706,17 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: fancytable
   - type: Tag
     tags:
     - Wooden
+    - Table # goob
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepCarpet
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicTable
 
 - type: entity
   id: TableFancyBlue
@@ -644,6 +730,8 @@
   - type: Construction
     graph: Table
     node: TableFancyBlue
+  - type: IconSmooth
+    key: fancytableblue
 
 - type: entity
   id: TableFancyCyan
@@ -657,6 +745,8 @@
   - type: Construction
     graph: Table
     node: TableFancyCyan
+  - type: IconSmooth
+    key: fancytablecyan
 
 - type: entity
   id: TableFancyBlack
@@ -670,6 +760,8 @@
   - type: Construction
     graph: Table
     node: TableFancyBlack
+  - type: IconSmooth
+    key: fancytableblack
 
 - type: entity
   id: TableFancyRed
@@ -683,6 +775,8 @@
   - type: Construction
     graph: Table
     node: TableFancyRed
+  - type: IconSmooth
+    key: fancytablered
 
 - type: entity
   id: TableFancyPurple
@@ -696,6 +790,8 @@
   - type: Construction
     graph: Table
     node: TableFancyPurple
+  - type: IconSmooth
+    key: fancytablepurple
 
 - type: entity
   id: TableFancyPink
@@ -709,6 +805,8 @@
   - type: Construction
     graph: Table
     node: TableFancyPink
+  - type: IconSmooth
+    key: fancytablepink
 
 - type: entity
   id: TableFancyGreen
@@ -722,6 +820,8 @@
   - type: Construction
     graph: Table
     node: TableFancyGreen
+  - type: IconSmooth
+    key: fancytablegreen
 
 - type: entity
   id: TableFancyOrange
@@ -735,6 +835,8 @@
   - type: Construction
     graph: Table
     node: TableFancyOrange
+  - type: IconSmooth
+    key: fancytableorange
 
 - type: entity
   id: TableFancyWhite
@@ -748,6 +850,8 @@
   - type: Construction
     graph: Table
     node: TableFancyWhite
+  - type: IconSmooth
+    key: fancytablewhite
 
 #Debug
 
@@ -761,6 +865,7 @@
   - type: Tag
     tags:
       - Debug
+      - Table # goob
   - type: Sprite
     sprite: Structures/Furniture/Tables/debug.rsi
   - type: Icon
@@ -812,6 +917,9 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: counterwood
+    base: state_
   - type: Construction
     graph: Table
     node: CounterWood
@@ -857,6 +965,9 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: countermetal
+    base: state_
   - type: Construction
     graph: Table
     node: CounterMetal

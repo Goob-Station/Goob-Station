@@ -1,4 +1,10 @@
-﻿using Content.Shared.Explosion.EntitySystems;
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared.Explosion.EntitySystems;
 using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
@@ -27,7 +33,7 @@ public sealed partial class ScatteringGrenadeComponent : Component
     /// <summary>
     /// If we have a pre-fill how many more can we spawn.
     /// </summary>
-    [AutoNetworkedField]
+    [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
     public int UnspawnedCount;
 
     /// <summary>
@@ -35,6 +41,12 @@ public sealed partial class ScatteringGrenadeComponent : Component
     /// </summary>
     [DataField]
     public int Capacity = 3;
+
+    /// <summary>
+    /// Number of grenades currently contained in the cluster (both spawned and unspawned)
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
+    public int Count => UnspawnedCount + Container.ContainedEntities.Count;
 
     /// <summary>
     /// Decides if contained entities trigger after getting launched

@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 James Simonson <jamessimo89@gmail.com>
+// SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Security;
 using Content.Shared.StationRecords;
 using Robust.Shared.Serialization;
@@ -35,9 +42,9 @@ public sealed class CriminalRecordsConsoleState : BoundUserInterfaceState
     /// Currently selected crewmember record key.
     /// </summary>
     public uint? SelectedKey = null;
-
     public CriminalRecord? CriminalRecord = null;
     public GeneralStationRecord? StationRecord = null;
+    public SecurityStatus FilterStatus = SecurityStatus.None;
     public readonly Dictionary<uint, string>? RecordListing;
     public readonly StationRecordsFilter? Filter;
 
@@ -98,5 +105,21 @@ public sealed class CriminalRecordDeleteHistory : BoundUserInterfaceMessage
     public CriminalRecordDeleteHistory(uint index)
     {
         Index = index;
+    }
+}
+
+/// <summary>
+/// Used to set what status to filter by index.
+///
+/// </summary>
+///
+[Serializable, NetSerializable]
+
+public sealed class CriminalRecordSetStatusFilter : BoundUserInterfaceMessage
+{
+    public readonly SecurityStatus FilterStatus;
+    public CriminalRecordSetStatusFilter(SecurityStatus newFilterStatus)
+    {
+        FilterStatus = newFilterStatus;
     }
 }

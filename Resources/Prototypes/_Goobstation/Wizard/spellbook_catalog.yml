@@ -1,3 +1,18 @@
+# SPDX-FileCopyrightText: 2025 ActiveMammmoth <140334666+ActiveMammmoth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ActiveMammmoth <kmcsmooth@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Scruq445 <storchdamien@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 crasg <109207982+Scruq445@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+# SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # Offensive
 - type: listing
   id: SpellbookMimeMalaise
@@ -521,6 +536,10 @@
     blacklist:
     - SpellbookFullRandom
     - SpellbookSemiRandom
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - GrimoireGhost
 
 - type: listing
   id: SpellbookSwap
@@ -574,6 +593,42 @@
     blacklist:
     - SpellbookFullRandom
     - SpellbookSemiRandom
+
+- type: listing
+  id: SpellbookTileToggle
+  name: spellbook-tile-toggle-name
+  description: spellbook-tile-toggle-description
+  productAction: ActionTileToggle
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+
+#- type: listing
+#  id: SpellbookCurseOfByond
+#  name: spellbook-curse-of-byond-name
+#  description: spellbook-curse-of-byond-description
+#  productAction: ActionCurseOfByond
+#  cost:
+#    WizCoin: 1
+#  categories:
+#  - SpellbookUtility
+#  conditions:
+#  - !type:ListingLimitedStockCondition
+#    stock: 1
+#  - !type:BuyBeforeCondition
+#    whitelist:
+#      - SpellbookTileToggle
+#    blacklist:
+#    - SpellbookFullRandom
+#    - SpellbookSemiRandom
 
 # Equipment
 - type: listing
@@ -677,6 +732,16 @@
   - SpellbookEquipment
 
 - type: listing
+  id: SpellBookStaffAnimate
+  name: spellbook-staff-animate-name
+  description: spellbook-staff-animate-desc
+  productEntity: AnimationStaff
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookEquipment
+
+- type: listing
   id: SpellbookStaffChange
   name: spellbook-staff-change-name
   description: spellbook-staff-change-desc
@@ -749,6 +814,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - GrimoireGhost
 
 # Event
 - type: listing
@@ -766,6 +835,26 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  disableRefund: true
+
+- type: listing
+  id: SpellbookEventGlobalTileToggle
+  name: spellbook-event-global-tile-toggle-name
+  description: spellbook-event-global-tile-toggle-description
+  productEvent: !type:GlobalTileToggleEvent
+  icon:
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: tileglobal
+  cost:
+    WizCoin: 0
+  categories:
+  - SpellbookEvents
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    whitelist:
+      - SpellbookTileToggle
   disableRefund: true
 
 # Special

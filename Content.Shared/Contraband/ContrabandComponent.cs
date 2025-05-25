@@ -1,4 +1,14 @@
-﻿using Content.Shared.Roles;
+// SPDX-FileCopyrightText: 2024 EmoGarbage404 <retron404@gmail.com>
+// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 John <35928781+sporkyz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared.Roles;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -24,5 +34,13 @@ public sealed partial class ContrabandComponent : Component
     /// </summary>
     [DataField]
     [AutoNetworkedField]
-    public HashSet<ProtoId<DepartmentPrototype>>? AllowedDepartments = ["Security"];
+    public HashSet<ProtoId<DepartmentPrototype>> AllowedDepartments = new();
+
+    /// <summary>
+    ///     Which jobs is this item restricted to?
+    ///     If empty, no jobs are allowed to use this beyond the allowed departments.
+    /// </summary>
+    [DataField]
+    [AutoNetworkedField]
+    public HashSet<ProtoId<JobPrototype>> AllowedJobs = new();
 }

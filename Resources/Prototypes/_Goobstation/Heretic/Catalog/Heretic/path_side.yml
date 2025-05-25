@@ -1,12 +1,24 @@
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # store catalog
 - type: listing
   id: HereticSidePath3Armor
   name: knowledge-path-side-s3-armor-name
   description: knowledge-path-side-s3-armor-desc
-  icon: { sprite: _Goobstation/Heretic/eldritch_hood.rsi, state: icon }
+  icon: { sprite: _Goobstation/Heretic/Clothing/OuterClothing/eldritch_armor.rsi, state: icon }
   productHereticKnowledge: ArmorerRitual
   cost:
-    KnowledgePoint: 2
+    KnowledgePoint: 1
   categories:
   - HereticPathSide
   conditions:
@@ -22,7 +34,7 @@
   icon: { sprite: _Goobstation/Heretic/items.rsi, state: eldritch_flask }
   productHereticKnowledge: PriestRitual
   cost:
-    KnowledgePoint: 2
+    KnowledgePoint: 1
   categories:
   - HereticPathSide
   conditions:
@@ -38,7 +50,39 @@
   icon: { sprite: _Goobstation/Heretic/eldritch_medalion.rsi, state: icon }
   productHereticKnowledge: AshenEyesRitual
   cost:
-    KnowledgePoint: 2
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 2
+
+- type: listing
+  id: HereticSidePath3VoidCloak
+  name: knowledge-path-side-s3-void-cloak-name
+  description: knowledge-path-side-s3-void-cloak-desc
+  icon: { sprite: _Goobstation/Heretic/Clothing/OuterClothing/void_cloak.rsi, state: icon }
+  productHereticKnowledge: VoidCloak
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 2
+
+- type: listing
+  id: HereticSidePath3IceSpear
+  name: knowledge-path-side-s3-ice-spear-name
+  description: knowledge-path-side-s3-ice-spear-desc
+  icon: { sprite: _Goobstation/Heretic/Entities/ice_spear.rsi, state: spear }
+  productHereticKnowledge: MysteriesOfCreation
+  cost:
+    KnowledgePoint: 1
   categories:
   - HereticPathSide
   conditions:
@@ -51,9 +95,10 @@
   id: HereticSidePathKnowledge
   name: knowledge-path-side-knowledge-name
   description: knowledge-path-side-knowledge-desc
+  icon: { sprite: _Goobstation/Heretic/book.rsi, state: icon }
   productHereticKnowledge: RitualOfKnowledge
   cost:
-    KnowledgePoint: 2
+    KnowledgePoint: 1
   categories:
   - HereticPathSide
   conditions:
@@ -61,3 +106,67 @@
     stock: 1
   - !type:HereticPathCondition
     stage: 0
+
+- type: listing
+  id: HereticSidePath6RustWalker
+  name: knowledge-path-side-s6-rustwalker-name
+  description: knowledge-path-side-s6-rustwalker-desc
+  icon: { sprite: _Goobstation/Heretic/eldritch_mobs.rsi, state: rust_walker }
+  productHereticKnowledge: RustedRitual
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 5
+
+- type: listing
+  id: HereticSidePath6CarvingKnife
+  name: knowledge-path-side-s6-knife-name
+  description: knowledge-path-side-s6-knife-desc
+  icon: { sprite: _Goobstation/Heretic/items.rsi, state: rune_carver }
+  productHereticKnowledge: CarvingKnife
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 5
+
+- type: listing
+  id: HereticSidePath8Cleave
+  name: knowledge-path-side-s8-cleave-name
+  description: knowledge-path-side-s8-cleave-desc
+  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: cleave }
+  productHereticKnowledge: Cleave
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 7
+
+- type: listing
+  id: HereticSidePath8RustCharge
+  name: knowledge-path-side-s8-rust-charge-name
+  description: knowledge-path-side-s8-rust-charge-desc
+  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: rust_charge }
+  productHereticKnowledge: RustCharge
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 7

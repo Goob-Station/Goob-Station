@@ -1,7 +1,19 @@
+// SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 ElectroJr <leonsfriedrich@gmail.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.Chemistry.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Vapor;
 using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
@@ -39,8 +51,9 @@ public sealed partial class GunSystem
         if (solution == null && !_solutionContainer.TryGetSolution(uid, component.SolutionId, out _, out solution))
         {
             component.Shots = shots;
+            DirtyField(uid, component, nameof(SolutionAmmoProviderComponent.Shots));
             component.MaxShots = maxShots;
-            Dirty(uid, component);
+            DirtyField(uid, component, nameof(SolutionAmmoProviderComponent.MaxShots));
             return;
         }
 
@@ -48,8 +61,10 @@ public sealed partial class GunSystem
         maxShots = (int) (solution.MaxVolume / component.FireCost);
 
         component.Shots = shots;
+        DirtyField(uid, component, nameof(SolutionAmmoProviderComponent.Shots));
+
         component.MaxShots = maxShots;
-        Dirty(uid, component);
+        DirtyField(uid, component, nameof(SolutionAmmoProviderComponent.MaxShots));
 
         UpdateSolutionAppearance(uid, component);
     }

@@ -1,20 +1,264 @@
+# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 starch <starchpersonal@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GMWQ <garethquaile@gmail.com>
+# SPDX-FileCopyrightText: 2025 Gareth Quaile <garethquaile@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
-  parent: [ ClothingBeltMilitaryWebbingCMO, BaseMedicalContraband ]
-  suffix: Filled
+  parent: ClothingBeltMilitaryWebbingCMO
+  suffix: Filled, DO NOT MAP
   id: ClothingBeltMilitaryWebbingCMOFilled
-  name: chief medical officer's chest rig
-  description: "A medical chest rig with deep pockets, for use by paramedics and health professionals."
   components:
   - type: StorageFill
     contents:
-      - id: EnergyCautery
+      - id: DefibrillatorCompact
       - id: EnergyScalpel
       - id: AdvancedRetractor
+      - id: EnergyCautery
       - id: BoneGel
+      - id: HandheldCrewMonitor
       - id: MedicatedSuture
       - id: RegenerativeMesh
       - id: Bloodpack
-      - id: BruteAutoInjector
-      - id: BurnAutoInjector
       - id: EmergencyMedipen
-        amount: 3
+
+- type: entity
+  parent: [ ClothingBeltDeathsquadWebbing, BaseCentcommContraband ]
+  suffix: Filled, DO NOT MAP
+  id: ClothingBeltDeathsquadWebbingFilled
+  name: deathsquad operative chestrig
+  description: "A robust and durable chestrig, containing everything you need to keep you in the fight. You probably won't need to use it."
+  components:
+  - type: StorageFill
+    contents:
+      - id: MedkitCombatFilled
+        amount: 1
+      - id: PunctAutoInjector
+        amount: 2
+      - id: AdvancedCombatMedipen
+        amount: 1
+      - id: PyraAutoInjector
+        amount: 2
+      - id: AirlossAutoInjector
+        amount: 1
+      - id: CentcommStimpack
+        amount: 2
+      - id: OmnimedTool
+
+- type: entity
+  id: ClothingBeltHolsterFilledCentComm
+  parent: ClothingBeltHolster
+  suffix: Filled, N1984
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - WeaponPistolN1984
+  - type: StorageFill
+    contents:
+    - id: MagazineMagnum
+    - id: MagazineMagnum
+
+- type: entity
+  id: ClothingBeltSecurityWebbingFilledMedical
+  parent: [ClothingBeltSecurityWebbingMedical, BaseCentcommContraband]
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: EnergyScalpel
+    - id: AdvancedRetractor
+    - id: EnergyCautery
+    - id: AdvancedBoneGel
+    - id: MedicatedSuture
+    - id: RegenerativeMesh
+    - id: Bloodpack
+    - id: BruteAutoInjector
+    - id: BurnAutoInjector
+    - id: EmergencyMedipen
+      amount: 3
+
+- type: entity
+  id: ClothingBeltSheathFilledNavyOfficer
+  parent: ClothingBeltSheath
+  suffix: Filled, Navy Officer
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - NavyOfficerSabre
+
+- type: entity
+  id: ClothingBeltSheathHeadOfSecurityFilled
+  parent: ClothingBeltSheathHeadOfSecurity
+  suffix: Filled, Head Of Security
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - Justice
+
+- type: entityTable
+  id: BeltSecurityNoBatonEntityTable
+  table: !type:AllSelector
+    children:
+    - id: Handcuffs
+    - id: Handcuffs
+    - id: Handcuffs
+    - id: HoloprojectorSecurity
+    - id: RadioHandheldSecurity
+    - id: WeaponDisabler #Goobstation
+
+- type: entity
+  id: ClothingBeltCorporateJudoFilled
+  parent: ClothingBeltCorporateJudo
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: BeltSecurityNoBatonEntityTable
+
+- type: entity
+  id: ClothingBeltHolsterFilledChaplain
+  parent: ClothingBeltBase
+  name: Chaplains' Holster
+  description: A shoulder holster from the Gods. Contains a set of dual pistols.
+  suffix: Filled, Chaplain
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: _ShitChap/Clothing/Belt/holster.rsi
+  - type: Clothing
+    sprite: _ShitChap/Clothing/Belt/holster.rsi
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+      item: !type:ContainerSlot {}
+      item2: !type:ContainerSlot {}
+  - type: ItemSlots
+    slots:
+      item:
+        name: casul
+        whitelist:
+          tags:
+          - WeaponPistolCasul
+      item2:
+        name: jackal
+        whitelist:
+          tags:
+          - WeaponPistolJackal
+  - type: ContainerFill
+    containers:
+      item:
+      - WeaponPistolCasul
+      item2:
+      - WeaponPistolJackal
+
+- type: entityTable
+  id: BeltAssaultBSOEntityTable
+  table: !type:AllSelector
+    children:
+    - id: Stunbaton
+    - id: HoloprojectorSecurity
+    - id: GrenadeFlashBang
+    - id: GrenadeFlashBang
+    - id: WeaponDisabler
+    - id: Zipties
+    - id: Zipties
+    - id: Zipties
+
+- type: entity
+  id: ClothingBeltAssaultFilled
+  parent: ClothingBeltAssault
+  suffix: Filled, BSO
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: BeltAssaultBSOEntityTable
+
+- type: entity
+  parent: ChemBag
+  id: ChemBagFilled
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: Jug
+    - id: LargeBeaker
+    - id: Beaker
+    - id: BaseChemistryEmptyVial
+    - id: Syringe
+
+- type: entity
+  parent: ClothingBeltChemBagSyndi
+  id: ClothingBeltChemBagSyndiFilled
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: Jug
+    - id: LargeBeaker
+    - id: OmnimedToolSyndie
+    - id: DartGun
+    - id: ChemistryBottleEpinephrine
+      amount: 2
+    - id: ChemistryBottleEphedrine
+      amount: 2
+    - id: ChemistryBottleOmnizine
+
+- type: entity
+  id: ClothingBeltHolsterFilledBlueshield
+  parent: ClothingBeltHolster
+  suffix: Filled, EG-4
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - WeaponEnergyRevolver
+  - type: StorageFill
+    contents:
+    - id: EnergySpeedloaderLethal
+    - id: EnergySpeedloaderLethal
+    - id: EnergySpeedloaderDisabler
+    - id: EnergySpeedloaderDisabler
+
+- type: entity
+  id: ClothingBeltMilitaryRigGrenadierFilled
+  parent: ClothingBeltMilitaryRigGrenadier
+  suffix: Grenadier bundle, filled
+  components:         # How many nades do you want?
+  - type: StorageFill # Yes.
+    contents:         # If seriously this is like 100 TC worth of explosives.
+    - id: CleanerGrenade
+    - id: MetalFoamGrenade
+    - id: GrenadeFlashBang
+    - id: TearGasGrenade
+    - id: GrenadeStinger
+    - id: WhiteholeGrenade
+    - id: SmokeGrenade
+    - id: EmpGrenade
+    - id: C4
+    - id: GrenadeShrapnel
+    - id: GrenadeIncendiary
+    - id: ExGrenade
+    - id: SarinGasGrenade
+    - id: SupermatterGrenade
+    - id: SyndieMiniBomb
+      amount: 2

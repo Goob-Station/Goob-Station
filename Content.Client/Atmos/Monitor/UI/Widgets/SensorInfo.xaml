@@ -1,8 +1,22 @@
+<!--
+SPDX-FileCopyrightText: 2022 Eoin Mcloughlin <helloworld@eoinrul.es>
+SPDX-FileCopyrightText: 2022 eoineoineoin <eoin.mcloughlin+gh@gmail.com>
+SPDX-FileCopyrightText: 2022 vulppine <vulppine@gmail.com>
+SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
 <BoxContainer xmlns="https://spacestation14.io" HorizontalExpand="True">
     <Collapsible>
         <CollapsibleHeading Name="SensorAddress" />
         <CollapsibleBody Margin="20 2 2 2">
             <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+                <BoxContainer Orientation="Horizontal" Margin ="0 0 0 2">
+                    <Button Name="CCopySettings" Text="{Loc 'air-alarm-ui-thresholds-copy'}" ToolTip="{Loc 'air-alarm-ui-thresholds-copy-tooltip'}" />
+                </BoxContainer>
                 <BoxContainer Orientation="Vertical" Margin="0 0 2 0" HorizontalExpand="True">
                     <RichTextLabel Name="AlarmStateLabel" />
                     <RichTextLabel Name="PressureLabel" />

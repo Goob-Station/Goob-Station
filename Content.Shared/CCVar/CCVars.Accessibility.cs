@@ -1,4 +1,11 @@
-﻿using Robust.Shared.Configuration;
+// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 noirogen <raethertechnologies@gmail.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Robust.Shared.Configuration;
 
 namespace Content.Shared.CCVar;
 
@@ -38,4 +45,27 @@ public sealed partial class CCVars
     /// </summary>
     public static readonly CVarDef<bool> AccessibilityColorblindFriendly =
         CVarDef.Create("accessibility.colorblind_friendly", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    ///     Speech bubble text opacity slider, controlling the alpha of speech bubble's text.
+    ///     Goes from to 0 (completely transparent) to 1 (completely opaque)
+    /// </summary>
+    public static readonly CVarDef<float> SpeechBubbleTextOpacity =
+        CVarDef.Create("accessibility.speech_bubble_text_opacity", 1f, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    ///     Speech bubble speaker opacity slider, controlling the alpha of the speaker's name in a speech bubble.
+    ///     Goes from to 0 (completely transparent) to 1 (completely opaque)
+    /// </summary>
+    public static readonly CVarDef<float> SpeechBubbleSpeakerOpacity =
+        CVarDef.Create("accessibility.speech_bubble_speaker_opacity", 1f, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    ///     Speech bubble background opacity slider, controlling the alpha of the speech bubble's background.
+    ///     Goes from to 0 (completely transparent) to 1 (completely opaque)
+    /// </summary>
+    public static readonly CVarDef<float> SpeechBubbleBackgroundOpacity =
+        CVarDef.Create("accessibility.speech_bubble_background_opacity", 0.75f, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+
 }

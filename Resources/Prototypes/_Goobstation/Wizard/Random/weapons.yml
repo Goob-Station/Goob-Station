@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: weightedRandomEntity
   id: SummonSimiansWeaponTable
   weights:
@@ -23,7 +28,6 @@
     ToolboxMechanical: 3
     ToolboxElectrical: 3
     ToolboxArtistic: 3
-    Claymore: 2
     FireAxe: 2
     Sledgehammer: 2
     Chainsaw: 1
@@ -60,7 +64,6 @@
     ToolboxMechanical: 2
     ToolboxElectrical: 2
     ToolboxArtistic: 2
-    Claymore: 3
     FireAxe: 3
     Sledgehammer: 3
     Chainsaw: 2
@@ -106,7 +109,6 @@
     ToolboxMechanical: 1
     ToolboxElectrical: 1
     ToolboxArtistic: 1
-    Claymore: 4
     FireAxe: 4
     Sledgehammer: 4
     Chainsaw: 5
@@ -147,7 +149,6 @@
     Katana: 1
     Machete: 1
     Cutlass: 1
-    Claymore: 4
     FireAxe: 4
     Sledgehammer: 4
     Chainsaw: 5
@@ -190,7 +191,6 @@
     Katana: 1
     Machete: 1
     Cutlass: 1
-    Claymore: 5
     FireAxe: 5
     Sledgehammer: 5
     Chainsaw: 6

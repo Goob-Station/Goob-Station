@@ -1,14 +1,32 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "sprites taken from TG station, edited by whateverusername0 and blooodyspy",
+    "copyright": "sprites taken from TG station, edited by whateverusername0 and blooodyspy. ascension_rust made by Armok. ice_spear taken from Yogstation and modified.",
     "size": {
         "x": 32,
         "y": 32
     },
     "states": [
         {
+            "name": "god_transmit"
+        },
+        {
+            "name": "ice_spear"
+        },
+        {
+            "name": "shadowcloak"
+        },
+        {
             "name": "mansus_grasp"
+        },
+        {
+            "name": "rust_charge"
+        },
+        {
+            "name": "rust_wave"
+        },
+        {
+            "name": "rune_break"
         },
         {
             "name": "mansus_link"
@@ -87,6 +105,9 @@
         },
         {
             "name": "living_heart"
+        },
+        {
+            "name": "ascension_rust"
         }
     ]
 }

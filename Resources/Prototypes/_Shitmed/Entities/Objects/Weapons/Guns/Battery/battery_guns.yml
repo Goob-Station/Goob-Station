@@ -1,11 +1,54 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
-  parent: [BaseWeaponBattery, BaseMajorContraband]
+  parent: [BaseWeaponBatterySmall, BaseMajorContraband]
   id: WeaponAlien
   name: alien pistol
-  description: Is this a warcrime? Probably.
+  description: Is this a war crime? Probably.
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Weapons/Guns/Battery/alien.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletDisabler
+    fireCost: 50
+  - type: BatteryWeaponFireModes
+    fireModes:
+    - proto: BulletDisabler
+      fireCost: 50
+    - proto: BulletDeclone
+      fireCost: 125
+  - type: Appearance
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+
+- type: entity
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseMajorContraband]
+  id: WeaponDecloner
+  name: decloner
+  description: Is this a war crime? Absolutely.
+  components:
+  - type: Clothing
+    sprite: _Shitmed/Objects/Weapons/Guns/Battery/decloner.rsi
+  - type: Sprite
+    sprite: _Shitmed/Objects/Weapons/Guns/Battery/decloner.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -13,43 +56,11 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: Item
-    size: Small
     shape:
-    - 0, 0, 1, 1
-  - type: ProjectileBatteryAmmoProvider
-    proto: BulletDisabler
-    fireCost: 100
-  - type: BatteryWeaponFireModes
-    fireModes:
-    - proto: BulletDisabler
-      fireCost: 100
-    - proto: BulletDeclone
-      fireCost: 100
-  - type: MagazineVisuals
-    magState: mag
-    steps: 5
-    zeroVisible: true
-  - type: Appearance
-
-- type: entity
-  parent: [BaseWeaponBattery, BaseMajorContraband]
-  id: WeaponDecloner
-  name: decloner
-  description: Is this a warcrime? Probably.
-  components:
-  - type: Sprite
-    sprite: _Shitmed/Objects/Weapons/Guns/Battery/alien.rsi
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-unshaded-4
-      map: ["enum.GunVisualLayers.MagUnshaded"]
-      shader: unshaded
+    - 0,0,5,1
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDeclone
-    fireCost: 200
-  - type: MagazineVisuals
-    magState: mag
-    steps: 5
-    zeroVisible: true
-  - type: Appearance
+    fireCost: 125
+  - type: Battery
+    maxCharge: 2000
+    startingCharge: 2000

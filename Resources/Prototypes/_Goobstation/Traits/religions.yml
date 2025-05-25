@@ -1,31 +1,7 @@
-## Public Domain YAML Begins
-- type: trait
-  id: Atheist
-  name: trait-atheist-name
-  description: trait-atheist-desc
-  category: Religion
-  cost: 1
-  components:
-    - type: Religion
-      religion: Atheist
-
-- type: trait
-  id: Buddhist
-  name: trait-buddhist-name
-  description: trait-buddhist-desc
-  category: Religion
-  cost: 1
-  components:
-    - type: Religion
-      religion: Buddhist
-
-- type: trait
-  id: Christian
-  name: trait-christian-name
-  description: trait-christian-desc
-  category: Religion
-  cost: 1
-  components:
-    - type: Religion
-      religion: Christian
-## Public Domain YAML Ends
+# SPDX-FileCopyrightText: 2024 Dae <60460608+ZeroDayDaemon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+# SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later

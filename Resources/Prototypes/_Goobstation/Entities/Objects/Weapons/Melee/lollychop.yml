@@ -1,0 +1,75 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: lollychop
+  parent: [BaseItem, BaseSyndicateContraband]
+  id: LollyChop
+  description: Fill (split) your buddies' tummies (skulls) with this delicious candy (cold steel).
+  components:
+  - type: Tag
+    tags:
+    - FireAxe
+  - type: Sharp
+  - type: Execution
+    doAfterDuration: 4.0
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/lollychop.rsi
+    state: icon
+  - type: MeleeWeapon
+    heavyStaminaCost: 15
+    wideAnimationRotation: 135
+    swingLeft: true
+    attackRate: 0.75
+    damage:
+      types:
+        Blunt: 10
+        Slash: 5
+        Structural: 10
+    soundHit:
+      collection: MetalThud
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 10
+        Structural: 40
+  - type: Item
+    size: Huge
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Melee/lollychop.rsi
+    quickEquip: false
+    slots:
+    - back
+  - type: Tool
+    qualities:
+    - Prying
+    - Axing
+  - type: ToolTileCompatible
+  - type: Prying
+  - type: UseDelay
+    delay: 1
+  - type: IgniteOnMeleeHit
+    fireStacks: -4
+  - type: Scalpel
+    speed: 0.3
+  - type: BoneSaw
+    speed: 0.5
+  - type: SurgeryTool
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/saw.ogg
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 30
+  - type: SolutionRegeneration
+    solution: melee
+    generated:
+      reagents:
+      - ReagentId: Amatoxin
+        Quantity: 5
+  - type: MeleeChemicalInjector
+    transferAmount: 5
+    solution: melee

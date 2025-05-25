@@ -1,8 +1,22 @@
+// SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.NPC.Components;
+using Content.Shared._Goobstation.Weapons.SmartGun;
 using Content.Shared.CombatMode;
 using Content.Shared.Interaction;
+using Content.Shared.Physics;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
+using Content.Shared.Wieldable.Components;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Components;
 
@@ -12,6 +26,7 @@ public sealed partial class NPCCombatSystem
 {
     [Dependency] private readonly SharedCombatModeSystem _combat = default!;
     [Dependency] private readonly RotateToFaceSystem _rotate = default!;
+    [Dependency] private readonly SharedLaserPointerSystem _pointer = default!; // Goobstation
 
     private EntityQuery<CombatModeComponent> _combatQuery;
     private EntityQuery<NPCSteeringComponent> _steeringQuery;
@@ -57,6 +72,11 @@ public sealed partial class NPCCombatSystem
         {
             _combat.SetInCombatMode(uid, false, combat);
         }
+
+        // Goobstation
+        if (_gun.TryGetGun(uid, out var gunUid, out _) && TryComp(gunUid, out LaserPointerComponent? laser) &&
+            TryComp(gunUid, out WieldableComponent? wieldable) && TryComp(gunUid, out TransformComponent? xform))
+            _pointer.AddOrRemoveLine(GetNetEntity(gunUid), laser, wieldable, xform, null, null);
     }
 
     private void UpdateRanged(float frameTime)
@@ -65,13 +85,24 @@ public sealed partial class NPCCombatSystem
 
         while (query.MoveNext(out var uid, out var comp, out var xform))
         {
-            if (comp.Status == CombatStatus.Unspecified)
+            if (!_gun.TryGetGun(uid, out var gunUid, out var gun))
+            {
+                comp.Status = CombatStatus.NoWeapon;
+                comp.ShootAccumulator = 0f;
                 continue;
+            }
+
+            if (comp.Status == CombatStatus.Unspecified)
+            {
+                UpdatePointerLineNoTarget(); // Goobstation
+                continue;
+            }
 
             if (_steeringQuery.TryGetComponent(uid, out var steering) && steering.Status == SteeringStatus.NoPath)
             {
                 comp.Status = CombatStatus.TargetUnreachable;
                 comp.ShootAccumulator = 0f;
+                UpdatePointerLineNoTarget(); // Goobstation
                 continue;
             }
 
@@ -80,6 +111,7 @@ public sealed partial class NPCCombatSystem
             {
                 comp.Status = CombatStatus.TargetUnreachable;
                 comp.ShootAccumulator = 0f;
+                UpdatePointerLineNoTarget(); // Goobstation
                 continue;
             }
 
@@ -87,6 +119,7 @@ public sealed partial class NPCCombatSystem
             {
                 comp.Status = CombatStatus.TargetUnreachable;
                 comp.ShootAccumulator = 0f;
+                UpdatePointerLineNoTarget(); // Goobstation
                 continue;
             }
 
@@ -95,33 +128,28 @@ public sealed partial class NPCCombatSystem
                 _combat.SetInCombatMode(uid, true, combatMode);
             }
 
-            if (!_gun.TryGetGun(uid, out var gunUid, out var gun))
-            {
-                comp.Status = CombatStatus.NoWeapon;
-                comp.ShootAccumulator = 0f;
-                continue;
-            }
-
             var ammoEv = new GetAmmoCountEvent();
             RaiseLocalEvent(gunUid, ref ammoEv);
+
+            var worldPos = _transform.GetWorldPosition(xform);
+            var targetPos = _transform.GetWorldPosition(targetXform);
 
             if (ammoEv.Count == 0)
             {
                 // Recharging then?
                 if (_rechargeQuery.HasComponent(gunUid))
                 {
+                    UpdatePointerLine(); // Goobstation
                     continue;
                 }
 
                 comp.Status = CombatStatus.Unspecified;
                 comp.ShootAccumulator = 0f;
+                UpdatePointerLine(); // Goobstation
                 continue;
             }
 
             comp.LOSAccumulator -= frameTime;
-
-            var worldPos = _transform.GetWorldPosition(xform);
-            var targetPos = _transform.GetWorldPosition(targetXform);
 
             // We'll work out the projected spot of the target and shoot there instead of where they are.
             var distance = (targetPos - worldPos).Length();
@@ -132,8 +160,10 @@ public sealed partial class NPCCombatSystem
             if (comp.LOSAccumulator < 0f)
             {
                 comp.LOSAccumulator += UnoccludedCooldown;
+
                 // For consistency with NPC steering.
-                comp.TargetInLOS = _interaction.InRangeUnobstructed(uid, comp.Target, distance + 0.1f);
+                var collisionGroup = comp.UseOpaqueForLOSChecks ? CollisionGroup.Opaque : (CollisionGroup.Impassable | CollisionGroup.InteractImpassable);
+                comp.TargetInLOS = _interaction.InRangeUnobstructed(uid, comp.Target, distance + 0.1f, collisionGroup);
             }
 
             if (!comp.TargetInLOS)
@@ -146,6 +176,7 @@ public sealed partial class NPCCombatSystem
                     steering.ForceMove = true;
                 }
 
+                UpdatePointerLine(); // Goobstation
                 continue;
             }
 
@@ -158,6 +189,7 @@ public sealed partial class NPCCombatSystem
 
             if (comp.ShootAccumulator < comp.ShootDelay)
             {
+                UpdatePointerLine(); // Goobstation
                 continue;
             }
 
@@ -168,8 +200,10 @@ public sealed partial class NPCCombatSystem
             var goalRotation = (targetSpot - worldPos).ToWorldAngle();
             var rotationSpeed = comp.RotationSpeed;
 
-            if (!_rotate.TryRotateTo(uid, goalRotation, frameTime, comp.AccuracyThreshold, rotationSpeed?.Theta ?? double.MaxValue, xform))
+            if (Double.IsNaN(goalRotation.Theta) ||
+                !_rotate.TryRotateTo(uid, goalRotation, frameTime, comp.AccuracyThreshold, rotationSpeed?.Theta ?? double.MaxValue, xform))
             {
+                UpdatePointerLine(); // Goobstation
                 continue;
             }
 
@@ -182,7 +216,10 @@ public sealed partial class NPCCombatSystem
             // TODO: Check if we can face
 
             if (!Enabled || !_gun.CanShoot(gun))
+            {
+                UpdatePointerLine(); // Goobstation
                 continue;
+            }
 
             EntityCoordinates targetCordinates;
 
@@ -197,12 +234,43 @@ public sealed partial class NPCCombatSystem
 
             comp.Status = CombatStatus.Normal;
 
+            UpdatePointerLine(); // Goobstation
+
             if (gun.NextFire > _timing.CurTime)
             {
                 return;
             }
 
             _gun.AttemptShoot(uid, gunUid, gun, targetCordinates, comp.Target);
+
+            break;
+
+            // Goobstation
+            void UpdatePointerLineNoTarget()
+            {
+                if (TryComp(gunUid, out LaserPointerComponent? pointer) && TryComp(gunUid, out WieldableComponent? wieldable))
+                {
+                    _pointer.AddOrRemoveLine(GetNetEntity(gunUid),
+                        pointer,
+                        wieldable,
+                        _xformQuery.Comp(gunUid),
+                        null,
+                        null);
+                }
+            }
+
+            void UpdatePointerLine()
+            {
+                if (TryComp(gunUid, out LaserPointerComponent? pointer) && TryComp(gunUid, out WieldableComponent? wieldable))
+                {
+                    _pointer.AddOrRemoveLine(GetNetEntity(gunUid),
+                        pointer,
+                        wieldable,
+                        _xformQuery.Comp(gunUid),
+                        targetPos - worldPos,
+                        comp.Target);
+                }
+            }
         }
     }
 }

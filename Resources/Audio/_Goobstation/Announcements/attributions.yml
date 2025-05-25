@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - files: ["violet.ogg"]
   license: "CC-BY-NC-SA-3.0"
   copyright: "Mrjajkes"
@@ -6,4 +13,9 @@
 - files: ["blob_detected.ogg"]
   license: "CC-BY-NC-SA-3.0"
   copyright: "Piras314"
+  source: "https://goobstation.com"
+
+- files: ["war.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "/Resources/Audio/Announcements/war.ogg and /Resources/Audio/_Goobstation/Music/running_in.ogg edited and merged by pheenty"
   source: "https://goobstation.com"

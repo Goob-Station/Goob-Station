@@ -1,0 +1,34 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2025 ss14-Starlight <ss14-Starlight@outlook.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: soundCollection
+  id: VentCrawlingSounds
+  files:
+  - /Audio/_Starlight/VentCrawling/crawling1.ogg
+  - /Audio/_Starlight/VentCrawling/crawling2.ogg
+  - /Audio/_Starlight/VentCrawling/crawling4.ogg
+  - /Audio/_Starlight/VentCrawling/crawling5.ogg
+  - /Audio/_Starlight/VentCrawling/crawling6.ogg
+  - /Audio/_Starlight/VentCrawling/crawling7.ogg
+  - /Audio/_Starlight/VentCrawling/crawling8.ogg
+  - /Audio/_Starlight/VentCrawling/crawling9.ogg
+  - /Audio/_Starlight/VentCrawling/crawling10.ogg
+  - /Audio/_Starlight/VentCrawling/crawling11.ogg
+  - /Audio/_Starlight/VentCrawling/crawling12.ogg
+  - /Audio/_Starlight/VentCrawling/crawling13.ogg
+  - /Audio/_Starlight/VentCrawling/crawling15.ogg
+  - /Audio/_Starlight/VentCrawling/crawling16.ogg
+  - /Audio/_Starlight/VentCrawling/crawling17.ogg
+  - /Audio/_Starlight/VentCrawling/crawling18.ogg
+  - /Audio/_Starlight/VentCrawling/crawling19.ogg
+  - /Audio/_Starlight/VentCrawling/crawling20.ogg
+  - /Audio/_Starlight/VentCrawling/crawling21.ogg
+  - /Audio/_Starlight/VentCrawling/crawling22.ogg
+  - /Audio/_Starlight/VentCrawling/crawling23.ogg
+  - /Audio/_Starlight/VentCrawling/crawling24.ogg

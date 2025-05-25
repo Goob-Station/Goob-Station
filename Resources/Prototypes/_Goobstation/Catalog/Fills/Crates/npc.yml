@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: CrateNPCGondola
   parent: CrateLivestock
@@ -12,9 +20,9 @@
   id: CrateNPCLootbug
   parent: CrateLivestock
   name: crate of lootbugs
-  description: A crate containing four lootbugs.
+  description: A crate containing three lootbugs.
   components:
   - type: StorageFill
     contents:
       - id: MobLootbug
-        amount: 4
+        amount: 3

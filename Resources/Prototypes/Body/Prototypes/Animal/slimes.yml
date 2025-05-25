@@ -1,15 +1,24 @@
-﻿- type: body
+# SPDX-FileCopyrightText: 2023 Nim <128169402+Nimfar11@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: body
   id: Slimes
   name: "slimes"
-  root: torso
+  root: chest
   slots:
-    torso:
-      part: TorsoSlime
+    chest:
+      part: ChestSlime
       connections:
-      - legs
+      - groin
       organs:
         core: SentientSlimesCore
         lungs: OrganSlimesLungs
+    groin:
+      part: GroinSlime
+      connections:
+      - legs
     legs:
       part: LegsAnimal
       connections:

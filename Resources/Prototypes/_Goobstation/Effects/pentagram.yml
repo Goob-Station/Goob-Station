@@ -1,0 +1,31 @@
+- type: entity
+  id: Pentagram
+  name: pentagram
+  parent: Acidifier
+  description: A devilish summoning circle.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Effects/pentagram.rsi
+    drawdepth: BelowMobs
+    noRot: true
+    layers:
+    - state: pentagram
+      shader: unshaded
+  - type: Transform
+    anchored: False
+  - type: TimedDespawn
+    lifetime: 5
+  - type: PointLight
+    color: Red
+    radius: 3
+    energy: 2
+    netsync: false
+
+- type: entity
+  id: PentagramHellHand
+  parent: Pentagram
+  name: pentagram & hand
+  description: A devilish summoning circle with an equally devilish hand.
+  components:
+  - type: SpawnOnDespawn
+    prototype: HellHand

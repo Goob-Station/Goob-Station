@@ -1,3 +1,23 @@
+// SPDX-FileCopyrightText: 2019 Silver <Silvertorch5@gmail.com>
+// SPDX-FileCopyrightText: 2020 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2020 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2020 chairbender <kwhipke1@gmail.com>
+// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
+// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Metal Gear Sloth <metalgearsloth@gmail.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
+// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
+// SPDX-FileCopyrightText: 2024 PrPleGoo <PrPleGoo@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 SpaceManiac <tad@platymuus.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Markers;
 using Content.Client.Popups;
 using Content.Client.SubFloor;
@@ -33,29 +53,6 @@ internal sealed class ShowSubFloor : LocalizedCommands
     public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
         _entitySystemManager.GetEntitySystem<SubFloorHideSystem>().ShowAll ^= true;
-    }
-}
-
-internal sealed class ShowSubFloorForever : LocalizedCommands
-{
-    [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
-
-    public const string CommandName = "showsubfloorforever";
-    public override string Command => CommandName;
-
-    public override string Help => LocalizationManager.GetString($"cmd-{Command}-help", ("command", Command));
-
-    public override void Execute(IConsoleShell shell, string argStr, string[] args)
-    {
-        _entitySystemManager.GetEntitySystem<SubFloorHideSystem>().ShowAll = true;
-
-        var entMan = IoCManager.Resolve<IEntityManager>();
-        var components = entMan.EntityQuery<SubFloorHideComponent, SpriteComponent>(true);
-
-        foreach (var (_, sprite) in components)
-        {
-            sprite.DrawDepth = (int) DrawDepth.Overlays;
-        }
     }
 }
 

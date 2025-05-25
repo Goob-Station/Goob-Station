@@ -1,0 +1,21 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Thom <119594676+ItsMeThom@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: construction
+  name: directional wall
+  id: WallDirectional
+  graph: WallDirectional
+  startNode: start
+  targetNode: wallDirectional
+  category: construction-category-structures
+  description: Cheap and cheerful metal plating.
+  icon:
+    sprite: _Goobstation/Structures/Walls/directional.rsi
+    state: directionalwall
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: true
+  canBuildInImpassable: true

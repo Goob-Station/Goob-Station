@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared._Shitmed.Antags.Abductor;
 using Content.Shared.Actions;
 using Content.Shared.DoAfter;
@@ -72,7 +78,6 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
 
     private void OnSendYourself(SendYourselfEvent ev)
     {
-        Logger.Debug($"{ToPrettyString(ev.Performer)}");
         AddTeleportationEffect(ev.Performer, 5.0f, TeleportationEffectEntity, out var effectEnt, true, false);
         var effect = _entityManager.SpawnEntity(TeleportationEffect, ev.Target);
         EnsureComp<TimedDespawnComponent>(effect, out var _);

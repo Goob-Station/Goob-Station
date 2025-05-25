@@ -1,3 +1,19 @@
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 John Doe <johndoe@example.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 Speebro <100388782+Speebr0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 VMSolidus <evilexecutive@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: explosion
   id: Supermatter
   damagePerIntensity:
@@ -38,3 +54,57 @@
   fireColor: Red
   texturePath: /Textures/Effects/fire_greyscale.rsi
   fireStates: 3
+
+- type: explosion
+  id: Electrical
+  damagePerIntensity:
+    types:
+      Shock: 10
+      Structural: 20
+      Ion: 20
+  lightColor: Cyan
+  fireColor: Cyan
+  texturePath: /Textures/Effects/fire_greyscale.rsi
+  sound:
+    path: /Audio/Effects/tesla_collapse.ogg
+  smallSound:
+    path: /Audio/Effects/tesla_collapse.ogg
+
+
+  # Used by BulletHighCaliberExplosive, identical to FireBomb but less firestacks
+- type: explosion
+  id: FireBombWeak
+  damagePerIntensity:
+    types:
+      Heat: 1
+      Blunt: 2
+      Piercing: 3
+  lightColor: Orange
+  texturePath: /Textures/Effects/fire.rsi
+  fireStates: 6
+  fireStacks: 1.3
+
+- type: explosion
+  id: Holy
+  damagePerIntensity:
+    types:
+      Heat: 4
+      Blunt: 7
+      Piercing: 4
+      Holy: 10
+  tileBreakChance: [0, 0.5, 1]
+  tileBreakIntensity: [0, 10, 30]
+  tileBreakRerollReduction: 20
+  lightColor: Orange
+  texturePath: /Textures/Effects/fire.rsi
+  fireStates: 3
+
+- type: explosion
+  id: Molotov
+  damagePerIntensity:
+    types:
+      Heat: 1
+  lightColor: Orange
+  texturePath: /Textures/Effects/fire.rsi
+  fireStates: 6
+  fireStacks: 5

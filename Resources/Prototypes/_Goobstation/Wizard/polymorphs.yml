@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: polymorph
   id: WizardRodII
   configuration:
@@ -10,6 +16,7 @@
     forced: true
     revertOnCrit: false
     revertOnDeath: false
+    attachToGridOrMap: true
 
 - type: polymorph
   id: WizardRodIII
@@ -23,6 +30,7 @@
     forced: true
     revertOnCrit: false
     revertOnDeath: false
+    attachToGridOrMap: true
 
 - type: polymorph
   id: WizardRodIV
@@ -36,6 +44,7 @@
     forced: true
     revertOnCrit: false
     revertOnDeath: false
+    attachToGridOrMap: true
 
 - type: polymorph
   id: WizardRodV
@@ -49,6 +58,7 @@
     forced: true
     revertOnCrit: false
     revertOnDeath: false
+    attachToGridOrMap: true
 
 - type: polymorph
   id: WizardGorilla
@@ -72,7 +82,15 @@
     revertOnDeath: false
     allowRepeatedMorphs: true
     componentsToTransfer:
-    - Wizard
-    - Apprentice
-    - TimedDespawn
-    - FadingTimedDespawn
+    - component: Wizard
+      mirror: true
+    - component: Apprentice
+      mirror: true
+    - component: TimedDespawn
+    - component: FadingTimedDespawn
+    - component: HTN
+    - component: NpcFactionMember
+    - component: MeleeWeapon
+      override: false
+    - component: CombatMode
+      mirror: true

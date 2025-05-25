@@ -1,9 +1,32 @@
+# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 MFMessage <22904993+MFMessage@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: PartGingerbread
   parent: [BaseItem, BasePart]
   name: "gingerbread body part"
   abstract: true
   components:
+  - type: WoundableVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
+        color: "#896e55"
+      Burn:
+        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
+  - type: Icon # Shitmed Change
+    sprite: Mobs/Species/Gingerbread/parts.rsi
+  - type: BodyPart # Shitmed Change
+    species: Gingerbread
   - type: Extractable
     juiceSolution:
       reagents:
@@ -11,15 +34,33 @@
         Quantity: 3
       - ReagentId: Sugar
         Quantity: 10
+  - type: Damageable # Shitmed
+    damageModifierSet: Gingerbread
 
 - type: entity
-  id: TorsoGingerbread
-  name: "gingerbread torso"
-  parent: [PartGingerbread, BaseTorso]
+  id: ChestGingerbread
+  name: "gingerbread chest"
+  parent: [PartGingerbread, BaseChest]
   components:
   - type: Sprite
     sprite: Mobs/Species/Gingerbread/parts.rsi
-    state: "torso_m"
+    state: "chest_m"
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+      - ReagentId: Sugar
+        Quantity: 20
+
+- type: entity
+  id: GroinGingerbread
+  name: "gingerbread groin"
+  parent: [PartGingerbread, BaseGroin]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Gingerbread/parts.rsi
+    state: "groin_m"
   - type: Extractable
     juiceSolution:
       reagents:

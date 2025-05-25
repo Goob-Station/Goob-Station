@@ -1,0 +1,159 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
+# SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+# SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
+# SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: proto-kinetic shotgun
+  id: WeaponProtoKineticShotgun
+  parent: [ BaseGunWieldable, WeaponProtoKineticAcceleratorBase, BaseCargoContraband ]
+  description: Fires a spread of low-damage kinetic bolts that are half as effective for mining.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
+    layers:
+    - state: shotgun
+      map: [ "enum.WeaponVisualLayers.Base" ]
+    - state: bayonet
+      map: [ "enum.WeaponVisualLayers.Bayonet" ]
+      visible: false
+    - state: flight
+      map: [ "enum.WeaponVisualLayers.FlightOff" ]
+      visible: false
+    - state: flight-on
+      map: [ "enum.WeaponVisualLayers.FlightOn" ]
+      visible: false
+    - state: animation-shotgun
+      visible: false
+      map: [ "empty-icon" ]
+  - type: BasicEntityAmmoProvider
+    proto: PelletKineticSpread
+    capacity: 1
+    count: 1
+  - type: UpgradeableGun
+    maxUpgradeCapacity: 70
+    whitelist:
+      tags:
+      - PKAUpgrade
+  - type: GunRequiresWield
+  - type: Item
+    shape:
+    - 0,0,4,0
+
+- type: entity
+  name: proto-kinetic repeater
+  id: WeaponProtoKineticRepeater
+  parent: [ WeaponProtoKineticAcceleratorBase, BaseCargoContraband ]
+  description: Fires a barrage of medium-damage kinetic bolts at a short range.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
+    layers:
+    - state: repeater
+      map: [ "enum.WeaponVisualLayers.Base" ]
+    - state: bayonet
+      map: [ "enum.WeaponVisualLayers.Bayonet" ]
+      visible: false
+    - state: flight
+      map: [ "enum.WeaponVisualLayers.FlightOff" ]
+      visible: false
+    - state: flight-on
+      map: [ "enum.WeaponVisualLayers.FlightOn" ]
+      visible: false
+    - state: animation-repeater
+      visible: false
+      map: [ "empty-icon" ]
+  - type: Gun
+    selectedMode: Burst
+    minAngle: 10
+    maxAngle: 20
+    burstFireRate: 3
+    burstCooldown: 1.5
+    availableModes:
+    - Burst
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
+  - type: BasicEntityAmmoProvider
+    proto: RapidBulletKinetic
+    capacity: 3
+    count: 3
+  - type: UpgradeableGun
+    maxUpgradeCapacity: 70
+    whitelist:
+      tags:
+      - PKAUpgrade
+  - type: Item
+    shape:
+    - 0,0,2,1
+
+- type: entity
+  name: proto-kinetic pistol
+  id: WeaponProtoKineticPistol
+  parent: [ WeaponProtoKineticAcceleratorBase, BaseCargoContraband ]
+  description: Fires low-damage kinetic bolts, has a higher mod capacity.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
+    layers:
+    - state: pistol
+      map: [ "enum.WeaponVisualLayers.Base" ]
+    - state: bayonet
+      map: [ "enum.WeaponVisualLayers.Bayonet" ]
+      visible: false
+    - state: flight
+      map: [ "enum.WeaponVisualLayers.FlightOff" ]
+      visible: false
+    - state: flight-on
+      map: [ "enum.WeaponVisualLayers.FlightOn" ]
+      visible: false
+    - state: animation-pistol
+      visible: false
+      map: [ "empty-icon" ]
+  - type: BasicEntityAmmoProvider
+    proto: WeakBulletKinetic
+    capacity: 1
+    count: 1
+  - type: UpgradeableGun
+    maxUpgradeCapacity: 200
+    whitelist:
+      tags:
+      - PKAUpgrade
+  - type: Gun
+    availableModes:
+    - FullAuto
+    - SemiAuto
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+
+# Lavaland Change
+- type: entity
+  id: ActionTogglePKALight
+  name: action-name-toggle-pka-light
+  description: action-description-toggle-pka-light
+  components:
+  - type: InstantAction
+    useDelay: 0.5
+    icon: { sprite: Objects/Tools/seclite.rsi, state: seclite }
+    event: !type:ToggleActionEvent

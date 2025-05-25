@@ -1,3 +1,26 @@
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity 
+  id: ShowHealthRelatedIcons
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+    - Inorganic
+    - Silicon
+    - SiliconRadiation # Goobstation - Make IPCs take radiation
+  - type: ShowHealthIcons
+    damageContainers:
+    - Biological
+
 - type: entity
   parent: ClothingEyesHudOmni
   id: ClothingEyesHudChrono
@@ -15,3 +38,20 @@
   suffix: Unremoveable
   components:
   - type: Unremoveable
+
+- type: entity 
+  parent: [ClothingEyesBase, ShowHealthRelatedIcons]
+  id: ClothingEyesHudDiagnosticMedical
+  name: meddiag hud
+  description: A heads-up display combining both medical and diagnostic information.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Eyes/Hud/meddiag.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Eyes/Hud/meddiag.rsi
+  - type: Construction
+    graph: HudMedDiag
+    node: meddiagHud
+  - type: Tag
+    tags:
+    - HudMedicalDiagnostic

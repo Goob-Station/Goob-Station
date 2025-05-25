@@ -1,3 +1,13 @@
+<!--
+SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
 <Document>
   # Rodentia
 
@@ -15,7 +25,6 @@
   ## Benefits
 
   - Uses their claws to do some Slashing and Blunt damage.
-  - Smaller than humans.
   - Can fit in duffelbags.
 
   ## Special
@@ -23,6 +32,7 @@
   - Can Rummage in disposal chutes, which can sometimes dig up food.
   - Can store small items in their cheeks. Having items in their mouth makes their speech unintelligible, and they will drop all items in their mouth if attacked, stunned, or shoved.
   - Can "sneak" underneath tables, but not doors.
+  - Smaller than most other species.
 
   ## Drawbacks
 

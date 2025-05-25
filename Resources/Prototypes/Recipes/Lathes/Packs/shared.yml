@@ -1,0 +1,67 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+## Static
+
+- type: latheRecipePack
+  id: MaterialsStatic
+  recipes:
+  - SheetRGlass
+
+- type: latheRecipePack
+  id: PartsStatic
+  recipes:
+  - Igniter
+  - ModularReceiver
+  - MicroManipulatorStockPart
+  - MatterBinStockPart
+  - CapacitorStockPart
+  - ConveyorBeltAssembly
+
+- type: latheRecipePack
+  id: LightsStatic
+  recipes:
+  - LightTube
+  - LedLightTube
+  - SodiumLightTube
+  - ExteriorLightTube
+  - LightBulb
+  - LedLightBulb
+  - DimLightBulb
+  - WarmLightBulb
+
+- type: latheRecipePack
+  id: PowerCellsStatic
+  recipes:
+  - PowerCellSmall
+  - PowerCellMedium
+
+- type: latheRecipePack
+  id: CablesStatic
+  recipes:
+  - CableStack
+  - CableMVStack
+  - CableHVStack
+
+## Dynamic
+
+# Things you'd expect sci salv and engi to make use of
+- type: latheRecipePack
+  id: Equipment
+  recipes:
+  #- HandHeldMassScanner - Goobstation - Removed by Lavaland
+  - ClothingMaskWeldingGas
+  - SignallerAdvanced
+
+- type: latheRecipePack
+  id: SalvageSecurityBoards
+  recipes:
+  - ShuttleGunKineticCircuitboard
+
+- type: latheRecipePack
+  id: SalvageSecurityWeapons
+  recipes:
+  - WeaponProtoKineticAccelerator

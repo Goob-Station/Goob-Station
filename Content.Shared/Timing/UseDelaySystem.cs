@@ -1,3 +1,18 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ActiveMammmoth <140334666+ActiveMammmoth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ActiveMammmoth <kmcsmooth@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Diagnostics.CodeAnalysis;
 using Robust.Shared.GameStates;
 using Robust.Shared.Timing;
@@ -88,8 +103,11 @@ public sealed class UseDelaySystem : EntitySystem
     /// <summary>
     /// Returns true if the entity has a currently active UseDelay with the specified ID.
     /// </summary>
-    public bool IsDelayed(Entity<UseDelayComponent> ent, string id = DefaultId)
+    public bool IsDelayed(Entity<UseDelayComponent?> ent, string id = DefaultId)
     {
+        if (!Resolve(ent, ref ent.Comp, false))
+            return false;
+
         if (!ent.Comp.Delays.TryGetValue(id, out var entry))
             return false;
 
@@ -144,7 +162,7 @@ public sealed class UseDelaySystem : EntitySystem
     /// Otherwise reset it and return true.</param>
     public bool TryResetDelay(Entity<UseDelayComponent> ent, bool checkDelayed = false, string id = DefaultId)
     {
-        if (checkDelayed && IsDelayed(ent, id))
+        if (checkDelayed && IsDelayed((ent.Owner, ent.Comp), id))
             return false;
 
         if (!ent.Comp.Delays.TryGetValue(id, out var entry))

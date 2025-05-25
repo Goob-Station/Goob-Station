@@ -1,3 +1,15 @@
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: reagent
   id: Tranquility
   name: reagent-name-tranquility
@@ -32,6 +44,59 @@
         - !type:ReagentThreshold
           min: 25
 
+- type: reagent
+  id: BingleJuice
+  name: reagent-name-binglejuice
+  group: Toxins
+  desc: reagent-desc-binglejuice
+  physicalDesc: reagent-physical-desc-calming
+  flavor: bitter
+  color: "#1a6ac1"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.05
+      effects:
+      - !type:PopupMessage
+          type: Local
+          messages: [ "reagent-popup-binglejuice" ]
+          probability: 0.2
+      - !type:Polymorph
+        prototype: Bingle
+        conditions:
+        - !type:ReagentThreshold
+          min: 25
+
+- type: reagent
+  id: Carpolin
+  name: reagent-name-carpolin
+  group: Toxins
+  desc: reagent-desc-carpolin
+  physicalDesc: reagent-physical-desc-exotic-smelling
+  flavor: bitter
+  color: "#bb26f9"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.05
+      effects:
+      - !type:Polymorph
+        prototype: ForcedCarpSentient
+        conditions:
+        - !type:ReagentThreshold
+          min: 9
+      - !type:PopupMessage
+        type: Local
+        messages: [ "reagent-popup-carpolin" ]
+        probability: 0.3
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 1
+        - !type:OrganType
+          type: Animal
+        damage:
+          types:
+            Poison: 0.06
+
 # CREATED BY Goldminermac
 # https://github.com/space-wizards/space-station-14/pull/31149
 # LICENSED UNDER THE MIT LICENSE
@@ -53,3 +118,78 @@
         key: Vulgarity
         component: VulgarAccent
 # END OF MIT-LICENSED CODE
+
+- type: reagent
+  id: Copium
+  name: reagent-name-copium
+  group: Special
+  desc: reagent-desc-copium
+  physicalDesc: reagent-physical-desc-comforting
+  flavor: tears
+  color: "#fcb8f5"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:PopupMessage
+        type: Local
+        visualType: Large
+        messages: [ "reagent-popup-copium-1", "reagent-popup-copium-2", "reagent-popup-copium-3", "reagent-popup-copium-4", "reagent-popup-copium-5", "reagent-popup-copium-6", "reagent-popup-copium-7", "reagent-popup-copium-8", "reagent-popup-copium-9", "reagent-popup-copium-10", "reagent-popup-copium-11", "reagent-popup-copium-12" ]
+        probability: 0.2
+
+- type: reagent
+  id: CatDrugs
+  name: reagent-name-cat-drugs
+  group: Toxins
+  desc: reagent-desc-cat-drugs
+  physicalDesc: reagent-physical-desc-fuzzy
+  flavor: fizzy
+  color: "#ffff40"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.1
+      effects:
+      - !type:Emote
+        emote: CatMeow
+        showInChat: true
+        force: true
+        probability: 0.5
+      - !type:Polymorph
+        prototype: Cat
+        conditions:
+        - !type:OrganType
+          type: Animal
+          shouldHave: false
+        - !type:ReagentThreshold
+          min: 50
+      - !type:AdjustReagent
+        reagent: CatDrugs
+        amount: -20
+        conditions:
+        - !type:ReagentThreshold
+          min: 50
+
+- type: reagent
+  id: Nostalgia
+  name: reagent-name-nostalgia
+  group: Special
+  desc: reagent-desc-nostalgia
+  physicalDesc: reagent-physical-desc-chalky
+  flavor: old
+  color: "#375dcf"
+
+- type: reagent
+  id: Tilenol
+  name: reagent-name-tilenol
+  group: Special
+  desc: reagent-desc-tilenol
+  physicalDesc: reagent-physical-desc-robust
+  flavor: robust
+  color: "#ffd648"
+  metabolisms:
+    Drink:
+      metabolismRate: 0.1
+      effects:
+      - !type:GenericStatusEffect
+        key: Centered
+        time: 10
+        component: TileMovement

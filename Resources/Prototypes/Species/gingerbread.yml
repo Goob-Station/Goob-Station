@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: species
   id: Gingerbread
   name: Gingerbread
@@ -15,7 +23,8 @@
     Head: MobGingerbreadHead
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
-    Chest: MobGingerbreadTorso
+    Chest: MobGingerbreadChest
+    Groin: MobGingerbreadGroin
     Eyes: MobGingerbreadEyes
     LArm: MobGingerbreadLArm
     RArm: MobGingerbreadRArm
@@ -51,22 +60,40 @@
     state: head_f
 
 - type: humanoidBaseSprite
-  id: MobGingerbreadTorso
+  id: MobGingerbreadChest
   baseSprite:
     sprite: Mobs/Species/Gingerbread/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobGingerbreadTorsoMale
+  id: MobGingerbreadChestMale
   baseSprite:
     sprite: Mobs/Species/Gingerbread/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobGingerbreadTorsoFemale
+  id: MobGingerbreadChestFemale
   baseSprite:
     sprite: Mobs/Species/Gingerbread/parts.rsi
-    state: torso_f
+    state: chest_f
+
+- type: humanoidBaseSprite
+  id: MobGingerbreadGroin
+  baseSprite:
+    sprite: Mobs/Species/Gingerbread/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobGingerbreadGroinMale
+  baseSprite:
+    sprite: Mobs/Species/Gingerbread/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobGingerbreadGroinFemale
+  baseSprite:
+    sprite: Mobs/Species/Gingerbread/parts.rsi
+    state: groin_f
 
 - type: humanoidBaseSprite
   id: MobGingerbreadLLeg

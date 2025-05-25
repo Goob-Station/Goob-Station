@@ -1,0 +1,104 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+## Static
+- type: latheRecipePack
+  id: MechPartsStatic
+  recipes:
+  - MechAirTank
+  - MechThruster
+
+- type: latheRecipePack
+  id: MechWeaponsSecurityStatic
+  recipes:
+  - WeaponMechCombatFlashbangLauncher
+
+## Dynamic
+- type: latheRecipePack
+  id: MechWeaponsSecurityLight
+  recipes:
+  - WeaponMechCombatFiredartLaser
+  - WeaponMechCombatShotgunIncendiary
+  - WeaponMechCombatDisabler
+
+- type: latheRecipePack
+  id: MechWeaponsSecurityHeavy
+  recipes:
+  - WeaponMechCombatImmolationGun
+  - WeaponMechCombatSolarisLaser
+  - WeaponMechCombatUltraRifle
+  - WeaponMechCombatShotgun
+  - WeaponMechCombatMissileRack8
+
+- type: latheRecipePack
+  id: MechPartsGoob
+  recipes:
+  - ClarkeHarness
+  - ClarkeHead
+  - ClarkeLArm
+  - ClarkeRArm
+  - ClarkeTreads
+  - DurandHarness
+  - DurandArmor
+  - DurandHead
+  - DurandLArm
+  - DurandLLeg
+  - DurandRArm
+  - DurandRLeg
+  - GygaxHarness
+  - GygaxArmor
+  - GygaxHead
+  - GygaxLArm
+  - GygaxLLeg
+  - GygaxRArm
+  - GygaxRLeg
+  - RipleyUpgradeKit
+  - RipleyMKIIHarness
+
+- type: latheRecipePack
+  id: MechWeaponsSalvage
+  recipes:
+  - MechEquipmentDrill
+  - MechEquipmentDrillDiamond
+  - MechEquipmentKineticAccelerator
+
+- type: latheRecipePack
+  id: MechWeaponsCivilian
+  recipes:
+  - MechEquipmentHonkerBananaMortar
+  - MechEquipmentHonkerMousetrapMortar
+
+- type: latheRecipePack
+  id: MechBoardsSecurity
+  recipes:
+  - GygaxCentralElectronics
+  - GygaxPeripheralsElectronics
+  - GygaxTargetingElectronics
+  - DurandCentralElectronics
+  - DurandPeripheralsElectronics
+  - DurandTargetingElectronics
+
+- type: latheRecipePack
+  id: MechBoardsCargo
+  recipes:
+  - RipleyCentralElectronics
+  - RipleyPeripheralsElectronics
+  - ClarkeCentralElectronics
+  - ClarkePeripheralsElectronics
+
+- type: latheRecipePack
+  id: MechBoardsCivilian
+  recipes:
+  - HonkerCentralElectronics
+  - HonkerPeripheralsElectronics
+  - HonkerTargetingElectronics
+
+- type: latheRecipePack
+  id: MechBoardsScience
+  recipes:
+  - HamtrCentralElectronics
+  - HamtrPeripheralsElectronics

@@ -1,0 +1,65 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+# SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+## Static
+- type: latheRecipePack
+  id: SyndicateAmmoLightStatic
+  recipes:
+  - MagazineBoxLightRifle
+  - MagazinePistolCaselessRifleEmpty
+  - MagazinePistolCaselessRifle
+  - MagazineBoxCaselessRifle
+  - MagazineCaselessRifleEmpty
+  - MagazineCaselessRifle
+  - MagazineLowCaliberM7S
+
+- type: latheRecipePack
+  id: SyndicateAmmoHeavyStatic
+  recipes:
+  - MagazinePistolHighCapacityEmpty
+  - MagazinePistolHighCapacity
+  - MagazineLightRifleBoxEmpty
+  - MagazineLightRifleBox
+  - MagazineHighCaliberEmpty
+  - MagazineHighCaliber
+  - MagazineBoxHighCaliber
+  - MagazineBoxAntiMateriel
+
+- type: latheRecipePack
+  id: LatheMiscStatic
+  recipes:
+  - ToolboxMechanical
+  - Pen
+
+- type: latheRecipePack
+  id: SyndicateCatridgesStatic
+  recipes:
+  - CartridgeEphedrine
+  - CartridgePuncturase
+  - CartridgeTirizene
+
+- type: latheRecipePack
+  id: ProtoLatheMiscStatic
+  recipes:
+  - MaterialBSCrystal
+
+## Dynamic
+- type: latheRecipePack # WD
+  id: SpecOpsGoogles
+  recipes:
+    - ClothingEyesNightVisionGoggles
+    - ClothingEyesThermalVisionGoggles
+
+- type: latheRecipePack
+  id: Pinpointers
+  recipes:
+  - Pinpointer
+  - PinpointerArtifact
+  - PinpointerAnomaly
+  - PinpointerBorg

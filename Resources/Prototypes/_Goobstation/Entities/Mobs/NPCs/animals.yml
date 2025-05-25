@@ -1,3 +1,24 @@
+# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 BeeRobynn <166929042+BeeRobynn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aineias1 <142914808+Aineias1@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2025 grub <unalterableness@gmail.com>
+# SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   name: gondola
   parent:
@@ -104,6 +125,7 @@
       task: IdleCompound
   - type: Body
     prototype: Animal
+    bodyType: Simple
   - type: Climbing
   - type: NameIdentifier
     group: GenericNumber
@@ -116,10 +138,10 @@
   - type: Perishable
 
 - type: entity
-  name: syndimaggot
+  name: syndiroach
   id: MobMothSyndy
   parent: MobMothroach
-  description: Explosive maggot.
+  description: Explosive moth.
   components:
   - type: Sprite
     sprite: _Goobstation/Mobs/Animals/syndiroach.rsi
@@ -135,6 +157,8 @@
     allowMovement: true
     description: ghost-role-information-SyndiRoach-description
     rules: ghost-role-information-SyndiRoach-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
@@ -209,6 +233,8 @@
     name: ghost-role-information-lootbug-name
     description: ghost-role-information-lootbug-description
     rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
   - type: GhostTakeoverAvailable
   - type: Speech
     speechVerb: SmallMob
@@ -238,3 +264,248 @@
   - type: NpcFactionMember # they're pests, makes them the target of shiva and aves
     factions:
       - Mouse
+  - type: VentCrawler # goobstation - Ventcrawl
+
+- type: entity
+  name: space carp
+  id: MobCarpSentient
+  parent: [ SimpleSpaceMobBase, FlyingMobBase, MobCombat ]
+  description: It's a space carp. Used to be a person.
+  components:
+  - type: InputMover
+  - type: MobMover
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+    blackboard:
+      NavSmash: !type:Bool
+        true
+  - type: NpcFactionMember
+    factions:
+    - Dragon
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Aliens/Carps/space.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: alive
+  - type: CombatMode
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.40
+        density: 80
+        mask:
+        - FlyingMobMask
+        layer:
+        - FlyingMobLayer
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2.5
+    baseSprintSpeed: 3.5
+  - type: Stamina
+    critThreshold: 100
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: alive
+        BaseUnshaded: mouth
+      Dead:
+        Base: dead
+        BaseUnshaded: dead_mouth
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatFish
+      amount: 2
+    - id: MaterialToothSpaceCarp1
+      amount: 1
+      maxAmount: 4
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Blunt: 10
+        Slash: 10
+  - type: TypingIndicator
+    proto: alien
+  - type: Tag
+    tags:
+    - Carp
+    - DoorBumpOpener
+  - type: InteractionPopup
+    interactSuccessString: petting-success-carp
+    interactFailureString: petting-failure-carp
+    interactFailureSound:
+      path: /Audio/Effects/bite.ogg
+  - type: Body # Shitmed: Special carp organs
+    prototype: Carp
+    bodyType: Simple
+  - type: SurgeryTarget # Shitmed
+  - type: UserInterface # Shitmed
+    interfaces:
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
+  - type: NightVision # Goobstation - Nigthvision
+    color: "#808080"
+    activateSound: null
+    deactivateSound: null
+
+
+- type: entity
+  name: strange mouse
+  parent: MobMouse
+  id: MobMouseSentient
+  description: Squeak! Used to be a person!
+  components:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      40: Critical
+      80: Dead
+  - type: Tag
+    tags:
+    - Trash
+    - VimPilot
+    - ChefPilot
+    - Mouse
+    - Meat
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 5
+
+- type: entity
+  name: homunculus
+  id: MobHomunculus
+  parent: SimpleMobBase
+  description: What a wretched beast...
+  components:
+  - type: Sprite
+    drawdepth: SmallMobs
+    sprite: _Goobstation/Mobs/Animals/homunculus.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: homunculus
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 100
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-homunculus-name
+    description: ghost-role-information-homunculus-description
+    rules: ghost-role-information-familiar-rules
+  - type: GhostTakeoverAvailable
+  - type: Speech
+    speechSounds: Alto
+  - type: MobState
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: homunculus
+      Dead:
+        Base: homunculus_dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      50: Dead
+  - type: Bloodstream
+    bloodReagent: Blood
+    bloodMaxVolume: 40
+  - type: Tag
+    tags:
+    - Trash
+    - VimPilot
+  - type: NpcFactionMember
+    factions:
+      - SimpleHostile
+  - type: VentCrawler
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Slash: 10
+  - type: Item
+    size: Tiny
+
+- type: entity
+  parent: MobMouse
+  id: MouseMenace
+  name: menace
+  components:
+  - type: EnchantFill
+    enchants:
+      EnchantInsulated: 1 # eat ALL the wires
+      EnchantUnbreaking: 3 # very hard to kill
+      EnchantSharpness: 5 # hit hard ye
+
+- type: entity
+  name: Clown Ian
+  parent: MobCorgiIan
+  id: MobCorgiIanClown
+  description: Honkmother's favorite corgi.
+  components:
+    - type: Sprite
+      drawdepth: Mobs
+      sprite: _Goobstation/Mobs/Animals/clown_ian.rsi
+      layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: clown_ian
+    - type: DamageStateVisuals
+      states:
+        Alive:
+          Base: clown_ian
+        Critical:
+          Base: clown_ian_dead
+        Dead:
+          Base: clown_ian_dead
+    - type: Grammar
+      attributes:
+        proper: true
+        gender: male
+    - type: AutoImplant
+      implants:
+      - SadTromboneImplant
+      - BikeHornImplant
+    - type: FootstepModifier
+      footstepSoundCollection:
+        collection: FootstepClown
+    - type: Speech
+      speechVerb: Cluwne
+    - type: Bloodstream
+      bloodMaxVolume: 150
+      bloodReagent: Laughter
+    - type: Clumsy
+    - type: NoSlip
+    - type: Tag
+      tags:
+      - FootstepSound

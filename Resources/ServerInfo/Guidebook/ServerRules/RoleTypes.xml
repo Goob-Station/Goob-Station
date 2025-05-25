@@ -1,4 +1,13 @@
-﻿<Document>
+<!--
+SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 Moomoobeef <62638182+Moomoobeef@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
+<Document>
   # Role Types
 
   ## Crew Aligned/Non-antagonist
@@ -16,6 +25,7 @@
   ## Familiar
   Familiars are considered non-antagonists, but have instructions to obey someone. They must obey this person even if it causes them to violate roleplay rules or die. You are only a familiar if the game clearly and explicitly tells you that you are a familiar. You are only the familiar of the person the game tells you.
 
-  ## Silicon
+  ## Silicon / Altered Silicon
   Silicons have a set of laws that they must follow above all else except the core rules. You are only silicon if the game clearly and explicitly tells you that you are a silicon.
+  Altered Silicons are functionally identical, this role is used to highlight law-sets that have been hacked, corrupted or are otherwise considered non-standard or dangerous.
 </Document>

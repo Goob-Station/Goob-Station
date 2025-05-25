@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 RatherUncreative <RatherUncreativeName@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   name: strange berries
   parent: FoodProduceBase
@@ -26,3 +31,40 @@
       reagents:
       - ReagentId: Artifexium
         Quantity: 5
+
+- type: entity
+  name: nevcotta log
+  description: When planted out of it's native habitat, it grows into an entirely different plant.
+  id: Nevcotta
+  parent: ProduceBase
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Hydroponics/nevcotta.rsi
+    state: icon
+  - type: SolutionContainerManager
+  - type: Produce
+    seedId: towercap # Shhh, I don't want to make this an actual plant yet!
+  - type: Log
+    spawnedPrototype: NevcottaBark
+    spawnCount: 2
+
+- type: entity
+  name: nevcotta bark
+  description: The bark of a Nevcotta tree.
+  id: NevcottaBark
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Hydroponics/nevcotta.rsi
+    state: bark
+  - type: Extractable
+    grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: NevcottaPowder
+          Quantity: 5
+        - ReagentId: Fiber
+          Quantity: 4

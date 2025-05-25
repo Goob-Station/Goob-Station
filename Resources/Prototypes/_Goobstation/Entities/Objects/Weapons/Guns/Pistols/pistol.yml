@@ -1,3 +1,17 @@
+# SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 ScyronX <166930367+ScyronX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   name: Dualetta
   parent: [BaseWeaponPistol, BaseSyndicateContraband]
@@ -18,7 +32,7 @@
     maxAngle: 5
     angleIncrease: 1
     angleDecay: 4
-    fireRate: 8
+    fireRate: 6
     availableModes:
     - SemiAuto
     - FullAuto
@@ -48,7 +62,9 @@
     tags:
     - WeaponPistolDualetta
   - type: Multishot
-    spreadMultiplier: 1.25
+    missChance: 0
+    spreadMultiplier: 1
+    spreadAddition: 0
   - type: RequiresDualWield
     whitelist:
       tags:
@@ -86,7 +102,7 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/hpistol.ogg
   - type: BasicEntityAmmoProvider
-    proto: BulletAnaconda
+    proto: BulletCaselessRifle
     capacity: 7
     count: 7
   - type: RechargeBasicEntityAmmo
@@ -98,3 +114,51 @@
     containers:
       ballistic-ammo: !type:Container
   - type: Multishot
+    missChance: 0.3
+
+- type: entity
+  name: contract terminator
+  parent: [BaseWeaponPistol, BaseCentcommContraband]
+  id: WeaponPistolCentcommAgent
+  description: A pistol specifically designed to fire neurotoxin laced bullets. It's capable concealing itself via bluespace technology.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Pistols/agentpistol.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Guns/Pistols/agentpistol.rsi
+  - type: Gun
+    minAngle: 1
+    maxAngle: 5
+    angleIncrease: 1
+    angleDecay: 4
+    fireRate: 4
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/silenced.ogg
+      params:
+        volume: -14
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistolNeurotoxin
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineMagnum
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeMagnumNeurotoxin
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgeMagnum

@@ -1,4 +1,20 @@
-﻿- type: entity
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GMWQ <garethquaile@gmail.com>
+# SPDX-FileCopyrightText: 2025 Gareth Quaile <garethquaile@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
   parent: ClothingShoesBootsMag
   id: ClothingShoesBootsChrono
   name: futuristic boots
@@ -27,3 +43,207 @@
   suffix: Unremoveable
   components:
   - type: Unremoveable
+
+
+- type: entity
+  parent: [ClothingShoesBootsMagAdv, BaseJetpack, BaseCentcommContraband]
+  id: ClothingShoesBootsMagEmergencyResponseTeam
+  name: tactical response magboots
+  description: Look! An emergency responder, we're saved!
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Shoes/Boots/emergencyresponseteam.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Shoes/Boots/emergencyresponseteam.rsi
+  - type: Item
+    sprite: _Goobstation/Clothing/Shoes/Boots/emergencyresponseteam.rsi
+  - type: Magboots
+  - type: NoSlip
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: ClothingSlowOnDamageModifier
+    modifier: 0.5
+  - type: ModifyStandingUpTime
+    multiplier: 0.5
+  - type: GasTank
+    outputPressure: 42.6
+    air:
+      # 2 minutes of thrust
+      volume: 2
+      temperature: 293.15
+      moles:
+      - 0.153853429 # oxygen
+      - 0.153853429 # nitrogen
+
+- type: entity
+  parent: ClothingShoesBootsMagEmergencyResponseTeam
+  id: ClothingShoesBootsMagDeathsquad
+  name: deathsquad magboots
+  description: The sound of these boots are iconic; the sound of terror.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Shoes/Boots/deathsquad.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Shoes/Boots/deathsquad.rsi
+  - type: Item
+    sprite: _Goobstation/Clothing/Shoes/Boots/deathsquad.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 1.10
+    sprintModifier: 1.10
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepHeavySuit
+  - type: GasTank
+    outputPressure: 42.6
+    air:
+      # 2 minutes of thrust
+      volume: 2
+      temperature: 293.15
+      moles:
+      - 0.153853429 # oxygen
+      - 0.153853429 # nitrogen
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
+- type: entity
+  parent: [ClothingShoesBootsMagBase, BaseMagicContraband]
+  id: ClothingShoesRealJordans
+  name: air jordans
+  description: State-of-the-art, official, uncreased Jordans that protect you from slipping when turned on.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Shoes/Boots/jordans.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Shoes/Boots/jordans.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: StaticPrice
+    price: 750
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Items/bow_pull.ogg
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ClothingShoesCreasedJordans:
+            min: 1
+            max: 1
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ClothingShoesBaseButcherable, BaseMajorContraband]
+  id: ClothingShoesFakeJordans
+  name: air jordans
+  suffix: fake
+  description: Upon closer inspection, something feels off about these. Are they.. creased? No, it can't be that. Wait, the logo looks a little off...
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Shoes/Boots/jordans.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Shoes/Boots/jordans.rsi
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesCreasedJordans
+  name: creased air jordans
+  description: No wait... this can't be.... THEY'RE CREASED!
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Shoes/Boots/jordans.rsi
+    state: icon-creased
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Shoes/Boots/jordans.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 0.7
+    sprintModifier: 0.7
+  - type: StaticPrice
+    price: 1
+
+- type: entity
+  parent: [BaseCommandContraband, ClothingShoesBootsJack]
+  id: ClothingShoesBootsJackAdvanced
+  name: advanced jackboots
+  description: This pair of jackboots was designed for the Head of Security. No one knows why are they called advanced, but they are for sure advanced in drip.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Shoes/Boots/advanced_jackboots.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Shoes/Boots/advanced_jackboots.rsi
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: StepHeavyBoots
+
+- type: entity
+  parent: ClothingShoesRealJordans
+  id: ClothingShoesRealJordansAutographed
+  name: air jordans
+  description: These aren't just any Jordans, these were signed my Micheal Jordan himself. These must be worth a FORTUNE.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Shoes/Boots/jordans.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Shoes/Boots/jordans.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 1.2
+    sprintModifier: 1.2
+  - type: StaticPrice
+    price: 8000
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200 # good luck creasing these mfs
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Items/bow_pull.ogg
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ClothingShoesCreasedJordans:
+            min: 1
+            max: 1
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ClothingShoesMilitaryBase, ClothingShoesBaseWinterBoots, BaseCentcommContraband]
+  id: ClothingShoesBootsWinterSnowjackBso
+  name: blueshield's snowjackboots
+  description: For when you need to save a head from a changeling on a research station in Antarctica.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Shoes/Boots/bso_snowjacks.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Shoes/Boots/bso_snowjacks.rsi
+  - type: ClothingSlowOnDamageModifier
+    modifier: 0.6
+  - type: ModifyStandingUpTime
+    multiplier: 0.6
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95

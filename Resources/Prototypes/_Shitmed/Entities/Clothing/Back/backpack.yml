@@ -1,0 +1,15 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: [ ClothingBackpack, BaseMajorContraband ]
+  id: ClothingBackpackAbductor
+  name: alien backpack
+  description: An ordinary backpack woven from a durable fiber.
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Clothing/Back/Backpacks/abductor.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.1

@@ -1,4 +1,22 @@
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Dawid Bla <46636558+DawBla@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Ilya246 <ilyukarno@gmail.com>
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Kevin Zheng <kevinz5000@gmail.com>
+// SPDX-FileCopyrightText: 2024 Menshin <Menshin@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Atmos;
+using Content.Shared.Guidebook;
 
 namespace Content.Server.Atmos.Piping.Unary.Components
 {
@@ -13,6 +31,7 @@ namespace Content.Server.Atmos.Piping.Unary.Components
         ///     thermomachine to heat or cool air.
         /// </summary>
         [DataField, ViewVariables(VVAccess.ReadWrite)]
+        [GuidebookData]
         public float HeatCapacity = 5000;
 
         [DataField, ViewVariables(VVAccess.ReadWrite)]
@@ -21,6 +40,7 @@ namespace Content.Server.Atmos.Piping.Unary.Components
         /// <summary>
         ///     Tolerance for temperature setpoint hysteresis.
         /// </summary>
+        [GuidebookData]
         [DataField, ViewVariables(VVAccess.ReadOnly)]
         public float TemperatureTolerance = 2f;
 
@@ -44,6 +64,7 @@ namespace Content.Server.Atmos.Piping.Unary.Components
         ///     Ignored if heater.
         /// </summary>
         [DataField, ViewVariables(VVAccess.ReadWrite)]
+        [GuidebookData]
         public float MinTemperature = 73.15f;
 
         /// <summary>
@@ -51,6 +72,7 @@ namespace Content.Server.Atmos.Piping.Unary.Components
         ///     Ignored if freezer.
         /// </summary>
         [DataField, ViewVariables(VVAccess.ReadWrite)]
+        [GuidebookData]
         public float MaxTemperature = 593.15f;
 
         /// <summary>
@@ -63,6 +85,7 @@ namespace Content.Server.Atmos.Piping.Unary.Components
         /// An percentage of the energy change that is leaked into the surrounding environment rather than the inlet pipe.
         /// </summary>
         [DataField, ViewVariables(VVAccess.ReadWrite)]
+        [GuidebookData]
         public float EnergyLeakPercentage;
 
         /// <summary>

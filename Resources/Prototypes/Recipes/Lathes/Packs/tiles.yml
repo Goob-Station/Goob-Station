@@ -1,0 +1,53 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+## Static
+
+- type: latheRecipePack
+  id: FloorTilesStatic
+  recipes:
+  - FloorTileItemDark
+  - FloorTileItemDarkDiagonalMini
+  - FloorTileItemDarkDiagonal
+  - FloorTileItemDarkHerringbone
+  - FloorTileItemDarkMini
+  - FloorTileItemDarkMono
+  - FloorTileItemDarkPavement
+  - FloorTileItemDarkPavementVertical
+  - FloorTileItemDarkOffset
+  - FloorTileItemSteelCheckerDark
+  - FloorTileItemSteel
+  - FloorTileItemSteelOffset
+  - FloorTileItemSteelDiagonalMini
+  - FloorTileItemSteelDiagonal
+  - FloorTileItemSteelHerringbone
+  - FloorTileItemSteelMini
+  - FloorTileItemSteelMono
+  - FloorTileItemSteelPavement
+  - FloorTileItemSteelPavementVertical
+  - FloorTileItemWhite
+  - FloorTileItemWhiteOffset
+  - FloorTileItemWhiteDiagonalMini
+  - FloorTileItemWhiteDiagonal
+  - FloorTileItemWhiteHerringbone
+  - FloorTileItemWhiteMini
+  - FloorTileItemWhiteMono
+  - FloorTileItemWhitePavement
+  - FloorTileItemWhitePavementVertical
+  - FloorTileItemSteelCheckerLight
+  - FloorTileItemGratingMaint
+  - FloorTileItemTechmaint
+  - FloorTileItemSteelMaint
+  - FloorTileItemWood
+  - FloorTileItemWoodLarge
+  - FloorTileItemWoodPattern
+  - FloorTileItemConcrete
+  - FloorTileItemConcreteMono
+  - FloorTileItemConcreteSmooth
+  - FloorTileItemGrayConcrete
+  - FloorTileItemGrayConcreteMono
+  - FloorTileItemGrayConcreteSmooth
+  - FloorTileItemOldConcrete
+  - FloorTileItemOldConcreteMono
+  - FloorTileItemOldConcreteSmooth

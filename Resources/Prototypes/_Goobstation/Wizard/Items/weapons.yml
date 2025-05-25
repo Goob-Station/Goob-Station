@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   name: arcane barrage
   parent: BaseItem
@@ -212,8 +217,6 @@
       types:
         Slash: 5
         Structural: 10
-    clickPartDamageMultiplier: 2
-    heavyPartDamageMultiplier: 1.5
     soundHit:
       path: "/Audio/Weapons/bladeslice.ogg"
     animation: WeaponArcHighFreq
@@ -261,8 +264,6 @@
     damage:
       types:
         Slash: 30
-    clickPartDamageMultiplier: 3
-    heavyPartDamageMultiplier: 2
     soundHit:
       path: "/Audio/Weapons/bladeslice.ogg"
   - type: Clothing

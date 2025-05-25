@@ -1,3 +1,20 @@
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2024 LankLTE <135308300+LankLTE@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # Shuttle Game Rule Tables -- If you dont add your rules to these they wont be used by the games schedulers.
 
 - type: entityTable
@@ -21,6 +38,7 @@
     - id: UnknownShuttleMeatZone
     - id: UnknownShuttleMicroshuttle
     - id: UnknownShuttleSpacebus
+    - id: UnknownShuttleAlienTourist # Goobstation
 
 - type: entityTable
   id: UnknownShuttlesFreelanceTable
@@ -32,6 +50,8 @@
   id: UnknownShuttlesHostileTable
   table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
     children:
+    - id: LoneOpsSpawn
+    #- id: UnknownShuttleManOWar # Goob - Nuke the man-o-war
     - id: UnknownShuttleInstigator
 
 # Shuttle Game Rules
@@ -49,6 +69,9 @@
     reoccurrenceDelay: 30
     duration: 1
     maxOccurrences: 1 # should be the same as [copies] in shuttle_incoming_event.yml
+    chaos: # Goobstation
+      Friend: -20
+      Power: -10 # can be salvaged for power
   - type: RuleGrids
   - type: LoadMapRule
 
@@ -89,6 +112,9 @@
   - type: StationEvent
     startAnnouncement: station-event-unknown-shuttle-incoming #!!
     weight: 2
+    chaos: # Goobstation
+      Friend: -10
+      Mess: 20
   - type: LoadMapRule
     preloadedGrid: Honki
 
@@ -122,6 +148,8 @@
   - type: StationEvent
     startAnnouncement: station-event-unknown-shuttle-incoming #!!
     weight: 2 # Its just a big ship, so it needs to be rarer to be interesting.
+    chaos: # Goobstation
+      Friend: -60
   - type: LoadMapRule
     preloadedGrid: Cruiser
 
@@ -149,6 +177,9 @@
   components:
   - type: StationEvent
     startAnnouncement: station-event-unknown-shuttle-incoming #!!
+    chaos: # Goobstation
+      Friend: -20
+      Medical: -20
   - type: LoadMapRule
     preloadedGrid: Flatline
 
@@ -170,6 +201,8 @@
     startAnnouncement: station-event-unknown-shuttle-incoming #!!
     weight: 2 # Its just a big ship, so it needs to be rarer to be interesting.
     earliestStart: 45 # late to hopefully have enough ghosts to fill all roles quickly. (5-6)
+    chaos: # Goobstation
+      Friend: -50
   - type: LoadMapRule
     preloadedGrid: NTIncorporation
 
@@ -181,6 +214,11 @@
     startAnnouncement: null #dont nark on antags
     weight: 1 #  lower because antags.
     earliestStart: 50 # late to hopefully have enough ghosts to fill all roles quickly (3) and because antags
+    chaos: # Goobstation
+      # holy mini-nukies
+      Hostile: 80
+      Death: 100
+      Medical: 100
   - type: LoadMapRule
     preloadedGrid: Instigator
 
@@ -201,6 +239,23 @@
     startAnnouncement: station-event-unknown-shuttle-incoming #!!
   - type: LoadMapRule
     preloadedGrid: Lambordeere
+
+# Goob - Nuke the man-o-war
+#- type: entity
+#  id: UnknownShuttleManOWar
+#  parent: BaseUnknownShuttleRule
+#  components:
+#  - type: StationEvent
+#    startAnnouncement: station-event-unknown-shuttle-incoming #Leaving this one because theyre like primitives and its funnier
+#    weight: 1 # lower because antags
+#    earliestStart: 50 # late to hopefully have enough ghosts to fill all roles quickly. (4) & antags
+#    chaos: # Goobstation
+#      # it's 4 free agent barely-equipped dudes
+#      Hostile: 60
+#      Medical: 20
+#      Death: 20
+#  - type: LoadMapRule
+#    preloadedGrid: ManOWar
 
 - type: entity
   id: UnknownShuttleMeatZone
@@ -230,4 +285,3 @@
     startAnnouncement: station-event-unknown-shuttle-incoming #!!
   - type: LoadMapRule
     preloadedGrid: Spacebus
-

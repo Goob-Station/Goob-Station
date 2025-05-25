@@ -1,0 +1,178 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: HereticFireAA # AA in ash ascension
+  name: fire
+  description: Damn that's hot.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: TimedDespawn
+    lifetime: 5
+  - type: StepTrigger
+    requiredTriggeredSpeed: 0
+    intersectRatio: 0.1
+    triggerGroups:
+      types:
+        - Lava
+  - type: Sprite
+    sprite: Effects/fire.rsi
+    drawdepth: Effects
+    layers:
+      - state: 1
+        shader: unshaded
+  - type: TileEntityEffect
+    effects:
+    - !type:FlammableReaction
+      multiplier: 3.75
+      multiplierOnExisting: 0.75
+    - !type:Ignite
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+          - SlipLayer
+        mask:
+          - ItemMask
+        density: 1000
+        hard: false
+  - type: Tag
+    tags:
+      - HideContextMenu
+
+- type: entity
+  id: TileHereticVoid
+  name: void
+  description: Damn that's cold.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: TimedDespawn
+    lifetime: 30
+  - type: StepTrigger
+    requiredTriggeredSpeed: 0
+    intersectRatio: 0.1
+    triggerGroups:
+      types:
+        - Lava
+  - type: Sprite
+    sprite: _Goobstation/Heretic/void_overlay.rsi
+    layers:
+      - state: voidtile
+        shader: unshaded
+  - type: TileEntityEffect
+    effects:
+    - !type:VoidCurse
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+          - SlipLayer
+        mask:
+          - ItemMask
+        density: 1000
+        hard: false
+  - type: Tag
+    tags:
+      - HideContextMenu
+
+- type: entity
+  id: TileHereticRustRune
+  name: rune
+  description: Rusty...
+  components:
+  - type: Sprite
+    drawdepth: FloorEffects
+    sprite: _Goobstation/Heretic/Effects/effects.rsi
+    layers:
+      - state: small_rune_1
+        shader: unshaded
+        map: [ "base" ]
+  - type: RandomSprite
+    available:
+      - base:
+          small_rune_1: ""
+          small_rune_2: ""
+          small_rune_3: ""
+          small_rune_4: ""
+          small_rune_5: ""
+          small_rune_6: ""
+          small_rune_7: ""
+          small_rune_8: ""
+          small_rune_9: ""
+          small_rune_10: ""
+          small_rune_11: ""
+          small_rune_12: ""
+  - type: Transform
+    anchored: true
+  - type: RequiresTile
+  - type: SpriteRandomOffset
+  - type: Appearance
+  - type: TimedDespawn
+    lifetime: 0.7
+  - type: Tag
+    tags:
+      - HideContextMenu
+
+- type: entity
+  id: HereticRustAscensionSpreader
+  name: rust
+  description: It grows...
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+    anchored: true
+  - type: ActiveEdgeSpreader
+  - type: EdgeSpreader
+    id: Rust
+  - type: RustSpreader
+  - type: Visibility
+    layer: 0
+  - type: Tag
+    tags:
+      - HideContextMenu
+
+- type: tile
+  id: PlatingRust
+  name: tiles-plating-rust
+  sprite: /Textures/_Goobstation/Heretic/tiles.rsi/plating_rust.png
+  baseTurf: Plating
+  isSubfloor: true
+  deconstructTools: [ Welding ]
+  deconstructTimeMultiplier: 2.5 # 5 seconds
+  footstepSounds:
+    collection: FootstepPlating
+  friction: 0.3
+  heatCapacity: 10000
+
+- type: edgeSpreader
+  id: Rust
+  updatesPerSecond: 16
+  preventSpreadOnSpaced: false

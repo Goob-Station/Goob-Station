@@ -1,3 +1,13 @@
+<!--
+SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 JIPDawg <51352440+JIPDawg@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
 <Document>
   # Diona
 
@@ -8,6 +18,7 @@
   They can't wear shoes, but are not slowed by Kudzu.
   They get hungry and thirsty slower.
   Their "blood" is tree sap and can't be metabolised from Iron.
+  They are made of heavy wood, allowing them to pull lighter species with ease.
   Being plants, Weed Killer poisons them, while Robust Harvest heals them (but not without risk when overused!)
 
   They take [color=#1e90ff]30% less Blunt damage and 20% less Slash damage[/color];

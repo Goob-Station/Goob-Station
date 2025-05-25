@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Velken <8467292+Velken@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.Explosion.EntitySystems;
 using Content.Shared.Database;
 using Content.Shared.EntityEffects;
@@ -15,7 +21,6 @@ public sealed partial class ExplosionReactionEffect : EntityEffect
     ///     The type of explosion. Determines damage types and tile break chance scaling.
     /// </summary>
     [DataField(required: true, customTypeSerializer: typeof(PrototypeIdSerializer<ExplosionPrototype>))]
-    [JsonIgnore]
     public string ExplosionType = default!;
 
     /// <summary>
@@ -23,14 +28,12 @@ public sealed partial class ExplosionReactionEffect : EntityEffect
     ///     chance.
     /// </summary>
     [DataField]
-    [JsonIgnore]
     public float MaxIntensity = 5;
 
     /// <summary>
     ///     How quickly intensity drops off as you move away from the epicenter
     /// </summary>
     [DataField]
-    [JsonIgnore]
     public float IntensitySlope = 1;
 
     /// <summary>
@@ -41,15 +44,20 @@ public sealed partial class ExplosionReactionEffect : EntityEffect
     ///     A slope of 1 and MaxTotalIntensity of 100 corresponds to a radius of around 4.5 tiles.
     /// </remarks>
     [DataField]
-    [JsonIgnore]
     public float MaxTotalIntensity = 100;
 
     /// <summary>
     ///     The intensity of the explosion per unit reaction.
     /// </summary>
     [DataField]
-    [JsonIgnore]
     public float IntensityPerUnit = 1;
+	
+    /// <summary>
+    ///     Factor used to scale the explosion intensity when calculating tile break chances. Allows for stronger
+    ///     explosives that don't space tiles, without having to create a new explosion-type prototype.
+    /// </summary>
+    [DataField]
+    public float TileBreakScale = 1f;
 
     public override bool ShouldLog => true;
 
@@ -72,6 +80,7 @@ public sealed partial class ExplosionReactionEffect : EntityEffect
             ExplosionType,
             intensity,
             IntensitySlope,
-            MaxIntensity);
+            MaxIntensity,
+			TileBreakScale);
     }
 }

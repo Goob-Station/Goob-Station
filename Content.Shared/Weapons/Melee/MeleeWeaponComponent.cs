@@ -1,5 +1,36 @@
+// SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
+// SPDX-FileCopyrightText: 2023 Arimah Greene <30327355+arimah@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Darkie <darksaiyanis@gmail.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Errant <35878406+dmnct@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 HerCoyote23 <131214189+HerCoyote23@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 I.K <45953835+notquitehadouken@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 jicksaw <jicksaw@pm.me>
+// SPDX-FileCopyrightText: 2023 notquitehadouken <1isthisameme>
+// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Scribbles0 <91828755+Scribbles0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 Eagle <lincoln.mcqueen@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 vanx <61917534+Vaaankas@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Damage;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -10,7 +41,7 @@ namespace Content.Shared.Weapons.Melee;
 /// <summary>
 /// When given to a mob lets them do unarmed attacks, or when given to an item lets someone wield it to do attacks.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true), AutoGenerateComponentPause]
 public sealed partial class MeleeWeaponComponent : Component
 {
     // TODO: This is becoming bloated as shit.
@@ -18,28 +49,26 @@ public sealed partial class MeleeWeaponComponent : Component
     /// <summary>
     /// Does this entity do a disarm on alt attack.
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public bool AltDisarm = true;
 
     /// <summary>
     /// Should the melee weapon's damage stats be examinable.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool Hidden;
 
     /// <summary>
     /// Next time this component is allowed to light attack. Heavy attacks are wound up and never have a cooldown.
     /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField]
-    [ViewVariables(VVAccess.ReadWrite)]
     [AutoPausedField]
     public TimeSpan NextAttack;
 
     /// <summary>
     /// Starts attack cooldown when equipped if true.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField]
+    [DataField, AutoNetworkedField]
     public bool ResetOnHandSelected = true;
 
     /*
@@ -51,50 +80,48 @@ public sealed partial class MeleeWeaponComponent : Component
     /// <summary>
     /// How many times we can attack per second.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public float AttackRate = 1f;
 
     /// <summary>
     /// Are we currently holding down the mouse for an attack.
     /// Used so we can't just hold the mouse button and attack constantly.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    [AutoNetworkedField]
     public bool Attacking = false;
 
     /// <summary>
     /// If true, attacks will be repeated automatically without requiring the mouse button to be lifted.
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public bool AutoAttack;
 
     /// <summary>
     /// If true, attacks will bypass armor resistances.
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public bool ResistanceBypass = false;
 
     /// <summary>
     /// Base damage for this weapon. Can be modified via heavy damage or other means.
     /// </summary>
-    [DataField(required: true)]
-    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    [DataField(required: true), AutoNetworkedField]
     public DamageSpecifier Damage = default!;
 
-    [DataField]
-    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField, AutoNetworkedField]
     public FixedPoint2 BluntStaminaDamageFactor = FixedPoint2.New(0.5f);
 
     /// <summary>
     /// Multiplies damage by this amount for single-target attacks.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField]
+    [DataField, AutoNetworkedField]
     public FixedPoint2 ClickDamageModifier = FixedPoint2.New(1);
 
     // TODO: Temporarily 1.5 until interactionoutline is adjusted to use melee, then probably drop to 1.2
     /// <summary>
     /// Nearest edge range to hit an entity.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public float Range = 1.5f;
 
     // goob edit - stunmeta
@@ -107,23 +134,45 @@ public sealed partial class MeleeWeaponComponent : Component
     /// <summary>
     /// Total width of the angle for wide attacks.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField]
+    [DataField, AutoNetworkedField]
     public Angle Angle = Angle.FromDegrees(60);
 
-    [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
-    public EntProtoId Animation = "WeaponArcPunch";
+    [DataField, AutoNetworkedField]
+    public EntProtoId Animation = "WeaponArcThrust"; // Goob Edit
 
-    [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
+    [DataField, AutoNetworkedField]
+    public EntProtoId MissAnimation = "WeaponArcPunch"; // Goob Edit
+
+    [DataField, AutoNetworkedField]
+    public bool FlipAnimation = true; // Goob Edit
+
+    [DataField, AutoNetworkedField]
     public EntProtoId WideAnimation = "WeaponArcSlash";
+
+    // WD EDIT START
+
+    [DataField, AutoNetworkedField]
+    public EntProtoId DisarmAnimation = "WeaponArcDisarm";
+
+    [DataField, AutoNetworkedField]
+    public bool CanHeavyAttack = true;
 
     /// <summary>
     /// Rotation of the animation.
     /// 0 degrees means the top faces the attacker.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField]
+    [DataField, AutoNetworkedField]
+    public Angle AnimationRotation = Angle.Zero;
+    // WD EDIT END
+
+    /// <summary>
+    /// Rotation of the animation.
+    /// 0 degrees means the top faces the attacker.
+    /// </summary>
+    [DataField, AutoNetworkedField]
     public Angle WideAnimationRotation = Angle.Zero;
 
-    [ViewVariables(VVAccess.ReadWrite), DataField]
+    [DataField, AutoNetworkedField]
     public bool SwingLeft;
 
 
@@ -174,13 +223,16 @@ public sealed partial class MeleeWeaponComponent : Component
     ///     Shitmed Change: Part damage is multiplied by this amount for heavy swings
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float HeavyPartDamageMultiplier = 0.5f;
+    public float HeavyPartDamageMultiplier = 0.75f;
 
     // Shitmed Change End
 
     // Goobstation
     [DataField, AutoNetworkedField]
     public bool CanWideSwing = true;
+
+    [DataField, AutoNetworkedField]
+    public float ArmorPenetration;
 }
 
 /// <summary>

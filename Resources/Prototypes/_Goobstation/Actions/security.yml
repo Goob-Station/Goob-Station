@@ -1,0 +1,15 @@
+- type: entity
+  id: ActionActivateAutoinjector
+  name: Activate Auto-injector
+  description: Activate your auto injector to administer chemicals into your bloodstream.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    checkConsciousness: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Actions/modsuit.rsi
+      state: stim
+    useDelay: 70
+    event: !type:ActionActivateAutoInjectorEvent {}

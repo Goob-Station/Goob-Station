@@ -1,3 +1,13 @@
+<!--
+SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
+SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
 <controls:FancyWindow xmlns="https://spacestation14.io"
          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
          xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
@@ -5,17 +15,15 @@
          SetSize="800 800"
          MinSize="800 128">
     <BoxContainer Orientation="Vertical" VerticalExpand="True">
-        <!--
         <BoxContainer Name="RoleNameBox" Orientation="Vertical" Margin="10">
-            <Label Name="LoadoutNameLabel" Text="{Loc 'loadout-name-edit-label'}"/>
+            <Label Name="LoadoutNameLabel"/>
             <PanelContainer HorizontalExpand="True" SetHeight="24">
                 <PanelContainer.PanelOverride>
                     <graphics:StyleBoxFlat BackgroundColor="#1B1B1E" />
                 </PanelContainer.PanelOverride>
-                <LineEdit Name="RoleNameEdit" ToolTip="{Loc 'loadout-name-edit-tooltip'}" VerticalExpand="True" HorizontalExpand="True"/>
+                <LineEdit Name="RoleNameEdit" VerticalExpand="True" HorizontalExpand="True"/>
             </PanelContainer>
         </BoxContainer>
-        -->
         <VerticalTabContainer Name="LoadoutGroupsContainer"
                               VerticalExpand="True"
                               HorizontalExpand="True">

@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
 - files: ["steam_woosh.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Taken from Citadel Station"

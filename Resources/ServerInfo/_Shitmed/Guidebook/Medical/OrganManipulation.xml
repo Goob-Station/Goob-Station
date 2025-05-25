@@ -1,3 +1,10 @@
+<!--
+SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
 <Document>
 # Organ Manipulation
 These surgeries allow you to remove or replace organs from a patient for healthy ones. Which can help treat conditions on their bodies.

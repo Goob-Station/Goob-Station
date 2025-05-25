@@ -1,6 +1,38 @@
+# SPDX-FileCopyrightText: 2020 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 Vera Aguilera Puerto <zddm@outlook.es>
+# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2022 ElectroJr <leonsfriedrich@gmail.com>
+# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 Lamrr <96937466+Lamrr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Nairod <110078045+Nairodian@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Rinkashikachi <15rinkashikachi15@gmail.com>
+# SPDX-FileCopyrightText: 2022 T-Stalker <43253663+DogZeroX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 T-Stalker <le0nel_1van@hotmail.com>
+# SPDX-FileCopyrightText: 2022 TaralGit <76408146+TaralGit@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 and_a <and_a@DESKTOP-RJENGIR>
+# SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 lapatison <100279397+lapatison@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
+# SPDX-FileCopyrightText: 2023 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2023 lzk228 <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: CrateArmorySMG
-  parent: [ CrateWeaponSecure, BaseRestrictedContraband ]
+  parent: [ CrateWeaponSecure, BaseSecurityContraband ]
   name: SMG crate
   description: Contains two high-powered, semiautomatic rifles with four mags. Requires Armory access to open.
   components:
@@ -13,7 +45,7 @@
 
 - type: entity
   id: CrateArmoryShotgun
-  parent: [ CrateWeaponSecure, BaseRestrictedContraband ]
+  parent: [ CrateWeaponSecure, BaseSecurityContraband ]
   name: shotgun crate
   description: For when the enemy absolutely needs to be replaced with lead. Contains two Enforcer Combat Shotguns, and some standard shotgun shells. Requires Armory access to open.
   components:
@@ -22,11 +54,11 @@
       - id: WeaponShotgunEnforcer
         amount: 2
       - id: BoxLethalshot
-        amount: 3
+        amount: 4
 
 - type: entity
   id: CrateTrackingImplants
-  parent: [ CrateWeaponSecure, BaseRestrictedContraband ]
+  parent: [ CrateWeaponSecure, BaseSecurityContraband ]
   name: tracking implants
   description: Contains a handful of tracking implanters. Good for prisoners you'd like to release but still keep track of.
   components:
@@ -36,7 +68,7 @@
         amount: 5
 
 - type: entity
-  parent: [ CrateWeaponSecure, BaseRestrictedContraband ]
+  parent: [ CrateWeaponSecure, BaseSecurityContraband ]
   id: CrateTrainingBombs
   name: training bombs
   description: Contains three low-yield training bombs for security to learn defusal and safe ordnance disposal, EOD suit not included. Requires Armory access to open.
@@ -48,7 +80,7 @@
 
 - type: entity
   id: CrateArmoryLaser
-  parent: [ CrateWeaponSecure, BaseRestrictedContraband ]
+  parent: [ CrateWeaponSecure, BaseSecurityContraband ]
   name: lasers crate
   description: Contains three standard-issue laser rifles. Requires Armory access to open.
   components:
@@ -59,7 +91,7 @@
 
 - type: entity
   id: CrateArmoryPistols
-  parent: [ CrateWeaponSecure, BaseRestrictedContraband ]
+  parent: [ CrateWeaponSecure, BaseSecurityContraband ]
   name: pistols crate
   description: Contains two standard NT pistols with four mags. Requires Armory access to open.
   components:
@@ -72,7 +104,7 @@
 
 - type: entity
   id: CrateSecurityRiot
-  parent: [ CrateWeaponSecure, BaseRestrictedContraband ]
+  parent: [ CrateWeaponSecure, BaseSecurityContraband ]
   name: swat crate
   description: Contains two sets of riot armor, helmets, shields, and enforcers loaded with beanbags. Extra ammo is included. Requires Armory access to open.
   components:

@@ -1,3 +1,15 @@
+// SPDX-FileCopyrightText: 2024 Milon <milonpl.git@proton.me>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Skubman <ba.fallaria@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tobias Berger <toby@tobot.dev>
+// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared._DV.CartridgeLoader.Cartridges;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
@@ -55,4 +67,16 @@ public sealed partial class NanoChatCardComponent : Component
     /// </summary>
     [DataField]
     public EntityUid? PdaUid = null;
+
+    /// <summary>
+    ///     Whether the card's number should be listed in NanoChat's lookup
+    /// </summary>
+    [DataField]
+    public bool ListNumber = true;
+
+    /// <summary>
+    ///     Whether the card's number should be listed in NanoChat's lookup
+    /// </summary>
+    [DataField]
+    public bool IsClosed;
 }

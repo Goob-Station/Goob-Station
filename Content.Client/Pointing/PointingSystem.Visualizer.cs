@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Pointing.Components;
 using Content.Shared.Pointing;
 using Robust.Client.Animations;

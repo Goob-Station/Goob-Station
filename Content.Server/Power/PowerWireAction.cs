@@ -1,6 +1,23 @@
+// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Fildrance <fildrance@gmail.com>
+// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2024 ScarKy0 <scarky0@onet.eu>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.Electrocution;
 using Content.Shared.Electrocution;
 using Content.Server.Power.Components;
+using Content.Server.Power.EntitySystems;
 using Content.Server.Wires;
 using Content.Shared.Power;
 using Content.Shared.Wires;
@@ -61,15 +78,17 @@ public sealed partial class PowerWireAction : BaseWireAction
             return;
         }
 
+        var receiverSys = EntityManager.System<PowerReceiverSystem>();
+
         if (pulsed)
         {
-            power.PowerDisabled = true;
+            receiverSys.SetPowerDisabled(owner, true, power);
             return;
         }
 
         if (AllWiresCut(owner))
         {
-            power.PowerDisabled = true;
+            receiverSys.SetPowerDisabled(owner, true, power);
         }
         else
         {
@@ -79,7 +98,7 @@ public sealed partial class PowerWireAction : BaseWireAction
                 return;
             }
 
-            power.PowerDisabled = false;
+            receiverSys.SetPowerDisabled(owner, false, power);
         }
     }
 

@@ -1,0 +1,121 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
+# SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+# SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
+# SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: reagent
+  id: MinersSalve
+  name: reagent-name-minerssalve
+  group: Medicine
+  desc: reagent-desc-minerssalve
+  physicalDesc: reagent-physical-desc-shiny
+  flavor: metallic
+  color: "#f2c777"
+  recognizable: true
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:ModifyBloodLevel
+        amount: 1.5
+      - !type:HealthChange
+        damage:
+          groups:
+            Burn: -1.75
+            Brute: -1.75
+          types:
+            Bloodloss: -1.25
+      - !type:ModifyBloodLevel
+        amount: 1.5
+        conditions:
+        - !type:PressureThreshold
+          min: 0
+          max: 50
+          worksOnLavaland: true
+      - !type:HealthChange
+        damage:
+          groups:
+            Burn: -4.75
+            Brute: -4.75
+          types:
+            Bloodloss: -1.25
+        conditions:
+        - !type:PressureThreshold
+          min: 0
+          max: 50
+          worksOnLavaland: true
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 21
+        damage:
+          types:
+            Poison: 15
+            Cold: 15
+      - !type:Jitter
+      - !type:PopupMessage
+        type: Local
+        visualType: Small
+        messages: [ "generic-reagent-effect-burning-insides" ]
+        probability: 0.1
+      - !type:Emote
+        emote: Scream
+        probability: 0.05
+        #It's balanced I swear!
+
+- type: reagent
+  id: Luxurium
+  name: reagent-name-luxurium
+  group: Medicine
+  desc: reagent-desc-luxurium
+  physicalDesc: reagent-physical-desc-powdery
+  flavor: metallic
+  color: "#302f70"
+  recognizable: true
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Cold: 2
+            Asphyxiation: 1.75
+            Bloodloss: 3
+          groups:
+            Toxin: 1.5
+            Brute: 7.5
+            Burn: 4
+            Airloss: 1.5
+      - !type:HealthChange
+        damage:
+          types:
+            Cold: -2
+            Asphyxiation: -1.75
+            Bloodloss: -3
+          groups:
+            Toxin: -1.5
+            Brute: -7.5
+            Burn: -4
+            Airloss: -1.5
+        conditions:
+          - !type:PressureThreshold
+            min: 0
+            max: 50
+            worksOnLavaland: true
+      # Cuts the amount healed roughly by 50% when in normal pressure.

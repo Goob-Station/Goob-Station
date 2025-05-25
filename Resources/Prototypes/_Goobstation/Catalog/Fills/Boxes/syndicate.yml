@@ -1,0 +1,39 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: box of lube & glue grenades
+  parent: BoxCardboard
+  id: BoxReagentGrenades
+  description: A box full of lube & glue grenades.
+  components:
+  - type: StorageFill
+    contents:
+    - id: LubeGrenade
+      amount: 2
+    - id: GlueGrenade
+      amount: 2
+  - type: Sprite
+    layers:
+    - state: box
+    - state: flashbang
+
+- type: entity
+  name: box of lollypops
+  parent: [BoxCardboard, BaseSyndicateContraband]
+  id: SyndicateLollypopBundle
+  description: A box full of Donk co. candy. What could be inside?
+  components:
+  - type: StorageFill
+    contents:
+    - id: FoodSnackLollypopWrappedMysteryEvil
+      amount: 9
+  - type: Sprite
+    layers:
+    - state: box_of_doom
+    - state: candy

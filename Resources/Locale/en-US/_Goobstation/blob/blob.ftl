@@ -1,3 +1,15 @@
+# SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2024 lanse12 <cloudability.ez@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GitHubUser53123 <110841413+GitHubUser53123@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 JohnOakman <sremy2012@hotmail.fr>
+# SPDX-FileCopyrightText: 2025 Panela <107573283+AgentePanela@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 ent-SpawnPointGhostBlob = Blob spawner
     .suffix = DEBUG, Ghost Role Spawner
     .desc = { ent-MarkerBase.desc }
@@ -26,7 +38,7 @@ objective-issuer-blob = Blob
 
 
 ghost-role-information-blobbernaut-name = Blobbernaut
-ghost-role-information-blobbernaut-description = You are a Blobbernaut. You must defend the blob core.
+ghost-role-information-blobbernaut-description = You are a Blobbernaut. You must defend the blob core. Use + or +e in chat to talk in the Blobmind.
 
 ghost-role-information-blob-name = Blob
 ghost-role-information-blob-description = You are the Blob Infection. Consume the station.
@@ -123,7 +135,7 @@ blob-downgrade-action-desc = Turns the selected tile back into a normal blob to 
 # Ghost role
 blob-carrier-role-name = Blob carrier
 blob-carrier-role-desc =  A blob-infected creature.
-blob-carrier-role-rules = You are an antagonist. You have 4 minutes before you transform into a blob.
+blob-carrier-role-rules = You are an antagonist. You have 10 minutes before you transform into a blob.
                         Use this time to find a safe spot on the station. Keep in mind that you will be very weak right after the transformation.
 blob-carrier-role-greeting = You are a carrier of Blob. Find a secluded place at the station and transform into a Blob. Turn the station into a mass and its inhabitants into your servants. We are all Blobs.
 
@@ -143,11 +155,12 @@ blob-health-alert-desc = Your core's health. You will die if it reaches zero.
 blob-role-greeting =
     You are blob - a parasitic space creature capable of destroying entire stations.
         Your goal is to survive and grow as large as possible.
-    	You are almost invulnerable to physical damage, but heat can still hurt you.
+        You are almost invulnerable to physical damage, but heat can still hurt you.
         Use Alt+LMB to upgrade normal blob tiles to strong blob and strong blob to reflective blob.
-    	Make sure to place resource blobs to generate resources.
+        Make sure to place resource blobs to generate resources.
         Keep in mind that resource blobs and factories will only work when next to node blobs or cores.
-blob-zombie-greeting = You were infected and raised by a blob spore. Now you must help the blob take over the station.
+        You may use + or +e in chat to use the Blobmind to talk to your minions.
+blob-zombie-greeting = You were infected and raised by a blob spore. Now you must help the blob take over the station. Use +e in chat to talk in the Blobmind.
 
 # End round
 blob-round-end-result =
@@ -171,3 +184,8 @@ objective-condition-blob-capture-title = Take over the station
 objective-condition-blob-capture-description = Your only goal is to take over the whole station. You need to have at least {$count} blob tiles.
 objective-condition-success = { $condition } | [color={ $markupColor }]Success![/color]
 objective-condition-fail = { $condition } | [color={ $markupColor }]Failure![/color] ({ $progress }%)
+
+# Admin Verbs
+
+admin-verb-make-blob = Make the target into a blob carrier.
+admin-verb-text-make-blob = Make Blob Carrier

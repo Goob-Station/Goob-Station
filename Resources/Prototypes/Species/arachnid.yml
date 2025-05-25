@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2023 Nairod <110078045+Nairodian@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 PixelTK <85175107+PixelTheKermit@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Adrian16199 <144424013+Adrian16199@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
 - type: species
   id: Arachnid
   name: species-name-arachnid
@@ -8,9 +15,9 @@
   markingLimits: MobArachnidMarkingLimits
   dollPrototype: MobArachnidDummy
   skinColoration: Hues
-  maleFirstNames: names_arachnid_first
-  femaleFirstNames: names_arachnid_first
-  lastNames: names_arachnid_last
+  maleFirstNames: NamesArachnidFirst
+  femaleFirstNames: NamesArachnidFirst
+  lastNames: NamesArachnidLast
   sexes:
   - Unsexed
 
@@ -19,7 +26,8 @@
   sprites:
     Head: MobArachnidHead
     Snout: MobHumanoidAnyMarking
-    Chest: MobArachnidTorso
+    Chest: MobArachnidChest
+    Groin: MobArachnidGroin
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
@@ -89,22 +97,40 @@
     state: head_f
 
 - type: humanoidBaseSprite
-  id: MobArachnidTorso
+  id: MobArachnidChest
   baseSprite:
     sprite: Mobs/Species/Arachnid/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobArachnidTorsoMale
+  id: MobArachnidChestMale
   baseSprite:
     sprite: Mobs/Species/Arachnid/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobArachnidTorsoFemale
+  id: MobArachnidChestFemale
   baseSprite:
     sprite: Mobs/Species/Arachnid/parts.rsi
-    state: torso_f
+    state: chest_f
+
+- type: humanoidBaseSprite
+  id: MobArachnidGroin
+  baseSprite:
+    sprite: Mobs/Species/Arachnid/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobArachnidGroinMale
+  baseSprite:
+    sprite: Mobs/Species/Arachnid/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobArachnidGroinFemale
+  baseSprite:
+    sprite: Mobs/Species/Arachnid/parts.rsi
+    state: groin_f
 
 - type: humanoidBaseSprite
   id: MobArachnidLLeg

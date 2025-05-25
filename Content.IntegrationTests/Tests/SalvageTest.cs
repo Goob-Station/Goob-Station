@@ -1,11 +1,17 @@
-﻿using System.Linq;
+// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.CCVar;
 using Content.Shared.Salvage;
-using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
+using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.GameObjects;
-using Robust.Shared.Map;
-using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 
 namespace Content.IntegrationTests.Tests;
@@ -24,7 +30,6 @@ public sealed class SalvageTest
 
         var entManager = server.ResolveDependency<IEntityManager>();
         var mapLoader = entManager.System<MapLoaderSystem>();
-        var mapManager = server.ResolveDependency<IMapManager>();
         var prototypeManager = server.ResolveDependency<IPrototypeManager>();
         var cfg = server.ResolveDependency<IConfigurationManager>();
         var mapSystem = entManager.System<SharedMapSystem>();
@@ -34,13 +39,10 @@ public sealed class SalvageTest
         {
             foreach (var salvage in prototypeManager.EnumeratePrototypes<SalvageMapPrototype>())
             {
-                var mapFile = salvage.MapPath;
-
                 mapSystem.CreateMap(out var mapId);
                 try
                 {
-                    Assert.That(mapLoader.TryLoad(mapId, mapFile.ToString(), out var roots));
-                    Assert.That(roots.Where(uid => entManager.HasComponent<MapGridComponent>(uid)), Is.Not.Empty);
+                    Assert.That(mapLoader.TryLoadGrid(mapId, salvage.MapPath, out var grid));
                 }
                 catch (Exception ex)
                 {
@@ -49,7 +51,7 @@ public sealed class SalvageTest
 
                 try
                 {
-                    mapManager.DeleteMap(mapId);
+                    mapSystem.DeleteMap(mapId);
                 }
                 catch (Exception ex)
                 {

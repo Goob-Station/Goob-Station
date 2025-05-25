@@ -1,9 +1,16 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: MultiWand
   name: wizard wand
   description: Apparently a wand used by the wizard.
   parent: [BaseItem, BaseMagicContraband]
   suffix: DO NOT MAP
+  categories: [ DoNotMap ]
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Objects/Weapons/Wands/wand.rsi
@@ -29,8 +36,8 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/Magic/staff_healing.ogg
   - type: Battery
-    maxCharge: 1000
-    startingCharge: 1000
+    maxCharge: 10000
+    startingCharge: 10000
   - type: ProjectileBatteryAmmoProvider
     proto: ProjectileFireball
     fireCost: 250
@@ -50,7 +57,7 @@
     - ProjectileIceCubeBolt
     - ProjectileSwapBolt
     - ProjectileBeeBolt
-    - ProjectileXRayBolt
+    # - ProjectileXRayBolt - Too op with scrying orb
     - ProjectileEmpBolt
     - ProjectileSmokeBolt
     - ProjectileBlindingBolt
@@ -96,6 +103,7 @@
   id: MultiWandWizard
   parent: MultiWand
   suffix: Wizard, DO NOT MAP
+  categories: [ DoNotMap ]
   components:
   - type: ActivatableUiUserWhitelist
     whitelist:

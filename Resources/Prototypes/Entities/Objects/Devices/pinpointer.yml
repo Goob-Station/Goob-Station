@@ -1,3 +1,27 @@
+# SPDX-FileCopyrightText: 2021 Alexander Evgrashin <evgrashin.adl@gmail.com>
+# SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Blazeror <154933882+Blazeror@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Colin-Tel <113523727+Colin-Tel@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Ubaser <134914314+UbaserB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 ShadowCommander <shadowjjt@gmail.com>
+# SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   name: pinpointer
   description: A handheld tracking device. While typically far more capable, this one has been configured to lock onto certain signals. Keep upright to retain accuracy.
@@ -45,7 +69,9 @@
   parent: [ PinpointerBase, BaseCommandContraband ]
   components:
   - type: Pinpointer
-    component: NukeDisk
+    whitelist: # Goob edit: pinpointer whitelist
+      components:
+      - NukeDisk
     targetName: nuclear authentication disk
 
 - type: entity
@@ -65,7 +91,9 @@
   - type: Icon
     state: pinpointer-syndicate
   - type: Pinpointer
-    component: NukeDisk
+    whitelist: # Goob edit: pinpointer whitelist
+      components:
+      - NukeDisk
     targetName: nuclear authentication disk
 
 - type: entity
@@ -76,24 +104,24 @@
   components:
   - type: Sprite
     layers:
-    - state: pinpointer-way
+    - state: pinpointer-universal
       map: ["enum.PinpointerLayers.Base"]
     - state: pinonnull
       map: ["enum.PinpointerLayers.Screen"]
       shader: unshaded
       visible: false
   - type: Icon
-    state: pinpointer-way
+    state: pinpointer-universal
   - type: Pinpointer
     updateTargetName: true
     canRetarget: true
 
 - type: entity
   parent: PinpointerBase
-  name: station pinpointer
-  description: A handheld tracking device that leads to the direction of any nearby station.
+  name: research server pinpointer  # Goob edit
+  description: A handheld tracking device that leads to the direction of any nearby research server.
   id: PinpointerStation
-  suffix: Station
+  #suffix: Station # Goob edit
   components:
   - type: Sprite
     layers:
@@ -106,5 +134,7 @@
   - type: Icon
     state: pinpointer-station
   - type: Pinpointer
-    component: ResearchServer
-    targetName: the station
+    whitelist: # Goob edit: pinpointer whitelist
+      components:
+      - ResearchServer
+    targetName: research servers # Goob edit

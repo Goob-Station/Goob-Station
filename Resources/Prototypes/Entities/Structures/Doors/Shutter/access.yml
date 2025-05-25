@@ -1,0 +1,27 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 War Pigeon <54217755+minus1over12@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+#Blast door
+
+- type: entity
+  parent: BlastDoor
+  id: BlastDoorCentralCommand
+  suffix: Central Command, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCentralCommand ]
+
+#Window shutters
+
+- type: entity
+  parent: ShuttersWindow
+  id: ShuttersWindowCentralCommand
+  suffix: Central Command, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCentralCommand ]
+  - type: AccessReader
+    containerAccessProvider: board

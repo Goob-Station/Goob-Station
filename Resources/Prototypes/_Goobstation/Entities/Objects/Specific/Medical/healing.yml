@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # I am making a grave mistake aren't I?
 - type: entity
   suffix: pax
@@ -13,3 +20,54 @@
         reagents:
         - ReagentId: Pax
           Quantity: 15
+
+# Yes, yes we are.
+- type: entity
+  suffix: poison
+  parent: PrefilledSyringe
+  id: SyringePoisonCentcomm
+  components:
+  - type: Label
+    currentLabel: reagent-name-amatoxin
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 15
+        reagents:
+        - ReagentId: Amatoxin
+          Quantity: 15
+
+- type: entity
+  suffix: fent
+  parent: PrefilledSyringe
+  name: used fent syringe
+  description: What the fuck?!
+  id: SyringePoisonFent
+  components:
+  - type: Label
+    currentLabel: fentanyl
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 15
+        reagents:
+        - ReagentId: Fentanyl
+          Quantity: 7
+
+- type: entity
+  parent: PrefilledSyringe
+  name: lethal injection syringe
+  description: A somewhat humane way to put down prisoners.
+  id: SyringePoisonLethalInjection
+  components:
+  - type: Label
+    currentLabel: Lethal Injection
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 15
+        reagents:
+        - ReagentId: Cyanide
+          Quantity: 10
+        - ReagentId: Amatoxin
+          Quantity: 5

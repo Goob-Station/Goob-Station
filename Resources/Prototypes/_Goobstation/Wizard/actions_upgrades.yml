@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # Mime Malaise
 - type: entity
   parent: ActionMimeMalaise
@@ -280,7 +285,7 @@
   name: Lightning Bolt II
   components:
   - type: ActionUseDelayModifier
-    useDelay: 8.25
+    useDelay: 6.75
 
 - type: entity
   parent: ActionLightningBolt
@@ -288,7 +293,7 @@
   name: Lightning Bolt III
   components:
   - type: ActionUseDelayModifier
-    useDelay: 6.5
+    useDelay: 5.5
 
 - type: entity
   parent: ActionLightningBolt
@@ -296,7 +301,7 @@
   name: Lightning Bolt IV
   components:
   - type: ActionUseDelayModifier
-    useDelay: 4.75
+    useDelay: 4.25
 
 - type: entity
   parent: ActionLightningBolt
@@ -313,7 +318,7 @@
   name: Homing Toolbox II
   components:
   - type: ActionUseDelayModifier
-    useDelay: 5
+    useDelay: 6.75
 
 - type: entity
   parent: ActionHomingToolbox
@@ -321,7 +326,7 @@
   name: Homing Toolbox III
   components:
   - type: ActionUseDelayModifier
-    useDelay: 4
+    useDelay: 5.5
 
 - type: entity
   parent: ActionHomingToolbox
@@ -329,7 +334,7 @@
   name: Homing Toolbox IV
   components:
   - type: ActionUseDelayModifier
-    useDelay: 3
+    useDelay: 4.25
 
 - type: entity
   parent: ActionHomingToolbox
@@ -337,7 +342,7 @@
   name: Homing Toolbox V
   components:
   - type: ActionUseDelayModifier
-    useDelay: 2
+    useDelay: 3
 
 # Arcane Barrage
 - type: entity
@@ -397,7 +402,7 @@
   name: Scream For Me II
   components:
   - type: ActionUseDelayModifier
-    useDelay: 40
+    useDelay: 50
 
 - type: entity
   parent: ActionScreamForMe
@@ -405,7 +410,7 @@
   name: Scream For Me III
   components:
   - type: ActionUseDelayModifier
-    useDelay: 20
+    useDelay: 40
 
 - type: entity
   parent: ActionScreamForMe
@@ -531,7 +536,7 @@
   name: Blink II
   components:
   - type: ActionUseDelayModifier
-    useDelay: 2.4
+    useDelay: 2
 
 - type: entity
   parent: ActionBlinkSpell
@@ -539,23 +544,7 @@
   name: Blink III
   components:
   - type: ActionUseDelayModifier
-    useDelay: 1.8
-
-- type: entity
-  parent: ActionBlinkSpell
-  id: ActionBlinkIV
-  name: Blink IV
-  components:
-  - type: ActionUseDelayModifier
-    useDelay: 1.2
-
-- type: entity
-  parent: ActionBlinkSpell
-  id: ActionBlinkV
-  name: Blink V
-  components:
-  - type: ActionUseDelayModifier
-    useDelay: 0.6
+    useDelay: 1
 
 # Force Wall
 - type: entity
@@ -769,7 +758,7 @@
   - type: InstantAction
     raiseOnUser: true
     checkCanInteract: false
-    useDelay: 80
+    useDelay: 75
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
       path: /Audio/_Goobstation/Wizard/monkey.ogg
@@ -778,36 +767,13 @@
       state: monkey
     event: !type:SummonSimiansEvent
       speech: action-speech-spell-simians
-      mobs: SummonSimiansMobTable
+      mobs: SummonSimiansMobTableII
       weapons: SummonSimiansWeaponTableII
 
 - type: entity
   parent: ActionSummonSimians
   id: ActionSummonSimiansIII
   name: Summon Simians III
-  components:
-  - type: InstantAction
-    raiseOnUser: true
-    checkCanInteract: false
-    useDelay: 70
-    itemIconStyle: BigAction
-    sound: !type:SoundPathSpecifier
-      path: /Audio/_Goobstation/Wizard/monkey.ogg
-    icon:
-      sprite: _Goobstation/Wizard/actions.rsi
-      state: monkey
-    event: !type:SummonSimiansEvent
-      speech: action-speech-spell-simians
-      mobs: SummonSimiansMobTable
-      weapons: SummonSimiansWeaponTableIII
-      amount: 5
-      range: 1.25
-      spawnAngle: 50
-
-- type: entity
-  parent: ActionSummonSimians
-  id: ActionSummonSimiansIV
-  name: Summon Simians IV
   components:
   - type: InstantAction
     raiseOnUser: true
@@ -821,7 +787,30 @@
       state: monkey
     event: !type:SummonSimiansEvent
       speech: action-speech-spell-simians
-      mobs: SummonSimiansMobTable
+      mobs: SummonSimiansMobTableIII
+      weapons: SummonSimiansWeaponTableIII
+      amount: 5
+      range: 1.25
+      spawnAngle: 50
+
+- type: entity
+  parent: ActionSummonSimians
+  id: ActionSummonSimiansIV
+  name: Summon Simians IV
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 45
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wizard/monkey.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: monkey
+    event: !type:SummonSimiansEvent
+      speech: action-speech-spell-simians
+      mobs: SummonSimiansMobTableIV
       weapons: SummonSimiansWeaponTableIV
       amount: 5
       range: 1.25
@@ -835,7 +824,7 @@
   - type: InstantAction
     raiseOnUser: true
     checkCanInteract: false
-    useDelay: 50
+    useDelay: 30
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
       path: /Audio/_Goobstation/Wizard/monkey.ogg
@@ -844,7 +833,7 @@
       state: monkey
     event: !type:SummonSimiansEvent
       speech: action-speech-spell-simians
-      mobs: SummonSimiansMobTable
+      mobs: SummonSimiansMobTableV
       weapons: SummonSimiansWeaponTableV
       amount: 6
       range: 1.5

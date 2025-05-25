@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 // We keep this clone of the other system since I don't know yet if I'll need organ specific functions in the future.
 // will delete or refactor as time goes on.
 using Content.Shared._Shitmed.Body.Organ;
@@ -57,9 +63,9 @@ public sealed partial class OrganEffectSystem : EntitySystem
         if (organEnt.Comp.OnRemove != null)
         {
             if (ev.Add)
-                AddComponents(ev.Body, organEnt, organEnt.Comp.OnRemove);
-            else
                 RemoveComponents(ev.Body, organEnt, organEnt.Comp.OnRemove);
+            else
+                AddComponents(ev.Body, organEnt, organEnt.Comp.OnRemove);
         }
     }
 

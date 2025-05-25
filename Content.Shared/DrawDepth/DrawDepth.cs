@@ -1,3 +1,32 @@
+// SPDX-FileCopyrightText: 2020 ComicIronic <comicironic@gmail.com>
+// SPDX-FileCopyrightText: 2020 Hugal31 <hugo.laloge@gmail.com>
+// SPDX-FileCopyrightText: 2021 Daniel Castro Razo <eldanielcr@gmail.com>
+// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Metal Gear Sloth <metalgearsloth@gmail.com>
+// SPDX-FileCopyrightText: 2021 Moony <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
+// SPDX-FileCopyrightText: 2021 Radrark <76271993+Radrark@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 themias <89101928+themias@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 ArthurMousatov <57199800+ArthurMousatov@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
+// SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.co>
+// SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SlamBamActionman <slambamactionman@gmail.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 qwerltaz <msmarcinpl@gmail.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Robust.Shared.Serialization;
 using DrawDepthTag = Robust.Shared.GameObjects.DrawDepth;
 
@@ -9,32 +38,43 @@ namespace Content.Shared.DrawDepth
         /// <summary>
         ///     This is for sub-floors, the floors you see after prying off a tile.
         /// </summary>
-        LowFloors = DrawDepthTag.Default - 12,
+        LowFloors = DrawDepthTag.Default - 18,
 
         // various entity types that require different
         // draw depths, as to avoid hiding
         #region SubfloorEntities
-        ThickPipe = DrawDepthTag.Default - 11,
-        ThickWire = DrawDepthTag.Default - 10,
-        ThinPipe = DrawDepthTag.Default - 9,
-        ThinWire = DrawDepthTag.Default - 8,
+        ThickPipe = DrawDepthTag.Default - 17,
+        ThickWire = DrawDepthTag.Default - 16,
+        ThinPipe = DrawDepthTag.Default - 15,
+        ThinWire = DrawDepthTag.Default - 14,
         #endregion
 
         /// <summary>
         ///     Things that are beneath regular floors.
         /// </summary>
-        BelowFloor = DrawDepthTag.Default - 8,
+        BelowFloor = DrawDepthTag.Default - 13,
 
         /// <summary>
         ///     Used for entities like carpets.
         /// </summary>
-        FloorTiles = DrawDepthTag.Default - 7,
+        FloorTiles = DrawDepthTag.Default - 12,
 
         /// <summary>
-        ///     Things that are actually right on the floor, like puddles. This does not mean objects like
+        ///     Things that are actually right on the floor, like ice crust or atmos devices. This does not mean objects like
         ///     tables, even though they are technically "on the floor".
         /// </summary>
-        FloorObjects = DrawDepthTag.Default - 6,
+        FloorObjects = DrawDepthTag.Default - 11,
+
+        /// <summary>
+        //     Discrete drawdepth to avoid z-fighting with other FloorObjects but also above floor entities.
+        /// </summary>
+        Puddles = DrawDepthTag.Default - 10,
+
+        // There's a gap for subfloor entities to retain relative draw depth when revealed by a t-ray scanner.
+        /// <summary>
+        //     Objects that are on the floor, but should render above puddles. This includes kudzu, holopads, telepads and levers.
+        /// </summary>
+        HighFloorObjects = DrawDepthTag.Default - 5,
 
         FloorEffects = DrawDepthTag.Default - 5, // Goobstation
 

@@ -1,5 +1,14 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 csqrb <56765288+CaptainSqrBeard@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
+using Content.Shared.Inventory;
 using Robust.Shared.Enums;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -59,11 +68,12 @@ public sealed partial class HumanoidAppearanceComponent : Component
     public Color SkinColor { get; set; } = Color.FromHex("#C0967F");
 
     /// <summary>
-    ///     Visual layers currently hidden. This will affect the base sprite
-    ///     on this humanoid layer, and any markings that sit above it.
+    ///     A map of the visual layers currently hidden to the equipment
+    ///     slots that are currently hiding them. This will affect the base
+    ///     sprite on this humanoid layer, and any markings that sit above it.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public HashSet<HumanoidVisualLayers> HiddenLayers = new();
+    public Dictionary<HumanoidVisualLayers, SlotFlags> HiddenLayers = new();
 
     [DataField, AutoNetworkedField]
     public Sex Sex = Sex.Male;

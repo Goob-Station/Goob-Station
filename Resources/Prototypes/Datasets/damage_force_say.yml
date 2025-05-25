@@ -1,0 +1,22 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Coolsurf6 <coolsurf24@yahoo.com.au>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: localizedDataset
+  id: ForceSayStringDataset
+  values:
+    prefix: damage-force-say-
+    count: 7
+
+- type: localizedDataset
+  id: ForceSaySleepDataset
+  values:
+    prefix: damage-force-say-sleep-
+    count: 1
+
+- type: localizedDataset
+  id: ForceSayNumbDataset
+  values:
+    prefix: damage-force-say-numb-
+    count: 5

@@ -1,3 +1,17 @@
+# SPDX-FileCopyrightText: 2024 Archylle <81660513+Archylle@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 inquisitor-star <81660513+inquisitor-star@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 inquisitor-star <thecatankha@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
+# SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: construction
   name: goliath cloak
   id: GoliathCloak
@@ -18,4 +32,48 @@
   category: construction-category-clothing
   description: A poorly constructed voice modulator made of a gasmask and voice trigger.
   icon: { sprite: Clothing/Mask/gas.rsi, state: icon }
+  objectType: Item
+
+- type: construction
+  name: medical glasses
+  id: MedicalGlasses
+  graph: GlassesMedHUD
+  startNode: start
+  targetNode: glassesMed
+  category: construction-category-clothing
+  description: Sunglasses with a medical hud.
+  icon: { sprite: _Goobstation/Clothing/Eyes/Glasses/medglasses.rsi, state: icon }
+  objectType: Item
+
+- type: construction
+  name: medsec glasses
+  id: MedicalSecurityGlasses
+  graph: GlassesMedSecHUD
+  startNode: start
+  targetNode: glassesMedSec
+  category: construction-category-clothing
+  description: Sunglasses with a medical and security hud.
+  icon: { sprite: _Goobstation/Clothing/Eyes/Glasses/medsecglasses.rsi, state: icon }
+  objectType: Item
+
+- type: construction
+  name: meddiag glasses
+  id: GlassesMedDiag
+  graph: GlassesMedDiagHUD
+  startNode: start
+  targetNode: glassesMedDiag
+  category: construction-category-clothing
+  description: Sunglasses with a medical and diagnostic hud.
+  icon: { sprite: _Goobstation/Clothing/Eyes/Glasses/meddiagglasses.rsi, state: icon }
+  objectType: Item
+
+- type: construction
+  name: meddiag hud
+  id: HudMedDiagHUD
+  graph: HudMedDiag
+  startNode: start
+  targetNode: meddiagHud
+  category: construction-category-clothing
+  description: A heads-up display combining both medical and diagnostic information.
+  icon: { sprite: _Goobstation/Clothing/Eyes/Hud/meddiag.rsi, state: icon }
   objectType: Item

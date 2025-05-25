@@ -1,0 +1,103 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: EntropicPlume
+  name: entropic plume
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: MovementIgnoreGravity
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Effects/effects160x160.rsi
+    layers:
+    - state: entropic_plume
+      shader: unshaded
+    noRot: false
+  - type: Physics
+    bodyType: Dynamic
+    linearDamping: 1
+    angularDamping: 0
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.5,-2.5,1.5,2.5"
+        density: 1
+        hard: false
+        mask:
+        - BulletImpassable
+        - Opaque
+      fix2:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-2.5,-1.5,2.5,1.5"
+        density: 1
+        hard: false
+        mask:
+        - BulletImpassable
+        - Opaque
+  - type: Projectile
+    impactEffect: null
+    deleteOnCollide: false
+    penetrate: true
+    damage:
+      types:
+        Heat: 0
+    soundHit: null
+    forceSound: true
+  - type: TimedDespawn
+    lifetime: 1.4
+  - type: EntropicPlume
+  - type: Tag
+    tags:
+      - HideContextMenu
+
+- type: entity
+  id: EffectCleave
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.5
+  - type: Sprite
+    noRot: true
+    drawdepth: Effects
+    layers:
+      - shader: unshaded
+        sprite: _Goobstation/Heretic/Effects/effects.rsi
+        state: cleave
+  - type: Tag
+    tags:
+      - HideContextMenu
+
+- type: entity
+  id: ShadowCloakEntity
+  save: false
+  name: a shadow?
+  description: Something is there! Against all reason, this shadow lurks at the corners of your vision. You close your eyes, but still, it is there. No matter how far you run, it is there. In pitchest black, it is there.
+  components:
+  - type: TimedDespawn
+    lifetime: 185 # Time of the cloak to wear off + time of particles to disappear
+  - type: Sprite
+    noRot: true
+    drawdepth: Mobs
+    layers:
+      - sprite: _Goobstation/Heretic/Effects/effects.rsi
+        state: curse
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Damageable
+  - type: Trail
+    lifetime: 3.2
+    frequency: 0.1
+    alphaLerpAmount: 0.05
+    renderedEntityRotationStrategy: Particle
+    sprite:
+      sprite: /Textures/_Goobstation/Heretic/Effects/effects.rsi
+      state: curse
+  - type: EntityTrail
+  - type: RotationVisuals
+  - type: Appearance

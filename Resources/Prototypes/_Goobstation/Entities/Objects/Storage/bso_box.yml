@@ -1,11 +1,23 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: BlueshieldAmmunitionBox
   name: blueshield ammunition box
-  description: A box containing various ammunition and magazines for magnum type weapons.
+  description: A box containing various ammunition and magazines for high caliber shotguns.
+  suffix: Unused
   parent: BaseStorageItem
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Storage/bso_box.rsi
+    sprite: _Goobstation/Objects/Specific/Security/blueshieldundetermined.rsi
     layers:
     - map: [ base ]
       state: icon
@@ -13,7 +25,7 @@
   - type: Storage
     maxItemSize: Small
     grid:
-    - 0,0,5,1
+    - 0,0,6,1
     whitelist:
       components:
       - BallisticAmmoProvider

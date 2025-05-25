@@ -1,13 +1,30 @@
+// SPDX-FileCopyrightText: 2020 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2020 Fouin <jfouin2@protonmail.com>
+// SPDX-FileCopyrightText: 2020 Peter Wedder <burneddi@gmail.com>
+// SPDX-FileCopyrightText: 2020 zumorica <zddm@outlook.es>
+// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
+// SPDX-FileCopyrightText: 2021 Metal Gear Sloth <metalgearsloth@gmail.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
+// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Robust.Shared.Audio;
 using Robust.Shared.Random;
 
 namespace Content.Shared.Audio
 {
-    public static class AudioHelpers{
+    public static class AudioHelpers
+    {
         /// <summary>
         ///     Returns a random pitch.
         /// </summary>
-        [Obsolete("Use variation datafield.")]
+        [Obsolete("Use AudioParams.Variation data-field")]
         public static AudioParams WithVariation(float amplitude)
         {
             return WithVariation(amplitude, null);
@@ -16,6 +33,7 @@ namespace Content.Shared.Audio
         /// <summary>
         ///     Returns a random pitch.
         /// </summary>
+        [Obsolete("Use AudioParams.Variation data-field")]
         public static AudioParams WithVariation(float amplitude, IRobustRandom? rand)
         {
             IoCManager.Resolve(ref rand);
@@ -41,22 +59,22 @@ namespace Content.Shared.Audio
         /// </summary>
         /// <param name="shift">Number of semitones to shift, positive or negative. Clamped between -12 and 12
         /// which correspond to a pitch multiplier of 0.5 and 2.0 respectively.</param>
-        public static AudioParams ShiftSemitone(int shift)
+        public static AudioParams ShiftSemitone(AudioParams @params, int shift)
         {
             shift = MathHelper.Clamp(shift, -12, 12);
             float pitchMult = SemitoneMultipliers[shift + 12];
-            return AudioParams.Default.WithPitchScale(pitchMult);
+            return @params.WithPitchScale(pitchMult);
         }
 
         /// <summary>
         /// Returns a pitch multiplier shifted by a random number of semitones within variation.
         /// </summary>
         /// <param name="variation">Max number of semitones to shift in either direction. Values above 12 have no effect.</param>
-        public static AudioParams WithSemitoneVariation(int variation, IRobustRandom? rand)
+        public static AudioParams WithSemitoneVariation(AudioParams @params, int variation, IRobustRandom rand)
         {
             IoCManager.Resolve(ref rand);
             variation = Math.Clamp(variation, 0, 12);
-            return ShiftSemitone(rand.Next(-variation, variation));
+            return ShiftSemitone(@params, rand.Next(-variation, variation));
         }
     }
 }

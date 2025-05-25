@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.IO;
 using System.Numerics;
 using System.Threading;
@@ -8,6 +15,7 @@ using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Shared.ContentPack;
+using Robust.Shared.Exceptions;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using SixLabors.ImageSharp;
@@ -23,6 +31,7 @@ public sealed class ContentSpriteSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IResourceManager _resManager = default!;
     [Dependency] private readonly IUserInterfaceManager _ui = default!;
+    [Dependency] private readonly IRuntimeLog _runtimeLog = default!;
 
     private ContentSpriteControl _control = new();
 
@@ -41,12 +50,12 @@ public sealed class ContentSpriteSystem : EntitySystem
     {
         base.Shutdown();
 
-        foreach (var queued in _control._queuedTextures)
+        foreach (var queued in _control.QueuedTextures)
         {
             queued.Tcs.SetCanceled();
         }
 
-        _control._queuedTextures.Clear();
+        _control.QueuedTextures.Clear();
 
         _ui.RootControl.RemoveChild(_control);
     }
@@ -102,7 +111,7 @@ public sealed class ContentSpriteSystem : EntitySystem
         var texture = _clyde.CreateRenderTarget(new Vector2i(size.X, size.Y), new RenderTargetFormatParameters(RenderTargetColorFormat.Rgba8Srgb), name: "export");
         var tcs = new TaskCompletionSource(cancelToken);
 
-        _control._queuedTextures.Enqueue((texture, direction, entity, includeId, tcs));
+        _control.QueuedTextures.Enqueue((texture, direction, entity, includeId, tcs));
 
         await tcs.Task;
     }
@@ -112,13 +121,21 @@ public sealed class ContentSpriteSystem : EntitySystem
         if (!_adminManager.IsAdmin())
             return;
 
+        var target = ev.Target;
         Verb verb = new()
         {
             Text = Loc.GetString("export-entity-verb-get-data-text"),
             Category = VerbCategory.Debug,
-            Act = () =>
+            Act = async () =>
             {
-                Export(ev.Target);
+                try
+                {
+                    await Export(target);
+                }
+                catch (Exception e)
+                {
+                    _runtimeLog.LogException(e, $"{nameof(ContentSpriteSystem)}.{nameof(Export)}");
+                }
             },
         };
 
@@ -140,7 +157,7 @@ public sealed class ContentSpriteSystem : EntitySystem
             Direction Direction,
             EntityUid Entity,
             bool IncludeId,
-            TaskCompletionSource Tcs)> _queuedTextures = new();
+            TaskCompletionSource Tcs)> QueuedTextures = new();
 
         private ISawmill _sawmill;
 
@@ -154,7 +171,7 @@ public sealed class ContentSpriteSystem : EntitySystem
         {
             base.Draw(handle);
 
-            while (_queuedTextures.TryDequeue(out var queued))
+            while (QueuedTextures.TryDequeue(out var queued))
             {
                 if (queued.Tcs.Task.IsCanceled)
                     continue;

@@ -1,5 +1,13 @@
-﻿using Content.Shared.Damage.Prototypes;
-using Content.Shared.FixedPoint;
+// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Coolsurf6 <coolsurf24@yahoo.com.au>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared.Damage.Prototypes;
+using Content.Shared.Dataset;
+using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -29,14 +37,7 @@ public sealed partial class DamageForceSayComponent : Component
     ///     The fluent string prefix to use when picking a random suffix
     /// </summary>
     [DataField]
-    public string ForceSayStringPrefix = "damage-force-say-";
-
-    /// <summary>
-    ///     The number of suffixes that exist for use with <see cref="ForceSayStringPrefix"/>.
-    ///     i.e. (prefix)-1 through (prefix)-(count)
-    /// </summary>
-    [DataField]
-    public int ForceSayStringCount = 7;
+    public ProtoId<LocalizedDatasetPrototype> ForceSayStringDataset = "ForceSayStringDataset";
 
     /// <summary>
     ///     The amount of total damage between <see cref="ValidDamageGroups"/> that needs to be taken before

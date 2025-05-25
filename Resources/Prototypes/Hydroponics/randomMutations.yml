@@ -1,3 +1,13 @@
+# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2024 PraxisMapper <praxismapper@gmail.com>
+# SPDX-FileCopyrightText: 2024 Toly65 <88860967+Toly65@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Tr1bute <tomsredhammer@gmail.com>
+# SPDX-FileCopyrightText: 2024 drakewill-CRL <46307022+drakewill-CRL@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: RandomPlantMutationList
   id: RandomPlantMutations
   mutations:

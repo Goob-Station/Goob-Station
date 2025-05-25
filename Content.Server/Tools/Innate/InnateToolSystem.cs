@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Debug <49997488+DebugOk@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
 using Content.Shared.Destructible;
 using Content.Shared.Hands;
@@ -6,6 +14,8 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Storage;
 using Content.Shared.Tag;
+using Robust.Shared.Network;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Server.Tools.Innate;
@@ -19,6 +29,8 @@ public sealed class InnateToolSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly SharedHandsSystem _sharedHandsSystem = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!;
+
+    private static readonly ProtoId<TagPrototype> InnateDontDeleteTag = "InnateDontDelete";
 
     public override void Initialize()
     {
@@ -74,7 +86,7 @@ public sealed class InnateToolSystem : EntitySystem
     {
         foreach (var tool in component.ToolUids)
         {
-            if (_tagSystem.HasTag(tool, "InnateDontDelete"))
+            if (_tagSystem.HasTag(tool, InnateDontDeleteTag))
             {
                 RemComp<UnremoveableComponent>(tool);
             }

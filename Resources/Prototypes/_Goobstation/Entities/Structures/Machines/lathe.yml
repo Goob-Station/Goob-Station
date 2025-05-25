@@ -1,0 +1,266 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+# SPDX-FileCopyrightText: 2025 Speebro <100388782+Speebr0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Speebro <speebro@notreal.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: EngineeringTechFab
+  parent: [BaseLatheLube, BaseSiloUtilizer]
+  name: engineering techfab
+  description: Prints equipment and circuitboards for use by engineering department.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/techfab.rsi
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: engi
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Machine
+    board: EngineeringTechFabCircuitboard
+  - type: Lathe
+    idleState: icon
+    runningState: icon
+    staticPacks:
+    - SharedBoardsStatic
+    - EngineeringBoardsStatic
+    - CircuitFloorsStatic
+    - ToolsStatic
+    - PartsStatic
+    - AtmosStatic
+    - CablesStatic
+    - MaterialsStatic
+    - LightsStatic
+    - PowerCellsStatic
+    - ElectronicsStatic
+    dynamicPacks:
+    - AdvancedTools
+    - AtmosTools
+    - EngineeringWeapons
+    - PowerCells
+    - Equipment
+    - ServiceWeapons
+    - SpecOpsGoogles
+    - EngineeringBoards
+    - SharedBoards
+    - CameraBoards
+    - ShuttleBoards
+    - BluespaceTheory
+    - ScienceClothing
+    - UpgradeKits
+  - type: EmagLatheRecipes
+    emagDynamicPacks:
+    - SecurityBoards # TF2 reference, go build fucking turrets
+    - MiningBoards
+  - type: MaterialStorage
+    whitelist:
+      tags:
+        - Sheet
+        - RawMaterial
+        - Ingot
+
+- type: entity
+  id: CargoTechFab
+  parent: [BaseLatheLube, BaseSiloUtilizer]
+  name: cargo techfab
+  description: Prints equipment and circuitboards for use by cargo department.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/techfab.rsi
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: cargo
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Machine
+    board: CargoTechFabCircuitboard
+  - type: Lathe
+    idleState: icon
+    runningState: icon
+    staticPacks:
+    - ToolsStatic
+    - SharedBoardsStatic
+    - CargoBoardsStatic
+    - CablesStatic
+    - PowerCellsStatic
+    - MiningToolsStatic
+    dynamicPacks:
+    - AdvancedTools
+    - Mining
+    - PowerCells
+    - Equipment
+    - ServiceWeapons
+    - MiningWeapons
+    - MiningBoards
+    - MiningUpgrades
+    - MechBoardsCargo
+    - MechWeaponsSalvage
+    - SpecOpsGoogles
+    - CargoBoards
+    - SharedBoards
+    - ShuttleBoards
+    - BluespaceTheory
+    - ScienceClothing
+  - type: EmagLatheRecipes
+    emagStaticPacks:
+    - SalvageExplosivesStatic # Seismic charges - they're pretty cheap in salvage vendor anyway so why not
+    emagDynamicPacks:
+    - SecurityExplosives
+  - type: MaterialStorage
+    whitelist:
+      tags:
+        - Sheet
+        - RawMaterial
+        - Ingot
+
+- type: entity
+  id: ScienceTechFab
+  parent: [BaseLatheLube, BaseSiloUtilizer]
+  name: science techfab
+  description: Prints equipment and circuitboards for use by science department.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/techfab.rsi
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: sci
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Machine
+    board: ScienceTechFabCircuitboard
+  - type: Lathe
+    idleState: icon
+    runningState: icon
+    staticPacks:
+    - SharedBoardsStatic
+    - EngineeringBoardsStatic
+    - CircuitFloorsStatic
+    - MedicalBoardsStatic
+    - MedicalBoardsStaticGoob
+    - ToolsStatic
+    - PartsStatic
+    - AtmosStatic
+    - CablesStatic
+    - MaterialsStatic
+    - BasicChemistryStatic
+    - LightsStatic
+    - PowerCellsStatic
+    - ElectronicsStatic
+    - SurgeryStatic
+    - ScienceBoardsStatic
+    - ScienceExplosives # Goobstation - Roundstart Grenade Tech
+    - GrenadeTriggersStatic # Goobstation - Roundstart Grenade Tech
+    dynamicPacks:
+    - AdvancedTools
+    - ScienceEquipment
+    - ScienceClothing
+    - ScienceWeapons
+    - AtmosTools
+    - EngineeringWeapons
+    - PowerCells
+    - Chemistry
+    - Janitor
+    - Equipment
+    - ServiceWeapons
+    - Surgery
+    - SpecOpsGoogles
+    - EngineeringBoards
+    - SharedBoards
+    - ScienceBoards
+    - ShuttleBoards
+    - MedicalBoardsGoob
+    - BluespaceTheory
+    - ExperimentalScienceGoob
+    - MechBoardsScience
+    - Pinpointers
+  - type: EmagLatheRecipes
+    emagDynamicPacks:
+    - MechBoardsSecurity
+    - MechBoardsCargo
+    - MechBoardsCivilian # Evil ass traitor scientist in a honker... with a rocket launcher because the honker is emagged too.
+  - type: MaterialStorage
+    whitelist:
+      tags:
+        - Sheet
+        - RawMaterial
+        - Ingot
+
+- type: entity
+  id: ServiceTechFab
+  parent: [BaseLatheLube, BaseSiloUtilizer]
+  name: service techfab
+  description: Prints equipment and circuitboards for use by service department.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/techfab.rsi
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: service
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Machine
+    board: ServiceTechFabCircuitboard
+  - type: Lathe
+    idleState: icon
+    runningState: icon
+    staticPacks:
+    - ServiceBoardsStatic
+    - MaterialsStatic
+    - LightsStatic
+    - ServiceStatic
+    - PowerCellsStatic
+    - LatheMiscStatic
+    - ChemistryStatic
+    - TapeRecorderStatic
+    dynamicPacks:
+    - Janitor
+    - Instruments
+    - FauxTiles
+    - ServiceWeapons
+    - MedicalMisc
+    - MechBoardsCivilian
+    - MechWeaponsCivilian
+    - ServiceBoards
+    - SharedBoards
+    - CameraBoards
+  - type: EmagLatheRecipes
+    emagStaticPacks:
+    - ServiceBoardsEvilStatic # Donk Co microwave circiutboard
+  - type: MaterialStorage
+    whitelist:
+      tags:
+        - Sheet
+        - RawMaterial
+        - Ingot

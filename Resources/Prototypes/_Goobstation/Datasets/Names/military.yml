@@ -1,0 +1,24 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: localizedDataset
+  id: NamesMilitaryFirstHighRank
+  values:
+    prefix: names-military-first-high-rank-dataset-
+    count: 3
+
+- type: localizedDataset
+  id: NamesMilitaryFirstPolitical
+  values:
+    prefix: names-military-first-political-dataset-
+    count: 3
+
+- type: localizedDataset
+  id: NamesFirstInspector
+  values:
+    prefix: names-first-inspector-dataset-
+    count: 4

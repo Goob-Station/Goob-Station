@@ -1,7 +1,15 @@
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
+# SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: latheRecipe
   id: BioGenMonkeyCube
   result: MonkeyCube
-  category: Food
+  categories:
+  - Food
   completetime: 3
   materials:
     Biomass: 70
@@ -9,7 +17,8 @@
 - type: latheRecipe
   id: BioGenKoboldCube
   result: KoboldCube
-  category: Food
+  categories:
+  - Food
   completetime: 3
   materials:
     Biomass: 70
@@ -17,7 +26,8 @@
 - type: latheRecipe
   id: BioGenMaterialCloth1
   result: MaterialCloth1
-  category: Materials
+  categories:
+  - Materials
   icon:
     sprite: Objects/Materials/materials.rsi
     state: cloth
@@ -28,7 +38,8 @@
 - type: latheRecipe
   id: BioGenMaterialCardboard1
   result: MaterialCardboard1
-  category: Materials
+  categories:
+  - Materials
   icon:
     sprite: Objects/Materials/materials.rsi
     state: cardboard
@@ -39,7 +50,8 @@
 - type: latheRecipe
   id: BioGenPaper
   result: Paper
-  category: Materials
+  categories:
+  - Materials
   completetime: 1
   materials:
     Biomass: 2
@@ -47,7 +59,8 @@
 - type: latheRecipe
   id: BioGenPaperRolling1
   result: PaperRolling1
-  category: Materials
+  categories:
+  - Materials
   completetime: 1
   materials:
     Biomass: 1
@@ -55,7 +68,8 @@
 - type: latheRecipe
   id: BioGenCandle
   result: Candle
-  category: Materials
+  categories:
+  - Materials
   completetime: 3
   materials:
     Biomass: 3
@@ -64,7 +78,8 @@
   id: BioGenPlantBGone
   resultReagents:
     PlantBGone: 10
-  category: Chemicals
+  categories:
+  - Chemicals
   icon:
     sprite: Objects/Tools/Hydroponics/sprays.rsi
     state: plantbgone
@@ -76,7 +91,8 @@
   id: BioGenWeedKiller
   resultReagents:
     WeedKiller: 10
-  category: Chemicals
+  categories:
+  - Chemicals
   icon:
     sprite: Objects/Tools/Hydroponics/sprays.rsi
     state: weedspray
@@ -88,7 +104,8 @@
   id: BioGenPestKiller
   resultReagents:
     PestKiller: 10
-  category: Chemicals
+  categories:
+  - Chemicals
   icon:
     sprite: Objects/Tools/Hydroponics/sprays.rsi
     state: weedspray
@@ -100,7 +117,8 @@
   id: BioGenLeft4Zed
   resultReagents:
     Left4Zed: 10
-  category: Chemicals
+  categories:
+  - Chemicals
   icon:
     sprite: Objects/Specific/Chemistry/bottle.rsi
     state: bottle-1
@@ -112,7 +130,8 @@
   id: BioGenEZNutrient
   resultReagents:
     EZNutrient: 10
-  category: Chemicals
+  categories:
+  - Chemicals
   icon:
     sprite: Objects/Specific/Chemistry/bottle.rsi
     state: bottle-1
@@ -124,7 +143,8 @@
   id: BioGenRobustHarvest
   resultReagents:
     RobustHarvest: 10
-  category: Chemicals
+  categories:
+  - Chemicals
   icon:
     sprite: Objects/Specific/Chemistry/bottle.rsi
     state: bottle-1
@@ -136,7 +156,8 @@
   id: BioGenMilk
   resultReagents:
     Milk: 10
-  category: Food
+  categories:
+  - Food
   icon:
     sprite: Objects/Consumable/Drinks/milk.rsi
     state: icon
@@ -148,7 +169,8 @@
   id: BioGenMilkSoy
   resultReagents:
     MilkSoy: 10
-  category: Food
+  categories:
+  - Food
   icon:
     sprite: Objects/Consumable/Drinks/soymilk.rsi
     state: icon
@@ -160,7 +182,8 @@
   id: BioGenEthanol
   resultReagents:
     Ethanol: 10
-  category: Food
+  categories:
+  - Food
   icon:
     sprite: Objects/Consumable/Drinks/glass_clear.rsi
     state: icon
@@ -172,7 +195,8 @@
   id: BioGenCream
   resultReagents:
     Cream: 10
-  category: Food
+  categories:
+  - Food
   icon:
     sprite: Objects/Consumable/Drinks/cream.rsi
     state: icon
@@ -184,7 +208,8 @@
   id: BioGenBlackpepper
   resultReagents:
     Blackpepper: 10
-  category: Food
+  categories:
+  - Food
   icon:
     sprite: Objects/Consumable/Food/condiments.rsi
     state: packet-pepper
@@ -196,7 +221,8 @@
   id: BioGenEnzyme
   resultReagents:
     Enzyme: 10
-  category: Food
+  categories:
+  - Food
   icon:
     sprite: Objects/Consumable/Food/condiments.rsi
     state: bottle-empty
@@ -208,7 +234,8 @@
   id: BioGenFlour
   resultReagents:
     Flour: 10
-  category: Food
+  categories:
+  - Food
   icon:
     sprite: Objects/Consumable/Food/ingredients.rsi
     state: flour-big
@@ -220,13 +247,13 @@
   id: BioGenSugar
   resultReagents:
     Sugar: 10
-  category: Food
+  categories:
+  - Food
   icon:
     sprite: Objects/Consumable/Food/ingredients.rsi
     state: sugar-big
   completetime: 1
   materials:
     Biomass: 18
-
 
 

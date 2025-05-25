@@ -1,0 +1,42 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: CrateFunClownCarUplink
+  parent: CrateSyndicate
+  name: clown car crate
+  description: Contains one car, Clown not included
+  suffix: Uplink item
+  components:
+  - type: StorageFill
+    contents:
+    - id: VehicleClowncarAntag
+    - id: BikeHorn
+
+- type: entity
+  id: CrateFunClownCarCargo
+  parent: CrateLivestock
+  name: clown car crate
+  suffix: Cargo Order
+  description: Contains one car, Clown not included
+  components:
+  - type: StorageFill
+    contents:
+    - id: VehicleClowncarTrainee
+    - id: BikeHorn
+
+- type: entity
+  id: CrateFunClownCarTesting
+  parent: CrateLivestock
+  name: clown car crate
+  suffix: for testing
+  description: for the cursed clown
+  components:
+  - type: StorageFill
+    contents:
+    - id: VehicleClowncarAntag
+    - id: BikeHorn
+    - id: DrinkIrishCarBomb

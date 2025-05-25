@@ -1,3 +1,12 @@
+<!--
+SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+SPDX-FileCopyrightText: 2024 BeeRobynn <robynthewarcrime@proton.me>
+SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
 <Document>
   # Vox
 
@@ -20,6 +29,8 @@
   letting them quickly eat, drink, take oral medication, and so on.
   A thirty second oxygen exposure takes them two minutes to recover from.
   If their health does not seem to improve within a minute of oxygen exposure, they should seek medical attention.
+
+  Due to them being half-organic and half-silicon, they do not rot, but it's also impossible to clone them.
 
   Vox deal Slash damage with their unarmed attack.
 

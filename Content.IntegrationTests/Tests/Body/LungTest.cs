@@ -1,3 +1,31 @@
+// SPDX-FileCopyrightText: 2020 DamianX <DamianX@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2020 a.rudenko <creadth@gmail.com>
+// SPDX-FileCopyrightText: 2020 creadth <creadth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
+// SPDX-FileCopyrightText: 2021 Ygg01 <y.laughing.man.y@gmail.com>
+// SPDX-FileCopyrightText: 2022 Acruid <shatter66@gmail.com>
+// SPDX-FileCopyrightText: 2022 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr@gmail.com>
+// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <drsmugleaf@gmail.com>
+// SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
@@ -11,6 +39,8 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using System.Linq;
 using System.Numerics;
+using Robust.Shared.EntitySerialization.Systems;
+using Robust.Shared.Utility;
 
 namespace Content.IntegrationTests.Tests.Body
 {
@@ -57,7 +87,6 @@ namespace Content.IntegrationTests.Tests.Body
 
             await server.WaitIdleAsync();
 
-            var mapManager = server.ResolveDependency<IMapManager>();
             var entityManager = server.ResolveDependency<IEntityManager>();
             var mapLoader = entityManager.System<MapLoaderSystem>();
             var mapSys = entityManager.System<SharedMapSystem>();
@@ -69,17 +98,13 @@ namespace Content.IntegrationTests.Tests.Body
             GridAtmosphereComponent relevantAtmos = default;
             var startingMoles = 0.0f;
 
-            var testMapName = "Maps/Test/Breathing/3by3-20oxy-80nit.yml";
+            var testMapName = new ResPath("Maps/Test/Breathing/3by3-20oxy-80nit.yml");
 
             await server.WaitPost(() =>
             {
                 mapSys.CreateMap(out var mapId);
-                Assert.That(mapLoader.TryLoad(mapId, testMapName, out var roots));
-
-                var query = entityManager.GetEntityQuery<MapGridComponent>();
-                var grids = roots.Where(x => query.HasComponent(x));
-                Assert.That(grids, Is.Not.Empty);
-                grid = grids.First();
+                Assert.That(mapLoader.TryLoadGrid(mapId, testMapName, out var gridEnt));
+                grid = gridEnt!.Value.Owner;
             });
 
             Assert.That(grid, Is.Not.Null, $"Test blueprint {testMapName} not found.");
@@ -148,18 +173,13 @@ namespace Content.IntegrationTests.Tests.Body
             RespiratorComponent respirator = null;
             EntityUid human = default;
 
-            var testMapName = "Maps/Test/Breathing/3by3-20oxy-80nit.yml";
+            var testMapName = new ResPath("Maps/Test/Breathing/3by3-20oxy-80nit.yml");
 
             await server.WaitPost(() =>
             {
                 mapSys.CreateMap(out var mapId);
-
-                Assert.That(mapLoader.TryLoad(mapId, testMapName, out var ents), Is.True);
-                var query = entityManager.GetEntityQuery<MapGridComponent>();
-                grid = ents
-                    .Select<EntityUid, EntityUid?>(x => x)
-                    .FirstOrDefault((uid) => uid.HasValue && query.HasComponent(uid.Value), null);
-                Assert.That(grid, Is.Not.Null);
+                Assert.That(mapLoader.TryLoadGrid(mapId, testMapName, out var gridEnt));
+                grid = gridEnt!.Value.Owner;
             });
 
             Assert.That(grid, Is.Not.Null, $"Test blueprint {testMapName} not found.");

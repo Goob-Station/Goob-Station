@@ -1,3 +1,12 @@
+<!--
+SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
 <Document>
   # Dwarves
 
@@ -5,7 +14,10 @@
     <GuideEntityEmbed Entity="MobDwarf" Caption=""/>
   </Box>
 
-  Dwarves are similar to humans in most respect, but tolerate alcohol better and are healed by it.
-
+  Dwarves are similar to humans in most respects, however,
+  They are not poisoned by alcohol and instead are even slightly healed by it.
+  Their mining instincts allow them to feel nearby ore in 3 tile radius.
+  They are slightly smaller than humans, though are also slightly heavier.
+  They suffocate two times faster.
 
 </Document>

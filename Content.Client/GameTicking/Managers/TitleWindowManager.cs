@@ -1,4 +1,10 @@
-﻿using Content.Shared.CCVar;
+// SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared.CCVar;
 using Robust.Client;
 using Robust.Client.Graphics;
 using Robust.Shared;

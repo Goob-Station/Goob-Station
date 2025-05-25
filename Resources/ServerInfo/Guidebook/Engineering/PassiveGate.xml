@@ -1,0 +1,22 @@
+<!--
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
+<Document>
+  # Passive Gate
+  The passive gate is a simple one-way valve that prevents gasses from flowing backwards.
+  <Box>
+    <GuideEntityEmbed Entity="GasPassiveGate"/>
+  </Box>
+
+  The valve's input is on the side of the [color=red]red[/color] circle.
+  The valve also shows the current flow rate of the pipe when examined.
+
+  It's useful in many applications, for example:
+  - Preventing a pure gas from getting contaminated via a mixed gas flowing back through the pipe.
+  - Preventing pressure or temperature changes across two [textlink="pipenets" link="PipeNetworks"] in the opposite direction.
+  - Quickly checking the flow rate on a pipenet without needing a [textlink="gas analyzer" link="AtmosTools"].
+</Document>

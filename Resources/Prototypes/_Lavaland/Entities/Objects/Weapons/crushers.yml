@@ -1,0 +1,236 @@
+# SPDX-FileCopyrightText: 2025 ActiveMammmoth <140334666+ActiveMammmoth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ActiveMammmoth <kmcsmooth@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
+# SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+# SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+# SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
+# SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: [BaseItem, BaseSecurityCargoContraband]
+  id: LavalandWeaponKineticBase
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+      - Pickaxe
+  - type: Sprite
+    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_spear.rsi
+    state: icon
+  - type: AmmoCounter
+  - type: UseDelayOnShoot
+  - type: UseDelay
+    delay: 0.9
+  - type: Gun
+    soundGunshot: /Audio/Weapons/plasma_cutter.ogg
+    fireRate: 1
+    useKey: false
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 0.5
+    rechargeSound:
+      path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
+  - type: BasicEntityAmmoProvider
+    proto: BulletCharge
+    capacity: 1
+    count: 1
+  - type: DisarmMalus
+  - type: MegafaunaWeaponLooter
+
+- type: entity
+  parent: [LavalandWeaponKineticBase, BaseSecurityCargoContraband]
+  id: LavalandWeaponKineticSpear
+  name: kinetic spear
+  description: A long-ranged melee weapon. Deals less damage than a normal crusher, but has longer attack range.
+  components:
+  - type: Tag
+    tags:
+      - Pickaxe
+  - type: Sprite
+    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_spear.rsi
+    state: icon
+  - type: AmmoCounter
+  - type: UseDelayOnShoot
+  - type: UseDelay
+    delay: 0.9
+  - type: Gun
+    soundGunshot: /Audio/Weapons/plasma_cutter.ogg
+    fireRate: 1
+    useKey: false
+  - type: RechargeBasicEntityAmmo
+    rechargeSound:
+      path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
+    rechargeCooldown: 0.5
+  - type: BasicEntityAmmoProvider
+    proto: BulletCharge
+    capacity: 1
+    count: 1
+  - type: MeleeWeapon
+    attackRate: 0.65 # insane reach
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 10
+        Slash: 5
+    soundHit:
+      collection: MetalThud
+    angle: 0
+    animation: WeaponArcThrust
+    range: 2.2
+  - type: GunRequiresWield
+  - type: Item
+    size: Ginormous
+    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_spear-inhands.rsi
+  - type: DisarmMalus
+  - type: Wieldable
+  - type: Sharp
+  - type: MeleeRequiresWield
+    fumbleOnAttempt: true
+  - type: DamageBoostOnMarker
+    boost:
+      types: # Totals to 60 damage when hitting marked targets
+        Blunt: 30
+        Slash: 15
+    backstabBoost: # And 20 extra for a backstab. Adding up to 80
+      types:
+        Blunt: 11
+        Slash: 9
+
+- type: entity
+  parent: LavalandWeaponKineticBase
+  id: LavalandWeaponKineticHammer
+  name: kinetic hammer
+  description: A beefy, two-handed weapon that inflicts knockback and heavier damage than a crusher.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_hammer.rsi
+    state: icon
+  - type: UseDelay
+    delay: 1
+  - type: MeleeWeapon
+    attackRate: 0.70 # slightly slower than the fireaxe
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 17.5
+    soundHit:
+      collection: MetalThud
+    angle: 0
+    animation: WeaponArcThrust
+    range: 1.6
+  - type: Item
+    size: Ginormous
+    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_hammer-inhands.rsi
+  - type: MeleeThrowOnHit
+    distance: 3
+    speed: 5
+  - type: FlipOnHit
+  - type: GunRequiresWield
+  - type: Wieldable
+  - type: MeleeRequiresWield
+    fumbleOnAttempt: true
+  - type: DamageBoostOnMarker
+    boost:
+      types: # BLOOD FOR THE BLOOD GOD ITS A FUCKING HAMMER
+        Blunt: 75
+
+
+- type: entity
+  parent: [LavalandWeaponKineticBase, ClothingHandsBase]
+  id: LavalandWeaponKineticClaws
+  name: kinetic claws
+  description: Unleash your inner edgelord with this one-handed claw small enough to fit in your backpack. Deals a lot more damage when backstabbing marked targets.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_claws.rsi
+    state: icon
+  - type: UseDelay
+    delay: 1
+  - type: Clothing
+    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_claws-inhands.rsi
+  - type: Fiber
+    fiberMaterial: fibers-kinetic
+    fiberColor: fibers-purple
+  - type: MeleeWeapon
+    attackRate: 1.5
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Slash: 5
+    soundHit:
+      collection: MetalThud
+    angle: 0
+    animation: WeaponArcThrust
+    range: 1.6
+    mustBeEquippedToUse: true
+  - type: Item
+    size: Normal
+    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_claws-inhands.rsi
+  - type: Sharp
+  - type: DamageBoostOnMarker
+    boost:
+      types: # Totals to 45 damage when hitting marked targets
+        Slash: 25
+        Blunt: 15
+    backstabBoost: # And 120 extra for a backstab. Adding up to 165!!!
+      types:
+        Slash: 75
+        Blunt: 45
+
+- type: entity
+  parent: LavalandWeaponKineticBase
+  id: LavalandWeaponKineticMachete
+  name: kinetic machete
+  description: A smaller, one-handed variant of the crusher which allows you to block attacks.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_machete.rsi
+    state: icon
+  - type: UseDelay
+    delay: 1
+  - type: MeleeWeapon
+    attackRate: 1.0 # slightly slower than a combat/utility knife, but in return is slightly stronger than one
+    damage:
+      types:
+        Slash: 12.5
+    soundHit:
+      collection: MetalThud
+    angle: 0
+    animation: WeaponArcThrust
+    range: 1.6
+  - type: Item
+    size: Ginormous
+    sprite: _Lavaland/Objects/Weapons/Crushers/crusher_machete-inhands.rsi
+  # too lazy to port parrying and risk a [redacted] lmao
+  - type: Sharp
+  - type: DamageBoostOnMarker
+    boost:
+      types: # Totals to 50 damage when hitting marked targets
+        Slash: 27.5
+        Blunt: 10
+    backstabBoost: # And 20 extra for a backstab
+      types:
+        Slash: 15
+        Blunt: 5
+  - type: BlockCharge
+    rechargeTime: 120
+    markerReductionTime: 20

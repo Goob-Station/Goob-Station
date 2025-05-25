@@ -1,7 +1,63 @@
+// SPDX-FileCopyrightText: 2019 ZelteHonor <gabrieldionbouchard@gmail.com>
+// SPDX-FileCopyrightText: 2020 Clyybber <darkmine956@gmail.com>
+// SPDX-FileCopyrightText: 2020 Vince <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <zddm@outlook.es>
+// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
+// SPDX-FileCopyrightText: 2021 Metal Gear Sloth <metalgearsloth@gmail.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <zddm@outlook.es>
+// SPDX-FileCopyrightText: 2021 mirrorcult <notzombiedude@gmail.com>
+// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
+// SPDX-FileCopyrightText: 2023 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <drsmugleaf@gmail.com>
+// SPDX-FileCopyrightText: 2023 I.K <45953835+notquitehadouken@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 notquitehadouken <1isthisameme>
+// SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
+// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2024 Magnus Larsen <i.am.larsenml@gmail.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+// SPDX-FileCopyrightText: 2024 Джексон Миссиссиппи <tripwiregamer@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Eagle <lincoln.mcqueen@gmail.com>
+// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 Sigil <84070966+Siigiil@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
+// SPDX-FileCopyrightText: 2025 Whatstone <whatston3@gmail.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 vanx <61917534+Vaaankas@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
 using System.Numerics;
 using Content.Client.Gameplay;
-using Content.Shared._Goobstation.Weapons.MeleeDash;
+using Content.Goobstation.Common.Weapons.MeleeDash;
+using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._White.Blink;
 using Content.Shared.CombatMode;
 using Content.Shared.Effects;
@@ -9,6 +65,7 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.StatusEffect;
 using Content.Shared.Weapons.Melee;
+using Content.Shared.Weapons.Melee.Components;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Wieldable.Components;
@@ -67,6 +124,10 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
         var entity = entityNull.Value;
 
+        if (TryComp<EntropicPlumeAffectedComponent>(entity, out var affected) &&
+            affected.NextAttack + TimeSpan.FromSeconds(0.1f) > Timing.CurTime) // Goobstation
+            return;
+
         if (!TryGetWeapon(entity, out var weaponUid, out var weapon))
             return;
 
@@ -94,35 +155,6 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
         // TODO using targeted actions while combat mode is enabled should NOT trigger attacks.
 
-        // TODO: Need to make alt-fire melee its own component I guess?
-        // Melee and guns share a lot in the middle but share virtually nothing at the start and end so
-        // it's kinda tricky.
-        // I think as long as we make secondaries their own component it's probably fine
-        // as long as guncomp has an alt-use key then it shouldn't be too much of a PITA to deal with.
-
-        //Frontier: better support melee vs. ranged checks
-        /*if (TryComp<GunComponent>(weaponUid, out var gun) && gun.UseKey)
-        {
-            return;
-        }*/
-
-        // Ranged component has priority over melee if both are supported.
-        bool gunBoundToUse = false;
-        bool gunBoundToAlt = false;
-        if (TryComp<GunComponent>(weaponUid, out var gun)) {
-            gunBoundToUse = gun.UseKey;
-            gunBoundToAlt = !gun.UseKey; //Bound to alt-use when false
-
-            // If ranged mode only works when wielded, do not block melee attacks when unwielded
-            // (e.g. crusher & crusher glaive)
-            if (TryComp<GunRequiresWieldComponent>(weaponUid, out var _) &&
-                    TryComp<WieldableComponent>(weaponUid, out var wield)) {
-                gunBoundToUse &= wield.Wielded;
-                gunBoundToAlt &= wield.Wielded;
-            }
-        }
-        //End Frontier
-
         var mousePos = _eyeManager.PixelToMap(_inputManager.MouseScreenPosition);
 
         if (mousePos.MapId == MapId.Nullspace)
@@ -141,24 +173,42 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
             coordinates = TransformSystem.ToCoordinates(_map.GetMap(mousePos.MapId), mousePos);
         }
 
+        // If the gun has AltFireComponent, it can be used to attack.
+        if (TryComp<GunComponent>(weaponUid, out var gun) && gun.UseKey)
+        {
+            if (!TryComp<AltFireMeleeComponent>(weaponUid, out var altFireComponent) || altDown != BoundKeyState.Down)
+                return;
+
+            switch(altFireComponent.AttackType)
+            {
+                case AltFireAttackType.Light:
+                    ClientLightAttack(entity, mousePos, coordinates, weaponUid, weapon);
+                    break;
+
+                case AltFireAttackType.Heavy:
+                    ClientHeavyAttack(entity, coordinates, weaponUid, weapon);
+                    break;
+
+                case AltFireAttackType.Disarm:
+                    ClientDisarm(entity, mousePos, coordinates);
+                    break;
+            }
+
+            return;
+        }
+
         // Heavy attack.
-        if (altDown == BoundKeyState.Down && !gunBoundToAlt) //Frontier: add !gunBoundToAlt condition
+        if (altDown == BoundKeyState.Down)
         {
             // If it's an unarmed attack then do a disarm
             if (weapon.AltDisarm && weaponUid == entity)
             {
-                EntityUid? target = null;
-
-                if (_stateManager.CurrentState is GameplayStateBase screen)
-                {
-                    target = screen.GetDamageableClickedEntity(mousePos); // Goob edit
-                }
-
-                EntityManager.RaisePredictiveEvent(new DisarmAttackEvent(GetNetEntity(target), GetNetCoordinates(coordinates)));
+                ClientDisarm(entity, mousePos, coordinates);
                 return;
             }
 
-            // WD EDIT START
+            // Goobstation start; TODO: put this more in-line with new structure
+            // Blink, WD edit
             if (TryComp(weaponUid, out BlinkComponent? blink) && blink.IsActive)
             {
                 var direction = GetDirection();
@@ -166,9 +216,9 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
                     RaisePredictiveEvent(new BlinkEvent(GetNetEntity(weaponUid), direction));
                 return;
             }
-            // WD EDIT END
+            // WD edit end
 
-            // Goobstation
+            // Dash
             if (TryComp(weaponUid, out MeleeDashComponent? dash))
             {
                 var direction = GetDirection();
@@ -177,10 +227,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
                 return;
             }
 
-            ClientHeavyAttack(entity, coordinates, weaponUid, weapon);
-            return;
-
-            // Goobstation
+            // Helper func
             Vector2 GetDirection()
             {
                 if (!_xformQuery.TryGetComponent(entity, out var userXform))
@@ -194,32 +241,15 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
                 var userPos = TransformSystem.GetWorldPosition(userXform);
                 return targetMap.Position - userPos;
             }
+            // Goobstation end
+
+            ClientHeavyAttack(entity, coordinates, weaponUid, weapon);
+            return;
         }
 
         // Light attack
-        if (useDown == BoundKeyState.Down && !gunBoundToUse) //Frontier: add !gunBoundToUse condition
-        {
-            var attackerPos = TransformSystem.GetMapCoordinates(entity);
-
-            if (mousePos.MapId != attackerPos.MapId ||
-                (attackerPos.Position - mousePos.Position).Length() > weapon.Range)
-            {
-                return;
-            }
-
-            EntityUid? target = null;
-
-            if (_stateManager.CurrentState is GameplayStateBase screen)
-            {
-                target = screen.GetDamageableClickedEntity(mousePos); // Goob edit
-            }
-
-            // Don't light-attack if interaction will be handling this instead
-            if (Interaction.CombatModeCanHandInteract(entity, target))
-                return;
-
-            RaisePredictiveEvent(new LightAttackEvent(GetNetEntity(target), GetNetEntity(weaponUid), GetNetCoordinates(coordinates)));
-        }
+        if (useDown == BoundKeyState.Down)
+            ClientLightAttack(entity, mousePos, coordinates, weaponUid, weapon);
     }
 
     protected override bool InRange(EntityUid user, EntityUid target, float range, ICommonSession? session)
@@ -228,7 +258,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
         var targetCoordinates = xform.Coordinates;
         var targetLocalAngle = xform.LocalRotation;
 
-        return Interaction.InRangeUnobstructed(user, target, targetCoordinates, targetLocalAngle, range);
+        return Interaction.InRangeUnobstructed(user, target, targetCoordinates, targetLocalAngle, range, overlapCheck: false);
     }
 
     protected override void DoDamageEffect(List<EntityUid> targets, EntityUid? user, TransformComponent targetXform)
@@ -243,7 +273,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
             return false;
 
         if (!TryComp<CombatModeComponent>(user, out var combatMode) ||
-            combatMode.CanDisarm != true)
+            combatMode.CanDisarm == false) // WWDP
         {
             return false;
         }
@@ -259,8 +289,6 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
             if (Timing.IsFirstTimePredicted && HasComp<MobStateComponent>(target.Value))
                 PopupSystem.PopupEntity(Loc.GetString("disarm-action-disarmable", ("targetName", target.Value)), target.Value);
-
-            return false;
         }
 
         return true;
@@ -294,6 +322,35 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
         RaisePredictiveEvent(new HeavyAttackEvent(GetNetEntity(meleeUid), entities.GetRange(0, Math.Min(MaxTargets, entities.Count)), GetNetCoordinates(coordinates)));
     }
 
+    private void ClientDisarm(EntityUid attacker, MapCoordinates mousePos, EntityCoordinates coordinates)
+    {
+        EntityUid? target = null;
+
+        if (_stateManager.CurrentState is GameplayStateBase screen)
+            target = screen.GetDamageableClickedEntity(mousePos); // Goob edit
+
+        RaisePredictiveEvent(new DisarmAttackEvent(GetNetEntity(target), GetNetCoordinates(coordinates)));
+    }
+
+    private void ClientLightAttack(EntityUid attacker, MapCoordinates mousePos, EntityCoordinates coordinates, EntityUid weaponUid, MeleeWeaponComponent meleeComponent)
+    {
+        var attackerPos = TransformSystem.GetMapCoordinates(attacker);
+
+        if (mousePos.MapId != attackerPos.MapId || (attackerPos.Position - mousePos.Position).Length() > meleeComponent.Range)
+            return;
+
+        EntityUid? target = null;
+
+        if (_stateManager.CurrentState is GameplayStateBase screen)
+            target = screen.GetDamageableClickedEntity(mousePos); // Goob edit
+
+        // Don't light-attack if interaction will be handling this instead
+        if (Interaction.CombatModeCanHandInteract(attacker, target))
+            return;
+
+        RaisePredictiveEvent(new LightAttackEvent(GetNetEntity(target), GetNetEntity(weaponUid), GetNetCoordinates(coordinates)));
+    }
+
     private void OnMeleeLunge(MeleeLungeEvent ev)
     {
         var ent = GetEntity(ev.Entity);
@@ -301,6 +358,6 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
         // Entity might not have been sent by PVS.
         if (Exists(ent) && Exists(entWeapon))
-            DoLunge(ent, entWeapon, ev.Angle, ev.LocalPos, ev.Animation);
+            DoLunge(ent, entWeapon, ev.Angle, ev.LocalPos, ev.Animation, ev.SpriteRotation, ev.FlipAnimation);
     }
 }

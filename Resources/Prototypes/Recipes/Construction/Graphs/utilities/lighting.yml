@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Justice League <the.justice.league.of.canada@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: constructionGraph
   id: CyanLight
   start: start
@@ -40,6 +47,26 @@
       entity: LightTubeCrystalBlue
 
 - type: constructionGraph
+  id: YellowLight
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: icon
+          steps:
+            - material: Glass
+              amount: 1
+              doAfter: 1
+            - tag: CrystalYellow
+              name: yellow crystal shard
+              icon:
+                sprite: Objects/Materials/Shards/crystal.rsi
+                state: shard1
+              doAfter: 1
+    - node: icon
+      entity: LightTubeCrystalYellow
+
+- type: constructionGraph
   id: PinkLight
   start: start
   graph:
@@ -80,6 +107,26 @@
       entity: LightTubeCrystalOrange
 
 - type: constructionGraph
+  id: BlackLight
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: icon
+          steps:
+            - material: Glass
+              amount: 1
+              doAfter: 1
+            - tag: CrystalBlack
+              name: black crystal shard
+              icon:
+                sprite: Objects/Materials/Shards/crystal.rsi
+                state: shard1
+              doAfter: 1
+    - node: icon
+      entity: LightTubeCrystalBlack
+
+- type: constructionGraph
   id: RedLight
   start: start
   graph:
@@ -118,3 +165,164 @@
               doAfter: 1
     - node: icon
       entity: LightTubeCrystalGreen
+
+- type: constructionGraph
+  id: CyanLightBulb
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: icon
+      steps:
+      - material: Glass
+        amount: 1
+        doAfter: 1
+      - tag: CrystalCyan
+        name: cyan crystal shard
+        icon:
+          sprite: Objects/Materials/Shards/crystal.rsi
+          state: shard1
+          color: #52ff39
+        doAfter: 1
+  - node: icon
+    entity: LightBulbCrystalCyan
+
+- type: constructionGraph
+  id: BlueLightBulb
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: icon
+      steps:
+      - material: Glass
+        amount: 1
+        doAfter: 1
+      - tag: CrystalBlue
+        name: blue crystal shard
+        icon:
+          sprite: Objects/Materials/Shards/crystal.rsi
+          state: shard1
+        doAfter: 1
+  - node: icon
+    entity: LightBulbCrystalBlue
+
+- type: constructionGraph
+  id: YellowLightBulb
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: icon
+      steps:
+      - material: Glass
+        amount: 1
+        doAfter: 1
+      - tag: CrystalYellow
+        name: yellow crystal shard
+        icon:
+          sprite: Objects/Materials/Shards/crystal.rsi
+          state: shard1
+        doAfter: 1
+  - node: icon
+    entity: LightBulbCrystalYellow
+
+- type: constructionGraph
+  id: PinkLightBulb
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: icon
+      steps:
+      - material: Glass
+        amount: 1
+        doAfter: 1
+      - tag: CrystalPink
+        name: pink crystal shard
+        icon:
+          sprite: Objects/Materials/Shards/crystal.rsi
+          state: shard1
+        doAfter: 1
+  - node: icon
+    entity: LightBulbCrystalPink
+
+- type: constructionGraph
+  id: OrangeLightBulb
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: icon
+      steps:
+      - material: Glass
+        amount: 1
+        doAfter: 1
+      - tag: CrystalOrange
+        name: orange crystal shard
+        icon:
+          sprite: Objects/Materials/Shards/crystal.rsi
+          state: shard1
+        doAfter: 1
+  - node: icon
+    entity: LightBulbCrystalOrange
+
+- type: constructionGraph
+  id: BlackLightBulb
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: icon
+      steps:
+      - material: Glass
+        amount: 1
+        doAfter: 1
+      - tag: CrystalBlack
+        name: black crystal shard
+        icon:
+          sprite: Objects/Materials/Shards/crystal.rsi
+          state: shard1
+        doAfter: 1
+  - node: icon
+    entity: LightBulbCrystalBlack
+
+- type: constructionGraph
+  id: RedLightBulb
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: icon
+      steps:
+      - material: Glass
+        amount: 1
+        doAfter: 1
+      - tag: CrystalRed
+        name: red crystal shard
+        icon:
+          sprite: Objects/Materials/Shards/crystal.rsi
+          state: shard1
+        doAfter: 1
+  - node: icon
+    entity: LightBulbCrystalRed
+
+- type: constructionGraph
+  id: GreenLightBulb
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: icon
+      steps:
+      - material: Glass
+        amount: 1
+        doAfter: 1
+      - tag: CrystalGreen
+        name: green crystal shard
+        icon:
+          sprite: Objects/Materials/Shards/crystal.rsi
+          state: shard1
+        doAfter: 1
+  - node: icon
+    entity: LightBulbCrystalGreen

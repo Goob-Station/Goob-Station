@@ -1,10 +1,34 @@
+# SPDX-FileCopyrightText: 2020 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 DamianX <DamianX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 Visne <vincefvanwijk@gmail.com>
+# SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
+# SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Galactic Chimp <63882831+GalacticChimp@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2021 RemberBL <timmermanrembrandt@gmail.com>
+# SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 knowledge-path-void-s1-name = Glimmer of Winter
 knowledge-path-void-s1-desc =
     I feel a shimmer in the air, the air around me gets colder.
     I start to realize the emptiness of existence. Something's watching me.
 
     Opens up the Path of Void to you.
-    Allows you to transmute a knife in sub-zero temperatures into a Void Blade.
+    Allows you to transmute a knife in sub-zero temperatures into a Void Blade. Limit of two at a time.
 
 knowledge-path-void-s2-name = Grasp of Void
 knowledge-path-void-s2-desc =
@@ -26,7 +50,7 @@ knowledge-path-void-s4-desc =
     A gust of wind? A shimmer in the air? The presence is overwhelming, my senses began to betray me. My mind is my own enemy.
 
     Your Mansus Grasp now applies the Mark of Void. The mark is triggered from an attack with your Void Blade.
-    When triggered, further silences the victim and swiftly lowers the temperature of their body and the air around them.
+    When triggered, gives the victim the Curse of Void, which will mute and slowly freeze them to death.
 
 knowledge-path-void-s5-name = Void Blast
 knowledge-path-void-s5-desc =
@@ -34,7 +58,7 @@ knowledge-path-void-s5-desc =
     and my legs start to drag. Is that... snow?
 
     Grants you Void Blast, a spell that shoots out a freezing blast in a cone in front of you,
-    freezing the ground and any victims within.
+    freezing the ground and cursing any victims within.
 
 knowledge-path-void-s6-name = Void Phase
 knowledge-path-void-s6-desc =

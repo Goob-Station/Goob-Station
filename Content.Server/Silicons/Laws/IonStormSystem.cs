@@ -1,7 +1,30 @@
+// SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 BIGZi0348 <118811750+BIGZi0348@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Mephisto72 <66994453+Mephisto72@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Mephisto72 <Mephisto.Respectator@proton.me>
+// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 ScarKy0 <scarky0@onet.eu>
+// SPDX-FileCopyrightText: 2024 The Canned One <greentopcan@gmail.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 valquaint <57813693+valquaint@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Dataset;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Silicons.Laws;
@@ -160,7 +183,7 @@ public sealed class IonStormSystem : EntitySystem
     }
 
     // for your own sake direct your eyes elsewhere
-    private string GenerateLaw()
+    public string GenerateLaw() // Goob edit: make it public
     {
         // pick all values ahead of time to make the logic cleaner
         var threats = Pick(Threats);
@@ -171,6 +194,7 @@ public sealed class IonStormSystem : EntitySystem
         var verb = Pick(Verbs);
         var number = Pick(NumberBase) + " " + Pick(NumberMod);
         var area = Pick(Areas);
+        var area2 = Pick(Areas); // Goobstation
         var feeling = Pick(Feelings);
         var feelingPlural = Pick(FeelingsPlural);
         var must = Pick(Musts);
@@ -198,11 +222,11 @@ public sealed class IonStormSystem : EntitySystem
         // i dont think theres a way to do this in fluent
         var (who, plural) = _robustRandom.Next(0, 5) switch
         {
-            0 => (Loc.GetString("ion-storm-you"), false),
-            1 => (Loc.GetString("ion-storm-the-station"), true),
-            2 => (Loc.GetString("ion-storm-the-crew"), true),
-            3 => (Loc.GetString("ion-storm-the-job", ("job", crew2)), false),
-            _ => (area, true) // THE SINGULARITY REQUIRES THE HAPPY CLOWNS
+            0 => (Loc.GetString("ion-storm-you"), true),
+            1 => (Loc.GetString("ion-storm-the-station"), false),
+            2 => (Loc.GetString("ion-storm-the-crew"), false),
+            3 => (Loc.GetString("ion-storm-the-job", ("job", crew2)), true),
+            _ => (area, false) // THE SINGULARITY REQUIRES THE HAPPY CLOWNS
         };
         var jobChange = _robustRandom.Next(0, 3) switch
         {
@@ -225,11 +249,20 @@ public sealed class IonStormSystem : EntitySystem
 
         var subjects = _robustRandom.Prob(0.5f) ? objectsThreats : Loc.GetString("ion-storm-people");
 
+        // Goobstation
+        var thing = _robustRandom.Next(0, 4) switch
+        {
+            0 => objects,
+            1 => threats,
+            2 => concept,
+            _ => crew1
+        };
+
         // message logic!!!
-        return _robustRandom.Next(0, 35) switch
+        return _robustRandom.Next(0, 40) switch // Goobstation
         {
             0  => Loc.GetString("ion-storm-law-on-station", ("joined", joined), ("subjects", triple)),
-            1  => Loc.GetString("ion-storm-law-no-shuttle", ("joined", joined), ("subjects", triple)),
+            1  => Loc.GetString("ion-storm-law-call-shuttle", ("joined", joined), ("subjects", triple)),
             2  => Loc.GetString("ion-storm-law-crew-are", ("who", crewAll), ("joined", joined), ("subjects", objectsThreats)),
             3  => Loc.GetString("ion-storm-law-subjects-harmful", ("adjective", adjective), ("subjects", triple)),
             4  => Loc.GetString("ion-storm-law-must-harmful", ("must", must)),
@@ -262,6 +295,13 @@ public sealed class IonStormSystem : EntitySystem
             31 => Loc.GetString("ion-storm-law-crew-must-eat", ("who", who), ("adjective", adjective), ("food", food), ("part", part)),
             32 => Loc.GetString("ion-storm-law-harm", ("who", harm)),
             33 => Loc.GetString("ion-storm-law-protect", ("who", harm)),
+            // <Goobstation> - New ion laws
+            34 => Loc.GetString("ion-storm-maximise", ("thing", thing)),
+            35 => Loc.GetString("ion-storm-maximise-all", ("thing", thing)),
+            36 => Loc.GetString("ion-storm-minimise", ("thing", thing)),
+            37 => Loc.GetString("ion-storm-minimise-all", ("thing", thing)),
+            38 => Loc.GetString("ion-storm-remake", ("place1", area), ("place2", area2)),
+            // </Goobstation>
             _ => Loc.GetString("ion-storm-law-concept-verb", ("concept", concept), ("verb", verb), ("subjects", triple))
         };
     }

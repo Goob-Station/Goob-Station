@@ -1,0 +1,64 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: HE1S-G8
+  parent: [ BaseItem, BaseGunWieldable, BaseSyndicateContraband ]
+  id: WeaponSniperHE1SG8
+  description: High Energy One-Shell rifle. On its side, "leading us on and on" is written using a cheap black marker. Takes Gauss-8 cartridges.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Snipers/heavensgate.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Guns/Snipers/heavensgate.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Appearance
+  - type: Item
+    size: Huge
+    shape:
+      - 0,0,8,2 # Comically large
+  - type: Gun
+    fireRate: 0.3
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon2.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/EmptyAlarm/lmg_empty_alarm.ogg
+    projectileSpeed: 50 # Gauss rifle needs to have higher velocity
+  - type: GunRequiresWield
+  - type: ChamberMagazineAmmoProvider
+    autoCycle: false
+    canRack: false
+    soundBoltClosed:
+      path: /Audio/Weapons/Guns/Bolt/lever_bolt_closed.ogg
+    soundBoltOpened:
+      path: /Audio/Weapons/Guns/Bolt/lever_bolt_opened.ogg
+  - type: ItemSlots
+    slots:
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeG8Demolishing
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgeG8
+  - type: ContainerContainer
+    containers:
+      gun_chamber: !type:ContainerSlot
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.5
+    sprintModifier: 0.5
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 5
+    pvsIncrease: 0.5
+  - type: StaticPrice
+    price: 1000

@@ -1,9 +1,29 @@
+// SPDX-FileCopyrightText: 2021 Alexander Evgrashin <evgrashin.adl@gmail.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
+// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
+// SPDX-FileCopyrightText: 2022 Justin Trotter <trotter.justin@gmail.com>
+// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Interaction;
 using Content.Shared.Pinpointer;
 using System.Linq;
 using System.Numerics;
 using Robust.Shared.Utility;
 using Content.Server.Shuttles.Events;
+using Content.Shared.Whitelist;
 
 namespace Content.Server.Pinpointer;
 
@@ -61,30 +81,39 @@ public sealed class PinpointerSystem : SharedPinpointerSystem
 
         // todo: ideally, you would need to raise this event only on jumped entities
         // this code update ALL pinpointers in game
-        var query = EntityQueryEnumerator<PinpointerComponent>();
 
-        while (query.MoveNext(out var uid, out var pinpointer))
+        // Goob edit start: tracking Xform and checking that pinpointer is the jumped one
+        var query = EntityQueryEnumerator<PinpointerComponent, TransformComponent>();
+
+        while (query.MoveNext(out var uid, out var pinpointer, out var transform))
         {
             if (pinpointer.CanRetarget)
                 continue;
 
+            if (transform.GridUid != ev.Entity)
+                continue;
+
             LocateTarget(uid, pinpointer);
         }
+        // Goob edit end
     }
 
+    /// <summary>
+    /// Goob edit: this was literally fully changed. But still works as intended
+    /// </summary>
     private void LocateTarget(EntityUid uid, PinpointerComponent component)
     {
-        // try to find target from whitelist
-        if (component.IsActive && component.Component != null)
-        {
-            if (!EntityManager.ComponentFactory.TryGetRegistration(component.Component, out var reg))
-            {
-                Log.Error($"Unable to find component registration for {component.Component} for pinpointer!");
-                DebugTools.Assert(false);
-                return;
-            }
+        if (!component.IsActive || component.Whitelist == null)
+            return;
 
-            var target = FindTargetFromComponent(uid, reg.Type);
+        if (component.CanTargetMultiple)
+        {
+            var targets = FindAllTargetsFromComponent(uid, component.Whitelist, component.Blacklist);
+            SetTargets(uid, targets, component);
+        }
+        else
+        {
+            var target = FindTargetFromComponent(uid, component.Whitelist, component.Blacklist);
             SetTarget(uid, target, component);
         }
     }
@@ -105,30 +134,98 @@ public sealed class PinpointerSystem : SharedPinpointerSystem
     /// <summary>
     ///     Try to find the closest entity from whitelist on a current map
     ///     Will return null if can't find anything
+    ///     Goob edit: requires EntityWhitelist instead of just Type.
     /// </summary>
-    private EntityUid? FindTargetFromComponent(EntityUid uid, Type whitelist, TransformComponent? transform = null)
+    private EntityUid? FindTargetFromComponent(
+        Entity<TransformComponent?> ent,
+        EntityWhitelist whitelist,
+        EntityWhitelist? blacklist)
     {
-        _xformQuery.Resolve(uid, ref transform, false);
+        _xformQuery.Resolve(ent, ref ent.Comp, false);
 
-        if (transform == null)
+        if (ent.Comp == null)
             return null;
+
+        var transform = ent.Comp;
 
         // sort all entities in distance increasing order
         var mapId = transform.MapID;
         var l = new SortedList<float, EntityUid>();
         var worldPos = _transform.GetWorldPosition(transform);
 
-        foreach (var (otherUid, _) in EntityManager.GetAllComponents(whitelist))
-        {
-            if (!_xformQuery.TryGetComponent(otherUid, out var compXform) || compXform.MapID != mapId)
-                continue;
+        // Goob edit start
+        if (whitelist.Components == null)
+            return null;
 
-            var dist = (_transform.GetWorldPosition(compXform) - worldPos).LengthSquared();
-            l.TryAdd(dist, otherUid);
+        foreach (var component in whitelist.Components)
+        {
+            if (!EntityManager.ComponentFactory.TryGetRegistration(component, out var reg))
+            {
+                Log.Error($"Unable to find component registration for {component} for pinpointer!");
+                DebugTools.Assert(false);
+                return null;
+            }
+
+            foreach (var (otherUid, _) in EntityManager.GetAllComponents(reg.Type))
+            {
+                if (!_xformQuery.TryGetComponent(otherUid, out var compXform) || compXform.MapID != mapId)
+                    continue;
+
+                if (Whitelist.IsBlacklistPass(blacklist, otherUid))
+                    continue;
+
+                var dist = (_transform.GetWorldPosition(compXform) - worldPos).LengthSquared();
+                l.TryAdd(dist, otherUid);
+            }
         }
+        // Goob edit end
 
         // return uid with a smallest distance
         return l.Count > 0 ? l.First().Value : null;
+    }
+
+    /// <summary>
+    /// Goob edit: Gets all possible targets within it's whitelist relative to pinpointer entity.
+    /// </summary>
+    private List<EntityUid> FindAllTargetsFromComponent(
+        Entity<TransformComponent?> ent,
+        EntityWhitelist whitelist,
+        EntityWhitelist? blacklist)
+    {
+        _xformQuery.Resolve(ent, ref ent.Comp, false);
+        var list = new List<EntityUid>();
+
+        if (ent.Comp == null)
+            return list;
+
+        var transform = ent.Comp;
+        var mapId = transform.MapID;
+
+        if (whitelist.Components == null)
+            return list;
+
+        foreach (var component in whitelist.Components)
+        {
+            if (!EntityManager.ComponentFactory.TryGetRegistration(component, out var reg))
+            {
+                Log.Error($"Unable to find component registration for {component} for pinpointer!");
+                DebugTools.Assert(false);
+                return list;
+            }
+
+            foreach (var (otherUid, _) in EntityManager.GetAllComponents(reg.Type))
+            {
+                if (!_xformQuery.TryGetComponent(otherUid, out var compXform) || compXform.MapID != mapId)
+                    continue;
+
+                if (Whitelist.IsBlacklistPass(blacklist, otherUid))
+                    continue;
+
+                list.Add(otherUid);
+            }
+        }
+
+        return list;
     }
 
     /// <summary>
@@ -142,7 +239,7 @@ public sealed class PinpointerSystem : SharedPinpointerSystem
         if (!pinpointer.IsActive)
             return;
 
-        var target = pinpointer.Target;
+        var target = GetNearestTarget((uid, pinpointer)); // Goob edit
         if (target == null || !EntityManager.EntityExists(target.Value))
         {
             SetDistance(uid, Distance.Unknown, pinpointer);
@@ -187,6 +284,26 @@ public sealed class PinpointerSystem : SharedPinpointerSystem
         // get world direction vector
         var dir = _transform.GetWorldPosition(trg, xformQuery) - _transform.GetWorldPosition(pin, xformQuery);
         return dir;
+    }
+
+    /// <summary>
+    /// Goob edit: gets the nearest target out of pinpointer's Targets list.
+    /// </summary>
+    private EntityUid? GetNearestTarget(Entity<PinpointerComponent> ent)
+    {
+        var list = new SortedList<float, EntityUid>();
+        foreach (var target in ent.Comp.Targets)
+        {
+            var lengh = CalculateDirection(ent, target);
+            if (lengh == null)
+                continue;
+
+            var dist = lengh.Value.Length();
+            if (!list.TryAdd(dist, target))
+                list.TryAdd(dist + 1f, target); // safety measure
+        }
+
+        return list.Count > 0 ? list.First().Value : null;
     }
 
     private Distance CalculateDistance(Vector2 vec, PinpointerComponent pinpointer)

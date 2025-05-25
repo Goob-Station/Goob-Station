@@ -1,4 +1,9 @@
-﻿using System.Collections.Generic;
+// SPDX-FileCopyrightText: 2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
+using System.Collections.Generic;
 using System.IO;
 using Content.Server.Entry;
 using Robust.Shared.Configuration;

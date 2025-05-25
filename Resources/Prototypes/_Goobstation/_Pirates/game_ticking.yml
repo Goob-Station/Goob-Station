@@ -1,0 +1,63 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 amogus <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseGameRule
+  id: SpacePirates
+  components:
+  - type: StationEvent
+    weight: 5
+    duration: null
+    earliestStart: 20
+    reoccurrenceDelay: 60
+    minimumPlayers: 30
+    chaos:
+      Hostile: 50
+      Medical: 50
+      Death: 25
+  - type: PendingPirateRule
+    ransomPrototype: BikeHornRansom
+  - type: Tag
+    tags:
+    - MidroundAntag
+
+- type: entity
+  parent: BaseGameRule
+  id: PiratesSpawn
+  components:
+  - type: ActivePirateRule
+  - type: RuleGrids
+  - type: LoadMapRule
+    mapPath: /Maps/_Goobstation/Shuttles/pirates_irs.yml
+  - type: AntagLoadProfileRule
+    speciesOverride: Human
+    alwaysUseSpeciesOverride: true
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: SpawnPointPirateCaptain
+      pickPlayer: false
+      min: 5
+      max: 5
+      mindRoles:
+      - MindRolePirate
+      startingGear: PirateGear
+      components:
+      - type: RandomMetadata
+        nameSegments:
+        - NamesDeathCommando
+  - type: Tag
+    tags:
+    - MidroundAntag
+
+- type: entity
+  parent: BikeHorn
+  id: BikeHornRansom
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Ransom

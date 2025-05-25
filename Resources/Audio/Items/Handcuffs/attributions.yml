@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2023 RieBi <42877671+RieBi@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
 - files: ["ziptie_end.ogg"]
   license: "CC-BY-3.0"
   copyright: "Taken from cable tie.wav by THE_bizniss on Freesound.org"

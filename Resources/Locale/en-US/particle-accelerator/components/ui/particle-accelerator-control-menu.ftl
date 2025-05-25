@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Galactic Chimp <63882831+GalacticChimp@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 c4llv07e <igor@c4llv07e.xyz>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 particle-accelerator-control-menu-on-button = On
 particle-accelerator-control-menu-off-button = Off
 particle-accelerator-control-menu-service-manual-reference = Refer to p.132 of service manual
@@ -8,7 +17,6 @@ particle-accelerator-control-menu-alarm-control-1 = [bold][color=red]PARTICLE ST
 particle-accelerator-control-menu-alarm-control-2 = [bold][color=red]LIMITER FAILURE[/bold][/color]
 particle-accelerator-control-menu-scan-parts-button = Scan Parts
 particle-accelerator-control-menu-check-containment-field-warning = Ensure containment field is active before operation
-particle-accelerator-control-menu-foo-bar-baz = FOO-BAR-BAZ
 particle-accelerator-control-menu-status-label = [bold]Status:[/bold]
 particle-accelerator-control-menu-status-unknown = [font="Monospace"][color=red]Unknown[/color][/bold]
 particle-accelerator-control-menu-status-operational = [font="Monospace"][color=green]Operational[/color][/bold]
@@ -16,6 +24,8 @@ particle-accelerator-control-menu-status-incomplete = [font="Monospace"][color=r
 particle-accelerator-control-menu-draw = [bold]Draw:[/bold]
 particle-accelerator-control-menu-draw-value = [font="Monospace"]{$watts}/{$lastReceive}[/font]
 particle-accelerator-control-menu-draw-not-available = [font="Monospace"][color=gray]N/A[/color][/font]
+particle-accelerator-control-menu-flavor-left = Please keep the clown away from this console!
+particle-accelerator-control-menu-flavor-right = v 1.6
 
 particle-accelerator-radio-message-on = PA power has been switched on.
 particle-accelerator-radio-message-off = PA power has been switched off.

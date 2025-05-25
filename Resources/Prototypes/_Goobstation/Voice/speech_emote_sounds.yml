@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: emoteSounds
   id: EmoteC4
   params:
@@ -7,3 +13,31 @@
       path: /Audio/Machines/Nuke/general_beep.ogg
     Scream:
       path: /Audio/Machines/Nuke/general_beep.ogg
+
+- type: emoteSounds
+  id: ShadowCloak
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      path: /Audio/_Goobstation/Heretic/hiss/hiss5.ogg
+    Laugh:
+      path: /Audio/_Goobstation/Heretic/hiss/hiss5.ogg
+    Sneeze:
+      path: /Audio/_Goobstation/Heretic/hiss/hiss5.ogg
+    Cough:
+      path: /Audio/_Goobstation/Heretic/hiss/hiss5.ogg
+    Yawn:
+      path: /Audio/_Goobstation/Heretic/hiss/hiss5.ogg
+    Snore:
+      path: /Audio/_Goobstation/Heretic/hiss/hiss5.ogg
+    Sigh:
+      path: /Audio/_Goobstation/Heretic/hiss/hiss5.ogg
+    Crying:
+      path: /Audio/_Goobstation/Heretic/hiss/hiss5.ogg
+    Whistle:
+      path: /Audio/_Goobstation/Heretic/hiss/hiss5.ogg
+    Gasp:
+      collection: HissGasp
+    DefaultDeathgasp:
+      path: /Audio/_Goobstation/Heretic/hiss/lowHiss1.ogg

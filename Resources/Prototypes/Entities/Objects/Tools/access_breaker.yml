@@ -1,0 +1,50 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: [BaseItem, BaseSyndicateContraband]
+  id: AccessBreakerUnlimited
+  suffix: Unlimited
+  name: authentication disruptor
+  description: A hacked access configurator, specialized to unlock and erase access from digital locks.
+  components:
+  - type: Emag
+    emagType: Access
+  - type: Sprite
+    sprite: Objects/Tools/access_breaker.rsi
+    state: icon
+  - type: Item
+    sprite: Objects/Tools/access_breaker.rsi
+  - type: Tag # Goobstation
+    tags:
+    - Hacking
+
+- type: entity
+  parent: AccessBreakerUnlimited
+  id: AccessBreaker
+  suffix: Limited
+  components:
+  - type: LimitedCharges
+  - type: AutoRecharge
+
+- type: entity
+  parent: [BaseItem, BaseMinorContraband]
+  id: DoorJack
+  name: door jack
+  suffix: Limited
+  description: An ancient device used for hacking doors, its far too old and damaged to last more than a few uses.
+  components:
+  - type: LimitedCharges
+    maxCharges: 3
+  - type: Sprite
+    sprite: _Goobstation/Objects/Tools/doorjack.rsi
+    state: icon
+  - type: Item
+    sprite: _Goobstation/Objects/Tools/doorjack.rsi
+  - type: Emag
+    emagType: Access

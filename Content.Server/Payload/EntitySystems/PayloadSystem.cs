@@ -1,3 +1,20 @@
+// SPDX-FileCopyrightText: 2022 0x6273 <0x40@keemail.me>
+// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 ElectroJr <leonsfriedrich@gmail.com>
+// SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.Administration.Logs;
 using Content.Server.Explosion.EntitySystems;
 using Content.Shared.Chemistry.Components;
@@ -11,6 +28,7 @@ using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Utility;
 using System.Linq;
 using Robust.Server.GameObjects;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Payload.EntitySystems;
 
@@ -22,6 +40,8 @@ public sealed class PayloadSystem : EntitySystem
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IComponentFactory _componentFactory = default!;
     [Dependency] private readonly ISerializationManager _serializationManager = default!;
+
+    private static readonly ProtoId<TagPrototype> PayloadTag = "Payload";
 
     public override void Initialize()
     {
@@ -44,7 +64,7 @@ public sealed class PayloadSystem : EntitySystem
         {
             foreach (var entity in container.ContainedEntities)
             {
-                if (_tagSystem.HasTag(entity, "Payload"))
+                if (_tagSystem.HasTag(entity, PayloadTag))
                     yield return entity;
             }
         }
@@ -71,7 +91,7 @@ public sealed class PayloadSystem : EntitySystem
             return;
 
         // Ensure we don't enter a trigger-loop
-        DebugTools.Assert(!_tagSystem.HasTag(uid, "Payload"));
+        DebugTools.Assert(!_tagSystem.HasTag(uid, PayloadTag));
 
         RaiseLocalEvent(parent, args, false);
     }

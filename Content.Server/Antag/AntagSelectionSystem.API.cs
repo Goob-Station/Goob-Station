@@ -1,14 +1,36 @@
+// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 ElectroJr <leonsfriedrich@gmail.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Antag.Components;
 using Content.Server.GameTicking.Rules.Components;
+using Content.Server.Objectives;
+using Content.Shared.Antag;
 using Content.Shared.Chat;
+using Content.Shared.GameTicking.Components;
 using Content.Shared.Mind;
 using Content.Shared.Preferences;
+using Content.Shared.Roles;
 using JetBrains.Annotations;
 using Robust.Shared.Audio;
 using Robust.Shared.Enums;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Antag;
 
@@ -18,12 +40,13 @@ public sealed partial class AntagSelectionSystem
     /// Tries to get the next non-filled definition based on the current amount of selected minds and other factors.
     /// </summary>
     public bool TryGetNextAvailableDefinition(Entity<AntagSelectionComponent> ent,
-        [NotNullWhen(true)] out AntagSelectionDefinition? definition)
+        [NotNullWhen(true)] out AntagSelectionDefinition? definition,
+        int? players = null)
     {
         definition = null;
 
-        var totalTargetCount = GetTargetAntagCount(ent);
-        var mindCount = ent.Comp.SelectedMinds.Count;
+        var totalTargetCount = GetTargetAntagCount(ent, players);
+        var mindCount = ent.Comp.AssignedMinds.Count;
         if (mindCount >= totalTargetCount)
             return false;
 
@@ -107,7 +130,7 @@ public sealed partial class AntagSelectionSystem
         var countOffset = 0;
         foreach (var otherDef in ent.Comp.Definitions)
         {
-            countOffset += Math.Clamp((poolSize - countOffset) / otherDef.PlayerRatio, otherDef.Min, otherDef.Max) * otherDef.PlayerRatio;
+            countOffset += Math.Clamp((poolSize - countOffset) / otherDef.PlayerRatio, otherDef.Min, otherDef.Max) * otherDef.PlayerRatio; // Note: Is the PlayerRatio necessary here? Seems like it can cause issues for defs with varied PlayerRatio.
         }
         // make sure we don't double-count the current selection
         countOffset -= Math.Clamp(poolSize / def.PlayerRatio, def.Min, def.Max) * def.PlayerRatio;
@@ -127,7 +150,7 @@ public sealed partial class AntagSelectionSystem
             return new List<(EntityUid, SessionData, string)>();
 
         var output = new List<(EntityUid, SessionData, string)>();
-        foreach (var (mind, name) in ent.Comp.SelectedMinds)
+        foreach (var (mind, name) in ent.Comp.AssignedMinds)
         {
             if (!TryComp<MindComponent>(mind, out var mindComp) || mindComp.OriginalOwnerUserId == null)
                 continue;
@@ -149,7 +172,7 @@ public sealed partial class AntagSelectionSystem
             return new();
 
         var output = new List<Entity<MindComponent>>();
-        foreach (var (mind, _) in ent.Comp.SelectedMinds)
+        foreach (var (mind, _) in ent.Comp.AssignedMinds)
         {
             if (!TryComp<MindComponent>(mind, out var mindComp) || mindComp.OriginalOwnerUserId == null)
                 continue;
@@ -167,7 +190,7 @@ public sealed partial class AntagSelectionSystem
         if (!Resolve(ent, ref ent.Comp, false))
             return new();
 
-        return ent.Comp.SelectedMinds.Select(p => p.Item1).ToList();
+        return ent.Comp.AssignedMinds.Select(p => p.Item1).ToList();
     }
 
     /// <summary>
@@ -259,7 +282,7 @@ public sealed partial class AntagSelectionSystem
         if (!Resolve(ent, ref ent.Comp, false))
             return false;
 
-        return GetAliveAntagCount(ent) == ent.Comp.SelectedMinds.Count;
+        return GetAliveAntagCount(ent) == ent.Comp.AssignedMinds.Count;
     }
 
     /// <summary>
@@ -364,8 +387,107 @@ public sealed partial class AntagSelectionSystem
         var ruleEnt = GameTicker.AddGameRule(id);
         RemComp<LoadMapRuleComponent>(ruleEnt);
         var antag = Comp<AntagSelectionComponent>(ruleEnt);
-        antag.SelectionsComplete = true; // don't do normal selection.
+        antag.AssignmentComplete = true; // don't do normal selection.
         GameTicker.StartGameRule(ruleEnt);
         return (ruleEnt, antag);
+    }
+
+    /// <summary>
+    /// Get all sessions that have been preselected for antag.
+    /// </summary>
+    /// <param name="except">A specific definition to be excluded from the check.</param>
+    public HashSet<ICommonSession> GetPreSelectedAntagSessions(AntagSelectionDefinition? except = null)
+    {
+        var result = new HashSet<ICommonSession>();
+        var query = QueryAllRules();
+        while (query.MoveNext(out var uid, out var comp, out _))
+        {
+            if (HasComp<EndedGameRuleComponent>(uid))
+                continue;
+
+            foreach (var def in comp.Definitions)
+            {
+                if (def.Equals(except))
+                    continue;
+
+                if (comp.PreSelectedSessions.TryGetValue(def, out var set))
+                    result.UnionWith(set);
+            }
+        }
+
+        return result;
+    }
+
+    /// <summary>
+    /// Get all sessions that have been preselected for antag and are exclusive, i.e. should not be paired with other antags.
+    /// </summary>
+    /// <param name="except">A specific definition to be excluded from the check.</param>
+    // Note: This is a bit iffy since technically this exclusive definition is defined via the MultiAntagSetting, while there's a separately tracked antagExclusive variable in the mindrole.
+    // We can't query that however since there's no guarantee the mindrole has been given out yet when checking pre-selected antags.
+    // I don't think there's any instance where they differ, but it's something to be aware of for a potential future refactor.
+    public HashSet<ICommonSession> GetPreSelectedExclusiveAntagSessions(AntagSelectionDefinition? except = null)
+    {
+        var result = new HashSet<ICommonSession>();
+        var query = QueryAllRules();
+        while (query.MoveNext(out var uid, out var comp, out _))
+        {
+            if (HasComp<EndedGameRuleComponent>(uid))
+                continue;
+
+            foreach (var def in comp.Definitions)
+            {
+                if (def.Equals(except))
+                    continue;
+
+                if (def.MultiAntagSetting == AntagAcceptability.None && comp.PreSelectedSessions.TryGetValue(def, out var set))
+                {
+                    result.UnionWith(set);
+                    break;
+                }
+            }
+        }
+
+        return result;
+    }
+
+    /// <summary>
+    /// Get all definition blacklists from sessions that have been preselected for antag. | GOOBSTATION
+    /// </summary>
+    public Dictionary<ICommonSession, List<ProtoId<JobPrototype>>> GetPreSelectedAntagSessionsWithBlacklist(AntagSelectionDefinition? except = null)
+    {
+        var result = new Dictionary<ICommonSession, List<ProtoId<JobPrototype>>>();
+        var query = QueryAllRules();
+
+        while (query.MoveNext(out var uid, out var comp, out _))
+        {
+            if (HasComp<EndedGameRuleComponent>(uid))
+                continue;
+
+            foreach (var def in comp.Definitions)
+            {
+                if (def.Equals(except))
+                    continue;
+
+                if (comp.PreSelectedSessions.TryGetValue(def, out var sessions))
+                {
+                    foreach (var session in sessions)
+                    {
+                        // Get the blacklisted jobs for this antag definition
+                        var blacklist = def.JobBlacklist ?? new List<ProtoId<JobPrototype>>();
+
+                        // If session already exists, merge the blacklists
+                        if (result.TryGetValue(session, out var existingBlacklist))
+                        {
+                            existingBlacklist.AddRange(blacklist);
+                        }
+                        else
+                        {
+                            result[session] = new List<ProtoId<JobPrototype>>(blacklist);
+                        }
+                    }
+                }
+            }
+        }
+        return result;
     }
 }

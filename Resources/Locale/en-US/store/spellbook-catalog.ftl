@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2024 ActiveMammmoth <140334666+ActiveMammmoth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 keronshb <54602815+keronshb@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 # Spells
 spellbook-fireball-name = Fireball
 spellbook-fireball-desc =
@@ -36,7 +45,12 @@ spellbook-mind-swap-name = Mind Swap
 spellbook-mind-swap-description =
     Allows you to switch bodies with a target next to you. You will both be knocked down when this happens, and it will be quite obvious that you are the target's body if someone watches you do it.
     Doesn't work on changelings, heretics, ghouls, ghosts and temporary creatures.
-    Doesn't require wizard's robe and hat to cast.
+    Doesn't require discord's robe and hat to cast.
+
+spellbook-tile-toggle-name = Tile Movement
+spellbook-tile-toggle-description = The assistants will not like this.
+spellbook-curse-of-byond-name = Curse of Byond
+spellbook-curse-of-byond-description = Condemn your target to an eternity of suffering.
 
 # Equipment
 

@@ -1,0 +1,147 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Speebro <100388782+Speebr0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Speebro <speebro@notreal.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+## Static recipes
+
+- type: latheRecipePack
+  id: SecurityEquipmentStatic
+  recipes:
+  - ClothingEyesHudSecurity
+  - ForensicPad
+  - Handcuffs
+  - TargetClown
+  - TargetHuman
+  - TargetSyndicate
+  - Zipties
+
+# Practice ammo/mags and practice weapons
+- type: latheRecipePack
+  id: SecurityPracticeStatic
+  recipes:
+  - BoxShotgunPractice
+  # - MagazineBoxLightRiflePractice # Goobstation - remove light rifle
+  - MagazineBoxMagnumPractice
+  - MagazineBoxPistolPractice
+  - MagazineBoxRiflePractice
+  - WeaponDisablerPractice
+  - WeaponLaserCarbinePractice
+  - WeaponFlareGunSecurity
+
+# Shared between secfab and emagged autolathe
+- type: latheRecipePack
+  id: SecurityAmmoStatic
+  recipes:
+  - BoxLethalshot
+  - BoxShotgunSlug
+  # - MagazineBoxLightRifle # Goobstation - remove light rifle
+  - MagazineBoxMagnum
+  - MagazineBoxPistol
+  - MagazineBoxRifle
+  # - MagazineLightRifle # Goobstation - remove light rifle
+  # - MagazineLightRifleEmpty # Goobstation - remove light rifle
+  - MagazinePistol
+  - MagazinePistolEmpty
+  - MagazinePistolSubMachineGun
+  - MagazinePistolSubMachineGunEmpty
+  - MagazinePistolSubMachineGunTopMounted
+  - MagazinePistolSubMachineGunTopMountedEmpty
+  - MagazineRifle
+  - MagazineRifleEmpty
+  - MagazineShotgun
+  - MagazineShotgunEmpty
+  - MagazineShotgunSlug
+  - SpeedLoaderMagnum
+  - SpeedLoaderMagnumEmpty
+  - ExplosivePayload
+
+- type: latheRecipePack
+  id: SecurityWeaponsStatic
+  recipes:
+  - Flash
+  - Stunbaton
+  - CombatKnife
+  - RiotShield
+
+## Dynamic recipes
+
+- type: latheRecipePack
+  id: SecurityEquipment
+  recipes:
+  - ClothingBackpackElectropack
+  - HoloprojectorSecurity
+  - HoloprojectorSecurityAdvanced
+  - PortableRecharger
+  - PowerCageHigh
+  - PowerCageMedium
+  - PowerCageSmall
+  - TelescopicShield
+
+- type: latheRecipePack
+  id: SecurityBoards
+  recipes:
+  - ShuttleGunDusterCircuitboard
+  - ShuttleGunFriendshipCircuitboard
+  - ShuttleGunPerforatorCircuitboard
+  - ShuttleGunSvalinnMachineGunCircuitboard
+
+- type: latheRecipePack
+  id: SecurityExplosives
+  recipes:
+  - GrenadeBlast
+  - GrenadeEMP
+  - GrenadeFlash
+  - MagazineGrenadeEmpty
+
+# Shared between secfab and emagged protolathe
+- type: latheRecipePack
+  id: SecurityAmmo
+  recipes:
+  - BoxBeanbag
+  - BoxShotgunIncendiary
+  - BoxShotgunUranium
+  - BoxShellTranquilizer
+  # - MagazineBoxLightRifleIncendiary # Goobstation - remove light rifle
+  # - MagazineBoxLightRifleUranium # Goobstation - remove light rifle
+  - MagazineBoxMagnumIncendiary
+  - MagazineBoxMagnumUranium
+  - MagazineBoxPistolIncendiary
+  - MagazineBoxPistolUranium
+  - MagazineBoxRifleIncendiary
+  - MagazineBoxRifleUranium
+  # - MagazineLightRifleIncendiary # Goobstation - remove light rifle
+  # - MagazineLightRifleUranium # Goobstation - remove light rifle
+  - MagazinePistolIncendiary
+  - MagazinePistolUranium
+  - MagazinePistolSubMachineGunIncendiary
+  - MagazinePistolSubMachineGunUranium
+  - MagazineRifleIncendiary
+  - MagazineRifleUranium
+  - MagazineShotgunBeanbag
+  - MagazineShotgunIncendiary
+  - SpeedLoaderMagnumIncendiary
+  - SpeedLoaderMagnumUranium
+
+- type: latheRecipePack
+  id: SecurityWeapons
+  recipes:
+  - Truncheon
+  - WeaponAdvancedLaser
+  - WeaponLaserCannon
+  - WeaponLaserCarbine
+  - WeaponXrayCannon
+  - WeaponTemperatureGun # Goobstation
+
+- type: latheRecipePack
+  id: SecurityDisablers
+  recipes:
+  - WeaponDisabler
+  - WeaponDisablerSMG

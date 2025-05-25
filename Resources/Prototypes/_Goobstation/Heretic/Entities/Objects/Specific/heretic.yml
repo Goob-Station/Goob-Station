@@ -1,9 +1,22 @@
+# SPDX-FileCopyrightText: 2024 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: [ BaseItem, BaseMagicContraband ]
   id: CodexCicatrix
   name: codex cicatrix
-  description: An ominous book you've never seen before. The letters seem to be contantly rearranging themselves.
+  description: This heavy tome is full of cryptic scribbles and impossible diagrams. According to legend, it can be deciphered to reveal the secrets of the veil between worlds.
   components:
+  - type: UnholyItem
   - type: Sprite
     sprite: _Goobstation/Heretic/book.rsi
     layers:
@@ -11,31 +24,31 @@
       map: [ "base" ]
   - type: GenericVisualizer
     visuals:
-      enum.ToggleVisuals.Toggled:
+      enum.ToggleAnimationVisuals.ToggleState:
         base:
-          True: { state: icon-on }
-          False: { state: icon }
+          On: { state: icon-on }
+          Off: { state: icon }
+          TogglingOn: { state: icon-opening }
+          TogglingOff: { state: icon-closing }
   - type: Item
     size: Small
     sprite: _Goobstation/Heretic/book.rsi
   - type: UseDelay
-    delay: 1.0
-  - type: PointLight
-    enabled: false
-    radius: 2
-    energy: 1
-    color: "#6e7500"
-    netsync: false
+    delay: 2.0
   - type: Appearance
   - type: ItemToggle
-    predictable: false
   - type: ComponentToggler
     components:
     - type: HereticMagicItem
-  - type: ItemTogglePointLight
-  - type: ToggleableLightVisuals
+    - type: EldritchInfluenceDrainer
+    - type: TransmutationRuneScriber
   - type: ItemToggleSize
     activatedSize: Normal
+  - type: ToggleAnimation
+  - type: EnchantingTool
+  - type: Tag
+    tags:
+    - HereticItem
 
 - type: entity
   parent: [ DrinkBase, BaseMagicContraband ]
@@ -43,6 +56,7 @@
   name: eldritch flask
   description: A flask filled with an unknown substance. Who knows what will happen when you take a sip from it.
   components:
+  - type: UnholyItem
   - type: Sprite
     sprite: _Goobstation/Heretic/items.rsi
     state: eldritch_flask
@@ -54,11 +68,14 @@
       drink:
         # it's a cryostasis flash filled with healing goodies what could possibly go wrong?
         # i will certainly not abuse it as a heretic chemist
-        maxVol: 30
+        maxVol: 100
         canReact: false
         reagents:
-        - ReagentId: Ichor
-          Quantity: 30
+        - ReagentId: EldritchEssence
+          Quantity: 100
+  - type: Tag
+    tags:
+    - HereticItem
 
 - type: entity
   id: HereticProtectiveBlade
@@ -80,6 +97,12 @@
     angularDamping: 0
     linearDamping: 0
     canCollide: False
+  - type: Tag
+    tags:
+    - FollowerStayOnPolymorph
+  - type: Reflect
+    reflectProb: 1
+    spread: 360
 
 - type: entity
   parent: BaseBullet
@@ -90,13 +113,17 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Heretic/items.rsi
-    state: protective_blade
+    layers:
+    - state: bullet
+      shader: unshaded
   - type: Projectile
     impactEffect: BulletImpactEffectKinetic
+    ignoreResistances: true
     damage:
       types:
-        Slash: 15
-        Piercing: 15
+        Slash: 25
         Structural: 100
     soundHit:
       path: /Audio/Weapons/Guns/Hits/bullet_hit.ogg
+  - type: Reflective
+    reflective: None

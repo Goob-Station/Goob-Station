@@ -1,0 +1,249 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+## Navy Roles
+
+# Navy Officer
+
+- type: job
+  id: NavyOfficer
+  name: job-name-navy-officer
+  description: job-description-navy-officer
+  playTimeTracker: JobNavyOfficer
+  setPreference: false
+  startingGear: NavyOfficerGear
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-commander
+  canBeAntag: false
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  - NanotrasenRepresentative
+  - BlueshieldOfficer
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ]
+
+- type: startingGear
+  id: NavyOfficerGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitNavyGold
+    shoes: ClothingShoesBootsJackFilled
+    head: ClothingHeadHatBeretEliteNavyOfficer
+    eyes: ClothingEyesGlassesCentComm
+    gloves: ClothingHandsGlovesHeavyGoldenTrim
+    back: ClothingBackpackSatchelLeatherFilledNavyOfficer
+    outerClothing: ClothingOuterArmourInvisible
+    neck: ExecutiveIDCard
+    id: NavyOfficerPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltSheathFilledNavyOfficer
+
+# Navy Captain
+
+- type: job
+  id: NavyCaptain
+  name: job-name-navy-captain
+  description: job-description-navy-captain
+  playTimeTracker: JobNavyCaptain
+  setPreference: false
+  startingGear: NavyCaptainGear
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-null
+  canBeAntag: false
+  requirements:
+    - !type:AgeRequirement
+      requiredAge: 21
+  accessGroups:
+    - AllAccess
+  access:
+    - CentralCommand
+    - NanotrasenRepresentative
+    - BlueshieldOfficer
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ]
+
+- type: startingGear
+  id: NavyCaptainGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitNavyGold
+    shoes: ClothingShoesBootsJackFilled
+    head: ClothingHeadHatBeretNavyCaptain
+    eyes: ClothingEyesGlassesDeathsquad
+    gloves: ClothingHandsGlovesHeavyGoldenTrim
+    back: ClothingBackpackSatchelLeatherFilledNavyOfficer
+    outerClothing: ClothingOuterArmourInvisible
+    neck: ExecutiveIDCard
+    id: NavyCaptainPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltSheathFilledNavyOfficer
+    pocket1: NukeOverride
+
+# Undercover Officer
+
+- type: job
+  id: NavyOfficerUndercover
+  name: job-name-navy-officer-undercover
+  description: job-description-navy-officer-undercover
+  playTimeTracker: JobNavyOfficerUndercover
+  setPreference: false
+  startingGear: NavyOfficerUndercoverGear
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-commander
+  canBeAntag: false
+  requirements:
+    - !type:AgeRequirement
+      requiredAge: 21
+  accessGroups:
+    - AllAccess
+  access:
+    - CentralCommand
+    - NanotrasenRepresentative
+    - BlueshieldOfficer
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ]
+
+- type: startingGear
+  id: NavyOfficerUndercoverGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitChameleon
+    shoes: ClothingShoesChameleon
+    head: ClothingHeadHatChameleon
+    eyes: ClothingEyesGlassesDeathsquad
+    gloves: ClothingHandsChameleon
+    mask: ClothingMaskGasVoiceChameleon
+    back: ClothingBackpackChameleonFilledUndercover
+    outerClothing: ClothingOuterArmourInvisibleChameleon
+    neck: ClothingNeckChameleon
+    id: ChameleonPDA
+    ears: ClothingHeadsetChameleon
+    pocket1: WeaponPistolCentcommAgent
+
+
+# Special Operations Officer
+
+- type: job
+  id: SpecialOperationsOfficer
+  name: job-name-special-operations-officer
+  description: job-description-operations-officer
+  playTimeTracker: JobSpecialOperationsOfficer
+  setPreference: false
+  startingGear: SpecialOperationsOfficerGear
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-commander
+  canBeAntag: false
+  requirements:
+    - !type:AgeRequirement
+      requiredAge: 21
+  accessGroups:
+    - AllAccess
+  access:
+    - CentralCommand
+    - NanotrasenRepresentative
+    - BlueshieldOfficer
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant]
+
+- type: startingGear
+  id: SpecialOperationsOfficerGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSpecOps
+    shoes: ClothingShoesBootsJackFilled
+    head: ClothingHeadHatBeretSecurity
+    eyes: ClothingEyesGlassesDeathsquad
+    gloves: ClothingHandsGlovesCombat
+    back: ClothingBackpackSatchelLeatherFilledSpecOps
+    outerClothing: ClothingOuterArmourInvisible
+    neck: ExecutiveIDCard
+    id: SpecialOperationsOfficerPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltHolsterFilledCentComm
+    suitstorage: WeaponRifleAnnie
+    pocket1: WeaponRevolverMateba
+
+# Diplomat
+
+- type: job
+  id: Diplomat
+  name: job-name-diplomat
+  description: job-description-diplomat
+  playTimeTracker: JobDiplomat
+  setPreference: false
+  startingGear: DiplomatGear
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-commander
+  canBeAntag: false
+  requirements:
+  - !type:AgeRequirement
+    requiredAge: 21
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  - NanotrasenRepresentative
+  - BlueshieldOfficer
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ]
+
+- type: startingGear
+  id: DiplomatGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitDiplomat
+    shoes: ClothingShoesBootsLaceup
+    eyes: ClothingEyesGlassesCentComm
+    gloves: ClothingHandsGlovesHeavyGoldenTrim
+    back: ClothingBackpackSatchelLeatherFilledNavyOfficer
+    outerClothing: ClothingOuterArmourInvisible
+    neck: ExecutiveIDCard
+    id: DiplomatPDA
+    ears: ClothingHeadsetAltCentCom
+
+# Inspector
+
+- type: job
+  id: Inspector
+  name: job-name-inspector
+  description: job-description-inspector
+  playTimeTracker: JobInspector
+  setPreference: false
+  startingGear: InspectorGear
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-commander
+  canBeAntag: false
+  requirements:
+  - !type:AgeRequirement
+    requiredAge: 21
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  - NanotrasenRepresentative
+  - BlueshieldOfficer
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ]
+
+- type: startingGear
+  id: InspectorGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitNavyGold
+    shoes: ClothingShoesBootsLaceup
+    eyes: ClothingEyesGlassesCentComm
+    gloves: ClothingHandsGlovesHeavyGoldenTrim
+    back: ClothingBackpackSatchelLeatherFilledInspector
+    outerClothing: ClothingOuterArmourInvisible
+    neck: ExecutiveIDCard
+    id: InspectorPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: BoxFolderCentComClipboard

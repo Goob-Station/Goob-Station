@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Thomas <87614336+Aeshus@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
 using Content.Server.Administration;
 using Content.Server.Radiation.Components;
@@ -5,6 +14,7 @@ using Content.Shared.Administration;
 using Content.Shared.Radiation.Events;
 using Content.Shared.Radiation.Systems;
 using Robust.Shared.Console;
+using Robust.Shared.Debugging;
 using Robust.Shared.Enums;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
@@ -42,12 +52,12 @@ public partial class RadiationSystem
     /// </summary>
     private void UpdateDebugOverlay(EntityEventArgs ev)
     {
-        var sessions = _debugSessions.ToArray();
-        foreach (var session in sessions)
+        foreach (var session in _debugSessions)
         {
             if (session.Status != SessionStatus.InGame)
                 _debugSessions.Remove(session);
-            RaiseNetworkEvent(ev, session.Channel);
+            else
+                RaiseNetworkEvent(ev, session);
         }
     }
 
@@ -70,13 +80,16 @@ public partial class RadiationSystem
         UpdateDebugOverlay(ev);
     }
 
-    private void UpdateGridcastDebugOverlay(double elapsedTime, int totalSources,
-        int totalReceivers, List<RadiationRay> rays)
+    private void UpdateGridcastDebugOverlay(
+        double elapsedTime,
+        int totalSources,
+        int totalReceivers,
+        List<DebugRadiationRay>? rays)
     {
         if (_debugSessions.Count == 0)
             return;
 
-        var ev = new OnRadiationOverlayUpdateEvent(elapsedTime, totalSources, totalReceivers, rays);
+        var ev = new OnRadiationOverlayUpdateEvent(elapsedTime, totalSources, totalReceivers, rays ?? new());
         UpdateDebugOverlay(ev);
     }
 }

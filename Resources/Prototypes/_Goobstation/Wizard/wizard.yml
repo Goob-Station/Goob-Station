@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: BaseMindRoleAntag
   id: MindRoleWizard
@@ -6,6 +13,7 @@
   - type: MindRole
     antagPrototype: Wizard
     exclusiveAntag: true
+    roleType: FreeAgent
   - type: WizardRole
 
 - type: entity
@@ -16,6 +24,7 @@
   - type: MindRole
     antagPrototype: Apprentice
     exclusiveAntag: true
+    roleType: Familiar
   - type: ApprenticeRole
 
 - type: antag
@@ -26,7 +35,7 @@
   objective: roles-antag-wizard-description
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 54000 # 15h
+    time: 126000 # 35h
   guides: [ Wizard ]
 
 - type: antag
@@ -45,6 +54,8 @@
     name: roles-wizard-name
     description: roles-wizard-objective
     rules: ghost-role-information-antagonist-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
@@ -88,6 +99,8 @@
       - ShowAntagIcons
       - Wizard
       - Apprentice
+    tags:
+      - ShowWizardIcons
   icon:
     sprite: /Textures/_Goobstation/Wizard/StatusIcons/10x10.rsi
     state: wizard
@@ -101,6 +114,8 @@
       - ShowAntagIcons
       - Wizard
       - Apprentice
+    tags:
+      - ShowWizardIcons
   icon:
     sprite: /Textures/_Goobstation/Wizard/StatusIcons/10x10.rsi
     state: apprentice

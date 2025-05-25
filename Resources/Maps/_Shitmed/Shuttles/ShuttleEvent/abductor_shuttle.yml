@@ -1,3 +1,56 @@
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 wrexbe <81056464+wrexbe@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 20kdc <asdd2808@gmail.com>
+# SPDX-FileCopyrightText: 2022 Neith <95721684+Phantom-Lily@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 12rabbits <53499656+12rabbits@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Dimastra <65184747+Dimastra@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Dimastra <dimastra@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
+# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 JIPDawg <51352440+JIPDawg@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 JIPDawg <JIPDawg93@gmail.com>
+# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
+# SPDX-FileCopyrightText: 2024 Moomoobeef <62638182+Moomoobeef@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+# SPDX-FileCopyrightText: 2024 PopGamer46 <yt1popgamer@gmail.com>
+# SPDX-FileCopyrightText: 2024 PursuitInAshes <pursuitinashes@gmail.com>
+# SPDX-FileCopyrightText: 2024 QueerNB <176353696+QueerNB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Saphire Lattice <lattice@saphi.re>
+# SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Spessmann <156740760+Spessmann@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+# SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
+# SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 stellar-novas <stellar_novas@riseup.net>
+# SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Bandit <queenjess521@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 meta:
   format: 6
   postmapinit: false
@@ -13,6 +66,7 @@ entities:
       name: grid
     - type: Transform
       pos: -0.5520833,-0.5416667
+      parent: 216
     - type: MapGrid
       chunks:
         0,0:
@@ -101,9 +155,25 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+  - uid: 216
+    components:
+    - type: MetaData
+      name: Map Entity
+    - type: Transform
+    - type: Map
+      mapPaused: True
+    - type: PhysicsMap
+    - type: GridTree
+    - type: MovedGrids
+    - type: Broadphase
+    - type: OccluderTree
 - proto: AbductorAlienPad
   entities:
   - uid: 181
@@ -125,13 +195,6 @@ entities:
     - type: Transform
       pos: -0.5,2.5
       parent: 1
-- proto: AbductorGizmo
-  entities:
-  - uid: 207
-    components:
-    - type: Transform
-      pos: -1.4933486,0.52918124
-      parent: 1
 - proto: AbductorHandcuffs
   entities:
   - uid: 196
@@ -145,41 +208,6 @@ entities:
       pos: 4.4806957,2.7953928
       parent: 1
   - uid: 198
-    components:
-    - type: Transform
-      pos: 4.4806957,2.7953928
-      parent: 1
-  - uid: 199
-    components:
-    - type: Transform
-      pos: 4.4806957,2.7953928
-      parent: 1
-  - uid: 200
-    components:
-    - type: Transform
-      pos: 4.4806957,2.7953928
-      parent: 1
-  - uid: 201
-    components:
-    - type: Transform
-      pos: 4.4806957,2.7953928
-      parent: 1
-  - uid: 202
-    components:
-    - type: Transform
-      pos: 4.4806957,2.7953928
-      parent: 1
-  - uid: 203
-    components:
-    - type: Transform
-      pos: 4.4806957,2.7953928
-      parent: 1
-  - uid: 204
-    components:
-    - type: Transform
-      pos: 4.4806957,2.7953928
-      parent: 1
-  - uid: 205
     components:
     - type: Transform
       pos: 4.4806957,2.7953928
@@ -598,6 +626,13 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -1.5,-3.5
       parent: 1
+- proto: CandyBowlFilledLollypopsMystery
+  entities:
+  - uid: 217
+    components:
+    - type: Transform
+      pos: 4.492695,2.480742
+      parent: 1
 - proto: ChairPilotSeat
   entities:
   - uid: 162
@@ -606,6 +641,13 @@ entities:
       rot: 3.141592653589793 rad
       pos: 0.5,4.5
       parent: 1
+- proto: PlushieAbductor
+  entities:
+  - uid: 253
+    components:
+    - type: Transform
+      pos: 1.15,5.25
+      parent: 1
 - proto: ClockworkGrille
   entities:
   - uid: 45
@@ -613,19 +655,19 @@ entities:
     - type: Transform
       pos: 0.5,6.5
       parent: 1
-- proto: ClothingBackpackDuffelAbductor
+- proto: ClothingAbductorBeltFilled
   entities:
-  - uid: 208
+  - uid: 12
     components:
     - type: Transform
-      pos: -1.5044186,0.16459793
+      pos: -1.4820733,0.17776257
       parent: 1
-- proto: ClothingHeadHelmetAbductor
+- proto: ClothingBackpackDuffelAbductorFilled
   entities:
-  - uid: 206
+  - uid: 202
     components:
     - type: Transform
-      pos: 4.4633284,3.5539389
+      pos: -1.4716566,0.75067925
       parent: 1
 - proto: ComputerIFF
   entities:
@@ -647,10 +689,38 @@ entities:
   - uid: 231
     components:
     - type: Transform
-      pos: 1.167351,-1.4260883
+      pos: 0.13108987,-1.5783088
       parent: 1
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: DubiousOrganSpawner
   entities:
+  - uid: 83
+    components:
+    - type: Transform
+      pos: -0.5,-1.5
+      parent: 1
+  - uid: 199
+    components:
+    - type: Transform
+      pos: -0.5,-1.5
+      parent: 1
+  - uid: 200
+    components:
+    - type: Transform
+      pos: -0.5,-1.5
+      parent: 1
+  - uid: 201
+    components:
+    - type: Transform
+      pos: -0.5,-1.5
+      parent: 1
+  - uid: 208
+    components:
+    - type: Transform
+      pos: -0.5,-1.5
+      parent: 1
   - uid: 209
     components:
     - type: Transform
@@ -675,31 +745,6 @@ entities:
     components:
     - type: Transform
       pos: -0.5,-1.5
-      parent: 1
-  - uid: 214
-    components:
-    - type: Transform
-      pos: 0.5,-1.5
-      parent: 1
-  - uid: 215
-    components:
-    - type: Transform
-      pos: 0.5,-1.5
-      parent: 1
-  - uid: 216
-    components:
-    - type: Transform
-      pos: 0.5,-1.5
-      parent: 1
-  - uid: 217
-    components:
-    - type: Transform
-      pos: 0.5,-1.5
-      parent: 1
-  - uid: 218
-    components:
-    - type: Transform
-      pos: 0.5,-1.5
       parent: 1
 - proto: GasMinerNitrogen
   entities:
@@ -838,8 +883,11 @@ entities:
   - uid: 232
     components:
     - type: Transform
-      pos: 1.136101,-1.4417133
+      pos: 0.14034912,-1.240346
       parent: 1
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: MedicalCyberneticEyes
   entities:
   - uid: 219
@@ -857,23 +905,56 @@ entities:
     - type: Transform
       pos: 2.4815433,0.5442808
       parent: 1
-- proto: MedkitAdvancedFilled
+- proto: MedkitBruteFilled
   entities:
-  - uid: 228
+  - uid: 204
     components:
     - type: Transform
-      pos: 1.5938609,-1.179152
+      pos: 0.8669682,-1.2758512
       parent: 1
-  - uid: 229
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+- proto: MedkitBurnFilled
+  entities:
+  - uid: 207
     components:
     - type: Transform
-      pos: 1.6042776,-1.3458188
+      pos: 1.5799313,-1.2527032
       parent: 1
-  - uid: 230
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+- proto: MedkitCombatFilled
+  entities:
+  - uid: 206
     components:
     - type: Transform
-      pos: 1.6355276,-1.5437355
+      pos: 1.1879536,-1.3730736
       parent: 1
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+- proto: MedkitRadiationFilled
+  entities:
+  - uid: 205
+    components:
+    - type: Transform
+      pos: 0.8391905,-1.5489993
+      parent: 1
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+- proto: MedkitToxinFilled
+  entities:
+  - uid: 215
+    components:
+    - type: Transform
+      pos: 1.5861018,-1.6045549
+      parent: 1
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: Poweredlight
   entities:
   - uid: 237
@@ -928,7 +1009,7 @@ entities:
       parent: 1
 - proto: SpawnPointLoneAbductor
   entities:
-  - uid: 255
+  - uid: 203
     components:
     - type: Transform
       pos: 0.5,1.5
@@ -977,12 +1058,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 4.5,3.5
       parent: 1
-  - uid: 83
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 0.5,-1.5
-      parent: 1
   - uid: 192
     components:
     - type: Transform
@@ -1000,6 +1075,11 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 1.5,-1.5
+      parent: 1
+  - uid: 214
+    components:
+    - type: Transform
+      pos: 0.5,-1.5
       parent: 1
 - proto: Thruster
   entities:

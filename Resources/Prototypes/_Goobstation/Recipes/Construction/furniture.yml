@@ -1,0 +1,22 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: construction
+  name: wall torch
+  id: WallTorch
+  graph: WallTorchGraph
+  startNode: start
+  targetNode: wallTorch
+  category: construction-category-furniture
+  description: Free infinite lighting
+  icon:
+    sprite: _Goobstation/Structures/Wallmounts/torch.rsi
+    state: torch
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked

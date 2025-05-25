@@ -1,4 +1,12 @@
-﻿<controls:AbductorCameraConsoleWindow
+<!--
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
+<controls:AbductorCameraConsoleWindow
     xmlns="https://spacestation14.io"
     xmlns:controls="clr-namespace:Content.Client._Shitmed.Antags.Abductor"
     xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"

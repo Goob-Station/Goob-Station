@@ -1,9 +1,19 @@
+// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2024 Jake Huxell <JakeHuxell@pm.me>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
-using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
 using Robust.Shared.Console;
 using Robust.Shared.Map;
+using Robust.Shared.EntitySerialization.Systems;
+using Robust.Shared.Utility;
 
 namespace Content.Server.Administration.Commands;
 
@@ -47,7 +57,7 @@ public sealed class PersistenceSave : IConsoleCommand
         }
 
         var mapLoader = _system.GetEntitySystem<MapLoaderSystem>();
-        mapLoader.SaveMap(mapId, saveFilePath);
+        mapLoader.TrySaveMap(mapId, new ResPath(saveFilePath));
         shell.WriteLine(Loc.GetString("cmd-savemap-success"));
     }
 }

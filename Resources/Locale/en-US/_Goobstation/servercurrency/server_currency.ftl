@@ -1,5 +1,12 @@
-server-currency-name-singular = Goob Coin
-server-currency-name-plural = Goob Coins
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+server-currency-name-singular = Durk Coin
+server-currency-name-plural = Durk Coins
 
 ## Commands
 
@@ -37,3 +44,48 @@ server-currency-command-completion-2 = Value
 server-currency-command-error-1 = Unable to find a player by that name.
 server-currency-command-error-2 = Value must be an integer.
 server-currency-command-return = {$player} has {$balance}.
+
+# 65% Update
+
+gs-balanceui-title = Store
+gs-balanceui-confirm = Confirm
+
+gs-balanceui-gift-label = Transfer:
+gs-balanceui-gift-player = Player
+gs-balanceui-gift-player-tooltip = Insert the name of the player you want to send the money to
+gs-balanceui-gift-value = Value
+gs-balanceui-gift-value-tooltip = Amount of money to transfer
+
+gs-balanceui-shop-label = Tokens Store
+gs-balanceui-shop-empty = Out of stock!
+gs-balanceui-shop-buy = Buy
+gs-balanceui-shop-footer = ⚠ Ahelp to use your token. Only 1 use per day.
+
+gs-balanceui-shop-token-label = Tokens
+gs-balanceui-shop-tittle-label = Titles
+
+gs-balanceui-shop-buy-token-admin = Buy Trial Admin - {$price} Durk Coins
+gs-balanceui-shop-buy-token-antag = Buy an Antag Token - {$price} Durk Coins
+gs-balanceui-shop-buy-token-admin-abuse = Buy an Admin Abuse Token - {$price} Durk Coins
+gs-balanceui-shop-buy-token-hat = Buy a Hat Token - {$price} Durk Coins
+
+gs-balanceui-shop-token-admin = Trial Admin
+gs-balanceui-shop-token-antag = High Tier Antag Token
+gs-balanceui-shop-token-admin-abuse = Admin Abuse Token
+gs-balanceui-shop-token-hat = Hat Token
+
+gs-balanceui-shop-buy-token-admin-desc = Become a trial admin on the server.
+gs-balanceui-shop-buy-token-antag-desc = Allows you become any antag. (Excluding Wizards)
+gs-balanceui-shop-buy-token-admin-abuse-desc = Allows you to request an admin to abuse their powers against you. Admins are encouraged to go wild.
+gs-balanceui-shop-buy-token-hat-desc = An admin will give you a random hat.
+
+gs-balanceui-admin-add-label = Add (or subtract) money:
+gs-balanceui-admin-add-player = Player name
+gs-balanceui-admin-add-value = Value
+
+gs-balanceui-remark-admin = Bought trial admin.
+gs-balanceui-remark-token-antag = Bought an antag token.
+gs-balanceui-remark-token-admin-abuse = Bought an admin abuse token.
+gs-balanceui-remark-token-hat = Bought a hat token.
+gs-balanceui-shop-click-confirm = Click again to confirm
+gs-balanceui-shop-purchased = Purchased {$item}

@@ -1,16 +1,229 @@
+# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GMWQ <garethquaile@gmail.com>
+# SPDX-FileCopyrightText: 2025 Gareth Quaile <garethquaile@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
-  parent: ClothingBeltStorageBase
+  parent: [ ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseCommandContraband ]
   id: ClothingBeltMilitaryWebbingCMO
   name: chief medical officer's chest rig
-  description: A medical chest rig with deep pockets, for use by paramedics and health professionals.
+  description: A medical chest rig with deep pockets, for use by health professionals.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Belt/cmowebbing.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Belt/cmowebbing.rsi
-  - type: Item
-    size: Large
+  - type: Storage
+    grid:
+      - 0,0,6,2
+    whitelist: # I have no idea why is, say, wrench here, but it's just copied from medical belt.
+      tags:
+        - Wrench
+        - Bottle
+        - Spray
+        - Brutepack
+        - Bloodpack
+        - Gauze
+        - Ointment
+        - CigPack
+        - PillCanister
+        - Radio
+        - DiscreteHealthAnalyzer
+        - SurgeryTool
+        - Dropper
+        - Tourniquet #Goobstation
+        - MedicalPatch # Goobstation
+        - AutoinjectorCartridge # Goobstation
+        - HandheldCrewMonitor # Goobstation
+      components:
+        - Hypospray
+        - Injector
+        - Pill
+        - HandLabeler
+        - SurgeryTool # Shitmed Change
+        - Defibrillator # Goobstation
+        - GunApplySolution # Goobstation - Syndicate dart gun
+  - type: ExplosionResistance
+    damageCoefficient: 0.25
+
+- type: entity
+  parent: [ ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseCentcommContraband ]
+  id: ClothingBeltDeathsquadWebbing
+  suffix: DO NOT MAP
+  name: deathsquad operative chestrig
+  description: A robust and durable chestrig, containing everything you need to keep you in the fight. You probably won't need to use it.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Belt/deathsquadwebbing.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Belt/deathsquadwebbing.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.01
+
+
+- type: entity
+  parent: [ ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseCentcommContraband ]
+  id: ClothingBeltSecurityWebbingMedical
+  name: ert doctor's chest rig
+  description: "A medical chest rig with deep pockets, for use by ERT operatives."
+  components:
+  - type: Sprite
+    sprite: Clothing/Belt/securitywebbing.rsi
+  - type: Clothing
+    sprite: Clothing/Belt/securitywebbing.rsi
   - type: Storage
     maxItemSize: Normal
     grid:
-      - 0,0,6,2
+    - 0,0,6,2
+  - type: ExplosionResistance
+    damageCoefficient: 0.05
+
+- type: entity
+  parent: ClothingBeltSecurity
+  id: ClothingBeltCorporateJudo
+  name: Corporate Judo Belt
+  description: Teaches the wearer NT Corporate Judo.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Belt/judobelt.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Belt/judobelt.rsi
+  - type: GrantCorporateJudo
+  - type: Storage
+    whitelist:
+      tags:
+      - CigPack
+      - Taser
+      - SecBeltEquip
+      - Radio
+      - Sidearm
+      - MagazinePistol
+      - MagazineMagnum
+      - CombatKnife
+      - Truncheon
+      - BolaEnergy
+      components:
+      - FlashOnTrigger
+      - SmokeOnTrigger
+      - Flash
+      - Handcuff
+      - BallisticAmmoProvider
+      - CartridgeAmmo
+      - DoorRemote
+      - Whistle
+      - BalloonPopper
+
+- type: entity
+  parent: [ ChemBag, BaseSyndicateContraband ]
+  id: ClothingBeltChemBagSyndi
+  name: syndicate medical pouch
+  description: A robust pouch for medical supplies worn by Gorlex Marauder operatives. It smells of desoxyephedrine.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Belt/evil_chem_bag.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Belt/evil_chem_bag.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.01
+  - type: Storage
+    whitelist:
+      tags:
+        - PillCanister
+        - Syringe
+        - Dropper
+        - MedicalPatch
+        - Brutepack
+        - Bloodpack
+        - Gauze
+        - Ointment
+      components:
+        - Pill
+        - Hypospray
+        - SyringeGun
+        - SurgeryTool
+        - Defibrillator
+        - SolutionTransfer
+        - GunApplySolution # Dart gun
+
+
+- type: entity
+  parent: ClothingBeltSheath
+  id: ClothingBeltSheathHeadOfSecurity
+  name: head of security's sheath
+  description: A rugged sheath, designed to hold the Head of Security's custom energy sword.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Belt/hossheath.rsi
+    state: sheath
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Belt/hossheath.rsi
+  - type: Item
+    size: Ginormous
+  - type: ItemSlots
+    slots:
+      item:
+        name: Sabre
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/Items/sheath.ogg
+        ejectSound: /Audio/Items/unsheath.ogg
+        whitelist:
+          tags:
+          - Justice
+  - type: ItemMapper
+    mapLayers:
+      sheath-sabre:
+        whitelist:
+          tags:
+          - Justice
+  - type: Appearance
+
+- type: entity
+  parent: [ ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseSyndicateContraband ]
+  id: ClothingBeltMilitaryRigGrenadier # Rig instead of webbing to distinguish it from the upstream counterpart
+  name: grenadier belt
+  description: A specialised belt rig to hold so many grenades that your arm gets tired from throwing them all. Can also store a sidearm and magazines for it.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Belt/grenaderig.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Belt/grenaderig.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.01
+  - type: Storage
+    grid:
+      - 0,0,7,3
+    whitelist:
+      components:
+      - OnUseTimerTrigger # Basically all and only grenades use this
+      tags:
+        - Grenade # China lake ammo
+        - MagazinePistol
+        - MagazinePistolHighCapacity
+        - MagazineMagnum
+        - SpeedLoaderMagnum
+        - MagazinePistolCaselessRifle
+  - type: ContainerContainer
+    containers:
+      item: !type:ContainerSlot
+      storagebase: !type:Container
+        ents: []
+  - type: ItemSlots
+    slots:
+      item:
+        name: Handgun
+        whitelist:
+          tags:
+          - Sidearm

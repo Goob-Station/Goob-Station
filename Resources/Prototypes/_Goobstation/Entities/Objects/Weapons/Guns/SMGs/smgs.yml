@@ -1,0 +1,69 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: M7S "Ventilator" submachine gun
+  parent: [BaseWeaponSubMachineGun, BaseGunWieldable, BaseSyndicateContraband]
+  id: WeaponSubMachineGunM7S
+  description: You may or may not be green, but you are still very very mean. Takes proprietary side-loading 5x23mm rifle magazines.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/SMGs/M7S.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Guns/SMGs/M7S.rsi
+  - type: Item
+    shape:
+    - 0,0,2,1
+  - type: Gun
+    fireRate: 15
+    projectileSpeed: 20 # half regular bullet speed
+    minAngle: 23
+    maxAngle: 66
+    angleDecay: -8 # Intentionally negative, loses accuracy while not shooting
+    angleIncrease: -1.15 # Intentionally negative, gains accuracy while shooting
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/_Goobstation/Weapons/Guns/Gunshots/bwuh.ogg
+      params:
+        volume: -10
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineLowCaliberM7S
+        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineLowCaliberM7S
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeLowCaliber
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgeLowCaliber
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: RestrictGunshotsByUserTag
+    doesntContain:
+    - Oni
+    messages:
+    - oni-cannot-shoot-guns-1
+    - oni-cannot-shoot-guns-2
+    - oni-cannot-shoot-guns-3

@@ -1,3 +1,13 @@
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # actions
 - type: entity
   id: ActionHereticOpenStore
@@ -21,7 +31,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    useDelay: 10
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
@@ -49,7 +58,7 @@
 - type: entity
   id: ActionHereticMansusLink
   name: Manse Link
-  description: Pierce through reality and connect minds to one another. Default radio key is :z
+  description: Pierce through reality and connect minds to one another. Default key is +m
   categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
@@ -61,4 +70,23 @@
     event: !type:EventHereticMansusLink {}
   - type: HereticAction
     requireMagicItem: false
-    messageLoc: heretic-speech-link
+    messageLoc: heretic-speech-mansuslink
+
+- type: entity
+  id: ActionHereticShadowCloak
+  name: Cloak of Shadow
+  description: Completely conceals your identity, but does not make you invisible. Can be activated early to disable it. While cloaked, you move faster, but undergo actions much slower. Taking damage while cloaked may cause it to lift suddenly.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 6
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: shadowcloak
+    event: !type:EventHereticShadowCloak
+  - type: HereticAction
+    requireMagicItem: true
+  - type: Tag
+    tags:
+    - ShadowCloakAction

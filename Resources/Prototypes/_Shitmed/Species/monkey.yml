@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: species
   id: Monkey
   name: species-name-monkey
@@ -15,7 +20,8 @@
     Special: MobMonkeyAnyMarking
     Head: MobMonkeyHead
     HeadTop: MobMonkeyAnyMarking
-    Chest: MobMonkeyTorso
+    Chest: MobMonkeyChest
+    Groin: MobMonkeyGroin
     Tail: MobMonkeyTail
     Eyes: MobMonkeyEyes
     LArm: MobMonkeyLArm
@@ -53,22 +59,40 @@
     state: head_f
 
 - type: humanoidBaseSprite
-  id: MobMonkeyTorso
+  id: MobMonkeyChest
   baseSprite:
     sprite: Mobs/Animals/monkey.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobMonkeyTorsoMale
+  id: MobMonkeyChestMale
   baseSprite:
     sprite: Mobs/Animals/monkey.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobMonkeyTorsoFemale
+  id: MobMonkeyChestFemale
   baseSprite:
     sprite: Mobs/Animals/monkey.rsi
-    state: torso_f
+    state: chest_f
+
+- type: humanoidBaseSprite
+  id: MobMonkeyGroin
+  baseSprite:
+    sprite: Mobs/Animals/monkey.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobMonkeyGroinMale
+  baseSprite:
+    sprite: Mobs/Animals/monkey.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobMonkeyGroinFemale
+  baseSprite:
+    sprite: Mobs/Animals/monkey.rsi
+    state: groin_f
 
 - type: humanoidBaseSprite
   id: MobMonkeyLLeg

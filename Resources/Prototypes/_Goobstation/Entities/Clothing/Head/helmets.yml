@@ -1,3 +1,15 @@
+# SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 absurd-shaman <165011607+absurd-shaman@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: ClothingHeadHelmetRaid
   id: ClothingHeadHelmetHelldiver
@@ -12,13 +24,6 @@
   - type: TemperatureProtection
     heatingCoefficient: 0.1
     coolingCoefficient: 0.1
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.8
-        Caustic: 0.7
   - type: HideLayerClothing
     slots:
     - Hair
@@ -35,6 +40,13 @@
     sprite: _Goobstation/Clothing/Head/Helmets/hev.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Head/Helmets/hev.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Shock: 0.7
+        Radiation: 0.01
+        Caustic: 0.5
 
 - type: entity
   parent: ClothingHeadHelmetBasic
@@ -48,3 +60,49 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+
+- type: entity
+  parent: [ ClothingHeadBase, BaseMajorContraband ]
+  id: ReverseBearTrap
+  name: reverse bear trap
+  description: A horrifying set of shut metal jaws, rigged to a kitchen timer and secured by padlock to a head-mounted clamp. To apply, hit someone with it
+  components:
+  - type: ReverseBearTrap
+    countdownDuration: 60
+    baseEscapeChance: 0
+    delayOptions: # escape odds for each duration.
+      - 30 # 2.48%
+      - 60 # 10.76%
+      - 90 # 23.57%
+      - 120 # 38.88%
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Helmets/reverse_bear_trap.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Helmets/reverse_bear_trap.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+
+- type: entity
+  parent: [ ClothingHeadBase, BaseSyndicateContraband ]
+  id: ClothingHeadHatHoodCloakSith
+  name: dark lord hood
+  description: What began as a simple cosplay hood was illegally reinforced with armored plates, transforming it into a functional piece of armor. Looks like it's even capable of protecting the user from the lack of pressure in space.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hoods/voidcloak.rsi
+    state: icon
+  - type: Clothing
+    sprite: Clothing/Head/Hoods/voidcloak.rsi
+  - type: Armor
+    coverage:
+    - Head
+    modifiers:
+      coefficients:
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.55
+        Heat: 0.7
+  - type: PressureProtection
+    lowPressureMultiplier: 1000

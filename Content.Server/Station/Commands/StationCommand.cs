@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
+// SPDX-FileCopyrightText: 2023 moonheart08 <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Diagnostics;
 using System.Linq;
 using Content.Server.Administration;
@@ -27,7 +36,7 @@ public sealed class StationsCommand : ToolshedCommand
     }
 
     [CommandImplementation("get")]
-    public EntityUid Get([CommandInvocationContext] IInvocationContext ctx)
+    public EntityUid Get(IInvocationContext ctx)
     {
         _station ??= GetSys<StationSystem>();
 
@@ -54,7 +63,6 @@ public sealed class StationsCommand : ToolshedCommand
     public EntityUid? LargestGrid([PipedArgument] EntityUid input)
     {
         _station ??= GetSys<StationSystem>();
-
         return _station.GetLargestGrid(Comp<StationDataComponent>(input));
     }
 
@@ -80,46 +88,30 @@ public sealed class StationsCommand : ToolshedCommand
         => input.Select(Config);
 
     [CommandImplementation("addgrid")]
-    public void AddGrid(
-        [CommandInvocationContext] IInvocationContext ctx,
-        [PipedArgument] EntityUid input,
-        [CommandArgument] ValueRef<EntityUid> grid
-        )
+    public void AddGrid([PipedArgument] EntityUid input, EntityUid grid)
     {
         _station ??= GetSys<StationSystem>();
-
-        _station.AddGridToStation(input, grid.Evaluate(ctx));
+        _station.AddGridToStation(input, grid);
     }
 
     [CommandImplementation("rmgrid")]
-    public void RmGrid(
-        [CommandInvocationContext] IInvocationContext ctx,
-        [PipedArgument] EntityUid input,
-        [CommandArgument] ValueRef<EntityUid> grid
-    )
+    public void RmGrid([PipedArgument] EntityUid input, EntityUid grid)
     {
         _station ??= GetSys<StationSystem>();
-
-        _station.RemoveGridFromStation(input, grid.Evaluate(ctx));
+        _station.RemoveGridFromStation(input, grid);
     }
 
     [CommandImplementation("rename")]
-    public void Rename([CommandInvocationContext] IInvocationContext ctx,
-        [PipedArgument] EntityUid input,
-        [CommandArgument] ValueRef<string> name
-    )
+    public void Rename([PipedArgument] EntityUid input, string name)
     {
         _station ??= GetSys<StationSystem>();
-
-        _station.RenameStation(input, name.Evaluate(ctx)!);
+        _station.RenameStation(input, name);
     }
 
     [CommandImplementation("rerollBounties")]
-    public void RerollBounties([CommandInvocationContext] IInvocationContext ctx,
-        [PipedArgument] EntityUid input)
+    public void RerollBounties([PipedArgument] EntityUid input)
     {
         _cargo ??= GetSys<CargoSystem>();
-
         _cargo.RerollBountyDatabase(input);
     }
 }

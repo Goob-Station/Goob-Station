@@ -1,0 +1,65 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# DO NOT use this as an actual species, its for borg part appearance to Just Work
+- type: species
+  id: Cyborg
+  name: species-name-human
+  roundStart: false
+  prototype: BorgChassisSelectable
+  sprites: CyborgSprites
+  defaultSkinTone: "#fff9e2"
+  markingLimits: MobHumanMarkingLimits
+  maleFirstNames: NamesBorg
+  femaleFirstNames: NamesBorg
+  dollPrototype: BorgChassisSelectable
+  skinColoration: TintedHues
+
+- type: speciesBaseSprites
+  id: CyborgSprites
+  sprites:
+    Head: CyborgHead
+    Chest: CyborgTorso
+    LArm: CyborgLArm
+    RArm: CyborgRArm
+    LLeg: CyborgLLeg
+    RLeg: CyborgRLeg
+
+- type: humanoidBaseSprite
+  id: CyborgHead
+  baseSprite:
+    sprite: Objects/Specific/Robotics/cyborg_parts.rsi
+    state: borg_head
+
+- type: humanoidBaseSprite
+  id: CyborgTorso
+  baseSprite:
+    sprite: Objects/Specific/Robotics/cyborg_parts.rsi
+    state: borg_chest
+
+- type: humanoidBaseSprite
+  id: CyborgLLeg
+  baseSprite:
+    sprite: Objects/Specific/Robotics/cyborg_parts.rsi
+    state: borg_l_leg
+
+- type: humanoidBaseSprite
+  id: CyborgLArm
+  baseSprite:
+    sprite: Objects/Specific/Robotics/cyborg_parts.rsi
+    state: borg_l_arm
+
+- type: humanoidBaseSprite
+  id: CyborgRLeg
+  baseSprite:
+    sprite: Objects/Specific/Robotics/cyborg_parts.rsi
+    state: borg_r_leg
+
+- type: humanoidBaseSprite
+  id: CyborgRArm
+  baseSprite:
+    sprite: Objects/Specific/Robotics/cyborg_parts.rsi
+    state: borg_r_arm

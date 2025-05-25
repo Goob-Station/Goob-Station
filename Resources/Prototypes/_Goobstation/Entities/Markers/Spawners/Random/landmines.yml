@@ -1,0 +1,23 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: RandomLandmineSpawner
+  name: random landmine spawner
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - sprite: Objects/Misc/landmine.rsi
+          state: landmine
+    - type: RandomSpawner
+      chance: 0.90
+      prototypes:
+        - LandMineModular
+      rareChance: 0.10
+      rarePrototypes:
+      - LandMineExplosive
+      - LandMineKick

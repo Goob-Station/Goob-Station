@@ -1,4 +1,14 @@
-﻿using Robust.Shared.Configuration;
+// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Robust.Shared.Configuration;
 
 namespace Content.Shared.CCVar;
 
@@ -51,4 +61,23 @@ public sealed partial class CCVars
     /// </summary>
     public static readonly CVarDef<bool> OpaqueStorageWindow =
         CVarDef.Create("control.opaque_storage_background", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Whether or not the storage window has a title of the entity name.
+    /// </summary>
+    public static readonly CVarDef<bool> StorageWindowTitle =
+        CVarDef.Create("control.storage_window_title", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// How many storage windows are allowed to be open at once.
+    /// Recommended that you utilise this in conjunction with <see cref="StaticStorageUI"/>
+    /// </summary>
+    public static readonly CVarDef<int> StorageLimit =
+        CVarDef.Create("control.storage_limit", 1, CVar.REPLICATED | CVar.SERVER);
+
+    /// <summary>
+    /// Whether or not storage can be opened recursively.
+    /// </summary>
+    public static readonly CVarDef<bool> NestedStorage =
+        CVarDef.Create("control.nested_storage", true, CVar.REPLICATED | CVar.SERVER);
 }

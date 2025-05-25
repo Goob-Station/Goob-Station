@@ -1,0 +1,47 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: tile
+  id: FloorBingle
+  name: tiles-bingle-floor
+  sprite: /Textures/_Goobstation/Tiles/binglefloortile.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepBlood
+  itemDrop: FloorTileItemBingle
+  friction: 0.05 #slippy
+  heatCapacity: 10000
+  tileRipResistance: 80
+
+- type: entity
+  id: FloorTileItemBingle
+  parent: FloorTileItemBase
+  name: bingle floor
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Tiles/bingle.rsi
+    state: bingletile
+  - type: FloorTile
+    outputs:
+    - Plating
+    - FloorBingle
+  - type: Stack
+    stackType: FloorTileBingle
+
+- type: stack
+  id: FloorTileBingle
+  name: bingle floor
+  spawn: FloorTileItemBingle
+  maxCount: 30

@@ -1,4 +1,10 @@
-﻿## Damage command loc.
+# SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+## Damage command loc.
 
 damage-command-description = Add or remove damage to an entity. 
 damage-command-help = Usage: {$command} <type/group> <amount> [ignoreResistances] [uid]

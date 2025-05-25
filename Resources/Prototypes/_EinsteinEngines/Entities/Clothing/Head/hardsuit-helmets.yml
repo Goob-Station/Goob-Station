@@ -1,0 +1,106 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Standard Combat Hardsuits
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitCombatStandard
+  name: combat hardsuit helmet
+  description: An armoured helmet with a yellow visor and dual head-mounted lights.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hardsuits/Combat/standard.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hardsuits/Combat/standard.rsi
+  - type: PointLight
+    color: "#ffeead"
+  - type: PressureProtection
+    highPressureMultiplier: 0.50
+    lowPressureMultiplier: 1000
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    modifiers:
+      coefficients:
+        Blunt: 0.70
+        Slash: 0.70
+        Piercing: 0.70
+        Heat: 0.70
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitCombatOfficer
+  name: security combat hardsuit helmet
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hardsuits/Combat/officer.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hardsuits/Combat/officer.rsi
+
+# Medical Combat Hardsuits
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitCombatMedical
+  name: medical combat hardsuit helmet
+  description: A lightweight armoured helmet with full-face blue visor and head-mounted light.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hardsuits/Combat/medical.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hardsuits/Combat/medical.rsi
+  - type: PointLight
+    color: "#00FFFF"
+  - type: PressureProtection
+    highPressureMultiplier: 0.60
+    lowPressureMultiplier: 1000
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.85
+        Heat: 0.85
+
+# Riot Combat Hardsuits
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitCombatRiot
+  name: riot combat hardsuit helmet
+  description: A heavy armoured helmet with a sealed visor with yellow slits and dual head-mounted lights.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hardsuits/Combat/riot.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hardsuits/Combat/riot.rsi
+  - type: PointLight
+    color: "#ffeead"
+  - type: PressureProtection
+    highPressureMultiplier: 0.45
+    lowPressureMultiplier: 1000
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.65
+        Heat: 0.65

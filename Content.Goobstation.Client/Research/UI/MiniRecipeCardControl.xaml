@@ -1,0 +1,37 @@
+<!--
+SPDX-FileCopyrightText: 2023 0x6273 <0x40@keemail.me>
+SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
+<Control xmlns="https://spacestation14.io">
+    <BoxContainer Orientation="Horizontal">
+        <PanelContainer Name="Background"
+                        Access="Public"
+                        StyleClasses="PdaBackground"
+                        VerticalExpand="False"
+                        HorizontalExpand="False"
+                        MaxWidth="10"
+                        Margin="0 0 -5 0"/>
+        <Button Name="Main"
+                Disabled="True"
+                HorizontalExpand="True"
+                VerticalExpand="False"
+                StyleClasses="ButtonSquare"
+                Margin="0">
+            <BoxContainer Orientation="Horizontal" Margin="0">
+                <TextureRect Name="Showcase"
+                             HorizontalExpand="False"
+                             VerticalExpand="False"
+                             Margin="1"
+                             TextureScale="1 1"/>
+                <Control MinWidth="5"/>
+                <RichTextLabel Name="NameLabel" StyleClasses="LabelSubText" VerticalAlignment="Center"/>
+            </BoxContainer>
+        </Button>
+    </BoxContainer>
+</Control>

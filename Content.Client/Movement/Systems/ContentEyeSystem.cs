@@ -1,6 +1,18 @@
+// SPDX-FileCopyrightText: 2023 metalgearsloth <metalgearsloth@gmail.com>
+// SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Numerics;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
+using Robust.Client.GameObjects;
 using Robust.Client.Player;
 
 namespace Content.Client.Movement.Systems;
@@ -52,4 +64,26 @@ public sealed class ContentEyeSystem : SharedContentEyeSystem
     {
         RaisePredictiveEvent(new RequestEyeEvent(drawFov, drawLight));
     }
+
+    public override void FrameUpdate(float frameTime)
+    {
+        base.FrameUpdate(frameTime);
+        var eyeEntities = AllEntityQuery<ContentEyeComponent, EyeComponent>();
+        while (eyeEntities.MoveNext(out var entity, out ContentEyeComponent? contentComponent, out EyeComponent? eyeComponent))
+        {
+            UpdateEyeOffset((entity, eyeComponent));
+        }
+    }
+
+    // <Goob - grabbed wizden PR #35087> {please remove this when you merge stable}
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+        var eyeEntities = AllEntityQuery<ContentEyeComponent, EyeComponent>();
+        while (eyeEntities.MoveNext(out var entity, out ContentEyeComponent? contentComponent, out EyeComponent? eyeComponent))
+        {
+            UpdateEyeOffset((entity, eyeComponent));
+        }
+    }
+    // </Goob - grabbed wizden PR #35087>
 }

@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 // We keep this clone of the other component since I don't know yet if I'll need organ specific functions in the future.
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;

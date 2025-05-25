@@ -1,0 +1,100 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
+# SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+# SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
+# SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: survival medipen
+  parent: ChemicalMedipen
+  id: SurvivalMedipen
+  description: A cocktail of powerful healing chemicals. Contains Leporazine, and Miner's Salve. Slowly heals damage and stabilizes body temperature. You can overdose on these if you use more than one in quick succession.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Lavaland/Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: survivalpen
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: survivalpen_empty
+  - type: Hypospray
+    solutionName: pen
+    transferAmount: 40
+    onlyAffectsMobs: false
+    injectOnly: true
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 40
+        reagents:
+          - ReagentId: MinersSalve
+            Quantity: 20
+          - ReagentId: Leporazine
+            Quantity: 10
+          - ReagentId: Epinephrine
+            Quantity: 10
+
+# doesn't get any better than this
+- type: entity
+  name: luxury medipen
+  parent: ChemicalMedipen
+  id: LuxuryMedipen
+  description: Cutting edge bluespace technology allowed Nanotrasen to compact 180u of volume into a single medipen. Contains rare and powerful chemicals used to aid in exploration of harsh environments. Chemicals relatively harmful and not as effective when used outside of low pressure.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Lavaland/Objects/Specific/Medical/luxmedipen.rsi
+    layers:
+    - state: luxpen
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: luxpen_empty
+  - type: Hypospray
+    solutionName: pen
+    transferAmount: 180
+    onlyAffectsMobs: false
+    injectOnly: true
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 180
+        reagents:
+          - ReagentId: DexalinPlus
+            Quantity: 20
+          - ReagentId: Epinephrine # until Penthrite gets shitcoded in someday
+            Quantity: 20
+          - ReagentId: Oxandrolone
+            Quantity: 20
+          - ReagentId: SalicylicAcid
+            Quantity: 20
+          - ReagentId: Omnizine
+            Quantity: 20
+          - ReagentId: Leporazine
+            Quantity: 20
+          - ReagentId: TranexamicAcid
+            Quantity: 20
+          - ReagentId: Saline
+            Quantity: 20
+          - ReagentId: Luxurium
+            Quantity: 20

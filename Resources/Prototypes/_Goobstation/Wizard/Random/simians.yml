@@ -1,5 +1,34 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: weightedRandomEntity
   id: SummonSimiansMobTable
   weights:
-    MobMonkeyAngryTemp: 4
+    MobMonkeyAngryTemp: 11
+    MobGorillaAngryTemp: 1
+
+- type: weightedRandomEntity
+  id: SummonSimiansMobTableII
+  weights:
+    MobMonkeyAngryTemp: 9
+    MobGorillaAngryTemp: 1
+
+- type: weightedRandomEntity
+  id: SummonSimiansMobTableIII
+  weights:
+    MobMonkeyAngryTemp: 7
+    MobGorillaAngryTemp: 1
+
+- type: weightedRandomEntity
+  id: SummonSimiansMobTableIV
+  weights:
+    MobMonkeyAngryTemp: 5
+    MobGorillaAngryTemp: 1
+
+- type: weightedRandomEntity
+  id: SummonSimiansMobTableV
+  weights:
+    MobMonkeyAngryTemp: 3
     MobGorillaAngryTemp: 1

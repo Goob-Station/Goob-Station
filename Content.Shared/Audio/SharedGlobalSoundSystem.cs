@@ -1,4 +1,12 @@
-﻿using Content.Shared.CCVar;
+// SPDX-FileCopyrightText: 2022 ike709 <ike709@github.com>
+// SPDX-FileCopyrightText: 2022 ike709 <ike709@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared.CCVar;
 using Robust.Shared.Audio;
 using Robust.Shared.Serialization;
 namespace Content.Shared.Audio;
@@ -14,11 +22,11 @@ public abstract class SharedGlobalSoundSystem : EntitySystem
 [Serializable, NetSerializable]
 public class GlobalSoundEvent : EntityEventArgs
 {
-    public string Filename;
+    public ResolvedSoundSpecifier Specifier;
     public AudioParams? AudioParams;
-    public GlobalSoundEvent(string filename, AudioParams? audioParams = null)
+    public GlobalSoundEvent(ResolvedSoundSpecifier specifier, AudioParams? audioParams = null)
     {
-        Filename = filename;
+        Specifier = specifier;
         AudioParams = audioParams;
     }
 }
@@ -29,7 +37,7 @@ public class GlobalSoundEvent : EntityEventArgs
 [Serializable, NetSerializable]
 public sealed class AdminSoundEvent : GlobalSoundEvent
 {
-    public AdminSoundEvent(string filename, AudioParams? audioParams = null) : base(filename, audioParams){}
+    public AdminSoundEvent(ResolvedSoundSpecifier specifier, AudioParams? audioParams = null) : base(specifier, audioParams){}
 }
 
 /// <summary>
@@ -38,12 +46,13 @@ public sealed class AdminSoundEvent : GlobalSoundEvent
 [Serializable, NetSerializable]
 public sealed class GameGlobalSoundEvent : GlobalSoundEvent
 {
-    public GameGlobalSoundEvent(string filename, AudioParams? audioParams = null) : base(filename, audioParams){}
+    public GameGlobalSoundEvent(ResolvedSoundSpecifier specifier, AudioParams? audioParams = null) : base(specifier, audioParams){}
 }
 
 public enum StationEventMusicType : byte
 {
-    Nuke
+    Nuke,
+    CosmicCult, // DeltaV - Cosmic Cult
 }
 
 /// <summary>
@@ -54,8 +63,8 @@ public sealed class StationEventMusicEvent : GlobalSoundEvent
 {
     public StationEventMusicType Type;
 
-    public StationEventMusicEvent(string filename, StationEventMusicType type, AudioParams? audioParams = null) : base(
-        filename, audioParams)
+    public StationEventMusicEvent(ResolvedSoundSpecifier specifier, StationEventMusicType type, AudioParams? audioParams = null) : base(
+        specifier, audioParams)
     {
         Type = type;
     }

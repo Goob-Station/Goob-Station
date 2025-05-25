@@ -1,3 +1,16 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+# SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   abstract: true
   parent: BaseGameRule
@@ -28,9 +41,11 @@
       components:
       - type: Wizard
       - type: RandomMetadata
+      - type: CanEnchant
         nameSegments:
-        - wizard_first
-        - wizard_last
+        - WizardFirst
+        - WizardLast
+        nameFormat: name-format-standard
       - type: NpcFactionMember
         factions:
         - Wizard
@@ -41,6 +56,9 @@
   - type: RuleGrids
   - type: LoadMapRule
     mapPath: /Maps/_Goobstation/Nonstations/wizden.yml
+  - type: Tag
+    tags:
+      - RoundstartAntag
 
 - type: entity
   parent: BaseWizardRule
@@ -48,23 +66,18 @@
 
 - type: entity
   parent: BaseWizardRule
-  id: WizardDynamic
-  components:
-  - type: DynamicRuleset
-    nameLoc: dynamic-gamerule-wizard-title
-    weight: 3
-    cost: 20
-    highImpact: true
-
-- type: entity
-  parent: WizardDynamic
-  id: WizardDynamicMidround
+  id: WizardMidround
   components:
   - type: StationEvent
     earliestStart: 35
     weight: 5.5
     minimumPlayers: 20
     duration: 1
+    chaos: # Goobstation
+      Hostile: 200
+      Friend: 40
+      Medical: 200
+      Death: 200
   - type: AntagSelection
     useCharacterNames: true
     selectionTime: PostPlayerSpawn
@@ -83,12 +96,17 @@
       components:
       - type: Wizard
       - type: RandomMetadata
+      - type: CanEnchant
         nameSegments:
-        - wizard_first
-        - wizard_last
+        - WizardFirst
+        - WizardLast
+        nameFormat: name-format-standard
       - type: NpcFactionMember
         factions:
         - Wizard
+  - type: Tag
+    tags:
+      - MidroundAntag
 
 - type: entity
   parent: BaseGameRule
@@ -109,15 +127,47 @@
       - MindRoleApprentice
       components:
       - type: Apprentice
+      - type: CanEnchant
       - type: NpcFactionMember
         factions:
         - Wizard
 
 - type: entity
   parent: BaseGameRule
-  id: EndRoundOnWizardDeath
+  id: SleepersOnWizardDeath
   components:
-  - type: EndRoundOnWizardDeathRule
+  - type: RuleOnWizardDeathRule
+    rule: SleeperAgentsWizard
+
+- type: entity
+  parent: BaseTraitorRule
+  id: SleeperAgentsWizard
+  components:
+  - type: StationEvent
+  - type: AntagSelection
+    definitions:
+    - prefRoles: [ TraitorSleeper ]
+      fallbackRoles: [ Traitor ]
+      min: 4
+      max: 6
+      playerRatio: 10
+      blacklist:
+        components:
+        - AntagImmune
+      mindRoles:
+      - MindRoleTraitorSleeper
+
+- type: entity
+  parent: BaseGameRule
+  id: GhostsVisible
+  components:
+  - type: GhostsVisibleRule
+
+- type: entity
+  parent: BaseGameRule
+  id: GlobalTileMovement
+  components:
+  - type: GlobalTileMovementRule
 
 - type: gamePreset
   id: Wizard
@@ -128,8 +178,9 @@
   showInVote: false
   rules:
     - Wizard
-    - EndRoundOnWizardDeath
+    - SleepersOnWizardDeath
     - BasicStationEventScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
-    # - SubGamemodesRule
+    - SubGamemodesRule
+    - LavalandStormScheduler # Lavaland Change

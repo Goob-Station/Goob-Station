@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Maps;
 using Robust.Shared.Noise;
 using Robust.Shared.Prototypes;
@@ -20,7 +26,7 @@ public sealed partial class ReplaceTileDunGen : IDunGenLayer
 }
 
 [DataRecord]
-public record struct ReplaceTileLayer
+public partial record struct ReplaceTileLayer
 {
     public ProtoId<ContentTileDefinition> Tile;
 

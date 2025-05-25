@@ -1,0 +1,13 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseFlatpack
+  id: GatewayFlatpackLavaland
+  name: lavaland gateway flatpack # "lavaland" only in name since that's what it's used for, to be clear to players
+  description: A flatpack used to bluespace in a gateway for travel to Lavaland.
+  components:
+  - type: Flatpack
+    entity: GatewayLavalandStation

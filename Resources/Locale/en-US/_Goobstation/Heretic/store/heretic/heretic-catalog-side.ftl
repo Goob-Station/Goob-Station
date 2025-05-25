@@ -1,7 +1,33 @@
+# SPDX-FileCopyrightText: 2020 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 DamianX <DamianX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 Visne <vincefvanwijk@gmail.com>
+# SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
+# SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Galactic Chimp <63882831+GalacticChimp@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2021 RemberBL <timmermanrembrandt@gmail.com>
+# SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 knowledge-path-side-knowledge-name = Ritual of Knowledge
 knowledge-path-side-knowledge-desc =
-    You learn a special ritual that requires 4 different items, from various organs to candles and stun batons.
-    Performing this ritual grants you 4 knowledge points and resets the items needed.
+    Everything can be a key to unlocking the secrets behind the Gates. I must be wary and wise.
+
+    You learn a special, one-time-only ritual that requires 4 different items. Performing this ritual instantly grants you 5 knowledge points.
 
 ## stage 3
 knowledge-path-side-s3-armor-name = Armorer’s Ritual
@@ -25,6 +51,36 @@ knowledge-path-side-s3-ashen-eyes-desc =
     Allows you to transmute a pair of eyes, a flare, and a glass shard into an Eldritch Medallion.
     The Eldritch Medallion grants you thermal vision while worn, and also functions as a focus.
 
+knowledge-path-side-s3-void-cloak-name = Void Cloak
+knowledge-path-side-s3-void-cloak-desc =
+    The Owl is the keeper of things that are not quite in practice, but in theory are. Many things are.
+
+    Allows you to transmute a glass shard, a bedsheet, and any winter coat to create a Void Cloak.
+    While the hood is down, the cloak functions as a focus and provides low pressure protection, and while the hood is up, the cloak is completely invisible.
+    It also provide decent armor and has pockets which can hold one of your blades, various ritual components (such as organs), and small heretical trinkets.
+
+knowledge-path-side-s3-ice-spear-name = Mysteries of Creation
+knowledge-path-side-s3-ice-spear-desc =
+    Artifacts linked to the Winter Dawn exude unnatural stillness. Time slows around them. Fires choke. Thoughts become brittle. Proximity breeds hallucinations of endless white fields, a sky with no sun, and a voice that speaks only in cracking ice.
+
+    Grants you Mysteries of Creation, a spell that allows you to summon the Glacier Spear at will. This magical spear chills victims upon hit, but more importantly, it shatters upon throwing, dealing a significant amount of damage and temporarily freezing the target into an ice cube. If the spear is destroyed, activating this ability will create a new one, otherwise it will summon the existing spear into your hand.
+
+## stage 6
+knowledge-path-side-s6-rustwalker-name = Rusted Ritual
+knowledge-path-side-s6-rustwalker-desc =
+    I combined my knowledge of creation with my desire for corruption. The Marshal knew my name, and the Rusted Hills echoed out.
+
+    Allows you to transmute a pool of vomit, 15 cable coil, and 10 sheets of iron into a Rust Walker.
+    Rust Walkers excel at spreading rust and are moderately strong in combat.
+
+knowledge-path-side-s6-knife-name = Carving Knife
+knowledge-path-side-s6-knife-desc =
+    Etched, carved... eternal. There is power hidden in everything. I can unveil it! I can carve the monolith to reveal the chains!
+
+    Allows you to transmute a knife, a shard of glass, and a piece of paper to create a Carving Knife.
+    The Carving Knife allows you to etch difficult to see traps that trigger on heathens who walk overhead.
+    Also makes for a handy throwing weapon.
+
 ## stage 7
 knowledge-path-side-s7-uncuff-name = Wave of Desperation
 knowledge-path-side-s7-uncuff-desc =
@@ -41,13 +97,6 @@ knowledge-path-side-s7-siphon-desc =
     Grants Blood Siphon, a ranged spell that steals a bit of life from your target, healing your bruises and restoring blood.
     Additionally, you have a chance of transferring wounds you are experiencing to the target.
 
-knowledge-path-side-s7-knife-name = Carving Knife
-knowledge-path-side-s7-knife-desc =
-    Etched, carved... eternal. There is power hidden in everything. I can unveil it! I can carve the monolith to reveal the chains!
-
-    Transmute a knife, a glass shard and a piece of paper to create a Carving Knife.
-    The knife allows you to create up to 3 carvings on the floor that have various effects on nonbelievers who walk over them.
-
 knowledge-path-side-s7-crucible-name = Mawed Crucible
 knowledge-path-side-s7-crucible-desc =
     This is pure agony. I wasn't able to summon the figure of the Aristocrat,
@@ -55,6 +104,19 @@ knowledge-path-side-s7-crucible-desc =
 
     Allows you to transmute a portable water tank and a table to create a Mawed Crucible.
     The Mawed Crucible can brew powerful potions for combat and utility, but must be fed bodyparts and organs between uses.
+
+# stage 8
+knowledge-path-side-s8-cleave-name = Blood Cleave
+knowledge-path-side-s8-cleave-desc =
+    At first I didn't understand these instruments of war, but the Priest told me to use them regardless. Soon, he said, I would know them well.
+
+    Grants you Cleave, an area-of-effect targeted spell that causes heavy bleeding and blood loss to anyone afflicted.
+
+knowledge-path-side-s8-rust-charge-name = Rust Charge
+knowledge-path-side-s8-rust-charge-desc =
+    The hills sparkled now, as I neared them my mind began to wander. I quickly regained my resolve and pushed forward, this last leg would be the most treacherous.
+
+    Grants you Rust Charge, a targeted action that can only be cast on a rusted tile. It charges you forward, destroying any rusted objects you come into contact with, it will also deal high damage to others and rust around you during the charge.
 
 ## stage 9
 knowledge-path-side-s9-coin-name = Eldritch Coin
@@ -70,9 +132,3 @@ knowledge-path-side-s9-ashman-name = Ashen Ritual
 knowledge-path-side-s9-ashman-desc =
     Transmute a pile of ash, a brain and a book to summon an Ashman.
     Ashmen can jaunt, cause bleeding wounds, and can release large waves of fire.
-
-knowledge-path-side-s9-cleave-name = Blood Cleave
-knowledge-path-side-s9-cleave-desc =
-    At first I didn't understand these instruments of war, but the Priest told me to use them regardless. Soon, he said, I would know them well.
-
-    Grants you Cleave, an area-of-effect targeted spell that causes heavy bleeding and blood loss to anyone afflicted.

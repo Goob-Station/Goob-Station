@@ -1,4 +1,15 @@
-﻿using Robust.Shared.Configuration;
+// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Myra <vasilis@pikachu.systems>
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Robust.Shared.Configuration;
 
 namespace Content.Shared.CCVar;
 
@@ -90,6 +101,12 @@ public sealed partial class CCVars
         CVarDef.Create("admin.server_ban_erase_player", false, CVar.ARCHIVE | CVar.SERVER | CVar.REPLICATED);
 
     /// <summary>
+    ///     If true, will reset the last time the player has read the rules. This will mean on their next login they will be shown the rules again.
+    /// </summary>
+    public static readonly CVarDef<bool> ServerBanResetLastReadRules =
+        CVarDef.Create("admin.server_ban_reset_last_read_rules", true, CVar.ARCHIVE | CVar.SERVER);
+
+    /// <summary>
     ///     Minimum players sharing a connection required to create an alert. -1 to disable the alert.
     /// </summary>
     /// <remarks>
@@ -159,6 +176,13 @@ public sealed partial class CCVars
         CVarDef.Create("admin.admins_count_for_max_players", false, CVar.SERVERONLY);
 
     /// <summary>
+    /// Should admins be hidden from the player count reported to the launcher/via api?
+    /// This is hub advert safe, in case that's a worry.
+    /// </summary>
+    public static readonly CVarDef<bool> AdminsCountInReportedPlayerCount =
+        CVarDef.Create("admin.admins_count_in_playercount", false, CVar.SERVERONLY);
+
+    /// <summary>
     ///     Determine if custom rank names are used.
     ///     If it is false, it'd use the actual rank name regardless of the individual's title.
     /// </summary>
@@ -169,4 +193,17 @@ public sealed partial class CCVars
 
     public static readonly CVarDef<bool> BanHardwareIds =
         CVarDef.Create("ban.hardware_ids", true, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Determines if we'll reject connections from clients who don't have a modern hwid.
+    /// </summary>
+    public static readonly CVarDef<bool> RequireModernHardwareId =
+        CVarDef.Create("admin.require_modern_hwid", true, CVar.SERVERONLY);
+
+    /// <summary>
+    /// If true, players are allowed to connect to multiple game servers at once.
+    /// If false, they will be kicked from the first when connecting to another.
+    /// </summary>
+    public static readonly CVarDef<bool> AdminAllowMultiServerPlay =
+        CVarDef.Create("admin.allow_multi_server_play", true, CVar.SERVERONLY);
 }

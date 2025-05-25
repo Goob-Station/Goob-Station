@@ -1,0 +1,33 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Arraydeess <arraygitbash@gmail.com>
+# SPDX-FileCopyrightText: 2025 Arraydeess14 <87253287+Arraydeess14@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BeBright <98597725+be1bright@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GreenArg7 <GreenArc12@outlook.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: construction
+  name: bananium sword
+  id: BananiumSword
+  graph: BananiumSword
+  startNode: start
+  targetNode: bananiumSword
+  category: construction-category-weapons
+  description: An extremely slippery toy sword made from bananium.
+  icon: { sprite: _Goobstation/Objects/Weapons/Melee/e_sword_bananium.rsi, state: icon }
+  objectType: Item
+  
+- type: construction
+  name: boomerang
+  id: boomerang
+  graph: boomerangGraph
+  startNode: start
+  targetNode: boomerangFinish
+  category: construction-category-weapons
+  description: A makeshift boomerang! Now if you only had some balloons to throw it at. # BTD6 reference
+  icon: { sprite: _Goobstation/Objects/Weapons/Throwable/boomerang.rsi, state: icon }
+  objectType: Item

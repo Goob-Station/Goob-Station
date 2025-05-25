@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.Anomaly.Components;
 using Content.Server.Beam;
 using Content.Server.DeviceLinking.Systems;
@@ -16,7 +24,6 @@ public sealed class TechAnomalySystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly BeamSystem _beam = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly EmagSystem _emag = default!;
 
     public override void Initialize()
     {
@@ -116,8 +123,11 @@ public sealed class TechAnomalySystem : EntitySystem
 
             if (_random.Prob(tech.Comp.EmagSupercritProbability))
             {
-                _emag.DoEmagEffect(tech, source);
-                _emag.DoEmagEffect(tech, sink);
+                var sourceEv = new GotEmaggedEvent(tech, EmagType.Access | EmagType.Interaction);
+                RaiseLocalEvent(source, ref sourceEv);
+
+                var sinkEv = new GotEmaggedEvent(tech, EmagType.Access | EmagType.Interaction);
+                RaiseLocalEvent(sink, ref sinkEv);
             }
 
             CreateNewLink(tech, source, sink);

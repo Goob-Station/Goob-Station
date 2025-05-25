@@ -1,4 +1,10 @@
-﻿using Content.Shared._Shitmed.Antags.Abductor;
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared._Shitmed.Antags.Abductor;
 using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared.ActionBlocker;
 using Content.Shared.DoAfter;
@@ -72,11 +78,14 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
 
     private void OnGizmoDoAfter(Entity<AbductorGizmoComponent> ent, ref AbductorGizmoMarkDoAfterEvent args)
     {
-        if (args.Target is null) return;
+        if (args.Handled || args.Cancelled || args.Target is null)
+            return;
+
         ent.Comp.Target = GetNetEntity(args.Target);
         EnsureComp<AbductorVictimComponent>(args.Target.Value, out var victimComponent);
         victimComponent.LastActivation = _time.CurTime + TimeSpan.FromMinutes(5);
-
         victimComponent.Position ??= EnsureComp<TransformComponent>(args.Target.Value).Coordinates;
+
+        args.Handled = true;
     }
 }

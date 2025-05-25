@@ -1,3 +1,19 @@
+# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Marcus F <marcus2008stoke@gmail.com>
+# SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # combat
 
 - type: listing
@@ -301,11 +317,25 @@
     stock: 1
 
 - type: listing
+  id: EvolutionMenuUtilityAdaption
+  name: evolutionmenu-utility-voidadapt-name
+  description: evolutionmenu-utility-voidadapt-desc
+  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: void_adaptation }
+  productAction: ActionVoidAdapt
+  cost:
+    EvolutionPoint: 4
+  categories:
+  - ChangelingAbilityUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
   id: EvolutionMenuUtilityOverdose
   name: evolutionmenu-utility-stims-name
   description: evolutionmenu-utility-stims-desc
   icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: epinephrine_overdose }
-  productAction: ActionEphedrineOverdose
+  productAction: ActionAdrenalineReserves
   cost:
     EvolutionPoint: 4
   categories:
@@ -350,20 +380,6 @@
   productAction: ActionToggleLesserForm
   cost:
     EvolutionPoint: 2
-  categories:
-  - ChangelingAbilityUtility
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-
-- type: listing
-  id: EvolutionMenuUtilitySpacesuit
-  name: evolutionmenu-utility-spacesuit-name
-  description: evolutionmenu-utility-spacesuit-desc
-  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: space_adaptation }
-  productAction: ActionToggleSpacesuit
-  cost:
-    EvolutionPoint: 4
   categories:
   - ChangelingAbilityUtility
   conditions:

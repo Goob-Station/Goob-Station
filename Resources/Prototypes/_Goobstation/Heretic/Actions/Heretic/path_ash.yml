@@ -1,3 +1,14 @@
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: ActionHereticJaunt
   name: Ashen Passage
@@ -11,9 +22,6 @@
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
       state: ashen_shift
     event: !type:EventHereticAshenShift
-      damage:
-        types:
-          Heat: 25
     checkCanInteract: false
   - type: HereticAction
     requireMagicItem: true
@@ -40,7 +48,7 @@
 - type: entity
   id: ActionHereticNightwatcherRebirth
   name: Nightwatcher's Rebirth
-  description: A spell that extinguishes you and drains nearby heathens engulfed in flames of their life force.
+  description: Drains nearby heathens engulfed in flames of their life force.
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
@@ -58,7 +66,7 @@
 - type: entity
   id: ActionHereticAscension1
   name: Oath of Flame
-  description: For a minute, you will passively create a ring of fire around you.
+  description: Create a ring of fire around you.
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
@@ -76,7 +84,7 @@
 - type: entity
   id: ActionHereticAscension2
   name: Fire Cascade
-  description: Heats the air around you.
+  description: Burn everything in a large distance.
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction

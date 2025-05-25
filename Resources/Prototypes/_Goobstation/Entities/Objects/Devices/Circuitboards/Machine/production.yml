@@ -1,0 +1,77 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: EngineeringTechFabCircuitboard
+  parent: BaseMachineCircuitboard
+  name: engineering techfab machine board
+  description: A machine printed circuit board for a engineering techfab.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    prototype: EngineeringTechFab
+    stackRequirements:
+      MatterBin: 2
+      Manipulator: 2
+    tagRequirements:
+      GlassBeaker:
+        amount: 2
+        defaultPrototype: Beaker
+
+- type: entity
+  id: CargoTechFabCircuitboard
+  parent: BaseMachineCircuitboard
+  name: cargo techfab machine board
+  description: A machine printed circuit board for a cargo techfab.
+  components:
+  - type: Sprite
+    state: engineering
+  - type: MachineBoard
+    prototype: CargoTechFab
+    stackRequirements:
+      MatterBin: 2
+      Manipulator: 2
+    tagRequirements:
+      GlassBeaker:
+        amount: 2
+        defaultPrototype: Beaker
+
+- type: entity
+  id: ScienceTechFabCircuitboard
+  parent: BaseMachineCircuitboard
+  name: science techfab machine board
+  description: A machine printed circuit board for a science techfab.
+  components:
+  - type: Sprite
+    state: science
+  - type: MachineBoard
+    prototype: ScienceTechFab
+    stackRequirements:
+      MatterBin: 2
+      Manipulator: 2
+    tagRequirements:
+      GlassBeaker:
+        amount: 2
+        defaultPrototype: Beaker
+
+- type: entity
+  id: ServiceTechFabCircuitboard
+  parent: BaseMachineCircuitboard
+  name: service techfab machine board
+  description: A machine printed circuit board for a service techfab.
+  components:
+  - type: Sprite
+    state: service
+  - type: MachineBoard
+    prototype: ServiceTechFab
+    stackRequirements:
+      MatterBin: 2
+      Manipulator: 2
+    tagRequirements:
+      GlassBeaker:
+        amount: 2
+        defaultPrototype: Beaker

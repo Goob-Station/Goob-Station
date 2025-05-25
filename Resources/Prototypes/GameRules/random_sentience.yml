@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: RandomSentience
   parent: BaseGameRule
@@ -8,6 +14,9 @@
     maxOccurrences: 1 # this event has diminishing returns on interesting-ness, so we cap it
     startAudio:
       path: /Audio/Announcements/attention.ogg
+    chaos: # Goobstation
+      Mess: 5
+      Friend: -5
   - type: RandomSentienceRule
     minSentiences: 2
     maxSentiences: 5

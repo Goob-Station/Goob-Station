@@ -1,0 +1,71 @@
+# Hat
+- type: loadout
+  id: NanotrasenTrainerHat
+  equipment:
+    head: ClothingHeadBeretTrainer
+
+- type: loadout
+  id: NanotrasenTrainerBeret
+  equipment:
+    head: ClothingHeadHatTrainer
+
+# Backpacks
+- type: loadout
+  id: NanotrasenTrainerBackpack
+  equipment:
+    back: ClothingBackpack
+
+- type: loadout
+  id: NanotrasenTrainerDuffel
+  equipment:
+    back: ClothingBackpackDuffel
+
+- type: loadout
+  id: NanotrasenTrainerSatchel
+  equipment:
+    back: ClothingBackpackSatchelLeather
+
+# Jumpsuits
+- type: loadout
+  id: NanotrasenTrainerJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitTrainer
+
+- type: loadout
+  id: NanotrasenTrainerJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtTrainer
+
+# Outer
+- type: loadout
+  id: NanotrasenTrainerCoat
+  equipment:
+    outerClothing: ClothingOuterWinterCoatTrainer
+
+# Belt
+- type: loadout
+  id: NanotrasenTrainerClipboard
+  equipment:
+    belt: BoxFolderCentComClipboard
+
+- type: loadout
+  id: NanotrasenTrainerWaistbag
+  equipment:
+    belt: ClothingBeltStorageWaistbag
+
+# Gloves
+- type: loadout
+  id: NanotrasenTrainerGloves
+  equipment:
+    gloves: ClothingHandsGlovesHeavyGoldenTrim
+
+# Shoes
+- type: loadout
+  id: NanotrasenTrainerBoots
+  equipment:
+    shoes: ClothingShoesBootsLaceup
+
+- type: loadout
+  id: NanotrasenTrainerShoes
+  equipment:
+    shoes: ClothingShoesLeather

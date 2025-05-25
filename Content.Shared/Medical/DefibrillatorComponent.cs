@@ -1,4 +1,19 @@
-﻿using Content.Shared.Damage;
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -12,22 +27,9 @@ namespace Content.Shared.Medical;
 /// person back into the world of the living.
 /// Uses <c>ItemToggleComponent</c>
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentPause]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class DefibrillatorComponent : Component
 {
-    /// <summary>
-    /// The time at which the zap cooldown will be completed
-    /// </summary>
-    [DataField("nextZapTime", customTypeSerializer: typeof(TimeOffsetSerializer)), ViewVariables(VVAccess.ReadWrite)]
-    [AutoPausedField]
-    public TimeSpan? NextZapTime;
-
-    /// <summary>
-    /// The minimum time between zaps
-    /// </summary>
-    [DataField("zapDelay"), ViewVariables(VVAccess.ReadWrite)]
-    public TimeSpan ZapDelay = TimeSpan.FromSeconds(5);
-
     /// <summary>
     /// How much damage is healed from getting zapped.
     /// </summary>
@@ -45,6 +47,18 @@ public sealed partial class DefibrillatorComponent : Component
     /// </summary>
     [DataField("writheDuration"), ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan WritheDuration = TimeSpan.FromSeconds(3);
+
+    /// <summary>
+    ///     ID of the cooldown use delay.
+    /// </summary>
+    [DataField]
+    public string DelayId = "defib-delay";
+
+    /// <summary>
+    ///     Cooldown after using the defibrillator.
+    /// </summary>
+    [DataField]
+    public TimeSpan ZapDelay = TimeSpan.FromSeconds(5);
 
     /// <summary>
     /// How long the doafter for zapping someone takes
@@ -78,12 +92,6 @@ public sealed partial class DefibrillatorComponent : Component
 
     [ViewVariables(VVAccess.ReadWrite), DataField("readySound")]
     public SoundSpecifier? ReadySound = new SoundPathSpecifier("/Audio/Items/Defib/defib_ready.ogg");
-}
-
-[Serializable, NetSerializable]
-public enum DefibrillatorVisuals : byte
-{
-    Ready
 }
 
 [Serializable, NetSerializable]

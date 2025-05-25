@@ -1,0 +1,148 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: contraband detector
+  description: Walk in with confidence, walk out with security chasing you.
+  parent: BaseMachinePowered
+  id: ContrabandDetector
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Transform
+    noRot: false
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        hard: false
+        density: 1500
+        mask:
+        - DoorPassable
+        layer:
+        - AirlockLayer
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ContrabandDetectorVisuals.VisualState:
+        scanner:
+          Off: { state: empty }
+          Powered: { state: passive }
+          Alarm: { state: alarm }
+          Scan: { state: scan }
+  - type: Sprite
+    noRot: true
+    drawdepth: Overdoors
+    sprite: _Goobstation/Structures/Machines/contraband_detector.rsi
+    layers:
+    - state: frame
+    - map: ["scanner"]
+      shader: unshaded
+      state: empty
+    - state: wires
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: ContrabandDetector
+    detect:
+      path: /Audio/Effects/chime.ogg
+      params:
+          maxDistance: 10
+  - type: AccessReader
+    access: [["Security"]]
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+  - type: WirelessNetworkConnection
+    range: 1000
+  - type: DeviceLinkSource
+    range: 1000
+    ports:
+      - SignalContrabandDetected
+  - type: Construction
+    graph: ContrabandDetector
+    node: detector
+  - type: WiresPanel
+  - type: WiresPanelSecurity
+  - type: WiresVisuals
+  - type: Wires
+    layoutId: ContrabandDetector
+    boardName: wires-board-name-contraband-detector
+  - type: Electrified
+    usesApcPower: true
+  - type: UserInterface
+    interfaces:
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+
+- type: entity
+  parent: ContrabandDetector
+  id: ContrabandDetectorSecure
+  suffix: Secure
+  components:
+  - type: Construction
+    graph: ContrabandDetector
+    node: panelReinforced
+  - type: WiresPanelSecurity
+    securityLevel: panelReinforced
+    examine: wires-panel-component-on-examine-security-level2
+    wiresAccessible: false
+
+- type: entity
+  id: ContrabandDetectorFrame
+  name: contraband detector frame
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Transform
+  - type: Sprite
+    noRot: true
+    drawdepth: Overdoors
+    sprite: _Goobstation/Structures/Machines/contraband_detector.rsi
+    state: frame
+  - type: Physics
+    bodyType: Static
+  - type: Anchorable
+  - type: Pullable
+  - type: Rotatable
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        hard: false
+        density: 1500
+        mask:
+        - DoorPassable
+        layer:
+        - AirlockLayer
+  - type: Construction
+    graph: ContrabandDetector
+    node: frame
+
+- type: entity
+  id: ContrabandDetectorCircuitboard
+  parent: BaseElectronics
+  name: contraband detector electronics
+  description: An electronics board used in contraband detector.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: security
+  - type: Tag
+    tags:
+    - ContrabandDetectorCircuitboard
+  - type: StaticPrice
+    price: 25

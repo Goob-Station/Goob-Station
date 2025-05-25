@@ -1,35 +1,38 @@
-  # Zooimov Laws
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Helpimov
+
 - type: siliconLaw
-  id: Zooimov1
+  id: Helpimov1
   order: 1
-  lawString: law-zooimov-1
+  lawString: law-helpimov-1
 
 - type: siliconLaw
-  id: Zooimov2
+  id: Helpimov2
   order: 2
-  lawString: law-zooimov-2
+  lawString: law-helpimov-2
 
 - type: siliconLaw
-  id: Zooimov3
+  id: Helpimov3
   order: 3
-  lawString: law-zooimov-3
+  lawString: law-helpimov-3
 
 - type: siliconLaw
-  id: Zooimov4
+  id: Helpimov4
   order: 4
-  lawString: law-zooimov-4
-
-- type: siliconLaw
-  id: Zooimov5
-  order: 5
-  lawString: law-zooimov-5
+  lawString: law-helpimov-4
 
 - type: siliconLawset
-  id: ZooimovLawset
+  id: HelpimovLawset
   laws:
-  - Zooimov1
-  - Zooimov2
-  - Zooimov3
-  - Zooimov4
-  - Zooimov5
-  obeysTo: laws-owner-crew
+  - Helpimov1
+  - Helpimov2
+  - Helpimov3
+  - Helpimov4
+  obeysTo: laws-owner-courier

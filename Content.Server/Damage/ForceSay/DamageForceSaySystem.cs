@@ -1,7 +1,18 @@
+// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Coolsurf6 <coolsurf24@yahoo.com.au>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Events;
 using Content.Shared.Damage.ForceSay;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Stunnable;
@@ -47,7 +58,7 @@ public sealed class DamageForceSaySystem : EntitySystem
         }
     }
 
-    private void TryForceSay(EntityUid uid, DamageForceSayComponent component, bool useSuffix=true, string? suffixOverride = null)
+    private void TryForceSay(EntityUid uid, DamageForceSayComponent component, bool useSuffix=true)
     {
         if (!TryComp<ActorComponent>(uid, out var actor))
             return;
@@ -57,7 +68,13 @@ public sealed class DamageForceSaySystem : EntitySystem
             _timing.CurTime < component.NextAllowedTime)
             return;
 
-        var suffix = Loc.GetString(suffixOverride ?? component.ForceSayStringPrefix + _random.Next(1, component.ForceSayStringCount));
+        var ev = new BeforeForceSayEvent(component.ForceSayStringDataset);
+        RaiseLocalEvent(uid, ev);
+
+        if (!_prototype.TryIndex(ev.Prefix, out var prefixList))
+            return;
+
+        var suffix = Loc.GetString(_random.Pick(prefixList.Values));
 
         // set cooldown & raise event
         component.NextAllowedTime = _timing.CurTime + component.Cooldown;
@@ -80,7 +97,7 @@ public sealed class DamageForceSaySystem : EntitySystem
         if (!args.FellAsleep)
             return;
 
-        TryForceSay(uid, component, true, "damage-force-say-sleep");
+        TryForceSay(uid, component);
         AllowNextSpeech(uid);
     }
 

@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
@@ -83,10 +89,9 @@ public partial class SharedBodySystem
         var speciesProto = _prototypeManager.Index(bodyAppearance.Species);
         var baseSprites = _prototypeManager.Index<HumanoidSpeciesBaseSpritesPrototype>(speciesProto.SpriteSet);
 
-        if (!baseSprites.Sprites.ContainsKey(part))
-            return null;
-
-        return HumanoidVisualLayersExtension.GetSexMorph(part, bodyAppearance.Sex, baseSprites.Sprites[part]);
+        return baseSprites.Sprites.TryGetValue(part, out var value)
+            ? HumanoidVisualLayersExtension.GetSexMorph(part, bodyAppearance.Sex, value)
+            : null;
     }
 
     public void ModifyMarkings(EntityUid uid,
@@ -115,7 +120,7 @@ public partial class SharedBodySystem
 
             var marking = new Marking(markingId, markingColors);
 
-            _humanoid.SetLayerVisibility(uid, targetLayer, true, true, bodyAppearance);
+            _humanoid.SetLayerVisibility((uid, bodyAppearance), targetLayer, true);
             _humanoid.AddMarking(uid, markingId, markingColors, true, true, bodyAppearance);
             if (!partAppearance.Comp.Markings.ContainsKey(targetLayer))
                 partAppearance.Comp.Markings[targetLayer] = new List<Marking>();
@@ -166,17 +171,17 @@ public partial class SharedBodySystem
         if (component.EyeColor != null)
         {
             bodyAppearance.EyeColor = component.EyeColor.Value;
-            _humanoid.SetLayerVisibility(target, HumanoidVisualLayers.Eyes, true, true, bodyAppearance);
+            _humanoid.SetLayerVisibility((target, bodyAppearance), HumanoidVisualLayers.Eyes, true);
         }
 
         if (component.Color != null)
             _humanoid.SetBaseLayerColor(target, component.Type, component.Color, true, bodyAppearance);
 
-        _humanoid.SetLayerVisibility(target, component.Type, true, true, bodyAppearance);
+        _humanoid.SetLayerVisibility((target, bodyAppearance), component.Type, true);
 
         foreach (var (visualLayer, markingList) in component.Markings)
         {
-            _humanoid.SetLayerVisibility(target, visualLayer, true, true, bodyAppearance);
+            _humanoid.SetLayerVisibility((target, bodyAppearance), visualLayer, true);
             foreach (var marking in markingList)
             {
                 _humanoid.AddMarking(target, marking.MarkingId, marking.MarkingColors, true, true, bodyAppearance);
@@ -191,9 +196,10 @@ public partial class SharedBodySystem
         if (!TryComp(entity, out HumanoidAppearanceComponent? bodyAppearance))
             return;
 
+        _humanoid.SetLayerVisibility(entity, component.Type, false);
         foreach (var (visualLayer, markingList) in component.Markings)
         {
-            _humanoid.SetLayerVisibility(entity, visualLayer, false, true, bodyAppearance);
+            _humanoid.SetLayerVisibility((entity, bodyAppearance), visualLayer, false);
         }
         RemoveBodyMarkings(entity, component, bodyAppearance);
     }

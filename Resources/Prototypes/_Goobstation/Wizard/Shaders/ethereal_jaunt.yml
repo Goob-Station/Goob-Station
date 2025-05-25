@@ -1,9 +1,16 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: shader
   id: EtherealJaunt
   kind: source
   path: "/Textures/_Goobstation/Wizard/Shaders/ethereal_jaunt.swsl"
   params:
     use_reference: true
+    time_scale: 1.0
+    blink_rate: 2.0
 
 - type: shader
   id: WizardParallax
@@ -11,3 +18,6 @@
   path: "/Textures/_Goobstation/Wizard/Shaders/ethereal_jaunt.swsl"
   params:
     use_reference: false
+    reference: 0.0, 0.0
+    time_scale: 0.5
+    blink_rate: 0.5

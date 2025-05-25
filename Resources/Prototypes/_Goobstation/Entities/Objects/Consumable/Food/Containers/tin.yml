@@ -1,0 +1,63 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aineias1 <142914808+Aineias1@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Black Caviar
+
+- type: entity
+  parent: FoodTinBase
+  id: FoodBlackCaviar
+  name: black caviar
+  description: A tin of black caviar with a convenient pull tab. Looks expensive.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/black_caviar.rsi
+  # the convenient pull tab
+  - type: Openable
+    openableByHand: true
+  - type: FlavorProfile
+    flavors:
+    - rich
+    - fish
+    - salty
+  - type: Food
+    trash:
+    - FoodBlackCaviarTrash
+
+- type: entity
+  parent: FoodTinBaseTrash
+  id: FoodBlackCaviarTrash
+  name: black caviar
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/black_caviar.rsi
+
+
+# Red Caviar
+
+- type: entity
+  parent: FoodTinBase
+  id: FoodRedCaviar
+  name: red caviar
+  description: A tin of red caviar with a convenient pull tab. 
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/red_caviar.rsi
+  # the convenient pull tab
+  - type: Openable
+    openableByHand: true
+  - type: FlavorProfile
+    flavors:
+    - fish
+    - salty
+  - type: Food
+    trash:
+    - FoodRedCaviarTrash
+
+- type: entity
+  parent: FoodTinBaseTrash
+  id: FoodRedCaviarTrash
+  name: red caviar
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/red_caviar.rsi

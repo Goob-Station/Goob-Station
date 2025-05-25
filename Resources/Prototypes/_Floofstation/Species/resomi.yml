@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Rouge2t7 <sarahoneill132@hotmail.com>
+# SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: species
   id: Resomi
   name: species-name-resomi
@@ -8,8 +17,8 @@
   markingLimits: MobResomiMarkingLimits
   dollPrototype: MobResomiDummy
   skinColoration: Hues
-  maleFirstNames: names_resomi_male
-  femaleFirstNames: names_resomi_female
+  maleFirstNames: NamesResomiMale
+  femaleFirstNames: NamesResomiFemale
   naming: First
   sexes: # Goobstation - why bother having male/female names and soundCollections if they were only available unsexed?
   - Unsexed
@@ -23,7 +32,8 @@
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
-    Chest: MobResomiTorso
+    Chest: MobResomiChest
+    Groin: MobResomiGroin
     Eyes: MobResomiEyes
     LArm: MobResomiLArm
     RArm: MobResomiRArm
@@ -52,7 +62,7 @@
       points: 2
       required: false
     Chest:
-      points: 1
+      points: 3
       required: false
     Legs:
       points: 2
@@ -86,22 +96,40 @@
     state: head_f
 
 - type: humanoidBaseSprite
-  id: MobResomiTorso
+  id: MobResomiChest
   baseSprite:
     sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobResomiTorsoMale
+  id: MobResomiChestMale
   baseSprite:
     sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobResomiTorsoFemale
+  id: MobResomiChestFemale
   baseSprite:
     sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
-    state: torso_f
+    state: chest_f
+
+- type: humanoidBaseSprite
+  id: MobResomiGroin
+  baseSprite:
+    sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobResomiGroinMale
+  baseSprite:
+    sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobResomiGroinFemale
+  baseSprite:
+    sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
+    state: groin_f
 
 - type: humanoidBaseSprite
   id: MobResomiLLeg

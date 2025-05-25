@@ -1,0 +1,85 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 amogus <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: ClothingOuterHardsuitBasic
+  id: GoobClothingOuterHardsuitSpirate
+  name: modified EVA suit
+  description: A modified suit to allow space pirates to board shuttles and stations while avoiding the maw of the void. Comes with additional protection and is lighter to move in.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Hardsuits/piratecaptain.rsi
+    state: icon
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Hardsuits/piratecaptain.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.65
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.5
+        Heat: 0.5
+        Caustic: 0.65
+  - type: ClothingSpeedModifier
+    walkModifier: 0.90
+    sprintModifier: 0.90
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: GoobClothingHeadHelmetHardsuitSpirate
+
+- type: entity
+  parent: ClothingHeadHelmetHardsuitBasic
+  id: GoobClothingHeadHelmetHardsuitSpirate
+  name: modified EVA helmet
+  description: A modified helmet to allow space pirates to intimidate their customers whilst staying safe from the void. Comes with some additional protection.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/_Pirates/spirate_suit.rsi
+    state: icon_head
+  - type: Clothing
+    sprite: _Goobstation/_Pirates/spirate_suit.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.55
+        Heat: 0.55
+        Caustic: 0.7
+
+- type: entity
+  id: GoobSuitStorageSpirate
+  parent: SuitStorageBase
+  suffix: Spirate
+  components:
+  - type: StorageFill
+    contents:
+    - id: OxygenTankFilled
+    - id: NitrogenTankFilled
+    - id: GoobClothingOuterHardsuitSpirate
+    - id: ClothingMaskBreath

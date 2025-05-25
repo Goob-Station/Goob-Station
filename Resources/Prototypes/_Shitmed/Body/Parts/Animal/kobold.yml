@@ -1,0 +1,132 @@
+# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# TODO: Add descriptions (many)
+
+- type: entity
+  abstract: true
+  parent: BasePart
+  id: PartKobold
+  components:
+  - type: Sprite
+    sprite: Mobs/Animals/kobold.rsi
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 3
+      - ReagentId: Blood
+        Quantity: 10
+
+- type: entity
+  parent: [PartKobold, BaseChest]
+  id: ChestKobold
+  name: "kobold chest"
+  components:
+  - type: Sprite
+    state: "chest_m"
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20
+
+- type: entity
+  parent: [PartKobold, BaseGroin]
+  id: GroinKobold
+  name: "kobold groin"
+  components:
+  - type: Sprite
+    state: "groin_m"
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20
+
+- type: entity
+  parent: [PartKobold, BaseHead]
+  id: HeadKobold
+  name: "kobold head"
+  components:
+  - type: Sprite
+    state: "head_m"
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 5
+      - ReagentId: Blood
+        Quantity: 10
+
+- type: entity
+  parent: [PartKobold, BaseLeftArm]
+  id: LeftArmKobold
+  name: "left kobold arm"
+  components:
+  - type: Sprite
+    state: "l_arm"
+
+- type: entity
+  parent: [PartKobold, BaseRightArm]
+  id: RightArmKobold
+  name: "right kobold arm"
+  components:
+  - type: Sprite
+    state: "r_arm"
+
+- type: entity
+  parent: [PartKobold, BaseLeftHand]
+  id: LeftHandKobold
+  name: "left kobold hand"
+  components:
+  - type: Sprite
+    state: "l_hand"
+
+- type: entity
+  parent: [PartKobold, BaseRightHand]
+  id: RightHandKobold
+  name: "right kobold hand"
+  components:
+  - type: Sprite
+    state: "r_hand"
+
+- type: entity
+  parent: [PartKobold, BaseLeftLeg]
+  id: LeftLegKobold
+  name: "left kobold leg"
+  components:
+  - type: Sprite
+    state: "l_leg"
+
+- type: entity
+  parent: [PartKobold, BaseRightLeg]
+  id: RightLegKobold
+  name: "right kobold leg"
+  components:
+  - type: Sprite
+    state: "r_leg"
+
+- type: entity
+  parent: [PartKobold, BaseLeftFoot]
+  id: LeftFootKobold
+  name: "left kobold foot"
+  components:
+  - type: Sprite
+    state: "l_foot"
+
+- type: entity
+  parent: [PartKobold, BaseRightFoot]
+  id: RightFootKobold
+  name: "right kobold foot"
+  components:
+  - type: Sprite
+    state: "r_foot"

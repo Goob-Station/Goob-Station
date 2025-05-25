@@ -1,0 +1,38 @@
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseGameRule
+  id: IonStormScheduler
+  components:
+  - type: GameRule
+  - type: BasicStationEventScheduler
+    minimumTimeUntilFirstEvent: 1800 # Ion happens between ( 31 - 2hr)
+    minMaxEventTiming:
+      min: 60 # 1 min
+      max: 5340 # 89 min
+    scheduledGameRules: !type:NestedSelector
+      tableId: BasicIonStormEventsTable
+
+- type: entity
+  parent: BaseGameRule
+  id: RareIonStormScheduler
+  components:
+  - type: GameRule
+  - type: BasicStationEventScheduler
+    minimumTimeUntilFirstEvent: 2700 # Ion happens between ( 46 - 2hr 46 minutes)
+    minMaxEventTiming:
+      min: 60 # 1 min
+      max: 7200 # 120 min
+    scheduledGameRules: !type:NestedSelector
+      tableId: BasicIonStormEventsTable
+
+- type: entityTable
+  id: BasicIonStormEventsTable
+  table: !type:AllSelector
+    children:
+    - id: IonStorm

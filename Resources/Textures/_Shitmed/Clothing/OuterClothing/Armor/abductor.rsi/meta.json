@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from ParadiseStation",
+    "copyright": "Taken from ParadiseStation, inhand sprites by LuciferMkshelter",
     "size": {
         "x": 32,
         "y": 32
@@ -11,7 +11,7 @@
             "name": "icon"
         },
         {
-            "name": "stealth-equipped-OUTERCLOTHING",
+            "name": "equipped-OUTERCLOTHING",
             "directions": 4
         },
         {

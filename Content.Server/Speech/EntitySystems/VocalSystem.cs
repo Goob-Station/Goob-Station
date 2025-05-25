@@ -1,3 +1,18 @@
+// SPDX-FileCopyrightText: 2023 Alex Evgrashin <aevgrashin@yandex.ru>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2024 Morb <14136326+Morb0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Goobstation.Common.Speech;
 using Content.Server.Actions;
 using Content.Server.Chat.Systems;
 using Content.Shared.Chat.Prototypes;
@@ -62,6 +77,17 @@ public sealed class VocalSystem : EntitySystem
             return;
         }
 
+        // Goobstation start
+        var getSoundEv = new GetEmoteSoundsEvent();
+        RaiseLocalEvent(uid, ref getSoundEv);
+        if (getSoundEv.EmoteSoundProtoId != null &&
+            _proto.TryIndex(getSoundEv.EmoteSoundProtoId, out EmoteSoundsPrototype? sounds))
+        {
+            args.Handled = _chat.TryPlayEmoteSound(uid, sounds, args.Emote);
+            return;
+        }
+        // Goobstation end
+
         // just play regular sound based on emote proto
         args.Handled = _chat.TryPlayEmoteSound(uid, component.EmoteSounds, args.Emote);
     }
@@ -77,6 +103,14 @@ public sealed class VocalSystem : EntitySystem
 
     private bool TryPlayScreamSound(EntityUid uid, VocalComponent component)
     {
+        // Goobstation start
+        var getSoundEv = new GetEmoteSoundsEvent();
+        RaiseLocalEvent(uid, ref getSoundEv);
+        if (getSoundEv.EmoteSoundProtoId != null &&
+            _proto.TryIndex(getSoundEv.EmoteSoundProtoId, out EmoteSoundsPrototype? sounds))
+            return _chat.TryPlayEmoteSound(uid, sounds, component.ScreamId);
+        // Goobstation end
+
         if (_random.Prob(component.WilhelmProbability))
         {
             _audio.PlayPvs(component.Wilhelm, uid, component.Wilhelm.Params);

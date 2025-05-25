@@ -1,3 +1,17 @@
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Martynas6ha4 <martynashagriefer@gmail.com>
+# SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: BaseFlatpack
   id: TimelineDisruptorFlatpack
@@ -11,3 +25,71 @@
     - state: fax-machine
   - type: StaticPrice
     price: 1500
+
+- type: entity
+  parent: BaseFlatpack
+  id: ContrabandDetectorFlatpack
+  name: contraband detector flatpack
+  description: A flatpack used for constructing a contraband detector.
+  components:
+  - type: Flatpack
+    entity: ContrabandDetectorSecure
+  - type: Sprite
+    layers:
+    - state: fax-machine
+  - type: StaticPrice
+    price: 500
+
+- type: entity
+  parent: BaseFlatpack
+  id: MedicalScannerFlatpack
+  name: Medical Scanner Flatpack
+  description: A flatpack used for constructing a Medical Scanner
+  components:
+  - type: Flatpack
+    entity: MedicalScanner
+
+- type: entity
+  parent: BaseFlatpack
+  id: CloningpodFlatpack
+  name: Cloning pod Flatpack
+  description: A flatpack used for constructing a Cloning pod
+  components:
+  - type: Flatpack
+    entity: CloningPod
+
+- type: entity
+  parent: BaseFlatpack
+  id: ComputerCloningConsoleFlatpack
+  name: Computer Cloning Console Flatpack
+  description: A flatpack used for constructing a Computer Cloning Console
+  components:
+  - type: Flatpack
+    entity: ComputerCloningConsole
+
+- type: entity
+  parent: BaseFlatpack
+  id: BiomassReclaimerFlatpack
+  name: Biomass Reclaimer Flatpack
+  description: A flatpack used for constructing a Biomass Reclaimer
+  components:
+  - type: Flatpack
+    entity: BiomassReclaimer
+
+- type: entity
+  parent: BaseFlatpack
+  id: MedicalBiofabricatorFlatpack
+  name: Medical Biofabricator Flatpack
+  description: A flatpack used for constructing a Medical Biofabricator
+  components:
+  - type: Flatpack
+    entity: MedicalBiofabricator
+
+- type: entity
+  parent: BaseFlatpack
+  id: MachinePowerTransmissionLaserFlatpack
+  name: power transmision laser flatpack
+  description: A flatpack used for constructing a power transmission laser
+  components:
+  - type: Flatpack
+    entity: MachinePowerTransmissionLaser

@@ -1,3 +1,13 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: ActionMimeMalaise
   name: Mime Malaise
@@ -235,7 +245,7 @@
   - type: EntityTargetAction
     checkCanAccess: false
     raiseOnUser: true
-    useDelay: 5
+    useDelay: 10
     itemIconStyle: BigAction
     whitelist:
       requireAll: true
@@ -294,7 +304,7 @@
 - type: entity
   id: ActionBindSoul
   name: Bind Soul
-  description: Bind your soul to an item to ressurrect after death. If your soul it already bound to an item and you are dead, attempt resurrecton.
+  description: Bind your soul to an item to resurrect after death. If your soul is already bound to an item and you are dead, attempt resurrecion.
   components:
   - type: InstantAction
     raiseOnUser: true
@@ -392,7 +402,7 @@
   - type: EntityTargetAction
     checkCanAccess: false
     raiseOnUser: true
-    useDelay: 10
+    useDelay: 8
     itemIconStyle: BigAction
     whitelist:
       components:
@@ -423,7 +433,7 @@
   - type: EntityWorldTargetAction
     checkCanAccess: false
     raiseOnUser: true
-    useDelay: 6
+    useDelay: 8
     itemIconStyle: BigAction
     whitelist:
       components:
@@ -452,7 +462,7 @@
 - type: entity
   id: ActionSpellCards
   name: Spell Cards
-  description: Fire up to five bursts of homing spell cards.
+  description: Fire up to six bursts of homing spell cards.
   components:
   - type: EntityWorldTargetAction
     checkCanAccess: false
@@ -658,6 +668,7 @@
     event: !type:WizardTeleportEvent
   - type: Magic
     requiresSpeech: true
+    requiresClothes: true
     school: Translocation
   - type: ActionUpgrade
     effectedLevels:
@@ -811,6 +822,7 @@
       speech: action-speech-spell-sanguine-strike
   - type: Magic
     requiresSpeech: true
+    requiresClothes: true
     school: Sanguine
   - type: ActionUpgrade
     effectedLevels:
@@ -934,8 +946,6 @@
     effectedLevels:
       2: ActionBlinkII
       3: ActionBlinkIII
-      4: ActionBlinkIV
-      5: ActionBlinkV
 
 - type: entity
   id: ActionSummonStickmen
@@ -962,3 +972,61 @@
   - type: Magic
     requiresSpeech: true
     school: Conjuration
+
+- type: entity
+  id: ActionTileToggle
+  name: Toggle tile movement
+  description: Toggle tile movement for the target.
+  components:
+  - type: EntityTargetAction
+    raiseOnUser: true
+    checkCanInteract: false
+    checkCanAccess: false
+    useDelay: 10
+    itemIconStyle: BigAction
+    whitelist:
+      requireAll: true
+      components:
+      - MobState
+      - Body
+      - MindContainer
+    range: 40
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: tile
+    event: !type:TileToggleSpellEvent
+      speech: action-speech-spell-tile-toggle
+      sound:
+        path: /Audio/_Goobstation/Wizard/phasein.ogg
+  - type: Magic
+    requiresSpeech: true
+    school: Conjuration
+
+#- type: entity
+#  id: ActionCurseOfByond
+#  name: Curse of Byond
+#  description: Curse the target, causing them to be unable to move properly.
+#  components:
+#  - type: EntityTargetAction
+#    raiseOnUser: true
+#    checkCanAccess: false
+#    checkCanInteract: false
+#    useDelay: 30
+#    range: 40
+#   whitelist:
+#      requireAll: true
+#      components:
+#      - MobState
+#      - Body
+#      - MindContainer
+#    itemIconStyle: BigAction
+#    icon:
+#      sprite: _Goobstation/Wizard/actions.rsi
+#      state: curseofbyond
+#    event: !type:PredictionToggleSpellEvent
+#      speech: action-speech-spell-curse-of-byond
+#      sound:
+#        path: /Audio/_Goobstation/Wizard/phasein.ogg
+#  - type: Magic
+#    requiresSpeech: true
+#    school: Conjuration

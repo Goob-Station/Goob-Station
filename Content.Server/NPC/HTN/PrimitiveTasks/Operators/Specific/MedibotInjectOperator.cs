@@ -1,5 +1,26 @@
+// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
+// SPDX-FileCopyrightText: 2023 20kdc <asdd2808@gmail.com>
+// SPDX-FileCopyrightText: 2023 Arendian <137322659+Arendian@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 ElectroJr <leonsfriedrich@gmail.com>
+// SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 YourUsername <you@example.com>
+// SPDX-FileCopyrightText: 2025 godisdeadLOL <169250097+godisdeadLOL@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.Chat.Systems;
-using Content.Server.NPC.Components;
+using Content.Shared.NPC.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.Emag.Components;
@@ -55,34 +76,11 @@ public sealed partial class MedibotInjectOperator : HTNOperator
         if (!_entMan.TryGetComponent<MedibotComponent>(owner, out var botComp))
             return HTNOperatorStatus.Failed;
 
-
-        if (!_entMan.TryGetComponent<DamageableComponent>(target, out var damage))
+        if (!_medibot.CheckInjectable((owner, botComp), target) || !_medibot.TryInject((owner, botComp), target))
             return HTNOperatorStatus.Failed;
 
-        if (!_solutionContainer.TryGetInjectableSolution(target, out var injectable, out _))
-            return HTNOperatorStatus.Failed;
-
-        if (!_interaction.InRangeUnobstructed(owner, target))
-            return HTNOperatorStatus.Failed;
-
-        var total = damage.TotalDamage;
-
-        // always inject healthy patients when emagged
-        if (total == 0 && !_entMan.HasComponent<EmaggedComponent>(owner))
-            return HTNOperatorStatus.Failed;
-
-        if (!_entMan.TryGetComponent<MobStateComponent>(target, out var mobState))
-            return HTNOperatorStatus.Failed;
-
-        var state = mobState.CurrentState;
-        if (!_medibot.TryGetTreatment(botComp, mobState.CurrentState, out var treatment) || !treatment.IsValid(total))
-            return HTNOperatorStatus.Failed;
-
-        _entMan.EnsureComponent<NPCRecentlyInjectedComponent>(target);
-        _solutionContainer.TryAddReagent(injectable.Value, treatment.Reagent, treatment.Quantity, out _);
-        _popup.PopupEntity(Loc.GetString("hypospray-component-feel-prick-message"), target, target);
-        _audio.PlayPvs(botComp.InjectSound, target);
         _chat.TrySendInGameICMessage(owner, Loc.GetString("medibot-finish-inject"), InGameICChatType.Speak, hideChat: true, hideLog: true);
+
         return HTNOperatorStatus.Finished;
     }
 }

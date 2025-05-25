@@ -1,3 +1,16 @@
+// SPDX-FileCopyrightText: 2023 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Crotalus <crotalus@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Kevin Zheng <kevinz5000@gmail.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Partmedia <kevinz5000@gmail.com>
+// SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Client.Stylesheets;
 using Content.Shared.Power;
 using Robust.Client.Graphics;
@@ -269,27 +282,6 @@ public sealed partial class PowerMonitoringWindow
         return false;
     }
 
-    private bool TryGetVerticalScrollbar(ScrollContainer scroll, [NotNullWhen(true)] out VScrollBar? vScrollBar)
-    {
-        vScrollBar = null;
-
-        foreach (var child in scroll.Children)
-        {
-            if (child is not VScrollBar)
-                continue;
-
-            var castChild = child as VScrollBar;
-
-            if (castChild != null)
-            {
-                vScrollBar = castChild;
-                return true;
-            }
-        }
-
-        return false;
-    }
-
     private void AutoScrollToFocus()
     {
         if (!_autoScrollActive)
@@ -299,15 +291,12 @@ public sealed partial class PowerMonitoringWindow
         if (scroll == null)
             return;
 
-        if (!TryGetVerticalScrollbar(scroll, out var vScrollbar))
-            return;
-
         if (!TryGetNextScrollPosition(out float? nextScrollPosition))
             return;
 
-        vScrollbar.ValueTarget = nextScrollPosition.Value;
+        scroll.VScrollTarget = nextScrollPosition.Value;
 
-        if (MathHelper.CloseToPercent(vScrollbar.Value, vScrollbar.ValueTarget))
+        if (MathHelper.CloseToPercent(scroll.VScroll, scroll.VScrollTarget))
             _autoScrollActive = false;
     }
 

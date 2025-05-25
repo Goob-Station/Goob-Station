@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Client.Popups;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Access.Systems;
@@ -171,8 +176,10 @@ public sealed partial class HolopadWindow : FancyWindow
 
         // Caller ID text
         var callerId = _telephoneSystem.GetFormattedCallerIdForEntity(telephone.LastCallerId.Item1, telephone.LastCallerId.Item2, Color.LightGray, "Default", 11);
+        var holoapdId = _telephoneSystem.GetFormattedDeviceIdForEntity(telephone.LastCallerId.Item3, Color.LightGray, "Default", 11);
 
         CallerIdText.SetMessage(FormattedMessage.FromMarkupOrThrow(callerId));
+        HolopadIdText.SetMessage(FormattedMessage.FromMarkupOrThrow(holoapdId));
         LockOutIdText.SetMessage(FormattedMessage.FromMarkupOrThrow(callerId));
 
         // Sort holopads alphabetically
@@ -236,10 +243,13 @@ public sealed partial class HolopadWindow : FancyWindow
         // Make / update required children
         foreach (var child in ContactsList.Children)
         {
-            if (child is not HolopadContactButton)
+            if (child is not HolopadContactButton contactButton)
                 continue;
 
-            var contactButton = (HolopadContactButton)child;
+            var passesFilter = string.IsNullOrEmpty(SearchLineEdit.Text) ||
+                               contactButton.Text?.Contains(SearchLineEdit.Text, StringComparison.CurrentCultureIgnoreCase) == true;
+
+            contactButton.Visible = passesFilter;
             contactButton.Disabled = (_currentState != TelephoneState.Idle || lockButtons);
         }
 
@@ -290,7 +300,7 @@ public sealed partial class HolopadWindow : FancyWindow
         FetchingAvailableHolopadsContainer.Visible = (ContactsList.ChildCount == 0);
         ActiveCallControlsContainer.Visible = (_currentState != TelephoneState.Idle || _currentUiKey == HolopadUiKey.AiRequestWindow);
         CallPlacementControlsContainer.Visible = !ActiveCallControlsContainer.Visible;
-        CallerIdText.Visible = (_currentState == TelephoneState.Ringing);
+        CallerIdContainer.Visible = (_currentState == TelephoneState.Ringing);
         AnswerCallButton.Visible = (_currentState == TelephoneState.Ringing);
     }
 
@@ -316,6 +326,7 @@ public sealed partial class HolopadWindow : FancyWindow
             HorizontalExpand = true;
             SetHeight = 32;
             Margin = new Thickness(0f, 1f, 0f, 1f);
+            ReservesSpace = false;
         }
 
         public void UpdateValues(NetEntity netEntity, string label)

@@ -1,6 +1,18 @@
-﻿using Content.Shared.Verbs;
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 moonheart08 <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared.Verbs;
+using Robust.Client.GameObjects;
 using Robust.Client.UserInterface.Controls;
+using Robust.Client.UserInterface.CustomControls;
 using Robust.Client.Utility;
+using Robust.Shared.Utility;
 
 namespace Content.Client.Examine;
 
@@ -20,21 +32,33 @@ public sealed class ExamineButton : ContainerButton
     public TextureRect Icon;
 
     public ExamineVerb Verb;
+    private SpriteSystem _sprite;
 
-    public ExamineButton(ExamineVerb verb)
+    public ExamineButton(ExamineVerb verb, SpriteSystem spriteSystem)
     {
         Margin = new Thickness(Thickness, Thickness, Thickness, Thickness);
 
         SetOnlyStyleClass(StyleClassExamineButton);
 
         Verb = verb;
+        _sprite = spriteSystem;
 
         if (verb.Disabled)
         {
             Disabled = true;
         }
 
-        ToolTip = verb.Message ?? verb.Text;
+        TooltipSupplier = sender =>
+        {
+            var label = new RichTextLabel();
+            label.SetMessage(FormattedMessage.FromMarkupOrThrow(verb.Message ?? verb.Text));
+
+            var tooltip = new Tooltip();
+            tooltip.GetChild(0).Children.Clear();
+            tooltip.GetChild(0).Children.Add(label);
+
+            return tooltip;
+        };
 
         Icon = new TextureRect
         {
@@ -44,7 +68,7 @@ public sealed class ExamineButton : ContainerButton
 
         if (verb.Icon != null)
         {
-            Icon.Texture = verb.Icon.Frame0();
+            Icon.Texture = _sprite.Frame0(verb.Icon);
             Icon.Stretch = TextureRect.StretchMode.KeepAspectCentered;
 
             AddChild(Icon);

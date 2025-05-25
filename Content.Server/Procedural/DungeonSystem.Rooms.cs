@@ -1,3 +1,16 @@
+// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
+// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Numerics;
 using Content.Shared.Decals;
 using Content.Shared.Maps;
@@ -16,9 +29,20 @@ public sealed partial class DungeonSystem
     private readonly List<DungeonRoomPrototype> _availableRooms = new();
 
     /// <summary>
-    /// Gets a random dungeon room matching the specified area and whitelist.
+    /// Gets a random dungeon room matching the specified area, whitelist and size.
     /// </summary>
     public DungeonRoomPrototype? GetRoomPrototype(Vector2i size, Random random, EntityWhitelist? whitelist = null)
+    {
+        return GetRoomPrototype(random, whitelist, minSize: size, maxSize: size);
+    }
+
+    /// <summary>
+    /// Gets a random dungeon room matching the specified area and whitelist and size range
+    /// </summary>
+    public DungeonRoomPrototype? GetRoomPrototype(Random random,
+        EntityWhitelist? whitelist = null,
+        Vector2i? minSize = null,
+        Vector2i? maxSize = null)
     {
         // Can never be true.
         if (whitelist is { Tags: null })
@@ -30,7 +54,10 @@ public sealed partial class DungeonSystem
 
         foreach (var proto in _prototype.EnumeratePrototypes<DungeonRoomPrototype>())
         {
-            if (proto.Size != size)
+            if (minSize is not null && (proto.Size.X < minSize.Value.X || proto.Size.Y < minSize.Value.Y))
+                continue;
+
+            if (maxSize is not null && (proto.Size.X > maxSize.Value.X || proto.Size.Y > maxSize.Value.Y))
                 continue;
 
             if (whitelist == null)
@@ -114,29 +141,6 @@ public sealed partial class DungeonSystem
 
         var finalRoomRotation = roomTransform.Rotation();
 
-        // go BRRNNTTT on existing stuff
-        if (clearExisting)
-        {
-            var gridBounds = new Box2(Vector2.Transform(-room.Size/2, roomTransform), Vector2.Transform(room.Size/2, roomTransform));
-            _entitySet.Clear();
-            // Polygon skin moment
-            gridBounds = gridBounds.Enlarged(-0.05f);
-            _lookup.GetLocalEntitiesIntersecting(gridUid, gridBounds, _entitySet, LookupFlags.Uncontained);
-
-            foreach (var templateEnt in _entitySet)
-            {
-                Del(templateEnt);
-            }
-
-            if (TryComp(gridUid, out DecalGridComponent? decalGrid))
-            {
-                foreach (var decal in _decals.GetDecalsIntersecting(gridUid, gridBounds, decalGrid))
-                {
-                    _decals.RemoveDecal(gridUid, decal.Index, decalGrid);
-                }
-            }
-        }
-
         var roomCenter = (room.Offset + room.Size / 2f) * grid.TileSize;
         var tileOffset = -roomCenter + grid.TileSizeHalfVector;
         _tiles.Clear();
@@ -155,7 +159,22 @@ public sealed partial class DungeonSystem
                 if (!clearExisting && reservedTiles?.Contains(rounded) == true)
                     continue;
 
+                if (room.IgnoreTile is not null)
+                {
+                    if (_maps.TryGetTileDef(templateGrid, indices, out var tileDef) && room.IgnoreTile == tileDef.ID)
+                        continue;
+                }
+
                 _tiles.Add((rounded, tileRef.Tile));
+
+                if (clearExisting)
+                {
+                    var anchored = _maps.GetAnchoredEntities((gridUid, grid), rounded);
+                    foreach (var ent in anchored)
+                    {
+                        QueueDel(ent);
+                    }
+                }
             }
         }
 

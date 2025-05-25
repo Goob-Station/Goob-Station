@@ -1,0 +1,147 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
+# SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+# SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
+# SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: LavalandTendrilBase
+  parent: BaseStructure
+  name: tendril
+  abstract: true
+  description: A huge structure.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Lavaland/Structures/Specific/tendril.rsi
+    state: tendril
+    drawdepth: Mobs
+  - type: Tendril
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Skeleton
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 250
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          LavalandCrateNecropolisRandom:
+            min: 1
+            max: 1
+  - type: Physics
+    bodyType: Static
+  - type: Transform
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.45,0.25,0.45"
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+        density: 200
+
+- type: entity
+  id: LavalandTendrilGoliath
+  parent: LavalandTendrilBase
+  name: tendril
+  description: A huge structure.
+  suffix: Goliath
+  components:
+  - type: Tendril
+    maxSpawns: 2
+    mobsToDefeat: 6
+    spawnDelay: 15.0
+    spawns:
+    - MobGoliath
+
+- type: entity
+  id: LavalandTendrilLegion
+  parent: LavalandTendrilBase
+  name: tendril
+  description: A huge structure.
+  suffix: Legion
+  components:
+  # TODO: Add Legioners
+  - type: Tendril
+    spawns: []
+
+- type: entity
+  id: LavalandTendrilLavaWatcher
+  parent: LavalandTendrilBase
+  name: tendril
+  description: A huge structure.
+  suffix: Watcher
+  components:
+  - type: Tendril
+    maxSpawns: 2
+    mobsToDefeat: 8
+    spawnDelay: 12.0
+    spawns:
+    - MobWatcherLavaland
+
+- type: entity
+  id: LavalandTendrilIcewingWatcher
+  parent: LavalandTendrilBase
+  name: tendril
+  description: A huge structure.
+  suffix: Ice Watcher
+  components:
+  - type: Tendril
+    maxSpawns: 2
+    mobsToDefeat: 4
+    spawnDelay: 12.0
+    spawns:
+    - MobWatcherIcewing
+
+- type: entity
+  id: LavalandTendrilMagmawingWatcher
+  parent: LavalandTendrilBase
+  name: tendril
+  description: A huge structure.
+  suffix: Magma Watcher
+  components:
+  - type: Tendril
+    maxSpawns: 2
+    mobsToDefeat: 4
+    spawnDelay: 12.0
+    spawns:
+    - MobWatcherMagmawing
+
+- type: entity
+  id: LavalandTendrilSpaceCarp
+  parent: LavalandTendrilBase
+  name: tendril
+  description: A huge structure.
+  suffix: Carp
+  components:
+  - type: Tendril
+    maxSpawns: 4
+    mobsToDefeat: 8
+    spawnDelay: 8.0
+    spawns:
+    - MobCarpDungeon

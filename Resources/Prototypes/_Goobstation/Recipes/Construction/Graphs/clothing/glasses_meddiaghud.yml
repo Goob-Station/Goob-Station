@@ -1,0 +1,46 @@
+# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
+# SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: constructionGraph
+  id: GlassesMedDiagHUD
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: glassesMedDiag
+          steps:
+            - tag: Sunglasses
+              name: sun glasses
+              icon:
+                sprite: Clothing/Eyes/Glasses/sunglasses.rsi
+                state: icon
+              doAfter: 5
+            - tag: HudMedicalDiagnostic
+              name: meddiag hud
+              icon:
+                sprite: _Goobstation/Clothing/Eyes/Hud/meddiag.rsi
+                state: icon
+              doAfter: 5
+            - material: Cable
+              amount: 5
+              doAfter: 5
+
+    - node: glassesMedDiag
+      entity: ClothingEyesGlassesMedDiag
+      edges:
+      - to: start
+        steps:
+          - tool: Screwing
+            doAfter: 5
+        completed:
+        - !type:SpawnPrototype
+          prototype: ClothingEyesGlassesSunglasses
+        - !type:SpawnPrototype
+          prototype: ClothingEyesHudDiagnosticMedical
+        - !type:DeleteEntity

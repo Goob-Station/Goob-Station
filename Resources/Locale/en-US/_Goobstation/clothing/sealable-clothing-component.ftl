@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 sealable-clothing-equipment-not-toggled = Deploy all parts first!
 sealable-clothing-equipment-seal-failed = Sealing failed!
 sealable-clothing-seal-verb = Toggle Seals

@@ -1,3 +1,90 @@
+# SPDX-FileCopyrightText: 2019 moneyl <8206401+Moneyl@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 Hugo Laloge <hugo.laloge@gmail.com>
+# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 nuke <47336974+nuke-makes-games@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 DmitriyRubetskoy <75271456+DmitriyRubetskoy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Elijahrane <60792108+Elijahrane@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 SETh lafuente <cetaciocascarudo@gmail.com>
+# SPDX-FileCopyrightText: 2021 ScalyChimp <72841710+scaly-chimp@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 SethLafuente <84478872+SethLafuente@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
+# SPDX-FileCopyrightText: 2021 xRiriq <94037592+xRiriq@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 xRiriq <xRiriq.git@gmail.com>
+# SPDX-FileCopyrightText: 2022 CrudeWax <75271456+CrudeWax@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 EmoGarbage404 <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Jack Fox <35575261+DubiousDoggo@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Julian Giebel <juliangiebel@live.de>
+# SPDX-FileCopyrightText: 2022 Kara D <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Myctai <108953437+Myctai@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Ripmorld <60119809+UKNOWH@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Sam Weaver <weaversam8@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 lapatison <100279397+lapatison@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 moonheart08 <moonheart08@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Alekshhh <44923899+Alekshhh@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Alex Evgrashin <aevgrashin@yandex.ru>
+# SPDX-FileCopyrightText: 2023 CrigCrag <137215465+CrigCrag@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 DjfjdfofdjfjD <119279366+DjfjdfofdjfjD@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Doru991 <75124791+Doru991@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Dynexust <47256242+Dynexust@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Interrobang01 <113810873+Interrobang01@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
+# SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Maxtone <124747282+MagnusCrowe@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Sir Winters <7543955+Owai-Seek@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Veritius <veritiusgaming@gmail.com>
+# SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2023 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ashley Woodiss-Field <ash@DESKTOP-H64M4AI.localdomain>
+# SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 ColesMagnum <98577947+AW-FulCode@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 EdenTheLiznerd <138748328+Eden077@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ghagliiarghii <68826635+Ghagliiarghii@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Gotimanga <127038462+Gotimanga@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 Scribbles0 <91828755+Scribbles0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Skye <57879983+Rainbeon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 SlamBamActionman <slambamactionman@gmail.com>
+# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+# SPDX-FileCopyrightText: 2024 Tmanzxd <164098915+Tmanzxd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2024 icekot8 <93311212+icekot8@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 potato1234_x <79580518+potato1234x@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+# SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: reagent
   id: Cryptobiolin
   name: reagent-name-cryptobiolin
@@ -89,6 +176,12 @@
         key: Jitter
         time: 3.0
         type: Remove
+      - !type:GenericStatusEffect
+        key: Drowsiness
+        component: Drowsiness
+        time: 1.5
+        type: Add
+        refresh: false
       - !type:HealthChange
         damage:
           types:
@@ -138,7 +231,7 @@
           types:
             Radiation: -3
           groups:
-            Brute: 0.5
+            Brute: 1.5
 
 - type: reagent
   id: Bicaridine
@@ -151,6 +244,14 @@
   metabolisms:
     Medicine:
       effects:
+      - !type:SuppressPain
+        amount: 1.2
+        time: 30 # it accumulated 1.2 * quantity and then exists for 30 seconds.
+      - !type:AdjustPainFeels
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+        amount: 0.04
       - !type:HealthChange
         damage:
           groups:
@@ -179,6 +280,15 @@
         - !type:ReagentThreshold
           min: 15
       - !type:Drunk
+      - !type:AdjustConsciousness
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        allowNewModifiers: true
+        modifierType: Pain
+        identifier: Suffocation
+        amount: -1.2
+        time: 12
 
 - type: reagent
   id: Cryoxadone
@@ -194,6 +304,7 @@
   - !type:PlantAdjustHealth
     amount: 5
   - !type:PlantCryoxadone {}
+  worksOnTheDead: true # Goobstation
   metabolisms:
     Medicine:
       effects:
@@ -202,13 +313,15 @@
           - !type:Temperature
             # this is a little arbitrary but they gotta be pretty cold
             max: 213.0
+          scaleByTemperature: # Shitmed Change
+            min: 100.0
+            max: 213.0
+            scale: 1.6
           damage:
-          # todo scale with temp like SS13
-            groups:
-              Airloss: -6
-              Brute: -4
-              Burn: -6
-              Toxin: -4
+            groups: # Goobstation - Cryo rebalance
+              Airloss: -3
+              Brute: -3
+              Burn: -3
 
 - type: reagent
   id: Doxarubixadone
@@ -218,6 +331,7 @@
   physicalDesc: reagent-physical-desc-bubbling
   flavor: medicine
   color: "#32cd32"
+  worksOnTheDead: true # Goobstation - Cryo rebalance
   metabolisms:
     Medicine:
       effects:
@@ -225,6 +339,10 @@
           conditions:
           - !type:Temperature
             max: 213.0
+          scaleByTemperature: # Shitmed Change
+            min: 100.0
+            max: 213.0
+            scale: 1.6
           damage:
             types:
              Cellular: -2
@@ -240,6 +358,14 @@
   metabolisms:
     Medicine:
       effects:
+      - !type:SuppressPain
+        amount: 2
+        time: 7
+      - !type:AdjustPainFeels
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        amount: 0.01
       - !type:HealthChange
         damage:
           types:
@@ -275,6 +401,14 @@
   metabolisms:
     Medicine:
       effects:
+      - !type:SuppressPain
+        amount: 2.4
+        time: 12
+      - !type:AdjustPainFeels
+        conditions:
+        - !type:ReagentThreshold
+          min: 20
+        amount: 0.04
       - !type:HealthChange
         damage:
           types:
@@ -291,6 +425,12 @@
           types:
             Asphyxiation: 3
             Cold: 1
+      - !type:AdjustConsciousness
+        allowNewModifiers: false
+        modifierType: Pain
+        identifier: Suffocation
+        amount: 3.4
+        time: 12
 
 - type: reagent
   id: DexalinPlus
@@ -303,6 +443,14 @@
   metabolisms:
     Medicine:
       effects:
+      - !type:SuppressPain
+        amount: 3.7
+        time: 12
+      - !type:AdjustPainFeels
+        conditions:
+        - !type:ReagentThreshold
+          min: 25
+        amount: 0.1
       - !type:HealthChange
         damage:
           types:
@@ -326,6 +474,18 @@
           types:
             Asphyxiation: 5
             Cold: 3
+      - !type:AdjustConsciousness
+        allowNewModifiers: false
+        modifierType: Pain
+        identifier: Suffocation
+        amount: 6
+        time: 12
+      - !type:AdjustConsciousness
+        allowNewModifiers: true
+        modifierType: Pain
+        identifier: Suffocation
+        amount: -5
+        time: 12
 
 # this ones a doozy
 - type: reagent
@@ -339,6 +499,21 @@
   metabolisms:
     Medicine:
       effects:
+      - !type:SuppressPain
+        conditions:
+        - !type:MobStateCondition
+          mobstate: Critical
+        amount: 5
+        time: 10 # very little because it's supposed to suppress pain while you're in crit
+      - !type:AdjustConsciousness
+        conditions:
+        - !type:MobStateCondition
+          mobstate: Critical
+        allowNewModifiers: false
+        modifierType: Pain
+        identifier: Suffocation
+        amount: 5 # Does not let the entity suffocate while the pain is suppressed
+        time: 10
       - !type:HealthChange
         conditions:
           # they gotta be in crit first
@@ -398,6 +573,15 @@
       - !type:MovespeedModifier # Goob edit
         walkSpeedModifier: 1.1
         sprintSpeedModifier: 1.1
+      - !type:AdjustConsciousness
+        conditions:
+        - !type:ReagentThreshold
+          min: 20
+        allowNewModifiers: false
+        modifierType: Pain
+        identifier: Suffocation
+        amount: -2.4
+        time: 12
 
 - type: reagent
   id: Hyronalin
@@ -476,6 +660,12 @@
             Asphyxiation: -5
       - !type:ModifyBleedAmount
         amount: -0.25
+      - !type:AdjustConsciousness
+        allowNewModifiers: false
+        modifierType: Pain
+        identifier: Suffocation
+        amount: 8
+        time: 20
 
 - type: reagent
   id: Kelotane
@@ -613,18 +803,29 @@
         min: 4
   metabolisms:
     Medicine:
+      metabolismRate: 0.1
       effects:
       - !type:HealthChange
         damage:
           types:
-            Cellular: -1
-            Radiation: 1
-      - !type:ChemVomit
+            Cellular: -0.3
+            Radiation: 0.15
+            Caustic: 0.15
+      - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
-        probability: 0.05
+        - !type:ReagentThreshold
+          min: 11
+        damage:
+          types:
+            Radiation: 0.2
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Arithrazine
+          min: 1
+        damage:
+          types:
+            Caustic: 0.3
 
 - type: reagent
   id: PolypyryliumOligomers
@@ -655,6 +856,21 @@
             Asphyxiation: 3.5
       - !type:ModifyBleedAmount
         amount: -0.25
+      - !type:AdjustConsciousness
+        allowNewModifiers: false
+        modifierType: Pain
+        identifier: Suffocation
+        amount: 6
+        time: 12
+      - !type:AdjustConsciousness
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+        allowNewModifiers: true
+        modifierType: Pain
+        identifier: Suffocation
+        amount: 6
+        time: 12
 
 - type: reagent
   id: Ambuzol
@@ -717,7 +933,7 @@
         - !type:SatiateThirst
           factor: 6
         - !type:ModifyBloodLevel
-          amount: 6
+          amount: 12 # Goobstation - buffed by two times due to shitmed changes
 
 - type: reagent
   id: Siderlac
@@ -730,6 +946,8 @@
   metabolisms:
     Medicine:
       effects:
+      - !type:AdjustPainFeels
+        amount: 0.05 # heheheh
       - !type:HealthChange
         damage:
           types:
@@ -867,6 +1085,9 @@
   metabolisms:
     Medicine:
       effects:
+      - !type:SuppressPain
+        amount: 2
+        time: 14
       - !type:HealthChange
         damage:
           groups:
@@ -1046,6 +1267,24 @@
         - !type:ReagentThreshold
           min: 30
         probability: 0.02
+      - !type:ChemVomit
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Arithrazine
+          min: 1
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
+        probability: 0.1
+      - !type:PopupMessage
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Arithrazine
+          min: 1
+        type: Local
+        visualType: Medium
+        messages: [ "generic-reagent-effect-nauseous" ]
+        probability: 0.2
 
 - type: reagent
   id: Lacerinol
@@ -1141,6 +1380,10 @@
         factor: 3
     Medicine:
       effects:
+      - !type:CleanseCult # DeltaV - Cosmic Cult
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
       - !type:HealthChange
         conditions:
         - !type:TotalDamage
@@ -1165,7 +1408,7 @@
         ignoreResistances: false
         damage:
           types:
-            Holy: 0.5
+            Holy: 2
   plantMetabolism:
   - !type:PlantAdjustWater
     amount: 1
@@ -1184,6 +1427,9 @@
     Medicine:
       metabolismRate: 0.1 # slow metabolism to not be a godly combat med, its for treating burn victims efficiently
       effects:
+      - !type:SuppressPain
+        amount: 4 # To prevent people from dying while being healed
+        time: 7
       - !type:HealthChange
         damage:
           types:
@@ -1303,16 +1549,25 @@
   metabolisms:
     Medicine:
       effects:
+        - !type:ModifyBloodLevel # Goobstation - Cryo rebalance
+          conditions:
+          - !type:Temperature
+            max: 213.0
+          amount: 10
         - !type:HealthChange
           conditions:
           - !type:Temperature
             max: 213.0
-          damage:
+          scaleByTemperature: # Shitmed Change
+            min: 100.0
+            max: 213.0
+            scale: 1.6
+          damage: # Goobstation - Cryo rebalance
             groups:
-              Brute: -4
-              Burn: -5
-            types:
-              Poison: -2
+              Airloss: -10.0
+              Brute: -5.0
+              Burn: -5.0
+              Toxin: -5.0
 
 - type: reagent
   id : Aloxadone
@@ -1330,11 +1585,15 @@
         conditions:
         - !type:Temperature
           max: 213.0
-        damage:
+        scaleByTemperature: # Shitmed Change
+          min: 100.0
+          max: 213.0
+          scale: 1.6
+        damage: # Goobstation - Cryo rebalance
           types:
-            Heat: -3.0
-            Shock: -3.0
-            Caustic: -1.0
+            Heat: -10.0
+            Shock: -10.0
+            Caustic: -10.0
 
 - type: reagent
   id : Mannitol # currently this is just a way to create psicodine

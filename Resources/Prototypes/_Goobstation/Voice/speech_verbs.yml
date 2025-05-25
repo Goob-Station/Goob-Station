@@ -1,3 +1,16 @@
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2025 unknown <Administrator@DESKTOP-PMRIVVA.kommune.indresogn.no>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: speechVerb
   id: Gondola
   name: chat-speech-verb-name-gondola
@@ -23,6 +36,21 @@
   exclaimSound:
     path: /Audio/Machines/beep.ogg
 
+- type: speechSounds
+  id: ShadowCloak
+  saySound:
+    collection: HissSay
+  askSound:
+    path: /Audio/_Goobstation/Heretic/hiss/hiss3.ogg
+  exclaimSound:
+    path: /Audio/_Goobstation/Heretic/hiss/hiss4.ogg
+
+- type: speechVerb
+  id: Hiss
+  name: chat-speech-verb-name-hiss
+  speechVerbStrings:
+  - chat-speech-verb-reptilian-1 # hiss
+
 - type: speechVerb
   id: Dead
   name: chat-speech-verb-name-dead
@@ -46,3 +74,12 @@
   - chat-speech-verb-VoiceModulator-3
   - chat-speech-verb-VoiceModulator-4
   - chat-speech-verb-VoiceModulator-5
+
+- type: speechVerb
+  id: Bingle
+  name: chat-speech-verb-name-bingle
+  speechVerbStrings:
+  - bingle-verb-1
+  - bingle-verb-2
+  - bingle-verb-3
+  - bingle-verb-4

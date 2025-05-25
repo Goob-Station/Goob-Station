@@ -1,0 +1,87 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
+# SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+# SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Place teleport marker
+- type: entity
+  id: ActionHierophantPlaceMarker
+  name: action-hierophant-place-marker
+  description: action-hierophant-place-marker-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: _Lavaland/Objects/Weapons/hierophant_club.rsi
+      state: icon
+    itemIconStyle: BigAction
+    event: !type:HierophantClubPlaceMarkerEvent
+    useDelay: 30
+
+# Teleportation
+- type: entity
+  id: ActionHierophantTeleport
+  name: action-hierophant-teleport
+  description: action-hierophant-teleport-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: _Lavaland/Objects/Weapons/hierophant_club.rsi
+      state: icon
+    itemIconStyle: NoItem
+    event: !type:HierophantClubTeleportToMarkerEvent
+    useDelay: 60
+
+# Spawn cross
+- type: entity
+  id: ActionHierophantSpawnCross
+  name: action-hierophant-spawn-cross
+  description: action-hierophant-spawn-cross-desc
+  components:
+  - type: WorldTargetAction
+    icon:
+      sprite: _Lavaland/Objects/Weapons/hierophant_club.rsi
+      state: icon
+    itemIconStyle: NoItem
+    event: !type:HierophantClubActivateCrossEvent
+    checkCanAccess: true
+    range: 8
+    priority: -21
+    useDelay: 1
+
+# Tile Movement
+- type: entity
+  id: ActionHierophantTileMovement
+  name: action-hierophant-tile-movement
+  description: action-hierophant-tile-movement-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    icon:
+      sprite: /Textures/_Lavaland/Interface/Alerts/hierophantbeat.rsi
+      state: hierophant
+    itemIconStyle: NoItem
+    whitelist:
+      requireAll: true
+      components:
+      - MobState
+      - Body
+      - MindContainer
+    event: !type:HierophantClubToggleTileMovementEvent
+    useDelay: 60

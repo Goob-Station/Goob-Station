@@ -1,8 +1,24 @@
+// SPDX-FileCopyrightText: 2022 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Numerics;
 using Content.Client.ContextMenu.UI;
 using Content.Shared.Verbs;
 using Robust.Client.GameObjects;
 using Robust.Client.UserInterface.Controls;
+using Robust.Client.UserInterface.CustomControls;
+using Robust.Client.Utility;
+using Robust.Shared.GameObjects;
+using Robust.Shared.IoC;
+using Robust.Shared.Maths;
+using Robust.Shared.Utility;
 
 namespace Content.Client.Verbs.UI
 {
@@ -23,7 +39,17 @@ namespace Content.Client.Verbs.UI
 
         public VerbMenuElement(Verb verb) : base(verb.Text)
         {
-            ToolTip = verb.Message;
+            TooltipSupplier = sender =>
+            {
+                var label = new RichTextLabel();
+                label.SetMessage(FormattedMessage.FromMarkupOrThrow(verb.Message ?? verb.Text));
+
+                var tooltip = new Tooltip();
+                tooltip.GetChild(0).Children.Clear();
+                tooltip.GetChild(0).Children.Add(label);
+
+                return tooltip;
+            };
             Disabled = verb.Disabled;
             Verb = verb;
 

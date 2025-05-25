@@ -1,6 +1,23 @@
+// SPDX-FileCopyrightText: 2021 Paul <ritter.paul1+git@googlemail.com>
+// SPDX-FileCopyrightText: 2021 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Ygg01 <y.laughing.man.y@gmail.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
 using System.Threading.Tasks;
 using Content.Shared.CCVar;
+using Robust.Shared;
 using Robust.Shared.Configuration;
 using Robust.Shared.ContentPack;
 using Robust.Shared.Serialization.Manager;
@@ -123,6 +140,27 @@ namespace Content.Client.Changelog
         public void PostInject()
         {
             _sawmill = _logManager.GetSawmill(SawmillName);
+        }
+
+        /// <summary>
+        ///     Tries to return a human-readable version number from the build.json file
+        /// </summary>
+        public string GetClientVersion()
+        {
+            var fork = _configManager.GetCVar(CVars.BuildForkId);
+            var version = _configManager.GetCVar(CVars.BuildVersion);
+
+            // This trimming might become annoying if down the line some codebases want to switch to a real
+            // version format like "104.11.3" while others are still using the git hashes
+            if (version.Length > 7)
+                version = version[..7];
+
+            if (string.IsNullOrEmpty(version) || string.IsNullOrEmpty(fork))
+                return Loc.GetString("changelog-version-unknown");
+
+            return Loc.GetString("changelog-version-tag",
+                ("fork", fork),
+                ("version", version));
         }
 
         [DataDefinition]

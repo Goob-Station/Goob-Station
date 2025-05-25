@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Myra <vasilis@pikachu.systems>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 # Configuration preset layer for gateway Wizard's Den servers.
 # Intended to be loaded after wizardsDen.toml
 
@@ -11,12 +19,6 @@ panic_bunker.enabled = false
 panic_bunker.disable_with_admins = false
 panic_bunker.enable_without_admins = false
 panic_bunker.custom_reason = ""
-baby_jail.enabled = true
-baby_jail.show_reason = true
-baby_jail.max_account_age = 5256000 # 10 years. Disabling this check specifically isn't currently supported
-baby_jail.max_overall_minutes = 3000 # 50 hours
-baby_jail.custom_reason = "Sorry! Only new and whitelisted players can join this server. Apply to be whitelisted in our Discord server (discord.ss14.io) or try joining another server instead!"
-baby_jail.whitelisted_can_bypass = true
 
 [hub]
 tags = "lang:en,region:am_n_e,rp:low"

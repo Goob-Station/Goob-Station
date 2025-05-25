@@ -1,0 +1,138 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Speebro <100388782+Speebr0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Speebro <speebro@notreal.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+## Static
+
+- type: latheRecipePack
+  id: ScienceBoardsStatic
+  recipes:
+  #- ProtolatheMachineCircuitboard - Goobstation - Moved to SharedBoardsStatic
+  #- AutolatheMachineCircuitboard
+  #- CircuitImprinterMachineCircuitboard
+  - ExosuitFabricatorMachineCircuitboard
+  - CutterMachineCircuitboard
+  - BorgChargerCircuitboard
+
+- type: latheRecipePack
+  id: CircuitFloorsStatic
+  recipes:
+  - FloorGreenCircuit
+  - FloorBlueCircuit
+  - FloorRedCircuit
+
+# Keeps flash payloads out of the hands of tiders, I guess. All triggers roundstart for autolathes and med/sci/secfab
+- type: latheRecipePack
+  id: ScienceExplosives
+  recipes:
+  - ChemicalPayload
+  - FlashPayload
+
+## Dynamic
+
+- type: latheRecipePack
+  id: ScienceEquipment
+  recipes:
+  - AnomalyScanner
+  - NodeScanner
+  - AnomalyLocator
+  - AnomalyLocatorWide
+  - HoloprojectorField
+  #- SignallerAdvanced - Goobstation - Removed from there. Still in Equipment.
+  - DeviceQuantumSpinInverter
+
+- type: latheRecipePack
+  id: ScienceClothing
+  recipes:
+  - ClothingShoesBootsMagSci
+  - ClothingShoesBootsMoon
+  - ClothingShoesBootsSpeed
+  - ClothingBackpackHolding
+  - ClothingBackpackSatchelHolding
+  - ClothingBackpackDuffelHolding
+  - ClothingBackpackMessengerHolding # Frontier
+
+- type: latheRecipePack
+  id: PowerCells
+  recipes:
+  - PowerCellMicroreactor
+  - PowerCellHigh
+
+- type: latheRecipePack
+  id: ScienceWeapons
+  recipes:
+  - WeaponPistolCHIMP
+  - WeaponForceGun
+  #- WeaponLaserSvalinn - Goobstation - Moved to ServiceWeapons
+  #- WeaponProtoKineticAccelerator - Goobstation - Moved to MiningWeapons
+  - WeaponTetherGun
+  - WeaponGauntletGorilla
+
+- type: latheRecipePack
+  id: FauxTiles
+  recipes:
+  - FauxTileAstroGrass
+  - FauxTileMowedAstroGrass
+  - FauxTileJungleAstroGrass
+  - FauxTileAstroIce
+  - FauxTileAstroSnow
+  - FauxTileAstroAsteroidSand
+
+- type: latheRecipePack
+  id: ScienceBoards
+  recipes:
+  #- TurboItemRechargerCircuitboard - Goobstation - Moved to SharedBoards
+  # Begin DeltaV Removals - replaced by techfabs/upgrade kits
+  #- AutolatheHyperConvectionMachineCircuitboard
+  #- ProtolatheHyperConvectionMachineCircuitboard
+  #- CircuitImprinterHyperConvectionMachineCircuitboard
+  # End DeltaV Removals
+  - TechDiskComputerCircuitboard
+  #- FlatpackerMachineCircuitboard - Moved to SharedBoards
+  #- SheetifierMachineCircuitboard - Moved to ServiceBoards
+  #- PowerCageRechargerCircuitboard - Moved to SharedBoards
+  - AnalysisComputerCircuitboard
+  - AnomalyVesselCircuitboard
+  - AnomalyVesselExperimentalCircuitboard
+  - AnomalySynchronizerCircuitboard
+  - APECircuitboard
+  - ArtifactAnalyzerMachineCircuitboard
+  - ArtifactCrusherMachineCircuitboard
+
+- type: latheRecipePack
+  id: CameraBoards
+  recipes:
+  - SurveillanceCameraRouterCircuitboard
+  - SurveillanceCameraMonitorCircuitboard
+  - SurveillanceWirelessCameraMonitorCircuitboard
+  - SurveillanceCameraWirelessRouterCircuitboard
+  - ComputerTelevisionCircuitboard
+  - SurveillanceWirelessCameraMovableCircuitboard
+  - SurveillanceWirelessCameraAnchoredCircuitboard
+
+- type: latheRecipePack
+  id: MechBoards
+  recipes:
+  - RipleyCentralElectronics
+  - RipleyPeripheralsElectronics
+  - HonkerCentralElectronics
+  - HonkerPeripheralsElectronics
+  - HonkerTargetingElectronics
+  - HamtrCentralElectronics
+  - HamtrPeripheralsElectronics
+
+- type: latheRecipePack
+  id: ShuttleBoards
+  recipes:
+  - ShuttleConsoleCircuitboard
+  - RadarConsoleCircuitboard
+  - ThrusterMachineCircuitboard
+  - GyroscopeMachineCircuitboard
+  - MiniGravityGeneratorCircuitboard

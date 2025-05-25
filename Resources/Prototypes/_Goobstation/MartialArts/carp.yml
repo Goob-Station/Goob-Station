@@ -1,0 +1,70 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
+# SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: martialArt
+  id: SleepingCarp
+  martialArtsForm: SleepingCarp
+  roundstartCombos: SleepingCarpMoves
+  randomDamageModifier: True
+  baseDamageModifier: 5
+  randomSayings:
+  - carp-saying-huah
+  - carv-vaying-hya
+  - carp-saying-choo
+  - carp-saying-wuo
+  - carp-saying-kya
+  - carp-saying-huh
+  - carp-saying-hiyoh
+  - carp-saying-strike
+  - carp-saying-bite
+  randomSayingsDowned:
+  - carp-saying-banzai
+  - carp-saying-kiya
+  - carp-saying-omae
+  - carp-saying-see
+  - carp-saying-time
+  - carp-saying-cowabunga
+
+- type: comboList
+  id: SleepingCarpMoves
+  combos:
+  - SleepingCarpGnashingTeeth
+  - SleepingCarpKneeHaul
+  - SleepingCarpCrashingWaves
+
+- type: combo
+  id: SleepingCarpGnashingTeeth
+  name: Gnashing Teeth
+  martialArtsForm: SleepingCarp
+  attacks:
+  - Harm
+  - Harm
+  event: !type:SleepingCarpGnashingTeethPerformedEvent
+  damageType: Slash
+  extraDamage: 20
+
+- type: combo
+  id: SleepingCarpKneeHaul
+  name: Knee Haul
+  martialArtsForm: SleepingCarp
+  attacks:
+  - Harm
+  - Grab
+  event: !type:SleepingCarpKneeHaulPerformedEvent
+  extraDamage: 10
+  paralyzeTime: 6
+  staminaDamage: 60
+
+- type: combo
+  id: SleepingCarpCrashingWaves
+  name: Crashing Waves
+  martialArtsForm: SleepingCarp
+  attacks:
+  - Harm
+  - Disarm
+  event: !type:SleepingCarpCrashingWavesPerformedEvent
+  staminaDamage: 25

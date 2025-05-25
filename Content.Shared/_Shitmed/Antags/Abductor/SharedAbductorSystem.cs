@@ -1,6 +1,13 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
+using Content.Shared._Shitmed.Body.Organ;
 
 namespace Content.Shared._Shitmed.Antags.Abductor;
 
@@ -13,6 +20,7 @@ public abstract class SharedAbductorSystem : EntitySystem
     {
         SubscribeLocalEvent<AbductorExperimentatorComponent, EntInsertedIntoContainerMessage>(OnInsertedContainer);
         SubscribeLocalEvent<AbductorExperimentatorComponent, EntRemovedFromContainerMessage>(OnRemovedContainer);
+        SubscribeLocalEvent<AbductorOrganComponent, TryRemoveOrganEvent>(OnTryRemoveOrgan);
         base.Initialize();
     }
 
@@ -56,9 +64,12 @@ public abstract class SharedAbductorSystem : EntitySystem
         _appearance.SetData(ent, AbductorExperimentatorVisuals.Full, args.Container.ContainedEntities.Count > 0);
         Dirty(ent);
     }
+
+    private void OnTryRemoveOrgan(Entity<AbductorOrganComponent> ent, ref TryRemoveOrganEvent args) =>
+        args.Cancelled = true;
+
     protected virtual void UpdateGui(NetEntity? target, Entity<AbductorConsoleComponent> computer)
     {
 
     }
 }
-

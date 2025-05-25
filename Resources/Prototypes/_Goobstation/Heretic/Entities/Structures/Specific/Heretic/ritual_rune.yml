@@ -1,3 +1,17 @@
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: HereticRuneRitual
   name: transmutation rune
@@ -9,12 +23,42 @@
   - type: Sprite
     drawdepth: WallMountedItems
     sprite: _Goobstation/Heretic/ritual_rune.rsi
-    state: icon
+    layers:
+    - state: overlay # Required so that you don't miss the rune when clicking on it
+      color: "#FFFFFF01"
+    - state: icon
   - type: Clickable
   - type: UserInterface
     interfaces:
        enum.HereticRitualRuneUiKey.Key:
         type: HereticRitualRuneBoundUserInterface
+  - type: IgnoresFingerprints
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Fixtures
+    fixtures:
+      rune:
+        shape:
+          !type:PhysShapeCircle
+          radius: 1.5
+        hard: false
+        mask:
+         - ItemMask
+        layer:
+         - SlipLayer
+  - type: Physics
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_Goobstation/Heretic/runebreak.ogg
+  - type: EnchantingTable # Goobstation
 
 - type: entity
   id: HereticRuneRitualDrawAnimation
@@ -28,6 +72,17 @@
     drawdepth: WallMountedItems
     sprite: _Goobstation/Heretic/ritual_rune.rsi
     state: icon_drawanim
+
+- type: entity
+  parent: HereticRuneRitualDrawAnimation
+  id: HereticRuneRitualDrawAnimationCicatrix
+  categories: [ HideSpawnMenu ]
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/ritual_rune.rsi
+    state: icon_drawanim_cicatrix
 
 - type: entity
   id: HereticRuneRitualAnimation

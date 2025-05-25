@@ -1,0 +1,163 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: random syndicate item spawner
+  id: SyndicateSpawner
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - sprite: Objects/Weapons/Melee/e_sword.rsi
+          state: icon
+    - type: RandomSpawner
+      prototypes:
+        - WeaponSniperMosin
+        - EnergyDaggerBox
+        - WeaponPistolViper
+        - WeaponPistolCobra
+        - EnergyShield
+        - WeaponRevolverPython
+        - ThrowingKnivesKit
+        - ToolboxElectricalTurretFilled
+        - ContractorBaton
+        - EnergySword
+        - WeaponPistolAnaconda
+        - BetrayalKnife
+        - ClothingHandsGlovesNorthStar
+        - WeaponSubMachineGunC20r
+        - WeaponRifleM90
+        - MiniatureEnergyCrossbow
+        - WeaponShotgunBulldog
+        - FireAxeFlaming
+        - BriefcaseSyndieSniperBundleFilled
+        - WeaponRifleWSPR
+        - SleepingCarpScroll
+        - BowHardlight
+        - WeaponRifleBurner
+        - WeaponLightMachineGunL6
+        - WeaponLauncherChinaLake
+        - EmpGrenade
+        - GrenadeFlashBang
+        - SmokeGrenade
+        - WhiteholeGrenade
+        - ExGrenade
+        - PenExplodingBox
+        - GrenadeShrapnel
+        - GrenadeIncendiary
+        - ClusterGrenade
+        - SupermatterGrenade
+        - SyndieMiniBomb
+        - ClothingBackpackDuffelSyndicateC4tBundle
+        - ClothingBeltSyndieHolster
+        - ClothingBeltMilitaryWebbing
+        - ClothingBackpackSyndicate
+        - JetpackBlackFilled
+        - ClothingEyesNightVisionGogglesSyndie
+        - ClothingShoesChameleonNoSlips
+        - ClothingBackpackChameleonFill
+        - ClothingShoesBootsMagSyndie
+        - ClothingOuterHardsuitCarp
+        - ClothingMaskGasVoiceChameleon
+        - BoxReverseBearTrap
+        - ClothingHeadHelmetSwatSyndicate
+        - ClothingBackpackDuffelSyndicateEVABundle
+        - ClothingUniformJumpsuitAtmosSyndie
+        - ThievingGloves
+        - ClothingOuterHardsuitSyndie
+        - ClothingOuterHardsuitCybersunDreadnought
+        - ClothingOuterHardsuitJuggernaut
+        - ClothingOuterHardsuitSyndieElite
+        - ClothingEyesThermalVisionGogglesSyndie
+        - SyndicateLollypopBundle
+        - ChemicalSynthesisKit
+        - AdvancedCombatMedipen
+        - ClothingOuterHardsuitCybersunStealth
+        - Stimpack
+        - HypoDartBox
+        - CigPackSyndicate
+        - EncryptionKeyBinarySyndicate
+        - ChemistryBottleNocturine
+        - ClothingBackpackDuffelSyndicateFilledCandy
+        - CyberPen
+        - StimkitFilled
+        - HypopenBox
+        - ClothingHandsGlovesExplosiveShock
+        - LanternFlash
+        - NukeDiskFake
+        - ClothingOuterVestWeb
+        - AccessBreaker
+        - BoxReagentGrenades
+        - Emag
+        - AntimovCircuitBoard
+        - BorgModuleMartyr
+        - RadioJammer
+        - SlipocalypseClusterSoap
+        - SoapSyndie
+        - ToolboxSyndicateFilled
+        - SyndicateJawsOfLife
+        - ClothingBackpackDuffelSyndicateFilledMedical
+        - BorgModuleSyndicateWeapon
+        - BriefcaseSyndieLobbyingBundleFilled
+        - CameraBug
+        - ChameleonProjector
+        - ClothingBackpackDuffelSyndicateDecoyKitFilled
+        - ClothingBackpackSatchelSmugglerUnanchored
+        - BoxEncryptionKeySyndie
+        - RevolverCapGunFake
+        - ClothingBackpackDuffelSyndicateCarpSuit
+        - ClothingHeadHatCatEars
+        - ClothingBackpackDuffelSyndicateCostumeClown
+        - ClusterBananaPeel
+        - CombatBakeryKit
+        - SyringePistol
+        - DehydratedSpaceCarp
+        - GlueGrenade
+        - BoxHoloclown
+        - BoxHoloparasite
+        - HolyHandGrenade
+        - HotPotato
+        - LubeGrenade
+        - MindcontrolImplanter
+        - SyndicateSpongeBox
+        - BibleNecronomicon
+        - ClothingUniformJumpskirtOperative
+        - ClothingUniformJumpsuitOperative
+        - ClothingEyesGlassesOutlawGlasses
+        - ClothingHeadHatOutlawHat
+        - GatfruitSeeds
+        - LauncherCreamPieRegenerating
+        - ClothingNeckScarfStripedSyndieGreen
+        - ClothingNeckScarfStripedSyndieRed
+        - ReinforcementRadioSyndicateSyndiCat
+        - CardBoxSyndicate
+        - ReinforcementRadioSyndicateAncestor
+        - SmokeImplanter
+        - RadioImplanter
+        - FakeMindShieldImplanter
+        - EmpImplanter
+        - ScramImplanter
+        - StorageImplanter
+        - FreedomImplanter
+        - DeathAcidifierImplanter
+        - UplinkImplanter
+        - MicroBombImplanter
+        - DnaScramblerImplanter
+        - ClothingBackpackDuffelSyndicateFilledWhimsy
+        - SyndicatePersonalAI
+        - ClothingBackpackDuffelSyndicatePyjamaBundle
+        - ReinforcementRadioSyndicate
+        - RubberStampSyndicate
+        - HappyHonkNukieSnacks
+        - BalloonSyn
+        - ReinforcementRadioSyndicateSyndiRoach
+        - WetFloorSignMineExplosive
+      offset: 0.0

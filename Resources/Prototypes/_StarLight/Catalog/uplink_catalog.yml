@@ -1,0 +1,38 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2025 ss14-Starlight <ss14-Starlight@outlook.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: listing
+  id: uplinkContortionistJumpsuit
+  name: uplink-contortionist-jumpsuit-name
+  description: uplink-contortionist-jumpsuit-desc
+  productEntity: ClothingUniformJumpsuitAtmosSyndie
+  cost:
+    Telecrystal: 30 # Goobstation edit
+  categories:
+  - UplinkWearables
+  # Goobstation - nuh uh
+  #conditions:
+  #- !type:BuyerJobCondition
+  #  whitelist:
+  #  - AtmosphericTechnician
+
+- type: listing
+  id: uplinkContortionistJumpsuitAdvanced
+  name: uplink-contortionist-jumpsuit-advanced-name
+  description: uplink-contortionist-jumpsuit-advanced-desc
+  productEntity: ClothingUniformJumpsuitAtmosSyndieAdvanced
+  cost:
+    Telecrystal: 60
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - AtmosphericTechnician

@@ -1,3 +1,13 @@
+# SPDX-FileCopyrightText: 2024 NULL882 <gost6865@yandex.ru>
+# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Weide <64257676+Lyacs@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
   id: CrateCybersunDarkGygaxBundle
@@ -44,3 +54,98 @@
           amount: 5
         - id: DrinkVodkaBottleFull
           amount: 3
+
+- type: entity
+  parent: CrateSyndicate
+  id: CrateSyndicateDreadnought
+  name: cybersun dreadnought bundle
+  description: "An advanced cybersun dreadnought bundle."
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingOuterHardsuitCybersunDreadnought
+      - id: ClothingMaskGasSyndicate
+      - id: ClothingHandsGlovesCombat
+      - id: DoubleEmergencyOxygenTankFilled
+      - id: DoubleEmergencyNitrogenTankFilled
+
+- type: entity
+  id: CratePizzaParty
+  parent: CratePlastic
+  name: disaster pizza delivery
+  description: In the ultimate event that all else has failed, Find comfort in that more pizza solves everything. Includes 16 pizzas.
+  components:
+  - type: StorageFill
+    contents:     #to avoid them from being easily identifiable (8 pizza bomb + 8 regular pizzas)
+    - id: FoodBoxPizzaFilled
+      amount: 1
+    - id: FoodBoxPizzaBomb
+      amount: 2
+    - id: FoodBoxPizzaFilled
+      amount: 2
+    - id: FoodBoxPizzaBomb
+      amount : 1
+    - id: FoodBoxPizzaCotton
+      amount : 1
+    - id: FoodBoxPizzaBomb
+      amount : 2
+    - id: FoodBoxPizzaFilled
+      amount: 2
+    - id: FoodBoxPizzaBomb
+      amount : 2
+    - id: FoodBoxPizzaFilled
+      amount: 1
+    - id: FoodBoxPizzaBomb
+      amount: 1
+    - id: FoodBoxPizzaFilled
+      amount: 1
+    - id: LidSalami
+      prob: 0.01
+
+- type: entity
+  parent: [ BaseStructureDynamic, BaseSetSelector, BaseSyndicateContraband ]
+  id: CrateSyndicateUndetermined # Not actually a crate, just looks like one
+  name: undetermined Syndicate bundle crate
+  description: Contains a Syndicate bundle. Which one is yet to be determined.
+  components:
+  - type: Icon
+    sprite: Structures/Storage/Crates/syndicate.rsi
+    state: icon
+  - type: Sprite
+    noRot: true
+    sprite: Structures/Storage/Crates/syndicate.rsi
+    layers:
+    - state: icon
+  - type: SetSelector
+    possibleSets:
+    - SyndicateSpySet
+    - SyndicateHitmanSet
+    - SyndicateImplantsSet
+    - SyndicateHackerSet
+    - SyndicateDeswordSet
+    - SyndicateGrenadierSet
+    - SyndicateFluclearSet
+    - SyndicateFriendshipSet
+    - SyndicateCarpSet
+    setsToSelect: 3
+    spawnedStoragePrototype: CrateSyndicate
+    spawnedStorageContainer: entity_storage
+    openSpawnedStorage: true
+    approveSound:
+      path: /Audio/Effects/closetopen.ogg
+  - type: InteractionOutline
+  - type: Transform
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.29"
+        density: 50
+        mask:
+        - CrateMask
+        layer:
+        - MachineLayer
+  - type: StaticPrice
+    price: 5000

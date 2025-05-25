@@ -1,6 +1,12 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   name: cryo katana
-  parent: [Katana, BaseMagicContraband]
+  parent: [BaseMagicContraband, Katana]
   id: CryoKatana
   description: Freeze your enemies.
   components:
@@ -12,8 +18,6 @@
       types:
         Slash: 20
         Cold: 10
-    clickPartDamageMultiplier: 1.5
-    heavyPartDamageMultiplier: 1
   - type: Item
     sprite: _Goobstation/Objects/Weapons/Melee/cryokatana.rsi
   - type: Clothing

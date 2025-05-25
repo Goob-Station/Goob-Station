@@ -1,0 +1,20 @@
+<!--
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
+<DefaultWindow xmlns="https://spacestation14.io" Title="{Loc 'store-refund-window-title'}" MinSize="450 450" SetSize="450 450">
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True" SizeFlagsStretchRatio="0.4">
+        <Button Name="RefundAllButton" Text="{Loc 'store-refund-window-refund-all'}" HorizontalAlignment="Center" Margin="0 4" />
+        <Label Name="NoRefundLabel" Text="{Loc 'store-refund-window-refund-disabled'}" Visible="False" HorizontalAlignment="Center" Margin="0 4" />
+        <LineEdit Name="SearchBar" PlaceHolder="Search" HorizontalExpand="True" Margin="0 4" />
+        <ScrollContainer Name="Scroll" VerticalExpand="True" HorizontalExpand="True" HScrollEnabled="False">
+            <BoxContainer Name="ButtonContainer" Orientation="Vertical" VerticalExpand="True" SeparationOverride="5">
+                <!-- Refund buttons get added here by code -->
+            </BoxContainer>
+        </ScrollContainer>
+    </BoxContainer>
+</DefaultWindow>

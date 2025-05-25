@@ -1,6 +1,30 @@
+// SPDX-FileCopyrightText: 2021 moonheart08 <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 E F R <602406+Efruit@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Tom Leys <tom@crump-leys.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Kevin Zheng <kevinz5000@gmail.com>
+// SPDX-FileCopyrightText: 2024 MjrLandWhale <brandonemitch@gmail.com>
+// SPDX-FileCopyrightText: 2024 Partmedia <kevinz5000@gmail.com>
+// SPDX-FileCopyrightText: 2024 PotentiallyTom <67602105+PotentiallyTom@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Piping.Unary.Components;
 using Content.Shared.DeviceLinking;
+using Content.Shared.Guidebook;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server.Atmos.Piping.Unary.Components
@@ -10,8 +34,12 @@ namespace Content.Server.Atmos.Piping.Unary.Components
     [RegisterComponent]
     public sealed partial class GasVentPumpComponent : Component
     {
+        /// <summary>
+        /// Identifies if the device is enabled by an air alarm. Does not indicate if the device is powered.
+        /// By default, all air vents start enabled, whether linked to an alarm or not.
+        /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
-        public bool Enabled { get; set; } = false;
+        public bool Enabled { get; set; } = true;
 
         [ViewVariables]
         public bool IsDirty { get; set; } = false;
@@ -35,6 +63,7 @@ namespace Content.Server.Atmos.Piping.Unary.Components
         ///     In releasing mode, do not pump when environment pressure is below this limit.
         /// </summary>
         [DataField]
+        [GuidebookData]
         public float UnderPressureLockoutThreshold = 80; // this must be tuned in conjunction with atmos.mmos_spacing_speed
 
         /// <summary>
@@ -58,7 +87,7 @@ namespace Content.Server.Atmos.Piping.Unary.Components
         [DataField]
         public bool IsPressureLockoutManuallyDisabled = false;
         /// <summary>
-        /// The time when the manual pressure lockout will be reenabled. 
+        /// The time when the manual pressure lockout will be reenabled.
         /// </summary>
         [DataField]
         [AutoPausedField]
@@ -101,6 +130,7 @@ namespace Content.Server.Atmos.Piping.Unary.Components
         ///     Max pressure of the target gas (NOT relative to source).
         /// </summary>
         [DataField]
+        [GuidebookData]
         public float MaxPressure = Atmospherics.MaxOutputPressure;
 
         /// <summary>
@@ -172,5 +202,12 @@ namespace Content.Server.Atmos.Piping.Unary.Components
             InternalPressureBound = data.InternalPressureBound;
             PressureLockoutOverride = data.PressureLockoutOverride;
         }
+
+        #region GuidebookData
+
+        [GuidebookData]
+        public float DefaultExternalBound => Atmospherics.OneAtmosphere;
+
+        #endregion
     }
 }

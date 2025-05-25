@@ -1,5 +1,16 @@
-﻿#nullable enable
+// SPDX-FileCopyrightText: 2024 Firewatch <54725557+musicmanvr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Mr. 27 <koolthunder019@gmail.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+#nullable enable
 using Robust.Shared.Console;
+using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 
 namespace Content.IntegrationTests.Tests.Minds;
@@ -37,8 +48,8 @@ public sealed partial class MindTests
         Assert.That(pair.Client.EntMan.EntityCount, Is.EqualTo(0));
 
         // Create a new map.
-        int mapId = 1;
-        await pair.Server.WaitPost(() => conHost.ExecuteCommand($"addmap {mapId}"));
+        MapId mapId = default;
+        await pair.Server.WaitPost(() => pair.Server.System<SharedMapSystem>().CreateMap(out mapId));
         await pair.RunTicksSync(5);
 
         // Client is not attached to anything
@@ -54,7 +65,7 @@ public sealed partial class MindTests
         Assert.That(pair.Client.EntMan.EntityExists(pair.Client.AttachedEntity));
         Assert.That(pair.Server.EntMan.EntityExists(pair.PlayerData?.Mind));
         var xform = pair.Client.Transform(pair.Client.AttachedEntity!.Value);
-        Assert.That(xform.MapID, Is.EqualTo(new MapId(mapId)));
+        Assert.That(xform.MapID, Is.EqualTo(mapId));
 
         await pair.CleanReturnAsync();
     }

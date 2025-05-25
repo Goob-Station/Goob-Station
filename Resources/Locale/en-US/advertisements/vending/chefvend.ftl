@@ -1,4 +1,13 @@
-﻿advertisement-chefvend-1 = At least sixty percent of our eggs un-broken, guranteed!
+# SPDX-FileCopyrightText: 2022 ChilbroBaggins <107660393+ChilbroBaggins@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Jeff <velcroboy333@hotmail.com>
+# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+advertisement-chefvend-1 = At least sixty percent of our eggs un-broken, guranteed!
 advertisement-chefvend-2 = Rice, rice, baby.
 advertisement-chefvend-3 = Slap some butter on it!
 advertisement-chefvend-4 = Are you worth your salt? We are.

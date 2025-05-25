@@ -1,0 +1,195 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: AmmoProviderShotgunShell
+  id: BaseMagazineBoxShotgunHighCaliber
+  abstract: true
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+    whitelist:
+      tags:
+      - ShellShotgunHeavy
+  - type: Item
+    size: Small
+
+# Carpshot
+- type: entity
+  name: shell box (8 Gauge carpshot)
+  parent: BaseMagazineBoxShotgunHighCaliber
+  id: MagazineBoxShotgunHighCaliber
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunHighCaliber
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: lethal
+
+# Normal Slug
+- type: entity
+  name: shell box (8 Gauge slug)
+  parent: BaseMagazineBoxShotgunHighCaliber
+  id: MagazineBoxShotgunSlugHighCaliber
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunSlugHighCaliber
+  - type: MagazineVisuals
+    magState: mag-alt
+    steps: 5
+    zeroVisible: false
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-alt-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: slug
+
+# Incendiary
+- type: entity
+  name: shell box (8 Gauge incendiary)
+  parent: BaseMagazineBoxShotgunHighCaliber
+  id: MagazineBoxShotgunIncendiaryHighCaliber
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunHighCaliberIncendiary
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: incendiary
+
+# Uranium
+- type: entity
+  name: shell box (8 Gauge uranium)
+  parent: BaseMagazineBoxShotgunHighCaliber
+  id: MagazineBoxShotgunUraniumHighCaliber
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunHighCaliberUranium
+  - type: MagazineVisuals
+    magState: mag-alt
+    steps: 5
+    zeroVisible: false
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-alt-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: uranium
+
+# Beanbag
+
+- type: entity
+  parent: BaseMagazineBoxShotgunHighCaliber
+  id: MagazineBoxShotgunBeanbagHighCaliber
+  name: shell box (8 Gauge beanbag)
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunBeanbagHighCaliber
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: beanbag
+
+# Practice
+
+- type: entity
+  name: shell box (8 Gauge practice)
+  parent: BaseMagazineBoxShotgunHighCaliber
+  id: MagazineBoxShotgunPracticeHighCaliber
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunHighCaliberPractice
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: practice
+
+
+# Ensnaring
+- type: entity
+  id: MagazineBoxShotgunHighCaliberEnsnaring
+  parent: BaseMagazineBoxShotgunHighCaliber
+  name: shell box (8 Gauge slug ensnaring)
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunSlugEnsnaring
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: incendiary
+      color: "#cfff77"
+
+# EMP
+- type: entity
+  id: MagazineBoxShotgunHighCaliberEMP
+  parent: BaseMagazineBoxShotgunHighCaliber
+  name: shell box (8 Gauge slug EMP)
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunSlugEMP
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: incendiary
+      color: "#009eff"
+
+# Flash
+- type: entity
+  id: MagazineBoxShotgunHighCaliberFlash
+  parent: BaseMagazineBoxShotgunHighCaliber
+  name: shell box (8 Gauge slug flash)
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunSlugFlash
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: incendiary
+      color: "#fff94d"
+
+# Sarin
+- type: entity
+  id: MagazineBoxShotgunHighCaliberSarin
+  parent: BaseMagazineBoxShotgunHighCaliber
+  name: shell box (8 Gauge sarin gas)
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunHighCaliberSarin
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: sarin

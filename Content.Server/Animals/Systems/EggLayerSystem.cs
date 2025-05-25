@@ -1,3 +1,20 @@
+// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Baa <9057997+Baa14453@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Centronias <me@centronias.com>
+// SPDX-FileCopyrightText: 2024 Sirionaut <148076704+Sirionaut@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2024 sirionaut <sirionaut@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.Actions;
 using Content.Server.Animals.Components;
 using Content.Server.Popups;
@@ -39,8 +56,13 @@ public sealed class EggLayerSystem : EntitySystem
     {
         base.Update(frameTime);
         var query = EntityQueryEnumerator<EggLayerComponent>();
+        var eligibleEggLayers = new List<Entity<EggLayerComponent>>(); // Goob - self-spawning
         while (query.MoveNext(out var uid, out var eggLayer))
         {
+            // Goobstation - hard hunger requirement
+            if (eggLayer.HungerRequired && !HasComp<HungerComponent>(uid))
+                continue;
+
             // Players should be using the action.
             if (HasComp<ActorComponent>(uid))
                 continue;
@@ -56,9 +78,14 @@ public sealed class EggLayerSystem : EntitySystem
 
             // Hungerlevel check/modification is done in TryLayEgg()
             // so it's used for player controlled chickens as well.
-
-            TryLayEgg(uid, eggLayer);
+            eligibleEggLayers.Add((uid, eggLayer)); // Goob - self-spawning
         }
+        // Goob - self-spawning start
+        foreach (var ent in eligibleEggLayers)
+        {
+            TryLayEgg(ent.Owner, ent.Comp);
+        }
+        // Goob - self-spawning end
     }
 
     private void OnMapInit(EntityUid uid, EggLayerComponent component, MapInitEvent args)
@@ -80,6 +107,13 @@ public sealed class EggLayerSystem : EntitySystem
 
         if (_mobState.IsDead(uid))
             return false;
+
+        // Goobstation - hard hunger requirement
+        if (egglayer.HungerRequired && !HasComp<HungerComponent>(uid))
+        {
+            _popup.PopupEntity(Loc.GetString("action-popup-lay-egg-unable"), uid, uid);
+            return false;
+        }
 
         // Allow infinitely laying eggs if they can't get hungry.
         if (TryComp<HungerComponent>(uid, out var hunger))

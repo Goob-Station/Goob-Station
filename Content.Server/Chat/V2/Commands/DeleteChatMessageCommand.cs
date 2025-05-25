@@ -1,4 +1,11 @@
-﻿using System.Diagnostics;
+// SPDX-FileCopyrightText: 2024 Hannah Giovanna Dawson <karakkaraz@gmail.com>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Your Name <you@example.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using System.Diagnostics;
 using Content.Server.Administration;
 using Content.Server.Chat.V2.Repository;
 using Content.Shared.Administration;
@@ -14,7 +21,7 @@ public sealed class DeleteChatMessageCommand : ToolshedCommand
     [Dependency] private readonly IEntitySystemManager _manager = default!;
 
     [CommandImplementation("id")]
-    public void DeleteChatMessage([CommandInvocationContext] IInvocationContext ctx, [CommandArgument] uint messageId)
+    public void DeleteChatMessage(IInvocationContext ctx, uint messageId)
     {
         if (!_manager.GetEntitySystem<ChatRepositorySystem>().Delete(messageId))
         {

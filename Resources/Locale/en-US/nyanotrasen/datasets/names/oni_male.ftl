@@ -1,0 +1,17 @@
+names-oni-first-male-dataset-1 = Kiyoshi
+names-oni-first-male-dataset-2 = Satoshi
+names-oni-first-male-dataset-3 = Teru
+names-oni-first-male-dataset-4 = Hiroshi
+names-oni-first-male-dataset-5 = Takashi
+names-oni-first-male-dataset-6 = Eeichi
+names-oni-first-male-dataset-7 = Eeichirou
+names-oni-first-male-dataset-8 = Kyousaburou
+names-oni-first-male-dataset-9 = Tsutomu
+names-oni-first-male-dataset-10 = Tsuyoshi
+names-oni-first-male-dataset-11 = Kenshi
+names-oni-first-male-dataset-12 = Kenji
+names-oni-first-male-dataset-13 = Kenichi
+names-oni-first-male-dataset-14 = Susumu
+names-oni-first-male-dataset-15 = Kyounosuke
+names-oni-first-male-dataset-16 = Suisei
+names-oni-first-male-dataset-17 = Shuten

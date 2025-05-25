@@ -1,3 +1,15 @@
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 PrPleGoo <PrPleGoo@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Rane <60792108+Elijahrane@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
+// SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.GameTicking;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
@@ -56,35 +68,35 @@ public abstract class EquipmentHudSystem<T> : EntitySystem where T : IComponent
 
     protected virtual void DeactivateInternal() { }
 
-    private void OnStartup(EntityUid uid, T component, ComponentStartup args)
+    private void OnStartup(Entity<T> ent, ref ComponentStartup args)
     {
-        RefreshOverlay(uid);
+        RefreshOverlay();
     }
 
-    private void OnRemove(EntityUid uid, T component, ComponentRemove args)
+    private void OnRemove(Entity<T> ent, ref ComponentRemove args)
     {
-        RefreshOverlay(uid);
+        RefreshOverlay();
     }
 
     private void OnPlayerAttached(LocalPlayerAttachedEvent args)
     {
-        RefreshOverlay(args.Entity);
+        RefreshOverlay();
     }
 
     private void OnPlayerDetached(LocalPlayerDetachedEvent args)
     {
-        if (_player.LocalSession?.AttachedEntity == null)
+        if (_player.LocalSession?.AttachedEntity is null)
             Deactivate();
     }
 
-    private void OnCompEquip(EntityUid uid, T component, GotEquippedEvent args)
+    private void OnCompEquip(Entity<T> ent, ref GotEquippedEvent args)
     {
-        RefreshOverlay(args.Equipee);
+        RefreshOverlay();
     }
 
-    private void OnCompUnequip(EntityUid uid, T component, GotUnequippedEvent args)
+    private void OnCompUnequip(Entity<T> ent, ref GotUnequippedEvent args)
     {
-        RefreshOverlay(args.Equipee);
+        RefreshOverlay();
     }
 
     private void OnRoundRestart(RoundRestartCleanupEvent args)
@@ -92,27 +104,26 @@ public abstract class EquipmentHudSystem<T> : EntitySystem where T : IComponent
         Deactivate();
     }
 
-    protected virtual void OnRefreshEquipmentHud(EntityUid uid, T component, InventoryRelayedEvent<RefreshEquipmentHudEvent<T>> args)
+    protected virtual void OnRefreshEquipmentHud(Entity<T> ent, ref InventoryRelayedEvent<RefreshEquipmentHudEvent<T>> args)
     {
-        // Goob edit start
+        // Goobstation edit
         args.Args.Active = true;
-        args.Args.Components.Add(component);
-        // Goob edit end
+        args.Args.Components.Add(ent.Comp);
     }
 
-    protected virtual void OnRefreshComponentHud(EntityUid uid, T component, RefreshEquipmentHudEvent<T> args)
+    protected virtual void OnRefreshComponentHud(Entity<T> ent, ref RefreshEquipmentHudEvent<T> args)
     {
         args.Active = true;
-        args.Components.Add(component);
+        args.Components.Add(ent.Comp);
     }
 
-    protected void RefreshOverlay(EntityUid uid)
+    protected void RefreshOverlay()
     {
-        if (uid != _player.LocalSession?.AttachedEntity)
+        if (_player.LocalSession?.AttachedEntity is not { } entity)
             return;
 
         var ev = new RefreshEquipmentHudEvent<T>(TargetSlots);
-        RaiseLocalEvent(uid, ev);
+        RaiseLocalEvent(entity, ref ev);
 
         if (ev.Active)
             Update(ev);

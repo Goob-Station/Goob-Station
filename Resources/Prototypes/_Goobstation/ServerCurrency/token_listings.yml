@@ -1,0 +1,40 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GMWQ <garethquaile@gmail.com>
+# SPDX-FileCopyrightText: 2025 Gareth Quaile <garethquaile@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: tokenListing
+  id: TrialAdminToken
+  name: gs-balanceui-shop-buy-token-admin
+  label: gs-balanceui-shop-token-admin
+  description: gs-balanceui-shop-buy-token-admin-desc
+  price: 50000
+  adminNote: gs-balanceui-remark-admin
+
+- type: tokenListing
+  id: HighTierAntagToken
+  name: gs-balanceui-shop-buy-token-antag
+  label: gs-balanceui-shop-token-antag
+  description: gs-balanceui-shop-buy-token-antag-desc
+  price: 3000
+  adminNote: gs-balanceui-remark-token-antag
+
+- type: tokenListing
+  id: AdminAbuseToken
+  name: gs-balanceui-shop-buy-token-admin-abuse
+  label: gs-balanceui-shop-token-admin-abuse
+  description: gs-balanceui-shop-buy-token-admin-abuse-desc
+  price: 1000
+  adminNote: gs-balanceui-remark-token-admin-abuse
+
+- type: tokenListing
+  id: HatToken
+  name: gs-balanceui-shop-buy-token-hat
+  label: gs-balanceui-shop-token-hat
+  description: gs-balanceui-shop-buy-token-hat-desc
+  price: 750
+  adminNote: gs-balanceui-remark-token-hat

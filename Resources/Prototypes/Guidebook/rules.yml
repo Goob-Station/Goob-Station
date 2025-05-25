@@ -1,4 +1,19 @@
-﻿- type: guideEntry # Default for forks and stuff. Should not be listed anywhere if the server is using a custom ruleset.
+# SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kira Gbedan <161087999+Verbalase@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <92357316+Piras314@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 basic pack <159909786+packmore@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GrownSamoyedDog <61863648+GrownSamoyedDog@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: guideEntry # Default for forks and stuff. Should not be listed anywhere if the server is using a custom ruleset.
   id: DefaultRuleset
   name: guide-entry-rules
   priority: 60
@@ -164,6 +179,7 @@
   - RuleR17
   - RuleR18
   - RuleR19
+  - RuleR20
 
 - type: guideEntry
   id: RuleR1
@@ -312,6 +328,12 @@
   text: "/ServerInfo/Guidebook/ServerRules/RoleplayRules/RuleR19VH.xml"
 
 - type: guideEntry
+  id: RuleR20
+  name: guide-entry-rules-r20
+  priority: 20
+  text: "/ServerInfo/Guidebook/ServerRules/RoleplayRules/RuleR20NewLifeRule.xml"
+
+- type: guideEntry
   id: SiliconRules
   name: guide-entry-rules-silicon
   ruleEntry: true
@@ -398,6 +420,23 @@
   ruleEntry: true
   priority: 10
   text: "/ServerInfo/Guidebook/ServerRules/SiliconRules/RuleS10OrderConflicts.xml"
+
+
+- type: guideEntry
+  id: MRPRules
+  name: guide-entry-rules-mrp-m0
+  ruleEntry: true
+  priority: 60
+  text: "/ServerInfo/Guidebook/ServerRules/MRPRules/RuleM0.xml"
+  children:
+  - RuleM1
+
+- type: guideEntry
+  id: RuleM1
+  name: guide-entry-rules-m1
+  ruleEntry: true
+  priority: 10
+  text: "/ServerInfo/Guidebook/ServerRules/MRPRules/RuleM1DoNotPowergame.xml"
 
 - type: guideEntry
   id: SpaceLaw

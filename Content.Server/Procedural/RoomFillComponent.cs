@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Whitelist;
 
 namespace Content.Server.Procedural;
@@ -16,10 +23,16 @@ public sealed partial class RoomFillComponent : Component
     public bool Rotation = true;
 
     /// <summary>
-    /// Size of the room to fill.
+    /// Min size of the possible selected room.
     /// </summary>
-    [DataField(required: true)]
-    public Vector2i Size;
+    [DataField]
+    public Vector2i MinSize = new (3, 3);
+
+    /// <summary>
+    /// Max size of the possible selected room.
+    /// </summary>
+    [DataField]
+    public Vector2i MaxSize = new (10, 10);
 
     /// <summary>
     /// Rooms allowed for the marker.
@@ -31,5 +44,5 @@ public sealed partial class RoomFillComponent : Component
     /// Should any existing entities / decals be bulldozed first.
     /// </summary>
     [DataField]
-    public bool ClearExisting;
+    public bool ClearExisting = true;
 }

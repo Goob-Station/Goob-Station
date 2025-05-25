@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
@@ -24,29 +29,6 @@ public sealed partial class HolopadUserComponent : Component
 /// A networked event raised when the visual state of a hologram is being updated
 /// </summary>
 [Serializable, NetSerializable]
-public sealed class HolopadHologramVisualsUpdateEvent : EntityEventArgs
-{
-    /// <summary>
-    /// The hologram being updated
-    /// </summary>
-    public readonly NetEntity Hologram;
-
-    /// <summary>
-    /// The target the hologram is copying
-    /// </summary>
-    public readonly NetEntity? Target;
-
-    public HolopadHologramVisualsUpdateEvent(NetEntity hologram, NetEntity? target = null)
-    {
-        Hologram = hologram;
-        Target = target;
-    }
-}
-
-/// <summary>
-/// A networked event raised when the visual state of a hologram is being updated
-/// </summary>
-[Serializable, NetSerializable]
 public sealed class HolopadUserTypingChangedEvent : EntityEventArgs
 {
     /// <summary>
@@ -63,42 +45,5 @@ public sealed class HolopadUserTypingChangedEvent : EntityEventArgs
     {
         User = user;
         IsTyping = isTyping;
-    }
-}
-
-/// <summary>
-/// A networked event raised by the server to request the current visual state of a target player entity
-/// </summary>
-[Serializable, NetSerializable]
-public sealed class PlayerSpriteStateRequest : EntityEventArgs
-{
-    /// <summary>
-    /// The player entity in question
-    /// </summary>
-    public readonly NetEntity TargetPlayer;
-
-    public PlayerSpriteStateRequest(NetEntity targetPlayer)
-    {
-        TargetPlayer = targetPlayer;
-    }
-}
-
-/// <summary>
-/// The client's response to a <see cref="PlayerSpriteStateRequest"/>
-/// </summary>
-[Serializable, NetSerializable]
-public sealed class PlayerSpriteStateMessage : EntityEventArgs
-{
-    public readonly NetEntity SpriteEntity;
-
-    /// <summary>
-    /// Data needed to reconstruct the player's sprite component layers
-    /// </summary>
-    public readonly PrototypeLayerData[]? SpriteLayerData;
-
-    public PlayerSpriteStateMessage(NetEntity spriteEntity, PrototypeLayerData[]? spriteLayerData = null)
-    {
-        SpriteEntity = spriteEntity;
-        SpriteLayerData = spriteLayerData;
     }
 }

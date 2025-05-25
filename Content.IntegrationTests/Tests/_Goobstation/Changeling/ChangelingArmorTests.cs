@@ -1,10 +1,22 @@
+// SPDX-FileCopyrightText: 2024 TGRCDev <tgrc@tgrc.dev>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Marcus F <marcus2008stoke@gmail.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Goobstation.Server.Changeling;
+using Content.Goobstation.Shared.Changeling;
 using Content.Server.Actions;
 using Content.Server.Antag;
-using Content.Server.Changeling;
 using Content.Server.GameTicking;
 using Content.Server.Mind;
 using Content.Shared.Actions;
-using Content.Shared.Changeling;
 using Content.Shared.Inventory;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Timing;
@@ -16,14 +28,14 @@ public sealed class ChangelingArmorTest
 {
     [Test]
     [TestCase("ActionToggleChitinousArmor", "ChangelingClothingOuterArmor", "ChangelingClothingHeadHelmet")]
-    [TestCase("ActionToggleSpacesuit", "ChangelingClothingOuterHardsuit", "ChangelingClothingHeadHelmetHardsuit")]
     public async Task TestChangelingFullArmor(string actionProto, string outerProto, string helmetProto)
     {
         await using var pair = await PoolManager.GetServerClient(new PoolSettings
         {
-            Dirty = true,
-            InLobby = false,
-            DummyTicker = false,
+            // This makes it take like 3 minutes, twice.
+            // Dirty = true,
+            // InLobby = false,
+            // DummyTicker = false,
         });
 
         var server = pair.Server;
@@ -38,10 +50,10 @@ public sealed class ChangelingArmorTest
         var actionSys = entMan.System<ActionsSystem>();
         var invSys = entMan.System<InventorySystem>();
 
-        Assert.That(ticker.RunLevel, Is.EqualTo(GameRunLevel.InRound));
+        // Assert.That(ticker.RunLevel, Is.EqualTo(GameRunLevel.InRound));
 
         EntityUid urist = EntityUid.Invalid;
-        ChangelingComponent changeling = null;
+        Goobstation.Shared.Changeling.Components.ChangelingIdentityComponent changelingIdentity = null;
         Entity<InstantActionComponent> armorAction = (EntityUid.Invalid, null);
 
         await server.WaitPost(() =>
@@ -50,10 +62,10 @@ public sealed class ChangelingArmorTest
             urist = entMan.SpawnEntity("MobHuman", testMap.GridCoords);
 
             // Make urist a changeling
-            changeling = entMan.AddComponent<ChangelingComponent>(urist);
-            changeling.TotalAbsorbedEntities += 10;
-            changeling.MaxChemicals = 1000;
-            changeling.Chemicals = 1000;
+            changelingIdentity = entMan.AddComponent<Goobstation.Shared.Changeling.Components.ChangelingIdentityComponent>(urist);
+            changelingIdentity.TotalAbsorbedEntities += 10;
+            changelingIdentity.MaxChemicals = 1000;
+            changelingIdentity.Chemicals = 1000;
 
             // Give urist chitinous armor action
             var armorActionEnt = actionSys.AddAction(urist, actionProto);
@@ -129,6 +141,8 @@ public sealed class ChangelingArmorTest
             Assert.That(head, Is.Not.Null);
             Assert.That(entMan.GetComponent<MetaDataComponent>(head.Value).EntityPrototype!.ID, Is.EqualTo(mercHelmet));
         });
+
+        await server.WaitPost(() => entMan.DeleteEntity(urist));
 
         await pair.CleanReturnAsync();
     }

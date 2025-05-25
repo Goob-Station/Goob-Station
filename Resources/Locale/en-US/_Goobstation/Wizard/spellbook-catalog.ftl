@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 spellbook-mime-malaise-name = Mime Malaise
 spellbook-mime-malaise-desc =
     A spell popular with theater nerd wizards and contrarian pranksters, this spell will put on a mime costume on the target, stun them so that they may contemplate Art, and silence them.
@@ -122,7 +128,7 @@ spellbook-instant-summons-desc =
 spellbook-teleport-name = Teleport
 spellbook-teleport-desc =
     Teleports you to an area of your selection.
-    Doesn't require wizard's robe and hat to cast.
+    Requires wizard's robe and hat to cast.
 
 spellbook-the-traps-name = The Traps!
 spellbook-the-traps-desc =
@@ -145,7 +151,7 @@ spellbook-sanguine-strike-name = Exsanguinating Strike
 spellbook-sanguine-strike-desc =
     Sanguine spell that enchants your next weapon strike to deal more damage, heal you for damage dealt, and refill blood.
     Damage dealt is either double damage, or +20 damage, whichever is less.
-    Doesn't require wizard's robe and hat to cast.
+    Requires wizard's robe and hat to cast.
 
 spellbook-chuuni-name = Chuuni Invocations
 spellbook-chuuni-desc =

@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # SOP Main Directory
 - type: guideEntry
   id: SOP
@@ -23,6 +29,7 @@
   - EpsilonAlert SOP
   - GammaAlert SOP
   - VioletAlert SOP
+  - OmicronAlert SOP
 
 # Emergencies Main Directory
 - type: guideEntry
@@ -39,6 +46,7 @@
   - StationDamage SOP
   - WarDeclaration SOP
   - Zombie SOP
+  - EmergencyResponseTeam SOP
 
 # Standard Procedures and Legal Main Directories
 - type: guideEntry
@@ -188,6 +196,11 @@
   name: guide-entry-sop-violetalert
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/AlertLevels/VioletAlertSOP.xml"
 
+- type: guideEntry
+  id: OmicronAlert SOP
+  name: guide-entry-sop-omicronalert
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/AlertLevels/OmicronAlertSOP.xml"
+
 # Basic SOP Entries
 - type: guideEntry
   id: Demoting SOP
@@ -253,6 +266,11 @@
   id: Zombie SOP
   name: guide-entry-sop-zombieoutbreak
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Emergencies/ZombieOutbreak.xml"
+
+- type: guideEntry
+  id: EmergencyResponseTeam SOP
+  name: guide-entry-sop-emergencyresponseteam
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Emergencies/EmergencyResponseTeam.xml"
 
 # Legal SOP Entries
 - type: guideEntry

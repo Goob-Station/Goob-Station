@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 
 # combat
 
@@ -31,30 +39,31 @@ evolutionmenu-combat-boneshard-desc =
 evolutionmenu-combat-armor-name = Chitinous Armor
 evolutionmenu-combat-armor-desc =
     Inflate your body into an all-consuming chitinous mass of armor.
-    Provides extensive protection against physical damage, but less against other types.
-    It massively slows your movement, and maintaining its shape slows chemical generation.
+    Provides solid protection against physical damage.
+    Maintaining its shape slows chemical generation.
     WARNING: Requires you to absorb at least 2 organics to use the ability.
     Costs 25 chemicals.
 
 evolutionmenu-combat-shield-name = Organic Shield
-evolutionmenu-combat-shield-desc =
+evolutionmenu-combat-shield-desc = 
     Reforms one of your arms into a large, fleshy shield.
-    Blocks attacks automatically, but very brittle.
+    Reduces incoming damage, albeit is less durable than conventional shields.
     WARNING: Requires you to absorb at least 1 organic to use the ability.
     Costs 20 chemicals.
 
 evolutionmenu-combat-shriek-dissonant-name = Dissonant Shriek
 evolutionmenu-combat-shriek-dissonant-desc =
-    You emit an EMP blast, which disables technology in the surrounding area, including radio headsets.
+    You scream out an EMP blast, which disables technology in the surrounding area, including radio headsets.
     Good for escaping cyborgs and security.
     WARNING: Requires you to absorb at least 1 organic to use the ability.
     Costs 30 chemicals.
 
 evolutionmenu-combat-shriek-resonant-name = Resonant Shriek
 evolutionmenu-combat-shriek-resonant-desc =
-    You emit a tone beyond the range of human hearing,
-    bursting lights and causing disorientation in an area around yourself.
+    You scream out a disorienting high frequency sound,
+    bursting lights as well as causing sensory overloads in organisms and silicons.
     Good for escaping groups, or hindering people from fleeing.
+    Changelings are not affected by this sound, and ear protection will reduce disorientation.
     WARNING: Requires you to absorb at least 1 organic to use the ability.
     Costs 30 chemicals.
 
@@ -103,6 +112,7 @@ evolutionmenu-sting-armblade-desc =
     Costs 50 chemicals.
 
 # utility
+
 evolutionmenu-utility-panacea-name = Anatomic Panacea
 evolutionmenu-utility-panacea-desc =
     Cure yourself of diseases, disabilities, radiation, toxins, drunkenness, and brain damage. Generally covers the things that fleshmend doesn't.
@@ -116,23 +126,32 @@ evolutionmenu-utility-eyesight-desc =
 evolutionmenu-utility-biodegrade-name = Biodegrade
 evolutionmenu-utility-biodegrade-desc =
     Vomit a caustic substance onto any restraints you may be wearing, allowing yourself to break free.
-    Using this ability while being grabbed will spit acid in your attackers face.
+    Using this ability while being grabbed will spit acid in your attackers face, blinding them and knocking them down.
     Costs 30 chemicals.
 
 evolutionmenu-utility-chameleon-name = Chameleon Skin
 evolutionmenu-utility-chameleon-desc =
     Alter the pigment in your skin to match your surroundings, rendering you invisible.
+    Maintaining this chameleon state slows chemical generation.
     Costs 20 chemicals.
 
-evolutionmenu-utility-stims-name = Ephedrine Overdose
+evolutionmenu-utility-voidadapt-name = Void Adaption
+evolutionmenu-utility-voidadapt-desc =
+    Alter your cells and organs to resist cold, low pressure and the need for oxygen.
+    Maintaining this state slows chemical regeneration.
+    WARNING: Requires you to absorb at least 2 organics to use the ability.
+    Cost-free.
+
+evolutionmenu-utility-stims-name = Adrenaline reserves
 evolutionmenu-utility-stims-desc =
-    Inject a cocktail of stimulants into yourself, quickly removing any stuns and giving yourself a speed boost.
+    Releases additional adrenaline into your bloodstream, making you nigh-impervious to fatigue, knockdown and stuns.
     Continuous injection is poisonous.
     Costs 30 chemicals.
 
 evolutionmenu-utility-fleshmend-name = Fleshmend
 evolutionmenu-utility-fleshmend-desc =
-    Rapidly heal yourself of all bruises and burns.
+    Rapidly heal your brute damage.
+    Burn and oxygen damage healed at a lower amount.
     Costs 35 chemicals.
 
 evolutionmenu-utility-lastresort-name = Last Resort
@@ -153,7 +172,7 @@ evolutionmenu-utility-spacesuit-desc =
 evolutionmenu-utility-hivemindaccess-name = Hivemind Access
 evolutionmenu-utility-hivemindaccess-desc =
     Tunes our chemical receptors for hivemind communication, allowing us to recognize and communicate with other changelings who have also evolved this ability.
-    Default radio key is :g
+    Default key is +h
 
 evolutionmenu-utility-absorbbiomatter-name = Absorb Biomatter
 evolutionmenu-utility-absorbbiomatter-desc =

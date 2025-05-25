@@ -1,0 +1,55 @@
+# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  abstract: true
+  parent: PartBase
+  id: PartCarpBase
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Mobs/Aliens/Carps/carp_parts.rsi
+  - type: Icon
+    sprite: _Shitmed/Mobs/Aliens/Carps/carp_parts.rsi
+
+- type: entity
+  parent: PartCarpBase
+  id: TailCarp
+  name: carp tail
+  description: Unique glands in this tail let space carp fly in a vacuum.
+  components:
+  - type: Sprite
+    state: tail
+  - type: Icon
+    state: tail
+  - type: BodyPart
+    partType: Tail
+  - type: MovementBodyPart
+    walkSpeed: 2.5
+    sprintSpeed: 3.5
+  # TODO: Make it actually needed. Legs are hardcoded to be the only parts that matter for movement.
+  # TODO: space flight stuff
+
+- type: entity
+  parent: [ PartCarpBase, BaseChest ]
+  id: ChestCarp
+  name: carp chest
+  components:
+  - type: Sprite
+    state: chest
+  - type: Icon
+    state: chest
+
+- type: entity
+  parent: [ PartCarpBase, BaseGroin ]
+  id: GroinCarp
+  name: carp groin
+  components:
+  - type: Sprite
+    state: groin
+  - type: Icon
+    state: groin

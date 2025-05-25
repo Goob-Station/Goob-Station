@@ -1,3 +1,10 @@
+<!--
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
 <Document>
 # Wizard Spells
   <Table Columns="6">
@@ -288,7 +295,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        5
+        10
       </Box>
     </ColorBox>
     <ColorBox>
@@ -438,7 +445,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        10/8.25/6.5/4.75/3
+        8/6.75/5.5/4.25/3
       </Box>
     </ColorBox>
     <ColorBox>
@@ -468,7 +475,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        6/5/4/3/2
+        8/6.75/5.5/4.25/3
       </Box>
     </ColorBox>
     <ColorBox>
@@ -618,7 +625,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        60/40/20
+        60/50/40/30/20
       </Box>
     </ColorBox>
     <ColorBox>
@@ -671,9 +678,9 @@
         2
       </Box>
     </ColorBox>
-    <ColorBox Color="#2e422e">
+    <ColorBox Color="#4d2e2e">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        No
+        Yes
       </Box>
     </ColorBox>
     <ColorBox>
@@ -768,7 +775,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        90/80/70/60/50
+        90/75/60/45/30
       </Box>
     </ColorBox>
     <ColorBox>
@@ -791,9 +798,9 @@
         2
       </Box>
     </ColorBox>
-    <ColorBox Color="#2e422e">
+    <ColorBox Color="#4d2e2e">
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        No
+        Yes
       </Box>
     </ColorBox>
     <ColorBox>
@@ -948,7 +955,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-        3/2.4/1.8/1.2/0.6
+        3/2/1
       </Box>
     </ColorBox>
     <ColorBox>

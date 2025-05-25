@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 SpeltIncorrectyl <66873282+SpeltIncorrectyl@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Examine;
 using Content.Shared.Storage.Components;
 using Robust.Shared.Audio.Systems;
@@ -14,6 +21,7 @@ public abstract class SharedArtifactCrusherSystem : EntitySystem
     [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
     [Dependency] protected readonly SharedAudioSystem AudioSystem = default!;
     [Dependency] protected readonly SharedContainerSystem ContainerSystem = default!;
+    [Dependency] private readonly EmagSystem _emag = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -40,6 +48,15 @@ public abstract class SharedArtifactCrusherSystem : EntitySystem
 
     private void OnEmagged(Entity<ArtifactCrusherComponent> ent, ref GotEmaggedEvent args)
     {
+        if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
+            return;
+
+        if (_emag.CheckFlag(ent, EmagType.Interaction))
+            return;
+
+        if (ent.Comp.AutoLock)
+            return;
+
         ent.Comp.AutoLock = true;
         args.Handled = true;
     }

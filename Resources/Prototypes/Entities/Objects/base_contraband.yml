@@ -1,12 +1,24 @@
-﻿# non-stealth syndicate stuff
+# SPDX-FileCopyrightText: 2024 EmoGarbage404 <retron404@gmail.com>
+# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ignaz "Ian" Kraft <ignaz.k@live.de>
+# SPDX-FileCopyrightText: 2025 John <35928781+sporkyz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# non-stealth syndicate stuff
 - type: entity
   id: BaseSyndicateContraband
   abstract: true
   components:
   - type: Contraband
     severity: Syndicate
-    # no one should be carrying this around visibly!
-    allowedDepartments: null
 
 # minor contraband not departmentally restricted -- improvised weapons etc
 - type: entity
@@ -15,8 +27,6 @@
   components:
   - type: Contraband
     severity: Minor
-    # according to space law no dept is authorized to have
-    allowedDepartments: null
 
 # major contraband, for things like guns or weaponry that don't belong to any department and aren't syndicate specific
 - type: entity
@@ -25,15 +35,16 @@
   components:
   - type: Contraband
     severity: Major
-    allowedDepartments: null
 
-# minor contraband by default restricted to security only
+# base department restricted contraband, this should only be used as a parent for other contraband prototypes, not the restricted items themselves.
 - type: entity
   id: BaseRestrictedContraband
   abstract: true
   components:
   - type: Contraband
     severity: Restricted
+    allowedDepartments: [  ]
+    allowedJobs: [  ]
 
 # one department restricted contraband
 - type: entity
@@ -59,6 +70,7 @@
   components:
   - type: Contraband
     allowedDepartments: [ Security ]
+    allowedJobs: [ BlueshieldOfficer ] # Goob - effectively almost a sec member
 
 - type: entity
   id: BaseEngineeringContraband
@@ -157,6 +169,33 @@
   - type: Contraband
     allowedDepartments: [ Medical, Science ]
 
+# contraband restricted by job by some degree
+- type: entity
+  id: BaseSecurityBartenderContraband
+  parent: BaseRestrictedContraband
+  abstract: true
+  components:
+  - type: Contraband
+    allowedDepartments: [ Security ]
+    allowedJobs: [ Bartender ]
+
+- type: entity
+  id: BaseSecurityLawyerContraband
+  parent: BaseRestrictedContraband
+  abstract: true
+  components:
+  - type: Contraband
+    allowedDepartments: [ Security ]
+    allowedJobs: [ Lawyer ]
+
+- type: entity
+  id: BaseJanitorContraband
+  parent: BaseRestrictedContraband
+  abstract: true
+  components:
+  - type: Contraband
+    allowedJobs: [ Janitor ]
+
 # for ~objective items
 - type: entity
   id: BaseGrandTheftContraband
@@ -165,3 +204,4 @@
   - type: Contraband
     severity: GrandTheft
     allowedDepartments: [ Command ]
+    allowedJobs: [ Warden ] # Goob - energy shotgun

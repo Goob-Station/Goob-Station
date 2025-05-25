@@ -1,5 +1,14 @@
+// SPDX-FileCopyrightText: 2024 Menshin <Menshin@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Piping.Portable.Components;
+using Content.Shared.Atmos.Visuals;
+using Content.Shared.Guidebook;
 
 namespace Content.Server.Atmos.Portable;
 
@@ -22,12 +31,14 @@ public sealed partial class SpaceHeaterComponent : Component
     ///     Maximum target temperature the device can be set to
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [GuidebookData]
     public float MaxTemperature = Atmospherics.T20C + 20;
 
     /// <summary>
     ///     Minimal target temperature the device can be set to
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [GuidebookData]
     public float MinTemperature = Atmospherics.T0C - 10;
 
     /// <summary>

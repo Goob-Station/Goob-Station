@@ -1,3 +1,26 @@
+# SPDX-FileCopyrightText: 2020 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 Vera Aguilera Puerto <zddm@outlook.es>
+# SPDX-FileCopyrightText: 2021 Peptide90 <78795277+Peptide90@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 SETh lafuente <cetaciocascarudo@gmail.com>
+# SPDX-FileCopyrightText: 2021 SethLafuente <84478872+SethLafuente@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2021 SweptWasTaken <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2022 Emisse <99158783+Emisse@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 EmoGarbage404 <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Rinkashikachi <15rinkashikachi15@gmail.com>
+# SPDX-FileCopyrightText: 2023 Checkraze <71046427+Cheackraze@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 MisterMecky <mrmecky@hotmail.com>
+# SPDX-FileCopyrightText: 2023 Puro <103608145+PuroSlavKing@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 RiceMar1244 <138547931+RiceMar1244@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 MACMAN2003 <macman2003c@gmail.com>
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: CrateMaterialGlass
   parent: CrateGenericSteel
@@ -68,12 +91,12 @@
   id: CrateMaterialPlasteel
   parent: CrateGenericSteel
   name: plasteel crate
-  description: 90 sheets of plasteel.
+  description: 30 sheets of plasteel. # Goobstation
   components:
   - type: StorageFill
     contents:
       - id: SheetPlasteel
-        amount: 3
+        #amount: 3 # Goobstation
 
 - type: entity
   id: CrateMaterialPlasma
@@ -106,6 +129,52 @@
     contents:
       - id: SheetPaper
         amount: 3
+
+- type: entityTable
+  id: RandomMaterialCrateTable
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector # regular materials, 10
+      weight: 35
+      children:
+      - id: SheetGlass10
+      - id: SheetSteel10
+      - id: SheetPlastic10
+    - !type:GroupSelector # regular materials, stack
+      weight: 30
+      children:
+      - id: SheetGlass
+      - id: SheetSteel
+      - id: SheetPlastic
+    - !type:GroupSelector # secondary materials, stack
+      weight: 30
+      children:
+      - id: MaterialCloth
+      - id: SheetPlasteel
+      - id: MaterialWoodPlank
+      - id: PartRodMetal
+    - !type:GroupSelector # tertiary materials, singles
+      weight: 5
+      children:
+      - id: SheetPlasma1
+      - id: SheetUranium1
+      - id: IngotGold1
+      - id: IngotSilver1
+
+- type: entity
+  id: CrateMaterialRandom
+  parent: CrateGenericSteel
+  name: surplus materials
+  description: Surplus materials from somewhere.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: RandomMaterialCrateTable
+        rolls: !type:RangeNumberSelector
+          range: 1, 3
+          # for some reason, the selector here adds 1 to whatever value it generates,
+          # so this is actually 2-4
 
 #- type: entity
 #  id: CrateMaterialHFuelTank
