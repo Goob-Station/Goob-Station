@@ -322,9 +322,9 @@
   - type: GhostRole
     mindRoles:
     - MindRoleDragon
-  - type: ActionGun
-    action: ActionDragonsBreath
-    gunProto: DragonsBreathGun
+  #- type: ActionGun # Goobstation - remove fireball because it's tied to lungs now
+  #  action: ActionDragonsBreath
+  #  gunProto: DragonsBreathGun
   - type: GuideHelp
     guides:
     - MinorAntagonists
