@@ -1,0 +1,12 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- files:
+  - "headset_1.ogg"
+  - "headset_2.ogg"
+  - "headset_3.ogg"
+  license: "CC0-1.0"
+  copyright: "Created by Komti (Komti23), converted to ogg by FN (FireNameFN)"
+  source: "https://github.com/space-wizards/space-station-14/pull/32936"
