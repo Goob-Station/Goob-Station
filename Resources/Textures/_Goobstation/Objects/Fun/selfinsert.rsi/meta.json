@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-4.0",
-    "copyright": "Muppet",
+    "copyright": "Muppet, OnsenCapy, Bobbble, Phantom, Mr Cheeese123",
     "size": {
         "x": 32,
         "y": 32
@@ -9,12 +9,6 @@
     "states": [
         {
             "name": "plushie_benny"
-        },
-        {
-            "name": "plushie_byrrne"
-        },
-        {
-            "name": "plushie_byrrne_gibbed"
         },
         {
             "name": "plushie_cairo"
@@ -27,9 +21,6 @@
         },
         {
             "name": "plushie_knott"
-        },
-        {
-            "name": "plushie_kury"
         },
         {
             "name": "plushie_pash"
@@ -66,6 +57,36 @@
         },
         {
             "name": "plushie_grub"
+        },
+        {
+            "name": "plushie_fern"
+        },
+        {
+            "name": "plushie_hexadecimal"
+        },
+        {
+            "name": "plushie_flint"
+        },
+        {
+            "name": "plushie_sees_the_stars"
+        },
+        {
+            "name": "plushie_pistachio"
+        },
+        {
+            "name": "plushie_dumb_lizard"
+        },
+        {
+            "name": "plushie_squeaks"
+        },
+        {
+            "name": "plushie_haato"
+        },
+        {
+            "name": "plushie_chews"
+        },
+        {
+            "name": "plushie_tinylane"
         }
     ]
 }
