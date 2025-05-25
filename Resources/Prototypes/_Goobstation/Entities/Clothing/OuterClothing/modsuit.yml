@@ -1,10 +1,13 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
@@ -77,6 +80,9 @@
       heatingCoefficient: 0.01
   - type: FireProtection
     reduction: 0.5
+  - type: HideClothingLayerClothing
+    hiddenSlots:
+    - jumpsuit
 
 - type: entity
   parent: ClothingOuterBase
@@ -148,6 +154,9 @@
       heatingCoefficient: 0.01
   - type: FireProtection
     reduction: 0.5
+  - type: HideClothingLayerClothing
+    hiddenSlots:
+    - jumpsuit
 
 
 - type: entity
@@ -226,6 +235,9 @@
       Epinephrine: 10
       Bicaridine: 10
       TranexamicAcid: 5
+  - type: HideClothingLayerClothing
+    hiddenSlots:
+    - jumpsuit
 
 - type: entity
   parent: ClothingOuterBase
@@ -298,6 +310,9 @@
     coefficient: 0.9
   - type: FireProtection
     reduction: 0.5
+  - type: HideClothingLayerClothing
+    hiddenSlots:
+    - jumpsuit
 
 - type: entity
   parent: ClothingOuterBase
@@ -371,6 +386,9 @@
     coefficient: 0.9
   - type: FireProtection
     reduction: 0.7
+  - type: HideClothingLayerClothing
+    hiddenSlots:
+    - jumpsuit
 
 - type: entity
   parent: ClothingOuterBase
@@ -442,6 +460,9 @@
     coefficient: 0.9
   - type: FireProtection
     reduction: 0.75
+  - type: HideClothingLayerClothing
+    hiddenSlots:
+    - jumpsuit
 
 - type: entity
   parent: ClothingOuterBase
@@ -515,6 +536,9 @@
     coefficient: 0.5
   - type: FireProtection
     reduction: 0.7
+  - type: HideClothingLayerClothing
+    hiddenSlots:
+    - jumpsuit
 
 - type: entity
   parent: ClothingOuterBase
@@ -525,6 +549,7 @@
   components:
   - type: Appearance
   - type: AllowSuitStorage
+  - type: GroupExamine
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Modsuits/captain.rsi
     layers:
@@ -571,6 +596,7 @@
         Piercing: 0.55
         Heat: 0.5
         Radiation: 0.1
+        Caustic: 0.5
   - type: ComponentToggler
     components:
     - type: PressureProtection
@@ -583,7 +609,7 @@
     delayDelta: 3
     knockdownTimeDelta: -3
   - type: StaminaDamageResistance
-    coefficient: 0.7
+    coefficient: 0.6
   - type: FireProtection
     reduction: 0.5
 
@@ -625,8 +651,6 @@
           Piercing: 0.80
           Heat: 0.70
           Radiation: 0.70
-    - type: TemperatureProtection
-      coefficient: 0.01
     - type: ModifyDelayedKnockdown # Goobstation
       delayDelta: 2
       knockdownTimeDelta: -2
@@ -680,8 +704,6 @@
           Heat: 0.40
           Radiation: 0.30
           Caustic: 0.6
-    - type: TemperatureProtection
-      coefficient: 0.01
     - type: SealableClothingVisuals
       visualLayers:
         outerClothing:
@@ -691,3 +713,8 @@
       knockdownTimeDelta: -3
     - type: StaminaDamageResistance # Goobstation
       coefficient: 0.6
+
+  - type: HideClothingLayerClothing
+    hiddenSlots:
+    - jumpsuit
+

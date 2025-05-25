@@ -41,9 +41,12 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ColonicAcid <claudiomota1990@googlemail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Base
@@ -195,7 +198,7 @@
       types:
         Slash: 12
   - type: Scalpel # Shitmed
-    speed: 1.25
+    speed: 1.35
 
 - type: entity
   name: laser scalpel
@@ -211,7 +214,7 @@
     storedRotation: 90
     heldPrefix: laser
   - type: Scalpel # Shitmed
-    speed: 1.5
+    speed: 1.75
   # TODO: prevent bleeding from incisions
 
 # Retractor
@@ -260,35 +263,6 @@
   - type: Hemostat
   - type: Tweezers # Shitmed
   - type: Tending # Shitmed
-
-# Bone setter - Shitmed Change
-- type: entity
-  parent: BaseToolSurgery
-  id: Bonesetter
-  name: bone setter
-  description: Used for setting bones back into place.
-  components:
-  - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/bonesetter.rsi
-    state: bonesetter
-  - type: Item
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/bonesetter.rsi
-  - type: BoneSetter
-  - type: SurgeryTool
-    startSound:
-      path: /Audio/_Shitmed/Medical/Surgery/bone_setter.ogg
-
-# Bone Gel - Shitmed Change
-- type: entity
-  parent: BaseToolSurgery
-  id: BoneGel
-  name: bottle of bone gel
-  description: A container for bone gel that often needs to be refilled from a specialized machine.
-  components:
-  - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/bone-gel.rsi
-    state: bone-gel
-  - type: BoneGel
 
 # Saws
 
@@ -391,183 +365,31 @@
 # Shitmed Tools
 
 - type: entity
-  name: searing tool
-  id: EnergyCautery
-  parent: [ Cautery, BaseMedicalScienceContraband ]
-  description: A cautery with an energy tip, also serves as a drill in its powered state.
+  parent: BaseToolSurgery
+  id: Bonesetter
+  name: bone setter
+  description: Used for setting bones back into place.
   components:
   - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-cautery.rsi
-    state: e-cautery-on
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/bonesetter.rsi
+    state: bonesetter
   - type: Item
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-cautery.rsi
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/bonesetter.rsi
+  - type: BoneSetter
   - type: SurgeryTool
     startSound:
-      path: /Audio/_Shitmed/Medical/Surgery/cautery1.ogg
-    endSound:
-      path: /Audio/_Shitmed/Medical/Surgery/cautery2.ogg
-  - type: MeleeWeapon
-    damage:
-      types:
-        Piercing: 10
-        Heat: 1
-  - type: PhysicalComposition #Goobstation - Recycle update
-    materialComposition:
-      Steel: 150
-      Glass: 37
-      Plasma: 37
-  - type: ItemSwitch
-    showLabel: true
-    state: cautery
-    states:
-      cautery: !type:ItemSwitchState
-        verb: cautery
-        sprite:
-          sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-cautery.rsi
-          state: e-cautery
-        components:
-          - type: Cautery
-            speed: 1.5
-        soundStateActivate:
-          collection: WelderOn
-          params:
-            variation: 0.125
-            volume: -5
-
-      drill: !type:ItemSwitchState
-        verb: drill
-        sprite:
-          sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-cautery.rsi
-          state: e-cautery-on
-        components:
-          - type: Drill
-            speed: 1.5
-        soundStateActivate:
-          collection: sparks
-          params:
-            variation: 0.125
-            volume: -5
+      path: /Audio/_Shitmed/Medical/Surgery/bone_setter.ogg
 
 - type: entity
-  name: energy scalpel
-  id: EnergyScalpel
-  parent: [ Scalpel, BaseMedicalScienceContraband ]
-  description: A scalpel which uses an energy blade, also serves as a saw in its powered state.
+  parent: BaseToolSurgery
+  id: BoneGel
+  name: bottle of bone gel
+  description: A container for bone gel that often needs to be refilled from a specialized machine.
   components:
   - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-scalpel.rsi
-    state: e-scalpel-on
-  - type: Item
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-scalpel.rsi
-  - type: SurgeryTool
-    startSound:
-      path: /Audio/_Shitmed/Medical/Surgery/scalpel1.ogg
-    endSound:
-      path: /Audio/_Shitmed/Medical/Surgery/scalpel2.ogg
-  - type: MeleeWeapon
-    damage:
-      types:
-        Slash: 10
-        Heat: 1
-  - type: PhysicalComposition #Goobstation - Recycle update
-    materialComposition:
-      Steel: 150
-      Glass: 37
-      Gold: 37
-  - type: ItemSwitch
-    showLabel: true
-    state: scalpel
-    defaultState: scalpel
-    states:
-      scalpel: !type:ItemSwitchState
-        verb: scalpel
-        sprite:
-          sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-scalpel.rsi
-          state: e-scalpel
-        components:
-          - type: Scalpel
-            speed: 1.5
-        soundStateActivate:
-          collection: sparks
-          params:
-            variation: 0.125
-            volume: -5
-
-      saw: !type:ItemSwitchState
-        verb: saw
-        sprite:
-          sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-scalpel.rsi
-          state: e-scalpel-on
-        components:
-          - type: BoneSaw
-            speed: 1.5
-        soundStateActivate:
-          collection: sparks
-          params:
-            variation: 0.125
-            volume: -5
-
-- type: entity
-  name: mechanical pinches
-  id: AdvancedRetractor
-  parent: [ Retractor, BaseMedicalScienceContraband ]
-  description: A retractor with mechanical pinches, also serves as a hemostat in its powered state.
-  components:
-  - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/adv-retractor.rsi
-    state: adv-retractor-on
-  - type: Item
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/adv-retractor.rsi
-  - type: SurgeryTool
-    startSound:
-      path: /Audio/_Shitmed/Medical/Surgery/retractor1.ogg
-    endSound:
-      path: /Audio/_Shitmed/Medical/Surgery/retractor2.ogg
-  - type: MeleeWeapon
-    damage:
-      types:
-        Slash: 6.5
-        Heat: 1
-  - type: PhysicalComposition #Goobstation - Recycle update
-    materialComposition:
-      Steel: 150
-      Glass: 37
-      Silver: 37
-  - type: ItemSwitch
-    showLabel: true
-    state: retractor
-    states:
-      retractor: !type:ItemSwitchState
-        verb: retractor
-        sprite:
-          sprite: _Shitmed/Objects/Specific/Medical/Surgery/adv-retractor.rsi
-          state: adv-retractor
-        components:
-          - type: Retractor
-            speed: 1.5
-        soundStateActivate:
-          collection: sparks
-          params:
-            variation: 0.125
-            volume: -5
-
-      hemostat: !type:ItemSwitchState
-        verb: hemostat
-        sprite:
-          sprite: _Shitmed/Objects/Specific/Medical/Surgery/adv-retractor.rsi
-          state: adv-retractor-on
-        components:
-          - type: Hemostat
-            speed: 1.5
-          - type: Tweezers
-            speed: 1.5
-          - type: Tending
-            speed: 1.5
-        soundStateActivate:
-          collection: sparks
-          params:
-            variation: 0.125
-            volume: -5
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/bone-gel.rsi
+    state: bone-gel
+  - type: BoneGel
 
 - type: entity
   name: medical stitches
@@ -587,47 +409,310 @@
     price: 40
 
 - type: entity
-  name: medical multitool
+  name: tissue cutter
+  id: EnergyScalpel
+  parent: Scalpel
+  description: A scalpel which uses an energy blade, also serves as a drill in its powered state.
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-scalpel.rsi
+    state: e-scalpel-on
+  - type: Item
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-scalpel.rsi
+  - type: SurgeryTool
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/scalpel1.ogg
+    endSound:
+      path: /Audio/_Shitmed/Medical/Surgery/scalpel2.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 12
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 150
+      Glass: 37
+      Gold: 37
+  - type: ItemSwitch
+    showLabel: true
+    state: scalpel
+    defaultState: scalpel
+    states:
+      scalpel: !type:ItemSwitchState
+        verb: scalpel
+        sprite:
+          sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-scalpel.rsi
+          state: e-scalpel
+        components:
+          - type: Scalpel
+            speed: 2
+          - type: BoneSaw
+            speed: 2
+        soundStateActivate:
+          collection: sparks
+          params:
+            variation: 0.125
+            volume: -5
+
+      drill: !type:ItemSwitchState
+        verb: drill
+        sprite:
+          sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-scalpel.rsi
+          state: e-scalpel-on
+        components:
+        - type: Drill
+          speed: 2
+        soundStateActivate:
+          collection: sparks
+          params:
+            variation: 0.125
+            volume: -5
+
+- type: entity
+  name: power pinches
+  id: AdvancedRetractor
+  parent: Retractor
+  description: A retractor with mechanical pinches, also serves as a hemostat in its powered state.
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/adv-retractor.rsi
+    state: adv-retractor-on
+  - type: Item
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/adv-retractor.rsi
+  - type: SurgeryTool
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/retractor1.ogg
+    endSound:
+      path: /Audio/_Shitmed/Medical/Surgery/retractor2.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 12
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 150
+      Glass: 37
+      Silver: 37
+  - type: ItemSwitch
+    showLabel: true
+    state: retractor
+    states:
+      retractor: !type:ItemSwitchState
+        verb: retractor
+        sprite:
+          sprite: _Shitmed/Objects/Specific/Medical/Surgery/adv-retractor.rsi
+          state: adv-retractor
+        components:
+          - type: Retractor
+            speed: 2
+        soundStateActivate:
+          collection: sparks
+          params:
+            variation: 0.125
+            volume: -5
+
+      hemostat: !type:ItemSwitchState
+        verb: hemostat
+        sprite:
+          sprite: _Shitmed/Objects/Specific/Medical/Surgery/adv-retractor.rsi
+          state: adv-retractor-on
+        components:
+          - type: Hemostat
+            speed: 2
+          - type: Tweezers
+            speed: 2
+          - type: Tending
+            speed: 2
+        soundStateActivate:
+          collection: sparks
+          params:
+            variation: 0.125
+            volume: -5
+
+- type: entity
+  name: energy stapler
+  id: EnergyCautery
+  parent: Cautery
+  description: A cautery with an energy tip, also serves as stitches in its powered state.
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-cautery.rsi
+    state: e-cautery-on
+  - type: Item
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-cautery.rsi
+  - type: SurgeryTool
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/cautery1.ogg
+    endSound:
+      path: /Audio/_Shitmed/Medical/Surgery/cautery2.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Heat: 12
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 150
+      Glass: 37
+      Plasma: 37
+  - type: ItemSwitch
+    showLabel: true
+    state: cautery
+    states:
+      cautery: !type:ItemSwitchState
+        verb: cautery
+        sprite:
+          sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-cautery.rsi
+          state: e-cautery
+        components:
+        - type: Cautery
+          speed: 2
+        soundStateActivate:
+          collection: WelderOn
+          params:
+            variation: 0.125
+            volume: -5
+
+      stitches: !type:ItemSwitchState
+        verb: stitches
+        sprite:
+          sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-cautery.rsi
+          state: e-cautery-on
+        components:
+        - type: Stitches # should be unlimited when the actual stitches become limited
+          speed: 2
+        soundStateActivate:
+          collection: sparks
+          params:
+            variation: 0.125
+            volume: -5
+
+- type: entity
+  name: bone multitool
+  id: AdvancedBoneGel
+  parent: BoneGel
+  description: A mechanized bone healer, also serves as bone setter in its powered state.
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-bone-gel.rsi
+    state: e-bone-gel-on
+  - type: Item
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-bone-gel.rsi
+  - type: SurgeryTool
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/bone_setter.ogg
+    endSound:
+      path: /Audio/_Shitmed/Medical/Surgery/bone_setter.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 12
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 150
+      Glass: 37
+      Plasma: 37
+  - type: ItemSwitch
+    showLabel: true
+    state: bone gel
+    states:
+      bone gel: !type:ItemSwitchState
+        verb: bonegel
+        sprite:
+          sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-bone-gel.rsi
+          state: e-bone-gel
+        components:
+        - type: BoneGel # should be unlimited when the actual bone gel becomes limited
+          speed: 2
+        soundStateActivate:
+          collection: sparks
+          params:
+            variation: 0.125
+            volume: -5
+
+      bonesetter: !type:ItemSwitchState
+        verb: bonesetter
+        sprite:
+          sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-bone-gel.rsi # placeholder
+          state: e-bone-gel-on
+        components:
+        - type: BoneSetter
+          speed: 2
+        soundStateActivate:
+          collection: sparks
+          params:
+            variation: 0.125
+            volume: -5
+
+- type: entity
+  name: surgical omnitool
   id: OmnimedTool
-  parent: [ BaseToolSurgery, BaseMedicalContraband ]
+  parent: BaseToolSurgery
+  description: A compact surgical omnitool conveniently packed like a Swiss Army knife.
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/omnimed.rsi
     state: omnimed
   - type: Item
+    size: Normal
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/omnimed.rsi
   - type: SurgeryTool
     startSound:
       path: /Audio/_Shitmed/Medical/Surgery/saw.ogg
   - type: Hemostat
-    speed: 2
   - type: Scalpel
-    speed: 2
   - type: Drill
-    speed: 2
   - type: BoneSetter
-    speed: 2
   - type: Retractor
-    speed: 2
   - type: Cautery
-    speed: 2
   - type: BoneGel
-    speed: 2
   - type: BoneSaw
-    speed: 2
   - type: Tweezers
-    speed: 2
   - type: Tending
-    speed: 2
   - type: Stitches
-    speed: 2
 
 - type: entity
-  parent: [ BaseSyndicateContraband, OmnimedTool ]
+  parent: [ OmnimedTool, BaseSyndicateContraband ]
   id: OmnimedToolSyndie
+  name: gorlex surgical omnitool
+  description: A compact surgical omnitool conveniently packed like a Swiss Army knife, except that its user has probably violated a couple of Swiss conventions. Can perform surgery through clothing.
   components:
   - type: Sprite
     state: evil
   - type: Item
     size: Small
     heldPrefix: evil
+  - type: HeldGrantComponent
+    components:
+    - type: SurgeryIgnoreClothing
+
+- type: entity
+  id: OmnimedToolDebug
+  parent: OmnimedToolSyndie
+  suffix: Admeme
+  name: experimental surgical omnitool
+  components:
+  - type: Hemostat
+    speed: 10
+  - type: Scalpel
+    speed: 10
+  - type: Drill
+    speed: 10
+  - type: BoneSetter
+    speed: 10
+  - type: Retractor
+    speed: 10
+  - type: Cautery
+    speed: 10
+  - type: BoneGel
+    speed: 10
+  - type: BoneSaw
+    speed: 10
+  - type: Tweezers
+    speed: 10
+  - type: Tending
+    speed: 10
+  - type: Stitches
+    speed: 10
+  - type: HeldGrantComponent
+    components:
+    - type: SurgeryIgnoreClothing
