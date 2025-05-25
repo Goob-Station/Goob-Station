@@ -1051,13 +1051,13 @@
     moduleId: Surgery
     items:
     - Scalpel
-    - Drill
-    - Hemostat
-    - Retractor
-    - Cautery
     - SawElectric
-    - BoneGel
+    - Drill
+    - Retractor
+    - Hemostat
+    - Cautery
     - MedicalStitches
+    - BoneGel
     - Bonesetter
     # Frontier: droppable borg items
   - type: DroppableBorgModule
@@ -1088,9 +1088,7 @@
     - EnergyScalpel
     - EnergyCautery
     - AdvancedRetractor
-    - BoneGel
-    - Bonesetter
-    - MedicalStitches
+    - AdvancedBoneGel
     # Frontier: droppable borg items
   - type: DroppableBorgModule
     moduleId: AdvancedSurgery

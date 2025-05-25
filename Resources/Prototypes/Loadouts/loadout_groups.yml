@@ -139,6 +139,7 @@
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TurboTracker <130304754+TurboTrackerss14@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 centcomofficer24 <theo75cg@gmail.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 grub <unalterableness@gmail.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 # SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
@@ -1206,11 +1207,9 @@
   name: loadout-group-head-of-security-outerclothing
   loadouts:
   - HeadofSecurityCoat
-  - HeadofSecurityGreatCoat # Goobstation
   - HeadofSecurityWinterCoat
+  - HeadofSecurityGreatCoat # Goobstation
   - HeadofSecurityVestWeb # Goobstation
-  - ArmorVest #Goobstation change
-  - ArmorVestSlim #Goobstation change
 
 - type: loadoutGroup
   id: WardenHead

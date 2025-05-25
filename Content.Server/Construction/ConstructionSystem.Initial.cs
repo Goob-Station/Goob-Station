@@ -114,6 +114,10 @@ namespace Content.Server.Construction
             SubscribeNetworkEvent<TryStartItemConstructionMessage>(HandleStartItemConstruction);
         }
 
+        // Goobstation - conflict landmine; should ideally not be in the system or be a cvar but whatever
+        // replaces wizcode magic constants
+        public const float ConstructGrabRange = 2f;
+
         // LEGACY CODE. See warning at the top of the file!
         private IEnumerable<EntityUid> EnumerateNearby(EntityUid user)
         {
@@ -156,11 +160,12 @@ namespace Content.Server.Construction
 
             var pos = _transformSystem.GetMapCoordinates(user);
 
-            foreach (var near in _lookupSystem.GetEntitiesInRange(pos, 2f, LookupFlags.Contained | LookupFlags.Dynamic | LookupFlags.Sundries | LookupFlags.Approximate))
+            // Goobstation - conflict landmine: replace magic constant with ConstructGrabRange
+            foreach (var near in _lookupSystem.GetEntitiesInRange(pos, ConstructGrabRange, LookupFlags.Contained | LookupFlags.Dynamic | LookupFlags.Sundries | LookupFlags.Approximate))
             {
                 if (near == user)
                     continue;
-                if (_interactionSystem.InRangeUnobstructed(pos, near, 2f) && _container.IsInSameOrParentContainer(user, near))
+                if (_interactionSystem.InRangeUnobstructed(pos, near, ConstructGrabRange) && _container.IsInSameOrParentContainer(user, near))
                     yield return near;
             }
         }
@@ -536,7 +541,6 @@ namespace Content.Server.Construction
             var targetNode = constructionGraph.Nodes[constructionPrototype.TargetNode];
             var pathFind = constructionGraph.Path(startNode.Name, targetNode.Name);
 
-
             if (senderSession is {} session) // Goobstation - ignore check for constructor
             {
                 if (_beingBuilt.TryGetValue(session, out var set))
@@ -553,6 +557,11 @@ namespace Content.Server.Construction
                     _beingBuilt[session] = newSet;
                 }
             }
+
+            // Goobstation - can only realistically happen for sus clients, but ignore this for constructor
+            HandsComponent? hands = null;
+            if (senderSession != null && !TryComp<HandsComponent>(user, out hands))
+                return false;
 
             foreach (var condition in constructionPrototype.Conditions)
             {
@@ -571,8 +580,22 @@ namespace Content.Server.Construction
 
             // Goobstation
             EntityUid? entWith = with == null ? null : GetEntity(with);
-            if (entWith == null && TryComp<HandsComponent>(user, out var hands))
+            if (with != null && entWith != null)
+            {
+                // sus client can't use steel half the station away to build
+                var userPos = _transformSystem.GetMapCoordinates(user);
+                var withPos = _transformSystem.GetMapCoordinates(entWith.Value);
+                if (!_container.IsInSameOrParentContainer(user, entWith.Value)
+                    || !_interactionSystem.InRangeUnobstructed(userPos, withPos, ConstructGrabRange))
+                {
+                    Cleanup();
+                    return false;
+                }
+            }
+            else if (hands != null)
+            {
                 entWith = hands.ActiveHandEntity;
+            }
 
             if (!_actionBlocker.CanInteract(user, null)
                 || (senderSession != null && entWith == null)) // Goobstation
