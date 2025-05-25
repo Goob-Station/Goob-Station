@@ -25,7 +25,7 @@
     maxTileBreak: 0 # for breaking open walls not floors
   - type: PointLight
     radius: 3.5
-    color: orange
+    color: blue
     energy: 0.5
 
 - type: entity
