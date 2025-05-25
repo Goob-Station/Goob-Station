@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/commit/cf45322c7ee16f9d7e43d5260daf24ceb77c1b25, limb sprites edited into inhands by mubururu_ (github)",
+    "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/commit/cf45322c7ee16f9d7e43d5260daf24ceb77c1b25, limb sprites edited into inhands by mubururu_ (github), security sprites sprited by DangerRevolution (GitHub)",
     "size": {
         "x": 32,
         "y": 32
@@ -278,6 +278,6 @@
         },
         {
           "name": "security_r_leg"
-        },
+        }
     ]
 }
