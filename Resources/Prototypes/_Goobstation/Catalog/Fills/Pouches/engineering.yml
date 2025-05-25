@@ -10,7 +10,6 @@
   description: A small pouch for holding extra lights incase power isn't up.. it's your fault.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Storage/Pouches/engineering.rsi
     layers:
       - state: electronics
   - type: Storage
@@ -40,7 +39,6 @@
   description: A small pouch for holding extra wire for hanging tiders.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Storage/Pouches/engineering.rsi
     layers:
       - state: electronics
   - type: Storage
@@ -65,7 +63,6 @@
   description: A pouch for holding inflatable walls and doors as a temporary spacing fix.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Storage/Pouches/engineering.rsi
     layers:
       - state: construction
   - type: Storage
@@ -89,7 +86,6 @@
   description: A pouch for holding construction material, including sheets of metal or RCD cartridges. Has a clip to store an RCD.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Storage/Pouches/engineering.rsi
     layers:
       - state: construction
   - type: Storage

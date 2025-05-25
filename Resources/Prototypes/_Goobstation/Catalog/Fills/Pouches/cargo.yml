@@ -10,7 +10,6 @@
   description: A small pouch for holding everything you need to make a clown cry when he just wants to order a toy crate.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Storage/Pouches/misc.rsi
     layers:
       - state: basic
   - type: Storage

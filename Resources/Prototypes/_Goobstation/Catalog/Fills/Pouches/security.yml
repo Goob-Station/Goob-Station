@@ -10,7 +10,6 @@
   description: A small pouch for holding extra security goodies.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Storage/Pouches/misc.rsi
     layers:
       - state: utility
   - type: Storage
@@ -48,7 +47,6 @@
   description: A small pouch for holding emergency medication.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Storage/Pouches/medical.rsi
     layers:
       - state: smallfirstaid
   - type: Storage

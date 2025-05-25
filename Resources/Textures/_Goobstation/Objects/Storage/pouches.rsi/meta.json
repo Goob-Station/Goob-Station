@@ -24,6 +24,18 @@
     },
     {
       "name": "surgery"
+    },
+    {
+      "name": "basic"
+    },
+    {
+      "name": "utility"
+    },
+    {
+      "name": "construction"
+    },
+    {
+      "name": "electronics"
     }
   ]
 }

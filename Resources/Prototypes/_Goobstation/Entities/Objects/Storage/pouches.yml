@@ -9,11 +9,11 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Storage/Pouches/misc.rsi
+    sprite: _Goobstation/Objects/Storage/pouches.rsi
     layers:
       - state: basic
   - type: Item
-    sprite: _Goobstation/Objects/Storage/Pouches/misc.rsi
+    sprite: _Goobstation/Objects/Storage/pouches.rsi
     layers:
       - state: basic
     size: Small
@@ -27,4 +27,4 @@
     materialComposition:
       Plastic: 100
   - type: StaticPrice
-    price: 10
+    price: 100
