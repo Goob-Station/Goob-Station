@@ -10199,3 +10199,9 @@ Entries:
       message: Fixed resomi not being able to host anomalies.
   id: 1131
   time: '2025-05-25T02:52:44.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: HoS equipment is reworked, again.
+  id: 1132
+  time: '2025-05-25T03:35:00.0000000+00:00'
