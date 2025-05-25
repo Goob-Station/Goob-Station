@@ -2,7 +2,6 @@
   parent: Stunbaton
   id: StunbatonSelfCharging # Someone not capitalising the B in Stun`B`aton has wasted over an hour of my life trying to fix the error.
   categories: [HideSpawnMenu]
-  noSpawn: true
   components:
   - type: BatterySelfRecharger
     autoRecharge: true
@@ -15,7 +14,6 @@
   parent: Flash
   id: FlashRecharging
   categories: [HideSpawnMenu]
-  noSpawn: true
   components:
   - type: AutoRecharge
     rechargeDuration: 120
@@ -29,7 +27,6 @@
   id: FlashlightSecliteRecharging
   description: A robust flashlight used by security.
   categories: [HideSpawnMenu]
-  noSpawn: true
   components:
   - type: ItemSlots
     slots:
@@ -47,7 +44,6 @@
   id: WoodBaton
   description: First, do no crime.
   categories: [HideSpawnMenu]
-  noSpawn: true
   components:
     - type: MeleeWeapon
       wideAnimationRotation: -135
@@ -56,7 +52,7 @@
           Blunt: 0
     - type: StaminaDamageOnHit
       damage: 20 # Stuns in 5
-      sound: /Audio/Nyanotrasen/Weapons/club.ogg # TODO: Find a free-to-use thwacking sound effect. This isn't perfect but this works.
+      sound: /Audio/_Goobstation/Weapons/Baton/woodhit.ogg
     - type: Sprite
       sprite: _DV/Objects/Weapons/Melee/wood_baton.rsi
       state: icon
@@ -68,7 +64,6 @@
   parent: HoloprojectorSecurity
   id: HoloprojectorSecurityRecharging
   categories: [HideSpawnMenu]
-  noSpawn: true
   components:
     - type: ItemSlots
       slots:

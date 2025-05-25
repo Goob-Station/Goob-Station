@@ -2,7 +2,6 @@
   parent: WeaponLaserCarbine
   id: WeaponLaserCarbineRecharging
   categories: [HideSpawnMenu]
-  noSpawn: true
   components:
     - type: BatterySelfRecharger
       autoRecharge: true
@@ -14,7 +13,6 @@
   parent: WeaponDisabler
   id: WeaponDisablerRecharging
   categories: [HideSpawnMenu]
-  noSpawn: true
   components:
     - type: BatterySelfRecharger
       autoRecharge: true
