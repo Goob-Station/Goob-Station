@@ -335,7 +335,7 @@
 - type: entity
   parent: [ClothingModsuitGauntletsStandard, BaseSyndicateContraband]
   id: ClothingModsuitGauntletsBloodredModsuit
-  name: CSA-99MS "Deimos" Modsuit Gauntlets
+  name: Syndicate "Deimos" Modsuit Gauntlets
   description: A set of armored gauntlets for the "Deimos" modsuit.
   categories: [HideSpawnMenu]
   components:
@@ -345,6 +345,10 @@
       visualLayers:
         gloves:
         - state: equipped-HAND-sealed
+    - type: DamageOnInteractProtection
+      damageProtection:
+        flatReductions:
+          Heat: 5
 
 - type: entity
   parent: [ClothingModsuitGauntletsStandard, BaseSyndicateContraband]
@@ -359,4 +363,15 @@
       visualLayers:
         gloves:
         - state: equipped-HAND-sealed
-
+    - type: Armor
+      modifiers:
+        coefficients:
+          Blunt: 0.9
+          Slash: 0.9
+          Piercing: 0.9
+          Shock: 0.75
+          Heat: 0.70
+    - type: DamageOnInteractProtection
+      damageProtection:
+        flatReductions:
+          Heat: 10

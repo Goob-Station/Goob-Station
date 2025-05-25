@@ -1213,7 +1213,7 @@
       - SurplusBundle
 
 - type: listing
-  id: UplinkHardsuitBloodRedModsuit
+  id: UplinkBloodRedModsuit
   name: uplink-modsuit-bloodred-name
   description: uplink-modsuit-bloodred-desc
   icon: { sprite: /Textures/_Goobstation/Clothing/OuterClothing/Modsuits/bloodredmodsuit.rsi, state: chestplate }
@@ -1224,7 +1224,7 @@
   - UplinkWearables
 
 - type: listing
-  id: UplinkHardsuitSyndicateEliteModsuit
+  id: UplinkSyndicateEliteModsuit
   name: uplink-modsuit-elitemodsuit-name
   description: uplink-modsuit-elitemodsuit-desc
   icon: { sprite: /Textures/_Goobstation/Clothing/OuterClothing/Modsuits/syndicateelitemodsuit.rsi, state: chestplate }

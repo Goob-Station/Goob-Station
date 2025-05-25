@@ -301,8 +301,6 @@
     - type: Tag
       tags:
         - WhitelistChameleon
-    - type: ToggleClothing
-      action: ActionToggleMagboots
     - type: Magboots
     - type: SealableClothingVisuals
       visualLayers:
@@ -325,12 +323,8 @@
     - type: ClothingSpeedModifier
       walkModifier: 1
       sprintModifier: 1
-    - type: ToggleClothing
-      action: ActionToggleMagboots
-    - type: ComponentToggler
-      components:
-        - type: NoSlip
     - type: Magboots
+    - type: NoSlip
     - type: SealableClothingVisuals
       visualLayers:
         shoes:
