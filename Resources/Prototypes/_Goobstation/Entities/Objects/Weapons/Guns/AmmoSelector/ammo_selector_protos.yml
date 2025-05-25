@@ -137,6 +137,25 @@
   protoId: BulletBigshot
   fireCost: 80
 
+# Sidearm Laser
+
+- type: selectableAmmo
+  id: BulletLethalSidearm
+  desc: Lethal
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/energy_bolt.rsi
+    state: bolt_red_heavy
+  protoId: SidearmHarm
+  fireCost: 40
+
+- type: selectableAmmo
+  id: BulletDisablerSidearm
+  desc: Disable
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/energy_bolt.rsi
+    state: bolt_blue_heavy
+  protoId: SidearmDisable
+  fireCost: 40
 
 # Pulse Rifle
 

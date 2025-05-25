@@ -429,3 +429,51 @@
   - type: Battery
     maxCharge: 800
     startingCharge: 800
+
+- type: entity
+  name: laser sidearm
+  parent: [ WeaponDisablerPractice, BaseSecurityContraband ]
+  id: WeaponLaserSidearm
+  description: A repurposed disabler used by mall cops all across nanotrasens stations, has lethal and nonlethal modes.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Battery/disabler.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-0
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Battery/disabler.rsi
+    quickEquip: false
+    slots:
+      - suitStorage
+      - Belt
+  - type: Battery
+    maxCharge: 500
+    startingCharge: 500
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletDisablerSidearm
+    fireCost: 40
+  - type: AmmoSelector
+    prototypes:
+    - BulletDisablerSidearm
+    - BulletLethalSidearm
+  - type: UserInterface
+    interfaces:
+      enum.AmmoSelectorUiKey.Key:
+        type: AmmoSelectorMenuBoundUserInterface
+  - type: ActivatableUI
+    inHandsOnly: true
+    key: enum.AmmoSelectorUiKey.Key
+  - type: ItemToggle
+    activated: true
+    onActivate: false
+    onUse: false
+    wieldToggle: false
+  - type: ItemToggleColor
+  - type: GuideHelp
+    guides:
+    - Security
+    - Antagonists
