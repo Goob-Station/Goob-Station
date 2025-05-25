@@ -174,6 +174,15 @@ public sealed partial class DragonSystem : EntitySystem
         var query = EntityQueryEnumerator<DragonComponent, DevourerComponent, TransformComponent>(); // Goobstation - added Transform and Devourer components
         while (query.MoveNext(out var uid, out var comp, out var devourer, out var xform)) // Goobstation - added Transform and Devourer components
         {
+            // Goobstation start
+            // Heal the dragon a bit if it's near the carp rift.
+            if (_lookup.GetEntitiesInRange<DragonRiftComponent>(xform.Coordinates, comp.CarpRiftHealingRange).Count > 0)
+            {
+                var ichorInjection = new Solution(devourer.Chemical, devourer.HealRate * frameTime * comp.RiftHealingRate);
+                _bloodstreamSystem.TryAddToChemicals(uid, ichorInjection);
+            }
+            // Goobstation end
+
             if (comp.WeakenedAccumulator > 0f)
             {
                 comp.WeakenedAccumulator -= frameTime;
@@ -211,14 +220,6 @@ public sealed partial class DragonSystem : EntitySystem
                 Roar(uid, comp);
                 QueueDel(uid);
             }
-            // Goobstation start
-            // Heal the dragon a bit if it's near the carp rift.
-            if (_lookup.GetEntitiesInRange<DragonRiftComponent>(xform.Coordinates, comp.CarpRiftHealingRange).Count > 0)
-            {
-                var ichorInjection = new Solution(devourer.Chemical, devourer.HealRate * frameTime * comp.RiftHealingRate);
-                _bloodstreamSystem.TryAddToChemicals(uid, ichorInjection);
-            }
-            // Goobstation end
         }
     }
 

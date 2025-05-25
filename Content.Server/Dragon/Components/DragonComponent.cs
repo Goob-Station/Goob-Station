@@ -106,7 +106,7 @@ namespace Content.Server.Dragon
         public EntProtoId RoarAction = "ActionDragonRoar";
 
         [DataField]
-        public float RoarRange = 4f;
+        public float RoarRange = 3f;
 
         [DataField]
         public float RoarStunTime = 2f;
@@ -115,7 +115,7 @@ namespace Content.Server.Dragon
         public float CarpRiftHealingRange = 3f;
 
         [DataField]
-        public float RiftHealingRate = 0.05f;
+        public float RiftHealingRate = 0.05f; // 20 seconds of standing near the rift = 1 devour
 
         #endregion
     }
