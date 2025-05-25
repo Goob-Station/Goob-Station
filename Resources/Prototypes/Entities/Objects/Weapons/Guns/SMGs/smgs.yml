@@ -120,7 +120,6 @@
       gun_chamber: !type:ContainerSlot
   - type: StaticPrice
     price: 500
-  - type: Multishot # Goobstation
   # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
