@@ -53,7 +53,6 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ichaie <167008606+Ichaie@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 // SPDX-FileCopyrightText: 2025 JORJ949 <159719201+JORJ949@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 MortalBaguette <169563638+MortalBaguette@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Myra <vasilis@pikachu.systems>
@@ -65,6 +64,7 @@
 // SPDX-FileCopyrightText: 2025 PuroSlavKing <103608145+PuroSlavKing@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 Weax <59857479+ImWeax@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 blobadoodle <me@bloba.dev>
@@ -273,9 +273,6 @@ namespace Content.Server.Database
         Task<int> GetServerCurrency(NetUserId userId); // Goobstation
         Task SetServerCurrency(NetUserId userId, int currency); // Goobstation
         Task<int> ModifyServerCurrency(NetUserId userId, int currencyDelta); // Goobstation
-
-        Task<bool> SetLastRolledAntag(NetUserId userId, TimeSpan to); // Goobstation
-        Task<TimeSpan> GetLastRolledAntag(NetUserId userId); // Goobstation
         #endregion
 
         #region Connection Logs
@@ -763,18 +760,6 @@ namespace Content.Server.Database
         {
             DbReadOpsMetric.Inc();
             return RunDbCommand(() => _db.ModifyServerCurrency(userId, currencyDelta));
-        }
-
-        public Task<TimeSpan> GetLastRolledAntag(NetUserId userId) // Goobstation
-        {
-            DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.GetLastRolledAntag(userId));
-        }
-
-        public Task<bool> SetLastRolledAntag(NetUserId userId, TimeSpan to) // Goobstation
-        {
-            DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.SetLastRolledAntag(userId, to));
         }
 
         public Task<int> AddConnectionLogAsync(
