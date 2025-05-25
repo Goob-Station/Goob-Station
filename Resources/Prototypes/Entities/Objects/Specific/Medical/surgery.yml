@@ -198,7 +198,7 @@
       types:
         Slash: 12
   - type: Scalpel # Shitmed
-    speed: 1.25
+    speed: 1.35
 
 - type: entity
   name: laser scalpel
@@ -214,7 +214,7 @@
     storedRotation: 90
     heldPrefix: laser
   - type: Scalpel # Shitmed
-    speed: 1.5
+    speed: 1.75
   # TODO: prevent bleeding from incisions
 
 # Retractor
@@ -445,9 +445,9 @@
           state: e-scalpel
         components:
           - type: Scalpel
-            speed: 1.5
+            speed: 2
           - type: BoneSaw
-            speed: 1.5
+            speed: 2
         soundStateActivate:
           collection: sparks
           params:
@@ -461,7 +461,7 @@
           state: e-scalpel-on
         components:
         - type: Drill
-          speed: 1.5
+          speed: 2
         soundStateActivate:
           collection: sparks
           params:
@@ -504,7 +504,7 @@
           state: adv-retractor
         components:
           - type: Retractor
-            speed: 1.5
+            speed: 2
         soundStateActivate:
           collection: sparks
           params:
@@ -518,11 +518,11 @@
           state: adv-retractor-on
         components:
           - type: Hemostat
-            speed: 1.5
+            speed: 2
           - type: Tweezers
-            speed: 1.5
+            speed: 2
           - type: Tending
-            speed: 1.5
+            speed: 2
         soundStateActivate:
           collection: sparks
           params:
@@ -565,7 +565,7 @@
           state: e-cautery
         components:
         - type: Cautery
-          speed: 1.5
+          speed: 2
         soundStateActivate:
           collection: WelderOn
           params:
@@ -579,7 +579,7 @@
           state: e-cautery-on
         components:
         - type: Stitches # should be unlimited when the actual stitches become limited
-          speed: 1.5
+          speed: 2
         soundStateActivate:
           collection: sparks
           params:
@@ -622,7 +622,7 @@
           state: e-bone-gel
         components:
         - type: BoneGel # should be unlimited when the actual bone gel becomes limited
-          speed: 1.5
+          speed: 2
         soundStateActivate:
           collection: sparks
           params:
@@ -636,7 +636,7 @@
           state: e-bone-gel-on
         components:
         - type: BoneSetter
-          speed: 1.5
+          speed: 2
         soundStateActivate:
           collection: sparks
           params:
@@ -659,27 +659,16 @@
     startSound:
       path: /Audio/_Shitmed/Medical/Surgery/saw.ogg
   - type: Hemostat
-    speed: 1
   - type: Scalpel
-    speed: 1
   - type: Drill
-    speed: 1
   - type: BoneSetter
-    speed: 1
   - type: Retractor
-    speed: 1
   - type: Cautery
-    speed: 1
   - type: BoneGel
-    speed: 1
   - type: BoneSaw
-    speed: 1
   - type: Tweezers
-    speed: 1
   - type: Tending
-    speed: 1
   - type: Stitches
-    speed: 1
 
 - type: entity
   parent: [ OmnimedTool, BaseSyndicateContraband ]
