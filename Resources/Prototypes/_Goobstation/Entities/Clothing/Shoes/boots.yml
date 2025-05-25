@@ -225,3 +225,24 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+
+- type: entity
+  parent: [ClothingShoesMilitaryBase, ClothingShoesBaseWinterBoots, BaseCentcommContraband]
+  id: ClothingShoesBootsWinterSnowjackBso
+  name: blueshield's snowjackboots
+  description: For when you need to save a head from a changeling on a research station in Antarctica.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Shoes/Boots/bso_snowjacks.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Shoes/Boots/bso_snowjacks.rsi
+  - type: ClothingSlowOnDamageModifier
+    modifier: 0.6
+  - type: ModifyStandingUpTime
+    multiplier: 0.6
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95

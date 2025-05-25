@@ -103,6 +103,7 @@
   - BlueshieldOfficerOuterBlueshieldArmorVest
   - BlueshieldOfficerOuterBlueshieldArmoredJacket
   - BlueshieldOfficerOuterBlueshieldCowboyVest
+  - BlueshieldOfficerOuterWinterBlueshield
 
 - type: loadoutGroup
   id: BlueshieldOfficerNeck
@@ -124,6 +125,7 @@
   loadouts:
   - JackBoots
   - BlackCowboyBoots
+  - SnowjacksBso
 
 # Career Trainer
 
