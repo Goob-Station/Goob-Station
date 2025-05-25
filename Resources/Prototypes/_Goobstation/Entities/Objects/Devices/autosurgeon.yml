@@ -48,7 +48,7 @@
   - type: Sprite
     state: icon-syndie
 
-# CREW (currently not used, they serve for testing purposes)
+# CREW (currently not used, use for testing purposes admeme etc.)
 
 - type: entity
   parent: BaseAutosurgeon
@@ -80,8 +80,7 @@
     targetBodyPartSymmetry: Right
     componentsToPart:
     - type: MantisBladeArm
-    componentsToUser:
-    - type: RightMantisBladeUser
+      actionProto: ActionToggleRightMantisBlade
 
 - type: entity
   parent: BaseAutosurgeonSyndicate
@@ -93,8 +92,7 @@
     targetBodyPartSymmetry: Left
     componentsToPart:
     - type: MantisBladeArm
-    componentsToUser:
-    - type: LeftMantisBladeUser
+      actionProto: ActionToggleLeftMantisBlade
 
 - type: entity
   parent: BaseAutosurgeonSyndicate

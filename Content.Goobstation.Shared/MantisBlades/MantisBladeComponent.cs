@@ -5,7 +5,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 // This has no business with PairedExtendable functionality, this is just for visuals.
-namespace Content.Goobstation.Shared.PairedExtendable.MantisBlades;
+namespace Content.Goobstation.Shared.MantisBlades;
 
 [RegisterComponent]
 public sealed partial class MantisBladeComponent : Component;

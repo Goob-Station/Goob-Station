@@ -3,88 +3,94 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.PairedExtendable.MantisBlades;
+using Content.Goobstation.Shared.MantisBlades;
 using Content.Server.Emp;
 using Content.Shared.Actions;
+using Content.Shared.Body.Part;
 using Content.Shared.Emp;
+using Content.Shared.Hands.Components;
 using Content.Shared.Popups;
+using Robust.Shared.Audio.Systems;
 
 namespace Content.Goobstation.Server.PairedExtendable.Systems;
 
 public sealed class MantisBladesSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly PairedExtendableSystem _pairedExtendable = default!;
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<RightMantisBladeUserComponent, ComponentInit>(OnInitRight);
-        SubscribeLocalEvent<LeftMantisBladeUserComponent, ComponentInit>(OnInitLeft);
-
-        SubscribeLocalEvent<RightMantisBladeUserComponent, EmpPulseEvent>(OnEmpRight);
-        SubscribeLocalEvent<LeftMantisBladeUserComponent, EmpPulseEvent>(OnEmpLeft);
-
-        SubscribeLocalEvent<RightMantisBladeUserComponent, ToggleRightMantisBladeEvent>(OnToggleRight);
-        SubscribeLocalEvent<LeftMantisBladeUserComponent, ToggleLeftMantisBladeEvent>(OnToggleLeft);
-
-        SubscribeLocalEvent<RightMantisBladeUserComponent, ComponentShutdown>(OnShutdownRight);
-        SubscribeLocalEvent<LeftMantisBladeUserComponent, ComponentShutdown>(OnShutdownLeft);
+        SubscribeLocalEvent<MantisBladeArmComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<MantisBladeArmComponent, BodyPartAddedEvent>(OnAttach);
+        SubscribeLocalEvent<MantisBladeArmComponent, ToggleMantisBladeEvent>(OnToggle);
+        SubscribeLocalEvent<MantisBladeArmComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<MantisBladeArmComponent, BodyPartRemovedEvent>(OnDetach);
+        SubscribeLocalEvent<MantisBladeArmComponent, EmpPulseEvent>(OnEmpPulse);
     }
-    private void OnInitRight(EntityUid uid, RightMantisBladeUserComponent comp, ref ComponentInit args)
+
+    private void OnInit(Entity<MantisBladeArmComponent> ent, ref ComponentInit args) => AddAction(ent);
+
+    private void OnAttach(Entity<MantisBladeArmComponent> ent, ref BodyPartAddedEvent args) => AddAction(ent);
+
+    private void AddAction(Entity<MantisBladeArmComponent> ent)
     {
-        comp.ActionUid = _actions.AddAction(uid, comp.ActionProto);
+        if (!TryComp<BodyPartComponent>(ent, out var part)
+            || part.Body == null)
+            return;
+
+        ent.Comp.ActionUid = _actions.AddAction(part.Body.Value, ent.Comp.ActionProto, ent);
     }
 
-    private void OnInitLeft(EntityUid uid, LeftMantisBladeUserComponent comp, ref ComponentInit args)
+    private void OnToggle(Entity<MantisBladeArmComponent> ent, ref ToggleMantisBladeEvent args)
     {
-        comp.ActionUid = _actions.AddAction(uid, comp.ActionProto);
+        if (!TryComp<BodyPartComponent>(ent, out var part)
+        || part.Body == null)
+            return;
+
+        if (HasComp<EmpDisabledComponent>(ent))
+        {
+            _popup.PopupEntity(Loc.GetString("mantis-blade-disabled-emp"), ent, part.Body.Value);
+            return;
+        }
+
+        var handLocation = part.Symmetry switch
+        {
+            BodyPartSymmetry.Left => HandLocation.Left,
+            BodyPartSymmetry.Right => HandLocation.Right,
+            BodyPartSymmetry.None => HandLocation.Middle,
+            _ => throw new ArgumentOutOfRangeException(),
+        };
+
+        args.Handled = _pairedExtendable.ToggleExtendable(part.Body.Value,
+            ent.Comp.BladeProto,
+            handLocation,
+            out ent.Comp.BladeUid,
+            ent.Comp.BladeUid);
+
+        if (args.Handled)
+            _audio.PlayPvs(ent.Comp.BladeUid == null ? ent.Comp.RetractSound : ent.Comp.ExtendSound, ent);
     }
 
-    private void OnEmpRight(EntityUid uid, RightMantisBladeUserComponent comp, ref EmpPulseEvent args)
+    private void OnShutdown(Entity<MantisBladeArmComponent> ent, ref ComponentShutdown args)
+    {
+        Del(ent.Comp.BladeUid);
+        Del(ent.Comp.ActionUid);
+    }
+
+    private void OnDetach(Entity<MantisBladeArmComponent> ent, ref BodyPartRemovedEvent args)
+    {
+        Del(ent.Comp.BladeUid);
+        Del(ent.Comp.ActionUid);
+    }
+
+    private void OnEmpPulse(EntityUid uid, MantisBladeArmComponent comp, ref EmpPulseEvent args)
     {
         args.Affected = true;
         args.Disabled = true;
     }
 
-    private void OnEmpLeft(EntityUid uid, LeftMantisBladeUserComponent comp, ref EmpPulseEvent args)
-    {
-        args.Affected = true;
-        args.Disabled = true;
-    }
-
-    private void OnToggleRight(Entity<RightMantisBladeUserComponent> ent, ref ToggleRightMantisBladeEvent args)
-    {
-        if (HasComp<EmpDisabledComponent>(ent))
-        {
-            _popup.PopupEntity(Loc.GetString("mantis-blade-disabled-emp"), ent, ent);
-            return;
-        }
-
-        args.Handled = _pairedExtendable.ToggleExtendable<RightMantisBladeUserComponent>(ent);
-    }
-
-    private void OnToggleLeft(Entity<LeftMantisBladeUserComponent> ent, ref ToggleLeftMantisBladeEvent args)
-    {
-        if (HasComp<EmpDisabledComponent>(ent))
-        {
-            _popup.PopupEntity(Loc.GetString("mantis-blade-disabled-emp"), ent, ent);
-            return;
-        }
-
-        args.Handled = _pairedExtendable.ToggleExtendable<LeftMantisBladeUserComponent>(ent);
-    }
-
-    private void OnShutdownRight(EntityUid uid, RightMantisBladeUserComponent comp, ref ComponentShutdown args)
-    {
-        Del(comp.ExtendableUid);
-        _actions.RemoveAction(comp.ActionUid);
-    }
-
-    private void OnShutdownLeft(EntityUid uid, LeftMantisBladeUserComponent comp, ref ComponentShutdown args)
-    {
-        Del(comp.ExtendableUid);
-        _actions.RemoveAction(comp.ActionUid);
-    }
 }

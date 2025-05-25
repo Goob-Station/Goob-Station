@@ -3,62 +3,49 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.PairedExtendable;
+using System.Linq;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Popups;
-using Robust.Shared.Audio.Systems;
 
 namespace Content.Goobstation.Server.PairedExtendable;
 
 public sealed class PairedExtendableSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
-    public bool ToggleExtendable<T>(EntityUid ent) where T : PairedExtendableUserComponent
+    /// <summary>
+    /// Tries to extend or retract an extendable out from the user.
+    /// </summary>
+    /// <param name="currentExtenable">Current extendable, if any</param>
+    /// <param name="newExtendable">New extendable uid</param>
+    /// <returns>false if there were to hands, they were busy etc., so an action that triggered this shouldn't be handled</returns>
+    public bool ToggleExtendable (EntityUid user, string protoId, HandLocation side, out EntityUid? newExtendable, EntityUid? currentExtenable = null, bool makeUnremoable = true)
     {
-        if (!TryComp<T>(ent, out var comp))
+        newExtendable = null;
+        var hand = _hands.EnumerateHands(user).FirstOrDefault(hand => hand.Location == side);
+        if (hand == null)
             return false;
 
-        Hand? ourHand = null;
-        foreach (var hand in _hands.EnumerateHands(ent))
-        {
-            if (hand.Location == (comp is RightPairedExtendableUserComponent ? HandLocation.Right : HandLocation.Left))
-            {
-                ourHand = hand;
-                break;
-            }
-        }
-
-        if (ourHand == null)
-            return false;
-
-        var activeItem = ourHand.HeldEntity;
-
-        if (activeItem.HasValue
-        && activeItem == comp.ExtendableUid)
+        if (hand.HeldEntity is {} activeItem && activeItem == currentExtenable)
         {
             Del(activeItem);
-            comp.ExtendableUid = null;
-            _audio.PlayPvs(comp.RetractSound, ent);
             return true;
         }
 
-        var newExtendable = Spawn(comp.ExtendableProto, Transform(ent).Coordinates);
-        if (!_hands.TryPickup(ent, newExtendable, ourHand.Name))
+        newExtendable = Spawn(protoId, Transform(user).Coordinates);
+        if (!_hands.TryPickup(user, newExtendable.Value, hand.Name))
         {
             Del(newExtendable);
-            _popup.PopupEntity(Loc.GetString("paired-extendable-hand-busy"), ent, ent);
+            newExtendable = null;
+            _popup.PopupEntity(Loc.GetString("paired-extendable-hand-busy"), user, user);
             return false;
         }
 
-        _audio.PlayPvs(comp.ExtendSound, ent);
-        comp.ExtendableUid = newExtendable;
-        if (comp.MakeUnremovable)
-            EnsureComp<UnremoveableComponent>(newExtendable);
+        if (makeUnremoable)
+            EnsureComp<UnremoveableComponent>(newExtendable.Value);
 
         return true;
     }

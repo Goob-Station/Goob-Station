@@ -89,10 +89,10 @@
     checkCanInteract: false
     useDelay: 2
     icon: { sprite: _Goobstation/Objects/Weapons/Melee/mantis_blade.rsi, state: icon }
-    itemIconStyle: BigAction
+    itemIconStyle: NoItem
     sound: !type:SoundPathSpecifier
       path: /Audio/Items/unsheath.ogg
-    event: !type:ToggleRightMantisBladeEvent
+    event: !type:ToggleMantisBladeEvent
 
 - type: entity
   id: ActionToggleLeftMantisBlade
@@ -104,8 +104,8 @@
     checkCanInteract: false
     useDelay: 2
     icon: { sprite: _Goobstation/Objects/Weapons/Melee/mantis_blade.rsi, state: icon-mirrored }
-    itemIconStyle: BigAction
-    event: !type:ToggleLeftMantisBladeEvent
+    itemIconStyle: NoItem
+    event: !type:ToggleMantisBladeEvent
 
 - type: entity
   id: ActionToggleSandevistan
@@ -117,5 +117,5 @@
     checkCanInteract: false
     useDelay: 5
     icon: { sprite: _Goobstation/Objects/Misc/sandevistan.rsi, state: icon }
-    itemIconStyle: BigAction
+    itemIconStyle: NoItem
     event: !type:ToggleSandevistanEvent
