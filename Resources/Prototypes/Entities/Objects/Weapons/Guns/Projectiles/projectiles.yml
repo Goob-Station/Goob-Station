@@ -609,11 +609,11 @@
     - state: buster
   - type: SinguloFood
     energy: -500
-  - type: Explosive
-    explosionType: Default
-    maxIntensity: 5 # Goob
-    intensitySlope: 1 # Goob
-    totalIntensity: 100 # Goob
+  - type: Explosive # Goob
+    explosionType: Electrical
+    maxIntensity: 10
+    intensitySlope: 3
+    totalIntensity: 150
     maxTileBreak: 1
 
 - type: entity
