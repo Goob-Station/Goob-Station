@@ -186,7 +186,7 @@
     contents: # heavily good edited
       - id: ParamedHypo
       - id: BoxAutoinjectorCartidges
-      - id: ClothingBackpackDuffelSurgeryFilled #- id: OmnimedTool - uncomment after omnitool nerf
+      - id: OmnimedTool
       - id: ClothingEyesGlassesMed
       - id: ClothingOuterHardsuitBrigmedic
       - id: OxygenTankFilled
