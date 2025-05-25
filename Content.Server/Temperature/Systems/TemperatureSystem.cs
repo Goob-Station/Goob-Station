@@ -84,6 +84,7 @@
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Marcus F <marcus2008stoke@gmail.com>
@@ -152,6 +153,7 @@ public sealed class TemperatureSystem : EntitySystem
         SubscribeLocalEvent<ChangeTemperatureOnCollideComponent, ProjectileHitEvent>(ChangeTemperatureOnCollide);
 
         SubscribeLocalEvent<SpecialLowTempImmunityComponent, TemperatureImmunityEvent>(OnCheckLowTemperatureImmunity); // Goob edit
+        SubscribeLocalEvent<SpecialHighTempImmunityComponent, TemperatureImmunityEvent>(OnCheckHighTemperatureImmunity); // Goob edit
 
         // Allows overriding thresholds based on the parent's thresholds.
         SubscribeLocalEvent<TemperatureComponent, EntParentChangedMessage>(OnParentChange);
@@ -216,10 +218,19 @@ public sealed class TemperatureSystem : EntitySystem
         ShouldUpdateDamage.Clear();
     }
 
-    private void OnCheckLowTemperatureImmunity(Entity<SpecialLowTempImmunityComponent> ent, ref TemperatureImmunityEvent args) // Goob edit
+    // Goob start
+    private void OnCheckLowTemperatureImmunity(Entity<SpecialLowTempImmunityComponent> ent, ref TemperatureImmunityEvent args)
     {
-        args.CurrentTemperature = MathF.Max(args.CurrentTemperature, args.IdealTemperature);
+        if (args.CurrentTemperature < args.IdealTemperature)
+            args.CurrentTemperature = args.IdealTemperature;
     }
+
+    private void OnCheckHighTemperatureImmunity(Entity<SpecialHighTempImmunityComponent> ent, ref TemperatureImmunityEvent args)
+    {
+        if (args.CurrentTemperature > args.IdealTemperature)
+            args.CurrentTemperature = args.IdealTemperature;
+    }
+    // Goob end
 
     public void ForceChangeTemperature(EntityUid uid, float temp, TemperatureComponent? temperature = null)
     {
@@ -233,10 +244,15 @@ public sealed class TemperatureSystem : EntitySystem
         var tempEv = new TemperatureImmunityEvent(temperature.CurrentTemperature);
         RaiseLocalEvent(uid, tempEv);
         temperature.CurrentTemperature = tempEv.CurrentTemperature;
-        // Goob end
 
         float delta = temperature.CurrentTemperature - temp;
-        
+
+        var attemptEv = new TemperatureChangeAttemptEvent(temp, lastTemp, delta);
+        RaiseLocalEvent(uid, attemptEv);
+        if (attemptEv.Cancelled)
+            return;
+        // Goob end
+
         RaiseLocalEvent(uid, new OnTemperatureChangeEvent(temperature.CurrentTemperature, lastTemp, delta),
             true);
     }
@@ -254,16 +270,24 @@ public sealed class TemperatureSystem : EntitySystem
             heatAmount = ev.TemperatureDelta;
         }
 
+
+        // Goobstation start
         float lastTemp = temperature.CurrentTemperature;
-        temperature.CurrentTemperature += heatAmount / GetHeatCapacity(uid, temperature);
+        float newTemp = temperature.CurrentTemperature + heatAmount / GetHeatCapacity(uid, temperature);
 
-        // Goob start
-        var tempEv = new TemperatureImmunityEvent(temperature.CurrentTemperature);
+        var tempEv = new TemperatureImmunityEvent(newTemp);
         RaiseLocalEvent(uid, tempEv);
-        temperature.CurrentTemperature = tempEv.CurrentTemperature;
-        // Goob end
+        newTemp = tempEv.CurrentTemperature;
 
-        float delta = temperature.CurrentTemperature - lastTemp;
+        float delta = newTemp - lastTemp;
+
+        var attemptEv = new TemperatureChangeAttemptEvent(newTemp, lastTemp, delta);
+        RaiseLocalEvent(uid, attemptEv);
+        if (attemptEv.Cancelled)
+            return;
+
+        temperature.CurrentTemperature = newTemp;
+        // Goobstation end
 
         RaiseLocalEvent(uid, new OnTemperatureChangeEvent(temperature.CurrentTemperature, lastTemp, delta), true);
     }

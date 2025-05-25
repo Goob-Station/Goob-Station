@@ -14,24 +14,28 @@
 - type: body
   id: IPC
   name: "ipc"
-  root: torso
+  root: chest
   slots:
     head:
       part: HeadIPC
       connections:
-      - torso
+      - chest
       organs:
         eyes: OrganIPCEyes
-    torso:
-      part: TorsoIPC
+    chest:
+      part: ChestIPC
       connections:
       - right arm
       - left arm
-      - right leg
-      - left leg
+      - groin
       organs:
         posbrain: PositronicBrain
         pump: OrganIPCPump
+    groin:
+      part: GroinIPC
+      connections:
+      - right leg
+      - left leg
     right arm:
       part: RightArmIPC
       connections:

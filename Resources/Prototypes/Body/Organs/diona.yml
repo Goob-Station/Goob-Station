@@ -20,6 +20,8 @@
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Arraydeess <arraygitbash@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Martynas6ha4 <martynashagriefer@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -32,6 +34,12 @@
   - type: Sprite
     sprite: Mobs/Species/Diona/organs.rsi
   - type: Organ
+    intCap: 24
+    integrity: 24
+    integrityThresholds:
+      Normal: 24
+      Damaged: 15
+      Destroyed: 0
   - type: Food
   - type: Extractable
     grindableSolutionName: organ
@@ -85,15 +93,23 @@
   - type: Sprite
     state: brain
   - type: Organ # Shitmed
+    intCap: 28
+    integrity: 28
+    integrityThresholds:
+      Normal: 28
+      Damaged: 16
+      Destroyed: 0
     slotId: brain
   - type: Brain # Shitmed
   - type: SolutionContainerManager
     solutions:
       organ:
-        maxVol: 10
+        maxVol: 15 # goob edit
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
+        - ReagentId: Cognizine # goob edit
+          Quantity: 5 # goob edit
       Lung:
         maxVol: 100
         canReact: False
@@ -107,6 +123,9 @@
     - Meat
     - Organ
     - Brain
+  - type: NerveSystem # backmen: wounding
+  - type: ConsciousnessRequired
+    identifier: "nerveSystem"
 
 - type: entity
   id: OrganDionaEyes
@@ -119,6 +138,12 @@
       - state: eyeball-l
       - state: eyeball-r
   - type: Organ # Shitmed
+    intCap: 17 # dionas will have better eyes. :fort:
+    integrity: 17
+    integrityThresholds:
+      Normal: 17
+      Damaged: 8
+      Destroyed: 0
     slotId: eyes
   - type: Tag # goob edit
     tags:
@@ -144,10 +169,16 @@
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
   - type: Organ # Shitmed
+    intCap: 35
+    integrity: 35
+    integrityThresholds:
+      Normal: 35
+      Damaged: 19
+      Destroyed: 0
     slotId: stomach
   - type: Stomach
   - type: Metabolizer
-    maxReagents: 6
+    maxPoisonsProcessable: 6
     metabolizerTypes: [ Plant ]
     removeEmpty: true
     groups:
@@ -176,6 +207,12 @@
   - type: Sprite
     state: lungs
   - type: Organ # Shitmed
+    intCap: 21
+    integrity: 21
+    integrityThresholds:
+      Normal: 21
+      Damaged: 12
+      Destroyed: 0
     slotId: lungs
   - type: Item
     size: Small

@@ -1,0 +1,279 @@
+- type: entity
+  save: false
+  parent:
+  - BaseMobSpeciesOrganic
+  id: MobShadowkinBase
+  name: Urist McShadow
+  abstract: true
+  components:
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTypeTrigger
+            damageType: Blunt
+            damage: 300
+          behaviors:
+            - !type:GibBehavior {}
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                ShadowkinShadow:
+                  min: 1
+                  max: 1
+                EffectFlashShadowkinShadeskip:
+                  min: 1
+                  max: 1
+        - trigger:
+            !type:DamageTypeTrigger
+            damageType: Heat
+            damage: 1500
+          behaviors:
+            - !type:SpawnEntitiesBehavior
+              spawnInContainer: true
+              spawn:
+                Ash:
+                  min: 1
+                  max: 1
+            - !type:BurnBodyBehavior {}
+            - !type:PlaySoundBehavior
+              sound:
+                collection: MeatLaserImpact
+    - type: PassiveDamage # Slight passive regen. Assuming one damage type, comes out to about 4 damage a minute.
+      allowedStates:
+        - Alive
+      damageCap: 20
+      damage:
+        types:
+          Heat: -0.07
+        groups:
+          Brute: -0.07
+    - type: Blindable
+    - type: ThermalRegulator
+      metabolismHeat: 800
+      radiatedHeat: 100
+      implicitHeatRegulation: 500
+      sweatHeatRegulation: 2000
+      shiveringHeatRegulation: 2000
+      normalBodyTemperature: 310.15
+      thermalRegulationTemperatureThreshold: 25
+    - type: Perishable
+    - type: FireVisuals
+      alternateState: Standing
+    - type: LayingDown
+    - type: Hunger
+    - type: Thirst
+    - type: Carriable
+    - type: HumanoidAppearance
+      species: Shadowkin
+    - type: Icon
+      sprite: _EinsteinEngines/Mobs/Species/Shadowkin/parts.rsi
+      state: full
+    - type: Body
+      prototype: Shadowkin
+    - type: Flammable
+      damage:
+        types:
+          Heat: 1.5 # burn more
+    - type: MobThresholds
+      thresholds: # Weak
+        0: Alive
+        80: Critical
+        180: Dead
+    - type: SlowOnDamage
+      speedModifierThresholds:
+        48: 0.85
+        64: 0.65
+    - type: Damageable
+      damageContainer: Biological # Shadowkin
+      damageModifierSet: Shadowkin
+#    - type: DamageVisuals
+#      damageOverlayGroups:
+#        Brute:
+#          sprite: Mobs/Effects/brute_damage.rsi
+#          color: "#1c1624"
+    - type: Barotrauma
+      damage:
+        types:
+          Blunt: 0.35 # per second, scales with pressure and other constants.
+    - type: Bloodstream
+      bloodlossDamage:
+        types:
+          Bloodloss: 1
+      bloodlossHealDamage:
+        types:
+          Bloodloss: -0.25
+      bloodReagent: BlackBlood
+    - type: Temperature
+      heatDamageThreshold: 330
+      coldDamageThreshold: 195
+      currentTemperature: 310.15
+      specificHeat: 46
+      coldDamage:
+        types:
+          Cold: 0.05 #per second, scales with temperature & other constants
+      heatDamage:
+        types:
+          Heat: 0.25 #per second, scales with temperature & other constants
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape: !type:PhysShapeCircle
+            radius: 0.35
+          density: 130 #lower density
+          restitution: 0.0
+          mask:
+            - MobMask
+          layer:
+            - MobLayer
+    - type: Sprite
+      netsync: false
+      noRot: true
+      drawdepth: Mobs
+      scale: 0.85, 0.85
+      layers:
+        - map: ["enum.HumanoidVisualLayers.Chest"]
+        - map: ["enum.HumanoidVisualLayers.Head"]
+        - map: ["enum.HumanoidVisualLayers.Snout"]
+        - map: ["enum.HumanoidVisualLayers.Eyes"]
+          shader: unshaded
+        - map: ["enum.HumanoidVisualLayers.RArm"]
+        - map: ["enum.HumanoidVisualLayers.LArm"]
+        - map: ["enum.HumanoidVisualLayers.RLeg"]
+        - map: ["enum.HumanoidVisualLayers.LLeg"]
+#     - shader: StencilClear
+#      sprite: Mobs/Species/Human/parts.rsi
+#      state: l_leg
+        - shader: StencilMask
+          map: ["enum.HumanoidVisualLayers.StencilMask"]
+          sprite: Mobs/Customization/masking_helpers.rsi
+          state: full
+          visible: false
+        - map: ["enum.HumanoidVisualLayers.LFoot"]
+        - map: ["enum.HumanoidVisualLayers.RFoot"]
+        - map: ["socks"]
+        - map: ["underpants"]
+        - map: ["undershirt"]
+        - map: ["jumpsuit"]
+        - map: ["enum.HumanoidVisualLayers.LHand"]
+        - map: ["enum.HumanoidVisualLayers.RHand"]
+        - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+          color: "#ffffff"
+          sprite: Objects/Misc/handcuffs.rsi
+          state: body-overlay-2
+          visible: false
+        - map: ["id"]
+        - map: ["gloves"]
+        - map: ["shoes"]
+        - map: ["ears"]
+        - map: ["innerBelt"]
+        - map: ["innerNeck"]
+        - map: ["outerClothing"]
+        - map: ["eyes"]
+        - map: ["belt"]
+        - map: ["neck"]
+        - map: ["back"]
+        - map: ["enum.HumanoidVisualLayers.FacialHair"]
+        - map: ["enum.HumanoidVisualLayers.Hair"]
+        - map: ["enum.HumanoidVisualLayers.HeadSide"]
+        - map: ["enum.HumanoidVisualLayers.HeadTop"]
+        - map: ["mask"]
+        - map: ["head"]
+        - map: ["pocket1"]
+        - map: ["pocket2"]
+        - map: ["enum.HumanoidVisualLayers.Tail"]
+    - type: MeleeWeapon
+      soundHit:
+        collection: AlienClaw
+      angle: 30
+      animation: WeaponArcClaw
+      damage:
+        types:
+          Slash: 5
+    - type: Vocal
+      sounds:
+        Male: MaleShadowkin
+        Female: FemaleShadowkin
+        Unsexed: MaleShadowkin
+    - type: TypingIndicator
+      proto: alien
+    - type: MovementSpeedModifier
+      baseWalkSpeed: 2.7
+      baseSprintSpeed: 4.5
+    - type: Speech
+      allowedEmotes: ['Mars', 'Wurble']
+    - type: CollectiveMind
+      defaultChannel: Empathy
+      channels:
+      - Empathy
+    - type: Tag
+      tags:
+      - CanPilot
+      - FootstepSound
+      - DoorBumpOpener
+      - ShadowkinEmotes
+      - FlashVulnerable # Can't protect against flashes
+
+- type: entity
+  save: false
+  parent: MobHumanDummy
+  id: MobShadowkinDummy
+  categories: [ HideSpawnMenu ]
+  description: A dummy shadowkin meant to be used in character setup.
+  components:
+    - type: HumanoidAppearance
+      species: Shadowkin
+    - type: Sprite
+      netsync: false
+      noRot: true
+      drawdepth: Mobs
+      scale: 0.85, 0.85 # Small
+      layers:
+        - map: ["enum.HumanoidVisualLayers.Chest"]
+        - map: ["enum.HumanoidVisualLayers.Head"]
+        - map: ["enum.HumanoidVisualLayers.Snout"]
+        - map: ["enum.HumanoidVisualLayers.Eyes"]
+          shader: unshaded
+        - map: ["enum.HumanoidVisualLayers.RArm"]
+        - map: ["enum.HumanoidVisualLayers.LArm"]
+        - map: ["enum.HumanoidVisualLayers.RLeg"]
+        - map: ["enum.HumanoidVisualLayers.LLeg"]
+#     - shader: StencilClear
+#      sprite: Mobs/Species/Human/parts.rsi
+#      state: l_leg
+        - shader: StencilMask
+          map: ["enum.HumanoidVisualLayers.StencilMask"]
+          sprite: Mobs/Customization/masking_helpers.rsi
+          state: full
+          visible: false
+        - map: ["enum.HumanoidVisualLayers.LFoot"]
+        - map: ["enum.HumanoidVisualLayers.RFoot"]
+        - map: ["socks"]
+        - map: ["underpants"]
+        - map: ["undershirt"]
+        - map: ["jumpsuit"]
+        - map: ["enum.HumanoidVisualLayers.LHand"]
+        - map: ["enum.HumanoidVisualLayers.RHand"]
+        - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+          color: "#ffffff"
+          sprite: Objects/Misc/handcuffs.rsi
+          state: body-overlay-2
+          visible: false
+        - map: ["id"]
+        - map: ["gloves"]
+        - map: ["shoes"]
+        - map: ["ears"]
+        - map: ["innerBelt"]
+        - map: ["innerNeck"]
+        - map: ["outerClothing"]
+        - map: ["eyes"]
+        - map: ["belt"]
+        - map: ["neck"]
+        - map: ["back"]
+        - map: ["enum.HumanoidVisualLayers.FacialHair"]
+        - map: ["enum.HumanoidVisualLayers.Hair"]
+        - map: ["enum.HumanoidVisualLayers.HeadSide"]
+        - map: ["enum.HumanoidVisualLayers.HeadTop"]
+        - map: ["mask"]
+        - map: ["head"]
+        - map: ["pocket1"]
+        - map: ["pocket2"]
+        - map: ["enum.HumanoidVisualLayers.Tail"]

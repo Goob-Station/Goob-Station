@@ -2,9 +2,29 @@
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 #Lost Frontier Prospector
+
+- type: loadoutEffectGroup
+  id: MasterMiner
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobSalvageSpecialist
+      time: 72000 #20 hours
+
+- type: loadout
+  id: MinerCloak
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterMiner
+  equipment:
+    neck: ClothingNeckCloakMiner
+
 - type: startingGear
   id: LostFrontierProspectorSuit
   equipment:

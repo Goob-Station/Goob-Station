@@ -51,9 +51,12 @@
 // SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
 // SPDX-FileCopyrightText: 2024 {Koks} <koks@blue-creature.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.CCVar; // Goobstation
 using System.Numerics;
 using System.Runtime.CompilerServices;
 using Content.Server.Shuttles.Components;
@@ -62,6 +65,7 @@ using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Shuttles.Systems;
+using Robust.Shared.Configuration; // Goobstation
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using DroneConsoleComponent = Content.Server.Shuttles.DroneConsoleComponent;
@@ -72,14 +76,20 @@ namespace Content.Server.Physics.Controllers;
 
 public sealed class MoverController : SharedMoverController
 {
+    [Dependency] private readonly IConfigurationManager _cfg = default!; // Goobstation
     [Dependency] private readonly ThrusterSystem _thruster = default!;
     [Dependency] private readonly SharedTransformSystem _xformSystem = default!;
 
     private Dictionary<EntityUid, (ShuttleComponent, List<(EntityUid, PilotComponent, InputMoverComponent, TransformComponent)>)> _shuttlePilots = new();
 
+    private float _maxShuttleSpeed; // Goobstation
+
     public override void Initialize()
     {
         base.Initialize();
+
+        Subs.CVar(_cfg, GoobCVars.MaxShuttleSpeed, value => _maxShuttleSpeed = value, true); // Goobstation
+
         SubscribeLocalEvent<RelayInputMoverComponent, PlayerAttachedEvent>(OnRelayPlayerAttached);
         SubscribeLocalEvent<RelayInputMoverComponent, PlayerDetachedEvent>(OnRelayPlayerDetached);
         SubscribeLocalEvent<InputMoverComponent, PlayerAttachedEvent>(OnPlayerAttached);
@@ -307,7 +317,7 @@ public sealed class MoverController : SharedMoverController
         var horizComp = vel.X != 0 ? MathF.Pow(Vector2.Dot(vel, new (shuttle.LinearThrust[horizIndex] / shuttle.LinearThrust[horizIndex], 0f)), 2) : 0;
         var vertComp = vel.Y != 0 ? MathF.Pow(Vector2.Dot(vel, new (0f, shuttle.LinearThrust[vertIndex] / shuttle.LinearThrust[vertIndex])), 2) : 0;
 
-        return shuttle.BaseMaxLinearVelocity * vel * MathF.ReciprocalSqrtEstimate(horizComp + vertComp);
+        return _maxShuttleSpeed * vel * MathF.ReciprocalSqrtEstimate(horizComp + vertComp); // Goobstation - now uses cvar
     }
 
     private void HandleShuttleMovement(float frameTime)

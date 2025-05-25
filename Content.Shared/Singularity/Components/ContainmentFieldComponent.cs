@@ -76,6 +76,8 @@
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -93,12 +95,15 @@ public sealed partial class ContainmentFieldComponent : Component
     [DataField("throwForce")]
     public float ThrowForce = 100f;
 
+    // Goobstation - replaced with ContainmentFieldIgnoreComponent; if you think this is causing issues, ping @Ilya246 to fix
+    /*
     /// <summary>
     /// This shouldn't be at 99999 or higher to prevent the singulo glitching out
     /// Will throw anything at the supplied mass or less that collides with the field.
     /// </summary>
     [DataField("maxMass")]
     public float MaxMass = 10000f;
+    */
 
     /// <summary>
     /// Should field vaporize garbage that collides with it?

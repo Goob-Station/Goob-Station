@@ -9,10 +9,20 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-- files: ["blind.ogg", "castsummon.ogg", "disintegrate.ogg", "hereticknock.ogg", "repulse.ogg", "voidblink.ogg"]
+- files: ["blind.ogg", "castsummon.ogg", "disintegrate.ogg", "hereticknock.ogg", "voidblink.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Taken from /tg/station"
   source: "https://github.com/tgstation/tgstation/tree/master/sound/effects/magic"
+
+- files: ["repluse.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from /tg/station, modified by Aviu00"
+  source: "https://github.com/tgstation/tgstation/tree/master/sound/effects/magic/repulse.ogg"
+
+- files: ["ice_shovel.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from /tg/station"
+  source: "https://github.com/tgstation/tgstation/tree/master/sound/effects/ice_shovel.ogg"
 
 - files: ["constructform.ogg"]
   license: "CC-BY-SA-3.0"
@@ -33,6 +43,11 @@
   license: "CC-BY-SA-3.0"
   copyright: "Taken from /tg/station"
   source: "https://github.com/tgstation/tgstation/tree/master/sound/items/sheath.ogg"
+
+- files: ["eatfood.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from /tg/station"
+  source: "https://github.com/tgstation/tgstation/tree/master/sound/items/eatfood.ogg"
 
 - files: ["parry.ogg"]
   license: "CC-BY-SA-3.0"

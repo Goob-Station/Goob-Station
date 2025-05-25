@@ -90,6 +90,8 @@
   - type: Sprite
   - type: Item
     size: Huge
+    shape: # Goobstation
+    - 0,0,4,2
   - type: Clothing
     sprite: Objects/Weapons/Guns/Rifles/ak.rsi
     quickEquip: false
@@ -141,7 +143,7 @@
       types:
        Blunt: 12
     angle: 0
-    wideAnimationRotation: 90 # when/if bayonets get added (to rifles) set this to -90
+    wideAnimationRotation: 90 # -90 if it takes bayonets (hits with muzzle) 90 if not (hits with butt)
     soundHit:
       collection: MetalThud # Goobstation ^
 
@@ -257,7 +259,7 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Rifles/lecter.rsi
   - type: Gun
-    fireRate: 4.5 # Goobstation
+    fireRate: 5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/ltrifle.ogg
   - type: ItemSlots

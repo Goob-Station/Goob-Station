@@ -23,4 +23,8 @@ public sealed partial class ProjectileSpellEvent : EntityWorldTargetActionEvent,
 
     [DataField]
     public string? Speech { get; private set; }
+
+    // Goobstation
+    [DataField]
+    public float Speed = 40f;
 }

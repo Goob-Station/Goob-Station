@@ -41,6 +41,7 @@ public abstract class SharedItemSwitchSystem : EntitySystem
         SubscribeLocalEvent<ItemSwitchComponent, UseInHandEvent>(OnUseInHand);
         SubscribeLocalEvent<ItemSwitchComponent, GetVerbsEvent<ActivationVerb>>(OnActivateVerb);
         SubscribeLocalEvent<ItemSwitchComponent, ActivateInWorldEvent>(OnActivate);
+        SubscribeLocalEvent<ItemSwitchComponent, ItemSwitchAttemptEvent>(OnSwitchAttempt);
 
         SubscribeLocalEvent<ClothingComponent, ItemSwitchedEvent>(UpdateClothingLayer);
     }
@@ -62,29 +63,41 @@ public abstract class SharedItemSwitchSystem : EntitySystem
             Switch((ent, ent.Comp), state, predicted: ent.Comp.Predictable);
     }
 
-    private void OnUseInHand(Entity<ItemSwitchComponent> ent, ref UseInHandEvent args)
+    private void OnSwitchAttempt(EntityUid uid, ItemSwitchComponent comp, ref ItemSwitchAttemptEvent args)
     {
-        if (args.Handled || !ent.Comp.OnUse || ent.Comp.States.Count == 0) return;
-        args.Handled = true;
-
-        if (ent.Comp.States.TryGetValue(Next(ent), out var state) && state.Hidden)
+        if (comp.IsPowered || !comp.NeedsPower || comp.State != comp.DefaultState)
             return;
 
-        Switch((ent, ent.Comp), Next(ent), args.User, predicted: ent.Comp.Predictable);
+        args.Popup = Loc.GetString("item-switch-failed-no-power");
+        args.Cancelled = true;
+        Dirty(uid, comp);
+    }
+
+    private void OnUseInHand(Entity<ItemSwitchComponent> ent, ref UseInHandEvent args)
+    {
+        var comp = ent.Comp;
+
+        if (args.Handled || !comp.OnUse || comp.States.Count == 0)
+            return;
+
+        args.Handled = true;
+
+        if (comp.States.TryGetValue(Next(ent), out var state) && state.Hidden)
+            return;
+
+        Switch((ent, comp), Next(ent), args.User, predicted: comp.Predictable);
     }
 
     private void OnActivateVerb(Entity<ItemSwitchComponent> ent, ref GetVerbsEvent<ActivationVerb> args)
     {
-        if (!args.CanAccess || !args.CanInteract || !ent.Comp.OnActivate || ent.Comp.States.Count == 0) return;
+        if (!args.CanAccess || !args.CanInteract || !ent.Comp.OnActivate || ent.Comp.States.Count == 0)
+            return;
 
         var user = args.User;
-        int addedVerbs = 0;
+        var addedVerbs = 0;
 
-        foreach (var state in ent.Comp.States)
+        foreach (var state in ent.Comp.States.Where(state => !state.Value.Hidden)) // I'm linq-ing all over the place.
         {
-            if (state.Value.Hidden)
-                continue;
-
             args.Verbs.Add(new ActivationVerb()
             {
                 Text = Loc.TryGetString(state.Value.Verb, out var title) ? title : state.Value.Verb,
@@ -100,7 +113,7 @@ public abstract class SharedItemSwitchSystem : EntitySystem
 
     private void OnActivate(Entity<ItemSwitchComponent> ent, ref ActivateInWorldEvent args)
     {
-        if (args.Handled || !ent.Comp.OnActivate)
+        if (args.Handled || !ent.Comp.OnActivate || ent.Comp is { IsPowered: false, NeedsPower: true })
             return;
 
         args.Handled = true;
@@ -148,11 +161,11 @@ public abstract class SharedItemSwitchSystem : EntitySystem
         var attempt = new ItemSwitchAttemptEvent
         {
             User = user,
-            State = key
+            State = key,
         };
         RaiseLocalEvent(uid, ref attempt);
 
-        TimeSpan nextAttack = new TimeSpan(0);
+        var nextAttack = new TimeSpan(0);
         if (TryComp<MeleeWeaponComponent>(ent, out var meleeComp))
             nextAttack = meleeComp.NextAttack;
 
@@ -176,11 +189,13 @@ public abstract class SharedItemSwitchSystem : EntitySystem
             else
                 _audio.PlayPvs(state.SoundFailToActivate, uid);
 
-            if (attempt.Popup != null && user != null)
-                if (predicted)
-                    _popup.PopupClient(attempt.Popup, uid, user.Value);
-                else
-                    _popup.PopupEntity(attempt.Popup, uid, user.Value);
+            if (attempt.Popup == null || user == null)
+                return false;
+
+            if (predicted)
+                _popup.PopupClient(attempt.Popup, uid, user.Value);
+            else
+                _popup.PopupEntity(attempt.Popup, uid, user.Value);
 
             return false;
         }
@@ -201,7 +216,6 @@ public abstract class SharedItemSwitchSystem : EntitySystem
     }
     public virtual void VisualsChanged(Entity<ItemSwitchComponent> ent, string key)
     {
-
     }
     protected virtual void UpdateVisuals(Entity<ItemSwitchComponent> ent, string key)
     {
@@ -212,5 +226,7 @@ public abstract class SharedItemSwitchSystem : EntitySystem
         VisualsChanged(ent, key);
     }
     private void UpdateClothingLayer(Entity<ClothingComponent> ent, ref ItemSwitchedEvent args)
-        => _clothing.SetEquippedPrefix(ent, args.State, ent.Comp);
+    {
+        _clothing.SetEquippedPrefix(ent, args.State, ent.Comp);
+    }
 }

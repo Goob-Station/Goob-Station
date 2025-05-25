@@ -30,13 +30,14 @@
 // SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
 // SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
 // SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -227,6 +228,32 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
             return port;
 
         return Loc.GetString(proto.Name);
+    }
+
+    /// <summary>
+    /// Goobstation - Removes a port from a source.
+    /// </summary>
+    public void RemoveSourcePort(EntityUid uid, ProtoId<SourcePortPrototype> port)
+    {
+        if (!TryComp<DeviceLinkSourceComponent>(uid, out var comp))
+            return;
+
+        comp.Ports.Remove(port);
+        if (comp.Ports.Count == 0)
+            RemCompDeferred<DeviceLinkSourceComponent>(uid);
+    }
+
+    /// <summary>
+    /// Goobstation - Removes a port from a sink.
+    /// </summary>
+    public void RemoveSinkPort(EntityUid uid, ProtoId<SinkPortPrototype> port)
+    {
+        if (!TryComp<DeviceLinkSinkComponent>(uid, out var comp))
+            return;
+
+        comp.Ports.Remove(port);
+        if (comp.Ports.Count == 0)
+            RemCompDeferred<DeviceLinkSinkComponent>(uid);
     }
     #endregion
 

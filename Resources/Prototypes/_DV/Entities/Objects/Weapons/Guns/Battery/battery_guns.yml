@@ -5,7 +5,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-- type: entity
+- type: entity # I will just say this gun fucking sucks. holy shit.
   name: X-01 Multiphase
   parent: [BaseWeaponBatterySmall, BaseGrandTheftContraband]
   id: WeaponEnergyGunMultiphase

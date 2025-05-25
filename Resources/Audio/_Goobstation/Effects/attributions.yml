@@ -1,0 +1,9 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- files: ["moth_wings.ogg"]
+  license: "CC0-1.0"
+  copyright: "Original by tothrec2"
+  source: "https://freesound.org/people/tothrec2/sounds/596541/"

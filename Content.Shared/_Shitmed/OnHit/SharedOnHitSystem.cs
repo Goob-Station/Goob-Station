@@ -12,7 +12,7 @@ using Content.Shared.Cuffs;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Effects;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Melee.Events;

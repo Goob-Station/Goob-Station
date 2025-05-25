@@ -23,6 +23,8 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -199,14 +201,14 @@ namespace Content.Shared.Entry
             {
                 var missing = module.RequiredAssemblies
                     .Where(req =>
-                        (_net.IsClient && req.Client || _net.IsServer && req.Server) &&
+                        (_net.IsClient && req.IsClient || _net.IsServer && req.IsServer) &&
                         !loadedAssemblies.Contains(req.AssemblyName))
                     .ToList();
 
                 if (missing.Count <= 0)
                     continue;
 
-                throw new InvalidOperationException($"Missing required assemblies to build. Try deleting your bin folder, running dotnet clean, and rebuilding the {module.PackName} solution.");
+                throw new InvalidOperationException($"Missing required assemblies to build. Try deleting your bin folder, running dotnet clean, and rebuilding the {module.PackName} solution.\nMissing Modules:\n{string.Join("\n", missing.Select(t => t.AssemblyName))}");
             }
         }
 

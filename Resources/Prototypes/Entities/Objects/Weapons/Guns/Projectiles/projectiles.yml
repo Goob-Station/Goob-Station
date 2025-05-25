@@ -7,6 +7,8 @@
 # SPDX-FileCopyrightText: 2020 Swept <jamesurquhartwebb@gmail.com>
 # SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <zddm@outlook.es>
+# SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <zddm@outlook.es>
 # SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2021 Galactic Chimp <GalacticChimpanzee@gmail.com>
 # SPDX-FileCopyrightText: 2021 Kara D <lunarautomaton6@gmail.com>
@@ -76,12 +78,16 @@
 # SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
 # SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GaussiArson <193122004+GaussiArson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
@@ -366,7 +372,7 @@
     impactEffect: BulletImpactEffectDisabler
     damage:
       types:
-        Ion: 10 #Goobstation
+        Heat: 0
     soundHit:
       collection: WeakHit
     forceSound: true
@@ -405,7 +411,7 @@
     impactEffect: BulletImpactEffectDisabler
     damage:
       types:
-        Ion: 5 #Goobstation
+        Heat: 0
     soundHit:
       collection: WeakHit
     forceSound: true
@@ -591,7 +597,7 @@
   - type: GatheringProjectile
 
 - type: entity
-  parent: BaseBulletTrigger
+  parent: BulletRocket
   id: BulletSingularityBusterRocket
   categories: [ HideSpawnMenu ]
   name: singularity buster rocket
@@ -633,6 +639,8 @@
       types:
         Blunt: 20
         Slash: 5
+    effect: { sprite: /Textures/Objects/Weapons/effects.rsi, state: shield2 }
+    sound: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
   - type: Projectile
     impactEffect: BulletImpactEffectKinetic
     damage:
@@ -876,6 +884,7 @@
       path: /Audio/Effects/gen_hit.ogg
   - type: StaminaDamageOnCollide
     damage: 80
+    overtime: 50 # Goobstation
 
 - type: entity
   id: BulletGrenadeBlast
@@ -912,6 +921,7 @@
     timeRemaining: 0.3
   - type: DeleteOnTrigger
   - type: Flashbang # Goobstation
+    minProtectionRange: 7 # Can't stun/knockdown people wearing any ear protection
 
 # This is supposed to spawn shrapnel and stuff so uhh... TODO?
 - type: entity
@@ -942,8 +952,8 @@
     layers:
       - state: frag
   - type: EmpOnTrigger
-    range: 5
-    energyConsumption: 50000
+    range: 3 # Goobstation
+    energyConsumption: 360 # Goobstation
     disableDuration: 10
   - type: Ammo
     muzzleFlash: null
@@ -1121,7 +1131,7 @@
     impactEffect: BulletImpactEffectDisabler
     damage:
       types:
-        Ion: 4 #Goobstation
+        Heat: 0
     soundHit:
       collection: WeakHit
     forceSound: true

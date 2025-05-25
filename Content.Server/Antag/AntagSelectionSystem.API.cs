@@ -8,6 +8,10 @@
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -21,10 +25,12 @@ using Content.Shared.Chat;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Mind;
 using Content.Shared.Preferences;
+using Content.Shared.Roles;
 using JetBrains.Annotations;
 using Robust.Shared.Audio;
 using Robust.Shared.Enums;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Antag;
 
@@ -441,6 +447,47 @@ public sealed partial class AntagSelectionSystem
             }
         }
 
+        return result;
+    }
+
+    /// <summary>
+    /// Get all definition blacklists from sessions that have been preselected for antag. | GOOBSTATION
+    /// </summary>
+    public Dictionary<ICommonSession, List<ProtoId<JobPrototype>>> GetPreSelectedAntagSessionsWithBlacklist(AntagSelectionDefinition? except = null)
+    {
+        var result = new Dictionary<ICommonSession, List<ProtoId<JobPrototype>>>();
+        var query = QueryAllRules();
+
+        while (query.MoveNext(out var uid, out var comp, out _))
+        {
+            if (HasComp<EndedGameRuleComponent>(uid))
+                continue;
+
+            foreach (var def in comp.Definitions)
+            {
+                if (def.Equals(except))
+                    continue;
+
+                if (comp.PreSelectedSessions.TryGetValue(def, out var sessions))
+                {
+                    foreach (var session in sessions)
+                    {
+                        // Get the blacklisted jobs for this antag definition
+                        var blacklist = def.JobBlacklist ?? new List<ProtoId<JobPrototype>>();
+
+                        // If session already exists, merge the blacklists
+                        if (result.TryGetValue(session, out var existingBlacklist))
+                        {
+                            existingBlacklist.AddRange(blacklist);
+                        }
+                        else
+                        {
+                            result[session] = new List<ProtoId<JobPrototype>>(blacklist);
+                        }
+                    }
+                }
+            }
+        }
         return result;
     }
 }

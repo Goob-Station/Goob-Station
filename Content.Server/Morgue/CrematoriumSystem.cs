@@ -46,6 +46,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.CrematorImmune;
 using Content.Server.Ghost;
 using Content.Server.Morgue.Components;
 using Content.Server.Storage.Components;
@@ -135,7 +136,7 @@ public sealed class CrematoriumSystem : EntitySystem
             Text = Loc.GetString("cremate-verb-get-data-text"),
             // TODO VERB ICON add flame/burn symbol?
             Act = () => TryCremate(uid, component, storage),
-            Impact = LogImpact.Medium // could be a body? or evidence? I dunno.
+            Impact = LogImpact.High // could be a body? or evidence? I dunno.
         };
         args.Verbs.Add(verb);
     }
@@ -181,6 +182,9 @@ public sealed class CrematoriumSystem : EntitySystem
             for (var i = storage.Contents.ContainedEntities.Count - 1; i >= 0; i--)
             {
                 var item = storage.Contents.ContainedEntities[i];
+                if (HasComp<CrematoriumImmuneComponent>(item)) // GOOBCODE ALERT //
+                    continue;
+
                 _containers.Remove(item, storage.Contents);
                 EntityManager.DeleteEntity(item);
             }
