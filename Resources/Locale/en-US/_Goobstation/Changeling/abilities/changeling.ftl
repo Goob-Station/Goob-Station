@@ -77,6 +77,9 @@ changeling-voidadapt-end = We loosen up as our adaption against the void of spac
 
 changeling-hivemind-start = We tune our brainwaves to match the hivemind frequency
 
+changeling-overdrive-activate = We begin consuming ourselves. We are stronger.
+changeling-overdrive-already-active = Chemical Overdrive is already active!
+
 changeling-lastresort-activate = CURRENT BODY WILL BE LOST! Use it again to confirm.
 
 changeling-onfire = Our cells writhe with agony, failing to perform the action!

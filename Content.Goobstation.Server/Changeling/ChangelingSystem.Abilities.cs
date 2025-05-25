@@ -871,14 +871,14 @@ public sealed partial class ChangelingSystem
 
         if (comp.IsOverdriveActive)
         {
-            _popup.PopupEntity("Chemical Overdrive is already active!", uid, uid);
+            _popup.PopupEntity(Loc.GetString("changeling-overdrive-already-active"), uid, uid);
             return;
         }
 
         comp.ChemicalRegenMultiplier += 0.25f;
         comp.IsOverdriveActive = true;
         comp.NextBiomassDrainTime = _timing.CurTime + TimeSpan.FromSeconds(2);
-        _popup.PopupEntity("We begin consuming ourselves. We are stronger.", uid, uid);
+        _popup.PopupEntity(Loc.GetString("changeling-overdrive-activate"), uid, uid);
     }
 
 
