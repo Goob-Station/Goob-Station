@@ -102,11 +102,13 @@
 # SPDX-FileCopyrightText: 2025 GMWQ <garethquaile@gmail.com>
 # SPDX-FileCopyrightText: 2025 Gareth Quaile <garethquaile@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <killerqueen1777@gmail.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Sparlight <twiksparlight@gmail.com>
 # SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Velken <8467292+Velken@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 august-sun <45527070+august.sun@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
@@ -497,12 +499,12 @@
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.85
-        Slash: 0.85
-        Piercing: 0.65
-        Heat: 0.6
+        Blunt: 0.9 #Goob - Modsuit Rebalance start
+        Slash: 0.9
+        Piercing: 0.75
+        Heat: 0.65
         Radiation: 0.15
-        Caustic: 0.6
+        Caustic: 0.65 #Goob - Modsuit Rebalance end
 
 #Chief Engineer's Hardsuit
 - type: entity
