@@ -101,6 +101,7 @@
 # SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
@@ -374,6 +375,14 @@
       Plasteel: 187
   - type: StaticPrice #Goobstation - Recycle update
     price: 220
+  - type: Armor # Goob
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.6
+        Heat: 0.6
+        Caustic: 0.65
 
 - type: entity
   parent: [ClothingOuterWinterCoatToggleable, BaseSecurityCommandContraband]
@@ -610,6 +619,14 @@
       Plasteel: 125
   - type: StaticPrice #Goobstation - Recycle update
     price: 180
+  - type: Armor # Goob
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.7
+        Heat: 0.6
+        Caustic: 0.85
 ################################################################
 
 - type: entity
