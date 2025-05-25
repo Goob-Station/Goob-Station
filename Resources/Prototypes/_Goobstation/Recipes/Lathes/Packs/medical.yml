@@ -61,8 +61,10 @@
   id: Surgery
   recipes:
   - EnergyScalpel
-  - EnergyCautery
   - AdvancedRetractor
+  - EnergyCautery
+  - AdvancedBoneGel
+  - OmnimedTool
 
 - type: latheRecipePack
   id: MedicalCybernetics
@@ -81,3 +83,4 @@
   - SyringeGun
   - HandheldCrewMonitor
   - DefibrillatorCompact
+  - ClothingHandsGlovesSurgical

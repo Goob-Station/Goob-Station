@@ -10,6 +10,7 @@
 # SPDX-FileCopyrightText: 2025 RatherUncreative <RatherUncreativeName@proton.me>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Tier 1
@@ -26,12 +27,14 @@
   tier: 2
   cost: 10000
   recipeUnlocks:
+  - OmnimedTool # Shitmed
+  - EnergyScalpel # Shitmed
+  - AdvancedRetractor # Shitmed
+  - EnergyCautery # Shitmed
+  - AdvancedBoneGel # Shitmed
   - BorgModuleAdvancedTreatment
   # - BorgModuleDefibrillator # Goobstation, medical cyborgs start with this
-  - EnergyScalpel
-  - EnergyCautery
-  - AdvancedRetractor
-  - BorgModuleAdvancedSurgery
+  - BorgModuleAdvancedSurgery # Shitmed
   technologyPrerequisites:
   - AdvancedEntertainment
   position: -2,4
@@ -81,13 +84,13 @@
   id: HighEndSurgery
   name: research-technology-high-end-surgery
   icon:
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/omnimed.rsi
-    state: omnimed
+    sprite: _Shitmed/Clothing/Hands/surgery_gloves.rsi
+    state: icon
   discipline: CivilianServices
   tier: 3
   cost: 10000
   recipeUnlocks:
-  - OmnimedTool
+  - ClothingHandsGlovesSurgical
   technologyPrerequisites:
   - Autodoc
   position: -2,7

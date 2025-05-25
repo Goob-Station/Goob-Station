@@ -1,17 +1,19 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: high-tech mechanical pinches
+  name: high-tech retractor
   id: MechanicalPinchesAbductor
-  description: A highly advanced set of mechanical pinches, they seem to work like a hemostat and retractor.
+  description: A highly advanced retractor, it also seems to work like a hemostat.
   parent: [BaseToolSurgery, BaseMajorContraband]
   components:
   - type: Sprite
@@ -29,8 +31,7 @@
   - type: MeleeWeapon
     damage:
       types:
-        Slash: 6.5
-        Heat: 1
+        Piercing: 15
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Steel: 150
@@ -64,7 +65,7 @@
 
 - type: entity
   name: high-tech searing tool
-  description: A highly advanced cautery with an energy tip, it seems to also work as a drill.
+  description: A highly advanced cautery with an energy tip, it seems to also work as as stitches.
   id: SearingToolAbductor
   parent: [BaseToolSurgery, BaseMajorContraband]
   components:
@@ -83,14 +84,13 @@
   - type: MeleeWeapon
     damage:
       types:
-        Piercing: 10
-        Heat: 1
+        Heat: 15
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Steel: 150
       Glass: 37
       Plasma: 37
-  - type: Drill
+  - type: Stitches
     speed: 2
   - type: Cautery
     speed: 2
@@ -100,7 +100,7 @@
 
 - type: entity
   name: high-tech energy scalpel
-  description: A scalpel which uses an energy blade, it seems to also work as a saw.
+  description: A scalpel which uses an energy blade, it seems to also work as a saw and a drill.
   id: EnergyScalpelAbductor
   parent: [BaseToolSurgery, BaseMajorContraband]
   components:
@@ -119,8 +119,7 @@
   - type: MeleeWeapon
     damage:
       types:
-        Slash: 10
-        Heat: 1
+        Slash: 15
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Steel: 150
@@ -129,6 +128,8 @@
   - type: Scalpel
     speed: 2
   - type: BoneSaw
+    speed: 2
+  - type: Drill
     speed: 2
   - type: GuideHelp
     guides:
@@ -150,6 +151,10 @@
     - type: SurgeryTool
       startSound:
         path: /Audio/_Shitmed/Medical/Surgery/bone_setter.ogg
+    - type: MeleeWeapon
+      damage:
+        types:
+          Blunt: 15
     - type: BoneSetter
       speed: 2
     - type: BoneGel

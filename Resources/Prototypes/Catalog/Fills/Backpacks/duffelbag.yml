@@ -119,9 +119,11 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ColonicAcid <claudiomota1990@googlemail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 PicklOH <62030853+semensponge@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -149,16 +151,16 @@
   description: A large duffel bag containing a full suite of surgical tools.
   components:
   - type: StorageFill
-    contents:
+    contents: # goob edited
       - id: DefibrillatorSyndicate
       - id: SawAdvanced
       - id: EnergyCautery
       - id: AdvancedRetractor
       - id: ScalpelAdvanced
+      - id: Drill
+      - id: AdvancedBoneGel
       - id: ClothingHandsGlovesNitrile
       - id: EmergencyRollerBedSpawnFolded
-      - id: BoneGel # Shitmed Change
-      - id: MedicalStitches # Shitmed Change
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
