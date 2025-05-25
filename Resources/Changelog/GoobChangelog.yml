@@ -10062,3 +10062,13 @@ Entries:
         protects from high temperatures. 1984.
   id: 1119
   time: '2025-05-24T23:55:43.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Half gas mask. Cut gas mask with a sharp object to get it.
+    - type: Add
+      message: You can now wear masks underneath your hair by alt-clicking them.
+    - type: Fix
+      message: Jumpskirts no longer clip through hardsuits.
+  id: 1120
+  time: '2025-05-25T00:02:22.0000000+00:00'
