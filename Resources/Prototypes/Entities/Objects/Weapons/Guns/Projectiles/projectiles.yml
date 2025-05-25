@@ -611,9 +611,9 @@
     energy: -500
   - type: Explosive
     explosionType: Default
-    maxIntensity: 8 # Goob
+    maxIntensity: 5 # Goob
     intensitySlope: 1 # Goob
-    totalIntensity: 200
+    totalIntensity: 100 # Goob
     maxTileBreak: 1
 
 - type: entity
