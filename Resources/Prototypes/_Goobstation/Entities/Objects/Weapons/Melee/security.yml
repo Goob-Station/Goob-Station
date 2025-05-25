@@ -134,8 +134,8 @@
 - type: entity
   id: Betty
   parent: [BaseItem, BaseSecurityContraband]
-  name: Betty tactical umbrella
-  description: Sharp as a knife, sturdy as a baton, durable as a shield, is an umbrella. Standard-issue detective equipment.
+  name: Betty
+  description: An old intricate souvenir made from tough hyper-woven durathread repurposed for riot combat.
   components:
     - type: Sprite
       sprite: _Goobstation/Objects/Weapons/Melee/betty.rsi

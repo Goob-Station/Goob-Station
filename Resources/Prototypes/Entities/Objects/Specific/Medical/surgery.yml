@@ -627,7 +627,7 @@
     speed: 2
   - type: ItemSwitch
     showLabel: true
-    state: bone gel
+    state: bonegel
     states:
       bone gel: !type:ItemSwitchState
         verb: bonegel
@@ -646,7 +646,7 @@
       bonesetter: !type:ItemSwitchState
         verb: bonesetter
         sprite:
-          sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-bone-gel.rsi # placeholder
+          sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-bone-gel.rsi
           state: e-bone-gel-on
         components:
         - type: BoneSetter

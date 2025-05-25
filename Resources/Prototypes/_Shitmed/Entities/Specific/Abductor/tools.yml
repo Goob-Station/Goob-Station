@@ -219,7 +219,6 @@
     layers:
       - state: abductor
   - type: Clothing
-    sprite: _Shitmed/Objects/Specific/Abductor/multitool.rsi
     quickEquip: false
     equippedPrefix: link
     slots:
