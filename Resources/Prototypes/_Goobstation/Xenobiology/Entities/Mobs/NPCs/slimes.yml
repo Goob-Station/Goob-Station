@@ -8,7 +8,7 @@
   - type: Hunger
     startingHunger: 25
     thresholds:
-      Overfed: 100
+      Overfed: 200
       Okay: 50
       Peckish: 25
       Starving: 10
@@ -39,7 +39,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      120: Dead
+      100: Dead
   - type: MovementSpeedModifier
     baseWalkSpeed: 2
     baseSprintSpeed: 4
@@ -122,6 +122,20 @@
   - type: NpcFactionMember
     factions:
     - SimpleNeutral
+  - type: Storage
+    showVerb: false
+    storageInsertSound: /Audio/Voice/Talk/slime.ogg
+    storageRemoveSound: /Audio/Voice/Talk/slime.ogg
+    grid:
+    - 0,0,3,3
+    maxItemSize: Huge
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: ActionGrant
+    actions:
+    - SlimeLatch
   - type: HTN
     rootTask:
       task: SimpleHostileCompound

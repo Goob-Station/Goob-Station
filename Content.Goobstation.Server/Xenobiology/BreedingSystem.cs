@@ -5,6 +5,9 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Robust.Server.GameObjects;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -26,6 +29,8 @@ public sealed class BreedingSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly HungerSystem _hunger = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
 
     private readonly EntProtoId _defaultSlime = "MobXenoSlime";
 
@@ -117,6 +122,10 @@ public sealed class BreedingSystem : EntitySystem
             }
 
         }
+        var container = _container.GetContainer(ent, "storagebase");
+
+        _container.EmptyContainer(container);
+        _audio.PlayPredicted(new SoundPathSpecifier("/Audio/_EinsteinEngines/Voice/Slime/slime_squish.ogg"), ent, ent);
         QueueDel(ent);
     }
 

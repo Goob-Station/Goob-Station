@@ -83,7 +83,7 @@ public sealed class MobGrowthSystem : EntitySystem
 
         ent.Comp1.CurrentStage = nextStage;
         Dirty(ent);
-        _hunger.ModifyHunger(ent, -75, ent.Comp2);
+        _hunger.ModifyHunger(ent, ent.Comp1.GrowthCost, ent.Comp2);
         _appearance.SetData(ent, GrowthStateVisuals.Stage, ent.Comp1.CurrentStage);
     }
     #endregion

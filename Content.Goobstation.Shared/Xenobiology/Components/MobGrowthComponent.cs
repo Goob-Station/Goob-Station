@@ -8,12 +8,27 @@ namespace Content.Goobstation.Shared.Xenobiology.Components;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class MobGrowthComponent : Component
 {
+    /// <summary>
+    /// What hunger threshold must be reached to grow?
+    /// </summary>
     [DataField(required: true), AutoNetworkedField]
     public float HungerRequired = 100f;
 
+    /// <summary>
+    /// How much hunger does growing consume?
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float GrowthCost = -75f;
+
+    /// <summary>
+    /// What is the mob's current growth stage?
+    /// </summary>
     [DataField(required: true), AutoNetworkedField]
     public string CurrentStage = string.Empty;
 
+    /// <summary>
+    /// A list of available stages, make sure to include the base stage.
+    /// </summary>
     [DataField(required: true), AutoNetworkedField]
     public List<string> Stages = new List<string>();
 

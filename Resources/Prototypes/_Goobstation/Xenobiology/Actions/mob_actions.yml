@@ -1,0 +1,21 @@
+- type: entity
+  id: SlimeLatch
+  name: Latch
+  description: Latches onto a target, slowly consuming their flesh.
+  components:
+  - type: EntityTargetAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Xenobiology/Actions/actions_slime.rsi
+      state: slimeeat
+    useDelay: 3
+    range: 1
+    whitelist:
+      components:
+      - MobState
+      - Body
+    blacklist:
+      components:
+      - Slime
+    canTargetSelf: false
+    event: !type:SlimeLatchEvent {}

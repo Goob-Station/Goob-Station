@@ -30,6 +30,9 @@ public sealed partial class PseudoItemComponent : Component
 
     public bool Active = false;
 
+    [DataField, AutoNetworkedField]
+    public bool IntendedComp = true;
+
     /// <summary>
     /// Action for sleeping while inside a container with <see cref="AllowsSleepInsideComponent"/>.
     /// </summary>
