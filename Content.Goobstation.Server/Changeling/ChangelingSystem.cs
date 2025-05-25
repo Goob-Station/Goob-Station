@@ -288,9 +288,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         }
 
         if (comp.IsInStasis && comp.StasisTime > 0f)
-        {
             comp.StasisTime -= 1f;
-        }
 
     }
 
