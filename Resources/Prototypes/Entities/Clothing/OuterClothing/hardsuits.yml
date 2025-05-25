@@ -488,6 +488,7 @@
   id: ClothingOuterHardsuitSecurity
   name: security hardsuit
   description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor.
+  suffix: DO NOT MAP
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/security.rsi

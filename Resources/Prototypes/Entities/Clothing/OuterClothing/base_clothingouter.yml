@@ -132,6 +132,7 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 NikaVich <140200195+NikaVichy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
@@ -250,7 +251,7 @@
 
 - type: entity
   abstract: true
-  parent: [ClothingOuterBase, GeigerCounterClothing, AllowSuitStorageClothing]
+  parent: [ClothingOuterStorageBase, GeigerCounterClothing, AllowSuitStorageClothing]
   id: ClothingOuterHardsuitBase
   name: base hardsuit
   components:
@@ -293,10 +294,14 @@
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:Container {}
+      storagebase: !type:Container
+        ents: []
   - type: UserInterface
     interfaces:
       enum.ToggleClothingUiKey.Key:
         type: ToggleableClothingBoundUserInterface
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
   - type: GroupExamine
   - type: Tag
     tags:

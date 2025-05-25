@@ -85,6 +85,9 @@
   id: BreathMask
 
 - type: Tag
+  id: CartridgeAutoinjector
+
+- type: Tag
   id: CartridgeHighCaliber
 
 - type: Tag

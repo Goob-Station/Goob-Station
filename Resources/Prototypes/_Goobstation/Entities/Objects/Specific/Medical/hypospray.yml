@@ -6,7 +6,9 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
@@ -43,6 +45,9 @@
   - type: HyposprayBlockNonMobInjection
   - type: UseDelay
     delay: 30 # up this later if its too low
+  - type: Tag
+    tags:
+      - CartridgeAutoinjector
   - type: ContainerContainer
     containers:
       item: !type:ContainerSlot
@@ -478,6 +483,33 @@
           Quantity: 5
         - ReagentId: Diphenhydramine
           Quantity: 15
+  - type: Tag
+    tags:
+    - EmergencyMedipen
+
+- type: entity
+  name: first aid autoinjector
+  parent: ChemicalMedipen
+  id: FirstAidAutoinjector
+  description: A safe and effective mix for first aid; contains omnizine, epinephrine, along with blood clotters and painkillers.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 30
+        reagents:
+        - ReagentId: SalicylicAcid
+          Quantity: 5
+        - ReagentId: Oxandrolone
+          Quantity: 5
+        - ReagentId: Omnizine
+          Quantity: 5
+        - ReagentId: Epinephrine
+          Quantity: 5
+        - ReagentId: TranexamicAcid
+          Quantity: 5
+        - ReagentId: Ibuprofen
+          Quantity: 5
   - type: Tag
     tags:
     - EmergencyMedipen

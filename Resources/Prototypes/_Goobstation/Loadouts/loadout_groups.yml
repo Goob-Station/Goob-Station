@@ -9,6 +9,7 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -194,7 +195,7 @@
   name: loadout-group-security-neck
   minLimit: 0
   loadouts:
-  - Bodycam # Goobstation - Body cameras
+  - Bodycam
 
 #honkops
 
@@ -235,3 +236,46 @@
   - MedicalBeret
   - SeniorPhysicianBeret
   - ChemistUshanka # Da.
+
+# Medical pouch
+
+- type: loadoutGroup
+  id: MedicalPouch
+  name: loadout-group-pouch-medical
+  minLimit: 0
+  loadouts:
+  - MedicalPouchCartridgeInjector
+  - MedicalPouchAutoInjectors
+  - MedicalPouchPills
+  - MedicalPouchSurgery
+
+# Security pouch
+
+- type: loadoutGroup
+  id: SecurityPouch
+  name: loadout-group-pouch-security
+  minLimit: 0
+  loadouts:
+  - SecurityPouchUtility
+  - SecurityPouchFirstAid
+
+# Engineering pouch
+
+- type: loadoutGroup
+  id: EngineeringPouch
+  name: loadout-group-pouch-engineering
+  minLimit: 0
+  loadouts:
+  - EngineeringPouchLight
+  - EngineeringPouchWire
+  - EngineeringPouchInflatables
+  - EngineeringPouchConstruction
+
+# Cargo pouch
+
+- type: loadoutGroup
+  id: CargoPouch
+  name: loadout-group-pouch-cargo
+  minLimit: 0
+  loadouts:
+  - CargoPouchBureaucracy

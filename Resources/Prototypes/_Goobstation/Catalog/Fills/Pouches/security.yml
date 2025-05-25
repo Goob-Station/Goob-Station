@@ -1,0 +1,75 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: utility pouch
+  parent: [BasePouch, BaseSecurityContraband]
+  id: PouchSecurityUtility
+  description: A small pouch for holding extra security goodies.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Storage/Pouches/misc.rsi
+    layers:
+      - state: utility
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,3,1
+    whitelist:
+      tags:
+        - CigPack
+        - SecBeltEquip
+        - Radio
+        - BolaEnergy
+      components:
+        - FlashOnTrigger
+        - SmokeOnTrigger
+        - Flash
+        - Handcuff
+        - CartridgeAmmo
+        - DoorRemote
+        - Whistle
+        - BalloonPopper
+  - type: StorageFill
+    contents:
+    - id: Zipties
+    - id: PepperSpray
+    - id: GrenadeFlashBang
+    - id: BolaEnergy
+    - id: Zipties # Looks weird but needed to look good in-game
+
+
+- type: entity
+  name: first aid pouch
+  parent: [BasePouch, BaseSecurityContraband]
+  id: PouchSecurityFirstaid
+  description: A small pouch for holding emergency medication.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Storage/Pouches/medical.rsi
+    layers:
+      - state: smallfirstaid
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,3,1
+    whitelist:
+      tags:
+        - PillCanister
+        - Tourniquet
+        - MedicalPatch
+        - AutoinjectorCartridge
+      components:
+        - Hypospray
+        - Injector
+        - Pill
+  - type: StorageFill
+    contents:
+    - id: SecHypo
+    - id: CartridgeBicaridine
+    - id: Tourniquet
+    - id: PillCanisterIron # Tramadol when that gets merged
+    - id: CartridgeDermaline
+    - id: PillCanisterTricordrazine

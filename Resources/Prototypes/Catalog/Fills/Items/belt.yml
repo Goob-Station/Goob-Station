@@ -101,7 +101,10 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 JORJ949 <159719201+JORJ949@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -230,11 +233,10 @@
       #- id: EmergencyMedipen #You never know what people are going to latejoin into # Goobstation - start
       #  amount: 3
       - id: HandheldCrewMonitor
-      - id: ParamedHypo
-      - id: CartridgeSaline
-      - id: CartridgeBicaridine
-      - id: CartridgeDermaline
-      - id: CartridgeAtropine # Goobstation - end
+      - id: Tourniquet
+      - id: MedicalStitches # Stopping IB is important
+      - id: FirstAidAutoinjector
+        amount: 2 # Goobstation - end
 
 - type: entity
   id: ClothingBeltPlantFilled
