@@ -10072,3 +10072,13 @@ Entries:
       message: Jumpskirts no longer clip through hardsuits.
   id: 1120
   time: '2025-05-25T00:02:22.0000000+00:00'
+- author: IrisTheAmped
+  changes:
+    - type: Add
+      message: Captain suit selector. Captain's expensive af modsuit is now selectable.
+    - type: Tweak
+      message: >-
+        Captain voidsuit values have been adjusted to fit the lighter vs armored
+        choice now given.
+  id: 1121
+  time: '2025-05-25T00:04:37.0000000+00:00'
