@@ -10046,3 +10046,55 @@ Entries:
         supports it)
   id: 1117
   time: '2025-05-24T23:13:47.0000000+00:00'
+- author: ImHoks
+  changes:
+    - type: Add
+      message: Guardians can now target limbs.
+  id: 1118
+  time: '2025-05-24T23:42:54.0000000+00:00'
+- author: the_biggestbruh
+  changes:
+    - type: Tweak
+      message: >-
+        Aristocrat's way, void ascension and ash ascension have received a minor
+        refactor with regards to how it handles environmental immunities. This
+        won't change much, except for the fact that Aristocrat's way no longer
+        protects from high temperatures. 1984.
+  id: 1119
+  time: '2025-05-24T23:55:43.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Half gas mask. Cut gas mask with a sharp object to get it.
+    - type: Add
+      message: You can now wear masks underneath your hair by alt-clicking them.
+    - type: Fix
+      message: Jumpskirts no longer clip through hardsuits.
+  id: 1120
+  time: '2025-05-25T00:02:22.0000000+00:00'
+- author: IrisTheAmped
+  changes:
+    - type: Add
+      message: Captain suit selector. Captain's expensive af modsuit is now selectable.
+    - type: Tweak
+      message: >-
+        Captain voidsuit values have been adjusted to fit the lighter vs armored
+        choice now given.
+  id: 1121
+  time: '2025-05-25T00:04:37.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: The ghost bar is now a planet.
+  id: 1122
+  time: '2025-05-25T00:05:39.0000000+00:00'
+- author: LuciferEOS
+  changes:
+    - type: Tweak
+      message: CSG shotgun price 150tc -> 200tc.
+    - type: Tweak
+      message: CSG shotgun has slower fire rate now.
+    - type: Tweak
+      message: CSG shotgun no longer instakills at mid range.
+  id: 1123
+  time: '2025-05-25T00:11:48.0000000+00:00'

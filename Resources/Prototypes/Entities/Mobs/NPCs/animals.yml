@@ -226,6 +226,7 @@
 # SPDX-FileCopyrightText: 2025 Arraydeess <arraygitbash@gmail.com>
 # SPDX-FileCopyrightText: 2025 Arraydeess14 <87253287+Arraydeess14@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 Booblesnoot42 <108703193+Booblesnoot42@users.noreply.github.com>
@@ -1627,11 +1628,12 @@
     - map: [ "neck" ]
     - map: [ "back" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
-    - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+    - map: [ "maskalt" ]
+    - map: [ "enum.HumanoidVisualLayers.Hair" ]
+    - map: [ "mask" ]
     - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
     - map: [ "enum.HumanoidVisualLayers.Tail" ]
-    - map: [ "mask" ]
     - map: [ "head" ]
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
