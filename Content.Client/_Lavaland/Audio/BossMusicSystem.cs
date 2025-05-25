@@ -93,10 +93,9 @@ public sealed class BossMusicSystem : SharedBossMusicSystem
     {
         _volumeSlider = SharedAudioSystem.GainToVolume(obj);
 
-        if (_bossMusicStream != null && _musicProto != null)
-        {
+        if (_bossMusicStream != null
+            && _musicProto != null)
             _audio.SetVolume(_bossMusicStream, _musicProto.Sound.Params.Volume + _volumeSlider);
-        }
     }
 
     public override void StartBossMusic(ProtoId<BossMusicPrototype> music)
@@ -115,7 +114,8 @@ public sealed class BossMusicSystem : SharedBossMusicSystem
             false,
             AudioParams.Default.WithVolume(sound.Sound.Params.Volume + _volumeSlider).WithLoop(true));
 
-        if (_musicProto.FadeIn && stream != null)
+        if (_musicProto.FadeIn
+            && stream != null)
         {
             _bossMusicStream = (stream.Value.Entity, stream.Value.Component);
             FadeIn(_bossMusicStream, stream.Value.Component, sound.FadeInTime);
@@ -124,18 +124,14 @@ public sealed class BossMusicSystem : SharedBossMusicSystem
 
     public override void EndAllMusic()
     {
-        if (_musicProto == null || _bossMusicStream == null)
+        if (_musicProto == null
+            || _bossMusicStream == null)
             return;
 
         if (_musicProto.FadeIn)
-        {
-
             FadeOut(_bossMusicStream, duration: _musicProto.FadeOutTime);
-        }
         else
-        {
             _audio.Stop(_bossMusicStream);
-        }
 
         _musicProto = null;
         _bossMusicStream = null;

@@ -55,8 +55,7 @@ public sealed class AggressorsSystem : SharedAggressorsSystem
 
             aggressive.Accumulator = 0f;
 
-            var aggressors = aggressive.Aggressors.Where(Exists).ToList();
-            foreach (var aggressor in aggressors)
+            foreach (var aggressor in aggressive.Aggressors)
             {
                 if (!_xformQuery.TryComp(aggressor, out var aggroXform))
                     continue;
@@ -65,10 +64,9 @@ public sealed class AggressorsSystem : SharedAggressorsSystem
                 var aggressivePos = _xform.GetWorldPosition(xform);
                 var distance = (aggressivePos - aggroPos).Length();
 
-                if (distance > aggressive.ForgiveRange || xform.MapID != aggroXform.MapID)
-                {
+                if (distance > aggressive.ForgiveRange
+                    || xform.MapID != aggroXform.MapID)
                     RemoveAggressor((uid, aggressive), aggressor);
-                }
             }
         }
     }

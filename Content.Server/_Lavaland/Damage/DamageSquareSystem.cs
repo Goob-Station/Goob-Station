@@ -36,7 +36,7 @@ public sealed class DamageSquareSystem : SharedDamageSquareSystem
     protected override void DoDamage(Entity<DamageSquareComponent> field, Entity<DamageableComponent> entity)
     {
         // Damage
-        _dmg.TryChangeDamage(entity, field.Comp.Damage, damageable: entity.Comp, targetPart: TargetBodyPart.All, partMultiplier: 0.1f);
+        _dmg.TryChangeDamage(entity, field.Comp.Damage, damageable: entity.Comp, targetPart: TargetBodyPart.All);
 
         // Sound
         if (field.Comp.Sound != null)
