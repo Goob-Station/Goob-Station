@@ -606,10 +606,6 @@
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     layers:
     - state: buster
-  - type: PointLight
-    radius: 3.5
-    color: orange
-    energy: 0.5
   - type: SinguloFood
     energy: -500
 
@@ -834,8 +830,8 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    maxIntensity: 40
-    intensitySlope: 6
+    maxIntensity: 8 # Goob
+    intensitySlope: 1 # Goob
     totalIntensity: 200
     maxTileBreak: 1
   - type: PointLight
