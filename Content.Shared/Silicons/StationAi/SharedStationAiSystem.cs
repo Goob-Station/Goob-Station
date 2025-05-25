@@ -265,7 +265,8 @@ public abstract partial class SharedStationAiSystem : EntitySystem
         if (_slots.CanEject(ent.Owner, args.User, ent.Comp.Slot))
         {
             // Corvax-Next-AiRemoteControl-Start
-            if (ent.Comp.Slot.Item != null && TryComp<StationAiHeldComponent>(ent.Comp.Slot.Item, out var stationAiHeldComp))
+            if (ent.Comp.Slot.Item != null
+                && TryComp<StationAiHeldComponent>(ent.Comp.Slot.Item, out var stationAiHeldComp))
                 if (stationAiHeldComp.CurrentConnectedEntity != null)
                     _remoteSystem.ReturnMindIntoAi(stationAiHeldComp.CurrentConnectedEntity.Value);
             // Corvax-Next-AiRemoteControl-End

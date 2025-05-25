@@ -58,10 +58,12 @@ namespace Content.Server._CorvaxNext.Silicons.Borgs
             var backArgs = new ReturnMindIntoAiEvent();
             backArgs.Performer = entity;
 
-            if (TryComp(entity, out IntrinsicRadioTransmitterComponent? transmitter) && entity.Comp.PreviouslyTransmitterChannels != null)
+            if (TryComp(entity, out IntrinsicRadioTransmitterComponent? transmitter)
+                && entity.Comp.PreviouslyTransmitterChannels != null)
                 transmitter.Channels = [.. entity.Comp.PreviouslyTransmitterChannels];
 
-            if (TryComp(entity, out ActiveRadioComponent? activeRadio) && entity.Comp.PreviouslyActiveRadioChannels != null)
+            if (TryComp(entity, out ActiveRadioComponent? activeRadio)
+                && entity.Comp.PreviouslyActiveRadioChannels != null)
                 activeRadio.Channels = [.. entity.Comp.PreviouslyActiveRadioChannels];
 
             ReturnMindIntoAi(entity);
@@ -85,10 +87,8 @@ namespace Content.Server._CorvaxNext.Silicons.Borgs
             args.Verbs.Add(verb);
         }
 
-        private void OnReturnMindIntoAi(Entity<AiRemoteControllerComponent> entity, ref ReturnMindIntoAiEvent args)
-        {
+        private void OnReturnMindIntoAi(Entity<AiRemoteControllerComponent> entity, ref ReturnMindIntoAiEvent args) =>
             ReturnMindIntoAi(entity);
-        }
         public void AiTakeControl(EntityUid ai, EntityUid entity)
         {
             if (!_mind.TryGetMind(ai, out var mindId, out var mind))
@@ -132,7 +132,8 @@ namespace Content.Server._CorvaxNext.Silicons.Borgs
 
         private void OnToggleRemoteDevicesScreen(EntityUid uid, StationAiHeldComponent component, ToggleRemoteDevicesScreenEvent args)
         {
-            if (args.Handled || !TryComp<ActorComponent>(uid, out var actor))
+            if (args.Handled
+                || !TryComp<ActorComponent>(uid, out var actor))
                 return;
             args.Handled = true;
 
@@ -170,7 +171,8 @@ namespace Content.Server._CorvaxNext.Silicons.Borgs
 
             if (msg.RemoteAction?.ActionType == RemoteDeviceActionEvent.RemoteDeviceActionType.MoveToDevice)
             {
-                if (!_stationAiSystem.TryGetCore(uid, out var stationAiCore) || stationAiCore.Comp?.RemoteEntity == null)
+                if (!_stationAiSystem.TryGetCore(uid, out var stationAiCore)
+                    || stationAiCore.Comp?.RemoteEntity == null)
                     return;
                 _xformSystem.SetCoordinates(stationAiCore.Comp.RemoteEntity.Value, Transform(target.Value).Coordinates);
             }

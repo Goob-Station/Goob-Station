@@ -180,7 +180,8 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
             return;
 
         // Corvax-Next-AiRemoteControl-Start
-        if (HasComp<AiRemoteControllerComponent>(uid) || _tagSystem.HasTag(uid, "StationAi")) // skip a law's notification for remotable and AI
+        if (HasComp<AiRemoteControllerComponent>(uid)
+            || _tagSystem.HasTag(uid, "StationAi")) // skip a law's notification for remotable and AI
             return;
         // Corvax-Next-AiRemoteControl-End
 
@@ -447,7 +448,9 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
             SetLaws(lawset, update, provider.LawUploadSound);
 
             // Corvax-Next-AiRemoteControl-Start
-            if (TryComp<StationAiHeldComponent>(update, out var stationAiHeldComp) && stationAiHeldComp.CurrentConnectedEntity != null && HasComp<SiliconLawProviderComponent>(stationAiHeldComp.CurrentConnectedEntity))
+            if (TryComp<StationAiHeldComponent>(update, out var stationAiHeldComp)
+                && stationAiHeldComp.CurrentConnectedEntity != null
+                && HasComp<SiliconLawProviderComponent>(stationAiHeldComp.CurrentConnectedEntity))
             {
                 SetLaws(lawset, stationAiHeldComp.CurrentConnectedEntity.Value, provider.LawUploadSound);
             }

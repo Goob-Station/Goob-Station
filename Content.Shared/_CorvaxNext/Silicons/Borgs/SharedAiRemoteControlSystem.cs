@@ -27,7 +27,9 @@ namespace Content.Shared._CorvaxNext.Silicons.Borgs
             if (!TryComp<AiRemoteControllerComponent>(entity, out var remoteComp))
                 return;
 
-            if (remoteComp?.AiHolder == null || !_stationAiSystem.TryGetCore(remoteComp.AiHolder.Value, out var stationAiCore) || stationAiCore.Comp?.RemoteEntity == null)
+            if (remoteComp?.AiHolder == null
+                || !_stationAiSystem.TryGetCore(remoteComp.AiHolder.Value, out var stationAiCore)
+                || stationAiCore.Comp?.RemoteEntity == null)
                 return;
 
             if (remoteComp.LinkedMind == null)
