@@ -101,6 +101,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Server.Chat.Systems;
+using Content.Goobstation.Common.NTR.Scan; // Goobstation
 
 namespace Content.Server.Lathe
 {
@@ -302,6 +303,8 @@ namespace Content.Server.Lathe
                 {
                     var result = Spawn(resultProto, Transform(uid).Coordinates);
                     _stack.TryMergeToContacts(result);
+                    if (TryComp<ScannableForPointsComponent>(result, out var scannable)) // Goobstation
+                        scannable.Points = 0; // Goobstation, this thing is to prevent ntr duping points via an emagged lathe
                 }
 
                 if (comp.CurrentRecipe.ResultReagents is { } resultReagents &&

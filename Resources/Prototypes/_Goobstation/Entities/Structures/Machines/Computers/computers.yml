@@ -1,0 +1,23 @@
+- type: entity
+  id: ComputerNTRTasks
+  parent: [BaseComputer]
+  name: NTR tasks computer
+  description: A terminal providing access to NanoNet missions. Your loyalty will be rewarded — complete tasks, accumulate loyalty points, and spend them on exclusive NTR privileges.
+  components:
+  - type: UserInterface
+    interfaces:
+      enum.NtrTaskUiKey.Key:
+        type: NtrTaskBoundUserInterface
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: ActivatableUI
+    key: enum.NtrTaskUiKey.Key
+  - type: NtrTaskConsole
+  - type: ItemSlots
+    slots:
+      documentSlot:
+        name: Console slot
+        whitelist:
+          tags:
+          - Paper
+          - Vial

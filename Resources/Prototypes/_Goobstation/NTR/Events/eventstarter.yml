@@ -1,0 +1,164 @@
+# you might wonder wtf is this
+# and you'd be right, what the fuck is this
+# its lazy, awfull, but it works
+- type: entity
+  id: NTRgameruleSpawnerMats
+  categories: [ HideSpawnMenu ]
+  name: AN ITEM THAT YOU WERENT SUPPOSED TO SEE
+  components:
+  - type: EventTrigger # this component delets this entity on spawn
+    eventId: "GiftsEngineering"
+  - type: Sprite # sprite needed for NTRstore
+    sprite: Objects/Materials/Sheets/metal.rsi
+    state: titanium_3
+
+- type: entity
+  id: NTRgameruleSpawnerPizza
+  categories: [ HideSpawnMenu ]
+  name: AN ITEM THAT YOU WERENT SUPPOSED TO SEE
+  components:
+  - type: EventTrigger
+    eventId: "GiftsPizzaPartySmall"
+  - type: Sprite
+    sprite: Objects/Consumable/Food/Baked/pizza.rsi
+    state: box1
+
+# respose teams below
+- type: entity
+  id: NTRgameruleERTsec
+  categories: [ HideSpawnMenu ]
+  name: AN ITEM THAT YOU WERENT SUPPOSED TO SEE
+  components:
+  - type: EventTrigger
+    eventId: "SpawnERTSecurity"
+  - type: Sprite
+    sprite: Structures/Wallmounts/signs.rsi
+    state: security
+
+- type: entity
+  id: NTRgameruleERTmed
+  categories: [ HideSpawnMenu ]
+  name: AN ITEM THAT YOU WERENT SUPPOSED TO SEE
+  components:
+  - type: EventTrigger
+    eventId: "SpawnERTMedical"
+  - type: Sprite
+    sprite: Structures/Wallmounts/signs.rsi
+    state: medbay
+
+- type: entity
+  id: NTRgameruleERTengi
+  categories: [ HideSpawnMenu ]
+  name: AN ITEM THAT YOU WERENT SUPPOSED TO SEE
+  components:
+  - type: EventTrigger
+    eventId: "SpawnERTEngineering"
+  - type: Sprite
+    sprite: Structures/Wallmounts/signs.rsi
+    state: eng
+
+- type: entity
+  id: NTRgameruleERTjani
+  categories: [ HideSpawnMenu ]
+  name: AN ITEM THAT YOU WERENT SUPPOSED TO SEE
+  components:
+  - type: EventTrigger
+    eventId: "SpawnERTJanitorial"
+  - type: Sprite
+    sprite: Structures/Wallmounts/signs.rsi
+    state: janitor
+
+- type: entity
+  id: NTRgameruleCBURN
+  categories: [ HideSpawnMenu ]
+  name: AN ITEM THAT YOU WERENT SUPPOSED TO SEE
+  components:
+  - type: EventTrigger
+    eventId: "SpawnCBURN"
+  - type: Sprite
+    sprite: Structures/Wallmounts/signs.rsi
+    state: zomlab
+
+# job unlockers
+
+# Security Department Unlocker
+- type: entity
+  id: NTRgameruleSpawnerSecurity
+  categories: [ HideSpawnMenu ]
+  name: AN ITEM THAT YOU WERENT SUPPOSED TO SEE
+  components:
+  - type: EventTrigger
+    eventId: "SecurityJobUnlock"
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    state: security_officer
+
+# Science Department Unlocker
+- type: entity
+  id: NTRgameruleSpawnerScience
+  categories: [ HideSpawnMenu ]
+  name: AN ITEM THAT YOU WERENT SUPPOSED TO SEE
+  components:
+  - type: EventTrigger
+    eventId: "ScienceJobUnlock"
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    state: scientist
+
+# Service Department Unlocker
+- type: entity
+  id: NTRgameruleSpawnerService
+  categories: [ HideSpawnMenu ]
+  name: AN ITEM THAT YOU WERENT SUPPOSED TO SEE
+  components:
+  - type: EventTrigger
+    eventId: "ServiceJobUnlock"
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    state: janitor
+
+# Cargo Department Unlocker
+- type: entity
+  id: NTRgameruleSpawnerCargo
+  categories: [ HideSpawnMenu ]
+  name: AN ITEM THAT YOU WERENT SUPPOSED TO SEE
+  components:
+  - type: EventTrigger
+    eventId: "CargoJobUnlock"
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    state: cargo_tech
+
+# Engineering Department Unlocker
+- type: entity
+  id: NTRgameruleSpawnerEngineering
+  categories: [ HideSpawnMenu ]
+  name: AN ITEM THAT YOU WERENT SUPPOSED TO SEE
+  components:
+  - type: EventTrigger
+    eventId: "EngineeringJobUnlock"
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    state: technicalassistant
+
+# Medical department Unlocker
+- type: entity
+  id: NTRgameruleSpawnerMedical
+  categories: [ HideSpawnMenu ]
+  name: AN ITEM THAT YOU WERENT SUPPOSED TO SEE
+  components:
+  - type: EventTrigger
+    eventId: "MedicalJobUnlock"
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    state: doctor
+
+# powergrid check
+
+- type: entity
+  id: NTRgamerulePowergrid
+  categories: [ HideSpawnMenu ]
+  name: AN ITEM THAT YOU WERENT SUPPOSED TO SEE
+  components:
+  - type: EventTrigger
+    eventId: "PowerGridCheck"
