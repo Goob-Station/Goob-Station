@@ -1,0 +1,5 @@
+- type: hudTheme
+  id: SS14CosmicCultTheme
+  name: ui-options-hud-theme-coscult
+  path: /Textures/_Goobstation/Interface/CosmicCult/
+  order: 8
