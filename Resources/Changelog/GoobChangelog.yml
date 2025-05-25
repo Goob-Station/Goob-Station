@@ -10126,3 +10126,9 @@ Entries:
       message: Reinforcing an explorer suit only takes one plate each time now
   id: 1126
   time: '2025-05-25T01:41:12.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: BSO now has an armored winter coat and winter jackboots.
+  id: 1127
+  time: '2025-05-25T01:45:25.0000000+00:00'
