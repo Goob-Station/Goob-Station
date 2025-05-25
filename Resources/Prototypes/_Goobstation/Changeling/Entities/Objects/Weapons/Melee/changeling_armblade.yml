@@ -33,8 +33,6 @@
       types:
         Slash: 20
         Structural: 20
-    clickPartDamageMultiplier: 2
-    heavyPartDamageMultiplier: 1.5
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Item
@@ -66,6 +64,6 @@
         Structural: 1
   - type: TimedDespawn
     lifetime: 60
-  - type: GibThisGuy 
+  - type: GibThisGuy
     ocNames:
     - BombasterDS

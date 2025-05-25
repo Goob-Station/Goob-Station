@@ -87,8 +87,8 @@ selectable-set-syndicate-desword-description =
 selectable-set-syndicate-grenadier-name = Grenadier Bundle
 selectable-set-syndicate-grenadier-description =
     Some explosives to ensure you can blast your way through any situation.
-    Contains: syndicate encryption key, minibomb, C4, and then incendiary,
-    explosive, shrapnel, EMP, whitehole, supermatter, smoke and flash grenades.
+    Contains: syndicate encryption key, bomb suit, grenadier belt rig,
+    explosive-resistant backpack and so many grenades you'll fall asleep reading.
 
 selectable-set-syndicate-fluclear-name = Fluclear Operative Bundle
 selectable-set-syndicate-fluclear-description =
@@ -139,13 +139,13 @@ selectable-set-blueshield-syringe-description =
 
 # Blueshield hardsuits
 
-selectable-set-blueshield-hardsuit-light-name = light hardsuit
+selectable-set-blueshield-hardsuit-light-name = armoured voidsuit
 selectable-set-blueshield-hardsuit-light-description =
-    A lighter hardsuit, allowing for more speed at the cost of protection.
+    An armoured voidsuit, allowing for more speed at the cost of protection.
 
-selectable-set-blueshield-hardsuit-heavy-name = heavy hardsuit
-selectable-set-blueshield-hardsuit-heavy-description =
-    A heavier hardsuit, allowing for more armor at the cost of speed.
+selectable-set-blueshield-modsuit-name = blueshield hardsuit
+selectable-set-blueshield-modsuit-description =
+    A custom hardsuit, allowing for more customisation, at the cost of requiring power.
 
 # ERT
 

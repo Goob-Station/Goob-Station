@@ -79,8 +79,11 @@
 // SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 TemporalOroboros <TemporalOroboros@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
@@ -91,7 +94,6 @@ using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.Changeling;
 using Content.Goobstation.Common.Religion;
-using Content.Goobstation.Common.Religion.Events;
 using Content.Shared._Goobstation.Wizard;
 using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared._Goobstation.Wizard.Chuuni;
@@ -182,8 +184,6 @@ public abstract class SharedMagicSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<MagicComponent, BeforeCastSpellEvent>(OnBeforeCastSpell);
-
-        SubscribeLocalEvent<BeforeCastTouchSpellEvent>(OnTouchSpellAttempt);
 
         SubscribeLocalEvent<InstantSpawnSpellEvent>(OnInstantSpawn);
         SubscribeLocalEvent<TeleportSpellEvent>(OnTeleportSpell);
@@ -350,39 +350,13 @@ public abstract class SharedMagicSystem : EntitySystem
         return !ev.Cancelled;
     }
 
-    //goobstation start
-    private void OnTouchSpellAttempt(ref BeforeCastTouchSpellEvent args)
+    private bool IsTouchSpellDenied(EntityUid target) // Goob edit
     {
-        if (!TryComp<HandsComponent>(args.Target, out var handsComp))
-            return;
+        var ev = new BeforeCastTouchSpellEvent(target);
+        RaiseLocalEvent(target, ev, true);
 
-        var held = _hands.EnumerateHeld(args.Target.Value, handsComp);
-        foreach (var heldEnt in held)
-        {
-            if (!TryComp<DivineInterventionComponent>(heldEnt, out var comp))
-                continue;
-
-            args.Cancelled = true;
-
-            if (_net.IsClient)
-                return;
-
-            _popupSystem.PopupEntity(Loc.GetString("nullrod-spelldenial-popup"),
-                args.Target.Value,
-                type: PopupType.MediumCaution);
-            _audio.PlayPvs(comp.DenialSound, args.Target.Value);
-            Spawn(comp.EffectProto, Transform(args.Target.Value).Coordinates);
-            break;
-        }
+        return ev.Cancelled;
     }
-
-    public bool SpellDenied(EntityUid target)
-    {
-        var beforeTouchSpellEvent = new BeforeCastTouchSpellEvent(target);
-        RaiseLocalEvent(target, ref beforeTouchSpellEvent, true);
-        return beforeTouchSpellEvent.Cancelled;
-    }
-    //goobstation end
 
     #region Spells
     #region Instant Spawn Spells
@@ -568,7 +542,7 @@ public abstract class SharedMagicSystem : EntitySystem
         if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
-        if (SpellDenied(ev.Target))
+        if (IsTouchSpellDenied(ev.Target))
         {
             if (ev.DoSpeech)
                 Speak(ev);
@@ -659,7 +633,7 @@ public abstract class SharedMagicSystem : EntitySystem
         if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
-        if (SpellDenied(ev.Target))
+        if (IsTouchSpellDenied(ev.Target))
         {
             Speak(ev);
             ev.Handled = true;
@@ -780,7 +754,7 @@ public abstract class SharedMagicSystem : EntitySystem
         if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
-        if (SpellDenied(ev.Target))
+        if (IsTouchSpellDenied(ev.Target)) // Goobstation
         {
             Speak(ev);
             ev.Handled = true;
@@ -998,8 +972,8 @@ public abstract class SharedMagicSystem : EntitySystem
                     -invocationEv.ToHeal,
                     true,
                     false,
-                    canSever: false,
-                    targetPart: TargetBodyPart.All);
+                    targetPart: TargetBodyPart.All,
+                    splitDamage: false); // Shitmed Change
             }
         }
 

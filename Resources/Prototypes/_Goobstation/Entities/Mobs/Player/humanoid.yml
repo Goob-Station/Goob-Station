@@ -3,10 +3,11 @@
 # SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
@@ -57,67 +58,6 @@
       roleLoadout: [ RoleSurvivalStandard ]
 
 - type: entity
-  id: RandomHumanoidGreyTider
-  name: greytider
-  components:
-    - type: Sprite
-      sprite: Markers/jobs.rsi
-      state: passenger
-    - type: RandomHumanoidSpawner
-      settings: GreyTider
-    - type: Construction
-      graph: GreyTider
-      node: greyTider
-
-- type: randomHumanoidSettings
-  id: GreyTider
-  speciesWhitelist: Human # lore accurate
-  parent: EventHumanoid
-  components:
-    - type: GhostTakeoverAvailable
-    - type: GhostRole
-      name: ghost-role-information-greytider-name
-      description: ghost-role-information-greytider-description
-      rules: ghost-role-information-freeagent-rules
-      raffle:
-        settings: short
-    - type: RandomHumanoidAppearance
-      randomizeName: false
-      hair: HairBald
-    - type: Loadout
-      prototypes: [ GreyTiderGear ]
-      roleLoadout: [ RoleSurvivalStandard ]
-    - type: RandomMetadata
-      nameSegments:
-      - TiderNamesFirst
-      - TiderNamesLast
-      nameFormat: name-format-standard
-    - type: HTN
-      rootTask:
-        task: SimpleHumanoidHostileCompound # do salvager AI while not taken by anyone
-    - type: FactionException
-    - type: NPCRetaliation
-      attackMemoryLength: 20 # the tide remembers
-    - type: NpcFactionMember
-      factions:
-      - Greytide
-    - type: GroupRetaliation
-      range: 15 # the tide hears
-
-- type: startingGear
-  id: GreyTiderGear
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitAncient
-    back: ClothingBackpackSatchel
-    shoes: ClothingShoesBootsWinter
-    mask: ClothingMaskGas
-    id: PassengerPDA
-    gloves: ClothingHandsGlovesFingerlessInsulated
-    outerClothing: ClothingOuterWinterCoat
-  inhand:
-    - ToolboxMechanical
-
-- type: entity
   parent: MobHuman
   id: MobHumanRandom
   name: Urist McHuman
@@ -128,7 +68,7 @@
     nameSegments:
     - NamesFirst
     - NamesLast
-    nameFormat: name-format-standard 
+    nameFormat: name-format-standard
 
 - type: entity
   parent: MobDiona
@@ -141,7 +81,7 @@
     nameSegments:
     - NamesDionaFirst
     - NamesDionaLast
-    nameFormat: name-format-standard 
+    nameFormat: name-format-standard
 
 - type: entity
   parent: MobFelinid
@@ -207,7 +147,7 @@
     nameSegments:
     - NamesFirst
     - NamesLast
-    nameFormat: name-format-standard 
+    nameFormat: name-format-standard
 
 - type: entity
   parent: MobHarpy
@@ -220,7 +160,7 @@
     nameSegments:
     - NamesFirst
     - NamesLast
-    nameFormat: name-format-standard 
+    nameFormat: name-format-standard
 
 - type: entity
   parent: MobRodentia
@@ -257,7 +197,7 @@
     nameSegments:
     - NamesVulpakinMale
     - NamesVulpakinLast
-    nameFormat: name-format-standard 
+    nameFormat: name-format-standard
 
 - type: entity
   parent: MobSlimePerson
@@ -270,7 +210,7 @@
     nameSegments:
     - NamesFirst
     - NamesLast
-    nameFormat: name-format-standard 
+    nameFormat: name-format-standard
 
 - type: entity
   parent: MobYowie
@@ -293,3 +233,15 @@
   - type: RandomMetadata
     nameSegments:
     - NamesVox
+
+- type: entity
+  parent: MobShadowkin
+  id: MobShadowkinRandom
+  name: Urist McShadowkin
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - NamesShadowkin
+    nameFormat: random-metadata-name-format-default

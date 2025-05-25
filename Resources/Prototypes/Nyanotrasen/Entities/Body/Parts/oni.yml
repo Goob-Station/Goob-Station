@@ -1,0 +1,113 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: PartOni
+  parent: PartHuman
+  abstract: true
+  components:
+  - type: Damageable
+    damageModifierSet: Oni
+  - type: BodyPart
+    species: Oni
+
+- type: entity
+  id: HeadOni
+  name: "oni head"
+  parent: [PartOni, BaseHead]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "head_m"
+
+- type: entity
+  id: ChestOni
+  name: "oni chest"
+  parent: [PartOni, BaseChest]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "chest_m"
+
+- type: entity
+  id: GroinOni
+  name: "oni groin"
+  parent: [PartOni, BaseGroin]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "groin_m"
+
+- type: entity
+  id: LeftArmOni
+  name: "left oni arm"
+  parent: [PartOni, BaseLeftArm]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "l_arm"
+
+- type: entity
+  id: RightArmOni
+  name: "right oni arm"
+  parent: [PartOni, BaseRightArm]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "r_arm"
+
+- type: entity
+  id: LeftHandOni
+  name: "left oni hand"
+  parent: [PartOni, BaseLeftHand]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "l_hand"
+
+- type: entity
+  id: RightHandOni
+  name: "right oni hand"
+  parent: [PartOni, BaseRightHand]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "r_hand"
+
+- type: entity
+  id: LeftLegOni
+  name: "left oni leg"
+  parent: [PartOni, BaseLeftLeg]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "l_leg"
+
+- type: entity
+  id: RightLegOni
+  name: "right oni leg"
+  parent: [PartOni, BaseRightLeg]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "r_leg"
+
+- type: entity
+  id: LeftFootOni
+  name: "left oni foot"
+  parent: [PartOni, BaseLeftFoot]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "l_foot"
+
+- type: entity
+  id: RightFootOni
+  name: "right oni foot"
+  parent: [PartOni, BaseRightFoot]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "r_foot"

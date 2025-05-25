@@ -24,13 +24,6 @@
   - type: TemperatureProtection
     heatingCoefficient: 0.1
     coolingCoefficient: 0.1
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.8
-        Caustic: 0.7
   - type: HideLayerClothing
     slots:
     - Hair
@@ -47,6 +40,13 @@
     sprite: _Goobstation/Clothing/Head/Helmets/hev.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Head/Helmets/hev.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Shock: 0.7
+        Radiation: 0.01
+        Caustic: 0.5
 
 - type: entity
   parent: ClothingHeadHelmetBasic
@@ -96,11 +96,13 @@
   - type: Clothing
     sprite: Clothing/Head/Hoods/voidcloak.rsi
   - type: Armor
+    coverage:
+    - Head
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.55
+        Heat: 0.7
   - type: PressureProtection
     lowPressureMultiplier: 1000
