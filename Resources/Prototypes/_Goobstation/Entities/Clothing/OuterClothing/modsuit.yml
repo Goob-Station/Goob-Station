@@ -626,7 +626,8 @@
           Heat: 0.70
           Radiation: 0.70
     - type: TemperatureProtection
-      coefficient: 0.01
+      coolingCoefficient: 0.01
+      heatingCoefficient: 0.01
     - type: ModifyDelayedKnockdown # Goobstation
       delayDelta: 2
       knockdownTimeDelta: -2
@@ -681,7 +682,8 @@
           Radiation: 0.30
           Caustic: 0.6
     - type: TemperatureProtection
-      coefficient: 0.01
+      coolingCoefficient: 0.01
+      heatingCoefficient: 0.01
     - type: SealableClothingVisuals
       visualLayers:
         outerClothing:
