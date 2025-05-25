@@ -41,9 +41,12 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ColonicAcid <claudiomota1990@googlemail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Base
@@ -401,6 +404,7 @@
     state: e-cautery-on
   - type: Item
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-cautery.rsi
+    heldPrefix: cautery
   - type: SurgeryTool
     startSound:
       path: /Audio/_Shitmed/Medical/Surgery/cautery1.ogg
@@ -416,6 +420,8 @@
       Steel: 150
       Glass: 37
       Plasma: 37
+  - type: Cautery
+    speed: 1.5
   - type: ItemSwitch
     showLabel: true
     state: cautery
@@ -459,6 +465,7 @@
     state: e-scalpel-on
   - type: Item
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-scalpel.rsi
+    heldPrefix: scalpel
   - type: SurgeryTool
     startSound:
       path: /Audio/_Shitmed/Medical/Surgery/scalpel1.ogg
@@ -474,6 +481,8 @@
       Steel: 150
       Glass: 37
       Gold: 37
+  - type: Scalpel
+    speed: 1.5
   - type: ItemSwitch
     showLabel: true
     state: scalpel
@@ -518,6 +527,7 @@
     state: adv-retractor-on
   - type: Item
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/adv-retractor.rsi
+    heldPrefix: retractor
   - type: SurgeryTool
     startSound:
       path: /Audio/_Shitmed/Medical/Surgery/retractor1.ogg
@@ -533,6 +543,8 @@
       Steel: 150
       Glass: 37
       Silver: 37
+  - type: Retractor
+    speed: 1.5
   - type: ItemSwitch
     showLabel: true
     state: retractor

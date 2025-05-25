@@ -7,3 +7,21 @@
   id: SecurityJudoBelt
   equipment:
     belt: ClothingBeltCorporateJudoFilled
+
+- type: loadout
+  id: SecurityMeleeKnife
+  storage:
+    back:
+    - CombatKnife
+
+- type: loadout
+  id: SecurityMeleePolyBaton
+  storage:
+    back:
+    - PolymerBaton
+
+- type: loadout
+  id: SecurityMeleeSpear
+  storage:
+    back:
+    - SpearTelescopic
