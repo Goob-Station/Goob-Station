@@ -96,12 +96,6 @@
         layer:
         - MachineLayer
   - type: EntityStorage
-    # Goobstation edit start
-    closeSound:
-      path: /Audio/_Goobstation/Machines/crate_close.ogg
-    openSound:
-      path: /Audio/_Goobstation/Machines/crate_open.ogg
-    # Goobstation edit end
   - type: PlaceableSurface
     isPlaceable: false # defaults to closed.
   - type: Damageable

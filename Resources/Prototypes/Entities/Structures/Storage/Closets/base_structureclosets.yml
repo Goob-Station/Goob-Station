@@ -118,12 +118,6 @@
         layer:
         - MachineLayer
   - type: EntityStorage
-    # Goobstation edit start
-    closeSound:
-      path: /Audio/_Goobstation/Machines/closet_close.ogg
-    openSound:
-      path: /Audio/_Goobstation/Machines/closet_open.ogg
-    # Goobstation edit end
   - type: ContainerContainer
     containers:
       entity_storage: !type:Container

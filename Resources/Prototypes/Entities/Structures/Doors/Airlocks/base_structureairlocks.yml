@@ -160,9 +160,9 @@
       types:
         Blunt: 15
     openSound:
-      path: /Audio/_Goobstation/Machines/airlock_open.ogg # backmen edit
+      path: /Audio/Machines/airlock_open.ogg
     closeSound:
-      path: /Audio/_Goobstation/Machines/airlock_close.ogg # backmen edit
+      path: /Audio/Machines/airlock_close.ogg
     denySound:
       path: /Audio/Machines/airlock_deny.ogg
   - type: ContainerContainer
