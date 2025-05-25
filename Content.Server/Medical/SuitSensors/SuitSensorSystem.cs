@@ -83,14 +83,16 @@
 // SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
 // SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 stroopwafel <j.o.luijkx@student.tudelft.nl>
 // SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Baptr0b0t <152836416+Baptr0b0t@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ignaz "Ian" Kraft <ignaz.k@live.de>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -537,6 +539,7 @@ public sealed class SuitSensorSystem : EntitySystem
                 }
 
                 status.Coordinates = GetNetCoordinates(coordinates);
+                status.IsCommandTracker = sensor.CommandTracker; //Goob station
                 break;
         }
 
@@ -556,6 +559,7 @@ public sealed class SuitSensorSystem : EntitySystem
             [SuitSensorConstants.NET_JOB_ICON] = status.JobIcon,
             [SuitSensorConstants.NET_JOB_DEPARTMENTS] = status.JobDepartments,
             [SuitSensorConstants.NET_IS_ALIVE] = status.IsAlive,
+            [SuitSensorConstants.NET_IS_COMMAND] = status.IsCommandTracker, //Goob station
             [SuitSensorConstants.NET_SUIT_SENSOR_UID] = status.SuitSensorUid,
         };
 
@@ -586,6 +590,7 @@ public sealed class SuitSensorSystem : EntitySystem
         if (!payload.TryGetValue(SuitSensorConstants.NET_JOB_ICON, out string? jobIcon)) return null;
         if (!payload.TryGetValue(SuitSensorConstants.NET_JOB_DEPARTMENTS, out List<string>? jobDepartments)) return null;
         if (!payload.TryGetValue(SuitSensorConstants.NET_IS_ALIVE, out bool? isAlive)) return null;
+        if (!payload.TryGetValue(SuitSensorConstants.NET_IS_COMMAND, out bool iscommand)) return null; //Goob station
         if (!payload.TryGetValue(SuitSensorConstants.NET_SUIT_SENSOR_UID, out NetEntity suitSensorUid)) return null;
 
         // try get total damage and cords (optionals)
@@ -599,6 +604,7 @@ public sealed class SuitSensorSystem : EntitySystem
             TotalDamage = totalDamage,
             TotalDamageThreshold = totalDamageThreshold,
             Coordinates = coords,
+            IsCommandTracker = iscommand,//Goob station
         };
         return status;
     }
