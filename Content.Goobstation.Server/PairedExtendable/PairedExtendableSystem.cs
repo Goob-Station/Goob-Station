@@ -3,7 +3,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Linq;
 using Content.Goobstation.Shared.PairedExtendable;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -24,12 +23,23 @@ public sealed class PairedExtendableSystem : EntitySystem
         if (!TryComp<T>(ent, out var comp))
             return false;
 
-        var hand = _hands.EnumerateHands(ent).FirstOrDefault(hand => hand.Location == (comp is RightPairedExtendableUserComponent ? HandLocation.Right : HandLocation.Left));
-        if (hand == null)
+        Hand? ourHand = null;
+        foreach (var hand in _hands.EnumerateHands(ent))
+        {
+            if (hand.Location == (comp is RightPairedExtendableUserComponent ? HandLocation.Right : HandLocation.Left))
+            {
+                ourHand = hand;
+                break;
+            }
+        }
+
+        if (ourHand == null)
             return false;
 
-        var activeItem = hand.HeldEntity;
-        if (activeItem.HasValue && activeItem == comp.ExtendableUid)
+        var activeItem = ourHand.HeldEntity;
+
+        if (activeItem.HasValue
+        && activeItem == comp.ExtendableUid)
         {
             Del(activeItem);
             comp.ExtendableUid = null;
@@ -38,7 +48,7 @@ public sealed class PairedExtendableSystem : EntitySystem
         }
 
         var newExtendable = Spawn(comp.ExtendableProto, Transform(ent).Coordinates);
-        if (!_hands.TryPickup(ent, newExtendable, hand.Name))
+        if (!_hands.TryPickup(ent, newExtendable, ourHand.Name))
         {
             Del(newExtendable);
             _popup.PopupEntity(Loc.GetString("paired-extendable-hand-busy"), ent, ent);

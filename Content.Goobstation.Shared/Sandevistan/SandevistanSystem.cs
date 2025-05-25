@@ -88,17 +88,13 @@ public sealed class SandevistanSystem : EntitySystem
 
             var filteredStates = new List<int>();
             foreach (var stateThreshold in comp.Thresholds)
-            {
                 if (comp.CurrentLoad >= stateThreshold.Value)
                     filteredStates.Add((int)stateThreshold.Key);
-            }
 
             filteredStates.Sort((a, b) => b.CompareTo(a));
             foreach (var state in filteredStates)
-            {
                 if (stateActions.TryGetValue(state, out var action))
                     action();
-            }
 
             if (comp.NextPopupTime > _timing.CurTime)
                 return;
@@ -176,17 +172,16 @@ public sealed class SandevistanSystem : EntitySystem
     {
         if (ent.Comp.Enabled)
             args.ModifySpeed(ent.Comp.MovementSpeedModifier, ent.Comp.MovementSpeedModifier);
-        else
-            args.ModifySpeed(1f, 1f);
     }
 
     private void OnMeleeAttack(Entity<SandevistanUserComponent> ent, ref MeleeAttackEvent args)
     {
-        if (!ent.Comp.Enabled || !TryComp<MeleeWeaponComponent>(args.Weapon, out var weapon))
+        if (!ent.Comp.Enabled
+        || !TryComp<MeleeWeaponComponent>(args.Weapon, out var weapon))
             return;
 
-        var rate = weapon.AttackRate;
-        weapon.NextAttack -= TimeSpan.FromSeconds(rate - rate / ent.Comp.AttackSpeedModifier);
+        var rate = weapon.NextAttack - _timing.CurTime; //weapon.AttackRate; breaks things when multiple systems modify NextAttack
+        weapon.NextAttack -= rate - rate / ent.Comp.AttackSpeedModifier;
     }
 
     private void OnMobStateChanged(Entity<SandevistanUserComponent> ent, ref MobStateChangedEvent args)

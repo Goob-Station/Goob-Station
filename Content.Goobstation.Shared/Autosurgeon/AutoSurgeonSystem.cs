@@ -44,19 +44,22 @@ public sealed class AutoSurgeonSystem : EntitySystem
         _audio.Stop(ent.Comp.ActiveSound);
         args.Cancelled = true;
 
-        if (ent.Comp.Used || args.User == null || !_doAfter.TryStartDoAfter(new DoAfterArgs(
-                    EntityManager,
-                    ent.Owner,
-                    ent.Comp.DoAfterTime,
-                    new AutoSurgeonDoAfterEvent(),
-                    ent.Owner,
-                    args.User,
-                    ent.Owner)
-                {
-                    BreakOnMove = true,
-                    DistanceThreshold = 0.1f,
-                    MovementThreshold = 0.1f,
-                }))
+        if (ent.Comp.Used || args.User == null)
+            return;
+
+        if (!_doAfter.TryStartDoAfter(new DoAfterArgs(
+                EntityManager,
+                ent.Owner,
+                ent.Comp.DoAfterTime,
+                new AutoSurgeonDoAfterEvent(),
+                ent.Owner,
+                args.User,
+                ent.Owner)
+            {
+                BreakOnMove = true,
+                DistanceThreshold = 0.1f,
+                MovementThreshold = 0.1f,
+            }))
             return;
 
         var ev = new TransferDnaEvent { Donor = args.User.Value, Recipient = ent };
@@ -72,7 +75,9 @@ public sealed class AutoSurgeonSystem : EntitySystem
 
     private void OnDoAfter(Entity<AutoSurgeonComponent> ent, ref AutoSurgeonDoAfterEvent args)
     {
-        if (args.Cancelled || ent.Comp.Used || args.Target == null)
+        if (args.Cancelled
+        || ent.Comp.Used
+        || args.Target == null)
         {
             _audio.Stop(ent.Comp.ActiveSound);
             return;
@@ -83,9 +88,12 @@ public sealed class AutoSurgeonSystem : EntitySystem
         // Handle replacing the part
         if (ent.Comp.NewPartProto != null)
         {
-            var parent = _body.GetBodyChildrenOfType(args.Target.Value, ent.Comp.TargetBodyPart, symmetry: ent.Comp.TargetBodyPartSymmetry).FirstOrDefault().Id;
+            var parent = _body.GetBodyChildrenOfType(args.Target.Value, ent.Comp.TargetBodyPart, symmetry: ent.Comp.TargetBodyPartSymmetry)
+                .FirstOrDefault()
+                .Id;
 
-            if (!parent.Valid || !TryComp<BodyPartComponent>(parent, out var parentComp))
+            if (!parent.Valid
+            || !TryComp<BodyPartComponent>(parent, out var parentComp))
             {
                 _audio.Stop(ent.Comp.ActiveSound);
                 return;
@@ -103,7 +111,10 @@ public sealed class AutoSurgeonSystem : EntitySystem
                     return;
                 }
 
-                var oldPart = _body.GetBodyChildrenOfType(args.Target.Value, newPartComp.PartType, symmetry: newPartComp.Symmetry).FirstOrDefault().Id;
+                var oldPart = _body.GetBodyChildrenOfType(args.Target.Value, newPartComp.PartType, symmetry: newPartComp.Symmetry)
+                    .FirstOrDefault()
+                    .Id;
+
                 if (oldPart.Valid)
                     _body.DetachPart(parent, _body.GetSlotFromBodyPart(newPartComp), oldPart);
 
@@ -119,7 +130,10 @@ public sealed class AutoSurgeonSystem : EntitySystem
                     return;
                 }
 
-                var oldOrgan = _body.GetPartOrgans(parent).FirstOrDefault(organ => organ.Component.SlotId == newOrganComp.SlotId).Id;
+                var oldOrgan = _body.GetPartOrgans(parent)
+                    .FirstOrDefault(organ => organ.Component.SlotId == newOrganComp.SlotId)
+                    .Id;
+
                 if (!_body.AddOrganToFirstValidSlot(parent, newPart) && oldOrgan.Valid)
                 {
                     _body.RemoveOrgan(oldOrgan);
@@ -137,8 +151,12 @@ public sealed class AutoSurgeonSystem : EntitySystem
 
         // If we didn't replace it, then we upgrade it.
         var part = isBodyPart
-            ? _body.GetBodyChildrenOfType(args.Target.Value, ent.Comp.TargetBodyPart, symmetry: ent.Comp.TargetBodyPartSymmetry).FirstOrDefault().Id
-            : _body.GetBodyOrgans(args.Target).FirstOrDefault(organ => organ.Component.SlotId == ent.Comp.TargetOrgan).Id;
+            ? _body.GetBodyChildrenOfType(args.Target.Value, ent.Comp.TargetBodyPart, symmetry: ent.Comp.TargetBodyPartSymmetry)
+                .FirstOrDefault()
+                .Id
+            : _body.GetBodyOrgans(args.Target)
+                .FirstOrDefault(organ => organ.Component.SlotId == ent.Comp.TargetOrgan)
+                .Id;
 
         if (!part.Valid)
         {
@@ -146,8 +164,10 @@ public sealed class AutoSurgeonSystem : EntitySystem
             return;
         }
 
-        var addedToPart = AddComponents(part, ent.Comp.ComponentsToPart); // if none were actually added the part is probably already modified
-        if (addedToPart != null && !addedToPart.Any()) // null indicates there were no components to add in the first place, so it's fine
+        var addedToPart = AddComponents(part, ent.Comp.ComponentsToPart); // if none were actually added the part is probably already upgraded
+
+        if (addedToPart != null // null indicates there were no components to add in the first place, so it's fine
+        && !addedToPart.Any())
         {
             _audio.Stop(ent.Comp.ActiveSound);
             return;
@@ -167,7 +187,8 @@ public sealed class AutoSurgeonSystem : EntitySystem
 
     private void HandleBodyPart(EntityUid user, EntityUid part, ComponentRegistry? comps)
     {
-        if (!TryComp<BodyPartComponent>(part, out var partComp) || comps == null)
+        if (!TryComp<BodyPartComponent>(part, out var partComp)
+        || comps == null)
             return;
 
         var addedToOnAdd = new ComponentRegistry();
@@ -191,14 +212,13 @@ public sealed class AutoSurgeonSystem : EntitySystem
 
         var partEffectComp = EnsureComp<BodyPartEffectComponent>(part);
         foreach (var (name, data) in addedToUser)
-        {
             partEffectComp.Active.TryAdd(name, data);
-        }
     }
 
     private void HandleOrgan(EntityUid user, EntityUid organ, ComponentRegistry? comps)
     {
-        if (!TryComp<OrganComponent>(organ, out var organComp) || comps == null)
+        if (!TryComp<OrganComponent>(organ, out var organComp)
+        || comps == null)
             return;
 
         var addedToOnAdd = new ComponentRegistry();
@@ -222,15 +242,11 @@ public sealed class AutoSurgeonSystem : EntitySystem
 
         var organEffectComp = EnsureComp<OrganEffectComponent>(organ);
         foreach (var (name, data) in addedToUser)
-        {
             organEffectComp.Active.TryAdd(name, data);
-        }
     }
 
-    private void OnExamined(Entity<AutoSurgeonComponent> ent, ref ExaminedEvent args)
-    {
+    private void OnExamined(Entity<AutoSurgeonComponent> ent, ref ExaminedEvent args) =>
         args.PushMarkup(ent.Comp.Used ? Loc.GetString("gun-cartridge-spent") : Loc.GetString("gun-cartridge-unspent")); // Yes gun locale, and?
-    }
 
     private ComponentRegistry? AddComponents(EntityUid ent, ComponentRegistry? comps) // Returns actually added components
     {
