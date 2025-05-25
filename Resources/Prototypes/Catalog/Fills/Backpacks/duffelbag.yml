@@ -124,6 +124,7 @@
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -152,12 +153,14 @@
   description: A large duffel bag containing a full suite of surgical tools.
   components:
   - type: StorageFill
-    contents:
+    contents: # goob edited
       - id: DefibrillatorSyndicate
       - id: SawAdvanced
       - id: EnergyCautery
       - id: AdvancedRetractor
       - id: ScalpelAdvanced
+      - id: Drill
+      - id: AdvancedBoneGel
       - id: ClothingHandsGlovesNitrile
       - id: EmergencyRollerBedSpawnFolded
       - id: ClothingMaskSterile # Goobstation

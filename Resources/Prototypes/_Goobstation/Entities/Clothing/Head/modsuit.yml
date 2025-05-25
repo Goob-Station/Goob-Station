@@ -4,8 +4,11 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
 # SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -729,6 +732,7 @@
         Piercing: 0.6
         Heat: 0.6
         Radiation: 0.1
+        Caustic: 0.55
   - type: ComponentToggler
     components:
     - type: BreathMask
