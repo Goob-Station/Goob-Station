@@ -1,6 +1,8 @@
 # SPDX-FileCopyrightText: 2025 CliveOcelot <165305605+Orion-416@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
+# SPDX-FileCopyrightText: 2025 Shy Bandit <92641277+rotundfan@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -32,6 +34,11 @@
       visualLayers:
         back:
           - state: equipped-BACKPACK-sealed
+    - type: Storage
+      grid:
+      - 0,0,1,3
+      - 3,0,6,3
+      - 8,0,9,3
 
 - type: entity
   parent: ClothingModsuitGauntletsStandard
