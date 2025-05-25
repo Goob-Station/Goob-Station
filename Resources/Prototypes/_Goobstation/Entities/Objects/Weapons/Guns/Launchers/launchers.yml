@@ -82,23 +82,23 @@
   description: A single shot 93mm disposable anti-personnel thermobaric rocket launcher, considered a flamethrower by the manufacturer. can be folded in order to be conveniantly stored. DO NOT ATTEMPT TO REMOVE ROCKET FROM TUBE. # Cant make it so you cant cycle it, if you cycle it it explodes lol
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Launchers/m172.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Launchers/shmel.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
-    sprite: _Goobstation/Objects/Weapons/Guns/Launchers/m172.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Launchers/shmel.rsi
     slots:
     - Back
     - suitStorage
   - type: Item
     size: Normal
     shape:
-    - 0,0,1,1 # normal size
+    - 0,0,2,1
     storedSprite:
-      sprite: _Goobstation/Objects/Weapons/Guns/Launchers/m172.rsi
+      sprite: _Goobstation/Objects/Weapons/Guns/Launchers/shmel.rsi
       state: storage
   - type: MagazineVisuals
     magState: mag
