@@ -65,6 +65,7 @@ using System.Numerics;
 using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Common.MartialArts;
 using Content.Shared._EinsteinEngines.Contests;
+using Content.Shared.Chat;
 using Content.Shared.Coordinates;
 using Content.Shared.Item;
 using Content.Shared.Throwing;

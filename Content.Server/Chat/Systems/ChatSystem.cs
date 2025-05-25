@@ -67,7 +67,6 @@
 // SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 chavonadelal <156101927+chavonadelal@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
@@ -88,10 +87,13 @@
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 // SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tim <timfalken@hotmail.com>
+// SPDX-FileCopyrightText: 2025 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
 //
@@ -244,8 +246,8 @@ public sealed partial class ChatSystem : SharedChatSystem
     /// <param name="hideLog">Whether or not this message should appear in the adminlog window</param>
     /// <param name="shell"></param>
     /// <param name="player">The player doing the speaking</param>
-    /// <param name="nameOverride">The name to use for the speaking entity. Usually this should just be modified via <see cref="TransformSpeakerNameEvent"/>. If this is set, the event will not get raised.</param>
-    public void TrySendInGameICMessage(
+    /// <param name="nameOverride">The name to use for the speaking entity. Usually this should just be modified via <see cref="TransformSpeakerSpeechEvent"/>. If this is set, the event will not get raised.</param>
+    public override void TrySendInGameICMessage(
         EntityUid source,
         string message,
         InGameICChatType desiredType,
@@ -1180,19 +1182,6 @@ public sealed class EntitySpokeEvent : EntityEventArgs
         Channel = channel;
         ObfuscatedMessage = obfuscatedMessage;
     }
-}
-
-/// <summary>
-///     InGame IC chat is for chat that is specifically ingame (not lobby) but is also in character, i.e. speaking.
-/// </summary>
-// ReSharper disable once InconsistentNaming
-public enum InGameICChatType : byte
-{
-    Speak,
-    Emote,
-    Whisper,
-    Telepathic, // Goobstation Change
-    CollectiveMind // Goobstation - Starlight collective mind port
 }
 
 /// <summary>

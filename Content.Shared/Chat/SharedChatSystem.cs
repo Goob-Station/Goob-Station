@@ -28,6 +28,8 @@ using System.Text.RegularExpressions;
 using Content.Shared.Popups;
 using Content.Shared.Radio;
 using Content.Shared.Speech;
+using Robust.Shared.Console;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
@@ -273,6 +275,18 @@ public abstract class SharedChatSystem : EntitySystem
         return false;
     }
 
+    public virtual void TrySendInGameICMessage(
+        EntityUid source,
+        string message,
+        InGameICChatType desiredType,
+        bool hideChat, bool hideLog = false,
+        IConsoleShell? shell = null,
+        ICommonSession? player = null, string? nameOverride = null,
+        bool checkRadioPrefix = true,
+        bool ignoreActionBlocker = false,
+        string wrappedMessagePostfix = "" // Goobstation
+    ) { }
+
     public string SanitizeMessageCapital(string message)
     {
         if (string.IsNullOrEmpty(message))
@@ -385,4 +399,17 @@ public abstract class SharedChatSystem : EntitySystem
         tagStart += tag.Length + 2;
         return rawmsg.Substring(tagStart, tagEnd - tagStart);
     }
+}
+
+/// <summary>
+///     InGame IC chat is for chat that is specifically ingame (not lobby) but is also in character, i.e. speaking.
+/// </summary>
+// ReSharper disable once InconsistentNaming
+public enum InGameICChatType : byte // Einstein Engines - Make InGameIIChatType available in Shared
+{
+    Speak,
+    Emote,
+    Whisper,
+    Telepathic, // Goobstation Change
+    CollectiveMind // Goobstation - Starlight collective mind port
 }
