@@ -431,13 +431,13 @@
 
 - type: entity
   id: ActionDragonRoar
-  name: Dragon's Roar
-  description: Roar with all your strength to make enemies fear you!
+  name: Wing flap
+  description: Flap your wings to stun all enemies around you!
   components:
   - type: InstantAction
     icon:
       sprite: _Goobstation/Actions/dragon.rsi
-      state: carp_horde
+      state: wing_flap
     event: !type:DragonRoarActionEvent
     useDelay: 45
     priority: 5

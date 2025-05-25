@@ -9,6 +9,9 @@
     "states": [
         {
             "name": "carp_horde"
+        },
+        {
+            "name": "wing_flap"
         }
     ]
 }
