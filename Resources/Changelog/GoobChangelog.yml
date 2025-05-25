@@ -10191,3 +10191,11 @@ Entries:
       message: Chemists now have a unique ID card.
   id: 1130
   time: '2025-05-25T02:27:51.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Add
+      message: Resomi may now Chirp, Trill, Warble, and Wurble.
+    - type: Fix
+      message: Fixed resomi not being able to host anomalies.
+  id: 1131
+  time: '2025-05-25T02:52:44.0000000+00:00'
