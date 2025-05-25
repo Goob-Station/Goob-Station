@@ -120,4 +120,4 @@
   lightColor: Orange
   texturePath: /Textures/Effects/fire.rsi
   fireStates: 8
-  fireStacks: 4
+  fireStacks: 2
