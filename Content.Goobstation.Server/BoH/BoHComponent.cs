@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 yglop <95057024+yglop@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 namespace Content.Goobstation.Server.BoH;
 
 [RegisterComponent]
