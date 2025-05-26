@@ -45,11 +45,10 @@ public sealed class MobGrowthSystem : EntitySystem
     {
         var eligibleMobs = new HashSet<Entity<MobGrowthComponent, HungerComponent>>();
 
-        var query = EntityQueryEnumerator<MobGrowthComponent>();
-        while (query.MoveNext(out var uid, out var growth))
+        var query = EntityQueryEnumerator<MobGrowthComponent, HungerComponent>();
+        while (query.MoveNext(out var uid, out var growth, out var hungerComp))
         {
-            if (_mobState.IsDead(uid)
-                || !TryComp<HungerComponent>(uid, out var hungerComp))
+            if (_mobState.IsDead(uid))
                 continue;
 
             eligibleMobs.Add((uid, growth, hungerComp));
