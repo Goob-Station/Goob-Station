@@ -10221,3 +10221,9 @@ Entries:
       message: T2 surgery equipment and medical multitool were reworked.
   id: 1134
   time: '2025-05-25T06:49:12.0000000+00:00'
+- author: ARMOKS
+  changes:
+    - type: Tweak
+      message: Singularity Buster Rocket no longer does damage
+  id: 1135
+  time: '2025-05-25T17:20:38.0000000+00:00'
