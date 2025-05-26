@@ -250,7 +250,6 @@
   parent: EventHumanoid
   id: HumanoidMercenary
   components:
-  - type: RandomMetadata
   - type: GhostRole
     name: ghost-role-information-mercenary-name
     description: ghost-role-information-mercenary-description
@@ -258,6 +257,7 @@
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
+  - type: RandomMetadata
     nameSegments:
     - NamesMilitaryFirst
     - NamesMilitaryLast
@@ -265,7 +265,6 @@
   - type: Loadout
     prototypes: [ MercenaryGear ]
     roleLoadout: [ RoleSurvivalExtended ]
-
 
 - type: entity
   id: RandomHumanoidMercenary
