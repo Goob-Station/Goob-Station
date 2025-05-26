@@ -25,7 +25,7 @@ namespace Content.Goobstation.Server.BoH
             var newUid = Spawn("Singularity", Transform(uid).Coordinates);
 
             _adminLogger.Add(
-                LogType.Action, LogImpact.Low,
+                LogType.Action, LogImpact.High,
                 $"{ToPrettyString(args.User):actor} created {ToPrettyString(newUid)} by putting {ToPrettyString(args.Used)} into {ToPrettyString(uid)}");
 
             QueueDel(args.Used);
