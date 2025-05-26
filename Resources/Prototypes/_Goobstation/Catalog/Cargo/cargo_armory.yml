@@ -32,3 +32,14 @@
   cost: 30000
   category: cargoproduct-category-name-armory
   group: market
+
+- type: cargoProduct
+  id: MercenarySpawner
+  icon:
+    sprite: Clothing/Head/Helmets/merc_helmet.rsi
+    state: icon
+  product: MercenarySpawner
+  cost: 30000
+  category: cargoproduct-category-name-armory
+  group: market
+
