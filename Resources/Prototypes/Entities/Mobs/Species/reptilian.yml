@@ -117,7 +117,8 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 PuroSlavKing <103608145+PuroSlavKing@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 TurboTracker <130304754+TurboTrackerss14@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 #
@@ -177,9 +178,8 @@
       types:
         Slash: 5
   - type: Temperature
-    heatDamageThreshold: 450 # Goobstation
+    heatDamageThreshold: 400
     coldDamageThreshold: 285
-    atmosTemperatureTransferEfficiency: 0.4 # Goobstation - Coldblooded lizards.
     currentTemperature: 310.15
     specificHeat: 42
     coldDamage:
@@ -190,18 +190,10 @@
         Heat : 1.5 #per second, scales with temperature & other constants
   - type: TemperatureSpeed
     thresholds:
-      289: 0.7 # Toss em a bone, since they're so easily freezable. # Goobstation
+      301: 0.8
       295: 0.6
       285: 0.4
   - type: Wagging
-  - type: ThermalRegulator # Goobstation - Start
-    metabolismHeat: 0
-    radiatedHeat: 0
-    implicitHeatRegulation: 0
-    sweatHeatRegulation: 0
-    shiveringHeatRegulation: 0
-    normalBodyTemperature: 310.15
-    thermalRegulationTemperatureThreshold: 500 # Goobstation - End
   - type: Inventory
     speciesId: reptilian
     # WWDP-Edit-Start
