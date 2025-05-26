@@ -6,9 +6,10 @@
         "x": 32,
         "y": 32
     },
-    "states": [
+    "states":
+    [
         {
-            "name": "clock"
+            "name": "quill"
         }
     ]
 }
