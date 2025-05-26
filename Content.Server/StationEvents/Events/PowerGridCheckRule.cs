@@ -31,6 +31,56 @@ namespace Content.Server.StationEvents.Events
     public sealed class PowerGridCheckRule : StationEventSystem<PowerGridCheckRuleComponent>
     {
         [Dependency] private readonly ApcSystem _apcSystem = default!;
+        [Dependency] private readonly StationSystem _stationSystem = default!;
+
+        public override void Initialize()
+        {
+            base.Initialize();
+
+            SubscribeLocalEvent<ApcComponent, ApcStartupCheckMainBreakerEvent>(OnApcStartupCheckMainBreaker);
+            SubscribeLocalEvent<ApcComponent, ApcToggleMainBreakerAttemptEvent>(OnApcToggleMainBreaker);
+        }
+
+        private void OnApcStartupCheckMainBreaker(Entity<ApcComponent> ent, ref ApcStartupCheckMainBreakerEvent args)
+        {
+            var apcStation = _stationSystem.GetOwningStation(ent);
+
+            if (apcStation == null)
+                return;
+
+            foreach (var powerGridCheckRule in EntityQuery<PowerGridCheckRuleComponent>(true))
+            {
+                if (powerGridCheckRule.AffectedStation == apcStation)
+                {
+                    if (!powerGridCheckRule.Powered.Contains(ent.Owner) &&
+                        !powerGridCheckRule.Unpowered.Contains(ent.Owner))
+                        powerGridCheckRule.Unpowered.Add(ent.Owner);
+
+                    args.Cancelled = true;
+                }
+            }
+        }
+
+        private void OnApcToggleMainBreaker(Entity<ApcComponent> ent, ref ApcToggleMainBreakerAttemptEvent args)
+        {
+            if (CheckApcWasUnpowered(ent))
+                args.Cancelled = true;
+        }
+
+        public bool CheckApcWasUnpowered(Entity<ApcComponent> ent)
+        {
+            var apcStation = _stationSystem.GetOwningStation(ent);
+
+            if (apcStation == null)
+                return false;
+
+            foreach (var powerGridCheckRule in EntityQuery<PowerGridCheckRuleComponent>(true))
+                if (powerGridCheckRule.AffectedStation == apcStation &&
+                    powerGridCheckRule.Unpowered.Contains(ent.Owner))
+                    return true;
+
+            return false;
+        }
 
         protected override void Started(EntityUid uid, PowerGridCheckRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
         {
