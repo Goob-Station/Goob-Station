@@ -10,3 +10,16 @@
     sprite: _DV/Clothing/OuterClothing/Coats/cybersunovercoat.rsi
   - type: TemperatureProtection
     coolingCoefficient: 0.1
+  - type: Armor # Woundmed
+	  coverage:
+	  - Chest
+	  - Groin
+	  - Tail
+	  - Arm
+	  - Leg
+	  modifiers:
+    	coefficients:
+      	Blunt: 0.15
+      	Slash: 0.15
+      	Piercing: 0.10
+      	Heat: 0.05
