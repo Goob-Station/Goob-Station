@@ -96,20 +96,12 @@
       tags:
         - Sheet
       components:
-        - RCD
         - RCDAmmo
   - type: ContainerContainer
     containers:
       item: !type:ContainerSlot
       storagebase: !type:Container
         ents: []
-  - type: ItemSlots
-    slots:
-      item:
-        name: RCD
-        whitelist:
-          components:
-          - RCD
   - type: StorageFill
     contents:
     - id: RCDAmmo

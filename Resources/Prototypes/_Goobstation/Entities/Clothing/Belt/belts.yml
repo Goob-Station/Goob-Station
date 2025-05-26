@@ -128,8 +128,8 @@
 - type: entity
   parent: [ ChemBag, BaseSyndicateContraband ]
   id: ClothingBeltChemBagSyndi
-  name: syndicate medical pouch
-  description: A robust pouch for medical supplies worn by Gorlex Marauder operatives. It smells of desoxyephedrine.
+  name: syndicate medical belt bag
+  description: A robust belt bag for medical supplies worn by Gorlex Marauder operatives. It smells of desoxyephedrine.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Belt/evil_chem_bag.rsi

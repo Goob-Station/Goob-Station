@@ -113,7 +113,7 @@
       - state: surgery
   - type: Storage
     grid:
-    - 0,0,4,1
+    - 0,0,3,1
     whitelist:
       components:
         - SurgeryTool
@@ -122,5 +122,4 @@
     - id: Scalpel
     - id: Hemostat
     - id: Retractor
-    - id: MedicalStitches
     - id: BoneGel
