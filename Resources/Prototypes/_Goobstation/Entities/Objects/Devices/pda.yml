@@ -266,6 +266,4 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Devices/pda.rsi #Temp placeholder pending custom PDA
     state: pda-mercenary
-  - type: PdaBorderColor
-    borderColor: "#B89E8B"
-    accentVColor: "#99cc33"
+
