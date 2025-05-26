@@ -235,7 +235,7 @@
           type: Yowie
         damage:
           groups:
-            Brute: -1
+            Brute: -3
       - !type:HealthChange # Goobstation - Dwarf buff
         conditions:
         - !type:ReagentThreshold
@@ -244,8 +244,8 @@
           type: Dwarf
         damage:
           groups:
-            Brute: -1
-            Burn: -1
+            Brute: -3
+            Burn: -3
       - !type:ChemVomit
         probability: 0.04
         conditions:

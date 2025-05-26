@@ -57,22 +57,23 @@ using Content.Shared.Damage.Prototypes;
 using Content.Shared.EntityEffects;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Localizations;
-using Content.Shared._Shitmed.EntityEffects.Effects; // Shitmed Change
-using Content.Shared._Shitmed.Targeting; // Shitmed Change
-using Content.Server.Temperature.Components; // Shitmed Change
-using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems; // Shitmed Change
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using System.Linq;
 using System.Text.Json.Serialization;
+// Shitmed usings
+using Content.Shared._Shitmed.EntityEffects.Effects;
+using Content.Server.Temperature.Components;
+using Content.Shared.Body.Components;
+using Content.Shared.Body.Part;
+using Content.Shared.Body.Systems;
 
 namespace Content.Server.EntityEffects.Effects
 {
+
     /// <summary>
     /// Default metabolism used for medicine reagents.
     /// </summary>
-
-
     [UsedImplicitly]
     public sealed partial class HealthChange : EntityEffect
     {
@@ -103,14 +104,6 @@ namespace Content.Server.EntityEffects.Effects
         [JsonPropertyName("ignoreResistances")]
         public bool IgnoreResistances = true;
 
-        [DataField]
-        [JsonPropertyName("healingDamageMultiplier")]
-        public float HealingDamageMultiplier = 11f; // Shitmed Change
-
-        [DataField]
-        [JsonPropertyName("damageMultiplier")]
-        public float DamageMultiplier = 1f; // Shitmed Change
-
         protected override string ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         {
             var damages = new List<string>();
@@ -123,20 +116,12 @@ namespace Content.Server.EntityEffects.Effects
                 entSys.GetEntitySystem<DamageableSystem>().UniversalReagentDamageModifier;
             var universalReagentHealModifier = entSys.GetEntitySystem<DamageableSystem>().UniversalReagentHealModifier;
 
-            if (universalReagentDamageModifier != 1 || universalReagentHealModifier != 1)
+            foreach (var (type, val) in damageSpec.DamageDict)
             {
-                foreach (var (type, val) in damageSpec.DamageDict)
-                {
-                    if (val < 0f)
-                    {
-                        damageSpec.DamageDict[type] = val * universalReagentHealModifier * HealingDamageMultiplier;
-                    }
-
-                    if (val > 0f)
-                    {
-                        damageSpec.DamageDict[type] = val * universalReagentDamageModifier * DamageMultiplier;
-                    }
-                }
+                if (val > 0f)
+                    damageSpec.DamageDict[type] = val * universalReagentDamageModifier;
+                else
+                    damageSpec.DamageDict[type] = val * universalReagentHealModifier;
             }
 
             damageSpec = entSys.GetEntitySystem<DamageableSystem>().ApplyUniversalAllModifiers(damageSpec);
@@ -224,7 +209,7 @@ namespace Content.Server.EntityEffects.Effects
                 if (!args.EntityManager.TryGetComponent<TemperatureComponent>(args.TargetEntity, out var temp))
                     scale = FixedPoint2.Zero;
                 else
-                    scale *= ScaleByTemperature.Value.GetEfficiencyMultiplier(temp.CurrentTemperature, scale, false);
+                    scale *= ScaleByTemperature.Value.GetEfficiencyMultiplier(temp.CurrentTemperature, scale);
             }
 
             var universalReagentDamageModifier =
@@ -232,32 +217,67 @@ namespace Content.Server.EntityEffects.Effects
             var universalReagentHealModifier =
                 args.EntityManager.System<DamageableSystem>().UniversalReagentHealModifier;
 
-            if (Math.Abs(universalReagentDamageModifier - 1) > 1 || Math.Abs(universalReagentHealModifier - 1) > 1)
+            foreach (var (type, val) in damageSpec.DamageDict)
             {
-                foreach (var (type, val) in damageSpec.DamageDict)
-                {
-                    if (val < 0f)
-                    {
-                        damageSpec.DamageDict[type] = val * universalReagentHealModifier;
-                    }
-
-                    if (val > 0f)
-                    {
-                        damageSpec.DamageDict[type] = val * universalReagentDamageModifier;
-                    }
-                }
+                if (val > 0f)
+                    damageSpec.DamageDict[type] = val * universalReagentDamageModifier;
+                else
+                    damageSpec.DamageDict[type] = val * universalReagentHealModifier;
             }
 
-            args.EntityManager.System<DamageableSystem>()
-                .TryChangeDamage(
-                    args.TargetEntity,
-                    damageSpec * scale,
-                    IgnoreResistances,
-                    interruptsDoAfters: false,
-                    targetPart: TargetBodyPart.All,
-                    ignoreBlockers: true,
-                    splitDamage: damageSpec.GetTotal() > 0); // Shitmed Change
+            // Everything below is shitmed
+            damageSpec *= scale; // Total damage to deal
 
+            // Simplemob
+            if (!args.EntityManager.TryGetComponent<BodyComponent>(args.TargetEntity, out var body)
+                || body.BodyType == Shared._Shitmed.Body.BodyType.Simple)
+            {
+                args.EntityManager.System<DamageableSystem>()
+                    .TryChangeDamage(
+                        args.TargetEntity,
+                        damageSpec,
+                        IgnoreResistances,
+                        false,
+                        ignoreBlockers: true);
+                return;
+            }
+
+            // Not simplemob
+            var remainingDamage = damageSpec; // Damage YET to deal
+            var parts = args.EntityManager.System<SharedBodySystem>().GetBodyChildren(args.TargetEntity).ToList();
+            while (parts.Count > 0)
+            {
+                var anyDamageApplied = false;
+                var partsToRemove = new List<(EntityUid Id, BodyPartComponent Component)>();
+                var damageToPart = remainingDamage / parts.Count;
+
+                foreach (var part in parts)
+                {
+                    var dealt = args.EntityManager.System<DamageableSystem>()
+                        .TryChangeDamage(
+                            part.Id,
+                            damageToPart,
+                            IgnoreResistances,
+                            false,
+                            ignoreBlockers: true);
+
+                    if (dealt is { Empty: false })
+                    {
+                        anyDamageApplied = true;
+                        remainingDamage -= dealt;
+                    }
+                    else
+                        partsToRemove.Add(part);
+                }
+
+                // Avoiding multiple enumeration here
+                parts.RemoveAll(partsToRemove.Contains);
+
+                if (!anyDamageApplied)
+                    break;
+            }
+
+            args.EntityManager.System<DamageableSystem>().UpdateComplexBodyDamage(args.TargetEntity, damageSpec - remainingDamage);
         }
     }
 }

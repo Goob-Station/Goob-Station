@@ -117,7 +117,7 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: -1.5 # Was 1, Slight Buff as it should heal for half the amount as Dip or Stelli(GoobStation)
+            Poison: -2 # Shitmed
       - !type:HealthChange
         conditions:
         - !type:OrganType # Goobstation - Yowie
@@ -185,7 +185,7 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: -3
+            Poison: -4 # Shitmed
 
 - type: reagent
   id: Ethylredoxrazine
@@ -229,9 +229,9 @@
       - !type:HealthChange
         damage:
           types:
-            Radiation: -3
+            Radiation: -5 # Shitmed
           groups:
-            Brute: 1.5
+            Brute: 2 # Shitmed
 
 - type: reagent
   id: Bicaridine
@@ -255,7 +255,7 @@
       - !type:HealthChange
         damage:
           groups:
-            Brute: -2.5 # Was 2, Buffed due to limb damage changes(GoobStation)
+            Brute: -3 # Shitmed
       - !type:HealthChange
         conditions:
         - !type:OrganType # Goobstation - Yowie
@@ -319,9 +319,9 @@
             scale: 1.6
           damage:
             groups: # Goobstation - Cryo rebalance
-              Airloss: -3
-              Brute: -3
-              Burn: -3
+              Airloss: -2
+              Brute: -4
+              Burn: -6
 
 - type: reagent
   id: Doxarubixadone
@@ -371,7 +371,7 @@
           types:
             Heat: -2
             Shock: -2
-            Cold: -2 # Was 1.5, Buffed due to limb damage changes(GoobStation)
+            Cold: -2 # Shitmed
       - !type:HealthChange
         conditions:
         - !type:OrganType # Goobstation - Yowie
@@ -412,8 +412,8 @@
       - !type:HealthChange
         damage:
           types:
-            Asphyxiation: -1
-            Bloodloss: -0.5
+            Asphyxiation: -2 # Shitmed
+            Bloodloss: -1 # Shitmed
       - !type:HealthChange
         conditions:
         - !type:OrganType # Goobstation - Yowie
@@ -454,8 +454,8 @@
       - !type:HealthChange
         damage:
           types:
-            Asphyxiation: -3.5
-            Bloodloss: -3
+            Asphyxiation: -5 # Shitmed
+            Bloodloss: -5 # Shitmed
       - !type:AdjustReagent
         conditions:
         - !type:ReagentThreshold
@@ -524,11 +524,11 @@
           max: 20
         damage:
           types:
-            Asphyxiation: -3
+            Asphyxiation: -4 # Shitmed
             Poison: -0.5
           groups:
-            Brute: -1
-            Burn: -1 # Was .5, Buffed due to limb damage changes(GoobStation)
+            Brute: -1.5  # Shitmed
+            Burn: -2 # Shitmed
       - !type:HealthChange
         conditions:
         - !type:OrganType # Goobstation - Yowie
@@ -597,7 +597,7 @@
       - !type:HealthChange
         damage:
           types:
-            Radiation: -1
+            Radiation: -2 # Shitmed
       - !type:ChemVomit
         conditions:
         - !type:OrganType # Goobstation - Yowie
@@ -657,7 +657,7 @@
           mobstate: Critical
         damage:
           types:
-            Asphyxiation: -5
+            Asphyxiation: -8 # Shitmed
       - !type:ModifyBleedAmount
         amount: -0.25
       - !type:AdjustConsciousness
@@ -714,7 +714,7 @@
       - !type:HealthChange
         damage:
           types:
-            Cold: -4
+            Cold: -6 # Shitmed
       - !type:AdjustTemperature
         conditions:
         - !type:Temperature
@@ -808,9 +808,9 @@
       - !type:HealthChange
         damage:
           types:
-            Cellular: -0.3
-            Radiation: 0.15
-            Caustic: 0.15
+            Cellular: -0.5 # Shitmed
+            Radiation: 0.25 # Shitmed
+            Caustic: 0.25 # Shitmed
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -825,7 +825,7 @@
           min: 1
         damage:
           types:
-            Caustic: 0.3
+            Caustic: 0.5 # Shitmed
 
 - type: reagent
   id: PolypyryliumOligomers
@@ -841,9 +841,9 @@
       - !type:HealthChange
         damage:
           groups:
-            Brute: -3.5
+            Brute: -5 # Shitmed
           types:
-            Asphyxiation: -2.5
+            Asphyxiation: -3 # Shitmed
       - !type:HealthChange
         conditions:
         - !type:OrganType # Goobstation - Yowie
@@ -1051,7 +1051,7 @@
           max: 50
         damage:
           groups:
-            Brute: -1
+            Brute: -1.5 # Shitmed
           types:
             Poison: -0.5 ##Should be about what it was when it healed the toxin group
             Heat: -0.5
@@ -1091,10 +1091,10 @@
       - !type:HealthChange
         damage:
           groups:
-            Burn: -3
-            Toxin: -3
-            Airloss: -3
-            Brute: -3 # Was 2, Buffed due to limb damage changes(GoobStation)
+            Burn: -4 # Shitmed
+            Toxin: -2
+            Airloss: -2
+            Brute: -3 # Shitmed
 
 - type: reagent
   id: Ultravasculine
@@ -1236,7 +1236,7 @@
       - !type:HealthChange
         damage:
           types:
-            Caustic: -3
+            Caustic: -5 # Shitmed
       - !type:HealthChange
         conditions:
         - !type:OrganType # Goobstation - Yowie
@@ -1300,7 +1300,7 @@
       - !type:HealthChange
         damage:
           types:
-            Slash: -4 # Was 3, Buffed due to limb damage changes(GoobStation)
+            Slash: -5 # Shitmed
       - !type:HealthChange
         conditions:
         - !type:OrganType # Goobstation - Yowie
@@ -1326,7 +1326,7 @@
       - !type:HealthChange
         damage:
           types:
-            Piercing: -4
+            Piercing: -7 # Shitmed
             Blunt: 0.1
       - !type:HealthChange
         conditions:
@@ -1337,7 +1337,7 @@
           min: 11
         damage:
           types:
-            Blunt: 5
+            Blunt: 6.5 # Shitmed
 
 - type: reagent
   id: Bruizine
@@ -1353,7 +1353,7 @@
       - !type:HealthChange
         damage:
           types:
-            Blunt: -4 # Was 3, Buffed due to limb damage changes(GoobStation)
+            Blunt: -6 # Shitmed
       - !type:HealthChange
         conditions:
         - !type:OrganType # Goobstation - Yowie
@@ -1389,12 +1389,13 @@
         - !type:TotalDamage
           max: 50
         damage:
+          groups: # Shitmed
+            Brute: -0.9
           types:
-            Blunt: -0.2
-            Poison: -0.2
-            Heat: -0.2
-            Shock: -0.2
-            Cold: -0.2
+            Poison: -0.3 # Shitmed
+            Heat: -0.3 # Shitmed
+            Shock: -0.3 # Shitmed
+            Cold: -0.3 # Shitmed
   reactiveEffects:
     Extinguish:
       methods: [ Touch ]
@@ -1433,7 +1434,7 @@
       - !type:HealthChange
         damage:
           types:
-            Heat: -1
+            Heat: -1.25 # Shitmed
       # od causes massive bleeding
       - !type:HealthChange
         conditions:
@@ -1479,7 +1480,7 @@
       - !type:HealthChange
         damage:
           types:
-            Shock: -4
+            Shock: -5 # Shitmed
       - !type:AdjustReagent
         reagent: Licoxide
         amount: -4
@@ -1564,10 +1565,10 @@
             scale: 1.6
           damage: # Goobstation - Cryo rebalance
             groups:
-              Airloss: -10.0
-              Brute: -5.0
-              Burn: -5.0
-              Toxin: -5.0
+              Airloss: -9
+              Brute: -9
+              Burn: -9
+              Toxin: -9
 
 - type: reagent
   id : Aloxadone
@@ -1591,9 +1592,9 @@
           scale: 1.6
         damage: # Goobstation - Cryo rebalance
           types:
-            Heat: -10.0
-            Shock: -10.0
-            Caustic: -10.0
+            Heat: -5
+            Shock: -5
+            Caustic: -5
 
 - type: reagent
   id : Mannitol # currently this is just a way to create psicodine

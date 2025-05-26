@@ -425,33 +425,39 @@ namespace Content.Shared.Damage
 
             // Only process if there was actual damage applied
             if (totalAppliedDamage != null && !totalAppliedDamage.Empty)
+                UpdateComplexBodyDamage(uid, totalAppliedDamage, interruptsDoAfters, origin, ignoreBlockers);
+
+            return totalAppliedDamage;
+        }
+
+        /// <summary>
+        /// Updates the total damage on a complex body.
+        /// </summary>
+        public void UpdateComplexBodyDamage(EntityUid uid, DamageSpecifier? totalAppliedDamage = null, bool interruptsDoAfters = false, EntityUid? origin = null, bool ignoreBlockers = true)
+        {
+            // Update the damage dictionary of the parent entity based on all body parts
+            if (!_damageableQuery.TryComp(uid, out var parentDamageable))
+                return;
+
+            // Reset the parent's damage values
+            foreach (var type in parentDamageable.Damage.DamageDict.Keys.ToList())
+                parentDamageable.Damage.DamageDict[type] = FixedPoint2.Zero;
+
+            // Sum up damage from all body parts
+            foreach (var (partId, _) in _body.GetBodyChildren(uid))
             {
-                // Update the damage dictionary of the parent entity based on all body parts
-                if (_damageableQuery.TryComp(uid, out var parentDamageable))
+                if (!_damageableQuery.TryComp(partId, out var partDamageable))
+                    continue;
+
+                foreach (var (type, value) in partDamageable.Damage.DamageDict)
                 {
-                    // Reset the parent's damage values
-                    foreach (var type in parentDamageable.Damage.DamageDict.Keys.ToList())
-                        parentDamageable.Damage.DamageDict[type] = FixedPoint2.Zero;
-
-                    // Sum up damage from all body parts
-                    foreach (var (partId, _) in _body.GetBodyChildren(uid))
-                    {
-                        if (!_damageableQuery.TryComp(partId, out var partDamageable))
-                            continue;
-
-                        foreach (var (type, value) in partDamageable.Damage.DamageDict)
-                        {
-                            if (parentDamageable.Damage.DamageDict.TryGetValue(type, out var existing))
-                                parentDamageable.Damage.DamageDict[type] = existing + value;
-                        }
-                    }
-
-                    // Now call DamageChanged with the actual total delta
-                    DamageChanged(uid, parentDamageable, totalAppliedDamage, interruptsDoAfters, origin, ignoreBlockers: ignoreBlockers);
+                    if (parentDamageable.Damage.DamageDict.TryGetValue(type, out var existing))
+                        parentDamageable.Damage.DamageDict[type] = existing + value;
                 }
             }
 
-            return totalAppliedDamage;
+            // Now call DamageChanged with the actual total delta
+            DamageChanged(uid, parentDamageable, totalAppliedDamage, interruptsDoAfters, origin, ignoreBlockers: ignoreBlockers);
         }
 
         /// <summary>

@@ -115,6 +115,7 @@
     groups:
       Flammable: [ Touch ]
       Extinguish: [ Touch ]
+      Acidic: [ Touch, Ingestion ]
     reactions:
     - reagents: [ Water, SpaceCleaner ]
       methods: [ Touch ]
@@ -130,8 +131,8 @@
         scaleByQuantity: true
         damage:
           groups:
-            Burn: -2 # healing obviously up to discussion
-            Brute: -1.5 # these groups are the only 2 possible ways to damage a skeleton
+            Burn: -6 # healing obviously up to discussion # Shitmed value
+            Brute: -4.5 # these groups are the only 2 possible ways to damage a skeleton # Shitmed value
       - !type:PopupMessage
         type: Local
         visualType: Large

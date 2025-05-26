@@ -39,11 +39,11 @@
         - !type:HealthChange
           damage:
             groups:
-              Brute: -20
-              Burn: -20
-              Airloss: -20
-              Toxin: -20
-              Genetic: -20
+              Brute: -50
+              Burn: -50
+              Airloss: -50
+              Toxin: -50
+              Genetic: -50
         - !type:HealthChange
           conditions:
           - !type:ReagentThreshold
@@ -72,9 +72,9 @@
         - !type:HealthChange
           damage:
             types:
-              Poison: -3
-              Cellular: -3
-              Radiation: -3
+              Poison: -5
+              Cellular: -5
+              Radiation: -5
         - !type:PopupMessage
             type: Local
             messages: [ "reagent-popup-panacea" ]
@@ -140,14 +140,14 @@
         - !type:HealthChange
           damage:
             types:
-              Heat: -3.0
-              Cold: -3.0
-              Shock: -3.0
-              Caustic: -3.0
+              Blunt: -10
+              Piercing: -10
+              Slash: -10
+              Heat: -4
+              Cold: -4
+              Shock: -4
+              Caustic: -4
               Asphyxiation: -2
-              Blunt: -7
-              Piercing: -7
-              Slash: -7
         - !type:PopupMessage
             type: Local
             messages: [ "reagent-popup-fleshmend" ]
@@ -232,7 +232,7 @@
       - !type:HealthChange
         damage:
           groups:
-            Brute: -1.5 # Lower than Bicardine, offloading healing onto mitotrophin
+            Brute: -2 # Lower than Bicardine, offloading healing onto mitotrophin
       - !type:TakeStaminaDamage
         conditions:
         - !type:ReagentThreshold
@@ -325,8 +325,8 @@
       - !type:HealthChange
         damage:
           groups: # powerful due to abundance of food, but very inconvienient to use
-            Brute: -4
-            Burn: -2
+            Brute: -6
+            Burn: -3
       - !type:ModifyBleedAmount
         amount: -0.5
       - !type:ModifyBloodLevel
@@ -350,7 +350,7 @@
       - !type:HealthChange
         damage:
           types:
-            Asphyxiation: -6 # intended to be stronger, but more annoying than inapr
+            Asphyxiation: -10 # intended to be stronger, but more annoying than inapr
       - !type:TakeStaminaDamage
         conditions:
         - !type:OrganType
@@ -397,7 +397,7 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: -18
+            Poison: -20
       - !type:AdjustReagent
         reagent: Musiver
         amount: 3
@@ -441,7 +441,7 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: -1
+            Poison: -1.25
       - !type:ChemCleanBloodstream
         cleanseRate: 1
       - !type:HealthChange
@@ -479,9 +479,9 @@
         damage:
           types:
             Heat: -30
-            Cold: -24
-            Shock: -24
-            Caustic: -18
+            Cold: -25
+            Shock: -25
+            Caustic: -20
       - !type:AdjustReagent
         reagent: Tehifin
         amount: 3
@@ -525,7 +525,7 @@
       - !type:HealthChange
         damage:
           groups:
-            Burn: -16
+            Burn: -8
       - !type:HealthChange
         damage:
           groups:
@@ -568,10 +568,8 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Slash: -24
-            Blunt: -24
-            Piercing: -24
+          groups:
+            Brute: 81
       - !type:AdjustReagent
         reagent: Bozaide
         amount: 3
@@ -615,11 +613,11 @@
       - !type:HealthChange
         damage:
           groups:
-            Brute: -1 # intentionally slow
+            Brute: -1.5 # intentionally slow
       - !type:HealthChange
         damage:
           types:
-            Radiation: 0.05 # very slight side effect
+            Radiation: 0.1 # very slight side effect
         conditions:
         - !type:OrganType
           type: Yowie
@@ -677,7 +675,7 @@
           min: 2
         damage:
           types:
-            Poison: -3
+            Poison: -5
       - !type:HealthChange
         damage:
           groups:
@@ -711,7 +709,7 @@
           max: 2
         damage:
           types:
-            Poison: -3 # slightly better than dylo, but the side effect is easy to fall into
+            Poison: -4 # slightly better than dylo, but the side effect is easy to fall into
       - !type:HealthChange
         damage:
           groups:
@@ -898,7 +896,7 @@
           min: 50
         damage:
           types:
-            Poison: -1
+            Poison: -1.5
       - !type:AdjustReagent
         reagent: Ethanol
         amount: -4
@@ -931,7 +929,7 @@
       - !type:HealthChange
         damage:
           groups:
-            Brute: -1
+            Brute: -1.5
       - !type:GenericStatusEffect
         key: Adrenaline
         component: IgnoreSlowOnDamage
@@ -991,10 +989,10 @@
         ignoreResistances: false
         damage:
           types:
-            Heat: -1.5
-            Cold: -1.5
-            Shock: -1
-            Caustic: -1
+            Heat: -2
+            Cold: -2
+            Shock: -2
+            Caustic: -1.5
         conditions:
         - !type:HasComponentOnEquipmentCondition
           components:
@@ -1055,9 +1053,9 @@
         ignoreResistances: false
         damage:
           types:
-            Blunt: -2
-            Piercing: -1 # limits combat effectivness
-            Slash: -2
+            Blunt: -2.5
+            Slash: -2.5
+            Piercing: -1.5 # limits combat effectivness
         conditions:
         - !type:HasComponentOnEquipmentCondition
           components:
@@ -1137,11 +1135,11 @@
       - !type:HealthChange
         damage:
           groups:
-            Toxin: -2
+            Toxin: -3
       - !type:HealthChange
         damage:
           types:
-            Blunt: 2
+            Blunt: 3
 
 # Strong general meds
 
@@ -1164,7 +1162,7 @@
       - !type:HealthChange
         damage:
           groups:
-            Brute: -12
+            Brute: -18
         conditions:
         - !type:TypedDamageThreshold
           damage:
@@ -1175,7 +1173,7 @@
       - !type:HealthChange
         damage:
           groups:
-            Brute: -3
+            Brute: -6
         conditions:
         - !type:TypedDamageThreshold
           damage:
@@ -1211,11 +1209,8 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Heat: -4
-            Shock: -4
-            Cold: -4
-            Caustic: -3
+          groups:
+            Burn: -24
         conditions:
         - !type:TypedDamageThreshold
           damage:
@@ -1226,7 +1221,7 @@
       - !type:HealthChange
         damage:
           groups:
-            Burn: -4
+            Burn: -8
         conditions:
         - !type:TypedDamageThreshold
           damage:
@@ -1267,8 +1262,8 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: -2
-            Radiation: -2 # grants 100% protection from rads until higher rad values
+            Poison: -3
+            Radiation: -3 # grants 100% protection from rads until higher rad values
       - !type:GenericStatusEffect
         key: RadiationProtection
         component: RadiationProtection
@@ -1296,10 +1291,10 @@
       - !type:HealthChange
         damage:
           groups:
-            Airloss: -4
-            Brute: -2
-            Burn: -2
-            Toxin: -2
+            Airloss: -10
+            Brute: -6
+            Burn: -8
+            Toxin: -4
         conditions:
         - !type:MobStateCondition
           mobstate: Critical
@@ -1311,8 +1306,8 @@
         - !type:OrganType
           type: Yowie
           shouldHave: false
-        walkSpeedModifier: 0.75
-        sprintSpeedModifier: 0.75
+        walkSpeedModifier: 0.7 # Slower than emergency medipen
+        sprintSpeedModifier: 0.7
       - !type:GenericStatusEffect
         key: Stutter
         component: StutteringAccent
@@ -1408,7 +1403,7 @@
         ignoreResistances: false
         damage:
           types:
-            Cold: 0.05
+            Cold: 0.1
       - !type:AdjustTemperature
         conditions:
         - !type:Temperature
@@ -1465,7 +1460,7 @@
         ignoreResistances: false
         damage:
           types:
-            Heat: 0.05
+            Heat: 0.1
       - !type:AdjustTemperature
         conditions:
         - !type:Temperature
