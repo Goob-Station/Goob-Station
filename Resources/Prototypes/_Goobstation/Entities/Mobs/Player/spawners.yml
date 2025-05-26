@@ -1,0 +1,21 @@
+
+
+
+
+
+
+- type: entity
+  name: mercenary spawner
+  id: MercenarySpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - sprite: Mobs/Species/Human/parts.rsi
+        state: full
+  - type: Icon
+    sprite: Mobs/Species/Human/parts.rsi
+    state: full
+  - type: RandomSpawner
+    prototypes:
+    - RandomHumanoidMercenary

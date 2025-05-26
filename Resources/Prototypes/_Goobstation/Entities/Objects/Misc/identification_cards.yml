@@ -320,3 +320,15 @@
     - Wizard
     - NuclearOperative
     - SyndicateAgent
+
+# Mercenary Stuff
+
+- type: entity
+  parent: IDCardStandard
+  id: MercenaryIDCard
+  name: Mercenary ID card
+  components:
+  - type: Sprite #Temp placeholder pending custom PDA
+    sprite: _Goobstation/Objects/Misc/id_cards.rsi
+    layers:
+    - state: idmercenary

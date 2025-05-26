@@ -245,3 +245,31 @@
     nameSegments:
     - NamesShadowkin
     nameFormat: random-metadata-name-format-default
+
+- type: randomHumanoidSettings
+  parent: EventHumanoid
+  id: HumanoidMercenary
+  components:
+  - type: RandomMetadata
+  - type: GhostRole
+    name: ghost-role-information-mercenary-name
+    description: ghost-role-information-mercenary-description
+    rules: ghost-role-information-mercenary-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+    nameSegments:
+    - NamesMilitaryFirst
+    - NamesMilitaryLast
+    nameFormat: name-format-standard
+  - type: Loadout
+    prototypes: [ MercenaryGear ]
+    roleLoadout: [ RoleSurvivalExtended ]
+
+
+- type: entity
+  id: RandomHumanoidMercenary
+  name: mercenary ghost role
+  components:
+    - type: RandomHumanoidSpawner
+      settings: HumanoidMercenary

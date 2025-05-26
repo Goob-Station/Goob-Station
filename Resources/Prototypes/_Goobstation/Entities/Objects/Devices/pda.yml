@@ -246,3 +246,26 @@
   components:
   - type: Pda
     id: NukieAgentIDCard
+
+- type: entity
+  parent: BaseMedicalPDA
+  id: MercenaryPDA
+  name: Mercenary PDA
+  description: You were hired with the sole purpose of serving your contractor. Serve with honor.
+  components:
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-mercenary
+  - type: Pda
+    id: MercenaryIDCard
+  - type: Icon
+    sprite: _Goobstation/Objects/Devices/pda.rsi #Temp placeholder pending custom PDA
+    state: pda-mercenary
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/pda.rsi #Temp placeholder pending custom PDA
+    state: pda-mercenary
+  - type: PdaBorderColor
+    borderColor: "#B89E8B"
+    accentVColor: "#99cc33"

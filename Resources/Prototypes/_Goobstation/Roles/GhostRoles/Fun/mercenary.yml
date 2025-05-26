@@ -1,0 +1,42 @@
+
+## Start 300x "WTF IS THAT" here
+
+- type: startingGear
+  id: MercenaryGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryTurtleneckMercenaryCaptain
+    back: ClothingBackpackMerc
+    belt: ClothingBeltMercHolsterFilled
+#    mask: ClothingMaskGasMerc # Backpack storage better, looks kinda ass and dumb to have mask on 24/7.
+    eyes: ClothingEyesGlassesMercenary
+    ears: ClothingHeadsetAltFreelancer
+    gloves: ClothingHandsMercGlovesCombat
+#    neck:                     # No current use but added for future use or if I figure something in the time before close/merge.
+    head: ClothingHeadHatBeretMerc
+    outerClothing: ClothingOuterVestWebMerc
+#    suitstorage:              # No current use but added for future use or if I figure something in the time before close/merge.
+    shoes: ClothingShoesBootsMercFilled
+    id: MercenaryPDA
+    pocket1: GrenadeFlashBang  # Filler item for now, might stay
+    pocket2: SmokeGrenade      # Filler item x2
+  storage:
+    back:
+    - MedkitCombatFilled #One mercenary vs who knows what... Might as well give them a chance, and possible heals on the contractor.
+    - CrowbarRed
+    - ClothingMaskGasMerc
+
+- type: entity
+  id: ClothingBeltMercHolsterFilled
+  parent: ClothingBeltHolster
+  suffix: Filled, Cobra
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - WeaponPistolCobra
+  - type: StorageFill
+    contents:
+    - id: MagazinePistolCaselessRifle
+    - id: MagazinePistolCaselessRifle
+    - id: MagazinePistolCaselessRifle
+    - id: MagazineBoxCaselessRifle10x24
