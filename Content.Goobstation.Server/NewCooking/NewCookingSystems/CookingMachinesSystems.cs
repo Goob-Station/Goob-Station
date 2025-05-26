@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Moony33 <ultimoprmo@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Goobstation.Server.NewCooking.NewCookingComponent;
 using Content.Server.Construction;
 using Content.Shared.Interaction;
