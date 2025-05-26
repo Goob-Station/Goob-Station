@@ -18,6 +18,7 @@
     damage:
       types:
         Piercing: 65
+        Ion: 100 # fuck borgs
         Structural: 3000 # Anti structure weapon, overkills substations/gens so they dont explode
   - type: StaminaDamageOnCollide
     damage: 200 # It's a fucking rocket
