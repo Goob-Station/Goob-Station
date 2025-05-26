@@ -7,9 +7,9 @@ using Content.Server.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Interaction;
 
-namespace Content.Goobstation.Server.BoH
+namespace Content.Goobstation.Server.BagOfHolding
 {
-    public sealed class BoHSystem : EntitySystem
+    public sealed class BagOfHoldingSystem : EntitySystem
     {
         [Dependency] private readonly IEntityManager _entityManager = default!;
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
@@ -23,8 +23,8 @@ namespace Content.Goobstation.Server.BoH
 
         private void OnInteract(EntityUid uid, BoHComponent component, InteractUsingEvent args)
         {
-            _entityManager.TryGetComponent<BoHComponent>(args.Used, out var second_boh);
-            if (second_boh == null)
+            _entityManager.TryGetComponent<BoHComponent>(args.Used, out var secondBoh);
+            if (secondBoh == null)
                 return;
 
             var newUid = Spawn("Singularity", Transform(uid).Coordinates);
