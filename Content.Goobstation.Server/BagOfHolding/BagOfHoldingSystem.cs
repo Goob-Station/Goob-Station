@@ -18,12 +18,12 @@ namespace Content.Goobstation.Server.BagOfHolding
         {
             base.Initialize();
 
-            SubscribeLocalEvent<BoHComponent, InteractUsingEvent>(OnInteract);
+            SubscribeLocalEvent<BagOfHoldingComponent, InteractUsingEvent>(OnInteract);
         }
 
-        private void OnInteract(EntityUid uid, BoHComponent component, InteractUsingEvent args)
+        private void OnInteract(EntityUid uid, BagOfHoldingComponent component, InteractUsingEvent args)
         {
-            _entityManager.TryGetComponent<BoHComponent>(args.Used, out var secondBoh);
+            _entityManager.TryGetComponent<BagOfHoldingComponent>(args.Used, out var secondBoh);
             if (secondBoh == null)
                 return;
 
