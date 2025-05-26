@@ -1,0 +1,174 @@
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseItem
+  id: BaseHeatLamp
+  components:
+  - type: Heatlamp
+    activatedDamage:
+      types:
+        Heat: 1
+        Blunt: 5
+    offShape:
+    - 0,0,0,1
+    onShape:
+    - 0,0,0,3
+  - type: ExaminableBattery
+  - type: Appearance
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/Heatlamps/basic.rsi
+    state: icon-off
+  - type: Item
+    size: Normal
+    sprite: _Goobstation/Objects/Devices/Heatlamps/basic.rsi
+  - type: Clothing
+    sprite: _Goobstation/Objects/Devices/Heatlamps/basic.rsi
+    slots:
+    - Belt
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: { state: icon-on }
+          False: { state: icon-off }
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMedium
+  - type: ContainerContainer
+    containers:
+      cell_slot: !type:ContainerSlot { }
+  - type: StealTarget
+    stealGroup: LAMP
+  - type: PointLight
+    enabled: false
+    radius: 1.5
+    energy: 1
+    color: "#FFC458"
+  - type: MeleeWeapon
+    angle: 0
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 5
+    bluntStaminaDamageFactor: 0.5
+    animation: WeaponArcThrust
+    soundHit:
+      collection: MetalThud
+
+- type: entity
+  parent: BaseHeatLamp
+  id: HeatLamp
+  name: heat lamp
+  description: A hand held temperature stabilization lamp commonly utilized by cold-blooded species to warm up. Affectionately referred to as a "Lizard Lamp"
+  components:
+  - type: Heatlamp
+    powerToHeatMultiplier: 100
+    offShape:
+    - 0,0,0,1
+    onShape:
+    - 0,0,0,3
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/Heatlamps/basic.rsi
+    state: icon-off
+  - type: Item
+    size: Normal
+    sprite: _Goobstation/Objects/Devices/Heatlamps/basic.rsi
+  - type: Clothing
+    sprite: _Goobstation/Objects/Devices/Heatlamps/basic.rsi
+    slots:
+    - Belt
+
+- type: entity
+  parent: BaseHeatLamp
+  id: HeatLampTierTwo
+  name: advanced heat lamp
+  description: An advanced temperature stabilization device. A tag on the side reads "Apply directly to torso. Prolonged usage is dis-advised."
+  components:
+  - type: Heatlamp
+    powerToHeatMultiplier: 150
+    containerMultiplier: 0.5
+    offShape:
+    - 0,0,1,1
+    onShape:
+    - 0,0,1,3
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/Heatlamps/upgraded.rsi
+    state: icon-off
+  - type: Item
+    size: Normal
+    sprite: _Goobstation/Objects/Devices/Heatlamps/upgraded.rsi
+  - type: Clothing
+    sprite: _Goobstation/Objects/Devices/Heatlamps/upgraded.rsi
+    slots:
+    - Belt
+
+- type: entity
+  parent: BaseHeatLamp
+  id: HeatLampTierThree
+  name: phoron temperature stabilizer
+  description: An phoron-based temperature stabilization device that doesn't need external power. Fixes almost any temperature deviation at lightning fast speeds.
+  components:
+  - type: Heatlamp
+    needsPower: false
+    powerToHeatMultiplier: 600
+    containerMultiplier: 1
+    offShape:
+    - 0,0,0,1
+    onShape:
+    - 0,0,0,2
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/Heatlamps/phoron.rsi
+    state: icon-off
+  - type: Item
+    size: Normal
+    sprite: _Goobstation/Objects/Devices/Heatlamps/phoron.rsi
+  - type: Clothing
+    sprite: _Goobstation/Objects/Devices/Heatlamps/phoron.rsi
+    slots:
+    - Belt
+
+- type: entity
+  parent: [BaseHeatLamp, BaseSyndicateContraband]
+  id: HeatLampEvil
+  name: syndicate heat lamp
+  description: A cybersun design, utilized by cold-blooded operatives in their sieges. Also an effective melee weapon in a pinch.
+  components:
+  - type: Heatlamp
+    powerToHeatMultiplier: 200
+    containerMultiplier: 1
+    forceHeat: true
+    activatedDamage:
+      types:
+        Heat: 15
+        Blunt: 5
+    offShape:
+    - 0,0,1,1
+    onShape:
+    - 0,0,1,3
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHigh
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/Heatlamps/syndicate.rsi
+    state: icon-off
+  - type: Item
+    size: Normal
+    sprite: _Goobstation/Objects/Devices/Heatlamps/syndicate.rsi
+  - type: Clothing
+    sprite: _Goobstation/Objects/Devices/Heatlamps/syndicate.rsi
+    slots:
+    - Belt
+

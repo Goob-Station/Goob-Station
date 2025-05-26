@@ -77,6 +77,7 @@
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
 # SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GaussiArson <193122004+GaussiArson@users.noreply.github.com>
@@ -370,7 +371,7 @@
     impactEffect: BulletImpactEffectDisabler
     damage:
       types:
-        Heat: 0 
+        Heat: 0
     soundHit:
       collection: WeakHit
     forceSound: true
@@ -915,6 +916,7 @@
     timeRemaining: 0.3
   - type: DeleteOnTrigger
   - type: Flashbang # Goobstation
+    minProtectionRange: 7 # Can't stun/knockdown people wearing any ear protection
 
 # This is supposed to spawn shrapnel and stuff so uhh... TODO?
 - type: entity

@@ -1,6 +1,8 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -14,8 +16,6 @@
     - id: WeaponPulsePistol
     - id: CentralCommandBusinessCard
     - id: BoxFolderCentCom
-    - id: CentcommMindShieldImplanter # SetOutfit doesn't apply implants.
-    - id: BluespaceLifelineImplanter # As much as i hate cramming bags with implants...
     - id: DeterrentCaseFilled
 
 - type: entity
@@ -31,8 +31,6 @@
     - id: MagazineLightRifleUranium
     - id: DeterrentCaseFilled
     - id: CentralCommandBusinessCard
-    - id: CentcommMindShieldImplanter
-    - id: BluespaceLifelineImplanter
 
 - type: entity
   parent: ClothingBackpackChameleon
@@ -46,8 +44,6 @@
     - id: MagazinePistolNeurotoxin
     - id: DeterrentCaseFilled
     - id: CentralCommandBusinessCard
-    - id: CentcommMindShieldImplanter
-    - id: BluespaceLifelineImplanter
 
 - type: entity
   parent: ClothingBackpackSatchelLeather
@@ -60,5 +56,3 @@
     - id: DeterrentCaseFilled
     - id: CentralCommandBusinessCard
     - id: BoxFolderCentCom
-    - id: CentcommMindShieldImplanter
-    - id: BluespaceLifelineImplanter
