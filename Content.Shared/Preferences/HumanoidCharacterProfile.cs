@@ -307,7 +307,8 @@ namespace Content.Shared.Preferences
             var barkvoiceId = random.Pick(prototypeManager
                 .EnumeratePrototypes<BarkPrototype>()
                 .ToArray()
-            ).ID;
+            )
+                .ID;
             // Corvax-Frontier-Barks-end
 
             var gender = Gender.Epicene;

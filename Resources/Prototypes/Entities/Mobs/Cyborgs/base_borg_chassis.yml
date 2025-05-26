@@ -323,7 +323,7 @@
     proto: robot
   - type: Speech
     speechVerb: Robotic
-    speechSounds: Borg
+    speechSounds: null # Corvax-Next-Barks-Edit
   - type: Vocal
     sounds:
       Unsexed: UnisexSilicon
@@ -423,7 +423,7 @@
     penetrateDamage: 75 # It's harder to kill iron golem
     damagePenalty: 0.25
   - type: SpeechSynthesis # Corvax-Frontier-Barks
-    voice: BarksCitadelSynthetic2 # Corvax-Frontier-Barks
+    voice: Borg
 
 - type: entity
   abstract: true
@@ -510,7 +510,7 @@
   - type: ShowSyndicateIcons
   - type: MovementAlwaysTouching
   - type: Speech
-    speechSounds: SyndieBorg
+    speechSounds: null # Corvax-Next-Barks-Edit
     allowedEmotes:
     - Laugh
   - type: Vocal
@@ -524,6 +524,8 @@
   - type: ExplosionResistance #Goobstation - Ion Damage
     damageCoefficient: 0.5
   - type: FlashImmunity
+  - type: SpeechSynthesis # Corvax-Frontier-Barks
+    voice: BorgSyndie
 
 - type: entity
   id: BaseBorgChassisDerelict

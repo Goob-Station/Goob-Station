@@ -16,7 +16,7 @@
   abstract: true
   components:
   - type: Speech
-    speechSounds: Baritone
+    speechSounds: null # Corvax-Frontier-Barks-Edit
   - type: HumanoidAppearance
     species: Oni
   - type: Sprite

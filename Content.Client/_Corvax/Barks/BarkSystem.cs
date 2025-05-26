@@ -31,29 +31,28 @@ public sealed class BarkSystem : EntitySystem
     private const float MinimalVolume = -10f;
     private const float WhisperFade = 4f;
 
-    public override void Initialize()
-    {
+    public override void Initialize() =>
         SubscribeNetworkEvent<PlayBarkEvent>(OnPlayBark);
-    }
 
-    public void RequestPreviewBark(string barkVoiceId)
-    {
+    public void RequestPreviewBark(string barkVoiceId) =>
         RaiseNetworkEvent(new RequestPreviewBarkEvent(barkVoiceId));
-    }
 
     private void OnPlayBark(PlayBarkEvent ev)
     {
         var sourceEntity = _entityManager.GetEntity(ev.SourceUid);
-        if (!_entityManager.EntityExists(sourceEntity) || _entityManager.Deleted(sourceEntity) || !HasComp<TransformComponent>(sourceEntity))
+        if (!_entityManager.EntityExists(sourceEntity)
+            || _entityManager.Deleted(sourceEntity) ||
+            !HasComp<TransformComponent>(sourceEntity))
             return;
 
-        if (_player.LocalEntity != null && HasComp<TransformComponent>(_player.LocalEntity.Value))
+        if (_player.LocalEntity != null
+            && HasComp<TransformComponent>(_player.LocalEntity.Value))
         {
             var sourceTransform = Transform(sourceEntity);
             var playerTransform = Transform(_player.LocalEntity.Value);
 
-            if (sourceTransform.Coordinates.TryDistance(EntityManager, playerTransform.Coordinates, out var distance) &&
-                distance > SharedChatSystem.VoiceRange)
+            if (sourceTransform.Coordinates.TryDistance(EntityManager, playerTransform.Coordinates, out var distance)
+                && distance > SharedChatSystem.VoiceRange)
                 return;
         }
 
@@ -85,7 +84,8 @@ public sealed class BarkSystem : EntitySystem
         {
             Timer.Spawn(TimeSpan.FromSeconds(i * soundInterval), () =>
             {
-                if (!_entityManager.EntityExists(sourceEntity) || _entityManager.Deleted(sourceEntity))
+                if (!_entityManager.EntityExists(sourceEntity)
+                    || _entityManager.Deleted(sourceEntity))
                     return;
 
                 _audio.PlayEntity(audioResource.AudioStream, sourceEntity, soundSpecifier, audioParams);

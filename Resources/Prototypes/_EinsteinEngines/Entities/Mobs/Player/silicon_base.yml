@@ -262,7 +262,7 @@
     - type: Ensnareable
       sprite: Objects/Misc/ensnare.rsi
     - type: Speech
-      speechSounds: Pai
+      speechSounds: null # Corvax-Frontier-Barks-Edit
     - type: Vocal
       wilhelm: "/Audio/_EinsteinEngines/Voice/IPC/wilhelm.ogg"
       sounds:

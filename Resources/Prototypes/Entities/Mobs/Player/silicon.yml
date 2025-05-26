@@ -550,7 +550,7 @@
   - type: InputMover
   - type: Speech
     speechVerb: Robotic
-    speechSounds: Borg
+    speechSounds: null # Corvax-Frontier-Barks-Edit
   - type: Tag
     tags:
     - HideContextMenu
@@ -559,6 +559,8 @@
   - type: StartingMindRole
     mindRole: "MindRoleSiliconBrain"
     silent: true
+  - type: SpeechSynthesis # Corvax-Frontier-Barks
+    voice: Borg
 
 # Hologram projection that the AI's eye tracks.
 - type: entity

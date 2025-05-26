@@ -55,7 +55,7 @@
     requiredLegs: 2
   - type: Speech
     speechVerb: Parrot
-    speechSounds: MaleAvali
+    speechSounds: null # Corvax-Frontier-Barks-Edit
   - type: Vocal
     sounds:
       Male: MaleAvali

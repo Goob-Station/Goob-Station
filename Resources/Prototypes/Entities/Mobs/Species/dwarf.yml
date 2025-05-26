@@ -90,7 +90,7 @@
   - type: ReplacementAccent
     accent: dwarf
   - type: Speech
-    speechSounds: Bass
+    speechSounds: null # Corvax-Frontier-Barks-Edit
   - type: HumanoidAppearance
     species: Dwarf
     hideLayersOnEquip:

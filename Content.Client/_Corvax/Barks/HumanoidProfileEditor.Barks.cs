@@ -50,11 +50,9 @@ public sealed partial class HumanoidProfileEditor
         }
 
         var voiceChoiceId = _barkVoiceList.FindIndex(x => x.ID == Profile.BarkVoice);
-        if (!BarkVoiceButton.TrySelectId(voiceChoiceId) &&
-            BarkVoiceButton.TrySelectId(firstVoiceChoiceId))
-        {
+        if (!BarkVoiceButton.TrySelectId(voiceChoiceId)
+            && BarkVoiceButton.TrySelectId(firstVoiceChoiceId))
             SetBarkVoice(_barkVoiceList[firstVoiceChoiceId].ID);
-        }
     }
 
     private void PlayPreviewBark()

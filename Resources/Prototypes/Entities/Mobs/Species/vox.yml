@@ -138,7 +138,7 @@
     #- type: VoxAccent # Not yet coded
   - type: Speech
     speechVerb: Vox
-    speechSounds: Vox
+    speechSounds: null # Corvax-Frontier-Barks-Edit
   - type: TypingIndicator
     proto: vox
   - type: Vocal

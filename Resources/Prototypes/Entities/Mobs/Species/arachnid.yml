@@ -102,7 +102,7 @@
 #        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
   - type: Speech
     speechVerb: Arachnid
-    speechSounds: Arachnid
+    speechSounds: null # Corvax-Frontier-Barks-Edit
     allowedEmotes: ['Click', 'Chitter']
   - type: Vocal
     sounds:

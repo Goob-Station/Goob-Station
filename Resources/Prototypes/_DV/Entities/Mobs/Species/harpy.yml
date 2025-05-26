@@ -144,7 +144,7 @@
       types:
         Piercing: 5
   - type: Speech
-    speechSounds: Harpy
+    speechSounds: null # Corvax-Frontier-Barks-Edit
     speechVerb: Harpy
   - type: Vocal
     sounds:
