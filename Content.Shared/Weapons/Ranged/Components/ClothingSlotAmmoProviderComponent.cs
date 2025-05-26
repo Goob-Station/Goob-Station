@@ -32,11 +32,4 @@ public sealed partial class ClothingSlotAmmoProviderComponent : AmmoProviderComp
     /// </summary>
     [DataField("providerWhitelist")]
     public EntityWhitelist? ProviderWhitelist;
-
-    /// <summary>
-    /// Assmos - Extinguisher Nozzle
-    /// If the hands are considered a valid ammo provider slot.
-    /// </summary>
-    [DataField("checkHands")]
-    public bool CheckHands = false;
 }
