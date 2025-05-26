@@ -791,16 +791,16 @@
 #  categories:
 #  - UplinkImplants
 
-- type: listing
-  id: UplinkKravMagaImplanter
-  name: uplink-krav-maga-implant-name
-  description: uplink-krav-maga-implant-desc
-  icon: { sprite: /Textures/_Goobstation/Clothing/Hands/Gloves/kravgloves.rsi, state: icon }
-  productEntity: KravMagaImplanter
-  cost:
-    Telecrystal: 40
-  categories:
-    - UplinkImplants
+#- type: listing
+#  id: UplinkKravMagaImplanter
+#  name: uplink-krav-maga-implant-name
+#  description: uplink-krav-maga-implant-desc
+#  icon: { sprite: /Textures/_Goobstation/Clothing/Hands/Gloves/kravgloves.rsi, state: icon }
+#  productEntity: KravMagaImplanter
+#  cost:
+#    Telecrystal: 40
+#  categories:
+#    - UplinkImplants
 
 # Deception
 
@@ -1114,36 +1114,36 @@
       - ContravendUplink
 
 # Martial Arts
-- type: listing
-  id: UplinkCQCManual
-  name: uplink-cqc-name
-  description: uplink-cqc-desc
-  productEntity: CQCManual
-  cost:
-    Telecrystal: 60
-  categories:
-  - UplinkWeaponry
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
-      - ContravendUplink
+#- type: listing
+#  id: UplinkCQCManual
+#  name: uplink-cqc-name
+#  description: uplink-cqc-desc
+#  productEntity: CQCManual
+#  cost:
+#    Telecrystal: 60
+#  categories:
+#  - UplinkWeaponry
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    whitelist:
+#      tags:
+#      - NukeOpsUplink
+#      - ContravendUplink
 
-- type: listing
-  id: UplinkMysteriousScroll
-  name: uplink-sleeping-carp-name
-  description: uplink-sleeping-carp-desc
-  productEntity: SleepingCarpScroll
-  cost:
-    Telecrystal: 70
-  categories:
-  - UplinkWeaponry
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
+#- type: listing
+#  id: UplinkMysteriousScroll
+#  name: uplink-sleeping-carp-name
+#  description: uplink-sleeping-carp-desc
+#  productEntity: SleepingCarpScroll
+#  cost:
+#    Telecrystal: 70
+#  categories:
+#  - UplinkWeaponry
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    blacklist:
+#      tags:
+#      - NukeOpsUplink
 
 # Explosives
 

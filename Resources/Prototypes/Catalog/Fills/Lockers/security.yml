@@ -85,7 +85,7 @@
       - id: WeaponEnergyShotgun
       #- id: WeaponDisabler #Goobstation (Disablers in belts)
       - id: ClothingBeltSecurityFilled
-      - id: ClothingHandsGlovesKravMaga # Goobstation - Martial Arts
+      #- id: ClothingHandsGlovesKravMaga # Goobstation - Martial Arts
       - id: BoxLethalInjection # Goobstation
       - id: Flash
       - id: ClothingEyesGlassesSecurity
@@ -121,7 +121,7 @@
       - id: WeaponEnergyShotgun # Goobstation
       #- id: WeaponDisabler #Goobstation (Disablers in belts)
       - id: ClothingBeltSecurityFilled
-      - id: ClothingHandsGlovesKravMaga # Goobstation - Martial Arts
+      #- id: ClothingHandsGlovesKravMaga # Goobstation - Martial Arts
       - id: BoxLethalInjection # Goobstation
       - id: Flash
       - id: ClothingEyesGlassesSecurity
@@ -159,9 +159,9 @@
       - id: ClothingHeadHelmetBasic
       - id: ClothingOuterArmorBasic
       - id: ClothingBeltSecurityFilled
-        orGroup: Belt # Goobstation - Martial Arts - start
-      - id: ClothingBeltCorporateJudoFilled
-        orGroup: Belt # Goobstation - Martial Arts - end
+      #  orGroup: Belt # Goobstation - Martial Arts - start
+      #- id: ClothingBeltCorporateJudoFilled
+      #  orGroup: Belt # Goobstation - Martial Arts - end
       - id: Flash
         prob: 0.5
       - id: ClothingEyesGlassesSecurity
@@ -203,7 +203,7 @@
       - id: DrinkDetFlask
       - id: ClothingHandsGlovesForensic
       - id: RubberStampDetective
-      - id: BloodTrak # Goobstation
+      #- id: BloodTrak # Goobstation
       - id: HoloprojectorSecurity
       - id: BoxEvidenceMarkers
       - id: HandLabeler

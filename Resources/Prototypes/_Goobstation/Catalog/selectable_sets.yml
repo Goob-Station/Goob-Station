@@ -175,7 +175,7 @@
   - ScramImplanter
   - FreedomImplanter
   - SmokeImplanter
-  - KravMagaImplanter
+#  - KravMagaImplanter
 
 - type: selectableSet
   id: SyndicateHackerSet
@@ -267,27 +267,27 @@
     - WeaponSniperMosin
     - WeaponSniperMosin
 
-- type: selectableSet
-  id: SyndicateCarpSet
-  name: selectable-set-syndicate-carp-name
-  description: selectable-set-syndicate-carp-description
-  sprite:
-    sprite: Objects/Fun/toys.rsi
-    state: carpplush
-  content:
-    - EncryptionKeySyndie
-    - SleepingCarpScroll
-    - DehydratedSpaceCarp # 1
-    - DehydratedSpaceCarp # 2
-    - DehydratedSpaceCarp # 3
-    - DehydratedSpaceCarp # 4
-    - DehydratedSpaceCarp # 5
-    - DehydratedSpaceCarp # 6
-    - DehydratedSpaceCarp # 7
-    - DehydratedSpaceCarp # 8
-    - DehydratedSpaceCarp # 9
-    - DehydratedSpaceCarp # 10
-    - FireExtinguisher
+#- type: selectableSet
+#  id: SyndicateCarpSet
+#  name: selectable-set-syndicate-carp-name
+#  description: selectable-set-syndicate-carp-description
+#  sprite:
+#    sprite: Objects/Fun/toys.rsi
+#    state: carpplush
+#  content:
+#    - EncryptionKeySyndie
+#    - SleepingCarpScroll
+#    - DehydratedSpaceCarp # 1
+#    - DehydratedSpaceCarp # 2
+#    - DehydratedSpaceCarp # 3
+#    - DehydratedSpaceCarp # 4
+#    - DehydratedSpaceCarp # 5
+#    - DehydratedSpaceCarp # 6
+#    - DehydratedSpaceCarp # 7
+#    - DehydratedSpaceCarp # 8
+#    - DehydratedSpaceCarp # 9
+#    - DehydratedSpaceCarp # 10
+#    - FireExtinguisher
 
 # Blueshield officer
 
@@ -311,15 +311,15 @@
   content:
     - ClothingBeltHolsterFilledBlueshield # Pistol, 1+2 lethal speedloaders and 2 disabler speedloaders
 
-- type: selectableSet
-  id: BSOCQCSet
-  name: selectable-set-blueshield-cqc-name
-  description: selectable-set-blueshield-cqc-description
-  sprite:
-    sprite: _Goobstation/Objects/Misc/cqc_manual.rsi
-    state: icon-alt
-  content:
-    - BSOManual
+#- type: selectableSet
+#  id: BSOCQCSet
+#  name: selectable-set-blueshield-cqc-name
+#  description: selectable-set-blueshield-cqc-description
+#  sprite:
+#    sprite: _Goobstation/Objects/Misc/cqc_manual.rsi
+#    state: icon-alt
+#  content:
+#    - BSOManual
 
 - type: selectableSet
   id: BSOChesterSet
