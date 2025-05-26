@@ -3,6 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Corvax.Speech.Synthesis;
@@ -19,18 +20,24 @@ public sealed class BarkPrototype : IPrototype
     /// <summary>
     /// The name of the voice.
     /// </summary>
-    [DataField("name")]
+    [DataField]
     public string Name { get; } = string.Empty;
 
     /// <summary>
     /// A set of sounds used for speech.
     /// </summary>
-    [DataField("soundFiles", required: true)]
+    [DataField(required: true)]
     public List<string> SoundFiles { get; } = new();
+
+    /// <summary>
+    /// Volume for sounds.
+    /// </summary>
+    [DataField]
+    public float Volume;
 
     /// <summary>
     /// Whether it is available for selection.
     /// </summary>
-    [DataField("roundStart")]
+    [DataField("roundstart")]
     public bool RoundStart { get; } = true;
 }

@@ -550,7 +550,7 @@
   - type: InputMover
   - type: Speech
     speechVerb: Robotic
-    speechSounds: null # Corvax-Frontier-Barks-Edit
+    speechSounds: Borg
   - type: Tag
     tags:
     - HideContextMenu

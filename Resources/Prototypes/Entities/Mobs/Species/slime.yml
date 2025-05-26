@@ -109,7 +109,7 @@
     species: SlimePerson
   - type: Speech
     speechVerb: Slime
-    speechSounds: null # Corvax-Frontier-Barks-Edit
+    speechSounds: Slime
     allowedEmotes: ['Squish']
   - type: TypingIndicator
     proto: slime

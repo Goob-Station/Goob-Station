@@ -154,7 +154,7 @@
       amount: 5
   - type: LizardAccent
   - type: Speech
-    speechSounds: null # Corvax-Frontier-Barks-Edit
+    speechSounds: Lizard
     speechVerb: Reptilian
     allowedEmotes: ['Thump']
   - type: TypingIndicator

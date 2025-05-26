@@ -452,7 +452,7 @@
         requireInputValidation: false
   - type: Puller
   - type: Speech
-    speechSounds: null # Corvax-Frontier-Barks-Edit-My-Family-Is-Held-Hostage-Over-Stupid-Comments
+    speechSounds: Alto
   - type: DamageForceSay
   - type: Vocal
     sounds:

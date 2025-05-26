@@ -65,7 +65,7 @@
     context: "human"
   - type: Speech
     speechVerb: Felinid
-    speechSounds: null # Corvax-Frontier-Barks-Edit
+    speechSounds: Alto
   - type: Reactive
     groups:
       Flammable: [ Touch ]

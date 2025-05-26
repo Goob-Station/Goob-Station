@@ -52,7 +52,7 @@
     prototype: Vulpkanin
     requiredLegs: 2
   - type: Speech
-    speechSounds: null # Corvax-Frontier-Barks-Edit
+    speechSounds: Vulpkanin
     speechVerb: Vulpkanin
   - type: Sprite
     netsync: false

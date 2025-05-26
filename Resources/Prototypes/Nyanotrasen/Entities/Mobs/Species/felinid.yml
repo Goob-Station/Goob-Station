@@ -56,7 +56,7 @@
 #    naturalImmunities:
 #    - OwOnavirus
   - type: Speech
-    speechSounds: null # Corvax-Frontier-Barks-Edit
+    speechSounds: Alto
   - type: DamageOnHighSpeedImpact # Landing on all fours!
     damage:
       types:

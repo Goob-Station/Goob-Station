@@ -265,7 +265,7 @@
     - type: Ensnareable
       sprite: Objects/Misc/ensnare.rsi
     - type: Speech
-      speechSounds: null # Corvax-Frontier-Barks-Edit
+      speechSounds: Pai
     - type: Vocal
       wilhelm: "/Audio/_EinsteinEngines/Voice/IPC/wilhelm.ogg"
       sounds:
@@ -348,3 +348,4 @@
     - type: CombatMode
       canDisarm: true
     - type: ExaminableCharacter # WWDP
+    - type: SpeechSynthesis # Corvax-Frontier-Barks

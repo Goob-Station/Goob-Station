@@ -57,7 +57,7 @@
     requiredLegs: 2
   - type: Speech
     speechVerb: Parrot
-    speechSounds: null # Corvax-Frontier-Barks-Edit
+    speechSounds: MaleAvali
     allowedEmotes: ['Chirp', 'Trill', 'Warble', 'Wurble'] #goob
   - type: Vocal
     sounds:

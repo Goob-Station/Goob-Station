@@ -21,13 +21,15 @@ public sealed class PlayBarkEvent : EntityEventArgs
     public string Message { get; }
     public float PlaybackSpeed { get; }
     public bool Obfuscated { get; }
+    public float Volume { get; }
 
-    public PlayBarkEvent(string soundPath, NetEntity sourceUid, string message, float playbackSpeed, bool obfuscated)
+    public PlayBarkEvent(string soundPath, NetEntity sourceUid, string message, float playbackSpeed, bool obfuscated, float volume)
     {
         SoundPath = soundPath;
         SourceUid = sourceUid;
         Message = message;
         PlaybackSpeed = playbackSpeed;
         Obfuscated = obfuscated;
+        Volume = volume;
     }
 }

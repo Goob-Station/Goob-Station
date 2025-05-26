@@ -56,7 +56,7 @@
     prototype: Rodentia
   - type: Speech
     speechVerb: Rodentia
-    speechSounds: null # Corvax-Frontier-Barks-Edit
+    speechSounds: Squeak
     allowedEmotes: ['Squeak']
   - type: CheeseAccent
   - type: Fixtures
