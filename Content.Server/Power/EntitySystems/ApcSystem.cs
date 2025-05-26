@@ -33,7 +33,6 @@ using Content.Server.Emp;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Power.Pow3r;
-using Content.Server.Station.Systems;
 using Content.Server.StationEvents.Components;
 using Content.Server.StationEvents.Events;
 using Content.Shared.Access.Systems;
@@ -57,7 +56,6 @@ public sealed class ApcSystem : EntitySystem
     [Dependency] private readonly PowerGridCheckRule _powerGridCheckRule = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly StationSystem _stationSystem = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
 
     public override void Initialize()
@@ -106,16 +104,10 @@ public sealed class ApcSystem : EntitySystem
         // Defer until the next tick.
         component.NeedStateUpdate = true;
 
-        var apcStation = _stationSystem.GetOwningStation(uid);
-
-        if (apcStation == null)
-            return;
-
         var query = AllEntityQuery<PowerGridCheckRuleComponent>();
 
         while (query.MoveNext(out var ruleUid, out var ruleComp))
-            if (ruleComp.AffectedStation == apcStation &&
-                _powerGridCheckRule.TryAddUnpoweredApc((ruleUid, ruleComp), (uid, component)))
+            if (_powerGridCheckRule.TryAddUnpoweredApc((ruleUid, ruleComp), (uid, component)))
                 component.MainBreakerEnabled = false;
     }
 
@@ -148,16 +140,10 @@ public sealed class ApcSystem : EntitySystem
 
     private void OnApcToggleMainBreakerAttempt(Entity<ApcComponent> ent, ref ApcToggleMainBreakerAttemptEvent args)
     {
-        var apcStation = _stationSystem.GetOwningStation(ent);
-
-        if (apcStation == null)
-            return;
-
         var query = AllEntityQuery<PowerGridCheckRuleComponent>();
 
         while (query.MoveNext(out var ruleUid, out var ruleComp))
-            if (ruleComp.AffectedStation == apcStation &&
-                _powerGridCheckRule.ContainsUnpoweredApc((ruleUid, ruleComp), ent))
+            if (_powerGridCheckRule.ContainsUnpoweredApc((ruleUid, ruleComp), ent))
                 args.Cancelled = true;
     }
 
