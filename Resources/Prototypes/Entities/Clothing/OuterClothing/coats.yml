@@ -74,7 +74,6 @@
 # SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 SonicHDC <100022571+SonicHDC@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Stalen <33173619+stalengd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
@@ -122,7 +121,11 @@
 # SPDX-FileCopyrightText: 2025 Michael <107807667+doc-michael@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SonicHDC <100022571+SonicHDC@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tezzaide <ewankayne@hotmail.co.uk>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 #
@@ -155,6 +158,19 @@
     - id: FlippoEngravedLighter
   - type: ExplosionResistance
     damageCoefficient: 1 #its a coat. it doesnt do shit
+  - type: Armor # Woundmed
+    coverage:
+    - Chest
+    - Groin
+    - Tail
+    - Arm
+    - Leg
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.65
+        Heat: 0.7
 
 - type: entity
   parent: [ClothingOuterCoatDetectiveLoadout]
@@ -166,7 +182,6 @@
     sprite: Clothing/OuterClothing/Coats/detective_grey.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/detective_grey.rsi
-
 
 - type: entity
   parent: ClothingOuterCoatDetective
@@ -198,13 +213,15 @@
     - Chest
     - Groin
     - Tail
+    - Arm
+    - Leg
     modifiers:
       coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Piercing: 0.65
-        Heat: 0.65
-        Caustic: 0.1 # the full 90% from ss13
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.55
+        Heat: 0.55
+        Caustic: 0.6
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: ModifyDelayedKnockdown # Goobstation
@@ -223,13 +240,15 @@
     - Chest
     - Groin
     - Tail
+    - Arm
+    - Leg
     modifiers:
       coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Piercing: 0.7
-        Heat: 0.7
-        Caustic: 0.9
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.65
+        Heat: 0.55
+        Caustic: 0.8
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: ModifyDelayedKnockdown # Goobstation
@@ -281,9 +300,11 @@
     - Chest
     - Groin
     - Tail
+    - Arm
+    - Leg
     modifiers:
       coefficients:
-        Slash: 0.9
+        Slash: 0.95
   - type: Food
     requiresSpecialDigestion: true
   - type: SolutionContainerManager
@@ -309,6 +330,8 @@
     - Chest
     - Groin
     - Tail
+    - Arm
+    - Leg
     modifiers:
       coefficients:
         Caustic: 0.65
@@ -333,6 +356,8 @@
     - Chest
     - Groin
     - Tail
+    - Arm
+    - Leg
     modifiers:
       coefficients:
         Caustic: 0.65
@@ -357,6 +382,8 @@
     - Chest
     - Groin
     - Tail
+    - Arm
+    - Leg
     modifiers:
       coefficients:
         Caustic: 0.65
@@ -381,6 +408,8 @@
     - Chest
     - Groin
     - Tail
+    - Arm
+    - Leg
     modifiers:
       coefficients:
         Caustic: 0.65
@@ -405,10 +434,12 @@
     - Chest
     - Groin
     - Tail
+    - Arm
+    - Leg
     modifiers:
       coefficients:
-        Slash: 0.84
-        Heat: 0.84
+        Slash: 0.9
+        Heat: 0.9
         Caustic: 0.4
 
 - type: entity
@@ -431,6 +462,8 @@
     - Chest
     - Groin
     - Tail
+    - Arm
+    - Leg
     modifiers:
       coefficients:
         Caustic: 0.65
@@ -455,6 +488,8 @@
     - Chest
     - Groin
     - Tail
+    - Arm
+    - Leg
     modifiers:
       coefficients:
         Caustic: 0.65
@@ -480,13 +515,10 @@
     - Groin
     - Tail
     - Arm
-    - Hand
     - Leg
-    - Foot
-    - Other
     modifiers:
       coefficients:
-        Caustic: 0.9
+        Caustic: 0.6
         Radiation: 0.6
 
 - type: entity
@@ -537,20 +569,22 @@
     sprite: Clothing/OuterClothing/Coats/clownpriest.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/clownpriest.rsi
-  - type: Armor ##GOOB
+  - type: Armor # GOOB
+    coverage:
+    - Chest
+    - Groin
+    - Tail
+    - Arm
     modifiers:
       coefficients:
-        Slash: 0.70
-        Heat: 1.5
-  - type: ModifyDelayedKnockdown ##GOOB
+        Slash: 0.6
+        Heat: 1.2
+  - type: ModifyDelayedKnockdown # GOOB
     delayDelta: 1
     knockdownTimeDelta: -1
-  - type: TemperatureProtection ##GOOB
+  - type: TemperatureProtection # GOOB
     heatingCoefficient: 1.1 # the robes keep you warm but lets go of heat poorly
     coolingCoefficient: 0.5
-  - type: ClothingSpeedModifier ##GOOB
-    walkModifier: 1
-    sprintModifier: 1.0
 
 - type: entity
   parent: [ClothingOuterStorageBase, BaseMajorContraband]
@@ -567,11 +601,13 @@
     - Chest
     - Groin
     - Tail
+    - Arm
+    - Leg
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.47
-        Piercing: 0.6
+        Blunt: 0.65
+        Slash: 0.55
+        Piercing: 0.75
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 2
     knockdownTimeDelta: -2
@@ -626,13 +662,15 @@
     - Chest
     - Groin
     - Tail
+    - Arm
+    - Leg
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.85
-        Piercing: 0.65
-        Heat: 0.85
-        Caustic: 0.75
+        Blunt: 0.7
+        Slash: 0.75
+        Piercing: 0.6
+        Heat: 0.75
+        Caustic: 0.5
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 2
     knockdownTimeDelta: -2
@@ -654,6 +692,8 @@
     - Chest
     - Groin
     - Tail
+    - Arm
+    - Leg
     modifiers:
       coefficients:
         Caustic: 0.65
@@ -678,6 +718,8 @@
     - Chest
     - Groin
     - Tail
+    - Arm
+    - Leg
     modifiers:
       coefficients:
         Caustic: 0.65

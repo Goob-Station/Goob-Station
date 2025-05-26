@@ -66,7 +66,7 @@ public abstract class SharedDamageMarkerSystem : EntitySystem
         _audio.PlayPredicted(component.Sound, uid, args.User);
 
         if (TryComp<LeechOnMarkerComponent>(args.Used, out var leech))
-            _damageable.TryChangeDamage(args.User, leech.Leech * 11f, true, false, origin: args.Used, targetPart: TargetBodyPart.All); // Shitmed Change
+            _damageable.TryChangeDamage(args.User, leech.Leech, true, false, origin: args.Used, targetPart: TargetBodyPart.All, splitDamage: false); // Shitmed Change
 
         if (HasComp<DamageBoostOnMarkerComponent>(args.Used))
         {

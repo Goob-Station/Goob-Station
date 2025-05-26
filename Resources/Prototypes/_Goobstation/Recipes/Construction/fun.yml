@@ -1,4 +1,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Arraydeess <arraygitbash@gmail.com>
+# SPDX-FileCopyrightText: 2025 Arraydeess14 <87253287+Arraydeess14@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BeBright <98597725+be1bright@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 GreenArg7 <GreenArc12@outlook.com>
@@ -14,28 +17,11 @@
   targetNode: bananiumSword
   category: construction-category-weapons
   objectType: Item
-
+  
 - type: construction
-  id: WelderSword
-  graph: WelderSword
+  id: boomerang
+  graph: boomerangGraph
   startNode: start
-  targetNode: welderSword
+  targetNode: boomerangFinish
   category: construction-category-weapons
   objectType: Item
-
-- type: construction
-  id: WelderSwordIndustrial
-  graph: WelderSwordIndustrial
-  startNode: start
-  targetNode: welderSwordIndustrial
-  category: construction-category-weapons
-  objectType: Item
-
-- type: construction
-  id: WelderSwordExperimental
-  graph: WelderSwordExperimental
-  startNode: start
-  targetNode: welderSwordExperimental
-  category: construction-category-weapons
-  objectType: Item
-

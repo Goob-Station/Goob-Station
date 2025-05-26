@@ -1,11 +1,13 @@
+# SPDX-FileCopyrightText: 2025 CliveOcelot <165305605+Orion-416@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 # The Modsuit Itself, This is just a Deathsquad modsuit
 - type: entity
-  parent: ClothingModsuitStandard
+  parent: [ ClothingModsuitStandard, BaseCentcommContraband ]
   id: ClothingModsuitApocryphal
   name: Apocryphal modsuit control
   description: The main controller for a Apocryphal modsuit.
@@ -27,10 +29,9 @@
             components:
               - PowerCell
     - type: Storage
-      maxItemSize: Huge
       grid:
         - 0,0,7,6
-    - type: ExplosionResistance #Dont want chain explosions in the modsuits storage
+    - type: ExplosionResistance
       damageCoefficient: 0.1
     - type: SealableClothingVisuals
       visualLayers:
@@ -66,14 +67,22 @@
       highPressureMultiplier: 0.08
       lowPressureMultiplier: 1000
     - type: Armor
+      traumaDeductions: # prevents traumas at all (kinda)
+        Dismemberment: 1
+        OrganDamage: 1
+        BoneDamage: 1
+        VeinsDamage: 1
+        NerveDamage: 1
       modifiers:
         coefficients:
-          Blunt: 0.80
-          Slash: 0.80
-          Piercing: 0.80
-          Heat: 0.80
-          Radiation: 0.80
-          Caustic: 0.95
+          Blunt: 0.1 # Best armor in the game - Yeah no shit.
+          Slash: 0.1
+          Piercing: 0.1
+          Heat: 0.1
+          Cold: 0.1
+          Cellular: 0.1
+          Radiation: 0.1
+          Caustic: 0.1
     - type: ThermalVision
       isEquipment: true
       color: "#98EEFB"
@@ -106,12 +115,20 @@
       walkModifier: 1
       sprintModifier: 1
     - type: Armor
+      traumaDeductions: # prevents traumas at all (kinda)
+        Dismemberment: 1
+        OrganDamage: 1
+        BoneDamage: 1
+        VeinsDamage: 1
+        NerveDamage: 1
       modifiers:
         coefficients:
-          Blunt: 0.1 #Death Squad Modsuit, so same stats as DS suit
+          Blunt: 0.1 # Best armor in the game - Yeah no shit.
           Slash: 0.1
           Piercing: 0.1
           Heat: 0.1
+          Cold: 0.1
+          Cellular: 0.1
           Radiation: 0.1
           Caustic: 0.1
     - type: SealableClothingVisuals
@@ -124,7 +141,7 @@
       highPressureMultiplier: 0.02
       lowPressureMultiplier: 1000
     - type: ExplosionResistance
-      damageCoefficient: 0.2
+      damageCoefficient: 0.1
     - type: FireProtection
       reduction: 1
 
@@ -138,22 +155,21 @@
     - type: Appearance
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/apocryphal.rsi
-    - type: Tag
-      tags:
-        - WhitelistChameleon
-    - type: ClothingSpeedModifier
-      walkModifier: 1
-      sprintModifier: 1
-    - type: ToggleClothing
-      action: ActionToggleMagboots
-    - type: ComponentToggler
-      components:
-        - type: NoSlip
-    - type: Magboots
     - type: SealableClothingVisuals
       visualLayers:
         shoes:
         - state: equipped-FEET-sealed
+    - type: ItemToggle
+    - type: ToggleClothing
+      action: ActionToggleMagboots
+    - type: ComponentToggler
+      components:
+      - type: NoSlip
+    - type: Magboots
+      enabledPrefix: null
+    - type: ClothingSpeedModifier
+      walkModifier: 1.1
+      sprintModifier: 1.1
 
 - type: entity
   id: SuitStorageApocryphal

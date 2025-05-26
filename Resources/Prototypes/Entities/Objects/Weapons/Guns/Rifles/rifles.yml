@@ -143,7 +143,7 @@
       types:
        Blunt: 12
     angle: 0
-    wideAnimationRotation: 90 # when/if bayonets get added (to rifles) set this to -90
+    wideAnimationRotation: 90 # -90 if it takes bayonets (hits with muzzle) 90 if not (hits with butt)
     soundHit:
       collection: MetalThud # Goobstation ^
 

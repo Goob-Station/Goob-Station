@@ -49,9 +49,8 @@
     - id: BoxZiptie
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
-    - id: ClothingHeadHelmetSwat
     - id: BlueshieldUndeterminedHardsuit
-    - id: ClothingBackpackDuffelSurgeryFilled
+    - id: OmnimedTool
     - id: HandheldCrewMonitorBSO
     - id: BlueshieldUndeterminedWeapon
     - id: PlushieSamantha

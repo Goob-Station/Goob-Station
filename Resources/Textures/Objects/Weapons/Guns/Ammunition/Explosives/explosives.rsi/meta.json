@@ -36,12 +36,27 @@
     },
     {
       "name": "spent"
-	    },
-        {
-            "name": "buster"
-        },
-        {
-            "name": "cleanade"
+    },
+    {
+      "name": "buster"
+    },
+    {
+      "name": "cleanade"
+    },
+    {
+      "name": "blast-spent"
+    },
+    {
+      "name": "frag-spent"
+    },
+    {
+      "name": "baton-spent"
+    },
+    {
+      "name": "emp-spent"
+    },
+    {
+      "name": "flash-spent"
     }
   ]
 }

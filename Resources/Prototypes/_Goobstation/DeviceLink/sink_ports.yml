@@ -92,3 +92,24 @@
   id: AutoStart
   name: signal-port-name-machine-autostart
   description: signal-port-description-machine-autostart
+
+# Interactor
+
+- type: sinkPort
+  id: AutomationSlotTool
+  name: signal-port-name-automation-slot-tool
+  description: signal-port-description-automation-slot-tool
+
+# Autodoc
+
+- type: sinkPort
+  id: AutomationSlotAutodocHand
+  name: signal-port-name-automation-slot-autodoc-hand
+  description: signal-port-description-automation-slot-autodoc-hand
+
+# Gas Canister
+
+- type: sinkPort
+  id: AutomationSlotGasTank
+  name: signal-port-name-automation-slot-gas-tank
+  description: signal-port-description-automation-slot-gas-tank

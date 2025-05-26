@@ -6,8 +6,11 @@
 # SPDX-FileCopyrightText: 2025 GMWQ <garethquaile@gmail.com>
 # SPDX-FileCopyrightText: 2025 Gareth Quaile <garethquaile@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
@@ -43,14 +46,14 @@
     contents:
       - id: MedkitCombatFilled
         amount: 1
-      - id: AdvancedCombatMedipen
-        amount: 2
       - id: PunctAutoInjector
         amount: 2
+      - id: AdvancedCombatMedipen
+        amount: 1
       - id: PyraAutoInjector
         amount: 2
       - id: AirlossAutoInjector
-        amount: 2
+        amount: 1
       - id: CentcommStimpack
         amount: 2
       - id: OmnimedTool
@@ -76,10 +79,10 @@
   components:
   - type: StorageFill
     contents:
-    - id: EnergyCautery
     - id: EnergyScalpel
     - id: AdvancedRetractor
-    - id: BoneGel
+    - id: EnergyCautery
+    - id: AdvancedBoneGel
     - id: MedicatedSuture
     - id: RegenerativeMesh
     - id: Bloodpack
@@ -235,3 +238,27 @@
     - id: EnergySpeedloaderLethal
     - id: EnergySpeedloaderDisabler
     - id: EnergySpeedloaderDisabler
+
+- type: entity
+  id: ClothingBeltMilitaryRigGrenadierFilled
+  parent: ClothingBeltMilitaryRigGrenadier
+  suffix: Grenadier bundle, filled
+  components:         # How many nades do you want?
+  - type: StorageFill # Yes.
+    contents:         # If seriously this is like 100 TC worth of explosives.
+    - id: CleanerGrenade
+    - id: MetalFoamGrenade
+    - id: GrenadeFlashBang
+    - id: TearGasGrenade
+    - id: GrenadeStinger
+    - id: WhiteholeGrenade
+    - id: SmokeGrenade
+    - id: EmpGrenade
+    - id: C4
+    - id: GrenadeShrapnel
+    - id: GrenadeIncendiary
+    - id: ExGrenade
+    - id: SarinGasGrenade
+    - id: SupermatterGrenade
+    - id: SyndieMiniBomb
+      amount: 2

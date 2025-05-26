@@ -5,9 +5,11 @@
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
@@ -74,6 +76,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Standing;
+using Content.Shared._Starlight.CollectiveMind;
 using Content.Shared.Tag;
 using Robust.Server.Containers;
 
@@ -336,7 +339,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         _aud.PlayPvs(new SoundPathSpecifier("/Audio/_Goobstation/Heretic/heartbeat.ogg"), ent, AudioParams.Default.WithVolume(-3f));
     }
 
-    public ProtoId<TagPrototype> MansusLinkTag = "MansusLinkMind";
+    public ProtoId<CollectiveMindPrototype> MansusLinkMind = "MansusLink";
     private void OnMansusLink(Entity<GhoulComponent> ent, ref EventHereticMansusLink args)
     {
         if (!TryUseAbility(ent, args))
@@ -348,7 +351,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
             return;
         }
 
-        if (_tag.HasTag(args.Target, MansusLinkTag))
+        if (TryComp<CollectiveMindComponent>(args.Target, out var mind) && mind.Channels.Contains(MansusLinkMind))
         {
             Popup.PopupEntity(Loc.GetString("heretic-manselink-fail-exists"), ent, ent);
             return;
@@ -370,7 +373,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         if (args.Cancelled)
             return;
 
-        _tag.AddTag(ent, MansusLinkTag);
+        EnsureComp<CollectiveMindComponent>(args.Target).Channels.Add(MansusLinkMind);
 
         // this "* 1000f" (divided by 1000 in FlashSystem) is gonna age like fine wine :clueless:
         _flash.Flash(args.Target, null, null, 2f * 1000f, 0f, false, true, stunDuration: TimeSpan.FromSeconds(1f));

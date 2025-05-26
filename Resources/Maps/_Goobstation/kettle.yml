@@ -4,8 +4,8 @@ meta:
   engineVersion: 255.0.0
   forkId: ""
   forkVersion: ""
-  time: 05/10/2025 17:34:16
-  entityCount: 26438
+  time: 05/19/2025 12:14:24
+  entityCount: 26436
 maps:
 - 1
 grids:
@@ -7783,7 +7783,8 @@ entities:
           12,-4:
             0: 47935
           12,-3:
-            0: 65291
+            0: 65289
+            6: 2
           12,-2:
             0: 65295
           -5,8:
@@ -8284,7 +8285,7 @@ entities:
             1: 32768
           -9,-4:
             0: 64748
-            6: 17
+            7: 17
           -8,-3:
             0: 65535
           -9,-3:
@@ -8477,7 +8478,7 @@ entities:
           -10,-9:
             0: 64767
           -10,-4:
-            6: 238
+            7: 238
             0: 57344
           -9,-9:
             0: 63743
@@ -9298,7 +9299,7 @@ entities:
             1: 1152
           -16,-4:
             0: 16
-            6: 128
+            7: 128
           -17,-3:
             0: 2048
           -16,-3:
@@ -10259,6 +10260,25 @@ entities:
           moles:
           - 0
           - 6666.982
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 21.6852
+          - 81.57766
           - 0
           - 0
           - 0
@@ -13139,7 +13159,7 @@ entities:
       pos: -5.5,-58.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -5838.785
+      secondsUntilStateChange: -5944.598
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -19176,6 +19196,8 @@ entities:
     - type: Transform
       parent: 1433
     - type: Physics
+      angularDamping: 0
+      linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
   - uid: 1435
@@ -19183,6 +19205,8 @@ entities:
     - type: Transform
       parent: 1433
     - type: Physics
+      angularDamping: 0
+      linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
 - proto: BoxBodyBag
@@ -19456,6 +19480,8 @@ entities:
     - type: Transform
       parent: 1433
     - type: Physics
+      angularDamping: 0
+      linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
 - proto: BoxShotgunIncendiary
@@ -66628,37 +66654,37 @@ entities:
       parent: 2
 - proto: ComputerCargoOrdersEngineering
   entities:
-  - uid: 9673
+  - uid: 9677
     components:
     - type: Transform
       pos: -11.5,41.5
       parent: 2
 - proto: ComputerCargoOrdersMedical
   entities:
-  - uid: 9675
+  - uid: 9674
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: -46.5,-32.5
+      pos: -51.5,-37.5
       parent: 2
 - proto: ComputerCargoOrdersScience
   entities:
-  - uid: 9676
+  - uid: 9678
     components:
     - type: Transform
       pos: 24.5,61.5
       parent: 2
 - proto: ComputerCargoOrdersSecurity
   entities:
-  - uid: 9677
+  - uid: 9675
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 37.5,-5.5
+      rot: -1.5707963267948966 rad
+      pos: 46.5,-9.5
       parent: 2
 - proto: ComputerCargoOrdersService
   entities:
-  - uid: 9674
+  - uid: 9676
     components:
     - type: Transform
       pos: -33.5,-6.5
@@ -66795,7 +66821,7 @@ entities:
       parent: 2
 - proto: ComputerFundingAllocation
   entities:
-  - uid: 9672
+  - uid: 9679
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -116935,8 +116961,8 @@ entities:
         immutable: False
         temperature: 293.1496
         moles:
-        - 1.7459903
-        - 6.568249
+        - 1.8856695
+        - 7.0937095
         - 0
         - 0
         - 0
@@ -116957,12 +116983,12 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 1437
           - 1434
-          - 1436
-          - 1438
-          - 1439
           - 1435
+          - 1439
+          - 1438
+          - 1436
+          - 1437
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -117009,19 +117035,19 @@ entities:
           showEnts: False
           occludes: True
           ent: null
-- proto: GunSafeDisabler
-  entities:
-  - uid: 17792
-    components:
-    - type: Transform
-      pos: 48.5,-11.5
-      parent: 2
 - proto: GunSafeLaserCarbine
   entities:
   - uid: 17793
     components:
     - type: Transform
       pos: 48.5,-19.5
+      parent: 2
+- proto: GunSafeLauncherNonLethal
+  entities:
+  - uid: 9672
+    components:
+    - type: Transform
+      pos: 48.5,-11.5
       parent: 2
 - proto: GunSafePistolMk58
   entities:
@@ -118088,14 +118114,6 @@ entities:
     components:
     - type: Transform
       pos: -1.5,38.5
-      parent: 2
-- proto: JermovCircuitBoard
-  entities:
-  - uid: 17980
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 20.792824,-106.65284
       parent: 2
 - proto: JetpackMiniFilled
   entities:
@@ -123513,11 +123531,6 @@ entities:
     components:
     - type: Transform
       pos: 42.5,-2.5
-      parent: 2
-  - uid: 18683
-    components:
-    - type: Transform
-      pos: 54.5,-2.5
       parent: 2
   - uid: 18684
     components:
@@ -135978,10 +135991,10 @@ entities:
       parent: 2
 - proto: SecurityTechFab
   entities:
-  - uid: 20815
+  - uid: 9673
     components:
     - type: Transform
-      pos: 50.5,-20.5
+      pos: 54.5,-2.5
       parent: 2
 - proto: SeedExtractor
   entities:
@@ -166659,6 +166672,8 @@ entities:
     - type: Transform
       parent: 1433
     - type: Physics
+      angularDamping: 0
+      linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
   - uid: 1438
@@ -166666,6 +166681,8 @@ entities:
     - type: Transform
       parent: 1433
     - type: Physics
+      angularDamping: 0
+      linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
   - uid: 1439
@@ -166673,6 +166690,8 @@ entities:
     - type: Transform
       parent: 1433
     - type: Physics
+      angularDamping: 0
+      linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
 - proto: WeaponSubMachineGunDrozd

@@ -4,8 +4,8 @@ meta:
   engineVersion: 255.0.0
   forkId: ""
   forkVersion: ""
-  time: 05/10/2025 17:50:59
-  entityCount: 26891
+  time: 05/19/2025 12:31:44
+  entityCount: 26892
 maps:
 - 1
 grids:
@@ -10941,7 +10941,7 @@ entities:
       pos: -42.5,29.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -8240.746
+      secondsUntilStateChange: -8204.289
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 2
@@ -15705,8 +15705,11 @@ entities:
   - uid: 1076
     components:
     - type: Transform
-      pos: -4.528169,45.67725
+      pos: 2.4601188,42.64151
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: BoxFolderBlack
   entities:
   - uid: 1077
@@ -15941,8 +15944,11 @@ entities:
   - uid: 1120
     components:
     - type: Transform
-      pos: -3.3393211,42.60784
+      pos: -2.6986475,42.74575
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 1121
     components:
     - type: Transform
@@ -16081,8 +16087,11 @@ entities:
   - uid: 1142
     components:
     - type: Transform
-      pos: -3.5893211,42.467216
+      pos: -2.2400866,42.704056
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: BriefcaseBrownFilled
   entities:
   - uid: 1143
@@ -61289,16 +61298,6 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-  - uid: 9775
-    components:
-    - type: Transform
-      pos: -1.2881107,37.782913
-      parent: 2
-  - uid: 9776
-    components:
-    - type: Transform
-      pos: -1.2881107,37.782913
-      parent: 2
 - proto: ClothingOuterHoodieBlack
   entities:
   - uid: 9777
@@ -61345,6 +61344,18 @@ entities:
     components:
     - type: Transform
       pos: 0.53534174,-53.480457
+      parent: 2
+- proto: ClothingOuterVoidsuitSecurity
+  entities:
+  - uid: 9307
+    components:
+    - type: Transform
+      pos: -1.315481,37.718266
+      parent: 2
+  - uid: 9309
+    components:
+    - type: Transform
+      pos: -1.315481,37.718266
       parent: 2
 - proto: ClothingShoesBootsCombat
   entities:
@@ -62096,7 +62107,7 @@ entities:
       parent: 2
 - proto: ComputerCargoOrdersEngineering
   entities:
-  - uid: 9311
+  - uid: 9316
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -62104,14 +62115,14 @@ entities:
       parent: 2
 - proto: ComputerCargoOrdersMedical
   entities:
-  - uid: 9308
+  - uid: 9312
     components:
     - type: Transform
       pos: -22.5,-39.5
       parent: 2
 - proto: ComputerCargoOrdersScience
   entities:
-  - uid: 9309
+  - uid: 9313
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -62119,19 +62130,19 @@ entities:
       parent: 2
 - proto: ComputerCargoOrdersSecurity
   entities:
-  - uid: 9307
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 13.5,30.5
-      parent: 2
-- proto: ComputerCargoOrdersService
-  entities:
-  - uid: 9310
+  - uid: 9315
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: 33.5,-7.5
+      pos: 14.5,34.5
+      parent: 2
+- proto: ComputerCargoOrdersService
+  entities:
+  - uid: 9314
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 32.5,-5.5
       parent: 2
 - proto: ComputerCargoShuttle
   entities:
@@ -62293,7 +62304,7 @@ entities:
       parent: 2
 - proto: ComputerFundingAllocation
   entities:
-  - uid: 9306
+  - uid: 9311
     components:
     - type: Transform
       pos: -11.5,-0.5
@@ -115583,10 +115594,10 @@ entities:
       parent: 2
 - proto: GunSafeDisabler
   entities:
-  - uid: 17793
+  - uid: 9306
     components:
     - type: Transform
-      pos: -4.5,40.5
+      pos: -4.5,45.5
       parent: 2
 - proto: GunSafeLaserCarbine
   entities:
@@ -115594,6 +115605,13 @@ entities:
     components:
     - type: Transform
       pos: -5.5,38.5
+      parent: 2
+- proto: GunSafeLauncherNonLethal
+  entities:
+  - uid: 9308
+    components:
+    - type: Transform
+      pos: -4.5,40.5
       parent: 2
 - proto: GunSafeRifleLecter
   entities:
@@ -118759,6 +118777,11 @@ entities:
     - type: Transform
       pos: 7.5,-14.5
       parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        9310:
+        - - MaterialSilo
+          - MaterialSiloUtilizer
 - proto: MaterialWoodPlank1
   entities:
   - uid: 18149
@@ -126909,11 +126932,6 @@ entities:
     - type: Transform
       pos: 10.5,28.5
       parent: 2
-  - uid: 19303
-    components:
-    - type: Transform
-      pos: -3.5,42.5
-      parent: 2
   - uid: 19304
     components:
     - type: Transform
@@ -132631,6 +132649,13 @@ entities:
       parent: 2
 - proto: SecurityTechFab
   entities:
+  - uid: 9310
+    components:
+    - type: Transform
+      pos: -3.5,42.5
+      parent: 2
+    - type: SiloUtilizer
+      silo: 18148
   - uid: 20414
     components:
     - type: Transform
@@ -142097,6 +142122,11 @@ entities:
     - type: Transform
       pos: 50.5,30.5
       parent: 2
+  - uid: 21839
+    components:
+    - type: Transform
+      pos: 13.5,30.5
+      parent: 2
   - uid: 21840
     components:
     - type: Transform
@@ -142175,11 +142205,6 @@ entities:
     components:
     - type: Transform
       pos: -7.5,40.5
-      parent: 2
-  - uid: 21855
-    components:
-    - type: Transform
-      pos: -4.5,45.5
       parent: 2
   - uid: 21856
     components:

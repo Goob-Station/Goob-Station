@@ -30,8 +30,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   - Causing massive station damage and chaos as an antagonist with the "die a glorious death" objective.
   - Killing anyone you see while playing as nuclear operative(s).
   - Permanently round removing a single person so that you can impersonate them to make it easier for you to complete a steal objective.
-  - Sabotaging station power 10 minutes into the round to try to get the shuttle called because you’ve completed all of your other objectives and have one to escape on the shuttle alive. (Destroying the Particle Accelerator, TEG and all backup generation in Engineering but not loosing a singularity/tesla.)
-  - Sabotaging a department’s power 10 minutes into the round to make a steal objective easier to accomplish. (Such as cutting the departments MV power, or removing/destroying the substation.)
+  - Sabotaging station power 10 minutes into the round to try to get the shuttle called because you�ve completed all of your other objectives and have one to escape on the shuttle alive. (Destroying the Particle Accelerator, TEG and all backup generation in Engineering but not loosing a singularity/tesla.)
+  - Sabotaging a department�s power 10 minutes into the round to make a steal objective easier to accomplish. (Such as cutting the departments MV power, or removing/destroying the substation.)
   - Permanently round removing many people who have demonstrated a persistence and a capability to either kill you or interfere with the completion of your objectives.
   - Killing an unrelated person in order to steal items held by said person, such as killing an engineer for their hardsuit and tools.
   - As a traitor, buying a singularity attractor to guide the singularity to a kill target when it is already loosed.
@@ -44,4 +44,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   - Loosing the tesla or singularity in the hope that it kills your objectives.
   - Seeking out and gibbing/round removing an entire department and random people for no actual reason. This includes the security department.
   - Loosing the tesla or singularity in order to get evac called, even if objectives are already completed.
+
+  Grey area:
+  - Evacuation shuttle bombing. It is recommended you at least attempt to complete your objective on station before you consider evac bombing.
 </Document>

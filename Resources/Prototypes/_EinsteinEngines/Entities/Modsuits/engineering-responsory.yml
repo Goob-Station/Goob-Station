@@ -1,11 +1,13 @@
+# SPDX-FileCopyrightText: 2025 CliveOcelot <165305605+Orion-416@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 # The Modsuit Itself, This is just a ERT modsuit
 - type: entity
-  parent: ClothingModsuitStandard
+  parent: [ ClothingModsuitStandard, BaseCentcommContraband ]
   id: ClothingModsuitResponsoryEngineering
   name: Engineering Responsory modsuit control
   description: The main controller for a Engineering Responsory modsuit.
@@ -30,12 +32,13 @@
       maxItemSize: Huge
       grid:
         - 0,0,10,3
-    - type: ExplosionResistance #Dont want chain explosions in the modsuits storage
-      damageCoefficient: 0.1
+    - type: ClothingSpeedModifier
+      walkModifier: 1
+      sprintModifier: 1
     - type: SealableClothingVisuals
       visualLayers:
         back:
-          - state: equipped-BACKPACK-sealed
+        - state: equipped-BACKPACK-sealed
 
 - type: entity
   parent: ClothingModsuitGauntletsStandard
@@ -68,10 +71,14 @@
     - type: Armor
       modifiers:
         coefficients:
-          Blunt: 0.9
-          Slash: 0.9
-          Piercing: 0.9
-          Heat: 0.9
+          Blunt: 0.75
+          Slash: 0.4 # Goobstation - Solstice: CBURN should protect against zombie attacks # pheenty: why tf is ert engineer inherited from cburn
+          Piercing: 0.65
+          Heat: 0.15
+          Cold: 0.10
+          Shock: 0.15
+          Radiation: 0.1
+          Caustic: 0.1
     - type: FlashImmunity # Goobstation
     - type: FlashSoundSuppression # Goobstation
       protectionRange: 0
@@ -105,12 +112,14 @@
     - type: Armor
       modifiers:
         coefficients:
-          Blunt: 0.4
-          Slash: 0.4
-          Piercing: 0.3
-          Heat: 0.5
-          Radiation: 0.25
-          Caustic: 0.4
+          Blunt: 0.7
+          Slash: 0.3 # Goobstation - CBURN should protect against zombie attacks
+          Piercing: 0.6
+          Heat: 0.10
+          Cold: 0.10
+          Shock: 0.15
+          Radiation: 0.1
+          Caustic: 0.1
     - type: SealableClothingVisuals
       visualLayers:
         outerClothing:
@@ -122,6 +131,7 @@
     - type: ClothingGrantComponent
       component:
         - type: SupermatterImmune
+
 - type: entity
   parent: ClothingModsuitBootsStandard
   id: ClothingModsuitBootsResponsoryEngineering
@@ -135,19 +145,21 @@
     - type: Tag
       tags:
         - WhitelistChameleon
-    - type: ClothingSpeedModifier
-      walkModifier: 1
-      sprintModifier: 1
-    - type: ToggleClothing
-      action: ActionToggleMagboots
-    - type: ComponentToggler
-      components:
-        - type: NoSlip
-    - type: Magboots
     - type: SealableClothingVisuals
       visualLayers:
         shoes:
           - state: equipped-FEET-sealed
+    - type: ItemToggle
+    - type: ToggleClothing
+      action: ActionToggleMagboots
+    - type: ComponentToggler
+      components:
+      - type: NoSlip
+    - type: Magboots
+      enabledPrefix: null
+    - type: ClothingSpeedModifier
+      walkModifier: 1
+      sprintModifier: 1
 
 - type: entity
   id: SuitStorageResponsoryEngineering

@@ -1,9 +1,11 @@
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -100,17 +102,9 @@ public sealed class SurgerySystem : SharedSurgerySystem
             return;
 
         // kinda funky but still works
-        if (damage.GetTotal() < 0)
-        {
-            foreach (var (type, amount) in damage.DamageDict.ToList())
-            {
-                // TODO: Also the scar treating surgery too, fuck. I hate this system and by every second I have to spend working with THIS I want to kill myself more and more
-                _wounds.TryHaltAllBleeding(part, force: true);
-                _wounds.TryHealWoundsOnWoundable(part, -amount, type, out _, ignoreMultipliers: true);
-            }
-        }
-
-        _damageable.TryChangeDamage(part, damage, true, origin: user, partMultiplier: partMultiplier, targetPart: _body.GetTargetBodyPart(partComp));
+        // TODO: Also the scar treating surgery too, fuck. I hate this system and by every second I have to spend working with THIS I want to kill myself more and more
+        _wounds.TryHaltAllBleeding(part, force: true);
+        _damageable.TryChangeDamage(body, damage, true, origin: user, partMultiplier: partMultiplier, targetPart: _body.GetTargetBodyPart(partComp));
     }
 
     private void AttemptStartSurgery(Entity<SurgeryToolComponent> ent, EntityUid user, EntityUid target)

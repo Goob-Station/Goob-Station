@@ -57,11 +57,13 @@
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Eagle <lincoln.mcqueen@gmail.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 vanx <61917534+Vaaankas@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -103,6 +105,9 @@
       map: ["enum.SolutionContainerLayers.Fill"]
       visible: false
   - type: MeleeWeapon
+    canWideSwing: false # Goob
+    range: 2.2 # Goob
+    attackRate: 0.8 # Goob
     animationRotation: -135 # WWDP
     wideAnimationRotation: -135
     damage:
@@ -115,9 +120,12 @@
   - type: DamageOtherOnHit
     damage:
       types:
-        Piercing: 15
+        Piercing: 24 # Goob edit
   - type: Item
-    size: Large # goobstation
+    size: Large # Goob edit
+    shape: # Goob
+    - 0,0,8,0
+    storedRotation: 45 # Goob
   - type: Clothing
     quickEquip: false
     slots:
@@ -146,7 +154,7 @@
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Piercing: 4
+        Piercing: 6 # Goob edit
   # Goobstation - nuh uh
   #- type: Damageable
   #  damageContainer: Inorganic
@@ -208,7 +216,7 @@
   - type: DamageOtherOnHit
     damage:
       types:
-        Piercing: 17
+        Piercing: 30 # Goob edit
   - type: Construction
     graph: SpearReinforced
 
@@ -229,7 +237,7 @@
   - type: DamageOtherOnHit
     damage:
       types:
-        Piercing: 21
+        Piercing: 36 # Goob edit
   - type: Construction
     graph: SpearPlasma
 
@@ -251,8 +259,8 @@
   - type: DamageOtherOnHit
     damage:
       types:
-        Piercing: 12
-        Radiation: 9
+        Piercing: 24 # Goob edit
+        Radiation: 12 # Goob edit
   - type: Construction
     graph: SpearUranium
 

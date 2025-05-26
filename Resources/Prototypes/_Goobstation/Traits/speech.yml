@@ -1,7 +1,9 @@
 # SPDX-FileCopyrightText: 2024 BeeRobynn <166929042+BeeRobynn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 lanse12 <cloudability.ez@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Cattowo <2spoopy4u2handle@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 Rane <60792108+Elijahrane@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
@@ -41,15 +43,6 @@
     accent: bogan
 
 - type: trait
-  id: MaoistAccent
-  name: trait-maoist-accent-name
-  description: trait-maoist-accent-desc
-  category: SpeechTraits
-  cost: 1
-  components:
-  - type: MaoistAccent
-
-- type: trait
   id: MedievalAccent
   name: trait-medieval-accent-name
   description: trait-medieval-accent-desc
@@ -57,13 +50,3 @@
   cost: 1
   components:
   - type: MedievalAccent
-
-- type: trait
-  id: Tide
-  name: trait-tide-accent-name
-  description: trait-tide-accent-desc
-  category: SpeechTraits
-  cost: 1
-  components:
-  - type: ReplacementAccent
-    accent: tide

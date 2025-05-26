@@ -26,7 +26,10 @@
         "name": "chest_5"
         },
         {
-            "name": "chest_6unused"
+        "name": "chest_6"
+        },
+        {
+        "name": "chest_bleed"
         }
     ]
 }

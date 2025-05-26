@@ -118,7 +118,7 @@
       shader: unshaded
   - type: Projectile
     impactEffect: BulletImpactEffectKinetic
-    armorPenetration: 1
+    ignoreResistances: true
     damage:
       types:
         Slash: 25
