@@ -33,7 +33,6 @@ using Content.Server.Emp;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Power.Pow3r;
-using Content.Server.StationEvents.Events;
 using Content.Shared.Access.Systems;
 using Content.Shared.APC;
 using Content.Shared.Emag.Systems;
@@ -55,7 +54,6 @@ public sealed class ApcSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
-    [Dependency] private readonly PowerGridCheckRule _powerGridCheckRule = default!;
 
     public override void Initialize()
     {
