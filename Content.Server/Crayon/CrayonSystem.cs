@@ -58,7 +58,7 @@ public sealed class CrayonSystem : SharedCrayonSystem
 
     private static void OnCrayonGetState(EntityUid uid, CrayonComponent component, ref ComponentGetState args)
     {
-        args.State = new CrayonComponentState(component.Color, component.SelectedState, component.Charges, component.Capacity);
+        args.State = new CrayonComponentState(component.Color, component.SelectedState, component.Charges, component.Capacity, component.Infinite); // imp
     }
 
     private void OnCrayonAfterInteract(EntityUid uid, CrayonComponent component, AfterInteractEvent args)
@@ -90,14 +90,19 @@ public sealed class CrayonSystem : SharedCrayonSystem
         if (component.UseSound != null)
             _audio.PlayPvs(component.UseSound, uid, AudioParams.Default.WithVariation(0.125f));
 
-        // Decrease "Ammo"
-        component.Charges--;
-        Dirty(uid, component);
+        // begin imp
+        if (!component.Infinite)
+        {
+            // Decrease "Ammo"
+            component.Charges--;
+            Dirty(uid, component);
+        }
+        // end imp
 
         _adminLogger.Add(LogType.CrayonDraw, LogImpact.Low, $"{EntityManager.ToPrettyString(args.User):user} drew a {component.Color:color} {component.SelectedState}");
         args.Handled = true;
 
-        if (component.DeleteEmpty && component.Charges <= 0)
+        if (!component.Infinite && component.DeleteEmpty && component.Charges <= 0)
             UseUpCrayon(uid, args.User);
         else
             _uiSystem.ServerSendUiMessage(uid, SharedCrayonComponent.CrayonUiKey.Key, new CrayonUsedMessage(component.SelectedState));

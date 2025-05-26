@@ -1,0 +1,24 @@
+diff a/Content.Client/Crayon/CrayonSystem.cs b/Content.Client/Crayon/CrayonSystem.cs	(rejected hunks)
+@@ -29,6 +29,7 @@ private static void OnCrayonHandleState(EntityUid uid, CrayonComponent component
+         component.SelectedState = state.State;
+         component.Charges = state.Charges;
+         component.Capacity = state.Capacity;
++        component.Infinite = state.Infinite;
+ 
+         component.UIUpdateNeeded = true;
+     }
+@@ -58,10 +59,11 @@ protected override void FrameUpdate(FrameEventArgs args)
+ 
+             _parent.UIUpdateNeeded = false;
+             _label.SetMarkup(Robust.Shared.Localization.Loc.GetString("crayon-drawing-label",
+-                ("color",_parent.Color),
+-                ("state",_parent.SelectedState),
++                ("color", _parent.Color),
++                ("state", _parent.SelectedState),
+                 ("charges", _parent.Charges),
+-                ("capacity",_parent.Capacity)));
++                ("capacity", _parent.Capacity),
++                ("infinite", _parent.Infinite))); // imp
+         }
+     }
+ }

@@ -1,0 +1,7 @@
+﻿- type: entity # imp
+  parent: PassengerPDA
+  id: UndercoverPDA
+  suffix: Syndicate
+  components:
+  - type: Pda
+    id: UndercoverIDCard

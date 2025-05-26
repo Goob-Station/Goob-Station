@@ -1,0 +1,20 @@
+diff a/Content.Shared/Paper/PaperSystem.cs b/Content.Shared/Paper/PaperSystem.cs	(rejected hunks)
+@@ -147,7 +147,8 @@ private static StampDisplayInfo GetStampInfo(StampComponent stamp)
+         return new StampDisplayInfo
+         {
+             StampedName = stamp.StampedName,
+-            StampedColor = stamp.StampedColor
++            StampedColor = stamp.StampedColor,
++            StampLargeIcon = stamp.StampLargeIcon // imp
+         };
+     }
+ 
+@@ -215,7 +216,7 @@ public void SetContent(Entity<PaperComponent> entity, string content)
+         _appearance.SetData(entity, PaperVisuals.Status, status, appearance);
+     }
+ 
+-    private void UpdateUserInterface(Entity<PaperComponent> entity)
++    public void UpdateUserInterface(Entity<PaperComponent> entity)
+     {
+         _uiSystem.SetUiState(entity.Owner, PaperUiKey.Key, new PaperBoundUserInterfaceState(entity.Comp.Content, entity.Comp.StampedBy, entity.Comp.Mode));
+     }

@@ -1,0 +1,9 @@
+diff a/Resources/Prototypes/Catalog/VendingMachines/Inventories/engidrobe.yml b/Resources/Prototypes/Catalog/VendingMachines/Inventories/engidrobe.yml	(rejected hunks)
+@@ -17,4 +17,5 @@
+     ClothingNeckScarfStripedOrange: 3
+     ClothingShoesBootsWinterEngi: 2
+   emaggedInventory:
+-    ClothingUniformJumpsuitCHESyndicate: 1
+\ No newline at end of file
++    ClothingUniformJumpsuitCHESyndicate: 1
++    ClothingUniformCybersunHazard: 1 # DeltaV

@@ -1,0 +1,10 @@
+diff a/Content.Server/Ghost/Roles/GhostRoleSystem.cs b/Content.Server/Ghost/Roles/GhostRoleSystem.cs	(rejected hunks)
+@@ -38,7 +38,7 @@
+ namespace Content.Server.Ghost.Roles;
+ 
+ [UsedImplicitly]
+-public sealed class GhostRoleSystem : EntitySystem
++public sealed partial class GhostRoleSystem : EntitySystem
+ {
+     [Dependency] private readonly IConfigurationManager _cfg = default!;
+     [Dependency] private readonly EuiManager _euiManager = default!;

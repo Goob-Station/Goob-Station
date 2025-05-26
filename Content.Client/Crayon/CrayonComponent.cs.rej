@@ -1,0 +1,8 @@
+diff a/Content.Client/Crayon/CrayonComponent.cs b/Content.Client/Crayon/CrayonComponent.cs	(rejected hunks)
+@@ -10,5 +10,6 @@ public sealed partial class CrayonComponent : SharedCrayonComponent
+         [ViewVariables(VVAccess.ReadWrite)] public bool UIUpdateNeeded;
+         [ViewVariables] public int Charges { get; set; }
+         [ViewVariables] public int Capacity { get; set; }
++        [ViewVariables] public bool Infinite { get; set; } // imp
+     }
+ }

@@ -1,0 +1,33 @@
+diff a/Resources/Prototypes/Entities/Objects/Misc/pen.yml b/Resources/Prototypes/Entities/Objects/Misc/pen.yml	(rejected hunks)
+@@ -102,14 +102,14 @@
+     heldPrefix: overpriced_pen
+   - type: SignatureWriter # imp start
+     fontList:
+-      Noto Sans: "/Fonts/NotoSans/NotoSans-Regular.ttf"
+-      Comic Neue: "/Fonts/_DV/ComicNeue/ComicNeue-Regular.ttf"
+-      Hachi Maru Pop: "/Fonts/_DV/HachiMaruPop/HachiMaruPop-Regular.ttf"
+-      Kode Mono: "/Fonts/_DV/KodeMono/KodeMono-Regular.ttf"
+-      Reenie Beanie: "/Fonts/_DV/ReenieBeanie/ReenieBeanie-Regular.ttf"
+-      Tangerine: "/Fonts/_DV/Tangerine/Tangerine_Bold.ttf"
+-      UnifrakturMaguntia: "/Fonts/_DV/UnifrakturMaguntia/UnifrakturMaguntia-Regular.ttf"
+-      Wahroonga: "/Fonts/_DV/Wahroonga/Wahroonga-Regular.ttf"
++      Noto Sans: Default
++      Comic Neue: ComicNeue
++      Hachi Maru Pop: HachiMaruPop
++      Kode Mono: KodeMono
++      Reenie Beanie: ReenieBeanie
++      Tangerine: Tangerine
++      UnifrakturMaguntia: UnifrakturMaguntia
++      Wahroonga: Wahroonga
+     colorList:
+       black: "#2f4f4f"
+       blue: "#284283"
+@@ -128,7 +128,7 @@
+     state: pen_centcom
+   - type: Item
+     heldPrefix: pen_centcom
+-  - type: SignatureWriter
++  - type: SignatureWriter # imp
+     color: "#009100"
+ 
+ - type: entity

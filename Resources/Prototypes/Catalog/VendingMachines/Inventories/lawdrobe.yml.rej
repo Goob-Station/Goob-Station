@@ -1,0 +1,12 @@
+diff a/Resources/Prototypes/Catalog/VendingMachines/Inventories/lawdrobe.yml b/Resources/Prototypes/Catalog/VendingMachines/Inventories/lawdrobe.yml	(rejected hunks)
+@@ -23,5 +23,10 @@
+     ClothingHeadHatPwig: 1
+     # "Legally" obtained currency
+     SpaceCash100: 2
++    # Begin DeltaV additions
++    ClothingUniformCybersunAttorney: 1
++    CybersunBriefcase: 1
++    ClothingOuterCybersunOvercoat: 1
++    # End DeltaV additions
+   emaggedInventory:
+     CyberPen: 1

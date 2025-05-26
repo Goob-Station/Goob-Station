@@ -1,0 +1,7 @@
+diff a/Resources/Prototypes/_Impstation/Objects/Specific/revenant.yml b/Resources/Prototypes/_Impstation/Objects/Specific/revenant.yml	(rejected hunks)
+@@ -21,4 +21,4 @@
+     - Recyclable
+     - Trash
+   - type: SignatureWriter
+-    font: /Fonts/_DV/SwampWitch/SwampWitch.ttf
++    font: SwampWitch

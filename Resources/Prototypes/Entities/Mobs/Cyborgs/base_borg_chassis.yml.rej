@@ -1,0 +1,10 @@
+diff a/Resources/Prototypes/Entities/Mobs/Cyborgs/base_borg_chassis.yml b/Resources/Prototypes/Entities/Mobs/Cyborgs/base_borg_chassis.yml	(rejected hunks)
+@@ -278,7 +278,7 @@
+     maxIntensity: 20
+     canCreateVacuum: false # its for killing the borg not the station
+   - type: SignatureFont # imp
+-    font: "/Fonts/_DV/Sixtyfour/Sixtyfour-Regular.ttf"
++    font: Sixtyfour
+ 
+ - type: entity
+   id: BaseBorgChassisNT

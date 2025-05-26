@@ -1,0 +1,10 @@
+diff a/Resources/Prototypes/Entities/Objects/Weapons/Melee/e_sword.yml b/Resources/Prototypes/Entities/Objects/Weapons/Melee/e_sword.yml	(rejected hunks)
+@@ -83,7 +83,7 @@
+       params:
+         variation: 0.250
+   - type: ItemToggleSignatureWriter # imp start
+-    activatedFont: /Fonts/_DV/AndTheDoorCreeeaked/AndTheDoorCreeeaked-Regular.otf
++    activatedFont: AndTheDoorCreeeaked
+     activatedColor: black # imp end
+ 
+ - type: entity

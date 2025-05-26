@@ -1,0 +1,7 @@
+# Utilty
+
+- type: latheRecipe
+  id: ClothingBeltSyndicateUtility
+  result: ClothingBeltSyndicateUtility
+  materials:
+    Cloth: 200
