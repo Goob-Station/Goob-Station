@@ -59,12 +59,10 @@ public sealed class BreedingSystem : EntitySystem
     {
         var eligibleSlimes = new HashSet<Entity<SlimeComponent, MobGrowthComponent, HungerComponent>>();
 
-        var query = EntityQueryEnumerator<SlimeComponent>();
-        while (query.MoveNext(out var uid, out var slime))
+        var query = EntityQueryEnumerator<SlimeComponent, MobGrowthComponent, HungerComponent>();
+        while (query.MoveNext(out var uid, out var slime, out var growthComp, out var hungerComp))
         {
-            if (_mobState.IsDead(uid)
-                || !TryComp<MobGrowthComponent>(uid, out var growthComp)
-                || !TryComp<HungerComponent>(uid, out var hungerComp))
+            if (_mobState.IsDead(uid))
                 continue;
 
             if (growthComp.CurrentStage == growthComp.Stages[0])
@@ -106,7 +104,9 @@ public sealed class BreedingSystem : EntitySystem
     //Handles slime mitosis, for each offspring, a mutation is selected from their potential mutations - if mutation is successful, the products of mitosis will have the new mutation.
     private void DoMitosis(Entity<SlimeComponent> ent)
     {
-        for (var i = 0; i < ent.Comp.Offspring; i++)
+        var offspringCount = _random.Next(1, ent.Comp.Offspring + 1);
+        
+        for (var i = 0; i < offspringCount; i++)
         {
             var success = _random.Prob(ent.Comp.MutationChance);
             var selectedBreed = ent.Comp.Breed;
