@@ -3,23 +3,35 @@ using Robust.Shared.Prototypes;
 namespace Content.Goobstation.Prototypes
 {
     [Prototype("cookingRecipe")]
-    public sealed class CookingRecipePrototype : IPrototype
+    [DataDefinition]
+    public sealed partial class CookingRecipePrototype : IPrototype
     {
-        [IdDataField] public string ID { get; } = string.Empty;
+        [IdDataField]
+        public string ID { get; private set; } = default!;
 
         [DataField("name")]
         public string Name = string.Empty;
 
         [DataField("input")]
-        public List<string> Input = new();
+        public List<IngredientEntry> Input = new();
 
         [DataField("output")]
-        public string Output = string.Empty;
+        public EntProtoId Output;
 
         [DataField("requiredMachine")]
         public string RequiredMachine = string.Empty;
 
         [DataField("requiredTime")]
-        public float RequiredTime = 1f;
+        public float RequiredTime = 0f;
+
+        [DataDefinition]
+        public sealed partial class IngredientEntry
+        {
+            [DataField("id", required: true)]
+            public EntProtoId ID = default!;
+
+            [DataField("amount")]
+            public int Amount = 1;
+        }
     }
 }

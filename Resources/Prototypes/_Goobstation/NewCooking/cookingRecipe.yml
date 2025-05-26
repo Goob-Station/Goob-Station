@@ -1,8 +1,11 @@
 - type: cookingRecipe
-  id: CookPizza
-  name: Pizza
+  id: CookMargheritaPizza
+  name: RecipeMargheritaPizza
   input:
-    - FoodDough
-  output: FoodDoughCornmeal
+    - id: FoodDoughFlat
+    - id: FoodTomato
+      amount: 4
+    - id: FoodCheeseSlice
+  output: FoodPizzaMargherita
   requiredMachine: Oven
   requiredTime: 5.0
