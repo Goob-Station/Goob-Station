@@ -72,6 +72,7 @@
         southRotation: true
       steps:
       - tag: Meat
+        name: construction-graph-tag-meat
         doAfter: 3
     - to: HeavenAltarNode
       completed:

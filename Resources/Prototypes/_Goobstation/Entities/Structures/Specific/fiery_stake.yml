@@ -52,8 +52,8 @@
     node: BonfireNode
 
 - type: construction
-  id: FieryCross
-  graph: FieryCrossGraph
+  id: FieryStake
+  graph: FieryStakeGraph
   startNode: start
   targetNode: BonfireNode
   category: construction-category-furniture

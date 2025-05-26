@@ -42,5 +42,6 @@
 
 - type: stack
   id: FloorTileBingle
+  name: stack-bingle-tile
   spawn: FloorTileItemBingle
   maxCount: 30
