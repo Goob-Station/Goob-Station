@@ -298,7 +298,7 @@
   parent: ClothingHandsBase
   id: ClothingModsuitGauntletsCaptain
   name: magnate modsuit gauntlets
-  description: Has specialised grooves and cuts for holding dat fukn diiisskk easier.
+  description: Has specialised grooves and cuts for holding dat fukn diiisskk easier, e
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
