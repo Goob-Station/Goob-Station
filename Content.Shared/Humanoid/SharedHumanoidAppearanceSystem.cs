@@ -73,7 +73,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     public const string DefaultSpecies = "Human";
     // Corvax-Frontier-Barks-start
     [ValidatePrototypeId<BarkPrototype>]
-    public const string DefaultBarkVoice = "BarksGoonSpeak1";
+    public const string DefaultBarkVoice = "Alto";
     // Corvax-Frontier-Barks-end
 
     public override void Initialize()
