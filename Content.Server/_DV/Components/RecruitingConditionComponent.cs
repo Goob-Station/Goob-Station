@@ -1,4 +1,8 @@
-﻿using Content.Server.Objectives.Systems;
+// SPDX-FileCopyrightText: 2025 Midna <Midna@Midnight.Miami>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Server.Objectives.Systems;
 using Content.Shared._DV.Recruiter;
 
 namespace Content.Server.Objectives.Components;

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Midna <Midna@Midnight.Miami>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Interaction;
 using Content.Server.Revenant.Components;
 using Content.Server.Crayon;

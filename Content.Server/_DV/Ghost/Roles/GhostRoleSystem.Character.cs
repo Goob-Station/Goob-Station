@@ -1,4 +1,8 @@
-﻿using Content.Server.Administration.Commands;
+// SPDX-FileCopyrightText: 2025 Midna <Midna@Midnight.Miami>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Server.Administration.Commands;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Ghost.Roles.Events;
 using Content.Server.Preferences.Managers;
