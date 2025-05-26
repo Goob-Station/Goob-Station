@@ -82,7 +82,8 @@ public sealed class SlimeMobActionsSystem : EntitySystem
 
     private void OnEntityDied(Entity<SlimeComponent> slime, ref MobStateChangedEvent args)
     {
-        if (!TryComp<StorageComponent>(slime, out var storage))
+        if (!TryComp<StorageComponent>(slime, out var storage)
+            || args.NewMobState != MobState.Dead)
             return;
 
         var removedEnts = _container.EmptyContainer(storage.Container, true);
