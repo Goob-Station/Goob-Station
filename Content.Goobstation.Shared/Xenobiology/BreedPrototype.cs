@@ -9,7 +9,8 @@ namespace Content.Goobstation.Shared.Xenobiology;
 [Prototype]
 public sealed partial class BreedPrototype : IPrototype
 {
-    [IdDataField] public string ID { get; private set; } = default!;
+    [IdDataField]
+    public string ID { get; private init; } = null!;
 
     /// <summary>
     /// Used to set the slime's name.

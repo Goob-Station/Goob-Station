@@ -1,3 +1,4 @@
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -44,5 +45,8 @@ public sealed partial class SlimeComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public Color SlimeColor = Color.FromHex("#828282");
+
+    [DataField]
+    public SoundPathSpecifier SquishSound = new("/Audio/_EinsteinEngines/Voice/Slime/slime_squish.ogg");
 
 }

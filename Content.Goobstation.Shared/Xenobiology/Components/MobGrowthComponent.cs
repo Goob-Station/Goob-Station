@@ -24,12 +24,12 @@ public sealed partial class MobGrowthComponent : Component
     /// What is the mob's current growth stage?
     /// </summary>
     [DataField(required: true), AutoNetworkedField]
-    public string CurrentStage = string.Empty;
+    public string CurrentStage;
 
     /// <summary>
     /// A list of available stages, make sure to include the base stage.
     /// </summary>
     [DataField(required: true), AutoNetworkedField]
-    public List<string> Stages = new List<string>();
+    public List<string> Stages = [];
 
 }

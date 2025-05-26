@@ -16,7 +16,6 @@ public sealed class MobGrowthSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly HungerSystem _hunger = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
 
@@ -26,7 +25,6 @@ public sealed class MobGrowthSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-
         _nextUpdateTime = _gameTiming.CurTime + _updateInterval;
     }
 
@@ -42,18 +40,19 @@ public sealed class MobGrowthSystem : EntitySystem
         UpdateMobGrowth();
     }
 
-    // Checks entity hunger threshholds, if the threshhold required by MobGrowth is met -> grow.
+    // Checks entity hunger thresholds, if the threshold required by MobGrowth is met -> grow.
     private void UpdateMobGrowth()
     {
-        var query = EntityQueryEnumerator<MobGrowthComponent, HungerComponent>();
         var eligibleMobs = new HashSet<Entity<MobGrowthComponent, HungerComponent>>();
-        while (query.MoveNext(out var uid, out var growth, out var hunger))
-        {
 
-            if (_mobState.IsDead(uid))
+        var query = EntityQueryEnumerator<MobGrowthComponent>();
+        while (query.MoveNext(out var uid, out var growth))
+        {
+            if (_mobState.IsDead(uid)
+                || !TryComp<HungerComponent>(uid, out var hungerComp))
                 continue;
 
-            eligibleMobs.Add((uid, growth, hunger));
+            eligibleMobs.Add((uid, growth, hungerComp));
         }
 
         foreach (var ent in eligibleMobs)
@@ -70,7 +69,7 @@ public sealed class MobGrowthSystem : EntitySystem
     #region Helpers
 
     // Fairly barebones at the moment, this could be expanded to increase HP etc...
-    public void DoGrowth(Entity<MobGrowthComponent, HungerComponent> ent)
+    private void DoGrowth(Entity<MobGrowthComponent, HungerComponent> ent)
     {
         if (TerminatingOrDeleted(ent))
             return;
@@ -82,9 +81,11 @@ public sealed class MobGrowthSystem : EntitySystem
         var nextStage = stages[nextIndex];
 
         ent.Comp1.CurrentStage = nextStage;
-        Dirty(ent);
+
         _hunger.ModifyHunger(ent, ent.Comp1.GrowthCost, ent.Comp2);
         _appearance.SetData(ent, GrowthStateVisuals.Stage, ent.Comp1.CurrentStage);
+
+        Dirty(ent);
     }
     #endregion
 }

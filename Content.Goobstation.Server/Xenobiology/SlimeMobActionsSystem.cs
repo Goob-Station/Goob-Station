@@ -1,6 +1,7 @@
-using System.Linq;
 using Content.Goobstation.Shared.Xenobiology;
 using Content.Goobstation.Shared.Xenobiology.Components;
+using Content.Server.Popups;
+using Content.Server.Stunnable;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
 using Content.Shared.Mobs;
@@ -8,6 +9,9 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Nyanotrasen.Item.PseudoItem;
+using Content.Shared.Storage;
+using Robust.Server.Audio;
+using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
 
@@ -18,14 +22,15 @@ namespace Content.Goobstation.Server.Xenobiology;
 /// </summary>
 public sealed class SlimeMobActionsSystem : EntitySystem
 {
-
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly HungerSystem _hunger = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedPseudoItemSystem _pseudoSystem = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
-
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly StunSystem _stun = default!;
+    [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -33,25 +38,25 @@ public sealed class SlimeMobActionsSystem : EntitySystem
 
         SubscribeLocalEvent<SlimeLatchEvent>(OnLatch);
         SubscribeLocalEvent<SlimeComponent, EntRemovedFromContainerMessage>(OnEntityEscape);
-        SubscribeLocalEvent<SlimeDamageOvertimeComponent, MobStateChangedEvent>(OnEntityDied);
+        SubscribeLocalEvent<SlimeComponent, MobStateChangedEvent>(OnEntityDied);
+        SubscribeLocalEvent<SlimeDamageOvertimeComponent, MobStateChangedEvent>(OnConsumedEntityDied);
     }
 
     public override void Update(float frameTime)
     {
-        var currentTime = _timing.CurTime;
         var query = EntityQueryEnumerator<SlimeDamageOvertimeComponent>();
-        while (query.MoveNext(out var uid, out var dot))
+        while (query.MoveNext(out var uid, out var dotComp))
         {
-            if (currentTime < dot.NextTickTime
+            if (_timing.CurTime < dotComp.NextTickTime
                 || _mobState.IsDead(uid))
                 continue;
 
-            var addedHunger = (float)dot.Damage.GetTotal();
-            dot.NextTickTime = currentTime + dot.Interval;
-            _damageable.TryChangeDamage(uid, dot.Damage, ignoreResistances: true, ignoreBlockers: true,  targetPart: TargetBodyPart.All);
+            var addedHunger = (float)dotComp.Damage.GetTotal();
+            dotComp.NextTickTime = _timing.CurTime + dotComp.Interval;
+            _damageable.TryChangeDamage(uid, dotComp.Damage, ignoreResistances: true, ignoreBlockers: true,  targetPart: TargetBodyPart.All);
 
-            if (TryComp<HungerComponent>(dot.SourceEntityUid, out var hunger))
-                _hunger.ModifyHunger(dot.SourceEntityUid, addedHunger, hunger);
+            if (TryComp<HungerComponent>(dotComp.SourceEntityUid, out var hunger) && dotComp.SourceEntityUid is { } sourceEntity)
+                _hunger.ModifyHunger(sourceEntity, addedHunger, hunger);
         }
     }
 
@@ -62,19 +67,27 @@ public sealed class SlimeMobActionsSystem : EntitySystem
         var target = args.Target;
 
         if (TerminatingOrDeleted(target)
-            || TerminatingOrDeleted(slime))
+            || TerminatingOrDeleted(slime)
+            || !TryComp<SlimeComponent>(slime, out var slimeComp))
             return;
 
-        DoSlimeLatch(slime, target);
+        DoSlimeLatch((slime, slimeComp), target);
     }
 
-    private void OnEntityDied(Entity<SlimeDamageOvertimeComponent> ent, ref MobStateChangedEvent args)
+    private void OnConsumedEntityDied(Entity<SlimeDamageOvertimeComponent> ent, ref MobStateChangedEvent args)
     {
-        if (!HasComp<PseudoItemComponent>(ent))
+        if (HasComp<PseudoItemComponent>(ent) && args.NewMobState == MobState.Dead)
+            _container.TryRemoveFromContainer(ent, true);
+    }
+
+    private void OnEntityDied(Entity<SlimeComponent> slime, ref MobStateChangedEvent args)
+    {
+        if (!TryComp<StorageComponent>(slime, out var storage))
             return;
 
-        if (args.NewMobState == MobState.Dead)
-            _container.TryRemoveFromContainer(ent, true);
+        var removedEnts = _container.EmptyContainer(storage.Container, true);
+        foreach (var ent in removedEnts)
+            _stun.TryParalyze(ent, TimeSpan.FromSeconds(5), true); // yes this is hardcoded, bite me.
     }
 
     private void OnEntityEscape(Entity<SlimeComponent> ent, ref EntRemovedFromContainerMessage args)
@@ -91,28 +104,34 @@ public sealed class SlimeMobActionsSystem : EntitySystem
     #endregion
 
     #region Helpers
-    private void DoSlimeLatch(EntityUid slime, EntityUid target)
+    private void DoSlimeLatch(Entity<SlimeComponent> slime, EntityUid target)
     {
         if (_mobState.IsDead(target))
             return;
 
-        var compExists = EntityManager.EnsureComponent<PseudoItemComponent>(target, out var item);
+        if (!EnsureComp<PseudoItemComponent>(target, out var pseudo))
+            pseudo.IntendedComp = false;
 
-        if (!compExists)
-            item.IntendedComp = false;
-
-        var inserted = _pseudoSystem.TryInsert(slime, target, item);
-
-        if (inserted)
+        if (!_pseudoSystem.TryInsert(slime, target, pseudo))
         {
-            EntityManager.EnsureComponent(target, out SlimeDamageOvertimeComponent comp);
-            comp.SourceEntityUid = slime;
-        }
-        else
-        {
+            var failPopup = Loc.GetString("slime-action-latch-fail", ("slime", slime), ("target", target));
+            _popup.PopupEntity(failPopup, slime);
+
             RemComp<PseudoItemComponent>(target);
+            return;
         }
-        //We also need to set a new state for the slime when it's consuming, this will be easy however it's important to take MobGrowthSystem into account... possibly we should use layers?
+
+
+        EnsureComp(target, out SlimeDamageOvertimeComponent comp);
+        comp.SourceEntityUid = slime;
+
+        _audio.PlayPredicted(slime.Comp.SquishSound, slime, slime);
+
+        var successPopup = Loc.GetString("slime-action-latch-start", ("slime", slime), ("target", target));
+        _popup.PopupEntity(successPopup, slime);
+
+        // We also need to set a new state for the slime when it's consuming,
+        // this will be easy however it's important to take MobGrowthSystem into account... possibly we should use layers?
     }
     #endregion
 }

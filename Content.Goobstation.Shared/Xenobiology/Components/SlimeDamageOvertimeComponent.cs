@@ -1,3 +1,4 @@
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Damage;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations;
@@ -10,20 +11,21 @@ namespace Content.Goobstation.Shared.Xenobiology.Components;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class SlimeDamageOvertimeComponent : Component
 {
-    public EntityUid SourceEntityUid { get; set; }
+    [ViewVariables(VVAccess.ReadOnly)]
+    public EntityUid? SourceEntityUid;
+
+    [DataField(customTypeSerializer: typeof(TimespanSerializer))]
+    public TimeSpan Interval = TimeSpan.FromSeconds(1);
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public TimeSpan NextTickTime = TimeSpan.Zero;
 
     [DataField]
     public DamageSpecifier Damage = new()
     {
-        DamageDict = new()
+        DamageDict = new Dictionary<string, FixedPoint2>
         {
             { "Blunt", 2.5},
-        }
+        },
     };
-
-    [DataField("interval", customTypeSerializer: typeof(TimespanSerializer))]
-    public TimeSpan Interval = TimeSpan.FromSeconds(1);
-
-    [DataField]
-    public TimeSpan NextTickTime = TimeSpan.Zero;
 }
