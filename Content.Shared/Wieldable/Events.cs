@@ -6,6 +6,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Inventory;
+
 namespace Content.Shared.Wieldable;
 
 /// <summary>
@@ -22,12 +24,18 @@ public readonly record struct ItemWieldedEvent(EntityUid User);
 public readonly record struct ItemUnwieldedEvent(EntityUid User, bool Force);
 
 /// <summary>
-/// Raised directed on an item before a user tries to wield it.
+/// Raised directed on an user and all the items in their inventory and hands before they wield an item.
 /// If this event is cancelled wielding will not happen.
 /// </summary>
 [ByRefEvent]
-public record struct WieldAttemptEvent(EntityUid User, bool Cancelled = false)
+public record struct WieldAttemptEvent(EntityUid User, EntityUid Wielded, bool Cancelled = false) : IInventoryRelayEvent
 {
+    /// <summary>
+    /// Popup message for the user to tell them why they cannot wield if Cancelled
+    /// </summary>
+    public string? Message;
+
+    SlotFlags IInventoryRelayEvent.TargetSlots => SlotFlags.WITHOUT_POCKET;
     public void Cancel()
     {
         Cancelled = true;
@@ -35,15 +43,21 @@ public record struct WieldAttemptEvent(EntityUid User, bool Cancelled = false)
 }
 
 /// <summary>
-/// Raised directed on an item before a user tries to stop wielding it willingly.
+/// Raised directed on an user and all the items in their inventory and hands before they unwield an item willingly.
 /// If this event is cancelled unwielding will not happen.
 /// </summary>
 /// <remarks>
 /// This event is not raised if the user is forced to unwield the item.
 /// </remarks>
 [ByRefEvent]
-public record struct UnwieldAttemptEvent(EntityUid User, bool Cancelled = false)
+public record struct UnwieldAttemptEvent(EntityUid User, EntityUid Wielded, bool Cancelled = false) : IInventoryRelayEvent
 {
+    /// <summary>
+    /// Popup message for the user to tell them why they cannot unwield if Cancelled
+    /// </summary>
+    public string? Message;
+
+    SlotFlags IInventoryRelayEvent.TargetSlots => SlotFlags.WITHOUT_POCKET;
     public void Cancel()
     {
         Cancelled = true;
