@@ -627,6 +627,7 @@
     - BorgModules
     - MechParts
     - MechEquipment
+    - BorgModulesDV # Delta-V - Security cyborg
     # Goobstation Packs
     - MechPartsGoob
     - Modsuits
@@ -634,13 +635,6 @@
     - BorgModulesGoob
     - Cybernetics
     - PowerCells
-    # Delta-V - Security Cyborg start
-    - BorgModuleSecurityPeacekeeper
-    - BorgModuleSecurityPatrol
-    - BorgModuleSecurityBastion
-    - BorgModuleSecurityDeescalate
-    - BorgModuleSecurityChase
-    # Delta-V - end
   - type: EmagLatheRecipes # Goobstation
     emagStaticPacks:
     - MechWeaponsSecurityStatic

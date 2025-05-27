@@ -1,0 +1,8 @@
+- type: latheRecipePack
+  id: BorgModulesDV
+  recipes:
+  - BorgModuleSecurityPeacekeeper
+  - BorgModuleSecurityPatrol
+  - BorgModuleSecurityBastion
+  - BorgModuleSecurityDeescalate
+  - BorgModuleSecurityChase
