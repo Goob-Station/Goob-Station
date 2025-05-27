@@ -9,9 +9,6 @@
   id: PouchSecurityUtility
   description: A small pouch for holding extra security goodies.
   components:
-  - type: Sprite
-    layers:
-      - state: utility
   - type: Storage
     maxItemSize: Small
     grid:
@@ -38,6 +35,9 @@
     - id: GrenadeFlashBang
     - id: BolaEnergy
     - id: Zipties # Looks weird but needed to look good in-game
+  - type: Sprite
+    layers:
+      - state: utility
 
 
 - type: entity
@@ -71,3 +71,6 @@
     - id: PillCanisterTramadol
     - id: CartridgeDermaline
     - id: PillCanisterTricordrazine
+  - type: Sprite
+    layers:
+      - state: utility
