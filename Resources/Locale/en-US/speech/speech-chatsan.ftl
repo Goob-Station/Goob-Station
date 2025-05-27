@@ -213,6 +213,6 @@ chatsan-replacement-68 = this shit
 chatsan-word-69 = pmo
 chatsan-replacement-69 = pisses me off
 
-chatsan-word-69 = sybau
-chatsan-replacement-69 = shut your bitch ass up
+chatsan-word-70 = sybau
+chatsan-replacement-70 = shut your bitch ass up
 # goob end
