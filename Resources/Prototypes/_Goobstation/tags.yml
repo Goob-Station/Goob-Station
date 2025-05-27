@@ -17,9 +17,13 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 GreenArg7 <GreenArc12@outlook.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 LuciferEOS <stepanteliatnik2022@gmail.com>
 # SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 LuciferMkshelter <stepanteliatnik2022@gmail.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Scruq445 <storchdamien@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
@@ -135,9 +139,6 @@
   id: CursedAnimalMask
 
 - type: Tag
-  id: DroneMind
-
-- type: Tag
   id: Durand
 
 - type: Tag
@@ -204,6 +205,9 @@
   id: FlashIgnoreResistances
 
 - type: Tag
+  id: FlashVulnerable
+
+- type: Tag
   id: FollowerStayOnPolymorph
 
 - type: Tag
@@ -211,6 +215,9 @@
 
 - type: Tag
   id: GasMask
+
+- type: Tag
+  id: GasMaskFullDefault
 
 - type: Tag
   id: GodHand
@@ -381,6 +388,9 @@
   id: Nullrod
 
 - type: Tag
+  id: NunHood
+
+- type: Tag
   id: Organ
 
 - type: Tag
@@ -448,6 +458,9 @@
 
 - type: Tag
   id: Table
+
+- type: Tag
+  id: Telecrystal
 
 - type: Tag
   id: TemplarHelmet

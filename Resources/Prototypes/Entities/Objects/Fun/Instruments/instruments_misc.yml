@@ -9,6 +9,8 @@
 # SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Bandit <queenjess521@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -200,3 +202,31 @@
     notificationPrefix: prayer-chat-notify-honkmother
     verb: prayer-verbs-call
     verbImage: null
+
+   #Goobstation
+- type: entity 
+  parent: [BaseHandheldInstrument, Clothing, BaseSyndicateContraband]
+  id: BloodredCasette
+  name: bloodred casette player
+  description: The least subtle way to enjoy your favorite tunes.
+  components:
+  - type: Instrument
+    program: 62
+  - type: SwappableInstrument
+    instrumentList:
+      "Synth": {62: 0}
+      "Friend": {2: 0}
+      "Overdriven": {29: 0}
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/bloodmonica.rsi
+    state: icon
+  - type: Item
+    size: Small
+    sprite: _Goobstation/Objects/Fun/bloodmonica.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _Goobstation/Objects/Fun/bloodmonica.rsi
+    slots:
+    - neck
+  - type: ActivatableUI
+    inHandsOnly: false

@@ -3,6 +3,8 @@
 // SPDX-FileCopyrightText: 2023 keronshb <keronshb@live.com>
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -41,12 +43,16 @@ public sealed class TryStartStructureConstructionMessage : EntityEventArgs
     /// </remarks>
     public readonly int Ack;
 
-    public TryStartStructureConstructionMessage(NetCoordinates loc, string prototypeName, Angle angle, int ack)
+    // Goobstation
+    public readonly NetEntity? With = null;
+
+    public TryStartStructureConstructionMessage(NetCoordinates loc, string prototypeName, Angle angle, int ack, NetEntity? with = null) // Goobstation
     {
         Location = loc;
         PrototypeName = prototypeName;
         Angle = angle;
         Ack = ack;
+        With = with; // Goobstation
     }
 }
 

@@ -21,7 +21,6 @@
 // SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
 // SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
@@ -30,7 +29,11 @@
 // SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 // SPDX-FileCopyrightText: 2025 No Elka <125199100+NoElkaTheGod@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 YoungThug <ramialanbagy@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -54,6 +57,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
+using Robust.Shared.Maths; // Goobstation
 using Robust.Shared.Utility;
 
 namespace Content.Server.Guardian
@@ -381,8 +385,22 @@ namespace Content.Server.Guardian
             if (!guardianComponent.GuardianLoose)
                 return;
 
+            // Goobstation - now moves you closer instead of retracting
             if (!_transform.InRange(guardianXform.Coordinates, hostXform.Coordinates, guardianComponent.DistanceAllowed))
-                RetractGuardian(hostUid, hostComponent, guardianUid, guardianComponent);
+            {
+                if (hostXform.MapID != guardianXform.MapID)
+                {
+                    _transform.SetCoordinates(guardianUid, guardianXform, hostXform.Coordinates);
+                }
+                else
+                {
+                    // host's position in our parent's coordinates
+                    var hostPos = hostXform.Coordinates.WithEntityId(guardianXform.ParentUid, EntityManager).Position;
+                    var diff = guardianXform.LocalPosition - hostPos;
+                    var newDiff = diff.Normalized() * guardianComponent.DistanceAllowed;
+                    _transform.SetLocalPosition(guardianUid, hostPos + newDiff, guardianXform);
+                }
+            }
         }
 
         private void ReleaseGuardian(EntityUid host, GuardianHostComponent hostComponent, EntityUid guardian, GuardianComponent guardianComponent)
