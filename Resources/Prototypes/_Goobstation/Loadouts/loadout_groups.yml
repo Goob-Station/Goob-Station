@@ -78,6 +78,7 @@
   - BlueshieldOfficerHeadSwatHelmet
   - BlueshieldOfficerBeret
   - BlueshieldOfficerHeadCowboy
+  - BlueshieldOfficerGoidaHelmet
 
 - type: loadoutGroup
   id: BlueshieldOfficerBackpack

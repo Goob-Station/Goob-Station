@@ -86,7 +86,7 @@ namespace Content.Shared.Damage
 
         private void OnExamined(Entity<ClothingSlowOnDamageModifierComponent> ent, ref ExaminedEvent args)
         {
-            var msg = Loc.GetString("slow-on-damage-modifier-examine", ("mod", (1 - ent.Comp.Modifier) * 100));
+            var msg = Loc.GetString("slow-on-damage-modifier-examine", ("mod", Math.Round(100 - ent.Comp.Modifier * 100))); // Goob edit
             args.PushMarkup(msg);
         }
 
