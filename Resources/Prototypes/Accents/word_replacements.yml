@@ -542,6 +542,12 @@
     chatsan-word-65: chatsan-replacement-65
     chatsan-word-66: chatsan-replacement-66
     chatsan-word-67: chatsan-replacement-67
+    # goob start
+    chatsan-word-68: chatsan-replacement-68
+    chatsan-word-69: chatsan-replacement-69
+    chatsan-word-70: chatsan-replacement-70
+    chatsan-word-71: chatsan-replacement-71
+    # goob end
 
 - type: accent
   id: liar
