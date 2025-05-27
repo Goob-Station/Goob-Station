@@ -110,7 +110,7 @@
 - type: damageModifierSet
   id: PerforatedMetallic
   coefficients:
-    Blunt: 2 Goobstation
+    Blunt: 2 # Goobstation
     Piercing: 0.5 # Goobstation
     Shock: 0.6
 #  flatReductions:
