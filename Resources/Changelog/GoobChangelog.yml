@@ -10227,3 +10227,12 @@ Entries:
       message: Singularity Buster Rocket no longer does damage
   id: 1135
   time: '2025-05-25T17:20:38.0000000+00:00'
+- author: Security Chuds
+  changes:
+    - type: Fix
+      message: >-
+        Telecrystal miner flatpacks are just as contraband as the machine it
+        holds. Any cadet saying it's not is to be taken out back and ~~shot~~
+        fired.
+  id: 1136
+  time: '2025-05-26T15:45:50.0000000+00:00'
