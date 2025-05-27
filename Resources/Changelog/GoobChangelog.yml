@@ -10236,3 +10236,21 @@ Entries:
         fired.
   id: 1136
   time: '2025-05-26T15:45:50.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Add
+      message: Added tramadol and oxycodone painkillers
+    - type: Tweak
+      message: >-
+        Turned up the pain, expect to paincrit 1-2 shots before you crit for
+        real
+    - type: Add
+      message: Added heroin to poppies
+    - type: Tweak
+      message: Tricordrazine now heals up to 100 damage
+    - type: Tweak
+      message: Pill canisters can hold 15 pills
+    - type: Fix
+      message: Tourniquets now fit in medical belts again
+  id: 1137
+  time: '2025-05-27T07:09:11.0000000+00:00'
