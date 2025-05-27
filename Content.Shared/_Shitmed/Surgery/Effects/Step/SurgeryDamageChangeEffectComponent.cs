@@ -19,4 +19,7 @@ public sealed partial class SurgeryDamageChangeEffectComponent : Component
 
     [DataField]
     public bool IsConsumable;
+
+    [DataField]
+    public bool AffectAll;
 }

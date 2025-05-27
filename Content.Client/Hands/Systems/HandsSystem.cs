@@ -276,7 +276,9 @@ namespace Content.Client.Hands.Systems
         // Shitmed Change Start
         private void HideLayers(EntityUid uid, HandsComponent component, Entity<BodyPartComponent> part, SpriteComponent? sprite = null)
         {
-            if (part.Comp.PartType != BodyPartType.Hand || !Resolve(uid, ref sprite, logMissing: false))
+            if (!Resolve(uid, ref sprite, logMissing: false)
+                || part.Comp.PartType != BodyPartType.Arm
+                && part.Comp.PartType != BodyPartType.Hand)
                 return;
 
             var location = part.Comp.Symmetry switch

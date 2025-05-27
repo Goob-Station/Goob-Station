@@ -15,6 +15,7 @@ using Content.Shared.Damage;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared._Shitmed.Targeting;
+using Content.Shared._Shitmed.Damage; // Shitmed Change
 using Content.Shared.Body.Systems;
 using SharedToolSystem = Content.Shared.Tools.Systems.SharedToolSystem;
 
@@ -46,7 +47,7 @@ public sealed class WeldingHealableSystem : SharedWeldingHealableSystem
             || !_solutionContainer.TryGetSolution(((EntityUid) args.Used, solutionContainer), welder.FuelSolutionName, out var solution))
             return;
 
-        _damageableSystem.TryChangeDamage(uid, component.Damage, true, false, origin: args.User, ignoreBlockers: true, splitDamage: false);
+        _damageableSystem.TryChangeDamage(uid, component.Damage, true, false, origin: args.User, ignoreBlockers: true, splitDamage: SplitDamageBehavior.None);
 
         _solutionContainer.RemoveReagent(solution.Value, welder.FuelReagent, component.FuelCost);
 

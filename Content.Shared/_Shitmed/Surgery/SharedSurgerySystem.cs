@@ -137,10 +137,10 @@ public abstract partial class SharedSurgerySystem : EntitySystem
         if (!_net.IsServer)
             return;
 
-        /*if (args.Event.Target is not { } target
+        if (args.Event.Target is not { } target
             || !IsSurgeryValid(ent, target, args.Event.Surgery, args.Event.Step, args.Event.User, out var surgery, out var part, out var _)
             || IsStepComplete(ent, part, args.Event.Step, surgery))
-            args.Cancel();*/
+            args.Cancel();
     }
 
     private void OnTargetDoAfter(Entity<SurgeryTargetComponent> ent, ref SurgeryDoAfterEvent args)

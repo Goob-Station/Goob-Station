@@ -82,6 +82,7 @@ public partial class SharedBodySystem
         }
 
         component.Markings = markingsByLayer;
+        Dirty(uid, component);
     }
 
     private string? CreateIdFromPart(HumanoidAppearanceComponent bodyAppearance, HumanoidVisualLayers part)
@@ -136,9 +137,13 @@ public partial class SharedBodySystem
 
     private void OnPartAttachedToBody(EntityUid uid, BodyComponent component, ref BodyPartAddedEvent args)
     {
-        if (!TryComp(args.Part, out BodyPartAppearanceComponent? partAppearance)
-            || !TryComp(uid, out HumanoidAppearanceComponent? bodyAppearance))
+        if (!TryComp(uid, out HumanoidAppearanceComponent? bodyAppearance))
             return;
+
+        BodyPartAppearanceComponent? partAppearance = null;
+
+        if (!TryComp(args.Part, out partAppearance))
+            partAppearance = EnsureComp<BodyPartAppearanceComponent>(args.Part);
 
         if (partAppearance.ID != null)
             _humanoid.SetBaseLayerId(uid, partAppearance.Type, partAppearance.ID, sync: true, bodyAppearance);
@@ -150,7 +155,8 @@ public partial class SharedBodySystem
     {
         if (TerminatingOrDeleted(uid)
             || TerminatingOrDeleted(args.Part)
-            || !TryComp(uid, out HumanoidAppearanceComponent? bodyAppearance))
+            || !TryComp(uid, out HumanoidAppearanceComponent? bodyAppearance)
+            || _timing.ApplyingState)
             return;
 
         // We check for this conditional here since some entities may not have a profile... If they dont

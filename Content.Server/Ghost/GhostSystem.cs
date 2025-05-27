@@ -130,6 +130,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
 // Shitmed Change
+using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 
@@ -682,7 +683,7 @@ namespace Content.Server.Ghost
                         : "Asphyxiation";
                     DamageSpecifier damage = new(_prototypeManager.Index<DamageTypePrototype>(damageType), dealtDamage);
 
-                    _damageable.TryChangeDamage(playerEntity, damage, true, targetPart: TargetBodyPart.All, splitDamage: false);
+                    _damageable.TryChangeDamage(playerEntity, damage, true, targetPart: TargetBodyPart.All, splitDamage: SplitDamageBehavior.None);
                     // Shitmed Change End
                 }
             }

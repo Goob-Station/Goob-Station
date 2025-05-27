@@ -151,7 +151,9 @@ public sealed partial class BodySystem : SharedBodySystem // Shitmed change: mad
         if (layer != null)
         {
             var layers = HumanoidVisualLayersExtension.Sublayers(layer.Value);
-            _humanoidSystem.SetLayersVisibility(bodyEnt.Owner, layers, visible: true);
+            // We dont use the layers object here because we are manually handling hands and feet ents. In the future I'll
+            // revert back to effectively upstream code by making them just cosmetic.
+            _humanoidSystem.SetLayersVisibility(bodyEnt.Owner, new[] { layer.Value }, visible: true); // Shitmed Change
         }
     }
 

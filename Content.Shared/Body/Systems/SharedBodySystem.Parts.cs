@@ -299,7 +299,6 @@ public partial class SharedBodySystem
     {
         Dirty(partEnt, partEnt.Comp);
         partEnt.Comp.Body = bodyEnt;
-
         var ev = new BodyPartAddedEvent(slotId, partEnt);
         RaiseLocalEvent(bodyEnt, ref ev);
 
@@ -639,13 +638,6 @@ public partial class SharedBodySystem
         }
 
         part.ParentSlot = slot;
-
-        if (HasComp<HumanoidAppearanceComponent>(part.Body)
-            && !HasComp<BodyPartAppearanceComponent>(partId)
-            && !TerminatingOrDeleted(parentPartId)
-            && !TerminatingOrDeleted(partId)) // Saw some exceptions involving these due to the spawn menu.
-            EnsureComp<BodyPartAppearanceComponent>(partId);
-
         return Containers.Insert(partId, container);
     }
 
@@ -1261,6 +1253,25 @@ public partial class SharedBodySystem
 
     }
 
+    public IEnumerable<(EntityUid Id, BodyPartComponent Component, T ExtraComponent)> GetBodyChildrenOfTypeWithComponent<T>(
+        EntityUid bodyId,
+        BodyPartType type,
+        BodyComponent? body = null,
+        BodyPartSymmetry? symmetry = null)
+        where T : IComponent
+    {
+        var query = GetEntityQuery<T>();
+
+        foreach (var part in GetBodyChildren(bodyId, body))
+        {
+            if (part.Component.PartType == type
+                && (symmetry == null || part.Component.Symmetry == symmetry)
+                && query.TryGetComponent(part.Id, out var extraComponent))
+            {
+                yield return (part.Id, part.Component, extraComponent);
+            }
+        }
+    }
     // Shitmed Change End
 
     /// <summary>

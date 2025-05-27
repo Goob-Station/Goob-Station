@@ -125,7 +125,7 @@ public sealed partial class WoundSystem : EntitySystem
                 || body.BodyType == BodyType.Simple
                 || _timing.CurTime - damageable.LastModifiedTime < _minimumTimeBeforeHeal
                 || _timing.CurTime < body.HealAt
-                || _mobState.IsDead(ent)
+                || _mobState.IsIncapacitated(ent)
                 || !_body.TryGetRootPart(ent, out var rootPart, body: body)
                 || damageable.Damage.GetTotal() <= 0)
                 continue;
@@ -388,7 +388,8 @@ public sealed partial class WoundSystem : EntitySystem
                             continue;
 
                         // The first check is for the root (chest) part entities, the other one is for attached entities
-                        if (woundable.Comp.RootWoundable == woundable.Owner && woundable.Owner != rootPart)
+                        if (woundable.Comp.RootWoundable == woundable.Owner
+                            && woundable.Owner != rootPart)
                             continue;
 
                         bodySeverity += GetWoundableIntegrityDamage(woundable, woundable);

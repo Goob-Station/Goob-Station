@@ -85,6 +85,7 @@ using Robust.Shared.Utility;
 
 // Shitmed Change
 using Content.Shared._Shitmed.Body;
+using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
@@ -281,7 +282,7 @@ namespace Content.Shared.Damage
             float partMultiplier = 1.00f,
             TargetBodyPart? targetPart = null,
             bool ignoreBlockers = false,
-            bool splitDamage = true,
+            SplitDamageBehavior splitDamage = SplitDamageBehavior.Split,
             bool canMiss = true)
         {
             if (!uid.HasValue || !_damageableQuery.Resolve(uid.Value, ref damageable, false))
@@ -322,7 +323,7 @@ namespace Content.Shared.Damage
             TargetBodyPart? targetPart,
             float partMultiplier,
             bool ignoreBlockers = false,
-            bool splitDamage = true,
+            SplitDamageBehavior splitDamageBehavior = SplitDamageBehavior.Split,
             bool canMiss = true)
         {
             DamageSpecifier? totalAppliedDamage = null;
@@ -333,7 +334,9 @@ namespace Content.Shared.Damage
                 && targetPart != 0 && (targetPart & (targetPart - 1)) != 0)
             {
                 // Extract only the body parts that are targeted in the bitmask
-                var targetedBodyParts = new List<(EntityUid Id, BodyPartComponent Component)>();
+                var targetedBodyParts = new List<(EntityUid Id,
+                    BodyPartComponent Component,
+                    DamageableComponent Damageable)>();
 
                 // Get only the primitive flags (powers of 2) - these are the actual individual body parts
                 var primitiveFlags = Enum.GetValues<TargetBodyPart>()
@@ -346,7 +349,7 @@ namespace Content.Shared.Damage
                     if (targetPart.Value.HasFlag(flag))
                     {
                         var query = _body.ConvertTargetBodyPart(flag);
-                        var parts = _body.GetBodyChildrenOfType(uid, query.Type,
+                        var parts = _body.GetBodyChildrenOfTypeWithComponent<DamageableComponent>(uid, query.Type,
                             symmetry: query.Symmetry).ToList();
 
                         if (parts.Count > 0)
@@ -356,34 +359,25 @@ namespace Content.Shared.Damage
 
                 // If we couldn't find any of the targeted parts, fall back to all body parts
                 if (targetedBodyParts.Count == 0)
-                    targetedBodyParts = _body.GetBodyChildren(uid).ToList();
-                var bodyParts = _body.GetBodyChildren(uid).ToList();
-                if (bodyParts.Count == 0)
-                    return null;
+                {
+                    var query = _body.GetBodyChildrenWithComponent<DamageableComponent>(uid).ToList();
+                    if (query.Count > 0)
+                        targetedBodyParts = query;
+                    else
+                        return null;
+                }
 
-                var damagePerPart = splitDamage ? adjustedDamage / bodyParts.Count : adjustedDamage;
+                var damagePerPart = ApplySplitDamageBehaviors(splitDamageBehavior, adjustedDamage, targetedBodyParts);
                 var appliedDamage = new DamageSpecifier();
 
-                foreach (var (partId, _) in bodyParts)
+                foreach (var (partId, _, partDamageable) in targetedBodyParts)
                 {
-                    if (!_damageableQuery.TryComp(partId, out var partDamageable))
-                        continue;
-
                     // Apply damage to this part
                     var partDamageResult = TryChangeDamage(partId, damagePerPart, ignoreResistances,
                         interruptsDoAfters, partDamageable, origin, ignoreBlockers: ignoreBlockers);
 
                     if (partDamageResult != null && !partDamageResult.Empty)
-                    {
-                        // Accumulate total damage
-                        foreach (var (type, value) in partDamageResult.DamageDict)
-                        {
-                            if (appliedDamage.DamageDict.TryGetValue(type, out var existing))
-                                appliedDamage.DamageDict[type] = existing + value;
-                            else
-                                appliedDamage.DamageDict[type] = value;
-                        }
-                    }
+                        appliedDamage += partDamageResult;
                 }
 
                 totalAppliedDamage = appliedDamage;
@@ -421,34 +415,6 @@ namespace Content.Shared.Damage
 
                 totalAppliedDamage = TryChangeDamage(chosenTarget.Id, adjustedDamage, ignoreResistances,
                     interruptsDoAfters, partDamageable, origin, ignoreBlockers: ignoreBlockers);
-            }
-
-            // Only process if there was actual damage applied
-            if (totalAppliedDamage != null && !totalAppliedDamage.Empty)
-            {
-                // Update the damage dictionary of the parent entity based on all body parts
-                if (_damageableQuery.TryComp(uid, out var parentDamageable))
-                {
-                    // Reset the parent's damage values
-                    foreach (var type in parentDamageable.Damage.DamageDict.Keys.ToList())
-                        parentDamageable.Damage.DamageDict[type] = FixedPoint2.Zero;
-
-                    // Sum up damage from all body parts
-                    foreach (var (partId, _) in _body.GetBodyChildren(uid))
-                    {
-                        if (!_damageableQuery.TryComp(partId, out var partDamageable))
-                            continue;
-
-                        foreach (var (type, value) in partDamageable.Damage.DamageDict)
-                        {
-                            if (parentDamageable.Damage.DamageDict.TryGetValue(type, out var existing))
-                                parentDamageable.Damage.DamageDict[type] = existing + value;
-                        }
-                    }
-
-                    // Now call DamageChanged with the actual total delta
-                    DamageChanged(uid, parentDamageable, totalAppliedDamage, interruptsDoAfters, origin, ignoreBlockers: ignoreBlockers);
-                }
             }
 
             return totalAppliedDamage;
@@ -557,11 +523,108 @@ namespace Content.Shared.Damage
             }
 
             if (delta.DamageDict.Count > 0)
+            {
                 DamageChanged(uid, damageable, delta, interruptsDoAfters, origin, ignoreBlockers);
+                
+                // Shitmed Change: This means that the damaged part was a woundable
+                // which also means we send that shit to refresh the body.
+                if (scaleFactor is not null)
+                {
+                    UpdateParentDamageFromBodyParts(uid,
+                        delta,
+                        interruptsDoAfters,
+                        origin,
+                        ignoreBlockers: ignoreBlockers);
+                }
+            }
 
             return delta;
         }
 
+        /// <summary>
+        /// Updates the parent entity's damage values by summing damage from all body parts.
+        /// Should be called after damage is applied to any body part.
+        /// </summary>
+        /// <param name="bodyPartUid">The body part that received damage</param>
+        /// <param name="appliedDamage">The damage that was applied to the body part</param>
+        /// <param name="interruptsDoAfters">Whether this damage change interrupts do-afters</param>
+        /// <param name="origin">The entity that caused the damage</param>
+        /// <param name="ignoreBlockers">Whether to ignore damage blockers</param>
+        /// <returns>True if parent damage was updated, false otherwise</returns>
+        private bool UpdateParentDamageFromBodyParts(
+            EntityUid bodyPartUid,
+            DamageSpecifier? appliedDamage,
+            bool interruptsDoAfters,
+            EntityUid? origin,
+            BodyPartComponent? bodyPart = null,
+            bool ignoreBlockers = false)
+        {
+            // Check if this is a body part and get the parent body
+            if (!Resolve(bodyPartUid, ref bodyPart, logMissing: false)
+                || bodyPart.Body is not { } body
+                || !TryComp(body, out DamageableComponent? parentDamageable))
+                return false;
+
+            // Reset the parent's damage values
+            foreach (var type in parentDamageable.Damage.DamageDict.Keys.ToList())
+                parentDamageable.Damage.DamageDict[type] = FixedPoint2.Zero;
+
+            // Sum up damage from all body parts
+            foreach (var (partId, _) in _body.GetBodyChildren(body))
+            {
+                if (!_damageableQuery.TryComp(partId, out var partDamageable))
+                    continue;
+
+                foreach (var (type, value) in partDamageable.Damage.DamageDict)
+                {
+                    if (parentDamageable.Damage.DamageDict.TryGetValue(type, out var existing))
+                        parentDamageable.Damage.DamageDict[type] = existing + value;
+                }
+            }
+
+            // Raise the damage changed event on the parent
+            DamageChanged(body,
+                parentDamageable,
+                appliedDamage,
+                interruptsDoAfters,
+                origin,
+                ignoreBlockers: ignoreBlockers);
+
+            return true;
+        }
+
+        public DamageSpecifier ApplySplitDamageBehaviors<T>(SplitDamageBehavior splitDamageBehavior,
+            DamageSpecifier damage,
+            List<(EntityUid Id, T Component, DamageableComponent Damageable)> parts) where T : IComponent
+        {
+            switch (splitDamageBehavior)
+            {
+                case SplitDamageBehavior.None:
+                    return damage;
+                case SplitDamageBehavior.Split:
+                    return damage / parts.Count;
+                case SplitDamageBehavior.SplitEnsureAll:
+                    foreach (var (type, val) in damage.DamageDict)
+                    {
+                        if (val > 0)
+                            damage.DamageDict[type] = val / parts.Count;
+                        else if (val < 0)
+                        {
+                            var count = 0;
+
+                            foreach (var (id, _, damageable) in parts)
+                                if (damageable.Damage.DamageDict.TryGetValue(type, out var currentDamage)
+                                    && currentDamage > 0)
+                                    count++;
+
+                            damage.DamageDict[type] = val / count;
+                        }
+                    }
+                    return damage;
+                default:
+                    return damage;
+            }
+        }
         /// <summary>
         ///     Applies the two univeral "All" modifiers, if set.
         /// </summary>

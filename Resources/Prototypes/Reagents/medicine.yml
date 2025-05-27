@@ -231,7 +231,7 @@
           types:
             Radiation: -3
           groups:
-            Brute: 1.5
+            Brute: 0.5
 
 - type: reagent
   id: Bicaridine
