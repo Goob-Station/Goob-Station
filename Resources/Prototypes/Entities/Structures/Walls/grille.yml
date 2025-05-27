@@ -159,13 +159,13 @@
       thresholds:
         - trigger:
             !type:DamageTrigger
-            damage: 60 # Goobstation. excess damage (nuke?). avoid computational cost of spawning entities.
+            damage: 80 # Goobstation. excess damage (nuke?). avoid computational cost of spawning entities.
           behaviors:
             - !type:DoActsBehavior
               acts: ["Destruction"]
         - trigger:
             !type:DamageTrigger
-            damage: 30 # Goobstation
+            damage: 35 # Goobstation
           behaviors:
             - !type:ChangeConstructionNodeBehavior
               node: grilleBroken
@@ -180,7 +180,7 @@
             False: { visible: False }
     - type: AnimationPlayer
     - type: Penetratable # Goobstation - Better snipers
-      penetrateDamage: 10
+      penetrateDamage: 5
 
 - type: entity
   id: ClockworkGrille
