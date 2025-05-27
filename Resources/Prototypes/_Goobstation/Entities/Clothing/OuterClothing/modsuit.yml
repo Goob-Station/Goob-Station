@@ -649,7 +649,7 @@
         coefficients:
           Blunt: 0.70
           Slash: 0.70
-          Piercing: 0.80
+          Piercing: 0.70
           Heat: 0.70
           Radiation: 0.70
     - type: ComponentToggler
@@ -709,7 +709,7 @@
         coefficients:
           Blunt: 0.70
           Slash: 0.70
-          Piercing: 0.80
+          Piercing: 0.70
           Heat: 0.40
           Radiation: 0.30
           Caustic: 0.6
