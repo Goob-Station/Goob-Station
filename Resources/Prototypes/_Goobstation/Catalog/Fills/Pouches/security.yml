@@ -11,7 +11,7 @@
   components:
   - type: Sprite
     layers:
-    state: utility
+      - state: utility
   - type: Storage
     maxItemSize: Small
     grid:
@@ -48,7 +48,7 @@
   components:
   - type: Sprite
     layers:
-    state: smallfirstaid
+      - state: smallfirstaid
   - type: Storage
     maxItemSize: Small
     grid:
