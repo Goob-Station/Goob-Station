@@ -193,7 +193,7 @@
   parent: [ClothingHeadBase, BaseFoldable, BaseCentcommContraband]
   id: ClothingHeadHatUshankaBlueshield
   name: blueshield's armored ushanka
-  description:  For when you need to save a head from a changeling on a research station in Antarctica.
+  description: Perfect for saving heads in Siberia, da?
   components:
   - type: Clothing
     sprite: _Goobstation/Clothing/Head/Hats/blueshield_ushanka.rsi
