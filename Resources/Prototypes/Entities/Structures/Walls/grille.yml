@@ -102,8 +102,8 @@
           path:
             "/Audio/Weapons/grille_hit.ogg"
     - type: RCDDeconstructable
-      cost: 2 # Goobstation
-      delay: 4
+      cost: 4 # Goobstation
+      delay: 2 # Goobstation
       fx: EffectRCDDeconstruct4
     - type: CanBuildWindowOnTop
     - type: Sprite
