@@ -2089,3 +2089,57 @@
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Plastic: 25
+
+- type: entity
+  parent: BaseItem
+  id: DiscoBeachBall
+  name: disco beach ball
+  description: A disco beach ball turns any beach trip into Studio 54.
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/toys.rsi
+    state: beachball
+  - type: PointLight
+    radius: 8
+    energy: 6
+    mask: /Textures/Effects/LightMasks/double_cone.png
+  - type: RgbLightController
+    layers: [ 0 ]
+  - type: RotatingLight
+    speed: 60
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Effects/Footsteps/bounce.ogg
+  - type: MultiHandedItem
+  - type: Item
+    size: Large
+    sprite: Objects/Fun/toys.rsi
+    heldPrefix: beachb
+  - type: Anchorable
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 25
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+          ShardCrystalGreen:
+            min: 1
+            max: 1
+          ShardCrystalBlue:
+            min: 1
+            max: 1
+          ShardCrystalRed:
+            min: 1
+            max: 1
