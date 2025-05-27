@@ -102,7 +102,7 @@
           path:
             "/Audio/Weapons/grille_hit.ogg"
     - type: RCDDeconstructable
-      cost: 6
+      cost: 2 # Goobstation
       delay: 4
       fx: EffectRCDDeconstruct4
     - type: CanBuildWindowOnTop
@@ -157,13 +157,13 @@
       thresholds:
         - trigger:
             !type:DamageTrigger
-            damage: 130 #excess damage (nuke?). avoid computational cost of spawning entities.
+            damage: 60 # Goobstation. excess damage (nuke?). avoid computational cost of spawning entities.
           behaviors:
             - !type:DoActsBehavior
               acts: ["Destruction"]
         - trigger:
             !type:DamageTrigger
-            damage: 100
+            damage: 30 # Goobstation
           behaviors:
             - !type:ChangeConstructionNodeBehavior
               node: grilleBroken
