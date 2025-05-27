@@ -44288,10 +44288,6 @@ entities:
           showEnts: False
           occludes: False
           ent: null
-        mask: !type:ContainerSlot
-          showEnts: False
-          occludes: False
-          ent: 7271
         eyes: !type:ContainerSlot
           showEnts: False
           occludes: False
