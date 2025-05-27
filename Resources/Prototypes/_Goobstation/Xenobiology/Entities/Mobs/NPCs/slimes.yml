@@ -6,7 +6,7 @@
   description: It looks so much like jelly. I wonder what it tastes like?
   components:
   - type: Hunger
-    startingHunger: 25
+    startingHunger: 50
     thresholds:
       Overfed: 200
       Okay: 50
