@@ -1,1 +1,1 @@
-telecrystal-miner-announcement = Cryptographic analysis has detected unsanctioned illegal currency mining on station. Station personnel is commanded to destroy the device responsible.
+telecrystal-miner-announcement = A cryptographic harvesting device seems to be drawing massive amounts of power. Crew is commanded to destroy it immediately.
