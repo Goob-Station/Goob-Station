@@ -215,4 +215,7 @@ chatsan-replacement-69 = pisses me off
 
 chatsan-word-70 = sybau
 chatsan-replacement-70 = shut your bitch ass up
+
+chatsan-word-71 = icl
+chatsan-replacement-71 = i can't lie
 # goob end
