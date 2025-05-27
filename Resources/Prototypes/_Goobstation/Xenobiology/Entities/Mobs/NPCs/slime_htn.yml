@@ -1,0 +1,26 @@
+- type: htnCompound
+  id: XenoSlimeCompound
+  branches:
+  - tasks:
+    - !type:HTNCompoundTask
+      task: LatchCompound
+  - tasks:
+    - !type:HTNCompoundTask
+      task: IdleCompound
+
+- type: htnCompound
+  id: LatchCompound
+  branches:
+  - tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:PickSlimeLatchTargetOperator
+        targetKey: MovementTarget
+        latchKey: LatchTarget
+        rangeKey: IdleRange
+    - !type:HTNPrimitiveTask
+      operator: !type:MoveToOperator
+        pathfindInPlanning: false
+        targetKey: MovementTarget
+    - !type:HTNPrimitiveTask
+      operator: !type:SlimeLatchOperator
+        latchKey: LatchTarget

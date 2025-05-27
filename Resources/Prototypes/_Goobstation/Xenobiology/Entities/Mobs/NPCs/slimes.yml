@@ -121,7 +121,7 @@
     accent: slimes
   - type: NpcFactionMember
     factions:
-    - SimpleNeutral
+    - SimpleHostile
   - type: Storage
     showVerb: false
     storageInsertSound: /Audio/Voice/Talk/slime.ogg
@@ -138,7 +138,7 @@
     - SlimeLatch
   - type: HTN
     rootTask:
-      task: SimpleHostileCompound
+      task: XenoSlimeCompound
 
 # Begin Slimes
 

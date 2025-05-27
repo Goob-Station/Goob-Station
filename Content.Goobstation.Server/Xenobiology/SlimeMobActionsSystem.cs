@@ -3,7 +3,9 @@ using Content.Goobstation.Shared.Xenobiology.Components;
 using Content.Server.Popups;
 using Content.Server.Stunnable;
 using Content.Shared._Shitmed.Targeting;
+using Content.Shared.ActionBlocker;
 using Content.Shared.Damage;
+using Content.Shared.Humanoid;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
@@ -22,15 +24,16 @@ namespace Content.Goobstation.Server.Xenobiology;
 /// </summary>
 public sealed class SlimeMobActionsSystem : EntitySystem
 {
+    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly HungerSystem _hunger = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedPseudoItemSystem _pseudoSystem = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
 
     public override void Initialize()
     {
@@ -71,7 +74,7 @@ public sealed class SlimeMobActionsSystem : EntitySystem
             || !TryComp<SlimeComponent>(slime, out var slimeComp))
             return;
 
-        DoSlimeLatch((slime, slimeComp), target);
+        DoSlimeLatch(slime, target, slimeComp);
     }
 
     private void OnConsumedEntityDied(Entity<SlimeDamageOvertimeComponent> ent, ref MobStateChangedEvent args)
@@ -99,13 +102,33 @@ public sealed class SlimeMobActionsSystem : EntitySystem
 
         RemCompDeferred<SlimeDamageOvertimeComponent>(args.Entity);
 
+        ent.Comp.LatchedTarget = null;
+
         if (!pseudoItem.IntendedComp)
             RemCompDeferred(args.Entity, pseudoItem);
     }
     #endregion
 
     #region Helpers
-    private void DoSlimeLatch(Entity<SlimeComponent> slime, EntityUid target)
+    public bool NpcTryLatch(EntityUid uid, EntityUid target, SlimeComponent? component)
+    {
+        if (!Resolve(uid, ref component))
+            return false;
+        if (component.LatchedTarget.HasValue)
+            return false;
+        if (!HasComp<HumanoidAppearanceComponent>(target))
+            return false;
+        if (_mobState.IsDead(target))
+            return false;
+        if (!_actionBlocker.CanInteract(uid, target))
+            return false;
+
+
+        DoSlimeLatch(uid, target, component);
+        return true;
+    }
+
+    private void DoSlimeLatch(EntityUid slime, EntityUid target, SlimeComponent slimeComp)
     {
         if (_mobState.IsDead(target))
             return;
@@ -118,15 +141,16 @@ public sealed class SlimeMobActionsSystem : EntitySystem
             var failPopup = Loc.GetString("slime-action-latch-fail", ("slime", slime), ("target", target));
             _popup.PopupEntity(failPopup, slime);
 
-            RemComp<PseudoItemComponent>(target);
+            RemCompDeferred<PseudoItemComponent>(target);
             return;
         }
 
+        slimeComp.LatchedTarget = target;
 
         EnsureComp(target, out SlimeDamageOvertimeComponent comp);
         comp.SourceEntityUid = slime;
 
-        _audio.PlayPredicted(slime.Comp.SquishSound, slime, slime);
+        _audio.PlayPredicted(slimeComp.EatSound, slime, slime);
 
         var successPopup = Loc.GetString("slime-action-latch-start", ("slime", slime), ("target", target));
         _popup.PopupEntity(successPopup, slime);

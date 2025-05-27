@@ -105,7 +105,7 @@ public sealed class BreedingSystem : EntitySystem
     private void DoMitosis(Entity<SlimeComponent> ent)
     {
         var offspringCount = _random.Next(1, ent.Comp.Offspring + 1);
-        
+
         for (var i = 0; i < offspringCount; i++)
         {
             var success = _random.Prob(ent.Comp.MutationChance);
@@ -123,7 +123,7 @@ public sealed class BreedingSystem : EntitySystem
         var container = _container.GetContainer(ent, "storagebase");
 
         _container.EmptyContainer(container);
-        _audio.PlayPredicted(ent.Comp.SquishSound, ent, ent);
+        _audio.PlayPredicted(ent.Comp.MitosisSound, ent, ent);
         QueueDel(ent);
     }
 

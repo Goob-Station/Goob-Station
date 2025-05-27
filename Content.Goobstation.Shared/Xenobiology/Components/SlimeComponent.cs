@@ -46,7 +46,28 @@ public sealed partial class SlimeComponent : Component
     [DataField, AutoNetworkedField]
     public Color SlimeColor = Color.FromHex("#828282");
 
+    /// <summary>
+    /// Should this slime be metallic? (shader)
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool ShouldBeMetallic = false;
+
+    /// <summary>
+    /// What sound should we play when mitosis occurs?
+    /// </summary>
     [DataField]
-    public SoundPathSpecifier SquishSound = new("/Audio/_EinsteinEngines/Voice/Slime/slime_squish.ogg");
+    public SoundPathSpecifier MitosisSound = new("/Audio/Effects/Fluids/splat.ogg");
+
+    /// <summary>
+    /// What sound should we play when the slime eats/latches.
+    /// </summary>
+    [DataField]
+    public SoundPathSpecifier EatSound = new("/Audio/Voice/Talk/slime.ogg");
+
+    /// <summary>
+    /// Should this slime be metallic? (shader)
+    /// </summary>
+    [DataField]
+    public EntityUid? LatchedTarget;
 
 }

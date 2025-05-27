@@ -57,7 +57,8 @@
   id: MetalMutation
   components:
   - type: Slime
-    slimeColor: "#2A3439" #Derivatives of the Metal mutation will also need a shader in the future.
+    slimeColor: "#595959" #Derivatives of the Metal mutation will also need a shader in the future.
+    shouldBeMetallic: true
     breed: MetalMutation
     offspring: 4
     mutationChance: 0.45
