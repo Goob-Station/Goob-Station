@@ -23104,21 +23104,6 @@ entities:
       linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
-- proto: ClothingMaskGasSecurity
-  entities:
-  - uid: 7271
-    components:
-    - type: Transform
-      parent: 2919
-    - type: Clothing
-      inSlotFlag: MASK
-      inSlot: mask
-    - type: Hailer
-      hailActionEntity: invalid
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
 - proto: ClothingMaskGoldenCursed
   entities:
   - uid: 9632
