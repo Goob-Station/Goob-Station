@@ -1168,7 +1168,7 @@
   - UplinkExplosives
 
 - type: listing
-  id: Viscerators
+  id: UplinkViscerators
   name: uplink-viscerators-delivery-grenade-name
   description: uplink-viscerators-delivery-grenade-desc
   productEntity: GrenadeViscerators
@@ -1178,7 +1178,7 @@
   - UplinkExplosives
 
 - type: listing
-  id: BoxViscerators
+  id: UplinkBoxViscerators
   name: uplink-viscerators-delivery-grenade-box-name
   description: uplink-viscerators-delivery-grenade-box-desc
   productEntity: BoxGrenadeViscerators
