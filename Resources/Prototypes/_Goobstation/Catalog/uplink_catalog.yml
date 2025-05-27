@@ -1167,6 +1167,31 @@
   categories:
   - UplinkExplosives
 
+- type: listing
+  id: Viscerators
+  name: uplink-viscerators-delivery-grenade-name
+  description: uplink-viscerators-delivery-grenade-desc
+  productEntity: GrenadeViscerators
+  cost:
+    Telecrystal: 25
+  categories:
+  - UplinkExplosives
+
+- type: listing
+  id: BoxViscerators
+  name: uplink-viscerators-delivery-grenade-box-name
+  description: uplink-viscerators-delivery-grenade-box-desc
+  productEntity: BoxGrenadeViscerators
+  cost:
+    Telecrystal: 90
+  categories:
+  - UplinkExplosives
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
 # Misc
 - type: listing
   id: UplinkDimensionPot

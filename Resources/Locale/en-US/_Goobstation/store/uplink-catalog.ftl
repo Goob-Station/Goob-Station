@@ -270,6 +270,12 @@ uplink-pizza-bomb-desc = First pioneered by terrorists, now is used by the syndi
 uplink-pizza-party-crate-name = Pizza Party Crate
 uplink-pizza-party-crate-desc = A crate coming in the form of disaster pizza delivery. Filled with pizzas and pizza bombs to throw the most explosive pizza party ever. Unfortunately you can't seem to remember which one is which.
 
+uplink-viscerators-delivery-grenade-name = Viscerator Delivery Grenade
+uplink-viscerators-delivery-grenade-desc = Grenade that deploys a swarm of viscerators upon activation, which will chase down and shred any non-operatives in the area.
+
+uplink-viscerators-delivery-grenade-box-name = Viscerator Delivery Grenade Box
+uplink-viscerators-delivery-grenade-box-desc = A box containing unique grenades that deploys a swarm of viscerators upon activation, which will chase down and shred any non-operatives in the area.
+
 uplink-undetermined-bundle-name = Undetermined Bundle Crate
 uplink-undetermined-bundle-desc = This crate comes with three random bundles and allows to choose one of them. Guaranteed to include Syndicate encryption key.
 

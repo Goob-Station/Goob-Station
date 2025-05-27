@@ -19,3 +19,43 @@
       reagents:
       - ReagentId: Sarin
         Quantity: 50
+
+- type: entity
+  parent: [GrenadeBase, BaseSyndicateContraband]
+  id: GrenadeViscerators
+  name: viscerator delivery grenade
+  description: Grenade that deploys a swarm of viscerators upon activation, which will chase down and shred any non-operatives in the area.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Grenades/viscerator.rsi
+    layers:
+    - state: icon
+      map: ["enum.TriggerVisualLayers.Base"]
+  - type: ScatteringGrenade
+    fillPrototype: MobSyndieViscerator
+    capacity: 5
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:TimerStartBehavior
+    - trigger:
+        !type:DamageTrigger
+        damage: 45
+      behaviors:
+      - !type:TriggerBehavior
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: OnUseTimerTrigger
+    delay: 5
+  - type: Appearance
+  - type: TimerTriggerVisuals
+    primingSound:
+      path: /Audio/Effects/minibombcountdown.ogg
+      params:
+        volume: 12

@@ -184,6 +184,62 @@
     - Syndicate
 
 - type: entity
+  id: MobSyndieViscerator
+  parent: [ BaseMobAsteroid, FlyingMobBase ]
+  name: viscerator
+  description: A small, twin-bladed machine capable of inflicting very deadly lacerations.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Animals/viscerator.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: viscerator
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: viscerator-moving
+    noMovementLayers:
+      movement:
+        state: viscerator
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 4.0
+    baseSprintSpeed : 4.0
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      10: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+    angle: 0
+    attackRate: 1
+    range: 0.5
+    animation: WeaponArcSlash
+    damage:
+      types:
+        Slash: 6
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+    - Syndicate
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+    blackboard: # highly aggressive
+      VisionRadius: !type:Single
+        15
+      AggroVisionRadius: !type:Single
+        15
+
+- type: entity
   suffix: Angry, weak
   id: MobAngryBeeWeak
   parent: MobAngryBee

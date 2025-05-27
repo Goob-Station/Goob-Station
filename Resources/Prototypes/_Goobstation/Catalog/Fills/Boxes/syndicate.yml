@@ -37,3 +37,18 @@
     layers:
     - state: box_of_doom
     - state: candy
+
+- type: entity
+  name: Viscerator Delivery Grenade Box
+  parent: BoxCardboard
+  id: BoxGrenadeViscerators
+  description: A box containing unique grenades that deploys a swarm of viscerators upon activation, which will chase down and shred any non-operatives in the area.
+  components:
+  - type: StorageFill
+    contents:
+    - id: GrenadeViscerators
+      amount: 4
+  - type: Sprite
+    layers:
+    - state: box
+    - state: flashbang
