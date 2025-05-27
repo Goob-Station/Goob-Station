@@ -306,7 +306,8 @@
   - type: StaticPrice #Goobstation - Recycle update
     price: 1850
   - type: HideContrabandContent #Goobstation Contraband detector
-  - type: BagOfHolding #Goobstation - BoHBombing
+  - type: SpawnOnInteract #Goobstation - BoHBombing
+    toSpawn: SingularityFastDespawn
 
 - type: entity
   parent: [ ClothingBackpackDuffel, BaseCentcommContraband ]

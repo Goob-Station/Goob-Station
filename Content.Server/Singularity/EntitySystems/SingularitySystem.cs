@@ -305,6 +305,10 @@ public sealed class SingularitySystem : SharedSingularitySystem
     /// <param name="args">The event arguments.</param>
     public void UpdateEnergyDrain(EntityUid uid, SingularityComponent comp, SingularityLevelChangedEvent args)
     {
+        // Goobstation - BoH bombing
+        if (comp.IsEnergyDrainConstant)
+            return;
+
         comp.EnergyDrain = args.NewValue switch
         {
             6 => 0,

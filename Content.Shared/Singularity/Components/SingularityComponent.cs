@@ -56,6 +56,12 @@ public sealed partial class SingularityComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public float EnergyDrain;
 
+    /// <summary>
+    /// Goobstation - BoH bombing. Need this so singularity from BoH's won't extend it's lifespan .
+    /// </summary>
+    [DataField("isEnergyLossConstant")]
+    public bool IsEnergyDrainConstant = false;
+
     #region Audio
 
     /// <summary>

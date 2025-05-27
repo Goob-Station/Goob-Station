@@ -217,4 +217,5 @@
     grid:
     - 0,0,19,9
   - type: HideContrabandContent #Goobstation Contraband detector
-  - type: BagOfHolding #Goobstation - BoHBombing
+  - type: SpawnOnInteract #Goobstation - BoHBombing
+    toSpawn: SingularityFastDespawn

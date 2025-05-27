@@ -1,0 +1,11 @@
+- type: entity
+  parent: Singularity
+  id: SingularityFastDespawn
+  suffix: Fast despawn
+  components:
+  - type: Singularity
+    energy: 180
+    level: 1
+    radsPerLevel: 6
+    energyLoss: 100
+    isEnergyLossConstant: true
