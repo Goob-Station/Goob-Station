@@ -114,7 +114,7 @@
     Piercing: 0.8 # Goobstation
     Slash: 0.5 # Goobstation
     Shock: 0.6
-  flatReductions:
+#  flatReductions:
 #    Piercing: 10 Goobstation
 
 # for fragile electronics like consoles or shuttle engines.
