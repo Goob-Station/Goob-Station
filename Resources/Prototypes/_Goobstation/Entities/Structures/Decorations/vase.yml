@@ -10,6 +10,7 @@
   description: It's a vase. It holds flowers.
   abstract: true
   components:
+  - type: Anchorable
   - type: SolutionContainerManager
     solutions:
       drink:

@@ -9,6 +9,7 @@
   name: black barrel
   description: Do a barrel roll!
   components:
+  - type: Anchorable
   - type: Sprite
     noRot: true
     sprite: /Textures/_Goobstation/Structures/Decoration/Barrels/blackbarrel.rsi

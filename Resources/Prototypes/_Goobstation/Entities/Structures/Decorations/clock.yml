@@ -11,6 +11,7 @@
   placement:
     mode: SnapgridCenter
   components:
+  - type: Anchorable
   - type: Sprite
     noRot: true
     sprite: /Textures/_Goobstation/Structures/Decoration/clock.rsi

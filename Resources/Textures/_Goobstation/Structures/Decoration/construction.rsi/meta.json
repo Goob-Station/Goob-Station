@@ -8,21 +8,14 @@
     },
     "states": [
         {
-            "name": "barrel_fire",
+            "name": "construction",
             "delays":
             [
                 [
                     0.2,
-                    0.2,
                     0.2
                 ]
             ]
-        },
-        {
-            "name": "barrel_planks"
-        },
-        {
-            "name": "barrel"
         }
     ]
 }
