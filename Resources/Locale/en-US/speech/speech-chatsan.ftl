@@ -210,9 +210,9 @@ chatsan-replacement-67 = all good
 chatsan-word-68 = ts
 chatsan-replacement-68 = this shit
 
-chatsand-word-69 = pmo
+chatsan-word-69 = pmo
 chatsan-replacement-69 = pisses me off
 
-chatsand-word-69 = sybau
+chatsan-word-69 = sybau
 chatsan-replacement-69 = shut your bitch ass up
 # goob end
