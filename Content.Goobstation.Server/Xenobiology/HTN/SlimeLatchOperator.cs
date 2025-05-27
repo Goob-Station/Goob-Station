@@ -30,7 +30,6 @@ public sealed partial class SlimeLatchOperator : HTNOperator
                && target.IsValid()
                && !_entManager.Deleted(target)
                && target != slime.LatchedTarget
-               && target != slime.Tamer
                && _slimeMobActions.NpcTryLatch(owner, target, slime)
             ? HTNOperatorStatus.Finished
             : HTNOperatorStatus.Failed;

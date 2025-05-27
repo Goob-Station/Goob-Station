@@ -13,7 +13,12 @@
       Peckish: 25
       Starving: 10
       Dead: 0
-    baseDecayRate: 1
+    hungerThresholdDecayModifiers:
+      Overfed: 1.2
+      Okay: 1
+      Peckish: 0.4
+      Starving: 0.2
+      Dead: 0
     starvingSlowdownModifier: 0
   - type: Sprite
     drawdepth: Mobs

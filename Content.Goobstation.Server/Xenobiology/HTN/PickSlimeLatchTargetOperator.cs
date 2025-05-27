@@ -54,9 +54,12 @@ public sealed partial class PickSlimeLatchTargetOperator : HTNOperator
 
         if (!blackboard.TryGetValue<float>(RangeKey, out var range, _entManager)
             || !_entManager.TryGetComponent<SlimeComponent>(owner, out var slimeComp)
-            || !_entManager.TryGetComponent<MobGrowthComponent>(owner, out var growthComp)
-            || growthComp.CurrentStage == growthComp.Stages[0]
-                && _hunger.IsHungerAboveState(owner, HungerThreshold.Peckish))
+            || !_entManager.TryGetComponent<MobGrowthComponent>(owner, out var growthComp))
+            return (false, null);
+
+        // Baby slimes only target when BELOW Peckish
+        if (growthComp.CurrentStage == growthComp.Stages[0]
+            && _hunger.IsHungerAboveState(owner, HungerThreshold.Peckish))
             return (false, null);
 
         var huAppQuery = _entManager.GetEntityQuery<HumanoidAppearanceComponent>();
@@ -70,8 +73,16 @@ public sealed partial class PickSlimeLatchTargetOperator : HTNOperator
                 || _mobSystem.IsDead(entity))
                 continue;
 
-            if (slimeComp.LatchedTarget.HasValue
-                || entity == slimeComp.Tamer
+            if (slimeComp.LatchedTarget.HasValue)
+                continue;
+
+            // Baby slimes never target tamer, and only target others when BELOW Peckish
+            if (growthComp.CurrentStage == growthComp.Stages[0]
+                && entity == slimeComp.Tamer)
+                continue;
+
+            // Adult slimes only target tamer when BELOW Peckish
+            if (entity == slimeComp.Tamer
                 && _hunger.IsHungerAboveState(owner, HungerThreshold.Peckish))
                 continue;
 
