@@ -26,18 +26,13 @@ public sealed partial class SlimeLatchOperator : HTNOperator
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
         var target = blackboard.GetValue<EntityUid>(LatchKey);
 
-        if (!target.IsValid() || _entManager.Deleted(target))
-            return HTNOperatorStatus.Failed;
-
-        if (!_entManager.TryGetComponent<SlimeComponent>(owner, out var slime))
-            return HTNOperatorStatus.Failed;
-
-        if (slime.LatchedTarget.HasValue)
-            return HTNOperatorStatus.Failed;
-
-        if (_slimeMobActions.NpcTryLatch(owner, target, slime))
-            return HTNOperatorStatus.Finished;
-        else
-            return HTNOperatorStatus.Failed;
+        return _entManager.TryGetComponent<SlimeComponent>(owner, out var slime)
+               && target.IsValid()
+               && !_entManager.Deleted(target)
+               && target != slime.LatchedTarget
+               && target != slime.Tamer
+               && _slimeMobActions.NpcTryLatch(owner, target, slime)
+            ? HTNOperatorStatus.Finished
+            : HTNOperatorStatus.Failed;
     }
 }

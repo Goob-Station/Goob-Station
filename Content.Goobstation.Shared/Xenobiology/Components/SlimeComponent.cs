@@ -11,22 +11,16 @@ namespace Content.Goobstation.Shared.Xenobiology.Components;
 public sealed partial class SlimeComponent : Component
 {
     /// <summary>
+    /// What color is the slime?
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public Color SlimeColor = Color.FromHex("#828282");
+
+    /// <summary>
     /// What is the current slime's current breed?
     /// </summary>
     [DataField(required: true), AutoNetworkedField]
     public ProtoId<BreedPrototype> Breed = "GreyMutation";
-
-    /// <summary>
-    /// How many offspring should be produced by mitosis?
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public int Offspring = 4;
-
-    /// <summary>
-    /// What is the chance of offspring mutating? (this is per/offspring)
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public float MutationChance = 0.45f;
 
     /// <summary>
     /// If the mutation chance is met, what potential mutations are available?
@@ -35,19 +29,37 @@ public sealed partial class SlimeComponent : Component
     public HashSet<ProtoId<BreedPrototype>> PotentialMutations = new();
 
     /// <summary>
+    /// The entity which has tamed this slime.
+    /// </summary>
+    [DataField]
+    public EntityUid? Tamer;
+
+    /// <summary>
+    /// The entity, if any, currently being consumed by the slime.
+    /// </summary>
+    [DataField]
+    public EntityUid? LatchedTarget;
+
+    /// <summary>
+    /// The maximum amount of offspring produced by mitosis.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public int MaxOffspring = 4;
+
+    /// <summary>
+    /// What is the chance of offspring mutating? (this is per/offspring)
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float MutationChance = 0.45f;
+
+    /// <summary>
     /// What hunger threshold must be met for mitosis?
     /// </summary>
     [DataField, AutoNetworkedField]
     public float MitosisHunger = 200f;
 
     /// <summary>
-    /// What color is the slime?
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public Color SlimeColor = Color.FromHex("#828282");
-
-    /// <summary>
-    /// Should this slime be metallic? (shader)
+    /// Should this slime be metallic? (Shader & logic still needs to be written)
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool ShouldBeMetallic = false;
@@ -64,10 +76,6 @@ public sealed partial class SlimeComponent : Component
     [DataField]
     public SoundPathSpecifier EatSound = new("/Audio/Voice/Talk/slime.ogg");
 
-    /// <summary>
-    /// Should this slime be metallic? (shader)
-    /// </summary>
-    [DataField]
-    public EntityUid? LatchedTarget;
+
 
 }

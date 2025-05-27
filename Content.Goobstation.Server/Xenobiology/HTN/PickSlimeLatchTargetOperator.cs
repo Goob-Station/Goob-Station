@@ -7,6 +7,8 @@ using Content.Server.NPC.Pathfinding;
 using Content.Shared.Humanoid;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Systems;
+using Content.Shared.Nutrition.Components;
+using Content.Shared.Nutrition.EntitySystems;
 
 namespace Content.Goobstation.Server.Xenobiology.HTN;
 
@@ -15,6 +17,7 @@ public sealed partial class PickSlimeLatchTargetOperator : HTNOperator
     [Dependency] private readonly IEntityManager _entManager = default!;
     private NpcFactionSystem _factions = default!;
     private MobStateSystem _mobSystem = default!;
+    private HungerSystem _hunger = default!;
 
     private EntityLookupSystem _lookup = default!;
     private PathfindingSystem _pathfinding = default!;
@@ -41,6 +44,7 @@ public sealed partial class PickSlimeLatchTargetOperator : HTNOperator
         _pathfinding = sysManager.GetEntitySystem<PathfindingSystem>();
         _mobSystem = sysManager.GetEntitySystem<MobStateSystem>();
         _factions = sysManager.GetEntitySystem<NpcFactionSystem>();
+        _hunger = sysManager.GetEntitySystem<HungerSystem>();
     }
 
     public override async Task<(bool Valid, Dictionary<string, object>? Effects)> Plan(NPCBlackboard blackboard,
@@ -49,7 +53,10 @@ public sealed partial class PickSlimeLatchTargetOperator : HTNOperator
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
 
         if (!blackboard.TryGetValue<float>(RangeKey, out var range, _entManager)
-            || !_entManager.TryGetComponent<SlimeComponent>(owner, out var slimeComp))
+            || !_entManager.TryGetComponent<SlimeComponent>(owner, out var slimeComp)
+            || !_entManager.TryGetComponent<MobGrowthComponent>(owner, out var growthComp)
+            || growthComp.CurrentStage == growthComp.Stages[0]
+                && _hunger.IsHungerAboveState(owner, HungerThreshold.Peckish))
             return (false, null);
 
         var huAppQuery = _entManager.GetEntityQuery<HumanoidAppearanceComponent>();
@@ -59,11 +66,13 @@ public sealed partial class PickSlimeLatchTargetOperator : HTNOperator
 
         foreach (var entity in _factions.GetNearbyHostiles(owner, range))
         {
-            if (!huAppQuery.TryGetComponent(entity, out var humanoidAppearance))
+            if (!huAppQuery.TryGetComponent(entity, out var humanoidAppearance)
+                || _mobSystem.IsDead(entity))
                 continue;
 
             if (slimeComp.LatchedTarget.HasValue
-                || _mobSystem.IsDead(entity))
+                || entity == slimeComp.Tamer
+                && _hunger.IsHungerAboveState(owner, HungerThreshold.Peckish))
                 continue;
 
             targets.Add(entity);

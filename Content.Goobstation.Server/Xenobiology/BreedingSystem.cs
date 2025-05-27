@@ -104,7 +104,7 @@ public sealed class BreedingSystem : EntitySystem
     //Handles slime mitosis, for each offspring, a mutation is selected from their potential mutations - if mutation is successful, the products of mitosis will have the new mutation.
     private void DoMitosis(Entity<SlimeComponent> ent)
     {
-        var offspringCount = _random.Next(1, ent.Comp.Offspring + 1);
+        var offspringCount = _random.Next(1, ent.Comp.MaxOffspring + 1);
 
         for (var i = 0; i < offspringCount; i++)
         {

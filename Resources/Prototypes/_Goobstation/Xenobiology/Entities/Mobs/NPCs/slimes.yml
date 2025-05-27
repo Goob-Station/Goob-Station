@@ -13,7 +13,7 @@
       Peckish: 25
       Starving: 10
       Dead: 0
-    baseDecayRate: 0
+    baseDecayRate: 1
     starvingSlowdownModifier: 0
   - type: Sprite
     drawdepth: Mobs
@@ -163,7 +163,7 @@
     - slime-adult
   - type: Slime
     breed: GreyMutation
-    offspring: 4
+    maxOffspring: 4
     mutationChance: 0.45
     potentialMutations:
     - OrangeMutation
