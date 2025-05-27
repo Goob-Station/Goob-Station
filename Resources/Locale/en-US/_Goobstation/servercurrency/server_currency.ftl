@@ -5,8 +5,8 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-server-currency-name-singular = Durk Coin
-server-currency-name-plural = Durk Coins
+server-currency-name-singular = Lunar Fragment
+server-currency-name-plural = Lunar Fragments
 
 ## Commands
 
