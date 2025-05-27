@@ -14,8 +14,6 @@
       - state: basic
   - type: Item
     sprite: _Goobstation/Objects/Storage/pouches.rsi
-    layers:
-      - state: basic
     size: Small
     shape:
     - 0,0,3,3
