@@ -26,3 +26,14 @@
     department: Civilian
   - type: Wires
     layoutId: AirlockService
+
+  - type: entity #Goobedit - High Sec Door for SM Containment
+  parent: HighSecDoor
+  id: HighSecAtmosLocked
+  suffix: Atmospherics, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAtmospherics ]
+  - type: RadiationBlocker
+    resistance: 20
