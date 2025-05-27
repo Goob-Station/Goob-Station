@@ -928,7 +928,7 @@ public sealed partial class WoundSystem
 
         // Still does the funny popping, if the children are critted. for the funny :3
         DestroyWoundableChildren(woundableEntity, woundableComp, amputateChildrenSafely);
-        var detachresult = _body.DetachPart(parentWoundableEntity, bodyPartId.Remove(0, 15), woundableEntity);
+        _body.DetachPart(parentWoundableEntity, bodyPartId.Remove(0, 15), woundableEntity);
         _trauma.UpdateBodyBoneAlert(woundableEntity);
     }
 
@@ -1392,7 +1392,7 @@ public sealed partial class WoundSystem
 
                 if (damage >= woundable.IntegrityCap)
                 {
-                    nearestSeverity = WoundableSeverity.Critical;
+                    nearestSeverity = WoundableSeverity.Mangled;
                     break;
                 }
 

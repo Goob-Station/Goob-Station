@@ -53,6 +53,7 @@ using Content.Shared.Inventory.Events;
 using Robust.Shared.Containers;
 
 // Shitmed Change
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared.Body.Components;
@@ -296,16 +297,6 @@ namespace Content.Server.Atmos.EntitySystems
                     totalDamage += damage;
                 }
 
-                if (TryComp<BodyComponent>(uid, out var body)
-                    && HasComp<ConsciousnessComponent>(uid)
-                    && body.RootContainer.ContainedEntity.HasValue)
-                {
-                    totalDamage =
-                        _wound.GetAllWounds(body.RootContainer.ContainedEntity.Value)
-                            .Where(woundEnt => barotrauma.Damage.DamageDict.ContainsKey(woundEnt.Comp.DamageType))
-                            .Aggregate(totalDamage, (current, woundEnt) => current + woundEnt.Comp.WoundIntegrityDamage);
-                }
-
                 if (totalDamage >= barotrauma.MaxDamage)
                     continue;
             // Shitmed Change End
@@ -328,7 +319,7 @@ namespace Content.Server.Atmos.EntitySystems
                 if (pressure <= Atmospherics.HazardLowPressure)
                 {
                     // Deal damage and ignore resistances. Resistance to pressure damage should be done via pressure protection gear.
-                    _damageableSystem.TryChangeDamage(uid, barotrauma.Damage * Atmospherics.LowPressureDamage, true, false, partMultiplier: 0.5f); // Shitmed Change
+                    _damageableSystem.TryChangeDamage(uid, barotrauma.Damage * Atmospherics.LowPressureDamage, true, false, targetPart: TargetBodyPart.All); // Shitmed Change
 
                     if (!barotrauma.TakingDamage)
                     {
@@ -343,7 +334,7 @@ namespace Content.Server.Atmos.EntitySystems
                     var damageScale = MathF.Min(((pressure / Atmospherics.HazardHighPressure) - 1) * Atmospherics.PressureDamageCoefficient, Atmospherics.MaxHighPressureDamage);
 
                     // Deal damage and ignore resistances. Resistance to pressure damage should be done via pressure protection gear.
-                    _damageableSystem.TryChangeDamage(uid, barotrauma.Damage * damageScale, true, false, partMultiplier: 0.5f); // Shitmed Change
+                    _damageableSystem.TryChangeDamage(uid, barotrauma.Damage * damageScale, true, false, targetPart: TargetBodyPart.All); // Shitmed Change
 
                     if (!barotrauma.TakingDamage)
                     {

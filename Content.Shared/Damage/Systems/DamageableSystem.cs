@@ -480,8 +480,10 @@ namespace Content.Shared.Damage
 
             // Check for integrity cap on body parts
             float? scaleFactor = null;
+            bool isWoundable = false;
             if (_woundableQuery.TryComp(uid, out var woundable))
             {
+                isWoundable = true;
                 var positiveDamage = damage.DamageDict.Where(d => d.Value > 0).Sum(d => d.Value.Float());
                 if (positiveDamage > 0)
                 {
@@ -525,12 +527,12 @@ namespace Content.Shared.Damage
             if (delta.DamageDict.Count > 0)
             {
                 DamageChanged(uid, damageable, delta, interruptsDoAfters, origin, ignoreBlockers);
-                
+
                 // Shitmed Change: This means that the damaged part was a woundable
                 // which also means we send that shit to refresh the body.
-                if (scaleFactor is not null)
+                if (isWoundable)
                 {
-                    UpdateParentDamageFromBodyParts(uid,
+                    var updated = UpdateParentDamageFromBodyParts(uid,
                         delta,
                         interruptsDoAfters,
                         origin,
@@ -577,6 +579,9 @@ namespace Content.Shared.Damage
 
                 foreach (var (type, value) in partDamageable.Damage.DamageDict)
                 {
+                    if (value == 0)
+                        continue;
+
                     if (parentDamageable.Damage.DamageDict.TryGetValue(type, out var existing))
                         parentDamageable.Damage.DamageDict[type] = existing + value;
                 }

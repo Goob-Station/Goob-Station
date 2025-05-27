@@ -134,7 +134,8 @@ public abstract partial class SharedSurgerySystem : EntitySystem
     private void OnBeforeTargetDoAfter(Entity<SurgeryTargetComponent> ent,
         ref DoAfterAttemptEvent<SurgeryDoAfterEvent> args)
     {
-        if (!_net.IsServer)
+        if (!_net.IsServer
+            || !args.Event.Repeat) // We only wanna do this laggy shit on repeatables. One-time stuff idc.
             return;
 
         if (args.Event.Target is not { } target
