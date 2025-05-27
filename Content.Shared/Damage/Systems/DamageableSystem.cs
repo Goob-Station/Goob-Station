@@ -622,7 +622,8 @@ namespace Content.Shared.Damage
                                     && currentDamage > 0)
                                     count++;
 
-                            damage.DamageDict[type] = val / count;
+                            if (count > 0)
+                                damage.DamageDict[type] = val / count;
                         }
                     }
                     return damage;
