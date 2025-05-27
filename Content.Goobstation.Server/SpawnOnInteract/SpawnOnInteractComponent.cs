@@ -9,13 +9,13 @@ namespace Content.Goobstation.Server.SpawnOnInteract;
 public sealed partial class SpawnOnInteractComponent : Component
 {
     [DataField]
-    public string ToSpawn = "";
+    public string ToSpawn = string.Empty;
 
     [DataField]
-    public bool DeletInteractedEnt = true;
+    public bool DeleteInteractedEnt = true;
 
     [DataField]
-    public bool DeletInteractingEnt = true;
+    public bool DeleteInteractingEnt = true;
 
     [DataField]
     public bool GibUser = true;
