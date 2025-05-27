@@ -36,7 +36,7 @@ namespace Content.Goobstation.Server.SpawnOnInteract
 
             _adminLogger.Add(
                 LogType.Action, LogImpact.High,
-                $"{ToPrettyString(args.User):actor} created {ToPrettyString(newUid)} by intracting {ToPrettyString(args.Used)} with {ToPrettyString(uid)}");
+                $"{ToPrettyString(args.User):actor} created {ToPrettyString(newUid)} by interacting {ToPrettyString(args.Used)} with {ToPrettyString(uid)}");
 
             if (interactedComp.DeleteInteractedEnt == true)
                 QueueDel(uid);
