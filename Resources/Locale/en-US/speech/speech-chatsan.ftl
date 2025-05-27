@@ -206,7 +206,7 @@ chatsan-replacement-66 = something
 chatsan-word-67 = allg
 chatsan-replacement-67 = all good
 
-<#-- goob start -->
+# goob start
 chatsan-word-68 = ts
 chatsan-replacement-68 = this shit
 
@@ -215,4 +215,4 @@ chatsan-replacement-69 = pisses me off
 
 chatsand-word-69 = sybau
 chatsan-replacement-69 = shut your bitch ass up
-<#-- goob end -->
+# goob end
