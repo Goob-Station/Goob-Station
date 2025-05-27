@@ -84,3 +84,19 @@ signal-port-description-automation-slot-tool = An automation slot for an interac
 
 signal-port-name-automation-slot-autodoc-hand = Item: Autodoc Hand
 signal-port-description-automation-slot-autodoc-hand = An automation slot for an autodoc's held organ/part/etc from STORE ITEM / GRAB ITEM instructions.
+
+# Gas Canister
+
+signal-port-name-automation-slot-gas-tank = Item: Gas Tank
+signal-port-description-automation-slot-gas-tank = An automation slot for a gas tank.
+
+# Radiation Collector
+
+signal-port-name-rad-empty = Empty
+signal-port-description-rad-empty = Signal port set to HIGH if the tank is missing or below 33% pressure, LOW otherwise.
+
+signal-port-name-rad-low = Low
+signal-port-description-rad-low = Signal port set to HIGH if the tank is below 66% pressure, LOW otherwise.
+
+signal-port-name-rad-full = Full
+signal-port-description-rad-full = Signal port set to HIGH if the tank is above 66% pressure, LOW otherwise.
