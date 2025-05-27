@@ -27,7 +27,7 @@
   - type: Wires
     layoutId: AirlockService
 
-  - type: entity #Goobedit - High Sec Door for SM Containment
+- type: entity #Goobedit - High Sec Door for SM Containment
   parent: HighSecDoor
   id: HighSecAtmosLocked
   suffix: Atmospherics, Locked
