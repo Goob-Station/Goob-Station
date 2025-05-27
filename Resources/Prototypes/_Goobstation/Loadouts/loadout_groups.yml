@@ -255,7 +255,6 @@
   minLimit: 0
   loadouts:
   - MedicalPouchCartridgeInjector
-  - MedicalPouchAutoInjectors
   - MedicalPouchPills
   - MedicalPouchSurgery
 
@@ -279,7 +278,6 @@
   - EngineeringPouchLight
   - EngineeringPouchWire
   - EngineeringPouchInflatables
-  - EngineeringPouchConstruction
 
 # Cargo pouch
 
