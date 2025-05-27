@@ -100,7 +100,7 @@
     - id: PillCanisterDermaline
     - id: PillCanisterHyronalin
     - id: PillCanisterDylovene
-#    - id: PillCanisterTramadol
+    - id: PillCanisterTramadol
 
 - type: entity
   name: surgery pouch

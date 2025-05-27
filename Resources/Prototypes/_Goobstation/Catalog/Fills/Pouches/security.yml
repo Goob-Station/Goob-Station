@@ -68,6 +68,6 @@
     - id: SecHypo
     - id: CartridgeBicaridine
     - id: Tourniquet
-    - id: PillCanisterIron # Tramadol when that gets merged
+    - id: PillCanisterTramadol
     - id: CartridgeDermaline
     - id: PillCanisterTricordrazine
