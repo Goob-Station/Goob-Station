@@ -14,7 +14,7 @@
       - state: cartautoinjector
   - type: Storage
     grid:
-    - 0,0,7,1
+    - 0,0,6,1 # Has to be better than cig pack
     whitelist:
       tags:
         - AutoinjectorCartridge
