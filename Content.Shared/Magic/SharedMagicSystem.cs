@@ -530,8 +530,6 @@ public abstract class SharedMagicSystem : EntitySystem
 
         if (IsTouchSpellDenied(ev.Target))
         {
-            if (ev.DoSpeech)
-                Speak(ev);
             ev.Handled = true;
             return;
         }
@@ -618,7 +616,6 @@ public abstract class SharedMagicSystem : EntitySystem
 
         if (IsTouchSpellDenied(ev.Target))
         {
-            Speak(ev);
             ev.Handled = true;
             return;
         }
@@ -735,7 +732,6 @@ public abstract class SharedMagicSystem : EntitySystem
 
         if (IsTouchSpellDenied(ev.Target)) // Goobstation
         {
-            Speak(ev);
             ev.Handled = true;
             return;
         }

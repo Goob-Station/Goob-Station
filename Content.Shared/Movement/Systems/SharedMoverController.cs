@@ -1127,8 +1127,7 @@ public abstract partial class SharedMoverController : VirtualController
                 movementSpeedComponent?.Friction ?? MovementSpeedModifierComponent.DefaultFriction;
         }
 
-        return tileDef?.MobFrictionNoInput ?? movementSpeedComponent.FrictionNoInput ??
-            MovementSpeedModifierComponent.DefaultFrictionNoInput;
+        return movementSpeedComponent.FrictionNoInput;
     }
 
     /// <summary>
