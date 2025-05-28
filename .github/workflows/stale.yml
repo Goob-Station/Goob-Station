@@ -1,6 +1,7 @@
 name: Mark and Close Stale Pull Requests
 
 on:
+  workflow_dispatch:
   schedule:
     # Runs daily at midnight UTC.
     - cron: '0 0 * * *'
