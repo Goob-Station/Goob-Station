@@ -169,17 +169,17 @@ public sealed partial class AristocratSystem : EntitySystem
 
         foreach (var look in lookup)
         {
-            if (TryComp<TagComponent>(look, out var tag))
-            {
-                var tags = tag.Tags;
+            if (!TryComp<TagComponent>(look, out var tag))
+                return;
 
-                // walls
-                if (_rand.Prob(.45f) && tags.Contains("Wall")
-                && Prototype(look) != null && Prototype(look)!.ID != SnowWallPrototype)
-                {
-                    Spawn(SnowWallPrototype, Transform(look).Coordinates);
-                    QueueDel(look);
-                }
+            var tags = tag.Tags;
+
+            // walls
+            if (_rand.Prob(.45f) && tags.Contains("Wall")
+            && Prototype(look) != null && Prototype(look)!.ID != SnowWallPrototype)
+            {
+                Spawn(SnowWallPrototype, Transform(look).Coordinates);
+                QueueDel(look);
             }
         }
     }
@@ -189,17 +189,17 @@ public sealed partial class AristocratSystem : EntitySystem
     {
         foreach (var look in lookup)
         {
-            if (TryComp<TagComponent>(look, out var tag))
-            {
-                var tags = tag.Tags;
+            if (!TryComp<TagComponent>(look, out var tag))
+                return;
 
-                // windows
-                if (tags.Contains("Window") && Prototype(look) != null)
-                {
-                    var dspec = new DamageSpecifier();
-                    dspec.DamageDict.Add("Structural", 100);
-                    _damage.TryChangeDamage(look, dspec, origin: ent);
-                }
+            var tags = tag.Tags;
+
+            // windows
+            if (tags.Contains("Window") && Prototype(look) != null)
+            {
+                var dspec = new DamageSpecifier();
+                dspec.DamageDict.Add("Structural", 100);
+                _damage.TryChangeDamage(look, dspec, origin: ent);
             }
         }
     }
