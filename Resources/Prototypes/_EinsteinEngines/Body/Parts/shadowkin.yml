@@ -22,6 +22,9 @@
         Quantity: 3
       - ReagentId: Blood
         Quantity: 10
+  - type: Damageable
+    damageContainer: Biological # Shadowkin
+    damageModifierSet: Shadowkin
 
 - type: entity
   id: ChestShadowkin
