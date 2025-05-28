@@ -246,6 +246,8 @@
   - SecurityWinterBoots
   - AdvancedJackBoots
 
+# Brigmedic
+
 - type: loadoutGroup
   id: BrigmedicJumpsuit
   name: loadout-group-brigmedic-jumpsuit
@@ -253,7 +255,25 @@
   - BrigmedicJumpsuit
   - BrigmedicJumpskirt
 
-# Brigmedic
+- type: loadoutGroup
+  id: BrigmedicHead
+  name: loadout-group-brigmedic-head
+  minLimit: 0
+  loadouts:
+  - BrigmedicBeret
+  - CMOMedicalHeadMirror
+  - SecurityBeret
+  - SecurityHat
+  - TrooperHat
+
+- type: loadoutGroup
+  id: BrigmedicOuterClothing
+  name: loadout-group-brigmedic-outer
+  loadouts:
+  - BrigmedicAMG
+  - ArmorVest
+  - ArmorVestSlim
+  #- WinterCoatSecArmored
 
 - type: loadoutGroup
   id: BrigmedicBackpack

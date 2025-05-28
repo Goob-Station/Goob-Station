@@ -14,6 +14,16 @@
     jumpsuit: ClothingUniformJumpskirtBrigmedic
 
 - type: loadout
+  id: BrigmedicBeret
+  equipment:
+    head: ClothingHeadHatBeretBrigmedic
+
+- type: loadout
+  id: BrigmedicAMG
+  equipment:
+    outerClothing: ClothingOuterCoatAMG
+
+- type: loadout
   id: BrigmedicBackpack
   equipment:
     back: ClothingBackpackBrigmedic
@@ -31,4 +41,4 @@
 - type: loadout
   id: BrigmedicMessenger
   equipment:
-    back: ClothingBackpackMessengerSecurity # TODO brigmedic messenger
+    back: ClothingBackpackMessengerBrigmedic

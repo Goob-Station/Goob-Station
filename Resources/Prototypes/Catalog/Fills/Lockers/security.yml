@@ -184,15 +184,11 @@
   components:
   - type: StorageFill
     contents: # heavily good edited
-      - id: ParamedHypo
       - id: BoxAutoinjectorCartidges
       - id: OmnimedTool
-      - id: ClothingEyesGlassesMed
       - id: ClothingOuterHardsuitBrigmedic
       - id: OxygenTankFilled
       - id: NitrogenTankFilled
-      - id: ClothingHeadHatBeretBrigmedic
-      - id: ClothingOuterCoatAMG
       - id: ClothingUniformJumpskirtOfLife
         prob: 0.1
       - id: MedkitOxygenFilled # This one is guaranteed

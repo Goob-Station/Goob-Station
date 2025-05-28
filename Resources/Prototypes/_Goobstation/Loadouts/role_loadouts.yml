@@ -141,12 +141,15 @@
 - type: roleLoadout
   id: JobBrigmedic
   groups:
+  - BrigmedicHead
   - MedicalMask
   - BrigmedicJumpsuit
+  - BrigmedicOuterClothing
   - MedicalGloves
   - BrigmedicBackpack
   - SecurityShoes
-  - Glasses
+  - SecurityNeck
   - SurvivalSecurity
   - Trinkets
+  - SecurityStar
   - GroupSpeciesBreathToolSecurity

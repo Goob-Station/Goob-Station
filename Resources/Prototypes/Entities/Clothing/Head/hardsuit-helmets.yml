@@ -435,7 +435,7 @@
         Slash: 0.9
         Piercing: 0.7
         Heat: 0.9
-        Radiation: 0.7
+        Radiation: 0.4
         Caustic: 0.4
   - type: PressureProtection
     highPressureMultiplier: 0.6
