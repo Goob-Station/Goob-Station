@@ -60,7 +60,7 @@ public sealed class RevolutionaryConverterSystem : EntitySystem
             || args.Cancelled)
             return;
 
-        var ev = new AfterConvertedEvent(args.Target!.Value, args.User, args.Used);
+        var ev = new AfterRevolutionaryConvertedEvent(args.Target!.Value, args.User, args.Used);
         RaiseLocalEvent(args.User, ref ev);
 
         if (args.Used != null)
@@ -106,23 +106,16 @@ public sealed class RevolutionaryConverterSystem : EntitySystem
             BreakOnHandChange = false,
         });
     }
+}
 
-    /// <summary>
-    /// Called after a converter is used via melee on another person to check for rev conversion.
-    /// Raised on the user of the converter, the target hit by the converter, and the converter used.
-    /// </summary>
-    [ByRefEvent]
-    public readonly struct AfterConvertedEvent
-    {
-        public readonly EntityUid Target;
-        public readonly EntityUid? User;
-        public readonly EntityUid? Used;
-
-        public AfterConvertedEvent(EntityUid target, EntityUid? user, EntityUid? used)
-        {
-            Target = target;
-            User = user;
-            Used = used;
-        }
-    }
+/// <summary>
+/// Called after a converter is used via melee on another person to check for rev conversion.
+/// Raised on the user of the converter, the target hit by the converter, and the converter used.
+/// </summary>
+[ByRefEvent]
+public readonly struct AfterRevolutionaryConvertedEvent(EntityUid target, EntityUid? user, EntityUid? used)
+{
+    public readonly EntityUid Target = target;
+    public readonly EntityUid? User = user;
+    public readonly EntityUid? Used = used;
 }
