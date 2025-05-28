@@ -24,3 +24,6 @@
     - type: GuideHelp
       guides:
       - Revolutionaries
+    - type: Construction
+      graph: RevolutionaryManifesto
+      node: revolutionaryManifesto
