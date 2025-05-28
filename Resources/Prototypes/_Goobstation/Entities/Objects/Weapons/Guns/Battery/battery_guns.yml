@@ -147,7 +147,7 @@
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
   - type: ItemSlots
     slots:
-      gun_magazine:
+      cell_slot:
         name: Magazine
         startingItem: EnergySpeedloaderLethal
         insertSound: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
@@ -285,7 +285,7 @@
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
   - type: ItemSlots
     slots:
-      gun_magazine:
+      cell_slot:
         name: Magazine
         startingItem: EnergyMagRifleLethal
         insertSound: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
