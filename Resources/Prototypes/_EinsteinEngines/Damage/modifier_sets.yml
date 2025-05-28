@@ -24,11 +24,10 @@
 
 - type: damageModifierSet
   id: Shadowkin
-  coefficients: # Literally the same as Tajaran, but less asphyx
-    Blunt: 1.15
-    Slash: 1.15
-    Piercing: 1.15
+  coefficients:
+    Blunt: 1.4
+    Slash: 1.4
+    Piercing: 1.4
     Asphyxiation: 0.50
-    Heat: 1.20
-    Cold: 0.80
+    Heat: 1.4
   ignoreArmorPierceFlags: All # Goobstation
