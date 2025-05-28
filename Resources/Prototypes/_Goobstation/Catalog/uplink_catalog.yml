@@ -1173,7 +1173,7 @@
   description: uplink-viscerators-delivery-grenade-desc
   productEntity: GrenadeViscerators
   cost:
-    Telecrystal: 25
+    Telecrystal: 18
   categories:
   - UplinkExplosives
 
@@ -1183,7 +1183,7 @@
   description: uplink-viscerators-delivery-grenade-box-desc
   productEntity: BoxGrenadeViscerators
   cost:
-    Telecrystal: 90
+    Telecrystal: 62
   categories:
   - UplinkExplosives
   conditions:
