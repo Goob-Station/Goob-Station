@@ -19,3 +19,17 @@
   placementMode: SnapgridCenter
   canRotate: true
   canBuildInImpassable: true
+
+- type: construction
+  name: solar panel
+  id: SolarPanel
+  graph: SolarPanel
+  startNode: start
+  targetNode: solarpanel
+  category: construction-category-structures
+  description: A solar panel, for your solar paneling needs.
+  icon:
+    sprite: Structures/Power/Generation/solar_panel.rsi
+    state: solar_panel_glass
+  objectType: Structure
+  placementMode: SnapgridCenter

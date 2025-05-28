@@ -17,6 +17,24 @@
   graph:
     - node: start
       edges:
+        # Goobstation - allow from-materials construction
+        - to: solarassembly
+          steps:
+            - tag: CapacitorStockPart
+              name: a capacitor
+              icon:
+                sprite: Objects/Misc/stock_parts.rsi
+                state: capacitor
+              doAfter: 1
+            - material: Steel
+              amount: 2
+              doAfter: 1
+            - material: MetalRod
+              amount: 2
+              doAfter: 1
+            - material: Cable
+              amount: 2
+              doAfter: 1
         - to: solarassembly
           steps:
             - tag: SolarAssemblyFlatpack
