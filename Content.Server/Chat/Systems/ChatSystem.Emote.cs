@@ -126,7 +126,7 @@ public partial class ChatSystem
         }
 
         // do the rest of emote event logic here
-        TryEmoteWithoutChat(source, emote, ignoreActionBlocker);
+        TryEmoteWithoutChat(source, emote, ignoreActionBlocker, voluntary: voluntary);
     }
 
     /// <summary>
