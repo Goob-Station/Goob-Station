@@ -1,0 +1,24 @@
+- type: entity
+  id: RunningWater
+  parent: BaseStructure
+  name: running water
+  description: Does not seem to stop flowing.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/water.rsi
+    state: water_1
+    drawdepth: OverMobs
+  - type: Rotatable
+  - type: AmbientSound
+    volume: -5
+    range: 15
+    sound:
+      path: /Audio/_Goobstation/Ambience/runningwater.ogg
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0
