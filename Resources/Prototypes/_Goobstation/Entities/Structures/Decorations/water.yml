@@ -11,7 +11,7 @@
   - type: Rotatable
   - type: AmbientSound
     volume: -5
-    range: 15
+    range: 12
     sound:
       path: /Audio/_Goobstation/Ambience/runningwater.ogg
   - type: Physics

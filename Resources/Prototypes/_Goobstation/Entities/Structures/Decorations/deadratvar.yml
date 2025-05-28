@@ -1,6 +1,6 @@
 - type: entity
   id: DeadRatvar
-  parent: BaseStructureDynamic
+  parent: BaseStructure
   name: dead construct
   description: The corpse of an ancient construct made of brass and cogs. It still hums with tremendous power.
   components:
@@ -9,6 +9,7 @@
     sprite: /Textures/_Goobstation/Structures/Decoration/deadratvar.rsi
     state: dead_ratvar
     drawdepth: OverMobs
+    size: Ginormous
   - type: AmbientSound
     volume: 2
     range: 20
