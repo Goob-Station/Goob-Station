@@ -45,7 +45,7 @@
   parent: ClothingModsuitGauntletsStandard
   id: ClothingModsuitGauntletsPraetorian
   name: Praetorian hardsuit gauntlets # Goob edit
-  description: A pair of gauntlets made for the Praetorianhardsuit. # Goob edit
+  description: A pair of gauntlets made for the Praetorian hardsuit. # Goob edit
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
