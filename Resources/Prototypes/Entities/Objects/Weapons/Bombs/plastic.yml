@@ -160,10 +160,10 @@
         volume: -6
     startOnStick: false
     canToggleStartOnStick: true
-  - type: TriggerOnSignal
+  - type: TimerStartOnSignal
   - type: DeviceLinkSink
     ports:
-    - Trigger
+    - Timer
   - type: Explosive
     explosionType: Cryo
     totalIntensity: 120
