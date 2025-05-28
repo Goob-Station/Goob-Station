@@ -49,6 +49,10 @@
         - sprite: Objects/Fun/toys.rsi
           state: plushie_h
     - type: RandomSpawner
+      rarePrototypes:
+        - FoamBlade
+        - PlushieGhost
+      rareChance: 0.03
       prototypes:
         - PlushieBee
         - PlushieAtmosian
