@@ -1,0 +1,12 @@
+ent-BaseAutomationFilter = filter
+    .desc = A filter that can be installed in factory machines.
+ent-AutomationFilterLabel = label filter
+    .desc = A filter that can be installed in factory machines. This one scans labels of attached items.
+ent-AutomationFilterName = name filter
+    .desc = A filter that can be installed in factory machines. This one uses complex AI vision technology to identify items.
+ent-AutomationFilterStack = stack filter
+    .desc = A filter that can be installed in factory machines. This one weighs items to compare it to a stack size.
+ent-AutomationFilterPressure = pressure filter
+    .desc = A filter that can be installed in factory machines. This one has a barometer to check the pressure of gases.
+ent-AutomationFilterCombined = combined filter
+    .desc = A filter that can be installed in factory machines. This one uses a logic gate to combine 2 installed item filters.

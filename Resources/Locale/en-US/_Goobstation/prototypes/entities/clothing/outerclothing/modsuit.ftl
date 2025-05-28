@@ -1,0 +1,16 @@
+ent-ClothingModsuitChestplateStandard = standard modsuit chestplate
+    .desc = A special modular suit spaceproof cover designed for compact folding inside modular suit control.
+ent-ClothingModsuitChestplateSecurity = soldat MODsuit chestplate
+    .desc = A robust modular suit cover with ceramic inserts for extra protection.
+ent-ClothingModsuitChestplateHeadOfSecurity = bulwark modsuit chestplate
+    .desc = A robust modular suit cover with EXTRA ceramic inserts for slightly more protection.
+ent-ClothingModsuitChestplateParamedic = sanitater modsuit chestplate
+    .desc = A white and blue-ish-grey steel plate for keeping out the harsh void of space and the occasional bullet.
+ent-ClothingModsuitChestplateEngineer = sapper modsuit chestplate
+    .desc = A tough armor plate to defend against harsh atmospheric conditions and shockwaves.
+ent-ClothingModsuitChestplateAtmostech = aeolus modsuit chestplate
+    .desc = A fire-proof armor plate to defend against harsh atmospheric conditions.
+ent-ClothingModsuitChestplateResearchDirector = minerva modsuit chestplate
+    .desc = A bulky bomb and bat proof chunk of steel.
+ent-ClothingModsuitChestplateCaptain = magnate modsuit chestplate
+    .desc = This shit is made out of DIAMONDS, man, this armor was forged with GEMS.

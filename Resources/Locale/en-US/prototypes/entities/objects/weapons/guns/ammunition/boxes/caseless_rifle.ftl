@@ -1,0 +1,10 @@
+ent-BaseMagazineBoxCaselessRifle = ammunition box (9.5mm HP)
+    .desc = { ent-BaseItem.desc }
+ent-MagazineBoxCaselessRifle10x24 = ammunition box (9.5mm HP)
+    .desc = { ent-BaseMagazineBoxCaselessRifle.desc }
+ent-MagazineBoxCaselessRifleBig = ammunition box (9.5mm HP)
+    .desc = { ent-BaseMagazineBoxCaselessRifle.desc }
+ent-MagazineBoxCaselessRifle = ammunition box (9.5mm HP)
+    .desc = { ent-BaseMagazineBoxCaselessRifle.desc }
+ent-MagazineBoxCaselessRiflePractice = ammunition box (9.5mm practice)
+    .desc = { ent-BaseMagazineBoxCaselessRifle.desc }

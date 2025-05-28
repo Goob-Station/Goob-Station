@@ -1,0 +1,16 @@
+ent-ClothingBackpackDuffelSyndicateMedicHardsuitBundle = syndicate medic hardsuit bundle
+    .desc = A surplus combat medic hardsuit, bundled for your LARP.
+ent-ClothingBackpackDuffelSyndicateStealthHardsuitBundle = cybersun stealthsuit bundle
+    .desc = An advanced cybersun stealth hardsuit bundle.
+ent-ClothingBackpackDuffelSyndicateBurner = Burner Bundle
+    .desc = A high caliber Burner rifle, comes with some anti materiel and high explosive ammunition.
+ent-ClothingBackpackDuffelSyndicateM90Bundle = M-90 bundle
+    .desc = A bundle carrying the syndicate's M-90 assault rifle, packed with 2 spare magazines.
+ent-ClothingBackpackDuffelSyndicateFilledWSPR = WSPR bundle
+    .desc = A bundle carrying the syndicate's WSPR assault rifle, packed with 2 spare magazines.
+ent-ClothingBackpackDuffelSyndicateFilledWhimsy = syndicate joy & whimsy bundle
+    .desc = A bundle containing everything a syndicate needs to have a jolly good time.
+ent-ClothingBackpackDuffelSyndicateFilledCandy = candy bundle
+    .desc = A bundle packed to the brim with candy. Someone's got a sweet tooth!
+ent-ClothingBackpackDuffelSyndicateFilledHE1SG8 = HE1S-G8 bundle
+    .desc = This bundle holds the HE1S-G8 rifle paired with 19 cartridges for some extra funny.

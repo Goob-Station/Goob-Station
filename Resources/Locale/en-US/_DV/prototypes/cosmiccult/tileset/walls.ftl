@@ -1,0 +1,16 @@
+ent-WallCosmicCult = malign wall
+    .desc = A strange-looking wall. Staring at it for too long instills a sense of discomfort.
+ent-WallCosmicCultTrimmed = malign wall
+    .suffix = Trimmed
+    .desc = { ent-WallCosmicCult.desc }
+ent-WindowCosmicCult = malign pane
+    .desc = An odd-looking window. Something about it unnerves you.
+ent-WindowCosmicCultDark = malign pane
+    .suffix = Tinted
+    .desc = { ent-WindowCosmicCult.desc }
+ent-WindowCosmicCultDiagonal = malign pane
+    .desc = An odd-looking window. Something about it unnerves you.
+    .suffix = Diagonal
+ent-WindowCosmicCultDiagonalDark = malign pane
+    .suffix = Diagonal, Tinted
+    .desc = { ent-WindowCosmicCultDiagonal.desc }

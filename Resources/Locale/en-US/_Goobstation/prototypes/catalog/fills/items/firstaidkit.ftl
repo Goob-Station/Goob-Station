@@ -1,0 +1,9 @@
+ent-MedkitCombatStasiziumFilled = futuristic medkit
+    .desc = Medkit filled with medicines of the future
+    .suffix = Stazisium
+ent-MedkitBSOFilled = { ent-MedkitBSO }
+    .suffix = Filled
+    .desc = { ent-MedkitBSO.desc }
+ent-MedkitBSOIPCFilled = { ent-MedkitBSOIPC }
+    .suffix = Filled
+    .desc = { ent-MedkitBSOIPC.desc }

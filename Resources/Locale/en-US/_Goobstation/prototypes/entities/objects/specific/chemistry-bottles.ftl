@@ -1,0 +1,9 @@
+ent-ChemistryBottleTramadol = { ent-BaseChemistryBottleFilled }
+    .suffix = tramadol
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+ent-ChemistryBottleOxycodone = { ent-BaseChemistryBottleFilled }
+    .suffix = oxycodone
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+ent-ChemistryBottleIbuprofen = { ent-BaseChemistryBottleFilled }
+    .suffix = Ibuprofen
+    .desc = { ent-BaseChemistryBottleFilled.desc }

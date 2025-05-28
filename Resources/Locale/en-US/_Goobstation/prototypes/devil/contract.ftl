@@ -1,0 +1,11 @@
+ent-BaseDevilContract = contract from below
+    .desc = A devilish piece of black parchment detailing a contract. All ink that touches the page seems to turn to blood.
+ent-PaperDevilContractBlank = { ent-BaseDevilContract }
+    .suffix = Blank
+    .desc = { ent-BaseDevilContract.desc }
+ent-PaperDevilContract = { ent-BaseDevilContract }
+    .suffix = Devil Contract
+    .desc = { ent-BaseDevilContract.desc }
+ent-PaperDevilContractRevival = contract from the depths
+    .desc = A devilish piece of black parchment detailing a contract of revival. All ink that touches the page seems to turn to blood.
+    .suffix = Devil Contract, Revival
