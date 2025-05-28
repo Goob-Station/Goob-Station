@@ -257,7 +257,7 @@ public partial class ChatSystem
     }
 
 
-    private void InvokeEmoteEvent(EntityUid uid, EmotePrototype proto, bool voluntary = true)
+    private void InvokeEmoteEvent(EntityUid uid, EmotePrototype proto, bool voluntary = false)
     {
         var ev = new EmoteEvent(proto, voluntary);
         RaiseLocalEvent(uid, ref ev, true); // goob edit
