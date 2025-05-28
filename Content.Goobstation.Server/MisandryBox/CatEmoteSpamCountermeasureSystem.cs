@@ -64,7 +64,7 @@ public sealed class CatEmoteSpamCountermeasureSystem : EntitySystem
 
     private void OnEmoteEvent(Entity<SpeechComponent> ent, ref EmoteEvent args)
     {
-        if (args.Emote.Category is EmoteCategory.Vocal or EmoteCategory.Farts)
+        if (args.Emote.Category is EmoteCategory.Vocal or EmoteCategory.Farts && args.Voluntary)
             Add(ent.Owner);
     }
 
