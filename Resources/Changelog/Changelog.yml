@@ -4916,3 +4916,10 @@
   id: 8579
   time: '2025-05-28T09:32:42.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/37895
+- author: Moomoobeef
+  changes:
+  - message: Made high-viz vest less visible.
+    type: Tweak
+  id: 8580
+  time: '2025-05-28T09:39:29.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37869
