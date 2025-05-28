@@ -14,6 +14,6 @@ namespace Content.Server.Heretic.Components.PathSpecific;
 public sealed partial class AristocratComponent : Component
 {
     public float UpdateTimer = 0f;
-    [DataField] public float UpdateDelay = 1.5f;
-    [DataField] public float Range = 5f;
+    [DataField] public float UpdateDelay = 1f;
+    [DataField] public float Range = 10f;
 }

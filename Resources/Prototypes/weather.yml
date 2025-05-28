@@ -133,6 +133,19 @@
       loop: true
       volume: -20
 
+## goobstation
+- type: weather
+  id: SnowfallMagic
+  sprite:
+    sprite: /Textures/Effects/weather.rsi
+    state: snowfall_magic
+  sound:
+    path: /Audio/Effects/Weather/snowstorm.ogg
+    params:
+      loop: true
+      volume: -20
+##
+
 - type: weather
   id: Storm
   sprite:

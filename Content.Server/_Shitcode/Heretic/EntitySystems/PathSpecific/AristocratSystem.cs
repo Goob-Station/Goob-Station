@@ -11,13 +11,19 @@
 
 using Content.Server._Goobstation.Heretic.EntitySystems.PathSpecific;
 using Content.Server.Atmos.EntitySystems;
+using Content.Server.Atmos.Components;
 using Content.Server.Audio;
+using Content.Server.Light.Components;
+using Content.Server.Light.EntitySystems;
 using Content.Server.Heretic.Components.PathSpecific;
-using Robust.Shared.Audio;
+using Content.Shared.Atmos;
+using Content.Shared.Damage;
 using Content.Shared.Heretic;
 using Content.Shared.Maps;
 using Content.Shared.Tag;
+using Content.Shared.Weather;
 using Robust.Server.GameObjects;
+using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
@@ -38,6 +44,10 @@ public sealed partial class AristocratSystem : EntitySystem
     [Dependency] private readonly MapSystem _map = default!;
     [Dependency] private readonly VoidCurseSystem _voidcurse = default!;
     [Dependency] private readonly ServerGlobalSoundSystem _globalSound = default!;
+    [Dependency] private readonly DamageableSystem _damage = default!;
+    [Dependency] private readonly PoweredLightSystem _light = default!;
+    [Dependency] private readonly FlammableSystem _flammable = default!;
+    [Dependency] private readonly SharedWeatherSystem _weather = default!;
 
     public override void Initialize()
     {
@@ -49,7 +59,23 @@ public sealed partial class AristocratSystem : EntitySystem
     private void OnStartup(Entity<AristocratComponent> ent, ref ComponentStartup args)
     {
         // mmm original soundtractk
-        _globalSound.PlayGlobalOnStation(ent, "/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/VoidsEmbrace.ogg", AudioParams.Default);
+        _globalSound.PlayGlobalOnStation(ent, "/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/VoidsEmbrace.ogg", AudioParams.Default.WithLoop(true));
+
+        // the fog (snow) is coming
+        var xform = Transform(ent);
+        _weather.SetWeather(xform.MapID, _prot.Index<WeatherPrototype>("SnowfallMagic"), null);
+    }
+
+    private List<TileRef>? GetTileRef(Entity<AristocratComponent> ent, TransformComponent xform)
+    {
+        if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
+            return null;
+
+        var pos = xform.Coordinates.Position;
+        var box = new Box2(pos + new Vector2(-ent.Comp.Range, -ent.Comp.Range), pos + new Vector2(ent.Comp.Range, ent.Comp.Range));
+        var tilerefs = _map.GetLocalTilesIntersecting((EntityUid) xform.GridUid, grid, box).ToList();
+
+        return tilerefs;
     }
 
     public override void Update(float frameTime)
@@ -78,7 +104,15 @@ public sealed partial class AristocratSystem : EntitySystem
 
         FreezeAtmos(ent);
 
+        ExtinguishFiresTiles(ent);
+
+        ExtinguishFires(ent, lookup);
+
         DoChristmas(ent, lookup);
+
+        SmashWindows(ent, lookup);
+
+        SpookyLights(ent, lookup);
 
         FreezeNoobs(ent, lookup);
     }
@@ -87,8 +121,45 @@ public sealed partial class AristocratSystem : EntitySystem
     private void FreezeAtmos(Entity<AristocratComponent> ent)
     {
         var mix = _atmos.GetTileMixture((ent, Transform(ent)));
+        var freezingTemp = Atmospherics.T0C;
+
         if (mix != null)
-            mix.Temperature -= 50f;
+        {
+            if (mix.Temperature > freezingTemp)
+                mix.Temperature = freezingTemp;
+
+            mix.Temperature -= 100f;
+        }
+    }
+
+    // extinguish gases on tiles
+    private void ExtinguishFiresTiles(Entity<AristocratComponent> ent)
+    {
+        var xform = Transform(ent);
+        var tilerefs = GetTileRef(ent, xform);
+
+        if (tilerefs == null)
+            return;
+
+        if (tilerefs.Count == 0)
+            return;
+
+        foreach (var tile in tilerefs)
+        {
+            _atmos.HotspotExtinguish(tile.GridUid, tile.GridIndices);
+        }
+    }
+
+    // extinguish ppl and stuff
+    private void ExtinguishFires(Entity<AristocratComponent> ent, HashSet<EntityUid> lookup)
+    {
+        foreach (var look in lookup)
+        {
+            var flameComp = TryComp<FlammableComponent>(look, out var comp);
+
+            if (comp != null)
+                _flammable.Extinguish(look, comp);
+        }
     }
 
     // replaces certain things with their winter analogue
@@ -110,6 +181,38 @@ public sealed partial class AristocratSystem : EntitySystem
                     QueueDel(look);
                 }
             }
+        }
+    }
+
+    // break down windows
+    private void SmashWindows(Entity<AristocratComponent> ent, HashSet<EntityUid> lookup)
+    {
+        foreach (var look in lookup)
+        {
+            if (TryComp<TagComponent>(look, out var tag))
+            {
+                var tags = tag.Tags;
+
+                // windows
+                if (tags.Contains("Window") && Prototype(look) != null)
+                {
+                    var dspec = new DamageSpecifier();
+                    dspec.DamageDict.Add("Structural", 100);
+                    _damage.TryChangeDamage(look, dspec, origin: ent);
+                }
+            }
+        }
+    }
+
+    // kill the lights
+    private void SpookyLights(Entity<AristocratComponent> ent, HashSet<EntityUid> lookup)
+    {
+        var lights = GetEntityQuery<PoweredLightComponent>();
+
+        foreach (var look in lookup)
+        {
+            if (lights.HasComponent(look))
+                _light.TryDestroyBulb(look);
         }
     }
 
@@ -137,9 +240,10 @@ public sealed partial class AristocratSystem : EntitySystem
         if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
             return;
 
-        var pos = xform.Coordinates.Position;
-        var box = new Box2(pos + new Vector2(-ent.Comp.Range, -ent.Comp.Range), pos + new Vector2(ent.Comp.Range, ent.Comp.Range));
-        var tilerefs = _map.GetLocalTilesIntersecting((EntityUid) xform.GridUid, grid, box).ToList();
+        var tilerefs = GetTileRef(ent, xform);
+
+        if (tilerefs == null)
+            return;
 
         if (tilerefs.Count == 0)
             return;
