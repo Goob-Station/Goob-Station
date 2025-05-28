@@ -48,13 +48,12 @@
           bounds: "-0.49,-0.49,0.49,0.49"
         density: 100
         mask:
-          - FullTileMask
+        - FullTileMask
         layer:
-          - GlassLayer
+        - GlassLayer
   - type: RadiationBlocker
     resistance: 20
   - type: Door
-    occludes: false 
+    occludes: false
   - type: Occluder
     enabled: false
-    
