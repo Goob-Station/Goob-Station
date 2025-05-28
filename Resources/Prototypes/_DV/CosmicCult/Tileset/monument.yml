@@ -85,11 +85,6 @@
        enabled: true
        isLooped: true
        reverseWhenFinished: true
-  - type: AmbientSound
-    range: 3.5
-    volume: -9
-    sound:
-      path: /Audio/_DV/CosmicCult/god_ambient.ogg
   - type: ActivatableUI
     singleUser: false
     requiresComplex: true

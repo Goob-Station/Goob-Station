@@ -35,10 +35,13 @@ public sealed partial class CosmicFinaleComponent : Component
     public TimeSpan CultistsCheckTimer = default!;
 
     [DataField, AutoNetworkedField]
-    public TimeSpan BufferRemainingTime = TimeSpan.FromSeconds(300);
+    public TimeSpan BufferRemainingTime = TimeSpan.FromSeconds(360);
 
     [DataField, AutoNetworkedField]
     public TimeSpan FinaleRemainingTime = TimeSpan.FromSeconds(126);
+
+    [DataField, AutoNetworkedField]
+    public TimeSpan ConversionSpeedup = TimeSpan.FromSeconds(20);
 
     [DataField, AutoNetworkedField]
     public TimeSpan CheckWait = TimeSpan.FromSeconds(5);

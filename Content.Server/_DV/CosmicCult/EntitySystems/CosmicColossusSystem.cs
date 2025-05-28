@@ -1,4 +1,3 @@
-using System.Linq;
 using Content.Server.Doors.Systems;
 using Content.Server.Popups;
 using Content.Shared._DV.CosmicCult;

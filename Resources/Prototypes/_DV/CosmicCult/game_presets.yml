@@ -12,8 +12,7 @@
     #- MeteorSwarmScheduler - Goob Edit
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
-    # - BasicStationEventScheduler //temporarily replaced with Ramping.
-    - RampingStationEventScheduler
+    - BasicStationEventScheduler
     - GlimmerEventScheduler
 
 - type: gamePreset #Runs Cosmic Cult but shows "Secret" in lobby.
@@ -29,6 +28,5 @@
     #- MeteorSwarmScheduler - Goob Edit
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
-    # - BasicStationEventScheduler //temporarily replaced with Ramping.
-    - RampingStationEventScheduler
+    - BasicStationEventScheduler
     - GlimmerEventScheduler

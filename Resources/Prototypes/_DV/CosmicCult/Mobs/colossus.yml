@@ -2,8 +2,19 @@
   parent: [ BaseSimpleMob, FlyingMobBase ]
   id: MobCosmicColossus
   name: entropic colossus
+  description: A colossal monstrosity of malign plating and dendritic infestation.
   components:
+  - type: FTLSmashImmune
+  - type: BodyEmotes
+  - type: RandomMetadata
+    nameSegments:
+    - ColossusNames
+    - ColossusTitlesBase
+    nameFormat: name-format-colossus
   - type: CosmicColossus
+  - type: CosmicCultExamine
+    cultistText: cosmic-examine-text-cultentity
+    othersText: cosmic-examine-text-entities
   - type: AntagImmune
   - type: Sprite
     drawdepth: Mobs
@@ -151,7 +162,8 @@
   - type: MeleeWeapon
     altDisarm: false
     animation: WeaponArcCosmic
-    attackRate: 0.4
+    attackRate: 0.425
+    range: 2
     damage:
       types:
         Blunt: 25
@@ -172,7 +184,7 @@
     speed: 8
     distance: 7
   - type: Reflect
-    reflectProb: .21
+    reflectProb: .15
     spread: 120
     soundOnReflect:
       path: /Audio/_DV/CosmicCult/cosmicsword_glance.ogg

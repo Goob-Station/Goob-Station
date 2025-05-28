@@ -17,6 +17,7 @@ using Content.Shared.Mindshield.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
+using Robust.Shared.Timing;
 using Content.Server.Atmos.Rotting;
 using Content.Server.Administration.Systems;
 using Content.Shared.Administration.Systems;
@@ -28,6 +29,7 @@ public sealed class CosmicConversionSystem : EntitySystem
     [Dependency] private readonly CosmicCultRuleSystem _cultRule = default!;
     [Dependency] private readonly CosmicGlyphSystem _cosmicGlyph = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly SharedCosmicCultSystem _cosmicCult = default!;
@@ -88,7 +90,9 @@ public sealed class CosmicConversionSystem : EntitySystem
                 while (finaleQuery.MoveNext(out var monument, out var comp)
                     && comp.CurrentState == FinaleState.ActiveBuffer)
                 {
-                    comp.BufferTimer -= TimeSpan.FromSeconds(45);
+                    if (comp.BufferTimer - _timing.CurTime < comp.ConversionSpeedup) // don't speed up if there's less than the speedup left.
+                        return;
+                    comp.BufferTimer -= comp.ConversionSpeedup;
                     _popup.PopupCoordinates(Loc.GetString("cosmiccult-finale-speedup"), Transform(monument).Coordinates, PopupType.Large);
                 }
             }
