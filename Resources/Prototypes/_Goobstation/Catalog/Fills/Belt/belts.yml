@@ -28,7 +28,7 @@
       - id: EnergyScalpel
       - id: AdvancedRetractor
       - id: EnergyCautery
-      - id: BoneGel
+      - id: AdvancedBoneGel
       - id: HandheldCrewMonitor
       - id: MedicatedSuture
       - id: RegenerativeMesh
