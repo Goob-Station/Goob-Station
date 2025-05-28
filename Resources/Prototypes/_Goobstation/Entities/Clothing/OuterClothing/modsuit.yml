@@ -179,8 +179,8 @@
     unequipSound: /Audio/Mecha/mechmove03.ogg
     slots: [ outerClothing ]
   - type: ClothingSpeedModifier
-    walkModifier: 0.8
-    sprintModifier: 0.8
+    walkModifier: 0.85
+    sprintModifier: 0.85
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-chestplate
     sealDownPopup: sealable-clothing-seal-down-chestplate
@@ -234,6 +234,7 @@
       Epinephrine: 10
       Bicaridine: 10
       TranexamicAcid: 5
+      Tramadol: 5
   - type: HideClothingLayerClothing
     hiddenSlots:
     - jumpsuit
