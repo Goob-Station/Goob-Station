@@ -588,8 +588,8 @@ public sealed class ToggleableClothingSystem : EntitySystem
 
         Dirty(toggleable, comp);
 
-        if (_actionContainer.EnsureAction(toggleable, ref comp.ActionEntity, out var action, comp.Action))
-            _actionsSystem.SetEntityIcon(comp.ActionEntity.Value, toggleable, action);
+        if (_actionContainer.EnsureAction(toggleable, ref component.ActionEntity, out var action, component.Action))
+            _actionsSystem.SetEntityIcon(component.ActionEntity.Value, component.ClothingUid);
     }
 
     // Checks status of all attached clothings toggle status

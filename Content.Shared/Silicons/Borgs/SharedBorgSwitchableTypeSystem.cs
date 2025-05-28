@@ -66,7 +66,7 @@ public abstract class SharedBorgSwitchableTypeSystem : EntitySystem
 
     private void OnShutdown(Entity<BorgSwitchableTypeComponent> ent, ref ComponentShutdown args)
     {
-        _actionsSystem.RemoveAction(ent, ent.Comp.SelectTypeAction);
+        _actionsSystem.RemoveAction(ent.Owner, ent.Comp.SelectTypeAction);
     }
 
     private void OnSelectBorgTypeAction(Entity<BorgSwitchableTypeComponent> ent, ref BorgToggleSelectTypeEvent args)
