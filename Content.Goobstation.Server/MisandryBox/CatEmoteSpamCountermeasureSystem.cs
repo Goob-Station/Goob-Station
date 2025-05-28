@@ -127,7 +127,7 @@ public sealed class CatEmoteSpamCountermeasureSystem : EntitySystem
         var chance = steps*_postSoftThresholdProbability;
 
         if (_rand.Prob(chance))
-            Smite(uid);
+            Smite(uid, false);
     }
 
     private int GetSoftThreshold(bool refresh = false)
@@ -138,8 +138,13 @@ public sealed class CatEmoteSpamCountermeasureSystem : EntitySystem
         return _softThreshold.Value;
     }
 
-    private void Smite(EntityUid uid)
+    /// <summary>
+    /// Thunderstrike a mumu
+    /// </summary>
+    /// <param name="uid">Target entity</param>
+    /// <param name="killOverride">Optional override for the kill parameter. If null, uses DrasticMeasures</param>
+    private void Smite(EntityUid uid, bool? killOverride = null)
     {
-        _thunderstrike.Smite(uid, kill: DrasticMeasures);
+        _thunderstrike.Smite(uid, kill: killOverride ?? DrasticMeasures);
     }
 }
