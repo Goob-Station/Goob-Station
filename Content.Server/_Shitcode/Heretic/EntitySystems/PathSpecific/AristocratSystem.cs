@@ -157,10 +157,10 @@ public sealed partial class AristocratSystem : EntitySystem
     {
         foreach (var look in lookup)
         {
-            var flameComp = TryComp<FlammableComponent>(look, out var comp);
+            if (!TryComp<FlammableComponent>(look, out var flameComp))
+                return;
 
-            if (comp != null)
-                _flammable.Extinguish(look, comp);
+            _flammable.Extinguish(look, flameComp);
         }
     }
 
