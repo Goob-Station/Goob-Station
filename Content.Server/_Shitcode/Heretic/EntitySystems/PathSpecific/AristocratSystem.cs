@@ -158,7 +158,7 @@ public sealed partial class AristocratSystem : EntitySystem
         foreach (var look in lookup)
         {
             if (!TryComp<FlammableComponent>(look, out var flameComp))
-                return;
+                continue;
 
             _flammable.Extinguish(look, flameComp);
         }
@@ -172,7 +172,7 @@ public sealed partial class AristocratSystem : EntitySystem
         foreach (var look in lookup)
         {
             if (!TryComp<TagComponent>(look, out var tag))
-                return;
+                continue;
 
             var tags = tag.Tags;
 
@@ -192,7 +192,7 @@ public sealed partial class AristocratSystem : EntitySystem
         foreach (var look in lookup)
         {
             if (!TryComp<TagComponent>(look, out var tag))
-                return;
+                continue;
 
             var tags = tag.Tags;
 
