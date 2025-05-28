@@ -1715,9 +1715,7 @@ entities:
     - type: MetaData
     - type: Transform
     - type: Map
-    - type: PhysicsMap
     - type: GridTree
-    - type: MovedGrids
     - type: FTLDestination
       whitelist:
         tags:
