@@ -58,8 +58,12 @@ public sealed class SlimeMobActionsSystem : EntitySystem
             dotComp.NextTickTime = _timing.CurTime + dotComp.Interval;
             _damageable.TryChangeDamage(uid, dotComp.Damage, ignoreResistances: true, ignoreBlockers: true,  targetPart: TargetBodyPart.All);
 
-            if (TryComp<HungerComponent>(dotComp.SourceEntityUid, out var hunger) && dotComp.SourceEntityUid is { } sourceEntity)
+            if (TryComp<HungerComponent>(dotComp.SourceEntityUid, out var hunger) &&
+                dotComp.SourceEntityUid is { } sourceEntity)
+            {
                 _hunger.ModifyHunger(sourceEntity, addedHunger, hunger);
+                Dirty(sourceEntity, hunger);
+            }
         }
     }
 

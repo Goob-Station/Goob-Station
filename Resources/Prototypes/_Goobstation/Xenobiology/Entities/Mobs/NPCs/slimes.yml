@@ -8,17 +8,17 @@
   - type: Hunger
     startingHunger: 50
     thresholds:
-      Overfed: 200
-      Okay: 50
-      Peckish: 25
+      Overfed: 250
+      Okay: 100
+      Peckish: 25 #Baby Slimes will begin hunting here, Adult Slimes will target their tamers here.
       Starving: 10
       Dead: 0
     hungerThresholdDecayModifiers:
-      Overfed: 1.2
-      Okay: 1
+      Okay: 1.5
       Peckish: 0.4
       Starving: 0.2
-      Dead: 0
+      Dead: 0.1
+    baseDecayRate: 0.5
     starvingSlowdownModifier: 0
   - type: Sprite
     drawdepth: Mobs
@@ -172,3 +172,6 @@
     mutationChance: 0.45
     potentialMutations:
     - OrangeMutation
+    - PurpleMutation
+    - BlueMutation
+    - MetalMutation
