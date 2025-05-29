@@ -57,16 +57,19 @@ public sealed partial class PickSlimeLatchTargetOperator : HTNOperator
 
         if (!blackboard.TryGetValue<float>(RangeKey, out var range, _entManager)
             || !_entManager.TryGetComponent<SlimeComponent>(owner, out var slimeComp)
-            || !_entManager.TryGetComponent<MobGrowthComponent>(owner, out var growthComp)         // Baby slimes only target when BELOW Peckish
+            || !_entManager.TryGetComponent<MobGrowthComponent>(owner, out var growthComp) // Baby slimes only target when BELOW Peckish
             || growthComp.CurrentStage == growthComp.Stages[0]
-                && _hunger.IsHungerAboveState(owner, HungerThreshold.Peckish))
+            && _hunger.IsHungerAboveState(owner, HungerThreshold.Peckish))
             return (false, null);
 
         foreach (var entity in _factions.GetNearbyHostiles(owner, range))
         {
             if (!huAppQuery.TryGetComponent(entity, out _)
-                || _mobSystem.IsDead(entity) || slimeComp.LatchedTarget.HasValue || growthComp.CurrentStage == growthComp.Stages[0]
-                && entity == slimeComp.Tamer || entity == slimeComp.Tamer
+                || _mobSystem.IsDead(entity)
+                || slimeComp.LatchedTarget.HasValue
+                || growthComp.CurrentStage == growthComp.Stages[0]
+                && entity == slimeComp.Tamer
+                || entity == slimeComp.Tamer
                 && _hunger.IsHungerAboveState(owner, HungerThreshold.Peckish))
                 continue;
 
@@ -88,7 +91,7 @@ public sealed partial class PickSlimeLatchTargetOperator : HTNOperator
             {
                 { TargetKey, targetCoords },
                 { LatchKey, target },
-                { PathfindKey, path},
+                { PathfindKey, path },
             });
         }
 
