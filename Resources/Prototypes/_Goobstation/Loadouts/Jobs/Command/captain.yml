@@ -1,0 +1,7 @@
+- type: loadout
+  id: CaptainJacket
+  equipment:
+    outerClothing: ClothingOuterCapJacket
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterCap

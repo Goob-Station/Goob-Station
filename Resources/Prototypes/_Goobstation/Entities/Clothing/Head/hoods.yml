@@ -33,3 +33,15 @@
     sprite: _Goobstation/Clothing/Head/Hoods/bso_winter_hood.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Head/Hoods/bso_winter_hood.rsi
+
+
+- type: entity
+  parent: ClothingHeadHatHoodWinterBase
+  id: ClothingHeadHatHoodWinterCapFancy
+  categories: [ HideSpawnMenu ]
+  name: captains's fancy winter coat hood
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hoods/cap_winter_hood.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hoods/cap_winter_hood.rsi

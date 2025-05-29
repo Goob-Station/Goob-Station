@@ -183,4 +183,4 @@
 - type: loadout
   id: CaptainWintercoat
   equipment:
-    outerClothing: ClothingOuterWinterCap
+    outerClothing: ClothingOuterWinterCapArmored # Goob edit

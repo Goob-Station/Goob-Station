@@ -312,6 +312,7 @@
   loadouts:
   - CaptainOuterClothing
   - CaptainWintercoat
+  - CaptainJacket # Goobstation
 
 - type: loadoutGroup
   id: HoPHead
