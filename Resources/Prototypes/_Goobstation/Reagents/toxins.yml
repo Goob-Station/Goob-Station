@@ -334,3 +334,54 @@
           shouldHave: false
         probability: 0.05
         paralyzeTime: 2
+
+- type: reagent
+  id: Johntonite
+  name: reagent-name-johntonite
+  group: Toxins
+  desc: reagent-desc-johntonite
+  physicalDesc: reagent-physical-desc-powdery
+  flavor: bitter
+  color: "#1abcff"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.5
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Asphyxiation: 1.5
+            Heat: 5
+            Cellular: 1
+        conditions:
+        - !type:HasMobName
+          name: John
+      - !type:PopupMessage
+        type: Local
+        visualType: MediumCaution
+        probability: 0.03
+        messages:
+        - generic-reagent-effect-burning-insides
+        - generic-reagent-effect-tearing-up
+      - !type:Paralyze
+        probability: 0.2
+        paralyzeTime: 2
+        conditions:
+        - !type:HasMobName
+          name: John
+      - !type:Emote
+        emote: Gasp
+        probability: 0.1
+        conditions:
+        - !type:HasMobName
+          name: John
+      - !type:Emote
+        emote: Scream
+        probability: 0.1
+        conditions:
+        - !type:HasMobName
+          name: John
+      - !type:Jitter
+        conditions:
+        - !type:HasMobName
+          name: John

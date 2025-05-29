@@ -34,3 +34,6 @@ reagent-effect-condition-guidebook-typed-damage-threshold =
         [true] the target has at most
         *[false] the target has at least
     } { $changes } damage
+
+reagent-effect-condition-guidebook-has-mob-name =
+    the target's name contains { $name }
