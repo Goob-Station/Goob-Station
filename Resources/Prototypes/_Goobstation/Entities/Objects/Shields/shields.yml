@@ -91,7 +91,7 @@
       price: 350
     - type: Battery
       maxCharge: 360
-      startingCharge: 360q1
+      startingCharge: 360
     - type: RechargeableBlocking
       dischargedRechargeRate: 10
       chargedRechargeRate: 15
