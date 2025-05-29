@@ -1279,8 +1279,7 @@
   loadouts:
   - ArmorVest
   - ArmorVestSlim
-  #- SecurityOfficerWintercoat #Goobstation
-  - WinterCoatSecArmored # Goobstation
+  - SecurityOfficerWintercoat
   - WinterCoatSeniorSecArmored # Goobstation
 
 - type: loadoutGroup

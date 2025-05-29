@@ -11,11 +11,6 @@
     belt: ClothingBeltCorporateJudoFilled
 
 - type: loadout
-  id: WinterCoatSecArmored
-  equipment:
-    outerClothing: ClothingOuterWinterSecArmored
-
-- type: loadout
   id: WinterCoatSeniorSecArmored
   effects:
   - !type:GroupLoadoutEffect

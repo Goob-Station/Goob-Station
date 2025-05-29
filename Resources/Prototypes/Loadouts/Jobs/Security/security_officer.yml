@@ -212,7 +212,7 @@
 - type: loadout
   id: SecurityOfficerWintercoat
   equipment:
-    outerClothing: ClothingOuterWinterSec
+    outerClothing: ClothingOuterWinterSecArmored # Goobstation
 
 # Shoes
 - type: loadout
