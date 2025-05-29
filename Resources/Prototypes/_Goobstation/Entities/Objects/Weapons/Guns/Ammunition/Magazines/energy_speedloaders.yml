@@ -16,9 +16,6 @@
   - type: Battery
     maxCharge: 600
     startingCharge: 600
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 20
   - type: AmmoCounter
   - type: Appearance
   - type: Tag
@@ -29,7 +26,7 @@
   id: EnergySpeedloaderLethal
   parent: [ BaseEnergySpeedloader, BaseCentcommContraband ]
   name: energy speedloader (lethal)
-  description: A rather volatile powercell utilizing phoron to charge lethal bolts over time. Phoron will make us all rich.
+  description: A rather volatile powercell utilizing phoron to fire lethal bolts quickly without overheating the firearm.
   components:
   - type: ProjectileBatteryAmmoProvider
     proto: BulletEnergyGunMagnum
@@ -43,13 +40,13 @@
   id: EnergySpeedloaderDisabler
   parent: [ BaseEnergySpeedloader, BaseCentcommContraband ]
   name: energy speedloader (disabler)
-  description: A rather volatile powercell utilizing phoron to charge disabling bolts over time. Phoron will make us all rich.
+  description: A rather volatile powercell utilizing phoron to fire nonlethal bolts quickly without overheating the firearm.
   components:
   - type: Sprite
     state: icon-disabling
   - type: ProjectileBatteryAmmoProvider
     proto: BulletEnergyGunDisabler
-    fireCost: 50
+    fireCost: 100
   - type: Tag
     tags:
       - EnergySpeedloader
