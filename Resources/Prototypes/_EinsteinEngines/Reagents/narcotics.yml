@@ -1,0 +1,42 @@
+- type: reagent
+  id: Morphine
+  name: reagent-name-morphine
+  group: Narcotics
+  desc: reagent-desc-morphine
+  flavor: bitter
+  color: "#ffde7448"
+  physicalDesc: reagent-physical-desc-translucent
+  metabolisms:
+    Narcotic:
+      metabolismRate: 0.1
+      effects:
+      - !type:Emote
+        emote: Yawn
+        showInChat: true
+        probability: 0.03
+      - !type:GenericStatusEffect
+        key: Drowsiness
+        component: Drowsiness
+        time: 2.5
+        type: Add
+        refresh: false
+      - !type:SuppressPain
+        amount: 50
+        time: 30
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Morphine
+          min: 16
+        damage:
+          types:
+            Asphyxiation: 2
+      - !type:AdjustConsciousness
+        conditions:
+        - !type:ReagentThreshold
+          min: 16
+        allowNewModifiers: true
+        modifierType: Pain
+        identifier: Suffocation
+        amount: -2
+        time: 12

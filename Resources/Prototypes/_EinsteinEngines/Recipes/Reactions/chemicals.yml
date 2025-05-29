@@ -1,0 +1,11 @@
+- type: reaction
+  id: Morphine
+  reactants:
+    Phenol:
+      amount: 2
+    Nitrogen:
+      amount: 1
+    Oxygen:
+      amount: 1
+  products:
+    Morphine: 4

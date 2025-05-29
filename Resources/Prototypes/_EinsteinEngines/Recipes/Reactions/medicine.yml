@@ -1,0 +1,23 @@
+- type: reaction
+  id: Artiplates
+  minTemp: 310
+  reactants:
+    Iron:
+      amount: 1
+    Copper:
+      amount: 1
+    TranexamicAcid:
+      amount: 2
+    Saline:
+      amount: 3
+  products:
+    Artiplates: 12
+
+- type: reaction
+  id: AshArtiplates
+  minTemp: 520
+  reactants:
+    Artiplates:
+      amount: 1
+  products:
+    Ash: 1
