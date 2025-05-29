@@ -5,6 +5,13 @@ namespace Content.Casino.Shared.Cvars;
 [CVarDefs]
 public sealed partial class CasinoCVars
 {
+    /// <summary>
+    /// Born too late to explore the earth, born too early to explore the cosmos.
+    /// All that you have left is gambling your daughter's college fund away.
+    /// </summary>
+    public static readonly CVarDef<bool> CasinoEnabled =
+        CVarDef.Create("casino.enabled", true, CVar.SERVER | CVar.REPLICATED);
+
     #region Blackjack
 
     /// <summary>

@@ -3,10 +3,12 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Casino.Server.Data;
+using Content.Casino.Shared.Cvars;
 using Content.Casino.Shared.Data;
 using Content.Casino.Shared.Games;
 using Content.Casino.Shared.Network;
 using Content.Server._durkcode.ServerCurrency;
+using Robust.Shared.Configuration;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Reflection;
@@ -77,6 +79,7 @@ public sealed class ServerCasinoManager : IServerCasinoManager, IPostInjectInit
     [Dependency] private readonly IDynamicTypeFactory _typeFactory = default!;
     [Dependency] private readonly IReflectionManager _reflectionManager = default!;
     [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
+    [Dependency] private readonly IConfigurationManager _configuration = default!;
 
     private readonly ConcurrentDictionary<string, ICasinoGame> _registeredGames = new();
     private readonly ConcurrentDictionary<string, GameSession> _activeSessions = new();
@@ -218,7 +221,7 @@ public sealed class ServerCasinoManager : IServerCasinoManager, IPostInjectInit
             ErrorMessage = result.ErrorMessage
         };
 
-        if (result.Success && result.Session != null)
+        if (result is { Success: true, Session: not null })
         {
             var actions = await _registeredGames[message.GameId].GetAvailableActionsAsync(result.Session.SessionId);
             response.AvailableActions = actions.ToArray();
@@ -298,6 +301,9 @@ public sealed class ServerCasinoManager : IServerCasinoManager, IPostInjectInit
 
         if (!ProcessBet(player, initialBet))
             return StartGameResult.Failed("Failed to process bet");
+
+        if (!_configuration.GetCVar(CasinoCVars.CasinoEnabled))
+            return StartGameResult.Failed("Casino is disabled.");
 
         try
         {
