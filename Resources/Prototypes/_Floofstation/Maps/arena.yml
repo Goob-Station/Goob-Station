@@ -35,7 +35,6 @@
             ChiefEngineer: [ 1, 1 ]
             StationEngineer: [ 2, 3 ]
             TechnicalAssistant: [ 2, 3 ]
-            SeniorEngineer: [ 1, 1 ]
           #medical
             Chemist: [ 2, 2 ]
             ChiefMedicalOfficer: [ 1, 1 ]
@@ -43,18 +42,13 @@
             MedicalIntern: [ 2, 3 ]
             Paramedic: [ 1, 2 ]
             Psychologist: [ 1, 1 ]
-            SeniorPhysician: [ 1, 1 ]
           #security
-            Brigmedic: [ 1, 1 ]
+            #Brigmedic: [ 1, 1 ] #Goobstation - Uncomment once added
             Detective: [ 1, 1 ]
-            Gladiator: [ 0, 2 ]
             HeadOfSecurity: [ 1, 1 ]
-            Prisoner: [ 1, 2 ]
-            PrisonGuard: [ 1, 1 ]
             SecurityOfficer: [ 3, 5 ]
             SecurityCadet: [ 1, 2 ]
             Warden: [ 1, 1 ]
-            SeniorOfficer: [ 0, 1 ]
           #service
             Bartender: [ 1, 2 ]
             Botanist: [ 2, 2 ]
@@ -69,16 +63,13 @@
           #science
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 3, 5 ]
-            ForensicMantis: [ 1, 1 ]
             ResearchAssistant: [ 2, 4 ]
             Chaplain: [ 1, 1 ]
             Librarian: [ 1, 1 ]
-            SeniorResearcher: [ 1, 1 ]
           #supply
             Quartermaster: [ 1, 1 ]
             CargoTechnician: [ 2, 3 ]
             SalvageSpecialist: [ 2, 3 ]
-            MailCarrier: [ 1, 2 ]
        
 
         # Goobstation blob-config-start SMALL+
