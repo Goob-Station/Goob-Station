@@ -146,6 +146,8 @@
     shape:
     - 0,0,1,0
     - 0,1,0,1
+  - type: Multishot
+    missChance: 0.3
 
 # Lavaland Change
 - type: entity
