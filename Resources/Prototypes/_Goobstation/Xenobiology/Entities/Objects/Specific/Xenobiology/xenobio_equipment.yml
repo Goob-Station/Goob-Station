@@ -1,0 +1,76 @@
+- type: entity
+  parent: [Clothing, ClothingSlotBase]
+  id: ClothingBackpackXenoBioTank
+  name: xenotank slime vacuum
+  description: Holds xenofauna. Sucks via the spray nozzle in your hands, and has a slot on the side for said spray nozzle.
+  components:
+  - type: Tag
+    tags:
+    - XenoNozzleBackTank
+  - type: Sprite
+    sprite: _Goobstation/Xenobiology/Specific/Xenobiology/slime_pack.rsi
+    state: icon
+  - type: Item
+    size: Ginormous
+  - type: Clothing
+    slots: BACK
+    sprite: _Goobstation/Xenobiology/Specific/Xenobiology/slime_pack.rsi
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: [ ]
+  - type: Storage
+    storageInsertSound: /Audio/Voice/Talk/slime.ogg # | need vacuum sfx
+    storageRemoveSound: /Audio/Voice/Talk/slime.ogg # v
+    grid:
+    - 0,0,3,3
+    maxItemSize: Huge
+  - type: ItemSlots
+    slots:
+      item:
+        priority: 2
+        whitelist:
+          tags:
+          - XenoVacNozzle
+  - type: ItemMapper
+    mapLayers:
+      icon-filled:
+        whitelist:
+          tags:
+          - XenoVacNozzle
+  - type: Appearance
+
+- type: entity
+  id: ClothingBackpackXenoBioTankFilled
+  parent: ClothingBackpackXenoBioTank
+  suffix: Filled
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - WeaponXenoVacNozzle
+
+- type: entity
+  id: WeaponXenoVacNozzle
+  parent: BaseItem
+  name: xenovac nozzle
+  description: A high-powered vacuum nozzle used in conjunction with a backpack-mounted storage tank to store slimes.
+  components:
+  - type: Tag
+    tags:
+    - XenoVacNozzle
+  - type: Sprite
+    sprite: _Goobstation/Xenobiology/Specific/Xenobiology/slime_nozzle.rsi
+    state: icon
+  - type: Item
+    sprite: _Goobstation/Xenobiology/Specific/Xenobiology/slime_nozzle.rsi
+    size: Normal
+  - type: Appearance
+  - type: ItemActionGrant
+    actions:
+    - XenoVacAction
+    - XenoVacClearAction

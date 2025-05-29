@@ -57,6 +57,7 @@
     tags:
     - FootstepSound
     - DoorBumpOpener
+    - XenoSlime
   - type: Butcherable
     butcheringType: Knife
     spawned:
@@ -127,6 +128,7 @@
   - type: NpcFactionMember
     factions:
     - SimpleHostile
+  - type: PseudoItem
   - type: Storage
     showVerb: false
     storageInsertSound: /Audio/Voice/Talk/slime.ogg
