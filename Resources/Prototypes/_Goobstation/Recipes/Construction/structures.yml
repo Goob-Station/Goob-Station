@@ -23,11 +23,11 @@
   canBuildInImpassable: true
 
 - type: construction
-  name: solar panel
+  name: solar panel assembly
   id: SolarPanel
   graph: SolarPanel
   startNode: start
-  targetNode: solarpanel
+  targetNode: solarassembly
   category: construction-category-structures
   description: A solar panel, for your solar paneling needs.
   icon:

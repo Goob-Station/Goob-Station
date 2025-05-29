@@ -286,7 +286,7 @@
 - type: entity
   id: SolarAssembly
   name: solar assembly
-  description: A solar assembly. Anchor to a wire to start building a solar panel.
+  description: A solar assembly. Insert glass to build a solar panel. # Goobstation
   placement:
     mode: SnapgridCenter
   components:
