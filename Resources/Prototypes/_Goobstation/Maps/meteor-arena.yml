@@ -11,8 +11,8 @@
   id: MeteorArena
   mapName: Meteor Arena
   mapPath: /Maps/_Goobstation/meteor-arena.yml
-  minPlayers: 15
-  maxPlayers: 50
+  minPlayers: 30
+  maxPlayers: 65
   stations:
     Arena:
       stationProto: StandardStationArena

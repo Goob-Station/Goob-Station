@@ -228,7 +228,7 @@ namespace Content.IntegrationTests.Tests
             "Gate", // Goobstation - goob changes
             "Lavatest", // Lavaland Change
             "Loop",
-            "Delta" // Goobstation - add Delta
+            "Delta", // Goobstation - add Delta
             "MeteorArena" // Goobstation - add Meteor Arena
         };
 
