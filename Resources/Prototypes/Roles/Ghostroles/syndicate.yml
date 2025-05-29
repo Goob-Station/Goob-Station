@@ -47,12 +47,12 @@
   iconPrototype: MedkitCombat
 
 - type: ghostRole
-  id: SyndicateAgentSpy
-  name: ghost-role-information-syndicate-reinforcement-spy-name
-  description: ghost-role-information-syndicate-reinforcement-spy-description
+  id: SyndicateAgentSoldier
+  name: ghost-role-information-syndicate-reinforcement-soldier-name
+  description: ghost-role-information-syndicate-reinforcement-soldier-description
   rules: ghost-role-information-syndicate-reinforcement-rules
-  entityPrototype: MobHumanSyndicateAgentSpy
-  iconPrototype: ClothingMaskGasVoiceChameleon
+  entityPrototype: MobHumanSyndicateAgentSoldier
+  iconPrototype: ClothingMaskGasSyndicate
 
 - type: ghostRole
   id: SyndicateAgentThief

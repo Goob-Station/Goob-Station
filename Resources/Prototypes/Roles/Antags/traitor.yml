@@ -145,16 +145,38 @@
   parent: SyndicateOperativeClothing
   equipment:
     pocket1: WeaponPistolViper
+    pocket2: MagazinePistol
+    eyes: ClothingEyesEyepatchHudMedical
   inhand:
+    - ClothingBackpackDuffelSyndicateFilledMedical
+  storage:
+    back:
+    - EncryptionKeySyndie
+    - EncryptionKeySyndie
     - MedkitCombatFilled
+    - Hypopen
+    - ChemistryBottleOmnizine
+    - ChemistryBottleOmnizine
+    - HandheldHealthAnalyzer
 
 - type: startingGear
-  id: SyndicateReinforcementSpy
+  id: SyndicateReinforcementSoldier
   parent: SyndicateOperativeClothing
   equipment:
-    id: AgentIDCard
-    mask: ClothingMaskGasVoiceChameleon
+    mask: ClothingMaskGasSyndicate
     pocket1: WeaponPistolViper
+    pocket2: MagazinePistol
+    outerClothing: ClothingOuterVestWeb
+    eyes: ClothingEyesNightVisionGogglesSyndie
+    head: ClothingHeadHelmetSwatSyndicate
+  inhand:
+    - WeaponSubMachineGunC20r
+  storage:
+    back:
+    - EncryptionKeySyndie
+    - EncryptionKeySyndie
+    - MagazinePistolSubMachineGun
+    - MagazinePistolSubMachineGun
 
 - type: startingGear
   id: SyndicateReinforcementThief
@@ -163,9 +185,15 @@
     pocket1: WeaponPistolViper
   inhand:
     - ToolboxSyndicateFilled
+    - ClothingBackpackChameleonFill
   storage:
     back:
-    - SyndicateJawsOfLife
+    - EncryptionKeySyndie
+    - EncryptionKeySyndie
+    - ClothingMaskGasVoiceChameleon
+    - AccessBreaker
+    - AgentIDCard
+    - ClothingHandsChameleonThief
 
 #Syndicate Operative Outfit - Basic
 - type: startingGear

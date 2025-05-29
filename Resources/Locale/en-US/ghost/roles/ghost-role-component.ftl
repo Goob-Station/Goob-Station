@@ -272,8 +272,8 @@ ghost-role-information-syndicate-reinforcement-rules = You are a [color={role-ty
 ghost-role-information-syndicate-reinforcement-medic-name = Syndicate Medic
 ghost-role-information-syndicate-reinforcement-medic-description = Someone needs reinforcements. Your task is to keep the agent who called you alive.
 
-ghost-role-information-syndicate-reinforcement-spy-name = Syndicate Spy
-ghost-role-information-syndicate-reinforcement-spy-description = Someone needs reinforcements. Your speciality lies in espionage, do not be discovered.
+ghost-role-information-syndicate-reinforcement-soldier-name = Syndicate Soldier
+ghost-role-information-syndicate-reinforcement-soldier-description = Someone needs reinforcements. Your speciality lies in combat, do not miss.
 
 ghost-role-information-syndicate-reinforcement-thief-name = Syndicate Thief
 ghost-role-information-syndicate-reinforcement-thief-description = Someone needs reinforcements. Your job is to break in and retrieve something valuable for your agent.

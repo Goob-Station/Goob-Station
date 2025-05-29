@@ -124,7 +124,7 @@
   name: Urist McHands
   parent: BaseMobHuman
   id: MobHuman
-  
+
 #Syndie
 - type: entity
   parent: MobHuman
@@ -165,11 +165,11 @@
 
 - type: entity
   parent: MobHumanSyndicateAgent
-  id: MobHumanSyndicateAgentSpy
+  id: MobHumanSyndicateAgentSoldier
   name: syndicate spy
   components:
   - type: Loadout
-    prototypes: [SyndicateReinforcementSpy]
+    prototypes: [SyndicateReinforcementSoldier]
     roleLoadout: [ RoleSurvivalSyndicate ]
 
 - type: entity

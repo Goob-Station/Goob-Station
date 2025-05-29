@@ -94,8 +94,8 @@
   description: Call in a syndicate agent of questionable quality, instantly!
   components:
   - type: GhostRole
-    name: ghost-role-information-syndicate-reinforcement-spy-name
-    description: ghost-role-information-syndicate-reinforcement-spy-description
+    name: ghost-role-information-syndicate-reinforcement-soldier-name
+    description: ghost-role-information-syndicate-reinforcement-soldier-description
     rules: ghost-role-information-syndicate-reinforcement-rules
     mindRoles:
     - MindRoleGhostRoleTeamAntagonist
@@ -105,8 +105,8 @@
     - !type:OverallPlaytimeRequirement
       time: 18000 #5 hours
   - type: GhostRoleMobSpawner
-    prototype: MobHumanSyndicateAgentSpy
-    selectablePrototypes: ["SyndicateAgentMedic", "SyndicateAgentSpy", "SyndicateAgentThief"]
+    prototype: MobHumanSyndicateAgentSoldier
+    selectablePrototypes: ["SyndicateAgentMedic", "SyndicateAgentSoldier", "SyndicateAgentThief"]
 
 # Goobstation - Nukeop reinforcement
 - type: entity
