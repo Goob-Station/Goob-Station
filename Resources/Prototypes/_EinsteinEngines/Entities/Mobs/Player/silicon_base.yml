@@ -1,6 +1,8 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
@@ -155,10 +157,11 @@
         - map: ["neck"]
         - map: ["back"]
         - map: ["enum.HumanoidVisualLayers.FacialHair"]
-        - map: ["enum.HumanoidVisualLayers.Hair"]
         - map: ["enum.HumanoidVisualLayers.HeadSide"]
-        - map: ["enum.HumanoidVisualLayers.HeadTop"]
+        - map: [ "maskalt" ]
+        - map: ["enum.HumanoidVisualLayers.Hair"]
         - map: ["mask"]
+        - map: ["enum.HumanoidVisualLayers.HeadTop"]
         - map: ["head"]
         - map: ["pocket1"]
         - map: ["pocket2"]
@@ -297,7 +300,7 @@
 #        - "enum.HumanoidVisualLayers.RLeg"
 #      damageOverlayGroups:
 #        Brute:
-#          sprite: Mobs/Effects/brute_damage.rsi
+#          sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
 #          color: "#DD8822"
     # Organs
     - type: IdExaminable

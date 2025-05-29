@@ -125,6 +125,10 @@
 # SPDX-FileCopyrightText: 2025 Aineias1 <142914808+Aineias1@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+# SPDX-FileCopyrightText: 2025 Shy Bandit <92641277+rotundfan@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -146,6 +150,11 @@
       time: 54000 # 15 hrs
     - !type:OverallPlaytimeRequirement
       time: 144000 #40 hrs
+  #  - !type:StyleRequirement
+  #    styles:
+  #    - HumanHairFloorlengthBedhead
+  #    - HumanHairClassicFloorlengthBedhead
+  #    - HumanHairFloorlengthBraid
   weight: 10
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"

@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server._DV.CosmicCult.Components;
 using Content.Server.Actions;
 using Content.Server.Administration.Logs;
@@ -690,12 +696,6 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
         if (cosmicGamerule.CurrentTier == 3)
         {
-        // Goobstation Change - Shitchap
-            if (!HasComp<WeakToHolyComponent>(uid))
-                EnsureComp<WeakToHolyComponent>(uid).AlwaysTakeHoly = true;
-            else
-                cultComp.WasWeakToHoly = true;
-
             cultComp.EntropyBudget = 48; // pity balance
             cultComp.Respiration = false;
 
@@ -708,6 +708,12 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         }
         else if (cosmicGamerule.CurrentTier == 2)
         {
+            // Goobstation Change - Shitchap
+            if (!HasComp<WeakToHolyComponent>(uid))
+                EnsureComp<WeakToHolyComponent>(uid).AlwaysTakeHoly = true;
+            else
+                cultComp.WasWeakToHoly = true;
+
             cultComp.EntropyBudget = 26; // pity balance
 
             foreach (var influenceProto in _protoMan.EnumeratePrototypes<InfluencePrototype>().Where(influenceProto => influenceProto.Tier == 2))
