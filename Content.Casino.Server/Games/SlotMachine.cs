@@ -106,16 +106,16 @@ public sealed class SlotMachineGame : ICasinoGame
         {
             if (payout >= gameState.CurrentBet * 5)
             {
-                message = $"🎉 {winType} BIG WIN! You won {payout} coins! {symbolsDisplay}";
+                message = $"{winType} BIG WIN! You won {payout} coins! {symbolsDisplay}";
             }
             else
             {
-                message = $"🎰 {winType} You won {payout} coins! {symbolsDisplay}";
+                message = $"{winType} You won {payout} coins! {symbolsDisplay}";
             }
         }
         else
         {
-            message = $"🎰 No luck this time. You lost {gameState.CurrentBet} coins. {symbolsDisplay}";
+            message = $"No luck this time. You lost {gameState.CurrentBet} coins. {symbolsDisplay}";
         }
 
         return await Task.FromResult(new GameActionResult(
@@ -147,7 +147,7 @@ public sealed class SlotMachineGame : ICasinoGame
             IsComplete: false,
             Won: false,
             Payout: 0,
-            Message: $"💰 Bet changed to {newBet} coins",
+            Message: $"Bet changed to {newBet} coins",
             GameState: null // Don't serialize game state
         ));
     }

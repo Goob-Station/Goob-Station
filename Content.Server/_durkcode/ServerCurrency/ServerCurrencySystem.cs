@@ -40,6 +40,7 @@ namespace Content.Server._durkcode.ServerCurrency
         private int _goobcoinsNonAntagMultiplier = 1;
         private int _goobcoinsServerMultiplier = 1;
         private int _goobcoinsMinPlayers;
+        private bool _goobcoinsNotifyChange;
 
         public override void Initialize()
         {
@@ -51,6 +52,7 @@ namespace Content.Server._durkcode.ServerCurrency
             Subs.CVar(_cfg, GoobCVars.GoobcoinNonAntagMultiplier, value => _goobcoinsNonAntagMultiplier = value, true);
             Subs.CVar(_cfg, GoobCVars.GoobcoinServerMultiplier, value => _goobcoinsServerMultiplier = value, true);
             Subs.CVar(_cfg, GoobCVars.GoobcoinMinPlayers, value => _goobcoinsMinPlayers = value, true);
+            Subs.CVar(_cfg, GoobCVars.GoobcoinLogChange, value => _goobcoinsNotifyChange = value, true);
         }
 
         public override void Shutdown()
@@ -119,7 +121,7 @@ namespace Content.Server._durkcode.ServerCurrency
             RaiseNetworkEvent(new PlayerBalanceUpdateEvent(ev.NewBalance, ev.OldBalance), ev.UserSes);
 
 
-            if (ev.UserSes.AttachedEntity.HasValue)
+            if (ev.UserSes.AttachedEntity.HasValue && _goobcoinsNotifyChange)
             {
                 var userEnt = ev.UserSes.AttachedEntity.Value;
                 if (ev.NewBalance > ev.OldBalance)

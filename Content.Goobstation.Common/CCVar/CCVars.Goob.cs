@@ -289,6 +289,9 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<int> GoobcoinMinPlayers =
         CVarDef.Create("goob.coins_min_players", 5, CVar.SERVERONLY);
 
+    public static readonly CVarDef<bool> GoobcoinLogChange =
+        CVarDef.Create("goob.notify_goobcoin_change", false, CVar.SERVERONLY);
+
     #endregion
 
     #region Game Director
