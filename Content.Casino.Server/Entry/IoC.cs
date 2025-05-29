@@ -6,6 +6,6 @@ internal static class CasinoIoC
     {
         var instance = IoCManager.Instance!;
 
-        instance.Register<IServerCasinoManager, CasinoManager>();
+        instance.Register<IServerCasinoManager, ServerCasinoManager>();
     }
 }

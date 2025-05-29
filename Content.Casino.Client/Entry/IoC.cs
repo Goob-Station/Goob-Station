@@ -6,6 +6,6 @@ public sealed class ClientCasinoIoC
     {
         var instance = IoCManager.Instance!;
 
-        instance.Register<ClientGameManager>();
+        instance.Register<IClientCasinoManager, ClientCasinoManager>();
     }
 }
