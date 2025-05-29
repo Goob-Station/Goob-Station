@@ -91,6 +91,9 @@ public sealed partial class SandevistanUserComponent : Component
     [DataField] // So it fits the audio
     public TimeSpan ShiftDelay = TimeSpan.FromSeconds(2);
 
+    [DataField]
+    public TimeSpan? DisableAt;
+
     [ViewVariables(VVAccess.ReadOnly)]
     public EntityUid? RunningSound;
 

@@ -115,7 +115,7 @@
   components:
   - type: InstantAction
     checkCanInteract: false
-    useDelay: 5
+    useDelay: 3
     icon: { sprite: _Goobstation/Objects/Misc/sandevistan.rsi, state: icon }
     itemIconStyle: NoItem
     event: !type:ToggleSandevistanEvent

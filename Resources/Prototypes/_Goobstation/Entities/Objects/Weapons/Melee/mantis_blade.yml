@@ -28,21 +28,17 @@
         Structural: 15
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
+  - type: Tag
+    tags:
+    - MantisBlade
   - type: Multihit
     multihitWhitelist:
-      components:
+      tags:
       - MantisBlade
-  - type: MantisBlade
+  - type: ChangePrefixAfterDelay
   - type: Item
     size: Ginormous
     heldPrefix: popout
-  - type: Scalpel
-    speed: 0.3
-  - type: BoneSaw
-    speed: 0.75
-  - type: SurgeryTool
-    startSound:
-      path: /Audio/_Shitmed/Medical/Surgery/scalpel1.ogg
   - type: Tool
     qualities:
     - Slicing

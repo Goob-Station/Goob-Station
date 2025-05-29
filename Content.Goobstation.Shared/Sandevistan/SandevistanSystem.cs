@@ -55,6 +55,12 @@ public sealed class SandevistanSystem : EntitySystem
         var query = EntityQueryEnumerator<SandevistanUserComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
+            if (comp.DisableAt != null && _timing.CurTime > comp.DisableAt)
+            {
+                Disable(uid, comp);
+                comp.DisableAt = null;
+            }
+
             if (comp.Trail != null)
             {
                 comp.Trail.Color = Color.FromHsv(new Vector4(comp.ColorAccumulator % 100f / 100f, 1, 1, 1));
@@ -130,11 +136,7 @@ public sealed class SandevistanSystem : EntitySystem
             ent.Comp.ColorAccumulator = 0;
             _audio.Stop(ent.Comp.RunningSound);
             _audio.PlayEntity(ent.Comp.EndSound, ent, ent);
-            Timer.Spawn(ent.Comp.ShiftDelay,
-                () =>
-                {
-                    Disable(ent, ent.Comp);
-                });
+            ent.Comp.DisableAt = _timing.CurTime + ent.Comp.ShiftDelay;
             return;
         }
 
