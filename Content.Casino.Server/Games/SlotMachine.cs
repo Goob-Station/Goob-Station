@@ -43,7 +43,8 @@ public sealed class SlotMachineGame : ICasinoGame
 
         _gameStates[sessionId] = gameState;
 
-        return await Task.FromResult(session with { GameState = gameState.ToJson() });
+        // Don't serialize - just return session without GameState
+        return await Task.FromResult(session);
     }
 
     public async Task<GameActionCost> GetActionCostAsync(string sessionId, GameAction action, CancellationToken cancellationToken = default)
@@ -122,7 +123,7 @@ public sealed class SlotMachineGame : ICasinoGame
             Won: won,
             Payout: payout,
             Message: message,
-            GameState: newGameState.ToJson()
+            GameState: null // Don't serialize game state
         ));
     }
 
@@ -147,7 +148,7 @@ public sealed class SlotMachineGame : ICasinoGame
             Won: false,
             Payout: 0,
             Message: $"💰 Bet changed to {newBet} coins",
-            GameState: newGameState.ToJson()
+            GameState: null // Don't serialize game state
         ));
     }
 

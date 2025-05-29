@@ -16,9 +16,10 @@ public sealed class SlotMachineClientHandler : IGameClientHandler
     public string GameId => "slots";
 
     private string? _currentSessionId;
-    private SlotGameState? _currentGameState;
+    private int _currentBet = 0;
     private int _wins = 0;
     private int _losses = 0;
+    private bool _isOneOffSpin = false;
 
     public void Initialize()
     {
@@ -28,14 +29,9 @@ public sealed class SlotMachineClientHandler : IGameClientHandler
     public async Task OnGameStartedAsync(GameSession session)
     {
         _currentSessionId = session.SessionId;
+        _currentBet = session.InitialBet;
 
-        if (session.GameState != null)
-        {
-            _currentGameState = SlotGameState.FromJson(session.GameState.ToString()!);
-        }
-
-        _consoleHost.WriteLine(null, "🎰 Slot machine session started!");
-        _consoleHost.WriteLine(null, $"Initial bet: {session.InitialBet} coins");
+        _consoleHost.WriteLine(null, "Slot machine session started!");
         _consoleHost.WriteLine(null, "Use 'slots spin' to play, 'slots bet <amount>' to change bet, 'slots quit' to end session.");
 
         await Task.CompletedTask;
@@ -46,13 +42,19 @@ public sealed class SlotMachineClientHandler : IGameClientHandler
         if (sessionId != _currentSessionId)
             return;
 
-        // Update game state
-        if (result.GameState != null)
+        if (action.ActionId == "spin" && _wins == 0 && _losses == 0)
         {
-            _currentGameState = SlotGameState.FromJson(result.GameState.ToString()!);
+            _isOneOffSpin = true;
         }
 
-        // Display the result message
+        if (action.ActionId == "change_bet" && action.Parameters != null)
+        {
+            if (int.TryParse(action.Parameters.ToString(), out var newBet))
+            {
+                _currentBet = newBet;
+            }
+        }
+
         _consoleHost.WriteLine(null, result.Message);
 
         // Track wins/losses for spin actions
@@ -61,9 +63,9 @@ public sealed class SlotMachineClientHandler : IGameClientHandler
             if (result.Won)
             {
                 _wins++;
-                if (result.Payout >= (_currentGameState?.CurrentBet ?? 0) * 5)
+                if (result.Payout >= _currentBet * 5)
                 {
-                    _consoleHost.WriteLine(null, "🎉 BIG WIN! 🎉");
+                    _consoleHost.WriteLine(null, "BIG WIN!");
                 }
             }
             else
@@ -73,10 +75,10 @@ public sealed class SlotMachineClientHandler : IGameClientHandler
 
             // Show stats periodically
             var totalGames = _wins + _losses;
-            if (totalGames % 5 == 0 && totalGames > 0)
+            if (totalGames % 5 == 0 && totalGames > 0 && !_isOneOffSpin)
             {
                 var winRate = (double)_wins / totalGames * 100;
-                _consoleHost.WriteLine(null, $"📊 Stats: {_wins} wins, {_losses} losses ({winRate:F1}% win rate)");
+                _consoleHost.WriteLine(null, $"Stats: {_wins} wins, {_losses} losses ({winRate:F1}% win rate)");
             }
         }
 
@@ -94,26 +96,41 @@ public sealed class SlotMachineClientHandler : IGameClientHandler
         if (sessionId != _currentSessionId)
             return;
 
-        _consoleHost.WriteLine(null, "🎰 Slot machine session ended.");
-        if (_wins > 0 || _losses > 0)
+        // Check if this was a very short session (likely one-off spin)
+        var wasOneOffSpin = _isOneOffSpin || (_wins + _losses) <= 1;
+
+        if (wasOneOffSpin)
         {
-            var totalGames = _wins + _losses;
-            var winRate = totalGames > 0 ? (double)_wins / totalGames * 100 : 0;
-            _consoleHost.WriteLine(null, $"Final stats: {_wins} wins, {_losses} losses ({winRate:F1}% win rate)");
+            // Don't show verbose ending message for one-off spins
+            // The spin result is already shown, that's enough
+        }
+        else
+        {
+            _consoleHost.WriteLine(null, "Slot machine session ended.");
+            if (_wins > 0 || _losses > 0)
+            {
+                var totalGames = _wins + _losses;
+                var winRate = totalGames > 0 ? (double)_wins / totalGames * 100 : 0;
+                _consoleHost.WriteLine(null, $"Final stats: {_wins} wins, {_losses} losses ({winRate:F1}% win rate)");
+            }
         }
 
         _currentSessionId = null;
-        _currentGameState = null;
+        _currentBet = 0;
         _wins = 0;
         _losses = 0;
+        _isOneOffSpin = false;
 
         await Task.CompletedTask;
     }
 
     public async Task ShowGameUIAsync()
     {
-        _consoleHost.WriteLine(null, "🎰 Slot machine console interface active.");
-        _consoleHost.WriteLine(null, "Commands: 'slots <bet>' to start, 'slots spin', 'slots bet <amount>', 'slots quit'");
+        _consoleHost.WriteLine(null, "Slot machine console interface active.");
+        _consoleHost.WriteLine(null, "Commands:");
+        _consoleHost.WriteLine(null, "  'slots' - Start session (5 coin default bet)");
+        _consoleHost.WriteLine(null, "  'slots <bet>' - One-off spin with specified bet");
+        _consoleHost.WriteLine(null, "  'slots spin', 'slots bet <amount>', 'slots quit' - Session commands");
         await Task.CompletedTask;
     }
 

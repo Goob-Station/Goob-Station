@@ -21,39 +21,8 @@ public sealed record SlotGameState(
     SlotSymbol[] Symbols,
     int CurrentBet,
     bool IsSpinning = false
-)
-{
-    public static SlotGameState FromJson(string json)
-    {
-        try
-        {
-            var serializer = IoCManager.Resolve<IRobustSerializer>();
-            using var stream = new MemoryStream(System.Text.Encoding.UTF8.GetBytes(json));
-            return serializer.Deserialize<SlotGameState>(stream) ??
-                   throw new InvalidOperationException("Failed to deserialize slot game state");
-        }
-        catch (Exception)
-        {
-            // Return default state if deserialization fails
-            return new SlotGameState(Array.Empty<SlotSymbol>(), 0, false);
-        }
-    }
+) {
 
-    public string ToJson()
-    {
-        try
-        {
-            var serializer = IoCManager.Resolve<IRobustSerializer>();
-            using var stream = new MemoryStream();
-            serializer.Serialize(stream, this);
-            return System.Text.Encoding.UTF8.GetString(stream.ToArray());
-        }
-        catch (Exception)
-        {
-            // Return empty JSON object if serialization fails
-            return "{}";
-        }
-    }
 }
 
 public static class SlotSymbolExtensions
@@ -110,9 +79,9 @@ public static class SlotSymbolExtensions
 
             return matchingSymbol switch
             {
-                SlotSymbol.Seven => bet, // Two sevens still pays even money
-                SlotSymbol.Bar => bet,
-                SlotSymbol.Bell => (int)(bet * 0.5f),
+                SlotSymbol.Seven => bet, // Two sevens pays even money
+                SlotSymbol.Bar => bet,   // Two bars pays even money
+                SlotSymbol.Bell => Math.Max(1, bet / 2), // Two bells pays half bet (minimum 1)
                 _ => 0 // Other symbols don't pay for two of a kind
             };
         }
@@ -155,6 +124,10 @@ public static class SlotSymbolExtensions
                 SlotSymbol.Seven => "JACKPOT! Triple Sevens!",
                 SlotSymbol.Bar => "Triple Bars!",
                 SlotSymbol.Bell => "Triple Bells!",
+                SlotSymbol.Plum => "Triple Plums!",
+                SlotSymbol.Orange => "Triple Oranges!",
+                SlotSymbol.Lemon => "Triple Lemons!",
+                SlotSymbol.Cherry => "Triple Cherries!",
                 _ => $"Triple {symbols[0]}s!"
             };
         }
@@ -165,10 +138,13 @@ public static class SlotSymbolExtensions
             var matchingSymbol = symbols[0] == symbols[1] ? symbols[0] :
                                symbols[1] == symbols[2] ? symbols[1] : symbols[0];
 
-            if (matchingSymbol == SlotSymbol.Seven || matchingSymbol == SlotSymbol.Bar || matchingSymbol == SlotSymbol.Bell)
+            return matchingSymbol switch
             {
-                return $"Pair of {matchingSymbol}s!";
-            }
+                SlotSymbol.Seven => "Pair of Sevens!",
+                SlotSymbol.Bar => "Pair of Bars!",
+                SlotSymbol.Bell => "Pair of Bells!",
+                _ => "No Win"
+            };
         }
 
         return "No Win";
