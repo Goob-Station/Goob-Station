@@ -369,16 +369,6 @@
       - NukeOpsUplink
 
 - type: listing
-  id: UplinkWSPR
-  name: uplink-WSPR-name
-  description: uplink-WSPR-desc
-  productEntity: WeaponRifleWSPR
-  cost:
-    Telecrystal: 65 # fire
-  categories:
-  - UplinkWeaponry
-
-- type: listing
   id: UplinkWeaponRifleBurner
   name: uplink-weapon-burner-name
   description: uplink-weapon-burner-desc
@@ -386,17 +376,6 @@
   productEntity: WeaponRifleBurner
   cost:
     Telecrystal: 100 # don't kill me piras
-  categories:
-  - UplinkWeaponry
-
-- type: listing
-  id: UplinkWeaponShotgunHeavy
-  name: uplink-weapon-heavy-shotgun-name
-  description: uplink-weapon-heavy-shotgun-desc
-  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Shotguns/magshot.rsi, state: icon }
-  productEntity: WeaponShotgunHeavy
-  cost:
-    Telecrystal: 200
   categories:
   - UplinkWeaponry
 
@@ -446,16 +425,6 @@
     Telecrystal: 25
   categories:
     - UplinkWeaponry
-
-- type: listing
-  id: UplinkWeaponM7S
-  name: uplink-m7s-name
-  description: uplink-m7s-desc
-  productEntity: WeaponSubMachineGunM7S
-  cost:
-    Telecrystal: 60
-  categories:
-    -  UplinkWeaponry
 
 - type: listing
   id: UplinkWeaponHE1SG8
@@ -791,17 +760,6 @@
 #  categories:
 #  - UplinkImplants
 
-- type: listing
-  id: UplinkKravMagaImplanter
-  name: uplink-krav-maga-implant-name
-  description: uplink-krav-maga-implant-desc
-  icon: { sprite: /Textures/_Goobstation/Clothing/Hands/Gloves/kravgloves.rsi, state: icon }
-  productEntity: KravMagaImplanter
-  cost:
-    Telecrystal: 40
-  categories:
-    - UplinkImplants
-
 # Deception
 
 - type: listing
@@ -915,28 +873,6 @@
 #  categories:
 #  - UplinkAmmo
 
-- type: listing
-  id: UplinkMagazineShotgunHeavy
-  name: uplink-heavy-shotgun-magazine-name
-  description: uplink-heavy-shotgun-magazine-desc
-  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_shotgun.rsi, state: icon }
-  productEntity: MagazineShotgunHeavy
-  cost:
-    Telecrystal: 30
-  categories:
-  - UplinkAmmo
-
-- type: listing
-  id: UplinkMagazineShotgunHeavySlug
-  name: uplink-heavy-shotgun-magazine-slug-name
-  description: uplink-heavy-shotgun-magazine-slug-desc
-  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_shotgun.rsi, state: icon2 }
-  productEntity: MagazineShotgunHeavySlug
-  cost:
-    Telecrystal: 40
-  categories:
-  - UplinkAmmo
-
 # 弾薬
 - type: listing
   id: UplinkRifleMag
@@ -998,17 +934,6 @@
   - UplinkDisruption
 
 - type: listing
-  id: UplinkMagazinePistolCaselessRifleSAPHE
-  name: uplink-pistol-magazine-caseless-saphe-name
-  description: uplink-pistol-magazine-caseless-saphe-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi, state: practice }
-  productEntity: MagazinePistolCaselessRifleSAPHE
-  cost:
-    Telecrystal: 5 # 23 damage but ~1/3 of a rifle magazine and semi armor piercing, remember the damage is 13 pierce 10.5 explosive
-  categories:
-  - UplinkAmmo
-
-- type: listing
   id: UplinkMagazineM7S
   name: uplink-m7s-mag-name
   description: uplink-m7s-mag-desc
@@ -1058,28 +983,6 @@
   productEntity: MagazineBoxShotgunSlugHighCaliber
   cost:
     Telecrystal: 8
-  categories:
-  - UplinkAmmo
-
-- type: listing
-  id: UplinkBox8GaugeFlash
-  name: uplink-high-caliber-shotgun-box-flash-slug-name
-  description: uplink-high-caliber-shotgun-box-flash-slug-desc
-  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi, state: icon-incendiary }
-  productEntity: MagazineBoxShotgunHighCaliberFlash
-  cost:
-    Telecrystal: 1
-  categories:
-  - UplinkAmmo
-
-- type: listing
-  id: UplinkBox8GaugeSarin
-  name: uplink-high-caliber-shotgun-box-sarin-name
-  description: uplink-high-caliber-shotgun-box-sarin-desc
-  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi, state: icon-sarin }
-  productEntity: MagazineBoxShotgunHighCaliberSarin
-  cost:
-    Telecrystal: 12
   categories:
   - UplinkAmmo
 
