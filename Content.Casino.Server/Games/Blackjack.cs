@@ -6,15 +6,18 @@ using System.Threading.Tasks;
 using Content.Casino.Shared.Data;
 using Content.Casino.Shared.Games;
 using Content.Casino.Shared.Games.Blackjack;
+using Content.Casino.Shared.Cvars;
 using Robust.Shared.IoC;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
+using Robust.Shared.Configuration;
 
 namespace Content.Casino.Server.Games;
 
 public sealed class BlackjackGame : ICasinoGame
 {
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
 
     private readonly Dictionary<string, BlackjackGameState> _gameStates = new();
 
@@ -34,8 +37,11 @@ public sealed class BlackjackGame : ICasinoGame
         var sessionId = Guid.NewGuid().ToString();
         var session = new GameSession(sessionId, GameId, player, initialBet, DateTime.UtcNow);
 
+        // Get deck count from CVar
+        var deckCount = _cfg.GetCVar(CasinoCVars.BlackjackDeckCount);
+
         // Create new deck and game state
-        var deck = new Deck(new Random(_random.Next()), 6);
+        var deck = new Deck(new Random(_random.Next()), deckCount);
         var dealerHand = new List<Card>();
         var playerHands = new List<BlackjackHand>
         {
@@ -180,6 +186,25 @@ public sealed class BlackjackGame : ICasinoGame
 
         var message = $"Hit: {currentHand.Cards[^1]} - Hand value: {currentHand.Value}";
 
+        // Check for five-card win if enabled
+        var fiveCardWinEnabled = _cfg.GetCVar(CasinoCVars.BlackjackFiveCardWin);
+        if (fiveCardWinEnabled && currentHand.Cards.Count == 5 && !currentHand.IsBust)
+        {
+            currentHand = currentHand with { Status = HandStatus.FiveCardCharlie };
+            gameState.PlayerHands[gameState.CurrentHandIndex] = currentHand;
+            message += " - FIVE CARD CHARLIE! Automatic win!";
+
+            var newState = MoveToNextHand(gameState);
+            _gameStates[sessionId] = newState;
+
+            return new GameActionResult(
+                IsComplete: newState.GameComplete,
+                Won: true,
+                Payout: currentHand.Bet * 2, // Return bet + winnings
+                Message: message
+            );
+        }
+
         // Check for bust
         if (currentHand.IsBust)
         {
@@ -260,10 +285,24 @@ public sealed class BlackjackGame : ICasinoGame
 
         var message = $"Double Down: {currentHand.Cards[^1]} - Final hand value: {currentHand.Value}";
 
-        // Hand is automatically stood after doubling
-        var newStatus = currentHand.IsBust ? HandStatus.Bust : HandStatus.Doubled;
+        // Check for five-card win if enabled (edge case with double down)
+        var fiveCardWinEnabled = _cfg.GetCVar(CasinoCVars.BlackjackFiveCardWin);
+        HandStatus newStatus;
+
         if (currentHand.IsBust)
+        {
+            newStatus = HandStatus.Bust;
             message += " - BUST!";
+        }
+        else if (fiveCardWinEnabled && currentHand.Cards.Count == 5)
+        {
+            newStatus = HandStatus.FiveCardCharlie;
+            message += " - FIVE CARD CHARLIE!";
+        }
+        else
+        {
+            newStatus = HandStatus.Doubled;
+        }
 
         gameState.PlayerHands[gameState.CurrentHandIndex] = currentHand with
         {
@@ -401,8 +440,10 @@ public sealed class BlackjackGame : ICasinoGame
 
     private BlackjackGameState ProcessDealerTurn(BlackjackGameState gameState)
     {
-        // Dealer plays: hit on 16, stand on 17
-        while (gameState.DealerValue < 17)
+        var dealerHitsSoft17 = _cfg.GetCVar(CasinoCVars.BlackjackDealerHitsSoft17);
+
+        // Dealer plays based on CVar setting
+        while (ShouldDealerHit(gameState.DealerHand, dealerHitsSoft17))
         {
             gameState.DealerHand.Add(gameState.GameDeck.DrawCard());
         }
@@ -412,6 +453,33 @@ public sealed class BlackjackGame : ICasinoGame
             Phase = BlackjackPhase.GameOver,
             GameComplete = true
         };
+    }
+
+    private bool ShouldDealerHit(List<Card> dealerHand, bool hitSoft17)
+    {
+        var value = dealerHand.GetBestValue();
+
+        // Always hit on 16 or less
+        if (value < 17)
+            return true;
+
+        // Always stand on hard 17 or more
+        if (value > 17)
+            return false;
+
+        // For exactly 17, check if it's soft and if dealer hits soft 17
+        if (hitSoft17)
+        {
+            // Check if it's a soft 17 (contains ace counted as 11)
+            var aceCount = dealerHand.Count(c => c.IsAce);
+            var nonAceValue = dealerHand.Where(c => !c.IsAce).Sum(c => c.GetBlackjackValue());
+
+            // Soft 17 means we have at least one ace counted as 11
+            // If we have ace(s) and non-ace cards sum to 6 or less, then ace is counted as 11
+            return aceCount > 0 && nonAceValue <= 6;
+        }
+
+        return false;
     }
 
     private (int TotalWin, string Message) ProcessFinalResults(BlackjackGameState gameState)
@@ -431,6 +499,12 @@ public sealed class BlackjackGame : ICasinoGame
             if (hand.Status == HandStatus.Bust)
             {
                 handMsg += " - BUST, lose " + hand.Bet;
+            }
+            else if (hand.Status == HandStatus.FiveCardCharlie)
+            {
+                var winAmount = hand.Bet * 2; // Return bet + winnings
+                handMsg += $" - FIVE CARD CHARLIE! Win {winAmount}";
+                totalWin += winAmount;
             }
             else if (hand.Status == HandStatus.Blackjack)
             {
@@ -484,16 +558,7 @@ public sealed class BlackjackGame : ICasinoGame
 
         var actions = new List<GameAction>();
 
-        // Always add a status action to show current game state
-        var playerHand = gameState.CurrentHand ?? gameState.PlayerHands.FirstOrDefault();
-        var dealerDisplay = gameState.DealerDisplay;
-        var playerDisplay = playerHand?.Display ?? "No hand";
-        var playerValue = playerHand?.Value ?? 0;
-
-        var statusText = $"Dealer: {dealerDisplay} | Your hand: {playerDisplay} ({playerValue})";
-        actions.Add(new GameAction("status", statusText, statusText));
-
-        if (gameState.Phase == BlackjackPhase.PlayerTurn && gameState.CurrentHand != null)
+        if (gameState.Phase == BlackjackPhase.PlayerTurn)
         {
             var currentHand = gameState.CurrentHand;
 
@@ -505,7 +570,9 @@ public sealed class BlackjackGame : ICasinoGame
                 if (currentHand.CanDoubleDown)
                     actions.Add(new GameAction("double", $"Double Down (Bet: {currentHand.Bet})"));
 
-                if (currentHand.CanSplit && gameState.PlayerHands.Count < 4) // Limit splits
+                // Check CVar for split allowance
+                var splitAllowed = _cfg.GetCVar(CasinoCVars.BlackjackSplitAllowed);
+                if (splitAllowed && currentHand.CanSplit && gameState.PlayerHands.Count < 4) // Limit splits
                     actions.Add(new GameAction("split", $"Split (Bet: {currentHand.Bet})"));
             }
 

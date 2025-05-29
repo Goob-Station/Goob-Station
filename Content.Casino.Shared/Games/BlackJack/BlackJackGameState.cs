@@ -16,7 +16,8 @@ public enum HandStatus
     Stand,
     Bust,
     Blackjack,
-    Doubled
+    Doubled,
+    FiveCardCharlie
 }
 
 public sealed record BlackjackHand(
