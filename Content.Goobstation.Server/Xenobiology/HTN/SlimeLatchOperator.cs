@@ -1,5 +1,3 @@
-using Content.Goobstation.Server.Blob.NPC.BlobPod;
-using Content.Goobstation.Shared.Blob.Components;
 using Content.Goobstation.Shared.Xenobiology.Components;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN;
