@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Collections.Concurrent;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Content.Casino.Server.Data;
 using Content.Casino.Shared.Data;
 using Content.Casino.Shared.Games;
 using Content.Casino.Shared.Network;
 using Content.Server._durkcode.ServerCurrency;
-using Robust.Shared.IoC;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Reflection;
@@ -31,7 +28,7 @@ public interface IServerCasinoManager
     /// <summary>
     /// Start a new game session.
     /// </summary>
-    Task<(bool Success, GameSession? Session, string ErrorMessage)> StartGameAsync(
+    Task<StartGameResult> StartGameAsync(
         ICommonSession player,
         string gameId,
         int initialBet,
@@ -40,7 +37,7 @@ public interface IServerCasinoManager
     /// <summary>
     /// Execute an action in a game session.
     /// </summary>
-    Task<(bool Success, GameActionResult Result, string ErrorMessage)> ExecuteActionAsync(
+    Task<ExecuteActionResult> ExecuteActionAsync(
         string sessionId,
         GameAction action,
         CancellationToken cancellationToken = default);
@@ -48,7 +45,7 @@ public interface IServerCasinoManager
     /// <summary>
     /// End a game session.
     /// </summary>
-    Task<(bool Success, GameActionResult FinalResult, string ErrorMessage)> EndGameAsync(
+    Task<EndGameResult> EndGameAsync(
         string sessionId,
         CancellationToken cancellationToken = default);
 
@@ -107,7 +104,8 @@ public sealed class ServerCasinoManager : IServerCasinoManager, IPostInjectInit
 
         public async Task<IDisposable?> TryWaitAsync(CancellationToken cancellationToken = default)
         {
-            if (_disposed) return null;
+            if (_disposed)
+                return null;
 
             try
             {
@@ -130,7 +128,9 @@ public sealed class ServerCasinoManager : IServerCasinoManager, IPostInjectInit
         {
             lock (_disposeLock)
             {
-                if (_disposed) return;
+                if (_disposed)
+                    return;
+
                 _disposed = true;
                 _semaphore.Dispose();
             }
@@ -150,7 +150,9 @@ public sealed class ServerCasinoManager : IServerCasinoManager, IPostInjectInit
 
             public void Dispose()
             {
-                if (_released || _wrapper._disposed) return;
+                if (_released || _wrapper._disposed)
+                    return;
+
                 _released = true;
 
                 try
@@ -202,24 +204,25 @@ public sealed class ServerCasinoManager : IServerCasinoManager, IPostInjectInit
         }
     }
 
+    // Updated network message handlers to use the new records
     private async void OnStartGameRequest(StartGameRequest message)
     {
         var player = _playerManager.GetSessionByChannel(message.MsgChannel);
-        var (success, session, errorMessage) = await StartGameAsync(player, message.GameId, message.InitialBet);
+        var result = await StartGameAsync(player, message.GameId, message.InitialBet);
 
         var response = new GameStartedMessage
         {
-            SessionId = session?.SessionId ?? string.Empty,
+            SessionId = result.Session?.SessionId ?? string.Empty,
             GameId = message.GameId,
-            Success = success,
-            ErrorMessage = errorMessage
+            Success = result.Success,
+            ErrorMessage = result.ErrorMessage
         };
 
-        if (success && session != null)
+        if (result.Success && result.Session != null)
         {
-            var actions = await _registeredGames[message.GameId].GetAvailableActionsAsync(session.SessionId);
+            var actions = await _registeredGames[message.GameId].GetAvailableActionsAsync(result.Session.SessionId);
             response.AvailableActions = actions.ToArray();
-            response.SerializedGameState = session.GameState?.ToString();
+            response.SerializedGameState = result.Session.GameState?.ToString();
         }
 
         _netManager.ServerSendMessage(response, message.MsgChannel);
@@ -227,16 +230,16 @@ public sealed class ServerCasinoManager : IServerCasinoManager, IPostInjectInit
 
     private async void OnExecuteActionRequest(ExecuteActionRequest message)
     {
-        var (success, result, errorMessage) = await ExecuteActionAsync(message.SessionId, message.Action);
+        var result = await ExecuteActionAsync(message.SessionId, message.Action);
 
         var response = new ActionResultMessage
         {
             SessionId = message.SessionId,
             Action = message.Action,
-            Result = success ? result : new GameActionResult(false, false, 0, errorMessage)
+            Result = result.Success ? result.Result : new GameActionResult(false, false, 0, result.ErrorMessage)
         };
 
-        if (success && _activeSessions.TryGetValue(message.SessionId, out var session))
+        if (result.Success && _activeSessions.TryGetValue(message.SessionId, out var session))
         {
             var actions = await _registeredGames[session.GameId].GetAvailableActionsAsync(session.SessionId);
             response.UpdatedActions = actions.ToArray();
@@ -253,13 +256,13 @@ public sealed class ServerCasinoManager : IServerCasinoManager, IPostInjectInit
 
     private async void OnEndGameRequest(EndGameRequest message)
     {
-        var (success, finalResult, errorMessage) = await EndGameAsync(message.SessionId);
+        var result = await EndGameAsync(message.SessionId);
 
         // Always send response, even for sessions that don't exist
         var response = new GameEndedMessage
         {
             SessionId = message.SessionId,
-            FinalResult = success ? finalResult : new GameActionResult(true, false, 0, errorMessage)
+            FinalResult = result.FinalResult
         };
 
         // Try to get the session to find the player channel
@@ -278,23 +281,23 @@ public sealed class ServerCasinoManager : IServerCasinoManager, IPostInjectInit
         }
     }
 
-    public async Task<(bool Success, GameSession? Session, string ErrorMessage)> StartGameAsync(
+    public async Task<StartGameResult> StartGameAsync(
         ICommonSession player,
         string gameId,
         int initialBet,
         CancellationToken cancellationToken = default)
     {
         if (!_registeredGames.TryGetValue(gameId, out var game))
-            return (false, null, $"Game '{gameId}' not found");
+            return StartGameResult.Failed($"Game '{gameId}' not found");
 
         if (initialBet < game.MinBet || initialBet > game.MaxBet)
-            return (false, null, $"Bet must be between {game.MinBet} and {game.MaxBet}");
+            return StartGameResult.Failed($"Bet must be between {game.MinBet} and {game.MaxBet}");
 
         if (!CanAffordBet(player, initialBet))
-            return (false, null, "Insufficient funds");
+            return StartGameResult.Failed("Insufficient funds");
 
         if (!ProcessBet(player, initialBet))
-            return (false, null, "Failed to process bet");
+            return StartGameResult.Failed("Failed to process bet");
 
         try
         {
@@ -302,43 +305,43 @@ public sealed class ServerCasinoManager : IServerCasinoManager, IPostInjectInit
             _activeSessions[session.SessionId] = session;
             _sessionLocks[session.SessionId] = new SessionLockWrapper();
 
-            return (true, session, string.Empty);
+            return StartGameResult.Successful(session);
         }
         catch (Exception ex)
         {
             // Refund the bet if game creation failed
             ProcessPayout(player, initialBet);
-            return (false, null, $"Failed to start game: {ex.Message}");
+            return StartGameResult.Failed($"Failed to start game: {ex.Message}");
         }
     }
 
-    public async Task<(bool Success, GameActionResult Result, string ErrorMessage)> ExecuteActionAsync(
+    public async Task<ExecuteActionResult> ExecuteActionAsync(
         string sessionId,
         GameAction action,
         CancellationToken cancellationToken = default)
     {
         if (!_activeSessions.TryGetValue(sessionId, out var session))
-            return (false, default, "Session not found");
+            return ExecuteActionResult.Failed("Session not found");
 
         if (!_registeredGames.TryGetValue(session.GameId, out var game))
-            return (false, default, "Game not found");
+            return ExecuteActionResult.Failed("Game not found");
 
         if (!_sessionLocks.TryGetValue(sessionId, out var sessionLockWrapper))
-            return (false, default, "Session lock not found");
+            return ExecuteActionResult.Failed("Session lock not found");
 
         // Prevent actions on sessions being cleaned up
         if (_sessionsBeingCleaned.ContainsKey(sessionId))
-            return (false, default, "Session is being terminated");
+            return ExecuteActionResult.Failed("Session is being terminated");
 
         using var lockHandle = await sessionLockWrapper.TryWaitAsync(cancellationToken);
         if (lockHandle == null)
-            return (false, default, "Session is being terminated");
+            return ExecuteActionResult.Failed("Session is being terminated");
 
         try
         {
             // Double-check session still exists after acquiring lock
             if (!_activeSessions.ContainsKey(sessionId))
-                return (false, default, "Session no longer exists");
+                return ExecuteActionResult.Failed("Session no longer exists");
 
             // Check if this action requires payment
             var actionCost = await game.GetActionCostAsync(sessionId, action, cancellationToken);
@@ -346,10 +349,10 @@ public sealed class ServerCasinoManager : IServerCasinoManager, IPostInjectInit
             if (actionCost.RequiresPayment)
             {
                 if (!CanAffordBet(session.Player, actionCost.Cost))
-                    return (false, default, "Insufficient funds for action");
+                    return ExecuteActionResult.Failed("Insufficient funds for action");
 
                 if (!ProcessBet(session.Player, actionCost.Cost))
-                    return (false, default, "Failed to process payment for action");
+                    return ExecuteActionResult.Failed("Failed to process payment for action");
             }
 
             var result = await game.ExecuteActionAsync(sessionId, action, cancellationToken);
@@ -367,7 +370,7 @@ public sealed class ServerCasinoManager : IServerCasinoManager, IPostInjectInit
                 _ = Task.Run(() => CleanupSessionAsync(sessionId));
             }
 
-            return (true, result, string.Empty);
+            return ExecuteActionResult.Successful(result);
         }
         catch (Exception ex)
         {
@@ -385,19 +388,18 @@ public sealed class ServerCasinoManager : IServerCasinoManager, IPostInjectInit
                 // Ignore errors during refund attempt
             }
 
-            return (false, default, $"Action failed: {ex.Message}");
+            return ExecuteActionResult.Failed($"Action failed: {ex.Message}");
         }
     }
-
-    public async Task<(bool Success, GameActionResult FinalResult, string ErrorMessage)> EndGameAsync(
+    public async Task<EndGameResult> EndGameAsync(
         string sessionId,
         CancellationToken cancellationToken = default)
     {
         if (!_activeSessions.TryGetValue(sessionId, out var session))
-            return (false, new GameActionResult(true, false, 0, "Session not found"), "Session not found");
+            return EndGameResult.Failed("Session not found");
 
         if (!_registeredGames.TryGetValue(session.GameId, out var game))
-            return (false, new GameActionResult(true, false, 0, "Game not found"), "Game not found");
+            return EndGameResult.Failed("Game not found");
 
         try
         {
@@ -408,13 +410,13 @@ public sealed class ServerCasinoManager : IServerCasinoManager, IPostInjectInit
             await CleanupSessionAsync(sessionId);
 
             var finalResult = new GameActionResult(true, false, 0, "Game ended by player");
-            return (true, finalResult, string.Empty);
+            return EndGameResult.Successful(finalResult);
         }
         catch (Exception ex)
         {
             // Even if cleanup fails, remove the session from our tracking
             await CleanupSessionAsync(sessionId);
-            return (false, new GameActionResult(true, false, 0, $"Failed to end game: {ex.Message}"), $"Failed to end game: {ex.Message}");
+            return EndGameResult.Failed($"Failed to end game: {ex.Message}");
         }
     }
 
