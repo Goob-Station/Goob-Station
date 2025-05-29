@@ -143,7 +143,7 @@ public abstract partial class SharedMartialArtsSystem
             true,
             proto.DropHeldItemsBehavior);
 
-        DoDamage(ent, target, proto.DamageType, proto.ExtraDamage * power, out _, TargetBodyPart.Torso);
+        DoDamage(ent, target, proto.DamageType, proto.ExtraDamage * power, out _);
         _audio.PlayPvs(args.Sound, target);
         ApplyMultiplier(ent, args.AttackSpeedMultiplier, 0f, args.AttackSpeedMultiplierTime);
         ComboPopup(ent, target, proto.Name);
@@ -195,7 +195,7 @@ public abstract partial class SharedMartialArtsSystem
             proto.DropHeldItemsBehavior);
 
         _audio.PlayPvs(args.Sound, target);
-        DoDamage(ent, target, proto.DamageType, proto.ExtraDamage * power, out _, TargetBodyPart.Torso);
+        DoDamage(ent, target, proto.DamageType, proto.ExtraDamage * power, out _);
         _grabThrowing.Throw(target, ent, dir.Normalized() * args.ThrowRange * power, proto.ThrownSpeed, behavior: proto.DropHeldItemsBehavior);
         ComboPopup(ent, target, proto.Name);
         ent.Comp.LastAttacks.Clear();

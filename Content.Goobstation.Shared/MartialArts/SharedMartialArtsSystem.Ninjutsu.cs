@@ -177,11 +177,9 @@ public abstract partial class SharedMartialArtsSystem
             {
                 { damageType, modifier },
             },
+            ArmorPenetration = sneakAttack.AssassinateArmorPierce,
         };
-        _damageable.TryChangeDamage(target,
-            bonusDamage,
-            origin: uid,
-            armorPenetration: sneakAttack.AssassinateArmorPierce);
+        _damageable.TryChangeDamage(target, bonusDamage, origin: uid, canMiss: false);
 
         if (_netManager.IsClient)
             return;
@@ -241,12 +239,7 @@ public abstract partial class SharedMartialArtsSystem
             }
         }
 
-        DoDamage(ent,
-            target,
-            proto.DamageType,
-            proto.ExtraDamage * GetDamageMultiplier(ent),
-            out _,
-            TargetBodyPart.Torso);
+        DoDamage(ent, target, proto.DamageType, proto.ExtraDamage * GetDamageMultiplier(ent), out _);
         _audio.PlayPvs(args.Sound, target);
         ComboPopup(ent, target, proto.Name);
         ent.Comp.LastAttacks.Clear();
@@ -268,12 +261,7 @@ public abstract partial class SharedMartialArtsSystem
             _pulling.TryStopPull(target, pullable, ent, true);
 
         _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, proto.DropHeldItemsBehavior);
-        DoDamage(ent,
-            target,
-            proto.DamageType,
-            proto.ExtraDamage * GetDamageMultiplier(ent),
-            out _,
-            TargetBodyPart.Torso);
+        DoDamage(ent, target, proto.DamageType, proto.ExtraDamage * GetDamageMultiplier(ent), out _);
         _audio.PlayPvs(args.Sound, target);
         ComboPopup(ent, target, proto.Name);
         ent.Comp.LastAttacks.Clear();

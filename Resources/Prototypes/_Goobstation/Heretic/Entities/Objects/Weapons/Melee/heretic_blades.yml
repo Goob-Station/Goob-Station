@@ -32,11 +32,11 @@
     slots:
     - Belt
   - type: MeleeWeapon
-    armorPenetration: 0.3
     wideAnimationRotation: -125
     damage:
       types:
         Slash: 20
+      armorPenetration: 0.3
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Item

@@ -60,7 +60,7 @@ public abstract partial class SharedMartialArtsSystem
 
         // Paralyze, not knockdown
         _stun.TryParalyze(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true);
-        DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _, TargetBodyPart.Torso);
+        DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
         _audio.PlayPvs(args.Sound, target);
         ComboPopup(ent, target, proto.Name);
         ent.Comp.LastAttacks.Clear();
@@ -81,7 +81,7 @@ public abstract partial class SharedMartialArtsSystem
         {
             _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
             _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, proto.DropHeldItemsBehavior);
-            DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _, TargetBodyPart.Torso);
+            DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
         }
 
         _audio.PlayPvs(args.Sound, target);
@@ -98,7 +98,7 @@ public abstract partial class SharedMartialArtsSystem
 
         _stun.TrySlowdown(target, args.SlowdownTime, true, args.WalkSpeedModifier, args.SprintSpeedModifier);
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
-        DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _, TargetBodyPart.Torso);
+        DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
         _audio.PlayPvs(args.Sound, target);
         ComboPopup(ent, target, proto.Name);
         ent.Comp.LastAttacks.Clear();

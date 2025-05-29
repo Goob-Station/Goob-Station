@@ -132,7 +132,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         _damageExamine.AddDamageExamine(args.Message, Damageable.ApplyUniversalAllModifiers(damageSpec), Loc.GetString("damage-melee"));
 
         // Goobstation - partial armor penetration
-        var ap = component.ResistanceBypass ? 100 : (int)Math.Round(component.ArmorPenetration * 100);
+        var ap = component.ResistanceBypass ? 100 : (int)Math.Round(damageSpec.ArmorPenetration * 100);
         if (ap == 0)
             return;
 

@@ -10,11 +10,16 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
+using Content.Shared._Shitmed.Medical.Surgery.Traumas;
+using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Bed.Sleep;
+using Content.Shared.Body.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Interaction.Events;
@@ -23,13 +28,12 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Standing;
 using Robust.Shared.Audio;
+using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.MartialArts;
 
 public partial class SharedMartialArtsSystem
 {
-    private static readonly SoundSpecifier NeckSnapSound = new SoundPathSpecifier("/Audio/_Goobstation/Wounds/crack1.ogg");
-
     private void InitializeCqc()
     {
         SubscribeLocalEvent<CanPerformComboComponent, CqcSlamPerformedEvent>(OnCQCSlam);
@@ -119,32 +123,25 @@ public partial class SharedMartialArtsSystem
                 if (!_mobState.IsDead(args.Target) && !HasComp<GodmodeComponent>(args.Target) &&
                     TryComp(ent, out PullerComponent? puller) && puller.Pulling == args.Target &&
                     TryComp(args.Target, out PullableComponent? pullable) &&
+                    TryComp(args.Target, out BodyComponent? body) &&
                     puller.GrabStage == GrabStage.Suffocate && TryComp(ent, out TargetingComponent? targeting) &&
                     targeting.Target == TargetBodyPart.Head)
                 {
                     _pulling.TryStopPull(args.Target, pullable);
                     _mobState.ChangeMobState(args.Target, MobState.Dead, null, ent);
 
-                    var dmg = new DamageSpecifier
-                    {
-                        DamageDict =
-                        {
-                            { "Blunt", 100 },
-                            { "Asphyxiation", 300 },
-                        },
-                    };
+                    var (partType, symmetry) = _body.ConvertTargetBodyPart(targeting.Target);
+                    var targetedBodyPart = _body.GetBodyChildrenOfType(args.Target, partType, body, symmetry)
+                        .ToList()
+                        .FirstOrNull();
 
-                    _damageable.TryChangeDamage(args.Target,
-                        dmg,
-                        true,
-                        canSever: false,
-                        partMultiplier: 0.1f, // Prevent head from gibbing
-                        origin: ent,
-                        targetPart: TargetBodyPart.Head);
+                    if (targetedBodyPart == null ||
+                        !TryComp(targetedBodyPart.Value.Id, out WoundableComponent? woundable) ||
+                        woundable.Bone.ContainedEntities.FirstOrNull() is not { } bone ||
+                        !TryComp(bone, out BoneComponent? boneComp) || boneComp.BoneSeverity == BoneSeverity.Broken)
+                        break;
 
-                    if (_netManager.IsServer)
-                        _audio.PlayPvs(NeckSnapSound, args.Target);
-
+                    _trauma.ApplyDamageToBone(bone, boneComp.BoneIntegrity, boneComp);
                     ComboPopup(ent, args.Target, "Neck Snap");
                     break;
                 }
