@@ -23,23 +23,24 @@ public sealed partial class SiliconSpritePreferenceSystem : SharedBorgSwitchable
     {
         base.Initialize();
 
-        SubscribeLocalEvent<BorgSwitchableSubtypeComponent, BorgSubtypeChangedEvent>(OnSubtypeChanged);
+        SubscribeLocalEvent<BorgSwitchableSubtypeComponent, ComponentStartup>(OnComponentStartup);
+        SubscribeLocalEvent<BorgSwitchableSubtypeComponent, AfterAutoHandleStateEvent>(AfterStateHandler);
     }
-    private void OnSubtypeChanged(Entity<BorgSwitchableSubtypeComponent> ent, ref BorgSubtypeChangedEvent args)
+    private void OnComponentStartup(Entity<BorgSwitchableSubtypeComponent> ent, ref ComponentStartup args)
     {
-        SetAppearanceFromSubtype(ent, args.Subtype);
+        UpdateVisuals(ent);
     }
-
+    private void AfterStateHandler(Entity<BorgSwitchableSubtypeComponent> ent, ref AfterAutoHandleStateEvent args)
+    {
+        UpdateVisuals(ent);
+    }
     protected override void SetAppearanceFromSubtype(
         Entity<BorgSwitchableSubtypeComponent> ent,
         ProtoId<BorgSubtypePrototype> subtype)
     {
-        if (!_prototypeManager.TryIndex(subtype, out var subtypePrototype))
-            return;
-        if (!_prototypeManager.TryIndex(subtypePrototype.ParentBorgType, out var borgType))
-            return;
-
-        if (!TryComp(ent, out SpriteComponent? sprite))
+        if (!_prototypeManager.TryIndex(subtype, out var subtypePrototype)
+            || !_prototypeManager.TryIndex(subtypePrototype.ParentBorgType, out var borgType)
+            || !TryComp(ent, out SpriteComponent? sprite))
             return;
 
         var rsiPath = SpriteSpecifierSerializer.TextureRoot / subtypePrototype.SpritePath;

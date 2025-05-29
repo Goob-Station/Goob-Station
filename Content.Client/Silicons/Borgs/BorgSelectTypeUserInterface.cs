@@ -35,6 +35,6 @@ public sealed class BorgSelectTypeUserInterface : BoundUserInterface
         _menu = this.CreateWindow<BorgSelectTypeMenu>();
         _menu.ConfirmedBorgType += prototype => SendMessage(new BorgSelectTypeMessage(prototype));
         // Goobstation: Customizable borgs sprites
-        _menu.ConfirmedBorgSubtype += subtype => SendPredictedMessage(new BorgSelectSubtypeMessage(subtype));
+        _menu.ConfirmedBorgSubtype += subtype => SendMessage(new BorgSelectSubtypeMessage(subtype));
     }
 }

@@ -14,30 +14,28 @@ public abstract class SharedBorgSwitchableSubtypeSystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<BorgSwitchableSubtypeComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<BorgSwitchableSubtypeComponent, ComponentInit>(OnComponentInit);
-        SubscribeLocalEvent<BorgSwitchableSubtypeComponent, BorgSelectSubtypeMessage>(OnSubtypeSelection);
+    }
+
+    private void OnMapInit(Entity<BorgSwitchableSubtypeComponent> ent, ref MapInitEvent args)
+    {
+        UpdateVisuals(ent);
     }
 
     private void OnComponentInit(Entity<BorgSwitchableSubtypeComponent> ent, ref ComponentInit args)
     {
-        if (ent.Comp.BorgSubtype == null)
-            return;
-
-        SetAppearanceFromSubtype(ent, ent.Comp.BorgSubtype.Value);
-    }
-    private void OnSubtypeSelection(Entity<BorgSwitchableSubtypeComponent> ent, ref BorgSelectSubtypeMessage args)
-    {
-        SetSubtype(ent, args.Subtype);
+        UpdateVisuals(ent);
     }
 
     protected virtual void SetAppearanceFromSubtype(Entity<BorgSwitchableSubtypeComponent> ent, ProtoId<BorgSubtypePrototype> subtype)
     {
     }
 
-    public void SetSubtype(Entity<BorgSwitchableSubtypeComponent> ent, ProtoId<BorgSubtypePrototype> subtype)
+    protected void UpdateVisuals(Entity<BorgSwitchableSubtypeComponent> ent)
     {
-        ent.Comp.BorgSubtype = subtype;
-        var ev = new BorgSubtypeChangedEvent(subtype);
-        RaiseLocalEvent(ent, ref ev);
+        if (ent.Comp.BorgSubtype == null)
+            return;
+        SetAppearanceFromSubtype(ent, ent.Comp.BorgSubtype.Value);
     }
 }

@@ -6,13 +6,20 @@
 using Content.Shared.Silicons.Borgs;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Goobstation.Shared.Silicons.Borgs;
 
 [RegisterComponent, NetworkedComponent]
-[AutoGenerateComponentState]
+[AutoGenerateComponentState(raiseAfterAutoHandleState: true)]
 public sealed partial class BorgSwitchableSubtypeComponent : Component
 {
     [DataField, AutoNetworkedField]
     public ProtoId<BorgSubtypePrototype>? BorgSubtype;
+}
+
+[Serializable, NetSerializable]
+public sealed class BorgSelectSubtypeMessage(ProtoId<BorgSubtypePrototype> subtype) : BoundUserInterfaceMessage
+{
+    public ProtoId<BorgSubtypePrototype> Subtype = subtype;
 }
