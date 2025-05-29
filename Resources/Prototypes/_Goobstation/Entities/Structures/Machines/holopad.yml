@@ -18,3 +18,11 @@
   components:
   - type: Label
     currentLabel: holopad-command-bso
+
+- type: entity
+  parent: HolopadBluespace
+  id: HolopadCentComm
+  suffix: Centcomm
+  components:
+  - type: Label
+    currentLabel: holopad-centcomm
