@@ -1,27 +1,21 @@
-# SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: gameMap
-  id: MeteorArena
-  mapName: Meteor Arena
-  mapPath: /Maps/_Goobstation/meteor-arena.yml
+  id: Arena
+  mapName: 'Arena'
+  mapPath: /Maps/_Goobstation/arena.yml
   minPlayers: 30
-  maxPlayers: 65
+  maxPlayers: 60
   stations:
     Arena:
-      stationProto: StandardStationArena
+      stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: "Meteor Arena"
+          mapNameTemplate: '{0} Arena Station {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14' #Not sure what this refers to so I'll leave it unaltered for now
         - type: StationJobs
           availableJobs:
-           #service
+            #service
             StationAi: [ 1, 1 ]
             Captain: [ 1, 1 ]
             NanotrasenRepresentative: [ 1, 1 ]

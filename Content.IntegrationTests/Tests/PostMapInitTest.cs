@@ -184,7 +184,7 @@ namespace Content.IntegrationTests.Tests
             "/Maps/_Lavaland/Lavaland/ruin_toyshop.yml", // I think we might want to glob these, idk
             "/Maps/_Goobstation/loop.yml",
             "/Maps/_Goobstation/gate.yml",
-            "/Maps/_Goobstation/meteor-arena.yml",
+            "/Maps/_Goobstation/arena.yml",
             "/Maps/_Goobstation/Shuttles/consul.yml", // Contains HEINOUS amounts of centcomm contraband. Obviously.
             "/Maps/_Goobstation/Shuttles/retort_assault.yml", // ERT ships
             "/Maps/_Goobstation/Shuttles/retort_medical.yml",
@@ -229,7 +229,7 @@ namespace Content.IntegrationTests.Tests
             "Lavatest", // Lavaland Change
             "Loop",
             "Delta", // Goobstation - add Delta
-            "MeteorArena" // Goobstation - add Meteor Arena
+            "Arena" // Goobstation - add Arena
         };
 
         /// <summary>
