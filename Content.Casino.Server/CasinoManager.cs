@@ -83,10 +83,87 @@ public sealed class ServerCasinoManager : IServerCasinoManager, IPostInjectInit
 
     private readonly ConcurrentDictionary<string, ICasinoGame> _registeredGames = new();
     private readonly ConcurrentDictionary<string, GameSession> _activeSessions = new();
-    private readonly ConcurrentDictionary<string, SemaphoreSlim> _sessionLocks = new();
+    private readonly ConcurrentDictionary<string, SessionLockWrapper> _sessionLocks = new();
+
+    // Track sessions being cleaned up to prevent double disposal
+    private readonly ConcurrentDictionary<string, bool> _sessionsBeingCleaned = new();
 
     public IReadOnlyDictionary<string, ICasinoGame> RegisteredGames => _registeredGames;
     public IReadOnlyDictionary<string, GameSession> ActiveSessions => _activeSessions;
+
+    /// <summary>
+    /// Wrapper for semaphore that tracks disposal state to prevent ObjectDisposedException
+    /// </summary>
+    private sealed class SessionLockWrapper : IDisposable
+    {
+        private readonly SemaphoreSlim _semaphore;
+        private volatile bool _disposed = false;
+        private readonly object _disposeLock = new();
+
+        public SessionLockWrapper()
+        {
+            _semaphore = new SemaphoreSlim(1, 1);
+        }
+
+        public async Task<IDisposable?> TryWaitAsync(CancellationToken cancellationToken = default)
+        {
+            if (_disposed) return null;
+
+            try
+            {
+                await _semaphore.WaitAsync(cancellationToken);
+                if (_disposed)
+                {
+                    // If disposed after acquiring, release and return null
+                    _semaphore.Release();
+                    return null;
+                }
+                return new SemaphoreReleaser(_semaphore, this);
+            }
+            catch (ObjectDisposedException)
+            {
+                return null;
+            }
+        }
+
+        public void Dispose()
+        {
+            lock (_disposeLock)
+            {
+                if (_disposed) return;
+                _disposed = true;
+                _semaphore.Dispose();
+            }
+        }
+
+        private sealed class SemaphoreReleaser : IDisposable
+        {
+            private readonly SemaphoreSlim _semaphore;
+            private readonly SessionLockWrapper _wrapper;
+            private bool _released = false;
+
+            public SemaphoreReleaser(SemaphoreSlim semaphore, SessionLockWrapper wrapper)
+            {
+                _semaphore = semaphore;
+                _wrapper = wrapper;
+            }
+
+            public void Dispose()
+            {
+                if (_released || _wrapper._disposed) return;
+                _released = true;
+
+                try
+                {
+                    _semaphore.Release();
+                }
+                catch (ObjectDisposedException)
+                {
+                    // Ignore - semaphore was already disposed
+                }
+            }
+        }
+    }
 
     public void PostInject()
     {
@@ -223,7 +300,7 @@ public sealed class ServerCasinoManager : IServerCasinoManager, IPostInjectInit
         {
             var session = await game.StartGameAsync(player, initialBet, cancellationToken);
             _activeSessions[session.SessionId] = session;
-            _sessionLocks[session.SessionId] = new SemaphoreSlim(1, 1);
+            _sessionLocks[session.SessionId] = new SessionLockWrapper();
 
             return (true, session, string.Empty);
         }
@@ -246,12 +323,23 @@ public sealed class ServerCasinoManager : IServerCasinoManager, IPostInjectInit
         if (!_registeredGames.TryGetValue(session.GameId, out var game))
             return (false, default, "Game not found");
 
-        if (!_sessionLocks.TryGetValue(sessionId, out var sessionLock))
+        if (!_sessionLocks.TryGetValue(sessionId, out var sessionLockWrapper))
             return (false, default, "Session lock not found");
 
-        await sessionLock.WaitAsync(cancellationToken);
+        // Prevent actions on sessions being cleaned up
+        if (_sessionsBeingCleaned.ContainsKey(sessionId))
+            return (false, default, "Session is being terminated");
+
+        using var lockHandle = await sessionLockWrapper.TryWaitAsync(cancellationToken);
+        if (lockHandle == null)
+            return (false, default, "Session is being terminated");
+
         try
         {
+            // Double-check session still exists after acquiring lock
+            if (!_activeSessions.ContainsKey(sessionId))
+                return (false, default, "Session no longer exists");
+
             // Check if this action requires payment
             var actionCost = await game.GetActionCostAsync(sessionId, action, cancellationToken);
 
@@ -275,7 +363,8 @@ public sealed class ServerCasinoManager : IServerCasinoManager, IPostInjectInit
             // Clean up session if game is complete
             if (result.IsComplete)
             {
-                await CleanupSessionAsync(sessionId);
+                // Schedule cleanup without blocking current operation
+                _ = Task.Run(() => CleanupSessionAsync(sessionId));
             }
 
             return (true, result, string.Empty);
@@ -297,10 +386,6 @@ public sealed class ServerCasinoManager : IServerCasinoManager, IPostInjectInit
             }
 
             return (false, default, $"Action failed: {ex.Message}");
-        }
-        finally
-        {
-            sessionLock.Release();
         }
     }
 
@@ -335,14 +420,26 @@ public sealed class ServerCasinoManager : IServerCasinoManager, IPostInjectInit
 
     private async Task CleanupSessionAsync(string sessionId)
     {
-        _activeSessions.TryRemove(sessionId, out _);
+        // Mark session as being cleaned up to prevent new operations
+        _sessionsBeingCleaned[sessionId] = true;
 
-        if (_sessionLocks.TryRemove(sessionId, out var semaphore))
+        // Small delay to allow any in-progress operations to complete
+        await Task.Delay(100);
+
+        try
         {
-            semaphore.Dispose();
-        }
+            _activeSessions.TryRemove(sessionId, out _);
 
-        await Task.CompletedTask;
+            if (_sessionLocks.TryRemove(sessionId, out var lockWrapper))
+            {
+                lockWrapper.Dispose();
+            }
+        }
+        finally
+        {
+            // Remove from cleanup tracking
+            _sessionsBeingCleaned.TryRemove(sessionId, out _);
+        }
     }
 
     public T GetGame<T>() where T : class, ICasinoGame

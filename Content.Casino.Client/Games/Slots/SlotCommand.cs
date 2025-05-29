@@ -24,7 +24,7 @@ public sealed class SlotCommand : IConsoleCommand
 
     public CompletionResult GetCompletion(IConsoleShell shell, string[] args)
     {
-        if (args.Length == 0)
+        if (args.Length == 1)
         {
             // No arguments yet, suggest all subcommands and common bet amounts
             var hasActiveSession = HasActiveSlotSession();
@@ -53,12 +53,12 @@ public sealed class SlotCommand : IConsoleCommand
             return CompletionResult.FromOptions(suggestions);
         }
 
-        var firstArg = args[0].ToLowerInvariant();
+        var firstArg = args[1].ToLowerInvariant();
 
         switch (firstArg)
         {
             case "bet":
-                if (args.Length == 1)
+                if (args.Length == 2)
                 {
                     // Suggest common bet amounts for bet change
                     return CompletionResult.FromOptions(new[]
