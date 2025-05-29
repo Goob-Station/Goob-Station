@@ -71,7 +71,7 @@ namespace Content.Server._durkcode.ServerCurrency
         public int AddCurrency(NetUserId userId, int amount)
         {
             var newBalance = ModifyBalance(userId, amount);
-            _sawmill.Info($"Added {amount} currency to {userId} account. Current balance: {newBalance}");
+            _sawmill.Debug($"Added {amount} currency to {userId} account. Current balance: {newBalance}");
             return newBalance;
         }
 
@@ -84,7 +84,7 @@ namespace Content.Server._durkcode.ServerCurrency
         public int RemoveCurrency(NetUserId userId, int amount)
         {
             var newBalance = ModifyBalance(userId, -amount);
-            _sawmill.Info($"Removed {amount} currency from {userId} account. Current balance: {newBalance}");
+            _sawmill.Debug($"Removed {amount} currency from {userId} account. Current balance: {newBalance}");
             return newBalance;
         }
 
