@@ -13,7 +13,6 @@ using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Nyanotrasen.Item.PseudoItem;
 using Content.Shared.Storage;
 using Robust.Server.Audio;
-using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
 
@@ -58,12 +57,12 @@ public sealed class SlimeMobActionsSystem : EntitySystem
             dotComp.NextTickTime = _timing.CurTime + dotComp.Interval;
             _damageable.TryChangeDamage(uid, dotComp.Damage, ignoreResistances: true, ignoreBlockers: true,  targetPart: TargetBodyPart.All);
 
-            if (TryComp<HungerComponent>(dotComp.SourceEntityUid, out var hunger) &&
-                dotComp.SourceEntityUid is { } sourceEntity)
-            {
-                _hunger.ModifyHunger(sourceEntity, addedHunger, hunger);
-                Dirty(sourceEntity, hunger);
-            }
+            if (!TryComp<HungerComponent>(dotComp.SourceEntityUid, out var hunger) ||
+                dotComp.SourceEntityUid is not { } sourceEntity)
+                continue;
+
+            _hunger.ModifyHunger(sourceEntity, addedHunger, hunger);
+            Dirty(sourceEntity, hunger);
         }
     }
 
@@ -95,7 +94,7 @@ public sealed class SlimeMobActionsSystem : EntitySystem
 
         var removedEnts = _container.EmptyContainer(storage.Container, true);
         foreach (var ent in removedEnts)
-            _stun.TryParalyze(ent, TimeSpan.FromSeconds(5), true); // yes this is hardcoded, bite me.
+            _stun.TryParalyze(ent, TimeSpan.FromSeconds(5), true); // yes this is hardcoded, bite me. fix it - gus
     }
 
     private void OnEntityEscape(Entity<SlimeComponent> ent, ref EntRemovedFromContainerMessage args)
@@ -116,15 +115,11 @@ public sealed class SlimeMobActionsSystem : EntitySystem
     #region Helpers
     public bool NpcTryLatch(EntityUid uid, EntityUid target, SlimeComponent? component)
     {
-        if (!Resolve(uid, ref component))
-            return false;
-        if (component.LatchedTarget.HasValue)
-            return false;
-        if (!HasComp<HumanoidAppearanceComponent>(target))
-            return false;
-        if (_mobState.IsDead(target))
-            return false;
-        if (!_actionBlocker.CanInteract(uid, target))
+        if (!Resolve(uid, ref component)
+            || component.LatchedTarget.HasValue
+            || !HasComp<HumanoidAppearanceComponent>(target)
+            || _mobState.IsDead(target)
+            || _actionBlocker.CanInteract(uid, target))
             return false;
 
 

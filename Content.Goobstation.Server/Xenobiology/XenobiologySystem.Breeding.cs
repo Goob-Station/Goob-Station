@@ -1,52 +1,30 @@
 using System.Linq;
 using Content.Goobstation.Shared.Xenobiology;
 using Content.Goobstation.Shared.Xenobiology.Components;
-using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
-using Content.Shared.Nutrition.EntitySystems;
-using Robust.Server.GameObjects;
-using Robust.Shared.Audio;
-using Robust.Shared.Audio.Systems;
-using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Xenobiology;
 
 /// <summary>
 /// This handles slime breeding and mutation.
 /// </summary>
-public sealed class BreedingSystem : EntitySystem
+public partial class XenobiologySystem
 {
-
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly HungerSystem _hunger = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-
     private readonly EntProtoId _defaultSlime = "MobXenoSlime";
 
     private readonly TimeSpan _updateInterval = TimeSpan.FromSeconds(1);
     private TimeSpan _nextUpdateTime;
 
-    public override void Initialize()
+    private void InitializeBreeding()
     {
-        base.Initialize();
-
         _nextUpdateTime = _gameTiming.CurTime + _updateInterval;
     }
 
     // Mitosis doesn't need to be checked every frame.
-    public override void Update(float frameTime)
+    private void UpdateBreeding()
     {
-        base.Update(frameTime);
-
         if (_nextUpdateTime > _gameTiming.CurTime)
             return;
 
@@ -128,5 +106,4 @@ public sealed class BreedingSystem : EntitySystem
     }
 
     #endregion
-
 }

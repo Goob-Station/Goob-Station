@@ -51,38 +51,25 @@ public sealed partial class PickSlimeLatchTargetOperator : HTNOperator
         CancellationToken cancelToken)
     {
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
+        var huAppQuery = _entManager.GetEntityQuery<HumanoidAppearanceComponent>();
+        var xformQuery = _entManager.GetEntityQuery<TransformComponent>();
+        var targets = new List<EntityUid>();
 
         if (!blackboard.TryGetValue<float>(RangeKey, out var range, _entManager)
             || !_entManager.TryGetComponent<SlimeComponent>(owner, out var slimeComp)
-            || !_entManager.TryGetComponent<MobGrowthComponent>(owner, out var growthComp))
-            return (false, null);
-
-        // Baby slimes only target when BELOW Peckish
-        if (growthComp.CurrentStage == growthComp.Stages[0]
+            || !_entManager.TryGetComponent<MobGrowthComponent>(owner, out var growthComp) // Baby slimes only target when BELOW Peckish
+            || growthComp.CurrentStage == growthComp.Stages[0]
             && _hunger.IsHungerAboveState(owner, HungerThreshold.Peckish))
             return (false, null);
 
-        var huAppQuery = _entManager.GetEntityQuery<HumanoidAppearanceComponent>();
-        var xformQuery = _entManager.GetEntityQuery<TransformComponent>();
-
-        var targets = new List<EntityUid>();
-
         foreach (var entity in _factions.GetNearbyHostiles(owner, range))
         {
-            if (!huAppQuery.TryGetComponent(entity, out var humanoidAppearance)
-                || _mobSystem.IsDead(entity))
-                continue;
-
-            if (slimeComp.LatchedTarget.HasValue)
-                continue;
-
-            // Baby slimes never target tamer, and only target others when BELOW Peckish
-            if (growthComp.CurrentStage == growthComp.Stages[0]
-                && entity == slimeComp.Tamer)
-                continue;
-
-            // Adult slimes only target tamer when BELOW Peckish
-            if (entity == slimeComp.Tamer
+            if (!huAppQuery.TryGetComponent(entity, out _)
+                || _mobSystem.IsDead(entity)
+                || slimeComp.LatchedTarget.HasValue
+                || growthComp.CurrentStage == growthComp.Stages[0]
+                && entity == slimeComp.Tamer
+                || entity == slimeComp.Tamer
                 && _hunger.IsHungerAboveState(owner, HungerThreshold.Peckish))
                 continue;
 
@@ -96,16 +83,15 @@ public sealed partial class PickSlimeLatchTargetOperator : HTNOperator
 
             var targetCoords = xform.Coordinates;
             var path = await _pathfinding.GetPath(owner, target, range, cancelToken);
+
             if (path.Result != PathResult.Path)
-            {
                 continue;
-            }
 
             return (true, new Dictionary<string, object>()
             {
                 { TargetKey, targetCoords },
                 { LatchKey, target },
-                { PathfindKey, path}
+                { PathfindKey, path },
             });
         }
 

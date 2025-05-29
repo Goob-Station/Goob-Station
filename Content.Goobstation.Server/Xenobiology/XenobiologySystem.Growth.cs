@@ -1,42 +1,31 @@
 using System.Linq;
 using Content.Goobstation.Shared.Xenobiology;
 using Content.Goobstation.Shared.Xenobiology.Components;
-using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
-using Content.Shared.Nutrition.EntitySystems;
-using Robust.Server.GameObjects;
-using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Xenobiology;
 
 /// <summary>
 /// This handles mob growth between development stages.
 /// </summary>
-public sealed class MobGrowthSystem : EntitySystem
+public partial class XenobiologySystem
 {
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly HungerSystem _hunger = default!;
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
+    private readonly TimeSpan _growthInterval = TimeSpan.FromSeconds(1);
+    private TimeSpan _nextGrowthTime; // fix this shit dawg
 
-    private readonly TimeSpan _updateInterval = TimeSpan.FromSeconds(1);
-    private TimeSpan _nextUpdateTime;
-
-    public override void Initialize()
+    private void InitializeGrowth()
     {
         base.Initialize();
-        _nextUpdateTime = _gameTiming.CurTime + _updateInterval;
+        _nextGrowthTime = _gameTiming.CurTime + _growthInterval;
     }
 
     //Mob growth doesn't need to be checked for every frame.
-    public override void Update(float frameTime)
+    private void UpdateGrowth()
     {
-        base.Update(frameTime);
-
-        if (_nextUpdateTime > _gameTiming.CurTime)
+        if (_nextGrowthTime > _gameTiming.CurTime)
             return;
 
-        _nextUpdateTime = _gameTiming.CurTime + _updateInterval;
+        _nextGrowthTime = _gameTiming.CurTime + _growthInterval;
         UpdateMobGrowth();
     }
 
@@ -86,5 +75,6 @@ public sealed class MobGrowthSystem : EntitySystem
 
         Dirty(ent);
     }
+
     #endregion
 }
