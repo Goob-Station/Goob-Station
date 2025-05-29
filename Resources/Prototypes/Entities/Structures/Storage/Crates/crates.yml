@@ -363,8 +363,9 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
-      - !type:ExplodeBehavior
-
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StrongCrates
 
 - type: entity
   parent: [ CrateBaseSecure, BaseSecurityContraband ]
