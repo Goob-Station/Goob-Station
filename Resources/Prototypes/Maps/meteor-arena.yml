@@ -10,8 +10,8 @@
 - type: gameMap
   id: MeteorArena
   mapName: Meteor Arena
-  mapPath: /Maps/Nonstation/meteor-arena.yml
-  minPlayers: 1
+  mapPath: /Maps/Nonstations/meteor-arena.yml
+  minPlayers: 0
   stations:
     Arena:
       stationProto: StandardStationArena
