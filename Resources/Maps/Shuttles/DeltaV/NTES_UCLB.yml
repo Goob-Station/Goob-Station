@@ -6980,13 +6980,6 @@ entities:
       parent: 1
     - type: AtmosDevice
       joinedGrid: 1
-- proto: OilJarGhee
-  entities:
-  - uid: 1340
-    components:
-    - type: Transform
-      pos: -3.4777303,-16.694881
-      parent: 1
 - proto: OxygenCanister
   entities:
   - uid: 806
