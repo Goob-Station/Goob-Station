@@ -4,6 +4,12 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
+  id: ClothingShoesWinterCombatBootsFilled
+  parent:
+  - ClothingShoesWinterCombatBoots
+  - ClothingShoesBootsSecFilled
+
+- type: entity
   id: ClothingShoesBootsWinterSnowjackBsoFilled
   parent:
   - ClothingShoesBootsWinterSnowjackBso
