@@ -67,6 +67,15 @@ public sealed class LatheQueueRecipeMessage : BoundUserInterfaceMessage
     }
 }
 
+/// <summary>
+///     Sent to the server when a client resets the queue
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class LatheQueueResetMessage : BoundUserInterfaceMessage
+{
+
+}
+
 [NetSerializable, Serializable]
 public enum LatheUiKey
 {

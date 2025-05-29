@@ -67,6 +67,10 @@ namespace Content.Client.Lathe.UI
             {
                 SendMessage(new ConsoleServerSelectionMessage());
             };
+            _menu.OnResetQueueListButtonPressed += _ =>
+            {
+                SendMessage(new LatheQueueResetMessage());
+            };
 
             _menu.RecipeQueueAction += (recipe, amount) =>
             {

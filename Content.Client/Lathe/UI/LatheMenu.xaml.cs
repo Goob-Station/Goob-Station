@@ -100,6 +100,7 @@ public sealed partial class LatheMenu : DefaultWindow
     private readonly SiloSystem _silo; // Goobstation
     public event Action<BaseButton.ButtonEventArgs>? OnServerListButtonPressed;
     public event Action<string, int>? RecipeQueueAction;
+    public event Action<BaseButton.ButtonEventArgs>? OnResetQueueListButtonPressed;
     public event Action? OnClaimMiningPoints; // DeltaV
 
     public List<ProtoId<LatheRecipePrototype>> Recipes = new();
@@ -135,6 +136,8 @@ public sealed partial class LatheMenu : DefaultWindow
         FilterOption.OnItemSelected += OnItemSelected;
 
         ServerListButton.OnPressed += a => OnServerListButtonPressed?.Invoke(a);
+        ResetQueueList.OnPressed += a => OnResetQueueListButtonPressed?.Invoke(a);
+
     }
 
     public void SetEntity(EntityUid uid)

@@ -42,3 +42,4 @@ lathe-menu-no-materials-message = No materials loaded.
 lathe-menu-fabricating-message = Fabricating...
 lathe-menu-materials-title = Materials
 lathe-menu-queue-title = Build Queue
+lathe-menu-queue-reset-title = Reset Queue

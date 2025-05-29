@@ -68,6 +68,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Collections;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Administration.Logs;
@@ -142,6 +143,7 @@ namespace Content.Server.Lathe
 
             SubscribeLocalEvent<LatheComponent, LatheQueueRecipeMessage>(OnLatheQueueRecipeMessage);
             SubscribeLocalEvent<LatheComponent, LatheSyncRequestMessage>(OnLatheSyncRequestMessage);
+            SubscribeLocalEvent<LatheComponent, LatheQueueResetMessage>(OnLatheQueueResetMessage);
 
             SubscribeLocalEvent<LatheComponent, BeforeActivatableUIOpenEvent>((u, c, _) => UpdateUserInterfaceState(u, c));
             SubscribeLocalEvent<LatheComponent, MaterialAmountChangedEvent>(OnMaterialAmountChanged);
@@ -336,6 +338,7 @@ namespace Content.Server.Lathe
             }
         }
 
+
         public void UpdateUserInterfaceState(EntityUid uid, LatheComponent? component = null)
         {
             if (!Resolve(uid, ref component))
@@ -492,6 +495,21 @@ namespace Content.Server.Lathe
         {
             UpdateUserInterfaceState(uid, component);
         }
+
+        private void OnLatheQueueResetMessage(EntityUid uid, LatheComponent component, LatheQueueResetMessage args)
+        {
+            if (component.Queue.Count > 0)
+            {
+                var allMaterials = component.Queue.SelectMany(q => q.Materials);
+                foreach (var (mat, amount) in allMaterials)
+                {
+                    _materialStorage.TryChangeMaterialAmount(uid, mat, amount);
+                }
+                component.Queue.Clear();
+            }
+            UpdateUserInterfaceState(uid, component);
+        }
+
         #endregion
     }
 }
