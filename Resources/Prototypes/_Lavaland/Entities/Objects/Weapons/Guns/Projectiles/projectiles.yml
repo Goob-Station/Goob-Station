@@ -31,7 +31,7 @@
     impactEffect: BulletImpactEffectKinetic
     damage:
       types:
-        Blunt: 24
+        Blunt: 12
 
 - type: entity
   id: WeakBulletKinetic
@@ -51,6 +51,11 @@
   components:
   - type: GatheringProjectile
     probability: 0.5
+  - type: Projectile
+    impactEffect: BulletImpactEffectKinetic
+    damage:
+      types:
+        Blunt: 8
 
 - type: entity
   id: PelletKineticSpread
@@ -59,5 +64,5 @@
   components:
   - type: ProjectileSpread
     proto: PelletKinetic
-    count: 6
-    spread: 30
+    count: 4
+    spread: 20

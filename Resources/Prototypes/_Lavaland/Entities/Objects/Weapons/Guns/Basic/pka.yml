@@ -50,11 +50,13 @@
     capacity: 1
     count: 1
   - type: UpgradeableGun
-    maxUpgradeCapacity: 70
+    maxUpgradeCapacity: 100
     whitelist:
       tags:
       - PKAUpgrade
   - type: GunRequiresWield
+  - type: Gun
+    fireRate: 0.4 #goobstation
   - type: Item
     shape:
     - 0,0,4,0
@@ -97,7 +99,7 @@
     capacity: 3
     count: 3
   - type: UpgradeableGun
-    maxUpgradeCapacity: 70
+    maxUpgradeCapacity: 100
     whitelist:
       tags:
       - PKAUpgrade
@@ -133,7 +135,7 @@
     capacity: 1
     count: 1
   - type: UpgradeableGun
-    maxUpgradeCapacity: 200
+    maxUpgradeCapacity: 70
     whitelist:
       tags:
       - PKAUpgrade

@@ -53,13 +53,15 @@
     - state: overlay-3
       color: "#eb4c13"
   - type: GunUpgrade
-    capacityCost: 40
+    capacityCost: 35
     tags: [ GunUpgradeDamage ]
     examineText: gun-upgrade-examine-text-damage
   - type: GunUpgradeDamage
     damage:
       types:
-        Blunt: 10
+        Blunt: 5
+  - type: GunUpgradeFireRate
+    coefficient: 0.9
 
 - type: entity
   id: PKAUpgradeRange
