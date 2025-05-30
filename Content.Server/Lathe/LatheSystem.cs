@@ -456,6 +456,20 @@ namespace Content.Server.Lathe
             // Goobstation - Lathe message on recipes update - End
         }
 
+        private void OnLatheQueueResetMessage(EntityUid uid, LatheComponent component, LatheQueueResetMessage args)
+        {
+            if (component.Queue.Count > 0)
+            {
+                var allMaterials = component.Queue.SelectMany(q => q.Materials);
+                foreach (var (mat, amount) in allMaterials)
+                {
+                    _materialStorage.TryChangeMaterialAmount(uid, mat, amount);
+                }
+                component.Queue.Clear();
+            }
+            UpdateUserInterfaceState(uid, component);
+        }
+
         private void OnResearchRegistrationChanged(EntityUid uid, LatheComponent component, ref ResearchRegistrationChangedEvent args)
         {
             UpdateUserInterfaceState(uid, component);
@@ -495,21 +509,6 @@ namespace Content.Server.Lathe
         {
             UpdateUserInterfaceState(uid, component);
         }
-
-        private void OnLatheQueueResetMessage(EntityUid uid, LatheComponent component, LatheQueueResetMessage args)
-        {
-            if (component.Queue.Count > 0)
-            {
-                var allMaterials = component.Queue.SelectMany(q => q.Materials);
-                foreach (var (mat, amount) in allMaterials)
-                {
-                    _materialStorage.TryChangeMaterialAmount(uid, mat, amount);
-                }
-                component.Queue.Clear();
-            }
-            UpdateUserInterfaceState(uid, component);
-        }
-
         #endregion
     }
 }
