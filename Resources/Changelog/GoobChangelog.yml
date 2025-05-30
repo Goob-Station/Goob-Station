@@ -10260,3 +10260,17 @@ Entries:
       message: Added armored winter coat for security.
   id: 1138
   time: '2025-05-29T17:49:08.0000000+00:00'
+- author: Mocho, XcenLegend
+  changes:
+    - type: Add
+      message: Added a new UI theme based around cosmic cult.
+  id: 1139
+  time: '2025-05-30T05:07:39.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Fix
+      message: AI air on box
+    - type: Fix
+      message: AI power on box
+  id: 1140
+  time: '2025-05-30T05:08:24.0000000+00:00'
