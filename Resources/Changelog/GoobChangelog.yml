@@ -10284,3 +10284,9 @@ Entries:
         order.
   id: 1141
   time: '2025-05-30T15:43:35.0000000+00:00'
+- author: GNUtopia
+  changes:
+    - type: Tweak
+      message: Moths and harpies are faster in 0G
+  id: 1142
+  time: '2025-05-30T20:24:20.0000000+00:00'
