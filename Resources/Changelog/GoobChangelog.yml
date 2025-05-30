@@ -10302,3 +10302,19 @@ Entries:
       message: Durk hath been slain.
   id: 1144
   time: '2025-05-30T21:43:00.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Zombies are faster than you
+    - type: Tweak
+      message: Zombies heal on hit
+    - type: Tweak
+      message: Zombies get back up if not quickly killed once downed
+    - type: Tweak
+      message: Zombie infection is lethal
+    - type: Tweak
+      message: Initial infected have 60-120 seconds to go feral before turning
+    - type: Tweak
+      message: Less initial infected
+  id: 1145
+  time: '2025-05-30T23:38:26.0000000+00:00'
