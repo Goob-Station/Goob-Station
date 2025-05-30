@@ -8,6 +8,8 @@ using Content.Casino.Shared.Data;
 using Content.Casino.Shared.Games;
 using Content.Casino.Shared.Network;
 using Content.Server._durkcode.ServerCurrency;
+using Content.Server.Chat.Managers;
+using Content.Shared.Chat;
 using Robust.Shared.Configuration;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -80,6 +82,7 @@ public sealed class ServerCasinoManager : IServerCasinoManager, IPostInjectInit
     [Dependency] private readonly IReflectionManager _reflectionManager = default!;
     [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
     [Dependency] private readonly IConfigurationManager _configuration = default!;
+    [Dependency] private readonly IChatManager _chat = default!;
 
     private readonly ConcurrentDictionary<string, ICasinoGame> _registeredGames = new();
     private readonly ConcurrentDictionary<string, GameSession> _activeSessions = new();
@@ -170,10 +173,22 @@ public sealed class ServerCasinoManager : IServerCasinoManager, IPostInjectInit
         }
     }
 
+    private bool _enabled = true;
+    private bool _announceBigWin = true;
+    private int _bigWinAmount = 5000;
+
     public void PostInject()
     {
+        RegisterCVars();
         RegisterNetworkMessages();
         RegisterGames();
+    }
+
+    private void RegisterCVars()
+    {
+        _configuration.OnValueChanged(CasinoCVars.CasinoEnabled, value => _enabled = value, true);
+        _configuration.OnValueChanged(CasinoCVars.AnnounceBigWins, value => _announceBigWin = value, true);
+        _configuration.OnValueChanged(CasinoCVars.BigWinThreshold, value => _bigWinAmount = value, true);
     }
 
     private void RegisterNetworkMessages()
@@ -397,6 +412,7 @@ public sealed class ServerCasinoManager : IServerCasinoManager, IPostInjectInit
             return ExecuteActionResult.Failed($"Action failed: {ex.Message}");
         }
     }
+
     public async Task<EndGameResult> EndGameAsync(
         string sessionId,
         CancellationToken cancellationToken = default)
@@ -481,9 +497,14 @@ public sealed class ServerCasinoManager : IServerCasinoManager, IPostInjectInit
 
     public void ProcessPayout(ICommonSession player, int payout)
     {
-        if (payout > 0)
+        if (payout <= 0)
+            return;
+
+        _currencyManager.AddCurrency(player.UserId, payout);
+
+        if (_announceBigWin && payout >= _bigWinAmount)
         {
-            _currencyManager.AddCurrency(player.UserId, payout);
+            _chat.DispatchServerAnnouncement($"{player.Name} has just won {payout} goobcoin!", Color.BetterViolet );
         }
     }
 }

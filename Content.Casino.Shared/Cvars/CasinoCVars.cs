@@ -12,13 +12,25 @@ public sealed partial class CasinoCVars
     public static readonly CVarDef<bool> CasinoEnabled =
         CVarDef.Create("casino.enabled", true, CVar.SERVER | CVar.REPLICATED);
 
+    /// <summary>
+    /// Announce to everyone that someone won big
+    /// </summary>
+    public static readonly CVarDef<bool> AnnounceBigWins =
+        CVarDef.Create("casino.BigWinAnnounce", true, CVar.SERVER);
+
+    /// <summary>
+    /// Consider a win that gives this amount or more a "big win"
+    /// </summary>
+    public static readonly CVarDef<int> BigWinThreshold =
+        CVarDef.Create("casino.BigWinThreshold", 5000, CVar.SERVER);
+
     #region Blackjack
 
     /// <summary>
     /// How many decks are used for a blackjack game
     /// </summary>
     public static readonly CVarDef<int> BlackjackDeckCount =
-        CVarDef.Create("blackjack.deckcount", 6, CVar.SERVERONLY);
+        CVarDef.Create("blackjack.DeckCount", 6, CVar.SERVERONLY);
 
     /// <summary>
     /// Player wins if hand has five cards without going bust

@@ -174,18 +174,6 @@ public sealed class BlackjackCommand : IConsoleCommand
 
     private void ExecuteStartGame(IConsoleShell shell, int bet)
     {
-        if (bet < 5)
-        {
-            shell.WriteError("Minimum bet is 5 coins.");
-            return;
-        }
-
-        if (bet > 500)
-        {
-            shell.WriteError("Maximum bet is 500 coins.");
-            return;
-        }
-
         // Check if there's already an active session
         var existingSession = _casinoManager.ActiveSessions.Values
             .FirstOrDefault(s => s.GameId == "blackjack");
