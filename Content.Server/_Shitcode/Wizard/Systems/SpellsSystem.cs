@@ -3,6 +3,8 @@
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -587,7 +589,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
         {
             // Heal both caster and speaker
             Damageable.TryChangeDamage(casterUid,
-                -invocationEv.ToHeal * 11f,
+                -invocationEv.ToHeal,
                 true,
                 false,
                 targetPart: TargetBodyPart.All);
@@ -595,10 +597,11 @@ public sealed class SpellsSystem : SharedSpellsSystem
             if (speakerUid != casterUid)
             {
                 Damageable.TryChangeDamage(speakerUid,
-                    -invocationEv.ToHeal * 11f,
+                    -invocationEv.ToHeal,
                     true,
                     false,
-                    targetPart: TargetBodyPart.All);
+                    targetPart: TargetBodyPart.All,
+                    splitDamage: false);
             }
         }
 
