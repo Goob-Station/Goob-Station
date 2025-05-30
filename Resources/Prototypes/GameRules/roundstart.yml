@@ -458,7 +458,6 @@
       blacklist:
         components:
         - ZombieImmune
-        - AntagImmune
       briefing:
         text: zombie-patientzero-role-greeting
         color: Plum
