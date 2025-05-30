@@ -22,10 +22,10 @@
     heavyStaminaCost: 15
     wideAnimationRotation: 135
     swingLeft: true
-    attackRate: 0.75
+    attackRate: 2
     damage:
       types:
-        Blunt: 10
+        Blunt: 5
         Slash: 5
         Structural: 10
     soundHit:
@@ -34,7 +34,6 @@
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 10
         Structural: 40
   - type: Item
     size: Huge
@@ -63,13 +62,13 @@
   - type: SolutionContainerManager
     solutions:
       melee:
-        maxVol: 30
+        maxVol: 300
   - type: SolutionRegeneration
     solution: melee
     generated:
       reagents:
-      - ReagentId: Amatoxin
-        Quantity: 5
+      - ReagentId: Honk
+        Quantity: 15
   - type: MeleeChemicalInjector
-    transferAmount: 5
+    transferAmount: 15
     solution: melee
