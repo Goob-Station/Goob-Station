@@ -80,7 +80,7 @@ public sealed partial class AristocratSystem : EntitySystem
 
         var tilerefs = new List<TileRef>();
 
-        var tileSelects = range * 5; // multiplier is just to beef up how many tiles are selected (change as seen fit)
+        var tileSelects = range * range / 2; // roughly an 1/8th of the area's tiles should get selected per cycle
         for (int i = 0; i < tileSelects; i++)
         {
             var xOffset = _rand.Next(-range, range);
