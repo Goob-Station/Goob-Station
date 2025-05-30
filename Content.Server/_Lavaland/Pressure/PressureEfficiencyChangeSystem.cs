@@ -24,13 +24,12 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Shared._Lavaland.Weapons.Ranged.Events;
 using Content.Shared.Examine;
 using Content.Shared.Weapons.Melee.Events;
-using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Projectiles;
 
 namespace Content.Server._Lavaland.Pressure;
 
-public sealed partial class PressureEfficiencyChangeSystem : EntitySystem
+public sealed class PressureEfficiencyChangeSystem : EntitySystem
 {
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
 
@@ -46,7 +45,7 @@ public sealed partial class PressureEfficiencyChangeSystem : EntitySystem
 
     public void OnExamined(Entity<PressureDamageChangeComponent> ent, ref ExaminedEvent args)
     {
-        var min = ent.Comp.LowerBound;
+        var min = Math.Round(ent.Comp.LowerBound, MidpointRounding.ToZero);
         var max = Math.Round(ent.Comp.UpperBound, MidpointRounding.ToZero);
         var modifier = Math.Round(ent.Comp.AppliedModifier, 2);
 
@@ -64,10 +63,7 @@ public sealed partial class PressureEfficiencyChangeSystem : EntitySystem
 
     private void OnGetDamage(Entity<PressureDamageChangeComponent> ent, ref GetMeleeDamageEvent args)
     {
-        if (!ApplyModifier(ent))
-            return;
-
-        if (!ent.Comp.ApplyToMelee)
+        if (!ApplyModifier(ent) || !ent.Comp.ApplyToMelee || !ent.Comp.Enabled)
             return;
 
         args.Damage *= ent.Comp.AppliedModifier;
@@ -75,16 +71,12 @@ public sealed partial class PressureEfficiencyChangeSystem : EntitySystem
 
     private void OnGunShot(Entity<PressureDamageChangeComponent> ent, ref GunShotEvent args)
     {
-        if (!ApplyModifier(ent))
+        if (!ApplyModifier(ent) || !ent.Comp.ApplyToProjectiles || !ent.Comp.Enabled)
             return;
 
-        if (!ent.Comp.ApplyToProjectiles)
-            return;
-
-        foreach (var (uid, shootable) in args.Ammo)
+        foreach (var (uid, _) in args.Ammo)
         {
-            if (shootable is not IShootable shot
-                || !TryComp<ProjectileComponent>(uid, out var projectile))
+            if (!TryComp<ProjectileComponent>(uid, out var projectile))
                 continue;
 
             projectile.Damage *= ent.Comp.AppliedModifier;

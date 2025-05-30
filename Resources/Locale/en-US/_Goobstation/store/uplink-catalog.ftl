@@ -76,6 +76,10 @@ uplink-beenades-desc = A non-explosive grenade full of... bees?! NOT THE BEES!!!
 
 uplink-dart-gun-name = Dart Gun
 uplink-dart-gun-desc = This gun applies inside chemicals to its regenerating dart supply, allowing to distantly heal allies or to commit war crimes by poisoning foes.
+
+uplink-pressure-modkit-name = Pressure Modkit
+uplink-pressure-modkit-desc = This illegal modkit takes 30 capacity of your proto-kinetic accelerator and overclocks it to deal full damage even in unsuitable pressure.
+
 # Weapons
 
 uplink-contractor-baton-name = Contractor Baton

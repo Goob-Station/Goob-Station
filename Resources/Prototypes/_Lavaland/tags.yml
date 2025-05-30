@@ -30,6 +30,9 @@
   id: GunUpgradeDamage
 
 - type: Tag
+  id: GunUpgradePressure
+
+- type: Tag
   id: GunUpgradeReloadSpeed
 
 - type: Tag
