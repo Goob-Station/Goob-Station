@@ -50,7 +50,7 @@ public sealed class CatEmoteSpamCountermeasureSystem : EntitySystem
 
     private int GetCount(EntityUid entity)
     {
-        return _meowTracker.TryGetValue(entity, out var count) ? Math.max(count-2, 0) : 0;
+        return _meowTracker.TryGetValue(entity, out var count) ? Math.Max(count-2, 0) : 0;
     }
 
     public override void Update(float frameTime)
