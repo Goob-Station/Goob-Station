@@ -1,0 +1,129 @@
+# Non-machine boards, non-computer boards
+# Base categories
+
+- type: latheRecipe
+  abstract: true
+  id: BaseCircuitryRecipeCategory
+  categories:
+  - Circuitry
+
+- type: latheRecipe
+  abstract: true
+  id: BaseMechRecipeCategory
+  categories:
+  - Mech
+
+## Recipes
+
+# Misc
+- type: latheRecipe
+  parent: [ BaseCheapElectronicsRecipe, BaseCircuitryRecipeCategory ]
+  id: FreezerElectronics
+  icon: { sprite: Structures/Storage/closet.rsi, state: freezer_icon } # Goobstation
+  result: FreezerElectronics
+
+- type: latheRecipe
+  parent: [ BaseElectronicsRecipe, BaseCircuitryRecipeCategory ]
+  id: MailingUnitElectronics
+  icon: { sprite: Structures/Piping/disposal.rsi, state: mailing } # Goobstation
+  result: MailingUnitElectronics
+
+# Airtight
+- type: latheRecipe
+  parent: [ BaseCheapElectronicsRecipe, BaseCircuitryRecipeCategory ]
+  id: FirelockElectronics
+  icon: { sprite: Structures/Doors/Airlocks/Standard/firelock.rsi, state: closed } # Goobstation
+  result: FirelockElectronics
+
+- type: latheRecipe
+  parent: [ BaseCheapElectronicsRecipe, BaseCircuitryRecipeCategory ]
+  id: DoorElectronics
+  icon: { sprite: Structures/Doors/Airlocks/Glass/basic.rsi, state: closed } # Goobstation
+  result: DoorElectronics
+
+# Power
+- type: latheRecipe
+  parent: [ BaseCheapCircuitboardRecipe, BaseCircuitryRecipeCategory ]
+  id: APCElectronics
+  icon: { sprite: Structures/Power/apc.rsi, state: static } # Goobstation
+  result: APCElectronics
+
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseCircuitryRecipeCategory ]
+  id: SolarTrackerElectronics
+  icon: { sprite:  Structures/Power/Generation/solar_panel.rsi, state: solar_tracker } # Goobstation
+  result: SolarTrackerElectronics
+
+# Wallmount power
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseCircuitryRecipeCategory ]
+  id: WallmountSubstationElectronics
+  icon: { sprite:  Structures/Power/substation.rsi, state: substation } # Goobstation
+  result: WallmountSubstationElectronics
+
+# Wallmount
+- type: latheRecipe
+  parent: [ BaseCheapElectronicsRecipe, BaseCircuitryRecipeCategory ]
+  id: StationMapElectronics
+  icon: { sprite: Structures/Machines/station_map.rsi, state: station_map0 } # Goobstation
+  result: StationMapCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseCheapElectronicsRecipe, BaseCircuitryRecipeCategory ]
+  id: SignalTimerElectronics
+  icon: { sprite: Structures/Wallmounts/signalscreen.rsi, state: signalscreen } # Goobstation
+  result: SignalTimerElectronics
+
+- type: latheRecipe
+  parent: [ BaseElectronicsRecipe, BaseCircuitryRecipeCategory ]
+  id: AirAlarmElectronics
+  icon: { sprite: Structures/Wallmounts/air_monitors.rsi, state: alarm0 } # Goobstation
+  result: AirAlarmElectronics
+
+- type: latheRecipe
+  parent: [ BaseElectronicsRecipe, BaseCircuitryRecipeCategory ]
+  id: IntercomElectronics
+  icon: { sprite: Structures/Wallmounts/intercom.rsi, state: base } # Goobstation
+  result: IntercomElectronics
+
+- type: latheRecipe
+  parent: [ BaseElectronicsRecipe, BaseCircuitryRecipeCategory ]
+  id: FireAlarmElectronics
+  icon: { sprite: Structures/Wallmounts/air_monitors.rsi, state: fire0 } # Goobstation
+  result: FireAlarmElectronics
+
+# Mechs
+- type: latheRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseMechRecipeCategory ]
+  id: RipleyCentralElectronics
+  result: RipleyCentralElectronics
+
+- type: latheRecipe
+  parent: RipleyCentralElectronics
+  id: RipleyPeripheralsElectronics
+  result: RipleyPeripheralsElectronics
+
+- type: latheRecipe
+  parent: [ BaseBananiumCircuitboardRecipe, BaseMechRecipeCategory ]
+  id: HonkerCentralElectronics
+  result: HonkerCentralElectronics
+
+- type: latheRecipe
+  parent: HonkerCentralElectronics
+  id: HonkerPeripheralsElectronics
+  result: HonkerPeripheralsElectronics
+
+- type: latheRecipe
+  parent: HonkerCentralElectronics
+  id: HonkerTargetingElectronics
+  result: HonkerTargetingElectronics
+
+- type: latheRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseMechRecipeCategory]
+  id: HamtrCentralElectronics
+  result: HamtrCentralElectronics
+
+- type: latheRecipe
+  parent: HamtrCentralElectronics
+  id: HamtrPeripheralsElectronics
+  result: HamtrPeripheralsElectronics

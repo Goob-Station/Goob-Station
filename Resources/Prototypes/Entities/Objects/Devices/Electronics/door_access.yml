@@ -116,6 +116,14 @@
   - type: AccessReader
     access: [["Service"]]
 
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsServiceTheatre
+  suffix: Service, Theatre, Locked
+  components:
+  - type: AccessReader
+    access: [["Service"], ["Theatre"]]
+
 # Cargo
 - type: entity
   parent: DoorElectronics

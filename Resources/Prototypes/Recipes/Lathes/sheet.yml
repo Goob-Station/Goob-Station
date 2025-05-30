@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: 2019 Swept <49448379+SweptWasTaken@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2020 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2020 Exp <theexp111@gmail.com>
-# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2021 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2021 Paul <ritter.paul1+git@googlemail.com>
@@ -278,3 +278,10 @@
   completetime: 1
   materials:
     Wood: 50
+
+- type: latheRecipe
+  id: MaterialClothCotton
+  result: MaterialCloth1
+  completetime: 1
+  materials:
+    Cotton: 200 #my pyrocloth keeps catching on fire whenever I make it!

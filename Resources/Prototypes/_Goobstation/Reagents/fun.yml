@@ -109,7 +109,6 @@
   physicalDesc: reagent-physical-desc-pungent
   flavor: offensive
   color: "#BF5E5E"
-  slippery: true
   metabolisms:
     Poison:
       metabolismRate: 0.10

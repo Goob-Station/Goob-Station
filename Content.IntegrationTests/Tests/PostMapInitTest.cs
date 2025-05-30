@@ -223,7 +223,8 @@ namespace Content.IntegrationTests.Tests
             "Gate", // Goobstation - goob changes
             "Lavatest", // Lavaland Change
             "Loop",
-            "Delta" // Goobstation - add Delta
+            "Delta", // Goobstation - add Delta
+            "dm01-entryway"
         };
 
         /// <summary>

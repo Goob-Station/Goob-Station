@@ -23,6 +23,7 @@ using Content.Server.Popups;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Prototypes;
+using Content.Shared.Charges.Systems;
 
 namespace Content.Server.Abilities.Felinid;
 
@@ -38,6 +39,7 @@ public sealed partial class FelinidSystem : EntitySystem
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedChargesSystem _sharedChargesSystem = default!;
 
     public override void Initialize()
     {
@@ -145,7 +147,7 @@ public sealed partial class FelinidSystem : EntitySystem
 
         if (component.HairballAction != null)
         {
-            _actionsSystem.SetCharges(component.HairballAction, 1); // You get the charge back and that's it. Tough.
+            _sharedChargesSystem.SetCharges(component.HairballAction.Value, 1); // You get the charge back and that's it. Tough.
             _actionsSystem.SetEnabled(component.HairballAction, true);
         }
         Del(component.EatActionTarget.Value);

@@ -74,6 +74,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Administration.Logs;
+using Content.Shared.Containers;
 using Content.Shared.Database;
 using Content.Shared.Popups;
 using Content.Shared.Throwing;
@@ -111,7 +112,7 @@ public sealed class ThrowInsertContainerSystem : EntitySystem
         if (beforeThrowArgs.Cancelled)
             return;
 
-        if (_random.Prob(ent.Comp.Probability))
+        if (!_random.Prob(ent.Comp.Probability))
         {
             _audio.PlayPvs(ent.Comp.MissSound, ent);
             _popup.PopupEntity(Loc.GetString(ent.Comp.MissLocString), ent);
@@ -127,10 +128,3 @@ public sealed class ThrowInsertContainerSystem : EntitySystem
             _adminLogger.Add(LogType.Landed, LogImpact.Low, $"{ToPrettyString(args.Thrown)} thrown by {ToPrettyString(args.Component.Thrower.Value):player} landed in {ToPrettyString(ent)}");
     }
 }
-
-/// <summary>
-/// Sent before the insertion is made.
-/// Allows preventing the insertion if any system on the entity should need to.
-/// </summary>
-[ByRefEvent]
-public record struct BeforeThrowInsertEvent(EntityUid ThrownEntity, bool Cancelled = false);

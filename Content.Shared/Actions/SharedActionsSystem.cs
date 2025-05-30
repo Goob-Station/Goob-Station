@@ -139,16 +139,16 @@ using Content.Shared.Popups;
 public abstract class SharedActionsSystem : EntitySystem
 {
     [Dependency] protected readonly IGameTiming GameTiming = default!;
-    [Dependency] private readonly INetManager _net = default!; // Goobstation
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
-    [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
-    [Dependency] private readonly RotateToFaceSystem _rotateToFaceSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-    [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!; // Shitmed Change
+    [Dependency] private   readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private   readonly ActionBlockerSystem _actionBlockerSystem = default!;
+    [Dependency] private   readonly ActionContainerSystem _actionContainer = default!;
+    [Dependency] private   readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private   readonly RotateToFaceSystem _rotateToFaceSystem = default!;
+    [Dependency] private   readonly SharedAudioSystem _audio = default!;
+    [Dependency] private   readonly SharedInteractionSystem _interactionSystem = default!;
+    [Dependency] private   readonly SharedTransformSystem _transformSystem = default!;
+    [Dependency] private   readonly INetManager _net = default!; // Goobstation
+    [Dependency] private   readonly SharedPopupSystem _popup = default!; // Shitmed Change
 
     public override void Initialize()
     {
@@ -189,47 +189,9 @@ public abstract class SharedActionsSystem : EntitySystem
         SubscribeAllEvent<RequestPerformActionEvent>(OnActionRequest);
     }
 
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-
-        var worldActionQuery = EntityQueryEnumerator<WorldTargetActionComponent>();
-        while (worldActionQuery.MoveNext(out var uid, out var action))
-        {
-            if (IsCooldownActive(action) || !ShouldResetCharges(action))
-                continue;
-
-            ResetCharges(uid, dirty: true);
-        }
-
-        var instantActionQuery = EntityQueryEnumerator<InstantActionComponent>();
-        while (instantActionQuery.MoveNext(out var uid, out var action))
-        {
-            if (IsCooldownActive(action) || !ShouldResetCharges(action))
-                continue;
-
-            ResetCharges(uid, dirty: true);
-        }
-
-        var entityActionQuery = EntityQueryEnumerator<EntityTargetActionComponent>();
-        while (entityActionQuery.MoveNext(out var uid, out var action))
-        {
-            if (IsCooldownActive(action) || !ShouldResetCharges(action))
-                continue;
-
-            ResetCharges(uid, dirty: true);
-        }
-    }
-
     private void OnActionMapInit(EntityUid uid, BaseActionComponent component, MapInitEvent args)
     {
         component.OriginalIconColor = component.IconColor;
-
-        if (component.Charges == null)
-            return;
-
-        component.MaxCharges ??= component.Charges.Value;
-        Dirty(uid, component);
     }
 
     private void OnActionShutdown(EntityUid uid, BaseActionComponent component, ComponentShutdown args)
@@ -440,68 +402,6 @@ public abstract class SharedActionsSystem : EntitySystem
         Dirty(actionId.Value, action);
     }
 
-    public void SetCharges(EntityUid? actionId, int? charges)
-    {
-        if (!TryGetActionData(actionId, out var action) ||
-            action.Charges == charges)
-        {
-            return;
-        }
-
-        action.Charges = charges;
-        UpdateAction(actionId, action);
-        Dirty(actionId.Value, action);
-    }
-
-    public int? GetCharges(EntityUid? actionId)
-    {
-        if (!TryGetActionData(actionId, out var action))
-            return null;
-
-        return action.Charges;
-    }
-
-    public void AddCharges(EntityUid? actionId, int addCharges)
-    {
-        if (!TryGetActionData(actionId, out var action) || action.Charges == null || addCharges < 1)
-            return;
-
-        action.Charges += addCharges;
-        UpdateAction(actionId, action);
-        Dirty(actionId.Value, action);
-    }
-
-    public void RemoveCharges(EntityUid? actionId, int? removeCharges)
-    {
-        if (!TryGetActionData(actionId, out var action) || action.Charges == null)
-            return;
-
-        if (removeCharges == null)
-            action.Charges = removeCharges;
-        else
-            action.Charges -= removeCharges;
-
-        if (action.Charges is < 0)
-            action.Charges = null;
-
-        UpdateAction(actionId, action);
-        Dirty(actionId.Value, action);
-    }
-
-    public void ResetCharges(EntityUid? actionId, bool update = false, bool dirty = false)
-    {
-        if (!TryGetActionData(actionId, out var action))
-            return;
-
-        action.Charges = action.MaxCharges;
-
-        if (update)
-            UpdateAction(actionId, action);
-
-        if (dirty)
-            Dirty(actionId.Value, action);
-    }
-
     private void OnActionsGetState(EntityUid uid, ActionsComponent component, ref ComponentGetState args)
     {
         args.State = new ActionsComponentState(GetNetEntitySet(component.Actions));
@@ -544,20 +444,16 @@ public abstract class SharedActionsSystem : EntitySystem
         if (!action.Enabled)
             return;
 
+        var curTime = GameTiming.CurTime;
+        if (IsCooldownActive(action, curTime))
+            return;
+
         // check for action use prevention
         // TODO: make code below use this event with a dedicated component
         var attemptEv = new ActionAttemptEvent(user);
         RaiseLocalEvent(actionEnt, ref attemptEv);
         if (attemptEv.Cancelled)
             return;
-
-        var curTime = GameTiming.CurTime;
-        if (IsCooldownActive(action, curTime))
-            return;
-
-        // TODO: Replace with individual charge recovery when we have the visuals to aid it
-        if (action is { Charges: < 1, RenewCharges: true })
-            ResetCharges(actionEnt, true, true);
 
         BaseActionEvent? performEvent = null;
 
@@ -751,7 +647,7 @@ public abstract class SharedActionsSystem : EntitySystem
             // even if we don't check for obstructions, we may still need to check the range.
             var xform = Transform(user);
 
-            if (xform.MapID != coords.GetMapId(EntityManager))
+            if (xform.MapID != _transformSystem.GetMapId(coords))
             {
                 _popup.PopupCursor(Loc.GetString("world-target-out-of-range"), user); // Goobstation Change
                 return false;
@@ -759,8 +655,7 @@ public abstract class SharedActionsSystem : EntitySystem
 
             if (range <= 0)
                 return true;
-
-            return coords.InRange(EntityManager, _transformSystem, Transform(user).Coordinates, range);
+            return _transformSystem.InRange(coords, xform.Coordinates, range);
         }
 
         return _interactionSystem.InRangeUnobstructed(user, coords, range: range);
@@ -838,18 +733,10 @@ public abstract class SharedActionsSystem : EntitySystem
 
         var dirty = toggledBefore != action.Toggled;
 
-        if (action.Charges != null)
-        {
-            dirty = true;
-            action.Charges--;
-            if (action is { Charges: 0, RenewCharges: false })
-                action.Enabled = false;
-        }
-
         action.Cooldown = null;
         // Goob edit start
         var realDelay = CompOrNull<ActionUseDelayModifierComponent>(actionId)?.UseDelay ?? action.UseDelay;
-        if (action is { Charges: null or < 1 } && realDelay != null)
+        if (action is { UseDelay: not null } && realDelay != null)
         {
             dirty = true;
             action.Cooldown = (curTime, curTime + realDelay.Value);
@@ -1162,8 +1049,6 @@ public abstract class SharedActionsSystem : EntitySystem
         if (!action.Enabled)
             return false;
 
-        if (action.Charges.HasValue && action.Charges <= 0)
-            return false;
 
         var curTime = GameTiming.CurTime;
         if (action.Cooldown.HasValue && action.Cooldown.Value.End > curTime)
@@ -1299,16 +1184,10 @@ public abstract class SharedActionsSystem : EntitySystem
     /// <summary>
     ///     Checks if the action has a cooldown and if it's still active
     /// </summary>
-    protected bool IsCooldownActive(BaseActionComponent action, TimeSpan? curTime = null)
+    public bool IsCooldownActive(BaseActionComponent action, TimeSpan? curTime = null)
     {
-        curTime ??= GameTiming.CurTime;
         // TODO: Check for charge recovery timer
         return action.Cooldown.HasValue && action.Cooldown.Value.End > curTime;
-    }
-
-    protected bool ShouldResetCharges(BaseActionComponent action)
-    {
-        return action is { Charges: < 1, RenewCharges: true };
     }
 
     // Shitmed Change Start - Starlight Abductors

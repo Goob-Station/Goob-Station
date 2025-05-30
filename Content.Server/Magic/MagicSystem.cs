@@ -44,12 +44,5 @@ public sealed class MagicSystem : SharedMagicSystem
     public override void Initialize()
     {
         base.Initialize();
-
-        SubscribeLocalEvent<SpeakSpellEvent>(OnSpellSpoken);
-    }
-
-    private void OnSpellSpoken(ref SpeakSpellEvent args)
-    {
-        _chat.TrySendInGameICMessage(args.Performer, Loc.GetString(args.Speech), InGameICChatType.Speak, false);
     }
 }

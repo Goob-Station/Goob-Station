@@ -77,4 +77,3 @@
       params:
         volume: 6.5
     event: !type:DashActionEvent
-      speech: null # 1984

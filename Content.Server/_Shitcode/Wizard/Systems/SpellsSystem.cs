@@ -59,6 +59,7 @@ using Content.Shared.Physics;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Speech.Components;
 using Content.Shared.Weapons.Ranged.Components;
+using Robust.Server.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.GameObjects.Components.Localization;
 using Robust.Shared.Map;
@@ -91,6 +92,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
     [Dependency] private readonly BatterySystem _battery = default!;
     [Dependency] private readonly TeleportSystem _teleport = default!;
     [Dependency] private readonly NpcFactionSystem _faction = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
 
     public override void Initialize()
     {
@@ -146,7 +148,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
 
         ActionContainer.AddAction(comp.Mind.Value, args.Action, container);
 
-        if (mindComp.Session == null)
+        if (!_player.TryGetSessionById(mindComp.UserId, out var session))
             return;
 
         var message = Loc.GetString("spell-summon-simians-maxed-out-message");
@@ -156,7 +158,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
             wrappedMessage,
             default,
             false,
-            mindComp.Session.Channel,
+            session.Channel,
             args.MessageColor);
     }
 
@@ -335,8 +337,6 @@ public sealed class SpellsSystem : SharedSpellsSystem
         soulBound.Sex = sex;
         AddComp(mind, soulBound, true);
 
-        DelayedSpeech(ev.Speech, newEntity, ev.Performer, MagicSchool.Necromancy);
-
         _inventory.TransferEntityInventories(ev.Performer, newEntity);
         foreach (var hand in Hands.EnumerateHeld(ev.Performer))
         {
@@ -348,10 +348,10 @@ public sealed class SpellsSystem : SharedSpellsSystem
 
         Body.GibBody(ev.Performer, contents: GibContentsOption.Gib);
 
-        if (mindComponent.Session == null)
+        if (!_player.TryGetSessionById(mindComponent.UserId, out var session))
             return;
 
-        _antag.SendBriefing(mindComponent.Session, Loc.GetString("lich-greeting"), Color.DarkRed, ev.Sound);
+        _antag.SendBriefing(session, Loc.GetString("lich-greeting"), Color.DarkRed, ev.Sound);
     }
 
     protected override bool Polymorph(PolymorphSpellEvent ev)
@@ -378,14 +378,11 @@ public sealed class SpellsSystem : SharedSpellsSystem
         if (TryComp(ev.Action.Owner, out MagicComponent? magic))
             school = magic.School;
 
-        DelayedSpeech(ev.Speech, newEnt.Value, ev.Performer, school);
-
         if (ev.LoadActions)
             RaiseNetworkEvent(new LoadActionsEvent(GetNetEntity(ev.Performer)), newEnt.Value);
 
         return true;
     }
-
     private void DelayedSpeech(string? speech, EntityUid speaker, EntityUid caster, MagicSchool school)
     {
         Timer.Spawn(200,

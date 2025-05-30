@@ -7,7 +7,7 @@
 - type: entity
   name: carving knife
   description: A small knife made of cold steel, pure and perfect. Its sharpness can carve into titanium itself - but only few can evoke the dangers that lurk beneath reality.
-  parent: [ BaseKnife, BaseMagicContraband ]
+  parent: [ BaseKnife, BaseMagicalContraband ]
   id: CarvingKnife
   components:
   - type: UnholyItem

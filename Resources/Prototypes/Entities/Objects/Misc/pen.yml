@@ -103,7 +103,7 @@
     - Pen
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 15
+      Steel: 10
   - type: EmitSoundOnUse
     sound:
       path: /Audio/Items/pen_click.ogg
@@ -218,7 +218,7 @@
 
 - type: entity
   name: wizard's magical pen
-  parent: [ Pen, BaseMagicContraband ]
+  parent: [ Pen, BaseMagicalContraband ]
   id: PenWiz
   description: A luxurious fountain pen. Seems to have a magical crystal eraser.
   components:

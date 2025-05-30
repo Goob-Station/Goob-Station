@@ -19,7 +19,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Labels;
 using Content.Server.Popups;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
@@ -28,6 +27,7 @@ using Content.Shared.Forensics.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
+using Content.Shared.Labels.EntitySystems;
 
 namespace Content.Server.Forensics
 {
@@ -37,8 +37,8 @@ namespace Content.Server.Forensics
     public sealed class ForensicPadSystem : EntitySystem
     {
         [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
-        [Dependency] private readonly InventorySystem _inventory = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
+        [Dependency] private readonly ForensicsSystem _forensics = default!;
         [Dependency] private readonly LabelSystem _label = default!;
 
         public override void Initialize()
@@ -79,9 +79,14 @@ namespace Content.Server.Forensics
                 return;
             }
 
-            if (_inventory.TryGetSlotEntity(args.Target.Value, "gloves", out var gloves))
+            if (!_forensics.CanAccessFingerprint(args.Target.Value, out var blocker))
             {
-                _popupSystem.PopupEntity(Loc.GetString("forensic-pad-gloves", ("target", Identity.Entity(args.Target.Value, EntityManager))), args.Target.Value, args.User);
+
+                if (blocker is { } item)
+                    _popupSystem.PopupEntity(Loc.GetString("forensic-pad-no-access-due", ("entity", Identity.Entity(item, EntityManager))), args.Target.Value, args.User);
+                else
+                    _popupSystem.PopupEntity(Loc.GetString("forensic-pad-no-access"), args.Target.Value, args.User);
+
                 return;
             }
 

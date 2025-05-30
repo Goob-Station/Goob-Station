@@ -155,6 +155,8 @@
         whitelist:
           tags:
             - EnergySpeedloader
+  - type: PowerCellSlot
+    cellSlotId: gun_magazine
 
 - type: entity
   name: temperature gun
@@ -293,6 +295,8 @@
         whitelist:
           tags:
             - EnergyMagAmmo
+  - type: PowerCellSlot
+    cellSlotId: gun_magazine
 
 - type: entity
   name: DT-12 "Lawbringer"

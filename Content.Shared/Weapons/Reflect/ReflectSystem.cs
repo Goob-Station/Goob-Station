@@ -92,7 +92,6 @@ using Content.Shared.Hands;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Item.ItemToggle;
-using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Ranged.Components;
@@ -102,7 +101,6 @@ using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Random;
-using Robust.Shared.Timing;
 
 namespace Content.Shared.Weapons.Reflect;
 
@@ -111,7 +109,6 @@ namespace Content.Shared.Weapons.Reflect;
 /// </summary>
 public sealed class ReflectSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
@@ -127,69 +124,77 @@ public sealed class ReflectSystem : EntitySystem
     {
         base.Initialize();
 
+        Subs.SubscribeWithRelay<ReflectComponent, ProjectileReflectAttemptEvent>(OnReflectUserCollide, baseEvent: false);
+        Subs.SubscribeWithRelay<ReflectComponent, HitScanReflectAttemptEvent>(OnReflectUserHitscan, baseEvent: false);
         SubscribeLocalEvent<ReflectComponent, ProjectileReflectAttemptEvent>(OnReflectCollide);
         SubscribeLocalEvent<ReflectComponent, HitScanReflectAttemptEvent>(OnReflectHitscan);
+
         SubscribeLocalEvent<ReflectComponent, GotEquippedEvent>(OnReflectEquipped);
         SubscribeLocalEvent<ReflectComponent, GotUnequippedEvent>(OnReflectUnequipped);
         SubscribeLocalEvent<ReflectComponent, GotEquippedHandEvent>(OnReflectHandEquipped);
         SubscribeLocalEvent<ReflectComponent, GotUnequippedHandEvent>(OnReflectHandUnequipped);
-        SubscribeLocalEvent<ReflectComponent, ItemToggledEvent>(OnToggleReflect);
-
-        SubscribeLocalEvent<ReflectUserComponent, ProjectileReflectAttemptEvent>(OnReflectUserCollide);
-        SubscribeLocalEvent<ReflectUserComponent, HitScanReflectAttemptEvent>(OnReflectUserHitscan);
     }
 
-    private void OnReflectUserHitscan(EntityUid uid, ReflectUserComponent component, ref HitScanReflectAttemptEvent args)
-    {
-        if (args.Reflected)
-            return;
-
-        foreach (var ent in _inventorySystem.GetHandOrInventoryEntities(uid, SlotFlags.All & ~SlotFlags.POCKET))
-        {
-            if (!TryReflectHitscan(uid, ent, args.Shooter, args.SourceItem, args.Direction, args.Reflective, args.Damage, out var dir)) // Goob edit
-                continue;
-
-            args.Direction = dir.Value;
-            args.Reflected = true;
-            break;
-        }
-    }
-
-    private void OnReflectUserCollide(EntityUid uid, ReflectUserComponent component, ref ProjectileReflectAttemptEvent args)
-    {
-        foreach (var ent in _inventorySystem.GetHandOrInventoryEntities(uid, SlotFlags.All & ~SlotFlags.POCKET))
-        {
-            if (!TryReflectProjectile(uid, ent, args.ProjUid))
-                continue;
-
-            args.Cancelled = true;
-            break;
-        }
-    }
-
-    private void OnReflectCollide(EntityUid uid, ReflectComponent component, ref ProjectileReflectAttemptEvent args)
+    private void OnReflectUserCollide(Entity<ReflectComponent> ent, ref ProjectileReflectAttemptEvent args)
     {
         if (args.Cancelled)
             return;
 
-        if (TryReflectProjectile(uid, uid, args.ProjUid, reflect: component))
+        if (!ent.Comp.InRightPlace)
+            return; // only reflect when equipped correctly
+
+        if (TryReflectProjectile(ent, ent.Owner, args.ProjUid))
             args.Cancelled = true;
     }
 
-    public bool TryReflectProjectile(EntityUid user, EntityUid reflector, EntityUid projectile, ProjectileComponent? projectileComp = null, ReflectComponent? reflect = null) // Goob edit
+    private void OnReflectUserHitscan(Entity<ReflectComponent> ent, ref HitScanReflectAttemptEvent args)
     {
-        if (!Resolve(reflector, ref reflect, false) ||
-            !_toggle.IsActivated(reflector) ||
-            !reflect.InRightPlace ||
-            !TryComp<ReflectiveComponent>(projectile, out var reflective) ||
-            (reflect.Reflects & reflective.Reflective) == 0x0 ||
-            !_random.Prob(reflect.ReflectProb) ||
+        if (args.Reflected)
+            return;
+
+        if (!ent.Comp.InRightPlace)
+            return; // only reflect when equipped correctly
+
+        if (TryReflectHitscan(ent, ent.Owner, args.Shooter, args.SourceItem, args.Direction, args.Reflective, args.Damage, out var dir)) // Goob edit
+        {
+            args.Direction = dir.Value;
+            args.Reflected = true;
+        }
+    }
+
+    private void OnReflectCollide(Entity<ReflectComponent> ent, ref ProjectileReflectAttemptEvent args)
+    {
+        if (args.Cancelled)
+            return;
+
+        if (TryReflectProjectile(ent, ent.Owner, args.ProjUid))
+            args.Cancelled = true;
+    }
+
+    private void OnReflectHitscan(Entity<ReflectComponent> ent, ref HitScanReflectAttemptEvent args)
+    {
+        if (args.Reflected)
+            return;
+
+        if (TryReflectHitscan(ent, ent.Owner, args.Shooter, args.SourceItem, args.Direction, args.Reflective, args.Damage, out var dir))
+        {
+            args.Direction = dir.Value;
+            args.Reflected = true;
+        }
+    }
+
+    public bool TryReflectProjectile(Entity<ReflectComponent> reflector, EntityUid user, Entity<ProjectileComponent?> projectile)
+    {
+        if (!TryComp<ReflectiveComponent>(projectile, out var reflective) ||
+            (reflector.Comp.Reflects & reflective.Reflective) == 0x0 ||
+            !_toggle.IsActivated(reflector.Owner) ||
+            !_random.Prob(reflector.Comp.ReflectProb) ||
             !TryComp<PhysicsComponent>(projectile, out var physics))
         {
             return false;
         }
 
-        var rotation = _random.NextAngle(-reflect.Spread / 2, reflect.Spread / 2).Opposite();
+        var rotation = _random.NextAngle(-reflector.Comp.Spread / 2, reflector.Comp.Spread / 2).Opposite();
         var existingVelocity = _physics.GetMapLinearVelocity(projectile, component: physics);
         var relativeVelocity = existingVelocity - _physics.GetMapLinearVelocity(user);
         var newVelocity = rotation.RotateVec(relativeVelocity);
@@ -203,29 +208,26 @@ public sealed class ReflectSystem : EntitySystem
         var newRot = rotation.RotateVec(locRot.ToVec());
         _transform.SetLocalRotation(projectile, newRot.ToAngle());
 
-        if (_netManager.IsServer)
-        {
-            if (TryComp(projectile, out HomingProjectileComponent? homing)) // Goobstation
-                RemCompDeferred(projectile, homing);
-            _popup.PopupEntity(Loc.GetString("reflect-shot"), user);
-            _audio.PlayPvs(reflect.SoundOnReflect, user, AudioHelpers.WithVariation(0.05f, _random));
-        }
+        if (TryComp(projectile, out HomingProjectileComponent? homing)) // Goobstation
+            RemCompDeferred(projectile, homing);
 
-        if (Resolve(projectile, ref projectileComp, false))
+        PlayAudioAndPopup(reflector.Comp, user);
+
+        if (Resolve(projectile, ref projectile.Comp, false))
         {
             // WD EDIT START
-            if (reflect.DamageOnReflectModifier != 0)
+            if (reflector.Comp.DamageOnReflectModifier != 0)
             {
-                _damageable.TryChangeDamage(reflector, projectileComp.Damage * reflect.DamageOnReflectModifier,
-                    projectileComp.IgnoreResistances, origin: projectileComp.Shooter);
+                _damageable.TryChangeDamage(reflector, projectile.Comp.Damage * reflector.Comp.DamageOnReflectModifier,
+                    projectile.Comp.IgnoreResistances, origin: projectile.Comp.Shooter);
             }
             // WD EDIT END
 
-            _adminLogger.Add(LogType.BulletHit, LogImpact.Medium, $"{ToPrettyString(user)} reflected {ToPrettyString(projectile)} from {ToPrettyString(projectileComp.Weapon)} shot by {projectileComp.Shooter}");
+            _adminLogger.Add(LogType.BulletHit, LogImpact.Medium, $"{ToPrettyString(user)} reflected {ToPrettyString(projectile)} from {ToPrettyString(projectile.Comp.Weapon)} shot by {projectile.Comp.Shooter}");
 
-            projectileComp.Shooter = user;
-            projectileComp.Weapon = user;
-            Dirty(projectile, projectileComp);
+            projectile.Comp.Shooter = user;
+            projectile.Comp.Weapon = user;
+            Dirty(projectile, projectile.Comp);
         }
         else
         {
@@ -235,53 +237,34 @@ public sealed class ReflectSystem : EntitySystem
         return true;
     }
 
-    private void OnReflectHitscan(EntityUid uid, ReflectComponent component, ref HitScanReflectAttemptEvent args)
-    {
-        if (args.Reflected) // Goob edit
-        {
-            return;
-        }
-
-        if (TryReflectHitscan(uid, uid, args.Shooter, args.SourceItem, args.Direction, args.Reflective, args.Damage, out var dir)) // Goob edit
-        {
-            args.Direction = dir.Value;
-            args.Reflected = true;
-        }
-    }
-
-    public bool TryReflectHitscan( // Goobstation
+    public bool TryReflectHitscan( // Goob edit
+        Entity<ReflectComponent> reflector,
         EntityUid user,
-        EntityUid reflector,
         EntityUid? shooter,
         EntityUid shotSource,
         Vector2 direction,
-        ReflectType reflective, // Goobstation
+        ReflectType hitscanReflectType,
         DamageSpecifier? damage, // WD EDIT
         [NotNullWhen(true)] out Vector2? newDirection)
     {
-        if (!TryComp<ReflectComponent>(reflector, out var reflect) ||
-            !_toggle.IsActivated(reflector) ||
-            !reflect.InRightPlace ||
+        if ((reflector.Comp.Reflects & hitscanReflectType) == 0x0 ||
+            !_toggle.IsActivated(reflector.Owner) ||
             // Goob edit start
-            !((reflect.Reflects & reflective) != 0x0 && _random.Prob(reflect.ReflectProb)))
+            !((reflector.Comp.Reflects & hitscanReflectType) != 0x0 && _random.Prob(reflector.Comp.ReflectProb)))
             // Goob edit end
         {
             newDirection = null;
             return false;
         }
 
-        if (_netManager.IsServer)
-        {
-            _popup.PopupEntity(Loc.GetString("reflect-shot"), user);
-            _audio.PlayPvs(reflect.SoundOnReflect, user, AudioHelpers.WithVariation(0.05f, _random));
-        }
+        PlayAudioAndPopup(reflector.Comp, user);
 
         // WD EDIT START
-        if (reflect.DamageOnReflectModifier != 0 && damage != null)
-            _damageable.TryChangeDamage(reflector, damage * reflect.DamageOnReflectModifier, origin: shooter);
+        if (reflector.Comp.DamageOnReflectModifier != 0 && damage != null)
+            _damageable.TryChangeDamage(reflector, damage * reflector.Comp.DamageOnReflectModifier, origin: shooter);
         // WD EDIT END
 
-        var spread = _random.NextAngle(-reflect.Spread / 2, reflect.Spread / 2);
+        var spread = _random.NextAngle(-reflector.Comp.Spread / 2, reflector.Comp.Spread / 2);
         newDirection = -spread.RotateVec(direction);
 
         if (shooter != null)
@@ -292,67 +275,35 @@ public sealed class ReflectSystem : EntitySystem
         return true;
     }
 
-    private void OnReflectEquipped(EntityUid uid, ReflectComponent component, GotEquippedEvent args)
+    private void PlayAudioAndPopup(ReflectComponent reflect, EntityUid user)
     {
-        if (_gameTiming.ApplyingState)
-            return;
-
-        component.InRightPlace = IsInRightPlace(component, args.SlotFlags);
-
-        EnsureComp<ReflectUserComponent>(args.Equipee);
-    }
-
-    private void OnReflectUnequipped(EntityUid uid, ReflectComponent comp, GotUnequippedEvent args)
-    {
-        RefreshReflectUser(args.Equipee);
-    }
-
-    private void OnReflectHandEquipped(EntityUid uid, ReflectComponent component, GotEquippedHandEvent args)
-    {
-        if (_gameTiming.ApplyingState)
-            return;
-
-        component.InRightPlace = IsInRightPlace(component, SlotFlags.NONE);
-
-        EnsureComp<ReflectUserComponent>(args.User);
-    }
-
-    private void OnReflectHandUnequipped(EntityUid uid, ReflectComponent component, GotUnequippedHandEvent args)
-    {
-        RefreshReflectUser(args.User);
-    }
-
-    private void OnToggleReflect(EntityUid uid, ReflectComponent comp, ref ItemToggledEvent args)
-    {
-        if (args.User is {} user)
-            RefreshReflectUser(user);
-    }
-
-    /// <summary>
-    /// Refreshes whether someone has reflection potential so we can raise directed events on them.
-    /// </summary>
-    private void RefreshReflectUser(EntityUid user)
-    {
-        foreach (var ent in _inventorySystem.GetHandOrInventoryEntities(user, SlotFlags.All & ~SlotFlags.POCKET))
+        // Can probably be changed for prediction
+        if (_netManager.IsServer)
         {
-            if (!HasComp<ReflectComponent>(ent)) // Goob edit - fix desword not reflecting
-                continue;
-
-            EnsureComp<ReflectUserComponent>(user);
-            return;
+            _popup.PopupEntity(Loc.GetString("reflect-shot"), user);
+            _audio.PlayPvs(reflect.SoundOnReflect, user);
         }
-
-        RemCompDeferred<ReflectUserComponent>(user);
     }
 
-    /// <summary>
-    /// Checks if the reflective component should work in designated place.
-    /// </summary>
-    private static bool IsInRightPlace(ReflectComponent component, SlotFlags slotFlag)
+    private void OnReflectEquipped(Entity<ReflectComponent> ent, ref GotEquippedEvent args)
     {
-        if (slotFlag == SlotFlags.NONE)
-            return component.ReflectingInHands;
-        else
-            return (component.SlotFlags & slotFlag) == slotFlag;
+        ent.Comp.InRightPlace = (ent.Comp.SlotFlags & args.SlotFlags) == args.SlotFlags;
+    }
+
+    private void OnReflectUnequipped(Entity<ReflectComponent> ent, ref GotUnequippedEvent args)
+    {
+        ent.Comp.InRightPlace = false;
+        Dirty(ent);
+    }
+
+    private void OnReflectHandEquipped(Entity<ReflectComponent> ent, ref GotEquippedHandEvent args)
+    {
+        ent.Comp.InRightPlace = ent.Comp.ReflectingInHands;
+        Dirty(ent);
+    }
+
+    private void OnReflectHandUnequipped(Entity<ReflectComponent> ent, ref GotUnequippedHandEvent args)
+    {
+        ent.Comp.InRightPlace = false;
     }
 }

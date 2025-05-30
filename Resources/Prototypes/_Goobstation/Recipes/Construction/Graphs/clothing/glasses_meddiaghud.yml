@@ -16,13 +16,13 @@
         - to: glassesMedDiag
           steps:
             - tag: Sunglasses
-              name: sun glasses
+              name: construction-graph-tag-sun-glasses
               icon:
                 sprite: Clothing/Eyes/Glasses/sunglasses.rsi
                 state: icon
               doAfter: 5
             - tag: HudMedicalDiagnostic
-              name: meddiag hud
+              name: construction-graph-tag-meddiag-hud
               icon:
                 sprite: _Goobstation/Clothing/Eyes/Hud/meddiag.rsi
                 state: icon

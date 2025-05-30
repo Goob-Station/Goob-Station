@@ -77,6 +77,9 @@ namespace Content.Client.Lobby.UI
 
             LeaveButton.OnPressed += _ => _consoleHost.ExecuteCommand("disconnect");
             OptionsButton.OnPressed += _ => UserInterfaceManager.GetUIController<OptionsUIController>().ToggleWindow();
+
+            CollapseButton.OnPressed += _ => TogglePanel(false);
+            ExpandButton.OnPressed += _ => TogglePanel(true);
         }
 
         public void SwitchState(LobbyGuiState state)
@@ -105,6 +108,12 @@ namespace Content.Client.Lobby.UI
 
                     break;
             }
+        }
+
+        private void TogglePanel(bool value)
+        {
+            RightSide.Visible = value;
+            ExpandPanel.Visible = !value;
         }
 
         public enum LobbyGuiState : byte

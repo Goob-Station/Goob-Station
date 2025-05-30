@@ -91,12 +91,11 @@
   id: CrateMaterialPlasteel
   parent: CrateGenericSteel
   name: plasteel crate
-  description: 30 sheets of plasteel. # Goobstation
+  description: 30 sheets of plasteel.
   components:
   - type: StorageFill
     contents:
       - id: SheetPlasteel
-        #amount: 3 # Goobstation
 
 - type: entity
   id: CrateMaterialPlasma
@@ -172,9 +171,19 @@
       entity_storage: !type:NestedSelector
         tableId: RandomMaterialCrateTable
         rolls: !type:RangeNumberSelector
-          range: 1, 3
-          # for some reason, the selector here adds 1 to whatever value it generates,
-          # so this is actually 2-4
+          range: 2, 4
+
+- type: entity
+  id: CrateMaterialBasicResource
+  parent: CrateGenericSteel
+  name: basic sheet crate
+  description: 30 sheets of steel, glass, and plastic.
+  components:
+  - type: StorageFill
+    contents:
+    - id: SheetSteel
+    - id: SheetGlass
+    - id: SheetPlastic
 
 #- type: entity
 #  id: CrateMaterialHFuelTank

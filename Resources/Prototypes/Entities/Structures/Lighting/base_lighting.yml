@@ -181,7 +181,7 @@
           bounds: "-0.4,0.5,0.4,0.35"
         density: 190
         mask:
-        - TabletopMachineMask
+        - None
         layer:
         - TabletopMachineLayer
   - type: Destructible
@@ -405,7 +405,7 @@
             bounds: "-0.1,0.5,0.1,0.255"
           density: 190
           mask:
-          - TabletopMachineMask
+          - None
           layer:
           - TabletopMachineLayer
     - type: Damageable

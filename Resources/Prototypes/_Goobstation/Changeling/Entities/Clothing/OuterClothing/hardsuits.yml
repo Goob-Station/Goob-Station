@@ -52,5 +52,5 @@
   - type: Unremoveable
   - type: ModifyDelayedKnockdown # Goobstation
     cancel: true
-  - type: StaminaDamageResistance # Goobstation
-    coefficient: 0.4
+  - type: StaminaResistance # Goobstation
+    damageCoefficient: 0.4
