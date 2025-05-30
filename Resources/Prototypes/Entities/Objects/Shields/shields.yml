@@ -538,7 +538,7 @@
       heldPrefix: eshield
     - type: UseDelay
       delay: 0.5
-    - type: ToggleableLightVisuals
+    - type: ToggleableVisuals
       spriteLayer: shield
       inhandVisuals:
         left:
@@ -632,22 +632,22 @@
       layers:
         - state: teleriot-icon
           map: [ "enum.ItemToggleVisuals.Layer" ] # Goob - commented
-        #- state: teleriot-on
-        #  visible: false
-        #  map: [ "shield" ]
+        - state: teleriot-on
+          visible: false
+          map: [ "shield" ]
     - type: Item
       size: Small
       sprite: Objects/Weapons/Melee/teleriot_shield.rsi
       heldPrefix: teleriot
     - type: UseDelay
       delay: 0.5
-    #- type: ToggleableLightVisuals # Goob - commented
-    #  spriteLayer: shield
-    #  inhandVisuals:
-    #    left:
-    #      - state: inhand-left-shield
-    #    right:
-    #      - state: inhand-right-shield
+    - type: ToggleableVisuals
+      spriteLayer: shield
+      inhandVisuals:
+        left:
+          - state: inhand-left-shield
+        right:
+          - state: inhand-right-shield
     - type: Appearance
     - type: Destructible
       thresholds:
