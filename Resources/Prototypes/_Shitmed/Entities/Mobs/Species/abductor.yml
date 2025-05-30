@@ -53,16 +53,16 @@
 #        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
 #        color: "#878787"
 #      Burn:
-#        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
-  - type: PassiveDamage
-    allowedStates:
-    - Alive
-    damageCap: 40
-    damage:
-      types:
-        Heat: -0.14
-      groups:
-        Brute: -0.14
+#        sprite: Mobs/Effects/burn_damage.rsi
+#  - type: PassiveDamage
+#    allowedStates:
+#    - Alive
+#    damageCap: 40
+#    damage:
+#      types:
+#        Heat: -0.14
+#      groups:
+#        Brute: -0.14
   - type: Targeting
   - type: SurgeryTarget
   - type: Bloodstream

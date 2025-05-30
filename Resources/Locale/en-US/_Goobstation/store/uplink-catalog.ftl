@@ -234,9 +234,6 @@ uplink-krav-maga-implant-desc = Allows the user to perform various Krav Maga mov
 
 # Wearables
 
-uplink-heat-lamp-name = Cybersun Heat Lamp
-uplink-heat-lamp-desc = A cybersun design, often utilized by cold-blooded Gorlex Marauders in their sieges. Also functions as an effective melee weapon in a pinch.
-
 uplink-helmet-swat-name = Syndicate SWAT Helmet
 uplink-helmet-swat-desc = Robust helmet that offers good protection and also suppresses flashbang sounds to some extent.
 
@@ -278,3 +275,10 @@ uplink-undetermined-bundle-desc = This crate comes with three random bundles and
 
 uplink-energy-pickaxe-name = Energy Pickaxe
 uplink-energy-pickaxe-desc = A holographic mining tool with blades comprised of hard light that also serves a deadly melee weapon. Rock and stone!
+
+uplink-tcminer-name = Telecrystal miner
+uplink-tcminer-desc = Contains a flatpack with telecrystal miner, A very loud machine that uses bluespace blockchain technology to generate telecrystals every 10 seconds when powered. Requires 10kW of energy and a connection to the primary station's grid. Multitool not included.
+
+uplink-bloodred-casette-name = Bloodred Casette Player
+uplink-bloodred-casette-desc = Provided by the most egotistical fashion designers of Cybersun, a portable music player!
+

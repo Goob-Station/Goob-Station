@@ -125,6 +125,7 @@
       task: IdleCompound
   - type: Body
     prototype: Animal
+    bodyType: Simple
   - type: Climbing
   - type: NameIdentifier
     group: GenericNumber
@@ -349,6 +350,7 @@
       path: /Audio/Effects/bite.ogg
   - type: Body # Shitmed: Special carp organs
     prototype: Carp
+    bodyType: Simple
   - type: SurgeryTarget # Shitmed
   - type: UserInterface # Shitmed
     interfaces:
@@ -483,7 +485,7 @@
         Alive:
           Base: clown_ian
         Critical:
-          Base: clown_ian_dead  
+          Base: clown_ian_dead
         Dead:
           Base: clown_ian_dead
     - type: Grammar
@@ -491,7 +493,7 @@
         proper: true
         gender: male
     - type: AutoImplant
-      implants: 
+      implants:
       - SadTromboneImplant
       - BikeHornImplant
     - type: FootstepModifier

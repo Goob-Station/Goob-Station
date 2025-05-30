@@ -215,8 +215,10 @@
 # SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 BeBright <98597725+be1bright@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BeBright <98597725+bebr3ght@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
@@ -227,6 +229,7 @@
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tiniest Shark <head.rebel@yahoo.com>
+# SPDX-FileCopyrightText: 2025 TurboTracker <130304754+TurboTrackerss14@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
@@ -274,12 +277,13 @@
     - map: [ "back" ]
     - map: [ "neck" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
-    - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+    - map: [ "maskalt" ]
+    - map: [ "enum.HumanoidVisualLayers.Hair" ]
+    - map: [ "mask" ]
     - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
     - map: [ "enum.HumanoidVisualLayers.Tail" ]
     - map: [ "enum.HumanoidVisualLayers.Wings" ] # For IPC wings porting from SimpleStation
-    - map: [ "mask" ]
     - map: [ "head" ]
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
@@ -479,8 +483,6 @@
     penetrateDamage: 50
     damagePenalty: 0.2
   - type: ExaminableCharacter # WWDP
-  - type: TransferHeatOnInteract # Goobstation
-    transferRatio: 0.45
 
 - type: entity
   save: false
@@ -499,15 +501,15 @@
       types:
         Blunt: 0.50 #per second, scales with pressure and other constants.
         Heat: 0.1
-  - type: PassiveDamage # Slight passive regen. Assuming one damage type, comes out to about 4 damage a minute.
-    allowedStates:
-    - Alive
-    damageCap: 20
-    damage:
-      types:
-        Heat: -0.07
-      groups:
-        Brute: -0.07
+  #- type: PassiveDamage # Slight passive regen. Assuming one damage type, comes out to about 4 damage a minute.
+  #  allowedStates:
+  #   - Alive
+  #   damageCap: 20
+  #   damage:
+  #     types:
+  #       Heat: -0.07
+  #    groups:
+  #      Brute: -0.07
   - type: Fingerprint
   - type: Blindable
   # Other
@@ -600,11 +602,12 @@
     - map: [ "back" ]
     - map: [ "neck" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
-    - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+    - map: [ "maskalt" ]
+    - map: [ "enum.HumanoidVisualLayers.Hair" ]
+    - map: [ "mask" ]
     - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
     - map: [ "enum.HumanoidVisualLayers.Tail" ]
-    - map: [ "mask" ]
     - map: [ "head" ]
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
