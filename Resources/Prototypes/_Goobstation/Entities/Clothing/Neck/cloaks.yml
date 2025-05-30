@@ -18,7 +18,7 @@
     stealGroup: HeadCloak
 
 - type: entity
-  parent: [ ClothingNeckBase, BaseMagicContraband ]
+  parent: [ ClothingNeckBase, BaseMagicalContraband ]
   id: ClothingNeckCloakCarp
   name: carp cloak
   description: Getting up to some fishy business are we?
@@ -29,7 +29,7 @@
     sprite: _Goobstation/Clothing/Neck/Cloaks/carpcloak.rsi
 
 - type: entity
-  parent: [ ClothingNeckBase, BaseMagicContraband ]
+  parent: [ ClothingNeckBase, BaseMagicalContraband ]
   id: ClothingNeckCloakCarpAlt
   name: carp cloak
   description: Restricted to extraterrestrial entities. That means NOT you.

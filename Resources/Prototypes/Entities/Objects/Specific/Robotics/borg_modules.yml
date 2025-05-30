@@ -515,7 +515,6 @@
     # - Shovel # Goobstation
     - MineralScannerUnpowered
     - OreBag
-    - Crowbar
     - RadioHandheld
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: mining-module }
@@ -769,6 +768,11 @@
     moduleId: Artifact
     items:
     - NodeScanner
+    - Multitool
+    - Wrench
+    - SprayBottle
+    - Beaker
+    - Syringe
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: node-scanner-module }
 

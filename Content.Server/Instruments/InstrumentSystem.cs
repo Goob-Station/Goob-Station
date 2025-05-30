@@ -256,7 +256,7 @@ public sealed partial class InstrumentSystem : SharedInstrumentSystem
     {
         var metadataQuery = EntityManager.GetEntityQuery<MetaDataComponent>();
 
-        if (Deleted(uid, metadataQuery))
+        if (Deleted(uid))
             return Array.Empty<(NetEntity, string)>();
 
         var list = new ValueList<(NetEntity, string)>();
@@ -411,7 +411,6 @@ public sealed partial class InstrumentSystem : SharedInstrumentSystem
         }
 
         var activeQuery = EntityManager.GetEntityQuery<ActiveInstrumentComponent>();
-        var metadataQuery = EntityManager.GetEntityQuery<MetaDataComponent>();
         var transformQuery = EntityManager.GetEntityQuery<TransformComponent>();
 
         var query = AllEntityQuery<ActiveInstrumentComponent, InstrumentComponent>();
@@ -419,7 +418,7 @@ public sealed partial class InstrumentSystem : SharedInstrumentSystem
         {
             if (instrument.Master is {} master)
             {
-                if (Deleted(master, metadataQuery))
+                if (Deleted(master))
                 {
                     Clean(uid, instrument);
                 }

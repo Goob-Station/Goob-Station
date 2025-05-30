@@ -208,8 +208,9 @@
   components:
   - type: ConfirmableAction
     popup: dna-scrambler-action-popup
+  - type: LimitedCharges
+    maxCharges: 1
   - type: InstantAction
-    charges: 1
     itemIconStyle: BigAction
     priority: -20
     icon:
@@ -268,18 +269,6 @@
   - type: InstantAction
     useDelay: 30
     event: !type:VendingMachineSelfDispenseEvent
-
-- type: entity
-  id: ActionArtifactActivate
-  name: Activate Artifact
-  description: Immediately activates your current artifact node.
-  components:
-  - type: InstantAction
-    icon:
-      sprite: Objects/Specific/Xenoarchaeology/xeno_artifacts.rsi
-      state: ano01
-    useDelay: 60
-    event: !type:ArtifactSelfActivateEvent
 
 - type: entity
   id: ActionToggleBlock

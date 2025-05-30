@@ -97,7 +97,7 @@
 
 - type: entity
   id: BluespaceLifelineImplanter
-  suffix: bluespace lifeline
+  name: bluespace lifeline implanter
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter
@@ -113,7 +113,7 @@
 
 - type: entity
   id: CentcommFreedomImplanter
-  suffix: freedom implant
+  name: freedom implant implanter
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter
@@ -121,7 +121,7 @@
 
 - type: entity
   id: CentcommStorageImplanter
-  suffix: storage implant
+  name: storage implant implanter
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter
@@ -129,7 +129,7 @@
 
 - type: entity
   id: CentcommMindShieldImplanter
-  suffix: mindshield
+  name: mindshield implanter
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter
@@ -137,7 +137,7 @@
 
 - type: entity
   id: CentcommNutrimentImplanter
-  suffix: nutriment pump
+  name: nutriment pump implanter
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter
@@ -145,7 +145,7 @@
 
 - type: entity
   id: CentcommSpaceproofImplanter
-  suffix: space proofing
+  name: space proofing implanter
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter
@@ -153,7 +153,7 @@
 
 - type: entity
   id: CentcommStypticStimulatorImplanter
-  suffix: styptic stimulator
+  name: styptic stimulator implanter
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter
@@ -162,7 +162,7 @@
 - type: entity
   parent: BaseImplantOnlyImplanter
   id: PacifismImplanter
-  suffix: pacifism
+  name: pacifism implant implanter
   components:
   - type: Implanter
     implant: PacifismImplant
@@ -170,14 +170,14 @@
 - type: entity
   parent: BaseImplantOnlyImplanterSyndi
   id: SmokeImplanter
-  suffix: smoke
+  name: smoke implant implanter
   components:
   - type: Implanter
     implant: SmokeImplant
 
 - type: entity
   id: NutrimentImplanter
-  suffix: nutriment pump
+  name: nutriment pump implanter
   parent: BaseImplantOnlyImplanterSyndi
   components:
   - type: Implanter
@@ -185,7 +185,7 @@
 
 - type: entity
   id: StypticStimulatorImplanter
-  suffix: styptic stimulator
+  name: styptic stimulator implanter
   parent: BaseImplantOnlyImplanterSyndi
   components:
   - type: Implanter
@@ -194,7 +194,7 @@
 - type: entity
   parent: BaseImplantOnlyImplanterSyndi
   id: KravMagaImplanter
-  suffix: krav maga
+  name: krav maga nanochip implanter
   components:
   - type: Implanter
     implant: KravMagaImplant
@@ -203,7 +203,8 @@
 
 - type: entity
   id: VaporizeImplanter
-  suffix: vaporize, DO NOT MAP
+  name: vaporize implant implanter
+  suffix: DO NOT MAP
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter
@@ -211,7 +212,8 @@
 
 - type: entity
   id: ShiftImplanter
-  suffix: shift, DO NOT MAP
+  name: shift implant implanter
+  suffix: DO NOT MAP
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter
@@ -219,7 +221,8 @@
 
 - type: entity
   id: BlinkImplanter
-  suffix: blink, DO NOT MAP
+  name: blink implant implanter
+  suffix: DO NOT MAP
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter
@@ -227,7 +230,8 @@
 
 - type: entity
   id: StopTimeImplanter
-  suffix: stop time, DO NOT MAP
+  name: stop time implant implanter
+  suffix: DO NOT MAP
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter
@@ -245,7 +249,7 @@
 
 - type: entity
   id: AntagImplanterChangeling
-  suffix: antag, changeling
+  name: changeling nanochip implanter
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter
@@ -253,7 +257,7 @@
 
 - type: entity
   id: AntagImplanterHeretic
-  suffix: antag, heretic
+  name: heretic nanochip implanter
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter
@@ -261,7 +265,7 @@
 
 - type: entity
   id: AntagImplanterSpaceNinja
-  suffix: antag, space ninja
+  name: space ninja nanochip implanter
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter

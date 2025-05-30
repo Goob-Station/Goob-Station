@@ -13,4 +13,41 @@
     antagPrototype: Devil
     exclusiveAntag: true
     roleType: SoloAntagonist
+    subtype: role-subtype-devil
   - type: DevilRole
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleChangeling
+  name: Changeling Role
+  components:
+  - type: MindRole
+    antagPrototype: Changeling
+    exclusiveAntag: true
+    roleType: SoloAntagonist
+    subtype: role-subtype-changeling
+  - type: ChangelingRole
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleHeretic
+  name: Heretic Role
+  components:
+  - type: MindRole
+    antagPrototype: Heretic
+    exclusiveAntag: true
+    roleType: SoloAntagonist
+    subtype: role-subtype-heretic
+  - type: HereticRole
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleBrainwashed
+  name: Brainwashed Role
+  components:
+  - type: MindRole
+    antagPrototype: Mindcontrolled
+    exclusiveAntag: true
+    roleType: Familiar
+    subtype: role-subtype-brainwashed
+  - type: MindcontrolledRole

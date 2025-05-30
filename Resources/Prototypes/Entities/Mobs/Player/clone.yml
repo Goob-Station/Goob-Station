@@ -72,6 +72,7 @@
   - HeadRevolutionary
   - Revolutionary
   - NukeOperative
+  forceCloning: true # Goob - IPC/Vox cloning for paradox ghostrole
 
 # for cloning pods
 - type: cloningSettings

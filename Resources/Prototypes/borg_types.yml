@@ -103,6 +103,7 @@
   - BorgModuleGrapplingGun
   - BorgModuleAppraisal
   - BorgModulePKA # Lavaland
+  - BorgModuleTool
 
   radioChannels:
   - Supply
