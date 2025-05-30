@@ -10274,3 +10274,13 @@ Entries:
       message: AI power on box
   id: 1140
   time: '2025-05-30T05:08:24.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: 'Secret+: a new secret-like gamemode to try out.'
+    - type: Add
+      message: >-
+        New game presets: Turbulence, Entropy, Chaos, in ascending difficulty
+        order.
+  id: 1141
+  time: '2025-05-30T15:43:35.0000000+00:00'
