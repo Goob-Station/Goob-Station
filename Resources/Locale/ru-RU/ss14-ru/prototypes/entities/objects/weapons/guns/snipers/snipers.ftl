@@ -1,5 +1,7 @@
 ent-BaseWeaponSniper = BaseWeaponSniper
     .desc = Дерзай — налетай, целься и стреляй.
+ent-BaseWeaponSniperMagazine = BaseMagazineSniper
+    .desc = A rooty tooty point and shooty.
 ent-WeaponSniperMosin = Кардашёв-Мосин
     .desc = Оружие охоты, или бесконечной окопной войны. Использует патроны калибра .30 винтовочный.
     .suffix = Винтовка

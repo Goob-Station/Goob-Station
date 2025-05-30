@@ -1,5 +1,9 @@
 ent-BaseMagazineBoxCaselessRifle = коробка патронов (.25 безгильзовые)
     .desc = { ent-BaseItem.desc }
+ent-MagazineBoxCaselessRifle10x24 = ammunition box (9.5mm HP)
+    .desc = { ent-BaseMagazineBoxCaselessRifle.desc }
+ent-MagazineBoxCaselessRifleBig = ammunition box (9.5mm HP)
+    .desc = { ent-BaseMagazineBoxCaselessRifle.desc }
 ent-MagazineBoxCaselessRifle = коробка патронов (.25 безгильзовые)
     .desc = { ent-BaseMagazineBoxCaselessRifle.desc }
 ent-MagazineBoxCaselessRiflePractice = коробка патронов (.25 безгильзовые учебные)

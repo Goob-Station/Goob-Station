@@ -1,0 +1,10 @@
+ent-BaseChangelingObjective = { ent-BaseObjective }
+    .desc = { ent-BaseObjective.desc }
+ent-ChangelingSurviveObjective = Выжить
+    .desc = Я должен выжить любой ценой.
+ent-ChangelingAbsorbObjective = { ent-BaseChangelingObjective }
+    .desc = { ent-BaseChangelingObjective.desc }
+ent-ChangelingStealDNAObjective = { ent-BaseChangelingObjective }
+    .desc = { ent-BaseChangelingObjective.desc }
+ent-EscapeIdentityObjective = { ent-BaseChangelingObjective }
+    .desc = Мне нужно сбежать на эвакуационном челноке. Под прикрытием.

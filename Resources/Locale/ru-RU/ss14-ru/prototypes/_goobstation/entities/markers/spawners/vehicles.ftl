@@ -1,0 +1,10 @@
+ent-SpawnVehicleSecway = Сигвей Spawner
+    .desc = { ent-MarkerBase.desc }
+ent-SpawnVehicleATV = Квадроцикл Spawner
+    .desc = { ent-MarkerBase.desc }
+ent-SpawnVehicleJanicart = Уборочная машина Spawner
+    .desc = { ent-MarkerBase.desc }
+ent-SpawnVehicleChairOfficeLight = светлый офисный стул spawner
+    .desc = { ent-MarkerBase.desc }
+ent-SpawnVehicleChairOfficeDark = темный офисный стул spawner
+    .desc = { ent-MarkerBase.desc }

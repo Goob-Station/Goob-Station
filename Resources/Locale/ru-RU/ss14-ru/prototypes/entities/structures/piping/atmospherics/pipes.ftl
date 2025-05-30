@@ -1,5 +1,9 @@
 ent-GasPipeBase = труба
     .desc = Содержит газ.
+ent-VentCrawlerHolder = vent craw holder
+    .desc = { "" }
+ent-GasPipeNoOverlap = { ent-GasPipeBase }
+    .desc = { ent-GasPipeBase.desc }
 ent-GasPipeHalf = { ent-GasPipeBase }
     .suffix = Половинная
     .desc = { ent-GasPipeBase.desc }

@@ -15,4 +15,6 @@ ent-BoxHoloparasite = коробка
 ent-BoxHoloclown = коробка с имплантером
     .desc = Коробка с рисунком клоуна.
     .suffix = коробка с голоклоуном
+
 # Corvax-HiddenDesc-End
+

@@ -82,6 +82,7 @@ ent-ClothingHeadHatWizardFake = поддельная волшебная шляп
     .desc = На ней блёстками написано ВАЛШЕБНАЯ. Комплектуется классной бородой.
 ent-ClothingHeadHatWizardBase = { ent-ClothingHeadBase }
     .desc = { ent-ClothingHeadBase.desc }
+    .suffix = Wizard Clothes
 ent-ClothingHeadHatWizard = волшебная шляпа
     .desc = Странного вида синяя шляпа, которая, несомненно, принадлежала сильному магу.
 ent-ClothingHeadHatXmasCrown = рождественский венец

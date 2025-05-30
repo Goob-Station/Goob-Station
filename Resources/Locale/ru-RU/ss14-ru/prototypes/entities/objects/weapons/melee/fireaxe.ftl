@@ -3,4 +3,6 @@ ent-FireAxe = пожарный топор
 # Corvax-HiddenDesc-Start
 ent-FireAxeFlaming = { ent-FireAxe }
     .desc = { ent-FireAxe.desc }
+
 # Corvax-HiddenDesc-End
+

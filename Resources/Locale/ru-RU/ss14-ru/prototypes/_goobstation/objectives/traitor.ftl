@@ -1,0 +1,10 @@
+ent-PermaKillRandomTraitorObjective = { ent-BaseTraitorObjective }
+    .desc = Убей их любым способом, лишь бы они больше не дышали.
+ent-PermaKillRandomPersonObjective = { ent-BaseTraitorObjective }
+    .desc = Убей их любым способом, лишь бы они больше не дышали.
+ent-RandomTraitorTargetAliveObjective = { ent-BaseTraitorSocialObjective }
+    .desc = Враждебные агенты собираются ликвидировать эту цель. Опознайся на свой страх и риск.
+ent-StealSupermatterSliverObjective = { ent-BaseTraitorStealObjective }
+    .desc = { ent-BaseTraitorStealObjective.desc }
+ent-CMORapidSyringeGunStealObjective = { ent-BaseCMOStealObjective }
+    .desc = { ent-BaseCMOStealObjective.desc }

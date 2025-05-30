@@ -1,0 +1,16 @@
+ent-ClothingOuterHardsuitChronolegioneer = futuristic voidsuit
+    .desc = A voidsuit covered in an unknown material that protects against most material and temporal damage
+ent-ClothingOuterHardsuitChronolegioneerUnremoveable = { ent-ClothingOuterHardsuitChronolegioneer }
+    .suffix = Unremoveable
+    .desc = { ent-ClothingOuterHardsuitChronolegioneer.desc }
+ent-ClothingOuterHardsuitBlueshieldLight = 'praetorian' escort voidsuit
+    .desc = A voidsuit designed for an elite bodyguard. This particular one is made of a lighter metal, allowing for more maneuverability.
+ent-ClothingOuterHardsuitCybersunStealth = cybersun stealth voidsuit
+    .desc = A voidsuit with photo-reactive plating for sneaky operations, the shielding doesn't work while you're moving though! Needs the helmet on to finish the stealth field.
+    .suffix = stealth
+ent-ClothingOuterHardsuitCybersunDreadnought = cybersun dreadnought suit
+    .desc = The Syndicate places its glory on your shoulders, do not disappoint.
+ent-ClothingOuterVoidsuitSecurity = security voidsuit
+    .desc = A light voidsuit with an in-built plate carrier to provide moderate protection while remaining mobile.
+ent-ClothingOuterHardsuitHeadOfSecurityExperimental = FI-52 "Honor Guard" parade voidsuit
+    .desc = A special voidsuit that protects against hazardous, low pressure environments. Has an experimental inbuilt stimulant autoinjector system.

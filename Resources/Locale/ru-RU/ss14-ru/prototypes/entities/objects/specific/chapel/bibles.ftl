@@ -1,3 +1,5 @@
+ent-ChaplainUndeterminedBible = bluespace scripture beacon
+    .desc = Though I walk through the valley of the shadow of death I will fear no evil, for you are with me.
 ent-Bible = библия
     .desc = Новая межзвёздная версия 2340.
 # Corvax-HiddenDesc-Start

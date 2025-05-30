@@ -1,3 +1,9 @@
+ent-BasePartInorganic = body part
+    .desc = { ent-BaseItem.desc }
+ent-BaseChestInorganic = chest
+    .desc = { "" }
+ent-BaseGroinInorganic = groin
+    .desc = { "" }
 ent-BasePart = часть тела
     .desc = { ent-BaseItem.desc }
 ent-BaseTorso = туловище

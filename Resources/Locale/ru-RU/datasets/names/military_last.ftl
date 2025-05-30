@@ -41,3 +41,4 @@ names-military-last-dataset-40 = Чау
 names-military-last-dataset-41 = Шедар
 names-military-last-dataset-42 = Шаула
 names-military-last-dataset-43 = Электра
+names-military-last-dataset-44 = Winterwing

@@ -2,14 +2,12 @@ marking-Patch = Заплатка на груди
 marking-SkeletonBody = Скелет на груди
 marking-BlotsBody = Пятна на груди
 marking-StripesBody = Полосы на груди
-
 marking-GradientRleg = Градиент на правой ноге
 marking-GradientLleg = Градиент на левой ноге
 marking-GradientLhand = Градиент на левой кисти
 marking-GradientLarm = Градиент на левой руке
 marking-GradientRhand = Градиент на правой кисти
 marking-GradientRarm = Градиент на правой руке
-
 marking-Patch2 = Заплатка на голове
 marking-EyeStripesHead = Полосы у глаз
 marking-Outears = Наружные уши
@@ -22,18 +20,15 @@ marking-Nose = Нос
 marking-Raccoon-head = Енотовая морда
 marking-ManeHead = Грива
 marking-Muzzleinears = Морда с внутренними ушами
-
 marking-TailFluffy = Пушистый хвост
 marking-TailM = Обычный хвост
 marking-TailRing = Хвост с кольцами
 marking-TailSkeleton = Скелет хвоста
 marking-TailTip = Кончик хвоста
 marking-TailFluffySkeleton = Пушистый скелетный хвост
-
 marking-TailWingler1 = Хвост с кольцами (тип 1)
 marking-TailWingler2 = Хвост с кольцами (тип 2)
 marking-TailWingler3 = Хвост с кольцами (тип 3)
-
 marking-TailFluffyAnimated = Анимированный пушистый хвост
 marking-TailWingler1Animated = Анимированный хвост с кольцами (тип 1)
 marking-TailWingler2Animated = Анимированный хвост с кольцами (тип 2)
@@ -43,7 +38,6 @@ marking-TailTipAnimated = Анимированный кончик хвоста
 marking-TailMAnimated = Анимированный обычный хвост
 marking-TailRingAnimated = Анимированный хвост с кольцами
 marking-TailSkeletonAnimated = Анимированный скелет хвоста
-
 marking-Belly1 = Живот (тип 1)
 marking-Belly2 = Живот (тип 2)
 marking-Belly3 = Живот (тип 3)

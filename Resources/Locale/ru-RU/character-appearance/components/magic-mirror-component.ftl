@@ -9,4 +9,4 @@ magic-mirror-remove-slot-target = { CAPITALIZE($user) } удаляет част�
 magic-mirror-change-slot-target = { CAPITALIZE($user) } меняет вашу причёску.
 magic-mirror-change-color-target = { CAPITALIZE($user) } меняет цвет ваших волос.
 magic-mirror-blocked-by-hat-self = Прежде чем менять причёску, вам необходимо снять шляпу.
-magic-mirror-blocked-by-hat-self-target = Вы пытаетесь изменить {POSS-ADJ($target)} причёску, но {POSS-ADJ($target)} одежда вам мешает.
+magic-mirror-blocked-by-hat-self-target = Вы пытаетесь изменить { POSS-ADJ($target) } причёску, но { POSS-ADJ($target) } одежда вам мешает.

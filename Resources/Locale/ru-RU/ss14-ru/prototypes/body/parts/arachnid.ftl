@@ -1,5 +1,11 @@
 ent-PartArachnid = часть тела арахнида
     .desc = { ent-BaseItem.desc }
+ent-PartArachnid2 = arachnid body part
+    .desc = { ent-BaseItem.desc }
+ent-ChestArachnid = arachnid chest
+    .desc = { ent-PartArachnid.desc }
+ent-GroinArachnid = arachnid groin
+    .desc = { ent-PartArachnid.desc }
 ent-TorsoArachnid = туловище арахнида
     .desc = { ent-PartArachnid.desc }
 ent-HeadArachnid = голова арахнида

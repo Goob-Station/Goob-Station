@@ -1,0 +1,16 @@
+ent-ClothingModsuitBootsStandard = стандартные ботинки модсьюта
+    .desc = Специальные модульные ботинки, разработанные для компактного хранения в модульном костюме.
+ent-ClothingModsuitBootsSecurity = солдатские ботинки модсьюта
+    .desc = ЖЕЛЕЗНЫЕ БОТИНКИ ЗАКОНА.
+ent-ClothingModsuitBootsHeadOfSecurity = булварковые ботинки модсьюта
+    .desc = Я называю их своими «коммистопперами».
+ent-ClothingModsuitBootsParamedic = санитарные ботинки модсьюта
+    .desc = Созданы, чтобы испачкаться кровью.
+ent-ClothingModsuitBootsEngineer = сапёрские ботинки модсьюта
+    .desc = Созданы, чтобы испачкаться маслом.
+ent-ClothingModsuitBootsAtmostech = эоловые ботинки модсьюта
+    .desc = Созданы, чтобы обжечься.
+ent-ClothingModsuitBootsResearchDirector = минервовские ботинки модсьюта
+    .desc = Не спасут от скольжения по собственной крови, когда холографическая карпета с тобой.
+ent-ClothingModsuitBootsCaptain = магнатские ботинки модсьюта
+    .desc = Эти ботинки разработаны самим МАЙКЛОМ ДЖОРДАНОМ и выкованы из древних сплавов, чувак.

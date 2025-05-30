@@ -1,0 +1,12 @@
+ent-ClothingMaskGasChrono = футуристическая противогазовая маска
+    .desc = Футуристическая противогазовая маска неизвестного дизайна с невероятным количеством фильтровальных систем.
+ent-ClothingMaskGasChronoUnremoveable = { ent-ClothingMaskGasChrono }
+    .suffix = Неснимаемый
+    .desc = { ent-ClothingMaskGasChrono.desc }
+ent-ActionHailer = Оповестить
+    .desc = Услышать и оповестить ближайший экипаж, полезно для быстрого отдачи приказов.
+ent-ClothingMaskClownUnremoveable = неснимаемая маска и парик бананового клоуна
+    .desc = { ent-ClothingMaskClown.desc }
+ent-ClothingMaskGasVoiceCraftable = Маска-модулятор голоса
+    .desc = Плохо собранный голосовой модулятор из противогаза и голосового триггера.
+    .suffix = Маска голоса, создаваемая

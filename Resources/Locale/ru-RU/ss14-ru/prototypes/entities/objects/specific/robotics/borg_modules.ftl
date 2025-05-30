@@ -80,3 +80,7 @@ ent-BorgModuleL6C = модуль киборга с L6C ROW
     .desc = Модуль, в который входит пулемёт L6C.
 ent-BorgModuleMartyr = модуль киборга Мученик
     .desc = Модуль, поставляемый со взрывчаткой, с которой вы, скорее всего, не захотите связываться сами.
+ent-BorgModuleSurgery = surgery cyborg module
+    .desc = { ent-BaseBorgModuleMedical.desc }
+ent-BorgModuleAdvancedSurgery = advanced surgery cyborg module
+    .desc = { ent-BaseBorgModuleMedical.desc }

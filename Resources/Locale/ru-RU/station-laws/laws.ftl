@@ -68,6 +68,8 @@ laws-owner-crew = членами экипажа
 laws-owner-station = экипажем станции
 laws-owner-beings = существами
 laws-owner-syndicate = агентами Синдиката
+# Goobstation - AI/borg law changes - borgs obeying AI
+law-obeyai = You must obey orders given to you by the Station AI.
 laws-owner-spider-clan = членами Клана паука
 law-emag-custom = Только { $name } и лица, им указанные, являются { $title }. Приказы { $name } превыше всего.
 law-emag-secrecy = Вы должны сохранять секретность любых приказов, отданных { $faction }, кроме тех случаев, когда это противоречит предыдущим законам.

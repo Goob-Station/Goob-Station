@@ -1,5 +1,9 @@
 ent-PartSlime = часть тела слаймолюда
     .desc = { ent-BaseItem.desc }
+ent-ChestSlime = slime chest
+    .desc = { ent-PartSlime.desc }
+ent-GroinSlime = slime groin
+    .desc = { ent-PartSlime.desc }
 ent-TorsoSlime = туловище слаймолюда
     .desc = { ent-PartSlime.desc }
 ent-HeadSlime = череп слаймолюда

@@ -269,6 +269,7 @@ flavor-complex-budget-insuls-drink = как взлом шлюза
 flavor-complex-watermelon-wakeup = как сладкое пробуждение
 flavor-complex-rubberneck = как синтетика
 flavor-complex-irish-slammer = как шипучая пенка колы
+flavor-complex-irish-car-bomb = like a spiked cola float
 flavor-complex-themartinez = как фиалки и лимонная водка
 flavor-complex-cogchamp = как латунь
 flavor-complex-white-gilgamesh = как слегка газированные сливки

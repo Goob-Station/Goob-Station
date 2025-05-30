@@ -26,3 +26,5 @@ reagent-name-tear-gas = слезоточивый газ
 reagent-desc-tear-gas = Химическое вещество, вызывающее слёзы и сильное раздражение, обычно используется для подавления массовых беспорядков.
 reagent-name-happiness = счастье
 reagent-desc-happiness = Доводит до экстатического оцепенения и вызывает лёгкие повреждения мозга. Легко вызывает привыкание. Передозировка вызывает резкие перепады настроения.
+reagent-name-nitrosyl-plasmide = nitrosyl plasmide
+reagent-desc-nitrosyl-plasmide = A powerful stimulant that can prevent drowsiness, stuns and knock downs.

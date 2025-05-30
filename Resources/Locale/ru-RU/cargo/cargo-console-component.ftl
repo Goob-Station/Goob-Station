@@ -32,6 +32,9 @@ cargo-console-unfulfilled = Нет места для выполнения зак
 cargo-console-trade-station = Отправлено на { $destination }
 cargo-console-unlock-approved-order-broadcast = [bold]Заказ на { $productName } x{ $orderAmount }[/bold], стоимостью [bold]{ $cost }[/bold], был одобрен [bold]{ $approver }[/bold]
 cargo-console-paper-print-name = Заказ #{ $orderNumber }
+# GoobStation - cooldown on Cargo Orders (specifically gamba)
+cargo-console-cooldown-count = Cannot order more than one { $product } at a time.
+cargo-console-cooldown-active = Orders for { $product } cannot be placed for another { $timeCount } { $timeUnits }.
 cargo-console-paper-print-text =
     Заказ #{ $orderNumber }
     Товар: { $itemName }

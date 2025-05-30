@@ -1,0 +1,14 @@
+ent-MobCreature = creature
+    .desc = A sanity-destroying otherthing from the netherworld.
+ent-MobCreatureWizard = Simmons
+    .desc = He is hungry.
+ent-SpawnMobCreature = Creature Spawner
+    .desc = { ent-MarkerBase.desc }
+ent-SpawnMobCreatureWizard = WIzard Creature Spawner
+    .desc = { ent-SpawnMobCreature.desc }
+ent-MobStickman = angry stick man
+    .desc = A being from a realm with only 2 dimensions. At least it's trying to stay faced towards you.
+    .suffix = AI
+ent-MobStickmanTemp = { ent-MobStickman }
+    .suffix = Temporary
+    .desc = { ent-MobStickman.desc }

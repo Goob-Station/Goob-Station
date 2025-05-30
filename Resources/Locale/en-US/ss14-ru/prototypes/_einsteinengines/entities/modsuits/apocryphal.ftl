@@ -1,0 +1,13 @@
+ent-ClothingModsuitApocryphal = Apocryphal modsuit control
+    .desc = The main controller for a Apocryphal modsuit.
+ent-ClothingModsuitGauntletsApocryphal = Apocryphal modsuit gauntlets
+    .desc = A pair of gauntlets made for the Apocryphal modsuit.
+ent-ClothingModsuitHelmetApocryphal = Apocryphal modsuit helmet
+    .desc = A state-of-the-art helmet designed by NanoTrasen for the Apocryphal modsuit. It includes a built-in HUD.
+ent-ClothingModsuitChestplateApocryphal = Apocryphal modsuit chestplate
+    .desc = A state of the art chestplate designed by NanoTrasen for the Apocryphal Modsuit. It incorporates powered servos to reduce the equipment load.
+ent-ClothingModsuitBootsApocryphal = Apocryphal modsuit boots
+    .desc = A state-of-the-art pair of magboots for the Apocryphal modsuit. So long as the suit is powered, these will not slow the wearer down.
+ent-SuitStorageApocryphal = { ent-SuitStorageBase }
+    .suffix = Apocryphal Modsuit
+    .desc = { ent-SuitStorageBase.desc }

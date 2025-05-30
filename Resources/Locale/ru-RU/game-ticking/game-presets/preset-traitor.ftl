@@ -43,3 +43,7 @@ traitor-role-uplink-implant =
     Аплинк надежно защищён, пока кто-нибудь не извлечёт его из вашего тела.
 traitor-role-uplink-code-short = Ваш код аплинка: { $code }. Установите его в качестве рингтона КПК для доступа к аплинку.
 traitor-role-uplink-implant-short = Ваш аплинк был имплантирован. Воспользуйтесь им из хотбара.
+traitor-role-moreinfo = Find more information about your role in the character menu.
+traitor-role-nouplink = You do not have a syndicate uplink. Make it count.
+traitor-role-allegiances = Your allegiances:
+traitor-role-notes = Notes from your employer:

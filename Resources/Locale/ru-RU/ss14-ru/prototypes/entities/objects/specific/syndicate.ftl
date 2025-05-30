@@ -14,6 +14,24 @@ ent-Telecrystal10 = { ent-Telecrystal }
 ent-BaseUplinkRadio = старое радио
     .desc = Винтажное радио, которое по неясной причине застыло на крайне необычной частоте, со словом «АпЛинк» на лицевой стороне.
     .suffix = Пустой, аплинк Синдиката
+ent-BaseUplinkRadio50TC = { ent-BaseUplinkRadio }
+    .suffix = 50 TC
+    .desc = { ent-BaseUplinkRadio.desc }
+ent-BaseUplinkRadio50TCNukeOps = { ent-BaseUplinkRadio }
+    .suffix = 50 TC, NukeOps reinforcement
+    .desc = { ent-BaseUplinkRadio.desc }
+ent-BaseUplinkRadio100TC = { ent-BaseUplinkRadio }
+    .suffix = 100 TC
+    .desc = { ent-BaseUplinkRadio.desc }
+ent-BaseUplinkRadio125TC = { ent-BaseUplinkRadio }
+    .suffix = 125 TC
+    .desc = { ent-BaseUplinkRadio.desc }
+ent-BaseUplinkRadio200TC = { ent-BaseUplinkRadio }
+    .suffix = 200 TC
+    .desc = { ent-BaseUplinkRadio.desc }
+ent-BaseUplinkRadio350TC = { ent-BaseUplinkRadio }
+    .suffix = 350 TC, LoneOps
+    .desc = { ent-BaseUplinkRadio.desc }
 ent-BaseUplinkRadio20TC = { ent-BaseUplinkRadio }
     .suffix = 20 ТК, аплинк Синдиката
     .desc = { ent-BaseUplinkRadio.desc }
@@ -29,4 +47,6 @@ ent-BaseUplinkRadio60TC = { ent-BaseUplinkRadio }
 ent-BaseUplinkRadioDebug = { ent-BaseUplinkRadio }
     .suffix = DEBUG, аплинк синдиката
     .desc = { ent-BaseUplinkRadio.desc }
+
 # Corvax-HiddenDesc-End
+

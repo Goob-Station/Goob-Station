@@ -1,0 +1,16 @@
+ent-TimelineDisruptorFlatpack = timeline disruptor flatpack
+    .desc = A flatpack used for constructing a solar assembly.
+ent-ContrabandDetectorFlatpack = contraband detector flatpack
+    .desc = A flatpack used for constructing a contraband detector.
+ent-MedicalScannerFlatpack = Medical Scanner Flatpack
+    .desc = A flatpack used for constructing a Medical Scanner
+ent-CloningpodFlatpack = Cloning pod Flatpack
+    .desc = A flatpack used for constructing a Cloning pod
+ent-ComputerCloningConsoleFlatpack = Computer Cloning Console Flatpack
+    .desc = A flatpack used for constructing a Computer Cloning Console
+ent-BiomassReclaimerFlatpack = Biomass Reclaimer Flatpack
+    .desc = A flatpack used for constructing a Biomass Reclaimer
+ent-MedicalBiofabricatorFlatpack = Medical Biofabricator Flatpack
+    .desc = A flatpack used for constructing a Medical Biofabricator
+ent-MachinePowerTransmissionLaserFlatpack = power transmision laser flatpack
+    .desc = A flatpack used for constructing a power transmission laser

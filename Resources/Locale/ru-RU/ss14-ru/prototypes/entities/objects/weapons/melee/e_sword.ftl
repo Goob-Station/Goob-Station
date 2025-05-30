@@ -15,6 +15,8 @@ ent-EnergyDaggerBox = футляр энергокинжала
     .suffix = Энергокинжал
 ent-EnergyCutlass = абордажная энергосабля
     .desc = Экзотическое энергетическое оружие.
+ent-EnergySwordDoubleBase = double-bladed energy sword
+    .desc = Syndicate Command Interns thought that having one blade on the energy sword was not enough. This can be stored in pockets.
 # Corvax-HiddenDesc-Start
 ent-EnergySwordDouble = игрушечный двухклинковый меч
     .desc = Новый двойной пластиковый меч от Sandy-Cat! В два раза больше эпика и громких звуков!
