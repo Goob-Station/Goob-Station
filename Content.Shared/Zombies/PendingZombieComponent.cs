@@ -56,13 +56,13 @@ public sealed partial class PendingZombieComponent : Component
     /// The minimum amount of time initial infected have before they start taking infection damage.
     /// </summary>
     [DataField]
-    public TimeSpan MinInitialInfectedGrace = TimeSpan.FromMinutes(0.0f);
+    public TimeSpan MinInitialInfectedGrace = TimeSpan.FromMinutes(1.0f);
 
     /// <summary>
     /// The maximum amount of time initial infected have before they start taking damage.
     /// </summary>
     [DataField]
-    public TimeSpan MaxInitialInfectedGrace = TimeSpan.FromMinutes(0.1);
+    public TimeSpan MaxInitialInfectedGrace = TimeSpan.FromMinutes(2.0f);
 
     /// <summary>
     /// The chance each second that a warning will be shown.
