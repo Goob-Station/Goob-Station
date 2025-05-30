@@ -24,10 +24,21 @@
         Quantity: 3
       - ReagentId: Blood
         Quantity: 10
+  - type: Food
   - type: Tag # Goobstation
     tags:
     - Trash
     - Meat
+    - LingEdible 
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+        - ReagentId: Nutriment
+          Quantity: 3
 
 # organic torsos have higher health
 # this doesn't affect gibbing bodies as there is code to prevent torso gibbing while part of a body

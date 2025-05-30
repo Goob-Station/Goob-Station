@@ -771,6 +771,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         RemComp<MartialArtsKnowledgeComponent>(uid);
         RemComp<CanPerformComboComponent>(uid);
         EnsureComp<ZombieImmuneComponent>(uid);
+        EnsureComp<ChangelingOrganDigestionComponent>(uid);
 
         // add actions
         foreach (var actionId in comp.BaseChangelingActions)
