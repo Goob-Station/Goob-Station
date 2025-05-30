@@ -244,7 +244,7 @@
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
-          min: 80 #please wait 3 minutes before using another stimpack
+          min: 20 #please wait 3 minutes before using another stimpack, also goob edit
         damage:
           types:
             Poison: 1
