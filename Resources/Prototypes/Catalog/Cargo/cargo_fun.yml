@@ -410,6 +410,6 @@
     sprite: Objects/Fun/toys.rsi
     state: beachball
   product: CrateFunDiscoBeachBall
-  cost: 2000
+  cost: 1000
   category: cargoproduct-category-name-fun
   group: market

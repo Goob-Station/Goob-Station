@@ -2099,14 +2099,16 @@
   - type: Sprite
     sprite: Objects/Fun/toys.rsi
     state: beachball
+    color: "#FFFFFF"
   - type: PointLight
     radius: 8
     energy: 6
     mask: /Textures/Effects/LightMasks/double_cone.png
   - type: RgbLightController
-    layers: [ 0 ]
+    cycleRate: 0.3
+    layers: [ 1 ]
   - type: RotatingLight
-    speed: 60
+    speed: 70
   - type: EmitSoundOnCollide
     sound:
       path: /Audio/Effects/Footsteps/bounce.ogg
