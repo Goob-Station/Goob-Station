@@ -305,6 +305,9 @@ public sealed class ServerCasinoManager : IServerCasinoManager, IPostInjectInit
         int initialBet,
         CancellationToken cancellationToken = default)
     {
+        if (!_configuration.GetCVar(CasinoCVars.CasinoEnabled))
+            return StartGameResult.Failed("Casino is disabled.");
+
         if (!_registeredGames.TryGetValue(gameId, out var game))
             return StartGameResult.Failed($"Game '{gameId}' not found");
 
@@ -316,9 +319,6 @@ public sealed class ServerCasinoManager : IServerCasinoManager, IPostInjectInit
 
         if (!ProcessBet(player, initialBet))
             return StartGameResult.Failed("Failed to process bet");
-
-        if (!_configuration.GetCVar(CasinoCVars.CasinoEnabled))
-            return StartGameResult.Failed("Casino is disabled.");
 
         try
         {
