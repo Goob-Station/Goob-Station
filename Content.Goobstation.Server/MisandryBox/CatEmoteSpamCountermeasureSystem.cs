@@ -1,8 +1,10 @@
 // SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 router <messagebus@vk.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Numerics;
 using Content.Goobstation.Common.MisandryBox;
 using Content.Goobstation.Shared.MisandryBox.Smites;
 using Content.Server.Chat.Systems;
@@ -48,7 +50,7 @@ public sealed class CatEmoteSpamCountermeasureSystem : EntitySystem
 
     private int GetCount(EntityUid entity)
     {
-        return _meowTracker.TryGetValue(entity, out var count) ? count : 0;
+        return _meowTracker.TryGetValue(entity, out var count) ? Math.max(count-2, 0) : 0;
     }
 
     public override void Update(float frameTime)
