@@ -49,10 +49,17 @@
   storage:
     back:
     - WeaponPulseCarbine # CBURN desperately needs a good fucking gun, not that dogshit. - Also, this gun is literally never used.
-    # - GrenadeFlashBang - Seriously, who the fuck is using a flashbang against a zombie/blob???
     - AmbuzolPlusMedipen # Injectors are cooler.
     - AmbuzolMedipen # Injectors are cooler.
     - AmbuzolMedipen # Injectors are cooler.
     - MedkitCombatFilled # Ah yes, let's send them in with ZERO meds. Good luck!
     - CburnSpear # SPEAAR
 # Goobstation - End - Sol
+
+- type: chameleonOutfit
+  id: CBURNChameleonOutfit
+  job: CBURN
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHelmetCBURN
+    neck: ClothingNeckScarfStripedBrown

@@ -190,6 +190,7 @@
   - type: Tag
     tags:
     - HiViz
+    - WhitelistChameleon
 
 #(Bartender) vest
 - type: entity
