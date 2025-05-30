@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Seven2280 <semvalentin123@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Server.Nutrition.EntitySystems;
 using Content.Server.Nutrition.Components;
