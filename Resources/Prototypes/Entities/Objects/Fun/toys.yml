@@ -2110,7 +2110,6 @@
     mask: /Textures/Effects/LightMasks/double_cone.png
   - type: RgbLightController
     cycleRate: 0.3
-    layers: [ 1 ]
   - type: RotatingLight
     speed: 70
   - type: EmitSoundOnCollide
