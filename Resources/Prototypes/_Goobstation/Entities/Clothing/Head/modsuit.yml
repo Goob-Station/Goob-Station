@@ -531,7 +531,7 @@
   description: A specialised gas helmet to provide oxygen more efficiently.
   categories: [ HideSpawnMenu ]
   components:
-  - type: Appearance # the fucking thing its complaining about ISNT EVEN HERE so im pushing this horseshit and then reverting it.
+  - type: Appearance
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Modsuits/atmostech.rsi
     layers:
