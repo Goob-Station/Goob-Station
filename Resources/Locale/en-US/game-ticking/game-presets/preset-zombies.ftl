@@ -24,7 +24,7 @@ zombie-infection-warning = You feel the zombie virus take hold
 zombie-infection-underway = Your blood begins to thicken
 
 ## goob edit
-zombie-start-announcement = Confirmed outbreak of level 7 biological hazard aboard the station. All personnel must contain the outbreak.
+zombie-start-announcement = Confirmed outbreak of level 7 biological hazard aboard the station. Security can no longer protect you. Make your way to protected areas and hole up for evacuation.
 
 zombie-alone = You feel entirely alone.
 

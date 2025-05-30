@@ -265,12 +265,13 @@
   ignoreArmorPierceFlags: All # Goobstation
 
 - type: damageModifierSet
-  id: Zombie #Blunt resistant and immune to biological threats, but can be hacked apart and burned
+  id: Zombie #Goob change, make zombies great again
   coefficients:
-    Blunt: 0.6
-    Piercing: 0.8
+    Blunt: 1.5
+    Piercing: 1.5
+    Slash: 1.5
     Cold: 0.3
-    Heat: 1.25
+    Heat: 1.5
     Poison: 0.0
     Radiation: 0.0
   ignoreArmorPierceFlags: All # Goobstation

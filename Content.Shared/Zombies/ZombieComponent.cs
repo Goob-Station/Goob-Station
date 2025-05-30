@@ -112,17 +112,17 @@ public sealed partial class ZombieComponent : Component
     /// The baseline infection chance you have if you are completely nude
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public float MaxZombieInfectionChance = 0.80f;
+    public float MaxZombieInfectionChance = 1.00f;
 
     /// <summary>
     /// The minimum infection chance possible. This is simply to prevent
     /// being invincible by bundling up.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public float MinZombieInfectionChance = 0.25f;
+    public float MinZombieInfectionChance = 0.05f;
 
     [ViewVariables(VVAccess.ReadWrite)]
-    public float ZombieMovementSpeedDebuff = 0.70f;
+    public float ZombieMovementSpeedDebuff = 1.05f;
 
     /// <summary>
     /// The skin color of the zombie
@@ -191,11 +191,11 @@ public sealed partial class ZombieComponent : Component
     {
         DamageDict = new ()
         {
-            { "Blunt", -0.4 },
-            { "Slash", -0.2 },
-            { "Piercing", -0.2 },
-            { "Heat", -0.02 },
-            { "Shock", -0.02 }
+            { "Blunt", -2 },
+            { "Slash", -1 },
+            { "Piercing", -1 },
+            { "Heat", -1 },
+            { "Shock", -1 }
         }
     };
 
@@ -203,7 +203,7 @@ public sealed partial class ZombieComponent : Component
     /// A multiplier applied to <see cref="PassiveHealing"/> when the entity is in critical condition.
     /// </summary>
     [DataField("passiveHealingCritMultiplier")]
-    public float PassiveHealingCritMultiplier = 2f;
+    public float PassiveHealingCritMultiplier = 5f;
 
     /// <summary>
     /// Healing given when a zombie bites a living being.
@@ -213,9 +213,11 @@ public sealed partial class ZombieComponent : Component
     {
         DamageDict = new()
         {
-            { "Blunt", -2 },
-            { "Slash", -2 },
-            { "Piercing", -2 }
+            { "Blunt", -25 },
+            { "Slash", -25 },
+            { "Piercing", -25 },
+            { "Heat", -25 },
+            { "Shock", -25 }
         }
     };
 
