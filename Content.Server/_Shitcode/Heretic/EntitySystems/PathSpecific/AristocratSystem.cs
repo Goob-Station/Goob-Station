@@ -204,8 +204,8 @@ public sealed partial class AristocratSystem : EntitySystem
         foreach (var tag in tags)
         {
             // walls
-            if (_tag.HasTag(tag.Owner, "Wall") && Prototype(tag) != null
-                && Prototype(tag)!.ID != SnowWallPrototype)
+            if (_tag.HasTag(tag.Owner, "Wall") && _rand.Prob(.45f)
+                && Prototype(tag) != null && Prototype(tag)!.ID != SnowWallPrototype)
             {
                 Spawn(SnowWallPrototype, Transform(tag).Coordinates);
                 QueueDel(tag);
