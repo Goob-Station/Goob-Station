@@ -1159,4 +1159,4 @@
         maxVol: 15
         reagents:
         - ReagentId: Stimulants
-          Quantity: 15
+          Quantity: 3.75 # Goobstation edit

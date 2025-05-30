@@ -674,10 +674,10 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 30
+        maxVol: 7.5 # Goobstation edit
         reagents:
         - ReagentId: Stimulants
-          Quantity: 30
+          Quantity: 7.5 # Goobstation edit
   - type: SolutionContainerVisuals
     maxFillLevels: 1
     changeColor: false
@@ -720,10 +720,10 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 15
+        maxVol: 3.75 # Goobstation edit
         reagents:
         - ReagentId: Stimulants
-          Quantity: 15
+          Quantity: 3.75 # Goobstation edit
   - type: SolutionContainerVisuals
     maxFillLevels: 1
     changeColor: false
