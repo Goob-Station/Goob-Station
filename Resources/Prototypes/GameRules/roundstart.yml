@@ -462,13 +462,12 @@
   - type: AntagSelection
     definitions:
     - prefRoles: [ InitialInfected ]
-      max: 10
-      playerRatio: 8
+      max: 4
+      playerRatio: 15
       jobBlacklist: [ Chaplain ]
       blacklist:
         components:
         - ZombieImmune
-        - AntagImmune
       briefing:
         text: zombie-patientzero-role-greeting
         color: Plum
