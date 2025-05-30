@@ -23,7 +23,7 @@ public sealed class BlackjackGame : ICasinoGame
 
     public string GameId => "blackjack";
     public string DisplayName => "Blackjack";
-    public string Description => "Classic 21 with splitting, doubling, and insurance";
+    public string Description => "21 ways to change your life.";
     public int MinBet => 5;
     public int MaxBet => 1250; // Doubling raises this bet to 2500, threshold for "big win" is 5000 by default so.
 
