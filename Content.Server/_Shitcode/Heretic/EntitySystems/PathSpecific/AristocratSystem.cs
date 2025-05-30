@@ -19,9 +19,11 @@ using Content.Server.Light.Components;
 using Content.Server.Light.EntitySystems;
 using Content.Server.Heretic.Components.PathSpecific;
 using Content.Shared.Atmos;
+using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Damage;
 using Content.Shared.Heretic;
 using Content.Shared.Maps;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Tag;
 using Content.Shared.Weather;
 using Robust.Server.GameObjects;
@@ -41,6 +43,7 @@ public sealed partial class AristocratSystem : EntitySystem
     [Dependency] private readonly TileSystem _tile = default!;
     [Dependency] private readonly IRobustRandom _rand = default!;
     [Dependency] private readonly IPrototypeManager _prot = default!;
+    [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly MapSystem _map = default!;
@@ -50,6 +53,7 @@ public sealed partial class AristocratSystem : EntitySystem
     [Dependency] private readonly PoweredLightSystem _light = default!;
     [Dependency] private readonly FlammableSystem _flammable = default!;
     [Dependency] private readonly SharedWeatherSystem _weather = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
 
     public override void Initialize()
     {
@@ -68,14 +72,26 @@ public sealed partial class AristocratSystem : EntitySystem
         _weather.SetWeather(xform.MapID, _prot.Index<WeatherPrototype>("SnowfallMagic"), null);
     }
 
-    private List<TileRef>? GetTileRef(Entity<AristocratComponent> ent, TransformComponent xform)
+    private List<TileRef>? GetTiles(Entity<AristocratComponent> ent)
     {
-        if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
-            return null;
+        var xform = Transform(ent);
 
-        var pos = xform.Coordinates.Position;
-        var box = new Box2(pos + new Vector2(-ent.Comp.Range, -ent.Comp.Range), pos + new Vector2(ent.Comp.Range, ent.Comp.Range));
-        var tilerefs = _map.GetLocalTilesIntersecting((EntityUid) xform.GridUid, grid, box).ToList();
+        var range = (int) ent.Comp.Range;
+
+        var tilerefs = new List<TileRef>();
+
+        for (int i = 0; i < range * 5; i++)
+        {
+            var xOffset = _rand.Next(-range, range);
+            var yOffset = _rand.Next(-range, range);
+            var offsetValue = new Vector2(xOffset, yOffset);
+
+            var coords = xform.Coordinates.Offset(offsetValue).SnapToGrid(EntityManager, _mapMan);
+            var tile = coords.GetTileRef(EntityManager, _mapMan);
+
+            if (tile.HasValue)
+                tilerefs.Add(tile.Value);
+        }
 
         return tilerefs;
     }
@@ -102,21 +118,32 @@ public sealed partial class AristocratSystem : EntitySystem
 
     private void Cycle(Entity<AristocratComponent> ent)
     {
-        var lookup = _lookup.GetEntitiesInRange(Transform(ent).Coordinates, ent.Comp.Range);
+        var coords = Transform(ent).Coordinates;
 
-        FreezeAtmos(ent);
-
-        ExtinguishFiresTiles(ent);
-
-        ExtinguishFires(ent, lookup);
-
-        DoChristmas(ent, lookup);
-
-        SmashWindows(ent, lookup);
-
-        SpookyLights(ent, lookup);
-
-        FreezeNoobs(ent, lookup);
+        for (int step = 0; step < 6; step++)
+        {
+            switch (step)
+            {
+                case 0:
+                    FreezeAtmos(ent);
+                    break;
+                case 1:
+                    ExtinguishFires(ent, coords);
+                    break;
+                case 2:
+                    ExtinguishFiresTiles(ent);
+                    break;
+                case 3:
+                    DoChristmas(ent, coords);
+                    break;
+                case 4:
+                    SpookyLights(ent, coords);
+                    break;
+                case 5:
+                    FreezeNoobs(ent, coords);
+                    break;
+            }
+        }
     }
 
     // makes shit cold
@@ -137,8 +164,7 @@ public sealed partial class AristocratSystem : EntitySystem
     // extinguish gases on tiles
     private void ExtinguishFiresTiles(Entity<AristocratComponent> ent)
     {
-        var xform = Transform(ent);
-        var tilerefs = GetTileRef(ent, xform);
+        var tilerefs = GetTiles(ent);
 
         if (tilerefs == null)
             return;
@@ -153,81 +179,68 @@ public sealed partial class AristocratSystem : EntitySystem
     }
 
     // extinguish ppl and stuff
-    private void ExtinguishFires(Entity<AristocratComponent> ent, HashSet<EntityUid> lookup)
+    private void ExtinguishFires(Entity<AristocratComponent> ent, EntityCoordinates coords)
     {
-        foreach (var look in lookup)
-        {
-            if (!TryComp<FlammableComponent>(look, out var flameComp))
-                continue;
+        var fires = _lookup.GetEntitiesInRange<FlammableComponent>(coords, ent.Comp.Range);
 
-            _flammable.Extinguish(look, flameComp);
+        foreach (var entity in fires)
+        {
+            if (entity.Comp.OnFire)
+                _flammable.Extinguish(entity);
         }
     }
 
-    // replaces certain things with their winter analogue
-    private void DoChristmas(Entity<AristocratComponent> ent, HashSet<EntityUid> lookup)
+    // replaces certain things with their winter analogue (amongst other things)
+    private void DoChristmas(Entity<AristocratComponent> ent, EntityCoordinates coords)
     {
         SpawnTiles(ent);
 
-        foreach (var look in lookup)
+        var dspec = new DamageSpecifier();
+        dspec.DamageDict.Add("Structural", 25);
+
+        var tags = _lookup.GetEntitiesInRange<TagComponent>(coords, ent.Comp.Range);
+
+        foreach (var tag in tags)
         {
-            if (!TryComp<TagComponent>(look, out var tag))
-                continue;
-
-            var tags = tag.Tags;
-
             // walls
-            if (_rand.Prob(.45f) && tags.Contains("Wall")
-            && Prototype(look) != null && Prototype(look)!.ID != SnowWallPrototype)
+            if (_tag.HasTag(tag.Owner, "Wall") && Prototype(tag) != null
+                && Prototype(tag)!.ID != SnowWallPrototype)
             {
-                Spawn(SnowWallPrototype, Transform(look).Coordinates);
-                QueueDel(look);
+                Spawn(SnowWallPrototype, Transform(tag).Coordinates);
+                QueueDel(tag);
             }
-        }
-    }
-
-    // break down windows
-    private void SmashWindows(Entity<AristocratComponent> ent, HashSet<EntityUid> lookup)
-    {
-        foreach (var look in lookup)
-        {
-            if (!TryComp<TagComponent>(look, out var tag))
-                continue;
-
-            var tags = tag.Tags;
 
             // windows
-            if (tags.Contains("Window") && Prototype(look) != null)
+            if (_tag.HasTag(tag.Owner, "Window") && Prototype(tag) != null)
             {
-                var dspec = new DamageSpecifier();
-                dspec.DamageDict.Add("Structural", 100);
-                _damage.TryChangeDamage(look, dspec, origin: ent);
+                _damage.TryChangeDamage(tag, dspec, origin: ent);
             }
         }
     }
 
     // kill the lights
-    private void SpookyLights(Entity<AristocratComponent> ent, HashSet<EntityUid> lookup)
+    private void SpookyLights(Entity<AristocratComponent> ent, EntityCoordinates coords)
     {
-        var lights = GetEntityQuery<PoweredLightComponent>();
+        var lights = _lookup.GetEntitiesInRange<PoweredLightComponent>(coords, ent.Comp.Range);
 
-        foreach (var look in lookup)
+        foreach (var light in lights)
         {
-            if (lights.HasComponent(look))
-                _light.TryDestroyBulb(look);
+            _light.TryDestroyBulb(light);
         }
     }
 
     // curses noobs
-    private void FreezeNoobs(Entity<AristocratComponent> ent, HashSet<EntityUid> lookup)
+    private void FreezeNoobs(Entity<AristocratComponent> ent, EntityCoordinates coords)
     {
-        foreach (var look in lookup)
+        var noobs = _lookup.GetEntitiesInRange<MobStateComponent>(coords, ent.Comp.Range);
+
+        foreach (var noob in noobs)
         {
             // ignore same path heretics and ghouls
-            if (HasComp<HereticComponent>(look) || HasComp<GhoulComponent>(look))
+            if (HasComp<HereticComponent>(noob) || HasComp<GhoulComponent>(noob))
                 continue;
 
-            _voidcurse.DoCurse(look);
+            _voidcurse.DoCurse(noob);
         }
     }
 
@@ -242,7 +255,7 @@ public sealed partial class AristocratSystem : EntitySystem
         if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
             return;
 
-        var tilerefs = GetTileRef(ent, xform);
+        var tilerefs = GetTiles(ent);
 
         if (tilerefs == null)
             return;

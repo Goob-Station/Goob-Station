@@ -15,7 +15,6 @@
 
 using Content.Goobstation.Shared.Atmos.Components;
 using Content.Goobstation.Shared.Body.Components;
-using Content.Goobstation.Shared.Overlays;
 using Content.Goobstation.Shared.Temperature.Components;
 using Content.Server.Atmos.Components;
 using Content.Server.Heretic.Components.PathSpecific;
@@ -34,7 +33,6 @@ namespace Content.Server.Heretic.Abilities;
 
 public sealed partial class HereticAbilitySystem
 {
-    [Dependency] private readonly IComponentFactory _compFactory = default!;
     private void SubscribeVoid()
     {
         SubscribeLocalEvent<HereticComponent, HereticAristocratWayEvent>(OnAristocratWay);
@@ -64,18 +62,8 @@ public sealed partial class HereticAbilitySystem
         flam.Damage = new(); // reset damage dict
 
         // the hunt begins
-        var thermalVision = _compFactory.GetComponent<ThermalVisionComponent>();
-        thermalVision.Color = Color.FromHex("#b4babf");
-        thermalVision.LightRadius = 7.5f;
-        thermalVision.FlashDurationMultiplier = 1f;
-        thermalVision.ActivateSound = null;
-        thermalVision.DeactivateSound = null;
-        thermalVision.ToggleAction = null;
-
-        AddComp(ent, thermalVision);
-
-        var toggleEvent = new ToggleThermalVisionEvent();
-        RaiseLocalEvent(ent, toggleEvent);
+        var voidVision = new HereticVoidVisionEvent();
+        RaiseLocalEvent(ent, voidVision);
     }
 
     private void OnVoidBlast(Entity<HereticComponent> ent, ref HereticVoidBlastEvent args)
