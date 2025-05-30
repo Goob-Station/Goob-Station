@@ -10254,3 +10254,9 @@ Entries:
       message: Tourniquets now fit in medical belts again
   id: 1137
   time: '2025-05-27T07:09:11.0000000+00:00'
+- author: CreatorBot01, Zethine
+  changes:
+    - type: Add
+      message: Added armored winter coat for security.
+  id: 1138
+  time: '2025-05-29T17:49:08.0000000+00:00'
