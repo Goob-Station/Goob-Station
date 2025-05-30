@@ -221,7 +221,7 @@
   meltingPoint: 170.0
   metabolisms:
     Narcotic:
-      metabolismRate: 1.0
+      metabolismRate: 0.25 # Goobstation edit
       effects:
       - !type:HealthChange
         conditions:
@@ -294,7 +294,7 @@
           amount: 1.2
           time: 30 # it accumulated 1.2*quantity and then exists for 30 seconds.
     Medicine:
-      metabolismRate: 1.0
+      metabolismRate: 0.25 # Goobstation edit
       effects:
         - !type:ResetNarcolepsy
         - !type:SatiateHunger
