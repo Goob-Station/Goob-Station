@@ -114,17 +114,17 @@ public sealed partial class ZombieComponent : Component
     /// The baseline infection chance you have if you are completely nude
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public float MaxZombieInfectionChance = 1.00f;
+    public float MaxZombieInfectionChance = 1.00f; ///Goobchange
 
     /// <summary>
     /// The minimum infection chance possible. This is simply to prevent
     /// being invincible by bundling up.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public float MinZombieInfectionChance = 0.05f;
+    public float MinZombieInfectionChance = 0.05f; ///Goobchange
 
     [ViewVariables(VVAccess.ReadWrite)]
-    public float ZombieMovementSpeedDebuff = 1.05f;
+    public float ZombieMovementSpeedDebuff = 1.05f; ///Goobchange
 
     /// <summary>
     /// The skin color of the zombie
@@ -191,7 +191,7 @@ public sealed partial class ZombieComponent : Component
     [DataField("passiveHealing")]
     public DamageSpecifier PassiveHealing = new()
     {
-        DamageDict = new ()
+        DamageDict = new () ///Changed to be higher for goob
         {
             { "Blunt", -2 },
             { "Slash", -1 },
@@ -205,7 +205,7 @@ public sealed partial class ZombieComponent : Component
     /// A multiplier applied to <see cref="PassiveHealing"/> when the entity is in critical condition.
     /// </summary>
     [DataField("passiveHealingCritMultiplier")]
-    public float PassiveHealingCritMultiplier = 5f;
+    public float PassiveHealingCritMultiplier = 5f; ///Goobchange
 
     /// <summary>
     /// Healing given when a zombie bites a living being.
@@ -213,7 +213,7 @@ public sealed partial class ZombieComponent : Component
     [DataField("healingOnBite")]
     public DamageSpecifier HealingOnBite = new()
     {
-        DamageDict = new()
+        DamageDict = new() ///Changed to be higher for goob
         {
             { "Blunt", -25 },
             { "Slash", -25 },

@@ -34,7 +34,7 @@ public sealed partial class PendingZombieComponent : Component
     {
         DamageDict = new ()
         {
-            { "Poison", 3 },
+            { "Poison", 3 }, ///Goobchange
         }
     };
 
@@ -57,19 +57,19 @@ public sealed partial class PendingZombieComponent : Component
     /// The minimum amount of time initial infected have before they start taking infection damage.
     /// </summary>
     [DataField]
-    public TimeSpan MinInitialInfectedGrace = TimeSpan.FromMinutes(1.0f);
+    public TimeSpan MinInitialInfectedGrace = TimeSpan.FromMinutes(1.0f); ///Goobchange
 
     /// <summary>
     /// The maximum amount of time initial infected have before they start taking damage.
     /// </summary>
     [DataField]
-    public TimeSpan MaxInitialInfectedGrace = TimeSpan.FromMinutes(2.0f);
+    public TimeSpan MaxInitialInfectedGrace = TimeSpan.FromMinutes(2.0f); ///Goobchange
 
     /// <summary>
     /// The chance each second that a warning will be shown.
     /// </summary>
     [DataField("infectionWarningChance")]
-    public float InfectionWarningChance = 0.1f;
+    public float InfectionWarningChance = 0.1f; ///Goobchange
 
     /// <summary>
     /// Infection warnings shown as popups

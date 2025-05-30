@@ -222,7 +222,7 @@ public sealed class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
 
         // we include dead for this count because we don't want to end the round
         // when everyone gets on the shuttle.
-        if (GetInfectedFraction() >= .90) // Oops, all zombies
+        if (GetInfectedFraction() >= 1) // Oops, all zombies
             _roundEnd.EndRound();
     }
 
