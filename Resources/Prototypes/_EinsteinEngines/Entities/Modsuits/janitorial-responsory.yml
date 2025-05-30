@@ -136,8 +136,8 @@
       spriteLayer: sealed
       clothingVisuals:
         outerClothing:
-        - state: equipped-HEAD-sealed
-        - state: equipped-HEAD-sealed-unshaded
+        - state: equipped-OUTERCLOTHING-sealed
+        - state: equipped-OUTERCLOTHING-sealed-unshaded
           shader: unshaded
     - type: StaminaDamageResistance
       coefficient: 0.45
