@@ -86,6 +86,8 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
 // SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Plykiya <58439124+Plykiya@users.noreply.github.com>
@@ -120,6 +122,16 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.Cargo.Systems
 {
+    // Goob Edit - Simple Order Events
+    public sealed class CargoOrderApprovedEvent(EntityUid orderEntity, string productId, NetEntity requester)
+        : EntityEventArgs
+    {
+        public EntityUid OrderEntity = orderEntity;
+        public string ProductId = productId;
+        public NetEntity Requester = requester;
+    }
+
+
     public sealed partial class CargoSystem
     {
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
@@ -129,6 +141,9 @@ namespace Content.Server.Cargo.Systems
         /// How much time to wait (in seconds) before increasing bank accounts balance.
         /// </summary>
         private const int Delay = 10;
+
+        //Goob Edit - Simple Order Events
+        private Dictionary<int, NetEntity> _requesters = new();
 
         /// <summary>
         /// Keeps track of how much time has elapsed since last balance increase.
@@ -454,7 +469,12 @@ namespace Content.Server.Cargo.Systems
             if (!component.AllowedGroups.Contains(product.Group))
                 return;
 
-            var data = GetOrderData(args, product, GenerateOrderId(orderDatabase));
+            // Goob Edit Start - Simple Order Events
+            var orderId = GenerateOrderId(orderDatabase);
+            _requesters[orderId] = GetNetEntity(player);
+
+            var data = GetOrderData(args, product, orderId);
+            // Goob Edit End
 
             if (!TryAddOrder(stationUid.Value, data, orderDatabase))
             {
@@ -663,6 +683,13 @@ namespace Content.Server.Cargo.Systems
         {
             // Create the item itself
             var item = Spawn(order.ProductId, spawn);
+
+            // Goob Edit - Simple Order Events
+            if (!_requesters.TryGetValue(order.OrderId, out var requester))
+                return false;
+
+            // Goob Edit - Simple Order Events
+            RaiseLocalEvent(new CargoOrderApprovedEvent(item, order.ProductId, requester));
 
             // Ensure the item doesn't start anchored
             _transformSystem.Unanchor(item, Transform(item));
