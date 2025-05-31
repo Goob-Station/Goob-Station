@@ -44,3 +44,11 @@ loadout-group-salvage-specialist-neck = Salvage Specialist neck
 loadout-group-chemist-head = Chemist head
 
 loadout-group-hos-shoes = Head of Security shoes
+
+loadout-group-pouch-medical = Medical pouch
+
+loadout-group-pouch-security = Security pouch
+
+loadout-group-pouch-engineering = Engineering pouch
+
+loadout-group-pouch-cargo = Cargo pouch

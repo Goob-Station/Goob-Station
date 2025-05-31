@@ -105,6 +105,7 @@
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
@@ -328,6 +329,7 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  - CargoPouch # Goobstation
 
 - type: roleLoadout
   id: JobCargoTechnician
@@ -342,6 +344,7 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  - CargoPouch # Goobstation
 
 - type: roleLoadout
   id: JobSalvageSpecialist
@@ -370,6 +373,7 @@
   - SurvivalExtended
   - Trinkets
   - GroupSpeciesBreathTool
+  - EngineeringPouch # Goobstation
 
 - type: roleLoadout
   id: JobTechnicalAssistant
@@ -380,6 +384,7 @@
   - SurvivalExtended
   - Trinkets
   - GroupSpeciesBreathTool
+  - EngineeringPouch # Goobstation
 
 - type: roleLoadout
   id: JobStationEngineer
@@ -394,6 +399,7 @@
   - SurvivalExtended
   - Trinkets
   - GroupSpeciesBreathTool
+  - EngineeringPouch # Goobstation
 
 - type: roleLoadout
   id: JobAtmosphericTechnician
@@ -407,6 +413,7 @@
   - SurvivalExtended
   - Trinkets
   - GroupSpeciesBreathTool
+  - EngineeringPouch # Goobstation
 
 # Science
 - type: roleLoadout
@@ -468,6 +475,7 @@
   - Trinkets
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
+  - SecurityPouch # Goobstation - Pouches
 
 - type: roleLoadout
   id: JobWarden
@@ -483,6 +491,7 @@
   - Trinkets
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
+  - SecurityPouch # Goobstation - Pouches
 
 - type: roleLoadout
   id: JobSecurityOfficer
@@ -499,6 +508,7 @@
   - Trinkets
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
+  - SecurityPouch # Goobstation - Pouches
 
 - type: roleLoadout
   id: JobDetective
@@ -513,6 +523,7 @@
   - Trinkets
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
+  - SecurityPouch # Goobstation - Pouches
 
 - type: roleLoadout
   id: JobSecurityCadet
@@ -524,6 +535,7 @@
   - SecurityOuterClothing # Goobstation - Why not.
   - Trinkets
   - GroupSpeciesBreathToolSecurity
+  - SecurityPouch # Goobstation - Pouches
 
 # Medical
 - type: roleLoadout
@@ -542,6 +554,7 @@
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
+  - MedicalPouch # Goobstation - Pouches
 
 - type: roleLoadout
   id: JobMedicalDoctor
@@ -559,6 +572,7 @@
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
+  - MedicalPouch # Goobstation - Pouches
 
 - type: roleLoadout
   id: JobMedicalIntern
@@ -570,6 +584,7 @@
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
+  - MedicalPouch # Goobstation - Pouches
 
 - type: roleLoadout
   id: JobChemist
@@ -585,6 +600,7 @@
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
+  - MedicalPouch # Goobstation - Pouches
 
 - type: roleLoadout
   id: JobParamedic
@@ -601,6 +617,7 @@
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
+  - MedicalPouch # Goobstation - Pouches
 
 # Wildcards
 - type: roleLoadout

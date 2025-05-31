@@ -1,0 +1,67 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Medical
+
+- type: loadout
+  id: MedicalPouchCartridgeInjector
+  equipment:
+    pocket2: PouchMedicalCartridgeInjector
+
+- type: loadout
+  id: MedicalPouchAutoInjectors
+  equipment:
+    pocket2: PouchMedicalAutoinjectors
+
+- type: loadout
+  id: MedicalPouchPills
+  equipment:
+    pocket2: PouchMedicalPills
+
+- type: loadout
+  id: MedicalPouchSurgery
+  equipment:
+    pocket2: PouchMedicalSurgery
+
+# Security
+
+- type: loadout
+  id: SecurityPouchUtility
+  equipment:
+    pocket2: PouchSecurityUtility
+
+- type: loadout
+  id: SecurityPouchFirstAid
+  equipment:
+    pocket2: PouchSecurityFirstaid
+
+# Engineering
+
+- type: loadout
+  id: EngineeringPouchLight
+  equipment:
+    pocket2: PouchEngineeringLight
+
+- type: loadout
+  id: EngineeringPouchWire
+  equipment:
+    pocket2: PouchEngineeringWire
+
+- type: loadout
+  id: EngineeringPouchInflatables
+  equipment:
+    pocket2: PouchEngineeringInflatables
+
+- type: loadout
+  id: EngineeringPouchConstruction
+  equipment:
+    pocket2: PouchEngineeringConstruction
+
+# Cargo
+
+- type: loadout
+  id: CargoPouchBureaucracy
+  equipment:
+    pocket2: PouchCargoBureaucracy
