@@ -627,7 +627,7 @@
     - id: SmugglerStashVariationPass
       prob: 0.90
 
-- type: entity
+- type: entity # Goobstation Edit: MORE STORYTELLER BEVHAVIOR AND ETC PART 1 - WonderHellblazer/WonderPsycho
   parent: BaseGameRule
   id: SubGamemodesHivelord
   components:
@@ -651,3 +651,17 @@
       prob: 1.8
     - id: SnakeSpawn
       prob: 1.9
+    - id: BlobSpawn
+      prob: 1.2
+    - id: DragonSpawn
+      prob: 1.4
+    - id: KingRatMigration
+      prob: 1.8
+    - id: ChangelingMidround
+      prob: 1.6
+    - id: CalmLing
+      prob: 1.9
+    - id: Changeling
+      prob: 1.6
+    - id: Zombie
+      prob: 1.6
