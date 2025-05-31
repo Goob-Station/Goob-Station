@@ -120,6 +120,7 @@
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Velcroboy <107660393+IamVelcroboy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 WonderPsycho <riches1823@gmail.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 # SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
@@ -626,3 +627,130 @@
       orGroup: puddleMess
     - id: SmugglerStashVariationPass
       prob: 0.90
+
+- type: entity # Goobstation Edit: MORE STORYTELLER BEVHAVIOR AND ETC PART 1 - WonderHellblazer/WonderPsycho
+  parent: BaseGameRule
+  id: SubGamemodesHivelord
+  components:
+  - type: SubGamemodes
+    rules:
+    - id: BlobGameMode
+      prob: 1.2
+    - id: BlobMidround
+      prob: 1.2
+    - id: ZombieOutbreak
+      prob: 1.6
+    - id: AnomalySpawn
+      prob: 1.8
+    - id: BingleSpawn
+      prob: 1.6
+    - id: SlimesSpawn
+      prob: 1.8
+    - id: SpiderSpawn
+      prob: 1.8
+    - id: SpiderClownSpawn
+      prob: 1.8
+    - id: SnakeSpawn
+      prob: 1.9
+    - id: BlobSpawn
+      prob: 1.2
+    - id: DragonSpawn
+      prob: 1.4
+    - id: KingRatMigration
+      prob: 1.8
+    - id: ChangelingMidround
+      prob: 1.6
+    - id: CalmLing
+      prob: 1.9
+    - id: Changeling
+      prob: 1.6
+    - id: Zombie
+      prob: 1.6
+    - id: MadScience
+      prob: 1.8
+    - id: Science
+      prob: 1.8
+    - id: TidemindDevelop
+      prob: 1.9
+
+- type: entity
+  parent: BaseGameRule
+  id: SubGamemodesMage
+  components:
+  - type: SubGamemodes
+    rules:
+    - id: BluespaceArtifact
+      prob: 1.8
+    - id: MassHallucinations
+      prob: 2.3
+    - id: AnomalySpawn
+      prob: 1.9
+    - id: KudzuGrowth
+      prob: 1.8
+    - id: CosmicCult
+      prob: 1.6
+    - id: Heretic
+      prob: 1.9
+    - id: Devil
+      prob: 1.8
+    - id: RevenantSpawn
+      prob: 1.9
+    - id: IonStorm
+      prob: 2.1
+    - id: PowerIssues
+      prob: 1.7
+    - id: TidemindDevelop
+      prob: 1.9
+
+- type: entity
+  parent: BaseGameRule
+  id: SubGamemodesChaos
+  components:
+  - type: SubGamemodes
+    rules:
+    - id: BluespaceArtifact
+      prob: 3.0
+    - id: MassHallucinations
+      prob: 4.5
+    - id: AnomalySpawn
+      prob: 2.7
+    - id: KudzuGrowth
+      prob: 4.5
+    - id: CosmicCult
+      prob: 2.4
+    - id: Heretic
+      prob: 5.0
+    - id: Devil
+      prob: 5.0
+    - id: RevenantSpawn
+      prob: 5.0
+    - id: IonStorm
+      prob: 4.6
+    - id: PowerIssues
+      prob: 4.3
+    - id: TidemindDevelop
+      prob: 6.0
+    - id: CombatDynamic
+      prob: 4.5
+    - id: Science
+      prob: 6.7
+    - id: BlobSpawn
+      prob: 4.5
+    - id: Honkop
+      prob: 5.0
+    - id: ClosetSkeleton
+      prob: 6.4
+    - id: MajorCombat
+      prob: 7.8
+    - id: ZombieOutbreak
+      prob: 9.0
+    - id: BaseUnknownShuttleRule
+      prob: 5.6
+    - id: NukeOps
+      prob: 6.0
+    - id: LoneOpsSpawn
+      prob: 7.0
+    - id: LoneAbductorSpawn
+      prob: 7.9
+    - id: Wizard
+      prob: 6.8
