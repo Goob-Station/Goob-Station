@@ -232,3 +232,76 @@
   rules:
     - SecretPlusHigh
     - LavalandStormScheduler
+
+- type: gamePreset
+  id: TheHivelord
+  alias:
+    - combat
+    - combatdynamic
+  name: hivelord-title
+  description: hivelord-description
+  showInVote: true
+  minPlayers: 30
+  rules:
+    - CombatDynamic
+    - LavalandStormScheduler
+    - BlobMidround
+    - BlobGameMode
+    - Zombie
+    - BingleSpawn
+    - Changeling
+    - ChangelingMidround
+    - CalmLing
+    - SlimesSpawn
+    - ZombieOutbreak
+    - SpiderSpawn
+    - SpiderClownSpawn
+    - SnakeSpawn
+    - KingRatMigration
+    - DragonSpawn
+    - AnomalySpawn
+    - SubGamemodesHivelord
+    - Xeno
+    - SubGamemodesRule
+    - IonStormScheduler
+    - SpaceTrafficControlEventScheduler
+
+- type: gamePreset
+  id: TheGod
+  alias:
+    - combat
+    - combatdynamic
+  name: god-title
+  description: god-description
+  showInVote: true
+  minPlayers: 22
+  rules:
+    - CombatDynamic
+    - LavalandStormScheduler
+    - RevenantSpawn
+    - MassHallucinations
+    - AnomalySpawn
+    - KudzuGrowth
+    - BluespaceArtifact
+    - Heretic
+    - Devil
+    - CosmicCult
+    - SubGamemodesRule
+    - IonStormScheduler
+    - SpaceTrafficControlEventScheduler
+
+- type: gamePreset
+  id: TheChaos
+  alias:
+    - combat
+    - combatdynamic
+  name: chaos-title
+  description: chaos-description
+  showInVote: true
+  minPlayers: 22
+  rules:
+    - CombatDynamic
+    - LavalandStormScheduler
+    - SubGamemodesRule
+    - IonStormScheduler
+    - SpaceTrafficControlEventScheduler
