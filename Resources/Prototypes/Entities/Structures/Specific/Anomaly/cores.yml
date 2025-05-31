@@ -13,7 +13,9 @@
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 yglop <95057024+yglop@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -53,11 +55,12 @@
     startPrice: 10000
     endPrice: 200
   - type: MovedByPressure #Goob - space wind moment
-    enabled: false 
+    enabled: false
 
 - type: entity
   parent: BaseAnomalyCore
   id: AnomalyCorePyroclastic
+  name: pyroclastic anomaly core # Goobstation - anomaly core names
   suffix: Pyroclastic
   components:
   - type: Sprite
@@ -79,6 +82,7 @@
 - type: entity
   parent: BaseAnomalyCore
   id: AnomalyCoreGravity
+  name: gravity anomaly core # Goobstation - anomaly core names
   suffix: Gravity
   components:
   - type: Sprite
@@ -96,6 +100,7 @@
 - type: entity
   parent: BaseAnomalyCore
   id: AnomalyCoreIce
+  name: ice anomaly core # Goobstation - anomaly core names
   suffix: Ice
   components:
   - type: Sprite
@@ -113,6 +118,7 @@
 - type: entity
   parent: BaseAnomalyCore
   id: AnomalyCoreFlesh
+  name: flesh anomaly core # Goobstation - anomaly core names
   description: The core of a destroyed flesh anomaly. Pulsates sickeningly, but might be a hearty meal if cooked.
   suffix: Flesh
   components:
@@ -131,6 +137,7 @@
 - type: entity
   parent: BaseAnomalyCore
   id: AnomalyCoreRock
+  name: rock anomaly core # Goobstation - anomaly core names
   suffix: Rock
   components:
   - type: Sprite
@@ -149,6 +156,7 @@
 - type: entity
   parent: BaseAnomalyCore
   id: AnomalyCoreLiquid
+  name: liquid anomaly core # Goobstation - anomaly core names
   suffix: Liquid
   components:
   - type: Sprite
@@ -167,6 +175,7 @@
 - type: entity
   parent: BaseAnomalyCore
   id: AnomalyCoreBluespace
+  name: bluespace anomaly core # Goobstation - anomaly core names
   suffix: Bluespace
   components:
   - type: Sprite
@@ -180,6 +189,7 @@
 - type: entity
   parent: BaseAnomalyCore
   id: AnomalyCoreElectricity
+  name: electricity anomaly core # Goobstation - anomaly core names
   suffix: Electricity
   components:
   - type: Sprite
@@ -197,6 +207,7 @@
 - type: entity
   parent: BaseAnomalyCore
   id: AnomalyCoreFlora
+  name: flora anomaly core # Goobstation - anomaly core names
   suffix: Flora
   components:
   - type: Seed
@@ -216,6 +227,7 @@
 - type: entity
   parent: [ BaseAnomalyCore, BaseShadow ]
   id: AnomalyCoreShadow
+  name: shadow anomaly core # Goobstation - anomaly core names
   suffix: Shadow
   components:
   - type: Sprite
@@ -229,6 +241,7 @@
 - type: entity
   parent: BaseAnomalyCore
   id: AnomalyCoreTech
+  name: tech anomaly core # Goobstation - anomaly core names
   suffix: Tech
   components:
   - type: Sprite
@@ -242,6 +255,7 @@
 - type: entity
   parent: BaseAnomalyCore
   id: AnomalyCoreSanta
+  name: santa anomaly core # Goobstation - anomaly core names
   suffix: Santa
   components:
   - type: Sprite
@@ -277,6 +291,7 @@
 - type: entity
   parent: BaseAnomalyInertCore
   id: AnomalyCorePyroclasticInert
+  name: pyroclastic anomaly core # Goobstation - anomaly core names
   suffix: Pyroclastic, Inert
   components:
   - type: Sprite
@@ -295,6 +310,7 @@
 - type: entity
   parent: BaseAnomalyInertCore
   id: AnomalyCoreGravityInert
+  name: gravity anomaly core # Goobstation - anomaly core names
   suffix: Gravity, Inert
   components:
   - type: Sprite
@@ -312,6 +328,7 @@
 - type: entity
   parent: BaseAnomalyInertCore
   id: AnomalyCoreIceInert
+  name: ice anomaly core # Goobstation - anomaly core names
   suffix: Ice, Inert
   components:
   - type: Sprite
@@ -329,6 +346,7 @@
 - type: entity
   parent: BaseAnomalyInertCore
   id: AnomalyCoreFleshInert # Can be microwaved to turn it into a massive piece of meat
+  name: flesh anomaly core # Goobstation - anomaly core names
   description: The inert core of a destroyed flesh anomaly. Pulsates sickeningly, but might be good food in the right hands?
   suffix: Flesh, Inert
   components:
@@ -347,6 +365,7 @@
 - type: entity
   parent: BaseAnomalyInertCore
   id: AnomalyCoreRockInert
+  name: rock anomaly core # Goobstation - anomaly core names
   suffix: Rock, Inert
   components:
   - type: Sprite
@@ -365,6 +384,7 @@
 - type: entity
   parent: BaseAnomalyInertCore
   id: AnomalyCoreLiquidInert
+  name: liquid anomaly core # Goobstation - anomaly core names
   suffix: Liquid, Inert
   components:
   - type: Sprite
@@ -383,6 +403,7 @@
 - type: entity
   parent: BaseAnomalyInertCore
   id: AnomalyCoreBluespaceInert
+  name: bluespace anomaly core # Goobstation - anomaly core names
   suffix: Bluespace, Inert
   components:
   - type: Sprite
@@ -396,6 +417,7 @@
 - type: entity
   parent: BaseAnomalyInertCore
   id: AnomalyCoreElectricityInert
+  name: electricity anomaly core # Goobstation - anomaly core names
   suffix: Electricity, Inert
   components:
   - type: Sprite
@@ -413,6 +435,7 @@
 - type: entity
   parent: BaseAnomalyInertCore
   id: AnomalyCoreFloraInert #Turns into a seed that grows into artifexium
+  name: flora anomaly core # Goobstation - anomaly core names
   suffix: Flora, Inert
   components:
   - type: Seed
@@ -432,6 +455,7 @@
 - type: entity
   parent: [ BaseAnomalyInertCore, BaseShadow ]
   id: AnomalyCoreShadowInert
+  name: shadow anomaly core # Goobstation - anomaly core names
   suffix: Shadow, Inert
   components:
   - type: Sprite
@@ -445,6 +469,7 @@
 - type: entity
   parent: BaseAnomalyInertCore
   id: AnomalyCoreTechInert
+  name: tech anomaly core # Goobstation - anomaly core names
   suffix: Tech, Inert
   components:
   - type: Sprite
@@ -458,6 +483,7 @@
 - type: entity
   parent: BaseAnomalyInertCore
   id: AnomalyCoreSantaInert
+  name: santa anomaly core # Goobstation - anomaly core names
   suffix: Santa, Inert
   components:
   - type: Sprite
