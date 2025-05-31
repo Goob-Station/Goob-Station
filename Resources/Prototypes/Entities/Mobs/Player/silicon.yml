@@ -182,6 +182,15 @@
     - sprite: Mobs/Silicon/station_ai.rsi
       state: default
   - type: ShowJobIcons
+  - type: ShowHealthIcons #Goobstation
+  - type: ShowHealthBars #Goobstation
+    damageContainers:
+    - Biological
+    - Inorganic
+    - Silicon
+    - SiliconRadiation
+  - type: ContentEye  #Goobstation
+    maxZoom: 1.44,1.44
 
 - type: entity
   id: AiHeldIntellicard
@@ -570,6 +579,9 @@
   description: The AI's viewer.
   categories: [ HideSpawnMenu, DoNotMap ]
   components:
+  - type: MovementSpeedModifier # Goobstation
+    baseSprintSpeed: 14
+    baseWalkSpeed: 28
   - type: NoFTL
   - type: WarpPoint
     follow: true

@@ -78,8 +78,10 @@
           - RadioSpeaker
     - type: ActiveListener
       range: 10
-    - type: StationAiVision
-      range: 4
+    - type: ClothingGrantComponent
+      component:
+      - type: StationAiVision
+        range: 4
     - type: Sprite
       sprite: _Goobstation/Clothing/OuterClothing/Misc/nopro.rsi
     - type: Clothing
