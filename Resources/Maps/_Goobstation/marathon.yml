@@ -53,6 +53,7 @@
 # SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -62,8 +63,8 @@ meta:
   engineVersion: 251.0.0
   forkId: ""
   forkVersion: ""
-  time: 05/16/2025 09:33:49
-  entityCount: 22691
+  time: 05/29/2025 14:06:21
+  entityCount: 22690
 maps:
 - 1
 grids:
@@ -6034,8 +6035,8 @@ entities:
           -1,9:
             0: 40433
           -1,10:
-            0: 34973
-            2: 17408
+            0: 35997
+            2: 16384
           -1,11:
             2: 21876
             0: 34952
@@ -6043,8 +6044,8 @@ entities:
             0: 34959
             2: 30032
           0,10:
-            2: 4896
-            0: 34944
+            0: 35200
+            2: 4640
           0,11:
             2: 20785
             0: 35848
@@ -6090,9 +6091,9 @@ entities:
             0: 3840
           -3,15:
             0: 19552
-            2: 8320
+            2: 128
           -3,16:
-            2: 26214
+            2: 26212
           -2,13:
             0: 36744
             2: 16452
@@ -7442,8 +7443,8 @@ entities:
           2,20:
             2: 12834
           -3,17:
-            2: 1094
             0: 57344
+            2: 1092
           -3,19:
             0: 3584
             2: 41164
@@ -13911,11 +13912,6 @@ entities:
     - type: Transform
       pos: -27.5,-46.5
       parent: 2
-  - uid: 930
-    components:
-    - type: Transform
-      pos: -50.5,50.5
-      parent: 2
   - uid: 1502
     components:
     - type: Transform
@@ -13932,6 +13928,18 @@ entities:
     components:
     - type: Transform
       pos: -48.5,39.5
+      parent: 2
+- proto: BedsheetBrigmedic
+  entities:
+  - uid: 15418
+    components:
+    - type: Transform
+      pos: -51.5,50.5
+      parent: 2
+  - uid: 15420
+    components:
+    - type: Transform
+      pos: -50.5,50.5
       parent: 2
 - proto: BedsheetCaptain
   entities:
@@ -14004,11 +14012,6 @@ entities:
     components:
     - type: Transform
       pos: -24.5,-7.5
-      parent: 2
-  - uid: 942
-    components:
-    - type: Transform
-      pos: -50.5,50.5
       parent: 2
 - proto: BedsheetNT
   entities:
@@ -14705,8 +14708,11 @@ entities:
   - uid: 1064
     components:
     - type: Transform
-      pos: -52.567253,52.64174
+      pos: -52.533577,53.32086
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 1065
     components:
     - type: Transform
@@ -52817,8 +52823,11 @@ entities:
   - uid: 8189
     components:
     - type: Transform
-      pos: -52.504753,53.54799
+      pos: -52.552116,52.737526
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 8190
     components:
     - type: Transform
@@ -53195,8 +53204,11 @@ entities:
   - uid: 8253
     components:
     - type: Transform
-      pos: -52.52038,53.282364
+      pos: -52.06089,53.654194
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: ClothingNeckBling
   entities:
   - uid: 8254
@@ -56026,10 +56038,11 @@ entities:
     - type: Transform
       pos: -32.5,-8.5
       parent: 2
-  - uid: 8680
+  - uid: 18814
     components:
     - type: Transform
-      pos: -50.5,54.5
+      rot: 1.5707963267948966 rad
+      pos: -53.5,50.5
       parent: 2
 - proto: DeployableBarrier
   entities:
@@ -100220,6 +100233,13 @@ entities:
         - 0
         - 0
         - 0
+- proto: LockerBrigmedicFilled
+  entities:
+  - uid: 15317
+    components:
+    - type: Transform
+      pos: -49.5,53.5
+      parent: 2
 - proto: LockerCaptainFilledNoLaser
   entities:
   - uid: 15286
@@ -100877,33 +100897,6 @@ entities:
         - 0
 - proto: LockerMedicalFilled
   entities:
-  - uid: 15317
-    components:
-    - type: Transform
-      pos: -49.5,53.5
-      parent: 2
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.1496
-        moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
   - uid: 15318
     components:
     - type: Transform
@@ -101785,6 +101778,16 @@ entities:
       parent: 2
 - proto: MedicalBed
   entities:
+  - uid: 930
+    components:
+    - type: Transform
+      pos: -50.5,50.5
+      parent: 2
+  - uid: 942
+    components:
+    - type: Transform
+      pos: -51.5,50.5
+      parent: 2
   - uid: 15409
     components:
     - type: Transform
@@ -101836,22 +101839,12 @@ entities:
     - type: Transform
       pos: -17.763237,-18.499166
       parent: 2
-  - uid: 15418
-    components:
-    - type: Transform
-      pos: -51.477226,53.661713
-      parent: 2
 - proto: MedkitFilled
   entities:
   - uid: 15419
     components:
     - type: Transform
       pos: -18.575735,-18.342916
-      parent: 2
-  - uid: 15420
-    components:
-    - type: Transform
-      pos: -50.48913,53.64174
       parent: 2
   - uid: 15421
     components:
@@ -101879,11 +101872,6 @@ entities:
     components:
     - type: Transform
       pos: -16.716362,-18.374166
-      parent: 2
-  - uid: 15426
-    components:
-    - type: Transform
-      pos: -51.008476,53.677338
       parent: 2
   - uid: 15427
     components:
@@ -101985,34 +101973,6 @@ entities:
       parent: 2
 - proto: Morgue
   entities:
-  - uid: 15443
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -52.5,51.5
-      parent: 2
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.1496
-        moles:
-        - 3.4430928
-        - 12.952587
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
   - uid: 15444
     components:
     - type: Transform
@@ -102327,6 +102287,11 @@ entities:
         - 0
         - 0
         - 0
+  - uid: 18817
+    components:
+    - type: Transform
+      pos: -50.5,53.5
+      parent: 2
 - proto: Multitool
   entities:
   - uid: 15456
@@ -118427,6 +118392,13 @@ entities:
     - type: Transform
       pos: -24.5,16.5
       parent: 2
+- proto: SpawnPointBrigmedic
+  entities:
+  - uid: 8680
+    components:
+    - type: Transform
+      pos: -50.5,52.5
+      parent: 2
 - proto: SpawnPointCaptain
   entities:
   - uid: 18143
@@ -118991,8 +118963,11 @@ entities:
   - uid: 18237
     components:
     - type: Transform
-      pos: -52.02038,53.73549
+      pos: -51.402824,53.58012
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: Stairs
   entities:
   - uid: 18238
@@ -121820,6 +121795,11 @@ entities:
       parent: 2
 - proto: Syringe
   entities:
+  - uid: 15426
+    components:
+    - type: Transform
+      pos: -49.58751,50.600334
+      parent: 2
   - uid: 18564
     components:
     - type: Transform
@@ -123095,7 +123075,7 @@ entities:
       parent: 2
 - proto: TableGlass
   entities:
-  - uid: 18814
+  - uid: 15443
     components:
     - type: Transform
       pos: -52.5,52.5
@@ -123109,11 +123089,6 @@ entities:
     components:
     - type: Transform
       pos: -51.5,53.5
-      parent: 2
-  - uid: 18817
-    components:
-    - type: Transform
-      pos: -50.5,53.5
       parent: 2
   - uid: 18818
     components:
@@ -142656,12 +142631,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -49.5,53.5
-      parent: 2
-  - uid: 22435
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -52.5,51.5
       parent: 2
   - uid: 22436
     components:
