@@ -149,7 +149,7 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
-  - type: MobMood
+  - type: MobMood # Goobstation: Mood System
     mobMoods:
     - id: Injured
       mobMoodletModifierEventListenerId: Damaged
