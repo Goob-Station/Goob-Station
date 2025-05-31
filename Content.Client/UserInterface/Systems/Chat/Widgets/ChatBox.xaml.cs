@@ -142,6 +142,7 @@ public partial class ChatBox : UIWidget
 
     public void Repopulate()
     {
+        Contents.RemoveAllChildren();
         Contents.Clear();
 
         foreach (var message in _controller.History)
@@ -152,6 +153,7 @@ public partial class ChatBox : UIWidget
 
     private void OnChannelFilter(ChatChannel channel, bool active)
     {
+        Contents.RemoveAllChildren();
         Contents.Clear();
 
         foreach (var message in _controller.History)
@@ -175,7 +177,7 @@ public partial class ChatBox : UIWidget
         {
             int displayRepeat = repeat + 1;
             int sizeIncrease = Math.Min(displayRepeat / 6, 5);
-            formatted.AddMarkup(_loc.GetString("chat-system-repeated-message-counter",
+            formatted.AddMarkupOrThrow(_loc.GetString("chat-system-repeated-message-counter",
                                 ("count", displayRepeat),
                                 ("size", 8+sizeIncrease)
                                 ));
