@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
@@ -50,11 +51,13 @@
     capacity: 1
     count: 1
   - type: UpgradeableGun
-    maxUpgradeCapacity: 70
+    maxUpgradeCapacity: 100
     whitelist:
       tags:
       - PKAUpgrade
   - type: GunRequiresWield
+  - type: Gun
+    fireRate: 0.4 #goobstation
   - type: Item
     shape:
     - 0,0,4,0
@@ -97,7 +100,7 @@
     capacity: 3
     count: 3
   - type: UpgradeableGun
-    maxUpgradeCapacity: 70
+    maxUpgradeCapacity: 100
     whitelist:
       tags:
       - PKAUpgrade
@@ -133,7 +136,7 @@
     capacity: 1
     count: 1
   - type: UpgradeableGun
-    maxUpgradeCapacity: 200
+    maxUpgradeCapacity: 70
     whitelist:
       tags:
       - PKAUpgrade
@@ -146,6 +149,8 @@
     shape:
     - 0,0,1,0
     - 0,1,0,1
+  - type: Multishot
+    missChance: 0.3
 
 # Lavaland Change
 - type: entity
