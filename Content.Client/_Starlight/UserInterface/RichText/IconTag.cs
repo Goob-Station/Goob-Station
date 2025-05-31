@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Content.Shared.StatusIcon;
