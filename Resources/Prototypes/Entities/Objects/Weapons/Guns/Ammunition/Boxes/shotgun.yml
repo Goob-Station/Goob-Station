@@ -8,6 +8,10 @@
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 K-Dynamic <20566341+K-Dynamic@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ps3Moira <113228053+ps3moira@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -47,7 +51,7 @@
 - type: entity
   parent: AmmoProviderShotgunShell
   id: BoxBeanbag
-  name: ammunition box (.50 beanbag)
+  name: ammunition box (12 Gauge beanbag) # Goob edit
   components:
     - type: BallisticAmmoProvider
       proto: ShellShotgunBeanbag
@@ -60,7 +64,7 @@
       - state: beanbag
 
 - type: entity
-  name: ammunition box (.50 pellet)
+  name: ammunition box (12 Gauge pellet) # Goob edit
   parent: AmmoProviderShotgunShell
   id: BoxLethalshot
   components:
@@ -75,7 +79,7 @@
       - state: lethal
 
 - type: entity
-  name: ammunition box (.50 slug)
+  name: ammunition box (12 Gauge slug) # Goob edit
   parent: AmmoProviderShotgunShell
   id: BoxShotgunSlug
   components:
@@ -94,7 +98,7 @@
       - state: slug
 
 - type: entity
-  name: ammunition box (.50 flare)
+  name: ammunition box (12 Gauge flare) # Goob edit
   parent: AmmoProviderShotgunShell
   id: BoxShotgunFlare
   components:
@@ -109,7 +113,7 @@
       - state: flare
 
 - type: entity
-  name: ammunition box (.50 incendiary)
+  name: ammunition box (12 Gauge incendiary) # Goob edit
   parent: AmmoProviderShotgunShell
   id: BoxShotgunIncendiary
   components:
@@ -124,7 +128,7 @@
       - state: incendiary
 
 - type: entity
-  name: ammunition box (.50 uranium)
+  name: ammunition box (12 Gauge uranium) # Goob edit
   parent: AmmoProviderShotgunShell
   id: BoxShotgunUranium
   components:
@@ -143,7 +147,7 @@
       - state: uranium
 
 - type: entity
-  name: ammunition box (.50 practice)
+  name: ammunition box (12 Gauge practice) # Goob edit
   parent: AmmoProviderShotgunShell
   id: BoxShotgunPractice
   components:
@@ -158,7 +162,7 @@
       - state: practice
 
 - type: entity
-  name: ammunition box (.50 tranquilizer)
+  name: ammunition box (12 Gauge tranquilizer) # Goob edit
   parent: AmmoProviderShotgunShell
   id: BoxShellTranquilizer
   components:
