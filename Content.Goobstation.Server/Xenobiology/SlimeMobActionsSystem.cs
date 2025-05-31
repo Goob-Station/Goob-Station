@@ -119,9 +119,8 @@ public sealed class SlimeMobActionsSystem : EntitySystem
             || component.LatchedTarget.HasValue
             || !HasComp<HumanoidAppearanceComponent>(target)
             || _mobState.IsDead(target)
-            || _actionBlocker.CanInteract(uid, target))
+            || !_actionBlocker.CanInteract(uid, target))
             return false;
-
 
         DoSlimeLatch(uid, target, component);
         return true;

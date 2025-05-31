@@ -15,10 +15,6 @@
   - type: Clothing
     slots: BACK
     sprite: _Goobstation/Xenobiology/Specific/Xenobiology/slime_pack.rsi
-  - type: UserInterface
-    interfaces:
-      enum.StorageUiKey.Key:
-        type: StorageBoundUserInterface
   - type: ContainerContainer
     containers:
       tankbase: !type:Container

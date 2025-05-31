@@ -1,14 +1,8 @@
-using System.Linq;
-using Content.Goobstation.Shared.Xenobiology;
 using Content.Goobstation.Shared.Xenobiology.Components;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Interaction;
-using Content.Shared.Interaction.Events;
-using Content.Shared.Inventory;
-using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Nyanotrasen.Item.PseudoItem;
-using Robust.Shared.Audio;
 
 namespace Content.Goobstation.Server.Xenobiology;
 
