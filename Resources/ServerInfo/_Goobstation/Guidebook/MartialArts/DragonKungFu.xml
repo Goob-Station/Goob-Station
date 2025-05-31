@@ -1,0 +1,55 @@
+<Document>
+
+  # Dragon Kung Fu
+
+  <Box>
+    <GuideEntityEmbed Entity="BSOManual" Caption=""/>
+  </Box>
+
+  Dragon Kung Fu is a Shaolin [textlink="martial art" link="MartialArts"] focused on defense and control.
+  Fluid movements and powerful strikes come with patience and resilience. Perfect for bodyguards, it strengthens defenses and counters with precision.
+  Blueshield Officers can select the manual of this martial art in their weaponry box.
+
+  ## Special abilities
+
+  ### Dragon Power
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookDragonPower" Caption=""/>
+  </Box>
+
+  A moment of staying still unarmed turns the warrior into a living mountain, greatly lowering
+  the force of incoming melee strikes and boosting their own attacks, both armed and not.
+
+  ## Combo attacks
+
+  ### Dragon Claw
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+  </Box>
+
+  Deals massive Stamina damage and slows the opponent down significantly.
+
+  ### Dragon Tail
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookGrab" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+  </Box>
+
+  Deals Blunt and Stamina damage. Knocks the opponent down if they are standing, and applies a short stun otherwise.
+
+  ### Dragon Strike
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+  </Box>
+
+  Deals 40 damage and stuns for 2 seconds. Only works on downed opponents.
+
+</Document>

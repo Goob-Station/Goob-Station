@@ -1,0 +1,47 @@
+- type: entity
+  id: GuidebookHelp
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Interface/Misc/intents.rsi
+    state: help
+
+- type: entity
+  id: GuidebookHarm
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Interface/Misc/intents.rsi
+    state: harm
+
+- type: entity
+  id: GuidebookDisarm
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Interface/Misc/intents.rsi
+    state: disarm
+
+- type: entity
+  id: GuidebookGrab
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Interface/Misc/intents.rsi
+    state: grab
+
+- type: entity
+  id: GuidebookLossOfSurprise
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: /Textures/Structures/Storage/closet.rsi
+    state: cardboard_special
+
+- type: entity
+  id: GuidebookDragonPower
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Interface/Alerts/dragonpower.rsi
+    state: icon

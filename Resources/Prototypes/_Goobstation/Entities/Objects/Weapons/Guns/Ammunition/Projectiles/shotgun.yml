@@ -314,7 +314,7 @@
     damage:
       types:
         Piercing: 30
-    armorPenetration: 0.5
+      armorPenetration: 0.5
   - type: StaminaDamageOnCollide
     damage: 40
   - type: ContainerContainer
