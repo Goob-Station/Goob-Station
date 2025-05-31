@@ -130,6 +130,8 @@ using Robust.Shared.Utility;
 using TimedDespawnComponent = Robust.Shared.Spawners.TimedDespawnComponent;
 
 // Shitmed Change
+using Content.Shared._Shitmed.Damage;
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
 using Content.Shared.Body.Components;
 using System.Linq;
@@ -575,49 +577,7 @@ public sealed partial class ExplosionSystem
                 }
 
                 // TODO EXPLOSIONS turn explosions into entities, and pass the the entity in as the damage origin.
-                // Shitmed Change Start
-                if (TryComp<BodyComponent>(entity, out var body)
-                    && HasComp<ConsciousnessComponent>(entity))
-                {
-                    var bodyParts = _body.GetBodyChildren(entity, body).ToList();
-                                        _robustRandom.Shuffle(bodyParts);
-
-                    var prioritisedParts = new List<EntityUid>();
-                    var chosenPart = bodyParts.First();
-
-                    prioritisedParts.Add(chosenPart.Id);
-                    bodyParts.Remove(chosenPart);
-
-                    if (_body.TryGetParentBodyPart(chosenPart.Id, out var parent, out var parentComponent))
-                    {
-                        prioritisedParts.Add(parent.Value);
-                        bodyParts.Remove((parent.Value, parentComponent));
-                    }
-
-                    var children = _body.GetBodyPartChildren(chosenPart.Id, chosenPart.Component).ToList();
-                    _robustRandom.Shuffle(children);
-
-                    prioritisedParts.Add(children.First().Id);
-                    bodyParts.Remove(children.First());
-
-                    foreach (var part in prioritisedParts)
-                    {
-                        var targetPart = _body.GetTargetBodyPart(part);
-                        _damageableSystem.TryChangeDamage(uid, damage / prioritisedParts.Count, ignoreResistances: true, targetPart: targetPart);
-                    }
-
-                    foreach (var bodyPart in bodyParts)
-                    {
-                        // Distribute the last damage on the other parts... for the cinematic effect :3
-                        var targetPart = _body.GetTargetBodyPart(bodyPart.Id);
-                        _damageableSystem.TryChangeDamage(uid, damage / bodyParts.Count, ignoreResistances: true, targetPart: targetPart);
-                    }
-                }
-                else
-                {
-                    _damageableSystem.TryChangeDamage(entity, damage, ignoreResistances: true);
-                }
-                // Shitmed Change End
+                _damageableSystem.TryChangeDamage(entity, damage, ignoreResistances: true, targetPart: TargetBodyPart.All, splitDamage: SplitDamageBehavior.Split); // Shitmed Change
             }
         }
 

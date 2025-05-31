@@ -492,7 +492,7 @@ public partial class TraumaSystem
 
         if (bodyPart.PartType == BodyPartType.Chest
             || bodyPart.PartType == BodyPartType.Groin
-            && Comp<WoundableComponent>(parentWoundable.Value).WoundableSeverity != WoundableSeverity.Critical)
+            && Comp<WoundableComponent>(parentWoundable.Value).WoundableSeverity != WoundableSeverity.Mangled)
             return false;
 
         var deduction = GetTraumaChanceDeduction(

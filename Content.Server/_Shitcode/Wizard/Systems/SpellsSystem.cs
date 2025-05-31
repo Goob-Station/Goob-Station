@@ -40,6 +40,7 @@ using Content.Shared._Goobstation.Wizard.Chuuni;
 using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
 using Content.Shared._Goobstation.Wizard.SpellCards;
 using Content.Shared._Shitmed.Targeting;
+using Content.Shared._Shitmed.Damage; // Shitmed Change
 using Content.Shared.Actions;
 using Content.Shared.Chat;
 using Content.Shared.Chemistry.Components;
@@ -592,7 +593,8 @@ public sealed class SpellsSystem : SharedSpellsSystem
                 -invocationEv.ToHeal,
                 true,
                 false,
-                targetPart: TargetBodyPart.All);
+                targetPart: TargetBodyPart.All,
+                splitDamage: SplitDamageBehavior.SplitEnsureAll);
 
             if (speakerUid != casterUid)
             {
@@ -601,7 +603,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
                     true,
                     false,
                     targetPart: TargetBodyPart.All,
-                    splitDamage: false);
+                    splitDamage: SplitDamageBehavior.SplitEnsureAll);
             }
         }
 

@@ -197,6 +197,9 @@ public sealed class PartStatusSystem : EntitySystem
         {
             message.PushTag(new MarkupNode("examineborder", null, null)); // border
             message.PushNewline();
+        }
+        else
+        {
             titlestring += "-styleless";
         }
 

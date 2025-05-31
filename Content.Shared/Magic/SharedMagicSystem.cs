@@ -97,6 +97,7 @@ using Content.Shared._Goobstation.Wizard;
 using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared._Goobstation.Wizard.Chuuni;
 using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
+using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Actions;
 using Content.Shared.Body.Components;
@@ -962,7 +963,7 @@ public abstract class SharedMagicSystem : EntitySystem
                     true,
                     false,
                     targetPart: TargetBodyPart.All,
-                    splitDamage: false); // Shitmed Change
+                    splitDamage: SplitDamageBehavior.SplitEnsureAll); // Shitmed Change
             }
         }
 
