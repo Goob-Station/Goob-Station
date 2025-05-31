@@ -1,0 +1,3 @@
+club.ogg from Battle for Wesnoth (© Battle for Wesnoth Project contributors)
+Licensed under GNU GPL v2 or later or CC BY-SA 4.0
+https://github.com/wesnoth/wesnoth

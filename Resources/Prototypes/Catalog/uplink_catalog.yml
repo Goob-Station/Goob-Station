@@ -145,6 +145,8 @@
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2024 Эдуард <36124833+Ertanic@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aineias1 <142914808+Aineias1@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
@@ -324,6 +326,10 @@
     Telecrystal: 50 # goob unbunde update
   categories:
   - UplinkWeaponry
+  conditions:
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Oni # goob
 
 
 - type: listing
@@ -336,6 +342,10 @@
     Telecrystal: 60 # goob
   categories:
   - UplinkWeaponry
+  conditions:
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Oni # goob
 
 
 - type: listing
@@ -348,6 +358,10 @@
     Telecrystal: 150 # goob
   categories:
   - UplinkWeaponry
+  conditions:
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Oni # goob
 
 
 - type: listing
@@ -360,6 +374,10 @@
     Telecrystal: 100 # goob
   categories:
   - UplinkWeaponry
+  conditions:
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Oni # goob
 
 
 # Explosives
@@ -696,6 +714,10 @@
     Telecrystal: 9 # goob
   categories:
   - UplinkAmmo
+  conditions:
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Oni # goob
 
 # for the hristov
 - type: listing
@@ -707,6 +729,10 @@
     Telecrystal: 10 # goob
   categories:
   - UplinkAmmo
+  conditions:
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Oni # goob
 
 #- type: listing # Goob - why does it even exists?
 #  id: UplinkAmmoBundle
