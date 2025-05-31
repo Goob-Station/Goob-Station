@@ -7,6 +7,7 @@
 // SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -20,11 +21,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
 using Content.Shared.Mobs.Components;
-using Robust.Shared.Audio;
-using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Timing;
 
@@ -37,27 +35,35 @@ public abstract class SharedDamageSquareSystem : EntitySystem
 {
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly DamageableSystem _dmg = default!;
-    [Dependency] private readonly SharedAudioSystem _aud = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-
-    private const float ImmunityFrames = 0.3f;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<DamageSquareComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<DamageSquareComponent, ComponentStartup>(OnMapInit);
     }
 
-    private void OnMapInit(Entity<DamageSquareComponent> ent, ref MapInitEvent args)
+    public override void Update(float frameTime)
     {
-        Timer.Spawn((int) ent.Comp.DamageDelay * 1000,
-            () =>
-            {
-                if (!TerminatingOrDeleted(ent))
-                    Damage(ent);
-            });
+        base.Update(frameTime);
+
+        if (!_timing.IsFirstTimePredicted)
+            return;
+
+        var query = EntityQueryEnumerator<DamageSquareComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out var damage, out _))
+        {
+            if (_timing.CurTime < damage.DamageTime)
+                continue;
+
+            Damage((uid, damage));
+        }
+    }
+
+    private void OnMapInit(Entity<DamageSquareComponent> ent, ref ComponentStartup args)
+    {
+        ent.Comp.DamageTime = _timing.CurTime + TimeSpan.FromSeconds(ent.Comp.DamageDelay);
     }
 
     private void Damage(Entity<DamageSquareComponent> field)
@@ -86,15 +92,17 @@ public abstract class SharedDamageSquareSystem : EntitySystem
                 RemComp(entity, immunity);
             }
 
-            // Damage
-            _dmg.TryChangeDamage(entity, field.Comp.Damage, damageable: dmg, targetPart: TargetBodyPart.Chest);
-            // Sound
-            if (field.Comp.Sound != null)
-                _aud.PlayEntity(field.Comp.Sound, entity, entity, AudioParams.Default.WithVolume(-3f));
+            // Do the damage and audio only on server side because shitcode.
+            // But it works trust
+            DoDamage(field, (entity, dmg));
+
             // Immunity frames
-            EnsureComp<DamageSquareImmunityComponent>(entity).HasImmunityUntil = _timing.CurTime + TimeSpan.FromSeconds(ImmunityFrames);
+            EnsureComp<DamageSquareImmunityComponent>(entity).HasImmunityUntil =
+                _timing.CurTime + TimeSpan.FromSeconds(field.Comp.ImmunityTime);
         }
 
         RemComp(field, field.Comp);
     }
+
+    protected abstract void DoDamage(Entity<DamageSquareComponent> field, Entity<DamageableComponent> entity);
 }
