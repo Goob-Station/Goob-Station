@@ -6,6 +6,10 @@
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 ImHoks <142083149+ImHoks@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ImHoks <imhokzzzz@gmail.com>
+// SPDX-FileCopyrightText: 2025 KillanGenifer <killangenifer@gmail.com>
 // SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
 //
@@ -25,6 +29,8 @@ using Content.Shared.Emag.Systems;
 using Robust.Shared.Utility;
 using Content.Server._Imp.Drone; //Goobstation drone
 using Robust.Shared.Player; //Goobstation drone
+using Content.Shared._CorvaxNext.Silicons.Borgs.Components; // Corvax-Next-AiRemoteControl
+
 namespace Content.Server.Silicons.Borgs;
 
 /// <inheritdoc/>
@@ -64,7 +70,8 @@ public sealed partial class BorgSystem
                 charge,
                 chassis.ModuleCount,
                 hasBrain,
-                canDisable);
+                canDisable,
+                HasComp<AiRemoteControllerComponent>(uid)); // Corvax-Next-AiRemoteControl
 
             var payload = new NetworkPayload()
             {
@@ -89,6 +96,7 @@ public sealed partial class BorgSystem
                 1f,
                 0,
                 hasBrain,
+                false, // Corvax-Next-AiRemoteControl
                 false);
 
             var payload = new NetworkPayload()

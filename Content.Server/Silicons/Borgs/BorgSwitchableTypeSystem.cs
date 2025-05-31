@@ -1,10 +1,13 @@
 // SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 KillanGenifer <killangenifer@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Inventory;
 using Content.Server.Radio.Components;
+using Content.Shared._CorvaxNext.Silicons.Borgs.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Silicons.Borgs;
 using Content.Shared.Silicons.Borgs.Components;
@@ -32,6 +35,23 @@ public sealed class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeSystem
 
         if (TryComp(ent, out ActiveRadioComponent? activeRadio))
             activeRadio.Channels = [.. radioChannels];
+
+        // Corvax-Next-AiRemoteControl-Start
+        if (TryComp(ent, out AiRemoteControllerComponent? aiRemoteComp))
+        {
+            if (TryComp(aiRemoteComp.AiHolder, out IntrinsicRadioTransmitterComponent? stationAiTransmitter) && transmitter != null)
+            {
+                aiRemoteComp.PreviouslyTransmitterChannels = [.. radioChannels];
+                transmitter.Channels = [.. stationAiTransmitter.Channels];
+            }
+
+            if (TryComp(aiRemoteComp.AiHolder, out ActiveRadioComponent? stationAiActiveRadio) && activeRadio != null)
+            {
+                aiRemoteComp.PreviouslyActiveRadioChannels = [.. radioChannels];
+                activeRadio.Channels = [.. stationAiActiveRadio.Channels];
+            }
+        }
+        // Corvax-Next-AiRemoteControl-End
 
         // Borg transponder for the robotics console
         if (TryComp(ent, out BorgTransponderComponent? transponder))

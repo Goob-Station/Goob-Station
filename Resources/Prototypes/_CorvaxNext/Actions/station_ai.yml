@@ -1,0 +1,34 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 KillanGenifer <killangenifer@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: ActionBackToAi
+  name: Back to Ai
+  description: Sends your mind back to the core.
+  components:
+  - type: InstantAction
+    checkConsciousness: false
+    checkCanInteract: false
+    priority: -9
+    itemIconStyle: BigAction
+    icon:
+      sprite: Interface/Actions/actions_ai.rsi
+      state: ai_core
+    event: !type:ReturnMindIntoAiEvent
+    
+- type: entity
+  id: ActionOpenRemoteDevicesMenu
+  name: Open list of remote devices
+  description: Opens a menu with available remote devices.
+  components:
+  - type: InstantAction
+    checkConsciousness: false
+    checkCanInteract: false
+    priority: -9
+    itemIconStyle: BigAction
+    event: !type:ToggleRemoteDevicesScreenEvent
+    icon:
+      sprite: Mobs/Silicon/chassis.rsi
+      state: robot
