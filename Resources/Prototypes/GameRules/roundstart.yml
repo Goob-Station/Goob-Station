@@ -665,3 +665,38 @@
       prob: 1.6
     - id: Zombie
       prob: 1.6
+    - id: MadScience
+      prob: 1.8
+    - id: Science
+      prob: 1.8
+    - id: TidemindDevelop
+      prob: 1.9
+
+- type: entity
+  parent: BaseGameRule
+  id: SubGamemodesGod
+  components:
+  - type: SubGamemodes
+    rules:
+    - id: BluespaceArtifact
+      prob: 1.8
+    - id: MassHallucinations
+      prob: 2.3
+    - id: AnomalySpawn
+      prob: 1.9
+    - id: KudzuGrowth
+      prob: 1.8
+    - id: CosmicCult
+      prob: 1.6
+    - id: Heretic
+      prob: 1.9
+    - id: Devil
+      prob: 1.8
+    - id: RevenantSpawn
+      prob: 1.9
+    - id: IonStorm
+      prob: 2.1
+    - id: PowerIssues
+      prob: 1.7
+    - id: TidemindDevelop
+      prob: 1.9
