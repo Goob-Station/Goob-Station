@@ -751,3 +751,5 @@
       prob: 7.0
     - id: LoneAbductorSpawn
       prob: 7.9
+    - id: Wizard
+      prob: 6.8

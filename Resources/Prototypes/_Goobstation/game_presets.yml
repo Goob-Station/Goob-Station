@@ -303,6 +303,7 @@
     - CombatDynamic
     - LavalandStormScheduler
     - Honkops
-    - SubGamemodesRule
+    - Wizard
+    - SubGamemodesChaos
     - IonStormScheduler
     - SpaceTrafficControlEventScheduler
