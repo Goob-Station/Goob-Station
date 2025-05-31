@@ -15,7 +15,9 @@
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -103,17 +105,31 @@
     autoRot: true
     netsync: false
 
+# HoS web vest
+- type: entity
+  parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase, BaseSecurityCommandContraband]
+  id: ClothingOuterArmorHoSVestWeb
+  name: head of security's web vest
+  description: A high-quality armored vest made from a hard synthetic material. It is surprisingly flexible and light, despite formidable armor plating.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Armor/web_vest_hos.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Armor/web_vest_hos.rsi
+
 # Blueshield Armour Vest
 - type: entity
   parent: [ BaseCentcommContraband, ClothingOuterArmorCaptainCarapace ]
   id: ClothingBlueshieldArmourVest
   name: blueshield's security armour
-  description: An armoured vest with the badge of the blueshield.
+  description: An armoured vest with the badge of the blueshield. Utilizes bluespace technology to be more compact.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Armor/bso_armour.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Armor/bso_armour.rsi
+  - type: Item
+    size: Normal
 
 - type: entity
   parent: ClothingBlueshieldArmourVest
@@ -125,8 +141,6 @@
     sprite: _Goobstation/Clothing/OuterClothing/Armor/blueshield_jacket.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/OuterClothing/Armor/blueshield_jacket.rsi
-  - type: Item
-    size: Normal
 
 - type: entity
   parent: ClothingBlueshieldArmourVest
@@ -138,8 +152,30 @@
     sprite: _Goobstation/Clothing/OuterClothing/Armor/blueshield_cowboy_jacket.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/OuterClothing/Armor/blueshield_cowboy_jacket.rsi
+
+- type: entity
+  parent: [ ClothingBlueshieldArmourVest, ClothingOuterWinterCoatToggleable ]
+  id: ClothingOuterWinterBlueshield
+  name: blueshield's armored winter coat
+  description: A blue winter coat reinforced with kevlar in the chest area.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/bso_winter_coat.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/bso_winter_coat.rsi
   - type: Item
     size: Normal
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.5
+        Heat: 0.4
+        Caustic: 0.65
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHatHoodWinterBso
 
 # CentralCommand
 
@@ -228,7 +264,7 @@
   description: What began as a simple cosplay cloak was illegally reinforced with armored plates, transforming it into a functional piece of armor. Looks like it's even capable of protecting the user from the lack of pressure in space.
   components:
   - type: Sprite
-    sprite: _Goobstation/Heretic/void_cloak.rsi
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/void_cloak.rsi
     layers:
     - state: icon
       map: [ "base" ]

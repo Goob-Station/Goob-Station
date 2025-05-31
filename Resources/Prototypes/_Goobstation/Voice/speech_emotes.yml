@@ -4,6 +4,8 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -154,3 +156,63 @@
    - flaps her wings
    - flaps their wings
    - flaps its wings
+
+- type: emote
+  id: Trill
+  name: chat-emote-name-trill
+  category: Vocal
+  available: false
+  icon: _Goobstation/Interface/Emotes/caw.png
+  whitelist:
+    components:
+      - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-trill"]
+  chatTriggers:
+    - trill
+    - trills
+    - trilling
+    - trilled
+
+- type: emote
+  id: Warble
+  name: chat-emote-name-warble
+  category: Vocal
+  available: false
+  icon: _Goobstation/Interface/Emotes/caw.png
+  whitelist:
+    components:
+      - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-warble"]
+  chatTriggers:
+    - warble
+    - warbles
+    - warbling
+    - warbled
+
+- type: emote
+  id: Wurble
+  name: chat-emote-name-wurble
+  category: Vocal
+  available: false
+  icon: _Goobstation/Interface/Emotes/caw.png
+  whitelist:
+    tags:
+    - ShadowkinEmotes
+    - HarpyEmotes
+    components:
+      - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-wurble"]
+  chatTriggers:
+    - wurble
+    - wurbles
+    - wurbling
+    - wurbled

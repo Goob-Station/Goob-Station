@@ -57,7 +57,6 @@
 # SPDX-FileCopyrightText: 2024 Preston Smith <92108534+thetolbean@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 RedBookcase <Usualmoves@gmail.com>
-# SPDX-FileCopyrightText: 2024 RedBookcase <crazykid1590@gmail.com>
 # SPDX-FileCopyrightText: 2024 Repo <47093363+Titian3@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 RiceMar1244 <138547931+RiceMar1244@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Scribbles0 <91828755+Scribbles0@users.noreply.github.com>
@@ -109,9 +108,12 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 LuciferEOS <stepanteliatnik2022@gmail.com>
+# SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 RedBookcase <crazykid1590@gmail.com>
 # SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
@@ -125,6 +127,7 @@
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 vanx <61917534+Vaaankas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
@@ -260,6 +263,7 @@
   - type: ThrowingAngle
     angle: 225
   - type: ThrowableBlocked # Goobstation
+  - type: AttachmentBayonet # Lavaland Change
 
 - type: entity
   name: survival knife
@@ -275,7 +279,6 @@
     storedSprite:
       state: storage
       sprite: Objects/Weapons/Melee/survival_knife.rsi
-  - type: AttachmentBayonet # Lavaland Change
 
 - type: entity
   name: kukri knife
@@ -357,7 +360,7 @@
     attackRate: 1.5
     damage:
       types:
-        Slash: 5.5
+        Slash: 6 # goob edit
   - type: Item
     sprite: Objects/Weapons/Melee/shiv.rsi
   - type: DisarmMalus
@@ -377,7 +380,7 @@
     attackRate: 1.5
     damage:
       types:
-        Slash: 7 #each "tier" grants an additional 2 damage
+        Slash: 8 #each "tier" grants an additional 2 damage # goob edit
   - type: Item
     sprite: Objects/Weapons/Melee/reinforced_shiv.rsi
   - type: Sprite
@@ -396,7 +399,7 @@
     attackRate: 1.5
     damage:
       types:
-        Slash: 9
+        Slash: 10 # goob edit
   - type: Item
     sprite: Objects/Weapons/Melee/plasma_shiv.rsi
   - type: Sprite
@@ -415,7 +418,7 @@
     attackRate: 1.5
     damage:
       types:
-        Slash: 7
+        Slash: 6 # goob edit
         Radiation: 4
   - type: Item
     sprite: Objects/Weapons/Melee/uranium_shiv.rsi

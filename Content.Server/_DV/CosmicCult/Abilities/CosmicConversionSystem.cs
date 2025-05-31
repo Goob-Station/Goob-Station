@@ -1,5 +1,7 @@
 // SPDX-FileCopyrightText: 2025 AftrLite <61218133+AftrLite@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -61,7 +63,7 @@ public sealed class CosmicConversionSystem : EntitySystem
                 _popup.PopupEntity(Loc.GetString("cult-glyph-target-dead"), uid, args.User);
                 args.Cancel();
             }
-            else if (uid.Comp.NegateProtection == false && HasComp<BibleUserComponent>(target))
+            else if (HasComp<BibleUserComponent>(target))
             {
                 _popup.PopupEntity(Loc.GetString("cult-glyph-target-chaplain"), uid, args.User);
                 args.Cancel();
