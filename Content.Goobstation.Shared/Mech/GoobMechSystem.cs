@@ -11,6 +11,7 @@ public sealed class SharedMechSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<NpcFactionMemberComponent, MechInsertedEvent>(OnFactionPilotInserted);
+        SubscribeLocalEvent<NpcFactionMemberComponent, MechEjectedEvent>(OnFactionPilotEjected);
     }
 
     private void OnFactionPilotInserted(Entity<NpcFactionMemberComponent> ent, ref MechInsertedEvent args)

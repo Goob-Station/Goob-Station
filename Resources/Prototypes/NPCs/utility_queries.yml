@@ -100,8 +100,9 @@
   query:
     - !type:NearbyHostilesQuery
   considerations:
-    - !type:TargetIsAliveCon
-      curve: !type:BoolCurve
+    # Goobstation - check is dead instead so we can target non-living stuff
+    - !type:TargetIsDeadCon
+      curve: !type:InverseBoolCurve
     - !type:TargetDistanceCon
       curve: !type:PresetCurve
         preset: TargetDistance
@@ -118,8 +119,9 @@
   query:
     - !type:NearbyHostilesQuery
   considerations:
-    - !type:TargetIsAliveCon
-      curve: !type:BoolCurve
+    # Goobstation - check is dead instead so we can target non-living stuff
+    - !type:TargetIsDeadCon
+      curve: !type:InverseBoolCurve
     - !type:TargetDistanceCon
       curve: !type:PresetCurve
         preset: TargetDistance
