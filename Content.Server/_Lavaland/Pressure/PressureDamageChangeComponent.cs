@@ -15,6 +15,7 @@
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 // SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
 //
@@ -26,14 +27,17 @@ namespace Content.Server._Lavaland.Pressure;
 [RegisterComponent]
 public sealed partial class PressureDamageChangeComponent : Component
 {
+    [ViewVariables(VVAccess.ReadOnly)]
+    public bool Enabled = true;
+
     [DataField]
-    public float LowerBound = 0;
+    public float LowerBound = Atmospherics.OneAtmosphere * 0.2f;
 
     [DataField]
     public float UpperBound = Atmospherics.OneAtmosphere * 0.5f;
 
     [DataField]
-    public bool ApplyWhenInRange = false;
+    public bool ApplyWhenInRange;
 
     [DataField]
     public float AppliedModifier = 0.25f;
