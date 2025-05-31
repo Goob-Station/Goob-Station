@@ -2,6 +2,8 @@
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
@@ -11,13 +13,21 @@
 
 using Content.Server._Goobstation.Heretic.EntitySystems.PathSpecific;
 using Content.Server.Atmos.EntitySystems;
+using Content.Server.Atmos.Components;
 using Content.Server.Audio;
+using Content.Server.Light.Components;
+using Content.Server.Light.EntitySystems;
 using Content.Server.Heretic.Components.PathSpecific;
-using Robust.Shared.Audio;
+using Content.Shared.Atmos;
+using Content.Shared.Coordinates.Helpers;
+using Content.Shared.Damage;
 using Content.Shared.Heretic;
 using Content.Shared.Maps;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Tag;
+using Content.Shared.Weather;
 using Robust.Server.GameObjects;
+using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
@@ -33,11 +43,17 @@ public sealed partial class AristocratSystem : EntitySystem
     [Dependency] private readonly TileSystem _tile = default!;
     [Dependency] private readonly IRobustRandom _rand = default!;
     [Dependency] private readonly IPrototypeManager _prot = default!;
+    [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly MapSystem _map = default!;
     [Dependency] private readonly VoidCurseSystem _voidcurse = default!;
     [Dependency] private readonly ServerGlobalSoundSystem _globalSound = default!;
+    [Dependency] private readonly DamageableSystem _damage = default!;
+    [Dependency] private readonly PoweredLightSystem _light = default!;
+    [Dependency] private readonly FlammableSystem _flammable = default!;
+    [Dependency] private readonly SharedWeatherSystem _weather = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
 
     public override void Initialize()
     {
@@ -49,7 +65,36 @@ public sealed partial class AristocratSystem : EntitySystem
     private void OnStartup(Entity<AristocratComponent> ent, ref ComponentStartup args)
     {
         // mmm original soundtractk
-        _globalSound.PlayGlobalOnStation(ent, "/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/VoidsEmbrace.ogg", AudioParams.Default);
+        _globalSound.PlayGlobalOnStation(ent, "/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/VoidsEmbrace.ogg", AudioParams.Default.WithLoop(true));
+
+        // the fog (snow) is coming
+        var xform = Transform(ent);
+        _weather.SetWeather(xform.MapID, _prot.Index<WeatherPrototype>("SnowfallMagic"), null);
+    }
+
+    private List<TileRef>? GetTiles(Entity<AristocratComponent> ent)
+    {
+        var xform = Transform(ent);
+
+        var range = (int) ent.Comp.Range;
+
+        var tilerefs = new List<TileRef>();
+
+        var tileSelects = range * range / 2; // roughly an 1/8th of the area's tiles should get selected per cycle
+        for (int i = 0; i < tileSelects; i++)
+        {
+            var xOffset = _rand.Next(-range, range);
+            var yOffset = _rand.Next(-range, range);
+            var offsetValue = new Vector2(xOffset, yOffset);
+
+            var coords = xform.Coordinates.Offset(offsetValue).SnapToGrid(EntityManager, _mapMan);
+            var tile = coords.GetTileRef(EntityManager, _mapMan);
+
+            if (tile.HasValue)
+                tilerefs.Add(tile.Value);
+        }
+
+        return tilerefs;
     }
 
     public override void Update(float frameTime)
@@ -74,55 +119,129 @@ public sealed partial class AristocratSystem : EntitySystem
 
     private void Cycle(Entity<AristocratComponent> ent)
     {
-        var lookup = _lookup.GetEntitiesInRange(Transform(ent).Coordinates, ent.Comp.Range);
+        var coords = Transform(ent).Coordinates;
 
-        FreezeAtmos(ent);
-
-        DoChristmas(ent, lookup);
-
-        FreezeNoobs(ent, lookup);
+        for (int step = 0; step < 6; step++)
+        {
+            switch (step)
+            {
+                case 0:
+                    FreezeAtmos(ent);
+                    break;
+                case 1:
+                    ExtinguishFires(ent, coords);
+                    break;
+                case 2:
+                    ExtinguishFiresTiles(ent);
+                    break;
+                case 3:
+                    DoChristmas(ent, coords);
+                    break;
+                case 4:
+                    SpookyLights(ent, coords);
+                    break;
+                case 5:
+                    FreezeNoobs(ent, coords);
+                    break;
+            }
+        }
     }
 
     // makes shit cold
     private void FreezeAtmos(Entity<AristocratComponent> ent)
     {
         var mix = _atmos.GetTileMixture((ent, Transform(ent)));
+        var freezingTemp = Atmospherics.T0C;
+
         if (mix != null)
-            mix.Temperature -= 50f;
+        {
+            if (mix.Temperature > freezingTemp)
+                mix.Temperature = freezingTemp;
+
+            mix.Temperature -= 100f;
+        }
     }
 
-    // replaces certain things with their winter analogue
-    private void DoChristmas(Entity<AristocratComponent> ent, HashSet<EntityUid> lookup)
+    // extinguish gases on tiles
+    private void ExtinguishFiresTiles(Entity<AristocratComponent> ent)
+    {
+        var tilerefs = GetTiles(ent);
+
+        if (tilerefs == null)
+            return;
+
+        if (tilerefs.Count == 0)
+            return;
+
+        foreach (var tile in tilerefs)
+        {
+            _atmos.HotspotExtinguish(tile.GridUid, tile.GridIndices);
+        }
+    }
+
+    // extinguish ppl and stuff
+    private void ExtinguishFires(Entity<AristocratComponent> ent, EntityCoordinates coords)
+    {
+        var fires = _lookup.GetEntitiesInRange<FlammableComponent>(coords, ent.Comp.Range);
+
+        foreach (var entity in fires)
+        {
+            if (entity.Comp.OnFire)
+                _flammable.Extinguish(entity);
+        }
+    }
+
+    // replaces certain things with their winter analogue (amongst other things)
+    private void DoChristmas(Entity<AristocratComponent> ent, EntityCoordinates coords)
     {
         SpawnTiles(ent);
 
-        foreach (var look in lookup)
-        {
-            if (TryComp<TagComponent>(look, out var tag))
-            {
-                var tags = tag.Tags;
+        var dspec = new DamageSpecifier();
+        dspec.DamageDict.Add("Structural", 25);
 
-                // walls
-                if (_rand.Prob(.45f) && tags.Contains("Wall")
-                && Prototype(look) != null && Prototype(look)!.ID != SnowWallPrototype)
-                {
-                    Spawn(SnowWallPrototype, Transform(look).Coordinates);
-                    QueueDel(look);
-                }
+        var tags = _lookup.GetEntitiesInRange<TagComponent>(coords, ent.Comp.Range);
+
+        foreach (var tag in tags)
+        {
+            // walls
+            if (_tag.HasTag(tag.Owner, "Wall") && _rand.Prob(.45f)
+                && Prototype(tag) != null && Prototype(tag)!.ID != SnowWallPrototype)
+            {
+                Spawn(SnowWallPrototype, Transform(tag).Coordinates);
+                QueueDel(tag);
+            }
+
+            // windows
+            if (_tag.HasTag(tag.Owner, "Window") && Prototype(tag) != null)
+            {
+                _damage.TryChangeDamage(tag, dspec, origin: ent);
             }
         }
     }
 
-    // curses noobs
-    private void FreezeNoobs(Entity<AristocratComponent> ent, HashSet<EntityUid> lookup)
+    // kill the lights
+    private void SpookyLights(Entity<AristocratComponent> ent, EntityCoordinates coords)
     {
-        foreach (var look in lookup)
+        var lights = _lookup.GetEntitiesInRange<PoweredLightComponent>(coords, ent.Comp.Range);
+
+        foreach (var light in lights)
+        {
+            _light.TryDestroyBulb(light);
+        }
+    }
+
+    // curses noobs
+    private void FreezeNoobs(Entity<AristocratComponent> ent, EntityCoordinates coords)
+    {
+        var noobs = _lookup.GetEntitiesInRange<MobStateComponent>(coords, ent.Comp.Range);
+
+        foreach (var noob in noobs)
         {
             // ignore same path heretics and ghouls
-            if (HasComp<HereticComponent>(look) || HasComp<GhoulComponent>(look))
+            if (HasComp<HereticComponent>(noob) || HasComp<GhoulComponent>(noob))
                 continue;
 
-            _voidcurse.DoCurse(look);
+            _voidcurse.DoCurse(noob);
         }
     }
 
@@ -137,9 +256,10 @@ public sealed partial class AristocratSystem : EntitySystem
         if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
             return;
 
-        var pos = xform.Coordinates.Position;
-        var box = new Box2(pos + new Vector2(-ent.Comp.Range, -ent.Comp.Range), pos + new Vector2(ent.Comp.Range, ent.Comp.Range));
-        var tilerefs = _map.GetLocalTilesIntersecting((EntityUid) xform.GridUid, grid, box).ToList();
+        var tilerefs = GetTiles(ent);
+
+        if (tilerefs == null)
+            return;
 
         if (tilerefs.Count == 0)
             return;
