@@ -1,8 +1,11 @@
+using System.Linq;
 using Content.Goobstation.Shared.Xenobiology.Components;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Interaction;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Nyanotrasen.Item.PseudoItem;
+using Robust.Shared.Audio;
 
 namespace Content.Goobstation.Server.Xenobiology;
 
@@ -16,7 +19,7 @@ public partial class XenobiologySystem
         SubscribeLocalEvent<XenoVacuumComponent, GotEmaggedEvent>(OnVacEmagged);
 
         SubscribeLocalEvent<XenoVacuumComponent, AfterInteractEvent>(OnXenoVacuum);
-        //SubscribeLocalEvent<XenoVacuumComponent, UseInHandEvent>(OnXenoVacuumClear);
+        SubscribeLocalEvent<XenoVacuumComponent, UseInHandEvent>(OnXenoVacuumClear);
     }
 
     private void OnVacEmagged(Entity<XenoVacuumComponent> ent, ref GotEmaggedEvent args)
@@ -40,10 +43,7 @@ public partial class XenobiologySystem
             || TerminatingOrDeleted(target)
             || !args.CanReach
             || !HasComp<MobStateComponent>(target))
-        {
-            Logger.Debug("Is not a valid Target");
             return;
-        }
 
         var user = args.User;
         var comp = ent.Comp;
@@ -52,33 +52,18 @@ public partial class XenobiologySystem
             return;
 
         if (backSlotEntity is not { } tank)
-        {
-            Logger.Debug("Is not Tank");
             return;
-        }
 
         if (!_tagSystem.HasTag(tank, comp.XenoTankTag))
-        {
-            Logger.Debug("HasTagFailed");
             return;
-        }
 
         var container = _containerSystem.GetContainer(tank, comp.StorageID);
-
-        if (container.ContainedEntities.Count != 0)
-        {
-            Logger.Debug("Container Full");
-            return;
-        }
-
         var isSlime = HasComp<SlimeComponent>(target);
-        if (!isSlime && !comp.IsEmagged)
-        {
-            Logger.Debug("Is not Slime, Is not Emagged");
+        if (!isSlime && !comp.IsEmagged
+            || container.ContainedEntities.Count != 0)
             return;
-        }
 
-        if (!EntityManager.EnsureComponent<PseudoItemComponent>(target, out var pseudo))
+        if (!EnsureComp<PseudoItemComponent>(target, out var pseudo))
             pseudo.IntendedComp = false;
 
         if (!_pseudoSystem.TryInsert(tank, target, pseudo)
@@ -88,11 +73,10 @@ public partial class XenobiologySystem
             RemCompDeferred<PseudoItemComponent>(target);
             return;
         }
-
         _audio.PlayPredicted(comp.Sound, ent, user);
     }
 
-    /*private void OnXenoVacuumClear(Entity<XenoVacuumComponent> ent, ref UseInHandEvent args)
+    private void OnXenoVacuumClear(Entity<XenoVacuumComponent> ent, ref UseInHandEvent args)
     {
         var user = args.User;
         var comp = ent.Comp;
@@ -115,5 +99,5 @@ public partial class XenobiologySystem
 
         _containerSystem.EmptyContainer(container);
         _audio.PlayPredicted(comp.ClearSound, ent, user, AudioParams.Default.WithVolume(-2f));
-    }*/
+    }
 }

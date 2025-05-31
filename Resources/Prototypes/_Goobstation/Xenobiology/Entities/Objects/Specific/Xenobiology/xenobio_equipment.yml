@@ -1,8 +1,8 @@
 - type: entity
   parent: [Clothing, ClothingSlotBase]
   id: ClothingBackpackXenoBioTank
-  name: xenotank slime tank
-  description: Holds xenofauna. Sucks via the spray nozzle in your hands, and has a slot on the side for said spray nozzle.
+  name: xenovac containment tank
+  description: Holds xenofauna. Sucks via the nozzle in your hands, and has a slot on the side for said spray nozzle.
   components:
   - type: Tag
     tags:
@@ -20,10 +20,12 @@
       tankbase: !type:Container
         ents: []
   - type: Storage
+    clickInsert: false
+    showVerb: false
     storageInsertSound: /Audio/Effects/zzzt.ogg
-    storageRemoveSound: /Audio/Effects/trashbag3.ogg # v
+    storageRemoveSound: /Audio/Effects/trashbag3.ogg
     grid:
-    - 0,0,9,9
+    - 0,0,6,6
     maxItemSize: Ginormous
   - type: ItemSlots
     slots:
