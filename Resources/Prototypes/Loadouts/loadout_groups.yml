@@ -1279,8 +1279,7 @@
   loadouts:
   - ArmorVest
   - ArmorVestSlim
-  #- SecurityOfficerWintercoat #Goobstation
-  - WinterCoatSecArmored # Goobstation
+  - SecurityOfficerWintercoat
   - WinterCoatSeniorSecArmored # Goobstation
 
 - type: loadoutGroup
@@ -1288,8 +1287,7 @@
   name: loadout-group-security-shoes
   loadouts:
   - JackBoots
-  #- SecurityWinterBoots # Goobstation
-  - WinterCombatBoots # Goobstation
+  - SecurityWinterBoots
 
 - type: loadoutGroup
   id: SecurityPDA
