@@ -283,11 +283,12 @@
     Telecrystal: 30 # goob
   categories:
   - UplinkWeaponry
-  conditions:
-    - !type:StoreWhitelistCondition
-      blacklist:
-        tags:
-          - NukeOpsUplink
+ # Goobstation - no
+ #conditions:
+ #  - !type:StoreWhitelistCondition
+ #    blacklist:
+ #      tags:
+ #        - NukeOpsUplink
 
 
 - type: listing
