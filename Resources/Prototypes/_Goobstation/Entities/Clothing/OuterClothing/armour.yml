@@ -140,7 +140,7 @@
         Caustic: 0.6
 
 - type: entity
-  parent: [ ClothingOuterCapJacket, ClothingOuterWinterCoatToggleable ]
+  parent: [ ClothingOuterArmorCaptainCarapace, ClothingOuterWinterCoatToggleable ]
   id: ClothingOuterWinterCapArmored
   name: captain's fancy winter coat
   description: An ornate winter coat with a ballistic plate made for the station's finest.
@@ -149,6 +149,8 @@
     sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/cap_armored_winter_coat.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/cap_armored_winter_coat.rsi
+  - type: Item
+    size: Normal
   - type: Armor
     modifiers:
       coefficients:
