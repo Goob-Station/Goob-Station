@@ -15,8 +15,7 @@
 - type: clause
   id: weakness
   clauseWeight: -35
-  addedComponents:
-  - type: UnholyDamageMultiplier
+  damageModifierSet: DevilDealPositive
 
 - type: clause
   id: fearoffire
