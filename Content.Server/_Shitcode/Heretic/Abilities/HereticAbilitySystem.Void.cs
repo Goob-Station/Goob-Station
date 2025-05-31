@@ -108,30 +108,36 @@ public sealed partial class HereticAbilitySystem
         if (!TryUseAbility(ent, args))
             return;
 
-        var topPriority = GetNearbyPeople(ent, 1.5f);
-        var midPriority = GetNearbyPeople(ent, 2.5f);
-        var farPriority = GetNearbyPeople(ent, 5f);
-
         var power = ent.Comp.CurrentPath == "Void" ? 10f + ent.Comp.PathStage * 2 : 10f;
+        var rangeMult = 1f;
+
+        if (HasComp<AristocratComponent>(ent)) // epic boost from epic ascension
+        {
+            power *= 1.25f;
+            rangeMult *= 2f;
+        }
+
+        var topPriority = GetNearbyPeople(ent, 1.5f * rangeMult);
+        var midPriority = GetNearbyPeople(ent, 2.5f * rangeMult);
+        var farPriority = GetNearbyPeople(ent, 5f * rangeMult);
+
+        var damage = new DamageSpecifier();
+        damage.DamageDict.Add("Cold", power);
 
         // damage closest ones
         foreach (var pookie in topPriority)
         {
-            if (!TryComp<DamageableComponent>(pookie, out var dmgComp))
-                continue;
-
-            // total damage + power divided by all damage types.
-            var damage = (dmgComp.TotalDamage + power) / _prot.EnumeratePrototypes<DamageTypePrototype>().Count();
-
             // apply gaming.
-            _dmg.SetAllDamage(pookie, dmgComp, damage);
+            _dmg.TryChangeDamage(pookie, damage, true);
         }
 
         // stun close-mid range
         foreach (var pookie in midPriority)
         {
             _stun.KnockdownOrStun(pookie, TimeSpan.FromSeconds(2.5f), true);
-            if (ent.Comp.CurrentPath == "Void") _voidcurse.DoCurse(pookie);
+
+            if (ent.Comp.CurrentPath == "Void")
+                _voidcurse.DoCurse(pookie);
         }
 
         // pull in farthest ones
