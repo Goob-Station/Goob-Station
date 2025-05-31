@@ -1,4 +1,11 @@
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Coenx-flex <coengmurray@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared._Shitcode.Heretic.Components;
+using Content.Shared.AbilitySuppression;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.Hands.EntitySystems;
@@ -32,6 +39,7 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
     [Dependency] private readonly ThrowingSystem _throw = default!;
+    [Dependency] private readonly MagicSuppressionSystem _suppression = default!;
 
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
 
@@ -71,6 +79,10 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
     protected bool TryUseAbility(EntityUid ent, BaseActionEvent args)
     {
         if (args.Handled)
+            return false;
+
+        // Check if the magic is being suppressed
+        if (_suppression.TryMagicSuppressed(ent))
             return false;
 
         // No using abilities while charging

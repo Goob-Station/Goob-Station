@@ -4,7 +4,6 @@
 // SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 CaasGit <87243814+CaasGit@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
@@ -74,6 +73,8 @@
 // SPDX-FileCopyrightText: 2025 ActiveMammmoth <kmcsmooth@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Coenx-flex <coengmurray@gmail.com>
+// SPDX-FileCopyrightText: 2025 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
@@ -98,6 +99,7 @@ using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared._Goobstation.Wizard.Chuuni;
 using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
 using Content.Shared._Shitmed.Targeting;
+using Content.Shared.AbilitySuppression;
 using Content.Shared.Actions;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
@@ -176,6 +178,7 @@ public abstract class SharedMagicSystem : EntitySystem
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!; // Goobstation
     [Dependency] private readonly NpcFactionSystem _faction = default!; // Goobstation
+    [Dependency] private readonly MagicSuppressionSystem _suppression = default!; // Goobstation
 
     public override void Initialize()
     {
@@ -277,6 +280,14 @@ public abstract class SharedMagicSystem : EntitySystem
         var requiresSpeech = comp.RequiresSpeech;
         var flags = SlotFlags.OUTERCLOTHING | SlotFlags.HEAD;
         var requiredSlots = 2;
+
+        // Check if the magic is being suppressed
+        if (_suppression.TryMagicSuppressed(args.Performer, true))
+        {
+            args.Cancelled = true;
+            return;
+        }
+
         if (_inventory.TryGetSlotEntity(args.Performer, "eyes", out var eyepatch) &&
             HasComp<ChuuniEyepatchComponent>(eyepatch.Value))
         {

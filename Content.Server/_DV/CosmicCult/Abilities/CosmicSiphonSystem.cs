@@ -1,6 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Coenx-flex <coengmurray@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -48,6 +50,9 @@ public sealed class CosmicSiphonSystem : EntitySystem
 
     private void OnCosmicSiphon(Entity<CosmicCultComponent> uid, ref EventCosmicSiphon args)
     {
+        if (!_cosmicCult.TryUseAbility(args))
+            return;
+
         if (uid.Comp.EntropyStored >= uid.Comp.EntropyStoredCap)
         {
             _popup.PopupEntity(Loc.GetString("cosmicability-siphon-full"), uid, uid);
@@ -60,10 +65,13 @@ public sealed class CosmicSiphonSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("cosmicability-siphon-fail", ("target", Identity.Entity(args.Target, EntityManager))), uid, uid);
             return;
         }
-        if (args.Handled)
-            return;
 
-        var doargs = new DoAfterArgs(EntityManager, uid, uid.Comp.CosmicSiphonDelay, new EventCosmicSiphonDoAfter(), uid, args.Target)
+        var doargs = new DoAfterArgs(EntityManager,
+            uid,
+            uid.Comp.CosmicSiphonDelay,
+            new EventCosmicSiphonDoAfter(),
+            uid,
+            args.Target)
         {
             DistanceThreshold = 2f,
             Hidden = true,
@@ -72,7 +80,6 @@ public sealed class CosmicSiphonSystem : EntitySystem
             BreakOnMove = true,
             BreakOnDropItem = true,
         };
-        args.Handled = true;
         _doAfter.TryStartDoAfter(doargs);
     }
 

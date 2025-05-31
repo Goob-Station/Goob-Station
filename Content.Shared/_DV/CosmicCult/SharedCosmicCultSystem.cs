@@ -1,9 +1,17 @@
+// SPDX-FileCopyrightText: 2025 Coenx-flex <coengmurray@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.Antag;
 using Content.Shared.Ghost;
 using Content.Shared.Mind;
 using Content.Shared.Roles;
 using Content.Shared._DV.Roles;
+using Content.Shared.AbilitySuppression;
+using Content.Shared.Actions;
 using Robust.Shared.GameStates;
 using Robust.Shared.Player;
 
@@ -13,6 +21,7 @@ public abstract class SharedCosmicCultSystem : EntitySystem
 {
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedRoleSystem _role = default!;
+    [Dependency] private readonly MagicSuppressionSystem _suppression = default!;
 
     public override void Initialize()
     {
@@ -35,6 +44,22 @@ public abstract class SharedCosmicCultSystem : EntitySystem
     public bool EntitySeesCult(EntityUid user)
     {
         return EntityIsCultist(user) || HasComp<GhostComponent>(user);
+    }
+
+    /// <summary>
+    /// Determines if a Cosmic Cult member can use their abilities
+    /// </summary>
+    public bool TryUseAbility(BaseActionEvent action)
+    {
+        if (action.Handled)
+            return false;
+
+        // Check if the magic is being suppressed
+        if (_suppression.TryMagicSuppressed(action.Performer))
+            return false;
+
+        action.Handled = true;
+        return true;
     }
 
     /// <summary>
