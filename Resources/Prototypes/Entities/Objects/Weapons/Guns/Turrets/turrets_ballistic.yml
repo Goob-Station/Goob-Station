@@ -31,7 +31,7 @@
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 100
+        damage: 250 # Goobstation
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -53,13 +53,14 @@
     qualityNeeded: "Anchoring"
     doAfterDelay: 3
   - type: TriggerWhenEmpty
-  - type: ExplodeOnTrigger
-  - type: Explosive
-    explosionType: Default
-    maxIntensity: 10
-    intensitySlope: 1.5
-    totalIntensity: 30
-    canCreateVacuum: false
+ # Goobstation - no
+ #- type: ExplodeOnTrigger
+ #- type: Explosive
+ #  explosionType: Default
+ #  maxIntensity: 10
+ #  intensitySlope: 1.5
+ #  totalIntensity: 30
+ #  canCreateVacuum: false
 
 - type: entity
   parent: BaseWeaponBallisticTurret
