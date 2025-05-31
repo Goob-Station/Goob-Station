@@ -322,7 +322,7 @@ public sealed partial class DevilContractSystem : EntitySystem
         }
     }
 
-    public void ApplyEffectToTarget(EntityUid target, DevilClausePrototype clause, Entity<DevilContractComponent>? contract)
+    private void ApplyEffectToTarget(EntityUid target, DevilClausePrototype clause, Entity<DevilContractComponent>? contract)
     {
         _sawmill.Debug($"Applying {clause.ID} effect to {ToPrettyString(target)}");
 
@@ -346,7 +346,7 @@ public sealed partial class DevilContractSystem : EntitySystem
         if (clause.DamageModifierSet == null)
             return;
 
-        _damageable.SetDamageModifierSetId(target, clause.DamageModifierSet); // todo - refactor this shit to use a comp, because modifiers suck bad
+        _damageable.SetDamageModifierSetId(target, clause.DamageModifierSet);
         _sawmill.Debug($"Changed {ToPrettyString(target)} modifier set to {clause.DamageModifierSet}");
     }
 
@@ -377,10 +377,17 @@ public sealed partial class DevilContractSystem : EntitySystem
         if (clause.AddedComponents == null)
             return;
 
-        EntityManager.AddComponents(target, clause.AddedComponents);
+        foreach (var (name, data) in clause.AddedComponents)
+        {
+            if (EntityManager.HasComponent(target, data.Component.GetType()))
+            {
+                _sawmill.Debug($"Failed to add {data.Component} to {ToPrettyString(target)}");
+                continue;
+            }
 
-        foreach (var component in clause.AddedComponents)
-            _sawmill.Debug($"Added {component.Value.Component} to {ToPrettyString(target)}");
+            EntityManager.AddComponent(target, data.Component);
+            _sawmill.Debug($"Added {data.Component} to {ToPrettyString(target)}");
+        }
     }
 
     private void SpawnItems(EntityUid target, DevilClausePrototype clause)
