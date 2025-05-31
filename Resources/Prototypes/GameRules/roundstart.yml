@@ -700,3 +700,54 @@
       prob: 1.7
     - id: TidemindDevelop
       prob: 1.9
+
+- type: entity
+  parent: BaseGameRule
+  id: SubGamemodesChaos
+  components:
+  - type: SubGamemodes
+    rules:
+    - id: BluespaceArtifact
+      prob: 3.0
+    - id: MassHallucinations
+      prob: 4.5
+    - id: AnomalySpawn
+      prob: 2.7
+    - id: KudzuGrowth
+      prob: 4.5
+    - id: CosmicCult
+      prob: 2.4
+    - id: Heretic
+      prob: 5.0
+    - id: Devil
+      prob: 5.0
+    - id: RevenantSpawn
+      prob: 5.0
+    - id: IonStorm
+      prob: 4.6
+    - id: PowerIssues
+      prob: 4.3
+    - id: TidemindDevelop
+      prob: 6.0
+    - id: CombatDynamic
+      prob: 4.5
+    - id: Science
+      prob: 6.7
+    - id: BlobSpawn
+      prob: 4.5
+    - id: Honkop
+      prob: 5.0
+    - id: ClosetSkeleton
+      prob: 6.4
+    - id: MajorCombat
+      prob: 7.8
+    - id: ZombieOutbreak
+      prob: 9.0
+    - id: BaseUnknownShuttleRule
+      prob: 5.6
+    - id: NukeOps
+      prob: 6.0
+    - id: LoneOpsSpawn
+      prob: 7.0
+    - id: LoneAbductorSpawn
+      prob: 7.9

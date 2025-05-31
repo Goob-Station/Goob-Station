@@ -286,6 +286,7 @@
     - Devil
     - CosmicCult
     - SubGamemodesRule
+    - SubGamemodesGod
     - IonStormScheduler
     - SpaceTrafficControlEventScheduler
 
@@ -301,6 +302,7 @@
   rules:
     - CombatDynamic
     - LavalandStormScheduler
+    - Honkops
     - SubGamemodesRule
     - IonStormScheduler
     - SpaceTrafficControlEventScheduler
