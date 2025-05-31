@@ -26,6 +26,7 @@
 
 using System.Linq;
 using Content.Goobstation.Common.CCVar; // Goob Edit
+using Content.Goobstation.Common.Mech; // Goobstation
 using Content.Shared.Access.Components;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
@@ -420,7 +421,12 @@ public abstract class SharedMechSystem : EntitySystem
         SetupUser(uid, toInsert.Value);
         _container.Insert(toInsert.Value, component.PilotSlot);
         UpdateAppearance(uid, component);
-        UpdateHands(toInsert.Value, uid, true); // Goobstation
+        // <Goobstation>
+        UpdateHands(toInsert.Value, uid, true);
+
+        var ev = new MechInsertedEvent(uid);
+        RaiseLocalEvent(toInsert.Value, ev);
+        // </Goobstation>
         return true;
     }
 
@@ -445,7 +451,12 @@ public abstract class SharedMechSystem : EntitySystem
         RemoveUser(uid, pilot.Value);
         _container.RemoveEntity(uid, pilot.Value);
         UpdateAppearance(uid, component);
-        UpdateHands(pilot.Value, uid, false); // Goobstation
+        // <Goobstation>
+        UpdateHands(pilot.Value, uid, false);
+
+        var ev = new MechEjectedEvent(uid);
+        RaiseLocalEvent(pilot.Value, ev);
+        // </Goobstation>
         return true;
     }
 
