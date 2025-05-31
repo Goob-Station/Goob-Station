@@ -1,0 +1,49 @@
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  name: integrated energy sword
+  parent: EnergySword
+  id: IntegratedEnergySword
+  description: A very loud & dangerous sword with a beam made of pure, concentrated plasma. Fused into your arm to ensure it cannot be stolen and studied.
+  components:
+  - type: Unremoveable
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  name: integrated machete
+  parent: Machete
+  id: IntegratedMachete
+  components:
+  - type: Unremoveable
+
+- type: entity
+  id: ContractorBatonSimplemob
+  parent: Machete
+  name: contractor baton
+  description: A compact, specialised baton assigned to Syndicate contractors. Applies light electrical shocks to targets.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/contractor_baton.rsi
+    layers:
+    - state: icon
+      map: [ "enum.TelescopicBatonVisuals.Layer" ]
+  - type: Item
+    sprite: _Goobstation/Objects/Weapons/Melee/contractor_baton.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Shock: 5
+        Ion: 35
+    soundHit:
+        path: /Audio/_Goobstation/Weapons/Baton/contractorbatonhit.ogg
+  - type: StaminaDamageOnHit
+    damage: 85
+  - type: StunBorgsOnHit
+  - type: Unremoveable
+  - type: TelescopicBaton
+    alwaysDropItems: true
+
