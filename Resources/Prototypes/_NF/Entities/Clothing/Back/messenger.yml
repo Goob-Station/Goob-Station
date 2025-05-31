@@ -434,6 +434,50 @@
       - state: clasp-inhand-right
         color: "#eca615"
 
+- type: entity
+  parent: [ BaseSecurityContraband , ClothingBackpackMessengerBase ]
+  id: ClothingBackpackMessengerBrigmedic
+  name: brigmedic messenger bag
+  description: A robust bag for storing extra surgery tools for inmate tort... treating.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon-base
+      color: "#88242d"
+    - state: icon-base-top
+      color: "#a52f29"
+    - state: icon-sling
+      color: "#ffffff" # 1f2026
+    - state: icon-clasp
+      color: "#ffffff"
+  - type: Clothing
+    clothingVisuals:
+      back:
+      - state: base-equipped-BACKPACK
+        color: "#88242d"
+      - state: base-top-equipped-BACKPACK
+        color: "#a52f29"
+      - state: sling-equipped-BACKPACK
+        color: "#1f2026" # ffffff
+      - state: clasp-equipped-BACKPACK
+        color: "#ffffff"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-inhand-left
+        color: "#88242d"
+      - state: base-top-inhand-left
+        color: "#a52f29"
+      - state: clasp-inhand-left
+        color: "#ffffff"
+      right:
+      - state: base-inhand-right
+        color: "#88242d"
+      - state: base-top-inhand-right
+        color: "#a52f29"
+      - state: clasp-inhand-right
+        color: "#ffffff"
+
 # HOLDING
 - type: entity
   parent: ClothingBackpackHolding

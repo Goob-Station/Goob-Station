@@ -539,25 +539,29 @@
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.7
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.8
+        Blunt: 0.85
+        Slash: 0.85
         Piercing: 0.7
-        Heat: 0.7 # Goobstation
+        Heat: 0.85
+        Radiation: 0.4
+        Caustic: 0.4
   - type: ClothingSpeedModifier
-    walkModifier: 0.65
-    sprintModifier: 0.65
+    walkModifier: 0.9
+    sprintModifier: 0.9
   - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitBrigmedic
   - type: StaminaDamageResistance # Goobstation
-    coefficient: 0.6
+    coefficient: 0.7
   - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 3
-    knockdownTimeDelta: -3
+    delayDelta: 1.5
+    knockdownTimeDelta: -1.5
 
 #Warden's Hardsuit
 - type: entity
