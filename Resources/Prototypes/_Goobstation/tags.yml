@@ -101,7 +101,7 @@
 
 - type: Tag
   id: CannotSuicideAny
-  
+
 - type: Tag
   id: Chair
 
@@ -407,6 +407,12 @@
 
 - type: Tag
   id: Rosary
+
+- type: Tag
+  id: SealedAirlock
+
+- type: Tag
+  id: SealedGlassAirlock
 
 - type: Tag
   id: SecurityBreathMask
