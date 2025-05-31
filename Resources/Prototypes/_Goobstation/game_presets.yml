@@ -235,8 +235,9 @@
 - type: gamePreset
   id: TheHivelord
   alias:
-    - combat
-    - combatdynamic
+    - hivelord
+    - thehivelord
+    - biopunk
   name: hivelord-title
   description: hivelord-description
   showInVote: true
@@ -265,12 +266,13 @@
     - SpaceTrafficControlEventScheduler
 
 - type: gamePreset
-  id: TheGod
+  id: TheMage
   alias:
-    - combat
-    - combatdynamic
-  name: god-title
-  description: god-description
+    - mage
+    - themage
+    - cosmic
+  name: mage-title
+  description: mage-description
   showInVote: true
   minPlayers: 22
   rules:
@@ -285,15 +287,16 @@
     - Devil
     - CosmicCult
     - SubGamemodesRule
-    - SubGamemodesGod
+    - SubGamemodesMage
     - IonStormScheduler
     - SpaceTrafficControlEventScheduler
 
 - type: gamePreset
   id: TheChaos
   alias:
-    - combat
-    - combatdynamic
+    - chaosstoryteller
+    - thechaos
+    - havoc
   name: chaos-title
   description: chaos-description
   showInVote: true

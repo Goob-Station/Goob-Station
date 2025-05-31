@@ -675,7 +675,7 @@
 
 - type: entity
   parent: BaseGameRule
-  id: SubGamemodesGod
+  id: SubGamemodesMage
   components:
   - type: SubGamemodes
     rules:
