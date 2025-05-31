@@ -26,6 +26,8 @@
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 CaasGit <87243814+CaasGit@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -286,7 +288,7 @@
 - type: entity
   id: SolarAssembly
   name: solar assembly
-  description: A solar assembly. Anchor to a wire to start building a solar panel.
+  description: A solar assembly. Insert glass to build a solar panel. # Goobstation
   placement:
     mode: SnapgridCenter
   components:

@@ -8,6 +8,8 @@
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 CaasGit <87243814+CaasGit@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -17,6 +19,24 @@
   graph:
     - node: start
       edges:
+        # Goobstation - allow from-materials construction
+        - to: solarassembly
+          steps:
+            - tag: CapacitorStockPart
+              name: a capacitor
+              icon:
+                sprite: Objects/Misc/stock_parts.rsi
+                state: capacitor
+              doAfter: 1
+            - material: Steel
+              amount: 2
+              doAfter: 1
+            - material: MetalRod
+              amount: 2
+              doAfter: 1
+            - material: Cable
+              amount: 2
+              doAfter: 1
         - to: solarassembly
           steps:
             - tag: SolarAssemblyFlatpack
