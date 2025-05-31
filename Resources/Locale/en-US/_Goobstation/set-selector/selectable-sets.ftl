@@ -67,8 +67,8 @@ selectable-set-syndicate-hitman-description =
 selectable-set-syndicate-implants-name = Cyberpsychosis Bundle
 selectable-set-syndicate-implants-description =
     A few implants to give you some options for when you inevitably get arrested.
-    Contains: holoparasite kit, EMP, scram, freedom,
-    smoke, krav maga and syndicate radio implanters.
+    Contains: EMP, scram, freedom, smoke, krav maga and syndicate radio implanters,
+    Sandevistan and paired mantis blades autosurgeons, and a cool jacket.
 
 selectable-set-syndicate-hacker-name = Hacker Bundle
 selectable-set-syndicate-hacker-description =
@@ -99,8 +99,8 @@ selectable-set-syndicate-fluclear-description =
 selectable-set-syndicate-friendship-name = Friendship Bundle
 selectable-set-syndicate-friendship-description =
     Friendship is magic! Go find yourself some friends with this bundle!
-    Contains: Contractor baton, handcuffs, 2 mindcontrol implanters,
-    3 Mosin rifles and 3 syndicate encryption keys for all of you.
+    Contains: a contractor baton and handcuffs for you, 4 mindcontrol implanters
+    and Mosin rifles for your friends, and 5 syndicate encryption keys for you all.
 
 selectable-set-syndicate-carp-name = Carp Bundle
 selectable-set-syndicate-carp-description =

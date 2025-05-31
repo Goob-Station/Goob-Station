@@ -802,6 +802,67 @@
   categories:
     - UplinkImplants
 
+- type: listing
+  id: UplinkAutosurgeonRightMantisBlade
+  name: uplink-autosurgeon-right-mantis-blade-name
+  description: uplink-autosurgeon-mantis-blade-desc
+  icon: { sprite: _Goobstation/Objects/Weapons/Melee/mantis_blade.rsi, state: icon }
+  productEntity: AutosurgeonRightMantisBlade
+  cost:
+    Telecrystal: 17
+  categories:
+  - UplinkImplants
+
+- type: listing
+  id: UplinkAutosurgeonLeftMantisBlade
+  name: uplink-autosurgeon-left-mantis-blade-name
+  description: uplink-autosurgeon-mantis-blade-desc
+  icon: { sprite: _Goobstation/Objects/Weapons/Melee/mantis_blade.rsi, state: icon-mirrored }
+  productEntity: AutosurgeonLeftMantisBlade
+  cost:
+    Telecrystal: 17
+  categories:
+  - UplinkImplants
+
+- type: listing
+  id: UplinkAutosurgeonSandevistan
+  name: uplink-autosurgeon-sandevistan-name
+  description: uplink-autosurgeon-sandevistan-desc
+  icon: { sprite: _Goobstation/Objects/Misc/sandevistan.rsi, state: icon }
+  productEntity: AutosurgeonSandevistan
+  cost:
+    Telecrystal: 66 # The urge to make it 65...
+  categories:
+  - UplinkImplants
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkClothingOuterDavidsJacketValid
+  name: uplink-davids-jacket-name
+  description: uplink-davids-jacket-desc
+  icon: { sprite: _Goobstation/Clothing/OuterClothing/Coats/david_jacket.rsi, state: icon }
+  productEntity: ClothingOuterDavidsJacketValid
+  cost:
+    Telecrystal: 0
+  categories:
+  - UplinkImplants
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    whitelist:
+    - UplinkAutosurgeonRightMantisBlade
+    - UplinkAutosurgeonLeftMantisBlade
+    - UplinkAutosurgeonSandevistan
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+
 # Deception
 
 - type: listing
