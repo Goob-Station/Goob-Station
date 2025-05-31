@@ -109,10 +109,16 @@ public abstract partial class SharedPseudoItemSystem : EntitySystem
         StorageComponent? storage = null)
     {
         if (!Resolve(storageUid, ref storage))
+        {
+            Logger.Debug("Couldn't resolve storage");
             return false;
+        }
 
         if (!CheckItemFits((toInsert, component), (storageUid, storage)))
+        {
+            Logger.Debug("item doesn't fit");
             return false;
+        }
 
         var itemComp = new ItemComponent
         { Size = component.Size, Shape = component.Shape, StoredOffset = component.StoredOffset };

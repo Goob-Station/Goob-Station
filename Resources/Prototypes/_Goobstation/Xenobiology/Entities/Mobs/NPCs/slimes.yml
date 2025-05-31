@@ -130,6 +130,7 @@
     - SimpleHostile
   - type: PseudoItem
   - type: Storage
+    clickInsert: false
     showVerb: false
     storageInsertSound: /Audio/Voice/Talk/slime.ogg
     storageRemoveSound: /Audio/Voice/Talk/slime.ogg

@@ -1,4 +1,5 @@
 using Content.Server.Popups;
+using Content.Shared.Emag.Systems;
 using Content.Shared.Inventory;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.EntitySystems;
@@ -26,19 +27,18 @@ public sealed partial class XenobiologySystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedPseudoItemSystem _pseudoSystem = default!;
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly EmagSystem _emag = default!;
 
     public override void Initialize()
     {
         InitializeTaming();
         InitializeGrowth();
         InitializeBreeding();
-        InitializeVaccum();
+        InitializeVacuum();
     }
 
     public override void Update(float frameTime)

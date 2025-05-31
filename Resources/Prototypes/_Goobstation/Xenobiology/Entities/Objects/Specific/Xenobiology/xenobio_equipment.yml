@@ -1,7 +1,7 @@
 - type: entity
   parent: [Clothing, ClothingSlotBase]
   id: ClothingBackpackXenoBioTank
-  name: xenotank slime vacuum
+  name: xenotank slime tank
   description: Holds xenofauna. Sucks via the spray nozzle in your hands, and has a slot on the side for said spray nozzle.
   components:
   - type: Tag
@@ -21,14 +21,14 @@
         type: StorageBoundUserInterface
   - type: ContainerContainer
     containers:
-      storagebase: !type:Container
-        ents: [ ]
+      tankbase: !type:Container
+        ents: []
   - type: Storage
-    storageInsertSound: /Audio/Voice/Talk/slime.ogg # | need vacuum sfx
-    storageRemoveSound: /Audio/Voice/Talk/slime.ogg # v
+    storageInsertSound: /Audio/Effects/zzzt.ogg
+    storageRemoveSound: /Audio/Effects/trashbag3.ogg # v
     grid:
-    - 0,0,3,3
-    maxItemSize: Huge
+    - 0,0,9,9
+    maxItemSize: Ginormous
   - type: ItemSlots
     slots:
       item:
@@ -70,7 +70,4 @@
     sprite: _Goobstation/Xenobiology/Specific/Xenobiology/slime_nozzle.rsi
     size: Normal
   - type: Appearance
-  - type: ItemActionGrant
-    actions:
-    - XenoVacAction
-    - XenoVacClearAction
+  - type: XenoVacuum

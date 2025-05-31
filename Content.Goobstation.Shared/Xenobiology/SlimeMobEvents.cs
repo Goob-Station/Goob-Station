@@ -7,7 +7,3 @@ public sealed partial class SlimeLatchEvent : EntityTargetActionEvent
     [DataField]
     public float Damage = 5;
 }
-
-public sealed partial class XenoVacEvent : EntityTargetActionEvent;
-
-public sealed partial class XenoVacClearEvent : InstantActionEvent;

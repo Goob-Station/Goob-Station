@@ -98,9 +98,9 @@ public partial class XenobiologySystem
             DoBreeding(ent, _defaultSlime, selectedBreed);
         }
 
-        var container = _container.GetContainer(ent, "storagebase");
+        var container = _containerSystem.GetContainer(ent, "storagebase");
 
-        _container.EmptyContainer(container);
+        _containerSystem.EmptyContainer(container);
         _audio.PlayPredicted(ent.Comp.MitosisSound, ent, ent);
         QueueDel(ent);
     }
