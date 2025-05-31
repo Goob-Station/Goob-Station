@@ -86,6 +86,8 @@
 // SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 yavuz <58685802+yahay505@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -340,13 +342,14 @@ public abstract class SharedItemSystem : EntitySystem
             }
         }
 
-        if (Container.TryGetContainingContainer((uid, null, null), out var container)) // Goobstation - reinsert item in storage because size changed
+        if (Container.TryGetContainingContainer((uid, null, null), out var container) && MetaData(container.Owner).EntityPrototype?.ID != "MobSlimePerson") // Goobstation - reinsert item in storage because size changed
         {
             if (TryComp(container.Owner, out StorageComponent? storage))
             {
                 _transform.AttachToGridOrMap(uid);
                 if (!_storage.Insert(container.Owner, uid, out _, null, storage, false))
                     _handsSystem.PickupOrDrop(args.User, uid, animate: false);
+
             }
             else if (TryComp(container.Owner, out InventoryComponent? inventory))
             {
