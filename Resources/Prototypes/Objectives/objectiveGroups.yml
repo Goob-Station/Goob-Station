@@ -148,7 +148,7 @@
 - type: weightedRandom
   id: TraitorObjectiveGroupSocial
   weights:
-    RandomTraitorAliveObjective: 1
+#    RandomTraitorAliveObjective: 1 - Removed because the objective was boring and didn't progress the round.
     RandomTraitorProgressObjective: 1
     RandomTraitorTargetAliveObjective: 0.5 # Goobstation - protect a player that is targeted by another traitor
 
