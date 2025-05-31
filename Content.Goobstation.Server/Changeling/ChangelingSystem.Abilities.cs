@@ -232,7 +232,7 @@ public sealed partial class ChangelingSystem
                 lingAbsorbObj.LingAbsorbed += absorbed.TotalChangelingsAbsorbed + 1;
         }
 
-        UpdateChemicals(uid, comp, comp.MaxChemicals, true); // refill chems to max
+        UpdateChemicals(uid, comp, comp.MaxChemicals); // refill chems to max
 
     }
 
@@ -304,7 +304,7 @@ public sealed partial class ChangelingSystem
             _puddle.TrySpillAt(target, solution, out var _);
         }
 
-        UpdateChemicals(uid, comp, totalFood.Float() * 2, true); // 36 for raw meat
+        UpdateChemicals(uid, comp, totalFood.Float() * 2); // 36 for raw meat
 
         QueueDel(target); // eaten
     }

@@ -254,11 +254,11 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     }
     public void Cycle(EntityUid uid, ChangelingIdentityComponent comp)
     {
-        UpdateChemicals(uid, comp);
+        UpdateChemicals(uid, comp, manualAdjust: false);
         UpdateAbilities(uid, comp);
     }
 
-    private void UpdateChemicals(EntityUid uid, ChangelingIdentityComponent comp, float? amount = null, bool manualAdjust = false)
+    private void UpdateChemicals(EntityUid uid, ChangelingIdentityComponent comp, float? amount = null, bool manualAdjust = true)
     {
         if (manualAdjust)
             AdjustChemicals(uid, comp, amount ?? 1);
@@ -442,7 +442,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             return false;
         }
 
-        UpdateChemicals(uid, comp, -chemCost, true);
+        UpdateChemicals(uid, comp, -chemCost);
 
         action.Handled = true;
 
@@ -874,7 +874,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         }
         else
         {
-            UpdateChemicals(ent, ent.Comp, ent.Comp.MaxChemicals, true); // only by admin rejuv, for testing and whatevs
+            UpdateChemicals(ent, ent.Comp, ent.Comp.MaxChemicals); // only by admin rejuv, for testing and whatevs
             _popup.PopupEntity(Loc.GetString("changeling-rejuvenate"), ent, ent); // woah...
         }
     }
