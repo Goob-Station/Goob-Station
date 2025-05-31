@@ -76,6 +76,10 @@ uplink-beenades-desc = A non-explosive grenade full of... bees?! NOT THE BEES!!!
 
 uplink-dart-gun-name = Dart Gun
 uplink-dart-gun-desc = This gun applies inside chemicals to its regenerating dart supply, allowing to distantly heal allies or to commit war crimes by poisoning foes.
+
+uplink-magazine-nailgun-name = Nail Gun Magazine (AP)
+uplink-magazine-nailgun-desc = Almost like a normal magazine for your nail gun. The only difference is that this one is armor-piercing.
+
 # Weapons
 
 uplink-contractor-baton-name = Contractor Baton
