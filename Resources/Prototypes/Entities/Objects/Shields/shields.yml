@@ -114,10 +114,12 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 DieselMohawk <173439801+DieselMohawk@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -516,7 +518,7 @@
     - type: ComponentToggler
       components:
       - type: DisarmMalus
-        malus: 0.6
+        malus: 1 # Goob edit
     - type: Sprite
       sprite: Objects/Weapons/Melee/e_shield.rsi
       layers:
@@ -559,7 +561,7 @@
           Blunt: 1.0
           Slash: 0.9
           Piercing: 0.85
-          Heat: 0.5 # WD EDIT
+          Heat: 0.6
       activeBlockModifier:
         coefficients:
           Blunt: 1.2
@@ -576,11 +578,11 @@
       price: 350
       # WD EDIT START
     - type: Battery
-      maxCharge: 20
-      startingCharge: 20
+      maxCharge: 35
+      startingCharge: 35
     - type: BatterySelfRecharger
       autoRecharge: true
-      autoRechargeRate: 2
+      autoRechargeRate: 3
     - type: RechargeableBlocking
       # WD EDIT END
 
