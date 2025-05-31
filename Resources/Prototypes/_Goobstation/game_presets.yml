@@ -201,7 +201,6 @@
   name: secretplus-low-title
   description: secretplus-low-description
   showInVote: true
-  minPlayers: 0
   rules:
     - SecretPlusLow
     - LavalandStormScheduler
@@ -215,7 +214,6 @@
   name: secretplus-mid-title
   description: secretplus-mid-description
   showInVote: true
-  minPlayers: 10
   rules:
     - SecretPlusMid
     - LavalandStormScheduler
@@ -228,8 +226,7 @@
     - chaos
   name: secretplus-high-title
   description: secretplus-high-description
-  showInVote: true
-  minPlayers: 40
+  showInVote: false # 1984
   rules:
     - SecretPlusHigh
     - LavalandStormScheduler

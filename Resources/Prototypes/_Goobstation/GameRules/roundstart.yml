@@ -265,7 +265,7 @@
       Hostile: 200
       Death: 300
       Medical: 200
-    eventType: Roundstart
+    eventType: HostilesSpawn
     chaosScore: 900
   - type: BlobSpawnRule
     carrierBlobProtos:
@@ -353,6 +353,9 @@
   id: Devil
   components:
   - type: DevilRule
+  - type: StationEvent
+    eventType: Roundstart
+    chaosScore: 250 # low since they tend to revive people and stuff
   - type: GameRule
     minPlayers: 15
   - type: AntagObjectives
