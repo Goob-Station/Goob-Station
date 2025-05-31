@@ -45,3 +45,5 @@
     tags:
     - NuclearOperative
     - SyndicateAgent
+  - type: SpeechSynthesis # Corvax-Frontier-Barks
+    voice: BorgSyndie
