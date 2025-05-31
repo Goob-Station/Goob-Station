@@ -84,11 +84,11 @@ uplink-contractor-baton-desc = A compact, specialised baton assigned to Syndicat
 uplink-weapon-burner-name = Burner Heavy Rifle
 uplink-weapon-burner-desc = The Burner Heavy Rifle, an excellent breaching and suppression weapon.
 
-uplink-weapon-heavy-shotgun-name = NZ CSG-242 Heavy Shotgun
-uplink-weapon-heavy-shotgun-desc = Merciless heavy explosive weapon. The recoil when firing it is so extreme that it can knock you off your feet.
+# uplink-weapon-heavy-shotgun-name = NZ CSG-242 Heavy Shotgun
+# uplink-weapon-heavy-shotgun-desc = Merciless heavy explosive weapon. The recoil when firing it is so extreme that it can knock you off your feet.
 
-uplink-WSPR-name = WSPR
-uplink-WSPR-desc = This burst-fire rifle does its job silently and uses 9.5mm caseless magnum hollow-point bullets, which do more damage to flesh but fair worse against armour.
+# uplink-WSPR-name = WSPR
+# uplink-WSPR-desc = This burst-fire rifle does its job silently and uses 9.5mm caseless magnum hollow-point bullets, which do more damage to flesh but fair worse against armour.
 
 uplink-c20r-name = C-20r
 uplink-c20r-desc = Old faithful: The classic C-20r Submachine Gun.
@@ -114,8 +114,8 @@ uplink-bulk-mosin-desc = 10 WW4-era rifles to arm you, your friends, and your ca
 uplink-whimsy-bundle-name = Syndicate Joy & Whimsy Bundle
 uplink-whimsy-bundle-desc = Do YOU like spreading joy & whimsy? Well, Donk Co. has the solution for you! Contains a LIMITED EDITION axe and enough candy to kill a man.
 
-uplink-m7s-name = M7S "Ventilator"
-uplink-m7s-desc = The spread of this submachine gun gets tighter the longer you suppress your foes with it. The gunshots are suppressed too. Pretty convenient.
+# uplink-m7s-name = M7S "Ventilator"
+# uplink-m7s-desc = The spread of this submachine gun gets tighter the longer you suppress your foes with it. The gunshots are suppressed too. Pretty convenient.
 
 uplink-combat-shotgun-name = 'Bojevic' Combat shotgun
 uplink-combat-shotgun-desc = A beefy pump-action shotgun chambered in 8 gauge, with a 5 round magazine tube.
@@ -140,8 +140,8 @@ uplink-rifle-mag-desc = A 25 round magazine containing .20 rifle bullets. Suppor
 uplink-rifle-caseless-mag-name = Rifle Magazine (9.5mm HP)
 uplink-rifle-caseless-mag-desc = A 30 round rifle magazine filled with 9.5mm caseless magnum hollow-point bullets. Compatible with the WSPR.
 
-uplink-pistol-magazine-caseless-saphe-name = Pistol Magazine (9.5mm SAP-HE)
-uplink-pistol-magazine-caseless-saphe-desc = 10 rounds of 9.5mm caseless magnum semi-armor-piercing high-explosive ammunition. It is exactly what you have read. Compatible with the Cobra.
+# uplink-pistol-magazine-caseless-saphe-name = Pistol Magazine (9.5mm SAP-HE)
+# uplink-pistol-magazine-caseless-saphe-desc = 10 rounds of 9.5mm caseless magnum semi-armor-piercing high-explosive ammunition. It is exactly what you have read. Compatible with the Cobra.
 
 uplink-l6-box-name = Magazine Box (.30 rifle)
 uplink-l6-box-desc = Magazine box with 100 catridges. Compatible with the L6 SAW.
@@ -164,11 +164,11 @@ uplink-high-caliber-box-desc = A box of 30 .50 caliber anti-materiel rounds.
 uplink-highcap-pistol-mag-name = High Capacity Pistol Magazine (.35 auto)
 uplink-highcap-pistol-mag-desc = High capacity pistol magazine holds 4 extra bullets for a total of 16 rounds.
 
-uplink-heavy-shotgun-magazine-name = Heavy Shotgun Drum (2 gauge HE pellet)
-uplink-heavy-shotgun-magazine-desc = Shotgun magazine with 15 high-explosive pellet shells. Compatible with the NZ CSG-242.
+# uplink-heavy-shotgun-magazine-name = Heavy Shotgun Drum (2 gauge HE pellet)
+# uplink-heavy-shotgun-magazine-desc = Shotgun magazine with 15 high-explosive pellet shells. Compatible with the NZ CSG-242.
 
-uplink-heavy-shotgun-magazine-slug-name = Heavy Shotgun Drum (2 gauge HE slug)
-uplink-heavy-shotgun-magazine-slug-desc = Shotgun magazine with 15 high-eplosive shrapnel slug shells. Compatible with the NZ CSG-242.
+# uplink-heavy-shotgun-magazine-slug-name = Heavy Shotgun Drum (2 gauge HE slug)
+# uplink-heavy-shotgun-magazine-slug-desc = Shotgun magazine with 15 high-eplosive shrapnel slug shells. Compatible with the NZ CSG-242.
 
 uplink-m7s-mag-name = Side-mounted SMG Magazine (5x23mm)
 uplink-m7s-mag-desc = A 48 round 5x23mm rifle magazine. Compatible with M7S.
@@ -185,11 +185,11 @@ uplink-high-caliber-shotgun-box-desc = 16 shells of 8 Gauge shells, for the comb
 uplink-high-caliber-shotgun-box-slug-name = 8 Gauge slug box
 uplink-high-caliber-shotgun-box-slug-desc = 16 shells of 8 Gauge slugs, for the combat shotgun.
 
-uplink-high-caliber-shotgun-box-flash-slug-name = 8 Gauge flash shell box
-uplink-high-caliber-shotgun-box-flash-slug-desc = 16 shells of 8 Gauge flashbang shells, for the combat shotgun. Doesn't down those without hearing protection.
+# uplink-high-caliber-shotgun-box-flash-slug-name = 8 Gauge flash shell box
+# uplink-high-caliber-shotgun-box-flash-slug-desc = 16 shells of 8 Gauge flashbang shells, for the combat shotgun. Doesn't down those without hearing protection.
 
-uplink-high-caliber-shotgun-box-sarin-name = 8 Gauge sarin gas shell box
-uplink-high-caliber-shotgun-box-sarin-desc = 16 shells of 8 Gauge sarin shells for the combat shotgun, which release a small plus-shaped cloud of sarin gas.
+# uplink-high-caliber-shotgun-box-sarin-name = 8 Gauge sarin gas shell box
+# uplink-high-caliber-shotgun-box-sarin-desc = 16 shells of 8 Gauge sarin shells for the combat shotgun, which release a small plus-shaped cloud of sarin gas.
 
 # Grenades
 
@@ -228,9 +228,6 @@ uplink-nutriment-implant-desc = Removes the users need to consume food and/or dr
 
 uplink-jaunter-implanter-name = Jaunter Implanter
 uplink-jaunter-implanter-desc = Swaps position of the user and target upon activation. Recharges passively.
-
-uplink-krav-maga-implant-name = Krav Maga Implanter
-uplink-krav-maga-implant-desc = Allows the user to perform various Krav Maga moves.
 
 # Wearables
 
