@@ -149,3 +149,14 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
+  - type: MobMood
+    mobMoods:
+    - id: Injured
+      mobMoodletModifierEventListenerId: Damaged
+      neutralDescriptionLoc: "I feel fine"
+      descriptionLocs:
+      - "I'm hurt"
+      - "I'm wounded"
+      - "I'm gravely injured"
+      - "I feel like death"
+      - "It's over"
