@@ -5,12 +5,14 @@ using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition;
 using Content.Shared.Tag;
 using Robust.Shared.GameObjects;
+using Content.Goobstation.Server.Changeling;
 
 namespace Content.Goobstation.Server.Changeling;
 
 public sealed class ChangelingOrganDigestionSystem : EntitySystem
 {
     [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly ChangelingSystem _changeling = default!;
 
     public override void Initialize()
     {
@@ -28,8 +30,7 @@ public sealed class ChangelingOrganDigestionSystem : EntitySystem
 
         if (TryComp<ChangelingIdentityComponent>(args.User, out var lingComp))
         {
-            lingComp.Chemicals += digestion.ChemicalsPerItem;
-            Dirty(args.User, lingComp);
+            _changeling.UpdateChemicals(args.User, lingComp, digestion.ChemicalsPerItem);
         }
     }
 }

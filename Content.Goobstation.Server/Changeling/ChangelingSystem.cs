@@ -258,7 +258,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         UpdateAbilities(uid, comp);
     }
 
-    private void UpdateChemicals(EntityUid uid, ChangelingIdentityComponent comp, float? amount = null)
+    public void UpdateChemicals(EntityUid uid, ChangelingIdentityComponent comp, float? amount = null)
     {
         var chemicals = comp.Chemicals;
         // either amount or regen
