@@ -52,6 +52,8 @@
   - type: Construction
     graph: ExplorerSuit
     node: start
+  - type: Tag
+    tags: [LavalandExplorerSuit]
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 1.5
     knockdownTimeDelta: -1.5

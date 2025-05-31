@@ -14,11 +14,11 @@
     edges:
     - to: hardsuitGoliath
       steps:
-      - tag: LavalandEquipmentExplorerSuit
+      - tag: LavalandExplorerSuit
         icon:
           sprite: _Lavaland/Equipment/explorer_suit.rsi
           state: icon
-        name: LavalandEquipmentExplorerSuit # Goobstation - It's almost impossible to find spationaut hardsuits
+        name: Any Explorer Suit # Goobstation - It's almost impossible to find spationaut hardsuits
         doAfter: 10
       - material: Durathread
         amount: 5
