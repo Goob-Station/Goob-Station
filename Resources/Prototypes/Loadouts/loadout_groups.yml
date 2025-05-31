@@ -1288,8 +1288,8 @@
   name: loadout-group-security-shoes
   loadouts:
   - JackBoots
-  #- SecurityWinterBoots # Goobstation
-  - WinterCombatBoots # Goobstation
+  - CombatBoots # Goobstation
+  - SecurityWinterBoots
 
 - type: loadoutGroup
   id: SecurityPDA

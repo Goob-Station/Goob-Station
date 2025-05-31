@@ -245,3 +245,13 @@
   - JackBoots
   - SecurityWinterBoots
   - AdvancedJackBoots
+
+# Security
+
+- type: loadoutGroup
+  id: SecurityMelee
+  name: loadout-group-security-melee
+  loadouts:
+  - SecurityMeleeKnife
+  - SecurityMeleePolyBaton
+  - SecurityMeleeSpear
