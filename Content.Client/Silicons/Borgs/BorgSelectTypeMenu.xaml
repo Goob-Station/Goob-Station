@@ -8,8 +8,9 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 <controls:FancyWindow xmlns="https://spacestation14.io"
                       xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
                       xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls"
+                      xmlns:subtype="clr-namespace:Content.Client.Silicons.Borgs"
                       Title="{Loc 'borg-select-type-menu-title'}"
-                      SetSize="550 300">
+                      SetSize="600 480">
     <BoxContainer Orientation="Vertical">
         <BoxContainer Orientation="Horizontal" VerticalExpand="True">
             <!-- Left pane: selection of borg type -->
@@ -36,6 +37,10 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                         <RichTextLabel Name="DescriptionLabel" VerticalExpand="True" VerticalAlignment="Top" />
                     </BoxContainer>
                 </Control>
+
+                <!-- Goobstation: Customizable borgs sprites -->
+                <subtype:SubtypeSelection Name="SubtypeSelection"/>
+
                 <controls:ConfirmButton Name="ConfirmTypeButton" Text="{Loc 'borg-select-type-menu-confirm'}"
                                         Disabled="True" HorizontalAlignment="Right"
                                         MinWidth="200" />
