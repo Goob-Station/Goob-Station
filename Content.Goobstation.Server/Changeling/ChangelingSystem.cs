@@ -18,6 +18,7 @@
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 Seven2280 <semvalentin123@gmail.com>
 // SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
@@ -258,7 +259,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         UpdateAbilities(uid, comp);
     }
 
-    private void UpdateChemicals(EntityUid uid, ChangelingIdentityComponent comp, float? amount = null)
+    public void UpdateChemicals(EntityUid uid, ChangelingIdentityComponent comp, float? amount = null)
     {
         var chemicals = comp.Chemicals;
         // either amount or regen
@@ -771,6 +772,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         RemComp<MartialArtsKnowledgeComponent>(uid);
         RemComp<CanPerformComboComponent>(uid);
         EnsureComp<ZombieImmuneComponent>(uid);
+        EnsureComp<ChangelingOrganDigestionComponent>(uid);
 
         // add actions
         foreach (var actionId in comp.BaseChangelingActions)
