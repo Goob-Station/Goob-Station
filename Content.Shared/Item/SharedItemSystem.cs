@@ -86,6 +86,8 @@
 // SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -147,6 +149,21 @@ public abstract class SharedItemSystem : EntitySystem
             return;
 
         component.Shape = shape;
+        Dirty(uid, component);
+    }
+
+    /// <summary>
+    /// Sets the offset used for the item's sprite inside the storage UI.
+    /// Dirties.
+    /// </summary>
+
+    [PublicAPI]
+    public void SetStoredOffset(EntityUid uid, Vector2i newOffset, ItemComponent? component = null)
+    {
+        if (!Resolve(uid, ref component, false))
+            return;
+
+        component.StoredOffset = newOffset;
         Dirty(uid, component);
     }
 

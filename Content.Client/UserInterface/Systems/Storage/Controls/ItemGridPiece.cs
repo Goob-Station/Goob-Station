@@ -5,6 +5,8 @@
 // SPDX-FileCopyrightText: 2024 exincore <me@exin.xyz>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
 // SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -70,7 +72,7 @@ public sealed class ItemGridPiece : Control, IEntityControl
         Location = location;
 
         Visible = true;
-        MouseFilter = MouseFilterMode.Stop;
+        MouseFilter = MouseFilterMode.Pass;
 
         TooltipSupplier = SupplyTooltip;
 
@@ -116,11 +118,8 @@ public sealed class ItemGridPiece : Control, IEntityControl
             return;
         }
 
-        if (_storageController.IsDragging && _storageController.DraggingGhost?.Entity == Entity &&
-            _storageController.DraggingGhost != this)
-        {
+        if (_storageController.IsDragging && _storageController.DraggingGhost?.Entity == Entity && _storageController.DraggingGhost != this)
             return;
-        }
 
         var adjustedShape = _entityManager.System<ItemSystem>().GetAdjustedItemShape((Entity, itemComponent), Location.Rotation, Vector2i.Zero);
         var boundingGrid = adjustedShape.GetBoundingBox();
@@ -174,14 +173,16 @@ public sealed class ItemGridPiece : Control, IEntityControl
         }
 
         // typically you'd divide by two, but since the textures are half a tile, this is done implicitly
-        var iconPosition = new Vector2((boundingGrid.Width + 1) * size.X + itemComponent.StoredOffset.X * 2,
-            (boundingGrid.Height + 1) * size.Y + itemComponent.StoredOffset.Y * 2);
+        var iconOffset = Location.Rotation.RotateVec(itemComponent.StoredOffset) * 2 * UIScale;
+        var iconPosition = new Vector2(
+            (boundingGrid.Width + 1) * size.X + iconOffset.X,
+            (boundingGrid.Height + 1) * size.Y + iconOffset.Y);
         var iconRotation = Location.Rotation + Angle.FromDegrees(itemComponent.StoredRotation);
 
         if (itemComponent.StoredSprite is { } storageSprite)
         {
             var scale = 2 * UIScale;
-            var offset = (((Box2) boundingGrid).Size - Vector2.One) * size;
+            var offset = (((Box2) boundingGrid).Size - Vector2.One) * size + new Vector2(itemComponent.StoredOffset.X, itemComponent.StoredOffset.Y); // goob edit - NO i dont know why, it acts weird
             var sprite = _entityManager.System<SpriteSystem>().Frame0(storageSprite);
 
             var spriteBox = new Box2Rotated(new Box2(0f, sprite.Height * scale, sprite.Width * scale, 0f), -iconRotation, Vector2.Zero);
