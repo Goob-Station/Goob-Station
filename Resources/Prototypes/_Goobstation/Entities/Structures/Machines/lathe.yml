@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
@@ -53,7 +54,7 @@
     - EngineeringWeapons
     - PowerCells
     - Equipment
-    - ServiceWeapons
+    # - ServiceWeapons
     - SpecOpsGoogles
     - EngineeringBoards
     - SharedBoards
@@ -109,7 +110,7 @@
     - Mining
     - PowerCells
     - Equipment
-    - ServiceWeapons
+    # - ServiceWeapons
     - MiningWeapons
     - MiningBoards
     - MiningUpgrades
@@ -187,7 +188,7 @@
     - Chemistry
     - Janitor
     - Equipment
-    - ServiceWeapons
+    # - ServiceWeapons
     - Surgery
     - SpecOpsGoogles
     - EngineeringBoards
@@ -248,7 +249,7 @@
     - Janitor
     - Instruments
     - FauxTiles
-    - ServiceWeapons
+    # - ServiceWeapons
     - MedicalMisc
     - MechBoardsCivilian
     - MechWeaponsCivilian

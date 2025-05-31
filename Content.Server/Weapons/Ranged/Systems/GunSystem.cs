@@ -118,6 +118,8 @@
 
 using System.Linq;
 using System.Numerics;
+using Content.Server.Atmos.Components;
+using Content.Server.Atmos.EntitySystems;
 using Content.Server.Cargo.Systems;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Weapons.Ranged.Components;
@@ -154,6 +156,7 @@ public sealed partial class GunSystem : SharedGunSystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly StaminaSystem _stamina = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly FlammableSystem _flammable = default!; // Goobstation
 
     private const float DamagePitchVariation = 0.05f;
 
@@ -327,6 +330,9 @@ public sealed partial class GunSystem : SharedGunSystem
                         var hitEntity = lastHit.Value;
                         if (hitscan.StaminaDamage > 0f)
                             _stamina.TakeStaminaDamage(hitEntity, hitscan.StaminaDamage, source: user, applyResistances: true); // Goob edit
+
+                        if (hitscan.FireStacks > 0f && TryComp(hitEntity, out FlammableComponent? flammable)) // Goobstation
+                            _flammable.AdjustFireStacks(hitEntity, hitscan.FireStacks, flammable, true);
 
                         var dmg = hitscan.Damage;
 
