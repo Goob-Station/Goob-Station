@@ -1,0 +1,37 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+
+- type: entity
+  parent: [SpaceCash, BaseMajorContraband]
+  id: SpaceCashCounterfeit
+  name: suspicious spesos
+  description: This looks like painted-on paper.
+
+- type: entity
+  parent: SpaceCashCounterfeit
+  id: SpaceCashCounterfeit10
+  suffix: 10
+  components:
+  - type: Icon
+    sprite: Objects/Economy/cash.rsi
+    state: cash_10
+  - type: Stack
+    count: 10
+
+- type: entity
+  parent: SpaceCashCounterfeit
+  id: SpaceCashCounterfeit50
+  suffix: 50
+  components:
+  - type: Icon
+    sprite: Objects/Economy/cash.rsi
+    state: cash_10
+  - type: Stack
+    count: 50
+  - type: Construction
+    graph: SpesosCounterfeit
+    node: spesos

@@ -74,9 +74,26 @@
     stage: 2
 
 - type: listing
+  id: HereticSidePath3IceSpear
+  name: knowledge-path-side-s3-ice-spear-name
+  description: knowledge-path-side-s3-ice-spear-desc
+  icon: { sprite: _Goobstation/Heretic/Entities/ice_spear.rsi, state: spear }
+  productHereticKnowledge: MysteriesOfCreation
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 2
+
+- type: listing
   id: HereticSidePathKnowledge
   name: knowledge-path-side-knowledge-name
   description: knowledge-path-side-knowledge-desc
+  icon: { sprite: _Goobstation/Heretic/book.rsi, state: icon }
   productHereticKnowledge: RitualOfKnowledge
   cost:
     KnowledgePoint: 1
@@ -126,6 +143,22 @@
   description: knowledge-path-side-s8-cleave-desc
   icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: cleave }
   productHereticKnowledge: Cleave
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 7
+
+- type: listing
+  id: HereticSidePath8RustCharge
+  name: knowledge-path-side-s8-rust-charge-name
+  description: knowledge-path-side-s8-rust-charge-desc
+  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: rust_charge }
+  productHereticKnowledge: RustCharge
   cost:
     KnowledgePoint: 1
   categories:

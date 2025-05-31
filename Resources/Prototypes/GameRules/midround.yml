@@ -45,6 +45,7 @@
       allowNonHumans: true
       multiAntagSetting: NotExclusive
       startingGear: ThiefGear
+      jobBlacklist: [ Chaplain ] # GOOBSTATION
       components:
       - type: Pacified
       mindRoles:

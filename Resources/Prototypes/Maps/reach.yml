@@ -42,8 +42,8 @@
           emergencyShuttlePath: /Maps/Shuttles/emergency_cluster.yml
         - type: StationJobs
           availableJobs:
-            NanotrasenRepresentative: [ 1, 1 ]
-            BlueshieldOfficer: [ 1, 1 ]
+            NanotrasenRepresentative: [ 1, 1 ] # Goobstation
+            BlueshieldOfficer: [ 1, 1 ] # Goobstation
             Captain: [ 1, 1 ]
             HeadOfSecurity: [ 1, 1 ]
             SecurityOfficer: [ 1, 2 ]

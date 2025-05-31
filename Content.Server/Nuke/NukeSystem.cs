@@ -102,9 +102,11 @@
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 TemporalOroboros <TemporalOroboros@gmail.com>
 // SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
@@ -365,6 +367,8 @@ public sealed class NukeSystem : EntitySystem
 
     private void OnArmButtonPressed(EntityUid uid, NukeComponent component, NukeArmedMessage args)
     {
+        var isOverride = GetDiskOverrideStatus(component.DiskSlot.Item);
+
         if (!component.DiskSlot.HasItem)
             return;
 
@@ -373,7 +377,14 @@ public sealed class NukeSystem : EntitySystem
 
         else
         {
+            if (isOverride) // Goobstation
+            {
+                var msg = Loc.GetString("nuke-component-disarm-fail");
+                _popups.PopupEntity(msg, uid, args.Actor, PopupType.MediumCaution);
+                return;
+            }
             DisarmBombDoafter(uid, args.Actor, component);
+
         }
     }
 
@@ -656,7 +667,9 @@ public sealed class NukeSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return;
 
-        if (component.Status != NukeStatus.ARMED)
+        var isOverride = GetDiskOverrideStatus(component.DiskSlot.Item); // Goobstation
+
+        if (component.Status != NukeStatus.ARMED || isOverride ) // Goobstation - Extra Safeguard
             return;
 
         var stationUid = _station.GetOwningStation(uid);

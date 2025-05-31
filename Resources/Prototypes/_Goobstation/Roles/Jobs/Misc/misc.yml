@@ -7,3 +7,82 @@
   id: Overall
   name: job-name-overall
   playTimeTracker: Overall
+
+# Conquest
+
+- type: job
+  id: Conquest
+  name: job-name-conquest
+  description: job-description-conquest
+  playTimeTracker: JobConquest
+  setPreference: false
+  startingGear: ConquestGear
+  supervisors: job-supervisors-null
+  canBeAntag: false
+  requirements:
+  - !type:AgeRequirement
+    requiredAge: 21
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  - NanotrasenRepresentative
+  - BlueshieldOfficer
+  - Wizard
+  - NuclearOperative
+  - SyndicateAgent
+  special:
+  - !type:AddImplantSpecial
+    implants: [ FreedomImplant, NutrimentPumpImplant, SpaceProofImplant ]
+
+- type: startingGear
+  id: ConquestGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorWhite
+    gloves: ClothingHandsGlovesConquestUnremovable
+    outerClothing: ClothingOuterArmourInvisible
+
+# G-Man
+
+- type: job
+  id: GovernmentMan
+  name: job-name-governmentman
+  description: job-description-governmentman
+  playTimeTracker: JobGovernmentMan
+  setPreference: false
+  startingGear: GovernmentManGear
+  icon: "JobIconLambda"
+  supervisors: job-supervisors-null
+  canBeAntag: false
+  requirements:
+  - !type:AgeRequirement
+    requiredAge: 21
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  - NanotrasenRepresentative
+  - BlueshieldOfficer
+  - Wizard
+  - NuclearOperative
+  - SyndicateAgent
+  special:
+  - !type:AddImplantSpecial
+    implants: [ VaporizeImplant, ShiftImplant, BlinkImplant, FreedomImplant, ScramImplant, StopTimeImplant, NutrimentPumpImplant, SpaceProofImplant ]
+
+- type: startingGear
+  id: GovernmentManGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitReporter
+    shoes: ClothingShoesLeather
+    eyes: ClothingEyesGlassesCentComm
+    back: ClothingBackpackDuffelGman
+    outerClothing: ClothingOuterArmourInvisible
+    id: GmanPDA
+    ears: ClothingHeadsetChronolegioneer
+    pocket1: SonicScrewdriver
+  inhand:
+  - BriefcaseCentcomm
+  storage:
+    back:
+    - DeterrentCaseFilled

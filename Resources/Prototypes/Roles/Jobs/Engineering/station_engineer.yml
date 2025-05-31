@@ -87,6 +87,10 @@
   - External
   extendedAccess:
   - Atmospherics
+  special: # Goobstation
+  - !type:AddComponentSpecial
+    components:
+    - type: EngineeringStaff
 
 - type: startingGear
   id: StationEngineerGear

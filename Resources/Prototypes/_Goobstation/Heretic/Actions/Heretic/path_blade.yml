@@ -32,7 +32,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    useDelay: 30
+    useDelay: 60
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
@@ -42,3 +42,6 @@
   - type: HereticAction
     requireMagicItem: true
     messageLoc: heretic-speech-blade-furioussteel
+  - type: ChangeUseDelayOnAscension
+    newUseDelay: 30
+    requiredPath: Blade

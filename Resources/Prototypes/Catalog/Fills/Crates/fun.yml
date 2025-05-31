@@ -114,10 +114,17 @@
 # SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 xprospero <116504990+xprospero@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
+# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Plyush <121322002+Plyushsune@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 RatherUncreative <RatherUncreativeName@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SpaceLizard <the.justice.league.of.canada@gmail.com>
+# SPDX-FileCopyrightText: 2025 TeenSarlacc <46608342+TeenSarlacc@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 grub <unalterableness@gmail.com>
 # SPDX-FileCopyrightText: 2025 plyush <121322002+toasterpm87@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -163,6 +170,7 @@
     - id: PlushieHampter
     - id: PlushieMoth
     - id: PlushieArachind
+    - id: PlushieSamantha # Goobstation
     - id: PlushiePenguin
     - !type:GroupSelector
       children:
@@ -174,6 +182,63 @@
         weight: 0.25
       - id: PlushieDesislavaBlackburn
         weight: 0.15
+    - !type:GroupSelector # Self insert crew :-)
+      children:
+      - id: PlushieBenny
+        weight: 0.65
+      - id: PlushieCairo
+        weight: 0.65
+      - id: PlushiePash
+        weight: 0.65
+      - id: PlushieDelta
+        weight: 0.65
+      - id: PlushieRaki
+        weight: 0.65
+      - id: PlushieTina
+        weight: 0.65
+      - id: PlushieKnott
+        weight: 0.65
+      - id: PlushieZlorb
+        weight: 0.65
+      - id: PlushieTiderMoth
+        weight: 0.65
+      - id: PlushieCommandHuman
+        weight: 0.65
+      - id: PlushieRanork
+        weight: 0.65
+      - id: PlushieWehWinter
+        weight: 0.65
+      - id: PlushieHaleigh
+        weight: 0.65
+      - id: PlushieStoop
+        weight: 0.65
+      - id: PlushieAhti
+        weight: 0.65
+      - id: PlushieSparkle
+        weight: 0.65
+      - id: PlushieGrub
+        weight: 0.65
+      - id: PlushieFern
+        weight: 0.65
+      - id: PlushieHexadecimal
+        weight: 0.65
+      - id: PlushieFlint
+        weight: 0.65
+      - id: PlushiePistachio
+        weight: 0.65
+      - id: PlushieSeesTheStars
+        weight: 0.65
+      - id: PlushieDumbLizard
+        weight: 0.65
+      - id: PlushieSqueaks
+        weight: 0.65
+      - id: PlushieHaato
+        weight: 0.65
+      - id: PlushieTinyLane
+        weight: 0.65
+      - id: PlushieChewsTheShoes
+        weight: 0.65
+
 
 - type: entity
   id: CrateFunPlushie
@@ -413,6 +478,21 @@
         amount: 4
 
 - type: entity
+  id: CrateFunFoamGuns
+  parent: CratePlastic
+  name: Foam Force crate
+  description: Contains four Foam Force rifles, some grenades, and extra ammo. It's [REDACTED] or nothing!
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleFoam
+      amount: 4
+    - id: BoxDonkSoftBox
+      amount: 2
+    - id: GrenadeFoamDart
+      amount: 4
+
+- type: entity
   id: CrateFunBoxing
   parent: CrateGenericSteel
   name: boxing crate
@@ -515,3 +595,39 @@
       - id: BoxDarts
         amount: 1
         prob: 0.05
+
+- type: entity
+  id: CrateFunSelfInsertPlushie # Self insert crate :-)
+  parent: CrateGenericSteel
+  name: crew plushie crate
+  description: A box full of cute plushies of beloved crewmembers.
+  components:
+  - type: StorageFill
+    contents:
+      - id: PlushieBenny
+      - id: PlushieCairo
+      - id: PlushiePash
+      - id: PlushieDelta
+      - id: PlushieRaki
+      - id: PlushieTina
+      - id: PlushieKnott
+      - id: PlushieZlorb
+      - id: PlushieTiderMoth
+      - id: PlushieCommandHuman
+      - id: PlushieRanork
+      - id: PlushieWehWinter
+      - id: PlushieHaleigh
+      - id: PlushieStoop
+      - id: PlushieAhti
+      - id: PlushieSparkle
+      - id: PlushieGrub
+      - id: PlushieFern
+      - id: PlushieHexadecimal
+      - id: PlushieFlint
+      - id: PlushiePistachio
+      - id: PlushieSeesTheStars
+      - id: PlushieDumbLizard
+      - id: PlushieSqueaks
+      - id: PlushieHaato
+      - id: PlushieTinyLane
+      - id: PlushieChewsTheShoes

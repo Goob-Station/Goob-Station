@@ -14,3 +14,9 @@
   id: ServiceWeapons
   recipes:
   - WeaponLaserSvalinn
+
+- type: latheRecipePack
+  id: TapeRecorderStatic
+  recipes:
+  - CassetteTape
+  - TapeRecorder

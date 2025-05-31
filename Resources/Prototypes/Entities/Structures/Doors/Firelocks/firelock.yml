@@ -66,6 +66,8 @@
 # SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
 #
@@ -198,6 +200,9 @@
       - FireAndGasControl
       - Fires
       - Spacing
+    - type: Penetratable # Goobstation - Better snipers
+      penetrateDamage: 75
+      damagePenalty: 0.2
 
 - type: entity
   id: Firelock

@@ -289,9 +289,6 @@ accent-cowboy-replacement-94 = mighty
 accent-cowboy-words-95 = worried
 accent-cowboy-replacement-95 = rattled
 
-accent-cowboy-words-96 = wow
-accent-cowboy-replacement-96 = by gum
-
 accent-cowboy-words-97 = yell
 accent-cowboy-replacement-97 = holler
 

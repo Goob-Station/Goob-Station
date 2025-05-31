@@ -35,11 +35,21 @@
   # TODO: space flight stuff
 
 - type: entity
-  parent: [ PartCarpBase, BaseTorso ]
-  id: TorsoCarp
-  name: carp torso
+  parent: [ PartCarpBase, BaseChest ]
+  id: ChestCarp
+  name: carp chest
   components:
   - type: Sprite
-    state: torso
+    state: chest
   - type: Icon
-    state: torso
+    state: chest
+
+- type: entity
+  parent: [ PartCarpBase, BaseGroin ]
+  id: GroinCarp
+  name: carp groin
+  components:
+  - type: Sprite
+    state: groin
+  - type: Icon
+    state: groin

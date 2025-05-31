@@ -85,6 +85,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
+# SPDX-FileCopyrightText: 2025 Bandit <queenjess521@gmail.com>
 # SPDX-FileCopyrightText: 2025 CBozo <165491409+CBozo@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
@@ -93,7 +94,9 @@
 # SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Shy Bandit <92641277+rotundfan@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -124,6 +127,12 @@
   background: /Textures/LobbyScreens/clown.webp
   name: Clown
   artist: Unknown
+
+- type: lobbyBackground
+  id: captaintheresnukies
+  background: /Textures/LobbyScreens/CAPTAINTHERE'SNUKIES.webp
+  name: Captain there's Nukies!
+  artist: Zethine
 
 - type: lobbyBackground
   id: clownassassin
@@ -232,7 +241,13 @@
   background: /Textures/LobbyScreens/lostpai.webp
   name: Lost pAI
   artist: Cattom
-  
+
+- type: lobbyBackground
+  id: moneyspread-bingle
+  background: /Textures/LobbyScreens/binglemoneyspread.webp
+  name: Bingle Flex
+  artist: LFMoth
+
 - type: lobbyBackground
   id: stargoob
   background: /Textures/LobbyScreens/StarGoob.webp

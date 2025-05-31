@@ -97,7 +97,6 @@
 // SPDX-FileCopyrightText: 2024 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
 // SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
 // SPDX-FileCopyrightText: 2024 foboscheshir <156405958+foboscheshir@users.noreply.github.com>
@@ -116,7 +115,9 @@
 // SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -135,6 +136,7 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Atmos;
 using Content.Shared.Database;
 using Content.Shared.Destructible;
+using Content.Shared.DeviceLinking; // Goobstation
 using Content.Shared.Disposal;
 using Content.Shared.Disposal.Components;
 using Content.Shared.DoAfter;
@@ -158,6 +160,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes; // Goobstation
 using Robust.Shared.Utility;
 
 namespace Content.Server.Disposal.Unit.EntitySystems;
@@ -179,6 +182,8 @@ public sealed class DisposalUnitSystem : SharedDisposalUnitSystem
     [Dependency] private readonly TransformSystem _transformSystem = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private readonly SharedDeviceLinkSystem _device = default!; // Goobstation
+    public static readonly ProtoId<SourcePortPrototype> ReadyPort = "DisposalReady"; // Goobstation
 
     public override void Initialize()
     {
@@ -451,10 +456,10 @@ public sealed class DisposalUnitSystem : SharedDisposalUnitSystem
             return;
         }
 
-        if (component.Engaged)
+        if (component.Engaged && !TryFlush(uid, component)) // Goobstation - bring back speedflush
         {
             // Run ManualEngage to recalculate a new flush time
-            ManualEngage(uid, component);
+            QueueAutomaticEngage(uid, component); // Goobstation - queue it instead
         }
     }
 
@@ -510,6 +515,7 @@ public sealed class DisposalUnitSystem : SharedDisposalUnitSystem
         if (state == DisposalsPressureState.Ready)
         {
             component.NextPressurized = TimeSpan.Zero;
+            _device.InvokePort(uid, ReadyPort); // Goobstation
 
             // Manually engaged
             if (component.Engaged)

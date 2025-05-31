@@ -12,6 +12,8 @@
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -19,7 +21,7 @@
   abstract: true
   parent: BaseItem
   id: BaseMagazineBoxCaselessRifle
-  name: ammunition box (.25 caseless)
+  name: ammunition box (9.5mm HP) # Goob edit
   components:
   - type: BallisticAmmoProvider
     mayTransfer: true
@@ -45,7 +47,7 @@
 - type: entity
   parent: BaseMagazineBoxCaselessRifle
   id: MagazineBoxCaselessRifle10x24
-  name: ammunition box (.25 caseless)
+  name: ammunition box (9.5mm HP) # Goob edit
   components:
   - type: BallisticAmmoProvider
     capacity: 200
@@ -65,7 +67,7 @@
 - type: entity
   parent: BaseMagazineBoxCaselessRifle
   id: MagazineBoxCaselessRifleBig
-  name: ammunition box (.25 caseless)
+  name: ammunition box (9.5mm HP) # Goob edit
   components:
   - type: BallisticAmmoProvider
     capacity: 200
@@ -85,7 +87,7 @@
 - type: entity
   parent: BaseMagazineBoxCaselessRifle
   id: MagazineBoxCaselessRifle
-  name: ammunition box (.25 caseless)
+  name: ammunition box (9.5mm HP) # Goob edit
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeCaselessRifle
@@ -99,7 +101,7 @@
 - type: entity
   parent: BaseMagazineBoxCaselessRifle
   id: MagazineBoxCaselessRiflePractice
-  name: ammunition box (.25 caseless practice)
+  name: ammunition box (9.5mm practice) # Goob edit
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeCaselessRiflePractice

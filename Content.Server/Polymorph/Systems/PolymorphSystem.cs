@@ -55,7 +55,6 @@
 // SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Stalen <33173619+stalengd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
@@ -79,7 +78,6 @@
 // SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 sirionaut <sirionaut@gmail.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 stroopwafel <j.o.luijkx@student.tudelft.nl>
 // SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
@@ -90,7 +88,12 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -105,8 +108,6 @@ using Content.Shared.Buckle;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Damage;
 using Content.Shared.Destructible;
-using Content.Shared.Follower;
-using Content.Shared.Follower.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory;
@@ -123,11 +124,20 @@ using Robust.Server.Audio;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
+using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+
+// Shitmed Change
+using Content.Shared._Shitmed.Targeting;
+using Content.Shared._Shitmed.Body;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
+using Content.Shared.Body.Components;
+using Content.Shared.Body.Systems;
+using System.Linq;
 
 namespace Content.Server.Polymorph.Systems;
 
@@ -153,8 +163,11 @@ public sealed partial class PolymorphSystem : EntitySystem
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly FollowerSystem _follow = default!; // goob edit
     [Dependency] private readonly TagSystem _tag = default!; // goob edit
+
+    // Shitmed Deps
+    [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private readonly WoundSystem _wound = default!;
 
     private ISawmill _sawMill = default!; // Goobstation
 
@@ -355,11 +368,33 @@ public sealed partial class PolymorphSystem : EntitySystem
 
         //Transfers all damage from the original to the new one
         if (configuration.TransferDamage &&
-            TryComp<DamageableComponent>(child, out var damageParent) &&
-            _mobThreshold.GetScaledDamage(uid, child, out var damage) &&
+            TryComp<DamageableComponent>(child, out var damageChild) &&
+            _mobThreshold.GetScaledDamage(uid, child, out var damage, out var woundableDamage) &&
             damage != null)
         {
-            _damageable.SetDamage(child, damageParent, damage);
+            if (TryComp<BodyComponent>(child, out var childBody)
+                && childBody.BodyType == Shared._Shitmed.Body.BodyType.Complex // Too lazy to come up with a new name lmfao
+                && _body.TryGetRootPart(child, out var rootPart, childBody))
+            {
+                var woundables = _wound.GetAllWoundableChildrenWithComp<DamageableComponent>(rootPart.Value);
+                var count = woundables.Count();
+                foreach (var woundable in woundables)
+                {
+                    var target = _body.GetTargetBodyPart(woundable);
+
+                    if (woundableDamage is not null)
+                    {
+                        if (woundableDamage.TryGetValue(target, out var wounds))
+                            _damageable.SetDamage(woundable, woundable.Comp2, wounds);
+                    }
+                    else
+                    {
+                        _damageable.SetDamage(woundable, woundable.Comp2, damage / count);
+                    }
+                }
+
+            }
+            _damageable.SetDamage(child, damageChild, damage);
         }
 
         if (configuration.Inventory == PolymorphInventoryChange.Transfer)
@@ -472,15 +507,6 @@ public sealed partial class PolymorphSystem : EntitySystem
         if (PausedMap != null)
             _transform.SetParent(uid, targetTransformComp, PausedMap.Value);
 
-        // goob edit
-        if (TryComp<FollowedComponent>(uid, out var followed))
-            foreach (var f in followed.Following)
-            {
-                _follow.StopFollowingEntity(f, uid);
-                _follow.StartFollowingEntity(f, child);
-            }
-        // goob edit end
-
         // Raise an event to inform anything that wants to know about the entity swap
         var ev = new PolymorphedEvent(uid, child, false);
         RaiseLocalEvent(uid, ref ev);
@@ -518,9 +544,31 @@ public sealed partial class PolymorphSystem : EntitySystem
 
         if (component.Configuration.TransferDamage &&
             TryComp<DamageableComponent>(parent, out var damageParent) &&
-            _mobThreshold.GetScaledDamage(uid, parent, out var damage) &&
+            _mobThreshold.GetScaledDamage(uid, parent, out var damage, out var woundableDamage) &&
             damage != null)
         {
+            if (TryComp<BodyComponent>(parent, out var parentBody)
+                && parentBody.BodyType == Shared._Shitmed.Body.BodyType.Complex // Too lazy to come up with a new name lmfao
+                && _body.TryGetRootPart(parent, out var rootPart, parentBody))
+            {
+                var woundables = _wound.GetAllWoundableChildrenWithComp<DamageableComponent>(rootPart.Value);
+                var count = woundables.Count();
+                foreach (var woundable in woundables)
+                {
+                    var target = _body.GetTargetBodyPart(woundable);
+
+                    if (woundableDamage is not null)
+                    {
+                        if (woundableDamage.TryGetValue(target, out var wounds))
+                            _damageable.SetDamage(woundable, woundable.Comp2, wounds);
+                    }
+                    else
+                    {
+                        _damageable.SetDamage(woundable, woundable.Comp2, damage / count);
+                    }
+                }
+
+            }
             _damageable.SetDamage(parent, damageParent, damage);
         }
 
@@ -575,15 +623,6 @@ public sealed partial class PolymorphSystem : EntitySystem
                 parent);
         }
         QueueDel(uid);
-
-        // goob edit
-        if (TryComp<FollowedComponent>(uid, out var followed))
-            foreach (var f in followed.Following)
-            {
-                _follow.StopFollowingEntity(f, uid);
-                _follow.StartFollowingEntity(f, parent);
-            }
-        // goob edit end
 
         return parent;
     }

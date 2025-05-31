@@ -22,3 +22,6 @@ reagent-desc-aluite = Non-reactive molecule that binds with other chemicals at l
 
 reagent-name-sarin = sarin
 reagent-desc-sarin = A brutal neurotoxin that creates nasty caustic burns on contact with the skin. Poisonous when breathed in, and causes paralysis.
+
+reagent-name-nevcottapowder = nevcotta powder
+reagent-desc-nevcottapowder = A highly toxic powder created from grinding the bark of the nevcotta tree. Used in the creation of a classified chemical.

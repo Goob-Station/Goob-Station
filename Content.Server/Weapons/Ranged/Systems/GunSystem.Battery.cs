@@ -12,7 +12,10 @@
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -91,6 +94,17 @@ public sealed partial class GunSystem
         };
 
         _damageExamine.AddDamageExamine(args.Message, Damageable.ApplyUniversalAllModifiers(damageSpec), damageType);
+
+        // Goobstation - partial armor penetration TODO: hitscan armor penetration
+        if (component is not ProjectileBatteryAmmoProviderComponent p)
+            return;
+
+        var ap = GetProjectilePenetration(p.Prototype);
+        if (ap == 0)
+            return;
+
+        var abs = Math.Abs(ap);
+        args.Message.AddMarkupPermissive("\n" + Loc.GetString("armor-penetration", ("arg", ap/abs), ("abs", abs)));
     }
 
     private DamageSpecifier? GetDamage(BatteryAmmoProviderComponent component)

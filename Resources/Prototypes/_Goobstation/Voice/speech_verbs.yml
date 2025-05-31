@@ -36,6 +36,21 @@
   exclaimSound:
     path: /Audio/Machines/beep.ogg
 
+- type: speechSounds
+  id: ShadowCloak
+  saySound:
+    collection: HissSay
+  askSound:
+    path: /Audio/_Goobstation/Heretic/hiss/hiss3.ogg
+  exclaimSound:
+    path: /Audio/_Goobstation/Heretic/hiss/hiss4.ogg
+
+- type: speechVerb
+  id: Hiss
+  name: chat-speech-verb-name-hiss
+  speechVerbStrings:
+  - chat-speech-verb-reptilian-1 # hiss
+
 - type: speechVerb
   id: Dead
   name: chat-speech-verb-name-dead
@@ -59,7 +74,7 @@
   - chat-speech-verb-VoiceModulator-3
   - chat-speech-verb-VoiceModulator-4
   - chat-speech-verb-VoiceModulator-5
-  
+
 - type: speechVerb
   id: Bingle
   name: chat-speech-verb-name-bingle

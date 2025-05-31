@@ -1,0 +1,160 @@
+- type: entity
+  id: CosmicGlyphBase
+  name: base glyph
+  description: A strange, otherworldly marking.
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Fixtures
+    fixtures:
+      glyph:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.2,-0.5,1.2,0.5"
+        hard: false
+        mask:
+        - ItemMask
+        layer:
+        - SlipLayer
+  - type: Physics
+  - type: Clickable
+  - type: CosmicGlyph
+  - type: CosmicCultExamine
+    othersText: cosmic-examine-text-glyphs
+  - type: Sprite
+    sprite: _DV/CosmicCult/Objects/glyphs_floor.rsi
+    layers:
+      - state: aid
+    drawdepth: Puddles
+  - type: Appearance
+
+- type: entity
+  parent: CosmicGlyphBase
+  id: CosmicGlyphTruth
+  name: Glyph of Truth
+  components:
+  - type: Sprite
+    sprite: _DV/CosmicCult/Objects/glyphs_floor.rsi
+    layers:
+      - state: truth
+    drawdepth: Puddles
+  - type: CosmicGlyphConversion
+    negateProtection: true
+  - type: CosmicGlyph
+    requiredCultists: 3
+    activationDamage:
+      types:
+        Asphyxiation: 30
+  - type: CosmicCultExamine
+    cultistText: cosmic-examine-glyph-truth
+
+- type: entity
+  parent: CosmicGlyphBase
+  id: CosmicGlyphKnowledge
+  name: Glyph of Knowledge
+  components:
+  - type: Sprite
+    sprite: _DV/CosmicCult/Objects/glyphs_floor.rsi
+    layers:
+    - state: knowledge
+    drawdepth: Puddles
+  - type: CosmicGlyphConversion
+  - type: CosmicGlyph
+    requiredCultists: 2
+    activationDamage:
+      types:
+        Asphyxiation: 30
+  - type: CosmicCultExamine
+    cultistText: cosmic-examine-glyph-knowledge
+
+- type: entity
+  parent: CosmicGlyphBase
+  id: CosmicGlyphCessation
+  name: Glyph of Cessation
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _DV/CosmicCult/Objects/glyphs_floor.rsi
+      state: cessation
+    drawdepth: Puddles
+  - type: CosmicGlyphTransmute
+    transmutations:
+    - CosmicVacuousSpire
+    whitelist:
+      components:
+      - PortableScrubber
+  - type: CosmicGlyph
+    requiredCultists: 1
+    activationDamage:
+      types:
+        Asphyxiation: 20
+  - type: CosmicCultExamine
+    cultistText: cosmic-examine-glyph-cessation
+
+- type: entity
+  parent: CosmicGlyphBase
+  id: CosmicGlyphBlades
+  name: Glyph of Blades
+  components:
+  - type: Sprite
+    sprite: _DV/CosmicCult/Objects/glyphs_floor.rsi
+    layers:
+    - state: blades
+    drawdepth: Puddles
+  - type: CosmicGlyphTransmute
+    transmutations:
+    - SwordCosmicCult
+    - SpearCosmicCult
+    whitelist:
+      components:
+      - Sharp
+  - type: CosmicGlyph
+    requiredCultists: 2
+    activationDamage:
+      types:
+        Asphyxiation: 20
+  - type: CosmicCultExamine
+    cultistText: cosmic-examine-glyph-blades
+
+- type: entity
+  parent: CosmicGlyphBase
+  id: CosmicGlyphWarding
+  name: Glyph of Warding
+  components:
+  - type: Sprite
+    sprite: _DV/CosmicCult/Objects/glyphs_floor.rsi
+    layers:
+    - state: warding
+    drawdepth: Puddles
+  - type: CosmicGlyphTransmute
+    transmutations:
+    - ClothingOuterHardsuitCosmicCult
+    whitelist:
+      requireAll: true
+      components:
+      - ClothingSpeedModifier
+      - PressureProtection
+  - type: CosmicGlyph
+    requiredCultists: 2
+    activationDamage:
+      types:
+        Asphyxiation: 30
+  - type: CosmicCultExamine
+    cultistText: cosmic-examine-glyph-warding
+
+- type: entity
+  parent: CosmicGlyphBase
+  id: CosmicGlyphProjection
+  name: Glyph of Projection
+  components:
+  - type: Sprite
+    sprite: _DV/CosmicCult/Objects/glyphs_floor.rsi
+    layers:
+    - state: projection
+    drawdepth: Puddles
+  - type: CosmicGlyphAstralProjection
+  - type: CosmicGlyph
+    requiredCultists: 1
+  - type: CosmicCultExamine
+    cultistText: cosmic-examine-glyph-projection

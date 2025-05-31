@@ -29,6 +29,8 @@
 // SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
 // SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+scarky0@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -56,11 +58,18 @@ public sealed partial class ThiefUndeterminedBackpackComponent : Component
     public List<int> SelectedSets = new();
 
     [DataField]
-    public SoundSpecifier ApproveSound = new SoundPathSpecifier("/Audio/Effects/rustle1.ogg");
+    public SoundCollectionSpecifier ApproveSound = new SoundCollectionSpecifier("storageRustle");
 
     /// <summary>
     /// Max number of sets you can select.
     /// </summary>
     [DataField]
     public int MaxSelectedSets = 2;
+
+    /// <summary>
+    /// What entity all the spawned items will appear inside of
+    /// If null, will instead drop on the ground.
+    /// </summary>
+    [DataField]
+    public EntProtoId? SpawnedStoragePrototype;
 }

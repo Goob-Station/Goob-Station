@@ -20,6 +20,15 @@
 
 ## goob edited
 roles-antag-syndicate-agent-name = Traitor
+
+roles-antag-generic-solo-antagonist-name = Solo Antagonist
+
+roles-antag-generic-free-agent-name = Free Agent
+
+roles-antag-generic-team-antagonist-name = Team Antagonist
+
+roles-antag-generic-silicon-antagonist-name = Silicon Antagonist
+
 roles-antag-syndicate-agent-objective = Complete your objectives without being caught.
 
 roles-antag-syndicate-agent-sleeper-name = Syndicate sleeper agent

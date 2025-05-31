@@ -137,10 +137,15 @@
 # SPDX-FileCopyrightText: 2025 Booblesnoot42 <108703193+Booblesnoot42@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Eagle <lincoln.mcqueen@gmail.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 Lenny <187471588+Bynnel@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
+# SPDX-FileCopyrightText: 2025 acatrw <96485972+acatrw@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 acatrw <wispycat07@gmail.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 # SPDX-FileCopyrightText: 2025 vanx <61917534+Vaaankas@users.noreply.github.com>
@@ -542,7 +547,7 @@
   id: RPD
   parent: RCD
   name: RPD
-  description: A device used to rapidly pipe things.
+  description: The rapid piping device allows for the quick placement and removal of atmospheric-related buildings requires compressive matter to use.
   components:
   - type: RCD
     isRpd: true
@@ -566,6 +571,7 @@
     - SignalValve
     - CanisterPort
     - FilterGas
+    - FilterInline # Goobstation
     - Deconstruct
   - type: LimitedCharges
     maxCharges: 45

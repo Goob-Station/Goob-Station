@@ -29,3 +29,22 @@
     whitelist:
       tags:
       - FoodSnack
+
+- type: entity
+  id: DeterrentCaseFilled
+  parent: DeterrentCase
+  suffix: Filled, CentComm
+  components:
+  - type: StorageFill
+    contents:
+    - id: AmnestizineHypospray
+    - id: BoxAmnestizineCartridge
+    - id: TelescopicBatonAdvanced
+    - id: HyperFlash
+
+
+- type: entity
+  id: ClothingShoesBootsJackAdvancedFilled
+  parent:
+  - ClothingShoesBootsJackAdvanced
+  - ClothingShoesBootsSecFilled

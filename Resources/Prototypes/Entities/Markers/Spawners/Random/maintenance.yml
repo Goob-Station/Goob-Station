@@ -251,6 +251,7 @@
         - id: ClothingNeckCloakEnby
         - id: ClothingNeckCloakPan
       - id: ToySkeleton
+      - id: PlushieSamantha # Goobstation
       - id: Basketball
       - id: Football
       - id: BalloonNT

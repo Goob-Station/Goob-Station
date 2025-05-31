@@ -87,6 +87,8 @@
       # Goob implants
       - MindcontrolImplant
       - KravMagaImplant
+      - NutrimentPumpImplant
+      - StypticStimulatorImplant
       deimplantFailureDamage:
         types:
           Caustic: 5 # Goobstation - unnerf implanters (why was it 50 genetic??)
@@ -103,7 +105,7 @@
           visible: false
     - type: Item
       sprite: Objects/Specific/Medical/implanter.rsi
-      heldPrefix: 0
+      heldPrefix: implanter
       size: Small
     - type: Appearance
     - type: GenericVisualizer
@@ -174,6 +176,7 @@
   components:
     - type: Item
       sprite: Objects/Specific/Medical/syndi_implanter.rsi
+      heldPrefix: implanter
     - type: Sprite
       sprite: Objects/Specific/Medical/syndi_implanter.rsi
       state: implanter1
@@ -351,3 +354,11 @@
   components:
   - type: Implanter
     implant: RadioImplantCentcomm
+
+- type: entity
+  id: DeathRattleImplanterCentcomm
+  suffix: centcomm death rattle
+  parent: BaseImplantOnlyImplanter
+  components:
+  - type: Implanter
+    implant: DeathRattleImplantCentcomm
