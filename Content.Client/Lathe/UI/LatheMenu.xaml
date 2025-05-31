@@ -99,7 +99,19 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                         Mode="Press">
                     </Button>
                 </BoxContainer>
-                <Label Text="{Loc 'lathe-menu-queue-title'}" Margin="5 5 5 5" HorizontalAlignment="Center"/>
+                <BoxContainer
+                    Orientation="Horizontal"
+                    Align="Begin"
+                    HorizontalExpand="True">
+                    <Label Text="{Loc 'lathe-menu-queue-title'}" Margin="5 5 5 5" HorizontalAlignment="Left"/>
+                    <Button
+                        Name="ResetQueueList"
+                        Margin="5 5 5 5"
+                        Text="{Loc 'lathe-menu-queue-reset-title'}"
+                        HorizontalAlignment="Right"
+                        Mode="Press">
+                    </Button>
+                </BoxContainer>
                 <BoxContainer
                     Name="FabricatingContainer"
                     Orientation="Horizontal"
