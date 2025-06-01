@@ -419,7 +419,7 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.6 # Goobstation - I wanted to make it at least as good as the base explorer suit, which has all 0.6
+        Blunt: 0.6 # Goobstation - basically 0.1 less than the mining hardsuit all around
         Slash: 0.5
         Piercing: 0.6
         Heat: 0.6
