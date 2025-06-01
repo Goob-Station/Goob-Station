@@ -38,7 +38,7 @@
   name: M172 LAW
   parent: [ BaseWeaponLauncher, BaseMajorContraband, BaseGunWieldable] # Major contra because it isn't manufactured by the syndicate; NT would use this
   id: WeaponLauncherRocketDisposable
-  description: A single shot 84mm disposable Light Anti-structure Weapon for precisely taking out structures with little collateral damage. can be folded in order to be conveniantly stored. DO NOT ATTEMPT TO REMOVE ROCKET FROM TUBE. # Cant make it so you cant cycle it, if you cycle it it explodes lol
+  description: A single shot 84mm disposable Light Anti-structure Weapon for precisely taking out structures with little collateral damage. can be folded in order to be conveniantly stored. DO NOT ATTEMPT TO REMOVE ROCKET FROM TUBE.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Launchers/m172.rsi
@@ -69,17 +69,17 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
   - type: GunRequiresWield
-  - type: BallisticAmmoProvider
-    proto: BulletRocketLAW # if you cycle it the fucking bullet proto comes out and explodes on contact with you. if I added a casing for it to eject you could cycle and reload the thing which I don't like. supposed to be one time use
+  - type: BasicEntityAmmoProvider
+    proto: BulletRocketLAW
     capacity: 1
-  - type: UseDelay # so you cant spam Z and accidentaly cycle it, blowing you up
+  - type: UseDelay
     delay: 1.5
 
 - type: entity
   name: RPO-A 'Shmel'
-  parent: [ BaseWeaponLauncher, BaseMajorContraband, BaseGunWieldable]
+  parent: [ BaseWeaponLauncher, BaseMajorContraband, BaseGunWieldable] # Same as above
   id: WeaponLauncherRocketDisposableThermobaric
-  description: A single shot 93mm disposable anti-personnel thermobaric rocket launcher, considered a flamethrower by the manufacturer. can be folded in order to be conveniantly stored. DO NOT ATTEMPT TO REMOVE ROCKET FROM TUBE. # Cant make it so you cant cycle it, if you cycle it it explodes lol
+  description: A single shot 93mm disposable anti-personnel thermobaric rocket launcher, considered a flamethrower by the manufacturer. can be folded in order to be conveniantly stored.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Launchers/shmel.rsi
@@ -110,8 +110,8 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
   - type: GunRequiresWield
-  - type: BallisticAmmoProvider
-    proto: BulletRocketShmel # if you cycle it the fucking bullet proto comes out and explodes on contact with you. if I added a casing for it to eject you could cycle and reload the thing which I don't like. supposed to be one time use
+  - type: BasicEntityAmmoProvider
+    proto: BulletRocketShmel
     capacity: 1
-  - type: UseDelay # so you cant spam Z and accidentaly cycle it, blowing you up
+  - type: UseDelay
     delay: 1.5
