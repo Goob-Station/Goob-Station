@@ -15,6 +15,9 @@
     minimumPlayers: 20
     weight: 1
     duration: 30
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 360
  #- type: PrecognitionResult
  #  message: psionic-power-precognition-xeno-vents-result-message
   - type: VentCrittersRule
@@ -46,6 +49,9 @@
     minimumPlayers: 15
     weight: 4
     duration: 30
+    eventType: Neutral
+  - type: GameRule
+    chaosScore: 80
  #- type: PrecognitionResult
  #  message: psionic-power-precognition-mothroach-spawn-result-message
   - type: VentCrittersRule

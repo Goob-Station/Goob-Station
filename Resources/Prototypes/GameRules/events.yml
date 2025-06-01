@@ -686,7 +686,7 @@
     eventType: HostilesSpawn # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: 240
+    chaosScore: 360
   - type: VentCrittersRule
     table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
       children:
@@ -712,7 +712,7 @@
     eventType: HostilesSpawn # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: 240
+    chaosScore: 360
   - type: VentCrittersRule
     table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
       children:
@@ -738,7 +738,7 @@
     eventType: HostilesSpawn # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: 240
+    chaosScore: 360
   - type: VentCrittersRule
     table: # DeltaV: EntityTable instead of spawn entries
       id: MobGiantSpiderAngry
@@ -761,9 +761,9 @@
     eventType: HostilesSpawn # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: 240
+    chaosScore: 360
   - type: VentCrittersRule
-    playerRatio: 35 # DeltaV: Clown spiders are very robust
+    playerRatio: 20 # DeltaV: Clown spiders are very robust
     table: # DeltaV: EntityTable instead of spawn entries
       id: MobClownSpider
 
