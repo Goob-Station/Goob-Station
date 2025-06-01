@@ -26,7 +26,8 @@
       Combat: 100
       Death: 100
       Medical: 100
-    chaosScore: 400 # easily defeated by turning off grav
     eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 400
   - type: RandomSpawnRule
     prototype: SpawnPointGhostBinglePrime
