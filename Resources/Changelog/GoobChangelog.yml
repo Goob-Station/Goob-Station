@@ -10334,3 +10334,9 @@ Entries:
       message: You can't anymore dupe filling of emergency toolboxes
   id: 1147
   time: '2025-06-01T06:49:28.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Possibly fixed nukeops.
+  id: 1148
+  time: '2025-06-01T08:45:39.0000000+00:00'
