@@ -10260,3 +10260,71 @@ Entries:
       message: Added armored winter coat for security.
   id: 1138
   time: '2025-05-29T17:49:08.0000000+00:00'
+- author: Mocho, XcenLegend
+  changes:
+    - type: Add
+      message: Added a new UI theme based around cosmic cult.
+  id: 1139
+  time: '2025-05-30T05:07:39.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Fix
+      message: AI air on box
+    - type: Fix
+      message: AI power on box
+  id: 1140
+  time: '2025-05-30T05:08:24.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: 'Secret+: a new secret-like gamemode to try out.'
+    - type: Add
+      message: >-
+        New game presets: Turbulence, Entropy, Chaos, in ascending difficulty
+        order.
+  id: 1141
+  time: '2025-05-30T15:43:35.0000000+00:00'
+- author: GNUtopia
+  changes:
+    - type: Tweak
+      message: Moths and harpies are faster in 0G
+  id: 1142
+  time: '2025-05-30T20:24:20.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Cargo gun crates are MUCH harder to break into
+  id: 1143
+  time: '2025-05-30T21:06:08.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Remove
+      message: Durk hath been slain.
+  id: 1144
+  time: '2025-05-30T21:43:00.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Zombies are faster than you
+    - type: Tweak
+      message: Zombies heal on hit
+    - type: Tweak
+      message: Zombies get back up if not quickly killed once downed
+    - type: Tweak
+      message: Zombie infection is lethal
+    - type: Tweak
+      message: Initial infected have 60-120 seconds to go feral before turning
+    - type: Tweak
+      message: Less initial infected
+  id: 1145
+  time: '2025-05-30T23:38:26.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Chaos and guide are no longer voteable.
+    - type: Tweak
+      message: Secret+ should have more midround events.
+    - type: Fix
+      message: Secret+ can now spawn devil and cult.
+  id: 1146
+  time: '2025-05-31T09:48:55.0000000+00:00'
