@@ -7,12 +7,12 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: constructionGraph
-  id: HardsuitMaxim
+  id: HardsuitGoliath
   start: start
   graph:
   - node: start
     edges:
-    - to: hardsuitMaxim
+    - to: hardsuitGoliath
       steps:
       - tag: LavalandExplorerSuit
         icon:
@@ -26,5 +26,5 @@
       - material: GoliathHide
         amount: 5
         doAfter: 10
-  - node: hardsuitMaxim
-    entity: ClothingOuterHardsuitMaxim
+  - node: hardsuitGoliath
+    entity: ClothingOuterHardsuitGoliath

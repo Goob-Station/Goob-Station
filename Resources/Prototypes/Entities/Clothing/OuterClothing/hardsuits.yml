@@ -462,11 +462,10 @@
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.25
-        Slash: 0.25
-        Piercing: 0.35
-        Heat: 0.25
-        Caustic: 0.3
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.5
+        Heat: 0.3
         Radiation: 0.01
   - type: ExplosionResistance
     damageCoefficient: 0.2
