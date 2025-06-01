@@ -623,7 +623,7 @@
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.5
+    damageCoefficient: 0.65 #Goob - Modsuit Rebalance
   - type: Armor
     traumaDeductions:
       Dismemberment: 0.3
