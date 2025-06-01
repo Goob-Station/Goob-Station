@@ -19,6 +19,7 @@ using Content.Goobstation.Shared.Temperature.Components;
 using Content.Server.Heretic.Components.PathSpecific;
 using Content.Server.Magic;
 using Content.Shared._Goobstation.Heretic.Components;
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Heretic;
@@ -129,7 +130,7 @@ public sealed partial class HereticAbilitySystem
         foreach (var pookie in topPriority)
         {
             // apply gaming.
-            _dmg.TryChangeDamage(pookie, damage, true, targetPart: Shared._Shitmed.Targeting.TargetBodyPart.All);
+            _dmg.TryChangeDamage(pookie, damage, true, targetPart: TargetBodyPart.All);
         }
 
         // stun close-mid range
