@@ -62,7 +62,6 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
-# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <killerqueen1777@gmail.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
@@ -405,7 +404,7 @@
   parent: [ClothingOuterHardsuitBase, BaseCargoContraband]
   id: ClothingOuterHardsuitGoliath
   name: goliath voidsuit # Goob edit
-  description: A salvage voidsuit, adorned with a patchwork of thick, chitinous goliath hide. # Goob edit
+  description: A salvage voidsuit, with some plating replaced with a patchwork of thick, chitinous goliath hide. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/goliath.rsi
@@ -419,15 +418,15 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.6 # Goobstation - basically 0.1 less than the mining hardsuit all around
-        Slash: 0.5
-        Piercing: 0.6
-        Heat: 0.6
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.5
+        Heat: 0.7
         Radiation: 0.1
-        Caustic: 0.6
+        Caustic: 0.8
   - type: ClothingSpeedModifier
-    walkModifier: 0.75
-    sprintModifier: 0.75
+    walkModifier: 0.8
+    sprintModifier: 0.8
   - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
@@ -621,7 +620,7 @@
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.65 #Goob - Modsuit Rebalance
+    damageCoefficient: 0.5
   - type: Armor
     traumaDeductions:
       Dismemberment: 0.3
@@ -631,24 +630,24 @@
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.85 #Goob - Modsuit Rebalance start
-        Slash: 0.85
-        Piercing: 0.7
-        Heat: 0.6 #Goob - Modsuit Rebalance end
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.6
+        Heat: 0.5
         Radiation: 0.15
         Caustic: 0.6
   - type: ClothingSpeedModifier
-    walkModifier: 0.9 #Goob - Modsuit Rebalance
-    sprintModifier: 0.9 #Goob - Modsuit Rebalance
+    walkModifier: 0.8
+    sprintModifier: 0.8
   - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitCap
   - type: StaminaDamageResistance # Goobstation
-    coefficient: 0.7
+    coefficient: 0.5
   - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 2
-    knockdownTimeDelta: -2
+    delayDelta: 3
+    knockdownTimeDelta: -3
 
 #Chief Engineer's Hardsuit
 - type: entity
