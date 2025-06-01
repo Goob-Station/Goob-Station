@@ -101,7 +101,7 @@
 
 - type: Tag
   id: CannotSuicideAny
-  
+
 - type: Tag
   id: Chair
 
@@ -200,6 +200,9 @@
 
 - type: Tag
   id: FelinidEmotes
+
+- type: Tag
+  id: FitsInCharger
 
 - type: Tag
   id: FlashIgnoreResistances
