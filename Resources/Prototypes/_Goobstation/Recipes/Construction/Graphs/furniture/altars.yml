@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 ImHoks <142083149+ImHoks@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 #
@@ -231,7 +232,7 @@
     - to: AltarConvertNode
       completed:
       - !type:SpawnPrototype
-        prototype: ToolboxEmergencyFilled
+        prototype: ToolboxEmergency
         amount: 1
       steps:
       - tool: Prying

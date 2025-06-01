@@ -74,8 +74,10 @@
     chaos: # Goobstation
       Friend: -20
       Power: -10 # can be salvaged for power
-    chaosScore: -70 # Goobstation
     eventType: FriendlySpawn # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: -70
   - type: RuleGrids
   - type: LoadMapRule
 
@@ -119,8 +121,10 @@
     chaos: # Goobstation
       Friend: -10
       Mess: 20
-    chaosScore: -40 # Goobstation
     eventType: Chaotic # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: -40
   - type: LoadMapRule
     preloadedGrid: Honki
 
@@ -156,8 +160,10 @@
     weight: 2 # Its just a big ship, so it needs to be rarer to be interesting.
     chaos: # Goobstation
       Friend: -60
-    chaosScore: -180 # Goobstation
     eventType: FriendlySpawn # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: -180
   - type: LoadMapRule
     preloadedGrid: Cruiser
 
@@ -188,8 +194,10 @@
     chaos: # Goobstation
       Friend: -20
       Medical: -20
-    chaosScore: -140 # Goobstation
     eventType: FriendlySpawn # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: -140
   - type: LoadMapRule
     preloadedGrid: Flatline
 
@@ -213,8 +221,10 @@
     earliestStart: 45 # late to hopefully have enough ghosts to fill all roles quickly. (5-6)
     chaos: # Goobstation
       Friend: -50
-    chaosScore: -150 # Goobstation
     eventType: FriendlySpawn # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: -150
   - type: LoadMapRule
     preloadedGrid: NTIncorporation
 
@@ -231,8 +241,10 @@
       Hostile: 80
       Death: 100
       Medical: 100
-    chaosScore: 900 # Goobstation
     eventType: HostilesSpawn # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 900
   - type: LoadMapRule
     preloadedGrid: Instigator
 
