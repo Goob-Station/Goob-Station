@@ -1728,7 +1728,7 @@
         amount: -3.0
       - !type:AdjustReagent
         reagent: Stimulants
-        amount: -3.0
+        amount: -1.0
       - !type:AdjustReagent
         reagent: THC
         amount: -3.0
