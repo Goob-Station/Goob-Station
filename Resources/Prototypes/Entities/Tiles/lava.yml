@@ -63,6 +63,10 @@
     - !type:MovespeedModifier
       walkSpeedModifier: 0.6
       sprintSpeedModifier: 0.6
+    - !type:HealthChange
+        damage:
+          types:
+            Heat: 35 # its lava bro
   # Lavaland Change end
   # Goobstation - fishing
   - type: FishingSpot
