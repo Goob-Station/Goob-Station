@@ -1,0 +1,35 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: ConstructionBarricade
+  parent: BaseStructure
+  name: construction barricade
+  description: Wear your helmet!
+  components:
+  - type: Anchorable
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/construction.rsi
+    state: construction
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
+  - type: Pullable
+  - type: Climbable
+    delay: 5.0
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 60
+        behaviors:
+        - !type:SpawnEntitiesBehavior
+          spawn:
+            SheetSteel1:
+              min: 2
+              max: 5
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
