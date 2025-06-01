@@ -46,12 +46,13 @@ public sealed class CatEmoteSpamCountermeasureSystem : EntitySystem
     private void OnGetPitchShiftEvent(Entity<SpeechComponent> ent, ref EmoteSoundPitchShiftEvent ev)
     {
         var shift = GetCount(ent.Owner);
-        ev.Pitch = shift * PitchModulo;
+        //var LowerBound = 2;
+        ev.Pitch = Math.Max(shift-2, 0) * PitchModulo;
     }
 
     private int GetCount(EntityUid entity)
     {
-        return _meowTracker.TryGetValue(entity, out var count) ? Math.Max(count-2, 0) : 0;
+        return _meowTracker.TryGetValue(entity, out var count) ? count : 0;
     }
 
     public override void Update(float frameTime)
