@@ -404,7 +404,7 @@
   parent: [ClothingOuterHardsuitBase, BaseCargoContraband]
   id: ClothingOuterHardsuitGoliath
   name: goliath voidsuit # Goob edit
-  description: A lightweight voidsuit, adorned with a patchwork of thick, chitinous goliath hide. # Goob edit
+  description: A salvage voidsuit, adorned with a patchwork of thick, chitinous goliath hide. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/goliath.rsi
@@ -418,15 +418,15 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
+        Blunt: 0.6 # Goobstation - I wanted to make it at least as good as the base explorer suit, which has all 0.6
+        Slash: 0.6
         Piercing: 0.5
-        Heat: 0.7 #Goliath hide gets grilled instead of you
+        Heat: 0.5
         Radiation: 0.1
-        Caustic: 0.8
+        Caustic: 0.6
   - type: ClothingSpeedModifier
-    walkModifier: 0.8
-    sprintModifier: 0.8
+    walkModifier: 0.7
+    sprintModifier: 0.7
   - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
