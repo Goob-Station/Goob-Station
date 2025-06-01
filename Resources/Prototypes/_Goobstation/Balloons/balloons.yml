@@ -6,8 +6,8 @@
 - type: entity
   name: base balloon
   parent: BaseStructureDynamic
-  description: where all the balloons come from. You aren't supposed to see this.
   id: BaseBalloon       # Base balloon
+  abstract: true # Make sure it doesn't appear
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/balloons.rsi
