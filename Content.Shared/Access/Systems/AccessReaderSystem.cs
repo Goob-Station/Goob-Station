@@ -92,6 +92,7 @@
 
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Goobstation.Common.Access; // Goobstation
 using Content.Shared.Access.Components;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Emag.Systems;
@@ -207,6 +208,11 @@ public sealed class AccessReaderSystem : EntitySystem
         if (!reader.Enabled)
             return true;
 
+        // Goobstation start
+        if (TryComp<IgnoreAccessComponent>(target, out var ignore)
+            && ignore.Ignore.Contains(user))
+            return true;
+        // Goobstation end
         var accessSources = FindPotentialAccessItems(user);
         var access = FindAccessTags(user, accessSources);
         FindStationRecordKeys(user, out var stationKeys, accessSources);

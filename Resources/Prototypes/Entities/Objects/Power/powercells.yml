@@ -99,6 +99,8 @@
     fireCost: 50
   - type: StealTarget #Goobstation - IPC steal
     stealGroup: Battery
+  - type: CyberdeckHackable # Goobstation - Cyberdeck
+    cost: 1
 
 - type: entity
   name: potato battery

@@ -1,0 +1,21 @@
+- type: entity
+  parent: BaseCyberneticEyes
+  id: CyberdeckEyes
+  name: cyberdeck eyes
+  description: A pair of cybernetic eyes that enhance your vision, and protect you from eye damage.
+  components:
+  - type: CyberdeckSource
+  - type: LimitedCharges
+    maxCharges: 8
+    charges: 0
+  - type: AutoRecharge
+    rechargeDuration: 10
+  - type: Organ
+    intCap: 21
+    integrity: 21
+    integrityThresholds:
+      Normal: 21
+      Damaged: 11
+      Destroyed: 0  
+    onAdd:
+    - type: CyberdeckUser

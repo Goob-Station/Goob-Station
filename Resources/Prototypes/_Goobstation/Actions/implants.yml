@@ -50,3 +50,46 @@
       state: icon
     event: !type:NaniteMendEvent
 
+# Cyberdeck
+- type: entity
+  id: ActionCyberdeckHack
+  name: Hack Device
+  description: hackir
+  components:
+  - type: EntityTargetAction
+    useDelay: 10
+    range: 15
+    checkCanAccess: false
+    itemIconStyle: BigAction
+    icon:
+      sprite: /Textures/_Goobstation/Actions/implants/nanitemend.rsi
+      state: icon
+    priority: -24
+    event: !type:CyberdeckHackActionEvent
+
+- type: entity
+  id: ActionCyberdeckVision
+  name: Activate Cyber Vision
+  description: Connects your brain directly to station's net, letting you to hack anything that you can see on station cameras!
+  components:
+  - type: InstantAction
+    useDelay: 1
+    icon:
+      sprite: _Goobstation/Actions/implants/nanitemend.rsi
+      state: icon
+    priority: -25
+    event: !type:CyberdeckVisionEvent
+
+- type: entity
+  id: ActionCyberdeckVisionReturn
+  name: Return Back
+  description: Returns you back into your body.
+  components:
+  - type: InstantAction
+    useDelay: 15
+    startDelay: true
+    icon:
+      sprite: _Goobstation/Actions/implants/nanitemend.rsi
+      state: icon
+    priority: 2
+    event: !type:CyberdeckVisionReturnEvent
