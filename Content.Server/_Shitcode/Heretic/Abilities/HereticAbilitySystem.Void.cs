@@ -129,13 +129,14 @@ public sealed partial class HereticAbilitySystem
         foreach (var pookie in topPriority)
         {
             // apply gaming.
-            _dmg.TryChangeDamage(pookie, damage, true);
+            _dmg.TryChangeDamage(pookie, damage, true, targetPart: Shared._Shitmed.Targeting.TargetBodyPart.All);
         }
 
         // stun close-mid range
         foreach (var pookie in midPriority)
         {
-            _stun.KnockdownOrStun(pookie, TimeSpan.FromSeconds(2.5f), true);
+            _stun.TryStun(pookie, TimeSpan.FromSeconds(2.5f), true);
+            _stun.TryKnockdown(pookie, TimeSpan.FromSeconds(2.5f), true);
 
             if (ent.Comp.CurrentPath == "Void")
                 _voidcurse.DoCurse(pookie);
