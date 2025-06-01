@@ -20,6 +20,7 @@
           sprite: Clothing/OuterClothing/Hardsuits/salvage.rsi
           state: icon
         name: Any Cargo Hardsuit # Goobstation - Spationaut, Mining, or Luxury mining hardsuit
+        name: ExplorerSuit # Goobstation - It's almost impossible to find spationaut hardsuits
         doAfter: 10
       - material: Durathread
         amount: 5
