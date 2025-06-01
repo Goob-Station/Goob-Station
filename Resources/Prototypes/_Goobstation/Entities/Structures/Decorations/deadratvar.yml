@@ -19,7 +19,7 @@
     volume: 2
     range: 20
     sound:
-      path: /Audio/_Goobstation/Ambience/ominouspulse.ogg
+      path: /Audio/_Goobstation/Ambience/ominous_pulse.ogg
   - type: Physics
     bodyType: Static
   - type: Fixtures
