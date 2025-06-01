@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -23,13 +24,13 @@ public sealed partial class SecretPlusComponent : Component
     ///   Minimum interval between events
     /// </summary>
     [DataField]
-    public TimeSpan EventIntervalMin = TimeSpan.FromMinutes(2);
+    public TimeSpan EventIntervalMin = TimeSpan.FromMinutes(1.5);
 
     /// <summary>
     ///   Maximum interval between events
     /// </summary>
     [DataField]
-    public TimeSpan EventIntervalMax = TimeSpan.FromMinutes(6);
+    public TimeSpan EventIntervalMax = TimeSpan.FromMinutes(5);
 
     /// <summary>
     ///   The current chaos score
@@ -55,13 +56,13 @@ public sealed partial class SecretPlusComponent : Component
     ///   How much to change chaos per second per living person
     /// </summary>
     [DataField]
-    public float LivingChaosChange = -0.008f;
+    public float LivingChaosChange = -0.014f;
 
     /// <summary>
     ///   How much to change chaos per second per dead person
     /// </summary>
     [DataField]
-    public float DeadChaosChange = 0.02f;
+    public float DeadChaosChange = 0.03f;
 
     /// <summary>
     ///   How much to offset chaos of events away from 0 when picking events
