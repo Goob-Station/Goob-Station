@@ -14,11 +14,11 @@
     edges:
     - to: hardsuitGoliath
       steps:
-      - tag: LavalandExplorerSuit
+      - tag: CargoHardsuit
         icon:
-          sprite: _Lavaland/Equipment/explorer_suit.rsi
+          sprite: Clothing/OuterClothing/Hardsuits/salvage.rsi
           state: icon
-        name: Any Explorer Suit # Goobstation - It's almost impossible to find spationaut hardsuits
+        name: Any Cargo Hardsuit # Goobstation - Spationaut, Mining, or Luxury mining hardsuit
         doAfter: 10
       - material: Durathread
         amount: 5
