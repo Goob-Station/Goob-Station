@@ -567,8 +567,10 @@
     chaos:
       Atmos: 100
       Medical: 50
-    chaosScore: 80 # Goobstation # most of the time scrubbers just clean it
     eventType: Maintenance # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 80 # most of the time scrubbers just clean it
   - type: GasLeakRule
 
 - type: entity
