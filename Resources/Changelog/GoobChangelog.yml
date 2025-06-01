@@ -10227,3 +10227,136 @@ Entries:
       message: Singularity Buster Rocket no longer does damage
   id: 1135
   time: '2025-05-25T17:20:38.0000000+00:00'
+- author: Security Chuds
+  changes:
+    - type: Fix
+      message: >-
+        Telecrystal miner flatpacks are just as contraband as the machine it
+        holds. Any cadet saying it's not is to be taken out back and ~~shot~~
+        fired.
+  id: 1136
+  time: '2025-05-26T15:45:50.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Add
+      message: Added tramadol and oxycodone painkillers
+    - type: Tweak
+      message: >-
+        Turned up the pain, expect to paincrit 1-2 shots before you crit for
+        real
+    - type: Add
+      message: Added heroin to poppies
+    - type: Tweak
+      message: Tricordrazine now heals up to 100 damage
+    - type: Tweak
+      message: Pill canisters can hold 15 pills
+    - type: Fix
+      message: Tourniquets now fit in medical belts again
+  id: 1137
+  time: '2025-05-27T07:09:11.0000000+00:00'
+- author: CreatorBot01, Zethine
+  changes:
+    - type: Add
+      message: Added armored winter coat for security.
+  id: 1138
+  time: '2025-05-29T17:49:08.0000000+00:00'
+- author: Mocho, XcenLegend
+  changes:
+    - type: Add
+      message: Added a new UI theme based around cosmic cult.
+  id: 1139
+  time: '2025-05-30T05:07:39.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Fix
+      message: AI air on box
+    - type: Fix
+      message: AI power on box
+  id: 1140
+  time: '2025-05-30T05:08:24.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: 'Secret+: a new secret-like gamemode to try out.'
+    - type: Add
+      message: >-
+        New game presets: Turbulence, Entropy, Chaos, in ascending difficulty
+        order.
+  id: 1141
+  time: '2025-05-30T15:43:35.0000000+00:00'
+- author: GNUtopia
+  changes:
+    - type: Tweak
+      message: Moths and harpies are faster in 0G
+  id: 1142
+  time: '2025-05-30T20:24:20.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Cargo gun crates are MUCH harder to break into
+  id: 1143
+  time: '2025-05-30T21:06:08.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Remove
+      message: Durk hath been slain.
+  id: 1144
+  time: '2025-05-30T21:43:00.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Zombies are faster than you
+    - type: Tweak
+      message: Zombies heal on hit
+    - type: Tweak
+      message: Zombies get back up if not quickly killed once downed
+    - type: Tweak
+      message: Zombie infection is lethal
+    - type: Tweak
+      message: Initial infected have 60-120 seconds to go feral before turning
+    - type: Tweak
+      message: Less initial infected
+  id: 1145
+  time: '2025-05-30T23:38:26.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Chaos and guide are no longer voteable.
+    - type: Tweak
+      message: Secret+ should have more midround events.
+    - type: Fix
+      message: Secret+ can now spawn devil and cult.
+  id: 1146
+  time: '2025-05-31T09:48:55.0000000+00:00'
+- author: ImHoks
+  changes:
+    - type: Fix
+      message: You can't anymore dupe filling of emergency toolboxes
+  id: 1147
+  time: '2025-06-01T06:49:28.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Possibly fixed nukeops.
+  id: 1148
+  time: '2025-06-01T08:45:39.0000000+00:00'
+- author: the_biggestbruh
+  changes:
+    - type: Remove
+      message: Ancient Babylonian curse from Void Pull
+    - type: Tweak
+      message: >-
+        Void pull range and damage is boosted if an ascended Void heretic uses
+        it
+    - type: Tweak
+      message: Void pull now does cold damage
+    - type: Fix
+      message: >-
+        Void pull no longer does 5 bajillion quazillion gorjillion damage (of
+        every type on every limb)
+    - type: Fix
+      message: >-
+        Void pull should now properly stun people like it says it should
+        (previously it only knocked them down)
+  id: 1149
+  time: '2025-06-01T16:46:41.0000000+00:00'
