@@ -70,7 +70,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Collections;
+using Content.Goobstation.Shared.Lathe;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Administration.Logs;
@@ -145,7 +145,7 @@ namespace Content.Server.Lathe
 
             SubscribeLocalEvent<LatheComponent, LatheQueueRecipeMessage>(OnLatheQueueRecipeMessage);
             SubscribeLocalEvent<LatheComponent, LatheSyncRequestMessage>(OnLatheSyncRequestMessage);
-            SubscribeLocalEvent<LatheComponent, LatheQueueResetMessage>(OnLatheQueueResetMessage);
+            SubscribeLocalEvent<LatheComponent, LatheQueueResetMessage>(OnLatheQueueResetMessage); // Goobstation
 
             SubscribeLocalEvent<LatheComponent, BeforeActivatableUIOpenEvent>((u, c, _) => UpdateUserInterfaceState(u, c));
             SubscribeLocalEvent<LatheComponent, MaterialAmountChangedEvent>(OnMaterialAmountChanged);
@@ -465,11 +465,12 @@ namespace Content.Server.Lathe
                 var allMaterials = component.Queue.SelectMany(q => q.Materials);
                 foreach (var (mat, amount) in allMaterials)
                 {
-
                     if (!_materialStorage.TryChangeMaterialAmount(uid, mat, amount))
                     {
                         _popup.PopupEntity(Loc.GetString("lathe-queue-reset-material-overflow", ("material", mat)), uid);
+                        break;
                     }
+
                 }
                 component.Queue.Clear();
             }

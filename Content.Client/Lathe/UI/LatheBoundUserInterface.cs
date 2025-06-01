@@ -42,6 +42,7 @@
 
 using Content.Shared._DV.Salvage; // DeltaV
 using Content.Shared.Lathe;
+using Content.Goobstation.Shared.Lathe;
 using Content.Shared.Research.Components;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
@@ -68,10 +69,7 @@ namespace Content.Client.Lathe.UI
             {
                 SendMessage(new ConsoleServerSelectionMessage());
             };
-            _menu.OnResetQueueListButtonPressed += _ =>
-            {
-                SendMessage(new LatheQueueResetMessage());
-            };
+            _menu.OnResetQueueListButtonPressed += _ => SendMessage(new LatheQueueResetMessage()); // Goobstation
 
             _menu.RecipeQueueAction += (recipe, amount) =>
             {
