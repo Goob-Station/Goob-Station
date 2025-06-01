@@ -24,8 +24,8 @@ meta:
   engineVersion: 251.0.0
   forkId: ""
   forkVersion: ""
-  time: 06/01/2025 09:43:38
-  entityCount: 2058
+  time: 06/01/2025 10:04:26
+  entityCount: 2059
 maps:
 - 1
 grids:
@@ -10572,7 +10572,7 @@ entities:
     - type: Transform
       pos: 22.33143,-10.32877
       parent: 4
-- proto: OreProcessor
+- proto: OreProcessorIndustrial
   entities:
   - uid: 89
     components:
@@ -10680,12 +10680,19 @@ entities:
     - type: Transform
       pos: 22.319513,-10.349604
       parent: 4
-- proto: PlasticPit
+- proto: PlasteelPit
   entities:
   - uid: 346
     components:
     - type: Transform
-      pos: 19.5,-10.5
+      pos: 14.5,-10.5
+      parent: 4
+- proto: PlasticPit
+  entities:
+  - uid: 411
+    components:
+    - type: Transform
+      pos: 24.5,-10.5
       parent: 4
 - proto: PlushieDiona
   entities:

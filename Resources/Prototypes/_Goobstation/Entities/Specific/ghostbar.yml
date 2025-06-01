@@ -68,6 +68,15 @@
         ent: null
 
 - type: entity
+  id: PlasteelPit
+  parent: PlasticPit
+  name: plasteel pit
+  description: Has plasteel inside. Don't ask where from.
+  components:
+  - type: ItemMiner
+    proto: SheetPlasteel
+
+- type: entity
   id: Omnilathe
   parent: Autolathe
   name: omnilathe
