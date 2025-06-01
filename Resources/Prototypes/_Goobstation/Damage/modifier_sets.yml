@@ -266,6 +266,7 @@
     Heat: 0.7
   ignoreArmorPierceFlags: All # Goobstation
 
+- type: damageModifierSet
   id: StrongCrates
   coefficients:
     Blunt: 0.5
