@@ -25,8 +25,9 @@
       Hostile: 50
       Medical: 50
       Death: 25
-    chaosScore: 500 # Goobstation
-    eventType: HostilesSpawn # Goobstation
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 500
   - type: PendingPirateRule
     ransomPrototype: BikeHornRansom
   - type: Tag
