@@ -1,0 +1,18 @@
+# Spoken by dionas.
+# TODO: Replace this with a much better language.
+- type: language
+  id: RootSpeak
+  isVisibleLanguage: true
+  speech:
+    color: "#ce5e14dd"
+    fontId: Noganas
+  obfuscation:
+    !type:SyllableObfuscation
+    minSyllables: 1
+    maxSyllables: 5
+    replacement:
+    - hs
+    - zt
+    - kr
+    - st
+    - sh

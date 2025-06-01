@@ -1,0 +1,16 @@
+# Spoken by Chitinids.
+- type: language
+  id: Chittin
+  isVisibleLanguage: true
+  speech:
+    color: "#7d7d7d"
+    fontId: Only_You
+  obfuscation:
+    !type:SyllableObfuscation
+    minSyllables: 1 # Replacements are really short
+    maxSyllables: 2
+    replacement:
+    - click
+    - clack
+    - buzz
+    - bizz

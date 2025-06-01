@@ -1,0 +1,18 @@
+# Spoken by slimes.
+# TODO: Replace this with a much better language.
+- type: language
+  id: Bubblish
+  isVisibleLanguage: true
+  speech:
+    color: "#00a3e2dd"
+    fontId: RubikBubbles
+  obfuscation:
+    !type:SyllableObfuscation
+    minSyllables: 1
+    maxSyllables: 3
+    replacement:
+    - blob
+    - plop
+    - pop
+    - bop
+    - boop
