@@ -105,8 +105,12 @@
 # SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 SeamLesss <kai.julian.watson@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 War Pigeon <54217755+minus1over12@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 starch <starchpersonal@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -330,7 +334,7 @@
   name: brute auto-injector
   parent: ChemicalMedipen
   id: BruteAutoInjector
-  description: A rapid dose of bicaridine, salicylic acid, and tranexamic acid, intended for combat applications. Usage of multiple highly recommended against. # goobstation
+  description: A rapid dose of bicaridine, salicylic acid, tranexamic acid, and tramadol, intended for combat applications. Usage of multiple highly recommended against. # goobstation
   components:
   - type: Item
     inhandVisuals:
@@ -355,19 +359,21 @@
     emptySpriteName: bicpen_empty
   - type: Hypospray
     solutionName: pen
-    transferAmount: 20
+    transferAmount: 25 # Goobstation
     onlyAffectsMobs: false
     injectOnly: true
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 20
+        maxVol: 25
         reagents:
         - ReagentId: SalicylicAcid # goobstation
           Quantity: 10
         - ReagentId: Bicaridine # goobstation
           Quantity: 5
         - ReagentId: TranexamicAcid
+          Quantity: 5
+        - ReagentId: Tramadol # goobstation
           Quantity: 5
   - type: Tag
     tags: []
@@ -376,7 +382,7 @@
   name: burn auto-injector
   parent: ChemicalMedipen
   id: BurnAutoInjector
-  description: A rapid dose of oxandrolone and leporazine, intended for combat applications. # goobstation
+  description: A rapid dose of oxandrolone, leporazine, and tramadol, intended for combat applications. # goobstation
   components:
   - type: Item
     inhandVisuals:
@@ -401,18 +407,20 @@
     emptySpriteName: dermpen_empty
   - type: Hypospray
     solutionName: pen
-    transferAmount: 20
+    transferAmount: 25 # Goobstation
     onlyAffectsMobs: false
     injectOnly: true
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 20
+        maxVol: 25
         reagents:
         - ReagentId: Oxandrolone # Goobstation
           Quantity: 10
         - ReagentId: Leporazine
           Quantity: 10
+        - ReagentId: Tramadol # goobstation
+          Quantity: 5
   - type: Tag
     tags: []
 

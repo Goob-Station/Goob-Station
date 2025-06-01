@@ -13,6 +13,7 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Shuttle Game Rule Tables -- If you dont add your rules to these they wont be used by the games schedulers.
@@ -67,11 +68,16 @@
       path: /Audio/Announcements/attention.ogg
     weight: 10 # 10 default
     reoccurrenceDelay: 30
+    earliestStart: 20 # Goobstation
     duration: 1
     maxOccurrences: 1 # should be the same as [copies] in shuttle_incoming_event.yml
     chaos: # Goobstation
       Friend: -20
       Power: -10 # can be salvaged for power
+    eventType: FriendlySpawn # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: -70
   - type: RuleGrids
   - type: LoadMapRule
 
@@ -115,6 +121,10 @@
     chaos: # Goobstation
       Friend: -10
       Mess: 20
+    eventType: Chaotic # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: -40
   - type: LoadMapRule
     preloadedGrid: Honki
 
@@ -150,6 +160,10 @@
     weight: 2 # Its just a big ship, so it needs to be rarer to be interesting.
     chaos: # Goobstation
       Friend: -60
+    eventType: FriendlySpawn # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: -180
   - type: LoadMapRule
     preloadedGrid: Cruiser
 
@@ -180,6 +194,10 @@
     chaos: # Goobstation
       Friend: -20
       Medical: -20
+    eventType: FriendlySpawn # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: -140
   - type: LoadMapRule
     preloadedGrid: Flatline
 
@@ -203,6 +221,10 @@
     earliestStart: 45 # late to hopefully have enough ghosts to fill all roles quickly. (5-6)
     chaos: # Goobstation
       Friend: -50
+    eventType: FriendlySpawn # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: -150
   - type: LoadMapRule
     preloadedGrid: NTIncorporation
 
@@ -219,6 +241,10 @@
       Hostile: 80
       Death: 100
       Medical: 100
+    eventType: HostilesSpawn # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 900
   - type: LoadMapRule
     preloadedGrid: Instigator
 
