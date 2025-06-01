@@ -60,7 +60,7 @@ public sealed class ItemMinerSystem : EntitySystem
             }
 
             if (TerminatingOrDeleted(miner.AudioUid) && miner.MiningSound != null)
-                miner.AudioUid = _audio.PlayPvs(miner.MiningSound, uid, audioParams: miner.MiningSound.Params.WithLoop(true))?.Entity;
+                miner.AudioUid = _audio.PlayPvs(miner.MiningSound, uid)?.Entity;
 
             if (miner.NextAt < _timing.CurTime)
             {
