@@ -309,7 +309,7 @@
     - WhitelistChameleon
 
 - type: entity
-  parent: [ ClothingHeadHatBeretRND, BaseCommandContraband ] # Goob edt
+  parent: ClothingHeadHatBeretRND
   id: ClothingHeadHatBeretQM
   name: quartermaster's beret
   description: A beret with the cargo's insignia emblazoned on it. For quartermasters that are more inclined towards style.
@@ -325,7 +325,7 @@
     - WhitelistChameleon
 
 - type: entity
-  parent: [ ClothingHeadHatBeretRND, BaseSecurityCommandContraband ] # Goob edit
+  parent: [ClothingHeadHatBeretRND, BaseSecurityCommandContraband] # Goob edit
   id: ClothingHeadHatBeretHoS
   name: head of security's beret
   description: A black beret with a commander's rank emblem. For officers that are more inclined towards style than safety.
@@ -356,7 +356,7 @@
         Heat: 0.8
 
 - type: entity
-  parent: [ ClothingHeadHatBeretRND, BaseSecurityContraband ] # Goob edit
+  parent: ClothingHeadHatBeretRND
   id: ClothingHeadHatBeretWarden
   name: warden's beret
   description: A corporate blue beret with a warden's rank emblem. For officers that are more inclined towards style than safety.
@@ -378,7 +378,7 @@
     sprite: Clothing/Head/Hats/beret_physician.rsi
 
 - type: entity
-  parent: [ ClothingHeadHatBeret, BaseSecurityContraband ] # Goob edit
+  parent: [ClothingHeadHatBeret, BaseSecurityContraband] # Goob edit
   id: ClothingHeadHatBeretBrigmedic
   name: brigmedical beret
   description: White beret, looks like a cream pie on the head.
