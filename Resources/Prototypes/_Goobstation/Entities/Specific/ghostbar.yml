@@ -44,10 +44,10 @@
         density: 1000
         hard: false
   - type: ItemMiner
-    proto: SheetPlastic
-    amount: 10
+    proto: SheetPlastic1
+    amount: 30
     miningSound: null
-    interval: 1
+    interval: 10
     needsPower: false
   - type: ItemSlots
     slots:
