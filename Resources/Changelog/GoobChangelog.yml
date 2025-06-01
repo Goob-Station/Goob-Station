@@ -10318,3 +10318,13 @@ Entries:
       message: Less initial infected
   id: 1145
   time: '2025-05-30T23:38:26.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Chaos and guide are no longer voteable.
+    - type: Tweak
+      message: Secret+ should have more midround events.
+    - type: Fix
+      message: Secret+ can now spawn devil and cult.
+  id: 1146
+  time: '2025-05-31T09:48:55.0000000+00:00'
