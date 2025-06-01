@@ -98,6 +98,12 @@ public sealed partial class HumanoidAppearanceComponent : Component
     /// </summary>
     [DataField]
     public HashSet<HumanoidVisualLayers> HideLayersOnEquip = [HumanoidVisualLayers.Hair];
+
+    /// <summary>
+    ///     Shitmed Change: Used to prevent early additions of BodyPartAppearanceComp with incorrect data from Urists.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool ProfileLoaded;
 }
 
 [DataDefinition]

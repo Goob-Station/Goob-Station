@@ -131,9 +131,13 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
 // Shitmed Change
+using Content.Shared.Body.Components;
+using Content.Shared.Body.Systems;
+using Content.Shared._Shitmed.Body;
 using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._EinsteinEngines.Silicon.Components;
+using Robust.Shared.Utility;
 
 namespace Content.Server.Ghost
 {
@@ -165,7 +169,7 @@ namespace Content.Server.Ghost
         [Dependency] private readonly TagSystem _tag = default!;
         [Dependency] private readonly NameModifierSystem _nameMod = default!;
         [Dependency] private readonly GhostVisibilitySystem _ghostVisibility = default!;
-
+        [Dependency] private readonly SharedBodySystem _bodySystem = default!; // Shitmed Change
         private EntityQuery<GhostComponent> _ghostQuery;
         private EntityQuery<PhysicsComponent> _physicsQuery;
 
@@ -684,7 +688,15 @@ namespace Content.Server.Ghost
                         : "Asphyxiation";
                     DamageSpecifier damage = new(_prototypeManager.Index<DamageTypePrototype>(damageType), dealtDamage);
 
-                    _damageable.TryChangeDamage(playerEntity, damage, true, targetPart: TargetBodyPart.All, splitDamage: SplitDamageBehavior.None);
+                    if (TryComp<BodyComponent>(playerEntity, out var body)
+                        && body.BodyType == BodyType.Complex
+                        && body.RootContainer.ContainedEntities.FirstOrNull() is { } root)
+                        _damageable.TryChangeDamage(playerEntity,
+                            damage,
+                            true,
+                            targetPart: _bodySystem.GetTargetBodyPart(root));
+                    else
+                        _damageable.TryChangeDamage(playerEntity, damage, true);
                     // Shitmed Change End
                 }
             }

@@ -85,6 +85,7 @@ using Robust.Shared.Utility;
 
 // Shitmed Change
 using Content.Shared._Shitmed.Body;
+using Content.Shared._Shitmed.Body.Part;
 using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
@@ -369,15 +370,48 @@ namespace Content.Shared.Damage
 
                 var damagePerPart = ApplySplitDamageBehaviors(splitDamageBehavior, adjustedDamage, targetedBodyParts);
                 var appliedDamage = new DamageSpecifier();
-
+                var surplusHealing = new DamageSpecifier();
                 foreach (var (partId, _, partDamageable) in targetedBodyParts)
                 {
+                    var modifiedDamage = damagePerPart + surplusHealing;
+
                     // Apply damage to this part
-                    var partDamageResult = TryChangeDamage(partId, damagePerPart, ignoreResistances,
+                    var partDamageResult = TryChangeDamage(partId, modifiedDamage, ignoreResistances,
                         interruptsDoAfters, partDamageable, origin, ignoreBlockers: ignoreBlockers);
 
                     if (partDamageResult != null && !partDamageResult.Empty)
+                    {
                         appliedDamage += partDamageResult;
+
+                        /*
+                            Why this ugly shitcode? Its so that we can track chems and other sorts of healing surpluses.
+                            Assume you're fighting in a spaced area. Your chest has 30 damage, and every other part
+                            is getting 0.5 per tick. Your chems will only be 1/11th as effective, so we take the surplus
+                            healing and pass it along parts. That way a chem that would heal you for 75 brute would truly
+                            heal the 75 brute per tick, and not some weird shit like 6.8 per tick.
+                        */
+                        foreach (var (type, damageFromDict) in modifiedDamage.DamageDict)
+                        {
+                            if (damageFromDict >= 0
+                                || !partDamageResult.DamageDict.TryGetValue(type, out var damageFromResult)
+                                || damageFromResult > 0)
+                                continue;
+
+                            // If the damage from the dict plus the surplus healing is equal to the damage from the result,
+                            // we can safely set the surplus healing to 0, as that means we consumed all of it.
+                            if (damageFromDict >= damageFromResult)
+                            {
+                                surplusHealing.DamageDict[type] = FixedPoint2.Zero;
+                            }
+                            else
+                            {
+                                if (surplusHealing.DamageDict.TryGetValue(type, out var _))
+                                    surplusHealing.DamageDict[type] = damageFromDict - damageFromResult;
+                                else
+                                    surplusHealing.DamageDict.TryAdd(type, damageFromDict - damageFromResult);
+                            }
+                        }
+                    }
                 }
 
                 totalAppliedDamage = appliedDamage;
@@ -514,14 +548,17 @@ namespace Content.Shared.Damage
                     adjustedValue = FixedPoint2.New(value.Float() * scaleFactor.Value);
 
                 var newValue = FixedPoint2.Max(FixedPoint2.Zero, oldValue + adjustedValue);
-                if (newValue == oldValue &&
-                    (scaleFactor is null
+                if (newValue == oldValue
+                    && (scaleFactor is null
                     || scaleFactor is not null
                     && scaleFactor.Value != 0f))
                     continue;
 
                 dict[type] = newValue;
-                delta.DamageDict[type] = value; // Report original damage value in delta
+                if (value >= 0)
+                    delta.DamageDict[type] = value; // Report original damage value in delta so that parts with damage capped will always apply effects
+                else
+                    delta.DamageDict[type] = newValue - oldValue; // If it's a heal, then who cares. Overhealing isn't real.
             }
 
             if (delta.DamageDict.Count > 0)
@@ -598,21 +635,35 @@ namespace Content.Shared.Damage
             return true;
         }
 
-        public DamageSpecifier ApplySplitDamageBehaviors<T>(SplitDamageBehavior splitDamageBehavior,
+        public DamageSpecifier ApplySplitDamageBehaviors(SplitDamageBehavior splitDamageBehavior,
             DamageSpecifier damage,
-            List<(EntityUid Id, T Component, DamageableComponent Damageable)> parts) where T : IComponent
+            List<(EntityUid Id, BodyPartComponent Component, DamageableComponent Damageable)> parts)
         {
+            var newDamage = new DamageSpecifier(damage);
             switch (splitDamageBehavior)
             {
                 case SplitDamageBehavior.None:
-                    return damage;
+                    return newDamage;
                 case SplitDamageBehavior.Split:
-                    return damage / parts.Count;
+                    return newDamage / parts.Count;
+                case SplitDamageBehavior.SplitEnsureAllOrganic:
+                    var organicParts = parts.Where(part =>
+                        part.Component.PartComposition == BodyPartComposition.Organic).ToList();
+
+                    parts.Clear();
+                    parts.AddRange(organicParts);
+
+                    goto case SplitDamageBehavior.SplitEnsureAll;
                 case SplitDamageBehavior.SplitEnsureAll:
-                    foreach (var (type, val) in damage.DamageDict)
+                    foreach (var (type, val) in newDamage.DamageDict)
                     {
                         if (val > 0)
-                            damage.DamageDict[type] = val / parts.Count;
+                        {
+                            if (parts.Count > 0)
+                                newDamage.DamageDict[type] = val / parts.Count;
+                            else
+                                newDamage.DamageDict[type] = FixedPoint2.Zero;
+                        }
                         else if (val < 0)
                         {
                             var count = 0;
@@ -623,10 +674,14 @@ namespace Content.Shared.Damage
                                     count++;
 
                             if (count > 0)
-                                damage.DamageDict[type] = val / count;
+                                newDamage.DamageDict[type] = val / count;
+                            else
+                                newDamage.DamageDict[type] = FixedPoint2.Zero;
                         }
                     }
-                    return damage;
+                    // We sort the parts to ensure that surplus damage gets passed from least to most damaged.
+                    parts.Sort((a, b) => a.Damageable.TotalDamage.CompareTo(b.Damageable.TotalDamage));
+                    return newDamage;
                 default:
                     return damage;
             }

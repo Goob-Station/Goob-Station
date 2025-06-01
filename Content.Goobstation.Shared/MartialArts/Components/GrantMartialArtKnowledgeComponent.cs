@@ -18,6 +18,9 @@ public abstract partial class GrantMartialArtKnowledgeComponent : Component
 
     [DataField]
     public virtual MartialArtsForms MartialArtsForm { get; set; } = MartialArtsForms.CloseQuartersCombat;
+
+    [DataField]
+    public GrabStage StartingStage = GrabStage.Soft;
 }
 
 [RegisterComponent]

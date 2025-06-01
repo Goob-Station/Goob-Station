@@ -112,6 +112,7 @@ using Content.Shared.Timing;
 
 // Shitmed Change
 using Content.Shared._Shitmed.Targeting;
+using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
 
@@ -302,7 +303,12 @@ public sealed class DefibrillatorSystem : EntitySystem
                     _consciousness.RemoveConsciousnessModifier(target, target, "DeathThreshold");
                 }
 
-                _damageable.TryChangeDamage(target, component.ZapHeal, true, origin: uid, targetPart: TargetBodyPart.Chest);
+                _damageable.TryChangeDamage(target,
+                    component.ZapHeal,
+                    true,
+                    origin: uid,
+                    targetPart: TargetBodyPart.All,
+                    splitDamage: SplitDamageBehavior.SplitEnsureAll);
             }
             // Shitmed Change End
             if (_mobThreshold.TryGetThresholdForState(target, MobState.Dead, out var threshold) &&

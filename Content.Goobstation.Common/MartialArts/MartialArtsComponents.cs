@@ -21,7 +21,7 @@ public sealed partial class MartialArtBlockedComponent : Component
 }
 public abstract partial class GrabStagesOverrideComponent : Component
 {
-    public GrabStage StartingStage = GrabStage.Hard;
+    public GrabStage StartingStage = GrabStage.Soft;
 }
 
 [RegisterComponent]
@@ -44,6 +44,7 @@ public sealed partial class MartialArtsKnowledgeComponent : GrabStagesOverrideCo
     [DataField]
     [AutoNetworkedField]
     public string OriginalFistDamageType;
+
 }
 
 public enum MartialArtsForms

@@ -505,13 +505,16 @@ public partial class SharedBodySystem
 
     private void OnProfileLoadFinished(EntityUid uid, BodyComponent component, ProfileLoadFinishedEvent args)
     {
-        if (!HasComp<HumanoidAppearanceComponent>(uid)
+        if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid)
             || TerminatingOrDeleted(uid)
-            || !Initialized(uid)) // We do this last one for urists on test envs.
+            || !Initialized(uid))
             return;
 
         foreach (var part in GetBodyChildren(uid, component))
             EnsureComp<BodyPartAppearanceComponent>(part.Id);
+
+        humanoid.ProfileLoaded = true;
+        Dirty(uid, humanoid);
     }
 
     private void OnStandAttempt(Entity<BodyComponent> ent, ref StandAttemptEvent args)

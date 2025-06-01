@@ -33,6 +33,7 @@
 using Content.Goobstation.Shared.Bible;
 using Content.Server.Ghost.Roles.Events;
 using Content.Server.Popups;
+using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
@@ -164,7 +165,13 @@ namespace Content.Server.Bible
                 }
             }
 
-            var damage = _damageableSystem.TryChangeDamage(args.Target.Value, component.Damage * 11f, true, origin: uid, targetPart: TargetBodyPart.All, ignoreBlockers: true);
+            var damage = _damageableSystem.TryChangeDamage(args.Target.Value,
+                component.Damage,
+                true,
+                origin: uid,
+                targetPart: TargetBodyPart.All,
+                ignoreBlockers: true,
+                splitDamage: SplitDamageBehavior.SplitEnsureAll);
 
             if (damage == null || damage.Empty)
             {

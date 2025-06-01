@@ -14,6 +14,7 @@ using Content.Shared._Shitmed.Body.Part;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
+using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Body.Systems;
@@ -22,6 +23,7 @@ public partial class SharedBodySystem
     [Dependency] private readonly SharedHumanoidAppearanceSystem _humanoid = default!;
     [Dependency] private readonly MarkingManager _markingManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly INetManager _net = default!;
     private void InitializePartAppearances()
     {
         base.Initialize();
@@ -140,7 +142,9 @@ public partial class SharedBodySystem
 
     private void OnPartAttachedToBody(EntityUid uid, BodyComponent component, ref BodyPartAddedEvent args)
     {
-        if (!TryComp(uid, out HumanoidAppearanceComponent? bodyAppearance))
+        if (!TryComp(uid, out HumanoidAppearanceComponent? bodyAppearance)
+            || _net.IsClient
+            || !bodyAppearance.ProfileLoaded)
             return;
 
         BodyPartAppearanceComponent? partAppearance = null;
@@ -162,13 +166,13 @@ public partial class SharedBodySystem
             || _timing.ApplyingState)
             return;
 
+        BodyPartAppearanceComponent? partAppearance = null;
         // We check for this conditional here since some entities may not have a profile... If they dont
         // have one, and their part is gibbed, the markings will not be removed or applied properly.
-        if (!HasComp<BodyPartAppearanceComponent>(args.Part))
-            EnsureComp<BodyPartAppearanceComponent>(args.Part);
+        if (!TryComp<BodyPartAppearanceComponent>(args.Part, out partAppearance))
+            partAppearance = EnsureComp<BodyPartAppearanceComponent>(args.Part);
 
-        if (TryComp<BodyPartAppearanceComponent>(args.Part, out var partAppearance))
-            RemoveAppearance(uid, partAppearance, args.Part);
+        RemoveAppearance(uid, partAppearance, args.Part);
     }
 
     protected void UpdateAppearance(EntityUid target,

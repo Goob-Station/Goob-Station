@@ -10,4 +10,5 @@ public enum SplitDamageBehavior
     None,
     Split,
     SplitEnsureAll,
+    SplitEnsureAllOrganic,
 }

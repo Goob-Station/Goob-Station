@@ -380,7 +380,7 @@ public sealed partial class WoundSystem : EntitySystem
             var bodySeverity = FixedPoint2.Zero;
             if (bodyPart.Body.HasValue)
             {
-                var rootPart = Comp<BodyComponent>(bodyPart.Body.Value).RootContainer.ContainedEntity;
+                var rootPart = Comp<BodyComponent>(bodyPart.Body.Value)?.RootContainer?.ContainedEntity;
                 if (rootPart.HasValue)
                 {
                     foreach (var woundable in GetAllWoundableChildren(rootPart.Value))

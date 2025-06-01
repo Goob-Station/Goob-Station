@@ -298,6 +298,8 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem // Shitmed Chang
                             woundable.Bleeds = totalPartBleeds;
                             Dirty(bodyPart, woundable);
                         }
+
+                        totalBleedAmount += totalPartBleeds;
                     }
                 }
 

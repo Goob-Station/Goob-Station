@@ -27,10 +27,10 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
 // Shitmed Change
-using Content.Shared.Containers.ItemSlots;
+using Content.Shared._Shitmed.Body.Part;
 using Content.Shared._Shitmed.Medical.Surgery.Tools;
-using Content.Shared._Shitmed.Targeting;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds;
+using Content.Shared.Containers.ItemSlots;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Body.Part;
@@ -51,13 +51,6 @@ public sealed partial class BodyPartComponent : Component, ISurgeryToolComponent
     [DataField, AutoNetworkedField]
     public BodyPartSlot? ParentSlot;
 
-    /// <summary>
-    /// Shitmed Change: Bleeding stacks to give when this body part is severed.
-    /// Doubled for <see cref="IsVital"/>. parts.
-    /// </summary>
-    [DataField]
-    public float SeverBleeding = 4f;
-
     [DataField]
     public string ToolName { get; set; } = "A body part";
 
@@ -69,6 +62,12 @@ public sealed partial class BodyPartComponent : Component, ISurgeryToolComponent
 
     [DataField]
     public float Speed { get; set; } = 1f;
+
+    /// <summary>
+    ///     Shitmed Change: What composition does this body part classify as
+    /// </summary>
+    [DataField]
+    public BodyPartComposition PartComposition = BodyPartComposition.Organic;
 
     /// <summary>
     ///     Shitmed Change: Whether this body part is enabled or not.

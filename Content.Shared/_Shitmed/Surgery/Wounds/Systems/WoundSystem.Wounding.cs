@@ -809,7 +809,9 @@ public sealed partial class WoundSystem
 
                 foreach (var wound in GetWoundableWounds(parentWoundableEntity))
                 {
-                    if (!TryComp<BleedInflicterComponent>(wound, out var bleeds))
+                    if (!TryComp<BleedInflicterComponent>(wound, out var bleeds)
+                        || !TryComp<WoundableComponent>(parentWoundableEntity, out var parentWoundable)
+                        || !parentWoundable.CanBleed)
                         continue;
 
                     // Bleeding :3
@@ -853,7 +855,9 @@ public sealed partial class WoundSystem
 
         foreach (var wound in GetWoundableWounds(parentWoundableEntity))
         {
-            if (!TryComp<BleedInflicterComponent>(wound, out var bleeds))
+            if (!TryComp<BleedInflicterComponent>(wound, out var bleeds)
+                || !TryComp<WoundableComponent>(parentWoundableEntity, out var parentWoundable)
+                || !parentWoundable.CanBleed)
                 continue;
 
             bleeds.ScalingLimit += 6;
@@ -1038,7 +1042,7 @@ public sealed partial class WoundSystem
 
         if (bodyPart.Body.HasValue)
         {
-            var rootPart = Comp<BodyComponent>(bodyPart.Body.Value).RootContainer.ContainedEntity;
+            var rootPart = Comp<BodyComponent>(bodyPart.Body.Value)?.RootContainer?.ContainedEntity;
             if (rootPart.HasValue)
             {
                 bodySeverity =

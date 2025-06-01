@@ -111,7 +111,7 @@ namespace Content.Server.EntityEffects.Effects
 
         [DataField]
         [JsonPropertyName("splitDamage")]
-        public SplitDamageBehavior SplitDamage = SplitDamageBehavior.SplitEnsureAll;
+        public SplitDamageBehavior SplitDamage = SplitDamageBehavior.SplitEnsureAllOrganic;
 
         [DataField]
         [JsonPropertyName("useTargeting")]
