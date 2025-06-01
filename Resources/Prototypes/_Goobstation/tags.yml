@@ -81,6 +81,9 @@
   id: BreathMask
 
 - type: Tag
+  id: CargoHardsuit
+
+- type: Tag
   id: CartridgeHighCaliber
 
 - type: Tag
@@ -97,7 +100,7 @@
 
 - type: Tag
   id: CannotSuicideAny
-  
+
 - type: Tag
   id: Chair
 
