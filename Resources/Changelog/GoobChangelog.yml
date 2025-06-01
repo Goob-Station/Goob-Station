@@ -10340,3 +10340,23 @@ Entries:
       message: Possibly fixed nukeops.
   id: 1148
   time: '2025-06-01T08:45:39.0000000+00:00'
+- author: the_biggestbruh
+  changes:
+    - type: Remove
+      message: Ancient Babylonian curse from Void Pull
+    - type: Tweak
+      message: >-
+        Void pull range and damage is boosted if an ascended Void heretic uses
+        it
+    - type: Tweak
+      message: Void pull now does cold damage
+    - type: Fix
+      message: >-
+        Void pull no longer does 5 bajillion quazillion gorjillion damage (of
+        every type on every limb)
+    - type: Fix
+      message: >-
+        Void pull should now properly stun people like it says it should
+        (previously it only knocked them down)
+  id: 1149
+  time: '2025-06-01T16:46:41.0000000+00:00'
