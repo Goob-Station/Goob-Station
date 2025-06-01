@@ -42,7 +42,7 @@
 
 using Content.Shared._DV.Salvage; // DeltaV
 using Content.Shared.Lathe;
-using Content.Goobstation.Shared.Lathe;
+using Content.Goobstation.Shared.Lathe; // Goobstation
 using Content.Shared.Research.Components;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
