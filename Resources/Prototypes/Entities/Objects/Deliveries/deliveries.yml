@@ -180,3 +180,21 @@
           collection: DeliveryOpenSounds
       - !type:DoActsBehavior
         acts: [ "Breakage" ]
+
+- type: entity
+  id: DeliveryModifierBomb
+  description: Components to add when a delivery is rolled as a bomb.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: DeliveryBomb
+  - type: AmbientSound
+    enabled: false
+    range: 8
+    sound:
+      path: /Audio/Effects/lightburn.ogg
+  - type: Explosive
+    explosionType: MicroBomb
+    totalIntensity: 150
+    intensitySlope: 5
+    maxIntensity: 15
+    canCreateVacuum: false
