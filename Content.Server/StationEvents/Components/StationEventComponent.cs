@@ -198,11 +198,5 @@ public sealed partial class StationEventComponent : Component
     /// </summary>
     [DataField]
     public ProtoId<EventTypePrototype> EventType = "Neutral";
-
-    /// <summary>
-    ///  Used by SecretPlus to rate which event should be fired.
-    /// </summary>
-    [DataField]
-    public float ChaosScore = 100f;
     // Goobstation end
 }

@@ -49,6 +49,13 @@ public sealed partial class GameRuleComponent : Component
     /// </summary>
     [DataField]
     public MinMax? Delay;
+
+    // Goobstation
+    /// <summary>
+    ///  Used by SecretPlus to rate which event should be fired.
+    /// </summary>
+    [DataField]
+    public float ChaosScore = 100f;
 }
 
 /// <summary>

@@ -34,7 +34,3 @@
 # self-explanatory
 - type: eventType
   id: FreeStuffUseful
-
-# self-explanatory
-- type: eventType
-  id: Roundstart
