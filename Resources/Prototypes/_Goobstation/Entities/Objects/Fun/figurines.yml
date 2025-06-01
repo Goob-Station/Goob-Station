@@ -8,3 +8,15 @@
     state: lawyer
   - type: SpeakOnTrigger
     pack: FigurinesDevil
+
+- type: entity
+  parent: BaseFigurine
+  id: ToyFigurineBrigmedic
+  name: brigmedic figurine
+  description: A figurine depicting a Brigmedic holding a combat medkit, poised to pois... treat prisoners.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/figurines.rsi
+    state: brigmedic
+  - type: SpeakOnTrigger
+    pack: FigurinesBrigmedic

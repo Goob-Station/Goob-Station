@@ -3,3 +3,9 @@
   values:
     prefix: figurines-devil-
     count: 11
+
+- type: localizedDataset
+  id: FigurinesBrigmedic
+  values:
+    prefix: figurines-brigmedic-
+    count: 10

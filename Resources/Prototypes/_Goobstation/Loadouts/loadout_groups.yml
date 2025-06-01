@@ -273,7 +273,7 @@
   - BrigmedicAMG
   - ArmorVest
   - ArmorVestSlim
-  #- WinterCoatSecArmored
+  - SecurityOfficerWintercoat
 
 - type: loadoutGroup
   id: BrigmedicBackpack

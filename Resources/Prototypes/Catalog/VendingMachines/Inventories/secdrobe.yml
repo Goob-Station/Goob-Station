@@ -71,5 +71,6 @@
   contrabandInventory:
     ClothingMaskClownSecurity: 1
     ToyFigurineSecurity: 1
+    ToyFigurineBrigmedic: 1 # Goobstation
     ToyFigurineWarden: 1
     ToyFigurineHeadOfSecurity: 1
