@@ -231,7 +231,7 @@
     - to: AltarConvertNode
       completed:
       - !type:SpawnPrototype
-        prototype: ToolboxEmergencyFilled
+        prototype: ToolboxEmergency
         amount: 1
       steps:
       - tool: Prying
