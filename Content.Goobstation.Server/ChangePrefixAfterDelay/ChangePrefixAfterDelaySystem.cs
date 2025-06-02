@@ -39,8 +39,6 @@ public sealed class ChangePrefixAfterDelaySystem : EntitySystem
         }
     }
 
-    private void OnInit(Entity<ChangePrefixAfterDelayComponent> ent, ref ComponentInit args)
-    {
+    private void OnInit(Entity<ChangePrefixAfterDelayComponent> ent, ref ComponentInit args) =>
         ent.Comp.ChangeAt = _timing.CurTime + ent.Comp.Delay;
-    }
 }
