@@ -3,7 +3,9 @@
 // SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2024 Эдуард <36124833+Ertanic@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Soup-Byte07 <135303377+Soup-Byte07@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -31,10 +33,7 @@ public abstract class SharedCriminalRecordsSystem : EntitySystem
             if (!Identity.Name(uid, EntityManager).Equals(name))
                 continue;
 
-            if (status == SecurityStatus.None)
-                RemComp<CriminalRecordComponent>(uid);
-            else
-                SetCriminalIcon(name, status, uid);
+            SetCriminalIcon(name, status, uid);
         }
     }
 
@@ -45,10 +44,12 @@ public abstract class SharedCriminalRecordsSystem : EntitySystem
     {
         EnsureComp<CriminalRecordComponent>(characterUid, out var record);
 
-        var previousIcon = record.StatusIcon;
+        if (status == record.Status)
+            return;
 
         record.StatusIcon = status switch
         {
+            SecurityStatus.None => null,
             SecurityStatus.Paroled => "SecurityIconParoled",
             SecurityStatus.Wanted => "SecurityIconWanted",
             SecurityStatus.Detained => "SecurityIconIncarcerated",
@@ -60,8 +61,14 @@ public abstract class SharedCriminalRecordsSystem : EntitySystem
             _ => record.StatusIcon
         };
 
-        if (previousIcon != record.StatusIcon)
-            Dirty(characterUid, record);
+        var previousStatus = record.Status;
+
+        var ev = new CriminalRecordChanged(status, previousStatus);
+        RaiseLocalEvent(characterUid, ev);
+
+        record.Status = status;
+
+        Dirty(characterUid, record);
     }
 }
 

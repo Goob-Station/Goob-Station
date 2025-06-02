@@ -1,0 +1,75 @@
+- type: htnCompound
+  id: SecbotCompound
+  branches:
+    - tasks:
+        - !type:HTNCompoundTask
+          task: ArrestWantedNearbyCompound
+
+    - tasks:
+        - !type:HTNCompoundTask
+          task: SecbotPatrolCompound
+
+- type: htnCompound
+  id: ArrestWantedNearbyCompound
+  branches:
+    - tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:PickNearbyWantedOperator
+            targetKey: StunTarget
+            targetMoveKey: TargetCoordinates
+            targetFoundSoundKey: TargetFoundSound
+
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            pathfindInPlanning: false
+            removeKeyOnFinish: false
+
+        - !type:HTNCompoundTask
+          task: ArrestTargetCompound
+
+- type: htnCompound
+  id: ArrestTargetCompound
+  branches:
+    - preconditions:
+        - !type:TargetStunnedPrecondition
+          stunned: true
+          targetKey: StunTarget
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ForceHandcuffOperator
+            targetKey: StunTarget
+            targetArrestedSoundKey: TargetArrestedSound
+        - !type:HTNPrimitiveTask
+          operator: !type:SendRadioOperator
+            message: securitron-target-arrested
+            radioChannel: Security
+            key: StunTarget
+
+    - preconditions:
+        - !type:TargetStunnedPrecondition
+          stunned: false
+          targetKey: StunTarget
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:MeleeOperator
+            targetKey: StunTarget
+
+- type: htnCompound
+  id: SecbotPatrolCompound
+  branches:
+    - tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:EntityWhitelistOperator
+            whitelist:
+              components:
+              - NavMapBeacon
+            targetKey: PatrolTarget
+            targetMoveKey: PatrolCoordinates
+            listKey: PatrolTargets
+
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            pathfindInPlanning: false
+            stopOnLineOfSight: true
+            targetKey: PatrolCoordinates
+            rangeKey: VisionRange

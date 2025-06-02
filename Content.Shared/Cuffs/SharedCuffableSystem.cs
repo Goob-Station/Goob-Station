@@ -31,7 +31,6 @@
 // SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 EmoGarbage404 <retron404@gmail.com>
 // SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 HS <81934438+HolySSSS@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Hrosts <35345601+Hrosts@users.noreply.github.com>
@@ -41,7 +40,6 @@
 // SPDX-FileCopyrightText: 2024 Jezithyr <jezithyr@gmail.com>
 // SPDX-FileCopyrightText: 2024 Joel Zimmerman <JoelZimmerman@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Ko4ergaPunk <62609550+Ko4ergaPunk@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Kukutis96513 <146854220+Kukutis96513@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
@@ -63,7 +61,6 @@
 // SPDX-FileCopyrightText: 2024 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Stalen <33173619+stalengd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
@@ -101,7 +98,13 @@
 // SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
@@ -190,6 +193,7 @@ namespace Content.Shared.Cuffs
             SubscribeLocalEvent<CuffableComponent, BuckleAttemptEvent>(OnBuckleAttemptEvent);
             SubscribeLocalEvent<CuffableComponent, UnbuckleAttemptEvent>(OnUnbuckleAttemptEvent);
             SubscribeLocalEvent<CuffableComponent, GetVerbsEvent<Verb>>(AddUncuffVerb);
+            SubscribeLocalEvent<CuffableComponent, GetVerbsEvent<AlternativeVerb>>(OnForceCuffVerb);
             SubscribeLocalEvent<CuffableComponent, UnCuffDoAfterEvent>(OnCuffableDoAfter);
             SubscribeLocalEvent<CuffableComponent, PullStartedMessage>(OnPull);
             SubscribeLocalEvent<CuffableComponent, PullStoppedMessage>(OnPull);
@@ -203,12 +207,19 @@ namespace Content.Shared.Cuffs
             SubscribeLocalEvent<HandcuffComponent, MeleeHitEvent>(OnCuffMeleeHit);
             SubscribeLocalEvent<HandcuffComponent, AddCuffDoAfterEvent>(OnAddCuffDoAfter);
             SubscribeLocalEvent<HandcuffComponent, VirtualItemDeletedEvent>(OnCuffVirtualItemDeleted);
+
+            SubscribeLocalEvent<CanForceHandcuffComponent, ComponentInit>(OnForceStartup);
         }
 
         private void CheckInteract(Entity<CuffableComponent> ent, ref InteractionAttemptEvent args)
         {
             if (!ent.Comp.CanStillInteract)
                 args.Cancelled = true;
+        }
+
+        private void OnForceStartup(EntityUid uid, CanForceHandcuffComponent component, ComponentInit args)
+        {
+            component.Container = _container.EnsureContainer<Container>(uid, _componentFactory.GetComponentName(component.GetType()));
         }
 
         private void OnUncuffAttempt(ref UncuffAttemptEvent args)
@@ -454,6 +465,14 @@ namespace Content.Shared.Cuffs
                 return;
             args.Handled = true;
 
+            if (TryComp<CanForceHandcuffComponent>(args.User, out var canForceCuff))
+            {
+                if (args.Cancelled)
+                    EntityManager.DeleteEntity(canForceCuff.Handcuffs);
+
+                canForceCuff.Handcuffs = null;
+            }
+
             if (!args.Cancelled && TryAddNewCuffs(target, user, uid, cuffable))
             {
                 component.Used = true;
@@ -531,6 +550,62 @@ namespace Content.Shared.Cuffs
             }
         }
 
+        private void OnForceCuffVerb(EntityUid uid, CuffableComponent component, GetVerbsEvent<AlternativeVerb> args)
+        {
+            if (!args.CanAccess)
+                return;
+
+            if (!args.CanInteract)
+                return;
+
+            if (!TryComp<CanForceHandcuffComponent>(args.User, out var forceCuffComp))
+                return;
+
+            if (forceCuffComp.Handcuffs != null)
+                return;
+
+            if (forceCuffComp.RequireHands && args.Hands == null)
+                return;
+
+            if (forceCuffComp.Complex && !args.CanComplexInteract)
+                return;
+
+            var verb = new AlternativeVerb()
+            {
+                Text = Loc.GetString("force-handcuff-verb-get-data-text"),
+                Act = () =>
+                {
+                    ForceCuff(forceCuffComp, args.Target, args.User);
+                }
+            };
+
+            args.Verbs.Add(verb);
+        }
+
+        public bool ForceCuff(CanForceHandcuffComponent component, EntityUid target, EntityUid user)
+        {
+            if (component.Container == null)
+                return false;
+
+            var handcuffs = EntityManager.Spawn(component.HandcuffsId);
+
+            if (!_container.Insert(handcuffs, component.Container, force: true))
+            {
+                EntityManager.DeleteEntity(handcuffs);
+                return false;
+            }
+
+            component.Handcuffs = handcuffs;
+
+            if (TryCuffing(user, target, handcuffs, requireHands: false))
+                return true;
+
+            EntityManager.DeleteEntity(handcuffs);
+            component.Handcuffs = null;
+            return false;
+        }
+
+
         /// <summary>
         ///     Adds virtual cuff items to the user's hands.
         /// </summary>
@@ -602,7 +677,7 @@ namespace Content.Shared.Cuffs
         }
 
         /// <returns>False if the target entity isn't cuffable.</returns>
-        public bool TryCuffing(EntityUid user, EntityUid target, EntityUid handcuff, HandcuffComponent? handcuffComponent = null, CuffableComponent? cuffable = null)
+        public bool TryCuffing(EntityUid user, EntityUid target, EntityUid handcuff, HandcuffComponent? handcuffComponent = null, CuffableComponent? cuffable = null, bool requireHands = true)
         {
             if (!Resolve(handcuff, ref handcuffComponent) || !Resolve(target, ref cuffable, false))
                 return false;
@@ -611,7 +686,7 @@ namespace Content.Shared.Cuffs
             {
                 _popup.PopupClient(Loc.GetString("handcuff-component-target-has-no-hands-error",
                     ("targetName", Identity.Name(target, EntityManager, user))), user, user);
-                return true;
+                return requireHands;
             }
 
             if (cuffable.CuffedHandCount >= hands.Count)
@@ -621,7 +696,7 @@ namespace Content.Shared.Cuffs
                 return true;
             }
 
-            if (!_hands.CanDrop(user, handcuff))
+            if (requireHands && !_hands.CanDrop(user, handcuff))
             {
                 _popup.PopupClient(Loc.GetString("handcuff-component-cannot-drop-cuffs", ("target", Identity.Name(target, EntityManager, user))), user, user);
                 return false;
@@ -649,7 +724,7 @@ namespace Content.Shared.Cuffs
                 BreakOnMove = true,
                 BreakOnWeightlessMove = false,
                 BreakOnDamage = true,
-                NeedHand = true,
+                NeedHand = requireHands,
                 DistanceThreshold = 1f // shorter than default but still feels good
             };
 
