@@ -48,32 +48,7 @@ public partial class XenobiologySystem
         var user = args.User;
         var comp = ent.Comp;
 
-        if (!_inventorySystem.TryGetSlotEntity(user, "back", out var backSlotEntity))
-            return;
-
-        if (backSlotEntity is not { } tank)
-            return;
-
-        if (!_tagSystem.HasTag(tank, comp.XenoTankTag))
-            return;
-
-        var container = _containerSystem.GetContainer(tank, comp.StorageID);
-        var isSlime = HasComp<SlimeComponent>(target);
-        if (!isSlime && !comp.IsEmagged
-            || container.ContainedEntities.Count != 0)
-            return;
-
-        if (!EnsureComp<PseudoItemComponent>(target, out var pseudo))
-            pseudo.IntendedComp = false;
-
-        if (!_pseudoSystem.TryInsert(tank, target, pseudo)
-            && !pseudo.IntendedComp)
-        {
-            Logger.Debug("Insert Failed");
-            RemCompDeferred<PseudoItemComponent>(target);
-            return;
-        }
-        _audio.PlayPredicted(comp.Sound, ent, user);
+        DoSuction(user, target, comp);
     }
 
     private void OnXenoVacuumClear(Entity<XenoVacuumComponent> ent, ref UseInHandEvent args)
@@ -100,4 +75,41 @@ public partial class XenobiologySystem
         _containerSystem.EmptyContainer(container);
         _audio.PlayPredicted(comp.ClearSound, ent, user, AudioParams.Default.WithVolume(-2f));
     }
+
+    #region Helpers
+
+    private void DoSuction(EntityUid user, EntityUid target, XenoVacuumComponent comp)
+    {
+        if (!_inventorySystem.TryGetSlotEntity(user, "back", out var backSlotEntity))
+            return;
+
+        if (backSlotEntity is not { } tank)
+            return;
+
+        if (!_tagSystem.HasTag(tank, comp.XenoTankTag))
+            return;
+
+        var container = _containerSystem.GetContainer(tank, comp.StorageID);
+        var isSlime = HasComp<SlimeComponent>(target);
+        if (!isSlime && !comp.IsEmagged
+            || container.ContainedEntities.Count != 0)
+            return;
+
+        if (!EnsureComp<PseudoItemComponent>(target, out var pseudo))
+            pseudo.IntendedComp = false;
+
+        if (!_pseudoSystem.TryInsert(tank, target, pseudo)
+            && !pseudo.IntendedComp)
+        {
+            Logger.Debug("Insert Failed");
+            RemCompDeferred<PseudoItemComponent>(target);
+            return;
+        }
+        _audio.PlayPredicted(comp.Sound, user, user);
+    }
+
+
+
+    #endregion
+
 }
