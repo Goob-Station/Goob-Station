@@ -70,6 +70,7 @@
     groups:
       Flammable: [ Touch ]
       Extinguish: [ Touch ]
+      Acidic: [Touch, Ingestion, Eyes] # Goobstation
     reactions:
     - reagents: [ Water, SpaceCleaner ]
       methods: [ Touch ]

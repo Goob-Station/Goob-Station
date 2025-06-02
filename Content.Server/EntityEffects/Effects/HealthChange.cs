@@ -94,10 +94,6 @@ namespace Content.Server.EntityEffects.Effects
         [JsonPropertyName("scaleByQuantity")]
         public bool ScaleByQuantity;
 
-        [DataField]
-        [JsonPropertyName("scaleByQuantityCap")]
-        public FixedPoint2 ScaleByQuantityCap = FixedPoint2.New(2.5);
-
         /// <summary>
         ///     Scales the effect based on the temperature of the entity.
         /// </summary>
@@ -229,10 +225,7 @@ namespace Content.Server.EntityEffects.Effects
             var damageSpec = new DamageSpecifier(Damage);
 
             if (args is EntityEffectReagentArgs reagentArgs)
-            {
                 scale = ScaleByQuantity ? reagentArgs.Quantity * reagentArgs.Scale : reagentArgs.Scale;
-                scale = FixedPoint2.Min(scale, ScaleByQuantityCap);
-            }
 
             if (ScaleByTemperature.HasValue)
             {
