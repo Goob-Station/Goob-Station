@@ -10328,3 +10328,9 @@ Entries:
       message: Secret+ can now spawn devil and cult.
   id: 1146
   time: '2025-05-31T09:48:55.0000000+00:00'
+- author: ImHoks
+  changes:
+    - type: Fix
+      message: You can't anymore dupe filling of emergency toolboxes
+  id: 1147
+  time: '2025-06-01T06:49:28.0000000+00:00'
