@@ -10521,3 +10521,9 @@ Entries:
       message: You can now build solar panels directly.
   id: 1158
   time: '2025-06-02T06:47:24.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Tweak
+      message: updated the origin station armory, onis can now get in.
+  id: 1159
+  time: '2025-06-02T06:48:05.0000000+00:00'
