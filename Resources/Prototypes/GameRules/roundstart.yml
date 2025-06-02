@@ -306,11 +306,10 @@
       mindRoles:
       - MindRoleNukeops
 
-# Goobstation
 - type: entity
   abstract: true
   parent: BaseGameRule
-  id: BaseTraitorRuleNoObjectives
+  id: BaseTraitorRule
   components:
   - type: TraitorRule
   # Goobstation
@@ -318,18 +317,12 @@
     chaosScore: 700
   # TODO: codewords in yml
   # TODO: uplink in yml
-  - type: AntagSelection
-    agentName: traitor-round-end-agent-name
-
-- type: entity
-  abstract: true
-  parent: BaseTraitorRuleNoObjectives
-  id: BaseTraitorRule
-  components:
   - type: AntagRandomObjectives
     sets:
     - groups: TraitorObjectiveGroups
     maxDifficulty: 5
+  - type: AntagSelection
+    agentName: traitor-round-end-agent-name
 
 - type: entity
   parent: BaseTraitorRule
@@ -353,7 +346,7 @@
 
 - type: entity
   id: TraitorReinforcement
-  parent: BaseTraitorRuleNoObjectives # Goobstation
+  parent: BaseTraitorRule
   components:
   - type: TraitorRule
     giveUplink: false
