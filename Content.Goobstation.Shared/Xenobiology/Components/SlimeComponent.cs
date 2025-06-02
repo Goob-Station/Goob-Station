@@ -1,4 +1,5 @@
 using Robust.Shared.Audio;
+using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -27,6 +28,18 @@ public sealed partial class SlimeComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public HashSet<ProtoId<BreedPrototype>> PotentialMutations = new();
+
+    /// <summary>
+    /// The stomach! Holds all consumed entities to be consumed.
+    /// </summary>
+    [DataField]
+    public Container Stomach = new();
+
+    /// <summary>
+    /// How long each entity is stunned for when removed from the stomach (Fuck you gus.)
+    /// </summary>
+    [DataField]
+    public TimeSpan OnRemovalStunDuration = TimeSpan.FromSeconds(5);
 
     /// <summary>
     /// The entity which has tamed this slime.
@@ -62,7 +75,7 @@ public sealed partial class SlimeComponent : Component
     /// Should this slime be metallic? (Shader & logic still needs to be written)
     /// </summary>
     [DataField, AutoNetworkedField]
-    public bool ShouldBeMetallic = false;
+    public bool ShouldBeMetallic; // this should prob be an enum
 
     /// <summary>
     /// What sound should we play when mitosis occurs?

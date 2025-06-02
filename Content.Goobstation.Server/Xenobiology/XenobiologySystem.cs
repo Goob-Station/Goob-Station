@@ -3,8 +3,6 @@ using Content.Shared.Emag.Systems;
 using Content.Shared.Inventory;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.EntitySystems;
-using Content.Shared.Nyanotrasen.Item.PseudoItem;
-using Content.Shared.Tag;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -27,11 +25,12 @@ public sealed partial class XenobiologySystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPseudoItemSystem _pseudoSystem = default!;
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
-    [Dependency] private readonly TagSystem _tagSystem = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
+
+    private ISawmill _sawmill = default!;
 
     public override void Initialize()
     {
@@ -39,6 +38,8 @@ public sealed partial class XenobiologySystem : EntitySystem
         InitializeGrowth();
         InitializeBreeding();
         InitializeVacuum();
+
+        _sawmill = Logger.GetSawmill("Xenobiology");
     }
 
     public override void Update(float frameTime)

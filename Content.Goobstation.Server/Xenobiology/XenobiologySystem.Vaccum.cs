@@ -1,11 +1,13 @@
-using System.Linq;
 using Content.Goobstation.Shared.Xenobiology.Components;
+using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
+using Content.Shared.Examine;
+using Content.Shared.Hands;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs.Components;
-using Content.Shared.Nyanotrasen.Item.PseudoItem;
 using Robust.Shared.Audio;
+using Robust.Shared.Containers;
 
 namespace Content.Goobstation.Server.Xenobiology;
 
@@ -16,25 +18,69 @@ public partial class XenobiologySystem
 {
     private void InitializeVacuum()
     {
+        SubscribeLocalEvent<XenoVacuumTankComponent, MapInitEvent>(OnTankInit);
+        SubscribeLocalEvent<XenoVacuumTankComponent, ExaminedEvent>(OnTankExamined);
+
         SubscribeLocalEvent<XenoVacuumComponent, GotEmaggedEvent>(OnVacEmagged);
+
+        SubscribeLocalEvent<XenoVacuumComponent, GotEquippedHandEvent>(OnEquippedHand);
+        SubscribeLocalEvent<XenoVacuumComponent, GotUnequippedHandEvent>(OnUnequippedHand);
 
         SubscribeLocalEvent<XenoVacuumComponent, AfterInteractEvent>(OnXenoVacuum);
         SubscribeLocalEvent<XenoVacuumComponent, UseInHandEvent>(OnXenoVacuumClear);
     }
 
-    private void OnVacEmagged(Entity<XenoVacuumComponent> ent, ref GotEmaggedEvent args)
+    private void OnTankInit(Entity<XenoVacuumTankComponent> tank, ref MapInitEvent args)
     {
-        if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
+        tank.Comp.StorageTank = _containerSystem.EnsureContainer<Container>(tank, "StorageTank");
+    }
+
+    private void OnTankExamined(Entity<XenoVacuumTankComponent> tank, ref ExaminedEvent args)
+    {
+        if (!args.IsInDetailsRange)
             return;
 
-        if (_emag.CheckFlag(ent, EmagType.Interaction))
+        foreach (var ent in tank.Comp.StorageTank.ContainedEntities)
+        {
+            var text = Loc.GetString("xeno-vacuum-examined", ("ent", ent));
+            args.PushMarkup(text);
+        }
+    }
+
+    private void OnEquippedHand(Entity<XenoVacuumComponent> vacuum, ref GotEquippedHandEvent args)
+    {
+        if (!_inventorySystem.TryGetSlotEntity(args.User, "suitstorage", out var tank)
+            || !TryComp<XenoVacuumTankComponent>(tank, out var tankComp))
             return;
 
-        if (ent.Comp.IsEmagged)
+        tankComp.LinkedNozzle = vacuum;
+        vacuum.Comp.LinkedStorageTank = tank;
+
+        Dirty(vacuum);
+        Dirty(tank.Value, tankComp);
+    }
+
+    private void OnUnequippedHand(Entity<XenoVacuumComponent> vacuum, ref GotUnequippedHandEvent args)
+    {
+        if (!_inventorySystem.TryGetSlotEntity(args.User, "suitstorage", out var tank)
+            || !TryComp<XenoVacuumTankComponent>(tank, out var tankComp))
+            return;
+
+        tankComp.LinkedNozzle = null;
+        vacuum.Comp.LinkedStorageTank = null;
+
+        Dirty(vacuum);
+        Dirty(tank.Value, tankComp);
+    }
+
+    private void OnVacEmagged(Entity<XenoVacuumComponent> vacuum, ref GotEmaggedEvent args)
+    {
+        if (!_emag.CompareFlag(args.Type, EmagType.Interaction)
+            || _emag.CheckFlag(vacuum, EmagType.Interaction)
+            || HasComp<EmaggedComponent>(vacuum))
             return;
 
         args.Handled = true;
-        ent.Comp.IsEmagged = true;
     }
 
     private void OnXenoVacuum(Entity<XenoVacuumComponent> ent, ref AfterInteractEvent args)
@@ -45,69 +91,65 @@ public partial class XenobiologySystem
             || !HasComp<MobStateComponent>(target))
             return;
 
-        var user = args.User;
-        var comp = ent.Comp;
-
-        DoSuction(user, target, comp);
+        DoSuction(args.User, target, ent);
     }
 
     private void OnXenoVacuumClear(Entity<XenoVacuumComponent> ent, ref UseInHandEvent args)
     {
-        var user = args.User;
-        var comp = ent.Comp;
-
-        if (!_inventorySystem.TryGetSlotEntity(user, "back", out var backSlotEntity))
+        if (!_inventorySystem.TryGetSlotEntity(args.User, "suitstorage", out var backSlotEntity)
+            || !TryComp<XenoVacuumTankComponent>(backSlotEntity, out var tankComp)
+            || tankComp.StorageTank.ContainedEntities.Count <= 0)
             return;
 
-        if (!_tagSystem.HasTag(backSlotEntity.Value, comp.XenoTankTag))
-            return;
+        foreach (var removedEnt in _containerSystem.EmptyContainer(tankComp.StorageTank))
+        {
+            var popup = Loc.GetString("xeno-vacuum-clear-popup", ("ent", removedEnt));
+            _popup.PopupEntity(popup, ent, args.User);
+        }
 
-        var container = _containerSystem.GetContainer(backSlotEntity.Value, comp.StorageID);
-        if (container.ContainedEntities.Count <= 0)
-            return;
-
-        var contained = container.ContainedEntities.FirstOrDefault();
-        if (contained != default
-            && TryComp<PseudoItemComponent>(contained, out var pseudo)
-            && !pseudo.IntendedComp)
-            RemCompDeferred<PseudoItemComponent>(contained);
-
-        _containerSystem.EmptyContainer(container);
-        _audio.PlayPredicted(comp.ClearSound, ent, user, AudioParams.Default.WithVolume(-2f));
+        _audio.PlayEntity(ent.Comp.ClearSound, ent, args.User, AudioParams.Default.WithVolume(-2f));
     }
 
     #region Helpers
 
-    private void DoSuction(EntityUid user, EntityUid target, XenoVacuumComponent comp)
+    private void DoSuction(EntityUid user, EntityUid target, Entity<XenoVacuumComponent> vacuum)
     {
-        if (!_inventorySystem.TryGetSlotEntity(user, "back", out var backSlotEntity))
-            return;
-
-        if (backSlotEntity is not { } tank)
-            return;
-
-        if (!_tagSystem.HasTag(tank, comp.XenoTankTag))
-            return;
-
-        var container = _containerSystem.GetContainer(tank, comp.StorageID);
-        var isSlime = HasComp<SlimeComponent>(target);
-        if (!isSlime && !comp.IsEmagged
-            || container.ContainedEntities.Count != 0)
-            return;
-
-        if (!EnsureComp<PseudoItemComponent>(target, out var pseudo))
-            pseudo.IntendedComp = false;
-
-        if (!_pseudoSystem.TryInsert(tank, target, pseudo)
-            && !pseudo.IntendedComp)
+        if (!_inventorySystem.TryGetSlotEntity(user, "suitstorage", out var tank)
+            || !TryComp<XenoVacuumTankComponent>(tank, out var tankComp))
         {
-            Logger.Debug("Insert Failed");
-            RemCompDeferred<PseudoItemComponent>(target);
+            var noTankPopup = Loc.GetString("xeno-vacuum-suction-fail-no-tank-popup");
+            _popup.PopupEntity(noTankPopup, vacuum, user);
             return;
         }
-        _audio.PlayPredicted(comp.Sound, user, user);
-    }
 
+        if (!HasComp<SlimeComponent>(target) && !HasComp<EmaggedComponent>(vacuum))
+        {
+            var invalidEntityPopup = Loc.GetString("xeno-vacuum-suction-fail-invalid-entity-popup", ("ent", target));
+            _popup.PopupEntity(invalidEntityPopup, vacuum, user);
+
+            return;
+        }
+
+        if (tankComp.StorageTank.ContainedEntities.Count > 0 && !HasComp<EmaggedComponent>(vacuum))
+        {
+            var tankFullPopup = Loc.GetString("xeno-vacuum-suction-fail-tank-full-popup");
+            _popup.PopupEntity(tankFullPopup, vacuum, user);
+
+            return;
+        }
+
+
+        if (!_containerSystem.Insert(target, tankComp.StorageTank))
+        {
+            _sawmill.Debug($"{ToPrettyString(user)} failed to insert {ToPrettyString(target)} into {ToPrettyString(tank)}");
+            return;
+        }
+
+        _audio.PlayEntity(vacuum.Comp.Sound, user, user);
+
+        var successPopup = Loc.GetString("xeno-vacuum-suction-succeed-popup", ("ent", target));
+        _popup.PopupEntity(successPopup, vacuum, user);
+    }
 
 
     #endregion

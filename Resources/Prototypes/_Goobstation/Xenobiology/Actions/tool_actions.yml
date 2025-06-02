@@ -1,7 +1,7 @@
 - type: entity
   id: XenoVacAction
-  name: vacuum
-  description: sucks up the target into the tank.
+  name: Active Vacuum
+  description: Ssucks up the target into the tank.
   components:
   - type: EntityTargetAction
     itemIconStyle: NoItem
@@ -19,10 +19,11 @@
 
 - type: entity
   id: XenoVacClearAction
-  name: empty storage tank
-  description: empties the contents of the tank.
+  name: Empty Storage Tank
+  description: Empties the contents of the tank.
   components:
   - type: InstantAction
     icon:
-      sprite: Interface/VerbIcons/eject.svg
+      sprite: _Goobstation/Xenobiology/Specific/Xenobiology/slime_nozzle.rsi
+      state: icon
     event: !type:XenoVacClearEvent {}

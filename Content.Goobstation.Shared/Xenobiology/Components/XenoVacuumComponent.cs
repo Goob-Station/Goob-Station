@@ -6,29 +6,16 @@ using Robust.Shared.Prototypes;
 namespace Content.Goobstation.Shared.Xenobiology.Components;
 
 /// <summary>
-/// This is used for...
+/// This handles the nozzle for xeno vacuums.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class XenoVacuumComponent : Component
 {
     /// <summary>
-    /// Whether the vacuum is emagged.
+    /// The EntityUid of the tank attached to this nozzle.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public bool IsEmagged;
-
-    /// <summary>
-    /// The ID of the tank's container.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public string StorageID = "tankbase";
-
-    /// <summary>
-    /// The tank's tag.
-    /// </summary>
-    [DataField]
-    [AutoNetworkedField]
-    public ProtoId<TagPrototype> XenoTankTag = "XenoNozzleBackTank";
+    public EntityUid? LinkedStorageTank;
 
     /// <summary>
     /// The sound played when the vacuum is used.

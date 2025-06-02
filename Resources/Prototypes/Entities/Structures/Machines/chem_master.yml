@@ -101,6 +101,8 @@
     interfaces:
       enum.ChemMasterUiKey.Key:
         type: ChemMasterBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
   - type: ApcPowerReceiver
     powerLoad: 250
   - type: Appearance

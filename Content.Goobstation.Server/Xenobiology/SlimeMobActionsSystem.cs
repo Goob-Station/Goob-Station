@@ -27,7 +27,6 @@ public sealed class SlimeMobActionsSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly HungerSystem _hunger = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedPseudoItemSystem _pseudoSystem = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
@@ -39,8 +38,12 @@ public sealed class SlimeMobActionsSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<SlimeLatchEvent>(OnLatch);
+
+        SubscribeLocalEvent<SlimeComponent, ComponentStartup>(OnComponentInit);
+
         SubscribeLocalEvent<SlimeComponent, EntRemovedFromContainerMessage>(OnEntityEscape);
         SubscribeLocalEvent<SlimeComponent, MobStateChangedEvent>(OnEntityDied);
+
         SubscribeLocalEvent<SlimeDamageOvertimeComponent, MobStateChangedEvent>(OnConsumedEntityDied);
     }
 
@@ -66,6 +69,11 @@ public sealed class SlimeMobActionsSystem : EntitySystem
         }
     }
 
+    private void OnComponentInit(Entity<SlimeComponent> slime, ref ComponentStartup args)
+    {
+        slime.Comp.Stomach = _container.EnsureContainer<Container>(slime, "Stomach");
+    }
+
     #region Events
     private void OnLatch(SlimeLatchEvent args)
     {
@@ -82,33 +90,27 @@ public sealed class SlimeMobActionsSystem : EntitySystem
 
     private void OnConsumedEntityDied(Entity<SlimeDamageOvertimeComponent> ent, ref MobStateChangedEvent args)
     {
-        if (HasComp<PseudoItemComponent>(ent) && args.NewMobState == MobState.Dead)
+        if (_container.IsEntityOrParentInContainer(ent) && args.NewMobState == MobState.Dead)
             _container.TryRemoveFromContainer(ent, true);
     }
 
     private void OnEntityDied(Entity<SlimeComponent> slime, ref MobStateChangedEvent args)
     {
-        if (!TryComp<StorageComponent>(slime, out var storage)
-            || args.NewMobState != MobState.Dead)
+        if (args.NewMobState != MobState.Dead)
             return;
 
-        var removedEnts = _container.EmptyContainer(storage.Container, true);
+        var removedEnts = _container.EmptyContainer(slime.Comp.Stomach, true);
         foreach (var ent in removedEnts)
-            _stun.TryParalyze(ent, TimeSpan.FromSeconds(5), true); // yes this is hardcoded, bite me. fix it - gus
+            _stun.TryParalyze(ent, slime.Comp.OnRemovalStunDuration, true);
     }
 
     private void OnEntityEscape(Entity<SlimeComponent> ent, ref EntRemovedFromContainerMessage args)
     {
-        if (!TryComp<PseudoItemComponent>(args.Entity, out var pseudoItem)
-            || !HasComp<SlimeDamageOvertimeComponent>(args.Entity))
+        if (!HasComp<SlimeDamageOvertimeComponent>(args.Entity))
             return;
 
         RemCompDeferred<SlimeDamageOvertimeComponent>(args.Entity);
-
         ent.Comp.LatchedTarget = null;
-
-        if (!pseudoItem.IntendedComp)
-            RemCompDeferred(args.Entity, pseudoItem);
     }
     #endregion
 
@@ -131,15 +133,11 @@ public sealed class SlimeMobActionsSystem : EntitySystem
         if (_mobState.IsDead(target))
             return;
 
-        if (!EnsureComp<PseudoItemComponent>(target, out var pseudo))
-            pseudo.IntendedComp = false;
-
-        if (!_pseudoSystem.TryInsert(slime, target, pseudo))
+        if (!_container.Insert(target, slimeComp.Stomach))
         {
             var failPopup = Loc.GetString("slime-action-latch-fail", ("slime", slime), ("target", target));
             _popup.PopupEntity(failPopup, slime);
 
-            RemCompDeferred<PseudoItemComponent>(target);
             return;
         }
 
@@ -148,7 +146,7 @@ public sealed class SlimeMobActionsSystem : EntitySystem
         EnsureComp(target, out SlimeDamageOvertimeComponent comp);
         comp.SourceEntityUid = slime;
 
-        _audio.PlayPredicted(slimeComp.EatSound, slime, slime);
+        _audio.PlayEntity(slimeComp.EatSound, slime, slime);
 
         var successPopup = Loc.GetString("slime-action-latch-start", ("slime", slime), ("target", target));
         _popup.PopupEntity(successPopup, slime);

@@ -4,43 +4,34 @@
   name: xenovac containment tank
   description: Holds xenofauna. Sucks via the nozzle in your hands, and has a slot on the side for said spray nozzle.
   components:
-  - type: Tag
-    tags:
-    - XenoNozzleBackTank
+  - type: XenoVacuumTank
+  - type: Appearance
   - type: Sprite
     sprite: _Goobstation/Xenobiology/Specific/Xenobiology/slime_pack.rsi
     state: icon
   - type: Item
     size: Ginormous
   - type: Clothing
-    slots: BACK
+    slots: SUITSTORAGE
     sprite: _Goobstation/Xenobiology/Specific/Xenobiology/slime_pack.rsi
   - type: ContainerContainer
     containers:
       tankbase: !type:Container
         ents: []
-  - type: Storage
-    clickInsert: false
-    showVerb: false
-    storageInsertSound: /Audio/Effects/zzzt.ogg
-    storageRemoveSound: /Audio/Effects/trashbag3.ogg
-    grid:
-    - 0,0,6,6
     maxItemSize: Ginormous
   - type: ItemSlots
     slots:
       item:
         priority: 2
         whitelist:
-          tags:
-          - XenoVacNozzle
+          components:
+          - XenoVacuum
   - type: ItemMapper
     mapLayers:
       icon-filled:
         whitelist:
-          tags:
-          - XenoVacNozzle
-  - type: Appearance
+          components:
+          - XenoVacuum
 
 - type: entity
   id: ClothingBackpackXenoBioTankFilled
@@ -58,9 +49,6 @@
   name: xenovac nozzle
   description: A high-powered vacuum nozzle used in conjunction with a backpack-mounted storage tank to store slimes.
   components:
-  - type: Tag
-    tags:
-    - XenoVacNozzle
   - type: Sprite
     sprite: _Goobstation/Xenobiology/Specific/Xenobiology/slime_nozzle.rsi
     state: icon
@@ -69,7 +57,4 @@
     size: Normal
   - type: Appearance
   - type: XenoVacuum
-  - type: ItemActionGrant
-    actions:
-    - XenoVacAction
-    - XenoVacClearAction
+
