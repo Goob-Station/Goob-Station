@@ -662,20 +662,18 @@
     - Chest
     - Groin
     - Tail
-    - Arm
-    - Leg
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.6
-        Heat: 0.8
-        Caustic: 0.6
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.4
+        Heat: 0.7
+        Caustic: 0.4
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 1.5
     knockdownTimeDelta: -1.5
   - type: StaminaDamageResistance # Goobstation
-    coefficient: 0.8
+    coefficient: 0.7
 
 - type: entity
   parent: ClothingOuterStorageFoldableBase
