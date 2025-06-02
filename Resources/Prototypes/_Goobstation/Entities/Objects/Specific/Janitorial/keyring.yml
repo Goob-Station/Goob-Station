@@ -1,0 +1,45 @@
+- type: entity
+  name: janitor's key ring
+  id: KeyRingJanitor
+  parent: [BaseItem, BaseJanitorContraband]
+  description: A janitor's best friend; their trusty old key ring. This bad boy can get you into nearly any department... albeit slowly...
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Janitorial/keyring.rsi
+    state: icon
+  - type: Icon
+    sprite: _Goobstation/Objects/Specific/Janitorial/keyring.rsi
+    state: icon
+  - type: Appearance
+  - type: Keyring
+    unlockAttemptDuration: 12
+  - type: Access
+    tags:
+    - Maintenance
+    - Medical
+    - Research
+    - Chapel
+    - Engineering
+    - Cargo
+    - Janitor
+    - Kitchen
+    - Service
+
+- type: entity
+  name: central command key ring
+  id: KeyRingCentralComman
+  parent: KeyRingJanitor
+  description: A specialized Central Command key ring, capable of picking the lock to basically any door.
+  components:
+  - type: Keyring
+    unlockAttemptDuration: 3
+  - type: Access
+    groups:
+    - AllAccess
+    tags:
+    - CentralCommand
+    - NanotrasenRepresentative
+    - BlueshieldOfficer
+    - Wizard
+    - NuclearOperative
+    - SyndicateAgent

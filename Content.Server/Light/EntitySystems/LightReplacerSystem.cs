@@ -82,6 +82,9 @@ public sealed class LightReplacerSystem : SharedLightReplacerSystem
             {
                 args.PushMarkup(Loc.GetString("comp-light-replacer-light-listing", ("amount", amount), ("name", name)));
             }
+
+            var percent = component.GlassRecycled / component.GlassRequired * 100; // Goobstation
+            args.PushMarkup(Loc.GetString("comp-light-replacer-recycle-progress", ("num", percent))); // Goobstation
         }
     }
 
@@ -185,10 +188,20 @@ public sealed class LightReplacerSystem : SharedLightReplacerSystem
         }
 
         // insert it into fixture
-        var wasReplaced = _poweredLight.ReplaceBulb(fixtureUid, bulb, fixture);
+        var wasReplaced = _poweredLight.ReplaceBulb(fixtureUid, bulb, out var oldBulb, fixture); // Goobstation - Recycle bulbs!
         if (wasReplaced)
         {
             _audio.PlayPvs(replacer.Sound, replacerUid);
+
+            Del(oldBulb); // Goobstation - Start
+            replacer.GlassRecycled += replacer.GlassPerBulb;
+
+            if (replacer.GlassRecycled >= replacer.GlassRequired)
+            {
+                replacer.GlassRecycled -= replacer.GlassRequired;
+                TrySpawnInContainer(replacer.LightBulbProto, replacerUid, "light_replacer_storage", out _);
+            } // Goobstation - End
+
         }
 
         return wasReplaced;
