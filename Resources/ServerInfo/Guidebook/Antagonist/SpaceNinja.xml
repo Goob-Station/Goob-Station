@@ -58,7 +58,6 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   Your glove abilities include:
   - Emagging doors and airlocks.
   - Draining power from [bold]transformers[/bold] such as APCs, substations, or SMESes (higher voltage transformers drain more efficiently).
-  - Applying an electrical shock to a mob, stunning and slightly damaging them.
   - Tampering with [bold]station equipment[/bold] to complete [color=#66FF00]objectives[/color].
 
   ## Energy Katana
@@ -82,6 +81,15 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   This is a [color=cyan]modified C-4 explosive[/color] which can be found in your pocket. Creates a large explosion but [bold]must be armed in your target area[/bold] as it is one of your objectives.
 
   It can't be activated manually, so simply plant it on a wall or some furniture that does not spark joy. Choose wisely, it can't be unstuck once planted.
+
+  ## Ninjutsu
+
+  <Box>
+    <GuideEntityEmbed Entity="NinjutsuScroll"/>
+  </Box>
+
+  As a true warrior of the Spider Clan, you are a master of [textlink="Ninjutsu" link="Ninjutsu"], a martial art honed over centuries by your teachers.
+  The art is not simply about strength or speed; it is about becoming one with the shadows and striking with deadly precision.
 
   ## Objectives
 

@@ -41,10 +41,10 @@
   name: bullet (.60 anti-materiel)
   components:
   - type: Projectile
-    armorPenetration: 0.5 # Goobstation
     damage:
       types:
         Piercing: 75
+      armorPenetration: 0.5 # Goobstation
     penetrationThreshold: 100 # Goobstation - This count as penetration health
   - type: StaminaDamageOnCollide
     damage: 115 # Goob edit

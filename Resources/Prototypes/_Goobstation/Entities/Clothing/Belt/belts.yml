@@ -124,6 +124,9 @@
       - DoorRemote
       - Whistle
       - BalloonPopper
+  - type: GuideHelp
+    guides:
+    - CorporateJudo
 
 - type: entity
   parent: [ ChemBag, BaseSyndicateContraband ]
