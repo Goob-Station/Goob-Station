@@ -10492,3 +10492,11 @@ Entries:
       message: Added a radiation resistant high security door
   id: 1154
   time: '2025-06-02T06:45:08.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Add
+      message: >-
+        Added Sealed Airlocks and Sealed Glass Airlocks to the construction
+        menu! Time to stop mice!
+  id: 1155
+  time: '2025-06-02T06:45:46.0000000+00:00'
