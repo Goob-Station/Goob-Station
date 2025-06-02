@@ -10368,3 +10368,106 @@ Entries:
         plasma rifle.
   id: 1150
   time: '2025-06-02T05:20:42.0000000+00:00'
+- author: Mocho, Pheenty, Migo
+  changes:
+    - type: Tweak
+      message: >-
+        Changed a bit how chems are applied to your parts, any excess healing
+        will be compounded and passed across the parts until finding one that
+        needs all of the surplus healing, or we run out of parts to heal.
+    - type: Tweak
+      message: >-
+        Made barotrauma 65% more fun. Ping sadinit / turbotracker on discord
+        with complaints lol
+    - type: Tweak
+      message: >-
+        Reduced the brute damage dealt by arithrazine from 1.5 per tick to 0.5
+        per tick (why the fuck was this so high).
+    - type: Tweak
+      message: >-
+        Sulfadiazine and Styptic and Synthcell's effects are now capped to a
+        maximum of 2.5x their original values based on quantity.
+    - type: Tweak
+      message: >-
+        Sulfadiazine, Styptic and Synthcells now behave like full body topicals.
+        They do not ignore broken bones or other healing blocking traumas.
+    - type: Tweak
+      message: >-
+        Station martial arts, with the exception of the GOAT chef CQC, do not
+        give free instant hardgrabs on knocked down targets. (Im pretty sure
+        people were bitching about woundmed damage on martial arts because of
+        this + 10 dmg per throw)
+    - type: Tweak
+      message: >-
+        Your life is EVERYTHING! You serve ALL PURPOSE! You should treat
+        yourself NOW! And give yourself, a piece of that oxygen, in the ozone
+        layer, that's covered up so then you can breathe in this blue trapped
+        bubble! 'Cause you know I'm here for it! To worship YOU! Love YOURSELF!
+        I mean that with a hundred percent! With a thousand percent! (succumbing
+        while in crit doesnt deal up to 200 damage to each part, instead capping
+        at how much HP you'd need to be dead, 1984)
+    - type: Tweak
+      message: >-
+        Cybernetic parts (and anything non organic) cannot bleed anymore, and
+        also feel 1.5x pain now. They're also not privy to chemical effects even
+        if they get attached to an organic entity.
+    - type: Fix
+      message: Fixed items not being dropped when severing an arm.
+    - type: Fix
+      message: Fixed arithrazine being the most lethal weapon since *the incident*.
+    - type: Fix
+      message: >-
+        Fixed layers being displayed ahead of time when reattaching arms (damn
+        you upstream merge)
+    - type: Fix
+      message: Fixed organ transplants not healing the entire entity!
+    - type: Fix
+      message: >-
+        Fixed explosions doing anywhere between 1.5-2x of their intended damage!
+        (despite this the CSG is still OP as fuck :trollface:)
+    - type: Fix
+      message: Fixed the damn rich text tags still sneaking into inspects.
+    - type: Fix
+      message: >-
+        Reenabled the countermeasures against unnecessarily repeating surgery
+        steps - will require a bit more of an indepth rewrite to fully kill the
+        issue (clicking on spessmen real)
+    - type: Fix
+      message: Fixed cybernetic limbs not actually applying their appearances.
+    - type: Fix
+      message: >-
+        Fixed the pain overlay not properly refreshing until you got hit again
+        by something.
+    - type: Fix
+      message: >-
+        Fixed amputation of the groin or arm/leg resulting in any nested
+        children parts violently flying out.
+    - type: Fix
+      message: >-
+        Fixed clinical amputation of parts resulting in nested part damage being
+        transferred unnecessarily.
+    - type: Fix
+      message: >-
+        Fixed a bug with woundable visuals where brute damage would always have
+        the same color.
+    - type: Fix
+      message: >-
+        Fixed bleeding only working for a split second before undoing itself,
+        whoopsie.
+    - type: Fix
+      message: >-
+        Fixed defibrillator only applying the asphyx heals to the chest instead
+        of any parts with asphyx damage.
+    - type: Fix
+      message: >-
+        Added some more railguards to prevent the "{part} is bleeding too
+        heavily!" messages from displaying when in reality the part just didnt
+        have any damage of the type you were trying to heal.
+    - type: Fix
+      message: Fixed necronomicon dealing a gorillion damage.
+    - type: Fix
+      message: Fixed minibombs and explosions in general not gibbing entities.
+    - type: Fix
+      message: Fixed some replays being broken due to woundmed ent queries.
+  id: 1151
+  time: '2025-06-02T05:37:58.0000000+00:00'
