@@ -98,7 +98,7 @@
     description: ghost-role-information-syndicate-reinforcement-spy-description
     rules: ghost-role-information-syndicate-reinforcement-rules
     mindRoles:
-    - MindRoleGhostRoleTeamAntagonist
+    - MindRoleGhostRoleFamiliar
     raffle:
       settings: default
     requirements: # Goobstation - ghost roles requirements
@@ -141,7 +141,7 @@
     description: ghost-role-information-syndicate-monkey-reinforcement-description
     rules: ghost-role-information-syndicate-reinforcement-rules
     mindRoles:
-    - MindRoleGhostRoleTeamAntagonist
+    - MindRoleGhostRoleFamiliar
     raffle:
       settings: default
     requirements: # Goobstation - ghost roles requirements
@@ -173,7 +173,7 @@
     description: ghost-role-information-SyndiCat-description
     rules: ghost-role-information-syndicate-reinforcement-rules
     mindRoles:
-    - MindRoleGhostRoleTeamAntagonist
+    - MindRoleGhostRoleFamiliar
     raffle:
       settings: default
     requirements: # Goobstation - ghost roles requirements

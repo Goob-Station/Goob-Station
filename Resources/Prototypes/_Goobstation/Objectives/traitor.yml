@@ -100,16 +100,3 @@
     stealGroup: RapidSyringeGun
   - type: Objective
     difficulty: 3 # Slightly more than normal as it does not fit into storage implant
-
-- type: entity
-  parent: BaseTraitorObjective
-  id: TraitorReinforcementObjectiveSupport
-  name: Support.
-  description: Attempt to accomplish objectives of your superior.
-  components:
-  - type: Objective
-    icon:
-      sprite: Objects/Misc/Handy_Flags/syndie_handy_flag.rsi
-      state: icon
-    difficulty: 0
-  - type: RoleplayObjective

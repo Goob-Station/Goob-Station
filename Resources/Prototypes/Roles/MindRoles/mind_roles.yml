@@ -263,8 +263,7 @@
   name: Syndicate Reinforcement Role
   components:
   - type: MindRole
-    roleType: TeamAntagonist
-    antagPrototype: GenericTeamAntagonist
+    roleType: Familiar
 
 # Zombie Squad
 - type: entity

@@ -347,12 +347,6 @@
     - prefRoles: [ Traitor ]
       mindRoles:
       - MindRoleTraitorReinforcement
-  - type: AntagRandomObjectives # goob - support objective
-    maxDifficulty: 1
-    sets:
-    - maxPicks: 1
-      minPicks: 1
-      groups: TraitorReinforcementObjectiveGroup
 
 - type: entity
   parent: BaseTraitorRule
