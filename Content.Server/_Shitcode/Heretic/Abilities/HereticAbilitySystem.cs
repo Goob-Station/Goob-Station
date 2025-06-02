@@ -71,6 +71,7 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Chat;
 using Content.Shared.Hands.Components;
 using Content.Shared.Heretic.Components;
 using Content.Shared.Mech.Components;
@@ -137,7 +138,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
     private List<EntityUid> GetNearbyPeople(Entity<HereticComponent> ent, float range)
     {
         var list = new List<EntityUid>();
-        var lookup = _lookup.GetEntitiesInRange(Transform(ent).Coordinates, range);
+        var lookup = _lookup.GetEntitiesInRange<MobStateComponent>(Transform(ent).Coordinates, range);
 
         foreach (var look in lookup)
         {
