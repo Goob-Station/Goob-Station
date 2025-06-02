@@ -101,6 +101,7 @@
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
 # SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
@@ -1409,6 +1410,40 @@
   targetNode: glassAirlock
   category: construction-category-structures
   description: It opens, it closes, and maybe crushes you.
+  icon:
+    sprite: Structures/Doors/Airlocks/Glass/glass.rsi
+    state: assembly
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: sealed airlock
+  id: AirlockSealed
+  graph: Airlock
+  startNode: start
+  targetNode: sealedAirlock
+  category: construction-category-structures
+  description: It opens, it closes, and maybe crushes you. Now it stops little creatures too!
+  icon:
+    sprite: Structures/Doors/Airlocks/Standard/basic.rsi
+    state: assembly
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: sealed glass airlock
+  id: AirlockSealedGlass
+  graph: Airlock
+  startNode: start
+  targetNode: sealedGlassAirlock
+  category: construction-category-structures
+  description: It opens, it closes, and maybe crushes you. Now it stops little creatures too!
   icon:
     sprite: Structures/Doors/Airlocks/Glass/glass.rsi
     state: assembly

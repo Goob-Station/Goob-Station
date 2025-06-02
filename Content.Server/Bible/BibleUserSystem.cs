@@ -26,6 +26,7 @@
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -33,6 +34,7 @@
 using Content.Goobstation.Shared.Bible;
 using Content.Server.Ghost.Roles.Events;
 using Content.Server.Popups;
+using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
@@ -164,7 +166,13 @@ namespace Content.Server.Bible
                 }
             }
 
-            var damage = _damageableSystem.TryChangeDamage(args.Target.Value, component.Damage * 11f, true, origin: uid, targetPart: TargetBodyPart.All, ignoreBlockers: true);
+            var damage = _damageableSystem.TryChangeDamage(args.Target.Value,
+                component.Damage,
+                true,
+                origin: uid,
+                targetPart: TargetBodyPart.All,
+                ignoreBlockers: true,
+                splitDamage: SplitDamageBehavior.SplitEnsureAll);
 
             if (damage == null || damage.Empty)
             {
