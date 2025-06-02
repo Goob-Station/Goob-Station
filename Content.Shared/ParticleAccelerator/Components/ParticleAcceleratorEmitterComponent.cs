@@ -23,7 +23,7 @@
 
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.ParticleAccelerator.Components;
+namespace Content.Shared.ParticleAccelerator.Components;
 
 [RegisterComponent]
 public sealed partial class ParticleAcceleratorEmitterComponent : Component
