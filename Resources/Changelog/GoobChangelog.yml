@@ -10557,3 +10557,9 @@ Entries:
       message: Devil can no longer be delimbed or decapitated.
   id: 1162
   time: '2025-06-02T07:03:08.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: Nanotrasen now hires brigmedics!
+  id: 1163
+  time: '2025-06-02T08:46:59.0000000+00:00'
