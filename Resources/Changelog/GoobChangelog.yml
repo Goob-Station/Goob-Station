@@ -10533,3 +10533,9 @@ Entries:
       message: Syndicate reinforcements don't get objectives anymore.
   id: 1160
   time: '2025-06-02T06:50:32.0000000+00:00'
+- author: yglop
+  changes:
+    - type: Add
+      message: Names for anomaly cores.
+  id: 1161
+  time: '2025-06-02T06:51:11.0000000+00:00'
