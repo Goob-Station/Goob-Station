@@ -10,6 +10,18 @@
     Narcotic:
       metabolismRate: 0.1
       effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Yowie
+        damage:
+          groups:
+            Brute: -1
+          types:
+            Heat: -0.5
+            Shock: -0.5
+            Cold: -0.5
+            Radiation: -0.5
       - !type:Emote
         emote: Yawn
         showInChat: true
@@ -25,6 +37,9 @@
         time: 30
       - !type:HealthChange
         conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
         - !type:ReagentThreshold
           reagent: Morphine
           min: 16

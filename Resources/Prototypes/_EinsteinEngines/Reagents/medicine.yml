@@ -5,7 +5,7 @@
   desc: reagent-desc-artiplates
   physicalDesc: reagent-physical-desc-cloudy
   flavor: medicine
-  color: "#382766"
+  color: "#35295f"
   metabolisms:
     Medicine:
       effects:
@@ -25,6 +25,9 @@
             Bloodloss: -5
       - !type:HealthChange
         conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
         - !type:ReagentThreshold
           min: 11
         damage:
