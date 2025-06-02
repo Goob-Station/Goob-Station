@@ -13,6 +13,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Content.Shared._Goobstation.Weapons.Misc;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Buckle.Components;
@@ -22,6 +23,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Events;
 using Content.Shared.Throwing;
 using Content.Shared.Toggleable;
+using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -46,6 +48,9 @@ public abstract partial class SharedTetherGunSystem : EntitySystem
     [Dependency] protected readonly SharedTransformSystem TransformSystem = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly ThrownItemSystem _thrown = default!;
+
+    //Goobstation
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
 
     private const string TetherJoint = "tether";
 
@@ -199,6 +204,12 @@ public abstract partial class SharedTetherGunSystem : EntitySystem
 
         if (!component.CanTetherAlive && _mob.IsAlive(target))
             return false;
+
+        //Goobstation start
+        if (component.Whitelist != null
+            && !_whitelist.IsValid(component.Whitelist, target))
+            return false;
+        //Goobstation end
 
         if (TryComp<StrapComponent>(target, out var strap) && strap.BuckledEntities.Count > 0)
             return false;
