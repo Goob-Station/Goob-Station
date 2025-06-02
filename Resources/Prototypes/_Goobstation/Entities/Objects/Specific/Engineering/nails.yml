@@ -36,11 +36,11 @@
     soundHit:
       path: /Audio/Weapons/pierce.ogg
   - type: Projectile
-    armorPenetration: -0.75 # Very shitty against armor
     onlyCollideWhenShot: true
     damage:
       types:
         Piercing: 5
+      armorPenetration: -0.75 # Very shitty against armor
   - type: Fixtures
     fixtures:
       fix1:
@@ -86,10 +86,10 @@
   - type: CartridgeAmmo
     proto: NailArmorPiercing
   - type: Projectile
-    armorPenetration: 0.75
     damage:
       types:
         Piercing: 4
+      armorPenetration: 0.75
   - type: ProjectileDamageWhitelist
     damage: # Slightly worse for repairs
       types:
