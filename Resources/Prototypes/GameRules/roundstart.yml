@@ -352,7 +352,6 @@
     maxDifficulty: 1
     sets:
     - maxPicks: 1
-      minPicks: 1
       groups: TraitorReinforcementObjectiveGroup
 
 - type: entity
