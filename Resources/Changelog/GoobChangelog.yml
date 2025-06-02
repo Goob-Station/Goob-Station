@@ -10340,3 +10340,234 @@ Entries:
       message: Possibly fixed nukeops.
   id: 1148
   time: '2025-06-01T08:45:39.0000000+00:00'
+- author: the_biggestbruh
+  changes:
+    - type: Remove
+      message: Ancient Babylonian curse from Void Pull
+    - type: Tweak
+      message: >-
+        Void pull range and damage is boosted if an ascended Void heretic uses
+        it
+    - type: Tweak
+      message: Void pull now does cold damage
+    - type: Fix
+      message: >-
+        Void pull no longer does 5 bajillion quazillion gorjillion damage (of
+        every type on every limb)
+    - type: Fix
+      message: >-
+        Void pull should now properly stun people like it says it should
+        (previously it only knocked them down)
+  id: 1149
+  time: '2025-06-01T16:46:41.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        Added 4 magfed laser weapons to research, replacing svalinn pistol and
+        plasma rifle.
+  id: 1150
+  time: '2025-06-02T05:20:42.0000000+00:00'
+- author: Mocho, Pheenty, Migo
+  changes:
+    - type: Tweak
+      message: >-
+        Changed a bit how chems are applied to your parts, any excess healing
+        will be compounded and passed across the parts until finding one that
+        needs all of the surplus healing, or we run out of parts to heal.
+    - type: Tweak
+      message: >-
+        Made barotrauma 65% more fun. Ping sadinit / turbotracker on discord
+        with complaints lol
+    - type: Tweak
+      message: >-
+        Reduced the brute damage dealt by arithrazine from 1.5 per tick to 0.5
+        per tick (why the fuck was this so high).
+    - type: Tweak
+      message: >-
+        Sulfadiazine and Styptic and Synthcell's effects are now capped to a
+        maximum of 2.5x their original values based on quantity.
+    - type: Tweak
+      message: >-
+        Sulfadiazine, Styptic and Synthcells now behave like full body topicals.
+        They do not ignore broken bones or other healing blocking traumas.
+    - type: Tweak
+      message: >-
+        Station martial arts, with the exception of the GOAT chef CQC, do not
+        give free instant hardgrabs on knocked down targets. (Im pretty sure
+        people were bitching about woundmed damage on martial arts because of
+        this + 10 dmg per throw)
+    - type: Tweak
+      message: >-
+        Your life is EVERYTHING! You serve ALL PURPOSE! You should treat
+        yourself NOW! And give yourself, a piece of that oxygen, in the ozone
+        layer, that's covered up so then you can breathe in this blue trapped
+        bubble! 'Cause you know I'm here for it! To worship YOU! Love YOURSELF!
+        I mean that with a hundred percent! With a thousand percent! (succumbing
+        while in crit doesnt deal up to 200 damage to each part, instead capping
+        at how much HP you'd need to be dead, 1984)
+    - type: Tweak
+      message: >-
+        Cybernetic parts (and anything non organic) cannot bleed anymore, and
+        also feel 1.5x pain now. They're also not privy to chemical effects even
+        if they get attached to an organic entity.
+    - type: Fix
+      message: Fixed items not being dropped when severing an arm.
+    - type: Fix
+      message: Fixed arithrazine being the most lethal weapon since *the incident*.
+    - type: Fix
+      message: >-
+        Fixed layers being displayed ahead of time when reattaching arms (damn
+        you upstream merge)
+    - type: Fix
+      message: Fixed organ transplants not healing the entire entity!
+    - type: Fix
+      message: >-
+        Fixed explosions doing anywhere between 1.5-2x of their intended damage!
+        (despite this the CSG is still OP as fuck :trollface:)
+    - type: Fix
+      message: Fixed the damn rich text tags still sneaking into inspects.
+    - type: Fix
+      message: >-
+        Reenabled the countermeasures against unnecessarily repeating surgery
+        steps - will require a bit more of an indepth rewrite to fully kill the
+        issue (clicking on spessmen real)
+    - type: Fix
+      message: Fixed cybernetic limbs not actually applying their appearances.
+    - type: Fix
+      message: >-
+        Fixed the pain overlay not properly refreshing until you got hit again
+        by something.
+    - type: Fix
+      message: >-
+        Fixed amputation of the groin or arm/leg resulting in any nested
+        children parts violently flying out.
+    - type: Fix
+      message: >-
+        Fixed clinical amputation of parts resulting in nested part damage being
+        transferred unnecessarily.
+    - type: Fix
+      message: >-
+        Fixed a bug with woundable visuals where brute damage would always have
+        the same color.
+    - type: Fix
+      message: >-
+        Fixed bleeding only working for a split second before undoing itself,
+        whoopsie.
+    - type: Fix
+      message: >-
+        Fixed defibrillator only applying the asphyx heals to the chest instead
+        of any parts with asphyx damage.
+    - type: Fix
+      message: >-
+        Added some more railguards to prevent the "{part} is bleeding too
+        heavily!" messages from displaying when in reality the part just didnt
+        have any damage of the type you were trying to heal.
+    - type: Fix
+      message: Fixed necronomicon dealing a gorillion damage.
+    - type: Fix
+      message: Fixed minibombs and explosions in general not gibbing entities.
+    - type: Fix
+      message: Fixed some replays being broken due to woundmed ent queries.
+  id: 1151
+  time: '2025-06-02T05:37:58.0000000+00:00'
+- author: Timfa2112
+  changes:
+    - type: Tweak
+      message: >-
+        Changed how Revolutionaries convert people! Instead of limited-use
+        flashes, you now use a Revolutionary Manifesto, filled with propaganda,
+        to cloud the minds of your soon-to-be followers.
+  id: 1152
+  time: '2025-06-02T06:38:28.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Restore clownshot to its former glory.
+  id: 1153
+  time: '2025-06-02T06:44:14.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Add
+      message: Added a radiation resistant high security door
+  id: 1154
+  time: '2025-06-02T06:45:08.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Add
+      message: >-
+        Added Sealed Airlocks and Sealed Glass Airlocks to the construction
+        menu! Time to stop mice!
+  id: 1155
+  time: '2025-06-02T06:45:46.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Instead of critting at 80 shadowkins just take more damage now.
+  id: 1156
+  time: '2025-06-02T06:46:14.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: >-
+        Syndicate agents now can purchase autosurgeons - new type of implanters
+        that modify or replace actual body parts, with new mantis blades and the
+        Sandevistan.
+  id: 1157
+  time: '2025-06-02T06:46:58.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: You can now build solar panels directly.
+  id: 1158
+  time: '2025-06-02T06:47:24.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Tweak
+      message: updated the origin station armory, onis can now get in.
+  id: 1159
+  time: '2025-06-02T06:48:05.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Syndicate reinforcements don't get objectives anymore.
+  id: 1160
+  time: '2025-06-02T06:50:32.0000000+00:00'
+- author: yglop
+  changes:
+    - type: Add
+      message: Names for anomaly cores.
+  id: 1161
+  time: '2025-06-02T06:51:11.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Tweak
+      message: Split some big devil clauses into multiple tiny ones.
+    - type: Fix
+      message: Devil Grip works properly again
+    - type: Fix
+      message: Damage modifier sets actually work again.
+    - type: Fix
+      message: Divine intervention now works as intended.
+    - type: Fix
+      message: Devil deal damage modifier sets now work properly
+    - type: Fix
+      message: Several clauses now work as intended
+    - type: Fix
+      message: Devil can no longer be delimbed or decapitated.
+  id: 1162
+  time: '2025-06-02T07:03:08.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: Nanotrasen now hires brigmedics!
+  id: 1163
+  time: '2025-06-02T08:46:59.0000000+00:00'
+- author: KillanGenifer, ImHoks
+  changes:
+    - type: Add
+      message: >-
+        Added a new brain type for cyborgs, “B.O.R.I.S”, giving AI the ability
+        to control them.
+  id: 1164
+  time: '2025-06-02T08:49:17.0000000+00:00'
