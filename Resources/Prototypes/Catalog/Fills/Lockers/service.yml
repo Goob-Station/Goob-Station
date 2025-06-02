@@ -121,7 +121,6 @@
         amount: 2
       - id: LightReplacer
       - id: BoxLightMixed
-      - id: KeyRingJanitor # Goobstation
       - id: Holoprojector
       - id: SoapNT
         amount: 2
