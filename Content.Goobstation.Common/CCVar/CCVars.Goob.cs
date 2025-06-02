@@ -415,6 +415,13 @@ public sealed partial class GoobCVars
 
     #endregion
 
+    #region Audio
+
+    public static readonly CVarDef<string> RaidSound =
+        CVarDef.Create("audio.raid_sound", "/Audio/_Goobstation/Effects/rimworld_bad_alert.ogg", CVar.ARCHIVE | CVar.CLIENTONLY);
+
+    #endregion
+
     #region Misc
 
     /// <summary>

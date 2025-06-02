@@ -4,10 +4,21 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
+using Content.Goobstation.Common.CCVar;
 using Content.Server.Administration.Logs;
+using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
+using Content.Shared.Administration;
 using Content.Shared.Administration.Events;
+using Content.Shared.CCVar;
 using Content.Shared.Database;
+using Robust.Server.Audio;
+using Robust.Server.Graphics;
+using Robust.Shared.Audio;
+using Robust.Shared.Configuration;
+using Robust.Shared.Graphics;
+using Robust.Shared.Player;
 
 namespace Content.Server.Administration.Systems;
 
@@ -16,12 +27,18 @@ public sealed class AdminInfoSystem : EntitySystem
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly IPlayerLocator _locator = default!;
+    [Dependency] private readonly AudioSystem _audioSystem = default!; // Goobstation - Start
+    [Dependency] private readonly IAdminManager _adminManager = default!;
+    [Dependency] private readonly IConfigurationManager _config = default!;
+
+    private string? _raidSound; // Goobstation - End
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeNetworkEvent<AdminInfoEvent>(OnAdminInfoEvent);
+        _config.OnValueChanged(GoobCVars.RaidSound, v => _raidSound = v, true);
     }
 
     private async void OnAdminInfoEvent(AdminInfoEvent ev, EntitySessionEventArgs eventArgs)
@@ -39,5 +56,14 @@ public sealed class AdminInfoSystem : EntitySystem
 
         _adminLog.Add(LogType.AdminMessage, LogImpact.High, $"{name} is attempting to connect with a userid from {main.Username}");
         _chatManager.SendAdminAlert($"{name} is attempting to connect with a userid from {main.Username}");
+
+        if (_raidSound == null)
+            return;
+
+        foreach (var admin in _adminManager.ActiveAdmins // Goobstation - Start
+                     .Where(p => _adminManager.GetAdminData(p)?.HasFlag(AdminFlags.Admin) ?? false))
+        {
+                _audioSystem.PlayGlobal(_raidSound, Filter.SinglePlayer(admin), true);
+        } // Goobstation - End
     }
 }
