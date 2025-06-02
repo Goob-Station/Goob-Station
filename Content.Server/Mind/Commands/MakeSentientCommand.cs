@@ -19,9 +19,12 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Server.Administration;
+using Content.Server._EinsteinEngines.Language;
 using Content.Shared.Administration;
 using Content.Shared.Emoting;
 using Content.Shared.Examine;
+using Content.Shared._EinsteinEngines.Language.Components;
+using Content.Shared._EinsteinEngines.Language.Systems;
 using Content.Shared.Mind.Components;
 using Content.Shared.Movement.Components;
 using Content.Shared.Speech;
@@ -76,6 +79,16 @@ namespace Content.Server.Mind.Commands
                 entityManager.EnsureComponent<SpeechComponent>(uid);
                 entityManager.EnsureComponent<EmotingComponent>(uid);
             }
+
+            // Einstein Engines - Language begin
+            var language = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<LanguageSystem>();
+            var speaker = entityManager.EnsureComponent<LanguageSpeakerComponent>(uid);
+
+            // If the entity already speaks some language (like monkey or robot), we do nothing else
+            // Otherwise, we give them the fallback language
+            if (speaker.SpokenLanguages.Count == 0)
+                language.AddLanguage(uid, SharedLanguageSystem.FallbackLanguagePrototype);
+            // Einstein Engines - Language end
 
             entityManager.EnsureComponent<ExaminerComponent>(uid);
         }

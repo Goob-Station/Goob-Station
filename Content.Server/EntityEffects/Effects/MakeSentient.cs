@@ -11,10 +11,17 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Server.Ghost.Roles.Components;
+using Content.Server._EinsteinEngines.Language;
 using Content.Server.Speech.Components;
 using Content.Shared.EntityEffects;
+using Content.Shared._EinsteinEngines.Language;
+using Content.Shared._EinsteinEngines.Language.Systems;
 using Content.Shared.Mind.Components;
+using Content.Shared.Humanoid;
+using Content.Shared._EinsteinEngines.Language.Components; //Delta-V - Banning humanoids from becoming ghost roles.
+using Content.Shared._EinsteinEngines.Language.Events;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.EntityEffects.Effects;
@@ -34,6 +41,21 @@ public sealed partial class MakeSentient : EntityEffect
         // We call this before the mind check to allow things like player-controlled mice to be able to benefit from the effect
         entityManager.RemoveComponent<ReplacementAccentComponent>(uid);
         entityManager.RemoveComponent<MonkeyAccentComponent>(uid);
+
+        // Einstein Engines - Language begin
+        // Make sure the entity knows at least fallback (Galactic Common)
+        var speaker = entityManager.EnsureComponent<LanguageSpeakerComponent>(uid);
+        var knowledge = entityManager.EnsureComponent<LanguageKnowledgeComponent>(uid);
+        var fallback = SharedLanguageSystem.FallbackLanguagePrototype;
+
+        if (!knowledge.UnderstoodLanguages.Contains(fallback))
+            knowledge.UnderstoodLanguages.Add(fallback);
+
+        if (!knowledge.SpokenLanguages.Contains(fallback))
+            knowledge.SpokenLanguages.Add(fallback);
+
+        IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<LanguageSystem>().UpdateEntityLanguages(uid);
+        // Einstein Engines - Language end
 
         // Stops from adding a ghost role to things like people who already have a mind
         if (entityManager.TryGetComponent<MindContainerComponent>(uid, out var mindContainer) && mindContainer.HasMind)
