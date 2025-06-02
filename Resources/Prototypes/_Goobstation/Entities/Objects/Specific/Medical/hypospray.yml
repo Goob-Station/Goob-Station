@@ -44,10 +44,7 @@
     injectOnly: true
   - type: HyposprayBlockNonMobInjection
   - type: UseDelay
-    delay: 30 # up this later if its too low
-  - type: Tag
-    tags:
-      - CartridgeAutoinjector
+    delay: 30
   - type: ContainerContainer
     containers:
       item: !type:ContainerSlot
@@ -71,6 +68,8 @@
       - state: cartridge1
         map: ["enum.SolutionContainerLayers.Fill"]
         visible: false
+  - type: UseDelay
+    delay: 45 # up this later if its too low
 
 - type: entity
   name: medical cartridge autoinjector
