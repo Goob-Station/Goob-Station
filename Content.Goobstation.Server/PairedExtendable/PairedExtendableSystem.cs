@@ -30,7 +30,8 @@ public sealed class PairedExtendableSystem : EntitySystem
         if (hand == null)
             return false;
 
-        if (hand.HeldEntity is {} activeItem && activeItem == currentExtendable)
+        if (hand.HeldEntity is { } activeItem
+            && activeItem == currentExtendable)
         {
             Del(activeItem);
             return true;
