@@ -35,6 +35,9 @@ namespace Content.Client.Construction
         private readonly ConstructionSystem _constructionSystem;
         private readonly ConstructionPrototype? _prototype;
 
+        public ConstructionSystem? CurrentConstructionSystem { get { return _constructionSystem; } }
+        public ConstructionPrototype? CurrentPrototype { get { return _prototype; } }
+
         public override bool CanRotate { get; }
 
         public ConstructionPlacementHijack(ConstructionSystem constructionSystem, ConstructionPrototype? prototype)
