@@ -10360,3 +10360,11 @@ Entries:
         (previously it only knocked them down)
   id: 1149
   time: '2025-06-01T16:46:41.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        Added 4 magfed laser weapons to research, replacing svalinn pistol and
+        plasma rifle.
+  id: 1150
+  time: '2025-06-02T05:20:42.0000000+00:00'
