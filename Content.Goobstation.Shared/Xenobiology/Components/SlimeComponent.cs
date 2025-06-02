@@ -12,6 +12,12 @@ namespace Content.Goobstation.Shared.Xenobiology.Components;
 public sealed partial class SlimeComponent : Component
 {
     /// <summary>
+    /// Default slime.
+    /// </summary>
+    [DataField]
+    public EntProtoId DefaultSlimeProto = "MobXenoSlime";
+
+    /// <summary>
     /// What color is the slime?
     /// </summary>
     [DataField, AutoNetworkedField]

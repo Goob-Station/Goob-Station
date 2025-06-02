@@ -77,7 +77,7 @@ public sealed class SlimeMobActionsSystem : EntitySystem
 
     private void OnExamined(Entity<SlimeComponent> slime, ref ExaminedEvent args)
     {
-        if (!args.IsInDetailsRange)
+        if (!args.IsInDetailsRange || slime.Comp.Stomach.Count <= 0)
             return;
 
         var text = Loc.GetString("slime-examined-text", ("num", slime.Comp.Stomach.Count));

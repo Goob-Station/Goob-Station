@@ -12,8 +12,6 @@ namespace Content.Goobstation.Server.Xenobiology;
 /// </summary>
 public partial class XenobiologySystem
 {
-    private readonly EntProtoId _defaultSlime = "MobXenoSlime";
-
     private readonly TimeSpan _updateInterval = TimeSpan.FromSeconds(1);
     private TimeSpan _nextUpdateTime;
 
@@ -86,21 +84,15 @@ public partial class XenobiologySystem
 
         for (var i = 0; i < offspringCount; i++)
         {
-            var success = _random.Prob(ent.Comp.MutationChance);
             var selectedBreed = ent.Comp.Breed;
 
-            if (success && ent.Comp.PotentialMutations.Count > 0)
-            {
-                var randomIndex = _random.Next(0, ent.Comp.PotentialMutations.Count);
-                selectedBreed = ent.Comp.PotentialMutations.ToArray()[randomIndex];
-            }
+            if (_random.Prob(ent.Comp.MutationChance) && ent.Comp.PotentialMutations.Count > 0)
+                selectedBreed = _random.Pick(ent.Comp.PotentialMutations);
 
-            DoBreeding(ent, _defaultSlime, selectedBreed);
+            DoBreeding(ent, ent.Comp.DefaultSlimeProto, selectedBreed);
         }
 
-        var container = _containerSystem.GetContainer(ent, "storagebase");
-
-        _containerSystem.EmptyContainer(container);
+        _containerSystem.EmptyContainer(ent.Comp.Stomach);
         _audio.PlayPredicted(ent.Comp.MitosisSound, ent, ent);
         QueueDel(ent);
     }
