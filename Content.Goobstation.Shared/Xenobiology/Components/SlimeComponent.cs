@@ -36,6 +36,12 @@ public sealed partial class SlimeComponent : Component
     public Container Stomach = new();
 
     /// <summary>
+    /// How many entities the slime can digest at once.
+    /// </summary>
+    [DataField]
+    public int MaxContainedEntities = 3;
+
+    /// <summary>
     /// How long each entity is stunned for when removed from the stomach (Fuck you gus.)
     /// </summary>
     [DataField]

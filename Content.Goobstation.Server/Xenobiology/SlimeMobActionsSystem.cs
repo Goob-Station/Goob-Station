@@ -5,13 +5,13 @@ using Content.Server.Stunnable;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Damage;
+using Content.Shared.Examine;
 using Content.Shared.Humanoid;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
-using Content.Shared.Nyanotrasen.Item.PseudoItem;
-using Content.Shared.Storage;
+using Content.Shared.Popups;
 using Robust.Server.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
@@ -40,6 +40,7 @@ public sealed class SlimeMobActionsSystem : EntitySystem
         SubscribeLocalEvent<SlimeLatchEvent>(OnLatch);
 
         SubscribeLocalEvent<SlimeComponent, ComponentStartup>(OnComponentInit);
+        SubscribeLocalEvent<SlimeComponent, ExaminedEvent>(OnExamined);
 
         SubscribeLocalEvent<SlimeComponent, EntRemovedFromContainerMessage>(OnEntityEscape);
         SubscribeLocalEvent<SlimeComponent, MobStateChangedEvent>(OnEntityDied);
@@ -72,6 +73,15 @@ public sealed class SlimeMobActionsSystem : EntitySystem
     private void OnComponentInit(Entity<SlimeComponent> slime, ref ComponentStartup args)
     {
         slime.Comp.Stomach = _container.EnsureContainer<Container>(slime, "Stomach");
+    }
+
+    private void OnExamined(Entity<SlimeComponent> slime, ref ExaminedEvent args)
+    {
+        if (!args.IsInDetailsRange)
+            return;
+
+        var text = Loc.GetString("slime-examined-text", ("num", slime.Comp.Stomach.Count));
+        args.PushMarkup(text);
     }
 
     #region Events
@@ -115,28 +125,41 @@ public sealed class SlimeMobActionsSystem : EntitySystem
     #endregion
 
     #region Helpers
-    public bool NpcTryLatch(EntityUid uid, EntityUid target, SlimeComponent? component)
+    public bool NpcTryLatch(EntityUid uid, EntityUid target, SlimeComponent? slimeComp)
     {
-        if (!Resolve(uid, ref component)
-            || component.LatchedTarget.HasValue
+        if (!Resolve(uid, ref slimeComp)
+            || slimeComp.LatchedTarget.HasValue
             || !HasComp<HumanoidAppearanceComponent>(target)
             || _mobState.IsDead(target)
             || !_actionBlocker.CanInteract(uid, target))
             return false;
 
-        DoSlimeLatch(uid, target, component);
+        DoSlimeLatch(uid, target, slimeComp);
         return true;
     }
 
     private void DoSlimeLatch(EntityUid slime, EntityUid target, SlimeComponent slimeComp)
     {
         if (_mobState.IsDead(target))
+        {
+            var targetDeadPopup = Loc.GetString("slime-latch-fail-target-dead", ("ent", target));
+            _popup.PopupEntity(targetDeadPopup, slime, slime);
+
             return;
+        }
+
+        if (slimeComp.Stomach.Count >= slimeComp.MaxContainedEntities)
+        {
+            var maxEntitiesPopup = Loc.GetString("slime-latch-fail-max-entities", ("ent", target));
+            _popup.PopupEntity(maxEntitiesPopup, slime, slime);
+
+            return;
+        }
 
         if (!_container.Insert(target, slimeComp.Stomach))
         {
             var failPopup = Loc.GetString("slime-action-latch-fail", ("slime", slime), ("target", target));
-            _popup.PopupEntity(failPopup, slime);
+            _popup.PopupEntity(failPopup, slime, PopupType.MediumCaution);
 
             return;
         }
@@ -148,8 +171,8 @@ public sealed class SlimeMobActionsSystem : EntitySystem
 
         _audio.PlayEntity(slimeComp.EatSound, slime, slime);
 
-        var successPopup = Loc.GetString("slime-action-latch-start", ("slime", slime), ("target", target));
-        _popup.PopupEntity(successPopup, slime);
+        var successPopup = Loc.GetString("slime-action-latch-success", ("slime", slime), ("target", target));
+        _popup.PopupEntity(successPopup, slime, PopupType.LargeCaution);
 
         // We also need to set a new state for the slime when it's consuming,
         // this will be easy however it's important to take MobGrowthSystem into account... possibly we should use layers?
