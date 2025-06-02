@@ -10480,3 +10480,9 @@ Entries:
         to cloud the minds of your soon-to-be followers.
   id: 1152
   time: '2025-06-02T06:38:28.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Restore clownshot to its former glory.
+  id: 1153
+  time: '2025-06-02T06:44:14.0000000+00:00'
