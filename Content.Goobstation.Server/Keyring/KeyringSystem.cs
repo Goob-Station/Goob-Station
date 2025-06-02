@@ -41,7 +41,13 @@ public sealed class KeyringSystem : EntitySystem
                 keyring.Comp.UnlockAttemptDuration,
                 new KeyringDoAfterEvent(),
                 keyring,
-                args.Target);
+                args.Target)
+            {
+                BlockDuplicate = true,
+                BreakOnMove = true,
+                BreakOnHandChange = true,
+                BreakOnDamage = true,
+            };
 
         _doAfter.TryStartDoAfter(doAfterArgs);
 
