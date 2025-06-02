@@ -93,7 +93,8 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
         hisGrace.Comp.Holder = args.User;
 
         // no holding a dormant toolbox for infinite stam you goober
-        if (!TryComp<StaminaComponent>(args.User, out var stamina) || hisGrace.Comp.CurrentState == HisGraceState.Dormant)
+        if (!TryComp<StaminaComponent>(args.User, out var stamina)
+            || hisGrace.Comp.CurrentState == HisGraceState.Dormant)
             return;
 
         hisGrace.Comp.BaseStamCritThreshold = stamina.CritThreshold;
