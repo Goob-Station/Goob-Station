@@ -10471,3 +10471,12 @@ Entries:
       message: Fixed some replays being broken due to woundmed ent queries.
   id: 1151
   time: '2025-06-02T05:37:58.0000000+00:00'
+- author: Timfa2112
+  changes:
+    - type: Tweak
+      message: >-
+        Changed how Revolutionaries convert people! Instead of limited-use
+        flashes, you now use a Revolutionary Manifesto, filled with propaganda,
+        to cloud the minds of your soon-to-be followers.
+  id: 1152
+  time: '2025-06-02T06:38:28.0000000+00:00'
