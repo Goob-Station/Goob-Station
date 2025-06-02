@@ -114,13 +114,13 @@ public sealed class WoundableVisualsSystem : VisualizerSystem<WoundableVisualsCo
                     continue;
 
                 bodySprite.LayerSetVisible(layer, false);
-                bodySprite.LayerMapRemove(layer);
+                bodySprite.LayerMapRemove($"{woundableVisuals.OccupiedLayer}{group}");
             }
 
             if (bodySprite.LayerMapTryGet($"{woundableVisuals.OccupiedLayer}Bleeding", out var childBleeds))
             {
                 bodySprite.LayerSetVisible(childBleeds, false);
-                bodySprite.LayerMapRemove(childBleeds);
+                bodySprite.LayerMapRemove($"{woundableVisuals.OccupiedLayer}Bleeding");
             }
 
             if (TryComp(uid, out SpriteComponent? pieceSprite))
