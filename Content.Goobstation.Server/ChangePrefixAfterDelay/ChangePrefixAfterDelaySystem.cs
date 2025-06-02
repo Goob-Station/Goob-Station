@@ -7,7 +7,7 @@ using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.Item;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Shared.ChangePrefixAfterDelay;
+namespace Content.Goobstation.Server.ChangePrefixAfterDelay;
 
 public sealed class ChangePrefixAfterDelaySystem : EntitySystem
 {
@@ -29,7 +29,8 @@ public sealed class ChangePrefixAfterDelaySystem : EntitySystem
         var query = EntityQueryEnumerator<ChangePrefixAfterDelayComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            if (comp.ChangeAt == null || comp.ChangeAt > _timing.CurTime)
+            if (comp.ChangeAt == null
+            || comp.ChangeAt > _timing.CurTime)
                 continue;
 
             _clothing.SetEquippedPrefix(uid, comp.NewEquippedPrefix);

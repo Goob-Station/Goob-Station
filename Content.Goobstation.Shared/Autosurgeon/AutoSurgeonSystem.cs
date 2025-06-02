@@ -63,7 +63,7 @@ public sealed class AutoSurgeonSystem : EntitySystem
             return;
 
         var ev = new TransferDnaEvent { Donor = args.User.Value, Recipient = ent };
-        RaiseLocalEvent(ent, ref ev);
+        RaiseLocalEvent(args.User.Value, ref ev);
 
         if (_netManager.IsClient) // Fuck sound networking
             return;

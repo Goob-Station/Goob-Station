@@ -3,7 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Goobstation.Shared.ChangePrefixAfterDelay;
+namespace Content.Goobstation.Server.ChangePrefixAfterDelay;
 
 /// <summary>
 /// Changes held and equipped prefix of an item after the delay, then removes itself.
