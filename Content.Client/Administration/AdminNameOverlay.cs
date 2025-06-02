@@ -104,6 +104,7 @@ using System.Linq;
 using System.Numerics;
 using Content.Client.Administration.Systems;
 using Content.Client.Stylesheets;
+using Content.Goobstation.Common.CCVar;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Ghost;
@@ -134,6 +135,13 @@ internal sealed class AdminNameOverlay : Overlay
     private float _ghostHideDistance;
     private int _overlayStackMax;
     private float _overlayMergeDistance;
+
+    // Goobstation - Start
+    private bool _showCharacterName;
+    private bool _showUserName;
+    private bool _showAntag;
+    private bool _showRoleType;
+    // Goobstation - End
 
     //TODO make this adjustable via GUI
     private readonly ProtoId<RoleTypePrototype>[] _filter =
@@ -167,6 +175,13 @@ internal sealed class AdminNameOverlay : Overlay
         config.OnValueChanged(CCVars.AdminOverlayGhostFadeDistance, (f) => { _ghostFadeDistance = f; }, true);
         config.OnValueChanged(CCVars.AdminOverlayStackMax, (i) => { _overlayStackMax = i; }, true);
         config.OnValueChanged(CCVars.AdminOverlayMergeDistance, (f) => { _overlayMergeDistance = f; }, true);
+
+        // Goobstation - Start
+        config.OnValueChanged(GoobCVars.AdminOverlayShowCharacterName, (show) => { _showCharacterName = show; }, true);
+        config.OnValueChanged(GoobCVars.AdminOverlayShowUserName, (show) => { _showUserName = show; }, true);
+        config.OnValueChanged(GoobCVars.AdminOverlayShowAntag, (show) => { _showAntag = show; }, true);
+        config.OnValueChanged(GoobCVars.AdminOverlayShowRoleType, (show) => { _showRoleType = show; }, true);
+        // Goobstation - End
     }
 
     public override OverlaySpace Space => OverlaySpace.ScreenSpace;
@@ -218,8 +233,7 @@ internal sealed class AdminNameOverlay : Overlay
             var currentOffset = Vector2.Zero;
 
             //  Ghosts near the cursor are made transparent/invisible
-            //  TODO would be "cheaper" if playerinfo already contained a ghost bool, this gets called every frame for every onscreen player!
-            if (_entityManager.HasComponent<GhostComponent>(entity))
+            if (playerInfo.IsGhost) // Goobstation
             {
                 // We want the map positions here, so we don't have to worry about resolution and such shenanigans
                 var mobPosition = aabb.Center;
@@ -255,17 +269,24 @@ internal sealed class AdminNameOverlay : Overlay
                 }
             }
 
-            // Character name
             var color = Color.Aquamarine;
-            color.A = alpha;
-            args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, playerInfo.CharacterName, uiScale, playerInfo.Connected ? color : colorDisconnected);
-            currentOffset += lineoffset;
+
+            // Character name
+            if (_showCharacterName) // Goobstation
+            {
+                color.A = alpha;
+                args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, playerInfo.CharacterName, uiScale, playerInfo.Connected ? color : colorDisconnected);
+                currentOffset += lineoffset;
+            }
 
             // Username
-            color = Color.Yellow;
-            color.A = alpha;
-            args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, playerInfo.Username, uiScale, playerInfo.Connected ? color : colorDisconnected);
-            currentOffset += lineoffset;
+            if (_showUserName) // Goobstation
+            {
+                color = Color.Yellow;
+                color.A = alpha;
+                args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, playerInfo.Username, uiScale, playerInfo.Connected ? color : colorDisconnected);
+                currentOffset += lineoffset;
+            }
 
             // Playtime
             if (!string.IsNullOrEmpty(playerInfo.PlaytimeString) && _overlayPlaytime)
@@ -286,7 +307,7 @@ internal sealed class AdminNameOverlay : Overlay
             }
 
             // Classic Antag Label
-            if (_overlayClassic && playerInfo.Antag)
+            if (_overlayClassic && playerInfo.Antag && _showAntag) // Goobstation
             {
                 var symbol = _overlaySymbols ? Loc.GetString("player-tab-antag-prefix") : string.Empty;
                 var label = _overlaySymbols
@@ -300,7 +321,7 @@ internal sealed class AdminNameOverlay : Overlay
                 currentOffset += lineoffset;
             }
             // Role Type
-            else if (!_overlayClassic && _filter.Contains(playerInfo.RoleProto))
+            else if (!_overlayClassic && _filter.Contains(playerInfo.RoleProto) && _showRoleType) // Goobstation
             {
                 var symbol = _overlaySymbols && playerInfo.Antag ? playerInfo.RoleProto.Symbol : string.Empty;
                 var role = Loc.GetString(playerInfo.RoleProto.Name).ToUpper();

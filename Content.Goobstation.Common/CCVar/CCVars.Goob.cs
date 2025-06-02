@@ -418,7 +418,41 @@ public sealed partial class GoobCVars
     #region Audio
 
     public static readonly CVarDef<string> RaidSound =
-        CVarDef.Create("audio.raid_sound", "/Audio/_Goobstation/Effects/rimworld_bad_alert.ogg", CVar.ARCHIVE | CVar.CLIENTONLY);
+        CVarDef.Create("audio.raid_sound", "/Audio/_Goobstation/Effects/rimworld_bad_alert.ogg", CVar.ARCHIVE | CVar.SERVERONLY);
+
+    #endregion
+
+    #region Admin Overlay
+
+    /// <summary>
+    /// If true, the admin overlay will show the characters name.
+    /// </summary>
+    public static readonly CVarDef<bool> AdminOverlayShowCharacterName =
+        CVarDef.Create("ui.admin_overlay_show_character_name", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// If true, the admin overlay will show their username.
+    /// </summary>
+    public static readonly CVarDef<bool> AdminOverlayShowUserName =
+        CVarDef.Create("ui.admin_overlay_show_user_name", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// If true, the admin overlay will show their job.
+    /// </summary>
+    public static readonly CVarDef<bool> AdminOverlayShowJob =
+        CVarDef.Create("ui.admin_overlay_show_job", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// If true, the admin overlay will show their antag.
+    /// </summary>
+    public static readonly CVarDef<bool> AdminOverlayShowAntag =
+        CVarDef.Create("ui.admin_overlay_show_antag", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// If true, the admin overlay will show their role type.
+    /// </summary>
+    public static readonly CVarDef<bool> AdminOverlayShowRoleType =
+        CVarDef.Create("ui.admin_overlay_show_role_type", true, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     #endregion
 

@@ -25,16 +25,13 @@ public sealed class AdminInfoSystem : EntitySystem
     [Dependency] private readonly IPlayerLocator _locator = default!;
     [Dependency] private readonly AudioSystem _audioSystem = default!; // Goobstation - Start
     [Dependency] private readonly IAdminManager _adminManager = default!;
-    [Dependency] private readonly IConfigurationManager _config = default!;
-
-    private string? _raidSound; // Goobstation - End
+    [Dependency] private readonly IConfigurationManager _config = default!; // Goobstation - End
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeNetworkEvent<AdminInfoEvent>(OnAdminInfoEvent);
-        _config.OnValueChanged(GoobCVars.RaidSound, v => _raidSound = v, true);
     }
 
     private async void OnAdminInfoEvent(AdminInfoEvent ev, EntitySessionEventArgs eventArgs)
@@ -53,13 +50,15 @@ public sealed class AdminInfoSystem : EntitySystem
         _adminLog.Add(LogType.AdminMessage, LogImpact.High, $"{name} is attempting to connect with a userid from {main.Username}");
         _chatManager.SendAdminAlert($"{name} is attempting to connect with a userid from {main.Username}");
 
-        if (_raidSound == null)
-            return;
+        // Goobstation - Start
+        var raidsound = _config.GetCVar(GoobCVars.RaidSound);
 
-        foreach (var admin in _adminManager.ActiveAdmins // Goobstation - Start
-                     .Where(p => _adminManager.GetAdminData(p)?.HasFlag(AdminFlags.Admin) ?? false))
+        foreach (var admin in _adminManager.ActiveAdmins
+                     .Where(p => _adminManager.GetAdminData(p)?
+                         .HasFlag(AdminFlags.Admin) ?? false))
         {
-                _audioSystem.PlayGlobal(_raidSound, Filter.SinglePlayer(admin), true);
-        } // Goobstation - End
+                _audioSystem.PlayGlobal(raidsound, Filter.SinglePlayer(admin), true);
+        }
+        // Goobstation - End
     }
 }

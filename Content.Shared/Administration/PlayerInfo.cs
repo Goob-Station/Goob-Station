@@ -37,6 +37,7 @@ public sealed record PlayerInfo(
     NetUserId SessionId,
     bool Connected,
     bool ActiveThisRound,
+    bool IsGhost, // Goobstation
     TimeSpan? OverallPlaytime)
 {
     private string? _playtimeString;
