@@ -1,39 +1,75 @@
 - type: entity
-  name: xenofauna energy manipulator
-  parent: BaseItem
-  id: WeaponTetherGunXeno
-  description: Manipulates gravity around slimes to safely transport them.
+  parent: [Clothing, ClothingSlotBase]
+  id: ClothingBackpackXenoBioTank
+  name: xenovac containment tank
+  description: Holds xenofauna. Sucks via the nozzle in your hands, and has a slot on the side for said spray nozzle.
   components:
-  - type: TetherGun
-    canTetherAlive: true
-    maxForce: 10000
-    massLimit: 10000
-    dampingRatio: 4
-    frequency: 20
-    whitelist:
-      components:
-      - Slime
+  - type: Tag
+    tags:
+    - XenoNozzleBackTank
   - type: Sprite
-    sprite: _Goobstation/Xenobiology/Specific/Xenobiology/tether_gun.rsi
-    layers:
-    - state: base
-    - state: base-unshaded
-      map: [ "unshaded" ]
-      shader: unshaded
-      visible: false
-  - type: ToggleableLightVisuals
-    spriteLayer: unshaded
-    inhandVisuals:
-      left:
-      - state: inhand-left-unshaded
-        shader: unshaded
-      right:
-      - state: inhand-right-unshaded
-        shader: unshaded
+    sprite: _Goobstation/Xenobiology/Specific/Xenobiology/slime_pack.rsi
+    state: icon
+  - type: Item
+    size: Ginormous
+  - type: Clothing
+    slots: BACK
+    sprite: _Goobstation/Xenobiology/Specific/Xenobiology/slime_pack.rsi
+  - type: ContainerContainer
+    containers:
+      tankbase: !type:Container
+        ents: []
+  - type: Storage
+    clickInsert: false
+    showVerb: false
+    storageInsertSound: /Audio/Effects/zzzt.ogg
+    storageRemoveSound: /Audio/Effects/trashbag3.ogg
+    grid:
+    - 0,0,6,6
+    maxItemSize: Ginormous
+  - type: ItemSlots
+    slots:
+      item:
+        priority: 2
+        whitelist:
+          tags:
+          - XenoVacNozzle
+  - type: ItemMapper
+    mapLayers:
+      icon-filled:
+        whitelist:
+          tags:
+          - XenoVacNozzle
   - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.TetherVisualsStatus.Key:
-        unshaded:
-          True: { visible: true }
-          False: { visible: false }
+
+- type: entity
+  id: ClothingBackpackXenoBioTankFilled
+  parent: ClothingBackpackXenoBioTank
+  suffix: Filled
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - WeaponXenoVacNozzle
+
+- type: entity
+  id: WeaponXenoVacNozzle
+  parent: BaseItem
+  name: xenovac nozzle
+  description: A high-powered vacuum nozzle used in conjunction with a backpack-mounted storage tank to store slimes.
+  components:
+  - type: Tag
+    tags:
+    - XenoVacNozzle
+  - type: Sprite
+    sprite: _Goobstation/Xenobiology/Specific/Xenobiology/slime_nozzle.rsi
+    state: icon
+  - type: Item
+    sprite: _Goobstation/Xenobiology/Specific/Xenobiology/slime_nozzle.rsi
+    size: Normal
+  - type: Appearance
+  - type: XenoVacuum
+  - type: ItemActionGrant
+    actions:
+    - XenoVacAction
+    - XenoVacClearAction

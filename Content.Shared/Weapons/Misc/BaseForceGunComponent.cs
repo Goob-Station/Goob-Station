@@ -5,7 +5,6 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 
 namespace Content.Shared.Weapons.Misc;
@@ -35,12 +34,6 @@ public abstract partial class BaseForceGunComponent : Component
 
     [ViewVariables(VVAccess.ReadWrite), DataField("canTetherAlive"), AutoNetworkedField]
     public bool CanTetherAlive = false;
-
-    /// <summary>
-    /// Determines which entities are valid targets to be tethered.
-    /// </summary>
-    /// <remarks>No whitelist check when null.</remarks>
-    [DataField("whitelist")] public EntityWhitelist? Whitelist;
 
     /// <summary>
     /// Max force between the tether entity and the tethered target.
