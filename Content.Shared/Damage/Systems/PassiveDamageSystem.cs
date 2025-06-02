@@ -4,6 +4,8 @@
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 //
@@ -39,8 +41,8 @@ public sealed class PassiveDamageSystem : EntitySystem
         var curTime = _timing.CurTime;
 
         // Go through every entity with the component
-        var query = EntityQueryEnumerator<PassiveDamageComponent, DamageableComponent, MobStateComponent>();
-        while (query.MoveNext(out var uid, out var comp, out var damage, out var mobState))
+        var query = EntityQueryEnumerator<PassiveDamageComponent, DamageableComponent>();
+        while (query.MoveNext(out var uid, out var comp, out var damage))
         {
             // Make sure they're up for a damage tick
             if (comp.NextDamage > curTime)
@@ -51,6 +53,13 @@ public sealed class PassiveDamageSystem : EntitySystem
 
             // Set the next time they can take damage
             comp.NextDamage = curTime + TimeSpan.FromSeconds(1f);
+
+            // Goobstation
+            if (comp.AllowedStates == null || !TryComp<MobStateComponent>(uid, out var mobState))
+            {
+                _damageable.TryChangeDamage(uid, comp.Damage, true, false, damage);
+                return;
+            }
 
             // Damage them
             foreach (var allowedState in comp.AllowedStates)

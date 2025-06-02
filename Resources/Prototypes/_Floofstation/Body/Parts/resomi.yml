@@ -1,13 +1,28 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Reorganized due to shitmed
+
+- type: entity
+  id: PartResomi
+  parent: PartHuman
+  abstract: true
+  components:
+  - type: BodyPart
+    species: Resomi
+  - type: Damageable
+    damageModifierSet: Resomi
 
 - type: entity
   id: ChestResomi
   name: "resomi chest"
-  parent: ChestHuman
+  parent: [BaseChest, PartResomi]
   components:
   - type: Sprite
     sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
@@ -16,7 +31,7 @@
 - type: entity
   id: GroinResomi
   name: "resomi groin"
-  parent: GroinHuman
+  parent: [BaseGroin, PartResomi]
   components:
   - type: Sprite
     sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
@@ -25,7 +40,7 @@
 - type: entity
   id: HeadResomi
   name: "resomi head"
-  parent: HeadHuman
+  parent: [BaseHead, PartResomi]
   components:
   - type: Sprite
     sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
@@ -34,7 +49,7 @@
 - type: entity
   id: LeftArmResomi
   name: "left resomi arm"
-  parent: LeftArmHuman
+  parent: [BaseLeftArm, PartResomi]
   components:
   - type: Sprite
     sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
@@ -43,7 +58,7 @@
 - type: entity
   id: RightArmResomi
   name: "right resomi arm"
-  parent: RightArmHuman
+  parent: [BaseRightArm, PartResomi]
   components:
   - type: Sprite
     sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
@@ -52,7 +67,7 @@
 - type: entity
   id: LeftHandResomi
   name: "left resomi hand"
-  parent: [PartHuman, BaseLeftHand] # Goob edit
+  parent: [BaseLeftHand, PartResomi]
   components:
   - type: Sprite
     sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
@@ -61,7 +76,7 @@
 - type: entity
   id: RightHandResomi
   name: "right resomi hand"
-  parent: [PartHuman, BaseRightHand] # Goob edit
+  parent: [BaseRightHand, PartResomi]
   components:
   - type: Sprite
     sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
@@ -70,7 +85,7 @@
 - type: entity
   id: LeftLegResomi
   name: "left resomi leg"
-  parent: LeftLegHuman
+  parent: [BaseLeftLeg, PartResomi]
   components:
   - type: Sprite
     sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
@@ -79,7 +94,7 @@
 - type: entity
   id: RightLegResomi
   name: "right resomi leg"
-  parent: RightLegHuman
+  parent: [BaseRightLeg, PartResomi]
   components:
   - type: Sprite
     sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
@@ -88,7 +103,7 @@
 - type: entity
   id: LeftFootResomi
   name: "left resomi foot"
-  parent: LeftFootHuman
+  parent: [BaseLeftFoot, PartResomi]
   components:
   - type: Sprite
     sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi
@@ -97,7 +112,7 @@
 - type: entity
   id: RightFootResomi
   name: "right resomi foot"
-  parent: RightFootHuman
+  parent: [BaseRightFoot, PartResomi]
   components:
   - type: Sprite
     sprite: _Floofstation/Mobs/Species/Resomi/parts.rsi

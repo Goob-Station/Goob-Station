@@ -169,8 +169,18 @@
   - type: Appearance
   - type: StaticPrice
     price: 500
-  - type: Multishot # Goobstation
+  - type: Multishot # Goobstation V
     spreadMultiplier: 2
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: MeleeWeapon
+    damage:
+      types:
+       Blunt: 8 # pistol whip
+    angle: 0
+    wideAnimationRotation: 90 # -90 if it takes bayonets (hits with muzzle) 90 if not (hits with butt)
+    soundHit:
+      collection: MetalThud # Goobstation ^
 
 - type: entity
   name: viper
