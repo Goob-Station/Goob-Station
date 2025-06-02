@@ -287,7 +287,8 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
         if (hisGrace.Comp.CurrentState is HisGraceState.Dormant or HisGraceState.Death or HisGraceState.Ascended)
             return;
 
-        if (TerminatingOrDeleted(hisGrace) || hisGrace.Comp.User is not { } user)
+        if (TerminatingOrDeleted(hisGrace)
+            || hisGrace.Comp.User is not { } user)
         {
             hisGrace.Comp.CurrentState = HisGraceState.Dormant;
             return;
