@@ -78,3 +78,44 @@
         volume: 6.5
     event: !type:DashActionEvent
       speech: null # 1984
+
+- type: entity
+  id: ActionToggleRightMantisBlade
+  name: Toggle Right Mantis Blade
+  description: Extend or retract the mantis blade in your right arm.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    useDelay: 2
+    icon: { sprite: _Goobstation/Objects/Weapons/Melee/mantis_blade.rsi, state: icon }
+    itemIconStyle: NoItem
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Items/unsheath.ogg
+    event: !type:ToggleMantisBladeEvent
+
+- type: entity
+  id: ActionToggleLeftMantisBlade
+  name: Toggle Left Mantis Blade
+  description: Extend or retract the mantis blade in your left arm.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    useDelay: 2
+    icon: { sprite: _Goobstation/Objects/Weapons/Melee/mantis_blade.rsi, state: icon-mirrored }
+    itemIconStyle: NoItem
+    event: !type:ToggleMantisBladeEvent
+
+- type: entity
+  id: ActionToggleSandevistan
+  name: Toggle Sandevistan
+  description: Enable or disable your improved reflexes provided by the Sandevistan.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    useDelay: 3
+    icon: { sprite: _Goobstation/Objects/Misc/sandevistan.rsi, state: icon }
+    itemIconStyle: NoItem
+    event: !type:ToggleSandevistanEvent

@@ -190,3 +190,42 @@
     - SubGamemodesRule
     - IonStormScheduler
     - SpaceTrafficControlEventScheduler
+
+- type: gamePreset
+  id: SecretPlusLow
+  alias:
+    - secretpluslow
+    - secretpluscalm
+    - turbulence
+  name: secretplus-low-title
+  description: secretplus-low-description
+  showInVote: true
+  rules:
+    - SecretPlusLow
+    - LavalandStormScheduler
+
+- type: gamePreset
+  id: SecretPlusMid
+  alias:
+    - secretplusmid
+    - secretplus
+    - entropy
+  name: secretplus-mid-title
+  description: secretplus-mid-description
+  showInVote: true
+  rules:
+    - SecretPlusMid
+    - LavalandStormScheduler
+
+- type: gamePreset
+  id: SecretPlusHigh
+  alias:
+    - secretplushigh
+    - secretplusevil
+    - chaos
+  name: secretplus-high-title
+  description: secretplus-high-description
+  showInVote: false # 1984
+  rules:
+    - SecretPlusHigh
+    - LavalandStormScheduler

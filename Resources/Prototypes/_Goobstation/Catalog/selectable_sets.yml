@@ -3,6 +3,7 @@
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
 # SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
@@ -165,16 +166,19 @@
   name: selectable-set-syndicate-implants-name
   description: selectable-set-syndicate-implants-description
   sprite:
-    sprite: Objects/Specific/Medical/syndi_implanter.rsi
-    state: implanter0
+    sprite: _Goobstation/Clothing/OuterClothing/Coats/david_jacket.rsi
+    state: icon
   content:
   - RadioImplanter
-  - BoxHoloparasite
   - EmpImplanter
   - ScramImplanter
   - FreedomImplanter
   - SmokeImplanter
   - KravMagaImplanter
+  - ClothingOuterDavidsJacketValid
+  - AutosurgeonRightMantisBlade
+  - AutosurgeonLeftMantisBlade
+  - AutosurgeonSandevistan
 
 - type: selectableSet
   id: SyndicateHackerSet
@@ -256,12 +260,15 @@
     - EncryptionKeySyndie
     - EncryptionKeySyndie
     - EncryptionKeySyndie
+    - EncryptionKeySyndie
+    - EncryptionKeySyndie
     - ContractorBaton
     - Handcuffs
     - MindcontrolImplanter
     - MindcontrolImplanter
     - MindcontrolImplanter
     - MindcontrolImplanter
+    - WeaponSniperMosin
     - WeaponSniperMosin
     - WeaponSniperMosin
     - WeaponSniperMosin
@@ -529,32 +536,24 @@
   content:
   - WeaponHeadOfSecurityRifle
 
-- type: selectableSet
-  id: HosSwordSet
-  name: selectable-set-hos-sword-name
-  description: selectable-set-hos-sword-description
-  sprite:
-    sprite: _Goobstation/Clothing/Belt/hossheath.rsi
-    state: sheath-sabre
-  content:
-  - ClothingBeltSheathHeadOfSecurityFilled
+# Captain
 
 - type: selectableSet
-  id: HosLawbringerSet
-  name: selectable-set-hos-lawbringer-name
-  description: selectable-set-hos-lawbringer-description
+  id: VoidsuitSelectorCaptainVoidsuit
+  name: selectable-set-captain-voidsuit-name
+  description: selectable-set-captain-voidsuit-desc
   sprite:
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/lawbringer.rsi
+    sprite: Clothing/OuterClothing/Hardsuits/capspace.rsi
     state: icon
   content:
-  - WeaponEnergyGunLawbringer
+  - ClothingOuterHardsuitCap
 
 - type: selectableSet
-  id: HosUtilitySet
-  name: selectable-set-hos-utility-name
-  description: selectable-set-hos-utility-description
+  id: VoidsuitSelectorCaptainHardsuit
+  name: selectable-set-captain-modsuit-name
+  description: selectable-set-captain-modsuit-desc
   sprite:
-    sprite: _Goobstation/Clothing/Eyes/Glasses/hos-expi.rsi
-    state: icon
+    sprite: _Goobstation/Clothing/Back/Modsuits/captain.rsi
+    state: control
   content:
-  - ClothingBackpackDuffelHosFilledUtility
+  - ClothingModsuitCaptainPowerCell
