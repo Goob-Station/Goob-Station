@@ -55,7 +55,8 @@ public sealed class SandevistanSystem : EntitySystem
         var query = EntityQueryEnumerator<SandevistanUserComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            if (comp.DisableAt != null && _timing.CurTime > comp.DisableAt)
+            if (comp.DisableAt != null
+                && _timing.CurTime > comp.DisableAt)
             {
                 Disable(uid, comp);
                 comp.DisableAt = null;
