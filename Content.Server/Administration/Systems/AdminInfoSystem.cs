@@ -11,13 +11,9 @@ using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
 using Content.Shared.Administration;
 using Content.Shared.Administration.Events;
-using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Robust.Server.Audio;
-using Robust.Server.Graphics;
-using Robust.Shared.Audio;
 using Robust.Shared.Configuration;
-using Robust.Shared.Graphics;
 using Robust.Shared.Player;
 
 namespace Content.Server.Administration.Systems;
