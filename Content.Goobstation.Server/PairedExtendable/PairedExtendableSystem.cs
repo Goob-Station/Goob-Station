@@ -19,17 +19,17 @@ public sealed class PairedExtendableSystem : EntitySystem
     /// <summary>
     /// Tries to extend or retract an extendable out from the user.
     /// </summary>
-    /// <param name="currentExtenable">Current extendable, if any</param>
+    /// <param name="currentExtendable">Current extendable, if any</param>
     /// <param name="newExtendable">New extendable uid</param>
     /// <returns>false if there were to hands, they were busy etc., so an action that triggered this shouldn't be handled</returns>
-    public bool ToggleExtendable (EntityUid user, string protoId, HandLocation side, out EntityUid? newExtendable, EntityUid? currentExtenable = null, bool makeUnremoable = true)
+    public bool ToggleExtendable (EntityUid user, string protoId, HandLocation side, out EntityUid? newExtendable, EntityUid? currentExtendable = null, bool makeUnremovable = true)
     {
         newExtendable = null;
         var hand = _hands.EnumerateHands(user).FirstOrDefault(hand => hand.Location == side);
         if (hand == null)
             return false;
 
-        if (hand.HeldEntity is {} activeItem && activeItem == currentExtenable)
+        if (hand.HeldEntity is {} activeItem && activeItem == currentExtendable)
         {
             Del(activeItem);
             return true;
@@ -44,7 +44,7 @@ public sealed class PairedExtendableSystem : EntitySystem
             return false;
         }
 
-        if (makeUnremoable)
+        if (makeUnremovable)
             EnsureComp<UnremoveableComponent>(newExtendable.Value);
 
         return true;
