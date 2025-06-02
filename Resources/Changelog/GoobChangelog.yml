@@ -10563,3 +10563,11 @@ Entries:
       message: Nanotrasen now hires brigmedics!
   id: 1163
   time: '2025-06-02T08:46:59.0000000+00:00'
+- author: KillanGenifer, ImHoks
+  changes:
+    - type: Add
+      message: >-
+        Added a new brain type for cyborgs, “B.O.R.I.S”, giving AI the ability
+        to control them.
+  id: 1164
+  time: '2025-06-02T08:49:17.0000000+00:00'
