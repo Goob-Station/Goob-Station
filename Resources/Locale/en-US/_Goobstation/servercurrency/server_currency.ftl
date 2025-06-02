@@ -5,8 +5,8 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-server-currency-name-singular = Durk Coin
-server-currency-name-plural = Durk Coins
+server-currency-name-singular = Goob Coin
+server-currency-name-plural = Goob Coins
 
 ## Commands
 
@@ -64,17 +64,14 @@ gs-balanceui-shop-footer = ⚠ Ahelp to use your token. Only 1 use per day.
 gs-balanceui-shop-token-label = Tokens
 gs-balanceui-shop-tittle-label = Titles
 
-gs-balanceui-shop-buy-token-admin = Buy Trial Admin - {$price} Durk Coins
-gs-balanceui-shop-buy-token-antag = Buy an Antag Token - {$price} Durk Coins
-gs-balanceui-shop-buy-token-admin-abuse = Buy an Admin Abuse Token - {$price} Durk Coins
-gs-balanceui-shop-buy-token-hat = Buy a Hat Token - {$price} Durk Coins
+gs-balanceui-shop-buy-token-antag = Buy an Antag Token - {$price} Goob Coins
+gs-balanceui-shop-buy-token-admin-abuse = Buy an Admin Abuse Token - {$price} Goob Coins
+gs-balanceui-shop-buy-token-hat = Buy a Hat Token - {$price} Goob Coins
 
-gs-balanceui-shop-token-admin = Trial Admin
 gs-balanceui-shop-token-antag = High Tier Antag Token
 gs-balanceui-shop-token-admin-abuse = Admin Abuse Token
 gs-balanceui-shop-token-hat = Hat Token
 
-gs-balanceui-shop-buy-token-admin-desc = Become a trial admin on the server.
 gs-balanceui-shop-buy-token-antag-desc = Allows you become any antag. (Excluding Wizards)
 gs-balanceui-shop-buy-token-admin-abuse-desc = Allows you to request an admin to abuse their powers against you. Admins are encouraged to go wild.
 gs-balanceui-shop-buy-token-hat-desc = An admin will give you a random hat.
@@ -83,7 +80,6 @@ gs-balanceui-admin-add-label = Add (or subtract) money:
 gs-balanceui-admin-add-player = Player name
 gs-balanceui-admin-add-value = Value
 
-gs-balanceui-remark-admin = Bought trial admin.
 gs-balanceui-remark-token-antag = Bought an antag token.
 gs-balanceui-remark-token-admin-abuse = Bought an admin abuse token.
 gs-balanceui-remark-token-hat = Bought a hat token.

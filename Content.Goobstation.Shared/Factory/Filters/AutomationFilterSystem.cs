@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -64,6 +65,14 @@ public sealed class AutomationFilterSystem : EntitySystem
         SubscribeLocalEvent<CombinedFilterComponent, AutomationFilterEvent>(OnCombinedFilter);
         SubscribeLocalEvent<CombinedFilterComponent, AutomationFilterSplitEvent>(OnCombinedSplit);
 
+        Subs.BuiEvents<PressureFilterComponent>(PressureFilterUiKey.Key, subs =>
+        {
+            subs.Event<PressureFilterSetMinMessage>(OnPressureSetMin);
+            subs.Event<PressureFilterSetMaxMessage>(OnPressureSetMax);
+        });
+        SubscribeLocalEvent<PressureFilterComponent, ExaminedEvent>(OnPressureExamined);
+        // OnPressureFilter is in server because atmos is serverside
+
         SubscribeLocalEvent<FilterSlotComponent, ComponentInit>(OnSlotInit);
     }
 
@@ -96,6 +105,7 @@ public sealed class AutomationFilterSystem : EntitySystem
     private void OnLabelFilter(Entity<LabelFilterComponent> ent, ref AutomationFilterEvent args)
     {
         args.Allowed = _labelQuery.CompOrNull(args.Item)?.CurrentLabel == ent.Comp.Label;
+        args.CouldAllow = true; // hand labelers can change the label
     }
 
     /* Name filter */
@@ -144,23 +154,12 @@ public sealed class AutomationFilterSystem : EntitySystem
             NameFilterMode.End => name.EndsWith(check),
             NameFilterMode.Match => name == check
         };
-    }
-
-    private void OnCombinedInit(Entity<CombinedFilterComponent> ent, ref ComponentInit args)
-    {
-        if (!TryComp<ItemSlotsComponent>(ent, out var slots))
-            return;
-
-        if (!_slots.TryGetSlot(ent, CombinedFilterComponent.FilterAName, out var filterA, slots) ||
-            !_slots.TryGetSlot(ent, CombinedFilterComponent.FilterBName, out var filterB, slots))
+        // entity names usually don't change except for the end including a label
+        args.CouldAllow = ent.Comp.Mode switch
         {
-            Log.Error($"{ToPrettyString(ent)} was missing filter slots!");
-            RemCompDeferred<CombinedFilterComponent>(ent);
-            return;
-        }
-
-        ent.Comp.FilterA = filterA;
-        ent.Comp.FilterB = filterB;
+            NameFilterMode.End | NameFilterMode.Match => true,
+            _ => false
+        };
     }
 
     /* Stack filter */
@@ -194,6 +193,7 @@ public sealed class AutomationFilterSystem : EntitySystem
     private void OnStackFilter(Entity<StackFilterComponent> ent, ref AutomationFilterEvent args)
     {
         args.Allowed = _stackQuery.CompOrNull(args.Item)?.Count >= ent.Comp.Min;
+        args.CouldAllow = true;
     }
 
     private void OnStackSplit(Entity<StackFilterComponent> ent, ref AutomationFilterSplitEvent args)
@@ -202,6 +202,23 @@ public sealed class AutomationFilterSystem : EntitySystem
     }
 
     /* Combined filter */
+
+    private void OnCombinedInit(Entity<CombinedFilterComponent> ent, ref ComponentInit args)
+    {
+        if (!TryComp<ItemSlotsComponent>(ent, out var slots))
+            return;
+
+        if (!_slots.TryGetSlot(ent, CombinedFilterComponent.FilterAName, out var filterA, slots) ||
+            !_slots.TryGetSlot(ent, CombinedFilterComponent.FilterBName, out var filterB, slots))
+        {
+            Log.Error($"{ToPrettyString(ent)} was missing filter slots!");
+            RemCompDeferred<CombinedFilterComponent>(ent);
+            return;
+        }
+
+        ent.Comp.FilterA = filterA;
+        ent.Comp.FilterB = filterB;
+    }
 
     private void OnCombinedUse(Entity<CombinedFilterComponent> ent, ref UseInHandEvent args)
     {
@@ -229,8 +246,8 @@ public sealed class AutomationFilterSystem : EntitySystem
 
     private void OnCombinedFilter(Entity<CombinedFilterComponent> ent, ref AutomationFilterEvent args)
     {
-        var a = IsAllowed(ent.Comp.FilterA.Item, args.Item);
-        var b = IsAllowed(ent.Comp.FilterB.Item, args.Item);
+        var a = IsAllowed(ent.Comp.FilterA.Item, args.Item, out var couldAllowA);
+        var b = IsAllowed(ent.Comp.FilterB.Item, args.Item, out var couldAllowB);
         args.Allowed = ent.Comp.Gate switch
         {
             LogicGate.Or => a || b,
@@ -240,6 +257,7 @@ public sealed class AutomationFilterSystem : EntitySystem
             LogicGate.Nand => !(a && b),
             LogicGate.Xnor => a == b
         };
+        args.CouldAllow = couldAllowA || couldAllowB; // if any subfilter could allow it, this could allow it too
     }
 
     private void OnCombinedSplit(Entity<CombinedFilterComponent> ent, ref AutomationFilterSplitEvent args)
@@ -248,6 +266,38 @@ public sealed class AutomationFilterSystem : EntitySystem
         var b = GetSplitSize(ent.Comp.FilterB.Item);
         args.Size = Math.Max(a, b);
     }
+
+    /* Pressure filter */
+
+    private void OnPressureSetMin(Entity<PressureFilterComponent> ent, ref PressureFilterSetMinMessage args)
+    {
+        var min = args.Min;
+        if (min == ent.Comp.Min || min > ent.Comp.Max || min < 0f)
+            return;
+
+        ent.Comp.Min = min;
+        Dirty(ent);
+    }
+
+    private void OnPressureSetMax(Entity<PressureFilterComponent> ent, ref PressureFilterSetMaxMessage args)
+    {
+        var max = args.Max;
+        if (max == ent.Comp.Max || max < ent.Comp.Min)
+            return;
+
+        ent.Comp.Max = max;
+        Dirty(ent);
+    }
+
+    private void OnPressureExamined(Entity<PressureFilterComponent> ent, ref ExaminedEvent args)
+    {
+        if (!args.IsInDetailsRange)
+            return;
+
+        args.PushMarkup(Loc.GetString("pressure-filter-examine", ("min", ent.Comp.Min), ("max", ent.Comp.Max)));
+    }
+
+    /* Filter slot */
 
     private void OnSlotInit(Entity<FilterSlotComponent> ent, ref ComponentInit args)
     {
@@ -269,20 +319,31 @@ public sealed class AutomationFilterSystem : EntitySystem
     /// Returns true if an item is allowed by the filter, false if it's blocked.
     /// If there is no filter, items are always allowed.
     /// </summary>
-    public bool IsAllowed(EntityUid? filter, EntityUid item)
+    public bool IsAllowed(EntityUid? filter, EntityUid item, out bool couldAllow)
     {
+        couldAllow = false;
         if (filter is not {} uid)
             return true;
 
         var ev = new AutomationFilterEvent(item);
         RaiseLocalEvent(uid, ref ev);
+        couldAllow = ev.CouldAllow;
         return ev.Allowed;
     }
+
+    public bool IsAllowed(EntityUid? filter, EntityUid item) => IsAllowed(filter, item, out _);
 
     /// <summary>
     /// Inverse of <see cref="IsAllowed"/>.
     /// </summary>
-    public bool IsBlocked(EntityUid? filter, EntityUid item) => !IsAllowed(filter, item);
+    public bool IsBlocked(EntityUid? filter, EntityUid item, out bool couldAllow) => !IsAllowed(filter, item, out couldAllow);
+
+    public bool IsBlocked(EntityUid? filter, EntityUid item) => IsBlocked(filter, item, out _);
+
+    /// <summary>
+    /// Returns true if an item can never be allowed by a filter, even if some data about it changes.
+    /// </summary>
+    public bool IsAlwaysBlocked(EntityUid? filter, EntityUid item) => IsBlocked(filter, item, out var couldAllow) && !couldAllow;
 
     /// <summary>
     /// Gets the split size for a filter.

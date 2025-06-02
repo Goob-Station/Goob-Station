@@ -232,6 +232,16 @@ uplink-jaunter-implanter-desc = Swaps position of the user and target upon activ
 uplink-krav-maga-implant-name = Krav Maga Implanter
 uplink-krav-maga-implant-desc = Allows the user to perform various Krav Maga moves.
 
+uplink-autosurgeon-right-mantis-blade-name = Right Mantis Blade Autosurgeon
+uplink-autosurgeon-left-mantis-blade-name = Left Mantis Blade Autosurgeon
+uplink-autosurgeon-mantis-blade-desc = Modifies the user's arm to include the Mantis Blade cyberware extending from it at will, works best when paired. Requires too much fine tuning for a human to provide, comes with a one-use autosurgeon for installation.
+
+uplink-autosurgeon-sandevistan-name = Sandevistan Autosurgeon
+uplink-autosurgeon-sandevistan-desc = Replaces the user's heart with Sandevistan, a synthetic organ that drastically increases the user's speed at the cost of their endurance. Requires too much fine tuning for a human to provide, comes with a one-use autosurgeon for installation.
+
+uplink-davids-jacket-name = edgerunner jacket
+uplink-davids-jacket-desc = A jacket for those particularly interested in improving their bodies, just like you.
+
 # Wearables
 
 uplink-helmet-swat-name = Syndicate SWAT Helmet
@@ -275,3 +285,10 @@ uplink-undetermined-bundle-desc = This crate comes with three random bundles and
 
 uplink-energy-pickaxe-name = Energy Pickaxe
 uplink-energy-pickaxe-desc = A holographic mining tool with blades comprised of hard light that also serves a deadly melee weapon. Rock and stone!
+
+uplink-tcminer-name = Telecrystal miner
+uplink-tcminer-desc = Contains a flatpack with telecrystal miner, A very loud machine that uses bluespace blockchain technology to generate telecrystals every 10 seconds when powered. Requires 10kW of energy and a connection to the primary station's grid. Multitool not included.
+
+uplink-bloodred-casette-name = Bloodred Casette Player
+uplink-bloodred-casette-desc = Provided by the most egotistical fashion designers of Cybersun, a portable music player!
+

@@ -129,6 +129,8 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 Brassica Prime <114382089+Pumkin69@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 JORJ949 <159719201+JORJ949@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Julian Giebel <juliangiebel@live.de>
@@ -139,6 +141,7 @@
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TurboTracker <130304754+TurboTrackerss14@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 centcomofficer24 <theo75cg@gmail.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 grub <unalterableness@gmail.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 # SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
@@ -1204,11 +1207,9 @@
   name: loadout-group-head-of-security-outerclothing
   loadouts:
   - HeadofSecurityCoat
-  - HeadofSecurityGreatCoat # Goobstation
   - HeadofSecurityWinterCoat
+  - HeadofSecurityGreatCoat # Goobstation
   - HeadofSecurityVestWeb # Goobstation
-  - ArmorVest #Goobstation change
-  - ArmorVestSlim #Goobstation change
 
 - type: loadoutGroup
   id: WardenHead
@@ -1278,14 +1279,17 @@
   loadouts:
   - ArmorVest
   - ArmorVestSlim
-  - SecurityOfficerWintercoat
+  #- SecurityOfficerWintercoat #Goobstation
+  - WinterCoatSecArmored # Goobstation
+  - WinterCoatSeniorSecArmored # Goobstation
 
 - type: loadoutGroup
   id: SecurityShoes
   name: loadout-group-security-shoes
   loadouts:
   - JackBoots
-  - SecurityWinterBoots
+  #- SecurityWinterBoots # Goobstation
+  - WinterCombatBoots # Goobstation
 
 - type: loadoutGroup
   id: SecurityPDA
@@ -1529,6 +1533,7 @@
   loadouts:
   - ParamedicWindbreaker
   - ParamedicWintercoat
+  - ParamedicDavidsJacket # Goobstation
   - SeniorPhysicianLabCoat # Goobstation
 
 - type: loadoutGroup
