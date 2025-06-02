@@ -21,7 +21,30 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared._Lavaland.Aggression;
+using Robust.Shared.GameStates;
 
 namespace Content.Client._Lavaland.Aggression;
 
-public sealed class AggressorsSystem : SharedAggressorsSystem;
+public sealed class AggressorsSystem : SharedAggressorsSystem
+{
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<AggressiveComponent, ComponentHandleState>(HandleComponentState);
+    }
+
+    private void HandleComponentState(Entity<AggressiveComponent> ent, ref ComponentHandleState args)
+    {
+        if (args.Current is not AggressiveComponentState state)
+            return;
+
+        foreach (var netEntity in state.Aggressors)
+        {
+            if (!TryGetEntity(netEntity, out var aggressor))
+                return;
+
+            AddAggressor(ent, aggressor.Value);
+        }
+    }
+}

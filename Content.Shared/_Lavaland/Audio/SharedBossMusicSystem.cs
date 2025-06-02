@@ -12,6 +12,14 @@ namespace Content.Shared._Lavaland.Audio;
 /// </summary>
 public abstract class SharedBossMusicSystem : EntitySystem
 {
+    public virtual void StartBossMusic(Entity<BossMusicComponent?> source)
+    {
+        if (!Resolve(source.Owner, ref source.Comp, false))
+            return;
+
+        StartBossMusic(source.Comp.SoundId);
+    }
+
     public abstract void StartBossMusic(ProtoId<BossMusicPrototype> music);
 
     public abstract void EndAllMusic();

@@ -25,6 +25,7 @@ using Content.Shared._Lavaland.Components;
 using Content.Shared.Damage;
 using Content.Shared.Destructible;
 using Content.Shared.Mobs;
+using Robust.Shared.GameStates;
 using Robust.Shared.Player;
 
 namespace Content.Shared._Lavaland.Aggression;
@@ -40,7 +41,8 @@ public abstract class SharedAggressorsSystem : EntitySystem
         SubscribeLocalEvent<AggressiveComponent, BeforeDamageChangedEvent>(OnBeforeDamageChanged);
         SubscribeLocalEvent<AggressiveComponent, DamageChangedEvent>(OnDamageChanged);
         SubscribeLocalEvent<AggressiveComponent, EntityTerminatingEvent>(OnDeleted);
-        SubscribeLocalEvent<AggressiveComponent, DestructionEventArgs>(OnDestroyed);
+        SubscribeLocalEvent<AggressiveComponent, MobStateChangedEvent>(OnStateChange);
+        SubscribeLocalEvent<AggressiveComponent, ComponentGetState>(OnAgressiveGetState);
 
         SubscribeLocalEvent<AggressorComponent, MobStateChangedEvent>(OnAggressorStateChange);
         SubscribeLocalEvent<AggressorComponent, EntityTerminatingEvent>(OnAggressorDeleted);
@@ -48,6 +50,11 @@ public abstract class SharedAggressorsSystem : EntitySystem
     }
 
     #region Event Handling
+
+    private void OnAgressiveGetState(EntityUid uid, AggressiveComponent component, ref ComponentGetState args)
+    {
+        args.State = new AggressiveComponentState(GetNetEntitySet(component.Aggressors));
+    }
 
     private void OnBeforeDamageChanged(Entity<AggressiveComponent> ent, ref BeforeDamageChangedEvent args)
     {
@@ -87,7 +94,7 @@ public abstract class SharedAggressorsSystem : EntitySystem
         RemoveAllAggressors(ent);
     }
 
-    private void OnDestroyed(Entity<AggressiveComponent> ent, ref DestructionEventArgs args)
+    private void OnStateChange(Entity<AggressiveComponent> ent, ref MobStateChangedEvent args)
     {
         RemoveAllAggressors(ent);
     }
@@ -105,8 +112,8 @@ public abstract class SharedAggressorsSystem : EntitySystem
 
         aggcomp.Aggressives.Add(ent);
 
-        if (TryComp<BossMusicComponent>(ent, out var bossMusic))
-            _bossMusic.StartBossMusic(bossMusic.SoundId);
+        _bossMusic.StartBossMusic(ent.Owner);
+        Dirty(ent.Owner, ent.Comp); // freaky but works.
     }
 
     public void RemoveAggressor(Entity<AggressiveComponent> ent, Entity<AggressorComponent?> aggressor)
