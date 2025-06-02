@@ -177,11 +177,38 @@
       - id: BookSpaceLaw
         prob: 0.5
 
-# Goob
 - type: entity
   id: LockerBrigmedicFilled
-  suffix: MAP THIS, to be migrated to brigmedic
-  parent: LockerMedicineFilled
+  suffix: Brigmedic, Filled
+  parent: LockerBrigmedic
+  components:
+  - type: StorageFill
+    contents: # heavily good edited
+      - id: BoxAutoinjectorCartidges
+      - id: OmnimedTool
+      - id: ClothingOuterHardsuitBrigmedic
+      - id: OxygenTankFilled
+      - id: NitrogenTankFilled
+      - id: ClothingUniformJumpskirtOfLife
+        prob: 0.1
+      - id: MedkitOxygenFilled # This one is guaranteed
+      # And extra 3 medkits on average, with autoinjectors and surgery tools should be more than enough round start
+      - id: MedkitFilled
+        prob: 0.75
+      - id: MedkitBruteFilled
+        prob: 0.5
+      - id: MedkitBurnFilled
+        prob: 0.5
+      - id: MedkitToxinFilled
+        prob: 0.3
+      - id: MedkitRadiationFilled
+        prob: 0.3
+      - id: MedkitAdvancedFilled
+        prob: 0.2
+      - id: MedkitCombatFilled
+        prob: 0.1
+      - id: ClothingNeckCloakMoth #bzzz Moth-pocalypse
+        prob: 0.065 # 6,5% for moth obviozzzsly
 
 - type: entity
   id: LockerDetectiveFilled
