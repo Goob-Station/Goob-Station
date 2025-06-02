@@ -19,6 +19,8 @@ using Content.Server.Popups;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared._Shitmed.Targeting;
+using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Conditions;
@@ -96,7 +98,8 @@ public sealed class SurgerySystem : SharedSurgerySystem
         DamageSpecifier damage,
         float partMultiplier,
         EntityUid user,
-        EntityUid part)
+        EntityUid part,
+        bool affectAll = false)
     {
         if (!TryComp<BodyPartComponent>(part, out var partComp))
             return;
@@ -104,7 +107,12 @@ public sealed class SurgerySystem : SharedSurgerySystem
         // kinda funky but still works
         // TODO: Also the scar treating surgery too, fuck. I hate this system and by every second I have to spend working with THIS I want to kill myself more and more
         _wounds.TryHaltAllBleeding(part, force: true);
-        _damageable.TryChangeDamage(body, damage, true, origin: user, partMultiplier: partMultiplier, targetPart: _body.GetTargetBodyPart(partComp));
+        _damageable.TryChangeDamage(body,
+            damage,
+            true,
+            origin: user,
+            partMultiplier: partMultiplier,
+            targetPart: affectAll ? TargetBodyPart.All : _body.GetTargetBodyPart(partComp));
     }
 
     private void AttemptStartSurgery(Entity<SurgeryToolComponent> ent, EntityUid user, EntityUid target)
@@ -153,7 +161,7 @@ public sealed class SurgerySystem : SharedSurgerySystem
         if (HasComp<ForcedSleepingComponent>(args.Body))
             damageChange = damageChange * ent.Comp.SleepModifier;
 
-        SetDamage(args.Body, damageChange, 0.5f, args.User, args.Part);
+        SetDamage(args.Body, damageChange, 0.5f, args.User, args.Part, ent.Comp.AffectAll);
     }
     private void OnStepScreamComplete(Entity<SurgeryStepEmoteEffectComponent> ent, ref SurgeryStepEvent args)
     {
