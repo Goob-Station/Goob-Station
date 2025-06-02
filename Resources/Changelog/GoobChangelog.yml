@@ -10539,3 +10539,21 @@ Entries:
       message: Names for anomaly cores.
   id: 1161
   time: '2025-06-02T06:51:11.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Tweak
+      message: Split some big devil clauses into multiple tiny ones.
+    - type: Fix
+      message: Devil Grip works properly again
+    - type: Fix
+      message: Damage modifier sets actually work again.
+    - type: Fix
+      message: Divine intervention now works as intended.
+    - type: Fix
+      message: Devil deal damage modifier sets now work properly
+    - type: Fix
+      message: Several clauses now work as intended
+    - type: Fix
+      message: Devil can no longer be delimbed or decapitated.
+  id: 1162
+  time: '2025-06-02T07:03:08.0000000+00:00'
