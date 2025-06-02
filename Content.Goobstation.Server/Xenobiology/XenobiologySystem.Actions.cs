@@ -1,60 +1,41 @@
 using Content.Goobstation.Shared.Xenobiology;
 using Content.Goobstation.Shared.Xenobiology.Components;
-using Content.Server.Popups;
-using Content.Server.Stunnable;
 using Content.Shared._Shitmed.Targeting;
-using Content.Shared.ActionBlocker;
-using Content.Shared.Damage;
 using Content.Shared.Humanoid;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs;
-using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
-using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Nyanotrasen.Item.PseudoItem;
 using Content.Shared.Storage;
-using Robust.Server.Audio;
 using Robust.Shared.Containers;
-using Robust.Shared.Timing;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.Xenobiology;
 
 /// <summary>
-/// This handles any actions that slime mobs may have.
+/// This handles slime taming, likely to be expanded in the future.
 /// </summary>
-public sealed class SlimeMobActionsSystem : EntitySystem
+public partial class XenobiologySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly HungerSystem _hunger = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedPseudoItemSystem _pseudoSystem = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly StunSystem _stun = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
-
-    public override void Initialize()
+    private void InitializeActions()
     {
-        base.Initialize();
-
         SubscribeLocalEvent<SlimeLatchEvent>(OnLatch);
         SubscribeLocalEvent<SlimeComponent, EntRemovedFromContainerMessage>(OnEntityEscape);
         SubscribeLocalEvent<SlimeComponent, MobStateChangedEvent>(OnEntityDied);
         SubscribeLocalEvent<SlimeDamageOvertimeComponent, MobStateChangedEvent>(OnConsumedEntityDied);
     }
 
-    public override void Update(float frameTime)
+    private void UpdateSlime()
     {
         var query = EntityQueryEnumerator<SlimeDamageOvertimeComponent>();
         while (query.MoveNext(out var uid, out var dotComp))
         {
-            if (_timing.CurTime < dotComp.NextTickTime
+            if (_gameTiming.CurTime < dotComp.NextTickTime
                 || _mobState.IsDead(uid))
                 continue;
 
             var addedHunger = (float)dotComp.Damage.GetTotal();
-            dotComp.NextTickTime = _timing.CurTime + dotComp.Interval;
+            dotComp.NextTickTime = _gameTiming.CurTime + dotComp.Interval;
             _damageable.TryChangeDamage(uid, dotComp.Damage, ignoreResistances: true, ignoreBlockers: true,  targetPart: TargetBodyPart.All);
 
             if (!TryComp<HungerComponent>(dotComp.SourceEntityUid, out var hunger) ||
@@ -83,7 +64,7 @@ public sealed class SlimeMobActionsSystem : EntitySystem
     private void OnConsumedEntityDied(Entity<SlimeDamageOvertimeComponent> ent, ref MobStateChangedEvent args)
     {
         if (HasComp<PseudoItemComponent>(ent) && args.NewMobState == MobState.Dead)
-            _container.TryRemoveFromContainer(ent, true);
+            _containerSystem.TryRemoveFromContainer(ent, true);
     }
 
     private void OnEntityDied(Entity<SlimeComponent> slime, ref MobStateChangedEvent args)
@@ -92,7 +73,7 @@ public sealed class SlimeMobActionsSystem : EntitySystem
             || args.NewMobState != MobState.Dead)
             return;
 
-        var removedEnts = _container.EmptyContainer(storage.Container, true);
+        var removedEnts = _containerSystem.EmptyContainer(storage.Container, true);
         foreach (var ent in removedEnts)
             _stun.TryParalyze(ent, TimeSpan.FromSeconds(5), true); // yes this is hardcoded, bite me. fix it - gus
     }
