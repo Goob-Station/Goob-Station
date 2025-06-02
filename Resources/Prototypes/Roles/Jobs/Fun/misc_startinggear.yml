@@ -245,6 +245,8 @@
     back:
     - Flash
     - ClothingMaskBreathMedicalSecurity
+- type: SurgerySpeedModifier
+  speedModifier: 1.5
 
 # Aghost
 - type: startingGear
