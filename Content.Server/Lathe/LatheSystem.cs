@@ -458,24 +458,33 @@ namespace Content.Server.Lathe
             // Goobstation - Lathe message on recipes update - End
         }
 
+
+        // Goobstation - Lathe Queue Reset
         private void OnLatheQueueResetMessage(EntityUid uid, LatheComponent component, LatheQueueResetMessage args)
         {
             if (component.Queue.Count > 0)
             {
                 var allMaterials = component.Queue.SelectMany(q => q.Materials);
+                var totalMaterials = new Dictionary<string, int>();
+
                 foreach (var (mat, amount) in allMaterials)
                 {
-                    if (!_materialStorage.TryChangeMaterialAmount(uid, mat, amount))
-                    {
-                        _popup.PopupEntity(Loc.GetString("lathe-queue-reset-material-overflow", ("material", mat)), uid);
-                        break;
-                    }
-
+                    if(!totalMaterials.ContainsKey(mat)) 
+                        totalMaterials[mat] = 0;
+                    totalMaterials[mat] += amount;
                 }
-                component.Queue.Clear();
+
+                if(_materialStorage.CanChangeMaterialAmount(uid, totalMaterials)) {
+                    foreach (var (mat, amount) in totalMaterials)
+                        _materialStorage.TryChangeMaterialAmount(uid, mat, amount);
+                    component.Queue.Clear();
+                } else {
+                    _popup.PopupEntity(Loc.GetString("lathe-queue-reset-material-overflow"), uid);
+                }
             }
             UpdateUserInterfaceState(uid, component);
         }
+        // Goobstation - Lathe Queue Reset
 
         private void OnResearchRegistrationChanged(EntityUid uid, LatheComponent component, ref ResearchRegistrationChangedEvent args)
         {
