@@ -69,3 +69,7 @@
     size: Normal
   - type: Appearance
   - type: XenoVacuum
+  - type: ItemActionGrant
+    actions:
+    - XenoVacAction
+    - XenoVacClearAction
