@@ -28,6 +28,40 @@
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-weapon-module }
 
+#Gunbot
+- type: entity
+  id: BorgModuleGunbot
+  parent: [ BaseBorgModule, BaseProviderBorgModule, BaseMajorContraband ]
+  name: unlimited ammunition weaponry module
+  components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-syndicate
+  - type: ItemBorgModule
+    moduleId: GunArm
+    items:
+    - WeaponPistolAnaconda
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-weapon-module }
+
+- type: entity
+  id: BorgModuleNukebot
+  parent: [ BaseBorgModule, BaseProviderBorgModule, BaseSyndicateContraband ]
+  name: cqc enforcer module
+  components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-syndicate
+  - type: ItemBorgModule
+    moduleId: GunArm
+    items:
+    - WeaponShotgunBulldogC
+    - NFEnergyPickaxe
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-weapon-module }
+
 - type: entity
   id: BorgModuleLollypop
   parent: [ BaseBorgModule, BaseProviderBorgModule ]

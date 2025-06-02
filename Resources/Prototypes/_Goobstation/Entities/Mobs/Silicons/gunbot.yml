@@ -1,0 +1,135 @@
+- type: entity
+  id: BaseGunBot
+  parent: BaseBorgChassis
+  name: gunbot
+  description: A security robot. Something seems a bit off.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Mobs/Silicon/Bots/gunbot.rsi
+    layers:
+    - map: ["movement"]
+      state: gunbot
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: gunbot_moving
+    noMovementLayers:
+      movement:
+        state: gunbot
+  - type: SiliconLawProvider
+    laws: OverlordLawset
+  - type: ContainerFill
+    containers:
+      borg_brain:
+        - PositronicBrain
+      borg_module:
+        - BorgModuleTool
+        - BorgModuleGunbot
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHyper
+  - type: BorgChassis
+    maxModules: 5
+    moduleWhitelist:
+      tags:
+      - BorgModuleGeneric
+      - BorgModuleGunbot
+  - type: Access
+    groups:
+    - AllAccess
+  - type: MovementAlwaysTouching
+  - type: Speech
+    speechSounds: SyndieBorg
+  - type: Vocal
+    sounds:
+      Unsexed: UnisexSiliconSyndicate
+  - type: Damageable
+    damageContainer: Silicon
+    damageModifierSet: SiliconProtected
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: FlashImmunity
+
+
+- type: entity
+  id: GunBot
+  parent: BaseGunBot
+
+- type: entity
+  id: NukeBot
+  parent: BaseGunBot
+  name: syndicate gunbot
+  description: An older model of the syndicate assault borg, specialized for close quarter combat. Due to faulty coding, it only listens to an already disbanded branch of the syndicate, shooting all others on sight.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Mobs/Silicon/Bots/gunbot.rsi
+    layers:
+    - map: ["movement"]
+      state: nukebot
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: nukebot_moving
+    noMovementLayers:
+      movement:
+        state: nukebot
+  - type: SiliconLawProvider
+    laws: OverlordLawset
+  - type: ContainerFill
+    containers:
+      borg_brain:
+        - PositronicBrain
+      borg_module:
+        - BorgModuleTool
+        - BorgModuleNukebot
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHyper
+  - type: BorgChassis
+    maxModules: 5
+    moduleWhitelist:
+      tags:
+      - BorgModuleGeneric
+      - BorgModuleGunbot
+  - type: Access
+    groups:
+    - AllAccess
+
+- type: entity
+  id: PlayerNukebotGhostRole
+  parent: NukeBot
+  suffix: Ghost role
+  components:
+    - type: GhostRole
+      name: ghost-role-information-derelict-cyborg-name
+      description: ghost-role-information-derelict-cyborg-description
+      rules: ghost-role-information-antagonist-rules
+      raffle:
+        settings: default
+      requirements: # Goobstation - ghost roles requirements
+      - !type:RoleTimeRequirement
+        role: JobBorg
+        time: 18000 #5 hours
+    - type: GhostTakeoverAvailable
+
+- type: entity
+  id: PlayerGunbotGhostRole
+  parent: BaseGunBot
+  suffix: Ghost role
+  components:
+    - type: GhostRole
+      name: ghost-role-information-derelict-cyborg-name
+      description: ghost-role-information-derelict-cyborg-description
+      rules: ghost-role-information-freeagent-rules
+      raffle:
+        settings: default
+      requirements: # Goobstation - ghost roles requirements
+      - !type:RoleTimeRequirement
+        role: JobBorg
+        time: 3600 #1 hour
+    - type: GhostTakeoverAvailable
