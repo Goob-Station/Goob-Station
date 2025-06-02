@@ -862,6 +862,10 @@ namespace Content.Shared.Damage
                 return;
 
             comp.DamageModifierSetId = damageModifierSetId;
+
+            foreach (var (id, part) in _body.GetBodyChildren(uid)) // Goobstation
+                EnsureComp<DamageableComponent>(id).DamageModifierSetId = damageModifierSetId;
+
             Dirty(uid, comp);
         }
 

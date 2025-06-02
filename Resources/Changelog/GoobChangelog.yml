@@ -10486,3 +10486,74 @@ Entries:
       message: Restore clownshot to its former glory.
   id: 1153
   time: '2025-06-02T06:44:14.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Add
+      message: Added a radiation resistant high security door
+  id: 1154
+  time: '2025-06-02T06:45:08.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Add
+      message: >-
+        Added Sealed Airlocks and Sealed Glass Airlocks to the construction
+        menu! Time to stop mice!
+  id: 1155
+  time: '2025-06-02T06:45:46.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Instead of critting at 80 shadowkins just take more damage now.
+  id: 1156
+  time: '2025-06-02T06:46:14.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: >-
+        Syndicate agents now can purchase autosurgeons - new type of implanters
+        that modify or replace actual body parts, with new mantis blades and the
+        Sandevistan.
+  id: 1157
+  time: '2025-06-02T06:46:58.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: You can now build solar panels directly.
+  id: 1158
+  time: '2025-06-02T06:47:24.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Tweak
+      message: updated the origin station armory, onis can now get in.
+  id: 1159
+  time: '2025-06-02T06:48:05.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Syndicate reinforcements don't get objectives anymore.
+  id: 1160
+  time: '2025-06-02T06:50:32.0000000+00:00'
+- author: yglop
+  changes:
+    - type: Add
+      message: Names for anomaly cores.
+  id: 1161
+  time: '2025-06-02T06:51:11.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Tweak
+      message: Split some big devil clauses into multiple tiny ones.
+    - type: Fix
+      message: Devil Grip works properly again
+    - type: Fix
+      message: Damage modifier sets actually work again.
+    - type: Fix
+      message: Divine intervention now works as intended.
+    - type: Fix
+      message: Devil deal damage modifier sets now work properly
+    - type: Fix
+      message: Several clauses now work as intended
+    - type: Fix
+      message: Devil can no longer be delimbed or decapitated.
+  id: 1162
+  time: '2025-06-02T07:03:08.0000000+00:00'
