@@ -129,6 +129,8 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 Brassica Prime <114382089+Pumkin69@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 JORJ949 <159719201+JORJ949@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Julian Giebel <juliangiebel@live.de>
@@ -1277,14 +1279,17 @@
   loadouts:
   - ArmorVest
   - ArmorVestSlim
-  - SecurityOfficerWintercoat
+  #- SecurityOfficerWintercoat #Goobstation
+  - WinterCoatSecArmored # Goobstation
+  - WinterCoatSeniorSecArmored # Goobstation
 
 - type: loadoutGroup
   id: SecurityShoes
   name: loadout-group-security-shoes
   loadouts:
   - JackBoots
-  - SecurityWinterBoots
+  #- SecurityWinterBoots # Goobstation
+  - WinterCombatBoots # Goobstation
 
 - type: loadoutGroup
   id: SecurityPDA
