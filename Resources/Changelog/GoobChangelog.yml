@@ -10506,3 +10506,12 @@ Entries:
       message: Instead of critting at 80 shadowkins just take more damage now.
   id: 1156
   time: '2025-06-02T06:46:14.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: >-
+        Syndicate agents now can purchase autosurgeons - new type of implanters
+        that modify or replace actual body parts, with new mantis blades and the
+        Sandevistan.
+  id: 1157
+  time: '2025-06-02T06:46:58.0000000+00:00'
