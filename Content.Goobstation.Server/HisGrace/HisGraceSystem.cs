@@ -379,7 +379,8 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
 
     private void DoAscension(HisGraceComponent comp)
     {
-        if (comp.User is not { } user|| TerminatingOrDeleted(user))
+        if (comp.User is not { } user
+            || TerminatingOrDeleted(user))
             return;
 
         var ascensionPopup = Loc.GetString("hisgrace-ascension");
