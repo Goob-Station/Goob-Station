@@ -16,6 +16,7 @@ using Content.Shared.Body.Organ;
 using Content.Shared.Body.Part;
 using Content.Shared.Damage.Components;
 using Content.Shared.Humanoid;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Components;
@@ -638,6 +639,7 @@ public partial class PainSystem
             || HasComp<GodmodeComponent>(body))
             return;
 
+        var shouldUpdate = false;
         if (nerveSys.LastPainThreshold != nerveSys.Pain)
         {
             if (_timing.CurTime > nerveSys.UpdateTime)
@@ -645,6 +647,8 @@ public partial class PainSystem
 
             if (_timing.CurTime > nerveSys.ReactionUpdateTime)
                 UpdatePainThreshold(nerveSysEnt, nerveSys);
+            
+            shouldUpdate = true;
         }
 
         if (_timing.CurTime > nerveSys.NextCritScream)
@@ -692,17 +696,23 @@ public partial class PainSystem
 
         foreach (var (key, value) in nerveSys.Modifiers)
             if (_timing.CurTime > value.Time)
-                TryRemovePainModifier(nerveSysEnt, key.Item1, key.Item2, nerveSys);
+                shouldUpdate |= TryRemovePainModifier(nerveSysEnt, key.Item1, key.Item2, nerveSys);
 
         foreach (var (key, value) in nerveSys.Multipliers)
             if (_timing.CurTime > value.Time)
-                TryRemovePainMultiplier(nerveSysEnt, key, nerveSys);
+                shouldUpdate |= TryRemovePainMultiplier(nerveSysEnt, key, nerveSys);
 
         // I hate myself.
         foreach (var (ent, nerve) in nerveSys.Nerves)
             foreach (var (key, value) in nerve.PainFeelingModifiers.ToList())
                 if (_timing.CurTime > value.Time)
-                    TryRemovePainFeelsModifier(key.Item1, key.Item2, ent, nerve);
+                    shouldUpdate |= TryRemovePainFeelsModifier(key.Item1, key.Item2, ent, nerve);
+
+        if (shouldUpdate
+            && _net.IsServer)
+        {
+            RaiseNetworkEvent(new MobThresholdChecked(GetNetEntity(body)), body); // Shitcod to handle overlays.
+        }
     }
 
     private void UpdateNerveSystemPain(EntityUid uid, NerveSystemComponent? nerveSys = null)

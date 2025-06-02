@@ -24,9 +24,10 @@
   - type: StationEvent
     startAnnouncement: station-event-unknown-shuttle-incoming #!!
     weight: 4
-    chaos: # Goobstation
+    chaos:
       Friend: -20
-    chaosScore: -80 # Goobstation
-    eventType: FriendlySpawn # Goobstation
+    eventType: FriendlySpawn
+  - type: GameRule
+    chaosScore: -80
   - type: LoadMapRule
     preloadedGrid: AlienTourist
