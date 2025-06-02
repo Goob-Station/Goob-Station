@@ -1,7 +1,4 @@
 using Content.Server.Popups;
-using Content.Server.Stunnable;
-using Content.Shared.ActionBlocker;
-using Content.Shared.Damage;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Inventory;
 using Content.Shared.Mobs.Systems;
@@ -34,17 +31,14 @@ public sealed partial class XenobiologySystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
-    [Dependency] private readonly StunSystem _stun = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly EmagSystem _emag = default!;
 
     public override void Initialize()
     {
         InitializeTaming();
         InitializeGrowth();
         InitializeBreeding();
-        InitializeActions();
+        InitializeVacuum();
     }
 
     public override void Update(float frameTime)
@@ -52,6 +46,5 @@ public sealed partial class XenobiologySystem : EntitySystem
         base.Update(frameTime);
         UpdateBreeding();
         UpdateGrowth();
-        UpdateSlime();
     }
 }
