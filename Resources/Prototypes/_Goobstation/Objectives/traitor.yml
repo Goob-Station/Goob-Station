@@ -106,7 +106,7 @@
   parent: BaseTraitorObjective
   id: TraitorReinforcementObjectiveSupport
   name: Support.
-  description: Attempt to accomplish objectives of your superior.
+  description: Attempt to accomplish objectives given to you by your superior.
   components:
   - type: Objective
     icon:
