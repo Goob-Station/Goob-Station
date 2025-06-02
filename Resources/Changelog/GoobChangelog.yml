@@ -10500,3 +10500,9 @@ Entries:
         menu! Time to stop mice!
   id: 1155
   time: '2025-06-02T06:45:46.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Instead of critting at 80 shadowkins just take more damage now.
+  id: 1156
+  time: '2025-06-02T06:46:14.0000000+00:00'
