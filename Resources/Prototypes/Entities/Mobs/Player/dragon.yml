@@ -320,6 +320,11 @@
   components:
   - type: Dragon
     spawnRiftAction: ActionSpawnRift
+    carpRiftHealing:
+      groups:
+        Brute: -4
+        Burn: -4
+        Airloss: -3
   - type: GhostRole
     mindRoles:
     - MindRoleDragon

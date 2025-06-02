@@ -17,6 +17,7 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Shared.Damage;
 using Content.Shared.NPC.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
@@ -114,8 +115,11 @@ namespace Content.Server.Dragon
         [DataField]
         public float CarpRiftHealingRange = 3f;
 
+        /// <summary>
+        /// Amount of healing the dragon receives when standing near a carp rift per second.
+        /// </summary>
         [DataField]
-        public float RiftHealingRate = 0.05f; // 20 seconds of standing near the rift = 1 devour
+        public DamageSpecifier CarpRiftHealing;
 
         #endregion
     }
