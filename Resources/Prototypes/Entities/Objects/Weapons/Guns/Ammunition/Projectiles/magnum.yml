@@ -81,7 +81,7 @@
     damage:
       types:
         Piercing: 28 # Goobstation edit
-    armorPenetration: 0.75 # Goobstation
+      armorPenetration: 0.75 # Goobstation
 
 - type: entity
   id: BulletMagnumUranium

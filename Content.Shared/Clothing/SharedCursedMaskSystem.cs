@@ -134,7 +134,7 @@ public abstract class SharedCursedMaskSystem : EntitySystem
         if (ent.Comp.CurrentState == CursedMaskExpression.Despair)
             args.Args.Damage = DamageSpecifier.ApplyModifierSet(args.Args.Damage,
                 DamageSpecifier.PenetrateArmor(ent.Comp.DespairDamageModifier,
-                    args.Args.ArmorPenetration)); // Goob edit
+                    args.Args.OriginalDamage.ArmorPenetration)); // Goob edit
     }
 
     protected void RandomizeCursedMask(Entity<CursedMaskComponent> ent, EntityUid wearer)

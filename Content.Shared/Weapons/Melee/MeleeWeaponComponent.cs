@@ -230,9 +230,6 @@ public sealed partial class MeleeWeaponComponent : Component
     // Goobstation
     [DataField, AutoNetworkedField]
     public bool CanWideSwing = true;
-
-    [DataField, AutoNetworkedField]
-    public float ArmorPenetration;
 }
 
 /// <summary>
