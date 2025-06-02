@@ -213,7 +213,7 @@
     sprite: Clothing/Neck/Cloaks/void.rsi
     state: icon
   content:
-  - InvisibleCrate
+  - DimensionPot # goob - swap InvisibleCrate
   - FultonBeacon
   - Fulton
   - SmokeGrenade
