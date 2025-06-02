@@ -30,7 +30,7 @@ public sealed class ChangePrefixAfterDelaySystem : EntitySystem
         while (query.MoveNext(out var uid, out var comp))
         {
             if (comp.ChangeAt == null
-            || comp.ChangeAt > _timing.CurTime)
+                || comp.ChangeAt > _timing.CurTime)
                 continue;
 
             _clothing.SetEquippedPrefix(uid, comp.NewEquippedPrefix);
