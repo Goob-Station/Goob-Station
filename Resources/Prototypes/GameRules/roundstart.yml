@@ -331,6 +331,29 @@
     - groups: TraitorObjectiveGroups
     maxDifficulty: 5
 
+# Goobstation - order swapped since admin verbs use .Last() for some reason
+# TODO: Fix that 
+- type: entity
+  id: TraitorReinforcement
+  parent: BaseTraitorRuleNoObjectives # Goobstation
+  components:
+  - type: TraitorRule
+    giveUplink: false
+    giveCodewords: false # It would actually give them a different set of codewords than the regular traitors, anyway
+    giveBriefing: false
+  - type: AntagSelection
+    selectionTime: PostPlayerSpawn # Goobstation
+    definitions:
+    - prefRoles: [ Traitor ]
+      mindRoles:
+      - MindRoleTraitorReinforcement
+  - type: AntagRandomObjectives # goob - support objective
+    maxDifficulty: 1
+    sets:
+    - maxPicks: 1
+      minPicks: 1
+      groups: TraitorReinforcementObjectiveGroup
+
 - type: entity
   parent: BaseTraitorRule
   id: Traitor
@@ -350,21 +373,6 @@
       lateJoinAdditional: true
       mindRoles:
       - MindRoleTraitor
-
-- type: entity
-  id: TraitorReinforcement
-  parent: BaseTraitorRuleNoObjectives # Goobstation
-  components:
-  - type: TraitorRule
-    giveUplink: false
-    giveCodewords: false # It would actually give them a different set of codewords than the regular traitors, anyway
-    giveBriefing: false
-  - type: AntagSelection
-    selectionTime: PostPlayerSpawn # Goobstation
-    definitions:
-    - prefRoles: [ Traitor ]
-      mindRoles:
-      - MindRoleTraitorReinforcement
 
 - type: entity
   id: Revolutionary
