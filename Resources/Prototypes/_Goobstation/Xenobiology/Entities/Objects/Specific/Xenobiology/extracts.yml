@@ -1,3 +1,4 @@
+## Tier 0
 - type: entity
   id: BaseSlimeExtract
   parent: BaseItem
@@ -18,11 +19,10 @@
   description:
   components:
   - type: Sprite
-    sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extracts.rsi
     state: grey
   - type: SlimeExtract
-    extractType: Grey
 
+## Tier 1
 - type: entity
   id: OrangeSlimeExtract
   parent: BaseSlimeExtract
@@ -30,10 +30,8 @@
   description:
   components:
   - type: Sprite
-    sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extracts.rsi
     state: orange
   - type: SlimeExtract
-    extractType: Orange
 
 - type: entity
   id: PurpleSlimeExtract
@@ -42,10 +40,8 @@
   description:
   components:
   - type: Sprite
-    sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extracts.rsi
     state: purple
   - type: SlimeExtract
-    extractType: Purple
 
 - type: entity
   id: BlueSlimeExtract
@@ -54,10 +50,8 @@
   description:
   components:
   - type: Sprite
-    sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extracts.rsi
     state: blue
   - type: SlimeExtract
-    extractType: Blue
 
 - type: entity
   id: MetalSlimeExtract
@@ -66,7 +60,183 @@
   description:
   components:
   - type: Sprite
-    sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extracts.rsi
     state: metal
   - type: SlimeExtract
-    extractType: Metal
+
+## Tier 2
+
+- type: entity
+  id: YellowSlimeExtract
+  parent: BaseSlimeExtract
+  name: yellow slime extract
+  description:
+  components:
+  - type: Sprite
+    state: yellow
+  - type: SlimeExtract
+
+- type: entity
+  id: DarkPurpleSlimeExtract
+  parent: BaseSlimeExtract
+  name: dark purple slime extract
+  description:
+  components:
+  - type: Sprite
+    state: darkpurple
+  - type: SlimeExtract
+
+- type: entity
+  id: DarkBlueSlimeExtract
+  parent: BaseSlimeExtract
+  name: dark blue slime extract
+  description:
+  components:
+  - type: Sprite
+    state: darkblue
+  - type: SlimeExtract
+
+- type: entity
+  id: SilverSlimeExtract
+  parent: BaseSlimeExtract
+  name: silver slime extract
+  description:
+  components:
+  - type: Sprite
+    state: silver
+  - type: SlimeExtract
+
+# Tier 2.5
+
+- type: entity
+  id: BluespaceSlimeExtract
+  parent: BaseSlimeExtract
+  name: bluespace slime extract
+  description:
+  components:
+  - type: Sprite
+    state: bluespace
+  - type: SlimeExtract
+
+- type: entity
+  id: SepiaSlimeExtract
+  parent: BaseSlimeExtract
+  name: sepia slime extract
+  description:
+  components:
+  - type: Sprite
+    state: sepia
+  - type: SlimeExtract
+
+- type: entity
+  id: CeruleanSlimeExtract
+  parent: BaseSlimeExtract
+  name: cerulean slime extract
+  description:
+  components:
+  - type: Sprite
+    state: cerulean
+  - type: SlimeExtract
+
+- type: entity
+  id: PyriteSlimeExtract
+  parent: BaseSlimeExtract
+  name: pyrite slime extract
+  description:
+  components:
+  - type: Sprite
+    state: pyrite
+  - type: SlimeExtract
+
+# Tier 3
+
+- type: entity
+  id: RedSlimeExtract
+  parent: BaseSlimeExtract
+  name: red slime extract
+  description:
+  components:
+  - type: Sprite
+    state: red
+  - type: SlimeExtract
+
+- type: entity
+  id: GreenSlimeExtract
+  parent: BaseSlimeExtract
+  name: green slime extract
+  description:
+  components:
+  - type: Sprite
+    state: green
+  - type: SlimeExtract
+
+- type: entity
+  id: SepiaSlimeExtract
+  parent: BaseSlimeExtract
+  name: sepia slime extract
+  description:
+  components:
+  - type: Sprite
+    state: sepia
+  - type: SlimeExtract
+
+- type: entity
+  id: PinkSlimeExtract
+  parent: BaseSlimeExtract
+  name: pink slime extract
+  description:
+  components:
+  - type: Sprite
+    state: pink
+  - type: SlimeExtract
+
+- type: entity
+  id: GoldSlimeExtract
+  parent: BaseSlimeExtract
+  name: gold slime extract
+  description:
+  components:
+  - type: Sprite
+    state: gold
+  - type: SlimeExtract
+
+# Tier 4
+
+- type: entity
+  id: OilSlimeExtract
+  parent: BaseSlimeExtract
+  name: oil extract
+  description:
+  components:
+  - type: Sprite
+    state: oil
+  - type: SlimeExtract
+
+- type: entity
+  id: LightPinkSlimeExtract
+  parent: BaseSlimeExtract
+  name: light pink slime extract
+  description:
+  components:
+  - type: Sprite
+    state: lightpink
+  - type: SlimeExtract
+
+- type: entity
+  id: BlackSlimeExtract
+  parent: BaseSlimeExtract
+  name: black slime extract
+  description:
+  components:
+  - type: Sprite
+    state: black
+  - type: SlimeExtract
+
+- type: entity
+  id: AdamantineSlimeExtract
+  parent: BaseSlimeExtract
+  name: adamantine slime extract
+  description:
+  components:
+  - type: Sprite
+    state: adamantine
+  - type: SlimeExtract
