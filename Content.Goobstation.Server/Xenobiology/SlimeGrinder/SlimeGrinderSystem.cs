@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Numerics;
 using Content.Goobstation.Shared.Xenobiology.Components;
 using Content.Server.Power.Components;
