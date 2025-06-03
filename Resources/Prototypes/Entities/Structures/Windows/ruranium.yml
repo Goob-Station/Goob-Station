@@ -79,7 +79,7 @@
 
 - type: entity
   id: UraniumReinforcedWindowDirectional
-  parent: WindowDirectional
+  parent: WindowDirectionalRCDResistant
   name: directional reinforced uranium window
   description: Don't smudge up the glass down there.
   placement:
@@ -103,6 +103,8 @@
     trackAllDamage: true
     damageOverlay:
       sprite: Structures/Windows/cracks_directional.rsi
+  - type: Damageable
+    damageModifierSet: RGlass
   - type: Destructible
     thresholds:
     - trigger:
