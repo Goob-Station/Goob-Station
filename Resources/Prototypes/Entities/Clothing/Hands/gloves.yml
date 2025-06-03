@@ -393,7 +393,7 @@
       - type: CriminalRecordsHacker
 
 - type: entity
-  parent: ClothingHandsGlovesColorBlack # goobstation - no longer sec/engi contra its just reskinned insuls i can order this shit on amazon for 50 bucks
+  parent: [ClothingHandsGlovesColorBlack, BaseSecurityEngineeringContraband]
   id: ClothingHandsGlovesCombat
   name: combat gloves
   description: These tactical gloves are fireproof and shock resistant.
