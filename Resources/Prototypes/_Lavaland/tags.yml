@@ -24,6 +24,9 @@
   id: DockMining
 
 - type: Tag
+  id: ExplorerSuit
+
+- type: Tag
   id: PKAUpgrade
 
 - type: Tag

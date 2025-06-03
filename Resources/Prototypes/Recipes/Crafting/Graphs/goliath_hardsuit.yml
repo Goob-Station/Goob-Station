@@ -19,7 +19,7 @@
         icon:
           sprite: _Lavaland/Equipment/explorer_suit.rsi
           state: icon
-        name: ExplorerSuit # Goobstation - It's almost impossible to find spationaut hardsuits
+        name: Explorer Suit # Goobstation - It's almost impossible to find spationaut hardsuits
         doAfter: 10
       - material: Durathread
         amount: 5
