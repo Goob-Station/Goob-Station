@@ -74,6 +74,7 @@ public sealed partial class DevilContractSystem : EntitySystem
     };
 
     private Regex _clauseRegex = null!;
+    private Regex _chudRegex = null!;
 
     private void InitializeRegex()
     {
@@ -81,6 +82,9 @@ public sealed partial class DevilContractSystem : EntitySystem
         var targetPattern = string.Join("|", escapedPatterns);
 
         _clauseRegex = new Regex($@"^\s*(?<target>{targetPattern})\s*:\s*(?<clause>.+?)\s*$",
+            RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.Multiline);
+
+        _chudRegex = new Regex(@"\bcolor\b",
             RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.Multiline);
     }
     private void OnGetVerbs(Entity<DevilContractComponent> contract, ref GetVerbsEvent<AlternativeVerb> args)
@@ -136,7 +140,7 @@ public sealed partial class DevilContractSystem : EntitySystem
         // Don't allow mortals to sign contracts for other people.
         if (contract.Comp.IsVictimSigned && args.Signer != contract.Comp.ContractOwner)
         {
-            var invalidUserPopup = Loc.GetString("devil-sign-invalid-user");
+            var invalidUserPopup = Loc.GetString("devil-contract-invalid-user-failed");
             _popupSystem.PopupEntity(invalidUserPopup, contract, args.Signer);
 
             args.Cancelled = true;
@@ -175,8 +179,17 @@ public sealed partial class DevilContractSystem : EntitySystem
         {
             var difference = Math.Abs(contract.Comp.ContractWeight);
 
-            var unevenOddsPopup = Loc.GetString("contract-uneven-odds", ("number", difference));
+            var unevenOddsPopup = Loc.GetString("devil-contract-uneven-odds-failed", ("number", difference));
             _popupSystem.PopupEntity(unevenOddsPopup, contract, args.Signer, PopupType.MediumCaution);
+
+            args.Cancelled = true;
+            return;
+        }
+
+        if (IsChud(contract))
+        {
+            var chudPopup = Loc.GetString("devil-contact-chud-failed");
+            _popupSystem.PopupEntity(chudPopup, contract, args.Signer, PopupType.MediumCaution);
 
             args.Cancelled = true;
             return;
@@ -244,6 +257,14 @@ public sealed partial class DevilContractSystem : EntitySystem
         condemned.CondemnOnDeath = true;
 
         return true;
+    }
+
+    private bool IsChud(Entity<DevilContractComponent> contract, PaperComponent? paper = null)
+    {
+        if (!Resolve(contract, ref paper))
+            return false;
+
+        return _chudRegex.IsMatch(paper.Content);
     }
 
     private void UpdateContractWeight(Entity<DevilContractComponent> contract, PaperComponent? paper = null)

@@ -3,19 +3,20 @@ devil-contract-contractor = contractor
 
 devil-contract-early-sign-failed = The contractor must wait for the contractee to sign first!
 devil-contract-no-soul-sign-failed = You do not have a soul to sell!
-devil-sign-invalid-user = You do not have the power to fulfill this contract!
+devil-contract-invalid-user-failed = You do not have the power to fulfill this contract!
 devil-contract-mind-shielded-failed = A voice comes from your Nanotrasen™ mindshield. "Nice try."
+devil-contract-uneven-odds = These odds aren't fair. You need {$number} more contract weight.
+devil-contact-chud-failed = You should really get more creative with how you cheat.
 
 contract-summon-flavor = {$name}'s hand bursts into flames before revealing a black roll of parchment...
 burn-contract-prompt = Burn contract.
-burn-contract-popup-success = The contract bursts into flames! It seems someones fate has been sealed...
+burn-contract-popup-success = The contract bursts into flames!
 burn-contract-popup-fail = You cannot burn a contract during a deal!
 
 
 contract-victim-signed = A chill runs down your spine as you lift the pen...
 contract-devil-signed = The contract pulses with dark energy...
 contract-soul-added = You gain another soul in your possession...
-contract-uneven-odds = These odds aren't fair. You need {$number} more contract weight.
 devil-contract-examined = This contract has a weight of: {$weight}.
 
 devil-deal-time-ran-out = Your vision goes black as your muscles fail you. You've run out of time.
@@ -45,4 +46,4 @@ default-contract-content = This binding contract made this day between:
             Contractee: Death
 
             {"["}italic]All clauses come into effect upon signing of this paper by both parties.{"["}/italic]
-            {"["}italic]{"["}color=#ac3a0d]Clauses may not be broken. Ever.{"["}/color]{"["}/italic]
+            {"["}italic]Clauses may not be broken. Ever.{"["}/italic]
