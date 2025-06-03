@@ -742,7 +742,7 @@
   description: uplink-combat-medkit-pills-desc
   productEntity: MedkitCombatBlueFilled
   cost:
-    Telecrystal: 35
+    Telecrystal: 25
   categories:
   - UplinkChemicals
 
@@ -752,7 +752,7 @@
   description: uplink-combat-medkit-ipc-desc
   productEntity: MedkitCombatPurpleFilled
   cost:
-    Telecrystal: 25
+    Telecrystal: 10
   categories:
   - UplinkChemicals
 
