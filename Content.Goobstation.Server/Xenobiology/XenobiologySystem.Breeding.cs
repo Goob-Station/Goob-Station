@@ -5,7 +5,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Linq;
 using Content.Goobstation.Shared.Xenobiology;
 using Content.Goobstation.Shared.Xenobiology.Components;
 using Content.Shared.Nutrition.Components;
@@ -88,6 +87,7 @@ public partial class XenobiologySystem
     private void DoMitosis(Entity<SlimeComponent> ent)
     {
         var offspringCount = _random.Next(1, ent.Comp.MaxOffspring + 1);
+        _audio.PlayPredicted(ent.Comp.MitosisSound, ent, ent);
 
         for (var i = 0; i < offspringCount; i++)
         {
@@ -100,7 +100,6 @@ public partial class XenobiologySystem
         }
 
         _containerSystem.EmptyContainer(ent.Comp.Stomach);
-        _audio.PlayPredicted(ent.Comp.MitosisSound, ent, ent);
         QueueDel(ent);
     }
 

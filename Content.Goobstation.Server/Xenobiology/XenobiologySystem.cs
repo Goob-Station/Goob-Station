@@ -6,12 +6,15 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Popups;
+using Content.Server.Stunnable;
+using Content.Shared.ActionBlocker;
+using Content.Shared.Damage;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Inventory;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.EntitySystems;
+using Robust.Server.Audio;
 using Robust.Server.GameObjects;
-using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -31,11 +34,14 @@ public sealed partial class XenobiologySystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly StunSystem _stun = default!;
+    [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
 
     private ISawmill _sawmill = default!;
 
@@ -45,6 +51,7 @@ public sealed partial class XenobiologySystem : EntitySystem
         InitializeGrowth();
         InitializeBreeding();
         InitializeVacuum();
+        InitializeActions();
 
         _sawmill = Logger.GetSawmill("Xenobiology");
     }
@@ -54,5 +61,6 @@ public sealed partial class XenobiologySystem : EntitySystem
         base.Update(frameTime);
         UpdateBreeding();
         UpdateGrowth();
+        UpdateHunger();
     }
 }
