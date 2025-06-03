@@ -97,10 +97,16 @@ public sealed partial class SlimeComponent : Component
     public float MitosisHunger = 200f;
 
     /// <summary>
-    /// Should this slime be metallic? (Shader & logic still needs to be written)
+    /// Should this slime have a shader?
     /// </summary>
     [DataField, AutoNetworkedField]
-    public bool ShouldBeMetallic; // this should prob be an enum
+    public bool ShouldHaveShader;
+
+    /// <summary>
+    /// Which shader are we using?
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public string Shader = string.Empty;
 
     /// <summary>
     /// What sound should we play when mitosis occurs?
