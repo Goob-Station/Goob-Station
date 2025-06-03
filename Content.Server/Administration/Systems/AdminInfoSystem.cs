@@ -11,8 +11,10 @@ using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
 using Content.Shared.Administration;
 using Content.Shared.Administration.Events;
+using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Robust.Server.Audio;
+using Robust.Shared.Audio;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 
@@ -23,9 +25,6 @@ public sealed class AdminInfoSystem : EntitySystem
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly IPlayerLocator _locator = default!;
-    [Dependency] private readonly AudioSystem _audioSystem = default!; // Goobstation - Start
-    [Dependency] private readonly IAdminManager _adminManager = default!;
-    [Dependency] private readonly IConfigurationManager _config = default!; // Goobstation - End
 
     public override void Initialize()
     {
@@ -50,15 +49,5 @@ public sealed class AdminInfoSystem : EntitySystem
         _adminLog.Add(LogType.AdminMessage, LogImpact.High, $"{name} is attempting to connect with a userid from {main.Username}");
         _chatManager.SendAdminAlert($"{name} is attempting to connect with a userid from {main.Username}");
 
-        // Goobstation - Start
-        var raidsound = _config.GetCVar(GoobCVars.RaidSound);
-
-        foreach (var admin in _adminManager.ActiveAdmins
-                     .Where(p => _adminManager.GetAdminData(p)?
-                         .HasFlag(AdminFlags.Admin) ?? false))
-        {
-                _audioSystem.PlayGlobal(raidsound, Filter.SinglePlayer(admin), true);
-        }
-        // Goobstation - End
     }
 }
