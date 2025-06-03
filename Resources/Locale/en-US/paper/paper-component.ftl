@@ -35,4 +35,5 @@ paper-ui-fill-level = {$currentLength}/{$maxLength}
 
 paper-ui-save-button = Save ({$keybind})
 
-paper-tamper-proof-modified-message = This page was written using tamper-proof ink.
+paper-tamper-proof-modified-message = You cannot edit this paper!
+# Goobstation - Edited this message.

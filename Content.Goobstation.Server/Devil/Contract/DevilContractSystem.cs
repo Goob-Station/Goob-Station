@@ -216,6 +216,11 @@ public sealed partial class DevilContractSystem : EntitySystem
         // Final activation check
         if (contract.Comp.IsContractFullySigned)
             HandleBothPartiesSigned(contract);
+
+        if (!TryComp<PaperComponent>(args.Paper, out var paper))
+            return;
+
+        paper.EditingDisabled = true;
     }
 
     private void HandleVictimSign(Entity<DevilContractComponent> contract, EntityUid signed, EntityUid signer)
