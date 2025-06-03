@@ -248,7 +248,7 @@
     - Flash
     - ClothingMaskBreathMedicalSecurity
 - type: SurgerySpeedModifier
-  speedModifier: 1.5
+  speedModifier: 1.25 # better than a tider, worse than a doctor
 
 # Aghost
 - type: startingGear
