@@ -72,3 +72,33 @@
   - type: Tag
     tags:
       - CalmAntag
+
+- type: entity
+  parent: BaseGameRule
+  id: Heretics
+  components:
+  - type: HereticRule
+  - type: GameRule
+    minPlayers: 40
+  - type: AntagObjectives
+    objectives:
+    - HereticKnowledgeObjective
+    - HereticSacrificeObjective
+    - HereticSacrificeHeadObjective
+  - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
+    agentName: heretic-roundend-name
+    definitions:
+    - prefRoles: [ Heretic ]
+      max: 8
+      playerRatio: 10
+      lateJoinAdditional: true
+      jobBlacklist: [ Chaplain ] # GOOBSTATION
+      mindRoles:
+      - MindRoleHeretic
+      components:
+      - type: WeakToHoly
+      - type: CanEnchant
+  - type: Tag
+    tags:
+      - RoundstartAntag

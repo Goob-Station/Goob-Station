@@ -41,6 +41,7 @@
   rules:
     - Changeling
     - SubGamemodesRule
+    - HereticCompatible
     - BasicStationEventScheduler
     #- MeteorSwarmScheduler Goobstation - nuh uh
     - BasicRoundstartVariation
@@ -57,6 +58,7 @@
   rules:
     - CalmLing
     - CalmTraitor
+    - SubGamemodesRule
     - BasicStationEventScheduler
     #- MeteorSwarmScheduler Goobstation - nuh uh
     - BasicRoundstartVariation
@@ -74,6 +76,7 @@
   rules:
     - Calmops
     - CalmTraitor
+    - SubGamemodesRule
     - BasicStationEventScheduler
     #- MeteorSwarmScheduler Goobstation - nuh uh
     - BasicRoundstartVariation
@@ -90,6 +93,7 @@
   rules:
     - Calmops
     - CalmLing
+    - SubGamemodesRule
     - BasicStationEventScheduler
     #- MeteorSwarmScheduler Goobstation - nuh uh
     - BasicRoundstartVariation
@@ -107,6 +111,7 @@
   rules:
     - CalmRevs
     - CalmTraitor
+    - SubGamemodesRule
     - BasicStationEventScheduler
     #- MeteorSwarmScheduler Goobstation - nuh uh
     - LavalandStormScheduler # Lavaland Change
@@ -122,6 +127,7 @@
   rules:
     - CalmRevs
     - CalmLing
+    - SubGamemodesRule
     - BasicStationEventScheduler
     #- MeteorSwarmScheduler Goobstation - nuh uh
     - BasicRoundstartVariation
@@ -141,6 +147,7 @@
   - AntagStationEventScheduler
   - BasicRoundstartVariation
   - SubGamemodesRule
+  - HereticCompatible
   - LavalandStormScheduler # Lavaland Change
 
 - type: gamePreset
@@ -166,12 +173,13 @@
     - calmdynamic
   name: sleeper-title
   description: sleeper-description
-  showInVote: true
+  showInVote: false
   minPlayers: 5
   rules:
     - CalmDynamic
     - LavalandStormScheduler
     - SubGamemodesRule
+    - HereticCompatible
     - RareIonStormScheduler
     - SpaceTrafficControlFriendlyEventScheduler
 
@@ -182,12 +190,13 @@
     - combatdynamic
   name: guide-title
   description: guide-description
-  showInVote: true
+  showInVote: false
   minPlayers: 25
   rules:
     - CombatDynamic
     - LavalandStormScheduler
     - SubGamemodesRule
+    - HereticCompatible
     - IonStormScheduler
     - SpaceTrafficControlEventScheduler
 
@@ -199,7 +208,7 @@
     - turbulence
   name: secretplus-low-title
   description: secretplus-low-description
-  showInVote: true
+  showInVote: false
   rules:
     - SecretPlusLow
     - LavalandStormScheduler
@@ -212,7 +221,7 @@
     - entropy
   name: secretplus-mid-title
   description: secretplus-mid-description
-  showInVote: true
+  showInVote: false
   rules:
     - SecretPlusMid
     - LavalandStormScheduler
@@ -228,4 +237,50 @@
   showInVote: false # 1984
   rules:
     - SecretPlusHigh
+    - LavalandStormScheduler
+
+- type: gamePreset
+  id: cult
+  name: cult-gamemode-title
+  description: cult-gamemode-description
+  showInVote: false
+  rules:
+    - CosmicCult
+    - BasicStationEventScheduler
+    - BasicRoundstartVariation
+    - LavalandStormScheduler
+
+- type: gamePreset
+  id: CultLing
+  name: cultLings-gamemode-title
+  description: cult-gamemode-description
+  showInVote: false
+  rules:
+    - CosmicCult
+    - CalmLing
+    - BasicStationEventScheduler
+    - BasicRoundstartVariation
+    - LavalandStormScheduler
+
+- type: gamePreset
+  id: CultTraitor
+  name: cultTraitors-gamemode-title
+  description: cult-gamemode-description
+  showInVote: false
+  rules:
+    - CosmicCult
+    - CalmTraitor
+    - BasicStationEventScheduler
+    - BasicRoundstartVariation
+    - LavalandStormScheduler
+
+- type: gamePreset
+  id: Heretics
+  name: Heretics-gamemode-title
+  description: Heretics-gamemode-description
+  showInVote: false
+  rules:
+    - Heretics
+    - BasicStationEventScheduler
+    - BasicRoundstartVariation
     - LavalandStormScheduler

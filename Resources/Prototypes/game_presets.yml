@@ -173,7 +173,7 @@
     - secret
     - sekrit
   name: secret-title
-  showInVote: false # Goob - Game Director
+  showInVote: true # Goob - Game Director
   description: secret-description
   rules:
     - Secret
@@ -229,6 +229,7 @@
   - DummyNonAntagChance
   - Traitor
   - SubGamemodesRule
+  - HereticCompatible
   - BasicStationEventScheduler
   #- MeteorSwarmScheduler Goobstation - nuh uh
   - SpaceTrafficControlEventScheduler
@@ -243,7 +244,7 @@
   name: death-match-title
   description: death-match-description
   maxPlayers: 15
-  showInVote: true
+  showInVote: false
   supportedMaps: DeathMatchMapPool
   rules:
     - DeathMatch31
@@ -275,9 +276,10 @@
   description: rev-description
   showInVote: false
   rules:
-  - DummyNonAntagChance  
+  - DummyNonAntagChance
   - Revolutionary
   - SubGamemodesRule
+  - HereticCompatible
   - BasicStationEventScheduler
   #  - MeteorSwarmScheduler Goobstation - nuh uh
   - SpaceTrafficControlEventScheduler
