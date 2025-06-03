@@ -84,3 +84,9 @@
     sprite: _Goobstation/Structures/Machines/interactor.rsi
     state: icon
   result: InteractorCircuitboard
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  icon: { sprite: Structures/Machines/Medical/biomass_reclaimer.rsi, state: icon } # Todo - Change this sprite.
+  id: SlimeGrinderMachineCircuitboard
+  result: SlimeGrinderMachineCircuitboard

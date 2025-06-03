@@ -52,6 +52,22 @@
   - MagnetsTech
 
 - type: technology
+  id: Xenobiology
+  name: research-technology-xenobiology
+  icon:
+    sprite: _Goobstation/Xenobiology/Specific/Xenobiology/slime_nozzle.rsi
+    state: icon
+  discipline: Experimental
+  tier: 1
+  cost: 5000
+  recipeUnlocks:
+  - SlimeGrinderMachineCircuitboard
+  - ClothingBackpackXenoBioTank
+  position: -3,3
+  technologyPrerequisites:
+  - BasicXenoArcheology
+
+- type: technology
   id: BluespaceTheory
   name: research-technology-bluespace-theory
   icon:

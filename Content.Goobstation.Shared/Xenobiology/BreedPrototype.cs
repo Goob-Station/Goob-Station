@@ -25,6 +25,12 @@ public sealed partial class BreedPrototype : IPrototype
     public string BreedName = string.Empty;
 
     /// <summary>
+    /// The extract produced when this breed is ground.
+    /// </summary>
+    [DataField]
+    public EntProtoId ProducedExtract = "GreySlimeExtract";
+
+    /// <summary>
     /// What components should be given to the slime mob? Usually SlimeComponent.
     /// </summary>
     [DataField]

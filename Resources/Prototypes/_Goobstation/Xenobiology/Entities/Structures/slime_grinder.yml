@@ -1,0 +1,26 @@
+- type: entity
+  id: SlimeGrinder
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  name: slime grinder
+  description: Produces extracts from a slimes corpse.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/Medical/biomass_reclaimer.rsi # Todo - Change this
+    state: icon
+    snapCardinals: true
+  - type: SlimeGrinder
+  - type: Climbable
+    delay: 7
+  - type: AmbientSound
+    enabled: false
+    volume: -5
+    range: 5
+    sound:
+      path: /Audio/Ambience/Objects/reclaimer_ambience.ogg
+  - type: Machine
+    board: SlimeGrinderMachineCircuitboard
+  - type: GuideHelp
+    guides:
+    - Cloning # Todo - Change

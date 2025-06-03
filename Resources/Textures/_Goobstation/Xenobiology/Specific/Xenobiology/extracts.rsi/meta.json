@@ -1,0 +1,74 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Paradise Station",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "adamantine"
+    },
+	{
+      "name": "black"
+    },
+	{
+      "name": "blue"
+    },
+	{
+      "name": "bluespace"
+    },
+	{
+      "name": "cerulean"
+    },
+	{
+      "name": "darkblue"
+    },
+	{
+      "name": "darkpurple"
+    },
+	{
+      "name": "gold"
+    },
+	{
+      "name": "green"
+    },
+	{
+      "name": "grey"
+    },
+	{
+      "name": "lightpink"
+    },
+	{
+      "name": "metal"
+    },
+	{
+      "name": "oil"
+    },
+	{
+      "name": "orange"
+    },
+	{
+      "name": "pink"
+    },
+	{
+      "name": "purple"
+    },
+	{
+      "name": "pyrite"
+    },
+	{
+      "name": "red"
+    },
+	{
+      "name": "sepia"
+    },
+	{
+      "name": "silver"
+    },
+	{
+      "name": "yellow"
+    },
+  ]
+}

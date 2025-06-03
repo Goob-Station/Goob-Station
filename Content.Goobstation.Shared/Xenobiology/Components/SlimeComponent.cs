@@ -36,6 +36,13 @@ public sealed partial class SlimeComponent : Component
     public ProtoId<BreedPrototype> Breed = "GreyMutation";
 
     /// <summary>
+    /// If the associated breed prototype cannot be found,
+    /// it will use this extract as a fallback.
+    /// </summary>
+    [DataField]
+    public EntProtoId DefaultExtract = "GreySlimeExtract";
+
+    /// <summary>
     /// If the mutation chance is met, what potential mutations are available?
     /// </summary>
     [DataField, AutoNetworkedField]

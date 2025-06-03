@@ -5,6 +5,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Xenobiology.Components;
 using Content.Server.Popups;
 using Content.Server.Stunnable;
 using Content.Shared.ActionBlocker;
@@ -62,5 +63,17 @@ public sealed partial class XenobiologySystem : EntitySystem
         UpdateBreeding();
         UpdateGrowth();
         UpdateHunger();
+    }
+
+    /// <summary>
+    /// Returns the extract associated by the slimes breed.
+    /// </summary>
+    /// <param name="slime">The slime entity.</param>
+    /// <returns>Grey if no breed can be found.</returns>
+    public EntProtoId GetProducedExtract(Entity<SlimeComponent> slime)
+    {
+        return _prototypeManager.TryIndex(slime.Comp.Breed, out var breedPrototype)
+            ? breedPrototype.ProducedExtract
+            : slime.Comp.DefaultExtract;
     }
 }
