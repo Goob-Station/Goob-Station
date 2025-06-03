@@ -6,19 +6,10 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Linq;
-using Content.Goobstation.Common.CCVar;
 using Content.Server.Administration.Logs;
-using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
-using Content.Shared.Administration;
 using Content.Shared.Administration.Events;
-using Content.Shared.CCVar;
 using Content.Shared.Database;
-using Robust.Server.Audio;
-using Robust.Shared.Audio;
-using Robust.Shared.Configuration;
-using Robust.Shared.Player;
 
 namespace Content.Server.Administration.Systems;
 
