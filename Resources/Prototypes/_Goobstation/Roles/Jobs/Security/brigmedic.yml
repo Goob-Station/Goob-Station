@@ -31,5 +31,7 @@
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
   - !type:AddComponentSpecial
-    components: # Intentionally no surgery buff, you're reliable but not powerful as a real doctor
+    components: # better than a tider worse than a doctor
     - type: SecurityStaff
+    - type: SurgerySpeedModifier
+      speedModifier: 1.25
