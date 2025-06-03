@@ -51,10 +51,8 @@ public abstract class SharedAggressorsSystem : EntitySystem
 
     #region Event Handling
 
-    private void OnAgressiveGetState(EntityUid uid, AggressiveComponent component, ref ComponentGetState args)
-    {
+    private void OnAgressiveGetState(EntityUid uid, AggressiveComponent component, ref ComponentGetState args) =>
         args.State = new AggressiveComponentState(GetNetEntitySet(component.Aggressors));
-    }
 
     private void OnBeforeDamageChanged(Entity<AggressiveComponent> ent, ref BeforeDamageChangedEvent args)
     {
