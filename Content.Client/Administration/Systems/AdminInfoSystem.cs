@@ -6,16 +6,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Server.Administration.Managers;
 using Content.Shared.Administration.Events;
-using Content.Shared.CCVar;
-using Robust.Client.Audio;
-using Robust.Client.Graphics;
 using Robust.Client.Player;
-using Robust.Shared.Configuration;
 using Robust.Shared.ContentPack;
 using Robust.Shared.Network;
-using Robust.Shared.Player;
 using Robust.Shared.Utility;
 
 namespace Content.Client.Administration.Systems;
