@@ -245,10 +245,11 @@
     pocket1: WeaponDisabler
   storage:
     back:
-    - Flash
-    - ClothingMaskBreathMedicalSecurity
-- type: SurgerySpeedModifier
-  speedModifier: 1.25 # better than a tider, worse than a doctor
+      - Flash
+      - ClothingMaskBreathMedicalSecurity
+  components:
+    - type: SurgerySpeedModifier
+      speedModifier: 1.25 # better than a tider, worse than a doctor
 
 # Aghost
 - type: startingGear
