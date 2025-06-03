@@ -76,6 +76,7 @@ public sealed class SandevistanSystem : EntitySystem
 
             if (!comp.Enabled)
             {
+                _audio.Stop(comp.RunningSound);
                 comp.CurrentLoad = MathF.Max(0, comp.CurrentLoad + comp.LoadPerInactiveSecond);
                 return;
             }
@@ -176,7 +177,7 @@ public sealed class SandevistanSystem : EntitySystem
     private void OnMeleeAttack(Entity<SandevistanUserComponent> ent, ref MeleeAttackEvent args)
     {
         if (!ent.Comp.Enabled
-        || !TryComp<MeleeWeaponComponent>(args.Weapon, out var weapon))
+            || !TryComp<MeleeWeaponComponent>(args.Weapon, out var weapon))
             return;
 
         var rate = weapon.NextAttack - _timing.CurTime; //weapon.AttackRate; breaks things when multiple systems modify NextAttack

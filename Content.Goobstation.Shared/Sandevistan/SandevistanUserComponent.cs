@@ -102,7 +102,7 @@ public sealed partial class SandevistanUserComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public TrailComponent? Trail;
 
-    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public int ColorAccumulator = 0;
 }
 
