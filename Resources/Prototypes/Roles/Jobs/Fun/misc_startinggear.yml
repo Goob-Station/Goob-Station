@@ -245,8 +245,8 @@
     pocket1: WeaponDisabler
   storage:
     back:
-      - Flash
-      - ClothingMaskBreathMedicalSecurity
+    - Flash
+    - ClothingMaskBreathMedicalSecurity
 
 # Aghost
 - type: startingGear
