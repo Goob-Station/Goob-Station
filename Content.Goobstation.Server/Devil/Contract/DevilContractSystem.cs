@@ -188,7 +188,7 @@ public sealed partial class DevilContractSystem : EntitySystem
 
         if (IsChud(contract))
         {
-            var chudPopup = Loc.GetString("devil-contact-chud-failed");
+            var chudPopup = Loc.GetString("devil-contract-chud-failed");
             _popupSystem.PopupEntity(chudPopup, contract, args.Signer, PopupType.MediumCaution);
 
             args.Cancelled = true;

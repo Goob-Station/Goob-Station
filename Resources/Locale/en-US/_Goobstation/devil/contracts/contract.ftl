@@ -6,7 +6,7 @@ devil-contract-no-soul-sign-failed = You do not have a soul to sell!
 devil-contract-invalid-user-failed = You do not have the power to fulfill this contract!
 devil-contract-mind-shielded-failed = A voice comes from your Nanotrasen™ mindshield. "Nice try."
 devil-contract-uneven-odds = These odds aren't fair. You need {$number} more contract weight.
-devil-contact-chud-failed = You should really get more creative with how you cheat.
+devil-contract-chud-failed = You should really get more creative with how you cheat.
 
 contract-summon-flavor = {$name}'s hand bursts into flames before revealing a black roll of parchment...
 burn-contract-prompt = Burn contract.
