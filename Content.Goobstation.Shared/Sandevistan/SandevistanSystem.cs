@@ -50,10 +50,10 @@ public sealed class SandevistanSystem : EntitySystem
 
     public override void Update(float frameTime)
     {
-        if (!_timing.IsFirstTimePredicted)
-            return;
-
         base.Update(frameTime);
+
+        if (_timing.ApplyingState)
+           return;
 
         var query = EntityQueryEnumerator<SandevistanUserComponent>();
         while (query.MoveNext(out var uid, out var comp))
@@ -72,22 +72,21 @@ public sealed class SandevistanSystem : EntitySystem
             if (comp.NextExecutionTime > _timing.CurTime)
                 return;
 
-            var multiplier = frameTime * _timing.TickRate;
             comp.NextExecutionTime = _timing.CurTime + comp.UpdateDelay;
 
             if (!comp.Enabled)
             {
-                comp.CurrentLoad = MathF.Max(0, comp.CurrentLoad + comp.LoadPerInactiveSecond * multiplier);
+                comp.CurrentLoad = MathF.Max(0, comp.CurrentLoad + comp.LoadPerInactiveSecond);
                 return;
             }
 
-            comp.CurrentLoad += comp.LoadPerActiveSecond * multiplier;
+            comp.CurrentLoad += comp.LoadPerActiveSecond;
 
             var stateActions = new Dictionary<int, Action>
             {
                 { 2, () => _jittering.DoJitter(uid, comp.StatusEffectTime, true)},
-                { 3, () => _stamina.TakeStaminaDamage(uid, comp.StaminaDamage * multiplier)},
-                { 4, () => _damageable.TryChangeDamage(uid, comp.Damage * multiplier)},
+                { 3, () => _stamina.TakeStaminaDamage(uid, comp.StaminaDamage)},
+                { 4, () => _damageable.TryChangeDamage(uid, comp.Damage)},
                 { 5, () => _stun.TryKnockdown(uid, comp.StatusEffectTime, true)},
                 { 6, () => Disable(uid, comp)},
                 { 7, () => _mobState.ChangeMobState(uid, MobState.Dead)},
