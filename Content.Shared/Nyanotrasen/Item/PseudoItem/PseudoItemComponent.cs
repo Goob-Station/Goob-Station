@@ -1,7 +1,5 @@
 // SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -31,9 +29,6 @@ public sealed partial class PseudoItemComponent : Component
     public Vector2i StoredOffset;
 
     public bool Active = false;
-
-    [DataField, AutoNetworkedField]
-    public bool IntendedComp = true;
 
     /// <summary>
     /// Action for sleeping while inside a container with <see cref="AllowsSleepInsideComponent"/>.

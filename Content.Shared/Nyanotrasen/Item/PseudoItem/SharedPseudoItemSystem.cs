@@ -30,8 +30,6 @@
 // SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
 // SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -111,16 +109,10 @@ public abstract partial class SharedPseudoItemSystem : EntitySystem
         StorageComponent? storage = null)
     {
         if (!Resolve(storageUid, ref storage))
-        {
-            Logger.Debug("Couldn't resolve storage");
             return false;
-        }
 
         if (!CheckItemFits((toInsert, component), (storageUid, storage)))
-        {
-            Logger.Debug("item doesn't fit");
             return false;
-        }
 
         var itemComp = new ItemComponent
         { Size = component.Size, Shape = component.Shape, StoredOffset = component.StoredOffset };
