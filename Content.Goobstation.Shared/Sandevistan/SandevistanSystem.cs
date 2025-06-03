@@ -18,7 +18,6 @@ using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Network;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Sandevistan;
@@ -30,7 +29,6 @@ public sealed class SandevistanSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedJitteringSystem _jittering = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _speed = default!;
     [Dependency] private readonly StaminaSystem _stamina = default!;
@@ -51,6 +49,9 @@ public sealed class SandevistanSystem : EntitySystem
 
     public override void Update(float frameTime)
     {
+        if (!_timing.IsFirstTimePredicted)
+            return;
+
         base.Update(frameTime);
 
         var query = EntityQueryEnumerator<SandevistanUserComponent>();
@@ -58,10 +59,7 @@ public sealed class SandevistanSystem : EntitySystem
         {
             if (comp.DisableAt != null
                 && _timing.CurTime > comp.DisableAt)
-            {
                 Disable(uid, comp);
-                comp.DisableAt = null;
-            }
 
             if (comp.Trail != null)
             {
@@ -110,7 +108,7 @@ public sealed class SandevistanSystem : EntitySystem
             var popup = 0;
             foreach (var state in filteredStates)
             {
-                if (state is < 1 or > 4)
+                if (state is < 1 or > 4) // Goida
                     continue;
                 if (state > popup)
                     popup = state;
@@ -119,25 +117,25 @@ public sealed class SandevistanSystem : EntitySystem
             if (popup == 0)
                 return;
 
-            _popup.PopupEntity(Loc.GetString("sandevistan-overload-" + popup), uid, uid);
+            _popup.PopupClient(Loc.GetString("sandevistan-overload-" + popup), uid, uid);
             comp.NextPopupTime = _timing.CurTime + comp.PopupDelay;
         }
     }
 
     private void OnInit(Entity<SandevistanUserComponent> ent, ref ComponentInit args)
-    {
-        ent.Comp.ActionUid = _actions.AddAction(ent, ent.Comp.ActionProto);
-    }
+        => ent.Comp.ActionUid = _actions.AddAction(ent, ent.Comp.ActionProto);
 
     private void OnToggle(Entity<SandevistanUserComponent> ent, ref ToggleSandevistanEvent args)
     {
+        if (!_timing.IsFirstTimePredicted)
+            return;
+
         args.Handled = true;
 
         if (ent.Comp.Enabled)
         {
-            ent.Comp.ColorAccumulator = 0;
             _audio.Stop(ent.Comp.RunningSound);
-            _audio.PlayEntity(ent.Comp.EndSound, ent, ent);
+            _audio.PlayLocal(ent.Comp.EndSound, ent, ent);
             ent.Comp.DisableAt = _timing.CurTime + ent.Comp.ShiftDelay;
             return;
         }
@@ -162,10 +160,7 @@ public sealed class SandevistanSystem : EntitySystem
         if (!HasComp<DogVisionComponent>(ent))
             ent.Comp.DogVision = AddComp<DogVisionComponent>(ent);
 
-        if (_net.IsClient) // Fuck sound networking
-            return;
-
-        var audio = _audio.PlayEntity(ent.Comp.StartSound, ent, ent);
+        var audio = _audio.PlayLocal(ent.Comp.StartSound, ent, ent);
         if (!audio.HasValue)
             return;
 
@@ -189,9 +184,7 @@ public sealed class SandevistanSystem : EntitySystem
     }
 
     private void OnMobStateChanged(Entity<SandevistanUserComponent> ent, ref MobStateChangedEvent args)
-    {
-        Disable(ent, ent.Comp);
-    }
+        => Disable(ent, ent.Comp);
 
     private void OnShutdown(Entity<SandevistanUserComponent> ent, ref ComponentShutdown args)
     {
@@ -201,6 +194,7 @@ public sealed class SandevistanSystem : EntitySystem
 
     private void Disable(EntityUid uid, SandevistanUserComponent comp)
     {
+        comp.DisableAt = null;
         comp.ColorAccumulator = 0;
         comp.Enabled = false;
         _audio.Stop(comp.RunningSound);
@@ -208,13 +202,13 @@ public sealed class SandevistanSystem : EntitySystem
 
         if (comp.DogVision != null)
         {
-            RemComp(uid, comp.DogVision);
+            RemComp<DogVisionComponent>(uid);
             comp.DogVision = null;
         }
 
         if (comp.Trail != null)
         {
-            RemComp(uid, comp.Trail);
+            RemComp<TrailComponent>(uid);
             comp.Trail = null;
         }
     }

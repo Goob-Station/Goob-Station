@@ -9,15 +9,19 @@ using Content.Shared.Abilities;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Robust.Shared.Audio;
+using Robust.Shared.GameStates;
 
 // Ideally speaking this should be on the heart itself... but this also works.
 namespace Content.Goobstation.Shared.Sandevistan;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class SandevistanUserComponent : Component
 {
-    [ViewVariables(VVAccess.ReadOnly)]
+    [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
     public bool Enabled;
+
+    [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
+    public TimeSpan? DisableAt;
 
     [DataField]
     public TimeSpan StatusEffectTime = TimeSpan.FromSeconds(5);
@@ -25,22 +29,22 @@ public sealed partial class SandevistanUserComponent : Component
     [DataField]
     public TimeSpan UpdateDelay = TimeSpan.FromSeconds(1);
 
-    [ViewVariables(VVAccess.ReadOnly)]
+    [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
     public TimeSpan NextExecutionTime = TimeSpan.Zero;
 
     [DataField]
     public TimeSpan PopupDelay = TimeSpan.FromSeconds(3);
 
-    [ViewVariables(VVAccess.ReadOnly)]
+    [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
     public TimeSpan NextPopupTime = TimeSpan.Zero;
 
     [DataField]
     public string ActionProto = "ActionToggleSandevistan";
 
-    [ViewVariables(VVAccess.ReadOnly)]
+    [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
     public EntityUid? ActionUid;
 
-    [ViewVariables(VVAccess.ReadWrite)]
+    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public float CurrentLoad = 0f;
 
     [DataField]
@@ -73,9 +77,6 @@ public sealed partial class SandevistanUserComponent : Component
         },
     };
 
-    [ViewVariables(VVAccess.ReadWrite)]
-    public float ColorAccumulator = 0f;
-
     [DataField]
     public float MovementSpeedModifier = 2f;
 
@@ -89,19 +90,19 @@ public sealed partial class SandevistanUserComponent : Component
     public SoundSpecifier? EndSound = new SoundPathSpecifier("/Audio/_Goobstation/Misc/sande_end.ogg");
 
     [DataField] // So it fits the audio
-    public TimeSpan ShiftDelay = TimeSpan.FromSeconds(2);
-
-    [DataField]
-    public TimeSpan? DisableAt;
+    public TimeSpan ShiftDelay = TimeSpan.FromSeconds(1.9);
 
     [ViewVariables(VVAccess.ReadOnly)]
     public EntityUid? RunningSound;
 
     [ViewVariables(VVAccess.ReadOnly)]
-    public TrailComponent? Trail;
+    public DogVisionComponent? DogVision;
 
     [ViewVariables(VVAccess.ReadOnly)]
-    public DogVisionComponent? DogVision;
+    public TrailComponent? Trail;
+
+    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    public int ColorAccumulator = 0;
 }
 
 public sealed partial class ToggleSandevistanEvent : InstantActionEvent;
