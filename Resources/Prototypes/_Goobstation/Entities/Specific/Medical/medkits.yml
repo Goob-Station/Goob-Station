@@ -95,7 +95,7 @@
     state: blackpurplekit
   - type: Item
     sprite: /Textures/_Goobstation/Objects/Specific/Medical/firstaidkits.rsi
-    heldPrefix: blackpurpleit
+    heldPrefix: blackpurplekit
     size: Normal
   - type: Storage
     defaultStorageOrientation: Vertical

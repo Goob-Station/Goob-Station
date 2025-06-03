@@ -129,4 +129,5 @@
   - type: Item
     heldPrefix: blackkit
     size: Normal
+  - type: Storage
     defaultStorageOrientation: Vertical # Goobstation

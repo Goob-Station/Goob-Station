@@ -87,6 +87,14 @@
     {
 			"name": "blackkit"
 		},
+		{
+      "name": "blackkit-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "blackkit-inhand-left",
+      "directions": 4
+    },
     {
 			"name": "advkit"
 		},
