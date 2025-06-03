@@ -90,7 +90,7 @@
     agentName: heretic-roundend-name
     definitions:
     - prefRoles: [ Heretic ]
-      max: 8
+      max: 4
       playerRatio: 10
       lateJoinAdditional: true
       jobBlacklist: [ Chaplain ] # GOOBSTATION
