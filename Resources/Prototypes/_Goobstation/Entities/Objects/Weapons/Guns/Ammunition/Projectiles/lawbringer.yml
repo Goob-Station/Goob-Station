@@ -45,8 +45,8 @@
      components:
       - Clumsy
   - type: ProjectileThrowOnHit
-    distance: 10
-    speed: 10
+    distance: 20
+    speed: 50
 
 - type: entity
   id: BulletPulse
