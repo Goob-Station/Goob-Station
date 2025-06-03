@@ -415,7 +415,7 @@
 # Insulated Gloves (Yellow Gloves)
 # Currently can not be greyscaled without looking like shit.
 - type: entity
-  parent: ClothingHandsBase
+  parent: [ClothingHandsBase, BaseEngineeringContraband]
   id: ClothingHandsGlovesColorYellow
   name: insulated gloves
   description: These gloves will protect the wearer from electric shocks.
