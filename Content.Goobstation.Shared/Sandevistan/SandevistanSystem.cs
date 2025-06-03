@@ -64,8 +64,8 @@ public sealed class SandevistanSystem : EntitySystem
             if (comp.Trail != null)
             {
                 comp.Trail.Color = Color.FromHsv(new Vector4(comp.ColorAccumulator % 100f / 100f, 1, 1, 1));
-                Dirty(uid, comp.Trail);
                 comp.ColorAccumulator++;
+                Dirty(uid, comp.Trail);
             }
 
             if (comp.NextExecutionTime > _timing.CurTime)
@@ -127,7 +127,7 @@ public sealed class SandevistanSystem : EntitySystem
 
     private void OnToggle(Entity<SandevistanUserComponent> ent, ref ToggleSandevistanEvent args)
     {
-        if (!_timing.IsFirstTimePredicted)
+        if (!_timing.IsFirstTimePredicted || args.Handled)
             return;
 
         args.Handled = true;
@@ -153,7 +153,6 @@ public sealed class SandevistanSystem : EntitySystem
             trail.Frequency = 0.07f;
             trail.AlphaLerpAmount = 0.2f;
             trail.MaxParticleAmount = 25;
-            Dirty(ent, trail);
             ent.Comp.Trail = trail;
         }
 
@@ -165,6 +164,7 @@ public sealed class SandevistanSystem : EntitySystem
             return;
 
         ent.Comp.RunningSound = audio.Value.Entity;
+        Dirty(ent);
     }
 
     private void OnRefreshSpeed(Entity<SandevistanUserComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
@@ -211,5 +211,7 @@ public sealed class SandevistanSystem : EntitySystem
             RemComp<TrailComponent>(uid);
             comp.Trail = null;
         }
+
+        Dirty(uid, comp);
     }
 }

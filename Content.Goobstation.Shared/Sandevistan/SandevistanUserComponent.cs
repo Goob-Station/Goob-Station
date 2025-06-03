@@ -17,7 +17,7 @@ namespace Content.Goobstation.Shared.Sandevistan;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class SandevistanUserComponent : Component
 {
-    [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
+    [ViewVariables(VVAccess.ReadOnly)]
     public bool Enabled;
 
     [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
