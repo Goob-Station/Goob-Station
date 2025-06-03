@@ -34,17 +34,11 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitResonant
   name: resonant jumpsuit
-  description: A loose worn durathread shirt with a grey pants, its resilient fibres provide some protection to the wearer.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/breverb.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/breverb.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.95
-        Heat: 0.95
 
 - type: entity
   parent: ClothingUniformBase

@@ -19,7 +19,6 @@
   parent: ClothingNeckBase
   id: ClothingNeckCloakResonant
   name: resonant cape
-  description: A representation of the thankfulness of those infinite crew whose wealthy existence we strive to ensure.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Cloaks/breverb.rsi

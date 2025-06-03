@@ -41,7 +41,6 @@
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesResonant
   name: resonant shoes
-  description: Look! An emergency responder, we're saved!
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Shoes/Boots/breverb.rsi

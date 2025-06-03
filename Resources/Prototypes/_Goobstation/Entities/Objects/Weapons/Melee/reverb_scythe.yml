@@ -2,7 +2,6 @@
   name: resonant scythe
   parent: BaseItem
   id: ReverbScythe
-  description: The answer seems to be here... But the fruit isnt sweet enough just yet.
   components:
   - type: Sharp
   - type: Sprite
