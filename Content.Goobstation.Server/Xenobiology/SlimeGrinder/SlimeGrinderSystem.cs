@@ -185,6 +185,7 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
     {
         if (HasComp<ActiveSlimeGrinderComponent>(grinder)
             || !Transform(grinder).Anchored
+            || !HasComp<SlimeComponent>(dragged)
             || !TryComp<MobStateComponent>(dragged, out var mobState)
             || mobState.CurrentState != MobState.Dead)
             return false;
