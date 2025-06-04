@@ -183,3 +183,21 @@
     interactSuccessString: hugging-success-generic
     interactSuccessSound: /Audio/Effects/thudswoosh.ogg
     messagePerceivedByOthers: hugging-success-generic-others
+  - type: AmbientSound
+    volume: -5
+    range: 20
+    sound:
+      path: /Audio/_Goobstation/Ambience/Antag/eldritch_heartbeat.ogg
+
+- type: entity
+  id: ActionRiseProphet
+  name: Summon Prophets
+  description: Summons 2 prophets to aid in your conquest.
+  components:
+  - type: InstantAction
+    icon:
+      sprite: _Goobstation/Actions/dragon.rsi
+      state: carp_horde
+    event: !type:HorrorSpawnProphetActionEvent
+    useDelay: 5
+    priority: 4
