@@ -72,7 +72,7 @@ public sealed partial class SlimeComponent : Component
     public EntityUid? Tamer;
 
     [DataField]
-    public EntProtoId _tameEffects = "EffectHearts";
+    public EntProtoId TameEffect = "EffectHearts";
 
     /// <summary>
     /// The entity, if any, currently being consumed by the slime.
