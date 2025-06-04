@@ -193,7 +193,7 @@
 
 - type: entity
   id: ActionRiseProphet
-  name: Summon Prophets
+  name: summon prophets
   description: Summons 2 prophets to aid in your conquest.
   components:
   - type: InstantAction
