@@ -7,6 +7,7 @@
 using Content.Shared.Clothing;
 using Content.Shared.Hands;
 using Content.Shared.Movement.Systems;
+using Robust.Shared.Containers; // Goobstation
 
 namespace Content.Shared.Item;
 
@@ -16,6 +17,7 @@ namespace Content.Shared.Item;
 public sealed class HeldSpeedModifierSystem : EntitySystem
 {
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!; // Goobstation
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -23,6 +25,10 @@ public sealed class HeldSpeedModifierSystem : EntitySystem
         SubscribeLocalEvent<HeldSpeedModifierComponent, GotEquippedHandEvent>(OnGotEquippedHand);
         SubscribeLocalEvent<HeldSpeedModifierComponent, GotUnequippedHandEvent>(OnGotUnequippedHand);
         SubscribeLocalEvent<HeldSpeedModifierComponent, HeldRelayedEvent<RefreshMovementSpeedModifiersEvent>>(OnRefreshMovementSpeedModifiers);
+
+        // Goobstation
+        SubscribeLocalEvent<HeldSpeedModifierComponent, ComponentStartup>(OnComponentStartup);
+        SubscribeLocalEvent<HeldSpeedModifierComponent, ComponentRemove>(OnComponentRemove);
     }
 
     private void OnGotEquippedHand(Entity<HeldSpeedModifierComponent> ent, ref GotEquippedHandEvent args)
@@ -52,5 +58,18 @@ public sealed class HeldSpeedModifierSystem : EntitySystem
     {
         var (walkMod, sprintMod) = GetHeldMovementSpeedModifiers(uid, component);
         args.Args.ModifySpeed(walkMod, sprintMod);
+    }
+
+    // Everything below is Goobstation
+    private void OnComponentStartup(Entity<HeldSpeedModifierComponent> ent, ref ComponentStartup args)
+    {
+        if (_container.TryGetContainingContainer((ent, null, null), out var container))
+            _movementSpeedModifier.RefreshMovementSpeedModifiers(container.Owner);
+    }
+
+    private void OnComponentRemove(Entity<HeldSpeedModifierComponent> ent, ref ComponentRemove args)
+    {
+        if (_container.TryGetContainingContainer((ent, null, null), out var container))
+            _movementSpeedModifier.RefreshMovementSpeedModifiers(container.Owner);
     }
 }

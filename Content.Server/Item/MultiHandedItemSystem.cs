@@ -10,11 +10,30 @@ using Content.Server.Inventory;
 using Content.Shared.Hands;
 using Content.Shared.Item;
 
+// Goobstation usings
+using System.Linq;
+using Content.Shared.Hands.Components;
+using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Inventory.VirtualItem;
+using Robust.Shared.Containers;
+
 namespace Content.Server.Item;
 
 public sealed class MultiHandedItemSystem : SharedMultiHandedItemSystem
 {
     [Dependency] private readonly VirtualItemSystem _virtualItem = default!;
+
+    // Goobstation dependencies
+    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
+
+    // Goobstation
+    public override void Initialize()
+    {
+        base.Initialize();
+        SubscribeLocalEvent<MultiHandedItemComponent, ComponentStartup>(OnComponentStartup);
+        SubscribeLocalEvent<MultiHandedItemComponent, ComponentShutdown>(OnComponentShutdown);
+    }
 
     protected override void OnEquipped(EntityUid uid, MultiHandedItemComponent component, GotEquippedHandEvent args)
     {
@@ -27,5 +46,49 @@ public sealed class MultiHandedItemSystem : SharedMultiHandedItemSystem
     protected override void OnUnequipped(EntityUid uid, MultiHandedItemComponent component, GotUnequippedHandEvent args)
     {
         _virtualItem.DeleteInHandsMatching(args.User, uid);
+    }
+
+    // everything below is Goobstation
+    private void OnComponentStartup(Entity<MultiHandedItemComponent> ent, ref ComponentStartup args)
+    {
+        if (!_container.TryGetContainingContainer((ent, null, null), out var container)
+            || !HasComp<HandsComponent>(container.Owner))
+            return;
+
+        // dropOthers: true in TrySpawnVirtualItemInHand didn't work properly so here we have this linq monstrosity
+        var hands = _hands.EnumerateHands(container.Owner).Where(hand => hand.HeldEntity != ent).ToList();
+        var iterations = ent.Comp.HandsNeeded - 1 - hands.Count(hand => hand.IsEmpty);
+        var droppable = hands.Where(hand => _hands.CanDropHeld(container.Owner, hand, false)).ToList();
+
+        if (iterations > droppable.Count)
+        {
+            _hands.TryDrop(container.Owner, ent);
+            return;
+        }
+
+        for (var i = 0; i < iterations; i++)
+            _hands.TryDrop(container.Owner, droppable[i]);
+
+        for (var i = 1; i < ent.Comp.HandsNeeded; i++)
+            _virtualItem.TrySpawnVirtualItemInHand(ent, container.Owner);
+    }
+
+    private void OnComponentShutdown(Entity<MultiHandedItemComponent> ent, ref ComponentShutdown args)
+    {
+        if (TerminatingOrDeleted(ent))
+            return;
+
+        // Method exists for that but it calls an event on deleting the virtual item hence forces the item to drop
+        foreach (var hand in _hands.EnumerateHands(Transform(ent).ParentUid))
+        {
+            if (!TryComp(hand.HeldEntity, out VirtualItemComponent? virt)
+                || virt.BlockingEntity != ent.Owner)
+                continue;
+
+            if (TerminatingOrDeleted(hand.HeldEntity))
+                return;
+
+            QueueDel(hand.HeldEntity);
+        }
     }
 }
