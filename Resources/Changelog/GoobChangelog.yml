@@ -10591,3 +10591,13 @@ Entries:
       message: Spesos can now be picked up by ore bags
   id: 1166
   time: '2025-06-04T11:38:59.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: All shields are undisarmable now.
+    - type: Tweak
+      message: Energy shield is now more resistant.
+    - type: Tweak
+      message: Greatshield and atrocity no longer self-recharge.
+  id: 1167
+  time: '2025-06-04T12:31:38.0000000+00:00'
