@@ -1,0 +1,116 @@
+- type: entity
+  abstract: true
+  parent: BaseObjective
+  id: BaseBloodBrotherObjective
+  components:
+  - type: Objective
+    issuer: objective-issuer-blood-brother
+  - type: RoleRequirement
+    roles:
+    - BloodBrotherRole
+
+# Converted blood brother
+- type: entity
+  parent: [BaseBloodBrotherObjective, BaseHelpProgressObjective]
+  id: BloodBrotherConvertedObjective
+  name: Help your brother.
+  description: Assist your brother in completing all of their objectives no matter the cost.
+  components:
+  - type: Objective
+    difficulty: 0 # never given randomly anyways
+    issuer: objective-issuer-blood-brother
+    icon:
+      sprite: /Textures/Interface/Alerts/bleed.rsi
+      state: bleed10
+  - type: TargetObjective
+    title: objective-condition-blood-brother-progress-title
+  - type: HelpProgressCondition
+
+# state
+
+- type: entity
+  parent: [BaseBloodBrotherObjective, EscapeShuttleObjective]
+  id: BloodBrotherEscapeShuttleObjective
+
+- type: entity
+  parent: [BaseBloodBrotherObjective, DieObjective]
+  id: BloodBrotherDieObjective
+
+- type: entity
+  parent: [BaseBloodBrotherObjective, EscapeShuttleObjective]
+  id: BloodBrotherEscapeShuttleObjective
+
+# kill
+
+- type: entity
+  parent: [BaseBloodBrotherObjective, KillRandomPersonObjective]
+  id: BloodBrotherKillRandomPersonObjective
+
+- type: entity
+  parent: [BaseBloodBrotherObjective, KillRandomHeadObjective]
+  id: BloodbrotherKillRandomHeadObjective
+
+
+# steal
+
+## cmo
+
+- type: entity
+  parent: [BaseBloodBrotherObjective, CMOHyposprayStealObjective]
+  id: BloodBrotherCMOHyposprayStealObjective
+
+- type: entity
+  parent: [BaseBloodBrotherObjective, CMORapidSyringeGunStealObjective]
+  id: BloodBrotherCMORapidSyringeGunStealObjective
+
+## rd
+
+- type: entity
+  parent: [BaseBloodBrotherObjective, RDHardsuitStealObjective]
+  id: BloodBrotherRDHardsuitStealObjective
+
+- type: entity
+  parent: [BaseBloodBrotherObjective, HandTeleporterStealObjective]
+  id: BloodBrotherHandTeleporterStealObjective
+
+## hos
+
+- type: entity
+  parent: [BaseBloodBrotherObjective, EnergyShotgunStealObjective]
+  id: BloodBrotherEnergyShotgunStealObjective
+
+## ce
+
+- type: entity
+  parent: [BaseBloodBrotherObjective, MagbootsStealObjective]
+  id: BloodBrotherMagbootsStealObjective
+
+## qm
+
+- type: entity
+  parent: [BaseBloodBrotherObjective, ClipboardStealObjective]
+  id: BloodBrotherClipboardStealObjective
+
+## hop
+
+- type: entity
+  parent: [BaseBloodBrotherObjective, CorgiMeatStealObjective]
+  id: BloodBrotherCorgiMeatStealObjective
+
+## cap
+
+- type: entity
+  parent: [BaseBloodBrotherObjective, CaptainIDStealObjective]
+  id: BloodBrotherCaptainIDStealObjective
+
+- type: entity
+  parent: [BaseBloodBrotherObjective, CaptainJetpackStealObjective]
+  id: BloodBrotherCaptainJetpackStealObjective
+
+- type: entity
+  parent: [BaseBloodBrotherObjective, CaptainGunStealObjective]
+  id: BloodBrotherCaptainGunStealObjective
+
+- type: entity
+  parent: [BaseBloodBrotherObjective, NukeDiskStealObjective]
+  id: BloodBrotherNukeDiskStealObjective

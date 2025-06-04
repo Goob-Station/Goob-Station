@@ -1,0 +1,29 @@
+- type: entity
+  id: ActionBloodBrotherConvert
+  name: Convert
+  description: Convert a crewmember to your brotherhood.
+  components:
+  - type: EntityTargetAction
+    icon:
+      sprite: /Textures/Interface/Alerts/bleed.rsi
+      state: bleed10
+    event: !type:BloodBrotherConvertActionEvent
+    whitelist:
+      components:
+      - HumanoidAppearance
+    canTargetSelf: false
+    itemIconStyle: BigAction
+
+- type: entity
+  id: ActionBloodBrotherCheckConvert
+  name: Check If Convertible
+  description: Check if a crewmember is susceptible to conversion.
+  components:
+  - type: EntityTargetAction
+    icon: Interface/VerbIcons/vv.svg.192dpi.png # eye icon
+    event: !type:BloodBrotherCheckConvertActionEvent
+    whitelist:
+      components:
+      - HumanoidAppearance
+    canTargetSelf: false
+    itemIconStyle: BigAction

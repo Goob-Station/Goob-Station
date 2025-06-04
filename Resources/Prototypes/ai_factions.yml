@@ -33,6 +33,7 @@
 - type: npcFaction
   id: Dragon
   hostile:
+
     - NanoTrasen
     - Syndicate
     - Xeno
@@ -42,9 +43,11 @@
     - AllHostile
     - Heretic # goob edit - heretics
     - Blob # Goobstation - Blob
+    - BloodBrother # Harmony
   friendly: # Goobstation
     - Wizard
     - PirateFaction # goob - pirates
+
 
 - type: npcFaction
   id: NanoTrasen
@@ -61,6 +64,8 @@
   - Blob # Goobstation - Blob
   - Wizard
   - PirateFaction # goob - pirates
+  - BloodBrother # Harmony
+
 
 - type: npcFaction
   id: Mouse
@@ -92,12 +97,14 @@
   - Zombie
   - Revolutionary
   - AllHostile
+  - BloodBrother # Harmony
   - Dragon
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
   - PirateFaction # goob - pirates
   friendly: # Goobstation
     - Wizard
+
 
 - type: npcFaction
   id: SimpleNeutral
@@ -129,11 +136,13 @@
   - Revolutionary
   - AllHostile
   - Dragon
+  - BloodBrother # Harmony
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
   - PirateFaction # goob - pirates
   friendly: # Goobstation
     - Wizard
+
 
 - type: npcFaction
   id: Zombie
@@ -152,7 +161,8 @@
   - Blob # Goobstation - Blob
   - Wizard # goob edit - wizard
   - PirateFaction # goob - pirates
-
+  - BloodBrother # Harmony
+  
 - type: npcFaction
   id: Revolutionary
   hostile:
@@ -184,6 +194,7 @@
   - Blob # Goobstation - Blob
   - Wizard # goob edit - wizard
   - PirateFaction # goob - pirates
+  - BloodBrother # Harmony
   
 # Balloons Factions Edit:
 - type: npcFaction  

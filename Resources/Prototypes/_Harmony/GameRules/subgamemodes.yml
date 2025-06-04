@@ -1,0 +1,32 @@
+- type: entity
+  parent: BaseGameRule
+  id: BloodBrothers
+  components:
+  - type: GameRule
+    minPlayers: 10
+    delay:
+      min: 240
+      max: 420
+  - type: BloodBrotherRule
+  - type: AntagRandomObjectives
+    sets:
+    - groups: BloodBrotherObjectiveGroups
+    maxDifficulty: 7.5
+  - type: AntagSelection
+    agentName: blood-brothers-round-end-agent-name
+    selectionTime: IntraPlayerSpawn
+    definitions:
+    - prefRoles: [ BloodBrother ]
+      max: 2
+      playerRatio: 20 # if I counted right this should be about 40 players for 2 BBs
+      allowNonHumans: true
+      multiAntagSetting: NotExclusive
+      briefing:
+        text: blood-brother-initial-role-greeting
+        color: MediumVioletRed
+        sound: /Audio/Ambience/Antag/traitor_start.ogg
+      components:
+      - type: BloodBrother
+      - type: InitialBloodBrother
+      mindRoles:
+      - MindRoleBloodBrother

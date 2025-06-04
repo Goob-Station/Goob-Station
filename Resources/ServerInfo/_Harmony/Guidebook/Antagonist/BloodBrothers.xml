@@ -1,0 +1,28 @@
+<Document>
+  # Blood Brothers
+
+  <Box>
+    [color=#999999][italic]"I must help my brother, no matter the cost."[/italic][/color]
+  </Box>
+  Blood Brothers are a team of two people working together to complete a list of objectives. These objectives are mostly equal to the objectives given to [textlink="Traitors" link="Traitors"].
+
+  ## What to do
+
+  ### Finding a suitable crewmember
+
+  The first thing you will want to do is to find a suitable crewmember.
+
+  You can do so by using the "Check If Convertible" action automatically given to you.
+
+  This action will quietly check and tell you if someone is possible to convert or not.
+
+  You will not be able to convert anyone who is mindshielded or anyone who has blood brothers turned off in their character creation panel.
+
+  ### Converting a crewmember
+
+  After finding a suitable and convertible crewmember, you will want to convert them to your side.
+
+  To do so, you must first bring them to a hidden location where no one will see and then use the "Convert" action. This action is [bold]very visible[/bold], do not use it in public.
+
+  The crewmember will then become your blood brother, with the objective to help you with your objectives.
+</Document>
