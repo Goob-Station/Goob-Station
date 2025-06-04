@@ -17,3 +17,12 @@
   - type: Organ
     onAdd:
     - type: SandevistanUser
+      loadPerInactiveSecond: -0.25
+      thresholds:
+        Warning: 15
+        Shaking: 30
+        Damage: 45
+        Disable: 60
+      damage:
+        types:
+          Blunt: 5
