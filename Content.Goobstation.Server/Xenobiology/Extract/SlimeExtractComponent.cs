@@ -17,7 +17,7 @@ namespace Content.Goobstation.Server.Xenobiology.Extract;
 public sealed partial class SlimeExtractComponent : Component
 {
     /// <summary>
-    /// Has this extract been used already?
+    /// Has this extract been used already? - Probably raise an event on reaction.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public bool IsUsed;
