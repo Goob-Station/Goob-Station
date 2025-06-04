@@ -46,7 +46,10 @@ public partial class XenobiologySystem
 
             var addedHunger = (float)dotComp.Damage.GetTotal();
             dotComp.NextTickTime = _gameTiming.CurTime + dotComp.Interval;
-            _damageable.TryChangeDamage(uid, dotComp.Damage, ignoreResistances: true, ignoreBlockers: true,  targetPart: TargetBodyPart.All);
+            _damageable.TryChangeDamage(uid,
+                dotComp.Damage,
+                ignoreResistances: true,
+                targetPart: TargetBodyPart.All);
 
             if (!TryComp<HungerComponent>(dotComp.SourceEntityUid, out var hunger) ||
                 dotComp.SourceEntityUid is not { } sourceEntity)
