@@ -119,8 +119,10 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
 
     private void OnShutdown(Entity<SlimeGrinderComponent> grinder, ref ComponentShutdown args) =>
         _container.EmptyContainer(grinder.Comp.GrindedContainer);
+
     private void OnUnanchored(Entity<SlimeGrinderComponent> grinder, ref BeforeUnanchoredEvent args) =>
         _container.EmptyContainer(grinder.Comp.GrindedContainer);
+
     private void OnAfterInteractUsing(Entity<SlimeGrinderComponent> grinder, ref AfterInteractUsingEvent args)
     {
         if (!args.CanReach
