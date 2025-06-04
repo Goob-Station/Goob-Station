@@ -107,7 +107,6 @@
 # SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
 # SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
 # SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 lunarcomets <140772713+lunarcomets@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
@@ -127,6 +126,9 @@
 # SPDX-FileCopyrightText: 2025 Coolsurf6 <coolsurf24@yahoo.com.au>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
 # SPDX-FileCopyrightText: 2025 JORJ949 <159719201+JORJ949@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Martynas6ha4 <martynashagriefer@gmail.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
@@ -136,6 +138,8 @@
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -211,7 +215,7 @@
   id: FillCaptainHardsuit
   table: !type:AllSelector
     children:
-    - id: ClothingOuterHardsuitCap
+    - id: UndeterminedVoidsuitCaptain # Goobstation - Modsuit Update
     - id: ClothingMaskGasCaptain
     - id: JetpackCaptainFilled
     - id: OxygenTankFilled
@@ -437,7 +441,7 @@
     #- id: ProtolatheMachineCircuitboard # Goobstation - Science Techfab
     - id: ResearchComputerCircuitboard
     - id: RubberStampRd
-    - id: EncryptionKeyBinary # goobstation - readd the cool binary channel access. fuck you.
+    # - id: EncryptionKeyBinary # goobstation - readd the cool binary channel access. fuck you. # Goobstation - WYCI + malf ai major
     - id: AnomalyLocator # GoobStation - adding anomaly locator to the RD locker to reduce the amount of anoms that crit
     - id: CigarCase
       prob: 0.15 # GoobStation - RD needs cigs for uhh... science...
@@ -485,29 +489,25 @@
   id: LockerFillHeadOfSecurityNoHardsuit
   table: !type:AllSelector
     children:
-#    - id: WeaponEnergyShotgun
-    # - id: WeaponEnergyGunMultiphase # Goobstation - Security Revamp
+    #- id: WeaponEnergyShotgun # Goobstation - security revamp
     - id: BookSpaceLaw
     - id: BoxEncryptionKeySecurity
     - id: CigarGoldCase
       prob: 0.50
     - id: ClothingBeltSecurityFilled
-  #  - id: ClothingEyesGlassesSecurity # Goobstation - Security Revamp - Start
     - id: ClothingEyesGlassesSecurity
     - id: ClothingHeadsetAltSecurity
     - id: ClothingMaskNeckGaiter
-    - id: ClothingHeadHatBeretHeadOfSecurityAdvanced
     - id: ClothingOuterCoatHoSTrench
     - id: ClothingShoesBootsJack
     - id: DoorRemoteSecurity
-   # - id: HoloprojectorSecurity
-    - id: HoloprojectorSecurityAdvanced
+    - id: HoloprojectorSecurity
     - id: RubberStampHos
     - id: SecurityTechFabCircuitboard
-    - id: HeadOfSecurityWeaponUndetermined # Goobstation - Security Revamp - End
     #- id: WeaponDisabler # Goobstation (Disablers in belts)
     - id: WantedListCartridge
     - id: DrinkHosFlask
+    - id: ClothingBeltSheathHeadOfSecurityFilled # Goobstation - security revamp
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable

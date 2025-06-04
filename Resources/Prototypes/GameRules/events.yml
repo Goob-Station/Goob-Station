@@ -10,7 +10,6 @@
 # SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 deltanedas <deltanedas@laptop>
 # SPDX-FileCopyrightText: 2023 deltanedas <user@zenith>
-# SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 potato1234_x <79580518+potato1234x@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 AJCM <AJCM@tutanota.com>
 # SPDX-FileCopyrightText: 2024 Alex Pavlenko <diraven@users.noreply.github.com>
@@ -29,6 +28,7 @@
 # SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 ElectroJr <leonsfriedrich@gmail.com>
 # SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 EmoGarbage404 <retron404@gmail.com>
 # SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
@@ -76,7 +76,6 @@
 # SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Stalen <33173619+stalengd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 # SPDX-FileCopyrightText: 2024 The Canned One <greentopcan@gmail.com>
 # SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Truoizys <153248924+Truoizys@users.noreply.github.com>
@@ -122,15 +121,20 @@
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Velcroboy <107660393+IamVelcroboy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 unknown <Administrator@DESKTOP-PMRIVVA.kommune.indresogn.no>
 #
@@ -225,6 +229,10 @@
     duration: 35
     chaos: # Goobstation
       Anomaly: 100
+    eventType: Chaotic # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 70
   - type: AnomalySpawnRule
 
 - type: entity
@@ -235,6 +243,7 @@
     delay:
       min:  30
       max:  30
+    chaosScore: 40 # Goobstation
   - type: StationEvent
     startAnnouncementColor: "#18abf5"
     startAudio:
@@ -243,6 +252,7 @@
     duration: 35
     chaos: # Goobstation
       Anomaly: 40
+    eventType: Chaotic # Goobstation
   - type: BluespaceArtifactRule
 
 - type: entity
@@ -256,6 +266,10 @@
     duration: 1
     chaos: # Goobstation
       Anomaly: 40
+    eventType: Neutral # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 40
   - type: BluespaceLockerRule
 
 - type: entity
@@ -268,6 +282,10 @@
     minimumPlayers: 15
     chaos: # Goobstation
       Power: 100
+    eventType: Maintenance # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 60
   - type: BreakerFlipRule
 
 - type: entity
@@ -279,6 +297,10 @@
     minimumPlayers: 25
     weight: 3
     duration: 1
+    eventType: Neutral # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 50
   - type: BureaucraticErrorRule
     ignoredJobs:
     - StationAi
@@ -292,6 +314,10 @@
     minimumPlayers: 15
     weight: 5
     duration: 1
+    eventType: Chaotic # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 30
   - type: ClericalErrorRule
 
 - type: entity
@@ -302,6 +328,10 @@
     weight: 5
     duration: 1
     minimumPlayers: 10
+    eventType: Chaotic # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 60
   - type: RandomEntityStorageSpawnRule
     prototype: MobSkeletonCloset
 
@@ -321,6 +351,10 @@
       Combat: 40
       Death: 100
       Medical: 100
+    eventType: HostilesSpawn # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 600
   - type: SpaceSpawnRule
     spawnDistance: 0
   - type: AntagSpawner
@@ -356,6 +390,10 @@
       Combat: 40
       Death: 40
       Medical: 40
+    eventType: HostilesSpawn # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 300
   - type: SpaceSpawnRule
   - type: AntagLoadProfileRule
     # Goobstation start
@@ -415,6 +453,10 @@
     earliestStart: 20
     reoccurrenceDelay: 20
     minimumPlayers: 15
+    eventType: Chaotic # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 80
   - type: ParadoxCloneRule
     objectiveBlacklist:
       tags:
@@ -456,6 +498,10 @@
       Combat: 40
       Death: 100
       Medical: 100
+    eventType: HostilesSpawn # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 280
   - type: RandomSpawnRule
     prototype: MobRevenant
 
@@ -521,6 +567,10 @@
     chaos:
       Atmos: 100
       Medical: 50
+    eventType: Maintenance # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 80 # most of the time scrubbers just clean it
   - type: GasLeakRule
 
 - type: entity
@@ -536,6 +586,10 @@
       Hostile: 20
       Friend: 20
       Medical: 100
+    eventType: Maintenance # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 40
   - type: KudzuGrowthRule
 
 - type: entity
@@ -552,6 +606,10 @@
         volume: -4
     duration: 60
     maxDuration: 120
+    eventType: Interference # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 80
   - type: PowerGridCheckRule
 
 - type: entity
@@ -568,6 +626,10 @@
     maxDuration: 240
     chaos: # Goobstation
       Friend: 20
+    eventType: Interference # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 60
   - type: SolarFlareRule
     onlyJamHeadsets: true
     affectedChannels:
@@ -598,6 +660,10 @@
     duration: 60
     chaos: # Goobstation
       Mess: 200
+    eventType: Interference # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 70
   - type: VentClogRule
 
 - type: entity
@@ -615,6 +681,10 @@
     chaos: # Goobstation
       Hostile: 20
       Medical: 50
+    eventType: HostilesSpawn # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 240
   - type: VentCrittersRule
     entries:
     - id: MobAdultSlimesBlueAngry
@@ -639,6 +709,10 @@
     chaos: # Goobstation
       Hostile: 20
       Medical: 50
+    eventType: HostilesSpawn # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 240
   - type: VentCrittersRule
     entries:
     - id: MobPurpleSnake
@@ -663,6 +737,10 @@
     chaos: # Goobstation
       Hostile: 20
       Medical: 50
+    eventType: HostilesSpawn # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 240
   - type: VentCrittersRule
     entries:
     - id: MobGiantSpiderAngry
@@ -683,6 +761,10 @@
     chaos: # Goobstation
       Hostile: 20
       Medical: 50
+    eventType: HostilesSpawn # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 240
   - type: VentCrittersRule
     playerRatio: 35 # DeltaV: Clown spiders are very robust
     entries:
@@ -702,6 +784,10 @@
       Hostile: 100
       Medical: 200
       Death: 200
+    eventType: HostilesSpawn # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 1400
   - type: ZombieRule
   - type: AntagSelection
     definitions:
@@ -710,6 +796,7 @@
       playerRatio: 10
       blacklist:
         components:
+        - BibleUser
         - ZombieImmune
         - AntagImmune
       briefing:
@@ -739,6 +826,10 @@
       Hostile: 60
       Medical: 75
       Death: 100
+    eventType: HostilesSpawn # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 700
   - type: RuleGrids
   - type: LoadMapRule
     gridPath: /Maps/Shuttles/ShuttleEvent/striker.yml
@@ -787,6 +878,10 @@
       path: /Audio/Announcements/intercept.ogg
     duration: null # the rule has to last the whole round not 1 second
     occursDuringRoundEnd: false
+    eventType: HostilesSpawn # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 550
   - type: AlertLevelInterceptionRule
   - type: AntagSelection
     definitions:
@@ -812,6 +907,10 @@
     reoccurrenceDelay: 30
     chaos: # Goobstation
       Friend: 20
+    eventType: Chaotic # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 30
   - type: MassHallucinationsRule
     minTimeBetweenIncidents: 0.1
     maxTimeBetweenIncidents: 300
@@ -831,6 +930,10 @@
       Hostile: 10
       Friend: 20
       Mess: 30
+    eventType: Chaotic # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 150
   - type: IonStormRule
 
 - type: entity
@@ -846,6 +949,10 @@
       Hostile: 20 # for when they're actually properly hostile
       Hunger: 10
       Thirst: 10
+    eventType: Neutral # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 20
   - type: MobReplacementRule
 
 - type: entity
@@ -861,6 +968,10 @@
     chaos: # Goobstation
       Atmos: 15
       Mess: 30
+    eventType: Maintenance # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 160
   - type: GreytideVirusRule
     accessGroups:
     - Cargo
@@ -899,6 +1010,10 @@
       # can be both hostile and friendly
       Hostile: 10
       Friend: -10
+    eventType: Chaotic # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 80
   - type: SpaceSpawnRule
     spawnDistance: 0
   - type: AntagSpawner

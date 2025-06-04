@@ -4,23 +4,25 @@
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Atmos.Components;
-using Content.Server.Body.Components;
+using Content.Goobstation.Shared.Atmos.Components;
+using Content.Goobstation.Shared.Body.Components;
+using Content.Goobstation.Shared.Temperature.Components;
 using Content.Server.Heretic.Components.PathSpecific;
 using Content.Server.Magic;
-using Content.Server.Temperature.Components;
 using Content.Shared._Goobstation.Heretic.Components;
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Heretic;
-using Content.Shared.Temperature.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Physics.Components;
 using System.Linq;
@@ -41,13 +43,12 @@ public sealed partial class HereticAbilitySystem
 
     private void OnAristocratWay(Entity<HereticComponent> ent, ref HereticAristocratWayEvent args)
     {
-        RemComp<TemperatureComponent>(ent);
-        RemComp<TemperatureSpeedComponent>(ent);
-        RemComp<RespiratorComponent>(ent);
+        EnsureComp<SpecialLowTempImmunityComponent>(ent);
+        EnsureComp<SpecialBreathingImmunityComponent>(ent);
     }
     private void OnAscensionVoid(Entity<HereticComponent> ent, ref HereticAscensionVoidEvent args)
     {
-        RemComp<BarotraumaComponent>(ent);
+        EnsureComp<SpecialPressureImmunityComponent>(ent);
         EnsureComp<AristocratComponent>(ent);
     }
 
@@ -109,30 +110,37 @@ public sealed partial class HereticAbilitySystem
         if (!TryUseAbility(ent, args))
             return;
 
-        var topPriority = GetNearbyPeople(ent, 1.5f);
-        var midPriority = GetNearbyPeople(ent, 2.5f);
-        var farPriority = GetNearbyPeople(ent, 5f);
-
         var power = ent.Comp.CurrentPath == "Void" ? 10f + ent.Comp.PathStage * 2 : 10f;
+        var rangeMult = 1f;
+
+        if (HasComp<AristocratComponent>(ent)) // epic boost from epic ascension
+        {
+            power *= 1.25f;
+            rangeMult *= 2f;
+        }
+
+        var topPriority = GetNearbyPeople(ent, 1.5f * rangeMult);
+        var midPriority = GetNearbyPeople(ent, 2.5f * rangeMult);
+        var farPriority = GetNearbyPeople(ent, 5f * rangeMult);
+
+        var damage = new DamageSpecifier();
+        damage.DamageDict.Add("Cold", power);
 
         // damage closest ones
         foreach (var pookie in topPriority)
         {
-            if (!TryComp<DamageableComponent>(pookie, out var dmgComp))
-                continue;
-
-            // total damage + power divided by all damage types.
-            var damage = (dmgComp.TotalDamage + power) / _prot.EnumeratePrototypes<DamageTypePrototype>().Count();
-
             // apply gaming.
-            _dmg.SetAllDamage(pookie, dmgComp, damage);
+            _dmg.TryChangeDamage(pookie, damage, true, targetPart: TargetBodyPart.All);
         }
 
         // stun close-mid range
         foreach (var pookie in midPriority)
         {
-            _stun.KnockdownOrStun(pookie, TimeSpan.FromSeconds(2.5f), true);
-            if (ent.Comp.CurrentPath == "Void") _voidcurse.DoCurse(pookie);
+            _stun.TryStun(pookie, TimeSpan.FromSeconds(2.5f), true);
+            _stun.TryKnockdown(pookie, TimeSpan.FromSeconds(2.5f), true);
+
+            if (ent.Comp.CurrentPath == "Void")
+                _voidcurse.DoCurse(pookie);
         }
 
         // pull in farthest ones

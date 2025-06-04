@@ -53,6 +53,7 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ichaie <167008606+Ichaie@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 // SPDX-FileCopyrightText: 2025 JORJ949 <159719201+JORJ949@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 MortalBaguette <169563638+MortalBaguette@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Myra <vasilis@pikachu.systems>
@@ -272,6 +273,9 @@ namespace Content.Server.Database
         Task<int> GetServerCurrency(NetUserId userId); // Goobstation
         Task SetServerCurrency(NetUserId userId, int currency); // Goobstation
         Task<int> ModifyServerCurrency(NetUserId userId, int currencyDelta); // Goobstation
+
+        Task<bool> SetLastRolledAntag(NetUserId userId, TimeSpan to); // Goobstation
+        Task<TimeSpan> GetLastRolledAntag(NetUserId userId); // Goobstation
         #endregion
 
         #region Connection Logs
@@ -759,6 +763,18 @@ namespace Content.Server.Database
         {
             DbReadOpsMetric.Inc();
             return RunDbCommand(() => _db.ModifyServerCurrency(userId, currencyDelta));
+        }
+
+        public Task<TimeSpan> GetLastRolledAntag(NetUserId userId) // Goobstation
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetLastRolledAntag(userId));
+        }
+
+        public Task<bool> SetLastRolledAntag(NetUserId userId, TimeSpan to) // Goobstation
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.SetLastRolledAntag(userId, to));
         }
 
         public Task<int> AddConnectionLogAsync(

@@ -103,6 +103,7 @@
   - BlueshieldOfficerOuterBlueshieldArmorVest
   - BlueshieldOfficerOuterBlueshieldArmoredJacket
   - BlueshieldOfficerOuterBlueshieldCowboyVest
+  - BlueshieldOfficerOuterWinterBlueshield
 
 - type: loadoutGroup
   id: BlueshieldOfficerNeck
@@ -124,6 +125,7 @@
   loadouts:
   - JackBoots
   - BlackCowboyBoots
+  - SnowjacksBso
 
 # Career Trainer
 
@@ -233,3 +235,51 @@
   - MedicalBeret
   - SeniorPhysicianBeret
   - ChemistUshanka # Da.
+
+# HOS
+
+- type: loadoutGroup
+  id: HeadofSecurityShoes
+  name: loadout-group-hos-shoes
+  loadouts:
+  - JackBoots
+  - SecurityWinterBoots
+  - AdvancedJackBoots
+
+# Brigmedic
+
+- type: loadoutGroup
+  id: BrigmedicJumpsuit
+  name: loadout-group-brigmedic-jumpsuit
+  loadouts:
+  - BrigmedicJumpsuit
+  - BrigmedicJumpskirt
+
+- type: loadoutGroup
+  id: BrigmedicHead
+  name: loadout-group-brigmedic-head
+  minLimit: 0
+  loadouts:
+  - BrigmedicBeret
+  - CMOMedicalHeadMirror
+  - SecurityBeret
+  - SecurityHat
+  - TrooperHat
+
+- type: loadoutGroup
+  id: BrigmedicOuterClothing
+  name: loadout-group-brigmedic-outer
+  loadouts:
+  - BrigmedicAMG
+  - ArmorVest
+  - ArmorVestSlim
+  - SecurityOfficerWintercoat
+
+- type: loadoutGroup
+  id: BrigmedicBackpack
+  name: loadout-group-brigmedic-backpack
+  loadouts:
+  - BrigmedicBackpack
+  - BrigmedicSatchel
+  - BrigmedicDuffel
+  - BrigmedicMessenger

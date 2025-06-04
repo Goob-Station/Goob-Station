@@ -84,6 +84,9 @@ uplink-contractor-baton-desc = A compact, specialised baton assigned to Syndicat
 uplink-weapon-burner-name = Burner Heavy Rifle
 uplink-weapon-burner-desc = The Burner Heavy Rifle, an excellent breaching and suppression weapon.
 
+uplink-weapon-heavy-shotgun-name = NZ CSG-242 Heavy Shotgun
+uplink-weapon-heavy-shotgun-desc = Merciless heavy explosive weapon. The recoil when firing it is so extreme that it can knock you off your feet.
+
 uplink-WSPR-name = WSPR
 uplink-WSPR-desc = This burst-fire rifle does its job silently and uses 9.5mm caseless magnum hollow-point bullets, which do more damage to flesh but fair worse against armour.
 
@@ -122,11 +125,14 @@ uplink-he1sg8-bundle-desc = High Energy One-Shell rifle bundle. Comes with 10 de
 
 # Ammo
 
-uplink-blast-grenade-name = Blast Grenade
+uplink-blast-grenade-name = Blast Grenade (40mm)
 uplink-blast-grenade-desc = Higher damage, smaller radius. Compatible with the China-Lake.
 
-uplink-frag-grenade-name = Frag Grenade
+uplink-frag-grenade-name = Frag Grenade (40mm)
 uplink-frag-grenade-desc = Lower damage, bigger radius. Compatible with the China-Lake.
+
+uplink-mpapers-grenade-name = MP-APERS shell (40mm)
+uplink-mpapers-grenade-desc = Fires out 20 small pellets to turn your grenade launcher into a shotgun. Compatible with the China-Lake.
 
 uplink-rifle-mag-name = Rifle Magazine (.20)
 uplink-rifle-mag-desc = A 25 round magazine containing .20 rifle bullets. Supports the Lecter and M-90.
@@ -140,10 +146,10 @@ uplink-pistol-magazine-caseless-saphe-desc = 10 rounds of 9.5mm caseless magnum 
 uplink-l6-box-name = Magazine Box (.30 rifle)
 uplink-l6-box-desc = Magazine box with 100 catridges. Compatible with the L6 SAW.
 
-uplink-shotgun-magazine-name = Shotgun Drum (12 Gauge pellet)
+uplink-shotgun-magazine-name = Shotgun Drum (12 gauge pellet)
 uplink-shotgun-magazine-desc = Shotgun drum with 8 pellet shells. Compatible with the Bulldog.
 
-uplink-shotgun-magazine-slug-name = Shotgun Drum (12 Gauge slug)
+uplink-shotgun-magazine-slug-name = Shotgun Drum (12 gauge slug)
 uplink-shotgun-magazine-slug-desc = Shotgun drum with 8 slug shells. Compatible with the Bulldog.
 
 uplink-high-caliber-magazine-name = Rifle Magazine (.50 anti-materiel)
@@ -157,6 +163,12 @@ uplink-high-caliber-box-desc = A box of 30 .50 caliber anti-materiel rounds.
 
 uplink-highcap-pistol-mag-name = High Capacity Pistol Magazine (.35 auto)
 uplink-highcap-pistol-mag-desc = High capacity pistol magazine holds 4 extra bullets for a total of 16 rounds.
+
+uplink-heavy-shotgun-magazine-name = Heavy Shotgun Drum (2 gauge HE pellet)
+uplink-heavy-shotgun-magazine-desc = Shotgun magazine with 15 high-explosive pellet shells. Compatible with the NZ CSG-242.
+
+uplink-heavy-shotgun-magazine-slug-name = Heavy Shotgun Drum (2 gauge HE slug)
+uplink-heavy-shotgun-magazine-slug-desc = Shotgun magazine with 15 high-eplosive shrapnel slug shells. Compatible with the NZ CSG-242.
 
 uplink-m7s-mag-name = Side-mounted SMG Magazine (5x23mm)
 uplink-m7s-mag-desc = A 48 round 5x23mm rifle magazine. Compatible with M7S.
@@ -220,6 +232,16 @@ uplink-jaunter-implanter-desc = Swaps position of the user and target upon activ
 uplink-krav-maga-implant-name = Krav Maga Implanter
 uplink-krav-maga-implant-desc = Allows the user to perform various Krav Maga moves.
 
+uplink-autosurgeon-right-mantis-blade-name = Right Mantis Blade Autosurgeon
+uplink-autosurgeon-left-mantis-blade-name = Left Mantis Blade Autosurgeon
+uplink-autosurgeon-mantis-blade-desc = Modifies the user's arm to include the Mantis Blade cyberware extending from it at will, works best when paired. Requires too much fine tuning for a human to provide, comes with a one-use autosurgeon for installation.
+
+uplink-autosurgeon-sandevistan-name = Sandevistan Autosurgeon
+uplink-autosurgeon-sandevistan-desc = Replaces the user's heart with Sandevistan, a synthetic organ that drastically increases the user's speed at the cost of their endurance. Requires too much fine tuning for a human to provide, comes with a one-use autosurgeon for installation.
+
+uplink-davids-jacket-name = edgerunner jacket
+uplink-davids-jacket-desc = A jacket for those particularly interested in improving their bodies, just like you.
+
 # Wearables
 
 uplink-helmet-swat-name = Syndicate SWAT Helmet
@@ -263,3 +285,10 @@ uplink-undetermined-bundle-desc = This crate comes with three random bundles and
 
 uplink-energy-pickaxe-name = Energy Pickaxe
 uplink-energy-pickaxe-desc = A holographic mining tool with blades comprised of hard light that also serves a deadly melee weapon. Rock and stone!
+
+uplink-tcminer-name = Telecrystal miner
+uplink-tcminer-desc = Contains a flatpack with telecrystal miner, A very loud machine that uses bluespace blockchain technology to generate telecrystals every 10 seconds when powered. Requires 10kW of energy and a connection to the primary station's grid. Multitool not included.
+
+uplink-bloodred-casette-name = Bloodred Casette Player
+uplink-bloodred-casette-desc = Provided by the most egotistical fashion designers of Cybersun, a portable music player!
+

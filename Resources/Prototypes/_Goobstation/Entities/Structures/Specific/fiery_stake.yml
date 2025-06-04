@@ -1,0 +1,69 @@
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: FieryStake
+  parent: BaseStructure
+  name: fiery stake
+  description: But God demonstrates his own love for us in this... While we were still sinners, Christ died for us!
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _ShitChap/Structures/bonfire.rsi
+    offset: 0,0.5
+    layers:
+    - state: bonfire
+    - state: burning
+  - type: PointLight
+    radius: 5
+    energy: 3
+    color: "#FFC90C"
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: AmbientSound
+    volume: -5
+    range: 5
+    sound:
+      path: /Audio/Ambience/Objects/fireplace.ogg
+  - type: Strap
+    position: Stand
+    buckleOffset: "0,0.25"
+  - type: IgniteOnBuckle
+    fireStacks: 15
+  - type: IgnitionSource
+    temperature: 400
+    ignited: true
+  - type: AlwaysHot
+  - type: Construction
+    graph: FieryStakeGraph
+    node: BonfireNode
+
+- type: construction
+  id: FieryStake
+  name: fiery stake
+  description: But God demonstrates his own love for us in this... While we were still sinners, Christ died for us!
+  graph: FieryStakeGraph
+  startNode: start
+  targetNode: BonfireNode
+  category: construction-category-furniture
+  icon:
+    sprite: _ShitChap/Structures/bonfire.rsi
+    state: bonfire
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked

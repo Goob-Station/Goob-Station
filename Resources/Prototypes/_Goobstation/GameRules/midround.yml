@@ -1,6 +1,10 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 #
@@ -23,6 +27,9 @@
       Hostile: 100
       Medical: 100
       Death: 100
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 250
   - type: AlertLevelInterceptionRule
   - type: AntagSelection
     selectionTime: PostPlayerSpawn
@@ -58,6 +65,9 @@
       Hostile: 150
       Medical: 150
       Death: 150
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 300
   - type: AlertLevelInterceptionRule
   - type: AntagSelection
     selectionTime: PostPlayerSpawn
@@ -76,6 +86,7 @@
   - type: Tag
     tags:
       - MidroundAntag
+
 # Midround Heretics
 - type: entity
   parent: Heretic
@@ -94,6 +105,9 @@
       Hostile: 200
       Medical: 150
       Death: 200
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 300
   - type: AlertLevelInterceptionRule
   - type: AntagSelection
     selectionTime: PostPlayerSpawn
@@ -113,6 +127,7 @@
   - type: Tag
     tags:
       - MidroundAntag
+
 # Midround Revolutionaries
 - type: entity
   parent: Revolutionary
@@ -129,6 +144,9 @@
       Hostile: 250
       Medical: 250
       Death: 250
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 800
   - type: AntagSelection
     selectionTime: PostPlayerSpawn
     definitions:
@@ -152,6 +170,7 @@
   - type: Tag
     tags:
       - MidroundAntag
+
 # Skeleton Spawn
 - type: entity
   parent: BaseGameRule
@@ -165,11 +184,15 @@
       Hostile: 40
       Medical: 40
       Death: 40
+    eventType: Chaotic
+  - type: GameRule
+    chaosScore: 90
   - type: RandomEntityStorageSpawnRule
     prototype: MobSkeletonCloset
   - type: Tag
     tags:
       - MidroundAntag
+
 # Blob Midround
 - type: entity
   parent: BaseGameRule
@@ -185,6 +208,9 @@
       Hostile: 300
       Medical: 300
       Death: 300
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 800
   - type: BlobSpawnRule
     carrierBlobProtos:
     - SpawnPointGhostBlobRat
