@@ -24,7 +24,7 @@
   id: DockMining
 
 - type: Tag
-  id: PKAUpgrade
+  id: ExplorerSuit
 
 - type: Tag
   id: GunUpgradeDamage
@@ -46,3 +46,6 @@
 
 - type: Tag
   id: LavalandInterior7x7
+
+- type: Tag
+  id: PKAUpgrade

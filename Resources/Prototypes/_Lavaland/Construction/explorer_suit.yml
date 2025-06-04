@@ -25,7 +25,7 @@
       - to: reinforced2
         steps:
           - material: GoliathHide
-            amount: 1
+            amount: 2
             doAfter: 2
     - node: reinforced2
       entity: LavalandEquipmentExplorerSuitReinforced2
@@ -33,7 +33,7 @@
       - to: reinforced3
         steps:
           - material: GoliathHide
-            amount: 1
+            amount: 3
             doAfter: 2
     - node: reinforced3
       entity: LavalandEquipmentExplorerSuitReinforced3

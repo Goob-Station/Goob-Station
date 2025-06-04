@@ -67,6 +67,9 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 1.5
     knockdownTimeDelta: -1.5
+  - type: Tag
+    tags:
+    - ExplorerSuit
 
 - type: entity
   parent: ClothingHeadBase
