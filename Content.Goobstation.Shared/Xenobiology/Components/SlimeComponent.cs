@@ -21,7 +21,6 @@ public sealed partial class SlimeComponent : Component
     /// <summary>
     /// Default slime.
     /// </summary>
-    [DataField]
     public EntProtoId DefaultSlimeProto = "MobXenoSlime";
 
     /// <summary>
@@ -70,13 +69,14 @@ public sealed partial class SlimeComponent : Component
     /// <summary>
     /// The entity which has tamed this slime.
     /// </summary>
-    [DataField]
     public EntityUid? Tamer;
+
+    [DataField]
+    public EntProtoId _tameEffects = "EffectHearts";
 
     /// <summary>
     /// The entity, if any, currently being consumed by the slime.
     /// </summary>
-    [DataField]
     public EntityUid? LatchedTarget;
 
     /// <summary>
