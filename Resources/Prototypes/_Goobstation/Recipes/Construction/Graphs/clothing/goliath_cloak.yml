@@ -15,7 +15,7 @@
     - to: cloak
       steps:
       - material: GoliathHide
-        amount: 4
+        amount: 1
         doAfter: 2
   - node: cloak
     entity: ClothingNeckCloakGoliathCloak

@@ -203,20 +203,10 @@
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/goliathcloak.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
+    requiredSlot:
+    - neck
     clothingPrototypes:
-      neck: ClothingHeadHatHoodGoliathCloak
-  - type: Armor
-    coverage:
-    - Chest
-    - Groin
-    - Tail
-    - Arm
-    - Leg
-    modifiers:
-     coefficients:
-      Blunt: 0.8
-      Slash: 0.8
-      Piercing: 0.8
+      head: ClothingHeadHatHoodGoliathCloak
   - type: Construction
     graph: GoliathCloak
     node: cloak

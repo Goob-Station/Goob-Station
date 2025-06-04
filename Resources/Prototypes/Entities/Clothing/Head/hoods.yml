@@ -301,14 +301,6 @@
   - type: HideLayerClothing
     slots:
     - Hair
-  - type: Armor
-    coverage:
-    - Head
-    modifiers:
-      coefficients:
-        Blunt: 0.85
-        Slash: 0.85
-        Piercing: 0.85
 
 - type: entity
   parent: ClothingHeadBase
