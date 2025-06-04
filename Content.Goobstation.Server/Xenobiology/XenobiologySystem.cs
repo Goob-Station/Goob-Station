@@ -16,6 +16,7 @@ using Content.Shared.Emag.Systems;
 using Content.Shared.Inventory;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared.Throwing;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
@@ -47,6 +48,7 @@ public sealed partial class XenobiologySystem : EntitySystem
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly JitteringSystem _jitter = default!;
+    [Dependency] private readonly ThrowingSystem _throw = default!;
 
     private ISawmill _sawmill = default!;
 

@@ -7,6 +7,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Shared.Xenobiology.Components;
+using Content.Shared.Coordinates;
 using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Examine;
@@ -16,6 +17,7 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
+using Robust.Shared.Physics.Components;
 
 namespace Content.Goobstation.Server.Xenobiology;
 
@@ -35,7 +37,6 @@ public partial class XenobiologySystem
         SubscribeLocalEvent<XenoVacuumComponent, GotUnequippedHandEvent>(OnUnequippedHand);
 
         SubscribeLocalEvent<XenoVacuumComponent, AfterInteractEvent>(OnXenoVacuum);
-        SubscribeLocalEvent<XenoVacuumComponent, UseInHandEvent>(OnXenoVacuumClear);
     }
 
     private void OnTankInit(Entity<XenoVacuumTankComponent> tank, ref MapInitEvent args) =>
@@ -91,26 +92,31 @@ public partial class XenobiologySystem
 
     private void OnXenoVacuum(Entity<XenoVacuumComponent> ent, ref AfterInteractEvent args)
     {
-        if (args.Target is not { } target
-            || TerminatingOrDeleted(target)
-            || !args.CanReach
-            || !HasComp<MobStateComponent>(target))
+        if (args is { Target: { } target, CanReach: true }
+            && HasComp<MobStateComponent>(target))
+        {
+            TryDoSuction(args.User, target, ent);
+            return;
+        }
+
+        if (!_inventorySystem.TryGetSlotEntity(args.User, "suitstorage", out var backSlotEntity))
             return;
 
-        DoSuction(args.User, target, ent);
-    }
+        if (!TryComp<XenoVacuumTankComponent>(backSlotEntity, out var tankComp))
+            return;
 
-    private void OnXenoVacuumClear(Entity<XenoVacuumComponent> ent, ref UseInHandEvent args)
-    {
-        if (!_inventorySystem.TryGetSlotEntity(args.User, "suitstorage", out var backSlotEntity)
-            || !TryComp<XenoVacuumTankComponent>(backSlotEntity, out var tankComp)
-            || tankComp.StorageTank.ContainedEntities.Count <= 0)
+        if (tankComp.StorageTank.ContainedEntities.Count <= 0)
             return;
 
         foreach (var removedEnt in _containerSystem.EmptyContainer(tankComp.StorageTank))
         {
             var popup = Loc.GetString("xeno-vacuum-clear-popup", ("ent", removedEnt));
             _popup.PopupEntity(popup, ent, args.User);
+
+            if (args.Target is { } thrown)
+                _throw.TryThrow(removedEnt, thrown.ToCoordinates());
+            else
+                _throw.TryThrow(removedEnt, args.ClickLocation);
         }
 
         _audio.PlayEntity(ent.Comp.ClearSound, ent, args.User, AudioParams.Default.WithVolume(-2f));
@@ -118,14 +124,14 @@ public partial class XenobiologySystem
 
     #region Helpers
 
-    private void DoSuction(EntityUid user, EntityUid target, Entity<XenoVacuumComponent> vacuum)
+    private bool TryDoSuction(EntityUid user, EntityUid target, Entity<XenoVacuumComponent> vacuum)
     {
         if (!_inventorySystem.TryGetSlotEntity(user, "suitstorage", out var tank)
             || !TryComp<XenoVacuumTankComponent>(tank, out var tankComp))
         {
             var noTankPopup = Loc.GetString("xeno-vacuum-suction-fail-no-tank-popup");
             _popup.PopupEntity(noTankPopup, vacuum, user);
-            return;
+            return false;
         }
 
         if (!HasComp<SlimeComponent>(target)
@@ -134,7 +140,7 @@ public partial class XenobiologySystem
             var invalidEntityPopup = Loc.GetString("xeno-vacuum-suction-fail-invalid-entity-popup", ("ent", target));
             _popup.PopupEntity(invalidEntityPopup, vacuum, user);
 
-            return;
+            return false;
         }
 
         if (tankComp.StorageTank.ContainedEntities.Count > 0
@@ -143,20 +149,21 @@ public partial class XenobiologySystem
             var tankFullPopup = Loc.GetString("xeno-vacuum-suction-fail-tank-full-popup");
             _popup.PopupEntity(tankFullPopup, vacuum, user);
 
-            return;
+            return false;
         }
-
 
         if (!_containerSystem.Insert(target, tankComp.StorageTank))
         {
             _sawmill.Debug($"{ToPrettyString(user)} failed to insert {ToPrettyString(target)} into {ToPrettyString(tank)}");
-            return;
+            return false;
         }
 
         _audio.PlayEntity(vacuum.Comp.Sound, user, user);
 
         var successPopup = Loc.GetString("xeno-vacuum-suction-succeed-popup", ("ent", target));
         _popup.PopupEntity(successPopup, vacuum, user);
+
+        return true;
     }
 
 
