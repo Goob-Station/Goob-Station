@@ -75,8 +75,10 @@
         - PlushieDiona
         - PlushieArachind
         - PlushieBingle # Goobstation
-        - PlushieAbductor # Goobstation
+        - PlushieSamantha # Goobstation
         - PlushieJvne # Goobstation
+        - PlushieFern # Goobstation
+        - PlushieAbductor # Goobstation
       chance: 0.5
       offset: 0.2
 
