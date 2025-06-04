@@ -132,7 +132,13 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
             return;
 
         var delay = grinder.Comp.BaseInsertionDelay * physics.FixturesMass;
-        _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, delay, new ReclaimerDoAfterEvent(), grinder, target: args.Target, used: args.Used)
+        _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager,
+            args.User,
+            delay,
+            new ReclaimerDoAfterEvent(),
+            grinder,
+            target: args.Target,
+            used: args.Used)
         {
             NeedHand = true,
             BreakOnMove = true,
