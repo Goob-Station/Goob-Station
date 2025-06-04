@@ -1,0 +1,54 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: DeadRatvar
+  parent: BaseStructure
+  name: dead construct
+  description: The corpse of an ancient construct made of brass and cogs. It still hums with tremendous power.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/deadratvar.rsi
+    state: dead_ratvar
+    drawdepth: OverMobs
+    size: Ginormous
+  - type: AmbientSound
+    volume: 2
+    range: 20
+    sound:
+      path: /Audio/_Goobstation/Ambience/ominous_pulse.ogg
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-6.3,-3.3,6.2,-1.5"
+        density: 50
+        mask:
+        - LargeMobMask
+        layer:
+        - MidImpassable, LowImpassable, BulletImpassable
+  - type: Repairable
+    fuelCost: 10
+    doAfterDelay: 5
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 1000
+        behaviors:
+        - !type:SpawnEntitiesBehavior
+          spawn:
+            SheetBrass1:
+              min: 30
+              max: 60
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
