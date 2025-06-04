@@ -10581,3 +10581,13 @@ Entries:
       message: Fixed Hierophant second fight making only Teleportation attacks.
   id: 1165
   time: '2025-06-03T07:38:09.0000000+00:00'
+- author: Arraydeess
+  changes:
+    - type: Add
+      message: Added Balloons purchasable via cargo!
+    - type: Tweak
+      message: Ancestors and pets now hate balloons
+    - type: Tweak
+      message: Spesos can now be picked up by ore bags
+  id: 1166
+  time: '2025-06-04T11:38:59.0000000+00:00'
