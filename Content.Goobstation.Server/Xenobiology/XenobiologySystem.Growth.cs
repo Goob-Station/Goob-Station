@@ -23,8 +23,13 @@ public partial class XenobiologySystem
     private void InitializeGrowth()
     {
         base.Initialize();
+
+        SubscribeLocalEvent<MobGrowthComponent, ComponentInit>(OnMobGrowthInit);
         _nextGrowthTime = _gameTiming.CurTime + _growthInterval;
     }
+
+    private void OnMobGrowthInit(Entity<MobGrowthComponent> ent, ref ComponentInit args) =>
+        UpdateName(ent);
 
     //Mob growth doesn't need to be checked for every frame.
     private void UpdateGrowth()
@@ -80,7 +85,17 @@ public partial class XenobiologySystem
         _hunger.ModifyHunger(ent, ent.Comp1.GrowthCost, ent.Comp2);
         _appearance.SetData(ent, GrowthStateVisuals.Stage, ent.Comp1.CurrentStage);
 
+        UpdateName(ent);
+
         Dirty(ent);
+    }
+
+    private void UpdateName(EntityUid uid, MobGrowthComponent? comp = null)
+    {
+        if (!Resolve(uid, ref comp))
+            return;
+
+        _metaData.SetEntityName(uid, comp.CurrentStage + " " + Name(uid));
     }
 
     #endregion

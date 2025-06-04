@@ -25,11 +25,11 @@
     sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
-      state: slime-baby
+      state: baby
   - type: DamageStateVisuals
     states:
       Dead:
-        Base: slime-dead
+        Base: dead
   - type: Fixtures
     fixtures:
       fix1:
@@ -152,14 +152,14 @@
     sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
-      state: slime-baby
+      state: baby
       color: "#828282"
   - type: MobGrowth
     hungerRequired: 100
-    currentStage: slime-baby
+    currentStage: baby
     stages:
-    - slime-baby
-    - slime-adult
+    - baby
+    - adult
   - type: Slime
     breed: GreyMutation
     maxOffspring: 4
