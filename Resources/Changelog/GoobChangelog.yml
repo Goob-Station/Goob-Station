@@ -10607,3 +10607,21 @@ Entries:
       message: You can now properly drag-and-drop batteries and modules onto mechs.
   id: 1168
   time: '2025-06-04T12:34:23.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Increased lawbringer bigshot structural damage, also it no longer flies
+        through windows which was an oversight.
+    - type: Fix
+      message: >-
+        Regular security winter boots no longer have jackboots bonuses, it also
+        was an oversight. 
+    - type: Fix
+      message: >-
+        CMO webbing comes with a bone manipulator instead of bone gel, it was
+        well you guessed it.
+    - type: Fix
+      message: Warden's headgears now have armor values, you know what that was.
+  id: 1169
+  time: '2025-06-04T12:35:34.0000000+00:00'
