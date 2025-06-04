@@ -49,7 +49,8 @@ public sealed class TelescopicBatonSystem : EntitySystem
         var query = EntityQueryEnumerator<TelescopicBatonComponent>();
         while (query.MoveNext(out var baton))
         {
-            if (baton.AlwaysDropItems || !baton.CanDropItems)
+            if (baton.AlwaysDropItems
+                || !baton.CanDropItems)
                 continue;
 
             baton.TimeframeAccumulator += TimeSpan.FromSeconds(frameTime);

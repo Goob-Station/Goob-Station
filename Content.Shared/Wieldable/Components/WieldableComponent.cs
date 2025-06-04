@@ -81,6 +81,7 @@ public sealed partial class WieldableComponent : Component
     [DataField]
     public bool ApplyNewPrefixOnShutdown;
 
+    // Goobstation
     [DataField]
     public string? NewPrefixOnShutdown;
 }

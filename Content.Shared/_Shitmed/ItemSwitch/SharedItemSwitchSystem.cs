@@ -149,7 +149,9 @@ public abstract class SharedItemSwitchSystem : EntitySystem
     /// <returns>false if the attempt fails for any reason</returns>
     public bool Switch(Entity<ItemSwitchComponent?> ent, string? key, EntityUid? user = null, bool predicted = true)
     {
-        if (key == null || !_query.Resolve(ent, ref ent.Comp, false) || !ent.Comp.States.TryGetValue(key, out var state))
+        if (key == null
+            || !_query.Resolve(ent, ref ent.Comp, false)
+            || !ent.Comp.States.TryGetValue(key, out var state))
             return false;
 
         var uid = ent.Owner;
@@ -176,7 +178,8 @@ public abstract class SharedItemSwitchSystem : EntitySystem
         if (state.Components is not null)
             EntityManager.AddComponents(ent, state.Components);
 
-        if (TryComp(ent, out meleeComp) && nextAttack.Ticks != 0)
+        if (TryComp(ent, out meleeComp)
+            && nextAttack.Ticks != 0)
             meleeComp.NextAttack = nextAttack;
 
         if (!comp.Predictable)

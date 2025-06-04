@@ -20,11 +20,13 @@ public sealed class GoobHeldSpeedModifierSystem : EntitySystem
         SubscribeLocalEvent<HeldSpeedModifierComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<HeldSpeedModifierComponent, ComponentRemove>(OnRemoved);
     }
+
     private void OnInit(Entity<HeldSpeedModifierComponent> ent, ref ComponentInit args)
     {
         if (_container.TryGetContainingContainer((ent, null, null), out var container))
             _movement.RefreshMovementSpeedModifiers(container.Owner);
     }
+
     private void OnRemoved(Entity<HeldSpeedModifierComponent> ent, ref ComponentRemove args)
     {
         if (_container.TryGetContainingContainer((ent, null, null), out var container))

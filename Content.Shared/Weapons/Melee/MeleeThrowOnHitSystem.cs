@@ -49,7 +49,8 @@ public sealed class MeleeThrowOnHitSystem : EntitySystem
         if (!args.IsHit)
             return;
 
-        if (!weapon.Comp.ThrowWhileOnDelay && _delay.IsDelayed(weapon.Owner))
+        if (!weapon.Comp.ThrowWhileOnDelay // Goobstation edit
+            && _delay.IsDelayed(weapon.Owner))
             return;
 
         if (args.HitEntities.Count == 0)

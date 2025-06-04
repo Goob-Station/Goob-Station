@@ -27,7 +27,7 @@ public sealed class GoobMultiHandedItemSystem : EntitySystem
     private void OnComponentInit(Entity<MultiHandedItemComponent> ent, ref ComponentInit args)
     {
         if (!_container.TryGetContainingContainer((ent, null, null), out var container)
-        || !HasComp<HandsComponent>(container.Owner))
+            || !HasComp<HandsComponent>(container.Owner))
             return;
 
         // dropOthers: true in TrySpawnVirtualItemInHand didn't work properly so here we have this linq monstrosity
@@ -42,14 +42,10 @@ public sealed class GoobMultiHandedItemSystem : EntitySystem
         }
 
         for (var i = 0; i < iterations; i++)
-        {
             _hands.TryDrop(container.Owner, droppable[i]);
-        }
 
         for (var i = 1; i < ent.Comp.HandsNeeded; i++)
-        {
             _virtualItem.TrySpawnVirtualItemInHand(ent, container.Owner);
-        }
     }
 
     private void OnComponentShutdown(Entity<MultiHandedItemComponent> ent, ref ComponentShutdown args)
@@ -60,7 +56,8 @@ public sealed class GoobMultiHandedItemSystem : EntitySystem
         // Method exists for that but it calls an event on deleting the virtual item hence forces the item to drop
         foreach (var hand in _hands.EnumerateHands(Transform(ent).ParentUid))
         {
-            if (!TryComp(hand.HeldEntity, out VirtualItemComponent? virt) || virt.BlockingEntity != ent.Owner)
+            if (!TryComp(hand.HeldEntity, out VirtualItemComponent? virt)
+                || virt.BlockingEntity != ent.Owner)
                 continue;
 
             if (TerminatingOrDeleted(hand.HeldEntity))

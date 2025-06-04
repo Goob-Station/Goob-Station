@@ -41,8 +41,8 @@ public sealed class CounterattackWeaponSystem : EntitySystem
 
         var meleeWeapon = ent.Comp.Weapons.FirstOrDefault(EntityUid.Invalid);
         if (!meleeWeapon.IsValid()
-        || !TryComp<MeleeWeaponComponent>(meleeWeapon, out var meleeComp)
-        || !TryComp<CounterattackWeaponComponent>(meleeWeapon, out var counterattack))
+            || !TryComp<MeleeWeaponComponent>(meleeWeapon, out var meleeComp)
+            || !TryComp<CounterattackWeaponComponent>(meleeWeapon, out var counterattack))
             return;
 
         meleeComp.NextAttack = TimeSpan.Zero;
@@ -56,7 +56,7 @@ public sealed class CounterattackWeaponSystem : EntitySystem
     private void OnStartup(Entity<CounterattackWeaponComponent> ent, ref ComponentInit args)
     {
         if (!_container.TryGetContainingContainer((ent, null, null), out var container)
-        || !_hands.EnumerateHeld(container.Owner).Contains(ent))
+            || !_hands.EnumerateHeld(container.Owner).Contains(ent))
             return;
 
         EnsureComp<CounterattackWeaponUserComponent>(container.Owner).Weapons.Add(ent);
@@ -73,7 +73,7 @@ public sealed class CounterattackWeaponSystem : EntitySystem
     private void OnShutdown(Entity<CounterattackWeaponComponent> ent, ref ComponentShutdown args)
     {
         if (!_container.TryGetContainingContainer((ent, null, null), out var container)
-        || !TryComp<CounterattackWeaponUserComponent>(container.Owner, out var user))
+            || !TryComp<CounterattackWeaponUserComponent>(container.Owner, out var user))
             return;
 
         user.Weapons.Remove(ent);
