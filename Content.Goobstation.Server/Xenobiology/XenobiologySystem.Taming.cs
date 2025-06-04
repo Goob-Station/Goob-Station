@@ -16,8 +16,6 @@ namespace Content.Goobstation.Server.Xenobiology;
 /// </summary>
 public partial class XenobiologySystem
 {
-    private readonly EntProtoId _tameEffects = "EffectHearts"; // get this out of here
-
     private void InitializeTaming() =>
         SubscribeLocalEvent<SlimeComponent, InteractionSuccessEvent>(OnTame);
 
@@ -29,7 +27,7 @@ public partial class XenobiologySystem
         if (comp.Tamer.HasValue)
             return;
 
-        Spawn(_tameEffects, coords);
+        Spawn(ent.Comp.TameEffect, coords);
         comp.Tamer = user;
         Dirty(ent);
     }
