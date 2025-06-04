@@ -105,7 +105,9 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
                 EnsureComp<ActiveSlimeGrinderComponent>(uid);
         }
         else
+        {
             RemComp<ActiveSlimeGrinderComponent>(uid);
+        }
     }
 
     #endregion
