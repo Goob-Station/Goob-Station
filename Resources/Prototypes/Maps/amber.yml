@@ -95,3 +95,10 @@
             #silicon
             StationAi: [ 1, 1 ]
             Borg: [ 2, 2 ]
+
+   # Goobstation blob-config-start MEDIUM
+        - type: StationBlobConfig
+          stageBegin: 40
+          stageCritical: 300
+          stageTheEnd: 750
+        # backmen blob-config-end
