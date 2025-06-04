@@ -155,6 +155,7 @@
   - type: Slime
     slimeColor: "#f0f8ff"
     shouldHaveShader: true
+    shader: Enchant #temp
     breed: BluespaceMutation
     maxOffspring: 4
     mutationChance: 0.45
@@ -168,6 +169,8 @@
   components:
   - type: Slime
     slimeColor: "#704214"
+    shouldHaveShader: true
+    shader: Enchant #temp
     breed: SepiaMutation
     maxOffspring: 4
     mutationChance: 0.45

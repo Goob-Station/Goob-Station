@@ -79,6 +79,10 @@ public partial class XenobiologySystem
         if (!TryComp<SlimeComponent>(newEntityUid, out var slime))
             return;
 
+        if (slime.ShouldHaveShader
+            && slime.Shader != string.Empty)
+            _appearance.SetData(newEntityUid, XenoSlimeVisuals.Shader, slime.Shader);
+
         _appearance.SetData(newEntityUid, XenoSlimeVisuals.Color, slime.SlimeColor);
         _metaData.SetEntityName(newEntityUid, newBreed.BreedName);
     }

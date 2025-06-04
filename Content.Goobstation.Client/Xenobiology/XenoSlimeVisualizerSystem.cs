@@ -6,6 +6,8 @@
 using Content.Goobstation.Shared.Xenobiology;
 using Content.Goobstation.Shared.Xenobiology.Components;
 using Robust.Client.GameObjects;
+using Robust.Client.Graphics;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Client.Xenobiology;
 
@@ -14,6 +16,9 @@ namespace Content.Goobstation.Client.Xenobiology;
 /// </summary>
 public sealed class XenoSlimeVisualizerSystem : VisualizerSystem<SlimeComponent>
 {
+
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+
     protected override void OnAppearanceChange(EntityUid uid, SlimeComponent component, ref AppearanceChangeEvent args)
     {
         if (args.Sprite == null)
@@ -25,6 +30,11 @@ public sealed class XenoSlimeVisualizerSystem : VisualizerSystem<SlimeComponent>
             {
                 layer.Color = color.WithAlpha(layer.Color.A);
             }
+        }
+
+        if (AppearanceSystem.TryGetData<ProtoId<ShaderPrototype>>(uid, XenoSlimeVisuals.Shader, out var shader, args.Component))
+        {
+            args.Sprite.PostShader = _proto.Index(shader).InstanceUnique();
         }
     }
 }

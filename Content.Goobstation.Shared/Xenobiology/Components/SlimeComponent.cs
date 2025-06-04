@@ -4,6 +4,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Robust.Client.Graphics;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
@@ -106,7 +107,7 @@ public sealed partial class SlimeComponent : Component
     /// Which shader are we using?
     /// </summary>
     [DataField, AutoNetworkedField]
-    public string Shader = string.Empty;
+    public ProtoId<ShaderPrototype> Shader = string.Empty;
 
     /// <summary>
     /// What sound should we play when mitosis occurs?

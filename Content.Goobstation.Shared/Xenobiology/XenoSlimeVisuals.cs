@@ -13,5 +13,6 @@ namespace Content.Goobstation.Shared.Xenobiology
     public enum XenoSlimeVisuals
     {
         Color,
+        Shader,
     }
 }
