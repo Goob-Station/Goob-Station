@@ -23159,20 +23159,6 @@ entities:
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-        toggleable-clothing: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: 6118
     - type: PowerCellDraw
       canUse: True
       canDraw: True
