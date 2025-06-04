@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Content.Goobstation.Common.Access;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.Cyberdeck.Components;
 using Content.Shared.Access.Components;
 using Content.Shared.Actions;
@@ -25,7 +26,7 @@ namespace Content.Goobstation.Shared.Cyberdeck;
 public abstract class SharedCyberdeckSystem : EntitySystem
 {
     [Dependency] protected readonly SharedChargesSystem Charges = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] protected readonly SharedActionsSystem Actions = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedDoorSystem _door = default!;
@@ -49,8 +50,6 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         SubscribeLocalEvent<CyberdeckUserComponent, ComponentStartup>(OnUserInit);
         SubscribeLocalEvent<CyberdeckUserComponent, ComponentShutdown>(OnUserShutdown);
 
-        SubscribeLocalEvent<CyberdeckProjectionComponent, ComponentStartup>(OnProjectionInit);
-        SubscribeLocalEvent<CyberdeckProjectionComponent, ComponentShutdown>(OnProjectionShutdown);
         SubscribeLocalEvent<CyberdeckProjectionComponent, GetVerbsEvent<Verb>>(OnProjectionVerbs);
 
         SubscribeLocalEvent<CyberdeckUserComponent, CyberdeckHackActionEvent>(OnStartHacking);
@@ -60,19 +59,30 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         UserQuery = GetEntityQuery<CyberdeckUserComponent>();
     }
 
-    protected bool UseCharges(EntityUid device, EntityUid user)
+    protected bool UseCharges(EntityUid user, EntityUid device)
     {
         if (!HackQuery.TryComp(device, out var hackable)
             || !UserQuery.TryComp(user, out var cyberDeck)
             || cyberDeck.ProviderEntity == null
-            || Charges.IsEmpty(cyberDeck.ProviderEntity.Value))
+            || Charges.HasInsufficientCharges(cyberDeck.ProviderEntity.Value, hackable.Cost))
             return false;
 
         Charges.UseCharges(cyberDeck.ProviderEntity.Value, hackable.Cost);
         return true;
     }
 
-    protected abstract void ShutdownProjection(Entity<CyberdeckProjectionComponent> ent);
+    protected bool UseCharges(EntityUid user, FixedPoint2 amount)
+    {
+        if (!UserQuery.TryComp(user, out var cyberDeck)
+            || cyberDeck.ProviderEntity == null
+            || Charges.HasInsufficientCharges(cyberDeck.ProviderEntity.Value, amount))
+            return false;
+
+        Charges.UseCharges(cyberDeck.ProviderEntity.Value, amount);
+        return true;
+    }
+
+    protected abstract void ShutdownProjection(Entity<CyberdeckProjectionComponent?>? ent);
 
     private void OnProjectionVerbs(Entity<CyberdeckProjectionComponent> ent, ref GetVerbsEvent<Verb> args)
     {
@@ -82,7 +92,7 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         args.Verbs.Add(new AlternativeVerb
         {
             Text = Loc.GetString("cyberdeck-station-ai-smite-verb"),
-            Act = () => { ShutdownProjection(ent); },
+            Act = () => { ShutdownProjection(ent.Owner); },
             Impact = LogImpact.High,
         });
     }
@@ -128,47 +138,36 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         _doAfter.TryStartDoAfter(ev);
 
         // Also alert the target if it's a player.
-        if (HasComp<ActorComponent>(args.Target))
-            _popup.PopupEntity(Loc.GetString("cyberdeck-player-hacking"), target, target, PopupType.LargeCaution);
+        if (HasComp<ActorComponent>(target))
+            _popup.PopupEntity(Loc.GetString("cyberdeck-player-get-hacked"), target, target, PopupType.LargeCaution);
     }
 
     private void OnUserInit(EntityUid uid, CyberdeckUserComponent component, ComponentStartup args)
     {
-        _actions.AddAction(uid, ref component.HackAction, component.HackActionId);
-        _actions.AddAction(uid, ref component.VisionAction, component.VisionActionId);
+        Actions.AddAction(uid, ref component.HackAction, component.HackActionId);
+        Actions.AddAction(uid, ref component.VisionAction, component.VisionActionId);
 
-        // Find the cyberdeck source by hand. (evil LINQ moment)
-        var organ = _body.GetBodyOrgans(uid).Where(x => HasComp<CyberdeckSourceComponent>(x.Id)).FirstOrNull();
-
-        if (organ == null)
+        // Find the cyberdeck source by hand. TODO: Maybe make a BodyOrganRelayEvent?
+        var evil = _body.GetBodyOrgans(uid).Where(x => HasComp<CyberdeckSourceComponent>(x.Id)).FirstOrNull();
+        if (evil == null)
             return;
 
-        component.ProviderEntity = organ.Value.Id;
+        component.ProviderEntity = evil.Value.Id;
     }
 
     private void OnUserShutdown(EntityUid uid, CyberdeckUserComponent component, ComponentShutdown args)
     {
-        _actions.RemoveAction(uid, component.HackAction);
-        _actions.RemoveAction(uid, component.VisionAction);
+        Actions.RemoveAction(uid, component.HackAction);
+        Actions.RemoveAction(uid, component.VisionAction);
+        Actions.RemoveAction(uid, component.ReturnAction);
 
-        // Return to body if player was visiting out projection
-        if (TryComp<CyberdeckProjectionComponent>(component.ProjectionEntity, out var projectionComp))
-            ShutdownProjection((component.ProjectionEntity.Value, projectionComp));
-    }
-
-    private void OnProjectionInit(EntityUid uid, CyberdeckProjectionComponent component, ComponentStartup args)
-    {
-        _actions.AddAction(uid, ref component.ReturnAction, component.ReturnActionId);
-    }
-
-    private void OnProjectionShutdown(EntityUid uid, CyberdeckProjectionComponent component, ComponentShutdown args)
-    {
-        _actions.RemoveAction(uid, component.ReturnAction);
+        // Return to body if player was visiting projection
+        ShutdownProjection(component.ProjectionEntity);
     }
 
     private void OnAirlockHacked(Entity<AirlockComponent> ent, ref CyberdeckHackDoAfterEvent args)
     {
-        if (!UseCharges(ent.Owner, args.User))
+        if (!UseCharges(args.User, ent.Owner))
             return;
 
         _door.StartOpening(ent.Owner, user: args.User);
@@ -176,7 +175,7 @@ public abstract class SharedCyberdeckSystem : EntitySystem
 
     private void OnAccessHacked(Entity<AccessComponent> ent, ref CyberdeckHackDoAfterEvent args)
     {
-        if (!UseCharges(ent.Owner, args.User))
+        if (!UseCharges(args.User, ent.Owner))
             return;
 
         var ignore = EnsureComp<IgnoreAccessComponent>(ent);
@@ -185,7 +184,7 @@ public abstract class SharedCyberdeckSystem : EntitySystem
 
     private void OnBorgHacked(Entity<BorgChassisComponent> ent, ref CyberdeckHackDoAfterEvent args)
     {
-        if (!UseCharges(ent.Owner, args.User))
+        if (!UseCharges(args.User, ent.Owner))
             return;
 
         // TODO this probably shouldn't be hardcoded, but I don't know where to put this.

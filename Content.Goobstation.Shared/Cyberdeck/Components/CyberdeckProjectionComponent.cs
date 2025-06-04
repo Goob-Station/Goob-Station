@@ -6,8 +6,5 @@ namespace Content.Goobstation.Shared.Cyberdeck.Components;
 public sealed partial class CyberdeckProjectionComponent : Component
 {
     [ViewVariables]
-    public EntityUid? ReturnAction;
-
-    [DataField]
-    public EntProtoId ReturnActionId = "ActionCyberdeckVisionReturn";
+    public EntityUid? RemoteEntity;
 }

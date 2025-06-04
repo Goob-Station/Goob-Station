@@ -4,17 +4,22 @@ using Content.Server.Emp;
 using Content.Server.Light.Components;
 using Content.Server.Light.EntitySystems;
 using Content.Server.Power.Components;
-using Content.Shared.Mind;
-using Content.Shared.Mind.Components;
+using Content.Shared.Alert;
+using Content.Shared.Body.Organ;
+using Content.Shared.Charges.Systems;
+using Content.Shared.Movement.Components;
+using Content.Shared.Movement.Systems;
 
 namespace Content.Goobstation.Server.Cyberdeck;
 
 public sealed class CyberdeckSystem : SharedCyberdeckSystem
 {
-    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly SharedEyeSystem _eye = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedMoverController _mover = default!;
     [Dependency] private readonly PoweredLightSystem _light = default!;
     [Dependency] private readonly EmpSystem _emp = default!;
+    [Dependency] private readonly AlertsSystem _alerts = default!;
 
     public override void Initialize()
     {
@@ -25,22 +30,24 @@ public sealed class CyberdeckSystem : SharedCyberdeckSystem
 
         SubscribeLocalEvent<CyberdeckUserComponent, CyberdeckVisionEvent>(OnCyberVisionUsed);
         SubscribeLocalEvent<CyberdeckProjectionComponent, CyberdeckVisionReturnEvent>(OnCyberVisionReturn);
+
+        SubscribeLocalEvent<CyberdeckSourceComponent, ChargesChangedEvent>(OnChargesChanged);
     }
 
-    protected override void ShutdownProjection(Entity<CyberdeckProjectionComponent> ent)
+    private void OnChargesChanged(Entity<CyberdeckSourceComponent> ent, ref ChargesChangedEvent args)
     {
-        if (!TryComp<VisitingMindComponent>(ent.Owner, out var mindId)
-            || mindId.MindId == null
-            || !TryComp<MindComponent>(mindId.MindId.Value, out var mind))
+        if (!TryComp(ent.Owner, out OrganComponent? organ)
+            || !UserQuery.TryComp(organ.Body, out var userComp))
             return;
 
-        _mind.UnVisit(mindId.MindId.Value, mind);
-        QueueDel(ent.Owner);
+        var user = organ.Body.Value;
+        var charges = (short) Math.Clamp(args.CurrentCharges.Int(), 0, 8);
+        _alerts.ShowAlert(user, userComp.AlertId, charges);
     }
 
     private void OnBatteryHacked(Entity<BatteryComponent> ent, ref CyberdeckHackDoAfterEvent args)
     {
-        if (!UseCharges(ent.Owner, args.User))
+        if (!UseCharges(args.User, ent.Owner))
             return;
 
         var mapPos = _transform.GetMapCoordinates(ent.Owner);
@@ -52,7 +59,7 @@ public sealed class CyberdeckSystem : SharedCyberdeckSystem
 
     private void OnLightHacked(Entity<PoweredLightComponent> ent, ref CyberdeckHackDoAfterEvent args)
     {
-        if (!UseCharges(ent.Owner, args.User))
+        if (!UseCharges(args.User, ent.Owner))
             return;
 
         _light.TryDestroyBulb(ent.Owner, ent.Comp);
@@ -60,24 +67,15 @@ public sealed class CyberdeckSystem : SharedCyberdeckSystem
 
     private void OnCyberVisionUsed(Entity<CyberdeckUserComponent> ent, ref CyberdeckVisionEvent args)
     {
+        if (args.Handled)
+            return;
+
         var (uid, comp) = ent;
 
-        if (args.Handled
-            || comp.ProviderEntity != null
-            && Charges.IsEmpty(comp.ProviderEntity.Value))
-            return;
-
-        if (comp.ProviderEntity != null)
-            Charges.UseCharges(comp.ProviderEntity.Value, comp.CyberVisionAbilityCost);
-
-        if (!_mind.TryGetMind(uid, out var mind, out var mindComp))
-            return;
-
-        var position = Transform(uid).Coordinates;
-        var observer = Spawn(comp.ProjectionEntityId, position);
-        _transform.AttachToGridOrMap(observer); // To make it possible to use when user is inside a locker/bag
-        _mind.Visit(mind, observer, mindComp);
-
+        UseCharges(uid, comp.CyberVisionAbilityCost);
+        SetupProjection(ent);
+        Actions.AddAction(uid, ref comp.ReturnAction, comp.ReturnActionId);
+        Actions.RemoveAction(uid, comp.VisionAction);
         args.Handled = true;
     }
 
@@ -86,7 +84,55 @@ public sealed class CyberdeckSystem : SharedCyberdeckSystem
         if (args.Handled)
             return;
 
-        ShutdownProjection(ent);
+        ShutdownProjection(ent.Owner);
         args.Handled = true;
+    }
+
+    private void SetupProjection(Entity<CyberdeckUserComponent> user)
+    {
+        // Shutdown an already existing projection, if it really exists.
+        ShutdownProjection(user.Comp.ProjectionEntity);
+
+        var position = Transform(user.Owner).Coordinates;
+        var observer = Spawn(user.Comp.ProjectionEntityId, position);
+        _transform.AttachToGridOrMap(observer);
+
+        EnsureComp<CyberdeckProjectionComponent>(observer).RemoteEntity = user.Owner;
+
+        if (TryComp(user, out EyeComponent? eyeComp))
+        {
+            _eye.SetDrawFov(user, false, eyeComp);
+            _eye.SetTarget(user, observer, eyeComp);
+        }
+
+        _mover.SetRelay(user, observer);
+        user.Comp.ProjectionEntity = observer;
+    }
+
+    protected override void ShutdownProjection(Entity<CyberdeckProjectionComponent?>? ent)
+    {
+        if (ent == null)
+            return;
+
+        var comp = ent.Value.Comp;
+
+        if (!Resolve(ent.Value.Owner, ref comp)
+            || !UserQuery.TryComp(comp.RemoteEntity, out var userComp))
+            return;
+
+        var user = comp.RemoteEntity.Value;
+        userComp.ProjectionEntity = null;
+        Actions.RemoveAction(user, userComp.ReturnAction);
+        Actions.AddAction(user, ref userComp.VisionAction, userComp.VisionActionId);
+        Dirty(ent.Value.Owner, comp);
+
+        if (TryComp(user, out EyeComponent? eyeComp))
+        {
+            _eye.SetDrawFov(user, true, eyeComp);
+            _eye.SetTarget(user, user, eyeComp);
+        }
+
+        RemComp<RelayInputMoverComponent>(user);
+        QueueDel(ent.Value.Owner);
     }
 }

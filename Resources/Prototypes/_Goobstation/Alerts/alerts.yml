@@ -69,3 +69,29 @@
     state: byond
   name: alerts-curse-of-byond-name
   description: alerts-curse-of-byond-desc
+
+- type: alert
+  id: CyberdeckCharges
+  icons:
+  - sprite: /Textures/_Goobstation/Interface/Alerts/charges.rsi
+    state: charge_0
+  - sprite: /Textures/_Goobstation/Interface/Alerts/charges.rsi
+    state: charge_1
+  - sprite: /Textures/_Goobstation/Interface/Alerts/charges.rsi
+    state: charge_2
+  - sprite: /Textures/_Goobstation/Interface/Alerts/charges.rsi
+    state: charge_3
+  - sprite: /Textures/_Goobstation/Interface/Alerts/charges.rsi
+    state: charge_4
+  - sprite: /Textures/_Goobstation/Interface/Alerts/charges.rsi
+    state: charge_5
+  - sprite: /Textures/_Goobstation/Interface/Alerts/charges.rsi
+    state: charge_6
+  - sprite: /Textures/_Goobstation/Interface/Alerts/charges.rsi
+    state: charge_7
+  - sprite: /Textures/_Goobstation/Interface/Alerts/charges.rsi
+    state: charge_8
+  name: alerts-cyberdeck-charges-name
+  description: alerts-cyberdeck-charges-name
+  minSeverity: 0
+  maxSeverity: 8
