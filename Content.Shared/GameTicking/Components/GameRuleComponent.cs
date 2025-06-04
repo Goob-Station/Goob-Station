@@ -57,7 +57,7 @@ public sealed partial class GameRuleComponent : Component
     /// <summary>
     ///  Used by SecretPlus to rate which event should be fired.
     /// </summary>
-    [DataField(required: true)]
+    [DataField]
     public float ChaosScore = 100f;
 }
 
