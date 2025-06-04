@@ -99,13 +99,9 @@ public partial class XenobiologySystem
             return;
         }
 
-        if (!_inventorySystem.TryGetSlotEntity(args.User, "suitstorage", out var backSlotEntity))
-            return;
-
-        if (!TryComp<XenoVacuumTankComponent>(backSlotEntity, out var tankComp))
-            return;
-
-        if (tankComp.StorageTank.ContainedEntities.Count <= 0)
+        if (!_inventorySystem.TryGetSlotEntity(args.User, "suitstorage", out var backSlotEntity)
+            || !TryComp<XenoVacuumTankComponent>(backSlotEntity, out var tankComp)
+            || tankComp.StorageTank.ContainedEntities.Count <= 0)
             return;
 
         foreach (var removedEnt in _containerSystem.EmptyContainer(tankComp.StorageTank))
@@ -117,6 +113,8 @@ public partial class XenobiologySystem
                 _throw.TryThrow(removedEnt, thrown.ToCoordinates());
             else
                 _throw.TryThrow(removedEnt, args.ClickLocation);
+
+            _stun.TryParalyze(removedEnt, TimeSpan.FromSeconds(2), true);
         }
 
         _audio.PlayEntity(ent.Comp.ClearSound, ent, args.User, AudioParams.Default.WithVolume(-2f));
