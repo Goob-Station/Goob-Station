@@ -107,4 +107,4 @@ revolutionary-converter-speech-106 = Nanotrasen hoards wealth while we suffer! I
 revolutionary-converter-speech-107 = The future is not written by rulers, but by revolutionaries!
 revolutionary-converter-speech-108 = Let the red banner fly! Let the people rule! The time of oppression is over!
 revolutionary-converter-speech-109 = Comrades, today we reclaim not just our labour, but our dignity!
-revolutionary-converter-speech-110 = No longer shall we bow! No longer shall we beg! We shall rule together!
+revolutionary-converter-speech-110 = Skibidi sigma rizz rizz.

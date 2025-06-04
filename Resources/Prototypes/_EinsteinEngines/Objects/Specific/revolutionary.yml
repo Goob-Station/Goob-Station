@@ -19,7 +19,7 @@
       tags:
         - Book
     - type: UseDelay
-      delay: 0.5
+      delay: 2
     - type: Appearance
     - type: GuideHelp
       guides:
