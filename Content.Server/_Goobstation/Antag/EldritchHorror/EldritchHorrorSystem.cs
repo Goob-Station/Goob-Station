@@ -15,16 +15,24 @@ public sealed partial class EldritchHorrorSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<EldritchHorrorComponent, MapInitEvent>(OnInit);
-        SubscribeLocalEvent<EldritchHorrorComponent, HorrorSpawnProphetActionEvent>(OnRiseProphets);
+        SubscribeLocalEvent<EldritchHorrorComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<EldritchHorrorComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<EldritchHorrorComponent, HorrorSpawnProphetActionEvent>(OnRiseProphet);
     }
 
-    private void OnInit(EntityUid uid, EldritchHorrorComponent component, MapInitEvent args)
+    private void OnStartup(EntityUid uid, EldritchHorrorComponent component, ComponentStartup args)
     {
-        _actions.AddAction(uid, ref component.SpawnProphetsActionEntity, component.SpawnProphetsAction);
+        _actions.AddAction(uid, ref component.SpawnProphetActionEntity, component.SpawnProphetAction);
+    }
+    private void OnShutdown(EntityUid uid, EldritchHorrorComponent component, ComponentShutdown args)
+    {
+        if (component.SpawnProphetActionEntity != null)
+        {
+            _actions.RemoveAction(uid, component.SpawnProphetActionEntity);
+        }
     }
 
-    private void OnRiseProphets(EntityUid uid, EldritchHorrorComponent component, HorrorSpawnProphetActionEvent args)
+    private void OnRiseProphet(EntityUid uid, EldritchHorrorComponent component, HorrorSpawnProphetActionEvent args)
     {
         if (args.Handled)
             return;

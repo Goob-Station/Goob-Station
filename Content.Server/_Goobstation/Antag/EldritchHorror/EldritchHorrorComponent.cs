@@ -11,11 +11,11 @@ using Content.Shared._Goobstation.EldritchHorror.EldritchHorrorEvents;
 public sealed partial class EldritchHorrorComponent : Component
 {
 
-    [DataField]
-    public EntityUid? SpawnProphetsActionEntity;
+    [ViewVariables]
+    public EntityUid? SpawnProphetActionEntity;
 
     [DataField]
-    public EntProtoId SpawnProphetsAction = "ActionRiseProphets";
+    public EntProtoId SpawnProphetAction = "ActionRiseProphet";
 
     [DataField]
     public EntProtoId ProphetProtoId = "MobGhoulProphet";
