@@ -65,6 +65,17 @@
   id: BoxCardboard
   description: A cardboard box for storing things.
   components:
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/cardboardbox_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/cardboardbox_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Items/handling/cardboardbox_drop.ogg
+  # Goobstation edit end
   - type: Item
     size: Large
     shape:
