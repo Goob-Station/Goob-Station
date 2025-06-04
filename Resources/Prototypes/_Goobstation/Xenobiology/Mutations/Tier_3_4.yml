@@ -103,7 +103,7 @@
 - type: breed
   breedName: adamantine slime
   id: AdamantineMutation
-  producedExtract: AdmantineSlimeExtract
+  producedExtract: AdamantineSlimeExtract
   components:
   - type: Slime
     slimeColor: "#005c33"
