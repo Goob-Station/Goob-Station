@@ -95,7 +95,7 @@ public partial class XenobiologySystem
         if (!Resolve(uid, ref comp))
             return;
 
-        _metaData.SetEntityName(uid, comp.CurrentStage + " " + Name(uid));
+        // _metaData.SetEntityName(uid, comp.CurrentStage + " " + Name(uid)); disabled temporarily
     }
 
     #endregion

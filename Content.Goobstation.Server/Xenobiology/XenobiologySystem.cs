@@ -7,6 +7,7 @@
 
 using Content.Goobstation.Shared.Xenobiology.Components;
 using Content.Server.DoAfter;
+using Content.Server.Jittering;
 using Content.Server.Popups;
 using Content.Server.Stunnable;
 using Content.Shared.ActionBlocker;
@@ -45,6 +46,7 @@ public sealed partial class XenobiologySystem : EntitySystem
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
+    [Dependency] private readonly JitteringSystem _jitter = default!;
 
     private ISawmill _sawmill = default!;
 

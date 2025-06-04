@@ -6,6 +6,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Server.Xenobiology.HTN;
 using Content.Goobstation.Shared.Xenobiology;
 using Content.Goobstation.Shared.Xenobiology.Components;
 using Content.Shared._Shitmed.Targeting;
@@ -124,7 +125,8 @@ public partial class XenobiologySystem
             || slimeComp.LatchedTarget.HasValue
             || !HasComp<HumanoidAppearanceComponent>(target)
             || _mobState.IsDead(target)
-            || !_actionBlocker.CanInteract(uid, target))
+            || !_actionBlocker.CanInteract(uid, target)
+            || HasComp<BeingConsumedComponent>(target))
             return false;
 
         TryDoSlimeLatch(uid, target, slimeComp);
@@ -163,6 +165,7 @@ public partial class XenobiologySystem
             BreakOnMove = true,
         };
 
+        EnsureComp<BeingConsumedComponent>(target);
         _doAfter.TryStartDoAfter(doAfterArgs);
     }
 
@@ -179,6 +182,8 @@ public partial class XenobiologySystem
 
     private void DoSlimeLatch(EntityUid slime, EntityUid target, SlimeComponent slimeComp)
     {
+        RemComp<BeingConsumedComponent>(target);
+
         if (!_containerSystem.Insert(target, slimeComp.Stomach))
         {
             var failPopup = Loc.GetString("slime-action-latch-fail", ("slime", slime), ("target", target));

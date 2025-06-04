@@ -52,6 +52,9 @@ public partial class XenobiologySystem
 
         foreach (var ent in eligibleSlimes)
         {
+            if (_hunger.GetHunger(ent) > ent.Comp1.MitosisHunger - 25)
+                _jitter.DoJitter(ent, TimeSpan.FromSeconds(1), true);
+
             if (_hunger.GetHunger(ent) < ent.Comp1.MitosisHunger)
                 continue;
 
