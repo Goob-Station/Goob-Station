@@ -9,9 +9,15 @@
   - type: Sprite
     layers:
     - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
-      state: slime-core
+      state: core
       color: "#828282"
   - type: Appearance
+  - type: SolutionContainerManager
+    solutions:
+      extract:
+        maxVol: 50
+  - type: RefillableSolution
+    solution: extract
   - type: SlimeExtract
 
 - type: entity
@@ -23,9 +29,28 @@
   - type: Sprite
     layers:
     - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
-      state: slime-core
+      state: core
       color: "#828282"
-  - type: SlimeExtract
+  - type: Reactive
+    reactions:
+    - reagents: [ Water ]
+      methods: [ Touch, Ingestion, Injection ]
+      effects:
+      - !type:AdjustReagent
+        reagent: Epinephrine
+        amount: 1
+    - reagents: [ Plasma ]
+      methods: [ Touch, Ingestion, Injection ]
+      effects:
+      - !type:CreateEntityReactionEffect
+        entity: MobXenoSlime
+        number: 1
+    - reagents: [ Blood ]
+      methods: [ Touch, Ingestion, Injection ]
+      effects:
+      - !type:CreateEntityReactionEffect
+        entity: MonkeyCube
+        number: 3
 
 ## Tier 1
 - type: entity
@@ -37,7 +62,7 @@
   - type: Sprite
     layers:
     - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
-      state: slime-core
+      state: core
       color: "#ff9f1a"
   - type: SlimeExtract
 
@@ -50,7 +75,7 @@
   - type: Sprite
     layers:
     - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
-      state: slime-core
+      state: core
       color: "#BF77F6"
   - type: SlimeExtract
 
@@ -63,7 +88,7 @@
   - type: Sprite
     layers:
     - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
-      state: slime-core
+      state: core
       color: "#79F6FC"
   - type: SlimeExtract
 
@@ -76,7 +101,7 @@
   - type: Sprite
     layers:
     - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
-      state: slime-core
+      state: core
       color: "#595959"
   - type: SlimeExtract
 
@@ -91,7 +116,7 @@
   - type: Sprite
     layers:
     - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
-      state: slime-core
+      state: core
       color: "#ffff1a"
   - type: SlimeExtract
 
@@ -104,7 +129,7 @@
   - type: Sprite
     layers:
     - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
-      state: slime-core
+      state: core
       color: "#8e0ff0"
   - type: SlimeExtract
 
@@ -117,7 +142,7 @@
   - type: Sprite
     layers:
     - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
-      state: slime-core
+      state: core
       color: "#1e8cfa"
   - type: SlimeExtract
 
@@ -130,7 +155,7 @@
   - type: Sprite
     layers:
     - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
-      state: slime-core
+      state: core
       color: "#c4c4c4"
   - type: SlimeExtract
 
@@ -145,7 +170,7 @@
   - type: Sprite
     layers:
     - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
-      state: slime-core
+      state: core
       color: "#f0f8ff"
   - type: SlimeExtract
 
@@ -158,7 +183,7 @@
   - type: Sprite
     layers:
     - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
-      state: slime-core
+      state: core
       color: "#704214"
   - type: SlimeExtract
 
@@ -171,7 +196,7 @@
   - type: Sprite
     layers:
     - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
-      state: slime-core
+      state: core
       color: "#2A52BE"
   - type: SlimeExtract
 
@@ -184,7 +209,7 @@
   - type: Sprite
     layers:
     - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
-      state: slime-core
+      state: core
       color: "#dcaa4f"
   - type: SlimeExtract
 
@@ -199,7 +224,7 @@
   - type: Sprite
     layers:
     - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
-      state: slime-core
+      state: core
       color: "#ff3333"
   - type: SlimeExtract
 
@@ -212,7 +237,7 @@
   - type: Sprite
     layers:
     - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
-      state: slime-core
+      state: core
       color: "#4dff4d"
   - type: SlimeExtract
 
@@ -225,7 +250,7 @@
   - type: Sprite
     layers:
     - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
-      state: slime-core
+      state: core
       color: "#ff33cc"
   - type: SlimeExtract
 
@@ -238,7 +263,7 @@
   - type: Sprite
     layers:
     - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
-      state: slime-core
+      state: core
       color: "#e8b923"
   - type: SlimeExtract
 
@@ -253,7 +278,7 @@
   - type: Sprite
     layers:
     - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
-      state: slime-core
+      state: core
       color: "#383936"
   - type: SlimeExtract
 
@@ -266,7 +291,7 @@
   - type: Sprite
     layers:
     - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
-      state: slime-core
+      state: core
       color: "#ffb3ec"
   - type: SlimeExtract
 
@@ -279,7 +304,7 @@
   - type: Sprite
     layers:
     - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
-      state: slime-core
+      state: core
       color: "#000000"
   - type: SlimeExtract
 
@@ -292,6 +317,6 @@
   - type: Sprite
     layers:
     - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
-      state: slime-core
+      state: core
       color: "#005c33"
   - type: SlimeExtract

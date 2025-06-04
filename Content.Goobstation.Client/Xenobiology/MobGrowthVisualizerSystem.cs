@@ -20,11 +20,10 @@ public sealed class MobGrowthVisualizerSystem : VisualizerSystem<MobGrowthCompon
     //I have a feeling this may need some protective functions.
     protected override void OnAppearanceChange(EntityUid uid, MobGrowthComponent component, ref AppearanceChangeEvent args)
     {
-        if (args.Sprite == null)
+        if (args.Sprite == null
+            || !AppearanceSystem.TryGetData<string>(uid, GrowthStateVisuals.Stage, out var state, args.Component))
             return;
 
-        if (AppearanceSystem.TryGetData<string>(uid, GrowthStateVisuals.Stage, out var state, args.Component))
-            args.Sprite.LayerSetState(DamageStateVisualLayers.Base, state);
-
+        args.Sprite.LayerSetState(DamageStateVisualLayers.Base, state);
     }
 }

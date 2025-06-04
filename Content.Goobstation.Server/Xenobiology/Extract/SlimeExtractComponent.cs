@@ -3,6 +3,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Maths.FixedPoint;
+using Content.Goobstation.Shared.Xenobiology;
+using Content.Shared.Chemistry.Reagent;
+using Robust.Shared.Prototypes;
+
 namespace Content.Goobstation.Server.Xenobiology.Extract;
 
 /// <summary>
@@ -12,17 +17,8 @@ namespace Content.Goobstation.Server.Xenobiology.Extract;
 public sealed partial class SlimeExtractComponent : Component
 {
     /// <summary>
-    /// This is deprecated but I'm too lazy to remove it.
+    /// Has this extract been used already?
     /// </summary>
-    [DataField]
-    public SlimeExtractType ExtractType = SlimeExtractType.Grey;
-}
-
-public enum SlimeExtractType : byte
-{
-    Grey,
-    Orange,
-    Purple,
-    Blue,
-    Metal,
+    [ViewVariables(VVAccess.ReadWrite)]
+    public bool IsUsed;
 }

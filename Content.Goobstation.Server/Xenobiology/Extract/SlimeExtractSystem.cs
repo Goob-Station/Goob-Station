@@ -12,4 +12,5 @@ public sealed partial class SlimeExtractSystem : EntitySystem
     {
         base.Initialize();
     }
+
 }

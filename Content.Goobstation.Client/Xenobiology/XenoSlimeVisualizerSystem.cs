@@ -16,15 +16,11 @@ public sealed class XenoSlimeVisualizerSystem : VisualizerSystem<SlimeComponent>
 {
     protected override void OnAppearanceChange(EntityUid uid, SlimeComponent component, ref AppearanceChangeEvent args)
     {
-        if (args.Sprite == null)
+        if (args.Sprite == null
+            || !AppearanceSystem.TryGetData<Color>(uid, XenoSlimeVisuals.Color, out var color, args.Component))
             return;
 
-        if (AppearanceSystem.TryGetData<Color>(uid, XenoSlimeVisuals.Color, out var color, args.Component))
-        {
-            foreach (var layer in args.Sprite.AllLayers)
-            {
-                layer.Color = color.WithAlpha(layer.Color.A);
-            }
-        }
+        foreach (var layer in args.Sprite.AllLayers)
+            layer.Color = color.WithAlpha(layer.Color.A);
     }
 }
