@@ -23,8 +23,7 @@ public sealed class MobGrowthVisualizerSystem : VisualizerSystem<MobGrowthCompon
             return;
 
         if (AppearanceSystem.TryGetData<string>(uid, GrowthStateVisuals.Stage, out var state, args.Component))
-        {
             args.Sprite.LayerSetState(DamageStateVisualLayers.Base, state);
-        }
+
     }
 }

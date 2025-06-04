@@ -7,8 +7,10 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extracts.rsi
-    state: grey
+    layers:
+    - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+      state: slime-core
+      color: "#828282"
   - type: Appearance
   - type: SlimeExtract
 
@@ -19,7 +21,10 @@
   description:
   components:
   - type: Sprite
-    state: grey
+    layers:
+    - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+      state: slime-core
+      color: "#828282"
   - type: SlimeExtract
 
 ## Tier 1
@@ -30,7 +35,10 @@
   description:
   components:
   - type: Sprite
-    state: orange
+    layers:
+    - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+      state: slime-core
+      color: "#ff9f1a"
   - type: SlimeExtract
 
 - type: entity
@@ -40,7 +48,10 @@
   description:
   components:
   - type: Sprite
-    state: purple
+    layers:
+    - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+      state: slime-core
+      color: "#BF77F6"
   - type: SlimeExtract
 
 - type: entity
@@ -50,7 +61,10 @@
   description:
   components:
   - type: Sprite
-    state: blue
+    layers:
+    - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+      state: slime-core
+      color: "#79F6FC"
   - type: SlimeExtract
 
 - type: entity
@@ -60,7 +74,10 @@
   description:
   components:
   - type: Sprite
-    state: metal
+    layers:
+    - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+      state: slime-core
+      color: "#595959"
   - type: SlimeExtract
 
 ## Tier 2
@@ -72,7 +89,10 @@
   description:
   components:
   - type: Sprite
-    state: yellow
+    layers:
+    - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+      state: slime-core
+      color: "#ffff1a"
   - type: SlimeExtract
 
 - type: entity
@@ -82,7 +102,10 @@
   description:
   components:
   - type: Sprite
-    state: darkpurple
+    layers:
+    - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+      state: slime-core
+      color: "#8e0ff0"
   - type: SlimeExtract
 
 - type: entity
@@ -92,7 +115,10 @@
   description:
   components:
   - type: Sprite
-    state: darkblue
+    layers:
+    - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+      state: slime-core
+      color: "#1e8cfa"
   - type: SlimeExtract
 
 - type: entity
@@ -102,7 +128,10 @@
   description:
   components:
   - type: Sprite
-    state: silver
+    layers:
+    - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+      state: slime-core
+      color: "#c4c4c4"
   - type: SlimeExtract
 
 # Tier 2.5
@@ -114,7 +143,10 @@
   description:
   components:
   - type: Sprite
-    state: bluespace
+    layers:
+    - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+      state: slime-core
+      color: "#f0f8ff"
   - type: SlimeExtract
 
 - type: entity
@@ -124,7 +156,10 @@
   description:
   components:
   - type: Sprite
-    state: sepia
+    layers:
+    - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+      state: slime-core
+      color: "#704214"
   - type: SlimeExtract
 
 - type: entity
@@ -134,7 +169,10 @@
   description:
   components:
   - type: Sprite
-    state: cerulean
+    layers:
+    - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+      state: slime-core
+      color: "#2A52BE"
   - type: SlimeExtract
 
 - type: entity
@@ -144,7 +182,10 @@
   description:
   components:
   - type: Sprite
-    state: pyrite
+    layers:
+    - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+      state: slime-core
+      color: "#dcaa4f"
   - type: SlimeExtract
 
 # Tier 3
@@ -156,7 +197,10 @@
   description:
   components:
   - type: Sprite
-    state: red
+    layers:
+    - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+      state: slime-core
+      color: "#ff3333"
   - type: SlimeExtract
 
 - type: entity
@@ -166,17 +210,10 @@
   description:
   components:
   - type: Sprite
-    state: green
-  - type: SlimeExtract
-
-- type: entity
-  id: SepiaSlimeExtract
-  parent: BaseSlimeExtract
-  name: sepia slime extract
-  description:
-  components:
-  - type: Sprite
-    state: sepia
+    layers:
+    - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+      state: slime-core
+      color: "#4dff4d"
   - type: SlimeExtract
 
 - type: entity
@@ -186,7 +223,10 @@
   description:
   components:
   - type: Sprite
-    state: pink
+    layers:
+    - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+      state: slime-core
+      color: "#ff33cc"
   - type: SlimeExtract
 
 - type: entity
@@ -196,7 +236,10 @@
   description:
   components:
   - type: Sprite
-    state: gold
+    layers:
+    - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+      state: slime-core
+      color: "#e8b923"
   - type: SlimeExtract
 
 # Tier 4
@@ -208,7 +251,10 @@
   description:
   components:
   - type: Sprite
-    state: oil
+    layers:
+    - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+      state: slime-core
+      color: "#383936"
   - type: SlimeExtract
 
 - type: entity
@@ -218,7 +264,10 @@
   description:
   components:
   - type: Sprite
-    state: lightpink
+    layers:
+    - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+      state: slime-core
+      color: "#ffb3ec"
   - type: SlimeExtract
 
 - type: entity
@@ -228,7 +277,10 @@
   description:
   components:
   - type: Sprite
-    state: black
+    layers:
+    - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+      state: slime-core
+      color: "#000000"
   - type: SlimeExtract
 
 - type: entity
@@ -238,5 +290,8 @@
   description:
   components:
   - type: Sprite
-    state: adamantine
+    layers:
+    - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+      state: slime-core
+      color: "#005c33"
   - type: SlimeExtract
