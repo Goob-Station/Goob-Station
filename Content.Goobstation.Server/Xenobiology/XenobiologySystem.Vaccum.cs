@@ -141,8 +141,7 @@ public partial class XenobiologySystem
             return false;
         }
 
-        if (tankComp.StorageTank.ContainedEntities.Count > 0
-            && !HasComp<EmaggedComponent>(vacuum))
+        if (tankComp.StorageTank.ContainedEntities.Count > tankComp.MaxEntities)
         {
             var tankFullPopup = Loc.GetString("xeno-vacuum-suction-fail-tank-full-popup");
             _popup.PopupEntity(tankFullPopup, vacuum, user);

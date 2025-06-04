@@ -11,6 +11,7 @@ using Content.Server.Power.Components;
 using Content.Shared.Audio;
 using Content.Shared.Climbing.Events;
 using Content.Shared.Construction.Components;
+using Content.Shared.Coordinates;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Jittering;
@@ -50,6 +51,7 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
         SubscribeLocalEvent<SlimeGrinderComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<SlimeGrinderComponent, BeforeUnanchoredEvent>(OnUnanchored);
         SubscribeLocalEvent<SlimeGrinderComponent, AfterInteractUsingEvent>(OnAfterInteractUsing);
+        SubscribeLocalEvent<SlimeGrinderComponent, EntInsertedIntoContainerMessage>(OnInserted);
         SubscribeLocalEvent<SlimeGrinderComponent, ClimbedOnEvent>(OnClimbedOn);
         SubscribeLocalEvent<SlimeGrinderComponent, PowerChangedEvent>(OnPowerChanged);
         SubscribeLocalEvent<SlimeGrinderComponent, ReclaimerDoAfterEvent>(OnDoAfter);
@@ -145,27 +147,37 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
         });
     }
 
-    private void OnClimbedOn(Entity<SlimeGrinderComponent> reclaimer, ref ClimbedOnEvent args)
+    private void OnClimbedOn(Entity<SlimeGrinderComponent> grinder, ref ClimbedOnEvent args)
     {
-        if (!CanGrind(reclaimer, args.Climber))
+        if (!CanGrind(grinder, args.Climber))
         {
-            var direction = new Vector2(_robustRandom.Next(-2, 2), _robustRandom.Next(-2, 2));
-            _throwing.TryThrow(args.Climber, direction, 0.5f);
+            _throwing.TryThrow(args.Climber, _robustRandom.NextVector2() * 5);
             return;
         }
 
-        StartProcessing(args.Climber, reclaimer);
+        _container.Insert(args.Climber, grinder.Comp.GrindedContainer);
     }
 
-    private void OnDoAfter(Entity<SlimeGrinderComponent> reclaimer, ref ReclaimerDoAfterEvent args)
+    private void OnDoAfter(Entity<SlimeGrinderComponent> grinder, ref ReclaimerDoAfterEvent args)
     {
         if (args.Handled
             || args.Cancelled
             || args.Args.Used is not { } toProcess)
             return;
 
-        StartProcessing(toProcess, reclaimer);
+        if (!CanGrind(grinder, toProcess))
+        {
+            _throwing.TryThrow(toProcess, _robustRandom.NextVector2() * 5);
+            return;
+        }
+
+        _container.Insert(toProcess, grinder.Comp.GrindedContainer);
         args.Handled = true;
+    }
+
+    private void OnInserted(Entity<SlimeGrinderComponent> grinder, ref EntInsertedIntoContainerMessage args)
+    {
+        StartProcessing(args.Entity, grinder);
     }
 
     private void StartProcessing(EntityUid toProcess, Entity<SlimeGrinderComponent> grinder, PhysicsComponent? physics = null, SlimeComponent? slime = null)
@@ -177,8 +189,12 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
         grinder.Comp.ProcessingTimer = physics.FixturesMass * grinder.Comp.ProcessingTimePerUnitMass;
         grinder.Comp.EntityGrinded = toProcess;
 
-        _container.EmptyContainer(slime.Stomach);
-        _container.Insert(toProcess, grinder.Comp.GrindedContainer);
+        foreach (var ent in _container.EmptyContainer(slime.Stomach)) // this shouldn't ever happen, but just incase
+        {
+            _container.TryRemoveFromContainer(ent, true);
+            _throwing.TryThrow(ent, _robustRandom.NextVector2() * 5);
+        }
+
     }
 
     private bool CanGrind(Entity<SlimeGrinderComponent> grinder, EntityUid dragged)
