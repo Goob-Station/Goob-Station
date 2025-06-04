@@ -208,7 +208,7 @@ public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
         if (scheduler.NoRoundstartAntags)
             return;
 
-        // Spawn antags based on SecretPlusComponentvar weightList = _prototypeManager.Index(scheduler.RoundStartAntagsWeightTable);
+        // Spawn antags based on SecretPlusComponent
         var primaryWeightList = _prototypeManager.Index(scheduler.PrimaryAntagsWeightTable);
         var weightList = _prototypeManager.Index(scheduler.RoundStartAntagsWeightTable);
 
