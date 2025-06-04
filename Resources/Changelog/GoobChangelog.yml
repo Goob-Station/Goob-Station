@@ -10625,3 +10625,9 @@ Entries:
       message: Warden's headgears now have armor values, you know what that was.
   id: 1169
   time: '2025-06-04T12:35:34.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: Added several new furniture to decorate the station with!
+  id: 1170
+  time: '2025-06-04T13:01:23.0000000+00:00'
