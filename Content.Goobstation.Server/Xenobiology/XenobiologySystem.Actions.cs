@@ -89,7 +89,8 @@ public partial class XenobiologySystem
 
     private void OnConsumedEntityDied(Entity<SlimeDamageOvertimeComponent> ent, ref MobStateChangedEvent args)
     {
-        if (_containerSystem.IsEntityOrParentInContainer(ent) && args.NewMobState == MobState.Dead)
+        if (_containerSystem.IsEntityOrParentInContainer(ent)
+            && args.NewMobState == MobState.Dead)
             _containerSystem.TryRemoveFromContainer(ent, true);
     }
 
