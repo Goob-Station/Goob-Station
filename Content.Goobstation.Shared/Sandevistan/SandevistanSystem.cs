@@ -85,12 +85,12 @@ public sealed class SandevistanSystem : EntitySystem
 
             var stateActions = new Dictionary<int, Action>
             {
-                { 2, () => _jittering.DoJitter(uid, comp.StatusEffectTime, true)},
-                { 3, () => _stamina.TakeStaminaDamage(uid, comp.StaminaDamage)},
-                { 4, () => _damageable.TryChangeDamage(uid, comp.Damage)},
-                { 5, () => _stun.TryKnockdown(uid, comp.StatusEffectTime, true)},
-                { 6, () => Disable(uid, comp)},
-                { 7, () => _mobState.ChangeMobState(uid, MobState.Dead)},
+                { 1, () => _jittering.DoJitter(uid, comp.StatusEffectTime, true)},
+                { 2, () => _stamina.TakeStaminaDamage(uid, comp.StaminaDamage)},
+                { 3, () => _damageable.TryChangeDamage(uid, comp.Damage)},
+                { 4, () => _stun.TryKnockdown(uid, comp.StatusEffectTime, true)},
+                { 5, () => Disable(uid, comp)},
+                { 6, () => _mobState.ChangeMobState(uid, MobState.Dead)},
             };
 
             var filteredStates = new List<int>();
@@ -106,16 +106,16 @@ public sealed class SandevistanSystem : EntitySystem
             if (comp.NextPopupTime > _timing.CurTime)
                 return;
 
-            var popup = 0;
+            var popup = -1;
             foreach (var state in filteredStates)
             {
-                if (state is < 1 or > 4) // Goida
+                if (state > 3) // Goida
                     continue;
                 if (state > popup)
                     popup = state;
             }
 
-            if (popup == 0)
+            if (popup == -1)
                 return;
 
             _popup.PopupClient(Loc.GetString("sandevistan-overload-" + popup), uid, uid);

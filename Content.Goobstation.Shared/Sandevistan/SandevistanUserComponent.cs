@@ -57,7 +57,6 @@ public sealed partial class SandevistanUserComponent : Component
     [DataField]
     public SortedDictionary<SandevistanState, FixedPoint2> Thresholds = new()
     {
-        { SandevistanState.Normal, 0 },
         { SandevistanState.Warning, 15 },
         { SandevistanState.Shaking, 30 },
         { SandevistanState.Damage, 45 },

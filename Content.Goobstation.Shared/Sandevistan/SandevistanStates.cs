@@ -10,12 +10,11 @@ namespace Content.Goobstation.Shared.Sandevistan;
 [Serializable, NetSerializable]
 public enum SandevistanState : byte
 {
-    Normal = 0,
-    Warning = 1,
-    Shaking = 2,
-    Stamina = 3,
-    Damage = 4,
-    Knockdown = 5,
-    Disable = 6,
-    Death = 7, // Not used but I'll leave this for yaml warriors
+    Warning = 0,
+    Shaking = 1,
+    Stamina = 2,
+    Damage = 3,
+    Knockdown = 4,
+    Disable = 5, // Sound is not looped to if you want to make Adam Smasher just keep this as the only threshold at like 60-70 and give him high LoadPerInactiveSecond. Or just set LoadPerActiveSecond to 0 is sound is not a problem.
+    Death = 6,
 }
