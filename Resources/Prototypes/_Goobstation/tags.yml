@@ -203,6 +203,9 @@
   id: FelinidEmotes
 
 - type: Tag
+  id: FitsInCharger
+
+- type: Tag
   id: FlashIgnoreResistances
 
 - type: Tag
