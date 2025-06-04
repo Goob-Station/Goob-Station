@@ -164,6 +164,7 @@
     whitelist:
       types:
       - Shard
+  - type: Rootable
 
 - type: entity
   parent: BaseSpeciesDummy
