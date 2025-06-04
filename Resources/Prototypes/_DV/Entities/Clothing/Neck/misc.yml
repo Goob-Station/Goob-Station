@@ -8,8 +8,3 @@
     sprite: _DV/Clothing/Neck/cwpsec.rsi
   - type: Clothing
     sprite: _DV/Clothing/Neck/cwpsec.rsi
-  - type: Item
-    size: Normal
-  - type: TemperatureProtection
-    heatingCoefficient: 1.1
-    coolingCoefficient: 0.1
