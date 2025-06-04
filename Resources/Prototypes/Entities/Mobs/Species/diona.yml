@@ -164,11 +164,8 @@
     whitelist:
       types:
       - Shard
-  - type: InnateSpeedModifier
-    sprintModifier: 0.75
-    walkModifier: 0.75
   - type: SpeedModifierImmunity
-  - type: NoSlip
+  - type: Rootable
 
 - type: entity
   parent: BaseSpeciesDummy

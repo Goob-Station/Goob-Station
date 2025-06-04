@@ -135,7 +135,7 @@ public sealed class SlipperySystem : EntitySystem
 
         if (!force)
         {
-            var attemptEv = new SlipAttemptEvent();
+            var attemptEv = new SlipAttemptEvent(uid);
             RaiseLocalEvent(other, attemptEv);
             if (attemptEv.SlowOverSlippery)
                 _speedModifier.AddModifiedEntity(other);
@@ -200,7 +200,14 @@ public sealed class SlipAttemptEvent : EntityEventArgs, IInventoryRelayEvent
 
     public bool SlowOverSlippery;
 
+    public EntityUid? SlipCausingEntity;
+
     public SlotFlags TargetSlots { get; } = SlotFlags.FEET;
+
+    public SlipAttemptEvent(EntityUid? slipCausingEntity)
+    {
+        SlipCausingEntity = slipCausingEntity;
+    }
 }
 
 /// <summary>

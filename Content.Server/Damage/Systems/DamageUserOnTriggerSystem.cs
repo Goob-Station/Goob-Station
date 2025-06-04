@@ -10,6 +10,7 @@
 using Content.Server.Damage.Components;
 using Content.Server.Explosion.EntitySystems;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 
 namespace Content.Server.Damage.Systems;
 

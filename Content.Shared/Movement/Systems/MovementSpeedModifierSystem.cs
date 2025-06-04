@@ -275,9 +275,9 @@ namespace Content.Shared.Movement.Systems
         }
         // </Goobstation Change>
 
-        public void ModifySpeed(float mod)
+        public void ModifySpeed(float mod, bool bypassImmunity = false)
         {
-            ModifySpeed(mod, mod);
+            ModifySpeed(mod, mod, bypassImmunity);
         }
     }
 
