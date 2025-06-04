@@ -21,6 +21,7 @@ public sealed partial class SlimeComponent : Component
     /// <summary>
     /// Default slime.
     /// </summary>
+    [DataField]
     public EntProtoId DefaultSlimeProto = "MobXenoSlime";
 
     /// <summary>
