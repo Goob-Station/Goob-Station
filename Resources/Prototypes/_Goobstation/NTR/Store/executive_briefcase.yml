@@ -80,14 +80,14 @@
   priority: 0
 
 - type: storeCategory
-  id: NTRresponse
-  name: ntr-executive-tier-2-name
-  priority: 2 # making it all the way down
-
-- type: storeCategory
   id: NTRpersonal
   name: ntr-executive-tier-3-name
   priority: 1
+
+- type: storeCategory
+  id: NTRresponse
+  name: ntr-executive-tier-2-name
+  priority: 2
 
 - type: storeCategory
   id: NTRBoards
@@ -97,7 +97,7 @@
 - type: storeCategory
   id: NTREvil
   name: Evil
-  priority: 5
+  priority: 4
   evil: true # lol
 
 - type: currency

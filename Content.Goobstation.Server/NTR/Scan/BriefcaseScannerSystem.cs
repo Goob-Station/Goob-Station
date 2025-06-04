@@ -10,6 +10,7 @@ using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.NTR.Scan;
 using Content.Server.Chat.Systems;
 using Content.Server.Store.Systems;
+using Content.Shared.Chat;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Mind;

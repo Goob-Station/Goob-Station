@@ -1,12 +1,12 @@
 - type: documentType
   id: SecurityDocument
-  startingText: security-starting-text
-  template: security-document-text
+  startingText: ntr-document-security-starting-text
+  template: ntr-document-security-document-text
   textKeys:
-  - funny-sec1
-  - funny-sec2
-  - funny-sec3
-  - funny-sec4
+  - ntr-document-funny-sec1
+  - ntr-document-funny-sec2
+  - ntr-document-funny-sec3
+  - ntr-document-funny-sec4
   textCounts:
   - 15
   - 4
@@ -15,12 +15,12 @@
 
 - type: documentType
   id: CargoDocument
-  startingText: cargo-starting-text
-  template: cargo-document-text
+  startingText: ntr-document-cargo-starting-text
+  template: ntr-document-cargo-document-text
   textKeys:
-  - funny-cargo1
-  - funny-cargo2
-  - funny-cargo3
+  - ntr-document-funny-cargo1
+  - ntr-document-funny-cargo2
+  - ntr-document-funny-cargo3
   textCounts:
   - 5
   - 8
@@ -28,13 +28,13 @@
 
 - type: documentType
   id: MedicalDocument
-  startingText: medical-starting-text
-  template: medical-document-text
+  startingText: ntr-document-medical-starting-text
+  template: ntr-document-medical-document-text
   textKeys:
-  - funny-med1
-  - funny-med2
-  - funny-med3
-  - funny-med4
+  - ntr-document-funny-med1
+  - ntr-document-funny-med2
+  - ntr-document-funny-med3
+  - ntr-document-funny-med4
   textCounts:
   - 2
   - 8
@@ -43,13 +43,13 @@
 
 - type: documentType
   id: ServiceDocument
-  startingText: service-starting-text
-  template: service-document-text
+  startingText: ntr-document-service-starting-text
+  template: ntr-document-service-document-text
   textKeys:
-  - funny-service1
-  - funny-service2
-  - funny-service3
-  - funny-service4
+  - ntr-document-funny-service1
+  - ntr-document-funny-service2
+  - ntr-document-funny-service3
+  - ntr-document-funny-service4
   textCounts:
   - 15
   - 15
@@ -58,13 +58,13 @@
 
 - type: documentType
   id: ScienceDocument
-  startingText: science-starting-text
-  template: science-document-text
+  startingText: ntr-document-science-starting-text
+  template: ntr-document-science-document-text
   textKeys:
-  - funny-sci1
-  - funny-sci2
-  - funny-sci3
-  - funny-sci4
+  - ntr-document-funny-sci1
+  - ntr-document-funny-sci2
+  - ntr-document-funny-sci3
+  - ntr-document-funny-sci4
   textCounts:
   - 8
   - 19
@@ -73,13 +73,13 @@
 
 - type: documentType
   id: EngineeringDocument
-  startingText: engineering-starting-text
-  template: engineering-document-text
+  startingText: ntr-document-engineering-starting-text
+  template: ntr-document-engineering-document-text
   textKeys:
-  - funny-engi1
-  - funny-engi2
-  - funny-engi3
-  - funny-engi4
+  - ntr-document-funny-engi1
+  - ntr-document-funny-engi2
+  - ntr-document-funny-engi3
+  - ntr-document-funny-engi4
   textCounts:
   - 5
   - 10

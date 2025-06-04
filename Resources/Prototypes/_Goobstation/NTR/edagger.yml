@@ -3,7 +3,7 @@
   parent: [ BaseMeleeWeaponEnergy, BaseCentcommContraband ]
   id: PhoronDagger
   suffix: DO NOT MAP
-  description: A fancy dagger to make grilled cheese and stabbing tiders.
+  description: A sleek dagger for grilling cheese and slaying tiders.
   components:
     - type: ItemToggle
       soundFailToActivate:

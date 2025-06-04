@@ -1,75 +1,75 @@
 # templates
 # service
-service-starting-text = [color=#009100]█▄ █ ▀█▀    [head=3]NanoTrasen Document[/head]
+ntr-document-service-starting-text = [color=#009100]█▄ █ ▀█▀    [head=3]NanoTrasen Document[/head]
     █ ▀█     █        To: Service department
                            From: CentComm
                            Issued: {$date}
     ──────────────────────────────────────────[/color]
 
 # security
-security-starting-text = [head=3]NanoTrasen Document[/head]                               [color=#990909]█▄ █ ▀█▀
+ntr-document-security-starting-text = [head=3]NanoTrasen Document[/head]                               [color=#990909]█▄ █ ▀█▀
     To: Security department                                       █ ▀█     █
     From: CentComm
     Issued: {$date}
     ──────────────────────────────────────────[/color]
 
 # cargo
-cargo-starting-text = [head=3]  NanoTrasen[/head]        [color=#d48311]█▄ █ ▀█▀ [/color][bold]      To: Cargo department[/bold][head=3]
+ntr-document-cargo-starting-text = [head=3]  NanoTrasen[/head]        [color=#d48311]█▄ █ ▀█▀ [/color][bold]      To: Cargo department[/bold][head=3]
        Document[/head]           [color=#d48311]█ ▀█     █       [/color] [bold]   From: CentComm[/bold]
     ──────────────────────────────────────────
                                         Issued: {$date}
 
 # medical
-medical-starting-text = [color=#118fd4]░             █▄ █ ▀█▀    [head=3]NanoTrasen Document[/head]                 ░
+ntr-document-medical-starting-text = [color=#118fd4]░             █▄ █ ▀█▀    [head=3]NanoTrasen Document[/head]                 ░
     █             █ ▀█     █        To: Medical department                         █
     ░                                    From: CentComm                                     ░
                                          Issued: {$date}
     ──────────────────────────────────────────[/color]
 
 # engineering
-engineering-starting-text = [color=#a15000]█▄ █ ▀█▀    [head=3]NanoTrasen Document[/head]
+ntr-document-engineering-starting-text = [color=#a15000]█▄ █ ▀█▀    [head=3]NanoTrasen Document[/head]
     █ ▀█     █        To: Engineering department
                            From: CentComm
                            Issued: {$date}
     ──────────────────────────────────────────[/color]
 
 # science
-science-starting-text = [color=#94196f]░             █▄ █ ▀█▀    [head=3]NanoTrasen Document[/head]                 ░
+ntr-document-science-starting-text = [color=#94196f]░             █▄ █ ▀█▀    [head=3]NanoTrasen Document[/head]                 ░
     █             █ ▀█     █        To: Science department                         █
     ░                                    From: CentComm                                     ░
                                          Issued: {$date}
     ──────────────────────────────────────────[/color]
-service-document-text =
+ntr-document-service-document-text =
     {$start}
     Corporate wants you to know that you are not {$text1} {$text2}
     Corporate would be pleased if you  {$text3}
     Stamps below confirm that {$text4}
 
-security-document-text =
+ntr-document-security-document-text =
     {$start}
     Corporate wants you to check some stuff before stamping this document, make sure that {$text1} {$text2}
     {$text3}
     {$text4}
 
-cargo-document-text =
+ntr-document-cargo-document-text =
     {$start}
     {$text1}
     {$text2}
     By stamping here, you {$text3}
 
-medical-document-text =
+ntr-document-medical-document-text =
     {$start}
     {$text1} {$text2}
     {$text3}
     By stamping here, you {$text4}
 
-engineering-document-text =
+ntr-document-engineering-document-text =
     {$start}
     {$text1} {$text2}
     {$text3}
     By stamping here, you {$text4}
 
-science-document-text =
+ntr-document-science-document-text =
     {$start}
     We have been closely monitoring the Research Department. {$text1} {$text2}
     due to everything above, we want you to ensure {$text3}
