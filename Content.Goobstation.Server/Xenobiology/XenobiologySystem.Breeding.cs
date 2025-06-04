@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -21,10 +22,8 @@ public partial class XenobiologySystem
     private readonly TimeSpan _updateInterval = TimeSpan.FromSeconds(1);
     private TimeSpan _nextUpdateTime;
 
-    private void InitializeBreeding()
-    {
+    private void InitializeBreeding() =>
         _nextUpdateTime = _gameTiming.CurTime + _updateInterval;
-    }
 
     // Mitosis doesn't need to be checked every frame.
     private void UpdateBreeding()
@@ -44,10 +43,8 @@ public partial class XenobiologySystem
         var query = EntityQueryEnumerator<SlimeComponent, MobGrowthComponent, HungerComponent>();
         while (query.MoveNext(out var uid, out var slime, out var growthComp, out var hungerComp))
         {
-            if (_mobState.IsDead(uid))
-                continue;
-
-            if (growthComp.CurrentStage == growthComp.Stages[0])
+            if (_mobState.IsDead(uid)
+                || growthComp.CurrentStage == growthComp.Stages[0])
                 continue;
 
             eligibleSlimes.Add((uid, slime, growthComp, hungerComp));
@@ -78,6 +75,10 @@ public partial class XenobiologySystem
         var newEntityUid = SpawnNextToOrDrop(newEntityProto, parent, null, newBreed.Components);
         if (!TryComp<SlimeComponent>(newEntityUid, out var slime))
             return;
+
+        if (slime.ShouldHaveShader
+            && slime.Shader != string.Empty)
+            _appearance.SetData(newEntityUid, XenoSlimeVisuals.Shader, slime.Shader);
 
         _appearance.SetData(newEntityUid, XenoSlimeVisuals.Color, slime.SlimeColor);
         _metaData.SetEntityName(newEntityUid, newBreed.BreedName);

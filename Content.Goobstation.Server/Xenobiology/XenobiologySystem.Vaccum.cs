@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -37,10 +38,8 @@ public partial class XenobiologySystem
         SubscribeLocalEvent<XenoVacuumComponent, UseInHandEvent>(OnXenoVacuumClear);
     }
 
-    private void OnTankInit(Entity<XenoVacuumTankComponent> tank, ref MapInitEvent args)
-    {
+    private void OnTankInit(Entity<XenoVacuumTankComponent> tank, ref MapInitEvent args) =>
         tank.Comp.StorageTank = _containerSystem.EnsureContainer<Container>(tank, "StorageTank");
-    }
 
     private void OnTankExamined(Entity<XenoVacuumTankComponent> tank, ref ExaminedEvent args)
     {
@@ -129,7 +128,8 @@ public partial class XenobiologySystem
             return;
         }
 
-        if (!HasComp<SlimeComponent>(target) && !HasComp<EmaggedComponent>(vacuum))
+        if (!HasComp<SlimeComponent>(target)
+            && !HasComp<EmaggedComponent>(vacuum))
         {
             var invalidEntityPopup = Loc.GetString("xeno-vacuum-suction-fail-invalid-entity-popup", ("ent", target));
             _popup.PopupEntity(invalidEntityPopup, vacuum, user);
@@ -137,7 +137,8 @@ public partial class XenobiologySystem
             return;
         }
 
-        if (tankComp.StorageTank.ContainedEntities.Count > 0 && !HasComp<EmaggedComponent>(vacuum))
+        if (tankComp.StorageTank.ContainedEntities.Count > 0
+            && !HasComp<EmaggedComponent>(vacuum))
         {
             var tankFullPopup = Loc.GetString("xeno-vacuum-suction-fail-tank-full-popup");
             _popup.PopupEntity(tankFullPopup, vacuum, user);

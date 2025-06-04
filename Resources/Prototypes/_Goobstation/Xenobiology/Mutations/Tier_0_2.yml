@@ -73,6 +73,7 @@
   - type: Slime
     slimeColor: "#595959"
     shouldHaveShader: true
+    shader: XenoMetallic
     breed: MetalMutation
     maxOffspring: 4
     mutationChance: 0.45
@@ -137,6 +138,7 @@
   - type: Slime
     slimeColor: "#c4c4c4"
     shouldHaveShader: true
+    shader: XenoMetallic
     breed: SilverMutation
     maxOffspring: 4
     mutationChance: 0.45
@@ -155,6 +157,7 @@
   - type: Slime
     slimeColor: "#f0f8ff"
     shouldHaveShader: true
+    shader: Enchant #temp
     breed: BluespaceMutation
     maxOffspring: 4
     mutationChance: 0.45
@@ -168,6 +171,8 @@
   components:
   - type: Slime
     slimeColor: "#704214"
+    shouldHaveShader: true
+    shader: XenoSepia
     breed: SepiaMutation
     maxOffspring: 4
     mutationChance: 0.45
@@ -195,6 +200,7 @@
   - type: Slime
     slimeColor: "#dcaa4f"
     shouldHaveShader: true
+    shader: XenoMetallic
     breed: PyriteMutation
     maxOffspring: 4
     mutationChance: 0.45

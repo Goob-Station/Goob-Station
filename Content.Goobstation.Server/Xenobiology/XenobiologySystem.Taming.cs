@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -15,12 +16,8 @@ namespace Content.Goobstation.Server.Xenobiology;
 /// </summary>
 public partial class XenobiologySystem
 {
-    private readonly EntProtoId _tameEffects = "EffectHearts"; // get this out of here
-
-    private void InitializeTaming()
-    {
+    private void InitializeTaming() =>
         SubscribeLocalEvent<SlimeComponent, InteractionSuccessEvent>(OnTame);
-    }
 
     private void OnTame(Entity<SlimeComponent> ent, ref InteractionSuccessEvent args)
     {
@@ -30,7 +27,7 @@ public partial class XenobiologySystem
         if (comp.Tamer.HasValue)
             return;
 
-        Spawn(_tameEffects, coords);
+        Spawn(ent.Comp.TameEffect, coords);
         comp.Tamer = user;
         Dirty(ent);
     }

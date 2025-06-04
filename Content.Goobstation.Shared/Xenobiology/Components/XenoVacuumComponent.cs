@@ -20,7 +20,7 @@ public sealed partial class XenoVacuumComponent : Component
     /// <summary>
     /// The EntityUid of the tank attached to this nozzle.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
     public EntityUid? LinkedStorageTank;
 
     /// <summary>

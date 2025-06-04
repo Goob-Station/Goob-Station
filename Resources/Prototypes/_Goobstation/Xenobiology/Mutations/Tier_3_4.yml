@@ -49,6 +49,7 @@
   - type: Slime
     slimeColor: "#e8b923"
     shouldHaveShader: true
+    shader: XenoMetallic
     breed: GoldMutation
     maxOffspring: 4
     mutationChance: 0.45
@@ -66,6 +67,7 @@
   - type: Slime
     slimeColor: "#383936"
     shouldHaveShader: true
+    shader: XenoMetallic
     breed: OilMutation
     maxOffspring: 4
     mutationChance: 0.45
@@ -101,11 +103,12 @@
 - type: breed
   breedName: adamantine slime
   id: AdamantineMutation
-  producedExtract: AdmantineSlimeExtract
+  producedExtract: AdamantineSlimeExtract
   components:
   - type: Slime
     slimeColor: "#005c33"
     shouldHaveShader: true
+    shader: XenoMetallic
     breed: AdamantineMutation
     maxOffspring: 4
     mutationChance: 0.45

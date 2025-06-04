@@ -1,5 +1,7 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -105,7 +107,9 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
                 EnsureComp<ActiveSlimeGrinderComponent>(uid);
         }
         else
+        {
             RemComp<ActiveSlimeGrinderComponent>(uid);
+        }
     }
 
     #endregion
@@ -115,8 +119,10 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
 
     private void OnShutdown(Entity<SlimeGrinderComponent> grinder, ref ComponentShutdown args) =>
         _container.EmptyContainer(grinder.Comp.GrindedContainer);
+
     private void OnUnanchored(Entity<SlimeGrinderComponent> grinder, ref BeforeUnanchoredEvent args) =>
         _container.EmptyContainer(grinder.Comp.GrindedContainer);
+
     private void OnAfterInteractUsing(Entity<SlimeGrinderComponent> grinder, ref AfterInteractUsingEvent args)
     {
         if (!args.CanReach
@@ -126,7 +132,13 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
             return;
 
         var delay = grinder.Comp.BaseInsertionDelay * physics.FixturesMass;
-        _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, delay, new ReclaimerDoAfterEvent(), grinder, target: args.Target, used: args.Used)
+        _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager,
+            args.User,
+            delay,
+            new ReclaimerDoAfterEvent(),
+            grinder,
+            target: args.Target,
+            used: args.Used)
         {
             NeedHand = true,
             BreakOnMove = true,
@@ -173,6 +185,7 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
     {
         if (HasComp<ActiveSlimeGrinderComponent>(grinder)
             || !Transform(grinder).Anchored
+            || !HasComp<SlimeComponent>(dragged)
             || !TryComp<MobStateComponent>(dragged, out var mobState)
             || mobState.CurrentState != MobState.Dead)
             return false;

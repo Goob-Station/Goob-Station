@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -46,10 +47,13 @@ public partial class XenobiologySystem
 
             var addedHunger = (float)dotComp.Damage.GetTotal();
             dotComp.NextTickTime = _gameTiming.CurTime + dotComp.Interval;
-            _damageable.TryChangeDamage(uid, dotComp.Damage, ignoreResistances: true, ignoreBlockers: true,  targetPart: TargetBodyPart.All);
+            _damageable.TryChangeDamage(uid,
+                dotComp.Damage,
+                ignoreResistances: true,
+                targetPart: TargetBodyPart.All);
 
-            if (!TryComp<HungerComponent>(dotComp.SourceEntityUid, out var hunger) ||
-                dotComp.SourceEntityUid is not { } sourceEntity)
+            if (!TryComp<HungerComponent>(dotComp.SourceEntityUid, out var hunger)
+                || dotComp.SourceEntityUid is not { } sourceEntity)
                 continue;
 
             _hunger.ModifyHunger(sourceEntity, addedHunger, hunger);
@@ -57,14 +61,13 @@ public partial class XenobiologySystem
         }
     }
 
-    private void OnComponentInit(Entity<SlimeComponent> slime, ref ComponentStartup args)
-    {
+    private void OnComponentInit(Entity<SlimeComponent> slime, ref ComponentStartup args) =>
         slime.Comp.Stomach = _containerSystem.EnsureContainer<Container>(slime, "Stomach");
-    }
 
     private void OnExamined(Entity<SlimeComponent> slime, ref ExaminedEvent args)
     {
-        if (!args.IsInDetailsRange || slime.Comp.Stomach.Count <= 0)
+        if (!args.IsInDetailsRange
+            || slime.Comp.Stomach.Count <= 0)
             return;
 
         var text = Loc.GetString("slime-examined-text", ("num", slime.Comp.Stomach.Count));
@@ -87,7 +90,8 @@ public partial class XenobiologySystem
 
     private void OnConsumedEntityDied(Entity<SlimeDamageOvertimeComponent> ent, ref MobStateChangedEvent args)
     {
-        if (_containerSystem.IsEntityOrParentInContainer(ent) && args.NewMobState == MobState.Dead)
+        if (_containerSystem.IsEntityOrParentInContainer(ent)
+            && args.NewMobState == MobState.Dead)
             _containerSystem.TryRemoveFromContainer(ent, true);
     }
 
