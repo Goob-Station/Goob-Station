@@ -33,8 +33,6 @@ public sealed class XenoSlimeVisualizerSystem : VisualizerSystem<SlimeComponent>
         }
 
         if (AppearanceSystem.TryGetData<ProtoId<ShaderPrototype>>(uid, XenoSlimeVisuals.Shader, out var shader, args.Component))
-        {
             args.Sprite.PostShader = _proto.Index(shader).InstanceUnique();
-        }
     }
 }
