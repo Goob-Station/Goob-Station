@@ -10571,3 +10571,13 @@ Entries:
         to control them.
   id: 1164
   time: '2025-06-02T08:49:17.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Tweak
+      message: >-
+        Hierophant damaging tiles are now easier to dodge, and deal damage
+        correctly.
+    - type: Fix
+      message: Fixed Hierophant second fight making only Teleportation attacks.
+  id: 1165
+  time: '2025-06-03T07:38:09.0000000+00:00'
