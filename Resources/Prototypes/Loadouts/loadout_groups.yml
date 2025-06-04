@@ -1289,7 +1289,7 @@
   loadouts:
   - JackBoots
   - CombatBoots # Goobstation
-  - SecurityWinterBoots
+  - WinterCombatBoots # Goobstation
 
 - type: loadoutGroup
   id: SecurityPDA
