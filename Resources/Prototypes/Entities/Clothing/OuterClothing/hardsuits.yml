@@ -414,13 +414,13 @@
     damageCoefficient: 0.3
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.7
-        Slash: 0.7
+      coefficients: # this takes 5 hide compared to 3 for maxed explorer
+        Blunt: 0.5
+        Slash: 0.5
         Piercing: 0.5
-        Heat: 0.7 #Goliath hide gets grilled instead of you
-        Radiation: 0.1
-        Caustic: 0.8
+        Heat: 0.3 #Goliath hide gets grilled instead of you
+        Radiation: 0.5
+        Caustic: 0.6
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
