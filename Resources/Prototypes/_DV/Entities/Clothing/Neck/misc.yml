@@ -1,0 +1,19 @@
+- type: entity
+  parent: [ClothingNeckBase, BaseSecurityContraband]
+  id: ClothingNeckCWPSec
+  name: senior officer's poncho
+  description: A cold weather poncho, advertised as a masterpiece of environmental protection. Results may vary.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Neck/cwpsec.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Neck/cwpsec.rsi
+  - type: Item
+    size: Normal
+  - type: TemperatureProtection
+    heatingCoefficient: 1.1
+    coolingCoefficient: 0.1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Heat: 0.90

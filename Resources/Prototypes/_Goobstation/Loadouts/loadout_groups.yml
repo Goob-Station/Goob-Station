@@ -195,6 +195,7 @@
   minLimit: 0
   loadouts:
   - Bodycam # Goobstation - Body cameras
+  - ClothingNeckCWPSec
 
 #honkops
 
