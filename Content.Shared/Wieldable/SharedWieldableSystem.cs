@@ -115,6 +115,9 @@ public abstract class SharedWieldableSystem : EntitySystem
         SubscribeLocalEvent<SpeedModifiedOnWieldComponent, HeldRelayedEvent<RefreshMovementSpeedModifiersEvent>>(OnRefreshSpeedWielded);
 
         SubscribeLocalEvent<IncreaseDamageOnWieldComponent, GetMeleeDamageEvent>(OnGetMeleeDamage);
+
+        // Goobstation
+        SubscribeLocalEvent<WieldableComponent, ComponentShutdown>(OnComponentShutdown);
     }
 
     private void OnMeleeAttempt(EntityUid uid, MeleeRequiresWieldComponent component, ref AttemptMeleeEvent args)
@@ -437,5 +440,17 @@ public abstract class SharedWieldableSystem : EntitySystem
             return;
 
         args.Damage += component.BonusDamage;
+    }
+
+    // Goobstation
+    private void OnComponentShutdown(Entity<WieldableComponent> ent, ref ComponentShutdown args)
+    {
+        if (TerminatingOrDeleted(ent))
+            return;
+
+        if (ent.Comp.ApplyNewPrefixOnShutdown)
+            ent.Comp.OldInhandPrefix = ent.Comp.NewPrefixOnShutdown;
+
+        _virtualItem.DeleteInHandsMatching(Transform(ent).ParentUid, ent);
     }
 }
