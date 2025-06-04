@@ -21,10 +21,8 @@ public partial class XenobiologySystem
     private readonly TimeSpan _updateInterval = TimeSpan.FromSeconds(1);
     private TimeSpan _nextUpdateTime;
 
-    private void InitializeBreeding()
-    {
+    private void InitializeBreeding() =>
         _nextUpdateTime = _gameTiming.CurTime + _updateInterval;
-    }
 
     // Mitosis doesn't need to be checked every frame.
     private void UpdateBreeding()
