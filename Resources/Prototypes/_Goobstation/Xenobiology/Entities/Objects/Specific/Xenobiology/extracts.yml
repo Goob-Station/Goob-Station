@@ -15,10 +15,31 @@
   - type: SolutionContainerManager
     solutions:
       extract:
-        maxVol: 50
+        maxVol: 100
   - type: RefillableSolution
     solution: extract
   - type: SlimeExtract
+  - type: Reactive
+    isReactionsUnlimited: false
+    reactions:
+    - reagents: [ Water ]
+      methods: [ Injection ]
+      effects:
+      - !type:AdjustReagent
+        reagent: Epinephrine
+        amount: 100
+    - reagents: [ Plasma ]
+      methods: [ Injection ]
+      effects:
+      - !type:CreateEntityReactionEffect
+        entity: MobXenoSlime
+        number: 1
+    - reagents: [ Blood ]
+      methods: [ Injection ]
+      effects:
+      - !type:CreateEntityReactionEffect
+        entity: MonkeyCube
+        number: 3
 
 - type: entity
   id: GreySlimeExtract
@@ -32,21 +53,23 @@
       state: core
       color: "#828282"
   - type: Reactive
+    isReactionsUnlimited: false
+    oneUnitReaction: true
     reactions:
     - reagents: [ Water ]
-      methods: [ Touch, Ingestion, Injection ]
+      methods: [ Injection ]
       effects:
       - !type:AdjustReagent
         reagent: Epinephrine
-        amount: 1
+        amount: 100
     - reagents: [ Plasma ]
-      methods: [ Touch, Ingestion, Injection ]
+      methods: [ Injection ]
       effects:
       - !type:CreateEntityReactionEffect
         entity: MobXenoSlime
         number: 1
     - reagents: [ Blood ]
-      methods: [ Touch, Ingestion, Injection ]
+      methods: [ Injection ]
       effects:
       - !type:CreateEntityReactionEffect
         entity: MonkeyCube

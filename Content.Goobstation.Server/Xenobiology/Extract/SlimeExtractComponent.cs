@@ -10,15 +10,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.Xenobiology.Extract;
 
-/// <summary>
-/// Ideally, the extract component will hold an event that is fired on use.
-/// </summary>
 [RegisterComponent]
 public sealed partial class SlimeExtractComponent : Component
 {
-    /// <summary>
-    /// Has this extract been used already? - Probably raise an event on reaction.
-    /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
-    public bool IsUsed;
 }
