@@ -8,10 +8,10 @@
   },
   "states": [
     {
-      "name": "slime-core"
+      "name": "core"
     },
     {
-      "name": "slime-baby",
+      "name": "baby",
       "delays": [
         [
           0.15,
@@ -25,10 +25,10 @@
       ]
     },
     {
-      "name": "slime-dead"
+      "name": "dead"
     },
     {
-      "name": "slime-adult",
+      "name": "adult",
       "delays": [
         [
           0.15,
