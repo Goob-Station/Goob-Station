@@ -24,28 +24,30 @@
     sprite: Structures/Storage/Crates/command.rsi
     state: icon
   cost:
-    NTLoyaltyPoint: 35
+    NTLoyaltyPoint: 25
   categories:
   - NTRstation
   restockTime: 1200 # give them revs some time man
   resetRestockOnPurchase: true
   restockAfterPurchase: 900 # 15min
 
-- type: listing
-  id: NTRExecutiveSecHardsuit
-  name: Security hardsuits crate
-  description: A crate containing 1 security hardsuit. Please use them wisely.
-  productEntity: SpawnPodSecHardsuit
-  icon:
-    sprite: Structures/Storage/Crates/sec_gear.rsi
-    state: icon
-  cost:
-    NTLoyaltyPoint: 10
-  categories:
-  - NTRstation
-  restockTime: 600
-  resetRestockOnPurchase: true
-  restockAfterPurchase: 300
+# Some things that are limited are limited for a good reason, keeping it for the yamlwarriors
+
+#- type: listing
+#  id: NTRExecutiveSecHardsuit
+#  name: Security hardsuits crate
+#  description: A crate containing 1 security hardsuit. Please use them wisely.
+#  productEntity: SpawnPodSecHardsuit
+#  icon:
+#    sprite: Structures/Storage/Crates/sec_gear.rsi
+#    state: icon
+#  cost:
+#    NTLoyaltyPoint: 10
+#  categories:
+#  - NTRstation
+#  restockTime: 600
+#  resetRestockOnPurchase: true
+#  restockAfterPurchase: 300
 
 - type: listing
   id: NTRExecutiveSpesosSmall
@@ -56,7 +58,7 @@
     sprite: Structures/Storage/Crates/privatecrate_secure.rsi
     state: icon
   cost:
-    NTLoyaltyPoint: 20
+    NTLoyaltyPoint: 15
   categories:
   - NTRstation
   restockTime: 900 # 15 min
@@ -72,12 +74,12 @@
     sprite: Structures/Storage/Crates/scicrate_secure.rsi
     state: icon
   cost:
-    NTLoyaltyPoint: 20
+    NTLoyaltyPoint: 10
   categories:
   - NTRstation
-  restockTime: 900 # 15 min
+  restockTime: 300 # 5 min
   resetRestockOnPurchase: true
-  restockAfterPurchase: 900
+  restockAfterPurchase: 900 # 15min
 
 - type: listing
   id: NTRExecutiveEmergencyMed
@@ -104,12 +106,12 @@
     sprite: Structures/Storage/Crates/command.rsi
     state: icon
   cost:
-    NTLoyaltyPoint: 20
+    NTLoyaltyPoint: 10
   categories:
   - NTRstation
-  restockTime: 600 # 10 min
+  restockTime: 300 # 5 min
   resetRestockOnPurchase: true
-  restockAfterPurchase: 600
+  restockAfterPurchase: 600 # 10 min
 
 - type: listing
   id: NTRExecutiveMaterialsSpawn
@@ -117,10 +119,10 @@
   description: ntr-executive-mats-desc
   productEntity: NTRgameruleSpawnerMats # okay so this is real shitcode
   cost:
-    NTLoyaltyPoint: 25
+    NTLoyaltyPoint: 15
   categories:
   - NTRstation
-  restockTime: 1800 # 30 min
+  restockTime: 600 # 10 min
   resetRestockOnPurchase: true
   restockAfterPurchase: 1800
 
@@ -133,7 +135,7 @@
     sprite: Structures/Storage/Crates/engicrate_secure.rsi
     state: icon
   cost:
-    NTLoyaltyPoint: 25
+    NTLoyaltyPoint: 5
   categories:
   - NTRstation
   restockTime: 300 # 5 min
@@ -146,7 +148,7 @@
   description: ntr-executive-pizza-small-desc
   productEntity: NTRgameruleSpawnerPizza
   cost:
-    NTLoyaltyPoint: 15
+    NTLoyaltyPoint: 5
   categories:
   - NTRstation
   restockTime: 900 # 15min
@@ -160,7 +162,7 @@
   description: Adds 2 security officers to the station.
   productEntity: NTRgameruleSpawnerSecurity
   cost:
-    NTLoyaltyPoint: 20
+    NTLoyaltyPoint: 15
   categories:
   - NTRstation
   restockTime: 600
@@ -188,7 +190,7 @@
   description: Adds 1 janitor and 1 service worker slot to the station.
   productEntity: NTRgameruleSpawnerService
   cost:
-    NTLoyaltyPoint: 15
+    NTLoyaltyPoint: 10
   categories:
   - NTRstation
   restockTime: 600
@@ -202,7 +204,7 @@
   description: Adds 1 cargo tech and 1 salvage slot to the station.
   productEntity: NTRgameruleSpawnerCargo
   cost:
-    NTLoyaltyPoint: 15
+    NTLoyaltyPoint: 10
   categories:
   - NTRstation
   restockTime: 600
@@ -216,7 +218,7 @@
   description: Adds 2 engineers to the station.
   productEntity: NTRgameruleSpawnerEngineering
   cost:
-    NTLoyaltyPoint: 15
+    NTLoyaltyPoint: 10
   categories:
   - NTRstation
   restockTime: 600
@@ -229,7 +231,7 @@
   description: Adds 2 medical doctors to the station.
   productEntity: NTRgameruleSpawnerMedical
   cost:
-    NTLoyaltyPoint: 15
+    NTLoyaltyPoint: 10
   categories:
   - NTRstation
   restockTime: 600
@@ -246,7 +248,7 @@
     sprite: _Goobstation/Objects/Tools/executive_briefcase.rsi
     state: icon_alt
   cost:
-    NTLoyaltyPoint: 75
+    NTLoyaltyPoint: 50
   categories:
   - NTRpersonal
   restockTime: 600 # 10 mins
@@ -263,7 +265,7 @@
     sprite: _Goobstation/Objects/Weapons/Melee/e_daggerntr.rsi
     state: icon
   cost:
-    NTLoyaltyPoint: 35 # its a bit better than a cc pen, but still.
+    NTLoyaltyPoint: 20 # its a bit better than a cc pen, but still.
   categories:
   - NTRpersonal
   restockTime: 900 # 15 min
@@ -279,7 +281,7 @@
     sprite: Objects/Misc/coins.rsi
     state: coin_gold
   cost:
-    NTLoyaltyPoint: 25
+    NTLoyaltyPoint: 15
   categories:
   - NTRpersonal
   restockTime: 300
@@ -295,7 +297,7 @@
     sprite: _Goobstation/Objects/Tools/executive_briefcase.rsi
     state: icon_alt
   cost:
-    NTLoyaltyPoint: 75
+    NTLoyaltyPoint: 50
   categories:
   - NTRpersonal
   restockTime: 1800 # 3o min
@@ -360,12 +362,12 @@
     sprite: _Goobstation/Clothing/Eyes/Glasses/centcommglasses.rsi
     state: icon
   cost:
-    NTLoyaltyPoint: 1
+    NTLoyaltyPoint: 2
   categories:
   - NTRpersonal
   restockTime: 120
   resetRestockOnPurchase: true
-  restockAfterPurchase: 600
+  restockAfterPurchase: 1200 # 20min
 
 - type: listing
   id: NTRExecutiveSavalin
@@ -379,13 +381,13 @@
     NTLoyaltyPoint: 10
   categories:
   - NTRpersonal
-  restockTime: 600 # 10 mins
+  restockTime: 300 # 5 mins
   resetRestockOnPurchase: true
-  restockAfterPurchase: 1800 # 30 mins cuz ntr shouldn't spam these if he wanted to give it to the interns or some shit
+  restockAfterPurchase: 600 # 10 mins cuz ntr shouldn't spam these if he wanted to give it to the interns or some shit
 
 - type: listing
   id: NTRExecutiveDeckard
-  name: ntr-executive-1984-name
+  name: ntr-executive-1984-name # we dont talk about this locale string name anymore
   description: ntr-executive-1984-desc
   productEntity: SpawnPodDeckard
   icon:
@@ -520,7 +522,7 @@
     sprite: Structures/Storage/Crates/command.rsi
     state: icon
   cost:
-    NTLoyaltyPoint: 35
+    NTLoyaltyPoint: 5
   categories:
   - NTRBoards
   restockTime: 900 #15min
@@ -554,10 +556,10 @@
     sprite: Objects/Misc/module.rsi
     state: service
   cost:
-    NTLoyaltyPoint: 20 # the cheapest
+    NTLoyaltyPoint: 5 # lol
   categories:
   - NTRBoards
-  restockTime: 600 #10min
+  restockTime: 300 #5min
   resetRestockOnPurchase: true
   restockAfterPurchase: 1800 # 30min
 
@@ -570,7 +572,7 @@
     sprite: Objects/Misc/module.rsi
     state: engineering
   cost:
-    NTLoyaltyPoint: 35
+    NTLoyaltyPoint: 20
   categories:
   - NTRBoards
   restockTime: 900 # 15min
@@ -586,7 +588,7 @@
     sprite: Objects/Misc/module.rsi
     state: supply
   cost:
-    NTLoyaltyPoint: 75 # almost t3 tech, its gonna be expensive bruv
+    NTLoyaltyPoint: 30 # 30 min cd does its job
   categories:
   - NTRBoards
   restockTime: 1800 #30min
@@ -606,7 +608,7 @@
   categories:
   - NTRBoards
   cost:
-    NTLoyaltyPoint: 25
+    NTLoyaltyPoint: 5
   restockTime: 600 #10min
   resetRestockOnPurchase: true
   restockAfterPurchase: 300 #5 min
@@ -623,7 +625,7 @@
     sprite: Objects/Misc/module.rsi
     state: cpu_medical
   cost:
-    NTLoyaltyPoint: 75
+    NTLoyaltyPoint: 15
   categories:
   - NTRBoards
   restockTime: 1800 # 30 min
@@ -659,7 +661,7 @@
     sprite: Objects/Misc/module.rsi
     state: cpu_command
   cost:
-    NTLoyaltyPoint: 100
+    NTLoyaltyPoint: 65 #pheenty: 65
   categories:
   - NTRBoards
   restockTime: 2400 # 40min
@@ -669,7 +671,7 @@
     stock: 1
 
 - type: listing
-  id: NTRExecutiveCargoSell
+  id: NTRExecutiveCargoSell # todo: delete when upstream hits, making these unbreakable
   name: ntr-executive-cargosell-name
   description: ntr-executive-cargosell-desc
   productEntity: SpawnPodCargo
@@ -729,7 +731,7 @@
 - type: listing
   id: NTRExecutiveDebugCodes
   name: Nuclear codes
-  description: "Stand ready for my arrival, worm."
+  description: Stand ready for my arrival, worm.
   productEntity: BoxFolderNuclearCodes
   cost:
     NTLoyaltyPoint: 250

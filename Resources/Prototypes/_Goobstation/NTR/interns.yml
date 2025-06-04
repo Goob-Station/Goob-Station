@@ -97,8 +97,8 @@
     back: ClothingBackpackCentcomm
     ears: ClothingHeadsetGrey
     id: PassengerIDCard # let NTR give them access on bridge lol, im too lazy to make a new ID just for interns
-    pocket1: WeaponLaserSvalinn
-    pocket2: MagazineBoxLightRifle
+    pocket1: WeaponLaserCellRevolver
+    pocket2: PowerCellHigh
   inhand:
     - MedkitAdvancedFilled
     - ToolboxElectricalFilled
@@ -123,8 +123,7 @@
     pocket1: DrinkEnergyDrinkCan
     pocket2: TelescopicBaton
   inhand:
-    - WeaponSniperMosin
-    - MagazineBoxLightRifle
+    - WeaponLaserCarbine
   storage:
     back:
     - NerdInternCoin
@@ -147,8 +146,7 @@
     pocket1: DrinkEnergyDrinkCan
     pocket2: TelescopicBaton
   inhand:
-    - WeaponSniperMosin
-    - MagazineBoxLightRifle
+    - WeaponLaserCarbine
   storage:
     back:
     - Vape # interns ammiright?

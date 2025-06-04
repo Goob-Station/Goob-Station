@@ -32,9 +32,9 @@
     shoes: ClothingShoesBootsJack
     id: BlueshieldPDA
     ears: ClothingHeadsetAltCommand
-    pocket1: WeaponEnergyRevolver
-    pocket2: Flash
-    belt: ClothingBeltSecurityFilled
+    pocket1: DrinkEnergyDrinkCan
+    pocket2: TelescopicBaton
+    belt: ClothingBeltHolsterFilledBlueshield
     back: ClothingBackpackBlueshield
   storage:
     back:
