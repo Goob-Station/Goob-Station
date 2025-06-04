@@ -198,8 +198,8 @@
   components:
   - type: InstantAction
     icon:
-      sprite: /_Goobstation/Heretic/eldritch_mobs.rsi
-      state: raw_prophet
+      sprite: /Textures/_Goobstation/Actions/actions_borg.rsi
+      state: lollypop-module
     event: !type:HorrorSpawnProphetActionEvent
     useDelay: 5
     priority: 4
