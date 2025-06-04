@@ -17,10 +17,8 @@ public partial class XenobiologySystem
 {
     private readonly EntProtoId _tameEffects = "EffectHearts"; // get this out of here
 
-    private void InitializeTaming()
-    {
+    private void InitializeTaming() =>
         SubscribeLocalEvent<SlimeComponent, InteractionSuccessEvent>(OnTame);
-    }
 
     private void OnTame(Entity<SlimeComponent> ent, ref InteractionSuccessEvent args)
     {
