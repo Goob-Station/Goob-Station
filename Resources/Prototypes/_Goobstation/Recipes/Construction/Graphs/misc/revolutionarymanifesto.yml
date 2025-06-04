@@ -11,6 +11,6 @@
               icon:
                 sprite: Objects/Misc/books.rsi
                 state: cover_base
-              doAfter: 5
+              doAfter: 30
     - node: revolutionaryManifesto
       entity: RevolutionaryManifesto

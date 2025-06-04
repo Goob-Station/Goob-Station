@@ -14,12 +14,12 @@
       - state: detail_bookmark
         color: "#aaaa24"
     - type: RevolutionaryConverter
-      conversionDuration: 2
+      conversionDuration: 0.5
     - type: Tag
       tags:
         - Book
     - type: UseDelay
-      delay: 2
+      delay: 0.5
     - type: Appearance
     - type: GuideHelp
       guides:
