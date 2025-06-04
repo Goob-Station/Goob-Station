@@ -10601,3 +10601,9 @@ Entries:
       message: Greatshield and atrocity no longer self-recharge.
   id: 1167
   time: '2025-06-04T12:31:38.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: You can now properly drag-and-drop batteries and modules onto mechs.
+  id: 1168
+  time: '2025-06-04T12:34:23.0000000+00:00'
