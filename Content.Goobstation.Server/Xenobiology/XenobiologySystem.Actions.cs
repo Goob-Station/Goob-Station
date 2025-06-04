@@ -51,8 +51,8 @@ public partial class XenobiologySystem
                 ignoreResistances: true,
                 targetPart: TargetBodyPart.All);
 
-            if (!TryComp<HungerComponent>(dotComp.SourceEntityUid, out var hunger) ||
-                dotComp.SourceEntityUid is not { } sourceEntity)
+            if (!TryComp<HungerComponent>(dotComp.SourceEntityUid, out var hunger)
+                || dotComp.SourceEntityUid is not { } sourceEntity)
                 continue;
 
             _hunger.ModifyHunger(sourceEntity, addedHunger, hunger);
