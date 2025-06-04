@@ -463,6 +463,7 @@
     delay:
       min: 600
       max: 900
+    chaosScore: 1400
   - type: ZombieRule
   - type: AntagSelection
     definitions:
