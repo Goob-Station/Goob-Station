@@ -196,8 +196,8 @@
   components:
   - type: InstantAction
     icon:
-      sprite: _Goobstation/Actions/dragon.rsi
-      state: carp_horde
+      sprite: /_Goobstation/Heretic/eldritch_mobs.rsi
+      state: raw_prophet
     event: !type:HorrorSpawnProphetActionEvent
     useDelay: 5
     priority: 4
