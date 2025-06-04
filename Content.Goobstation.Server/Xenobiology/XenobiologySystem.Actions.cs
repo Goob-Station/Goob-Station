@@ -161,7 +161,6 @@ public partial class XenobiologySystem
         {
             BreakOnDamage = true,
             BreakOnMove = true,
-            CancelDuplicate = true,
         };
 
         _doAfter.TryStartDoAfter(doAfterArgs);
