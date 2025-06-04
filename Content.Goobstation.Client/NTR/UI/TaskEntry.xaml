@@ -15,7 +15,7 @@
                 <BoxContainer Orientation="Vertical" MinWidth="120">
                     <BoxContainer Orientation="Horizontal" MinWidth="120">
                         <Button Name="PrintButton"
-                                Text="{Loc 'bounty-console-label-button-text'}"
+                                Text="{Loc 'ntr-bounty-console-print-button'}"
                                 HorizontalExpand="False"
                                 HorizontalAlignment="Right"
                                 StyleClasses="OpenRight"/>

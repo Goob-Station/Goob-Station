@@ -146,3 +146,4 @@ ntr-console-insufficient-reagent-debug = Insufficient reagent. Required: {$requi
 ntr-console-task-fail = Task failed to load.
 
 ntr-bounty-console-menu-title = NTR task console
+ntr-bounty-console-print-button = Accept

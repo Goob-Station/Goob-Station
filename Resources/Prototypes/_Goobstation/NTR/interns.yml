@@ -106,6 +106,7 @@
     back:
     - ClothingShoesSlippers
     - BoxSurvivalSlotsMedical
+    - Stunbaton
 
 # Lead Intern Gear
 - type: startingGear
@@ -130,7 +131,6 @@
     - InternCoin
     - InternCoin
     - BoxSurvivalSlotsMedical
-    - Stunbaton
 
 # NT Intern Gear
 - type: startingGear
@@ -144,7 +144,7 @@
     ears: ClothingHeadsetGrey
     id: PassengerIDCard
     pocket1: DrinkEnergyDrinkCan
-    pocket2: TelescopicBaton
+    pocket2: WeaponDisabler
   inhand:
     - WeaponLaserCarbine
   storage:

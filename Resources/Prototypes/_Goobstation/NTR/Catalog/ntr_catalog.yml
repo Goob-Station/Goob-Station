@@ -90,7 +90,7 @@
     sprite: Structures/Storage/Crates/medicalcrate_secure.rsi
     state: icon
   cost:
-    NTLoyaltyPoint: 15 # to be changed
+    NTLoyaltyPoint: 20 # woundmd ahhhh
   categories:
   - NTRstation
   restockTime: 300 # 5 min
