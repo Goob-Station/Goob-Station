@@ -57,14 +57,16 @@ using Content.Shared.Damage.Prototypes;
 using Content.Shared.EntityEffects;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Localizations;
-using Content.Shared._Shitmed.EntityEffects.Effects; // Shitmed Change
-using Content.Shared._Shitmed.Targeting; // Shitmed Change
-using Content.Server.Temperature.Components; // Shitmed Change
-using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems; // Shitmed Change
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using System.Linq;
 using System.Text.Json.Serialization;
+
+// Shitmed Changes
+using Content.Shared._Shitmed.EntityEffects.Effects;
+using Content.Shared._Shitmed.Targeting;
+using Content.Server.Temperature.Components;
+using Content.Shared._Shitmed.Damage;
 
 namespace Content.Server.EntityEffects.Effects
 {
@@ -92,6 +94,10 @@ namespace Content.Server.EntityEffects.Effects
         [JsonPropertyName("scaleByQuantity")]
         public bool ScaleByQuantity;
 
+        [DataField]
+        [JsonPropertyName("scaleByQuantityCap")]
+        public FixedPoint2 ScaleByQuantityCap = FixedPoint2.New(2.5);
+
         /// <summary>
         ///     Scales the effect based on the temperature of the entity.
         /// </summary>
@@ -104,12 +110,20 @@ namespace Content.Server.EntityEffects.Effects
         public bool IgnoreResistances = true;
 
         [DataField]
-        [JsonPropertyName("healingDamageMultiplier")]
-        public float HealingDamageMultiplier = 11f; // Shitmed Change
+        [JsonPropertyName("splitDamage")]
+        public SplitDamageBehavior SplitDamage = SplitDamageBehavior.SplitEnsureAllOrganic;
 
         [DataField]
-        [JsonPropertyName("damageMultiplier")]
-        public float DamageMultiplier = 1f; // Shitmed Change
+        [JsonPropertyName("useTargeting")]
+        public bool UseTargeting = true;
+
+        [DataField]
+        [JsonPropertyName("targetPart")]
+        public TargetBodyPart TargetPart = TargetBodyPart.All;
+
+        [DataField]
+        [JsonPropertyName("ignoreBlockers")]
+        public bool IgnoreBlockers = true;
 
         protected override string ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         {
@@ -129,12 +143,12 @@ namespace Content.Server.EntityEffects.Effects
                 {
                     if (val < 0f)
                     {
-                        damageSpec.DamageDict[type] = val * universalReagentHealModifier * HealingDamageMultiplier;
+                        damageSpec.DamageDict[type] = val * universalReagentHealModifier;
                     }
 
                     if (val > 0f)
                     {
-                        damageSpec.DamageDict[type] = val * universalReagentDamageModifier * DamageMultiplier;
+                        damageSpec.DamageDict[type] = val * universalReagentDamageModifier;
                     }
                 }
             }
@@ -217,6 +231,7 @@ namespace Content.Server.EntityEffects.Effects
             if (args is EntityEffectReagentArgs reagentArgs)
             {
                 scale = ScaleByQuantity ? reagentArgs.Quantity * reagentArgs.Scale : reagentArgs.Scale;
+                scale = FixedPoint2.Min(scale, ScaleByQuantityCap);
             }
 
             if (ScaleByTemperature.HasValue)
@@ -254,9 +269,9 @@ namespace Content.Server.EntityEffects.Effects
                     damageSpec * scale,
                     IgnoreResistances,
                     interruptsDoAfters: false,
-                    targetPart: TargetBodyPart.All,
-                    ignoreBlockers: true,
-                    splitDamage: damageSpec.GetTotal() > 0); // Shitmed Change
+                    targetPart: UseTargeting ? TargetPart : null,
+                    ignoreBlockers: IgnoreBlockers,
+                    splitDamage: SplitDamage); // Shitmed Change
 
         }
     }
