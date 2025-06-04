@@ -58,6 +58,7 @@
       - !type:CreateEntityReactionEffect
         entity: MonkeyCube
         number: 3
+  - type: SlimeExtract
 
 ## Tier 1
 - type: entity
