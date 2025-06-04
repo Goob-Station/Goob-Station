@@ -44,10 +44,8 @@ public partial class XenobiologySystem
         var query = EntityQueryEnumerator<SlimeComponent, MobGrowthComponent, HungerComponent>();
         while (query.MoveNext(out var uid, out var slime, out var growthComp, out var hungerComp))
         {
-            if (_mobState.IsDead(uid))
-                continue;
-
-            if (growthComp.CurrentStage == growthComp.Stages[0])
+            if (_mobState.IsDead(uid)
+                || growthComp.CurrentStage == growthComp.Stages[0])
                 continue;
 
             eligibleSlimes.Add((uid, slime, growthComp, hungerComp));
