@@ -60,10 +60,8 @@ public partial class XenobiologySystem
         }
     }
 
-    private void OnComponentInit(Entity<SlimeComponent> slime, ref ComponentStartup args)
-    {
+    private void OnComponentInit(Entity<SlimeComponent> slime, ref ComponentStartup args) =>
         slime.Comp.Stomach = _containerSystem.EnsureContainer<Container>(slime, "Stomach");
-    }
 
     private void OnExamined(Entity<SlimeComponent> slime, ref ExaminedEvent args)
     {
