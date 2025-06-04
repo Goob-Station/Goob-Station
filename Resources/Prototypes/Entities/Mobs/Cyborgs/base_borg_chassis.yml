@@ -474,7 +474,6 @@
   - type: AccessReader
     access: [["Command"], ["Research"]]
   - type: ShowJobIcons
-  - type: ShowMindShieldIcons
   - type: StationAiVision # Goobstation - AI can see through NT silicon
     range: 3
   - type: InteractionPopup
