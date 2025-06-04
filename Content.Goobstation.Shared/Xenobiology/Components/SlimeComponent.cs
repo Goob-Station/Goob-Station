@@ -67,6 +67,12 @@ public sealed partial class SlimeComponent : Component
     public TimeSpan OnRemovalStunDuration = TimeSpan.FromSeconds(5);
 
     /// <summary>
+    /// How long the do-after to start a latch is.
+    /// </summary>
+    [DataField]
+    public TimeSpan LatchDoAfterDuration = TimeSpan.FromSeconds(1);
+
+    /// <summary>
     /// The entity which has tamed this slime.
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]

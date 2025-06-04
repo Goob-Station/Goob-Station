@@ -6,6 +6,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Shared.Xenobiology.Components;
+using Content.Server.DoAfter;
 using Content.Server.Popups;
 using Content.Server.Stunnable;
 using Content.Shared.ActionBlocker;
@@ -43,6 +44,7 @@ public sealed partial class XenobiologySystem : EntitySystem
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private readonly DoAfterSystem _doAfter = default!;
 
     private ISawmill _sawmill = default!;
 

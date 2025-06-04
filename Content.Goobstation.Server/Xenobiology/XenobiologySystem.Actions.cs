@@ -9,6 +9,7 @@
 using Content.Goobstation.Shared.Xenobiology;
 using Content.Goobstation.Shared.Xenobiology.Components;
 using Content.Shared._Shitmed.Targeting;
+using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Humanoid;
 using Content.Shared.Mobs;
@@ -25,7 +26,8 @@ public partial class XenobiologySystem
 {
     private void InitializeActions()
     {
-        SubscribeLocalEvent<SlimeLatchEvent>(OnLatch);
+        SubscribeLocalEvent<SlimeLatchEvent>(OnLatchAttempt);
+        SubscribeLocalEvent<SlimeComponent, SlimeLatchDoAfterEvent>(OnStartLatch);
 
         SubscribeLocalEvent<SlimeComponent, ComponentStartup>(OnComponentInit);
         SubscribeLocalEvent<SlimeComponent, ExaminedEvent>(OnExamined);
@@ -75,7 +77,7 @@ public partial class XenobiologySystem
     }
 
     #region Events
-    private void OnLatch(SlimeLatchEvent args)
+    private void OnLatchAttempt(SlimeLatchEvent args)
     {
         var slime = args.Performer;
         var target = args.Target;
@@ -85,7 +87,7 @@ public partial class XenobiologySystem
             || !TryComp<SlimeComponent>(slime, out var slimeComp))
             return;
 
-        DoSlimeLatch(slime, target, slimeComp);
+        TryDoSlimeLatch(slime, target, slimeComp);
     }
 
     private void OnConsumedEntityDied(Entity<SlimeDamageOvertimeComponent> ent, ref MobStateChangedEvent args)
@@ -125,11 +127,11 @@ public partial class XenobiologySystem
             || !_actionBlocker.CanInteract(uid, target))
             return false;
 
-        DoSlimeLatch(uid, target, slimeComp);
+        TryDoSlimeLatch(uid, target, slimeComp);
         return true;
     }
 
-    private void DoSlimeLatch(EntityUid slime, EntityUid target, SlimeComponent slimeComp)
+    private void TryDoSlimeLatch(EntityUid slime, EntityUid target, SlimeComponent slimeComp)
     {
         if (_mobState.IsDead(target))
         {
@@ -147,6 +149,37 @@ public partial class XenobiologySystem
             return;
         }
 
+        var attemptPopup = Loc.GetString("slime-latch-attempt", ("slime", slime), ("ent", target));
+        _popup.PopupEntity(attemptPopup, slime, PopupType.MediumCaution);
+
+        var doAfterArgs = new DoAfterArgs(EntityManager,
+            slime,
+            slimeComp.LatchDoAfterDuration,
+            new SlimeLatchDoAfterEvent(),
+            slime,
+            target)
+        {
+            BreakOnDamage = true,
+            BreakOnMove = true,
+            CancelDuplicate = true,
+        };
+
+        _doAfter.TryStartDoAfter(doAfterArgs);
+    }
+
+    private void OnStartLatch(Entity<SlimeComponent> slime, ref SlimeLatchDoAfterEvent args)
+    {
+        if (args.Target is not { } target
+            || args.Cancelled
+            || args.Handled)
+            return;
+
+        DoSlimeLatch(slime, target, slime);
+        args.Handled = true;
+    }
+
+    private void DoSlimeLatch(EntityUid slime, EntityUid target, SlimeComponent slimeComp)
+    {
         if (!_containerSystem.Insert(target, slimeComp.Stomach))
         {
             var failPopup = Loc.GetString("slime-action-latch-fail", ("slime", slime), ("target", target));
