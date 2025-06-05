@@ -83,3 +83,16 @@
   - bingle-verb-2
   - bingle-verb-3
   - bingle-verb-4
+
+- type: speechVerb
+  id: HolierThanThou
+  name: chat-speech-verb-name-holier-than-thou
+  speechVerbStrings:
+  - chat-speech-verb-holier-than-thou-1
+  - chat-speech-verb-holier-than-thou-2
+  - chat-speech-verb-holier-than-thou-3
+  - chat-speech-verb-holier-than-thou-4
+  - chat-speech-verb-holier-than-thou-5
+  - chat-speech-verb-holier-than-thou-6
+  - chat-speech-verb-holier-than-thou-7
+  - chat-speech-verb-holier-than-thou-8

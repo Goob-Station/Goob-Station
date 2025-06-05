@@ -238,6 +238,8 @@
     prototypes: [ MobAghostGear ]
   - type: BypassInteractionChecks
   - type: SupermatterImmune # Goobstation
+  - type: Speech # Goobstation
+    speechVerb: HolierThanThou
   - type: Eye
     visMask:
       - Ghost
