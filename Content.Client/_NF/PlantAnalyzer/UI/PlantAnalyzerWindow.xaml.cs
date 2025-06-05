@@ -106,7 +106,7 @@ public sealed partial class PlantAnalyzerWindow : FancyWindow
             foreach (var flag in Enum.GetValues<MutationFlags>())
             {
                 if (!advInst.Mutations.HasFlag(flag)
-                    || flag.ToString() == "none")
+                    || flag.ToString() == "None")
                     continue;
                 mutations.Append(IndentedNewline);
                 mutations.Append(Loc.GetString($"plant-analyzer-mutation-{flag.ToString().ToLower()}"));
