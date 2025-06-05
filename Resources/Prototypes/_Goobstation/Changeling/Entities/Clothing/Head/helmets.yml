@@ -42,8 +42,6 @@
         Piercing: 0.55
         Heat: 0.55
         Caustic: 0.55
-  - type: ExplosionResistance
-    damageCoefficient: 0.9
   - type: Unremoveable
   - type: IdentityBlocker
   - type: IngestionBlocker
