@@ -3,6 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Atmos;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._NF.PlantAnalyzer;
@@ -19,8 +20,8 @@ public sealed class PlantAnalyzerScannedSeedPlantInformation : BoundUserInterfac
     public string? SeedName;
     public string[]? SeedChem;
     public AnalyzerHarvestType HarvestType;
-    public GasFlags ExudeGases;
-    public GasFlags ConsumeGases;
+    public Gas[]? ExudeGases;
+    public Gas[]? ConsumeGases;
     public float Endurance;
     public int SeedYield;
     public float Lifespan;
@@ -66,29 +67,12 @@ public enum MutationFlags : byte
     CanScream = 64,
 }
 
-[Flags]
-public enum GasFlags : short
+public enum AnalyzerHarvestType : byte  // actual HarvestType only exists in server
 {
-    None = 0,
-    Nitrogen = 1,
-    Oxygen = 2,
-    CarbonDioxide = 4,
-    Plasma = 8,
-    Tritium = 16,
-    WaterVapor = 32,
-    Ammonia = 64,
-    NitrousOxide = 128,
-    Frezon = 256,
-}
-
-public enum AnalyzerHarvestType : byte
-{
-    Unknown, // Just in case the backing enum type changes and we haven't caught it.
     Repeat,
     NoRepeat,
-    SelfHarvest
+    SelfHarvest,
 }
-
 
 [Serializable, NetSerializable]
 public sealed class PlantAnalyzerSetMode : BoundUserInterfaceMessage

@@ -6,7 +6,7 @@
 using Content.Shared.DoAfter;
 using Robust.Shared.Audio;
 
-namespace Content.Server.Botany.Components;
+namespace Content.Server._NF.Botany.Components;
 
 /// <summary>
 ///    After scanning, retrieves the target Uid to use with its related UI.
@@ -28,7 +28,7 @@ public sealed partial class PlantAnalyzerComponent : Component
     }
 
     [DataField, ViewVariables]
-    public PlantAnalyzerSetting Settings = new();
+    public PlantAnalyzerSetting Settings;
 
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public DoAfterId? DoAfter;

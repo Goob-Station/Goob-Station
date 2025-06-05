@@ -47,7 +47,6 @@ plant-analyzer-mutation-ligneous = Ligneous
 plant-analyzer-mutation-bioluminescent = Bioluminescent
 plant-analyzer-mutation-canscream = Mandragora
 
-plant-analyzer-harvest-Unknown = Unknown
 plant-analyzer-harvest-Repeat = Perennial
 plant-analyzer-harvest-NoRepeat = Ephemeral
 plant-analyzer-harvest-SelfHarvest = Self-harvesting

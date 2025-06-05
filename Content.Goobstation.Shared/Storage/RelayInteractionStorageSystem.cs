@@ -23,14 +23,12 @@ public sealed class RelayInteractionStorageSystem : EntitySystem
     private void OnAfterInteract(Entity<RelayInteractionStorageComponent> ent, ref AfterInteractEvent args)
     {
         if (!args.CanReach
-        || args.Target == null
-        || _whitelist.IsWhitelistFail(ent.Comp.Whitelist, args.Target.Value)
-        || !TryComp<StorageComponent>(ent, out var storage))
+            || args.Target == null
+            || _whitelist.IsWhitelistFail(ent.Comp.Whitelist, args.Target.Value)
+            || !TryComp<StorageComponent>(ent, out var storage))
             return;
 
         foreach (var item in storage.Container.ContainedEntities)
-        {
             _interaction.InteractDoAfter(args.User, item, args.Target, Transform(args.Target.Value).Coordinates, true);
-        }
     }
 }
