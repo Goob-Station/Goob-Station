@@ -52,7 +52,7 @@
   - type: ItemToggleMeleeWeapon
     activatedDamage:
       types:
-        Heat: 5
+        Heat: 1
   - type: Stunbaton
     energyPerUse: 40
     lightAttackEnergyMultiplier: 2
@@ -63,7 +63,7 @@
       types:
         Blunt: 13 # Unlucky number
         Slash: 7 # Lucky number
-    bluntStaminaDamageFactor: 0.5
+    bluntStaminaDamageFactor: 2 # 26 damage, 4 hit stamcrit
     animation: WeaponArcThrust
     soundHit:
       path: /Audio/_Goobstation/Weapons/Effects/metalcrush.ogg
