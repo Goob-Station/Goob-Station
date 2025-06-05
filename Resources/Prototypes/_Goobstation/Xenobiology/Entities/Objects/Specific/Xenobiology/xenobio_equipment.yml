@@ -18,7 +18,6 @@
     containers:
       tankbase: !type:Container
         ents: []
-    maxItemSize: Ginormous
   - type: ItemSlots
     slots:
       item:

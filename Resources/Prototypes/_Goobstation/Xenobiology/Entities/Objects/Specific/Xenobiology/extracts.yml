@@ -113,6 +113,35 @@
     - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
       state: core
       color: "#595959"
+      shader: XenoMetallic
+  - type: Reactive
+    isReactionsUnlimited: false
+    oneUnitReaction: true
+    reactions:
+    - reagents: [ Water ]
+      methods: [ Injection ]
+      effects:
+      - !type:CreateEntityReactionEffect
+        entity: SheetGlass1
+        number: 15
+      - !type:CreateEntityReactionEffect
+        entity: SheetRGlass1
+        number: 5
+    - reagents: [ Plasma ]
+      methods: [ Injection ]
+      effects:
+      - !type:CreateEntityReactionEffect
+        entity: SheetSteel1
+        number: 15
+      - !type:CreateEntityReactionEffect
+        entity: SheetPlasteel1
+        number: 5
+    - reagents: [ Blood ]
+      methods: [ Injection ]
+      effects:
+      - !type:AdjustReagent
+        reagent: WeldingFuel
+        amount: 100
   - type: SlimeExtract
 
 ## Tier 2
@@ -167,6 +196,7 @@
     - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
       state: core
       color: "#c4c4c4"
+      shader: XenoMetallic
   - type: SlimeExtract
 
 # Tier 2.5
@@ -182,6 +212,7 @@
     - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
       state: core
       color: "#f0f8ff"
+      shader: XenoBluespace
   - type: SlimeExtract
 
 - type: entity
@@ -195,6 +226,7 @@
     - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
       state: core
       color: "#704214"
+      shader: XenoSepia
   - type: SlimeExtract
 
 - type: entity
@@ -221,6 +253,7 @@
     - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
       state: core
       color: "#dcaa4f"
+      shader: XenoMetallic
   - type: SlimeExtract
 
 # Tier 3
@@ -275,6 +308,7 @@
     - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
       state: core
       color: "#e8b923"
+      shader: XenoMetallic
   - type: SlimeExtract
 
 # Tier 4
@@ -290,6 +324,7 @@
     - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
       state: core
       color: "#383936"
+      shader: XenoMetallic
   - type: SlimeExtract
 
 - type: entity
@@ -329,4 +364,5 @@
     - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
       state: core
       color: "#005c33"
+      shader: XenoMetallic
   - type: SlimeExtract
