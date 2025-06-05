@@ -518,8 +518,8 @@
         Piercing: 0.8
         Heat: 0.3
         Shock: 0.8
-        Caustic: 0.5
-        Radiation: 0.1
+        Caustic: 0.2
+        Radiation: 0.01
   - type: ComponentToggler
     components:
     - type: PressureProtection
@@ -538,6 +538,7 @@
   - type: HideClothingLayerClothing
     hiddenSlots:
     - jumpsuit
+  - type: GroupExamine
 
 - type: entity
   parent: ClothingOuterBase

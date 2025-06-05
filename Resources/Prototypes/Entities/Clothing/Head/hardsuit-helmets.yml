@@ -573,13 +573,13 @@
     lowPressureMultiplier: 1000
   - type: Armor
     modifiers:
-      coefficients:
+      coefficients: #Goob - Modsuit edited all but pierce/blunt
         Blunt: 0.65
-        Slash: 0.8
+        Slash: 0.85
         Piercing: 0.9
-        Heat: 0.35
-        Radiation: 0.01
-        Caustic: 0.2
+        Heat: 0.4
+        Radiation: 0.1
+        Caustic: 0.5
 
 #Head of Security's hardsuit
 - type: entity
