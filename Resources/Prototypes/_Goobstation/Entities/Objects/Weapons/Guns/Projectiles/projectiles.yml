@@ -364,7 +364,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: StaminaDamageOnCollide
-    damage: 20
+    damage: 27
   - type: Projectile
     impactEffect: BulletImpactEffectDisabler
     damage:
