@@ -6,8 +6,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Server.Xenobiology.HTN;
-using Content.Goobstation.Shared.Xenobiology;
 using Content.Goobstation.Shared.Xenobiology.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.DoAfter;
@@ -18,7 +16,7 @@ using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
 using Robust.Shared.Containers;
 
-namespace Content.Goobstation.Server.Xenobiology;
+namespace Content.Goobstation.Shared.Xenobiology.Systems;
 
 /// <summary>
 /// This handles any actions that slime mobs may have.
@@ -73,7 +71,7 @@ public partial class XenobiologySystem
             || slime.Comp.Stomach.Count <= 0)
             return;
 
-        var text = Loc.GetString("slime-examined-text", ("num", slime.Comp.Stomach.Count));
+        var text = Robust.Shared.Localization.Loc.GetString("slime-examined-text", ("num", slime.Comp.Stomach.Count));
         args.PushMarkup(text);
     }
 
@@ -137,7 +135,7 @@ public partial class XenobiologySystem
     {
         if (_mobState.IsDead(target))
         {
-            var targetDeadPopup = Loc.GetString("slime-latch-fail-target-dead", ("ent", target));
+            var targetDeadPopup = Robust.Shared.Localization.Loc.GetString("slime-latch-fail-target-dead", ("ent", target));
             _popup.PopupEntity(targetDeadPopup, slime, slime);
 
             return;
@@ -145,13 +143,13 @@ public partial class XenobiologySystem
 
         if (slimeComp.Stomach.Count >= slimeComp.MaxContainedEntities)
         {
-            var maxEntitiesPopup = Loc.GetString("slime-latch-fail-max-entities", ("ent", target));
+            var maxEntitiesPopup = Robust.Shared.Localization.Loc.GetString("slime-latch-fail-max-entities", ("ent", target));
             _popup.PopupEntity(maxEntitiesPopup, slime, slime);
 
             return;
         }
 
-        var attemptPopup = Loc.GetString("slime-latch-attempt", ("slime", slime), ("ent", target));
+        var attemptPopup = Robust.Shared.Localization.Loc.GetString("slime-latch-attempt", ("slime", slime), ("ent", target));
         _popup.PopupEntity(attemptPopup, slime, PopupType.MediumCaution);
 
         var doAfterArgs = new DoAfterArgs(EntityManager,
@@ -186,7 +184,7 @@ public partial class XenobiologySystem
 
         if (!_containerSystem.Insert(target, slimeComp.Stomach))
         {
-            var failPopup = Loc.GetString("slime-action-latch-fail", ("slime", slime), ("target", target));
+            var failPopup = Robust.Shared.Localization.Loc.GetString("slime-action-latch-fail", ("slime", slime), ("target", target));
             _popup.PopupEntity(failPopup, slime, PopupType.SmallCaution);
 
             return;
@@ -199,7 +197,7 @@ public partial class XenobiologySystem
 
         _audio.PlayEntity(slimeComp.EatSound, slime, slime);
 
-        var successPopup = Loc.GetString("slime-action-latch-success", ("slime", slime), ("target", target));
+        var successPopup = Robust.Shared.Localization.Loc.GetString("slime-action-latch-success", ("slime", slime), ("target", target));
         _popup.PopupEntity(successPopup, slime, PopupType.SmallCaution);
 
         // We also need to set a new state for the slime when it's consuming,

@@ -157,7 +157,7 @@
   - type: Slime
     slimeColor: "#f0f8ff"
     shouldHaveShader: true
-    shader: Enchant #temp
+    shader: XenoBluespace
     breed: BluespaceMutation
     maxOffspring: 4
     mutationChance: 0.45

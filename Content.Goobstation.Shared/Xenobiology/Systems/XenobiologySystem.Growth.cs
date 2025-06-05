@@ -6,11 +6,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Shared.Xenobiology;
 using Content.Goobstation.Shared.Xenobiology.Components;
 using Content.Shared.Nutrition.Components;
 
-namespace Content.Goobstation.Server.Xenobiology;
+namespace Content.Goobstation.Shared.Xenobiology.Systems;
 
 /// <summary>
 /// This handles mob growth between development stages.

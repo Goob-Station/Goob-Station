@@ -1,42 +1,20 @@
-// Film grain parameters (SS14 style without hint_range)
-uniform highp float grain_intensity = 0.05;
-uniform highp float grain_size = 2.0;
-uniform highp float grain_speed = 0.1;
-
-// Sepia gradient parameters
-uniform highp float sepia_strength = 0.7;
-uniform highp vec3 sepia_dark = vec3(0.34, 0.24, 0.15);
-uniform highp vec3 sepia_light = vec3(0.89, 0.81, 0.65);
-
-// SS14-style noise function
-highp float random_noise(highp vec2 seed) {
-    return fract(sin(dot(seed, vec2(12.9898, 78.233))) * 43758.5453);
-}
+// Uniforms
+uniform highp float grain_amount = 0.03;
+uniform highp float grain_size = 4.0;
 
 void fragment() {
-    // Robust Toolbox-style texture sampling
     highp vec4 sprite = texture(TEXTURE, UV);
 
-    // Early discard as in SS14
-    if (sprite.a <= 0.0) {
+    if (sprite.a == 0.0) {
         discard;
     }
 
-    // Film grain calculation
-    vec2 grain_uv = UV * grain_size + (TIME * grain_speed);
-    float grain = random_noise(grain_uv) - 0.5;
+    // Generate random noise
+    highp float noise = (fract(sin(dot(UV, vec2(12.9898, 78.233))) * 43758.5453) - 0.5) * 2.0;
 
-    // Luminance for sepia conversion
-    float luma = dot(sprite.rgb, vec3(0.299, 0.587, 0.114));
+    // Add noise to the original color
+    sprite.rgb += noise * grain_amount * grain_size;
 
-    // Vertical gradient effect
-    float gradient = mix(0.3, 1.0, UV.y);
-    vec3 sepia = mix(sepia_dark, sepia_light, luma * gradient);
-
-    // Final color composition
-    vec3 color = mix(sprite.rgb, sepia, sepia_strength);
-    color += grain * grain_intensity;
-
-    // SS14-style output
-    COLOR = vec4(color, sprite.a);
+    // Clamp the final color to make sure it stays in the valid range
+    COLOR = clamp(sprite, 0.0, 1.0);
 }

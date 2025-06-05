@@ -13,13 +13,11 @@ using Content.Shared.Emag.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Hands;
 using Content.Shared.Interaction;
-using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
-using Robust.Shared.Physics.Components;
 
-namespace Content.Goobstation.Server.Xenobiology;
+namespace Content.Goobstation.Shared.Xenobiology.Systems;
 
 /// <summary>
 /// This handles the XenoVacuum and it's interactions.
@@ -49,7 +47,7 @@ public partial class XenobiologySystem
 
         foreach (var ent in tank.Comp.StorageTank.ContainedEntities)
         {
-            var text = Loc.GetString("xeno-vacuum-examined", ("ent", ent));
+            var text = Robust.Shared.Localization.Loc.GetString("xeno-vacuum-examined", ("ent", ent));
             args.PushMarkup(text);
         }
     }
@@ -92,6 +90,9 @@ public partial class XenobiologySystem
 
     private void OnXenoVacuum(Entity<XenoVacuumComponent> ent, ref AfterInteractEvent args)
     {
+        if (!_net.IsServer)
+            return;
+
         if (args is { Target: { } target, CanReach: true }
             && HasComp<MobStateComponent>(target))
         {
@@ -106,7 +107,7 @@ public partial class XenobiologySystem
 
         foreach (var removedEnt in _containerSystem.EmptyContainer(tankComp.StorageTank))
         {
-            var popup = Loc.GetString("xeno-vacuum-clear-popup", ("ent", removedEnt));
+            var popup = Robust.Shared.Localization.Loc.GetString("xeno-vacuum-clear-popup", ("ent", removedEnt));
             _popup.PopupEntity(popup, ent, args.User);
 
             if (args.Target is { } thrown)
@@ -127,7 +128,7 @@ public partial class XenobiologySystem
         if (!_inventorySystem.TryGetSlotEntity(user, "suitstorage", out var tank)
             || !TryComp<XenoVacuumTankComponent>(tank, out var tankComp))
         {
-            var noTankPopup = Loc.GetString("xeno-vacuum-suction-fail-no-tank-popup");
+            var noTankPopup = Robust.Shared.Localization.Loc.GetString("xeno-vacuum-suction-fail-no-tank-popup");
             _popup.PopupEntity(noTankPopup, vacuum, user);
             return false;
         }
@@ -135,7 +136,7 @@ public partial class XenobiologySystem
         if (!HasComp<SlimeComponent>(target)
             && !HasComp<EmaggedComponent>(vacuum))
         {
-            var invalidEntityPopup = Loc.GetString("xeno-vacuum-suction-fail-invalid-entity-popup", ("ent", target));
+            var invalidEntityPopup = Robust.Shared.Localization.Loc.GetString("xeno-vacuum-suction-fail-invalid-entity-popup", ("ent", target));
             _popup.PopupEntity(invalidEntityPopup, vacuum, user);
 
             return false;
@@ -143,7 +144,7 @@ public partial class XenobiologySystem
 
         if (tankComp.StorageTank.ContainedEntities.Count > tankComp.MaxEntities)
         {
-            var tankFullPopup = Loc.GetString("xeno-vacuum-suction-fail-tank-full-popup");
+            var tankFullPopup = Robust.Shared.Localization.Loc.GetString("xeno-vacuum-suction-fail-tank-full-popup");
             _popup.PopupEntity(tankFullPopup, vacuum, user);
 
             return false;
@@ -157,7 +158,7 @@ public partial class XenobiologySystem
 
         _audio.PlayEntity(vacuum.Comp.Sound, user, user);
 
-        var successPopup = Loc.GetString("xeno-vacuum-suction-succeed-popup", ("ent", target));
+        var successPopup = Robust.Shared.Localization.Loc.GetString("xeno-vacuum-suction-succeed-popup", ("ent", target));
         _popup.PopupEntity(successPopup, vacuum, user);
 
         return true;

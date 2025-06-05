@@ -7,3 +7,8 @@
   id: XenoSepia
   kind: source
   path: "/Textures/_Goobstation/Xenobiology/Shaders/xeno_sepia.swsl"
+
+- type: shader
+  id: XenoBluespace
+  kind: source
+  path: "/Textures/_Goobstation/Xenobiology/Shaders/xeno_bluespace.swsl"
