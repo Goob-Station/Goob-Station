@@ -9,6 +9,7 @@
 - type: entity
   parent: ClothingBackpackSatchelLeather
   id: ClothingBackpackSatchelLeatherFilledNavyOfficer
+  suffix: Filled, Navy Officer
   components:
   - type: StorageFill
     contents:
@@ -21,6 +22,7 @@
 - type: entity
   parent: ClothingBackpackSatchelLeather
   id: ClothingBackpackSatchelLeatherFilledSpecOps
+  suffix: Filled, Spec Ops
   components:
   - type: StorageFill
     contents:
@@ -35,6 +37,7 @@
 - type: entity
   parent: ClothingBackpackChameleon
   id: ClothingBackpackChameleonFilledUndercover
+  suffix: Filled, Undercover
   components:
   - type: StorageFill
     contents:
@@ -48,6 +51,7 @@
 - type: entity
   parent: ClothingBackpackSatchelLeather
   id: ClothingBackpackSatchelLeatherFilledInspector
+  suffix: Filled, Inspector
   components:
   - type: StorageFill
     contents:
