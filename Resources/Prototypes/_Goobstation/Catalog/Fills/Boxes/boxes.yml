@@ -25,6 +25,7 @@
   name: combat injector box
   parent: BoxCardboard
   id: BoxCombatInjector
+  suffix: DO NOT MAP
   description: A box containing a combat injector and a few healing chemicals.
   components:
   - type: StorageFill

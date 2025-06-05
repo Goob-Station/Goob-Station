@@ -27,9 +27,7 @@
     - BSORevolverSet
     - BSOCQCSet
     - BSOChesterSet
-    - BSOSyringeSet
     - BSOHardsuitLightSet
-#    - BSOHardsuitHeavySet
     - BSOModsuitSet
     maxSelectedSets: 2
 
