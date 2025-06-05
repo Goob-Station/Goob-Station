@@ -343,6 +343,17 @@
   - UplinkWeaponry
 
 - type: listing
+  id: UplinkSyndicateDisabler
+  name: syndicate disabler
+  description: An advanced disabler built from a reverse-engineered Nanotrasen disabler. While it lacks a bit of stopping power, it makes up for it with a recharging cell.
+  icon: { sprite: /Textures/_EinsteinEngines/Objects/Weapons/Guns/Battery/civilian-disabler.rsi, state: base }
+  productEntity: WeaponDisablerSyndicate
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkWeaponry
+
+- type: listing
   id: UplinkFireAxeFlaming
   name: uplink-fire-axe-flaming-name
   description: uplink-fire-axe-flaming-desc

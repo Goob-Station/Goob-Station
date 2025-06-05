@@ -358,6 +358,23 @@
     forceSound: true
 
 - type: entity
+  name : disabler bolt
+  id: BulletSyndicateDisabler
+  parent: BulletDisabler
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StaminaDamageOnCollide
+    damage: 20
+  - type: Projectile
+    impactEffect: BulletImpactEffectDisabler
+    damage:
+      types:
+        Ion: 5
+    soundHit:
+      collection: WeakHit
+    forceSound: true
+
+- type: entity
   id: BulletGrenadeTeargas
   name: tear gas grenade
   parent: BaseBulletTrigger

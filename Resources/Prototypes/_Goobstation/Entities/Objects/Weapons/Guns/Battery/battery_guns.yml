@@ -239,6 +239,37 @@
     autoRechargeRate: 40
 
 - type: entity
+  name: syndicate disabler
+  parent: [ WeaponDisablerPractice, BaseSyndicateContraband ]
+  id: WeaponDisablerSyndicate
+  description: An advanced disabler built from a reverse-engineered Nanotrasen disabler. While it lacks a bit of stopping power, it makes up for it with a recharging cell.
+  components:
+    - type: Item
+      size: Small
+      shape:
+      - 0,0,1,1
+    - type: Sprite
+      sprite: _EinsteinEngines/Objects/Weapons/Guns/Battery/civilian-disabler.rsi
+      layers:
+        - state: base
+          map: ["enum.GunVisualLayers.Base"]
+        - state: mag-unshaded-0
+          map: ["enum.GunVisualLayers.MagUnshaded"]
+          shader: unshaded
+    - type: Clothing
+      sprite: _EinsteinEngines/Objects/Weapons/Guns/Battery/civilian-disabler.rsi
+      quickEquip: false
+      slots:
+        - suitStorage
+        - Belt
+    - type: ProjectileBatteryAmmoProvider
+      proto: BulletSyndicateDisabler
+      fireCost: 100
+    - type: BatterySelfRecharger
+      autoRecharge: true
+      autoRechargeRate: 50
+
+- type: entity
   name: advanced pulse carbine
   parent: WeaponPulseCarbine
   id: WeaponPulseCarbineAdvanced
