@@ -216,3 +216,16 @@ selectable-set-captain-modsuit-desc =
     A modular hardsuit perfectly shined, adorned, and armored for the best of
     the best, fitted with custom plating, cooling fluid, and diamonds to
     make even the toughest of times leading seem like nothing to you.
+
+
+selectable-set-research-director-voidsuit-name = RD's voidsuit
+selectable-set-captain-voidsuit-desc =
+    The Research Director's light voidsuit fitted for experiments, lightly
+    armored to protect from assistants breaking in, all while still retaining
+    common spacewalking capabilities.
+
+selectable-set-research-director-modsuit-name = RD's 'Minerva' hardsuit
+selectable-set-captain-modsuit-desc =
+    A modular hardsuit armored perfectly to turn you into a research tank,
+    not even the most dangerous of experiments will harm you in this,
+    and the worst of assistants will think twice before breaking in sci.

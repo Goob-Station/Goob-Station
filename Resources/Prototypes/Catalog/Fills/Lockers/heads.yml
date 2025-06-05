@@ -454,7 +454,7 @@
   table: !type:AllSelector
     children:
     - id: ClothingMaskBreath
-    - id: ClothingOuterHardsuitRd
+    - id: UndeterminedVoidsuitRD
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
 
