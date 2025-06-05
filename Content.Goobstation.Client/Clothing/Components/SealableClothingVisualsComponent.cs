@@ -18,6 +18,6 @@ public sealed partial class SealableClothingVisualsComponent : Component
     [DataField]
     public string SpriteLayer = "sealed";
 
-    [DataField("clothingVisuals")]
+    [DataField]
     public Dictionary<string, List<PrototypeLayerData>> ClothingVisuals = new(); //just use ClothingVisuals like anything else
 }
