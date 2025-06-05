@@ -82,7 +82,7 @@ public sealed partial class PickSlimeLatchTargetOperator : HTNOperator
                 || growthComp.CurrentStage == growthComp.Stages[0]
                 && entity == slimeComp.Tamer
                 || entity == slimeComp.Tamer
-                || _entManager.HasComponent<BeingConsumedComponent>(entity)
+                || _entManager.HasComponent<Shared.Xenobiology.Components.BeingConsumedComponent>(entity)
                 && _hunger.IsHungerAboveState(owner, HungerThreshold.Peckish))
                 continue;
 
