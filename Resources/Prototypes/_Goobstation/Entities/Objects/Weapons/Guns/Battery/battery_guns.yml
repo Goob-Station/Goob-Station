@@ -242,7 +242,7 @@
   name: syndicate disabler
   parent: [ WeaponDisablerPractice, BaseSyndicateContraband ]
   id: WeaponDisablerSyndicate
-  description: An advanced disabler built from a reverse-engineered Nanotrasen disabler. While it lacks a bit of stopping power, it makes up for it with a recharging cell.
+  description: An advanced disabler built from a reverse-engineered Nanotrasen prototype. While it lacks a bit of stopping power, it makes up for it with a recharging cell.
   components:
     - type: Item
       size: Small
