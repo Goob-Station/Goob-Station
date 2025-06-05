@@ -1,0 +1,19 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: [ OrganHumanHeart, BaseSyndicateContraband ]
+  id: OrganHeartSandevistan
+  name: Sandevistan
+  description: Illegal cyberware that replaces the user's heart and allows them to greatly increase their speed for the cost of the endurance.
+  components:
+  - type: Cybernetics
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/sandevistan.rsi
+    state: icon
+    scale: 0.5, 0.5
+  - type: Organ
+    onAdd:
+    - type: SandevistanUser
