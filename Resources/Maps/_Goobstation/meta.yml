@@ -123443,7 +123443,7 @@ entities:
     - type: Transform
       pos: -1.4762721,-15.536118
       parent: 2
-- proto: PlushieKury
+- proto: PlushieLizard
   entities:
   - uid: 26912
     components:
