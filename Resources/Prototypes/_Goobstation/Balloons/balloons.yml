@@ -1,0 +1,424 @@
+# SPDX-FileCopyrightText: 2025 Arraydeess <arraygitbash@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: base balloon
+  parent: BaseStructureDynamic
+  id: BaseBalloon       # Base balloon
+  abstract: true # Make sure it doesn't appear
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/balloons.rsi
+    state: icon
+    drawdepth: Overdoors # just so it renders above spesos
+    noRot: True
+  - type: Item
+    size: Huge
+  - type: Damageable
+    damageContainer: RubberBalloon # default damage container
+  - type: Physics # has dynamic physics
+    bodyType: Dynamic
+  - type: Penetratable # projectile Able to pierce balloons
+    penetrateDamage: 1
+    damagePenalty: 0.5
+  - type: NpcFactionMember
+    factions:
+      - Balloon
+  - type: InteractionOutline
+  - type: Fixtures # give it locker collision
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.48,0.25,0.48"
+        density: 75
+        mask:
+          - TabletopMachineMask
+        layer:
+          - TabletopMachineLayer    # No collision but still able to be shot
+
+# Red Balloon
+- type: entity
+  name: red balloon
+  parent: BaseBalloon
+  description: The weakest balloon.
+  id: redBalloon
+  components:
+  - type: Sprite
+    state: red
+  - type: MobState # To get mobs to attack:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Critical
+      200: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1           # balloon health
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
+          params:
+            variation: 0.125
+            volume: -4
+      - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
+        spawn:
+          SpaceCash:
+            min: 10
+            max: 15
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+# Blue Balloon
+- type: entity
+  name: blue balloon
+  parent: BaseBalloon
+  description: A pretty chill balloon.
+  id: blueBalloon
+  components:
+  - type: Sprite
+    state: blue
+  - type: MobState # To get mobs to attack:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Critical
+      200: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1           # balloon health
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
+          params:
+            variation: 0.125
+            volume: -4
+      - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
+         spawn:
+          SpaceCash:
+            min: 10
+            max: 15
+          redBalloon:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+# Green Balloon
+- type: entity
+  name: green balloon
+  parent: BaseBalloon
+  description: The most strategically minded balloon of the bunch. Capable of planning advanced waves, if only it had a track to follow.
+  id: greenBalloon
+  components:
+  - type: Sprite
+    state: green
+  - type: MobState # To get mobs to attack:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Critical
+      200: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1           # balloon health
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
+          params:
+            variation: 0.125
+            volume: -4
+      - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
+         spawn:
+          SpaceCash:
+            min: 10
+            max: 15
+          blueBalloon:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+# Yellow Balloon
+- type: entity
+  name: yellow balloon
+  parent: BaseBalloon
+  description: The greediest balloon, always flaunting its wealth to the other balloons.
+  id: yellowBalloon
+  components:
+  - type: Sprite
+    state: yellow
+  - type: MobState # To get mobs to attack:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Critical
+      200: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1           # balloon health
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
+          params:
+            variation: 0.125
+            volume: -4
+      - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
+         spawn:
+          SpaceCash:
+            min: 10
+            max: 15
+          greenBalloon:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+# Pink Balloon
+- type: entity
+  name: pink balloon
+  parent: BaseBalloon
+  description: The most annoying and insufferable balloon.
+  id: pinkBalloon
+  components:
+  - type: Sprite
+    state: pink
+  - type: MobState # To get mobs to attack:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Critical
+      200: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1           # balloon health
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
+          params:
+            variation: 0.125
+            volume: -4
+      - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
+         spawn:
+          SpaceCash:
+            min: 10
+            max: 15
+          yellowBalloon:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+# Black Balloon
+- type: entity
+  name: black balloon
+  parent: BaseBalloon
+  description: The edgiest balloon, never grew out of its emo phase. Immune to heat and shock damage!
+  id: blackBalloon
+  components:
+  - type: Sprite
+    state: black
+  - type: MobState # To get mobs to attack:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Critical
+      200: Dead
+  - type: Damageable
+    damageContainer: BlackBalloon
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1           # balloon health
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
+          params:
+            variation: 0.125
+            volume: -4
+      - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
+         spawn:
+          SpaceCash:
+            min: 10
+            max: 15
+          pinkBalloon:
+            min: 2
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+# White Balloon
+- type: entity
+  name: white balloon
+  parent: BaseBalloon
+  description: The most emotionless balloon. Isn't even given a proper name, only a purpose. Immune to cold damage!
+  id: whiteBalloon
+  components:
+  - type: Sprite
+    state: white
+  - type: MobState # To get mobs to attack:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Critical
+      200: Dead
+  - type: Damageable
+    damageContainer: WhiteBalloon
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1           # balloon health
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
+          params:
+            variation: 0.125
+            volume: -4
+      - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
+         spawn:
+          SpaceCash:
+            min: 10
+            max: 15
+          pinkBalloon:
+            min: 2
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+# Zebra Balloon
+- type: entity
+  name: zebra balloon
+  parent: BaseBalloon
+  description: Belongs in a zoo. Immune to all burn damage!
+  id: zebraBalloon
+  components:
+  - type: Sprite
+    state: zebra
+  - type: MobState # To get mobs to attack:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Critical
+      200: Dead
+  - type: Damageable
+    damageContainer: ZebraBalloon
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1           # balloon health
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
+          params:
+            variation: 0.125
+            volume: -4
+      - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
+         spawn:
+          SpaceCash:
+            min: 10
+            max: 15
+          whiteBalloon:
+            min: 1
+            max: 1
+          blackBalloon:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+# steel balloon
+- type: entity
+  name: steel balloon
+  parent: BaseBalloon
+  description: The most armored balloon. So feared that even animals don't attack it. Immune to brute damage!
+  id: steelBalloon
+  components:
+  - type: Sprite
+    state: steel
+  - type: Damageable        # only damagable via heat
+    damageContainer: SteelBalloon
+  - type: Penetratable # projectile Able to pierce balloons
+    penetrateDamage: 1000
+    damagePenalty: 1000
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1           # balloon health
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
+          params:
+            variation: 0.125
+            volume: -4
+      - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
+         spawn:
+          SpaceCash:
+            min: 10
+            max: 15
+          blackBalloon:
+            min: 2
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+# rainbow balloon
+- type: entity
+  name: rainbow balloon
+  parent: BaseBalloon
+  description: The most evil balloon of them all. Don't let the pretty colors fool you.
+  id: rainbowBalloon
+  components:
+  - type: Sprite
+    state: rainbow
+  - type: MobState # To get mobs to attack:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Critical
+      200: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1           # balloon health
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
+          params:
+            variation: 0.125
+            volume: -4
+      - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
+         spawn:
+          SpaceCash:
+            min: 10
+            max: 15
+          zebraBalloon:
+            min: 2
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
