@@ -110,15 +110,11 @@ public sealed partial class PlantAnalyzerWindow : FancyWindow
             Traits.Text = Loc.GetString("plant-analyzer-plant-mutations-text", ("traits", mutations.ToString()));
         }
         else
-        {
             Traits.Text = Loc.GetString("plant-analyzer-plant-mutations-text", ("traits", "-"));
-        }
 
         StringBuilder speciation = new();
         if (msg.Speciation == null)
-        {
             speciation.Append('-');
-        }
         else
         {
             foreach (var species in msg.Speciation)

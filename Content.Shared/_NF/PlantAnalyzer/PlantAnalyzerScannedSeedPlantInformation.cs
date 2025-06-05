@@ -17,7 +17,6 @@ public sealed class PlantAnalyzerScannedSeedPlantInformation : BoundUserInterfac
 {
     public NetEntity? TargetEntity;
     public bool IsTray;
-
     public string? SeedName;
     public string[]? SeedChem;
     public AnalyzerHarvestType HarvestType;

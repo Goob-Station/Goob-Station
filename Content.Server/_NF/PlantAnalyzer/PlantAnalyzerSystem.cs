@@ -5,7 +5,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Server._NF.Botany.Components;
 using Content.Server.Botany;
 using Content.Server.Botany.Components;
 using Content.Server.PowerCell;
@@ -17,7 +16,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._NF.Botany.Systems;
+namespace Content.Server._NF.PlantAnalyzer;
 
 public sealed class PlantAnalyzerSystem : EntitySystem
 {
