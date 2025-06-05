@@ -1,0 +1,2482 @@
+diff --git a/Resources/Audio/_Goobstation/Ambience/clock_tick.ogg b/Resources/Audio/_Goobstation/Ambience/clock_tick.ogg
+new file mode 100644
+index 0000000000..24fc9d352f
+Binary files /dev/null and b/Resources/Audio/_Goobstation/Ambience/clock_tick.ogg differ
+diff --git a/Resources/Audio/_Goobstation/Ambience/fan_drone.ogg b/Resources/Audio/_Goobstation/Ambience/fan_drone.ogg
+new file mode 100644
+index 0000000000..208d804060
+Binary files /dev/null and b/Resources/Audio/_Goobstation/Ambience/fan_drone.ogg differ
+diff --git a/Resources/Audio/_Goobstation/Ambience/flies_buzzing.ogg b/Resources/Audio/_Goobstation/Ambience/flies_buzzing.ogg
+new file mode 100644
+index 0000000000..dd37b9615e
+Binary files /dev/null and b/Resources/Audio/_Goobstation/Ambience/flies_buzzing.ogg differ
+diff --git a/Resources/Audio/_Goobstation/Ambience/ominous_pulse.ogg b/Resources/Audio/_Goobstation/Ambience/ominous_pulse.ogg
+new file mode 100644
+index 0000000000..2e7a045ae9
+Binary files /dev/null and b/Resources/Audio/_Goobstation/Ambience/ominous_pulse.ogg differ
+diff --git a/Resources/Audio/_Goobstation/BalloonEffect/balloon_pop.ogg b/Resources/Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
+new file mode 100644
+index 0000000000..28f42a0d1d
+Binary files /dev/null and b/Resources/Audio/_Goobstation/BalloonEffect/balloon_pop.ogg differ
+diff --git a/Resources/Audio/_Goobstation/Machines/attributions.yml b/Resources/Audio/_Goobstation/Machines/attributions.yml
+index 60c5570209..c2b877015e 100644
+--- a/Resources/Audio/_Goobstation/Machines/attributions.yml
++++ b/Resources/Audio/_Goobstation/Machines/attributions.yml
+@@ -3,10 +3,17 @@
+ # SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+ # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+ # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
++# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
++# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
+ #
+ # SPDX-License-Identifier: AGPL-3.0-or-later
+ 
+ - files: ["computer_end.ogg"]
+   license: "CC-BY-NC-SA-3.0"
+   copyright: "Taken from TG station."
+-  source: "https://github.com/tgstation/tgstation/pull/32336"
+\ No newline at end of file
++  source: "https://github.com/tgstation/tgstation/pull/32336"
++
++- files: ["computerboot_pc.ogg"]
++  license: "CC-BY-NC-SA-3.0"
++  copyright: "Taken from Goonstation."
++  source: "https://github.com/goonstation/goonstation"
+diff --git a/Resources/Audio/_Goobstation/Machines/computerboot_pc.ogg b/Resources/Audio/_Goobstation/Machines/computerboot_pc.ogg
+new file mode 100644
+index 0000000000..cc88dcbbaa
+Binary files /dev/null and b/Resources/Audio/_Goobstation/Machines/computerboot_pc.ogg differ
+diff --git a/Resources/Changelog/GoobChangelog.yml b/Resources/Changelog/GoobChangelog.yml
+index 820a8e96a6..9d89fef77a 100644
+--- a/Resources/Changelog/GoobChangelog.yml
++++ b/Resources/Changelog/GoobChangelog.yml
+@@ -10581,3 +10581,53 @@ Entries:
+       message: Fixed Hierophant second fight making only Teleportation attacks.
+   id: 1165
+   time: '2025-06-03T07:38:09.0000000+00:00'
++- author: Arraydeess
++  changes:
++    - type: Add
++      message: Added Balloons purchasable via cargo!
++    - type: Tweak
++      message: Ancestors and pets now hate balloons
++    - type: Tweak
++      message: Spesos can now be picked up by ore bags
++  id: 1166
++  time: '2025-06-04T11:38:59.0000000+00:00'
++- author: pheenty
++  changes:
++    - type: Tweak
++      message: All shields are undisarmable now.
++    - type: Tweak
++      message: Energy shield is now more resistant.
++    - type: Tweak
++      message: Greatshield and atrocity no longer self-recharge.
++  id: 1167
++  time: '2025-06-04T12:31:38.0000000+00:00'
++- author: Ilya246
++  changes:
++    - type: Fix
++      message: You can now properly drag-and-drop batteries and modules onto mechs.
++  id: 1168
++  time: '2025-06-04T12:34:23.0000000+00:00'
++- author: pheenty
++  changes:
++    - type: Tweak
++      message: >-
++        Increased lawbringer bigshot structural damage, also it no longer flies
++        through windows which was an oversight.
++    - type: Fix
++      message: >-
++        Regular security winter boots no longer have jackboots bonuses, it also
++        was an oversight. 
++    - type: Fix
++      message: >-
++        CMO webbing comes with a bone manipulator instead of bone gel, it was
++        well you guessed it.
++    - type: Fix
++      message: Warden's headgears now have armor values, you know what that was.
++  id: 1169
++  time: '2025-06-04T12:35:34.0000000+00:00'
++- author: OnsenCapy
++  changes:
++    - type: Add
++      message: Added several new furniture to decorate the station with!
++  id: 1170
++  time: '2025-06-04T13:01:23.0000000+00:00'
+diff --git a/Resources/Credits/GitHub.txt b/Resources/Credits/GitHub.txt
+index e21d187051..a8c3423941 100644
+--- a/Resources/Credits/GitHub.txt
++++ b/Resources/Credits/GitHub.txt
+@@ -1 +1 @@
+-0tito, 0x6273, 12rabbits, 1337dakota, 13spacemen, 154942, 2013HORSEMEATSCANDAL, 20kdc, 21Melkuu, 27alaing, 3nderall, 4310v343k, 4dplanner, 612git, 778b, a-person5660, Ablankmann, abregado, Absolute-Potato, Absotively, absurd-shaman, acatrw, achookh, Acruid, ActiveMammmoth, actually-reb, ada-please, adamsong, Adeinitas, Admiral-Obvious-001, adrian, Adrian16199, Ady4ik, Aerocrux, Aeshus, Aexolott, Aexxie, africalimedrop, afrokada, AftrLite, agentepanela, AgentSmithRadio, Agoichi, Ahion, Aidenkrz, Aineias1, Aisu9, ajcm, AJCM-git, AjexRose, Alekshhh, alexkar598, AlexMorgan3817, alexum418, alexumandxgabriel08x, Alithsko, alliephante, ALMv1, Alpaccalypse, Alpha-Two, AlphaQwerty, Altoids1, amatwiedle, amylizzle, Andre19926, andrew, AndrewEyeke, AndreyCamper, AnotherButton, Anzarot121, ApolloVector, Appiah, ar4ill, ArchPigeon, ArchRBX, Archylle, areitpog, Arendian, arimah, Arkanic, ArkiveDev, ARMOKS, Arraydeess14, Arteben, ArthurMousatov, ArtisticRoomba, artur, ArZarLordOfMango, as334, AsikKEsel, AsnDen, asperger-sind, aspiringlich, aspiringLich, astriloqua, AstroDogeDX, august-sun, AutoOtter, AverageNotDoingAnythingEnjoyer, avghdev, Aviu00, aw-fulcode, Awlod, azzyisnothere, AzzyIsNotHere, B-Kirill, baa14453, BackeTako, Bakke, BananaFlambe, Baptr0b0t, BarryNorfolk, BasedUser, be1bright, bebr3ght, beck-thompson, BeeRobynn, bellwetherlogic, ben, benev0, benjamin-burges, BGare, bhespiritu, bibbly, BIGZi0348, bingojohnson, BismarckShuffle, Bixkitts, Blackern5000, Blazeror, BlitzTheSquishy, Blobadoodle, bloodrizer, Bloody2372, blueDev2, Boaz1111, BobdaBiscuit, BobTheSleder, boiled-water-tsar, BombasterDS2, Booblesnoot42, Boolean-Buckeye, botanySupremist, boxxie79, brainfood1183, BramvanZijp, Brandon-Huu, BriBrooo, Bright0, brndd, bryce0110, BubblegumBlue, buletsponge, buntobaggins, bvelliquette, BWTCK, bynnel, BYONDFuckery, c0rigin, c4llv07e, CaasGit, Caconym27, Calecute, Callmore, Camdot, capnsockless, CaptainMaru, captainsqrbeard, Carbonhell, Carolyn3114, Carou02, carteblanche4me, catdotjs, CatMagic1, Catofquestionableethics, CatTheSystem, CBozo, centcomofficer24, Centronias, CerberusWolfie, cerise-cattowo, Chaboricks, chairbender, Chaoticaa, Charlese2, charlie, ChaseFlorom, chavonadelal, Cheackraze, CheddaCheez, cheesePizza2, cheeseplated, cheetah1984, Chief-Engineer, chillyconmor, christhirtle, chromiumboy, Chronophylos, Chubbicous, Chubbygummibear, Ciac32, ciaran, civilCornball, claustro305, Clement-O, clyf, Clyybber, CMDR-JohnAlex, cohanna, Cohnway, Cojoke-dot, ColdAutumnRain, Colin-Tel, collinlunn, ColonicAcid, ComicIronic, Compilatron144, CookieMasterT, coolboy911, coolmankid12345, Coolsurf6, cooperwallace, corentt, CormosLemming, CrafterKolyan, crazybrain23, creadth, Creatorbot01, CrigCrag, croilbird, Crotalus, CrudeWax, CrzyPotato, cutemoongod, Cyberboss, d34d10cc, DadeKuma, Daemon, daerSeebaer, dahnte, dakamakat, DamianX, DaMoggen, dan, dangerrevolution, daniel-cr, DanSAussieITS, Daracke, DarkDanss14, DarkenedSynergy, Darkie, DawBla, Daxxi3, dch-GH, de0rix, Deahaka, dean, DEATHB4DEFEAT, Deatherd, deathride58, debugok, Decappi, Decortex, Deeeeja, deepdarkdepths, DeepwaterCreations, Deerstop, degradka, Delete69, deltanedas, DenisShvalov, DerbyX, derek, dersheppard, Deserty0, Detintinto, DevilishMilk, dexlerxd, dffdff2423, DieselMohawk, digitalic, Dimastra, dinnercalzone, DinoWattz, DisposableCrewmember42, DjfjdfofdjfjD, doc-michael, docnite, Doctor-Cpu, Doggo5852, DogZeroX, dolgovmi, dontbetank, Doomsdrayk, Doru991, DoubleRiceEddiedd, DoutorWhite, DR-DOCTOR-EVIL-EVIL, dragonryan06, drakewill-CRL, Drayff, dreamlyjack, DrEnzyme, dribblydrone, DrMelon, drongood12, DrSingh, DrSmugleaf, drteaspoon420, DTanxxx, DubiousDoggo, DuckManZach, Duddino, dukevanity, duskyjay, Dutch-VanDerLinde, dvir001, dylanstrategie, dylanwhittingham, Dynexust, Easypoller, echo, eclips_e, eden077, EEASAS, Efruit, efzapa, Ekkosangen, ElectroSR, elsie, elthundercloud, Elysium206, Emisse, emmafornash, EmoGarbage404, Endecc, eoineoineoin, Ephememory, eris, erohrs2, erorr404v1, Errant-4, ertanic, esguard, estacaoespacialpirata, EternalShibe, eugene, Evige, ewokswagger, exincore, exp111, ExponentialWizard, f0x-n3rd, FacePluslll, Fahasor, FairlySadPanda, farrellka-dev, fat-engineer-gaming, FATFSAAM2, Feluk6174, ficcialfaint, Fiftyllama, Fildrance, fillervk, FinnishPaladin, firenamefn, Firewars763, FirinMaLazors, fishbait, Fishfish458, fl-oz, Flareguy, flashgnash, FluffiestFloof, FluffMe, FluidRock, flyingkarii, flymo5678, foboscheshir, FoLoKe, fooberticus, foralemes, ForestNoises, forgotmyotheraccount, forkeyboards, forthbridge, Fortune117, Fouin, foxhorn, freeman2651, freeze2222, frobnic8, Froffy025, Fromoriss, froozigiusz, FrostMando, FungiFellow, FunkySphere, FunTust, Futuristic-OK, GalacticChimp, Gallagin, gamer3107, gansulalan, GaussiArson, Gaxeer, gbasood, gcoremans, Geekyhobo, genderGeometries, GeneralGaws, Genkail, geraeumig, Ghagliiarghii, Git-Nivrak, githubuser508, GitHubUser53123, gituhabu, GlassEclipse, gluesniffler, GNF54, godisdeadLOL, goet, GoldenCan, Goldminermac, Golinth, GoobBotTest[bot], GoodWheatley, Gorox221, gradientvera, graevy, GraniteSidewalk, GreaseMonk, GreenArg7, greenrock64, GreyMario, GrownSamoyedDog, Gtheglorious, GTRsound, gusxyz, Gyrandola, h2owe, h3half, hamurlik, Hanzdegloker, HappyRoach, Hardly3D, harikattar, HawkeyeBlade, he1acdvv, Hebi, Helm4142, Henry, HerCoyote23, HighTechPuddle, hiucko, hivehum, HMeister, Hmeister-fake, Hmeister-real, Hobbitmax, hobnob, HoidC, Holinka4ever, holyssss, HoofedEar, Hoolny, hord-brayden, Hreno, htmlsystem, hubismal, Hugal31, Hyenh, hyperb1, hyperDelegate, hyphenationc, i-justuser-i, iaada, iacore, IamVelcroboy, Ian321, icekot8, Icepicked, icesickleone, Ichaie, iczero, iglov, IgorAnt028, igorsaux, ike709, illersaver, Illiux, Ilushkins33, Ilya246, IlyaElDunaev, IMCB, ImHoks, impubbi, imrenq, ImWeax, indeano, InfinityPandaRed, Injazz, Insineer, IntegerTempest, Interrobang01, Intoxicating-Innocence, IProduceWidgets, IrisTheAmped, ItsMeThom, Itzbenz, iztokbajcar, Jackal298, Jackrost, jacksonzck, Jackw2As, jacob, jamessimo, janekvap, Jark255, jarlelbowses, Jarmer123, Jaskanbe, JasperJRoth, jbox144, jellygato, jerryimmouse, JerryImMouse, Jessetriesagain, jessicamaybe, Jezithyr, jicksaw, JiimBob, JimGamemaster, jimmy12or, JIPDawg, jjtParadox, jmcb, JohnGinnane, johnku1, JohnOakman, Jophire, jorgun, JORJ949, joshepvodka, jproads, Jrpl, jukereise, juliangiebel, JustArt1m, JustCone14, justdie12, justin, justintether, JustinTrotter, JustinWinningham, justtne, K-Dynamic, k3yw, Kadeo64, kaede, Kaga-404, KaiShibaa, kalane15, kalanosh, KamTheSythe, Kanashi-Panda, katzenminer, kbailey-git, Keelin, Keer-Sar, KEEYNy, keikiru, Kelrak, kerisargit, keronshb, KIBORG04, KieueCaprie, Killerqu00, Kimpes, KingFroozy, kipdotnet, kira-er, Kirillcas, Kirus59, Kistras, Kit0vras, KittenColony, klaypexx, Kmc2000, Ko4ergaPunk, kognise, kokoc9n, komunre, KonstantinAngelov, kosticia, koteq, KrasnoshchekovPavel, Krunklehorn, Kupie, kurokoturbo, kxvvv, kyupolaris, kzhanik, LaCumbiaDelCoronavirus, lajolico, Lamrr, LankLTE, lanse12, laok233, lapatison, larryrussian, lawdog4817, Lazzi0706, leander-0, leonardo-dabepis, leonidussaks, leonsfriedrich, LeoSantich, LetterN, lettern, Level10Cybermancer, LEVELcat, lever1209, LevitatingTree, Lgibb18, lgruthes, LightVillet, liltenhead, LinkUyx, Litraxx, LittleBuilderJane, LittleNorthStar, LittleNyanCat, lizelive, ljm862, lmsnoise, localcc, lokachop, Lomcastar, LordCarve, LordEclipse, lucas, LucasTheDrgn, LuciferEOS, luckyshotpictures, LudwigVonChesterfield, luizwritescode, Lukasz825700516, luminight, Lumminal, lunarcomets, Lusatia, lvvova1, lyacs, Lyndomen, lyroth001, lzimann, lzk228, M3739, mac6na6na, MACMAN2003, Macoron, magicalus, magmodius, magnuscrowe, malchanceux, MaloTV, ManelNavola, manelnavola, Mangohydra, marboww, marc-pelletier, Markek1, Matz05, max, MaxNox7, maylokana, McBosserson, MehimoNemo, MeltedPixel, memeproof, MendaxxDev, Menshin, Mephisto72, MerrytheManokit, Mervill, metalgearsloth, MetalSage, MFMessage, mhamsterr, michaelcu, micheel665, mifia, MilenVolf, MilonPL, Minemoder5000, Minty642, minus1over12, Mirino97, mirrorcult, misandrie, MishaUnity, MissKay1994, MisterImp, MisterMecky, Mith-randalf, MjrLandWhale, mkanke-real, MLGTASTICa, moderatelyaware, modern-nm, mokiros, momo, Moneyl, monotheonist, Moomoobeef, moony, Morb0, MortalBaguette, MossyGreySlope, MoutardOMiel, mr-bo-jangles, Mr0maks, MrFippik, mrrobdemo, muburu, MureixloI, musicmanvr, MWKane, Myakot, Myctai, N3X15, nails-n-tape, Nairodian, Naive817, NakataRin, namespace-Memory, Nannek, NazrinNya, NeKognitoHazard, Neptune-Zvezda, neutrino-laser, NickPowers43, nikavichy, nikthechampiongr, Nimfar11, ninruB, Nirnael, NIXC, NkoKirkto, nmajask, noctyrnal, noelkathegod, noirogen, nok-ko, NonchalantNoob, NoobyLegion, Nopey, not-gavnaed, notafet, notquitehadouken, notsodana, noudoit, noverd, Nox38, NuclearWinter, nukashimika, nuke-haus, NULL882, nullarmo, nyeogmi, Nylux, Nyranu, Nyxilath, och-och, OctoRocket, OldDanceJacket, OliverOtter, onesch, OnsenCapy, OnyxTheBrave, Orange-Winds, OrangeMoronage9622, orion-416, osjarw, Ostaf, othymer, OttoMaticode, outget, Owai-Seek, packmore, paige404, paigemaeforrest, pali6, Palladinium, Pangogie, panzer-iv1, partyaddict, patrikturi, PaulRitter, PeccNeck, Peptide90, peptron1, PeterFuto, PetMudstone, pewter-wiz, Pgriha, phantom-lily, pheenty, philingham, Phill101, phunnyguy, PilgrimViis, Pill-U, pinkbat5, Piras314, Pireax, Pissachu, pissdemon, PixeltheAertistContrib, PixelTheKermit, PJB3005, Plasmaguy, plinyvic, Plykiya, Plyushsune, poeMota, pofitlo, pointer-to-null, Poips, pok27, poklj, Pologuys, PolterTzi, PoorMansDreams, PopGamer45, portfiend, potato1234x, PoTeletubby, PotentiallyTom, ProfanedBane, PROG-MohamedDwidar, prole0, Pronana, ProPandaBear, PrPleGoo, ps3moira, Pspritechologist, Psychpsyo, psykana, psykzz, PuceTint, pumkin69, PunishedJoe, PuroSlavKing, PursuitInAshes, Putnam3145, pxc1984, py01, qrtDaniil, Quantum-cross, quatre, QueerNB, QuietlyWhisper, qwerltaz, Radezolid, RadioMull, Radosvik, Radrark, RadsammyT, Rainbeon, Rainfey, Raitononai, Ramlik, RamZ, randy10122, Rane, Ranger6012, Rapidgame7, rarepops, RatherUncreative, ravage123321, rbertoche, RealFakeSoof, RedBookcase, Redfire1331, Redict, RedlineTriad, redmushie, RednoWCirabrab, ReeZer2, RemberBM, RemieRichards, RemTim, rene-descartes2021, Renlou, retequizzle, rich-dunne, RieBi, riggleprime, RIKELOLDABOSS, rinary1, Rinkashikachi, riolume, RobbyTheFish, robinthedragon, Rockdtben, Rohesie, rok-povsic, rokudara-sen, rolfero, RomanNovo, rosieposieeee, rotundfan, Roudenn, router, RumiTiger, Ruzihm, S1rFl0, S1ss3l, Saakra, Sadie-silly, saga3152, saintmuntzer, Salex08, sam, samgithubaccount, SaphireLattice, SapphicOverload, Sarahon, sativaleanne, SaveliyM360, sBasalto, ScalyChimp, ScarKy0, Schrodinger71, scrato, Scribbles0, scrivoy, Scruq445, scuffedjays, ScumbagDog, ScyronX, SeamLesss, Segonist, semensponge, sephtasm, Serkket, sewerpig, SG6732, sh18rw, Shaddap1, ShadeAware, ShadowCommander, shadowtheprotogen546, shaeone, shampunj, shariathotpatrol, shibechef, shityaml, SignalWalker, siigiil, silver2127, Simyon264, Singul0, sirdragooon, Sirionaut, Sk1tch, SkaldetSkaeg, Skarletto, skippymcskips, skubman, Skyedra, SlamBamActionman, slarticodefast, Slava0135, sleepyyapril, slimmslamm, Slyfox333, snebl, snicket, sniperchance, Snowni, snowsignal, SolidusSnek, SolsticeOfTheWinter, SonicHDC, SoulFN, SoulSloth, SoundingExpert, Soundwavesghost, Soup-Byte07, southbridge-fur, sowelipililimute, Soydium, spacelizard, SpaceLizardSky, SpaceManiac, SpaceRox1244, SpaceyLady, spanky-spanky, Sparlight, spartak, SpartanKadence, spderman3333, Speebr0, SpeltIncorrectyl, Spessmann, SphiraI, SplinterGP, spoogemonster, sporekto, sporkyz, ssdaniel24, stalengd, stanberytrask, Stanislav4ix, StanTheCarpenter, starbuckss14, starch70, Stealthbomber16, stellar-novas, stewie523, stomf, stopbreaking, stopka-html, StrawberryMoses, Stray-Pyramid, strO0pwafel, Strol20, StStevens, Subversionary, sunbear-dev, supergdpwyl, superjj18, Supernorn, SweptWasTaken, SX-7, Sybil, SYNCHRONIC, Szunti, t, tadeo, Tainakov, takemysoult, tap, TaralGit, Taran, taurie, Tayrtahn, tday93, teamaki, Teapug, TeenSarlacc, TekuNut, telyonok, TemporalOroboros, tentekal, terezi-station, terezi4real, terminatorbo, Terraspark4941, texcruize, Tezzaide, TGODiamond, TGRCdev, tgrkzus, ThatGuyUSA, ThatOneGoblin25, thatrandomcanadianguy, TheArturZh, thebiggestbruh, TheBlueYowie, TheBorzoiMustConsume, thecopbennet, TheCze, TheDarkElites, thedraccx, TheEmber, TheIntoxicatedCat, thekilk, themias, TheNeonViking, theomund, TheProNoob678, TherapyGoth, TheShuEd, thesia000, thetolbean, thevinter, TheWaffleJesus, Thinbug0, thinkfast1337-2, ThunderBear2006, timothyteakettle, TimrodDX, timurjavid, tin-man-tim, TiniestShark, Titian3, tk-a369, tkdrg, Tmanzxd, tmtmtl30, ToastEnjoyer, Toby222, TokenStyle, Tollhouse, Toly65, tom-leys, tomasalves8, Tomeno, Tonk-GCR, Tonydatguy, toosillyfennec, topy, tornado-technology, TornadoTechnology, tosatur, TotallyLemon, ToxicSonicFan04, Tr1bute, tristan, tropicalhibi, truepaintgit, Truoizys, Tryded, TsjipTsjip, Tunguso4ka, TurboTrackerss14, twoducksonnaplane, tyashley, Tyler-IN, TytosB, Tyzemol, UbaserB, ubis1, UBlueberry, UKNOWH, UltimateJester, Unbelievable-Salmon, underscorex5, UnicornOnLSD, Unisol, unusualcrow, Uriende, UristMcDorf, user424242420, Utmanarn, Vaaankas, valentfingerov, valquaint, Varen, Vasilis, VasilisThePikachu, veliebm, Velken, VelonacepsCalyxEggs, veprolet, Verbalase, VerinSenpai, veritable-calamity, Veritius, Vermidia, vero5123, verslebas, Vexerot, viceemargo, VigersRay, violet754, Visne, vlados1408, Vlax2nd, VMSolidus, voidnull000, volotomite, volundr-, Voomra, Vordenburg, vorkathbruh, Vortebo, vulppine, wachte1, wafehling, Warentan, WarMechanic, Watermelon914, weaversam8, wertanchik, whateverusername0, whatston3, widgetbeck, Willhelm53, WilliamECrew, willicassi, Winkarst-cpu, wirdal, wixoaGit, WlarusFromDaSpace, wrexbe, wtcwr68, xkreksx, xprospero, xRiriq, yahay505, YanehCheck, yathxyz, Ygg01, yglop, yomamaguy, YotaXP, youarereadingthis, YoungThugSS14, Yousifb26, youtissoum, yunii, yuriykiss, YuriyKiss, zach-hill, Zadeon, zamp, Zandario, Zap527, Zealith-Gamer, ZelteHonor, zero, ZeroDiamond, ZeWaka, zHonys, zionnBE, ZNixian, Zokkie, ZoldorfTheWizard, zonespace27, Zylofan, Zymem, zzylex
++0tito, 0x6273, 12rabbits, 1337dakota, 13spacemen, 154942, 2013HORSEMEATSCANDAL, 20kdc, 21Melkuu, 27alaing, 3nderall, 4310v343k, 4dplanner, 612git, 778b, a-person5660, Ablankmann, abregado, Absolute-Potato, Absotively, absurd-shaman, acatrw, achookh, Acruid, ActiveMammmoth, actually-reb, ada-please, adamsong, Adeinitas, Admiral-Obvious-001, adrian, Adrian16199, Ady4ik, Aerocrux, Aeshus, Aexolott, Aexxie, africalimedrop, afrokada, AftrLite, agentepanela, AgentSmithRadio, Agoichi, Ahion, Aidenkrz, Aineias1, Aisu9, ajcm, AJCM-git, AjexRose, Alekshhh, alexkar598, AlexMorgan3817, alexum418, alexumandxgabriel08x, Alithsko, alliephante, ALMv1, Alpaccalypse, Alpha-Two, AlphaQwerty, Altoids1, amatwiedle, amylizzle, Andre19926, andrew, AndrewEyeke, AndreyCamper, AnotherButton, Anzarot121, ApolloVector, Appiah, ar4ill, ArchPigeon, ArchRBX, Archylle, areitpog, Arendian, arimah, Arkanic, ArkiveDev, ARMOKS, Arraydeess14, Arteben, ArthurMousatov, ArtisticRoomba, artur, ArZarLordOfMango, as334, AsikKEsel, AsnDen, asperger-sind, aspiringLich, aspiringlich, astriloqua, AstroDogeDX, august-sun, AutoOtter, AverageNotDoingAnythingEnjoyer, avghdev, Aviu00, aw-fulcode, Awlod, AzzyIsNotHere, azzyisnothere, B-Kirill, baa14453, BackeTako, Bakke, BananaFlambe, Baptr0b0t, BarryNorfolk, BasedUser, be1bright, bebr3ght, beck-thompson, BeeRobynn, bellwetherlogic, ben, benev0, benjamin-burges, BGare, bhespiritu, bibbly, BIGZi0348, bingojohnson, BismarckShuffle, Bixkitts, Blackern5000, Blazeror, BlitzTheSquishy, Blobadoodle, bloodrizer, Bloody2372, blueDev2, Boaz1111, BobdaBiscuit, BobTheSleder, boiled-water-tsar, BombasterDS2, Booblesnoot42, Boolean-Buckeye, botanySupremist, boxxie79, brainfood1183, BramvanZijp, Brandon-Huu, BriBrooo, Bright0, brndd, bryce0110, BubblegumBlue, buletsponge, buntobaggins, bvelliquette, BWTCK, bynnel, BYONDFuckery, c0rigin, c4llv07e, CaasGit, Caconym27, Calecute, Callmore, Camdot, capnsockless, CaptainMaru, captainsqrbeard, Carbonhell, Carolyn3114, Carou02, carteblanche4me, catdotjs, CatMagic1, Catofquestionableethics, CatTheSystem, CBozo, Centronias, CerberusWolfie, cerise-cattowo, Chaboricks, chairbender, Chaoticaa, Charlese2, charlie, ChaseFlorom, chavonadelal, Cheackraze, CheddaCheez, cheesePizza2, cheeseplated, cheetah1984, Chief-Engineer, chillyconmor, christhirtle, chromiumboy, Chronophylos, Chubbicous, Chubbygummibear, Ciac32, ciaran, civilCornball, claustro305, Clement-O, clyf, Clyybber, CMDR-JohnAlex, cohanna, Cohnway, Cojoke-dot, ColdAutumnRain, Colin-Tel, collinlunn, ColonicAcid, ComicIronic, Compilatron144, CookieMasterT, coolboy911, coolmankid12345, Coolsurf6, cooperwallace, corentt, CormosLemming, CrafterKolyan, crazybrain23, creadth, Creatorbot01, CrigCrag, croilbird, Crotalus, CrudeWax, CrzyPotato, cutemoongod, Cyberboss, d34d10cc, DadeKuma, Daemon, daerSeebaer, dahnte, dakamakat, DamianX, DaMoggen, dan, dangerrevolution, daniel-cr, DanSAussieITS, Daracke, DarkDanss14, DarkenedSynergy, Darkie, DawBla, Daxxi3, dch-GH, de0rix, Deahaka, dean, DEATHB4DEFEAT, Deatherd, deathride58, debugok, Decappi, Decortex, Deeeeja, deepdarkdepths, DeepwaterCreations, Deerstop, degradka, Delete69, deltanedas, DenisShvalov, DerbyX, derek, dersheppard, Deserty0, Detintinto, DevilishMilk, dexlerxd, dffdff2423, DieselMohawk, digitalic, Dimastra, dinnercalzone, DinoWattz, DisposableCrewmember42, DjfjdfofdjfjD, doc-michael, docnite, Doctor-Cpu, Doggo5852, DogZeroX, dolgovmi, dontbetank, Doomsdrayk, Doru991, DoubleRiceEddiedd, DoutorWhite, DR-DOCTOR-EVIL-EVIL, dragonryan06, drakewill-CRL, Drayff, dreamlyjack, DrEnzyme, dribblydrone, DrMelon, drongood12, DrSingh, DrSmugleaf, drteaspoon420, DTanxxx, DubiousDoggo, DuckManZach, Duddino, dukevanity, duskyjay, Dutch-VanDerLinde, dvir001, dylanstrategie, dylanwhittingham, Dynexust, Easypoller, echo, eclips_e, eden077, EEASAS, Efruit, efzapa, Ekkosangen, ElectroSR, elsie, elthundercloud, Elysium206, Emisse, emmafornash, EmoGarbage404, Endecc, eoineoineoin, Ephememory, eris, erohrs2, erorr404v1, Errant-4, ertanic, esguard, estacaoespacialpirata, EternalShibe, eugene, Evige, ewokswagger, exincore, exp111, ExponentialWizard, f0x-n3rd, FacePluslll, Fahasor, FairlySadPanda, farrellka-dev, fat-engineer-gaming, FATFSAAM2, Feluk6174, ficcialfaint, Fiftyllama, Fildrance, fillervk, FinnishPaladin, firenamefn, Firewars763, FirinMaLazors, fishbait, Fishfish458, fl-oz, Flareguy, flashgnash, FluffiestFloof, FluffMe, FluidRock, flyingkarii, flymo5678, foboscheshir, FoLoKe, fooberticus, foralemes, ForestNoises, forgotmyotheraccount, forkeyboards, forthbridge, Fortune117, Fouin, foxhorn, freeman2651, freeze2222, frobnic8, Froffy025, Fromoriss, froozigiusz, FrostMando, FungiFellow, FunkySphere, FunTust, Futuristic-OK, GalacticChimp, Gallagin, gamer3107, gansulalan, GaussiArson, Gaxeer, gbasood, gcoremans, Geekyhobo, genderGeometries, GeneralGaws, Genkail, geraeumig, Ghagliiarghii, Git-Nivrak, githubuser508, GitHubUser53123, gituhabu, GlassEclipse, gluesniffler, GNF54, GNUtopia, godisdeadLOL, goet, GoldenCan, Goldminermac, Golinth, GoobBotTest[bot], GoodWheatley, Gorox221, gradientvera, graevy, GraniteSidewalk, GreaseMonk, GreenArg7, greenrock64, GreyMario, GrownSamoyedDog, Gtheglorious, GTRsound, gusxyz, Gyrandola, h2owe, h3half, hamurlik, Hanzdegloker, HappyRoach, Hardly3D, harikattar, HawkeyeBlade, he1acdvv, Hebi, Helm4142, Henry, HerCoyote23, HighTechPuddle, hiucko, hivehum, HMeister, Hmeister-fake, Hmeister-real, Hobbitmax, hobnob, HoidC, Holinka4ever, holyssss, HoofedEar, Hoolny, hord-brayden, Hreno, htmlsystem, hubismal, Hugal31, Hyenh, hyperb1, hyperDelegate, hyphenationc, i-justuser-i, iaada, iacore, IamVelcroboy, Ian321, icekot8, Icepicked, icesickleone, Ichaie, iczero, iglov, IgorAnt028, igorsaux, ike709, illersaver, Illiux, Ilushkins33, Ilya246, IlyaElDunaev, IMCB, ImHoks, impubbi, imrenq, ImWeax, indeano, InfinityPandaRed, Injazz, Insineer, IntegerTempest, Interrobang01, Intoxicating-Innocence, IProduceWidgets, IrisTheAmped, ItsMeThom, Itzbenz, iztokbajcar, Jackal298, Jackrost, jacksonzck, Jackw2As, jacob, jamessimo, janekvap, Jark255, jarlelbowses, Jarmer123, Jaskanbe, JasperJRoth, jbox144, jellygato, JerryImMouse, jerryimmouse, Jessetriesagain, jessicamaybe, Jezithyr, jicksaw, JiimBob, JimGamemaster, jimmy12or, JIPDawg, jjtParadox, jmcb, JohnGinnane, johnku1, JohnOakman, Jophire, jorgun, JORJ949, joshepvodka, jproads, Jrpl, jukereise, juliangiebel, JustArt1m, JustCone14, justdie12, justin, justintether, JustinTrotter, JustinWinningham, justtne, K-Dynamic, k3yw, Kadeo64, kaede, Kaga-404, KaiShibaa, kalane15, kalanosh, KamTheSythe, Kanashi-Panda, katzenminer, kbailey-git, Keelin, Keer-Sar, KEEYNy, keikiru, Kelrak, kerisargit, keronshb, KIBORG04, KieueCaprie, Killerqu00, Kimpes, KingFroozy, kipdotnet, kira-er, Kirillcas, Kirus59, Kistras, Kit0vras, KittenColony, klaypexx, Kmc2000, Ko4ergaPunk, kognise, kokoc9n, komunre, KonstantinAngelov, kosticia, koteq, KrasnoshchekovPavel, Krunklehorn, Kupie, kurokoturbo, kxvvv, kyupolaris, kzhanik, LaCumbiaDelCoronavirus, lajolico, Lamrr, LankLTE, lanse12, laok233, lapatison, larryrussian, lawdog4817, Lazzi0706, leander-0, leonardo-dabepis, leonidussaks, leonsfriedrich, LeoSantich, LetterN, lettern, Level10Cybermancer, LEVELcat, lever1209, LevitatingTree, Lgibb18, lgruthes, LightVillet, liltenhead, LinkUyx, Litraxx, LittleBuilderJane, LittleNorthStar, LittleNyanCat, lizelive, ljm862, lmsnoise, localcc, lokachop, Lomcastar, LordCarve, LordEclipse, lucas, LucasTheDrgn, LuciferEOS, luckyshotpictures, LudwigVonChesterfield, luizwritescode, Lukasz825700516, luminight, Lumminal, lunarcomets, Lusatia, lvvova1, lyacs, Lyndomen, lyroth001, lzimann, lzk228, M3739, mac6na6na, MACMAN2003, Macoron, magicalus, magmodius, magnuscrowe, malchanceux, MaloTV, manelnavola, ManelNavola, Mangohydra, marboww, marc-pelletier, Markek1, Matz05, max, MaxNox7, maylokana, McBosserson, MehimoNemo, MeltedPixel, memeproof, MendaxxDev, Menshin, Mephisto72, MerrytheManokit, Mervill, metalgearsloth, MetalSage, MFMessage, mhamsterr, michaelcu, micheel665, mifia, MilenVolf, MilonPL, Minemoder5000, Minty642, minus1over12, Mirino97, mirrorcult, misandrie, MishaUnity, MissKay1994, MisterImp, MisterMecky, Mith-randalf, MjrLandWhale, mkanke-real, MLGTASTICa, moderatelyaware, modern-nm, mokiros, momo, Moneyl, monotheonist, Moomoobeef, moony, Morb0, MortalBaguette, MossyGreySlope, MoutardOMiel, mr-bo-jangles, Mr0maks, MrFippik, mrrobdemo, muburu, MureixloI, musicmanvr, MWKane, Myakot, Myctai, N3X15, nails-n-tape, Nairodian, Naive817, NakataRin, namespace-Memory, Nannek, NazrinNya, NeKognitoHazard, Neptune-Zvezda, neutrino-laser, NickPowers43, nikavichy, nikthechampiongr, Nimfar11, ninruB, Nirnael, NIXC, NkoKirkto, nmajask, noctyrnal, noelkathegod, noirogen, nok-ko, NonchalantNoob, NoobyLegion, Nopey, not-gavnaed, NotActuallyMarty, notafet, notquitehadouken, notsodana, noudoit, noverd, Nox38, NuclearWinter, nukashimika, nuke-haus, NULL882, nullarmo, nyeogmi, Nylux, Nyranu, Nyxilath, och-och, OctoRocket, OldDanceJacket, OliverOtter, onesch, OnsenCapy, OnyxTheBrave, Orange-Winds, OrangeMoronage9622, orion-416, osjarw, Ostaf, othymer, OttoMaticode, outget, Owai-Seek, packmore, paige404, paigemaeforrest, pali6, Palladinium, Pangogie, panzer-iv1, partyaddict, patrikturi, PaulRitter, PeccNeck, Peptide90, peptron1, PeterFuto, PetMudstone, pewter-wiz, Pgriha, phantom-lily, pheenty, philingham, Phill101, phunnyguy, PilgrimViis, Pill-U, pinkbat5, Piras314, Pireax, Pissachu, pissdemon, PixeltheAertistContrib, PixelTheKermit, PJB3005, Plasmaguy, plinyvic, Plykiya, Plyushsune, poeMota, pofitlo, pointer-to-null, Poips, pok27, poklj, Pologuys, PolterTzi, PoorMansDreams, PopGamer45, portfiend, potato1234x, PoTeletubby, PotentiallyTom, ProfanedBane, PROG-MohamedDwidar, prole0, Pronana, ProPandaBear, PrPleGoo, ps3moira, Pspritechologist, Psychpsyo, psykana, psykzz, PuceTint, pumkin69, PunishedJoe, PuroSlavKing, PursuitInAshes, Putnam3145, pxc1984, py01, qrtDaniil, Quantum-cross, quatre, QueerNB, QuietlyWhisper, qwerltaz, Radezolid, RadioMull, Radosvik, Radrark, RadsammyT, Rainbeon, Rainfey, Raitononai, Ramlik, RamZ, randy10122, Rane, Ranger6012, Rapidgame7, rarepops, RatherUncreative, ravage123321, rbertoche, RealFakeSoof, RedBookcase, Redfire1331, Redict, RedlineTriad, redmushie, RednoWCirabrab, ReeZer2, RemberBM, RemieRichards, RemTim, rene-descartes2021, Renlou, retequizzle, rich-dunne, RieBi, riggleprime, RIKELOLDABOSS, rinary1, Rinkashikachi, riolume, RobbyTheFish, robinthedragon, Rockdtben, Rohesie, rok-povsic, rokudara-sen, rolfero, RomanNovo, rosieposieeee, rotundfan, Roudenn, router, RumiTiger, Ruzihm, S1rFl0, S1ss3l, Saakra, Sadie-silly, saga3152, saintmuntzer, Salex08, sam, samgithubaccount, SaphireLattice, SapphicOverload, Sarahon, sativaleanne, SaveliyM360, sBasalto, ScalyChimp, ScarKy0, Schrodinger71, scrato, Scribbles0, scrivoy, Scruq445, scuffedjays, ScumbagDog, ScyronX, SeamLesss, Segonist, semensponge, sephtasm, Serkket, sewerpig, SG6732, sh18rw, Shaddap1, ShadeAware, ShadowCommander, shadowtheprotogen546, shaeone, shampunj, shariathotpatrol, shibechef, shityaml, SignalWalker, siigiil, silver2127, Simyon264, Singul0, sirdragooon, Sirionaut, Sk1tch, SkaldetSkaeg, Skarletto, skippymcskips, skubman, Skyedra, SlamBamActionman, slarticodefast, Slava0135, sleepyyapril, slimmslamm, Slyfox333, snebl, snicket, sniperchance, Snowni, snowsignal, SolidusSnek, SolsticeOfTheWinter, SonicHDC, SoulFN, SoulSloth, SoundingExpert, Soundwavesghost, Soup-Byte07, southbridge-fur, sowelipililimute, Soydium, spacelizard, SpaceLizardSky, SpaceManiac, SpaceRox1244, SpaceyLady, spanky-spanky, Sparlight, spartak, SpartanKadence, spderman3333, Speebr0, SpeltIncorrectyl, Spessmann, SphiraI, SplinterGP, spoogemonster, sporekto, sporkyz, ssdaniel24, stalengd, stanberytrask, Stanislav4ix, StanTheCarpenter, starbuckss14, starch70, Stealthbomber16, stellar-novas, stewie523, stomf, stopbreaking, stopka-html, StrawberryMoses, Stray-Pyramid, strO0pwafel, Strol20, StStevens, Subversionary, sunbear-dev, supergdpwyl, superjj18, Supernorn, SweptWasTaken, SX-7, Sybil, SYNCHRONIC, Szunti, t, tadeo, Tainakov, takemysoult, tap, TaralGit, Taran, taurie, Tayrtahn, tday93, teamaki, Teapug, TeenSarlacc, TekuNut, telyonok, TemporalOroboros, tentekal, terezi-station, terezi4real, terminatorbo, Terraspark4941, texcruize, Tezzaide, TGODiamond, TGRCdev, tgrkzus, ThatGuyUSA, ThatOneGoblin25, thatrandomcanadianguy, TheArturZh, thebiggestbruh, TheBlueYowie, TheBorzoiMustConsume, thecopbennet, TheCze, TheDarkElites, thedraccx, TheEmber, TheIntoxicatedCat, thekilk, themias, TheNeonViking, theomund, TheProNoob678, TherapyGoth, TheShuEd, thesia000, thetolbean, thevinter, TheWaffleJesus, Thinbug0, thinkfast1337-2, ThunderBear2006, timothyteakettle, TimrodDX, timurjavid, tin-man-tim, TiniestShark, Titian3, tk-a369, tkdrg, Tmanzxd, tmtmtl30, ToastEnjoyer, Toby222, TokenStyle, Tollhouse, Toly65, tom-leys, tomasalves8, Tomeno, Tonk-GCR, Tonydatguy, toosillyfennec, topy, tornado-technology, TornadoTechnology, tosatur, TotallyLemon, ToxicSonicFan04, Tr1bute, tristan, tropicalhibi, truepaintgit, Truoizys, Tryded, TsjipTsjip, Tunguso4ka, TurboTrackerss14, twoducksonnaplane, tyashley, Tyler-IN, TytosB, Tyzemol, UbaserB, ubis1, UBlueberry, UKNOWH, UltimateJester, Unbelievable-Salmon, underscorex5, UnicornOnLSD, Unisol, unusualcrow, Uriende, UristMcDorf, user424242420, Utmanarn, Vaaankas, valentfingerov, valquaint, Varen, Vasilis, VasilisThePikachu, veliebm, Velken, VelonacepsCalyxEggs, veprolet, Verbalase, VerinSenpai, veritable-calamity, Veritius, Vermidia, vero5123, verslebas, Vexerot, viceemargo, VigersRay, violet754, Visne, vlados1408, Vlax2nd, VMSolidus, voidnull000, volotomite, volundr-, Voomra, Vordenburg, vorkathbruh, Vortebo, vulppine, wachte1, wafehling, Warentan, WarMechanic, Watermelon914, weaversam8, wertanchik, whateverusername0, whatston3, widgetbeck, Willhelm53, WilliamECrew, willicassi, Winkarst-cpu, wirdal, wixoaGit, WlarusFromDaSpace, wrexbe, wtcwr68, xkreksx, xprospero, xRiriq, yahay505, YanehCheck, yathxyz, Ygg01, yglop, yomamaguy, YotaXP, youarereadingthis, YoungThugSS14, Yousifb26, youtissoum, yunii, yuriykiss, YuriyKiss, zach-hill, Zadeon, zamp, Zandario, Zap527, Zealith-Gamer, ZelteHonor, zero, ZeroDiamond, ZeWaka, zHonys, zionnBE, ZNixian, Zokkie, ZoldorfTheWizard, zonespace27, Zylofan, Zymem, zzylex
+diff --git a/Resources/Locale/en-US/_EinsteinEngines/revolutionaries/revolutionary-converter.ftl b/Resources/Locale/en-US/_EinsteinEngines/revolutionaries/revolutionary-converter.ftl
+index 15f3975576..eb45ac865e 100644
+--- a/Resources/Locale/en-US/_EinsteinEngines/revolutionaries/revolutionary-converter.ftl
++++ b/Resources/Locale/en-US/_EinsteinEngines/revolutionaries/revolutionary-converter.ftl
+@@ -107,4 +107,4 @@ revolutionary-converter-speech-106 = Nanotrasen hoards wealth while we suffer! I
+ revolutionary-converter-speech-107 = The future is not written by rulers, but by revolutionaries!
+ revolutionary-converter-speech-108 = Let the red banner fly! Let the people rule! The time of oppression is over!
+ revolutionary-converter-speech-109 = Comrades, today we reclaim not just our labour, but our dignity!
+-revolutionary-converter-speech-110 = No longer shall we bow! No longer shall we beg! We shall rule together!
++revolutionary-converter-speech-110 = No longer shall we bow! No longer shall we beg! We shall rule together!
+\ No newline at end of file
+diff --git a/Resources/Prototypes/Entities/Clothing/Head/hats.yml b/Resources/Prototypes/Entities/Clothing/Head/hats.yml
+index 8d78112b9e..25a6e50749 100644
+--- a/Resources/Prototypes/Entities/Clothing/Head/hats.yml
++++ b/Resources/Prototypes/Entities/Clothing/Head/hats.yml
+@@ -356,7 +356,7 @@
+         Heat: 0.8
+ 
+ - type: entity
+-  parent: ClothingHeadHatBeretRND
++  parent: [ClothingHeadHatBeretRND, BaseSecurityContraband] # Goob edit
+   id: ClothingHeadHatBeretWarden
+   name: warden's beret
+   description: A corporate blue beret with a warden's rank emblem. For officers that are more inclined towards style than safety.
+@@ -365,6 +365,21 @@
+     sprite: Clothing/Head/Hats/beret_warden.rsi
+   - type: Clothing
+     sprite: Clothing/Head/Hats/beret_warden.rsi
++  - type: Armor # Goob
++    coverage:
++    - Head
++    traumaDeductions:
++      Dismemberment: 0.2
++      OrganDamage: 0.2
++      BoneDamage: 0.2
++      VeinsDamage: 0
++      NerveDamage: 0
++    modifiers:
++      coefficients:
++        Blunt: 0.7
++        Slash: 0.7
++        Piercing: 0.7
++        Heat: 0.8
+ 
+ - type: entity
+   parent: ClothingHeadHatBeret
+@@ -833,7 +848,7 @@
+     sprite: Clothing/Head/Hats/violetwizard.rsi
+ 
+ - type: entity
+-  parent: ClothingHeadBase
++  parent: [ClothingHeadBase, BaseSecurityContraband] # Goob edit
+   id: ClothingHeadHatWarden
+   name: warden's cap
+   description: A police officer's Hat. This hat emphasizes that you are THE LAW
+@@ -844,6 +859,21 @@
+     sprite: Clothing/Head/Hats/warden.rsi
+   - type: StealTarget
+     stealGroup: ClothingHeadHatWarden
++  - type: Armor # Goob
++    coverage:
++    - Head
++    traumaDeductions:
++      Dismemberment: 0.2
++      OrganDamage: 0.2
++      BoneDamage: 0.2
++      VeinsDamage: 0
++      NerveDamage: 0
++    modifiers:
++      coefficients:
++        Blunt: 0.7
++        Slash: 0.7
++        Piercing: 0.7
++        Heat: 0.8
+ 
+ - type: entity
+   parent: ClothingHeadBase
+diff --git a/Resources/Prototypes/Entities/Clothing/OuterClothing/coats.yml b/Resources/Prototypes/Entities/Clothing/OuterClothing/coats.yml
+index e7edde715a..67002c97dc 100644
+--- a/Resources/Prototypes/Entities/Clothing/OuterClothing/coats.yml
++++ b/Resources/Prototypes/Entities/Clothing/OuterClothing/coats.yml
+@@ -648,7 +648,7 @@
+     sprite: Clothing/OuterClothing/Coats/syndicate/coatsyndiecaparmored.rsi
+ 
+ - type: entity
+-  parent: ClothingOuterStorageBase
++  parent: [ClothingOuterStorageBase, BaseSecurityContraband] # Goobstation
+   id: ClothingOuterCoatAMG
+   name: armored medical gown
+   description: The version of the medical gown, with elements of a bulletproof vest, looks strange, but your heart is protected.
+diff --git a/Resources/Prototypes/Entities/Clothing/Shoes/boots.yml b/Resources/Prototypes/Entities/Clothing/Shoes/boots.yml
+index cbb9a6d9d1..acec17d0b0 100644
+--- a/Resources/Prototypes/Entities/Clothing/Shoes/boots.yml
++++ b/Resources/Prototypes/Entities/Clothing/Shoes/boots.yml
+@@ -93,10 +93,13 @@
+ # SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
+ # SPDX-FileCopyrightText: 2025 Centronias <me@centronias.com>
+ # SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
++# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+ # SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
+ # SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
+ # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
++# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+ # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
++# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+ #
+ # SPDX-License-Identifier: AGPL-3.0-or-later
+ 
+@@ -252,7 +255,7 @@
+     sprite: Clothing/Shoes/Boots/winterbootssci.rsi
+ 
+ - type: entity
+-  parent: [ClothingShoesBaseWinterBoots, ClothingShoesMilitaryBase, BaseSecurityContraband]
++  parent: [ClothingShoesBaseWinterBoots, ClothingSlotBase, BaseSecurityContraband] # Goob edit
+   id: ClothingShoesBootsWinterSec
+   name: security winter boots
+   components:
+@@ -260,6 +263,14 @@
+     sprite: Clothing/Shoes/Boots/winterbootssec.rsi
+   - type: Clothing
+     sprite: Clothing/Shoes/Boots/winterbootssec.rsi
++  - type: ItemSlots # Goobstation
++    slots:
++      item:
++        name: clothing-boots-sidearm
++        whitelist:
++          tags:
++          - Knife
++          - Sidearm
+ 
+ - type: entity
+   parent: [ClothingShoesBaseWinterBoots, BaseSyndicateContraband]
+diff --git a/Resources/Prototypes/Entities/Mobs/NPCs/animals.yml b/Resources/Prototypes/Entities/Mobs/NPCs/animals.yml
+index 2bb803cef2..c7f226c012 100644
+--- a/Resources/Prototypes/Entities/Mobs/NPCs/animals.yml
++++ b/Resources/Prototypes/Entities/Mobs/NPCs/animals.yml
+@@ -223,6 +223,8 @@
+ # SPDX-FileCopyrightText: 2025 Aineias1 <142914808+Aineias1@users.noreply.github.com>
+ # SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
+ # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
++# SPDX-FileCopyrightText: 2025 Arraydeess <arraygitbash@gmail.com>
++# SPDX-FileCopyrightText: 2025 Arraydeess14 <87253287+Arraydeess14@users.noreply.github.com>
+ # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+ # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+ # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+@@ -1692,6 +1694,7 @@
+   - type: NpcFactionMember
+     factions:
+       - Passive
++      - Monkey  # Goob Balloons Edit
+   - type: HTN
+     rootTask:
+       task: SimpleHostileCompound
+diff --git a/Resources/Prototypes/Entities/Objects/Misc/space_cash.yml b/Resources/Prototypes/Entities/Objects/Misc/space_cash.yml
+index 9c0a45105e..9565481cc9 100644
+--- a/Resources/Prototypes/Entities/Objects/Misc/space_cash.yml
++++ b/Resources/Prototypes/Entities/Objects/Misc/space_cash.yml
+@@ -15,6 +15,7 @@
+ # SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
+ # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+ # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
++# SPDX-FileCopyrightText: 2025 Arraydeess <arraygitbash@gmail.com>
+ # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+ # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+ # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+@@ -109,6 +110,9 @@
+         reagents:
+         - ReagentId: Fiber
+           Quantity: 1
++  - type: Tag       # Goob Balloon Edit
++    tags:           # Just so it can be picked up by ore bag
++    - Ore           
+   # </Goobstation>
+ 
+ - type: material
+diff --git a/Resources/Prototypes/Entities/Objects/Shields/shields.yml b/Resources/Prototypes/Entities/Objects/Shields/shields.yml
+index 60f1e4cf48..d0ed54c68e 100644
+--- a/Resources/Prototypes/Entities/Objects/Shields/shields.yml
++++ b/Resources/Prototypes/Entities/Objects/Shields/shields.yml
+@@ -114,10 +114,12 @@
+ # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+ # SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
+ # SPDX-FileCopyrightText: 2025 DieselMohawk <173439801+DieselMohawk@users.noreply.github.com>
++# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+ # SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
+ # SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
+ # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+ # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
++# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+ #
+ # SPDX-License-Identifier: AGPL-3.0-or-later
+ 
+@@ -182,6 +184,8 @@
+                   max: 2
+     - type: StaticPrice
+       price: 100
++    - type: DisarmMalus # Goobstation
++      malus: 1
+ 
+ #Security Shields
+ 
+@@ -516,7 +520,7 @@
+     - type: ComponentToggler
+       components:
+       - type: DisarmMalus
+-        malus: 0.6
++        malus: 1 # Goob edit
+     - type: Sprite
+       sprite: Objects/Weapons/Melee/e_shield.rsi
+       layers:
+@@ -559,7 +563,7 @@
+           Blunt: 1.0
+           Slash: 0.9
+           Piercing: 0.85
+-          Heat: 0.5 # WD EDIT
++          Heat: 0.6
+       activeBlockModifier:
+         coefficients:
+           Blunt: 1.2
+@@ -576,12 +580,14 @@
+       price: 350
+       # WD EDIT START
+     - type: Battery
+-      maxCharge: 20
+-      startingCharge: 20
++      maxCharge: 35
++      startingCharge: 35
+     - type: BatterySelfRecharger
+       autoRecharge: true
+-      autoRechargeRate: 2
++      autoRechargeRate: 3
+     - type: RechargeableBlocking
++      dischargedRechargeRate: 2
++      chargedRechargeRate: 3
+       # WD EDIT END
+ 
+ - type: entity
+@@ -616,7 +622,7 @@
+     - type: ComponentToggler
+       components:
+       - type: DisarmMalus
+-        malus: 0.6
++        malus: 1 # Goob edit
+     - type: ItemToggleSize
+       activatedSize: Huge
+     - type: Sprite
+@@ -666,4 +672,4 @@
+                   min: 2
+                   max: 2
+     - type: StaticPrice
+-      price: 250
+\ No newline at end of file
++      price: 250
+diff --git a/Resources/Prototypes/Entities/Objects/Specific/Mech/mechs.yml b/Resources/Prototypes/Entities/Objects/Specific/Mech/mechs.yml
+index 3793b6718e..53834c2047 100644
+--- a/Resources/Prototypes/Entities/Objects/Specific/Mech/mechs.yml
++++ b/Resources/Prototypes/Entities/Objects/Specific/Mech/mechs.yml
+@@ -25,7 +25,9 @@
+ # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+ # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+ # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
++# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+ # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
++# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+ # SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
+ # SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
+ #
+@@ -181,6 +183,7 @@
+         - Book
+   - type: StaticPrice
+     price: 450
++  - type: DragDropTargetable
+   # Goobstation Change End
+ 
+ - type: entity
+@@ -381,4 +384,4 @@
+   - type: ContainerFill
+     containers:
+       mech-battery-slot:
+-      - PowerCellHigh
+\ No newline at end of file
++      - PowerCellHigh
+diff --git a/Resources/Prototypes/Entities/Structures/Power/chargers.yml b/Resources/Prototypes/Entities/Structures/Power/chargers.yml
+index 7daf5c3e5b..bb1a653d3e 100644
+--- a/Resources/Prototypes/Entities/Structures/Power/chargers.yml
++++ b/Resources/Prototypes/Entities/Structures/Power/chargers.yml
+@@ -38,6 +38,8 @@
+ # SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+ # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+ # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
++# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
++# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+ #
+ # SPDX-License-Identifier: AGPL-3.0-or-later
+ 
+@@ -208,7 +210,10 @@
+           - HitscanBatteryAmmoProvider
+           - ProjectileBatteryAmmoProvider
+           - Stunbaton
+-        blacklist:  # Goobstation
++        # Goobstation
++          tags:
++          - FitsInCharger
++        blacklist:
+           tags:
+           - WizardWand
+           components:
+@@ -348,4 +353,4 @@
+     containers:
+       entity_storage: !type:Container
+       machine_board: !type:Container
+-      machine_parts: !type:Container
+\ No newline at end of file
++      machine_parts: !type:Container
+diff --git a/Resources/Prototypes/_EinsteinEngines/Objects/Specific/revolutionary.yml b/Resources/Prototypes/_EinsteinEngines/Objects/Specific/revolutionary.yml
+index 0f2b5524e2..1dbdc47105 100644
+--- a/Resources/Prototypes/_EinsteinEngines/Objects/Specific/revolutionary.yml
++++ b/Resources/Prototypes/_EinsteinEngines/Objects/Specific/revolutionary.yml
+@@ -14,7 +14,7 @@
+       - state: detail_bookmark
+         color: "#aaaa24"
+     - type: RevolutionaryConverter
+-      conversionDuration: 2
++      conversionDuration: 0.5
+     - type: Tag
+       tags:
+         - Book
+diff --git a/Resources/Prototypes/_Goobstation/Balloons/balloons.yml b/Resources/Prototypes/_Goobstation/Balloons/balloons.yml
+new file mode 100644
+index 0000000000..91485644be
+--- /dev/null
++++ b/Resources/Prototypes/_Goobstation/Balloons/balloons.yml
+@@ -0,0 +1,424 @@
++# SPDX-FileCopyrightText: 2025 Arraydeess <arraygitbash@gmail.com>
++# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
++#
++# SPDX-License-Identifier: AGPL-3.0-or-later
++
++- type: entity
++  name: base balloon
++  parent: BaseStructureDynamic
++  id: BaseBalloon       # Base balloon
++  abstract: true # Make sure it doesn't appear
++  components:
++  - type: Sprite
++    sprite: _Goobstation/Objects/Fun/balloons.rsi
++    state: icon
++    drawdepth: Overdoors # just so it renders above spesos
++    noRot: True
++  - type: Item
++    size: Huge
++  - type: Damageable
++    damageContainer: RubberBalloon # default damage container
++  - type: Physics # has dynamic physics
++    bodyType: Dynamic
++  - type: Penetratable # projectile Able to pierce balloons
++    penetrateDamage: 1
++    damagePenalty: 0.5
++  - type: NpcFactionMember
++    factions:
++      - Balloon
++  - type: InteractionOutline
++  - type: Fixtures # give it locker collision
++    fixtures:
++      fix1:
++        shape:
++          !type:PhysShapeAabb
++          bounds: "-0.25,-0.48,0.25,0.48"
++        density: 75
++        mask:
++          - TabletopMachineMask
++        layer:
++          - TabletopMachineLayer    # No collision but still able to be shot
++
++# Red Balloon
++- type: entity
++  name: red balloon
++  parent: BaseBalloon
++  description: The weakest balloon.
++  id: redBalloon
++  components:
++  - type: Sprite
++    state: red
++  - type: MobState # To get mobs to attack:
++  - type: MobThresholds
++    thresholds:
++      0: Alive
++      100: Critical
++      200: Dead
++  - type: Destructible
++    thresholds:
++    - trigger:
++        !type:DamageTrigger
++        damage: 1           # balloon health
++      behaviors:
++      - !type:PlaySoundBehavior
++        sound:
++          path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
++          params:
++            variation: 0.125
++            volume: -4
++      - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
++        spawn:
++          SpaceCash:
++            min: 10
++            max: 15
++      - !type:DoActsBehavior
++        acts: [ "Destruction" ]
++
++# Blue Balloon
++- type: entity
++  name: blue balloon
++  parent: BaseBalloon
++  description: A pretty chill balloon.
++  id: blueBalloon
++  components:
++  - type: Sprite
++    state: blue
++  - type: MobState # To get mobs to attack:
++  - type: MobThresholds
++    thresholds:
++      0: Alive
++      100: Critical
++      200: Dead
++  - type: Destructible
++    thresholds:
++    - trigger:
++        !type:DamageTrigger
++        damage: 1           # balloon health
++      behaviors:
++      - !type:PlaySoundBehavior
++        sound:
++          path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
++          params:
++            variation: 0.125
++            volume: -4
++      - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
++         spawn:
++          SpaceCash:
++            min: 10
++            max: 15
++          redBalloon:
++            min: 1
++            max: 1
++      - !type:DoActsBehavior
++        acts: [ "Destruction" ]
++
++# Green Balloon
++- type: entity
++  name: green balloon
++  parent: BaseBalloon
++  description: The most strategically minded balloon of the bunch. Capable of planning advanced waves, if only it had a track to follow.
++  id: greenBalloon
++  components:
++  - type: Sprite
++    state: green
++  - type: MobState # To get mobs to attack:
++  - type: MobThresholds
++    thresholds:
++      0: Alive
++      100: Critical
++      200: Dead
++  - type: Destructible
++    thresholds:
++    - trigger:
++        !type:DamageTrigger
++        damage: 1           # balloon health
++      behaviors:
++      - !type:PlaySoundBehavior
++        sound:
++          path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
++          params:
++            variation: 0.125
++            volume: -4
++      - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
++         spawn:
++          SpaceCash:
++            min: 10
++            max: 15
++          blueBalloon:
++            min: 1
++            max: 1
++      - !type:DoActsBehavior
++        acts: [ "Destruction" ]
++
++# Yellow Balloon
++- type: entity
++  name: yellow balloon
++  parent: BaseBalloon
++  description: The greediest balloon, always flaunting its wealth to the other balloons.
++  id: yellowBalloon
++  components:
++  - type: Sprite
++    state: yellow
++  - type: MobState # To get mobs to attack:
++  - type: MobThresholds
++    thresholds:
++      0: Alive
++      100: Critical
++      200: Dead
++  - type: Destructible
++    thresholds:
++    - trigger:
++        !type:DamageTrigger
++        damage: 1           # balloon health
++      behaviors:
++      - !type:PlaySoundBehavior
++        sound:
++          path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
++          params:
++            variation: 0.125
++            volume: -4
++      - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
++         spawn:
++          SpaceCash:
++            min: 10
++            max: 15
++          greenBalloon:
++            min: 1
++            max: 1
++      - !type:DoActsBehavior
++        acts: [ "Destruction" ]
++
++# Pink Balloon
++- type: entity
++  name: pink balloon
++  parent: BaseBalloon
++  description: The most annoying and insufferable balloon.
++  id: pinkBalloon
++  components:
++  - type: Sprite
++    state: pink
++  - type: MobState # To get mobs to attack:
++  - type: MobThresholds
++    thresholds:
++      0: Alive
++      100: Critical
++      200: Dead
++  - type: Destructible
++    thresholds:
++    - trigger:
++        !type:DamageTrigger
++        damage: 1           # balloon health
++      behaviors:
++      - !type:PlaySoundBehavior
++        sound:
++          path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
++          params:
++            variation: 0.125
++            volume: -4
++      - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
++         spawn:
++          SpaceCash:
++            min: 10
++            max: 15
++          yellowBalloon:
++            min: 1
++            max: 1
++      - !type:DoActsBehavior
++        acts: [ "Destruction" ]
++
++# Black Balloon
++- type: entity
++  name: black balloon
++  parent: BaseBalloon
++  description: The edgiest balloon, never grew out of its emo phase. Immune to heat and shock damage!
++  id: blackBalloon
++  components:
++  - type: Sprite
++    state: black
++  - type: MobState # To get mobs to attack:
++  - type: MobThresholds
++    thresholds:
++      0: Alive
++      100: Critical
++      200: Dead
++  - type: Damageable
++    damageContainer: BlackBalloon
++  - type: Destructible
++    thresholds:
++    - trigger:
++        !type:DamageTrigger
++        damage: 1           # balloon health
++      behaviors:
++      - !type:PlaySoundBehavior
++        sound:
++          path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
++          params:
++            variation: 0.125
++            volume: -4
++      - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
++         spawn:
++          SpaceCash:
++            min: 10
++            max: 15
++          pinkBalloon:
++            min: 2
++            max: 2
++      - !type:DoActsBehavior
++        acts: [ "Destruction" ]
++# White Balloon
++- type: entity
++  name: white balloon
++  parent: BaseBalloon
++  description: The most emotionless balloon. Isn't even given a proper name, only a purpose. Immune to cold damage!
++  id: whiteBalloon
++  components:
++  - type: Sprite
++    state: white
++  - type: MobState # To get mobs to attack:
++  - type: MobThresholds
++    thresholds:
++      0: Alive
++      100: Critical
++      200: Dead
++  - type: Damageable
++    damageContainer: WhiteBalloon
++  - type: Destructible
++    thresholds:
++    - trigger:
++        !type:DamageTrigger
++        damage: 1           # balloon health
++      behaviors:
++      - !type:PlaySoundBehavior
++        sound:
++          path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
++          params:
++            variation: 0.125
++            volume: -4
++      - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
++         spawn:
++          SpaceCash:
++            min: 10
++            max: 15
++          pinkBalloon:
++            min: 2
++            max: 2
++      - !type:DoActsBehavior
++        acts: [ "Destruction" ]
++
++# Zebra Balloon
++- type: entity
++  name: zebra balloon
++  parent: BaseBalloon
++  description: Belongs in a zoo. Immune to all burn damage!
++  id: zebraBalloon
++  components:
++  - type: Sprite
++    state: zebra
++  - type: MobState # To get mobs to attack:
++  - type: MobThresholds
++    thresholds:
++      0: Alive
++      100: Critical
++      200: Dead
++  - type: Damageable
++    damageContainer: ZebraBalloon
++  - type: Destructible
++    thresholds:
++    - trigger:
++        !type:DamageTrigger
++        damage: 1           # balloon health
++      behaviors:
++      - !type:PlaySoundBehavior
++        sound:
++          path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
++          params:
++            variation: 0.125
++            volume: -4
++      - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
++         spawn:
++          SpaceCash:
++            min: 10
++            max: 15
++          whiteBalloon:
++            min: 1
++            max: 1
++          blackBalloon:
++            min: 1
++            max: 1
++      - !type:DoActsBehavior
++        acts: [ "Destruction" ]
++
++# steel balloon
++- type: entity
++  name: steel balloon
++  parent: BaseBalloon
++  description: The most armored balloon. So feared that even animals don't attack it. Immune to brute damage!
++  id: steelBalloon
++  components:
++  - type: Sprite
++    state: steel
++  - type: Damageable        # only damagable via heat
++    damageContainer: SteelBalloon
++  - type: Penetratable # projectile Able to pierce balloons
++    penetrateDamage: 1000
++    damagePenalty: 1000
++  - type: Destructible
++    thresholds:
++    - trigger:
++        !type:DamageTrigger
++        damage: 1           # balloon health
++      behaviors:
++      - !type:PlaySoundBehavior
++        sound:
++          path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
++          params:
++            variation: 0.125
++            volume: -4
++      - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
++         spawn:
++          SpaceCash:
++            min: 10
++            max: 15
++          blackBalloon:
++            min: 2
++            max: 2
++      - !type:DoActsBehavior
++        acts: [ "Destruction" ]
++
++# rainbow balloon
++- type: entity
++  name: rainbow balloon
++  parent: BaseBalloon
++  description: The most evil balloon of them all. Don't let the pretty colors fool you.
++  id: rainbowBalloon
++  components:
++  - type: Sprite
++    state: rainbow
++  - type: MobState # To get mobs to attack:
++  - type: MobThresholds
++    thresholds:
++      0: Alive
++      100: Critical
++      200: Dead
++  - type: Destructible
++    thresholds:
++    - trigger:
++        !type:DamageTrigger
++        damage: 1           # balloon health
++      behaviors:
++      - !type:PlaySoundBehavior
++        sound:
++          path: /Audio/_Goobstation/BalloonEffect/balloon_pop.ogg
++          params:
++            variation: 0.125
++            volume: -4
++      - !type:SpawnEntitiesBehavior # Balloon Loot and spawn
++         spawn:
++          SpaceCash:
++            min: 10
++            max: 15
++          zebraBalloon:
++            min: 2
++            max: 2
++      - !type:DoActsBehavior
++        acts: [ "Destruction" ]
+\ No newline at end of file
+diff --git a/Resources/Prototypes/_Goobstation/Balloons/containers.yml b/Resources/Prototypes/_Goobstation/Balloons/containers.yml
+new file mode 100644
+index 0000000000..f98c97faf8
+--- /dev/null
++++ b/Resources/Prototypes/_Goobstation/Balloons/containers.yml
+@@ -0,0 +1,49 @@
++# SPDX-FileCopyrightText: 2025 Arraydeess <arraygitbash@gmail.com>
++# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
++#
++# SPDX-License-Identifier: AGPL-3.0-or-later
++
++- type: damageContainer
++  id: RubberBalloon
++  supportedGroups:
++  - Burn
++  - Brute
++  - Genetic
++  - Toxin
++- type: damageContainer
++  id: BlackBalloon
++  supportedGroups:
++  - Brute
++  - Genetic
++  - Toxin
++
++  supportedTypes:
++    - Cold
++    - Caustic
++    
++- type: damageContainer
++  id: SteelBalloon
++  supportedGroups:
++  - Burn
++  - Genetic
++  - Toxin
++  - Electronic
++  
++- type: damageContainer
++  id: WhiteBalloon
++  supportedGroups:
++  - Brute
++  - Genetic
++  - Toxin
++  - Electronic
++  supportedTypes:
++    - Heat
++    - Caustic
++    
++- type: damageContainer
++  id: ZebraBalloon
++  supportedGroups:
++  - Brute
++  - Genetic
++  - Toxin
++  
+\ No newline at end of file
+diff --git a/Resources/Prototypes/_Goobstation/Balloons/package.yml b/Resources/Prototypes/_Goobstation/Balloons/package.yml
+new file mode 100644
+index 0000000000..88a92f342a
+--- /dev/null
++++ b/Resources/Prototypes/_Goobstation/Balloons/package.yml
+@@ -0,0 +1,85 @@
++# SPDX-FileCopyrightText: 2025 Arraydeess <arraygitbash@gmail.com>
++# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
++#
++# SPDX-License-Identifier: AGPL-3.0-or-later
++
++- type: entity
++  parent: BaseItem
++  id: BalloonPackage
++  name: balloon package
++  description: A package containing one random balloon.
++  components: 
++  - type: Sprite
++    sprite: _Goobstation/Objects/Fun/balloon_package.rsi
++    state: icon
++  - type: Item
++    size: Tiny
++  - type: SpawnItemsOnUse
++    items:
++    - id: redBalloon
++      orGroup: BalloonRandom
++    - id: blueBalloon
++      orGroup: BalloonRandom
++    - id: greenBalloon
++      orGroup: BalloonRandom
++    - id: yellowBalloon
++      orGroup: BalloonRandom
++    - id: pinkBalloon
++      orGroup: BalloonRandom
++    - id: whiteBalloon
++      orGroup: BalloonRandom # higher tier balloons are rarer
++      prob: 0.4
++    - id: blackBalloon
++      orGroup: BalloonRandom
++      prob: 0.4
++    - id: steelBalloon
++      orGroup: BalloonRandom
++      prob: 0.33
++    - id: zebraBalloon
++      orGroup: BalloonRandom
++      prob: 0.33
++    - id: rainbowBalloon
++      orGroup: BalloonRandom
++      prob: 0.2
++    sound:
++      path: /Audio/Effects/unwrap.ogg
++   
++   
++- type: entity
++  name: balloon package box
++  parent: BoxCardboard
++  id: BoxBalloonPackage
++  description: A box full of soon to be balloons.
++  components:
++  - type: StorageFill
++    contents:
++      - id: BalloonPackage
++        amount: 9
++  - type: Sprite
++    sprite: _Goobstation/Objects/Storage/boxes.rsi
++    
++    
++- type: entity
++  id: CrateBalloonPackage
++  parent: CratePlastic
++  name: balloon popper's package
++  description: A crate containing 2 full balloon boxes and some additional popping equipment.
++  components:
++  - type: StorageFill
++    contents:
++    - id: BoxBalloonPackage
++      amount: 2
++    - id: ClothingOuterSuitMonkey
++      amount: 1
++    - id: BoxDarts
++      amount: 1
++    - id: MonkeyCube
++      prob: 0.7
++    - id: ClothingOuterSuitMonkey   # Extra
++      amount: 1
++      prob: 0.4
++    - id: BoxDarts
++      amount: 1
++      prob: 0.4
++    - id: MonkeyCube
++      prob: 0.4
+\ No newline at end of file
+diff --git a/Resources/Prototypes/_Goobstation/Catalog/Cargo/cargo_fun.yml b/Resources/Prototypes/_Goobstation/Catalog/Cargo/cargo_fun.yml
+index 7f86930757..a0b17e294f 100644
+--- a/Resources/Prototypes/_Goobstation/Catalog/Cargo/cargo_fun.yml
++++ b/Resources/Prototypes/_Goobstation/Catalog/Cargo/cargo_fun.yml
+@@ -2,7 +2,9 @@
+ # SPDX-FileCopyrightText: 2024 Scruq445 <storchdamien@gmail.com>
+ # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+ # SPDX-FileCopyrightText: 2025 Aineias1 <142914808+Aineias1@users.noreply.github.com>
++# SPDX-FileCopyrightText: 2025 Arraydeess <arraygitbash@gmail.com>
+ # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
++# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+ # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+ #
+ # SPDX-License-Identifier: AGPL-3.0-or-later
+@@ -42,4 +44,15 @@
+     state: icon
+   product: CrateFunRedCaviar
+   cost: 1000
++  group: market
++  
++  
++- type: cargoProduct
++  id: FunBalloonPack
++  icon:
++    sprite: _Goobstation/Objects/Fun/balloons.rsi
++    state: red
++  product: CrateBalloonPackage
++  cost: 1700
++  category: cargoproduct-category-name-fun
+   group: market
+\ No newline at end of file
+diff --git a/Resources/Prototypes/_Goobstation/Catalog/Fills/Belt/belts.yml b/Resources/Prototypes/_Goobstation/Catalog/Fills/Belt/belts.yml
+index 4307e1b838..d15a2bdc62 100644
+--- a/Resources/Prototypes/_Goobstation/Catalog/Fills/Belt/belts.yml
++++ b/Resources/Prototypes/_Goobstation/Catalog/Fills/Belt/belts.yml
+@@ -28,7 +28,7 @@
+       - id: EnergyScalpel
+       - id: AdvancedRetractor
+       - id: EnergyCautery
+-      - id: BoneGel
++      - id: AdvancedBoneGel
+       - id: HandheldCrewMonitor
+       - id: MedicatedSuture
+       - id: RegenerativeMesh
+diff --git a/Resources/Prototypes/_Goobstation/Entities/Clothing/OuterClothing/coats.yml b/Resources/Prototypes/_Goobstation/Entities/Clothing/OuterClothing/coats.yml
+index beb12d08d6..ade38e0274 100644
+--- a/Resources/Prototypes/_Goobstation/Entities/Clothing/OuterClothing/coats.yml
++++ b/Resources/Prototypes/_Goobstation/Entities/Clothing/OuterClothing/coats.yml
+@@ -1,6 +1,7 @@
+ # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+ # SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
+ # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
++# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+ # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+ # SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
+ #
+@@ -54,11 +55,13 @@
+     clothingVisuals:
+       outerClothing:
+       - state: valid-equipped-OUTERCLOTHING
++      outerClothing-vox:
++      - state: valid-equipped-OUTERCLOTHING-vox
+   - type: Armor
+     traumaDeductions:
+-      Dismemberment: 0.15
+-      OrganDamage: 0.15
+-      BoneDamage: 0.15
++      Dismemberment: 0.2
++      OrganDamage: 0.2
++      BoneDamage: 0.2
+       VeinsDamage: 0
+       NerveDamage: 0
+     coverage:
+@@ -73,3 +76,8 @@
+         Slash: 0.7
+         Piercing: 0.7
+         Heat: 0.8
++  - type: ModifyDelayedKnockdown
++    delayDelta: 1.5
++    knockdownTimeDelta: -1.5
++  - type: StaminaDamageResistance
++    coefficient: 0.7
+diff --git a/Resources/Prototypes/_Goobstation/Entities/Objects/Misc/quill.yml b/Resources/Prototypes/_Goobstation/Entities/Objects/Misc/quill.yml
+new file mode 100644
+index 0000000000..fc699693c8
+--- /dev/null
++++ b/Resources/Prototypes/_Goobstation/Entities/Objects/Misc/quill.yml
+@@ -0,0 +1,15 @@
++# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
++# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
++#
++# SPDX-License-Identifier: AGPL-3.0-or-later
++
++- type: entity
++  id: quill
++  parent: BaseItem
++  name: quill
++  description: Looks fancy, but you have no clue how to use this thing!
++  components:
++  - type: Sprite
++    sprite: /Textures/_Goobstation/Objects/Misc/quill.rsi
++    state: quill
++    drawdepth: Items
+diff --git a/Resources/Prototypes/_Goobstation/Entities/Objects/Shields/shields.yml b/Resources/Prototypes/_Goobstation/Entities/Objects/Shields/shields.yml
+index 4f03bcbd79..64a5867279 100644
+--- a/Resources/Prototypes/_Goobstation/Entities/Objects/Shields/shields.yml
++++ b/Resources/Prototypes/_Goobstation/Entities/Objects/Shields/shields.yml
+@@ -2,6 +2,7 @@
+ # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+ # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+ # SPDX-FileCopyrightText: 2025 GMWQ <garethquaile@gmail.com>
++# SPDX-FileCopyrightText: 2025 Gareth Quaile <garethquaile@gmail.com>
+ # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+ # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+ # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+@@ -71,19 +72,19 @@
+       color: "#678AD9"
+     - type: ItemTogglePointLight
+     - type: Blocking
+-      passiveBlockFraction: 0.7
++      passiveBlockFraction: 0.65
+       passiveBlockModifier:
+         coefficients:
+-          Blunt: 1
+-          Slash: 1
+-          Piercing: 1
+-          Heat: 1
++          Blunt: 3
++          Slash: 3
++          Piercing: 3
++          Heat: 3
+       activeBlockModifier:
+         coefficients:
+-          Blunt: 0.7
+-          Slash: 0.7
+-          Piercing: 0.7
+-          Heat: 0.7
++          Blunt: 2
++          Slash: 2
++          Piercing: 2
++          Heat: 2
+         flatReductions:
+           Heat: 3
+           Blunt: 3
+@@ -95,14 +96,11 @@
+     - type: StaticPrice
+       price: 350
+     - type: Battery
+-      maxCharge: 180
+-      startingCharge: 180
++      maxCharge: 600
++      startingCharge: 600
+     - type: RechargeableBlocking
+-      dischargedRechargeRate: 10
+-      chargedRechargeRate: 15
+-    - type: BatterySelfRecharger
+-      autoRechargeRate: 15
+-      autoRecharge: true
++      dischargedRechargeRate: 0
++      chargedRechargeRate: 0
+     - type: ItemSlots
+       slots:
+         item:
+@@ -114,10 +112,11 @@
+           whitelist:
+             tags:
+             - Stunbaton
+-
++    - type: Tag
++      tags:
++      - FitsInCharger
+ 
+ - type: entity
+-  name: greatshield
+   parent: BlueShieldShield
+   id: BlueShieldShieldEvil
+   suffix: Deathsquad
+@@ -131,7 +130,8 @@
+     chargedRechargeRate: 150
+   - type: BatterySelfRecharger
+     autoRechargeRate: 150
++    autoRecharge: true
+   - type: Item
+     size: Normal
+   - type: Tag
+-    tags: [] # ignore "WhitelistChameleon" tag
+\ No newline at end of file
++    tags: [] # ignore "WhitelistChameleon" tag
+diff --git a/Resources/Prototypes/_Goobstation/Entities/Objects/Weapons/Guns/Ammunition/Projectiles/lawbringer.yml b/Resources/Prototypes/_Goobstation/Entities/Objects/Weapons/Guns/Ammunition/Projectiles/lawbringer.yml
+index 27dbafee88..c9fb1e4633 100644
+--- a/Resources/Prototypes/_Goobstation/Entities/Objects/Weapons/Guns/Ammunition/Projectiles/lawbringer.yml
++++ b/Resources/Prototypes/_Goobstation/Entities/Objects/Weapons/Guns/Ammunition/Projectiles/lawbringer.yml
+@@ -250,15 +250,6 @@
+   parent: BaseBullet
+   categories: [ HideSpawnMenu ]
+   components:
+-  - type: Fixtures
+-    fixtures:
+-      projectile:
+-        shape:
+-          !type:PhysShapeAabb
+-          bounds: "-0.2,-0.2,0.2,0.2"
+-        hard: false
+-        mask:
+-        - Opaque
+   - type: Reflective
+     reflective:
+     - Energy
+@@ -278,5 +269,5 @@
+       types:
+         Blunt: 2
+         Heat: 2
+-        Structural: 50
++        Structural: 100
+     ignoreResistances: true # This needs ProjectileDamageWhitelistComponent
+diff --git a/Resources/Prototypes/_Goobstation/Entities/Objects/Weapons/Melee/blueshield_mace.yml b/Resources/Prototypes/_Goobstation/Entities/Objects/Weapons/Melee/blueshield_mace.yml
+index 39094f4218..b5ae9df9f4 100644
+--- a/Resources/Prototypes/_Goobstation/Entities/Objects/Weapons/Melee/blueshield_mace.yml
++++ b/Resources/Prototypes/_Goobstation/Entities/Objects/Weapons/Melee/blueshield_mace.yml
+@@ -15,8 +15,10 @@
+ # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+ # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+ # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
++# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+ # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+ # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
++# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+ #
+ # SPDX-License-Identifier: AGPL-3.0-or-later
+ 
+@@ -52,7 +54,7 @@
+       types:
+         Heat: 5
+   - type: Stunbaton
+-    energyPerUse: 100
++    energyPerUse: 40
+     lightAttackEnergyMultiplier: 2
+   - type: MeleeWeapon
+     angle: 0
+@@ -77,11 +79,8 @@
+     sound: /Audio/Weapons/egloves.ogg
+   - type: LandAtCursor
+   - type: Battery
+-    maxCharge: 1000
+-    startingCharge: 1000
+-  - type: BatterySelfRecharger
+-    autoRecharge: true
+-    autoRechargeRate: 20
++    maxCharge: 600
++    startingCharge: 600
+   - type: UseDelay
+   - type: Item
+     heldPrefix: off
+diff --git a/Resources/Prototypes/_Goobstation/Entities/Objects/Weapons/Melee/mantis_blade.yml b/Resources/Prototypes/_Goobstation/Entities/Objects/Weapons/Melee/mantis_blade.yml
+index a943cd9662..8529493037 100644
+--- a/Resources/Prototypes/_Goobstation/Entities/Objects/Weapons/Melee/mantis_blade.yml
++++ b/Resources/Prototypes/_Goobstation/Entities/Objects/Weapons/Melee/mantis_blade.yml
+@@ -1,11 +1,12 @@
+ # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
++# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+ # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+ #
+ # SPDX-License-Identifier: AGPL-3.0-or-later
+ 
+ - type: entity
+   categories: [ DoNotMap ]
+-  parent: BaseItem
++  parent: [BaseItem, BaseSyndicateContraband]
+   id: MantisBlade
+   name: mantis blade
+   description: They won’t see the steel until it’s too late.
+diff --git a/Resources/Prototypes/_Goobstation/Entities/Structures/Decorations/ants.yml b/Resources/Prototypes/_Goobstation/Entities/Structures/Decorations/ants.yml
+new file mode 100644
+index 0000000000..57e2105ae7
+--- /dev/null
++++ b/Resources/Prototypes/_Goobstation/Entities/Structures/Decorations/ants.yml
+@@ -0,0 +1,49 @@
++# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
++# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
++#
++# SPDX-License-Identifier: AGPL-3.0-or-later
++
++- type: entity
++  id: BaseAnts
++  parent: BaseStructureDynamic
++  name: ant hill
++  description: Best not to provoke them.
++  components:
++  - type: Fixtures
++    fixtures:
++      fix1:
++        shape:
++          !type:PhysShapeCircle
++          radius: 0
++  - type: Sprite
++    noRot: true
++    sprite: /Textures/_Goobstation/Structures/Decoration/ants.rsi
++    state: ants_0
++
++- type: entity
++  id: Ants1
++  parent: BaseAnts
++  components:
++  - type: Sprite
++    noRot: true
++    sprite: /Textures/_Goobstation/Structures/Decoration/ants.rsi
++    state: ants_1
++
++- type: entity
++  id: Ants2
++  parent: BaseAnts
++  components:
++  - type: Sprite
++    noRot: true
++    sprite: /Textures/_Goobstation/Structures/Decoration/ants.rsi
++    state: ants_2
++
++- type: entity
++  id: Ants3
++  parent: BaseAnts
++  components:
++  - type: Sprite
++    noRot: true
++    sprite: /Textures/_Goobstation/Structures/Decoration/ants.rsi
++    state: ants_3
++
+diff --git a/Resources/Prototypes/_Goobstation/Entities/Structures/Decorations/barrels.yml b/Resources/Prototypes/_Goobstation/Entities/Structures/Decorations/barrels.yml
+new file mode 100644
+index 0000000000..0f670b0a80
+--- /dev/null
++++ b/Resources/Prototypes/_Goobstation/Entities/Structures/Decorations/barrels.yml
+@@ -0,0 +1,65 @@
++# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
++# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
++#
++# SPDX-License-Identifier: AGPL-3.0-or-later
++
++- type: entity
++  id: BaseBarrel
++  parent: BaseStructureDynamic
++  name: black barrel
++  description: Do a barrel roll!
++  components:
++  - type: Anchorable
++  - type: Sprite
++    noRot: true
++    sprite: /Textures/_Goobstation/Structures/Decoration/Barrels/blackbarrel.rsi
++    state: barrel
++  - type: Damageable
++    damageContainer: StructuralInorganic
++    damageModifierSet: StructuralMetallicStrong
++  - type: Pullable
++  - type: Destructible
++    thresholds:
++      - trigger:
++          !type:DamageTrigger
++          damage: 80
++        behaviors:
++        - !type:SpawnEntitiesBehavior
++          spawn:
++            SheetSteel1:
++              min: 4
++              max: 8
++        - !type:DoActsBehavior
++          acts: [ "Destruction" ]
++
++- type: entity
++  id: BarrelPlanks
++  parent: BaseBarrel
++  components:
++  - type: Sprite
++    noRot: true
++    sprite: /Textures/_Goobstation/Structures/Decoration/Barrels/blackbarrel.rsi
++    state: barrel_planks
++
++
++- type: entity
++  id: BarrelFire
++  parent: BaseBarrel
++  name: barrel fire
++  description: Perfectly warm for the perfectly jobless!
++  components:
++  - type: Sprite
++    noRot: true
++    sprite: /Textures/_Goobstation/Structures/Decoration/Barrels/blackbarrel.rsi
++    state: barrel_fire
++  - type: PointLight
++    radius: 5
++    energy: 3
++    color: "#FFC90C"
++  - type: AmbientSound
++    volume: -5
++    range: 5
++    sound:
++      path: /Audio/Ambience/Objects/fireplace.ogg
++  - type: AlwaysHot
++
+diff --git a/Resources/Prototypes/_Goobstation/Entities/Structures/Decorations/candelabra.yml b/Resources/Prototypes/_Goobstation/Entities/Structures/Decorations/candelabra.yml
+new file mode 100644
+index 0000000000..b305245b76
+--- /dev/null
++++ b/Resources/Prototypes/_Goobstation/Entities/Structures/Decorations/candelabra.yml
+@@ -0,0 +1,52 @@
++# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
++# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
++#
++# SPDX-License-Identifier: AGPL-3.0-or-later
++
++- type: entity
++  id: BaseCandelabra
++  parent: BaseStructure
++  name: candelabra
++  description: Just don't try swinging from it!
++  placement:
++    mode: SnapgridCenter
++  components:
++  - type: Sprite
++    noRot: true
++    sprite: /Textures/_Goobstation/Structures/Decoration/candelabra.rsi
++    state: candelabra_unlit
++    drawdepth: OverMobs
++  - type: Fixtures
++    fixtures:
++      fix1:
++        shape:
++          !type:PhysShapeCircle
++          radius: 0
++  - type: Damageable
++    damageContainer: StructuralInorganic
++    damageModifierSet: Metallic
++  - type: Destructible
++    thresholds:
++      - trigger:
++          !type:DamageTrigger
++          damage: 50
++        behaviors:
++        - !type:DoActsBehavior
++          acts: [ "Destruction" ]
++
++- type: entity
++  id: CandelabraLit
++  parent: BaseCandelabra
++  name: candelabra
++  description: Just don't try swinging from it!
++  components:
++  - type: Sprite
++    noRot: true
++    sprite: /Textures/_Goobstation/Structures/Decoration/candelabra.rsi
++    state: candelabra
++    drawdepth: OverMobs
++  - type: PointLight
++    radius: 5
++    energy: 3
++    color: "#FFC90C"
++
+diff --git a/Resources/Prototypes/_Goobstation/Entities/Structures/Decorations/ceilingfan.yml b/Resources/Prototypes/_Goobstation/Entities/Structures/Decorations/ceilingfan.yml
+new file mode 100644
+index 0000000000..3935387df0
+--- /dev/null
++++ b/Resources/Prototypes/_Goobstation/Entities/Structures/Decorations/ceilingfan.yml
+@@ -0,0 +1,41 @@
++# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
++# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
++#
++# SPDX-License-Identifier: AGPL-3.0-or-later
++
++- type: entity
++  id: CeilingFan
++  parent: BaseStructure
++  name: ceiling fan
++  description: An antiquated method of cooling the room, but it sure has a charm to it.
++  placement:
++    mode: SnapgridCenter
++  components:
++  - type: SpriteFade
++  - type: Sprite
++    noRot: true
++    sprite: /Textures/_Goobstation/Structures/Decoration/ceilingfan.rsi
++    state: ceilingfan
++    drawdepth: OverMobs
++  - type: Fixtures
++    fixtures:
++      fix1:
++        shape:
++          !type:PhysShapeCircle
++          radius: 0
++  - type: Damageable
++    damageContainer: StructuralInorganic
++    damageModifierSet: Wood
++  - type: Destructible
++    thresholds:
++      - trigger:
++          !type:DamageTrigger
++          damage: 50
++        behaviors:
++        - !type:DoActsBehavior
++          acts: [ "Destruction" ]
++  - type: AmbientSound
++    volume: -1
++    range: 6
++    sound:
++      path: /Audio/_Goobstation/Ambience/fan_drone.ogg
+diff --git a/Resources/Prototypes/_Goobstation/Entities/Structures/Decorations/clock.yml b/Resources/Prototypes/_Goobstation/Entities/Structures/Decorations/clock.yml
+new file mode 100644
+index 0000000000..230438c40a
+--- /dev/null
++++ b/Resources/Prototypes/_Goobstation/Entities/Structures/Decorations/clock.yml
+@@ -0,0 +1,41 @@
++# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
++# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
++#
++# SPDX-License-Identifier: AGPL-3.0-or-later
++
++- type: entity
++  id: Clock
++  parent: BaseStructure
++  name: wall clock
++  description: Would you look at the time!
++  placement:
++    mode: SnapgridCenter
++  components:
++  - type: Anchorable
++  - type: Sprite
++    noRot: true
++    sprite: /Textures/_Goobstation/Structures/Decoration/clock.rsi
++    state: clock
++    drawdepth: WallMountedItems
++  - type: Fixtures
++    fixtures:
++      fix1:
++        shape:
++          !type:PhysShapeCircle
++          radius: 0
++  - type: Damageable
++    damageContainer: StructuralInorganic
++    damageModifierSet: Metallic
++  - type: Destructible
++    thresholds:
++      - trigger:
++          !type:DamageTrigger
++          damage: 50
++        behaviors:
++        - !type:DoActsBehavior
++          acts: [ "Destruction" ]
++  - type: AmbientSound
++    volume: -6
++    range: 2
++    sound:
++      path: /Audio/_Goobstation/Ambience/clock_tick.ogg
+diff --git a/Resources/Prototypes/_Goobstation/Entities/Structures/Decorations/construction.yml b/Resources/Prototypes/_Goobstation/Entities/Structures/Decorations/construction.yml
+new file mode 100644
+index 0000000000..ddfcaccea6
+--- /dev/null
++++ b/Resources/Prototypes/_Goobstation/Entities/Structures/Decorations/construction.yml
+@@ -0,0 +1,35 @@
++# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
++# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
++#
++# SPDX-License-Identifier: AGPL-3.0-or-later
++
++- type: entity
++  id: ConstructionBarricade
++  parent: BaseStructure
++  name: construction barricade
++  description: Wear your helmet!
++  components:
++  - type: Anchorable
++  - type: Sprite
++    noRot: true
++    sprite: /Textures/_Goobstation/Structures/Decoration/construction.rsi
++    state: construction
++  - type: Damageable
++    damageContainer: StructuralInorganic
++    damageModifierSet: StructuralMetallicStrong
++  - type: Pullable
++  - type: Climbable
++    delay: 5.0
++  - type: Destructible
++    thresholds:
++      - trigger:
++          !type:DamageTrigger
++          damage: 60
++        behaviors:
++        - !type:SpawnEntitiesBehavior
++          spawn:
++            SheetSteel1:
++              min: 2
++              max: 5
++        - !type:DoActsBehavior
++          acts: [ "Destruction" ]
+diff --git a/Resources/Prototypes/_Goobstation/Entities/Structures/Decorations/deadratvar.yml b/Resources/Prototypes/_Goobstation/Entities/Structures/Decorations/deadratvar.yml
+new file mode 100644
+index 0000000000..c5cdcde837
+--- /dev/null
++++ b/Resources/Prototypes/_Goobstation/Entities/Structures/Decorations/deadratvar.yml
+@@ -0,0 +1,54 @@
++# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
++# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
++#
++# SPDX-License-Identifier: AGPL-3.0-or-later
++
++- type: entity
++  id: DeadRatvar
++  parent: BaseStructure
++  name: dead construct
++  description: The corpse of an ancient construct made of brass and cogs. It still hums with tremendous power.
++  components:
++  - type: Sprite
++    noRot: true
++    sprite: /Textures/_Goobstation/Structures/Decoration/deadratvar.rsi
++    state: dead_ratvar
++    drawdepth: OverMobs
++    size: Ginormous
++  - type: AmbientSound
++    volume: 2
++    range: 20
++    sound:
++      path: /Audio/_Goobstation/Ambience/ominous_pulse.ogg
++  - type: Physics
++    bodyType: Static
++  - type: Fixtures
++    fixtures:
++      fix1:
++        shape:
++          !type:PhysShapeAabb
++          bounds: "-6.3,-3.3,6.2,-1.5"
++        density: 50
++        mask:
++        - LargeMobMask
++        layer:
++        - MidImpassable, LowImpassable, BulletImpassable
++  - type: Repairable
++    fuelCost: 10
++    doAfterDelay: 5
++  - type: Damageable
++    damageContainer: StructuralInorganic
++    damageModifierSet: StructuralMetallicStrong
++  - type: Destructible
++    thresholds:
++      - trigger:
++          !type:DamageTrigger
++          damage: 1000
++        behaviors:
++        - !type:SpawnEntitiesBehavior
++          spawn:
++            SheetBrass1:
++              min: 30
++              max: 60
++        - !type:DoActsBehavior
++          acts: [ "Destruction" ]
+diff --git a/Resources/Prototypes/_Goobstation/Entities/Structures/Decorations/desktop.yml b/Resources/Prototypes/_Goobstation/Entities/Structures/Decorations/desktop.yml
+new file mode 100644
+index 0000000000..107ecd0f6f
+--- /dev/null
++++ b/Resources/Prototypes/_Goobstation/Entities/Structures/Decorations/desktop.yml
+@@ -0,0 +1,38 @@
++# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
++# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
++#
++# SPDX-License-Identifier: AGPL-3.0-or-later
++
++- type: entity
++  id: Desktop
++  parent: BaseStructure
++  name: desktop computer
++  description: The screen says to hold for the OS to update. Though the progress bar never seems to move.
++  placement:
++    mode: SnapgridCenter
++  components:
++  - type: Sprite
++    noRot: true
++    sprite: /Textures/_Goobstation/Structures/Decoration/desktop.rsi
++    state: desktop
++  - type: Damageable
++    damageContainer: StructuralInorganic
++    damageModifierSet: Metallic
++  - type: Destructible
++    thresholds:
++      - trigger:
++          !type:DamageTrigger
++          damage: 100
++        behaviors:
++        - !type:DoActsBehavior
++          acts: [ "Destruction" ]
++  - type: AmbientSound
++    volume: -6
++    range: 3
++    sound:
++      path: /Audio/_Goobstation/Machines/computerboot_pc.ogg
++  - type: PointLight
++    radius: 3
++    energy: 2
++    color: "#2789CD"
++
+diff --git a/Resources/Prototypes/_Goobstation/Entities/Structures/Decorations/garbage.yml b/Resources/Prototypes/_Goobstation/Entities/Structures/Decorations/garbage.yml
+new file mode 100644
+index 0000000000..b249336dcf
+--- /dev/null
++++ b/Resources/Prototypes/_Goobstation/Entities/Structures/Decorations/garbage.yml
+@@ -0,0 +1,34 @@
++# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
++# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
++#
++# SPDX-License-Identifier: AGPL-3.0-or-later
++
++- type: entity
++  id: Garbage
++  parent: BaseItem
++  name: garbage
++  description: It's crawling with maggots!
++  components:
++  - type: Sprite
++    noRot: true
++    sprite: /Textures/_Goobstation/Structures/Decoration/garbage.rsi
++    state: garbage
++  - type: Damageable
++    damageContainer: StructuralInorganic
++    damageModifierSet: Wood
++  - type: Pullable
++  - type: AmbientSound
++    volume: -2
++    range: 2
++    sound:
++      path: /Audio/_Goobstation/Ambience/flies_buzzing.ogg
++  - type: Destructible
++    thresholds:
++      - trigger:
++          !type:DamageTrigger
++          damage: 35
++        behaviors:
++        - !type:DoActsBehavior
++          acts: [ "Destruction" ]
++
++
+diff --git a/Resources/Prototypes/_Goobstation/Entities/Structures/Decorations/vase.yml b/Resources/Prototypes/_Goobstation/Entities/Structures/Decorations/vase.yml
+new file mode 100644
+index 0000000000..aae5fb70b8
+--- /dev/null
++++ b/Resources/Prototypes/_Goobstation/Entities/Structures/Decorations/vase.yml
+@@ -0,0 +1,88 @@
++# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
++# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
++#
++# SPDX-License-Identifier: AGPL-3.0-or-later
++
++- type: entity
++  id: VaseBase
++  parent: DrinkGlassBase
++  name: vase
++  description: It's a vase. It holds flowers.
++  abstract: true
++  components:
++  - type: Anchorable
++  - type: SolutionContainerManager
++    solutions:
++      drink:
++        maxVol: 30
++        reagents:
++        - ReagentId: Water
++          Quantity: 30
++  - type: Sprite
++    sprite: /Textures/_Goobstation/Structures/Decoration/vase.rsi
++    state: vase-0
++
++- type: entity
++  id: VasePlant0 
++  parent: VaseBase
++  name: empty vase
++  description: It's a vase. It holds flowers. This one is empty.
++  components:
++  - type: Sprite
++    state: vase-0
++
++- type: entity
++  id: VasePlant1 
++  parent: VaseBase
++  components:
++  - type: Sprite
++    state: vase-1
++
++- type: entity
++  id: VasePlant2 
++  parent: VaseBase
++  components:
++  - type: Sprite
++    state: vase-2
++
++- type: entity
++  id: VasePlant3 
++  parent: VaseBase
++  components:
++  - type: Sprite
++    state: vase-3
++
++- type: entity
++  id: VasePlant4 
++  parent: VaseBase
++  components:
++  - type: Sprite
++    state: vase-4
++
++- type: entity
++  id: VasePlant5 
++  parent: VaseBase
++  components:
++  - type: Sprite
++    state: vase-5
++
++- type: entity
++  id: VasePlant6 
++  parent: VaseBase
++  components:
++  - type: Sprite
++    state: vase-6
++
++- type: entity
++  id: VasePlant7 
++  parent: VaseBase
++  components:
++  - type: Sprite
++    state: vase-7
++
++- type: entity
++  id: VasePlant8 
++  parent: VaseBase
++  components:
++  - type: Sprite
++    state: vase-8
+diff --git a/Resources/Prototypes/_Goobstation/tags.yml b/Resources/Prototypes/_Goobstation/tags.yml
+index 90efa7ee8e..038bf2a961 100644
+--- a/Resources/Prototypes/_Goobstation/tags.yml
++++ b/Resources/Prototypes/_Goobstation/tags.yml
+@@ -202,6 +202,9 @@
+ - type: Tag
+   id: FelinidEmotes
+ 
++- type: Tag
++  id: FitsInCharger
++
+ - type: Tag
+   id: FlashIgnoreResistances
+ 
+diff --git a/Resources/Prototypes/ai_factions.yml b/Resources/Prototypes/ai_factions.yml
+index b2b58f4c78..dfcdb7c415 100644
+--- a/Resources/Prototypes/ai_factions.yml
++++ b/Resources/Prototypes/ai_factions.yml
+@@ -15,11 +15,16 @@
+ # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+ # SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
+ # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
++# SPDX-FileCopyrightText: 2025 ActiveMammmoth <140334666+ActiveMammmoth@users.noreply.github.com>
+ # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+ # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
++# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
++# SPDX-FileCopyrightText: 2025 Arraydeess <arraygitbash@gmail.com>
+ # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+ # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
++# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+ # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
++# SPDX-FileCopyrightText: 2025 K-Dynamic <20566341+K-Dynamic@users.noreply.github.com>
+ # SPDX-FileCopyrightText: 2025 amogus <113782077+whateverusername0@users.noreply.github.com>
+ # SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
+ #
+@@ -68,6 +73,7 @@
+   id: PetsNT
+   hostile:
+   - Mouse
++  - Balloon # Goob Balloon Edit     Pets can join the fight against the balloons
+   - SimpleHostile
+   - Zombie
+   - Xeno
+@@ -177,4 +183,14 @@
+   - Heretic # goob edit - heretics
+   - Blob # Goobstation - Blob
+   - Wizard # goob edit - wizard
+-  - PirateFaction # goob - pirates
+\ No newline at end of file
++  - PirateFaction # goob - pirates
++  
++# Balloons Factions Edit:
++- type: npcFaction  
++  id: Balloon
++  # Balloons can't attack
++  
++- type: npcFaction
++  id: Monkey
++  hostile:
++  - Balloon     # Custom faction specifically for attacking bloons
+\ No newline at end of file
+diff --git a/Resources/Textures/_Goobstation/Objects/Fun/balloon_package.rsi/icon.png b/Resources/Textures/_Goobstation/Objects/Fun/balloon_package.rsi/icon.png
+new file mode 100644
+index 0000000000..a882159cb3
+Binary files /dev/null and b/Resources/Textures/_Goobstation/Objects/Fun/balloon_package.rsi/icon.png differ
+diff --git a/Resources/Textures/_Goobstation/Objects/Fun/balloon_package.rsi/meta.json b/Resources/Textures/_Goobstation/Objects/Fun/balloon_package.rsi/meta.json
+new file mode 100644
+index 0000000000..3e36ab1433
+--- /dev/null
++++ b/Resources/Textures/_Goobstation/Objects/Fun/balloon_package.rsi/meta.json
+@@ -0,0 +1,14 @@
++{
++  "version": 1,
++  "license": "CC0-1.0",
++  "copyright": "Created by Arraydeess14",
++  "size": {
++    "x": 32,
++    "y": 32
++  },
++  "states": [
++    {
++      "name": "icon"
++    }
++  ]
++}
+\ No newline at end of file
+diff --git a/Resources/Textures/_Goobstation/Objects/Fun/balloons.rsi/black.png b/Resources/Textures/_Goobstation/Objects/Fun/balloons.rsi/black.png
+new file mode 100644
+index 0000000000..368bc0e3d4
+Binary files /dev/null and b/Resources/Textures/_Goobstation/Objects/Fun/balloons.rsi/black.png differ
+diff --git a/Resources/Textures/_Goobstation/Objects/Fun/balloons.rsi/blue.png b/Resources/Textures/_Goobstation/Objects/Fun/balloons.rsi/blue.png
+new file mode 100644
+index 0000000000..b681dcb76c
+Binary files /dev/null and b/Resources/Textures/_Goobstation/Objects/Fun/balloons.rsi/blue.png differ
+diff --git a/Resources/Textures/_Goobstation/Objects/Fun/balloons.rsi/green.png b/Resources/Textures/_Goobstation/Objects/Fun/balloons.rsi/green.png
+new file mode 100644
+index 0000000000..b3c6ffaa7a
+Binary files /dev/null and b/Resources/Textures/_Goobstation/Objects/Fun/balloons.rsi/green.png differ
+diff --git a/Resources/Textures/_Goobstation/Objects/Fun/balloons.rsi/icon.png b/Resources/Textures/_Goobstation/Objects/Fun/balloons.rsi/icon.png
+new file mode 100644
+index 0000000000..26b41bfa8d
+Binary files /dev/null and b/Resources/Textures/_Goobstation/Objects/Fun/balloons.rsi/icon.png differ
+diff --git a/Resources/Textures/_Goobstation/Objects/Fun/balloons.rsi/meta.json b/Resources/Textures/_Goobstation/Objects/Fun/balloons.rsi/meta.json
+new file mode 100644
+index 0000000000..97606b1037
+--- /dev/null
++++ b/Resources/Textures/_Goobstation/Objects/Fun/balloons.rsi/meta.json
+@@ -0,0 +1,44 @@
++{
++    "version": 1,
++    "license": "CC0-1.0",
++    "copyright": "Arraydeess14",
++    "size": {
++        "x": 32,
++        "y": 32
++    },
++    "states": [
++        {
++            "name": "icon"
++        },
++        {
++            "name": "red"
++        },
++        {
++            "name": "blue"
++        },
++        {
++            "name": "green"
++        },
++        {
++            "name": "yellow"
++        },
++        {
++            "name": "pink"
++        },
++        {
++            "name": "black"
++        },
++        {
++            "name": "steel"
++        },
++        {
++            "name": "zebra"
++        },
++        {
++            "name": "rainbow"
++        },
++        {
++            "name": "white"
++        }
++    ]
++}
+diff --git a/Resources/Textures/_Goobstation/Objects/Fun/balloons.rsi/pink.png b/Resources/Textures/_Goobstation/Objects/Fun/balloons.rsi/pink.png
+new file mode 100644
+index 0000000000..5469f1107a
+Binary files /dev/null and b/Resources/Textures/_Goobstation/Objects/Fun/balloons.rsi/pink.png differ
+diff --git a/Resources/Textures/_Goobstation/Objects/Fun/balloons.rsi/rainbow.png b/Resources/Textures/_Goobstation/Objects/Fun/balloons.rsi/rainbow.png
+new file mode 100644
+index 0000000000..4879aeeaa8
+Binary files /dev/null and b/Resources/Textures/_Goobstation/Objects/Fun/balloons.rsi/rainbow.png differ
+diff --git a/Resources/Textures/_Goobstation/Objects/Fun/balloons.rsi/red.png b/Resources/Textures/_Goobstation/Objects/Fun/balloons.rsi/red.png
+new file mode 100644
+index 0000000000..d7deddc85a
+Binary files /dev/null and b/Resources/Textures/_Goobstation/Objects/Fun/balloons.rsi/red.png differ
+diff --git a/Resources/Textures/_Goobstation/Objects/Fun/balloons.rsi/steel.png b/Resources/Textures/_Goobstation/Objects/Fun/balloons.rsi/steel.png
+new file mode 100644
+index 0000000000..09665fbc1b
+Binary files /dev/null and b/Resources/Textures/_Goobstation/Objects/Fun/balloons.rsi/steel.png differ
+diff --git a/Resources/Textures/_Goobstation/Objects/Fun/balloons.rsi/white.png b/Resources/Textures/_Goobstation/Objects/Fun/balloons.rsi/white.png
+new file mode 100644
+index 0000000000..44be7ede71
+Binary files /dev/null and b/Resources/Textures/_Goobstation/Objects/Fun/balloons.rsi/white.png differ
+diff --git a/Resources/Textures/_Goobstation/Objects/Fun/balloons.rsi/yellow.png b/Resources/Textures/_Goobstation/Objects/Fun/balloons.rsi/yellow.png
+new file mode 100644
+index 0000000000..6b7a629785
+Binary files /dev/null and b/Resources/Textures/_Goobstation/Objects/Fun/balloons.rsi/yellow.png differ
+diff --git a/Resources/Textures/_Goobstation/Objects/Fun/balloons.rsi/zebra.png b/Resources/Textures/_Goobstation/Objects/Fun/balloons.rsi/zebra.png
+new file mode 100644
+index 0000000000..50a14c00ed
+Binary files /dev/null and b/Resources/Textures/_Goobstation/Objects/Fun/balloons.rsi/zebra.png differ
+diff --git a/Resources/Textures/_Goobstation/Objects/Misc/quill.rsi/meta.json b/Resources/Textures/_Goobstation/Objects/Misc/quill.rsi/meta.json
+new file mode 100644
+index 0000000000..f883b7e37e
+--- /dev/null
++++ b/Resources/Textures/_Goobstation/Objects/Misc/quill.rsi/meta.json
+@@ -0,0 +1,15 @@
++{
++    "version": 1,
++    "license": "CC-BY-NC-SA-3.0",
++    "copyright": "Goonstation 13",
++    "size": {
++        "x": 32,
++        "y": 32
++    },
++    "states":
++    [
++        {
++            "name": "quill"
++        }
++    ]
++}
+diff --git a/Resources/Textures/_Goobstation/Objects/Misc/quill.rsi/quill.png b/Resources/Textures/_Goobstation/Objects/Misc/quill.rsi/quill.png
+new file mode 100644
+index 0000000000..ee86266a7b
+Binary files /dev/null and b/Resources/Textures/_Goobstation/Objects/Misc/quill.rsi/quill.png differ
+diff --git a/Resources/Textures/_Goobstation/Structures/Decoration/Barrels/blackbarrel.rsi/barrel.png b/Resources/Textures/_Goobstation/Structures/Decoration/Barrels/blackbarrel.rsi/barrel.png
+new file mode 100644
+index 0000000000..1fa632289d
+Binary files /dev/null and b/Resources/Textures/_Goobstation/Structures/Decoration/Barrels/blackbarrel.rsi/barrel.png differ
+diff --git a/Resources/Textures/_Goobstation/Structures/Decoration/Barrels/blackbarrel.rsi/barrel_fire.png b/Resources/Textures/_Goobstation/Structures/Decoration/Barrels/blackbarrel.rsi/barrel_fire.png
+new file mode 100644
+index 0000000000..f3e8df6f55
+Binary files /dev/null and b/Resources/Textures/_Goobstation/Structures/Decoration/Barrels/blackbarrel.rsi/barrel_fire.png differ
+diff --git a/Resources/Textures/_Goobstation/Structures/Decoration/Barrels/blackbarrel.rsi/barrel_planks.png b/Resources/Textures/_Goobstation/Structures/Decoration/Barrels/blackbarrel.rsi/barrel_planks.png
+new file mode 100644
+index 0000000000..be3763caa1
+Binary files /dev/null and b/Resources/Textures/_Goobstation/Structures/Decoration/Barrels/blackbarrel.rsi/barrel_planks.png differ
+diff --git a/Resources/Textures/_Goobstation/Structures/Decoration/Barrels/blackbarrel.rsi/meta.json b/Resources/Textures/_Goobstation/Structures/Decoration/Barrels/blackbarrel.rsi/meta.json
+new file mode 100644
+index 0000000000..b748f161c0
+--- /dev/null
++++ b/Resources/Textures/_Goobstation/Structures/Decoration/Barrels/blackbarrel.rsi/meta.json
+@@ -0,0 +1,28 @@
++{
++    "version": 1,
++    "license": "CC-BY-NC-SA-3.0",
++    "copyright": "Goonstation 13",
++    "size": {
++        "x": 32,
++        "y": 32
++    },
++    "states": [
++        {
++            "name": "barrel_fire",
++            "delays":
++            [
++                [
++                    0.2,
++                    0.2,
++                    0.2
++                ]
++            ]
++        },
++        {
++            "name": "barrel_planks"
++        },
++        {
++            "name": "barrel"
++        }
++    ]
++}
+diff --git a/Resources/Textures/_Goobstation/Structures/Decoration/ants.rsi/ants_0.png b/Resources/Textures/_Goobstation/Structures/Decoration/ants.rsi/ants_0.png
+new file mode 100644
+index 0000000000..b70f6f2cd8
+Binary files /dev/null and b/Resources/Textures/_Goobstation/Structures/Decoration/ants.rsi/ants_0.png differ
+diff --git a/Resources/Textures/_Goobstation/Structures/Decoration/ants.rsi/ants_1.png b/Resources/Textures/_Goobstation/Structures/Decoration/ants.rsi/ants_1.png
+new file mode 100644
+index 0000000000..50a6e65a13
+Binary files /dev/null and b/Resources/Textures/_Goobstation/Structures/Decoration/ants.rsi/ants_1.png differ
+diff --git a/Resources/Textures/_Goobstation/Structures/Decoration/ants.rsi/ants_2.png b/Resources/Textures/_Goobstation/Structures/Decoration/ants.rsi/ants_2.png
+new file mode 100644
+index 0000000000..9b15c4da6c
+Binary files /dev/null and b/Resources/Textures/_Goobstation/Structures/Decoration/ants.rsi/ants_2.png differ
+diff --git a/Resources/Textures/_Goobstation/Structures/Decoration/ants.rsi/ants_3.png b/Resources/Textures/_Goobstation/Structures/Decoration/ants.rsi/ants_3.png
+new file mode 100644
+index 0000000000..3106ee33f1
+Binary files /dev/null and b/Resources/Textures/_Goobstation/Structures/Decoration/ants.rsi/ants_3.png differ
+diff --git a/Resources/Textures/_Goobstation/Structures/Decoration/ants.rsi/meta.json b/Resources/Textures/_Goobstation/Structures/Decoration/ants.rsi/meta.json
+new file mode 100644
+index 0000000000..b703cdece6
+--- /dev/null
++++ b/Resources/Textures/_Goobstation/Structures/Decoration/ants.rsi/meta.json
+@@ -0,0 +1,66 @@
++{
++    "version": 1,
++    "license": "CC-BY-NC-SA-3.0",
++    "copyright": "/TG/Station 13",
++    "size": {
++        "x": 32,
++        "y": 32
++    },
++    "states": [
++        {
++            "name": "ants_0"
++        },
++        {
++            "name": "ants_1",
++            "delays": [
++                [
++                    0.2,
++                    0.2,
++                    0.2,
++                    0.2,
++                    0.2,
++                    0.2,
++                    0.2,
++                    0.2,
++                    0.2,
++                    0.2,
++                    0.2,
++                    0.2,
++                    0.2,
++                    0.2,
++                    0.2,
++                    0.2,
++                    0.2
++                ]
++            ]
++        },
++        {
++            "name": "ants_2",
++            "delays": [
++                [
++                    0.2,
++                    0.2,
++                    0.2,
++                    0.2,
++                    0.2,
++                    0.2,
++                    0.2
++                ]
++            ]
++        },
++        {
++            "name": "ants_3",
++            "delays": [
++                [
++                    0.2,
++                    0.2,
++                    0.2,
++                    0.2,
++                    0.2,
++                    0.2,
++                    0.2
++                ]
++            ]
++        }
++    ]
++}
+diff --git a/Resources/Textures/_Goobstation/Structures/Decoration/candelabra.rsi/candelabra.png b/Resources/Textures/_Goobstation/Structures/Decoration/candelabra.rsi/candelabra.png
+new file mode 100644
+index 0000000000..57a3822d2a
+Binary files /dev/null and b/Resources/Textures/_Goobstation/Structures/Decoration/candelabra.rsi/candelabra.png differ
+diff --git a/Resources/Textures/_Goobstation/Structures/Decoration/candelabra.rsi/candelabra_unlit.png b/Resources/Textures/_Goobstation/Structures/Decoration/candelabra.rsi/candelabra_unlit.png
+new file mode 100644
+index 0000000000..5bdf4bfe6c
+Binary files /dev/null and b/Resources/Textures/_Goobstation/Structures/Decoration/candelabra.rsi/candelabra_unlit.png differ
+diff --git a/Resources/Textures/_Goobstation/Structures/Decoration/candelabra.rsi/meta.json b/Resources/Textures/_Goobstation/Structures/Decoration/candelabra.rsi/meta.json
+new file mode 100644
+index 0000000000..7cffefddcc
+--- /dev/null
++++ b/Resources/Textures/_Goobstation/Structures/Decoration/candelabra.rsi/meta.json
+@@ -0,0 +1,24 @@
++{
++    "version": 1,
++    "license": "CC-BY-NC-SA-3.0",
++    "copyright": "Goonstation 13",
++    "size": {
++        "x": 32,
++        "y": 32
++    },
++    "states": [
++        {
++            "name": "candelabra",
++            "delays": [
++                [
++                    0.2,
++                    0.2,
++                    0.2
++                ]
++            ]
++        },
++        {
++            "name": "candelabra_unlit"
++        }
++    ]
++}
+diff --git a/Resources/Textures/_Goobstation/Structures/Decoration/ceilingfan.rsi/ceilingfan.png b/Resources/Textures/_Goobstation/Structures/Decoration/ceilingfan.rsi/ceilingfan.png
+new file mode 100644
+index 0000000000..6c468be95c
+Binary files /dev/null and b/Resources/Textures/_Goobstation/Structures/Decoration/ceilingfan.rsi/ceilingfan.png differ
+diff --git a/Resources/Textures/_Goobstation/Structures/Decoration/ceilingfan.rsi/meta.json b/Resources/Textures/_Goobstation/Structures/Decoration/ceilingfan.rsi/meta.json
+new file mode 100644
+index 0000000000..0cf3f19f59
+--- /dev/null
++++ b/Resources/Textures/_Goobstation/Structures/Decoration/ceilingfan.rsi/meta.json
+@@ -0,0 +1,24 @@
++{
++    "version": 1,
++    "license": "CC-BY-NC-SA-3.0",
++    "copyright": "Goonstation 13",
++    "size": {
++        "x": 32,
++        "y": 32
++    },
++    "states": [
++        {
++            "name": "ceilingfan",
++            "delays": [
++                [
++                    0.1,
++                    0.1,
++                    0.1,
++                    0.1,
++                    0.1,
++                    0.1
++                ]
++            ]
++        }
++    ]
++}
+diff --git a/Resources/Textures/_Goobstation/Structures/Decoration/clock.rsi/clock.png b/Resources/Textures/_Goobstation/Structures/Decoration/clock.rsi/clock.png
+new file mode 100644
+index 0000000000..32c6fedb1b
+Binary files /dev/null and b/Resources/Textures/_Goobstation/Structures/Decoration/clock.rsi/clock.png differ
+diff --git a/Resources/Textures/_Goobstation/Structures/Decoration/clock.rsi/meta.json b/Resources/Textures/_Goobstation/Structures/Decoration/clock.rsi/meta.json
+new file mode 100644
+index 0000000000..fb6da9102a
+--- /dev/null
++++ b/Resources/Textures/_Goobstation/Structures/Decoration/clock.rsi/meta.json
+@@ -0,0 +1,14 @@
++{
++    "version": 1,
++    "license": "CC-BY-NC-SA-3.0",
++    "copyright": "Goonstation 13",
++    "size": {
++        "x": 32,
++        "y": 32
++    },
++    "states": [
++        {
++            "name": "clock"
++        }
++    ]
++}
+diff --git a/Resources/Textures/_Goobstation/Structures/Decoration/construction.rsi/construction.png b/Resources/Textures/_Goobstation/Structures/Decoration/construction.rsi/construction.png
+new file mode 100644
+index 0000000000..13b7a82362
+Binary files /dev/null and b/Resources/Textures/_Goobstation/Structures/Decoration/construction.rsi/construction.png differ
+diff --git a/Resources/Textures/_Goobstation/Structures/Decoration/construction.rsi/meta.json b/Resources/Textures/_Goobstation/Structures/Decoration/construction.rsi/meta.json
+new file mode 100644
+index 0000000000..169eff959e
+--- /dev/null
++++ b/Resources/Textures/_Goobstation/Structures/Decoration/construction.rsi/meta.json
+@@ -0,0 +1,21 @@
++{
++    "version": 1,
++    "license": "CC-BY-NC-SA-3.0",
++    "copyright": "Goonstation 13",
++    "size": {
++        "x": 32,
++        "y": 32
++    },
++    "states": [
++        {
++            "name": "construction",
++            "delays":
++            [
++                [
++                    0.2,
++                    0.2
++                ]
++            ]
++        }
++    ]
++}
+diff --git a/Resources/Textures/_Goobstation/Structures/Decoration/deadratvar.rsi/dead_ratvar.png b/Resources/Textures/_Goobstation/Structures/Decoration/deadratvar.rsi/dead_ratvar.png
+new file mode 100644
+index 0000000000..e3722e04ed
+Binary files /dev/null and b/Resources/Textures/_Goobstation/Structures/Decoration/deadratvar.rsi/dead_ratvar.png differ
+diff --git a/Resources/Textures/_Goobstation/Structures/Decoration/deadratvar.rsi/meta.json b/Resources/Textures/_Goobstation/Structures/Decoration/deadratvar.rsi/meta.json
+new file mode 100644
+index 0000000000..8e48d26045
+--- /dev/null
++++ b/Resources/Textures/_Goobstation/Structures/Decoration/deadratvar.rsi/meta.json
+@@ -0,0 +1,14 @@
++{
++    "version": 1,
++    "license": "CC-BY-NC-SA-3.0",
++    "copyright": "/TG/Station 13",
++    "size": {
++        "x": 440,
++        "y": 196
++    },
++    "states": [
++        {
++            "name": "dead_ratvar"
++        }
++    ]
++}
+diff --git a/Resources/Textures/_Goobstation/Structures/Decoration/desktop.rsi/desktop.png b/Resources/Textures/_Goobstation/Structures/Decoration/desktop.rsi/desktop.png
+new file mode 100644
+index 0000000000..86b1761a19
+Binary files /dev/null and b/Resources/Textures/_Goobstation/Structures/Decoration/desktop.rsi/desktop.png differ
+diff --git a/Resources/Textures/_Goobstation/Structures/Decoration/desktop.rsi/meta.json b/Resources/Textures/_Goobstation/Structures/Decoration/desktop.rsi/meta.json
+new file mode 100644
+index 0000000000..6369eb272c
+--- /dev/null
++++ b/Resources/Textures/_Goobstation/Structures/Decoration/desktop.rsi/meta.json
+@@ -0,0 +1,14 @@
++{
++    "version": 1,
++    "license": "CC-BY-NC-SA-3.0",
++    "copyright": "Goonstation 13",
++    "size": {
++        "x": 32,
++        "y": 32
++    },
++    "states": [
++        {
++            "name": "desktop"
++        }
++    ]
++}
+diff --git a/Resources/Textures/_Goobstation/Structures/Decoration/garbage.rsi/garbage.png b/Resources/Textures/_Goobstation/Structures/Decoration/garbage.rsi/garbage.png
+new file mode 100644
+index 0000000000..c40d30dc8f
+Binary files /dev/null and b/Resources/Textures/_Goobstation/Structures/Decoration/garbage.rsi/garbage.png differ
+diff --git a/Resources/Textures/_Goobstation/Structures/Decoration/garbage.rsi/meta.json b/Resources/Textures/_Goobstation/Structures/Decoration/garbage.rsi/meta.json
+new file mode 100644
+index 0000000000..d1821ff73f
+--- /dev/null
++++ b/Resources/Textures/_Goobstation/Structures/Decoration/garbage.rsi/meta.json
+@@ -0,0 +1,24 @@
++{
++    "version": 1,
++    "license": "CC-BY-NC-SA-3.0",
++    "copyright": "/TG/Station 13",
++    "size": {
++        "x": 32,
++        "y": 32
++    },
++    "states": [
++        {
++            "name": "garbage",
++            "delays": [
++                [
++                    0.2,
++                    0.2,
++                    0.2,
++                    0.2,
++                    0.2,
++                    0.2
++                ]
++            ]
++        }
++    ]
++}
+diff --git a/Resources/Textures/_Goobstation/Structures/Decoration/vase.rsi/meta.json b/Resources/Textures/_Goobstation/Structures/Decoration/vase.rsi/meta.json
+new file mode 100644
+index 0000000000..ecbae8eb27
+--- /dev/null
++++ b/Resources/Textures/_Goobstation/Structures/Decoration/vase.rsi/meta.json
+@@ -0,0 +1,41 @@
++{
++    "version": 1,
++    "license": "CC-BY-NC-SA-3.0",
++    "copyright": "Goonstation 13",
++    "size": {
++        "x": 32,
++        "y": 32
++    },
++    "states": [
++        {
++            "name": "vase-random"
++        },
++        {
++            "name": "vase-0"
++        },
++        {
++            "name": "vase-1"
++        },
++        {
++            "name": "vase-2"
++        },
++        {
++            "name": "vase-3"
++        },
++        {
++            "name": "vase-4"
++        },
++        {
++            "name": "vase-5"
++        },
++        {
++            "name": "vase-6"
++        },
++        {
++            "name": "vase-7"
++        },
++        {
++            "name": "vase-8"
++        }
++    ]
++}
+diff --git a/Resources/Textures/_Goobstation/Structures/Decoration/vase.rsi/vase-0.png b/Resources/Textures/_Goobstation/Structures/Decoration/vase.rsi/vase-0.png
+new file mode 100644
+index 0000000000..29997a7f2b
+Binary files /dev/null and b/Resources/Textures/_Goobstation/Structures/Decoration/vase.rsi/vase-0.png differ
+diff --git a/Resources/Textures/_Goobstation/Structures/Decoration/vase.rsi/vase-1.png b/Resources/Textures/_Goobstation/Structures/Decoration/vase.rsi/vase-1.png
+new file mode 100644
+index 0000000000..36794d29e8
+Binary files /dev/null and b/Resources/Textures/_Goobstation/Structures/Decoration/vase.rsi/vase-1.png differ
+diff --git a/Resources/Textures/_Goobstation/Structures/Decoration/vase.rsi/vase-2.png b/Resources/Textures/_Goobstation/Structures/Decoration/vase.rsi/vase-2.png
+new file mode 100644
+index 0000000000..20b68641a3
+Binary files /dev/null and b/Resources/Textures/_Goobstation/Structures/Decoration/vase.rsi/vase-2.png differ
+diff --git a/Resources/Textures/_Goobstation/Structures/Decoration/vase.rsi/vase-3.png b/Resources/Textures/_Goobstation/Structures/Decoration/vase.rsi/vase-3.png
+new file mode 100644
+index 0000000000..42adf1dc74
+Binary files /dev/null and b/Resources/Textures/_Goobstation/Structures/Decoration/vase.rsi/vase-3.png differ
+diff --git a/Resources/Textures/_Goobstation/Structures/Decoration/vase.rsi/vase-4.png b/Resources/Textures/_Goobstation/Structures/Decoration/vase.rsi/vase-4.png
+new file mode 100644
+index 0000000000..6372d43819
+Binary files /dev/null and b/Resources/Textures/_Goobstation/Structures/Decoration/vase.rsi/vase-4.png differ
+diff --git a/Resources/Textures/_Goobstation/Structures/Decoration/vase.rsi/vase-5.png b/Resources/Textures/_Goobstation/Structures/Decoration/vase.rsi/vase-5.png
+new file mode 100644
+index 0000000000..f670f61c7e
+Binary files /dev/null and b/Resources/Textures/_Goobstation/Structures/Decoration/vase.rsi/vase-5.png differ
+diff --git a/Resources/Textures/_Goobstation/Structures/Decoration/vase.rsi/vase-6.png b/Resources/Textures/_Goobstation/Structures/Decoration/vase.rsi/vase-6.png
+new file mode 100644
+index 0000000000..5ddb9a36ef
+Binary files /dev/null and b/Resources/Textures/_Goobstation/Structures/Decoration/vase.rsi/vase-6.png differ
+diff --git a/Resources/Textures/_Goobstation/Structures/Decoration/vase.rsi/vase-7.png b/Resources/Textures/_Goobstation/Structures/Decoration/vase.rsi/vase-7.png
+new file mode 100644
+index 0000000000..5d3bc329ed
+Binary files /dev/null and b/Resources/Textures/_Goobstation/Structures/Decoration/vase.rsi/vase-7.png differ
+diff --git a/Resources/Textures/_Goobstation/Structures/Decoration/vase.rsi/vase-8.png b/Resources/Textures/_Goobstation/Structures/Decoration/vase.rsi/vase-8.png
+new file mode 100644
+index 0000000000..4619de68f1
+Binary files /dev/null and b/Resources/Textures/_Goobstation/Structures/Decoration/vase.rsi/vase-8.png differ
+diff --git a/Resources/Textures/_Goobstation/Structures/Decoration/vase.rsi/vase-random.png b/Resources/Textures/_Goobstation/Structures/Decoration/vase.rsi/vase-random.png
+new file mode 100644
+index 0000000000..2ee20db63f
+Binary files /dev/null and b/Resources/Textures/_Goobstation/Structures/Decoration/vase.rsi/vase-random.png differ

@@ -14,7 +14,7 @@
       - state: detail_bookmark
         color: "#aaaa24"
     - type: RevolutionaryConverter
-      conversionDuration: 0.5
+      conversionDuration: 1
     - type: Tag
       tags:
         - Book
