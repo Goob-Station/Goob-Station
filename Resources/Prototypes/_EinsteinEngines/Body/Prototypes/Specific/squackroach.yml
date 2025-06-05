@@ -10,7 +10,7 @@
   root: torso
   slots:
     torso:
-      part: TorsoAnimal
+      part: ChestAnimal
       organs:
         lungs: OrganHarpyLungs
         stomach: OrganAnimalStomach
