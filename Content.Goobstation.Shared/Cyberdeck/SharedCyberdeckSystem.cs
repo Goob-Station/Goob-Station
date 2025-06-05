@@ -14,6 +14,7 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Jittering;
 using Content.Shared.Popups;
+using Content.Shared.Power.EntitySystems;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.Stunnable;
@@ -34,6 +35,7 @@ public abstract class SharedCyberdeckSystem : EntitySystem
     [Dependency] private readonly SharedJitteringSystem _jitter = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
 
     protected EntityQuery<CyberdeckHackableComponent> HackQuery;
     protected EntityQuery<HandsComponent> HandsQuery;
@@ -59,12 +61,13 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         UserQuery = GetEntityQuery<CyberdeckUserComponent>();
     }
 
-    protected bool UseCharges(EntityUid user, EntityUid device)
+    protected bool TryHackDevice(EntityUid user, EntityUid device)
     {
         if (!HackQuery.TryComp(device, out var hackable)
             || !UserQuery.TryComp(user, out var cyberDeck)
             || cyberDeck.ProviderEntity == null
-            || Charges.HasInsufficientCharges(cyberDeck.ProviderEntity.Value, hackable.Cost))
+            || Charges.HasInsufficientCharges(cyberDeck.ProviderEntity.Value, hackable.Cost)
+            || !_power.IsPowered(device))
             return false;
 
         Charges.UseCharges(cyberDeck.ProviderEntity.Value, hackable.Cost);
@@ -167,7 +170,7 @@ public abstract class SharedCyberdeckSystem : EntitySystem
 
     private void OnAirlockHacked(Entity<AirlockComponent> ent, ref CyberdeckHackDoAfterEvent args)
     {
-        if (!UseCharges(args.User, ent.Owner))
+        if (!TryHackDevice(args.User, ent.Owner))
             return;
 
         _door.StartOpening(ent.Owner, user: args.User);
@@ -175,7 +178,7 @@ public abstract class SharedCyberdeckSystem : EntitySystem
 
     private void OnAccessHacked(Entity<AccessComponent> ent, ref CyberdeckHackDoAfterEvent args)
     {
-        if (!UseCharges(args.User, ent.Owner))
+        if (!TryHackDevice(args.User, ent.Owner))
             return;
 
         var ignore = EnsureComp<IgnoreAccessComponent>(ent);
@@ -184,7 +187,7 @@ public abstract class SharedCyberdeckSystem : EntitySystem
 
     private void OnBorgHacked(Entity<BorgChassisComponent> ent, ref CyberdeckHackDoAfterEvent args)
     {
-        if (!UseCharges(args.User, ent.Owner))
+        if (!TryHackDevice(args.User, ent.Owner))
             return;
 
         // TODO this probably shouldn't be hardcoded, but I don't know where to put this.

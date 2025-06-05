@@ -1,6 +1,6 @@
 - type: entity
   parent: BaseCyberneticEyes
-  id: CyberdeckEyes
+  id: OrganCyberdeckEyes
   name: cyberdeck eyes
   description: A pair of cybernetic eyes that enhance your vision, and protect you from eye damage.
   components:
@@ -16,6 +16,6 @@
     integrityThresholds:
       Normal: 21
       Damaged: 11
-      Destroyed: 0  
+      Destroyed: 0
     onAdd:
     - type: CyberdeckUser

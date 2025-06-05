@@ -10,14 +10,14 @@ public sealed class CyberdeckSystem : SharedCyberdeckSystem
     [Dependency] private readonly IOverlayManager _overlayManager = default!;
 
     private CyberdeckOverlay _overlay = default!;
-    private EntityQuery<CyberdeckProjectionComponent> _users;
+    private EntityQuery<CyberdeckOverlayComponent> _users;
 
     public override void Initialize()
     {
         base.Initialize();
 
         _overlay = new CyberdeckOverlay();
-        _users = GetEntityQuery<CyberdeckProjectionComponent>();
+        _users = GetEntityQuery<CyberdeckOverlayComponent>();
 
         SubscribeLocalEvent<LocalPlayerAttachedEvent>(OnPlayerAttach);
         SubscribeLocalEvent<LocalPlayerDetachedEvent>(OnPlayerDetached);

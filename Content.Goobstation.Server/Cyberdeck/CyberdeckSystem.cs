@@ -9,6 +9,8 @@ using Content.Shared.Body.Organ;
 using Content.Shared.Charges.Systems;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
+using Content.Shared.Silicons.StationAi;
+using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Cyberdeck;
 
@@ -29,7 +31,7 @@ public sealed class CyberdeckSystem : SharedCyberdeckSystem
         SubscribeLocalEvent<BatteryComponent, CyberdeckHackDoAfterEvent>(OnBatteryHacked);
 
         SubscribeLocalEvent<CyberdeckUserComponent, CyberdeckVisionEvent>(OnCyberVisionUsed);
-        SubscribeLocalEvent<CyberdeckProjectionComponent, CyberdeckVisionReturnEvent>(OnCyberVisionReturn);
+        SubscribeLocalEvent<CyberdeckUserComponent, CyberdeckVisionReturnEvent>(OnCyberVisionReturn);
 
         SubscribeLocalEvent<CyberdeckSourceComponent, ChargesChangedEvent>(OnChargesChanged);
     }
@@ -47,7 +49,7 @@ public sealed class CyberdeckSystem : SharedCyberdeckSystem
 
     private void OnBatteryHacked(Entity<BatteryComponent> ent, ref CyberdeckHackDoAfterEvent args)
     {
-        if (!UseCharges(args.User, ent.Owner))
+        if (!TryHackDevice(args.User, ent.Owner))
             return;
 
         var mapPos = _transform.GetMapCoordinates(ent.Owner);
@@ -59,7 +61,7 @@ public sealed class CyberdeckSystem : SharedCyberdeckSystem
 
     private void OnLightHacked(Entity<PoweredLightComponent> ent, ref CyberdeckHackDoAfterEvent args)
     {
-        if (!UseCharges(args.User, ent.Owner))
+        if (!TryHackDevice(args.User, ent.Owner))
             return;
 
         _light.TryDestroyBulb(ent.Owner, ent.Comp);
@@ -76,15 +78,17 @@ public sealed class CyberdeckSystem : SharedCyberdeckSystem
         SetupProjection(ent);
         Actions.AddAction(uid, ref comp.ReturnAction, comp.ReturnActionId);
         Actions.RemoveAction(uid, comp.VisionAction);
+
+        comp.VisionAction = null;
         args.Handled = true;
     }
 
-    private void OnCyberVisionReturn(Entity<CyberdeckProjectionComponent> ent, ref CyberdeckVisionReturnEvent args)
+    private void OnCyberVisionReturn(Entity<CyberdeckUserComponent> ent, ref CyberdeckVisionReturnEvent args)
     {
         if (args.Handled)
             return;
 
-        ShutdownProjection(ent.Owner);
+        ShutdownProjection(ent.Comp.ProjectionEntity);
         args.Handled = true;
     }
 
@@ -106,6 +110,10 @@ public sealed class CyberdeckSystem : SharedCyberdeckSystem
         }
 
         _mover.SetRelay(user, observer);
+
+        EnsureComp<StationAiOverlayComponent>(user.Owner);
+        EnsureComp<CyberdeckOverlayComponent>(user.Owner);
+
         user.Comp.ProjectionEntity = observer;
     }
 
@@ -121,10 +129,18 @@ public sealed class CyberdeckSystem : SharedCyberdeckSystem
             return;
 
         var user = comp.RemoteEntity.Value;
-        userComp.ProjectionEntity = null;
-        Actions.RemoveAction(user, userComp.ReturnAction);
+
+        RemComp<RelayInputMoverComponent>(user);
+        RemComp<StationAiOverlayComponent>(user);
+        RemComp<CyberdeckOverlayComponent>(user);
+
         Actions.AddAction(user, ref userComp.VisionAction, userComp.VisionActionId);
+        Actions.RemoveAction(user, userComp.ReturnAction);
+
+        //userComp.ProjectionEntity = null;
+        //userComp.ReturnAction = null;
         Dirty(ent.Value.Owner, comp);
+        //Dirty(user, userComp);
 
         if (TryComp(user, out EyeComponent? eyeComp))
         {
@@ -132,7 +148,6 @@ public sealed class CyberdeckSystem : SharedCyberdeckSystem
             _eye.SetTarget(user, user, eyeComp);
         }
 
-        RemComp<RelayInputMoverComponent>(user);
-        QueueDel(ent.Value.Owner);
+        Timer.Spawn(TimeSpan.FromSeconds(3), () => QueueDel(ent.Value.Owner));
     }
 }
