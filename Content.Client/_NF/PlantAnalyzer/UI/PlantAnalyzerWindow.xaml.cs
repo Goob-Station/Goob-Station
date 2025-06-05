@@ -20,8 +20,6 @@ public sealed partial class PlantAnalyzerWindow : FancyWindow
     private readonly IEntityManager _entityManager;
     private readonly ButtonGroup _buttonGroup = new();
 
-    private const string IndentedNewline = "\n   ";
-
     public PlantAnalyzerWindow(PlantAnalyzerBoundUserInterface owner)
     {
         RobustXamlLoader.Load(this);
@@ -60,10 +58,7 @@ public sealed partial class PlantAnalyzerWindow : FancyWindow
         if (msg.SeedChem != null)
         {
             foreach (var chem in msg.SeedChem)
-            {
-                chemString.Append(IndentedNewline);
-                chemString.Append(chem);
-            }
+                chemString.Append("\n   " + chem);
         }
 
         var exudeGases = GetStringFromGas(msg.ExudeGases);
@@ -109,8 +104,7 @@ public sealed partial class PlantAnalyzerWindow : FancyWindow
                 if (!advInst.Mutations.HasFlag(flag)
                     || flag == MutationFlags.None)
                     continue;
-                mutations.Append(IndentedNewline);
-                mutations.Append(Loc.GetString($"plant-analyzer-mutation-{flag.ToString().ToLower()}"));
+                mutations.Append("\n   " + Loc.GetString($"plant-analyzer-mutation-{flag.ToString().ToLower()}"));
             }
 
             Traits.Text = Loc.GetString("plant-analyzer-plant-mutations-text", ("traits", mutations.ToString()));
@@ -128,10 +122,7 @@ public sealed partial class PlantAnalyzerWindow : FancyWindow
         else
         {
             foreach (var species in msg.Speciation)
-            {
-                speciation.Append(IndentedNewline);
-                speciation.Append(Loc.GetString(species));
-            }
+                speciation.Append("\n   " + Loc.GetString(species));
         }
 
         PlantSpeciation.Text = Loc.GetString("plant-analyzer-plant-speciation-text", ("speciation", speciation.ToString()));
@@ -144,10 +135,7 @@ public sealed partial class PlantAnalyzerWindow : FancyWindow
             return output;
 
         foreach (var gas in gases)
-        {
-            output.Append(IndentedNewline);
-            output.Append(Loc.GetString($"gases-{gas.ToString().ToLower()}"));
-        }
+            output.Append("\n   " + Loc.GetString($"gases-{gas.ToString().ToLower()}"));
         return output;
     }
 }
