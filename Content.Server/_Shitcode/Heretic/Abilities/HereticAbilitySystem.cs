@@ -70,6 +70,7 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Chat;
 using Content.Shared.Hands.Components;
 using Content.Shared.Heretic.Components;
 using Content.Shared.Mech.Components;
