@@ -44,11 +44,11 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ActiveSlimeGrinderComponent, ComponentInit>(OnActiveInit);
-        SubscribeLocalEvent<ActiveSlimeGrinderComponent, ComponentShutdown>(OnActiveShutdown);
+        SubscribeLocalEvent<ActiveSlimeGrinderComponent, ComponentRemove>(OnActiveShutdown);
         SubscribeLocalEvent<ActiveSlimeGrinderComponent, UnanchorAttemptEvent>(OnUnanchorAttempt);
 
-        SubscribeLocalEvent<SlimeGrinderComponent, MapInitEvent>(OnInit);
-        SubscribeLocalEvent<SlimeGrinderComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<SlimeGrinderComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<SlimeGrinderComponent, ComponentRemove>(OnShutdown);
         SubscribeLocalEvent<SlimeGrinderComponent, BeforeUnanchoredEvent>(OnUnanchored);
         SubscribeLocalEvent<SlimeGrinderComponent, AfterInteractUsingEvent>(OnAfterInteractUsing);
         SubscribeLocalEvent<SlimeGrinderComponent, EntInsertedIntoContainerMessage>(OnInserted);
@@ -92,7 +92,7 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
         _ambientSoundSystem.SetAmbience(activeGrinder, true);
     }
 
-    private void OnActiveShutdown(Entity<ActiveSlimeGrinderComponent> activeGrinder, ref ComponentShutdown args)
+    private void OnActiveShutdown(Entity<ActiveSlimeGrinderComponent> activeGrinder, ref ComponentRemove args)
     {
         RemComp<JitteringComponent>(activeGrinder);
         _ambientSoundSystem.SetAmbience(activeGrinder, false);
@@ -101,25 +101,25 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
     private void OnUnanchorAttempt(Entity<ActiveSlimeGrinderComponent> activeGrinder, ref UnanchorAttemptEvent args) =>
         args.Cancel();
 
-    private void OnPowerChanged(EntityUid uid, SlimeGrinderComponent component, ref PowerChangedEvent args)
+    private void OnPowerChanged(Entity<SlimeGrinderComponent> grinder, ref PowerChangedEvent args)
     {
         if (args.Powered)
         {
-            if (component.ProcessingTimer > 0)
-                EnsureComp<ActiveSlimeGrinderComponent>(uid);
+            if (grinder.Comp.ProcessingTimer > 0)
+                EnsureComp<ActiveSlimeGrinderComponent>(grinder);
         }
         else
         {
-            RemComp<ActiveSlimeGrinderComponent>(uid);
+            RemCompDeferred<ActiveSlimeGrinderComponent>(grinder);
         }
     }
 
     #endregion
 
-    private void OnInit(Entity<SlimeGrinderComponent> grinder, ref MapInitEvent args) =>
+    private void OnInit(Entity<SlimeGrinderComponent> grinder, ref ComponentInit args) =>
         grinder.Comp.GrindedContainer = _container.EnsureContainer<Container>(grinder, "GrindedContainer");
 
-    private void OnShutdown(Entity<SlimeGrinderComponent> grinder, ref ComponentShutdown args) =>
+    private void OnShutdown(Entity<SlimeGrinderComponent> grinder, ref ComponentRemove args) =>
         _container.EmptyContainer(grinder.Comp.GrindedContainer);
 
     private void OnUnanchored(Entity<SlimeGrinderComponent> grinder, ref BeforeUnanchoredEvent args) =>
@@ -149,12 +149,6 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
 
     private void OnClimbedOn(Entity<SlimeGrinderComponent> grinder, ref ClimbedOnEvent args)
     {
-        if (!CanGrind(grinder, args.Climber))
-        {
-            _throwing.TryThrow(args.Climber, _robustRandom.NextVector2() * 5);
-            return;
-        }
-
         _container.Insert(args.Climber, grinder.Comp.GrindedContainer);
     }
 
@@ -165,18 +159,23 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
             || args.Args.Used is not { } toProcess)
             return;
 
-        if (!CanGrind(grinder, toProcess))
-        {
-            _throwing.TryThrow(toProcess, _robustRandom.NextVector2() * 5);
-            return;
-        }
-
         _container.Insert(toProcess, grinder.Comp.GrindedContainer);
         args.Handled = true;
     }
 
     private void OnInserted(Entity<SlimeGrinderComponent> grinder, ref EntInsertedIntoContainerMessage args)
     {
+        if (args.Container.ID != grinder.Comp.GrindedContainer.ID)
+            return;
+
+        if (!CanGrind(grinder, args.Entity))
+        {
+            _container.TryRemoveFromContainer(args.Entity, true);
+            _throwing.TryThrow(args.Entity, _robustRandom.NextVector2() * 3);
+
+            return;
+        }
+
         StartProcessing(args.Entity, grinder);
     }
 

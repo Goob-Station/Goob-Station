@@ -18,7 +18,9 @@
         maxVol: 100
   - type: RefillableSolution
     solution: extract
-  - type: DrainableSolution
+  - type: DrawableSolution
+    solution: extract
+  - type: ExaminableSolution
     solution: extract
   - type: SlimeExtract
   - type: Reactive
