@@ -222,7 +222,7 @@ uplink-combat-medkit-pills-name = Combat Medical Kit (Pills)
 uplink-combat-medkit-pills-desc = Contains most medicines you need to recover from injuries and illnesses, all in a convenient pill form.
 
 uplink-combat-medkit-ipc-name = Combat Medical Kit (IPC)
-uplink-combat-medkit-ipc-desc = For the big IPCs among us.
+uplink-combat-medkit-ipc-desc = Contains everything you need to heal an IPC; includes LV wire, industrial welder, a high capacity cell and meson goggles.
 
 # Implants
 
