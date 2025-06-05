@@ -6,10 +6,11 @@
 - type: entityTable
   id: ChesterRandomAmmoTable
   table: !type:GroupSelector
+    rolls: !type:ConstantNumberSelector
+      value: 2
     children:
     - id: MagazineBoxShotgunHighCaliberFlash
     - id: MagazineBoxShotgunHighCaliberEnsnaring
     - id: MagazineBoxShotgunHighCaliberEMP
     - id: MagazineBoxShotgunHighCaliber
       weight: 2
-    rolls: 2
