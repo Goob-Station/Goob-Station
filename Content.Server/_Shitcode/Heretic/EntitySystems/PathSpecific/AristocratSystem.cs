@@ -34,6 +34,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Linq;
 using System.Numerics;
+using Robust.Shared.Timing;
 
 namespace Content.Server.Heretic.EntitySystems.PathSpecific;
 
@@ -80,7 +81,7 @@ public sealed partial class AristocratSystem : EntitySystem
 
         var tilerefs = new List<TileRef>();
 
-        var tileSelects = range * range / 2; // roughly an 1/8th of the area's tiles should get selected per cycle
+        var tileSelects = (range * range) * 2; // roughly 1/2 of the area's tiles should get selected per cycle
         for (int i = 0; i < tileSelects; i++)
         {
             var xOffset = _rand.Next(-range, range);
@@ -120,31 +121,31 @@ public sealed partial class AristocratSystem : EntitySystem
     private void Cycle(Entity<AristocratComponent> ent)
     {
         var coords = Transform(ent).Coordinates;
+        var step = ent.Comp.UpdateStep;
 
-        for (int step = 0; step < 6; step++)
+        switch (step)
         {
-            switch (step)
-            {
-                case 0:
-                    FreezeAtmos(ent);
-                    break;
-                case 1:
-                    ExtinguishFires(ent, coords);
-                    break;
-                case 2:
-                    ExtinguishFiresTiles(ent);
-                    break;
-                case 3:
-                    DoChristmas(ent, coords);
-                    break;
-                case 4:
-                    SpookyLights(ent, coords);
-                    break;
-                case 5:
-                    FreezeNoobs(ent, coords);
-                    break;
-            }
+            case 0:
+                ExtinguishFires(ent, coords);
+                break;
+            case 1:
+                FreezeAtmos(ent);
+                break;
+            case 2:
+                DoChristmas(ent, coords);
+                break;
+            case 3:
+                SpookyLights(ent, coords);
+                break;
+            case 4:
+                FreezeNoobs(ent, coords);
+                break;
+            default:
+                ent.Comp.UpdateStep = 0;
+                break;
         }
+
+        ent.Comp.UpdateStep++;
     }
 
     // makes shit cold
@@ -189,6 +190,8 @@ public sealed partial class AristocratSystem : EntitySystem
             if (entity.Comp.OnFire)
                 _flammable.Extinguish(entity);
         }
+
+        ExtinguishFiresTiles(ent);
     }
 
     // replaces certain things with their winter analogue (amongst other things)
@@ -197,7 +200,7 @@ public sealed partial class AristocratSystem : EntitySystem
         SpawnTiles(ent);
 
         var dspec = new DamageSpecifier();
-        dspec.DamageDict.Add("Structural", 25);
+        dspec.DamageDict.Add("Structural", 100);
 
         var tags = _lookup.GetEntitiesInRange<TagComponent>(coords, ent.Comp.Range);
 
