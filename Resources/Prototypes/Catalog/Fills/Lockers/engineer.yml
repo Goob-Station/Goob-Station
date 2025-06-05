@@ -226,11 +226,49 @@
   parent: ClosetRadiationSuit
   suffix: Filled
   components:
-  - type: StorageFill
-    contents:
-      - id: ClothingOuterSuitRad
-        amount: 2
-      - id: GeigerCounter
-        amount: 2
-      - id: ClothingOuterSuitHEV
-        prob: 0.05
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillRadiationSuit
+
+- type: entityTable
+  id: FillRadiationSuit
+  table: !type:AllSelector
+    children:
+    - id: ClothingOuterSuitRad
+      amount: !type:ConstantNumberSelector
+        value: 2
+    - id: GeigerCounter
+      amount: !type:ConstantNumberSelector
+        value: 2
+
+- type: entity
+  parent: LockerEvacRepair
+  id: LockerEvacRepairFilled
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillLockerEvacRepair
+
+- type: entity
+  parent: LockerWallEvacRepair
+  id: LockerWallEvacRepairFilled
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillLockerEvacRepair
+
+- type: entityTable
+  id: FillLockerEvacRepair
+  table: !type:AllSelector
+    children:
+    - id: BoxInflatable
+    - id: HolofanProjector
+    - id: MetalFoamGrenade
+      amount: 3
+    - id: AirGrenade
+      amount: 3
