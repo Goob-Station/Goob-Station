@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtDressOpenShoulder
+  name: open-shoulder dress
+  description: No sleeves in this dress, only style fierce enough to snatch wigs.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Other/openshoulder_dress.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Other/openshoulder_dress.rsi
