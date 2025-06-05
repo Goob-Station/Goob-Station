@@ -28,7 +28,7 @@
       - id: EnergyScalpel
       - id: AdvancedRetractor
       - id: EnergyCautery
-      - id: BoneGel
+      - id: AdvancedBoneGel
       - id: HandheldCrewMonitor
       - id: MedicatedSuture
       - id: RegenerativeMesh
@@ -46,14 +46,14 @@
     contents:
       - id: MedkitCombatFilled
         amount: 1
-      - id: AdvancedCombatMedipen
-        amount: 2
       - id: PunctAutoInjector
         amount: 2
+      - id: AdvancedCombatMedipen
+        amount: 1
       - id: PyraAutoInjector
         amount: 2
       - id: AirlossAutoInjector
-        amount: 2
+        amount: 1
       - id: CentcommStimpack
         amount: 2
       - id: OmnimedTool
@@ -79,10 +79,10 @@
   components:
   - type: StorageFill
     contents:
-    - id: EnergyCautery
     - id: EnergyScalpel
     - id: AdvancedRetractor
-    - id: BoneGel
+    - id: EnergyCautery
+    - id: AdvancedBoneGel
     - id: MedicatedSuture
     - id: RegenerativeMesh
     - id: Bloodpack
@@ -222,6 +222,8 @@
     - id: ChemistryBottleEphedrine
       amount: 2
     - id: ChemistryBottleOmnizine
+    - id: ChemistryBottleTramadol
+    - id: ChemistryBottleOxycodone
 
 - type: entity
   id: ClothingBeltHolsterFilledBlueshield

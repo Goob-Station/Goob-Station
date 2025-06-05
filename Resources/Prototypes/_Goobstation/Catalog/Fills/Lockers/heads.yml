@@ -41,7 +41,7 @@
   table: !type:AllSelector
     children:
     - id: DefibrillatorCompact
-    - id: SecHypo
+    - id: ParamedHypo
     - id: MedkitBSOFilled
     - id: MedkitBSOIPCFilled
     - id: FlippoLighterBlueshield
@@ -50,7 +50,7 @@
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
     - id: BlueshieldUndeterminedHardsuit
-    - id: ClothingBackpackDuffelSurgeryFilled
+    - id: OmnimedTool
     - id: HandheldCrewMonitorBSO
     - id: BlueshieldUndeterminedWeapon
     - id: PlushieSamantha

@@ -20,20 +20,25 @@
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 Bandit <queenjess521@gmail.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
+# SPDX-FileCopyrightText: 2025 LuciferEOS <stepanteliatnik2022@gmail.com>
 # SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 LuciferMkshelter <stepanteliatnik2022@gmail.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Scruq445 <storchdamien@gmail.com>
+# SPDX-FileCopyrightText: 2025 Shy Bandit <92641277+rotundfan@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TurboTracker <130304754+TurboTrackerss14@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Weide <64257676+Lyacs@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 absurd-shaman <165011607+absurd-shaman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -274,6 +279,16 @@
       tags:
       - NukeOpsUplink
 
+- type: listing
+  id: UplinkTelecrystalMiner
+  name: uplink-tcminer-name
+  description: uplink-tcminer-desc
+  productEntity: TCminerFlatpack
+  cost:
+    Telecrystal: 60
+  categories:
+    - UplinkDisruption
+
 # Weaponry
 
 # - type: listing
@@ -381,7 +396,7 @@
   icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Shotguns/magshot.rsi, state: icon }
   productEntity: WeaponShotgunHeavy
   cost:
-    Telecrystal: 150
+    Telecrystal: 200
   categories:
   - UplinkWeaponry
 
@@ -501,22 +516,6 @@
     Telecrystal: 10
   categories:
   - UplinkWearables
-
-- type: listing
-  id: UplinkHeatLamp
-  name: uplink-heat-lamp-name
-  description: uplink-heat-lamp-desc
-  icon: { sprite: /Textures/_Goobstation/Objects/Devices/Heatlamps/syndicate.rsi, state: icon-on }
-  productEntity: HeatLampEvil
-  cost:
-    Telecrystal: 20
-  categories:
-  - UplinkWearables
-  #conditions: # Blacklist this from nukies if dreadsuits abuse it too much.
-  #- !type:StoreWhitelistCondition
-  #  blacklist:
-  #    tags:
-  #    - NukeOpsUplink
 
 - type: listing
   id: UplinkHardsuitSyndieMedic
@@ -802,6 +801,67 @@
     Telecrystal: 40
   categories:
     - UplinkImplants
+
+- type: listing
+  id: UplinkAutosurgeonRightMantisBlade
+  name: uplink-autosurgeon-right-mantis-blade-name
+  description: uplink-autosurgeon-mantis-blade-desc
+  icon: { sprite: _Goobstation/Objects/Weapons/Melee/mantis_blade.rsi, state: icon }
+  productEntity: AutosurgeonRightMantisBlade
+  cost:
+    Telecrystal: 17
+  categories:
+  - UplinkImplants
+
+- type: listing
+  id: UplinkAutosurgeonLeftMantisBlade
+  name: uplink-autosurgeon-left-mantis-blade-name
+  description: uplink-autosurgeon-mantis-blade-desc
+  icon: { sprite: _Goobstation/Objects/Weapons/Melee/mantis_blade.rsi, state: icon-mirrored }
+  productEntity: AutosurgeonLeftMantisBlade
+  cost:
+    Telecrystal: 17
+  categories:
+  - UplinkImplants
+
+- type: listing
+  id: UplinkAutosurgeonSandevistan
+  name: uplink-autosurgeon-sandevistan-name
+  description: uplink-autosurgeon-sandevistan-desc
+  icon: { sprite: _Goobstation/Objects/Misc/sandevistan.rsi, state: icon }
+  productEntity: AutosurgeonSandevistan
+  cost:
+    Telecrystal: 66 # The urge to make it 65...
+  categories:
+  - UplinkImplants
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkClothingOuterDavidsJacketValid
+  name: uplink-davids-jacket-name
+  description: uplink-davids-jacket-desc
+  icon: { sprite: _Goobstation/Clothing/OuterClothing/Coats/david_jacket.rsi, state: icon }
+  productEntity: ClothingOuterDavidsJacketValid
+  cost:
+    Telecrystal: 0
+  categories:
+  - UplinkImplants
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    whitelist:
+    - UplinkAutosurgeonRightMantisBlade
+    - UplinkAutosurgeonLeftMantisBlade
+    - UplinkAutosurgeonSandevistan
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
 
 # Deception
 
@@ -1226,3 +1286,14 @@
   - !type:BuyerSpeciesCondition
     whitelist:
     - Dwarf # Rock and stone
+
+- type: listing
+  id: UplinkBloodredCasette
+  name: uplink-bloodred-casette-name
+  description: uplink-bloodred-casette-desc
+  icon: { sprite: _Goobstation/Objects/Fun/bloodmonica.rsi, state: icon }
+  productEntity: BloodredCasette
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkPointless
