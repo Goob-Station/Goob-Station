@@ -1,19 +1,18 @@
 <Document>
-# Chaplain
-There's something about the vast infinity of space that turns men to prayer... Especially if they get thrown into it without a space suit.
+# Капеллан
+В бескрайней пустоте космоса человек начинает молиться... Особенно если его выбросили туда без скафандра.
 
-
-As a chaplain, you would ideally proselytize whatever crazy religion you've made up for that round over your headset. However, besides your office, the hellish crematorium next to your office, and the rarely used morgue, you have no access.
+Как капеллан, вы должны проповедовать какую-нибудь сумасшедшую религию, которую придумаете в раунде, через гарнитуру. Однако, кроме вашего офиса, адского крематория рядом с офисом и редко используемого морга, у вас нет доступа никуда.
 
   <Box>
     <GuideEntityEmbed Entity="Bible"/>
     <GuideEntityEmbed Entity="Nullrod"/>
   </Box>
 
-## Religions:
-You are free to propagate any present day religions you know of, or even invent one of your own! Just make sure it doesn't go against NanoTrasen and its values, or you may well end up in the brig.
+## Религии:
+Вы можете проповедовать любые известные вам современные религии или придумать свою собственную! Главное — чтобы она не противоречила ценностям NanoTrasen, иначе вас могут отправить в бриг.
 
-If you don't already have one, build an altar and find an offering to place on-top:
+Если у вас ещё нет своей религии, постройте алтарь и найдите жертву для него:
 
   <Box>
     <GuideEntityEmbed Entity="AltarBananium"/>
@@ -32,39 +31,39 @@ If you don't already have one, build an altar and find an offering to place on-t
     <GuideEntityEmbed Entity="AltarToolbox"/>
   </Box>
 
-These altars can be constructed by placing the following offerings atop your base convert altar:
+Эти алтари можно построить, поместив соответствующую жертву на базовый алтарь конвертации:
 
-- Bananium Altar: 1 x Bananium
-- Chaos Altar: 1 x Plasma
-- Druid Altar: 1 x Wooden Plank
-- Fanged Altar: 1 x Raw Meat
-- Heaven Altar: 1 x Templar Helmet
-- Maints Altar: 1 x Budget Insulated Gloves
-- Nanotrasen Altar: 1 x Plasteel
-- Space-Christian Altar: 1 x Nun Hood
-- Technology Altar: 1 x Capacitor
-- Toolbox Altar: 1 x Toolbox
+- Алтарь бананиума: 1 × бананиум
+- Алтарь хаоса: 1 × плазма
+- Алтарь друидов: 1 × деревянная доска
+- Алтарь с клыками: 1 × сырое мясо
+- Алтарь небес: 1 × шлем тамплиера
+- Алтарь обслуживающего персонала: 1 × бюджетные утеплённые перчатки
+- Алтарь Нанотрасен: 1 × пластал
+- Алтарь космического христианина: 1 × капюшон монахини
+- Алтарь технологии: 1 × конденсатор
+- Алтарь инструментов: 1 × ящик с инструментами
 
-## Holy Artefacts
+## Священные артефакты
 
-### Crusader Armour
-A dated suit of plate armour that was previously used as part of a holy crusade. Provides decent armour. Wearing this armour will slightly slow your movement speed.
+### Доспехи крестоносца
+Устаревший набор лат, который использовался во времена священных походов. Обеспечивает приличную защиту. Ношение доспехов слегка замедляет вашу скорость передвижения.
 
-### Null Rod
-The obsidian rod will be your defense against the forces of evil. [color=blue][bold] Having it in your hands will make you completely immune to the effects of magic. [/bold][/color]
+### Жезл Нуля
+Обсидиановый жезл — ваша защита от сил зла. [color=blue][bold] Если он у вас в руках, вы полностью защищены от магии. [/bold][/color]
 
-You can transform it into a holy weapon of choice by placing it on an altar!
+Вы можете превратить его в священное оружие, положив на алтарь!
 
-## Duties
+## Обязанности
 
-- Church Services: Give sermons and sing hymns.
-- Proselytizing: Most crew members are godless heathens, show them god's love.
-- Burial Services: Security or Medical may require someone, or something... to be cremated, familiarise yourself with your Chapel so you can make things quick!
-- [bold] Metaphysical Investigation: Most crew aren't aware of the threats posed by the unholy, be on the look out for anything suspicious. [/bold]
+- Богослужения: читать проповеди и петь гимны.
+- Проповедь: большинство экипажа — безбожные язычники, покажите им любовь бога.
+- Похоронные службы: службы безопасности или медицина могут попросить кого-то или что-то кремировать, ознакомьтесь с вашим Капелланским отделением, чтобы делать это быстро!
+- [bold] Метафизическое расследование: большинство экипажа не знают об угрозах со стороны нечисти, будьте бдительны и следите за подозрительным. [/bold]
 
-### Metaphysical Threats
-As Chaplain you are the first line of defence against metaphysical threats, [bold] ready your Null Rod - the time is now. [/bold]
+### Метафизические угрозы
+Как капеллан, вы — первая линия защиты от метафизических угроз, [bold] приготовьте Жезл Нуля — время настало. [/bold]
 
-[color=red][bold] Use of excessive force against targets which you cannot confirm are metaphysical threats may land you in trouble with the law, use caution and investigate carefully. [/bold][/color]
-  
+[color=red][bold] Использование чрезмерной силы против целей, которые вы не можете подтвердить как метафизические угрозы, может привести к проблемам с законом. Будьте осторожны и тщательно расследуйте. [/bold][/color]
+
 </Document>

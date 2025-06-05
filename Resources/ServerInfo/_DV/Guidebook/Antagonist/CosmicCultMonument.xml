@@ -1,38 +1,38 @@
 <Document>
- # The Monument
+  # Памятник
   <Box>
     <GuideEntityEmbed Entity="MonumentCosmicCult1" Caption=""/>
     <GuideEntityEmbed Entity="MonumentCosmicCult2" Caption=""/>
     <GuideEntityEmbed Entity="MonumentCosmicCult3" Caption=""/>
   </Box>
 
-  Before you set about your goals, The Monument must be [italic][color=#4cabb3]Beckoned[/color][/italic] by your cult leader. When first built, the Monument is invisible, intangible, and effectively imperceptible to any non-cultist. Once empowered, the Monument will become both visible and tangible to all individuals aboard the station.
+  Перед тем как приступить к своим целям, Памятник должен быть [italic][color=#4cabb3]призван[/color][/italic] лидером вашего культа. При первом возведении Памятник невидим, неосязаем и практически неуловим для некультистов. После того, как он будет усилен, Памятник станет видимым и осязаемым для всех на станции.
 
-  It is for this reason that the Monument is best hidden from prying eyes, and in a relatively defendable location.
+  По этой причине Памятник лучше всего скрывать от посторонних глаз и размещать в относительно защищённом месте.
 
-  Entropy may be infused into the Monument to empower it. As you infuse the Monument with entropy, the cult will collectively gain access to more [color=#4cabb3][bold]Influences[/bold][/color] and [color=#4cabb3][bold]Glyphs[/bold][/color], which can be attained by interacting with the Monument.
+  В Памятник можно вводить энтропию для его усиления. По мере наполнения Памятника энтропией, культ коллективно получает доступ к большему количеству [color=#4cabb3][bold]Влияний[/bold][/color] и [color=#4cabb3][bold]Глифов[/bold][/color], которые можно получить, взаимодействуя с Памятником.
 
-  Cultists can interact with the Monument to purchase additional [color=#4cabb3][bold]Influences[/bold][/color]. Entropy stored in the monument for the sake of purchasing is [italic]per person,[/italic] so one cultist purchasing an ability will not spend any entropy collected by other cultists.
+  Культисты могут взаимодействовать с Памятником, чтобы приобрести дополнительные [color=#4cabb3][bold]Влияния[/bold][/color]. Энтропия, хранящаяся в Памятнике для покупки, считается [italic]отдельно для каждого культиста,[/italic] поэтому один культист, покупающий способность, не потратит энтропию, собранную другими.
 
-  [textlink="For more on Influences, click here." link="CosmicCultInfluences"]
+  [textlink="Подробнее о влияниях здесь." link="CosmicCultInfluences"]
 
-  ## Beckoning the Unknown
+  ## Призыв Неизвестного
   <Box>
     <GuideEntityEmbed Entity="PlushieCosmicCult" Caption=""/>
   </Box>
 
-  Should you succeed in fully empowering the Monument to the third stage, it will hunger for one last threshold of entropy - fuel to feed the final curtain call. Once enough entropy has been infused, the empowered Monument will glow, signalling that it can now be used to [color=#4cabb3][bold]Beckon[/bold][/color] the Unknown. Any cultist may do so by interacting with the Monument.
+  Если вы полностью усилите Памятник до третьей стадии, он потребует последний порог энтропии — топливо для финального акта. Как только будет введено достаточно энтропии, Памятник засветится, сигнализируя о возможности [color=#4cabb3][bold]призвать[/bold][/color] Неизвестное. Любой культист может сделать это, взаимодействуя с Памятником.
 
-  Once the Monument is ready to activate, cultists [bold]must[/bold] activate it in order to regain access the Monument's store and glyphs - the end [bold]cannot[/bold] be forestalled.
+  Когда Памятник готов к активации, культисты [bold]должны[/bold] активировать его, чтобы вновь получить доступ к запасам и глифам — конец [bold]не может[/bold] быть отложен.
 
-  Be prepared to defend the Monument during the Beckoning, as just one waylaid action from a single disruptive soul will bring this ritual to a sudden, unceremonious halt.
+  Будьте готовы защищать Памятник во время Призыва, так как одно прерванное действие может внезапно и без церемоний остановить ритуал.
 
-  Converting additional crewmembers using a [color=#4cabb3]Glyph of Truth[/color] while the Beckoning is active will accelerate its speed, bringing the cult closer to total victory.
+  Конвертация дополнительных членов экипажа с помощью [color=#4cabb3]Глифа Истины[/color] во время Призыва ускорит процесс, приблизив культ к полной победе.
 
-  ## Glyphs
-  Glyphs may be [color=#4cabb3]Scribed[/color] by interacting with the Monument. You may also [color=#4cabb3]Unscribe[/color] an unused Glyph in a similar manner at The Monument.
+  ## Глифы
+  Глифы можно [color=#4cabb3]написать[/color], взаимодействуя с Памятником. Также можно [color=#4cabb3]стереть[/color] неиспользованный Глиф таким же образом.
 
-  Be aware that activating a Glyph will sap the health of all cultists aiding in the Glyph's activation!
+  Учтите, что активация Глифа наносит урон всем культистам, участвующим в его активации!
 
   <Box>
     <GuideEntityEmbed Entity="CosmicGlyphKnowledge" Caption=""/>
@@ -44,10 +44,10 @@
     <GuideEntityEmbed Entity="CosmicGlyphCessation" Caption=""/>
     <GuideEntityEmbed Entity="CosmicGlyphTruth" Caption=""/>
   </Box>
-  - [bold]Glyph of Knowledge[/bold] allows a non-cultist brought upon it to be [color=#4cabb3]converted[/color] into a fellow cosmic cultist! Chaplains and individuals with a mindshield cannot be converted using this glyph.
-  - [bold]Glyph of Projection[/bold] will allow the cultist using it to temporarily escape their body as a free-floating and imperceptible [color=#4cabb3]Astral Form[/color], allowing the cultist to spy on unsuspecting crewmembers.
-  - [bold]Glyph of Warding[/bold] transmutes any spacesuit - hard or soft - into the cosmic cult's special [color=#4cabb3]Entropic Armor[/color].
-  - [bold]Glyph of Blades[/bold] randomly transmutes any sharp object into one of the cosmic cult's [color=#4cabb3]Unique Weapons[/color].
-  - [bold]Glyph of Cessation[/bold] transmutes a portable atmospherics scrubber into an unanchored [color=#4cabb3]Vacuous Spire[/color].
-  - [bold]Glyph of Truth[/bold] allows any non-cultist brought upon it to be [color=#4cabb3]converted[/color] into a fellow cosmic cultist, even if they are a chaplain or protected by a mindshield.
+  - [bold]Глиф Знания[/bold] позволяет конвертировать некультиста, поставленного на него, в космического культиста! Священники и персонажи с ментальным щитом не могут быть конвертированы этим глифом.
+  - [bold]Глиф Проекции[/bold] позволяет культисту временно покинуть тело в виде свободно плавающей и невидимой [color=#4cabb3]Астральной Формы[/color], чтобы шпионить за ничего не подозревающими членами экипажа.
+  - [bold]Глиф Охраны[/bold] превращает любой скафандр — жёсткий или мягкий — в специальную [color=#4cabb3]Энтропическую Броню[/color] космического культа.
+  - [bold]Глиф Клинков[/bold] случайным образом превращает любой острый предмет в одно из [color=#4cabb3]уникальных оружий[/color] космического культа.
+  - [bold]Глиф Прекращения[/bold] превращает переносной очиститель атмосферы в неподвижный [color=#4cabb3]Пустотный Шпиль[/color].
+  - [bold]Глиф Истины[/bold] позволяет конвертировать любого некультиста, поставленного на него, в космического культиста, даже если это священник или персонаж с ментальным щитом.
 </Document>

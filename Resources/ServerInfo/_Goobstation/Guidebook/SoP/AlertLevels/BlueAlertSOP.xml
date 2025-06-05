@@ -6,44 +6,45 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Station Alert - Blue
+  # Код на станции — Синий
 
   <Box>
-    [italic]Called by: Anyone with Command-Level Access at a working Communications Console.[/italic]
+    [italic]Инициировать может: любой с уровнем доступа «Командный» на работающей консоли связи.[/italic]
   </Box>
 
-  [bold]Conditions:[/bold]
+  [bold]Условия:[/bold]
 
-  There is a suspected threat on-board the station, or at a nearby location in space. This includes any signs of hostile activity that have not caused any damage to station or crew, but nonetheless seem present.
+  На станции или в ближайшем космосе обнаружена подозрительная угроза. Это включает любые признаки враждебной активности, которые пока не нанесли ущерба станции или экипажу, но тем не менее имеют место.
 
-  [italics]Minor threats such as thieves, bar fights, and non-violent protests are not credible enough threats to elevate alert level to blue.
+  [italic]Незначительные угрозы, такие как воры, драки в баре и мирные протесты, недостаточно серьёзны, чтобы поднимать уровень тревоги до синего.[/italic]
 
-  [bold]OR[/bold]
+  [bold]ИЛИ[/bold]
 
-  Confirmed Code Red threats have been properly handled or subsided on their own. It is recommended that, after 10+ minutes on Code Red without any hostile activity, Code Blue be called.
+  Подтверждённые угрозы «Красного кода» были устранены или сами по себе прекратились. Рекомендуется объявлять «Синюю тревогу» спустя 10 и более минут после «Красного кода» без враждебной активности.
 
-  [bold]Security:[/bold]
+  [bold]Служба безопасности:[/bold]
 
-  Weapons do not need to be holstered. However, it is recommended that Security personnel follow Security SOP in order to prevent accidents and to be fully aware of armament procedure;
+  Оружие можно не убирать в кобуру. Тем не менее рекомендуется соблюдать процедуры службы безопасности, чтобы избежать несчастных случаев и быть полностью осведомлённым о порядке обращения с оружием;
 
-  Random searches are fully permitted. Security personnel may detain any personnel refusing a random search in order to conduct said search;
+  Разрешены выборочные досмотры. Сотрудники службы безопасности могут задержать любого, кто откажется от досмотра, чтобы провести его принудительно;
 
-  [bold]Secure Areas:[/bold]
+  [bold]Охраняемые зоны:[/bold]
 
-  EVA Storage, Tech Storage, Gravity Generator, Engineering Secure Storage, AI Upload, Vault, Gateway, anywhere else requiring command level access that does not get regularly used.
+  Хранилище EVA, Техническое хранилище, Генератор гравитации, Инженерное охраняемое хранилище, Загрузка ИИ, Сейф, Ворота, а также любые другие зоны с командным уровнем доступа, которые используются редко.
 
-  It is recommended that all Secure Areas be bolted down unless their use is necessary;
+  Рекомендуется запирать все охраняемые зоны, если их использование не требуется;
 
-  Excursions into the Gateway are not recommended, unless they are rescue parties.
+  Выходы в Ворота не рекомендуются, кроме случаев спасательных операций.
 
-  [bold]General Crew:[/bold]
+  [bold]Общий экипаж:[/bold]
 
-  All personnel are highly recommended to maximize their Suit Sensors;
+  Всем сотрудникам настоятельно рекомендуется максимально использовать датчики скафандра;
 
-  Personnel are to report any suspicious activity to the nearest member of Security, or use their PDA or headsets if required;
+  Следует сообщать о любой подозрительной активности ближайшему сотруднику службы безопасности либо использовать КПК или гарнитуру, если это необходимо;
 
-  Personnel are highly encouraged to exercise caution, even if the threat is only suspected. Following simple safety procedures (such as not going through Maintenance alone) can prevent needless accidents;
+  Рекомендуется проявлять осторожность даже при подозрении на угрозу. Соблюдение простых мер безопасности (например, не ходить по техкоридорам одному) поможет избежать ненужных происшествий;
 
-  Visitors to the station (anyone with Civilian-level access) are recommended to stay in public areas, for their safety.
+  Посетителям станции (всем с гражданским уровнем доступа) рекомендуется оставаться в общественных зонах для их собственной безопасности.
 
 </Document>
+

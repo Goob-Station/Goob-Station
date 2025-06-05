@@ -1,0 +1,25 @@
+﻿[game]
+hostname = "🛰️ Corvax — Элизиум 🌑[TTS]"
+desc = "Корвакс — первый русскоязычный проект в Space Station 14.\nЗдесь помогут новичкам!\nНа этом сервере пониженные требования к RP.\nИмеется интеграция TTS (Text-To-Speech)."
+maxplayers = 180
+soft_max_players = 100
+map_rotation = true
+
+[server]
+lobby_name = "️🛰️ Corvax — Элизиум 🌑"
+
+[game.panic_bunker]
+enabled = true
+show_reason = true
+min_account_age = 0
+min_overall_minutes = 0
+deny_vpn = true
+enable_without_admins = true
+disable_with_admins = true
+
+[rules]
+time = 180.0
+
+[hub]
+advertise = true
+tags = "lang:ru,rp:low,rp:med,region:eu_e,tts"

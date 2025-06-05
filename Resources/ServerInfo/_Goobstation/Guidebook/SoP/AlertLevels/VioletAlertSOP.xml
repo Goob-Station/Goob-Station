@@ -6,40 +6,40 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Station Alert - Violet
+  # Тревога на станции — Фиолетовый
 
   <Box>
-    [italic]Called by: A viral threat aboard the station.[/italic]
+    [italic]Инициируется: В связи с вирусной угрозой на станции.[/italic]
   </Box>
 
-  [bold]Conditions:[/bold]
+  [bold]Условия:[/bold]
 
-  There is a known viral threat aboard the station, and all hands on deck are required to combat it.
+  На станции выявлена известная вирусная угроза, и все силы мобилизованы для её устранения.
 
-  [bold]Security:[/bold]
+  [bold]Служба безопасности:[/bold]
 
-  Security should fully arm themselves, and at their discretion may also hand out arms to trusted crewmembers and Command.
+  Персонал службы безопасности должен полностью вооружиться и по своему усмотрению может выдавать оружие доверенным членам экипажа и Командованию;
 
-  Security personnel are to prioritize the safety of themselves and Command, and crewmembers as the next-highest priority.
+  Приоритетом службы безопасности является безопасность персонала службы и Командования, а также экипажа в следующую очередь;
 
-  Security personnel should distance themselves from others in order to avoid the spread of unknown pathogens.
+  Рекомендуется держаться на дистанции от других людей, чтобы избежать распространения неизвестных патогенов.
 
-  [bold]Secure Areas:[/bold]
+  [bold]Охраняемые зоны:[/bold]
 
-  EVA Storage, Tech Storage, Gravity Generator, Engineering Secure Storage, AI Upload, Vault, Gateway, anywhere else requiring command level access that does not get regularly used.
+  EVA-хранилище, техническое хранилище, гравитационный генератор, инженерное охраняемое хранилище, загрузка ИИ, сейф, Врата, и другие зоны с доступом уровня Командования, которые не используются регулярно.
 
-  It is recommended that all Secure Areas be bolted down unless their use is necessary;
+  Рекомендуется закрывать все охраняемые зоны на замки, если их использование не требуется;
 
-  The Gateway should be fully closed to avoid off-station spread of the virus.
+  Врата должны быть полностью закрыты для предотвращения распространения вируса за пределы станции.
 
-  [bold]General Crew:[/bold]
+  [bold]Общий экипаж:[/bold]
 
-  All personnel are required to maximize their Suit Sensors;
+  Всем сотрудникам необходимо максимально активировать датчики скафандров;
 
-  Personnel are to distance themselves from other personnel where infection or carrier status is suspected.
+  Персонал должен избегать близкого контакта с другими, если подозревается заражение или переносчик вируса;
 
-  Personnel must exercise caution at all times. Following simple safety procedures (such as not going through Maintenance alone) can prevent needless accidents.
+  Следует проявлять осторожность постоянно. Соблюдение простых правил безопасности (например, не ходить в технические зоны в одиночку) поможет избежать ненужных инцидентов;
 
-  Personnel are advised to secure a secluded location to ride out the viral threat in. Stock as much food and water as is possible.
+  Рекомендуется найти укромное место для пребывания во время вирусной угрозы и запасти как можно больше пищи и воды.
 
 </Document>

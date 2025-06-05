@@ -6,34 +6,34 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Station Alert - Epsilon
+  # Тревога на станции — Эпсилон
 
   <Box>
-    [italic]Called by: Central Command Only.[/italic]
+    [italic]Инициируется только Центральным Командованием.[/italic]
   </Box>
 
-  [bold]Conditions:[/bold]
+  [bold]Условия:[/bold]
 
-  Central Command has deemed it necessary to terminate all contracts.
+  Центральное Командование решило прекратить все контракты.
 
-  [bold]Security:[/bold]
+  [bold]Служба безопасности:[/bold]
 
-  Security and the rest of the station are to fend for themselves. All contracts are terminated and nothing is required to act upon.
+  Служба безопасности и весь остальной персонал станции должны рассчитывать только на себя. Все контракты аннулированы, никаких обязательств выполнять не требуется.
 
-  [bold]Secure Areas:[/bold]
+  [bold]Охраняемые зоны:[/bold]
 
-  The entire station is considered a secure area.
+  Вся станция считается охраняемой зоной.
 
-  All Secure Areas are to be bolted down. Secure Areas may be left unbolted at the discretion of any personnel with access to do so.
+  Все охраняемые зоны должны быть закрыты на болты. При желании персонала с доступом охраняемые зоны могут быть оставлены незапертыми.
 
-  [bold]General Crew:[/bold]
+  [bold]Общий экипаж:[/bold]
 
-  All personnel are no longer required to maximize suit sensors. Do so at your discretion.
+  Персонал больше не обязан максимально использовать датчики скафандров — делайте это по собственному усмотрению.
 
-  All personnel are no longer required to remain in any Department.
+  Персонал больше не обязан находиться в каких-либо отделах.
 
-  Visitors of the station, anyone without Central Command access, are to fend for themselves along with the station crew.
+  Посетители станции, а также все без доступа Центрального Командования, должны самостоятельно заботиться о своей безопасности вместе с экипажем станции.
 
-  Personnel are no longer required to follow instructions from any other person.
+  Персонал больше не обязан выполнять указания других лиц.
 
 </Document>
