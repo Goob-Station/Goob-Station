@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
@@ -44,8 +45,8 @@
      components:
       - Clumsy
   - type: ProjectileThrowOnHit
-    distance: 10
-    speed: 10
+    distance: 20
+    speed: 50
 
 - type: entity
   id: BulletPulse
@@ -249,15 +250,6 @@
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
-  - type: Fixtures
-    fixtures:
-      projectile:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.2,-0.2,0.2,0.2"
-        hard: false
-        mask:
-        - Opaque
   - type: Reflective
     reflective:
     - Energy
@@ -277,5 +269,5 @@
       types:
         Blunt: 2
         Heat: 2
-        Structural: 50
+        Structural: 100
     ignoreResistances: true # This needs ProjectileDamageWhitelistComponent
