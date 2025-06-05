@@ -1,40 +1,40 @@
 # templates
 # service
-ntr-document-service-starting-text = [color=#009100]█▄ █ ▀█▀    [head=3]NanoTrasen Document[/head]
+ntr-document-service-starting-text11 = [color=#009100]█▄ █ ▀█▀    [head=3]NanoTrasen Document[/head]
     █ ▀█     █        To: Service department
                            From: CentComm
                            Issued: {$date}
     ──────────────────────────────────────────[/color]
 
 # security
-ntr-document-security-starting-text = [head=3]NanoTrasen Document[/head]                               [color=#990909]█▄ █ ▀█▀
+ntr-document-security-starting-text1 = [head=3]NanoTrasen Document[/head]                               [color=#990909]█▄ █ ▀█▀
     To: Security department                                       █ ▀█     █
     From: CentComm
     Issued: {$date}
     ──────────────────────────────────────────[/color]
 
 # cargo
-ntr-document-cargo-starting-text = [head=3]  NanoTrasen[/head]        [color=#d48311]█▄ █ ▀█▀ [/color][bold]      To: Cargo department[/bold][head=3]
+ntr-document-cargo-starting-text1 = [head=3]  NanoTrasen[/head]        [color=#d48311]█▄ █ ▀█▀ [/color][bold]      To: Cargo department[/bold][head=3]
        Document[/head]           [color=#d48311]█ ▀█     █       [/color] [bold]   From: CentComm[/bold]
     ──────────────────────────────────────────
                                         Issued: {$date}
 
 # medical
-ntr-document-medical-starting-text = [color=#118fd4]░             █▄ █ ▀█▀    [head=3]NanoTrasen Document[/head]                 ░
+ntr-document-medical-starting-text1 = [color=#118fd4]░             █▄ █ ▀█▀    [head=3]NanoTrasen Document[/head]                 ░
     █             █ ▀█     █        To: Medical department                         █
     ░                                    From: CentComm                                     ░
                                          Issued: {$date}
     ──────────────────────────────────────────[/color]
 
 # engineering
-ntr-document-engineering-starting-text = [color=#a15000]█▄ █ ▀█▀    [head=3]NanoTrasen Document[/head]
+ntr-document-engineering-starting-text1 = [color=#a15000]█▄ █ ▀█▀    [head=3]NanoTrasen Document[/head]
     █ ▀█     █        To: Engineering department
                            From: CentComm
                            Issued: {$date}
     ──────────────────────────────────────────[/color]
 
 # science
-ntr-document-science-starting-text = [color=#94196f]░             █▄ █ ▀█▀    [head=3]NanoTrasen Document[/head]                 ░
+ntr-document-science-starting-text1 = [color=#94196f]░             █▄ █ ▀█▀    [head=3]NanoTrasen Document[/head]                 ░
     █             █ ▀█     █        To: Science department                         █
     ░                                    From: CentComm                                     ░
                                          Issued: {$date}
