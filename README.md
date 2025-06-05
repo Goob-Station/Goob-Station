@@ -22,7 +22,7 @@ SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
-<p align="center"> <img alt="Space Station 14" width="880" height="300" src="https://github.com/Goob-Station/Goob-Station/blob/master/Resources/Textures/Logo/logo.png" /></p>
+<p align="center"> <img alt="Space Station 14" width="880" height="300" src="https://github.com/Goida-Station/Goida-Station/blob/master/Resources/Textures/Logo/logo.png" /></p>
 
 Гойда
 
