@@ -131,6 +131,8 @@
         Slash: 0.8
         Piercing: 0.8
         Radiation: 0.5
+  - type: StaticPrice
+    price: 500 # Suit is 1000
 
 #Cosmonaut Helmet
 - type: entity

@@ -289,6 +289,8 @@
           On: { state: syndicate-pai-on-overlay }
   - type: StationAiVision # Goobstation - AI can see through NT silicon
     enabled: false
+  - type: StaticPrice
+    price: 500
 
 - type: entity
   parent: PersonalAI

@@ -199,7 +199,7 @@
   - type: Tag
     tags:
     - ClothMade
-    - Recyclable    
+    - Recyclable
     - WhitelistChameleon
 
 - type: entity
@@ -695,6 +695,8 @@
     sprite: Clothing/Head/Hats/outlawhat.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/outlawhat.rsi
+  - type: StaticPrice
+    price: 500
 
 - type: entity
   parent: ClothingHeadBase
@@ -789,8 +791,8 @@
     - state: icon-nobeard
       map: [ "foldedLayer" ]
       visible: true
-  
-    
+
+
 
 - type: entity
   parent: ClothingHeadBase

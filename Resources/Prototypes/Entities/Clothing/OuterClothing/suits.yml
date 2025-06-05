@@ -478,3 +478,6 @@
   - type: HideClothingLayerClothing # Goobstation
     hiddenSlots:
     - jumpsuit
+  - type: StaticPrice
+    price: 1500
+

@@ -259,6 +259,8 @@
       params:
         variation: 0.250
         volume: -2
+  - type: StaticPrice
+    price: 2500
 
 - type: entity
   name: energy dagger
