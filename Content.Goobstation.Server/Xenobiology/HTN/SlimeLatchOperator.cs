@@ -6,6 +6,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Shared.Xenobiology.Components;
+using Content.Goobstation.Shared.Xenobiology.Systems;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.HTN.PrimitiveTasks;
@@ -15,7 +16,7 @@ namespace Content.Goobstation.Server.Xenobiology.HTN;
 public sealed partial class SlimeLatchOperator : HTNOperator
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
-    private Shared.Xenobiology.Systems.XenobiologySystem _slimeMobActions = default!;
+    private XenobiologySystem _slimeMobActions = default!;
 
     [DataField]
     public string LatchKey = string.Empty;
@@ -23,7 +24,7 @@ public sealed partial class SlimeLatchOperator : HTNOperator
     public override void Initialize(IEntitySystemManager sysManager)
     {
         base.Initialize(sysManager);
-        _slimeMobActions = sysManager.GetEntitySystem<Shared.Xenobiology.Systems.XenobiologySystem>();
+        _slimeMobActions = sysManager.GetEntitySystem<XenobiologySystem>();
     }
 
     public override HTNOperatorStatus Update(NPCBlackboard blackboard, float frameTime)
