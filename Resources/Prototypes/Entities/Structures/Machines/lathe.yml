@@ -639,6 +639,8 @@
     emagDynamicPacks:
     - MechWeaponsSalvage
     - MechWeaponsSecurityLight
+    - MechWeaponsSecurityStatic
+    - MechWeaponsSecurityHeavysd
   - type: MaterialStorage
     whitelist:
       tags:

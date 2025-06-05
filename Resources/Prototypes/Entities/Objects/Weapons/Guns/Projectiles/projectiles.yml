@@ -859,10 +859,10 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    maxIntensity: 2 # max 30 per tile
-    intensitySlope: 1
-    totalIntensity: 4 # 60 total damage to distribute over tiles
-    maxTileBreak: 1
+    maxIntensity: 2 # Goob edit
+    intensitySlope: 5
+    totalIntensity: 12 # Goob edit
+    maxTileBreak: 0
   - type: PointLight
     radius: 3.5
     color: orange
