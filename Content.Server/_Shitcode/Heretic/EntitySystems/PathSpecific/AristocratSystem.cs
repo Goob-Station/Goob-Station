@@ -34,7 +34,6 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Linq;
 using System.Numerics;
-using Robust.Shared.Timing;
 
 namespace Content.Server.Heretic.EntitySystems.PathSpecific;
 
