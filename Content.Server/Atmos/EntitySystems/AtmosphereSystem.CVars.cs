@@ -32,6 +32,7 @@ namespace Content.Server.Atmos.EntitySystems
         public float SpaceWindPressureForceDivisorPush { get; private set; }
         public float SpaceWindMaxVelocity { get; private set; }
         public float SpaceWindMaxPushForce { get; private set; }
+        public float SpaceWindThrowVelocity { get; private set; } // Goobstation
         public float SpaceWindMinimumCalculatedMass { get; private set; } // Goobstation - Spacewind Cvars
         public float SpaceWindMaximumCalculatedInverseMass { get; private set; } // Goobstation - Spacewind Cvars
         public bool MonstermosUseExpensiveAirflow { get; private set; } // Goobstation - Spacewind Cvars
@@ -67,6 +68,7 @@ namespace Content.Server.Atmos.EntitySystems
             Subs.CVar(_cfg, CCVars.SpaceWindPressureForceDivisorPush, value => SpaceWindPressureForceDivisorPush = value, true);
             Subs.CVar(_cfg, CCVars.SpaceWindMaxVelocity, value => SpaceWindMaxVelocity = value, true);
             Subs.CVar(_cfg, CCVars.SpaceWindMaxPushForce, value => SpaceWindMaxPushForce = value, true);
+            Subs.CVar(_cfg, GoobCVars.SpaceWindThrowVelocity, value => SpaceWindThrowVelocity = value, true); // Goobstation
             Subs.CVar(_cfg, GoobCVars.SpaceWindMinimumCalculatedMass, value => SpaceWindMinimumCalculatedMass = value, true); // Goobstation - Spacewind Cvars
             Subs.CVar(_cfg, GoobCVars.SpaceWindMaximumCalculatedInverseMass, value => SpaceWindMaximumCalculatedInverseMass = value, true); // Goobstation - Spacewind Cvars
             Subs.CVar(_cfg, GoobCVars.MonstermosUseExpensiveAirflow, value => MonstermosUseExpensiveAirflow = value, true); // Goobstation - Spacewind Cvars
