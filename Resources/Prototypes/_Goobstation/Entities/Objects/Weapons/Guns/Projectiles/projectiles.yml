@@ -309,7 +309,7 @@
 
 
 - type: entity
-  name : disabler bolt
+  name: disabler bolt
   id: BulletEnergyGunDisabler
   parent: BulletDisabler
   categories: [ HideSpawnMenu ]
@@ -359,7 +359,7 @@
     forceSound: true
 
 - type: entity
-  name : disabler bolt
+  name: disabler bolt
   id: BulletSyndicateDisabler
   parent: BulletDisabler
   categories: [ HideSpawnMenu ]
