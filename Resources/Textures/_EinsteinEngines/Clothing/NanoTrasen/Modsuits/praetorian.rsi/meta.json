@@ -12,7 +12,19 @@
       "directions": 4
     },
     {
+      "name": "equipped-BACKPACK-sealed-resomi",
+      "directions": 4
+    },
+    {
+      "name": "equipped-BACKPACK-resomi",
+      "directions": 4
+    },
+    {
       "name": "equipped-BACKPACK",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HEAD-sealed-resomi",
       "directions": 4
     },
     {
@@ -25,6 +37,10 @@
     },
     {
       "name": "equipped-HEAD-sealed-unshaded",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HEAD-sealed-resomi-unshaded",
       "directions": 4
     },
     {

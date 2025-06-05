@@ -18,6 +18,12 @@
   components:
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/praetorian.rsi
+    - type: Clothing
+      clthingVisuals:
+        back:
+        - state: equipped-BACKPACK
+        back-resomi:
+        - state: equipped-BACKPACK-resomi
     - type: ToggleableClothing
       clothingPrototypes:
         head: ClothingModsuitHelmetPraetorian
@@ -37,6 +43,8 @@
       clothingVisuals:
         back:
         - state: equipped-BACKPACK-sealed
+        back-resomi:
+        - state: equipped-BACKPACK-sealed-resomi
     - type: Storage
       grid:
       - 0,0,1,3
@@ -67,6 +75,12 @@
   description: A state-of-the-art helmet designed by NanoTrasen for the Praetorian modsuit.
   categories: [HideSpawnMenu]
   components:
+    - type: Clothing
+      clothingVisuals:
+        head:
+        - state: equipped-HEAD
+        head-resomi:
+        - state: equipped-HEAD-resomi
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/praetorian.rsi
     - type: PressureProtection
@@ -97,6 +111,10 @@
         head:
         - state: equipped-HEAD-sealed
         - state: equipped-HEAD-sealed-unshaded
+          shader: unshaded
+        head-resomi:
+        - state: equipped-HEAD-sealed-resomi
+        - state: equipped-HEAD-sealed-resomi-unshaded
           shader: unshaded
 
 - type: entity

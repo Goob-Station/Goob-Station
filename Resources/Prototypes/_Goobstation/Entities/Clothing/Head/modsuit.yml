@@ -80,9 +80,10 @@
     - state: helmet-sealed
       visible: false
       map: [ "sealed" ]
-  - type: HideLayerClothing # This helmet don't have sprite on unsealed state
+  - type: HideLayerClothing
     slots:
     - Snout
+    hideOnToggle: true
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-helmet
     sealDownPopup: sealable-clothing-seal-down-helmet
@@ -161,6 +162,12 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HEAD
+      head-resomi:
+      - state: equipped-HEAD-resomi
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Modsuits/security.rsi
     layers:
@@ -168,7 +175,7 @@
     - state: helmet-sealed
       visible: false
       map: [ "sealed" ]
-  - type: HideLayerClothing # This helmet don't have sprite on unsealed state
+  - type: HideLayerClothing
     slots:
     - Snout
   - type: SealableClothing
@@ -249,13 +256,19 @@
 
 
 - type: entity
-  parent: BaseClothingModsuitHelmet
+  parent: [BaseClothingModsuitHelmet, BaseClothingModsuitHelmetHideIdentity]
   id: ClothingModsuitHelmetHeadOfSecurity
   name: bulwark modsuit helmet
   description: Put on the HEAD of security.. How do you see out of this thing?
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HEAD
+      head-resomi:
+      - state: equipped-HEAD-resomi
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Modsuits/headofsecurity.rsi
     layers:
@@ -263,9 +276,8 @@
     - state: helmet-sealed
       visible: false
       map: [ "sealed" ]
-  - type: HideLayerClothing
-    slots:
-    - Snout
+  - type: IdentityBlocker
+  - type: IngestionBlocker
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-helmet
     sealDownPopup: sealable-clothing-seal-down-helmet
@@ -274,6 +286,8 @@
     clothingVisuals:
       head:
       - state: equipped-HEAD-sealed
+      head-resomi:
+      - state: equipped-HEAD-sealed-resomi
   - type: Armor
     traumaDeductions:
       Dismemberment: 0.3
@@ -298,14 +312,6 @@
     - type: TemperatureProtection
       heatingCoefficient: 0.01
       coolingCoefficient: 0.01
-    - type: IdentityBlocker
-    - type: IngestionBlocker
-    - type: HideLayerClothing
-      slots:
-      - Hair
-      - Snout
-      - HeadTop
-      - HeadSide
   #THIS WILL BE REPLACED WITH MODULE ↓↓
   - type: ToggleableLightVisuals
   - type: PointLight
@@ -344,7 +350,7 @@
     autoRechargeRate: 2
 
 - type: entity
-  parent: BaseClothingModsuitHelmet
+  parent: [BaseClothingModsuitHelmet, BaseClothingModsuitHelmetHideIdentity]
   id: ClothingModsuitHelmetParamedic
   name: sanitater modsuit helmet
   description: A robust brain bucket for working on barely salvageable brains.
@@ -358,9 +364,8 @@
     - state: helmet-sealed
       visible: false
       map: [ "sealed" ]
-  - type: HideLayerClothing
-    slots:
-    - Snout
+  - type: IdentityBlocker
+  - type: IngestionBlocker
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-helmet
     sealDownPopup: sealable-clothing-seal-down-helmet
@@ -387,14 +392,6 @@
     - type: TemperatureProtection
       heatingCoefficient: 0.01
       coolingCoefficient: 0.01
-    - type: IdentityBlocker
-    - type: IngestionBlocker
-    - type: HideLayerClothing
-      slots:
-      - Hair
-      - Snout
-      - HeadTop
-      - HeadSide
   #THIS WILL BE REPLACED WITH MODULE ↓↓
   - type: ToggleableLightVisuals
   - type: PointLight
@@ -433,7 +430,7 @@
     autoRechargeRate: 2
 
 - type: entity
-  parent: BaseClothingModsuitHelmet
+  parent: [BaseClothingModsuitHelmet, BaseClothingModsuitHelmetHideIdentity]
   id: ClothingModsuitHelmetEngineer
   name: sapper modsuit helmet
   description: A flat plate with cameras allowing your vision. turns you into an aero-cuck, but not like that matters in space.
@@ -447,9 +444,9 @@
     - state: helmet-sealed
       visible: false
       map: [ "sealed" ]
-  - type: HideLayerClothing
-    slots:
-    - Snout
+    hideOnToggle: true
+  - type: IdentityBlocker
+  - type: IngestionBlocker
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-helmet
     sealDownPopup: sealable-clothing-seal-down-helmet
@@ -458,8 +455,6 @@
     clothingVisuals:
       head:
       - state: equipped-HEAD-sealed
-      head-resomi:
-      - state: equipped-HEAD-sealed-resomi
   - type: Armor
     modifiers:
       coefficients:
@@ -479,14 +474,6 @@
     - type: TemperatureProtection
       heatingCoefficient: 0.01
       coolingCoefficient: 0.01
-    - type: IdentityBlocker
-    - type: IngestionBlocker
-    - type: HideLayerClothing
-      slots:
-      - Hair
-      - Snout
-      - HeadTop
-      - HeadSide
   #THIS WILL BE REPLACED WITH MODULE ↓↓
   - type: ToggleableLightVisuals
   - type: PointLight
@@ -542,6 +529,13 @@
   - type: HideLayerClothing
     slots:
     - Snout
+  - type: IngestionBlocker
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HEAD
+      head-resomi:
+      - state: equipped-HEAD-resomi
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-helmet
     sealDownPopup: sealable-clothing-seal-down-helmet
@@ -570,7 +564,6 @@
       heatingCoefficient: 0.005
       coolingCoefficient: 0.005
     - type: IdentityBlocker
-    - type: IngestionBlocker
     - type: HideLayerClothing
       slots:
       - Hair
@@ -617,7 +610,7 @@
     reduction: 0.25
 
 - type: entity
-  parent: BaseClothingModsuitHelmet
+  parent: [BaseClothingModsuitHelmet, BaseClothingModsuitHelmetHideIdentity]
   id: ClothingModsuitHelmetResearchDirector
   name: minerva modsuit helmet
   description: A dark dark dark visor protecting your precious face from shrap and blast.
@@ -633,7 +626,13 @@
       map: [ "sealed" ]
   - type: HideLayerClothing
     slots:
+    - Hair
     - Snout
+    - HeadTop
+    - HeadSide
+    hideOnToggle: true
+  - type: IdentityBlocker
+  - type: IngestionBlocker
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-helmet
     sealDownPopup: sealable-clothing-seal-down-helmet
@@ -661,14 +660,6 @@
     - type: TemperatureProtection
       heatingCoefficient: 0.01
       coolingCoefficient: 0.01
-    - type: IdentityBlocker
-    - type: IngestionBlocker
-    - type: HideLayerClothing
-      slots:
-      - Hair
-      - Snout
-      - HeadTop
-      - HeadSide
   #THIS WILL BE REPLACED WITH MODULE ↓↓
   - type: ToggleableLightVisuals
   - type: PointLight
@@ -714,6 +705,12 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HEAD
+      head-resomi:
+      - state: equipped-HEAD-resomi
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Modsuits/captain.rsi
     layers:
