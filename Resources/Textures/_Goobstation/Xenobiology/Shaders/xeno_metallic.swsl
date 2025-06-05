@@ -1,20 +1,17 @@
-uniform highp float reflectivity = 0.3;
+uniform highp float reflectivity = 0.6;
 uniform highp float edge_power = 1.2;
 
 void fragment() {
+    highp vec4 sprite = texture(TEXTURE, UV);
 
-highp vec4 sprite = texture(TEXTURE, UV);
+    if (sprite.a == 0.0) {
+        discard;
+    }
 
-if (sprite.a == 0.0) {
-    discard;
-}
+    float edge = length(vec2(dFdx(sprite.r), dFdy(sprite.g)));
+    edge = pow(edge, edge_power) * reflectivity;
 
-float edge = length(vec2(dFdx(sprite.r), dFdy(sprite.g)));
-edge = pow(edge, edge_power) * reflectivity;
+    vec3 metallic = sprite.rgb + edge;
 
-
-vec3 metallic = sprite.rgb + edge;
-
-
-COLOR = vec4(metallic, 1.0);
+    COLOR = vec4(metallic, 1.0);
 }

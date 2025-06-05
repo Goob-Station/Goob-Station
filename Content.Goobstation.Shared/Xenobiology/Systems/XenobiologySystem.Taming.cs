@@ -7,9 +7,8 @@
 
 using Content.Goobstation.Shared.Xenobiology.Components;
 using Content.Shared.Interaction.Events;
-using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Server.Xenobiology;
+namespace Content.Goobstation.Shared.Xenobiology.Systems;
 
 /// <summary>
 /// This handles slime taming, likely to be expanded in the future.
@@ -21,11 +20,13 @@ public partial class XenobiologySystem
 
     private void OnTame(Entity<SlimeComponent> ent, ref InteractionSuccessEvent args)
     {
+        if (!_net.IsServer
+            || ent.Comp.Tamer.HasValue)
+            return;
+
         var (slime, comp) = ent;
         var coords = Transform(slime).Coordinates;
         var user = args.User;
-        if (comp.Tamer.HasValue)
-            return;
 
         Spawn(ent.Comp.TameEffect, coords);
         comp.Tamer = user;

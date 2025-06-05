@@ -30,7 +30,7 @@ namespace Content.Goobstation.Server.Xenobiology.SlimeGrinder;
 
 public sealed partial class SlimeGrinderSystem : EntitySystem
 {
-    [Dependency] private readonly XenobiologySystem _xenobio = default!;
+    [Dependency] private readonly Shared.Xenobiology.Systems.XenobiologySystem _xenobio = default!;
     [Dependency] private readonly SharedJitteringSystem _jitteringSystem = default!;
     [Dependency] private readonly SharedAudioSystem _sharedAudioSystem = default!;
     [Dependency] private readonly SharedAmbientSoundSystem _ambientSoundSystem = default!;

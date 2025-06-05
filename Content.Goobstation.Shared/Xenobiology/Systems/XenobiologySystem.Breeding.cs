@@ -6,13 +6,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Xenobiology;
 using Content.Goobstation.Shared.Xenobiology.Components;
 using Content.Shared.Nutrition.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
-namespace Content.Goobstation.Server.Xenobiology;
+namespace Content.Goobstation.Shared.Xenobiology.Systems;
 
 /// <summary>
 /// This handles slime breeding and mutation.
@@ -72,15 +71,15 @@ public partial class XenobiologySystem
     /// <param name="selectedBreed">The selected breed of the entity.</param>
     private void DoBreeding(EntityUid parent, EntProtoId newEntityProto, ProtoId<BreedPrototype> selectedBreed)
     {
-        if (!_prototypeManager.TryIndex(selectedBreed, out var newBreed))
+        if (!_net.IsServer
+            || !_prototypeManager.TryIndex(selectedBreed, out var newBreed))
             return;
 
         var newEntityUid = SpawnNextToOrDrop(newEntityProto, parent, null, newBreed.Components);
         if (!TryComp<SlimeComponent>(newEntityUid, out var slime))
             return;
 
-        if (slime.ShouldHaveShader
-            && slime.Shader != string.Empty)
+        if (slime is { ShouldHaveShader: true, Shader: not null })
             _appearance.SetData(newEntityUid, XenoSlimeVisuals.Shader, slime.Shader);
 
         _appearance.SetData(newEntityUid, XenoSlimeVisuals.Color, slime.SlimeColor);
@@ -90,6 +89,9 @@ public partial class XenobiologySystem
     //Handles slime mitosis, for each offspring, a mutation is selected from their potential mutations - if mutation is successful, the products of mitosis will have the new mutation.
     private void DoMitosis(Entity<SlimeComponent> ent)
     {
+        if (!_net.IsServer)
+            return;
+
         var offspringCount = _random.Next(1, ent.Comp.MaxOffspring + 1);
         _audio.PlayPredicted(ent.Comp.MitosisSound, ent, ent);
 
