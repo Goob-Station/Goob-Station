@@ -114,8 +114,6 @@
           shader: unshaded
         head-resomi:
         - state: equipped-HEAD-sealed-resomi
-        - state: equipped-HEAD-sealed-resomi-unshaded
-          shader: unshaded
 
 - type: entity
   parent: ClothingModsuitChestplateStandard

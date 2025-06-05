@@ -13,11 +13,12 @@
 		{
 		  "name": "helmet-sealed"
 		},
-    {
-		  "name": "helmet-sealed-resomi"
-		},
 		{
 			"name": "equipped-HEAD",
+			"directions": 4
+		},
+    {
+			"name": "equipped-HEAD-resomi",
 			"directions": 4
 		},
 		{

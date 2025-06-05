@@ -325,6 +325,11 @@
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
     slots: [ gloves ]
+    clothingVisuals:
+        hands:
+        - state: equipped-HAND
+        hands-resomi:
+        - state: equipped-HAND-resomi
   - type: DamageOnInteractProtection
     damageProtection:
       flatReductions:

@@ -92,6 +92,8 @@
     clothingVisuals:
       head:
       - state: equipped-HEAD-sealed
+      head-resomi:
+      - state: equipped-HEAD-sealed-resomi
   - type: Armor
     modifiers:
       coefficients:
@@ -186,6 +188,8 @@
     clothingVisuals:
       head:
       - state: equipped-HEAD-sealed
+      head-resomi:
+      - state: equipped-HEAD-sealed-resomi
   - type: Armor
     traumaDeductions:
       Dismemberment: 0.3

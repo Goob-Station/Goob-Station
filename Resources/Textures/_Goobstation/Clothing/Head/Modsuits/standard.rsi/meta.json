@@ -20,6 +20,10 @@
 		{
 			"name": "equipped-HEAD-sealed",
 			"directions": 4
+		},
+    {
+			"name": "equipped-HEAD-sealed-resomi",
+			"directions": 4
 		}
   ]
 }
