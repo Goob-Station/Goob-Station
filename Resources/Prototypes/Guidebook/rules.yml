@@ -19,12 +19,12 @@
   priority: 60
   text: "/ServerInfo/Guidebook/ServerRules/DefaultRules.xml"
   children:
-  #- CoreRules # Гойда эдит
-  #- RoleplayRules
-  #- SiliconRules
-  #- RoleTypes
-  #- BanTypes
-  #- BanDurations
+  - CoreRules # пошел нахуй со своим гойда эдитом
+  - RoleplayRules
+  - SiliconRules
+  - RoleTypes
+  - BanTypes
+  - BanDurations
 
 - type: guideEntry
   id: RoleTypes
