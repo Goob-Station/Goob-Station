@@ -55,17 +55,11 @@ public sealed class SealableClothingVisualizerSystem : VisualizerSystem<Sealable
 
         if (!comp.ClothingVisuals.TryGetValue(args.Slot, out var layers))
             return;
-
-        if (!TryComp(args.Equipee, out InventoryComponent? inventory))
-            return;
-
-        // attempt to get species specific data || Goob - everything else here is taken from toggleflaslight might as well take the species stuff
-        if (inventory.SpeciesId != null)
-            comp.ClothingVisuals.TryGetValue($"{args.Slot}-{inventory.SpeciesId}", out layers);
-
-        // No species specific data.  Try to default to generic data.
-        if (layers == null && !comp.ClothingVisuals.TryGetValue(args.Slot, out layers))
-            return;
+        // attempt to get species specific data || if none found will use generic data instead
+        if (TryComp(args.Equipee, out InventoryComponent? inventory) &&
+            inventory.SpeciesId != null &&
+            comp.ClothingVisuals.TryGetValue($"{args.Slot}-{inventory.SpeciesId}", out var speciesLayers))
+            layers = speciesLayers;
 
         var i = 0;
         foreach (var layer in layers)
