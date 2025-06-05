@@ -220,26 +220,19 @@
 
 - type: entity
   name: real mouse
-  parent: MobCorgiIan
+  parent: SimpleMobBase # goida edit
   id: MobCorgiMouse
   description: It's 100% a real hungry mouse.
   components:
   - type: Sprite
-    layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
-      state: real_mouse
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: real_mouse
-      Critical:
-        Base: real_mouse_dead
-      Dead:
-        Base: real_mouse_dead
-  - type: Grammar
-    attributes:
-      proper: true
-      gender: female
+    sprite: _Goobstation/Mobs/Animals/goida.rsi # goida edit
+    drawdepth: SmallMobs
+    state: goida
+  - type: MobThresholds # goida edit
+    thresholds:
+      0: Alive
+      65: Critical
+      100: Dead
 
 - type: entity
   name: Puppy Ian

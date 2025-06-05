@@ -33,49 +33,43 @@ server-currency-command-error-1 = Невозможно найти игрока �
 server-currency-command-error-2 = Значение должно быть целым числом.
 server-currency-command-return = У { $player } есть { $balance }.
 
-gs-balanceui-title = Магазин
+# 65% стор
+
+gs-balanceui-title = Гойдастор
 gs-balanceui-confirm = Подтвердить
 
-gs-balanceui-gift-label = Передать:
+gs-balanceui-gift-label = Перенести:
 gs-balanceui-gift-player = Игрок
-gs-balanceui-gift-player-tooltip = Вставьте имя игрока, которому вы хотите отправить деньги.
-gs-balanceui-gift-value = Значение
-gs-balanceui-gift-value-tooltip = Сумма перевода
+gs-balanceui-gift-player-tooltip = Напишите имя гойды кому Вы хотите передать свои гойдакоины
+gs-balanceui-gift-value = Количество
+gs-balanceui-gift-value-tooltip = Количество гойдакоинов которое Вы передадите
 
-gs-balanceui-shop-label = Гойда Стор
-gs-balanceui-shop-empty = Нет в наличии!
-gs-balanceui-shop-buy = Купить
-gs-balanceui-shop-footer = ⚠ Напишите в ахелп для использования вашего токена. Только 1 использование в день.
+gs-balanceui-shop-label = Гойда магазин
+gs-balanceui-shop-empty = Раскупленно!
+gs-balanceui-shop-buy = Загойдить
+gs-balanceui-shop-footer = ⚠ Напишите в гойдапомощь чтобы активировать ваш гойдатокен.
 
-gs-balanceui-shop-token-label = Токены
-gs-balanceui-shop-tittle-label = Названия
+gs-balanceui-shop-token-label = Гойдатокен
+gs-balanceui-shop-tittle-label = Гойданазвания
 
-gs-balanceui-shop-buy-token-hightier-antag = Купить hightier антаг токен - {$price} Гойдакоинов
-gs-balanceui-shop-buy-token-midtier-antag = Купить midtier антаг токен - {$price} Гойдакоинов
-gs-balanceui-shop-buy-token-lowtier-antag = Купить lowtier - {$price} Гойдакойнов
-gs-balanceui-shop-buy-token-admin-abuse = Купить админ абуз токен - {$price} Гойдакоинов
-gs-balanceui-shop-buy-token-ghost = Купить гостроль токен - {$price} Гойдакоинов
+gs-balanceui-shop-buy-token-antag = Купить гойдАнтаг токен - {$price} Гойда коинов
+gs-balanceui-shop-buy-token-admin-abuse = Купить гойдАадмин буз токен - {$price} Гойда коинов
+gs-balanceui-shop-buy-token-hat = Купить гойдАксесуар токен - {$price} Гойда коинов
 
-gs-balanceui-shop-token-hightier-antag = HighTier Антаг Токен
-gs-balanceui-shop-token-midtier-antag = MidTier Антаг Токен
-gs-balanceui-shop-token-lowtier-antag = LowTier antag token
-gs-balanceui-shop-token-admin-abuse = Админ абуз токен
-gs-balanceui-shop-token-ghost = Гостроль токен
+gs-balanceui-shop-token-antag = ГойдАнтаг токен
+gs-balanceui-shop-token-admin-abuse = ГойдАдмин абуз токен
+gs-balanceui-shop-token-hat = ГойдАксесуар токен
 
-gs-balanceui-shop-buy-token-hightier-antag-desc = Позволяет стать ЯОшником, Волшебником, Изначальным зараженным или любым антагонистом уровня ниже.
-gs-balanceui-shop-buy-token-midtier-antag-desc = Позволяет вам стать Предателем, Генокрадом, Еретиком или любым антагонистом уровня ниже.
-gs-balanceui-shop-buy-token-lowtier-antag-desc = Позволяет вам стать Вором.
-gs-balanceui-shop-buy-token-admin-abuse-desc = Позволяет вам попросить администратора выдать любой косметический предмет в плане разумного.
-gs-balanceui-shop-buy-token-ghost-desc = Позволяет запросить вам гострольного антагониста.
+gs-balanceui-shop-buy-token-antag-desc = Позволяет вам стать любым гойдАнтагом (кроме тайдеров)
+gs-balanceui-shop-buy-token-admin-abuse-desc = Позволяет вам попросить гойдАдмина сделать какую-то хуйню с вами.
+gs-balanceui-shop-buy-token-hat-desc = ГойдАдмин даст вам случайный головной убор.
 
-gs-balanceui-admin-add-label = Добавить (или вычесть) деньги:
-gs-balanceui-admin-add-player = Имя игрока
-gs-balanceui-admin-add-value = Значение
+gs-balanceui-admin-add-label = Добавить (или убавить) гойдакоины:
+gs-balanceui-admin-add-player = Имя гойдЫгрока
+gs-balanceui-admin-add-value = Количество
 
-gs-balanceui-remark-token-hightier-antag = Купил хайтир антаг токен.(РЕДАКТИРУЙТЕ НА !! ВЫДАНО !! ПРИ ВЫДАЧЕ)
-gs-balanceui-remark-token-midtier-antag = Купили мидтир антаг токен.(РЕДАКТИРУЙТЕ НА !! ВЫДАНО !! ПРИ ВЫДАЧЕ)
-gs-balanceui-remark-token-ghost = Купили гостроль токен.(РЕДАКТИРУЙТЕ НА !! ВЫДАНО !! ПРИ ВЫДАЧЕ)
-gs-balanceui-remark-token-lowtier-antag = Купили ловтир антаг токен.(РЕДАКТИРУЙТЕ НА !! ВЫДАНО !! ПРИ ВЫДАЧЕ)
-gs-balanceui-remark-token-admin-abuse = Купили админ абуз токен.(РЕДАКТИРУЙТЕ НА !! ВЫДАНО !! ПРИ ВЫДАЧЕ)
-gs-balanceui-shop-click-confirm = Нажмите еще раз, чтобы подтвердить.
-gs-balanceui-shop-purchased = Куплено: {$item}
+gs-balanceui-remark-token-antag = Куплен гойдАнтаг токен.
+gs-balanceui-remark-token-admin-abuse = Куплен гойдАбуз токен.
+gs-balanceui-remark-token-hat = Куплен гойдАксусуар токен.
+gs-balanceui-shop-click-confirm = Нажмите еще раз чтобы подтвердить.
+gs-balanceui-shop-purchased = Куплун {$item}

@@ -7,7 +7,7 @@ game-ticker-unknown-role = Неизвестный
 game-ticker-delay-start = Начало раунда было отложено на { $seconds } секунд.
 game-ticker-pause-start = Начало раунда было приостановлено.
 game-ticker-pause-start-resumed = Отсчёт начала раунда возобновлён.
-game-ticker-player-join-game-message = Добро пожаловать на Космическую Станцию 14! Если вы играете впервые, обязательно нажмите ESC на клавиатуре и прочитайте правила игры, а также не бойтесь просить помощи в "Админ помощь".
+game-ticker-player-join-game-message = Добро пожаловать на Космическую Станцию 14! Если вы играете впервые, обязательно нажмите ESC на клавиатуре и прочитайте правила игры, а также не бойтесь просить помощи в "Гойда помощь".
 game-ticker-get-info-text =
     Привет и добро пожаловать в [color=white]Space Station 14![/color]
     Текущий раунд: [color=white]#{ $roundId }[/color]
@@ -34,12 +34,12 @@ player-first-join-message = Игрок { $name } зашёл на сервер в
 player-leave-message = Игрок { $name } вышел!
 latejoin-arrival-announcement =
     { $character } ({ $job }) { GENDER($entity) ->
-        [male] прибыл
-        [female] прибыла
-        [epicene] прибыли
-       *[neuter] прибыло
+        [male] пригойдился
+        [female] пригойдилась
+        [epicene] пригойдились
+       *[neuter] пригойдилось
     } на станцию!
-latejoin-arrival-announcement-special = { $job } { $character } на палубе!
+latejoin-arrival-announcement-special = { $job } { $character } пригойдился на станцию!
 latejoin-arrival-sender = Станции
 latejoin-arrivals-direction = Вскоре прибудет шаттл, который доставит вас на станцию.
 latejoin-arrivals-direction-time = Шаттл, который доставит вас на станцию, прибудет через { $time }.
