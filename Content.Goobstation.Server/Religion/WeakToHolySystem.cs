@@ -135,7 +135,7 @@ public sealed class WeakToHolySystem : EntitySystem
         base.Update(frameTime);
 
         // Holy damage healing.
-        var query = EntityQueryEnumerator<BodyComponent, WeakToHolyComponent>();
+        var query = EntityQueryEnumerator<WeakToHolyComponent, BodyComponent>();
         while (query.MoveNext(out var uid, out var body, out var weakToHoly))
         {
             if (!TryComp<DamageableComponent>(uid, out var damageable))
