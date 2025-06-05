@@ -67,6 +67,7 @@
       path: /Audio/Weapons/Guns/Bolt/lever_bolt_opened.ogg
       params:
         volume: -3
+  - type: GunRequiresWield
   - type: MagazineVisuals
     magState: mag
     steps: 1
