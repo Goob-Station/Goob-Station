@@ -329,13 +329,13 @@
     sprite: _Goobstation/Objects/Weapons/Guns/Lever/chester.rsi
     state: base
   content:
-    - MagazineShotgunLeverRifleEmpty
-    - MagazineShotgunLeverRifleEmpty
-    - MagazineBoxShotgunHighCaliber
-    - MagazineBoxShotgunHighCaliberFlash
-    - MagazineBoxShotgunHighCaliberEnsnaring
-    - MagazineBoxShotgunHighCaliberEMP
-    - WeaponLeverChester
+  # Guaranteed items
+  - WeaponLeverChester
+  - MagazineShotgunLeverRifleEmpty
+  - MagazineShotgunLeverRifleEmpty
+  - MagazineBoxShotgunHighCaliber
+  tables:
+  - ChesterRandomAmmoTable
 
 - type: selectableSet
   id: BSOSyringeSet
