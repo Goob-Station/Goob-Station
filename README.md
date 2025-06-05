@@ -24,15 +24,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
 <p align="center"> <img alt="Space Station 14" width="880" height="300" src="https://github.com/Goob-Station/Goob-Station/blob/master/Resources/Textures/Logo/logo.png" /></p>
 
-Это репозиторий Гойда Стейшен, который является русскоязычным НРП форком Goob Station, который является контенто-ориентированным форком Space Station 14, который является ремейком Space Station 13, который является мультиплеерной песочницей с ролевым отыгрышем про пиздец на космической станции.
-
-## Контрибьют
-
-Мы принимаем в сборку только перевод и откаты неадекватных изменений.
-
-## Сборка
-
-Смотри по документации визардов: https://docs.goobstation.com/en/general-development/setup.html
+Гойда
 
 ## License
 
