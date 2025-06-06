@@ -294,11 +294,11 @@
   - type: Construction
     graph: Modsuit
     node: rd
-#  - type: StealTarget
-#    stealGroup: ClothingOuterHardsuitRd
-#  - type: Tag
-#    tags:
-#      - HighRiskItem
+  - type: StealTarget
+    stealGroup: ClothingOuterHardsuitRd
+  - type: Tag
+    tags:
+      - HighRiskItem
 
 - type: entity
   parent: ClothingModsuitResearchDirector
