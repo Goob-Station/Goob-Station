@@ -4,7 +4,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Religion.Nullrod.Components;
 using Content.Shared.DoAfter;
 using Robust.Shared.Serialization;
 
@@ -20,5 +19,10 @@ public record struct AlternatePrayEvent(EntityUid User);
 [Serializable, NetSerializable]
 public sealed partial class AlternatePrayDoAfterEvent : SimpleDoAfterEvent;
 
-
-
+/// <summary>
+/// 	Raised globally when trying to transform a null rod.
+/// </summary>
+public sealed class TryTransformNullrodEvent(string? proto) : CancellableEntityEventArgs
+{
+    public string? Proto { get; } = proto;
+}

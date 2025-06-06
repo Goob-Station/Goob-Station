@@ -66,7 +66,7 @@
             ServiceWorker: [ 1, 2 ]
             Zookeeper: [ 2, 2 ]
           #science
-            Chaplain: [ 1, 1 ]
+            Chaplain: [ 2, 3 ]
             ResearchAssistant: [ 1, 2 ]
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 4, 6 ]
