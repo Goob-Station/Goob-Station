@@ -193,7 +193,7 @@ selectable-set-headofsecurity-voidsuit-desc =
 selectable-set-headofsecurity-modsuit-name = Head of security's 'bulwark' hardsuit
 selectable-set-headofsecurity-modsuit-desc =
     A modular hardsuit with expensive plastitanium armour for the head of security's use.
-    Comes equipped with a manually operated on-board intravenous stim injector
+    Comes equipped with an AI operated on-board intravenous stim injector
 
 selectable-set-engineering-voidsuit-name = Engineering voidsuit
 selectable-set-engineering-voidsuit-desc =
@@ -205,10 +205,10 @@ selectable-set-engineering-modsuit-desc =
     replaced with external cameras to better protect against explosions
     and other external threats.
 
-selectable-set-captain-voidsuit-name = Captain's voidsuit
+selectable-set-captain-voidsuit-name = Captain's parade voidsuit
 selectable-set-captain-voidsuit-desc =
     Captain's light voidsuit made custom fitted for formal occasions, lightly
-    armored to protect during the average shift, all while still retaining
+    armored to protect during a calm shift, all while still retaining
     common spacewalking capabilities.
 
 selectable-set-captain-modsuit-name = Captain's 'Magnate' hardsuit

@@ -107,6 +107,14 @@
         ents: []
   - type: StaticPrice
     price: 500
+  - type: MeleeWeapon # Goobstation V
+    damage:
+      types:
+       Blunt: 12
+    angle: 0
+    wideAnimationRotation: 90 # -90 if it takes bayonets (hits with muzzle) 90 if not (hits with butt)
+    soundHit:
+      collection: MetalThud # Goobstation ^
 
 # Goobstation - Start - I decided to put it here, because it changes Hristov.
 - type: entity
