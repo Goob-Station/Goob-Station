@@ -66,7 +66,7 @@
   #- type: Wieldable
   # Lavaland Change end
   - type: Gun
-    fireRate: 0.7 #goobstation
+    fireRate: 0.7 # Goobstation - if pkas are performing too well just revert this to 0.5 for a universal 30% nerf
     selectedMode: SemiAuto
     #angleDecay: 45 # Lavaland Change
     minAngle: 3 # Lavaland Change
