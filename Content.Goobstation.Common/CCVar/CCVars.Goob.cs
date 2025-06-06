@@ -55,6 +55,12 @@ public sealed partial class GoobCVars
         CVarDef.Create("atmos.strict_pipe_stacking", false, CVar.SERVERONLY);
 
     /// <summary>
+    ///     If space wind is attempting to throw an object at a velocity below this, apply impulse instead
+    /// </summary>
+    public static readonly CVarDef<float> SpaceWindThrowVelocity =
+        CVarDef.Create("atmos.space_wind_throw_velocity", 1.5f, CVar.SERVERONLY);
+
+    /// <summary>
     ///     If an object's mass is below this number, then this number is used in place of mass to determine whether air pressure can throw an object.
     ///     This has nothing to do with throwing force, only acting as a way of reducing the odds of tiny 5 gram objects from being yeeted by people's breath
     /// </summary>

@@ -22,11 +22,12 @@
     weight: 7.5
     minimumPlayers: 10
     duration: 1
-    chaos: # Goobstation
+    chaos:
       Hostile: 75
       Medical: 75
-    chaosScore: 300 # Goobstation
-    eventType: HostilesSpawn # Goobstation
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 300
   - type: RuleGrids
   - type: LoadMapRule
     mapPath: /Maps/_Shitmed/Shuttles/ShuttleEvent/abductor_shuttle.yml
@@ -120,11 +121,12 @@
     weight: 7.5
     minimumPlayers: 20
     duration: 1
-    chaos: # Goobstation
+    chaos:
       Hostile: 150
       Medical: 150
-    chaosScore: 450 # Goobstation
-    eventType: HostilesSpawn # Goobstation
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 450
   - type: RuleGrids
   - type: LoadMapRule
     mapPath: /Maps/_Shitmed/Shuttles/ShuttleEvent/duo_abductor_shuttle.yml

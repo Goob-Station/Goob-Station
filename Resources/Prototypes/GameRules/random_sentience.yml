@@ -19,8 +19,10 @@
     chaos: # Goobstation
       Mess: 5
       Friend: -5
-    chaosScore: 20 # Goobstation
     eventType: Neutral # Goobstation
+  # Goobstation
+  - type: GameRule
+    chaosScore: 20
   - type: RandomSentienceRule
     minSentiences: 2
     maxSentiences: 5
