@@ -13,7 +13,7 @@
   components:
   - type: EntityTargetAction
     deselectOnMiss: true
-    useDelay: 10
+    useDelay: 15
     whitelist:
       components:
         - HumanoidAppearance
@@ -126,7 +126,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    useDelay: 10
+    useDelay: 30
     itemIconStyle: NoItem
     icon:
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
