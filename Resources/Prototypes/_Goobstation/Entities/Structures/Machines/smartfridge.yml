@@ -1,14 +1,5 @@
-# SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2024 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
-  parent: BaseStructureDynamic
+  parent: BaseMachinePowered
   id: SmartFridge
   name: SmartFridge
   description: A refrigerated storage unit for keeping items cold and fresh.
@@ -17,7 +8,6 @@
   - type: Advertise
     pack: SmartFridgeAds
   - type: Speech
-  - type: Appearance
   - type: Sprite
     sprite: Structures/Machines/smartfridge.rsi
     snapCardinals: true
@@ -27,36 +17,38 @@
     - state: smartfridge_door
       map: ["enum.StorageVisualLayers.Door"]
       shader: unshaded
-  - type: EntityStorageVisuals
-    stateBaseClosed: smartfridge
-    stateDoorOpen: smartfridge_open
-    stateDoorClosed: smartfridge_door
   - type: PointLight
+    enabled: false
     radius: 1.5
     energy: 1.6
     color: "#9dc5c9"
-  - type: EntityStorage
-    isCollidableWhenOpen: true
-    closeSound:
-      path: /Audio/Machines/windoor_open.ogg
-      params:
-        volume: -3
-    openSound:
-      path: /Audio/Machines/windoor_open.ogg
-      params:
-        volume: -3
   - type: ContainerContainer
     containers:
-      entity_storage: !type:Container
-  - type: UseDelay
-    delay: 1
-  - type: AntiRottingContainer
-  - type: ResistLocker
-  - type: Physics
-    bodyType: Static
-  - type: Transform
-    noRot: true
-    anchored: True
+      smart_fridge_inventory: !type:Container
+      smart_fridge_insertion: !type:ContainerSlot
+  - type: LitOnPowered
+  - type: ApcPowerReceiver
+    powerLoad: 200
+  - type: SmartFridge
+    whitelist:
+      components:
+      - FitsInDispenser
+      - Pill
+      - Produce
+      - Seed
+      - Organ
+      tags:
+      - PillCanister
+      - Bottle
+      - Syringe
+      - ChemDispensable
+  - type: ActivatableUI
+    key: enum.SmartFridgeUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: UserInterface
+    interfaces:
+      enum.SmartFridgeUiKey.Key:
+        type: SmartFridgeBoundUserInterface
   - type: Fixtures
     fixtures:
       fix1:
@@ -93,12 +85,16 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: Metallic
-  - type: DamageOnHighSpeedImpact
-    damage:
-      types:
-        Blunt: 5
-    soundHit:
-      collection: MetalThud
+  - type: Dumpable
+  - type: AccessReader
+  - type: ExplosionResistance
+    damageCoefficient: 0.6
+
+- type: entity
+  parent: SmartFridge
+  id: SmartFridgeMedical
+  name: Medical SmartFridge
+  description: A refrigerated storage unit for keeping lifesaving medications cold and fresh.
+  components:
+  - type: AccessReader
+    access: [["Medical"]]
