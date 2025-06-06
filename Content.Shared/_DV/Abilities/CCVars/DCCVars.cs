@@ -45,19 +45,19 @@ public sealed class DCCVars
     /// How much entropy a convert is worth towards the next monument tier.
     /// </summary>
     public static readonly CVarDef<int> CosmicCultistEntropyValue =
-        CVarDef.Create("cosmiccult.cultist_entropy_value", 5, CVar.SERVER);
+        CVarDef.Create("cosmiccult.cultist_entropy_value", 4, CVar.SERVER); // 2 minutes of pureee entropy!
 
     /// <summary>
     /// How much of the crew the cult is aiming to convert for a tier 3 monument.
     /// </summary>
     public static readonly CVarDef<int> CosmicCultTargetConversionPercent =
-        CVarDef.Create("cosmiccult.target_conversion_percent", 50, CVar.SERVER);
+        CVarDef.Create("cosmiccult.target_conversion_percent", 40, CVar.SERVER);
 
     /// <summary>
     /// How long the timer for the cult's stewardship vote lasts.
     /// </summary>
     public static readonly CVarDef<int> CosmicCultStewardVoteTimer =
-        CVarDef.Create("cosmiccult.steward_vote_timer", 30, CVar.SERVER);
+        CVarDef.Create("cosmiccult.steward_vote_timer", 120, CVar.SERVER); // at least let them talk
 
     /// <summary>
     /// The delay between the monument getting upgraded to tier 2 and the crew learning of that fact. the monument cannot be upgraded again in this time.
