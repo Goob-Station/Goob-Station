@@ -10631,3 +10631,9 @@ Entries:
       message: Added several new furniture to decorate the station with!
   id: 1170
   time: '2025-06-04T13:01:23.0000000+00:00'
+- author: ScarKy0
+  changes:
+    - type: Fix
+      message: Borgs can no longer see mindshield status.
+  id: 1171
+  time: '2025-06-06T09:36:40.0000000+00:00'
