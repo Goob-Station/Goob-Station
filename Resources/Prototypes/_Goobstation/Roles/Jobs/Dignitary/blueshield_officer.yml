@@ -73,9 +73,9 @@
       - type: CommandStaff
       - type: Condemned
         soulOwnedNotDevil: true
-      - type: JobObjective
-        objectives:
-        - BlueshieldRandomCommandAliveObjective
+  - !type:AddObjectiveSpecial
+    objectives:
+    - BlueshieldRandomCommandAliveObjective
 
 - type: startingGear
   id: BlueshieldOfficerGear

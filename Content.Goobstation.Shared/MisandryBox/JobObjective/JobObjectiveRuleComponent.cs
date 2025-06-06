@@ -1,7 +1,12 @@
-﻿namespace Content.Goobstation.Shared.MisandryBox.JobObjective;
+﻿using Content.Shared.GameTicking.Components;
+using Content.Shared.Mind;
+using Content.Shared.Mind.Components;
 
-/// <summary>
-/// Marker component for the job objective game rule
-/// </summary>
+namespace Content.Goobstation.Shared.MisandryBox.JobObjective;
+
 [RegisterComponent]
-public sealed partial class JobObjectiveRuleComponent : Component;
+public sealed partial class JobObjectiveRuleComponent : Component
+{
+    [DataField]
+    public List<(EntityUid Mind, MindComponent MindComp)> TrackedMinds = [];
+}

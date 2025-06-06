@@ -1,16 +1,15 @@
-﻿using Content.Goobstation.Shared.MisandryBox.JobObjective;
+﻿using System.Linq;
+using Content.Goobstation.Shared.MisandryBox.JobObjective;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Events;
 using Content.Server.Mind;
 using Content.Server.Objectives;
 using Content.Shared.GameTicking;
 using Content.Shared.Mind;
+using Robust.Shared.Map;
 
 namespace Content.Goobstation.Server.MisandryBox.JobObjective;
 
-/// <summary>
-/// Manages crew members having objectives
-/// </summary>
 public sealed class JobObjectiveSystem : EntitySystem
 {
     [Dependency] private readonly MindSystem _mind = default!;
@@ -19,32 +18,29 @@ public sealed class JobObjectiveSystem : EntitySystem
 
     private const string Rule = "JobObjectiveRule";
 
-    private readonly List<PendingObjective> _objectives = [];
+    private readonly List<QueuedObjective> _queuedObjectives = [];
     private EntityUid? _jobObjectiveRule;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<JobObjectiveComponent, PlayerSpawnCompleteEvent>(OnPlayerSpawn);
-        SubscribeLocalEvent<RulePlayerJobsAssignedEvent>(JobsAssigned);
+        SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnSpawnComplete);
         SubscribeLocalEvent<JobObjectiveRuleComponent, ObjectivesTextGetInfoEvent>(OnObjectivesTextGetInfo);
         SubscribeLocalEvent<RoundStartingEvent>(OnRoundStarting);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundEnding);
     }
 
-    // Option 1: Making this system GameRuleSystem<JobObjectiveRuleComponent> and adding JobObjectiveRule to every preset
-    // Option 2: This
-    // We need the gamerule so that we have the objectives show up in the round end window
     private void OnRoundStarting(RoundStartingEvent ev)
     {
-        _objectives.Clear();
-        _ticker.AddGameRule(Rule);
+        _queuedObjectives.Clear();
+        _jobObjectiveRule = Spawn(Rule, MapCoordinates.Nullspace);
+        _ticker.StartGameRule(_jobObjectiveRule.Value);
     }
 
     private void OnRoundEnding(RoundRestartCleanupEvent ev)
     {
-        _objectives.Clear();
+        _queuedObjectives.Clear();
 
         if (_jobObjectiveRule.HasValue)
         {
@@ -53,42 +49,50 @@ public sealed class JobObjectiveSystem : EntitySystem
         }
     }
 
-    private void OnPlayerSpawn(Entity<JobObjectiveComponent> ent, ref PlayerSpawnCompleteEvent args)
+    public void QueueObjectives(EntityUid mob, List<string> objectives)
     {
-        if (!_mind.TryGetMind(ent.Owner, out var mind, out var comp))
-            return;
-
-        if (_ticker.RunLevel == GameRunLevel.InRound)
-            TryAssignObjectives(mind, comp, ent.Comp);
-
-        _objectives.Add(new PendingObjective(mind, comp, ent.Comp));
+        _queuedObjectives.Add(new QueuedObjective(mob, objectives));
     }
 
-    private void JobsAssigned(RulePlayerJobsAssignedEvent ev)
+    private void OnSpawnComplete(PlayerSpawnCompleteEvent ev)
     {
-        foreach (var obj in _objectives)
-            TryAssignObjectives(obj.Mind, obj.Comp, obj.Objective);
+        if (!_mind.TryGetMind(ev.Mob, out var mind, out var comp))
+            return;
+
+        var queuedForMob = _queuedObjectives.Where(q => q.Mob == ev.Mob).ToList();
+
+        foreach (var queued in queuedForMob)
+        {
+            if (TryAssignObjectives(mind, comp, queued.Objectives))
+                AddTrackedMind(mind, comp);
+
+            _queuedObjectives.Remove(queued);
+        }
     }
 
     private void OnObjectivesTextGetInfo(Entity<JobObjectiveRuleComponent> rule, ref ObjectivesTextGetInfoEvent args)
     {
         args.AgentName = Loc.GetString("job-objectives-round-end-crew-name");
 
-        foreach (var objective in _objectives)
+        foreach (var (mind, comp) in rule.Comp.TrackedMinds)
         {
-            if (!TryComp<MindComponent>(objective.Mind, out var mindComp))
-                continue;
-
-            var name = mindComp.CharacterName ?? "Unknown";
-            args.Minds.Add((objective.Mind, name));
+            args.Minds.Add((mind, comp.CharacterName ?? "Unknown"));
         }
     }
 
-    private bool TryAssignObjectives(EntityUid mind, MindComponent comp, JobObjectiveComponent objectiveComp)
+    private void AddTrackedMind(EntityUid mind, MindComponent mindComp)
+    {
+        if (!_jobObjectiveRule.HasValue || !TryComp<JobObjectiveRuleComponent>(_jobObjectiveRule.Value, out var ruleComp))
+            return;
+
+        ruleComp.TrackedMinds.Add((mind, mindComp));
+    }
+
+    private bool TryAssignObjectives(EntityUid mind, MindComponent comp, List<string> objectives)
     {
         var allAssigned = true;
 
-        foreach (var objectiveProto in objectiveComp.Objectives)
+        foreach (var objectiveProto in objectives)
         {
             var obj = _obj.TryCreateObjective(mind, comp, objectiveProto);
 
@@ -106,4 +110,4 @@ public sealed class JobObjectiveSystem : EntitySystem
     }
 }
 
-public readonly record struct PendingObjective(EntityUid Mind, MindComponent Comp, JobObjectiveComponent Objective);
+public readonly record struct QueuedObjective(EntityUid Mob, List<string> Objectives);
