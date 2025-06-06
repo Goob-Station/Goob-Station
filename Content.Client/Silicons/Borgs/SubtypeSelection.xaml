@@ -1,0 +1,21 @@
+<Control xmlns="https://spacestation14.io"
+         xmlns:controls="using:Content.Client.UserInterface.Controls">
+    <BoxContainer Name="MainContainer"
+                  Orientation="Vertical"
+                  SeparationOverride="4"
+                  Visible="False">
+        <controls:StripeBack>
+            <Label Text="{Loc 'borg-select-subtype-flavour-text'}"
+                   StyleClasses="LabelSubText"
+                   HorizontalAlignment="Center"
+                   Margin="0 12"/>
+        </controls:StripeBack>
+        <ScrollContainer Name="Scroll"
+                         HScrollEnabled="True"
+                         VScrollEnabled="False"
+                         HorizontalExpand="True"
+                         MinSize="200 100">
+            <GridContainer Name="OptionsContainer" Rows="1" HSeparationOverride="4"/>
+        </ScrollContainer>
+    </BoxContainer>
+</Control>
