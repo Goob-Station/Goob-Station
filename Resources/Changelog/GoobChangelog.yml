@@ -10653,3 +10653,11 @@ Entries:
       message: Milk heals more damage in skeletons now.
   id: 1173
   time: '2025-06-06T10:00:54.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Tweak
+      message: >-
+        Chemistry plastic reaction makes plastic in stacks of 10 instead of
+        stacks of 1.
+  id: 1174
+  time: '2025-06-06T10:09:39.0000000+00:00'
