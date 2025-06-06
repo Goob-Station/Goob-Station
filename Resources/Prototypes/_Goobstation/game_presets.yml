@@ -281,7 +281,7 @@
   description: Heretics-gamemode-description
   showInVote: false
   rules:
-    - Heretics
+    - ManyHeretics
     - BasicStationEventScheduler
     - BasicRoundstartVariation
     - LavalandStormScheduler

@@ -75,7 +75,7 @@
 
 - type: entity
   parent: BaseGameRule
-  id: Heretics
+  id: ManyHeretics
   components:
   - type: HereticRule
   - type: GameRule
