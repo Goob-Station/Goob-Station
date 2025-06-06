@@ -10711,3 +10711,9 @@ Entries:
       message: Added Security Poncho for Senior Security Officers.
   id: 1180
   time: '2025-06-06T17:45:24.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Spacewind has been reenabled (air flow can throw you).
+  id: 1181
+  time: '2025-06-06T17:49:34.0000000+00:00'
