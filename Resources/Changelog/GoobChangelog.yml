@@ -10725,3 +10725,13 @@ Entries:
       message: Vent critter events now actually spawn several mobs.
   id: 1182
   time: '2025-06-06T19:05:03.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Add
+      message: Added combat medkits for IPCs to the uplink
+    - type: Add
+      message: Added combat medkits full of pill canisters to the uplink
+    - type: Tweak
+      message: combat medkit price 25 > 15
+  id: 1183
+  time: '2025-06-06T19:23:19.0000000+00:00'
