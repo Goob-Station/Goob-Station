@@ -26,10 +26,12 @@
 // SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Chemistry;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reaction;
@@ -70,8 +72,14 @@ public sealed class ReactiveSystem : EntitySystem
         if (!TryComp(uid, out ReactiveComponent? reactive))
             return;
 
+        if (reactive is { IsReactionsUnlimited: false, RemainingReactions: <= 0 }) // Goobstation
+            return;
+
         // If we have a source solution, use the reagent quantity we have left. Otherwise, use the reaction volume specified.
         var args = new EntityEffectReagentArgs(uid, EntityManager, null, source, source?.GetReagentQuantity(reagentQuantity.Reagent) ?? reagentQuantity.Quantity, proto, method, 1f);
+
+        if (reactive.OneUnitReaction) // Goobstation
+            args.Quantity = 1;
 
         // First, check if the reagent wants to apply any effects.
         if (proto.ReactiveEffects != null && reactive.ReactiveGroups != null)
@@ -86,6 +94,16 @@ public sealed class ReactiveSystem : EntitySystem
 
                 if (!reactive.ReactiveGroups[key].Contains(method))
                     continue;
+
+                // Goobstation - Start
+
+                var beforeReact = new BeforeSolutionReactEvent();
+                RaiseLocalEvent(uid, ref beforeReact);
+
+                if (beforeReact.Cancelled)
+                    continue;
+
+                // Goobstation - End
 
                 foreach (var effect in val.Effects)
                 {
@@ -128,6 +146,14 @@ public sealed class ReactiveSystem : EntitySystem
                     }
 
                     effect.Effect(args);
+
+                    // Goobstation - Start
+                    var afterReact = new SolutionReactedEvent();
+                    RaiseLocalEvent(uid, ref afterReact);
+
+                    if (!reactive.IsReactionsUnlimited)
+                        reactive.RemainingReactions -= 1;
+                    // Goobstation - End
                 }
             }
         }

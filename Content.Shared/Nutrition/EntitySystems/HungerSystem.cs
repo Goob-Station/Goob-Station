@@ -81,7 +81,9 @@
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -307,6 +309,17 @@ public sealed class HungerSystem : EntitySystem
             return false; // It's never going to go hungry, so it's probably fine to assume that it's not... you know, hungry.
 
         return GetHungerThreshold(comp, food) < threshold;
+    }
+
+    /// <summary>
+    /// A check that returns if the entity is below a hunger threshold. || Goobstation
+    /// </summary>
+    public bool IsHungerAboveState(EntityUid uid, HungerThreshold threshold, float? food = null, HungerComponent? comp = null)
+    {
+        if (!Resolve(uid, ref comp))
+            return false; // It's never going to go hungry, so it's probably fine to assume that it's not... you know, hungry.
+
+        return GetHungerThreshold(comp, food) > threshold;
     }
 
     private bool GetMovementThreshold(HungerThreshold threshold)
