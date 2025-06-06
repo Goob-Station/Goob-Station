@@ -153,6 +153,7 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
 # SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Preston Smith <92108534+thetolbean@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
@@ -191,6 +192,7 @@
     Telecrystal: 13 # goob - this +1 mag = 15 TC
   categories:
   - UplinkWeaponry
+
 
 - type: listing
   id: UplinkRevolverPython
@@ -469,6 +471,7 @@
     blacklist:
       components:
       - SurplusBundle
+      - NukieBundle #Goob - NukeOps Surplus
 
 
 - type: listing
@@ -1140,7 +1143,7 @@
       blacklist:
         components:
           - SurplusBundle
-
+          - NukieBundle #Goob - NukeOps Surplus
 
 - type: listing
   id: UplinkAntimovCircuitBoard
@@ -1592,7 +1595,7 @@
       blacklist:
         components:
           - SurplusBundle
-          - ContravendUplink
+          - NukieBundle
 
 - type: listing
   id: UplinkFakeMindshield
@@ -2025,7 +2028,10 @@
   - !type:BuyerJobCondition
     whitelist:
     - Botanist
-
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - NukieBundle #Goob - NukeOps Surplus
 
 - type: listing
   id: uplinkRiggedBoxingGlovesPassenger # Remove when contractor baton gets added- and yes, i'm working on that - Goobstation, Fenn :3
@@ -2040,7 +2046,10 @@
     - !type:BuyerJobCondition
       whitelist:
         - Passenger
-
+    - !type:BuyerWhitelistCondition
+      blacklist:
+        components:
+        - NukieBundle #Goob - NukeOps Surplus
 
 - type: listing
   id: uplinkRiggedBoxingGlovesBoxer
@@ -2055,7 +2064,10 @@
     - !type:BuyerJobCondition
       whitelist:
         - Boxer
-
+    - !type:BuyerWhitelistCondition
+      blacklist:
+        components:
+        - NukieBundle #Goob - NukeOps Surplus
 
 - type: listing
   id: uplinkNecronomicon
@@ -2074,7 +2086,7 @@
     blacklist:
       components:
       - SurplusBundle
-
+      - NukieBundle #Goob - NukeOps Surplus
 
 - type: listing
   id: uplinkHolyHandGrenade
@@ -2089,7 +2101,10 @@
   - !type:BuyerJobCondition
     whitelist:
     - Chaplain
-
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - NukieBundle #Goob - NukeOps Surplus
 
 - type: listing
   id: uplinkRevolverCapGunFake
@@ -2105,7 +2120,10 @@
     whitelist:
     - Mime
     - Clown
-
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - NukieBundle #Goob - NukeOps Surplus
 
 - type: listing
   id: uplinkBananaPeelExplosive
@@ -2121,7 +2139,10 @@
   - !type:BuyerJobCondition
     whitelist:
     - Clown
-
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - NukieBundle #Goob - NukeOps Surplus
 
 - type: listing
   id: UplinkClusterBananaPeel
@@ -2136,7 +2157,10 @@
   - !type:BuyerJobCondition
     whitelist:
     - Clown
-
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+       - NukieBundle #Goob - NukeOps Surplus
 
 - type: listing
   id: UplinkHoloclownKit
@@ -2152,7 +2176,10 @@
   - !type:BuyerJobCondition
     whitelist:
     - Clown
-
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - NukieBundle #Goob - NukeOps Surplus
 
 - type: listing
   id: uplinkHotPotato
@@ -2170,7 +2197,10 @@
     - Botanist
     - Clown
     - Mime
-
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - NukieBundle #Goob - NukeOps Surplus
 
 - type: listing
   id: UplinkChimpUpgradeKit
@@ -2185,7 +2215,10 @@
     - !type:BuyerDepartmentCondition
       whitelist:
       - Science
-
+    - !type:BuyerWhitelistCondition
+      blacklist:
+        components:
+        - NukieBundle #Goob - NukeOps Surplus
 
 - type: listing
   id: uplinkProximityMine
@@ -2204,7 +2237,7 @@
     blacklist:
       components:
       - SurplusBundle
-
+      - NukieBundle #Goob - NukeOps Surplus
 
 - type: listing
   id: UplinkSyndicateSpongeBox
@@ -2223,7 +2256,10 @@
     - Scientist
     - ResearchDirector
     - Chef
-
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - NukieBundle #Goob - NukeOps Surplus
 
 - type: listing
   id: UplinkCaneBlade
@@ -2239,11 +2275,11 @@
   - !type:BuyerJobCondition
     whitelist:
     - Librarian
-  #- !type:BuyerWhitelistCondition
-  #  blacklist:
-  #    components:
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
   #    - SurplusBundle
-
+      - NukieBundle #Goob - NukeOps Surplus
 
 - type: listing
   id: UplinkCombatBakery
@@ -2260,6 +2296,10 @@
     whitelist:
     - Chef
     - Mime
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - NukieBundle #Goob - NukeOps Surplus
 
 - type: listing
   id: UplinkSmugglerSatchel
