@@ -1288,7 +1288,7 @@
   name: loadout-group-security-shoes
   loadouts:
   - JackBoots
-  #- SecurityWinterBoots # Goobstation
+  - CombatBoots # Goobstation
   - WinterCombatBoots # Goobstation
 
 - type: loadoutGroup
