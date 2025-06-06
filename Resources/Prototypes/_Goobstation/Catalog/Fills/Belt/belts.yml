@@ -28,7 +28,7 @@
       - id: EnergyScalpel
       - id: AdvancedRetractor
       - id: EnergyCautery
-      - id: BoneGel
+      - id: AdvancedBoneGel
       - id: HandheldCrewMonitor
       - id: MedicatedSuture
       - id: RegenerativeMesh
@@ -222,6 +222,8 @@
     - id: ChemistryBottleEphedrine
       amount: 2
     - id: ChemistryBottleOmnizine
+    - id: ChemistryBottleTramadol
+    - id: ChemistryBottleOxycodone
 
 - type: entity
   id: ClothingBeltHolsterFilledBlueshield
