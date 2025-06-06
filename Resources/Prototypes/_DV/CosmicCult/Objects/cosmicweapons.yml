@@ -202,9 +202,9 @@
       groups:
         Brute: -10
   - type: Gun
-    projectileSpeed: 5
+    projectileSpeed: 4
     soundGunshot: /Audio/_DV/CosmicCult/projectile_razor.ogg
-    fireRate: 1.5
+    fireRate: 1.75
     useKey: false
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 0.1
