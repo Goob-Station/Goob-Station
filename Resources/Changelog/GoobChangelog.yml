@@ -10695,3 +10695,13 @@ Entries:
       message: Chester now requires wielding to shoot.
   id: 1178
   time: '2025-06-06T17:13:54.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Goliath cloak no longer provides armor.
+    - type: Tweak
+      message: It now takes 1+2+3 goliath hides to fully reinforce explorer suit.
+    - type: Fix
+      message: Goliath hardsuit is now craftable.
+  id: 1179
+  time: '2025-06-06T17:31:33.0000000+00:00'
