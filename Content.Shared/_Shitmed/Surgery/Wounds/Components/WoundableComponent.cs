@@ -157,13 +157,19 @@ public sealed partial class WoundableComponent : Component
     /// <summary>
     /// Whether this woundable can be removed from a body..
     /// </summary>
-    [ViewVariables]
+    [DataField]
     public bool CanRemove = true;
+
+    /// <summary>
+    /// Whether this woundable can bleed or not..
+    /// </summary>
+    [DataField]
+    public bool CanBleed = true;
 
     /// <summary>
     /// Whether this woundable's bone is exposed
     /// </summary>
-    [ViewVariables]
+    [DataField]
     public bool IsBoneExposed = false;
 
     /// <summary>
