@@ -10643,3 +10643,13 @@ Entries:
       message: World has been saved, assistants have maints access once again.
   id: 1172
   time: '2025-06-06T09:53:16.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Fix
+      message: All species can now be affected by contact chemicals such as acids.
+    - type: Tweak
+      message: Removed cap on how much damage can a contact chemical heal.
+    - type: Tweak
+      message: Milk heals more damage in skeletons now.
+  id: 1173
+  time: '2025-06-06T10:00:54.0000000+00:00'
