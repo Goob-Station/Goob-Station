@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 August Sun <45527070+august-sun@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ducks <97200673+TwoDucksOnnaPlane@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Speebro <100388782+Speebr0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Speebro <speebro@notreal.com>
@@ -19,7 +20,7 @@
         icon:
           sprite: _Lavaland/Equipment/explorer_suit.rsi
           state: icon
-        name: ExplorerSuit # Goobstation - It's almost impossible to find spationaut hardsuits
+        name: Explorer Suit # Goobstation - It's almost impossible to find spationaut hardsuits
         doAfter: 10
       - material: Durathread
         amount: 5
