@@ -10735,3 +10735,20 @@ Entries:
       message: combat medkit price 25 > 15
   id: 1183
   time: '2025-06-06T19:23:19.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Add
+      message: >-
+        Space Dragon has got 2 new abilities: Wing Flap - stuns everyone in a
+        small radius for 2 seconds, and Rise Fish - summons 3 carps to help you
+        in fight.
+    - type: Add
+      message: >-
+        Space Dragon now can devour items, has thermal vision and heals by
+        standing near carp rifts.
+    - type: Tweak
+      message: Space Dragon now has higher resistances against combat types of damage.
+    - type: Fix
+      message: Fixed Space Dragon not spawning in rounds.
+  id: 1184
+  time: '2025-06-06T20:39:31.0000000+00:00'
