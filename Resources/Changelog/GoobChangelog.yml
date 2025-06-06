@@ -10679,3 +10679,13 @@ Entries:
       message: All sci mech costs have been raised
   id: 1176
   time: '2025-06-06T17:09:23.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Energy speedloaders now need a delay before starting to self-recharge.
+        Also their disabler bolts deal more ion damage.
+    - type: Tweak
+      message: Chester firerate is reduced by 20%.
+  id: 1177
+  time: '2025-06-06T17:13:26.0000000+00:00'
