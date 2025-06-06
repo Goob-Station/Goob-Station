@@ -10661,3 +10661,15 @@ Entries:
         stacks of 1.
   id: 1174
   time: '2025-06-06T10:09:39.0000000+00:00'
+- author: misandrie
+  changes:
+    - type: Tweak
+      message: Re-merged BSO hardsuit and weapon crates
+    - type: Remove
+      message: 'BSO syringe kit '
+    - type: Tweak
+      message: Chester now provides 2 random ammo boxes instead of 4 guaranteed ones
+    - type: Tweak
+      message: 'Reduced laser pistol speedloader count by half '
+  id: 1175
+  time: '2025-06-06T12:32:49.0000000+00:00'
