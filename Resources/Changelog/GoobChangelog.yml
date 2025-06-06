@@ -10705,3 +10705,9 @@ Entries:
       message: Goliath hardsuit is now craftable.
   id: 1179
   time: '2025-06-06T17:31:33.0000000+00:00'
+- author: JarlElbowses
+  changes:
+    - type: Add
+      message: Added Security Poncho for Senior Security Officers.
+  id: 1180
+  time: '2025-06-06T17:45:24.0000000+00:00'
