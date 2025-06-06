@@ -108,6 +108,8 @@
       prob: 0.03
     - id: MobMothroach
       prob: 0.008
+    - id: MobSquackroach # Goobstation
+      prob: 0.003
     - id: MobLootbug # Goobstation
       prob: 0.01
 
