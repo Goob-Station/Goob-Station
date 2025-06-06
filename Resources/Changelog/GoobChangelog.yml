@@ -10673,3 +10673,9 @@ Entries:
       message: 'Reduced laser pistol speedloader count by half '
   id: 1175
   time: '2025-06-06T12:32:49.0000000+00:00'
+- author: mikusssssss
+  changes:
+    - type: Tweak
+      message: All sci mech costs have been raised
+  id: 1176
+  time: '2025-06-06T17:09:23.0000000+00:00'
