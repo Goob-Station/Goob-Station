@@ -75,16 +75,16 @@
       passiveBlockFraction: 0.65
       passiveBlockModifier:
         coefficients:
-          Blunt: 1
-          Slash: 1
-          Piercing: 1
-          Heat: 1
+          Blunt: 3
+          Slash: 3
+          Piercing: 3
+          Heat: 3
       activeBlockModifier:
         coefficients:
-          Blunt: 0.5
-          Slash: 0.5
-          Piercing: 0.5
-          Heat: 0.5
+          Blunt: 2
+          Slash: 2
+          Piercing: 2
+          Heat: 2
         flatReductions:
           Heat: 3
           Blunt: 3
@@ -96,14 +96,11 @@
     - type: StaticPrice
       price: 350
     - type: Battery
-      maxCharge: 200
-      startingCharge: 200
+      maxCharge: 600
+      startingCharge: 600
     - type: RechargeableBlocking
-      dischargedRechargeRate: 4
-      chargedRechargeRate: 8
-    - type: BatterySelfRecharger
-      autoRechargeRate: 8
-      autoRecharge: true
+      dischargedRechargeRate: 0
+      chargedRechargeRate: 0
     - type: ItemSlots
       slots:
         item:
@@ -115,6 +112,9 @@
           whitelist:
             tags:
             - Stunbaton
+    - type: Tag
+      tags:
+      - FitsInCharger
 
 - type: entity
   parent: BlueShieldShield
@@ -130,6 +130,7 @@
     chargedRechargeRate: 150
   - type: BatterySelfRecharger
     autoRechargeRate: 150
+    autoRecharge: true
   - type: Item
     size: Normal
   - type: Tag
