@@ -514,12 +514,12 @@
     - Other
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.7
-        Piercing: 0.8
-        Heat: 0.3
-        Shock: 0.8
-        Caustic: 0.2
+        Blunt: 0.55
+        Slash: 0.75
+        Piercing: 0.85
+        Heat: 0.25
+        Shock: 0.75
+        Caustic: 0.25
         Radiation: 0.01
   - type: ComponentToggler
     components:
@@ -535,7 +535,7 @@
   - type: StaminaDamageResistance
     coefficient: 0.5
   - type: FireProtection
-    reduction: 0.7
+    reduction: 0.5
   - type: HideClothingLayerClothing
     hiddenSlots:
     - jumpsuit

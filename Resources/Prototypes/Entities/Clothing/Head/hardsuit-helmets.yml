@@ -576,9 +576,9 @@
       coefficients: #Goob - Modsuit edited all but pierce/blunt
         Blunt: 0.7
         Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.5
-        Radiation: 0.1
+        Piercing: 0.95
+        Heat: 0.45
+        Radiation: 0.05
         Caustic: 0.4
 
 #Head of Security's hardsuit

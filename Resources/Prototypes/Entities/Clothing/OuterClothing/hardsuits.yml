@@ -734,14 +734,15 @@
   - type: Armor
     modifiers:
       coefficients: #Goob - Modsuits all but pierce
-        Blunt: 0.7
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.5
-        Radiation: 0.1
+        Blunt: 0.65
+        Slash: 0.85
+        Piercing: 0.95
+        Heat: 0.4
+        Shock: 0.85
+        Radiation: 0.05
         Caustic: 0.4
   - type: ExplosionResistance
-    damageCoefficient: 0.2 #Goob - Modsuits
+    damageCoefficient: 0.15 #Goob - Modsuits
   - type: ClothingSpeedModifier
     walkModifier: 0.85 #Goob - Modsuits
     sprintModifier: 0.85 #Goob - Modsuits
@@ -765,7 +766,7 @@
     delayDelta: 2
     knockdownTimeDelta: -2
   - type: StaminaDamageResistance # Goobstation
-    coefficient: 0.7
+    coefficient: 0.65
 
 #Head of Security's Hardsuit, heavily edited by goob
 - type: entity
