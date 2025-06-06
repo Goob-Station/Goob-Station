@@ -119,6 +119,17 @@ public sealed class NtrTaskSystem : EntitySystem
 
         if (!_prototypes.TryIndex(taskData.Value.Task, out var taskProto))
             return;
+
+        if (taskProto.Entries.Any(e => e.IsEvent))
+        {
+            var item = Spawn(taskProto.Proto, Transform(uid).Coordinates);
+            HandleTaskOutcome(uid, station, taskData.Value, true);
+            component.ActiveTaskIds.Remove(args.TaskId);
+            component.NextPrintTime = _timing.CurTime + component.PrintDelay;
+            _audio.PlayPvs(component.PrintSound, uid);
+            UpdateConsoleUi(uid, db);
+            return;
+        }
         for (int i = 0; i < db.Tasks.Count; i++)
         {
             if (db.Tasks[i].Id == taskData.Value.Id)
@@ -211,39 +222,32 @@ public sealed class NtrTaskSystem : EntitySystem
             _popup.PopupEntity(_loc.GetString("ntr-console-spam-penalty"), uid, args.User);
     }
 
-    private void HandleTaskOutcome(EntityUid console, EntityUid station, NtrTaskPrototype task, bool success)
+    private void HandleTaskOutcome(EntityUid console, EntityUid station, NtrTaskData taskData, bool success)
     {
         if (!TryComp<NtrTaskDatabaseComponent>(station, out var db) ||
-            !TryComp<NtrBankAccountComponent>(station, out var account))
+            !TryComp<NtrBankAccountComponent>(station, out var account) ||
+            !_prototypes.TryIndex(taskData.Task, out NtrTaskPrototype? taskProto))
             return;
 
-        var amount = success ? task.Reward : -task.Penalty;
+        var amount = success ? taskProto.Reward : -taskProto.Penalty;
         UpdateAccountBalance(station, amount);
         RaiseBalanceUpdatedEvent(station, account.Balance);
 
-        if (TryGetTaskFromId(station, task.ID, out var taskData, db))
+        var index = db.Tasks.FindIndex(t => t.Id == taskData.Id);
+        if (index != -1)
         {
-            for (int i = 0; i < db.Tasks.Count; i++)
-            {
-                if (db.Tasks[i].Id == taskData.Value.Id)
-                {
-                    var updatedTask = db.Tasks[i];
-                    updatedTask.IsActive = false;
-                    db.Tasks[i] = updatedTask;
-                    break;
-                }
-            }
+            db.Tasks.RemoveAt(index);
+            var result = success ? NtrTaskHistoryData.TaskResult.Completed
+                : NtrTaskHistoryData.TaskResult.Failed;
             db.History.Add(new NtrTaskHistoryData(
-                taskData.Value,
-                success ? NtrTaskHistoryData.TaskResult.Completed
-                    : NtrTaskHistoryData.TaskResult.Failed,
+                taskData,
+                result,
                 _timing.CurTime,
                 null
             ));
         }
 
         UpdateTaskConsoles();
-        UpdateConsoleUi(console, db);
     }
     private bool TryGetActiveTask(EntityUid station, NtrTaskPrototype proto, [NotNullWhen(true)] out NtrTaskData? task)
     {
@@ -331,11 +335,10 @@ public sealed class NtrTaskSystem : EntitySystem
 
         if (task.Entries.Any(e => e.IsEvent))
         {
-            HandleTaskOutcome(console, station.Value, task, true);
+            HandleTaskOutcome(console, station.Value, taskData.Value, true);
             return true;
         }
-
-        RaiseLocalEvent(console, new TaskCompletedEvent(task));
+        RaiseLocalEvent(console, new TaskCompletedEvent(taskData.Value));
 
         if (TryRemoveTask(station.Value, taskData.Value.Id, false))
         {
@@ -576,10 +579,10 @@ public sealed class NtrTaskSystem : EntitySystem
 public sealed class TaskFailedEvent : EntityEventArgs
 {
     public EntityUid User;
-    public NtrTaskPrototype Task;
+    public NtrTaskData Task;
     public int Penalty;
 
-    public TaskFailedEvent(EntityUid user, NtrTaskPrototype task, int penalty)
+    public TaskFailedEvent(EntityUid user, NtrTaskData task, int penalty)
     {
         User = user;
         Task = task;

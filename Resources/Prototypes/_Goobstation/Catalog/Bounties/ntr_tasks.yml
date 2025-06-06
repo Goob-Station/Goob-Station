@@ -1,7 +1,7 @@
 - type: ntrTask
   id: TaskStampHos
   proto: SecurityDocument
-  reward: 2
+  reward: 3
   cooldown: 180
   description: task-ntr-stamp-hos
   entries:
@@ -16,7 +16,7 @@
 - type: ntrTask
   id: TaskStampHop
   proto: ServiceDocument
-  reward: 2
+  reward: 3
   cooldown: 180
   description: task-ntr-stamp-hop
   entries:
@@ -31,7 +31,7 @@
 - type: ntrTask
   id: TaskStampCe
   proto: EngineeringDocument
-  reward: 2
+  reward: 3
   cooldown: 180
   description: task-ntr-stamp-ce
   entries:
@@ -46,7 +46,7 @@
 - type: ntrTask
   id: TaskStampCmo
   proto: MedicalDocument
-  reward: 2
+  reward: 3
   cooldown: 180
   description: task-ntr-stamp-cmo
   entries:
@@ -61,7 +61,7 @@
 - type: ntrTask
   id: TaskStampRd
   proto: ScienceDocument
-  reward: 2
+  reward: 3
   cooldown: 180
   description: task-ntr-stamp-rd
   entries:
@@ -76,7 +76,7 @@
 - type: ntrTask
   id: TaskStampQm
   proto: CargoDocument
-  reward: 2
+  reward: 3
   cooldown: 180
   description: task-ntr-stamp-qm
   entries:

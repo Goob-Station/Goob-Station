@@ -1,6 +1,6 @@
 # templates
 # service
-ntr-document-service-starting-text11 = [color=#009100]█▄ █ ▀█▀    [head=3]NanoTrasen Document[/head]
+ntr-document-service-starting-text1 = [color=#009100]█▄ █ ▀█▀    [head=3]NanoTrasen Document[/head]
     █ ▀█     █        To: Service department
                            From: CentComm
                            Issued: {$date}

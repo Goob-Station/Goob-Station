@@ -1,6 +1,6 @@
 - type: documentType
   id: SecurityDocument
-  startingText: ntr-document-security-starting-text
+  startingText: ntr-document-security-starting-text1
   template: ntr-document-security-document-text
   textKeys:
   - ntr-document-funny-sec1
@@ -15,7 +15,7 @@
 
 - type: documentType
   id: CargoDocument
-  startingText: ntr-document-cargo-starting-text
+  startingText: ntr-document-cargo-starting-text1
   template: ntr-document-cargo-document-text
   textKeys:
   - ntr-document-funny-cargo1
@@ -28,7 +28,7 @@
 
 - type: documentType
   id: MedicalDocument
-  startingText: ntr-document-medical-starting-text
+  startingText: ntr-document-medical-starting-text1
   template: ntr-document-medical-document-text
   textKeys:
   - ntr-document-funny-med1
@@ -43,7 +43,7 @@
 
 - type: documentType
   id: ServiceDocument
-  startingText: ntr-document-service-starting-text
+  startingText: ntr-document-service-starting-text1
   template: ntr-document-service-document-text
   textKeys:
   - ntr-document-funny-service1
@@ -58,7 +58,7 @@
 
 - type: documentType
   id: ScienceDocument
-  startingText: ntr-document-science-starting-text
+  startingText: ntr-document-science-starting-text1
   template: ntr-document-science-document-text
   textKeys:
   - ntr-document-funny-sci1
@@ -73,7 +73,7 @@
 
 - type: documentType
   id: EngineeringDocument
-  startingText: ntr-document-engineering-starting-text
+  startingText: ntr-document-engineering-starting-text1
   template: ntr-document-engineering-document-text
   textKeys:
   - ntr-document-funny-engi1
@@ -85,26 +85,6 @@
   - 10
   - 9
   - 10
-
-- type: spamType
-  id: ObviousSpam
-  legitDocuments: [] # not used for obvious spam
-  mimicDocuments: []
-
-- type: spamType
-  id: MimicSpam
-  legitDocuments:
-  - SecurityDocument
-  - CargoDocument
-  - MedicalDocument
-  - EngineeringDocument
-  - ScienceDocument
-  mimicDocuments:
-  - SecurityDocument
-  - CargoDocument
-  - MedicalDocument
-  - EngineeringDocument
-  - ScienceDocument
 
 # Documents
 - type: entity
@@ -171,22 +151,3 @@
     documentType: ScienceDocument
     tasks:
     - TaskStampRd
-
-# Spam Documents
-- type: entity
-  id: SpamDocumentObvious
-  name: Corporate Document
-  parent: Paper
-  description: An official NanoTrasen document. Obviously fake spam.
-  components:
-  - type: SpamDocument
-    spamType: ObviousSpam
-
-- type: entity
-  id: SpamDocumentMimic
-  name: Corporate Document
-  parent: Paper
-  description: An official NanoTrasen document. Sophisticated mimic spam.
-  components:
-  - type: SpamDocument
-    spamType: MimicSpam
