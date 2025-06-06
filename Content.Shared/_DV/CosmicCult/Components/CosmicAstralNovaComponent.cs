@@ -16,7 +16,7 @@ public sealed partial class CosmicAstralNovaComponent : Component
     public DamageSpecifier CosmicNovaDamage = new()
     {
         DamageDict = new() {
-            { "Asphyxiation", 13 }
+            { "Asphyxiation", 5 }
         }
     };
 }
