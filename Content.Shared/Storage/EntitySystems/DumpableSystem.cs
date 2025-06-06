@@ -78,10 +78,13 @@
 // SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Jarl <elliotacline@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Shared._DV.SmartFridge;
 using Content.Shared.Disposal;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
@@ -93,6 +96,7 @@ using JetBrains.Annotations;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Containers;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Storage.EntitySystems;
@@ -105,6 +109,7 @@ public sealed class DumpableSystem : EntitySystem
     [Dependency] private readonly SharedDisposalUnitSystem _disposalUnitSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
 
     private EntityQuery<ItemComponent> _itemQuery;
 
@@ -164,7 +169,7 @@ public sealed class DumpableSystem : EntitySystem
         if (!TryComp<StorageComponent>(uid, out var storage) || !storage.Container.ContainedEntities.Any())
             return;
 
-        if (_disposalUnitSystem.HasDisposals(args.Target))
+             if (_disposalUnitSystem.HasDisposals(args.Target) || HasComp<SmartFridgeComponent>(args.Target))
         {
             UtilityVerb verb = new()
             {
@@ -262,6 +267,18 @@ public sealed class DumpableSystem : EntitySystem
             {
                 _transformSystem.SetWorldPositionRotation(entity, targetPos + _random.NextVector2Box() / 4, targetRot);
             }
+        }
+         else if (TryComp<SmartFridgeComponent>(target, out var fridge))
+        {
+            dumped = true;
+            if (_container.TryGetContainer(target!.Value, fridge.Container, out var container))
+            {
+                foreach (var entity in dumpQueue)
+                {
+                    _container.Insert(entity, container);
+                }
+            }
+
         }
         else
         {
