@@ -10689,3 +10689,9 @@ Entries:
       message: Chester firerate is reduced by 20%.
   id: 1177
   time: '2025-06-06T17:13:26.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Fix
+      message: Chester now requires wielding to shoot.
+  id: 1178
+  time: '2025-06-06T17:13:54.0000000+00:00'
