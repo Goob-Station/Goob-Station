@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -38,12 +39,14 @@ public sealed class SelectedEvent
     ///   The station event prototype
     /// </summary>
     public readonly EntityPrototype Proto;
-    public readonly StationEventComponent Comp;
+    public readonly GameRuleComponent RuleComp;
+    public readonly StationEventComponent? EvComp;
 
-    public SelectedEvent(EntityPrototype proto, StationEventComponent comp)
+    public SelectedEvent(EntityPrototype proto, GameRuleComponent ruleComp, StationEventComponent? evComp = null)
     {
         Proto = proto;
-        Comp = comp;
+        RuleComp = ruleComp;
+        EvComp = evComp;
     }
 }
 public sealed class PlayerCount
@@ -119,13 +122,15 @@ public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
     {
         foreach (var proto in GameTicker.GetAllGameRulePrototypes())
         {
-            if (!proto.TryGetComponent<StationEventComponent>(out var stationEvent, _factory))
+            if (!proto.TryGetComponent<GameRuleComponent>(out var gameRule, _factory) ||
+                !proto.TryGetComponent<StationEventComponent>(out var stationEvent, _factory)
+            )
                 continue;
 
             if (scheduler.DisallowedEvents.Contains(stationEvent.EventType) || (!scheduler.IgnoreTimings && !_event.CanRun(proto, stationEvent, count.Players, _timing.CurTime)))
                 continue;
 
-            scheduler.SelectedEvents.Add(new SelectedEvent(proto, stationEvent));
+            scheduler.SelectedEvents.Add(new SelectedEvent(proto, gameRule, stationEvent));
         }
     }
 
@@ -141,11 +146,13 @@ public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
         {
             var proto = entry.Key;
             var stationEvent = entry.Value;
+            if (!proto.TryGetComponent<GameRuleComponent>(out var gameRule, _factory))
+                continue;
 
             if (scheduler.DisallowedEvents.Contains(stationEvent.EventType) || (!scheduler.IgnoreTimings && !_event.CanRun(proto, stationEvent, count.Players, _timing.CurTime)))
                 continue;
 
-            scheduler.SelectedEvents.Add(new SelectedEvent(proto, stationEvent));
+            scheduler.SelectedEvents.Add(new SelectedEvent(proto, gameRule, stationEvent));
         }
     }
 
@@ -185,7 +192,7 @@ public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
         if (selectedEvent != null)
         {
             _event.RunNamedEvent(selectedEvent.Proto.ID);
-            scheduler.ChaosScore += selectedEvent.Comp.ChaosScore;
+            scheduler.ChaosScore += selectedEvent.RuleComp.ChaosScore;
         }
         else {
             LogMessage($"No runnable events");
@@ -219,35 +226,34 @@ public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
 
             var pick = _random.Pick(weights);
 
-            StationEventComponent? stationEvent = null;
+            GameRuleComponent? ruleComp = null;
             if (_prototypeManager.TryIndex(pick, out var entProto) &&
-                entProto.TryGetComponent<StationEventComponent>(out stationEvent, _factory) &&
-                _random.Prob(1 - -scheduler.ChaosScore / stationEvent.ChaosScore)) // have a chance to re-pick if we have low chaos budget left compared to this
+                entProto.TryGetComponent<GameRuleComponent>(out ruleComp, _factory) &&
+                _random.Prob(1 - -scheduler.ChaosScore / ruleComp.ChaosScore)) // have a chance to re-pick if we have low chaos budget left compared to this
                 continue;
 
             weights.Remove(pick);
             if (_prototypeManager.TryIndex(pick, out IncompatibleGameModesPrototype? incompModes))
                 weights = weights.Where(w => !incompModes.Modes.Contains(w.Key)).ToDictionary();
 
-            IndexAndStartGameMode(pick, entProto, stationEvent);
+            IndexAndStartGameMode(pick, entProto, ruleComp);
             if (weights.Count == 0)
                 return;
         }
 
         return;
 
-        void IndexAndStartGameMode(string pick, EntityPrototype? pickProto, StationEventComponent? evComp)
+        void IndexAndStartGameMode(string pick, EntityPrototype? pickProto, GameRuleComponent? ruleComp)
         {
             if(pickProto == null ||
-               evComp == null ||
-               !pickProto.TryGetComponent<GameRuleComponent>(out var pickGameRule, _factory) ||
-               pickGameRule.MinPlayers > count)
+               ruleComp == null ||
+               ruleComp.MinPlayers > count)
             {
                 return;
             }
             LogMessage($"Roundstart rule chosen: {pick}");
             GameTicker.AddGameRule(pick);
-            scheduler.ChaosScore += evComp.ChaosScore;
+            scheduler.ChaosScore += ruleComp.ChaosScore;
         }
     }
 
@@ -302,7 +308,9 @@ public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
 
         foreach (var ev in possible)
         {
-            var weight = ev.Comp.ChaosScore;
+            if (ev.EvComp == null)
+                continue;
+            var weight = ev.RuleComp.ChaosScore;
             bool negative = weight < 0f;
             weight = MathF.Abs(weight);
             weight = MathF.Pow(weight, scheduler.ChaosExponent);
@@ -310,7 +318,7 @@ public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
             weight += scheduler.ChaosOffset; // offset negative-chaos events upwards too else they never happen
             weight += weight < 0f ? -scheduler.ChaosThreshold : scheduler.ChaosThreshold; // make sure it's not in (-1, 1) to not get absurdly low event probabilities
             var delta = ChaosDelta(-scheduler.ChaosScore, weight, scheduler.ChaosMatching, scheduler.ChaosThreshold);
-            weights[ev] = ev.Comp.Weight / (delta + 1f);
+            weights[ev] = ev.EvComp.Weight / (delta + 1f);
         }
 
         return weights.Count == 0 ? null : _random.Pick(weights);

@@ -128,7 +128,7 @@ public partial class WoundSystem
         foreach (var wound in GetWoundableWounds(woundable, component))
         {
             if (!TryComp<BleedInflicterComponent>(wound, out var bleeds)
-            || !bleeds.IsBleeding)
+                || !bleeds.IsBleeding)
                 continue;
 
             if (modifiedBleed > bleeds.BleedingAmount)
