@@ -113,8 +113,10 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 James <40279265+ViceEmargo@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Jarl <elliotacline@gmail.com>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 tetra <169831122+Foralemes@users.noreply.github.com>
@@ -393,7 +395,7 @@
       - type: CriminalRecordsHacker
 
 - type: entity
-  parent: ClothingHandsGlovesColorBlack # goobstation - no longer sec/engi contra its just reskinned insuls i can order this shit on amazon for 50 bucks
+  parent: [ClothingHandsGlovesColorBlack, BaseSecurityEngineeringContraband]
   id: ClothingHandsGlovesCombat
   name: combat gloves
   description: These tactical gloves are fireproof and shock resistant.
