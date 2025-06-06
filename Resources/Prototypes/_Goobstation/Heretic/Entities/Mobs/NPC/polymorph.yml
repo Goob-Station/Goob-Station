@@ -3,7 +3,9 @@
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 #
@@ -183,3 +185,21 @@
     interactSuccessString: hugging-success-generic
     interactSuccessSound: /Audio/Effects/thudswoosh.ogg
     messagePerceivedByOthers: hugging-success-generic-others
+  - type: AmbientSound
+    volume: -5
+    range: 20
+    sound:
+      path: /Audio/_Goobstation/Ambience/Antag/eldritch_heartbeat.ogg
+
+- type: entity
+  id: ActionRiseProphet
+  name: summon prophets
+  description: Summons 2 prophets to aid in your conquest.
+  components:
+  - type: InstantAction
+    icon:
+      sprite: /Textures/_Goobstation/Actions/actions_borg.rsi
+      state: lollypop-module
+    event: !type:HorrorSpawnProphetActionEvent
+    useDelay: 5
+    priority: 4
