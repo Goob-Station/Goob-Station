@@ -18,6 +18,8 @@
 # SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 WonderHellblazer <riches1823@gmail.com>
+# SPDX-FileCopyrightText: 2025 WonderPsycho <riches1823@gmail.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
@@ -229,3 +231,81 @@
   rules:
     - SecretPlusHigh
     - LavalandStormScheduler
+
+- type: gamePreset
+  id: TheHivelord
+  alias:
+    - hivelord
+    - thehivelord
+    - biopunk
+  name: hivelord-title
+  description: hivelord-description
+  showInVote: true
+  minPlayers: 30
+  rules:
+    - CombatDynamic
+    - LavalandStormScheduler
+    - BlobMidround
+    - BlobGameMode
+    - Zombie
+    - BingleSpawn
+    - Changeling
+    - ChangelingMidround
+    - CalmLing
+    - SlimesSpawn
+    - ZombieOutbreak
+    - SpiderSpawn
+    - SpiderClownSpawn
+    - SnakeSpawn
+    - KingRatMigration
+    - DragonSpawn
+    - AnomalySpawn
+    - SubGamemodesHivelord
+    - SubGamemodesRule
+    - IonStormScheduler
+    - SpaceTrafficControlEventScheduler
+
+- type: gamePreset
+  id: TheMage
+  alias:
+    - mage
+    - themage
+    - cosmic
+  name: mage-title
+  description: mage-description
+  showInVote: true
+  minPlayers: 22
+  rules:
+    - CombatDynamic
+    - LavalandStormScheduler
+    - RevenantSpawn
+    - MassHallucinations
+    - AnomalySpawn
+    - KudzuGrowth
+    - BluespaceArtifact
+    - Heretic
+    - Devil
+    - CosmicCult
+    - SubGamemodesRule
+    - SubGamemodesMage
+    - IonStormScheduler
+    - SpaceTrafficControlEventScheduler
+
+- type: gamePreset
+  id: TheChaos
+  alias:
+    - chaosstoryteller
+    - thechaos
+    - havoc
+  name: chaos-title
+  description: chaos-description
+  showInVote: true
+  minPlayers: 22
+  rules:
+    - CombatDynamic
+    - LavalandStormScheduler
+    - Honkops
+    - Wizard
+    - SubGamemodesChaos
+    - IonStormScheduler
+    - SpaceTrafficControlEventScheduler
