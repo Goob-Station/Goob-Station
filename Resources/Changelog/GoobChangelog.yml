@@ -10581,3 +10581,83 @@ Entries:
       message: Fixed Hierophant second fight making only Teleportation attacks.
   id: 1165
   time: '2025-06-03T07:38:09.0000000+00:00'
+- author: Arraydeess
+  changes:
+    - type: Add
+      message: Added Balloons purchasable via cargo!
+    - type: Tweak
+      message: Ancestors and pets now hate balloons
+    - type: Tweak
+      message: Spesos can now be picked up by ore bags
+  id: 1166
+  time: '2025-06-04T11:38:59.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: All shields are undisarmable now.
+    - type: Tweak
+      message: Energy shield is now more resistant.
+    - type: Tweak
+      message: Greatshield and atrocity no longer self-recharge.
+  id: 1167
+  time: '2025-06-04T12:31:38.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: You can now properly drag-and-drop batteries and modules onto mechs.
+  id: 1168
+  time: '2025-06-04T12:34:23.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Increased lawbringer bigshot structural damage, also it no longer flies
+        through windows which was an oversight.
+    - type: Fix
+      message: >-
+        Regular security winter boots no longer have jackboots bonuses, it also
+        was an oversight. 
+    - type: Fix
+      message: >-
+        CMO webbing comes with a bone manipulator instead of bone gel, it was
+        well you guessed it.
+    - type: Fix
+      message: Warden's headgears now have armor values, you know what that was.
+  id: 1169
+  time: '2025-06-04T12:35:34.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: Added several new furniture to decorate the station with!
+  id: 1170
+  time: '2025-06-04T13:01:23.0000000+00:00'
+- author: ScarKy0
+  changes:
+    - type: Fix
+      message: Borgs can no longer see mindshield status.
+  id: 1171
+  time: '2025-06-06T09:36:40.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: World has been saved, assistants have maints access once again.
+  id: 1172
+  time: '2025-06-06T09:53:16.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Fix
+      message: All species can now be affected by contact chemicals such as acids.
+    - type: Tweak
+      message: Removed cap on how much damage can a contact chemical heal.
+    - type: Tweak
+      message: Milk heals more damage in skeletons now.
+  id: 1173
+  time: '2025-06-06T10:00:54.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Tweak
+      message: >-
+        Chemistry plastic reaction makes plastic in stacks of 10 instead of
+        stacks of 1.
+  id: 1174
+  time: '2025-06-06T10:09:39.0000000+00:00'
