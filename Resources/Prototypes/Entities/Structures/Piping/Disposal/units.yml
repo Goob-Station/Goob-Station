@@ -127,6 +127,11 @@
         type: DisposalUnitBoundUserInterface
   - type: RatKingRummageable
   - type: RequireProjectileTarget
+  # Einstein Engines start
+  - type: DeviceLinkSink
+    ports:
+      - FillbotAnyItem
+  # Einstein Engines end
 
 - type: entity
   id: MailingUnit
@@ -181,3 +186,8 @@
         type: DisposalUnitBoundUserInterface
       enum.ConfigurationUiKey.Key:
         type: ConfigurationBoundUserInterface
+  # Einstein Engines start
+  - type: DeviceLinkSink
+    ports:
+      - FillbotAnyItem
+  # Einstein Engines end
