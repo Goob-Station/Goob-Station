@@ -21,6 +21,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Body.Prototypes;
 using Content.Shared.Humanoid;
 using Content.Shared.StatusIcon;
 using Robust.Shared.Audio;
@@ -59,6 +60,9 @@ public sealed partial class ChangelingIdentityComponent : Component
         "ActionEnterStasis",
         "ActionExitStasis"
     };
+
+    [ValidatePrototypeId<MetabolizerTypePrototype>]
+    public static readonly string MetabolizerAnimal = "Animal";
 
     /// <summary>
     ///     The status icon corresponding to the Changlings.

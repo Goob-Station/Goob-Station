@@ -61,6 +61,9 @@ using Content.Server.Popups;
 using Content.Server.Store.Systems;
 using Content.Server.Stunnable;
 using Content.Server.Zombies;
+using Content.Server.Body.Components;
+using Content.Shared.Body.Systems;
+using Content.Shared.Body.Components;
 using Content.Shared._Goobstation.Weapons.AmmoSelector;
 using Content.Shared.Actions;
 using Content.Shared.Alert;
@@ -95,6 +98,8 @@ using Content.Shared.Projectiles;
 using Content.Shared.Revolutionary.Components;
 using Content.Shared.Store.Components;
 using Content.Shared.Tag;
+using Content.Shared.Chemistry.Reagent;
+using Content.Shared.Chemistry;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
@@ -129,6 +134,8 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
+    [Dependency] private readonly MetabolizerSystem _metabolism = default!;
+    [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly EmpSystem _emp = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
@@ -760,6 +767,22 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         PlayMeatySound(target, comp);
     }
 
+    public void MetabolizerType(Entity<ChangelingIdentityComponent> changeling)
+    {
+        if (!TryComp<BodyComponent>(changeling, out var body))
+            return;
+
+        foreach (var organ in _body.GetBodyOrgans(changeling, body))
+        {
+            if (TryComp<MetabolizerComponent>(organ.Id, out var metabolizer))
+            {
+                _metabolism.TryAddMetabolizerType(
+                    metabolizer,
+                    ChangelingIdentityComponent.MetabolizerAnimal
+                );
+            }
+        }
+    }
     #endregion
 
     #region Event Handlers
@@ -791,6 +814,8 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         UpdateChemicals(uid, comp, 0);
         // make their blood unreal
         _blood.ChangeBloodReagent(uid, "BloodChangeling");
+        // change metabolizer type
+        MetabolizerType((uid, comp));
     }
 
     private void OnMobStateChange(EntityUid uid, ChangelingIdentityComponent comp, ref MobStateChangedEvent args)

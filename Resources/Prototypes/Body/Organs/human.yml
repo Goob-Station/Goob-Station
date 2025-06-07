@@ -161,6 +161,7 @@
     tags:
     - Meat
     - Organ
+    - LingEdible
 
 - type: entity
   id: BaseHumanOrgan
