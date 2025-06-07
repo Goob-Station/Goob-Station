@@ -4,6 +4,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Server.Chat.Managers;
 using Content.Server.Station.Systems;
 using Content.Server.StationEvents.Events;
 using Content.Shared.GameTicking.Components;
@@ -16,6 +17,7 @@ public sealed class LateJobUnlockRule : StationEventSystem<LateJobUnlockRuleComp
     [Dependency] private readonly StationJobsSystem _stationJobs = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly IChatManager _chat = default!;
 
     protected override void Started(EntityUid uid, LateJobUnlockRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
@@ -28,7 +30,11 @@ public sealed class LateJobUnlockRule : StationEventSystem<LateJobUnlockRuleComp
                 var jobId = jobProtoId.ToString();
 
                 if (!_prototype.HasIndex(jobProtoId))
+                {
+                    _chat.SendAdminAlert($"Job prototype '{jobId}' not found for station {_station.GetOwningStation(station)}");
                     continue;
+                }
+
                 var currentSlots = _stationJobs.TryGetJobSlot(station, jobId, out var slots) ? slots ?? 0 : 0;
                 _stationJobs.TrySetJobSlot(station, jobId, currentSlots + slotCount);
             }
