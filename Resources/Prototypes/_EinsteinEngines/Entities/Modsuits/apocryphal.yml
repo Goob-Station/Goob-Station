@@ -1,6 +1,8 @@
 # SPDX-FileCopyrightText: 2025 CliveOcelot <165305605+Orion-416@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
 # SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -34,7 +36,8 @@
     - type: ExplosionResistance
       damageCoefficient: 0.1
     - type: SealableClothingVisuals
-      visualLayers:
+      spriteLayer: sealed
+      clothingVisuals:
         back:
         - state: equipped-BACKPACK-sealed
 
@@ -48,7 +51,8 @@
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/apocryphal.rsi
     - type: SealableClothingVisuals
-      visualLayers:
+      spriteLayer: sealed
+      clothingVisuals:
         gloves:
         - state: equipped-HAND-sealed
         - state: equipped-HAND-sealed-unshaded
@@ -96,7 +100,8 @@
     - type: PointLight
       color: "#FFDF00"
     - type: SealableClothingVisuals
-      visualLayers:
+      spriteLayer: sealed
+      clothingVisuals:
         head:
         - state: equipped-HEAD-sealed
         - state: equipped-HEAD-sealed-unshaded
@@ -132,7 +137,8 @@
           Radiation: 0.1
           Caustic: 0.1
     - type: SealableClothingVisuals
-      visualLayers:
+      spriteLayer: sealed
+      clothingVisuals:
         outerClothing:
         - state: equipped-OUTERCLOTHING-sealed
     - type: StaminaDamageResistance
@@ -156,7 +162,8 @@
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/apocryphal.rsi
     - type: SealableClothingVisuals
-      visualLayers:
+      spriteLayer: sealed
+      clothingVisuals:
         shoes:
         - state: equipped-FEET-sealed
     - type: ItemToggle
