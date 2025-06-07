@@ -58,12 +58,6 @@
     text4: science_text4_dataset
 
 - type: localizedDataset
-  id: department_dataset
-  values:
-    prefix: department-dataset-
-    count: 6
-
-- type: localizedDataset
   id: service_starting_dataset
   values:
     prefix: ntr-document-service-starting-text
