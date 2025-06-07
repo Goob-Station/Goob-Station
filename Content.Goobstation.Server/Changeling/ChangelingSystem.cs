@@ -530,6 +530,8 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
                 newArmor.Add(armor);
             }
 
+            _audio.PlayPvs(comp.ArmourSound, uid, AudioParams.Default);
+
             comp.ActiveArmor = newArmor;
             comp.ChemicalRegenMultiplier -= 0.25f; // base chem regen slowed by a flat 25%
             return true;
@@ -539,6 +541,8 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             // Unequip armor
             foreach (var armor in comp.ActiveArmor)
                 QueueDel(armor);
+
+            _audio.PlayPvs(comp.ArmourStripSound, uid, AudioParams.Default);
 
             comp.ActiveArmor = null!;
             comp.ChemicalRegenMultiplier += 0.25f; // chem regen debuff removed
