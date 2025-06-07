@@ -19,7 +19,7 @@
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/praetorian.rsi
     - type: Clothing
-      clthingVisuals:
+      clothingVisuals:
         back:
         - state: equipped-BACKPACK
         back-resomi:
