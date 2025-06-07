@@ -5,6 +5,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Chat.Managers;
+using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Server.StationEvents.Events;
 using Content.Shared.GameTicking.Components;
@@ -25,6 +26,12 @@ public sealed class LateJobUnlockRule : StationEventSystem<LateJobUnlockRuleComp
 
         foreach (var station in _station.GetStationsSet())
         {
+            if (!HasComp<StationJobsComponent>(station))
+            {
+                _chat.SendAdminAlert($"Station {_station.GetOwningStation(station)} has no jobs component. Skipping job unlocks.");
+                continue;
+            }
+
             foreach (var (jobProtoId, slotCount) in component.JobsToAdd)
             {
                 var jobId = jobProtoId.ToString();
