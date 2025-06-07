@@ -2,7 +2,6 @@
 
 namespace Content.Goobstation.Server.MisandryBox.JobObjective;
 
-[DataDefinition]
 public sealed partial class AddObjectiveSpecial : JobSpecial
 {
     /// <summary>
