@@ -36,9 +36,9 @@ namespace Content.Goobstation.Server.NTR.Documents
 
         private string GenerateDocument(ProtoId<DocumentTypePrototype> docType)
         {
-            if (!_proto.TryIndex(docType, out var docProto))
+            if (string.IsNullOrEmpty(docType.Id)) // i hate this
                 return string.Empty;
-            if (string.IsNullOrEmpty(docType.Id)) // i hate it
+            if (!_proto.TryIndex(docType, out var docProto))
                 return string.Empty;
 
             var curDate = DateTime.Now.AddYears(1000);
