@@ -5,6 +5,8 @@
 // SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
 // SPDX-FileCopyrightText: 2025 Marcus F <marcus2008stoke@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 // SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
@@ -241,6 +243,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
             return false;
 
         martialArtsKnowledgeComponent.MartialArtsForm = martialArtsPrototype.MartialArtsForm;
+        martialArtsKnowledgeComponent.StartingStage = comp.StartingStage;
         LoadCombos(martialArtsPrototype.RoundstartCombos, canPerformComboComponent);
         martialArtsKnowledgeComponent.Blocked = false;
 
