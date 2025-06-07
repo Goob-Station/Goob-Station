@@ -15,6 +15,8 @@
   parent: BasePartInorganic
   id: BasePart
   components:
+  - type: BodyPart
+    partComposition: Organic
   - type: Damageable
     damageContainer: Biological # Shitmed Change
   - type: Nerve
@@ -48,6 +50,8 @@
   parent: BaseChestInorganic
   id: BaseChest
   components:
+  - type: BodyPart
+    partComposition: Organic
   - type: Woundable
     damageContainer: Biological
   - type: Destructible
@@ -102,6 +106,8 @@
   id: BaseGroin
   parent: BaseGroinInorganic
   components:
+  - type: BodyPart
+    partComposition: Organic
   - type: Woundable
     damageContainer: Biological
   - type: WoundableVisuals

@@ -33,9 +33,8 @@
     objectives:
     - EscapeThiefShuttleObjective
   # Goobstation
-  - type: StationEvent
+  - type: GameRule
     chaosScore: 300
-    eventType: HostilesSpawn
   - type: AntagRandomObjectives
     sets:
     - groups: ThiefBigObjectiveGroups
