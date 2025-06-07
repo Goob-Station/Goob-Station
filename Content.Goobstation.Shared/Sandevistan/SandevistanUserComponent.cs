@@ -10,42 +10,38 @@ using Content.Shared.Abilities;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Robust.Shared.Audio;
-using Robust.Shared.GameStates;
 
 // Ideally speaking this should be on the heart itself... but this also works.
 namespace Content.Goobstation.Shared.Sandevistan;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent]
 public sealed partial class SandevistanUserComponent : Component
 {
     [ViewVariables(VVAccess.ReadOnly)]
+    public EntityUid? User;
+
+    [ViewVariables(VVAccess.ReadOnly)]
     public bool Enabled;
 
-    [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
+    [ViewVariables(VVAccess.ReadOnly)]
     public TimeSpan? DisableAt;
 
     [DataField]
     public TimeSpan StatusEffectTime = TimeSpan.FromSeconds(5);
 
     [DataField]
-    public TimeSpan UpdateDelay = TimeSpan.FromSeconds(1);
-
-    [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
-    public TimeSpan NextExecutionTime = TimeSpan.Zero;
-
-    [DataField]
     public TimeSpan PopupDelay = TimeSpan.FromSeconds(3);
 
-    [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
+    [ViewVariables(VVAccess.ReadOnly)]
     public TimeSpan NextPopupTime = TimeSpan.Zero;
 
     [DataField]
     public string ActionProto = "ActionToggleSandevistan";
 
-    [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
+    [ViewVariables(VVAccess.ReadOnly)]
     public EntityUid? ActionUid;
 
-    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public float CurrentLoad = 0f;
 
     [DataField]
@@ -71,7 +67,7 @@ public sealed partial class SandevistanUserComponent : Component
     {
         DamageDict = new Dictionary<string, FixedPoint2>
         {
-            { "Blunt", 5 },
+            { "Blunt", 6.5 },
         },
     };
 
@@ -94,7 +90,7 @@ public sealed partial class SandevistanUserComponent : Component
     public EntityUid? RunningSound;
 
     [ViewVariables(VVAccess.ReadOnly)]
-    public DogVisionComponent? DogVision;
+    public DogVisionComponent? Overlay;
 
     [ViewVariables(VVAccess.ReadOnly)]
     public TrailComponent? Trail;

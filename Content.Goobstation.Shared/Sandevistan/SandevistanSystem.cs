@@ -36,6 +36,8 @@ public sealed class SandevistanSystem : EntitySystem
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
+    private List<Entity<SandevistanUserComponent>> _users = new();
+
     public override void Initialize()
     {
         base.Initialize();
@@ -52,11 +54,7 @@ public sealed class SandevistanSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        if (_timing.ApplyingState)
-           return;
-
-        var query = EntityQueryEnumerator<SandevistanUserComponent>();
-        while (query.MoveNext(out var uid, out var comp))
+        foreach (var (uid, comp) in _users)
         {
             if (comp.DisableAt != null
                 && _timing.CurTime > comp.DisableAt)
@@ -69,25 +67,20 @@ public sealed class SandevistanSystem : EntitySystem
                 Dirty(uid, comp.Trail);
             }
 
-            if (comp.NextExecutionTime > _timing.CurTime)
-                continue;
-
-            comp.NextExecutionTime = _timing.CurTime + comp.UpdateDelay;
-
             if (!comp.Enabled)
             {
                 _audio.Stop(comp.RunningSound);
-                comp.CurrentLoad = MathF.Max(0, comp.CurrentLoad + comp.LoadPerInactiveSecond);
+                comp.CurrentLoad = MathF.Max(0, comp.CurrentLoad + comp.LoadPerInactiveSecond * frameTime);
                 continue;
             }
 
-            comp.CurrentLoad += comp.LoadPerActiveSecond;
+            comp.CurrentLoad += comp.LoadPerActiveSecond * frameTime;
 
             var stateActions = new Dictionary<int, Action>
             {
                 { 1, () => _jittering.DoJitter(uid, comp.StatusEffectTime, true)},
-                { 2, () => _stamina.TakeStaminaDamage(uid, comp.StaminaDamage)},
-                { 3, () => _damageable.TryChangeDamage(uid, comp.Damage)},
+                { 2, () => _stamina.TakeStaminaDamage(uid, comp.StaminaDamage * frameTime)},
+                { 3, () => _damageable.TryChangeDamage(uid, comp.Damage * frameTime, ignoreResistances: true)},
                 { 4, () => _stun.TryKnockdown(uid, comp.StatusEffectTime, true)},
                 { 5, () => Disable(uid, comp)},
                 { 6, () => _mobState.ChangeMobState(uid, MobState.Dead)},
@@ -108,23 +101,22 @@ public sealed class SandevistanSystem : EntitySystem
 
             var popup = -1;
             foreach (var state in filteredStates)
-            {
-                if (state > 3) // Goida
-                    continue;
-                if (state > popup)
+                if (state > popup && state < 4) // Goida
                     popup = state;
-            }
 
             if (popup == -1)
                 continue;
 
-            _popup.PopupClient(Loc.GetString("sandevistan-overload-" + popup), uid, uid);
+            _popup.PopupEntity(Loc.GetString("sandevistan-overload-" + popup), uid, uid);
             comp.NextPopupTime = _timing.CurTime + comp.PopupDelay;
         }
     }
 
     private void OnInit(Entity<SandevistanUserComponent> ent, ref ComponentInit args)
-        => ent.Comp.ActionUid = _actions.AddAction(ent, ent.Comp.ActionProto);
+    {
+        _users.Add(ent);
+        ent.Comp.ActionUid = _actions.AddAction(ent, ent.Comp.ActionProto);
+    }
 
     private void OnToggle(Entity<SandevistanUserComponent> ent, ref ToggleSandevistanEvent args)
     {
@@ -136,7 +128,7 @@ public sealed class SandevistanSystem : EntitySystem
         if (ent.Comp.Enabled)
         {
             _audio.Stop(ent.Comp.RunningSound);
-            _audio.PlayLocal(ent.Comp.EndSound, ent, ent);
+            _audio.PlayEntity(ent.Comp.EndSound, ent, ent);
             ent.Comp.DisableAt = _timing.CurTime + ent.Comp.ShiftDelay;
             return;
         }
@@ -158,14 +150,13 @@ public sealed class SandevistanSystem : EntitySystem
         }
 
         if (!HasComp<DogVisionComponent>(ent))
-            ent.Comp.DogVision = AddComp<DogVisionComponent>(ent);
+            ent.Comp.Overlay = AddComp<DogVisionComponent>(ent);
 
-        var audio = _audio.PlayLocal(ent.Comp.StartSound, ent, ent);
+        var audio = _audio.PlayEntity(ent.Comp.StartSound, ent, ent);
         if (!audio.HasValue)
             return;
 
         ent.Comp.RunningSound = audio.Value.Entity;
-        Dirty(ent);
     }
 
     private void OnRefreshSpeed(Entity<SandevistanUserComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
@@ -189,6 +180,7 @@ public sealed class SandevistanSystem : EntitySystem
 
     private void OnShutdown(Entity<SandevistanUserComponent> ent, ref ComponentShutdown args)
     {
+        _users.Remove(ent);
         Disable(ent, ent.Comp);
         Del(ent.Comp.ActionUid);
     }
@@ -201,10 +193,10 @@ public sealed class SandevistanSystem : EntitySystem
         _audio.Stop(comp.RunningSound);
         _speed.RefreshMovementSpeedModifiers(uid);
 
-        if (comp.DogVision != null)
+        if (comp.Overlay != null)
         {
             RemComp<DogVisionComponent>(uid);
-            comp.DogVision = null;
+            comp.Overlay = null;
         }
 
         if (comp.Trail != null)
@@ -212,7 +204,5 @@ public sealed class SandevistanSystem : EntitySystem
             RemComp<TrailComponent>(uid);
             comp.Trail = null;
         }
-
-        Dirty(uid, comp);
     }
 }
