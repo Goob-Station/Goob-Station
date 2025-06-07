@@ -13,11 +13,8 @@ namespace Content.Goobstation.Server.ItemMiner;
 [RegisterComponent]
 public sealed partial class TelecrystalMinerComponent : Component
 {
-    /// <summary>
-    /// 0 - no announcements made, 1 - normal announcement made, 2 - location announcement made
-    /// </summary>
     [DataField]
-    public int NotifiedStage = 0;
+    public TCMinerStage NotifiedStage = TCMinerStage.Initial;
 
     /// <summary>
     /// After how many telecrystals produced to make an announcement.
@@ -42,4 +39,11 @@ public sealed partial class TelecrystalMinerComponent : Component
     /// </summary>
     [DataField]
     public int Accumulated = 0;
+}
+
+public enum TCMinerStage
+{
+    Initial,
+    FirstAnnounced,
+    LocationAnnounced
 }

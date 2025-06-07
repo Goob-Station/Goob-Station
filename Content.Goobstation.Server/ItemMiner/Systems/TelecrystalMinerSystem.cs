@@ -36,11 +36,11 @@ public sealed class TelecrystalMinerSystem : EntitySystem
 
         switch (ent.Comp.NotifiedStage)
         {
-            case 0:
+            case TCMinerStage.Initial:
             {
                 if (ent.Comp.Accumulated >= ent.Comp.AnnounceAt)
                 {
-                    ent.Comp.NotifiedStage++;
+                    ent.Comp.NotifiedStage = TCMinerStage.FirstAnnounced;
 
                     _chat.DispatchStationAnnouncement(
                         Transform(ent).ParentUid,
@@ -51,11 +51,11 @@ public sealed class TelecrystalMinerSystem : EntitySystem
                 }
                 break;
             }
-            case 1:
+            case TCMinerStage.FirstAnnounced:
             {
                 if (ent.Comp.Accumulated >= ent.Comp.LocationAt)
                 {
-                    ent.Comp.NotifiedStage++;
+                    ent.Comp.NotifiedStage = TCMinerStage.LocationAnnounced;
 
                     var xform = Transform(ent);
                     if (!_navMap.TryGetNearestBeacon((ent, xform), out var beacon, out _))
