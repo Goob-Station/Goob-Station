@@ -38,6 +38,8 @@ namespace Content.Goobstation.Server.NTR.Documents
         {
             if (!_proto.TryIndex(docType, out var docProto))
                 return string.Empty;
+            if (string.IsNullOrEmpty(docType.Id)) // i hate it
+                return string.Empty;
 
             var curDate = DateTime.Now.AddYears(1000);
             var dateString = curDate.ToString("dd.MM.yyyy");
