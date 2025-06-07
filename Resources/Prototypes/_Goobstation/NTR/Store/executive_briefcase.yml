@@ -39,11 +39,6 @@
   - type: NtrClientAccount
   - type: Speech
   - type: ContainerContainer
-    containers:
-      CorporateOverrideSlot:
-        type: ContainerSlot
-        showEnts: false
-        occludes: true
 
 - type: entity
   id: ExecutiveBriefcaseDebug

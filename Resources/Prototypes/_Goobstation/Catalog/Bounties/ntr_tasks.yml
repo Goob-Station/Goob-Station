@@ -99,9 +99,6 @@
   - name: task-ntr-powergrid-name
     isEvent: true
     stamps: []
-    whitelist:
-      tags: [ ]
-      components: [ ]
 
 # Reagent tasks
 - type: ntrTask

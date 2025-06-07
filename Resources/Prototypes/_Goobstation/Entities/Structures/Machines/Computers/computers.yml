@@ -14,15 +14,6 @@
     key: enum.NtrTaskUiKey.Key
   - type: NtrTaskConsole
   - type: ContainerContainer
-    containers:
-      board:
-        type: Container
-        showEnts: false
-        occludes: true
-      documentSlot:
-        type: ContainerSlot
-        showEnts: false
-        occludes: true
   - type: ItemSlots
     slots:
       documentSlot:
