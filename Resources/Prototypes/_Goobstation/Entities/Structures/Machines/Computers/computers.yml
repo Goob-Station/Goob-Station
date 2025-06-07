@@ -13,6 +13,7 @@
   - type: ActivatableUI
     key: enum.NtrTaskUiKey.Key
   - type: NtrTaskConsole
+  - type: ContainerContainer
   - type: ItemSlots
     slots:
       documentSlot:
