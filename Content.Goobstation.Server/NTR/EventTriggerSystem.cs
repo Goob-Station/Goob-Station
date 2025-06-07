@@ -22,8 +22,6 @@ namespace Content.Goobstation.Server.NTR
         {
             if (!string.IsNullOrEmpty(component.EventId))
                 _gt.StartGameRule(component.EventId, out _);
-            // deleting the entityt after it has done its job of making a gamerule
-            QueueDel(uid);
         }
     }
 }

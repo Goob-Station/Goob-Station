@@ -5,11 +5,13 @@
   id: NTRgameruleSpawnerMats
   categories: [ HideSpawnMenu ]
   components:
-  - type: EventTrigger # this component delets this entity on spawn
+  - type: EventTrigger
     eventId: "GiftsEngineering"
   - type: Sprite # sprite needed for NTRstore
     sprite: Objects/Materials/Sheets/metal.rsi
     state: titanium_3
+  - type: TriggerOnSpawn
+  - type: DeleteOnTrigger
 
 - type: entity
   id: NTRgameruleSpawnerPizza
@@ -20,6 +22,8 @@
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/pizza.rsi
     state: box1
+  - type: TriggerOnSpawn
+  - type: DeleteOnTrigger
 
 # respose teams below
 - type: entity
@@ -31,6 +35,8 @@
   - type: Sprite
     sprite: Structures/Wallmounts/signs.rsi
     state: security
+  - type: TriggerOnSpawn
+  - type: DeleteOnTrigger
 
 - type: entity
   id: NTRgameruleERTmed
@@ -41,6 +47,8 @@
   - type: Sprite
     sprite: Structures/Wallmounts/signs.rsi
     state: medbay
+  - type: TriggerOnSpawn
+  - type: DeleteOnTrigger
 
 - type: entity
   id: NTRgameruleERTengi
@@ -51,6 +59,8 @@
   - type: Sprite
     sprite: Structures/Wallmounts/signs.rsi
     state: eng
+  - type: TriggerOnSpawn
+  - type: DeleteOnTrigger
 
 - type: entity
   id: NTRgameruleERTjani
@@ -61,16 +71,20 @@
   - type: Sprite
     sprite: Structures/Wallmounts/signs.rsi
     state: janitor
+  - type: TriggerOnSpawn
+  - type: DeleteOnTrigger
 
-#- type: entity
-#  id: NTRgameruleCBURN
-#  categories: [ HideSpawnMenu ]
-#  components:
-#  - type: EventTrigger
-#    eventId: "SpawnCBURN"
-#  - type: Sprite
-#    sprite: Structures/Wallmounts/signs.rsi
-#    state: zomlab
+- type: entity
+  id: NTRgameruleCBURN
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EventTrigger
+    eventId: "SpawnCBURN"
+  - type: Sprite
+    sprite: Structures/Wallmounts/signs.rsi
+    state: zomlab
+  - type: TriggerOnSpawn
+  - type: DeleteOnTrigger
 
 # job unlockers
 
@@ -84,6 +98,8 @@
   - type: Sprite
     sprite: Markers/jobs.rsi
     state: security_officer
+  - type: TriggerOnSpawn
+  - type: DeleteOnTrigger
 
 # Science Department Unlocker
 - type: entity
@@ -95,6 +111,8 @@
   - type: Sprite
     sprite: Markers/jobs.rsi
     state: scientist
+  - type: TriggerOnSpawn
+  - type: DeleteOnTrigger
 
 # Service Department Unlocker
 - type: entity
@@ -106,6 +124,8 @@
   - type: Sprite
     sprite: Markers/jobs.rsi
     state: janitor
+  - type: TriggerOnSpawn
+  - type: DeleteOnTrigger
 
 # Cargo Department Unlocker
 - type: entity
@@ -117,6 +137,8 @@
   - type: Sprite
     sprite: Markers/jobs.rsi
     state: cargo_tech
+  - type: TriggerOnSpawn
+  - type: DeleteOnTrigger
 
 # Engineering Department Unlocker
 - type: entity
@@ -128,6 +150,8 @@
   - type: Sprite
     sprite: Markers/jobs.rsi
     state: technicalassistant
+  - type: TriggerOnSpawn
+  - type: DeleteOnTrigger
 
 # Medical department Unlocker
 - type: entity
@@ -139,6 +163,8 @@
   - type: Sprite
     sprite: Markers/jobs.rsi
     state: doctor
+  - type: TriggerOnSpawn
+  - type: DeleteOnTrigger
 
 # powergrid check
 
@@ -148,3 +174,5 @@
   components:
   - type: EventTrigger
     eventId: "PowerGridCheck"
+  - type: TriggerOnSpawn
+  - type: DeleteOnTrigger
