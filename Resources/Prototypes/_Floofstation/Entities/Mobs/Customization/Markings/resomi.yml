@@ -5,7 +5,7 @@
 
 - type: marking
   id: ResomiTail
-  bodyPart: Chest
+  bodyPart: Tail    #Goob - was Chest
   markingCategory: Tail
   speciesRestriction: [Resomi]
   forcedColoring: true
@@ -15,7 +15,7 @@
 
 - type: marking
   id: ResomiTailFeathers
-  bodyPart: Chest
+  bodyPart: Tail #Goob - was Chest
   markingCategory: Tail
   speciesRestriction: [Resomi]
   sprites:
