@@ -62,15 +62,15 @@
     sprite: Structures/Wallmounts/signs.rsi
     state: janitor
 
-- type: entity
-  id: NTRgameruleCBURN
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: EventTrigger
-    eventId: "SpawnCBURN"
-  - type: Sprite
-    sprite: Structures/Wallmounts/signs.rsi
-    state: zomlab
+#- type: entity
+#  id: NTRgameruleCBURN
+#  categories: [ HideSpawnMenu ]
+#  components:
+#  - type: EventTrigger
+#    eventId: "SpawnCBURN"
+#  - type: Sprite
+#    sprite: Structures/Wallmounts/signs.rsi
+#    state: zomlab
 
 # job unlockers
 

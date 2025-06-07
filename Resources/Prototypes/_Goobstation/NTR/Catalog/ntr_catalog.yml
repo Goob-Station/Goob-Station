@@ -479,18 +479,18 @@
   resetRestockOnPurchase: true
   restockAfterPurchase: 7200 # 2h
 
-- type: listing
-  id: NTRExecutiveCBURN
-  name: ntr-executive-cburn-name
-  description: ntr-executive-cburn-desc
-  productEntity: NTRgameruleCBURN
-  cost:
-    NTLoyaltyPoint: 300 # idealy, the crew should call this one pretty fast if things got bad
-  categories:
-  - NTRresponse
-  restockTime: 1200 # 20 mins
-  resetRestockOnPurchase: true
-  restockAfterPurchase: 3600 # 1h, in case CBURN would suck ass
+#- type: listing
+#  id: NTRExecutiveCBURN
+#  name: ntr-executive-cburn-name
+#  description: ntr-executive-cburn-desc
+#  productEntity: NTRgameruleCBURN
+#  cost:
+#    NTLoyaltyPoint: 300 # idealy, the crew should call this one pretty fast if things got bad
+#  categories:
+#  - NTRresponse
+#  restockTime: 1200 # 20 mins
+#  resetRestockOnPurchase: true
+#  restockAfterPurchase: 3600 # 1h, in case CBURN would suck ass
 
 # Machine boards
 
