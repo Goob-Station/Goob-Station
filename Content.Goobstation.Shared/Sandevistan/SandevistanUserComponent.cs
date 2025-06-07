@@ -12,14 +12,12 @@ using Content.Shared.Damage;
 using Robust.Shared.Audio;
 
 // Ideally speaking this should be on the heart itself... but this also works.
+// Also yes it is not networked and can theoretically be put in server but. But again this works.
 namespace Content.Goobstation.Shared.Sandevistan;
 
 [RegisterComponent]
 public sealed partial class SandevistanUserComponent : Component
 {
-    [ViewVariables(VVAccess.ReadOnly)]
-    public EntityUid? User;
-
     [ViewVariables(VVAccess.ReadOnly)]
     public bool Enabled;
 

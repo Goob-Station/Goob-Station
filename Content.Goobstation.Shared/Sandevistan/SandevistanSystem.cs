@@ -42,7 +42,7 @@ public sealed class SandevistanSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<SandevistanUserComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<SandevistanUserComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<SandevistanUserComponent, ToggleSandevistanEvent>(OnToggle);
         SubscribeLocalEvent<SandevistanUserComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshSpeed);
         SubscribeLocalEvent<SandevistanUserComponent, MeleeAttackEvent>(OnMeleeAttack);
@@ -112,7 +112,7 @@ public sealed class SandevistanSystem : EntitySystem
         }
     }
 
-    private void OnInit(Entity<SandevistanUserComponent> ent, ref ComponentInit args)
+    private void OnStartup(Entity<SandevistanUserComponent> ent, ref ComponentStartup args)
     {
         _users.Add(ent);
         ent.Comp.ActionUid = _actions.AddAction(ent, ent.Comp.ActionProto);
