@@ -38,6 +38,7 @@
           path: /Audio/Machines/id_insert.ogg
   - type: NtrClientAccount
   - type: Speech
+  - type: ContainerContainer
 
 - type: entity
   id: ExecutiveBriefcaseDebug
@@ -65,7 +66,7 @@
     categories:
     - NTRstation # for stuff like buying spesos, disablers, etc
     - NTRpersonal # for, well, personal stuff.
-#    - NTRresponse # NO, DO NOT. IM NOT RESPONSIBLE IF YOU PUT THIS IN NORMAL EXEC STORE.
+#    - NTRresponse # do not.
     - NTRBoards # for hard to get boards
 #    - NTREvil # for evil stuff
     currencyWhitelist:

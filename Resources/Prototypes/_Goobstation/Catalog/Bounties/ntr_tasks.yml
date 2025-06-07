@@ -114,6 +114,11 @@
     BloodChangeling: 3000
   entries:
   - name: task-ntr-ling-blood-name
+    stamps: [ ] # idk how to make it not fuck up checkfails without it
+    whitelist:
+      tags: [ ]
+      components: [ ]
+      prototypes: [ ]
 
 - type: ntrTask
   id: TaskArtifexium
@@ -128,6 +133,11 @@
     Artifexium: 3000
   entries:
   - name: task-ntr-artifexium-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+      prototypes: [ ]
 
 - type: ntrTask
   id: TaskDexalin
@@ -142,6 +152,11 @@
     DexalinPlus: 3000
   entries:
   - name: task-ntr-chem-base-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+      prototypes: [ ]
 
 - type: ntrTask
   id: TaskWeh
@@ -156,6 +171,11 @@
     JuiceThatMakesYouWeh: 3000
   entries:
   - name: task-ntr-weh-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+      prototypes: [ ]
 
 - type: ntrTask
   id: TaskHew
@@ -170,6 +190,11 @@
     JuiceThatMakesYouHew: 3000
   entries:
   - name: task-ntr-hew-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+      prototypes: [ ]
 
 - type: ntrTask
   id: TaskEthyl
@@ -184,6 +209,11 @@
     Ethylredoxrazine: 3000
   entries:
   - name: task-ntr-chem-base-name
+    stamps: []
+    whitelist:
+      tags: []
+      components: []
+      prototypes: []
 
 - type: ntrTask
   id: TaskIpecac
@@ -198,6 +228,11 @@
     Ipecac: 3000
   entries:
   - name: task-ntr-chem-base-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+      prototypes: [ ]
 
 - type: ntrTask
   id: TaskTRAcid
@@ -212,6 +247,11 @@
     TranexamicAcid: 3000
   entries:
   - name: task-ntr-chem-base-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+      prototypes: [ ]
 
 - type: ntrTask
   id: TaskSigynate
@@ -226,6 +266,11 @@
     Sigynate: 3000
   entries:
   - name: task-ntr-chem-base-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+      prototypes: [ ]
 
 - type: ntrTask
   id: TaskCogni
@@ -240,6 +285,11 @@
     Cognizine: 1000
   entries:
   - name: task-ntr-cogni-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+      prototypes: [ ]
 
 - type: ntrTask
   id: TaskHoly
@@ -254,6 +304,11 @@
     Holywater: 3000
   entries:
   - name: task-ntr-holy-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+      prototypes: [ ]
 
 - type: ntrTask
   id: TaskRazorium
@@ -268,6 +323,11 @@
     Razorium: 10000
   entries:
   - name: task-ntr-razorium-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+      prototypes: [ ]
 
 - type: ntrTask
   id: TaskPunct
@@ -282,6 +342,11 @@
     Puncturase: 10000
   entries:
   - name: task-ntr-punct-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+      prototypes: [ ]
 
 - type: ntrTask
   id: TaskTrico
@@ -296,6 +361,11 @@
     Tricordrazine: 10000
   entries:
   - name: task-ntr-trico-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+      prototypes: [ ]
 
 - type: ntrTask
   id: TaskMeth
@@ -310,6 +380,11 @@
     Desoxyephedrine: 10000
   entries:
   - name: task-ntr-meth-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+      prototypes: [ ]
 
 - type: ntrTask
   id: TaskTHC
@@ -324,6 +399,11 @@
     THC: 10000
   entries:
   - name: task-ntr-thc-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+      prototypes: [ ]
 
 # Drink tasks
 - type: ntrTask
@@ -338,6 +418,11 @@
     KiraSpecial: 3000
   entries:
   - name: task-ntr-drink-base-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+      prototypes: [ ]
 
 - type: ntrTask
   id: TaskNuclearCola
@@ -351,6 +436,11 @@
     NuclearCola: 3000
   entries:
   - name: task-ntr-special-drink-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+      prototypes: [ ]
 
 - type: ntrTask
   id: TaskGildlager
@@ -364,6 +454,11 @@
     Gildlager: 3000
   entries:
   - name: task-ntr-drink-base-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+      prototypes: [ ]
 
 - type: ntrTask
   id: TaskGrog
@@ -377,6 +472,11 @@
     Grog: 3000
   entries:
   - name: task-ntr-drink-base-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+      prototypes: [ ]
 
 - type: ntrTask
   id: TaskHippiesDelight
@@ -390,6 +490,11 @@
     HippiesDelight: 3000
   entries:
   - name: task-ntr-drink-base-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+      prototypes: [ ]
 
 - type: ntrTask
   id: TaskIrishCarBomb
@@ -403,6 +508,11 @@
     IrishCarBomb: 3000
   entries:
   - name: task-ntr-drink-base-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+      prototypes: [ ]
 
 - type: ntrTask
   id: TaskLongIslandIcedTea
@@ -416,6 +526,11 @@
     LongIslandIcedTea: 3000
   entries:
   - name: task-ntr-drink-base-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+      prototypes: [ ]
 
 - type: ntrTask
   id: TaskManhattan
@@ -429,6 +544,11 @@
     Manhattan: 3000
   entries:
   - name: task-ntr-drink-base-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+      prototypes: [ ]
 
 - type: ntrTask
   id: TaskManlyDorf
@@ -442,6 +562,11 @@
     ManlyDorf: 3000
   entries:
   - name: task-ntr-drink-base-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+      prototypes: [ ]
 
 - type: ntrTask
   id: TaskPinaColada
@@ -455,6 +580,11 @@
     PinaColada: 3000
   entries:
   - name: task-ntr-drink-base-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+      prototypes: [ ]
 
 - type: ntrTask
   id: TaskCogChamp
@@ -468,6 +598,11 @@
     CogChamp: 3000
   entries:
   - name: task-ntr-drink-base-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+      prototypes: [ ]
 
 - type: ntrTask
   id: TaskSingulo
@@ -481,6 +616,11 @@
     Singulo: 3000
   entries:
   - name: task-ntr-drink-base-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+      prototypes: [ ]
 
 - type: ntrTask
   id: TaskTequilaSunrise
@@ -494,6 +634,11 @@
     TequilaSunrise: 3000
   entries:
   - name: task-ntr-drink-base-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+      prototypes: [ ]
 
 - type: ntrTask
   id: TaskWhiteRussian
@@ -507,6 +652,12 @@
     WhiteRussian: 3000
   entries:
   - name: task-ntr-drink-base-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+      prototypes: [ ]
+
 - type: ntrTask
   id: TaskBudgetInsulsDrink
   proto: TaskBottle
@@ -519,6 +670,11 @@
     BudgetInsulsDrink: 3000
   entries:
   - name: task-ntr-drink-base-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+      prototypes: [ ]
 
 - type: ntrTask
   id: TaskZombieCocktail
@@ -532,3 +688,8 @@
   reagentTask: true
   entries:
   - name: task-ntr-special-drink-name
+    stamps: [ ]
+    whitelist:
+      tags: [ ]
+      components: [ ]
+      prototypes: [ ]

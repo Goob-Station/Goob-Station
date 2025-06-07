@@ -70,7 +70,7 @@ public sealed class NtrTaskPrototype : IPrototype
 public readonly partial record struct NtrTaskItemEntry()
 {
     [DataField]
-    public List<string> Stamps { get; init; } = default!;
+    public List<string> Stamps { get; init; } = new();
 
     /// <summary>
     /// A whitelist for determining what items satisfy the entry.
