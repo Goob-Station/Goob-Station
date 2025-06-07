@@ -120,9 +120,6 @@ public sealed class SandevistanSystem : EntitySystem
 
     private void OnToggle(Entity<SandevistanUserComponent> ent, ref ToggleSandevistanEvent args)
     {
-        if (!_timing.IsFirstTimePredicted || args.Handled)
-            return;
-
         args.Handled = true;
 
         if (ent.Comp.Enabled)
