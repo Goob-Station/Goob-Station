@@ -15,14 +15,17 @@ using Content.Server._Goobstation.Heretic.EntitySystems.PathSpecific;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Components;
 using Content.Server.Audio;
+using Content.Server.Chat.Systems;
 using Content.Server.Light.Components;
 using Content.Server.Light.EntitySystems;
 using Content.Server.Heretic.Components.PathSpecific;
 using Content.Shared.Atmos;
+using Content.Shared.Audio;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Damage;
 using Content.Shared.Heretic;
 using Content.Shared.Maps;
+using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Tag;
 using Content.Shared.Weather;
@@ -45,6 +48,7 @@ public sealed partial class AristocratSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prot = default!;
     [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
+    [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly MapSystem _map = default!;
     [Dependency] private readonly VoidCurseSystem _voidcurse = default!;
@@ -60,16 +64,48 @@ public sealed partial class AristocratSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<AristocratComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<AristocratComponent, MobStateChangedEvent>(OnMobStateChange);
     }
 
     private void OnStartup(Entity<AristocratComponent> ent, ref ComponentStartup args)
     {
-        // mmm original soundtractk
-        _globalSound.PlayGlobalOnStation(ent, "/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/VoidsEmbrace.ogg", AudioParams.Default.WithLoop(true));
+        BeginWaltz(ent);
+        _chat.DispatchGlobalAnnouncement(Loc.GetString("void-ascend-begin"), playSound: false, colorOverride: Color.White);
+    }
+
+    private void BeginWaltz(Entity<AristocratComponent> ent)
+    {
+        _globalSound.DispatchStationEventMusic(ent, ent.Comp.VoidsEmbrace, StationEventMusicType.VoidAscended, AudioParams.Default.WithLoop(true));
 
         // the fog (snow) is coming
         var xform = Transform(ent);
         _weather.SetWeather(xform.MapID, _prot.Index<WeatherPrototype>("SnowfallMagic"), null);
+    }
+
+    private void EndWaltz(Entity<AristocratComponent> ent)
+    {
+        _globalSound.StopStationEventMusic(ent, StationEventMusicType.VoidAscended);
+
+        var xform = Transform(ent);
+        _weather.SetWeather(xform.MapID, null, null);
+    }
+    private void OnMobStateChange(Entity<AristocratComponent> ent, ref MobStateChangedEvent args)
+    {
+        var stateComp = args.Component;
+
+        if (stateComp.CurrentState == MobState.Dead)
+        {
+            ent.Comp.HasDied = true;
+            EndWaltz(ent); // its over bros
+            _chat.DispatchGlobalAnnouncement(Loc.GetString("void-ascend-end"), playSound: false, colorOverride: Color.White);
+        }
+
+        if (stateComp.CurrentState == MobState.Alive && ent.Comp.HasDied) // in the rare case that they are revived for whatever reason
+        {
+            ent.Comp.HasDied = false;
+            BeginWaltz(ent); // we're back bros
+            _chat.DispatchGlobalAnnouncement(Loc.GetString("void-ascend-restart"), playSound: false, colorOverride: Color.White);
+        }
     }
 
     private List<TileRef>? GetTiles(Entity<AristocratComponent> ent)
@@ -119,6 +155,9 @@ public sealed partial class AristocratSystem : EntitySystem
 
     private void Cycle(Entity<AristocratComponent> ent)
     {
+        if (ent.Comp.HasDied) // powers will only take effect for as long as we're alive
+            return;
+
         var coords = Transform(ent).Coordinates;
         var step = ent.Comp.UpdateStep;
 

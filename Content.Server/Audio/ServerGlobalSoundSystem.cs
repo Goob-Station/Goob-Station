@@ -64,14 +64,14 @@ public sealed class ServerGlobalSoundSystem : SharedGlobalSoundSystem
         RaiseNetworkEvent(msg, filter);
     }
 
-    public void DispatchStationEventMusic(EntityUid source, SoundSpecifier sound, StationEventMusicType type)
+    public void DispatchStationEventMusic(EntityUid source, SoundSpecifier sound, StationEventMusicType type, AudioParams? audioParams = null) // goob edit
     {
-        DispatchStationEventMusic(source, _audio.ResolveSound(sound), type);
+        DispatchStationEventMusic(source, _audio.ResolveSound(sound), type, audioParams); // goob edit
     }
 
-    public void DispatchStationEventMusic(EntityUid source, ResolvedSoundSpecifier specifier, StationEventMusicType type)
+    public void DispatchStationEventMusic(EntityUid source, ResolvedSoundSpecifier specifier, StationEventMusicType type, AudioParams? audioParams = null) // goob edit
     {
-        var audio = AudioParams.Default.WithVolume(-8);
+        var audio = audioParams ?? AudioParams.Default.WithVolume(-8); // goob edit
         var msg = new StationEventMusicEvent(specifier, type, audio);
 
         var filter = GetStationAndPvs(source);

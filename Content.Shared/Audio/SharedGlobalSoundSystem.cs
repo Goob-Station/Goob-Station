@@ -53,6 +53,7 @@ public enum StationEventMusicType : byte
 {
     Nuke,
     CosmicCult, // DeltaV - Cosmic Cult
+    VoidAscended, // GoobStation - Heretics
 }
 
 /// <summary>
