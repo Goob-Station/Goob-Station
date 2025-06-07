@@ -70,7 +70,7 @@ public sealed class SandevistanSystem : EntitySystem
             }
 
             if (comp.NextExecutionTime > _timing.CurTime)
-                return;
+                continue;
 
             comp.NextExecutionTime = _timing.CurTime + comp.UpdateDelay;
 
@@ -78,7 +78,7 @@ public sealed class SandevistanSystem : EntitySystem
             {
                 _audio.Stop(comp.RunningSound);
                 comp.CurrentLoad = MathF.Max(0, comp.CurrentLoad + comp.LoadPerInactiveSecond);
-                return;
+                continue;
             }
 
             comp.CurrentLoad += comp.LoadPerActiveSecond;
@@ -104,7 +104,7 @@ public sealed class SandevistanSystem : EntitySystem
                     action();
 
             if (comp.NextPopupTime > _timing.CurTime)
-                return;
+                continue;
 
             var popup = -1;
             foreach (var state in filteredStates)
@@ -116,7 +116,7 @@ public sealed class SandevistanSystem : EntitySystem
             }
 
             if (popup == -1)
-                return;
+                continue;
 
             _popup.PopupClient(Loc.GetString("sandevistan-overload-" + popup), uid, uid);
             comp.NextPopupTime = _timing.CurTime + comp.PopupDelay;
