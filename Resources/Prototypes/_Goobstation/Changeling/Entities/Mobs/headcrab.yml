@@ -60,3 +60,5 @@
   - type: Tag # Removes DoorBumpOpener
     tags:
       []
+  - type: ScannableForPoints # NTR update
+    points: 10 # rare round-gamemode related stuff, should cost more.
