@@ -1,0 +1,10 @@
+- type: entity
+  id: CrateFunCarc3
+  parent: CrateGenericSteel
+  name: "\"Spacessonne\" crate"
+  description: Big crate with 3 Spacessonne copies in price of 2.
+  components:
+  - type: StorageFill
+    contents:
+      - id: CarcBoxClassic
+        amount: 3
