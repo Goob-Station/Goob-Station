@@ -1,32 +1,27 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Goobstation.Shared.Sandevistan;
 using Content.Shared._Goobstation.Wizard.Projectiles;
 using Content.Shared.Abilities;
-using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Robust.Shared.Audio;
 
 // Ideally speaking this should be on the heart itself... but this also works.
-namespace Content.Goobstation.Shared.Sandevistan;
+namespace Content.Goobstation.Server.Sandevistan;
 
 [RegisterComponent]
 public sealed partial class SandevistanUserComponent : Component
 {
     [ViewVariables(VVAccess.ReadOnly)]
-    public bool Enabled;
+    public ActiveSandevistanUserComponent? Active;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public TimeSpan? DisableAt;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public TimeSpan LastEnabled = TimeSpan.Zero;
 
     [DataField]
     public TimeSpan StatusEffectTime = TimeSpan.FromSeconds(5);
-
-    [DataField]
-    public TimeSpan UpdateDelay = TimeSpan.FromSeconds(1);
-
-    [ViewVariables(VVAccess.ReadOnly)]
-    public TimeSpan NextExecutionTime = TimeSpan.Zero;
 
     [DataField]
     public TimeSpan PopupDelay = TimeSpan.FromSeconds(3);
@@ -41,23 +36,20 @@ public sealed partial class SandevistanUserComponent : Component
     public EntityUid? ActionUid;
 
     [ViewVariables(VVAccess.ReadWrite)]
-    public float CurrentLoad = 0f;
+    public float CurrentLoad = 0f; // Only updated when enabled
 
     [DataField]
     public float LoadPerActiveSecond = 1f;
 
     [DataField]
-    public float LoadPerInactiveSecond = -0.15f;
+    public float LoadPerInactiveSecond = -0.25f;
 
     [DataField]
     public SortedDictionary<SandevistanState, FixedPoint2> Thresholds = new()
     {
-        { SandevistanState.Normal, 0 },
-        { SandevistanState.Warning, 10 },
-        { SandevistanState.Shaking, 20 },
-        { SandevistanState.Stamina, 30 },
-        { SandevistanState.Damage, 40 },
-        { SandevistanState.Knockdown, 50 },
+        { SandevistanState.Warning, 15 },
+        { SandevistanState.Shaking, 30 },
+        { SandevistanState.Damage, 45 },
         { SandevistanState.Disable, 60 },
     };
 
@@ -73,9 +65,6 @@ public sealed partial class SandevistanUserComponent : Component
         },
     };
 
-    [ViewVariables(VVAccess.ReadWrite)]
-    public float ColorAccumulator = 0f;
-
     [DataField]
     public float MovementSpeedModifier = 2f;
 
@@ -89,19 +78,17 @@ public sealed partial class SandevistanUserComponent : Component
     public SoundSpecifier? EndSound = new SoundPathSpecifier("/Audio/_Goobstation/Misc/sande_end.ogg");
 
     [DataField] // So it fits the audio
-    public TimeSpan ShiftDelay = TimeSpan.FromSeconds(2);
-
-    [DataField]
-    public TimeSpan? DisableAt;
+    public TimeSpan ShiftDelay = TimeSpan.FromSeconds(1.9);
 
     [ViewVariables(VVAccess.ReadOnly)]
     public EntityUid? RunningSound;
 
     [ViewVariables(VVAccess.ReadOnly)]
-    public TrailComponent? Trail;
+    public DogVisionComponent? Overlay;
 
     [ViewVariables(VVAccess.ReadOnly)]
-    public DogVisionComponent? DogVision;
-}
+    public TrailComponent? Trail;
 
-public sealed partial class ToggleSandevistanEvent : InstantActionEvent;
+    [ViewVariables(VVAccess.ReadWrite)]
+    public int ColorAccumulator = 0;
+}
