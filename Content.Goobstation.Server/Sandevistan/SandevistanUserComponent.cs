@@ -1,28 +1,24 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Goobstation.Shared.Sandevistan;
 using Content.Shared._Goobstation.Wizard.Projectiles;
 using Content.Shared.Abilities;
-using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Robust.Shared.Audio;
 
 // Ideally speaking this should be on the heart itself... but this also works.
-// Also yes it is not networked and can theoretically be put in server but. But again this works.
-namespace Content.Goobstation.Shared.Sandevistan;
+namespace Content.Goobstation.Server.Sandevistan;
 
 [RegisterComponent]
 public sealed partial class SandevistanUserComponent : Component
 {
     [ViewVariables(VVAccess.ReadOnly)]
-    public bool Enabled;
+    public ActiveSandevistanUserComponent? Active;
 
     [ViewVariables(VVAccess.ReadOnly)]
     public TimeSpan? DisableAt;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public TimeSpan LastEnabled = TimeSpan.Zero;
 
     [DataField]
     public TimeSpan StatusEffectTime = TimeSpan.FromSeconds(5);
@@ -40,7 +36,7 @@ public sealed partial class SandevistanUserComponent : Component
     public EntityUid? ActionUid;
 
     [ViewVariables(VVAccess.ReadWrite)]
-    public float CurrentLoad = 0f;
+    public float CurrentLoad = 0f; // Only updated when enabled
 
     [DataField]
     public float LoadPerActiveSecond = 1f;
@@ -96,5 +92,3 @@ public sealed partial class SandevistanUserComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public int ColorAccumulator = 0;
 }
-
-public sealed partial class ToggleSandevistanEvent : InstantActionEvent;
