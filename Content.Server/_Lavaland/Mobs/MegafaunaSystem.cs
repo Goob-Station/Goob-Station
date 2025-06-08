@@ -7,6 +7,7 @@
 // SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -19,11 +20,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Lavaland.Aggression;
-using Content.Shared._Lavaland.Audio;
 using Content.Shared.Mobs;
 using Content.Shared.Weapons.Melee.Events;
-using Robust.Shared.Player;
 
 namespace Content.Server._Lavaland.Mobs;
 
@@ -37,32 +35,17 @@ public sealed class MegafaunaSystem : EntitySystem
         SubscribeLocalEvent<MegafaunaComponent, MobStateChangedEvent>(OnDeath);
     }
 
-    public void OnAttacked<T>(EntityUid uid, T comp, ref AttackedEvent args) where T : MegafaunaComponent
+    public void OnAttacked(EntityUid uid, MegafaunaComponent comp, ref AttackedEvent args)
     {
         if (!HasComp<MegafaunaWeaponLooterComponent>(args.Used))
             comp.CrusherOnly = false; // it's over...
     }
 
-    public void OnDeath<T>(EntityUid uid, T comp, ref MobStateChangedEvent args) where T : MegafaunaComponent
+    public void OnDeath(EntityUid uid, MegafaunaComponent comp, ref MobStateChangedEvent args)
     {
         var coords = Transform(uid).Coordinates;
 
-        comp.CancelToken.Cancel();
-
         RaiseLocalEvent(uid, new MegafaunaKilledEvent());
-
-        if (TryComp<BossMusicComponent>(uid, out var boss) &&
-            TryComp<AggressiveComponent>(uid, out var aggresive))
-        {
-            var msg = new BossMusicStopEvent();
-            foreach (var aggressor in aggresive.Aggressors)
-            {
-                if (!TryComp<ActorComponent>(aggressor, out var actor))
-                    return;
-
-                RaiseNetworkEvent(msg, actor.PlayerSession.Channel);
-            }
-        }
 
         if (comp.CrusherOnly && comp.CrusherLoot != null)
         {
