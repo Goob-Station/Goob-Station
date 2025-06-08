@@ -305,7 +305,8 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
             }
             else if (armed is false)
             {
-                if ((data.Type & MartialArtModifierType.Unarmed) == 0 && (data.Type & MartialArtModifierType.Armed) != 0)
+                if ((data.Type & MartialArtModifierType.Unarmed) == 0
+                    && (data.Type & MartialArtModifierType.Armed) != 0)
                     continue;
             }
             mult *= data.Multiplier;
