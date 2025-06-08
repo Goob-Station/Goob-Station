@@ -1,15 +1,16 @@
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Janet Blackquill <uhhadd@gmail.com>
+// SPDX-FileCopyrightText: 2025 Kayzel <43700376+KayzelW@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Trest <144359854+trest100@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 kurokoTurbo <92106367+kurokoTurbo@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Trest <144359854+trest100@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
-// SPDX-FileCopyrightText: 2025 Kayzel <43700376+KayzelW@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -134,13 +135,14 @@ public abstract partial class SharedSurgerySystem : EntitySystem
     private void OnBeforeTargetDoAfter(Entity<SurgeryTargetComponent> ent,
         ref DoAfterAttemptEvent<SurgeryDoAfterEvent> args)
     {
-        if (!_net.IsServer)
+        if (!_net.IsServer
+            || !args.Event.Repeat) // We only wanna do this laggy shit on repeatables. One-time stuff idc.
             return;
 
-        /*if (args.Event.Target is not { } target
+        if (args.Event.Target is not { } target
             || !IsSurgeryValid(ent, target, args.Event.Surgery, args.Event.Step, args.Event.User, out var surgery, out var part, out var _)
             || IsStepComplete(ent, part, args.Event.Step, surgery))
-            args.Cancel();*/
+            args.Cancel();
     }
 
     private void OnTargetDoAfter(Entity<SurgeryTargetComponent> ent, ref SurgeryDoAfterEvent args)
