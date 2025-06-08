@@ -210,10 +210,8 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
                 continue;
             }
 
-            if (!_blocker.CanInteract(uid, null))
-                continue;
-
-            if (_timing.CurTime < timer.LastMoveTime + timer.PauseDuration)
+            if (!_blocker.CanInteract(uid, null)
+                || _timing.CurTime < timer.LastMoveTime + timer.PauseDuration)
                 continue;
 
             _status.TryAddStatusEffect<DragonPowerBuffComponent>(uid,
