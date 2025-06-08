@@ -29,7 +29,7 @@ public sealed class TagGrantOnUseSystem : EntitySystem
     {
         if (args.Handled)
             return;
-        if (component.Uses <= 0)
+        if (component.Uses.HasValue && component.Uses.Value <= 0)
             return;
 
         if (!_proto.HasIndex(component.Tag))
