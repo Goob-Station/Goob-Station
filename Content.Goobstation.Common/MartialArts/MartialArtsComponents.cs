@@ -4,6 +4,7 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -20,7 +21,7 @@ public sealed partial class MartialArtBlockedComponent : Component
 }
 public abstract partial class GrabStagesOverrideComponent : Component
 {
-    public GrabStage StartingStage = GrabStage.Hard;
+    public GrabStage StartingStage = GrabStage.Soft;
 }
 
 [RegisterComponent]
@@ -43,6 +44,7 @@ public sealed partial class MartialArtsKnowledgeComponent : GrabStagesOverrideCo
     [DataField]
     [AutoNetworkedField]
     public string OriginalFistDamageType;
+
 }
 
 public enum MartialArtsForms
