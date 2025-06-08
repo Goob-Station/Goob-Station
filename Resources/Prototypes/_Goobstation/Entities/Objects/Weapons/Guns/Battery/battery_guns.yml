@@ -245,12 +245,17 @@
   id: WeaponDisablerSyndicate
   description: An advanced disabler built from a reverse-engineered Nanotrasen prototype. While it lacks a bit of stopping power, it makes up for it with a recharging cell.
   components:
+    - type: Gun
+      fireRate: 3
+      soundGunshot:
+        path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
     - type: Item
       size: Small
       shape:
-      - 0,0,1,1
+      - 0,0,1,0
+      - 1,1,1,1
     - type: Sprite
-      sprite: _EinsteinEngines/Objects/Weapons/Guns/Battery/civilian-disabler.rsi
+      sprite: _EinsteinEngines/Objects/Weapons/Guns/Battery/syndicate-disabler.rsi
       layers:
         - state: base
           map: ["enum.GunVisualLayers.Base"]
@@ -258,7 +263,7 @@
           map: ["enum.GunVisualLayers.MagUnshaded"]
           shader: unshaded
     - type: Clothing
-      sprite: _EinsteinEngines/Objects/Weapons/Guns/Battery/civilian-disabler.rsi
+      sprite: _EinsteinEngines/Objects/Weapons/Guns/Battery/syndicate-disabler.rsi
       quickEquip: false
       slots:
         - suitStorage
@@ -266,6 +271,9 @@
     - type: ProjectileBatteryAmmoProvider
       proto: BulletSyndicateDisabler
       fireCost: 100
+    - type: Multishot
+      spreadMultiplier: 1.25
+      spreadAddition: 10
     - type: BatterySelfRecharger
       autoRecharge: true
       autoRechargeRate: 50
