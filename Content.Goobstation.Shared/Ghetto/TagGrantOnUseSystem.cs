@@ -12,7 +12,10 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Ghetto;
 
-public sealed class TagGrantSystem : EntitySystem
+/// <summary>
+/// Handles the logic for granting tags when items with TagGrantOnUseComponent are activated.
+/// </summary>
+public sealed class TagGrantOnUseSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!;
@@ -20,33 +23,35 @@ public sealed class TagGrantSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<TagGrantComponent, UseInHandEvent>(OnUseInHand);
+        SubscribeLocalEvent<TagGrantOnUseComponent, UseInHandEvent>(OnUseInHand);
     }
-
-    private void OnUseInHand(EntityUid uid, TagGrantComponent component, UseInHandEvent args)
+    private void OnUseInHand(EntityUid uid, TagGrantOnUseComponent component, UseInHandEvent args)
     {
-        if (args.Handled || component.Uses <= 0)
+        if (args.Handled)
             return;
-
-        if (_tagSystem.HasTag(args.User, component.Tag))
-        {
-            _popup.PopupEntity(Loc.GetString("tag-grant-invalid-tag"), args.User, args.User);
-            args.Handled = true;
+        if (component.Uses <= 0)
             return;
-        }
 
         if (!_proto.HasIndex(component.Tag))
         {
             _popup.PopupEntity(Loc.GetString("tag-grant-invalid-tag"), args.User, args.User);
             return;
         }
-
+        if (_tagSystem.HasTag(args.User, component.Tag))
+        {
+            _popup.PopupEntity(Loc.GetString("tag-grant-invalid-tag"), args.User, args.User);
+            args.Handled = true;
+            return;
+        }
         _tagSystem.AddTag(args.User, component.Tag);
 
-        if (!string.IsNullOrEmpty(component.Popup))
-            _popup.PopupEntity(Loc.GetString(component.Popup), args.User, args.User);
+        if (component.Popup is {} popup && !string.IsNullOrWhiteSpace(popup))
+            _popup.PopupEntity(Loc.GetString(popup), args.User, args.User);
 
-        component.Uses--;
+        // Decrement uses if not infinite
+        if (component.Uses.HasValue)
+            component.Uses--;
+
         args.Handled = true;
     }
 }

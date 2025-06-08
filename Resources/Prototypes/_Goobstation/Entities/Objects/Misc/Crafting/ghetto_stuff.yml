@@ -15,7 +15,7 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/Crafting/diy_manual.rsi
     state: icon_maint
-  - type: TagGrant
+  - type: TagGrantOnUse
     tag: MakeshiftCrafter
     uses: 1
     popup: diy-book-grant
@@ -28,8 +28,8 @@
   components:
   - type: Sprite
     state: icon_rev
-  - type: TagGrant
-    uses: 9999999 # i mean it works
+  - type: TagGrantOnUse
+    uses: null # infinite
 
 - type: entity
   id: WoodenHandle
