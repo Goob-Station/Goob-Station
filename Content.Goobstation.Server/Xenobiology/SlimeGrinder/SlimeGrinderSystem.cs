@@ -5,14 +5,13 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Numerics;
 using Content.Goobstation.Shared.Xenobiology.Components;
 using Content.Goobstation.Shared.Xenobiology.Systems;
+using Content.Server.Containers;
 using Content.Server.Power.Components;
 using Content.Shared.Audio;
 using Content.Shared.Climbing.Events;
 using Content.Shared.Construction.Components;
-using Content.Shared.Coordinates;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Jittering;
@@ -21,10 +20,12 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Power;
 using Content.Shared.Throwing;
+using Robust.Client.Physics;
 using Robust.Server.Containers;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Physics.Systems;
 using Robust.Shared.Random;
 
 namespace Content.Goobstation.Server.Xenobiology.SlimeGrinder;
@@ -39,6 +40,7 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly SharedJointSystem _jointSystem = default!;
 
     public override void Initialize()
     {
@@ -56,6 +58,8 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
         SubscribeLocalEvent<SlimeGrinderComponent, ClimbedOnEvent>(OnClimbedOn);
         SubscribeLocalEvent<SlimeGrinderComponent, PowerChangedEvent>(OnPowerChanged);
         SubscribeLocalEvent<SlimeGrinderComponent, ReclaimerDoAfterEvent>(OnDoAfter);
+
+        SubscribeLocalEvent<SlimeGrinderComponent, BeforeThrowInsertEvent>(BeforeThrowInsert);
     }
 
     public override void Update(float frameTime)
@@ -148,6 +152,14 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
         });
     }
 
+    private void BeforeThrowInsert(Entity<SlimeGrinderComponent> grinder, ref BeforeThrowInsertEvent args)
+    {
+        if (CanGrind(grinder, args.ThrownEntity))
+            return;
+
+        args.Cancelled = true;
+    }
+
     private void OnClimbedOn(Entity<SlimeGrinderComponent> grinder, ref ClimbedOnEvent args)
     {
         _container.Insert(args.Climber, grinder.Comp.GrindedContainer);
@@ -177,6 +189,7 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
             return;
         }
 
+        _jointSystem.RecursiveClearJoints(args.Entity);
         StartProcessing(args.Entity, grinder);
     }
 

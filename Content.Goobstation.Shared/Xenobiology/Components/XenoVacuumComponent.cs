@@ -18,12 +18,6 @@ namespace Content.Goobstation.Shared.Xenobiology.Components;
 public sealed partial class XenoVacuumComponent : Component
 {
     /// <summary>
-    /// The EntityUid of the tank attached to this nozzle.
-    /// </summary>
-    [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
-    public EntityUid? LinkedStorageTank;
-
-    /// <summary>
     /// The sound played when the vacuum is used.
     /// </summary>
     [DataField, AutoNetworkedField]

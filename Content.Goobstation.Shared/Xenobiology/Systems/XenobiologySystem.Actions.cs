@@ -71,13 +71,16 @@ public partial class XenobiologySystem
             || slime.Comp.Stomach.Count <= 0)
             return;
 
-        var text = Robust.Shared.Localization.Loc.GetString("slime-examined-text", ("num", slime.Comp.Stomach.Count));
+        var text = Loc.GetString("slime-examined-text", ("num", slime.Comp.Stomach.Count));
         args.PushMarkup(text);
     }
 
     #region Events
     private void OnLatchAttempt(SlimeLatchEvent args)
     {
+        if (_net.IsClient)
+            return;
+
         var slime = args.Performer;
         var target = args.Target;
 
@@ -91,6 +94,9 @@ public partial class XenobiologySystem
 
     private void OnConsumedEntityDied(Entity<SlimeDamageOvertimeComponent> ent, ref MobStateChangedEvent args)
     {
+        if (_net.IsClient)
+            return;
+
         if (_containerSystem.IsEntityOrParentInContainer(ent)
             && args.NewMobState == MobState.Dead)
             _containerSystem.TryRemoveFromContainer(ent, true);
@@ -98,7 +104,8 @@ public partial class XenobiologySystem
 
     private void OnEntityDied(Entity<SlimeComponent> slime, ref MobStateChangedEvent args)
     {
-        if (args.NewMobState != MobState.Dead)
+        if (args.NewMobState != MobState.Dead
+            || _net.IsClient)
             return;
 
         var removedEnts = _containerSystem.EmptyContainer(slime.Comp.Stomach, true);
@@ -108,7 +115,8 @@ public partial class XenobiologySystem
 
     private void OnEntityEscape(Entity<SlimeComponent> ent, ref EntRemovedFromContainerMessage args)
     {
-        if (!HasComp<SlimeDamageOvertimeComponent>(args.Entity))
+        if (!HasComp<SlimeDamageOvertimeComponent>(args.Entity)
+            || _net.IsClient)
             return;
 
         RemCompDeferred<SlimeDamageOvertimeComponent>(args.Entity);
@@ -121,10 +129,11 @@ public partial class XenobiologySystem
     {
         if (!Resolve(uid, ref slimeComp)
             || slimeComp.LatchedTarget.HasValue
-            || !HasComp<HumanoidAppearanceComponent>(target)
             || _mobState.IsDead(target)
             || !_actionBlocker.CanInteract(uid, target)
-            || HasComp<BeingConsumedComponent>(target))
+            || !HasComp<HumanoidAppearanceComponent>(target)
+            || HasComp<BeingConsumedComponent>(target)
+            || _net.IsClient)
             return false;
 
         TryDoSlimeLatch(uid, target, slimeComp);
@@ -133,6 +142,9 @@ public partial class XenobiologySystem
 
     private void TryDoSlimeLatch(EntityUid slime, EntityUid target, SlimeComponent slimeComp)
     {
+        if (_net.IsClient)
+            return;
+
         if (_mobState.IsDead(target))
         {
             var targetDeadPopup = Robust.Shared.Localization.Loc.GetString("slime-latch-fail-target-dead", ("ent", target));
@@ -171,7 +183,8 @@ public partial class XenobiologySystem
     {
         if (args.Target is not { } target
             || args.Cancelled
-            || args.Handled)
+            || args.Handled
+            || _net.IsClient)
             return;
 
         DoSlimeLatch(slime, target, slime);
@@ -180,6 +193,9 @@ public partial class XenobiologySystem
 
     private void DoSlimeLatch(EntityUid slime, EntityUid target, SlimeComponent slimeComp)
     {
+        if (_net.IsClient)
+            return;
+
         RemComp<BeingConsumedComponent>(target);
 
         if (!_containerSystem.Insert(target, slimeComp.Stomach))

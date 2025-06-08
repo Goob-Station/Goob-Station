@@ -55,11 +55,11 @@ public partial class XenobiologySystem
     private void OnEquippedHand(Entity<XenoVacuumComponent> vacuum, ref GotEquippedHandEvent args)
     {
         if (!_inventorySystem.TryGetSlotEntity(args.User, "suitstorage", out var tank)
-            || !TryComp<XenoVacuumTankComponent>(tank, out var tankComp))
+            || !TryComp<XenoVacuumTankComponent>(tank, out var tankComp)
+            || _net.IsClient)
             return;
 
         tankComp.LinkedNozzle = vacuum;
-        vacuum.Comp.LinkedStorageTank = tank;
 
         Dirty(vacuum);
         Dirty(tank.Value, tankComp);
@@ -68,11 +68,11 @@ public partial class XenobiologySystem
     private void OnUnequippedHand(Entity<XenoVacuumComponent> vacuum, ref GotUnequippedHandEvent args)
     {
         if (!_inventorySystem.TryGetSlotEntity(args.User, "suitstorage", out var tank)
-            || !TryComp<XenoVacuumTankComponent>(tank, out var tankComp))
+            || !TryComp<XenoVacuumTankComponent>(tank, out var tankComp)
+            || _net.IsClient)
             return;
 
         tankComp.LinkedNozzle = null;
-        vacuum.Comp.LinkedStorageTank = null;
 
         Dirty(vacuum);
         Dirty(tank.Value, tankComp);
@@ -82,7 +82,8 @@ public partial class XenobiologySystem
     {
         if (!_emag.CompareFlag(args.Type, EmagType.Interaction)
             || _emag.CheckFlag(vacuum, EmagType.Interaction)
-            || HasComp<EmaggedComponent>(vacuum))
+            || HasComp<EmaggedComponent>(vacuum)
+            || _net.IsClient)
             return;
 
         args.Handled = true;
@@ -90,7 +91,7 @@ public partial class XenobiologySystem
 
     private void OnXenoVacuum(Entity<XenoVacuumComponent> ent, ref AfterInteractEvent args)
     {
-        if (!_net.IsServer)
+        if (_net.IsClient)
             return;
 
         if (args is { Target: { } target, CanReach: true }
@@ -126,7 +127,8 @@ public partial class XenobiologySystem
     private bool TryDoSuction(EntityUid user, EntityUid target, Entity<XenoVacuumComponent> vacuum)
     {
         if (!_inventorySystem.TryGetSlotEntity(user, "suitstorage", out var tank)
-            || !TryComp<XenoVacuumTankComponent>(tank, out var tankComp))
+            || !TryComp<XenoVacuumTankComponent>(tank, out var tankComp)
+            || _net.IsClient)
         {
             var noTankPopup = Robust.Shared.Localization.Loc.GetString("xeno-vacuum-suction-fail-no-tank-popup");
             _popup.PopupEntity(noTankPopup, vacuum, user);

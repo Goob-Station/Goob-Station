@@ -71,8 +71,8 @@ public partial class XenobiologySystem
     /// <param name="selectedBreed">The selected breed of the entity.</param>
     private void DoBreeding(EntityUid parent, EntProtoId newEntityProto, ProtoId<BreedPrototype> selectedBreed)
     {
-        if (!_net.IsServer
-            || !_prototypeManager.TryIndex(selectedBreed, out var newBreed))
+        if (!_prototypeManager.TryIndex(selectedBreed, out var newBreed)
+            || _net.IsClient)
             return;
 
         var newEntityUid = SpawnNextToOrDrop(newEntityProto, parent, null, newBreed.Components);
@@ -89,7 +89,7 @@ public partial class XenobiologySystem
     //Handles slime mitosis, for each offspring, a mutation is selected from their potential mutations - if mutation is successful, the products of mitosis will have the new mutation.
     private void DoMitosis(Entity<SlimeComponent> ent)
     {
-        if (!_net.IsServer)
+        if (_net.IsClient)
             return;
 
         var offspringCount = _random.Next(1, ent.Comp.MaxOffspring + 1);

@@ -20,8 +20,8 @@ public partial class XenobiologySystem
 
     private void OnTame(Entity<SlimeComponent> ent, ref InteractionSuccessEvent args)
     {
-        if (!_net.IsServer
-            || ent.Comp.Tamer.HasValue)
+        if (ent.Comp.Tamer.HasValue
+            || _net.IsClient)
             return;
 
         var (slime, comp) = ent;

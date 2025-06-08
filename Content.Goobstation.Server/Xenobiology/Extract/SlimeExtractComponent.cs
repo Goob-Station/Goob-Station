@@ -11,6 +11,4 @@ using Robust.Shared.Prototypes;
 namespace Content.Goobstation.Server.Xenobiology.Extract;
 
 [RegisterComponent]
-public sealed partial class SlimeExtractComponent : Component
-{
-}
+public sealed partial class SlimeExtractComponent : Component;
