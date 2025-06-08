@@ -75,10 +75,8 @@ public abstract partial class SharedMartialArtsSystem
     private void OnKickUp(Entity<CanPerformComboComponent> ent, ref KickUpPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto, out var target, out _))
-            return;
-
-        if (target != ent.Owner)
+            || !TryUseMartialArt(ent, proto, out var target, out _)
+            || target != ent.Owner)
             return;
 
         _status.TryRemoveStatusEffect(ent, "KnockedDown");
