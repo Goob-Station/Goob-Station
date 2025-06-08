@@ -43,6 +43,9 @@
   id: JobNanotrasenCareerTrainer
 
 - type: playTimeTracker
+  id: JobHighCommander
+
+- type: playTimeTracker
   id: JobGovernmentMan
 
 - type: playTimeTracker

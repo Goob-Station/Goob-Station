@@ -24,10 +24,14 @@ job-name-diplomat = Diplomat
 job-name-inspector = Central Command Auditor
 job-name-nct = Nanotrasen Career Trainer
 
+# Syndicate
+
+job-name-highcommander = High Commander
+
 # Half Life
 
 job-name-hecu = HECU Operative
-job-name-gman = The G-Man
+job-name-governmentman = The G-Man
 
 # Misc
 

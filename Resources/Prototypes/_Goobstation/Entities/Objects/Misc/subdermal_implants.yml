@@ -35,7 +35,7 @@
   - type: TriggerImplantAction
   - type: DeleteParentOnTrigger
   - type: SpawnOnTrigger
-    proto: BluespaceLifeline
+    proto: BluespaceLifelineSpawnCore
   - type: Tag
     tags:
     - SubdermalImplant

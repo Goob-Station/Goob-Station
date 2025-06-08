@@ -193,16 +193,8 @@
     sprite: Objects/Misc/id_cards.rsi
     layers:
     - state: ert_security
-  - type: IdCard
-    jobTitle: job-name-navycaptain
-    jobIcon: JobIconNanotrasen
-  - type: Access
-    groups:
-    - AllAccess
-    tags:
-    - CentralCommand
-    - NanotrasenRepresentative
-    - BlueshieldOfficer
+  - type: PresetIdCard
+    job: NavyCaptain
 
 # Navy Officer
 
@@ -215,16 +207,8 @@
     sprite: Objects/Misc/id_cards.rsi
     layers:
     - state: ert_security
-  - type: IdCard
-    jobTitle: job-name-navycaptain
-    jobIcon: JobIconNanotrasen
-  - type: Access
-    groups:
-    - AllAccess
-    tags:
-    - CentralCommand
-    - NanotrasenRepresentative
-    - BlueshieldOfficer
+  - type: PresetIdCard
+    job: NavyOfficer
 
 # Special Operations Officer
 
@@ -237,16 +221,8 @@
     sprite: Objects/Misc/id_cards.rsi
     layers:
     - state: ert_security
-  - type: IdCard
-    jobTitle: job-name-navycaptain
-    jobIcon: JobIconNanotrasen
-  - type: Access
-    groups:
-    - AllAccess
-    tags:
-    - CentralCommand
-    - NanotrasenRepresentative
-    - BlueshieldOfficer
+  - type: PresetIdCard
+    job: SpecialOperationsOfficer
 
 # Inspector
 
@@ -259,16 +235,8 @@
     sprite: Objects/Misc/id_cards.rsi
     layers:
     - state: ert_security
-  - type: IdCard
-    jobTitle: job-name-inspector
-    jobIcon: JobIconNanotrasen
-  - type: Access
-    groups:
-    - AllAccess
-    tags:
-    - CentralCommand
-    - NanotrasenRepresentative
-    - BlueshieldOfficer
+  - type: PresetIdCard
+    job: Inspector
 
 # Inspector
 
@@ -284,13 +252,8 @@
   - type: IdCard
     jobTitle: job-name-diplomat
     jobIcon: JobIconNanotrasen
-  - type: Access
-    groups:
-    - AllAccess
-    tags:
-    - CentralCommand
-    - NanotrasenRepresentative
-    - BlueshieldOfficer
+  - type: PresetIdCard
+    job: Diplomat
 
 # Halflife Stuff
 
@@ -307,16 +270,22 @@
     - state: idchrono
   - type: Item
     heldPrefix: blue
-  - type: IdCard
-    jobTitle: job-name-gman
-    jobIcon: JobIconLambda
-  - type: Access
-    groups:
-    - AllAccess
-    tags:
-    - CentralCommand
-    - NanotrasenRepresentative
-    - BlueshieldOfficer
-    - Wizard
-    - NuclearOperative
-    - SyndicateAgent
+  - type: PresetIdCard
+    job: GovernmentMan
+
+# Syndicate!
+
+- type: entity
+  parent: SyndicateIDCard
+  id: HighCommandIDCard
+  name: high command ID card
+  description: A particularly extravagent Syndicate identification card. This one has an in-built access breaker to open nearly any door.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/id_cards.rsi
+    layers:
+    - state: idhighcommand
+  - type: PresetIdCard
+    job: SyndicateHighCommander
+  - type: Emag
+    emagType: Access

@@ -86,3 +86,55 @@
   storage:
     back:
     - DeterrentCaseFilled
+
+# High Commander
+
+- type: job
+  id: SyndicateHighCommander
+  name: job-name-highcommander
+  description: job-description-highcommander
+  playTimeTracker: JobHighCommander
+  setPreference: false
+  startingGear: SyndicateHighCommanderGearFull
+  icon: "JobIconLambda"
+  supervisors: job-supervisors-syndicate
+  canBeAntag: false
+  requirements:
+  - !type:AgeRequirement
+    requiredAge: 21
+  accessGroups:
+  - AllAccess
+  access:
+  - NuclearOperative
+  - SyndicateAgent
+  special:
+  - !type:AddImplantSpecial
+    implants: [ FreedomImplant, ScramImplant, NutrimentPumpImplant, SpaceProofImplant, StypticStimulatorImplant, DeathAcidifierImplant, UplinkImplant ]
+  - !type:AddComponentSpecial
+    components:
+    - type: GrantCqc
+      startingStage: Hard
+      isBlocked: false
+    - type: NpcFactionMember
+      factions:
+      - Syndicate
+
+- type: startingGear
+  id: SyndicateHighCommanderGearFull
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSyndieFormal
+    back: ClothingBackpackDuffelSyndicate
+    mask: ClothingMaskGasSyndicate
+    head: ClothingHeadHatBeret
+    eyes: ClothingEyesHudSyndicate
+    ears: ClothingHeadsetAltSyndicate
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterCoatSyndieCapArmored
+    shoes: ClothingShoesBootsSyndieFilled
+    id: HighCommandPDA
+    pocket2: BaseUplinkRadio225TC
+    belt: ClothingBeltSyndieHolster
+  storage:
+    back:
+    - WeaponPistolAnaconda
+    - PinpointerSyndicateNuclear
