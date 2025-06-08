@@ -186,7 +186,8 @@ public partial class SharedMartialArtsSystem
         }
 
         // Taking someone in an armbar is an equivalent of taking them in a choke grab
-        if (puller.GrabStage != GrabStage.Suffocate || pullable.GrabStage != GrabStage.Suffocate)
+        if (puller.GrabStage != GrabStage.Suffocate
+            || pullable.GrabStage != GrabStage.Suffocate)
             _pulling.TrySetGrabStages((ent, puller), (target, pullable), GrabStage.Suffocate);
 
         _stun.TryKnockdown(target, knockdownTime, true, proto.DropHeldItemsBehavior);
