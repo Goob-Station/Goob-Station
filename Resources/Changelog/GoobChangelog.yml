@@ -10764,3 +10764,9 @@ Entries:
       message: Syndicate reinforcement is now a familiar
   id: 1186
   time: '2025-06-08T08:58:46.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Secret+ should now pick more sane roundstart antag combinations.
+  id: 1187
+  time: '2025-06-08T09:00:34.0000000+00:00'
