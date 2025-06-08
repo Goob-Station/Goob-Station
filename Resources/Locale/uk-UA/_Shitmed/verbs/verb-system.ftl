@@ -1,0 +1,1 @@
+verb-categories-switch = Режим перемикання

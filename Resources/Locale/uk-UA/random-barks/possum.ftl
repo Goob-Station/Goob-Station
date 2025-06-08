@@ -1,0 +1,24 @@
+# Possum <3
+bark-possum-1 = Шшш шшш
+bark-possum-2 = Шшш шшш шшш
+bark-possum-3 = Їжа
+bark-possum-4 = Я голодний
+bark-possum-5 = Хочу більше їжі
+bark-possum-6 = Шшш
+bark-possum-7 = Прикинуся мертвим
+bark-possum-8 = Мені страшно
+bark-possum-9 = Потрібно сховатися
+bark-possum-10 = Хочу темряви
+bark-possum-11 = Дім на дереві
+bark-possum-12 = Шшш шшш шшш шшш
+bark-possum-13 = Їжу, негайно
+bark-possum-14 = Хочу спати
+bark-possum-15 = Шшш шшш шшш
+bark-possum-16 = Ніч — це добре
+bark-possum-17 = Фрукти, будь ласка
+bark-possum-18 = Не люблю світло
+bark-possum-19 = Шшш шшш шшш шшш шшш
+bark-possum-20 = Безпечно в темряві
+bark-possum-21 = Мені потрібно сховатися
+bark-possum-22 = Шшш... Тримайся подалі
+bark-possum-count = 22

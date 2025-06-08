@@ -1,0 +1,1 @@
+telecrystal-component-sucs-inserted = Ви вставили {THE($source)} в {THE($target)}.

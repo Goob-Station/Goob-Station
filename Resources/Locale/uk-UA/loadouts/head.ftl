@@ -1,0 +1,16 @@
+loadout-description-LoadoutHeadHatBluesoft = Кепка.
+loadout-description-LoadoutHeadHatBluesoftFlipped = Кепка.
+loadout-description-LoadoutHeadHatCorpsoft = Кепка.
+loadout-description-LoadoutHeadHatCorpsoftFlipped = Кепка.
+loadout-description-LoadoutHeadHatGreensoft = Кепка.
+loadout-description-LoadoutHeadHatGreensoftFlipped = Кепка.
+loadout-description-LoadoutHeadHatGreysoft = Кепка.
+loadout-description-LoadoutHeadHatGreysoftFlipped = Кепка.
+loadout-description-LoadoutHeadHatOrangesoft = Кепка.
+loadout-description-LoadoutHeadHatOrangesoftFlipped = Кепка.
+loadout-description-LoadoutHeadHatPurplesoft = Кепка.
+loadout-description-LoadoutHeadHatPurplesoftFlipped = Кепка.
+loadout-description-LoadoutHeadHatRedsoft = Кепка.
+loadout-description-LoadoutHeadHatRedsoftFlipped = Кепка.
+loadout-description-LoadoutHeadHatYellowsoft = Кепка.
+loadout-description-LoadoutHeadHatYellowsoftFlipped = Кепка.

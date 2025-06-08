@@ -1,0 +1,13 @@
+advertisement-chefvend-1 = Принаймні шістдесят відсотків наших яєць не розбиті, гарантовано!
+advertisement-chefvend-2 = Рис, рис, бейбі.
+advertisement-chefvend-3 = Докиньте трохи масла!
+advertisement-chefvend-4 = Чи варті ви своєї солі? Ми - так.
+advertisement-chefvend-5 = Сало, сало, українське сало, воно є і його завжди мало!
+advertisement-chefvend-6 = Приборкайте силу борошна.
+advertisement-chefvend-7 = Покажіть своїм клієнтам, хто є найкращим шеф-кухарем, за допомогою нашого знаменитого, відзначеного нагородами соусу барбекю.
+advertisement-chefvend-8 = Я обожнюю їсти сирі яйця.
+advertisement-chefvend-9 = Насолоджуйтеся старими добрими сирими яйцями!
+thankyou-chefvend-1 = Час готувати!
+thankyou-chefvend-2 = Дякуємо, що довіряєте нашим якісним інгредієнтам!
+thankyou-chefvend-3 = Це дасть їм те, чого вони хочуть!
+thankyou-chefvend-4 = Ідіть приготуйте ті бургери!

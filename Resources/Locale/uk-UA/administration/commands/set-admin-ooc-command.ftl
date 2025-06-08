@@ -1,0 +1,2 @@
+set-admin-ooc-command-description = Встановлює колір ваших повідомлень OOC. Колір повинен бути у форматі hex, наприклад: {$command} #c43b23
+set-admin-ooc-command-help-text = Використання: {$command} <колір>

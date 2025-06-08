@@ -1,0 +1,6 @@
+ninja-gloves-on = Рукавички сповнені сили!
+ninja-gloves-off = Рукавички вимикаються...
+ninja-gloves-not-wearing-suit = Ви не носите костюм ніндзя
+ninja-gloves-examine-on = Усі здібності ввімкнено.
+ninja-gloves-examine-off = Нудні старі рукавички...
+ninja-doorjack-success = Рукавички маніпулюють {THE($target)}.

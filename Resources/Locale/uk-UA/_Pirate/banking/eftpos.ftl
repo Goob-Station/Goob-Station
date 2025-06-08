@@ -1,0 +1,9 @@
+eftpos-ui-title = Термінал безготівкової оплати
+eftpos-ui-amount-text = Сума коштів:
+eftpos-ui-card-lock-text = Заблокувати
+eftpos-ui-card-unlock-text = Розблокувати
+eftpos-ui-card-lock-desc = Проведіть карткою для блокування
+eftpos-ui-card-unlock-desc = Проведіть карткою для розблокування
+eftpos-ui-account-text = Облік. Запис: { $owner }
+eftpos-transaction-success = Транзакція успішна
+eftpos-transaction-error = Помилка транзакції

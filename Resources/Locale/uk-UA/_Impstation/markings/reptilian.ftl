@@ -1,0 +1,15 @@
+marking-LizardSnoutpiercings-piercings1 = Пірсинг
+marking-LizardSnoutpiercings = Пірсинг
+marking-LizardSnoutTall = Морда ящірки (Висока)
+marking-LizardSnoutTall-snout_tall = Морда
+marking-LizardHornsNubby-horns_nubby = Роги ящірки (Короткі)
+marking-LizardHornsNubby = Роги ящірки (Короткі)
+marking-LizardHornsKoboldEarspiercings = Вуха ящірки (Кобольд, з пірсингом)
+marking-LizardHornsKoboldEarspiercings-horns_kobold_ears = Вуха
+marking-LizardHornsKoboldEarspiercings-horns_kobold_ears_piercings = Пірсинг
+marking-Fangs = Ікла ящірки
+marking-Fangs-Fangs = Ікла
+marking-LizardBeard = Борода ящірки
+marking-LizardBeard-beard = Борода
+marking-LizardHeadFlat = Пласка голова
+marking-LizardHeadFlat-head_flat = Пласка голова

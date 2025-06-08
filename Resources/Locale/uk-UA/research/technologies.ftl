@@ -1,0 +1,106 @@
+research-discipline-none = Немає
+research-discipline-industrial = Індустріальний
+research-discipline-arsenal = Озброєння
+research-discipline-experimental = Експериментальний
+research-discipline-civilian-services = Цивільні Послуги
+
+research-technology-fulton = Фултон
+research-technology-salvage-equipment = Шахтарське Обладнання
+research-technology-advanced-powercells = Передові Електронакопичувачі
+research-technology-mechanical-compression = Механічне Стиснення
+research-technology-compact-power = Компактна Енергія
+research-technology-industrial-engineering = Індустріальна Інженерія
+research-technology-power-generation = Електрогенерація
+research-technology-atmospheric-tech = Атмосферні Технології
+research-technology-shuttlecraft = Суднобудування
+research-technology-ripley-aplu = АМВ Ripley
+research-technology-advanced-atmospherics = Просунута Атмосферна Техніка
+research-technology-advanced-tools = Просунуті Інструменти
+research-technology-super-powercells = Супер Електронакопичувачі
+research-technology-bluespace-storage = Блюспейс Сховища
+research-technology-portable-fission = Портативне Розщеплення
+research-technology-space-scanning = Космічне Сканування
+
+research-technology-chemistry = Хімія
+research-technology-surgical-tools = Хірургічні Інструменти
+research-technology-medipen-fabrication = Заправлення Медіпенів
+research-technology-virology = Вірусологія
+research-technology-cryogenics = Кріогеника
+research-technology-chemical-dispensary = Роздача Хімікатів
+research-technology-biofabrication = Біофабрикація
+research-technology-crew-monitoring = Моніторинг Екіпажу
+research-technology-cloning = Клонування
+
+research-technology-salvage-weapons = Шахтарська Зброя
+research-technology-draconic-munitions = Запалювальні Боєприпаси
+research-technology-uranium-munitions = Уранові Боєприпаси
+research-technology-explosive-technology = Технологія Вибухівки
+research-technology-weaponized-laser-manipulation = Збройна Лазерна Маніпуляція
+research-technology-nonlethal-ammunition = Нелетальні Боєприпаси
+research-technology-practice-ammunition = Тренувальні Боєприпаси
+research-technology-concentrated-laser-weaponry = Сконцентрована Лазерна Зброя
+research-technology-wave-particle-harnessing = Приборкання X-променів
+research-technology-advanced-riot-control = Просунутий Контроль Натовпу
+research-technology-portable-microfusion-weaponry = Портативна Мікрофузійна Зброя
+research-technology-experimental-battery-ammo = Експериментальні Акумуляторний Боєзапас
+research-technology-energy_barriers = Енергетичні бар'єри
+research-technology-basic-shuttle-armament = Базове Озброєння Шатлу
+research-technology-advanced-shuttle-weapon = Просунуте Озброєння Шатлу
+
+research-technology-basic-robotics = Базова Робототехніка
+research-technology-basic-anomalous-research = Базові Аномальні Дослідження
+research-technology-basic-xenoarcheology = Базова Ксеноархеологія
+research-technology-alternative-research = Альтернативні Дослідження
+research-technology-magnets-tech = Магнітне Обладнання
+research-technology-advanced-parts = Просунуті Компоненти
+research-technology-anomaly-harnessing = Приборкання Ядра Аномалії
+research-technology-grappling = Грапплінг
+research-technology-abnormal-artifact-manipulation = Маніпуляція Артефактами
+research-technology-gravity-manipulation = Маніпуляція Гравітацією
+research-technology-quantum-leaping = Квантовий Cтрибок
+research-technology-advanced-anomaly-research = Передові Дослідження Аномалій
+research-technology-rped = Пристрій Швидкої Заміни Компонентів
+research-technology-super-parts = Суперкомпоненти
+research-technology-deterrence = Технології Стримування
+research-technology-bluespace-mining = Майнінг Bluespace
+
+research-technology-janitorial-equipment = Прибиральне Обладнання
+research-technology-laundry-tech = Технологія Виготовлення Одягу
+research-technology-basic-hydroponics = Базова Гідропоніка
+research-technology-critter-mechs = Кріттер Мехи
+research-technology-food-service = Харчові Технології
+research-technology-advanced-entertainment = Просунуті Розважальні Пристрої
+research-technology-audio-visual-communication = Аудіовізуальні Комунікації
+research-technology-faux-astro-tiles = Штучні Астро-плитки
+research-technology-biochemical-stasis = Біохімічний Стазис
+research-technology-mechanized-treatment = Механізоване Лікування
+research-technology-robotic-cleanliness = Роботизована Чистота
+research-technology-advanced-cleaning = Просунуті Технології Очищення
+research-technology-meat-manipulation = Обробка М'яса
+research-technology-honk-mech = Екзокостюм H.O.N.K
+research-technology-advanced-spray = Передове Розпилення Рідини
+research-technology-bluespace-cargo-transport = Блюспейс Транспорт Грузів
+research-technology-quantum-fiber-weaving = Квантове Плетіння Волокон
+research-technology-bluespace-chemistry = Блюспейс Хімія
+
+research-technology-hardsuits-scaf = Армований скафандр
+
+research-technology-mechanized-salvaging = Механізоване шахтерство
+research-technology-advanced-bluespace = Поглиблене дослідження блакитного простору
+research-technology-excavation = Масові розкопки
+
+research-technology-night-vision = Нічне бачення
+research-technology-thermal-vision = Тепловізійне бачення
+research-technology-basic-weapons = Основні види зброї
+research-technology-advanced-weapons = Передова зброя
+research-technology-prototype-weapons = Прототипи зброї
+research-technology-advanced-tacsuits = Удосконалені тактичні костюми
+research-technology-prototype-tacsuits = Прототипи костюмів
+research-technology-basic-cybernetics = Основи кібернетики
+research-technology-basic-electronics = Базова електроніка
+research-technology-basic-life-improvements = Базові покращення життя
+research-technology-advanced-life-improvements = Прогресивні покращення життя
+
+research-technology-shrapnel-munitions = Шрапнельні Боєприпаси
+research-technology-laser-sentry-turrets = Технологія Лазерних Турелей-Охоронців
+research-technology-positronic-interfacing = Позитронне Сполучення

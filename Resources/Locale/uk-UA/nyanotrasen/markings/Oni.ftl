@@ -1,0 +1,14 @@
+marking-OniHornSingleCurved = Одинарний вигнутий
+marking-OniHornSingleCurved-single_curved = Одинарний вигнутий
+marking-OniHornSingleLeftCurved = Одинарний вигнутий ліворуч
+marking-OniHornSingleLeftCurved-single_left_curved = Одинарний вигнутий ліворуч
+marking-OniHornSingleRightCurved = Одинарний вигнутий праворуч
+marking-OniHornSingleRightCurved-single_right_curved = Одинарний вигнутий праворуч
+marking-OniHornDoubleCurvedOutwards = Подвійний вигнутий назовні
+marking-OniHornDoubleCurvedOutwards-double_curved_outwards = Подвійний вигнутий назовні
+marking-OniHornDoubleCurved = Подвійний вигнутий
+marking-OniHornDoubleCurved-double_curved = Подвійний вигнутий
+marking-OniHornDoubleLeftBrokeCurved = Подвійний зламаний ліворуч
+marking-OniHornDoubleLeftBrokeCurved-double_left_broke_curved = Подвійний зламаний ліворуч
+marking-OniHornDoubleRightBrokeCurved = Подвійний зламаний праворуч
+marking-OniHornDoubleRightBrokeCurved-double_right_broke_curved = Подвійний зламаний праворуч

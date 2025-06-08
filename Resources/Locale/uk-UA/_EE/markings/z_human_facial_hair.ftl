@@ -1,0 +1,8 @@
+marking-ZetaEMWhiskers = Вуса (Е.М. Вуса)
+marking-ZetaSpiderWhiskers = Вуса (Павучі Вуса)
+marking-ZetaTwirlable = Вуса (Закручувані)
+marking-ZetaVoluminous = Борода (Об'ємна)
+marking-ZetaWalrus = Вуса (Морж, Зета)
+marking-ZetaWizardous = Борода (Чарівницька)
+marking-ZetaWorkinMan = Борода (Роботяга)
+marking-ZetaOnTheChin = Борода (На підборідді)

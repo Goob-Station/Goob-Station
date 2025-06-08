@@ -1,0 +1,11 @@
+credits-window-title = Розробники
+credits-window-patrons-tab = Меценати
+credits-window-ss14contributorslist-tab = Розробники
+credits-window-licenses-tab = Відкрита ліцензія
+credits-window-become-patron-button = Стати патроном
+credits-window-contributor-encouragement-label = Хочете потрапити до цього списку?
+credits-window-contribute-button = Внеси свій внесок!
+credits-window-contributors-section-title = Розробники Станції 14
+credits-window-codebases-section-title = Кодові бази Space Station 13
+credits-window-original-remake-team-section-title = Оригінальна команда розробників Космічної станції 14
+credits-window-special-thanks-section-title = Окреме Дякую

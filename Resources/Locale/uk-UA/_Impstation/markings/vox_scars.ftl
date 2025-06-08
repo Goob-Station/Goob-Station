@@ -1,0 +1,14 @@
+marking-ScarsVoxRoadrashLeftHead-roadrash_l_head = Дорожній висип (Лівий)
+marking-ScarsVoxRoadrashLeftHead = Дорожній висип (Лівий)
+marking-ScarsVoxRoadrashRightHead-roadrash_r_head = Дорожній висип (Правий)
+marking-ScarsVoxRoadrashRightHead = Дорожній висип (Правий)
+marking-ScarsVoxBigslashLeftHead-bigslash_l_head = Великий поріз (Лівий)
+marking-ScarsVoxBigslashLeftHead = Великий поріз (Лівий)
+marking-ScarsVoxBigslashRightHead-roadrash_r_head = Великий поріз (Правий)
+marking-ScarsVoxBigslashRightHead = Великий поріз (Правий)
+marking-ScarsVoxSlashLeftHead-slash_l_head = Поріз (Лівий)
+marking-ScarsVoxSlashLeftHead = Поріз (Лівий)
+marking-ScarsVoxSlashRightHead-slash_r_head = Поріз (Правий)
+marking-ScarsVoxSlashRightHead = Поріз (Правий)
+marking-ScarsVoxClawTorso-claw_torso = Шрам від кігтів
+marking-ScarsVoxClawTorso = Шрам від кігтів

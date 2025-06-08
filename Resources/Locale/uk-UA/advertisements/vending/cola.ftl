@@ -1,0 +1,12 @@
+advertisement-cola-1 = Освіжає!
+advertisement-cola-2 = Сподіваюся, ти спраглий!
+advertisement-cola-3 = Продано понад 1 мільйон напоїв!
+advertisement-cola-4 = Спрага? Чому б не випити коли?
+advertisement-cola-5 = Будь ласка, випийте!
+advertisement-cola-6 = Сперечаюся, не зможеш загасити всю банку залпом!
+advertisement-cola-7 = Найкращі напої в грім дарк галактиці!
+advertisement-cola-8 = Набагато краще, ніж доктор Гібб!
+thankyou-cola-1 = Відкрийте банку і насолоджуйтеся!
+thankyou-cola-2 = Пау! Так тобі, спрага!
+thankyou-cola-3 = Сподіваюся, вам сподобається смак!
+thankyou-cola-4 = Насолоджуйтесь солодким напоєм!

@@ -1,0 +1,15 @@
+job-supervisors-centcom = офіційним особам центрального командування
+job-supervisors-captain = капітану
+job-supervisors-hop = голові персоналу
+job-supervisors-hos = голові служби безпеки
+job-supervisors-ce = головному інженеру
+job-supervisors-cmo = головному лікарю
+job-supervisors-rd = директору наукового відділу
+job-supervisors-qm = голові карго
+job-supervisors-service = шефу, ботаніку, бармену та голові персоналу
+job-supervisors-engineering = інженерам, атмосферним технікам та головному інженеру
+job-supervisors-medicine = лікарям, хімікам та головному лікарю
+job-supervisors-security = офіцерам, наглядачу та голові служби безпеки
+job-supervisors-science = науковцям та директору наукового відділу
+job-supervisors-hire = кожному, хто б вас не найняв
+job-supervisors-everyone = абсолютно кожному

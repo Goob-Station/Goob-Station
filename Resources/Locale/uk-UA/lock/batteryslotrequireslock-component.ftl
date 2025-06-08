@@ -1,0 +1,1 @@
+batteryslotrequireslock-component-alert-owner = {$user} втручається у вашу панель керування!

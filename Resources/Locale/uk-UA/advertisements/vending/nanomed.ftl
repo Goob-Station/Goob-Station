@@ -1,0 +1,9 @@
+advertisement-nanomed-1 = Врятуй кілька життів!
+advertisement-nanomed-2 = Найкраще для вашого медбею.
+advertisement-nanomed-3 = Тільки найкращі інструменти.
+advertisement-nanomed-4 = Природні хімікати!
+advertisement-nanomed-5 = Ці штуки рятують життя.
+advertisement-nanomed-6 = Справді не хочете?
+advertisement-nanomed-7 = Пінг!
+advertisement-nanomed-8 = Слідкуйте за тим, щоб не допустити передозування людей!
+advertisement-nanomed-9 = Передозуйте людей!

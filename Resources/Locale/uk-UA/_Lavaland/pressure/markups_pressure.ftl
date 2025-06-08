@@ -1,0 +1,4 @@
+lavaland-examine-pressure-in-range-buff = Це обладнання досягає максимальної ефективності між [color=yellow]{$min} - {$max} кПа[/color], що дозволяє йому завдавати в [color=yellow]{$modifier} разів[/color] більше шкоди!
+lavaland-examine-pressure-in-range-debuff = Це обладнання ослаблене між [color=yellow]{$min} - {$max} кПа[/color], через що воно завдає в [color=yellow]{$modifier} разів[/color] менше шкоди!
+lavaland-examine-pressure-out-range-buff = Це обладнання працює краще за межами [color=yellow]{$min} - {$max} кПа[/color], що дозволяє йому завдавати в [color=yellow]{$modifier} разів[/color] більше шкоди!
+lavaland-examine-pressure-out-range-debuff = Це обладнання ослаблене за межами [color=yellow]{$min} - {$max} кПа[/color], через що воно завдає в [color=yellow]{$modifier} разів[/color] менше шкоди!

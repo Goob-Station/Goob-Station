@@ -1,0 +1,13 @@
+ghost-role-information-lostpirate-name = Загублений Пірат
+ghost-role-information-lostpirate-description = Ти бідний, загублений пірат. Спробуй вижити разом зі своїм найкращим другом монке...
+ghost-role-information-lostpirate-rules = Ви [color=red]НЕ[/color] памʼятаєте минуле життя. Робіть що хочите щоб виконати завдання починаючи з торгівлі закінчуючи різнею. Слідуйте за капітаном та робіть все щоб захистити його життя.
+
+ghost-role-information-lost-captain-pirate-name = Капітан Загублених Піратів
+ghost-role-information-lost-captain-pirate-description = Ви капітан загубленого піратського корабля. Спробуйте стати багатими! Або хоча б вижити...
+ghost-role-information-lost-captain-pirate-rules = Ви [color=red]НЕ[/color] памʼятаєте минуле життя. Робіть що хочите щоб виконати завдання починаючи з торгівлі закінчуючи різнею. Керуйте цією шлюпкою і її командою, друг, ЯРРР!.
+
+ghost-role-information-lost-pirate-firstmate-name = Перший помічник Загіблених Піратів
+ghost-role-information-lost-pirate-firstmate-description = Ви перший помічник корабля загублених піратів. Слухайтесь капітана...
+ghost-role-information-lost-pirate-firstmate-rules = Ви [color=red]НЕ[/color] памʼятаєте минуле життя. Робіть що хочите щоб виконати завдання починаючи з торгівлі закінчуючи різнею. Слухайтесь капітана або... [color=red]станьте[/color] новим.
+roles-antag-pirate-name = Пірат
+roles-antag-pirate-objective = Вкрадіть все цінне з цього великого корабля... арррр.. станції...

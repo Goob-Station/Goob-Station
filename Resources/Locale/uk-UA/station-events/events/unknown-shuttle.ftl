@@ -1,0 +1,1 @@
+station-event-unknown-shuttle-incoming = Увага! До вашого сектору наближається непізнаний космічний шатл.

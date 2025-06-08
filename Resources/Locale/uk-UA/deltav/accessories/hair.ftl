@@ -1,0 +1,10 @@
+marking-HumanHairShortBedhead = Коротун Бедхед
+marking-HumanHairBobClassic = Класичний боб-каре
+marking-HumanHairMessyClassic = Брудна класика
+marking-HumanHairClassicGentle = Ніжна класика
+marking-HumanHairClassicNoFade = Вицвітання (Немає, класичний)
+marking-HumanHairClassicLowFade = Затухання (низьке, класичне)
+marking-HumanHairClassicMedFade = Вицвітання (середнє, класичне)
+marking-HumanHairClassicOmbre = Омбре класичне
+marking-HumanHairClassicCrewcut = Класична стрижка під каре
+marking-HumanHairClassicLong = Довгий 1 (класичний)

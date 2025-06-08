@@ -1,0 +1,1 @@
+warp-point-component-on-examine-success = ID цього місця: {$location}

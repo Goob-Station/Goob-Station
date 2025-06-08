@@ -1,0 +1,27 @@
+marking-VoxHairShortQuills = Пір'я Вокса (Короткі)
+marking-VoxHairKingly = Пір'я Вокса (Королівське)
+marking-VoxHairAfro = Пір'я Вокса (Афро)
+marking-VoxHairMohawk = Пір'я Вокса (Могавк)
+marking-VoxHairYasuhiro = Пір'я Вокса (Ясухіро)
+marking-VoxHairHorns = Пір'я Вокса (Роги)
+marking-VoxHairNights = Пір'я Вокса (Ночі)
+marking-VoxHairSurf = Пір'я Вокса (Серфер)
+marking-VoxHairCropped = Пір'я Вокса (Обрізане)
+marking-VoxHairRuffhawk = Пір'я Вокса (Жорсткий Могавк)
+marking-VoxHairRows = Пір'я Вокса (Ряди)
+marking-VoxHairMange = Пір'я Вокса (Манж)
+marking-VoxHairPony = Пір'я Вокса (Поні)
+
+marking-VoxHairBraids = Коси Vox
+marking-VoxHairCrestedQuills = Vox Creeded Quills
+marking-VoxHairEmperorQuills = Vox Emperor Квілс
+marking-VoxHairFlowing = Vox Flowing - Vox Flowing
+marking-VoxHairHawk = Vox Hawk
+marking-VoxHairKeelQuills = Vox Keel Quills
+marking-VoxHairKeetQuills = Vox Keet Quills
+marking-VoxHairLongBraid = Vox Довга коса
+marking-VoxHairRazorClipped = Vox Razor (Обрізано)
+marking-VoxHairRazor = Vox Razor
+marking-VoxHairSortBraid = Vox Коротка коса
+marking-VoxHairTielQuills = Vox Tiel Quails
+marking-VoxHairYasu = Vox Ясухіро

@@ -1,0 +1,19 @@
+handcuff-component-target-self = Ви починаєте надягати на себе кайдани.
+handcuff-component-cuffs-broken-error = Кайдани зламані!
+handcuff-component-target-has-no-hands-error = {$targetName} не має рук!
+handcuff-component-target-has-no-free-hands-error = {$targetName} не має вільних рук!
+handcuff-component-too-far-away-error = Ви задалеко щоб затримати!
+handcuff-component-start-cuffing-observer = {$user} починає затримувати {$target}!
+handcuff-component-start-cuffing-target-message = Ви починаєте затримувати {$targetName}.
+handcuff-component-start-cuffing-by-other-message = {$otherName} починає затримувати вас!
+handcuff-component-cuff-observer-success-message = {$user} затримує {$target}.
+handcuff-component-cuff-other-success-message = Ви затримали {$otherName}.
+handcuff-component-cuff-by-other-success-message = Вас затримав {$otherName}!
+handcuff-component-cuff-self-success-message = Ви затримали себе.
+handcuff-component-cuff-interrupt-message = Вам завадили затримати {$targetName}!
+handcuff-component-cuff-interrupt-other-message = Ви завадили {$otherName} коли вони хотіли затримати вас!
+handcuff-component-cuff-interrupt-self-message = Вам завадили затримати себе.
+handcuff-component-cuff-interrupt-buckled-message = Ви не можете пристібнутись коли затримані!
+handcuff-component-cuff-interrupt-unbuckled-message = Ви не можете відстібнутись коли затримані!
+
+handcuff-component-target-flying-error = Ви не можете дотягнутися до рук {$targetName}!
