@@ -68,7 +68,7 @@
     - type: Appearance
     - type: Battery
       startingCharge: 0
-      maxCharge: 16000000 # Goobstation - SMES buff
+      maxCharge: 120000000 # Pirate - SMES buff
       pricePerJoule: .00095
     - type: ExaminableBattery
     - type: NodeContainer
@@ -94,11 +94,11 @@
       voltage: High
       node: input
     - type: PowerNetworkBattery
-       # Goobstation - SMES buff
-      maxSupply: 300000
-      maxChargeRate: 10000
-      supplyRampTolerance: 10000
-      supplyRampRate: 2000
+      # Pirate - SMES buff
+      maxSupply: 750000
+      maxChargeRate: 25000
+      supplyRampTolerance: 25000
+      supplyRampRate: 5000
     - type: PointLight
       radius: 1.5
       energy: 1.6
@@ -142,9 +142,9 @@
   suffix: Basic, 16MJ
   components:
   - type: Battery
-     # Goobstation - SMES buff
-    maxCharge: 16000000
-    startingCharge: 16000000
+    # Pirate - SMES buff
+    maxCharge: 120000000
+    startingCharge: 120000000
 
 - type: entity
   parent: SMESBasic
@@ -181,9 +181,9 @@
   - type: Machine
     board: SMESAdvancedMachineCircuitboard
   - type: Battery
-     # Goobstation - SMES buff
-    maxCharge: 32000000
-    startingCharge: 32000000
+    # Pirate - SMES buff
+    maxCharge: 240000000
+    startingCharge: 240000000
   - type: PowerMonitoringDevice
     group: SMES
     sourceNode: input
