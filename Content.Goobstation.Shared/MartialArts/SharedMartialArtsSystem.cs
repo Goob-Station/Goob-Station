@@ -349,10 +349,9 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
                 break;
         }
 
-        if (args.Weapon != ent)
-            return;
 
-        if(!_proto.TryIndex<MartialArtPrototype>(comp.MartialArtsForm.ToString(), out var martialArtsPrototype))
+        if (args.Weapon != ent
+            || !_proto.TryIndex<MartialArtPrototype>(comp.MartialArtsForm.ToString(), out var martialArtsPrototype))
             return;
 
         if (!martialArtsPrototype.RandomDamageModifier)
