@@ -217,13 +217,9 @@ public sealed class PullingSystem : EntitySystem
     // Goobstation - Grab Intent
     private void OnAttacked(Entity<PullerComponent> ent, ref AttackedEvent args)
     {
-        if (ent.Comp.Pulling != args.User)
-            return;
-
-        if (ent.Comp.GrabStage < GrabStage.Soft)
-            return;
-
-        if (!TryComp(args.User, out PullableComponent? pullable))
+        if (ent.Comp.Pulling != args.User
+            || ent.Comp.GrabStage < GrabStage.Soft
+            || !TryComp(args.User, out PullableComponent? pullable))
             return;
 
         if (_random.Prob(pullable.GrabEscapeChance))
