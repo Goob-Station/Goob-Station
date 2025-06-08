@@ -70,13 +70,14 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   ## Cosmic Cult
 
   Like other practicians of forbidden arts, the Cosmic Cult is unknown to the common people.
-  Command is aware of eldritch forces existing, but the metashield prohibits players from knowing what glyphs and reality shifts are.
+  Command is aware of eldritch forces existing, but the metashield prohibits players from knowing what glyphs and reality/malign shifts are.
   
   People may be suspicious of them, and the chaplain is aware it is an evil force to be contained.
 
   The revealing condition for this shield is any of the following:
   - witnessing a crewmember with the telltale facemask
   - witnessing a crewmember using a glyph
+  - witnessing a crewmember absorb a malign shift
   - witnessing a crewmember use a cult-specific ability
   - witnessing cult gear like entropic swords and armor
   
