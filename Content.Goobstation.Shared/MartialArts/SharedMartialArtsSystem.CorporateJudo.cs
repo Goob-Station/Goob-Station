@@ -200,11 +200,11 @@ public partial class SharedMartialArtsSystem
     private void OnJudoWheelThrow(Entity<CanPerformComboComponent> ent, ref JudoWheelThrowPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-        || !TryUseMartialArt(ent, proto, out var target, out var downed)
-        || !downed
-        || !TryComp<PullableComponent>(target, out var pullable)
-        || !TryComp<ArmbarredComponent>(target, out var armbarred)
-        || armbarred.Puller != ent.Owner)
+            || !TryUseMartialArt(ent, proto, out var target, out var downed)
+            || !downed
+            || !TryComp<PullableComponent>(target, out var pullable)
+            || !TryComp<ArmbarredComponent>(target, out var armbarred)
+            || armbarred.Puller != ent.Owner)
             return;
 
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
