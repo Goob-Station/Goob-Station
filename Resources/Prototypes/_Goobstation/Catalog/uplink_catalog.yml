@@ -1191,7 +1191,7 @@
   productEntity: WeaponLauncherRocketDisposableThermobaric
   icon: { sprite: _Goobstation/Objects/Weapons/Guns/Launchers/shmel.rsi, state: icon }
   cost:
-    Telecrystal: 8 # you could buy two incendiary grenades for the same price
+    Telecrystal: 6 # one and a half incendiary grenades, takes up the same space as three
   categories:
   - UplinkExplosives
   conditions:
