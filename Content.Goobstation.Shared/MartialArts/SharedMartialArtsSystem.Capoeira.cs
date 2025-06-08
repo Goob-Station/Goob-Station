@@ -212,7 +212,9 @@ public abstract partial class SharedMartialArtsSystem
         TimeSpan time,
         MartialArtModifierType type = MartialArtModifierType.AttackRate)
     {
-        if (Math.Abs(multiplier - 1f) < 0.001f && Math.Abs(modifier) < 0.001f || time <= TimeSpan.Zero)
+        if (Math.Abs(multiplier - 1f) < 0.001f
+            && Math.Abs(modifier) < 0.001f
+            || time <= TimeSpan.Zero)
             return;
 
         var multComp = EnsureComp<MartialArtModifiersComponent>(uid);
