@@ -11,21 +11,21 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 <Document>
 # A.P.E.
 
-The Anomalous Particle Emitter is a machine used to interface with anomalies. It is the primary way of manipulating the stats of an anomaly.
+Випромінювач аномальних частинок - це машина, що використовується для взаємодії з аномаліями. Це основний спосіб маніпулювання характеристиками аномалії.
 
 <Box>
 <GuideEntityEmbed Entity="MachineAPE"/>
 </Box>
 
-The A.P.E. can shoot four different kinds of anomalous particles: Delta, Epsilon, Sigma and Zeta. Each particle type has certain effects:
+A.P.E. може випромінювати чотири різні види аномальних частинок: Дельта, Епсилон, Сигма та Дзета. Кожен тип частинок має певні ефекти:
 
-- [color=crimson]Danger:[/color] Increases the severity of an anomaly.
-- [color=plum]Unstable:[/color] Increases the instability of an anomaly.
-- [color=goldenrod]Containment:[/color] Increases anomaly stability at the cost of its health - if an anomaly is struck by too many containment particles, it will collapse, leaving behind an anomaly core.
-- [color=#6b75fa]Transformation:[/color] Increases anomaly severity with a chance of changing its behavior.
+- [color=crimson]Небезпека:[/color] Збільшує рівень небезпеки аномалії.
+- [color=plum]Нестабільність:[/color] Збільшує нестабільність аномалії.
+- [color=goldenrod]Утримання:[/color] Збільшує стабільність аномалії за рахунок її здоров'я - якщо аномалія зазнає удару занадто великої кількості частинок утримання, вона зруйнується, залишивши після себе ядро аномалії.
+- [color=#6b75fa]Трансформація:[/color] Збільшує рівень небезпеки аномалії з шансом змінити її поведінку.
 
-Which particle type corresponds to each effect is unique and can be learned by scanning the anomaly.
+Який тип частинок відповідає кожному ефекту, є унікальним і може бути визначений шляхом сканування аномалії.
 
-The A.P.E. can also be locked by anyone with science access, which prevents it from being deconstructed, turned on or off, or having the particle type switched.
+A.P.E. також може бути заблокований будь-ким з доступом до наукового відділу, що запобігає його розбиранню, вмиканню або вимиканню, а також зміні типу частинок.
 
 </Document>

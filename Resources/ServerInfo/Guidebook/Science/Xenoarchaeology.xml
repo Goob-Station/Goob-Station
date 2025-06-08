@@ -11,59 +11,59 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-# Xenoarchaeology
-Xenoarchaeology is a science subdepartment focused on researching and experimenting on alien artifacts.
+# Ксеноархеологія
+Ксеноархеологія - це підрозділ науки, що займається дослідженням та експериментами над інопланетними артефактами.
 
-At the start of each shift, the Science department will usually have access to at least two artifacts to experiment on. You can buy more by talking to the Cargo department.
+На початку кожної зміни науковий відділ зазвичай має доступ щонайменше до двох артефактів для експериментів. Ви можете придбати більше, звернувшись до вантажного відділу.
 
-By researching the unique things each artifact can do, you gain Research Points, increase the artifact's sale value, and potentially discover a useful ability or two that can help your department or the whole station!
+Досліджуючи унікальні властивості кожного артефакту, ви отримуєте дослідницькі бали, збільшуєте вартість продажу артефакту та потенційно відкриваєте корисні здібності, які можуть допомогти вашому відділу або всій станції!
 
-## Artifact Nodes
+## Вузли артефактів
 <Box>
 <GuideEntityEmbed Entity="ComplexXenoArtifact" Caption=""/>
 <GuideEntityEmbed Entity="SimpleXenoArtifactItem" Caption=""/>
 </Box>
-Artifacts consist of a randomly-generated tree of nodes. These nodes have a "[color=#a4885c]depth[/color]", representing how dangerous the node is, and the number of other nodes connected to it, called "[color=#a4885c]edges[/color]",
+Артефакти складаються з випадково згенерованого дерева вузлів. Ці вузли мають "[color=#a4885c]глибину[/color]", що представляє небезпеку вузла, та кількість інших вузлів, з'єднаних з ним, що називається "[color=#a4885c]ребрами[/color]".
 
-Artifacts always start at depth zero, the root of the tree. Travelling the tree to find as many nodes as possible is the main goal of the scientists working on them. Knowledge is extracted from nodes to gain Research Points and increase the artifact's sale value.
+Артефакти завжди починаються з нульової глибини, кореня дерева. Подорож по дереву для знаходження якомога більшої кількості вузлів є основною метою науковців, що працюють з ними. Знання витягуються з вузлів для отримання дослідницьких балів та збільшення вартості продажу артефакту.
 
-Each node has two components: its [color=#a4885c]stimulus[/color] and a [color=#a4885c]reaction[/color].
+Кожен вузол має два компоненти: його [color=#a4885c]стимул[/color] та [color=#a4885c]реакцію[/color].
 
-A stimulus is the external behavior that triggers the reaction. There's a variety of these, and higher depth nodes have more difficult to accomplish stimuli. Some stimuli will need improvisation to trigger, and you may need to talk to other departments to get everything you need.
+Стимул - це зовнішня поведінка, що викликає реакцію. Існує безліч таких стимулів, і вузли з більшою глибиною мають складніші для виконання стимули. Деякі стимули потребуватимуть імпровізації для спрацьовування, і вам, можливо, доведеться звернутися до інших відділів, щоб отримати все необхідне.
 
-Some reactions are instantaneous effects while others are permanent changes. Once an artifact is triggered, the reaction causes the artifact to randomly move to another node it is linked to.
+Деякі реакції є миттєвими ефектами, тоді як інші - постійними змінами. Після спрацьовування артефакту реакція змушує артефакт випадковим чином переміщатися до іншого вузла, з яким він пов'язаний.
 
-With some experimental science, you can begin to grasp how the different nodes of an artifact are connected, and how to move between them by repeatedly activating nodes.
+За допомогою деяких експериментальних наук ви можете почати розуміти, як пов'язані різні вузли артефакту, і як переміщатися між ними, неодноразово активуючи вузли.
 
-All non-zero-depth nodes will have exactly one edge that leads up to its parent node. All other edges a node has lead down to the next depth.
+Усі вузли з ненульовою глибиною матимуть рівно одне ребро, що веде до батьківського вузла. Усі інші ребра вузла ведуть до наступної глибини.
 
-## Artifact Analyzer and Analysis Console
+## Аналізатор артефактів та консоль аналізу
 <Box>
 <GuideEntityEmbed Entity="MachineArtifactAnalyzer"/>
 <GuideEntityEmbed Entity="ComputerAnalysisConsole"/>
 </Box>
-The main equipment that you'll be using for Xenoarchaeology is the [color=#a4885c]artifact analyzer[/color] and the [color=#a4885c]analysis console[/color]. You can use these to create reports that contain valuable information about an artifact.
+Основним обладнанням, яке ви будете використовувати для ксеноархеології, є [color=#a4885c]аналізатор артефактів[/color] та [color=#a4885c]консоль аналізу[/color]. Ви можете використовувати їх для створення звітів, що містять цінну інформацію про артефакт.
 
-To set them up, simply link them with a network configurator and set an artifact on top of the analyzer. Every station has at least one of these machines already set up.
+Щоб налаштувати їх, просто з'єднайте їх за допомогою мережевого конфігуратора та покладіть артефакт на аналізатор. Кожна станція має щонайменше одну таку машину, вже налаштовану.
 
-Use the console's [color=#a4885c]scan[/color] button to discover what stimulus the artifact needs and what its reaction will do. Scanning takes thirty seconds.
+Використовуйте кнопку [color=#a4885c]сканувати[/color] на консолі, щоб дізнатися, який стимул потрібен артефакту та що зробить його реакція. Сканування займає тридцять секунд.
 
-Use the [color=#a4885c]print[/color] button to save the scan result, so you can refer to it later.
+Використовуйте кнопку [color=#a4885c]друк[/color], щоб зберегти результат сканування, щоб ви могли звернутися до нього пізніше.
 
-Once you've discovered a new node, you can extract points from the artifact using the [color=#a4885c]Extract[/color] button.
+Після того, як ви виявили новий вузол, ви можете витягти бали з артефакту за допомогою кнопки [color=#a4885c]Витягти[/color].
 
-## Assembling Artifacts
-<GuideEntityEmbed Entity="ArtifactFragment" Caption="Artifact Fragment"/>
+## Збирання артефактів
+<GuideEntityEmbed Entity="ArtifactFragment" Caption="Фрагмент артефакту"/>
 
-It is possible to gather multiple artifact fragments and assemble them into a working artifact. You can ask for these from Salvage, who usually find these while mining asteroids or on Expeditions.
+Можна зібрати кілька фрагментів артефактів і зібрати їх у робочий артефакт. Ви можете попросити їх у відділі утилізації, який зазвичай знаходить їх під час видобутку на астероїдах або в експедиціях.
 
-## Traversal Bias
+## Зміщення переходу
 <Box>
   <GuideEntityEmbed Entity="MachineArtifactAnalyzer"/>
 </Box>
-Artifacts placed on top of a powered artifact analyzer are subjected to a bias which affects which node they will move to after being activated. The bias can be set in the artifact console.
+Артефакти, розміщені на увімкненому аналізаторі артефактів, піддаються зміщенню, яке впливає на те, до якого вузла вони перейдуть після активації. Зміщення можна встановити в консолі артефактів.
 
-There are two types of biases:
-- [color=#a4885c]Up:[/color] favors nodes closer to the origin. Results in a decrease of depth.
-- [color=#a4885c]Down:[/color] favors nodes farther away from the origin. Results in an increase of depth.
+Існує два типи зміщень:
+- [color=#a4885c]Вгору:[/color] надає перевагу вузлам, ближчим до початкового. Призводить до зменшення глибини.
+- [color=#a4885c]Вниз:[/color] надає перевагу вузлам, дальшим від початкового. Призводить до збільшення глибини.
 </Document>

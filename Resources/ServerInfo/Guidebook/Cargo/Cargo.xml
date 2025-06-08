@@ -12,27 +12,27 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Cargo
+  # Вантажний відділ
 
-  The Supply department, also known as [color=cyan]Cargo[/color], supplies the station with necessary resources, such as fuel and raw materials, and comfort resources, such as lottery tickets and plushies.
+  Відділ постачання, також відомий як [color=cyan]Вантажний відділ[/color], забезпечує станцію необхідними ресурсами, такими як паливо та сировина, а також ресурсами для комфорту, такими як лотерейні квитки та плюшеві іграшки.
 
-  They raise the [color=cyan]spesos[/color] (the currency of the station) for this through many methods, such as taking bounties, selling miscellaneous items, and salvaging, allowing them to purchase a wide variety of equipment from off-station for any crew member's needs. It is Cargo's job to fulfill the needs of the rest of the station.
+  Вони заробляють [color=cyan]спесо[/color] (валюта станції) для цього багатьма методами, такими як виконання замовлень, продаж різноманітних предметів та утилізація, що дозволяє їм купувати широкий асортимент обладнання з-поза станції для потреб будь-якого члена екіпажу. Робота Вантажного відділу полягає у задоволенні потреб решти станції.
 
-  ## Personnel
+  ## Персонал
 
-  Cargo is made up of [color=cyan]Cargo Technicians[/color] and [color=cyan]Salvage Specialists[/color] and is led by the [color=cyan]Quartermaster[/color].
+  Вантажний відділ складається з [color=cyan]Вантажних техніків[/color] та [color=cyan]Спеціалістів з утилізації[/color] і очолюється [color=cyan]Квартирмейстером[/color].
 
   <Box>
-    <GuideEntityEmbed Entity="ToyFigurineCargoTech" Caption="Cargo Tech"/>
-    <GuideEntityEmbed Entity="ToyFigurineSalvage" Caption="Salvage"/>
-    <GuideEntityEmbed Entity="ToyFigurineQuartermaster" Caption="QM"/>
+    <GuideEntityEmbed Entity="ToyFigurineCargoTech" Caption="Вантажний технік"/>
+    <GuideEntityEmbed Entity="ToyFigurineSalvage" Caption="Утилізація"/>
+    <GuideEntityEmbed Entity="ToyFigurineQuartermaster" Caption="КМ"/>
   </Box>
 
-  ## Making Money
+  ## Заробіток грошей
 
-  The main struggle of any Cargo department is not having enough money.
+  Основна проблема будь-якого Вантажного відділу - це нестача грошей.
 
-  Cargo makes their money by selling things at the [color=cyan]Trading Station[/color]. Almost everything on the station has economic value that you can sell, as seen via the [color=cyan]appraisal tool[/color]. That value then further increases when you sell it as part of a [textlink="bounty" link="CargoBounties"].
+  Вантажний відділ заробляє гроші, продаючи речі на [color=cyan]Торговій станції[/color]. Майже все на станції має економічну цінність, яку ви можете продати, що видно за допомогою [color=cyan]інструменту оцінки[/color]. Ця вартість ще більше зростає, коли ви продаєте це як частину [textlink="замовлення" link="CargoBounties"].
 
   <Box>
     <GuideEntityEmbed Entity="AppraisalTool"/>
@@ -40,9 +40,9 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="CrateGenericSteel"/>
   </Box>
 
-  Upon finding something valuable, bring it to the [color=cyan]Cargo Bay[/color]. If it fits inside a [color=cyan]Crate[/color], find an empty crate and put the items in it.
+  Знайшовши щось цінне, принесіть це до [color=cyan]Вантажного відсіку[/color]. Якщо воно поміщається в [color=cyan]Ящик[/color], знайдіть порожній ящик і покладіть предмети в нього.
 
-  If the [color=cyan]Cargo Shuttle[/color] is away, you can put all the items you want to sell onto the [color=cyan]Cargo Pallets[/color]. Once the shuttle has docked at the station, you load the crates and everything else to be sold onto it.
+  Якщо [color=cyan]Вантажний шатл[/color] відсутній, ви можете покласти всі предмети, які хочете продати, на [color=cyan]Вантажні палети[/color]. Як тільки шатл пристикується до станції, завантажте ящики та все інше для продажу на нього.
 
   <Box>
     <GuideEntityEmbed Entity="ComputerPalletConsole"/>
@@ -50,54 +50,54 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="ComputerCargoOrders"/>
   </Box>
 
-  After the shuttle is loaded, fly it to the Trade Station. There, move the sellable items onto the green [color=cyan]Cargo Selling Pallets[/color], and then go to the [color=cyan]Cargo Sale Computer[/color] and click [italic]"Sell"[/italic].
+  Після завантаження шатла, відправте його на Торгову станцію. Там перемістіть предмети для продажу на зелені [color=cyan]Вантажні палети для продажу[/color], а потім підійдіть до [color=cyan]Комп'ютера продажу вантажів[/color] і натисніть [italic]"Продати"[/italic].
 
-  Now, you can take those spesos and bring them back to the station and deposit them into the [color=cyan]Cargo Request Computer[/color].
+  Тепер ви можете взяти ці спесо, повернути їх на станцію і внести на [color=cyan]Комп'ютер запитів вантажів[/color].
 
-  You can also make even more money by completing [textlink="bounties" link="CargoBounties"] or selling valuable items from [textlink="salvage" link="Salvage"].
+  Ви також можете заробити ще більше грошей, виконуючи [textlink="замовлення" link="CargoBounties"] або продаючи цінні предмети з [textlink="утилізації" link="Salvage"].
 
-  ## Ordering
+  ## Замовлення
 
   <Box>
     <GuideEntityEmbed Entity="ComputerCargoOrders"/>
   </Box>
 
-  Every order begins at a [color=cyan]Cargo Request Computer[/color]. First and foremost, making an order requires that Cargo has enough spesos. If Cargo doesn't have the money, get some.
+  Кожне замовлення починається з [color=cyan]Комп'ютера запитів вантажів[/color]. Перш за все, для здійснення замовлення потрібно, щоб у Вантажного відділу було достатньо спесо. Якщо у Вантажного відділу немає грошей, заробіть їх.
 
-  It is also the sole discretion of Cargo to fulfill any given request. If Cargo is tight on spesos, they are free to deny requests that are not immediately necessary.
+  Також, виконання будь-якого запиту є виключним розсудом Вантажного відділу. Якщо у Вантажного відділу обмаль спесо, вони можуть відхиляти запити, які не є негайно необхідними.
 
-  To make an order, click the name of whatever is requested, provide the recipient, type an appropriate reason for why they need it, and then press "Approve" on the order.
+  Щоб зробити замовлення, натисніть на назву того, що запитується, вкажіть одержувача, введіть відповідну причину, чому їм це потрібно, а потім натисніть "Схвалити" на замовленні.
 
-  Sometimes a public Cargo Request Computer exists, in which case all you need to do is approve orders that people make themselves.
+  Іноді існує загальнодоступний Комп'ютер запитів вантажів, у цьому випадку все, що вам потрібно зробити, це схвалювати замовлення, які люди роблять самі.
 
   <Box>
     <GuideEntityEmbed Entity="CargoPalletBuy"/>
     <GuideEntityEmbed Entity="PaperCargoInvoice"/>
   </Box>
 
-  Then, to collect the order, it must be transported back to the station from the [color=cyan]Trading Station[/color].
+  Потім, щоб отримати замовлення, його потрібно доставити на станцію з [color=cyan]Торгової станції[/color].
 
-  In the Trading Station, on the [color=cyan]Cargo Buying Pallets[/color], is a crate holding that order. Load it onto the shuttle and fly it back.
+  На Торговій станції, на [color=cyan]Вантажних палетах для купівлі[/color], знаходиться ящик з цим замовленням. Завантажте його на шатл і поверніть назад.
 
-  Once it is at the Cargo Dock, you can read the [color=cyan]Cargo Invoice[/color] label on it to find out the intended recipient. Finally, deliver it to them.
+  Коли він буде на Вантажному доку, ви можете прочитати етикетку [color=cyan]Вантажної накладної[/color] на ньому, щоб дізнатися, кому він призначений. Нарешті, доставте його їм.
 
-  ## Piloting
+  ## Пілотування
 
-  Orders are delivered to the station via the orbiting [color=cyan]Trade Station[/color] and are transported to the main station by the [color=cyan]Cargo Shuttle[color]. The shuttle does not fly itself, so it must either be piloted in the shuttle or remotely.
+  Замовлення доставляються на станцію через орбітальну [color=cyan]Торгову станцію[/color] і транспортуються на головну станцію [color=cyan]Вантажним шатлом[/color]. Шатл не літає сам, тому його потрібно пілотувати або в шатлі, або дистанційно.
 
   <Box>
     <GuideEntityEmbed Entity="ComputerCargoShuttle"/>
   </Box>
 
-  To fly the shuttle, you must first find the [color=cyan]Cargo Shuttle Console[/color]. One is inside the Cargo Bay, and the other is inside the Cargo Shuttle.
+  Щоб керувати шатлом, вам спочатку потрібно знайти [color=cyan]Консоль вантажного шатла[/color]. Одна знаходиться у Вантажному відсіку, а інша - всередині Вантажного шатла.
 
-  After interacting with the computer, there should be a navigation view from the shuttle. Here are the steps for piloting the shuttle to and from the Trading Station:
+  Після взаємодії з комп'ютером має з'явитися навігаційний вигляд з шатла. Ось кроки для пілотування шатла до Торгової станції і назад:
 
-  - First, switch to the [color=yellow]"DOCK"[/color] screen and [color=yellow]undock[/color] any airlocks between the shuttle and the station.
-  - Now, with the shuttle disconnected, you can pilot it. [italic]Remember that you are flying in space and momentum is conserved[/italic].
-  - The controls are [color=yellow][keybind="ShuttleStrafeUp"][/color] and [color=yellow][keybind="ShuttleStrafeDown"][/color] for strafing up and down, [color=yellow][keybind="ShuttleStrafeLeft"][/color] and [color=yellow][keybind="ShuttleStrafeRight"][/color] for strafing left and right, and [color=yellow][keybind="ShuttleRotateLeft"][/color] and [color=yellow][keybind="ShuttleRotateRight"][/color] for turning left and right. To brake, press [color=yellow][keybind="ShuttleBrake"][/color].
-  - Then pilot the shuttle to the [color=cyan]Trade Station[/color].
-  - Once you are there, [color=yellow]dock[/color] to the airlocks and you are done.
+  - Спочатку перейдіть на екран [color=yellow]"СТИКУВАННЯ"[/color] і [color=yellow]відстикуйте[/color] будь-які шлюзи між шатлом і станцією.
+  - Тепер, коли шатл від'єднаний, ви можете ним керувати. [italic]Пам'ятайте, що ви летите в космосі, і імпульс зберігається[/italic].
+  - Кнопки керування: [color=yellow][keybind="ShuttleStrafeUp"][/color] та [color=yellow][keybind="ShuttleStrafeDown"][/color] для руху вгору і вниз, [color=yellow][keybind="ShuttleStrafeLeft"][/color] та [color=yellow][keybind="ShuttleStrafeRight"][/color] для руху вліво і вправо, та [color=yellow][keybind="ShuttleRotateLeft"][/color] і [color=yellow][keybind="ShuttleRotateRight"][/color] для повороту вліво і вправо. Щоб загальмувати, натисніть [color=yellow][keybind="ShuttleBrake"][/color].
+  - Потім направте шатл до [color=cyan]Торгової станції[/color].
+  - Коли ви будете там, [color=yellow]пристикуйтеся[/color] до шлюзів, і все готово.
 
-  [textlink="Learn about bounties, a way to maximize your on-station profits." link="CargoBounties"]
+  [textlink="Дізнайтеся про замовлення, спосіб максимізувати ваші прибутки на станції." link="CargoBounties"]
 </Document>

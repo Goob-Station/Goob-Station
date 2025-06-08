@@ -1,76 +1,75 @@
 <Document>
-  # The Cosmic Cult
-
+  # Космічний Культ
   <Box>
-    [color=#999999][italic]"A revelation beyond compare. An end to cyclic, sisyphean suffering."[/italic][/color]
+    [color=#999999][italic]"Одкровення, що не має собі рівних. Кінець циклічним, сизіфовим стражданням."[/italic][/color]
   </Box>
   <Box>
-    [color=#999999][italic]"A gentle curtain call."[/italic][/color]
+    [color=#999999][italic]"Ніжний завіс."[/italic][/color]
   </Box>
   <Box>
     <GuideEntityEmbed Entity="CosmicGlyphTruth" Caption=""/>
   </Box>
 
-  Otherworldly knowledge floods your mind! Welcome to the [color=#4cabb3]Cosmic Cult[/color], a group conversion antagonist that has set its sights on the end of all things.
+  Потойбічне знання наповнює ваш розум! Ласкаво просимо до [color=#4cabb3]Космічного Культу[/color], антагоніста, що діє груповим наверненням і націлився на кінець усього сущого.
 
-  Use [color=#4cabb3]:a[/color] to communicate with fellow cultists through the [color=#4cabb3]Astral Murmur[/color].
+  Використовуйте [color=#4cabb3]:a[/color] для спілкування з іншими культистами через [color=#4cabb3]Астральний Шепіт[/color].
 
-  ## Objectives
-  - [color=#4cabb3][bold]Siphon Entropy[/bold][/color]  - Collectively siphon a certain amount of Entropy from the crew. The more entropy you siphon, the more you can empower the Monument!
-  - [color=#4cabb3][bold]Empower The Monument[/bold][/color] - Ensure that the Monument is brought to full power. The more you empower The Monument, the more power the cult gains access to.
-  - [color=#4cabb3][bold]Usher In The End[/bold][/color] - Once the Monument is at full power, complete the final ritual to beckon the Unknown and destroy the station.
+  ## Цілі
+  - [color=#4cabb3][bold]Викачувати Ентропію[/bold][/color] - Колективно викачайте певну кількість Ентропії з екіпажу. Чим більше ентропії ви викачаєте, тим більше зможете посилити Монумент!
+  - [color=#4cabb3][bold]Посилити Монумент[/bold][/color] - Переконайтеся, що Монумент досяг повної потужності. Чим більше ви посилюєте Монумент, тим більше сили отримує культ.
+  - [color=#4cabb3][bold]Привести до Кінця[/bold][/color] - Коли Монумент досягне повної потужності, завершіть фінальний ритуал, щоб закликати Невідоме і знищити станцію.
 
-  Progress towards objectives is shared by the entire cult.
+  Прогрес у досягненні цілей є спільним для всього культу.
 
-  Crewmembers must be alive for you to [color=#4cabb3]Siphon Entropy[/color] from them, and converting crewmembers will bolster your cult's ranks, making it easier to collect entropy. For this reason, it is often in your best interests to ensure the crew is kept [italic]alive[/italic] - at least for as long as is relevant to your goals.
+  Члени екіпажу повинні бути живими, щоб ви могли [color=#4cabb3]Викачувати Ентропію[/color] з них, а навернення членів екіпажу поповнить ряди вашого культу, полегшуючи збір ентропії. З цієї причини у ваших інтересах часто забезпечувати, щоб екіпаж залишався [italic]живим[/italic] - принаймні, доки це важливо для ваших цілей.
 
-  ## Entropy
+  ## Ентропія
   <Box>
     <GuideEntityEmbed Entity="MaterialCosmicCultEntropy1" Caption=""/>
-    <GuideEntityEmbed Entity="MaterialCosmicCultEntropy3" Caption="Motes of Entropy"/>
+    <GuideEntityEmbed Entity="MaterialCosmicCultEntropy3" Caption="Частинки Ентропії"/>
     <GuideEntityEmbed Entity="MaterialCosmicCultEntropy5" Caption=""/>
   </Box>
 
-  All cultists start with two abilities, or [color=#4cabb3][bold]Influences[/bold][/color] - one of which is [italic][color=#4cabb3]Siphon Entropy[/color][/italic]. This is your bread and butter as a cosmic cultist, and you'll want to use it as often as possible.
+  Усі культисти починають з двома здібностями, або [color=#4cabb3][bold]Впливами[/bold][/color] - один з яких це [italic][color=#4cabb3]Викачувати Ентропію[/color][/italic]. Це ваш хліб з маслом як космічного культиста, і ви захочете використовувати його якомога частіше.
 
-  Using Siphon Entropy on an unsuspecting crewmember will stealthily award you [color=#4cabb3]Entropy[/color]. This will cause a small a portion of the crewmember's health to decay over time.
+  Використання Викачування Ентропії на нічого не підозрюючому члені екіпажу таємно нагородить вас [color=#4cabb3]Ентропією[/color]. Це призведе до того, що невелика частина здоров'я члена екіпажу з часом буде згасати.
 
-  You can hold up to 14 Motes of Entropy, and approaching The Monument will automatically deposit all Entropy you posess.
+  Ви можете тримати до 14 Частинок Ентропії, і наближення до Монумента автоматично внесе всю наявну у вас Ентропію.
 
-  [textlink="For more on the Monument, click here." link="CosmicCultMonument"]
+  [textlink="Щоб дізнатися більше про Монумент, натисніть тут." link="CosmicCultMonument"]
 
-  [textlink="For more on Influences, click here." link="CosmicCultInfluences"]
+  [textlink="Щоб дізнатися більше про Впливи, натисніть тут." link="CosmicCultInfluences"]
 
   <Box>
-    <GuideEntityEmbed Entity="CosmicVacuousSpire" Caption="A vacuous spire"/>
+    <GuideEntityEmbed Entity="CosmicVacuousSpire" Caption="Порожнечий шпиль"/>
   </Box>
 
-  If the cult is successful in empowering the Monument, they gain the ability to make [color=#4cabb3]Vacuous Spires[/color]. These can be made by transmuting a Portable Scrubber at a [color=#4cabb3]Glyph[/color].
+  Якщо культу вдасться посилити Монумент, вони отримають здатність створювати [color=#4cabb3]Порожнечі Шпилі[/color]. Їх можна створити, перетворивши Портативний Скрубер на [color=#4cabb3]Гліфі[/color].
 
-  When anchored in place, a vacuous spire rapidly devours the surrounding atmosphere! This process causes [color=#4cabb3]Motes of Entropy[/color] to condense from a spire's surface, acting as a powerful lategame source of entropy.
+  Коли порожнечий шпиль закріплений на місці, він швидко поглинає навколишню атмосферу! Цей процес змушує [color=#4cabb3]Частинки Ентропії[/color] конденсуватися на поверхні шпиля, що служить потужним джерелом ентропії на пізніх етапах гри.
 
-  ## Conversion
+  ## Навернення
   <Box>
-    <GuideEntityEmbed Entity="CosmicGlyphKnowledge" Caption="A Glyph of Knowledge"/>
+    <GuideEntityEmbed Entity="CosmicGlyphKnowledge" Caption="Гліф Знання"/>
   </Box>
 
-  Once the Monument has been constructed, you can begin converting crewmembers into cultists. To do this, you will need to use the monument to scribe an appropriate [color=#4cabb3]Glyph[/color], and interact with the glyph while a crewmember is standing over it. Glyphs are visible to non-cultists, so be careful!
+  Після того, як Монумент буде збудовано, ви можете почати навертати членів екіпажу в культистів. Для цього вам потрібно буде використати монумент, щоб написати відповідний [color=#4cabb3]Гліф[/color], і взаємодіяти з гліфом, поки член екіпажу стоїть на ньому. Гліфи видимі для не-культистів, тому будьте обережні!
 
-  Any chaplains or crewmembers with a mindshield cannot be converted using a Glyph of Knowledge. Once the Monument is fully empowered, the Glyph of Truth can be used to convert these crewmembers.
+  Будь-які капелани або члени екіпажу з ментальним щитом не можуть бути навернені за допомогою Гліфа Знання. Коли Монумент буде повністю посилений, Гліф Істини можна буде використовувати для навернення цих членів екіпажу.
 
-  You will need a certain amount of crewmembers to be present for conversion to succeed. The number required can be checked by accessing the Monument. [italic]If not enough cultists are present, conversion will fail, and your cult may be exposed.[/italic]
+  Вам знадобиться певна кількість членів екіпажу, щоб навернення вдалося. Необхідну кількість можна перевірити, звернувшись до Монумента. [italic]Якщо присутньо недостатньо культистів, навернення провалиться, і ваш культ може бути викрито.[/italic]
 
-  [textlink="For information on deconversion, click here." link="CosmicCultDeconversion"]
+  [textlink="Для інформації про деконверсію, натисніть тут." link="CosmicCultDeconversion"]
 
-  ## Malign Rifts
+  ## Зловісні Розломи
   <Box>
     <GuideEntityEmbed Entity="CosmicMalignRift" Caption=""/>
   </Box>
-  As your cult progresses, [color=#4cabb3]Malign Rifts[/color] will begin to spawn throughout the surrounding environment. These rifts in realspace bleed unstable astral power, and should be located as soon as possible!
+  У міру просування вашого культу, [color=#4cabb3]Зловісні Розломи[/color] почнуть з'являтися в навколишньому середовищі. Ці розломи в реальному просторі випромінюють нестабільну астральну силу, і їх слід знайти якомога швидше!
 
-  Cultists may stealthily [color=#4cabb3]absorb[/color] a Malign Rift by interacting with it.
+  Культисти можуть таємно [color=#4cabb3]поглинути[/color] Зловісний Розлом, взаємодіючи з ним.
 
-  Successful absorbtion of a Malign Rift will [bold]permanently[/bold] empower the cultist doing so, increasing the strength of all the [color=#4cabb3]Influences[/color] they possess, and doubling the [color=#4cabb3]Entropy[/color] they gain from siphoning crewmembers. Empowered cultists also no longer need to breathe, and are immune to the vaccuum of space.
+  Успішне поглинання Зловісного Розлому [bold]назавжди[/bold] посилить культиста, що це зробив, збільшивши силу всіх його [color=#4cabb3]Впливів[/color] і подвоївши [color=#4cabb3]Ентропію[/color], яку він отримує від викачування з членів екіпажу. Посилені культисти також більше не потребують дихання і несприйнятливі до вакууму космосу.
 
-  Malign Rifts can be purged by interacting with them using a bible.
+  Зловісні Розломи можна очистити, взаємодіючи з ними за допомогою біблії.
 </Document>

@@ -7,21 +7,21 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Resomi
+  # Ресомі
 
   <Box>
     <GuideEntityEmbed Entity="MobResomiDummy" Caption=""/>
   </Box>
 
-  Resomi are a small avian-like species that hail from an icy world.
+  Ресомі — це невеликий птахоподібний вид, що походить з крижаного світу.
 
-  Like most other non-human species, Resomi are capable of digesting raw meat and other uncooked animal proteins.
+  Як і більшість інших нелюдських видів, ресомі здатні перетравлювати сире м'ясо та інші сирі тваринні білки.
 
-  As a result of the conditions of their home planet and ammonia-based blood, Resomi are immune to any cold damage and other effects.
-  Consequently, they find temperatures that most other species find comfortable to be unbearably hot, finding themselves suffering starting at just 30°C.
+  Внаслідок умов їхньої рідної планети та крові на основі аміаку, ресомі несприйнятливі до будь-якої шкоди від холоду та інших ефектів.
+  Отже, вони вважають температури, які більшість інших видів вважають комфортними, нестерпно спекотними, страждаючи вже при 30°C.
 
-  Along with their temperature tolerances, they take 30% more heat and brute damage.
+  Разом з їхньою температурною толерантністю, вони отримують на 30% більше теплової та грубої шкоди.
 
-  Due to their small size, they can fit in duffelbags. They also weigh less, making it harder for them to pull other species. Their unarmed attack deals Slash damage.
+  Через свій невеликий розмір вони можуть поміститися в спортивні сумки. Вони також важать менше, що ускладнює їм тягнути інші види. Їхня беззбройна атака завдає ріжучої шкоди.
 
 </Document>

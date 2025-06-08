@@ -11,15 +11,15 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Salvage
+  # Утилізація
 
-  [color=cyan]Salvage[/color] is one of Cargo's key, but also most dangerous, sources of income. Salvage extracts money from [color=cyan]Space Debris[/color] and going on [color=cyan]Planetary Expeditions[/color].
+  [color=cyan]Утилізація[/color] є одним з ключових, але й найнебезпечніших джерел доходу Вантажного відділу. Утилізація видобуває гроші з [color=cyan]Космічного сміття[/color] та участі в [color=cyan]Планетарних експедиціях[/color].
 
-  While risky because of the dangers of space and alien planets, with the proper preparation and teamwork, any Salvage Team can make a lot of money for Cargo.
+  Хоча це ризиковано через небезпеки космосу та чужих планет, з належною підготовкою та командною роботою будь-яка команда з утилізації може заробити багато грошей для Вантажного відділу.
 
-  ## Preperations
+  ## Підготовка
 
-  Before embarking on a Salvage mission, ensure you are prepared with all the required equipment. Otherwise, you will die before seeing any profits!
+  Перед тим, як вирушити на місію з утилізації, переконайтеся, що ви підготовлені з усім необхідним обладнанням. Інакше ви помрете, не побачивши жодних прибутків!
 
   <Box>
     <GuideEntityEmbed Entity="SuitStorageSalv"/>
@@ -27,7 +27,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="VendingMachineSalvage"/>
   </Box>
 
-  Everything needed before leaving the station is provided inside Salvage's starting room. While Science can research better weapons and equipment, it is best to be equipped with something rather than nothing.
+  Все необхідне перед виходом зі станції надається в стартовій кімнаті Утилізації. Хоча Науковий відділ може дослідити кращу зброю та обладнання, краще бути оснащеним чимось, ніж нічим.
 
   <Box>
     <GuideEntityEmbed Entity="ClothingOuterHardsuitSpatio"/>
@@ -35,39 +35,39 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="VendingMachineTankDispenserEVA"/>
   </Box>
 
-  The most basic equipment you need is the EVA setup.
+  Найнеобхідніше обладнання, яке вам знадобиться, це комплект для виходу у відкритий космос.
 
-  - [color=cyan]Spationaut Hardsuit[/color]: This keeps you alive in space. [italic]Remember to activate the helmet so you can breathe and turn on its built-in flashlight[/italic].
-  - [color=cyan]Magboots[/color]: These provide you with gravity when exploring space debris while also making you slip-proof.
-  - [color=cyan]Oxygen/Nitrogen[/color]: Depending on your species, you will need [color=cyan]Nitrogen[/color] (slimes) or [color=cyan]Oxygen[/color] (every other species). The [color=cyan]Gas Tank Dispenser[/color] has all the tanks needed, so stock up. Be warned that the Salvage Shuttle doesn't always have air, so you might start asphyxiating before even getting to space
+  - [color=cyan]Скафандр космонавта[/color]: Він зберігає вам життя в космосі. [italic]Не забудьте активувати шолом, щоб ви могли дихати, і увімкнути вбудований ліхтарик[/italic].
+  - [color=cyan]Магнітні чоботи[/color]: Вони забезпечують вам гравітацію під час дослідження космічного сміття, а також роблять вас стійкими до ковзання.
+  - [color=cyan]Кисень/Азот[/color]: Залежно від вашого виду, вам знадобиться [color=cyan]Азот[/color] (слайми) або [color=cyan]Кисень[/color] (всі інші види). [color=cyan]Дозатор газових балонів[/color] має всі необхідні балони, тому запасайтеся. Майте на увазі, що в Утилізаційному шатлі не завжди є повітря, тому ви можете почати задихатися ще до того, як потрапите в космос.
 
   <Box>
     <GuideEntityEmbed Entity="WeaponProtoKineticAccelerator"/>
   </Box>
 
-  All Salvage Specialists must be armed, in case they need to defend themselves from hostiles.
+  Усі спеціалісти з утилізації повинні бути озброєні на випадок, якщо їм доведеться захищатися від ворогів.
 
-  - [color=cyan]Proto-Kinetic Accelerator[/color]: This gun has infinite ammunition, allowing you to slowly mine and fly through space.
+  - [color=cyan]Прото-кінетичний прискорювач[/color]: Ця зброя має нескінченні боєприпаси, що дозволяє вам повільно добувати ресурси та літати в космосі.
 
   <Box>
     <GuideEntityEmbed Entity="Pickaxe"/>
     <GuideEntityEmbed Entity="OreBag"/>
   </Box>
 
-  Mining (on asteroids or expeditions) requires its own basic set.
+  Для видобутку (на астероїдах або в експедиціях) потрібен свій базовий набір.
 
-  - [color=cyan]Pickaxe[/color]: This is required for mining at any reasonable speed when wielded. Also, it works as a melee weapon!
-  - [color=cyan]Ore Bag[/color]: When equipped with the belt, this magnetizes nearby ore and automatically picks it up for you.
+  - [color=cyan]Кирка[/color]: Вона необхідна для видобутку з будь-якою розумною швидкістю, коли ви її тримаєте. Також вона працює як зброя ближнього бою!
+  - [color=cyan]Сумка для руди[/color]: Коли вона оснащена поясом, вона притягує найближчу руду і автоматично підбирає її для вас.
 
   <Box>
     <GuideEntityEmbed Entity="FultonBeacon"/>
     <GuideEntityEmbed Entity="Fulton"/>
   </Box>
 
-  Before looting (space wrecks or expeditions), set up Fultons to transport large objects or dead Salvage Technicians.
+  Перед пограбуванням (космічних уламків або в експедиціях) встановіть Фултони для транспортування великих об'єктів або мертвих Вантажних техніків.
 
-  - [color=cyan]Fulton Beacon[/color]: Unfold this to the shuttle, and all Fulton-attached objects will fly to it within 15 tiles.
-  - [color=cyan]Fulton[/color]: After linking with the Fulton Beacon, attach a Fulton to the object, and after one minute, it will fly to the Fulton Beacon.
+  - [color=cyan]Маяк Фултона[/color]: Розгорніть його на шатлі, і всі об'єкти, прикріплені до Фултона, прилетять до нього в радіусі 15 плиток.
+  - [color=cyan]Фултон[/color]: Після з'єднання з Маяком Фултона, прикріпіть Фултон до об'єкта, і через одну хвилину він прилетить до Маяка Фултона.
 
   <Box>
     <GuideEntityEmbed Entity="RadioHandheld"/>
@@ -75,33 +75,33 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="ClothingBeltUtilityFilled"/>
   </Box>
 
-  Finally, there are also some helpful but not required equipment that is available to Salvage.
+  Нарешті, є також деяке корисне, але не обов'язкове обладнання, доступне для Утилізації.
 
-  - [color=cyan]Handheld Radio[/color]: This lets you communicate with other Salvage Specialists even if regular radio communications are unavailable. It is essential for Salvage coordination while in space or on expeditions.
-  - [color=cyan]Global Positioning System[/color]: This gives you an absolute position of yourself, allowing you to pinpoint your exact location. If you get lost in space, this can let you organize a rescue mission or can help you get back to the shuttle when lost on an expedition.
-  - [color=cyan]Utility Belt[/color]: This holds all the equipment you will need to loot machines and the like from space wrecks and expeditions.
+  - [color=cyan]Портативна рація[/color]: Вона дозволяє вам спілкуватися з іншими спеціалістами з утилізації, навіть якщо звичайний радіозв'язок недоступний. Це важливо для координації Утилізації під час перебування в космосі або в експедиціях.
+  - [color=cyan]Глобальна система позиціонування[/color]: Вона дає вам абсолютне положення, дозволяючи точно визначити ваше місцезнаходження. Якщо ви загубитеся в космосі, це може дозволити вам організувати рятувальну місію або допомогти повернутися на шатл, якщо ви заблукали в експедиції.
+  - [color=cyan]Утилітарний пояс[/color]: Він вміщує все обладнання, яке вам знадобиться для пограбування машин та іншого з космічних уламків та експедицій.
 
-  ## Space Debris
+  ## Космічне сміття
 
-  Once prepared, it is time to go and explore the stars.
+  Після підготовки настав час вирушати досліджувати зірки.
 
-  Before immediately doing expeditions, it is good practice to start with space debris so that the crew gets used to their job.
+  Перед тим, як негайно вирушати в експедиції, корисно почати з космічного сміття, щоб екіпаж звик до своєї роботи.
 
-  [color=cyan]Space Debris[/color] is generally much safer than expeditions and provides many basic materials (such as steel, glass, etc) in short supply at the start of the shift.
+  [color=cyan]Космічне сміття[/color] загалом набагато безпечніше, ніж експедиції, і надає багато основних матеріалів (таких як сталь, скло тощо), яких не вистачає на початку зміни.
 
   <Box>
     <GuideEntityEmbed Entity="SalvageMagnet"/>
   </Box>
 
-  The [color=cyan]Salvage Magnet[/color] is the machine that brings space debris into nearby space.
+  [color=cyan]Утилізаційний магніт[/color] - це машина, яка притягує космічне сміття в найближчий космос.
 
-  The Salvage Magnet provides six offers: the first 3 are [color=cyan]Asteroids[/color], and the last 3 are [color=cyan]Space Wrecks[/color]. The offers then refresh every 3 minutes until claimed, after which the space debris is brought in for the next [bold]6 minutes[/bold].
+  Утилізаційний магніт пропонує шість варіантів: перші 3 - це [color=cyan]Астероїди[/color], а останні 3 - [color=cyan]Космічні уламки[/color]. Пропозиції оновлюються кожні 3 хвилини, доки їх не приймуть, після чого космічне сміття притягується на наступні [bold]6 хвилин[/bold].
 
-  The Salvage Magnet provides information on the types of resources on an asteroid, which can help you decide which to prioritize based on the current needs of the station.
+  Утилізаційний магніт надає інформацію про типи ресурсів на астероїді, що може допомогти вам вирішити, яким з них надати пріоритет, виходячи з поточних потреб станції.
 
-  During the 6 minutes, fly to the debris, extract all profit possible, and then fly back to the station. [italic]You will die if you don't return to the shuttle in time[/italic]!
+  Протягом 6 хвилин долетіть до сміття, видобудьте весь можливий прибуток, а потім поверніться на станцію. [italic]Ви помрете, якщо не повернетеся на шатл вчасно[/italic]!
 
-  There are two main activities that you do with the Salvage Magnet:
+  Є два основних види діяльності, якими ви займаєтеся з Утилізаційним магнітом:
 
   <Box>
     <GuideEntityEmbed Entity="Pickaxe"/>
@@ -109,7 +109,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="OreProcessor"/>
   </Box>
 
-  - [color=cyan]Asteroid Mining[/color]: This is the safest option for money as there are no hostiles. All you need to do is fly around and mine the ore with your [color=cyan]Pickaxe[/color] and [color=cyan]Ore Bag[/color]. Once you have collected all the ore, you can refine it into materials through the [color=cyan]Ore Processor[/color].
+  - [color=cyan]Видобуток на астероїдах[/color]: Це найбезпечніший варіант для заробітку грошей, оскільки там немає ворогів. Все, що вам потрібно зробити, це літати навколо і добувати руду за допомогою [color=cyan]Кирки[/color] та [color=cyan]Сумки для руди[/color]. Зібравши всю руду, ви можете переробити її на матеріали за допомогою [color=cyan]Переробника руди[/color].
 
   <Box>
     <GuideEntityEmbed Entity="Wrench"/>
@@ -117,11 +117,11 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="WeaponProtoKineticAccelerator"/>
   </Box>
 
-  - [color=cyan]Space Wreck Salvaging[/color]: These are slightly more dangerous as there are hostiles. Keep your distance from hostiles and shoot at them with the [color=cyan]Proto-Kinetic Accelerator[/color]. You will mainly be looting equipment and machines through [color=cyan]Wrenches[/color] and [color=cyan]Fultons[/color].
+  - [color=cyan]Утилізація космічних уламків[/color]: Це трохи небезпечніше, оскільки там є вороги. Тримайтеся на відстані від ворогів і стріляйте в них з [color=cyan]Прото-кінетичного прискорювача[/color]. В основному ви будете грабувати обладнання та машини за допомогою [color=cyan]Ключів[/color] та [color=cyan]Фултонів[/color].
 
-  ## Planetary Expeditions
+  ## Планетарні експедиції
 
-  Finally, [color=cyan]Planetary Expeditions[/color] are the most dangerous but profitable way for Salvage to make money.
+  Нарешті, [color=cyan]Планетарні експедиції[/color] - це найнебезпечніший, але й найприбутковіший спосіб для Утилізації заробляти гроші.
 
   <Box>
     <GuideEntityEmbed Entity="ComputerSalvageExpedition"/>
@@ -130,17 +130,17 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   </Box>
 
 
-  First, use the [color=cyan]Salvage Expedition Computer[/color] to select an expedition. Every 30 seconds, the missions cycle and provide certain information like the [color=yellow]difficulty[/color] and [color=yellow]types of enemies[/color].
+  Спочатку використовуйте [color=cyan]Комп'ютер планетарних експедицій[/color], щоб вибрати експедицію. Кожні 30 секунд місії змінюються і надають певну інформацію, таку як [color=yellow]складність[/color] та [color=yellow]типи ворогів[/color].
 
-  After weighing your options, pick the expedition that best suits the station's needs and the crew's abilities.
+  Зваживши всі варіанти, виберіть експедицію, яка найкраще відповідає потребам станції та можливостям екіпажу.
 
-  Once you claim the expedition mission, a [color=cyan]Coordinates Disk[/color] will be ejected, which needs to be inserted into the [color=cyan]Shuttle Console[/color].
+  Після того, як ви приймете місію експедиції, буде викинуто [color=cyan]Диск з координатами[/color], який потрібно вставити в [color=cyan]Консоль шатла[/color].
 
-  Once inside the Shuttle Console, switch to [color=yellow]Map mode[/color]. Then, click "[color=yellow]Scan for Nearby Objects[/color]". Now, on the drop-down menu on the bottom left of the console UI, click on [color=yellow]the planet's name[/color]. Finally, enable [color=yellow]FTL[/color], click on the [color=yellow]planet on the map[/color], and you will begin FTL travel.
+  Потрапивши в Консоль шатла, перейдіть в режим [color=yellow]Карти[/color]. Потім натисніть "[color=yellow]Сканувати найближчі об'єкти[/color]". Тепер у випадаючому меню внизу ліворуч інтерфейсу консолі натисніть на [color=yellow]назву планети[/color]. Нарешті, увімкніть [color=yellow]FTL[/color], натисніть на [color=yellow]планету на карті[/color], і ви почнете подорож FTL.
 
-  Once you have landed on the planet, you will have [bold]11 minutes[/bold] to spend between [color=cyan]Mining[/color] and [color=cyan]Dungeon Looting[/color]
+  Після приземлення на планету у вас буде [bold]11 хвилин[/bold] на [color=cyan]Видобуток[/color] та [color=cyan]Пограбування підземель[/color].
 
-  - [color=cyan]Expedition Mining[/color]: Mining during expeditions provides access to a wide range of resources, but also increases the risk of getting lost or encountering environmental and hostile threats.
+  - [color=cyan]Видобуток в експедиції[/color]: Видобуток під час експедицій надає доступ до широкого спектру ресурсів, але також збільшує ризик загубитися або зіткнутися з екологічними та ворожими загрозами.
 
-  - [color=cyan]Dungeon Looting[/color]: Dungeon Looting is where you make the most profit. When you touch down on the planet, the direction of the dungeon will be announced over the radio. Next, break into the dungeon, kill all the hostiles, and secure any loot. [color=cyan]Fultons[/color] become especially handy as you will be transferring whole machines and anomalies. The rewards from Dungeon Looting are expensive equipment to sell and exclusive technologies, such as [color=yellow]cloning[/color]. As an addition, the corpses of the hostiles can also be used and sold!
+  - [color=cyan]Пограбування підземель[/color]: Пограбування підземель - це те, де ви отримуєте найбільший прибуток. Коли ви приземлитеся на планету, напрямок до підземелля буде оголошено по радіо. Далі, увірвіться в підземелля, вбийте всіх ворогів і захопіть будь-яку здобич. [color=cyan]Фултони[/color] стануть особливо корисними, оскільки ви будете переміщувати цілі машини та аномалії. Нагороди за пограбування підземель - це дороге обладнання для продажу та ексклюзивні технології, такі як [color=yellow]клонування[/color]. Крім того, трупи ворогів також можна використовувати і продавати!
 </Document>

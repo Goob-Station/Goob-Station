@@ -13,32 +13,32 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Species
+  # Види
 
-  Nanotrasen employs a variety of sapient species.
+  Nanotrasen наймає різноманітні розумні види.
 
   <Box>
-  <GuideEntityEmbed Entity="MobArachnid" Caption="Arachnid"/>
-  <GuideEntityEmbed Entity="MobDiona" Caption="Diona"/>
-  <GuideEntityEmbed Entity="MobDwarf" Caption="Dwarf"/>
-  <GuideEntityEmbed Entity="MobGingerbread" Caption="Gingerbread"/>
-    <GuideEntityEmbed Entity="MobHarpy" Caption="Harpy"/>
+  <GuideEntityEmbed Entity="MobArachnid" Caption="Арахнід"/>
+  <GuideEntityEmbed Entity="MobDiona" Caption="Діона"/>
+  <GuideEntityEmbed Entity="MobDwarf" Caption="Гном"/>
+  <GuideEntityEmbed Entity="MobGingerbread" Caption="Пряник"/>
+    <GuideEntityEmbed Entity="MobHarpy" Caption="Гарпія"/>
   </Box>
   <Box>
-  <GuideEntityEmbed Entity="MobHuman" Caption="Human"/>
+  <GuideEntityEmbed Entity="MobHuman" Caption="Людина"/>
   <GuideEntityEmbed Entity="MobIPCDummy" Caption="IPC"/>
-  <GuideEntityEmbed Entity="MobMoth" Caption="Moth Person"/>
-  <GuideEntityEmbed Entity="MobOni" Caption="Oni"/>
-  <GuideEntityEmbed Entity="MobReptilian" Caption="Reptilian"/>
-  <GuideEntityEmbed Entity="MobResomi" Caption="Resomi"/>
-  <GuideEntityEmbed Entity="MobRodentia" Caption="Rodentia"/>
+  <GuideEntityEmbed Entity="MobMoth" Caption="Людина-міль"/>
+  <GuideEntityEmbed Entity="MobOni" Caption="Оні"/>
+  <GuideEntityEmbed Entity="MobReptilian" Caption="Рептилоїд"/>
+  <GuideEntityEmbed Entity="MobResomi" Caption="Ресомі"/>
+  <GuideEntityEmbed Entity="MobRodentia" Caption="Родентія"/>
   </Box>
   <Box>
-  <GuideEntityEmbed Entity="MobSlimePerson" Caption="Slime Person"/>
-  <GuideEntityEmbed Entity="MobTajaran" Caption="Tajaran"/>
-  <GuideEntityEmbed Entity="MobVox" Caption="Vox"/>
-  <GuideEntityEmbed Entity="MobVulpkanin" Caption="Vuplkanin"/>
-  <GuideEntityEmbed Entity="MobYowie" Caption="Yowie"/>
+  <GuideEntityEmbed Entity="MobSlimePerson" Caption="Слизовик"/>
+  <GuideEntityEmbed Entity="MobTajaran" Caption="Таджаран"/>
+  <GuideEntityEmbed Entity="MobVox" Caption="Вокс"/>
+  <GuideEntityEmbed Entity="MobVulpkanin" Caption="Вулпканін"/>
+  <GuideEntityEmbed Entity="MobYowie" Caption="Йові"/>
   </Box>
 
 </Document>

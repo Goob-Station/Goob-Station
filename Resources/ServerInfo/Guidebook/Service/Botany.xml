@@ -11,86 +11,86 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-# Botany
-As a botanist, it is your job to grow enough food to stop the chef from seeking "alternative sources". Grow lots of wheat, and when you get tired of that, grow weed. Make weed smoothies and spike drinks with nettles. Just keep growing plants, and you'll do great!
+# Ботаніка
+Як ботанік, ваша робота — вирощувати достатньо їжі, щоб шеф-кухар не шукав "альтернативні джерела". Вирощуйте багато пшениці, а коли вам це набридне, вирощуйте траву. Робіть смузі з трави та додавайте кропиву в напої. Просто продовжуйте вирощувати рослини, і у вас все вийде!
 
-## Starting your shift
-First identify the machines around you that you will be using. Coordinate with the Chef to see if they want anything specific to be grown, otherwise grow wheat and bananas and whatever else you feel like growing. You may also grow plants for Chemistry (Medbay), the Bartender, or to sell by Cargo.
+## Початок зміни
+Спочатку визначте машини навколо вас, якими ви будете користуватися. Узгодьте з шеф-кухарем, чи хочуть вони, щоб вирощувалося щось конкретне, інакше вирощуйте пшеницю, банани та все, що вам заманеться. Ви також можете вирощувати рослини для хімії (медвідсік), бармена або для продажу через вантажний відділ.
 
 
-# Tools
-There are many tools that can be used to keep your crops healthy and growing. The Hydroponics Tray is where you will spend most of your time as a botanist.
+# Інструменти
+Існує багато інструментів, які можна використовувати для підтримки здоров'я та росту ваших культур. Гідропонний лоток — це місце, де ви будете проводити більшу частину свого часу як ботанік.
 
-## Hydroponics Tray
+## Гідропонний лоток
 <Box>
 <GuideEntityEmbed Entity="hydroponicsTray"/>
 </Box>
-It's a hydroponics tray, it grows plants with water. First fill the tray with water, then add seeds.
-Hydroponics tray lights indicate different things depending on color and position:
-- [color=red]Red Light, Left[/color]: Dead plant that needs re-planting. Use a spade to remove the plant.
-- [color=orange]Flashing Orange Light, Center[/color]: The environment is sub-optimal. Check what is affecting the plant by Shift Clicking on it. It is likely weeds but it could be undesirable pressure or lack of oxygen. If weeds, use a mini hoe or spray 1 time with weed spray. Be warned, however, that overuse of weed killers can lead to unhealthy plants, possibly killing them.
-- [color=#0336ff]Blue Light, Right[/color]: Needs water. Use bucket on the water tank and fill the tray.
-- [color=green]Green Light, Left[/color]: Ready for harvest. Left click to harvest.
-- [color=yellow]Yellow Light, Right[/color]: Needs nutrients. Use any fruit and put it into the soil or get EZ nutrients from chemistry.
+Це гідропонний лоток, він вирощує рослини за допомогою води. Спочатку наповніть лоток водою, потім додайте насіння.
+Світлові індикатори гідропонного лотка вказують на різні речі залежно від кольору та положення:
+- [color=red]Червоне світло, зліва[/color]: Мертва рослина, яку потрібно пересадити. Використовуйте лопату, щоб видалити рослину.
+- [color=orange]Миготливе помаранчеве світло, по центру[/color]: Середовище неоптимальне. Перевірте, що впливає на рослину, клацнувши на неї з затиснутою клавішею Shift. Ймовірно, це бур'яни, але це може бути і небажаний тиск або нестача кисню. Якщо це бур'яни, використовуйте міні-сапу або обприскайте 1 раз спреєм від бур'янів. Однак будьте обережні, надмірне використання гербіцидів може призвести до нездорових рослин, можливо, навіть до їх загибелі.
+- [color=#0336ff]Синє світло, справа[/color]: Потрібна вода. Використовуйте відро на резервуарі для води та наповніть лоток.
+- [color=green]Зелене світло, зліва[/color]: Готово до збору врожаю. Клацніть лівою кнопкою миші, щоб зібрати врожай.
+- [color=yellow]Жовте світло, справа[/color]: Потрібні поживні речовини. Використовуйте будь-який фрукт і покладіть його в ґрунт або отримайте добрива EZ від хімії.
 
-The lifecycle of a hydroponics tray is the following:
-- [color=lightgreen]Empty[/color]: no water, seed or nutrients
-- [color=lightgreen]Hydrated[/color]: you've added water to it (e.g. from a bottle or bucket).
-- [color=lightgreen]Ready for planting[/color]: you've added water and nutrients to it (i.e. fertilizer).
-- [color=lightgreen]Planted[/color]: you've added a seed to it
-- [color=lightgreen]Ready for Harvest[/color]: you've waited for the plant to grow
-- [color=lightgreen]Sampled[/color]: you've taken a sample (seed)
-- [color=lightgreen]Harvested[/color]: you've picked ready plants. Some plants will then grow again. Others will die and need replanting.
-- [color=lightgreen]Unhealthy[/color]: You've sampled too many seeds or sprayed it with deadly chemicals. The plant isn't coping too well. It'll continue to grow. Health can be restored by fertilizers or you can cut your losses and extract a seed (plant clippers) and replant.
-- [color=lightgreen]Old / Wilted[/color]: the plant has matured and will soon die. It will still be harvestable and you can extract seeds but only for a short duration. Extract the seed and then pluck it out / chop it down.
-- [color=lightgreen]Dead[/color]: the plant has been harvested and ceased growing. It should be plucked out / chopped down. No seeds can be extracted.
+Життєвий цикл гідропонного лотка такий:
+- [color=lightgreen]Порожній[/color]: немає води, насіння чи поживних речовин
+- [color=lightgreen]Зволожений[/color]: ви додали до нього води (наприклад, з пляшки чи відра).
+- [color=lightgreen]Готовий до посадки[/color]: ви додали до нього воду та поживні речовини (тобто добриво).
+- [color=lightgreen]Посаджений[/color]: ви додали до нього насіння
+- [color=lightgreen]Готовий до збору врожаю[/color]: ви дочекалися, поки рослина виросте
+- [color=lightgreen]Зібрано зразок[/color]: ви взяли зразок (насіння)
+- [color=lightgreen]Зібрано врожай[/color]: ви зібрали готові рослини. Деякі рослини потім знову виростуть. Інші загинуть і потребуватимуть пересадки.
+- [color=lightgreen]Нездоровий[/color]: ви зібрали занадто багато насіння або обприскали його смертельними хімікатами. Рослина не дуже добре справляється. Вона продовжить рости. Здоров'я можна відновити за допомогою добрив, або ви можете скоротити свої втрати і витягти насіння (ножиці для рослин) і пересадити.
+- [color=lightgreen]Старий / Зів'ялий[/color]: рослина дозріла і скоро загине. Її все ще можна буде збирати, і ви зможете витягти насіння, але лише протягом короткого часу. Витягніть насіння, а потім вирвіть або зрубайте її.
+- [color=lightgreen]Мертвий[/color]: рослина була зібрана і перестала рости. Її слід вирвати або зрубати. Насіння витягти неможливо.
 
-## Seed Extractor
+## Екстрактор насіння
 <Box>
 <GuideEntityEmbed Entity="SeedExtractor"/>
 </Box>
-It extracts seeds. Insert crop, receive seeds.
+Він витягує насіння. Вставте врожай, отримайте насіння.
 
 
-# Plant Genetics
-Like all other forms of life known to NanoTrasen, plants pass traits to offspring in their genes. By manipulating plant genetics, botanists can produce plant varieties with desirable mutations that increase plant health and yield.
+# Генетика рослин
+Як і всі інші відомі NanoTrasen форми життя, рослини передають риси потомству у своїх генах. Маніпулюючи генетикою рослин, ботаніки можуть створювати сорти рослин з бажаними мутаціями, які підвищують здоров'я та врожайність рослин.
 
-## Traits
-The phenotype, or set of observable characteristics and traits of a plant, can be determined through careful observation and study. A few common traits include:
+## Риси
+Фенотип, або набір спостережуваних характеристик і рис рослини, можна визначити шляхом ретельного спостереження та вивчення. Кілька поширених рис включають:
 
-- [color=lightgreen]Bioluminescence[/color]: plants with this trait glow in the dark
-- [color=lightgreen]High yield[/color]: plants with this trait yield more fruit per harvest
-- [color=lightgreen]Less water[/color]: plants with this trait require less water than normal to grow
-- [color=lightgreen]Ligneous[/color]: plants with this trait require sharp tools to harvest
-- [color=lightgreen]Long life[/color]: plants with this trait live for more harvest cycles before dying
-- [color=lightgreen]Low light[/color]: plants with this trait need less light than normal to grow
-- [color=lightgreen]Pest resistance[/color]: plants with this trait are more resistant to pests
-- [color=lightgreen]Seedless[/color]: plants with this trait do not produce viable seeds
-- [color=lightgreen]Weed resistance[/color]: plants with this trait suppress weed growth
+- [color=lightgreen]Біолюмінесценція[/color]: рослини з цією рисою світяться в темряві
+- [color=lightgreen]Висока врожайність[/color]: рослини з цією рисою дають більше плодів за один урожай
+- [color=lightgreen]Менше води[/color]: рослини з цією рисою потребують менше води, ніж зазвичай, для росту
+- [color=lightgreen]Дерев'янистий[/color]: рослини з цією рисою потребують гострих інструментів для збору врожаю
+- [color=lightgreen]Довге життя[/color]: рослини з цією рисою живуть більше циклів збору врожаю, перш ніж загинути
+- [color=lightgreen]Низьке освітлення[/color]: рослини з цією рисою потребують менше світла, ніж зазвичай, для росту
+- [color=lightgreen]Стійкість до шкідників[/color]: рослини з цією рисою більш стійкі до шкідників
+- [color=lightgreen]Без насіння[/color]: рослини з цією рисою не виробляють життєздатного насіння
+- [color=lightgreen]Стійкість до бур'янів[/color]: рослини з цією рисою пригнічують ріст бур'янів
 
-You can determine the phenotype of a plant simply by growing them and observing them! This is how Gregor Mendel, father of genetics, studied them in 1866.
+Ви можете визначити фенотип рослини, просто вирощуючи їх і спостерігаючи за ними! Саме так Грегор Мендель, батько генетики, вивчав їх у 1866 році.
 
-## Mutations
-Plants treated with [color=cyan]unstable mutagen[/color] will experience random genetic mutations, which can alter their genes and result in changes to their traits. You can save the plants with mutations you want by harvesting their seeds.
+## Мутації
+Рослини, оброблені [color=cyan]нестабільним мутагеном[/color], зазнають випадкових генетичних мутацій, які можуть змінити їхні гени та призвести до змін у їхніх рисах. Ви можете зберегти рослини з бажаними мутаціями, зібравши їхнє насіння.
 
-The more unstable mutagen you use, the more mutations you will get. Since many genes are vital to a plant's survival, most mutations will cause a plant to die.
+Чим більше нестабільного мутагену ви використовуєте, тим більше мутацій ви отримаєте. Оскільки багато генів є життєво важливими для виживання рослини, більшість мутацій призведуть до її загибелі.
 
 <Box>
 <GuideEntityEmbed Entity="ChemistryBottleUnstableMutagen"/>
 </Box>
 
-## Cross-Pollination
-You can use a [color=cyan]sterile swab[/color] to transfer pollen from one plant to another. Plants that are cross-pollinated have a chance to transfer traits. Be careful re-using swabs; pollen is sticky!
+## Перехресне запилення
+Ви можете використовувати [color=cyan]стерильний тампон[/color] для перенесення пилку з однієї рослини на іншу. Рослини, які перехресно запилюються, мають шанс передати риси. Будьте обережні при повторному використанні тампонів; пилок липкий!
 
 <Box>
 <GuideEntityEmbed Entity="BoxMouthSwab"/>
 <GuideEntityEmbed Entity="DiseaseSwab"/>
 </Box>
 
-## Chemicals
-Some chemicals have special effects on plants.
+## Хімікати
+Деякі хімікати мають особливий вплив на рослини.
 
-[textlink="Click here to see all botanical chemicals." link="Botanical"]
+[textlink="Натисніть тут, щоб переглянути всі ботанічні хімікати." link="Botanical"]
 
 <GuideReagentEmbed Reagent="Dylovene"/>
 <GuideReagentEmbed Reagent="Cryoxadone"/>

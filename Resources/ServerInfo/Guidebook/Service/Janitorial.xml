@@ -9,11 +9,10 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-# Janitorial
+# Прибирання
+Ви підтримуєте чистоту, іноді це важка робота, але хтось повинен її робити. Цей посібник ознайомить вас з інструментами та способами їх використання.
 
-You keep things clean, it's a rough job sometimes, but someone's gotta do it. This will walk you through the tools of the trade, and how they're used.
-
-## Basic Equipment
+## Основне обладнання
 <Box>
 <GuideEntityEmbed Entity="MopItem"/>
 <GuideEntityEmbed Entity="JanitorialTrolley"/>
@@ -28,39 +27,39 @@ You keep things clean, it's a rough job sometimes, but someone's gotta do it. Th
 <GuideEntityEmbed Entity="Mousetrap"/>
 </Box>
 
-## Additional Equipment
+## Додаткове обладнання
 <Box>
 <GuideEntityEmbed Entity="WetFloorSign"/>
-<GuideEntityEmbed Entity="Holoprojector" Caption="holosign projector"/>
+<GuideEntityEmbed Entity="Holoprojector" Caption="проектор голознаків"/>
 <GuideEntityEmbed Entity="LightReplacer"/>
 </Box>
 <Box>
-<GuideEntityEmbed Entity="AdvMopItem" Caption="Advanced mop, ask in R&D"/>
+<GuideEntityEmbed Entity="AdvMopItem" Caption="вдосконалена швабра, запитуйте в R&D"/>
 </Box>
 
-## Fluid Acquisition and Disposal
+## Забір та утилізація рідин
 <Box>
 <GuideEntityEmbed Entity="WaterTankFull"/>
 <GuideEntityEmbed Entity="Sink"/>
 <GuideEntityEmbed Entity="FloorDrain"/>
 </Box>
 
-## Tidying up.
-Now, onto the (figurative) meat and potatoes. We're here to clean, right? Lets keep it simple. The main tools you'll be putting to use are the trusty mop, a trash bag, space cleaner, and one of the three different buckets.
+## Прибирання.
+Тепер до (образно кажучи) м'яса та картоплі. Ми тут, щоб прибирати, чи не так? Давайте простіше. Основними інструментами, якими ви будете користуватися, є надійна швабра, мішок для сміття, космічний очищувач та одне з трьох різних відер.
 
-Mopping: Fill your cart up with water, then, find some puddles! Wet your mop, and wipe them up, the resulting water puddle will dry after a short time. Don't forget the wet floor signs!
-- To drain your cart, drag it (with your cursor) onto a floor drain. This will dump all the fluids inside! Floor drains can usually be found somewhere in medical, the kitchen freezer, and of course, the janitor closet.
+Миття підлоги: Наповніть свій візок водою, а потім знайдіть калюжі! Намочіть швабру і витріть їх, отримана калюжа води висохне через короткий час. Не забувайте про знаки "Обережно, мокра підлога"!
+- Щоб злити воду з візка, перетягніть його (курсором) на підлоговий злив. Це виллє всі рідини всередині! Підлогові зливи зазвичай можна знайти десь у медичному відсіку, морозильній камері кухні і, звичайно, в коморі прибиральника.
 
-Trash: Place it in the bag directly, or hold it in your hand. Click -near- trash to scoop -all- nearby junk up, or click on each piece individually. Using the bag on a disposal will empty it.
-- Cargo might want some of your trash, it might be worthwhile to check in from time to time!
+Сміття: Покладіть його безпосередньо в мішок або тримайте в руці. Клацніть поруч зі сміттям, щоб зібрати все сміття поблизу, або клацніть на кожному шматку окремо. Використання мішка на утилізаторі спорожнить його.
+- Вантажний відділ може захотіти частину вашого сміття, можливо, варто час від часу заглядати до них!
 
-Space Cleaner: This miracle spray can do two things, clean graffiti, and in a pinch, clean up puddles!
-- You might be able to get more of this from chemistry.
+Космічний очищувач: Цей диво-спрей може робити дві речі: очищати графіті і, в крайньому випадку, прибирати калюжі!
+- Ви можете отримати більше цього засобу в хімічній лабораторії.
 
-## Extra Duties
-A good janitor is always on the lookout for a bit more to do, and there are plenty of tools at your disposal. Keep an eye out for broken lights, help the chef take care of mice in the kitchen, and if you're feeling -really- generous, try to restock the vending machines and emergency closets around the station!
+## Додаткові обов'язки
+Хороший прибиральник завжди шукає, чим би ще зайнятися, і у вашому розпорядженні є безліч інструментів. Слідкуйте за розбитими лампами, допоможіть шеф-кухарю впоратися з мишами на кухні, і якщо ви відчуваєте себе особливо щедрим, спробуйте поповнити запаси в торгових автоматах та аварійних шафах по всій станції!
 
-##Additional Information:
+##Додаткова інформація:
 <GuideReagentEmbed Reagent="SpaceCleaner"/>
 <GuideReagentEmbed Reagent="Ammonia"/>
 

@@ -10,13 +10,13 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-# Chef
-A fella has gotta eat, and it's the chef's job to make sure folks have something other than junk to munch on.
+# Шеф-кухар
+Людині потрібно їсти, і робота шеф-кухаря — переконатися, що у людей є щось інше, крім сміття, щоб пожувати.
 
 
-[textlink="Click here to see a list of food recipes." link="FoodRecipes"]
+[textlink="Натисніть тут, щоб переглянути список рецептів страв." link="FoodRecipes"]
 
-First and foremost, you'll need to familiarize yourself with the kitchen, and the tools available to you.
+Перш за все, вам потрібно ознайомитися з кухнею та доступними вам інструментами.
 
 <Box>
 <GuideEntityEmbed Entity="KitchenKnife"/>
@@ -26,57 +26,57 @@ First and foremost, you'll need to familiarize yourself with the kitchen, and th
 <GuideEntityEmbed Entity="MobCow"/>
 </Box>
 <Box>
-<GuideEntityEmbed Entity="VendingMachineChefvend" Caption="Chef Vendor"/>
+<GuideEntityEmbed Entity="VendingMachineChefvend" Caption="Торговий автомат шеф-кухаря"/>
 <GuideEntityEmbed Entity="KitchenMicrowave"/>
 <GuideEntityEmbed Entity="KitchenSpike"/>
-<GuideEntityEmbed Entity="VendingMachineDinnerware" Caption="Dinnerware Vend"/>
+<GuideEntityEmbed Entity="VendingMachineDinnerware" Caption="Торговий автомат з посудом"/>
 </Box>
 
-## Kitchen Prep:
+## Підготовка на кухні:
 
-It's hard to put into words how to play chef without feeling like you're being given orders, but here are some basics.
+Важко передати словами, як грати за шеф-кухаря, не відчуваючи, що вам дають накази, але ось кілька основ.
 
-- Check what you have on hand when it comes to ingredients, most kitchens have some Flour, Rice, Eggs, Monkey Cubes, and a few other things to get started with.
-- Try your hand at mixing up some dough by putting water and flour together in a beaker. (Use the sinks!)
-- Check the Wiki (or Food Recipes) guidebook for things you can make, and put all the listed ingredients into a microwave to cook it into a meal.
-- Set up mouse traps. Yes, really. It's easy to see all your hard work disappear if you don't take precautions for mice infestations.
+- Перевірте, що у вас є під рукою з інгредієнтів, на більшості кухонь є борошно, рис, яйця, мавпячі кубики та кілька інших речей для початку.
+- Спробуйте замісити тісто, змішавши воду та борошно в склянці. (Використовуйте раковини!)
+- Перевірте Вікі (або посібник з рецептами страв) на предмет того, що ви можете приготувати, і покладіть усі перераховані інгредієнти в мікрохвильову піч, щоб приготувати страву.
+- Встановіть мишоловки. Так, справді. Легко побачити, як уся ваша важка праця зникає, якщо ви не вживете заходів обережності проти нашестя мишей.
 
-Once you're a bit more experienced and familiar with what you can make, it might be best to put together a few menus, or a "cheat sheet" so you can give a list of ingredients to botany.
+Коли ви станете трохи досвідченішими і знайомими з тим, що можете приготувати, можливо, краще скласти кілька меню або "шпаргалку", щоб ви могли дати список інгредієнтів ботаніці.
 
-## Mixing Dough:
-Add Flour and Water together in a beaker. (Use the sink for water!)
+## Замішування тіста:
+Додайте борошно та воду в склянку. (Використовуйте раковину для води!)
 <Box>
 <GuideEntityEmbed Entity="LargeBeaker"/>
 <GuideEntityEmbed Entity="ReagentContainerFlour"/>
-<GuideEntityEmbed Entity="DrinkWaterBottleFull" Caption="water"/>
+<GuideEntityEmbed Entity="DrinkWaterBottleFull" Caption="вода"/>
 <GuideEntityEmbed Entity="FoodDough"/>
 </Box>
-## Making Flour:
-Place wheat in a grinder (with a beaker placed inside) and grind it up!
+## Виготовлення борошна:
+Покладіть пшеницю в млин (зі склянкою всередині) і подрібніть її!
 <Box>
 <GuideEntityEmbed Entity="KitchenReagentGrinder"/>
 <GuideEntityEmbed Entity="LargeBeaker"/>
 <GuideEntityEmbed Entity="WheatBushel"/>
 <GuideEntityEmbed Entity="ReagentContainerFlour"/>
 </Box>
-## Getting Plants:
-Ask Botany for what you need, without a botanist, you may need to grow more plants yourself.
+## Отримання рослин:
+Попросіть у ботаніки те, що вам потрібно, без ботаніка вам, можливо, доведеться вирощувати більше рослин самостійно.
 <Box>
 <GuideEntityEmbed Entity="SignHydro1" Caption=" "/>
 <GuideEntityEmbed Entity="hydroponicsTray"/>
 <GuideEntityEmbed Entity="WheatBushel"/>
 </Box>
-## Gathering Milk:
-Alt-Click on a Cow with a container in your hand. (Beakers, Buckets, Milk Jugs, ect.)
+## Збір молока:
+Клацніть Alt на корові з контейнером у руці. (Склянки, відра, глечики для молока тощо)
 <Box>
 <GuideEntityEmbed Entity="Bucket"/>
 <GuideEntityEmbed Entity="MobCow"/>
 <GuideEntityEmbed Entity="DrinkMilkCarton"/>
 </Box>
-## How to Butcher:
-In most cases, you should be able to use a knife directly on a creature that's dead. It's best to do this in the freezer, as the results are... messy.
+## Як обробляти м'ясо:
+У більшості випадків ви зможете використовувати ніж безпосередньо на мертвій істоті. Найкраще робити це в морозильній камері, оскільки результати... брудні.
 
-Monkeys, however, (and other humanoids), need to be dragged onto a meatspike to be butchered.
+Мавп, однак (та інших гуманоїдів), потрібно перетягнути на м'ясний шип, щоб обробити.
 <Box>
 <GuideEntityEmbed Entity="KitchenSpike"/>
 <GuideEntityEmbed Entity="KitchenKnife"/>

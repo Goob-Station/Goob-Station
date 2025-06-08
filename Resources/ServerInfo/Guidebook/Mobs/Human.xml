@@ -7,14 +7,14 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Humans
+  # Люди
 
   <Box>
     <GuideEntityEmbed Entity="MobHumanDummy" Caption=""/>
   </Box>
 
-  Depending on who you ask, humans are either unremarkable or the universal standard to which everything else is compared.
+  Залежно від того, кого ви запитаєте, люди або нічим не примітні, або є універсальним стандартом, з яким порівнюють усе інше.
 
-  They interact [color=#ffa500]about 20% faster[/color] compared to other species.
+  Вони взаємодіють [color=#ffa500]приблизно на 20% швидше[/color] порівняно з іншими видами.
 
 </Document>

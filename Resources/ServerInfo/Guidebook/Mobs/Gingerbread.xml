@@ -9,16 +9,16 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Gingerbread
+  # Пряники
 
   <Box>
     <GuideEntityEmbed Entity="MobGingerbread" Caption=""/>
   </Box>
 
-  Gingerbreads are a species of sentient confectionary. They have sugar for blood, and can be butchered for cookies. Being made of dough, they weigh half as much as species made of flesh.
+  Пряники — це вид розумних кондитерських виробів. У них цукор замість крові, і їх можна розібрати на печиво. Будучи зробленими з тіста, вони важать вдвічі менше, ніж види, зроблені з плоті.
 
-  ## Damage stats
+  ## Характеристики шкоди
 
-  Gingerbreads take 3x less fire damage than Humans, do not take Asphyxiation (though they still breathe and are uncomfortable without oxygen), Bloodloss (though again, are uncomfortable without sugar) and Cold damage (though are slowed down by cold), but take 1.5x more Blunt damage and take a lot of Heat damage from being exposed to water externally.
+  Пряники отримують у 3 рази менше шкоди від вогню, ніж люди, не отримують шкоди від задухи (хоча вони все ще дихають і їм некомфортно без кисню), крововтрати (хоча, знову ж таки, їм некомфортно без цукру) та холоду (хоча холод їх сповільнює), але отримують у 1,5 рази більше тупої шкоди та значну теплову шкоду від зовнішнього впливу води.
 
 </Document>

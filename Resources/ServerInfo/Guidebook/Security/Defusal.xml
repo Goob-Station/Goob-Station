@@ -8,18 +8,18 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Large Bomb Defusal
-  So, you found a large bomb and it's beeping. These bombs take a long time to detonate and punch a big hole into the hull. Just keep reading, and nobody will explode.
+  # Знешкодження великої бомби
+  Отже, ви знайшли велику бомбу, і вона цокає. Цим бомбам потрібно багато часу, щоб вибухнути, і вони пробивають велику діру в корпусі. Просто продовжуйте читати, і ніхто не вибухне.
 
-  ## Gear
-  You require two essential tools to perform defusal, however, a multitool is extremely helpful in terms of identifying wires.
+  ## Спорядження
+  Вам знадобляться два основні інструменти для знешкодження, однак мультитул надзвичайно корисний для ідентифікації дротів.
   <Box>
     <GuideEntityEmbed Entity="Wirecutter"/>
     <GuideEntityEmbed Entity="Screwdriver"/>
     <GuideEntityEmbed Entity="Multitool"/>
   </Box>
 
-  For protective equipment, a [color=yellow]bomb suit[/color] or any other protective equipment can assist you in not blowing into gibs.
+  Щодо захисного спорядження, [color=yellow]костюм сапера[/color] або будь-яке інше захисне спорядження допоможе вам не розлетітися на шматки.
   <Box>
     <GuideEntityEmbed Entity="ClothingHeadHelmetBombSuit"/>
     <GuideEntityEmbed Entity="ClothingOuterSuitBomb"/>
@@ -27,56 +27,56 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="ClothingOuterHardsuitAtmos"/>
   </Box>
 
-  ## Hardbombs
-  Listed below are the two common types of bombs you will encounter while defusing. A training bomb will only provide minor hull damage and generally not kill you. A syndicate bomb however will punch a big hole into the hull, and gib you if you are not wearing protective gear.
+  ## Важкі бомби
+  Нижче наведено два поширені типи бомб, з якими ви зіткнетеся під час знешкодження. Навчальна бомба завдасть лише незначної шкоди корпусу і, як правило, не вб'є вас. Бомба синдикату, однак, проб'є велику діру в корпусі і розірве вас на шматки, якщо ви не будете в захисному спорядженні.
   <Box>
     <GuideEntityEmbed Entity="SyndicateBomb"/>
     <GuideEntityEmbed Entity="TrainingBomb"/>
   </Box>
 
-  ## Arming
-  To arm a bomb, you can either [color=yellow]right click[/color] and click [color=yellow]Begin countdown[/click], or [color=yellow]alt-click[/color] the bomb. It will begin beeping.
+  ## Активація
+  Щоб активувати бомбу, ви можете або [color=yellow]клацнути правою кнопкою миші[/color] і натиснути [color=yellow]Почати відлік[/click], або [color=yellow]клацнути з Alt[/color] на бомбу. Вона почне цокати.
 
-  ## Time
-  A bomb has a limited time, at a minimum of [protodata="SyndicateBomb" comp="OnUseTimerTrigger" member="ShortestDelayOption"/] seconds and a maximum of [protodata="SyndicateBomb" comp="OnUseTimerTrigger" member="LongestDelayOption"/] seconds. You can view the timer by examining it, unless the Proceed wire is cut. Once the timer hits zero, the bomb will detonate.
+  ## Час
+  Бомба має обмежений час, мінімум [protodata="SyndicateBomb" comp="OnUseTimerTrigger" member="ShortestDelayOption"/] секунд і максимум [protodata="SyndicateBomb" comp="OnUseTimerTrigger" member="LongestDelayOption"/] секунд. Ви можете переглянути таймер, оглянувши її, якщо тільки не перерізано дріт Proceed. Коли таймер досягне нуля, бомба вибухне.
 
-  ## Bolts
-  By default, once armed, a bomb will bolt itself to the ground. You must find the BOLT wire and cut it to disable the bolts, after which you can unwrench it and throw it into space.
+  ## Болти
+  За замовчуванням, після активації, бомба прикручується до підлоги. Ви повинні знайти дріт BOLT і перерізати його, щоб відключити болти, після чого ви зможете відкрутити її і викинути в космос.
 
-  ## Wires
-  You must access the wiring in order to defuse a bomb. You can use a [color=yellow]screwdriver[/color] to open the access panel. Inside, you will find many types of wires. In a standard syndicate bomb, there are around [color=yellow]10 wires[/color], 3 are dummy wires, [color=red]3 will cause a detonation[/color], and the rest that weren't mentioned can be found below (alongside BOOM wires). With each wire, you can do 3 actions. You can:
-  - [color=yellow]Pulse the wire[/color] with a multitool, this can help you safely identify most wires.
-  - [color=red]Cut the wire[/color] with a wirecutter, this can trigger various effects, be cautious of cutting without reason!
-  - [color=green]Mend the wire[/color] with a wirecutter, this can restore some functionality of the bomb if it isn't disposable.
+  ## Дроти
+  Щоб знешкодити бомбу, вам потрібно отримати доступ до проводки. Ви можете використовувати [color=yellow]викрутку[/color], щоб відкрити панель доступу. Усередині ви знайдете багато типів дротів. У стандартній бомбі синдикату є близько [color=yellow]10 дротів[/color], 3 з них — фіктивні, [color=red]3 спричинять детонацію[/color], а решту, що не були згадані, можна знайти нижче (разом з дротами BOOM). З кожним дротом ви можете виконати 3 дії. Ви можете:
+  - [color=yellow]Пульсувати дріт[/color] мультитулом, це допоможе вам безпечно ідентифікувати більшість дротів.
+  - [color=red]Перерізати дріт[/color] кусачками, це може викликати різні ефекти, будьте обережні, ріжучи без причини!
+  - [color=green]З'єднати дріт[/color] кусачками, це може відновити деякі функції бомби, якщо вона не одноразова.
 
-  Onward for the types of wires.
+  Далі про типи дротів.
 
-  ## Wire Types
-  [color=#a4885c]Activation Wire (LIVE)[/color]
-  - [color=yellow]Pulse the wire[/color]: Pulsing the wire will make the wire chirp and delay the bomb by 30 seconds.
-  - [color=red]Cut the wire[/color]: Cutting the wire will defuse the bomb if active, otherwise, will begin the timer.
-  - [color=green]Mend the wire[/color]: Nothing.
+  ## Типи дротів
+  [color=#a4885c]Дріт активації (LIVE)[/color]
+  - [color=yellow]Пульсувати дріт[/color]: Пульсування дроту змусить його затріщати і затримає бомбу на 30 секунд.
+  - [color=red]Перерізати дріт[/color]: Перерізання дроту знешкодить бомбу, якщо вона активна, в іншому випадку — запустить таймер.
+  - [color=green]З'єднати дріт[/color]: Нічого.
 
-  [color=#a4885c]Proceed Wire (PRCD)[/color]
-  - [color=yellow]Pulse the wire[/color]: Pulsing the wire will forward the time by 15 seconds.
-  - [color=red]Cut the wire[/color]: Cutting the wire will disable the timer display on examine.
-  - [color=green]Mend the wire[/color]: Nothing.
+  [color=#a4885c]Дріт продовження (PRCD)[/color]
+  - [color=yellow]Пульсувати дріт[/color]: Пульсування дроту прискорить час на 15 секунд.
+  - [color=red]Перерізати дріт[/color]: Перерізання дроту відключить відображення таймера при огляді.
+  - [color=green]З'єднати дріт[/color]: Нічого.
 
-  [color=#a4885c]Delay Wire (DLAY)[/color]
-  - [color=yellow]Pulse the wire[/color]: Pulsing the delay wire will delay the bomb by 30 seconds.
-  - [color=red]Cut the wire[/color]: Nothing.
-  - [color=green]Mend the wire[/color]: Nothing.
+  [color=#a4885c]Дріт затримки (DLAY)[/color]
+  - [color=yellow]Пульсувати дріт[/color]: Пульсування дроту затримки затримає бомбу на 30 секунд.
+  - [color=red]Перерізати дріт[/color]: Нічого.
+  - [color=green]З'єднати дріт[/color]: Нічого.
 
-  [color=#a4885c]Boom Wire (BOOM)[/color]
-  - [color=yellow]Pulse the wire[/color]: [color=red]The bomb will explode if armed![/color]
-  - [color=red]Cut the wire[/color]: [color=red]The bomb will explode if armed![/color] Otherwise, will disable the bomb.
-  - [color=green]Mend the wire[/color]: Re-enables the bomb if disabled previously.
+  [color=#a4885c]Дріт вибуху (BOOM)[/color]
+  - [color=yellow]Пульсувати дріт[/color]: [color=red]Бомба вибухне, якщо активована![/color]
+  - [color=red]Перерізати дріт[/color]: [color=red]Бомба вибухне, якщо активована![/color] В іншому випадку — знешкодить бомбу.
+  - [color=green]З'єднати дріт[/color]: Повторно активує бомбу, якщо вона була раніше знешкоджена.
 
-  [color=#a4885c]Bolt Wire (BOLT)[/color]
-  - [color=yellow]Pulse the wire[/color]: Pulsing the wire will make the bolts spin.
-  - [color=red]Cut the wire[/color]: Cutting the wire will disable the bolts, throw it into space!
-  - [color=green]Mend the wire[/color]: Mending the wire will re-enable the bolts.
+  [color=#a4885c]Дріт болтів (BOLT)[/color]
+  - [color=yellow]Пульсувати дріт[/color]: Пульсування дроту змусить болти обертатися.
+  - [color=red]Перерізати дріт[/color]: Перерізання дроту відключить болти, викиньте її в космос!
+  - [color=green]З'єднати дріт[/color]: З'єднання дроту повторно активує болти.
 
-  [color=#a4885c]Dummy Wire[/color]
-  - Dummy wires don't do anything. You can pulse, cut, and mend them freely and they will not affect the bomb at all.
+  [color=#a4885c]Фіктивний дріт[/color]
+  - Фіктивні дроти нічого не роблять. Ви можете вільно пульсувати, різати і з'єднувати їх, і вони ніяк не вплинуть на бомбу.
 </Document>

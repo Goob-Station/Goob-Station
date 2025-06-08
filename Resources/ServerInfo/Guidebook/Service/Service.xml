@@ -6,36 +6,36 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-# Service
-[color=#9fed58]Service[/color] keeps the station clean, efficient and sane so that all other departments can do their jobs better and keep their staff happy. They also end up doing most of the paperwork on the station.
+# Сервіс
+[color=#9fed58]Сервіс[/color] підтримує станцію в чистоті, ефективності та здоровому глузді, щоб усі інші відділи могли краще виконувати свою роботу та підтримувати щастя свого персоналу. Вони також займаються більшою частиною паперової роботи на станції.
 
-## Personnel
-[color=#9fed58]Service[/color]'s staff is made up of Service Workers, Chefs, Botanists, Bartenders, Janitors, Chaplains, Clowns, Mimes, Musicians, Lawyers, Librarians and Passengers. Service is run by the Head of Personnel.
+## Персонал
+Штат [color=#9fed58]Сервісу[/color] складається з працівників сервісу, кухарів, ботаніків, барменів, прибиральників, капеланів, клоунів, мімів, музикантів, юристів, бібліотекарів та пасажирів. Сервісом керує голова персоналу.
 
   <Box>
-    <GuideEntityEmbed Entity="ToyFigurineChef" Caption="Chef"/>
-    <GuideEntityEmbed Entity="ToyFigurineBotanist" Caption="Botanist"/>
-    <GuideEntityEmbed Entity="ToyFigurineBartender" Caption="Bartender"/>
-    <GuideEntityEmbed Entity="ToyFigurineJanitor" Caption="Janitor"/>
+    <GuideEntityEmbed Entity="ToyFigurineChef" Caption="Кухар"/>
+    <GuideEntityEmbed Entity="ToyFigurineBotanist" Caption="Ботанік"/>
+    <GuideEntityEmbed Entity="ToyFigurineBartender" Caption="Бармен"/>
+    <GuideEntityEmbed Entity="ToyFigurineJanitor" Caption="Прибиральник"/>
   </Box>
   <Box>
-    <GuideEntityEmbed Entity="ToyFigurineChaplain" Caption="Chaplain"/>
-    <GuideEntityEmbed Entity="ToyFigurineClown" Caption="Clown"/>
-    <GuideEntityEmbed Entity="ToyFigurineMime" Caption="Mime"/>
-    <GuideEntityEmbed Entity="ToyFigurineMusician" Caption="Musician"/>
+    <GuideEntityEmbed Entity="ToyFigurineChaplain" Caption="Капелан"/>
+    <GuideEntityEmbed Entity="ToyFigurineClown" Caption="Клоун"/>
+    <GuideEntityEmbed Entity="ToyFigurineMime" Caption="Мім"/>
+    <GuideEntityEmbed Entity="ToyFigurineMusician" Caption="Музикант"/>
   </Box>
   <Box>
-    <GuideEntityEmbed Entity="ToyFigurineLawyer" Caption="Lawyer"/>
-    <GuideEntityEmbed Entity="ToyFigurineLibrarian" Caption="Librarian"/>
-    <GuideEntityEmbed Entity="ToyFigurinePassenger" Caption="Passenger"/>
-    <GuideEntityEmbed Entity="ToyFigurineHeadOfPersonnel" Caption="HoP"/>
+    <GuideEntityEmbed Entity="ToyFigurineLawyer" Caption="Юрист"/>
+    <GuideEntityEmbed Entity="ToyFigurineLibrarian" Caption="Бібліотекар"/>
+    <GuideEntityEmbed Entity="ToyFigurinePassenger" Caption="Пасажир"/>
+    <GuideEntityEmbed Entity="ToyFigurineHeadOfPersonnel" Caption="Голова персоналу"/>
   </Box>
 
-## Working Together
-[color=#9fed58]Service[/color], despite being the most diverse, tends to be the most [color=#a4885c]interlinked[/color] department by far.
-Most [color=#9fed58]Service[/color] jobs require [color=#a4885c]cooperation[/color] between workers.
-Chefs often need ingredients that only botanists can grow efficiently. The bartender may request bananas that only clowns carry in abundance.
-The lawyer may invite the mime to play charades to convince the judge that their client is innocent.
+## Спільна робота
+[color=#9fed58]Сервіс[/color], незважаючи на свою різноманітність, є найбільш [color=#a4885c]взаємопов'язаним[/color] відділом.
+Більшість робіт у [color=#9fed58]Сервісі[/color] вимагають [color=#a4885c]співпраці[/color] між працівниками.
+Кухарям часто потрібні інгредієнти, які ефективно можуть вирощувати лише ботаніки. Бармен може попросити банани, яких у великій кількості є лише у клоунів.
+Юрист може запросити міма пограти в шаради, щоб переконати суддю в невинності свого клієнта.
 
-A lot of [color=#a4885c]collaboration[/color] is necessary within and without [color=#9fed58]Service[/color]. Often times, [color=#9fed58]Service[/color] is required by other departments, so be on your toes.
+Велика кількість [color=#a4885c]співпраці[/color] необхідна як усередині, так і поза [color=#9fed58]Сервісом[/color]. Часто [color=#9fed58]Сервіс[/color] потрібен іншим відділам, тому будьте напоготові.
 </Document>

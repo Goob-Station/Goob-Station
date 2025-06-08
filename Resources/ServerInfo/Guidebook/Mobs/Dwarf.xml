@@ -8,16 +8,16 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Dwarves
+  # Гноми
 
   <Box>
     <GuideEntityEmbed Entity="MobDwarf" Caption=""/>
   </Box>
 
-  Dwarves are similar to humans in most respects, however,
-  They are not poisoned by alcohol and instead are even slightly healed by it.
-  Their mining instincts allow them to feel nearby ore in 3 tile radius.
-  They are slightly smaller than humans, though are also slightly heavier.
-  They suffocate two times faster.
+  Гноми в більшості аспектів схожі на людей, однак,
+  Вони не отруюються алкоголем, а навпаки, навіть трохи лікуються ним.
+  Їхні шахтарські інстинкти дозволяють їм відчувати руду поблизу в радіусі 3 плиток.
+  Вони трохи менші за людей, хоча й трохи важчі.
+  Вони задихаються вдвічі швидше.
 
 </Document>

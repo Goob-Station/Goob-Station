@@ -9,35 +9,35 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Rodentia
+  # Родентія
 
   <Box>
     <GuideEntityEmbed Entity="MobRodentiaDummy" Caption=""/>
   </Box>
 
-  Rodentia are a race of humanoid beings resembling rodents. Resourceful, evasive, sneaky, but fragile.
+  Родентії — це раса гуманоїдних істот, що нагадують гризунів. Винахідливі, невловимі, хитрі, але крихкі.
 
-  ## Diet
+  ## Дієта
 
-  - Can eat raw meat.
-  - Will get poisoned by Theobromine (Chocolate, Tea, Coffee) and Allicin (Onion, Garlic).
+  - Можуть їсти сире м'ясо.
+  - Отруюються теоброміном (шоколад, чай, кава) та аліцином (цибуля, часник).
 
-  ## Benefits
+  ## Переваги
 
-  - Uses their claws to do some Slashing and Blunt damage.
-  - Can fit in duffelbags.
+  - Використовують свої кігті для нанесення ріжучої та тупої шкоди.
+  - Можуть поміститися в спортивні сумки.
 
-  ## Special
+  ## Особливості
 
-  - Can Rummage in disposal chutes, which can sometimes dig up food.
-  - Can store small items in their cheeks. Having items in their mouth makes their speech unintelligible, and they will drop all items in their mouth if attacked, stunned, or shoved.
-  - Can "sneak" underneath tables, but not doors.
-  - Smaller than most other species.
+  - Можуть ритися в сміттєпроводах, що іноді дозволяє знайти їжу.
+  - Можуть зберігати дрібні предмети в щоках. Наявність предметів у роті робить їхню мову нерозбірливою, і вони випустять усі предмети з рота, якщо їх атакують, оглушать або штовхнуть.
+  - Можуть "прокрадатися" під столами, але не під дверима.
+  - Менші за більшість інших видів.
 
-  ## Drawbacks
+  ## Недоліки
 
-  - Takes 30% more Blunt damage, and 15% more Slash and Piercing damage.
-  - Always triggers mousetraps, regardless of whether or not they are wearing shoes.
-  - Gets hungry 33% faster.
+  - Отримують на 30% більше тупої шкоди та на 15% більше ріжучої та колючої шкоди.
+  - Завжди спрацьовують на мишоловки, незалежно від того, чи носять вони взуття.
+  - Голодніють на 33% швидше.
 
 </Document>

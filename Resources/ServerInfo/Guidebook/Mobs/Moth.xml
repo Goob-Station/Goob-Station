@@ -7,19 +7,19 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Moth People
+  # Люди-молі
 
   <Box>
     <GuideEntityEmbed Entity="MobMoth" Caption=""/>
   </Box>
 
-  They can eat cotton, fabrics and clothing, but virtually none of the food that others would consider "edible". They prefer a somewhat lower temperature range than humans. They are obsessed with the number "65".
+  Вони можуть їсти бавовну, тканини та одяг, але практично нічого з того, що інші вважають "їстівним". Вони віддають перевагу дещо нижчому температурному діапазону, ніж люди. Вони одержимі числом "65".
 
-  Their wings give them better acceleration if there is no gravity on the station, but they still can't move without equipment when floating out in space.
-  They can also dash small distances once in 6.5 seconds using their wings, but that requires the gravity to be present. However they move 6.5% slower than other species due to their weak legs.
+  Їхні крила дають їм краще прискорення, якщо на станції немає гравітації, але вони все одно не можуть рухатися без обладнання, коли плавають у відкритому космосі.
+  Вони також можуть робити невеликі ривки раз на 6,5 секунди за допомогою своїх крил, але для цього потрібна гравітація. Однак вони рухаються на 6,5% повільніше, ніж інші види, через свої слабкі ноги.
 
-  They take [color=#1e90ff]30% less Cold damage[/color] but [color=#ffa500]30% more Heat and 6.5% more Brute damage, and catch on fire more easily[/color].
+  Вони отримують на [color=#1e90ff]30% менше шкоди від холоду[/color], але на [color=#ffa500]30% більше шкоди від тепла і на 6,5% більше грубої шкоди, і легше загоряються[/color].
 
-  They are also 6.5% lighter than most species.
+  Вони також на 6,5% легші за більшість видів.
 
 </Document>
