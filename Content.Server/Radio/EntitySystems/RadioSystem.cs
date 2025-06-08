@@ -30,6 +30,7 @@
 
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
+using Content.Server._EinsteinEngines.Language;
 using Content.Server.Power.Components;
 using Content.Server.Radio.Components;
 using Content.Shared.Chat;
@@ -60,6 +61,7 @@ public sealed class RadioSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly LanguageSystem _language = default!; // Einstein Engines - Language
 
     // set used to prevent radio feedback loops.
     private readonly HashSet<string> _messages = new();
@@ -176,6 +178,13 @@ public sealed class RadioSystem : EntitySystem
         // var ev = new RadioReceiveEvent(message, messageSource, channel, radioSource, chatMsg);
         var msg = new ChatMessage(ChatChannel.Radio, content, wrappedMessage, NetEntity.Invalid, null); // Einstein Engines - Language
 
+        // Einstein Engines - Language begin
+        var obfuscated = _language.ObfuscateSpeech(content, language);
+        var obfuscatedWrapped = WrapRadioMessage(messageSource, channel, name, obfuscated, language);
+        var notUdsMsg = new ChatMessage(ChatChannel.Radio, obfuscated, obfuscatedWrapped, NetEntity.Invalid, null);
+        var ev = new RadioReceiveEvent(messageSource, channel, msg, notUdsMsg, language, radioSource);
+        // Einstein Engines - Language end
+
         var sendAttemptEv = new RadioSendAttemptEvent(channel, radioSource);
         RaiseLocalEvent(ref sendAttemptEv);
         RaiseLocalEvent(radioSource, ref sendAttemptEv);
@@ -219,9 +228,42 @@ public sealed class RadioSystem : EntitySystem
         else
             _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Radio message from {ToPrettyString(messageSource):user} on {channel.LocalizedName}: {message}");
 
-        _replay.RecordServerMessage(chat);
+        _replay.RecordServerMessage(msg); // Einstein Engines - Language
         _messages.Remove(message);
     }
+
+    // Einstein Engines - Language begin
+    private string WrapRadioMessage(
+        EntityUid source,
+        RadioChannelPrototype channel,
+        string name,
+        string message,
+        LanguagePrototype language)
+    {
+        // TODO: code duplication with ChatSystem.WrapMessage
+        var speech = _chat.GetSpeechVerb(source, message);
+        var languageColor = channel.Color;
+
+        if (language.SpeechOverride.Color is { } colorOverride)
+            languageColor = Color.InterpolateBetween(languageColor, colorOverride, colorOverride.A);
+
+        var languageDisplay = language.IsVisibleLanguage
+            ? Loc.GetString("chat-manager-language-prefix", ("language", language.ChatName))
+            : "";
+        var messageColor = language.IsVisibleLanguage ? languageColor : channel.Color;
+
+        return Loc.GetString(speech.Bold ? "chat-radio-message-wrap-bold" : "chat-radio-message-wrap",
+            ("color", channel.Color),
+            ("languageColor", languageColor),
+            ("messageColor", messageColor),
+            ("fontType", language.SpeechOverride.FontId ?? speech.FontId),
+            ("fontSize", language.SpeechOverride.FontSize ?? speech.FontSize),
+            ("verb", Loc.GetString(_random.Pick(speech.SpeechVerbStrings))),
+            ("name", name),
+            ("message", message),
+            ("language", languageDisplay));
+    }
+    // Einstein Engines - Language end
 
     /// <inheritdoc cref="TelecomServerComponent"/>
     private bool HasActiveServer(MapId mapId, string channelId)
