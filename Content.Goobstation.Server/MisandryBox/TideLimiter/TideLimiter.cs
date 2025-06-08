@@ -99,7 +99,7 @@ public sealed partial class TideLimiterSystem : EntitySystem
 
     private int GetBoundAvailableSlots(TideLimitedComponent comp)
     {
-        return Math.Min(0, comp.BoundCount - comp.SecurityCount * comp.Ratio);
+        return Math.Max(0, comp.SecurityCount * comp.Ratio - comp.BoundCount);
     }
 
     private bool IsSecurity(string id)
