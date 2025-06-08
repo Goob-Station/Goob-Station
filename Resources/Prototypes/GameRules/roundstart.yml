@@ -112,6 +112,8 @@
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
@@ -331,6 +333,23 @@
     - groups: TraitorObjectiveGroups
     maxDifficulty: 5
 
+# Goobstation - order swapped since admin verbs use .Last() for some reason
+# TODO: Fix that 
+- type: entity
+  id: TraitorReinforcement
+  parent: BaseTraitorRuleNoObjectives # Goobstation
+  components:
+  - type: TraitorRule
+    giveUplink: false
+    giveCodewords: false # It would actually give them a different set of codewords than the regular traitors, anyway
+    giveBriefing: false
+  - type: AntagSelection
+    selectionTime: PostPlayerSpawn # Goobstation
+    definitions:
+    - prefRoles: [ Traitor ]
+      mindRoles:
+      - MindRoleTraitorReinforcement
+
 - type: entity
   parent: BaseTraitorRule
   id: Traitor
@@ -350,21 +369,6 @@
       lateJoinAdditional: true
       mindRoles:
       - MindRoleTraitor
-
-- type: entity
-  id: TraitorReinforcement
-  parent: BaseTraitorRuleNoObjectives # Goobstation
-  components:
-  - type: TraitorRule
-    giveUplink: false
-    giveCodewords: false # It would actually give them a different set of codewords than the regular traitors, anyway
-    giveBriefing: false
-  - type: AntagSelection
-    selectionTime: PostPlayerSpawn # Goobstation
-    definitions:
-    - prefRoles: [ Traitor ]
-      mindRoles:
-      - MindRoleTraitorReinforcement
 
 - type: entity
   id: Revolutionary
