@@ -317,7 +317,7 @@
   - type: TraitorRule
   # Goobstation
   - type: GameRule
-    chaosScore: 700
+    chaosScore: 900
   # TODO: codewords in yml
   # TODO: uplink in yml
   - type: AntagSelection
@@ -376,7 +376,7 @@
   components:
   - type: GameRule
     minPlayers: 15
-    chaosScore: 800 # Goobstation
+    chaosScore: 1200 # Goobstation
   - type: RevolutionaryRule
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn # Goobstation
@@ -467,6 +467,7 @@
     delay:
       min: 600
       max: 900
+    chaosScore: 1400
   - type: ZombieRule
   - type: AntagSelection
     definitions:
