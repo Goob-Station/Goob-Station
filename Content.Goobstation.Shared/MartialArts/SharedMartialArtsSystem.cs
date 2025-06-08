@@ -229,13 +229,10 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
 
     private void OnInteract(InteractHandEvent args)
     {
-        if (_netManager.IsClient || args.User == args.Target)
-            return;
-
-        if (!HasComp<MobStateComponent>(args.Target))
-            return;
-
-        if (!TryComp(args.User, out MartialArtsKnowledgeComponent? knowledge))
+        if (_netManager.IsClient
+            || args.User == args.Target
+            || !HasComp<MobStateComponent>(args.Target)
+            || !TryComp(args.User, out MartialArtsKnowledgeComponent? knowledge))
             return;
 
         if (knowledge.MartialArtsForm == MartialArtsForms.Ninjutsu)
