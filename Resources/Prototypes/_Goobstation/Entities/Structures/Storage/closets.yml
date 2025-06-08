@@ -87,6 +87,8 @@
         ejectSound: /Audio/Machines/machine_switch.ogg
   - type: AccessReader
     access: [["Engineering"]]
+  - type: Machine
+    board: SuitStorageHEVCircuitboard
 
 - type: entity
   id: SuitStorageHEVFilled

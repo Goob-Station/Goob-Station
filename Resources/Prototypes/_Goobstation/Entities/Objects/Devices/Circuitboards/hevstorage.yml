@@ -1,0 +1,15 @@
+- type: entity
+  id: SuitStorageHEVCircuitboard
+  parent: BaseMachineCircuitboard
+  name: H.E.V suit storage board
+  description: A machine printed circuit board for a H.E.V suit storage unit.
+  components:
+  - type: Sprite
+    state: industrial
+  - type: MachineBoard
+    prototype: SuitStorageHEV
+    stackRequirements:
+      Capacitor: 2
+      Silver: 1
+      Glass: 5
+      Plasteel: 5

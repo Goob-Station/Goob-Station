@@ -4,3 +4,9 @@
   - LatheUpgradeKitHyper
   - LatheUpgradeKitCryo
   - UpgradeKitAutomation
+
+- type: latheRecipePack
+  id: SuitHEV
+  recipes:
+  - SuitStorageHEVCircuitboard
+  - ClothingOuterSuitHEV

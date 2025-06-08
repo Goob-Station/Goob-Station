@@ -1,0 +1,14 @@
+- type: latheRecipe
+  id: ClothingOuterSuitHEV
+  result: ClothingOuterSuitHEV
+  completeTime: 15
+  materials:
+    Plasteel: 10
+    Uranium: 5
+    Gold: 3
+    Silver: 2
+
+- type: latheRecipe
+  parent: BaseSilverCircuitboardRecipe
+  id: SuitStorageHEVCircuitboard
+  result: SuitStorageHEVCircuitboard

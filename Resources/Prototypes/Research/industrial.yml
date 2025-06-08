@@ -264,6 +264,23 @@
   # Goobstation R&D Console rework end
 
 - type: technology
+  id: SuitStorageHEVTech
+  name: research-technology-hev-suit-storage
+  icon:
+    sprite: _Goobstation/Clothing/OuterClothing/Suits/hev.rsi
+  discipline: Industrial
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+    - SuitStorageHEVCircuitboard
+    - ClothingOuterSuitHEV
+  # Goobstation R&D Console rework start
+  position: -3,-4
+  technologyPrerequisites:
+    - Atmospherics
+  # Goobstation R&D Console rework end
+
+- type: technology
   id: AdvancedAtmospherics
   name: research-technology-advanced-atmospherics
   icon:
