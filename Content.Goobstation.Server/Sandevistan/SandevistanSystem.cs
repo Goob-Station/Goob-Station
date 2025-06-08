@@ -114,7 +114,7 @@ public sealed class SandevistanSystem : EntitySystem
         }
 
         ent.Comp.Active = EnsureComp<ActiveSandevistanUserComponent>(ent);
-        ent.Comp.CurrentLoad = MathF.Max(0, ent.Comp.CurrentLoad + ent.Comp.LoadPerInactiveSecond * (_timing.CurTime - ent.Comp.LastEnabled).Seconds);
+        ent.Comp.CurrentLoad = MathF.Max(0, ent.Comp.CurrentLoad + ent.Comp.LoadPerInactiveSecond * (float)(_timing.CurTime - ent.Comp.LastEnabled).TotalSeconds);
         _speed.RefreshMovementSpeedModifiers(ent);
 
         if (!HasComp<TrailComponent>(ent))
