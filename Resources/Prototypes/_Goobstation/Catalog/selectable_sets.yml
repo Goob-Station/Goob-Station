@@ -1,9 +1,11 @@
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 CliveOcelot <165305605+Orion-416@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
+# SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 # SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
@@ -166,16 +168,19 @@
   name: selectable-set-syndicate-implants-name
   description: selectable-set-syndicate-implants-description
   sprite:
-    sprite: Objects/Specific/Medical/syndi_implanter.rsi
-    state: implanter0
+    sprite: _Goobstation/Clothing/OuterClothing/Coats/david_jacket.rsi
+    state: icon
   content:
   - RadioImplanter
-  - BoxHoloparasite
   - EmpImplanter
   - ScramImplanter
   - FreedomImplanter
   - SmokeImplanter
   - KravMagaImplanter
+  - ClothingOuterDavidsJacketValid
+  - AutosurgeonRightMantisBlade
+  - AutosurgeonLeftMantisBlade
+  - AutosurgeonSandevistan
 
 - type: selectableSet
   id: SyndicateHackerSet
@@ -257,12 +262,15 @@
     - EncryptionKeySyndie
     - EncryptionKeySyndie
     - EncryptionKeySyndie
+    - EncryptionKeySyndie
+    - EncryptionKeySyndie
     - ContractorBaton
     - Handcuffs
     - MindcontrolImplanter
     - MindcontrolImplanter
     - MindcontrolImplanter
     - MindcontrolImplanter
+    - WeaponSniperMosin
     - WeaponSniperMosin
     - WeaponSniperMosin
     - WeaponSniperMosin
@@ -329,23 +337,13 @@
     sprite: _Goobstation/Objects/Weapons/Guns/Lever/chester.rsi
     state: base
   content:
-    - MagazineShotgunLeverRifleEmpty
-    - MagazineShotgunLeverRifleEmpty
-    - MagazineBoxShotgunHighCaliber
-    - MagazineBoxShotgunHighCaliberFlash
-    - MagazineBoxShotgunHighCaliberEnsnaring
-    - MagazineBoxShotgunHighCaliberEMP
-    - WeaponLeverChester
-
-- type: selectableSet
-  id: BSOSyringeSet
-  name: selectable-set-blueshield-syringe-name
-  description: selectable-set-blueshield-syringe-description
-  sprite:
-    sprite: _Goobstation/Objects/Weapons/Melee/blueshield_knife.rsi
-    state: icon
-  content:
-    - BoxCombatInjector
+  # Guaranteed items
+  - WeaponLeverChester
+  - MagazineShotgunLeverRifleEmpty
+  - MagazineShotgunLeverRifleEmpty
+  - MagazineBoxShotgunHighCaliber
+  tables:
+  - ChesterRandomAmmoTable
 
 # Blueshield hardsuits
 
