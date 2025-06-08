@@ -16,7 +16,7 @@ using Content.Server._Goobstation.Heretic.EntitySystems.PathSpecific;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Components;
 using Content.Server.Audio;
-using Content.Server.Chat.Systems;
+using Content.Server.Ghost;
 using Content.Server.Light.Components;
 using Content.Server.Light.EntitySystems;
 using Content.Server.Heretic.Components.PathSpecific;
@@ -25,9 +25,11 @@ using Content.Shared.Audio;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Damage;
 using Content.Shared.Heretic;
+using Content.Shared.Humanoid;
 using Content.Shared.Maps;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Popups;
 using Content.Shared.Tag;
 using Content.Shared.Weather;
 using Robust.Server.GameObjects;
@@ -49,9 +51,10 @@ public sealed partial class AristocratSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prot = default!;
     [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly GhostSystem _ghost = default!;
     [Dependency] private readonly MapSystem _map = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly VoidCurseSystem _voidcurse = default!;
     [Dependency] private readonly ServerGlobalSoundSystem _globalSound = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
@@ -71,7 +74,35 @@ public sealed partial class AristocratSystem : EntitySystem
     private void OnStartup(Entity<AristocratComponent> ent, ref ComponentStartup args)
     {
         BeginWaltz(ent);
-        _chat.DispatchGlobalAnnouncement(Loc.GetString("void-ascend-begin"), playSound: false, colorOverride: Color.White);
+        DoVoidAnnounce(ent, "begin");
+
+        var lights = EntityQueryEnumerator<PoweredLightComponent>();
+        while (lights.MoveNext(out var light, out _))
+        {
+            if (!_rand.Prob(0.5f))
+                continue;
+
+            _ghost.DoGhostBooEvent(light);
+        }
+    }
+
+    private void DoVoidAnnounce(Entity<AristocratComponent> ent, string context)
+    {
+        var xform = Transform(ent);
+
+        var victims = EntityQueryEnumerator<HumanoidAppearanceComponent, DamageableComponent>();
+        while (victims.MoveNext(out var victim, out _, out _))
+        {
+            var xformVictim = Transform(victim);
+
+            if (xformVictim.MapUid != xform.MapUid)
+                continue;
+
+            if (HasComp<AristocratComponent>(victim)) // we aren't the ones who should be worried
+                continue;
+
+            _popup.PopupEntity(Loc.GetString($"void-ascend-{context}"), victim, victim, PopupType.LargeCaution);
+        }
     }
 
     private void BeginWaltz(Entity<AristocratComponent> ent)
@@ -98,14 +129,14 @@ public sealed partial class AristocratSystem : EntitySystem
         {
             ent.Comp.HasDied = true;
             EndWaltz(ent); // its over bros
-            _chat.DispatchGlobalAnnouncement(Loc.GetString("void-ascend-end"), playSound: false, colorOverride: Color.White);
+            DoVoidAnnounce(ent, "end");
         }
 
         if (stateComp.CurrentState == MobState.Alive && ent.Comp.HasDied) // in the rare case that they are revived for whatever reason
         {
             ent.Comp.HasDied = false;
             BeginWaltz(ent); // we're back bros
-            _chat.DispatchGlobalAnnouncement(Loc.GetString("void-ascend-restart"), playSound: false, colorOverride: Color.White);
+            DoVoidAnnounce(ent, "restart");
         }
     }
 
