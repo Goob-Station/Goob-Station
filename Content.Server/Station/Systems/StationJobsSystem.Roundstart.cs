@@ -337,7 +337,7 @@ public sealed partial class StationJobsSystem
                     continue;
 
                 // If the overflow exists, put them in as it.
-                assignedJobs.Add(player, (overflows[0], givenStations[0]));
+                //assignedJobs.Add(player, (overflows[0], givenStations[0])); #GoobStation - Kick um while they are down
                 break;
             }
         }
