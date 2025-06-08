@@ -239,10 +239,8 @@
   description: A shield built for protecting against ballistics, but not much else.
   components:
     - type: Sprite
-      sprite: _Goobstation/Objects/Weapons/Melee/shields.rsi
-      state: riot_bullet-icon
+      sprite: _Goobstation/Objects/Weapons/Melee/Shields/riotbulletshield.rsi
     - type: Item
-      heldPrefix: riot_bullet
     - type: Blocking
       passiveBlockModifier:
         coefficients:
