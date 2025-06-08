@@ -163,7 +163,8 @@ public sealed class RiposteeSystem : EntitySystem
             }
             else
             {
-                if (TryComp(ent.Owner, out MeleeWeaponComponent? melee) && _hands.TryGetEmptyHand(ent, out _))
+                if (TryComp(ent.Owner, out MeleeWeaponComponent? melee)
+                    && _hands.TryGetEmptyHand(ent, out _))
                     weapon = (ent.Owner, melee);
             }
 
