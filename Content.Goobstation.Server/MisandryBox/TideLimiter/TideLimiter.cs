@@ -54,14 +54,15 @@ public sealed partial class TideLimiterSystem : EntitySystem
             HandleLatejoin(ev);
     }
 
-    private void OnAssigned(RulePlayerJobsAssignedEvent ev)
+    private void OnAssigned(RulePlayerJobsAssignedEvent _)
     {
+        UpdateSlots();
         Lock();
     }
 
-    private void HandleLatejoin(PlayerSpawnCompleteEvent ev)
+    private void HandleLatejoin(PlayerSpawnCompleteEvent _)
     {
-        UpdateSlots(ev.Station);
+        UpdateSlots();
     }
 
     private void IncrementRecord(EntityUid station, bool bound, TideLimitedComponent comp)
@@ -71,7 +72,7 @@ public sealed partial class TideLimiterSystem : EntitySystem
         else
             comp.SecurityCount++;
 
-        UpdateSlots(station);
+        UpdateSlots();
     }
 
     private void Lock()
@@ -84,15 +85,15 @@ public sealed partial class TideLimiterSystem : EntitySystem
         }
     }
 
-    private void UpdateSlots(EntityUid station)
+    private void UpdateSlots()
     {
         var eqe = EntityQueryEnumerator<TideLimitedComponent>();
 
-        while (eqe.MoveNext(out var comp))
+        while (eqe.MoveNext(out var ent, out var comp))
         {
             var slots = GetBoundAvailableSlots(comp);
 
-            _stationJob.TrySetJobSlot(station, comp.Bound, slots);
+            _stationJob.TrySetJobSlot(ent, comp.Bound, slots);
         }
     }
 
@@ -111,7 +112,7 @@ public sealed partial class TideLimiterSystem : EntitySystem
 
             foreach (var comps in addspecial.Components)
             {
-                if (comps.Value.Component is SecurityStaffComponent staff) // This entrenches into heretic therefore funny.
+                if (comps.Value.Component is SecurityStaffComponent) // This entrenches into heretic therefore funny.
                     return true;
             }
         }
