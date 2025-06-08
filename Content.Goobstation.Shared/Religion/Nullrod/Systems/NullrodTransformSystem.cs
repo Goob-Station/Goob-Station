@@ -8,6 +8,7 @@
 using Content.Goobstation.Shared.Religion.Nullrod.Components;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Interaction;
+using Content.Shared.Popups;
 using Content.Shared.Storage;
 using Content.Shared.Tag;
 using Robust.Shared.Audio;
@@ -20,6 +21,7 @@ public sealed class NullrodTransformSystem : EntitySystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly INetManager _netManager = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!;
 
     public override void Initialize()
@@ -32,16 +34,19 @@ public sealed class NullrodTransformSystem : EntitySystem
     private void OnInteractUsing(EntityUid uid, AltarSourceComponent component, InteractUsingEvent args)
     {
         if (args.Handled
-        || _netManager.IsClient
-        || HasComp<StorageComponent>(args.Target) // If it's a storage component like a bag, we ignore usage so it can be stored.
-        || !_tagSystem.HasTag(args.Used, "Nullrod")) // Checks used entity for the tag we need.
-        return;
+            || _netManager.IsClient
+            || HasComp<StorageComponent>(args.Target) // If it's a storage component like a bag, we ignore usage so it can be stored.
+            || !_tagSystem.HasTag(args.Used, "Nullrod")) // Checks used entity for the tag we need.
+            return;
 
         // Check if the new null rod would be unique
         var ev = new TryTransformNullrodEvent(component.RodProto);
         RaiseLocalEvent(ev);
         if (ev.Cancelled)
+        {
+            _popup.PopupEntity(Loc.GetString("nullrod-transmutation-failed-unique"), uid);
             return;
+        }
 
         // *flaaavor*
         Spawn(component.EffectProto, Transform(uid).Coordinates);

@@ -14,3 +14,5 @@ alternate-pray-prompt = Pray to {$item}
 alternate-pray-start = {$user} begins to whisper to the {$item}...
 
 nullrod-spelldenial-popup = THE POWER OF GOD COMPELS YOU!
+
+nullrod-transmutation-failed-unique = Only one null rod of each type might exist in this world.
