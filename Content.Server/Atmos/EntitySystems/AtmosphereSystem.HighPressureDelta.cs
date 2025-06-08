@@ -26,6 +26,8 @@
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 // SPDX-FileCopyrightText: 2025 TemporalOroboros <TemporalOroboros@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -237,25 +239,26 @@ namespace Content.Server.Atmos.EntitySystems
                 var moveForce = pressureDifference * MathF.Max(physics.InvMass, SpaceWindMaximumCalculatedInverseMass);
                 if (HasComp<HumanoidAppearanceComponent>(ent))
                     moveForce *= HumanoidThrowMultiplier;
-                if (moveForce > physics.Mass)
-                {
-                    // Grid-rotation adjusted direction
-                    var dirVec = (direction.ToAngle() + gridWorldRotation).ToWorldVec();
-                    moveForce *= MathF.Max(physics.InvMass, SpaceWindMaximumCalculatedInverseMass);
 
-                    //TODO Consider replacing throw target with proper trigonometry angles.
-                    if (throwTarget != EntityCoordinates.Invalid)
-                    {
-                        var pos = throwTarget.ToMap(EntityManager, _transformSystem).Position - xform.WorldPosition + dirVec;
-                        _throwing.TryThrow(uid, pos.Normalized() * MathF.Min(moveForce, SpaceWindMaxVelocity), moveForce);
-                    }
-                    else
-                    {
-                        _throwing.TryThrow(uid, dirVec.Normalized() * MathF.Min(moveForce, SpaceWindMaxVelocity), moveForce);
-                    }
+                // mass check nuked since it no longer TryThrow-s at low forces
 
-                    component.LastHighPressureMovementAirCycle = cycle;
-                }
+                // Grid-rotation adjusted direction
+                var dirVec = (direction.ToAngle() + gridWorldRotation).ToWorldVec();
+                var throwVec = (throwTarget != EntityCoordinates.Invalid ?
+                    throwTarget.ToMap(EntityManager, _transformSystem).Position - xform.WorldPosition + dirVec
+                    : dirVec).Normalized();
+
+                moveForce *= MathF.Max(physics.InvMass, SpaceWindMaximumCalculatedInverseMass);
+                var actVel = MathF.Min(moveForce, SpaceWindMaxVelocity);
+
+                //TODO Consider replacing throw target with proper trigonometry angles.
+                if (actVel < SpaceWindThrowVelocity)
+                    // don't destroy bar by throwing glasses 1mm
+                    _physics.ApplyLinearImpulse(uid, throwVec * actVel * physics.Mass, body: physics);
+                else
+                    _throwing.TryThrow(uid, throwVec * actVel, moveForce);
+
+                component.LastHighPressureMovementAirCycle = cycle;
             }
         }
     }
