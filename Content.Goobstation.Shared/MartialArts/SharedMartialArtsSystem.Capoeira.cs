@@ -111,7 +111,7 @@ public abstract partial class SharedMartialArtsSystem
             _pulling.TryStopPull(target, pullable, ent, true);
 
         _audio.PlayPvs(args.Sound, target);
-        DoDamage(ent, target, proto.DamageType, proto.ExtraDamage * power, out _, TargetBodyPart.Head);
+        DoDamage(ent, target, proto.DamageType, proto.ExtraDamage * power, out _);
         ApplyMultiplier(ent, args.AttackSpeedMultiplier, 0f, args.AttackSpeedMultiplierTime);
 
         if (args.Emote != null && TryComp(ent, out AnimatedEmotesComponent? emotes))
@@ -157,7 +157,7 @@ public abstract partial class SharedMartialArtsSystem
         var speedMultiplier = 1f / MathF.Max(1f, power);
         _stun.TrySlowdown(target, args.SlowDownTime * power, true, speedMultiplier, speedMultiplier);
         _modifier.RefreshMovementSpeedModifiers(target);
-        DoDamage(ent, target, proto.DamageType, proto.ExtraDamage * power, out _, TargetBodyPart.Head);
+        DoDamage(ent, target, proto.DamageType, proto.ExtraDamage * power, out _);
         _audio.PlayPvs(args.Sound, target);
         ComboPopup(ent, target, proto.Name);
         ent.Comp.LastAttacks.Clear();
@@ -228,7 +228,7 @@ public abstract partial class SharedMartialArtsSystem
         var velocity = GetVelocity(uid);
 
         power = 0;
-        
+
         if (ev.MinVelocity <= velocity)
         {
             power = GetCapoeiraPower(ev, velocity);

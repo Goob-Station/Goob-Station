@@ -14,7 +14,7 @@ namespace Content.Goobstation.Shared.MartialArts.Events;
 public abstract partial class BaseCapoeiraEvent : EntityEventArgs
 {
     [DataField]
-    public virtual float VelocityPowerMultiplier { get; set; } = 0.9f;
+    public virtual float VelocityPowerMultiplier { get; set; } = 0.7f;
 
     [DataField]
     public virtual float MinPower { get; set; } = 1f;
