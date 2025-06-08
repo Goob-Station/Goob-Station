@@ -76,6 +76,7 @@ uplink-beenades-desc = A non-explosive grenade full of... bees?! NOT THE BEES!!!
 
 uplink-dart-gun-name = Dart Gun
 uplink-dart-gun-desc = This gun applies inside chemicals to its regenerating dart supply, allowing to distantly heal allies or to commit war crimes by poisoning foes.
+
 # Weapons
 
 uplink-contractor-baton-name = Contractor Baton
@@ -253,7 +254,7 @@ uplink-davids-jacket-desc = A jacket for those particularly interested in improv
 uplink-helmet-swat-name = Syndicate SWAT Helmet
 uplink-helmet-swat-desc = Robust helmet that offers good protection and also suppresses flashbang sounds to some extent.
 
-uplink-reverse-bear-trap-name = Reverse bear trap
+uplink-reverse-bear-trap-name = Reverse Bear Trap
 uplink-reverse-bear-trap-desc = An ingenious execution device worn on (or forced onto) the head. Arming it starts a configurable timer (30-120 seconds) mounted on the bear trap. When it goes off, the trap's jaws will violently open, instantly killing anyone wearing it by tearing their jaws in half. To arm, attack someone with it while they're not wearing headgear.
 
 # Deception
@@ -263,7 +264,7 @@ uplink-clothing-explosive-gloves-desc = Gloves that look just like normal insula
 
 # Disruption
 
-uplink-syndicate-weapon-module-advanced-name = advanced weapons module
+uplink-syndicate-weapon-module-advanced-name = Advanced Weapons Module
 uplink-syndicate-weapon-module-advanced-desc = Upgrades a cyborg with an energy sword and an anaconda pistol.
 
 # Martial Arts
