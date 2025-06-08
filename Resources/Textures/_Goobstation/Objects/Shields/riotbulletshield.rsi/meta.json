@@ -8,14 +8,14 @@
   },
   "states": [
     {
-      "name": "icon"
+      "name": "ballistic-icon"
     },
     {
-      "name": "inhand-right",
+      "name": "ballistic-inhand-right",
       "directions": 4
     },
     {
-      "name": "inhand-left",
+      "name": "ballistic-inhand-left",
       "directions": 4
     }
   ]
