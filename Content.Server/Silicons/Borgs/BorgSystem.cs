@@ -263,10 +263,8 @@ public sealed partial class BorgSystem : SharedBorgSystem
 
         // Goobstation: Customizable borgs sprites
         if (TryComp<BorgSwitchableTypeComponent>(uid, out var switchable))
-        {
             if (switchable.SelectedBorgType == null)
                 _ui.TryOpenUi(uid, BorgSwitchableTypeUiKey.SelectBorgType, uid);
-        }
     }
 
     private void OnMindRemoved(EntityUid uid, BorgChassisComponent component, MindRemovedMessage args)
