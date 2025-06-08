@@ -10752,3 +10752,9 @@ Entries:
       message: Fixed Space Dragon not spawning in rounds.
   id: 1184
   time: '2025-06-06T20:39:31.0000000+00:00'
+- author: Timfa2112
+  changes:
+    - type: Add
+      message: Port Squackroach
+  id: 1185
+  time: '2025-06-07T23:51:26.0000000+00:00'
