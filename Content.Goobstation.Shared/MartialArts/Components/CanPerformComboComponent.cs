@@ -22,6 +22,9 @@ public sealed partial class CanPerformComboComponent : Component
     [DataField, AutoNetworkedField]
     public ProtoId<ComboPrototype> BeingPerformed;
 
+    [DataField]
+    public int LastAttacksLimit = 4;
+
     [DataField, AutoNetworkedField]
     public List<ComboAttackType> LastAttacks = new();
 

@@ -2,6 +2,7 @@
   id: Capoeira
   martialArtsForm: Capoeira
   roundstartCombos: CapoeiraMoves
+  startingStage: Hard
 
 - type: comboList
   id: CapoeiraMoves

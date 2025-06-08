@@ -44,4 +44,7 @@ public sealed class MartialArtPrototype : IPrototype
 
     [DataField]
     public List<LocId> RandomSayingsDowned = [];
+
+    [DataField]
+    public GrabStage StartingStage = GrabStage.Soft;
 }

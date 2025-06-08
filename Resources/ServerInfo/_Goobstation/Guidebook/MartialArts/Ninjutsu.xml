@@ -47,8 +47,8 @@
     <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
   </Box>
 
-  Deals massive damage to the target if Sneak Attack is active.
-  Works in unarmed combat or Left Mouse Button attacks with a Slash damage weapon. Works much worse against armored opponents
+  Deals massive damage to target's chest if Sneak Attack is active. Damage is easily stopped by armor.
+  Works in unarmed combat or Left Mouse Button attacks using a Slash damage weapon.
 
   ### Ninjutsu Takedown
 

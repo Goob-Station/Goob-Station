@@ -114,7 +114,6 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         SubscribeLocalEvent<KravMagaSilencedComponent, SpeakAttemptEvent>(OnSilencedSpeakAttempt);
 
         SubscribeLocalEvent<MartialArtModifiersComponent, GetMeleeAttackRateEvent>(OnGetMeleeAttackRate);
-        SubscribeLocalEvent<MartialArtModifiersComponent, MeleeHitEvent>(OnGetMeleeHitDamage);
         SubscribeLocalEvent<MartialArtModifiersComponent, RefreshMovementSpeedModifiersEvent>(OnGetMovespeed);
 
         SubscribeLocalEvent<InteractHandEvent>(OnInteract);
@@ -272,9 +271,6 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
 
     private void OnGetMeleeHitDamage(Entity<MartialArtModifiersComponent> ent, ref MeleeHitEvent args)
     {
-        var (mult, mod) = GetMultiplierModifier(ent, MartialArtModifierType.Damage, args.Weapon != args.User);
-
-        args.ModifiersList.Add(GetDamageModifierSet(args.BaseDamage, mult, mod));
     }
 
 
@@ -341,6 +337,13 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
             return;
 
         var ent = args.User;
+
+        if (TryComp<MartialArtModifiersComponent>(ent, out var modifiers))
+        {
+            var (mult, mod) =
+                GetMultiplierModifier((ent, modifiers), MartialArtModifierType.Damage, args.Weapon != ent);
+            args.ModifiersList.Add(GetDamageModifierSet(args.BaseDamage, mult, mod));
+        }
 
         if (!TryComp(ent, out MartialArtsKnowledgeComponent? comp))
             return;
@@ -511,7 +514,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         }
 
         martialArtsKnowledgeComponent.MartialArtsForm = martialArtsPrototype.MartialArtsForm;
-        martialArtsKnowledgeComponent.StartingStage = comp.StartingStage;
+        martialArtsKnowledgeComponent.StartingStage = martialArtsPrototype.StartingStage;
         LoadCombos(martialArtsPrototype.RoundstartCombos, canPerformComboComponent);
         martialArtsKnowledgeComponent.Blocked = false;
 

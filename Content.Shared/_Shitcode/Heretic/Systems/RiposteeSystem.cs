@@ -145,8 +145,11 @@ public sealed class RiposteeSystem : EntitySystem
             if (!data.CanRiposteWhileProne && _standing.IsDown(ent))
                 continue;
 
-            if (data.RiposteChance is > 0f and < 1f && !_random.Prob(data.RiposteChance))
-                continue;
+            if (data.RiposteChance is > 0f and < 1f)
+            {
+                if (!_random.Prob(data.RiposteChance))
+                    continue;
+            }
 
             Entity<MeleeWeaponComponent>? weapon = null;
             if (data.RequiresWeapon)

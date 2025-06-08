@@ -32,9 +32,6 @@ public abstract partial class GrantMartialArtKnowledgeComponent : Component
 
     [DataField]
     public SoundSpecifier? SoundOnUse = new SoundPathSpecifier("/Audio/Effects/fire.ogg", AudioParams.Default.WithVolume(10));
-
-    [DataField]
-    public GrabStage StartingStage = GrabStage.Soft;
 }
 
 [RegisterComponent]

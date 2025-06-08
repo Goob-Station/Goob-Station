@@ -77,7 +77,7 @@ public abstract partial class SharedMartialArtsSystem
             knowledge.MartialArtsForm != MartialArtsForms.Ninjutsu)
             return;
 
-        if (ev.NewMobState <= ev.OldMobState)
+        if (ev.NewMobState != MobState.Dead)
             return;
 
         ApplyMultiplier(ev.Origin.Value, 1.2f, 0f, TimeSpan.FromSeconds(3), MartialArtModifierType.MoveSpeed);
@@ -179,7 +179,7 @@ public abstract partial class SharedMartialArtsSystem
             },
             ArmorPenetration = sneakAttack.AssassinateArmorPierce,
         };
-        _damageable.TryChangeDamage(target, bonusDamage, origin: uid, canMiss: false);
+        _damageable.TryChangeDamage(target, bonusDamage, origin: uid, canMiss: false, targetPart: TargetBodyPart.Chest);
 
         if (_netManager.IsClient)
             return;
@@ -234,7 +234,7 @@ public abstract partial class SharedMartialArtsSystem
                 if (time > knockdownTime)
                     time = knockdownTime;
 
-                 // We do not want to knockdown because it will stunlock the target
+                // We do not want to knockdown because it will stunlock the target
                 _stun.TryStun(target, time, true);
             }
         }

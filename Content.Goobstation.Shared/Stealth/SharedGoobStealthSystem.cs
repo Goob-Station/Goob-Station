@@ -83,5 +83,4 @@ public sealed class SharedGoobStealthSystem : EntitySystem
         if (ninja.Suit is {} suit && TryComp<NinjaSuitComponent>(suit, out var suitComp))
             _suit.RevealNinja((suit, suitComp), uid, true);
     }
-
 }

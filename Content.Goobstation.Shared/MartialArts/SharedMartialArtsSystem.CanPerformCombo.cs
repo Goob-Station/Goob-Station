@@ -87,6 +87,12 @@ public partial class SharedMartialArtsSystem
         component.CurrentTarget = args.Target;
         component.ResetTime = _timing.CurTime + TimeSpan.FromSeconds(5);
         component.LastAttacks.Add(args.Type);
+        if (component.LastAttacksLimit >= 0)
+        {
+            var difference = component.LastAttacks.Count - component.LastAttacksLimit;
+            if (difference > 0)
+                component.LastAttacks.RemoveRange(0, difference);
+        }
         CheckCombo(uid, args.Target, component);
         RaiseLocalEvent(uid, ref afterEv);
         Dirty(uid, component);
