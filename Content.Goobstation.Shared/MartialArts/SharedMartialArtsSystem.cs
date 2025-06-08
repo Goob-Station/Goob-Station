@@ -596,7 +596,10 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
             var modifierSet = GetDamageModifierSet(damage, mult, mod);
             damage = DamageSpecifier.ApplyModifierSet(damage, modifierSet);
         }
-        _damageable.TryChangeDamage(target, damage, origin: ent, targetPart: targetBodyPart ?? targetingComponent.Target);
+        _damageable.TryChangeDamage(target,
+            damage,
+            origin: ent,
+            targetPart: targetBodyPart ?? targetingComponent.Target);
     }
 
     #endregion
