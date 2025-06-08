@@ -154,7 +154,7 @@
 
 # Goobstation - reparent to new base protos
 - type: entity
-  parent: [GasFilter, GasTrinaryFlippedBase]
+  parent: [GasTrinaryFlippedBase, GasFilter]
   id: GasFilterFlipped
   components:
   - type: SubFloorHide

@@ -87,7 +87,8 @@ namespace Content.Server.Atmos.Piping.Trinary.EntitySystems
         {
             if (!filter.Enabled
                 || !_nodeContainer.TryGetNodes(uid, filter.InletName, filter.FilterName, filter.OutletName, out PipeNode? inletNode, out PipeNode? filterNode, out PipeNode? outletNode)
-                || outletNode.Air.Pressure >= Atmospherics.MaxOutputPressure) // No need to transfer if target is full.
+                || inletNode != outletNode // Goobstation - ignore pressure if we're inline
+                    && outletNode.Air.Pressure >= Atmospherics.MaxOutputPressure)
             {
                 _ambientSoundSystem.SetAmbience(uid, false);
                 return;
