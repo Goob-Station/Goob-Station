@@ -99,11 +99,8 @@ public abstract partial class SharedMartialArtsSystem
             return;
         }
 
-        var velocity = GetVelocity(ent);
-        if (!TryPerformCapoeiraMove(ent, args, velocity))
+        if (!TryPerformCapoeiraMove(ent, args, out var power))
             return;
-
-        var power = GetCapoeiraPower(args, velocity);
 
         _stun.TryKnockdown(target,
             TimeSpan.FromSeconds(proto.ParalyzeTime * power),
@@ -133,11 +130,8 @@ public abstract partial class SharedMartialArtsSystem
             || !TryUseMartialArt(ent, proto, out var target, out _))
             return;
 
-        var velocity = GetVelocity(ent);
-        if (!TryPerformCapoeiraMove(ent, args, velocity))
+        if (!TryPerformCapoeiraMove(ent, args, out var power))
             return;
-
-        var power = GetCapoeiraPower(args, velocity);
 
         _stun.TryKnockdown(target,
             TimeSpan.FromSeconds(proto.ParalyzeTime * power),
@@ -157,11 +151,9 @@ public abstract partial class SharedMartialArtsSystem
             || !TryUseMartialArt(ent, proto, out var target, out _))
             return;
 
-        var velocity = GetVelocity(ent);
-        if (!TryPerformCapoeiraMove(ent, args, velocity))
+        if (!TryPerformCapoeiraMove(ent, args, out var power))
             return;
 
-        var power = GetCapoeiraPower(args, velocity);
         var speedMultiplier = 1f / MathF.Max(1f, power);
         _stun.TrySlowdown(target, args.SlowDownTime * power, true, speedMultiplier, speedMultiplier);
         _modifier.RefreshMovementSpeedModifiers(target);
@@ -177,11 +169,8 @@ public abstract partial class SharedMartialArtsSystem
             || !TryUseMartialArt(ent, proto, out var target, out _))
             return;
 
-        var velocity = GetVelocity(ent);
-        if (!TryPerformCapoeiraMove(ent, args, velocity))
+        if (!TryPerformCapoeiraMove(ent, args, out var power))
             return;
-
-        var power = GetCapoeiraPower(args, velocity);
 
         var mapPos = _transform.GetMapCoordinates(ent).Position;
         var hitPos = _transform.GetMapCoordinates(target).Position;
@@ -197,7 +186,7 @@ public abstract partial class SharedMartialArtsSystem
 
         _audio.PlayPvs(args.Sound, target);
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage * power, out _);
-        _grabThrowing.Throw(target, 
+        _grabThrowing.Throw(target,
             ent,
             dir.Normalized() * args.ThrowRange * power,
             proto.ThrownSpeed,
@@ -234,10 +223,15 @@ public abstract partial class SharedMartialArtsSystem
         return Math.Clamp(velocity * ev.VelocityPowerMultiplier, ev.MinPower, ev.MaxPower);
     }
 
-    private bool TryPerformCapoeiraMove(EntityUid uid, BaseCapoeiraEvent ev, float velocity)
+    private bool TryPerformCapoeiraMove(EntityUid uid, BaseCapoeiraEvent ev, out float power)
     {
+        var velocity = GetVelocity(uid);
+
+        power = 0;
+        
         if (ev.MinVelocity <= velocity)
         {
+            power = GetCapoeiraPower(ev, velocity);
             _stamina.TryTakeStamina(uid, ev.StaminaToHeal);
             return true;
         }
