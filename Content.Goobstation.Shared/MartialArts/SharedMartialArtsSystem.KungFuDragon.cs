@@ -28,12 +28,8 @@ public abstract partial class SharedMartialArtsSystem
 
     private void OnAttacked(Entity<DragonPowerBuffComponent> ent, ref AttackedEvent args)
     {
-        // Only unarmed
-        if (_hands.TryGetActiveItem(ent.Owner, out _))
-            return;
-
-        // Should be able to interact
-        if (!_blocker.CanInteract(ent, null))
+        if (_hands.TryGetActiveItem(ent.Owner, out _) // Only unarmed
+            || !_blocker.CanInteract(ent, null)) // Should be able to interact
             return;
 
         args.ModifiersList.Add(ent.Comp.ModifierSet);
