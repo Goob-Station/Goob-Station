@@ -10782,3 +10782,11 @@ Entries:
         be turned off sometimes.
   id: 1188
   time: '2025-06-08T09:01:38.0000000+00:00'
+- author: He who culls the tide
+  changes:
+    - type: Tweak
+      message: You can no longer play passenger after 10hrs.
+    - type: Remove
+      message: Assistants maints access
+  id: 1189
+  time: '2025-06-08T20:18:47.0000000+00:00'
