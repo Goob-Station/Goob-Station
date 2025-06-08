@@ -26,14 +26,12 @@ public sealed partial class SiliconSpritePreferenceSystem : SharedBorgSwitchable
         SubscribeLocalEvent<BorgSwitchableSubtypeComponent, ComponentStartup>(OnComponentStartup);
         SubscribeLocalEvent<BorgSwitchableSubtypeComponent, AfterAutoHandleStateEvent>(AfterStateHandler);
     }
-    private void OnComponentStartup(Entity<BorgSwitchableSubtypeComponent> ent, ref ComponentStartup args)
-    {
+    private void OnComponentStartup(Entity<BorgSwitchableSubtypeComponent> ent, ref ComponentStartup args) =>
         UpdateVisuals(ent);
-    }
-    private void AfterStateHandler(Entity<BorgSwitchableSubtypeComponent> ent, ref AfterAutoHandleStateEvent args)
-    {
+
+    private void AfterStateHandler(Entity<BorgSwitchableSubtypeComponent> ent, ref AfterAutoHandleStateEvent args) =>
         UpdateVisuals(ent);
-    }
+
     protected override void SetAppearanceFromSubtype(
         Entity<BorgSwitchableSubtypeComponent> ent,
         ProtoId<BorgSubtypePrototype> subtype)

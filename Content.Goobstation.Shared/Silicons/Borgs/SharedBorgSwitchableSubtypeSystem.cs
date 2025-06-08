@@ -18,19 +18,13 @@ public abstract class SharedBorgSwitchableSubtypeSystem : EntitySystem
         SubscribeLocalEvent<BorgSwitchableSubtypeComponent, ComponentInit>(OnComponentInit);
     }
 
-    private void OnMapInit(Entity<BorgSwitchableSubtypeComponent> ent, ref MapInitEvent args)
-    {
+    private void OnMapInit(Entity<BorgSwitchableSubtypeComponent> ent, ref MapInitEvent args) =>
         UpdateVisuals(ent);
-    }
 
-    private void OnComponentInit(Entity<BorgSwitchableSubtypeComponent> ent, ref ComponentInit args)
-    {
+    private void OnComponentInit(Entity<BorgSwitchableSubtypeComponent> ent, ref ComponentInit args) =>
         UpdateVisuals(ent);
-    }
 
-    protected virtual void SetAppearanceFromSubtype(Entity<BorgSwitchableSubtypeComponent> ent, ProtoId<BorgSubtypePrototype> subtype)
-    {
-    }
+    protected virtual void SetAppearanceFromSubtype(Entity<BorgSwitchableSubtypeComponent> ent, ProtoId<BorgSubtypePrototype> subtype) { }
 
     protected void UpdateVisuals(Entity<BorgSwitchableSubtypeComponent> ent)
     {
