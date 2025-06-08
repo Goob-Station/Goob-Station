@@ -1,0 +1,13 @@
+﻿# 2 passengers per security member
+- type: jobLimitRule
+  id: PassengerSecurityLimit
+  limitedJob: Passenger
+  controllingJobs:
+  - SecurityCadet
+  - SecurityOfficer
+  - Detective
+  - Warden
+  - HeadOfSecurity
+  ratio: 2.0
+  minimumControlling: 1
+  priority: 100

@@ -411,7 +411,7 @@ namespace Content.Client.LateJoin
                                 if (matchingJobButton.Amount != updatedJobValue)
                                 {
                                     matchingJobButton.RefreshLabel(updatedJobValue);
-                                    matchingJobButton.Disabled = matchingJobButton.Amount == 0; // MisandryBox - reenable the button if we gain available slots
+                                    matchingJobButton.Disabled = matchingJobButton.Amount <= 0; // MisandryBox - reenable the button if we gain available slots
                                 }
                             }
                         }
