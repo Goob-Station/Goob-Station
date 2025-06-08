@@ -1,0 +1,9 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- files: ["trill, warble, wurble"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Taken from 'FD-NewBay' - Other places link to freesound.org"
+  source: "https://github.com/RepoStash/FD-NewBay/tree/dev-sierra/mods/_fd/resomi_fd/sound"

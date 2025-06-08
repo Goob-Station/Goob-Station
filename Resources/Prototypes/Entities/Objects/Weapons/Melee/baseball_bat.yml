@@ -33,10 +33,13 @@
 # SPDX-FileCopyrightText: 2025 Killerqu00 <killerqueen1777@gmail.com>
 # SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SeamLesss <kai.julian.watson@gmail.com>
 # SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 # SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+# SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
 # SPDX-FileCopyrightText: 2025 vanx <61917534+Vaaankas@users.noreply.github.com>
 #
@@ -68,12 +71,13 @@
         Blunt: 5
         Structural: 10
   - type: StaminaDamageOnHit # goob - bat makes you hurt and tired (but not as much as the real stun stick)
-    damage: 7.5 # goob - 9 hits to stamcrit someone with armor vest + helmet
-  - type: MeleeThrowOnHit
-    distance: 1 # Goobstation
+    damage: 12 # goob - 8 hits to stamcrit someone with armor vest + helmet
+  - type: MeleeThrowOnHit # Goobstation
+    distance: 1
     speed: 5
   - type: Item
-    size: Normal
+    size: Large # Goob edit
+    storedRotation: 45 # Goob
   - type: Tool
     qualities:
     - Rolling

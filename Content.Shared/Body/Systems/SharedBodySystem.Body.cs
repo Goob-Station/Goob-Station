@@ -13,20 +13,21 @@
 // SPDX-FileCopyrightText: 2024 Jezithyr <jezithyr@gmail.com>
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2024 ShadowCommander <shadowjjt@gmail.com>
-// SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Kayzel <43700376+KayzelW@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Trest <144359854+trest100@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 kurokoTurbo <92106367+kurokoTurbo@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Trest <144359854+trest100@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
-// SPDX-FileCopyrightText: 2025 Kayzel <43700376+KayzelW@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -50,6 +51,7 @@ using Robust.Shared.Utility;
 // Shitmed Change
 using Content.Shared._Shitmed.Body.Events;
 using Content.Shared._Shitmed.Body.Part;
+using Content.Shared._Shitmed.CCVar;
 using Content.Shared._Shitmed.Humanoid.Events;
 using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
@@ -66,6 +68,7 @@ using Content.Shared.Standing;
 using Robust.Shared.Network;
 using Content.Shared.Rejuvenate;
 using Content.Shared.Popups;
+using Robust.Shared.Configuration;
 using Robust.Shared.Timing;
 using Content.Goobstation.Maths.FixedPoint;
 
@@ -89,10 +92,12 @@ public partial class SharedBodySystem
     [Dependency] private readonly WoundSystem _woundSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly TraumaSystem _trauma = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
     // Shitmed Change End
 
     private const float GibletLaunchImpulse = 8;
     private const float GibletLaunchImpulseVariance = 3;
+    private float _medicalHealingTickrate = 2f;
 
     private void InitializeBody()
     {
@@ -110,6 +115,7 @@ public partial class SharedBodySystem
 
         // Shitmed Change: to prevent people from falling immediately as rejuvenated
         SubscribeLocalEvent<BodyComponent, RejuvenateEvent>(OnRejuvenate);
+        Subs.CVar(_cfg, SurgeryCVars.MedicalHealingTickrate, val => _medicalHealingTickrate = val, true);
     }
 
     private void OnAttemptStopPulling(Entity<BodyComponent> ent, ref AttemptStopPullingEvent args) // Goobstation
@@ -499,13 +505,16 @@ public partial class SharedBodySystem
 
     private void OnProfileLoadFinished(EntityUid uid, BodyComponent component, ProfileLoadFinishedEvent args)
     {
-        if (!HasComp<HumanoidAppearanceComponent>(uid)
+        if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid)
             || TerminatingOrDeleted(uid)
-            || !Initialized(uid)) // We do this last one for urists on test envs.
+            || !Initialized(uid))
             return;
 
         foreach (var part in GetBodyChildren(uid, component))
             EnsureComp<BodyPartAppearanceComponent>(part.Id);
+
+        humanoid.ProfileLoaded = true;
+        Dirty(uid, humanoid);
     }
 
     private void OnStandAttempt(Entity<BodyComponent> ent, ref StandAttemptEvent args)
@@ -697,5 +706,68 @@ public partial class SharedBodySystem
             _woundSystem.ForceHealWoundsOnWoundable(bodyPart.Id, out _);
         }
     }
+
+    /// <summary>
+    /// Gets all child body parts of this entity that have component T, including the root entity if it has component T.
+    /// </summary>
+    public IEnumerable<(EntityUid Id, BodyPartComponent BodyPart, T Component)> GetBodyChildrenWithComponent<T>(
+        EntityUid? id,
+        BodyComponent? body = null,
+        BodyPartComponent? rootPart = null)
+        where T : IComponent
+    {
+        if (id is null
+            || !Resolve(id.Value, ref body, logMissing: false)
+            || body is null
+            || body.RootContainer == null
+            || body.RootContainer.ContainedEntity is null
+            || !Resolve(body.RootContainer.ContainedEntity.Value, ref rootPart))
+        {
+            yield break;
+        }
+
+        foreach (var child in GetBodyPartChildrenWithComponent<T>(body.RootContainer.ContainedEntity.Value, rootPart))
+        {
+            yield return child;
+        }
+    }
+
+    /// <summary>
+    /// Returns all body part components for this entity including itself that have component T.
+    /// </summary>
+    public IEnumerable<(EntityUid Id, BodyPartComponent BodyPart, T Component)> GetBodyPartChildrenWithComponent<T>(
+        EntityUid partId,
+        BodyPartComponent? part = null)
+        where T : IComponent
+    {
+        if (!Resolve(partId, ref part, logMissing: false))
+            yield break;
+
+        var query = GetEntityQuery<T>();
+
+        // Check if the current part has the component
+        if (query.TryGetComponent(partId, out var component))
+            yield return (partId, part, component);
+
+        foreach (var slotId in part.Children.Keys)
+        {
+            var containerSlotId = GetPartSlotContainerId(slotId);
+
+            if (Containers.TryGetContainer(partId, containerSlotId, out var container))
+            {
+                foreach (var containedEnt in container.ContainedEntities)
+                {
+                    if (!TryComp(containedEnt, out BodyPartComponent? childPart))
+                        continue;
+
+                    foreach (var value in GetBodyPartChildrenWithComponent<T>(containedEnt, childPart))
+                    {
+                        yield return value;
+                    }
+                }
+            }
+        }
+    }
+
     // Shitmed Change End
 }

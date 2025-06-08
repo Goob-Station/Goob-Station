@@ -6,6 +6,7 @@
 # SPDX-FileCopyrightText: 2025 Gareth Quaile <garethquaile@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -188,3 +189,41 @@
           tags:
           - Justice
   - type: Appearance
+
+- type: entity
+  parent: [ ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseSyndicateContraband ]
+  id: ClothingBeltMilitaryRigGrenadier # Rig instead of webbing to distinguish it from the upstream counterpart
+  name: grenadier belt
+  description: A specialised belt rig to hold so many grenades that your arm gets tired from throwing them all. Can also store a sidearm and magazines for it.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Belt/grenaderig.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Belt/grenaderig.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.01
+  - type: Storage
+    grid:
+      - 0,0,7,3
+    whitelist:
+      components:
+      - OnUseTimerTrigger # Basically all and only grenades use this
+      tags:
+        - Grenade # China lake ammo
+        - MagazinePistol
+        - MagazinePistolHighCapacity
+        - MagazineMagnum
+        - SpeedLoaderMagnum
+        - MagazinePistolCaselessRifle
+  - type: ContainerContainer
+    containers:
+      item: !type:ContainerSlot
+      storagebase: !type:Container
+        ents: []
+  - type: ItemSlots
+    slots:
+      item:
+        name: Handgun
+        whitelist:
+          tags:
+          - Sidearm

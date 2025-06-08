@@ -43,7 +43,6 @@
 # SPDX-FileCopyrightText: 2024 Hrosts <35345601+Hrosts@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Ian <ignaz.k@live.de>
-# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Joel Zimmerman <JoelZimmerman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 K-Dynamic <20566341+K-Dynamic@users.noreply.github.com>
@@ -58,7 +57,6 @@
 # SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
 # SPDX-FileCopyrightText: 2024 MetalSage <74924875+MetalSage@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 MetalSage <metalsage.official@gmail.com>
-# SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 MureixloI <132683811+MureixloI@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 NakataRin <45946146+NakataRin@users.noreply.github.com>
@@ -121,6 +119,11 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 ImHoks <142083149+ImHoks@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 #
@@ -241,7 +244,13 @@
     - type: Tag
       tags:
         - CannotSuicide
-    - type: MovementIgnoreGravity # Goobstation
+    # <Goobstation>
+    - type: MovementIgnoreGravity
+    - type: ActionGrant
+      actions:
+        - ActionSelfToggleGuardian
+    - type: Targeting
+    # </Goobstation>
 
 # From the uplink injector
 - type: entity
@@ -409,6 +418,19 @@
   - type: InstantAction
     icon: Interface/Actions/manifest.png
     event: !type:GuardianToggleActionEvent
+    useDelay: 2
+    checkCanInteract: false
+    checkConsciousness: false
+
+# Goobstation
+- type: entity
+  id: ActionSelfToggleGuardian
+  name: Recall Self
+  description: Recalls yourself back into your host's body
+  components:
+  - type: InstantAction
+    icon: Interface/Actions/manifest.png
+    event: !type:GuardianToggleSelfActionEvent # can only recall
     useDelay: 2
     checkCanInteract: false
     checkConsciousness: false

@@ -1,0 +1,17 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: [GunSafeBaseSecure, BaseSecurityContraband]
+  id: GunSafeLauncherNonLethal
+  name: riot launcher safe
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponLauncherNonLethal
+    - id: BoxGrenadesBaton
+    - id: BoxGrenadesFlash
+    - id: BoxGrenadesTeargas
