@@ -38,7 +38,6 @@
         Asphyxiation: 0
   - type: Butcherable
     spawned:
-    - id: null
     - id: FoodMeatFish
       amount: 2
   - type: Bloodstream
