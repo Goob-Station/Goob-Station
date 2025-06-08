@@ -102,8 +102,8 @@ public partial class SharedMartialArtsSystem
     private void OnJudoEyePoke(Entity<CanPerformComboComponent> ent, ref JudoEyePokePerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-        || !TryUseMartialArt(ent, proto, out var target, out _)
-        || !TryComp(target, out StatusEffectsComponent? status))
+            || !TryUseMartialArt(ent, proto, out var target, out _)
+            || !TryComp(target, out StatusEffectsComponent? status))
             return;
 
         _status.TryAddStatusEffect<TemporaryBlindnessComponent>(target,
