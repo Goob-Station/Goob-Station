@@ -5,7 +5,7 @@
 
 - type: entity
   id: BaseFish
-  parent: BaseItem
+  parent: [SimpleMobBase, BaseItem]
   abstract: true
   name: fish
   description: Water-born creature from the infinite sea... Or toilet.
@@ -14,6 +14,37 @@
     difficulty: 0.029
   - type: StaticPrice
     price: 250
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      1: Critical
+      5: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 0.1
+    baseSprintSpeed: 0.1
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    damageCap: 20
+    damage:
+      types:
+        Asphyxiation: 1
+  - type: Respirator
+    damage:
+      types:
+        Asphyxiation: 1.0
+    damageRecovery:
+      types:
+        Asphyxiation: 0
+  - type: Butcherable
+    spawned:
+    - id: null
+    - id: FoodMeatFish
+      amount: 2
+  - type: Bloodstream
+    bloodMaxVolume: 20
+    bloodReagent: Water
+  - type: ZombieImmune
 
 - type: entity
   id: BaseFishRare
@@ -134,6 +165,9 @@
     state: clown
   - type: Item
     sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+  - type: Bloodstream
+    bloodMaxVolume: 20
+    bloodReagent: Laughter
 
 - type: entity
   id: FishNukeDisk
@@ -242,6 +276,9 @@
     state: tropical
   - type: Item
     sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+  - type: Bloodstream
+    bloodMaxVolume: 10
+    bloodReagent: Laughter
 
 - type: entity
   id: FishIan
