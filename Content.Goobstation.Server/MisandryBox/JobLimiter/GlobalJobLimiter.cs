@@ -45,7 +45,8 @@ public sealed class GlobalJobLimiterSystem : EntitySystem
             return;
 
         var comp = Comp<JobLimiterComponent>(ev.Station);
-        comp.JobCounts[ev.JobId] = (comp.JobCounts[ev.JobId] ?? 0) + 1;
+        var currentCount = comp.JobCounts.TryGetValue(ev.JobId, out var count) ? count : 0;
+        comp.JobCounts[ev.JobId] = currentCount + 1;
 
         if (ev.LateJoin)
             UpdateAllStationSlots();
@@ -88,14 +89,14 @@ public sealed class GlobalJobLimiterSystem : EntitySystem
     {
         foreach (var rule in _sortedRules)
         {
-            var controllingJobCount = 0;
+            int controllingJobCount = 0;
 
             foreach (var controllingJob in rule.ControllingJobs)
             {
-                controllingJobCount += comp.JobCounts[controllingJob] ?? 0;
+                controllingJobCount += comp.JobCounts.TryGetValue(controllingJob, out var count) ? count : 0;
             }
 
-            var currentLimitedCount = comp.JobCounts[rule.LimitedJob] ?? 0;
+            var currentLimitedCount = comp.JobCounts.TryGetValue(rule.LimitedJob, out var limitedCount) ? limitedCount : 0;
             var maxAllowed = CalculateMaxAllowed(station, controllingJobCount, rule);
             var availableSlots = Math.Max(0, maxAllowed - currentLimitedCount);
 

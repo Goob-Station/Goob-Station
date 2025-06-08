@@ -9,5 +9,5 @@ public sealed partial class JobLimiterComponent : Component
     public bool Active = false;
 
     [ViewVariables(VVAccess.ReadOnly)]
-    public Dictionary<string, int?> JobCounts = new();
+    public Dictionary<string, int> JobCounts = new();
 }
