@@ -20,6 +20,7 @@
 // SPDX-FileCopyrightText: 2025 PuroSlavKing <103608145+PuroSlavKing@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 // SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
@@ -53,6 +54,12 @@ public sealed partial class GoobCVars
     /// </summary>
     public static readonly CVarDef<bool> StrictPipeStacking =
         CVarDef.Create("atmos.strict_pipe_stacking", false, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     If space wind is attempting to throw an object at a velocity below this, apply impulse instead
+    /// </summary>
+    public static readonly CVarDef<float> SpaceWindThrowVelocity =
+        CVarDef.Create("atmos.space_wind_throw_velocity", 1.5f, CVar.SERVERONLY);
 
     /// <summary>
     ///     If an object's mass is below this number, then this number is used in place of mass to determine whether air pressure can throw an object.
@@ -412,6 +419,40 @@ public sealed partial class GoobCVars
     /// </summary>
     public static readonly CVarDef<bool> PatreonSkip =
         CVarDef.Create("queue.patreon_skip", true, CVar.SERVERONLY);
+
+    #endregion
+
+    #region Admin Overlay
+
+    /// <summary>
+    /// If true, the admin overlay will show the characters name.
+    /// </summary>
+    public static readonly CVarDef<bool> AdminOverlayShowCharacterName =
+        CVarDef.Create("ui.admin_overlay_show_character_name", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// If true, the admin overlay will show their username.
+    /// </summary>
+    public static readonly CVarDef<bool> AdminOverlayShowUserName =
+        CVarDef.Create("ui.admin_overlay_show_user_name", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// If true, the admin overlay will show their job.
+    /// </summary>
+    public static readonly CVarDef<bool> AdminOverlayShowJob =
+        CVarDef.Create("ui.admin_overlay_show_job", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// If true, the admin overlay will show their antag.
+    /// </summary>
+    public static readonly CVarDef<bool> AdminOverlayShowAntag =
+        CVarDef.Create("ui.admin_overlay_show_antag", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// If true, the admin overlay will show their role type.
+    /// </summary>
+    public static readonly CVarDef<bool> AdminOverlayShowRoleType =
+        CVarDef.Create("ui.admin_overlay_show_role_type", true, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     #endregion
 

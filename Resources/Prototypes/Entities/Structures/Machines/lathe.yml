@@ -228,6 +228,7 @@
 # SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
@@ -264,6 +265,7 @@
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 # SPDX-FileCopyrightText: 2025 kosticia <kosticia46@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
@@ -496,7 +498,7 @@
     - Equipment # Goobstation note: handheld mass scanner is removed
     - FauxTiles
     # Goobstation Packs
-    - ServiceWeapons
+    # - ServiceWeapons
     - SpecOpsGoogles
     - MedicalMisc
     - MedicalVehiclesAdvanced
@@ -745,7 +747,7 @@
     - MechWeaponsSecurityHeavy
     - SecurityAmmoGoob
     - SecurityCybernetics
-    - ServiceWeapons
+    # - ServiceWeapons
     - SpecOpsGoogles
     - PowerCells
   - type: EmagLatheRecipes # Goobstation
@@ -840,7 +842,7 @@
     dynamicPacks:
     - Chemistry
     # Goobstation Packs
-    - MedicalSurgery
+    - Surgery
     - MedicalCybernetics
     - MedicalMisc
     - MedicalMiscRestricted

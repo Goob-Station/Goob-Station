@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
@@ -41,6 +42,10 @@
   - WeaponSubMachineSmart
   - WeaponEnergyRifle
   - WeaponEnergyIonRifle
+  - WeaponLaserCellRevolver
+  - WeaponLaserCellSMG
+  - WeaponLaserCellSniper
+  - ClothingBackpackLMGBattery
 
 - type: latheRecipePack
   id: SecurityAmmoGoob
@@ -53,6 +58,19 @@
   - MagazineBoxShotgunIncendiaryHighCaliber
   - MagazineBoxShotgunBeanbagHighCaliber
   - MagazineBoxShotgunUraniumHighCaliber
+  - PowerCellIRRevolver
+  - PowerCellIonRevolver
+  - PowerCellXrayRevolver
+  - PowerCellOverchargedRevolver
+  - PowerCellIRSMG
+  - PowerCellIonSMG
+  - PowerCellXraySMG
+  - PowerCellOverchargedSMG
+  - PowerCellIRSniper
+  - PowerCellIonSniper
+  - PowerCellXraySniper
+  - PowerCellOverchargedSniper
+  - MilitaryPowerCellLMG
 
 - type: latheRecipePack
   id: SecurityEquipmentDynamicGoob

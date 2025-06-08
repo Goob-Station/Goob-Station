@@ -25,9 +25,11 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GMWQ <garethquaile@gmail.com>
+// SPDX-FileCopyrightText: 2025 Gareth Quaile <garethquaile@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tim <timfalken@hotmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -35,7 +37,6 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Antag;
 using Content.Server.EUI;
-using Content.Server.Flash;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Mind;
 using Content.Server.Popups;
@@ -69,6 +70,8 @@ using Content.Server.Communications;
 using System.Linq;
 using Content.Goobstation.Shared.Revolutionary;
 using Content.Server.Chat.Systems;
+using Content.Shared._EinsteinEngines.Revolutionary;
+
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -103,7 +106,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         base.Initialize();
         SubscribeLocalEvent<CommandStaffComponent, MobStateChangedEvent>(OnCommandMobStateChanged);
 
-        SubscribeLocalEvent<HeadRevolutionaryComponent, AfterFlashedEvent>(OnPostFlash);
+        SubscribeLocalEvent<HeadRevolutionaryComponent, AfterRevolutionaryConvertedEvent>(OnPostConvert); // Einstein Engines - Revolutionary Manifesto
         SubscribeLocalEvent<CommunicationConsoleCallShuttleAttemptEvent>(OnTryCallEvac); // goob edit
         SubscribeLocalEvent<HeadRevolutionaryComponent, MobStateChangedEvent>(OnHeadRevMobStateChanged);
 
@@ -200,10 +203,11 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
     }
 
     /// <summary>
-    /// Called when a Head Rev uses a flash in melee to convert somebody else.
+    /// Called when a Head Rev uses a Revolutionary Manifesto to convert somebody else.
     /// </summary>
-    private void OnPostFlash(EntityUid uid, HeadRevolutionaryComponent comp, ref AfterFlashedEvent ev)
+    private void OnPostConvert(EntityUid uid, HeadRevolutionaryComponent comp, ref AfterRevolutionaryConvertedEvent ev)
     {
+        // Einstein Engines - Revolutionary Manifesto - Use RevolutionaryConverterSystem instead of hardcoding flashes
         // GoobStation - check if headRev's ability enabled
         if (!comp.ConvertAbilityEnabled)
             return;
@@ -223,6 +227,9 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
             HasComp<ChangelingComponent>(ev.Target) // goob edit - no more ling or heretic revs
             || HasComp<CommandStaffComponent>(ev.Target)) // goob edit - rev no command flashing
         {
+            if(ev.User != null)
+                _popup.PopupEntity("The conversion failed!", ev.User.Value, ev.User.Value);
+
             return;
         }
 
