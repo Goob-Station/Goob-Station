@@ -130,3 +130,9 @@ food-sequence-skewer-gen = {$content} шашлик
 
 food-sequence-standart-gen = {$prefix}{$content}{$suffix}
 food-sequence-burger-content-extradimensional-orange = 3d
+
+food-sequence-content-world-pea = світовий горох
+food-sequence-content-anomaly-berry = аномальна ягода
+
+# БУРГЕРИ
+food-sequence-burger-content-anomaly-berry = аном

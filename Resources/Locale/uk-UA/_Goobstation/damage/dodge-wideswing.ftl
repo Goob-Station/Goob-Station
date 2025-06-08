@@ -4,4 +4,4 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-wideswing-dodge-generic = {THE($target)} swiftly evades the broad swing!
+wideswing-dodge-generic = {THE($target)} швидко ухиляється від широкого замаху!

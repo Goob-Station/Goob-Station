@@ -1,1 +1,1 @@
-upgrade-kit-automation = [color=cyan]Automation[/color]: provides [color=green]signal linking[/color] and [color=green]robotic arm item ports[/color].
+upgrade-kit-automation = [color=cyan]Автоматизація[/color]: надає [color=green]зв'язок сигналів[/color] та [color=green]порти для предметів роботизованого маніпулятора[/color].

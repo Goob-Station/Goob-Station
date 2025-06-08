@@ -1,1 +1,1 @@
-entity-category-name-enchants = Enchants
+entity-category-name-enchants = Зачарування

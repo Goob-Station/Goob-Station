@@ -3,33 +3,33 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-rmc-ui-link-discord-account = Link Discord Account
-rmc-ui-link-discord-account-text = Click the button below to copy your code.
-  Then go to the #account-linking channel to link your accounts.
-rmc-ui-link-discord-account-copy = Copy code
-rmc-ui-link-discord-account-copied = Copied!
-rmc-ui-link-discord-account-already-linked = [bold]Your account is already linked![/bold]
-rmc-ui-link-discord-account-open-channel = Open channel
+rmc-ui-link-discord-account = Прив'язати акаунт Discord
+rmc-ui-link-discord-account-text = Натисніть кнопку нижче, щоб скопіювати свій код.
+  Потім перейдіть до каналу #account-linking, щоб прив'язати свої акаунти.
+rmc-ui-link-discord-account-copy = Скопіювати код
+rmc-ui-link-discord-account-copied = Скопійовано!
+rmc-ui-link-discord-account-already-linked = [bold]Ваш акаунт вже прив'язано![/bold]
+rmc-ui-link-discord-account-open-channel = Відкрити канал
 
-rmc-ui-patron-perks = Patron Perks
-rmc-ui-lobby-message = Lobby Message
-rmc-ui-lobby-message-description = Displayed to players before the game starts.
-  One is randomly chosen between all the Patrons of this tier.
-  Make sure the message you choose doesn't break the rules.
-  If you aren't sure, ask in AHelp! (F1)
-rmc-ui-shoutout = Round-end shoutout
-rmc-ui-shoutout-nt-title = Name to use for the round-end Nanotrasen shoutout.
-rmc-ui-shoutout-nt-description = Displayed at round end as "Nanotrasen funded by: " then your name.
-rmc-ui-shoutout-example = Example:
-rmc-ui-shoutout-info = Each name is randomly chosen between all the Patrons of this tier.
-  Make sure the names you choose are in-character and don't break the rules.
-  If you aren't sure, ask in AHelp! (F1)
+rmc-ui-patron-perks = Бонуси патрона
+rmc-ui-lobby-message = Повідомлення в лобі
+rmc-ui-lobby-message-description = Відображається гравцям перед початком гри.
+  Випадково обирається одне з усіх повідомлень патронів цього рівня.
+  Переконайтеся, що обране повідомлення не порушує правил.
+  Якщо не впевнені, запитайте в AHelp! (F1)
+rmc-ui-shoutout = Подяка в кінці раунду
+rmc-ui-shoutout-nt-title = Ім'я для використання у подяці від Nanotrasen в кінці раунду.
+rmc-ui-shoutout-nt-description = Відображається в кінці раунду як "Nanotrasen фінансується: " а потім ваше ім'я.
+rmc-ui-shoutout-example = Приклад:
+rmc-ui-shoutout-info = Кожне ім'я обирається випадково з-поміж усіх патронів цього рівня.
+  Переконайтеся, що обрані імена відповідають рольовій грі та не порушують правил.
+  Якщо не впевнені, запитайте в AHelp! (F1)
 
-rmc-ui-ghost-color = Ghost Color
-rmc-ui-ghost-color-clear = Clear
-rmc-ui-ghost-color-save = Save
+rmc-ui-ghost-color = Колір привида
+rmc-ui-ghost-color-clear = Очистити
+rmc-ui-ghost-color-save = Зберегти
 
-rmc-ui-shoutout-nt = [bold]Nanotrasen funded by: [color=green]{$name}[/color]![/bold]
+rmc-ui-shoutout-nt = [bold]Nanotrasen фінансується: [color=green]{$name}[/color]![/bold]
 
 rmc-ui-discord = Discord
 rmc-ui-patreon = Patreon

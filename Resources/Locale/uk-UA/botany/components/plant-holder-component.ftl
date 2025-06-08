@@ -33,3 +33,5 @@ plant-holder-component-heat-improper-warning = Блимає [color=orange]спо
 plant-holder-component-pressure-improper-warning = Блимає [color=lightblue]сповіщення про невідповідний тиск середовища[/color].
 plant-holder-component-gas-missing-warning = Блимає [color=cyan]сповіщення про невідповідне газове середовище[/color].
 plant-holder-component-early-sample-message = Рослина ще не виросла настільки, щоб взяти зразок.
+
+plant-holder-component-ligneous-cant-harvest-message = Рослина занадто жорстка, щоб зібрати її голими руками.

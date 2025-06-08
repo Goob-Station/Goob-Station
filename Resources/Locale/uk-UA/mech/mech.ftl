@@ -18,3 +18,4 @@ mech-slot-display = Доступні місця: {$amount}
 mech-no-enter = Ви не можете пілотувати це.
 
 mech-energy-missing = Енергія: ВІДСУТНЯ
+mech-eject-pilot-alert = {$user} is pulling the pilot out of the {$item}!

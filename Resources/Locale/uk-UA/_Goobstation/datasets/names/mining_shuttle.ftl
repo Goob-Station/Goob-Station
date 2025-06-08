@@ -3,4 +3,4 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-mining-shuttle-names-dataset-1 = Salvage Shuttle
+mining-shuttle-names-dataset-1 = Утилізаційний шатл

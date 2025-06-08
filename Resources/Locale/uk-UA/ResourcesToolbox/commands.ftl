@@ -1,438 +1,397 @@
-﻿### Localization for engine console commands
+### Localization for engine console commands
 
 ## generic command errors
 
-cmd-invalid-arg-number-error = Invalid number of arguments.
+cmd-invalid-arg-number-error = Невірна кількість аргументів.
 
-cmd-parse-failure-integer = {$arg} is not a valid integer.
-cmd-parse-failure-float = {$arg} is not a valid float.
-cmd-parse-failure-bool = {$arg} is not a valid bool.
-cmd-parse-failure-uid = {$arg} is not a valid entity UID.
-cmd-parse-failure-mapid = {$arg} is not a valid MapId.
-cmd-parse-failure-enum = {$arg} is not a {$enum} Enum.
-cmd-parse-failure-grid = {$arg} is not a valid grid.
-cmd-parse-failure-cultureinfo = "{$arg}" is not valid CultureInfo.
-cmd-parse-failure-entity-exist = UID {$arg} does not correspond to an existing entity.
-cmd-parse-failure-session = There is no session with username: {$username}
+cmd-parse-failure-integer = {$arg} не є дійсним цілим числом.
+cmd-parse-failure-float = {$arg} не є дійсним числом з плаваючою комою.
+cmd-parse-failure-bool = {$arg} не є дійсним булевим значенням.
+cmd-parse-failure-uid = {$arg} не є дійсним UID сутності.
+cmd-parse-failure-mapid = {$arg} не є дійсним MapId.
+cmd-parse-failure-enum = {$arg} не є переліком {$enum}.
+cmd-parse-failure-grid = {$arg} не є дійсною сіткою.
+cmd-parse-failure-cultureinfo = """{$arg}"" не є дійсним CultureInfo.
+cmd-parse-failure-entity-exist = UID {$arg} не відповідає існуючій сутності.
+cmd-parse-failure-session = Немає сесії з ім'ям користувача: {$username}
 
-cmd-error-file-not-found = Could not find file: {$file}.
-cmd-error-dir-not-found = Could not find directory: {$dir}.
+cmd-error-file-not-found = Не вдалося знайти файл: {$file}.
+cmd-error-dir-not-found = Не вдалося знайти каталог: {$dir}.
 
-cmd-failure-no-attached-entity = There is no entity attached to this shell.
+cmd-failure-no-attached-entity = Немає сутності, прикріпленої до цієї оболонки
+cmd-help-desc = Відобразити загальну довідку або довідку для конкретної команди
+cmd-help-help = Використання: help [назва команди]
+    Якщо назва команди не вказана, відображається загальна довідка. Якщо назва команди вказана, відображається довідка для цієї команди.
 
-## 'help' command
-cmd-help-desc = Display general help or help text for a specific command
-cmd-help-help = Usage: help [command name]
-    When no command name is provided, displays general-purpose help text. If a command name is provided, displays help text for that command.
-
-cmd-help-no-args = To display help for a specific command, write 'help <command>'. To list all available commands, write 'list'. To search for commands, use 'list <filter>'.
-cmd-help-unknown = Unknown command: { $command }
+cmd-help-no-args = Щоб відобразити довідку для конкретної команди, напишіть 'help <команда>'. Щоб переглянути всі доступні команди, напишіть 'list'. Щоб шукати команди, використовуйте 'list <фільтр>'
+cmd-help-unknown = Невідома команда: { $command }
 cmd-help-top = { $command } - { $description }
-cmd-help-invalid-args = Invalid amount of arguments.
-cmd-help-arg-cmdname = [command name]
+cmd-help-invalid-args = Невірна кількість аргументів.
+cmd-help-arg-cmdname = [назва команди]
+cmd-cvar-desc = Отримує або встановлює CVar.
+cmd-cvar-help = Використання: cvar <назва | ?> [значення]
+    Якщо передано значення, воно розбирається та зберігається як нове значення CVar.
+    Якщо ні, відображається поточне значення CVar.
+    Використовуйте 'cvar ?', щоб отримати список усіх зареєстрованих CVar.
 
-## 'cvar' command
-cmd-cvar-desc = Gets or sets a CVar.
-cmd-cvar-help = Usage: cvar <name | ?> [value]
-    If a value is passed, the value is parsed and stored as the new value of the CVar.
-    If not, the current value of the CVar is displayed.
-    Use 'cvar ?' to get a list of all registered CVars.
-
-cmd-cvar-invalid-args = Must provide exactly one or two arguments.
-cmd-cvar-not-registered = CVar '{ $cvar }' is not registered. Use 'cvar ?' to get a list of all registered CVars.
-cmd-cvar-parse-error = Input value is in incorrect format for type { $type }
-cmd-cvar-compl-list = List available CVars
-cmd-cvar-arg-name = <name | ?>
-cmd-cvar-value-hidden = <value hidden>
-
-## 'cvar_subs' command
-cmd-cvar_subs-desc = Lists the OnValueChanged subscriptions for a CVar.
+cmd-cvar-invalid-args = Необхідно надати один або два аргументи.
+cmd-cvar-not-registered = CVar '{ $cvar }' не зареєстровано. Використовуйте 'cvar ?', щоб отримати список усіх зареєстрованих CVar.
+cmd-cvar-parse-error = Вхідне значення має невірний формат для типу { $type }
+cmd-cvar-compl-list = Список доступних CVars
+cmd-cvar-arg-name = <назва | ?>
+cmd-cvar-value-hidden = <значення приховано>
+cmd-cvar_subs-desc = Перелічує підписки OnValueChanged для CVar.
 cmd-cvar_subs-help = Usage: cvar_subs <name>
 
 cmd-cvar_subs-invalid-args = Must provide exactly one argument.
 cmd-cvar_subs-arg-name = <name>
 
 ## 'list' command
-cmd-list-desc = Lists available commands, with optional search filter
-cmd-list-help = Usage: list [filter]
-    Lists all available commands. If an argument is provided, it will be used to filter commands by name.
+cmd-list-desc = Перераховує доступні команди з необов'язковим фільтром пошуку
+cmd-list-help = Використання: list [фільтр]
+    Перераховує всі доступні команди. Якщо вказано аргумент, він буде використовуватися для фільтрації команд за назвою.
 
-cmd-list-heading = SIDE NAME            DESC{"\u000A"}-------------------------{"\u000A"}
+cmd-list-heading = СТОРОНА НАЗВА          ОПИС{""\u000A""}-------------------------{""\u000A""}
 
-cmd-list-arg-filter = [filter]
+cmd-list-arg-filter = [фільтр]
+cmd-remoteexec-desc = Виконує команди на стороні сервера
+cmd-remoteexec-help = Використання: > <команда> [аргумент] [аргумент] [аргумент...]
+    Виконує команду на сервері. Це необхідно, якщо команда з такою ж назвою існує на клієнті, оскільки просте виконання команди спочатку запустить клієнтську команду
+cmd-gc-desc = Запустити GC (Збирач сміття)
+cmd-gc-help = Використання: gc [покоління]
+    Використовує GC.Collect() для запуску збирача сміття.
+    Якщо надано аргумент, він розбирається як номер покоління GC, і використовується GC.Collect(int).
+    Використовуйте команду 'gfc' для повного збирання сміття з ущільненням LOH.
+cmd-gc-failed-parse = Не вдалося розібрати аргумент.
+cmd-gc-arg-generation = [покоління]
+cmd-gcf-desc = Запустити GC повністю, з ущільненням LOH і всього іншого.
+cmd-gcf-help = Використання: gcf
+    Виконує повне GC.Collect(2, GCCollectionMode.Forced, true, true), а також ущільнює LOH.
+    Це, ймовірно, заблокує систему на сотні мілісекунд, будьте обережні
+cmd-gc_mode-desc = Змінити/Прочитати режим затримки GC
+cmd-gc_mode-help = Використання: gc_mode [тип]
+    Якщо аргумент не надано, повертає поточний режим затримки GC.
+    Якщо аргумент передано, він розбирається як GCLatencyMode і встановлюється як режим затримки GC.
 
-## '>' command, aka remote exec
-cmd-remoteexec-desc = Executes server-side commands
-cmd-remoteexec-help = Usage: > <command> [arg] [arg] [arg...]
-    Executes a command on the server. This is necessary if a command with the same name exists on the client, as simply running the command would run the client command first.
-
-## 'gc' command
-cmd-gc-desc = Run the GC (Garbage Collector)
-cmd-gc-help = Usage: gc [generation]
-    Uses GC.Collect() to execute the Garbage Collector.
-    If an argument is provided, it is parsed as a GC generation number and GC.Collect(int) is used.
-    Use the 'gfc' command to do an LOH-compacting full GC.
-cmd-gc-failed-parse = Failed to parse argument.
-cmd-gc-arg-generation = [generation]
-
-## 'gcf' command
-cmd-gcf-desc = Run the GC, fully, compacting LOH and everything.
-cmd-gcf-help = Usage: gcf
-    Does a full GC.Collect(2, GCCollectionMode.Forced, true, true) while also compacting LOH.
-    This will probably lock up for hundreds of milliseconds, be warned.
-
-## 'gc_mode' command
-cmd-gc_mode-desc = Change/Read the GC Latency mode
-cmd-gc_mode-help = Usage: gc_mode [type]
-    If no argument is provided, returns the current GC latency mode.
-    If an argument is passed, it is parsed as GCLatencyMode and set as the GC latency mode.
-
-cmd-gc_mode-current = current gc latency mode: { $prevMode }
-cmd-gc_mode-possible = possible modes:
+cmd-gc_mode-current = поточний режим затримки gc: { $prevMode }
+cmd-gc_mode-possible = можливі режими:
 cmd-gc_mode-option = - { $mode }
-cmd-gc_mode-unknown = unknown gc latency mode: { $arg }
-cmd-gc_mode-attempt = attempting gc latency mode change: { $prevMode } -> { $mode }
-cmd-gc_mode-result = resulting gc latency mode: { $mode }
-cmd-gc_mode-arg-type = [type]
+cmd-gc_mode-unknown = невідомий режим затримки gc: { $arg }
+cmd-gc_mode-attempt = спроба змінити режим затримки gc: { $prevMode } -> { $mode }
+cmd-gc_mode-result = результуючий режим затримки gc: { $mode }
+cmd-gc_mode-arg-type = [тип]
+cmd-mem-desc = Виводить інформацію про керовану пам'ять
+cmd-mem-help = Використання: mem
 
-## 'mem' command
-cmd-mem-desc = Prints managed memory info
-cmd-mem-help = Usage: mem
+cmd-mem-report = Розмір купи: { TOSTRING($heapSize, ""N0"") }
+    Загалом виділено: { TOSTRING($totalAllocated, ""N0"") }
+cmd-physics-overlay = {$overlay} не є розпізнаним накладенням
+cmd-lsasm-desc = Перераховує завантажені збірки за контекстом завантаження
+cmd-lsasm-help = Використання: lsasm
+cmd-exec-desc = Виконує файл скрипта з директорії користувача гри, доступної для запису
+cmd-exec-help = Використання: exec <назваФайлу>
+    Кожен рядок у файлі виконується як окрема команда, якщо він не починається з #
 
-cmd-mem-report = Heap Size: { TOSTRING($heapSize, "N0") }
-    Total Allocated: { TOSTRING($totalAllocated, "N0") }
+cmd-exec-arg-filename = <назваФайлу>
+cmd-dump_net_comps-desc = Друкує таблицю мережевих компонентів.
+cmd-dump_net_comps-help = Використання: dump_net-comps
 
-## 'physics' command
-cmd-physics-overlay = {$overlay} is not a recognised overlay
+cmd-dump_net_comps-error-writeable = Реєстрація все ще доступна для запису, мережеві ідентифікатори не були згенеровані.
+cmd-dump_net_comps-header = Реєстрації мережевих компонентів:
+cmd-dump_event_tables-desc = Друкує таблиці спрямованих подій для сутності.
+cmd-dump_event_tables-help = Використання: dump_event_tables <uid сутності>
 
-## 'lsasm' command
-cmd-lsasm-desc = Lists loaded assemblies by load context
-cmd-lsasm-help = Usage: lsasm
+cmd-dump_event_tables-missing-arg-entity = Відсутній аргумент сутності
+cmd-dump_event_tables-error-entity = Недійсна сутність
+cmd-dump_event_tables-arg-entity = <uid сутності>
+cmd-monitor-desc = Перемикає монітор налагодження в меню F3.
+cmd-monitor-help = Використання: monitor <назва>
+    Можливі монітори: { $monitors }
+    Ви також можете використовувати спеціальні значення ""-all"" та ""+all"", щоб приховати або показати всі монітори відповідно.
 
-## 'exec' command
-cmd-exec-desc = Executes a script file from the game's writeable user data
-cmd-exec-help = Usage: exec <fileName>
-    Each line in the file is executed as a single command, unless it starts with a #
+cmd-monitor-arg-monitor = <монітор>
+cmd-monitor-invalid-name = Недійсна назва монітора
+cmd-monitor-arg-count = Відсутній аргумент монітора
+cmd-monitor-minus-all-hint = Приховує всі монітори
+cmd-monitor-plus-all-hint = Показує всі монітори
+cmd-set-ambient-light-desc = Дозволяє встановити навколишнє освітлення для вказаної карти в SRGB.
+cmd-set-ambient-light-help = setambientlight [id карти] [r g b a]
+cmd-set-ambient-light-parse = Не вдалося розібрати аргументи як байтові значення для кольору
 
-cmd-exec-arg-filename = <fileName>
-
-## 'dump_net_comps' command
-cmd-dump_net_comps-desc = Prints the table of networked components.
-cmd-dump_net_comps-help = Usage: dump_net-comps
-
-cmd-dump_net_comps-error-writeable = Registration still writeable, network ids have not been generated.
-cmd-dump_net_comps-header = Networked Component Registrations:
-
-## 'dump_event_tables' command
-cmd-dump_event_tables-desc = Prints directed event tables for an entity.
-cmd-dump_event_tables-help = Usage: dump_event_tables <entityUid>
-
-cmd-dump_event_tables-missing-arg-entity = Missing entity argument
-cmd-dump_event_tables-error-entity = Invalid entity
-cmd-dump_event_tables-arg-entity = <entityUid>
-
-## 'monitor' command
-cmd-monitor-desc = Toggles a debug monitor in the F3 menu.
-cmd-monitor-help = Usage: monitor <name>
-    Possible monitors are: { $monitors }
-    You can also use the special values "-all" and "+all" to hide or show all monitors, respectively.
-
-cmd-monitor-arg-monitor = <monitor>
-cmd-monitor-invalid-name = Invalid monitor name
-cmd-monitor-arg-count = Missing monitor argument
-cmd-monitor-minus-all-hint = Hides all monitors
-cmd-monitor-plus-all-hint = Shows all monitors
-
-
-## 'setambientlight' command
-cmd-set-ambient-light-desc = Allows you to set the ambient light for the specified map, in SRGB.
-cmd-set-ambient-light-help = setambientlight [mapid] [r g b a]
-cmd-set-ambient-light-parse = Unable to parse args as a byte values for a color.
-
-## Mapping commands
-
-cmd-savemap-desc = Serializes a map to disk. Will not save a post-init map unless forced.
-cmd-savemap-help = savemap <MapID> <Path> [force]
-cmd-savemap-not-exist = Target map does not exist.
-cmd-savemap-init-warning = Attempted to save a post-init map without forcing the save.
-cmd-savemap-attempt = Attempting to save map {$mapId} to {$path}.
-cmd-savemap-success = Map successfully saved.
+cmd-savemap-desc = Серіалізує карту на диск. Не зберігатиме карту після ініціалізації, якщо не змусити.
+cmd-savemap-help = savemap <ID карти> <Шлях> [force]
+cmd-savemap-not-exist = Цільова карта не існує.
+cmd-savemap-init-warning = Спроба зберегти карту після ініціалізації без примусового збереження.
+cmd-savemap-attempt = Спроба зберегти карту {$mapId} до {$path}.
+cmd-savemap-success = Карту успішно збережено.
 cmd-savemap-error = Could not save map! See server log for details.
 cmd-hint-savemap-id = <MapID>
-cmd-hint-savemap-path = <Path>
+cmd-hint-savemap-path = <Шлях>
 cmd-hint-savemap-force = [bool]
 
-cmd-loadmap-desc = Loads a map from disk into the game.
-cmd-loadmap-help = loadmap <MapID> <Path> [x] [y] [rotation] [consistentUids]
-cmd-loadmap-nullspace = You cannot load into map 0.
-cmd-loadmap-exists = Map {$mapId} already exists.
-cmd-loadmap-success = Map {$mapId} has been loaded from {$path}.
-cmd-loadmap-error = An error occurred while loading map from {$path}.
-cmd-hint-loadmap-x-position = [x-position]
-cmd-hint-loadmap-y-position = [y-position]
-cmd-hint-loadmap-rotation = [rotation]
+cmd-loadmap-desc = Завантажує карту з диска в гру.
+cmd-loadmap-help = loadmap <ID карти> <Шлях> [x] [y] [rotation] [consistentUids]
+cmd-loadmap-nullspace = Ви не можете завантажити в карту 0.
+cmd-loadmap-exists = Карта {$mapId} вже існує.
+cmd-loadmap-success = Карту {$mapId} було завантажено з {$path}.
+cmd-loadmap-error = Сталася помилка під час завантаження карти з {$path}.
+cmd-hint-loadmap-x-position = [x-позиція]
+cmd-hint-loadmap-y-position = [y-позиція]
+cmd-hint-loadmap-rotation = [обертання]
 cmd-hint-loadmap-uids = [float]
 
-cmd-hint-savebp-id = <Grid EntityID>
+cmd-hint-savebp-id = <ID сутності сітки>
 
-## 'flushcookies' command
-# Note: the flushcookies command is from Robust.Client.WebView, it's not in the main engine code.
+cmd-flushcookies-desc = Зберегти сховище файлів cookie CEF на диск
+cmd-flushcookies-help = Це гарантує, що файли cookie будуть правильно збережені на диску в разі некоректного завершення роботи.
+    Зверніть увагу, що фактична операція є асинхронною.
 
-cmd-flushcookies-desc = Flush CEF cookie storage to disk
-cmd-flushcookies-help = This ensure cookies are properly saved to disk in the event of unclean shutdowns.
-    Note that the actual operation is asynchronous.
+cmd-ldrsc-desc = Попередньо кешує ресурс.
+cmd-ldrsc-help = Використання: ldrsc <шлях> <тип>
 
-cmd-ldrsc-desc = Pre-caches a resource.
-cmd-ldrsc-help = Usage: ldrsc <path> <type>
+cmd-rldrsc-desc = Перезавантажує ресурс.
+cmd-rldrsc-help = Використання: rldrsc <шлях> <тип>
 
-cmd-rldrsc-desc = Reloads a resource.
-cmd-rldrsc-help = Usage: rldrsc <path> <type>
+cmd-gridtc-desc = Отримує кількість плиток сітки.
+cmd-gridtc-help = Використання: gridtc <id сітки>
+cmd-guidump-desc = Зберегти дерево GUI у /guidump.txt в даних користувача.
+cmd-guidump-help = Використання: guidump
 
-cmd-gridtc-desc = Gets the tile count of a grid.
-cmd-gridtc-help = Usage: gridtc <gridId>
-
-
-# Client-side commands
-cmd-guidump-desc = Dump GUI tree to /guidump.txt in user data.
-cmd-guidump-help = Usage: guidump
-
-cmd-uitest-desc = Open a dummy UI testing window
-cmd-uitest-help = Usage: uitest
-
-## 'uitest2' command
-cmd-uitest2-desc = Opens a UI control testing OS window
-cmd-uitest2-help = Usage: uitest2 <tab>
-cmd-uitest2-arg-tab = <tab>
-cmd-uitest2-error-args = Expected at most one argument
-cmd-uitest2-error-tab = Invalid tab: '{$value}'
+cmd-uitest-desc = Відкрити фіктивне вікно для тестування UI
+cmd-uitest-help = Використання: uitest
+cmd-uitest2-desc = Відкриває вікно ОС для тестування елементів керування UI
+cmd-uitest2-help = Використання: uitest2 <вкладка>
+cmd-uitest2-arg-tab = <вкладка>
+cmd-uitest2-error-args = Очікувався щонайбільше один аргумент
+cmd-uitest2-error-tab = Недійсна вкладка: '{$value}'
 cmd-uitest2-title = UITest2
 
 
-cmd-setclipboard-desc = Sets the system clipboard
-cmd-setclipboard-help = Usage: setclipboard <text>
+cmd-setclipboard-desc = Встановлює системний буфер обміну
+cmd-setclipboard-help = Використання: setclipboard <текст>
 
-cmd-getclipboard-desc = Gets the system clipboard
-cmd-getclipboard-help = Usage: Getclipboard
+cmd-getclipboard-desc = Отримує системний буфер обміну
+cmd-getclipboard-help = Використання: Getclipboard
 
-cmd-togglelight-desc = Toggles light rendering.
-cmd-togglelight-help = Usage: togglelight
+cmd-togglelight-desc = Перемикає рендеринг світла.
+cmd-togglelight-help = Використання: togglelight
 
-cmd-togglefov-desc = Toggles fov for client.
-cmd-togglefov-help = Usage: togglefov
+cmd-togglefov-desc = Перемикає поле зору для клієнта.
+cmd-togglefov-help = Використання: togglefov
 
-cmd-togglehardfov-desc = Toggles hard fov for client. (for debugging space-station-14#2353)
-cmd-togglehardfov-help = Usage: togglehardfov
+cmd-togglehardfov-desc = Перемикає жорстке поле зору для клієнта. (для налагодження space-station-14#2353)
+cmd-togglehardfov-help = Використання: togglehardfov
 
-cmd-toggleshadows-desc = Toggles shadow rendering.
-cmd-toggleshadows-help = Usage: toggleshadows
+cmd-toggleshadows-desc = Перемикає рендеринг тіней.
+cmd-toggleshadows-help = Використання: toggleshadows
 
-cmd-togglelightbuf-desc = Toggles lighting rendering. This includes shadows but not FOV.
-cmd-togglelightbuf-help = Usage: togglelightbuf
+cmd-togglelightbuf-desc = Перемикає рендеринг освітлення. Це включає тіні, але не поле зору.
+cmd-togglelightbuf-help = Використання: togglelightbuf
 
-cmd-chunkinfo-desc = Gets info about a chunk under your mouse cursor.
-cmd-chunkinfo-help = Usage: chunkinfo
+cmd-chunkinfo-desc = Отримує інформацію про чанк під курсором миші.
+cmd-chunkinfo-help = Використання: chunkinfo
 
-cmd-rldshader-desc = Reloads all shaders.
-cmd-rldshader-help = Usage: rldshader
+cmd-rldshader-desc = Перезавантажує всі шейдери.
+cmd-rldshader-help = Використання: rldshader
 
-cmd-cldbglyr-desc = Toggle fov and light debug layers.
-cmd-cldbglyr-help= Usage: cldbglyr <layer>: Toggle <layer>
-    cldbglyr: Turn all Layers off
+cmd-cldbglyr-desc = Перемкнути шари налагодження поля зору та світла.
+cmd-cldbglyr-help = Використання: cldbglyr <шар>: Перемкнути <шар>
+    cldbglyr: Вимкнути всі шари
 
-cmd-key-info-desc = Keys key info for a key.
-cmd-key-info-help = Usage: keyinfo <Key>
+cmd-key-info-desc = Інформація про клавішу.
+cmd-key-info-help = Використання: keyinfo <Key>
 
 ## 'bind' command
-cmd-bind-desc = Binds an input key combination to an input command.
-cmd-bind-help = Usage: bind { cmd-bind-arg-key } { cmd-bind-arg-mode } { cmd-bind-arg-command }
-    Note that this DOES NOT automatically save bindings.
-    Use the 'svbind' command to save binding configuration.
+cmd-bind-desc = Прив'язує комбінацію клавіш до команди.
+cmd-bind-help = Використання: bind { cmd-bind-arg-key } { cmd-bind-arg-mode } { cmd-bind-arg-command }
+    Зауважте, що це НЕ зберігає прив'язки автоматично.
+    Використовуйте команду 'svbind', щоб зберегти конфігурацію прив'язок.
 
-cmd-bind-arg-key = <KeyName>
-cmd-bind-arg-mode = <BindMode>
-cmd-bind-arg-command = <InputCommand>
+cmd-bind-arg-key = <НазваКлавіші>
+cmd-bind-arg-mode = <РежимПрив'язки>
+cmd-bind-arg-command = <КомандаВводу>
 
-cmd-net-draw-interp-desc = Toggles the debug drawing of the network interpolation.
-cmd-net-draw-interp-help = Usage: net_draw_interp
+cmd-net-draw-interp-desc = Перемикає налагоджувальне відображення мережевої інтерполяції.
+cmd-net-draw-interp-help = Використання: net_draw_interp
 
-cmd-net-watch-ent-desc = Dumps all network updates for an EntityId to the console.
-cmd-net-watch-ent-help = Usage: net_watchent <0|EntityUid>
+cmd-net-watch-ent-desc = Виводить усі мережеві оновлення для EntityId у консоль.
+cmd-net-watch-ent-help = Використання: net_watchent <0|EntityUid>
 
-cmd-net-refresh-desc = Requests a full server state.
-cmd-net-refresh-help = Usage: net_refresh
+cmd-net-refresh-desc = Запитує повний стан сервера.
+cmd-net-refresh-help = Використання: net_refresh
 
-cmd-net-entity-report-desc = Toggles the net entity report panel.
-cmd-net-entity-report-help = Usage: net_entityreport
+cmd-net-entity-report-desc = Перемикає панель звітів про мережеві сутності.
+cmd-net-entity-report-help = Використання: net_entityreport
 
-cmd-fill-desc = Fill up the console for debugging.
-cmd-fill-help = Fills the console with some nonsense for debugging.
+cmd-fill-desc = Заповнює консоль для налагодження.
+cmd-fill-help = Заповнює консоль різним сміттям для налагодження.
 
-cmd-cls-desc = Clears the console.
-cmd-cls-help = Clears the debug console of all messages.
+cmd-cls-desc = Очищує консоль.
+cmd-cls-help = Очищує консоль налагодження від усіх повідомлень.
 
-cmd-sendgarbage-desc = Sends garbage to the server.
-cmd-sendgarbage-help = The server will reply with 'no u'
+cmd-sendgarbage-desc = Надсилає сміття на сервер.
+cmd-sendgarbage-help = Сервер відповість 'no u'
 
-cmd-loadgrid-desc = Loads a grid from a file into an existing map.
-cmd-loadgrid-help = loadgrid <MapID> <Path> [x y] [rotation] [storeUids]
+cmd-loadgrid-desc = Завантажує грід із файлу на існуючу мапу.
+cmd-loadgrid-help = loadgrid <ID_Мапи> <Шлях> [x y] [обертання] [storeUids]
 
-cmd-loc-desc = Prints the absolute location of the player's entity to console.
+cmd-loc-desc = Виводить абсолютне місцезнаходження сутності гравця в консоль.
 cmd-loc-help = loc
 
-cmd-tpgrid-desc = Teleports a grid to a new location.
-cmd-tpgrid-help = tpgrid <gridId> <X> <Y> [<MapId>]
+cmd-tpgrid-desc = Телепортує грід у нове місце.
+cmd-tpgrid-help = tpgrid <ID_гріду> <X> <Y> [<ID_Мапи>]
 
-cmd-rmgrid-desc = Removes a grid from a map. You cannot remove the default grid.
-cmd-rmgrid-help = rmgrid <gridId>
+cmd-rmgrid-desc = Видаляє грід з мапи. Ви не можете видалити стандартний грід.
+cmd-rmgrid-help = rmgrid <ID_гріду>
 
-cmd-mapinit-desc = Runs map init on a map.
-cmd-mapinit-help = mapinit <mapID>
+cmd-mapinit-desc = Запускає ініціалізацію мапи.
+cmd-mapinit-help = mapinit <ID_мапи>
 
-cmd-lsmap-desc = Lists maps.
+cmd-lsmap-desc = Виводить список мап.
 cmd-lsmap-help = lsmap
 
-cmd-lsgrid-desc = Lists grids.
+cmd-lsgrid-desc = Виводить список грідів.
 cmd-lsgrid-help = lsgrid
 
-cmd-addmap-desc = Adds a new empty map to the round. If the mapID already exists, this command does nothing.
-cmd-addmap-help = addmap <mapID> [pre-init]
+cmd-addmap-desc = Додає нову порожню мапу до раунду. Якщо ID мапи вже існує, ця команда нічого не робить.
+cmd-addmap-help = addmap <ID_мапи> [pre-init]
 
-cmd-rmmap-desc = Removes a map from the world. You cannot remove nullspace.
-cmd-rmmap-help = rmmap <mapId>
+cmd-rmmap-desc = Видаляє мапу зі світу. Ви не можете видалити нуль-простір.
+cmd-rmmap-help = rmmap <ID_мапи>
 
-cmd-savegrid-desc = Serializes a grid to disk.
-cmd-savegrid-help = savegrid <gridID> <Path>
+cmd-savegrid-desc = Серіалізує грід на диск.
+cmd-savegrid-help = savegrid <ID_гріду> <Шлях>
 
-cmd-testbed-desc = Loads a physics testbed on the specified map.
-cmd-testbed-help = testbed <mapid> <test>
+cmd-testbed-desc = Завантажує тестовий стенд фізики на вказану мапу.
+cmd-testbed-help = testbed <id_мапи> <тест>
 
-## 'flushcookies' command
-# Note: the flushcookies command is from Robust.Client.WebView, it's not in the main engine code.
+## Команда 'flushcookies'
+# Примітка: команда flushcookies належить до Robust.Client.WebView, її немає в основному коді рушія.
 
-## 'addcomp' command
-cmd-addcomp-desc = Adds a component to an entity.
-cmd-addcomp-help = addcomp <uid> <componentName>
-cmd-addcompc-desc = Adds a component to an entity on the client.
-cmd-addcompc-help = addcompc <uid> <componentName>
+## Команда 'addcomp'
+cmd-addcomp-desc = Додає компонент до сутності.
+cmd-addcomp-help = addcomp <uid> <назва_компонента>
+cmd-addcompc-desc = Додає компонент до сутності на клієнті.
+cmd-addcompc-help = addcompc <uid> <назва_компонента>
 
-## 'rmcomp' command
-cmd-rmcomp-desc = Removes a component from an entity.
-cmd-rmcomp-help = rmcomp <uid> <componentName>
-cmd-rmcompc-desc = Removes a component from an entity on the client.
-cmd-rmcompc-help = rmcomp <uid> <componentName>
+## Команда 'rmcomp'
+cmd-rmcomp-desc = Видаляє компонент із сутності.
+cmd-rmcomp-help = rmcomp <uid> <назва_компонента>
+cmd-rmcompc-desc = Видаляє компонент із сутності на клієнті.
+cmd-rmcompc-help = rmcomp <uid> <назва_компонента>
 
-## 'addview' command
-cmd-addview-desc = Allows you to subscribe to an entity's view for debugging purposes.
+## Команда 'addview'
+cmd-addview-desc = Дозволяє підписатися на перегляд сутності для цілей налагодження.
 cmd-addview-help = addview <entityUid>
-cmd-addviewc-desc = Allows you to subscribe to an entity's view for debugging purposes.
+cmd-addviewc-desc = Дозволяє підписатися на перегляд сутності для цілей налагодження.
 cmd-addviewc-help = addview <entityUid>
 
-## 'removeview' command
-cmd-removeview-desc = Allows you to unsubscribe to an entity's view for debugging purposes.
+## Команда 'removeview'
+cmd-removeview-desc = Дозволяє відписатися від перегляду сутності для цілей налагодження.
 cmd-removeview-help = removeview <entityUid>
 
-## 'loglevel' command
-cmd-loglevel-desc = Changes the log level for a provided sawmill.
-cmd-loglevel-help = Usage: loglevel <sawmill> <level>
-      sawmill: A label prefixing log messages. This is the one you're setting the level for.
-      level: The log level. Must match one of the values of the LogLevel enum.
+## Команда 'loglevel'
+cmd-loglevel-desc = Змінює рівень логування для вказаного sawmill.
+cmd-loglevel-help = Використання: loglevel <sawmill> <level>
+      sawmill: Префікс мітки для повідомлень логу. Це те, для чого ви встановлюєте рівень.
+      level: Рівень логування. Має відповідати одному зі значень переліку LogLevel.
 
-cmd-testlog-desc = Writes a test log to a sawmill.
-cmd-testlog-help = Usage: testlog <sawmill> <level> <message>
-    sawmill: A label prefixing the logged message.
-    level: The log level. Must match one of the values of the LogLevel enum.
-    message: The message to be logged. Wrap this in double quotes if you want to use spaces.
+cmd-testlog-desc = Записує тестовий лог у sawmill.
+cmd-testlog-help = Використання: testlog <sawmill> <level> <message>
+    sawmill: Префікс мітки для повідомлення, що логується.
+    level: Рівень логування. Має відповідати одному зі значень переліку LogLevel.
+    message: Повідомлення, яке буде залоговано. Візьміть його в подвійні лапки, якщо хочете використовувати пробіли.
 
-## 'vv' command
-cmd-vv-desc = Opens View Variables.
-cmd-vv-help = Usage: vv <entity ID|IoC interface name|SIoC interface name>
+## Команда 'vv'
+cmd-vv-desc = Відкриває Перегляд Змінних.
+cmd-vv-help = Використання: vv <ID сутності|назва інтерфейсу IoC|назва інтерфейсу SIoC>
 
-## 'showvelocities' command
-cmd-showvelocities-desc = Displays your angular and linear velocities.
-cmd-showvelocities-help = Usage: showvelocities
+## Команда 'showvelocities'
+cmd-showvelocities-desc = Показує вашу кутову та лінійну швидкості.
+cmd-showvelocities-help = Використання: showvelocities
 
-## 'setinputcontext' command
-cmd-setinputcontext-desc = Sets the active input context.
-cmd-setinputcontext-help = Usage: setinputcontext <context>
+## Команда 'setinputcontext'
+cmd-setinputcontext-desc = Встановлює активний контекст вводу.
+cmd-setinputcontext-help = Використання: setinputcontext <контекст>
 
-## 'forall' command
-cmd-forall-desc = Runs a command over all entities with a given component.
-cmd-forall-help = Usage: forall <bql query> do <command...>
+## Команда 'forall'
+cmd-forall-desc = Виконує команду для всіх сутностей з вказаним компонентом.
+cmd-forall-help = Використання: forall <bql запит> do <команда...>
 
-## 'delete' command
-cmd-delete-desc = Deletes the entity with the specified ID.
-cmd-delete-help = delete <entity UID>
+## Команда 'delete'
+cmd-delete-desc = Видаляє сутність із вказаним ID.
+cmd-delete-help = delete <UID сутності>
 
-# System commands
-cmd-showtime-desc = Shows the server time.
+# Системні команди
+cmd-showtime-desc = Показує час сервера.
 cmd-showtime-help = showtime
 
-cmd-restart-desc = Gracefully restarts the server (not just the round).
+cmd-restart-desc = Коректно перезапускає сервер (а не тільки раунд).
 cmd-restart-help = restart
 
-cmd-shutdown-desc = Gracefully shuts down the server.
+cmd-shutdown-desc = Коректно вимикає сервер.
 cmd-shutdown-help = shutdown
 
-cmd-saveconfig-desc = Saves the server configuration to the config file.
+cmd-saveconfig-desc = Зберігає конфігурацію сервера у файл конфігурації.
 cmd-saveconfig-help = saveconfig
 
-cmd-netaudit-desc = Prints into about NetMsg security.
+cmd-netaudit-desc = Виводить інформацію про безпеку NetMsg.
 cmd-netaudit-help = netaudit
 
-# Player commands
-cmd-tp-desc = Teleports a player to any location in the round.
-cmd-tp-help = tp <x> <y> [<mapID>]
+# Команди гравця
+cmd-tp-desc = Телепортує гравця в будь-яке місце в раунді.
+cmd-tp-help = tp <x> <y> [<ID_мапи>]
 
-cmd-tpto-desc = Teleports the current player or the specified players/entities to the location of the first player/entity.
-cmd-tpto-help = tpto <username|uid> [username|NetEntity]...
-cmd-tpto-destination-hint = destination (NetEntity or username)
-cmd-tpto-victim-hint = entity to teleport (NetEntity or username)
-cmd-tpto-parse-error = Cant resolve entity or player: {$str}
+cmd-tpto-desc = Телепортує поточного гравця або вказаних гравців/сутностей до місця розташування першого гравця/сутності.
+cmd-tpto-help = tpto <ім'я_користувача|uid> [ім'я_користувача|NetEntity]...
+cmd-tpto-destination-hint = пункт призначення (NetEntity або ім'я користувача)
+cmd-tpto-victim-hint = сутність для телепортації (NetEntity або ім'я користувача)
+cmd-tpto-parse-error = Неможливо визначити сутність або гравця: {$str}
 
-cmd-listplayers-desc = Lists all players currently connected.
+cmd-listplayers-desc = Виводить список усіх підключених гравців.
 cmd-listplayers-help = listplayers
 
-cmd-kick-desc = Kicks a connected player out of the server, disconnecting them.
-cmd-kick-help = kick <PlayerIndex> [<Reason>]
+cmd-kick-desc = Викидає підключеного гравця з сервера, відключаючи його.
+cmd-kick-help = kick <ІндексГравця> [<Причина>]
 
-# Spin command
-cmd-spin-desc = Causes an entity to spin. Default entity is the attached player's parent.
-cmd-spin-help = spin velocity [drag] [entityUid]
+# Команда Spin
+cmd-spin-desc = Змушує сутність обертатися. За замовчуванням сутність — батьківський об'єкт гравця.
+cmd-spin-help = spin швидкість [опір] [entityUid]
 
-# Localization command
-cmd-rldloc-desc = Reloads localization (client & server).
-cmd-rldloc-help = Usage: rldloc
+# Команда локалізації
+cmd-rldloc-desc = Перезавантажує локалізацію (клієнт і сервер).
+cmd-rldloc-help = Використання: rldloc
 
-# Debug entity controls
-cmd-spawn-desc = Spawns an entity with specific type.
-cmd-spawn-help = spawn <prototype> OR spawn <prototype> <relative entity ID> OR spawn <prototype> <x> <y>
-cmd-cspawn-desc = Spawns a client-side entity with specific type at your feet.
-cmd-cspawn-help = cspawn <entity type>
+# Керування налагодженням сутностей
+cmd-spawn-desc = Створює сутність певного типу.
+cmd-spawn-help = spawn <прототип> АБО spawn <прототип> <відносний ID сутності> АБО spawn <прототип> <x> <y>
+cmd-cspawn-desc = Створює клієнтську сутність певного типу біля ваших ніг.
+cmd-cspawn-help = cspawn <тип сутності>
 
-cmd-scale-desc = Increases or decreases an entity's size naively.
-cmd-scale-help = scale <entityUid> <float>
+cmd-scale-desc = Наївно збільшує або зменшує розмір сутності.
+cmd-scale-help = scale <entityUid> <число>
 
-cmd-dumpentities-desc = Dump entity list.
-cmd-dumpentities-help = Dumps entity list of UIDs and prototype.
+cmd-dumpentities-desc = Вивести список сутностей.
+cmd-dumpentities-help = Виводить список сутностей з їх UID та прототипами.
 
-cmd-getcomponentregistration-desc = Gets component registration information.
-cmd-getcomponentregistration-help = Usage: getcomponentregistration <componentName>
+cmd-getcomponentregistration-desc = Отримує інформацію про реєстрацію компонента.
+cmd-getcomponentregistration-help = Використання: getcomponentregistration <назва_компонента>
 
-cmd-showrays-desc = Toggles debug drawing of physics rays. An integer for <raylifetime> must be provided.
-cmd-showrays-help = Usage: showrays <raylifetime>
+cmd-showrays-desc = Перемикає налагоджувальне відображення променів фізики. Необхідно вказати ціле число для <часу_життя_променя>.
+cmd-showrays-help = Використання: showrays <час_життя_променя>
 
-cmd-disconnect-desc = Immediately disconnect from the server and go back to the main menu.
-cmd-disconnect-help = Usage: disconnect
+cmd-disconnect-desc = Негайно відключитися від сервера і повернутися в головне меню.
+cmd-disconnect-help = Використання: disconnect
 
-cmd-entfo-desc = Displays verbose diagnostics for an entity.
-cmd-entfo-help = Usage: entfo <entityuid>
-    The entity UID can be prefixed with 'c' to convert it to a client entity UID.
+cmd-entfo-desc = Відображає детальну діагностику для сутності.
+cmd-entfo-help = Використання: entfo <uid_сутності>
+    UID сутності може мати префікс 'c', щоб перетворити його на UID клієнтської сутності.
 
-cmd-fuck-desc = Throws an exception
-cmd-fuck-help = Usage: fuck
+cmd-fuck-desc = Викликає виняток
+cmd-fuck-help = Використання: fuck
 
-cmd-showpos-desc = Show the position of all entities on the screen.
-cmd-showpos-help = Usage: showpos
+cmd-showpos-desc = Показати позицію всіх сутностей на екрані.
+cmd-showpos-help = Використання: showpos
 
 cmd-showrot-desc = Show the rotation of all entities on the screen.
 cmd-showrot-help = Usage: showrot
@@ -443,136 +402,136 @@ cmd-showvel-help = Usage: showvel
 cmd-showangvel-desc = Show the angular velocity of all entities on the screen.
 cmd-showangvel-help = Usage: showangvel
 
-cmd-sggcell-desc = Lists entities on a snap grid cell.
-cmd-sggcell-help = Usage: sggcell <gridID> <vector2i>\nThat vector2i param is in the form x<int>,y<int>.
+cmd-sggcell-desc = Виводить список сутностей у клітинці сітки прив'язки.
+cmd-sggcell-help = Використання: sggcell <ID_гріду> <vector2i>\nЦей параметр vector2i має формат x<int>,y<int>.
 
-cmd-overrideplayername-desc = Changes the name used when attempting to connect to the server.
-cmd-overrideplayername-help = Usage: overrideplayername <name>
+cmd-overrideplayername-desc = Змінює ім'я, що використовується при спробі підключення до сервера.
+cmd-overrideplayername-help = Використання: overrideplayername <ім'я>
 
-cmd-showanchored-desc = Shows anchored entities on a particular tile
-cmd-showanchored-help = Usage: showanchored
+cmd-showanchored-desc = Показує закріплені сутності на певній плитці
+cmd-showanchored-help = Використання: showanchored
 
-cmd-dmetamem-desc = Dumps a type's members in a format suitable for the sandbox configuration file.
-cmd-dmetamem-help = Usage: dmetamem <type>
+cmd-dmetamem-desc = Виводить члени типу у форматі, придатному для файлу конфігурації пісочниці.
+cmd-dmetamem-help = Використання: dmetamem <тип>
 
-cmd-launchauth-desc = Load authentication tokens from launcher data to aid in testing of live servers.
-cmd-launchauth-help = Usage: launchauth <account name>
+cmd-launchauth-desc = Завантажує токени автентифікації з даних лаунчера для допомоги в тестуванні активних серверів.
+cmd-launchauth-help = Використання: launchauth <назва_акаунту>
 
-cmd-lightbb-desc = Toggles whether to show light bounding boxes.
-cmd-lightbb-help = Usage: lightbb
+cmd-lightbb-desc = Перемикає відображення обмежувальних рамок світла.
+cmd-lightbb-help = Використання: lightbb
 
-cmd-monitorinfo-desc = Monitors info
-cmd-monitorinfo-help = Usage: monitorinfo <id>
+cmd-monitorinfo-desc = Інформація про монітори
+cmd-monitorinfo-help = Використання: monitorinfo <id>
 
-cmd-setmonitor-desc = Set monitor
-cmd-setmonitor-help = Usage: setmonitor <id>
+cmd-setmonitor-desc = Встановити монітор
+cmd-setmonitor-help = Використання: setmonitor <id>
 
-cmd-physics-desc = Shows a debug physics overlay. The arg supplied specifies the overlay.
-cmd-physics-help = Usage: physics <aabbs / com / contactnormals / contactpoints / distance / joints / shapeinfo / shapes>
+cmd-physics-desc = Показує налагоджувальний оверлей фізики. Аргумент вказує оверлей.
+cmd-physics-help = Використання: physics <aabbs / com / contactnormals / contactpoints / distance / joints / shapeinfo / shapes>
 
-cmd-hardquit-desc = Kills the game client instantly.
-cmd-hardquit-help = Kills the game client instantly, leaving no traces. No telling the server goodbye.
+cmd-hardquit-desc = Миттєво закриває ігровий клієнт.
+cmd-hardquit-help = Миттєво закриває ігровий клієнт, не залишаючи слідів. Без прощання з сервером.
 
-cmd-quit-desc = Shuts down the game client gracefully.
-cmd-quit-help = Properly shuts down the game client, notifying the connected server and such.
+cmd-quit-desc = Коректно закриває ігровий клієнт.
+cmd-quit-help = Правильно закриває ігровий клієнт, сповіщаючи підключений сервер і т.д.
 
-cmd-csi-desc = Opens a C# interactive console.
-cmd-csi-help = Usage: csi
+cmd-csi-desc = Відкриває інтерактивну консоль C#.
+cmd-csi-help = Використання: csi
 
-cmd-scsi-desc = Opens a C# interactive console on the server.
-cmd-scsi-help = Usage: scsi
+cmd-scsi-desc = Відкриває інтерактивну консоль C# на сервері.
+cmd-scsi-help = Використання: scsi
 
-cmd-watch-desc = Opens a variable watch window.
-cmd-watch-help = Usage: watch
+cmd-watch-desc = Відкриває вікно спостереження за змінними.
+cmd-watch-help = Використання: watch
 
-cmd-showspritebb-desc = Toggle whether sprite bounds are shown
-cmd-showspritebb-help = Usage: showspritebb
+cmd-showspritebb-desc = Перемикає відображення меж спрайтів
+cmd-showspritebb-help = Використання: showspritebb
 
-cmd-togglelookup-desc = Shows / hides entitylookup bounds via an overlay.
-cmd-togglelookup-help = Usage: togglelookup
+cmd-togglelookup-desc = Показує / приховує межі пошуку сутностей через оверлей.
+cmd-togglelookup-help = Використання: togglelookup
 
-cmd-net_entityreport-desc = Toggles the net entity report panel.
-cmd-net_entityreport-help = Usage: net_entityreport
+cmd-net_entityreport-desc = Перемикає панель звітів про мережеві сутності.
+cmd-net_entityreport-help = Використання: net_entityreport
 
-cmd-net_refresh-desc = Requests a full server state.
-cmd-net_refresh-help = Usage: net_refresh
+cmd-net_refresh-desc = Запитує повний стан сервера.
+cmd-net_refresh-help = Використання: net_refresh
 
-cmd-net_graph-desc = Toggles the net statistics panel.
-cmd-net_graph-help = Usage: net_graph
+cmd-net_graph-desc = Перемикає панель статистики мережі.
+cmd-net_graph-help = Використання: net_graph
 
-cmd-net_watchent-desc = Dumps all network updates for an EntityId to the console.
-cmd-net_watchent-help = Usage: net_watchent <0|EntityUid>
+cmd-net_watchent-desc = Виводить усі мережеві оновлення для EntityId у консоль.
+cmd-net_watchent-help = Використання: net_watchent <0|EntityUid>
 
-cmd-net_draw_interp-desc = Toggles the debug drawing of the network interpolation.
-cmd-net_draw_interp-help = Usage: net_draw_interp <0|EntityUid>
+cmd-net_draw_interp-desc = Перемикає налагоджувальне відображення мережевої інтерполяції.
+cmd-net_draw_interp-help = Використання: net_draw_interp <0|EntityUid>
 
-cmd-vram-desc = Displays video memory usage statics by the game.
-cmd-vram-help = Usage: vram
+cmd-vram-desc = Відображає статистику використання відеопам'яті грою.
+cmd-vram-help = Використання: vram
 
-cmd-showislands-desc = Shows the current physics bodies involved in each physics island.
-cmd-showislands-help = Usage: showislands
+cmd-showislands-desc = Показує поточні фізичні тіла, задіяні в кожному фізичному острові.
+cmd-showislands-help = Використання: showislands
 
-cmd-showgridnodes-desc = Shows the nodes for grid split purposes.
-cmd-showgridnodes-help = Usage: showgridnodes
+cmd-showgridnodes-desc = Показує вузли для цілей розділення гріду.
+cmd-showgridnodes-help = Використання: showgridnodes
 
-cmd-profsnap-desc = Make a profiling snapshot.
-cmd-profsnap-help = Usage: profsnap
+cmd-profsnap-desc = Зробити знімок профілювання.
+cmd-profsnap-help = Використання: profsnap
 
-cmd-devwindow-desc = Dev Window
-cmd-devwindow-help = Usage: devwindow
+cmd-devwindow-desc = Вікно розробника
+cmd-devwindow-help = Використання: devwindow
 
-cmd-scene-desc = Immediately changes the UI scene/state.
-cmd-scene-help = Usage: scene <className>
+cmd-scene-desc = Негайно змінює сцену/стан інтерфейсу.
+cmd-scene-help = Використання: scene <назва_класу>
 
-cmd-szr_stats-desc = Report serializer statistics.
-cmd-szr_stats-help = Usage: szr_stats
+cmd-szr_stats-desc = Повідомити статистику серіалізатора.
+cmd-szr_stats-help = Використання: szr_stats
 
-cmd-hwid-desc = Returns the current HWID (HardWare ID).
-cmd-hwid-help = Usage: hwid
+cmd-hwid-desc = Повертає поточний HWID (HardWare ID).
+cmd-hwid-help = Використання: hwid
 
-cmd-vvread-desc = Retrieve a path's value using VV (View Variables).
-cmd-vvread-help = Usage: vvread <path>
+cmd-vvread-desc = Отримати значення шляху за допомогою VV (Перегляд Змінних).
+cmd-vvread-help = Використання: vvread <шлях>
 
-cmd-vvwrite-desc = Modify a path's value using VV (View Variables).
-cmd-vvwrite-help = Usage: vvwrite <path>
+cmd-vvwrite-desc = Змінити значення шляху за допомогою VV (Перегляд Змінних).
+cmd-vvwrite-help = Використання: vvwrite <шлях>
 
-cmd-vvinvoke-desc = Invoke/Call a path with arguments using VV.
-cmd-vvinvoke-help = Usage: vvinvoke <path> [arguments...]
+cmd-vvinvoke-desc = Викликати/Запустити шлях з аргументами за допомогою VV.
+cmd-vvinvoke-help = Використання: vvinvoke <шлях> [аргументи...]
 
-cmd-dump_dependency_injectors-desc = Dump IoCManager's dependency injector cache.
-cmd-dump_dependency_injectors-help = Usage: dump_dependency_injectors
-cmd-dump_dependency_injectors-total-count = Total count: { $total }
+cmd-dump_dependency_injectors-desc = Вивести кеш інжектора залежностей IoCManager.
+cmd-dump_dependency_injectors-help = Використання: dump_dependency_injectors
+cmd-dump_dependency_injectors-total-count = Загальна кількість: { $total }
 
-cmd-dump_netserializer_type_map-desc = Dump NetSerializer's type map and serializer hash.
-cmd-dump_netserializer_type_map-help = Usage: dump_netserializer_type_map
+cmd-dump_netserializer_type_map-desc = Вивести карту типів NetSerializer та хеш серіалізатора.
+cmd-dump_netserializer_type_map-help = Використання: dump_netserializer_type_map
 
-cmd-hub_advertise_now-desc = Immediately advertise to the master hub server
-cmd-hub_advertise_now-help = Usage: hub_advertise_now
+cmd-hub_advertise_now-desc = Негайно оголосити на головний сервер хабу
+cmd-hub_advertise_now-help = Використання: hub_advertise_now
 
-cmd-echo-desc = Echo arguments back to the console
-cmd-echo-help = Usage: echo "<message>"
+cmd-echo-desc = Повертає аргументи в консоль
+cmd-echo-help = Використання: echo "<повідомлення>"
 
-## 'vfs_ls' command
-cmd-vfs_ls-desc = List directory contents in the VFS.
-cmd-vfs_ls-help = Usage: vfs_list <path>
-    Example:
+## Команда 'vfs_ls'
+cmd-vfs_ls-desc = Вивести вміст каталогу у VFS.
+cmd-vfs_ls-help = Використання: vfs_list <шлях>
+    Приклад:
     vfs_list /Assemblies
 
-cmd-vfs_ls-err-args = Need exactly 1 argument.
-cmd-vfs_ls-hint-path = <path>
+cmd-vfs_ls-err-args = Потрібен рівно 1 аргумент.
+cmd-vfs_ls-hint-path = <шлях>
 
-cmd-reloadtiletextures-desc = Reloads the tile texture atlas to allow hot reloading tile sprites
-cmd-reloadtiletextures-help = Usage: reloadtiletextures
+cmd-reloadtiletextures-desc = Перезавантажує атлас текстур плиток, щоб дозволити гаряче перезавантаження спрайтів плиток
+cmd-reloadtiletextures-help = Використання: reloadtiletextures
 
-cmd-audio_length-desc = Shows the length of an audio file
-cmd-audio_length-help = Usage: audio_length { cmd-audio_length-arg-file-name }
-cmd-audio_length-arg-file-name = <file name>
+cmd-audio_length-desc = Показує тривалість аудіофайлу
+cmd-audio_length-help = Використання: audio_length { cmd-audio_length-arg-file-name }
+cmd-audio_length-arg-file-name = <назва файлу>
 
 ## PVS
-cmd-pvs-override-info-desc = Prints information about any PVS overrides associated with an entity.
-cmd-pvs-override-info-empty = Entity {$nuid} has no PVS overrides.
-cmd-pvs-override-info-global = Entity {$nuid} has a global override.
-cmd-pvs-override-info-clients = Entity {$nuid} has a session override for {$clients}.
+cmd-pvs-override-info-desc = Виводить інформацію про будь-які перевизначення PVS, пов'язані з сутністю.
+cmd-pvs-override-info-empty = Сутність {$nuid} не має перевизначень PVS.
+cmd-pvs-override-info-global = Сутність {$nuid} має глобальне перевизначення.
+cmd-pvs-override-info-clients = Сутність {$nuid} має перевизначення сесії для {$clients}.
 
 cmd-localization_set_culture-desc = Set DefaultCulture for the client LocalizationManager
 cmd-localization_set_culture-help = Usage: localization_set_culture <cultureName>

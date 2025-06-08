@@ -1,218 +1,183 @@
 # Thief
 
-selectable-set-thief-anatomy-name = Anatomy Kit
-selectable-set-thief-anatomy-description =
-    You've reached peak physical performance... with a little help.
-    Includes: Storage implanter, DNA scrambler implanter, a lollypop,
-    ephedrine bottle, syringe, empty shaker, and omega soap.
+selectable-set-thief-anatomy-name = Набір анатомії
+selectable-set-thief-anatomy-description = Ви досягли піку фізичної форми... з невеликою допомогою.
+    Включає: імплантатор-сховище, імплантатор-шифратор ДНК, льодяник,
+    пляшку ефедрину, шприц, порожній шейкер та омега-мило.
 
-selectable-set-thief-breacher-name = Breacher Kit
-selectable-set-thief-breacher-description =
-    What's that sound? A lil' C4 knockin' at their door.
-    No obstacle can stop you!
-    Includes: Two C4, a multitool, remote signaller, jaws of life,
-    advanced welder, engineering goggles, and insulated gloves.
+selectable-set-thief-breacher-name = Набір штурмовика
+selectable-set-thief-breacher-description = Що це за звук? Трохи C4 стукає в їхні двері.
+    Жодна перешкода вас не зупинить!
+    Включає: два заряди C4, мультитул, дистанційний сигналізатор, щелепи життя,
+    покращений зварювальний апарат, інженерні окуляри та ізольовані рукавиці.
 
-selectable-set-thief-chameleon-name = Chameleon Kit
-selectable-set-thief-chameleon-description =
-    You are everyone and no one; you are a master of disguise.
-    Includes: A full set of chameleon clothing,
-    a chameleon projector, and an Agent ID.
-    Disguise as anyone and anything.
+selectable-set-thief-chameleon-name = Набір хамелеона
+selectable-set-thief-chameleon-description = Ви — усі і ніхто; ви — майстер маскування.
+    Включає: повний набір одягу-хамелеона,
+    проектор-хамелеон та ID-карту агента.
+    Маскуйтеся під будь-кого і будь-що.
 
-selectable-set-thief-syndie-name = Syndie Kit
-selectable-set-thief-syndie-description =
-    Trinkets from a disavowed past, or stolen from a careless agent?
-    You've made some connections. Whiskey, echo...
-    Includes: An Emag, Access Breaker, Interdyne cigs, a Syndicate codeword,
-    a Radio Jammer, a lighter and some strange red crystals.
+selectable-set-thief-syndie-name = Набір Синдикату
+selectable-set-thief-syndie-description = Дрібнички з відкинутого минулого чи вкрадені у необережного агента?
+    Ви налагодили зв'язки. Віскі, ехо...
+    Включає: Емаг, Ламач доступу, сигарети 'Interdyne', кодове слово Синдикату,
+    радіоглушник, запальничку та кілька дивних червоних кристалів.
 
-selectable-set-thief-sleeper-name = Sleeper Kit
-selectable-set-thief-sleeper-description =
-    Until we close our eyes for good, use your illegal prescriptions
-    to keep others asleep.
-    Includes: Sleepy nitrous oxide tank, two nocturine bottles,
-    and a hypopen.
+selectable-set-thief-sleeper-name = Набір "Соня
+selectable-set-thief-sleeper-description = Поки ми не закриємо очі назавжди, використовуйте свої нелегальні рецепти,
+    щоб тримати інших уві сні.
+    Включає: балон зі снодійним закисом азоту, дві пляшки ноктурину
+    та гіпопен.
 
-selectable-set-thief-communicator-name = Communicator Kit
-selectable-set-thief-communicator-description =
-    Money is power, and secrets are money. Use your silver tongue
-    and wealth to subvert the station.
-    Includes: Master key for all station channels, a CyberSun pen,
-    voice chameleon mask, and 20k spesos inside a briefcase.
+selectable-set-thief-communicator-name = Набір комунікатора
+selectable-set-thief-communicator-description = Гроші — це влада, а секрети — це гроші. Використовуйте свій підвішений язик
+    та багатство, щоб підірвати станцію зсередини.
+    Включає: майстер-ключ до всіх каналів станції, ручку CyberSun,
+    маску-хамелеон для голосу та 20 тисяч спесо у валізі.
 
-selectable-set-thief-smuggler-name = Smuggler Kit
-selectable-set-thief-smuggler-description =
-    All thieves need somewhere to stash their goods in the dark.
-    Don't forget to link your fulton.
-    Includes: Fulton beacon, 10 fultons, 3 smoke grenades,
-    and an invisible crate to hide valuable loot.
+selectable-set-thief-smuggler-name = Набір контрабандиста
+selectable-set-thief-smuggler-description = Усім злодіям потрібне місце, де можна сховати свої товари в темряві.
+    Не забудьте прив'язати свій фултон.
+    Включає: фултон-маяк, 10 фултонів, 3 димові гранати,
+    та невидимий ящик для сховку цінного луту.
 
-# Syndicate
+# Синдикат
 
-selectable-set-syndicate-spy-name = Spy Bundle
-selectable-set-syndicate-spy-description =
-    Complete your objectives quietly with this compilation of stealthy items.
-    Contains: chameleon thieving gloves, chameleon kit, voice mask,
-    agent ID card, an empty hypopen, radio jammer, stealth box,
-    syndicate jaws of life, and a syndicate encryption key.
+selectable-set-syndicate-spy-name = Набір шпигуна
+selectable-set-syndicate-spy-description = Виконуйте свої завдання тихо за допомогою цієї добірки предметів для скритності.
+    Містить: злодійські рукавички-хамелеон, набір хамелеона, голосову маску,
+    ID-карту агента, порожній гіпопен, радіоглушник, скриньку для скритності,
+    щелепи життя синдикату та ключ шифрування синдикату.
 
-selectable-set-syndicate-hitman-name = Hitman Bundle
-selectable-set-syndicate-hitman-description =
-    Find and eliminate your targets quietly and effectively with this bundle.
-    Contains: Cobra pistol with 3 extra mags, CQC manual,
-    special armor vest, no-slip shoes, Interdyne herbals packet,
-    combat medkit, a stylish look and a syndicate encryption key.
+selectable-set-syndicate-hitman-name = Набір найманого вбивці
+selectable-set-syndicate-hitman-description = Знаходьте та ліквідуйте свої цілі тихо та ефективно з цим набором.
+    Містить: пістолет "Кобра" з 3 додатковими магазинами, посібник з рукопашного бою,
+    спеціальний бронежилет, нековзні черевики, пачку трав'яних сигарет "Interdyne",
+    бойову аптечку, стильний вигляд та ключ шифрування синдикату.
 
-selectable-set-syndicate-implants-name = Cyberpsychosis Bundle
-selectable-set-syndicate-implants-description =
-    A few implants to give you some options for when you inevitably get arrested.
-    Contains: EMP, scram, freedom, smoke, krav maga and syndicate radio implanters,
-    Sandevistan and paired mantis blades autosurgeons, and a cool jacket.
+selectable-set-syndicate-implants-name = Набір кіберпсихопата
+selectable-set-syndicate-implants-description = Кілька імплантів, щоб дати вам варіанти дій, коли вас неминуче заарештують.
+    Містить: імплантатори ЕМІ, шифрування, свободи, диму, крав-маги та радіо синдикату,
+    автохірурги для Сандевістану та парних лез-богомолів, а також круту куртку.
 
-selectable-set-syndicate-hacker-name = Hacker Bundle
-selectable-set-syndicate-hacker-description =
-    A bundle with everything you need to hack into and disrupt the Station itself,
-    the station AI, its cyborgs and the Security team. HACK THE PLANET!
-    Contains: Antimov law circuit, authentication disruptor, EMAG,
-    camera bug, filled toolbox, contortionist suit,
-    cool glasses and both binary and syndicate encryption keys.
+selectable-set-syndicate-hacker-name = Набір хакера
+selectable-set-syndicate-hacker-description = Набір з усім необхідним для злому та порушення роботи самої станції,
+    її ШІ, кіборгів та служби безпеки. ЗЛАМАЙ ПЛАНЕТУ!
+    Містить: плату закону Антимова, порушник автентифікації, ЕМАГ,
+    камерний жучок, заповнений ящик з інструментами, костюм контракціоніста,
+    круті окуляри та ключі двійкового та синдикатського шифрування.
 
-selectable-set-syndicate-desword-name = Dark Lord Bundle
-selectable-set-syndicate-desword-description =
-    Turn your anger into hate and your hate into suffering with this lightsaber.
-    Contains: double-bladed energy sword, hyperzine microinjector kit, glue tube,
-    all clothing you need for a proper cosplay and a syndicate encryption key.
+selectable-set-syndicate-desword-name = Набір Темного Лорда
+selectable-set-syndicate-desword-description = Перетворіть свій гнів на ненависть, а ненависть — на страждання за допомогою цього світлового меча.
+    Містить: двосторонній енергетичний меч, набір мікроін'єкторів з гіперзином, тюбик клею,
+    весь одяг, необхідний для належного косплею, та ключ шифрування синдикату.
 
-selectable-set-syndicate-grenadier-name = Grenadier Bundle
-selectable-set-syndicate-grenadier-description =
-    Some explosives to ensure you can blast your way through any situation.
-    Contains: syndicate encryption key, bomb suit, grenadier belt rig,
-    explosive-resistant backpack and so many grenades you'll fall asleep reading.
+selectable-set-syndicate-grenadier-name = Набір гренадера
+selectable-set-syndicate-grenadier-description = Трохи вибухівки, щоб ви могли пробити собі шлях у будь-якій ситуації.
+    Містить: ключ шифрування синдикату, вибухозахисний костюм, розвантажувальний пояс гренадера,
+    вибухостійкий рюкзак і стільки гранат, що ви заснете, читаючи список.
 
-selectable-set-syndicate-fluclear-name = Fluclear Operative Bundle
-selectable-set-syndicate-fluclear-description =
-    Declare your allegiance to the Syndicate with this bundle, get dat fuckin' disk!
-    Contains: C-20R SMG, 3 extra mags, energy shield, jetpack,
-    and some basic nuclear operative gear (including the hardsuit).
+selectable-set-syndicate-fluclear-name = Набір ядерного оперативника
+selectable-set-syndicate-fluclear-description = Заявіть про свою вірність Синдикату з цим набором, дістаньте той бісовий диск!
+    Містить: пістолет-кулемет C-20R, 3 додаткові магазини, енергетичний щит, джетпак,
+    та деяке базове спорядження ядерного оперативника (включно з важким скафандром).
 
-selectable-set-syndicate-friendship-name = Friendship Bundle
-selectable-set-syndicate-friendship-description =
-    Friendship is magic! Go find yourself some friends with this bundle!
-    Contains: a contractor baton and handcuffs for you, 4 mindcontrol implanters
-    and Mosin rifles for your friends, and 5 syndicate encryption keys for you all.
+selectable-set-syndicate-friendship-name = Набір дружби
+selectable-set-syndicate-friendship-description = Дружба — це магія! Знайдіть собі друзів з цим набором!
+    Містить: кийок підрядника та наручники для вас, 4 імплантатори контролю розуму
+    та гвинтівки Мосіна для ваших друзів, а також 5 ключів шифрування синдикату для всіх вас.
 
-selectable-set-syndicate-carp-name = Carp Bundle
-selectable-set-syndicate-carp-description =
-    Grr! Rrrr! Grr... Grrow?! KOWABUNGA!
-    Contains: Sleeping Carp, 10 dehydrated carp and a syndicate encryption key.
+selectable-set-syndicate-carp-name = Набір карпа
+selectable-set-syndicate-carp-description = Грр! Рррр! Грр... Грроу?! КОВАБУНГА!
+    Містить: Сплячий Карп, 10 зневоднених карпів та ключ шифрування синдикату.
 
-# Blueshield
+# Блюшилд
 
-selectable-set-blueshield-shield-name = blueshield set
-selectable-set-blueshield-shield-description =
-    The iconic namesake of these soldiers.
-    Includes: The greatshield, and the DT-4 Atrocity customized stun baton.
+selectable-set-blueshield-shield-name = набір блюшилда
+selectable-set-blueshield-shield-description = Культова річ, що дала назву цим солдатам.
+    Включає: великий щит та кастомізований електрокийок DT-4 'Atrocity'.
 
-selectable-set-blueshield-revolver-name = revolver set
-selectable-set-blueshield-revolver-description =
-    Running out of ammo is the worst thing that could happen in a firefight.
-    Includes: The EG-4 energy revolver, capable of firing bolts using
-    recharging speedloaders, both lethal and not, and a shoulder holster.
+selectable-set-blueshield-revolver-name = набір з револьвером
+selectable-set-blueshield-revolver-description = Закінчення набоїв — найгірше, що може трапитися в перестрілці.
+    Включає: енергетичний револьвер EG-4, здатний стріляти болтами за допомогою
+    перезаряджуваних спідлоадерів, як летальними, так і ні, та плечову кобуру.
 
-selectable-set-blueshield-cqc-name = close quarters combat set
-selectable-set-blueshield-cqc-description =
-    Sometimes you need to get your hands dirty.
-    Includes: A book capable of teaching the user
-    advanced close-quarters-combat.
+selectable-set-blueshield-cqc-name = набір для ближнього бою
+selectable-set-blueshield-cqc-description = Іноді доводиться бруднити руки.
+    Включає: книгу, здатну навчити користувача
+    просунутому ближньому бою.
 
-selectable-set-blueshield-chester-name = chester set
-selectable-set-blueshield-chester-description =
-    Ready to go hunting?
-    Includes: 8 Gauge shotgun, the Chester. Spare ammo,
-    Alternate ammo, Spare magazines.
+selectable-set-blueshield-chester-name = набір "Честер
+selectable-set-blueshield-chester-description = Готові до полювання?
+    Включає: дробовик 8-го калібру, 'Честер'. Запасні набої,
+    Альтернативні набої, Запасні магазини.
 
-selectable-set-blueshield-syringe-name = medical set
-selectable-set-blueshield-syringe-description =
-    Perfect for healing allies or poisioning foes in a pinch.
-    Includes: A combat injector, and several vials of medicine.
+selectable-set-blueshield-syringe-name = медичний набір
+selectable-set-blueshield-syringe-description = Ідеально підходить для лікування союзників або отруєння ворогів у скрутну хвилину.
+    Включає: бойовий інжектор та кілька флаконів з ліками.
 
-# Blueshield hardsuits
+# Важкі скафандри Блюшилда
 
-selectable-set-blueshield-hardsuit-light-name = armoured voidsuit
-selectable-set-blueshield-hardsuit-light-description =
-    An armoured voidsuit, allowing for more speed at the cost of protection.
+selectable-set-blueshield-hardsuit-light-name = броньований космічний скафандр
+selectable-set-blueshield-hardsuit-light-description = Броньований космічний скафандр, що забезпечує більшу швидкість за рахунок захисту.
 
-selectable-set-blueshield-modsuit-name = blueshield hardsuit
-selectable-set-blueshield-modsuit-description =
-    A custom hardsuit, allowing for more customisation, at the cost of requiring power.
+selectable-set-blueshield-modsuit-name = важкий скафандр блюшилда
+selectable-set-blueshield-modsuit-description = Кастомний важкий скафандр, що дозволяє більше налаштувань, за рахунок потреби в енергії.
 
-# ERT
+# ЕРТ
 
-selectable-set-ert-ballistic-name = ballistics set
-selectable-set-ert-ballistic-description =
-    Reliable, efficient, and compact. The Annies got your back.
-    Includes: .30 caliber rifle, the Annie.
-    Spare magazines for it, and an N1984.
+selectable-set-ert-ballistic-name = балістичний набір
+selectable-set-ert-ballistic-description = Надійний, ефективний та компактний. Енні вас прикриє.
+    Включає: гвинтівку калібру .30, Енні.
+    Запасні магазини до неї та N1984.
 
-selectable-set-ert-pulse-name = pulse set
-selectable-set-ert-pulse-description =
-    Running out of ammo is the worst thing that could happen
-    in a firefight.
-    Includes: A modified pulse carbine.
-    EG-4 revolver, pulse cells.
+selectable-set-ert-pulse-name = імпульсний набір
+selectable-set-ert-pulse-description = Закінчення набоїв — найгірше, що може трапитися
+    в перестрілці.
+    Включає: модифікований імпульсний карабін.
+    Револьвер EG-4, імпульсні елементи живлення.
 
-# Voidsuit selectors
+# Селектори космічних скафандрів
 
-selectable-set-paramedic-voidsuit-name = Paramedic voidsuit
-selectable-set-paramedic-voidsuit-desc =
-    A light voidsuit with minimal protection
-    but a fast movement speed.
+selectable-set-paramedic-voidsuit-name = Космічний скафандр парамедика
+selectable-set-paramedic-voidsuit-desc = Легкий космічний скафандр з мінімальним захистом,
+    але високою швидкістю руху.
 
-selectable-set-paramedic-modsuit-name = Sanitater hardsuit
-selectable-set-paramedic-modsuit-desc =
-    A modular hardsuit with heavier plates
-    to shrug off a bullet or two, hopefully.
+selectable-set-paramedic-modsuit-name = Важкий скафандр санітара
+selectable-set-paramedic-modsuit-desc = Модульний важкий скафандр з важчими пластинами,
+    щоб, сподіваємось, витримати кулю-другу.
 
-selectable-set-security-voidsuit-name = Security voidsuit
-selectable-set-security-voidsuit-desc =
-    A light voidsuit with an in-built plate carrier to provide
-    moderate protection while remaining mobile for low intensity kinetic ops.
+selectable-set-security-voidsuit-name = Космічний скафандр служби безпеки
+selectable-set-security-voidsuit-desc = Легкий космічний скафандр з вбудованим бронежилетом для забезпечення
+    помірного захисту, залишаючись мобільним для кінетичних операцій низької інтенсивності.
 
-selectable-set-security-modsuit-name = Security 'soldat' hardsuit
-selectable-set-security-modsuit-desc =
-    A modular hardsuit with ceramic inserts to provide more protection
-    than the voidsuit counterpart, but with less mobility.
+selectable-set-security-modsuit-name = Важкий скафандр служби безпеки 'Солдат'
+selectable-set-security-modsuit-desc = Модульний важкий скафандр з керамічними вставками для забезпечення більшого захисту,
+    ніж його аналог у вигляді космічного скафандра, але з меншою мобільністю.
 
-selectable-set-headofsecurity-voidsuit-name = Head of security's voidsuit
-selectable-set-headofsecurity-voidsuit-desc =
-    A light voidsuit with material cut from non-vital areas to slightly increase
-    the armour value of the vital organs and increase mobility
-    compared to the standard security voidsuit.
+selectable-set-headofsecurity-voidsuit-name = Космічний скафандр голови служби безпеки
+selectable-set-headofsecurity-voidsuit-desc = Легкий космічний скафандр з матеріалом, вирізаним з нежиттєво важливих зон для незначного збільшення
+    показника броні життєво важливих органів та підвищення мобільності
+    у порівнянні зі стандартним скафандром служби безпеки.
 
-selectable-set-headofsecurity-modsuit-name = Head of security's 'bulwark' hardsuit
-selectable-set-headofsecurity-modsuit-desc =
-    A modular hardsuit with expensive plastitanium armour for the head of security's use.
-    Comes equipped with a manually operated on-board intravenous stim injector
+selectable-set-headofsecurity-modsuit-name = Важкий скафандр голови служби безпеки 'Оплот'
+selectable-set-headofsecurity-modsuit-desc = Модульний важкий скафандр з дорогою пластитановою бронею для використання головою служби безпеки.
+    Оснащений бортовим внутрішньовенним стимуляційним ін'єктором з ручним керуванням
 
-selectable-set-engineering-voidsuit-name = Engineering voidsuit
-selectable-set-engineering-voidsuit-desc =
-    A light voidsuit for low-intensity repairs around the station
+selectable-set-engineering-voidsuit-name = Інженерний космічний скафандр
+selectable-set-engineering-voidsuit-desc = Легкий космічний скафандр для ремонту низької інтенсивності навколо станції
 
-selectable-set-engineering-modsuit-name = Engineering 'sapper' hardsuit
-selectable-set-engineering-modsuit-desc =
-    A modular hardsuit with increased blast plating and the large vulnerable visor
-    replaced with external cameras to better protect against explosions
-    and other external threats.
+selectable-set-engineering-modsuit-name = Інженерний важкий скафандр 'Сапер'
+selectable-set-engineering-modsuit-desc = Модульний важкий скафандр з посиленим вибухозахисним покриттям та великим вразливим візором,
+    заміненим на зовнішні камери для кращого захисту від вибухів
+    та інших зовнішніх загроз.
 
-selectable-set-captain-voidsuit-name = Captain's voidsuit
-selectable-set-captain-voidsuit-desc =
-    Captain's light voidsuit made custom fitted for formal occasions, lightly
-    armored to protect during the average shift, all while still retaining
-    common spacewalking capabilities.
+selectable-set-captain-voidsuit-name = Капітанський скафандр
+selectable-set-captain-voidsuit-desc = Легкий капітанський скафандр, виготовлений на замовлення для урочистих подій, легко
+    броньований для захисту під час звичайної зміни, і при цьому зберігає
+    звичайні можливості для виходу у відкритий космос.
 
-selectable-set-captain-modsuit-name = Captain's 'Magnate' hardsuit
-selectable-set-captain-modsuit-desc =
-    A modular hardsuit perfectly shined, adorned, and armored for the best of
-    the best, fitted with custom plating, cooling fluid, and diamonds to
-    make even the toughest of times leading seem like nothing to you.
+selectable-set-captain-modsuit-name = Капітанський важкий скафандр 'Магнат'
+selectable-set-captain-modsuit-desc = Модульний важкий скафандр, ідеально відполірований, прикрашений і броньований для найкращих
+    з найкращих, оснащений виготовленими на замовлення пластинами, охолоджувальною рідиною та діамантами, щоб
+    навіть найважчі часи керівництва здавалися вам нічим.

@@ -35,3 +35,6 @@ hud-chatbox-channel-Unspecified = Невизначений
 #PIRATE START
 hud-chatbox-select-channel-Empathy = Емпатія
 hud-chatbox-channel-Empathy = Емпатія
+
+hud-chatbox-select-channel-CollectiveMind = Колективний Розум
+hud-chatbox-channel-CollectiveMind = Колективний Розум

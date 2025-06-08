@@ -16,3 +16,6 @@ comp-kitchen-spike-remove-meat = Ви зрізаєте трохи м'яса з {
 comp-kitchen-spike-remove-meat-last = Ви зрізали останній шматок м'яса з { $victim }!
 
 comp-kitchen-spike-meat-name = { $name } ({ $victim })
+
+comp-kitchen-spike-deny-changeling = { CAPITALIZE(THE($victim)) } опирається насаджуванню на { THE($this) }.
+comp-kitchen-spike-deny-absorbed = У { CAPITALIZE(THE($victim)) } нічого не залишилося для розбирання.

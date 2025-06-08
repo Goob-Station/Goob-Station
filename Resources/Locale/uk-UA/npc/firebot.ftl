@@ -3,4 +3,4 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-firebot-fire-detected = Fire detected!
+firebot-fire-detected = Виявлено пожежу!

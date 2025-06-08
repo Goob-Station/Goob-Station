@@ -50,3 +50,5 @@ spell-summon-simians-maxed-out-message = Ваша мавпяча сила дос
 
 ghosts-summoned-message = Привиди викликані!
 dimension-shift-message = Виміри зміщуються!
+
+global-tile-movement-message = Починає грати зловісний ритм!

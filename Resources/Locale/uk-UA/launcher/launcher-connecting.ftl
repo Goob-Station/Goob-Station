@@ -18,3 +18,5 @@ connecting-state-ResolvingHost = Налаштування на хост
 connecting-state-EstablishingConnection = Встановлення з'єднання
 connecting-state-Handshake = Рукостискання
 connecting-state-Connected = Підключено
+
+connecting-copy = Копіювати повідомлення

@@ -81,3 +81,7 @@ holiday-custom-halloween = Бажаю вам моторошного Хеллов
 holiday-custom-kindness-day = Зробіть якийсь випадковий акт доброти для незнайомця!
 holiday-custom-christmas = Бажаю вам веселого Різдва! Не забудьте про кутю!
 holiday-custom-festive-season = Бажаю вам гарного святкового сезону!
+
+holiday-name-pride-month = Місяць гордості
+
+## Власні привітання

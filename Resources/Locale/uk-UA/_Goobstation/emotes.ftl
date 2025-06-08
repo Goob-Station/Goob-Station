@@ -9,16 +9,16 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-emote-menu-category-farts = Farts
+emote-menu-category-farts = Пуки
 
-chat-emote-name-flip = Do a flip
-chat-emote-name-spin = Spin
-chat-emote-name-jump = Jump
-chat-emote-name-tweak = Tweak
-chat-emote-name-flex = Flex muscles
+chat-emote-name-flip = Зробити сальто
+chat-emote-name-spin = Обертатися
+chat-emote-name-jump = Стрибнути
+chat-emote-name-tweak = Смикатися
+chat-emote-name-flex = Грати м'язами
 
-chat-emote-msg-flip = does a flip!
-chat-emote-msg-spin = spins!
-chat-emote-msg-jump = jumps!
-chat-emote-msg-tweak = starts tweaking!
-chat-emote-msg-flex = flexes its muscles.
+chat-emote-msg-flip = робить сальто!
+chat-emote-msg-spin = обертається!
+chat-emote-msg-jump = стрибає!
+chat-emote-msg-tweak = починає смикатися!
+chat-emote-msg-flex = грає м'язами.

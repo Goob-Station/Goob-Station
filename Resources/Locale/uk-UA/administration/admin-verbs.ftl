@@ -15,3 +15,4 @@ toolshed-verb-mark = Маркувати
 toolshed-verb-mark-description = Поміщає цей об'єкт у змінну $marked, список об'єктів, замінюючи її попереднє значення.
 
 admin-verbs-freeze-and-mute = Заморозити і замутити
+export-entity-verb-get-data-text = Експортувати спрайт

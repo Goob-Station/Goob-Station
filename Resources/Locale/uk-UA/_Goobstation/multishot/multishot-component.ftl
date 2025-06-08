@@ -1,1 +1,1 @@
-multishot-component-examine = This weapon can be dual-wielded, causing it to miss { $chance }% of the time.
+multishot-component-examine = Цю зброю можна тримати в обох руках, що призводить до промаху в { $chance }% випадків.

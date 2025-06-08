@@ -1,10 +1,10 @@
-popup-trauma-BoneDamage-Damaged = You feel some pain in your {$part}.
-popup-trauma-BoneDamage-Cracked = You feel a sharp pain in your {$part}!
-popup-trauma-BoneDamage-Broken = You hear a loud crack in your {$part}!!
-self-inspect-trauma-BoneDamage = hurting inside
-self-inspect-trauma-BoneDamage-Large = feels dislocated
-inspect-trauma-BoneDamage = looks dislocated.
+popup-trauma-BoneDamage-Damaged = Ви відчуваєте біль у {$part}.
+popup-trauma-BoneDamage-Cracked = Ви відчуваєте різкий біль у {$part}!
+popup-trauma-BoneDamage-Broken = Ви чуєте гучний хрускіт у вашій {$part}!!
+self-inspect-trauma-BoneDamage = болить всередині
+self-inspect-trauma-BoneDamage-Large = відчувається як вивих
+inspect-trauma-BoneDamage = виглядає вивихнутою.
 
-popup-trauma-OrganDamage-Damaged = Your {$part} feels very wrong...
-popup-trauma-OrganDamage-Destroyed = You feel a very sharp pain in your {$part}!
-self-inspect-trauma-OrganDamage = Your {$part} feels tight, and breathing hurts.
+popup-trauma-OrganDamage-Damaged = З вашою {$part} щось не так...
+popup-trauma-OrganDamage-Destroyed = Ви відчуваєте дуже різкий біль у {$part}!
+self-inspect-trauma-OrganDamage = Ваша {$part} напружена, і дихати боляче.

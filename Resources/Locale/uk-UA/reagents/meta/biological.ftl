@@ -30,4 +30,4 @@ reagent-desc-grey-matter = Виглядає наче сік, що витікає
 reagent-name-sap = сік
 reagent-desc-sap = Липка, солодка кров дерева.
 reagent-name-black-blood = чорна кров
-reagent-desc-black-blood = Це точно не кетчуп.
+reagent-desc-black-blood = Це точно не кетчуп і не соус барбекю.

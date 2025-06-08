@@ -4,6 +4,6 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-glasses-snap = Your glasses snap into pieces!
+glasses-snap = Ваші окуляри розлітаються на шматки!
 
-# Unused for now, but might be if i make glasses snapping actually work :godo:
+# Наразі не використовується, але може бути, якщо я зроблю так, щоб розбиття окулярів працювало :godo:

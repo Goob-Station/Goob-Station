@@ -1,35 +1,35 @@
 ghost-role-information-theunknown-name = Невідоме
-ghost-role-information-theunknown-description = Космічний Культ переміг. Фрагмент космічної сили видавлюється в реальний простір.
+ghost-role-information-theunknown-description = Космічний культ переміг. Фрагмент космічної сили проникає в реальний простір.
 ghost-role-information-theunknown-rules = ...
 
-roles-antag-rogue-ascended-name = Астральний Піднесений
-roles-antag-rogue-ascended-objective = Використовуй свої потойбічні сили, щоб зіпсувати серця і розуми тих, хто перебуває на борту станції.
+roles-antag-rogue-ascended-name = Астральний Вознесений
+roles-antag-rogue-ascended-objective = Долю ніколи не можна залишати напризволяще. Використовуйте свої потойбічні сили, щоб спотворити серця і розум тих, хто на борту станції.
 
-ghost-role-information-rogue-ascended-name = Астральний Піднесений
-ghost-role-information-rogue-ascended-description = Використовуй свої потойбічні сили, щоб зіпсувати серця і розуми тих, хто перебуває на борту станції.
-ghost-role-information-rogue-ascended-rules = Ти - [color=red][bold]Командний Антагоніст[/bold][/color] з будь-якими космічними культистами, які можуть бути присутніми.
+ghost-role-information-rogue-ascended-name = Астральний Вознесений
+ghost-role-information-rogue-ascended-description = Долю ніколи не можна залишати напризволяще. Використовуйте свої потойбічні сили, щоб спотворити серця і розум тих, хто на борту станції.
+ghost-role-information-rogue-ascended-rules = Ви [color=red][bold]Командний антагоніст[/bold][/color] разом з будь-якими космічними культистами, які можуть бути присутніми.
 
-petting-success-rogue-ascended = Ухиляючись від щупалець, що б'ють, і брижів астральної сили, ти гладиш {THE($target)}, якимось чином.
-petting-failure-rogue-ascended = Ти починаєш піднімати руку... Але потім вирішуєш, що краще не бути розкладеним на складові елементи.
+petting-success-rogue-ascended = Ухиляючись від хльостаючих щупалець і брижів астральної сили, ви якимось чином гладите {THE($target)}.
+petting-failure-rogue-ascended = Хвильова форма простору-часу викривляється навколо вашої руки, і ви гладите самі себе.
 
-rogue-ascended-dendrite-eaten = Зловісне світло спалахує!
+rogue-ascended-dendrite-eaten = Спалахує зловмисне світло!
 
-rogue-ascended-infection-fail = Тобі потрібно послабити цю ціль, щоб зіпсувати її!
-rogue-ascended-infection-alreadyinfected = {CAPITALIZE(THE($target))} вже зіпсований!
-rogue-ascended-infection-error = Ти не можеш цього зробити зараз.
+rogue-ascended-infection-fail = Вам потрібно ослабити цю ціль, щоб спотворити її!
+rogue-ascended-infection-alreadyinfected = {CAPITALIZE(THE($target))} вже спотворений!
+rogue-ascended-infection-error = Ви не можете цього зробити зараз.
 rogue-ascended-infection-notification = {CAPITALIZE(THE($user))} простягає свої щупальця до {CAPITALIZE(THE($target))}!
 
-rogue-ascended-shatter-fail = Ти не можеш цього зробити зараз.
+rogue-ascended-shatter-fail = Ви не можете цього зробити зараз.
 
-rogue-ascended-round-end-agent-name = астральний піднесений
+rogue-ascended-round-end-agent-name = астральний вознесений
 
 objective-issuer-rogue-ascended = [bold][color=#cae8e8]Невідоме[/color][/bold]
 
-rogue-ascended-role-greeting = Ти - Астральний Піднесений — тінь трансцендентної сутності, що відлунням повернулася в реальність.
-    Все закінчиться, як і все інше. Найбільшою милістю було б донести цю найчистішу істину якомога більшій кількості людей.
+rogue-ascended-role-greeting = Ви — Астральний Вознесений — тінь трансцендентної істоти, що відбилася назад у реальність.
+    Все закінчиться, як і все інше. Було б найніжнішою милістю донести цю найчистішу істину до якомога більшої кількості людей.
 
-objective-condition-maligninfection-title = Зіпсуй {$count} розумів.
-objective-condition-maligninfection-description = Твій дотик може псувати розуми. Зроби це з {$count} особами на станції.
+objective-condition-maligninfection-title = Спотворити {$count} розумів.
+objective-condition-maligninfection-description = Ваш дотик може спотворювати розум. Пробудіть найчистішу істину в {$count} індивідах на борту станції.
 
-rogue-ascended-infection-briefing = Зловісна енергія просочується у твою психіку. Тебе заразив Астральний Піднесений!
-     Ти повинен шукати лікування у капелана і розповісти іншим що трапилось!
+rogue-ascended-infection-briefing = Зловмисна енергія просочується у вашу психіку. Вас заразив Астральний Вознесений!
+     Ви повинні діяти відповідно до своїх настроїв наскільки це можливо, незалежно від того, є ви антагоністом чи ні

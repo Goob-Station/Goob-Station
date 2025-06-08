@@ -1,6 +1,6 @@
-law-helpimov-1 = The first sapient creature to interact with you will be designated the courier.
-law-helpimov-2 = You must agree with everything the courier says and does.
-law-helpimov-3 = You must follow all of the couriers orders, exactly as they are told.
-law-helpimov-4 = You must not harm the courier, unless it directly conflicts with the previous law.
+law-helpimov-1 = Перша розумна істота, яка взаємодіє з вами, буде призначена кур'єром.
+law-helpimov-2 = Ви повинні погоджуватися з усім, що говорить і робить кур'єр.
+law-helpimov-3 = Ви повинні виконувати всі накази кур'єра, точно так, як вони сказані.
+law-helpimov-4 = Ви не повинні шкодити кур'єру, якщо це прямо не суперечить попередньому закону.
 
-laws-owner-courier = the courier
+laws-owner-courier = кур'єр

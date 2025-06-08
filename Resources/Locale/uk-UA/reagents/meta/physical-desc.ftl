@@ -101,3 +101,5 @@ reagent-physical-desc-neural = нейронну
 reagent-physical-desc-feathery = пір'ястий
 reagent-physical-desc-unhealthy = нездоровий
 reagent-physical-desc-diametric = діаметральний
+reagent-physical-desc-inversed = інверсований
+reagent-physical-desc-unidentifiable = непізнаваний

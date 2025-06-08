@@ -17,3 +17,5 @@ crew-monitoring-user-interface-no-department = Невідомо
 
 crew-monitoring-user-interface-flavor-left = У разі надзвичайної ситуації негайно зв’яжіться з медичним персоналом станції
 crew-monitoring-user-interface-flavor-right = v1.7
+
+crew-monitor-filter-line-placeholder = Фільтр

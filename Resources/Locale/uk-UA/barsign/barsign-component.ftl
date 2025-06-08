@@ -110,3 +110,7 @@ barsign-prototype-name-maltroach = Мальтроуч
 barsign-prototype-description-maltroach = Пищить!
 
 ## EmpBarSign
+barsign-prototype-name-whiskeyechoes = Відлуння віскі
+barsign-prototype-description-whiskeyechoes = Елітний бар для елітних опер... стривайте, це ж станція Nanotrasen. Чому ця вивіска в базі даних?
+
+## EmpBarSign

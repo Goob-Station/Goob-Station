@@ -271,7 +271,7 @@ ui-options-announcer-disable-multiple-sounds-tooltip = Деякі оголоше
 ui-options-hotkey-default-walk = Ходити за замовчуванням
 ui-options-no-filters = Вимкнути расові візуальні фільтри
 ui-options-function-look-up = Подивіться вгору/Цільтеся
-ui-options-function-auto-get-up = Автоматичне вставання після падіння
+ui-options-function-auto-get-up = Автоматично вставати після падіння
 ui-options-function-hold-look-up = Утримуйте клавішу, щоб прицілитися
 
 ui-options-vp-vertical-fit = Вертикальне кріплення оглядового вікна
@@ -302,4 +302,66 @@ ui-options-mood-visual-effects = Увімкніть візуальні ефек�
 
 ui-options-function-smart-equip-back = Автоматично екіпірувати в слот спини
 ui-options-binds-search = Пошук
-ui-options-log-in-chat = Записувати спливаючі вікна в чат
+ui-options-log-in-chat = Записувати дії в чат
+ui-options-tab-accessibility = Доступність
+ui-options-tab-admin = Адмін
+ui-options-value-percent = { TOSTRING($value, "P0") }
+
+# Меню Різне/Загальне
+ui-options-bwoink-sound = Відтворити звук сповіщення AHelp
+ui-options-display-label = Дисплей
+ui-options-quality-label = Якість
+ui-options-misc-label = Різне
+ui-options-interface-label = Інтерфейс
+ui-options-hud-layout-default = За замовчуванням
+ui-options-hud-layout-separated = Розділений
+ui-options-vp-scale-value = x{ $scale }
+ui-options-function-rotate-object-clockwise = Обертати за годинниковою стрілкою
+ui-options-function-rotate-object-counterclockwise = Обертати проти годинникової стрілки
+ui-options-function-flip-object = Перевернути
+ui-options-function-open-emotes-menu = Відкрити меню емоцій
+ui-options-function-hotbarshift1 = Слот швидкого доступу Shift+1
+ui-options-function-hotbarshift2 = Слот швидкого доступу Shift+2
+ui-options-function-hotbarshift3 = Слот швидкого доступу Shift+3
+ui-options-function-hotbarshift4 = Слот швидкого доступу Shift+4
+ui-options-function-hotbarshift5 = Слот швидкого доступу Shift+5
+ui-options-function-hotbarshift6 = Слот швидкого доступу Shift+6
+ui-options-function-hotbarshift7 = Слот швидкого доступу Shift+7
+ui-options-function-hotbarshift8 = Слот швидкого доступу Shift+8
+ui-options-function-hotbarshift9 = Слот швидкого доступу Shift+9
+ui-options-function-hotbarshift0 = Слот швидкого доступу Shift+0
+ui-options-function-loadoutshift1 = Спорядження швидкого доступу Shift+1
+ui-options-function-loadoutshift2 = Спорядження швидкого доступу Shift+2
+ui-options-function-loadoutshift3 = Спорядження швидкого доступу Shift+3
+ui-options-function-loadoutshift4 = Спорядження швидкого доступу Shift+4
+ui-options-function-loadoutshift5 = Спорядження швидкого доступу Shift+5
+ui-options-function-loadoutshift6 = Спорядження швидкого доступу Shift+6
+ui-options-function-loadoutshift7 = Спорядження швидкого доступу Shift+7
+ui-options-function-loadoutshift8 = Спорядження швидкого доступу Shift+8
+ui-options-function-loadoutshift9 = Спорядження швидкого доступу Shift+9
+ui-options-function-loadoutshift0 = Спорядження швидкого доступу Shift+0
+ui-options-speech-bubble-text-opacity = Непрозорість тексту мовної бульбашки
+ui-options-speech-bubble-speaker-opacity = Непрозорість мовця мовної бульбашки
+ui-options-speech-bubble-background-opacity = Непрозорість фону мовної бульбашки
+
+## Меню адміна
+
+## Зміна Shitmed
+ui-options-function-target-chest = Ціль: груди
+ui-options-function-target-groin = Ціль: пах
+ui-options-function-target-left-hand = Ціль: ліва рука
+ui-options-function-target-right-hand = Ціль: права рука
+ui-options-function-target-left-foot = Ціль: ліва нога
+ui-options-function-target-right-foot = Ціль: права нога
+ui-options-admin-player-panel = Список гравців в меню адміна
+ui-options-admin-playerlist-separate-symbols = Показувати окремі символи для кожного типу ролі антагоніста
+ui-options-admin-playerlist-character-color = Розфарбовувати імена персонажів-антагоністів
+ui-options-admin-playerlist-roletype-color = Розфарбовувати типи ролей
+ui-options-admin-overlay-title = Адмінське накладення
+ui-options-enable-classic-overlay = Повернути накладення до класичного режиму
+ui-options-enable-overlay-symbols = Додати символ антагоніста до тексту
+ui-options-enable-overlay-playtime = Показувати час гри
+ui-options-enable-overlay-starting-job = Показувати стартову роботу
+ui-options-overlay-merge-distance = Відстань об'єднання стосів
+ui-options-overlay-ghost-fade-distance = Відстань зникнення накладення привида від миші
+ui-options-overlay-ghost-hide-distance = Відстань приховування накладення привида від миші

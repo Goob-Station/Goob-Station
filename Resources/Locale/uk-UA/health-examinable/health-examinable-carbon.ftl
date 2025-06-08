@@ -1,4 +1,4 @@
-﻿health-examinable-carbon-none = Видимих ран не виявлено.
+health-examinable-carbon-none = Видимих ран не виявлено.
 
 health-examinable-carbon-Blunt-25 = [color=red]{ CAPITALIZE(SUBJECT($target)) } { CONJUGATE-HAVE($target) } незначні забиття по всьому { POSS-ADJ($target) } тілу.[/color]
 health-examinable-carbon-Blunt-50 = [color=crimson]{ CAPITALIZE(SUBJECT($target)) } { CONJUGATE-HAVE($target) } великі синці по всьому { POSS-ADJ($target) } тілу![/color]
@@ -16,3 +16,10 @@ health-examinable-carbon-Heat-50 = [color=orange]{ CAPITALIZE(SUBJECT($target)) 
 health-examinable-carbon-Heat-75 = [color=orange]{ CAPITALIZE(SUBJECT($target)) } { CONJUGATE-HAVE($target) } важкі опіки третього ступеня по всьому { POSS-ADJ($target) } тілу![/color]
 
 health-examinable-carbon-Shock-50 = [color=lightgoldenrodyellow]У { CAPITALIZE(SUBJECT($target)) } { CONJUGATE-HAVE($target) } сліди ураження струмом по { POSS-ADJ($target) } тілу![/color]
+
+health-examinable-carbon-Cold-25 = [color=lightblue]{ CAPITALIZE(SUBJECT($target)) } має незначне обмороження по всьому тілу.[/color]
+health-examinable-carbon-Cold-50 = [color=lightblue]{ CAPITALIZE(SUBJECT($target)) } має значне обмороження по всьому тілу.[/color]
+health-examinable-carbon-Cold-75 = [color=lightblue]{ CAPITALIZE(SUBJECT($target)) } має важке обмороження третього ступеня по всьому тілу![/color]
+health-examinable-carbon-Caustic-25 = [color=yellowgreen]{ CAPITALIZE(SUBJECT($target)) } має незначні хімічні опіки.[/color]
+health-examinable-carbon-Caustic-50 = [color=yellowgreen]{ CAPITALIZE(SUBJECT($target)) } має хімічні опіки по всьому тілу.[/color]
+health-examinable-carbon-Caustic-75 = [color=yellowgreen]{ CAPITALIZE(SUBJECT($target)) } має важкі хімічні опіки по всьому тілу![/color]

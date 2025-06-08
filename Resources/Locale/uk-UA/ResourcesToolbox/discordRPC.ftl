@@ -1,5 +1,5 @@
-discord-rpc-in-main-menu = In Main Menu
-discord-rpc-in-main-menu-logo-text = I think coolsville SUCKS
-discord-rpc-character = Username: {$username}
-discord-rpc-on-server = On Server: {$servername}
-discord-rpc-players = Players: {$players}/{$maxplayers}
+discord-rpc-in-main-menu = В головному меню
+discord-rpc-in-main-menu-logo-text = Я думаю, кулсвіль — ВІДСТІЙ
+discord-rpc-character = Ім'я користувача: {$username}
+discord-rpc-on-server = На сервері: {$servername}
+discord-rpc-players = Гравці: {$players}/{$maxplayers}

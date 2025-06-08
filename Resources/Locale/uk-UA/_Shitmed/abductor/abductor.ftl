@@ -7,3 +7,6 @@ abductors-weapon-restricted-4 = Нюхає зброю прибульців.
 abductors-gizmo-restricted = Крутить у руці якусь штуковину.
 
 abductor-gun-restricted-1 = Вони намагаються натиснути на спусковий гачок, але палець не проходить.
+
+abductors-gizmo-restricted-1 = Ви крутите штуковину в руці.
+abductors-gizmo-restricted-2 = Ви гадки не маєте, як ця річ працює.

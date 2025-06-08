@@ -9,7 +9,7 @@ bark-default-1 = Гавк!
 bark-default-2 = Буф
 bark-default-3 = Вуфуми
 bark-default-4 = Раврл
-bark-default-5 = Ііііі
+bark-default-5 = ..
 bark-default-6 = Баркуми
 bark-default-7 = Ааааавуууу авууу вууу
 bark-default-8 = Гррррррррррррррррррррррррррррррррррррррррррррррр
@@ -20,7 +20,7 @@ bark-default-12 = Гавк!
 bark-default-13 = Буф
 bark-default-14 = Вуууу
 bark-default-15 = Раврл
-bark-default-16 = Ііііі
+bark-default-16 = ..
 bark-default-17 = Баррк
 
 # Це завжди має бути останнім, щоб його було легко відстежувати.

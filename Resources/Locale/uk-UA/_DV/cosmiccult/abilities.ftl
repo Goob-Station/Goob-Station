@@ -1,22 +1,22 @@
-cosmicability-generic-fail = Your influence fails to take hold..
+cosmicability-generic-fail = Ваш вплив не зміг закріпитися...
 
-cosmicability-glare-confirm = Press again to activate Null Glare.
+cosmicability-glare-confirm = Натисніть ще раз, щоб активувати Нульовий Погляд.
 
 cosmicability-siphon-cultist-success = Your attempts to draw entropy chill {CAPITALIZE(THE($target))}
-cosmicability-siphon-success = You silently draw Entropy from {CAPITALIZE(THE($target))}.
-cosmicability-siphon-fail = You can't seem to siphon Entropy from {CAPITALIZE(THE($target))}.
-cosmicability-siphon-full = You can't hold any more Entropy!
+cosmicability-siphon-success = Ви мовчки витягуєте Ентропію з {CAPITALIZE(THE($target))}.
+cosmicability-siphon-fail = Здається, ви не можете викачати Ентропію з {CAPITALIZE(THE($target))}.
+cosmicability-siphon-full = Ви не можете вмістити більше Ентропії!
 
-cosmicability-blank-begin = {CAPITALIZE(THE($target))} attempts to grab hold of you!
-cosmicability-blank-success = You shunt {CAPITALIZE(THE($target))}'s mind unto the cosmic dark.
-cosmicability-blank-transfer = A cosmic power shunts your mind out of your body!
-cosmicability-blank-return = Your mind is drawn back to your body.
+cosmicability-blank-begin = {CAPITALIZE(THE($target))} намагається вас схопити!
+cosmicability-blank-success = Ви відкидаєте розум {CAPITALIZE(THE($target))}'s у космічну темряву.
+cosmicability-blank-transfer = Космічна сила виштовхує ваш розум з тіла!
+cosmicability-blank-return = Ваш розум повертається назад у тіло.
 
-cosmicability-lapse-success = You lapse {CAPITALIZE(THE($target))}'s corporeal form.
+cosmicability-lapse-success = Ви занурюєте тілесну форму {CAPITALIZE(THE($target))}'s в анабіоз.
 
-cosmicability-monument-move-confirm = THIS ACTION CAN ONLY BE USED ONCE! Use it again to confirm.
-cosmicability-monument-spawn-confirm = THIS ACTION CAN ONLY BE USED ONCE! Use it again to confirm.
-cosmicability-monument-spawn-error-grid = Invalid location! The Monument must be beckoned upon a stable surface.
-cosmicability-monument-spawn-error-station = Invalid location! The Monument must be beckoned upon the station.
-cosmicability-monument-spawn-error-intersection = Too crowded! The Monument requires an empty 3x1 area to be beckoned.
-cosmicability-monument-spawn-error-space = Too close to space! The Monument must be be at least {$DISTANCE}m away.
+cosmicability-monument-move-confirm = ЦЮ ДІЮ МОЖНА ВИКОНАТИ ЛИШЕ РАЗ! Використайте її ще раз для підтвердження.
+cosmicability-monument-spawn-confirm = ЦЮ ДІЮ МОЖНА ВИКОНАТИ ЛИШЕ РАЗ! Використайте її ще раз для підтвердження.
+cosmicability-monument-spawn-error-grid = Неприпустиме місце! Монумент має бути викликаний на стабільну поверхню.
+cosmicability-monument-spawn-error-station = Неприпустиме місце! Монумент має бути викликаний на станції.
+cosmicability-monument-spawn-error-intersection = Занадто тісно! Для виклику Монумента потрібна вільна зона 3x1.
+cosmicability-monument-spawn-error-space = Занадто близько до космосу! Монумент має бути на відстані щонайменше {$DISTANCE}м.

@@ -51,3 +51,20 @@ criminal-records-dna-filter = ДНК
 ## Arrest auto history lines
 criminal-records-console-auto-history = АРЕШТОВАНИЙ: {$reason}
 criminal-records-console-unspecified-reason = <не зазначено причину>
+
+criminal-records-console-flavor-left = Спочатку арешт! Питання потім.
+criminal-records-console-flavor-right = v2.1
+criminal-records-console-show-all = Усі
+
+## Статус
+criminal-records-status-dangerous = Небезпечний
+criminal-records-status-search = Обшук
+criminal-records-status-perma = Перма
+criminal-records-console-search-reason = Причина обшуку
+criminal-records-console-dangerous-reason = Причина небезпеки
+criminal-records-console-search = {$officer} позначив {$name} ({$job}) для обшуку через: {$reason}
+criminal-records-console-not-search = {$officer} зняв статус обшуку з {$name} ({$job}).
+criminal-records-console-perma = {$name} ({$job}) був засуджений до перми {$officer}.
+criminal-records-console-not-perma = {$officer} звільнив {$name} ({$job}) з перми.
+criminal-records-console-dangerous = {$officer} позначив {$name} ({$job}) як небезпечного через: {$reason}.
+criminal-records-console-not-dangerous = {$officer} зняв статус загрози з {$name} ({$job}).

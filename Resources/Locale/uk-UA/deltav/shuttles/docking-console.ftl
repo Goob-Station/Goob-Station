@@ -4,18 +4,18 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-docking-console-no-shuttle = No Shuttle Detected
+docking-console-no-shuttle = Шатл не виявлено
 docking-console-ftl = FTL
-docking-console-call = Call shuttle
+docking-console-call = Викликати шатл
 
-mining-console-window-title = Mining Shuttle Console
+mining-console-window-title = Консоль шахтарського шатла
 
-shuttle-destination-lavaland = Lavaland
-shuttle-destination-glacier-surface = Glacier Surface
+shuttle-destination-lavaland = Лаваленд
+shuttle-destination-glacier-surface = Поверхня льодовика
 
-docking-console-ftl-message-Unknown = Fetching FTL state...
-docking-console-ftl-message-Ready = All systems are ready.
-docking-console-ftl-message-NoSelection = Select one of the destinations.
-docking-console-ftl-message-NoAccess = ERROR: Access denied.
-docking-console-ftl-message-RechargingFtl = WARNING: FTL System is not ready.
-docking-console-ftl-message-InFtl = FTL is launched!
+docking-console-ftl-message-Unknown = Отримання стану FTL...
+docking-console-ftl-message-Ready = Усі системи готові.
+docking-console-ftl-message-NoSelection = Виберіть один із пунктів призначення.
+docking-console-ftl-message-NoAccess = ПОМИЛКА: Доступ заборонено.
+docking-console-ftl-message-RechargingFtl = ПОПЕРЕДЖЕННЯ: Система FTL не готова.
+docking-console-ftl-message-InFtl = FTL запущено!

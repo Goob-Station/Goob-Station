@@ -1,3 +1,3 @@
-firefighter-nozzle-component-no-water-in-tank = The {$owner} is empty.
-firefighter-nozzle-component-after-interact-refilled-message = Refilled!
-firefighter-nozzle-component-already-full = The backpack water tank is already full.
+firefighter-nozzle-component-no-water-in-tank = {$owner} порожній.
+firefighter-nozzle-component-after-interact-refilled-message = Поповнено!
+firefighter-nozzle-component-already-full = Бак для води в рюкзаку вже повний.

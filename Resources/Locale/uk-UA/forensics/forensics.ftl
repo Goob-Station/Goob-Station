@@ -26,3 +26,7 @@ forensic-pad-fingerprint-name = відбитки пальців {$entity}
 forensic-pad-gloves-name = волокна з {$entity}
 
 forensics-cleaning = Ви починаєте видаляти докази з {THE($target)}...
+forensics-dna-unknown = невідома ДНК
+forensics-verb-text = Видалити докази
+forensics-verb-message = Видалити відбитки пальців та залишки ДНК з об'єкта!
+forensics-cleaning-cannot-clean = На {THE($target)} немає нічого, що можна було б очистити!

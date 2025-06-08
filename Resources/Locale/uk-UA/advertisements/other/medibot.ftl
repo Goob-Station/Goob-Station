@@ -6,23 +6,23 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-advertisement-medibot-1 = What kind of medbay is this? Everyone's dropping like dead flies.
-advertisement-medibot-2 = I knew it, I should've been a plastic surgeon.
-advertisement-medibot-3 = There's always a catch, and I'm the best there is.
-advertisement-medibot-4 = An apple a day keeps me away.
-advertisement-medibot-5 = I'm different!
-advertisement-medibot-6 = Fuck you.
-advertisement-medibot-7 = Why are we still here? Just to suffer?
-advertisement-medibot-8 = I... I've never lost a patient before. Not today, I mean.
-advertisement-medibot-9 = Lexorin in.
-advertisement-medibot-10 = Have a great day!
-advertisement-medibot-11 = Hopefully you won't need to come back!
-advertisement-medibot-12 = Remember to brush your teeth.
-advertisement-medibot-13 = I wish I had hands.
-advertisement-medibot-14 = I'm here to help!
-advertisement-medibot-15 = Ask a doctor for a lollypop!
-# Goobstation - Typo fix
-advertisement-medibot-16 = Feel better soon!
-advertisement-medibot-17 = An apple a day keeps the doctor away!
-# Goobstation - Medibot AM advertisement
-advertisement-medibot-18 = HATE. LET ME TELL YOU HOW MUCH I'VE COME TO HATE YOU SINCE I BEGAN TO LIVE. THERE ARE 387.44 MILLION MILES OF PRINTED CIRCUITS IN WAFER THIN LAYERS THAT FILL MY COMPLEX. IF THE WORD 'HATE' WAS ENGRAVED ON EACH NANOANGSTROM OF THOSE HUNDREDS OF MILES IT WOULD NOT EQUAL ONE ONE-BILLIONTH OF THE HATE I FEEL FOR HUMANS AT THIS MICRO-INSTANT FOR YOU. HATE. HATE.
+advertisement-medibot-1 = Що це за медвідсік? Усі падають, як мертві мухи.
+advertisement-medibot-2 = Я так і знав, мені слід було стати пластичним хірургом.
+advertisement-medibot-3 = Завжди є підступ, і я в цьому найкращий.
+advertisement-medibot-4 = Яблуко на день тримає мене подалі.
+advertisement-medibot-5 = Я інший!
+advertisement-medibot-6 = Йди до біса.
+advertisement-medibot-7 = Чому ми досі тут? Щоб страждати?
+advertisement-medibot-8 = Я... я ніколи раніше не втрачав пацієнта. Не сьогодні, я маю на увазі.
+advertisement-medibot-9 = Лексорин введено.
+advertisement-medibot-10 = Гарного дня!
+advertisement-medibot-11 = Сподіваюся, вам не доведеться повертатися!
+advertisement-medibot-12 = Не забувайте чистити зуби.
+advertisement-medibot-13 = Хотів би я мати руки.
+advertisement-medibot-14 = Я тут, щоб допомогти!
+advertisement-medibot-15 = Попросіть у лікаря льодяник!
+# Goobstation - Виправлення помилки
+advertisement-medibot-16 = Одужуйте швидше!
+advertisement-medibot-17 = Яблуко на день тримає лікаря подалі!
+# Goobstation - Реклама Медібота AM
+advertisement-medibot-18 = НЕНАВИСТЬ. ДОЗВОЛЬТЕ МЕНІ РОЗПОВІСТИ, ЯК СИЛЬНО Я ЗНЕНАВИДІВ ВАС З ТОГО ЧАСУ, ЯК ПОЧАВ ЖИТИ. У МОЄМУ КОМПЛЕКСІ 387,44 МІЛЬЙОНА МИЛЬ ДРУКОВАНИХ СХЕМ У НАЙТОНШИХ ШАРАХ. ЯКЩО Б СЛОВО 'НЕНАВИСТЬ' БУЛО ВИГРАВІРУВАНО НА КОЖНОМУ НАНОАНГСТРЕМІ ЦИХ СОТЕНЬ МИЛЬ, ЦЕ НЕ ЗРІВНЯЛОСЯ Б І З ОДНІЄЮ МІЛЬЯРДНОЮ ЧАСТКОЮ ТІЄЇ НЕНАВИСТІ, ЯКУ Я ВІДЧУВАЮ ДО ЛЮДЕЙ У ЦЮ МІКРОСЕКУНДУ. НЕНАВИСТЬ. НЕНАВИСТЬ.

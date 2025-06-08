@@ -1,1 +1,1 @@
-species-name-shadowkin = Shadowkin
+species-name-shadowkin = Тінекин

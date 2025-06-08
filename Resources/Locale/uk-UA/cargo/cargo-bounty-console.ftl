@@ -17,3 +17,9 @@ bounty-manifest-header = [font size=14][bold]Офіційний маніфест
 bounty-manifest-list-start = Маніфест товару:
 
 bounty-console-skip-button-text = Пропустити
+bounty-console-manifest-reward = Нагорода: ${$reward}
+bounty-console-tab-available-label = Доступні
+bounty-console-tab-history-label = Історія
+bounty-console-history-empty-label = Історія замовлень не знайдена
+bounty-console-history-notice-completed-label = [color=limegreen]Виконано[/color]
+bounty-console-history-notice-skipped-label = [color=red]Пропущено[/color] {$id}

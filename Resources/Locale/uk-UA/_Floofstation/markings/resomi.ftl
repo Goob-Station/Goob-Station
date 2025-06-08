@@ -4,21 +4,21 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-marking-ResomiTail = Resomi tail
-marking-ResomiTail-tail = Resomi tail
-marking-ResomiTailFeathers = Tail feathers
-marking-ResomiTailFeathers-tail_feathers = Tail feathers
-marking-ResomiLArmFeathers = Resomi left arm Feathers
-marking-ResomiLArmFeathers-l_hand_feathers = Resomi left arm Feathers
-marking-ResomiLLegFeathers = Resomi left leg Feathers
-marking-ResomiLLegFeathers-l_foot_feathers = Resomi left leg Feathers
-marking-ResomiRArmFeathers = Resomi right arm Feathers
-marking-ResomiRArmFeathers-r_hand_feathers = Resomi right arm Feathers
-marking-ResomiRLegFeathers = Resomi right leg Feathers
-marking-ResomiRLegFeathers-r_foot_feathers = Resomi right leg Feathers
-marking-ResomiFluff = Resomi under fluff
-marking-ResomiFluff-fluff = Resomi under fluff
-marking-ResomiFluffHead = Resomi head fluff
-marking-ResomiFluffHead-fluff_head = Resomi head fluff
-marking-ResomiFluffHeadUp = Resomi head fluff (up)
-marking-ResomiFluffHeadUp-fluff_head_up = Resomi head fluff (up)
+marking-ResomiTail = Хвіст Ресомі
+marking-ResomiTail-tail = Хвіст Ресомі
+marking-ResomiTailFeathers = Пір'я на хвості
+marking-ResomiTailFeathers-tail_feathers = Пір'я на хвості
+marking-ResomiLArmFeathers = Пір'я на лівій руці Ресомі
+marking-ResomiLArmFeathers-l_hand_feathers = Пір'я на лівій руці Ресомі
+marking-ResomiLLegFeathers = Пір'я на лівій нозі Ресомі
+marking-ResomiLLegFeathers-l_foot_feathers = Пір'я на лівій нозі Ресомі
+marking-ResomiRArmFeathers = Пір'я на правій руці Ресомі
+marking-ResomiRArmFeathers-r_hand_feathers = Пір'я на правій руці Ресомі
+marking-ResomiRLegFeathers = Пір'я на правій нозі Ресомі
+marking-ResomiRLegFeathers-r_foot_feathers = Пір'я на правій нозі Ресомі
+marking-ResomiFluff = Підпушок Ресомі
+marking-ResomiFluff-fluff = Підпушок Ресомі
+marking-ResomiFluffHead = Пух на голові Ресомі
+marking-ResomiFluffHead-fluff_head = Пух на голові Ресомі
+marking-ResomiFluffHeadUp = Пух на голові Ресомі (вгору)
+marking-ResomiFluffHeadUp-fluff_head_up = Пух на голові Ресомі (вгору)

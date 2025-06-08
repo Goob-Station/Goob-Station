@@ -5,4 +5,4 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-no-sing-while-no-speak = You can't sing right now.
+no-sing-while-no-speak = Ви не можете співати зараз.

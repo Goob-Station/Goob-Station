@@ -3,10 +3,10 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-advertisement-pride-1 = Be gay do crime!
-advertisement-pride-2 = Full of colors!
-advertisement-pride-3 = You are valid!
-advertisement-pride-4 = The first pride was a riot!
-thankyou-pride-1 = Slay!
-thankyou-pride-2 = Knock 'em dead!
-thankyou-pride-3 = What a glow up!
+advertisement-pride-1 = Будь геєм, чини злочини!
+advertisement-pride-2 = Сповнений кольорів!
+advertisement-pride-3 = Ти - валідний!
+advertisement-pride-4 = Перший прайд був бунтом!
+thankyou-pride-1 = Вражай!
+thankyou-pride-2 = Вбий їх наповал!
+thankyou-pride-3 = Яке перевтілення!

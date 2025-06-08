@@ -1,1 +1,1 @@
-supermatter-announcer = Автоматичний двигун надматерії
+supermatter-announcer = Автоматичний двигун на суперматерії

@@ -93,3 +93,51 @@ admin-trick-pause-map-description = Призупинити вибрану мап
 admin-trick-snap-joints-description = Видалити всі фізичні суглоби з об'єкта. На жаль, не можна клацнути кожною кісткою у своєму тілі.
 admin-trick-minigun-fire-description = Змушує цільову зброю стріляти як мініган(дуже швидко).
 admin-trick-set-bullet-amount-description = Швидко встановлюйте кількість нестворених набоїв у гарматі.
+
+admin-smite-explode-name = Підірвати
+admin-smite-chess-dimension-name = Шаховий вимір
+admin-smite-set-alight-name = Підпалити
+admin-smite-monkeyify-name = Мавпіфікувати
+admin-smite-garbage-can-name = Сміттєвий бак
+admin-smite-electrocute-name = Вбити струмом
+admin-smite-remove-blood-name = Видалити кров
+admin-smite-remove-hands-name = Видалити руки
+admin-smite-remove-hand-name = Видалити руку
+admin-smite-pinball-name = Пінбол
+admin-smite-yeet-name = Жбурнути
+admin-smite-become-bread-name = Стати хлібом
+admin-smite-cluwne-name = Клювн
+admin-smite-anger-pointing-arrows-name = Люті вказівні стрілки
+admin-smite-dust-name = Пил
+admin-smite-buffering-name = Буферизація
+admin-smite-become-instrument-name = Стати інструментом
+admin-smite-remove-gravity-name = Вимкнути гравітацію
+admin-smite-reptilian-species-swap-name = Стати рептилоїдом
+admin-smite-locker-stuff-name = Запхати в шафу
+admin-smite-headstand-name = Стійка на голові
+admin-smite-become-mouse-name = Стати мишею
+admin-smite-maid-name = Кішка-покоївка
+admin-smite-zoom-in-name = Наближення
+admin-smite-flip-eye-name = Перевернути око
+admin-smite-run-walk-swap-name = Поміняти біг та ходьбу
+admin-smite-super-speed-name = Прискоритись
+admin-smite-stomach-removal-name = Видалення шлунку
+admin-smite-speak-backwards-name = Говорити задом наперед
+admin-smite-lung-removal-name = Видалення легень
+admin-smite-disarm-prone-name = Обеззброїти лежачи
+admin-smite-super-bonk-name = Супер Бонк
+admin-smite-super-bonk-lite-name = Супер Бонк Лайт
+admin-smite-terminate-name = Термінувати
+admin-smite-super-slip-name = Супер ковзання
+admin-smite-creampie-name = Крем
+admin-smite-vomit-organs-name = Блювати органами
+admin-smite-ghostkick-name = Примарний копняк
+admin-smite-nyanify-name = Котячі вушка
+admin-smite-kill-sign-name = Знак вбивства
+admin-smite-omni-accent-name = Омні-акцент
+
+## Описи покарань
+admin-smite-super-slip-description = Змушує їх дуже, дуже сильно послизнутися.
+admin-smite-omni-accent-description = Змушує ціль говорити майже з усіма доступними акцентами.
+
+## Описи трюків

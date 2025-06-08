@@ -17,7 +17,8 @@ stamp-component-stamped-name-trader = Торговець
 stamp-component-stamped-name-syndicate = Синдикат
 stamp-component-stamped-name-ce = Головний Інженер
 
-stamp-component-stamped-name-nanorep = Представник Нанотрасен
+stamp-component-stamped-name-nanorep = Представник Нанотрейзен
 stamp-component-stamped-name-magistrate = Магістрат
 stamp-component-stamped-name-lawyer = Адвокат
 stamp-component-stamped-name-psychologist = Психолог
+stamp-component-stamped-name-greytide = Грейтайд

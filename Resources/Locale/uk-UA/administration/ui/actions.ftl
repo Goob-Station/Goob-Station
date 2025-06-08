@@ -13,3 +13,4 @@ admin-player-actions-confirm = Ви впевнені?
 
 admin-player-actions-follow = Слідкувати
 admin-player-actions-player-panel = Відкрити панель гравця
+admin-player-actions-reason = Причина

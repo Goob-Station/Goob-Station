@@ -3,5 +3,5 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-holster-insert-verb = Holster
-holster-eject-verb = Unholster
+holster-insert-verb = В кобуру
+holster-eject-verb = З кобури

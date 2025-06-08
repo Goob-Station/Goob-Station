@@ -62,3 +62,11 @@ autodoc-body-symmetry-Left = Ліва
 autodoc-body-symmetry-Right = Права
 
 autodoc-submit = Підтвердити
+
+autodoc-import-program = ПРОГРАМА ІМПОРТУ 进口计划
+# Китайський текст приблизно перекладається як "програма імпорту")
+autodoc-export-program = ПРОГРАМА ЕКСПОРТУ 出口计划
+
+# Китайський текст приблизно перекладається як "Почати хірургічну операцію"
+autodoc-body-part-Chest = Грудна клітка
+autodoc-body-part-Groin = Пах

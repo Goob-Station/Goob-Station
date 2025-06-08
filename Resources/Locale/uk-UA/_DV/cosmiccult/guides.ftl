@@ -1,4 +1,4 @@
-guide-entry-cosmiccult = Cosmic Cult
-guide-entry-cosmiccult-monument = The Monument
-guide-entry-cosmiccult-influences = Influences
-guide-entry-cosmiccult-deconversion = Deconversion
+guide-entry-cosmiccult = Космічний Культ
+guide-entry-cosmiccult-monument = Монумент
+guide-entry-cosmiccult-influences = Впливи
+guide-entry-cosmiccult-deconversion = Деконверсія

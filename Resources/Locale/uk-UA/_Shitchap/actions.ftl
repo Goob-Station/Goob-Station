@@ -1,1 +1,1 @@
-rosary-mixing-success = The liquid glimmers with a soft light.
+rosary-mixing-success = Рідина мерехтить м'яким світлом.

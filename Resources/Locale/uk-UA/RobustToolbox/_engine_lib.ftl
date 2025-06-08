@@ -20,19 +20,20 @@ zzzz-object-pronoun = { GENDER($ent) ->
    *[neuter] його
    }
 
-# Використовується всередині функції POSS-PRONOUN().
+# Використовується всередині функції DAT-OBJ().
+# Не використовується в en-US. Створено для підтримки інших мов.
 zzzz-possessive-pronoun = { GENDER($ent) ->
-    [male] нього
-    [female] неї
-    [epicene] них
-   *[neuter] нього
+    [male] його
+    [female] її
+    [epicene] їхній
+   *[neuter] його
    }
 
-# Використовується внутрішньо функцією POSS-ADJ().
+# Використовується всередині функції POSS-ADJ().
 zzzz-possessive-adjective = { GENDER($ent) ->
     [male] його
     [female] її
-    [epicene] їх
+    [epicene] їхній
    *[neuter] його
    }
 
@@ -52,7 +53,7 @@ zzzz-conjugate-be = { GENDER($ent) ->
 
 # Використовується всередині функції CONJUGATE-HAVE().
 zzzz-conjugate-have = { GENDER($ent) ->
-    [epicene] має
+    [epicene] мають
    *[other] має
    }
 

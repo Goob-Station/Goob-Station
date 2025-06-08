@@ -2,7 +2,7 @@
 
 ## візерунки
 
-marking-RodentiaHeadBlaze = Голова - Смуга
+marking-RodentiaHeadBlaze = Голова - Пляма
 marking-RodentiaHeadBlaze-head_m = Голова
 marking-RodentiaHeadBlaze-blaze = Візерунок
 
@@ -31,10 +31,10 @@ marking-RodentiaHeadTopEarMouse-mouse = Зовнішнє вухо
 marking-RodentiaHeadTopEarMouse-mouse_overlay = Внутрішнє вухо
 
 marking-RodentiaHeadTopEarMouseLarge = Вуха - Миша (Великі)
-marking-RodentiaHeadTopEarMouseLarge-mouse_large = Зовнішнє вухо
+marking-RodentiaHeadTopEarMouseLarge-mouse_large = Зовнішнє
 marking-RodentiaHeadTopEarMouseLarge-mouse_large_overlay = Внутрішнє вухо
 
-marking-RodentiaHeadTopEarNone = Вуха - Приховані
+marking-RodentiaHeadTopEarNone = Вуха - Сховані
 marking-RodentiaHeadTopEarNone-none = Немає
 
 marking-RodentiaHeadTopEarPointy = Вуха - Загострені
@@ -47,7 +47,7 @@ marking-RodentiaHeadTopEarRabbit-rabbit_overlay = Внутрішнє вухо
 marking-RodentiaHeadTopEarSmall = Вуха - Маленькі
 marking-RodentiaHeadTopEarSmall-small = Зовнішнє вухо
 
-## морда (snout)
+## морда
 
 marking-RodentiaSnoutBat = Морда - Кажан
 marking-RodentiaSnoutBat-bat = Морда
@@ -58,51 +58,51 @@ marking-RodentiaSnoutBatCounter-bat = Морда
 marking-RodentiaSnoutBatCounter-bat_nose = Ніс
 marking-RodentiaSnoutBatCounter-bat_overlay = Контрзатінення
 
-marking-RodentiaSnoutFlat = Морда - Плоска
+marking-RodentiaSnoutFlat = Морда - Пласка
 marking-RodentiaSnoutFlat-flat = Морда
 marking-RodentiaSnoutFlat-flat_nose = Ніс
 
-marking-RodentiaSnoutFlatCounter = Морда - Плоска, Двоколірна
+marking-RodentiaSnoutFlatCounter = Морда - Пласка, Двоколірна
 marking-RodentiaSnoutFlatCounter-flat = Морда
 marking-RodentiaSnoutFlatCounter-flat_nose = Ніс
 marking-RodentiaSnoutFlatCounter-flat_overlay = Контрзатінення
 
-marking-RodentiaSnoutRound = Морда - Округла
+marking-RodentiaSnoutRound = Морда - Кругла
 marking-RodentiaSnoutRound-round = Морда
 marking-RodentiaSnoutRound-round_nose = Ніс
 
-marking-RodentiaSnoutRoundCounter = Морда - Округла, Двоколірна
+marking-RodentiaSnoutRoundCounter = Морда - Кругла, Двоколірна
 marking-RodentiaSnoutRoundCounter-round = Морда
 marking-RodentiaSnoutRoundCounter-round_nose = Ніс
 marking-RodentiaSnoutRoundCounter-round_overlay = Контрзатінення
 
 ## щоки
 
-marking-RodentiaCheeksRound = Щоки - Округлі
+marking-RodentiaCheeksRound = Щоки - Круглі
 marking-RodentiaCheeksRound-cheeks = Щока
 
-marking-RodentiaCheeksRoundCounter = Щоки - Округлі, Двоколірні
+marking-RodentiaCheeksRoundCounter = Щоки - Круглі, Двоколірні
 marking-RodentiaCheeksRoundCounter-cheeks = Щока
 marking-RodentiaCheeksRoundCounter-cheeks_overlay = Контрзатінення
 
-marking-RodentiaCheeksFluff = Щоки - Пух
-marking-RodentiaCheeksFluff-fluff = Пух щоки
+marking-RodentiaCheeksFluff = Щоки - Пухнасті
+marking-RodentiaCheeksFluff-fluff = Пух на щоках
 
-marking-RodentiaCheeksFluffCounter = Щоки - Пух, Двоколірні
-marking-RodentiaCheeksFluffCounter-fluff = Пух щоки
+marking-RodentiaCheeksFluffCounter = Щоки - Пухнасті, Двоколірні
+marking-RodentiaCheeksFluffCounter-fluff = Пух на щоках
 marking-RodentiaCheeksFluffCounter-fluff_overlay = Контрзатінення
 
-marking-RodentiaCheeksFluffAlt = Щоки - Пух, Альт
-marking-RodentiaCheeksFluffAlt-fluff_alt = Пух щоки
+marking-RodentiaCheeksFluffAlt = Щоки - Пухнасті, Альт
+marking-RodentiaCheeksFluffAlt-fluff_alt = Пух на щоках
 
-marking-RodentiaCheeksFluffAltCounter = Щоки - Пух, Альт, Двоколірні
-marking-RodentiaCheeksFluffAltCounter-fluff_alt = Пух щоки
+marking-RodentiaCheeksFluffAltCounter = Щоки - Пухнасті, Альт, Двоколірні
+marking-RodentiaCheeksFluffAltCounter-fluff_alt = Пух на щоках
 marking-RodentiaCheeksFluffAltCounter-fluff_alt_overlay = Контрзатінення
 
 marking-RodentiaCheeksWhiskers = Вуса
 marking-RodentiaCheeksWhiskers-whiskers = Вуса
 
-# мітки тулуба
+# маркування тіла
 
 ## хвіст
 
@@ -146,10 +146,10 @@ marking-RodentiaTailSquirrelBicolor-squirrel_overlay = Вторинний
 
 ## візерунки
 
-marking-RodentiaChestCountershade = Тулуб - Контрзатінення
+marking-RodentiaChestCountershade = Груди - Контрзатінення
 marking-RodentiaChestCountershade-countershade = Контрзатінення
 
-marking-RodentiaChestCountershadeF = Тулуб - Контрзатінення
+marking-RodentiaChestCountershadeF = Груди - Контрзатінення
 marking-RodentiaChestCountershadeF-countershade_f = Контрзатінення
 
 marking-RodentiaLegLeftCountershade = Ліва нога - Контрзатінення
@@ -160,40 +160,40 @@ marking-RodentiaLegRightCountershade = Права нога - Контрзаті�
 marking-RodentiaLegRightCountershade-r_leg = Нога
 marking-RodentiaLegRightCountershade-countershade_rleg = Контрзатінення
 
-marking-RodentiaChestFawn = Тулуб - Оленячі (Fawn)
+marking-RodentiaChestFawn = Груди - Оленя
 marking-RodentiaChestFawn-fawn = Візерунок
 
-marking-RodentiaChestHooded = Тулуб - Каптур
+marking-RodentiaChestHooded = Груди - Капюшон
 marking-RodentiaChestHooded-hooded = Візерунок
 
-marking-RodentiaChestHoodedF = Тулуб - Каптур
+marking-RodentiaChestHoodedF = Груди - Капюшон
 marking-RodentiaChestHoodedF-hooded_f = Візерунок
 
 # базові частини
 
-marking-RodentiaHeadBasic = Голова - Основний
+marking-RodentiaHeadBasic = Голова - Базова
 marking-RodentiaHeadBasic-head_m = Голова
 
-marking-RodentiaArmLeftBasic = Ліва рука - Основний
+marking-RodentiaArmLeftBasic = Ліва рука - Базова
 marking-RodentiaArmLeftBasic-l_arm = Рука
 
-marking-RodentiaArmRightBasic = Права рука - Основний
+marking-RodentiaArmRightBasic = Права рука - Базова
 marking-RodentiaArmRightBasic-r_arm = Рука
 
-marking-RodentiaLegLeftBasic = Ліва нога - Основний
+marking-RodentiaLegLeftBasic = Ліва нога - Базова
 marking-RodentiaLegLeftBasic-l_leg = Нога
 
-marking-RodentiaLegRightBasic = Права нога - Основний
+marking-RodentiaLegRightBasic = Права нога - Базова
 marking-RodentiaLegRightBasic-r_leg = Нога
 
-marking-RodentiaHandLeftBasic = Ліва долоня - Основний
-marking-RodentiaHandLeftBasic-l_hand = Долоня
+marking-RodentiaHandLeftBasic = Ліва кисть - Базова
+marking-RodentiaHandLeftBasic-l_hand = Кисть
 
-marking-RodentiaHandRightBasic = Права долоня - Основний
-marking-RodentiaHandRightBasic-r_hand = Долоня
+marking-RodentiaHandRightBasic = Права кисть - Базова
+marking-RodentiaHandRightBasic-r_hand = Кисть
 
-marking-RodentiaFootLeftBasic = Ліва ступня - Основний
-marking-RodentiaFootLeftBasic-l_foot = Ступня
+marking-RodentiaFootLeftBasic = Ліва стопа - Базова
+marking-RodentiaFootLeftBasic-l_foot = Стопа
 
-marking-RodentiaFootRightBasic = Права ступня - Основний
-marking-RodentiaFootRightBasic-r_foot = Ступня
+marking-RodentiaFootRightBasic = Права стопа - Базова
+marking-RodentiaFootRightBasic-r_foot = Стопа

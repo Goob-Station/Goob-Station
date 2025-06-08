@@ -1,2 +1,2 @@
-store-sales-amount = [ЗНИЖКА] { $amount }%!
-store-sales-over = [Розпродаж завершено]
+store-sales-amount = {$amount}% знижки!
+store-sales-over = Розпродаж закінчився!

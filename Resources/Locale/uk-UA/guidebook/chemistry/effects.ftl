@@ -380,3 +380,27 @@ reagent-effect-guidebook-heal-sling = { $chance ->
         [1] Лікує будь-якого
         *[other] лікувати будь-якого
     } тіневика та раба
+reagent-effect-guidebook-flash-reaction-effect = { $chance ->
+        [1] Спричиняє
+        *[other] спричинити
+    } сліпучий спалах
+reagent-effect-guidebook-area-reaction = { $chance ->
+        [1] Спричиняє
+        *[other] спричинити
+    } реакцію диму або піни на {NATURALFIXED($duration, 3)} {MANY(""секунду"", ""секунди"", ""секунд"", $duration)}
+reagent-effect-guidebook-add-to-solution-reaction = { $chance ->
+        [1] Спричиняє
+        *[other] спричинити
+    } додавання хімікатів, застосованих до об'єкта, до його внутрішнього контейнера з розчином
+reagent-effect-guidebook-plant-attribute = { $chance ->
+        [1] Регулює
+        *[other] регулювати
+    } {$attribute} на [color={$colorName}]{$amount}[/color]
+reagent-effect-guidebook-plant-cryoxadone = { $chance ->
+        [1] Омолоджує
+        *[other] омолодити
+    } рослину, залежно від її віку та часу росту
+reagent-effect-guidebook-plant-phalanximine = { $chance ->
+        [1] Відновлює
+        *[other] відновити
+    } життєздатність рослини, яка стала нежиттєздатною через мутацію

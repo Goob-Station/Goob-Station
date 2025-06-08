@@ -318,3 +318,29 @@ flavor-complex-sui-dream = як фруктовий салат, ідеально 
 flavor-complex-toxins-special = як плазмовий вогонь
 flavor-complex-vodka-martini = збовтати, але не перемішувати
 flavor-complex-vodka-tonic = як депресія в запереченні
+flavor-base-strange = дивний
+flavor-base-chewy = жувальний
+
+# Складні смаки. Додайте сюди смак, коли вам потрібно щось більш
+# конкретне.
+flavor-complex-blue-pumpkin = наче ковток води з басейну
+flavor-complex-lemon-lime-cranberry-soda = наче Різдво
+flavor-complex-gin = наче ферментоване зерно з ягодами ялівцю
+
+## Коктейлі
+flavor-complex-caipirinha = наче Бразилія
+flavor-complex-deathintheafternoon = наче аніс та шампанське
+flavor-complex-empress75 = наче тірський пурпур
+flavor-complex-espressomartini = наче горілка та кава
+flavor-complex-mayojito = наче розлад шлунку
+flavor-complex-mimeosa = наче тиша та апельсини
+flavor-complex-mimosa = наче ранній бранч
+flavor-complex-thesunalsorises = наче дайкірі з абсентом
+flavor-complex-whiskeysour = наче віскі та яйце
+flavor-complex-zombiecocktail = наче їси мізки
+flavor-complex-aloe = наче ранкова роса
+flavor-complex-snowwhite = наче кислий та гіркий хміль
+flavor-complex-bacchus-blessing = наче цегляна стіна
+
+### Саме такий на смак пілк. Я навіть не жартую. Хоча, можливо, я був трохи п'яний
+flavor-hew = наче хрускіт

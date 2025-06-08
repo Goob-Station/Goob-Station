@@ -46,3 +46,7 @@ game-ticker-welcome-to-the-station = Ласкаво просимо до кома
 # Відображається в чаті адміністраторам, коли гравець приєднується
 latejoin-arrivals-dumped-from-shuttle = Таємнича сила заважає вам вилетіти з шатлом прибуття.
 latejoin-arrivals-teleport-to-spawn = Таємнича сила телепортує вас з шатла прибуття. Вдалої зміни!
+latejoin-arrival-announcement-special = {$job} {$character} на борту!
+game-run-level-PreRoundLobby = Лобі перед раундом
+game-run-level-InRound = У раунді
+game-run-level-PostRound = Після раунду

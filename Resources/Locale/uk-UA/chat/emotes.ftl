@@ -60,7 +60,9 @@ chat-emote-msg-yawn = позіхає.
 chat-emote-msg-snore = хропе.
 
 chat-emote-name-mars = Марс
-chat-emote-name-wurble = Вурбл!
+
+# Повідомлення
+chat-emote-name-wurble = Вурбл
 
 chat-emote-name-boop = Буп
 chat-emote-name-whirr = Дзижчання
@@ -80,3 +82,10 @@ chat-emote-name-purr = Мурчання
 chat-emote-name-hisses = Шипіння
 chat-emote-name-growl = Рик
 chat-emote-name-harpyhoot = Авууу
+chat-emote-name-thump = Стукнути хвостом
+chat-emote-name-gasp = Зойкнути
+chat-emote-name-hew = Хрумтіти
+chat-emote-msg-thump = стукає {POSS-ADJ($entity)} хвостом.
+chat-emote-msg-gasp = зойкає.
+chat-emote-msg-weh = векає!
+chat-emote-msg-hew = хрумтить!

@@ -6,5 +6,5 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-uplink-bionic-syrinx-implanter-name = Bionic Syrinx Implanter
-uplink-bionic-syrinx-implanter-desc = An implant that enhances a harpy's natural talent for mimicry to let you adjust your voice to whoever you can think of.
+uplink-bionic-syrinx-implanter-name = Імплантат біонічної гортані
+uplink-bionic-syrinx-implanter-desc = Імплантат, що посилює природний талант гарпії до мімікрії, дозволяючи вам налаштовувати свій голос під будь-кого, кого ви можете собі уявити.

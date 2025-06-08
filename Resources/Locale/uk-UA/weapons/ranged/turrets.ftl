@@ -9,3 +9,6 @@ deployable-turret-component-is-broken = Турель сильно пошкодж
 deployable-turret-component-cant-access-wires = Ти не можеш отримати доступ до панелі обслуговування, поки турель активна
 # Сповіщення турелі для ШІ станції
 station-ai-turret-is-attacking-warning = {CAPITALIZE($source)} вступив у бій з ворожою ціллю.
+deployable-turret-component-cannot-access-wires = Ви не можете дістатися до панелі обслуговування, поки турель активна 
+
+# Сповіщення про турель для ШІ станції

@@ -19,4 +19,5 @@ armor-damage-type-poison = Отрути
 armor-damage-type-shock = Шокуу
 armor-damage-type-structural = Структурних пошкоджень
 
-armor-examine-stamina = Зменшує пошкодження витривалості на [color=cyan]{$num}%[/color].
+armor-examine-stamina = - [color=cyan]Витривалість[/color] пошкодження зменшено на [color=lightblue]{$num}%[/color].
+armor-damage-type-holy = Свята

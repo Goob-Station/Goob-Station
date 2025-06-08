@@ -4,4 +4,4 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-species-name-tajaran = Tajaran
+species-name-tajaran = Таджаран

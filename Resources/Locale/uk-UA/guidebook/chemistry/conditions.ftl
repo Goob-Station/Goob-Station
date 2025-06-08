@@ -51,3 +51,10 @@ reagent-effect-condition-guidebook-blood-reagent-threshold = { $max ->
                     *[other] є від {NATURALFIXED($min, 2)}u до {NATURALFIXED($max, 2)}u {$reagent}
                  }
     }
+reagent-effect-condition-guidebook-total-hunger = { $max ->
+        [2147483648] ціль має принаймні {NATURALFIXED($min, 2)} загального голоду
+        *[other] { $min ->
+                    [0] ціль має щонайбільше {NATURALFIXED($max, 2)} загального голоду
+                    *[other] ціль має від {NATURALFIXED($min, 2)} до {NATURALFIXED($max, 2)} загального голоду
+                 }
+    }

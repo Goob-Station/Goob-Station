@@ -72,3 +72,11 @@ salvage-map-proto-RuinCargoBase = Зруйноване Вантажне Схов
 salvage-map-proto-SecurityChunk = Руїни Відділу Служби Безпеки
 salvage-map-proto-EngineeringChunk = Руїни Відділу Інженерів
 salvage-map-proto-OutpostArm = Руїни Захопленого Аванпосту
+salvage-magnet-debris-ChunkDebris = Космічне сміття
+
+# Астероїди
+salvage-map-wreck = Уламки для утилізації
+salvage-map-wreck-desc-size = Розмір:
+salvage-map-wreck-size-small = [color=lime]Малий[/color]
+salvage-map-wreck-size-medium = [color=cornflowerblue]Середній[/color]
+salvage-map-wreck-size-large = [color=orchid]Великий[/color]

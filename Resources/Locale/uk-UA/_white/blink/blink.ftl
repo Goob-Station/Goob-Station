@@ -4,8 +4,8 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-blink-component-control-active = blink: [color=green]active[/color]
-blink-component-control-inactive = blink: [color=red]inactive[/color]
+blink-component-control-active = телепорт: [color=green]активний[/color]
+blink-component-control-inactive = телепорт: [color=red]неактивний[/color]
 
-blink-activated-message = Blink activated.
-blink-deactivated-message = Blink deactivated.
+blink-activated-message = Телепорт активовано.
+blink-deactivated-message = Телепорт деактивовано.

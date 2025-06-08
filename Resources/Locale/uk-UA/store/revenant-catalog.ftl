@@ -4,14 +4,14 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-revenant-defile-name = Defile
-revenant-defile-desc = Defiles the surrounding area, ripping up floors, damaging windows, opening containers, and throwing items. Using it leaves you vulnerable to attacks for a short period of time.
+revenant-defile-name = Осквернення
+revenant-defile-desc = Оскверняє навколишню територію, зриваючи підлогу, пошкоджуючи вікна, відкриваючи контейнери та розкидаючи предмети. Використання робить вас вразливим до атак на короткий проміжок часу.
 
-revenant-overload-name = Overload Lights
-revenant-overload-desc = Overloads all nearby lights, causing lights to pulse and sending out dangerous lightning. Using it leaves you vulnerable to attacks for a long period of time.
+revenant-overload-name = Перевантажити Світло
+revenant-overload-desc = Перевантажує всі найближчі джерела світла, змушуючи їх пульсувати та випускати небезпечні блискавки. Використання робить вас вразливим до атак на тривалий проміжок часу.
 
-revenant-blight-name = Blight
-revenant-blight-desc = Infects all nearby organisms with an infectious disease that causes toxic buildup and tiredness. Using it leaves you vulnerable to attacks for a medium period of time.
+revenant-blight-name = Хвороба
+revenant-blight-desc = Заражає всі найближчі організми інфекційною хворобою, що викликає накопичення токсинів і втому. Використання робить вас вразливим до атак на середній проміжок часу.
 
-revenant-malfunction-name = Malfunction
-revenant-malfunction-desc = Makes nearby electronics stop working properly. Using it leaves you vulnerable to attacks for a long period of time.
+revenant-malfunction-name = Несправність
+revenant-malfunction-desc = Змушує найближчу електроніку працювати несправно. Використання робить вас вразливим до атак на тривалий проміжок часу.

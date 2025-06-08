@@ -4,14 +4,13 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-uplink-night-vision-name = Night Vision Goggles
-uplink-night-vision-desc = They allow you to see in the dark, while looking like normal sunglasses!
+uplink-night-vision-name = Окуляри нічного бачення
+uplink-night-vision-desc = Вони дозволяють бачити в темряві, виглядаючи як звичайні сонцезахисні окуляри!
 
-uplink-thermal-vision-name = Thermal Vision Goggles
-uplink-thermal-vision-desc = They allow you to see living creatures regardless of obstacles, with a built in medical scanner.
+uplink-thermal-vision-name = Окуляри теплового бачення
+uplink-thermal-vision-desc = Вони дозволяють бачити живих істот незалежно від перешкод, з вбудованим медичним сканером.
 
-uplink-betrayal-knife-name = Betrayal Knife
-uplink-betrayal-knife-desc =
-    Betrayal knife allows the user to blink a short distance, knocking down people in a small radius around blink position.
-    Deals significant damage when target is lying down or facing away from you.
-    Use it in your hand to toggle blink mode.
+uplink-betrayal-knife-name = Ніж Зради
+uplink-betrayal-knife-desc = Ніж зради дозволяє користувачеві телепортуватися на коротку відстань, збиваючи з ніг людей у невеликому радіусі навколо місця телепортації.
+    Завдає значної шкоди, коли ціль лежить або повернута до вас спиною.
+    Використовуйте його в руці, щоб перемкнути режим телепортації.

@@ -3,11 +3,11 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-ui-options-auto-fill-highlights = Auto-fill the highlights with the character's information
-ui-options-highlights-color = Highlighs color:
-ui-options-highlights-color-example = This is an highlighted text!
-ui-options-function-resist-grab = Resist Grab
-ui-options-coalesce-identical-messages = Coalesce identical messages in chat
-ui-options-detailed-examine = Show detailed examine text
+ui-options-auto-fill-highlights = Автоматично заповнювати виділення інформацією про персонажа
+ui-options-highlights-color = Колір виділення:
+ui-options-highlights-color-example = Це виділений текст!
+ui-options-function-resist-grab = Опиратися захопленню
+ui-options-coalesce-identical-messages = Об'єднувати однакові повідомлення в чаті
+ui-options-detailed-examine = Показувати детальний текст огляду
 
-ui-options-hud-theme-coscult = Cosmic Cult
+ui-options-hud-theme-coscult = Космічний Культ

@@ -1,5 +1,5 @@
-advertisement-pride-1 = Бути геєм - чинити злочини!
-advertisement-pride-2 = Повно кольорів!
-advertisement-pride-3 = Ви дійсні!
-thankyou-pride-1 = Яскравого вам дня!
-thankyou-pride-2 = Яскравого вам дня!
+advertisement-pride-1 = Будь геєм, чини злочини!
+advertisement-pride-2 = Сповнений кольорів!
+advertisement-pride-3 = Ти - валідний!
+thankyou-pride-1 = Вражай!
+thankyou-pride-2 = Вбий їх наповал!

@@ -94,3 +94,5 @@ anomaly-behavior-fast = [color=crimson]Частота пульсації сил�
 anomaly-behavior-strenght = [color=crimson]Потужність пульсації значно збільшена[/color]
 anomaly-behavior-moving = [color=crimson]Виявлено нестабільність координат[/color]
 anomaly-scanner-scan-copied = Скановані дані аномалії скопійовано!
+
+anomaly-behavior-invisibility = Виявлено спотворення світлових хвиль.

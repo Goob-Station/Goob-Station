@@ -1,8 +1,8 @@
-ui-config-menu-options = Options
-ui-config-menu-disconnect = Disconnect
-ui-config-menu-quit = Quit
-ui-config-menu-crafting = Crafting Menu
-ui-config-menu-language = Language Menu
-ui-config-menu-admin = Admin Menu
+ui-config-menu-options = Налаштування
+ui-config-menu-disconnect = Від'єднатися
+ui-config-menu-quit = Вийти
+ui-config-menu-crafting = Меню крафту
+ui-config-menu-language = Меню мови
+ui-config-menu-admin = Меню адміна
 ui-config-menu-ahelp = AHelp
-ui-config-menu-sandbox = Sandbox Menu
+ui-config-menu-sandbox = Меню пісочниці

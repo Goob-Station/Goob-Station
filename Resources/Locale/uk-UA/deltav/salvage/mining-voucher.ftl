@@ -4,39 +4,33 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-mining-voucher-select-first = Select a kit to redeem first!
-mining-voucher-unpowered = {CAPITALIZE(THE($vendor))} is unpowered!
-mining-voucher-selected = Selected {$kit}!
+mining-voucher-select-first = Спочатку виберіть набір для отримання!
+mining-voucher-unpowered = {CAPITALIZE(THE($vendor))} знеструмлений!
+mining-voucher-selected = Вибрано {$kit}!
 
-mining-voucher-crusher-name = Crusher Kit
-mining-voucher-crusher-description =
-    Contains a kinetic crusher and a pocket fire extinguisher.
-    The crusher is a versatile melee mining tool capable both of mining and fighting local fauna.
-    However, it is difficult to use effectively for anyone but most skilled and/or suicidal miners.
+mining-voucher-crusher-name = Набір Дробарка
+mining-voucher-crusher-description = Містить кінетичну дробарку та кишеньковий вогнегасник.
+    Дробарка - це універсальний інструмент для видобутку, здатний як добувати, так і боротися з місцевою фауною.
+    Однак, його важко ефективно використовувати будь-кому, крім найдосвідченіших та/або самогубних шахтарів.
 
-mining-voucher-extraction-name = Extraction and Rescue Kit
-mining-voucher-extraction-description =
-    Contains a fulton beacon and 20 fultons, which allows you to send minerals,
-    items and dead bodies back home without having to use the mining shuttle.
-    As a bonus, you get 30 marker beacons to help you better mark your path.
+mining-voucher-extraction-name = Набір для видобутку та порятунку
+mining-voucher-extraction-description = Містить фултон-маяк та 20 фултонів, що дозволяє відправляти мінерали,
+    предмети та мертві тіла додому без використання шахтарського шатла.
+    Як бонус, ви отримуєте 30 маркерних маяків, щоб краще позначати свій шлях.
 
-mining-voucher-resonator-name = Resonator Kit
-mining-voucher-resonator-description =
-    Contains a resonator and a pocket fire extinguisher.
-    The resonator is a handheld device that creates small fields
-    of energy that resonate until they detonate, crushing rock.
-    It does increased damage in low pressure.
+mining-voucher-resonator-name = Набір Резонатор
+mining-voucher-resonator-description = Містить резонатор та кишеньковий вогнегасник.
+    Резонатор - це ручний пристрій, який створює невеликі поля
+    енергії, що резонують до детонації, дроблячи породу.
+    Він завдає підвищеної шкоди в умовах низького тиску.
 
-mining-voucher-survival-name = Survival Capsule and Explorer's Webbing
-mining-voucher-survival-description =
-    Contains an explorer's webbing, which allows you to carry even more mining equipment, and a spare shelter capsule to go with it.
+mining-voucher-survival-name = Капсула виживання та лямки дослідника
+mining-voucher-survival-description = Містить лямки дослідника, що дозволяє носити ще більше шахтарського обладнання, та запасну капсулу-притулок до них.
 
-mining-voucher-minebot-name = Minebot Kit
-mining-voucher-minebot-description =
-    Contains a little minebot companion that helps you in storing ore and hunting wildlife.
-    Also comes with an upgraded industrial welding tool, a welding mask and a KA modkit that allows shots to pass through the minebot.
+mining-voucher-minebot-name = Набір Шахтарський бот
+mining-voucher-minebot-description = Містить маленького шахтарського бота-компаньйона, який допомагає вам зберігати руду та полювати на дику природу.
+    Також поставляється з оновленим промисловим зварювальним інструментом, зварювальною маскою та модкітом КА, що дозволяє пострілам проходити крізь бота.
 
-mining-voucher-conscription-name = Mining Conscription Kit
-mining-voucher-conscription-description =
-    Contains a whole new mining starter kit for one crewmember, including
-    a proto-kinetic accelerator, mineral scanner and other useful gear.
+mining-voucher-conscription-name = Набір Шахтарської повинності
+mining-voucher-conscription-description = Містить абсолютно новий стартовий набір шахтаря для одного члена екіпажу, включаючи
+    прото-кінетичний прискорювач, мінеральний сканер та інше корисне спорядження.

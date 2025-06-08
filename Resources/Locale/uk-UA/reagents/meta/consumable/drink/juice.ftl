@@ -38,4 +38,8 @@ reagent-name-juice-watermelon = кавуновий сік
 reagent-desc-juice-watermelon = Зі смаком свят та літа!
 
 reagent-name-juice-cherry = вишневий сік
-reagent-desc-juice-cherry = Смачний вишневий сік, солодкий і пікантний.
+reagent-desc-juice-cherry = Найкращий червоний смак.
+reagent-name-juice-blue-pumpkin = сік синього гарбуза
+reagent-desc-juice-blue-pumpkin = Сік синього гарбуза. Пахне водою з басейну.
+reagent-name-juice-bungo = сік бунго
+reagent-desc-juice-bungo = Сік плоду бунго. Екзотика!

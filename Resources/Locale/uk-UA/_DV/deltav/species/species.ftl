@@ -10,6 +10,6 @@
 
 ## Species Names
 
-species-name-vulpkanin = Vulpkanin
-species-name-harpy = Harpy
-species-name-rodentia = Rodentia
+species-name-vulpkanin = Вульпканін
+species-name-harpy = Гарпія
+species-name-rodentia = Родентія

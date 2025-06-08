@@ -1,4 +1,4 @@
-names-first-inspector-dataset-1 = Auditor
-names-first-inspector-dataset-2 = Senior Auditor
-names-first-inspector-dataset-3 = Inspector
-names-first-inspector-dataset-4 = Senior Inspector
+names-first-inspector-dataset-1 = Аудитор
+names-first-inspector-dataset-2 = Старший аудитор
+names-first-inspector-dataset-3 = Інспектор
+names-first-inspector-dataset-4 = Старший інспектор

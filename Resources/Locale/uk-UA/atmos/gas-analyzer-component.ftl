@@ -33,3 +33,4 @@ gas-analyzer-window-text-filter = Фільтр
 
 gas-analyzer-window-volume-text = Обсяг:
 gas-analyzer-window-volume-val-text = {$volume} L
+gas-analyzer-object-out-of-range = Об'єкт вийшов за межі діапазону.

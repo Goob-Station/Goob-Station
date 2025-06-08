@@ -5,14 +5,14 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 # addobjectives
-cmd-addobjective-desc = Adds an objective to the player's mind.
-cmd-addobjective-help = addobjective <username> <objectiveID>
+cmd-addobjective-desc = Додає ціль до розуму гравця.
+cmd-addobjective-help = addobjective <ім'я_користувача> <ID_цілі>
 
-cmd-addobjective-invalid-args = Expected exactly 2 arguments.
-cmd-addobjective-player-not-found = Can't find the playerdata.
-cmd-addobjective-mind-not-found = Can't find the mind.
-cmd-addobjective-objective-not-found = Can't find matching objective prototype {$obj}
-cmd-addobjective-adding-failed = Failed to add the objective. Maybe requirements dont allow that objective to be added.
+cmd-addobjective-invalid-args = Очікується рівно 2 аргументи.
+cmd-addobjective-player-not-found = Не вдалося знайти дані гравця.
+cmd-addobjective-mind-not-found = Не вдалося знайти розум.
+cmd-addobjective-objective-not-found = Не вдалося знайти відповідний прототип цілі {$obj}
+cmd-addobjective-adding-failed = Не вдалося додати ціль. Можливо, вимоги не дозволяють додати цю ціль.
 
-cmd-addobjective-player-completion = <Player>
-cmd-add-objective-obj-completion = <Objective>
+cmd-addobjective-player-completion = <Гравець>
+cmd-add-objective-obj-completion = <Ціль>

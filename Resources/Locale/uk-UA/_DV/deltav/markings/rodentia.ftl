@@ -10,198 +10,198 @@
 
 ## patterns
 
-marking-RodentiaHeadBlaze = Head - Blaze
-marking-RodentiaHeadBlaze-head_m = Head
-marking-RodentiaHeadBlaze-blaze = Pattern
+marking-RodentiaHeadBlaze = Голова - Пляма
+marking-RodentiaHeadBlaze-head_m = Голова
+marking-RodentiaHeadBlaze-blaze = Візерунок
 
-marking-RodentiaHeadRound = Head - Face Color
-marking-RodentiaHeadRound-head_m = Head
-marking-RodentiaHeadRound-round = Pattern
+marking-RodentiaHeadRound = Голова - Колір обличчя
+marking-RodentiaHeadRound-head_m = Голова
+marking-RodentiaHeadRound-round = Візерунок
 
-## ears
+## вуха
 
-marking-RodentiaHeadTopEarBat = Ears - Bat
-marking-RodentiaHeadTopEarBat-bat = Outer ear
+marking-RodentiaHeadTopEarBat = Вуха - Кажан
+marking-RodentiaHeadTopEarBat-bat = Зовнішнє вухо
 
-marking-RodentiaHeadTopEarBatLarge = Ears - Bat (Large)
-marking-RodentiaHeadTopEarBatLarge-bat_large = Outer ear
+marking-RodentiaHeadTopEarBatLarge = Вуха - Кажан (Великі)
+marking-RodentiaHeadTopEarBatLarge-bat_large = Зовнішнє вухо
 
-marking-RodentiaHeadTopEarHamster = Ears - Hamster
-marking-RodentiaHeadTopEarHamster-hamster = Outer ear
-marking-RodentiaHeadTopEarHamster-hamster_overlay = Inner ear
+marking-RodentiaHeadTopEarHamster = Вуха - Хом'як
+marking-RodentiaHeadTopEarHamster-hamster = Зовнішнє вухо
+marking-RodentiaHeadTopEarHamster-hamster_overlay = Внутрішнє вухо
 
-marking-RodentiaHeadTopEarLong = Ears - Long
-marking-RodentiaHeadTopEarLong-long = Outer ear
-marking-RodentiaHeadTopEarLong-long_overlay = Inner ear
+marking-RodentiaHeadTopEarLong = Вуха - Довгі
+marking-RodentiaHeadTopEarLong-long = Зовнішнє вухо
+marking-RodentiaHeadTopEarLong-long_overlay = Внутрішнє вухо
 
-marking-RodentiaHeadTopEarMouse = Ears - Mouse
-marking-RodentiaHeadTopEarMouse-mouse = Outer ear
-marking-RodentiaHeadTopEarMouse-mouse_overlay = Inner ear
+marking-RodentiaHeadTopEarMouse = Вуха - Миша
+marking-RodentiaHeadTopEarMouse-mouse = Зовнішнє вухо
+marking-RodentiaHeadTopEarMouse-mouse_overlay = Внутрішнє вухо
 
-marking-RodentiaHeadTopEarMouseLarge = Ears - Mouse (Large)
-marking-RodentiaHeadTopEarMouseLarge-mouse_large = Outer 
-marking-RodentiaHeadTopEarMouseLarge-mouse_large_overlay = Inner ear
+marking-RodentiaHeadTopEarMouseLarge = Вуха - Миша (Великі)
+marking-RodentiaHeadTopEarMouseLarge-mouse_large = Зовнішнє 
+marking-RodentiaHeadTopEarMouseLarge-mouse_large_overlay = Внутрішнє вухо
 
-marking-RodentiaHeadTopEarNone = Ears - Hidden
-marking-RodentiaHeadTopEarNone-none = None
+marking-RodentiaHeadTopEarNone = Вуха - Сховані
+marking-RodentiaHeadTopEarNone-none = Немає
 
-marking-RodentiaHeadTopEarPointy = Ears - Pointy
-marking-RodentiaHeadTopEarPointy-pointy = Outer ear
+marking-RodentiaHeadTopEarPointy = Вуха - Загострені
+marking-RodentiaHeadTopEarPointy-pointy = Зовнішнє вухо
 
-marking-RodentiaHeadTopEarRabbit = Ears - Rabbit
-marking-RodentiaHeadTopEarRabbit-rabbit = Outer ear
-marking-RodentiaHeadTopEarRabbit-rabbit_overlay = Inner ear
+marking-RodentiaHeadTopEarRabbit = Вуха - Кролик
+marking-RodentiaHeadTopEarRabbit-rabbit = Зовнішнє вухо
+marking-RodentiaHeadTopEarRabbit-rabbit_overlay = Внутрішнє вухо
 
-marking-RodentiaHeadTopEarSmall = Ears - Small
-marking-RodentiaHeadTopEarSmall-small = Outer Ear
+marking-RodentiaHeadTopEarSmall = Вуха - Маленькі
+marking-RodentiaHeadTopEarSmall-small = Зовнішнє вухо
 
-## snout
+## морда
 
-marking-RodentiaSnoutBat = Snout - Bat
-marking-RodentiaSnoutBat-bat = Snout
-marking-RodentiaSnoutBat-bat_nose = Nose
+marking-RodentiaSnoutBat = Морда - Кажан
+marking-RodentiaSnoutBat-bat = Морда
+marking-RodentiaSnoutBat-bat_nose = Ніс
 
-marking-RodentiaSnoutBatCounter = Snout - Bat, Two-tone
-marking-RodentiaSnoutBatCounter-bat = Snout
-marking-RodentiaSnoutBatCounter-bat_nose = Nose
-marking-RodentiaSnoutBatCounter-bat_overlay = Countershade
+marking-RodentiaSnoutBatCounter = Морда - Кажан, Двоколірна
+marking-RodentiaSnoutBatCounter-bat = Морда
+marking-RodentiaSnoutBatCounter-bat_nose = Ніс
+marking-RodentiaSnoutBatCounter-bat_overlay = Контрзатінення
 
-marking-RodentiaSnoutFlat = Snout - Flat
-marking-RodentiaSnoutFlat-flat = Snout
-marking-RodentiaSnoutFlat-flat_nose = Nose
+marking-RodentiaSnoutFlat = Морда - Пласка
+marking-RodentiaSnoutFlat-flat = Морда
+marking-RodentiaSnoutFlat-flat_nose = Ніс
 
-marking-RodentiaSnoutFlatCounter = Snout - Flat, Two-tone
-marking-RodentiaSnoutFlatCounter-flat = Snout
-marking-RodentiaSnoutFlatCounter-flat_nose = Nose
-marking-RodentiaSnoutFlatCounter-flat_overlay = Countershade
+marking-RodentiaSnoutFlatCounter = Морда - Пласка, Двоколірна
+marking-RodentiaSnoutFlatCounter-flat = Морда
+marking-RodentiaSnoutFlatCounter-flat_nose = Ніс
+marking-RodentiaSnoutFlatCounter-flat_overlay = Контрзатінення
 
-marking-RodentiaSnoutRound = Snout - Round
-marking-RodentiaSnoutRound-round = Snout
-marking-RodentiaSnoutRound-round_nose = Nose
+marking-RodentiaSnoutRound = Морда - Кругла
+marking-RodentiaSnoutRound-round = Морда
+marking-RodentiaSnoutRound-round_nose = Ніс
 
-marking-RodentiaSnoutRoundCounter = Snout - Round, Two-tone
-marking-RodentiaSnoutRoundCounter-round = Snout
-marking-RodentiaSnoutRoundCounter-round_nose = Nose
-marking-RodentiaSnoutRoundCounter-round_overlay = Countershade
+marking-RodentiaSnoutRoundCounter = Морда - Кругла, Двоколірна
+marking-RodentiaSnoutRoundCounter-round = Морда
+marking-RodentiaSnoutRoundCounter-round_nose = Ніс
+marking-RodentiaSnoutRoundCounter-round_overlay = Контрзатінення
 
-## cheeks
+## щоки
 
-marking-RodentiaCheeksRound = Cheeks - Round
-marking-RodentiaCheeksRound-cheeks = Cheek
+marking-RodentiaCheeksRound = Щоки - Круглі
+marking-RodentiaCheeksRound-cheeks = Щока
 
-marking-RodentiaCheeksRoundCounter = Cheeks - Round, Two-tone
-marking-RodentiaCheeksRoundCounter-cheeks = Cheek
-marking-RodentiaCheeksRoundCounter-cheeks_overlay = Countershade
+marking-RodentiaCheeksRoundCounter = Щоки - Круглі, Двоколірні
+marking-RodentiaCheeksRoundCounter-cheeks = Щока
+marking-RodentiaCheeksRoundCounter-cheeks_overlay = Контрзатінення
 
-marking-RodentiaCheeksFluff = Cheeks - Fluff
-marking-RodentiaCheeksFluff-fluff = Cheek fluff
+marking-RodentiaCheeksFluff = Щоки - Пухнасті
+marking-RodentiaCheeksFluff-fluff = Пух на щоках
 
-marking-RodentiaCheeksFluffCounter = Cheeks - Fluff, Two-tone
-marking-RodentiaCheeksFluffCounter-fluff = Cheek fluff
-marking-RodentiaCheeksFluffCounter-fluff_overlay = Countershade
+marking-RodentiaCheeksFluffCounter = Щоки - Пухнасті, Двоколірні
+marking-RodentiaCheeksFluffCounter-fluff = Пух на щоках
+marking-RodentiaCheeksFluffCounter-fluff_overlay = Контрзатінення
 
-marking-RodentiaCheeksFluffAlt = Cheeks - Fluff, Alt
-marking-RodentiaCheeksFluffAlt-fluff_alt = Cheek fluff
+marking-RodentiaCheeksFluffAlt = Щоки - Пухнасті, Альт
+marking-RodentiaCheeksFluffAlt-fluff_alt = Пух на щоках
 
-marking-RodentiaCheeksFluffAltCounter = Cheeks - Fluff, Alt, Two-tone
-marking-RodentiaCheeksFluffAltCounter-fluff_alt = Cheek fluff
-marking-RodentiaCheeksFluffAltCounter-fluff_alt_overlay = Countershade
+marking-RodentiaCheeksFluffAltCounter = Щоки - Пухнасті, Альт, Двоколірні
+marking-RodentiaCheeksFluffAltCounter-fluff_alt = Пух на щоках
+marking-RodentiaCheeksFluffAltCounter-fluff_alt_overlay = Контрзатінення
 
-marking-RodentiaCheeksWhiskers = Whiskers
-marking-RodentiaCheeksWhiskers-whiskers = Whiskers
+marking-RodentiaCheeksWhiskers = Вуса
+marking-RodentiaCheeksWhiskers-whiskers = Вуса
 
-# body markings
+# маркування тіла
 
-## tail
+## хвіст
 
-marking-RodentiaTailBeaver = Tail - Beaver
-marking-RodentiaTailBeaver-beaver = Tail
+marking-RodentiaTailBeaver = Хвіст - Бобер
+marking-RodentiaTailBeaver-beaver = Хвіст
 
-marking-RodentiaTailHamster = Tail - Hamster
-marking-RodentiaTailHamster-hamster = Tail
+marking-RodentiaTailHamster = Хвіст - Хом'як
+marking-RodentiaTailHamster-hamster = Хвіст
 
-marking-RodentiaTailLong = Tail - Long
-marking-RodentiaTailLong-long = Tail
+marking-RodentiaTailLong = Хвіст - Довгий
+marking-RodentiaTailLong-long = Хвіст
 
-marking-RodentiaTailLongCounter = Tail - Long, Two-tone
-marking-RodentiaTailLongCounter-long = Tail
-marking-RodentiaTailLongCounter-long_overlay = Countershade
+marking-RodentiaTailLongCounter = Хвіст - Довгий, Двоколірний
+marking-RodentiaTailLongCounter-long = Хвіст
+marking-RodentiaTailLongCounter-long_overlay = Контрзатінення
 
-marking-RodentiaTailLongCounterTip = Tail - Long, Three-tone
-marking-RodentiaTailLongCounterTip-long = Tail
-marking-RodentiaTailLongCounterTip-long_overlay = Countershade
-marking-RodentiaTailLongCounterTip-long_tip = Tip
+marking-RodentiaTailLongCounterTip = Хвіст - Довгий, Триколірний
+marking-RodentiaTailLongCounterTip-long = Хвіст
+marking-RodentiaTailLongCounterTip-long_overlay = Контрзатінення
+marking-RodentiaTailLongCounterTip-long_tip = Кінчик
 
-marking-RodentiaTailMouse = Tail - Mouse
-marking-RodentiaTailMouse-mouse = Tail
+marking-RodentiaTailMouse = Хвіст - Миша
+marking-RodentiaTailMouse-mouse = Хвіст
 
-marking-RodentiaTailRabbit = Tail - Rabbit
-marking-RodentiaTailRabbit-rabbit = Tail
+marking-RodentiaTailRabbit = Хвіст - Кролик
+marking-RodentiaTailRabbit-rabbit = Хвіст
 
-marking-RodentiaTailRabbitCounter = Tail - Rabbit, Two-tone
-marking-RodentiaTailRabbitCounter-rabbit = Tail
-marking-RodentiaTailRabbitCounter-rabbit_overlay = Countershade
+marking-RodentiaTailRabbitCounter = Хвіст - Кролик, Двоколірний
+marking-RodentiaTailRabbitCounter-rabbit = Хвіст
+marking-RodentiaTailRabbitCounter-rabbit_overlay = Контрзатінення
 
-marking-RodentiaTailShort = Tail - Short
-marking-RodentiaTailShort-short = Tail
+marking-RodentiaTailShort = Хвіст - Короткий
+marking-RodentiaTailShort-short = Хвіст
 
-marking-RodentiaTailSquirrel = Tail - Squirrel
-marking-RodentiaTailSquirrel-squirrel = Tail
+marking-RodentiaTailSquirrel = Хвіст - Білка
+marking-RodentiaTailSquirrel-squirrel = Хвіст
 
-marking-RodentiaTailSquirrelBicolor = Tail - Squirrel, Two-tone
-marking-RodentiaTailSquirrelBicolor-squirrel = Tail
-marking-RodentiaTailSquirrelBicolor-squirrel_overlay = Secondary
+marking-RodentiaTailSquirrelBicolor = Хвіст - Білка, Двоколірний
+marking-RodentiaTailSquirrelBicolor-squirrel = Хвіст
+marking-RodentiaTailSquirrelBicolor-squirrel_overlay = Вторинний
 
-## patterns
+## візерунки
 
-marking-RodentiaChestCountershade = Chest - Countershade
-marking-RodentiaChestCountershade-countershade = Countershade
+marking-RodentiaChestCountershade = Груди - Контрзатінення
+marking-RodentiaChestCountershade-countershade = Контрзатінення
 
-marking-RodentiaChestCountershadeF = Chest - Countershade
-marking-RodentiaChestCountershadeF-countershade_f = Countershade
+marking-RodentiaChestCountershadeF = Груди - Контрзатінення
+marking-RodentiaChestCountershadeF-countershade_f = Контрзатінення
 
-marking-RodentiaLegLeftCountershade = Left Leg - Countershade
-marking-RodentiaLegLeftCountershade-l_leg = Leg
-marking-RodentiaLegLeftCountershade-countershade_lleg = Countershade
+marking-RodentiaLegLeftCountershade = Ліва нога - Контрзатінення
+marking-RodentiaLegLeftCountershade-l_leg = Нога
+marking-RodentiaLegLeftCountershade-countershade_lleg = Контрзатінення
 
-marking-RodentiaLegRightCountershade = Right Leg - Countershade
-marking-RodentiaLegRightCountershade-r_leg = Leg
-marking-RodentiaLegRightCountershade-countershade_rleg = Countershade
+marking-RodentiaLegRightCountershade = Права нога - Контрзатінення
+marking-RodentiaLegRightCountershade-r_leg = Нога
+marking-RodentiaLegRightCountershade-countershade_rleg = Контрзатінення
 
-marking-RodentiaChestFawn = Chest - Fawn
-marking-RodentiaChestFawn-fawn = Pattern
+marking-RodentiaChestFawn = Груди - Оленя
+marking-RodentiaChestFawn-fawn = Візерунок
 
-marking-RodentiaChestHooded = Chest - Hooded
-marking-RodentiaChestHooded-hooded = Pattern
+marking-RodentiaChestHooded = Груди - Капюшон
+marking-RodentiaChestHooded-hooded = Візерунок
 
-marking-RodentiaChestHoodedF = Chest - Hooded
-marking-RodentiaChestHoodedF-hooded_f = Pattern
+marking-RodentiaChestHoodedF = Груди - Капюшон
+marking-RodentiaChestHoodedF-hooded_f = Візерунок
 
-# base parts
+# базові частини
 
-marking-RodentiaHeadBasic = Head - Basic
-marking-RodentiaHeadBasic-head_m = Head
+marking-RodentiaHeadBasic = Голова - Базова
+marking-RodentiaHeadBasic-head_m = Голова
 
-marking-RodentiaArmLeftBasic = Left Arm - Basic
-marking-RodentiaArmLeftBasic-l_arm = Arm
+marking-RodentiaArmLeftBasic = Ліва рука - Базова
+marking-RodentiaArmLeftBasic-l_arm = Рука
 
-marking-RodentiaArmRightBasic = Right Arm - Basic
-marking-RodentiaArmRightBasic-r_arm = Arm
+marking-RodentiaArmRightBasic = Права рука - Базова
+marking-RodentiaArmRightBasic-r_arm = Рука
 
-marking-RodentiaLegLeftBasic = Left Leg - Basic
-marking-RodentiaLegLeftBasic-l_leg = Leg
+marking-RodentiaLegLeftBasic = Ліва нога - Базова
+marking-RodentiaLegLeftBasic-l_leg = Нога
 
-marking-RodentiaLegRightBasic = Right Leg - Basic
-marking-RodentiaLegRightBasic-r_leg = Leg
+marking-RodentiaLegRightBasic = Права нога - Базова
+marking-RodentiaLegRightBasic-r_leg = Нога
 
-marking-RodentiaHandLeftBasic = Left Hand - Basic
-marking-RodentiaHandLeftBasic-l_hand = Hand
+marking-RodentiaHandLeftBasic = Ліва кисть - Базова
+marking-RodentiaHandLeftBasic-l_hand = Кисть
 
-marking-RodentiaHandRightBasic = Right Hand - Basic
-marking-RodentiaHandRightBasic-r_hand = Hand
+marking-RodentiaHandRightBasic = Права кисть - Базова
+marking-RodentiaHandRightBasic-r_hand = Кисть
 
-marking-RodentiaFootLeftBasic = Left Foot - Basic
-marking-RodentiaFootLeftBasic-l_foot = Foot
+marking-RodentiaFootLeftBasic = Ліва стопа - Базова
+marking-RodentiaFootLeftBasic-l_foot = Стопа
 
-marking-RodentiaFootRightBasic = Right Foot - Basic
-marking-RodentiaFootRightBasic-r_foot = Foot
+marking-RodentiaFootRightBasic = Права стопа - Базова
+marking-RodentiaFootRightBasic-r_foot = Стопа

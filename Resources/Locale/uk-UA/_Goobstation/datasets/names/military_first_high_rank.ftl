@@ -1,3 +1,3 @@
-names-military-first-high-rank-dataset-1 = Admiral
-names-military-first-high-rank-dataset-2 = Fleet Admiral
-names-military-first-high-rank-dataset-3 = Captain
+names-military-first-high-rank-dataset-1 = Адмірал
+names-military-first-high-rank-dataset-2 = Адмірал флоту
+names-military-first-high-rank-dataset-3 = Капітан

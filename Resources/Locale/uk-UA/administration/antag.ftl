@@ -16,3 +16,7 @@ admin-overlay-antag-classic = АНТАГ
 admin-verb-text-make-vampire = Зробити Вампіром
 admin-verb-make-shadowling = Перетворити ціль на тіневика.
 admin-verb-text-make-shadowling = Зробити Тіневиком
+admin-verb-make-initial-infected = Зробити ціль початковим інфікованим.
+admin-verb-make-paradox-clone = Створити роль привида "Парадоксальний клон" для цілі.
+admin-verb-text-make-initial-infected = Зробити початковим інфікованим
+admin-verb-text-make-paradox-clone = Створити парадоксального клона

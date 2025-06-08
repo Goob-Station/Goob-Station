@@ -6,9 +6,9 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 # erase
-cmd-erase-desc = Erase a player's entity if it exists and all their chat messages
-cmd-erase-help = erase <Username of User Id>
-cmd-erase-invalid-args = Invalid number of arguments
-cmd-erase-player-not-found = Player not found
+cmd-erase-desc = Стерти сутність гравця, якщо вона існує, та всі його повідомлення в чаті
+cmd-erase-help = erase <Ім'я користувача або ID користувача>
+cmd-erase-invalid-args = Невірна кількість аргументів
+cmd-erase-player-not-found = Гравця не знайдено
 
-cmd-erase-player-completion = <Username>
+cmd-erase-player-completion = <Ім'я користувача>

@@ -21,3 +21,9 @@ comp-stack-becomes-full = Тепер стопка повна.
 comp-stack-split = Ви поділили стопку
 comp-stack-split-halve = Розділити
 comp-stack-split-too-small = Стопка замала щоб її поділити
+
+comp-stack-split-custom = Розділити кількість...
+comp-stack-split-size = Макс: {$size}
+ui-custom-stack-split-title = Розділити кількість
+ui-custom-stack-split-line-edit-placeholder = Кількість
+ui-custom-stack-split-apply = Розділити

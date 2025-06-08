@@ -4,11 +4,11 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-hud-chatbox-highlights = Highlights:
-hud-chatbox-highlights-button = Submit
-hud-chatbox-highlights-tooltip = The words need to be separated by a newline,
-                                 if wrapped around " they will be highlighted
-                                 only if separated by spaces or punctuation.
+hud-chatbox-highlights = Підсвічування:
+hud-chatbox-highlights-button = Надіслати
+hud-chatbox-highlights-tooltip = Слова мають бути розділені новим рядком,
+                                 якщо вони взяті в "", вони будуть підсвічуватися
+                                 тільки якщо розділені пробілами або знаками пунктуації.
 hud-chatbox-highlights-placeholder = McHands
-                                     "Judge"
-                                     Medical
+                                     "Суддя"
+                                     Медицина

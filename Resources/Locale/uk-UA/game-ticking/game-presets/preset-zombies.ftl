@@ -30,3 +30,8 @@ zombie-round-end-survivor-count = {$count ->
     *[other] Залишилося лише {$count} вцілілих:
 }
 zombie-round-end-user-was-survivor = - [color=White]{$name}[/color] ([color=gray]{$username}[/color]) пережив спалах.
+
+zombieteors-title = Зомбітеорити
+zombieteors-description = На станції серед катаклізмічного метеоритного дощу з'явилися нежиті! Працюйте разом з іншими членами екіпажу та робіть усе можливе, щоб вижити!
+zombie-start-announcement = Підтверджено спалах біологічної небезпеки 7-го рівня на борту станції. Служба безпеки більше не може вас захистити. Прямуйте до захищених зон і чекайте евакуації.
+### Кінець зв'язку

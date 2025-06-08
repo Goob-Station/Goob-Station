@@ -27,3 +27,12 @@ deathrattle-implant-critical-message = Життєві показники {$user}
 implanter-component-implant-already = {$target} вже має імплант {$implant}!
 
 ## UI
+implanter-draw-failed-catastrophically = Імплантатор нічого не знаходить і зазнає катастрофічної невдачі, викидаючи генетичний матеріал в руку {$user}!
+implanter-set-draw-verb = Встановити витяг імпланта
+implanter-set-draw-window = Встановити витяг імпланта
+implanter-set-draw-info = Виберіть тип імпланта, який цей імплантатор повинен видалити:
+implanter-set-draw-type = Тип імпланта:
+implanter-label-inject = [color=green]{$implantName}[/color]
+    Режим: [color=white]{$modeString}[/color]
+implanter-label-draw = [color=red]{$implantName}[/color]
+    Режим: [color=white]{$modeString}[/color]

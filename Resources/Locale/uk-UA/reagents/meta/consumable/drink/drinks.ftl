@@ -94,3 +94,5 @@ reagent-name-cream-of-coconut = кокосовий крем
 reagent-desc-cream-of-coconut = Солодкий, сиропоподібний варіант кокосового крему з додаванням цукру.
 reagent-name-arnold-palmer = арнольд Палмер
 reagent-desc-arnold-palmer = А тепер подивись на цей диск.
+reagent-name-tea-powder = чайний порошок
+reagent-desc-tea-powder = Дрібно змелене чайне листя, використовується для приготування чаю.

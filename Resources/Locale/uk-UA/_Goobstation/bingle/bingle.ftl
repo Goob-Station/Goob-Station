@@ -19,3 +19,4 @@ bingle-upgrade-success = Ви відчуваєте себе сильнішим
 bingle-pit-grow = Яма стає більшою
 
 bingle-pit-end-of-round = Бінглпіт біля {$location} виріс до рівня {$level} і зібрав {$points} очок Бінгла
+ghost-role-information-bingle-rules = Ви [color=red][bold]Командний Антагоніст[/bold][/color] з іншими Бінглами

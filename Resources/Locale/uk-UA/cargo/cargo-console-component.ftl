@@ -48,3 +48,6 @@ cargo-no-shuttle = Вантажний шатл не знайдено!
 cargo-telepad-delay-upgrade = Затримка телепортації
 
 cargo-console-unlock-approved-order-broadcast = [bold]{$productName} x{$orderAmount}[/bold], який коштував [bold]{$cost}[/bold], був затверджений [bold]{$approver}[/bold]
+
+cargo-console-cooldown-count = Неможливо замовити більше одного {$product} за раз.
+cargo-console-cooldown-active = Замовлення на {$product} неможливо розмістити ще протягом {$timeCount} {$timeUnits}.

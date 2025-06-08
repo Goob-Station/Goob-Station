@@ -23,3 +23,6 @@ strippable-bound-user-interface-stripping-menu-ensnare-button = Розв'яза�
 
 thieving-component-user = Хтось
 thieving-component-item = щось
+strippable-component-alert-owner-insert-hand = {CAPITALIZE(THE($user))} кладе {$item} вам у руку!
+
+# загальне попередження, коли користувач взаємодіє з вашими екіпірованими предметами.

@@ -22,3 +22,5 @@ admin-ui-panic-bunker-is-enabled = Наразі увімкнено аварій�
 
 admin-ui-panic-bunker-enabled-admin-alert = Увімкнено аварійний бункер.
 admin-ui-panic-bunker-disabled-admin-alert = Панічний бункер вимкнено.
+
+admin-ui-panic-bunker-min-overall-minutes = Мін. загальний час гри

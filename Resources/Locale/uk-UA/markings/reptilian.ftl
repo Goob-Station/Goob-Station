@@ -110,3 +110,5 @@ marking-LizardTailSmoothAnimated = Хвіст ящірки (гладкий) (а�
 marking-LizardTailSpikesAnimated = Хвіст ящірки (колючий) (анімований)
 marking-LizardTailLTigerAnimated = Хвіст ящірки (світло-тигрові смуги) (анімований)
 marking-LizardTailDTigerAnimated = Хвіст ящірки (темні тигрові смуги) (анімований)
+marking-LizardHornsDemonic-horns_demonic = Роги ящера (демонічні)
+marking-LizardHornsDemonic = Роги ящера (демонічні)

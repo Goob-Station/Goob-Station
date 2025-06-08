@@ -1,14 +1,14 @@
-rat-king-command-stay-1 = Sit!
-rat-king-command-stay-2 = Stay!
-rat-king-command-stay-3 = Stop!
+rat-king-command-stay-1 = Сидіти!
+rat-king-command-stay-2 = Місце!
+rat-king-command-stay-3 = Стояти!
 
-rat-king-command-follow-1 = Heel!
-rat-king-command-follow-2 = Follow!
+rat-king-command-follow-1 = До ноги!
+rat-king-command-follow-2 = За мною!
 
-rat-king-command-cheese-1 = Attack!
-rat-king-command-cheese-2 = Sic!
-rat-king-command-cheese-3 = Kill!
-rat-king-command-cheese-4 = Cheese 'Em!
+rat-king-command-cheese-1 = Атакувати!
+rat-king-command-cheese-2 = Взяти!
+rat-king-command-cheese-3 = Вбити!
+rat-king-command-cheese-4 = Сир 'Їм!
 
-rat-king-command-loose-1 = Free!
-rat-king-command-loose-2 = Loose!
+rat-king-command-loose-1 = Вільно!
+rat-king-command-loose-2 = Гуляти!

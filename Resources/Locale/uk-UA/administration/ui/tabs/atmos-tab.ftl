@@ -4,15 +4,15 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-admin-ui-atmos-add = Add Atmos
-admin-ui-atmos-add-gas = Add Gas
-admin-ui-atmos-fill-gas = Fill Gas
-admin-ui-atmos-set-temperature = Set Temperature
+admin-ui-atmos-add = Додати в атмосферу
+admin-ui-atmos-add-gas = Додати газ
+admin-ui-atmos-fill-gas = Заповнити газом
+admin-ui-atmos-set-temperature = Встановити температуру
 
-admin-ui-atmos-grid = Grid
-admin-ui-atmos-grid-current = Current
-admin-ui-atmos-tile-x = TileX
-admin-ui-atmos-tile-y = TileY
-admin-ui-atmos-gas = Gas
-admin-ui-atmos-gas-amount = Amount
-admin-ui-atmos-temperature = Temperature
+admin-ui-atmos-grid = Сітка
+admin-ui-atmos-grid-current = Поточна
+admin-ui-atmos-tile-x = ПлиткаX
+admin-ui-atmos-tile-y = ПлиткаY
+admin-ui-atmos-gas = Газ
+admin-ui-atmos-gas-amount = Кількість
+admin-ui-atmos-temperature = Температура

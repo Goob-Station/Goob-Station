@@ -1,13 +1,12 @@
-reagent-effect-guidebook-cleanse-cultist =
-    { $chance ->
-        [1] cleanses
-        *[other] cleanse
-    } otherwordly influences
+reagent-effect-guidebook-cleanse-cultist = { $chance ->
+        [1] очищує
+        *[other] очистити
+    } потойбічні впливи
 
-entropy-effect-numb = You feel eerily numb.
+entropy-effect-numb = Ви відчуваєте зловісне оніміння.
 
-reagent-name-entropy = liquid entropy
+reagent-name-entropy = рідка ентропія
 
-reagent-desc-entropy = An unnerving, malign substance.
+reagent-desc-entropy = Зловісна, шкідлива речовина.
 
-reagent-physical-desc-malign = malign
+reagent-physical-desc-malign = зловмисний

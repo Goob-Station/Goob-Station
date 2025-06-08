@@ -6,24 +6,22 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-armor-examine-stamina = - [color=cyan]Stamina[/color] damage reduced by [color=lightblue]{$num}%[/color].
+armor-examine-stamina = - [color=cyan]Витривалість[/color] пошкодження зменшено на [color=lightblue]{$num}%[/color].
 
-armor-examine-cancel-delayed-knockdown = - [color=green]Completely cancels[/color] stun baton delayed knockdown.
+armor-examine-cancel-delayed-knockdown = - [color=green]Повністю скасовує[/color] відкладене оглушення від електрокийка.
 
-armor-examine-modify-delayed-knockdown-delay =
-    - { $deltasign ->
-          [1] [color=green]Increases[/color]
-          *[-1] [color=red]Decreases[/color]
-      } stun baton delayed knockdown delay by [color=lightblue]{NATURALFIXED($amount, 2)} { $amount ->
-          [1] second
-          *[other] seconds
+armor-examine-modify-delayed-knockdown-delay = - { $deltasign ->
+          [1] [color=green]Збільшує[/color]
+          *[-1] [color=red]Зменшує[/color]
+      } затримку відкладеного оглушення від електрокийка на [color=lightblue]{NATURALFIXED($amount, 2)} { $amount ->
+          [1] секунду
+          *[other] секунд
       }[/color].
 
-armor-examine-modify-delayed-knockdown-time =
-    - { $deltasign ->
-          [1] [color=red]Increases[/color]
-          *[-1] [color=green]Decreases[/color]
-      } stun baton delayed knockdown time by [color=lightblue]{NATURALFIXED($amount, 2)} { $amount ->
-          [1] second
-          *[other] seconds
+armor-examine-modify-delayed-knockdown-time = - { $deltasign ->
+          [1] [color=red]Збільшує[/color]
+          *[-1] [color=green]Зменшує[/color]
+      } час відкладеного оглушення від електрокийка на [color=lightblue]{NATURALFIXED($amount, 2)} { $amount ->
+          [1] секунду
+          *[other] секунд
       }[/color].

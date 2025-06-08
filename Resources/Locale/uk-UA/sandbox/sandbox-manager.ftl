@@ -16,3 +16,6 @@ sandbox-window-show-npc-button = Показати NPC
 sandbox-window-link-machines-button = Зв'язати Пристрої
 
 sandbox-window-ai-overlay-button = Накладення штучного інтелекту
+sandbox-window-map-editing-label = Редагування
+sandbox-window-visibility-label = Видимість
+sandbox-window-your-character-label = Ваш персонаж

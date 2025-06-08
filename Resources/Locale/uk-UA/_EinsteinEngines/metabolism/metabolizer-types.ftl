@@ -1,1 +1,1 @@
-metabolizer-type-shadowkin = Shadowkin
+metabolizer-type-shadowkin = Тіневий

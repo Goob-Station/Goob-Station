@@ -4,17 +4,17 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-reagent-name-gin-and-sonic = gin and sonic
-reagent-desc-gin-and-sonic = Why did the hedgehog go to Saturn? To collect its rings!
+reagent-name-gin-and-sonic = джин-тонік із соніком
+reagent-desc-gin-and-sonic = Чому їжачок полетів на Сатурн? Щоб зібрати свої кільця!
 
-reagent-name-golden-cat = golden cat
-reagent-desc-golden-cat = Legends speak of a golden cat that sold a burger for a fortune. Has a metallic smell.
+reagent-name-golden-cat = золотий кіт
+reagent-desc-golden-cat = Легенди розповідають про золотого кота, який продав бургер за ціле багатство. Має металевий запах.
 
-reagent-name-pineapple-blast = pineapple blast
-reagent-desc-pineapple-blast = For when the trees start talking. Smells tropical, with notes of sulfur.
+reagent-name-pineapple-blast = ананасовий вибух
+reagent-desc-pineapple-blast = Для тих випадків, коли дерева починають розмовляти. Пахне тропіками, з нотками сірки.
 
-reagent-name-torpedo-juice = torpedo juice
-reagent-desc-torpedo-juice = The joys of drinking and unrestricted submarine warfare combined! Has a strong alcoholic smell.
+reagent-name-torpedo-juice = торпедний сік
+reagent-desc-torpedo-juice = Радощі пияцтва та необмеженої підводної війни в одному флаконі! Має сильний алкогольний запах.
 
-reagent-name-bees-knees = bee’s knees
-reagent-desc-bees-knees = BEEEEEEEEEEEEEEES!!! Has a stingy smell.
+reagent-name-bees-knees = бджолині колінця
+reagent-desc-bees-knees = БДЖООООООООООООЛИ!!! Має жалкий запах.

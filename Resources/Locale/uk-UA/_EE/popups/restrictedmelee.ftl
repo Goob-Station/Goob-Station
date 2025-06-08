@@ -1,1 +1,1 @@
-restricted-melee-component-attack-fail-too-large = Ви не можете взяти { CAPITALIZE(THE($item)) }, він, здається, розрахований на більші руки.
+restricted-melee-component-attack-fail-too-large = Ви не можете втримати { CAPITALIZE(THE($item))}, здається, він був розроблений для іншого виду.

@@ -1,2 +1,2 @@
-contraband-examine-text-cosmiccult = [color=#4cabb3]This is highly illegal contraband with unknown properties![/color]
-contraband-object-text-cosmiccult = [color=#4cabb3]This object should not be on the station![/color]
+contraband-examine-text-cosmiccult = [color=#4cabb3]Це вкрай нелегальна контрабанда з невідомими властивостями![/color]
+contraband-object-text-cosmiccult = [color=#4cabb3]Цей об'єкт не повинен знаходитись на станції![/color]

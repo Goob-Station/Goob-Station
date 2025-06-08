@@ -1,1 +1,1 @@
-defaultwindow-placeholder-title = Exemplary Window Title Here
+defaultwindow-placeholder-title = Зразковий заголовок вікна

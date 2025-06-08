@@ -15,3 +15,6 @@ cuffable-component-remove-cuffs-fail-message = Вам не вдалось зві
 
 # UnrestrainVerb
 uncuff-verb-get-data-text = Зняти Кайдани
+
+cuffable-component-start-uncuffing-self-observer = {$user} починає звільняти {REFLEXIVE($target)}!
+cuffable-component-remove-cuffs-push-success-message = Ви успішно знімаєте наручники і штовхаєте {$otherName} на підлогу.

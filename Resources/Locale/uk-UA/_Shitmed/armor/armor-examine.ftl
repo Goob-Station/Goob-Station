@@ -1,10 +1,10 @@
-armor-coverage-value = - [color=yellow]This armor reduces incoming damage to your { $type }[/color]
-armor-coverage-type-arm = arms
-armor-coverage-type-hand = hands
-armor-coverage-type-foot = feet
-armor-coverage-type-leg = legs
-armor-coverage-type-chest = chest
-armor-coverage-type-groin = groin
-armor-coverage-type-head = head
-armor-coverage-type-tail = tail
-armor-coverage-type-other = other parts
+armor-coverage-value = - [color=yellow]Ця броня зменшує вхідну шкоду по вашим { $type }[/color]
+armor-coverage-type-arm = рукам
+armor-coverage-type-hand = кистям
+armor-coverage-type-foot = стопам
+armor-coverage-type-leg = ногам
+armor-coverage-type-chest = грудній клітці
+armor-coverage-type-groin = паху
+armor-coverage-type-head = голові
+armor-coverage-type-tail = хвосту
+armor-coverage-type-other = іншим частинам

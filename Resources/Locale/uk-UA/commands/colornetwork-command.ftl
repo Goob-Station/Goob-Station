@@ -3,6 +3,6 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-cmd-colornetwork-desc = Paints the atmos devices in the specified color
+cmd-colornetwork-desc = Фарбує атмосферні пристрої у вказаний колір
 cmd-colornetwork-help = colornetwork <uid> Pipe <HexColor>
-cmd-colornetwork-no-access = You are not currently able to use mapping commands.
+cmd-colornetwork-no-access = Ви наразі не можете використовувати команди мапування.

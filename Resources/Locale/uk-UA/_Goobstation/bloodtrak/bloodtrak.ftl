@@ -1,9 +1,9 @@
-bloodtrak-dna-saved = DNA logged, Cycle ready.
-bloodtrak-scan-failed = Scan target invalid.
-bloodtrak-no-dna = Solution does not contain a valid DNA sequence.
+bloodtrak-dna-saved = ДНК зареєстровано, цикл готовий.
+bloodtrak-scan-failed = Недійсна ціль сканування.
+bloodtrak-no-dna = Розчин не містить валідної послідовності ДНК.
 
-bloodtrak-cooldown-active = Device recharging. Please wait {$num} seconds.
-bloodtrak-no-target = Tracking Target invalid.
-bloodtrak-target-lost = Tracking Target invalid.
-bloodtrak-tracking-expired = Tracking cycle completed.
-bloodtrak-no-match = DNA sequence not on records!
+bloodtrak-cooldown-active = Пристрій перезаряджається. Будь ласка, зачекайте {$num} секунд.
+bloodtrak-no-target = Недійсна ціль відстеження.
+bloodtrak-target-lost = Недійсна ціль відстеження.
+bloodtrak-tracking-expired = Цикл відстеження завершено.
+bloodtrak-no-match = Послідовність ДНК не знайдено в записах!

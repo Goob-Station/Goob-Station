@@ -14,3 +14,5 @@ store-ui-discount-display-with-currency = Знижка {$amount} на {$currency
 store-ui-discount-display = ({$amount} знижка!)
 store-preset-name-uplink = Аплінк
 store-preset-name-spellbook = Книга заклинань
+store-preset-name-uplink-ghost = Контрабандний Аплінк
+store-preset-name-spellbook-ghost = Примарна Крамниця Заклинань

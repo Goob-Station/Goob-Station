@@ -19,7 +19,7 @@ air-alarm-ui-window-pressure = {$pressure} кПа
 air-alarm-ui-window-pressure-indicator = Тиск: [color={$color}]{$pressure} кПа[/color]
 air-alarm-ui-window-temperature = {$tempC} Ц ({$temperature} K)
 air-alarm-ui-window-temperature-indicator = Температура: [color={$color}]{$tempC} Ц ({$temperature} K)[/color]
-air-alarm-ui-window-alarm-state = [color={$color}]{$state}[/color]
+air-alarm-ui-window-alarm-state = [color={$color}]{-air-alarm-state-name(state:$state)}[/color]
 air-alarm-ui-window-alarm-state-indicator = Стан: [color={$color}]{$state}[/color]
 
 air-alarm-ui-window-tab-vents = Вентиляція
@@ -69,3 +69,14 @@ air-alarm-ui-thresholds-upper-bound = Небезпека вище
 air-alarm-ui-thresholds-lower-bound = Небезпека нижче
 air-alarm-ui-thresholds-upper-warning-bound = Попередження вище
 air-alarm-ui-thresholds-lower-warning-bound = Попередження нижче
+
+-air-alarm-state-name = { $state ->
+    [normal] Норма
+    [warning] Попередження
+    [danger] Небезпека
+    [emagged] Зламано
+   *[invalid] Невірно
+}
+air-alarm-ui-window-listing-title = {$address} : {-air-alarm-state-name(state:$state)}
+air-alarm-ui-thresholds-copy = Копіювати пороги на всі пристрої
+air-alarm-ui-thresholds-copy-tooltip = Копіює порогові значення датчиків цього пристрою на всі пристрої в цій вкладці повітряної тривоги.

@@ -30,3 +30,6 @@ fibers-gold = золотий
 fibers-maroon = бордовий
 fibers-pink = рожевий
 fibers-kinetic = кінетичний
+fibers-insulative-frayed = потерте ізоляційне
+fibers-teal = бірюзове
+fibers-light-brown = світло-коричневе

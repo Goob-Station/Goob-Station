@@ -89,8 +89,8 @@ research-technology-mechanized-salvaging = Механізоване шахтер
 research-technology-advanced-bluespace = Поглиблене дослідження блакитного простору
 research-technology-excavation = Масові розкопки
 
-research-technology-night-vision = Нічне бачення
-research-technology-thermal-vision = Тепловізійне бачення
+research-technology-night-vision = Технологія нічного бачення
+research-technology-thermal-vision = Технологія тепловізійного бачення
 research-technology-basic-weapons = Основні види зброї
 research-technology-advanced-weapons = Передова зброя
 research-technology-prototype-weapons = Прототипи зброї
@@ -104,3 +104,4 @@ research-technology-advanced-life-improvements = Прогресивні покр
 research-technology-shrapnel-munitions = Шрапнельні Боєприпаси
 research-technology-laser-sentry-turrets = Технологія Лазерних Турелей-Охоронців
 research-technology-positronic-interfacing = Позитронне Сполучення
+research-technology-special-means = Особливі засоби

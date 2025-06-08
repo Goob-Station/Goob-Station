@@ -7,7 +7,7 @@ reagent-desc-napalm = Доволі легкозаймистий.
 reagent-name-phlogiston = флогістон
 reagent-desc-phlogiston = Підпалює вас і змушує займатися інші горючі речовини та предмети.
 
-reagent-name-chlorine-trifluoride = CLF3
+reagent-name-chlorine-trifluoride = трифторид хлору
 reagent-desc-chlorine-trifluoride = Вам дуже, ДУЖЕ не варто тримати це лайно близько до себе.
 
 reagent-name-foaming-agent = піноутворювач

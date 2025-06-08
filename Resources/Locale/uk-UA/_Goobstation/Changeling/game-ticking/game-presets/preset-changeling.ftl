@@ -13,3 +13,5 @@ changeling-gamemode-description = Вулик ченджлінгів прилет
 changeling-role-greeting = Ви - ченджлінг, який поглинув і прийняв форму {$name}! Ваші цілі перераховані в меню персонажа. Поглинайте, змінюйте форму і розвивайтеся, щоб виконати їх!
 
 changeling-role-greeting-short = Ви - ченджлінг, який поглинув і прийняв початкову форму {$name}.
+
+objective-issuer-tiger = [color=crimson]Кооператив Тигр[/color]

@@ -1,2 +1,2 @@
-skinning-start = {$performer} starts to skin {$target}!
-skin-verb = Skin Creature
+skinning-start = {$performer} починає знімати шкіру з {$target}!
+skin-verb = Зняти шкіру з істоти

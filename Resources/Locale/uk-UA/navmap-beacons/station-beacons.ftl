@@ -75,3 +75,11 @@ station-beacon-escape-pod = Рятівна капсула
 
 station-beacon-anchor = Якір
 station-beacon-reporter = Репортер
+station-beacon-gateway = Шлюз
+station-beacon-brig-med = Медичний відсік брига
+station-beacon-psychology = Психологія
+station-beacon-clinic = Клініка
+station-beacon-ai-upload = Завантаження ШІ
+station-beacon-ai-power = Живлення ШІ
+station-beacon-docking-arm = Стикувальний рукав
+station-beacon-vox = Кімната відпочинку воксів

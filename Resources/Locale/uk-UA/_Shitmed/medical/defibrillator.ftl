@@ -3,4 +3,4 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-defibrillator-missing-organs = Пацієнту бракує життєво важливих органів! Реанімація неможлива.
+defibrillator-missing-organs = Пацієнту не вистачає життєво важливих органів! Реанімація неможлива.

@@ -1,24 +1,24 @@
 ## REGULAR EXAMINES
-cosmic-examine-text-contraband = [color=#4cabb3]This is highly illegal contraband with unknown properties![/color]
-cosmic-examine-text-structures = [color=#4cabb3]This object should not be on the station![/color]
-cosmic-examine-text-glyphs = [color=#4cabb3]The etched lines are deeply unnerving to gaze upon.[/color]
-cosmic-examine-text-abilityblank = [color=#4cabb3]Their catatonic eyes pulse with wicked light![/color]
-cosmic-examine-text-abilitylapse = [color=#4cabb3]They look like they're seeing something not meant to be seen. Not by anyone.[/color]
-cosmic-examine-text-malignecho = [color=#4cabb3]An echo in the membrane of realspace — it appears to be fading quickly. Something is amiss aboard the station![/color]
-cosmic-examine-text-forthecult = [color=#4cabb3]This is our doing. As things should be.[/color]
-cosmic-examine-text-imposition = [color=#4cabb3]A barrier of astral power wards them from injury![/color]
-cosmic-examine-text-god = [color=#4cabb3]the end is the end is the end is the end is the end is the end is the end is the end is the end is the end is[/color]
+cosmic-examine-text-contraband = [color=#4cabb3]Це вкрай нелегальна контрабанда з невідомими властивостями![/color]
+cosmic-examine-text-structures = [color=#4cabb3]Цей об'єкт не повинен знаходитись на станції![/color]
+cosmic-examine-text-glyphs = [color=#4cabb3]Витравлені лінії викликають глибоке занепокоєння, коли на них дивишся.[/color]
+cosmic-examine-text-abilityblank = [color=#4cabb3]Їхні кататонічні очі пульсують зловісним світлом![/color]
+cosmic-examine-text-abilitylapse = [color=#4cabb3]Вони виглядають так, ніби бачать щось, що не призначене для перегляду. Ні для кого.[/color]
+cosmic-examine-text-malignecho = [color=#4cabb3]Відлуння в мембрані реального простору — здається, воно швидко зникає. Щось не так на борту станції![/color]
+cosmic-examine-text-forthecult = [color=#4cabb3]Це наша робота. Як і має бути.[/color]
+cosmic-examine-text-imposition = [color=#4cabb3]Бар'єр астральної сили захищає їх від ушкоджень![/color]
+cosmic-examine-text-god = [color=#4cabb3]кінець це кінець це кінець це кінець це кінець це кінець це кінець це кінець це кінець це кінець це[/color]
 
 
-## GLYPH EXAMINES
+## ОГЛЯД ГЛІФІВ
 cosmic-examine-glyph-cultcount = {$COUNT ->
-    [1] [color=#4cabb3]Requires only a single cultist to activate.[/color]
-    *[other] [color=#4cabb3]Requires {$COUNT} cultists to activate.[/color]
+    [1] [color=#4cabb3]Потребує лише одного культиста для активації.[/color]
+    *[other] [color=#4cabb3]Потребує {$COUNT} культистів для активації.[/color]
 }
 
-cosmic-examine-glyph-truth = [color=#4cabb3]Instills the pure, indelible truth. Able to convert absolutely anyone to join our ranks.[/color]
-cosmic-examine-glyph-knowledge = [color=#4cabb3]Instills the spark of indelible knowledge. Able to convert most to join our ranks.[/color]
-cosmic-examine-glyph-cessation = [color=#4cabb3]Transmutes a portable atmospherics scrubber into a Vacuous Spire for our use.[/color]
-cosmic-examine-glyph-projection = [color=#4cabb3]Allows us to ascend in a temporary astral form to spy on those around us.[/color]
-cosmic-examine-glyph-blades = [color=#4cabb3]Transmutes and extrudes sharp objects into more lethal weaponry.[/color]
-cosmic-examine-glyph-warding = [color=#4cabb3]Transmutes pressure-resistant clothing into entropic garb.[/color]
+cosmic-examine-glyph-truth = [color=#4cabb3]Вселяє чисту, незгладиму істину. Здатний навернути абсолютно будь-кого до наших лав.[/color]
+cosmic-examine-glyph-knowledge = [color=#4cabb3]Вселяє іскру незгладимого знання. Здатний навернути більшість до наших лав.[/color]
+cosmic-examine-glyph-cessation = [color=#4cabb3]Перетворює портативний атмосферний скрубер на Вакуумний Шпиль для нашого використання.[/color]
+cosmic-examine-glyph-projection = [color=#4cabb3]Дозволяє нам вознестися в тимчасовій астральній формі, щоб шпигувати за оточуючими.[/color]
+cosmic-examine-glyph-blades = [color=#4cabb3]Перетворює та екструдує гострі предмети в більш смертоносну зброю.[/color]
+cosmic-examine-glyph-warding = [color=#4cabb3]Перетворює стійкий до тиску одяг на ентропійне вбрання.[/color]

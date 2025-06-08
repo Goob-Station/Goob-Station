@@ -4,4 +4,4 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-emp-disabled-activate-attempt = {$item} malfunctions!
+emp-disabled-activate-attempt = {$item} несправний!

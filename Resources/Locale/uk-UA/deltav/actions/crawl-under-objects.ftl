@@ -1,2 +1,2 @@
-crawl-under-objects-toggle-on = Тепер крадькома
-crawl-under-objects-toggle-off = Зараз стоїть
+crawl-under-objects-toggle-on = Тепер крадетеся
+crawl-under-objects-toggle-off = Тепер стоїте

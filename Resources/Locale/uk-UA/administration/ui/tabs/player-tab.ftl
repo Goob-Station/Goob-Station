@@ -11,3 +11,6 @@ player-tab-filter-line-edit-placeholder = Фільтр
 player-tab-is-antag-yes = ТАК
 player-tab-is-antag-no = НІ
 player-tab-roletype = Тип Ролі
+player-tab-player-count = Гравці: { $count }
+player-tab-character-name-antag-symbol = {$symbol} {$name}
+player-tab-antag-prefix = 🗡

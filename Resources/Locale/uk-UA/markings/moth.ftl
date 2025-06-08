@@ -394,3 +394,6 @@ marking-MothLArmWitchwing = Ліва Рука Ніани (Відьмине Кр�
 
 marking-MothRArmWitchwing-witchwing_r_arm = Права рука
 marking-MothRArmWitchwing = Права Рука Ніани (Відьмине Крило)
+
+marking-MothWingsMaple-maple_primary = Основні
+marking-MothWingsMaple-maple_secondary = Вторинні

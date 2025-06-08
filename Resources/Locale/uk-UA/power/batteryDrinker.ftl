@@ -1,2 +1,2 @@
-battery-drinker-verb-drink = Виснажити
-battery-drinker-empty = {CAPATALIZE(THE($target))} вже заряджений!
+battery-drinker-verb-drink = Висушити
+battery-drinker-empty = {CAPITALIZE(THE($target))} вже порожній!

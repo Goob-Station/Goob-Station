@@ -3,4 +3,4 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-id-card-console-window-job-search-label = Search
+id-card-console-window-job-search-label = Пошук

@@ -3,5 +3,5 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-sleeper-title = The Ghost
-sleeper-description = A calm experience with a range of peaceful events.
+sleeper-title = Привид
+sleeper-description = Спокійний досвід з різноманітними мирними подіями.

@@ -5,5 +5,5 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-mindshield-implant-effect-removed = You feel an agonizing pain as your perspective changes and your vision widens near-instantly.
-nanite-mend-popup = You feel a vivid warmness spread throughout your body.
+mindshield-implant-effect-removed = Ви відчуваєте нестерпний біль, коли ваша перспектива змінюється, а зір майже миттєво розширюється.
+nanite-mend-popup = Ви відчуваєте яскраве тепло, що поширюється по всьому тілу.

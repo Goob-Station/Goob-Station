@@ -4,6 +4,6 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-marking-YowieFur = Yowie body fur
-marking-YowieFurFeetRight = Yowie right foot fur
-marking-YowieFurFeetLeft = Yowie left foot fur
+marking-YowieFur = Хутро тіла Йові
+marking-YowieFurFeetRight = Хутро правої лапи Йові
+marking-YowieFurFeetLeft = Хутро лівої лапи Йові

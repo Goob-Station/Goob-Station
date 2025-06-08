@@ -1,71 +1,71 @@
-﻿# Used internally by the THE() function.
+# Used internally by the THE() function.
 zzzz-the = { PROPER($ent) ->
-    *[false] the { $ent }
+    *[false] { $ent }
      [true] { $ent }
     }
 
-# Used internally by the SUBJECT() function.
+# Використовується всередині функції SUBJECT().
 zzzz-subject-pronoun = { GENDER($ent) ->
-    [male] he
-    [female] she
-    [epicene] they
-   *[neuter] it
+    [male] він
+    [female] вона
+    [epicene] вони
+   *[neuter] воно
    }
 
-# Used internally by the OBJECT() function.
+# Використовується всередині функції OBJECT().
 zzzz-object-pronoun = { GENDER($ent) ->
-    [male] him
-    [female] her
-    [epicene] them
-   *[neuter] it
+    [male] його
+    [female] її
+    [epicene] їх
+   *[neuter] його
    }
 
-# Used internally by the DAT-OBJ() function.
-# Not used in en-US. Created for supporting other languages.
+# Використовується всередині функції DAT-OBJ().
+# Не використовується в en-US. Створено для підтримки інших мов.
 zzzz-dat-object = { GENDER($ent) ->
-    [male] him
-    [female] her
-    [epicene] them
-   *[neuter] it
+    [male] його
+    [female] її
+    [epicene] їх
+   *[neuter] його
    }
 
-# Used internally by the POSS-PRONOUN() function.
+# Використовується внутрішньо функцією POSS-PRONOUN().
 zzzz-possessive-pronoun = { GENDER($ent) ->
-    [male] his
-    [female] hers
-    [epicene] theirs
-   *[neuter] its
+    [male] його
+    [female] її
+    [epicene] їхній
+   *[neuter] його
    }
 
-# Used internally by the POSS-ADJ() function.
+# Використовується всередині функції POSS-ADJ().
 zzzz-possessive-adjective = { GENDER($ent) ->
-    [male] his
-    [female] her
-    [epicene] their
-   *[neuter] its
+    [male] його
+    [female] її
+    [epicene] їхній
+   *[neuter] його
    }
 
-# Used internally by the REFLEXIVE() function.
+# Використовується всередині функції REFLEXIVE().
 zzzz-reflexive-pronoun = { GENDER($ent) ->
-    [male] himself
-    [female] herself
-    [epicene] themselves
-   *[neuter] itself
+    [male] себе
+    [female] себе
+    [epicene] себе
+   *[neuter] себе
    }
 
-# Used internally by the CONJUGATE-BE() function.
+# Використовується всередині функції CONJUGATE-BE().
 zzzz-conjugate-be = { GENDER($ent) ->
-    [epicene] are
-   *[other] is
+    [epicene] є
+   *[other] є
    }
 
-# Used internally by the CONJUGATE-HAVE() function.
+# Використовується всередині функції CONJUGATE-HAVE().
 zzzz-conjugate-have = { GENDER($ent) ->
-    [epicene] have
-   *[other] has
+    [epicene] мають
+   *[other] має
    }
 
-# Used internally by the CONJUGATE-BASIC() function.
+# Використовується всередині функції CONJUGATE-BASIC().
 zzzz-conjugate-basic = { GENDER($ent) ->
     [epicene] { $first }
    *[other] { $second }

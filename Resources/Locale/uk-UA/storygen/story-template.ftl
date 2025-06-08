@@ -4,7 +4,6 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-story-template-generic =
- This is { INDEFINITE($bookGenre) } {$bookGenre} about { INDEFINITE($char1Adj) } {$char1Adj} {$char1Type} and { INDEFINITE($char2Adj) } {$char2Adj} {$char2Type}. Due to {$event}, they {$actionTrait} {$action} { INDEFINITE($char3Type) } {$char3Type} {$location}.
+story-template-generic = Це { INDEFINITE($bookGenre) } {$bookGenre} про { INDEFINITE($char1Adj) } {$char1Adj} {$char1Type} та { INDEFINITE($char2Adj) } {$char2Adj} {$char2Type}. Через {$event}, вони {$actionTrait} {$action} { INDEFINITE($char3Type) } {$char3Type} {$location}.
 
- The {$element} is {$elementTrait}.
+ {$element} є {$elementTrait}.

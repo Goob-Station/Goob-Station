@@ -1,2 +1,2 @@
-alerts-broken-bones-name = Broken Bones
-alerts-broken-bones-desc = You have one or more broken bones. Get medical attention as soon as possible.
+alerts-broken-bones-name = Зламані кістки
+alerts-broken-bones-desc = У вас одна або більше зламаних кісток. Якнайшвидше зверніться по медичну допомогу.

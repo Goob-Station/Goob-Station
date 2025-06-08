@@ -1,1 +1,1 @@
-battery-electrocute-charge = Акумулятор заряджається енергією!
+battery-electrocute-charge = Батарея заряджається енергією!

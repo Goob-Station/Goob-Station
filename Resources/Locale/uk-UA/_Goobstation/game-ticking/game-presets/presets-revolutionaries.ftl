@@ -7,18 +7,16 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-revolutionaries-lose-announcement-shuttle-call = Based on scans from our long-range sensors, the enemy revolutionary cells on the station have been suppressed and neutralized.
-revolutionaries-lose-announcement = Based on scans from our long-range sensors, the enemy revolutionary cells on the station have been suppressed and neutralized.
+revolutionaries-lose-announcement-shuttle-call = На основі сканувань наших дальніх сенсорів, ворожі революційні осередки на станції були придушені та нейтралізовані.
+revolutionaries-lose-announcement = На основі сканувань наших дальніх сенсорів, ворожі революційні осередки на станції були придушені та нейтралізовані.
 
-revolutionaries-win-announcement-shuttle-call =
-    According to the leader's reports, the corporate command has been overthrown and we have seized control of the station.
+revolutionaries-win-announcement-shuttle-call = Згідно зі звітами лідера, корпоративне командування було повалено, і ми захопили контроль над станцією.
 
-    Viva la revolution!
+    Хай живе революція!
 
-revolutionaries-win-announcement =
-    According to the leader's reports, the corporate command has been overthrown and we have seized control of the station.
+revolutionaries-win-announcement = Згідно зі звітами лідера, корпоративне командування було повалено, і ми захопили контроль над станцією.
 
-    Viva la revolution!
+    Хай живе революція!
 
-revolutionaries-win-sender = Cybersun Communications
-revolutionaries-sender-cc = Nanotrasen Loyalty Division
+revolutionaries-win-sender = Кіберсан Комюнікейшнс
+revolutionaries-sender-cc = Відділ лояльності Nanotrasen

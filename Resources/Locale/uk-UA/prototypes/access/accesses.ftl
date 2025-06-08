@@ -57,3 +57,5 @@ id-card-access-level-central-command = Центральне командуван
 id-card-access-level-station-ai = Штучний Інтелект
 id-card-access-level-borg = Кіборг
 id-card-access-level-basic-silicon = Робот
+id-card-access-level-emergency-shuttle-repeal = E.Shuttle Repeal All
+id-card-access-level-wizard = Wizard

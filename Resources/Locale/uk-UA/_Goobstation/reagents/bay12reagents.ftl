@@ -4,11 +4,11 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-reagent-name-milk-choco = chocolate milk
-reagent-desc-milk-choco = A milk drink flavored with chocolate.
+reagent-name-milk-choco = шоколадне молоко
+reagent-desc-milk-choco = Молочний напій зі смаком шоколаду.
 
-reagent-name-tramadol = tramadol
-reagent-desc-tramadol = A powerful combat painkiller. Do not take with alcohol.
+reagent-name-tramadol = трамадол
+reagent-desc-tramadol = Потужний бойовий знеболюючий засіб. Не приймати з алкоголем.
 
-reagent-name-oxycodone = oxycodone
-reagent-desc-oxycodone = A very powerful painkiller, essentially numbing all pain, but has a brutal overdose. Do not take with alcohol.
+reagent-name-oxycodone = оксикодон
+reagent-desc-oxycodone = Дуже потужний знеболюючий засіб, що практично знімає весь біль, але має жорстоке передозування. Не приймати з алкоголем.

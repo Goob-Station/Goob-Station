@@ -5,3 +5,5 @@ marking-VoxFacialHairBeard = Борода Вокса (Пір'я)
 marking-VoxFacialHairRuffBeard = Борода Вокса (Йорш)
 
 marking-VoxFacialHairMane = Vox Борода (Грива)
+marking-VoxFacialHairManeSmall = Борода воксів (мала грива)
+marking-VoxFacialHairTufts = Бакенбарди воксів (пучки)

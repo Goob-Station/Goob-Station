@@ -4,4 +4,4 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-equipped-outer-slot-with-penalty-message = You barely squeeze yourself into the { $entity }
+equipped-outer-slot-with-penalty-message = Ви ледве втискаєтеся в { $entity }

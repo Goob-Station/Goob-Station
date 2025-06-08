@@ -55,3 +55,8 @@ mansus-grasp-trigger-fail = Щось заважає тобі активуват�
 heretic-livingheart-faraway = Воно {$state}, надзвичайно далеко!
 
 ## мова
+heretic-ability-fail-tile-underneath-not-rusted = Плитка, на якій ви стоїте, повинна бути іржавою, щоб використати цю здатність!
+heretic-ability-fail-target-ghoul = Ціль вже є упирем!
+heretic-ability-fail-target-no-mind = У цілі немає душі!
+heretic-speech-rust-wave = П'ШР СЛ'В!
+heretic-speech-ice-spear = ВН'З ЛЬ'Д!

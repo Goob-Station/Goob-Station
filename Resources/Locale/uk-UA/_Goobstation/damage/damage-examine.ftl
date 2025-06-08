@@ -1,6 +1,6 @@
-damage-hits-to-kill = Our heroic interns have shown that one can theoretically stay standing after [color=red][bold]{$count}[/bold][/color] hits before collapsing from their wounds.
+damage-hits-to-kill = Наші героїчні інтерни показали, що теоретично можна витримати [color=red][bold]{$count}[/bold][/color] ударів, перш ніж впасти від ран.
 
-armor-penetration = It penetrates armor { $arg ->
-        [1] [color=red]{$abs}% better[/color]
-        *[other] [color=blue]{$abs}% worse[/color]
-    } than an average damage source.
+armor-penetration = Він пробиває броню { $arg ->
+        [1] на [color=red]{$abs}% краще[/color]
+        *[other] на [color=blue]{$abs}% гірше[/color]
+    }, ніж середньостатистичне джерело шкоди.

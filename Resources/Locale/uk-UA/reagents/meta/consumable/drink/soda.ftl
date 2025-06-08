@@ -50,3 +50,5 @@ reagent-name-sol-dry = соляна суха
 reagent-desc-sol-dry = Солодка імбирна газована вода з космосу!
 reagent-name-roy-rogers = рой Роджерс
 reagent-desc-roy-rogers = Переконливий доказ того, що ІСНУЄ щось, відоме як занадто солодке.
+reagent-name-lemon-lime-cranberry = Журавлина Смайт
+reagent-desc-lemon-lime-cranberry = Терпка журавлина, Різдво та нотка лимона і лайма.

@@ -7,42 +7,42 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-job-name-futureagent = Future Agent
-job-name-salvagediver = Salvage Diver
-job-name-ntr = Nanotrasen Representative
-job-name-bs = Blueshield
-job-name-overall = Overall
+job-name-futureagent = Агент майбутнього
+job-name-salvagediver = Утиль-водолаз
+job-name-ntr = Представник Нанотрейзен
+job-name-bs = Блюшилд
+job-name-overall = Загальний
 
-job-name-exec = Executive Access
+job-name-exec = Виконавчий доступ
 
-# Navy Stuff
+# Справи флоту
 
-job-name-navyofficer = Navy Officer
-job-name-navy-officer-undercover = Undercover Navy Officer
-job-name-navycaptain = Navy Captain
-job-name-diplomat = Diplomat
-job-name-inspector = Central Command Auditor
-job-name-nct = Nanotrasen Career Trainer
+job-name-navyofficer = Офіцер флоту
+job-name-navy-officer-undercover = Офіцер флоту під прикриттям
+job-name-navycaptain = Капітан флоту
+job-name-diplomat = Дипломат
+job-name-inspector = Аудитор Центрального Командування
+job-name-nct = Кар'єрний тренер Нанотрейзен
 
 # Half Life
 
-job-name-hecu = HECU Operative
-job-name-gman = The G-Man
+job-name-hecu = Оперативник HECU
+job-name-gman = G-Man
 
-# Misc
+# Різне
 
-job-name-conquest = Conquest
+job-name-conquest = Конквест
 
-# Role timers - Make these alphabetical or I cut you (dont listen to upstream, i copied and pasted this, make it very un-alphabetical :godo:)
+# Таймери ролей - Зробіть їх в алфавітному порядку, або я вас поріжу (не слухайте апстрім, я це скопіював і вставив, зробіть це дуже не-алфавітним :godo:)
 
-JobBlueshieldOfficer = Blueshield Officer
-JobNanotrasenRepresentative = Nanotrasen Representative
-JobNanotrasenCareerTrainer = Nanotrasen Career Trainer
-JobHecuOperative = HECU Operative
-JobNavyOfficer = Navy Officer
-JobNavyOfficerUndercover = Undercover Navy Officer
-JobNavyCaptain = Navy Captain
-JobDiplomat = Diplomat
-JobGovernmentMan = The G-Man
-JobConquest = Conquest
-JobInspector = Central Command Auditor
+JobBlueshieldOfficer = Офіцер Блюшилд
+JobNanotrasenRepresentative = Представник Нанотрейзен
+JobNanotrasenCareerTrainer = Кар'єрний тренер Нанотрейзен
+JobHecuOperative = Оперативник HECU
+JobNavyOfficer = Офіцер флоту
+JobNavyOfficerUndercover = Офіцер флоту під прикриттям
+JobNavyCaptain = Капітан флоту
+JobDiplomat = Дипломат
+JobGovernmentMan = G-Man
+JobConquest = Конквест
+JobInspector = Аудитор Центрального Командування

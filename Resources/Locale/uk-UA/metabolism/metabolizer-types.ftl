@@ -12,7 +12,7 @@ metabolizer-type-arachnid = Павукоподібний
 metabolizer-type-vampiric = Вампірський
 metabolizer-type-liquorlifeline = Алкогольна підтримка життя
 
-metabolizer-type-shadowkin = Тіньовик
+metabolizer-type-shadowkin = Тіневий
 metabolizer-type-plasmaman = Плазмамен
 
 metabolizer-type-goblin = Гоблін

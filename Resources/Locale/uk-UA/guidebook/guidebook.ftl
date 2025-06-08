@@ -6,3 +6,5 @@ guidebook-filter-placeholder-text = Фільтрувати предмети
 
 guidebook-monkey-unspin = Відкрутити Мавпу
 guidebook-monkey-disco = Диско Мавпа
+guidebook-parser-error = Помилка парсера
+guidebook-error-message = Повідомлення про помилку

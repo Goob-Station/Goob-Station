@@ -42,3 +42,15 @@ spellbook-wand-locker-name = Співробітники камери схову
 spellbook-wand-locker-description = Стріляйте у ворогів проклятими шафками та замикайте їх! Автоматично перезаряджається кожні 4 секунди. # Події
 spellbook-upgrade-jaunt-name = Оновлення Ethereal Jaunt
 spellbook-upgrade-jaunt-description = Підвищує рівень Jaunt до максимального 3-го рівня!
+spellbook-tile-toggle-name = Переміщення Плиток
+spellbook-tile-toggle-description = Асистентам це не сподобається.
+spellbook-curse-of-byond-name = Прокляття Byond
+spellbook-curse-of-byond-description = Засудіть свою ціль на вічні страждання.
+
+# Спорядження
+spellbook-event-summon-guns-name = Прикликати Зброю
+spellbook-event-summon-guns-description = АК-47 для всіх! Розміщує випадкову зброю перед кожним. Відключає повернення коштів при покупці!
+spellbook-event-summon-magic-name = Прикликати Магію
+spellbook-event-summon-magic-description = Розміщує випадковий магічний предмет перед кожним. Нічого не може піти не так! Відключає повернення коштів при покупці!
+
+# Покращення

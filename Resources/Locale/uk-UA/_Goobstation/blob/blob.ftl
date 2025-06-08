@@ -190,3 +190,4 @@ speak-vv-blob-core = Ядро блоба
 language-Blob-name = Блоб
 chat-language-Blob-name = Блоб
 language-Blob-description = Бліб боб! Блоб блоб!
+admin-verb-make-blob = Зробити ціль носієм блоба.

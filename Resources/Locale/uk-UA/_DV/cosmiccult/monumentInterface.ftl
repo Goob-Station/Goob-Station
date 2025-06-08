@@ -1,32 +1,32 @@
 # General
-monument-interface-title = The Monument
-monument-interface-occupied = Someone else is using that right now.
+monument-interface-title = Монумент
+monument-interface-occupied = Хтось інший використовує це зараз.
 
-# Progress bar
+# Індикатор прогресу
 monument-interface-progress-bar = {$percentage}%
 
-# Entropy
-monument-interface-entropy-title = Entropy
-monument-interface-entropy-infused-label = Infused:
-monument-interface-entropy-value = {$infused} Entropy
-monument-interface-entropy-available-label = Available for use:
-monument-interface-entropy-next-stage-title = Entropy till next Stage:
-monument-interface-entropy-seperator = OR
-monument-interface-entropy-crew-convert-title = Converts till next Stage:
+# Ентропія
+monument-interface-entropy-title = Ентропія
+monument-interface-entropy-infused-label = Влито:
+monument-interface-entropy-value = {$infused} Ентропії
+monument-interface-entropy-available-label = Доступно для використання:
+monument-interface-entropy-next-stage-title = Ентропії до наступного етапу:
+monument-interface-entropy-seperator = АБО
+monument-interface-entropy-crew-convert-title = Навернень до наступного етапу:
 
-# Glyphs
-monument-interface-glyphs-title = Glyphs
-monument-interface-glyphs-button-scribe = Scribe glyph
-monument-interface-glyphs-button-unscribe = Unscribe glyph
+# Гліфи
+monument-interface-glyphs-title = Гліфи
+monument-interface-glyphs-button-scribe = Написати гліф
+monument-interface-glyphs-button-unscribe = Стерти гліф
 
-# Influences
-monument-interface-influences-title = Influences
-monument-interface-influences-unlocked = Unlocked
-monument-interface-influences-locked = Locked
-monument-interface-influences-owned = Owned
-monument-interface-influences-cost = Cost:
-monument-interface-influences-button-gain = Gain
-monument-interface-influences-purchased = Obtained
-monument-interface-influences-owned-tooltip = You already own this influence.
-monument-interface-influences-unlocked-not-enough-entropy-tooltip = You need more {$entropy} entropy to gain this influence.
-monument-interface-influences-locked-tooltip = This influence is locked, supply more entropy to the monument.
+# Впливи
+monument-interface-influences-title = Впливи
+monument-interface-influences-unlocked = Розблоковано
+monument-interface-influences-locked = Заблоковано
+monument-interface-influences-owned = Володієте
+monument-interface-influences-cost = Вартість:
+monument-interface-influences-button-gain = Отримати
+monument-interface-influences-purchased = Отримано
+monument-interface-influences-owned-tooltip = Ви вже володієте цим впливом.
+monument-interface-influences-unlocked-not-enough-entropy-tooltip = Вам потрібно більше {$entropy} ентропії, щоб отримати цей вплив.
+monument-interface-influences-locked-tooltip = Цей вплив заблоковано, надайте більше ентропії монументу.

@@ -1,10 +1,10 @@
 ## EntitySpawnWindow
 
-entity-spawn-window-title = Entity Spawn Panel
-entity-spawn-window-search-bar-placeholder = search
-entity-spawn-window-clear-button = Clear
-entity-spawn-window-replace-button-text = Replace
-entity-spawn-window-override-menu-tooltip = Override placement
+entity-spawn-window-title = Панель створення сутностей
+entity-spawn-window-search-bar-placeholder = пошук
+entity-spawn-window-clear-button = Очистити
+entity-spawn-window-replace-button-text = Замінити
+entity-spawn-window-override-menu-tooltip = Перевизначити розміщення
 
 ## TileSpawnWindow
 
@@ -12,7 +12,7 @@ tile-spawn-window-title = Place Tiles
 
 ## Console
 
-console-line-edit-placeholder = Command Here
+console-line-edit-placeholder = Команда тут
 
 ## OutputPanel
 

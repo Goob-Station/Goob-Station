@@ -3,5 +3,5 @@
 #
 # SPDX-License-Identifier: MIT
 
-loadout-window = Loadout
-loadout-none = None
+loadout-window = Спорядження
+loadout-none = Нічого

@@ -6,4 +6,4 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-popup-sleep-in-bag = {THE($entity)} curls up and falls asleep.
+popup-sleep-in-bag = {THE($entity)} згортається калачиком і засинає.

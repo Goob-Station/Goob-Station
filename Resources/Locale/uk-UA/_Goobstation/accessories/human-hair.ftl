@@ -31,3 +31,5 @@ marking-HumanHairStarFro = Стар Фро
 marking-HumanHairStyledCurls = Стилізовані локони
 marking-HumanHairUnkemptScientist = Неохайний вчений
 marking-HumanHairWispy = Віскі
+
+marking-HumanHairSpikeHawk = Колючий ірокез

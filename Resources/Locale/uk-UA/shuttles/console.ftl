@@ -50,3 +50,8 @@ shuttle-console-docks-label = Стикувальні порти
 
 shuttle-console-undock-fail = Невдала відстиковка
 shuttle-console-dock-fail = Невдала стиковка
+shuttle-console-position-value = {$X}, {$Y}
+shuttle-console-orientation-value = {$angle}
+shuttle-console-linear-velocity-value = {$X}, {$Y}
+shuttle-console-angular-velocity-value = {$angularVelocity}
+shuttle-console-ftl-state-Invalid = Неправильний

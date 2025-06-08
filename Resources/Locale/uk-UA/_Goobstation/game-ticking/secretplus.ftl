@@ -1,8 +1,8 @@
-secretplus-low-title = Turbulence
-secretplus-low-description = Relatively calm. But not always.
+secretplus-low-title = Турбулентність
+secretplus-low-description = Відносно спокійно. Але не завжди.
 
-secretplus-mid-title = Entropy
-secretplus-mid-description = Not too much time to relax. Anything can happen.
+secretplus-mid-title = Ентропія
+secretplus-mid-description = Не так багато часу для відпочинку. Може статися будь-що.
 
-secretplus-high-title = Chaos
-secretplus-high-description = If it can happen, it will.
+secretplus-high-title = Хаос
+secretplus-high-description = Якщо це може статися, це станеться.

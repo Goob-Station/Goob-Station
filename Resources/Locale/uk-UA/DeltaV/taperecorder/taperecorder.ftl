@@ -1,7 +1,7 @@
 cassette-repair-start = Ви починаєте намотувати стрічку назад у {THE($item)}.
 cassette-repair-finish = Вам вдається намотати стрічку назад у {THE($item)}.
-tape-cassette-position = Касета прокручена приблизно на [color=green]{$position}%[/color].
-tape-cassette-damaged = Плівка в касеті розмоталася, використайте ручку або викрутку, щоб її полагодити.
+tape-cassette-position = Касета перемотана приблизно на [color=green]{$position}%[/color].
+tape-cassette-damaged = Касета розмотана, використайте ручку або викрутку, щоб її полагодити.
 tape-recorder-playing = Магнітофон у режимі [color=green]відтворення[/color].
 tape-recorder-stopped = Магнітофон зупинено.
 tape-recorder-empty = Магнітофон порожній.
@@ -18,10 +18,10 @@ tape-recorder-menu-stopped-button = Пауза
 tape-recorder-menu-recording-button = Запис
 tape-recorder-menu-playing-button = Відтворення
 tape-recorder-menu-rewinding-button = Перемотка
-tape-recorder-menu-print-button = Роздрукувати стенограму запису
+tape-recorder-menu-print-button = Роздрукувати транскрипт запису
 tape-recorder-menu-cassette-label = Касета: {$cassetteName}
-tape-recorder-menu-no-cassette-label = Касету не вставлено
+tape-recorder-menu-no-cassette-label = Касета не вставлена
 
-tape-recorder-print-start-text = [bold]Початок стенограми запису[/bold]
+tape-recorder-print-start-text = [bold]Початок розшифровки запису[/bold]
 tape-recorder-print-message-text = [bold][{$time}] {$source}: [/bold] {$message}
-tape-recorder-print-end-text = [bold]Кінець стенограми запису[/bold]
+tape-recorder-print-end-text = [bold]Кінець розшифровки запису[/bold]

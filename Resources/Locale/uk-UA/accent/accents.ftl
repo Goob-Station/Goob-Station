@@ -127,3 +127,9 @@ accent-words-mothroach-2 = Цвіріньк!
 accent-words-mothroach-3 = Піп!
 accent-words-mothroach-4 = Ііі!
 accent-words-mothroach-5 = Іп!
+
+accent-words-tomato-1 = Тотато!
+accent-words-tomato-2 = Тротект
+accent-words-tomato-3 = Мастет?
+accent-words-tomato-4 = Реаті!
+accent-words-tomato-5 = Вода...

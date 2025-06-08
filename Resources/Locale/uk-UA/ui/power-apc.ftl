@@ -15,4 +15,4 @@ apc-menu-power-state-none = Відсутнє
 # For the flavor text on the footer
 
 apc-menu-flavor-left = Зв'яжіться з інженером за допомогою.
-apc-menu-flavor-right = v1.1
+apc-menu-flavor-right = v1.2

@@ -45,3 +45,7 @@ chem-master-window-pill-buffer-empty-text = Буфер таблеток поро
 chem-master-window-pill-buffer-low-text = Недостатньо розчину в буфері для таблеток
 chem-master-window-save-as-frequent-label = Зберегти як часті
 chem-master-window-set-amount-label = Встановити кількість
+chem-master-window-sort-type-none = Сортувати за: Спочатку старі
+chem-master-window-sort-type-alphabetical = Сортувати за: Алфавітом
+chem-master-window-sort-type-quantity = Сортувати за: Кількістю
+chem-master-window-sort-type-latest = Сортувати за: Спочатку нові

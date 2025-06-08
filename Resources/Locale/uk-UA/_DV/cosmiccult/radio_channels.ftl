@@ -1,1 +1,1 @@
-chat-radio-cosmiccult = Astral Murmur
+chat-radio-cosmiccult = Астральний Шепіт

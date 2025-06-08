@@ -16,3 +16,6 @@ prayer-popup-notify-pray-sent = Ваше повідомлення було на�
 prayer-popup-notify-pray-locked = Ви не відчуваєте себе достатньо гідним...
 
 prayer-verbs-rub = Прошепотіти
+prayer-chat-notify-lamp = ЛАМПА
+prayer-popup-notify-lamp-sent = Ваші думки, здається, відлунюють...
+prayer-popup-notify-pray-ui-message = Повідомлення

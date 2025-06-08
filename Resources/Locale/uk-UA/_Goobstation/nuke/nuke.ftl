@@ -1,1 +1,1 @@
-nuke-component-disarm-fail = No matter how you fumble with the wires, nothing happens!
+nuke-component-disarm-fail = Скільки б ви не возилися з дротами, нічого не відбувається!

@@ -6,5 +6,5 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-store-sales-amount = {$amount}% off!
-store-sales-over = The sale is over!
+store-sales-amount = {$amount}% знижки!
+store-sales-over = Розпродаж закінчився!

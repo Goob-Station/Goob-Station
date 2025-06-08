@@ -25,3 +25,6 @@ guidebook-reagent-recipes-mix-info = {$minTemp ->
             *[false] вище {NATURALFIXED($minTemp, 2)}K
         }
 }
+
+guidebook-reagent-plant-metabolisms-header = Метаболізм рослин
+guidebook-reagent-plant-metabolisms-rate = [bold]Метаболізм рослин[/bold] [color=gray](1 одиниця кожні 3 секунди як база)[/color]

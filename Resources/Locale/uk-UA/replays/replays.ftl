@@ -44,3 +44,7 @@ cmd-replay-spectate-hint = Необов'язковий EntityUid
 replay-loading-retry = Спробуйте навантаження з більшою толерантністю до винятків - МОЖЕ ВИНИКНУТИ БАГ!
 
 # Головне меню
+replay-loading-cancel = Скасувати
+
+# Головне меню
+cmd-replay-toggleui-desc = Перемикає інтерфейс керування повтором.

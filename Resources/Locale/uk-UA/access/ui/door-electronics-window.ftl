@@ -4,4 +4,4 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-door-electronics-configuration-title = Configure Access
+door-electronics-configuration-title = Налаштувати Доступ

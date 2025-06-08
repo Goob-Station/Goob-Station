@@ -4,21 +4,21 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-inner-anomaly-start-message-pyro = You can feel the insane flame inside of you. You became the host of a pyroclastic anomaly.
-inner-anomaly-start-message-shock = Lightning bolts quivering at your fingertips! You became the host of a electric anomaly.
-inner-anomaly-start-message-shadow = There's an impenetrable darkness oozing out of you... You became the host of a shadow anomaly.
-inner-anomaly-start-message-frost = The icy frost is binding your bones. You became the host of a ice anomaly.
-inner-anomaly-start-message-flora = Leaves and flowers sprout through your skin! You became the host of a floral anomaly.
-inner-anomaly-start-message-bluespace = Your thoughts are racing like mad! You became the host of a bluespace anomaly.
-inner-anomaly-start-message-flesh = Your body is growing frantically. You became the host of a flesh anomaly.
-inner-anomaly-start-message-grav = Everything becames unnaturally heavy and light at the same time... You became the host of a gravity anomaly.
-inner-anomaly-start-message-tech = Your head is buzzing with the amount of chaotic information! You became the host of a tech anomaly.
-inner-anomaly-start-message-rock = The crystals are growing through your bones! You became the host of a rock anomaly.
-inner-anomaly-start-message-santa = You're becoming obsessed with the Christmas spirit! You became the host of a Christmas anomaly.
+inner-anomaly-start-message-pyro = Ви відчуваєте шалене полум'я всередині себе. Ви стали носієм пірокластичної аномалії.
+inner-anomaly-start-message-shock = Блискавки тремтять на кінчиках ваших пальців! Ви стали носієм електричної аномалії.
+inner-anomaly-start-message-shadow = З вас сочиться непроглядна темрява... Ви стали носієм тіньової аномалії.
+inner-anomaly-start-message-frost = Крижаний мороз сковує ваші кістки. Ви стали носієм крижаної аномалії.
+inner-anomaly-start-message-flora = Листя та квіти проростають крізь вашу шкіру! Ви стали носієм квіткової аномалії.
+inner-anomaly-start-message-bluespace = Ваші думки мчать, як божевільні! Ви стали носієм аномалії синього космосу.
+inner-anomaly-start-message-flesh = Ваше тіло несамовито росте. Ви стали носієм плотської аномалії.
+inner-anomaly-start-message-grav = Все стає неприродно важким і легким одночасно... Ви стали носієм гравітаційної аномалії.
+inner-anomaly-start-message-tech = Ваша голова гуде від кількості хаотичної інформації! Ви стали носієм технічної аномалії.
+inner-anomaly-start-message-rock = Кристали проростають крізь ваші кістки! Ви стали носієм кам'яної аномалії.
+inner-anomaly-start-message-santa = Ви стаєте одержимими духом Різдва! Ви стали носієм різдвяної аномалії.
 
-inner-anomaly-end-message = The abnormal activity within you disappears without a trace....
+inner-anomaly-end-message = Аномальна активність всередині вас зникає безслідно....
 
-inner-anomaly-severity-info-50 = You feel that the anomaly is taking over half your body.
-inner-anomaly-severity-info-75 = You feel that the anomaly is taking over a large part of your body.
-inner-anomaly-severity-info-90 = You feel that the anomaly has almost completely taken over your body.
-inner-anomaly-severity-info-100 = The anomaly inside you is growing uncontrollably, causing immense pain, and tearing you apart!
+inner-anomaly-severity-info-50 = Ви відчуваєте, що аномалія захоплює половину вашого тіла.
+inner-anomaly-severity-info-75 = Ви відчуваєте, що аномалія захоплює значну частину вашого тіла.
+inner-anomaly-severity-info-90 = Ви відчуваєте, що аномалія майже повністю захопила ваше тіло.
+inner-anomaly-severity-info-100 = Аномалія всередині вас неконтрольовано зростає, спричиняючи нестерпний біль і розриваючи вас на частини!

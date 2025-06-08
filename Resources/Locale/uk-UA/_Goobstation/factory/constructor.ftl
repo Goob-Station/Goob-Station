@@ -1,2 +1,2 @@
-constructor-examine-unset = There is no construction configured.
-constructor-examine = It is configured to construct {INDEFINITE($name)} [bold]{$name}[/bold].
+constructor-examine-unset = Конструкція не налаштована.
+constructor-examine = Він налаштований на створення [bold]{$name}[/bold].

@@ -4,21 +4,21 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-marking-HairResomiBackstrafe = Resomi Backstrafe
-marking-HairResomiBurstShort = Resomi Burst Short
-marking-HairResomiDefault = Resomi Default
-marking-HairResomiDroopy = Resomi Droopy
-marking-HairResomiEars = Resomi Ears
-marking-HairResomiFluffymohawk = Resomi Fluffymohawk
-marking-HairResomiHedge = Resomi Hedge
-marking-HairResomiLongway = Resomi Longway
-marking-HairResomiMane = Resomi Mane
-marking-HairResomiManeBeardless = Resomi Mane (Beardless)
-marking-HairResomiMohawk = Resomi Mohawk
-marking-HairResomiMushroom = Resomi Mushroom
-marking-HairResomiNotree = Resomi Notree
-marking-HairResomiSpiky = Resomi Spiky
-marking-HairResomiPointy = ResomiPointy
-marking-HairResomiTwies = Resomi Twies
-marking-HairResomiUpright = Resomi Upright
-marking-HairResomiLong = Resomi Long
+marking-HairResomiBackstrafe = Зачіска "Зворотній політ" Ресомі
+marking-HairResomiBurstShort = Зачіска "Короткий вибух" Ресомі
+marking-HairResomiDefault = Звичайна зачіска Ресомі
+marking-HairResomiDroopy = Зачіска "Обвислі" Ресомі
+marking-HairResomiEars = Вуха Ресомі
+marking-HairResomiFluffymohawk = Зачіска "Пухнастий ірокез" Ресомі
+marking-HairResomiHedge = Зачіска "Їжачок" Ресомі
+marking-HairResomiLongway = Зачіска "Довгий шлях" Ресомі
+marking-HairResomiMane = Грива Ресомі
+marking-HairResomiManeBeardless = Грива Ресомі (без бороди)
+marking-HairResomiMohawk = Ірокез Ресомі
+marking-HairResomiMushroom = Зачіска "Грибок" Ресомі
+marking-HairResomiNotree = Зачіска "Без дерева" Ресомі
+marking-HairResomiSpiky = Зачіска "Колюча" Ресомі
+marking-HairResomiPointy = Зачіска "Гостра" Ресомі
+marking-HairResomiTwies = Зачіска "Двійнята" Ресомі
+marking-HairResomiUpright = Зачіска "Вертикальна" Ресомі
+marking-HairResomiLong = Зачіска "Довга" Ресомі

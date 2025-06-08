@@ -49,3 +49,4 @@ borg-type-medical-transponder = медичний кіборг
 borg-type-service-name = Обслуговуючий
 borg-type-service-desc = Допомагайте з широким спектром послуг для екіпажу, від подачі закусок і напоїв до ботаніки та розваг.
 borg-type-service-transponder = обслуговуючий кіборг
+borg-module-duplicate = Цей модуль вже встановлений у цьому кіборзі.

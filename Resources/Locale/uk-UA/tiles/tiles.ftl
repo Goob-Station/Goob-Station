@@ -128,3 +128,6 @@ tiles-astro-ice = астро-лід
 tiles-astro-snow = астро-сніг
 tiles-wood-large = велика деревина
 tiles-steel-floor-worn = зношена сталева плитка
+tiles-metal-foam = підлога з металевої піни
+tiles-red-circuit-floor = підлога з червоної мікросхеми
+tiles-astro-asteroid-sand = астероїдний астро-пісок

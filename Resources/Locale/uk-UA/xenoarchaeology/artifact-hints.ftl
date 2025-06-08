@@ -42,3 +42,4 @@ artifact-trigger-hint-land = Активне гальмування
 artifact-trigger-hint-examine = Вивчення
 
 artifact-effect-hint-psionic = Ноосферні бурі
+artifact-trigger-hint-medical = Терапевтичні хімікати

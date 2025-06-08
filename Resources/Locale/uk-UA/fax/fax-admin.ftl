@@ -12,3 +12,5 @@ admin-fax-message-placeholder = Ваше повідомлення тут...
 admin-fax-stamp = Іконка штампу:
 admin-fax-stamp-color = Колір штампу:
 admin-fax-send = Надіслати
+admin-fax-lock-page = Заблокувати сторінку
+admin-fax-lock-page-tooltip = Блокує папір, щоб його не можна було редагувати, навіть за допомогою таких речей, як кіберсонячні ручки.

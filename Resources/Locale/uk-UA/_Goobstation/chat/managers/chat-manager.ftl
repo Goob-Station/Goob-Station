@@ -10,24 +10,24 @@
 
 ## Speech verbs for chat
 
-chat-speech-verb-name-gondola = Gondola
-chat-speech-verb-gondola-1 = stares
-chat-speech-verb-gondola-2 = breathes
+chat-speech-verb-name-gondola = Гондола
+chat-speech-verb-gondola-1 = дивиться
+chat-speech-verb-gondola-2 = дихає
 
-chat-speech-verb-name-dead = Dead
-chat-speech-verb-dead-1 = salts
-chat-speech-verb-dead-2 = malds
-chat-speech-verb-dead-3 = copes
-chat-speech-verb-dead-4 = seethes
-chat-speech-verb-dead-5 = laments
-chat-speech-verb-dead-6 = whines
-chat-speech-verb-dead-7 = moans
-chat-speech-verb-dead-8 = cries
-chat-speech-verb-dead-9 = wails
+chat-speech-verb-name-dead = Мертвий
+chat-speech-verb-dead-1 = солить
+chat-speech-verb-dead-2 = горить
+chat-speech-verb-dead-3 = справляється
+chat-speech-verb-dead-4 = кипить
+chat-speech-verb-dead-5 = сумує
+chat-speech-verb-dead-6 = скиглить
+chat-speech-verb-dead-7 = стогне
+chat-speech-verb-dead-8 = плаче
+chat-speech-verb-dead-9 = голосить
 
-chat-speech-verb-VoiceModulator-name = Voice Modulator
-chat-speech-verb-VoiceModulator-1 = modulates
-chat-speech-verb-VoiceModulator-2 = buzzes
-chat-speech-verb-VoiceModulator-3 = drones
-chat-speech-verb-VoiceModulator-4 = hums
-chat-speech-verb-VoiceModulator-5 = crackles
+chat-speech-verb-VoiceModulator-name = Модулятор голосу
+chat-speech-verb-VoiceModulator-1 = модулює
+chat-speech-verb-VoiceModulator-2 = дзижчить
+chat-speech-verb-VoiceModulator-3 = гуде
+chat-speech-verb-VoiceModulator-4 = мугикає
+chat-speech-verb-VoiceModulator-5 = тріщить

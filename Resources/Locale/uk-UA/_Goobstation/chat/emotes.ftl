@@ -7,34 +7,37 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 # Names
-chat-emote-name-fart = Fart
-chat-emote-name-fart-inhale = Breathe in a fart
-chat-emote-name-fart-super = Super Fart
-chat-emote-name-flap = Flap
-chat-emote-name-trill = Trill
-chat-emote-name-warble = Warble
-chat-emote-name-wurble = Wurble
-chat-emote-name-mars = Mars
+chat-emote-name-fart = Пердьож
+chat-emote-name-fart-inhale = Вдихнути пердьож
+chat-emote-name-fart-super = Супер Пердьож
+chat-emote-name-flap = Махати
+chat-emote-name-trill = Трель
+chat-emote-name-warble = Щебетати
+chat-emote-name-wurble = Вурбл
+chat-emote-name-mars = Марс
 
-# Message
-chat-emote-msg-fart = farts.
-chat-emote-msg-fart-inhale = breathes in a big fart.
-chat-emote-msg-fart-super = super farts.
-chat-emote-msg-flap = flaps {POSS-ADJ($entity)} wings.
-chat-emote-msg-trill = trills!
-chat-emote-msg-warble = warbles!
-chat-emote-msg-wurble = wurbles!
-chat-emote-msg-mars = mars.
+# Повідомлення
+chat-emote-msg-fart = пердить.
+chat-emote-msg-fart-inhale = вдихає великий пердьож.
+chat-emote-msg-fart-super = супер пердить.
+chat-emote-msg-flap = махає {POSS-ADJ($entity)} крилами.
+chat-emote-msg-trill = видає трель!
+chat-emote-msg-warble = щебече!
+chat-emote-msg-wurble = вурчить!
 
 
-# Misc
-emote-fart-not-loaded = You don't have a super fart loaded!
-emote-fart-already-loaded = You already have a fart loaded!
-emote-fart-ass-off = You don't have a butt to fart with!
-emote-fart-out-of-farts = You're all out of farts!
-emote-fart-super-fart = You (literally) fart your ass off!
-emote-fart-inhale-notice = You breathe in, arming a super fart.
-emote-fart-inhale-disarm-notice = You disarm your super fart.
+# Різне
+chat-emote-msg-mars = марс.
 
-chat-emote-name-boop = Boop
-chat-emote-name-whirr = Whirr
+
+# Різне
+emote-fart-not-loaded = У вас не заряджений супер пердьож!
+emote-fart-already-loaded = У вас вже заряджений пердьож!
+emote-fart-ass-off = У вас немає дупи, щоб пердіти!
+emote-fart-out-of-farts = У вас скінчилися пердежі!
+emote-fart-super-fart = Ви (буквально) відперділи свою дупу!
+emote-fart-inhale-notice = Ви вдихаєте, заряджаючи супер пердьож.
+emote-fart-inhale-disarm-notice = Ви розряджаєте свій супер пердьож.
+
+chat-emote-name-boop = Буп
+chat-emote-name-whirr = Дзижчання

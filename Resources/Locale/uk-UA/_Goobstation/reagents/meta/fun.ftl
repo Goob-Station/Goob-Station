@@ -9,46 +9,46 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-reagent-name-tranquility = tranquility
-reagent-desc-tranquility = You feel oddly calm...
-reagent-popup-tranquility = You feel oddly calm...
+reagent-name-tranquility = спокій
+reagent-desc-tranquility = Ви почуваєтесь дивно спокійно...
+reagent-popup-tranquility = Ви почуваєтесь дивно спокійно...
 
-reagent-name-binglejuice = bingle juice
-reagent-desc-binglejuice = Bing bong.
-reagent-popup-binglejuice = The thought must have crossed your mind at some point. The thought that you delved too deep. The thought that this would be a one-way trip. So instead of fighting the inevitable, why not embrace it? Just lay down and rest. There is beauty in this darkness that can be harnessed and used to usher something new.
+reagent-name-binglejuice = бінгл сік
+reagent-desc-binglejuice = Бінг-бонг.
+reagent-popup-binglejuice = Мабуть, вам колись спадала на думку. Думка, що ви зайшли занадто глибоко. Думка, що це буде подорож в один кінець. Тож замість того, щоб боротися з неминучим, чому б не прийняти його? Просто ляжте і відпочиньте. У цій темряві є краса, яку можна використати, щоб створити щось нове.
 
-reagent-name-carpolin = carpolin
-reagent-desc-carpolin = Causes the metabolizer to transform into a superior lifeform.
-reagent-popup-carpolin = You feel... strange.
+reagent-name-carpolin = карполін
+reagent-desc-carpolin = Змушує метаболізатор перетворитися на вищу форму життя.
+reagent-popup-carpolin = Ви почуваєтесь... дивно.
 
-# CREATED BY Goldminermac
+# СТВОРЕНО Goldminermac
 # https://github.com/space-wizards/space-station-14/pull/31149
-# LICENSED UNDER THE MIT LICENSE
-# SEE README.MD AND LICENSE.TXT IN THE ROOT OF THIS REPOSITORY FOR MORE INFORMATION
-reagent-name-profanol = profanol
-reagent-desc-profanol = A chemical compound known to make people compulsively swear. A ruiner of countless family reunions and funerals.
-# END OF MIT-LICENSED CODE
+# ЛІЦЕНЗОВАНО ЗА ЛІЦЕНЗІЄЮ MIT
+# ДИВІТЬСЯ README.MD ТА LICENSE.TXT В КОРЕНІ ЦЬОГО РЕПОЗИТОРІЮ ДЛЯ ДОДАТКОВОЇ ІНФОРМАЦІЇ
+reagent-name-profanol = профанол
+reagent-desc-profanol = Хімічна сполука, відома тим, що змушує людей нав'язливо лаятися. Руйнівник незліченних сімейних зустрічей і похоронів.
+# КІНЕЦЬ КОДУ ПІД ЛІЦЕНЗІЄЮ MIT
 
-reagent-name-copium = copium
-reagent-desc-copium = For when you need a mood boost.
-reagent-popup-copium-1 = You feel very robust.
-reagent-popup-copium-2 = You feel like you're gonna get a raise soon.
-reagent-popup-copium-3 = You're never wrong.
-reagent-popup-copium-4 = You're the hero of this story.
-reagent-popup-copium-5 = Your investments are going to the moon.
-reagent-popup-copium-6 = You are that guy.
-reagent-popup-copium-7 = You can stop anytime you want.
-reagent-popup-copium-8 = You are in control.
-reagent-popup-copium-9 = You should be the captain.
-reagent-popup-copium-10 = You run this station.
-reagent-popup-copium-11 = You know what's best.
-reagent-popup-copium-12 = You could take him.
+reagent-name-copium = копіум
+reagent-desc-copium = Коли вам потрібен заряд бадьорості.
+reagent-popup-copium-1 = Ви відчуваєте себе дуже міцним.
+reagent-popup-copium-2 = Ви відчуваєте, що скоро отримаєте підвищення.
+reagent-popup-copium-3 = Ви ніколи не помиляєтесь.
+reagent-popup-copium-4 = Ви - герой цієї історії.
+reagent-popup-copium-5 = Ваші інвестиції летять на місяць.
+reagent-popup-copium-6 = Ви той самий хлопець.
+reagent-popup-copium-7 = Ви можете зупинитися в будь-який момент.
+reagent-popup-copium-8 = Ви все контролюєте.
+reagent-popup-copium-9 = Ви повинні бути капітаном.
+reagent-popup-copium-10 = Ви керуєте цією станцією.
+reagent-popup-copium-11 = Ви знаєте, що краще.
+reagent-popup-copium-12 = Ви могли б його здолати.
 
-reagent-name-cat-drugs = cat drugs
-reagent-desc-cat-drugs = Cat drugs? Drugs for cats? Drugs from cats? Better not to ask.
+reagent-name-cat-drugs = котячі наркотики
+reagent-desc-cat-drugs = Котячі наркотики? Наркотики для котів? Наркотики з котів? Краще не питати.
 
-reagent-name-nostalgia = nostalgia
-reagent-desc-nostalgia = Why is this here?
+reagent-name-nostalgia = ностальгія
+reagent-desc-nostalgia = Чому це тут?
 
-reagent-name-tilenol = tilenol
-reagent-desc-tilenol = You can feel yourself becoming more robust just by holding this.
+reagent-name-tilenol = тіленол
+reagent-desc-tilenol = Ви відчуваєте, як стаєте міцнішими, просто тримаючи це в руках.

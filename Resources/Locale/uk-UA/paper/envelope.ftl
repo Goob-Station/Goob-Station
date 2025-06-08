@@ -4,14 +4,14 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-envelope-verb-seal = Seal
-envelope-verb-tear = Tear
+envelope-verb-seal = Запечатати
+envelope-verb-tear = Розірвати
 
-envelope-letter-slot = Letter
+envelope-letter-slot = Лист
 
-envelope-sealed-examine = [color=gray]{CAPITALIZE(THE($envelope))} is sealed.[/color]
-envelope-torn-examine = [color=yellow]{CAPITALIZE(THE($envelope))} is torn and unusable![/color]
+envelope-sealed-examine = [color=gray]{CAPITALIZE(THE($envelope))} запечатаний.[/color]
+envelope-torn-examine = [color=yellow]{CAPITALIZE(THE($envelope))} розірваний і непридатний для використання![/color]
 
-envelope-default-message = TO: 
+envelope-default-message = КОМУ: 
   
-  FROM: 
+  ВІД КОГО: 

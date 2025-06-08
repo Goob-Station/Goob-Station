@@ -4,4 +4,4 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-cmd-synchronizedevicelists-desc = Synchonizes device lists in device list and device network components 
+cmd-synchronizedevicelists-desc = Синхронізує списки пристроїв у компонентах списку пристроїв та мережі пристроїв 

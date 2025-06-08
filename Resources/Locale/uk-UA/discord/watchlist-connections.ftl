@@ -4,17 +4,16 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-discord-watchlist-connection-header =
-    { $players ->
-        [one] {$players} player on a watchlist has
-        *[other] {$players} players on a watchlist have
-    } connected to {$serverName}
+discord-watchlist-connection-header = { $players ->
+        [one] {$players} гравець зі списку спостереження під'єднався
+        *[other] {$players} гравців зі списку спостереження під'єдналися
+    } до {$serverName}
 
-discord-watchlist-connection-entry = - {$playerName} with message "{$message}"{ $expiry ->
-        [0] {""}
-        *[other] {" "}(expires <t:{$expiry}:R>)
+discord-watchlist-connection-entry = - {$playerName} з повідомленням ""{$message}""{ $expiry ->
+        [0] {""""}
+        *[other] {"" ""}(закінчується <t:{$expiry}:R>)
     }{ $otherWatchlists ->
-        [0] {""}
-        [one] {" "}and {$otherWatchlists} other watchlist
-        *[other] {" "}and {$otherWatchlists} other watchlists
+        [0] {""""}
+        [one] {"" ""}та ще {$otherWatchlists} інший список спостереження
+        *[other] {"" ""}та ще {$otherWatchlists} інших списків спостереження
     }

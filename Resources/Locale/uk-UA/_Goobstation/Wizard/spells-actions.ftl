@@ -26,3 +26,6 @@ action-speech-spell-rod-form = БРЯЗКІТ!
 action-speech-spell-charge = ДІ'РІ СЕЛ
 action-speech-spell-gorilla-form = Б'НА НА-СЛЕМА!
 action-speech-spell-summon-stick-minions = Повстаньте, мої творіння! Зійдіть зі своїх сторінок у це царство!
+
+action-speech-spell-tile-toggle = РУК'АТ
+action-speech-spell-curse-of-byond = ПРОКЛЯТТЯ БІОНДУ!!

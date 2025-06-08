@@ -117,3 +117,22 @@ holopad-centcomm-evac = ЦК - Евакуаційний шаттл
 
 holopad-window-relay-label = Походить з..:
 holopad-window-filter-line-placeholder = Пошук контакту
+holopad-ai-is-unable-to-activate-projector = Ви не можете активувати проектор голопаду, він занадто далеко від вашого ядра.
+
+# Прототипи мапування
+# Загальне
+holopad-science-artifact-north = Наука - Артефакт Північ
+holopad-science-artifact-south = Наука - Артефакт Південь
+holopad-medical-clinic = Медицина - Клініка
+
+# Вантажний відділ
+holopad-cargo-mailroom = Вантажний відділ - Поштове відділення
+
+# Інженерія
+holopad-engineering-main = Інженерія - Головне
+
+# Безпека
+holopad-security-evac-checkpoint = Безпека - Евакуаційний блокпост
+holopad-security-arrivals-checkpoint = Безпека - Блокпост прибуття
+
+# Обслуговування

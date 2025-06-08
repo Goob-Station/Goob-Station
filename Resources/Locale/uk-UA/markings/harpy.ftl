@@ -1,19 +1,19 @@
-marking-HarpyWingDefaultHuescale = Основні крила (відтінки)
+marking-HarpyWingDefaultHuescale = Базові крила (Відтінкова шкала)
 marking-HarpyWingDefaultHuescale-huescale_harpy = Крила
 
-marking-HarpyWingDefaultWhitescale = Основні крила (білокрилі)
+marking-HarpyWingDefaultWhitescale = Базові крила (Біла шкала)
 marking-HarpyWingDefaultWhitescale-whitescale_harpy = Крила
 
-marking-HarpyWingFoldedHuescale = Складені крила (Huescale)
+marking-HarpyWingFoldedHuescale = Складені крила (Відтінкова шкала)
 marking-HarpyWingFoldedHuescale-huescale_harpy_folded = Крила
 
-marking-HarpyWingFoldedWhitescale = Складені крила (білокрилка)
+marking-HarpyWingFoldedWhitescale = Складені крила (Біла шкала)
 marking-HarpyWingFoldedWhitescale-whitescale_harpy_folded = Крила
 
-marking-HarpyWingOwlHuescale = Совині крила (Huescale)
+marking-HarpyWingOwlHuescale = Совині крила (Відтінкова шкала)
 marking-HarpyWingOwlHuescale-huescale_harpy_wing_owl = Крила
 
-marking-HarpyWingOwlWhitescale = Совині крила (білокрилка)
+marking-HarpyWingOwlWhitescale = Совині крила (Біла шкала)
 marking-HarpyWingOwlWhitescale-whitescale_harpy_wing_owl = Крила
 
 marking-HarpyWingClassic = Класичні крила
@@ -28,64 +28,64 @@ marking-HarpyWing3ToneClassic-harpy_3tone_1 = Верхня третина
 marking-HarpyWing3ToneClassic-harpy_3tone_2 = Середня третина
 marking-HarpyWing3ToneClassic-harpy_3tone_3 = Нижня третина
 
-marking-HarpyWingSpeckledClassic = Класичні крила в цяточку
-marking-HarpyWingSpeckledClassic-harpy_speckled_1 = Головна
-marking-HarpyWingSpeckledClassic-harpy_speckled_2 = Спеклс
+marking-HarpyWingSpeckledClassic = Класичні крила в цятку
+marking-HarpyWingSpeckledClassic-harpy_speckled_1 = Основний
+marking-HarpyWingSpeckledClassic-harpy_speckled_2 = Цятки
 
-marking-HarpyWingUndertoneClassic = Класичні крильця з відтінками
-marking-HarpyWingUndertoneClassic-harpy_undertone_1 = Фронт
-marking-HarpyWingUndertoneClassic-harpy_undertone_2 = Назад
+marking-HarpyWingUndertoneClassic = Класичні крила з підтоном
+marking-HarpyWingUndertoneClassic-harpy_undertone_1 = Перед
+marking-HarpyWingUndertoneClassic-harpy_undertone_2 = Зад
 
-marking-HarpyWingTipsClassic = Класичні крила з пір'яними кінчиками
-marking-HarpyWingTipsClassic-harpy_wingtip_1 = Головна
+marking-HarpyWingTipsClassic = Класичні крила з кінчиками пір'я
+marking-HarpyWingTipsClassic-harpy_wingtip_1 = Основний
 marking-HarpyWingTipsClassic-harpy_wingtip_2 = Кінчики пір'я
 
 marking-HarpyEarsDefault = Пучки пір'я
-marking-HarpyEarsDefault-harpy_ears_default = Чубчики
+marking-HarpyEarsDefault-harpy_ears_default = Пучки
 
 marking-HarpyEarsLarge = Великі пучки пір'я
-marking-HarpyEarsLarge-harpy_ears_large = Чубчики
+marking-HarpyEarsLarge-harpy_ears_large = Пучки
 
-marking-HarpyTailPhoenix = Основний хвіст
+marking-HarpyTailPhoenix = Базовий хвіст
 marking-HarpyTailPhoenix-phoenix_tail = Хвіст
 
 marking-HarpyTailRooster = Півнячий хвіст
 marking-HarpyTailRooster-rooster_tail = Хвіст
 
-marking-HarpyTailFinch = Зябликовий хвіст
+marking-HarpyTailFinch = Хвіст зяблика
 marking-HarpyTailFinch-finch_tail = Хвіст
 
-marking-HarpyTailForkedHuescale = Вилохвіст (Huescale)
+marking-HarpyTailForkedHuescale = Роздвоєний хвостовий плавець (Відтінкова шкала)
 marking-HarpyTailForkedHuescale-huescale_forked_tailfin = Хвіст
 
-marking-HarpyTailForkedWhitescale = Вилохвіст (білокрилка)
+marking-HarpyTailForkedWhitescale = Роздвоєний хвостовий плавець (Біла шкала)
 marking-HarpyTailForkedWhitescale-whitescale_forked_tailfin = Хвіст
 
 marking-HarpyTailPeacock = Павиний хвіст
 marking-HarpyTailPeacock-peacock_tail_feathers = Пір'я
 marking-HarpyTailPeacock-peacock_tail_eyes = Очі
 
-marking-HarpyChestDefault = Термобілизна для крил і паху
-marking-HarpyChestDefault-upper = Термобілизна для крил
-marking-HarpyChestDefault-lower = Пахова білизна
+marking-HarpyChestDefault = Спіднє для крил та паху
+marking-HarpyChestDefault-upper = Спіднє для крил
+marking-HarpyChestDefault-lower = Спіднє для паху
 
-marking-HarpyLegsDefault = Пташині лапки
+marking-HarpyLegsDefault = Пташині ноги
 marking-HarpyLegsDefault-thighs = Стегна
 
 marking-HarpyFeetDefault = Пташині ступні
 marking-HarpyFeetDefault-feet = Ступні
-marking-HarpyFeetDefault-talons = Пазурі
+marking-HarpyFeetDefault-talons = Кігті
 
-marking-HarpyWingBat = Крилаті кажани (білокрилка)
+marking-HarpyWingBat = Крила кажана (Біла шкала)
 marking-HarpyWingBat-bat_wings_tone_1 = Кінцівки
-marking-HarpyWingBat-bat_wings_tone_2 = Мембрана
-marking-HarpyWingBionic = Прості біонічні крила (Whitescale)
+marking-HarpyWingBat-bat_wings_tone_2 = Перетинка
+marking-HarpyWingBionic = Прості біонічні крила (Біла шкала)
 marking-HarpyWingBionic-bionic_wings_tone_1 = Крила
-marking-HarpyWingBionic-bionic_wings_tone_2 = Світло (незаштриховане)
-marking-HarpyTailHaven = Хвостатий хвіст (білохвіст)
+marking-HarpyWingBionic-bionic_wings_tone_2 = Вогні (Без затінення)
+marking-HarpyTailHaven = Хвіст Притулку (Біла шкала)
 marking-HarpyTailHaven-haven_tone_1 = Зовнішнє пір'я
 marking-HarpyTailHaven-haven_tone_2 = Внутрішнє пір'я
-marking-HarpyTailForkedLong = Довгохвіст (білохвіст)
+marking-HarpyTailForkedLong = Довгий роздвоєний хвіст (Біла шкала)
 marking-HarpyTailForkedLong-forked_long = Хвіст
-marking-HarpyTailSwallow = Ластівчин хвіст (білокрилка)
+marking-HarpyTailSwallow = Хвіст ластівки (Біла шкала)
 marking-HarpyTailSwallow-swallow_tail = Хвіст

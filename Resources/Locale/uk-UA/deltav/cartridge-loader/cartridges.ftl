@@ -1,4 +1,4 @@
-crime-assist-program-name = Кримінальний помічник
+crime-assist-program-name = Помічник у справах злочинів
 crime-assist-yes-button = Так
 crime-assist-no-button = Ні
 crime-assist-back-button = Назад
@@ -210,19 +210,22 @@ crime-assist-punish-507 = Покарання: Довічне / Страта (н�
 crime-assist-punish-508 = Покарання: 30 хв
 crime-assist-punish-innocent = Немає потреби в покаранні.
 crime-assist-punish-error = Необхідне рішення уповноваженої особи
-mail-metrics-program-name = ПоштоваМетрика
-mail-metrics-header = Дохід від Доставки Пошти
-mail-metrics-opened = Заробітки (відкриті)
-mail-metrics-expired = Збитки (прострочені)
-mail-metrics-damaged = Збитки (пошкоджені)
-mail-metrics-tampered = Збитки (зіпсовані)
-mail-metrics-unopened = Невідкриті
-mail-metrics-count-header = Посилок
+mail-metrics-program-name = ПоштоМетрика
+mail-metrics-header = Дохід від доставки пошти
+mail-metrics-opened = Заробіток (Відкрито)
+mail-metrics-expired = Збитки (Прострочено)
+mail-metrics-damaged = Збитки (Пошкоджено)
+mail-metrics-tampered = Збитки (Розкрито)
+mail-metrics-unopened = Не відкрито
+mail-metrics-count-header = Пакунки
 mail-metrics-money-header = Спесо
 mail-metrics-total = Всього
-mail-metrics-progress = {$opened} з {$total} посилок відкрито!
-mail-metrics-progress-percent = Відсоток успіху: {$successRate}%
-# Біржова торгівля
+mail-metrics-progress = {$opened} з {$total} пакунків відкрито!
+mail-metrics-progress-percent = Рівень успіху: {$successRate}%
+
+## NanoChat
+
+# Загальне
 stock-trading-program-name = Біржова торгівля
 stock-trading-title = Міжгалактичний фондовий ринок
 stock-trading-balance = Залишок: {$balance} кредитів
@@ -234,10 +237,10 @@ stock-trading-amount-placeholder = Сума
 stock-trading-price-history = Історія цін
 
 # NanoChat — Загальне
-nano-chat-program-name = Наночат
-nano-chat-title = Наночат
+nano-chat-program-name = NanoChat
+nano-chat-title = NanoChat
 nano-chat-new-chat = Новий чат
-nano-chat-contacts = Контакти
+nano-chat-contacts = КОНТАКТИ
 nano-chat-no-chats = Немає активних чатів
 nano-chat-select-chat = Виберіть чат, щоб почати
 nano-chat-message-placeholder = Введіть повідомлення...
@@ -245,33 +248,31 @@ nano-chat-send = Надіслати
 nano-chat-edit = Редагувати
 nano-chat-delete = Видалити
 nano-chat-loading = Завантаження...
-nano-chat-message-too-long = Повідомлення занадто довге ({$current}/{$max} символів)
-nano-chat-max-recipients = Досягнуто максимальної кількості одержувачів
+nano-chat-message-too-long = Повідомлення задовге ({$current}/{$max} символів)
+nano-chat-max-recipients = Досягнуто максимальної кількості чатів
 nano-chat-new-message-title = повідомлення від {$sender}
 nano-chat-new-message-body = {$message}
-nano-chat-toggle-mute = Вимкнути звук сповіщень
+nano-chat-toggle-mute = Вимкнути сповіщення
 nano-chat-delivery-failed = Не вдалося доставити
-
-# Створити спливаюче вікно чату
 nano-chat-new-title = Додати новий чат
 nano-chat-edit-title = Редагування контакту
 nano-chat-number-label = Номер
-nano-chat-name-label = Ім’я
-nano-chat-job-label = Назва посади
+nano-chat-name-label = Ім'я
+nano-chat-job-label = Посада
 nano-chat-number-placeholder = Введіть номер
-nano-chat-name-placeholder = Введіть ім’я
-nano-chat-job-placeholder = Введіть назву посади (необов’язково)
+nano-chat-name-placeholder = Введіть ім'я
+nano-chat-job-placeholder = Введіть посаду (необов'язково)
 nano-chat-cancel = Скасувати
 nano-chat-create = Створити
 
-# LogProbe
-log-probe-scan-nanochat = Відскановані логи NanoChat {$card}
-log-probe-header-access = Сканер журналу доступу
-log-probe-header-nanochat = Сканер журналу NanoChat
+# Доповнення LogProbe
+log-probe-scan-nanochat = Проскановано журнали NanoChat картки {$card}
+log-probe-header-access = Сканер журналів доступу
+log-probe-header-nanochat = Сканер журналів NanoChat
 log-probe-label-message = Повідомлення
 log-probe-card-number = Картка: {$number}
-log-probe-recipients = {$count} одержувачів
-log-probe-recipient-list = Відомі одержувачі:
+log-probe-recipients = {$count} Отримувачів
+log-probe-recipient-list = Відомі отримувачі:
 log-probe-message-format = {$sender} → {$recipient}: {$content}
 
 nano-chat-new-message-title-recipient = {$sender} ({$jobTitle})

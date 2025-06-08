@@ -4,8 +4,8 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-tool-quality-axing-name = Axing
-tool-quality-axing-tool-name = Fireaxe
+tool-quality-axing-name = Рубання
+tool-quality-axing-tool-name = Пожежна сокира
 
-tool-quality-painting-name = Painting
-tool-quality-painting-tool-name = Spray Painter
+tool-quality-painting-name = Картина
+tool-quality-painting-tool-name = Розпилювач фарби

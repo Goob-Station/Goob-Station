@@ -49,3 +49,15 @@ heretic-ritual-void-ascend = Вальс наприкінці часів
 heretic-ritual-fail-sacrifice-rust = Недостатньо гниючих або кремнієвих трупів.
 
 ## побічні квести
+heretic-ritual-basic-reminiscence = Спогад
+heretic-ritual-basic-reminiscence-desc = Перетворіть стілець, щоб миттєво повернути один з ваших втрачених клинків.
+heretic-ritual-basic-owls = Бенкет Сов
+heretic-ritual-basic-owls-desc = Під м'яким сяйвом нерозуму є звір, що крадеться вночі. Я викличу його і дозволю увійти в мою присутність. Він бенкетуватиме моїми амбіціями і залишить знання на своєму шляху.
+
+    Дозволяє вам пройти ритуал, який дає 5 очок знань, але блокує можливість вознесіння. Це можна зробити лише один раз і неможливо скасувати.
+heretic-ritual-fail-limit = Ви досягли ліміту предметів, які надає цей ритуал.
+heretic-ritual-fail-no-lost-blades = Не вдалося знайти втрачені клинки.
+heretic-ritual-fail-already-ascended = Ви вже вознеслися.
+heretic-ritual-fail-cannot-ascend = Ви не можете вознестися.
+
+## побічні завдання

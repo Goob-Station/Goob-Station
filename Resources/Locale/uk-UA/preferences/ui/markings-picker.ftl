@@ -36,3 +36,7 @@ markings-category-LeftFoot = Ліва стопа
 markings-category-Face = Обличчя
 markings-category-Undershirt = Майка
 markings-category-Underwear = Нижня білизна
+marking-slot = Slot {$number}
+
+# Categories
+markings-category-Special = Special

@@ -54,3 +54,7 @@ marking-FelinidTailBasicWithBowAndBell-basic_tail_stripes_even = Смуги на
 marking-FelinidTailBasicWithBowAndBell-basic_tail_stripes_odd = Смуги на хвості, непарні
 marking-FelinidTailBasicWithBowAndBell-basic_bow = Уклін
 marking-FelinidTailBasicWithBowAndBell-basic_bell = Дзвони
+
+marking-FelinidTailFoxtail = Лисячий хвіст
+marking-FelinidTailFoxtail-base_fox_tail = Хвіст
+marking-FelinidTailFoxtail-base_fox_tail_tip = Кінчик хвоста

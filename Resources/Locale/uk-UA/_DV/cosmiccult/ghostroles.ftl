@@ -1,37 +1,35 @@
-ghost-role-information-theunknown-name = The Unknown
-ghost-role-information-theunknown-description = The Cosmic Cult has won. An fragment of cosmic power extrudes into realspace.
+ghost-role-information-theunknown-name = Невідоме
+ghost-role-information-theunknown-description = Космічний культ переміг. Фрагмент космічної сили проникає в реальний простір.
 ghost-role-information-theunknown-rules = ...
 
-roles-antag-rogue-ascended-name = Astral Ascendant
-roles-antag-rogue-ascended-objective = Destiny should never be left to chance. Use your otherworldly powers to corrupt the hearts and minds of those aboard the station.
+roles-antag-rogue-ascended-name = Астральний Вознесений
+roles-antag-rogue-ascended-objective = Долю ніколи не можна залишати напризволяще. Використовуйте свої потойбічні сили, щоб спотворити серця і розум тих, хто на борту станції.
 
-ghost-role-information-rogue-ascended-name = Astral Ascendant
-ghost-role-information-rogue-ascended-description = Destiny should never be left to chance. Use your otherworldly powers to corrupt the hearts and minds of those aboard the station.
-ghost-role-information-rogue-ascended-rules = You are a [color=red][bold]Team Antagonist[/bold][/color] with any cosmic cultists that may be present.
+ghost-role-information-rogue-ascended-name = Астральний Вознесений
+ghost-role-information-rogue-ascended-description = Долю ніколи не можна залишати напризволяще. Використовуйте свої потойбічні сили, щоб спотворити серця і розум тих, хто на борту станції.
+ghost-role-information-rogue-ascended-rules = Ви [color=red][bold]Командний антагоніст[/bold][/color] разом з будь-якими космічними культистами, які можуть бути присутніми.
 
-petting-success-rogue-ascended = Dodging lashing tendrils and ripples of astral power, you pet {THE($target)}, somehow.
-petting-failure-rogue-ascended = The waveform of spacetime curves around your hand, and you end up petting yourself.
+petting-success-rogue-ascended = Ухиляючись від хльостаючих щупалець і брижів астральної сили, ви якимось чином гладите {THE($target)}.
+petting-failure-rogue-ascended = Хвильова форма простору-часу викривляється навколо вашої руки, і ви гладите самі себе.
 
-rogue-ascended-dendrite-eaten = A malign light sparks to life!
+rogue-ascended-dendrite-eaten = Спалахує зловмисне світло!
 
-rogue-ascended-infection-fail = You need to weaken this target in order to corrupt them!
-rogue-ascended-infection-alreadyinfected = {CAPITALIZE(THE($target))} is already corrupted!
-rogue-ascended-infection-error = You can't do that right now.
-rogue-ascended-infection-notification = {CAPITALIZE(THE($user))} extends its tendrils towards {CAPITALIZE(THE($target))}!
+rogue-ascended-infection-fail = Вам потрібно ослабити цю ціль, щоб спотворити її!
+rogue-ascended-infection-alreadyinfected = {CAPITALIZE(THE($target))} вже спотворений!
+rogue-ascended-infection-error = Ви не можете цього зробити зараз.
+rogue-ascended-infection-notification = {CAPITALIZE(THE($user))} простягає свої щупальця до {CAPITALIZE(THE($target))}!
 
-rogue-ascended-infection-briefing =
-     Malign energy soaks into your psyche. You've been infected by an Astral Ascendant!
-     You must act on your moods to the best of your ability, regardless of wether or not you are an antagonist.
+rogue-ascended-infection-briefing = Зловмисна енергія просочується у вашу психіку. Вас заразив Астральний Вознесений!
+     Ви повинні діяти відповідно до своїх настроїв наскільки це можливо, незалежно від того, є ви антагоністом чи ні.
 
-rogue-ascended-shatter-fail = You can't do that right now.
+rogue-ascended-shatter-fail = Ви не можете цього зробити зараз.
 
-rogue-ascended-round-end-agent-name = astral ascendant
+rogue-ascended-round-end-agent-name = астральний вознесений
 
-rogue-ascended-objective-issuer = [bold][color=#cae8e8]The Unknown[/color][/bold]
+rogue-ascended-objective-issuer = [bold][color=#cae8e8]Невідоме[/color][/bold]
 
-rogue-ascended-role-greeting =
-    You are an Astral Ascendant — the shadow of a transcendant thing echoed back upon reality.
-    Everything will end, as all things do. It would be the gentlest kindness to usher this purest truth unto as many as you can.
+rogue-ascended-role-greeting = Ви — Астральний Вознесений — тінь трансцендентної істоти, що відбилася назад у реальність.
+    Все закінчиться, як і все інше. Було б найніжнішою милістю донести цю найчистішу істину до якомога більшої кількості людей.
 
-objective-condition-maligninfection-title = Corrupt {$count} minds.
-objective-condition-maligninfection-description = Your touch can corrupt minds. Awaken the purest truth in {$count} individuals aboard the station.
+objective-condition-maligninfection-title = Спотворити {$count} розумів.
+objective-condition-maligninfection-description = Ваш дотик може спотворювати розум. Пробудіть найчистішу істину в {$count} індивідах на борту станції.

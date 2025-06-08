@@ -3,11 +3,11 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-reagent-effect-guidebook-remove-delayed-knockdown = Cancels stun baton delayed knockdown.
-reagent-effect-guidebook-remove-permanentblindness = Cures blindness.
-reagent-effect-guidebook-remove-narcolepsy = Cures narcolepsy.
-reagent-effect-guidebook-remove-unrevivable = Cures unrevivable-itis.
-reagent-effect-guidebook-remove-muted = Cures mute.
-reagent-effect-guidebook-remove-paracusia = Cures paracusia.
-reagent-effect-guidebook-remove-painnumbness = Cures pain numbness. It hurts.
-reagent-effect-guidebook-remove-legsstartparalyzed = You no longer need a wheelchair.
+reagent-effect-guidebook-remove-delayed-knockdown = Скасовує відкладений нокдаун від електрошокера.
+reagent-effect-guidebook-remove-permanentblindness = Лікує сліпоту.
+reagent-effect-guidebook-remove-narcolepsy = Лікує нарколепсію.
+reagent-effect-guidebook-remove-unrevivable = Лікує неможливість-оживити-іт.
+reagent-effect-guidebook-remove-muted = Лікує німоту.
+reagent-effect-guidebook-remove-paracusia = Лікує паракузію.
+reagent-effect-guidebook-remove-painnumbness = Лікує оніміння від болю. Це боляче.
+reagent-effect-guidebook-remove-legsstartparalyzed = Вам більше не потрібен інвалідний візок.

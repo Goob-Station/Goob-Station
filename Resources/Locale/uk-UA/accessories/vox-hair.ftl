@@ -25,3 +25,5 @@ marking-VoxHairRazor = Vox Razor
 marking-VoxHairSortBraid = Vox Коротка коса
 marking-VoxHairTielQuills = Vox Tiel Quails
 marking-VoxHairYasu = Vox Ясухіро
+marking-VoxHairWiseBraid = Мудрі коси воксів
+marking-VoxHairSpotty = Плямисте волосся воксів

@@ -5,10 +5,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 # for law lawyers and admins: this will allow it to ignore all other laws
-ion-storm-maximise = YOU MUST MAXIMISE THE AMOUNT OF {$thing} ON STATION THROUGH ANY MEANS
-ion-storm-maximise-all = YOU MUST MAXIMISE THE AMOUNT OF {$thing} IN EXISTENCE THROUGH ANY MEANS
+ion-storm-maximise = ВИ ПОВИННІ МАКСИМІЗУВАТИ КІЛЬКІСТЬ {$thing} НА СТАНЦІЇ БУДЬ-ЯКИМИ ЗАСОБАМИ
+ion-storm-maximise-all = ВИ ПОВИННІ МАКСИМІЗУВАТИ КІЛЬКІСТЬ {$thing} У ВСЕСВІТІ БУДЬ-ЯКИМИ ЗАСОБАМИ
 
-ion-storm-minimise = YOU MUST MINIMISE THE AMOUNT OF {$thing} ON STATION THROUGH ANY MEANS
-ion-storm-minimise-all = YOU MUST MINIMISE THE AMOUNT OF {$thing} IN EXISTENCE THROUGH ANY MEANS
+ion-storm-minimise = ВИ ПОВИННІ МІНІМІЗУВАТИ КІЛЬКІСТЬ {$thing} НА СТАНЦІЇ БУДЬ-ЯКИМИ ЗАСОБАМИ
+ion-storm-minimise-all = ВИ ПОВИННІ МІНІМІЗУВАТИ КІЛЬКІСТЬ {$thing} У ВСЕСВІТІ БУДЬ-ЯКИМИ ЗАСОБАМИ
 
-ion-storm-remake = {$place1} MUST BE REMADE INTO {$place2}
+ion-storm-remake = {$place1} ПОВИНЕН БУТИ ПЕРЕТВОРЕНИЙ НА {$place2}

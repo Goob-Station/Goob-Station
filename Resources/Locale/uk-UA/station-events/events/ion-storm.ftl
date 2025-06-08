@@ -91,3 +91,5 @@ ion-storm-law-concept-verb = {$concept} Є {$verb} {$subjects}
 # leaving out renaming since its annoying for players to keep track of
 
 station-event-ion-storm-start-announcement = Поблизу станції виявлено іонну бурю. Будь ласка, перевірте все обладнання, кероване ШІ, на наявність помилок.
+ion-storm-people = ЛЮДИ
+ion-storm-law-call-shuttle = ШАТТЛ ПОВИНЕН БУТИ ВИКЛИКАНИЙ ЧЕРЕЗ {$joined} {$subjects} НА СТАНЦІЇ

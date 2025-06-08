@@ -14,3 +14,5 @@ admin-ui-baby-jail-is-enabled = [font size=20][bold]Дитяча в'язниця
 
 admin-ui-baby-jail-enabled-admin-alert = Дитяча в'язниця увімкнута.
 admin-ui-baby-jail-disabled-admin-alert = Дитяча в'язниця була виведена з ладу.
+
+admin-ui-baby-jail-max-overall-minutes = Макс. загальний час гри

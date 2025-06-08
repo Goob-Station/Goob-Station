@@ -7,3 +7,4 @@ melee-balloon-pop = {CAPITALIZE(THE($balloon))} лопнув!
 melee-battery-examine = У нього достатньо заряду для [color={$color}]{$count}[/color] ударів.
 
 melee-heavy-no-stamina = Ви занадто втомилися, щоб виконувати силову атаку!
+melee-inject-failed-armor = Ваш {$weapon} не може зробити ін'єкцію через броню!

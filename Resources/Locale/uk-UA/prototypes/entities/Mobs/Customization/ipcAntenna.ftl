@@ -1,10 +1,10 @@
 marking-RobotAntennaTv = Телевізор
 marking-RobotAntennaTesla = Тесла
-marking-RobotAntennaLightb = Світло (alt)
+marking-RobotAntennaLightb = Світло (альт.)
 marking-RobotAntennaLight = Світло
 marking-RobotAntennaCyberhead = Кіберголова
-marking-RobotAntennaSidelights = Бічні ліхтарі
+marking-RobotAntennaSidelights = Бічні вогні
 marking-RobotAntennaAntlers = Роги
-marking-RobotAntennaDroneeyes = Очі безпілотника
+marking-RobotAntennaDroneeyes = Очі дрона
 marking-RobotAntennaCrowned = Коронований
 marking-RobotAntennaTowers = Вежі

@@ -6,3 +6,5 @@ ninja-research-steal-fail = Жодних нових вузлів дослідж�
 ninja-research-steal-success = Вкрадено {$count} нових вузлів з {THE($server)}.
 
 ninja-criminal-records-hack-announcement = ПОМИЛКА: Кримінальні записи зіткнулися з [REDACTED] помилкою #*;"
+ninja-cell-downgrade = The suit will only accept a new power cell that is better than the current one!
+ninja-cell-too-large = This power source does not fit in the ninja suit!

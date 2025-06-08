@@ -9,3 +9,4 @@ department-Specific-description = Вакансії, які є не на всіх
 
 department-Silicon-description = Дотримуйтесь своїх законів і служіть екіпажу.
 department-Dignitary-description = Допомагайте начальнику штабу та капітану, виконуйте їхні вказівки.
+department-CentralCommand-description = Керуйте екіпажем та підтримуйте його ефективну роботу.

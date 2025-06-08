@@ -5,61 +5,61 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 # Command
-highlights-captain = Captain, "Cap", Bridge, Command
-highlights-head-of-personnel = Head Of Personnel, "HoP", HoPline, Service, Bridge, Command
-highlights-chief-engineer = Chief Engineer, "CE", Atmos, Atmosia, Atmospherics, Engi, Engineer, Engineering, Bridge, Command
-highlights-chief-medical-officer = Chief Medical Officer, "CMO", Doctor, "Doc", "Medic", Medbay, "Med", Medical, Chemistry, "Chem", Chemlab, Chemical Lab, Bridge, Command
-highlights-head-of-security = Head of Security, "HoS", Security, Shitsec, Shitcurity, Brig, "Sec", "Law", Bobby, "Perma", Permabrig, Bridge, Command
-highlights-quartermaster = Quartermaster, "QM", "Cargo", Cargonia, Bridge, Command
-highlights-research-director = Research Director, "RD", Scientist, Science, "Sci", "RnD", Robotics, "Robo", Bridge, Command
-highlights-nanotrasen-representative = Nanotrasen Representative, Representative, "NTR"
-highlights-blueshield-officer = Blueshield Officer, Blueshield, "BSO", Bridge, Command
+highlights-captain = Капітан, "Кеп", Місток, Командування
+highlights-head-of-personnel = Голова персоналу, "ГП", Лінія ГП, Сервіс, Місток, Командування
+highlights-chief-engineer = Головний інженер, "ГІ", Атмос, Атмосія, Атмосферика, Інженер, Інженерія, Місток, Командування
+highlights-chief-medical-officer = Головний лікар, "ГЛ", Лікар, "Док", "Медик", Медбей, "Мед", Медицина, Хімія, "Хім", Хімлабораторія, Хімічна лабораторія, Місток, Командування
+highlights-head-of-security = Голова служби безпеки, "ГСБ", Безпека, Лайносек, Лайнобезпека, Бриг, "СБ", "Закон", Боббі, "Перма", Пермабриг, Місток, Командування
+highlights-quartermaster = Квартирмейстер, "КМ", "Карго", Каргонія, Місток, Командування
+highlights-research-director = Науковий керівник, "НК", Вчений, Наука, "НДДКР", Робототехніка, "Робо", Місток, Командування
+highlights-nanotrasen-representative = Представник Nanotrasen, Представник, "ПН"
+highlights-blueshield-officer = Офіцер Синього Щита, Синій Щит, "ОСЩ", Місток, Командування
 
-# Security
-highlights-detective = Detective, "Det", Security, Shitsec, Shitcurity, Brig, "Sec", "Law"
-highlights-security-cadet = Cadet, Secoff, Officer, Security, Shitsec, Shitcurity, Brig, "Sec", "Law", Bobby
-highlights-security-officer = Secoff, Officer, Security, Shitsec, Shitcurity, Brig, "Sec", "Law", Bobby
-highlights-warden = Warden, "Ward", Security, Shitsec, Shitcurity, Brig, "Sec", "Law", "Perma", Permabrig
-highlights-brigmedic = Brigmedic, Brigmed, Security, Shitsec, Shitcurity, Brig, "Sec", "Law", Doctor, "Doc", "Medic"
+# Безпека
+highlights-detective = Детектив, "Дет", Безпека, Лайносек, Лайнобезпека, Бриг, "СБ", "Закон"
+highlights-security-cadet = Кадет, Офіцер СБ, Офіцер, Безпека, Лайносек, Лайнобезпека, Бриг, "СБ", "Закон", Боббі
+highlights-security-officer = Офіцер СБ, Офіцер, Безпека, Лайносек, Лайнобезпека, Бриг, "СБ", "Закон", Боббі
+highlights-warden = Наглядач, "Нагляд", Безпека, Лайносек, Лайнобезпека, Бриг, "СБ", "Закон", "Перма", Пермабриг
+highlights-brigmedic = Бригмедик, Бригмед, Безпека, Лайносек, Лайнобезпека, Бриг, "СБ", "Закон", Лікар, "Док", "Медик"
 
-# Cargo
-highlights-cargo-technician = Cargo Technician, Cargotech, Cargo Tech, Mailman, Cargo, Cargonia
-highlights-salvage-specialist = Salvage Specialist, Salvager, Salvage, "Salv", Miner, Lavaland, "Cargo", Cargonia
+# Карго
+highlights-cargo-technician = Технік Карго, Карготех, Поштар, Карго, Каргонія
+highlights-salvage-specialist = Спеціаліст з утилізації, Утилізатор, Утиль, "Утиль", Шахтар, Лаваленд, "Карго", Каргонія
 
-# Engineering
-highlights-atmospheric-technician = Atmospheric Technician, Atmostech, Atmos Tech, Atmos, Atmosia, Atmospherics, Engi, Engineer, Engineering
-highlights-station-engineer = Station Engineer, Engi, Engineer, Engineering
-highlights-technical-assistant = Technical Assistant, Tech Assistant, "TA", Engi, Engineer, Engineering
+# Інженерія
+highlights-atmospheric-technician = Атмосферний технік, Атмостех, Атмос, Атмосія, Атмосферика, Інженер, Інженерія
+highlights-station-engineer = Станційний інженер, Інженер, Інженерія
+highlights-technical-assistant = Технічний асистент, Техасист, "ТА", Інженер, Інженерія
 
-# Medical
-highlights-chemist = Chemist, Chemistry, "Chem", Chemlab, Chemical Lab, Medbay, "Med", Medical
-highlights-medical-doctor = Physician, Doctor, "Doc", "Medic", Medbay, "Med", Medical
-highlights-medical-intern = Intern, Doctor, "Doc", Medbay, "Med", "Medic", Medical
-highlights-paramedic = Paramedic, "Para", Doctor, "Doc", "Medic", Medbay, "Med", Medical
+# Медицина
+highlights-chemist = Хімік, Хімія, "Хім", Хімлабораторія, Хімічна лабораторія, Медбей, "Мед", Медицина
+highlights-medical-doctor = Терапевт, Лікар, "Док", "Медик", Медбей, "Мед", Медицина
+highlights-medical-intern = Інтерн, Лікар, "Док", Медбей, "Мед", "Медик", Медицина
+highlights-paramedic = Парамедик, "Пара", Лікар, "Док", "Медик", Медбей, "Мед", Медицина
 
-# Science
-highlights-scientist = Scientist, Science, "Sci", "RnD", Robotics, Roboticist, "Robo"
-highlights-research-assistant = Research Assistant, Scientist, Science, "Sci", "RnD", Robotics, Roboticist, "Robo"
+# Наука
+highlights-scientist = Вчений, Наука, "НДДКР", Робототехніка, Робототехнік, "Робо"
+highlights-research-assistant = Науковий асистент, Вчений, Наука, "НДДКР", Робототехніка, Робототехнік, "Робо"
 
-# Civilian
-highlights-bartender = Bartender, Barkeep, Barman, "Bar"
-highlights-botanist = Botanist, Botany, Hydroponics
-highlights-chaplain = Chaplain, "Chap", Chapel
-highlights-chef = Chef, "Cook", Kitchen
-highlights-clown = Clown, Jester
-highlights-janitor = Janitor, "Jani"
-highlights-lawyer = Lawyer, Attorney
-highlights-librarian = Librarian, Library
-highlights-mime = Mime
-highlights-assistant = Passenger, Tider, Greytider, Greytide, Tide, Assistant
-highlights-service-worker = Service Worker
+# Цивільні
+highlights-bartender = Бармен, Бармен, Бармен, "Бар"
+highlights-botanist = Ботанік, Ботаніка, Гідропоніка
+highlights-chaplain = Капелан, "Кап", Каплиця
+highlights-chef = Шеф-кухар, "Кухар", Кухня
+highlights-clown = Клоун, Блазень
+highlights-janitor = Прибиральник, "Приб"
+highlights-lawyer = Юрист, Адвокат
+highlights-librarian = Бібліотекар, Бібліотека
+highlights-mime = Мім
+highlights-assistant = Пасажир, Тайдер, Грейтайдер, Грейтайд, Тайд, Асистент
+highlights-service-worker = Працівник сервісу
 
-# Wildcards
-highlights-boxer = Boxer
-highlights-reporter = Reporter, Journalist
-highlights-zookeeper = Zookeeper
-highlights-psychologist = Psychologist, Psychology
+# Інші
+highlights-boxer = Боксер
+highlights-reporter = Репортер, Журналіст
+highlights-zookeeper = Зооглядач
+highlights-psychologist = Психолог, Психологія
 
-# Silicon
-highlights-cyborg = Cyborg, Borg, Silicon, Law 2
-highlights-station-ai = Station AI, "AI", "sAI", Big Brother, Door Wizard, Silicon, Law 2, Law 3
+# Силікони
+highlights-cyborg = Кіборг, Борг, Силікон, Закон 2
+highlights-station-ai = ШІ станції, "ШІ", "сШІ", Великий Брат, Дверний Чарівник, Силікон, Закон 2, Закон 3

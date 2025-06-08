@@ -26,4 +26,9 @@ lathe-menu-material-amount-missing = { $amount ->
 lathe-menu-reagent-slot-examine = Збоку є гніздо для мензурки.
 lathe-reagent-dispense-no-container = Рідина виливається з {THE($name)} на підлогу!
 lathe-menu-result-reagent-display = {$reagent} ({$amount}u)
-lathe-menu-connected-to-silo-message = З'єднаний з силосом для матеріалів.
+lathe-menu-connected-to-silo-message = Підключено до силосу.
+lathe-menu-recipe-count = { $count ->
+    [1] {$count} Рецепт
+    [few] {$count} Рецепти
+    *[other] {$count} Рецептів
+}

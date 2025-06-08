@@ -37,3 +37,4 @@ ghost-gui-toggle-ghost-visibility-popup-off = Вимкнено видиміст�
 ghost-gui-toggle-lighting-manager-popup-normal = Освітлення нормальне.
 ghost-gui-toggle-lighting-manager-popup-personal-light = Увімкнено персональне світло.
 ghost-gui-toggle-lighting-manager-popup-fullbright = Режим повної яскравості.
+ghost-roles-window-available-button = Доступно ({$rolesCount})

@@ -16,3 +16,5 @@ comp-space-heater-ui-High-power-consumption = Високий
 
 comp-space-heater-device-name = обігрівач
 comp-space-heater-unanchored = {$device} не закріплено.
+
+comp-space-heater-ui-title = Блок контролю температури
