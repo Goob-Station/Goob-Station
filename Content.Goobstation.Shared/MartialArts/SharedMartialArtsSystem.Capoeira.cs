@@ -63,7 +63,8 @@ public abstract partial class SharedMartialArtsSystem
             return;
         }
 
-        if (args.Weapon != args.Performer || args.Type is not (ComboAttackType.Disarm or ComboAttackType.Harm))
+        if (args.Weapon != args.Performer
+            || args.Type is not (ComboAttackType.Disarm or ComboAttackType.Harm))
             return;
 
         var velocity = GetVelocity(ent);
