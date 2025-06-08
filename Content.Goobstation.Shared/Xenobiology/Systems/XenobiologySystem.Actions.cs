@@ -120,6 +120,7 @@ public partial class XenobiologySystem
             return;
 
         RemCompDeferred<SlimeDamageOvertimeComponent>(args.Entity);
+        RemCompDeferred<BeingConsumedComponent>(args.Entity);
         ent.Comp.LatchedTarget = null;
     }
     #endregion
@@ -196,7 +197,7 @@ public partial class XenobiologySystem
         if (_net.IsClient)
             return;
 
-        RemComp<BeingConsumedComponent>(target);
+        RemCompDeferred<BeingConsumedComponent>(target);
 
         if (!_containerSystem.Insert(target, slimeComp.Stomach))
         {
