@@ -128,10 +128,8 @@ public abstract partial class SharedMartialArtsSystem
 
     private void OnNinjutsuMeleeHit(EntityUid uid, ref MeleeHitEvent ev)
     {
-        if (!ev.IsHit)
-            return;
-
-        if (!TryComp(uid, out NinjutsuSneakAttackComponent? sneakAttack))
+        if (!ev.IsHit
+            || !TryComp(uid, out NinjutsuSneakAttackComponent? sneakAttack))
             return;
 
         if (HasComp<NinjutsuLossOfSurpriseComponent>(uid))
