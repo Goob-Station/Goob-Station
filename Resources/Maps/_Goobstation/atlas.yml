@@ -64,7 +64,7 @@ meta:
   engineVersion: 251.0.0
   forkId: ""
   forkVersion: ""
-  time: 06/08/2025 16:21:26
+  time: 06/08/2025 16:40:21
   entityCount: 9173
 maps:
 - 1
@@ -3642,6 +3642,13 @@ entities:
     - type: Transform
       pos: -10.5,8.5
       parent: 2
+- proto: AirlockArmoryGlassLocked
+  entities:
+  - uid: 3152
+    components:
+    - type: Transform
+      pos: 8.5,15.5
+      parent: 2
 - proto: AirlockAtmosphericsGlassLocked
   entities:
   - uid: 50
@@ -4415,7 +4422,7 @@ entities:
       pos: 4.5,19.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -413.88406
+      secondsUntilStateChange: -786.4536
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -4716,16 +4723,6 @@ entities:
     - type: Transform
       pos: -26.5,-8.5
       parent: 2
-- proto: AirlockSecurityGlass
-  entities:
-  - uid: 3152
-    components:
-    - type: Transform
-      pos: 8.5,15.5
-      parent: 2
-    - type: AccessReader
-      access:
-      - - Armory
 - proto: AirlockSecurityGlassLocked
   entities:
   - uid: 222
@@ -21945,7 +21942,8 @@ entities:
   - uid: 3161
     components:
     - type: Transform
-      pos: 12.5,14.5
+      rot: -1.5707963267948966 rad
+      pos: 13.5,13.5
       parent: 2
   - uid: 3482
     components:
@@ -52009,8 +52007,7 @@ entities:
   - uid: 3140
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 13.5,13.5
+      pos: 12.5,14.5
       parent: 2
     - type: AccessReader
       access:
