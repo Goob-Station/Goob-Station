@@ -180,6 +180,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     public const int WhisperMuffledRange = 5; // how far whisper goes at all, in world units
     public const string DefaultAnnouncementSound = "/Audio/Announcements/attention.ogg";
     public const float DefaultObfuscationFactor = 0.2f; // Percentage of symbols in a whispered message that can be seen even by "far" listeners
+    public readonly Color DefaultSpeakColor = Color.White; // Einstein Engines - Language
 
     private bool _loocEnabled = true;
     private bool _deadLoocEnabled;
@@ -289,7 +290,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         string? nameOverride = null,
         bool checkRadioPrefix = true,
         bool ignoreActionBlocker = false,
-        string wrappedMessagePostfix = "" // Goobstation
+        string wrappedMessagePostfix = "", // Goobstation
         LanguagePrototype? languageOverride = null // Einstein Engines - Language
         )
     {
@@ -647,7 +648,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             return;
 
         // The Original Message [-] Einstein Engines - Language
-        var message = TransformSpeech(source, originalMessage);
+        var message = TransformSpeech(source, originalMessage, language);
 
         if (message.Length == 0)
             return;
@@ -683,7 +684,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         var wrappedObfuscated = WrapPublicMessage(source, name, obfuscated, language: language);
         // Einstein Engines - Language end
 
-        SendInVoiceRange(ChatChannel.Local, message, wrappedMessage, source, range, languageOverride: language); // Einstein Engines - Language
+        SendInVoiceRange(ChatChannel.Local, name, message, wrappedMessage, obfuscated, wrappedObfuscated, source, range, languageOverride: language); // Einstein Engines - Language
 
         var ev = new EntitySpokeEvent(source, message, null, false, language); // Einstein Engines - Language
         RaiseLocalEvent(source, ev, true);
@@ -772,7 +773,7 @@ public sealed partial class ChatSystem : SharedChatSystem
                 result = perceivedMessage;
                 wrappedMessage = WrapWhisperMessage(source, "chat-manager-entity-whisper-wrap-message", name, result, language);
             }
-            else if (_interactionSystem.InRangeUnobstructed(source, listener, WhisperMuffledRange, Shared.Physics.CollisionGroup.Opaque))
+            else if (_examineSystem.InRangeUnOccluded(source, listener, WhisperMuffledRange)) // UNEDIT FROM Einstein Engines - Language // They are out of date, this has been reverted to current ChatSystem
             {
                 // Scenario 2: if the listener is too far, they only hear fragments of the message
                 result = ObfuscateMessageReadability(perceivedMessage);
@@ -973,17 +974,15 @@ public sealed partial class ChatSystem : SharedChatSystem
             // Einstein Engines - Language begin
             if (session.AttachedEntity is not { Valid: true } playerEntity)
                 continue;
-            EntityUid listener = session.AttachedEntity.Value
+            EntityUid listener = session.AttachedEntity.Value;
+
+            // If the channel does not support languages, or the entity can understand the message, send the original message, otherwise send the obfuscated version
+            if (channel == ChatChannel.LOOC || channel == ChatChannel.Emotes || _language.CanUnderstand(listener, language.ID))
+                _chatManager.ChatMessageToOne(channel, message, wrappedMessage, source, entHideChat, session.Channel, author: author);
+            else
+                _chatManager.ChatMessageToOne(channel, obfuscated, obfuscatedWrappedMessage, source, entHideChat, session.Channel, author: author);
             // Einstein Engines - Language end
         }
-
-        // Einstein Engines - Language begin
-        // If the channel does not support languages, or the entity can understand the message, send the original message, otherwise send the obfuscated version
-        if (channel == ChatChannel.LOOC || channel == ChatChannel.Emotes || _language.CanUnderstand(listener, language.ID))
-            _chatManager.ChatMessageToOne(channel, message, wrappedMessage, source, entHideChat, session.Channel, author: author);
-        else
-            _chatManager.ChatMessageToOne(channel, obfuscated, obfuscatedWrappedMessage, source, entHideChat, session.Channel, author: author);
-        // Einstein Engines - Language end
 
         _replay.RecordServerMessage(new ChatMessage(channel, message, wrappedMessage, GetNetEntity(source), null, MessageRangeHideChatForReplay(range)));
     }
