@@ -10770,3 +10770,15 @@ Entries:
       message: Secret+ should now pick more sane roundstart antag combinations.
   id: 1187
   time: '2025-06-08T09:00:34.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Sandevistan no longer deals stamina damage to the user and also cools
+        down faster.
+    - type: Fix
+      message: >-
+        Fixed some issues with Sandevistan, likely including it being unable to
+        be turned off sometimes.
+  id: 1188
+  time: '2025-06-08T09:01:38.0000000+00:00'
