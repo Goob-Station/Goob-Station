@@ -50,6 +50,7 @@
             SecurityOfficer: [ 4, 8 ]
             SecurityCadet: [ 1, 4 ]
             Warden: [ 1, 1 ]
+            Brigmedic: [ 1, 1 ]
           #service
             Bartender: [ 2, 3 ]
             Botanist: [ 2, 5 ]
