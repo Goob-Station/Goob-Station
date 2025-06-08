@@ -121,6 +121,7 @@
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 # SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
@@ -287,6 +288,7 @@
       components:
       - MobState
       - Door
+      - Item # Goobstation
       tags:
       - Wall
   - type: Tag
@@ -298,14 +300,19 @@
     defaultChannel: Dragonmind
     channels:
     - Dragonmind
+  - type: Damageable # Goobstation
+    damageContainer: Biological
+    damageModifierSet: Dragon
   - type: Puller
     needsHands: false
   - type: NightVision # Goobstation - Nigthvision
     color: "#808080"
     activateSound: null
     deactivateSound: null
+  - type: ThermalVision # Goobstation - Thermal vision
   - type: CombatPower # Goobstation
     factor: 4 # times more dangerous than a crew-member
+  - type: Fauna # Lavaland Change
 
 - type: entity
   parent: BaseMobDragon
@@ -313,16 +320,20 @@
   components:
   - type: Dragon
     spawnRiftAction: ActionSpawnRift
+    carpRiftHealing:
+      groups:
+        Brute: -4
+        Burn: -4
+        Airloss: -3
   - type: GhostRole
     mindRoles:
     - MindRoleDragon
-  - type: ActionGun
-    action: ActionDragonsBreath
-    gunProto: DragonsBreathGun
+  #- type: ActionGun # Goobstation - remove fireball because it's tied to lungs now
+  #  action: ActionDragonsBreath
+  #  gunProto: DragonsBreathGun
   - type: GuideHelp
     guides:
     - MinorAntagonists
-  - type: Fauna # Lavaland Change
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -408,3 +419,31 @@
     checkCanAccess: false
     range: 0
     itemIconStyle: BigAction
+
+# Goobstation start: dragon rework
+- type: entity
+  id: ActionRiseFish
+  name: Summon Carp Horde
+  description: Summons 3 carps on the spot to protect you from danger!
+  components:
+  - type: InstantAction
+    icon:
+      sprite: _Goobstation/Actions/dragon.rsi
+      state: carp_horde
+    event: !type:DragonSpawnCarpHordeActionEvent
+    useDelay: 90
+    priority: 4
+
+- type: entity
+  id: ActionDragonRoar
+  name: Wing flap
+  description: Flap your wings to stun all enemies around you!
+  components:
+  - type: InstantAction
+    icon:
+      sprite: _Goobstation/Actions/dragon.rsi
+      state: wing_flap
+    event: !type:DragonRoarActionEvent
+    useDelay: 45
+    priority: 5
+# Goobstation end
