@@ -348,7 +348,7 @@
   id: UplinkSyndicateDisabler
   name: uplink-syndicate-disabler-name
   description: uplink-syndicate-disabler-desc
-  icon: { sprite: _EinsteinEngines/Objects/Weapons/Guns/Battery/civilian-disabler.rsi, state: base }
+  icon: { sprite: _EinsteinEngines/Objects/Weapons/Guns/Battery/syndicate-disabler.rsi, state: base }
   productEntity: WeaponDisablerSyndicate
   cost:
     Telecrystal: 20
