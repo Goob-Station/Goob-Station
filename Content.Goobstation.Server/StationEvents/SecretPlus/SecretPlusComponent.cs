@@ -113,6 +113,13 @@ public sealed partial class SecretPlusComponent : Component
     [ViewVariables]
     public List<SelectedEvent> SelectedEvents = new();
 
+
+    /// <summary>
+    /// Weight table for primary roundstart antags.
+    /// </summary>
+    [DataField]
+    public ProtoId<WeightedRandomPrototype> PrimaryAntagsWeightTable = "SecretPlusPrimary";
+
     /// <summary>
     /// Weight table for roundstart antags.
     /// </summary>
