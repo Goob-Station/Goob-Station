@@ -10758,3 +10758,9 @@ Entries:
       message: Port Squackroach
   id: 1185
   time: '2025-06-07T23:51:26.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Fix
+      message: Syndicate reinforcement is now a familiar
+  id: 1186
+  time: '2025-06-08T08:58:46.0000000+00:00'
