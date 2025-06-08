@@ -44,7 +44,7 @@
       amount: 2
   - type: Bloodstream
     bloodMaxVolume: 20
-    bloodReagent: Water
+    bloodReagent: Blood
   - type: ZombieImmune
 
 - type: entity
