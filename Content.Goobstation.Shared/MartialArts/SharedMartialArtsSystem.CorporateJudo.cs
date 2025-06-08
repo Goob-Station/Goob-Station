@@ -224,9 +224,9 @@ public partial class SharedMartialArtsSystem
     private void OnJudoGoldenBlast(Entity<CanPerformComboComponent> ent, ref JudoGoldenBlastPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-        || !TryUseMartialArt(ent, proto, out var target, out var _)
-        || !TryComp(target, out StatusEffectsComponent? status)
-        || !TryComp<PullableComponent>(target, out var pullable))
+            || !TryUseMartialArt(ent, proto, out var target, out var _)
+            || !TryComp(target, out StatusEffectsComponent? status)
+            || !TryComp<PullableComponent>(target, out var pullable))
             return;
 
         _stun.TryParalyze(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, status);
