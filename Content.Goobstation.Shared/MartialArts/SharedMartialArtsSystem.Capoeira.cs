@@ -197,7 +197,11 @@ public abstract partial class SharedMartialArtsSystem
 
         _audio.PlayPvs(args.Sound, target);
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage * power, out _);
-        _grabThrowing.Throw(target, ent, dir.Normalized() * args.ThrowRange * power, proto.ThrownSpeed, behavior: proto.DropHeldItemsBehavior);
+        _grabThrowing.Throw(target, 
+            ent,
+            dir.Normalized() * args.ThrowRange * power,
+            proto.ThrownSpeed,
+            behavior: proto.DropHeldItemsBehavior);
         ComboPopup(ent, target, proto.Name);
         ent.Comp.LastAttacks.Clear();
     }
