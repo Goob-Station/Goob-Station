@@ -144,13 +144,9 @@ public abstract partial class SharedMartialArtsSystem
             return;
 
         var target = ev.HitEntities[0];
-        if (target == uid)
-            return;
-
-        if (!HasComp<MobStateComponent>(target))
-            return;
-
-        if (!IsWeaponValid(uid, ev.Weapon, out _))
+        if (target == uid
+            || !HasComp<MobStateComponent>(target)
+            || !IsWeaponValid(uid, ev.Weapon, out _))
             return;
 
         if (sneakAttack.Multiplier > 1f)
