@@ -141,6 +141,20 @@ public sealed partial class FaxMachineComponent : Component
     [DataField]
     public bool ReceiveNukeCodes { get; set; } = false;
 
+    // Corvax-StationGoal-Start
+    /// <summary>
+    /// Should that fax receive station goal info
+    /// </summary>
+    [DataField]
+    public bool ReceiveStationGoal { get; set; }
+
+    /// <summary>
+    /// Should that fax receive station goals from other stations
+    /// </summary>
+    [DataField]
+    public bool ReceiveAllStationGoals { get; set; }
+    // Corvax-StationGoal-End
+
     /// <summary>
     /// Sound to play when fax printing new message
     /// </summary>

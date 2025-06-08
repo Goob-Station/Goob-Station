@@ -1,0 +1,109 @@
+# General goals
+- type: stationGoal
+  id: Singularity
+  text: station-goal-singularity
+  minPlayers: 15
+
+- type: stationGoal
+  id: SolarPanels
+  text: station-goal-solar-panels
+
+- type: stationGoal
+  id: Artifacts
+  text: station-goal-artifacts
+  minPlayers: 15
+
+- type: stationGoal
+  id: Bank
+  text: station-goal-bank
+  minPlayers: 15
+
+- type: stationGoal
+  id: Zoo
+  text: station-goal-zoo
+
+- type: stationGoal
+  id: MiningOutpost
+  text: station-goal-mining-outpost
+  minPlayers: 15
+
+- type: stationGoal
+  id: Tesla
+  text: station-goal-tesla
+  minPlayers: 15
+
+- type: stationGoal
+  id: SecurityTraining
+  text: station-goal-security
+  minPlayers: 15
+
+- type: stationGoal
+  id: ShuttleMed
+  text: station-goal-shuttle-med
+  minPlayers: 10
+
+- type: stationGoal
+  id: ShuttleSec
+  text: station-goal-shuttle-sec
+  minPlayers: 10
+
+- type: stationGoal
+  id: ShuttleRnd
+  text: station-goal-shuttle-rnd
+  minPlayers: 10
+
+- type: stationGoal
+  id: ShuttleSrv
+  text: station-goal-shuttle-srv
+  minPlayers: 10
+
+- type: stationGoal
+  id: ShuttleEmergency
+  text: station-goal-shuttle-emergency
+  minPlayers: 10
+
+- type: stationGoal
+  id: Theatre
+  text: station-goal-theatre
+
+- type: stationGoal
+  id: CellAI
+  text: station-goal-ai
+  minPlayers: 15
+
+- type: stationGoal
+  id: Botany
+  text: station-goal-botany
+
+- type: stationGoal
+  id: Bunker
+  text: station-goal-bunker
+
+# Special goals
+- type: stationGoal
+  id: FrameRepair
+  text: station-goal-frame-repair
+
+- type: stationGoal
+  id: XenobiologyRepair
+  text: station-goal-delta-xeno-repair
+
+- type: stationGoal
+  id: VirusologyAmbusol
+  text: station-goal-delta-ambusol
+  spawns:
+  - PillRomerol
+  - PillRomerol
+  - PillRomerol
+
+- type: stationGoal
+  id: SectorSecurity
+  text: station-goal-split-secure
+
+- type: stationGoal
+  id: AstraRepair
+  text: station-goal-astra-repair
+
+- type: stationGoal # Corvax-Next
+  id: BluespaceHarvest
+  text: station-goal-bluespace-harvest
