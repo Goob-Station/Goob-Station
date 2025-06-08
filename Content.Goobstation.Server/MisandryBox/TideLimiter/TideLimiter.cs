@@ -1,16 +1,13 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using Content.Goobstation.Server.MisandryBox.TideLimiter;
-using Content.Server.GameTicking;
+﻿using Content.Server.GameTicking;
 using Content.Server.Heretic.Components;
 using Content.Server.Jobs;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.GameTicking;
 using Content.Shared.Roles;
-using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Server.MisandryBox;
+namespace Content.Goobstation.Server.MisandryBox.TideLimiter;
 
 /// <summary>
 /// Limits available passenger job slots depending on taken security slots
