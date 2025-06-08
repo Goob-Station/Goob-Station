@@ -35,6 +35,8 @@ namespace Content.Server.Atmos.EntitySystems
         public float SpaceWindMaxVelocity { get; private set; }
         public float SpaceWindMaxPushForce { get; private set; }
         public float SpaceWindThrowVelocity { get; private set; } // Goobstation
+        public float SpaceWindStrength { get; private set; } // Goobstation
+        public float SpaceWindImpulseMultiplier { get; private set; } // Goobstation
         public float SpaceWindMinimumCalculatedMass { get; private set; } // Goobstation - Spacewind Cvars
         public float SpaceWindMaximumCalculatedInverseMass { get; private set; } // Goobstation - Spacewind Cvars
         public bool MonstermosUseExpensiveAirflow { get; private set; } // Goobstation - Spacewind Cvars
@@ -54,7 +56,6 @@ namespace Content.Server.Atmos.EntitySystems
         public float AtmosTickRate { get; private set; }
         public float Speedup { get; private set; }
         public float HeatScale { get; private set; }
-        public float HumanoidThrowMultiplier { get; private set; }
 
         /// <summary>
         /// Time between each atmos sub-update.  If you are writing an atmos device, use AtmosDeviceUpdateEvent.dt
@@ -71,6 +72,8 @@ namespace Content.Server.Atmos.EntitySystems
             Subs.CVar(_cfg, CCVars.SpaceWindMaxVelocity, value => SpaceWindMaxVelocity = value, true);
             Subs.CVar(_cfg, CCVars.SpaceWindMaxPushForce, value => SpaceWindMaxPushForce = value, true);
             Subs.CVar(_cfg, GoobCVars.SpaceWindThrowVelocity, value => SpaceWindThrowVelocity = value, true); // Goobstation
+            Subs.CVar(_cfg, GoobCVars.SpaceWindStrength, value => SpaceWindStrength = value, true); // Goobstation
+            Subs.CVar(_cfg, GoobCVars.SpaceWindImpulseMultiplier, value => SpaceWindImpulseMultiplier = value, true); // Goobstation
             Subs.CVar(_cfg, GoobCVars.SpaceWindMinimumCalculatedMass, value => SpaceWindMinimumCalculatedMass = value, true); // Goobstation - Spacewind Cvars
             Subs.CVar(_cfg, GoobCVars.SpaceWindMaximumCalculatedInverseMass, value => SpaceWindMaximumCalculatedInverseMass = value, true); // Goobstation - Spacewind Cvars
             Subs.CVar(_cfg, GoobCVars.MonstermosUseExpensiveAirflow, value => MonstermosUseExpensiveAirflow = value, true); // Goobstation - Spacewind Cvars
@@ -90,7 +93,6 @@ namespace Content.Server.Atmos.EntitySystems
             Subs.CVar(_cfg, CCVars.AtmosHeatScale, value => { HeatScale = value; InitializeGases(); }, true);
             Subs.CVar(_cfg, CCVars.ExcitedGroups, value => ExcitedGroups = value, true);
             Subs.CVar(_cfg, CCVars.ExcitedGroupsSpaceIsAllConsuming, value => ExcitedGroupsSpaceIsAllConsuming = value, true);
-            Subs.CVar(_cfg, GoobCVars.AtmosHumanoidThrowMultiplier, value => HumanoidThrowMultiplier = value, true);
         }
     }
 }

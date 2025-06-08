@@ -56,10 +56,22 @@ public sealed partial class GoobCVars
         CVarDef.Create("atmos.strict_pipe_stacking", false, CVar.SERVERONLY);
 
     /// <summary>
+    ///     Space wind throw force multiplier
+    /// </summary>
+    public static readonly CVarDef<float> SpaceWindStrength =
+        CVarDef.Create("atmos.space_wind_strength", 0.1f, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     Multiplier for when spacewind applies impulse instead of throwing since this tends to be weak
+    /// </summary>
+    public static readonly CVarDef<float> SpaceWindImpulseMultiplier =
+        CVarDef.Create("atmos.space_wind_impulse_mult", 3f, CVar.SERVERONLY);
+
+    /// <summary>
     ///     If space wind is attempting to throw an object at a velocity below this, apply impulse instead
     /// </summary>
     public static readonly CVarDef<float> SpaceWindThrowVelocity =
-        CVarDef.Create("atmos.space_wind_throw_velocity", 1.5f, CVar.SERVERONLY);
+        CVarDef.Create("atmos.space_wind_throw_velocity", 3f, CVar.SERVERONLY);
 
     /// <summary>
     ///     If an object's mass is below this number, then this number is used in place of mass to determine whether air pressure can throw an object.
@@ -85,13 +97,6 @@ public sealed partial class GoobCVars
     /// </summary>
     public static readonly CVarDef<bool> MonstermosUseExpensiveAirflow =
         CVarDef.Create("atmos.mmos_expensive_airflow", true, CVar.SERVERONLY);
-
-    /// <summary>
-    ///     A multiplier on the amount of force applied to Humanoid entities, as tracked by HumanoidAppearanceComponent
-    ///     This multiplier is added after all other checks are made, and applies to both throwing force, and how easy it is for an entity to be thrown.
-    /// </summary>
-    public static readonly CVarDef<float> AtmosHumanoidThrowMultiplier =
-        CVarDef.Create("atmos.humanoid_throw_multiplier", 2f, CVar.SERVERONLY);
 
     /// <summary>
     ///     Taken as the cube of a tile's mass, this acts as a minimum threshold of mass for which air pressure calculates whether or not to rip a tile from the floor

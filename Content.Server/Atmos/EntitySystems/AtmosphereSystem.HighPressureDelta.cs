@@ -35,13 +35,13 @@
 using Content.Server.Atmos.Components;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
-using Content.Shared.Humanoid;
 using Content.Shared.Physics;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Utility;
+using System.Numerics;
 
 namespace Content.Server.Atmos.EntitySystems
 {
@@ -236,27 +236,37 @@ namespace Content.Server.Atmos.EntitySystems
             if (physics.BodyType != BodyType.Static
                 && !float.IsPositiveInfinity(component.MoveResist))
             {
-                var moveForce = pressureDifference * MathF.Max(physics.InvMass, SpaceWindMaximumCalculatedInverseMass);
-                if (HasComp<HumanoidAppearanceComponent>(ent))
-                    moveForce *= HumanoidThrowMultiplier;
+                var moveForce = pressureDifference * MathF.Max(physics.InvMass, SpaceWindMaximumCalculatedInverseMass) * SpaceWindStrength;
 
-                // mass check nuked since it no longer TryThrow-s at low forces
+                // goob note: mass check nuked since it no longer TryThrow-s at low forces
 
                 // Grid-rotation adjusted direction
                 var dirVec = (direction.ToAngle() + gridWorldRotation).ToWorldVec();
-                var throwVec = (throwTarget != EntityCoordinates.Invalid ?
-                    throwTarget.ToMap(EntityManager, _transformSystem).Position - xform.WorldPosition + dirVec
-                    : dirVec).Normalized();
-
-                moveForce *= MathF.Max(physics.InvMass, SpaceWindMaximumCalculatedInverseMass);
+                var throwDir = Vector2.Zero; // assigned later
                 var actVel = MathF.Min(moveForce, SpaceWindMaxVelocity);
+
+                if (throwTarget != EntityCoordinates.Invalid)
+                {
+                    var mapTargetPos = throwTarget.ToMap(EntityManager, _transformSystem).Position;
+                    var throwVec = mapTargetPos - xform.WorldPosition;
+
+                    // only throw up to target tile
+                    actVel = MathF.Min(actVel, throwVec.Length());
+
+                    throwDir = throwVec.Normalized();
+                }
+                else
+                {
+                    throwDir = dirVec.Normalized();
+                }
 
                 //TODO Consider replacing throw target with proper trigonometry angles.
                 if (actVel < SpaceWindThrowVelocity)
                     // don't destroy bar by throwing glasses 1mm
-                    _physics.ApplyLinearImpulse(uid, throwVec * actVel * physics.Mass, body: physics);
+                    _physics.ApplyLinearImpulse(uid, throwDir * actVel * physics.Mass * SpaceWindImpulseMultiplier, body: physics);
                 else
-                    _throwing.TryThrow(uid, throwVec * actVel, moveForce);
+                    // (uid, direction, speed)
+                    _throwing.TryThrow(uid, throwDir * actVel, moveForce);
 
                 component.LastHighPressureMovementAirCycle = cycle;
             }
