@@ -128,9 +128,9 @@ public partial class SharedMartialArtsSystem
     private void OnJudoThrow(Entity<CanPerformComboComponent> ent, ref JudoThrowPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-        || !TryUseMartialArt(ent, proto, out var target, out var downed)
-        || downed
-        || !TryComp<PullableComponent>(target, out var pullable))
+            || !TryUseMartialArt(ent, proto, out var target, out var downed)
+            || downed
+            || !TryComp<PullableComponent>(target, out var pullable))
             return;
 
         var knockdownTime = TimeSpan.FromSeconds(proto.ParalyzeTime);
