@@ -244,6 +244,14 @@
       - Normal
       - CosmicCultMonument # DeltaV - Cosmic Cult
       - Abductor
+  - type: Skills # Corvax-Skills
+    skills:
+      - ShuttleControl
+      - Shooting
+      - AdvancedBuilding
+      - Surgery
+      - MedicalEquipment
+      - Butchering
 
 - type: entity
   id: ActionAGhostShowSolar

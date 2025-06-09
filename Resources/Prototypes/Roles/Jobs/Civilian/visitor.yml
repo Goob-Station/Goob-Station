@@ -20,3 +20,9 @@
   - Maintenance
   extendedAccess:
   - External
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: Skills # Corvax-Skills
+      skills:
+      - ShuttleControl

@@ -102,6 +102,10 @@
     components:
     - type: SurgerySpeedModifier
       speedModifier: 1.25
+    - type: Skills # Corvax-Skills
+      skills:
+      - Surgery
+      - MedicalEquipment
 
 - type: startingGear
   id: ParamedicGear

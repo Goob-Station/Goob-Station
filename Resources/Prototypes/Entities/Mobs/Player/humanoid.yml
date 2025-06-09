@@ -144,6 +144,14 @@
   components:
     - type: MindShield
     - type: AntagImmune
+    - type: Skills # Corvax-Skills
+      skills:
+        - ShuttleControl
+        - Shooting
+        - AdvancedBuilding
+        - Surgery
+        - MedicalEquipment
+        - Butchering
 
 # Goobstation start
 - type: randomHumanoidSettings

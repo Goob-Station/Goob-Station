@@ -290,6 +290,9 @@
     coefficient: 0.5
   - type: CombatPower # Goobstation
     factor: 2
+  - type: Skills # Corvax-Skills
+    skills:
+    - Butchering
 
 - type: entity
   id: MobRatKingBuff

@@ -84,6 +84,10 @@
   - !type:AddComponentSpecial # Goobstation
     components:
     - type: EngineeringStaff
+    - type: Skills # Corvax-Skills
+      skills:
+      - ShuttleControl
+      - AdvancedBuilding
 
 - type: startingGear
   id: AtmosphericTechnicianGear

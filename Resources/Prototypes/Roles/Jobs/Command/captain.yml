@@ -171,6 +171,10 @@
       - type: CommandStaff
       - type: Condemned # Goobstation - Nanotrasen owns your soul pal.
         soulOwnedNotDevil: true
+      - type: Skills # Corvax-Skills
+        skills:
+        - ShuttleControl
+        - Shooting
 
 - type: startingGear
   id: CaptainGear

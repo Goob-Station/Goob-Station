@@ -433,6 +433,14 @@
         sound: /Audio/Misc/ninja_greeting.ogg
       components:
       - type: SpaceNinja
+      - type: Skills # Corvax-Skills
+        skills:
+        - ShuttleControl
+        - Shooting
+        - AdvancedBuilding
+        - Surgery
+        - MedicalEquipment
+        - Butchering
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -845,6 +853,14 @@
       - RoleSurvivalNukie
       components:
       - type: NukeOperative
+      - type: Skills # Corvax-Skills
+        skills:
+        - ShuttleControl
+        - Shooting
+        - AdvancedBuilding
+        - Surgery
+        - MedicalEquipment
+        - Butchering
       - type: RandomMetadata
         nameSegments:
         - NamesSyndicatePrefix
@@ -891,6 +907,15 @@
       blacklist:
         components:
         - AntagImmune
+      components: # Corvax-Skills
+      - type: Skills
+        skills:
+        - ShuttleControl
+        - Shooting
+        - AdvancedBuilding
+        - Surgery
+        - MedicalEquipment
+        - Butchering
       mindRoles:
       - MindRoleTraitorSleeper
 

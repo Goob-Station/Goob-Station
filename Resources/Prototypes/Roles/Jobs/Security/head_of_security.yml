@@ -179,6 +179,10 @@
     components:
       - type: CommandStaff
       - type: SecurityStaff # goobstation
+      - type: Skills # Corvax-Skills
+        skills:
+        - ShuttleControl
+        - Shooting
 
 - type: startingGear
   id: HoSGear

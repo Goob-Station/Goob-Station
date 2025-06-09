@@ -158,6 +158,9 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
+      - type: Skills # Corvax-Skills
+        skills:
+        - AdvancedBuilding
 
 - type: startingGear
   id: ResearchDirectorGear
