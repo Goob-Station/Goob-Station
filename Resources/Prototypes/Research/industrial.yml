@@ -212,7 +212,7 @@
   - ThermomachineFreezerMachineCircuitBoard
   - GasRecyclerMachineCircuitboard
   # Goobstation R&D Console rework start
-  position: -2,-4
+  position: -1,-4
   technologyPrerequisites:
   - SpaceScanning
   # Goobstation R&D Console rework end
@@ -268,6 +268,7 @@
   name: research-technology-hev-suit-storage
   icon:
     sprite: _Goobstation/Clothing/OuterClothing/Suits/hev.rsi
+    state: icon
   discipline: Industrial
   tier: 2
   cost: 7500
@@ -275,9 +276,9 @@
     - SuitStorageHEVCircuitboard
     - ClothingOuterSuitHEV
   # Goobstation R&D Console rework start
-  position: -3,-4
+  position: -2,-4
   technologyPrerequisites:
-    - Atmospherics
+    - AtmosphericTech
   # Goobstation R&D Console rework end
 
 - type: technology
@@ -296,7 +297,7 @@
   technologyPrerequisites:
   - AtmosphericTech
   # Goobstation R&D Console rework start
-  position: -2,-5
+  position: -1,-5
   # Goobstation R&D Console rework end
 
 - type: technology

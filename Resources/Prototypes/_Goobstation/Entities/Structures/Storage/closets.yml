@@ -7,8 +7,8 @@
 - type: entity
   id: SuitStorageHEV
   name: H.E.V suit storage unit
-  description: A fancy hi-tech storage unit made for storing H.E.V suit.
-  parent: [ BaseItemCabinetGlass, BaseStructure ]
+  description: A fancy hi-tech storage unit made for storing a H.E.V suit.
+  parent: [ BaseItemCabinetGlass, BaseMachine, ConstructibleMachine ]
   suffix: Empty
   components:
   - type: InteractionOutline

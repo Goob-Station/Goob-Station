@@ -5,7 +5,7 @@
   description: A machine printed circuit board for a H.E.V suit storage unit.
   components:
   - type: Sprite
-    state: industrial
+    state: engineering
   - type: MachineBoard
     prototype: SuitStorageHEV
     stackRequirements:
