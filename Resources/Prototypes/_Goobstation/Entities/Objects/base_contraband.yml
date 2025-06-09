@@ -11,3 +11,11 @@
   - type: Contraband
     allowedJobs: [ BlueshieldOfficer ] # Basically both security and medic.
     allowedDepartments: [ Security, Medical ]
+
+- type: entity
+  id: BaseWardenContraband
+  parent: BaseRestrictedContraband
+  abstract: true
+  components:
+  - type: Contraband
+    allowedJobs: [ Warden ]
