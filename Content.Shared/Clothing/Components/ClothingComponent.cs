@@ -31,9 +31,8 @@ namespace Content.Shared.Clothing.Components;
 /// <summary>
 ///     This handles entities which can be equipped.
 /// </summary>
-[NetworkedComponent]
-[RegisterComponent]
-[Access(typeof(ClothingSystem), typeof(InventorySystem))]
+//[Access(typeof(ClothingSystem), typeof(InventorySystem))] - Fuck yo access - Goob
+[RegisterComponent, NetworkedComponent]
 public sealed partial class ClothingComponent : Component
 {
     [DataField("clothingVisuals")]
@@ -58,7 +57,7 @@ public sealed partial class ClothingComponent : Component
     /// </remarks>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField(required: true)]
-    [Access(typeof(ClothingSystem), typeof(InventorySystem), Other = AccessPermissions.ReadExecute)]
+    // [Access(typeof(ClothingSystem), typeof(InventorySystem), Other = AccessPermissions.ReadExecute)] // Goobstation - FUCK YOUR ACCESS! WE GOIDA IN THIS BITCH
     public SlotFlags Slots = SlotFlags.NONE;
 
     [ViewVariables(VVAccess.ReadWrite)]
