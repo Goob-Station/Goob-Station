@@ -28,9 +28,13 @@
 # SPDX-FileCopyrightText: 2024 Ramlik <105449767+Ramlik@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Smith <182301147+AgentSmithRadio@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -58,11 +62,11 @@
     RadioHandheldSecurity: 5
     BolaEnergy: 5 # Goobstation - start
     PepperSpray: 3
-    SecHypo: 4
-    CartridgeEpinephrine: 4
-    CartridgeSaline: 4
-    CartridgeBicaridine: 4
-    CartridgeDermaline: 4 # Goobstation - end
+    SecHypo: 3
+    CartridgeEpinephrine: 3
+    CartridgeSaline: 3
+    CartridgeBicaridine: 3
+    CartridgeDermaline: 3 # Goobstation - end
   # security officers need to follow a diet regimen!
   contrabandInventory:
     WeaponMeleeNeedle: 2

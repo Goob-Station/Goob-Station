@@ -7,6 +7,7 @@
 // SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -24,20 +25,9 @@ using System.Threading;
 
 namespace Content.Server._Lavaland.Mobs;
 
-[Virtual, RegisterComponent]
-public partial class MegafaunaComponent : Component
+[RegisterComponent]
+public sealed partial class MegafaunaComponent : Component
 {
-    /// <summary>
-    ///     Used for all the timers that get assigned to the boss.
-    ///     In theory all bosses should use it so i'll just leave it here.
-    /// </summary>
-    [NonSerialized] public CancellationTokenSource CancelToken = new();
-
-    /// <summary>
-    ///     Whether or not it should power trip aggressors or random locals
-    /// </summary>
-    [DataField] public bool Aggressive = false;
-
     /// <summary>
     ///     Should it drop guaranteed loot when dead? If so what exactly?
     /// </summary>
