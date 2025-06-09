@@ -3,12 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Maths.FixedPoint;
-using Content.Goobstation.Shared.Xenobiology;
-using Content.Shared.Chemistry.Reagent;
-using Robust.Shared.Prototypes;
-
-namespace Content.Goobstation.Server.Xenobiology.Extract;
+namespace Content.Goobstation.Shared.Xenobiology.Components;
 
 [RegisterComponent]
 public sealed partial class SlimeExtractComponent : Component;

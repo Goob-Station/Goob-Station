@@ -7,6 +7,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Shared.Xenobiology.Components;
+using Content.Goobstation.Shared.Xenobiology.Components.Equipment;
 using Content.Shared.Coordinates;
 using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;

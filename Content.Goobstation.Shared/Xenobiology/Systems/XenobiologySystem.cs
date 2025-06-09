@@ -7,6 +7,7 @@
 
 using Content.Goobstation.Shared.Xenobiology.Components;
 using Content.Shared.ActionBlocker;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Emag.Systems;
@@ -51,6 +52,7 @@ public sealed partial class XenobiologySystem : EntitySystem
     [Dependency] private readonly SharedJitteringSystem _jitter = default!;
     [Dependency] private readonly ThrowingSystem _throw = default!;
     [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
 
     private ISawmill _sawmill = default!;
 
@@ -61,6 +63,7 @@ public sealed partial class XenobiologySystem : EntitySystem
         InitializeBreeding();
         InitializeVacuum();
         InitializeActions();
+        InitializeExtracts();
 
         _sawmill = Logger.GetSawmill("Xenobiology");
     }
