@@ -541,6 +541,7 @@
 
 - type: construction
   id: Curtains
+  name: construction-recipe-curtains-cloth
   graph: Curtains
   startNode: start
   targetNode: Curtains
@@ -551,6 +552,7 @@
 
 - type: construction
   id: CurtainsBlack
+  name: construction-recipe-curtains-black
   graph: Curtains
   startNode: start
   targetNode: CurtainsBlack
@@ -561,6 +563,7 @@
 
 - type: construction
   id: CurtainsBlue
+  name: construction-recipe-curtains-blue
   graph: Curtains
   startNode: start
   targetNode: CurtainsBlue
@@ -571,6 +574,7 @@
 
 - type: construction
   id: CurtainsCyan
+  name: construction-recipe-curtains-cyan
   graph: Curtains
   startNode: start
   targetNode: CurtainsCyan
@@ -581,6 +585,7 @@
 
 - type: construction
   id: CurtainsGreen
+  name: construction-recipe-curtains-green
   graph: Curtains
   startNode: start
   targetNode: CurtainsGreen
@@ -591,6 +596,7 @@
 
 - type: construction
   id: CurtainsOrange
+  name: construction-recipe-curtains-orange
   graph: Curtains
   startNode: start
   targetNode: CurtainsOrange
@@ -601,6 +607,7 @@
 
 - type: construction
   id: CurtainsPink
+  name: construction-recipe-curtains-pink
   graph: Curtains
   startNode: start
   targetNode: CurtainsPink
@@ -611,6 +618,7 @@
 
 - type: construction
   id: CurtainsPurple
+  name: construction-recipe-curtains-purple
   graph: Curtains
   startNode: start
   targetNode: CurtainsPurple
@@ -621,6 +629,7 @@
 
 - type: construction
   id: CurtainsRed
+  name: construction-recipe-curtains-red
   graph: Curtains
   startNode: start
   targetNode: CurtainsRed
@@ -631,6 +640,7 @@
 
 - type: construction
   id: CurtainsWhite
+  name: construction-recipe-curtains-white
   graph: Curtains
   startNode: start
   targetNode: CurtainsWhite
