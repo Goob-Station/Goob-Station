@@ -140,6 +140,8 @@
     ClothingHandsGlovesColorOrange: 2
     ClothingHandsGlovesColorPurple: 2
     ClothingEyesGlassesCheapSunglasses: 3
+    ClothingUniformJumpskirtDressOpenShoulder: 1 # Goobstation
+    ClothingShoesSandals: 1 # Goobstation
     # DO NOT ADD MORE, USE UNIFORM DYING
   contrabandInventory:
     ClothingMaskNeckGaiter: 2
@@ -148,8 +150,6 @@
     ClothingUniformJumpsuitCasualSyndicate: 2 # Goobstation
     ClothingUniformJumpsuitMercer: 1 # Goobstation
     ClothingOuterCoatZeusJacket: 1 # Goobstation
-    ClothingUniformJumpskirtDressOpenShoulder: 1 # Goobstation
-    ClothingShoesSandals: 1 # Goobstation
     ClothingShoesRealJordans: 1 #IF YOU WANT TO REMOVE THIS, DO. I THINK ITS FUNNY AND ILYA DOES TOO SO ITS GOING IN
     ToyFigurinePassenger: 1
     ToyFigurineGreytider: 1
