@@ -9,7 +9,7 @@ using Content.Shared.Clothing;
 using Content.Shared.Examine;
 using Content.Shared.Nutrition.Components;
 
-namespace Content.Server.Nutrition.EntitySystems;
+namespace Content.Shared.Nutrition.EntitySystems;
 
 public sealed class IngestionBlockerSystem : EntitySystem
 {
