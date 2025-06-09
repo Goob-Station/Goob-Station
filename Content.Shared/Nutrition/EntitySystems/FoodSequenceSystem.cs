@@ -83,19 +83,15 @@
 using System.Numerics;
 using System.Text;
 using Content.Server.Nutrition.Components;
-using Content.Server.Storage.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Nutrition;
 using Content.Shared.Nutrition.Components;
-using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Nutrition.Prototypes;
 using Content.Shared.Popups;
 using Content.Shared.Storage;
 using Content.Shared.Storage.Components;
 using Content.Shared.Tag;
-using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Shared.Item; // Goobstation - anythingburgers
@@ -103,7 +99,7 @@ using Content.Shared.Chemistry.Components.SolutionManager; // Goobstation - anyt
 using Content.Server.Singularity.Components; // Goobstation - anythingburgers
 using Content.Shared.Interaction.Components; // Goobstation - anythingburgers
 
-namespace Content.Server.Nutrition.EntitySystems;
+namespace Content.Shared.Nutrition.EntitySystems;
 //todo marty anythingburgers what the fuck - goobify this code
 
 public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
@@ -115,10 +111,9 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly SharedItemSystem _item = default!; // Goobstation - anythingburgers
-    [Dependency] private readonly SharedTransformSystem _transform = default!; // Goobstation - anythingburgers
-
     public override void Initialize()
     {
         base.Initialize();
@@ -231,7 +226,7 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
         if (start.Comp.FoodLayers.Count >= start.Comp.MaxLayers && !elementIndexed.Final || start.Comp.Finished)
         {
             if (user is not null)
-                _popup.PopupEntity(Loc.GetString("food-sequence-no-space"), start, user.Value);
+                _popup.PopupClient(Loc.GetString("food-sequence-no-space"), start, user.Value);
             return false;
         }
 

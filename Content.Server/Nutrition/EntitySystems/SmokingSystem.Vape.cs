@@ -15,19 +15,21 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Server.Body.Components;
 using Content.Server.DoAfter;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Nutrition.Components;
 using Content.Server.Popups;
+using Content.Shared.Atmos;
 using Content.Shared.Body.Components;
 using Content.Shared.Atmos;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
-using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Nutrition;
+using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Atmos;
 
 /// <summary>

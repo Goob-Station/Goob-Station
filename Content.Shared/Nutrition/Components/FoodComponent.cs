@@ -117,13 +117,13 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Body.Components;
-using Content.Shared.Nutrition.Components;
 using Content.Server.Nutrition.EntitySystems;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Nutrition.EntitySystems;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.Nutrition.Components;
+namespace Content.Shared.Nutrition.Components;
 
 [RegisterComponent, Access(typeof(FoodSystem), typeof(FoodSequenceSystem))]
 public sealed partial class FoodComponent : SharedFoodComponent // Goobstation - Changeling absorb biomass ability, now inherits from shared
