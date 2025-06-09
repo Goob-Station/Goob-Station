@@ -352,7 +352,7 @@
     impactEffect: BulletImpactEffectDisabler
     damage:
       types:
-        Ion: 10
+        Ion: 15
     soundHit:
       collection: WeakHit
     forceSound: true
