@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: aada
-  changes:
-  - message: SyndieJuice now comes with 10 units of liquid plasma.
-    type: Add
-  id: 8134
-  time: '2025-04-05T03:22:12.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/36280
 - author: SlamBamActionman
   changes:
   - message: The storage implant's storage has been changed to a new pattern with
@@ -3530,13 +3523,6 @@
   id: 8597
   time: '2025-06-01T15:48:16.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/38000
-- author: ToastEnjoyer
-  changes:
-  - message: C-4 is now listed under major contraband instead of syndicate.
-    type: Tweak
-  id: 8598
-  time: '2025-06-01T21:09:16.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/38004
 - author: chromiumboy
   changes:
   - message: Atmospheric pipes can now be built on three different sublayers, allowing
@@ -3910,3 +3896,19 @@
   id: 8645
   time: '2025-06-09T22:33:23.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/38193
+- author: ArtisticRoomba
+  changes:
+  - message: Convex, Loop, Meta, and Omega have been removed from the map rotation
+      pool to make way for new maps. Thank you Spessmann for Convex, TytosB for Loop,
+      Nox38 for her recent Meta overhauls, and Emisse for Omega.
+    type: Remove
+  id: 8646
+  time: '2025-06-09T22:37:34.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/38190
+- author: nabegator
+  changes:
+  - message: hi-viz vest now has a 2% chance to reflect lasers
+    type: Tweak
+  id: 8647
+  time: '2025-06-09T23:03:56.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/38180
