@@ -4,24 +4,26 @@ using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.Inventory;
 using Robust.Shared.Console;
-using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.Administration.Commands;
 
 [AdminCommand(AdminFlags.Admin)]
 public sealed class EquipTo : IConsoleCommand
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
     public string Command => "equipto";
 
     public string Description => "Equip a given entity to a specified entity.";
 
-    public string Help => $"Usage: {Command} <target> <item> / {Command} <target> <item> <slot>";
+    public string Help => $"Usage: {Command} <target> <item> <bool-DeletePrevious> / {Command} <target> <item> <bool-DeletePrevious> <slot>";
 
     public void Execute(IConsoleShell shell, string argStr, string[] args)
     {
-        var invSystem = _entManager.System<InventorySystem>();
-        var clothingSystem = _entManager.System<ClothingSystem>();
+        var entityManager = IoCManager.Resolve<IEntityManager>();
+
+        var invSystem = entityManager.System<InventorySystem>();
+        var clothingSystem = entityManager.System<ClothingSystem>();
+
+        string targetSlot = null!;
 
         if (args.Length <= 1)
         {
@@ -29,52 +31,63 @@ public sealed class EquipTo : IConsoleCommand
             return;
         }
 
-        if (!NetEntity.TryParse(args[0], out var targetNet) || !_entManager.TryGetEntity(targetNet, out var target))
+        if (!NetEntity.TryParse(args[0], out var targetNet)
+            || !entityManager.TryGetEntity(targetNet, out var targetNullable)
+            || targetNullable is not { } target)
         {
-            shell.WriteLine($"Invalid entity id.");
+            shell.WriteLine($"Invalid EntityUid of {args[0]}");
             return;
         }
 
-        if (!NetEntity.TryParse(args[1], out var itemNet) || !_entManager.TryGetEntity(itemNet, out var item))
+        if (!NetEntity.TryParse(args[1], out var itemNet)
+            || !entityManager.TryGetEntity(itemNet, out var itemNullable)
+            || itemNullable is not { } item)
         {
-            shell.WriteLine($"Invalid item id.");
+            shell.WriteLine($"Invalid ItemUid of {args[1]}");
             return;
         }
+
+        if (entityManager.TryGetComponent(item, out ClothingComponent? clothingComp))
+            targetSlot = clothingComp.Slots.ToString().ToLowerInvariant();
 
         switch (args.Length)
         {
-            case 2:
+            case 3:
             {
-                if (!_entManager.TryGetComponent(item, out ClothingComponent? clothingComp))
+                if (bool.TryParse(args[2], out var deletePrevious))
                 {
-                    shell.WriteLine($"The specified item cannot be equipped.");
-                    return;
-                }
+                    if (deletePrevious)
+                    {
+                        invSystem.TryGetSlotEntity(target, targetSlot, out var slotEntity);
+                        entityManager.DeleteEntity(slotEntity);
 
-                if (!invSystem.TryEquip(target.Value, item.Value, clothingComp.Slots.ToString().ToLowerInvariant(), true, true))
-                    shell.WriteLine($"Failed to equip item.");
+                    }
+                }
 
                 break;
             }
-            case 3:
+            case 4:
             {
-                if (!Enum.TryParse<SlotFlags>(args[2], out var flags))
+                if (Enum.TryParse<SlotFlags>(args[3], out var flags))
                 {
-                    shell.WriteLine($"Invalid slotflags");
-                    return;
+                    entityManager.EnsureComponent<ClothingComponent>(item);
+                    clothingSystem.SetSlots(item, flags);
+                    entityManager.DirtyEntity(item);
+
+                    targetSlot = flags.ToString().ToLowerInvariant();
                 }
-
-                var addedClothingComp = _entManager.EnsureComponent<ClothingComponent>(item.Value);
-                clothingSystem.SetSlots(item.Value, flags);
-
-                _entManager.DirtyEntity(item.Value);
-
-                if (!invSystem.TryEquip(target.Value, item.Value, addedClothingComp.Slots.ToString().ToLowerInvariant(), true, true))
-                    shell.WriteLine($"Failed to equip item.");
 
                 break;
             }
         }
+
+        invSystem.DropSlotContents(target, targetSlot);
+
+        if (!invSystem.TryEquip(target, item, targetSlot, true, true))
+            shell.WriteLine($"Could not equip {entityManager.ToPrettyString(item)}");
+
+        shell.WriteLine(
+            $"Equipped {entityManager.ToPrettyString(item)} to {entityManager.ToPrettyString(target)}");
     }
 }
 
