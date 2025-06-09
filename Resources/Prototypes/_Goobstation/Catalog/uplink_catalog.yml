@@ -640,6 +640,21 @@
     - Mime
 
 - type: listing
+  id: UplinkMimeSmoke
+  name: uplink-silentdeadly-name
+  description: uplink-silentdeadly-desc
+  icon: { sprite: /Textures/Objects/Specific/Medical/syndi_implanter.rsi, state: implanter0 }
+  productEntity: MimeSmokeImplant
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Mime
+
+- type: listing
   id: UplinkClowncar
   name: uplink-clowncar-name
   description: uplink-clowncar-desc

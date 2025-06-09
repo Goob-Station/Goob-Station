@@ -266,3 +266,11 @@
   components:
   - type: Implanter
     implant: AntagImplantSpaceNinja
+
+- type: entity
+  parent: BaseImplantOnlyImplanterSyndi
+  id: MimeSmokeImplant
+  suffix: Mimesmoke
+  components:
+  - type: Implanter
+    implant: SyndicateMimeSmokeImplant

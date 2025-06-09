@@ -334,3 +334,47 @@
           shouldHave: false
         probability: 0.05
         paralyzeTime: 2
+
+- type: reagent
+  id: MimeSmoke
+  name: reagent-name-mime-smoke
+  desc: reagent-desc-mime-smoke
+  color: "#0b8019"
+  physicalDesc: reagent-physical-desc-thick
+  metabolisms:
+    Poison:
+      effects:
+      - !type:Emote
+        conditions:
+        - !type:HasComponentCondition
+          components:
+            - MimePowers
+          guidebookComponentName: reagent-comp-condition-mime
+          invert: true
+        emote: Cough
+        showInChat: true
+        probability: 0.4
+      - !type:DropItemsEntityEffect
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        - !type:HasComponentCondition
+          components:
+            - MimePowers
+          guidebookComponentName: reagent-comp-condition-mime
+          invert: true
+        probability: 0.2
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        - !type:HasComponentCondition
+          components:
+            - MimePowers
+          guidebookComponentName: reagent-comp-condition-mime
+          invert: true
+        damage:
+          types:
+            Poison: 0.5

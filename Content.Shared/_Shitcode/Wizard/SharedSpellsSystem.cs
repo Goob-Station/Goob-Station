@@ -153,6 +153,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<MagicMissileEvent>(OnMagicMissile);
         SubscribeLocalEvent<DisableTechEvent>(OnDisableTech);
         SubscribeLocalEvent<SmokeSpellEvent>(OnSmoke);
+        SubscribeLocalEvent<MimeSmokeSpellEvent>(OnMimeSmoke);
         SubscribeLocalEvent<RepulseEvent>(OnRepulse);
         SubscribeLocalEvent<StopTimeEvent>(OnStopTime);
         SubscribeLocalEvent<CorpseExplosionEvent>(OnCorpseExplosion);
@@ -354,6 +355,16 @@ public abstract class SharedSpellsSystem : EntitySystem
         ev.Handled = true;
     }
 
+    private void OnMimeSmoke(MimeSmokeSpellEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        SpawnMimeSmoke(ev);
+
+        _magic.Speak(ev);
+        ev.Handled = true;
+    }
     private void OnRepulse(RepulseEvent ev)
     {
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
@@ -1546,6 +1557,8 @@ public abstract class SharedSpellsSystem : EntitySystem
     protected virtual void Emp(DisableTechEvent ev) { }
 
     protected virtual void SpawnSmoke(SmokeSpellEvent ev) { }
+
+    protected virtual void SpawnMimeSmoke(MimeSmokeSpellEvent ev) { }
 
     protected virtual void Repulse(RepulseEvent ev) { }
 

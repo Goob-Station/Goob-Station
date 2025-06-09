@@ -132,6 +132,21 @@ public sealed partial class SmokeSpellEvent : InstantActionEvent, ISpeakSpell
     public int SpreadAmount = 30;
 }
 
+public sealed partial class MimeSmokeSpellEvent : InstantActionEvent, ISpeakSpell
+{
+    [DataField]
+    public string? Speech { get; private set; }
+
+    [DataField]
+    public EntProtoId Proto = "Smoke";
+
+    [DataField]
+    public float Duration = 10;
+
+    [DataField]
+    public int SpreadAmount = 30;
+}
+
 public sealed partial class RepulseEvent : InstantActionEvent, ISpeakSpell
 {
     [DataField]

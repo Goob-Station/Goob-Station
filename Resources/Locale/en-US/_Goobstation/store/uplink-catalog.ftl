@@ -71,6 +71,9 @@ uplink-hardlight-bow-desc = A modern bow that can fabricate hardlight arrows, de
 uplink-pie-cannon-name = Regenerating Pie Cannon
 uplink-pie-cannon-desc = A pie cannon that automatically regenerates pies, one every ten seconds.
 
+uplink-silentdeadly-name = Silent But Deadly Implant
+uplink-silentdeadly-desc = Allows mimes to realease a thick poisionous "smoke" that makes nearby nonmimes drop items and take damage.
+
 uplink-beenades-name = Beenades
 uplink-beenades-desc = A non-explosive grenade full of... bees?! NOT THE BEES!!!
 

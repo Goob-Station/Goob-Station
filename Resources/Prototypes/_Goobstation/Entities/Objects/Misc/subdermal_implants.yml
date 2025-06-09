@@ -224,3 +224,17 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: SpaceNinjaImplant
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: SyndicateMimeSmokeImplant
+  name: silent but deadly implant
+  description: This implants allows the user to release a choking smoke.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    implantAction: ActionMimeSmoke
+  - type: Tag
+    tags:
+    - SubdermalImplant
+    - HideContextMenu
