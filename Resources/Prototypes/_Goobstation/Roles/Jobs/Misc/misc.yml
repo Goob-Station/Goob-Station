@@ -96,7 +96,7 @@
   playTimeTracker: JobHighCommander
   setPreference: false
   startingGear: SyndicateHighCommanderGearFull
-  icon: "JobIconLambda"
+  icon: "JobIconSyndicate"
   supervisors: job-supervisors-syndicate
   canBeAntag: false
   requirements:
