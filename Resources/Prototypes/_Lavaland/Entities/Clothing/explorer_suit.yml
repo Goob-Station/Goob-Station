@@ -48,13 +48,11 @@
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.6
-        Heat: 0.6
-        Caustic: 0.6
+        Blunt: 0.75
+        Slash: 0.75
+        Heat: 0.75
   - type: ExplosionResistance
-    damageCoefficient: 0.6
+    damageCoefficient: 0.9
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:Container {}
@@ -99,11 +97,9 @@
     - Head
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.6
-        Heat: 0.6
-        Caustic: 0.6
+        Blunt: 0.75
+        Slash: 0.75
+        Heat: 0.75
 
 - type: entity
   parent: LavalandEquipmentExplorerSuit
@@ -115,13 +111,12 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.55
-        Heat: 0.5
-        Caustic: 0.5
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.9
+        Heat: 0.7
   - type: ExplosionResistance
-    damageCoefficient: 0.5
+    damageCoefficient: 0.9
   - type: Sprite
     sprite: _Lavaland/Equipment/explorer_suit.rsi
     state: reinforced1-icon
@@ -151,11 +146,10 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.55
-        Heat: 0.5
-        Caustic: 0.5
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.9
+        Heat: 0.7
 
 - type: entity
   parent: LavalandEquipmentExplorerSuit
@@ -173,19 +167,21 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.4
-        Slash: 0.4
-        Piercing: 0.5
-        Heat: 0.4
-        Caustic: 0.4
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.85
+        Heat: 0.65
   - type: ExplosionResistance
-    damageCoefficient: 0.4
+    damageCoefficient: 0.9
   - type: ToggleableClothing
     clothingPrototypes:
       head: LavalandEquipmentExplorerHoodReinforced2
   - type: Construction
     graph: ExplorerSuit
     node: reinforced2
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.95
 
 - type: entity
   parent: LavalandEquipmentExplorerHood
@@ -203,11 +199,10 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.4
-        Slash: 0.4
-        Piercing: 0.5
-        Heat: 0.4
-        Caustic: 0.4
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.85
+        Heat: 0.65
 
 - type: entity
   parent: LavalandEquipmentExplorerSuit
@@ -225,19 +220,21 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.3
-        Slash: 0.3
-        Piercing: 0.45
-        Heat: 0.3
-        Caustic: 0.3
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.8
+        Heat: 0.6
   - type: ExplosionResistance
-    damageCoefficient: 0.3
+    damageCoefficient: 0.9
   - type: ToggleableClothing
     clothingPrototypes:
       head: LavalandEquipmentExplorerHoodReinforced3
   - type: Construction
     graph: ExplorerSuit
     node: reinforced3
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
 
 - type: entity
   parent: LavalandEquipmentExplorerHood
@@ -255,8 +252,8 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.3
-        Slash: 0.3
-        Piercing: 0.45
-        Heat: 0.3
-        Caustic: 0.3
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.8
+        Heat: 0.6
+
