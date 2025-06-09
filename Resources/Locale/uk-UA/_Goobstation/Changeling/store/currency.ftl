@@ -1,1 +1,0 @@
-store-currency-display-evolutionpoints = Бали Еволюції

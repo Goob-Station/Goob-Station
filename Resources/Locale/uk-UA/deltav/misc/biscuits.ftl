@@ -1,1 +1,0 @@
-biscuit-verb-crack = Тріщина

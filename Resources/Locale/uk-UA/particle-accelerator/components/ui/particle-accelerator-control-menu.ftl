@@ -13,11 +13,11 @@ particle-accelerator-control-menu-status-label = Статус: {$status}
 particle-accelerator-control-menu-status-operational = Робочий
 particle-accelerator-control-menu-status-incomplete = Незавершений
 particle-accelerator-control-menu-draw-not-available = Тяга: Н/В
-particle-accelerator-control-menu-draw = Тяга: {$watts}/{$lastReceive} 
+particle-accelerator-control-menu-draw = Тяга: {$watts}/{$lastReceive}
 particle-accelerator-control-menu-alarm-control-1 = [bold][color=red]ПОТУЖНІСТЬ ЧАСТИНОК[/bold][/color]
 particle-accelerator-control-menu-alarm-control-2 = [bold][color=red]ЗБІЙ ОБМЕЖУВАЧА[/bold][/color]
-particle-accelerator-control-menu-status-unknown = [font=""Monospace""][color=red]Невідомо[/color][/bold]
-particle-accelerator-control-menu-draw-value = [font=""Monospace""]{$watts}/{$lastReceive}[/font]
+particle-accelerator-control-menu-status-unknown = [font="Monospace"][color=red]Невідомо[/color][/bold]
+particle-accelerator-control-menu-draw-value = [font="Monospace"]{$watts}/{$lastReceive}[/font]
 particle-accelerator-control-menu-flavor-left = Будь ласка, тримайте клоуна подалі від цієї консолі!
 particle-accelerator-control-menu-flavor-right = v 1.6
 particle-accelerator-radio-message-on = Живлення ПЧ увімкнено.

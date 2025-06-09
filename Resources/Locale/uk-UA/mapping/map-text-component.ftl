@@ -4,4 +4,4 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 map-text-default = Використовуйте VV, щоб змінити відображуваний текст
-map-text-font-error = """Помилка - невірний шрифт"""
+map-text-font-error = "Помилка - невірний шрифт"

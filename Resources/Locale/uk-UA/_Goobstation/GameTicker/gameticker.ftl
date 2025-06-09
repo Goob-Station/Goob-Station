@@ -1,5 +1,0 @@
-game-ticker-get-ingame-info-text = Поточний раунд: [color=white]#{$roundId}[/color]
-                                   Поточна кількість гравців: [color=white]{$playerCount}[/color]
-                                   Поточна мапа: [color=white]{$mapName}[/color]
-                                   Поточний ігровий режим: [color=white]{$gmTitle}[/color]
-                                   >[color=yellow]{$desc}[/color]

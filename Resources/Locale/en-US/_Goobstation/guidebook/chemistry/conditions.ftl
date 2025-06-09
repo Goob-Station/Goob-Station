@@ -7,7 +7,7 @@
 reagent-effect-condition-guidebook-stamina-damage-threshold =
     { $max ->
         [2147483648] the target has at least {NATURALFIXED($min, 2)} stamina damage
-        *[other] { $min ->
+       *[other] { $min ->
                     [0] the target has at most {NATURALFIXED($max, 2)} stamina damage
                     *[other] the target has between {NATURALFIXED($min, 2)} and {NATURALFIXED($max, 2)} stamina damage
                  }

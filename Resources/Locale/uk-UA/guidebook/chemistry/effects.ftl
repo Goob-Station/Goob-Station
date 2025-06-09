@@ -387,7 +387,7 @@ reagent-effect-guidebook-flash-reaction-effect = { $chance ->
 reagent-effect-guidebook-area-reaction = { $chance ->
         [1] Спричиняє
         *[other] спричинити
-    } реакцію диму або піни на {NATURALFIXED($duration, 3)} {MANY(""секунду"", ""секунди"", ""секунд"", $duration)}
+    } реакцію диму або піни на {NATURALFIXED($duration, 3)} {MANY("секунду", "секунди", "секунд", $duration)}
 reagent-effect-guidebook-add-to-solution-reaction = { $chance ->
         [1] Спричиняє
         *[other] спричинити
