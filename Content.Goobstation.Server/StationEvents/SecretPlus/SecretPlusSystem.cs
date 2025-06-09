@@ -209,6 +209,7 @@ public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
             return;
 
         // Spawn antags based on SecretPlusComponent
+        var primaryWeightList = _prototypeManager.Index(scheduler.PrimaryAntagsWeightTable);
         var weightList = _prototypeManager.Index(scheduler.RoundStartAntagsWeightTable);
 
 #if DEBUG
@@ -219,13 +220,16 @@ public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
         LogMessage($"Trying to run roundstart rules, total player count: {count}", false);
 
         var weights = weightList.Weights.ToDictionary();
+        var primaryWeights = primaryWeightList.Weights.ToDictionary();
         int maxIters = 50, i = 0;
         while (scheduler.ChaosScore < 0 && i < maxIters)
         {
             i++;
 
-            var pick = _random.Pick(weights);
+            // on first iter pick a primary antag
+            var pick = _random.Pick(i == 1 ? primaryWeights : weights);
 
+            // on lowpop this may still go no likey even for the ptimary antag pick and pick thief or something, intended
             GameRuleComponent? ruleComp = null;
             if (_prototypeManager.TryIndex(pick, out var entProto) &&
                 entProto.TryGetComponent<GameRuleComponent>(out ruleComp, _factory) &&
