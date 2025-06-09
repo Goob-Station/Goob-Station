@@ -35,7 +35,7 @@ ghost-role-information-homunculus-description = Obey the one who has created you
 
 ghost-role-information-overseer-name = Syndicate Listening Outpost Overseer
 ghost-role-information-overseer-description = Defend the base from salvagers, help syndicates on station with your cameras and comms. DO NOT LEAVE THE BASE.
-ghost-role-information-overseer-rules = Do not raid the syndicate armory. Leaving the base is bannable. You can never leave the base. Do not harm the other syndicates.
+ghost-role-information-overseer-rules = Do not raid the syndicate armory. You can never leave the base. Do not harm the other syndicates.
 
 ghost-role-information-c4-name = Composition C-4
 ghost-role-information-c4-description = Assist your user with bombing things.

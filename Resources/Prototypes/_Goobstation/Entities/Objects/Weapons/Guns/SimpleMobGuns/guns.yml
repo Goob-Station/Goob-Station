@@ -6,6 +6,7 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   name: integrated viper
+  suffix: DO NOT MAP, SIMPLEMOB ONLY
   parent: WeaponPistolViper
   id: WeaponPistolViperUnremovable
   description: A small, easily concealable, but somewhat underpowered gun. Surgically attached to your arm when you joined the syndicate salvager defense team.
@@ -15,6 +16,7 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   name: integrated M-90
+  suffix: DO NOT MAP, SIMPLEMOB ONLY
   parent: WeaponRifleM90GrenadeLauncher
   id: WeaponIntegratedRifleM90GrenadeLauncher
   description: An older bullpup carbine model, fused to your upper arm to ensure it cannot be taken by any means. Uses .20 rifle ammo.
@@ -25,9 +27,9 @@
   categories: [ HideSpawnMenu ]
   parent: WeaponPistolAnaconda
   id: Simplemobpistol
-  name: Anaconda
+  name: integrated Anaconda
   suffix: DO NOT MAP, SIMPLEMOB ONLY
-  description: A heavy pistol capable of supplying itself with the ammo on the way using a built-in fabricator.
+  description: A heavy pistol capable of supplying itself with the ammo on the way using a built-in fabricator. Implanted in your hand.
   components:
   - type: Unremoveable
   - type: RechargeBasicEntityAmmo
@@ -47,9 +49,10 @@
 
 - type: entity
   name: integrated Drozd
+  suffix: DO NOT MAP, SIMPLEMOB ONLY
   parent: Simplemobpistol
   id: SimpleMobSMG
-  description: An excellent burst-fire Heavy SMG.
+  description: An excellent burst-fire Heavy SMG. It has been merged with your forearm.
   components:
   - type: Unremoveable
   - type: Sprite

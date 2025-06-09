@@ -39,12 +39,6 @@ meta:
   forkVersion: ""
   time: 05/12/2025 15:11:27
   entityCount: 3582
-maps:
-- 1
-grids:
-- 2
-orphans: []
-nullspace: []
 tilemap:
   0: Space
   19: FloorBasalt
