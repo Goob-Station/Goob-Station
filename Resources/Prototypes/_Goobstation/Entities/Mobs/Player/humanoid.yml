@@ -248,10 +248,16 @@
     - NamesShadowkin
     nameFormat: random-metadata-name-format-default
 
-- type: randomHumanoidSettings
-  parent: EventHumanoid
+- type: entity
+  parent: MobHumanRandom
   id: HumanoidMercenary
+  name: Mercenary Contract
+  mindRoles:
+  - MindRoleGhostRoleFamiliar
   components:
+  - type: Icon
+    sprite: Mobs/Species/Human/parts.rsi
+    state: full
   - type: GhostRole
     name: ghost-role-information-mercenary-name
     description: ghost-role-information-mercenary-description
@@ -267,10 +273,4 @@
   - type: Loadout
     prototypes: [ MercenaryGear ]
     roleLoadout: [ RoleSurvivalExtended ]
-
-- type: entity
-  id: RandomHumanoidMercenary
-  name: mercenary ghost role
-  components:
-    - type: RandomHumanoidSpawner
-      settings: HumanoidMercenary
+  - type: MercenaryRequester

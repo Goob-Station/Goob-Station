@@ -45,3 +45,21 @@
     - id: MagazinePistolCaselessRifle
     - id: MagazinePistolCaselessRifle
     - id: MagazineBoxCaselessRifle10x24
+
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleMercenary
+  name: Mercenary Role
+  components:
+  - type: MindRole
+    antagPrototype: MercenaryAntag
+    roleType: Familiar
+  - type: MercenaryRole
+
+- type: antag
+  id: MercenaryAntag
+  name: mercenary
+  antagonist: false
+  setPreference: false
+  objective: "Help your Master"

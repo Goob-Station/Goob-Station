@@ -9,19 +9,19 @@
 
 
 
-- type: entity
-  name: Freelance Mercenary Contract
-  id: MercenarySpawner
-  description: A Freelance contract making the mercenary held to whoever the BUYER NAME is.
-  parent: MarkerBase
-  components:
-  - type: Sprite
-    layers:
-      - sprite: Mobs/Species/Human/parts.rsi
-        state: full
-  - type: Icon
-    sprite: Mobs/Species/Human/parts.rsi
-    state: full
-  - type: RandomSpawner
-    prototypes:
-    - RandomHumanoidMercenary
+#- type: entity
+#  name: Freelance Mercenary Contract
+#  id: MercenarySpawner
+#  description: A Freelance contract making the mercenary held to whoever the REQUESTER is.
+#  parent: MarkerBase
+#  components:
+#  - type: Sprite
+#    layers:
+#      - sprite: Mobs/Species/Human/parts.rsi
+#        state: full
+#  - type: Icon
+#   sprite: Mobs/Species/Human/parts.rsi
+#    state: full
+#  - type: RandomSpawner
+#    prototypes:
+#    - RandomHumanoidMercenary

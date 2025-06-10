@@ -123,12 +123,18 @@ using Robust.Shared.Utility;
 namespace Content.Server.Cargo.Systems
 {
     // Goob Edit - Simple Order Events
-    public sealed class CargoOrderApprovedEvent(EntityUid orderEntity, string productId, NetEntity requester)
-        : EntityEventArgs
+    public sealed partial class CargoOrderApprovedEvent : EntityEventArgs
     {
-        public EntityUid OrderEntity = orderEntity;
-        public string ProductId = productId;
-        public NetEntity Requester = requester;
+        public readonly EntityUid OrderEntity;
+        public readonly string ProductId;
+        public readonly NetEntity Requester;
+
+        public CargoOrderApprovedEvent(EntityUid orderEntity, string productId, NetEntity requester)
+        {
+            OrderEntity = orderEntity;
+            ProductId = productId;
+            Requester = requester;
+        }
     }
 
 
@@ -689,7 +695,7 @@ namespace Content.Server.Cargo.Systems
                 return false;
 
             // Goob Edit - Simple Order Events
-            RaiseLocalEvent(new CargoOrderApprovedEvent(item, order.ProductId, requester));
+            RaiseLocalEvent(item, new CargoOrderApprovedEvent(item, order.ProductId, requester), true);
 
             // Ensure the item doesn't start anchored
             _transformSystem.Unanchor(item, Transform(item));

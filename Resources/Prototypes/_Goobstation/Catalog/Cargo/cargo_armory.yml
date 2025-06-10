@@ -40,7 +40,7 @@
   icon:
     sprite: Clothing/Head/Helmets/merc_helmet.rsi
     state: icon
-  product: MercenarySpawner
+  product: HumanoidMercenary
   cost: 30000
   category: cargoproduct-category-name-armory
   group: market
