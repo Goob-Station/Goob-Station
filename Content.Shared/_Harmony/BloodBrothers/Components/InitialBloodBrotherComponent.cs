@@ -1,4 +1,8 @@
-﻿using Content.Shared._Harmony.BloodBrothers.EntitySystems;
+// SPDX-FileCopyrightText: 2025 youtissoum <51883137+youtissoum@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared._Harmony.BloodBrothers.EntitySystems;
 using Content.Shared.Actions;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.Objectives.Components;
