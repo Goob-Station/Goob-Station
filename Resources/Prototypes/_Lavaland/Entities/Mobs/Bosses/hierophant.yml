@@ -24,8 +24,8 @@
 
 - type: entity
   id: LavalandBossHierophant
-  name: hierophant
-  description: A massive metal club that hangs in the air as though waiting. It'll make you dance to its beat.
+  name: гойдафант
+  description: Массивная металлическая гойда, парящая в воздухе. Вам придётся много раз кричать гойда, чтобы уклониться.
   components:
   # Basic stuff
   - type: Physics
