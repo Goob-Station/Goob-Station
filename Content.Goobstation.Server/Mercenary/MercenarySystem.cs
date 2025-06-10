@@ -6,7 +6,6 @@
 
 using Content.Goobstation.Shared.Mercenary;
 using Content.Server.Mind;
-using Content.Server.Popups;
 using Content.Server.Roles;
 using Content.Server.Antag;
 using Content.Server.Ghost.Roles.Components;
@@ -50,7 +49,7 @@ public sealed partial class MercenarySystem : EntitySystem
 
         _roles.MindAddRole(mindId, merc.Comp.MindRole.Id);
 
-        var briefing = Loc.GetString("mercenary-briefing", ("employer", Name(requester) ));
+        var briefing = Loc.GetString("mercenary-briefing", ("employer", Name(requester)));
 
         if (_roles.MindHasRole<MercenaryRoleComponent>(mindId, out var mindrole))
             AddComp(mindrole.Value, new RoleBriefingComponent { Briefing = briefing }, true);

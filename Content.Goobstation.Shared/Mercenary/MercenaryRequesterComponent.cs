@@ -23,3 +23,5 @@ public sealed partial class MercenaryRequesterComponent : Component
     [DataField]
     public EntProtoId MindRole = "MindRoleMercenary";
 }
+
+

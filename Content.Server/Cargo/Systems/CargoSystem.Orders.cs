@@ -124,22 +124,6 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.Cargo.Systems
 {
-    // Goob Edit - Simple Order Events
-    public sealed partial class CargoOrderApprovedEvent : EntityEventArgs
-    {
-        public readonly EntityUid OrderEntity;
-        public readonly string ProductId;
-        public readonly NetEntity Requester;
-
-        public CargoOrderApprovedEvent(EntityUid orderEntity, string productId, NetEntity requester)
-        {
-            OrderEntity = orderEntity;
-            ProductId = productId;
-            Requester = requester;
-        }
-    }
-
-
     public sealed partial class CargoSystem
     {
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
