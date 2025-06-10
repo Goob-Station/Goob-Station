@@ -1054,17 +1054,6 @@
 
 - type: entity
   parent: ClothingUniformSkirtBase
-  id: ClothingUniformJumpskirtDressOpenShoulder
-  name: open-shoulder dress
-  description: No sleeves in this dress, only style fierce enough to snatch wigs.
-  components:
-  - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/openshoulder_dress.rsi
-  - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/openshoulder_dress.rsi
-
-- type: entity
-  parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtDressTea
   name: tea-length dress
   description: Perfect for tea time!
