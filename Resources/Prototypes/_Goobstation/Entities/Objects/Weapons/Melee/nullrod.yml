@@ -277,19 +277,6 @@
         Blunt: 2.5
     soundHit:
       collection: BoxingHit
-  - type: Blocking
-    passiveBlockFraction: 0.3
-    activeBlockFraction: 0.5
-    passiveBlockModifier:
-      coefficients:
-        Blunt: 1
-        Slash: 1
-        Piercing: 1
-    activeBlockModifier:
-      coefficients:
-        Blunt: 1
-        Slash: 1
-        Piercing: 1
   - type: StaminaDamageOnHit
     damage: 10
   - type: Wieldable
