@@ -19,7 +19,7 @@
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterSuitHEV
   name: H.E.V suit
-  description: Full-body hazardous suit designed to protect wearer from radiation, energy discarges, blunt-force trauma during the handling of hazardous material.
+  description: A full-body hazmat suit designed to protect its wearer from radiation, energy discarges, blunt-force trauma and disintergration during the handling of hazardous material.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Suits/hev.rsi

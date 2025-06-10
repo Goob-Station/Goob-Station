@@ -212,7 +212,7 @@
   - ThermomachineFreezerMachineCircuitBoard
   - GasRecyclerMachineCircuitboard
   # Goobstation R&D Console rework start
-  position: -1,-4
+  position: -2,-4
   technologyPrerequisites:
   - SpaceScanning
   # Goobstation R&D Console rework end
@@ -264,24 +264,6 @@
   # Goobstation R&D Console rework end
 
 - type: technology
-  id: SuitStorageHEVTech
-  name: research-technology-hev-suit-storage
-  icon:
-    sprite: _Goobstation/Clothing/OuterClothing/Suits/hev.rsi
-    state: icon
-  discipline: Industrial
-  tier: 2
-  cost: 7500
-  recipeUnlocks:
-    - SuitStorageHEVCircuitboard
-    - ClothingOuterSuitHEV
-  # Goobstation R&D Console rework start
-  position: -2,-4
-  technologyPrerequisites:
-    - AtmosphericTech
-  # Goobstation R&D Console rework end
-
-- type: technology
   id: AdvancedAtmospherics
   name: research-technology-advanced-atmospherics
   icon:
@@ -297,7 +279,7 @@
   technologyPrerequisites:
   - AtmosphericTech
   # Goobstation R&D Console rework start
-  position: -1,-5
+  position: -2,-5
   # Goobstation R&D Console rework end
 
 - type: technology
@@ -380,3 +362,21 @@
   - AdvancedToolsTechnology  # Goobstation R&D Console rework
   - AdvancedPowercells  # Goobstation R&D Console rework
   position: 2,-6
+
+- type: technology
+  id: SuitStorageHEVTech
+  name: research-technology-hev-suit-storage
+  icon:
+    sprite: _Goobstation/Clothing/OuterClothing/Suits/hev.rsi
+    state: icon
+  discipline: Industrial
+  tier: 3
+  cost: 15000
+  recipeUnlocks:
+    - SuitStorageHEVCircuitboard
+    - ClothingOuterSuitHEV
+  # Goobstation R&D Console rework start
+  position: 3,-6
+  technologyPrerequisites:
+    - PortableFission
+  # Goobstation R&D Console rework end

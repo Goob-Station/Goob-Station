@@ -1,12 +1,13 @@
 - type: latheRecipe
   id: ClothingOuterSuitHEV
   result: ClothingOuterSuitHEV
-  completeTime: 15
+  completetime: 15
   materials:
-    Plasteel: 1000
-    Uranium: 500
-    Gold: 300
-    Silver: 200
+    Plasteel: 3000
+    Uranium: 1000
+    Gold: 500
+    Silver: 500
+    Diamond: 100
 
 - type: latheRecipe
   parent: BaseSilverCircuitboardRecipe
