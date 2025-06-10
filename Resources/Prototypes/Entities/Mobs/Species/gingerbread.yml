@@ -55,14 +55,15 @@
       methods: [ Touch ]
       effects:
       - !type:WashCreamPieReaction
-    - reagents: [ Water ]
+      - !type:WashCreamPieReaction
+    - reagents: [ Milk ]
       methods: [ Touch ]
       effects:
       - !type:HealthChange
         scaleByQuantity: true
         damage:
           types:
-            Heat: 0.3
+            Heat: 3
       - !type:PopupMessage
         type: Local
         visualType: Large
