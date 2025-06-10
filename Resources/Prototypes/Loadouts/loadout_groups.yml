@@ -946,7 +946,7 @@
 - type: loadoutGroup
   id: CargoTechnicianJumpsuit
   name: loadout-group-cargo-technician-jumpsuit
-  minLimit: 1
+  minLimit: 0
   loadouts:
   - CargoTechnicianJumpsuit
   - CargoTechnicianJumpskirt
