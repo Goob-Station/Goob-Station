@@ -296,7 +296,7 @@
         Piercing: 0.7
         Heat: 0.25
   - type: Reflect
-    reflectProb: 1
+    reflectProb: 0.8
     reflects:
     - Energy
     reflectingInHands: false
