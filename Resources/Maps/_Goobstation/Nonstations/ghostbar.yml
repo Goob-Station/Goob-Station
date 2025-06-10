@@ -150,9 +150,9 @@ entities:
         - 0
         - 0
         - 0
-    - type: PreventPilot
   - uid: 4
     components:
+    - type: PreventPilot
     - type: MetaData
       name: grid
     - type: Transform
