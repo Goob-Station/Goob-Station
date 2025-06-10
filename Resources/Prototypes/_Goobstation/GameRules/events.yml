@@ -11,6 +11,8 @@
   id: TidemindDevelop
   parent: BaseGameRule
   components:
+  - type: GameRule
+    chaosScore: 150
   - type: StationEvent
     weight: 3 # rare
     duration: 1

@@ -228,7 +228,7 @@
   - type: AntagSelection
   # Goobstation
   - type: GameRule
-    chaosScore: 1200
+    chaosScore: 1000
   - type: AntagLoadProfileRule
     speciesOverride: Human
     speciesOverrideBlacklist:
@@ -376,7 +376,7 @@
   components:
   - type: GameRule
     minPlayers: 15
-    chaosScore: 1200 # Goobstation
+    chaosScore: 1000 # Goobstation
   - type: RevolutionaryRule
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn # Goobstation
@@ -467,7 +467,12 @@
     delay:
       min: 600
       max: 900
-    chaosScore: 1400
+    # Goobstation
+    chaosScore: 1000
+  # Goobstation
+  - type: Tag
+    tags:
+    - LoneRunRule
   - type: ZombieRule
   - type: AntagSelection
     definitions:
