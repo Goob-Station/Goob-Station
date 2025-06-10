@@ -40,6 +40,7 @@
 - type: loadoutGroup
   id: NanotrasenRepresentativeBackpack
   name: loadout-group-ntr-backpack
+  minLimit: 0
   loadouts:
   - NanotrasenRepresentativeBackpack
   - NanotrasenRepresentativeSatchel
@@ -49,6 +50,7 @@
 - type: loadoutGroup
   id: NanotrasenRepresentativeJumpsuit
   name: loadout-group-ntr-jumpsuit
+  minLimit: 0
   loadouts:
   - NanotrasenRepresentativeJumpsuit
   - NanotrasenRepresentativeJumpskirt
@@ -64,6 +66,7 @@
 - type: loadoutGroup
   id: NanotrasenRepresentativeShoes
   name: loadout-group-ntr-shoes
+  minLimit: 0
   loadouts:
   - NanotrasenRepresentativeBoots
   - NanotrasenRepresentativeShoes
@@ -82,6 +85,7 @@
 - type: loadoutGroup
   id: BlueshieldOfficerBackpack
   name: loadout-group-bso-backpack
+  minLimit: 0
   loadouts:
   - BlueshieldOfficerBackpack
   - BlueshieldOfficerSatchel
@@ -91,6 +95,7 @@
 - type: loadoutGroup
   id: BlueshieldOfficerJumpsuit
   name: loadout-group-bso-jumpsuit
+  minLimit: 0
   loadouts:
   - BlueshieldOfficerInnerBlueshieldSuit
   - BlueshieldOfficerInnerBlueshieldSkirt
@@ -99,6 +104,7 @@
 - type: loadoutGroup
   id: BlueshieldOfficerOuter
   name: loadout-group-bso-outer
+  minLimit: 0
   loadouts:
   - BlueshieldOfficerOuterBlueshieldArmorVest
   - BlueshieldOfficerOuterBlueshieldArmoredJacket
@@ -121,6 +127,7 @@
 - type: loadoutGroup
   id: BlueshieldOfficerShoes
   name: loadout-group-bso-shoes
+  minLimit: 0
   loadouts:
   - JackBoots
   - BlackCowboyBoots

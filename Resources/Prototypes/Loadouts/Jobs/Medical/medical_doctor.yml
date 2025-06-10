@@ -198,6 +198,11 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryMedicalDoctor
 
+- type: loadout # Diggy's Loadout PR 
+  id: NurseOutfit
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtNurse
+
 # Back
 - type: loadout
   id: MedicalDoctorBackpack

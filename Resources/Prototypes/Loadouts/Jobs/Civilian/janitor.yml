@@ -115,6 +115,11 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtJanitor
 
+- type: loadout
+  id: MaidOutfitJanitor
+  equipment:
+    jumpsuit: UniformMaid
+
 # Gloves
 - type: loadout
   id: JanitorRubberGloves

@@ -101,6 +101,11 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitBartenderPurple
 
+- type: loadout
+  id: WaitressUniform
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtWaitress
+
 # Outer clothing
 - type: loadout
   id: BartenderApron
