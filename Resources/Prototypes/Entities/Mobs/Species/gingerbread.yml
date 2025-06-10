@@ -17,7 +17,7 @@
 - type: entity
   save: false
   name: Urist McCookie
-  parent: BaseMobSpeciesOrganic
+  parent: [EdibleBase,BaseMobSpeciesOrganic]
   id: BaseMobGingerbread
   abstract: true
   components:
@@ -91,8 +91,34 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
-
-
+  - type: FlavorProfile
+    flavors:
+    - sweet
+  - type: Tag
+    tags:
+    - Cake
+  - type: Food
+    requireDead: false
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 25
+  - type: Sprite
+    scale: 0.5,0.5
+  - type: Clumsy
+    gunShootFailDamage:
+      types:
+        Blunt: 50000
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      25: Critical
+      400: Dead
+  - type: Eye
+    targetzoom: 0.5
+  
 - type: entity
   parent: BaseSpeciesDummy
   id: MobGingerbreadDummy

@@ -12,7 +12,7 @@
 
 - type: entity
   id: PartGingerbread
-  parent: [BaseItem, BasePart]
+  parent: [EdibleBase, BaseItem, BasePart]
   name: "gingerbread body part"
   abstract: true
   components:
@@ -36,6 +36,15 @@
         Quantity: 10
   - type: Damageable # Shitmed
     damageModifierSet: Gingerbread
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+  - type: FlavorProfile
+    flavors:
+    - sweet
 
 - type: entity
   id: ChestGingerbread
