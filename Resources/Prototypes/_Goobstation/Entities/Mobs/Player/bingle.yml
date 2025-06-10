@@ -97,6 +97,10 @@
     speechSounds: Slime
   - type: ReplacementAccent # prevent talking
     accent: bingle
+  - type: CollectiveMind
+    defaultChannel: Binglemind
+    channels:
+    - Binglemind
   - type: PassiveDamage #passive Healing
     allowedStates:
     - Alive
