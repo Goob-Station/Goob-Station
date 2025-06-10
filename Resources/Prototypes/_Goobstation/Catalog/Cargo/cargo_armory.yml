@@ -41,7 +41,7 @@
     sprite: Clothing/Head/Helmets/merc_helmet.rsi
     state: icon
   product: HumanoidMercenary
-  cost: 30000
+  cost: 35000
   category: cargoproduct-category-name-armory
   group: market
 

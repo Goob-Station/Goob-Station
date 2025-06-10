@@ -19,9 +19,6 @@ public sealed partial class MercenaryRequesterComponent : Component
     public bool BriefingSent;
 
     [DataField]
-    public SoundSpecifier MercenaryStartSound = new SoundPathSpecifier("/Audio/_Goobstation/Ambience/Antag/mindcontrol_start.ogg");
-
-    [DataField]
     public EntProtoId MindRole = "MindRoleMercenary";
 }
 

@@ -5,16 +5,14 @@
 using Content.Goobstation.Shared.Mercenary;
 using Content.Server.Mind;
 using Content.Server.Popups;
-using Content.Shared.Popups;
 using Content.Server.Roles;
-using Robust.Shared.Player;
 using Content.Server.Antag;
+using Content.Server.Ghost.Roles.Components;
 
 namespace Content.Goobstation.Server.Mercenary;
 
 public sealed partial class MercenarySystem : EntitySystem
 {
-    [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly RoleSystem _roles = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
@@ -26,50 +24,40 @@ public sealed partial class MercenarySystem : EntitySystem
 
         InitializeOrder();
 
-        SubscribeLocalEvent<MercenaryRequesterComponent, PlayerAttachedEvent>(OnPlayerAttached);
+        SubscribeLocalEvent<MercenaryRequesterComponent, TakeGhostRoleEvent>(OnPlayerAttached);
 
         _sawmill = Logger.GetSawmill("mercenary-system");
     }
 
-    private void OnPlayerAttached(EntityUid uid, MercenaryRequesterComponent comp, PlayerAttachedEvent args)
+    private void OnPlayerAttached(Entity<MercenaryRequesterComponent> merc, ref TakeGhostRoleEvent args)
     {
-        if (comp.Requester is not { } requester || !TerminatingOrDeleted(requester))
+        if (merc.Comp.Requester is not { } requester
+            || TerminatingOrDeleted(requester))
         {
-            _sawmill.Error($"Could not resolve requester entity : {comp.Requester}");
+            _sawmill.Error($"Could not resolve requester entity : {merc.Comp.Requester}");
             return;
         }
 
-        AddMercenaryRole(uid, requester, comp);
+        AddMercenaryRole(merc, requester);
     }
 
-    private void AddMercenaryRole(EntityUid merc, EntityUid requester, MercenaryRequesterComponent comp) //This is like mostly mind control code, thank whoever the fuck invented it.
+    private void AddMercenaryRole(Entity<MercenaryRequesterComponent> merc, EntityUid requester)
     {
         if (!_mind.TryGetMind(merc, out var mindId, out var mind))
             return;
 
-        var metadata = MetaData(requester);
-        _roles.MindAddRole(mindId, comp.MindRole.Id);
+        _roles.MindAddRole(mindId, merc.Comp.MindRole.Id);
+
+        var briefing = Loc.GetString("mercenary-briefing", ("employer", Name(requester) ));
 
         if (_roles.MindHasRole<MercenaryRoleComponent>(mindId, out var mindrole))
-            AddComp(mindrole.Value, new RoleBriefingComponent { Briefing = MakeBriefing(requester) }, true);
+            AddComp(mindrole.Value, new RoleBriefingComponent { Briefing = briefing }, true);
 
         if (mind.Session == null
-            || comp.BriefingSent)
+            || merc.Comp.BriefingSent)
             return;
 
-        var popup = Loc.GetString("mercenary-briefing");
-        var briefing = Loc.GetString("mercenary-briefing", ("employer", (MetaData(requester).EntityName)));
-
-        _popup.PopupEntity(popup, merc, PopupType.LargeCaution);
-        _antag.SendBriefing(mind.Session, briefing, Color.Red, comp.MercenaryStartSound);
-        comp.BriefingSent = true;
-    }
-
-    private string MakeBriefing(EntityUid requester)
-    {
-        var metadata = MetaData(requester);
-        var briefing = Loc.GetString("mercenary-briefing", ("employer", (MetaData(requester).EntityName)));
-
-        return briefing + "\n " + Loc.GetString("mercenary-briefing", ("employer", metadata.EntityName)) + "\n";
+        _antag.SendBriefing(mind.Session, briefing, Color.Red, null);
+        merc.Comp.BriefingSent = true;
     }
 }

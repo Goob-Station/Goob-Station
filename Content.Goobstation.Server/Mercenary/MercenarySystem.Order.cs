@@ -27,7 +27,6 @@ public sealed partial class MercenarySystem
         }
 
         EnsureComp<MercenaryRequesterComponent>(ev.OrderEntity).Requester = requesterUid;
-        _sawmill.Info($"Successfully spawned {ToPrettyString(ev.OrderEntity)} and linked to {ToPrettyString(ev.Requester)}");
     }
 
 }
