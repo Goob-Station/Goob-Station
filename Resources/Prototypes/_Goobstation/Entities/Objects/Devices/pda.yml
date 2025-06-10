@@ -265,7 +265,7 @@
   - type: Pda
     id: HighCommandIDCard
     penSlot:
-      startingItem: PenCentcom
+      startingItem: CyberPen
       whitelist:
         tags:
         - Write
