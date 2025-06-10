@@ -218,6 +218,12 @@ uplink-advanced-combat-medipen-desc = An advanced single-use medipen containing 
 uplink-syringe-pistol-name = Syringe Pistol
 uplink-syringe-pistol-desc = A gun that takes syringes as ammunition, and injects their contents to its victims. Injects faster than normal syringe guns and can fit in pockets.
 
+uplink-combat-medkit-pills-name = Combat Medical Kit (Pills)
+uplink-combat-medkit-pills-desc = Contains most medicines you need to recover from injuries and illnesses, all in a convenient pill form.
+
+uplink-combat-medkit-ipc-name = Combat Medical Kit (IPC)
+uplink-combat-medkit-ipc-desc = Contains everything you need to heal an IPC; includes LV wire, industrial welder, a high capacity cell and meson goggles.
+
 # Implants
 
 uplink-smoke-implant-name = Smoke Implant

@@ -10631,3 +10631,162 @@ Entries:
       message: Added several new furniture to decorate the station with!
   id: 1170
   time: '2025-06-04T13:01:23.0000000+00:00'
+- author: ScarKy0
+  changes:
+    - type: Fix
+      message: Borgs can no longer see mindshield status.
+  id: 1171
+  time: '2025-06-06T09:36:40.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: World has been saved, assistants have maints access once again.
+  id: 1172
+  time: '2025-06-06T09:53:16.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Fix
+      message: All species can now be affected by contact chemicals such as acids.
+    - type: Tweak
+      message: Removed cap on how much damage can a contact chemical heal.
+    - type: Tweak
+      message: Milk heals more damage in skeletons now.
+  id: 1173
+  time: '2025-06-06T10:00:54.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Tweak
+      message: >-
+        Chemistry plastic reaction makes plastic in stacks of 10 instead of
+        stacks of 1.
+  id: 1174
+  time: '2025-06-06T10:09:39.0000000+00:00'
+- author: misandrie
+  changes:
+    - type: Tweak
+      message: Re-merged BSO hardsuit and weapon crates
+    - type: Remove
+      message: 'BSO syringe kit '
+    - type: Tweak
+      message: Chester now provides 2 random ammo boxes instead of 4 guaranteed ones
+    - type: Tweak
+      message: 'Reduced laser pistol speedloader count by half '
+  id: 1175
+  time: '2025-06-06T12:32:49.0000000+00:00'
+- author: mikusssssss
+  changes:
+    - type: Tweak
+      message: All sci mech costs have been raised
+  id: 1176
+  time: '2025-06-06T17:09:23.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Energy speedloaders now need a delay before starting to self-recharge.
+        Also their disabler bolts deal more ion damage.
+    - type: Tweak
+      message: Chester firerate is reduced by 20%.
+  id: 1177
+  time: '2025-06-06T17:13:26.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Fix
+      message: Chester now requires wielding to shoot.
+  id: 1178
+  time: '2025-06-06T17:13:54.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Goliath cloak no longer provides armor.
+    - type: Tweak
+      message: It now takes 1+2+3 goliath hides to fully reinforce explorer suit.
+    - type: Fix
+      message: Goliath hardsuit is now craftable.
+  id: 1179
+  time: '2025-06-06T17:31:33.0000000+00:00'
+- author: JarlElbowses
+  changes:
+    - type: Add
+      message: Added Security Poncho for Senior Security Officers.
+  id: 1180
+  time: '2025-06-06T17:45:24.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Spacewind has been reenabled (air flow can throw you).
+  id: 1181
+  time: '2025-06-06T17:49:34.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Mothroach and xeno vent critter events.
+    - type: Fix
+      message: Vent critter events now actually spawn several mobs.
+  id: 1182
+  time: '2025-06-06T19:05:03.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Add
+      message: Added combat medkits for IPCs to the uplink
+    - type: Add
+      message: Added combat medkits full of pill canisters to the uplink
+    - type: Tweak
+      message: combat medkit price 25 > 15
+  id: 1183
+  time: '2025-06-06T19:23:19.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Add
+      message: >-
+        Space Dragon has got 2 new abilities: Wing Flap - stuns everyone in a
+        small radius for 2 seconds, and Rise Fish - summons 3 carps to help you
+        in fight.
+    - type: Add
+      message: >-
+        Space Dragon now can devour items, has thermal vision and heals by
+        standing near carp rifts.
+    - type: Tweak
+      message: Space Dragon now has higher resistances against combat types of damage.
+    - type: Fix
+      message: Fixed Space Dragon not spawning in rounds.
+  id: 1184
+  time: '2025-06-06T20:39:31.0000000+00:00'
+- author: Timfa2112
+  changes:
+    - type: Add
+      message: Port Squackroach
+  id: 1185
+  time: '2025-06-07T23:51:26.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Fix
+      message: Syndicate reinforcement is now a familiar
+  id: 1186
+  time: '2025-06-08T08:58:46.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Secret+ should now pick more sane roundstart antag combinations.
+  id: 1187
+  time: '2025-06-08T09:00:34.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Sandevistan no longer deals stamina damage to the user and also cools
+        down faster.
+    - type: Fix
+      message: >-
+        Fixed some issues with Sandevistan, likely including it being unable to
+        be turned off sometimes.
+  id: 1188
+  time: '2025-06-08T09:01:38.0000000+00:00'
+- author: He who culls the tide
+  changes:
+    - type: Tweak
+      message: You can no longer play passenger after 10hrs.
+    - type: Remove
+      message: Assistants maints access
+  id: 1189
+  time: '2025-06-08T20:18:47.0000000+00:00'
