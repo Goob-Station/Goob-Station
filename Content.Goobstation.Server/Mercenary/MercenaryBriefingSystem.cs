@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Goobstation.Shared.Mercenary;
 using Content.Server.Mind;
 using Content.Server.Popups;
