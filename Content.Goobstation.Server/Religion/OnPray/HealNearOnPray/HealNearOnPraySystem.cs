@@ -48,7 +48,6 @@ public sealed partial class HealNearOnPraySystem : EntitySystem
             if (ev.ShouldTakeHoly)
             {
                 _damageable.TryChangeDamage(entity, comp.Damage, targetPart: TargetBodyPart.All, splitDamage: SplitDamageBehavior.SplitEnsureAll);
-                _audio.PlayPvs(comp.SizzleSoundPath, entity);
                 Spawn(comp.DamageEffect, Transform(entity).Coordinates);
             }
             else
@@ -56,7 +55,7 @@ public sealed partial class HealNearOnPraySystem : EntitySystem
                 _damageable.TryChangeDamage(entity, comp.Healing, targetPart: TargetBodyPart.All, ignoreBlockers: true, splitDamage: SplitDamageBehavior.SplitEnsureAll);
                 Spawn(comp.HealEffect, Transform(entity).Coordinates);
             }
-            _audio.PlayPvs(comp.HealSoundPath, entity, new AudioParams(-2f, 1f, SharedAudioSystem.DefaultSoundRange, 1f, false, 0f));
         }
+        _audio.PlayPvs(comp.HealSoundPath, uid, new AudioParams(-2f, 1f, SharedAudioSystem.DefaultSoundRange, 1f, false, 0f));
     }
 }
