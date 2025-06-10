@@ -23,7 +23,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Goobstation.Server.Administration.Commands;
 
     [AdminCommand(AdminFlags.Spawn)]
-    public sealed class SpawnEntityListCommand : IConsoleCommand
+    public sealed class SpawnEquippedCommand : IConsoleCommand
     {
         public string Command => "spawnequipped";
         public string Description => "Spawns an entity and immediately equips it to another entity.";
@@ -41,7 +41,7 @@ namespace Content.Goobstation.Server.Administration.Commands;
 
             string targetSlot = null!;
 
-            if (args.Length <= 1)
+            if (args.Length < 3)
             {
                 shell.WriteLine($"Not enough arguments.\n{Help}");
                 return;
@@ -57,7 +57,7 @@ namespace Content.Goobstation.Server.Administration.Commands;
                 || !entityManager.TryGetEntity(targetNet, out var targetNullable)
                 || targetNullable is not { } target)
             {
-                shell.WriteLine($"Invalid EntityUid of {args[0]}");
+                shell.WriteLine($"Invalid EntityUid of {args[1]}");
                 return;
             }
 
@@ -67,40 +67,29 @@ namespace Content.Goobstation.Server.Administration.Commands;
             if (entityManager.TryGetComponent(spawnedItem, out ClothingComponent? clothingComp))
                 targetSlot = clothingComp.Slots.ToString().ToLowerInvariant();
 
-            switch (args.Length)
+            if (bool.TryParse(args[2], out var deletePrevious))
             {
-                case 3:
-                {
-                    if (bool.TryParse(args[2], out var deletePrevious))
-                    {
-                        if (deletePrevious)
-                        {
-                            invSystem.TryGetSlotEntity(target, targetSlot, out var slotEntity);
-                            entityManager.DeleteEntity(slotEntity);
-                        }
-                    }
+                if (deletePrevious)
+                    if (invSystem.TryGetSlotEntity(target, targetSlot, out var slotEntity))
+                        entityManager.DeleteEntity(slotEntity);
+            }
 
-                    break;
-                }
-                case 4:
-                {
-                    if (Enum.TryParse<SlotFlags>(args[3], out var flags))
-                    {
-                        entityManager.EnsureComponent<ClothingComponent>(spawnedItem);
-                        clothingSystem.SetSlots(spawnedItem, flags);
-                        entityManager.DirtyEntity(spawnedItem);
+            if (Enum.TryParse<SlotFlags>(args[3], out var flags))
+            {
+                entityManager.EnsureComponent<ClothingComponent>(spawnedItem);
+                clothingSystem.SetSlots(spawnedItem, flags);
+                entityManager.DirtyEntity(spawnedItem);
 
-                        targetSlot = flags.ToString().ToLowerInvariant();
-                    }
-
-                    break;
-                }
+                targetSlot = flags.ToString().ToLowerInvariant();
             }
 
             invSystem.DropSlotContents(target, targetSlot);
 
             if (!invSystem.TryEquip(target, spawnedItem, targetSlot, true, true))
+            {
                 shell.WriteLine($"Could not equip {entityManager.ToPrettyString(spawnedItem)}");
+                return;
+            }
 
             shell.WriteLine(
                 $"Spawned {entityManager.ToPrettyString(spawnedItem)} and equipped to {entityManager.ToPrettyString(target)}");

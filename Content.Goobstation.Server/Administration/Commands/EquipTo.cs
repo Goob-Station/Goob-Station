@@ -30,7 +30,7 @@ public sealed class EquipTo : IConsoleCommand
 
         string targetSlot = null!;
 
-        if (args.Length <= 1)
+        if (args.Length < 3)
         {
             shell.WriteLine($"Not enough arguments.\n{Help}");
             return;
@@ -55,41 +55,32 @@ public sealed class EquipTo : IConsoleCommand
         if (entityManager.TryGetComponent(item, out ClothingComponent? clothingComp))
             targetSlot = clothingComp.Slots.ToString().ToLowerInvariant();
 
-        switch (args.Length)
+        if (bool.TryParse(args[2], out var deletePrevious))
         {
-            case 3:
+            if (deletePrevious)
             {
-                if (bool.TryParse(args[2], out var deletePrevious))
-                {
-                    if (deletePrevious)
-                    {
-                        invSystem.TryGetSlotEntity(target, targetSlot, out var slotEntity);
-                        entityManager.DeleteEntity(slotEntity);
+                invSystem.TryGetSlotEntity(target, targetSlot, out var slotEntity);
+                entityManager.DeleteEntity(slotEntity);
 
-                    }
-                }
-
-                break;
             }
-            case 4:
-            {
-                if (Enum.TryParse<SlotFlags>(args[3], out var flags))
-                {
-                    entityManager.EnsureComponent<ClothingComponent>(item);
-                    clothingSystem.SetSlots(item, flags);
-                    entityManager.DirtyEntity(item);
+        }
 
-                    targetSlot = flags.ToString().ToLowerInvariant();
-                }
+        if (Enum.TryParse<SlotFlags>(args[3], out var flags))
+        {
+            entityManager.EnsureComponent<ClothingComponent>(item);
+            clothingSystem.SetSlots(item, flags);
+            entityManager.DirtyEntity(item);
 
-                break;
-            }
+            targetSlot = flags.ToString().ToLowerInvariant();
         }
 
         invSystem.DropSlotContents(target, targetSlot);
 
         if (!invSystem.TryEquip(target, item, targetSlot, true, true))
+        {
             shell.WriteLine($"Could not equip {entityManager.ToPrettyString(item)}");
+            return;
+        }
 
         shell.WriteLine(
             $"Equipped {entityManager.ToPrettyString(item)} to {entityManager.ToPrettyString(target)}");
