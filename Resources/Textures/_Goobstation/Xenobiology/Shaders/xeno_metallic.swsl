@@ -1,3 +1,5 @@
+light_mode unshaded;
+
 uniform highp float reflectivity = 0.6;
 uniform highp float edge_power = 1.2;
 

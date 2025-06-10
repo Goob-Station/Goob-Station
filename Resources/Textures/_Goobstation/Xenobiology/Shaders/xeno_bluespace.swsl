@@ -11,7 +11,7 @@ mediump vec2 square_uv(mediump vec2 coord, mediump vec2 res) {
     return coord / res;
 }
 
-const mediump vec3 gradientColor = vec3(65. / 255., 200. / 255., 1.) * 0.3;
+const mediump vec3 gradientColor = vec3(65. / 255., 200. / 255., 1.) * 0.5;
 mediump vec3 bluespaceShine(mediump vec2 uv, mediump float time) {
     mediump float n = max(sin(uv.x + time * 11.0) * 0.4 - 0.2, 0.0);
     n += max(zFBM(vec2(uv.x + time * uv.y + time * 1.7, 3.0)) - 0.4, 0.0);
@@ -28,5 +28,5 @@ void fragment() {
 
     highp vec2 uv = square_uv(floor(FRAGCOORD.xy * 0.0625) * 0.5, SCREEN_PIXEL_SIZE);
     mediump vec3 shine = bluespaceShine(uv, TIME * 0.1);
-    COLOR = vec4(shine * 0.65 + sprite.rgb, 1.0);
+    COLOR = vec4(mix(sprite.rgb, shine, 0.5), 1.0); //let's see how long it takes people to notice how cursed this is.
 }

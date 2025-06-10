@@ -393,7 +393,7 @@
 - type: entity
   id: OilSlimeExtract
   parent: BaseSlimeExtract
-  name: oil extract
+  name: oil slime extract
   description:
   components:
   - type: Sprite

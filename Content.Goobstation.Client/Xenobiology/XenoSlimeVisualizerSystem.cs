@@ -30,7 +30,14 @@ public sealed class XenoSlimeVisualizerSystem : VisualizerSystem<SlimeComponent>
         foreach (var layer in args.Sprite.AllLayers)
             layer.Color = color.WithAlpha(layer.Color.A);
 
-        if (AppearanceSystem.TryGetData<ProtoId<ShaderPrototype>>(uid, XenoSlimeVisuals.Shader, out var shader, args.Component))
-            args.Sprite.PostShader = _proto.Index(shader).InstanceUnique();
+        if (AppearanceSystem.TryGetData<string>(uid, XenoSlimeVisuals.Shader, out var shader, args.Component))
+        {
+            foreach (var layer in args.Sprite.AllLayers)
+                args.Sprite.LayerSetShader(layer, shader);
+
+            args.Sprite.PostShader = _proto.Index<ShaderPrototype>(shader).InstanceUnique();
+        }
+
+
     }
 }

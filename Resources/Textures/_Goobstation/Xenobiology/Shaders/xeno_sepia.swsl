@@ -1,5 +1,5 @@
 // Uniforms
-uniform highp float grain_amount = 0.03;
+uniform highp float grain_amount = 0.06;
 uniform highp float grain_size = 4.0;
 
 void fragment() {
