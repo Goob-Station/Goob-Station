@@ -1,0 +1,60 @@
+# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: XenoVents
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-xeno-vent-start-announcement
+    startAudio:
+      path: /Audio/Announcements/aliens.ogg
+    earliestStart: 45
+    minimumPlayers: 20
+    weight: 1
+    duration: 30
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 360
+ #- type: PrecognitionResult
+ #  message: psionic-power-precognition-xeno-vents-result-message
+  - type: VentCrittersRule
+    table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
+      children:
+      - id: MobXeno
+        weight: 0.55
+      - id: MobXenoRouny
+        weight: 0.01
+      - id: MobXenoDrone
+        weight: 0.25
+      - id: MobXenoSpitter
+        weight: 0.05
+      - id: MobXenoRunner
+        weight: 0.08
+      - id: MobXenoPraetorian
+        weight: 0.03
+      - id: MobXenoRavager
+        weight: 0.02
+      - id: MobXenoQueen
+        weight: 0.01
+
+- type: entity
+  id: MothroachSpawn
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    earliestStart: 15
+    minimumPlayers: 15
+    weight: 4
+    duration: 30
+    eventType: Neutral
+  - type: GameRule
+    chaosScore: 80
+ #- type: PrecognitionResult
+ #  message: psionic-power-precognition-mothroach-spawn-result-message
+  - type: VentCrittersRule
+    table: # DeltaV: EntityTable instead of spawn entries
+      id: MobMothroach
