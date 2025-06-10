@@ -103,6 +103,7 @@
 
 using System.Diagnostics.CodeAnalysis;
 using Content.Goobstation.Common.Pirates;
+using Content.Goobstation.Shared.Cargo;
 using Content.Server.Cargo.Components;
 using Content.Server.Labels.Components;
 using Content.Server.Station.Components;
@@ -122,22 +123,6 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.Cargo.Systems
 {
-    // Goob Edit - Simple Order Events
-    public sealed partial class CargoOrderApprovedEvent : EntityEventArgs
-    {
-        public readonly EntityUid OrderEntity;
-        public readonly string ProductId;
-        public readonly NetEntity Requester;
-
-        public CargoOrderApprovedEvent(EntityUid orderEntity, string productId, NetEntity requester)
-        {
-            OrderEntity = orderEntity;
-            ProductId = productId;
-            Requester = requester;
-        }
-    }
-
-
     public sealed partial class CargoSystem
     {
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
@@ -690,12 +675,14 @@ namespace Content.Server.Cargo.Systems
             // Create the item itself
             var item = Spawn(order.ProductId, spawn);
 
-            // Goob Edit - Simple Order Events
+            // Goob Edit - Simple Order Events - Start
             if (!_requesters.TryGetValue(order.OrderId, out var requester))
                 return false;
 
-            // Goob Edit - Simple Order Events
-            RaiseLocalEvent(item, new CargoOrderApprovedEvent(item, order.ProductId, requester), true);
+            var ev = new CargoOrderApprovedEvent(item, order.ProductId, requester);
+            RaiseLocalEvent(item, ev, true);
+
+            // Goob Edit - Simple Order Events - End
 
             // Ensure the item doesn't start anchored
             _transformSystem.Unanchor(item, Transform(item));
