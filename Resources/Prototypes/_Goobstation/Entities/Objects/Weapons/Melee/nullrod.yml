@@ -158,13 +158,10 @@
   - type: HealNearOnPray # These numbers look high but WoundMed...
     healing:
       groups:
-        Brute: -25.0
-        Burn: -25.0
+        Brute: -10.0
+        Burn: -10.0
         Toxin: -10.0
         Airloss: -15.0
-    damage:
-      types:
-        Holy: 25
   - type: Tag
     tags:
     - Rosary
