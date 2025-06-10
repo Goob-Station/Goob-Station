@@ -96,8 +96,10 @@
 - type: holiday
   id: AprilFoolDay
   name: holiday-name-april-fool-day
-  beginDay: 1
-  beginMonth: April
+  beginDay: 1 # goida edit
+  beginMonth: January
+  endDay: 31
+  endMonth: December
 
 - type: holiday
   id: AutismAwarenessDay
