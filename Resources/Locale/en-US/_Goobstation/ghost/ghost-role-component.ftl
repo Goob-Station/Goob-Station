@@ -100,6 +100,6 @@ ghost-role-information-mercenary-name = Freelance Mercenary
 ghost-role-information-mercenary-description = Arrive at Cargo, follow the orders of the one who hired you. Good luck soldier.
 ghost-role-information-mercenary-rules = Follow the orders of the one who bought your contract, the person or group name as requested by on your order. You are held to nothing else, loyalty is your one focus.
 mercenary-briefing =
-    You are a freelance mercenary contracted by {employer}.
+    You are a freelance mercenary contracted by {$employer}.
     Follow their orders. You are held to nothing else.
     Your focus is solely on loyalty to your contract owner.

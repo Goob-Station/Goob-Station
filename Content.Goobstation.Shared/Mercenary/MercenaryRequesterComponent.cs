@@ -6,6 +6,7 @@
 using Robust.Shared.GameStates;
 using Content.Shared.Roles;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Mercenary;
 
@@ -14,15 +15,10 @@ public sealed partial class MercenaryRequesterComponent : Component
 {
     [ViewVariables(VVAccess.ReadWrite)]
     public EntityUid? Requester;
-    [DataField]
-    public bool BriefingSent = false;
-    [DataField]
-    public SoundSpecifier MindcontrolStartSound = new SoundPathSpecifier("/Audio/_Goobstation/Ambience/Antag/mindcontrol_start.ogg");
-}
 
-[RegisterComponent]
-public sealed partial class MercenaryRoleComponent : BaseMindRoleComponent
-{
-    [DataField("requester")]
-    public EntityUid? Requester;
+    [ViewVariables(VVAccess.ReadWrite)]
+    public bool BriefingSent;
+
+    [DataField]
+    public EntProtoId MindRole = "MindRoleMercenary";
 }

@@ -103,6 +103,7 @@
 
 using System.Diagnostics.CodeAnalysis;
 using Content.Goobstation.Common.Pirates;
+using Content.Goobstation.Shared.Cargo;
 using Content.Server.Cargo.Components;
 using Content.Server.Labels.Components;
 using Content.Server.Station.Components;
@@ -690,12 +691,14 @@ namespace Content.Server.Cargo.Systems
             // Create the item itself
             var item = Spawn(order.ProductId, spawn);
 
-            // Goob Edit - Simple Order Events
+            // Goob Edit - Simple Order Events - Start
             if (!_requesters.TryGetValue(order.OrderId, out var requester))
                 return false;
 
-            // Goob Edit - Simple Order Events
-            RaiseLocalEvent(item, new CargoOrderApprovedEvent(item, order.ProductId, requester), true);
+            var ev = new CargoOrderApprovedEvent(item, order.ProductId, requester);
+            RaiseLocalEvent(item, ev, true);
+
+            // Goob Edit - Simple Order Events - End
 
             // Ensure the item doesn't start anchored
             _transformSystem.Unanchor(item, Transform(item));
