@@ -109,9 +109,9 @@
             Bartender: [ 2, 2 ]
             Botanist: [ 2, 2 ]
             Chef: [ 2, 2 ]
-            Janitor: [ 2, 2 ]
+            Janitor: [ 3, 3 ]
             Chaplain: [ 1, 1 ]
-            Librarian: [ 1, 1 ]
+            Librarian: [ 2, 2 ]
             Lawyer: [ 2, 2 ]
             ServiceWorker: [ 1, 2 ]
             #engineering
@@ -138,7 +138,7 @@
             Brigmedic: [ 1, 1 ]
             #supply
             Quartermaster: [ 1, 1 ]
-            SalvageSpecialist: [ 6, 6 ]
+            SalvageSpecialist: [ 3, 3 ]
             CargoTechnician: [ 2, 2 ]
             #civillian
             Passenger: [ -1, -1 ]

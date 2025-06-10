@@ -59,13 +59,13 @@
             NanotrasenRepresentative: [ 1, 1 ]
             BlueshieldOfficer: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
-            Bartender: [ 3, 3 ]
+            Bartender: [ 4, 4 ]
             Botanist: [ 5, 5 ]
-            Chef: [ 4, 4 ]
+            Chef: [ 5, 5 ]
             Janitor: [ 6, 6 ]
             Chaplain: [ 1, 1 ]
-            Librarian: [ 2, 2 ]
-            ServiceWorker: [ 4, 4 ]
+            Librarian: [ 3, 3 ]
+            ServiceWorker: [ 6, 6 ]
             #engineering
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 5, 5 ]
@@ -91,7 +91,7 @@
             Brigmedic: [ 1, 1 ]
             #supply
             Quartermaster: [ 1, 1 ]
-            SalvageSpecialist: [ 8, 8 ]
+            SalvageSpecialist: [ 4, 4 ]
             CargoTechnician: [ -1, -1 ]
             #civilian
             Passenger: [ -1, -1 ]

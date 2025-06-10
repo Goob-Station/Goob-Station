@@ -27,7 +27,7 @@
           availableJobs:
           #civilian
             Passenger: [ -1, -1 ]
-            Librarian: [ 1, 1 ]
+            Librarian: [ 3, 3 ]
           #command
             Captain: [ 1, 1 ]
             NanotrasenRepresentative: [ 1, 1 ]
@@ -52,18 +52,18 @@
             Warden: [ 1, 1 ]
             Brigmedic: [ 1, 1 ]
           #service
-            Bartender: [ 2, 3 ]
-            Botanist: [ 2, 5 ]
-            Boxer: [ 2, 2 ]
-            Chef: [ 3, 4 ]
-            Clown: [ 1, 1 ]
+            Bartender: [ 3, 3 ]
+            Botanist: [ 5, 5 ]
+            Boxer: [ 4, 4 ]
+            Chef: [ 4, 4 ]
+            Clown: [ 2, 2 ]
             HeadOfPersonnel: [ 1, 1 ]
-            Janitor: [ 2, 4 ]
-            Lawyer: [ 2, 3 ]
-            Mime: [ 1, 1 ]
+            Janitor: [ 4, 4 ]
+            Lawyer: [ 3, 3 ]
+            Mime: [ 2, 2 ]
             Musician: [ 2, 2 ]
-            Reporter: [ 1, 2 ]
-            ServiceWorker: [ 1, 2 ]
+            Reporter: [ 3, 3 ]
+            ServiceWorker: [ 4, 4 ]
             Zookeeper: [ 2, 2 ]
           #science
             Chaplain: [ 1, 1 ]
