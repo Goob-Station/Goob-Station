@@ -116,9 +116,18 @@
       0: Alive
       25: Critical
       400: Dead
+  - type: ContentEye
+    maxZoom: 0.5,0.5
   - type: Eye
-    targetzoom: 0.5
-  
+    zoom: 0.5,0.5
+  - type: Oni
+    modifiers:
+      coefficients:
+        Blunt: 0.25
+        Slash: 0.25
+        Piercing: 0.25
+        Heat: 0.25
+
 - type: entity
   parent: BaseSpeciesDummy
   id: MobGingerbreadDummy
