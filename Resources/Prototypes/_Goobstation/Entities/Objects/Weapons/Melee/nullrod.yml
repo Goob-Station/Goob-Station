@@ -256,7 +256,7 @@
   parent: BaseNullrod
   id: MonkStaff
   name: monk's staff
-  description: A long, tall staff made of polished wood. Traditionally used in ancient old-Earth martial arts, now used to harass the clown. #Can parry blows - cqc update
+  description: A long, tall staff made of polished wood. Traditionally used in ancient old-Earth martial arts, now used to harass the clown. #this should be able to parry eventually.
   components:
   - type: Nullrod
     DamageOnUntrainedUse:
