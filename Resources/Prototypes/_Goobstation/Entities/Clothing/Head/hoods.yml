@@ -1,5 +1,8 @@
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
 #
@@ -33,3 +36,20 @@
     sprite: _Goobstation/Clothing/Head/Hoods/bso_winter_hood.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Head/Hoods/bso_winter_hood.rsi
+
+- type: entity
+  parent: ClothingHeadHatHoodWinterBase
+  id: ClothingHeadHatHoodWinterSecarmored
+  categories: [ HideSpawnMenu ]
+  name: security winter coat hood
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hoods/secvestcoathead.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hoods/secvestcoathead.rsi
+
+- type: entity
+  parent: ClothingHeadHatHoodWinterSecarmored #totally not bloat
+  id: ClothingHeadHatHoodWinterSecSeniorarmored
+  categories: [ HideSpawnMenu ]
+  name: senior security winter coat hood

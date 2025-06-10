@@ -4,12 +4,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Linq;
 using Content.Goobstation.Common.Religion;
 using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
+using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.Religion;
 
@@ -36,10 +36,11 @@ public sealed class DivineInterventionSystem : EntitySystem
     /// The bare minimum, no flavor -
     /// used for spells that do not necessarily require players to be notified of an immunity event
     /// </summary>
-    public bool ShouldDeny(EntityUid target, out EntityUid? denyingItem)
+    private bool ShouldDeny(EntityUid target, out EntityUid? denyingItem)
     {
         denyingItem = _inventory.GetHandOrInventoryEntities(target, SlotFlags.WITHOUT_POCKET)
-            .FirstOrDefault(HasComp<DivineInterventionComponent>);
+            .FirstOrNull(HasComp<DivineInterventionComponent>);
+
         return denyingItem != null;
     }
     //Overload Method
@@ -49,12 +50,13 @@ public sealed class DivineInterventionSystem : EntitySystem
     /// <summary>
     /// Handles denial flavour (VFX/SFX/POPUPS)
     /// </summary>
-    private void DenialEffects(EntityUid uid, EntityUid? entNullable)
+    private void DenialEffects(EntityUid uid, EntityUid? entNullable, DivineInterventionComponent? comp = null)
     {
-        if (entNullable is not { } ent
-            || !TryComp<DivineInterventionComponent>(uid, out var comp)
-            || _net.IsClient)
+        if (_net.IsClient
+            || entNullable is not { } ent
+            || !Resolve(uid, ref comp))
             return;
+
         _popupSystem.PopupEntity(Loc.GetString(comp.DenialString), ent, PopupType.MediumCaution);
         _audio.PlayPvs(comp.DenialSound, ent);
         Spawn(comp.EffectProto, Transform(ent).Coordinates);
