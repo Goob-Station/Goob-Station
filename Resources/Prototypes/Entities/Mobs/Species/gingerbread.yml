@@ -118,7 +118,7 @@
     thresholds:
       0: Alive
       25: Critical
-      400: Dead
+      200: Dead
   - type: ContentEye
     maxZoom: 0.5,0.5
   - type: Eye
