@@ -252,8 +252,6 @@
   parent: MobHumanRandom
   id: HumanoidMercenary
   name: Mercenary Contract
-  mindRoles:
-  - MindRoleGhostRoleFamiliar
   components:
   - type: Icon
     sprite: Mobs/Species/Human/parts.rsi
