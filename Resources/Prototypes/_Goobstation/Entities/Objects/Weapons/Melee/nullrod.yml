@@ -158,8 +158,11 @@
   - type: HealNearOnPray # These numbers look high but WoundMed...
     healing:
       groups:
-        Brute: -17.0
-        Burn: -17.0
+        Brute: -22.5
+      types:
+        Heat: -7.5
+        Cold: -7.5
+        Shock: -7.5
     damage:
       types:
         Holy: 20
