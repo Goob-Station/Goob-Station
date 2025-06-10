@@ -74,6 +74,37 @@
     - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
       state: core
       color: "#ff9f1a"
+  - type: Flammable
+    fireSpread: true
+    alwaysCombustible: true
+    damage:
+      types:
+        Heat: 1
+  - type: Reactive
+    isReactionsUnlimited: false
+    oneUnitReaction: true
+    reactions:
+    - reagents: [ Water ]
+      methods: [ Injection ]
+      effects:
+      - !type:AreaReactionEffect
+        duration: 10
+        prototypeId: Smoke
+        sound:
+          path: /Audio/Effects/smoke.ogg
+    - reagents: [ Plasma ]
+      methods: [ Injection ]
+      effects: #this is supposed to occur after 5 seconds.
+      - !type:CreateGas
+        gas: Plasma
+        multiplier: 25
+      - !type:Ignite
+    - reagents: [ Blood ]
+      methods: [ Injection ]
+      effects:
+      - !type:AdjustReagent
+        reagent: CapsaicinOil
+        amount: 100
   - type: SlimeExtract
 
 - type: entity
@@ -87,6 +118,28 @@
     - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
       state: core
       color: "#BF77F6"
+  - type: Reactive
+    isReactionsUnlimited: false
+    oneUnitReaction: true
+    reactions:
+    - reagents: [ Water ]
+      methods: [ Injection ]
+      effects:
+      - !type:CreateGas
+        gas: Plasma
+        multiplier: 25
+    - reagents: [ Plasma ]
+      methods: [ Injection ]
+      effects:
+      - !type:CreateEntityReactionEffect
+        entity: PurpleExtractJelly
+        number: 1
+    - reagents: [ Blood ]
+      methods: [ Injection ]
+      effects:
+      - !type:AdjustReagent
+        reagent: Omnizine
+        amount: 100
   - type: SlimeExtract
 
 - type: entity
@@ -100,6 +153,30 @@
     - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
       state: core
       color: "#79F6FC"
+  - type: Reactive
+    isReactionsUnlimited: false
+    oneUnitReaction: true
+    reactions:
+    - reagents: [ Water ]
+      methods: [ Injection ]
+      effects:
+      - !type:AreaReactionEffect
+        duration: 10
+        prototypeId: Foam
+        sound:
+          path: /Audio/Effects/extinguish.ogg
+    - reagents: [ Plasma ]
+      methods: [ Injection ]
+      effects:
+      - !type:AdjustReagent
+        reagent: FrostOil
+        amount: 100
+    - reagents: [ Blood ]
+      methods: [ Injection ]
+      effects:
+      - !type:CreateEntityReactionEffect
+        entity: BlueExtractJelly
+        number: 1
   - type: SlimeExtract
 
 - type: entity

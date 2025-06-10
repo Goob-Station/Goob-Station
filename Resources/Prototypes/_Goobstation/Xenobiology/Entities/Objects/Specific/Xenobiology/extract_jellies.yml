@@ -1,0 +1,46 @@
+- type: entity
+  name: base jelly
+  parent: EdibleBase
+  id: BaseExtractJelly
+  description:
+  abstract: true
+  components:
+  - type: FlavorProfile
+    flavors:
+    - tingly
+  - type: Sprite
+    layers:
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
+      state: jelly
+      color: "#828282"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 6
+        reagents:
+        - ReagentId: Omnizine
+          Quantity: 6
+
+- type: entity
+  id: PurpleExtractJelly
+  parent: BaseExtractJelly
+  name: purple jelly
+  description: Slimes love this stuff, metabolizes into additional extracts inside the slime.
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
+      state: jelly
+      color: "#BF77F6"
+
+- type: entity
+  id: BlueExtractJelly
+  parent: BaseExtractJelly
+  name: blue jelly
+  description: The frosty chill caused by this jelly may reduce a slime's chance to mutate.
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
+      state: jelly
+      color: "#79F6FC"

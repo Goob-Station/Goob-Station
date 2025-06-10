@@ -11,6 +11,9 @@
       task: LatchCompound
   - tasks:
     - !type:HTNCompoundTask
+      task: FoodCompound
+  - tasks:
+    - !type:HTNCompoundTask
       task: IdleCompound
 
 - type: htnCompound
