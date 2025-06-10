@@ -36,6 +36,15 @@
         Quantity: 10
   - type: Damageable # Shitmed
     damageModifierSet: Gingerbread
+  - type: SolutionContainerManager #goob
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+  - type: FlavorProfile
+    flavors:
+    - sweet #goob
 
 - type: entity
   id: ChestGingerbread

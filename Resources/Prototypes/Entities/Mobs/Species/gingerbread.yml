@@ -55,14 +55,14 @@
       methods: [ Touch ]
       effects:
       - !type:WashCreamPieReaction
-    - reagents: [ Water ]
+    - reagents: [ Milk ] #goob
       methods: [ Touch ]
       effects:
       - !type:HealthChange
         scaleByQuantity: true
         damage:
           types:
-            Heat: 0.3
+            Heat: 3 #goob
       - !type:PopupMessage
         type: Local
         visualType: Large
@@ -91,7 +91,17 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
-
+  - type: FlavorProfile #goob
+    flavors:
+    - sweet
+  - type: Food
+    requireDead: true
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 100 #goob
 
 - type: entity
   parent: BaseSpeciesDummy
