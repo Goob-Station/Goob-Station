@@ -544,7 +544,7 @@
 - type: entity
   parent: Jug
   suffix: holy water
-  id: Jugholywater
+  id: JugHolyWater
   categories: [ HideSpawnMenu ]
   components:
   - type: Label
