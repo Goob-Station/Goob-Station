@@ -435,7 +435,7 @@
   components:
     - type: StorageFill
       contents:
-        - id: Jugholywater
+        - id: JugHolyWater
           amount: 2
         - id: Bible
           amount: 1
