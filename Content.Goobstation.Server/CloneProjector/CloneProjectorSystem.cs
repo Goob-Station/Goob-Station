@@ -66,7 +66,6 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
 
         SubscribeLocalEvent<CloneProjectorComponent, GetItemActionsEvent>(OnEquipped);
         SubscribeLocalEvent<CloneProjectorComponent, GotUnequippedEvent>(OnUnequipped);
-        SubscribeLocalEvent<CloneProjectorComponent, InventoryRelayedEvent<BeforeStripEvent>>((e, c, ev) => BeforeStripped(e, c, ev.Args));
 
         SubscribeLocalEvent<CloneProjectorComponent, CloneProjectorActivatedEvent>(OnProjectorActivated);
 
@@ -136,10 +135,7 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
         _stun.TryParalyze(args.Equipee, projector.Comp.StunDuration, true);
     }
 
-    private void BeforeStripped(EntityUid uid, CloneProjectorComponent projector, BeforeStripEvent args)
-    {
-        args.Additive += projector.StripTimeAddition;
-    }
+
     private void OnProjectorActivated(Entity<CloneProjectorComponent> projector, ref CloneProjectorActivatedEvent args)
     {
         if (args.Handled)

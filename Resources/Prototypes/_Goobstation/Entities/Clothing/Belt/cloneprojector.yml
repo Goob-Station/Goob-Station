@@ -14,8 +14,7 @@
     sprite: _Goobstation/Clothing/Belt/geminiprojector.rsi
     equipDelay: 10
     unequipDelay: 15 # Unscrewing something from your nervous system is kinda difficult.
-  - type: Strippable
-    handDelay: 15
+    stripDelay: 20 # Even harder when its someone else. Don't paralyze em!
   - type: Item
     sprite: _Goobstation/Clothing/Belt/geminiprojector.rsi
     size: Large
