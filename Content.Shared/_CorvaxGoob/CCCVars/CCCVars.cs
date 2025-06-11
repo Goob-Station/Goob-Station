@@ -1,6 +1,6 @@
 using Robust.Shared.Configuration;
 
-namespace Content.Shared.Corvax.CCCVars;
+namespace Content.Shared._CorvaxGoob.CCCVars;
 
 /// <summary>
 ///     Corvax modules console variables

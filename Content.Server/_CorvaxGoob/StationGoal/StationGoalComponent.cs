@@ -1,6 +1,6 @@
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.Corvax.StationGoal
+namespace Content.Server._CorvaxGoob.StationGoal
 {
     /// <summary>
     ///     if attached to a station prototype, will send the station a random goal from the list
