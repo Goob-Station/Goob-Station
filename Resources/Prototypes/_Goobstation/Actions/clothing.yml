@@ -26,3 +26,22 @@
       sprite: _Goobstation/Actions/modsuit.rsi
       state: activate-ready
     event: !type:SealClothingEvent {}
+
+
+- type: entity
+  id: ActionActivateProjector
+  name: toggle clone
+  description: Generates or dissipates your gemini.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    checkCanInteract: true
+    checkConsciousness: true
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Actions/modsuit.rsi
+      state: activate
+    iconOn:
+      sprite: _Goobstation/Actions/modsuit.rsi
+      state: activate-ready
+    event: !type:CloneProjectorActivatedEvent {}

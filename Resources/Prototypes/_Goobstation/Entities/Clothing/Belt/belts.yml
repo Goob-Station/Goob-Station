@@ -227,3 +227,82 @@
         whitelist:
           tags:
           - Sidearm
+
+- type: entity
+  parent: ClothingBeltBase
+  id: ClothingBeltBaseCloneProjector
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Belt/grenaderig.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Belt/grenaderig.rsi
+  - type: CloneProjector
+    addedComponents:
+    - type: GhostRole
+      name: ghost-role-information-gemini-clone-name
+      description: ghost-role-information-gemini-clone-description
+      rules: ghost-role-information-familiar-rules
+      mindRoles:
+      - MindRoleGhostRoleFamiliar
+      raffle:
+        settings: short
+    - type: GhostTakeoverAvailable
+    - type: AntagImmune
+    - type: Hologram
+    - type: MovementIgnoreGravity
+    - type: RequireProjectileTarget
+      active: True
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        30: Critical
+        31: Dead
+    - type: StatusEffects
+      allowed:
+      - Stun
+      - KnockedDown
+      - SlowedDown
+      - Pacified
+      - Flashed
+    - type: Tag
+      tags:
+      - CanPilot
+      - FootstepSound
+    removedComponents:
+    - type: Deathgasp
+    - type: HealthExaminable
+    - type: Temperature
+    - type: AtmosExposed
+    - type: MovedByPressure
+    - type: ThermalRegulator
+    - type: Flammable
+    - type: FireVisuals
+    - type: Respirator
+    - type: Internals
+    - type: Bloodstream
+    - type: InjectableSolution
+    - type: SolutionContainerManager
+    - type: SlowOnDamage
+    - type: Reactive
+    - type: IdExaminable
+    - type: Cuffable
+    - type: Dna
+    - type: Absorbable
+    - type: Fingerprint
+    - type: Perishable
+    - type: Butcherable
+    - type: FootprintOwner
+    - type: Barotrauma
+
+- type: entity
+  parent: [ ClothingBeltBaseCloneProjector, BaseGrandTheftContraband ]
+  id: ClothingBeltGeminiHoloProjector
+  name: ax-32 "Gemini" holo-projector rig
+  description: A highly advanced holo-projector rig that interfaces directly with the users nervous system to generate an exact copy of them. Truly, a marvel of Nanotrasen technology.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Belt/grenaderig.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Belt/grenaderig.rsi
+  - type: CloneProjector
