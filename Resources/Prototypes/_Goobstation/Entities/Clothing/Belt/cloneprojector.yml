@@ -7,7 +7,7 @@
     sprite: _Goobstation/Clothing/Belt/grenaderig.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Belt/grenaderig.rsi
-    equipDelay: 1 # 10
+    equipDelay: 10
     unequipDelay: 15 # Unscrewing something from your nervous system is kinda difficult.
   - type: CloneProjector
     addedComponents:
@@ -17,8 +17,6 @@
       rules: ghost-role-information-familiar-rules
       mindRoles:
       - MindRoleGhostRoleFamiliar
-      raffle:
-        settings: short
     - type: GhostTakeoverAvailable
     - type: AntagImmune
     - type: Hologram
