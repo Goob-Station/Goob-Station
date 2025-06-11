@@ -40,6 +40,12 @@
   - type: InteractionOutline
   - type: Physics
     bodyType: Static
+  - type: Construction
+    graph: Machine
+    node: machine
+    containers:
+    - machine_parts
+    - machine_board
   - type: Fixtures
     fixtures:
       fix1:
@@ -125,6 +131,8 @@
       - RadFull
   - type: UseDelay
     delay: 1
+  - type: Machine # Goobstation - making tesla coils and radiation collectors craftable
+    board: RadiationCollectorCircuitboard
 
 - type: entity
   id: RadiationCollectorNoTank

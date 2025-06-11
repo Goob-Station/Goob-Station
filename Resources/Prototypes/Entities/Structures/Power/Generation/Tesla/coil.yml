@@ -20,6 +20,12 @@
     anchored: true
   - type: Physics
     bodyType: Static
+  - type: Construction
+    graph: Machine
+    node: machine
+    containers:
+    - machine_parts
+    - machine_board
   - type: Fixtures
     fixtures:
       fix1:
@@ -112,6 +118,8 @@
               SheetSteel1:
                 min: 2
                 max: 4
+  - type: Machine
+    board: TeslaCoilCircuitboard
   - type: GuideHelp
     guides:
     - TeslaEngine

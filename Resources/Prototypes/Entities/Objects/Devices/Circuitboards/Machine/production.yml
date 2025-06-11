@@ -1248,6 +1248,36 @@
         Glass: 2
 
 - type: entity
+  id: TeslaCoilCircuitboard
+  parent: BaseMachineCircuitboard
+  name: tesla coil board
+  components:
+    - type: Sprite
+      state: engineering
+    - type: MachineBoard
+      prototype: TeslaCoil
+      stackRequirements:
+        Capacitor: 5
+        Steel: 5
+        CableHV: 10
+        Uranium: 5
+
+- type: entity
+  id: RadiationCollectorCircuitboard
+  parent: BaseMachineCircuitboard
+  name: radiation collector board
+  components:
+    - type: Sprite
+      state: engineering
+    - type: MachineBoard
+      prototype: RadiationCollector
+      stackRequirements:
+        Capacitor: 5
+        Steel: 5
+        CableHV: 10
+        Uranium: 5
+
+- type: entity
   id: SurveillanceCameraRouterCircuitboard
   parent: BaseMachineCircuitboard
   name: surveillance camera router board
