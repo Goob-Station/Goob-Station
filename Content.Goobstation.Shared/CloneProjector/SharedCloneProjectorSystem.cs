@@ -81,7 +81,6 @@ public partial class SharedCloneProjectorSystem : EntitySystem
     private void OnGetVerbs(Entity<CloneProjectorComponent> projector, ref GetVerbsEvent<AlternativeVerb> args)
     {
         if (!args.CanInteract
-            || !args.CanInteract
             || !args.CanComplexInteract
             || projector.Comp.CurrentHost is not { } host
             || args.User != host)
