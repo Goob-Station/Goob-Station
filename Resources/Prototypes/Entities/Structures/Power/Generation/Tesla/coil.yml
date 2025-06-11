@@ -13,6 +13,7 @@
 
 - type: entity
   id: TeslaCoil
+  parent: ConstructibleMachine
   name: tesla coil
   description: A machine that converts lightning strikes into an electric current.
   placement:
@@ -22,12 +23,6 @@
     anchored: true
   - type: Physics
     bodyType: Static
-  - type: Construction
-    graph: Machine
-    node: machine
-    containers:
-    - machine_parts
-    - machine_board
   - type: Fixtures
     fixtures:
       fix1:
