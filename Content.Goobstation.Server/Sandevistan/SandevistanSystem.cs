@@ -104,8 +104,8 @@ public sealed class SandevistanSystem : EntitySystem
         }
     }
 
-    private void OnStartup(Entity<SandevistanUserComponent> ent, ref ComponentStartup args)
-        => ent.Comp.ActionUid = _actions.AddAction(ent, ent.Comp.ActionProto);
+    private void OnStartup(Entity<SandevistanUserComponent> ent, ref ComponentStartup args) =>
+        ent.Comp.ActionUid = _actions.AddAction(ent, ent.Comp.ActionProto);
 
     private void OnToggle(Entity<SandevistanUserComponent> ent, ref ToggleSandevistanEvent args)
     {
@@ -162,8 +162,8 @@ public sealed class SandevistanSystem : EntitySystem
         weapon.NextAttack -= rate - rate / ent.Comp.AttackSpeedModifier;
     }
 
-    private void OnMobStateChanged(Entity<SandevistanUserComponent> ent, ref MobStateChangedEvent args)
-        => Disable(ent, ent.Comp);
+    private void OnMobStateChanged(Entity<SandevistanUserComponent> ent, ref MobStateChangedEvent args) =>
+        Disable(ent, ent.Comp);
 
     private void OnShutdown(Entity<SandevistanUserComponent> ent, ref ComponentShutdown args)
     {
@@ -183,13 +183,13 @@ public sealed class SandevistanSystem : EntitySystem
 
         if (comp.Overlay != null)
         {
-            RemComp<DogVisionComponent>(uid);
+            RemComp(uid, comp.Overlay);
             comp.Overlay = null;
         }
 
         if (comp.Trail != null)
         {
-            RemComp<TrailComponent>(uid);
+            RemComp(uid, comp.Trail);
             comp.Trail = null;
         }
     }
