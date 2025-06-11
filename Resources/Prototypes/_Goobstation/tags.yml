@@ -428,6 +428,9 @@
   id: Poppy
 
 - type: Tag
+  id: ReptilianEmotes
+
+- type: Tag
   id: RipleyMKIIUpgradeKit
 
 - type: Tag

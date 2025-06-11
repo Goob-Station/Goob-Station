@@ -1,0 +1,14 @@
+- type: emote
+  id: Yip
+  name: chat-emote-name-yip
+  category: Vocal
+  chatMessages: [ yips ]
+  whitelist:
+    tags:
+    - ReptilianEmotes
+  blacklist:
+    components:
+      - BorgChassis
+  chatTriggers:
+  - yip
+  - yips

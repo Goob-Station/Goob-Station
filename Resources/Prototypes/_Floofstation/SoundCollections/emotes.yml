@@ -1,0 +1,9 @@
+- type: soundCollection
+  id: Yip
+  files:
+  - /Audio/_Floofstation/Voice/Reptilian/yip.ogg
+
+- type: soundCollection
+  id: ReptilianHiss
+  files:
+  - /Audio/_Floofstation/Voice/Reptilian/hiss.ogg
