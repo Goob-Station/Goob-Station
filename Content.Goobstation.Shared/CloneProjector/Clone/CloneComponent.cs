@@ -4,7 +4,7 @@ namespace Content.Goobstation.Shared.CloneProjector.Clone;
 public sealed partial class CloneComponent : Component
 {
     [ViewVariables(VVAccess.ReadOnly)]
-    public CloneProjectorComponent? HostProjector;
+    public Entity<CloneProjectorComponent>? HostProjector;
 
     [ViewVariables(VVAccess.ReadOnly)]
     public EntityUid? HostEntity;

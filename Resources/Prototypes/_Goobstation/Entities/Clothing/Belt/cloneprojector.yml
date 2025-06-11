@@ -1,0 +1,105 @@
+- type: entity
+  parent: ClothingBeltBase
+  id: ClothingBeltBaseCloneProjector
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Belt/grenaderig.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Belt/grenaderig.rsi
+    equipDelay: 1 #10
+    unequipDelay: 1 #15 # Unscrewing something from your nervous system is kinda difficult.
+  - type: CloneProjector
+    addedComponents:
+    - type: GhostRole
+      name: ghost-role-information-gemini-clone-name
+      description: ghost-role-information-gemini-clone-description
+      rules: ghost-role-information-familiar-rules
+      mindRoles:
+      - MindRoleGhostRoleFamiliar
+      raffle:
+        settings: short
+    - type: GhostTakeoverAvailable
+    - type: AntagImmune
+    - type: Hologram
+    - type: MovementIgnoreGravity
+    - type: RequireProjectileTarget
+      active: True
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        30: Critical
+        31: Dead
+    - type: StatusEffects
+      allowed:
+      - Stun
+      - KnockedDown
+      - SlowedDown
+      - Pacified
+      - Flashed
+    - type: Tag
+      tags:
+      - CanPilot
+      - FootstepSound
+    removedComponents:
+    - type: Deathgasp
+    - type: HealthExaminable
+      examinableTypes:
+      - Shock
+    - type: Temperature
+    - type: AtmosExposed
+    - type: MovedByPressure
+    - type: ThermalRegulator
+    - type: Flammable
+      damage:
+        types:
+          burn: 0 # required for whatever reason, go fuck yourself
+    - type: FireVisuals
+    - type: Respirator
+      damage:
+        types:
+          Asphyxiation: 0 # required for whatever reason, go fuck yourself
+      damageRecovery:
+        types:
+          Asphyxiation: 0 # required for whatever reason, go fuck yourself
+    - type: Internals
+    - type: Bloodstream
+      bloodlossDamage:
+        types:
+          Bloodloss:
+            0
+      bloodlossHealDamage:
+        types:
+          Bloodloss:
+            0
+    - type: InjectableSolution
+    - type: SolutionContainerManager
+    - type: Reactive
+    - type: IdExaminable
+    - type: Cuffable
+    - type: Dna
+    - type: Absorbable
+    - type: Fingerprint
+    - type: Perishable
+    - type: FootprintOwner
+
+- type: entity
+  parent: [ ClothingBeltBaseCloneProjector, BaseGrandTheftContraband ]
+  id: ClothingBeltGeminiHoloProjector
+  name: ax-32 "gemini" holo-projector rig
+  description: A highly advanced holo-projector rig that interfaces directly with the users nervous system to generate an exact copy of them. Truly, a marvel of Nanotrasen technology.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Belt/grenaderig.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Belt/grenaderig.rsi
+  - type: CloneProjector
+    clonedItemBlacklist:
+      components:
+      - CloneProjector
+      - Pda
+      - IdCard
+      - Access
+    clonedItemWhitelist:
+      components:
+      - Clothing

@@ -1,27 +1,35 @@
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Inventory;
+using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
+using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.CloneProjector;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class CloneProjectorComponent : Component
 {
     /// <summary>
     /// The UID of the active clone.
     /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)]
+    [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
     public EntityUid? CloneUid;
 
-    [ViewVariables(VVAccess.ReadOnly)]
+    [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
     public EntityUid? CurrentHost;
 
     /// <summary>
-    /// Is the clone currently out?
+    /// How long it takes to regenerate the clone when destroyed.
     /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)]
-    public bool IsActive;
+    [DataField]
+    public TimeSpan DestroyedCooldown = TimeSpan.FromSeconds(45);
+
+    /// <summary>
+    /// How long the host is stunned when the hologram is destroyed.
+    /// </summary>
+    [DataField]
+    public TimeSpan StunDuration = TimeSpan.FromSeconds(5);
 
     [DataField]
     public ComponentRegistry? AddedComponents;
@@ -29,11 +37,38 @@ public sealed partial class CloneProjectorComponent : Component
     [DataField]
     public ComponentRegistry? RemovedComponents;
 
+    /// <summary>
+    /// Items on the host that *have* this component will not be duplicated.
+    /// </summary>
+    [DataField]
+    public EntityWhitelist? ClonedItemBlacklist;
+
+    /// <summary>
+    /// Items on the host that do *not* have this component will not be duplicated.
+    /// </summary>
+    [DataField]
+    public EntityWhitelist? ClonedItemWhitelist;
+
     [DataField]
     public ProtoId<DamageModifierSetPrototype> CloneDamageModifierSet ="LivingLight";
 
+    /// <summary>
+    /// The suffix attached to the end of this clones name.
+    /// </summary>
     [DataField]
-    public ProtoId<InventoryTemplatePrototype> CloneInventoryTemplate = "holoclown";
+    public string NameSuffix = "- Gemini";
+
+    [DataField]
+    public LocId CloneGeneratedMessage = "gemini-projector-clone-created";
+
+    [DataField]
+    public LocId CloneRetrievedMessage = "gemini-projector-clone-retrieved";
+
+    [DataField]
+    public LocId EquippedMessage = "gemini-projector-installed";
+
+    [DataField]
+    public LocId UnequippedMessage = "gemini-projector-removed";
 
     [ViewVariables(VVAccess.ReadOnly)]
     public Container CloneContainer = new();
@@ -44,6 +79,6 @@ public sealed partial class CloneProjectorComponent : Component
     [DataField]
     public EntProtoId Action = "ActionActivateProjector";
 
-    [ViewVariables(VVAccess.ReadOnly)]
+    [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
     public EntityUid? ActionEntity;
 }

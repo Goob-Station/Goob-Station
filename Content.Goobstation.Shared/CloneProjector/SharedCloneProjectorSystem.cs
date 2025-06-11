@@ -1,30 +1,48 @@
+using System.Linq;
 using Content.Goobstation.Shared.CloneProjector.Clone;
-using Content.Goobstation.Shared.Clothing.Components;
 using Content.Shared.Actions;
-using Content.Shared.Clothing;
+using Content.Shared.Clothing.Components;
 using Content.Shared.Damage;
 using Content.Shared.Humanoid;
+using Content.Shared.IdentityManagement;
+using Content.Shared.Interaction.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
+using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Popups;
 using Content.Shared.Rejuvenate;
+using Content.Shared.Storage;
+using Content.Shared.Stunnable;
+using Content.Shared.Throwing;
+using Content.Shared.Timing;
+using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
+using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.CloneProjector;
 
 public sealed class SharedCloneProjectorSystem : EntitySystem
 {
-    [Dependency] private readonly PrototypeManager _protoManager = default!;
+    [Dependency] private readonly IPrototypeManager _protoManager = default!;
     [Dependency] private readonly SharedHumanoidAppearanceSystem _humanoidAppearance = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly NetManager _net = default!;
+    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly MetaDataSystem _meta = default!;
+    [Dependency] private readonly SharedJointSystem _joints = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private readonly UseDelaySystem _delay = default!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -46,15 +64,28 @@ public sealed class SharedCloneProjectorSystem : EntitySystem
 
     private void OnEquipped(Entity<CloneProjectorComponent> projector, ref GetItemActionsEvent args)
     {
-        if (args.InHands)
+        if (args.InHands
+            || _net.IsClient)
             return;
 
         args.AddAction(ref projector.Comp.ActionEntity, projector.Comp.Action);
+
+        var popup = Loc.GetString(projector.Comp.EquippedMessage);
+        _popup.PopupEntity(popup, args.User, args.User);
+
+        TryGenerateClone(projector, args.User);
     }
 
     private void OnUnequipped(Entity<CloneProjectorComponent> projector, ref GotUnequippedEvent args)
     {
+        if (_net.IsClient)
+            return;
+
         _actions.RemoveProvidedActions(args.Equipee, projector);
+        TryInsertClone(projector);
+
+        var popup = Loc.GetString(projector.Comp.UnequippedMessage);
+        _popup.PopupEntity(popup, args.Equipee, args.Equipee);
     }
     private void OnProjectorActivated(Entity<CloneProjectorComponent> projector, ref CloneProjectorActivatedEvent args)
     {
@@ -62,45 +93,65 @@ public sealed class SharedCloneProjectorSystem : EntitySystem
             || _net.IsClient)
             return;
 
-        if (projector.Comp.CloneUid != null)
-        {
-            TryInsertClone(projector);
-            return;
-        }
+        // Does the clone match the current user?
+        var cloneMatches = projector.Comp.CurrentHost == args.Performer;
+        var cloneGeneratedPopup = Loc.GetString(projector.Comp.CloneGeneratedMessage, ("user", Identity.Name(args.Performer, EntityManager)));
 
-        if (projector.Comp.CloneUid != args.Performer)
+        if (cloneMatches)
         {
-            if (TrySpawnClone(projector, args.Performer))
+            // First, try to release a clone that already exists.
+            if (TryDeployClone(projector))
             {
                 args.Handled = true;
+                _popup.PopupEntity(cloneGeneratedPopup, args.Performer, PopupType.Medium);
                 return;
             }
         }
 
-        if (!TryRetrieveClone(projector))
+        // If there is no clone to release, try to insert the current clone.
+        if (TryInsertClone(projector))
+        {
+            args.Handled = true;
+            return;
+        }
+
+        // If there is no clone to release nor insert, create a new one.
+        if (!TryGenerateClone(projector, args.Performer))
             return;
 
+        TryDeployClone(projector);
+        _popup.PopupEntity(cloneGeneratedPopup, args.Performer, PopupType.Medium);
         args.Handled = true;
+
     }
 
     private void OnMobStateChanged(Entity<CloneComponent> clone, ref MobStateChangedEvent args)
     {
         if (!_mobState.IsIncapacitated(clone)
-            || clone.Comp.HostProjector is not { } projector)
+            || clone.Comp.HostProjector is not { } projector
+            || _net.IsClient)
             return;
 
         TryInsertClone(projector);
         RaiseLocalEvent(clone, new RejuvenateEvent(true, false));
 
-        // add cooldown here
+        if (projector.Comp.ActionEntity is { } actionEntity)
+            _delay.SetLength(actionEntity, projector.Comp.DestroyedCooldown);
+
+        if (clone.Comp.HostEntity is not { } host)
+            return;
+
+        var destroyedPopup = Loc.GetString("gemini-projector-clone-destroyed");
+        _popup.PopupEntity(destroyedPopup, host, host, PopupType.LargeCaution);
+        _stun.KnockdownOrStun(host, projector.Comp.StunDuration, true);
+
     }
 
-    private bool TrySpawnClone(CloneProjectorComponent projector, EntityUid performer)
+    private bool TryGenerateClone(Entity<CloneProjectorComponent> projector, EntityUid performer)
     {
-        if (!TryComp<HumanoidAppearanceComponent>(performer, out var appearance))
+        if (!TryComp<HumanoidAppearanceComponent>(performer, out var appearance)
+            || performer == projector.Comp.CurrentHost)
             return false;
-
-        _container.CleanContainer(projector.CloneContainer);
 
         var speciesId = appearance.Species;
 
@@ -108,44 +159,142 @@ public sealed class SharedCloneProjectorSystem : EntitySystem
             return false;
 
         var clone = Spawn(species.Prototype, Transform(performer).Coordinates);
+
+        if (projector.Comp.CloneUid is { } oldClone)
+        {
+            _container.TryRemoveFromContainer(oldClone);
+            CleanItems(oldClone, true);
+
+            if (_mind.TryGetMind(oldClone, out var id, out _))
+                _mind.TransferTo(id, clone);
+
+            QueueDel(oldClone);
+        }
+
+        _container.Insert(clone, projector.Comp.CloneContainer);
+
         _humanoidAppearance.CloneAppearance(performer, clone);
 
-        if (projector.AddedComponents != null)
-            EntityManager.AddComponents(clone, projector.AddedComponents);
+        if (projector.Comp.AddedComponents != null)
+            EntityManager.AddComponents(clone, projector.Comp.AddedComponents);
 
-        if (projector.RemovedComponents != null)
-            EntityManager.RemoveComponents(clone, projector.RemovedComponents);
+        if (projector.Comp.RemovedComponents != null)
+            EntityManager.RemoveComponents(clone, projector.Comp.RemovedComponents);
+
+        projector.Comp.CurrentHost = performer;
 
         var cloneComp = EnsureComp<CloneComponent>(clone);
 
         cloneComp.HostProjector = projector;
         cloneComp.HostEntity = performer;
 
-        _damageable.SetDamageModifierSetId(clone, projector.CloneDamageModifierSet);
-        projector.CloneUid = clone;
+        _damageable.SetDamageModifierSetId(clone, projector.Comp.CloneDamageModifierSet);
+        projector.Comp.CloneUid = clone;
 
-        if (!TryComp<InventoryComponent>(clone, out var inventoryComponent))
+        _meta.SetEntityName(clone, Identity.Name(performer, EntityManager) + " " + projector.Comp.NameSuffix);
+
+        if (!TryEquipItems(projector))
             return false;
 
-        _inventory.SetTemplateId((clone, inventoryComponent), projector.CloneInventoryTemplate);
-
+        Dirty(clone, projector.Comp);
         return true;
     }
 
     private bool TryInsertClone(CloneProjectorComponent projector)
     {
-        if (projector.CloneUid is not { } clone)
+        if (projector.CloneUid is not { } clone
+            || _container.IsEntityOrParentInContainer(clone))
             return false;
 
+        _joints.RecursiveClearJoints(clone);
+        CleanItems(clone);
+
+        var cloneRetrievedPopup = Loc.GetString(projector.CloneRetrievedMessage, ("target", Name(clone)));
+        _popup.PopupCoordinates(cloneRetrievedPopup, Transform(clone).Coordinates, PopupType.Medium);
+
         _container.Insert(clone, projector.CloneContainer);
-        projector.IsActive = false;
+
+        Dirty(clone, projector);
+        return true;
+    }
+
+    private bool TryDeployClone(CloneProjectorComponent projector)
+    {
+        if (projector.CloneUid is not { } clone
+            || !_container.IsEntityOrParentInContainer(clone))
+            return false;
+
+        Dirty(clone, projector);
+
+        return _container.TryRemoveFromContainer(clone);
+    }
+
+    private bool TryEquipItems(CloneProjectorComponent projector)
+    {
+        if (projector.CloneUid is not { } clone
+            || projector.CurrentHost is not { } host)
+            return false;
+
+        var toSpawn = new Dictionary<EntProtoId, string>();
+
+        var hostInventory = _inventory.GetSlotEnumerator(host);
+        while (hostInventory.MoveNext(out var slot))
+        {
+            if (slot.ContainedEntity is not { } item
+                || _whitelist.IsWhitelistFail(projector.ClonedItemWhitelist, item)
+                || _whitelist.IsBlacklistPass(projector.ClonedItemBlacklist, item))
+                continue;
+
+            var proto = Prototype(item);
+
+            if (proto == null)
+                continue;
+
+            toSpawn.Add(proto, slot.ID);
+        }
+
+        if (toSpawn.Count <= 0)
+            return true;
+
+        foreach (var item in toSpawn
+                     .Where(item => _inventory.SpawnItemInSlot(clone, item.Value, item.Key, true, true)))
+        {
+            if (_inventory.TryGetSlotEntity(clone, item.Value, out var spawnedItem))
+                EnsureComp<UnremoveableComponent>(spawnedItem.Value);
+        }
 
         return true;
     }
 
-    private bool TryRetrieveClone(Entity<CloneProjectorComponent> projector)
+    private void CleanItems(EntityUid clone, bool removePocketItems = false)
     {
-        return projector.Comp.CloneUid is { } clone
-               && _container.TryRemoveFromContainer(clone);
+        var items = _inventory.GetSlotEnumerator(clone);
+        var storageItems = new List<StorageComponent>();
+
+        while (items.MoveNext(out var slot))
+        {
+            if (slot.ContainedEntity is not { } item
+                || !TryComp<StorageComponent>(item, out var storageComponent))
+                continue;
+
+            storageItems.Add(storageComponent);
+        }
+
+        foreach (var item in storageItems
+                     .SelectMany(storageItem => _container.EmptyContainer(storageItem.Container)))
+        {
+            _container.TryRemoveFromContainer(item);
+            _physics.ApplyAngularImpulse(item, ThrowingSystem.ThrowAngularImpulse);
+        }
+
+        if (!removePocketItems)
+            return;
+
+        foreach (var pocketItem in _inventory.GetHandOrInventoryEntities(clone, SlotFlags.POCKET))
+        {
+            _container.TryRemoveFromContainer(pocketItem);
+            _physics.ApplyAngularImpulse(pocketItem, ThrowingSystem.ThrowAngularImpulse);
+        }
+
     }
 }

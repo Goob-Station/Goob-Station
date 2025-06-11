@@ -22,7 +22,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 namespace Content.Shared.Inventory;
 
 [RegisterComponent, NetworkedComponent]
-[Access(typeof(InventorySystem))]
+//[Access(typeof(InventorySystem))] - Fuck yo explicit access!
 [AutoGenerateComponentState(true)]
 public sealed partial class InventoryComponent : Component
 {

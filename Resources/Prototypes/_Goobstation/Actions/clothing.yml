@@ -35,6 +35,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
+    useDelay: 1
     checkCanInteract: true
     checkConsciousness: true
     itemIconStyle: NoItem
