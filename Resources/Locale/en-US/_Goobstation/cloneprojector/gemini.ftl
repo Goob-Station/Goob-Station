@@ -3,7 +3,9 @@ gemini-projector-clone-retrieved = The {$target} fizzles out of existence.
 
 gemini-projector-installed = You feel a sharp pain in your lower back.
 gemini-projector-removed = You feel your vision widen, and an extremely sharp pain in your lower back.
-gemini-projector-clone-destroyed = Every muscle in your body shakes as the projector is damaged.
+gemini-projector-clone-destroyed = Every muscle in your body shakes as the projector malfuctions.
+
+gemini-projector-regenerate-verb = Generate New Clone
 
 ghost-role-information-gemini-clone-name = Gemini Clone
 ghost-role-information-gemini-clone-description = Assist the Research Director with their research. Maybe burn a city or two.

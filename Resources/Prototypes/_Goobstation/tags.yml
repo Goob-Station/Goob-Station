@@ -107,6 +107,9 @@
   id: Chair
 
 - type: Tag
+  id: ClothingBeltGeminiHoloProjector
+
+- type: Tag
   id: Clarke
 
 - type: Tag

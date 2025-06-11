@@ -7,8 +7,8 @@
     sprite: _Goobstation/Clothing/Belt/grenaderig.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Belt/grenaderig.rsi
-    equipDelay: 1 #10
-    unequipDelay: 1 #15 # Unscrewing something from your nervous system is kinda difficult.
+    equipDelay: 1 # 10
+    unequipDelay: 15 # Unscrewing something from your nervous system is kinda difficult.
   - type: CloneProjector
     addedComponents:
     - type: GhostRole
@@ -87,12 +87,12 @@
   parent: [ ClothingBeltBaseCloneProjector, BaseGrandTheftContraband ]
   id: ClothingBeltGeminiHoloProjector
   name: ax-32 "gemini" holo-projector rig
-  description: A highly advanced holo-projector rig that interfaces directly with the users nervous system to generate an exact copy of them. Truly, a marvel of Nanotrasen technology.
+  description: A highly advanced holo-projector rig that interfaces directly with the users nervous system to generate an exact copy of them. Truly a marvel of Nanotrasen technology.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Belt/grenaderig.rsi
+    sprite: _Goobstation/Clothing/Belt/geminiprojector.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Belt/grenaderig.rsi
+    sprite: _Goobstation/Clothing/Belt/geminiprojector.rsi
   - type: CloneProjector
     clonedItemBlacklist:
       components:
@@ -103,3 +103,7 @@
     clonedItemWhitelist:
       components:
       - Clothing
+  - type: Tag
+    tags:
+      - HighRiskItem
+      - ClothingBeltGeminiHoloProjector

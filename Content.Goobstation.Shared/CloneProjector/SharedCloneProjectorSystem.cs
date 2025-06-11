@@ -17,12 +17,14 @@ using Content.Shared.Storage;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Content.Shared.Timing;
+using Content.Shared.Verbs;
 using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.CloneProjector;
 
@@ -44,11 +46,14 @@ public sealed class SharedCloneProjectorSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+
+    private ISawmill _sawmill = default!;
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<CloneProjectorComponent, MapInitEvent>(OnInit);
+        SubscribeLocalEvent<CloneProjectorComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs);
 
         SubscribeLocalEvent<CloneProjectorComponent, GetItemActionsEvent>(OnEquipped);
         SubscribeLocalEvent<CloneProjectorComponent, GotUnequippedEvent>(OnUnequipped);
@@ -56,11 +61,36 @@ public sealed class SharedCloneProjectorSystem : EntitySystem
         SubscribeLocalEvent<CloneProjectorComponent, CloneProjectorActivatedEvent>(OnProjectorActivated);
 
         SubscribeLocalEvent<CloneComponent, MobStateChangedEvent>(OnMobStateChanged);
+
+        _sawmill = Logger.GetSawmill("clone-projector");
     }
 
     private void OnInit(Entity<CloneProjectorComponent> projector, ref MapInitEvent args)
     {
+        if (_net.IsClient)
+            return;
+
         projector.Comp.CloneContainer = _container.EnsureContainer<Container>(projector.Owner, "CloneContainer");
+    }
+
+    private void OnGetVerbs(Entity<CloneProjectorComponent> projector, ref GetVerbsEvent<AlternativeVerb> args)
+    {
+        if (!args.CanInteract
+            || !args.CanInteract
+            || !args.CanComplexInteract
+            || projector.Comp.CurrentHost is not { } host
+            || args.User != host)
+            return;
+
+        AlternativeVerb verb = new()
+        {
+            Act = () => { TryGenerateClone(projector, host, true); },
+            Text = Loc.GetString("gemini-projector-regenerate-verb"),
+            Icon = new SpriteSpecifier.Rsi(new("Mobs/Silicon/station_ai.rsi"), "default"),
+            Priority = 2
+        };
+
+        args.Verbs.Add(verb);
     }
 
     private void OnEquipped(Entity<CloneProjectorComponent> projector, ref GetItemActionsEvent args)
@@ -123,7 +153,6 @@ public sealed class SharedCloneProjectorSystem : EntitySystem
         TryDeployClone(projector);
         _popup.PopupEntity(cloneGeneratedPopup, args.Performer, PopupType.Medium);
         args.Handled = true;
-
     }
 
     private void OnMobStateChanged(Entity<CloneComponent> clone, ref MobStateChangedEvent args)
@@ -154,16 +183,26 @@ public sealed class SharedCloneProjectorSystem : EntitySystem
 
     }
 
-    private bool TryGenerateClone(Entity<CloneProjectorComponent> projector, EntityUid performer)
+    private bool TryGenerateClone(Entity<CloneProjectorComponent> projector, EntityUid performer, bool force = false)
     {
-        if (!TryComp<HumanoidAppearanceComponent>(performer, out var appearance)
-            || performer == projector.Comp.CurrentHost)
+        if (!TryComp<HumanoidAppearanceComponent>(performer, out var appearance))
+        {
+            _sawmill.Error($"Could not resolve {nameof(HumanoidAppearanceComponent)} for {ToPrettyString(performer)}");
+            return false;
+        }
+
+        if (performer == projector.Comp.CurrentHost
+            && !force)
             return false;
 
         var speciesId = appearance.Species;
 
         if (!_protoManager.TryIndex(speciesId, out var species))
+        {
+            _sawmill.Error($"Failed to index species ID of {speciesId}");
             return false;
+        }
+
 
         var clone = Spawn(species.Prototype, Transform(performer).Coordinates);
 
@@ -207,21 +246,28 @@ public sealed class SharedCloneProjectorSystem : EntitySystem
         return true;
     }
 
-    private bool TryInsertClone(CloneProjectorComponent projector)
+    private bool TryInsertClone(Entity<CloneProjectorComponent> projector)
     {
-        if (projector.CloneUid is not { } clone
+        if (projector.Comp.CloneUid is not { } clone
             || _container.IsEntityOrParentInContainer(clone))
             return false;
 
         _joints.RecursiveClearJoints(clone);
         CleanItems(clone);
 
-        var cloneRetrievedPopup = Loc.GetString(projector.CloneRetrievedMessage, ("target", Name(clone)));
+        var cloneRetrievedPopup = Loc.GetString(projector.Comp.CloneRetrievedMessage, ("target", Name(clone)));
         _popup.PopupCoordinates(cloneRetrievedPopup, Transform(clone).Coordinates, PopupType.Medium);
 
-        _container.Insert(clone, projector.CloneContainer);
+        if (TerminatingOrDeleted(projector)
+            || !_container.Insert(clone, projector.Comp.CloneContainer))
+        {
+            _sawmill.Error($"Failed to insert clone entity: {ToPrettyString(clone)} into {ToPrettyString(projector)}");
 
-        Dirty(clone, projector);
+            QueueDel(clone);
+            return false;
+        }
+
+        Dirty(clone, projector.Comp);
         return true;
     }
 
