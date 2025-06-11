@@ -1,22 +1,21 @@
 using System.Linq;
 using Content.Goobstation.Shared.CloneProjector.Clone;
+using Content.Shared._DV.Carrying;
 using Content.Shared.Actions;
-using Content.Shared.Clothing.Components;
+using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Mind;
-using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
-using Content.Shared.Rejuvenate;
 using Content.Shared.Storage;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
-using Content.Shared.Timing;
 using Content.Shared.Verbs;
 using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
@@ -28,7 +27,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.CloneProjector;
 
-public sealed class SharedCloneProjectorSystem : EntitySystem
+public partial class SharedCloneProjectorSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
     [Dependency] private readonly SharedHumanoidAppearanceSystem _humanoidAppearance = default!;
@@ -46,12 +45,13 @@ public sealed class SharedCloneProjectorSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
+    [Dependency] private readonly CarryingSystem _carrying = default!;
+    [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
 
     private ISawmill _sawmill = default!;
-    public override void Initialize()
+    public void InitializeProjector()
     {
-        base.Initialize();
-
         SubscribeLocalEvent<CloneProjectorComponent, MapInitEvent>(OnInit);
         SubscribeLocalEvent<CloneProjectorComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs);
 
@@ -59,8 +59,6 @@ public sealed class SharedCloneProjectorSystem : EntitySystem
         SubscribeLocalEvent<CloneProjectorComponent, GotUnequippedEvent>(OnUnequipped);
 
         SubscribeLocalEvent<CloneProjectorComponent, CloneProjectorActivatedEvent>(OnProjectorActivated);
-
-        SubscribeLocalEvent<CloneComponent, MobStateChangedEvent>(OnMobStateChanged);
 
         _sawmill = Logger.GetSawmill("clone-projector");
     }
@@ -105,6 +103,8 @@ public sealed class SharedCloneProjectorSystem : EntitySystem
         _popup.PopupEntity(popup, args.User, args.User);
 
         TryGenerateClone(projector, args.User);
+
+        _stun.TryParalyze(args.User, projector.Comp.StunDuration, true);
     }
 
     private void OnUnequipped(Entity<CloneProjectorComponent> projector, ref GotUnequippedEvent args)
@@ -117,6 +117,8 @@ public sealed class SharedCloneProjectorSystem : EntitySystem
 
         var popup = Loc.GetString(projector.Comp.UnequippedMessage);
         _popup.PopupEntity(popup, args.Equipee, args.Equipee);
+
+        _stun.TryParalyze(args.Equipee, projector.Comp.StunDuration, true);
     }
     private void OnProjectorActivated(Entity<CloneProjectorComponent> projector, ref CloneProjectorActivatedEvent args)
     {
@@ -154,37 +156,11 @@ public sealed class SharedCloneProjectorSystem : EntitySystem
         _popup.PopupEntity(cloneGeneratedPopup, args.Performer, PopupType.Medium);
         args.Handled = true;
     }
-
-    private void OnMobStateChanged(Entity<CloneComponent> clone, ref MobStateChangedEvent args)
-    {
-        if (!_mobState.IsIncapacitated(clone)
-            || clone.Comp.HostProjector is not { } projector
-            || _net.IsClient)
-            return;
-
-        TryInsertClone(projector);
-        RaiseLocalEvent(clone, new RejuvenateEvent(true, false));
-
-        if (projector.Comp.ActionEntity is { } actionEntity
-            && TryComp<InstantActionComponent>(actionEntity, out var actionComp))
-        {
-            actionComp.Cooldown = (_timing.CurTime, _timing.CurTime + projector.Comp.DestroyedCooldown);
-
-            _actions.UpdateAction(actionEntity, actionComp);
-            Dirty(actionEntity, actionComp);
-        }
-
-        if (clone.Comp.HostEntity is not { } host)
-            return;
-
-        var destroyedPopup = Loc.GetString("gemini-projector-clone-destroyed");
-        _popup.PopupEntity(destroyedPopup, host, host, PopupType.LargeCaution);
-        _stun.TryParalyze(host, projector.Comp.StunDuration, true);
-
-    }
-
     private bool TryGenerateClone(Entity<CloneProjectorComponent> projector, EntityUid performer, bool force = false)
     {
+        if (_net.IsClient)
+            return false;
+
         if (!TryComp<HumanoidAppearanceComponent>(performer, out var appearance))
         {
             _sawmill.Error($"Could not resolve {nameof(HumanoidAppearanceComponent)} for {ToPrettyString(performer)}");
@@ -203,18 +179,17 @@ public sealed class SharedCloneProjectorSystem : EntitySystem
             return false;
         }
 
-
         var clone = Spawn(species.Prototype, Transform(performer).Coordinates);
 
         if (projector.Comp.CloneUid is { } oldClone)
         {
             _container.TryRemoveFromContainer(oldClone);
-            CleanItems(oldClone, true);
+            CleanClone(oldClone, true);
 
             if (_mind.TryGetMind(oldClone, out var id, out _))
                 _mind.TransferTo(id, clone);
 
-            QueueDel(oldClone);
+            Del(oldClone);
         }
 
         _container.Insert(clone, projector.Comp.CloneContainer);
@@ -237,7 +212,7 @@ public sealed class SharedCloneProjectorSystem : EntitySystem
         _damageable.SetDamageModifierSetId(clone, projector.Comp.CloneDamageModifierSet);
         projector.Comp.CloneUid = clone;
 
-        _meta.SetEntityName(clone, Identity.Name(performer, EntityManager) + " " + projector.Comp.NameSuffix);
+        _meta.SetEntityName(clone, Identity.Name(performer, EntityManager) + " " + Loc.GetString(projector.Comp.NameSuffix));
 
         if (!TryEquipItems(projector))
             return false;
@@ -246,14 +221,13 @@ public sealed class SharedCloneProjectorSystem : EntitySystem
         return true;
     }
 
-    private bool TryInsertClone(Entity<CloneProjectorComponent> projector)
+    public bool TryInsertClone(Entity<CloneProjectorComponent> projector, bool doCooldown = false)
     {
         if (projector.Comp.CloneUid is not { } clone
             || _container.IsEntityOrParentInContainer(clone))
             return false;
 
-        _joints.RecursiveClearJoints(clone);
-        CleanItems(clone);
+        CleanClone(clone);
 
         var cloneRetrievedPopup = Loc.GetString(projector.Comp.CloneRetrievedMessage, ("target", Name(clone)));
         _popup.PopupCoordinates(cloneRetrievedPopup, Transform(clone).Coordinates, PopupType.Medium);
@@ -265,6 +239,16 @@ public sealed class SharedCloneProjectorSystem : EntitySystem
 
             QueueDel(clone);
             return false;
+        }
+
+        if (doCooldown
+            && projector.Comp.ActionEntity is { } actionEntity
+            && TryComp<InstantActionComponent>(actionEntity, out var actionComp))
+        {
+            actionComp.Cooldown = (_timing.CurTime, _timing.CurTime + projector.Comp.DestroyedCooldown);
+
+            _actions.UpdateAction(actionEntity, actionComp);
+            Dirty(actionEntity, actionComp);
         }
 
         Dirty(clone, projector.Comp);
@@ -309,21 +293,51 @@ public sealed class SharedCloneProjectorSystem : EntitySystem
         if (toSpawn.Count <= 0)
             return true;
 
+        // Make all equipped clothing unremovable after spawning to prevent duplication.
         foreach (var item in toSpawn
                      .Where(item => _inventory.SpawnItemInSlot(clone, item.Value, item.Key, true, true)))
         {
-            if (_inventory.TryGetSlotEntity(clone, item.Value, out var spawnedItem))
-                EnsureComp<UnremoveableComponent>(spawnedItem.Value);
+            if (_inventory.TryGetSlotEntity(clone, item.Value, out var spawnedItemNullable)
+                && spawnedItemNullable is { } spawnedItem )
+            {
+                EnsureComp<UnremoveableComponent>(spawnedItem);
+                if (!TryComp<ItemSlotsComponent>(spawnedItem, out var itemSlots))
+                    continue;
+
+                // Lock all slots to prevent duplication.
+                foreach (var slot in itemSlots.Slots.Values)
+                {
+                    if (slot.ContainerSlot != null)
+                        _itemSlots.SetLock(spawnedItem, slot, true);
+                }
+            }
+
         }
 
         return true;
     }
 
-    private void CleanItems(EntityUid clone, bool removePocketItems = false)
+    private void CleanClone(EntityUid clone, bool removePocketItems = false)
     {
-        var items = _inventory.GetSlotEnumerator(clone, SlotFlags.WITHOUT_POCKET);
+        // Do NOT spawn shit on client side.
+        if (TerminatingOrDeleted(clone)
+            || _net.IsClient)
+            return;
 
-        while (items.MoveNext(out var slot))
+        // Clear all joints.
+        _joints.RecursiveClearJoints(clone);
+
+        // Drop held items.
+        foreach (var heldItem in _handsSystem.EnumerateHeld(clone))
+            _handsSystem.TryDrop(clone, heldItem);
+
+        // Drop held entities.
+        if (TryComp<CarryingComponent>(clone, out var carrying))
+            _carrying.DropCarried(clone, carrying.Carried);
+
+        // Drop all items inside of items equipped or held.
+        var equippedItems = _inventory.GetSlotEnumerator(clone, SlotFlags.WITHOUT_POCKET);
+        while (equippedItems.MoveNext(out var slot))
         {
             if (slot.ContainedEntity is not { } item)
                 continue;
@@ -341,6 +355,7 @@ public sealed class SharedCloneProjectorSystem : EntitySystem
         if (!removePocketItems)
             return;
 
+        // Drop all items inside your pockets.
         foreach (var pocketItem in _inventory.GetHandOrInventoryEntities(clone, SlotFlags.POCKET))
         {
             _container.TryRemoveFromContainer(pocketItem);

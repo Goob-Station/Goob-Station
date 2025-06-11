@@ -113,3 +113,4 @@
   - type: StealCondition
     stealGroup: ClothingBeltGeminiHoloProjector
     owner: job-name-rd
+    descriptionText: objective-condition-steal-gemini-projector-description

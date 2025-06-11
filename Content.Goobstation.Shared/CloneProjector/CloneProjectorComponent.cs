@@ -23,7 +23,7 @@ public sealed partial class CloneProjectorComponent : Component
     /// How long it takes to regenerate the clone when destroyed.
     /// </summary>
     [DataField]
-    public TimeSpan DestroyedCooldown = TimeSpan.FromSeconds(45);
+    public TimeSpan DestroyedCooldown = TimeSpan.FromSeconds(90);
 
     /// <summary>
     /// How long the host is stunned when the hologram is destroyed.
@@ -56,7 +56,10 @@ public sealed partial class CloneProjectorComponent : Component
     /// The suffix attached to the end of this clones name.
     /// </summary>
     [DataField]
-    public string NameSuffix = "- Gemini";
+    public LocId NameSuffix = "gemini-projector-clone-name-suffix";
+
+    [DataField]
+    public LocId FlavorText = "gemini-projector-clone-flavor-text";
 
     [DataField]
     public LocId CloneGeneratedMessage = "gemini-projector-clone-created";

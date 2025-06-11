@@ -87,7 +87,7 @@
   parent: [ ClothingBeltBaseCloneProjector, BaseGrandTheftContraband ]
   id: ClothingBeltGeminiHoloProjector
   name: ax-32 "gemini" holo-projector rig
-  description: A highly advanced holo-projector rig that interfaces directly with the users nervous system to generate an exact copy of them. Truly a marvel of Nanotrasen technology.
+  description: A highly advanced holo-projector rig that interfaces directly with the users spinal cord to generate an exact copy of them. Truly a marvel of Nanotrasen technology.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Belt/geminiprojector.rsi
@@ -97,9 +97,6 @@
     clonedItemBlacklist:
       components:
       - CloneProjector
-      - Pda
-      - IdCard
-      - Access
     clonedItemWhitelist:
       components:
       - Clothing
