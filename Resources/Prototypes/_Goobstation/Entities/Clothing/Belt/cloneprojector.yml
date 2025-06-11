@@ -9,11 +9,14 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Belt/grenaderig.rsi
+    sprite: _Goobstation/Clothing/Belt/geminiprojector.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Belt/grenaderig.rsi
+    sprite: _Goobstation/Clothing/Belt/geminiprojector.rsi
     equipDelay: 10
     unequipDelay: 15 # Unscrewing something from your nervous system is kinda difficult.
+  - type: Item
+    sprite: _Goobstation/Clothing/Belt/geminiprojector.rsi
+    size: Large
   - type: CloneProjector
     addedComponents:
     - type: GhostRole
@@ -96,6 +99,8 @@
     sprite: _Goobstation/Clothing/Belt/geminiprojector.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Belt/geminiprojector.rsi
+  - type: StealTarget
+    stealGroup: ClothingBeltGeminiHoloProjector
   - type: CloneProjector
     clonedItemBlacklist:
       components:

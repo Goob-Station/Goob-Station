@@ -7,7 +7,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.CloneProjector.Clone;
 using Content.Server.Emp;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Silicons.Borgs.Components;
