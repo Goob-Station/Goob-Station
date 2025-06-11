@@ -586,6 +586,11 @@ public enum LogType
     /// Damaging grid collision has occurred.
     /// </summary>
     ShuttleImpact = 102,
+
+    /// <summary>
+    /// Events relating to midi playback.
+    /// </summary>
+    Instrument = 103,
     
     /// <summary>
     /// SecretPlus related game interactions.
