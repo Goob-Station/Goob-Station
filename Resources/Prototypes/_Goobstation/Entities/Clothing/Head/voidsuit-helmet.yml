@@ -36,17 +36,22 @@
   - type: SpeechSoundsReplacer
     speechSounds: Chrono
   - type: Armor
-    coverage:
-    - Head
+    traumaDeductions: # prevents traumas at all (kinda)
+      Dismemberment: 1
+      OrganDamage: 1
+      BoneDamage: 1
+      VeinsDamage: 1
+      NerveDamage: 1
     modifiers:
       coefficients:
-        Blunt: 0.10
-        Slash: 0.10
-        Piercing: 0.10
-        Heat: 0.10
-        Cold: 0.10
-        Radiation: 0.10
-        Caustic: 0.10
+        Blunt: 0.01
+        Slash: 0.01
+        Piercing: 0.01
+        Heat: 0.01
+        Cold: 0.01
+        Shock: 0.01
+        Caustic: 0.01
+        Radiation: 0.01
   - type: FlashImmunity
   - type: FlashSoundSuppression
     protectionRange: 0
@@ -73,16 +78,19 @@
     highPressureMultiplier: 0.525
     lowPressureMultiplier: 1000
   - type: Armor
-    coverage:
-    - Head
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.5
-        Heat: 0.6
-        Cold: 0.5
-        Radiation: 0.5
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.7
+        Heat: 0.7
+        Radiation: 0.6
         Caustic: 0.6
   - type: FlashImmunity
   - type: FlashSoundSuppression
@@ -106,15 +114,19 @@
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
   - type: Armor
-    coverage:
-    - Head
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.65
         Slash: 0.65
-        Piercing: 0.6
-        Heat: 0.6
-        Radiation: 0.55
+        Piercing: 0.65
+        Heat: 0.65
+        Radiation: 0.5
         Caustic: 0.7
   - type: ClothingGrantComponent
     component:
@@ -142,12 +154,20 @@
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
   - type: Armor
+    traumaDeductions: # not full protection so its damage can actually harm you
+      Dismemberment: 0.9
+      OrganDamage: 0.9
+      BoneDamage: 0.9
+      VeinsDamage: 0.9
+      NerveDamage: 0.9
     modifiers:
       coefficients:
-        Blunt: 0.89
-        Slash: 0.89
-        Piercing: 0.89
-        Heat: 0.89
+        Blunt: 0.15
+        Slash: 0.15 # holy shit bruv
+        Piercing: 0.15
+        Heat: 0.15
+        Radiation: 0.25 # do people even know rad ammo exists? anyway making rad its weakness is kinda fair
+        Caustic: 0.4
   - type: FlashImmunity
   - type: FlashSoundSuppression
   - type: SpeechSoundsReplacer
@@ -173,14 +193,20 @@
   - type: PressureProtection
     highPressureMultiplier: 0.525
   - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
-        Radiation: 0.9
-        Caustic: 0.9
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.75
+        Heat: 0.8
+        Radiation: 0.6
+        Caustic: 0.5
   - type: FlashImmunity
   - type: FlashSoundSuppression
 
@@ -199,13 +225,20 @@
     color: "#ffeead"
   - type: PressureProtection
     highPressureMultiplier: 0.45
-    lowPressureMultiplier: 1000
   - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.85
-        Slash: 0.85
-        Piercing: 0.85
-        Heat: 0.85
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.8
+        Radiation: 0.5
+        Caustic: 0.5
   - type: FlashImmunity
   - type: FlashSoundSuppression
