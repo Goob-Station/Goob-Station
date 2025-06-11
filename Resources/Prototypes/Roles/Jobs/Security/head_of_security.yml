@@ -179,7 +179,7 @@
     components:
       - type: CommandStaff
       - type: SecurityStaff # goobstation
-      - type: Skills # Corvax-Skills
+      - type: Skills # CorvaxGoob-Skills
         skills:
         - ShuttleControl
         - Shooting

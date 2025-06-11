@@ -1,6 +1,6 @@
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Corvax.Skills;
+namespace Content.Shared._CorvaxGoob.Skills;
 
 [Serializable, NetSerializable]
 public enum Skills

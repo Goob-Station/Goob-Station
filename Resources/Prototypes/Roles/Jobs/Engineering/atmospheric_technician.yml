@@ -84,7 +84,7 @@
   - !type:AddComponentSpecial # Goobstation
     components:
     - type: EngineeringStaff
-    - type: Skills # Corvax-Skills
+    - type: Skills # CorvaxGoob-Skills
       skills:
       - ShuttleControl
       - AdvancedBuilding

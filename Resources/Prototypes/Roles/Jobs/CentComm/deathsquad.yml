@@ -34,7 +34,7 @@
   - !type:AddComponentSpecial
     components:
     - type: DeathSquadMember # Goobstation
-    - type: Skills # Corvax-Skills
+    - type: Skills # CorvaxGoob-Skills
       skills:
       - ShuttleControl
       - Shooting

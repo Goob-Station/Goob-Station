@@ -290,7 +290,7 @@
     coefficient: 0.5
   - type: CombatPower # Goobstation
     factor: 2
-  - type: Skills # Corvax-Skills
+  - type: Skills # CorvaxGoob-Skills
     skills:
     - Butchering
 

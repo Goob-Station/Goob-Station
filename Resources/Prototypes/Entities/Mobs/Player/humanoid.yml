@@ -144,7 +144,7 @@
   components:
     - type: MindShield
     - type: AntagImmune
-    - type: Skills # Corvax-Skills
+    - type: Skills # CorvaxGoob-Skills
       skills:
         - ShuttleControl
         - Shooting

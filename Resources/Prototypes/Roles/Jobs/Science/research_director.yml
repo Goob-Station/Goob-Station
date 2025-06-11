@@ -158,7 +158,7 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
-      - type: Skills # Corvax-Skills
+      - type: Skills # CorvaxGoob-Skills
         skills:
         - AdvancedBuilding
 

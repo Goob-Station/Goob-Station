@@ -1,22 +1,22 @@
 using System.Linq;
 using Content.Server.Administration;
-using Content.Shared._Corvax.Skills;
+using Content.Shared._CorvaxGoob.Skills;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
 
-namespace Content.Server._Corvax.Skills.Commands;
+namespace Content.Server._CorvaxGoob.Skills.Commands;
 
 [AdminCommand(AdminFlags.Admin)]
-public sealed class RevokeSkillCommand : IConsoleCommand
+public sealed class GrantSkillCommand : IConsoleCommand
 {
     [Dependency] private readonly ILocalizationManager _localization = default!;
     [Dependency] private readonly IEntityManager _entity = default!;
 
-    public string Command => "revokeskill";
+    public string Command => "grantskill";
 
-    public string Description => "Revokes skill from given entity.";
+    public string Description => "Grants skill to given entity.";
 
-    public string Help => "revokeskill <entityuid> <skill>";
+    public string Help => "grantskill <entityuid> <skill>";
 
     public void Execute(IConsoleShell shell, string arg, string[] args)
     {
@@ -38,16 +38,15 @@ public sealed class RevokeSkillCommand : IConsoleCommand
             return;
         }
 
-        if (!Enum.TryParse<Shared._Corvax.Skills.Skills>(args[1], out var skill))
+        if (!Enum.TryParse<Shared._CorvaxGoob.Skills.Skills>(args[1], out var skill))
         {
             shell.WriteError("No such skill.");
             return;
         }
 
-        if (!_entity.TryGetComponent<SkillsComponent>(entity.Value, out var component))
-            return;
+        var component = _entity.EnsureComponent<SkillsComponent>(entity.Value);
 
-        component.Skills.Remove(skill);
+        component.Skills.Add(skill);
 
         _entity.Dirty(entity.Value, component);
     }
@@ -64,8 +63,8 @@ public sealed class RevokeSkillCommand : IConsoleCommand
                     : null
                 : null;
 
-            return CompletionResult.FromOptions(Enum.GetValues<Shared._Corvax.Skills.Skills>()
-                .Where(value => component?.Skills.Contains(value) != false)
+            return CompletionResult.FromOptions(Enum.GetValues<Shared._CorvaxGoob.Skills.Skills>()
+                .Where(value => component?.Skills.Contains(value) != true)
                 .Select(value => value.ToString())
                 .Where(name => name.ToString().StartsWith(args[1], true, null))
                 .Select(value => new CompletionOption(value.ToString())));

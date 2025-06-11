@@ -433,7 +433,7 @@
         sound: /Audio/Misc/ninja_greeting.ogg
       components:
       - type: SpaceNinja
-      - type: Skills # Corvax-Skills
+      - type: Skills # CorvaxGoob-Skills
         skills:
         - ShuttleControl
         - Shooting
@@ -853,7 +853,7 @@
       - RoleSurvivalNukie
       components:
       - type: NukeOperative
-      - type: Skills # Corvax-Skills
+      - type: Skills # CorvaxGoob-Skills
         skills:
         - ShuttleControl
         - Shooting
@@ -907,7 +907,7 @@
       blacklist:
         components:
         - AntagImmune
-      components: # Corvax-Skills
+      components: # CorvaxGoob-Skills
       - type: Skills
         skills:
         - ShuttleControl

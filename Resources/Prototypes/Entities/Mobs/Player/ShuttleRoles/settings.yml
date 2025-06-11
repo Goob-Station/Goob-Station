@@ -111,7 +111,7 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: default
-    - type: Skills # Corvax-Skills
+    - type: Skills # CorvaxGoob-Skills
       skills:
       - ShuttleControl
       - Shooting
@@ -168,7 +168,7 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
-    - type: Skills # Corvax-Skills
+    - type: Skills # CorvaxGoob-Skills
       skills:
       - ShuttleControl
 
@@ -191,7 +191,7 @@
     - type: Loadout
       prototypes: [ VisitorSalvageSpecialist, VisitorSalvageSpecialistAlt ]
       roleLoadout: [ RoleSurvivalStandard ]
-    - type: Skills # Corvax-Skills
+    - type: Skills # CorvaxGoob-Skills
       skills:
       - ShuttleControl
       - Shooting
@@ -209,7 +209,7 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
-    - type: Skills # Corvax-Skills
+    - type: Skills # CorvaxGoob-Skills
       skills:
       - ShuttleControl
       - AdvancedBuilding
@@ -256,7 +256,7 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
-    - type: Skills # Corvax-Skills
+    - type: Skills # CorvaxGoob-Skills
       skills:
       - Surgery
       - MedicalEquipment
@@ -353,7 +353,7 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
-    - type: Skills # Corvax-Skills
+    - type: Skills # CorvaxGoob-Skills
       skills:
       - AdvancedBuilding
 
@@ -441,7 +441,7 @@
     - type: Loadout
       prototypes: [ VisitorChef, VisitorChefAlt ]
       roleLoadout: [ RoleSurvivalStandard ]
-    - type: Skills # Corvax-Skills
+    - type: Skills # CorvaxGoob-Skills
       skills:
       - Butchering
 
@@ -579,7 +579,7 @@
     - type: Loadout
       prototypes: [ BananaClown ]
       roleLoadout: [ RoleSurvivalClown ]
-    - type: Skills # Corvax-Skills kekw
+    - type: Skills # CorvaxGoob-Skills kekw
       skills:
         - ShuttleControl
         - Shooting
@@ -638,7 +638,7 @@
       - NamesFirst
       - NamesLast
       nameFormat: name-format-standard
-    - type: Skills # Corvax-Skills
+    - type: Skills # CorvaxGoob-Skills
       skills:
         - ShuttleControl
         - AdvancedBuilding
@@ -662,7 +662,7 @@
       - NamesFirst
       - NamesLast
       nameFormat: name-format-standard
-    - type: Skills # Corvax-Skills
+    - type: Skills # CorvaxGoob-Skills
       skills:
         - Surgery
         - MedicalEquipment
@@ -706,7 +706,7 @@
       - NamesFirst
       - NamesLast
       nameFormat: name-format-standard
-    - type: Skills # Corvax-Skills
+    - type: Skills # CorvaxGoob-Skills
       skills:
         - ShuttleControl
         - Shooting
@@ -730,7 +730,7 @@
       - NamesFirst
       - NamesLast
       nameFormat: name-format-standard
-    - type: Skills # Corvax-Skills
+    - type: Skills # CorvaxGoob-Skills
       skills:
         - AdvancedBuilding
 
@@ -753,7 +753,7 @@
       - NamesFirst
       - NamesLast
       nameFormat: name-format-standard
-    - type: Skills # Corvax-Skills
+    - type: Skills # CorvaxGoob-Skills
       skills:
         - ShuttleControl
 
@@ -781,7 +781,7 @@
       - NamesFirst
       - NamesLast
       nameFormat: name-format-standard
-    - type: Skills # Corvax-Skills
+    - type: Skills # CorvaxGoob-Skills
       skills:
         - ShuttleControl
 
@@ -816,7 +816,7 @@
     - type: Loadout
       prototypes: [ SyndicateFootsoldierTeamLeaderGear ]
       roleLoadout: [ RoleSurvivalSyndicate ]
-    - type: Skills # Corvax-Skills
+    - type: Skills # CorvaxGoob-Skills
       skills:
         - ShuttleControl
         - Shooting
@@ -844,7 +844,7 @@
     - type: Loadout
       prototypes: [ SyndicateFootsoldierGear ]
       roleLoadout: [ RoleSurvivalSyndicate ]
-    - type: Skills # Corvax-Skills
+    - type: Skills # CorvaxGoob-Skills
       skills:
         - ShuttleControl
         - Shooting
@@ -871,7 +871,7 @@
     - type: Loadout
       prototypes: [ SyndicateOperativeGearCivilian ]
       roleLoadout: [ RoleSurvivalSyndicate ]
-    - type: Skills # Corvax-Skills
+    - type: Skills # CorvaxGoob-Skills
       skills:
         - ShuttleControl
         - Shooting
@@ -894,7 +894,7 @@
     - type: Loadout
       prototypes: [ PirateScoonerAltA, PirateScoonerAltB, PirateScoonerAltC, PirateScoonerAltD ]
       roleLoadout: [ RoleSurvivalEVA ]
-    - type: Skills # Corvax-Skills
+    - type: Skills # CorvaxGoob-Skills
       skills:
         - ShuttleControl
         - Shooting

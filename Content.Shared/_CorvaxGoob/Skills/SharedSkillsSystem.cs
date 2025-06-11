@@ -1,4 +1,4 @@
-namespace Content.Shared._Corvax.Skills;
+namespace Content.Shared._CorvaxGoob.Skills;
 
 public abstract class SharedSkillsSystem : EntitySystem
 {

@@ -71,7 +71,7 @@ using Robust.Shared.Player;
 using DroneConsoleComponent = Content.Server.Shuttles.DroneConsoleComponent;
 using DependencyAttribute = Robust.Shared.IoC.DependencyAttribute;
 using Robust.Shared.Map.Components;
-using Content.Shared._Corvax.Skills;
+using Content.Shared._CorvaxGoob.Skills;
 
 namespace Content.Server.Physics.Controllers;
 
@@ -80,17 +80,17 @@ public sealed class MoverController : SharedMoverController
     [Dependency] private readonly IConfigurationManager _cfg = default!; // Goobstation
     [Dependency] private readonly ThrusterSystem _thruster = default!;
     [Dependency] private readonly SharedTransformSystem _xformSystem = default!;
-    [Dependency] private readonly SharedSkillsSystem _skills = default!; // Corvax-Skills
+    [Dependency] private readonly SharedSkillsSystem _skills = default!; // CorvaxGoob-Skills
 
     private Dictionary<EntityUid, (ShuttleComponent, List<(EntityUid, PilotComponent, InputMoverComponent, TransformComponent)>)> _shuttlePilots = new();
 
     private float _maxShuttleSpeed; // Goobstation
 
-    // Corvax-Skills-Start
+    // CorvaxGoob-Skills-Start
     private const float Period = 5;
 
     private float _timer;
-    // Corvax-Skills-End
+    // CorvaxGoob-Skills-End
 
     public override void Initialize()
     {
@@ -332,12 +332,12 @@ public sealed class MoverController : SharedMoverController
     {
         var newPilots = new Dictionary<EntityUid, (ShuttleComponent Shuttle, List<(EntityUid PilotUid, PilotComponent Pilot, InputMoverComponent Mover, TransformComponent ConsoleXform)>)>();
 
-        // Corvax-Skills-Start
+        // CorvaxGoob-Skills-Start
         _timer += frameTime;
 
         if (_timer >= Period)
             _timer -= Period;
-        // Corvax-Skills-End
+        // CorvaxGoob-Skills-End
 
         // We just mark off their movement and the shuttle itself does its own movement
         var activePilotQuery = EntityQueryEnumerator<PilotComponent, InputMoverComponent>();
@@ -413,14 +413,14 @@ public sealed class MoverController : SharedMoverController
                 {
                     var offsetRotation = consoleXform.LocalRotation;
 
-                    // Corvax-Skills-Start
+                    // CorvaxGoob-Skills-Start
                     var vec = offsetRotation.RotateVec(strafe);
 
                     if (!_skills.HasSkill(pilotUid, Skills.ShuttleControl))
                         vec = (vec + new Angle(_timer * MathHelper.Pi / Period).RotateVec(new(0, 1.2f))).Normalized() / 2;
 
                     linearInput += vec;
-                    // Corvax-Skills-End
+                    // CorvaxGoob-Skills-End
 
                     linearCount++;
                 }

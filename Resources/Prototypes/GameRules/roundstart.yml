@@ -257,7 +257,7 @@
       roleLoadout:
       - RoleSurvivalNukie
       components:
-      - type: Skills # Corvax-Skills
+      - type: Skills # CorvaxGoob-Skills
         skills:
         - ShuttleControl
         - Shooting
@@ -283,7 +283,7 @@
       roleLoadout:
       - RoleSurvivalNukie
       components:
-      - type: Skills # Corvax-Skills
+      - type: Skills # CorvaxGoob-Skills
         skills:
         - ShuttleControl
         - Shooting
@@ -313,7 +313,7 @@
       roleLoadout:
       - RoleSurvivalNukie
       components:
-      - type: Skills # Corvax-Skills
+      - type: Skills # CorvaxGoob-Skills
         skills:
         - ShuttleControl
         - Shooting
@@ -392,7 +392,7 @@
         - Changeling # Goobstation
       lateJoinAdditional: true
       components:
-      - type: Skills # Corvax-Skills
+      - type: Skills # CorvaxGoob-Skills
         skills:
         - ShuttleControl
         - Shooting
@@ -425,7 +425,7 @@
       components:
       - type: Revolutionary
       - type: HeadRevolutionary
-      - type: Skills # Corvax-Skills
+      - type: Skills # CorvaxGoob-Skills
         skills:
         - ShuttleControl
         - Shooting
@@ -528,7 +528,7 @@
       - type: ZombifyOnDeath
       - type: IncurableZombie
       - type: InitialInfected
-      - type: Skills # Corvax-Skills
+      - type: Skills # CorvaxGoob-Skills
         skills:
         - ShuttleControl
         - Shooting

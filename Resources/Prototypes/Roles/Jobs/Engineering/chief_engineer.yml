@@ -164,7 +164,7 @@
     components:
       - type: CommandStaff
       - type: EngineeringStaff # Goobstation
-      - type: Skills # Corvax-Skills
+      - type: Skills # CorvaxGoob-Skills
         skills:
         - ShuttleControl
         - AdvancedBuilding

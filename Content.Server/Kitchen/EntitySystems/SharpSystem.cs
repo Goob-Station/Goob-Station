@@ -111,7 +111,7 @@ using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
-using Content.Shared._Corvax.Skills;
+using Content.Shared._CorvaxGoob.Skills;
 
 namespace Content.Server.Kitchen.EntitySystems;
 
@@ -126,9 +126,9 @@ public sealed class SharpSystem : EntitySystem
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly SharedSkillsSystem _skills = default!; // Corvax-Skills
+    [Dependency] private readonly SharedSkillsSystem _skills = default!; // CorvaxGoob-Skills
 
-    private const float ButcherDelayModifierWithoutSkill = 5; // Corvax-Skills
+    private const float ButcherDelayModifierWithoutSkill = 5; // CorvaxGoob-Skills
 
     public override void Initialize()
     {
@@ -157,11 +157,11 @@ public sealed class SharpSystem : EntitySystem
         if (!TryComp<SharpComponent>(knife, out var sharp))
             return false;
 
-        // Corvax-Skills-Start
+        // CorvaxGoob-Skills-Start
         var hasMobState = TryComp<MobStateComponent>(target, out var mobState);
         if (hasMobState && !_mobStateSystem.IsDead(target, mobState))
             return false;
-        // Corvax-Skills-End
+        // CorvaxGoob-Skills-End
 
         if (butcher.Type != ButcheringType.Knife && target != user)
         {
@@ -177,7 +177,7 @@ public sealed class SharpSystem : EntitySystem
         // so that the doafter can be interrupted if they drop the item in their hands
         var needHand = user != knife;
 
-        // Corvax-Skills-Start
+        // CorvaxGoob-Skills-Start
         var delayModifier = hasMobState && !_skills.HasSkill(user, Skills.Butchering) ? ButcherDelayModifierWithoutSkill : 1;
 
         var doAfter = new DoAfterArgs(
@@ -193,7 +193,7 @@ public sealed class SharpSystem : EntitySystem
             BreakOnMove = true,
             NeedHand = needHand,
         };
-        // Corvax-Skills-End
+        // CorvaxGoob-Skills-End
 
         _doAfterSystem.TryStartDoAfter(doAfter);
         return true;

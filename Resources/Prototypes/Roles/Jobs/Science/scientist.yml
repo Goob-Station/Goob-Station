@@ -87,7 +87,7 @@
   special:
   - !type:AddComponentSpecial
     components:
-    - type: Skills # Corvax-Skills
+    - type: Skills # CorvaxGoob-Skills
       skills:
       - AdvancedBuilding
 

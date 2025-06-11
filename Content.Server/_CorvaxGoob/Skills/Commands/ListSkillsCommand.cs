@@ -1,11 +1,11 @@
 using System.Linq;
 using System.Text;
 using Content.Server.Administration;
-using Content.Shared._Corvax.Skills;
+using Content.Shared._CorvaxGoob.Skills;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
 
-namespace Content.Server._Corvax.Skills.Commands;
+namespace Content.Server._CorvaxGoob.Skills.Commands;
 
 [AdminCommand(AdminFlags.Admin)]
 public sealed class ListSkillsCommand : IConsoleCommand
