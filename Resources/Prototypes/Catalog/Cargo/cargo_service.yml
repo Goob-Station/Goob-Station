@@ -265,7 +265,7 @@
 - type: cargoProduct
   id: ServiceHolySupplies
   icon:
-    sprite: Objects\Specific\Chapel\bible.rsi
+    sprite: Objects/Specific/Chapel/bible.rsi
     state: icon
   product: CrateHolySupplies
   cost: 2000
