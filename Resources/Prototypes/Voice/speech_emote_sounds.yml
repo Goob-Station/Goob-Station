@@ -209,6 +209,7 @@
       collection: MaleCry
     Weh:
       collection: Weh
+<<<<<<< HEAD
     Hew:
       collection: Hew
     CatMeow:
@@ -243,12 +244,14 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
+=======
     # Floof
     Yip:
       collection: Yip
     ReptilianHiss:
       collection: ReptilianHiss
     # Floof end
+>>>>>>> ff28fbfa12 (more sounds)
 
 - type: emoteSounds
   id: MaleSlime
