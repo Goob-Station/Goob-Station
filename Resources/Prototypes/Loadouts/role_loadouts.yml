@@ -133,6 +133,7 @@
   - PassengerGloves
   - PassengerOuterClothing
   - PassengerShoes
+  - PassengerBelt
 
 - type: roleLoadout
   id: JobHeadOfPersonnel
@@ -155,6 +156,7 @@
   - PassengerGloves
   - PassengerOuterClothing
   - PassengerShoes
+  - PassengerBelt
 
 # Silicons
 #- type: roleLoadout
@@ -180,6 +182,7 @@
   - PassengerGloves
   - PassengerOuterClothing
   - PassengerShoes
+  - PassengerBelt
   - Glasses
   - Survival
   - Trinkets
@@ -204,6 +207,7 @@
   - PassengerGloves
   - PassengerOuterClothing
   - PassengerShoes
+  - PassengerBelt
 
 - type: roleLoadout
   id: JobServiceWorker
@@ -222,6 +226,7 @@
   - PassengerGloves
   - PassengerOuterClothing
   - PassengerShoes
+  - PassengerBelt
 
 - type: roleLoadout
   id: JobChef
@@ -243,6 +248,7 @@
   - PassengerGloves
   - PassengerOuterClothing
   - PassengerShoes
+  - PassengerBelt
 
 - type: roleLoadout
   id: JobLibrarian
@@ -261,6 +267,7 @@
   - PassengerGloves
   - PassengerOuterClothing
   - PassengerShoes
+  - PassengerBelt
 
 - type: roleLoadout
   id: JobLawyer
@@ -280,6 +287,7 @@
   - PassengerGloves
   - PassengerOuterClothing
   - PassengerShoes
+  - PassengerBelt
 
 - type: roleLoadout
   id: JobChaplain
@@ -302,6 +310,7 @@
   - PassengerGloves
   - PassengerOuterClothing
   - PassengerShoes
+  - PassengerBelt
 
 - type: roleLoadout
   id: JobJanitor
@@ -324,6 +333,7 @@
   - PassengerGloves
   - PassengerOuterClothing
   - PassengerShoes
+  - PassengerBelt
 
 - type: roleLoadout
   id: JobBotanist
@@ -344,6 +354,7 @@
   - PassengerGloves
   - PassengerOuterClothing
   - PassengerShoes
+  - PassengerBelt
 
 - type: roleLoadout
   id: JobClown
@@ -364,6 +375,7 @@
   - PassengerGloves
   - PassengerOuterClothing
   - PassengerShoes
+  - PassengerBelt
 
 - type: roleLoadout
   id: JobMime
@@ -385,6 +397,7 @@
   - PassengerGloves
   - PassengerOuterClothing
   - PassengerShoes
+  - PassengerBelt
 
 - type: roleLoadout
   id: JobMusician
@@ -405,6 +418,7 @@
   - PassengerGloves
   - PassengerOuterClothing
   - PassengerShoes
+  - PassengerBelt
 
 # Cargo
 - type: roleLoadout
@@ -429,6 +443,7 @@
   - PassengerGloves
   - PassengerOuterClothing
   - PassengerShoes
+  - PassengerBelt
 
 - type: roleLoadout
   id: JobCargoTechnician
@@ -451,6 +466,7 @@
   - PassengerGloves
   - PassengerOuterClothing
   - PassengerShoes
+  - PassengerBelt
 
 - type: roleLoadout
   id: JobSalvageSpecialist
@@ -472,6 +488,7 @@
   - PassengerGloves
   - PassengerOuterClothing
   - PassengerShoes
+  - PassengerBelt
 
 # Engineering
 - type: roleLoadout
@@ -513,6 +530,7 @@
   - PassengerGloves
   - PassengerOuterClothing
   - PassengerShoes
+  - PassengerBelt
 
 - type: roleLoadout
   id: JobStationEngineer
@@ -535,6 +553,7 @@
   - PassengerGloves
   - PassengerOuterClothing
   - PassengerShoes
+  - PassengerBelt
 
 - type: roleLoadout
   id: JobAtmosphericTechnician
@@ -556,6 +575,7 @@
   - PassengerGloves
   - PassengerOuterClothing
   - PassengerShoes
+  - PassengerBelt
 
 # Science
 - type: roleLoadout
@@ -581,6 +601,7 @@
   - PassengerGloves
   - PassengerOuterClothing
   - PassengerShoes
+  - PassengerBelt
 
 - type: roleLoadout
   id: JobScientist
@@ -606,6 +627,7 @@
   - PassengerGloves
   - PassengerOuterClothing
   - PassengerShoes
+  - PassengerBelt
 
 - type: roleLoadout
   id: JobResearchAssistant
@@ -625,6 +647,7 @@
   - PassengerGloves
   - PassengerOuterClothing
   - PassengerShoes
+  - PassengerBelt
 
 # Security
 - type: roleLoadout
@@ -718,6 +741,7 @@
   - PassengerGloves
   - PassengerOuterClothing
   - PassengerShoes
+  - PassengerBelt
 
 - type: roleLoadout
   id: JobSecurityCadet
@@ -872,6 +896,7 @@
   - PassengerGloves
   - PassengerOuterClothing
   - PassengerShoes
+  - PassengerBelt
 
 - type: roleLoadout
   id: JobReporter
@@ -891,6 +916,7 @@
   - PassengerGloves
   - PassengerOuterClothing
   - PassengerShoes
+  - PassengerBelt
 
 
 - type: roleLoadout
@@ -911,6 +937,7 @@
   - PassengerGloves
   - PassengerOuterClothing
   - PassengerShoes
+  - PassengerBelt
 
 - type: roleLoadout
   id: JobBoxer
@@ -930,6 +957,7 @@
   - PassengerGloves
   - PassengerOuterClothing
   - PassengerShoes
+  - PassengerBelt
 
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs
 # They will be used without player configuration, thus they will only ever apply what is forced by MinLimit

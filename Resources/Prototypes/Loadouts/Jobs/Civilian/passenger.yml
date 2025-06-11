@@ -161,11 +161,6 @@
     jumpsuit: ClothingUniformJumpskirtDressMidi
 
 - type: loadout
-  id: OpenShoulderDress
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtDressOpenShoulder
-
-- type: loadout
   id: TeaDress
   equipment:
     jumpsuit: ClothingUniformJumpskirtDressTea
@@ -539,6 +534,12 @@
   id: PassengerBlackVictorianCoat
   equipment:
     outerClothing: ClothingOuterCoatVictorian
+
+# Belt
+- type: loadout
+  id: WaistLeatherBag
+  equipment:
+    belt: ClothingBeltStorageWaistbag
 
 # Shoes
 - type: loadout

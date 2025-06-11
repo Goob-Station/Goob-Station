@@ -108,6 +108,7 @@
   - PassengerGloves
   - PassengerOuterClothing
   - PassengerShoes
+  - PassengerBelt
 
 - type: roleLoadout
   id: JobBlueshieldOfficer

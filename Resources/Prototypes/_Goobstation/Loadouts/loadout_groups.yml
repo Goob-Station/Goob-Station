@@ -61,7 +61,6 @@
   minLimit: 0
   loadouts:
   - NanotrasenRepresentativeClipboard
-  - NanotrasenRepresentativeWaistbag
 
 - type: loadoutGroup
   id: NanotrasenRepresentativeShoes

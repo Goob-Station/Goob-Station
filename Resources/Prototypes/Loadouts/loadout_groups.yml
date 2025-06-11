@@ -368,7 +368,6 @@
   - AssymetricDress
   - EveningDress
   - MidiDress
-  - OpenShoulderDress
   - TeaDress
   - SlevelessDress
   - LongSleeveDress
@@ -497,6 +496,13 @@
   - PassengerWintercoat
   - PassengerRedVictorianCoat
   - PassengerBlackVictorianCoat
+
+- type: loadoutGroup
+  id: PassengerBelt
+  name: loadout-group-passenger-belt
+  minLimit: 0
+  loadouts:
+  - WaistLeatherBag
 
 - type: loadoutGroup
   id: PassengerShoes

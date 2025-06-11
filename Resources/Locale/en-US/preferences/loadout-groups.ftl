@@ -61,6 +61,7 @@ loadout-group-passenger-gloves = Civilian Gloves
 loadout-group-passenger-outerclothing = Civilian Outerwear
 loadout-group-passenger-shoes = Civilian Footwear
 loadout-group-passenger-neck = Civilian Neckwear
+loadout-group-passenger-belt = Civilian Beltwear
 
 loadout-group-bartender-head = Bartender head
 loadout-group-bartender-jumpsuit = Bartender jumpsuit

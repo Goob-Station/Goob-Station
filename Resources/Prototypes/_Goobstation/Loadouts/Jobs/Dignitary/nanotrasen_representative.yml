@@ -150,11 +150,6 @@
   equipment:
     belt: BoxFolderCentComClipboard
 
-- type: loadout
-  id: NanotrasenRepresentativeWaistbag
-  equipment:
-    belt: ClothingBeltStorageWaistbag
-
 # Shoes
 - type: loadout
   id: NanotrasenRepresentativeBoots
