@@ -5,10 +5,13 @@ using Content.Server.Emp;
 using Content.Server.Light.Components;
 using Content.Server.Light.EntitySystems;
 using Content.Server.Power.Components;
+using Content.Server.Power.EntitySystems;
 using Content.Shared.Alert;
 using Content.Shared.Body.Organ;
 using Content.Shared.Charges.Systems;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Movement.Systems;
+using Content.Shared.Popups;
 using Content.Shared.Silicons.StationAi;
 
 namespace Content.Goobstation.Server.Cyberdeck;
@@ -20,6 +23,7 @@ public sealed class CyberdeckSystem : SharedCyberdeckSystem
     [Dependency] private readonly SharedMoverController _mover = default!;
     [Dependency] private readonly PoweredLightSystem _light = default!;
     [Dependency] private readonly EmpSystem _emp = default!;
+    [Dependency] private readonly BatterySystem _battery = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
 
     public override void Initialize()
@@ -52,10 +56,18 @@ public sealed class CyberdeckSystem : SharedCyberdeckSystem
             return;
 
         var mapPos = _transform.GetMapCoordinates(ent.Owner);
-        var radius = ent.Comp.MaxCharge / ent.Comp.CurrentCharge * 2.5f;
-        var duration = ent.Comp.MaxCharge / ent.Comp.CurrentCharge * 10;
+        var radius = ent.Comp.CurrentCharge / ent.Comp.MaxCharge * 2.5f;
+        var duration = ent.Comp.CurrentCharge / ent.Comp.MaxCharge * 10;
 
-        _emp.EmpPulse(mapPos, radius, ent.Comp.MaxCharge, duration);
+        if (radius < 0.25f)
+            // Less than 10% does nothing, just drains all remaining battery
+            _battery.SetCharge(ent.Owner, 0f, ent.Comp);
+        else
+            // bazillions IPCs must die
+            _emp.EmpPulse(mapPos, radius, ent.Comp.MaxCharge, duration);
+
+        // Validhunt must spread
+        Popup.PopupEntity(Loc.GetString("cyberdeck-battery-get-hacked", ("target", Identity.Name(ent.Owner, EntityManager))), ent.Owner, PopupType.Large);
     }
 
     private void OnLightHacked(Entity<PoweredLightComponent> ent, ref CyberdeckHackDoAfterEvent args)
@@ -63,7 +75,7 @@ public sealed class CyberdeckSystem : SharedCyberdeckSystem
         if (!TryHackDevice(args.User, ent.Owner))
             return;
 
-        _light.TryDestroyBulb(ent.Owner, ent.Comp);
+        _light.TryDestroyBulb(ent.Owner, ent.Comp); // Seriously. They don't predict light bulbs????????
     }
 
     private void OnCyberVisionUsed(Entity<CyberdeckUserComponent> ent, ref CyberdeckVisionEvent args)
@@ -77,9 +89,6 @@ public sealed class CyberdeckSystem : SharedCyberdeckSystem
             return;
 
         SetupProjection(ent);
-        Actions.AddAction(uid, ref comp.ReturnAction, comp.ReturnActionId);
-        Actions.RemoveAction(uid, comp.VisionAction);
-
         args.Handled = true;
     }
 
@@ -114,12 +123,16 @@ public sealed class CyberdeckSystem : SharedCyberdeckSystem
         EnsureComp<CyberdeckOverlayComponent>(user.Owner);
         EnsureComp<NoNormalInteractionComponent>(user.Owner);
 
+        Actions.AddAction(user.Owner, ref user.Comp.ReturnAction, user.Comp.ReturnActionId);
+        Actions.RemoveAction(user.Owner, user.Comp.VisionAction);
+
         user.Comp.ProjectionEntity = observer;
+        DirtyEntity(user.Owner);
     }
 
     protected override void ShutdownProjection(Entity<CyberdeckProjectionComponent?>? ent)
     {
-        if (ent == null)
+        if (ent == null || TerminatingOrDeleted(ent.Value.Owner))
             return;
 
         var comp = ent.Value.Comp;
@@ -136,11 +149,21 @@ public sealed class CyberdeckSystem : SharedCyberdeckSystem
 
         Actions.AddAction(user, ref userComp.VisionAction, userComp.VisionActionId);
         Actions.RemoveAction(user, userComp.ReturnAction);
-        Dirty(ent.Value.Owner, comp);
 
         if (TryComp(user, out EyeComponent? eyeComp))
             _eye.SetDrawFov(user, true, eyeComp);
 
+        DirtyEntity(user);
         QueueDel(ent.Value.Owner);
+    }
+
+    protected override void UpdateAlert(Entity<CyberdeckUserComponent> ent)
+    {
+        if (!ChargesQuery.TryComp(ent.Comp.ProviderEntity, out var chargesComp))
+            return;
+
+        var charges = chargesComp.Charges;
+        var severity = (short) Math.Clamp(charges.Int(), 0, 8);
+        _alerts.ShowAlert(ent.Owner, ent.Comp.AlertId, severity);
     }
 }

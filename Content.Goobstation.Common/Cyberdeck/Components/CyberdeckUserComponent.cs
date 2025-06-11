@@ -31,7 +31,7 @@ public sealed partial class CyberdeckUserComponent : Component
     public string AlertId = "CyberdeckCharges";
 
     [DataField]
-    public int CyberVisionAbilityCost = 2;
+    public int CyberVisionAbilityCost = 5;
 
     [DataField]
     public EntProtoId ProjectionEntityId = "CyberdeckProjection";

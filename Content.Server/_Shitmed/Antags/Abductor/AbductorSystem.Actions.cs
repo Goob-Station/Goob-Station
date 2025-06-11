@@ -43,10 +43,7 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
     }
 
     private void AbductorScientistComponentStartup(Entity<AbductorScientistComponent> ent, ref ComponentStartup args)
-    {
-        EnsureComp<NoNormalInteractionComponent>(ent); // Goob edit
-        ent.Comp.SpawnPosition = EnsureComp<TransformComponent>(ent).Coordinates;
-    }
+        => ent.Comp.SpawnPosition = EnsureComp<TransformComponent>(ent).Coordinates;
 
     private void OnReturn(AbductorReturnToShipEvent ev)
     {
@@ -104,6 +101,7 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
     private void AddActions(AbductorBeaconChosenBuiMsg args)
     {
         EnsureComp<AbductorsAbilitiesComponent>(args.Actor, out var comp);
+        EnsureComp<NoNormalInteractionComponent>(args.Actor); // Goob edit
         comp.HiddenActions = _actions.HideActions(args.Actor);
         _actions.AddAction(args.Actor, ref comp.ExitConsole, ExitAction);
         _actions.AddAction(args.Actor, ref comp.SendYourself, SendYourself);
@@ -111,6 +109,7 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
     private void RemoveActions(EntityUid actor)
     {
         EnsureComp<AbductorsAbilitiesComponent>(actor, out var comp);
+        RemComp<NoNormalInteractionComponent>(actor); // Goob edit
         _actions.RemoveAction(actor, comp.ExitConsole);
         _actions.RemoveAction(actor, comp.SendYourself);
         _actions.UnHideActions(actor, comp.HiddenActions);

@@ -176,6 +176,8 @@
     endSound:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
   - type: AlwaysHot # Goobstation
+  - type: CyberdeckHackable # Goobstation - Cyberdeck
+    cost: 3
 
 - type: entity
   id: BaseWeaponPowerCell
