@@ -32,12 +32,23 @@ public sealed class XenoSlimeVisualizerSystem : VisualizerSystem<SlimeComponent>
 
         if (AppearanceSystem.TryGetData<string>(uid, XenoSlimeVisuals.Shader, out var shader, args.Component))
         {
-            foreach (var layer in args.Sprite.AllLayers)
-                args.Sprite.LayerSetShader(layer, shader);
-
-            args.Sprite.PostShader = _proto.Index<ShaderPrototype>(shader).InstanceUnique();
+            var newShader = _protoMan.Index<ShaderPrototype>(shader).InstanceUnique();
+            foreach (var layer in args.Sprite.AllLayers) 
+            {
+                AddShader(uid, newShader, layer);
+            }
         }
+    }
 
+    private void AddShader(Entity<SpriteComponent?> entity, ShaderInstance? shader, int? layer)
+    {
+        if (!Resolve(entity, ref entity.Comp, false))
+            return;
 
+        if (layer is not null)
+            entity.Comp.LayerSetShader(layer.Value, shader);
+
+        entity.Comp.GetScreenTexture = shader is not null;
+        entity.Comp.RaiseShaderEvent = shader is not null;
     }
 }
