@@ -78,6 +78,12 @@ public sealed partial class CloneProjectorComponent : Component
     [DataField]
     public LocId UnequippedMessage = "gemini-projector-removed";
 
+    /// <summary>
+    /// How much the strip time should be increased by.
+    /// </summary>
+    [DataField]
+    public TimeSpan StripTimeAddition = TimeSpan.FromSeconds(15);
+
     [ViewVariables(VVAccess.ReadOnly)]
     public Container CloneContainer = new();
 

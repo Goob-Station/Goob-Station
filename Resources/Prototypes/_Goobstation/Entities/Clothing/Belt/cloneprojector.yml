@@ -14,6 +14,8 @@
     sprite: _Goobstation/Clothing/Belt/geminiprojector.rsi
     equipDelay: 10
     unequipDelay: 15 # Unscrewing something from your nervous system is kinda difficult.
+  - type: Strippable
+    handDelay: 15
   - type: Item
     sprite: _Goobstation/Clothing/Belt/geminiprojector.rsi
     size: Large
@@ -80,9 +82,6 @@
             0
     - type: InjectableSolution
     - type: SolutionContainerManager
-    - type: Reactive
-    - type: IdExaminable
-    - type: Cuffable
     - type: Dna
     - type: Absorbable
     - type: Fingerprint

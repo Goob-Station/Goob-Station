@@ -6,7 +6,7 @@
 namespace Content.Goobstation.Shared.CloneProjector.Clone;
 
 [RegisterComponent]
-public sealed partial class CloneComponent : Component
+public sealed partial class HolographicCloneComponent : Component
 {
     [ViewVariables(VVAccess.ReadOnly)]
     public Entity<CloneProjectorComponent>? HostProjector;

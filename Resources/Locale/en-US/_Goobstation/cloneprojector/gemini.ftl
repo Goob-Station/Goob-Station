@@ -10,5 +10,5 @@ gemini-projector-clone-destroyed = Every muscle in your body shakes as the proje
 
 gemini-projector-regenerate-verb = Generate New Clone
 
-ghost-role-information-gemini-clone-name = Gemini Clone
-ghost-role-information-gemini-clone-description = Assist the Research Director with their research. Maybe burn a city or two.
+ghost-role-information-gemini-clone-name = Gemini Hologram
+ghost-role-information-gemini-clone-description = Assist the Research Director in any and all of their tasks. Maybe burn a city or two if they want.

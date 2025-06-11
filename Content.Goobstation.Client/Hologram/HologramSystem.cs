@@ -60,8 +60,7 @@ public sealed class HologramSystem : EntitySystem
 
     private void UpdateHologramShader(EntityUid uid, SpriteComponent? sprite = null, HologramComponent? hologram = null)
     {
-        if(!Resolve(uid, ref sprite, ref hologram)
-           || string.IsNullOrWhiteSpace(hologram.ShaderName))
+        if(!Resolve(uid, ref sprite, ref hologram))
             return;
 
         float texHeight = sprite.AllLayers.Max(x => x.PixelSize.Y);

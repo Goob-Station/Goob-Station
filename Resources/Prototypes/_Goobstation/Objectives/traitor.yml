@@ -110,7 +110,7 @@
   components:
   - type: Objective
     # This bad boy is LITERALLY directly screwed into the RDs spinal cord. Good luck!
-    difficulty: 3
+    difficulty: 3.5
   - type: NotJobRequirement
     job: ResearchDirector
   - type: StealCondition
