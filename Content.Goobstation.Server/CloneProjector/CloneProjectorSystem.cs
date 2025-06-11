@@ -101,7 +101,7 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
             Act = () => { TryGenerateClone(projector, host, true, true); },
             Text = Loc.GetString("gemini-projector-reboot-verb"),
             Message = Loc.GetString("gemini-projector-reboot-verb-text"),
-            Icon = new SpriteSpecifier.Rsi(new("Mobs/Silicon/station_ai.rsi"), "default"),
+            Icon = new SpriteSpecifier.Rsi(new("_Goobstation/Actions/modsuit.rsi"), "activate"),
             Priority = 2
         };
 

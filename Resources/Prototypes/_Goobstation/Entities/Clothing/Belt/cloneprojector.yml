@@ -26,6 +26,8 @@
       rules: ghost-role-information-familiar-rules
       mindRoles:
       - MindRoleGhostRoleFamiliar
+      raffle:
+        settings: default
     - type: GhostTakeoverAvailable
     - type: AntagImmune
     - type: Hologram
