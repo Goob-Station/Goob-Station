@@ -88,15 +88,26 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
             || args.User != host)
             return;
 
-        AlternativeVerb verb = new()
+        AlternativeVerb regenerateVerb = new()
         {
             Act = () => { TryGenerateClone(projector, host, true); },
             Text = Loc.GetString("gemini-projector-regenerate-verb"),
+            Message = Loc.GetString("gemini-projector-regenerate-verb-text"),
             Icon = new SpriteSpecifier.Rsi(new("Mobs/Silicon/station_ai.rsi"), "default"),
             Priority = 2
         };
 
-        args.Verbs.Add(verb);
+        AlternativeVerb rebootVerb = new()
+        {
+            Act = () => { TryGenerateClone(projector, host, true, true); },
+            Text = Loc.GetString("gemini-projector-reboot-verb"),
+            Message = Loc.GetString("gemini-projector-reboot-verb-text"),
+            Icon = new SpriteSpecifier.Rsi(new("Mobs/Silicon/station_ai.rsi"), "default"),
+            Priority = 2
+        };
+
+        args.Verbs.Add(regenerateVerb);
+        args.Verbs.Add(rebootVerb);
     }
 
     private void OnEquipped(Entity<CloneProjectorComponent> projector, ref GetItemActionsEvent args)
@@ -164,7 +175,7 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
         _popup.PopupEntity(cloneGeneratedPopup, args.Performer, PopupType.Medium);
         args.Handled = true;
     }
-    private bool TryGenerateClone(Entity<CloneProjectorComponent> projector, EntityUid performer, bool force = false)
+    private bool TryGenerateClone(Entity<CloneProjectorComponent> projector, EntityUid performer, bool force = false, bool removeMind = false)
     {
         if (!TryComp<HumanoidAppearanceComponent>(performer, out var appearance))
         {
@@ -191,7 +202,7 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
             _container.TryRemoveFromContainer(oldClone);
             CleanClone(oldClone, true);
 
-            if (_mind.TryGetMind(oldClone, out var id, out _))
+            if (_mind.TryGetMind(oldClone, out var id, out _) && !removeMind)
                 _mind.TransferTo(id, clone);
 
             Del(oldClone);
