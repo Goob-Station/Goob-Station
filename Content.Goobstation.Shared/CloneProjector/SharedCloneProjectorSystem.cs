@@ -22,6 +22,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.CloneProjector;
 
@@ -34,15 +35,15 @@ public sealed class SharedCloneProjectorSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly MetaDataSystem _meta = default!;
     [Dependency] private readonly SharedJointSystem _joints = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly UseDelaySystem _delay = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -135,15 +136,21 @@ public sealed class SharedCloneProjectorSystem : EntitySystem
         TryInsertClone(projector);
         RaiseLocalEvent(clone, new RejuvenateEvent(true, false));
 
-        if (projector.Comp.ActionEntity is { } actionEntity)
-            _delay.SetLength(actionEntity, projector.Comp.DestroyedCooldown);
+        if (projector.Comp.ActionEntity is { } actionEntity
+            && TryComp<InstantActionComponent>(actionEntity, out var actionComp))
+        {
+            actionComp.Cooldown = (_timing.CurTime, _timing.CurTime + projector.Comp.DestroyedCooldown);
+
+            _actions.UpdateAction(actionEntity, actionComp);
+            Dirty(actionEntity, actionComp);
+        }
 
         if (clone.Comp.HostEntity is not { } host)
             return;
 
         var destroyedPopup = Loc.GetString("gemini-projector-clone-destroyed");
         _popup.PopupEntity(destroyedPopup, host, host, PopupType.LargeCaution);
-        _stun.KnockdownOrStun(host, projector.Comp.StunDuration, true);
+        _stun.TryParalyze(host, projector.Comp.StunDuration, true);
 
     }
 
@@ -268,23 +275,21 @@ public sealed class SharedCloneProjectorSystem : EntitySystem
 
     private void CleanItems(EntityUid clone, bool removePocketItems = false)
     {
-        var items = _inventory.GetSlotEnumerator(clone);
-        var storageItems = new List<StorageComponent>();
+        var items = _inventory.GetSlotEnumerator(clone, SlotFlags.WITHOUT_POCKET);
 
         while (items.MoveNext(out var slot))
         {
-            if (slot.ContainedEntity is not { } item
-                || !TryComp<StorageComponent>(item, out var storageComponent))
+            if (slot.ContainedEntity is not { } item)
                 continue;
 
-            storageItems.Add(storageComponent);
-        }
+            if (TryComp<StorageComponent>(item, out var storageComponent))
+            {
+                foreach (var storedItem in _container.EmptyContainer(storageComponent.Container))
+                    _physics.ApplyAngularImpulse(storedItem, ThrowingSystem.ThrowAngularImpulse);
+            }
 
-        foreach (var item in storageItems
-                     .SelectMany(storageItem => _container.EmptyContainer(storageItem.Container)))
-        {
-            _container.TryRemoveFromContainer(item);
-            _physics.ApplyAngularImpulse(item, ThrowingSystem.ThrowAngularImpulse);
+            if (_inventory.TryUnequip(clone, slot.ID, true))
+                _physics.ApplyAngularImpulse(item, ThrowingSystem.ThrowAngularImpulse);
         }
 
         if (!removePocketItems)

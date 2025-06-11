@@ -29,7 +29,7 @@ public sealed partial class CloneProjectorComponent : Component
     /// How long the host is stunned when the hologram is destroyed.
     /// </summary>
     [DataField]
-    public TimeSpan StunDuration = TimeSpan.FromSeconds(5);
+    public TimeSpan StunDuration = TimeSpan.FromSeconds(8);
 
     [DataField]
     public ComponentRegistry? AddedComponents;
