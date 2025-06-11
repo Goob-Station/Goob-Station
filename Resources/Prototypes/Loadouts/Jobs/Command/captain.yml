@@ -129,10 +129,8 @@
 - type: loadout
   id: CaptainMask
   equipment:
-    mask: FoodSnackLollypopCaptain
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: MasterCap
+   mask: MeleeDebugGib
+
 
 # Neck
 - type: loadout
