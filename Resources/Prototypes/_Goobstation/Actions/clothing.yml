@@ -40,9 +40,6 @@
     checkConsciousness: true
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Actions/modsuit.rsi
-      state: activate
-    iconOn:
-      sprite: _Goobstation/Actions/modsuit.rsi
-      state: activate-ready
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: default
     event: !type:CloneProjectorActivatedEvent {}

@@ -2,6 +2,7 @@ using System.Linq;
 using Content.Goobstation.Shared.CloneProjector.Clone;
 using Content.Shared._DV.Carrying;
 using Content.Shared.Actions;
+using Content.Shared.Body.Systems;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
 using Content.Shared.Hands.EntitySystems;
@@ -48,6 +49,7 @@ public partial class SharedCloneProjectorSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private readonly CarryingSystem _carrying = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private readonly SharedBodySystem _body = default!;
 
     private ISawmill _sawmill = default!;
     public void InitializeProjector()

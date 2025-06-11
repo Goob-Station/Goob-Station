@@ -1,11 +1,10 @@
 using Content.Goobstation.Shared.CloneProjector.Clone;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared.Examine;
-using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs;
 using Content.Shared.Popups;
 using Content.Shared.Rejuvenate;
 using Content.Shared.Weapons.Melee.Events;
-using Content.Shared.Weapons.Ranged.Systems;
 
 namespace Content.Goobstation.Shared.CloneProjector;
 
@@ -13,6 +12,8 @@ public partial class SharedCloneProjectorSystem
 {
     public void InitializeClone()
     {
+        SubscribeLocalEvent<CloneComponent, MapInitEvent>(OnInit);
+
         SubscribeLocalEvent<CloneComponent, MobStateChangedEvent>(OnMobStateChanged);
 
         SubscribeLocalEvent<CloneComponent, MeleeHitEvent>(OnMeleeHit);
@@ -20,6 +21,17 @@ public partial class SharedCloneProjectorSystem
         SubscribeLocalEvent<CloneComponent, ExaminedEvent>(OnExamined);
     }
 
+    private void OnInit(Entity<CloneComponent> clone, ref MapInitEvent args)
+    {
+        foreach (var part in _body.GetBodyChildren(clone))
+        {
+            if (!TryComp(part.Id, out WoundableComponent? woundable))
+                continue;
+
+            woundable.CanRemove = false;
+            Dirty(part.Id, woundable);
+        }
+    }
     private void OnMobStateChanged(Entity<CloneComponent> clone, ref MobStateChangedEvent args)
     {
         if (!_mobState.IsIncapacitated(clone)
