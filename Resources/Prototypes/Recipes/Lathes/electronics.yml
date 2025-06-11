@@ -549,18 +549,6 @@
   result: PortableGeneratorPacmanMachineCircuitboard
 
 - type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
-  icon: { sprite:  Structures/Power/Generation/Tesla/coil.rsi, state: coil } # Goobstation
-  id: TeslaCoilCircuitboard
-  result: TeslaCoilCircuitboard
-
-- type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
-  icon: { sprite:  Structures/Power/Generation/Singularity/collector.rsi, state: ca_on } # Goobstation
-  id: RadiationCollectorCircuitboard
-  result: RadiationCollectorCircuitboard
-
-- type: latheRecipe
   parent: PortableGeneratorPacmanMachineCircuitboard
   icon: { sprite:  Structures/Power/Generation/portable_generator.rsi, state: portgen1 } # Goobstation
   id: PortableGeneratorSuperPacmanMachineCircuitboard
