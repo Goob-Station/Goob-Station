@@ -1261,9 +1261,8 @@
       prototype: TeslaCoil
       stackRequirements:
         Capacitor: 5
-        Steel: 5
+        Steel: 10
         CableHV: 10
-        Uranium: 5
 
 - type: entity
   id: RadiationCollectorCircuitboard
@@ -1278,7 +1277,7 @@
         Capacitor: 5
         Steel: 5
         CableHV: 10
-        Uranium: 5
+        Plasma: 5
 
 - type: entity
   id: SurveillanceCameraRouterCircuitboard
