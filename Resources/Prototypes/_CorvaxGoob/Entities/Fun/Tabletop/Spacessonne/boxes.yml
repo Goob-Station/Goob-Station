@@ -35,7 +35,7 @@
   description: "Box for classic edition of game Spacessonne. Design from 3001 looks too old..."
   components:
   - type: Sprite
-    sprite: _Corvax/Objects/Fun/Tabletop/Spacessonne/boxes.rsi
+    sprite: _CorvaxGoob/Objects/Fun/Tabletop/Spacessonne/boxes.rsi
   - type: GenericVisualizer
     visuals:
       enum.StorageVisuals.Open:

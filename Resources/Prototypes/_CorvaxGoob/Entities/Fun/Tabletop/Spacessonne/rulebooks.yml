@@ -5,7 +5,7 @@
   description: "Just read it before play."
   components:
   - type: Sprite
-    sprite: _Corvax/Objects/Fun/Tabletop/Spacessonne/rulebook.rsi
+    sprite: _CorvaxGoob/Objects/Fun/Tabletop/Spacessonne/rulebook.rsi
     layers:
     - state: classic
   - type: Paper

@@ -7,7 +7,7 @@
   components:
   - type: Sprite
     drawdepth: 4
-    sprite: _Corvax/Objects/Fun/Tabletop/Spacessonne/meeples.rsi
+    sprite: _CorvaxGoob/Objects/Fun/Tabletop/Spacessonne/meeples.rsi
     state: normal
     color: "#FFFFFFFF"
   - type: Rotatable

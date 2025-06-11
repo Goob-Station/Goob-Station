@@ -1,7 +1,7 @@
 - type: cargoProduct
   id: FunCarc3
   icon:
-    sprite: _Corvax/Objects/Fun/Tabletop/Spacessonne/boxes.rsi
+    sprite: _CorvaxGoob/Objects/Fun/Tabletop/Spacessonne/boxes.rsi
     state: classic
   product: CrateFunCarc3
   cost: 3000

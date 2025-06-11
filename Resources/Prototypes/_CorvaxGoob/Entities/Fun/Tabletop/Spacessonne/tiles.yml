@@ -12,7 +12,7 @@
     foldVerbText: fold-flip-verb
   - type: Sprite
     drawdepth: 3
-    sprite: _Corvax/Objects/Fun/Tabletop/Spacessonne/tiles.rsi
+    sprite: _CorvaxGoob/Objects/Fun/Tabletop/Spacessonne/tiles.rsi
     layers:
     - state: back
       map: [ "unfoldedLayer"]

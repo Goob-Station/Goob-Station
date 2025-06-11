@@ -4,7 +4,7 @@
   name: "bag"
   components:
   - type: Sprite
-    sprite: _Corvax/Objects/Fun/Tabletop/Spacessonne/bag.rsi
+    sprite: _CorvaxGoob/Objects/Fun/Tabletop/Spacessonne/bag.rsi
     state: classic
   - type: Item
     size: Small
@@ -39,7 +39,7 @@
   suffix: "Classic, Filled"
   components:
   - type: Sprite
-    sprite: _Corvax/Objects/Fun/Tabletop/Spacessonne/bag.rsi
+    sprite: _CorvaxGoob/Objects/Fun/Tabletop/Spacessonne/bag.rsi
     state: classic
   - type: StorageFill
     contents:

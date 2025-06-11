@@ -4,7 +4,7 @@
   name: "meeple bag"
   components:
   - type: Sprite
-    sprite: _Corvax/Objects/Fun/Tabletop/Spacessonne/meeple_bag.rsi
+    sprite: _CorvaxGoob/Objects/Fun/Tabletop/Spacessonne/meeple_bag.rsi
     layers:
     - state: icon
       color: "#FFFFFF"
@@ -48,7 +48,7 @@
   name: "red meeples bag"
   components:
   - type: Sprite
-    sprite: _Corvax/Objects/Fun/Tabletop/Spacessonne/meeple_bag.rsi
+    sprite: _CorvaxGoob/Objects/Fun/Tabletop/Spacessonne/meeple_bag.rsi
     layers:
     - state: icon
       color: "#BB0000"
@@ -81,7 +81,7 @@
   name: "green meeples bag"
   components:
   - type: Sprite
-    sprite: _Corvax/Objects/Fun/Tabletop/Spacessonne/meeple_bag.rsi
+    sprite: _CorvaxGoob/Objects/Fun/Tabletop/Spacessonne/meeple_bag.rsi
     layers:
     - state: icon
       color: "#00BB00"
@@ -114,7 +114,7 @@
   name: "blue meeples bag"
   components:
   - type: Sprite
-    sprite: _Corvax/Objects/Fun/Tabletop/Spacessonne/meeple_bag.rsi
+    sprite: _CorvaxGoob/Objects/Fun/Tabletop/Spacessonne/meeple_bag.rsi
     layers:
     - state: icon
       color: "#4444BB"
@@ -147,7 +147,7 @@
   name: "black meeples bag"
   components:
   - type: Sprite
-    sprite: _Corvax/Objects/Fun/Tabletop/Spacessonne/meeple_bag.rsi
+    sprite: _CorvaxGoob/Objects/Fun/Tabletop/Spacessonne/meeple_bag.rsi
     layers:
     - state: icon
       color: "#252525"
@@ -180,7 +180,7 @@
   name: "yellow meeples bag"
   components:
   - type: Sprite
-    sprite: _Corvax/Objects/Fun/Tabletop/Spacessonne/meeple_bag.rsi
+    sprite: _CorvaxGoob/Objects/Fun/Tabletop/Spacessonne/meeple_bag.rsi
     layers:
     - state: icon
       color: "#BBBB00"
