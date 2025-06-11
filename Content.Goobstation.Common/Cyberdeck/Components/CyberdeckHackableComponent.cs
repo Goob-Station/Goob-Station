@@ -1,6 +1,4 @@
-﻿using Content.Goobstation.Maths.FixedPoint;
-
-namespace Content.Goobstation.Shared.Cyberdeck.Components;
+﻿namespace Content.Goobstation.Common.Cyberdeck.Components;
 
 /// <summary>
 /// When Cyberdeck hacks this device, it will take
@@ -10,7 +8,7 @@ namespace Content.Goobstation.Shared.Cyberdeck.Components;
 public sealed partial class CyberdeckHackableComponent : Component
 {
     [DataField]
-    public FixedPoint2 Cost = 1;
+    public int Cost = 1;
 
     [DataField]
     public TimeSpan HackingTime = TimeSpan.FromSeconds(3);

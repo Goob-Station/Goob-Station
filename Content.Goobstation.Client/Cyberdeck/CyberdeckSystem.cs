@@ -1,5 +1,5 @@
-﻿using Content.Goobstation.Shared.Cyberdeck;
-using Content.Goobstation.Shared.Cyberdeck.Components;
+﻿using Content.Goobstation.Common.Cyberdeck.Components;
+using Content.Goobstation.Shared.Cyberdeck;
 using Robust.Client.Graphics;
 using Robust.Shared.Player;
 
@@ -21,6 +21,7 @@ public sealed class CyberdeckSystem : SharedCyberdeckSystem
 
         SubscribeLocalEvent<LocalPlayerAttachedEvent>(OnPlayerAttach);
         SubscribeLocalEvent<LocalPlayerDetachedEvent>(OnPlayerDetached);
+        SubscribeLocalEvent<CyberdeckOverlayComponent, ComponentStartup>(OnStartup);
     }
 
     private void OnPlayerAttach(LocalPlayerAttachedEvent args)
@@ -31,10 +32,11 @@ public sealed class CyberdeckSystem : SharedCyberdeckSystem
         _overlayManager.AddOverlay(_overlay);
     }
 
-    private void OnPlayerDetached(LocalPlayerDetachedEvent args)
-    {
+    private void OnStartup(Entity<CyberdeckOverlayComponent> ent, ref ComponentStartup args) =>
+        _overlayManager.AddOverlay(_overlay);
+
+    private void OnPlayerDetached(LocalPlayerDetachedEvent args) =>
         _overlayManager.RemoveOverlay(_overlay);
-    }
 
     protected override void ShutdownProjection(Entity<CyberdeckProjectionComponent?>? ent) { }
 }

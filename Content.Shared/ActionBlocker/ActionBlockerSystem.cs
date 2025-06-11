@@ -67,6 +67,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Cyberdeck.Components;
+using Content.Goobstation.Common.Interaction; // Goob edit
 using Content.Shared.Body.Events;
 using Content.Shared.Emoting;
 using Content.Shared.Hands;
@@ -158,8 +160,8 @@ namespace Content.Shared.ActionBlocker
             if (!CanConsciouslyPerformAction(user))
                 return false;
 
-            // Shitmed Change
-            if (HasComp<StationAiOverlayComponent>(user) && HasComp<AbductorScientistComponent>(user))
+            // Goob edit
+            if (HasComp<NoNormalInteractionComponent>(user))
                 return false;
 
             var ev = new InteractionAttemptEvent(user, target);

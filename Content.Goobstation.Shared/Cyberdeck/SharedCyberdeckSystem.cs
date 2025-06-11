@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using Content.Goobstation.Common.Access;
+using Content.Goobstation.Common.Cyberdeck.Components;
 using Content.Goobstation.Maths.FixedPoint;
-using Content.Goobstation.Shared.Cyberdeck.Components;
 using Content.Shared.Access.Components;
 using Content.Shared.Actions;
 using Content.Shared.Body.Systems;
@@ -106,15 +106,23 @@ public abstract class SharedCyberdeckSystem : EntitySystem
             return;
 
         args.Handled = true;
-
-        EntityUid target;
+        EntityUid target = default;
 
         if (HackQuery.HasComp(args.Target))
             target = args.Target;
-        else if (HandsQuery.TryComp(args.Target, out var handsComp)
-            && _hands.TryGetActiveItem((args.Target, handsComp), out var item)
-            && HackQuery.HasComp(item.Value))
-            target = item.Value; // Hacked from entity's active hand
+
+        else if (HandsQuery.TryComp(args.Target, out var handsComp))
+        {
+            // Chech all hands for something that can be hacked
+            foreach (var item in _hands.EnumerateHeld(args.Target, handsComp))
+            {
+                if (!HackQuery.HasComp(item))
+                    continue;
+
+                target = item;
+                break;
+            }
+        }
         else
             return; // Nothing to hack here
 

@@ -1,4 +1,4 @@
-﻿namespace Content.Goobstation.Shared.Cyberdeck.Components;
+﻿namespace Content.Goobstation.Common.Cyberdeck.Components;
 
 [RegisterComponent]
 public sealed partial class CyberdeckOverlayComponent : Component;

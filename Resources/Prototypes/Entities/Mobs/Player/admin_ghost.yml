@@ -244,6 +244,7 @@
       - Normal
       - CosmicCultMonument # DeltaV - Cosmic Cult
       - Abductor
+      - StationAiNetwork # Goobstation
 
 - type: entity
   id: ActionAGhostShowSolar

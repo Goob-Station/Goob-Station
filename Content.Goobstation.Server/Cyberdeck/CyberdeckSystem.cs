@@ -1,5 +1,6 @@
-﻿using Content.Goobstation.Shared.Cyberdeck;
-using Content.Goobstation.Shared.Cyberdeck.Components;
+﻿using Content.Goobstation.Common.Cyberdeck.Components;
+using Content.Goobstation.Common.Interaction;
+using Content.Goobstation.Shared.Cyberdeck;
 using Content.Server.Emp;
 using Content.Server.Light.Components;
 using Content.Server.Light.EntitySystems;
@@ -7,10 +8,8 @@ using Content.Server.Power.Components;
 using Content.Shared.Alert;
 using Content.Shared.Body.Organ;
 using Content.Shared.Charges.Systems;
-using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Silicons.StationAi;
-using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Cyberdeck;
 
@@ -74,12 +73,13 @@ public sealed class CyberdeckSystem : SharedCyberdeckSystem
 
         var (uid, comp) = ent;
 
-        UseCharges(uid, comp.CyberVisionAbilityCost);
+        if (!UseCharges(uid, comp.CyberVisionAbilityCost))
+            return;
+
         SetupProjection(ent);
         Actions.AddAction(uid, ref comp.ReturnAction, comp.ReturnActionId);
         Actions.RemoveAction(uid, comp.VisionAction);
 
-        comp.VisionAction = null;
         args.Handled = true;
     }
 
@@ -98,8 +98,7 @@ public sealed class CyberdeckSystem : SharedCyberdeckSystem
         ShutdownProjection(user.Comp.ProjectionEntity);
 
         var position = Transform(user.Owner).Coordinates;
-        var observer = Spawn(user.Comp.ProjectionEntityId, position);
-        _transform.AttachToGridOrMap(observer);
+        var observer = SpawnAtPosition(user.Comp.ProjectionEntityId, position);
 
         EnsureComp<CyberdeckProjectionComponent>(observer).RemoteEntity = user.Owner;
 
@@ -113,6 +112,7 @@ public sealed class CyberdeckSystem : SharedCyberdeckSystem
 
         EnsureComp<StationAiOverlayComponent>(user.Owner);
         EnsureComp<CyberdeckOverlayComponent>(user.Owner);
+        EnsureComp<NoNormalInteractionComponent>(user.Owner);
 
         user.Comp.ProjectionEntity = observer;
     }
@@ -130,24 +130,17 @@ public sealed class CyberdeckSystem : SharedCyberdeckSystem
 
         var user = comp.RemoteEntity.Value;
 
-        RemComp<RelayInputMoverComponent>(user);
         RemComp<StationAiOverlayComponent>(user);
         RemComp<CyberdeckOverlayComponent>(user);
+        RemComp<NoNormalInteractionComponent>(user);
 
         Actions.AddAction(user, ref userComp.VisionAction, userComp.VisionActionId);
         Actions.RemoveAction(user, userComp.ReturnAction);
-
-        //userComp.ProjectionEntity = null;
-        //userComp.ReturnAction = null;
         Dirty(ent.Value.Owner, comp);
-        //Dirty(user, userComp);
 
         if (TryComp(user, out EyeComponent? eyeComp))
-        {
             _eye.SetDrawFov(user, true, eyeComp);
-            _eye.SetTarget(user, user, eyeComp);
-        }
 
-        Timer.Spawn(TimeSpan.FromSeconds(3), () => QueueDel(ent.Value.Owner));
+        QueueDel(ent.Value.Owner);
     }
 }

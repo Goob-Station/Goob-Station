@@ -4,6 +4,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Interaction; // Goob edit
 using Content.Shared._Shitmed.Antags.Abductor;
 using Content.Shared.Actions;
 using Content.Shared.DoAfter;
@@ -42,7 +43,10 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
     }
 
     private void AbductorScientistComponentStartup(Entity<AbductorScientistComponent> ent, ref ComponentStartup args)
-        => ent.Comp.SpawnPosition = EnsureComp<TransformComponent>(ent).Coordinates;
+    {
+        EnsureComp<NoNormalInteractionComponent>(ent); // Goob edit
+        ent.Comp.SpawnPosition = EnsureComp<TransformComponent>(ent).Coordinates;
+    }
 
     private void OnReturn(AbductorReturnToShipEvent ev)
     {

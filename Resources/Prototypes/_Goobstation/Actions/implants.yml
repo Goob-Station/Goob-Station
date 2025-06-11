@@ -58,8 +58,9 @@
   components:
   - type: EntityTargetAction
     useDelay: 10
-    range: 15
+    range: 1000
     checkCanAccess: false
+    repeat: true
     itemIconStyle: BigAction
     icon:
       sprite: /Textures/_Goobstation/Actions/implants/nanitemend.rsi

@@ -578,10 +578,15 @@
   - type: NoFTL
   - type: WarpPoint
     follow: true
+  # Goob edit start
   - type: Eye
     pvsScale: 1.5
+    visMask:
+    - Normal
+    - StationAiNetwork
   - type: Visibility
-    layer: 2
+    layer: 64
+  # Goob edit end
   - type: Sprite
     sprite: Mobs/Silicon/station_ai.rsi
     layers:

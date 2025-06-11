@@ -11,8 +11,11 @@
   - type: NoFTL
   - type: Eye
     pvsScale: 1.5
+    visMask:
+    - Normal
+    - StationAiNetwork # Goobstation
   - type: Visibility
-    layer: 2
+    layer: 64
   - type: Sprite
     sprite: _Goobstation/Mobs/Silicon/cyberdeck.rsi
     layers:

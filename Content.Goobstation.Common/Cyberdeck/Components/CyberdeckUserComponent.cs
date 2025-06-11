@@ -1,8 +1,6 @@
-﻿using Content.Goobstation.Maths.FixedPoint;
-using Content.Shared.Alert;
-using Robust.Shared.Prototypes;
+﻿using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.Cyberdeck.Components;
+namespace Content.Goobstation.Common.Cyberdeck.Components;
 
 /// <remarks>
 /// This won't work if assigned by hand. Use CyberDeckSystem instead.
@@ -30,10 +28,10 @@ public sealed partial class CyberdeckUserComponent : Component
     public EntityUid? ReturnAction;
 
     [DataField]
-    public ProtoId<AlertPrototype> AlertId = "CyberdeckCharges";
+    public string AlertId = "CyberdeckCharges";
 
     [DataField]
-    public FixedPoint2 CyberVisionAbilityCost = 2;
+    public int CyberVisionAbilityCost = 2;
 
     [DataField]
     public EntProtoId ProjectionEntityId = "CyberdeckProjection";
