@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2024 Fansana <fansana95@googlemail.com>
+# SPDX-FileCopyrightText: 2025 Vrilly <tnjans@outlook.de>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - files: ["yip.ogg"]
   license: "CC-BY-3.0"
   copyright: "Original sound added by https://github.com/NopemanMcHalt"
