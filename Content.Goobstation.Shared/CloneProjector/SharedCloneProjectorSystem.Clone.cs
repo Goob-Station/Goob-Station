@@ -34,6 +34,9 @@ public partial class SharedCloneProjectorSystem
                 continue;
 
             woundable.CanRemove = false;
+            woundable.CanBleed = false;
+            woundable.AllowWounds = false;
+
             Dirty(part.Id, woundable);
         }
     }
