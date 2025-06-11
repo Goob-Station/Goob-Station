@@ -2,7 +2,7 @@
   id: Yip
   name: chat-emote-name-yip
   category: Vocal
-  chatMessages: [ yips ]
+  chatMessages: [ "chat-emote-msg-yip" ]
   whitelist:
     tags:
     - ReptilianEmotes
