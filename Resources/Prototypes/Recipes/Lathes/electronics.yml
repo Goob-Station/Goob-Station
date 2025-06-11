@@ -552,7 +552,7 @@
   icon: { sprite:  Structures/Power/Generation/Tesla/coil.rsi, state: coil } # Goobstation
   id: TeslaCoilCircuitboard
   result: TeslaCoilCircuitboard
-  
+
 - type: latheRecipe
   parent: BaseGoldCircuitboardRecipe
   icon: { sprite:  Structures/Power/Generation/Singularity/collector.rsi, state: ca_on } # Goobstation
@@ -791,23 +791,3 @@
   icon: { sprite:  Structures/Machines/holopad.rsi, state: base } # Goobstation
   id: HolopadMachineCircuitboard
   result: HolopadMachineCircuitboard
-
-- type: latheRecipe # Goobstation - making tesla coils and radiation collectors craftable
-  id: TeslaCoilCircuitboard
-  result: TeslaCoilCircuitboard
-  category: Circuitry
-  completetime: 7
-  materials:
-    Steel: 100
-    Glass: 500
-    Gold: 100
-
-- type: latheRecipe # Goobstation - making tesla coils and radiation collectors craftable
-  id: RadiationCollectorCircuitboard
-  result: RadiationCollectorCircuitboard
-  category: Circuitry
-  completetime: 7
-  materials:
-    Steel: 100
-    Glass: 500
-    Gold: 100
