@@ -259,3 +259,13 @@
   category: cargoproduct-category-name-service
   group: market
 
+- type: cargoProduct
+  id: ServiceHolySupplies
+  icon:
+    sprite: Objects\Specific\Chapel\bible.rsi
+    state: icon
+  product: CrateHolySupplies
+  cost: 2000
+  category: cargoproduct-category-name-service
+  group: market
+

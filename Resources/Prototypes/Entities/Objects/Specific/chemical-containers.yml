@@ -539,3 +539,17 @@
         reagents:
         - ReagentId: WeldingFuel
           Quantity: 200
+- type: entity
+  parent: Jug
+  suffix: holy water
+  id: Jugholywater
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Label
+    currentLabel: reagent-name-holywater
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: Holywater
+          Quantity: 200
