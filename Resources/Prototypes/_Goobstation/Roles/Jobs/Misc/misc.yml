@@ -101,7 +101,7 @@
   startingGear: SyndicateHighCommanderGearFull
   icon: "JobIconSyndicate"
   supervisors: job-supervisors-syndicate
-  canBeAntag: false
+  canBeAntag: true
   requirements:
   - !type:AgeRequirement
     requiredAge: 21
@@ -141,3 +141,63 @@
     back:
     - WeaponPistolAnaconda
     - PinpointerSyndicateNuclear
+
+# Mercenary Captain
+
+- type: job
+  id: MercenaryCaptain
+  name: job-name-mercenarycaptain
+  description: job-description-mercenarycaptain
+  playTimeTracker: JobMercenaryCaptain
+  setPreference: false
+  startingGear: MercenaryCaptainGear
+  icon: "JobIconSyndicate"
+  supervisors: job-supervisors-credits
+  canBeAntag: true
+  requirements:
+  - !type:AgeRequirement
+    requiredAge: 21
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  - NanotrasenRepresentative
+  - BlueshieldOfficer
+  - NuclearOperative
+  - SyndicateAgent
+  special:
+  - !type:AddImplantSpecial
+    implants: [ FreedomImplant, ScramImplant, NutrimentPumpImplant, StypticStimulatorImplant, UplinkImplant, MindShieldImplant, BluespaceLifelineImplant, KravMagaImplant ]
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - AllHostile
+
+- type: startingGear
+  id: MercenaryCaptainGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryTurtleneckMercenaryCaptain
+    back: ClothingBackpackMerc
+    mask: HoloCigar
+    head: ClothingHeadHatBeretMerc
+    eyes: ClothingEyesGlassesCentComm
+    ears: ClothingHeadsetAltFreelancer
+    gloves: ClothingHandsMercGlovesCombat
+    outerClothing: ClothingOuterVestWebMerc
+    shoes: ClothingShoesBootsJackAdvancedFilled
+    id: CentcomPDA
+    neck: ClothingNeckScarfStripedGreen
+    pocket1: KukriKnife
+    pocket2: ContractorBaton
+    belt: ClothingBeltMercWebbingHelldiverFilled
+    suitstorage: WeaponRifleM90
+  storage:
+    back:
+    - DrinkMREFlask
+    - ClothingMaskBandMerc
+    - ExecutiveIDCard
+    - EncryptionKeyFreelance
+    - EncryptionKeyStationMaster # Depends on who yer working for.
+    - EncryptionKeyCentCom
+    - EncryptionKeySyndie

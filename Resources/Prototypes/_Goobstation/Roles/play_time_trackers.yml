@@ -54,4 +54,7 @@
   id: JobConquest
 
 - type: playTimeTracker
+  id: JobMercenaryCaptain
+
+- type: playTimeTracker
   id: JobBrigmedic

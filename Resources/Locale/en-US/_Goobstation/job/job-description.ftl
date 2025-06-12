@@ -29,3 +29,4 @@ job-description-hecu = Fufill the orders of your supervisor, no matter the moral
 # Misc
 
 job-description-conquest = Stand ready for my arrival, worm.
+job-name-mercenarycaptain = Order other mercs around. Act as muscle for the highest bidder. Just because it's NT now, doesn't mean it won't change later.

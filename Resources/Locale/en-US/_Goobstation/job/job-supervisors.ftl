@@ -11,3 +11,4 @@ job-supervisors-commander = the Navy Captain
 job-supervisors-null = nobody but yourself.
 
 job-supervisor-syndicate = The Spinward Syndicate
+job-supervisors-credits = The Highest Bidders
