@@ -19,9 +19,6 @@
         "directions": 4
     },
     {
-        "name": "proxysignaller"
-    },
-    {
         "name": "proxysignaller_on",
         "delays": [
             [
