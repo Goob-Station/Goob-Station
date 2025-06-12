@@ -8,6 +8,7 @@ namespace Content.Goobstation.Client.Cyberdeck;
 public sealed class CyberdeckSystem : SharedCyberdeckSystem
 {
     [Dependency] private readonly IOverlayManager _overlayManager = default!;
+    [Dependency] private readonly ISharedPlayerManager _player = default!;
 
     private CyberdeckOverlay _overlay = default!;
     private EntityQuery<CyberdeckOverlayComponent> _users;
@@ -22,6 +23,7 @@ public sealed class CyberdeckSystem : SharedCyberdeckSystem
         SubscribeLocalEvent<LocalPlayerAttachedEvent>(OnPlayerAttach);
         SubscribeLocalEvent<LocalPlayerDetachedEvent>(OnPlayerDetached);
         SubscribeLocalEvent<CyberdeckOverlayComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<CyberdeckOverlayComponent, ComponentShutdown>(OnShutdown);
     }
 
     private void OnPlayerAttach(LocalPlayerAttachedEvent args)
@@ -32,11 +34,24 @@ public sealed class CyberdeckSystem : SharedCyberdeckSystem
         _overlayManager.AddOverlay(_overlay);
     }
 
-    private void OnStartup(Entity<CyberdeckOverlayComponent> ent, ref ComponentStartup args) =>
-        _overlayManager.AddOverlay(_overlay);
-
     private void OnPlayerDetached(LocalPlayerDetachedEvent args) =>
         _overlayManager.RemoveOverlay(_overlay);
+
+    private void OnStartup(Entity<CyberdeckOverlayComponent> ent, ref ComponentStartup args)
+    {
+        if (!_users.HasComp(_player.LocalEntity))
+            return;
+
+        _overlayManager.AddOverlay(_overlay);
+    }
+
+    private void OnShutdown(Entity<CyberdeckOverlayComponent> ent, ref ComponentShutdown args)
+    {
+        if (!_users.HasComp(_player.LocalEntity))
+            return;
+
+        _overlayManager.RemoveOverlay(_overlay);
+    }
 
     protected override void ShutdownProjection(Entity<CyberdeckProjectionComponent?>? ent) { }
 

@@ -1,37 +1,38 @@
-﻿using Robust.Shared.Prototypes;
+﻿using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Common.Cyberdeck.Components;
 
 /// <remarks>
 /// This won't work if assigned by hand. Use CyberDeckSystem instead.
 /// </remarks>>
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class CyberdeckUserComponent : Component
 {
     /// <summary>
     /// Entity that provides cyberdeck abilities to this entity.
     /// Used mostly for counting charges, and if null charges will just be infinite.
     /// </summary>
-    [ViewVariables]
+    [ViewVariables, AutoNetworkedField]
     public EntityUid? ProviderEntity;
 
-    [ViewVariables]
+    [ViewVariables, AutoNetworkedField]
     public EntityUid? ProjectionEntity;
 
-    [ViewVariables]
+    [ViewVariables, AutoNetworkedField]
     public EntityUid? HackAction;
 
-    [ViewVariables]
+    [ViewVariables, AutoNetworkedField]
     public EntityUid? VisionAction;
 
-    [ViewVariables]
+    [ViewVariables, AutoNetworkedField]
     public EntityUid? ReturnAction;
 
     [DataField]
     public string AlertId = "CyberdeckCharges";
 
     [DataField]
-    public int CyberVisionAbilityCost = 5;
+    public int CyberVisionAbilityCost = 6;
 
     [DataField]
     public EntProtoId ProjectionEntityId = "CyberdeckProjection";

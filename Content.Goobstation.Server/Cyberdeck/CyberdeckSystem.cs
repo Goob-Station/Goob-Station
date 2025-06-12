@@ -30,8 +30,8 @@ public sealed class CyberdeckSystem : SharedCyberdeckSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<PoweredLightComponent, CyberdeckHackDoAfterEvent>(OnLightHacked);
-        SubscribeLocalEvent<BatteryComponent, CyberdeckHackDoAfterEvent>(OnBatteryHacked);
+        SubscribeLocalEvent<PoweredLightComponent, CyberdeckHackDeviceEvent>(OnLightHacked);
+        SubscribeLocalEvent<BatteryComponent, CyberdeckHackDeviceEvent>(OnBatteryHacked);
 
         SubscribeLocalEvent<CyberdeckUserComponent, CyberdeckVisionEvent>(OnCyberVisionUsed);
         SubscribeLocalEvent<CyberdeckUserComponent, CyberdeckVisionReturnEvent>(OnCyberVisionReturn);
@@ -50,32 +50,37 @@ public sealed class CyberdeckSystem : SharedCyberdeckSystem
         _alerts.ShowAlert(user, userComp.AlertId, charges);
     }
 
-    private void OnBatteryHacked(Entity<BatteryComponent> ent, ref CyberdeckHackDoAfterEvent args)
+    private void OnBatteryHacked(Entity<BatteryComponent> ent, ref CyberdeckHackDeviceEvent args)
     {
-        if (!TryHackDevice(args.User, ent.Owner))
-            return;
+        // TODO: this mostly works just with items, and can't process high-power structures properly.
+        // Im bad at math so if you're going to make something like Substations cyberdeck-hackable, please change this code first.
 
         var mapPos = _transform.GetMapCoordinates(ent.Owner);
-        var radius = ent.Comp.CurrentCharge / ent.Comp.MaxCharge * 2.5f;
-        var duration = ent.Comp.CurrentCharge / ent.Comp.MaxCharge * 10;
+        var percentage = ent.Comp.CurrentCharge / ent.Comp.MaxCharge;
+        var radius = percentage * 2.5f;
+        var duration = percentage * 10;
 
-        if (radius < 0.25f)
-            // Less than 10% does nothing, just drains all remaining battery
+        if (percentage < 0.1f)
+        {
+            // Less than 10% does nothing, just silently drains all remaining battery
             _battery.SetCharge(ent.Owner, 0f, ent.Comp);
-        else
-            // bazillions IPCs must die
-            _emp.EmpPulse(mapPos, radius, ent.Comp.MaxCharge, duration);
+            return;
+        }
+
+        // bazillions IPCs must die
+        _emp.EmpPulse(mapPos, radius, ent.Comp.CurrentCharge, duration);
 
         // Validhunt must spread
-        Popup.PopupEntity(Loc.GetString("cyberdeck-battery-get-hacked", ("target", Identity.Name(ent.Owner, EntityManager))), ent.Owner, PopupType.Large);
+        var message = Loc.GetString("cyberdeck-battery-get-hacked",
+            ("target", Identity.Entity(ent.Owner, EntityManager, args.User)));
+
+        Popup.PopupEntity(message, ent.Owner, PopupType.Large);
     }
 
-    private void OnLightHacked(Entity<PoweredLightComponent> ent, ref CyberdeckHackDoAfterEvent args)
+    private void OnLightHacked(Entity<PoweredLightComponent> ent, ref CyberdeckHackDeviceEvent args)
     {
-        if (!TryHackDevice(args.User, ent.Owner))
-            return;
-
-        _light.TryDestroyBulb(ent.Owner, ent.Comp); // Seriously. They don't predict light bulbs????????
+        // Seriously. They don't predict light bulbs????????
+        args.Refund = !_light.TryDestroyBulb(ent.Owner, ent.Comp);
     }
 
     private void OnCyberVisionUsed(Entity<CyberdeckUserComponent> ent, ref CyberdeckVisionEvent args)

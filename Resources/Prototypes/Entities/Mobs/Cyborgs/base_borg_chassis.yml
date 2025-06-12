@@ -423,8 +423,6 @@
   - type: Penetratable # Goobstation - Better snipers
     penetrateDamage: 75 # It's harder to kill iron golem
     damagePenalty: 0.25
-  - type: CyberdeckHackable # Goobstation - Cyberdeck
-    cost: 3
 
 - type: entity
   abstract: true

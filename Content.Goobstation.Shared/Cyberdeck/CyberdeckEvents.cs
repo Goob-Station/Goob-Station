@@ -16,5 +16,19 @@ public sealed partial class CyberdeckVisionEvent : InstantActionEvent;
 /// </summary>
 public sealed partial class CyberdeckVisionReturnEvent : InstantActionEvent;
 
+/// <summary>
+/// Raised on a CyberdeckHackable device, will take charges from the user and then
+/// raise CyberdeckHackDeviceEvent to add actual effects on a target device.
+/// </summary>
 [Serializable, NetSerializable]
 public sealed partial class CyberdeckHackDoAfterEvent : SimpleDoAfterEvent;
+
+/// <summary>
+/// Actually hacks a device. Subscribe to it to handle effects that happen
+/// after CyberdeckHackDoAfterEvent had run and after charges were taken from the user.
+/// </summary>
+/// <remarks>
+/// Use Refund property VERY CAREFULLY. If true, it will return charges back to the user even if other effects succeeded.
+/// </remarks>
+[ByRefEvent]
+public record struct CyberdeckHackDeviceEvent(EntityUid User, bool Refund = false);

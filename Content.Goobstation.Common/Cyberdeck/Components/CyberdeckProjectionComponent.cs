@@ -1,10 +1,10 @@
-﻿using Robust.Shared.Prototypes;
+﻿using Robust.Shared.GameStates;
 
 namespace Content.Goobstation.Common.Cyberdeck.Components;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class CyberdeckProjectionComponent : Component
 {
-    [ViewVariables]
+    [ViewVariables, AutoNetworkedField]
     public EntityUid? RemoteEntity;
 }

@@ -8,6 +8,7 @@
   description: The cyberdeck's viewer.
   categories: [ HideSpawnMenu, DoNotMap ]
   components:
+  - type: LagCompensation
   - type: NoFTL
   - type: Eye
     pvsScale: 1.5

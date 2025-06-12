@@ -1,11 +1,13 @@
-﻿namespace Content.Goobstation.Common.Access;
+﻿using Robust.Shared.GameStates;
+
+namespace Content.Goobstation.Common.Access;
 
 /// <summary>
-/// If assigned to an entity with AccessComponent, will always allow access for some entities.
+/// If assigned to an entity with AccessReaderComponent, will always allow access for some ignored entities.
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class IgnoreAccessComponent : Component
 {
-    [ViewVariables]
+    [ViewVariables, AutoNetworkedField]
     public HashSet<EntityUid> Ignore = new();
 }

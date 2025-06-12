@@ -1,4 +1,6 @@
-﻿namespace Content.Goobstation.Common.Cyberdeck.Components;
+﻿using Robust.Shared.GameStates;
 
-[RegisterComponent]
+namespace Content.Goobstation.Common.Cyberdeck.Components;
+
+[RegisterComponent, NetworkedComponent]
 public sealed partial class CyberdeckOverlayComponent : Component;

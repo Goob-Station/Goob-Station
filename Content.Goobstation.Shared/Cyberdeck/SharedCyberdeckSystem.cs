@@ -22,7 +22,9 @@ using Content.Shared.Silicons.StationAi;
 using Content.Shared.Stunnable;
 using Content.Shared.Verbs;
 using Robust.Shared.Containers;
+using Robust.Shared.Network;
 using Robust.Shared.Player;
+using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.Cyberdeck;
@@ -40,6 +42,8 @@ public abstract class SharedCyberdeckSystem : EntitySystem
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedJitteringSystem _jitter = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly INetManager _net = default!;
 
     protected EntityQuery<HandsComponent> HandsQuery;
     protected EntityQuery<ContainerManagerComponent> ContainerQuery;
@@ -52,9 +56,11 @@ public abstract class SharedCyberdeckSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<AirlockComponent, CyberdeckHackDoAfterEvent>(OnAirlockHacked);
-        SubscribeLocalEvent<AccessComponent, CyberdeckHackDoAfterEvent>(OnAccessHacked);
-        SubscribeLocalEvent<BorgChassisComponent, CyberdeckHackDoAfterEvent>(OnBorgHacked);
+        SubscribeLocalEvent<CyberdeckHackableComponent, CyberdeckHackDoAfterEvent>(OnHacked);
+
+        SubscribeLocalEvent<AirlockComponent, CyberdeckHackDeviceEvent>(OnAirlockHacked);
+        SubscribeLocalEvent<AccessReaderComponent, CyberdeckHackDeviceEvent>(OnAccessHacked);
+        SubscribeLocalEvent<BorgChassisComponent, CyberdeckHackDeviceEvent>(OnBorgHacked);
 
         SubscribeLocalEvent<CyberdeckUserComponent, ComponentStartup>(OnUserInit);
         SubscribeLocalEvent<CyberdeckUserComponent, ComponentShutdown>(OnUserShutdown);
@@ -73,7 +79,8 @@ public abstract class SharedCyberdeckSystem : EntitySystem
 
     protected bool TryHackDevice(EntityUid user, EntityUid device)
     {
-        if (!HackQuery.TryComp(device, out var hackable))
+        if (!HackQuery.TryComp(device, out var hackable)
+            || !Power.IsPowered(device))
             return false;
 
         return UseCharges(user, hackable.Cost);
@@ -87,31 +94,41 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         if (cyberDeck.ProviderEntity == null)
             return true; // We don't care if nowhere to take charges from at this point
 
-        if (ChargesQuery.TryComp(cyberDeck.ProviderEntity.Value, out var chargesComp)
-            && Charges.HasInsufficientCharges(cyberDeck.ProviderEntity.Value, amount))
-        {
-            string message;
-            var charges = chargesComp.Charges;
-            var chargesForm = (amount - charges).Int();
-
-            // SHUT UP C# I HATE BRACES!!!!!!!!!
-
-            // ReSharper disable once EnforceIfStatementBraces
-            if (target != null)
-                message = Loc.GetString("cyberdeck-insufficient-charges-with-target",
-                    ("amount", chargesForm),
-                    ("target", Identity.Name(target.Value, EntityManager)));
-            // ReSharper disable once EnforceIfStatementBraces
-            else
-                message = Loc.GetString("cyberdeck-insufficient-charges-with-target",
-                    ("amount", chargesForm));
-
-            Popup.PopupEntity(message, user, user, PopupType.MediumCaution);
+        if (!CheckCharges(user, cyberDeck.ProviderEntity.Value, amount, target))
             return false;
-        }
 
         Charges.UseCharges(cyberDeck.ProviderEntity.Value, amount);
         return true;
+    }
+
+    protected bool CheckCharges(EntityUid user, EntityUid provider, FixedPoint2 amount, EntityUid? target = null)
+    {
+        if (!ChargesQuery.TryComp(provider, out var chargesComp))
+            return false;
+
+        if (!Charges.HasInsufficientCharges(provider, amount))
+            return true;
+
+        // Tell user that he doesn't have enough charges
+        string message;
+        var charges = chargesComp.Charges;
+        var chargesForm = (amount - charges).Int();
+
+        // SHUT UP C# I HATE BRACES!!!!!!!!!
+        // ReSharper disable once EnforceIfStatementBraces
+        if (target != null)
+            message = Loc.GetString("cyberdeck-insufficient-charges-with-target",
+                ("amount", chargesForm),
+                ("target", Identity.Entity(target.Value, EntityManager, user)));
+        // ReSharper disable once EnforceIfStatementBraces
+        else
+            message = Loc.GetString("cyberdeck-insufficient-charges",
+                ("amount", chargesForm));
+
+        if (_net.IsServer)
+            Popup.PopupEntity(message, user, user, PopupType.Medium);
+
+        return false;
     }
 
     private void OnProjectionVerbs(Entity<CyberdeckProjectionComponent> ent, ref GetVerbsEvent<Verb> args)
@@ -129,28 +146,15 @@ public abstract class SharedCyberdeckSystem : EntitySystem
 
     private void OnStartHacking(EntityUid uid, CyberdeckUserComponent component, CyberdeckHackActionEvent args)
     {
-        if (args.Handled || args.Target == uid)
+        if (args.Handled || args.Target == uid || !_timing.IsFirstTimePredicted)
             return;
 
         args.Handled = true;
-        EntityUid target = default;
+        EntityUid? target = null;
 
-        if (HackQuery.HasComp(args.Target))
-            target = args.Target;
-
-        else if (HandsQuery.TryComp(args.Target, out var handsComp))
-        {
-            // Check all hands for something that can be hacked
-            foreach (var item in _hands.EnumerateHeld(args.Target, handsComp))
-            {
-                if (!HackQuery.HasComp(item))
-                    continue;
-
-                target = item;
-                break;
-            }
-        }
-        else if (ContainerQuery.TryComp(args.Target, out var containerComp))
+        // Starting with most specific cases, moving to most common ones for code safety
+        // Prioritize containers over hands, because we want to be able to hack IPCs and borgs
+        if (ContainerQuery.TryComp(args.Target, out var containerComp))
         {
             // If it's a container, find anything hackable and hack it.
             // No, I won't stack loops inside an if statement, because birds will start migrating to such Nested code.
@@ -163,11 +167,30 @@ public abstract class SharedCyberdeckSystem : EntitySystem
                 target = containerTarget.Value;
             }
         }
-        else
-            return; // Nothing to hack here
+
+        if (HandsQuery.TryComp(args.Target, out var handsComp) && target == null)
+        {
+            // Check all hands for something that can be hacked
+            foreach (var item in _hands.EnumerateHeld(args.Target, handsComp))
+            {
+                if (!HackQuery.HasComp(item))
+                    continue;
+
+                target = item;
+                break;
+            }
+        }
+
+        if (HackQuery.HasComp(args.Target))
+            target = args.Target;
 
         // To be safe we get the component itself only here.
         if (!HackQuery.TryComp(target, out var hackable))
+            return;
+
+        // Make a popup and return if not enough charges
+        if (component.ProviderEntity != null
+            && !CheckCharges(uid, component.ProviderEntity.Value, hackable.Cost, target))
             return;
 
         var ev = new DoAfterArgs(
@@ -183,6 +206,8 @@ public abstract class SharedCyberdeckSystem : EntitySystem
             BlockDuplicate = true,
             BreakOnDamage = true,
             BreakOnMove = true,
+            BreakOnWeightlessMove = false,
+            DistanceThreshold = 20f,
             Broadcast = false,
             Hidden = true,
             RequireCanInteract = false,
@@ -191,12 +216,16 @@ public abstract class SharedCyberdeckSystem : EntitySystem
 
         _doAfter.TryStartDoAfter(ev);
 
-        var message = Loc.GetString("cyberdeck-start-hacking", ("target", Identity.Name(target, EntityManager, uid)));
-        Popup.PopupEntity(message, uid, uid, PopupType.SmallCaution);
+        if (_net.IsClient)
+            return; // Im too lazy to fix popups.
+
+        var message = Loc.GetString("cyberdeck-start-hacking", ("target", Identity.Entity(target.Value, EntityManager, uid)));
+        Popup.PopupEntity(message, uid, uid);
 
         // Also alert the target if it's a player.
+        // They can't do anything about it. They will just look at this message and cry.
         if (HasComp<ActorComponent>(target))
-            Popup.PopupEntity(Loc.GetString("cyberdeck-player-get-hacked"), target, target, PopupType.LargeCaution);
+            Popup.PopupEntity(Loc.GetString("cyberdeck-player-get-hacked"), target.Value, target.Value, PopupType.LargeCaution);
     }
 
     private void OnUserInit(EntityUid uid, CyberdeckUserComponent component, ComponentStartup args)
@@ -223,28 +252,38 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         ShutdownProjection(component.ProjectionEntity);
     }
 
-    private void OnAirlockHacked(Entity<AirlockComponent> ent, ref CyberdeckHackDoAfterEvent args)
+    private void OnHacked(Entity<CyberdeckHackableComponent> ent, ref CyberdeckHackDoAfterEvent args)
     {
         if (!TryHackDevice(args.User, ent.Owner))
             return;
 
-        _door.StartOpening(ent.Owner, user: args.User);
+        // This evil hacking events chain is required to handle charges properly if target has multiple components.
+        // For example, hacking an Airlock will open it AND add IgnoreAccess, but it will take charges only once.
+        var ev = new CyberdeckHackDeviceEvent(args.User);
+        RaiseLocalEvent(ent.Owner, ref ev);
+
+        // Oops. Compensate charges if we failed
+        if (ev.Refund)
+        {
+            if (!UserQuery.TryComp(args.User, out var userComp)
+                || userComp.ProviderEntity == null)
+                return;
+
+            Charges.AddCharges(userComp.ProviderEntity.Value, ent.Comp.Cost);
+        }
     }
 
-    private void OnAccessHacked(Entity<AccessComponent> ent, ref CyberdeckHackDoAfterEvent args)
-    {
-        if (!TryHackDevice(args.User, ent.Owner))
-            return;
+    private void OnAirlockHacked(Entity<AirlockComponent> ent, ref CyberdeckHackDeviceEvent args)
+        => _door.StartOpening(ent.Owner, user: args.User);
 
+    private void OnAccessHacked(Entity<AccessReaderComponent> ent, ref CyberdeckHackDeviceEvent args)
+    {
         var ignore = EnsureComp<IgnoreAccessComponent>(ent);
         ignore.Ignore.Add(args.User);
     }
 
-    private void OnBorgHacked(Entity<BorgChassisComponent> ent, ref CyberdeckHackDoAfterEvent args)
+    private void OnBorgHacked(Entity<BorgChassisComponent> ent, ref CyberdeckHackDeviceEvent args)
     {
-        if (!TryHackDevice(args.User, ent.Owner))
-            return;
-
         // TODO this probably shouldn't be hardcoded, but I don't know where to put this.
         _stun.TryParalyze(ent.Owner, TimeSpan.FromSeconds(8), true);
         _jitter.DoJitter(ent.Owner, TimeSpan.FromSeconds(8), true);

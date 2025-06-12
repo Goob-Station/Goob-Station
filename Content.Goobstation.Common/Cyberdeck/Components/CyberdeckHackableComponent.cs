@@ -1,15 +1,17 @@
-﻿namespace Content.Goobstation.Common.Cyberdeck.Components;
+﻿using Robust.Shared.GameStates;
+
+namespace Content.Goobstation.Common.Cyberdeck.Components;
 
 /// <summary>
 /// When Cyberdeck hacks this device, it will take
 /// specified amount of charges.
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class CyberdeckHackableComponent : Component
 {
-    [DataField]
+    [DataField, AutoNetworkedField]
     public int Cost = 1;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public TimeSpan HackingTime = TimeSpan.FromSeconds(3);
 }
