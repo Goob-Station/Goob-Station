@@ -1,4 +1,4 @@
-ent-EffectTeleportation = teleportation
+ent-EffectTeleportation = телепортация
     .desc = { "" }
-ent-EffectTeleportationEntity = teleportation
+ent-EffectTeleportationEntity = телепортация
     .desc = { "" }

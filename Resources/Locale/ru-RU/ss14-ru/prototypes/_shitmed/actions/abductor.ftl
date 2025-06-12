@@ -1,6 +1,6 @@
-ent-ActionExitConsole = Exit console
-    .desc = Exit console.
-ent-ActionSendYourself = Send yourself
-    .desc = You need to FTL to the same map as the station to use this ability!
-ent-ActionReturnToShip = return
-    .desc = return to the ship.
+ent-ActionExitConsole = Выйти
+    .desc = Выйти из консоли.
+ent-ActionSendYourself = Отправить себя
+    .desc = Тебе нужно быть на одном секторе вместе со станцией что бы пользоваться этим.
+ent-ActionReturnToShip = Вернуться
+    .desc = Вернуться на шаттл.

@@ -1,5 +1,5 @@
-ent-OrganDubiousBase = mysterious gland
-    .desc = Suspicious alien gland, replaces the heart.
+ent-OrganDubiousBase = странная железа
+    .desc = Неизвестная чужеродная железа, заменяющая сердце.
 ent-OrganDubiousHealth = { ent-OrganDubiousBase }
     .desc = { ent-OrganDubiousBase.desc }
 ent-OrganDubiousAA = { ent-OrganDubiousBase }

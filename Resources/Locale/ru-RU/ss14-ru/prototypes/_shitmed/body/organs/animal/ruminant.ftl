@@ -1,2 +1,2 @@
-ent-OrganAnimalRuminantStomach2 = ruminant stomach 2
-    .desc = electric boogaloo
+ent-OrganAnimalRuminantStomach2 = желудок травоядного животного
+    .desc = электрический бугалу
