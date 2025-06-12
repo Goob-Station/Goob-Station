@@ -1,11 +1,9 @@
-// SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Shared.EntityTable;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Storage.EntitySystems;
 using Robust.Shared.Audio.Systems;
@@ -14,12 +12,15 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.SetSelector;
 
+/// <summary>
+/// <see cref="SetSelectorComponent"/>
+/// this system links the interface to the logic, and will spawn sets selected by the player in the interface
+/// </summary>
 public sealed class SetSelectorSystem : EntitySystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedEntityStorageSystem _entityStorage = default!;
-    [Dependency] private readonly EntityTableSystem _entityTable = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
@@ -42,6 +43,7 @@ public sealed class SetSelectorSystem : EntitySystem
             return;
         }
 
+        // Randomize sets available for selection
         var sets = selector.Comp.PossibleSets.ToArray();
         new System.Random().Shuffle(sets);
         selector.Comp.AvailableSets = sets.Take(selector.Comp.SetsToSelect).ToList();
@@ -59,33 +61,23 @@ public sealed class SetSelectorSystem : EntitySystem
 
         EntityUid spawnedStorage = default;
         var storagePrototype = selector.Comp.SpawnedStoragePrototype;
-        var spawnedStorageContainer = selector.Comp.SpawnedStorageContainer;
+        var spawnedStorageContainer =  selector.Comp.SpawnedStorageContainer;
         var openSpawnedStorage = selector.Comp.OpenSpawnedStorage;
         var coordinates = _transform.GetMapCoordinates(selector.Owner);
         _container.TryGetContainingContainer(selector, out var target);
-        List<string> ignoredContainers = new() { "implant", "pocket1", "pocket2", "pocket3", "pocket4" };
+        List<string> ignoredContainers = new() { "implant", "pocket1", "pocket2", "pocket3", "pocket4" } ;
 
+        // Spawn the contents of the chosen sets and add them to spawnedEntities
         List<EntityUid> spawnedEntities = [];
+        spawnedEntities.AddRange(selector.Comp.SelectedSets.Select(i => _proto.Index(selector.Comp.AvailableSets[i]))
+                       .SelectMany(set => set.Content.Select(item => Spawn(item, coordinates))));
 
-        foreach (var setIndex in selector.Comp.SelectedSets)
-        {
-            var set = _proto.Index(selector.Comp.AvailableSets[setIndex]);
-
-            // Spawn guaranteed content
-            spawnedEntities.AddRange(set.Content.Select(item => Spawn(item, coordinates)));
-
-            // Spawn from entity tables
-            foreach (var tableId in set.Tables)
-            {
-                var tablePrototype = _proto.Index(tableId);
-                var tableSpawns = _entityTable.GetSpawns(tablePrototype.Table);
-                spawnedEntities.AddRange(tableSpawns.Select(spawn => Spawn(spawn, coordinates)));
-            }
-        }
-
+        // Since we immediately delete the selector, the sound played on it would get deleted too,
+        // so we play the sound on coordinates of the selector instead.
         _audio.PlayPvs(selector.Comp.ApproveSound, Transform(selector.Owner).Coordinates);
         Del(selector);
 
+        // We do this after deleting the selector so the spawned storage does not collide with it
         if (storagePrototype != null && spawnedStorageContainer != null)
         {
             spawnedStorage = Spawn(storagePrototype, coordinates);
@@ -117,6 +109,7 @@ public sealed class SetSelectorSystem : EntitySystem
 
     private void OnChangeSet(Entity<SetSelectorComponent> selector, ref SetSelectorChangeSetMessage args)
     {
+        // Switch selecting set
         if (!selector.Comp.SelectedSets.Remove(args.SetNumber))
              selector.Comp.SelectedSets.Add(args.SetNumber);
 
