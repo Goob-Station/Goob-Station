@@ -27,3 +27,27 @@
   id: PinpointerBorg
   parent: Pinpointer
   result: PinpointerBorg
+
+- type: latheRecipe
+  id: VoiceSignaller
+  result: VoiceSignaller
+  categories:
+  - Parts
+  completetime: 2
+  materials:
+    Steel: 100
+    Plastic: 200
+    Glass: 100
+    Silver: 100
+
+- type: latheRecipe
+  id: ProximitySignaller
+  result: ProximitySignaller
+  categories:
+  - Parts
+  completetime: 2
+  materials:
+    Steel: 100
+    Plastic: 200
+    Glass: 100
+    Gold: 200

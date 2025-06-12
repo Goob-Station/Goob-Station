@@ -142,3 +142,10 @@
   id: RadFull
   name: signal-port-name-rad-full
   description: signal-port-description-rad-full
+
+# Misc Signallers
+
+- type: sourcePort
+  id: Triggered
+  name: signal-port-name-triggered-signaller
+  description: signal-port-description-triggered-signaller
