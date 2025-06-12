@@ -87,10 +87,10 @@
   goobcoins: 0 #Goob content
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 36000 #10 hrs
-      inverted: true # get a job you bum  
-#  access:
-#  - Maintenance
+      time: 72000 #20 hrs
+      inverted: false # stop slacking or you're FIRED
+  access:
+  - Maintenance
 
 - type: startingGear
   id: PassengerGear
