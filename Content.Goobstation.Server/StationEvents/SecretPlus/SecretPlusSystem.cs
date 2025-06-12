@@ -248,10 +248,12 @@ public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
                 Log.Error($"Tried running roundstart event {entProto.ID}, but chaos score was null");
                 continue;
             }
-                            // negative
-            var prob = 1f - (-scheduler.ChaosScore) / ruleComp.ChaosScore.Value;
-            prob = MathF.Max(0f, prob); // to shut up debug
-            if (_random.Prob(prob)) // have a chance to re-pick if we have low chaos budget left compared to this
+                             // negative
+            var pickProb = (-scheduler.ChaosScore) / ruleComp.ChaosScore.Value;
+            if (i == 1)
+                pickProb *= scheduler.PrimaryAntagChaosBias;
+            pickProb = MathF.Min(1f, pickProb); // to shut up debug
+            if (!_random.Prob(pickProb)) // have a chance to re-pick if we have low chaos budget left compared to this
                 continue;
 
             // for admeme presets

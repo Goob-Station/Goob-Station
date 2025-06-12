@@ -126,6 +126,12 @@ public sealed partial class SecretPlusComponent : Component
     public ProtoId<WeightedRandomPrototype> PrimaryAntagsWeightTable = "SecretPlusPrimary";
 
     /// <summary>
+    ///   Makes the primary antag gamerule be less likely to be skipped due to lacking chaos budget.
+    /// </summary>
+    [DataField]
+    public float PrimaryAntagChaosBias = 2f;
+
+    /// <summary>
     /// Weight table for roundstart antags.
     /// </summary>
     [DataField]
