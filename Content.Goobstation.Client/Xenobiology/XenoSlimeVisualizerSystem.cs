@@ -34,9 +34,11 @@ public sealed class XenoSlimeVisualizerSystem : VisualizerSystem<SlimeComponent>
         {
             var spriteComp = args.Sprite;
             var newShader = _proto.Index<ShaderPrototype>(shader).InstanceUnique();
-            foreach (var layer in args.Sprite.AllLayers) 
+            foreach (var layer in args.Sprite.AllLayers)
             {
-                spriteComp.LayerSetShader(layer, newShader);
+                var thisLayer = spriteComp.LayerMapTryGet(layer, out var targetLayer);
+                if (thisLayer)
+                    spriteComp.LayerSetShader(targetLayer, newShader);
             }
             spriteComp.GetScreenTexture = newShader is not null;
             spriteComp.RaiseShaderEvent = newShader is not null;

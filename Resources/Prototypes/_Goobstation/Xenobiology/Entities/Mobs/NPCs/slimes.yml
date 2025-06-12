@@ -161,11 +161,8 @@
     - baby
     - adult
   - type: Slime
-    breed: GreyMutation
+    breed: MetalMutation
     maxOffspring: 4
     mutationChance: 0.45
     potentialMutations:
-    - OrangeMutation
-    - PurpleMutation
-    - BlueMutation
     - MetalMutation

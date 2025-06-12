@@ -8,7 +8,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
       color: "#828282"
   - type: Appearance
@@ -35,7 +35,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
       color: "#828282"
   - type: Reactive
@@ -71,7 +71,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
       color: "#ff9f1a"
   - type: Flammable
@@ -115,7 +115,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
       color: "#BF77F6"
   - type: Reactive
@@ -150,7 +150,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
       color: "#79F6FC"
   - type: Reactive
@@ -187,7 +187,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
       color: "#595959"
       shader: XenoMetallic
@@ -231,7 +231,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
       color: "#ffff1a"
   - type: SlimeExtract
@@ -244,7 +244,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
       color: "#8e0ff0"
   - type: SlimeExtract
@@ -257,7 +257,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
       color: "#1e8cfa"
   - type: SlimeExtract
@@ -270,7 +270,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
       color: "#c4c4c4"
       shader: XenoMetallic
@@ -286,7 +286,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
       color: "#f0f8ff"
       shader: XenoBluespace
@@ -300,7 +300,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
       color: "#704214"
       shader: XenoSepia
@@ -314,7 +314,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
       color: "#2A52BE"
   - type: SlimeExtract
@@ -327,7 +327,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
       color: "#dcaa4f"
       shader: XenoMetallic
@@ -343,7 +343,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
       color: "#ff3333"
   - type: SlimeExtract
@@ -356,7 +356,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
       color: "#4dff4d"
   - type: SlimeExtract
@@ -369,7 +369,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
       color: "#ff33cc"
   - type: SlimeExtract
@@ -382,7 +382,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
       color: "#e8b923"
       shader: XenoMetallic
@@ -398,7 +398,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
       color: "#383936"
       shader: XenoMetallic
@@ -412,7 +412,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
       color: "#ffb3ec"
   - type: SlimeExtract
@@ -425,7 +425,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
       color: "#000000"
   - type: SlimeExtract
@@ -438,7 +438,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
       color: "#005c33"
       shader: XenoMetallic
