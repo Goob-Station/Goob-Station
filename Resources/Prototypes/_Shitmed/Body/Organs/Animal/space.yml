@@ -16,9 +16,16 @@
     integrityThresholds:
       Normal: 28
       Damaged: 16
-      Destroyed: 0  
+      Destroyed: 0
     onAdd:
     - type: BreathingImmunity
+    - type: PassiveDamage #passive Healing
+      allowedStates:
+      - Alive
+      damage:
+        types:
+          Asphyxiation: -0.5
+
 
 - type: entity
   parent: OrganAnimalHeart
@@ -31,7 +38,7 @@
     integrityThresholds:
       Normal: 21
       Damaged: 12
-      Destroyed: 0  
+      Destroyed: 0
     onAdd:
     - type: PressureImmunity
 
