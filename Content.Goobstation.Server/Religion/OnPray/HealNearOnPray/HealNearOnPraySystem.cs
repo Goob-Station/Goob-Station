@@ -11,6 +11,7 @@ using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
+using Content.Shared.Examine;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Microsoft.CodeAnalysis.Operations;
@@ -25,6 +26,7 @@ public sealed partial class HealNearOnPraySystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly ExamineSystemShared _occlusion = default!;
 
     public override void Initialize()
     {
@@ -35,8 +37,11 @@ public sealed partial class HealNearOnPraySystem : EntitySystem
     private void OnPray(EntityUid uid, HealNearOnPrayComponent comp, ref AlternatePrayEvent args)
     {
         var lookup = _lookup.GetEntitiesInRange(args.User, comp.Range);
+        var canTarget = new HashSet<EntityUid>(lookup
+            .Where(entity => entity != null && _occlusion.InRangeUnOccluded(uid, entity, comp.Range))
+            .Select(entity => entity));
 
-        foreach (var entity in lookup.Where(HasComp<MobStateComponent>))
+        foreach (var entity in canTarget.Where(HasComp<MobStateComponent>))
         {
             if (_mobState.IsDead(entity)
                 || HasComp<SiliconComponent>(entity))
