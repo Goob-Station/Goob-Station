@@ -1,4 +1,8 @@
-﻿using Content.Goobstation.Common.Cyberdeck.Components;
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Goobstation.Common.Cyberdeck.Components;
 using Content.Goobstation.Shared.Cyberdeck;
 using Robust.Client.Graphics;
 using Robust.Shared.Player;
