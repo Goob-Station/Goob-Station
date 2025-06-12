@@ -1503,6 +1503,7 @@
   - type: Rotatable
     rotateWhileAnchored: false
     rotateWhilePulling: true
+  - type: RussianAccent
 
 - type: entity
   parent: VendingMachine
