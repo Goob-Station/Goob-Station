@@ -41,4 +41,6 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   - A member of command gives a random crewmember substantial additional access for no reason, unnecessarily, or for a poor reason.
   - A member of command gives a random crewmember access to a high security area, like the armory or another member of command's office, for no reason, unnecessarily, or for a poor reason.
   - Security releases an antagonist from the brig in exchange for the antagonist buying them contraband.
+  - Security allowing Salvagers to keep syndicate contraband from Lavaland.
+  - A member of command calling Evac without reasonable losses or station damage just because of antagonists being known, such as a Cosmic Cult announcement appearing.
 </Document>

@@ -32,14 +32,16 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
   Nukies are considered propaganda by Nanotrasen, and crew isn't informed on them at all.
   Posters seen on-station are ignored and called syndicate propaganda.
+  NTR and BSO are informed of Nuclear Operatives existing, however are prohibited from making it known so as not to discourage Nanotrasen crew applicants.
 
   The fact that the nuke disk must be protected and could be used by a bad actor to try to destroy the station is not shielded.
 
   The revealing condition for this shield is any of the following:
-  - discovering a nuclear operative's shuttle
-  - an operative name
-  - a War Ops announcement
-  - being a nuclear operative
+  - Discovering a nuclear operative's shuttle
+  - An operative name
+  - A War Ops announcement
+  - Being a nuclear operative
+  - Being Central Command personnel.
 
   ## Changelings
 
