@@ -465,6 +465,26 @@
   equipment:
     jumpsuit: ClothingUniformMNKTracksuitBlack
 
+- type: loadout
+  id: JumpsuitTShirtJeans
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitTshirtJeans
+
+- type: loadout
+  id: JumpsuitTShirtJeansGray
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitTshirtJeansGray
+
+- type: loadout
+  id: JumpsuitTShirtJeansPeach
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitTshirtJeansPeach
+
+- type: loadout
+  id: JumpsuitTShirtJeansKhaki
+  equipment:
+    jumpsuit: ClothingUniformTShirtKhakiPants
+
 # Neck
 - type: loadout
   id: Mantle
@@ -534,6 +554,16 @@
   id: PassengerBlackVictorianCoat
   equipment:
     outerClothing: ClothingOuterCoatVictorian
+
+- type: loadout
+  id: LettermanJacketBlue
+  equipment:
+    outerClothing: ClothingOuterCoatLettermanBlue
+
+- type: loadout
+  id: LettermanJacketRed
+  equipment:
+    outerClothing: ClothingOuterCoatLettermanRed
 
 # Belt
 - type: loadout

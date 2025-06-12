@@ -434,6 +434,10 @@
   - ClothingUniformMNKBlackOverallsOutfit
   - ClothingUniformMNKBlackShoulderOutfit
   - ClothingUniformMNKTracksuitBlackOutfit
+  - JumpsuitTShirtJeans
+  - JumpsuitTShirtJeansGray
+  - JumpsuitTShirtJeansKhaki
+  - JumpsuitTShirtJeansPeach
  # goob changes start
   - GreyMJ
   - BlackMJ
@@ -501,6 +505,8 @@
   - PassengerWintercoat
   - PassengerRedVictorianCoat
   - PassengerBlackVictorianCoat
+  - LettermanJacketBlue
+  - LettermanJacketRed
 
 - type: loadoutGroup
   id: PassengerBelt
@@ -1388,6 +1394,7 @@
   - SecurityJumpskirt
   - SecurityJumpsuitGrey
   - SecurityJumpskirtGrey
+  - SecuritySummerJumpsuit
   - SeniorOfficerJumpsuit
   - SeniorOfficerJumpskirt
   - TrooperUniform
