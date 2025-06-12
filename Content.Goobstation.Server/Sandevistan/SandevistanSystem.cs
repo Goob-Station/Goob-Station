@@ -1,9 +1,4 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
+using Content.Goobstation.Shared.Sandevistan;
 using Content.Shared._Goobstation.Wizard.Projectiles;
 using Content.Shared.Abilities;
 using Content.Shared.Actions;
@@ -18,10 +13,9 @@ using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Network;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Shared.Sandevistan;
+namespace Content.Goobstation.Server.Sandevistan;
 
 public sealed class SandevistanSystem : EntitySystem
 {
@@ -30,7 +24,6 @@ public sealed class SandevistanSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedJitteringSystem _jittering = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _speed = default!;
     [Dependency] private readonly StaminaSystem _stamina = default!;
@@ -41,7 +34,7 @@ public sealed class SandevistanSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<SandevistanUserComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<SandevistanUserComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<SandevistanUserComponent, ToggleSandevistanEvent>(OnToggle);
         SubscribeLocalEvent<SandevistanUserComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshSpeed);
         SubscribeLocalEvent<SandevistanUserComponent, MeleeAttackEvent>(OnMeleeAttack);
@@ -53,45 +46,30 @@ public sealed class SandevistanSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<SandevistanUserComponent>();
-        while (query.MoveNext(out var uid, out var comp))
+        var query = EntityQueryEnumerator<ActiveSandevistanUserComponent, SandevistanUserComponent>();
+        while (query.MoveNext(out var uid, out _, out var comp))
         {
             if (comp.DisableAt != null
                 && _timing.CurTime > comp.DisableAt)
-            {
                 Disable(uid, comp);
-                comp.DisableAt = null;
-            }
 
             if (comp.Trail != null)
             {
                 comp.Trail.Color = Color.FromHsv(new Vector4(comp.ColorAccumulator % 100f / 100f, 1, 1, 1));
-                Dirty(uid, comp.Trail);
                 comp.ColorAccumulator++;
+                Dirty(uid, comp.Trail);
             }
 
-            if (comp.NextExecutionTime > _timing.CurTime)
-                return;
-
-            var multiplier = frameTime * _timing.TickRate;
-            comp.NextExecutionTime = _timing.CurTime + comp.UpdateDelay;
-
-            if (!comp.Enabled)
-            {
-                comp.CurrentLoad = MathF.Max(0, comp.CurrentLoad + comp.LoadPerInactiveSecond * multiplier);
-                return;
-            }
-
-            comp.CurrentLoad += comp.LoadPerActiveSecond * multiplier;
+            comp.CurrentLoad += comp.LoadPerActiveSecond * frameTime;
 
             var stateActions = new Dictionary<int, Action>
             {
-                { 2, () => _jittering.DoJitter(uid, comp.StatusEffectTime, true)},
-                { 3, () => _stamina.TakeStaminaDamage(uid, comp.StaminaDamage * multiplier)},
-                { 4, () => _damageable.TryChangeDamage(uid, comp.Damage * multiplier)},
-                { 5, () => _stun.TryKnockdown(uid, comp.StatusEffectTime, true)},
-                { 6, () => Disable(uid, comp)},
-                { 7, () => _mobState.ChangeMobState(uid, MobState.Dead)},
+                { 1, () => _jittering.DoJitter(uid, comp.StatusEffectTime, true)},
+                { 2, () => _stamina.TakeStaminaDamage(uid, comp.StaminaDamage * frameTime)},
+                { 3, () => _damageable.TryChangeDamage(uid, comp.Damage * frameTime, ignoreResistances: true)},
+                { 4, () => _stun.TryKnockdown(uid, comp.StatusEffectTime, true)},
+                { 5, () => Disable(uid, comp)},
+                { 6, () => _mobState.ChangeMobState(uid, MobState.Dead)},
             };
 
             var filteredStates = new List<int>();
@@ -105,44 +83,38 @@ public sealed class SandevistanSystem : EntitySystem
                     action();
 
             if (comp.NextPopupTime > _timing.CurTime)
-                return;
+                continue;
 
-            var popup = 0;
+            var popup = -1;
             foreach (var state in filteredStates)
-            {
-                if (state is < 1 or > 4)
-                    continue;
-                if (state > popup)
+                if (state > popup && state < 4) // Goida
                     popup = state;
-            }
 
-            if (popup == 0)
-                return;
+            if (popup == -1)
+                continue;
 
             _popup.PopupEntity(Loc.GetString("sandevistan-overload-" + popup), uid, uid);
             comp.NextPopupTime = _timing.CurTime + comp.PopupDelay;
         }
     }
 
-    private void OnInit(Entity<SandevistanUserComponent> ent, ref ComponentInit args)
-    {
-        ent.Comp.ActionUid = _actions.AddAction(ent, ent.Comp.ActionProto);
-    }
+    private void OnStartup(Entity<SandevistanUserComponent> ent, ref ComponentStartup args)
+        => ent.Comp.ActionUid = _actions.AddAction(ent, ent.Comp.ActionProto);
 
     private void OnToggle(Entity<SandevistanUserComponent> ent, ref ToggleSandevistanEvent args)
     {
         args.Handled = true;
 
-        if (ent.Comp.Enabled)
+        if (ent.Comp.Active != null)
         {
-            ent.Comp.ColorAccumulator = 0;
             _audio.Stop(ent.Comp.RunningSound);
             _audio.PlayEntity(ent.Comp.EndSound, ent, ent);
             ent.Comp.DisableAt = _timing.CurTime + ent.Comp.ShiftDelay;
             return;
         }
 
-        ent.Comp.Enabled = true;
+        ent.Comp.Active = EnsureComp<ActiveSandevistanUserComponent>(ent);
+        ent.Comp.CurrentLoad = MathF.Max(0, ent.Comp.CurrentLoad + ent.Comp.LoadPerInactiveSecond * (_timing.CurTime - ent.Comp.LastEnabled).Seconds);
         _speed.RefreshMovementSpeedModifiers(ent);
 
         if (!HasComp<TrailComponent>(ent))
@@ -155,15 +127,11 @@ public sealed class SandevistanSystem : EntitySystem
             trail.Frequency = 0.07f;
             trail.AlphaLerpAmount = 0.2f;
             trail.MaxParticleAmount = 25;
-            Dirty(ent, trail);
             ent.Comp.Trail = trail;
         }
 
         if (!HasComp<DogVisionComponent>(ent))
-            ent.Comp.DogVision = AddComp<DogVisionComponent>(ent);
-
-        if (_net.IsClient) // Fuck sound networking
-            return;
+            ent.Comp.Overlay = AddComp<DogVisionComponent>(ent);
 
         var audio = _audio.PlayEntity(ent.Comp.StartSound, ent, ent);
         if (!audio.HasValue)
@@ -174,14 +142,14 @@ public sealed class SandevistanSystem : EntitySystem
 
     private void OnRefreshSpeed(Entity<SandevistanUserComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
     {
-        if (ent.Comp.Enabled)
+        if (ent.Comp.Active != null)
             args.ModifySpeed(ent.Comp.MovementSpeedModifier, ent.Comp.MovementSpeedModifier);
     }
 
     private void OnMeleeAttack(Entity<SandevistanUserComponent> ent, ref MeleeAttackEvent args)
     {
-        if (!ent.Comp.Enabled
-        || !TryComp<MeleeWeaponComponent>(args.Weapon, out var weapon))
+        if (ent.Comp.Active == null
+            || !TryComp<MeleeWeaponComponent>(args.Weapon, out var weapon))
             return;
 
         var rate = weapon.NextAttack - _timing.CurTime; //weapon.AttackRate; breaks things when multiple systems modify NextAttack
@@ -189,9 +157,7 @@ public sealed class SandevistanSystem : EntitySystem
     }
 
     private void OnMobStateChanged(Entity<SandevistanUserComponent> ent, ref MobStateChangedEvent args)
-    {
-        Disable(ent, ent.Comp);
-    }
+        => Disable(ent, ent.Comp);
 
     private void OnShutdown(Entity<SandevistanUserComponent> ent, ref ComponentShutdown args)
     {
@@ -201,20 +167,23 @@ public sealed class SandevistanSystem : EntitySystem
 
     private void Disable(EntityUid uid, SandevistanUserComponent comp)
     {
+        RemComp<ActiveSandevistanUserComponent>(uid);
+        comp.Active = null;
+        comp.DisableAt = null;
+        comp.LastEnabled = _timing.CurTime;
         comp.ColorAccumulator = 0;
-        comp.Enabled = false;
         _audio.Stop(comp.RunningSound);
         _speed.RefreshMovementSpeedModifiers(uid);
 
-        if (comp.DogVision != null)
+        if (comp.Overlay != null)
         {
-            RemComp(uid, comp.DogVision);
-            comp.DogVision = null;
+            RemComp<DogVisionComponent>(uid);
+            comp.Overlay = null;
         }
 
         if (comp.Trail != null)
         {
-            RemComp(uid, comp.Trail);
+            RemComp<TrailComponent>(uid);
             comp.Trail = null;
         }
     }
