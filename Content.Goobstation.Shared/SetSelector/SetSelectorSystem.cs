@@ -73,8 +73,6 @@ public sealed class SetSelectorSystem : EntitySystem
 
         // Spawn the contents of the chosen sets and add them to spawnedEntities
         List<EntityUid> spawnedEntities = [];
-        spawnedEntities.AddRange(selector.Comp.SelectedSets.Select(i => _proto.Index(selector.Comp.AvailableSets[i]))
-                       .SelectMany(set => set.Content.Select(item => Spawn(item, coordinates))));
 
         foreach (var setIndex in selector.Comp.SelectedSets)
         {
