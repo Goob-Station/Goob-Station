@@ -1,0 +1,32 @@
+using Content.Server.DeviceLinking.Systems;
+using Content.Server.Explosion.EntitySystems;
+using Robust.Shared.Timing;
+
+namespace Content.Goobstation.Server.MiscSignaller;
+
+public sealed class MiscSignallerSystem : EntitySystem
+{
+    [Dependency] private readonly DeviceLinkSystem _link = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<MiscSignallerComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<MiscSignallerComponent, TriggerEvent>(OnTrigger);
+    }
+    private void OnInit(EntityUid uid, MiscSignallerComponent component, ComponentInit args)
+    {
+        _link.EnsureSourcePorts(uid, component.Port);
+    }
+
+    private void OnTrigger(EntityUid uid, MiscSignallerComponent component, TriggerEvent args)
+    {
+        if (component.NextActivationWindow > _timing.CurTime)
+            return;
+        _link.InvokePort(uid, component.Port);
+        args.Handled = true;
+        component.NextActivationWindow = _timing.CurTime + component.ActivationInterval;
+    }
+}

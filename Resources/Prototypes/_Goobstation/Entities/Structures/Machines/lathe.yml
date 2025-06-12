@@ -48,6 +48,7 @@
     - LightsStatic
     - PowerCellsStatic
     - ElectronicsStatic
+    - MiscSignallersStatic
     dynamicPacks:
     - AdvancedTools
     - AtmosTools
@@ -105,6 +106,7 @@
     - CablesStatic
     - PowerCellsStatic
     - MiningToolsStatic
+    - MiscSignallersStatic
     dynamicPacks:
     - AdvancedTools
     - Mining
@@ -177,6 +179,7 @@
     - ScienceBoardsStatic
     - ScienceExplosives # Goobstation - Roundstart Grenade Tech
     - GrenadeTriggersStatic # Goobstation - Roundstart Grenade Tech
+    - MiscSignallersStatic
     dynamicPacks:
     - AdvancedTools
     - ScienceEquipment
