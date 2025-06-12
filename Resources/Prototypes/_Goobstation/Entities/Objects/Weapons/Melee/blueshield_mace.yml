@@ -17,7 +17,6 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
@@ -53,7 +52,7 @@
   - type: ItemToggleMeleeWeapon
     activatedDamage:
       types:
-        Heat: 1
+        Heat: 5
   - type: Stunbaton
     energyPerUse: 40
     lightAttackEnergyMultiplier: 2
@@ -64,7 +63,7 @@
       types:
         Blunt: 13 # Unlucky number
         Slash: 7 # Lucky number
-    bluntStaminaDamageFactor: 2 # 26 damage, 4 hit stamcrit
+    bluntStaminaDamageFactor: 0.5
     animation: WeaponArcThrust
     soundHit:
       path: /Audio/_Goobstation/Weapons/Effects/metalcrush.ogg
