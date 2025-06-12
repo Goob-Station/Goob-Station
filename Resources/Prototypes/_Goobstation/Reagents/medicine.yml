@@ -9,6 +9,7 @@
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 # SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
@@ -918,10 +919,10 @@
       amount: -10
   metabolisms:
     Medicine:
-      metabolismRate: 0.1
+      metabolismRate: 0.25
       effects:
       - !type:SuppressPain
-        amount: 1.2
+        amount: 10
         time: 30
       - !type:AdjustPainFeels
         conditions:
@@ -932,10 +933,6 @@
         damage:
           groups:
             Brute: -1
-      - !type:GenericStatusEffect
-        key: Adrenaline
-        component: IgnoreSlowOnDamage
-        time: 5
       - !type:AdjustTemperature # 1/10 of lepo
         conditions:
         - !type:Temperature
@@ -989,6 +986,7 @@
       - !type:HealthChange
         scaleByQuantity: true
         ignoreResistances: false
+        ignoreBlockers: false
         damage:
           types:
             Heat: -1.5
@@ -1053,6 +1051,7 @@
       - !type:HealthChange
         scaleByQuantity: true
         ignoreResistances: false
+        ignoreBlockers: false
         damage:
           types:
             Blunt: -2
@@ -1121,6 +1120,7 @@
       - !type:HealthChange
         scaleByQuantity: true
         ignoreResistances: false # theoretically allows for degenerate behaviour, in practice should be unlikely; also low healing amount
+        ignoreBlockers: false
         damage:
           types:
             Blunt: 1
@@ -1494,3 +1494,75 @@
         amount: 10000
       - !type:AdjustSolutionThermalEnergyEffect
         delta: 150
+
+- type: reagent
+  id: Tramadol
+  name: reagent-name-tramadol
+  group: Medicine
+  desc: reagent-desc-tramadol
+  physicalDesc: reagent-physical-desc-thick
+  flavor: medicine
+  color: "#ad2cfa"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.1
+      effects:
+      - !type:SuppressPain
+        amount: 25
+        time: 30
+      - !type:GenericStatusEffect
+        key: Adrenaline
+        component: IgnoreSlowOnDamage
+        time: 2
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.8
+        conditions:
+        - !type:ReagentThreshold
+          min: 15.5
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+      - !type:AdjustConsciousness
+        allowNewModifiers: true
+        modifierType: Pain
+        identifier: Suffocation
+        amount: -10.5
+        time: 12
+
+- type: reagent
+  id: Oxycodone
+  name: reagent-name-oxycodone
+  group: Medicine
+  desc: reagent-desc-oxycodone
+  physicalDesc: reagent-physical-desc-thick
+  flavor: medicine
+  color: "#2cfa76"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.1
+      effects:
+      - !type:SuppressPain
+        amount: 400
+        time: 30
+      - !type:GenericStatusEffect
+        key: Adrenaline
+        component: IgnoreSlowOnDamage
+        time: 5
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 1.2
+        conditions:
+        - !type:ReagentThreshold
+          min: 10.5
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+      - !type:AdjustConsciousness
+        allowNewModifiers: true
+        modifierType: Pain
+        identifier: Suffocation
+        amount: -50
+        time: 12

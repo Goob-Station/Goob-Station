@@ -1,6 +1,11 @@
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 CliveOcelot <165305605+Orion-416@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
+# SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 # SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
@@ -163,16 +168,19 @@
   name: selectable-set-syndicate-implants-name
   description: selectable-set-syndicate-implants-description
   sprite:
-    sprite: Objects/Specific/Medical/syndi_implanter.rsi
-    state: implanter0
+    sprite: _Goobstation/Clothing/OuterClothing/Coats/david_jacket.rsi
+    state: icon
   content:
   - RadioImplanter
-  - BoxHoloparasite
   - EmpImplanter
   - ScramImplanter
   - FreedomImplanter
   - SmokeImplanter
   - KravMagaImplanter
+  - ClothingOuterDavidsJacketValid
+  - AutosurgeonRightMantisBlade
+  - AutosurgeonLeftMantisBlade
+  - AutosurgeonSandevistan
 
 - type: selectableSet
   id: SyndicateHackerSet
@@ -215,17 +223,11 @@
     sprite: Objects/Weapons/Grenades/syndgrenade.rsi
     state: icon
   content:
+  - ClothingBeltMilitaryRigGrenadierFilled
+  - ClothingBackpackSyndicateFilledGrenadier
+  - ClothingOuterSuitBomb
+  - ClothingHeadHelmetBombSuit
   - EncryptionKeySyndie
-  - SyndieMiniBomb
-  - ExGrenade
-  - GrenadeIncendiary
-  - GrenadeShrapnel
-  - EmpGrenade
-  - SupermatterGrenade
-  - WhiteholeGrenade
-  - SmokeGrenade
-  - GrenadeFlashBang
-  - C4
 
 - type: selectableSet
   id: SyndicateFluclearSet
@@ -244,8 +246,8 @@
   - JetpackBlackFilled
   - ClothingBackpackDuffelSyndicateHardsuitBundle
   - ClothingUniformJumpsuitOperative
-  - SyndiPDA
-  - ClothingEyesHudSyndicate
+  - SyndiPDANukie
+  - ClothingEyesNightVisionGogglesNukie
   - ClothingShoesBootsCombatFilled
   - ClothingBeltMilitaryWebbing
 
@@ -260,10 +262,15 @@
     - EncryptionKeySyndie
     - EncryptionKeySyndie
     - EncryptionKeySyndie
+    - EncryptionKeySyndie
+    - EncryptionKeySyndie
     - ContractorBaton
     - Handcuffs
     - MindcontrolImplanter
     - MindcontrolImplanter
+    - MindcontrolImplanter
+    - MindcontrolImplanter
+    - WeaponSniperMosin
     - WeaponSniperMosin
     - WeaponSniperMosin
     - WeaponSniperMosin
@@ -331,23 +338,13 @@
     sprite: _Goobstation/Objects/Weapons/Guns/Lever/chester.rsi
     state: base
   content:
-    - MagazineShotgunLeverRifleEmpty
-    - MagazineShotgunLeverRifleEmpty
-    - MagazineBoxShotgunHighCaliber
-    - MagazineBoxShotgunHighCaliberFlash
-    - MagazineBoxShotgunHighCaliberEnsnaring
-    - MagazineBoxShotgunHighCaliberEMP
-    - WeaponLeverChester
-
-- type: selectableSet
-  id: BSOSyringeSet
-  name: selectable-set-blueshield-syringe-name
-  description: selectable-set-blueshield-syringe-description
-  sprite:
-    sprite: _Goobstation/Objects/Weapons/Melee/blueshield_knife.rsi
-    state: icon
-  content:
-    - BoxCombatInjector
+  # Guaranteed items
+  - WeaponLeverChester
+  - MagazineShotgunLeverRifleEmpty
+  - MagazineShotgunLeverRifleEmpty
+  - MagazineBoxShotgunHighCaliber
+  tables:
+  - ChesterRandomAmmoTable
 
 # Blueshield hardsuits
 
@@ -532,32 +529,24 @@
   content:
   - WeaponHeadOfSecurityRifle
 
-- type: selectableSet
-  id: HosSwordSet
-  name: selectable-set-hos-sword-name
-  description: selectable-set-hos-sword-description
-  sprite:
-    sprite: _Goobstation/Clothing/Belt/hossheath.rsi
-    state: sheath-sabre
-  content:
-  - ClothingBeltSheathHeadOfSecurityFilled
+# Captain
 
 - type: selectableSet
-  id: HosLawbringerSet
-  name: selectable-set-hos-lawbringer-name
-  description: selectable-set-hos-lawbringer-description
+  id: VoidsuitSelectorCaptainVoidsuit
+  name: selectable-set-captain-voidsuit-name
+  description: selectable-set-captain-voidsuit-desc
   sprite:
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/lawbringer.rsi
+    sprite: Clothing/OuterClothing/Hardsuits/capspace.rsi
     state: icon
   content:
-  - WeaponEnergyGunLawbringer
+  - ClothingOuterHardsuitCap
 
 - type: selectableSet
-  id: HosUtilitySet
-  name: selectable-set-hos-utility-name
-  description: selectable-set-hos-utility-description
+  id: VoidsuitSelectorCaptainHardsuit
+  name: selectable-set-captain-modsuit-name
+  description: selectable-set-captain-modsuit-desc
   sprite:
-    sprite: _Goobstation/Clothing/Eyes/Glasses/hos-expi.rsi
-    state: icon
+    sprite: _Goobstation/Clothing/Back/Modsuits/captain.rsi
+    state: control
   content:
-  - ClothingBackpackDuffelHosFilledUtility
+  - ClothingModsuitCaptainPowerCell

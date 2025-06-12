@@ -59,7 +59,6 @@
 // SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
 // SPDX-FileCopyrightText: 2024 foboscheshir <156405958+foboscheshir@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
@@ -75,14 +74,16 @@
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Kayzel <43700376+KayzelW@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Trest <144359854+trest100@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 kurokoTurbo <92106367+kurokoTurbo@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Trest <144359854+trest100@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
-// SPDX-FileCopyrightText: 2025 Kayzel <43700376+KayzelW@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -296,9 +297,8 @@ public partial class SharedBodySystem
         Entity<BodyPartComponent> partEnt,
         string slotId)
     {
-        Dirty(partEnt, partEnt.Comp);
         partEnt.Comp.Body = bodyEnt;
-
+        Dirty(partEnt, partEnt.Comp);
         var ev = new BodyPartAddedEvent(slotId, partEnt);
         RaiseLocalEvent(bodyEnt, ref ev);
 
@@ -639,11 +639,16 @@ public partial class SharedBodySystem
 
         part.ParentSlot = slot;
 
-        if (HasComp<HumanoidAppearanceComponent>(part.Body)
-            && !HasComp<BodyPartAppearanceComponent>(partId)
-            && !TerminatingOrDeleted(parentPartId)
-            && !TerminatingOrDeleted(partId)) // Saw some exceptions involving these due to the spawn menu.
-            EnsureComp<BodyPartAppearanceComponent>(partId);
+        // I cant think of a better way to do this, basically ents get their profile loaded twice when they are initialized.
+        // If I try to add PartAppearance to them before this, then only the default urist colors/markings get loaded, so we track if it has been done
+        // via this param. However by doing that I also prevent PartAppearance from being ensured on newly attached parts, therefore we have this shitcod.
+        if (parentPart.Body is { } body
+            && TryComp<HumanoidAppearanceComponent>(body, out var humanoid)
+            && !humanoid.ProfileLoaded)
+        {
+            humanoid.ProfileLoaded = true;
+            Dirty(body, humanoid);
+        }
 
         return Containers.Insert(partId, container);
     }
@@ -1085,12 +1090,6 @@ public partial class SharedBodySystem
         //parentPart.Children.Remove(slot.Id);
 
         // start-backmen: surgery
-        if (HasComp<HumanoidAppearanceComponent>(part.Body)
-            && !HasComp<BodyPartAppearanceComponent>(partId)
-            && !TerminatingOrDeleted(parentPartId)
-            && !TerminatingOrDeleted(partId)) // Saw some exceptions involving these due to the spawn menu.
-            EnsureComp<BodyPartAppearanceComponent>(partId);
-
         return Containers.Remove(partId, container);
     }
 
@@ -1129,7 +1128,7 @@ public partial class SharedBodySystem
         return TargetBodyPart.Chest; // Default to torso if something goes wrong
     }
 
-    public TargetBodyPart? GetRandomBodyPart(EntityUid target,
+    public TargetBodyPart GetRandomBodyPart(EntityUid target,
         TargetBodyPart targetPart = TargetBodyPart.Chest,
         TargetingComponent? targetComp = null)
     {
@@ -1153,28 +1152,64 @@ public partial class SharedBodySystem
         return targetPart;
     }
 
-    public TargetBodyPart? GetRandomBodyPart(EntityUid target)
+    public TargetBodyPart GetRandomBodyPart(EntityUid target)
     {
         var children = GetBodyChildren(target).ToList();
         if (children.Count == 0)
-            return null;
+            return TargetBodyPart.Chest;
 
         return GetTargetBodyPart(_random.PickAndTake(children));
     }
 
-    public TargetBodyPart? GetTargetBodyPart(EntityUid partId)
+    public TargetBodyPart GetRandomBodyPart(EntityUid target,
+        EntityUid? attacker,
+        TargetBodyPart? targetPart = null,
+        TargetingComponent? targetComp = null)
+    {
+        if (!Resolve(target, ref targetComp, false))
+            return TargetBodyPart.Chest;
+
+        if (targetPart.HasValue)
+            return GetRandomBodyPart(target, targetPart: targetPart.Value);
+
+        if (attacker.HasValue
+            && TryComp(attacker.Value, out TargetingComponent? attackerComp))
+            return GetRandomBodyPart(target, targetPart: attackerComp.Target);
+
+        return GetRandomBodyPart(target);
+    }
+
+    public TargetBodyPart GetTargetBodyPart(EntityUid target,
+        EntityUid? attacker,
+        TargetBodyPart? targetPart = null,
+        TargetingComponent? targetComp = null)
+    {
+        if (!Resolve(target, ref targetComp, false))
+            return TargetBodyPart.Chest;
+
+        if (targetPart.HasValue)
+            return targetPart.Value;
+
+        if (attacker.HasValue
+            && TryComp(attacker.Value, out TargetingComponent? attackerComp))
+            return attackerComp.Target;
+
+        return GetRandomBodyPart(target);
+    }
+
+    public TargetBodyPart GetTargetBodyPart(EntityUid partId)
     {
         if (!TryComp(partId, out BodyPartComponent? part))
-            return null;
+            return TargetBodyPart.Chest;
 
         return GetTargetBodyPart(part);
     }
-    public TargetBodyPart? GetTargetBodyPart(Entity<BodyPartComponent> part)
+    public TargetBodyPart GetTargetBodyPart(Entity<BodyPartComponent> part)
     {
         return GetTargetBodyPart(part.Comp.PartType, part.Comp.Symmetry);
     }
 
-    public TargetBodyPart? GetTargetBodyPart(BodyPartComponent part)
+    public TargetBodyPart GetTargetBodyPart(BodyPartComponent part)
     {
         return GetTargetBodyPart(part.PartType, part.Symmetry);
     }
@@ -1182,7 +1217,7 @@ public partial class SharedBodySystem
     /// <summary>
     /// Converts Enums from BodyPartType to their Targeting system equivalent.
     /// </summary>
-    public TargetBodyPart? GetTargetBodyPart(BodyPartType type, BodyPartSymmetry symmetry)
+    public TargetBodyPart GetTargetBodyPart(BodyPartType type, BodyPartSymmetry symmetry)
     {
         return (type, symmetry) switch
         {
@@ -1197,7 +1232,7 @@ public partial class SharedBodySystem
             (BodyPartType.Leg, BodyPartSymmetry.Right) => TargetBodyPart.RightLeg,
             (BodyPartType.Foot, BodyPartSymmetry.Left) => TargetBodyPart.LeftFoot,
             (BodyPartType.Foot, BodyPartSymmetry.Right) => TargetBodyPart.RightFoot,
-            _ => null,
+            _ => TargetBodyPart.Chest,
         };
     }
 
@@ -1224,6 +1259,25 @@ public partial class SharedBodySystem
 
     }
 
+    public IEnumerable<(EntityUid Id, BodyPartComponent Component, T ExtraComponent)> GetBodyChildrenOfTypeWithComponent<T>(
+        EntityUid bodyId,
+        BodyPartType type,
+        BodyComponent? body = null,
+        BodyPartSymmetry? symmetry = null)
+        where T : IComponent
+    {
+        var query = GetEntityQuery<T>();
+
+        foreach (var part in GetBodyChildren(bodyId, body))
+        {
+            if (part.Component.PartType == type
+                && (symmetry == null || part.Component.Symmetry == symmetry)
+                && query.TryGetComponent(part.Id, out var extraComponent))
+            {
+                yield return (part.Id, part.Component, extraComponent);
+            }
+        }
+    }
     // Shitmed Change End
 
     /// <summary>

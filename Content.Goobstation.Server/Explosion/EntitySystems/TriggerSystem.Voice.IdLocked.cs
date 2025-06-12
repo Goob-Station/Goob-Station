@@ -1,22 +1,22 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server._Goobstation.Explosion.Components;
+using Content.Goobstation.Server.Explosion.Components;
 using Content.Server.Administration.Logs;
+using Content.Server.Explosion.EntitySystems;
 using Content.Server.Speech;
-using Content.Server.Speech.Components;
-using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Database;
 using Content.Shared.Hands;
 using Robust.Shared.Timing;
 
-namespace Content.Server.Explosion.EntitySystems
+namespace Content.Goobstation.Server.Explosion.EntitySystems
 {
-    public sealed partial class VoiceTriggerSystem : EntitySystem
+    public sealed class VoiceTriggerSystem : EntitySystem
     {
         [Dependency] private readonly AccessReaderSystem _accessReader = default!;
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;

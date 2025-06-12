@@ -14,6 +14,7 @@
 // SPDX-FileCopyrightText: 2022 Julian Giebel <juliangiebel@live.de>
 // SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
 // SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Tomás Alves <tomasalves35@gmail.com>
 // SPDX-FileCopyrightText: 2022 Tom�s Alves <tomasalves35@gmail.com>
 // SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
@@ -46,8 +47,14 @@
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 // SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tim <timfalken@hotmail.com>
+// SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -98,6 +105,7 @@ namespace Content.Server.Flash
 
         private static readonly ProtoId<TagPrototype> TrashTag = "Trash";
         public static readonly ProtoId<TagPrototype> IgnoreResistancesTag = "FlashIgnoreResistances"; // Goobstation
+        public static readonly ProtoId<TagPrototype> FlashVulnerableTag = "FlashVulnerable"; // Goobstation
 
         public override void Initialize()
         {
@@ -177,7 +185,7 @@ namespace Content.Server.Flash
             TimeSpan? stunDuration = null)
         {
             // Goob edit start
-            if (used == null || !_tag.HasTag(used.Value, IgnoreResistancesTag))
+            if (used == null || !_tag.HasTag(used.Value, IgnoreResistancesTag) && !_tag.HasTag(target, FlashVulnerableTag))
             {
                 var attempt = new FlashAttemptEvent(target, user, used);
                 RaiseLocalEvent(target, attempt, true);
@@ -212,15 +220,6 @@ namespace Content.Server.Flash
             {
                 _popup.PopupEntity(Loc.GetString("flash-component-user-blinds-you",
                     ("user", Identity.Entity(user.Value, EntityManager))), target, target);
-            }
-
-            if (melee)
-            {
-                var ev = new AfterFlashedEvent(target, user, used);
-                if (user != null)
-                    RaiseLocalEvent(user.Value, ref ev);
-                if (used != null)
-                    RaiseLocalEvent(used.Value, ref ev);
             }
         }
 
@@ -296,24 +295,6 @@ namespace Content.Server.Flash
         public readonly EntityUid? Used;
 
         public FlashAttemptEvent(EntityUid target, EntityUid? user, EntityUid? used)
-        {
-            Target = target;
-            User = user;
-            Used = used;
-        }
-    }
-    /// <summary>
-    ///     Called after a flash is used via melee on another person to check for rev conversion.
-    ///     Raised on the target hit by the flash, the user of the flash and the flash used.
-    /// </summary>
-    [ByRefEvent]
-    public readonly struct AfterFlashedEvent
-    {
-        public readonly EntityUid Target;
-        public readonly EntityUid? User;
-        public readonly EntityUid? Used;
-
-        public AfterFlashedEvent(EntityUid target, EntityUid? user, EntityUid? used)
         {
             Target = target;
             User = user;

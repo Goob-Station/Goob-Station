@@ -13,6 +13,8 @@
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
+# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Plyush <121322002+Plyushsune@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Shy Bandit <92641277+rotundfan@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
@@ -419,7 +421,7 @@
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
 
-## I was here first :3
+## Admin plushies go above the rest of the chuds.
 
 - type: entity
   parent: BasePlushie
@@ -486,6 +488,42 @@
         - ReagentId: TableSalt
           Quantity: 5
 
+## Jvne goes here because she's cooler
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieJvne
+  name: jvne plushie
+  description: It's been a rough day...
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_jvne
+  - type: Item
+    heldPrefix: plushiejvne
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_snarl2.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_snarl2.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_snarl2.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_snarl2.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_snarl2.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_snarl2.ogg
+    soundNoDamage:
+      path: /Audio/_DV/Voice/Vulpkanin/dog_snarl2.ogg
 
 ## Self-Insert Squad
 
@@ -558,16 +596,6 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/selfinsert.rsi
     state: plushie_knott
-
-- type: entity
-  parent: BasePlushie
-  id: PlushieKury
-  name: evil vulpkanin plushie
-  description: A cute stuffed toy that resembles a specific vulpkanin.
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
-    state: plushie_kury
 
 - type: entity
   parent: PlushieSlime
@@ -680,45 +708,6 @@
       path: /Audio/_Goobstation/Weapons/ChronoLegionnaire/stasisgun_reload.ogg
 
 - type: entity
-  parent: [BasePlushie, BaseMajorContraband]
-  id: PlushieByrrne
-  name: despised resomi plushie
-  description: Depending on who you ask, this resomi is either the most hated crew member on every station, the funniest or the best most loved resomi. Either way, you feel the urge to stab it with a knife and try to tear its limbs off, but should you?
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
-    state: plushie_byrrne
-  - type: Damageable
-    damageContainer: Inorganic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 30
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          path: /Audio/Effects/gib1.ogg
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          PlushieByrrneGibbed:
-            min: 1
-            max: 1
-
-- type: entity
-  parent: BasePlushie
-  id: PlushieByrrneGibbed # special gib mechanic
-  name: gibbed despised resomi plushie
-  suffix: gibbed
-  description: No... it can't be... IT SHOULD'VE BEEN ME THAT DID IT.. But was it worth it..? Deep inside, you feel like it cared about your coins... your goob coins.. even.
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
-    state: plushie_byrrne_gibbed
-
-- type: entity
   parent: BasePlushie
   id: PlushieHaleigh
   name: violet slime plushie
@@ -768,3 +757,175 @@
     - Grub
     ocNames:
     - Muppet
+
+- type: entity
+  parent: PlushieLizard
+  id: PlushieFern
+  name: mystical lizard plushie
+  description: You feel as if something else is watching you... just out of sight, in the shadows.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    state: plushie_fern
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Goobstation/Wizard/charge.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Wizard/teleport_app.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_Goobstation/Wizard/charge.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Goobstation/Wizard/charge.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieHexadecimal
+  name: strange IPC plushie
+  description: You feel a slight imbalance in the universe you inhabit, as if something maybe a little better off than others... ENERGY LOW.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    state: plushie_hexadecimal
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_EinsteinEngines/Voice/IPC/robot-scream.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Effects/Cargo/ping.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_EinsteinEngines/Voice/IPC/robot-scream.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_EinsteinEngines/Voice/IPC/robot-scream.ogg
+
+- type: entity
+  parent: PlushieMoth
+  id: PlushieFlint
+  name: criminal moth plushie
+  description: Has commited lots of war crimes.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    state: plushie_flint
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Moth/moth_scream.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Moth/moth_scream.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Moth/moth_scream.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Moth/moth_scream.ogg
+
+- type: entity
+  parent: PlushieLizard
+  id: PlushieSeesTheStars
+  name: blue lizard plushie
+  description: Your stereotypical blue lizard, follows the "Does-The-Noun" naming convention. Gets mistaken surprisingly often for a certain purple lizard.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    state: plushie_sees_the_stars
+
+- type: entity
+  parent: BasePlushie
+  id: PlushiePistachio
+  name: blue wizard plushie
+  description: The Great Wizard himself, he claims the nut Pistachio was named after him, and definitely not the other way around. A user of the Arcane magics, he is not to be underestimated.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    state: plushie_pistachio
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Goobstation/Wizard/charge.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Wizard/teleport_app.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_Goobstation/Wizard/charge.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Goobstation/Wizard/charge.ogg
+
+- type: entity
+  parent: PlushieLizard
+  id: PlushieDumbLizard
+  name: stupid dumb blue lizard plushie
+  description: Unfortunately this plushie won't thump their tail.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    state: plushie_dumb_lizard
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieSqueaks
+  name: grey rodentia plushie
+  description: Cheesed to meet you?
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    state: plushie_squeaks
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Animals/mouse_squeak.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Animals/mouse_squeak.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Animals/mouse_squeak.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Animals/mouse_squeak.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieHaato
+  name: annoying human plushie
+  description: Watch her sing "Station is Mine"!
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    state: plushie_haato
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Human/femalescream_3.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Effects/bodyfall3.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Human/womanlaugh.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Human/womanlaugh.ogg
+
+- type: entity
+  parent: PlushieLizard
+  id: PlushieChewsTheShoes
+  name: frilled lizard plushie
+  description: Eats your shoes.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    state: plushie_chews
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieTinyLane
+  name: tiny tider plushie
+  description: Just a goofy little guy.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    state: plushie_tinylane
