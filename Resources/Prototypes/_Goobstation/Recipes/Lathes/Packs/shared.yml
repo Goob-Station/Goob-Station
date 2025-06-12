@@ -20,6 +20,12 @@
   - SignalTrigger
   - VoiceTrigger
 
+- type: latheRecipePack
+  id: MiscSignallersStatic
+  recipes:
+  - ProximitySignaller
+  - VoiceSignaller
+
 #Dynamic
 - type: latheRecipePack
   id: SharedBoards
