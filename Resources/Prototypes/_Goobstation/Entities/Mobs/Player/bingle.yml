@@ -99,6 +99,7 @@
     accent: bingle
   - type: CollectiveMind
     defaultChannel: Binglemind
+    respectAccents: true
     channels:
     - Binglemind
   - type: PassiveDamage #passive Healing
