@@ -76691,13 +76691,6 @@ entities:
     - type: Transform
       pos: -23.54908,18.628506
       parent: 2
-- proto: JermovCircuitBoard
-  entities:
-  - uid: 1900
-    components:
-    - type: Transform
-      pos: -18.054745,-39.62666
-      parent: 2
 - proto: JetpackMiniFilled
   entities:
   - uid: 7239
