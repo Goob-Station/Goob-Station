@@ -15,8 +15,11 @@
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -50,9 +53,9 @@
   - type: ItemToggleMeleeWeapon
     activatedDamage:
       types:
-        Heat: 5
+        Heat: 1
   - type: Stunbaton
-    energyPerUse: 100
+    energyPerUse: 40
     lightAttackEnergyMultiplier: 2
   - type: MeleeWeapon
     angle: 0
@@ -61,7 +64,7 @@
       types:
         Blunt: 13 # Unlucky number
         Slash: 7 # Lucky number
-    bluntStaminaDamageFactor: 0.5
+    bluntStaminaDamageFactor: 2 # 26 damage, 4 hit stamcrit
     animation: WeaponArcThrust
     soundHit:
       path: /Audio/_Goobstation/Weapons/Effects/metalcrush.ogg
@@ -77,11 +80,8 @@
     sound: /Audio/Weapons/egloves.ogg
   - type: LandAtCursor
   - type: Battery
-    maxCharge: 1000
-    startingCharge: 1000
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 20
+    maxCharge: 600
+    startingCharge: 600
   - type: UseDelay
   - type: Item
     heldPrefix: off
