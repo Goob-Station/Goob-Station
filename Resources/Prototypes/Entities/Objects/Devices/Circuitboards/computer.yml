@@ -205,8 +205,8 @@
       state: cpu_supply
     - type: ComputerBoard
       prototype: ComputerSalvageExpedition
-    - type: StealTarget
-      stealGroup: SalvageExpeditionsComputerCircuitboard
+#    - type: StealTarget                                   Goob edit - Removed cause Lavaland
+#      stealGroup: SalvageExpeditionsComputerCircuitboard
 
 - type: entity
   parent: BaseComputerCircuitboard

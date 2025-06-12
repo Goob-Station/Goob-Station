@@ -1294,8 +1294,8 @@
       color: "#b89f25"
     - type: AccessReader
       access: [["Salvage"]]
-    - type: StealTarget
-      stealGroup: SalvageExpeditionsComputerCircuitboard
+#    - type: StealTarget                  Goob edit - Removed cause Lavaland
+#      stealGroup: SalvageExpeditionsComputerCircuitboard
 
 - type: entity
   parent: BaseComputer

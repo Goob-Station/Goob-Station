@@ -264,12 +264,12 @@
     sprite: Objects/Devices/flatpack.rsi
     state: ame-part
 
-- type: stealTargetGroup
-  id: SalvageExpeditionsComputerCircuitboard
-  name: steal-target-groups-salvage-expeditions-computer-circuitboard
-  sprite:
-    sprite: Objects/Misc/module.rsi
-    state: cpu_supply
+#- type: stealTargetGroup                                Goob edit - Removed because Lavaland
+#  id: SalvageExpeditionsComputerCircuitboard
+#  name: steal-target-groups-salvage-expeditions-computer-circuitboard
+#  sprite:
+#    sprite: Objects/Misc/module.rsi
+#    state: cpu_supply
 
 - type: stealTargetGroup
   id: CargoShuttleConsoleCircuitboard

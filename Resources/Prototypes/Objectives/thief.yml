@@ -342,16 +342,16 @@
   - type: Objective
     difficulty: 1
 
-- type: entity                                      #Cargo subgroup
-  parent: BaseThiefStealObjective
-  id: ExpeditionsCircuitboardStealObjective
-  components:
-  - type: NotJobRequirement
-    job: SalvageSpecialist
-  - type: StealCondition
-    stealGroup: SalvageExpeditionsComputerCircuitboard
-  - type: Objective
-    difficulty: 0.7
+#- type: entity                                      #Cargo subgroup
+#  parent: BaseThiefStealObjective
+#  id: ExpeditionsCircuitboardStealObjective
+#  components:
+#  - type: NotJobRequirement                          Goob edit - Removed due to Lavaland
+#    job: SalvageSpecialist
+#  - type: StealCondition
+#    stealGroup: SalvageExpeditionsComputerCircuitboard
+#  - type: Objective
+#    difficulty: 0.7
 
 - type: entity
   parent: BaseThiefStealObjective
