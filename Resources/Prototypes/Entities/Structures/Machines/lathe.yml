@@ -403,7 +403,7 @@
     - PartsStatic
     - AtmosStatic
     - CablesStatic
-    - CargoStatic
+    #- CargoStatic Goob edit - Moved to Cargo fab
     - MaterialsStatic
     - BasicChemistryStatic
     - RollerBedsStatic
