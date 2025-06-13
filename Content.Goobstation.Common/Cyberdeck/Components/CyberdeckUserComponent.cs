@@ -33,6 +33,12 @@ public sealed partial class CyberdeckUserComponent : Component
     [ViewVariables, AutoNetworkedField]
     public EntityUid? ReturnAction;
 
+    /// <summary>
+    /// Used for Cyber vision ability checks, should be true if a player controls a projection.
+    /// </summary>
+    [ViewVariables, AutoNetworkedField]
+    public bool InProjection;
+
     [DataField]
     public string AlertId = "CyberdeckCharges";
 

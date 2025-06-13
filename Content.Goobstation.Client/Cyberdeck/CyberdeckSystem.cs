@@ -57,8 +57,4 @@ public sealed class CyberdeckSystem : SharedCyberdeckSystem
 
         _overlayManager.RemoveOverlay(_overlay);
     }
-
-    protected override void ShutdownProjection(Entity<CyberdeckProjectionComponent?>? ent) { }
-
-    protected override void UpdateAlert(Entity<CyberdeckUserComponent> ent) { }
 }

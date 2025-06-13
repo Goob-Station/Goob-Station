@@ -6,9 +6,11 @@
 using System.Linq;
 using Content.Goobstation.Common.Access;
 using Content.Goobstation.Common.Cyberdeck.Components;
+using Content.Goobstation.Common.Interaction;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Access.Components;
 using Content.Shared.Actions;
+using Content.Shared.Bed.Cryostorage;
 using Content.Shared.Body.Systems;
 using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;
@@ -20,6 +22,8 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Jittering;
+using Content.Shared.Movement.Components;
+using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.Silicons.Borgs.Components;
@@ -27,6 +31,8 @@ using Content.Shared.Silicons.StationAi;
 using Content.Shared.Stunnable;
 using Content.Shared.Verbs;
 using Robust.Shared.Containers;
+using Robust.Shared.GameStates;
+using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
@@ -36,17 +42,22 @@ namespace Content.Goobstation.Shared.Cyberdeck;
 
 public abstract class SharedCyberdeckSystem : EntitySystem
 {
-    [Dependency] protected readonly SharedChargesSystem Charges = default!;
-    [Dependency] protected readonly SharedActionsSystem Actions = default!;
-    [Dependency] protected readonly SharedPowerReceiverSystem Power = default!;
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
+    [Dependency] protected readonly SharedTransformSystem Xform = default!;
+    [Dependency] private readonly SharedChargesSystem _charges = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private readonly SharedCryostorageSystem _cryostorage = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly SharedPvsOverrideSystem _pvsOverride = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedDoorSystem _door = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly SharedEyeSystem _eye = default!;
     [Dependency] private readonly SharedJitteringSystem _jitter = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private readonly SharedMoverController _mover = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly INetManager _net = default!;
 
@@ -63,16 +74,18 @@ public abstract class SharedCyberdeckSystem : EntitySystem
 
         SubscribeLocalEvent<CyberdeckHackableComponent, CyberdeckHackDoAfterEvent>(OnHacked);
 
-        SubscribeLocalEvent<AirlockComponent, CyberdeckHackDeviceEvent>(OnAirlockHacked);
-        SubscribeLocalEvent<AccessReaderComponent, CyberdeckHackDeviceEvent>(OnAccessHacked);
-        SubscribeLocalEvent<BorgChassisComponent, CyberdeckHackDeviceEvent>(OnBorgHacked);
+        SubscribeLocalEvent<CyberdeckProjectionComponent, GetVerbsEvent<Verb>>(OnProjectionVerbs);
+        SubscribeLocalEvent<CyberdeckProjectionComponent, ComponentShutdown>(OnProjectionShutdown);
 
+        SubscribeLocalEvent<CyberdeckUserComponent, CyberdeckHackActionEvent>(OnStartHacking);
+        SubscribeLocalEvent<CyberdeckUserComponent, CyberdeckVisionEvent>(OnCyberVisionUsed);
+        SubscribeLocalEvent<CyberdeckUserComponent, CyberdeckVisionReturnEvent>(OnCyberVisionReturn);
         SubscribeLocalEvent<CyberdeckUserComponent, ComponentStartup>(OnUserInit);
         SubscribeLocalEvent<CyberdeckUserComponent, ComponentShutdown>(OnUserShutdown);
 
-        SubscribeLocalEvent<CyberdeckProjectionComponent, GetVerbsEvent<Verb>>(OnProjectionVerbs);
-
-        SubscribeLocalEvent<CyberdeckUserComponent, CyberdeckHackActionEvent>(OnStartHacking);
+        SubscribeLocalEvent<AirlockComponent, CyberdeckHackDeviceEvent>(OnAirlockHacked);
+        SubscribeLocalEvent<AccessReaderComponent, CyberdeckHackDeviceEvent>(OnAccessHacked);
+        SubscribeLocalEvent<BorgChassisComponent, CyberdeckHackDeviceEvent>(OnBorgHacked);
 
         HandsQuery = GetEntityQuery<HandsComponent>();
         ContainerQuery = GetEntityQuery<ContainerManagerComponent>();
@@ -82,16 +95,16 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         UserQuery = GetEntityQuery<CyberdeckUserComponent>();
     }
 
-    protected bool TryHackDevice(EntityUid user, EntityUid device)
+    private bool TryHackDevice(EntityUid user, EntityUid device)
     {
         if (!HackQuery.TryComp(device, out var hackable)
-            || !Power.IsPowered(device))
+            || !_power.IsPowered(device))
             return false;
 
         return UseCharges(user, hackable.Cost);
     }
 
-    protected bool UseCharges(EntityUid user, FixedPoint2 amount, EntityUid? target = null)
+    private bool UseCharges(EntityUid user, FixedPoint2 amount, EntityUid? target = null)
     {
         if (!UserQuery.TryComp(user, out var cyberDeck))
             return false;
@@ -102,16 +115,16 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         if (!CheckCharges(user, cyberDeck.ProviderEntity.Value, amount, target))
             return false;
 
-        Charges.UseCharges(cyberDeck.ProviderEntity.Value, amount);
+        _charges.UseCharges(cyberDeck.ProviderEntity.Value, amount);
         return true;
     }
 
-    protected bool CheckCharges(EntityUid user, EntityUid provider, FixedPoint2 amount, EntityUid? target = null)
+    private bool CheckCharges(EntityUid user, EntityUid provider, FixedPoint2 amount, EntityUid? target = null)
     {
         if (!ChargesQuery.TryComp(provider, out var chargesComp))
             return false;
 
-        if (!Charges.HasInsufficientCharges(provider, amount))
+        if (!_charges.HasInsufficientCharges(provider, amount))
             return true;
 
         // Tell user that he doesn't have enough charges
@@ -144,10 +157,13 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         args.Verbs.Add(new AlternativeVerb
         {
             Text = Loc.GetString("cyberdeck-station-ai-smite-verb"),
-            Act = () => { ShutdownProjection(ent.Owner); },
+            Act = () => { DetachFromProjection(ent.Comp.RemoteEntity); },
             Impact = LogImpact.High,
         });
     }
+
+    private void OnProjectionShutdown(Entity<CyberdeckProjectionComponent> ent, ref ComponentShutdown args)
+        => DetachFromProjection(ent.Comp.RemoteEntity);
 
     private void OnStartHacking(EntityUid uid, CyberdeckUserComponent component, CyberdeckHackActionEvent args)
     {
@@ -233,10 +249,12 @@ public abstract class SharedCyberdeckSystem : EntitySystem
             Popup.PopupEntity(Loc.GetString("cyberdeck-player-get-hacked"), target.Value, target.Value, PopupType.LargeCaution);
     }
 
-    private void OnUserInit(EntityUid uid, CyberdeckUserComponent component, ComponentStartup args)
+    private void OnUserInit(Entity<CyberdeckUserComponent> ent, ref ComponentStartup args)
     {
-        Actions.AddAction(uid, ref component.HackAction, component.HackActionId);
-        Actions.AddAction(uid, ref component.VisionAction, component.VisionActionId);
+        var (uid, component) = ent;
+
+        _actions.AddAction(uid, ref component.HackAction, component.HackActionId);
+        _actions.AddAction(uid, ref component.VisionAction, component.VisionActionId);
         UpdateAlert((uid, component));
 
         // Find the cyberdeck source by hand. TODO: Maybe make a BodyOrganRelayEvent and subscribe to it?
@@ -247,14 +265,16 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         component.ProviderEntity = evil.Value.Id;
     }
 
-    private void OnUserShutdown(EntityUid uid, CyberdeckUserComponent component, ComponentShutdown args)
+    private void OnUserShutdown(Entity<CyberdeckUserComponent> ent, ref ComponentShutdown args)
     {
-        Actions.RemoveAction(uid, component.HackAction);
-        Actions.RemoveAction(uid, component.VisionAction);
-        Actions.RemoveAction(uid, component.ReturnAction);
+        var (uid, component) = ent;
 
-        // Return to body if player was visiting projection
-        ShutdownProjection(component.ProjectionEntity);
+        _actions.RemoveAction(uid, component.HackAction);
+        _actions.RemoveAction(uid, component.VisionAction);
+        _actions.RemoveAction(uid, component.ReturnAction);
+
+        KillProjection(ent);
+        UpdateAlert(ent, true);
     }
 
     private void OnHacked(Entity<CyberdeckHackableComponent> ent, ref CyberdeckHackDoAfterEvent args)
@@ -274,7 +294,7 @@ public abstract class SharedCyberdeckSystem : EntitySystem
                 || userComp.ProviderEntity == null)
                 return;
 
-            Charges.AddCharges(userComp.ProviderEntity.Value, ent.Comp.Cost);
+            _charges.AddCharges(userComp.ProviderEntity.Value, ent.Comp.Cost);
         }
     }
 
@@ -294,7 +314,200 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         _jitter.DoJitter(ent.Owner, TimeSpan.FromSeconds(8), true);
     }
 
-    protected abstract void ShutdownProjection(Entity<CyberdeckProjectionComponent?>? ent);
+    private void OnCyberVisionUsed(Entity<CyberdeckUserComponent> ent, ref CyberdeckVisionEvent args)
+    {
+        if (args.Handled)
+            return;
 
-    protected abstract void UpdateAlert(Entity<CyberdeckUserComponent> ent);
+        var (uid, comp) = ent;
+
+        if (!UseCharges(uid, comp.CyberVisionAbilityCost))
+            return;
+
+        AttachToProjection(ent);
+        args.Handled = true;
+    }
+
+    private void OnCyberVisionReturn(Entity<CyberdeckUserComponent> ent, ref CyberdeckVisionReturnEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        DetachFromProjection(ent);
+        args.Handled = true;
+    }
+
+
+
+    /// <summary>
+    /// Creates a projection on server-side in Nullspace. Will do nothing if projection already exists.
+    /// </summary>
+    private void CreateProjection(Entity<CyberdeckUserComponent> user)
+    {
+        if (_net.IsClient || user.Comp.ProjectionEntity != null)
+            return;
+
+        var projection = Spawn(user.Comp.ProjectionEntityId, MapCoordinates.Nullspace);
+        SetPaused(projection, true);
+        var projectionComp = EnsureComp<CyberdeckProjectionComponent>(projection);
+
+        projectionComp.RemoteEntity = user.Owner;
+        user.Comp.ProjectionEntity = projection;
+
+        Dirty(user.Owner, user.Comp);
+        Dirty(projection, projectionComp);
+    }
+
+    /// <summary>
+    /// Fully deletes a projection from existing, detaching a player and then clearing everything up.
+    /// </summary>
+    /// <remarks>
+    /// Client doesn't delete the entity, but instead thinks that it doesn't
+    /// exist by setting it to null in the component, so it's basically the same thing.
+    /// </remarks>
+    private void KillProjection(Entity<CyberdeckUserComponent> user)
+    {
+        DetachFromProjection(user);
+        if (_net.IsServer)
+            QueueDel(user.Comp.ProjectionEntity);
+
+        user.Comp.ProjectionEntity = null;
+    }
+
+    /// <summary>
+    /// Attaches a player to projection if it already exists,
+    /// otherwise creates it and does the same but on server side.
+    /// </summary>
+    /// <param name="user"></param>
+    private void AttachToProjection(Entity<CyberdeckUserComponent> user)
+    {
+        if (user.Comp.InProjection)
+            return;
+
+        // At first we just add visuals & actions, because they're easily predicted
+        EnsureComp<StationAiOverlayComponent>(user.Owner);
+        EnsureComp<CyberdeckOverlayComponent>(user.Owner);
+        EnsureComp<NoNormalInteractionComponent>(user.Owner);
+
+        _actions.AddAction(user.Owner, ref user.Comp.ReturnAction, user.Comp.ReturnActionId);
+        _actions.RemoveAction(user.Owner, user.Comp.VisionAction);
+
+        // Now everything becomes tricky.
+        // At this point there are 3 possible scenarios:
+        // 1. Projection entity is already stored in nullspace, and we know that it exist
+        // 2. Same as 1 but we for some reason think that it's deleted
+        // 3. Projection entity doesn't exist
+
+        // Only in the first case we can actually do something.
+
+        // Handle case 3 (projection doesn't exist)
+        if (user.Comp.ProjectionEntity == null)
+        {
+            if (_net.IsClient)
+                return;
+
+            CreateProjection(user);
+        }
+
+        // Client thinks that projection is not null, but is deleted.
+        // This normally shouldn't happen, but if it is what it is then we need to cope with what we have.
+        if (TerminatingOrDeleted(user.Comp.ProjectionEntity) && _net.IsClient)
+        {
+            Log.Warning($"Cyberdeck Projection was invalid on client-side for user {ToPrettyString(user.Owner)}," +
+                        $" and at the same time it's not null, which shouldn't normally happen. This can cause problems with Cyberdeck prediction.");
+            return;
+        }
+
+        // If it's deleted on a server, then something is really messed up...
+        if (TerminatingOrDeleted(user.Comp.ProjectionEntity) && _net.IsServer)
+        {
+            Log.Error($"Failed to create Cyberdeck projection for user {ToPrettyString(user.Owner)}, or it was deleted incorrectly at some time!");
+            return;
+        }
+
+        // Handle the standard case, when we just need to pull an existing entity from Nullspace
+        var projection = user.Comp.ProjectionEntity!.Value; // If it's null then we're cooked already
+        var position = Transform(user).Coordinates;
+
+        SetPaused(projection, false);
+        Xform.SetCoordinates(projection, position);
+
+        if (TryComp(user, out EyeComponent? eyeComp))
+        {
+            _eye.SetDrawFov(user, false, eyeComp);
+            _eye.SetTarget(user, projection, eyeComp);
+        }
+
+        _mover.SetRelay(user, projection);
+        user.Comp.InProjection = true;
+    }
+
+    /// <summary>
+    /// Detaches player from a projection forcefully, and sends an existing projection to Nullspace.
+    /// </summary>
+    private void DetachFromProjection(Entity<CyberdeckUserComponent> user)
+    {
+        if (user.Comp.ProjectionEntity == null || !user.Comp.InProjection)
+            return;
+
+        RemComp<StationAiOverlayComponent>(user);
+        RemComp<CyberdeckOverlayComponent>(user);
+        RemComp<NoNormalInteractionComponent>(user);
+
+        _actions.AddAction(user, ref user.Comp.VisionAction, user.Comp.VisionActionId);
+        _actions.RemoveAction(user, user.Comp.ReturnAction);
+
+        if (TryComp(user, out EyeComponent? eyeComp))
+        {
+            _eye.SetDrawFov(user, true, eyeComp);
+            _eye.SetTarget(user, null, eyeComp);
+        }
+
+        RemComp<RelayInputMoverComponent>(user);
+
+        // We did everything to put the player back in place,
+        // now let's try to save the projection for smoother prediction
+        user.Comp.InProjection = false;
+
+        if (TerminatingOrDeleted(user.Comp.ProjectionEntity))
+            return;
+
+        var projection = user.Comp.ProjectionEntity.Value;
+        if (TryComp(user, out ActorComponent? actorComp))
+            _pvsOverride.AddSessionOverride(projection, actorComp.PlayerSession);
+
+        // This probably is a dirty solution, but surprisingly you can't send entities to Nullspace...
+        _cryostorage.EnsurePausedMap();
+        if (_cryostorage.PausedMap == null)
+        {
+            Log.Error("CryoSleep map was unexpectedly null");
+            return;
+        }
+
+        Xform.SetParent(projection, _cryostorage.PausedMap.Value);
+    }
+
+    /// <summary>
+    /// Detaches player from a projection forcefully, and sends an existing projection to Nullspace.
+    /// This specific overload lets you put in a nullable EntityUid.
+    /// </summary>
+    private void DetachFromProjection(Entity<CyberdeckUserComponent?>? user)
+    {
+        if (user == null)
+            return;
+
+        var userEnt = user.Value;
+
+        if (!Resolve(userEnt.Owner, ref userEnt.Comp))
+            return;
+
+        DetachFromProjection((userEnt.Owner, userEnt.Comp));
+    }
+
+    /// <summary>
+    /// Updates an alert, counting how many charges player currently has.
+    /// </summary>
+    /// <param name="ent">A user to apply the alert.</param>
+    /// <param name="doClear">If true, will just remove the alert entirely, until it gets updated again.</param>
+    protected virtual void UpdateAlert(Entity<CyberdeckUserComponent> ent, bool doClear = false) { }
 }

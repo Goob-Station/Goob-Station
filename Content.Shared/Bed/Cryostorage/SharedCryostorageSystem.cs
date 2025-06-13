@@ -101,7 +101,7 @@ public abstract class SharedCryostorageSystem : EntitySystem
     [Dependency] protected readonly SharedMindSystem Mind = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
 
-    protected EntityUid? PausedMap { get; private set; }
+    public EntityUid? PausedMap { get; private set; } // Goob edit - make it public
 
     protected bool CryoSleepRejoiningEnabled;
 
@@ -236,7 +236,7 @@ public abstract class SharedCryostorageSystem : EntitySystem
         PausedMap = null;
     }
 
-    protected void EnsurePausedMap()
+    public void EnsurePausedMap() // Goob edit - make it public
     {
         if (PausedMap != null && Exists(PausedMap))
             return;
