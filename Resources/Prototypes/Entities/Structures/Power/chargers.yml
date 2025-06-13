@@ -198,6 +198,17 @@
   components:
   - type: Sprite
     sprite: Structures/Power/recharger.rsi
+    layers:
+    - map: ["enum.PowerChargerVisualLayers.Base"]
+      state: "empty"
+    - map: ["enum.PowerChargerVisualLayers.Light"]
+      state: "light-off"
+      shader: "unshaded"
+    - map: ["enum.PowerChargerVisualLayers.ItemDisplay"]
+      shader: "FlickerHologram"
+      color: "#ffffffaa"
+      offset: 0,0.45
+      scale: 0.5,0.5
   - type: Machine
     board: WeaponCapacitorRechargerCircuitboard
   # no powercellslot since stun baton etc arent powercells
@@ -218,6 +229,10 @@
           - WizardWand
           components:
           - MaterialEnergy
+
+  - type: ItemSlotRenderer
+    mapping:
+      charger_slot: enum.PowerChargerVisualLayers.ItemDisplay
 
 - type: entity
   parent: BaseItemRecharger

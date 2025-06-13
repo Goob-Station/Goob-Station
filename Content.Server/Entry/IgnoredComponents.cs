@@ -82,6 +82,7 @@ namespace Content.Server.Entry
             "OptionsVisualizer",
             "ToggleableLightWieldable", // Goobstation
             "HideClothingLayerClothing", // Goobstation
+            "ItemSlotRenderer", // WWDP EDIT
         };
     }
 }

@@ -8,3 +8,25 @@
   id: NightVision
   kind: source
   path: "/Textures/_White/Shaders/nightvision.swsl"
+
+- type: shader
+  id: FlickerHologram
+  kind: source
+  path: "/Textures/_White/Shaders/flickerhologram.swsl"
+  light_mode: unshaded
+  params:
+    jitter: 0.5
+    colorJitter: 0.4
+    alphaJitter: 0.5
+    hue: 0.48
+
+- type: shader
+  id: FlickerHologramGlitch
+  kind: source
+  path: "/Textures/_White/Shaders/flickerhologram.swsl"
+  light_mode: unshaded
+  params:
+    jitter: 5
+    colorJitter: 0.8
+    alphaJitter: 1
+    hue: 0.48
