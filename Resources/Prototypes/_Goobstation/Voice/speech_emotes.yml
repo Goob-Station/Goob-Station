@@ -8,7 +8,8 @@
 # SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
-#Corvax Goob-start
+
+# Corvax Goob-start
 #- type: emote
 #  id: Fart
 #  name: chat-emote-name-fart
@@ -135,7 +136,7 @@
 #    - ultra farts
 #    - ultra farted
 #    - ultra farting
-#Corvax Goob-end
+# Corvax Goob-end
 
 - type: emote
   id: Flap
