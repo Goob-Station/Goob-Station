@@ -226,7 +226,7 @@ namespace Content.Server.Mail
                     return;
                 }
 
-                if (!_accessSystem.IsAllowed(uid, args.User))
+                if (!_accessSystem.IsAllowed(args.User, uid))
                 {
                     _popupSystem.PopupEntity(Loc.GetString("mail-invalid-access"), uid, args.User);
                     return;
