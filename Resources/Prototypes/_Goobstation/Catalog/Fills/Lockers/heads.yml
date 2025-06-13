@@ -4,7 +4,10 @@
 # SPDX-FileCopyrightText: 2024 starch <starchpersonal@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 JORJ949 <159719201+JORJ949@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
@@ -41,7 +44,7 @@
   table: !type:AllSelector
     children:
     - id: DefibrillatorCompact
-    - id: SecHypo
+    - id: ParamedHypo
     - id: MedkitBSOFilled
     - id: MedkitBSOIPCFilled
     - id: FlippoLighterBlueshield
@@ -49,7 +52,6 @@
     - id: BoxZiptie
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
-    - id: BlueshieldUndeterminedHardsuit
     - id: OmnimedTool
     - id: HandheldCrewMonitorBSO
     - id: BlueshieldUndeterminedWeapon

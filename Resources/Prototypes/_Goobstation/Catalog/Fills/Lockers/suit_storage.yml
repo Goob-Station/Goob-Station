@@ -1,6 +1,8 @@
 # SPDX-FileCopyrightText: 2024 starch <starchpersonal@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
@@ -14,6 +16,5 @@
   - type: StorageFill
     contents:
         - id: OxygenTankFilled
-        - id: BlueshieldUndeterminedHardsuit
         - id: ClothingMaskBreath
         - id: NitrogenTankFilled

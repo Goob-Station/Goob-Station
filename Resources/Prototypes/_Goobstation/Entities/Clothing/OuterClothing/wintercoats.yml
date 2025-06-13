@@ -1,6 +1,9 @@
 # SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -25,3 +28,42 @@
     sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/trainer.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/trainer.rsi
+
+- type: entity
+  parent: [ClothingOuterArmorBase, ClothingOuterWinterCoatToggleable, BaseSecurityContraband]
+  id: ClothingOuterWinterSecArmored
+  name: security armored winter coat
+  description: A sturdy, utilitarian winter coat designed to protect security members from any threats and hypothermic events.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/secvestcoat.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/secvestcoat.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHatHoodWinterSecarmored
+  - type: StaticPrice 
+    price: 220
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.65
+        Heat: 0.6
+  - type: ExplosionResistance
+    damageCoefficient: 0.95
+
+- type: entity
+  parent: ClothingOuterWinterSecArmored
+  id: ClothingOuterWinterSeniorSecArmored
+  name: senior security armored winter coat
+  description: A sturdy, utilitarian winter coat designed to protect senior security members from any threats and hypothermic events.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/seniorsecvestcoat.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/seniorsecvestcoat.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHatHoodWinterSecSeniorarmored

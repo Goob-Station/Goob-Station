@@ -27,6 +27,7 @@
   - type: Damageable
     damageContainer: Inorganic # Shitmed Change
   - type: BodyPart
+    partComposition: Inorganic
   - type: SurgeryTool # Shitmed Change
     startSound:
       path: /Audio/_Shitmed/Medical/Surgery/organ1.ogg
