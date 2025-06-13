@@ -982,13 +982,6 @@ entities:
       angularDamping: 0
       linearDamping: 0
       canCollide: False
-- proto: BroomWitch
-  entities:
-  - uid: 54
-    components:
-    - type: Transform
-      pos: 5.2839394,-20.425241
-      parent: 2
 - proto: CableApcExtension
   entities:
   - uid: 55
