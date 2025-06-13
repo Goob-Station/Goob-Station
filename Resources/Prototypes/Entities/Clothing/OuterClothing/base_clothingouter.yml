@@ -250,7 +250,7 @@
 
 - type: entity
   abstract: true
-  parent: [ClothingOuterBase, GeigerCounterClothing, AllowSuitStorageClothing]
+  parent: [ClothingOuterStorageBase, GeigerCounterClothing, AllowSuitStorageClothing] # Goobstation
   id: ClothingOuterHardsuitBase
   name: base hardsuit
   components:
@@ -293,10 +293,14 @@
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:Container {}
+      storagebase: !type:Container # Goobstation
+        ents: []
   - type: UserInterface
     interfaces:
       enum.ToggleClothingUiKey.Key:
         type: ToggleableClothingBoundUserInterface
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface # Goobstation
   - type: GroupExamine
   - type: Tag
     tags:

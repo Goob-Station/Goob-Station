@@ -1282,6 +1282,7 @@
   #- SecurityOfficerWintercoat #Goobstation
   - WinterCoatSecArmored # Goobstation
   - WinterCoatSeniorSecArmored # Goobstation
+  - SeniorSecVestWeb # Goobstation
 
 - type: loadoutGroup
   id: SecurityShoes

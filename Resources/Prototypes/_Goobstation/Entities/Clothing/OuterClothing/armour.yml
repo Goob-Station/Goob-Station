@@ -330,3 +330,37 @@
   - type: ModifyDelayedKnockdown
     delayDelta: 0
     knockdownTimeDelta: 0
+
+- type: entity
+  parent: [ ClothingOuterStorageBase, BaseSecurityContraband ]
+  id: ClothingOuterVestWebSec
+  name: security web vest
+  description: An armoured web vest with various pouches for extra storage and a white IFF placard.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Armor/web_vest_sec.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Armor/web_vest_sec.rsi
+  - type: Armor
+    coverage:
+    - Chest
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.55
+        Heat: 0.7
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: ModifyDelayedKnockdown
+    delayDelta: 2
+    knockdownTimeDelta: -2
+  - type: StaminaDamageResistance
+    coefficient: 0.7
+  - type: ItemSlots
+    slots:
+      item:
+        name: bodycam
+        whitelist:
+          components:
+          - SurveillanceCamera

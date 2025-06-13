@@ -191,9 +191,9 @@
   - type: HeldSpeedModifier
 
 #Paramedic Voidsuit
-#Despite having resistances and looking like a hardsuit, this parents off the EVA suit so it goes here.
+#Despite not being parented off the EVA suit anymore, it goes here so you dont get confused if you're from upstream.
 - type: entity
-  parent: [ ClothingOuterEVASuitBase, ClothingOuterBaseToggleable ]
+  parent: [ClothingOuterHardsuitBase, BaseMedicalContraband] # Goobstation
   id: ClothingOuterHardsuitVoidParamed
   name: paramedic voidsuit # Goob edit
   description: A voidsuit made for paramedics. # Goob edit

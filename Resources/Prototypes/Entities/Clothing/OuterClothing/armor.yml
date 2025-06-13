@@ -192,6 +192,14 @@
 - type: entity
   parent: [ BaseSecurityBartenderContraband, ClothingOuterArmorBase]
   id: ClothingOuterArmorBasic
+  components:
+  - type: ItemSlots
+    slots:
+      item:
+        name: bodycam
+        whitelist:
+          components:
+          - SurveillanceCamera
 
 #Alternate / slim basic armor vest
 - type: entity
@@ -244,6 +252,13 @@
     knockdownTimeDelta: -2.5
   - type: StaminaDamageResistance # Goobstation
     coefficient: 0.6
+  - type: ItemSlots # Goobstation
+    slots:
+      item:
+        name: bodycam
+        whitelist:
+          components:
+          - SurveillanceCamera
 
 - type: entity
   parent: ClothingOuterArmorBase
@@ -274,6 +289,13 @@
         Heat: 0.8
   - type: ExplosionResistance
     damageCoefficient: 0.8
+  - type: ItemSlots # Goobstation
+    slots:
+      item:
+        name: bodycam
+        whitelist:
+          components:
+          - SurveillanceCamera
 
 - type: entity
   parent: ClothingOuterArmorBase

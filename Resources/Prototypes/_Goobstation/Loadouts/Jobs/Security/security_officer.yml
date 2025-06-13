@@ -27,3 +27,11 @@
   id: WinterCombatBoots
   equipment:
     shoes: ClothingShoesWinterCombatBoots
+
+- type: loadout
+  id: SeniorSecVestWeb
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorOfficer
+  equipment:
+    outerClothing: ClothingOuterVestWebSec
