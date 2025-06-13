@@ -89,7 +89,6 @@
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [ Dwarf ]
-  forcedColoring: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/Dwarf/head.rsi
 
@@ -112,7 +111,6 @@
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [ Dwarf ]
-  forcedColoring: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/Dwarf/head.rsi
     state: glow
