@@ -3,32 +3,33 @@
 // the original Bingle PR can be found here: https://github.com/Goob-Station/Goob-Station/pull/1519
 
 using Content.Server.Actions;
+using Content.Server.Audio;
 using Content.Server.GameTicking;
 using Content.Server.Pinpointer;
 using Content.Server.Popups;
 using Content.Server.Stunnable;
 using Content.Shared._Impstation.Replicator;
 using Content.Shared.Actions;
+using Content.Shared.Audio;
 using Content.Shared.Destructible;
+using Content.Shared.Explosion.Components;
+using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Events;
+using Content.Shared.Objectives.Components;
+using Content.Shared.Pinpointer;
+using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Stunnable;
-using Content.Shared.Pinpointer;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Content.Shared.Humanoid;
-using Content.Shared.Explosion.Components;
-using Content.Shared.Audio;
-using Content.Server.Audio;
-using Content.Shared.Objectives.Components;
-using Content.Shared.Silicons.Laws.Components;
 using System.Linq;
+using Content.Server.Objectives.Components.Targets;
 
 namespace Content.Server._Impstation.Replicator;
 
@@ -57,7 +58,7 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
         SubscribeLocalEvent<ReplicatorNestComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
         SubscribeLocalEvent<ReplicatorNestComponent, StepTriggerAttemptEvent>(OnStepTriggerAttempt);
         SubscribeLocalEvent<ReplicatorNestFallingComponent, UpdateCanMoveEvent>(OnUpdateCanMove);
-        SubscribeLocalEvent<ReplicatorNestComponent, DestructionEventArgs>(OnDestruction);
+        SubscribeLocalEvent<ReplicatorNestComponent, DestructionEventArgs>(OnDestroyed);
         SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEndTextAppend);
     }
 
@@ -124,7 +125,7 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
         args.Cancel();
     }
 
-    private void OnDestruction(Entity<ReplicatorNestComponent> ent, ref DestructionEventArgs args)
+    private void OnDestroyed(Entity<ReplicatorNestComponent> ent, ref DestructionEventArgs args)
     {
         HandleDestruction(ent);
     }
@@ -173,7 +174,7 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
 
             livingReplicators.Add((replicator, replicatorComp));
 
-            _popup.PopupEntity(Loc.GetString("replicator-nest-destroyed"), replicator, replicator);
+            _popup.PopupEntity(Loc.GetString("replicator-nest-destroyed"), replicator, replicator, Shared.Popups.PopupType.LargeCaution);
         }
 
         // if there are living replicators, select one and give the action to create a new nest.
@@ -242,8 +243,12 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
             if (_navMap.TryGetNearestBeacon(mapCoords, out var beacon, out _) && beacon?.Comp.Text != null)
                 location = beacon?.Comp.Text!;
 
-            if (i != nests.Count)
-                locationsList = string.Concat(locationsList, location, ", ");
+            if (nests.Count == 1)
+                locationsList = string.Concat(locationsList, "[color=#d70aa0]", location, "[/color].");
+            else if (nests.Count == 2 && i == 1)
+                locationsList = string.Concat(locationsList, "[color=#d70aa0]", location, " ");
+            else if (i != nests.Count)
+                locationsList = string.Concat(locationsList, "[color=#d70aa0]", location, "[/color], ");
             else
                 locationsList = string.Concat(locationsList, $"[/color]and [color=#d70aa0]{location}[/color].");
 

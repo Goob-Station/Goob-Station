@@ -100,7 +100,7 @@
   - type: MeleeWeapon
     attackRate: 1.2
     wideAnimationRotation: 180
-    soundHit:
+    soundHit: 
       collection: MetalThud
     animation: WeaponArcSlash
     damage:
@@ -125,7 +125,7 @@
   - type: MeleeWeapon
     attackRate: 0.5
     wideAnimationRotation: 180
-    soundHit:
+    soundHit: 
       path: "/Audio/Effects/metal_slam4.ogg"
     animation: WeaponArcSlash
     damage:

@@ -64,7 +64,6 @@
   - type: ActiveRadio
     channels:
     - Binary
-  - type: CombatMode
   - type: Actions
   - type: ProtectedFromStepTriggers
   - type: InputMover
@@ -143,9 +142,6 @@
     lightRadius: 7
     color: "#d70aa0"
   - type: FlashImmunity
-  - type: Puller
-    needsHands: false
-    applySpeedModifier: false
   - type: Prying
     pryPowered: true
     force: true
