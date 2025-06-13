@@ -4,17 +4,21 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Shared.CloneProjector.Clone;
+using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Events;
+using Content.Shared.Weapons.Ranged.Events;
 
 namespace Content.Goobstation.Shared.CloneProjector;
 
 public abstract class SharedCloneProjectorSystem : EntitySystem
 {
+    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<HolographicCloneComponent, MeleeHitEvent>(OnMeleeHit);
+        SubscribeLocalEvent<HolographicCloneComponent, ShotAttemptedEvent>(OnShotAttempted);
     }
 
     private void OnMeleeHit(Entity<HolographicCloneComponent> clone, ref MeleeHitEvent args)
@@ -32,6 +36,12 @@ public abstract class SharedCloneProjectorSystem : EntitySystem
 
             args.BonusDamage = -args.BaseDamage;
         }
+    }
+
+    private void OnShotAttempted(Entity<HolographicCloneComponent> ent, ref ShotAttemptedEvent args)
+    {
+        _popupSystem.PopupClient(Loc.GetString("gun-disabled"), ent, ent);
+        args.Cancel();
     }
 
 }
