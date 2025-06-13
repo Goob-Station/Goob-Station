@@ -70,8 +70,6 @@ public sealed partial class AdminOptionsTab : Control
         // Goobstation - Start
         Control.AddOptionCheckBox(GoobCVars.AdminOverlayShowUserName, EnableOverlayUsernameCheckBox);
         Control.AddOptionCheckBox(GoobCVars.AdminOverlayShowCharacterName, EnableOverlayCharacterNameCheckBox);
-        Control.AddOptionCheckBox(GoobCVars.AdminOverlayShowAntag, EnableOverlayAntagCheckBox);
-        Control.AddOptionCheckBox(GoobCVars.AdminOverlayShowRoleType, EnableOverlayRoleTypeCheckBox);
         // Goobstation - End
 
         Control.Initialize();
