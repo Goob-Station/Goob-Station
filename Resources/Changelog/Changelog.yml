@@ -1,36 +1,4 @@
 ﻿Entries:
-- author: SlamBamActionman
-  changes:
-  - message: The Syndicate Raid Bundle now comes in a Syndicate backpack instead of
-      duffelbag.
-    type: Tweak
-  - message: The Syndicate Raid Suit now has an inventory size of 2x2 (previously
-      4x4).
-    type: Tweak
-  id: 8149
-  time: '2025-04-10T22:22:17.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/35890
-- author: EmoGarbage404
-  changes:
-  - message: Grinding soda cans now gives a small amount of Aluminum.
-    type: Add
-  id: 8150
-  time: '2025-04-11T00:54:24.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/36449
-- author: RedBookcase
-  changes:
-  - message: The Kardashev-Mosin is now considered Major Contraband.
-    type: Tweak
-  id: 8151
-  time: '2025-04-11T00:57:41.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/36446
-- author: Nukesthestation
-  changes:
-  - message: Zombies /suicideing return to an ai state
-    type: Tweak
-  id: 8152
-  time: '2025-04-11T01:12:13.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/36453
 - author: YoungThugSS14
   changes:
   - message: Wizards now appear roundstart in the "all at once" gamemode.
@@ -3913,3 +3881,35 @@
   id: 8661
   time: '2025-06-12T01:22:51.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/38260
+- author: themias
+  changes:
+  - message: Fixed an issue where the gas analyzer and anomaly scanner would need
+      to be reactivated to open the UI
+    type: Fix
+  id: 8662
+  time: '2025-06-12T21:16:07.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/38285
+- author: BigfootBravo
+  changes:
+  - message: Utensils don't spam a warning for incompatible foods.
+    type: Fix
+  id: 8663
+  time: '2025-06-13T01:48:28.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/38297
+- author: hoshizora-sayo
+  changes:
+  - message: Fixed crafting menu entries that included modular machine parts
+    type: Fix
+  id: 8664
+  time: '2025-06-13T05:21:57.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/38299
+- author: nkokic
+  changes:
+  - message: Tear gas smoke is now white and semi-transparent.
+    type: Tweak
+  - message: Tear gas now causes coughing, slows you down and hits a bit faster than
+      before.
+    type: Add
+  id: 8665
+  time: '2025-06-13T13:53:44.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/36440
