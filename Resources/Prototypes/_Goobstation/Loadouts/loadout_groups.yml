@@ -37,6 +37,7 @@
   minLimit: 0
   loadouts:
   - ClothingNeckScarfStripedCentcom
+  - ClothingCloakBoatNT
 
 - type: loadoutGroup
   id: NanotrasenRepresentativeBackpack
@@ -232,6 +233,7 @@
   minLimit: 0
   loadouts:
   - MinerCloak
+  - SalvageCloak
 
 # Chemist
 

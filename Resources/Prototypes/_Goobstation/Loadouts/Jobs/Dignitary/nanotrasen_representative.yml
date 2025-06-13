@@ -112,6 +112,11 @@
   equipment:
     neck: ClothingNeckScarfStripedCentcom
 
+- type: loadout
+  id: ClothingCloakBoatNT
+  equipment:
+    neck: ClothingNeckCloakBoat
+
 # Backpacks
 - type: loadout
   id: NanotrasenRepresentativeBackpack

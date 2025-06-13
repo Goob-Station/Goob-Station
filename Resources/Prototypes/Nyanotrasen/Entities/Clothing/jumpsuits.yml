@@ -32,7 +32,7 @@
     sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/tshirtjeanspeach.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, BaseSecurityContraband]
   id: ClothingUniformJumpsuitSecSummer
   name: summer security uniform
   description: A loose-fitting and casual variant of the standard security uniform.
