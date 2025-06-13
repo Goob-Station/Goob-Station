@@ -115,7 +115,7 @@ public sealed partial class ZombieComponent : Component
     /// The baseline infection chance you have if you have no protective gear
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public float MaxZombieInfectionChance = 1.00f; ///Goobchange
+    public float BaseZombieInfectionChance = 1.00f; ///Goobchange
 
     /// <summary>
     /// The minimum infection chance possible. This is simply to prevent
