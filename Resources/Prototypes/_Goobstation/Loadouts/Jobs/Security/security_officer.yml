@@ -3,6 +3,7 @@
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 Jarl <elliotacline@gmail.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -29,6 +30,14 @@
   id: WinterCombatBoots
   equipment:
     shoes: ClothingShoesWinterCombatBoots
+
+- type: loadout
+  id: ClothingNeckCWPSec
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorOfficer
+  equipment:
+    neck: ClothingNeckCWPSec
 
 - type: loadout
   id: SeniorSecVestWeb
