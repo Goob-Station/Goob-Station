@@ -147,6 +147,7 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
@@ -834,7 +835,7 @@
   name: pill canister
   id: PillCanister
   parent: BaseStorageItem
-  description: Holds up to 10 pills.
+  description: Holds up to 15 pills. # Goobstation
   components:
   - type: Item
     size: Tiny
@@ -847,7 +848,7 @@
       - PillCanister
   - type: Storage
     grid:
-    - 0,0,4,1
+    - 0,0,4,2 # Goobstation
     quickInsert: true
     areaInsert: true
     areaInsertRadius: 1
