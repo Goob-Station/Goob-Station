@@ -143,8 +143,6 @@ internal sealed class AdminNameOverlay : Overlay
     // Goobstation - Start
     private bool _showCharacterName;
     private bool _showUserName;
-    private bool _showAntag;
-    private bool _showRoleType;
     // Goobstation - End
 
     //TODO make this adjustable via GUI
@@ -186,8 +184,6 @@ internal sealed class AdminNameOverlay : Overlay
         // Goobstation - Start
         config.OnValueChanged(GoobCVars.AdminOverlayShowCharacterName, (show) => { _showCharacterName = show; }, true);
         config.OnValueChanged(GoobCVars.AdminOverlayShowUserName, (show) => { _showUserName = show; }, true);
-        config.OnValueChanged(GoobCVars.AdminOverlayShowAntag, (show) => { _showAntag = show; }, true);
-        config.OnValueChanged(GoobCVars.AdminOverlayShowRoleType, (show) => { _showRoleType = show; }, true);
         // Goobstation - End
     }
 
@@ -362,6 +358,11 @@ internal sealed class AdminNameOverlay : Overlay
                     text = _filter.Contains(playerInfo.RoleProto)
                         ? _roles.GetRoleSubtypeLabel(playerInfo.RoleProto.Name, playerInfo.Subtype).ToUpper()
                         : string.Empty;
+                    break;
+                case AdminOverlayAntagFormat.Off: // Goobstation
+                    color = playerInfo.RoleProto.Color;
+                    symbol = string.Empty;
+                    text = string.Empty;
                     break;
                 default:
                 case AdminOverlayAntagFormat.Binary:

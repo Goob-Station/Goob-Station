@@ -411,6 +411,7 @@ ui-options-admin-overlay-antag-format = Antag label style
 ui-options-admin-overlay-antag-format-binary = Show antag status
 ui-options-admin-overlay-antag-format-roletype = Show role type
 ui-options-admin-overlay-antag-format-subtype = Show subtype
+ui-options-admin-overlay-antag-format-off = Don't show antag status/roletype
 
 ui-options-admin-overlay-antag-symbol = Antag symbol style
 ui-options-admin-overlay-antag-symbol-off = No antag symbol
