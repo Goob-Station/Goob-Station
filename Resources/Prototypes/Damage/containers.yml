@@ -107,3 +107,12 @@
   - Genetic
   supportedTypes: # Goobstation
   - Holy
+
+- type: damageContainer # DeltaV edits begin
+  id: InorganicMetaphysical
+  supportedGroups:
+  - Brute
+  - Burn
+  - Metaphysical # DeltaV edits end
+  supportedTypes: # Goobstation
+  - Holy

@@ -19,6 +19,7 @@ using Content.Shared._DV.CCVars;
 using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult.Prototypes;
+using Content.Shared._DV.CustomObjectiveSummary;
 using Content.Shared.Audio;
 using Content.Shared.Damage;
 using Content.Shared.Interaction;
@@ -62,6 +63,7 @@ public sealed class MonumentSystem : SharedMonumentSystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<EvacShuttleLeftEvent>(OnShuttleEvac); // for no more finale once the evac shuttle leaves
         SubscribeLocalEvent<MonumentComponent, InteractUsingEvent>(OnInfuseHeldEntropy);
         SubscribeLocalEvent<MonumentComponent, ActivateInWorldEvent>(OnInfuseEntropy);
     }
@@ -87,8 +89,7 @@ public sealed class MonumentSystem : SharedMonumentSystem
                 monuComp.CheckTimer = _timing.CurTime + monuComp.CheckWait;
             }
 
-            if (comp.SongTimer is { } time
-                && _timing.CurTime >= time)
+            if (comp.SongTimer is { } time && _timing.CurTime >= time)
             {
                 comp.SongTimer = null;
 
@@ -96,30 +97,20 @@ public sealed class MonumentSystem : SharedMonumentSystem
                     _sound.DispatchStationEventMusic(uid, song, StationEventMusicType.CosmicCult);
             }
 
-            if (comp.CurrentState == FinaleState.ActiveBuffer
-                && _timing.CurTime >= comp.BufferTimer) // swap everything over when buffer timer runs out
+            if (comp.CurrentState == FinaleState.ActiveFinale && comp.FinaleAnnounceCheck && comp.FinaleTimer - _timing.CurTime < comp.VisualsThreshold)
             {
-                comp.CurrentState = FinaleState.ActiveFinale;
-                comp.FinaleTimer = _timing.CurTime + comp.FinaleRemainingTime;
-                comp.SelectedSong = comp.FinaleMusic;
-                _sound.StopStationEventMusic(uid, StationEventMusicType.CosmicCult);
                 _appearance.SetData(uid, MonumentVisuals.FinaleReached, 3);
-                _chatSystem.DispatchStationAnnouncement(uid,
-                    Loc.GetString("cosmiccult-announce-finale-warning"),
-                    null,
-                    false,
-                    null,
-                    Color.FromHex("#cae8e8"));
-                comp.SongTimer = _timing.CurTime + TimeSpan.FromSeconds(1);
+                _chatSystem.DispatchStationAnnouncement(uid, Loc.GetString("cosmiccult-announce-finale-warning"), null, false, null, Color.FromHex("#cae8e8"));
+                comp.FinaleAnnounceCheck = false;
             }
-            else if (comp.CurrentState == FinaleState.ActiveFinale && _timing.CurTime >= comp.FinaleTimer) // trigger wincondition on time runout
+
+            if (comp.CurrentState == FinaleState.ActiveFinale && _timing.CurTime >= comp.FinaleTimer) // trigger wincondition on time runout
             {
                 var victoryQuery = EntityQueryEnumerator<CosmicVictoryConditionComponent>();
 
                 while (victoryQuery.MoveNext(out _, out var victoryComp))
                     victoryComp.Victory = true;
 
-                _sound.StopStationEventMusic(uid, StationEventMusicType.CosmicCult);
                 Spawn(CosmicGod, Transform(uid).Coordinates);
                 comp.CurrentState = FinaleState.Victory;
             }
@@ -146,6 +137,30 @@ public sealed class MonumentSystem : SharedMonumentSystem
                 comp.PhaseInTimer = null;
             }
         }
+    }
+
+    /// <summary>
+    /// on shuttle evac, disable the monument's UI, disable it from being activated, and stop the finale music if it was playing
+    /// </summary>
+    private void OnShuttleEvac(EvacShuttleLeftEvent args)
+    {
+        var evacQuery = EntityQueryEnumerator<MonumentComponent, CosmicFinaleComponent>();
+        while (evacQuery.MoveNext(out var ent, out var monuComp, out var finaleComp))
+        {
+            Disable((ent, monuComp));
+            finaleComp.Occupied = true;
+            _sound.StopStationEventMusic(ent, StationEventMusicType.CosmicCult);
+            if (TryComp<ActivatableUIComponent>(ent, out var uiComp))
+            {
+                if (TryComp<UserInterfaceComponent>(ent, out var uiComp2)) //close the UI for everyone who has it open
+                {
+                    _ui.CloseUi((ent, uiComp2), MonumentKey.Key);
+                }
+
+                uiComp.Key = null; //kazne called this the laziest way to disable a UI ever
+            }
+        }
+
     }
 
     private void OnMonumentPhaseOut(Entity<MonumentComponent> ent)
@@ -445,7 +460,7 @@ public sealed class MonumentSystem : SharedMonumentSystem
             uiComp.Key = null; //kazne called this the laziest way to disable a UI ever
         }
 
-        finaleComp.CurrentState = FinaleState.ReadyBuffer;
+        finaleComp.CurrentState = FinaleState.ReadyFinale;
         uid.Comp.Enabled = false;
         uid.Comp.TargetProgress = uid.Comp.CurrentProgress;
 

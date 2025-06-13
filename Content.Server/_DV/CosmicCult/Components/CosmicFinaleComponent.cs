@@ -22,6 +22,12 @@ public sealed partial class CosmicFinaleComponent : Component
     [DataField]
     public bool FinaleActive = false;
 
+    /// <summary>
+    /// Bool used for the final announcement message at the finale's 2 minutes remaining mark.
+    /// </summary>
+    [DataField]
+    public bool FinaleAnnounceCheck = false;
+
     [DataField]
     public bool Occupied = false;
 
@@ -35,13 +41,10 @@ public sealed partial class CosmicFinaleComponent : Component
     public TimeSpan CultistsCheckTimer = default!;
 
     [DataField, AutoNetworkedField]
-    public TimeSpan BufferRemainingTime = TimeSpan.FromSeconds(360);
+    public TimeSpan FinaleRemainingTime = TimeSpan.FromSeconds(362);
 
     [DataField, AutoNetworkedField]
-    public TimeSpan FinaleRemainingTime = TimeSpan.FromSeconds(126);
-
-    [DataField, AutoNetworkedField]
-    public TimeSpan ConversionSpeedup = TimeSpan.FromSeconds(20);
+    public TimeSpan VisualsThreshold = TimeSpan.FromSeconds(240);
 
     [DataField, AutoNetworkedField]
     public TimeSpan CheckWait = TimeSpan.FromSeconds(5);
@@ -59,13 +62,10 @@ public sealed partial class CosmicFinaleComponent : Component
     public SoundSpecifier? SelectedSong;
 
     [DataField]
-    public TimeSpan InteractionTime = TimeSpan.FromSeconds(14);
+    public TimeSpan InteractionTime = TimeSpan.FromSeconds(30);
 
     [DataField]
-    public SoundSpecifier BufferMusic = new SoundPathSpecifier("/Audio/_DV/CosmicCult/premonition.ogg");
-
-    [DataField]
-    public SoundSpecifier FinaleMusic = new SoundPathSpecifier("/Audio/_DV/CosmicCult/a_new_dawn.ogg");
+    public SoundSpecifier FinaleMusic = new SoundPathSpecifier("/Audio/_DV/CosmicCult/finale.ogg");
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan? SongTimer;
@@ -90,9 +90,7 @@ public sealed partial class CosmicFinaleComponent : Component
 public enum FinaleState : byte
 {
     Unavailable,
-    ReadyBuffer,
     ReadyFinale,
-    ActiveBuffer,
     ActiveFinale,
     Victory,
 }

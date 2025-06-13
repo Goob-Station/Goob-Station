@@ -24,7 +24,7 @@ cosmiccult-vote-lone-steward-briefing =
     You're completely alone. But your duty is not done.
     Ensure that The Monument is placed in a secure location, and finish what the cult started.
 
-cosmiccult-finale-autocall-briefing = The Monument activates {$minutesandseconds}! Gather yourselves, and prepare for the end.
+cosmiccult-finale-autocall-briefing = The Monument activates in {$minutesandseconds}! Gather yourselves, and prepare for the end.
 cosmiccult-finale-ready = A terrifying light surges forth from The Monument!
 cosmiccult-finale-speedup = The beckoning quickens! Energy surges through the surroundings...
 
@@ -129,11 +129,10 @@ cosmiccult-rift-absorb = {$NAME} absorbs the rift, and malign light empowers the
 cosmiccult-rift-purge = {$NAME} purges the malign rift from reality!
 
 
-## COLOSSUS & CHANTRY
+## CHANTRY
 
 cosmiccult-chantry-location = A dangerous increase in Λ-CDM has been detected {$location}! Intercept and intervene immediately.
 cosmiccult-chantry-powerup = The vacuous chantry flares to life!
-cosmiccult-colossus-death = The colossus collapses, its light extinguished.
 
 ## UI / BASE POPUP
 
@@ -169,6 +168,8 @@ objective-issuer-cosmiccult = [bold][color=#cae8e8]The Unknown[/color][/bold]
 objective-cosmiccult-charactermenu = You must usher in the end of all things. Complete your tasks to advance the cult's progress.
 objective-cosmiccult-steward-charactermenu = You must direct the cult to usher in the end of all things. Oversee and ensure the cult's progress.
 
+objective-condition-conversion-title = CONVERT CREW
+objective-condition-conversion-desc = Collectively bring at least {$count} crew into the fold.
 objective-condition-entropy-title = SIPHON ENTROPY
 objective-condition-entropy-desc = Collectively siphon at least {$count} entropy from the crew.
 objective-condition-culttier-title = EMPOWER THE MONUMENT

@@ -33,8 +33,6 @@ public sealed partial class CosmicChantryComponent : Component
 
     [DataField] public SoundSpecifier ChantryAlarm = new SoundPathSpecifier("/Audio/_DV/CosmicCult/chantry_alarm.ogg");
 
-    [DataField] public SoundSpecifier SpawnSFX = new SoundPathSpecifier("/Audio/_DV/CosmicCult/colossus_spawn.ogg");
-
     [DataField] public EntProtoId Colossus = "MobCosmicColossus";
 
     [DataField] public EntProtoId SpawnVFX = "CosmicGlareAbilityVFX";

@@ -53,6 +53,9 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
 
 
 ##################### CHAIR
@@ -72,10 +75,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 600
+        damage: 200
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
 
 ##################### PILLAR
 - type: entity
@@ -108,10 +114,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 600
+        damage: 200
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
 
 ##################### THRUSTER
 - type: entity
@@ -172,6 +181,9 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
 
 ##################### LAMP
 - type: entity
@@ -179,6 +191,8 @@
   description: A mote of un-light shimmers within.
   suffix: Always Powered
   name: malign light
+  placement:
+    mode: SnapgridCenter
   components:
   - type: MeleeSound
     soundGroups:
@@ -211,15 +225,15 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 600
+        damage: 200
       behaviors: #excess damage, don't spawn entities.
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
       - !type:PlaySoundBehavior
         sound:
           collection: GlassBreak
-  placement:
-    mode: SnapgridCenter
+
+
 
 - type: entity
   id: CosmicMalignRift
@@ -278,7 +292,7 @@
         shape:
           !type:PhysShapeAabb
           bounds: "-0.25,-0.375,0.25,0.4"
-        density: 100
+        density: 200
         mask:
         - LargeMobMask
         layer:
@@ -320,7 +334,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 400
+        damage: 300
       behaviors: #excess damage, don't spawn entities.
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -366,7 +380,7 @@
     sprite: _DV/CosmicCult/Tileset/cosmictable.rsi
     state: full
   - type: Damageable
-    damageContainer: StructuralInorganic
+    damageContainer: Inorganic
     damageModifierSet: Metallic
   - type: CosmicCultExamine
     cultistText: cosmic-examine-text-forthecult

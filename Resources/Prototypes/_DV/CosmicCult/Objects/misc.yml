@@ -8,7 +8,7 @@
   id: CosmicCultLawBoard
   parent: BaseElectronics
   name: malign law board
-  description: An eerie circuit board, suited for slotting into an AI law upload console. Its circuitry is interwoven with phantasmal dendritic strands that twitch of their own accord.
+  description: An eerie circuit board, suited for slotting into an AI law upload console. Its circuitry is interwoven with dendritic strands that twitch of their own accord.
   components:
   - type: Sprite
     sprite: _DV/CosmicCult/Objects/lawboard.rsi
@@ -17,3 +17,45 @@
     lawUploadSound: /Audio/_DV/CosmicCult/antag_cosmic_AI_briefing.ogg
     subverted: true
     laws: CosmicCultLaws
+
+- type: entity
+  id: CosmicCultMindSink
+  parent: PositronicBrain
+  name: astral mindsink
+  description: A strange artifact. Though comprised of malign materials, it instills no feelings of discomfort.
+  components:
+  - type: Sprite
+    sprite: _DV/CosmicCult/Objects/mindsink.rsi
+    layers:
+    - state: base
+    - state: fg_idle
+      shader: unshaded
+      map: ["overlay"]
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableGhostRoleVisuals.Status:
+        overlay:
+          Off: { state: fg_idle }
+          Searching: { state: fg_searching }
+          On: { state: fg_occupied }
+  - type: ToggleableGhostRole
+    mindRoles:
+    - MindRoleGhostRoleSilicon
+    examineTextMindPresent: ghost-role-mindsink-installed
+    examineTextMindSearching: ghost-role-mindsink-still-searching
+    examineTextNoMind: ghost-role-mindsink-off
+    beginSearchingText: ghost-role-mindsink-searching
+    roleName: ghost-role-mindsink-role-name
+    roleDescription: ghost-role-mindsink-role-description
+    roleRules: ghost-role-information-silicon-rules
+    wipeVerbText: ghost-role-mindsink-wipe-device-verb-text
+    wipeVerbPopup: ghost-role-mindsink-wiped-device
+    stopSearchVerbText: ghost-role-mindsink-stop-searching-verb-text
+    stopSearchVerbPopup: ghost-role-mindsink-stopped-searching
+    job: Borg
+  - type: TypingIndicator
+    proto: CosmicTyping
+  - type: Speech
+    speechSounds: ColossusSpeech
+  - type: NameIdentifier
+    group: CosmicPositronicBrain

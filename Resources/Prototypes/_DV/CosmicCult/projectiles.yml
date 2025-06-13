@@ -54,8 +54,8 @@
     mobile: true
 
 - type: entity
-  id: ProjectileCosmicRazor
-  name: Astral Bolt
+  id: ProjectileCosmic
+  name: Malign Bolt
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   description: Ouch.
@@ -68,15 +68,6 @@
     layers:
       - state: razor
         shader: unshaded
-  - type: DamageMarkerOnCollide
-    whitelist:
-      components:
-      - MobState
-    damage:
-      types:
-        Cold: 15
-        Asphyxiation: 10
-        Ion: 25 # Goobstation
   - type: Projectile
     impactEffect: BulletImpactEffectCosmic
     damage:
@@ -86,6 +77,8 @@
         Ion: 15 # Goobstation
     soundHit:
       path: /Audio/_DV/CosmicCult/projectile_razor_hit.ogg
+      params:
+        variation: 0.08
   - type: Ammo
     muzzleFlash: null
   # Short lifespan # Goob no?
@@ -108,6 +101,27 @@
         enabled: true
         reverseWhenFinished: true
 
+- type: entity
+  id: ProjectileCosmicRazor
+  name: Astral Bolt
+  parent: ProjectileCosmic
+  categories: [ HideSpawnMenu ]
+  description: Ouch.
+  components:
+  - type: DamageMarkerOnCollide
+    whitelist:
+      components:
+      - MobState
+    damage:
+      types:
+        Cold: 15
+        Asphyxiation: 10
+  - type: Projectile
+    impactEffect: BulletImpactEffectCosmic
+    damage:
+      types:
+        Cold: 10
+        Asphyxiation: 5
 
 - type: entity
   id: BulletImpactEffectCosmic

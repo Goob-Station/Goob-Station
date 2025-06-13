@@ -86,15 +86,6 @@ public sealed class CosmicConversionSystem : EntitySystem
                 _stun.TryUpdateStunDuration(target, TimeSpan.FromSeconds(4f));
                 _rejuvenateSystem.PerformRejuvenate(target); //Goobstation: No one likes being brought into the antag gang dead, now do we?
                 _cultRule.CosmicConversion(uid, target);
-                var finaleQuery = EntityQueryEnumerator<CosmicFinaleComponent>(); // Enumerator for The Monument's Finale
-                while (finaleQuery.MoveNext(out var monument, out var comp)
-                    && comp.CurrentState == FinaleState.ActiveBuffer)
-                {
-                    if (comp.BufferTimer - _timing.CurTime < comp.ConversionSpeedup) // don't speed up if there's less than the speedup left.
-                        return;
-                    comp.BufferTimer -= comp.ConversionSpeedup;
-                    _popup.PopupCoordinates(Loc.GetString("cosmiccult-finale-speedup"), Transform(monument).Coordinates, PopupType.Large);
-                }
             }
         }
     }

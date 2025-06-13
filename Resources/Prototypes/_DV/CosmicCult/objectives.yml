@@ -10,7 +10,34 @@
     roles:
     - CosmicCultRole
 
+- type: entity
+  abstract: true
+  parent: BaseObjective
+  id: BaseCosmicColossusObjective
+  components:
+  - type: Objective
+    difficulty: 1.5
+    issuer: objective-issuer-cosmiccult
+  - type: RoleRequirement
+    roles:
+    - CosmicColossusRole
+
 ############################### COSMIC CULT'S OBJECTIVES
+
+- type: entity
+  parent: BaseCosmicCultObjective
+  id: CosmicConversionObjective
+  components:
+  - type: Objective
+    icon:
+      sprite: _DV/CosmicCult/Icons/objectives.rsi
+      state: infection
+  - type: NumberObjective
+    min: 7
+    max: 14
+    title: objective-condition-conversion-title
+    description: objective-condition-conversion-desc
+  - type: CosmicConversionCondition
 
 - type: entity
   parent: BaseCosmicCultObjective
@@ -21,8 +48,8 @@
       sprite: _DV/CosmicCult/Icons/objectives.rsi
       state: siphon
   - type: NumberObjective
-    min: 40
-    max: 60
+    min: 70
+    max: 90
     title: objective-condition-entropy-title
     description: objective-condition-entropy-desc
   - type: CosmicEntropyCondition
@@ -56,3 +83,28 @@
     title: objective-condition-victory-title
     description: objective-condition-victory-desc
   - type: CosmicVictoryCondition
+
+############################### COLOSSI OBJECTIVES
+
+- type: entity
+  parent: [BaseCosmicColossusObjective, BaseSurviveObjective]
+  id: ColossusSurviveObjective
+  name: PERSIST
+  description: Persist until the end of all things.
+  components:
+  - type: Objective
+    icon:
+      sprite: _DV/CosmicCult/Icons/objectives.rsi
+      state: colossus
+
+- type: entity
+  parent: [BaseCosmicColossusObjective, BaseCodeObjective]
+  id: ColossusEffigyObjective
+  name: BECKON
+  description: Call forth an Effigy of Entropy.
+  components:
+  - type: Objective
+    icon:
+      sprite: _DV/CosmicCult/Icons/objectives.rsi
+      state: effigy
+  - type: CosmicEffigyCondition

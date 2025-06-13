@@ -8,6 +8,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Server.Bible.Components;
 using Content.Goobstation.Common.Religion;
 using Content.Goobstation.Shared.Bible;
 using Content.Goobstation.Shared.Religion; // Goobstation - Bible
@@ -25,6 +26,7 @@ using Content.Shared.Light.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
 using Content.Shared.Silicons.Borgs.Components;
+using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Stunnable;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
@@ -37,7 +39,6 @@ public sealed class CosmicGlareSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly FlashSystem _flash = default!;
     [Dependency] private readonly PoweredLightSystem _poweredLight = default!;
-    [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
     [Dependency] private readonly SharedCosmicCultSystem _cosmicCult = default!;

@@ -1,0 +1,114 @@
+##################### PILLAR
+- type: entity
+  parent: BaseStructure
+  id: CosmicEffigy
+  name: effigy of entropy
+  description: An abhorrent malign anomaly. Raw entropy oozes forth, betraying its instability.
+  components:
+  - type: Sprite
+    sprite: _DV/CosmicCult/Tileset/cosmiceffigy.rsi
+    offset: 0, 0
+    layers:
+    - state: unshaded_bg
+      shader: unshaded
+    - state: base
+    - state: unshaded_fg
+      shader: unshaded
+    drawdepth: Mobs
+  - type: AmbientSound
+    volume: -5
+    range: 8
+    sound:
+      path: /Audio/_DV/CosmicCult/effigy_ambience.ogg
+  - type: CosmicCultExamine
+    cultistText: cosmic-examine-text-culteffigy
+    othersText: cosmic-examine-text-effigy
+  - type: CosmicCorrupting
+    corruptionReduction: 0.02
+    enabled: true
+    floodFillStarting: true
+    corruptionMaxTicks: 6
+    corruptionSpeed: 1.25
+  - type: InteractionOutline
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.5
+        density: 50
+        mask:
+        - FlyingMobMask
+        layer:
+        - FlyingMobLayer
+  - type: Clickable
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: DamageOnAttacked
+    damage:
+      types:
+        Cold: 10
+  - type: PointLight
+    color: "#42a4ae"
+    radius: 4
+    energy: 4
+    castShadows: true
+  - type: LightBehaviour
+    behaviours:
+    - !type:FadeBehaviour
+      interpolate: Linear
+      minDuration: 2.25
+      maxDuration: 2.25
+      startValue: 2
+      endValue: 5
+      property: Energy
+      enabled: true
+      isLooped: true
+      reverseWhenFinished: true
+  - type: GuideHelp
+    guides:
+    - AnomalousResearch
+    - CosmicCult
+  - type: Anomaly
+    pulseSound:
+      path: /Audio/_DV/CosmicCult/effigy_pulse.ogg
+    supercriticalSound:
+      path: /Audio/_DV/CosmicCult/effigy_supercritical.ogg
+    nextPulseTime: 1
+    minPulseLength: 60
+    maxPulseLength: 80
+    minContituty: 0.4
+    maxContituty: 0.8
+    growthThreshold: 0.35
+  - type: EntitySpawnAnomaly
+    entries:
+    - settings:
+        spawnOnPulse: true
+        minAmount: 2
+        maxAmount: 3
+        minRange: 3
+        maxRange: 4.5
+      spawns:
+      - MobCosmicCustodianHostile
+      - MobCosmicOracleHostile
+      - MobCosmicLodestarHostile
+    - settings:
+        spawnOnSuperCritical: true
+        minAmount: 4
+        maxAmount: 7
+        maxRange: 8
+      spawns:
+      - MobCosmicCustodianHostile
+      - MobCosmicOracleHostile
+      - MobCosmicLodestarHostile
+      - CosmicMalignRift
+    - settings:
+        spawnOnShutdown: true
+        minAmount: 1
+        maxAmount: 2
+        maxRange: 1
+      spawns:
+      - MobCosmicLodestarHostile
+  - type: WarpPoint
+    follow: true

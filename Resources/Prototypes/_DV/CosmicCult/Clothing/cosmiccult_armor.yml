@@ -93,6 +93,8 @@
     startingCharge: 100
   - type: BatterySelfRecharger
     autoRechargeRate: 5
+  - type: TypingIndicatorClothing
+    proto: CosmicTyping
   - type: UnholyItem # Goobstation Shitchap
 
 

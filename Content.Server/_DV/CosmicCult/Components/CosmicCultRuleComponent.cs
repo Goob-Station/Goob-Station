@@ -44,6 +44,7 @@ public sealed partial class CosmicCultRuleComponent : Component
     [
         "MobCosmicCustodian",
         "MobCosmicOracle",
+        "MobCosmicLodestar",
     ];
 
     /// <summary>
@@ -61,8 +62,17 @@ public sealed partial class CosmicCultRuleComponent : Component
     [DataField]
     public HashSet<EntityUid> Cultists = [];
 
+    /// <summary>
+    /// When true, prevents the wincondition state of Cosmic Cult from being changed.
+    /// </summary>
     [DataField]
     public bool WinLocked;
+
+    /// <summary>
+    /// When true, Malign Rifts are unable to spawn.
+    /// </summary>
+    [DataField]
+    public bool RiftStop;
 
     [DataField]
     public WinType WinType = WinType.CrewMinor;

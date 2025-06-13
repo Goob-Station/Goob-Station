@@ -209,7 +209,7 @@
       groups:
         Brute: -10
   - type: Gun
-    projectileSpeed: 5 # Goobstation
+    projectileSpeed: 10 # Goobstation
     soundGunshot: /Audio/_DV/CosmicCult/projectile_razor.ogg
     soundEmpty: null
     fireRate: 1.5 # Goobstation
@@ -218,6 +218,8 @@
     rechargeCooldown: 0.67 # Goobstation
     rechargeSound:
       path: /Audio/_DV/CosmicCult/projectile_razor_reload.ogg
+      params:
+        variation: 0.08
   - type: BasicEntityAmmoProvider
     proto: ProjectileCosmicRazor
     capacity: 1
@@ -243,21 +245,13 @@
     soundSwing:
       path: /Audio/_DV/CosmicCult/cosmicweapon_swing.ogg
       params:
-        variation: 0.125
+        variation: 0.124
         volume: -4
     soundNoDamage:
       path: /Audio/_DV/CosmicCult/cosmicsword_glance.ogg
       params:
         variation: 0.2
         volume: -11
-  - type: Reflect
-    reflectProb: .35 # Goobstation
-    spread: 120
-    soundOnReflect:
-      path: /Audio/_DV/CosmicCult/cosmicsword_glance.ogg
-      params:
-        variation: 0.2
-        volume: -6
   - type: Wieldable
     wieldSound:
       path: /Audio/_DV/CosmicCult/cosmic_wield.ogg

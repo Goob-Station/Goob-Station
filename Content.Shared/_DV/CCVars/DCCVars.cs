@@ -58,7 +58,13 @@ public sealed partial class DCCVars
     /// How long the timer for the cult's stewardship vote lasts.
     /// </summary>
     public static readonly CVarDef<int> CosmicCultStewardVoteTimer =
-        CVarDef.Create("cosmiccult.steward_vote_timer", 120, CVar.SERVER);
+        CVarDef.Create("cosmiccult.steward_vote_timer", 80, CVar.SERVER);
+
+    /// <summary>
+    /// How long we wait before starting the stewardship vote.
+    /// </summary>
+    public static readonly CVarDef<int> CosmicCultStewardVoteDelayTimer =
+        CVarDef.Create("cosmiccult.steward_vote_delay", 25, CVar.SERVER);
 
     /// <summary>
     /// The delay between the monument getting upgraded to tier 2 and the crew learning of that fact. the monument cannot be upgraded again in this time.
@@ -76,5 +82,5 @@ public sealed partial class DCCVars
     /// The delay between the monument getting upgraded to tier 3 and the finale starting.
     /// </summary>
     public static readonly CVarDef<int> CosmicCultFinaleDelaySeconds =
-        CVarDef.Create("cosmiccult.extra_entropy_for_finale", 120, CVar.SERVER);
+        CVarDef.Create("cosmiccult.extra_entropy_for_finale", 110, CVar.SERVER);
 }

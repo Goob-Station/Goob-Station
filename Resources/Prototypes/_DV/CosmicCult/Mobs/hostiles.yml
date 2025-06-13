@@ -1,0 +1,149 @@
+- type: entity
+  parent: [ BaseSimpleMob, FlyingMobBase ]
+  id: BaseMobCosmicHostile
+  suffix: Hostile
+  abstract: true
+  components:
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 3
+    weightlessModifier: 1
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+    blackboard:
+      NavClimb: !type:Bool
+        true
+      NavSmash: !type:Bool
+        true
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      50: Dead
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 70
+        behaviors:
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              CosmicLapseAbilityVFX:
+                min: 1
+                max: 1
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              path: /Audio/_DV/CosmicCult/ability_lapse.ogg
+  - type: Bloodstream
+    bloodMaxVolume: 100
+    maxBleedAmount: 10.75
+    bleedReductionAmount: 0.1
+    bloodReagent: Entropy
+    bloodlossDamage:
+      types:
+        Bloodloss:
+          0
+    bloodlossHealDamage:
+      types:
+        Bloodloss:
+          0
+  - type: CombatMode
+  - type: MeleeWeapon
+    altDisarm: false
+    animation: WeaponArcCosmic
+    damage:
+      types:
+        Asphyxiation: 5
+        Cold: 5
+    soundHit:
+      path: /Audio/_DV/CosmicCult/cosmiclance_hit.ogg
+      params:
+        variation: 0.2
+        volume: 1
+    soundSwing:
+      path: /Audio/_DV/CosmicCult/cosmicweapon_swing.ogg
+      params:
+        variation: 0.125
+        volume: -4
+  - type: TypingIndicator
+    proto: CosmicTyping
+  - type: PointLight
+    color: "#42a4ae"
+    radius: 2
+    energy: 2
+    softness: 1
+    castShadows: false
+  - type: ZombieImmune
+  - type: GhostTakeoverAvailable
+  - type: LightBehaviour
+    behaviours:
+     - !type:FadeBehaviour
+       interpolate: Linear
+       minDuration: 5.5
+       maxDuration: 5.5
+       startValue: 0.5
+       endValue: 2
+       property: Energy
+       enabled: true
+       isLooped: true
+       reverseWhenFinished: true
+
+- type: entity
+  parent: [ BaseMobCosmicHostile, MobCosmicCustodian ]
+  id: MobCosmicCustodianHostile
+  components:
+  - type: Physics
+    bodyStatus: OnGround
+
+- type: entity
+  parent: [ BaseMobCosmicHostile, MobCosmicOracle ]
+  id: MobCosmicOracleHostile
+  components:
+  - type: Physics
+    bodyStatus: OnGround
+
+- type: entity
+  parent: [ BaseMobCosmicHostile, MobCosmicLodestar ]
+  id: MobCosmicLodestarHostile
+  components:
+  - type: Physics
+    bodyStatus: OnGround
+  - type: HTN
+    rootTask:
+      task: SimpleRangedHostileCompound
+    blackboard:
+      NavClimb: !type:Bool
+        true
+      NavSmash: !type:Bool
+        true
+  - type: Gun
+    projectileSpeed: 12
+    soundGunshot: /Audio/_DV/CosmicCult/projectile_razor.ogg
+    soundEmpty: null
+    fireRate: 1
+    useKey: false
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 1.8
+    rechargeSound:
+      path: /Audio/_DV/CosmicCult/projectile_razor_reload.ogg
+      params:
+        volume: -99
+  - type: BasicEntityAmmoProvider
+    proto: ProjectileCosmic
+    capacity: 1
+    count: 1

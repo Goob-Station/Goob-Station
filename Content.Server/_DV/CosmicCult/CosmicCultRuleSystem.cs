@@ -127,6 +127,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     private TimeSpan _t3RevealDelay = default!;
     private TimeSpan _t2RevealDelay = default!;
     private TimeSpan _finaleDelay = default!;
+    private TimeSpan _voteDelay = default!;
     private TimeSpan _voteTimer = default!;
     private readonly SoundSpecifier _briefingSound = new SoundPathSpecifier("/Audio/_DV/CosmicCult/antag_cosmic_briefing.ogg");
     private readonly SoundSpecifier _deconvertSound = new SoundPathSpecifier("/Audio/_DV/CosmicCult/antag_cosmic_deconvert.ogg");
@@ -164,14 +165,17 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             DCCVars.CosmicCultStewardVoteTimer,
             value => _voteTimer = TimeSpan.FromSeconds(value),
             true);
+        Subs.CVar(_config,
+            DCCVars.CosmicCultStewardVoteDelayTimer,
+            value => _voteDelay = TimeSpan.FromSeconds(value),
+            true);
     }
 
     #region Starting Events
-    protected override void Started(EntityUid uid,
-        CosmicCultRuleComponent component,
-        GameRuleComponent gameRule,
-        GameRuleStartedEvent args) =>
-        component.StewardVoteTimer = _timing.CurTime + TimeSpan.FromSeconds(10);
+    protected override void Started(EntityUid uid, CosmicCultRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
+    {
+        component.StewardVoteTimer = _timing.CurTime + _voteDelay;
+    }
 
     protected override void ActiveTick(EntityUid uid, CosmicCultRuleComponent component, GameRuleComponent gameRule, float frameTime)
     {
@@ -181,13 +185,10 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             component.StewardVoteTimer = null;
             StewardVote();
         }
-        if (component.ExtraRiftTimer is { } riftTimer && _timing.CurTime >= riftTimer)
+        if (component.ExtraRiftTimer is { } riftTimer && _timing.CurTime >= riftTimer && !component.RiftStop)
         {
             component.ExtraRiftTimer = _timing.CurTime + _rand.Next(TimeSpan.FromSeconds(230), TimeSpan.FromSeconds(360)); //3min50 to 6min between new rifts. Seconds instead of minutes for granularity.
-            if (TryFindRandomTile(out var _, out var _, out var _, out var coords))
-            {
-                Spawn("CosmicMalignRift", coords);
-            }
+            SpawnRift();
         }
         if (component.PrepareFinaleTimer is { } finalePrepTimer && _timing.CurTime >= finalePrepTimer)
         {
@@ -214,18 +215,8 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
             var sender = Loc.GetString("cosmiccult-announcement-sender");
             var mapData = _map.GetMap(_transform.GetMapId(component.MonumentInGame.Owner.ToCoordinates()));
-            _chatSystem.DispatchStationAnnouncement(component.MonumentInGame,
-                Loc.GetString("cosmiccult-announce-tier3-progress"),
-                null,
-                false,
-                null,
-                Color.FromHex("#4cabb3"));
-            _chatSystem.DispatchStationAnnouncement(component.MonumentInGame,
-                Loc.GetString("cosmiccult-announce-tier3-warning"),
-                null,
-                false,
-                null,
-                Color.FromHex("#cae8e8"));
+            _chatSystem.DispatchStationAnnouncement(component.MonumentInGame, Loc.GetString("cosmiccult-announce-tier3-progress"), sender, false, null, Color.FromHex("#4cabb3"));
+            _chatSystem.DispatchStationAnnouncement(component.MonumentInGame, Loc.GetString("cosmiccult-announce-tier3-warning"), null, false, null, Color.FromHex("#cae8e8"));
             _audio.PlayGlobal(_tier3Sound, Filter.Broadcast(), false, AudioParams.Default);
 
             EnsureComp<ParallaxComponent>(mapData, out var parallax);
@@ -268,21 +259,13 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             //do spooky effects
             var sender = Loc.GetString("cosmiccult-announcement-sender");
             var mapData = _map.GetMap(_transform.GetMapId(component.MonumentInGame.Owner.ToCoordinates()));
-            //_chatSystem.DispatchStationAnnouncement(component.MonumentInGame, Loc.GetString("cosmiccult-announce-tier2-progress"), sender, false, null, Color.FromHex("#4cabb3"));
-            _chatSystem.DispatchStationAnnouncement(component.MonumentInGame,
-                Loc.GetString("cosmiccult-announce-tier2-warning"),
-                null,
-                false,
-                null,
-                Color.FromHex("#cae8e8"));
+            _chatSystem.DispatchStationAnnouncement(component.MonumentInGame, Loc.GetString("cosmiccult-announce-tier2-progress"), sender, false, null, Color.FromHex("#4cabb3"));
+            _chatSystem.DispatchStationAnnouncement(component.MonumentInGame, Loc.GetString("cosmiccult-announce-tier2-warning"), null, false, null, Color.FromHex("#cae8e8"));
             _audio.PlayGlobal(_tier2Sound, Filter.Broadcast(), false, AudioParams.Default);
 
             for (var i = 0; i < component.TotalCrew / 6; i++) // spawn # malign rifts equal to 16.67% of the playercount
             {
-                if (!TryFindRandomTile(out var _, out var _, out var _, out var coords))
-                    continue;
-
-                Spawn("CosmicMalignRift", coords);
+                SpawnRift();
             }
 
             var lights = EntityQueryEnumerator<PoweredLightComponent>();
@@ -324,7 +307,6 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
         var options = new VoteOptions
         {
-            DisplayVotes = false,
             Title = Loc.GetString("cosmiccult-vote-steward-title"),
             InitiatorText = Loc.GetString("cosmiccult-vote-steward-initiator"),
             Duration = _voteTimer,
@@ -369,8 +351,18 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         };
     }
 
-    private void OnAntagSelect(Entity<CosmicCultRuleComponent> uid, ref AfterAntagEntitySelectedEvent args) =>
+    private void SpawnRift()
+    {
+        if (TryFindRandomTile(out var _, out var _, out var _, out var coords))
+        {
+            Spawn("CosmicMalignRift", coords);
+        }
+    }
+
+    private void OnAntagSelect(Entity<CosmicCultRuleComponent> uid, ref AfterAntagEntitySelectedEvent args)
+    {
         TryStartCult(args.EntityUid, uid);
+    }
 
     private void OnAddedCultist(Entity<CosmicCultRuleComponent> uid, ref CosmicCultAddedCultistEvent args)
     {
@@ -526,6 +518,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             ent.Comp.RoundEndTextAnnouncement);
 
         ent.Comp.RoundEndBehavior = RoundEndBehavior.Nothing; // prevent this being called multiple times.
+        ent.Comp.RiftStop = true; // rifts can stop spawning now.
 
         var gameruleMonument = ent.Comp.MonumentInGame;
         if (TryComp<CosmicFinaleComponent>(gameruleMonument, out var finComp))
@@ -570,6 +563,15 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         while (query.MoveNext(out _, out var entropyComp))
         {
             entropyComp.Siphoned = cult.Comp.EntropySiphoned;
+        }
+    }
+
+    public void AdjustCultObjectiveConversion(int value)
+    {
+        var query = EntityQueryEnumerator<CosmicConversionConditionComponent>();
+        while (query.MoveNext(out _, out var conversionComp))
+        {
+            conversionComp.Converted += value;
         }
     }
     #endregion
@@ -820,16 +822,18 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
         _mind.TryAddObjective(mindId, mind, "CosmicFinalityObjective");
         _mind.TryAddObjective(mindId, mind, "CosmicMonumentObjective");
+        _mind.TryAddObjective(mindId, mind, "CosmicConversionObjective");
         _mind.TryAddObjective(mindId, mind, "CosmicEntropyObjective");
 
         _euiMan.OpenEui(new CosmicConvertedEui(), session);
 
         RemComp<BibleUserComponent>(uid);
 
-        cosmicGamerule.TotalCult++;
-        cosmicGamerule.Cultists.Add(uid);
-        RaiseLocalEvent(cult, new CosmicCultAddedCultistEvent());
-        UpdateCultData(cosmicGamerule.MonumentInGame);
+        cult.Comp.TotalCult++;
+        cult.Comp.Cultists.Add(uid);
+
+        AdjustCultObjectiveConversion(1);
+        UpdateCultData(cult.Comp.MonumentInGame);
     }
 
     private void OnComponentShutdown(Entity<CosmicCultComponent> uid, ref ComponentShutdown args)
@@ -882,6 +886,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         _alerts.ClearAlert(uid.Owner, uid.Comp.EntropyAlert);
         cosmicGamerule.TotalCult--;
         cosmicGamerule.Cultists.Remove(uid);
+        AdjustCultObjectiveConversion(-1);
 
         // Goobstation?
         // You cut the heads of the snake, but the snake will grow a new head.

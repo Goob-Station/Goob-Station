@@ -26,8 +26,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     {
         if (!HasComp<HumanoidAppearanceComponent>(args.User))
             return; // humanoids only!
-
-        if (!EntityIsCultist(args.User) && !args.Handled && ent.Comp.FinaleActive)
+        if (!EntityIsCultist(args.User) && !args.Handled && !ent.Comp.Occupied && ent.Comp.FinaleActive)
         {
             ent.Comp.Occupied = true;
             var doargs = new DoAfterArgs(EntityManager,
@@ -41,7 +40,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
             _doAfter.TryStartDoAfter(doargs);
             args.Handled = true;
         }
-        else if (EntityIsCultist(args.User) && !args.Handled && !ent.Comp.FinaleActive && ent.Comp.CurrentState != FinaleState.Unavailable)
+        else if (EntityIsCultist(args.User) && !args.Handled && !ent.Comp.Occupied && !ent.Comp.FinaleActive && ent.Comp.CurrentState != FinaleState.Unavailable)
         {
             ent.Comp.Occupied = true;
             var doargs = new DoAfterArgs(EntityManager,
@@ -79,37 +78,17 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
             || !TryComp<CosmicCorruptingComponent>(uid, out var corruptingComp))
             return;
 
-        // if (uid.Comp.CurrentState == FinaleState.ReadyBuffer) // goob edit - make coscult final longer
+        comp.FinaleTimer = _timing.CurTime + comp.FinaleRemainingTime;
+        comp.SelectedSong = comp.FinaleMusic;
+        uid.Comp.CurrentState = FinaleState.ActiveFinale;
 
-        _corrupting.SetCorruptionTime((uid, corruptingComp), TimeSpan.FromSeconds(3));
+        _corrupting.SetCorruptionTime((uid, corruptingComp), TimeSpan.FromSeconds(1));
         _appearance.SetData(uid, MonumentVisuals.FinaleReached, 2);
-        comp.BufferTimer = _timing.CurTime + comp.BufferRemainingTime;
-        comp.SelectedSong = comp.BufferMusic;
         _sound.DispatchStationEventMusic(uid, comp.SelectedSong, StationEventMusicType.CosmicCult);
-
         _chatSystem.DispatchStationAnnouncement(uid,
-            Loc.GetString("cosmiccult-finale-location", ("location", indicatedLocation)),
-            null, false, null,
-            Color.FromHex("#cae8e8"));
-
-        uid.Comp.CurrentState = FinaleState.ActiveBuffer;
-
-        // goob edit start - make coscult final longer
-        // else
-        // {
-        //     _corrupting.SetCorruptionTime((uid, corruptingComp), TimeSpan.FromSeconds(1));
-        //     _appearance.SetData(uid, MonumentVisuals.FinaleReached, 3);
-        //     comp.FinaleTimer = _timing.CurTime + comp.FinaleRemainingTime;
-        //     comp.SelectedSong = comp.FinaleMusic;
-        //     _sound.DispatchStationEventMusic(uid, comp.SelectedSong, StationEventMusicType.CosmicCult);
-        //     _chatSystem.DispatchStationAnnouncement(uid,
-        //     Loc.GetString("cosmiccult-finale-location", ("location", indicatedLocation)),
-        //     null, false, null,
-        //     Color.FromHex("#cae8e8"));
-        //
-        //     uid.Comp.CurrentState = FinaleState.ActiveFinale;
-        // }
-        // goob edit end
+        Loc.GetString("cosmiccult-finale-location", ("location", indicatedLocation)),
+        null, false, null,
+        Color.FromHex("#cae8e8"));
 
         var stationUid = _station.GetStationInMap(Transform(uid).MapID);
 
@@ -121,6 +100,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 
         _monument.Enable((uid, monument));
         comp.FinaleActive = true;
+        comp.FinaleAnnounceCheck = true;
 
         Dirty(uid, monument);
         _ui.SetUiState(uid.Owner, MonumentKey.Key, new MonumentBuiState(monument));
@@ -142,16 +122,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 
         _sound.PlayGlobalOnStation(uid, _audio.ResolveSound(comp.CancelEventSound));
         _sound.StopStationEventMusic(uid, StationEventMusicType.CosmicCult);
-
-        if (uid.Comp.CurrentState == FinaleState.ActiveBuffer)
-        {
-            uid.Comp.CurrentState = FinaleState.ReadyBuffer;
-            comp.BufferRemainingTime = comp.BufferTimer - _timing.CurTime + TimeSpan.FromSeconds(15);
-        }
-        else if (uid.Comp.CurrentState == FinaleState.ActiveFinale)
-        {
-            uid.Comp.CurrentState = FinaleState.ReadyFinale;
-        }
+        uid.Comp.CurrentState = FinaleState.ReadyFinale;
 
         if (TryComp<CosmicCorruptingComponent>(uid, out var corruptingComp))
             _corrupting.SetCorruptionTime((uid, corruptingComp), TimeSpan.FromSeconds(6));
@@ -170,6 +141,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 
         _monument.Disable((uid, monument));
         comp.FinaleActive = false;
+        comp.FinaleAnnounceCheck = false;
 
         Dirty(target, monument);
         _ui.SetUiState(uid.Owner, MonumentKey.Key, new MonumentBuiState(monument));

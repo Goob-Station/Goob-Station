@@ -196,6 +196,7 @@
   table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
     children:
     - id: DragonSpawn
+    - id: ColossusSpawn # DeltaV
     - id: NinjaSpawn
     - id: ParadoxCloneSpawn
     #- id: RevenantSpawn  # GoobStation - removed till rework

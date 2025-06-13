@@ -47,9 +47,9 @@
   - type: TimedDespawn
     lifetime: 0.5
   - type: Transform
-    noRot: true
     anchored: true
   - type: Sprite
+    snapCardinals: true
     layers:
     - sprite: _DV/CosmicCult/Effects/tile_spawn.rsi
       state: floorglow
@@ -362,9 +362,11 @@
   components:
   - type: Transform
     anchored: true
+    noRot: true
   - type: TimedDespawn
     lifetime: 1.5
   - type: Sprite
+    snapCardinals: true
     layers:
     - sprite: _DV/CosmicCult/Effects/colossus_attack.rsi
       state: attack1

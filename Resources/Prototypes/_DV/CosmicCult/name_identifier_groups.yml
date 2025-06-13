@@ -1,0 +1,5 @@
+- type: nameIdentifierGroup
+  id: CosmicPositronicBrain
+  prefix: ASTRAL
+  minValue: 0
+  maxValue: 10

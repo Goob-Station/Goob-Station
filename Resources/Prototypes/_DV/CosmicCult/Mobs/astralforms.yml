@@ -63,7 +63,7 @@
     layer: 2 #ghost vis layer
 
 - type: entity
-  parent: [ BaseSimpleMob, FlyingMobBase ]
+  parent: [ BaseSimpleMob ]
   id: MobCosmicAstralAscended
   name: astral ascended
   description: Transcendant, ascendant.
@@ -92,13 +92,18 @@
       shader: unshaded
     - state: ascended-body
       shader: unshaded
+  - type: Physics
+    bodyStatus: InAir
   - type: NoSlip
+  - type: CanMoveInAir
   - type: Eye
     drawFov: true
   - type: ContentEye
     maxZoom: 1.2, 1.2
   - type: Speech
     speechVerb: Ghost
+  - type: TypingIndicator
+    proto: CosmicTyping
   - type: PointLight
     color: "#42a4ae"
     radius: 2
@@ -122,7 +127,7 @@
   parent: MobCosmicAstralAscended
   id: MobCosmicCustodian
   name: malign custodian
-  description: Twisted beyond recognition.
+  description: An abomination wrought of malign mass. It floats with a weightless, unnerving grace.
   components:
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
@@ -131,15 +136,25 @@
   - type: Sprite
     sprite: _DV/CosmicCult/Mobs/custodian.rsi
     layers:
-    - state: custodian
-    - state: custodian_unshaded
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: custodian
+    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      state: custodian_unshaded
       shader: unshaded
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: custodian
+        BaseUnshaded: custodian_unshaded
+      Dead:
+        Base: dead
+        BaseUnshaded: dead_unshaded
 
 - type: entity
   parent: MobCosmicAstralAscended
   id: MobCosmicOracle
   name: malign oracle
-  description: Twisted beyond recognition.
+  description: An abomination wrought of malign mass. Its gaze seeks relentlessly.
   components:
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
@@ -148,6 +163,39 @@
   - type: Sprite
     sprite: _DV/CosmicCult/Mobs/oracle.rsi
     layers:
-    - state: oracle
-    - state: oracle_unshaded
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: oracle
+    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      state: oracle_unshaded
       shader: unshaded
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: oracle
+        BaseUnshaded: oracle_unshaded
+      Dead:
+        Base: dead
+        BaseUnshaded: dead_unshaded
+
+- type: entity
+  parent: MobCosmicAstralAscended
+  id: MobCosmicLodestar
+  name: malign lodestar
+  description: An abomination wrought of malign mass. A searing light glimmers within.
+  components:
+  - type: Sprite
+    sprite: _DV/CosmicCult/Mobs/lodestar.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: lodestar
+    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      state: lodestar_unshaded
+      shader: unshaded
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: lodestar
+        BaseUnshaded: lodestar_unshaded
+      Dead:
+        Base: dead
+        BaseUnshaded: dead_unshaded
