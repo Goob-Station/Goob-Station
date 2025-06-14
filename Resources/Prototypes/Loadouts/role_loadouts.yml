@@ -461,6 +461,7 @@
   - HeadofSecurityNeck
   - HeadofSecurityJumpsuit
   - SecurityBackpack
+  - SecurityMelee # Goobstation
   - SecurityBelt
   - HeadofSecurityOuterClothing
   - HeadofSecurityShoes # Goobstation edit
@@ -475,6 +476,7 @@
   - WardenHead
   - WardenJumpsuit
   - SecurityBackpack
+  - SecurityMelee # Goobstation
   - SecurityNeck
   - SecurityBelt
   - WardenOuterClothing
@@ -490,6 +492,7 @@
   - SecurityHead
   - SecurityJumpsuit
   - SecurityBackpack
+  - SecurityMelee # Goobstation
   - SecurityOuterClothing
   - SecurityShoes
   - SecurityNeck
@@ -519,6 +522,7 @@
   groups:
   - SecurityCadetJumpsuit
   - SecurityBackpack
+  - SecurityMelee # Goobstation
   - SurvivalSecurity
   - SecurityNeck
   - SecurityOuterClothing # Goobstation - Why not.

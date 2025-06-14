@@ -32,6 +32,7 @@
 // SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
@@ -115,6 +116,9 @@ public abstract class SharedWieldableSystem : EntitySystem
         SubscribeLocalEvent<SpeedModifiedOnWieldComponent, HeldRelayedEvent<RefreshMovementSpeedModifiersEvent>>(OnRefreshSpeedWielded);
 
         SubscribeLocalEvent<IncreaseDamageOnWieldComponent, GetMeleeDamageEvent>(OnGetMeleeDamage);
+
+        // Goobstation
+        SubscribeLocalEvent<WieldableComponent, ComponentShutdown>(OnComponentShutdown);
     }
 
     private void OnMeleeAttempt(EntityUid uid, MeleeRequiresWieldComponent component, ref AttemptMeleeEvent args)
@@ -437,5 +441,17 @@ public abstract class SharedWieldableSystem : EntitySystem
             return;
 
         args.Damage += component.BonusDamage;
+    }
+
+    // Goobstation
+    private void OnComponentShutdown(Entity<WieldableComponent> ent, ref ComponentShutdown args)
+    {
+        if (TerminatingOrDeleted(ent))
+            return;
+
+        if (ent.Comp.ApplyNewPrefixOnShutdown)
+            ent.Comp.OldInhandPrefix = ent.Comp.NewPrefixOnShutdown;
+
+        _virtualItem.DeleteInHandsMatching(Transform(ent).ParentUid, ent);
     }
 }
