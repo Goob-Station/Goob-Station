@@ -14,12 +14,12 @@
     layers:
       - state: aprocket
   - type: Projectile
-    armorPenetration: 0.5 # Designed to pierce tanks
     damage:
       types:
         Piercing: 65
         Ion: 100 # fuck borgs
         Structural: 3000 # Anti structure weapon, overkills substations/gens so they dont explode
+      armorPenetration: 0.5 # Designed to pierce tanks
   - type: StaminaDamageOnCollide
     damage: 200 # It's a fucking rocket
   - type: ExplodeOnTrigger
