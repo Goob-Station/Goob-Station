@@ -10929,3 +10929,9 @@ Entries:
         TC.
   id: 1203
   time: '2025-06-14T21:11:45.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Partial AP is working again.
+  id: 1204
+  time: '2025-06-14T21:13:56.0000000+00:00'
