@@ -878,7 +878,7 @@
 
 #Pirate Captain Hardsuit
 - type: entity
-  parent: ClothingHeadHardsuitBase
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadHardsuitWithLightBase ]
   id: ClothingHeadHelmetHardsuitPirateCap
   name: pirate captain's voidsuit helmet # Goob edit
   suffix: Pirate
@@ -888,6 +888,10 @@
     sprite: Clothing/Head/Hardsuits/piratecaptainhelm.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/piratecaptainhelm.rsi
+  - type: PointLight # Color matches visor colors, radius/energy same as mining hardsuit for the big captain.
+    color: "#f3ea9c"
+    radius: 7
+    energy: 3
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
@@ -1029,6 +1033,8 @@
         Shock: 0.15
         Radiation: 0.1
         Caustic: 0.1
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.75
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
 
