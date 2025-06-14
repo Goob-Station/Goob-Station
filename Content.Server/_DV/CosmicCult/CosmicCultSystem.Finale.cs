@@ -60,6 +60,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 
     private void OnFinaleStartDoAfter(Entity<CosmicFinaleComponent> uid, ref StartFinaleDoAfterEvent args)
     {
+        uid.Comp.Occupied = false;
         if (args.Args.Target == null || args.Cancelled || args.Handled)
         {
             uid.Comp.Occupied = false;
@@ -108,6 +109,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 
     private void OnFinaleCancelDoAfter(Entity<CosmicFinaleComponent> uid, ref CancelFinaleDoAfterEvent args)
     {
+        uid.Comp.Occupied = false;
         var comp = uid.Comp;
         if (args.Args.Target is not {} target || args.Cancelled || args.Handled)
         {
