@@ -1055,9 +1055,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
         if (Deleted(target)
             || user == target)
-        {
             return false;
-        }
 
         EntityUid? inTargetHand = null;
 
@@ -1065,9 +1063,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             return false;
 
         if (!InRange(user, target, component.Range, session))
-        {
             return false;
-        }
 
         PhysicalShove(user, target);
         Interaction.DoContactInteraction(user, target);
