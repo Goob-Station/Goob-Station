@@ -10810,3 +10810,11 @@ Entries:
       message: Mechs no longer give you turret or NPC immunity.
   id: 1192
   time: '2025-06-14T06:44:50.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: >-
+        Added Amber station! It is a small to medium-pop station, ported
+        directly from Wizden.
+  id: 1193
+  time: '2025-06-14T18:48:44.0000000+00:00'
