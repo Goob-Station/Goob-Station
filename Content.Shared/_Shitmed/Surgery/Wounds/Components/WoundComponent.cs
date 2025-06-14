@@ -19,7 +19,7 @@ public sealed partial class WoundComponent : Component
     /// <summary>
     /// The damage this wound applies to it's woundable
     /// </summary>
-    public FixedPoint2 WoundIntegrityDamage => WoundSeverityPoint * WoundableIntegrityMultiplier;
+    public FixedPoint2 WoundIntegrityDamage => WoundSeverityPoint; //* WoundableIntegrityMultiplier;
 
     /// <summary>
     /// Actually, severity of the wound. The more the worse.

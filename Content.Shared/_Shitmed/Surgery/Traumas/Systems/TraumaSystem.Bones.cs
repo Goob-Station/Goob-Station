@@ -207,11 +207,9 @@ public partial class TraumaSystem
     /// <summary>
     /// Updates the broken bones alert for a body based on its current bone state
     /// </summary>
-    public void UpdateBodyBoneAlert(EntityUid boneWoundable, BodyPartComponent? bodyPartComp = null)
+    public void UpdateBodyBoneAlert(EntityUid body, BodyComponent? bodyComp = null)
     {
-        if (!Resolve(boneWoundable, ref bodyPartComp)
-            || bodyPartComp.Body is not { } body
-            || !TryComp(body, out BodyComponent? bodyComp))
+        if (!Resolve(body, ref bodyComp))
             return;
 
         bool hasBrokenBones = false;
@@ -274,8 +272,10 @@ public partial class TraumaSystem
         boneComp.BoneSeverity = nearestSeverity;
         Dirty(bone, boneComp);
 
-        if (boneComp.BoneWoundable != null)
-            UpdateBodyBoneAlert(boneComp.BoneWoundable.Value);
+        if (boneComp.BoneWoundable != null
+            && TryComp<BodyPartComponent>(boneComp.BoneWoundable.Value, out var bodyPartComp)
+            && bodyPartComp.Body is { } body)
+            UpdateBodyBoneAlert(body);
     }
 
 

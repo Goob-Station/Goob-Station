@@ -513,52 +513,65 @@ namespace Content.Shared.Damage
             var dict = damageable.Damage.DamageDict;
 
             // Check for integrity cap on body parts
-            float? scaleFactor = null;
             bool isWoundable = false;
+            FixedPoint2? damageCap = null;
             if (_woundableQuery.TryComp(uid, out var woundable))
             {
                 isWoundable = true;
-                var positiveDamage = damage.DamageDict.Where(d => d.Value > 0).Sum(d => d.Value.Float());
-                if (positiveDamage > 0)
-                {
-                    var remaining = (woundable.IntegrityCap - damageable.TotalDamage).Float();
-                    if (remaining > 0)
-                    {
-                        if (remaining < positiveDamage)
-                            scaleFactor = remaining / positiveDamage;
-                        else
-                            scaleFactor = 1f;
-                    }
-                    else
-                    {
-                        scaleFactor = 0f;
-                    }
-                }
+                damageCap = woundable.IntegrityCap;
             }
 
             // Apply damage
+            var currentTotalDamage = damageable.TotalDamage.Float();
+            FixedPoint2? remainingCap = damageCap.HasValue ? damageCap.Value - currentTotalDamage : null;
+
             foreach (var (type, value) in damage.DamageDict)
             {
                 if (!dict.TryGetValue(type, out var oldValue))
                     continue;
 
-                // Scale positive damage if needed due to integrity cap
-                var adjustedValue = value;
-                if (scaleFactor is not null)
-                    adjustedValue = FixedPoint2.New(value.Float() * scaleFactor.Value);
+                // For positive damage, we need to check if we've hit the cap
+                if (value > 0)
+                {
+                    Logger.Debug($"Adding damage to {ToPrettyString(uid)}'s delta {type} - {value}");
+                    // Delta ignores this stuff since we need it for effects.
+                    delta.DamageDict[type] = value;
 
-                var newValue = FixedPoint2.Max(FixedPoint2.Zero, oldValue + adjustedValue);
-                if (newValue == oldValue
-                    && (scaleFactor is null
-                    || scaleFactor is not null
-                    && scaleFactor.Value != 0f))
-                    continue;
+                    // If we're not a woundable or we don't have a cap, apply the damage normally
+                    if (!isWoundable
+                        || remainingCap is null)
+                    {
+                        Logger.Debug("Not a woundable or has noc ap, adding to dict.");
+                        dict[type] = oldValue + value;
+                        continue;
+                    }
 
-                dict[type] = newValue;
-                if (value >= 0)
-                    delta.DamageDict[type] = value; // Report original damage value in delta so that parts with damage capped will always apply effects
+                    // If we've already hit the cap, skip this damage type
+                    if (remainingCap.Value <= 0)
+                        continue;
+
+                    Logger.Debug($"Cap still has value, applying damage {FixedPoint2.Min(value, remainingCap.Value)}, new value {FixedPoint2.Max(FixedPoint2.Zero, oldValue + FixedPoint2.Min(value, remainingCap.Value))}");
+                    // Calculate how much of this damage type we can apply
+                    var damageToApply = FixedPoint2.Min(value, remainingCap.Value);
+                    var newValue = FixedPoint2.Max(FixedPoint2.Zero, oldValue + damageToApply);
+
+                    // Update remaining cap
+                    remainingCap -= damageToApply;
+
+                    // Only update the dict if the value actually changed
+                    if (newValue != oldValue)
+                        dict[type] = newValue;
+                }
                 else
-                    delta.DamageDict[type] = newValue - oldValue; // If it's a heal, then who cares. Overhealing isn't real.
+                {
+                    // For negative damage (healing), apply normally
+                    var newValue = FixedPoint2.Max(FixedPoint2.Zero, oldValue + value);
+                    if (newValue != oldValue)
+                    {
+                        dict[type] = newValue;
+                        delta.DamageDict[type] = newValue - oldValue;
+                    }
+                }
             }
 
             if (delta.DamageDict.Count > 0)
@@ -569,7 +582,7 @@ namespace Content.Shared.Damage
                 // which also means we send that shit to refresh the body.
                 if (isWoundable)
                 {
-                    var updated = UpdateParentDamageFromBodyParts(uid,
+                    UpdateParentDamageFromBodyParts(uid,
                         delta,
                         interruptsDoAfters,
                         origin,

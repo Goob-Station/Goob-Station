@@ -723,8 +723,9 @@ public partial class TraumaSystem
                     break;
 
                 case TraumaType.Dismemberment:
+                    Logger.Debug("Attempting to trigger dismemberment");
                     if (!_wound.IsWoundableRoot(target)
-                        && _wound.TryInduceWound(targetChosen.Value, "Blunt", 10f, out var woundInduced))
+                        && _wound.TryInduceWound(targetChosen.Value, "Blunt", 0f, out var woundInduced)) // We need this to add the trauma into.
                     {
                         AddTrauma(
                             targetChosen.Value,
@@ -735,6 +736,7 @@ public partial class TraumaSystem
                             (bodyPart.PartType, bodyPart.Symmetry));
 
                         _wound.AmputateWoundable(targetChosen.Value, target, target);
+                        Logger.Debug($"Amputating woundable.");
                     }
                     break;
             }

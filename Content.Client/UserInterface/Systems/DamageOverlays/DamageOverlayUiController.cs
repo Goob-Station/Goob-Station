@@ -56,6 +56,7 @@ public sealed class DamageOverlayUiController : UIController
         SubscribeLocalEvent<LocalPlayerAttachedEvent>(OnPlayerAttach);
         SubscribeLocalEvent<LocalPlayerDetachedEvent>(OnPlayerDetached);
         SubscribeLocalEvent<MobStateChangedEvent>(OnMobStateChanged);
+        SubscribeLocalEvent<MobThresholdChecked>(OnThresholdCheck); // Shitmed Change
         SubscribeNetworkEvent<MobThresholdChecked>(OnThresholdCheck); // Shitmed Change
     }
 
@@ -67,6 +68,7 @@ public sealed class DamageOverlayUiController : UIController
         if (mobState.CurrentState != MobState.Dead)
             UpdateOverlays(args.Entity, mobState);
         _overlayManager.AddOverlay(_overlay);
+        Logger.Debug("Checking the shit in overlay system vro");
     }
 
     private void OnPlayerDetached(LocalPlayerDetachedEvent args)
@@ -83,6 +85,14 @@ public sealed class DamageOverlayUiController : UIController
         UpdateOverlays(args.Target, args.Component);
     }
 
+    private void OnThresholdCheck(MobThresholdChecked args)
+    {
+        if (!EntityManager.TryGetEntity(args.Uid, out var entity)
+            || !_playerManager.LocalEntity.Equals(entity))
+            return;
+
+        UpdateOverlays(entity.Value);
+    }
     private void OnThresholdCheck(MobThresholdChecked args, EntitySessionEventArgs session)
     {
         if (!EntityManager.TryGetEntity(args.Uid, out var entity)
