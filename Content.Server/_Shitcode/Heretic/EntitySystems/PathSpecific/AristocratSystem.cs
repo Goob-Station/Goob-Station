@@ -25,7 +25,6 @@ using Content.Shared.Audio;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Damage;
 using Content.Shared.Heretic;
-using Content.Shared.Humanoid;
 using Content.Shared.Maps;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -37,6 +36,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Player;
 using Robust.Shared.Random;
 using System.Linq;
 using System.Numerics;
@@ -75,38 +75,54 @@ public sealed partial class AristocratSystem : EntitySystem
     {
         BeginWaltz(ent);
         DoVoidAnnounce(ent, "begin");
+    }
 
-        var lights = EntityQueryEnumerator<PoweredLightComponent>();
-        while (lights.MoveNext(out var light, out _))
+    private bool CheckOtherAristocrats(Entity<AristocratComponent> ent)
+    {
+        var others = EntityQueryEnumerator<AristocratComponent, MobStateComponent>();
+        while (others.MoveNext(out var other, out _, out var stateComp))
         {
-            if (!_rand.Prob(0.5f))
+            if (ent.Owner == other)
                 continue;
 
-            _ghost.DoGhostBooEvent(light);
+            if (stateComp.CurrentState == MobState.Dead)
+                continue;
+
+            return true;
         }
+        return false;
     }
 
     private void DoVoidAnnounce(Entity<AristocratComponent> ent, string context)
     {
+        if (CheckOtherAristocrats(ent))
+            return;
+
         var xform = Transform(ent);
 
-        var victims = EntityQueryEnumerator<HumanoidAppearanceComponent, DamageableComponent>();
-        while (victims.MoveNext(out var victim, out _, out _))
+        var victims = EntityQueryEnumerator<ActorComponent, MobStateComponent>();
+        while (victims.MoveNext(out var victim, out var actorComp, out var stateComp))
         {
             var xformVictim = Transform(victim);
 
             if (xformVictim.MapUid != xform.MapUid)
                 continue;
 
-            if (HasComp<AristocratComponent>(victim)) // we aren't the ones who should be worried
+            if (stateComp.CurrentState == MobState.Dead)
                 continue;
 
-            _popup.PopupEntity(Loc.GetString($"void-ascend-{context}"), victim, victim, PopupType.LargeCaution);
+            if (ent.Owner == victim) // DoVoidAnnounce doesn't happen when there's other (alive) ascended void heretics, so you only have to exclude the user
+                continue;
+
+            _popup.PopupEntity(Loc.GetString($"void-ascend-{context}"), victim, actorComp.PlayerSession, PopupType.LargeCaution);
         }
     }
 
     private void BeginWaltz(Entity<AristocratComponent> ent)
     {
+        if (CheckOtherAristocrats(ent))
+            return;
+
         _globalSound.DispatchStationEventMusic(ent, ent.Comp.VoidsEmbrace, StationEventMusicType.VoidAscended, AudioParams.Default.WithLoop(true));
 
         // the fog (snow) is coming
@@ -116,11 +132,15 @@ public sealed partial class AristocratSystem : EntitySystem
 
     private void EndWaltz(Entity<AristocratComponent> ent)
     {
+        if (CheckOtherAristocrats(ent))
+            return;
+
         _globalSound.StopStationEventMusic(ent, StationEventMusicType.VoidAscended);
 
         var xform = Transform(ent);
         _weather.SetWeather(xform.MapID, null, null);
     }
+
     private void OnMobStateChange(Entity<AristocratComponent> ent, ref MobStateChangedEvent args)
     {
         var stateComp = args.Component;
