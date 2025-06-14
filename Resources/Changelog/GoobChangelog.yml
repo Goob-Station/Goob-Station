@@ -10717,3 +10717,90 @@ Entries:
       message: Spacewind has been reenabled (air flow can throw you).
   id: 1181
   time: '2025-06-06T17:49:34.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Mothroach and xeno vent critter events.
+    - type: Fix
+      message: Vent critter events now actually spawn several mobs.
+  id: 1182
+  time: '2025-06-06T19:05:03.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Add
+      message: Added combat medkits for IPCs to the uplink
+    - type: Add
+      message: Added combat medkits full of pill canisters to the uplink
+    - type: Tweak
+      message: combat medkit price 25 > 15
+  id: 1183
+  time: '2025-06-06T19:23:19.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Add
+      message: >-
+        Space Dragon has got 2 new abilities: Wing Flap - stuns everyone in a
+        small radius for 2 seconds, and Rise Fish - summons 3 carps to help you
+        in fight.
+    - type: Add
+      message: >-
+        Space Dragon now can devour items, has thermal vision and heals by
+        standing near carp rifts.
+    - type: Tweak
+      message: Space Dragon now has higher resistances against combat types of damage.
+    - type: Fix
+      message: Fixed Space Dragon not spawning in rounds.
+  id: 1184
+  time: '2025-06-06T20:39:31.0000000+00:00'
+- author: Timfa2112
+  changes:
+    - type: Add
+      message: Port Squackroach
+  id: 1185
+  time: '2025-06-07T23:51:26.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Fix
+      message: Syndicate reinforcement is now a familiar
+  id: 1186
+  time: '2025-06-08T08:58:46.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Secret+ should now pick more sane roundstart antag combinations.
+  id: 1187
+  time: '2025-06-08T09:00:34.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Sandevistan no longer deals stamina damage to the user and also cools
+        down faster.
+    - type: Fix
+      message: >-
+        Fixed some issues with Sandevistan, likely including it being unable to
+        be turned off sometimes.
+  id: 1188
+  time: '2025-06-08T09:01:38.0000000+00:00'
+- author: He who culls the tide
+  changes:
+    - type: Tweak
+      message: You can no longer play passenger after 10hrs.
+    - type: Remove
+      message: Assistants maints access
+  id: 1189
+  time: '2025-06-08T20:18:47.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Zombies are now guaranteed to spawn with no other antags.
+    - type: Fix
+      message: Fixed cosmic cult being too common.
+  id: 1190
+  time: '2025-06-13T11:38:49.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: Captains can now choose armored jacket and winter coat in the loadout.
+  id: 1191
+  time: '2025-06-14T06:06:52.0000000+00:00'
