@@ -33,7 +33,6 @@
 # SPDX-FileCopyrightText: 2024 Hannah Giovanna Dawson <karakkaraz@gmail.com>
 # SPDX-FileCopyrightText: 2024 Hanz <41141796+Hanzdegloker@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 RedBookcase <Usualmoves@gmail.com>
-# SPDX-FileCopyrightText: 2024 RedBookcase <crazykid1590@gmail.com>
 # SPDX-FileCopyrightText: 2024 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
@@ -45,6 +44,11 @@
 # SPDX-FileCopyrightText: 2024 saga3152 <133799418+saga3152@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Alpaccalypse <21291379+Alpaccalypse@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Coolsurf6 <coolsurf24@yahoo.com.au>
+# SPDX-FileCopyrightText: 2025 GNUtopia <erainach14@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 RedBookcase <crazykid1590@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -798,16 +802,15 @@
   products:
     Moonshine: 3
 
-# - type: reaction
-#   id: Neurotoxin
-#   reactants:
-#     GargleBlaster:
-#       amount: 1
-#     Morphine:
-#       amount: 1
-#   products:
-#     Neurotoxin: 2
-# Waiting until Morphine added
+- type: reaction
+  id: Neurotoxin
+  reactants:
+    GargleBlaster:
+      amount: 1
+    Morphine:
+      amount: 1
+  products:
+    Neurotoxin: 2
 
 - type: reaction
   id: NuclearCola
@@ -1270,7 +1273,7 @@
       amount: 1
   products:
     Cola: 4
-    
+
 - type: reaction
   id: Caipirinha
   requiredMixerCategories:
