@@ -10798,3 +10798,9 @@ Entries:
       message: Fixed cosmic cult being too common.
   id: 1190
   time: '2025-06-13T11:38:49.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: Captains can now choose armored jacket and winter coat in the loadout.
+  id: 1191
+  time: '2025-06-14T06:06:52.0000000+00:00'
