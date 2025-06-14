@@ -69,3 +69,8 @@
 
 - files: ["delta.yml"]
   authors: Corvax team, pheenty
+- files: ["convex.yml"]
+  authors: Spacemann
+
+- file: ["amber.yml"]
+  authors: Southbridge, Flipsie27
