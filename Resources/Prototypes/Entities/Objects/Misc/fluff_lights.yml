@@ -1,5 +1,5 @@
 # SPDX-FileCopyrightText: 2020 Peter Wedder <burneddi@gmail.com>
-# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2020 Ygg01 <daniel.fath7@gmail.com>
 # SPDX-FileCopyrightText: 2020 chairbender <kwhipke1@gmail.com>
 # SPDX-FileCopyrightText: 2021 Galactic Chimp <GalacticChimpanzee@gmail.com>
@@ -260,7 +260,6 @@
   - type: Flash
   - type: LimitedCharges
     maxCharges: 3
-    charges: 3
   - type: AutoRecharge
     rechargeDuration: 30
   - type: MeleeWeapon
@@ -340,7 +339,10 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-
+  - type: PhysicalComposition
+    materialComposition:
+      Glass: 500
+      Steel: 200
 - type: entity
   name: broken floodlight
   id: FloodlightBroken
@@ -390,3 +392,7 @@
         density: 50
         mask:
         - HighImpassable
+  - type: PhysicalComposition
+    materialComposition:
+      Glass: 500
+      Steel: 200
