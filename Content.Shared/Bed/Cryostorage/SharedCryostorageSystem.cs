@@ -71,6 +71,8 @@
 // SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -101,7 +103,7 @@ public abstract class SharedCryostorageSystem : EntitySystem
     [Dependency] protected readonly SharedMindSystem Mind = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
 
-    protected EntityUid? PausedMap { get; private set; }
+    public EntityUid? PausedMap { get; private set; } // Goob edit - make it public
 
     protected bool CryoSleepRejoiningEnabled;
 
@@ -236,7 +238,7 @@ public abstract class SharedCryostorageSystem : EntitySystem
         PausedMap = null;
     }
 
-    protected void EnsurePausedMap()
+    public void EnsurePausedMap() // Goob edit - make it public
     {
         if (PausedMap != null && Exists(PausedMap))
             return;

@@ -8,6 +8,9 @@
 // SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2024 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -57,6 +60,7 @@ public abstract class SharedChargesSystem : EntitySystem
         comp.Charges = FixedPoint2.Clamp(comp.Charges + change, 0, comp.MaxCharges);
         if (comp.Charges != old)
             Dirty(uid, comp);
+        RaiseLocalEvent(uid, new ChargesChangedEvent(comp.Charges, old)); // Goob edit
     }
 
     /// <summary>
@@ -115,3 +119,16 @@ public abstract class SharedChargesSystem : EntitySystem
         AddCharges(uid, -chargesUsed, comp);
     }
 }
+// Goob edit start
+public sealed class ChargesChangedEvent : EntityEventArgs
+{
+    public readonly FixedPoint2 CurrentCharges;
+    public readonly FixedPoint2 LastCharges;
+
+    public ChargesChangedEvent(FixedPoint2 current, FixedPoint2 last)
+    {
+        CurrentCharges = current;
+        LastCharges = last;
+    }
+}
+// Goob edit end
