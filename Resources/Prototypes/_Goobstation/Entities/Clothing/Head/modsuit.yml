@@ -68,7 +68,7 @@
 - type: entity
   parent: BaseClothingModsuitHelmet
   id: ClothingModsuitHelmetStandard
-  name: standard modsuit helmet
+  name: standard hardsuit helmet
   description: A special modular suit spaceproof helmet designed for compact folding inside modular suit control.
   categories: [ HideSpawnMenu ]
   components:
@@ -159,7 +159,7 @@
 - type: entity
   parent: BaseClothingModsuitHelmet
   id: ClothingModsuitHelmetSecurity
-  name: soldat modsuit helmet
+  name: soldat hardsuit helmet
   description: A robust brain bucket for holding your brain in place just enough for it to be salvageable.
   categories: [ HideSpawnMenu ]
   components:
@@ -262,7 +262,7 @@
 - type: entity
   parent: [BaseClothingModsuitHelmet, BaseClothingModsuitHelmetHideIdentity]
   id: ClothingModsuitHelmetHeadOfSecurity
-  name: bulwark modsuit helmet
+  name: bulwark hardsuit helmet
   description: Put on the HEAD of security.. How do you see out of this thing?
   categories: [ HideSpawnMenu ]
   components:
@@ -356,7 +356,7 @@
 - type: entity
   parent: [BaseClothingModsuitHelmet, BaseClothingModsuitHelmetHideIdentity]
   id: ClothingModsuitHelmetParamedic
-  name: sanitater modsuit helmet
+  name: sanitater hardsuit helmet
   description: A robust brain bucket for working on barely salvageable brains.
   categories: [ HideSpawnMenu ]
   components:
@@ -436,7 +436,7 @@
 - type: entity
   parent: [BaseClothingModsuitHelmet, BaseClothingModsuitHelmetHideIdentity]
   id: ClothingModsuitHelmetEngineer
-  name: sapper modsuit helmet
+  name: sapper hardsuit helmet
   description: A flat plate with cameras allowing your vision. turns you into an aero-cuck, but not like that matters in space.
   categories: [ HideSpawnMenu ]
   components:
@@ -518,7 +518,7 @@
 - type: entity
   parent: BaseClothingModsuitHelmet
   id: ClothingModsuitHelmetAtmostech
-  name: aeolus modsuit helmet
+  name: aeolus hardsuit helmet
   description: A specialised gas helmet to provide oxygen more efficiently.
   categories: [ HideSpawnMenu ]
   components:
@@ -616,7 +616,7 @@
 - type: entity
   parent: [BaseClothingModsuitHelmet, BaseClothingModsuitHelmetHideIdentity]
   id: ClothingModsuitHelmetResearchDirector
-  name: minerva modsuit helmet
+  name: minerva hardsuit helmet
   description: A dark dark dark visor protecting your precious face from shrap and blast.
   categories: [ HideSpawnMenu ]
   components:
@@ -704,7 +704,7 @@
 - type: entity
   parent: BaseClothingModsuitHelmet
   id: ClothingModsuitHelmetCaptain
-  name: magnate modsuit helmet
+  name: magnate hardsuit helmet
   description: The visor is made from 10,000 year old amythest.
   categories: [ HideSpawnMenu ]
   components:
