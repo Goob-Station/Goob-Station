@@ -24,12 +24,15 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 holorain <scratchysenior@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
   id: RadiationCollector
+  parent: ConstructibleMachine
   name: radiation collector
   suffix: Empty tank
   description: A machine that collects radiation and turns it into power. Requires plasma gas to function.
@@ -93,6 +96,8 @@
         powerGenerationEfficiency: 1
         reactantBreakdownRate: 0.0001
   - type: RadiationReceiver
+  - type: LightningTarget
+    lightningExplode: false
   - type: PowerSupplier
   - type: Anchorable
   - type: Rotatable
@@ -125,6 +130,8 @@
       - RadFull
   - type: UseDelay
     delay: 1
+  - type: Machine # Goobstation - making tesla coils and radiation collectors craftable
+    board: RadiationCollectorCircuitboard
 
 - type: entity
   id: RadiationCollectorNoTank
