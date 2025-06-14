@@ -5,13 +5,14 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsStandard
-  name: standard modsuit boots
+  name: standard hardsuit boots
   description: A special modular suit boots designed for compact folding inside modular suit control.
   categories: [ HideSpawnMenu ]
   components:
@@ -41,7 +42,7 @@
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsSecurity
-  name: soldat modsuit boots
+  name: soldat hardsuit boots
   description: THE IRON BOOTS OF THE LAW.
   categories: [ HideSpawnMenu ]
   components:
@@ -86,7 +87,7 @@
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsHeadOfSecurity
-  name: bulwark modsuit boots
+  name: bulwark hardsuit boots
   description: I call these my commie stompers.
   categories: [ HideSpawnMenu ]
   components:
@@ -131,7 +132,7 @@
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsParamedic
-  name: sanitater modsuit boots
+  name: sanitater hardsuit boots
   description: Made to get bloody.
   categories: [ HideSpawnMenu ]
   components:
@@ -160,7 +161,7 @@
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsEngineer
-  name: sapper modsuit boots
+  name: sapper hardsuit boots
   description: Made to get oily.
   categories: [ HideSpawnMenu ]
   components:
@@ -200,7 +201,7 @@
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsAtmostech
-  name: aeolus modsuit boots
+  name: aeolus hardsuit boots
   description: Made to get burnt.
   categories: [ HideSpawnMenu ]
   components:
@@ -231,7 +232,7 @@
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsResearchDirector
-  name: minerva modsuit boots
+  name: minerva hardsuit boots
   description: Wont stop you slipping on your own blood when the holocarp gets to you.
   categories: [ HideSpawnMenu ]
   components:
@@ -260,7 +261,7 @@
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsCaptain
-  name: magnate modsuit boots
+  name: magnate hardsuit boots
   description: These boots were designed by THE Michael Jordan and crafted with ancient alloys, man.
   categories: [ HideSpawnMenu ]
   components:
