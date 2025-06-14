@@ -10846,3 +10846,12 @@ Entries:
       message: Paradox clones of uncloneable species/characters can now appear
   id: 1194
   time: '2025-06-14T19:17:17.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Add
+      message: >-
+        Added the M172 LAW and RPO-A 'Shmel' disposable rocket launchers in the
+        nukie uplink. for anti-structure/borgs and anti-personnel use
+        respectively. they are single shot so just toss them after you fire.
+  id: 1195
+  time: '2025-06-14T19:57:11.0000000+00:00'
