@@ -10879,3 +10879,11 @@ Entries:
       message: laser weapons and snipers can now melee bash
   id: 1197
   time: '2025-06-14T20:28:51.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: There is now a shrine for admin plushies at CC.
+    - type: Tweak
+      message: You can no longer rush deathsquad equipment at CC.
+  id: 1198
+  time: '2025-06-14T20:33:03.0000000+00:00'
