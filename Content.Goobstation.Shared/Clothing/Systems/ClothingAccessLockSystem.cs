@@ -1,0 +1,61 @@
+// SPDX-FileCopyrightText: 2025 Coenx-flex <coengmurray@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Goobstation.Shared.Clothing.Components;
+using Content.Shared.Access.Components;
+using Content.Shared.Access.Systems;
+using Content.Shared.Clothing.Components;
+using Content.Shared.Inventory;
+using Content.Shared.Inventory.Events;
+
+namespace Content.Goobstation.Shared.Clothing.Systems;
+
+public sealed class ClothingAccessLockSystem : EntitySystem
+{
+    [Dependency] private readonly AccessReaderSystem _access = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<ClothingAccessLockComponent, BeingEquippedAttemptEvent>(OnEquipAttempt);
+        SubscribeLocalEvent<ClothingAccessLockComponent, BeingUnequippedAttemptEvent>(OnUnequipAttempt);
+    }
+
+    private bool AccessCheck(Entity<ClothingAccessLockComponent> ent, EntityUid user)
+    {
+        if (!TryComp<AccessReaderComponent>(ent, out var reader))
+            return true; // if it doesn't have an access reader comp count it as aa
+
+        return _access.IsAllowed(user, ent, reader);
+    }
+
+    private void OnEquipAttempt(Entity<ClothingAccessLockComponent> ent, ref BeingEquippedAttemptEvent args)
+    {
+        // make sure it's in the right slot
+        if (TryComp<ClothingComponent>(ent, out var clothing) && (clothing.Slots & args.SlotFlags) == SlotFlags.NONE)
+            return;
+
+        if (!AccessCheck(ent, args.Equipee) && ent.Comp.RequireEquip)
+        {
+            args.Reason = "no-access-equip";
+            args.Cancel();
+        }
+    }
+
+    private void OnUnequipAttempt(Entity<ClothingAccessLockComponent> ent, ref BeingUnequippedAttemptEvent args)
+    {
+        // make sure it's in the right slot
+        if (TryComp<ClothingComponent>(ent, out var clothing) && (clothing.Slots & args.SlotFlags) == SlotFlags.NONE)
+            return;
+
+        if (!AccessCheck(ent, args.Unequipee) && ent.Comp.RequireUnequip)
+        {
+            args.Reason = "no-access-unequip";
+            args.Cancel();
+        }
+    }
+
+}

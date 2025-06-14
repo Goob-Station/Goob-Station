@@ -1,5 +1,7 @@
 // SPDX-FileCopyrightText: 2025 AftrLite <61218133+AftrLite@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Coenx-flex <coengmurray@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -29,10 +31,8 @@ public sealed class CosmicIngressSystem : EntitySystem
     {
         var target = args.Target;
 
-        if (args.Handled)
+        if (!_cult.TryUseAbility(args))
             return;
-
-        args.Handled = true;
 
         if (uid.Comp.CosmicEmpowered
             && TryComp<DoorBoltComponent>(target, out var doorBolt))

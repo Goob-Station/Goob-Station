@@ -1,5 +1,7 @@
 // SPDX-FileCopyrightText: 2025 AftrLite <61218133+AftrLite@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Coenx-flex <coengmurray@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -43,10 +45,13 @@ public sealed class CosmicImpositionSystem : EntitySystem
 
     private void OnCosmicImposition(Entity<CosmicCultComponent> uid, ref EventCosmicImposition args)
     {
+        if (!_cult.TryUseAbility(args))
+            return;
+
         EnsureComp<CosmicImposingComponent>(uid, out var comp);
         comp.Expiry = _timing.CurTime + uid.Comp.CosmicImpositionDuration;
         Spawn(uid.Comp.ImpositionVFX, Transform(uid).Coordinates);
-        args.Handled = true;
+
         _audio.PlayPvs(uid.Comp.ImpositionSFX, uid, AudioParams.Default.WithVariation(0.05f));
         _cult.MalignEcho(uid);
     }
