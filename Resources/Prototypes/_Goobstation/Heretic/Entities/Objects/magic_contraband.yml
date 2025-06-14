@@ -12,6 +12,8 @@
   components:
   - type: Contraband
     severity: Magic
+  - type: ScannableForPoints # NTR update
+    points: 10 # kinda rare stuff
 
 - type: contrabandSeverity
   id: Magic
