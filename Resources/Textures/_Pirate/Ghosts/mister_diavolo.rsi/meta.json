@@ -1,0 +1,14 @@
+{
+    "version": 1,
+      "license": "CC-BY-SA-3.0",
+      "copyright": "made by Mister_Diavolo",
+    "size": {
+      "x": 100,
+      "y": 100
+    },
+    "states": [
+        {
+          "name": "animated"
+        }
+      ]
+  }
