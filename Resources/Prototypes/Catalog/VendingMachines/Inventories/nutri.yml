@@ -45,6 +45,7 @@
     BoxAgrichem: 1
     #TO DO:
     #plant analyzer
+    portableChemicalMixer: 1 # Goobstation
   contrabandInventory:
     ChemistryBottleUnstableMutagen: 1
     Joint: 1
