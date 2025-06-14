@@ -10782,3 +10782,39 @@ Entries:
         be turned off sometimes.
   id: 1188
   time: '2025-06-08T09:01:38.0000000+00:00'
+- author: He who culls the tide
+  changes:
+    - type: Tweak
+      message: You can no longer play passenger after 10hrs.
+    - type: Remove
+      message: Assistants maints access
+  id: 1189
+  time: '2025-06-08T20:18:47.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Zombies are now guaranteed to spawn with no other antags.
+    - type: Fix
+      message: Fixed cosmic cult being too common.
+  id: 1190
+  time: '2025-06-13T11:38:49.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: Captains can now choose armored jacket and winter coat in the loadout.
+  id: 1191
+  time: '2025-06-14T06:06:52.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Mechs no longer give you turret or NPC immunity.
+  id: 1192
+  time: '2025-06-14T06:44:50.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: >-
+        Added Amber station! It is a small to medium-pop station, ported
+        directly from Wizden.
+  id: 1193
+  time: '2025-06-14T18:48:44.0000000+00:00'
