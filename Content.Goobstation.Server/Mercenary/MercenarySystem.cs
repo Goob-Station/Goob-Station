@@ -9,6 +9,7 @@ using Content.Server.Mind;
 using Content.Server.Roles;
 using Content.Server.Antag;
 using Content.Server.Ghost.Roles.Components;
+using Robust.Server.Player;
 
 namespace Content.Goobstation.Server.Mercenary;
 
@@ -17,7 +18,7 @@ public sealed partial class MercenarySystem : EntitySystem
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly RoleSystem _roles = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
-
+    [Dependency] private readonly IPlayerManager _player = default!;
     private ISawmill _sawmill = null!;
     public override void Initialize()
     {
@@ -54,11 +55,11 @@ public sealed partial class MercenarySystem : EntitySystem
         if (_roles.MindHasRole<MercenaryRoleComponent>(mindId, out var mindrole))
             AddComp(mindrole.Value, new RoleBriefingComponent { Briefing = briefing }, true);
 
-        if (mind.Session == null
+        if (_player.TryGetSessionById(mind.UserId, out var session)
             || merc.Comp.BriefingSent)
             return;
 
-        _antag.SendBriefing(mind.Session, briefing, Color.Red, null);
+        _antag.SendBriefing(session, briefing, Color.Red, null);
         merc.Comp.BriefingSent = true;
     }
 }
