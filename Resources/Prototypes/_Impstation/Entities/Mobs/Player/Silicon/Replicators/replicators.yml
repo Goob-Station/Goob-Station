@@ -51,17 +51,12 @@
     sounds:
       Unsexed: UnisexSilicon
   - type: DamagedSiliconAccent
-  - type: Monotonous
-  - type: NoContractionsAccent
-  - type: ProperPunctuation
-  - type: ProperCapitalization
   - type: ReplacementAccent
     accent: silicon
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
-    channels:
-    - Binary
-  - type: ActiveRadio
+  - type: CollectiveMind # Goob - Binary hivemind.
+    defaultChannel: Binary
     channels:
     - Binary
   - type: Actions
@@ -155,9 +150,6 @@
     templateId: replicator
   - type: InventorySlots
   - type: BlockMachineUI
-    whitelist:
-      components:
-      - AACTablet
 
 - type: entity
   id: MobReplicatorQueen
@@ -184,7 +176,6 @@
   - type: CombatMode
   - type: Puller
     needsHands: false
-    applySpeedModifier: false
   - type: StaminaDamageOnHit
     damage: 20
     sound: /Audio/Weapons/egloves.ogg
@@ -363,7 +354,6 @@
     upgradeStage: 2
   - type: Puller
     needsHands: false
-    applySpeedModifier: false
   - type: MovementAlwaysTouching
   - type: MovementSpeedModifier
     baseWalkSpeed: 2 # same as slime

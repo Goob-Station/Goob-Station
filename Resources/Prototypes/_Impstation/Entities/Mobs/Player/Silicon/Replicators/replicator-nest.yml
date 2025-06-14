@@ -19,7 +19,7 @@
       - Nuke # nice try
       - Cash
       tags:
-      - BROS # too many of em. therefore worthless
+      # - BROS # too many of em. therefore worthless
       - Cartridge
       - CartridgeMagnum
   - type: ThermalVisionImmune
@@ -63,7 +63,7 @@
       state: nest3unshaded
       shader: unshaded
       visible: false
-    - map: ["enum.ReplicatorNestVisuals.Level1Unshaded"] # this one last, so it always renders on top 
+    - map: ["enum.ReplicatorNestVisuals.Level1Unshaded"] # this one last, so it always renders on top
       state: nest1unshaded
       shader: unshaded
   - type: InteractionOutline

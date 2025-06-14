@@ -25,7 +25,6 @@
   id: StartingGearReplicatorT3Weapon
   inhand:
     - ReplicatorT3Weapon
-    - ReplicatorAAC
   equipment:
     pocket1: PinpointerReplicatorUnremoveable
 
@@ -49,7 +48,7 @@
   - type: Gun
     fireRate: 1
     soundGunshot:
-      path: /Audio/_Impstation/Weapons/Guns/Gunshots/stunprojector.ogg
+      path: /Audio/_Impstation/Weapons/Gunshots/stunprojector.ogg
   - type: HitscanBatteryAmmoProvider
     proto: HitscanReplicator
     fireCost: 150
@@ -61,6 +60,9 @@
     autoRechargeRate: 1000
   - type: MeleeWeapon
     wideAnimationRotation: -80
+    damage:
+      types:
+        Blunt: 1
   - type: StaminaDamageOnHit
     damage: 20
     sound: /Audio/Weapons/egloves.ogg
@@ -100,7 +102,7 @@
   - type: MeleeWeapon
     attackRate: 1.2
     wideAnimationRotation: 180
-    soundHit: 
+    soundHit:
       collection: MetalThud
     animation: WeaponArcSlash
     damage:
@@ -125,7 +127,7 @@
   - type: MeleeWeapon
     attackRate: 0.5
     wideAnimationRotation: 180
-    soundHit: 
+    soundHit:
       path: "/Audio/Effects/metal_slam4.ogg"
     animation: WeaponArcSlash
     damage:
@@ -161,33 +163,16 @@
     sprite: _Impstation/Objects/Devices/pinpointer_replicator.rsi
     state: pinpointer-replicator
   - type: Pinpointer
-    component: ReplicatorNest
+    whitelist: # Goob - pinpointer rework
+      components:
+        - ReplicatorNest
     targetName: replicator nest
-    activateImmediately: true
 
 - type: entity
   parent: PinpointerReplicator
   id: PinpointerReplicatorUnremoveable
   categories: [HideSpawnMenu]
   components:
-  - type: Unremoveable
-
-- type: entity
-  parent: AACTablet
-  id: ReplicatorAAC
-  name: verbal interface
-  description: Communication.
-  components:
-  - type: AACTablet
-    phraseGroup: ReplicatorPhrases
-  - type: VoiceMask
-  - type: Speech
-    speechVerb: Robotic
-    speechSounds: Replicator
-  - type: Sprite
-    sprite: _Impstation/Mobs/Replicator/replicator_tablet.rsi
-    state: aac_tablet
-  - type: Item
   - type: Unremoveable
 
 - type: hitscan
