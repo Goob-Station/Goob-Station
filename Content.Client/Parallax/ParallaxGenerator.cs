@@ -144,7 +144,7 @@ namespace Content.Client.Parallax
         {
             private readonly Color InnerColor = Color.White;
             private readonly Color OuterColor = Color.Black;
-            private readonly NoiseGenerator.NoiseType NoiseType = NoiseGenerator.NoiseType.Fbm;
+            private readonly FastNoiseLite.FractalType NoiseType = FastNoiseLite.FractalType.FBm;
             private readonly uint Seed = 1234;
             private readonly float Persistence = 0.5f;
             private readonly float Lacunarity = (float) (Math.PI / 3);
@@ -217,10 +217,10 @@ namespace Content.Client.Parallax
                     switch (((TomlValue<string>) tomlObject).Value)
                     {
                         case "fbm":
-                            NoiseType = NoiseGenerator.NoiseType.Fbm;
+                            NoiseType = FastNoiseLite.FractalType.FBm;
                             break;
                         case "ridged":
-                            NoiseType = NoiseGenerator.NoiseType.Ridged;
+                            NoiseType = FastNoiseLite.FractalType.Ridged;
                             break;
                         default:
                             throw new InvalidOperationException();
@@ -230,14 +230,11 @@ namespace Content.Client.Parallax
 
             public override void Apply(Image<Rgba32> bitmap)
             {
-                var noise = new NoiseGenerator(NoiseType);
-                noise.SetSeed(Seed);
+                var noise = new FastNoiseLite((int)Seed);
+                noise.SetFractalType(NoiseType);
                 noise.SetFrequency(Frequency);
-                noise.SetPersistence(Persistence);
-                noise.SetLacunarity(Lacunarity);
-                noise.SetOctaves(Octaves);
-                noise.SetPeriodX(bitmap.Width);
-                noise.SetPeriodY(bitmap.Height);
+                noise.SetFractalLacunarity(Lacunarity);
+                noise.SetFractalOctaves((int)Octaves);
                 var threshVal = 1 / (1 - Threshold);
                 var powFactor = 1 / Power;
 
@@ -281,7 +278,7 @@ namespace Content.Client.Parallax
 
             // Noise mask stuff.
             private readonly bool Masked;
-            private readonly NoiseGenerator.NoiseType MaskNoiseType = NoiseGenerator.NoiseType.Fbm;
+            private readonly FastNoiseLite.FractalType MaskNoiseType = FastNoiseLite.FractalType.FBm;
             private readonly uint MaskSeed = 1234;
             private readonly float MaskPersistence = 0.5f;
             private readonly float MaskLacunarity = (float) (Math.PI * 2 / 3);
@@ -370,10 +367,10 @@ namespace Content.Client.Parallax
                     switch (((TomlValue<string>) tomlObject).Value)
                     {
                         case "fbm":
-                            MaskNoiseType = NoiseGenerator.NoiseType.Fbm;
+                            MaskNoiseType = FastNoiseLite.FractalType.FBm;
                             break;
                         case "ridged":
-                            MaskNoiseType = NoiseGenerator.NoiseType.Ridged;
+                            MaskNoiseType = FastNoiseLite.FractalType.Ridged;
                             break;
                         default:
                             throw new InvalidOperationException();
@@ -452,14 +449,10 @@ namespace Content.Client.Parallax
             {
                 var o = PointSize - 1;
                 var random = new Random(Seed);
-                var noise = new NoiseGenerator(MaskNoiseType);
-                noise.SetSeed(MaskSeed);
-                noise.SetFrequency(MaskFrequency);
-                noise.SetPersistence(MaskPersistence);
-                noise.SetLacunarity(MaskLacunarity);
-                noise.SetOctaves(MaskOctaves);
-                noise.SetPeriodX(buffer.Width);
-                noise.SetPeriodY(buffer.Height);
+                var noise = new FastNoiseLite((int)MaskSeed);
+                noise.SetFractalType(MaskNoiseType);
+                noise.SetFractalLacunarity(MaskLacunarity);
+                noise.SetFractalOctaves((int)MaskOctaves);
 
                 var threshVal = 1 / (1 - MaskThreshold);
                 var powFactor = 1 / MaskPower;

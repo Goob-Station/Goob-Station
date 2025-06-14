@@ -10790,3 +10790,108 @@ Entries:
       message: Assistants maints access
   id: 1189
   time: '2025-06-08T20:18:47.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Zombies are now guaranteed to spawn with no other antags.
+    - type: Fix
+      message: Fixed cosmic cult being too common.
+  id: 1190
+  time: '2025-06-13T11:38:49.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: Captains can now choose armored jacket and winter coat in the loadout.
+  id: 1191
+  time: '2025-06-14T06:06:52.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Mechs no longer give you turret or NPC immunity.
+  id: 1192
+  time: '2025-06-14T06:44:50.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: >-
+        Added Amber station! It is a small to medium-pop station, ported
+        directly from Wizden.
+  id: 1193
+  time: '2025-06-14T18:48:44.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Add
+      message: Updated base game to 27-04-2025 release
+    - type: Fix
+      message: All condensed gases can be metabolised now
+    - type: Tweak
+      message: Implanters are named IC now
+    - type: Add
+      message: BZ, Healium, Nitrium and Pluox can now (rarely) be an artifact trigger
+    - type: Add
+      message: >-
+        Station destruction artifact nodes have been readded, with a very low
+        chance of occuring
+    - type: Remove
+      message: >-
+        Preferred silicon name has been removed (in favour of job-specific name
+        system)
+    - type: Fix
+      message: Added missing oni speech indicators
+    - type: Tweak
+      message: >-
+        Pirates will only target cargo bank account, but their ransoms can have
+        higher values
+    - type: Fix
+      message: Paradox clones of uncloneable species/characters can now appear
+  id: 1194
+  time: '2025-06-14T19:17:17.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Add
+      message: >-
+        Added the M172 LAW and RPO-A 'Shmel' disposable rocket launchers in the
+        nukie uplink. for anti-structure/borgs and anti-personnel use
+        respectively. they are single shot so just toss them after you fire.
+  id: 1195
+  time: '2025-06-14T19:57:11.0000000+00:00'
+- author: Evige
+  changes:
+    - type: Add
+      message: a Disco Beach Ball
+  id: 1196
+  time: '2025-06-14T20:24:11.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Tweak
+      message: >-
+        Captain's voidsuit was downgraded visually to reflect how POOR it is
+        compared to his MAGNATE hardsuit
+    - type: Tweak
+      message: >-
+        The head of security's hardsuit now also injects 5u of tramadol when you
+        go crit
+    - type: Tweak
+      message: Fixed nukie PDA
+    - type: Tweak
+      message: Fixed 12 gauge shell boxes still showing as .50 shell boxes
+    - type: Add
+      message: laser weapons and snipers can now melee bash
+  id: 1197
+  time: '2025-06-14T20:28:51.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: There is now a shrine for admin plushies at CC.
+    - type: Tweak
+      message: You can no longer rush deathsquad equipment at CC.
+  id: 1198
+  time: '2025-06-14T20:33:03.0000000+00:00'
+- author: the_biggestbruh
+  changes:
+    - type: Fix
+      message: >-
+        The cost of changeling abilities should no longer directly scale with
+        chemical regeneration multipliers (those who know)
+  id: 1199
+  time: '2025-06-14T20:41:41.0000000+00:00'
