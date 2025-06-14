@@ -27,6 +27,7 @@ namespace Content.Pirate.Server.Pacification.Commands
                 shell.WriteError("Кількість днів повинна бути числом.");
                 return;
             }
+
             if (days < 1)
             {
                 shell.WriteError("Кількість днів повинна бути щонайменше 1.");

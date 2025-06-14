@@ -1,4 +1,3 @@
-using Robust.Shared.Localization;
 using System;
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
@@ -25,23 +24,31 @@ public sealed class CallSpecialForcesCommand : IConsoleCommand
 
     public void Execute(IConsoleShell shell, string argStr, string[] args)
     {
-        if(args.Length != 1){
-            shell.WriteLine(Loc.GetString("shell-wrong-arguments-number"));
+        if (args.Length != 1)
+        {
+            shell.WriteLine(GetString("shell-wrong-arguments-number"));
             return;
         }
-        if(!Enum.TryParse<SpecialForcesType>(args[0], true, out var specType)){
-            shell.WriteLine(Loc.GetString("shell-invalid-entity-id"));
+
+        if (!Enum.TryParse<SpecialForcesType>(args[0], true, out var specType))
+        {
+            shell.WriteLine(GetString("shell-invalid-entity-id"));
             return;
         }
+
         var specSys = _entityManager.System<SpecialForcesSystem>();
-        if(!specSys.CallOps(specType,shell.Player != null ? shell.Player.Name : "An administrator")){
+        if (!specSys.CallOps(specType, shell.Player != null ? shell.Player.Name : "Адміністратор"))
+        {
             shell.WriteLine($"Почекайте ще {specSys.DelayTime} перед викликом наступних!");
         }
 
-        _adminLogger.Add(LogType.AdminMessage, LogImpact.Extreme, $"Admin {(shell.Player != null ? shell.Player.Name : "An administrator")} SpecForcesSystem call {specType}");
+        _adminLogger.Add(LogType.AdminMessage,
+            LogImpact.Extreme,
+            $"Адмін {(shell.Player != null ? shell.Player.Name : "Адміністратор")} викликав спец загін {specType}");
     }
 
-    public CompletionResult GetCompletion(IConsoleShell shell, string[] args){
+    public CompletionResult GetCompletion(IConsoleShell shell, string[] args)
+    {
         return args.Length switch
         {
             1 => CompletionResult.FromHintOptions(Enum.GetNames<SpecialForcesType>(),

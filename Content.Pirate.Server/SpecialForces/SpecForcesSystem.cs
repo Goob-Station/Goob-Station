@@ -34,6 +34,7 @@ public sealed class SpecialForcesSystem : EntitySystem
 {
     // ReSharper disable once MemberCanBePrivate.Global
     [ViewVariables] public List<SpecialForcesHistory> CalledEvents { get; private set; } = new();
+
     // ReSharper disable once MemberCanBePrivate.Global
     [ViewVariables] public TimeSpan LastUsedTime { get; private set; } = TimeSpan.Zero;
 
@@ -44,7 +45,8 @@ public sealed class SpecialForcesSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<SpecialForceComponent, MapInitEvent>(OnMapInit, after: new[] { typeof(RandomMetadataSystem) });
+        SubscribeLocalEvent<SpecialForceComponent, MapInitEvent>(OnMapInit,
+            after: new[] { typeof(RandomMetadataSystem) });
         SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEnd);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnCleanup);
         SubscribeLocalEvent<SpecialForceComponent, ComponentStartup>(OnStartup);
@@ -53,7 +55,7 @@ public sealed class SpecialForcesSystem : EntitySystem
 
     private void OnShutdown(EntityUid uid, SpecialForceComponent component, ComponentShutdown args)
     {
-            _actions.RemoveAction(uid, component.BssKey);
+        _actions.RemoveAction(uid, component.BssKey);
     }
 
     private void OnStartup(EntityUid uid, SpecialForceComponent component, ComponentStartup args)
@@ -289,7 +291,8 @@ public sealed class SpecialForcesSystem : EntitySystem
                     _chatSystem.DispatchStationAnnouncement(station,
                         Loc.GetString("spec-forces-system-ertcall-annonce"),
                         Loc.GetString("spec-forces-system-ertcall-title"),
-                        false, _ertAnnounce
+                        false,
+                        _ertAnnounce
                     );
                 }
 
@@ -315,7 +318,8 @@ public sealed class SpecialForcesSystem : EntitySystem
         foreach (var calledEvent in CalledEvents)
         {
             ev.AddLine(Loc.GetString("spec-forces-system-" + calledEvent.Event,
-                ("time", calledEvent.RoundTime.ToString(@"hh\:mm\:ss")), ("who", calledEvent.WhoCalled)));
+                ("time", calledEvent.RoundTime.ToString(@"hh\:mm\:ss")),
+                ("who", calledEvent.WhoCalled)));
         }
     }
 
