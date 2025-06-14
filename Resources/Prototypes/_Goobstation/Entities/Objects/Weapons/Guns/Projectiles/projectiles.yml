@@ -114,10 +114,10 @@
   name: bullet (.50 anti-materiel)
   components:
   - type: Projectile
-    armorPenetration: 0.5
     damage:
       types:
         Piercing: 35
+      armorPenetration: 0.5
     penetrationThreshold: 50
 
 - type: entity

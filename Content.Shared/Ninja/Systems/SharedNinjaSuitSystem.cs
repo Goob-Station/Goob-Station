@@ -100,8 +100,9 @@ public abstract class SharedNinjaSuitSystem : EntitySystem
 
     private void OnCreateStarAttempt(Entity<NinjaSuitComponent> ent, ref CreateItemAttemptEvent args)
     {
-        if (CheckDisabled(ent, args.User))
-            args.Cancelled = true;
+        // Goob edit
+        // if (CheckDisabled(ent, args.User))
+        //    args.Cancelled = true;
     }
 
     /// <summary>
@@ -124,12 +125,12 @@ public abstract class SharedNinjaSuitSystem : EntitySystem
 
         var uid = ent.Owner;
         var comp = ent.Comp;
-        if (_toggle.TryDeactivate(uid, user) || !disable)
+        if (!_toggle.TryDeactivate(uid, user) || !disable) // Goob edit
             return;
 
         // previously cloaked, disable abilities for a short time
-        _audio.PlayPredicted(comp.RevealSound, uid, user);
-        Popup.PopupClient(Loc.GetString("ninja-revealed"), user, user, PopupType.MediumCaution);
+        // _audio.PlayPredicted(comp.RevealSound, uid, user); // Goob edit
+        // Popup.PopupClient(Loc.GetString("ninja-revealed"), user, user, PopupType.MediumCaution); // Goob edit
         _useDelay.TryResetDelay(uid, id: comp.DisableDelayId);
     }
 

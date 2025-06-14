@@ -37,7 +37,9 @@
 // SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 Eagle <lincoln.mcqueen@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
@@ -252,7 +254,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
             ClientLightAttack(entity, mousePos, coordinates, weaponUid, weapon);
     }
 
-    protected override bool InRange(EntityUid user, EntityUid target, float range, ICommonSession? session)
+    public override bool InRange(EntityUid user, EntityUid target, float range, ICommonSession? session) // Goob edit
     {
         var xform = Transform(target);
         var targetCoordinates = xform.Coordinates;
@@ -271,12 +273,6 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
     {
         if (!base.DoDisarm(user, ev, meleeUid, component, session))
             return false;
-
-        if (!TryComp<CombatModeComponent>(user, out var combatMode) ||
-            combatMode.CanDisarm == false) // WWDP
-        {
-            return false;
-        }
 
         var target = GetEntity(ev.Target);
 

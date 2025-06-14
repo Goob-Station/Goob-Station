@@ -63,7 +63,7 @@ public abstract class SharedArmorSystem : EntitySystem
 
         if (component.ArmorCoverage.Contains(partType))
             args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage,
-            DamageSpecifier.PenetrateArmor(component.Modifiers, args.ArmorPenetration));
+            DamageSpecifier.PenetrateArmor(component.Modifiers, args.OriginalDamage.ArmorPenetration));
     }
 
     /// <summary>
@@ -88,14 +88,14 @@ public abstract class SharedArmorSystem : EntitySystem
 
         if (component.ArmorCoverage.Contains(partType))
             args.Args.Damage = DamageSpecifier.ApplyModifierSet(args.Args.Damage,
-            DamageSpecifier.PenetrateArmor(component.Modifiers, args.Args.ArmorPenetration));
+            DamageSpecifier.PenetrateArmor(component.Modifiers, args.Args.OriginalDamage.ArmorPenetration));
     }
 
     private void OnBorgDamageModify(EntityUid uid, ArmorComponent component,
         ref BorgModuleRelayedEvent<DamageModifyEvent> args)
     {
         args.Args.Damage = DamageSpecifier.ApplyModifierSet(args.Args.Damage,
-            DamageSpecifier.PenetrateArmor(component.Modifiers, args.Args.ArmorPenetration)); // Goob edit
+            DamageSpecifier.PenetrateArmor(component.Modifiers, args.Args.OriginalDamage.ArmorPenetration)); // Goob edit
     }
 
     private void OnArmorVerbExamine(EntityUid uid, ArmorComponent component, GetVerbsEvent<ExamineVerb> args)
