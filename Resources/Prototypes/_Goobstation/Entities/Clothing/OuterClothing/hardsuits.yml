@@ -277,14 +277,21 @@
     sprintModifier: 0.85
     walkModifier: 0.85
   - type: HeldSpeedModifier
-  - type: ToggleableClothing # Goobstation - Modsuits change
+  - type: ToggleableClothing
     clothingPrototypes:
       head: ClothingHeadHelmetVoidsuitSecurity
-  - type: ModifyDelayedKnockdown # Goobstation
+  - type: ModifyDelayedKnockdown
     delayDelta: 2
     knockdownTimeDelta: -2
   - type: StaminaDamageResistance
     coefficient: 0.6
+  - type: ItemSlots
+    slots:
+      item:
+        name: bodycam
+        whitelist:
+          components:
+          - SurveillanceCamera
 
 # Head of Security's experimental voidsuit
 - type: entity
