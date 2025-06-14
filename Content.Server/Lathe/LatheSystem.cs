@@ -478,9 +478,12 @@ namespace Content.Server.Lathe
                     totalMaterials[mat] += amount;
                 }
 
-                if(_materialStorage.CanChangeMaterialAmount(uid, totalMaterials)) {
+                if(_materialStorage.CanChangeMaterialAmount(uid, totalMaterials))
+                {
                     foreach (var (mat, amount) in totalMaterials)
+                    {
                         _materialStorage.TryChangeMaterialAmount(uid, mat, amount);
+                    }
                     component.Queue.Clear();
                 } else {
                     _popup.PopupEntity(Loc.GetString("lathe-queue-reset-material-overflow"), uid);
