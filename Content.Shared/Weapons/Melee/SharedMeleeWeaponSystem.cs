@@ -1053,8 +1053,8 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
         var target = GetEntity(ev.Target.Value);
 
-        if (Deleted(target) ||
-            user == target)
+        if (Deleted(target)
+            || user == target)
         {
             return false;
         }
