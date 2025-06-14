@@ -6,42 +6,42 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Station Alert - Gamma
+  # Тривога на станції - Гамма
 
   <Box>
-    [italic]Called by: Central Command. Use a Fax Machine and send a fax stamped by a member of command.[/italic]
+    [italic]Викликається: Центральним командуванням. Використовуйте факс і надішліть факс з печаткою члена командування.[/italic]
   </Box>
 
-  [bold]Conditions:[/bold]
+  [bold]Умови:[/bold]
 
-  There is a massive threat to the continued safety of the station and crew, threatening the very existence of the Station;
+  Існує величезна загроза для подальшої безпеки станції та екіпажу, що загрожує самому існуванню станції;
 
-  However, this threat is not yet big enough to warrant the destruction of the Station, and Central Command may still want to protect their assets.
+  Однак ця загроза ще не настільки велика, щоб виправдати знищення станції, і Центральне командування все ще може хотіти захистити свої активи.
 
-  [bold]Security:[/bold]
+  [bold]Безпека:[/bold]
 
-  Martial Law is enacted. Standard Operating Procedure is suspended. Security personnel have full permission to do whatever it takes to ensure that the safety of the station and crew is maintained. Personnel interfering with emergency procedures may be detained. Security are cleared to use lethal force in response to any physical threat. Assault of Command or ERT may be punished with immediate field execution.
+  Вводиться воєнний стан. Стандартна операційна процедура призупиняється. Персонал служби безпеки має повне право робити все можливе для забезпечення безпеки станції та екіпажу. Персонал, що втручається в аварійні процедури, може бути затриманий. Службі безпеки дозволено застосовувати летальну силу у відповідь на будь-яку фізичну загрозу. Напад на командування або ERT може бути покараний негайною стратою на місці.
 
-  Random searches are fully permitted, allowed and encouraged. Security personnel may detain any personnel refusing a random search in order to conduct said search;
+  Вибіркові обшуки повністю дозволені, дозволені та заохочуються. Персонал служби безпеки може затримувати будь-якого співробітника, який відмовляється від вибіркового обшуку, для проведення зазначеного обшуку;
 
-  Security personnel are to cooperate fully with any Central Command Staff (such as Emergency Response Teams) in order to eliminate the threat to the station.
+  Персонал служби безпеки повинен повністю співпрацювати з будь-яким персоналом Центрального командування (наприклад, з групами реагування на надзвичайні ситуації), щоб усунути загрозу для станції.
 
-  [bold]Secure Areas:[/bold]
+  [bold]Безпечні зони:[/bold]
 
-  EVA Storage, Tech Storage, Gravity Generator, Engineering Secure Storage, AI Upload, Vault, Gateway, anywhere else requiring command level access that does not get regularly used.
+  Сховище EVA, технічне сховище, генератор гравітації, інженерне безпечне сховище, завантаження ШІ, сховище, шлюз, будь-де ще, що вимагає доступу на рівні командування, яке не використовується регулярно.
 
-  All Secure Areas are to be bolted down. Secure Areas may be left unbolted at the discretion of Command personnel;
+  Усі безпечні зони повинні бути заблоковані. Безпечні зони можуть бути залишені незаблокованими на розсуд персоналу командування;
 
-  Excursions into the Gateway are fully prohibited.
+  Екскурсії в шлюз повністю заборонені.
 
-  [bold]General Crew:[/bold]
+  [bold]Загальний екіпаж:[/bold]
 
-  All personnel are required to maximize their Suit Sensors;
+  Весь персонал зобов'язаний максимізувати свої датчики костюмів;
 
-  All personnel are to remain inside their Departments until such a point as Code Gamma has passed, unless specifically requested by Security and/or Command, or their particular skills can help resolve the situation (such as Field Medics or Engineers);
+  Весь персонал повинен залишатися у своїх відділах доти, доки не мине код Гамма, якщо це не буде спеціально вимагатися службою безпеки та/або командуванням, або їхні особливі навички не допоможуть вирішити ситуацію (наприклад, польові медики або інженери);
 
-  Visitors to the station (anyone with Civilian-level access) are to remain inside the Bar, Library or Dormitories until such a point as Code Gamma has passed;
+  Відвідувачі станції (будь-хто з доступом на цивільному рівні) повинні залишатися в барі, бібліотеці або гуртожитках доти, доки не мине код Гамма;
 
-  Personnel are to follow the instructions of Security staff, so long as they are within the bounds of Space Law and are not acting against the general well-being of the station and its crew. Failure to do so may lead to their arrest for Creating a Workplace Hazard.
+  Персонал повинен виконувати вказівки персоналу служби безпеки, доки вони перебувають у межах космічного права і не діють проти загального добробуту станції та її екіпажу. Невиконання цього може призвести до їхнього арешту за створення небезпеки на робочому місці.
 
 </Document>

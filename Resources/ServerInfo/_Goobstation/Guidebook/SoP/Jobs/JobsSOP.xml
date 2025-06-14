@@ -6,20 +6,20 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-# Jobs SOP
-Attached below this are several different categories for Job-Specific Standard Operating Procedures (SOP). These are here to help clarify different goals in your job or department.
+# СОП для посад
+Нижче наведено кілька різних категорій для стандартних операційних процедур (СОП), специфічних для посад. Вони призначені для роз'яснення різних цілей вашої роботи або відділу.
 
 <Box>
-[bold][color=#f0e4b4]To be clear:[/color][/bold] these are not a [italic]checklist[/italic] for you to follow. They can be used as such, but should be used more as guidelines.
+[bold][color=#f0e4e4]Щоб було зрозуміло:[/color][/bold] це не [italic]контрольний список[/italic], якому ви повинні слідувати. Їх можна використовувати як такі, але їх слід розглядати більше як рекомендації.
 </Box>
 
-The following folders are listed underneath this folder:
-- [textlink="Cargo Department" link="Cargo SOP"]
-- [textlink="Command Department" link="Command SOP"]
-- [textlink="Engineering Department" link="Engineering SOP"]
-- [textlink="Medical Department" link="Medical SOP"]
-- [textlink="Science Department" link="Science SOP"]
-- [textlink="Security Department" link="Security SOP"]
-- [textlink="Service Department" link="Service SOP"]
+У цій папці перелічено такі папки:
+- [textlink="Вантажний відділ" link="Cargo SOP"]
+- [textlink="Командний відділ" link="Command SOP"]
+- [textlink="Інженерний відділ" link="Engineering SOP"]
+- [textlink="Медичний відділ" link="Medical SOP"]
+- [textlink="Науковий відділ" link="Science SOP"]
+- [textlink="Відділ безпеки" link="Security SOP"]
+- [textlink="Відділ обслуговування" link="Service SOP"]
 
 </Document>

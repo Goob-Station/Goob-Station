@@ -6,34 +6,34 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Station Alert - Epsilon
+  # Тривога на станції - Епсилон
 
   <Box>
-    [italic]Called by: Central Command Only.[/italic]
+    [italic]Викликається: лише центральним командуванням.[/italic]
   </Box>
 
-  [bold]Conditions:[/bold]
+  [bold]Умови:[/bold]
 
-  Central Command has deemed it necessary to terminate all contracts.
+  Центральне командування визнало за необхідне розірвати всі контракти.
 
-  [bold]Security:[/bold]
+  [bold]Безпека:[/bold]
 
-  Security and the rest of the station are to fend for themselves. All contracts are terminated and nothing is required to act upon.
+  Служба безпеки та решта станції повинні дбати про себе самі. Усі контракти розірвано, і нічого не потрібно робити.
 
-  [bold]Secure Areas:[/bold]
+  [bold]Безпечні зони:[/bold]
 
-  The entire station is considered a secure area.
+  Вся станція вважається безпечною зоною.
 
-  All Secure Areas are to be bolted down. Secure Areas may be left unbolted at the discretion of any personnel with access to do so.
+  Усі безпечні зони повинні бути заблоковані. Безпечні зони можуть бути залишені незаблокованими на розсуд будь-якого персоналу, який має на це доступ.
 
-  [bold]General Crew:[/bold]
+  [bold]Загальний екіпаж:[/bold]
 
-  All personnel are no longer required to maximize suit sensors. Do so at your discretion.
+  Весь персонал більше не зобов'язаний максимізувати датчики костюмів. Робіть це на свій розсуд.
 
-  All personnel are no longer required to remain in any Department.
+  Весь персонал більше не зобов'язаний залишатися в будь-якому відділі.
 
-  Visitors of the station, anyone without Central Command access, are to fend for themselves along with the station crew.
+  Відвідувачі станції, будь-хто без доступу до центрального командування, повинні дбати про себе самі разом з екіпажем станції.
 
-  Personnel are no longer required to follow instructions from any other person.
+  Персонал більше не зобов'язаний виконувати вказівки будь-якої іншої особи.
 
 </Document>

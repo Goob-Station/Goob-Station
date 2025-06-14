@@ -6,22 +6,22 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Early Evaucation Procedures
-  These are the guidelines that should be followed as Command and Security when initiating early-launch procedures.
+  # Процедури ранньої евакуації
+  Це інструкції, яких слід дотримуватися командуванню та службі безпеки під час ініціювання процедур раннього запуску.
 
-  1. Under [bold]no circumstances[/bold] should the evacuation shuttle be early launched when there is no [bold][italic]immediate[/italic][/bold] threat to the evacuation shuttle.
+  1. За [bold]жодних обставин[/bold] евакуаційний шатл не повинен запускатися раніше, якщо немає [bold][italic]безпосередньої[/italic][/bold] загрози для нього.
 
-  2. The Command should wait as [bold]long as possible[/bold] before initiating early launch procedures.
+  2. Командування повинно чекати якомога [bold]довше[/bold] перед початком процедур раннього запуску.
 
-  3. No member of Command or Station (with access to Command) should initiate early evacuation procedures until every participating member is ready.
-  <Box>To clarify, there should not be individual inputs until everyone is ready, to prevent potential hostiles and/or thieves from taking IDs and starting it with adequate permissions.</Box>
+  3. Жоден член командування або станції (з доступом до командування) не повинен ініціювати процедури ранньої евакуації, доки кожен учасник не буде готовий.
+  <Box>Для уточнення, не повинно бути індивідуальних дій, доки всі не будуть готові, щоб запобігти потенційним ворогам та/або злодіям від захоплення посвідчень та запуску з відповідними дозволами.</Box>
 
-  4. Early Evacuation should be called when a loosed material or threat were to harm the evacuation shuttle imminently. The following would be examples: Teslas, Singularities, Hostile Enemy Ships.
+  4. Ранню евакуацію слід оголошувати, коли неконтрольований матеріал або загроза можуть негайно пошкодити евакуаційний шатл. Прикладами можуть бути: Тесли, сингулярності, ворожі кораблі.
 
-  5. Early Evacuation should be called when there are hostiles on the evacuation shuttle that are threatening the lives of the station personnel and bridge personnel.
-  <Box>Said hostiles must be, in reasonable suspicion, unable to be taken down without significant loss of life to everyone currently on-board.</Box>
+  5. Ранню евакуацію слід оголошувати, коли на евакуаційному шатлі є вороги, що загрожують життю персоналу станції та персоналу мостика.
+  <Box>Зазначені вороги повинні, за обґрунтованою підозрою, бути неможливими для знешкодження без значних втрат життя для всіх, хто на борту.</Box>
 
-  6. Early Evacuation must be called when there is a Violet Alert to prevent potential specimens from arriving aboard the shuttle.
-  <Box>If it is possible to defend the shuttle, this should be prioritized.</Box>
+  6. Рання евакуація повинна бути оголошена при фіолетовій тривозі, щоб запобігти потраплянню потенційних зразків на борт шатла.
+  <Box>Якщо є можливість захистити шатл, цьому слід надати пріоритет.</Box>
 
 </Document>

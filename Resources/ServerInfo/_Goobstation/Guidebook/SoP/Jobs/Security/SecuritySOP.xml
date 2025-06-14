@@ -6,16 +6,16 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-# Security Department SOP
-These are the list of SOPs that Security Personnel should follow. These are, as stated before, [bold]not checklists[/bold] and should be treated as guidelines.
+# СОП Відділу безпеки
+Це перелік СОП, яких повинен дотримуватися персонал служби безпеки. Як вже зазначалося, це [bold]не контрольні списки[/bold] і їх слід розглядати як керівні принципи.
 
-For reference, [color=#ba292c][bold]Security Officer[/bold][/color] and [color=#ba292c][bold]Security Cadet[/bold][/color] have been combined in the same entry, for ease of use.
+Для довідки, [color=#ba292c][bold]Офіцер служби безпеки[/bold][/color] та [color=#ba292c][bold]Кадет служби безпеки[/bold][/color] були об'єднані в один запис для зручності використання.
 
-The following jobs have entries in this department, the [color=#1b67a5][bold]Head of Security[/bold][/color] being the Head of Staff and [color=#ba292c][bold]Warden[/bold][/color] commanding underneath them:
-- [textlink="Head of Security" link="HeadOfSecurity SOP"]
-- [textlink="Warden" link="Warden SOP"]
-- [textlink="Detective" link="Detective SOP"]
-- [textlink="Security Officer" link="OfficerCadet SOP"]
-- [textlink="Security Cadet" link="OfficerCadet SOP"]
+Наступні посади мають записи в цьому відділі, з [color=#1b67a5][bold]Головою служби безпеки[/bold][/color] на чолі та [color=#ba292c][bold]Наглядачем[/bold][/color] під його командуванням:
+- [textlink="Голова служби безпеки" link="HeadOfSecurity SOP"]
+- [textlink="Наглядач" link="Warden SOP"]
+- [textlink="Детектив" link="Detective SOP"]
+- [textlink="Офіцер служби безпеки" link="OfficerCadet SOP"]
+- [textlink="Кадет служби безпеки" link="OfficerCadet SOP"]
 
 </Document>

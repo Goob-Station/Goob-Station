@@ -6,25 +6,25 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-# Zombie Outbreak Procedures
-During a zombie outbreak, namely defined when a virus/bacteria is confirmed to have inflicted several station personnel with a deadly pathogen, the station should be alerted immediately.
-<Box>Procedures are in place for an automatic notification system, but only sound off when a [italic]significant[/italic] portion of crew or inflicted.</Box>
+# Процедури спалаху зомбі
+Під час спалаху зомбі, а саме, коли підтверджено, що вірус/бактерія вразила кількох співробітників станції смертельним патогеном, станцію слід негайно сповістити.
+<Box>Існують процедури для автоматичної системи сповіщення, але вони спрацьовують лише тоді, коли вражена [italic]значна[/italic] частина екіпажу.</Box>
 
-Command should immediately set the alert to [color=#cc74fc]Violet Alert[/color] when notified and follow Violet Alert procedures.
+Командування повинно негайно встановити тривогу на [color=#cc74fc]Фіолетову тривогу[/color] після сповіщення та дотримуватися процедур Фіолетової тривоги.
 
-1. All infected personnel are to make their way to Virology/Medical to be treated, if possible.
+1. Увесь інфікований персонал повинен, якщо можливо, звернутися до вірусології/медичного відділу для лікування.
 
-2. All medical personnel are to contribute in fighting the viral outbreak if there are no critical patients requiring treatment.
-<Box>Eliminating the threat is [bold]top priority[/bold]</Box>
+2. Увесь медичний персонал повинен брати участь у боротьбі зі спалахом вірусу, якщо немає критичних пацієнтів, які потребують лікування.
+<Box>Усунення загрози є [bold]головним пріоритетом[/bold]</Box>
 
-3. All infected personnel, if untreatable (lacking treatment/vaccination), should be confined in isolation to prevent further contamination.
-<Box>They should be vaccinated as soon as possible prior to critical severity of the virus.</Box>
+3. Увесь інфікований персонал, якщо він невиліковний (немає лікування/вакцинації), повинен бути ізольований для запобігання подальшому зараженню.
+<Box>Їх слід вакцинувати якомога швидше до досягнення критичної тяжкості вірусу.</Box>
 
-4. As soon as a vaccination is available, it should be administered to those that are curable.
+4. Як тільки вакцина стане доступною, її слід вводити тим, кого можна вилікувати.
 
-5. Complete zombified personnel, animals, creatures, et cetera; should be dealt with lethally and confirmed to be dead.
-<Box>All station personnel are permitted to eliminate confirmed, zombified personnel; regardless of status.</Box>
+5. Повністю зомбовані співробітники, тварини, істоти тощо; повинні бути ліквідовані летальним шляхом, а їхня смерть повинна бути підтверджена.
+<Box>Усьому персоналу станції дозволено ліквідовувати підтверджених, зомбованих співробітників; незалежно від статусу.</Box>
 
-6. Once the zombie outbreak is contained, zombified entities should be removed and the station should resume normal activities (switching off of [color=#cc74fc]Violet Alert[/color]).
+6. Після того, як спалах зомбі буде локалізовано, зомбовані сутності повинні бути видалені, а станція повинна відновити нормальну діяльність (вимкнувши [color=#cc74fc]Фіолетову тривогу[/color]).
 
 </Document>

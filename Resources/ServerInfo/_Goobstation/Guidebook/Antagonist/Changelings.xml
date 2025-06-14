@@ -9,61 +9,61 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Changelings
+  # Підміниші
   <Box>
     <GuideEntityEmbed Entity="GuidebookChangelingFluff" Caption=""/>
   </Box>
-  A Changeling is an  alien creature able to morph into humanoids. Changelings nautral form is a headslug, but before a shift started, they killed someone and began imitating them.
-  The main weapons of the Changeling are its ability to internally synthesize dangerous chemicals, morph into other creatures that it has absorbed, and blend in with humans.
+  Підміниш — це інопланетна істота, здатна перетворюватися на гуманоїдів. Природна форма підміниша — головний слимак, але перед початком зміни вони вбили когось і почали його імітувати.
+  Основною зброєю Підміниша є його здатність внутрішньо синтезувати небезпечні хімікати, перетворюватися на інших істот, яких він поглинув, і зливатися з людьми.
 
-  The changeling can be anyone it's absorbed, it can switch identities instantaneously, only absorbing takes time and peace. Unlike the Traitor, the Changeling's only objective is to survive until the shuttle arrives and escape on it while transformed into somebody else.
+  Підміниш може бути будь-ким, кого він поглинув, він може миттєво змінювати особистості, тільки поглинання вимагає часу і спокою. На відміну від Зрадника, єдина мета Підміниша — вижити до прибуття шатла і втекти на ньому, перетворившись на когось іншого.
 
-  Remember that Changelings are not obliged to work eachother as a team, and some may go solo/rogue depending on how they like it.
+  Пам'ятайте, що Підміниші не зобов'язані працювати в команді, і деякі можуть діяти поодинці/самостійно, залежно від того, як їм подобається.
 
-  ## I've turned into myself, what do?
+  ## Я перетворився на себе, що робити?
 
-  ### Chemicals
-  Chemicals are your source of abilities. Without them you won't be able to use your powers.
-  They regenerate slowly over time, and absorption will increase their max capacity.
+  ### Хімікати
+  Хімікати — це ваше джерело здібностей. Без них ви не зможете використовувати свої сили.
+  Вони повільно регенерують з часом, а поглинання збільшить їх максимальну ємність.
 
-  ### DNA Absorption
-  Your main weapon is deception. Transform into other humanoid creatures to confuse the crew.
-  To do this, it must take ANY human, living or dead (even thrown away bodies from cloning), and absorb them using either the Absorb abliity, or the DNA Extraction Sting.
-  You can only have a maximum of 5 DNA strands at a time, and must transform to obtain more.
+  ### Поглинання ДНК
+  Ваша головна зброя — обман. Перетворюйтеся на інших гуманоїдних істот, щоб заплутати екіпаж.
+  Для цього він повинен взяти БУДЬ-ЯКУ людину, живу чи мертву (навіть викинуті тіла з клонування), і поглинути її за допомогою здібності Поглинання або Жалом для вилучення ДНК.
+  Ви можете мати максимум 5 ниток ДНК одночасно, і повинні перетворитися, щоб отримати більше.
 
-  Acquiring DNA via absorption requires the victim's incapacitation, critical condition or death. Simply, handcuff, put him into crit or kill him if you need to absorb him.
+  Отримання ДНК шляхом поглинання вимагає недієздатності, критичного стану або смерті жертви. Просто закуйте його в наручники, доведіть до критичного стану або вбийте, якщо вам потрібно його поглинути.
 
-  - Absorbing someone takes a lot of time, so prepare a safe spot or do it somewhere with the least amount of ears possible.
-  - Absorbing a victim will recover all of your biomass, increase your maximum chemical capacity and give you bonus evolution points to buy new abilities.
-  - Absorbing another changeling will, on top of that, increase your maximum biomass capacity, allowing you to stay alive for more time and give you even more chemicals and evolution points.
-  - [color=red]Absorbed victims cannot be cloned.[/color] On the other hand, they can still be turned into cyborgs.
+  - Поглинання когось займає багато часу, тому підготуйте безпечне місце або робіть це десь, де якомога менше вух.
+  - Поглинання жертви відновить всю вашу біомасу, збільшить максимальну ємність хімікатів і дасть вам бонусні очки еволюції для покупки нових здібностей.
+  - Поглинання іншого підміниша, крім того, збільшить вашу максимальну ємність біомаси, дозволяючи вам залишатися в живих довше і даючи вам ще більше хімікатів та очок еволюції.
+  - [color=red]Поглинутих жертв не можна клонувати.[/color] З іншого боку, їх все ще можна перетворити на кіборгів.
 
-  ### You exclaim, "I am the only one here!"
-  Changelings are limited, however, to how much DNA they can absorb at once! If a changeling has 5 DNAs stored and attempts to gain another, they must purge the older DNA by transforming. Eventually, any changeling will have to be a twin of someone else on the station, living or dead.
-  The changeling can shift its appearance, making them look and sound exactly like a victim of which they have absorbed. This can be massive compromise in security, especially if command staff are absorbed and the changeling is able to imitate them.
-  Changelings can also, via their lesser form ability, transform into monkeys and do monkey things.
+  ### Ви вигукуєте: "Я тут єдиний!"
+  Однак підміниші обмежені в тому, скільки ДНК вони можуть поглинути за раз! Якщо у підміниша є 5 збережених ДНК і він намагається отримати ще одну, він повинен очистити стару ДНК, перетворившись. Зрештою, будь-який підміниш повинен буде стати двійником когось іншого на станції, живого чи мертвого.
+  Підміниш може змінювати свій вигляд, роблячи його схожим і звучачим точно так само, як жертва, яку він поглинув. Це може бути величезним компромісом у безпеці, особливо якщо поглинуто командний склад, і підміниш може їх імітувати.
+  Підміниші також можуть, за допомогою своєї здібності меншої форми, перетворюватися на мавп і робити мавпячі справи.
 
-  ### Regeneration
-  Also known as Regenerative Stasis, changelings have the ability to 'kill' themselves, and appear dead. After an uncertain amount of time, the changeling can revive at will, fully healed of all injuries and illness.
-  Entering stasis will start a timer that scales with damage taken, and leaving will cost 30 chemicals. Chemicals will still regenerate while a changeling is dead.
+  ### Регенерація
+  Також відома як Регенеративний стазис, підміниші мають здатність "вбивати" себе і виглядати мертвими. Через невизначений проміжок часу підміниш може ожити за бажанням, повністю зцілившись від усіх травм і хвороб.
+  Вхід у стазис запустить таймер, який залежить від отриманої шкоди, а вихід коштуватиме 30 хімікатів. Хімікати все ще будуть регенерувати, поки підміниш мертвий.
 
-  Changelings can also choose to revive by defibrillator, making it even harder to tell if they are one or not.
+  Підміниші також можуть вибрати відродження за допомогою дефібрилятора, що робить ще важчим визначення, чи є вони ними.
 
-  This makes them nigh-unkillable, as they can fully regenerate themselves even from death if they have enough chemicals. Spaced changelings may also be able to make it back on station given enough time. The best way to permanently deal with a changeling is to cremate them, put them on mining colonies or in solitary confinement.
+  Це робить їх майже невбивними, оскільки вони можуть повністю регенерувати себе навіть після смерті, якщо у них достатньо хімікатів. Підміниші, що опинилися в космосі, також можуть повернутися на станцію, якщо їм дати достатньо часу. Найкращий спосіб назавжди розправитися з підмінишем — кремувати його, відправити на шахтарські колонії або в одиночну камеру.
 
-  ### Going Solo or Teaming Up
-  Like traitors, changelings operate individually and are in no way obligated to assist each other. It is not required for changelings to even reveal their identity to each other, as it's not uncommon for changelings to backstab each other to remove competition.
-  Even so, [color=red]a coordinated group of changelings is truly a terror to behold[/color].
+  ### Діяти поодинці або в команді
+  Як і зрадники, підміниші діють індивідуально і жодним чином не зобов'язані допомагати один одному. Підмінишам навіть не потрібно розкривати свою особистість один одному, оскільки нерідко підміниші завдають ударів у спину один одному, щоб усунути конкуренцію.
+  Незважаючи на це, [color=red]скоординована група підмінишів — це справжній жах[/color].
 
-  ## Identifying a changeling
-  Changelings have a different blood type. Even if a changeling is pretending to be a diona, vox or a moth person, they have one blood type.
-  Also, when put in a centrifuge, the changeling's blood reacts violently.
-  You cannot identify changelings in any other possible way, unless they're dead obvious and start going loud.
+  ## Ідентифікація підміниша
+  У підмінишів інша група крові. Навіть якщо підміниш прикидається діоною, воксом або людиною-метеликом, у них одна група крові.
+  Також, при приміщенні в центрифугу, кров підміниша бурхливо реагує.
+  Ви не можете ідентифікувати підмінишів будь-яким іншим можливим способом, якщо тільки вони не є очевидними і не починають діяти голосно.
 
-  ## Your true weakness...
-  [color=orange]Kill it with fire![/color]
-  - While on fire, they are [color=red]unable to use or toggle most of their combat, defensive and utility oriented abilities.[/color]
-  - Changelings also suffer a massive reduction to their chemical generation, being [color=red]reduced to a 1/4 of its current amount[/color] when on fire!
+  ## Ваша справжня слабкість...
+  [color=orange]Вбийте його вогнем![/color]
+  - Перебуваючи у вогні, вони [color=red]не можуть використовувати або перемикати більшість своїх бойових, захисних та утилітарних здібностей.[/color]
+  - Підміниші також зазнають значного зниження генерації хімікатів, яка [color=red]зменшується до 1/4 від поточної кількості[/color] у вогні!
 
-  [textlink="Learn about the changeling abilities." link="ChangelingsAbilities"]
+  [textlink="Дізнайтеся про здібності підміниша." link="ChangelingsAbilities"]
 </Document>

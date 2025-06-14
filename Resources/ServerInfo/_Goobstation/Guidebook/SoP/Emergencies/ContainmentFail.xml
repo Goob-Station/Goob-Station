@@ -6,16 +6,16 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-# Tesla/Singularity Containment Loose Procedures
-In the event of a tesla or singularity containment failure (aptly named "tesloose" and "singuloose"), the station evac is to be called and the station alert set to [color=#c8a404]Yellow Alert[/color].
+# Процедури при порушенні утримання Тесли/Сингулярності
+У разі збою утримання тесли або сингулярності (влучно названих "теслуз" та "сингулуз"), слід оголосити евакуацію станції та встановити рівень тривоги на станції [color=#c8a404]Жовтий[/color].
 
-1. Attempts to stop the loosed material should be made, if possible, via containment weapons, such as the [bold][italic]Portable Particle Decelerator[/italic][/bold].
+1. Слід докласти зусиль для зупинки випущеного матеріалу, якщо це можливо, за допомогою зброї для утримання, такої як [bold][italic]Портативний сповільнювач частинок[/italic][/bold].
 
-2. Command and Engineering are to do their best at tracking and notifying crew via Communications Channels of the location of the loosed tesla/singularity.
-<Box>It is not required, but vastly recommended of doing so.</Box>
+2. Командування та інженерний відділ повинні докласти всіх зусиль для відстеження та сповіщення екіпажу через канали зв'язку про місцезнаходження випущеної тесли/сингулярності.
+<Box>Це не є обов'язковим, але настійно рекомендується.</Box>
 
-3. Command [bold]must[/bold] open and set EVA Storage to Emergency Access.
+3. Командування [bold]повинно[/bold] відкрити та встановити сховище EVA в режим екстреного доступу.
 
-4. In the event of a complete containment of the loosed material, if the station is relatively undamaged, normal shift activity should resume and the alert should be set to a safe alert.
+4. У разі повного утримання випущеного матеріалу, якщо станція відносно не пошкоджена, звичайна діяльність зміни повинна відновитися, а тривога повинна бути встановлена на безпечний рівень.
 
 </Document>

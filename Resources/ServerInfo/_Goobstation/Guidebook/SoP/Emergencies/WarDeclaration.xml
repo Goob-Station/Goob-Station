@@ -6,24 +6,24 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-# War Declaration Procedures
-In the event of a station-wide war declaration made by enemy forces, the Command should immediately set the station alert to [color=#ba292c]Red Alert[/color].
+# Процедури оголошення війни
+У разі оголошення війни на всій станції ворожими силами, командування повинно негайно встановити тривогу на станції на [color=#ba292c]Червону тривогу[/color].
 
-1. All weapon restrictions are lifted, contraband permitted, and all station personnel should be alerted of this (if not already understood).
-<Box>Station AI, Cyborgs, and Beepsky/Security Bots, should be alerted of this as well.</Box>
+1. Усі обмеження на зброю знімаються, контрабанда дозволена, і весь персонал станції повинен бути про це сповіщений (якщо це ще не зрозуміло).
+<Box>Станційний ШІ, кіборги та біпські/боти безпеки також повинні бути про це сповіщені.</Box>
 
-2. Cargo Department should focus on acquiring as many weapons as possible for station personnel.
+2. Вантажний відділ повинен зосередитися на придбанні якомога більшої кількості зброї для персоналу станції.
 
-3. Cargo Department should focus on acquiring as many materials for the station as possible.
+3. Вантажний відділ повинен зосередитися на придбанні якомога більшої кількості матеріалів для станції.
 
-4. Research Department should focus on fabricating weaponry and technology to aid in station defense.
+4. Дослідницький відділ повинен зосередитися на виготовленні зброї та технологій для допомоги в обороні станції.
 
-5. Erecting barricades and defense points is recommended to all personnel.
+5. Зведення барикад та оборонних пунктів рекомендується всьому персоналу.
 
-6. Command and Security should operate in tandem to secure nuclear devices.
+6. Командування та служба безпеки повинні діяти спільно для забезпечення безпеки ядерних пристроїв.
 
-7. In the event of a successful defense, if the station is relatively undamaged, shift should operate as normal.
+7. У разі успішної оборони, якщо станція відносно не пошкоджена, зміна повинна працювати в звичайному режимі.
 
-8. In the event of the station being extremely damaged, or Command falling and nuclear devices ending up in enemy hands, the evacuation shuttle should be called.
+8. У разі сильного пошкодження станції, або падіння командування та потрапляння ядерних пристроїв до рук ворога, слід викликати евакуаційний шатл.
 
 </Document>

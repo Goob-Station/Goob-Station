@@ -6,47 +6,47 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-# Detective SOP
-This is the list of procedures, responsibilities, and duties of the [color=#ba292c][bold]Detective[/bold][/color] of this station.
+# СОП Детектива
+Це перелік процедур, обов'язків та повноважень [color=#ba292c][bold]Детектива[/bold][/color] цієї станції.
 
 <ColorBox>
   <Box>
-    For the purposes of Alert Escalation: Treat higher alerts as if they are still on the previous alert level. (Yellow Alert is Blue Alert if it was Blue Alert prior.) Furthermore, treat Delta, Gamma, Epsilon, and Violet Alert as Red Alert.
+    Для цілей ескалації тривоги: розглядайте вищі рівні тривоги так, ніби вони все ще перебувають на попередньому рівні. (Жовта тривога - це Синя тривога, якщо до цього була Синя тривога.) Крім того, розглядайте тривоги Дельта, Гамма, Епсилон та Фіолетова як Червону тривогу.
   </Box>
 </ColorBox>
 
-The [color=#ba292c][bold]Detective[/bold][/color] is permitted to carry their shift-start equipment, but should follow escalation laws and leave them holstered on Green Alert.
+[color=#ba292c][bold]Детективу[/bold][/color] дозволяється носити своє обладнання, видане на початку зміни, але він повинен дотримуватися законів ескалації та тримати його в кобурі під час Зеленої тривоги.
 
-## Green Alert
-1. The Detective is permitted to assist Security Officers with all Patrol Duties. This includes stops, searches, and arrests as per the current Alert Code.
-<Box>They should, however, prioritize investigations and the collection of forensic evidence.</Box>
+## Зелена тривога
+1. Детективу дозволяється допомагати офіцерам служби безпеки з усіма патрульними обов'язками. Це включає зупинки, обшуки та арешти відповідно до поточного коду тривоги.
+<Box>Однак він повинен надавати пріоритет розслідуванням та збору судово-медичних доказів.</Box>
 
-2. The Detective is to follow all Standard Operating Procedures as outlined by the Security Officer SOP in regards to stops, searches and arrests as per the current Alert Code.
+2. Детектив повинен дотримуватися всіх Стандартних операційних процедур, викладених у СОП офіцера служби безпеки, щодо зупинок, обшуків та арештів відповідно до поточного коду тривоги.
 
-3. The Detective may carry their Revolver and spare ammunition.
+3. Детектив може носити свій револьвер та запасні набої.
 
-4. The Detective is not permitted to obtain more ammunition without permission from the Captain, Head of Security, and/or Warden.
+4. Детективу не дозволяється отримувати більше набоїв без дозволу капітана, голови служби безпеки та/або наглядача.
 
-5. The Detective is permitted to wear non-Security clothing with permission from the Captain and/or Head of Security for the purpose of undercover investigations.
+5. Детективу дозволяється носити неслужбовий одяг з дозволу капітана та/або голови служби безпеки з метою проведення таємних розслідувань.
 
-6. When not undercover, the Detective must follow the same guidelines as Security Officers for attire, with the exception that their own assigned attire is also acceptable for any of the attire mentioned for Security Officers.
+6. Коли детектив не під прикриттям, він повинен дотримуватися тих самих інструкцій щодо одягу, що й офіцери служби безпеки, за винятком того, що його власний призначений одяг також є прийнятним для будь-якого згаданого одягу для офіцерів служби безпеки.
 
-## Blue Alert
-1. All Guidelines carry over from [color=#388c34]Green Alert[/color].
+## Синя тривога
+1. Усі інструкції переносяться з [color=#388c34]Зеленої тривоги[/color].
 
-2. The Detective may pull aside any suspect for an interrogation during the course of their time in Processing. No detainee is to be held for longer than five (5) minutes in Processing if no evidence against them is readily available.
-<Box>Exceptions may be made for changelings, heretics, and/or revolutionaries.</Box>
+2. Детектив може відвести будь-якого підозрюваного на допит під час його перебування в обробці. Жоден затриманий не повинен утримуватися в обробці довше п'яти (5) хвилин, якщо проти нього немає готових доказів.
+<Box>Винятки можуть бути зроблені для перевертнів, єретиків та/або революціонерів.</Box>
 
-3. The Detective may use their revolver during arrests.
+3. Детектив може використовувати свій револьвер під час арештів.
 
-## Red Alert
-1. Guidelines 1, 2, 3, 4, 5 and 7 carry over from [color=#388c34]Green Alert[/color].
+## Червона тривога
+1. Інструкції 1, 2, 3, 4, 5 та 7 переносяться з [color=#388c34]Зеленої тривоги[/color].
 
-2. Guidelines 2 and 3 carry over from [color=#1b67a5]Blue Alert[/color].
+2. Інструкції 2 та 3 переносяться з [color=#1b67a5]Синьої тривоги[/color].
 
-3. The Detective is permitted to overcharge their energy revolver and freely discharge it when handling deadly threats in accordance with Space Law's ruling on Use of Deadly Force.
+3. Детективу дозволяється перезаряджати свій енергетичний револьвер і вільно стріляти з нього при боротьбі зі смертельними загрозами відповідно до положень Космічного Закону про застосування смертельної сили.
 
-4. The Detective is permitted to carry around any weapons or equipment available in the Armory, at the Captain, Head of Security, and/or Warden's discretion, but never more than one at a time.
-<Box>Exception is made for extreme emergencies, such as Nuclear Operatives, Blob, and/or Delta Alert.</Box>
+4. Детективу дозволяється носити будь-яку зброю або обладнання, наявне в збройовій, на розсуд капітана, голови служби безпеки та/або наглядача, але не більше одного одночасно.
+<Box>Виняток робиться для екстремальних надзвичайних ситуацій, таких як ядерні оперативники, Блоб та/або тривога Дельта.</Box>
 
 </Document>

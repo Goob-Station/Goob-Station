@@ -6,22 +6,22 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-# Station Engineer SOP
-This is the list of procedures, responsibilities, and duties of the [color=#c8a404][bold]Station Engineer[/bold][/color] and [color=#c8a404][bold]Technical Assistant[/bold][/color] of this station.
+# СОП Інженера станції
+Це перелік процедур, обов'язків та повноважень [color=#c8a404][bold]Інженера станції[/bold][/color] та [color=#c8a404][bold]Технічного асистента[/bold][/color] цієї станції.
 
-1. Engineers are responsible for the proper activation and maintenance of the station's engines, alongside maintaining the Stations Power Network.
-<Box>Failure to do so is grounds for termination.</Box>
+1. Інженери відповідають за належну активацію та обслуговування двигунів станції, а також за підтримку енергомережі станції.
+<Box>Невиконання цього є підставою для звільнення.</Box>
 
-2. Engineers are not permitted to construct additional engines (such as additional SM/Tesla/Singularity engines, and/or solar panels) until at least one engine is correctly set up and powering the station.
+2. Інженерам не дозволяється будувати додаткові двигуни (такі як додаткові двигуни на суперматерії/Тесла/сингулярності та/або сонячні панелі), доки принаймні один двигун не буде правильно налаштований та не живитиме станцію.
 
-3. Engineers must check each active engine at least once per 30 minutes to ensure safety and fueling.
+3. Інженери повинні перевіряти кожен активний двигун щонайменше раз на 30 хвилин для забезпечення безпеки та заправки.
 
-4. Engineers are permitted to carry out solo reconstruction/rebuilding/personal projects if there is no damage to the station that requires fixing.
-<Box>Large projects require approval from Captain and/or Chief Engineer. Resources must be accounted for and not deprived from other Departments.</Box>
+4. Інженерам дозволяється виконувати сольні проекти з реконструкції/відбудови/особисті проекти, якщо на станції немає пошкоджень, які потребують ремонту.
+<Box>Великі проекти потребують схвалення капітана та/або головного інженера. Ресурси повинні бути враховані та не відбиратися в інших відділів.</Box>
 
-5. Engineers must promptly respond to breaches within fifteen (15) minutes, and may hack doors to gain access should the location need repairs.
-<Box>All hazard zones must be cordoned off with Holofans or barriers.</Box>
+5. Інженери повинні оперативно реагувати на прориви протягом п'ятнадцяти (15) хвилин і можуть зламувати двері для отримання доступу, якщо місце потребує ремонту.
+<Box>Усі небезпечні зони повинні бути огороджені голо-вентиляторами або бар'єрами.</Box>
 
-6. Engineers are required to respond to any emergency requested by Security/Command for perma brig, bridge, brig, etc. immediately.
+6. Інженери зобов'язані негайно реагувати на будь-які надзвичайні ситуації, що вимагаються службою безпеки/командуванням для постійного карцеру, мостика, карцеру тощо.
 
 </Document>

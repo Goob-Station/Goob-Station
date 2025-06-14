@@ -6,44 +6,44 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Station Alert - Blue
+  # Тривога на станції - Синя
 
   <Box>
-    [italic]Called by: Anyone with Command-Level Access at a working Communications Console.[/italic]
+    [italic]Викликається: будь-ким з доступом на рівні командування на робочій консолі зв'язку.[/italic]
   </Box>
 
-  [bold]Conditions:[/bold]
+  [bold]Умови:[/bold]
 
-  There is a suspected threat on-board the station, or at a nearby location in space. This includes any signs of hostile activity that have not caused any damage to station or crew, but nonetheless seem present.
+  На борту станції або поблизу в космосі є підозра на загрозу. Це включає будь-які ознаки ворожої активності, які не завдали шкоди станції або екіпажу, але, тим не менш, здаються присутніми.
 
-  [italics]Minor threats such as thieves, bar fights, and non-violent protests are not credible enough threats to elevate alert level to blue.
+  [italics]Незначні загрози, такі як злодії, бійки в барі та ненасильницькі протести, не є достатньо серйозними загрозами для підвищення рівня тривоги до синього.
 
-  [bold]OR[/bold]
+  [bold]АБО[/bold]
 
-  Confirmed Code Red threats have been properly handled or subsided on their own. It is recommended that, after 10+ minutes on Code Red without any hostile activity, Code Blue be called.
+  Підтверджені загрози червоного коду були належним чином усунені або вщухли самі по собі. Рекомендується, щоб після 10+ хвилин на червоному коді без будь-якої ворожої активності було оголошено синій код.
 
-  [bold]Security:[/bold]
+  [bold]Безпека:[/bold]
 
-  Weapons do not need to be holstered. However, it is recommended that Security personnel follow Security SOP in order to prevent accidents and to be fully aware of armament procedure;
+  Зброю не потрібно ховати в кобуру. Однак рекомендується, щоб персонал служби безпеки дотримувався СОП служби безпеки, щоб запобігти нещасним випадкам і бути повністю обізнаним з процедурою озброєння;
 
-  Random searches are fully permitted. Security personnel may detain any personnel refusing a random search in order to conduct said search;
+  Вибіркові обшуки повністю дозволені. Персонал служби безпеки може затримувати будь-якого співробітника, який відмовляється від вибіркового обшуку, для проведення зазначеного обшуку;
 
-  [bold]Secure Areas:[/bold]
+  [bold]Безпечні зони:[/bold]
 
-  EVA Storage, Tech Storage, Gravity Generator, Engineering Secure Storage, AI Upload, Vault, Gateway, anywhere else requiring command level access that does not get regularly used.
+  Сховище EVA, технічне сховище, генератор гравітації, інженерне безпечне сховище, завантаження ШІ, сховище, шлюз, будь-де ще, що вимагає доступу на рівні командування, яке не використовується регулярно.
 
-  It is recommended that all Secure Areas be bolted down unless their use is necessary;
+  Рекомендується, щоб усі безпечні зони були заблоковані, якщо їх використання не є необхідним;
 
-  Excursions into the Gateway are not recommended, unless they are rescue parties.
+  Екскурсії в шлюз не рекомендуються, якщо це не рятувальні групи.
 
-  [bold]General Crew:[/bold]
+  [bold]Загальний екіпаж:[/bold]
 
-  All personnel are highly recommended to maximize their Suit Sensors;
+  Усьому персоналу настійно рекомендується максимально використовувати свої датчики костюмів;
 
-  Personnel are to report any suspicious activity to the nearest member of Security, or use their PDA or headsets if required;
+  Персонал повинен повідомляти про будь-яку підозрілу активність найближчому співробітнику служби безпеки або використовувати свій КПК чи гарнітуру, якщо це необхідно;
 
-  Personnel are highly encouraged to exercise caution, even if the threat is only suspected. Following simple safety procedures (such as not going through Maintenance alone) can prevent needless accidents;
+  Персоналу настійно рекомендується проявляти обережність, навіть якщо загроза лише підозрюється. Дотримання простих процедур безпеки (наприклад, не ходити поодинці через технічне обслуговування) може запобігти непотрібним нещасним випадкам;
 
-  Visitors to the station (anyone with Civilian-level access) are recommended to stay in public areas, for their safety.
+  Відвідувачам станції (будь-кому з доступом на цивільному рівні) рекомендується залишатися в громадських місцях для їхньої безпеки.
 
 </Document>

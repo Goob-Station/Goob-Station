@@ -6,64 +6,64 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-# Officer/Cadet SOP
-This is the list of procedures, responsibilities, and duties of the [color=#ba292c][bold]Security Officer[/bold][/color] and [color=#ba292c][bold]Security Cadet[/bold][/color] of this station.
+# СОП Офіцера/Кадета
+Це перелік процедур, обов'язків та повноважень [color=#ba292c][bold]Офіцера служби безпеки[/bold][/color] та [color=#ba292c][bold]Кадета служби безпеки[/bold][/color] цієї станції.
 
 <ColorBox>
   <Box>
-    For the purposes of Alert Escalation: Treat higher alerts as if they are still on the previous alert level. (Yellow Alert is Blue Alert if it was Blue Alert prior.) Furthermore, treat Delta, Gamma, Epsilon, and Violet Alert as Red Alert.
+    Для цілей ескалації тривоги: розглядайте вищі рівні тривоги так, ніби вони все ще перебувають на попередньому рівні. (Жовта тривога - це Синя тривога, якщо до цього була Синя тривога.) Крім того, розглядайте тривоги Дельта, Гамма, Епсилон та Фіолетова як Червону тривогу.
   </Box>
 </ColorBox>
 
-[color=#ba292c][bold]Security Officer[/bold][/color]s are permitted to carry their shift-start pistols, but should follow escalation laws and leave them holstered on Green Alert.
+[color=#ba292c][bold]Офіцерам служби безпеки[/bold][/color] дозволяється носити свої пістолети, видані на початку зміни, але вони повинні дотримуватися законів ескалації та тримати їх у кобурі під час Зеленої тривоги.
 
-## Green Alert
-1. Security Officers are required to state the reasons behind an arrest before any further action is taken.
-<Box>Exception is made if the suspect refuses to stop.</Box>
+## Зелена тривога
+1. Офіцери служби безпеки зобов'язані вказувати причини арешту перед вжиттям будь-яких подальших дій.
+<Box>Виняток робиться, якщо підозрюваний відмовляється зупинитися.</Box>
 
-2. Security Officers must attempt to bring all suspects or witnesses to the Brig without handcuffing or incapacitating them. Should the suspect not cooperate, the officer may proceed as usual.
+2. Офіцери служби безпеки повинні намагатися доставити всіх підозрюваних або свідків до карцеру без наручників або знерухомлення. Якщо підозрюваний не співпрацює, офіцер може діяти як зазвичай.
 
-3. No lethal weaponry is to be unholstered unless the suspect attempts to run away or becomes actively hostile.
+3. Жодна летальна зброя не повинна бути вийнята з кобури, якщо підозрюваний не намагається втекти або не стає активно ворожим.
 
-4. Security Officers are permitted to carry a standard disabler, a flashbang, a stunbaton, and a combat knife (which should be in their jackboots in their lockers).
+4. Офіцерам служби безпеки дозволяється носити стандартний дизейблер, світлошумову гранату, електрошокер та бойовий ніж (який повинен знаходитися в їхніх чоботях у шафках).
 
-5. Security Officers may not demand access to the interior of other Departments during regular patrols. However, asking for access from the Head of Personnel is still acceptable.
-<Box>Exceptions apply when a hostile suspect is within an inaccessible area.</Box>
+5. Офіцери служби безпеки не можуть вимагати доступу до внутрішніх приміщень інших відділів під час звичайного патрулювання. Однак, просити доступу у голови персоналу все ще прийнятно.
+<Box>Винятки застосовуються, коли ворожий підозрюваний знаходиться в недоступній зоні.</Box>
 
-6. Security officers are not permitted to have weapons drawn during regular patrols.
-<Box>Refer to escalation rules for necessary use of duty-start pistols.</Box>
+6. Офіцерам служби безпеки не дозволяється мати зброю напоготові під час звичайного патрулювання.
+<Box>Зверніться до правил ескалації щодо необхідного використання пістолетів, виданих на початку зміни.</Box>
 
-7. Security officers are permitted to conduct searches, provided there is reasonable evidence/suspicion that the person in question has committed a crime.
-<Box>Any further searches require a warrant from the Captain and/or Head of Security.</Box>
+7. Офіцерам служби безпеки дозволяється проводити обшуки за наявності обґрунтованих доказів/підозр у скоєнні злочину відповідною особою.
+<Box>Будь-які подальші обшуки вимагають ордера від капітана та/або голови служби безпеки.</Box>
 
-8. Security Officers are required to wear at least one (1) identifiable and visible piece of security equipment on their person at all times.
-<Box>Acceptable items are: any security jumpsuit, any security armor, any security jacket or security winter coat, any security helmet or headwear.</Box>
+8. Офіцери служби безпеки зобов'язані носити при собі щонайменше один (1) ідентифікований та видимий елемент екіпірування служби безпеки в будь-який час.
+<Box>Прийнятні предмети: будь-який комбінезон служби безпеки, будь-яка броня служби безпеки, будь-яка куртка або зимове пальто служби безпеки, будь-який шолом або головний убір служби безпеки.</Box>
 
-## Blue Alert
-1. Guidelines 1, 2, 4 and 8 are carried over from [color=#388c34]Green Alert[/color].
+## Синя тривога
+1. Інструкції 1, 2, 4 та 8 переносяться з [color=#388c34]Зеленої тривоги[/color].
 
-2. Security Officers are permitted to carry around any weapons or equipment available in the Armory, at the Warden's discretion, but never more than one at a time.
-<Box>Exception is made for extreme emergencies, such as Nuclear Operatives, Blob, and/or Delta Alert.</Box>
+2. Офіцерам служби безпеки дозволяється носити будь-яку зброю або обладнання, наявне в збройовій, на розсуд наглядача, але не більше одного одночасно.
+<Box>Виняток робиться для екстремальних надзвичайних ситуацій, таких як ядерні оперативники, Блоб та/або тривога Дельта.</Box>
 
-3. Security Officers are permitted to carry weapons in hand during regular patrols, although this is not advised.
+3. Офіцерам служби безпеки дозволяється носити зброю в руках під час звичайного патрулювання, хоча це не рекомендується.
 
-4. Security Officers are permitted to present weapons during arrests.
-<Box>Security Officers must priorize non-lethal takedowns unless the suspect/wanted personnel is hostile and/or continuously evading arrest (over extended periods of time).</Box>
+4. Офіцерам служби безпеки дозволяється пред'являти зброю під час арештів.
+<Box>Офіцери служби безпеки повинні надавати пріоритет нелетальним методам затримання, якщо підозрюваний/розшукуваний персонал не є ворожим та/або постійно не ухиляється від арешту (протягом тривалого часу).</Box>
 
-5. Security Officers may demand entry to specific Departments during regular patrols.
+5. Офіцери служби безпеки можуть вимагати входу до певних відділів під час звичайного патрулювання.
 
-6. Security Officers may randomly search crewmembers, but are not allowed to apply any degree of force unless said crewmember acts overtly hostile.
-<Box>Station Personnel who refuse to be searched may be stunned and cuffed for the search.</Box>
+6. Офіцери служби безпеки можуть випадково обшукувати членів екіпажу, але їм не дозволяється застосовувати будь-яку силу, якщо зазначений член екіпажу не діє відверто вороже.
+<Box>Персонал станції, який відмовляється від обшуку, може бути оглушений та закутий у наручники для проведення обшуку.</Box>
 
-7. Security Officers are permitted to leave prisoners bucklecuffed should they act hostile.
+7. Офіцерам служби безпеки дозволяється залишати ув'язнених прикутими наручниками, якщо вони поводяться вороже.
 
-## Red Alert
-1. Guidelines 2, 3, 4, 5, 6, and 7 are carried over from [color=#1b67a5]Blue Alert[/color].
+## Червона тривога
+1. Інструкції 2, 3, 4, 5, 6 та 7 переносяться з [color=#1b67a5]Синьої тривоги[/color].
 
-2. Guideline 8 is carried over from [color=#388c34]Green Alert[/color].
+2. Інструкція 8 переноситься з [color=#388c34]Зеленої тривоги[/color].
 
-3. Security Officers may arrest crewmembers with no stated reason if there is evidence they are involved in criminal activities.
+3. Офіцери служби безпеки можуть заарештовувати членів екіпажу без зазначення причини, якщо є докази їхньої причетності до злочинної діяльності.
 
-4. Security Officers may forcefully relocate crewmembers to their respective Departments if necessary.
+4. Офіцери служби безпеки можуть примусово переміщати членів екіпажу до їхніх відповідних відділів за необхідності.
 
 </Document>

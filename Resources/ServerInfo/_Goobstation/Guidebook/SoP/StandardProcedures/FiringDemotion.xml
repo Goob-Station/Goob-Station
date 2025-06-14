@@ -6,54 +6,54 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-# Dismissal/Demotion Policies
-These are the policies/procedures that should be followed when dismissing or demoting personnel from a position.
+# Політика звільнення/пониження
+Це політики/процедури, яких слід дотримуватися при звільненні або пониженні персоналу з посади.
 
-1. In the event of a full dismissal from a position, the personnel should have their ID marked as "Terminated" and set to an Assistant in terms of accesses (only Maintenance).
-<Box>[bullet/]Extra access should not be permitted except for special cases with approval from Captain or a relevant Head of Staff (when giving access to a Department).</Box>
-<Box>[bullet/]If dismissed by Central Command orders, authorization for extra access should be given by Central Command.</Box>
+1. У разі повного звільнення з посади, у посвідченні особи персоналу має бути позначка "Звільнено" та встановлено рівень доступу асистента (лише технічне обслуговування).
+<Box>[bullet/]Додатковий доступ не дозволяється, за винятком особливих випадків за згодою капітана або відповідного керівника відділу (при наданні доступу до відділу).</Box>
+<Box>[bullet/]Якщо звільнення відбувається за наказом Центрального командування, дозвіл на додатковий доступ має надаватися Центральним командуванням.</Box>
 
-2. In the event of a demotion, the relevant Head of Staff must choose whether to demote them to a lower rank in the Department or have them transferred to a Service position (with HoP approval).
-<Box>[bullet/]It is recommended that the personnel, when demoted out of a Department, be granted access to a Service job of their choice, or demoted to an Assistant (and marked as such).</Box>
+2. У разі пониження, відповідний керівник відділу повинен вирішити, чи понизити їх до нижчого рангу у відділі, чи перевести на посаду в службі (за згодою голови персоналу).
+<Box>[bullet/]Рекомендується, щоб персонал, понижений з посади у відділі, отримав доступ до роботи в службі за власним вибором, або був понижений до асистента (з відповідною позначкою).</Box>
 
-3. Dismissals and Demotions should not be performed without authorization from the relevant Head of Staff or Captain; unless specified by orders from Central Command or immense violations of Space Law.
-<Box>[bullet/]In such cases of immense violations of Space Law, the perpetrator must have committed serious crimes and/or actively be punished with Perma Brig.</Box>
+3. Звільнення та пониження не повинні проводитися без дозволу відповідного керівника відділу або капітана; якщо інше не зазначено в наказах Центрального командування або у випадках значних порушень космічного законодавства.
+<Box>[bullet/]У таких випадках значних порушень космічного законодавства, порушник повинен скоїти серйозні злочини та/або бути покараним довічним ув'язненням.</Box>
 
-4. Personnel that are dismissed or demoted by a Head of Staff or Authoritative Personnel must report to Head of Personnel for dismissal/demotion. Failure to do so will result in legal authority to detain with force.
+4. Персонал, звільнений або понижений керівником відділу або уповноваженою особою, повинен з'явитися до голови персоналу для оформлення звільнення/пониження. Невиконання цієї вимоги призведе до законного права на затримання із застосуванням сили.
 
-5. Personnel that are dismissed or demoted are considered trespassing in areas they would no longer have access. Any materials kept from areas are considered contraband (if listed as such) and should be turned in.
-<Box>[bullet/]Personnel are allowed to keep items not listed as contraband, but should not inhibit the Department.</Box>
+5. Персонал, який був звільнений або понижений, вважається таким, що незаконно перебуває в зонах, до яких він більше не має доступу. Будь-які матеріали, взяті з цих зон, вважаються контрабандою (якщо вони вказані як такі) і повинні бути здані.
+<Box>[bullet/]Персоналу дозволяється залишати собі предмети, які не є контрабандою, але це не повинно заважати роботі відділу.</Box>
 
-## Causes for Dismissal or Demotion
-1. Any [bold]major[/bold] breach of Standard Operating Procedure without propable cause.
+## Причини для звільнення або пониження
+1. Будь-яке [bold]серйозне[/bold] порушення стандартних операційних процедур без поважної причини.
 
-2. Any [bold]major[/bold] breach of Space Law (and detained for such crimes).
+2. Будь-яке [bold]серйозне[/bold] порушення космічного законодавства (і затримання за такі злочини).
 
-3. Unreasonable/Major Incompetence in current position.
+3. Необґрунтована/значна некомпетентність на поточній посаді.
 
-4. Refusal to follow legal/relevant orders from respective Head of Staff or Captain.
-<Box>[bullet/]Legality and relevance of the order must be decided by Captain or Head of Personnel</Box>
+4. Відмова виконувати законні/відповідні накази від відповідного керівника відділу або капітана.
+<Box>[bullet/]Законність та доречність наказу повинні вирішуватися капітаном або головою персоналу</Box>
 
-5. Creation of an abusive, dangerous, and/or unsafe work environment. Written approval for dangerous creations must be approved by respective Head of Staff or Captain.
-<Box>[bullet/]Abusive environments include berating, insulting, belittling, or otherwise treating coworkers like dirt.</Box>
+5. Створення образливого, небезпечного та/або небезпечного робочого середовища. Письмовий дозвіл на небезпечні творіння має бути затверджений відповідним керівником відділу або капітаном.
+<Box>[bullet/]Образливе середовище включає в себе лайку, образи, приниження або інше поводження з колегами як з брудом.</Box>
 
-## Vote of No Confidence
-A [italic]Vote of No Confidence[/italic] is a method for crew members to arrange for the removal of a Command Personnel (barring Central Command personnel). It must be justified with reasoning found below.
+## Вотум недовіри
+[italic]Вотум недовіри[/italic] - це метод, за допомогою якого члени екіпажу можуть організувати усунення командного персоналу (за винятком персоналу Центрального командування). Він повинен бути обґрунтований причинами, наведеними нижче.
 
-1. Voting must be verified by a third party who can tally the votes and verify the validity (this should usually be Central Command personnel, such as NTR).
-<Box>[bullet/]The third party must be on-station. The third party should be the Captain if they are not the target in question.</Box>
+1. Голосування має бути перевірено третьою стороною, яка може підрахувати голоси та перевірити їх дійсність (зазвичай це має бути персонал Центрального командування, наприклад, NTR).
+<Box>[bullet/]Третя сторона повинна бути на станції. Третьою стороною повинен бути капітан, якщо він не є об'єктом розгляду.</Box>
 
-2. If the third party dismisses the vote, for any reason, the individual must be treated as if it had not happened. They maintain their authority.
-<Box>[bullet/]In cases of a tie or understaffed environments, the third party may participate in the vote.</Box>
+2. Якщо третя сторона відхиляє голосування з будь-якої причини, до особи слід ставитися так, ніби нічого не сталося. Вона зберігає свої повноваження.
+<Box>[bullet/]У разі нічиєї або в умовах недостатньої кількості персоналу, третя сторона може брати участь у голосуванні.</Box>
 
-3. Votes by Departmental crew against the Head of Staff must pass with majority in the Department (2/3rd majority in favor).
+3. Голосування екіпажу відділу проти керівника відділу має пройти більшістю голосів у відділі (більшість у 2/3 голосів "за").
 
-4. Votes by Heads of Staff against Captain must be in majority favor.
+4. Голосування керівників відділів проти капітана має бути на користь більшості.
 
-5. If a Command member is dismissed or demoted by a vote, Central Command must be informed (included any Central Command on station) with voting details included (personnel, reasoning, vote tally).
+5. Якщо члена командування звільнено або понижено шляхом голосування, Центральне командування має бути поінформоване (включаючи будь-яке Центральне командування на станції) з деталями голосування (персонал, обґрунтування, підрахунок голосів).
 
-6. Valid reasons include, but are not limited to: 'Causes for Dismissal or Demotion', Absent/SSD (for extended periods), Critical Lack of Communication, Abuse of Authority, Incompetence, et cetera.
+6. Вагомі причини включають, але не обмежуються: "Причини для звільнення або пониження", відсутність/SSD (протягом тривалого часу), критична відсутність комунікації, зловживання владою, некомпетентність тощо.
 
-7. Invalid reasons include, but are not limited to: Personal Gripes, Reasonable Dismissal/Demotion of Personnel, Denial of Permission, et cetera.
+7. Невагомі причини включають, але не обмежуються: особисті образи, обґрунтоване звільнення/пониження персоналу, відмова в дозволі тощо.
 
 </Document>

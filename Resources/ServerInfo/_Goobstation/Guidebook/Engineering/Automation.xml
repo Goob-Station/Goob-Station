@@ -1,120 +1,120 @@
 <Document>
-<GuideEntityEmbed Entity="RoboticArm" Caption="The factory must grow."/>
+<GuideEntityEmbed Entity="RoboticArm" Caption="Фабрика повинна рости."/>
 
-On goob many machines and processes can be automated.
+На goob багато машин і процесів можна автоматизувати.
 
-The first step is getting science to unlock [bold]Industrial Engineering[/bold] which unlocks everything you need.
+Першим кроком є отримання в науці [bold]Промислової інженерії[/bold], яка розблоковує все, що вам потрібно.
 
-If you have played with Factorio or the Create mod you will be familiar with how it works.
+Якщо ви грали в Factorio або мод Create, ви будете знайомі з тим, як це працює.
 
-## Robotic Arm
+## Роботизована рука
 
 <GuideEntityEmbed Entity="RoboticArm"/>
 
-The main workhorse for automation, it moves items from an input to an output.
+Основний робочий кінь для автоматизації, він переміщує предмети з входу на вихід.
 
-Without any configuration, it will work with items on the floor infront of it and behind it.
+Без будь-якої конфігурації він працюватиме з предметами на підлозі перед ним і за ним.
 
-[bold]Use a multitool[/bold] to link its input and output machine to [bold]automated machines[/bold].
-Any signal port that starts with "Item:" is compatible.
+[bold]Використовуйте мультитул[/bold], щоб підключити його вхідну та вихідну машину до [bold]автоматизованих машин[/bold].
+Будь-який сигнальний порт, що починається з "Item:", сумісний.
 
-It has a [italic]Moved[/italic] signal port which is invoked after an item is moved to the output.
+Він має сигнальний порт [italic]Moved[/italic], який викликається після переміщення предмета на вихід.
 
-## Automated Machines
+## Автоматизовані машини
 
-A variety of machines can be automated by installing an [bold]Automation Upgrade[/bold] on them.
+Різноманітні машини можна автоматизувати, встановивши на них [bold]Оновлення автоматизації[/bold].
 
-This can unlock:
-- signal ports to control the machine by linking it to buttons, logic gates, etc.
-- signal ports that get invoked when the machine does something, like a disposal unit being ready to flush
-- item automation ports for the [bold]robotic arm[/bold] to use
-- a combination of both
+Це може розблокувати:
+- сигнальні порти для керування машиною, підключаючи її до кнопок, логічних вентилів тощо.
+- сигнальні порти, які викликаються, коли машина щось робить, наприклад, коли сміттєпровід готовий до змиву
+- порти автоматизації предметів для використання [bold]роботизованою рукою[/bold]
+- комбінацію обох
 
-Here is every machine that accepts automation upgrades:
+Ось кожна машина, яка приймає оновлення автоматизації:
 
 <GuideAutomationSlotsEmbed/>
 
-## Storage Bin
+## Контейнер для зберігання
 
 <GuideEntityEmbed Entity="StorageBin"/>
 
-A large gridinv storage that can be accessed by robotic arms by default.
+Велике сховище з сіткою, до якого роботизовані руки можуть отримати доступ за замовчуванням.
 
-It has a filter slot to control what items can be inserted, similar to a belt whitelist.
+Він має слот для фільтра для контролю того, які предмети можна вставляти, подібно до білого списку на конвеєрі.
 
-A good use of this is stacking up items and then extracting them in chunks with a stack filter robotic arm.
+Хорошим використанням цього є складання предметів, а потім вилучення їх частинами за допомогою роботизованої руки з фільтром стопок.
 
-## Interactor
+## Інтерактор
 
 <GuideEntityEmbed Entity="Interactor"/>
 
-This simulates left click interactions with its held item on an entity infront of it.
-If no item is held it's like pressing E, to open a door/crate, picking up an item, etc.
+Це симулює взаємодію лівою кнопкою миші з утримуваним предметом на сутності перед ним.
+Якщо предмет не утримується, це схоже на натискання E, щоб відкрити двері/ящик, підняти предмет тощо.
 
-It stores its tool in an actual hand so you can swap it out with the strip menu by pressing E on it.
+Він зберігає свій інструмент у справжній руці, тому ви можете замінити його за допомогою меню роздягання, натиснувши на нього E.
 
-A filter slot is used to change what entities it will interact with. Using a proper filter is essential as it will only try to interact with 1 item.
-It will search for [bold]any entity[/bold] without a filter, even things like conveyors or puddles! Use filters.
+Слот для фільтра використовується для зміни сутностей, з якими він буде взаємодіяти. Використання належного фільтра є важливим, оскільки він намагатиметься взаємодіяти лише з 1 предметом.
+Він буде шукати [bold]будь-яку сутність[/bold] без фільтра, навіть такі речі, як конвеєри або калюжі! Використовуйте фільтри.
 
-It has 4 signal ports:
-- Start, used to try interacting with something
-- Auto Start, when enabled it will automatically try to interact after a successful interaction
-- Started, invoked if the interaction starts a doafter
-- Completed, invoked on interaction success OR when the doafter ends
-- Failed, invoked if it could not interact with anything
+Він має 4 сигнальні порти:
+- Start, використовується для спроби взаємодії з чимось
+- Auto Start, коли увімкнено, він автоматично намагатиметься взаємодіяти після успішної взаємодії
+- Started, викликається, якщо взаємодія починає doafter
+- Completed, викликається при успішній взаємодії АБО коли закінчується doafter
+- Failed, викликається, якщо він не зміг взаємодіяти ні з чим
 
-## Constructor
+## Конструктор
 
 <GuideEntityEmbed Entity="Constructor"/>
 
-This will construct new objects like you would in the G menu, click it to select which thing to craft.
-It will only complete the first step, [bold]use interactors to finish multi-step constructions[/bold].
-Construction ghosts and created items both get placed infront of it.
+Це буде створювати нові об'єкти, як ви б робили в меню G, натисніть на нього, щоб вибрати, що створювати.
+Він виконає лише перший крок, [bold]використовуйте інтерактори для завершення багатоетапних конструкцій[/bold].
+Привиди конструкцій та створені предмети розміщуються перед ним.
 
-Input items are taken from the floor nearby as well as its internal storage, which doubles as a storage bin.
+Вхідні предмети беруться з підлоги поблизу, а також з його внутрішнього сховища, яке також слугує контейнером для зберігання.
 
-It has the same ports as an Interactor.
+Він має ті ж порти, що й Інтерактор.
 
-## Filters
+## Фільтри
 
-Filters can be inserted into robotic arms and storage bins to restrict what items they can move and store respectively.
+Фільтри можна вставляти в роботизовані руки та контейнери для зберігання, щоб обмежити, які предмети вони можуть переміщувати та зберігати відповідно.
 
-Craft them by hand in the [bold]G menu[/bold] and click them into machines to insert them.
+Створюйте їх вручну в [bold]меню G[/bold] і вставляйте їх у машини, клацаючи по них.
 
 <Box>
 <GuideEntityEmbed Entity="AutomationFilterName"/>
-The name filter searches an item's name in some way.
-For example, if you set it to check that an item [italic]contains[/italic] "sheet", it will match steel sheets, glass sheets, etc.
+Фільтр за назвою шукає назву предмета певним чином.
+Наприклад, якщо ви встановите його на перевірку, що предмет [italic]містить[/italic] "лист", він буде відповідати сталевим листам, скляним листам тощо.
 </Box>
 
 <Box>
 <GuideEntityEmbed Entity="AutomationFilterLabel"/>
-The label filter requires items to have an exact matching label.
-Use a hand labeler on items to have them picked up.
+Фільтр за міткою вимагає, щоб предмети мали точну відповідну мітку.
+Використовуйте ручний маркувальник на предметах, щоб їх можна було підібрати.
 </Box>
 
 <Box>
 <GuideEntityEmbed Entity="AutomationFilterStack"/>
-The stack filter controls how it interacts with stacks.
-The minimum stack size is a simple minimum, if an item doesn't have that much in a stack it won't be used.
-Out chunk size limits how many of a stack can be taken. Only a whole multiple of this size will be taken out.
-[italic]For example, a chunk size of 5 on stacks of 6, 10, 14 and 15 will take 5, 10, 10 and 15 respectively.[/italic]
+Фільтр стопок контролює, як він взаємодіє зі стопками.
+Мінімальний розмір стопки — це простий мінімум, якщо предмет не має такої кількості в стопці, він не буде використовуватися.
+Розмір вихідної частини обмежує, скільки зі стопки можна взяти. Буде взято лише ціле кратне цьому розміру.
+[italic]Наприклад, розмір частини 5 на стопках 6, 10, 14 і 15 візьме 5, 10, 10 і 15 відповідно.[/italic]
 </Box>
 
 <Box>
 <GuideEntityEmbed Entity="AutomationFilterCombined"/>
-The combined filter stores 2 filters inside it and uses a logic gate to control how they function.
-By default it will allow any item that passes either filter (an OR gate).
-It supports all the same operations that logic gate items do.
-These can be nested for arbitrarily complex filters!
+Комбінований фільтр зберігає 2 фільтри всередині та використовує логічний вентиль для контролю їх функціонування.
+За замовчуванням він дозволить будь-який предмет, який проходить будь-який фільтр (вентиль АБО).
+Він підтримує всі ті ж операції, що й логічні вентилі.
+Їх можна вкладати для довільно складних фільтрів!
 </Box>
 
-## Transport
+## Транспорт
 
-Conveyor belts are an obvious way to transport items around as they allow machines to pick up from them.
+Конвеєрні стрічки є очевидним способом транспортування предметів, оскільки вони дозволяють машинам забирати з них предмети.
 
-For higher speed you can use automated disposal units to flush items around.
+Для вищої швидкості ви можете використовувати автоматизовані сміттєпроводи для переміщення предметів.
 
-For long-range space transport you can use Containment Field + Disposal Unit cannons to fire items precisely.
+Для далекого космічного транспорту ви можете використовувати гармати з Поля утримання + Сміттєпроводу для точного пострілу предметів.
 
 </Document>

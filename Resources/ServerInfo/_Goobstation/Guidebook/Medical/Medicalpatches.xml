@@ -9,39 +9,39 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-# Patches
+# Пластирі
 
-Patches are a simple and effective way to administer medication to a patient over time with lower risk of an overdose.
-They can be made at a medical techfab and filled via a ChemMaster. They can be directly applied to a patient and will fall off by themselves once empty.
+Пластирі — це простий та ефективний спосіб введення ліків пацієнту з часом з меншим ризиком передозування.
+Їх можна виготовити в медичному техфабі та заправити за допомогою ChemMaster. Їх можна безпосередньо накладати на пацієнта, і вони самі відпадуть, коли спорожніють.
 
 <GuideEntityEmbed Entity="MedicalPatchBasic" Rotation="0"/>
 
-There are 6 types of patches:
-- Basic
-- Rapid
-- Large
-- Therapeutic
-- Prefilled
-- Makeshift
+Існує 6 типів пластирів:
+- Звичайний
+- Швидкий
+- Великий
+- Терапевтичний
+- Попередньо заповнений
+- Саморобний
 
-## Basic
-The (basic) patch holds 40 units of chemicals and transfers 1 unit every second.
+## Звичайний
+(Звичайний) пластир містить 40 одиниць хімікатів і передає 1 одиницю щосекунди.
 
-## Rapid
-The rapid patch holds 40 units and transfers 2 units every second.
+## Швидкий
+Швидкий пластир містить 40 одиниць і передає 2 одиниці щосекунди.
 
-## Large
-The large patch holds 60 units and transfers 1 unit every second.
-However, the large patch also transfers 15% of its chemicals immediately when applied (10 units if full).
+## Великий
+Великий пластир містить 60 одиниць і передає 1 одиницю щосекунди.
+Однак, великий пластир також передає 15% своїх хімікатів негайно при накладанні (10 одиниць, якщо повний).
 
-## Therapeutic
-The therapeutic patch holds 40 units and transfers 0.5 units every second.
+## Терапевтичний
+Терапевтичний пластир містить 40 одиниць і передає 0.5 одиниці щосекунди.
 
-## Prefilled
-NanoMed Plus machines and some medkits contain prefilled patches for treating Brute or Burn damage.
-These hold 30 units and transfer 0.25 units per second, but cannot be refilled or emptied. Not reusable.
+## Попередньо заповнений
+Машини NanoMed Plus та деякі аптечки містять попередньо заповнені пластирі для лікування ушкоджень від грубої сили або опіків.
+Вони містять 30 одиниць і передають 0.25 одиниці на секунду, але їх не можна перезаправити або спорожнити. Не для повторного використання.
 
-## Makeshift
-This rudimentary patch can hold 20 units and transfers 1 unit every 2 seconds.
-However, it can be made by hand with cloth and filled manually without a ChemMaster. Not reusable.
+## Саморобний
+Цей рудиментарний пластир може містити 20 одиниць і передає 1 одиницю кожні 2 секунди.
+Однак, його можна виготовити вручну з тканини та заправити вручну без ChemMaster. Не для повторного використання.
 </Document>
