@@ -10901,3 +10901,67 @@ Entries:
       message: Lathes queues can now be cleared by pressing the "Reset Queue" button.
   id: 1200
   time: '2025-06-14T20:53:38.0000000+00:00'
+- author: RedMush1
+  changes:
+    - type: Tweak
+      message: Hyperzine takes more time to metabolize.
+  id: 1201
+  time: '2025-06-14T20:59:19.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Remove
+      message: Disposable ballistic turret no longer explodes.
+    - type: Tweak
+      message: Disposable ballistic turret 100->250 hp.
+    - type: Tweak
+      message: Nukies can now buy disposable ballistic turret.
+  id: 1202
+  time: '2025-06-14T21:09:45.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: TC miner limited to one purchase.
+    - type: Tweak
+      message: TC miner 60->100 TC and produces a bit faster to compensate.
+    - type: Tweak
+      message: >-
+        TC miner now announces at 60->40 TC and also announces location at 100
+        TC.
+  id: 1203
+  time: '2025-06-14T21:11:45.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Partial AP is working again.
+  id: 1204
+  time: '2025-06-14T21:13:56.0000000+00:00'
+- author: BuffOrphan
+  changes:
+    - type: Tweak
+      message: >-
+        Overall increased AI's movement speed slightly, holding shift makes them
+        move a lot faster.
+    - type: Tweak
+      message: AI can now slightly zoom out, akin to a ghost.
+    - type: Add
+      message: AI now has diagnostic hud.
+    - type: Fix
+      message: >-
+        Made Sec and Reporter Bodycams actually work (Yes, they didn't work for
+        AI previously)
+  id: 1205
+  time: '2025-06-14T21:14:15.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Add
+      message: Pulling up Ian suit hoodie now lets you speak like a true Ian
+  id: 1206
+  time: '2025-06-14T21:14:39.0000000+00:00'
+- author: mikusssssss
+  changes:
+    - type: Tweak
+      message: >-
+        Healing holy damage is now slightly lower (3 healed per minute < 2.7
+        healed per minute)
+  id: 1207
+  time: '2025-06-14T21:16:24.0000000+00:00'
