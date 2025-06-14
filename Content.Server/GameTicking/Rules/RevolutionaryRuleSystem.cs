@@ -226,8 +226,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
             !_mobState.IsAlive(ev.Target) ||
             HasComp<ZombieComponent>(ev.Target) ||
             HasComp<HereticComponent>(ev.Target) ||
-            HasComp<ChangelingComponent>(ev.Target) // goob edit - no more ling or heretic revs
-            || HasComp<CommandStaffComponent>(ev.Target)) // goob edit - rev no command flashing
+            HasComp<ChangelingComponent>(ev.Target)) // goob edit - no more ling or heretic revs
         {
             if(ev.User != null)
                 _popup.PopupEntity("The conversion failed!", ev.User.Value, ev.User.Value);
@@ -261,7 +260,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
 
         if (mind is { UserId: not null } && _player.TryGetSessionById(mind.UserId, out var session))
             _antag.SendBriefing(session, Loc.GetString("rev-role-greeting"), Color.Red, revComp.RevStartSound);
-        
+
         // Goobstation - Check lose if command was converted
         if (!TryComp<CommandStaffComponent>(ev.Target, out var commandComp))
             return;
