@@ -177,6 +177,7 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 GreenArg7 <GreenArc12@outlook.com>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <killerqueen1777@gmail.com>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
 # SPDX-FileCopyrightText: 2025 Minemoder5000 <minemoder50000@gmail.com>
 # SPDX-FileCopyrightText: 2025 Momo <Rsnesrud@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
@@ -1774,6 +1775,11 @@
   - type: Item
     size: Normal
     sprite: Objects/Weapons/Melee/cutlass.rsi
+    storedSprite:
+      state: foam_storage
+      sprite: Objects/Weapons/Melee/cutlass.rsi
+    shape:
+    - 0,0,0,2
 
 - type: entity
   parent: BaseItem
