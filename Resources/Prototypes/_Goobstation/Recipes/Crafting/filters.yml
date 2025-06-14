@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: construction
   name: label filter
   id: AutomationFilterLabel
@@ -32,6 +38,19 @@
   targetNode: stack
   category: construction-category-misc
   description: A filter that can be installed in a robotic arm. This one weighs items to compare it to a stack size.
+  icon:
+    sprite: _Goobstation/Objects/Misc/filter.rsi
+    state: icon
+  objectType: Item
+
+- type: construction
+  id: AutomationFilterPressure
+  graph: AutomationFilter
+  startNode: start
+  targetNode: pressure
+  category: construction-category-misc
+  name: pressure filter
+  description: A filter that can be installed in factory machines. This one has a barometer to check the pressure of gases.
   icon:
     sprite: _Goobstation/Objects/Misc/filter.rsi
     state: icon

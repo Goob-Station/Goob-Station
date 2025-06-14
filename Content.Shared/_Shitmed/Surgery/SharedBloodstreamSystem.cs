@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared._Shitmed.CCVar;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds;
@@ -47,6 +53,7 @@ public abstract class SharedBloodstreamSystem : EntitySystem
                 Dirty(ent, bleeds);
 
             bleeds.IsBleeding = canBleed;
+
             if (!bleeds.IsBleeding)
                 continue;
 
@@ -265,7 +272,9 @@ public abstract class SharedBloodstreamSystem : EntitySystem
 
     private void OnWoundAdded(EntityUid uid, BleedInflicterComponent component, ref WoundAddedEvent args)
     {
-        if (!CanWoundBleed(uid, component) || args.Component.WoundSeverityPoint < component.SeverityThreshold)
+        if (!CanWoundBleed(uid, component)
+            || args.Component.WoundSeverityPoint < component.SeverityThreshold
+            || !args.Woundable.CanBleed)
             return;
 
         // wounds that BLEED will not HEAL.
@@ -294,7 +303,11 @@ public abstract class SharedBloodstreamSystem : EntitySystem
         BleedInflicterComponent component,
         ref WoundSeverityPointChangedEvent args)
     {
-        if (!CanWoundBleed(uid, component) || args.NewSeverity < component.SeverityThreshold)
+        if (!CanWoundBleed(uid, component)
+            || !TryComp<WoundableComponent>(args.Component.HoldingWoundable, out var woundable)
+            || !woundable.CanBleed
+            || args.NewSeverity < component.SeverityThreshold
+            || args.NewSeverity < args.OldSeverity)
             return;
 
         var oldBleedsAmount = args.OldSeverity * _cfg.GetCVar(SurgeryCVars.BleedingSeverityTrade);
@@ -307,7 +320,7 @@ public abstract class SharedBloodstreamSystem : EntitySystem
         component.ScalingFinishesAt = _gameTiming.CurTime + TimeSpan.FromSeconds(formula);
         component.ScalingStartsAt = _gameTiming.CurTime;
 
-        if (!component.IsBleeding && args.NewSeverity > args.OldSeverity)
+        if (!component.IsBleeding)
         {
             component.ScalingLimit += 0.6;
             component.IsBleeding = true;

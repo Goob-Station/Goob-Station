@@ -21,6 +21,7 @@
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
@@ -55,6 +56,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Popups;
+using Content.Shared._Starlight.CollectiveMind;
 using Content.Shared.Stealth.Components;
 using Content.Shared.Store.Components;
 using Content.Shared.Tag;
@@ -64,6 +66,7 @@ using Content.Shared.Eye.Blinding.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Shared._Shitmed.Targeting; // Shitmed Change
+using Content.Shared.Rejuvenate;
 
 namespace Content.Goobstation.Server.Changeling;
 
@@ -190,10 +193,12 @@ public sealed partial class ChangelingSystem
         var popup = Loc.GetString("changeling-absorb-end-self-ling");
         var bonusChemicals = 0f;
         var bonusEvolutionPoints = 0f;
+        var bonusChangelingAbsorbs = 0;
         if (TryComp<ChangelingIdentityComponent>(target, out var targetComp))
         {
             bonusChemicals += targetComp.MaxChemicals / 2;
-            bonusEvolutionPoints += 10;
+            bonusEvolutionPoints += targetComp.TotalEvolutionPoints / 2;
+            bonusChangelingAbsorbs += targetComp.TotalChangelingsAbsorbed + 1;
         }
         else
         {
@@ -201,8 +206,12 @@ public sealed partial class ChangelingSystem
             bonusChemicals += 10;
             bonusEvolutionPoints += 2;
         }
+
+        comp.TotalEvolutionPoints += bonusEvolutionPoints;
+
         TryStealDNA(uid, target, comp, true);
         comp.TotalAbsorbedEntities++;
+        comp.TotalChangelingsAbsorbed += bonusChangelingAbsorbs;
 
         _popup.PopupEntity(popup, args.User, args.User);
         comp.MaxChemicals += bonusChemicals;
@@ -214,8 +223,17 @@ public sealed partial class ChangelingSystem
         }
 
         if (_mind.TryGetMind(uid, out var mindId, out var mind))
-            if (_mind.TryGetObjectiveComp<AbsorbConditionComponent>(mindId, out var objective, mind))
-                objective.Absorbed += 1;
+        {
+            if (_mind.TryGetObjectiveComp<AbsorbConditionComponent>(mindId, out var absorbObj, mind))
+                absorbObj.Absorbed += 1;
+
+            if (_mind.TryGetObjectiveComp<AbsorbChangelingConditionComponent>(mindId, out var lingAbsorbObj, mind)
+                && TryComp<ChangelingIdentityComponent>(target, out var absorbed))
+                lingAbsorbObj.LingAbsorbed += absorbed.TotalChangelingsAbsorbed + 1;
+        }
+
+        UpdateChemicals(uid, comp, comp.MaxChemicals); // refill chems to max
+
     }
 
     public List<ProtoId<ReagentPrototype>> BiomassAbsorbedChemicals = new() { "Nutriment", "Protein", "UncookedAnimalProteins", "Fat" }; // fat so absorbing raw meat good
@@ -342,17 +360,24 @@ public sealed partial class ChangelingSystem
         if (!TryUseAbility(uid, comp, args, null, false)) // ignores fires
             return;
 
-        comp.Chemicals = 0f;
-
         if (_mobState.IsAlive(uid))
         {
             // fake our death
             var othersMessage = Loc.GetString("suicide-command-default-text-others", ("name", uid));
             _popup.PopupEntity(othersMessage, uid, Filter.PvsExcept(uid), true);
-
-            var selfMessage = Loc.GetString("changeling-stasis-enter");
-            _popup.PopupEntity(selfMessage, uid, uid);
         }
+
+        var currentTime = comp.StasisTime;
+        var lowestTime = comp.DefaultStasisTime;
+        var highestTime = comp.CatastrophicStasisTime;
+
+        /// tell the changeling how bad they screwed up
+        if (currentTime == lowestTime)
+            _popup.PopupEntity(Loc.GetString("changeling-stasis-enter"), uid, uid);
+        else if (currentTime > lowestTime && currentTime < highestTime)
+            _popup.PopupEntity(Loc.GetString("changeling-stasis-enter-damaged"), uid, uid);
+        else
+            _popup.PopupEntity(Loc.GetString("changeling-stasis-enter-catastrophic"), uid, uid);
 
         if (!_mobState.IsDead(uid))
             _mobState.ChangeMobState(uid, MobState.Dead);
@@ -371,6 +396,11 @@ public sealed partial class ChangelingSystem
             _popup.PopupEntity(Loc.GetString("changeling-stasis-exit-fail-dead"), uid, uid);
             return;
         }
+        if (comp.StasisTime > 0)
+        {
+            _popup.PopupEntity(Loc.GetString("changeling-stasis-exit-fail-time"), uid, uid);
+            return;
+        }
 
         if (!TryUseAbility(uid, comp, args, null, false)) // ignores fires
             return;
@@ -379,11 +409,10 @@ public sealed partial class ChangelingSystem
             return;
 
         // heal of everything
-        _rejuv.PerformRejuvenate(uid);
+        var stasisEv = new RejuvenateEvent(false, true);
+        RaiseLocalEvent(uid, stasisEv);
 
         _popup.PopupEntity(Loc.GetString("changeling-stasis-exit"), uid, uid);
-
-        comp.IsInStasis = false;
 
         // stuns or knocks down anybody grabbing you
         if (_pull.IsPulled(uid))
@@ -838,7 +867,7 @@ public sealed partial class ChangelingSystem
         }
         PlayMeatySound((EntityUid) newUid, comp);
     }
-    public ProtoId<TagPrototype> HivemindTag = "LingMind";
+    public ProtoId<CollectiveMindPrototype> HivemindProto = "Lingmind";
     public void OnHivemindAccess(EntityUid uid, ChangelingIdentityComponent comp, ref ActionHivemindAccessEvent args)
     {
         if (!TryUseAbility(uid, comp, args, null, false)) // ignores fire
@@ -851,7 +880,8 @@ public sealed partial class ChangelingSystem
         }
 
         EnsureComp<HivemindComponent>(uid);
-        _tag.AddTag(uid, HivemindTag);
+        var mind = EnsureComp<CollectiveMindComponent>(uid);
+        mind.Channels.Add(HivemindProto);
 
         _popup.PopupEntity(Loc.GetString("changeling-hivemind-start"), uid, uid);
     }

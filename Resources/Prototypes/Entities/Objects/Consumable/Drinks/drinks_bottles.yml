@@ -116,6 +116,8 @@
 # SPDX-FileCopyrightText: 2024 wafehling <wafehling@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Alpaccalypse <21291379+Alpaccalypse@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # When adding new drinks also add to random spawner located in Resources\Prototypes\Entities\Markers\Spawners\Random\Food_Drinks\drinks_bottles.yml
@@ -205,6 +207,12 @@
   - type: PhysicalComposition
     materialComposition:
       Glass: 100
+  - type: Construction #Goob content
+    graph: MolotovConstruction
+    node: start
+  - type: Tag
+    tags:
+    - MolotovConstruction #Goobstation
 
 - type: entity
   id: DrinkBottleVisualsOpenable
