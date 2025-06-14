@@ -777,8 +777,8 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 2
     knockdownTimeDelta: -2
-  - type: StaminaDamageResistance # Goobstation
-    coefficient: 0.65 
+  - type: StaminaResistance # Goobstation
+    coefficient: 0.65
 
 #Head of Security's Hardsuit, heavily edited by goob
 - type: entity
