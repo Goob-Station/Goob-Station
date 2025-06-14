@@ -6,19 +6,19 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Ban Durations
+  # Тривалість банів
 
-  Bans can be appealed at forum.ss14.io in the ban appeals section.
+  Бани можна оскаржити на forum.ss14.io у розділі апеляцій.
 
-  ## Temporary
-  Temporary bans will be lifted automatically after a certain amount of time. If they are a game ban, they will tell you how much time is remaining when you try to connect.
+  ## Тимчасовий
+  Тимчасові бани будуть зняті автоматично через певний проміжок часу. Якщо це бан у грі, вам повідомлять, скільки часу залишилося, коли ви спробуєте підключитися.
 
-  ## Indefinite
-  These bans will only be removed on a successful appeal on the forums. Any ban which doesn't tell you when it expires and doesn't specify otherwise can be presumed to be an indefinite ban.
+  ## Безстроковий
+  Ці бани будуть зняті лише після успішної апеляції на форумах. Будь-який бан, у якому не вказано термін дії та не зазначено інше, можна вважати безстроковим.
 
-  ## Voucher
-  This is an indefinite ban which may only be appealed both with a successful appeal and which require a voucher of good behavior from the administrative team of a well-known or at least decently active SS13/SS14 server in order for the appeal to be considered. Voucher bans typically cannot be appealed for at least six months after being issued. Without a voucher, a player can only attempt to appeal a voucher ban once, and only if the ban was inappropriately placed. Voucher bans are typically only placed as a result of an unsuccessful appeal of an indefinite game ban by players with a history of bans and of causing issues.
+  ## Ваучерний
+  Це безстроковий бан, який можна оскаржити лише за умови успішної апеляції та наявності поруки про добру поведінку від адміністративної команди відомого або принаймні досить активного сервера SS13/SS14, щоб апеляція була розглянута. Ваучерні бани зазвичай не можна оскаржити протягом щонайменше шести місяців після їх видачі. Без поруки гравець може спробувати оскаржити ваучерний бан лише один раз, і лише якщо бан було накладено неналежним чином. Ваучерні бани зазвичай накладаються лише в результаті невдалої апеляції безстрокового ігрового бана гравцями з історією банів та створенням проблем.
 
-  ## Permanent
-  This is a ban that is only appealable if the ban was inappropriately placed, including if the ban should not have been permanent. If the result of the appeal is that the ban was appropriately placed, the ban may not be appealed again and will not be lifted. These bans are extremely rare, but are applied to players who continually cause problems even after a voucher ban or users who have completely unacceptable behavior may be permanently removed.
+  ## Постійний
+  Це бан, який можна оскаржити лише в тому випадку, якщо бан було накладено неналежним чином, у тому числі якщо бан не мав бути постійним. Якщо результатом апеляції буде визнано, що бан було накладено належним чином, бан не може бути оскаржений знову і не буде знятий. Ці бани надзвичайно рідкісні, але застосовуються до гравців, які постійно створюють проблеми навіть після ваучерного бана, або до користувачів, які мають абсолютно неприйнятну поведінку, можуть бути видалені назавжди.
 </Document>

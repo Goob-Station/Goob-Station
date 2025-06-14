@@ -10,7 +10,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Revolutionaries
+  # Революціонери
 
   <Box>
     [color=#999999][italic]"Viva la revolución!!"[/italic][/color]
@@ -19,40 +19,40 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="PosterContrabandRevolt" Caption=""/>
   </Box>
 
-  Revolutionaries are conversion antagonists sponsored by the [color=#ff0000]Syndicate[/color] who are tasked with taking control of the station. They have no fancy gimmicks or cheap tricks, they only have a cause and strength in numbers.
+  Революціонери - це антагоністи-вербувальники, спонсоровані [color=#ff0000]Синдикатом[/color], яким доручено захопити контроль над станцією. У них немає вигадливих трюків чи дешевих хитрощів, у них є лише справа та сила в чисельності.
 
 <Box>
-  <GuideEntityEmbed Entity="RevolutionaryManifesto" Caption="Revolutionary Manifesto"/>
+  <GuideEntityEmbed Entity="RevolutionaryManifesto" Caption="Революційний маніфест"/>
 </Box>
 
-  [color=#5e9cff]Head Revolutionaries[/color] are chosen at the start of the shift and are tasked with taking over the station by killing, exiling or cuffing all of the Command staff. Head Revolutionaries will be given a [color=#a4885c]Revolutionary Manifesto[/color] to aid them.
-  Your objective is [bold]not to destroy the station[/bold], but [italic]to take it over[/italic], so try to minimize damage where possible.
+  [color=#5e9cff]Голови революції[/color] обираються на початку зміни, і їм доручено захопити станцію, вбивши, вигнавши або закувавши в наручники весь командний склад. Головам революції буде надано [color=#a4885c]Революційний маніфест[/color] для допомоги.
+  Ваша мета - [bold]не знищити станцію[/bold], а [italic]захопити її[/italic], тому намагайтеся мінімізувати збитки, де це можливо.
 
-  [bold]The revolution will fail[/bold] if all of the [bold][color=#5e9cff]Head Revolutionaries[/color][/bold] die, and all [color=red]Revolutionaries[/color] will de-convert if this happens.
+  [bold]Революція провалиться[/bold], якщо всі [bold][color=#5e9cff]Голови революції[/color][/bold] загинуть, і всі [color=red]Революціонери[/color] будуть де-конвертовані, якщо це станеться.
 
-  ## Headrevs & Conversion
-  [bold][color=#5e9cff]Head Revolutionaries[/color][/bold] are chosen at the start of the shift and begin with a [color=cyan]flash[/color] and a pair of [color=cyan]sunglasses[/color].
+  ## Голови революції та вербування
+  [bold][color=#5e9cff]Голови революції[/color][/bold] обираються на початку зміни і починають з [color=cyan]спалахом[/color] та парою [color=cyan]сонячних окулярів[/color].
 
   <Box>
-  <GuideEntityEmbed Entity="RevolutionaryManifesto" Caption="Revolutionary Manifesto"/>
+  <GuideEntityEmbed Entity="RevolutionaryManifesto" Caption="Революційний маніфест"/>
 </Box>
 
-  You can convert crew members by using a [color=#a4885c]Revolutionary Manifesto[/color] on them.
+  Ви можете вербувати членів екіпажу, використовуючи на них [color=#a4885c]Революційний маніфест[/color].
 
-  Beware! A [color=#a4885c]MindShield Implant[/color] will prevent the implanted person from being converted into a revolutionary. Assume all of [color=#a4885c]Security[/color] and [color=#a4885c]Command[/color] are implanted already.
+  Обережно! [color=#a4885c]Імплант "Майндшилд"[/color] не дозволить імплантованій особі стати революціонером. Припустіть, що всі співробітники [color=#a4885c]Служби безпеки[/color] та [color=#a4885c]Командування[/color] вже імплантовані.
 <Box>
-  <GuideEntityEmbed Entity="MindShieldImplanter" Caption="MindShield Implanter"/>
+  <GuideEntityEmbed Entity="MindShieldImplanter" Caption="Імплантер 'Майндшилд'"/>
 </Box>
-  Another obstacle in your way are those pesky [color=cyan]mindshield implanters[/color]. These will:
-  - Prevent the implanted person from being converted into a [color=red]Revolutionary[/color]
-  - De-convert Revolutionaries, and will make them no longer loyal to your cause
-  - [bold]Visibly be destroyed upon being implanted into a [color=#5e9cff]Head Revolutionary[/color][/bold], giving you away
+  Ще однією перешкодою на вашому шляху є ці набридливі [color=cyan]імплантери "майндшилд"[/color]. Вони:
+  - Не дозволять імплантованій особі стати [color=red]Революціонером[/color]
+  - Де-конвертують революціонерів, і вони більше не будуть вірні вашій справі
+  - [bold]Будуть помітно знищені при імплантації в [color=#5e9cff]Голову революції[/color][/bold], видаючи вас
 
-  Assume all of [color=#cb0000]Security[/color] and [color=#1b67a5]Command[/color] are implanted with mindshields already, [bold]however they can be removed using an empty implanter, obtainable from the Medical department's MedFab.[/bold]
+  Припустіть, що всі співробітники [color=#cb0000]Служби безпеки[/color] та [color=#1b67a5]Командування[/color] вже імплантовані "майндшилдами", [bold]однак їх можна видалити за допомогою порожнього імплантера, який можна отримати в МедФабі медичного відділу.[/bold]
 
 
 
-  ## Revolutionary
-  A [color=#ff0000]Revolutionary[/color] is the result of being converted by a [color=#5e9cff]Head Revolutionary[/color]. Revolutionaries are underlings of the Head Revolutionaries and should follow orders given by them and prioritize their well-being over anything else, because if they die, you will lose.
-  Keep in mind that you can't convert others as a regular revolutionary, only your boss can do that.
+  ## Революціонер
+  [color=#ff0000]Революціонер[/color] - це результат вербування [color=#5e9cff]Головою революції[/color]. Революціонери є підлеглими Голів революції і повинні виконувати їхні накази та ставити їхнє благополуччя понад усе, тому що якщо вони загинуть, ви програєте.
+  Майте на увазі, що ви не можете вербувати інших як звичайний революціонер, це може робити тільки ваш бос.
 </Document>

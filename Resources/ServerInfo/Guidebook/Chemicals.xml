@@ -9,13 +9,13 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-# Chemicals
+# Хімікати
 
-Chemicals are a powerful tool that can cause a variety of effects when consumed. Some can be found in plants, purchased from cargo, or be synthesized through combination with other chemicals.
+Хімікати - це потужний інструмент, який може викликати різноманітні ефекти при споживанні. Деякі з них можна знайти в рослинах, придбати у вантажному відділі або синтезувати шляхом поєднання з іншими хімікатами.
 
-Knowing different types of chemicals and their effects is important for being able to manage injury and danger.
+Знання різних типів хімікатів та їхніх ефектів є важливим для того, щоб вміти справлятися з травмами та небезпекою.
 
-## Elements
+## Елементи
 <GuideReagentGroupEmbed Group="Elements"/>
 
 ## Medicine

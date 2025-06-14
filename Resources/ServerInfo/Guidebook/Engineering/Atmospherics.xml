@@ -15,36 +15,36 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-	# Atmospherics
-	Atmospherics is the engineering subdepartment responsible for maintaining the station's atmosphere, and ensuring that it is safe and breathable for the crew.
+	# Атмосферний контроль
+	Атмосферний контроль - це інженерний підрозділ, відповідальний за підтримку атмосфери станції та забезпечення її безпечності та придатності для дихання екіпажу.
 
-	Atmospherics is run by Atmospheric Technicians, who are overseen by the Chief Engineer.
+	Атмосферним контролем керують техніки-атмосферники під наглядом головного інженера.
 
 	<Box>
-		<GuideEntityEmbed Entity="ToyFigurineAtmosTech" Caption="Atmosian"/>
-		<GuideEntityEmbed Entity="ToyFigurineChiefEngineer" Caption="CE"/>
+		<GuideEntityEmbed Entity="ToyFigurineAtmosTech" Caption="Атмосферник"/>
+		<GuideEntityEmbed Entity="ToyFigurineChiefEngineer" Caption="ГІ"/>
 	</Box>
 	<Box>
 		[color=#999999][italic][italic][/color]
 	</Box>
 
-	## Responsibilities
-	Generally, you'll be responding to [textlink="atmospheric upsets" link="AtmosphericUpsets"] throughout the station.
-	These can range from minor leaks to full-on [textlink="fires" link="Fires"] or [textlink="spacing" link="Spacing"] incidents.
+	## Обов'язки
+	Зазвичай ви будете реагувати на [textlink="атмосферні порушення" link="AtmosphericUpsets"] по всій станції.
+	Вони можуть варіюватися від незначних витоків до повномасштабних [textlink="пожеж" link="Fires"] або інцидентів з [textlink="розгерметизацією" link="Spacing"].
 
-	People from other departments may also request [textlink="canned gasses" link="GasCanisters"] for their department duties, such as [textlink="plasma" link="Gasses"] for the [textlink="Research Department" link="Science"] or [textlink="carbon dioxide" link="Gasses"] for [textlink="Chemistry" link="Chemist"].
+	Співробітники інших відділів також можуть запитувати [textlink="гази в балонах" link="GasCanisters"] для виконання своїх службових обов'язків, наприклад, [textlink="плазму" link="Gasses"] для [textlink="дослідницького відділу" link="Science"] або [textlink="вуглекислий газ" link="Gasses"] для [textlink="хімії" link="Chemist"].
 
-	When there's no work to do, you may be expected to help regular Station Engineers with their tasks, and mentor new Station Engineers and Atmospheric Technicians.
-	In your downtime, you may seek to improve the station by setting up rooms with different atmospheres for [textlink="Voxes" link="Vox"] and other species, or by setting up production of [textlink="exotic gasses" link="Gasses"] for the station's needs.
-	
-	## Reference Sheet
-	- Standard atmospheric mix is [color=#a4885c]78% N2 and 22% O2 at 101.24kPa.[/color]
-	- Gas obeys real math. You can use the equation:
+	Коли немає роботи, від вас можуть очікувати допомоги звичайним інженерам станції у виконанні їхніх завдань, а також наставництва нових інженерів станції та техніків-атмосферників.
+	У вільний час ви можете покращувати станцію, облаштовуючи кімнати з різною атмосферою для [textlink="Воксів" link="Vox"] та інших видів, або налагоджуючи виробництво [textlink="екзотичних газів" link="Gasses"] для потреб станції.
+
+	## Довідковий аркуш
+	- Стандартна атмосферна суміш: [color=#a4885c]78% N2 та 22% O2 при 101.24 кПа.[/color]
+	- Газ підпорядковується реальним математичним законам. Ви можете використовувати рівняння:
 	<Box>
 		[color=cyan]PV = nRT[/color]
 	</Box>
 	<Box>
-		([color=#a4885c]Pressure kPa * Volume L = Moles * R * Temperature K[/color])
-	</Box> to derive information you might need to know about a gas. R is approximately 8.31446.
+		([color=#a4885c]Тиск (кПа) * Об'єм (л) = Молі * R * Температура (K)[/color])
+	</Box> для отримання необхідної інформації про газ. R приблизно дорівнює 8.31446.
 
 </Document>

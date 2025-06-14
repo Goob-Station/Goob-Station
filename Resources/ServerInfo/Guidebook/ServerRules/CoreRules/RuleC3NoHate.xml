@@ -6,22 +6,22 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Core Rule 3 - No Hate Speech or Discriminatory Language
-  This is a zero tolerance rule.
+  # Основне правило 3 - Ніякої мови ворожнечі чи дискримінаційної лексики
+  Це правило нульової толерантності.
 
-  This rule prohibits all the following:
-  - Hate Speech
-  - Slurs (including variations of slurs, racial, sexual, disability-related, or language closely tied to real-life slurs)
-  - Bigotry
-  - Racism (including Speciesism, which would be demeaning other players based on their in-game race)
-  - Sexism
+  Це правило забороняє все наступне:
+  - Мова ворожнечі
+  - Образи (включаючи варіації образ, расові, сексуальні, пов'язані з інвалідністю, або мову, тісно пов'язану з реальними образами)
+  - Фанатизм
+  - Расизм (включаючи спесишизм, що означає приниження інших гравців на основі їхньої внутрішньоігрової раси)
+  - Сексизм
 
-  ## Examples
-  Allowed:
-  - Telling someone that you are gay.
+  ## Приклади
+  Дозволено:
+  - Сказати комусь, що ви гей.
 
-  Prohibited:
-  - Calling someone gay in a context where gay is used as an insult or negative attribute.
-  - Using a racial slur or variant in a positive context.
-  - Using the word "retard" in any context.
+  Заборонено:
+  - Називати когось геєм у контексті, де слово "гей" використовується як образа або негативна характеристика.
+  - Використання расової образи або її варіанту в позитивному контексті.
+  - Використання слова "retard" у будь-якому контексті.
 </Document>

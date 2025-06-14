@@ -7,9 +7,9 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
 <Document>
 
-# Medicinal Recipes
+# Лікувальні рецепти
 
-These preparations have interesting medical effects, or are just straight-up medicines.
+Ці препарати мають цікаві медичні ефекти або є просто ліками.
 
 <GuideMicrowaveGroupEmbed Group="Medicinal"/>
 

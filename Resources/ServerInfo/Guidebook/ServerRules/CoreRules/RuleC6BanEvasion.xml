@@ -6,17 +6,17 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Core Rule 6 - Do not attempt to evade bans
-  This is a zero tolerance rule.
+  # Основне правило 6 - Не намагайтеся ухилитися від банів
+  Це правило нульової толерантності.
 
-  Almost all bans may be appealed on our forums at discord.gg/goobstation in the ban appeals section. This is generally the only acceptable way to contact the administration team to discuss your ban and revise it if inappropriate, including mistaken bans.
+  Майже всі бани можна оскаржити на наших форумах за адресою discord.gg/goobstation у розділі апеляцій. Зазвичай це єдиний прийнятний спосіб зв'язатися з командою адміністраторів для обговорення вашого бана та його перегляду, якщо він є недоречним, включаючи помилкові бани.
 
-  Any attempt to circumvent or bypass a game ban will result in a voucher ban. Attempting to evade role bans by gaining access to or working in the capacity of a job you are banned from will result in a game ban. These bans are applied even if the evasion attempt is unsuccessful.
+  Будь-яка спроба обійти або обійти ігровий бан призведе до ваучерного бана. Спроба ухилитися від рольових банів шляхом отримання доступу до роботи, з якої вас забанено, або роботи на цій посаді, призведе до ігрового бана. Ці бани застосовуються навіть у тому випадку, якщо спроба ухилення була невдалою.
 
-  ## Exceptions
-  There are no exemptions for evading or attempting to evade game bans. Antagonists who impersonate or take over a role which they are banned from to aid in their goals are not considered to be evading their role ban.
+  ## Винятки
+  Немає винятків для ухилення або спроби ухилення від ігрових банів. Антагоністи, які видають себе за іншу особу або беруть на себе роль, з якої їх забанено, для досягнення своїх цілей, не вважаються такими, що ухиляються від свого рольового бана.
 
-  ## Additional Information
-  - [textlink="Ban Types" link="BanTypes"]
-  - [textlink="Ban Durations" link="BanDurations"]
+  ## Додаткова інформація
+  - [textlink="Типи банів" link="BanTypes"]
+  - [textlink="Тривалість банів" link="BanDurations"]
 </Document>

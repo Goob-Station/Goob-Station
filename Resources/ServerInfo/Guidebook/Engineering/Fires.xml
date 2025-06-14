@@ -13,27 +13,27 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Fires
-  Fires are arguably the most dangerous atmospheric upset that can occur on the station.
+  # Пожежі
+  Пожежі, мабуть, є найнебезпечнішим атмосферним порушенням, яке може статися на станції.
 
   <Box>
     <GuideEntityEmbed Entity="Firelock" Caption=""/>
     <GuideEntityEmbed Entity="FirelockGlass" Caption=""/>
   </Box>
 
-  They often make high-pressure and high-temperature gasses, which can quickly spread throughout the station if firelocks or doors are opened carelessly, even if only for a moment.
+  Вони часто створюють гази високого тиску та високої температури, які можуть швидко поширитися по всій станції, якщо протипожежні шлюзи або двері необережно відкрити, навіть на мить.
 
-  If people are caught in a fire, they can quickly become incapacitated, die, and even ash, rendering them unrevivable.
+  Якщо люди потрапляють у вогонь, вони можуть швидко стати недієздатними, померти і навіть перетворитися на попіл, що робить їх неможливими для реанімації.
 
-  ## Combating Fires
-  The key elements of a fire are fuel and oxygen.
-  Removing any of these two elements will extinguish the fire.
-  For example, fires that have no oxygen flowing to them will slowly snuff themselves out, and fires that have no fuel will also extinguish themselves.
+  ## Боротьба з пожежами
+  Ключовими елементами пожежі є паливо та кисень.
+  Усунення будь-якого з цих двох елементів загасить пожежу.
+  Наприклад, пожежі, до яких не надходить кисень, повільно згаснуть самі по собі, а пожежі, у яких немає палива, також згаснуть.
 
-  Exposing the fire to space will extinguish it, as all the gas will simply be spaced.
-  You can then [textlink="fix" link="ExpandingRepairingStation"] the [textlink="spacing" link="Spacing"] and repressurize the area.
+  Винесення вогню в космос загасить його, оскільки весь газ просто вийде в космос.
+  Потім ви можете [textlink="виправити" link="ExpandingRepairingStation"] [textlink="розгерметизацію" link="Spacing"] і відновити тиск у зоні.
 
-  ## Tips
-  - [bold]Know the signs of a future fire.[/bold] If an area is filled with highly flammable gasses, it's only a matter of time before a careless passenger sets it off. Try to isolate the area and scrub the gasses out as quickly as possible.
-  - [bold]Prevent the spread of gasses using a holofan projector.[/bold] Letting gasses through a firelock can make other rooms dangerous, even for a moment. This increases the number of rooms you have to fix.
+  ## Поради
+  - [bold]Знайте ознаки майбутньої пожежі.[/bold] Якщо зона заповнена легкозаймистими газами, це лише питання часу, коли необережний пасажир її підпалить. Спробуйте ізолювати зону та якомога швидше вичистити гази.
+  - [bold]Запобігайте поширенню газів за допомогою голографічного проектора.[/bold] Пропускання газів через протипожежний шлюз може зробити інші кімнати небезпечними, навіть на мить. Це збільшує кількість кімнат, які вам доведеться ремонтувати.
 </Document>

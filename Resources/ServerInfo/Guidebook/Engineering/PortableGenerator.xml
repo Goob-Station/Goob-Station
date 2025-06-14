@@ -10,10 +10,10 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Portable Generators
+  # Портативні генератори
 
-  The "P.A.C.M.A.N." line of portable generators are used to provide emergency or supplemental power to key rooms, areas, or even departments.
-  They are easy to set up and maintain, and can be used to power critical systems and areas in the event of a power outage.
+  Лінійка портативних генераторів "P.A.C.M.A.N." використовується для забезпечення аварійного або додаткового живлення ключових кімнат, зон або навіть відділів.
+  Вони прості в налаштуванні та обслуговуванні, і їх можна використовувати для живлення критично важливих систем та зон у разі відключення електроенергії.
 
   <Box>
     <GuideEntityEmbed Entity="PortableGeneratorJrPacman" Caption="J.R.P.A.C.M.A.N." />
@@ -21,21 +21,21 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="PortableGeneratorSuperPacman" Caption="S.U.P.E.R.P.A.C.M.A.N." />
   </Box>
 
-  # The Junior
+  # Молодший
 
   <Box>
     <GuideEntityEmbed Entity="PortableGeneratorJrPacman" Caption="J.R.P.A.C.M.A.N." />
     <GuideEntityEmbed Entity="WeldingFuelTank" />
   </Box>
 
-  The J.R.P.A.C.M.A.N. can be found across the station in maintenance shafts, and is ideal for crew to set up themselves whenever there are power issues.
-  Its output of up to [color=orange][protodata="PortableGeneratorJrPacman" comp="FuelGenerator" member="MaxTargetPower" format="N0"/] W[/color] is enough to power a room or two, which can prove invaluable in a place like Medbay or Chemistry in the Medical Department.
+  J.R.P.A.C.M.A.N. можна знайти по всій станції в технічних тунелях, і він ідеально підходить для того, щоб екіпаж міг самостійно налаштувати його в разі проблем з електроенергією.
+  Його потужність до [color=orange][protodata="PortableGeneratorJrPacman" comp="FuelGenerator" member="MaxTargetPower" format="N0"/] Вт[/color] достатня для живлення однієї-двох кімнат, що може виявитися безцінним у таких місцях, як медпункт або хімічна лабораторія в медичному відділі.
 
-  Setup is incredibly easy: wrench it down above an [color=green]LV[/color] power cable, give it some welding fuel, and start it up.
+  Налаштування неймовірно просте: прикрутіть його над кабелем живлення [color=green]НН[/color], заправте зварювальним паливом і запустіть.
 
-  Welding fuel is the only fuel source the J.R.P.A.C.M.A.N. can use and it can be found in welding fuel tanks across the station, commonly in maintenance areas.
+  Зварювальне паливо - єдине джерело палива, яке може використовувати J.R.P.A.C.M.A.N., і його можна знайти в баках для зварювального палива по всій станції, зазвичай у технічних зонах.
 
-  # The Big Ones
+  # Великі
 
   <Box>
     <GuideEntityEmbed Entity="PortableGeneratorPacman" Caption="P.A.C.M.A.N." />
@@ -47,12 +47,12 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="SheetUranium" />
   </Box>
 
-  The P.A.C.M.A.N. and S.U.P.E.R.P.A.C.M.A.N. is intended for usage by engineering for larger power outages and supplementing power in the event of a deficit.
-  Bootstrapping larger [textlink="engines" link="SingularityTeslaEngine"], powering departments, and so on.
+  P.A.C.M.A.N. та S.U.P.E.R.P.A.C.M.A.N. призначені для використання інженерним відділом для великих відключень електроенергії та доповнення живлення в разі дефіциту.
+  Запуск більших [textlink="двигунів" link="SingularityTeslaEngine"], живлення відділів тощо.
 
-  The S.U.P.E.R.P.A.C.M.A.N. boasts a larger power output (up to [color=orange][protodata="PortableGeneratorSuperPacman" comp="FuelGenerator" member="MaxTargetPower" format="N0"/] W[/color]) and longer runtime at maximum output, but scales down to lower outputs less efficiently.
+  S.U.P.E.R.P.A.C.M.A.N. може похвалитися більшою вихідною потужністю (до [color=orange][protodata="PortableGeneratorSuperPacman" comp="FuelGenerator" member="MaxTargetPower" format="N0"/] Вт[/color]) та довшим часом роботи при максимальній потужності, але менш ефективно масштабується до нижчих потужностей.
 
-  They connect directly to [color=yellow]MV[/color] or [color=orange]HV[/color] [textlink="power cables" link="VoltageNetworks"] and are able to switch between them for flexibility.
+  Вони підключаються безпосередньо до [color=yellow]СН[/color] або [color=orange]ВН[/color] [textlink="кабелів живлення" link="VoltageNetworks"] і можуть перемикатися між ними для гнучкості.
 
-  The S.U.P.E.R.P.A.C.M.A.N and P.A.C.M.A.N require uranium sheets and plasma sheets as fuel, respectively.
+  S.U.P.E.R.P.A.C.M.A.N та P.A.C.M.A.N потребують уранових та плазмових листів як паливо відповідно.
 </Document>

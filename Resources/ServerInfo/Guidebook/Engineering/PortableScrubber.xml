@@ -6,23 +6,23 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Portable Scrubber
-  The portable scrubber is a portable machine that can be used to scrub the atmosphere in a room.
+  # Портативний скрубер
+  Портативний скрубер - це портативна машина, яку можна використовувати для очищення атмосфери в кімнаті.
   <Box>
     <GuideEntityEmbed Entity="PortableScrubber"/>
   </Box>
 
-  It is invaluable for quickly removing unwanted gasses from a room when regular [textlink="scrubbers" link="AirScrubber"] are working too slow, or when a [textlink="scrubber" link="AirScrubber"] is not present.
+  Він незамінний для швидкого видалення небажаних газів з кімнати, коли звичайні [textlink="скрубери" link="AirScrubber"] працюють занадто повільно, або коли [textlink="скрубер" link="AirScrubber"] відсутній.
 
-  The portable scrubber requires [textlink="power" link="Power"] through a nearby [textlink="LV cable" link="VoltageNetworks"] to function.
+  Портативний скрубер потребує [textlink="енергії" link="Power"] через сусідній [textlink="кабель НН" link="VoltageNetworks"] для функціонування.
 
-  The portable scrubber automatically starts removing all non-breathable gasses from the room when it is bolted (wrenched) to the floor.
+  Портативний скрубер автоматично починає видаляти всі недихаючі гази з кімнати, коли його прикручують до підлоги.
 
-  It will stop scrubbing when unbolted (unwrenched) from the floor or when its internal volume is full. The scrubber has an internal capacity of [color=orange][protodata="PortableScrubber" comp="PortableScrubber" member="Volume"/] liters[/color].
+  Він припинить очищення, коли його відкрутять від підлоги або коли його внутрішній об'єм заповниться. Скрубер має внутрішню ємність [color=orange][protodata="PortableScrubber" comp="PortableScrubber" member="Volume"/] літрів[/color].
 
-  ## Dumping Waste and Storage
-  The scrubber's internal volume can be emptied by anchoring (wrenching) onto a [textlink="connector" link="GasCanisters"].
+  ## Скидання відходів та зберігання
+  Внутрішній об'єм скрубера можна спорожнити, закріпивши (прикрутивши) його до [textlink="з'єднувача" link="GasCanisters"].
 
-  Stations commonly have a dedicated emptying point to quickly transfer the waste from the scrubber to the station's wastenet.
+  Станції зазвичай мають спеціальну точку спорожнення для швидкого перенесення відходів зі скрубера до мережі відходів станції.
 
 </Document>

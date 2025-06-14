@@ -6,13 +6,13 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Ban Types
+  # Типи банів
 
-  Bans can be appealed at forum.ss14.io in the ban appeals section.
+  Бани можна оскаржити на forum.ss14.io у розділі апеляцій.
 
-  ## Role Ban
-  Also called a "job ban", this ban prevents your character from joining or late-joining a round as one or more jobs or roles. These are often used in response to problematic behavior in particular departments or address gross inexperience in important roles such as heads of staff. These bans do not mechanically prevent you from switching to the role during a round or acting as that role, but doing so is considered ban evasion.
+  ## Бан ролі
+  Також відомий як "бан роботи", цей бан забороняє вашому персонажу приєднуватися до раунду або приєднуватися пізніше на одну або кілька робіт чи ролей. Вони часто використовуються у відповідь на проблемну поведінку в певних відділах або для вирішення проблеми грубої недосвідченості на важливих посадах, таких як голови персоналу. Ці бани механічно не заважають вам переключитися на роль під час раунду або виконувати цю роль, але це вважається ухиленням від бана.
 
-  ## Game Ban
-  Also called a "server ban", this ban prevents you from connecting to all Wizard's Den servers.
+  ## Ігровий бан
+  Також відомий як "бан сервера", цей бан забороняє вам підключатися до всіх серверів Wizard's Den.
 </Document>

@@ -12,14 +12,14 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Networking
-  On the station, devices need to communicate to each other to preform their functions.
-  [textlink="Air alarms" link="AirAlarms"] need to talk to their respective devices, [textlink="doors" link="Airlocks"] need to be linked to form proper airlocks, and much more.
+  # Мережева взаємодія
+  На станції пристрої повинні спілкуватися один з одним для виконання своїх функцій.
+  [textlink="Повітряні тривоги" link="AirAlarms"] повинні спілкуватися зі своїми відповідними пристроями, [textlink="двері" link="Airlocks"] повинні бути пов'язані для створення належних шлюзів, і багато іншого.
 
-  This is done through two systems, the Link system and the List system.
+  Це робиться за допомогою двох систем: системи зв'язку та системи списків.
 
-  You can use either the Multitool or Network Configurator to interact with these systems.
-  You can switch between the different systems using [color=yellow][bold][keybind="AltActivateItemInHand"][/bold][/color] or by hovering your cursor over the device and using [color=yellow][bold][keybind="AltActivateItemInWorld"][/bold][/color].
+  Ви можете використовувати мультитул або мережевий конфігуратор для взаємодії з цими системами.
+  Ви можете перемикатися між різними системами за допомогою [color=yellow][bold][keybind="AltActivateItemInHand"][/bold][/color] або навівши курсор на пристрій і використовуючи [color=yellow][bold][keybind="AltActivateItemInWorld"][/bold][/color].
 
   <Box HorizontalAlignment="Stretch">
     <Box>
@@ -30,12 +30,12 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     </Box>
   </Box>
 
-  Some devices will require access to link devices to them.
-  For example, you need Atmospherics access to link devices to an [textlink="air alarm" link="AirAlarms"].
-  For doors, you'll need the access level of the door you're linking to.
+  Деякі пристрої вимагатимуть доступу для зв'язування пристроїв з ними.
+  Наприклад, вам потрібен доступ до атмосферного відділу, щоб зв'язати пристрої з [textlink="повітряною тривогою" link="AirAlarms"].
+  Для дверей вам знадобиться рівень доступу дверей, до яких ви підключаєтеся.
 
-  ## Link System
-  The link system is used for explicitly linking two devices, such as linking a door to another door.
+  ## Система зв'язку
+  Система зв'язку використовується для явного зв'язування двох пристроїв, наприклад, зв'язування дверей з іншими дверима.
 
   <Box>
     <GuideEntityEmbed Entity="AirlockExternal"/>
@@ -44,13 +44,13 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="SignalButton"/>
   </Box>
 
-  Under the link system, devices have [bold]ports[/bold] that are capable of either sending or receiving signals.
+  У системі зв'язку пристрої мають [bold]порти[/bold], які можуть надсилати або отримувати сигнали.
 
-  Hovering over a port using your cursor will show a tooltip that tells you what the port does.
-  For example, output ports will state the conditions under which they will invoke a signal, and input ports will state what the device will do if it receives a signal.
+  Наведення курсору на порт покаже підказку, яка пояснює, що робить порт.
+  Наприклад, вихідні порти вказуватимуть умови, за яких вони надсилатимуть сигнал, а вхідні порти вказуватимуть, що пристрій робитиме, якщо отримає сигнал.
 
-  ## List System
-  The list system is used for linking multiple devices to a single primary device, such as linking multiple atmospherics devices to an air alarm.
+  ## Система списків
+  Система списків використовується для зв'язування кількох пристроїв з одним основним пристроєм, наприклад, зв'язування кількох атмосферних пристроїв з повітряною тривогою.
 
   <Box>
     <GuideEntityEmbed Entity="AirAlarm" Caption=""/>
@@ -60,18 +60,18 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="Firelock" Caption=""/>
   </Box>
 
-  Each device has its own unique address, which is used to identify it in the list system. When you link a device to a primary device, you are adding the device's address to a list of devices that the primary device will communicate with.
+  Кожен пристрій має свою унікальну адресу, яка використовується для його ідентифікації в системі списків. Коли ви зв'язуєте пристрій з основним пристроєм, ви додаєте адресу пристрою до списку пристроїв, з якими основний пристрій буде спілкуватися.
 
-  You can save a device's address to your tool by interacting with the device using [color=yellow][bold][keybind="Use"][/bold][/color].
+  Ви можете зберегти адресу пристрою у своєму інструменті, взаємодіючи з пристроєм за допомогою [color=yellow][bold][keybind="Use"][/bold][/color].
 
-  Once you have a list of devices saved to your tool, you can link them to a primary device by interacting with the primary device using [color=yellow][bold][keybind="Use"][/bold][/color], which will bring up a UI.
+  Після того, як у вас є список пристроїв, збережених у вашому інструменті, ви можете зв'язати їх з основним пристроєм, взаємодіючи з основним пристроєм за допомогою [color=yellow][bold][keybind="Use"][/bold][/color], що відкриє інтерфейс.
 
-  The UI has multiple options:
-  - Set: Overwrites the current list of linked devices with the devices saved on the tool.
-  - Add: Adds the devices saved on the tool to the current list of linked devices.
-  - Clear: Removes all linked devices from the air alarm.
-  - Copy: Copies the list of currently linked devices to the tool.
-  - Show: Draws a line between the primary device and all linked devices. This is useful for visualizing the area the air alarm covers.
+  Інтерфейс має кілька опцій:
+  - Встановити: Перезаписує поточний список пов'язаних пристроїв пристроями, збереженими в інструменті.
+  - Додати: Додає пристрої, збережені в інструменті, до поточного списку пов'язаних пристроїв.
+  - Очистити: Видаляє всі пов'язані пристрої з повітряної тривоги.
+  - Копіювати: Копіює список поточних пов'язаних пристроїв до інструменту.
+  - Показати: Малює лінію між основним пристроєм та всіма пов'язаними пристроями. Це корисно для візуалізації зони, яку охоплює повітряна тривога.
 
-  If you need to clear your tool, you can press [color=yellow][bold][keybind="Use"][/bold][/color] on the tool or use [color=yellow][bold][keybind="ActivateItemInHand"][/bold][/color] to bring up a list of saved devices, and then press the "Clear" button.
+  Якщо вам потрібно очистити свій інструмент, ви можете натиснути [color=yellow][bold][keybind="Use"][/bold][/color] на інструменті або використати [color=yellow][bold][keybind="ActivateItemInHand"][/bold][/color], щоб відкрити список збережених пристроїв, а потім натиснути кнопку "Очистити".
 </Document>

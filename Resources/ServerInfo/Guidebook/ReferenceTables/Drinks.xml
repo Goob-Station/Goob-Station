@@ -6,8 +6,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-# Drinks
-Knowing how to make a requested drink is important. Here are the different drinks in the game, including their recipes:
+# Напої
+Знати, як приготувати замовлений напій, дуже важливо. Ось різні напої в грі, включаючи їхні рецепти:
 
 <GuideReagentGroupEmbed Group="Drinks"/>
 </Document>

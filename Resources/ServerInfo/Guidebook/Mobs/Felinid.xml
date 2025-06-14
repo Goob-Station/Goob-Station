@@ -7,26 +7,26 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Felinid
+  # Фелініди
 
   <Box>
     <GuideEntityEmbed Entity="MobFelinid" Caption=""/>
   </Box>
-  
-  Felinids are a mutation of humans, sporting their signature ears and tail from your favourite japanese cartoons.
-  They have a keen sixth sense to landing and [color=#1e90ff]take 80% less damage from falling or high speed impacts.[/color]
-  They will also be slowed down less when injured
-  
-  They will slash with their claws instead of using their fists, dealing [color=#ec3a3a]Slashing[/color] and [color=#ec3a3a]Piercing[/color] damage.
-  
-  ## Ew, Hairballs
+
+  Фелініди — це мутація людей, що мають характерні вуха та хвіст з ваших улюблених японських мультфільмів.
+  Вони мають гостре шосте чуття до приземлення і [color=#1e90ff]отримують на 80% менше шкоди від падіння або ударів на високій швидкості.[/color]
+  Вони також менше сповільнюються при пораненні.
+
+  Вони будуть бити своїми кігтями замість кулаків, завдаючи [color=#ec3a3a]ріжучої[/color] та [color=#ec3a3a]колючої[/color] шкоди.
+
+  ## Фу, волосяні грудки
   <Box>
     <GuideEntityEmbed Entity="Hairball" Caption=""/>
-	<GuideEntityEmbed Entity="MobMouse" Caption=""/>
+ <GuideEntityEmbed Entity="MobMouse" Caption=""/>
   </Box>
-  
-  They are also capable of eating live rats, which will allow them to cough up a disgusting hairball.
-  Be careful when touching them, as they can [color=#ffa500]cause you to throwup when held.[/color]
-  Felinids will use this to their advantage to gross out adversaries
-  
+
+  Вони також здатні їсти живих щурів, що дозволяє їм відкашлювати огидну волосяну грудку.
+  Будьте обережні, торкаючись їх, оскільки вони можуть [color=#ffa500]викликати у вас блювоту, якщо тримати їх у руках.[/color]
+  Фелініди використовують це на свою користь, щоб викликати огиду у супротивників.
+
 </Document>

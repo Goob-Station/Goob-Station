@@ -12,10 +12,10 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Power
-  Power is the lifeblood of the station.
-  Without it, the station will quickly fall into chaos.
-  Engineers are responsible for maintaining the station's power grid, ensuring that power is supplied, distributed, and all departments are satisfied.
+  # Енергія
+  Енергія - це життєва сила станції.
+  Без неї станція швидко зануриться в хаос.
+  Інженери відповідають за підтримку енергосистеми станції, забезпечуючи постачання, розподіл енергії та задоволення потреб усіх відділів.
 
   <Box>
     <GuideEntityEmbed Entity="SingularityGenerator" Caption=""/>
@@ -26,23 +26,23 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="APCBasic" Caption=""/>
   </Box>
 
-  There are many different aspects to Space Station 14's power system simulation, as well as Engineering's intended gameplay.
+  Існує багато різних аспектів симуляції енергосистеми Space Station 14, а також передбаченого ігрового процесу для інженерів.
 
-  Some important information to keep in mind includes:
-  - Station [textlink="generators" link="Generators"] are tiered and follow a hierarchy. The lower the tier, the less they are sustainable, but the easier they are to setup. The higher the tier, the more sustainable they are, but the more complex they are to setup.
-  - Space Station 14 features [textlink="voltage networks" link="VoltageNetworks"], which distribute power across the station and are stepped down in voltage by machines, so they can be used by other machines.
-  - Power [textlink="generators" link="Generators"] have [textlink="ramping" link="Ramping"], which means they take time to match the grid's demand to their supply.
+  Деяка важлива інформація, яку слід пам'ятати:
+  - Станційні [textlink="генератори" link="Generators"] мають рівні та дотримуються ієрархії. Чим нижчий рівень, тим менш вони стійкі, але тим легше їх налаштувати. Чим вищий рівень, тим вони стійкіші, але тим складніше їх налаштувати.
+  - У Space Station 14 є [textlink="мережі напруги" link="VoltageNetworks"], які розподіляють енергію по всій станції та знижуються за напругою машинами, щоб їх могли використовувати інші машини.
+  - Енергетичні [textlink="генератори" link="Generators"] мають [textlink="нарощування" link="Ramping"], що означає, що їм потрібен час, щоб узгодити попит мережі з їхньою пропозицією.
 
-  ## Starting Out
-  At the start of the shift, the station is running off of purely [textlink="battery" link="PowerStorage"] power.
-  This will at most last 5-10 minutes, depending on the station's power draw.
+  ## Початок роботи
+  На початку зміни станція працює виключно від [textlink="акумуляторної" link="PowerStorage"] енергії.
+  Цього вистачить щонайбільше на 5-10 хвилин, залежно від споживання енергії станцією.
 
-  To extend this, you can start up the station's [textlink="Antimatter Engine" link="AME"], or [textlink="AME." link="AME"]
-  This will extend the runtime of the station's batteries by a significant amount, giving you more time to setup the station's higher-tier [textlink="generators." link="Generators"]
-  You can extend this even further by setting up [textlink="solar panels" link="SolarPanels"], which generate power for free.
+  Щоб продовжити це, ви можете запустити [textlink="антиматерійний двигун" link="AME"] станції, або [textlink="АМД." link="AME"]
+  Це значно подовжить час роботи акумуляторів станції, даючи вам більше часу на налаштування [textlink="генераторів" link="Generators"] вищого рівня.
+  Ви можете ще більше подовжити цей час, встановивши [textlink="сонячні панелі" link="SolarPanels"], які генерують енергію безкоштовно.
 
-  After setting up the [textlink="AME" link="AME"] and [textlink="Solars" link="SolarPanels"], you should be generating a decent amount of power.
+  Після налаштування [textlink="АМД" link="AME"] та [textlink="сонячних панелей" link="SolarPanels"] ви повинні генерувати пристойну кількість енергії.
 
-  Now that you've bought yourself time, you can focus on setting up higher-tier [textlink="generators" link="Generators"] like the [textlink="Singularity Engine" link="SingularityEngine"], which can provide power for the rest of the shift.
+  Тепер, коли ви виграли час, ви можете зосередитися на налаштуванні [textlink="генераторів" link="Generators"] вищого рівня, таких як [textlink="двигун на сингулярності" link="SingularityEngine"], який може забезпечити енергією до кінця зміни.
 
 </Document>
