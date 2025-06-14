@@ -1,6 +1,6 @@
 <!--
 SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
-SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
+SPDX-FileCopyrightText: 2021 Javier Guardia Fern�ndez <DrSmugleaf@users.noreply.github.com>
 SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
 SPDX-FileCopyrightText: 2021 moonheart08 <moonheart08@users.noreply.github.com>
 SPDX-FileCopyrightText: 2022 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
@@ -34,6 +34,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
             <cc:CommandButton Command="adminlogs" Text="{Loc admin-player-actions-window-admin-logs}"/>
             <cc:CommandButton Command="faxui" Text="{Loc admin-player-actions-window-admin-fax}"/>
             <cc:CommandButton Command="timetransferpanel" Text="{Loc admin-player-actions-window-time-transfer}"/>
+            <cc:CommandButton Command="achatwindow" Text="{Loc admin-player-actions-window-admin-chat}"/>
         </GridContainer>
     </BoxContainer>
 </Control>
