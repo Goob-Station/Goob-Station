@@ -190,6 +190,7 @@
     - id: LoneAbductorSpawn # Shitmed - Starlight Abductors
     - id: DuoAbductorSpawn # Shitmed - Starlight Abductors
     - id: BingleSpawn #Goobstation - Bingle
+    - id: ReplicatorSpawn # Imp - Replicators
 
 - type: entity
   id: BaseStationEvent

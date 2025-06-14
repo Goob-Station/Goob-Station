@@ -7,9 +7,11 @@
   components:
   - type: StationEvent
     earliestStart: 20
-    weight: 6.5
+    weight: 8
     duration: null
     minimumPlayers: 25
     maxOccurrences: 1
+  - type: GameRule # Goob
+    chaosScore: 400
   - type: RandomSpawnRule
     prototype: SpawnPointGhostReplicatorQueen
