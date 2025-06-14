@@ -14,6 +14,7 @@
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 // SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
 //
@@ -36,4 +37,10 @@ public sealed partial class GunUpgradeComponent : Component
 
     [DataField]
     public int CapacityCost = 30; // By default drains 30% of the capacity.
+
+    /// <summary>
+    /// If true, only one such upgrade can be inserted into a gun.
+    /// </summary>
+    [DataField]
+    public bool Unique;
 }
