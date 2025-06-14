@@ -101,14 +101,14 @@
   - External
   - Cryogenics
   - Kitchen
-  - Hydroponics
+#  - Hydroponics
   - Janitor
-  - Engineering
-  - Atmospherics
-  - Medical
-  - Research
-  - Cargo
-  - Salvage
+#  - Engineering
+#  - Atmospherics
+#  - Medical
+#  - Research
+#  - Cargo
+#  - Salvage
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

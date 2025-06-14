@@ -176,11 +176,11 @@
   - Hydroponics
   - Janitor
   - Engineering
-  - Atmospherics
+#  - Atmospherics
   - Medical
   - Research
   - Cargo
-  - Salvage
+#  - Salvage
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
