@@ -10907,3 +10907,13 @@ Entries:
       message: Hyperzine takes more time to metabolize.
   id: 1201
   time: '2025-06-14T20:59:19.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Remove
+      message: Disposable ballistic turret no longer explodes.
+    - type: Tweak
+      message: Disposable ballistic turret 100->250 hp.
+    - type: Tweak
+      message: Nukies can now buy disposable ballistic turret.
+  id: 1202
+  time: '2025-06-14T21:09:45.0000000+00:00'
