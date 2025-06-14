@@ -241,7 +241,7 @@
     id: CentcomIDCardInspector
 
 - type: entity
-  parent: BasePDA
+  parent: SyndiPDA
   id: SyndiPDANukie
   name: syndicate PDA
   description: Ok, time to be a productive member of- oh cool I'm a bad guy time to kill people!

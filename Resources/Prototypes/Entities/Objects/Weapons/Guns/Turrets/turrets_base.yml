@@ -1,4 +1,6 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 #
@@ -136,7 +138,7 @@
   - type: ApcPowerReceiverBattery
     idleLoad: 5
     batteryRechargeRate: 200
-    batteryRechargeEfficiency: 1.225
+    batteryRechargeEfficiency: 0.0 #temporarily no power draw because this was causing potentially seizure inducing light flickering
   - type: ApcPowerReceiver
     powerLoad: 5
   - type: ExtensionCableReceiver
