@@ -1,3 +1,4 @@
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 beck <163376292+widgetbeck@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later

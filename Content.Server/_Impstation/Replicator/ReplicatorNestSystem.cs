@@ -1,3 +1,4 @@
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Vrilly <tnjans@outlook.de>
 // SPDX-FileCopyrightText: 2025 beck <163376292+widgetbeck@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 widgetbeck <beckparrott@gmail.com>
