@@ -612,7 +612,8 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                     DoLightAttack(user, light, weaponUid, weapon, session);
                     break;
                 case DisarmAttackEvent disarm:
-                    DoDisarm(user, disarm, weaponUid, weapon, session); // Goob edit
+                    if (!DoDisarm(user, disarm, weaponUid, weapon, session)) // Goob edit
+                        return false;
 
                     animation = weapon.DisarmAnimation; // WWDP
                     DoLungeAnimation(user, weaponUid, weapon.Angle, TransformSystem.ToMapCoordinates(GetCoordinates(attack.Coordinates)), weapon.Range, animation, spriteRotation, weapon.FlipAnimation); // Goobstation - Edit
@@ -1046,12 +1047,26 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         ICommonSession? session) // Goobstation - Shove Rework
     {
 
-        var target = GetEntity(ev.Target!.Value);
+        if (!ev.Target.HasValue)
+            return false;
+
+        var target = GetEntity(ev.Target.Value);
+
+        if (Deleted(target) ||
+            user == target)
+        {
+            return false;
+        }
 
         EntityUid? inTargetHand = null;
 
         if (!TryComp<CombatModeComponent>(user, out var combatMode))
             return false;
+
+        if (!InRange(user, target, component.Range, session))
+        {
+            return false;
+        }
 
         PhysicalShove(user, target);
         Interaction.DoContactInteraction(user, target);
@@ -1094,8 +1109,8 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
         var chance = CalculateDisarmChance(user, target, inTargetHand, combatMode);
 
-        _audio.PlayPvs(combatMode.DisarmSuccessSound,
-            user,
+        _audio.PlayPredicted(combatMode.DisarmSuccessSound,
+            user, null,
             AudioParams.Default.WithVariation(0.025f).WithVolume(5f));
         AdminLogger.Add(LogType.DisarmedAction,
             $"{ToPrettyString(user):user} used disarm on {ToPrettyString(target):target}");
@@ -1115,11 +1130,6 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         }
 
         ShoveOrDisarmPopup(true);
-        _audio.PlayPvs(combatMode.DisarmSuccessSound,
-            user,
-            AudioParams.Default.WithVariation(0.025f).WithVolume(5f));
-        AdminLogger.Add(LogType.DisarmedAction,
-            $"{ToPrettyString(user):user} used a shove on {ToPrettyString(target):target}");
 
         return true;
 
@@ -1139,8 +1149,8 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
             var msgUser = Loc.GetString(msgPrefix + "popup-message-cursor", ("targetName", Identity.Entity(target, EntityManager)));
 
-            PopupSystem.PopupEntity(msgOther, user, filterOther, true);
-            PopupSystem.PopupEntity(msgUser, target, user);
+            PopupSystem.PopupPredicted(msgOther, target, null, filterOther, false);
+            PopupSystem.PopupClient(msgUser, user);
         }
     }
 
