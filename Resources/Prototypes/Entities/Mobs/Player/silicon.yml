@@ -186,8 +186,6 @@
   - type: ShowHealthIcons #Goobstation
   - type: ShowHealthBars #Goobstation
     damageContainers:
-    - Biological
-    - Inorganic
     - Silicon
     - SiliconRadiation
   - type: ContentEye  #Goobstation
