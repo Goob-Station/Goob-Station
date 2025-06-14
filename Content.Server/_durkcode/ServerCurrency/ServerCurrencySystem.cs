@@ -79,10 +79,10 @@ namespace Content.Server._durkcode.ServerCurrency
                     var mind = Comp<MindComponent>(mindContainer.Mind.Value);
                     if (mind is not null
                         && (isBorg || !_mind.IsCharacterDeadIc(mind)) // Borgs count always as dead so I'll just throw them a bone and give them an exception.
-                        && mind.OriginalOwnerUserId.HasValue)
+                        && mind.OriginalOwnerUserId.HasValue
+                        && _players.TryGetSessionById(mind.UserId, out var session))
                     {
                         int money = _goobcoinsPerPlayer;
-                        var session = mind.Session;
                         if (session is not null)
                         {
                             money += _jobs.GetJobGoobcoins(session);
