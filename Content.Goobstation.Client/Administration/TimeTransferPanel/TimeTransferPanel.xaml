@@ -44,6 +44,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         <Control MinHeight="10" />
         <Button Name="AddTimeButton" Text="{Loc time-transfer-panel-add-time}"/>
         <Button Name="SetTimeButton" Text="{Loc time-transfer-panel-set-time}"/>
+        <BoxContainer Orientation="Horizontal" Margin="0 4 0 0">
+            <Label Text="{Loc time-transfer-panel-author}" StyleClasses="LabelSubText"/>
         </BoxContainer>
     </BoxContainer>
 </DefaultWindow>
