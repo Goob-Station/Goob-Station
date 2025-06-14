@@ -1110,7 +1110,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         var chance = CalculateDisarmChance(user, target, inTargetHand, combatMode);
 
         _audio.PlayPredicted(combatMode.DisarmSuccessSound,
-            user, null,
+            user, user,
             AudioParams.Default.WithVariation(0.025f).WithVolume(5f));
         AdminLogger.Add(LogType.DisarmedAction,
             $"{ToPrettyString(user):user} used disarm on {ToPrettyString(target):target}");
