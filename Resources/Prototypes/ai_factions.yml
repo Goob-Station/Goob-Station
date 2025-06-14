@@ -15,13 +15,16 @@
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ActiveMammmoth <140334666+ActiveMammmoth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Arraydeess <arraygitbash@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 K-Dynamic <20566341+K-Dynamic@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 amogus <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
 #
@@ -39,7 +42,6 @@
     - AllHostile
     - Heretic # goob edit - heretics
     - Blob # Goobstation - Blob
-    - Greytide # Goobstation
   friendly: # Goobstation
     - Wizard
     - PirateFaction # goob - pirates
@@ -71,6 +73,7 @@
   id: PetsNT
   hostile:
   - Mouse
+  - Balloon # Goob Balloon Edit     Pets can join the fight against the balloons
   - SimpleHostile
   - Zombie
   - Xeno
@@ -93,7 +96,6 @@
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
   - PirateFaction # goob - pirates
-  - Greytide # Goobstation
   friendly: # Goobstation
     - Wizard
 
@@ -115,7 +117,6 @@
   - Blob # Goobstation - Blob
   - Wizard # goob edit - wizard
   - PirateFaction # goob - pirates
-  - Greytide # Goobstation
 
 - type: npcFaction
   id: Xeno
@@ -131,7 +132,6 @@
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
   - PirateFaction # goob - pirates
-  - Greytide # Goobstation
   friendly: # Goobstation
     - Wizard
 
@@ -152,7 +152,6 @@
   - Blob # Goobstation - Blob
   - Wizard # goob edit - wizard
   - PirateFaction # goob - pirates
-  - Greytide # Goobstation
 
 - type: npcFaction
   id: Revolutionary
@@ -165,7 +164,6 @@
   - Blob # Goobstation - Blob
   - Wizard # Goobstation - wizard
   - PirateFaction # goob - pirates
-  - Greytide # Goobstation
 
 - type: npcFaction
   id: AllHostile
@@ -186,4 +184,13 @@
   - Blob # Goobstation - Blob
   - Wizard # goob edit - wizard
   - PirateFaction # goob - pirates
-  - Greytide # Goobstation
+  
+# Balloons Factions Edit:
+- type: npcFaction  
+  id: Balloon
+  # Balloons can't attack
+  
+- type: npcFaction
+  id: Monkey
+  hostile:
+  - Balloon     # Custom faction specifically for attacking bloons

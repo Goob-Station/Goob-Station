@@ -1,0 +1,19 @@
+- type: entity
+  name: grey sofa
+  id: CorpSofaLeftRA
+  parent: ChairBase
+  description: An extremely comfortable sofa. All parts are of the highest quality. Red Astra custom made.
+  components:
+  - type: Sprite
+    sprite: _SimpleStation/Structures/Furniture/Benches/sofa_corp.rsi
+    state: left
+
+- type: entity
+  name: grey sofa
+  id: CorpSofaRightRA
+  parent: ChairBase
+  description: An extremely comfortable sofa. All parts are of the highest quality. Red Astra custom made.
+  components:
+  - type: Sprite
+    sprite: _SimpleStation/Structures/Furniture/Benches/sofa_corp.rsi
+    state: right

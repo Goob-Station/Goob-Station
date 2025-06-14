@@ -1,7 +1,10 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared.Polymorph;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Devil.Contract;
@@ -26,6 +29,15 @@ public sealed class DevilClausePrototype : IPrototype
 
     [DataField]
     public BaseDevilContractEvent? Event;
+
+    [DataField]
+    public List<string>? Implants;
+
+    [DataField]
+    public List<EntProtoId>? SpawnedItems;
+
+    [DataField]
+    public ProtoId<PolymorphPrototype>? Polymorph;
 
 }
 

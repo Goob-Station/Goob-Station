@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 # The ID is what is searched for on the paper, coming after the target identifier.
 # Any spaces on the written portion will be removed, so keep it all lowercase and one word.
 
@@ -15,13 +21,24 @@
   id: fearoffire
   clauseWeight: -20
   damageModifierSet: HellSpawn
+  addedComponents:
+  - type: SpecialHighTempImmunity
 
 - type: clause
-  id: fearofspace
+  id: brokeness
+  clauseWeight: -20
+  spawnedItems:
+  - ClothingShoesRealJordansAutographed
+
+- type: clause
+  id: fearofdeath
   clauseWeight: -25
   addedComponents:
-  - type: BreathingImmunity
-  - type: PressureImmunity
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Critical
+      201: Dead
 
 - type: clause
   id: fearoflight
@@ -36,11 +53,62 @@
   - type: Insulated
 
 - type: clause
+  id: gluttony
+  clauseWeight: -10
+  removedComponents:
+  - type: Hunger
+  - type: Thirst
+
+- type: clause
+  id: fearofdrowning
+  clauseWeight: -10
+  addedComponents:
+  - type: SpecialBreathingImmunity
+
+- type: clause
+  id: fearofcrushing
+  clauseWeight: -10
+  addedComponents:
+  - type: SpecialPressureImmunity
+
+- type: clause
+  id: fearoffreezing
+  clauseWeight: -10
+  addedComponents:
+  - type: SpecialLowTempImmunity
+
+- type: clause
+  id: greed
+  clauseWeight: -10
+  spawnedItems:
+  - SpaceCash30000
+
+- type: clause
+  id: pain
+  clauseWeight: -5
+  addedComponents:
+  - type: PainNumbness
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      60: 1
+      80: 1
+
+- type: clause
+  id: chance
+  clauseWeight: -20
+  event: !type:DevilContractChanceEvent
+
+- type: clause
   id: shadows
   clauseWeight: -25
   addedComponents:
   - type: Stealth
   - type: StealthOnMove
+
+- type: clause
+  id: humanity
+  clauseWeight: 25
+  polymorph: MobFrogPolymorph
 
 - type: clause
   id: strength
@@ -83,6 +151,14 @@
   event: !type:DevilContractLoseHandEvent
 
 - type: clause
+  id: awake
+  clauseWeight: 40
+  addedComponents:
+  - type: Narcolepsy
+    timeBetweenIncidents: 300, 600
+    durationOfIncident: 10, 30
+
+- type: clause
   id: anorgan
   clauseWeight: 45
   event: !type:DevilContractLoseOrganEvent
@@ -108,10 +184,10 @@
 
 - type: clause
   id: mortality
-  clauseWeight: -100
+  clauseWeight: -135
   addedComponents:
   - type: CheatDeath
-    reviveAmount: -1
+    infiniteRevives: true
 
 - type: clause
   id: time
@@ -120,4 +196,3 @@
   - type: DelayedDeath
     deathTime: 300
     deathMessageId: devil-deal-time-ran-out
-  - type: Condemned

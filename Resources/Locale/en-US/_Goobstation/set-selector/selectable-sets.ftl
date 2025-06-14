@@ -67,8 +67,8 @@ selectable-set-syndicate-hitman-description =
 selectable-set-syndicate-implants-name = Cyberpsychosis Bundle
 selectable-set-syndicate-implants-description =
     A few implants to give you some options for when you inevitably get arrested.
-    Contains: holoparasite kit, EMP, scram, freedom,
-    smoke, krav maga and syndicate radio implanters.
+    Contains: EMP, scram, freedom, smoke, krav maga and syndicate radio implanters,
+    Sandevistan and paired mantis blades autosurgeons, and a cool jacket.
 
 selectable-set-syndicate-hacker-name = Hacker Bundle
 selectable-set-syndicate-hacker-description =
@@ -87,8 +87,8 @@ selectable-set-syndicate-desword-description =
 selectable-set-syndicate-grenadier-name = Grenadier Bundle
 selectable-set-syndicate-grenadier-description =
     Some explosives to ensure you can blast your way through any situation.
-    Contains: syndicate encryption key, minibomb, C4, and then incendiary,
-    explosive, shrapnel, EMP, whitehole, supermatter, smoke and flash grenades.
+    Contains: syndicate encryption key, bomb suit, grenadier belt rig,
+    explosive-resistant backpack and so many grenades you'll fall asleep reading.
 
 selectable-set-syndicate-fluclear-name = Fluclear Operative Bundle
 selectable-set-syndicate-fluclear-description =
@@ -99,8 +99,8 @@ selectable-set-syndicate-fluclear-description =
 selectable-set-syndicate-friendship-name = Friendship Bundle
 selectable-set-syndicate-friendship-description =
     Friendship is magic! Go find yourself some friends with this bundle!
-    Contains: Contractor baton, handcuffs, 2 mindcontrol implanters,
-    3 Mosin rifles and 3 syndicate encryption keys for all of you.
+    Contains: a contractor baton and handcuffs for you, 4 mindcontrol implanters
+    and Mosin rifles for your friends, and 5 syndicate encryption keys for you all.
 
 selectable-set-syndicate-carp-name = Carp Bundle
 selectable-set-syndicate-carp-description =
@@ -204,3 +204,15 @@ selectable-set-engineering-modsuit-desc =
     A modular hardsuit with increased blast plating and the large vulnerable visor
     replaced with external cameras to better protect against explosions
     and other external threats.
+
+selectable-set-captain-voidsuit-name = Captain's voidsuit
+selectable-set-captain-voidsuit-desc =
+    Captain's light voidsuit made custom fitted for formal occasions, lightly
+    armored to protect during the average shift, all while still retaining
+    common spacewalking capabilities.
+
+selectable-set-captain-modsuit-name = Captain's 'Magnate' hardsuit
+selectable-set-captain-modsuit-desc =
+    A modular hardsuit perfectly shined, adorned, and armored for the best of
+    the best, fitted with custom plating, cooling fluid, and diamonds to
+    make even the toughest of times leading seem like nothing to you.

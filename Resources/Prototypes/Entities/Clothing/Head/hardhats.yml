@@ -22,6 +22,9 @@
 # SPDX-FileCopyrightText: 2023 liltenhead <104418166+liltenhead@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: MIT
 
@@ -96,9 +99,9 @@
     coverage:
     - Head
     traumaDeductions:
-      Dismemberment: 0.07
-      OrganDamage: 0.12
-      BoneDamage: 0.12
+      Dismemberment: 0.1
+      OrganDamage: 0.1
+      BoneDamage: 0.15
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:

@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 LuciferEOS <stepanteliatnik2022@gmail.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 #
@@ -134,7 +135,7 @@
 
 - type: entity
   id: BulletSlugEnsnaring
-  name: bullet (8 Gauge caliber ensnaring slug)
+  name: bullet (8 Gauge ensnaring slug)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -158,7 +159,7 @@
 
 - type: entity
   id: BulletSlugEMP
-  name: bullet (8 Gauge caliber EMP slug)
+  name: bullet (8 Gauge EMP slug)
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -185,7 +186,7 @@
 
 - type: entity
   id: BulletSlugFlash
-  name: bullet (8 Gauge caliber flash slug)
+  name: bullet (8 Gauge flash slug)
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -247,3 +248,111 @@
     damage:
       types:
         Piercing: 15
+
+# Heavy shotgun
+
+# Pellet
+- type: entity
+  id: BulletPelletHeavyHighExplosive
+  name: pellet (2 gauge)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBulletTrigger
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: ball
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 7
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: HardBomb # Boom
+    maxIntensity: 1
+    intensitySlope: 2
+    totalIntensity: 1
+
+- type: entity
+  id: BulletShrapnelHeavyHighExplosive
+  name: explosive shrapnel
+  categories: [ HideSpawnMenu ]
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: ball
+  - type: Explosive
+    explosionType: DemolitionCharge
+    totalIntensity: 15
+    intensitySlope: 5
+    maxIntensity: 5
+  - type: ExplodeOnTrigger
+  - type: TimedDespawn
+    lifetime: 6
+
+- type: entity
+  id: HeavyPelletShotgunSpread
+  categories: [ HideSpawnMenu ]
+  parent: BulletPelletHeavyHighExplosive
+  components:
+  - type: ProjectileSpread
+    proto: BulletPelletHeavyHighExplosive
+    count: 6
+    spread: 45
+
+- type: entity
+  id: BulletSlugHeavyHighExplosive
+  name: slug (2 gauge)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBulletTrigger
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: grenade
+  - type: Projectile
+    deleteOnCollide: false # ScatteringGrenade manages deletion
+    damage:
+      types:
+        Piercing: 30
+    armorPenetration: 0.5
+  - type: StaminaDamageOnCollide
+    damage: 40
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
+  - type: ScatteringGrenade
+    fillPrototype: BulletShrapnelHeavyHighExplosive
+    delayBeforeTriggerContents: 0.5
+    intervalBetweenTriggersMax: 0.2
+    capacity: 6
+    randomDistance: true
+    randomThrowDistanceMin: 4
+    randomThrowDistanceMax: 8
+    velocity: 6
+
+
+# MP-APERS
+- type: entity
+  id: HighCaliberPelletGrenade
+  name: pellet (MP-APERS)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: buckshot
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 6 # Total 120 damage
+
+- type: entity
+  id: HighCaliberPelletGrenadeSpread
+  categories: [ HideSpawnMenu ]
+  parent: HighCaliberPelletGrenade
+  components:
+  - type: ProjectileSpread
+    proto: HighCaliberPelletGrenade
+    count: 20
+    spread: 15
+

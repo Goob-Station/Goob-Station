@@ -70,6 +70,7 @@
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -182,36 +183,32 @@
   parent: LockerBrigmedic
   components:
   - type: StorageFill
-    contents:
-      - id: ClothingEyesGlassesSecurity
-      - id: WeaponDisabler
-      - id: TrackingImplanter
-        amount: 2
+    contents: # heavily good edited
+      - id: BoxAutoinjectorCartidges
+      - id: OmnimedTool
       - id: ClothingOuterHardsuitBrigmedic
       - id: OxygenTankFilled
       - id: NitrogenTankFilled
-      - id: BoxSterileMask
-      - id: ClothingHeadHatBeretBrigmedic
-      - id: ClothingOuterCoatAMG
-      - id: ClothingUniformJumpsuitBrigmedic
-      - id: ClothingUniformJumpskirtBrigmedic
       - id: ClothingUniformJumpskirtOfLife
         prob: 0.1
+      - id: MedkitOxygenFilled # This one is guaranteed
+      # And extra 3 medkits on average, with autoinjectors and surgery tools should be more than enough round start
       - id: MedkitFilled
-      - id: MedkitCombatFilled
-        prob: 0.6
-      - id: MedkitAdvancedFilled
-        prob: 0.4
-      - id: MedkitOxygenFilled
-        prob: 0.3
+        prob: 0.75
       - id: MedkitBruteFilled
-        prob: 0.3
+        prob: 0.5
+      - id: MedkitBurnFilled
+        prob: 0.5
       - id: MedkitToxinFilled
         prob: 0.3
-      - id: MedkitBurnFilled
-        prob: 0.7
+      - id: MedkitRadiationFilled
+        prob: 0.3
+      - id: MedkitAdvancedFilled
+        prob: 0.2
+      - id: MedkitCombatFilled
+        prob: 0.1
       - id: ClothingNeckCloakMoth #bzzz Moth-pocalypse
-        prob: 0.15
+        prob: 0.065 # 6,5% for moth obviozzzsly
 
 - type: entity
   id: LockerDetectiveFilled

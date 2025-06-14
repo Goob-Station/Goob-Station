@@ -161,6 +161,12 @@
 			"_comment": "Goobstation"
         },
         {
+            "name": "pinpointer-universal"
+        },
+        {
+            "name": "pinpointer-science"
+        },
+        {
             "name": "inhand-left",
             "directions": 4
         },
