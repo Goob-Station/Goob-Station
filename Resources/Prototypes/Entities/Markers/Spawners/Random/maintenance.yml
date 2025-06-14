@@ -259,6 +259,7 @@
       - id: MysteryFigureBox
       - id: RubberChicken
       - id: FoodSnackLollypopWrappedMysteryNeutral # Goobstation - Lollypops!
+      - id: RevolutionaryManifesto # Einstein Engines - Revolutionary Manifesto
       # Cult
       - !type:AllSelector
         children:
@@ -293,8 +294,10 @@
         - id: ClothingNeckLesbianPin
         - id: ClothingNeckNonBinaryPin
         - id: ClothingNeckPansexualPin
+        - id: ClothingNeckPluralPin
         - id: ClothingNeckOmnisexualPin
         - id: ClothingNeckGenderqueerPin
+        - id: ClothingNeckGenderfluidPin
         - id: ClothingNeckTransPin
         - id: ClothingNeckAutismPin
     # Rare Group

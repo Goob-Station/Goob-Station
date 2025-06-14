@@ -12,6 +12,7 @@
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
@@ -254,6 +255,16 @@
   id: StructuralImmunity
   coefficients:
     Structural: 0
+
+- type: damageModifierSet
+  id: Dragon
+  coefficients:
+    Blunt: 0.9
+    Slash: 0.85
+    Piercing: 0.8
+    Shock: 1.2 # I guess snakes better conduct electricity????????
+    Heat: 0.7
+  ignoreArmorPierceFlags: All # Goobstation
 
 - type: damageModifierSet
   id: StrongCrates
