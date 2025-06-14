@@ -10887,3 +10887,23 @@ Entries:
       message: You can no longer rush deathsquad equipment at CC.
   id: 1198
   time: '2025-06-14T20:33:03.0000000+00:00'
+- author: the_biggestbruh
+  changes:
+    - type: Fix
+      message: >-
+        The cost of changeling abilities should no longer directly scale with
+        chemical regeneration multipliers (those who know)
+  id: 1199
+  time: '2025-06-14T20:41:41.0000000+00:00'
+- author: soup123
+  changes:
+    - type: Add
+      message: Lathes queues can now be cleared by pressing the "Reset Queue" button.
+  id: 1200
+  time: '2025-06-14T20:53:38.0000000+00:00'
+- author: RedMush1
+  changes:
+    - type: Tweak
+      message: Hyperzine takes more time to metabolize.
+  id: 1201
+  time: '2025-06-14T20:59:19.0000000+00:00'
