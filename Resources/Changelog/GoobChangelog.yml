@@ -10917,3 +10917,15 @@ Entries:
       message: Nukies can now buy disposable ballistic turret.
   id: 1202
   time: '2025-06-14T21:09:45.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: TC miner limited to one purchase.
+    - type: Tweak
+      message: TC miner 60->100 TC and produces a bit faster to compensate.
+    - type: Tweak
+      message: >-
+        TC miner now announces at 60->40 TC and also announces location at 100
+        TC.
+  id: 1203
+  time: '2025-06-14T21:11:45.0000000+00:00'
