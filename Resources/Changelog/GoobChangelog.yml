@@ -10895,3 +10895,9 @@ Entries:
         chemical regeneration multipliers (those who know)
   id: 1199
   time: '2025-06-14T20:41:41.0000000+00:00'
+- author: soup123
+  changes:
+    - type: Add
+      message: Lathes queues can now be cleared by pressing the "Reset Queue" button.
+  id: 1200
+  time: '2025-06-14T20:53:38.0000000+00:00'
