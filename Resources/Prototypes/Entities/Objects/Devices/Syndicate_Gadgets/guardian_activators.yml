@@ -105,7 +105,7 @@
 - type: entity
   name: magical lamp
   id: MagicalLamp
-  parent: [ArabianLamp, BaseMagicContraband] # Goob edit
+  parent: [ArabianLamp, BaseMagicalContraband] # Goob edit
   description: The wizard federation had to cut costs after the jinn merchandise scandal somehow.
   components:
   - type: GuardianCreator

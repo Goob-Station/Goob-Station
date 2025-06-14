@@ -44,8 +44,8 @@
       outerClothing:
       - state: equipped-OUTERCLOTHING-sealed
         shader: unshaded
-  - type: StaminaDamageResistance
-    coefficient: 0.9
+  - type: StaminaResistance
+    damageCoefficient: 0.9
   - type: Armor
     coverage:
     - Chest
@@ -118,8 +118,8 @@
   - type: ModifyDelayedKnockdown
     delayDelta: 2.5
     knockdownTimeDelta: -2.5
-  - type: StaminaDamageResistance
-    coefficient: 0.7
+  - type: StaminaResistance
+    damageCoefficient: 0.7
   - type: Armor
     traumaDeductions:
       Dismemberment: 0.3
@@ -193,8 +193,8 @@
   - type: ModifyDelayedKnockdown
     delayDelta: 3
     knockdownTimeDelta: -3
-  - type: StaminaDamageResistance
-    coefficient: 0.7
+  - type: StaminaResistance
+    damageCoefficient: 0.7
   - type: Armor
     traumaDeductions:
       Dismemberment: 0.3
@@ -305,8 +305,8 @@
   - type: ModifyDelayedKnockdown
     delayDelta: 1
     knockdownTimeDelta: -1
-  - type: StaminaDamageResistance
-    coefficient: 0.9
+  - type: StaminaResistance
+    damageCoefficient: 0.9
   - type: FireProtection
     reduction: 0.5
   - type: HideClothingLayerClothing
@@ -381,8 +381,8 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 1
     knockdownTimeDelta: -1
-  - type: StaminaDamageResistance
-    coefficient: 0.9
+  - type: StaminaResistance
+    damageCoefficient: 0.9
   - type: FireProtection
     reduction: 0.7
   - type: HideClothingLayerClothing
@@ -455,8 +455,8 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 1
     knockdownTimeDelta: -1
-  - type: StaminaDamageResistance
-    coefficient: 0.9
+  - type: StaminaResistance
+    damageCoefficient: 0.9
   - type: FireProtection
     reduction: 0.75
   - type: HideClothingLayerClothing
@@ -531,8 +531,8 @@
   - type: ModifyDelayedKnockdown
     delayDelta: 3
     knockdownTimeDelta: -3
-  - type: StaminaDamageResistance
-    coefficient: 0.5
+  - type: StaminaResistance
+    damageCoefficient: 0.5
   - type: FireProtection
     reduction: 0.7
   - type: HideClothingLayerClothing
@@ -607,8 +607,8 @@
   - type: ModifyDelayedKnockdown
     delayDelta: 3
     knockdownTimeDelta: -3
-  - type: StaminaDamageResistance
-    coefficient: 0.6
+  - type: StaminaResistance
+    damageCoefficient: 0.6
   - type: FireProtection
     reduction: 0.5
   - type: HideClothingLayerClothing
