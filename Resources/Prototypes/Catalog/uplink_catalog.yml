@@ -802,7 +802,7 @@
   description: uplink-combat-medkit-desc
   productEntity: MedkitCombatFilled
   cost:
-    Telecrystal: 25 # goob
+    Telecrystal: 15 # goob
   categories:
   - UplinkChemicals
 
@@ -1759,7 +1759,7 @@
   name: uplink-syndie-raid-name
   description: uplink-syndie-raid-desc
   icon: { sprite: /Textures/Clothing/OuterClothing/Armor/syndie-raid.rsi, state: icon }
-  productEntity: ClothingBackpackDuffelSyndicateRaidBundle
+  productEntity: ClothingBackpackSyndicateRaidBundle
   cost:
     Telecrystal: 50 # goob
   categories:
