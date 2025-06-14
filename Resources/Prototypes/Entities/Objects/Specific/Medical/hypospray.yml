@@ -107,6 +107,7 @@
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 RedMush1 <axmetvaliev1@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 SeamLesss <kai.julian.watson@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
@@ -123,7 +124,12 @@
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/hypospray.rsi
-    state: hypo
+    layers:
+      - state: hypo
+        map: ["enum.SolutionContainerLayers.Base"]
+      - state: hypo_fill1
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: false
   - type: Item
     sprite: Objects/Specific/Medical/hypospray.rsi
   - type: SolutionContainerManager
@@ -145,6 +151,11 @@
     - HighRiskItem
   - type: StealTarget
     stealGroup: Hypospray
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 6
+    fillBaseName: hypo_fill
+    solutionName: hypospray
 
 - type: entity
   name: gorlex hypospray
@@ -154,7 +165,12 @@
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/syndihypo.rsi
-    state: hypo
+    layers:
+      - state: hypo
+        map: ["enum.SolutionContainerLayers.Base"]
+      - state: hypo_fill1
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: false
   - type: Item
     sprite: Objects/Specific/Medical/syndihypo.rsi
   - type: SolutionContainerManager
@@ -169,6 +185,11 @@
     onlyAffectsMobs: false
   - type: UseDelay
     delay: 0.5
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 4
+    fillBaseName: hypo_fill
+    solutionName: hypospray
 
 - type: entity
   name: borghypo
@@ -674,10 +695,10 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 30
+        maxVol: 10 # Goobstation edit
         reagents:
         - ReagentId: Stimulants
-          Quantity: 30
+          Quantity: 10 # Goobstation edit
   - type: SolutionContainerVisuals
     maxFillLevels: 1
     changeColor: false
@@ -720,10 +741,10 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 15
+        maxVol: 5 # Goobstation edit
         reagents:
         - ReagentId: Stimulants
-          Quantity: 15
+          Quantity: 5 # Goobstation edit
   - type: SolutionContainerVisuals
     maxFillLevels: 1
     changeColor: false

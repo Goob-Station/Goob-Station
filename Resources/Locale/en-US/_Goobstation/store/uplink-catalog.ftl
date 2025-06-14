@@ -76,6 +76,7 @@ uplink-beenades-desc = A non-explosive grenade full of... bees?! NOT THE BEES!!!
 
 uplink-dart-gun-name = Dart Gun
 uplink-dart-gun-desc = This gun applies inside chemicals to its regenerating dart supply, allowing to distantly heal allies or to commit war crimes by poisoning foes.
+
 # Weapons
 
 uplink-contractor-baton-name = Contractor Baton
@@ -196,6 +197,12 @@ uplink-high-caliber-shotgun-box-sarin-desc = 16 shells of 8 Gauge sarin shells f
 uplink-sarin-gas-grenade-name = Sarin Gas Grenade
 uplink-sarin-gas-grenade-desc = A brutal neurotoxin gas that stuns, blinds, and poisons anybody unlucky enough to catch a whiff aswell as burning anyone not in a voidsuit, leaving them writhing on the floor begging to be finished off
 
+uplink-M172LAW-name = M172 Light Anti-structure Weapon
+uplink-M172LAW-desc = A single shot disposable rocket launcher for taking out singular walls/machines with minimal collateral damage. can be stored in your backpack conveniently.
+
+uplink-RPOA-name = RPO-A 'Shmel'
+uplink-RPOA-desc = A single shot disposable thermobaric rocket launcher, which lights hostiles and hostages on fire in a wide radius. can be stored in your backpack.
+
 # Mechs
 
 uplink-mech-teleporter-heavy-name = Heavy Mech teleporter
@@ -217,6 +224,12 @@ uplink-advanced-combat-medipen-desc = An advanced single-use medipen containing 
 
 uplink-syringe-pistol-name = Syringe Pistol
 uplink-syringe-pistol-desc = A gun that takes syringes as ammunition, and injects their contents to its victims. Injects faster than normal syringe guns and can fit in pockets.
+
+uplink-combat-medkit-pills-name = Combat Medical Kit (Pills)
+uplink-combat-medkit-pills-desc = Contains most medicines you need to recover from injuries and illnesses, all in a convenient pill form.
+
+uplink-combat-medkit-ipc-name = Combat Medical Kit (IPC)
+uplink-combat-medkit-ipc-desc = Contains everything you need to heal an IPC; includes LV wire, industrial welder, a high capacity cell and meson goggles.
 
 # Implants
 
