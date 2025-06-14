@@ -1,8 +1,6 @@
 // Adapted from https://www.shadertoy.com/view/lXKyzK by user Lunastela, modified for Xenobio - expect changes in the future.
 // License: CC-BY-NC-SA 3.0
 
-light_mode unshaded;
-
 mediump vec2 square_uv(mediump vec2 coord, mediump vec2 res) {
     if (res.x >= res.y)
     coord.x = (coord.x + (res.y - res.x) * 0.5) * res.x / res.y;

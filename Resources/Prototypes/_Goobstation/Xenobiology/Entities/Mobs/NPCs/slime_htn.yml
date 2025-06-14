@@ -8,10 +8,10 @@
   branches:
   - tasks:
     - !type:HTNCompoundTask
-      task: LatchCompound
+      task: FoodCompound
   - tasks:
     - !type:HTNCompoundTask
-      task: FoodCompound
+      task: LatchCompound
   - tasks:
     - !type:HTNCompoundTask
       task: IdleCompound

@@ -5,6 +5,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Diagnostics;
+using Content.Client.DamageState;
 using Content.Goobstation.Shared.Xenobiology;
 using Content.Goobstation.Shared.Xenobiology.Components;
 using Robust.Client.GameObjects;
@@ -34,12 +36,13 @@ public sealed class XenoSlimeVisualizerSystem : VisualizerSystem<SlimeComponent>
         {
             var spriteComp = args.Sprite;
             var newShader = _proto.Index<ShaderPrototype>(shader).InstanceUnique();
-            foreach (var layer in args.Sprite.AllLayers)
-            {
-                var thisLayer = spriteComp.LayerMapTryGet(layer, out var targetLayer);
-                if (thisLayer)
-                    spriteComp.LayerSetShader(targetLayer, newShader);
-            }
+
+            var layerExists = spriteComp.LayerMapTryGet(DamageStateVisualLayers.Base, out var layerKey);
+
+            if (!layerExists)
+                return;
+
+            spriteComp.LayerSetShader(layerKey, newShader);
             spriteComp.GetScreenTexture = newShader is not null;
             spriteComp.RaiseShaderEvent = newShader is not null;
         }
