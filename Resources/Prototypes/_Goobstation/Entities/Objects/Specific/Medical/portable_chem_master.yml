@@ -52,7 +52,7 @@
   id: portableChemicalMixer
   parent: BaseItem
   name: portable chemical mixer
-  description: A "Tider" grade chemical manipulator
+  description: A portable chemical manipulator with a limited buffer.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Tools/chemical_mixer.rsi
