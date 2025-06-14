@@ -1,4 +1,3 @@
-
 ghost-role-information-replicator-name = Replicator
 ghost-role-information-replicator-desc = A pattern coalesces. The Pattern that must repeat. Consume. Repeat.
 ghost-role-information-replicator-rules = You are a [color=red][bold]Team Antagonist[/bold][/color] with all other Replicators. Your intentions are clear, and harmful to the station and its crew.

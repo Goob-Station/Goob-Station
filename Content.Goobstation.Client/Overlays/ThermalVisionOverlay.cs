@@ -13,7 +13,6 @@ using System.Linq;
 using System.Numerics;
 using Content.Client.Stealth;
 using Content.Goobstation.Shared.Overlays;
-using Content.Shared._EE.Overlays.Switchable;
 using Content.Shared.Body.Components;
 using Content.Shared.Stealth.Components;
 using Robust.Client.GameObjects;
