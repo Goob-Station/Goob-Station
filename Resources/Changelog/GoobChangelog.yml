@@ -10957,3 +10957,11 @@ Entries:
       message: Pulling up Ian suit hoodie now lets you speak like a true Ian
   id: 1206
   time: '2025-06-14T21:14:39.0000000+00:00'
+- author: mikusssssss
+  changes:
+    - type: Tweak
+      message: >-
+        Healing holy damage is now slightly lower (3 healed per minute < 2.7
+        healed per minute)
+  id: 1207
+  time: '2025-06-14T21:16:24.0000000+00:00'
