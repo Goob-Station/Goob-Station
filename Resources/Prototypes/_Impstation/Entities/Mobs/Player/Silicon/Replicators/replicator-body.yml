@@ -1,3 +1,5 @@
+# Majority of this file is adjusted for goob shitmed
+
 - type: body
   id: Replicator1
   name: "replicator t1"
@@ -6,9 +8,13 @@
     torso:
       part: TorsoBorg
       connections:
-      - hand 1
-    hand 1:
+      - left arm
+    left arm:
       part: LeftArmBorg
+      connections:
+      - left hand
+    left hand:
+      part: LeftHandHuman
 
 - type: body
   id: Replicator2
@@ -18,12 +24,20 @@
     torso:
       part: TorsoBorg
       connections:
-      - hand 1
-      - hand 2
-    hand 1:
+      - left arm
+      - right arm
+    left arm:
       part: LeftArmBorg
-    hand 2: 
+      connections:
+      - left hand
+    right arm:
       part: RightArmBorg
+      connections:
+      - right hand
+    right hand:
+      part: RightHandHuman
+    left hand:
+      part: LeftHandHuman
 
 - type: body
   id: Replicator3
@@ -33,6 +47,10 @@
     torso:
       part: TorsoBorg
       connections:
-      - hand 1
-    hand 1:
+      - left arm
+    left arm:
       part: LeftArmBorg
+      connections:
+      - left hand
+    left hand:
+      part: LeftHandHuman
