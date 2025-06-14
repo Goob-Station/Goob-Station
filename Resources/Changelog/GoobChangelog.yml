@@ -10810,3 +10810,39 @@ Entries:
       message: Mechs no longer give you turret or NPC immunity.
   id: 1192
   time: '2025-06-14T06:44:50.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: >-
+        Added Amber station! It is a small to medium-pop station, ported
+        directly from Wizden.
+  id: 1193
+  time: '2025-06-14T18:48:44.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Add
+      message: Updated base game to 27-04-2025 release
+    - type: Fix
+      message: All condensed gases can be metabolised now
+    - type: Tweak
+      message: Implanters are named IC now
+    - type: Add
+      message: BZ, Healium, Nitrium and Pluox can now (rarely) be an artifact trigger
+    - type: Add
+      message: >-
+        Station destruction artifact nodes have been readded, with a very low
+        chance of occuring
+    - type: Remove
+      message: >-
+        Preferred silicon name has been removed (in favour of job-specific name
+        system)
+    - type: Fix
+      message: Added missing oni speech indicators
+    - type: Tweak
+      message: >-
+        Pirates will only target cargo bank account, but their ransoms can have
+        higher values
+    - type: Fix
+      message: Paradox clones of uncloneable species/characters can now appear
+  id: 1194
+  time: '2025-06-14T19:17:17.0000000+00:00'

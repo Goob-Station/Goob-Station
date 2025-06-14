@@ -113,7 +113,7 @@ public sealed partial class CloningSystem : EntitySystem
         if (!_prototype.TryIndex(humanoid.Species, out var speciesPrototype))
             return false; // invalid species
 
-        if (HasComp<UncloneableComponent>(original))
+        if (HasComp<UncloneableComponent>(original) && !settings.ForceCloning) // Goob: enable forcecloning bypass for antagctrl admemes on vox/ipc
             return false; // Goobstation: Don't clone IPCs and voxes. It could be argued it should be in the CloningPodSystem instead
 
         var attemptEv = new CloningAttemptEvent(settings);
