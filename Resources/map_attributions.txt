@@ -67,7 +67,7 @@
 - files: ["leonid.yml"]
   authors: Gallagin, Derball
 
-- files: ["delta.yml"]
+- files: ["delta.yml", "chloris.yml"]
   authors: Corvax team, pheenty
 - files: ["convex.yml"]
   authors: Spacemann

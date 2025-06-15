@@ -80,6 +80,9 @@ uplink-dart-gun-desc = This gun applies inside chemicals to its regenerating dar
 uplink-magazine-nailgun-name = Nail Gun Magazine (AP)
 uplink-magazine-nailgun-desc = Almost like a normal magazine for your nail gun. The only difference is that this one is armor-piercing.
 
+uplink-pressure-modkit-name = Pressure Modkit
+uplink-pressure-modkit-desc = This illegal modkit takes 30 capacity of your proto-kinetic accelerator and overclocks it to deal full damage even in unsuitable pressure.
+
 # Weapons
 
 uplink-contractor-baton-name = Contractor Baton
