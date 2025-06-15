@@ -51,7 +51,7 @@
 
 - type: entity
   id: MagicBroomstickVehicle
-  parent: [ BaseVehicle, BaseFoldable, BaseItem, BaseMagicContraband, Broomstick]
+  parent: [ BaseVehicle, BaseFoldable, BaseItem, BaseMagicalContraband, Broomstick]
   name: magic broomstick
   description: Broomstick that floats in the middle of the air. Remember to put on a witch hat for safety!
   components:
