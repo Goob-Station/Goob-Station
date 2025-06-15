@@ -29,7 +29,10 @@ public sealed class MiscSignallerSystem : EntitySystem
     private void OnTrigger(EntityUid uid, MiscSignallerComponent component, TriggerEvent args)
     {
         if (component.NextActivationWindow > _timing.CurTime)
+        {
+            args.Handled = true;
             return;
+        }
         _link.InvokePort(uid, component.Port);
         args.Handled = true;
         component.NextActivationWindow = _timing.CurTime + component.ActivationInterval;
