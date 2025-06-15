@@ -11239,3 +11239,25 @@ Entries:
       message: Chloris
   id: 1235
   time: '2025-06-15T07:37:55.0000000+00:00'
+- author: the_biggestbruh
+  changes:
+    - type: Add
+      message: >-
+        Chitinous armour plays an animation and unique sound when being
+        equipped. 
+    - type: Tweak
+      message: >-
+        Chitinous armour has had its physical protection reduced (65% -> 45%)
+        and explosive protection reduced (50% -> 10%)
+    - type: Tweak
+      message: Chitinous armour helmet now stops ingestion.
+    - type: Tweak
+      message: >-
+        Chitinous armour now prevents dismemberment, and has more protection
+        against bone damage.
+    - type: Tweak
+      message: >-
+        Chitinous armour now hides physical features (except for things like
+        tails) and protects the user's identity.
+  id: 1236
+  time: '2025-06-15T07:41:12.0000000+00:00'
