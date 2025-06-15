@@ -23,7 +23,8 @@ cd ..
 cd Content.Pirate.Client
 @echo on
 call dotnet build -c Debug
-@echo offcd ..
+@echo off
+cd ..
 
 call dotnet build -c Debug
 pause
