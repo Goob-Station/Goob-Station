@@ -214,6 +214,7 @@ namespace Content.IntegrationTests.Tests
             "Dev",            // Dev map
             "dm01-entryway",  // Deathmatch
             "Europa",         // Not in pool.
+            //"Exo",          // Fuck off. I'm not even risking this list doing anything with it present.
             "Fland",
             "FlandHighPop",
             "Gate",           // Not in pool
@@ -256,6 +257,7 @@ namespace Content.IntegrationTests.Tests
               "Dev",            // Dev map
             //"dm01-entryway",  // Deathmatch
             //"Europa",         // Not in pool.
+            //"Exo",            // Not in pool.
               "Fland",
               "FlandHighPop",
             //"Gate",           // Not in pool
