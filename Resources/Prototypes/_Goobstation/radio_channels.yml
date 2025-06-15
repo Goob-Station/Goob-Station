@@ -12,7 +12,7 @@
 - type: radioChannel
   id: Future
   name: chat-radio-future
-  keycode: 'q' 
+  keycode: 'ч'
   frequency: 9999
   color: "#91E8E5"
   longRange: true
