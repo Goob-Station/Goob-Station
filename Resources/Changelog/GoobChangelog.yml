@@ -10790,3 +10790,516 @@ Entries:
       message: Assistants maints access
   id: 1189
   time: '2025-06-08T20:18:47.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Zombies are now guaranteed to spawn with no other antags.
+    - type: Fix
+      message: Fixed cosmic cult being too common.
+  id: 1190
+  time: '2025-06-13T11:38:49.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: Captains can now choose armored jacket and winter coat in the loadout.
+  id: 1191
+  time: '2025-06-14T06:06:52.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Mechs no longer give you turret or NPC immunity.
+  id: 1192
+  time: '2025-06-14T06:44:50.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: >-
+        Added Amber station! It is a small to medium-pop station, ported
+        directly from Wizden.
+  id: 1193
+  time: '2025-06-14T18:48:44.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Add
+      message: Updated base game to 27-04-2025 release
+    - type: Fix
+      message: All condensed gases can be metabolised now
+    - type: Tweak
+      message: Implanters are named IC now
+    - type: Add
+      message: BZ, Healium, Nitrium and Pluox can now (rarely) be an artifact trigger
+    - type: Add
+      message: >-
+        Station destruction artifact nodes have been readded, with a very low
+        chance of occuring
+    - type: Remove
+      message: >-
+        Preferred silicon name has been removed (in favour of job-specific name
+        system)
+    - type: Fix
+      message: Added missing oni speech indicators
+    - type: Tweak
+      message: >-
+        Pirates will only target cargo bank account, but their ransoms can have
+        higher values
+    - type: Fix
+      message: Paradox clones of uncloneable species/characters can now appear
+  id: 1194
+  time: '2025-06-14T19:17:17.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Add
+      message: >-
+        Added the M172 LAW and RPO-A 'Shmel' disposable rocket launchers in the
+        nukie uplink. for anti-structure/borgs and anti-personnel use
+        respectively. they are single shot so just toss them after you fire.
+  id: 1195
+  time: '2025-06-14T19:57:11.0000000+00:00'
+- author: Evige
+  changes:
+    - type: Add
+      message: a Disco Beach Ball
+  id: 1196
+  time: '2025-06-14T20:24:11.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Tweak
+      message: >-
+        Captain's voidsuit was downgraded visually to reflect how POOR it is
+        compared to his MAGNATE hardsuit
+    - type: Tweak
+      message: >-
+        The head of security's hardsuit now also injects 5u of tramadol when you
+        go crit
+    - type: Tweak
+      message: Fixed nukie PDA
+    - type: Tweak
+      message: Fixed 12 gauge shell boxes still showing as .50 shell boxes
+    - type: Add
+      message: laser weapons and snipers can now melee bash
+  id: 1197
+  time: '2025-06-14T20:28:51.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: There is now a shrine for admin plushies at CC.
+    - type: Tweak
+      message: You can no longer rush deathsquad equipment at CC.
+  id: 1198
+  time: '2025-06-14T20:33:03.0000000+00:00'
+- author: the_biggestbruh
+  changes:
+    - type: Fix
+      message: >-
+        The cost of changeling abilities should no longer directly scale with
+        chemical regeneration multipliers (those who know)
+  id: 1199
+  time: '2025-06-14T20:41:41.0000000+00:00'
+- author: soup123
+  changes:
+    - type: Add
+      message: Lathes queues can now be cleared by pressing the "Reset Queue" button.
+  id: 1200
+  time: '2025-06-14T20:53:38.0000000+00:00'
+- author: RedMush1
+  changes:
+    - type: Tweak
+      message: Hyperzine takes more time to metabolize.
+  id: 1201
+  time: '2025-06-14T20:59:19.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Remove
+      message: Disposable ballistic turret no longer explodes.
+    - type: Tweak
+      message: Disposable ballistic turret 100->250 hp.
+    - type: Tweak
+      message: Nukies can now buy disposable ballistic turret.
+  id: 1202
+  time: '2025-06-14T21:09:45.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: TC miner limited to one purchase.
+    - type: Tweak
+      message: TC miner 60->100 TC and produces a bit faster to compensate.
+    - type: Tweak
+      message: >-
+        TC miner now announces at 60->40 TC and also announces location at 100
+        TC.
+  id: 1203
+  time: '2025-06-14T21:11:45.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Partial AP is working again.
+  id: 1204
+  time: '2025-06-14T21:13:56.0000000+00:00'
+- author: BuffOrphan
+  changes:
+    - type: Tweak
+      message: >-
+        Overall increased AI's movement speed slightly, holding shift makes them
+        move a lot faster.
+    - type: Tweak
+      message: AI can now slightly zoom out, akin to a ghost.
+    - type: Add
+      message: AI now has diagnostic hud.
+    - type: Fix
+      message: >-
+        Made Sec and Reporter Bodycams actually work (Yes, they didn't work for
+        AI previously)
+  id: 1205
+  time: '2025-06-14T21:14:15.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Add
+      message: Pulling up Ian suit hoodie now lets you speak like a true Ian
+  id: 1206
+  time: '2025-06-14T21:14:39.0000000+00:00'
+- author: mikusssssss
+  changes:
+    - type: Tweak
+      message: >-
+        Healing holy damage is now slightly lower (3 healed per minute < 2.7
+        healed per minute)
+  id: 1207
+  time: '2025-06-14T21:16:24.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Inline gas filters now ignore input pipe pressure.
+    - type: Fix
+      message: Fixed flipped gas filters being effectively flipped.
+  id: 1208
+  time: '2025-06-15T04:40:05.0000000+00:00'
+- author: vrilly
+  changes:
+    - type: Fix
+      message: mail access
+  id: 1209
+  time: '2025-06-15T04:44:39.0000000+00:00'
+- author: IrisTheAmped
+  changes:
+    - type: Fix
+      message: Vox and Shadowkin no longer overheat or chill constantly.
+  id: 1210
+  time: '2025-06-15T04:59:27.0000000+00:00'
+- author: IrisTheAmped
+  changes:
+    - type: Fix
+      message: >-
+        Thieves have finally got with the times and no longer try to steal
+        Expedition boards. It's been forever.
+  id: 1211
+  time: '2025-06-15T05:12:48.0000000+00:00'
+- author: IrisTheAmped
+  changes:
+    - type: Tweak
+      message: Appraisal tools removed from Lathes and added to Cargo Fab.
+  id: 1212
+  time: '2025-06-15T05:13:21.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Tweak
+      message: >-
+        Reflective vest can no longer be abused to completely circumvent AI
+        turrets. 
+  id: 1213
+  time: '2025-06-15T05:40:36.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: Added nightvision to headslugs.
+  id: 1214
+  time: '2025-06-15T05:48:16.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Fire no longer instakills moths
+  id: 1215
+  time: '2025-06-15T06:00:39.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Clarify how contraband works for sec / command in guidebook
+    - type: Tweak
+      message: Restrict warden items to warden
+  id: 1216
+  time: '2025-06-15T06:02:23.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: 'Heretic summons now have AI, and walk at a normal speed. '
+    - type: Tweak
+      message: Fleshstalkers immune to flashes.
+  id: 1217
+  time: '2025-06-15T06:06:20.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Tone down insane salv armor values
+  id: 1218
+  time: '2025-06-15T06:06:55.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Tweak
+      message: >-
+        Atlas Supermatter containment got a minor facelift as well as having its
+        access restricted to Atmos and CE
+    - type: Tweak
+      message: >-
+        Atlas Brig has had a minor facelift to make Bridmed larger and add
+        Criminal Records Computer at the cost of one secway.
+  id: 1219
+  time: '2025-06-15T06:09:31.0000000+00:00'
+- author: Evige
+  changes:
+    - type: Add
+      message: Fished fish now produce meat when butchered!
+  id: 1220
+  time: '2025-06-15T06:11:09.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: Engineers now have new nail gun!
+    - type: Tweak
+      message: You can now examine damage of walls.
+    - type: Tweak
+      message: >-
+        Engineers now do double hit with a nail and a hammer instead of just two
+        hammers.
+  id: 1221
+  time: '2025-06-15T06:12:27.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Tweak
+      message: >-
+        Heads of Staff (Command Staff) can be converted. No longer shall we
+        kill, when we can truly take over the station as one.
+  id: 1222
+  time: '2025-06-15T06:22:38.0000000+00:00'
+- author: Rubin
+  changes:
+    - type: Tweak
+      message: Rosary healing & damage have been reduced.
+    - type: Tweak
+      message: Antag passive holy healing has been reduced.
+    - type: Fix
+      message: >-
+        Cosmic Cult sometimes not taking holy damage when wearing/holding evil
+        equipment.
+    - type: Fix
+      message: Rosary healing is properly divided between limbs.
+    - type: Fix
+      message: Rosary can no longer heal silicon nor the dead.
+    - type: Fix
+      message: Rosary can no longer target through walls.
+  id: 1223
+  time: '2025-06-15T06:29:32.0000000+00:00'
+- author: SaffronFennec
+  changes:
+    - type: Tweak
+      message: >-
+        Entropy now takes 5 seconds to siphon and has a 15s CD from 2 and 10
+        respectively. To compensate, the damage delay is longer.
+    - type: Tweak
+      message: The cult now is balanced around less members [50 > 40% of the crew]
+    - type: Tweak
+      message: Some prices for powers have been changed slightly.
+    - type: Tweak
+      message: Cult Leader votes are now 120 seconds long from 30.
+    - type: Tweak
+      message: >-
+        Cult Blades and Lances deal less asphyx damage, but more brute, and have
+        further reduced damage unwielded.
+    - type: Tweak
+      message: >-
+        Cult Scythes are worse at making death hallways, having faster
+        projectiles and a slower firerate, but are better at regular combat,
+        hitting much faster and having a higher reflect chance [20 > 35%]
+    - type: Tweak
+      message: >-
+        Null Glare has been completely rebalanced, being a 4-tile, 0.5s stun at
+        the cost of a weaker flash and 30s cooldown.
+    - type: Tweak
+      message: >-
+        Shunt has been nerfed, needing a second to stun from half a second, and
+        has a reduced effect. [22s > 15s stun]. Maybe distract the target and
+        cuff them / lure them closer to the monument?
+    - type: Fix
+      message: >-
+        Astral Nova actually deals near-intended damage. Apparently collision
+        makes it hit 3-*6* times, not the 2-3 delta-V expected. it has been
+        "nerfed" to compensate. [6-12s stun, 39-72 AP damage > 2.4-4.8s stun,
+        15-30 AP damage]
+  id: 1224
+  time: '2025-06-15T06:34:07.0000000+00:00'
+- author: IrisTheAmped
+  changes:
+    - type: Add
+      message: Research Directors can now choose Voidsuit or the new Hardsuit.
+    - type: Tweak
+      message: >-
+        Research Director Voidsuit has had it's armor tweaked for the new light
+        vs heavy armor choice.
+    - type: Tweak
+      message: >-
+        Thieves seem just as interested in your new suit as your old one, and
+        will accept either.
+  id: 1225
+  time: '2025-06-15T06:42:38.0000000+00:00'
+- author: IrisTheAmped
+  changes:
+    - type: Tweak
+      message: >-
+        Zed bites are still incredibly lethal but you have a higher chance of
+        making it to med before turning.
+  id: 1226
+  time: '2025-06-15T06:49:14.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Tweak
+      message: >-
+        A major rework has been given to Oasis. The bar, kitchen, and zoo have
+        all been moved towards the center; Salvage has been made public, and
+        maintenance areas have been expanded, with the most notable of which
+        being a transit area to and from evac into where the shooting range used
+        to be. Further feedback always appreciated.
+  id: 1227
+  time: '2025-06-15T06:54:01.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Ghost bar now gets much more things, including plastic.
+    - type: Fix
+      message: You can no longer FTL ghost bar.
+  id: 1228
+  time: '2025-06-15T06:54:48.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: >-
+        Traitor salvagers can now buy pressure modkits that disable pressure
+        penalties on PKAs.
+    - type: Tweak
+      message: >-
+        PKAs only deal full damage between 20 and 50 kpa instead of just below
+        50 now. 1984.
+  id: 1229
+  time: '2025-06-15T07:15:51.0000000+00:00'
+- author: the_biggestbruh
+  changes:
+    - type: Tweak
+      message: >-
+        Heretic path of Void ascension has received a mini-rework. Board the
+        windows, weld the doors, huddle close together for warmth, hide and
+        pray. The waltz begins.
+  id: 1230
+  time: '2025-06-15T07:20:24.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: Blueshield officers can now choose armored ushanka in the loadout.
+  id: 1231
+  time: '2025-06-15T07:22:38.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Add
+      message: office chairs to saltern
+    - type: Add
+      message: public lavaland to saltern
+    - type: Add
+      message: CC office to saltern
+    - type: Add
+      message: holopads to saltern
+    - type: Add
+      message: brigmed infrastructure to saltern
+    - type: Remove
+      message: public laths on saltern
+    - type: Tweak
+      message: AI sat on saltern
+  id: 1232
+  time: '2025-06-15T07:26:03.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Remove
+      message: Removed non admin/owner plushies.
+  id: 1233
+  time: '2025-06-15T07:27:55.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Syndicate bomb timer is now 60s.
+  id: 1234
+  time: '2025-06-15T07:33:13.0000000+00:00'
+- author: Chloris
+  changes:
+    - type: Add
+      message: Chloris
+  id: 1235
+  time: '2025-06-15T07:37:55.0000000+00:00'
+- author: the_biggestbruh
+  changes:
+    - type: Add
+      message: >-
+        Chitinous armour plays an animation and unique sound when being
+        equipped. 
+    - type: Tweak
+      message: >-
+        Chitinous armour has had its physical protection reduced (65% -> 45%)
+        and explosive protection reduced (50% -> 10%)
+    - type: Tweak
+      message: Chitinous armour helmet now stops ingestion.
+    - type: Tweak
+      message: >-
+        Chitinous armour now prevents dismemberment, and has more protection
+        against bone damage.
+    - type: Tweak
+      message: >-
+        Chitinous armour now hides physical features (except for things like
+        tails) and protects the user's identity.
+  id: 1236
+  time: '2025-06-15T07:41:12.0000000+00:00'
+- author: Super7522
+  changes:
+    - type: Add
+      message: >-
+        New Shipment of Holy Supplies, for those Cultists rounds when the Bible
+        is lost
+  id: 1237
+  time: '2025-06-15T07:42:45.0000000+00:00'
+- author: cheetah1984
+  changes:
+    - type: Tweak
+      message: Sentient artifact activation cooldown (5 -> 1 minutes)
+  id: 1238
+  time: '2025-06-15T07:43:34.0000000+00:00'
+- author: misandrie
+  changes:
+    - type: Add
+      message: BSO now has an objective to protect one random command member
+  id: 1239
+  time: '2025-06-15T07:44:45.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Tweak
+      message: >-
+        Changed the SM containment's doors and windows for fresh models direct
+        from Centcomm
+    - type: Tweak
+      message: 'Gave Bagels Brigmed a makeover '
+  id: 1240
+  time: '2025-06-15T07:45:19.0000000+00:00'
+- author: vrilly
+  changes:
+    - type: Add
+      message: More lizard emotes
+  id: 1241
+  time: '2025-06-15T07:46:29.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: Security got new melee toys to play with.
+  id: 1242
+  time: '2025-06-15T08:15:54.0000000+00:00'

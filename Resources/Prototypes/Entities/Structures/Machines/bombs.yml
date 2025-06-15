@@ -77,6 +77,8 @@
 # SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -108,8 +110,8 @@
     # If you nerf the syndicate bomb in any major way, this should probably drop down to at least 100s (not 90s to compensate for slower movement speed & less lag in SS14)
     # Unless, of course, you want the 90 seconds regardless. I can't stop you.
     - type: OnUseTimerTrigger
-      delay: 180
-      delayOptions: [180, 240, 300, 600, 900]
+      delay: 60 # Goobstation
+      delayOptions: [60, 90, 120, 180, 300, 600, 900] # Goobstation
       initialBeepDelay: 0
       beepSound: /Audio/Machines/timer.ogg
     - type: Anchorable
