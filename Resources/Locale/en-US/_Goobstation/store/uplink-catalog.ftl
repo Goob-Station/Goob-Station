@@ -77,6 +77,9 @@ uplink-beenades-desc = A non-explosive grenade full of... bees?! NOT THE BEES!!!
 uplink-dart-gun-name = Dart Gun
 uplink-dart-gun-desc = This gun applies inside chemicals to its regenerating dart supply, allowing to distantly heal allies or to commit war crimes by poisoning foes.
 
+uplink-magazine-nailgun-name = Nail Gun Magazine (AP)
+uplink-magazine-nailgun-desc = Almost like a normal magazine for your nail gun. The only difference is that this one is armor-piercing.
+
 uplink-pressure-modkit-name = Pressure Modkit
 uplink-pressure-modkit-desc = This illegal modkit takes 30 capacity of your proto-kinetic accelerator and overclocks it to deal full damage even in unsuitable pressure.
 
@@ -255,7 +258,7 @@ uplink-autosurgeon-mantis-blade-desc = Modifies the user's arm to include the Ma
 uplink-autosurgeon-sandevistan-name = Sandevistan Autosurgeon
 uplink-autosurgeon-sandevistan-desc = Replaces the user's heart with Sandevistan, a synthetic organ that drastically increases the user's speed at the cost of their endurance. Requires too much fine tuning for a human to provide, comes with a one-use autosurgeon for installation.
 
-uplink-davids-jacket-name = edgerunner jacket
+uplink-davids-jacket-name = Edgerunner Jacket
 uplink-davids-jacket-desc = A jacket for those particularly interested in improving their bodies, just like you.
 
 # Wearables
@@ -263,7 +266,7 @@ uplink-davids-jacket-desc = A jacket for those particularly interested in improv
 uplink-helmet-swat-name = Syndicate SWAT Helmet
 uplink-helmet-swat-desc = Robust helmet that offers good protection and also suppresses flashbang sounds to some extent.
 
-uplink-reverse-bear-trap-name = Reverse bear trap
+uplink-reverse-bear-trap-name = Reverse Bear Trap
 uplink-reverse-bear-trap-desc = An ingenious execution device worn on (or forced onto) the head. Arming it starts a configurable timer (30-120 seconds) mounted on the bear trap. When it goes off, the trap's jaws will violently open, instantly killing anyone wearing it by tearing their jaws in half. To arm, attack someone with it while they're not wearing headgear.
 
 # Deception
@@ -273,7 +276,7 @@ uplink-clothing-explosive-gloves-desc = Gloves that look just like normal insula
 
 # Disruption
 
-uplink-syndicate-weapon-module-advanced-name = advanced weapons module
+uplink-syndicate-weapon-module-advanced-name = Advanced Weapons Module
 uplink-syndicate-weapon-module-advanced-desc = Upgrades a cyborg with an energy sword and an anaconda pistol.
 
 # Martial Arts

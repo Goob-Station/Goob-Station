@@ -699,6 +699,20 @@
     - Medical
 
 - type: listing
+  id: UplinkMagazineNailgun
+  name: uplink-magazine-nailgun-name
+  description: uplink-magazine-nailgun-desc
+  productEntity: MagazineNailgunArmorPiercing
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerDepartmentCondition
+    whitelist:
+    - Engineering
+
+- type: listing
   id: UplinkPKAUpgradePressure
   name: uplink-pressure-modkit-name
   description: uplink-pressure-modkit-desc

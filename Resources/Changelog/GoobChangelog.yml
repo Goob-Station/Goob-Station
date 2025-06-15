@@ -10979,3 +10979,159 @@ Entries:
       message: mail access
   id: 1209
   time: '2025-06-15T04:44:39.0000000+00:00'
+- author: IrisTheAmped
+  changes:
+    - type: Fix
+      message: Vox and Shadowkin no longer overheat or chill constantly.
+  id: 1210
+  time: '2025-06-15T04:59:27.0000000+00:00'
+- author: IrisTheAmped
+  changes:
+    - type: Fix
+      message: >-
+        Thieves have finally got with the times and no longer try to steal
+        Expedition boards. It's been forever.
+  id: 1211
+  time: '2025-06-15T05:12:48.0000000+00:00'
+- author: IrisTheAmped
+  changes:
+    - type: Tweak
+      message: Appraisal tools removed from Lathes and added to Cargo Fab.
+  id: 1212
+  time: '2025-06-15T05:13:21.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Tweak
+      message: >-
+        Reflective vest can no longer be abused to completely circumvent AI
+        turrets. 
+  id: 1213
+  time: '2025-06-15T05:40:36.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: Added nightvision to headslugs.
+  id: 1214
+  time: '2025-06-15T05:48:16.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Fire no longer instakills moths
+  id: 1215
+  time: '2025-06-15T06:00:39.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Clarify how contraband works for sec / command in guidebook
+    - type: Tweak
+      message: Restrict warden items to warden
+  id: 1216
+  time: '2025-06-15T06:02:23.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: 'Heretic summons now have AI, and walk at a normal speed. '
+    - type: Tweak
+      message: Fleshstalkers immune to flashes.
+  id: 1217
+  time: '2025-06-15T06:06:20.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Tone down insane salv armor values
+  id: 1218
+  time: '2025-06-15T06:06:55.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Tweak
+      message: >-
+        Atlas Supermatter containment got a minor facelift as well as having its
+        access restricted to Atmos and CE
+    - type: Tweak
+      message: >-
+        Atlas Brig has had a minor facelift to make Bridmed larger and add
+        Criminal Records Computer at the cost of one secway.
+  id: 1219
+  time: '2025-06-15T06:09:31.0000000+00:00'
+- author: Evige
+  changes:
+    - type: Add
+      message: Fished fish now produce meat when butchered!
+  id: 1220
+  time: '2025-06-15T06:11:09.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: Engineers now have new nail gun!
+    - type: Tweak
+      message: You can now examine damage of walls.
+    - type: Tweak
+      message: >-
+        Engineers now do double hit with a nail and a hammer instead of just two
+        hammers.
+  id: 1221
+  time: '2025-06-15T06:12:27.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Tweak
+      message: >-
+        Heads of Staff (Command Staff) can be converted. No longer shall we
+        kill, when we can truly take over the station as one.
+  id: 1222
+  time: '2025-06-15T06:22:38.0000000+00:00'
+- author: Rubin
+  changes:
+    - type: Tweak
+      message: Rosary healing & damage have been reduced.
+    - type: Tweak
+      message: Antag passive holy healing has been reduced.
+    - type: Fix
+      message: >-
+        Cosmic Cult sometimes not taking holy damage when wearing/holding evil
+        equipment.
+    - type: Fix
+      message: Rosary healing is properly divided between limbs.
+    - type: Fix
+      message: Rosary can no longer heal silicon nor the dead.
+    - type: Fix
+      message: Rosary can no longer target through walls.
+  id: 1223
+  time: '2025-06-15T06:29:32.0000000+00:00'
+- author: SaffronFennec
+  changes:
+    - type: Tweak
+      message: >-
+        Entropy now takes 5 seconds to siphon and has a 15s CD from 2 and 10
+        respectively. To compensate, the damage delay is longer.
+    - type: Tweak
+      message: The cult now is balanced around less members [50 > 40% of the crew]
+    - type: Tweak
+      message: Some prices for powers have been changed slightly.
+    - type: Tweak
+      message: Cult Leader votes are now 120 seconds long from 30.
+    - type: Tweak
+      message: >-
+        Cult Blades and Lances deal less asphyx damage, but more brute, and have
+        further reduced damage unwielded.
+    - type: Tweak
+      message: >-
+        Cult Scythes are worse at making death hallways, having faster
+        projectiles and a slower firerate, but are better at regular combat,
+        hitting much faster and having a higher reflect chance [20 > 35%]
+    - type: Tweak
+      message: >-
+        Null Glare has been completely rebalanced, being a 4-tile, 0.5s stun at
+        the cost of a weaker flash and 30s cooldown.
+    - type: Tweak
+      message: >-
+        Shunt has been nerfed, needing a second to stun from half a second, and
+        has a reduced effect. [22s > 15s stun]. Maybe distract the target and
+        cuff them / lure them closer to the monument?
+    - type: Fix
+      message: >-
+        Astral Nova actually deals near-intended damage. Apparently collision
+        makes it hit 3-*6* times, not the 2-3 delta-V expected. it has been
+        "nerfed" to compensate. [6-12s stun, 39-72 AP damage > 2.4-4.8s stun,
+        15-30 AP damage]
+  id: 1224
+  time: '2025-06-15T06:34:07.0000000+00:00'
