@@ -11135,3 +11135,17 @@ Entries:
         15-30 AP damage]
   id: 1224
   time: '2025-06-15T06:34:07.0000000+00:00'
+- author: IrisTheAmped
+  changes:
+    - type: Add
+      message: Research Directors can now choose Voidsuit or the new Hardsuit.
+    - type: Tweak
+      message: >-
+        Research Director Voidsuit has had it's armor tweaked for the new light
+        vs heavy armor choice.
+    - type: Tweak
+      message: >-
+        Thieves seem just as interested in your new suit as your old one, and
+        will accept either.
+  id: 1225
+  time: '2025-06-15T06:42:38.0000000+00:00'
