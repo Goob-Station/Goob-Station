@@ -11168,3 +11168,11 @@ Entries:
         to be. Further feedback always appreciated.
   id: 1227
   time: '2025-06-15T06:54:01.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Ghost bar now gets much more things, including plastic.
+    - type: Fix
+      message: You can no longer FTL ghost bar.
+  id: 1228
+  time: '2025-06-15T06:54:48.0000000+00:00'
