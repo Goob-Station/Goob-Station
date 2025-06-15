@@ -10,8 +10,8 @@
         <PanelContainer>
             <PanelContainer.PanelOverride>
                 <gfx:StyleBoxFlat BackgroundColor="#1b1b1e"
-                        BorderColor="#404046"
-                        BorderThickness="1.5"></gfx:StyleBoxFlat>
+                                  BorderColor="#404046"
+                                  BorderThickness="1.5"></gfx:StyleBoxFlat>
             </PanelContainer.PanelOverride>
             <BoxContainer
                 Margin="5"
@@ -19,65 +19,66 @@
                 <BoxContainer>
                     <Label Text="Бажана температура(Кельвіни): "></Label>
                     <FloatSpinBox Name="TempField"
-                            Orientation="Horizontal"
-                            SetSize="200 35"
-                            Margin="10 0 0 0">
+                                  Orientation="Horizontal"
+                                  SetSize="200 35"
+                                  Margin="10 0 0 0">
                     </FloatSpinBox>
                 </BoxContainer>
 
             </BoxContainer>
             <PanelContainer SetWidth="2"
-                    HorizontalAlignment="Center"
-                    Margin="420 0.5 0 0">
+                            HorizontalAlignment="Center"
+                            Margin="420 0.5 0 0">
                 <PanelContainer.PanelOverride>
                     <gfx:StyleBoxFlat BackgroundColor="#404046"></gfx:StyleBoxFlat>
                 </PanelContainer.PanelOverride>
                 <Button SetSize="120 35"
                         ToggleMode="True"
+                        Pressed="False"
                         Text="Увімкнути"
                         Name="ActiveButton"
                         Margin="75 3 0 0"></Button>
             </PanelContainer>
         </PanelContainer>
         <BoxContainer Margin="0 20 0 0"
-                SetWidth="720">
+                      SetWidth="720">
             <BoxContainer Orientation="Vertical"
-                    VerticalAlignment="Center">
+                          VerticalAlignment="Center">
                 <SpriteView Name="Sprite"
-                        SetSize="160 160"
-                        Scale="5 5"
-                        HorizontalAlignment="Left"></SpriteView>
+                            SetSize="160 160"
+                            Scale="5 5"
+                            HorizontalAlignment="Left"></SpriteView>
                 <BoxContainer Name="ContainerInfo"
-                        Orientation="Vertical"
-                        HorizontalAlignment="Center"></BoxContainer>
+                              Orientation="Vertical"
+                              HorizontalAlignment="Center"></BoxContainer>
             </BoxContainer>
             <PanelContainer HorizontalAlignment="Right"
-                    SetSize="560 260">
+                            SetSize="560 260">
                 <PanelContainer.PanelOverride>
                     <gfx:StyleBoxFlat BackgroundColor="#1b1b1e"
-                            BorderColor="#404046"
-                            BorderThickness="1.5"></gfx:StyleBoxFlat>
+                                      BorderColor="#404046"
+                                      BorderThickness="1.5"></gfx:StyleBoxFlat>
                 </PanelContainer.PanelOverride>
                 <BoxContainer SetHeight="60"
-                        Orientation="Horizontal"
-                        VerticalAlignment="Top">
+                              Orientation="Horizontal"
+                              VerticalAlignment="Top">
                     <Label Margin="5 0 0 0"
-                            Text="Температура розчину(К): "></Label>
+                           Text="Температура розчину(К): "></Label>
                     <Label Name="TemperatureLabel"></Label>
                 </BoxContainer>
                 <PanelContainer SetHeight="2"
-                        Margin="0 60 0 0"
-                        VerticalAlignment="Top">
+                                Margin="0 60 0 0"
+                                VerticalAlignment="Top">
                     <PanelContainer.PanelOverride>
                         <gfx:StyleBoxFlat BackgroundColor="#1b1b1e"
-                                BorderColor="#404046"
-                                BorderThickness="1.5"></gfx:StyleBoxFlat>
+                                          BorderColor="#404046"
+                                          BorderThickness="1.5"></gfx:StyleBoxFlat>
                     </PanelContainer.PanelOverride>
                 </PanelContainer>
                 <ScrollContainer SetHeight="190"
-                        Margin="5 70 5 0">
+                                 Margin="5 70 5 0">
                     <BoxContainer Name="ReagentsContainer"
-                            Orientation="Vertical">
+                                  Orientation="Vertical">
                     </BoxContainer>
 
                 </ScrollContainer>

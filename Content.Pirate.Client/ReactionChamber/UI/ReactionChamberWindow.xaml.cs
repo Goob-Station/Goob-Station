@@ -23,7 +23,6 @@ public sealed partial class ReactionChamberWindow : DefaultWindow
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
-        SetActive(false);
     }
     public void UpdateState(ReactionChamberBoundUIState state)
     {
@@ -79,13 +78,16 @@ public sealed partial class ReactionChamberWindow : DefaultWindow
     public void SetTemp(float temp)
     {
         Temp = temp;
+        TempField.Value = Temp;
     }
-    public void SetActive(bool active)
+    /// <summary>
+    /// Changes button look in UI
+    /// </summary>
+    /// <param name="active"></param>
+    public void UpdateActiveButtonUI(bool active)
     {
         Active = active;
-        ActiveButton.Pressed = active;
-
-        if (active)
+        if (Active)
         {
             ActiveButton.Text = "Вимкнути";
         }
@@ -93,6 +95,7 @@ public sealed partial class ReactionChamberWindow : DefaultWindow
         {
             ActiveButton.Text = "Увімкнути";
         }
+        ActiveButton.Pressed = !Active;
     }
 
 }

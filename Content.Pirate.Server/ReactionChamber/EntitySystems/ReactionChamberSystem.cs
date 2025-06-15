@@ -27,7 +27,8 @@ public sealed partial class ReactionChamberSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<ReactionChamberComponent, SolutionContainerChangedEvent>(UpdateUiState);
-        SubscribeLocalEvent<ReactionChamberComponent, OnTemperatureChangeEvent>(UpdateUiState);
+        // SubscribeLocalEvent<ReactionChamberComponent, OnTemperatureChangeEvent>(UpdateUiState);
+        SubscribeLocalEvent<ReactionChamberComponent, ComponentInit>(UpdateUiState);
         SubscribeLocalEvent<ReactionChamberComponent, EntInsertedIntoContainerMessage>(UpdateUiState);
         SubscribeLocalEvent<ReactionChamberComponent, EntRemovedFromContainerMessage>(UpdateUiStateNull);
         SubscribeLocalEvent<ReactionChamberComponent, ReactionChamberActiveChangeMessage>(OnActiveChangeMessage);
