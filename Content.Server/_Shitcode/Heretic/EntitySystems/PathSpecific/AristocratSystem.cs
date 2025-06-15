@@ -82,10 +82,8 @@ public sealed partial class AristocratSystem : EntitySystem
         var others = EntityQueryEnumerator<AristocratComponent, MobStateComponent>();
         while (others.MoveNext(out var other, out _, out var stateComp))
         {
-            if (ent.Owner == other)
-                continue;
-
-            if (stateComp.CurrentState == MobState.Dead)
+            if (ent.Owner == other
+                || stateComp.CurrentState == MobState.Dead)
                 continue;
 
             return true;
@@ -105,13 +103,9 @@ public sealed partial class AristocratSystem : EntitySystem
         {
             var xformVictim = Transform(victim);
 
-            if (xformVictim.MapUid != xform.MapUid)
-                continue;
-
-            if (stateComp.CurrentState == MobState.Dead)
-                continue;
-
-            if (ent.Owner == victim) // DoVoidAnnounce doesn't happen when there's other (alive) ascended void heretics, so you only have to exclude the user
+            if (xformVictim.MapUid != xform.MapUid
+                || stateComp.CurrentState == MobState.Dead
+                || ent.Owner == victim) // DoVoidAnnounce doesn't happen when there's other (alive) ascended void heretics, so you only have to exclude the user
                 continue;
 
             _popup.PopupEntity(Loc.GetString($"void-ascend-{context}"), victim, actorComp.PlayerSession, PopupType.LargeCaution);
@@ -152,7 +146,8 @@ public sealed partial class AristocratSystem : EntitySystem
             DoVoidAnnounce(ent, "end");
         }
 
-        if (stateComp.CurrentState == MobState.Alive && ent.Comp.HasDied) // in the rare case that they are revived for whatever reason
+        if (stateComp.CurrentState == MobState.Alive
+            && ent.Comp.HasDied) // in the rare case that they are revived for whatever reason
         {
             ent.Comp.HasDied = false;
             BeginWaltz(ent); // we're back bros
@@ -258,16 +253,12 @@ public sealed partial class AristocratSystem : EntitySystem
     {
         var tilerefs = GetTiles(ent);
 
-        if (tilerefs == null)
-            return;
-
-        if (tilerefs.Count == 0)
+        if (tilerefs == null
+            || tilerefs.Count == 0)
             return;
 
         foreach (var tile in tilerefs)
-        {
             _atmos.HotspotExtinguish(tile.GridUid, tile.GridIndices);
-        }
     }
 
     // extinguish ppl and stuff
@@ -297,18 +288,19 @@ public sealed partial class AristocratSystem : EntitySystem
         foreach (var tag in tags)
         {
             // walls
-            if (_tag.HasTag(tag.Owner, "Wall") && _rand.Prob(.45f)
-                && Prototype(tag) != null && Prototype(tag)!.ID != SnowWallPrototype)
+            if (_tag.HasTag(tag.Owner, "Wall")
+                && _rand.Prob(.45f)
+                && Prototype(tag) != null
+                && Prototype(tag)!.ID != SnowWallPrototype)
             {
                 Spawn(SnowWallPrototype, Transform(tag).Coordinates);
                 QueueDel(tag);
             }
 
             // windows
-            if (_tag.HasTag(tag.Owner, "Window") && Prototype(tag) != null)
-            {
+            if (_tag.HasTag(tag.Owner, "Window")
+                && Prototype(tag) != null)
                 _damage.TryChangeDamage(tag, dspec, origin: ent);
-            }
         }
     }
 
@@ -318,9 +310,7 @@ public sealed partial class AristocratSystem : EntitySystem
         var lights = _lookup.GetEntitiesInRange<PoweredLightComponent>(coords, ent.Comp.Range);
 
         foreach (var light in lights)
-        {
             _light.TryDestroyBulb(light);
-        }
     }
 
     // curses noobs
@@ -331,7 +321,8 @@ public sealed partial class AristocratSystem : EntitySystem
         foreach (var noob in noobs)
         {
             // ignore same path heretics and ghouls
-            if (HasComp<HereticComponent>(noob) || HasComp<GhoulComponent>(noob))
+            if (HasComp<HereticComponent>(noob)
+                || HasComp<GhoulComponent>(noob))
                 continue;
 
             _voidcurse.DoCurse(noob);
@@ -351,10 +342,8 @@ public sealed partial class AristocratSystem : EntitySystem
 
         var tilerefs = GetTiles(ent);
 
-        if (tilerefs == null)
-            return;
-
-        if (tilerefs.Count == 0)
+        if (tilerefs == null
+            || tilerefs.Count == 0)
             return;
 
         var tiles = new List<TileRef>();
