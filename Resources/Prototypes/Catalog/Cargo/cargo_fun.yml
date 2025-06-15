@@ -407,16 +407,6 @@
   group: market
 
 - type: cargoProduct
-  id: FunCrewPlushies # Self insert crate :-)
-  icon:
-    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
-    state: plushie_knott
-  product: CrateFunSelfInsertPlushie
-  cost: 1000
-  category: cargoproduct-category-name-fun
-  group: market
-
-- type: cargoProduct
   id: FunDiscoBeachBall
   icon:
     sprite: Objects/Fun/toys.rsi
