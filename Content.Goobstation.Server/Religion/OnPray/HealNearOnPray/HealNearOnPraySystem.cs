@@ -54,6 +54,7 @@ public sealed partial class HealNearOnPraySystem : EntitySystem
             {
                 _damageable.TryChangeDamage(entity, comp.Damage, targetPart: TargetBodyPart.All, splitDamage: SplitDamageBehavior.SplitEnsureAll);
                 Spawn(comp.DamageEffect, Transform(entity).Coordinates);
+                _audio.PlayPvs(comp.SizzleSoundPath, entity, new AudioParams(-2f, 1f, SharedAudioSystem.DefaultSoundRange, 1f, false, 0f)); //This should be safe to keep in the loop as this sound will never consistently play on multiple entities.
             }
             else
             {
@@ -61,6 +62,6 @@ public sealed partial class HealNearOnPraySystem : EntitySystem
                 Spawn(comp.HealEffect, Transform(entity).Coordinates);
             }
         }
-        _audio.PlayPvs(comp.HealSoundPath, uid, new AudioParams(-2f, 1f, SharedAudioSystem.DefaultSoundRange, 1f, false, 0f));
+        _audio.PlayPvs(comp.HealSoundPath, uid, new AudioParams(-2f, 1f, SharedAudioSystem.DefaultSoundRange, 1f, false, 0f)); //Played outside the loop once at the source of the damage to prevent repeated sound-stacking.
     }
 }
