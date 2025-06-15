@@ -288,11 +288,22 @@ public sealed partial class GoobCVars
 
     #region Game Director
 
+    // also used by secret+
     public static readonly CVarDef<float> MinimumTimeUntilFirstEvent =
         CVarDef.Create("gamedirector.minimumtimeuntilfirstevent", 300f, CVar.SERVERONLY);
 
     public static readonly CVarDef<int> GameDirectorDebugPlayerCount =
         CVarDef.Create("gamedirector.debug_player_count", 80, CVar.SERVERONLY);
+
+    #endregion
+
+    #region Secret+
+
+    /// <summary>
+    /// Makes secret+ consider the server to have this many extra living players, for debug.
+    /// </summary>
+    public static readonly CVarDef<int> SecretPlusPlayerBias =
+        CVarDef.Create("secretplus.debug_player_bias", 0, CVar.SERVERONLY);
 
     #endregion
 
@@ -435,18 +446,6 @@ public sealed partial class GoobCVars
     /// </summary>
     public static readonly CVarDef<bool> AdminOverlayShowJob =
         CVarDef.Create("ui.admin_overlay_show_job", true, CVar.CLIENTONLY | CVar.ARCHIVE);
-
-    /// <summary>
-    /// If true, the admin overlay will show their antag.
-    /// </summary>
-    public static readonly CVarDef<bool> AdminOverlayShowAntag =
-        CVarDef.Create("ui.admin_overlay_show_antag", true, CVar.CLIENTONLY | CVar.ARCHIVE);
-
-    /// <summary>
-    /// If true, the admin overlay will show their role type.
-    /// </summary>
-    public static readonly CVarDef<bool> AdminOverlayShowRoleType =
-        CVarDef.Create("ui.admin_overlay_show_role_type", true, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     #endregion
 
