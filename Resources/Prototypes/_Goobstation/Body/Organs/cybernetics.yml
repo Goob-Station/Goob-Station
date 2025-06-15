@@ -12,7 +12,7 @@
   - type: CyberdeckSource
   - type: LimitedCharges
     maxCharges: 8
-    charges: 0
+    lastCharges: 0
   - type: AutoRecharge
     rechargeDuration: 10
   - type: Organ

@@ -30,7 +30,6 @@ using Content.Shared.Silicons.StationAi;
 using Content.Shared.Stunnable;
 using Content.Shared.Verbs;
 using Robust.Shared.Containers;
-using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -50,7 +49,6 @@ public abstract class SharedCyberdeckSystem : EntitySystem
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly SharedCryostorageSystem _cryostorage = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedPvsOverrideSystem _pvsOverride = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedDoorSystem _door = default!;
     [Dependency] private readonly SharedEyeSystem _eye = default!;
@@ -267,8 +265,12 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         _actions.RemoveAction(uid, component.VisionAction);
         _actions.RemoveAction(uid, component.ReturnAction);
 
-        KillProjection(ent);
         UpdateAlert(ent, true);
+
+        DetachFromProjection(ent);
+
+        // We don't need a projection anymore as component related to it is deleted.
+        PredictedQueueDel(ent.Comp.ProjectionEntity);
     }
 
     private void OnHacked(Entity<CyberdeckHackableComponent> ent, ref CyberdeckHackDoAfterEvent args)
@@ -331,43 +333,6 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         args.Handled = true;
     }
 
-
-
-    /// <summary>
-    /// Creates a projection on server-side in Nullspace. Will do nothing if projection already exists.
-    /// </summary>
-    private void CreateProjection(Entity<CyberdeckUserComponent> user)
-    {
-        if (_net.IsClient || user.Comp.ProjectionEntity != null)
-            return;
-
-        var projection = Spawn(user.Comp.ProjectionEntityId, MapCoordinates.Nullspace);
-        SetPaused(projection, true);
-        var projectionComp = EnsureComp<CyberdeckProjectionComponent>(projection);
-
-        projectionComp.RemoteEntity = user.Owner;
-        user.Comp.ProjectionEntity = projection;
-
-        Dirty(user.Owner, user.Comp);
-        Dirty(projection, projectionComp);
-    }
-
-    /// <summary>
-    /// Fully deletes a projection from existing, detaching a player and then clearing everything up.
-    /// </summary>
-    /// <remarks>
-    /// Client doesn't delete the entity, but instead thinks that it doesn't
-    /// exist by setting it to null in the component, so it's basically the same thing.
-    /// </remarks>
-    private void KillProjection(Entity<CyberdeckUserComponent> user)
-    {
-        DetachFromProjection(user);
-        if (_net.IsServer)
-            QueueDel(user.Comp.ProjectionEntity);
-
-        user.Comp.ProjectionEntity = null;
-    }
-
     /// <summary>
     /// Attaches a player to projection if it already exists,
     /// otherwise creates it and does the same but on server side.
@@ -399,8 +364,16 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         {
             if (_net.IsClient)
                 return;
+            
+            var newProjection = Spawn(user.Comp.ProjectionEntityId, MapCoordinates.Nullspace);
+            SetPaused(newProjection, true);
+            var projectionComp = EnsureComp<CyberdeckProjectionComponent>(newProjection);
 
-            CreateProjection(user);
+            projectionComp.RemoteEntity = user.Owner;
+            user.Comp.ProjectionEntity = newProjection;
+
+            Dirty(user.Owner, user.Comp);
+            Dirty(newProjection, projectionComp);
         }
 
         // Client thinks that projection is not null, but is deleted.
@@ -467,8 +440,6 @@ public abstract class SharedCyberdeckSystem : EntitySystem
             return;
 
         var projection = user.Comp.ProjectionEntity.Value;
-        if (TryComp(user, out ActorComponent? actorComp))
-            _pvsOverride.AddSessionOverride(projection, actorComp.PlayerSession);
 
         // This probably is a dirty solution, but surprisingly you can't send entities to Nullspace...
         // So i'll just steal an already existing pause map instead of shitspamming with a new one.
@@ -487,7 +458,7 @@ public abstract class SharedCyberdeckSystem : EntitySystem
     /// Detaches player from a projection forcefully, and sends an existing projection to Nullspace.
     /// This specific overload lets you put in a nullable EntityUid.
     /// </summary>
-    protected void DetachFromProjection(Entity<CyberdeckUserComponent?>? user)
+    private void DetachFromProjection(Entity<CyberdeckUserComponent?>? user)
     {
         if (user == null)
             return;
