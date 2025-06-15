@@ -648,13 +648,13 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.55
-        Slash: 0.75
-        Piercing: 0.8
+        Blunt: 0.6
+        Slash: 0.8
+        Piercing: 0.9
         Heat: 0.3
-        Shock: 0.8
-        Caustic: 0.5
-        Radiation: 0.1
+        Shock: 0.75
+        Caustic: 0.25
+        Radiation: 0.01
   - type: ComponentToggler
     components:
     - type: BreathMask
