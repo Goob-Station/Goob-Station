@@ -1,5 +1,8 @@
 // SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Panela <107573283+AgentePanela@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -42,6 +45,10 @@ public sealed class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeSystem
         Entity<BorgSwitchableTypeComponent> entity,
         BorgTypePrototype prototype)
     {
+        // Begin DeltaV Code
+        if (prototype.ClientComponents is {} add)
+            EntityManager.AddComponents(entity, add);
+        // End DeltaV Code
         if (TryComp(entity, out SpriteComponent? sprite))
         {
             sprite.LayerSetState(BorgVisualLayers.Body, prototype.SpriteBodyState);
