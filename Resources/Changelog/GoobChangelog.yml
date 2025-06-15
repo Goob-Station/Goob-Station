@@ -11053,3 +11053,9 @@ Entries:
         Criminal Records Computer at the cost of one secway.
   id: 1219
   time: '2025-06-15T06:09:31.0000000+00:00'
+- author: Evige
+  changes:
+    - type: Add
+      message: Fished fish now produce meat when butchered!
+  id: 1220
+  time: '2025-06-15T06:11:09.0000000+00:00'
