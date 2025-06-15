@@ -10965,3 +10965,17 @@ Entries:
         healed per minute)
   id: 1207
   time: '2025-06-14T21:16:24.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Inline gas filters now ignore input pipe pressure.
+    - type: Fix
+      message: Fixed flipped gas filters being effectively flipped.
+  id: 1208
+  time: '2025-06-15T04:40:05.0000000+00:00'
+- author: vrilly
+  changes:
+    - type: Fix
+      message: mail access
+  id: 1209
+  time: '2025-06-15T04:44:39.0000000+00:00'
