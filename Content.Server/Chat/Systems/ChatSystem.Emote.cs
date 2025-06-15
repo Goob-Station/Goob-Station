@@ -14,6 +14,8 @@
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
@@ -21,6 +23,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Collections.Frozen;
+using Content.Goobstation.Common.MisandryBox;
 using Content.Shared.Chat;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Speech;
@@ -80,12 +83,14 @@ public partial class ChatSystem
         bool hideLog = false,
         string? nameOverride = null,
         bool ignoreActionBlocker = false,
-        bool forceEmote = false
+        bool forceEmote = false,
+        bool voluntary = false
         )
     {
         if (!_prototypeManager.TryIndex<EmotePrototype>(emoteId, out var proto))
             return;
-        TryEmoteWithChat(source, proto, range, hideLog: hideLog, nameOverride, ignoreActionBlocker: ignoreActionBlocker, forceEmote: forceEmote);
+
+        TryEmoteWithChat(source, proto, range, hideLog: hideLog, nameOverride, ignoreActionBlocker: ignoreActionBlocker, forceEmote: forceEmote, voluntary: voluntary);
     }
 
     /// <summary>
@@ -105,7 +110,8 @@ public partial class ChatSystem
         bool hideLog = false,
         string? nameOverride = null,
         bool ignoreActionBlocker = false,
-        bool forceEmote = false
+        bool forceEmote = false, // Goob - emotespam
+        bool voluntary = false // Goob - emotespam
         )
     {
         if (!forceEmote && !AllowedToUseEmote(source, emote))
@@ -120,29 +126,29 @@ public partial class ChatSystem
         }
 
         // do the rest of emote event logic here
-        TryEmoteWithoutChat(source, emote, ignoreActionBlocker);
+        TryEmoteWithoutChat(source, emote, ignoreActionBlocker, voluntary: voluntary); // Goob - emotespam
     }
 
     /// <summary>
     ///     Makes selected entity to emote using <see cref="EmotePrototype"/> without sending any messages to chat.
     /// </summary>
-    public void TryEmoteWithoutChat(EntityUid uid, string emoteId, bool ignoreActionBlocker = false)
+    public void TryEmoteWithoutChat(EntityUid uid, string emoteId, bool ignoreActionBlocker = false, bool voluntary = false) // Goob - emotespam
     {
         if (!_prototypeManager.TryIndex<EmotePrototype>(emoteId, out var proto))
             return;
 
-        TryEmoteWithoutChat(uid, proto, ignoreActionBlocker);
+        TryEmoteWithoutChat(uid, proto, ignoreActionBlocker, voluntary); // Goob - emotespam
     }
 
     /// <summary>
     ///     Makes selected entity to emote using <see cref="EmotePrototype"/> without sending any messages to chat.
     /// </summary>
-    public void TryEmoteWithoutChat(EntityUid uid, EmotePrototype proto, bool ignoreActionBlocker = false)
+    public void TryEmoteWithoutChat(EntityUid uid, EmotePrototype proto, bool ignoreActionBlocker = false, bool voluntary = false) // Goob - emotespam
     {
         if (!_actionBlocker.CanEmote(uid) && !ignoreActionBlocker)
             return;
 
-        InvokeEmoteEvent(uid, proto);
+        InvokeEmoteEvent(uid, proto, voluntary); // Goob - emotespam
     }
 
     /// <summary>
@@ -174,6 +180,14 @@ public partial class ChatSystem
 
         // if general params for all sounds set - use them
         var param = proto.GeneralParams ?? sound.Params;
+
+        // Goobstation/MisandryBox - Emote spam countermeasures
+        var ev = new EmoteSoundPitchShiftEvent();
+        RaiseLocalEvent(uid, ref ev);
+
+        param.Pitch += ev.Pitch;
+        // Goobstation/MisandryBox
+
         _audio.PlayPvs(sound, uid, param);
         return true;
     }
@@ -191,7 +205,7 @@ public partial class ChatSystem
         if (!AllowedToUseEmote(uid, emote))
             return;
 
-        InvokeEmoteEvent(uid, emote);
+        InvokeEmoteEvent(uid, emote, voluntary: true); // Goob - emotespam
         return;
 
         static string TrimPunctuation(string textInput)
@@ -243,9 +257,9 @@ public partial class ChatSystem
     }
 
 
-    private void InvokeEmoteEvent(EntityUid uid, EmotePrototype proto)
+    private void InvokeEmoteEvent(EntityUid uid, EmotePrototype proto, bool voluntary = false) // Goob - emotespam
     {
-        var ev = new EmoteEvent(proto);
+        var ev = new EmoteEvent(proto, voluntary); // Goob - emotespam
         RaiseLocalEvent(uid, ref ev, true); // goob edit
     }
 }
@@ -259,10 +273,12 @@ public struct EmoteEvent
 {
     public bool Handled;
     public readonly EmotePrototype Emote;
+    public bool Voluntary; // Goob - emotespam
 
-    public EmoteEvent(EmotePrototype emote)
+    public EmoteEvent(EmotePrototype emote, bool voluntary = true) // Goob - emotespam
     {
         Emote = emote;
         Handled = false;
+        Voluntary = voluntary; // Goob - emotespam
     }
 }

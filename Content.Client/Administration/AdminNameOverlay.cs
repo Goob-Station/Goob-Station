@@ -95,7 +95,9 @@
 // SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 // SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 Schrödinger <132720404+Schrodinger71@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Schr�dinger <132720404+Schrodinger71@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -104,10 +106,12 @@ using System.Linq;
 using System.Numerics;
 using Content.Client.Administration.Systems;
 using Content.Client.Stylesheets;
+using Content.Goobstation.Common.CCVar;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Ghost;
 using Content.Shared.Mind;
+using Content.Shared.Roles;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
@@ -124,10 +128,11 @@ internal sealed class AdminNameOverlay : Overlay
     private readonly IEyeManager _eyeManager;
     private readonly EntityLookupSystem _entityLookup;
     private readonly IUserInterfaceManager _userInterfaceManager;
+    private readonly SharedRoleSystem _roles;
     private readonly Font _font;
     private readonly Font _fontBold;
-    private bool _overlayClassic;
-    private bool _overlaySymbols;
+    private AdminOverlayAntagFormat _overlayFormat;
+    private AdminOverlayAntagSymbolStyle _overlaySymbolStyle;
     private bool _overlayPlaytime;
     private bool _overlayStartingJob;
     private float _ghostFadeDistance;
@@ -135,9 +140,15 @@ internal sealed class AdminNameOverlay : Overlay
     private int _overlayStackMax;
     private float _overlayMergeDistance;
 
+    // Goobstation - Start
+    private bool _showCharacterName;
+    private bool _showUserName;
+    // Goobstation - End
+
     //TODO make this adjustable via GUI
     private readonly ProtoId<RoleTypePrototype>[] _filter =
         ["SoloAntagonist", "TeamAntagonist", "SiliconAntagonist", "FreeAgent"];
+
     private readonly string _antagLabelClassic = Loc.GetString("admin-overlay-antag-classic");
 
     public AdminNameOverlay(
@@ -147,26 +158,49 @@ internal sealed class AdminNameOverlay : Overlay
         IResourceCache resourceCache,
         EntityLookupSystem entityLookup,
         IUserInterfaceManager userInterfaceManager,
-        IConfigurationManager config)
+        IConfigurationManager config,
+        SharedRoleSystem roles)
     {
         _system = system;
         _entityManager = entityManager;
         _eyeManager = eyeManager;
         _entityLookup = entityLookup;
         _userInterfaceManager = userInterfaceManager;
+        _roles = roles;
         ZIndex = 200;
         // Setting these to a specific ttf would break the antag symbols
         _font = resourceCache.NotoStack();
         _fontBold = resourceCache.NotoStack(variation: "Bold");
 
-        config.OnValueChanged(CCVars.AdminOverlayClassic, (show) => { _overlayClassic = show; }, true);
-        config.OnValueChanged(CCVars.AdminOverlaySymbols, (show) => { _overlaySymbols = show; }, true);
+        config.OnValueChanged(CCVars.AdminOverlayAntagFormat, (show) => { _overlayFormat = UpdateOverlayFormat(show); }, true);
+        config.OnValueChanged(CCVars.AdminOverlaySymbolStyle, (show) => { _overlaySymbolStyle = UpdateOverlaySymbolStyle(show); }, true);
         config.OnValueChanged(CCVars.AdminOverlayPlaytime, (show) => { _overlayPlaytime = show; }, true);
         config.OnValueChanged(CCVars.AdminOverlayStartingJob, (show) => { _overlayStartingJob = show; }, true);
         config.OnValueChanged(CCVars.AdminOverlayGhostHideDistance, (f) => { _ghostHideDistance = f; }, true);
         config.OnValueChanged(CCVars.AdminOverlayGhostFadeDistance, (f) => { _ghostFadeDistance = f; }, true);
         config.OnValueChanged(CCVars.AdminOverlayStackMax, (i) => { _overlayStackMax = i; }, true);
         config.OnValueChanged(CCVars.AdminOverlayMergeDistance, (f) => { _overlayMergeDistance = f; }, true);
+
+        // Goobstation - Start
+        config.OnValueChanged(GoobCVars.AdminOverlayShowCharacterName, (show) => { _showCharacterName = show; }, true);
+        config.OnValueChanged(GoobCVars.AdminOverlayShowUserName, (show) => { _showUserName = show; }, true);
+        // Goobstation - End
+    }
+
+    private AdminOverlayAntagFormat UpdateOverlayFormat(string formatString)
+    {
+        if (!Enum.TryParse<AdminOverlayAntagFormat>(formatString, out var format))
+            format = AdminOverlayAntagFormat.Binary;
+
+        return format;
+    }
+
+    private AdminOverlayAntagSymbolStyle UpdateOverlaySymbolStyle(string symbolString)
+    {
+        if (!Enum.TryParse<AdminOverlayAntagSymbolStyle>(symbolString, out var symbolStyle))
+            symbolStyle = AdminOverlayAntagSymbolStyle.Off;
+
+        return symbolStyle;
     }
 
     public override OverlaySpace Space => OverlaySpace.ScreenSpace;
@@ -218,8 +252,7 @@ internal sealed class AdminNameOverlay : Overlay
             var currentOffset = Vector2.Zero;
 
             //  Ghosts near the cursor are made transparent/invisible
-            //  TODO would be "cheaper" if playerinfo already contained a ghost bool, this gets called every frame for every onscreen player!
-            if (_entityManager.HasComponent<GhostComponent>(entity))
+            if (playerInfo.IsGhost) // Goobstation
             {
                 // We want the map positions here, so we don't have to worry about resolution and such shenanigans
                 var mobPosition = aabb.Center;
@@ -255,17 +288,24 @@ internal sealed class AdminNameOverlay : Overlay
                 }
             }
 
-            // Character name
             var color = Color.Aquamarine;
-            color.A = alpha;
-            args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, playerInfo.CharacterName, uiScale, playerInfo.Connected ? color : colorDisconnected);
-            currentOffset += lineoffset;
+
+            // Character name
+            if (_showCharacterName) // Goobstation
+            {
+                color.A = alpha;
+                args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, playerInfo.CharacterName, uiScale, playerInfo.Connected ? color : colorDisconnected);
+                currentOffset += lineoffset;
+            }
 
             // Username
-            color = Color.Yellow;
-            color.A = alpha;
-            args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, playerInfo.Username, uiScale, playerInfo.Connected ? color : colorDisconnected);
-            currentOffset += lineoffset;
+            if (_showUserName) // Goobstation
+            {
+                color = Color.Yellow;
+                color.A = alpha;
+                args.ScreenHandle.DrawString(_font, screenCoordinates + currentOffset, playerInfo.Username, uiScale, playerInfo.Connected ? color : colorDisconnected);
+                currentOffset += lineoffset;
+            }
 
             // Playtime
             if (!string.IsNullOrEmpty(playerInfo.PlaytimeString) && _overlayPlaytime)
@@ -285,33 +325,60 @@ internal sealed class AdminNameOverlay : Overlay
                 currentOffset += lineoffset;
             }
 
-            // Classic Antag Label
-            if (_overlayClassic && playerInfo.Antag)
+            // Determine antag symbol
+            string? symbol;
+            switch (_overlaySymbolStyle)
             {
-                var symbol = _overlaySymbols ? Loc.GetString("player-tab-antag-prefix") : string.Empty;
-                var label = _overlaySymbols
-                    ? Loc.GetString("player-tab-character-name-antag-symbol",
-                        ("symbol", symbol),
-                        ("name", _antagLabelClassic))
-                    : _antagLabelClassic;
-                color = Color.OrangeRed;
-                color.A = alpha;
-                args.ScreenHandle.DrawString(_fontBold, screenCoordinates + currentOffset, label, uiScale, color);
-                currentOffset += lineoffset;
+                case AdminOverlayAntagSymbolStyle.Specific:
+                    symbol = playerInfo.RoleProto.Symbol;
+                    break;
+                case AdminOverlayAntagSymbolStyle.Basic:
+                    symbol = Loc.GetString("player-tab-antag-prefix");
+                    break;
+                default:
+                case AdminOverlayAntagSymbolStyle.Off:
+                    symbol = string.Empty;
+                    break;
             }
-            // Role Type
-            else if (!_overlayClassic && _filter.Contains(playerInfo.RoleProto))
+
+            // Determine antag/role type name
+            string? text;
+            switch (_overlayFormat)
             {
-                var symbol = _overlaySymbols && playerInfo.Antag ? playerInfo.RoleProto.Symbol : string.Empty;
-                var role = Loc.GetString(playerInfo.RoleProto.Name).ToUpper();
-                var label = _overlaySymbols
-                ? Loc.GetString("player-tab-character-name-antag-symbol", ("symbol", symbol), ("name", role))
-                : role;
-                color =  playerInfo.RoleProto.Color;
-                color.A = alpha;
-                args.ScreenHandle.DrawString(_fontBold, screenCoordinates + currentOffset, label, uiScale, color);
-                currentOffset += lineoffset;
+                case AdminOverlayAntagFormat.Roletype:
+                    color = playerInfo.RoleProto.Color;
+                    symbol = _filter.Contains(playerInfo.RoleProto) ? symbol : string.Empty;
+                    text = _filter.Contains(playerInfo.RoleProto)
+                        ? Loc.GetString(playerInfo.RoleProto.Name).ToUpper()
+                        : string.Empty;
+                    break;
+                case AdminOverlayAntagFormat.Subtype:
+                    color = playerInfo.RoleProto.Color;
+                    symbol = _filter.Contains(playerInfo.RoleProto) ? symbol : string.Empty;
+                    text = _filter.Contains(playerInfo.RoleProto)
+                        ? _roles.GetRoleSubtypeLabel(playerInfo.RoleProto.Name, playerInfo.Subtype).ToUpper()
+                        : string.Empty;
+                    break;
+                case AdminOverlayAntagFormat.Off: // Goobstation
+                    color = playerInfo.RoleProto.Color;
+                    symbol = string.Empty;
+                    text = string.Empty;
+                    break;
+                default:
+                case AdminOverlayAntagFormat.Binary:
+                    color = Color.OrangeRed;
+                    symbol = playerInfo.Antag ? symbol : string.Empty;
+                    text = playerInfo.Antag ? _antagLabelClassic : string.Empty;
+                    break;
             }
+
+            // Draw antag label
+            color.A = alpha;
+            var label = !string.IsNullOrEmpty(symbol)
+                ? Loc.GetString("player-tab-character-name-antag-symbol", ("symbol", symbol), ("name", text))
+                : text;
+            args.ScreenHandle.DrawString(_fontBold, screenCoordinates + currentOffset, label, uiScale, color);
+            currentOffset += lineoffset;
 
             //Save the coordinates and size of the text block, for stack merge check
             drawnOverlays.Add((screenCoordinatesCenter, currentOffset));

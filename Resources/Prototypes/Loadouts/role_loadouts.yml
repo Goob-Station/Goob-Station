@@ -107,6 +107,7 @@
 # SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
@@ -141,10 +142,10 @@
   - GroupSpeciesBreathTool
 
 # Silicons
-#- type: roleLoadout
-#  id: JobBorg
-#  nameDataset: roleloadout doesn't support both so need to update that first.
-#  canCustomizeName: true
+- type: roleLoadout
+  id: JobBorg
+  nameDataset: NamesBorg
+  canCustomizeName: true
 
 - type: roleLoadout
   id: JobStationAi
@@ -274,6 +275,7 @@
 
 - type: roleLoadout
   id: JobClown
+  canCustomizeName: true
   groups:
   - GroupTankHarness
   - ClownHead
@@ -287,6 +289,7 @@
 
 - type: roleLoadout
   id: JobMime
+  canCustomizeName: true
   groups:
   - GroupTankHarness
   - MimeHead
@@ -462,7 +465,7 @@
   - SecurityBackpack
   - SecurityBelt
   - HeadofSecurityOuterClothing
-  - SecurityShoes
+  - HeadofSecurityShoes # Goobstation edit
   - SurvivalSecurity
   - Trinkets
   - SecurityStar
@@ -537,7 +540,7 @@
   - ChiefMedicalOfficerOuterClothing
   - ChiefMedicalOfficerNeck
   - ChiefMedicalOfficerShoes
-  - Glasses
+  - MedicalEyewear
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
@@ -554,7 +557,7 @@
   - MedicalDoctorOuterClothing
   - MedicalShoes
   - MedicalDoctorPDA
-  - Glasses
+  - MedicalEyewear
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
@@ -565,7 +568,7 @@
   - GroupTankHarness
   - MedicalInternJumpsuit
   - MedicalBackpack
-  - Glasses
+  - MedicalEyewear
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
@@ -596,7 +599,7 @@
   - MedicalBackpack
   - ParamedicOuterClothing
   - ParamedicShoes
-  - Glasses
+  - MedicalEyewear
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical

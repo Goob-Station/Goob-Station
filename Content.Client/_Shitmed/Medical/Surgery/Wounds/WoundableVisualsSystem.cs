@@ -3,6 +3,7 @@
 // SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 // SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Trest <144359854+trest100@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 kurokoTurbo <92106367+kurokoTurbo@users.noreply.github.com>
 //
@@ -113,13 +114,13 @@ public sealed class WoundableVisualsSystem : VisualizerSystem<WoundableVisualsCo
                     continue;
 
                 bodySprite.LayerSetVisible(layer, false);
-                bodySprite.LayerMapRemove(layer);
+                bodySprite.LayerMapRemove($"{woundableVisuals.OccupiedLayer}{group}");
             }
 
             if (bodySprite.LayerMapTryGet($"{woundableVisuals.OccupiedLayer}Bleeding", out var childBleeds))
             {
                 bodySprite.LayerSetVisible(childBleeds, false);
-                bodySprite.LayerMapRemove(childBleeds);
+                bodySprite.LayerMapRemove($"{woundableVisuals.OccupiedLayer}Bleeding");
             }
 
             if (TryComp(uid, out SpriteComponent? pieceSprite))
@@ -134,6 +135,7 @@ public sealed class WoundableVisualsSystem : VisualizerSystem<WoundableVisualsCo
         {
             if (TryComp(uid, out SpriteComponent? partSprite))
                 UpdateWoundableVisuals(uid, component, partSprite);
+
             return;
         }
 
