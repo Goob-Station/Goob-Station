@@ -223,13 +223,16 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
         cloneComp.HostEntity = performer;
 
         _damageable.SetDamageModifierSetId(clone, projector.Comp.CloneDamageModifierSet);
-        projector.Comp.CloneUid = clone;
 
         _meta.SetEntityName(clone, Identity.Name(performer, EntityManager) + " " + Loc.GetString(projector.Comp.NameSuffix));
 
         if (!TryEquipItems(projector))
+        {
+            _sawmill.Error($"Failed to equip items for holographic clone of {ToPrettyString(clone)}");
             return false;
+        }
 
+        projector.Comp.CloneUid = clone;
         Dirty(clone, projector.Comp);
         return true;
     }
@@ -300,7 +303,7 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
             if (proto == null)
                 continue;
 
-            toSpawn.Add(proto, slot.ID);
+            toSpawn[proto] = slot.ID;
         }
 
         if (toSpawn.Count <= 0)

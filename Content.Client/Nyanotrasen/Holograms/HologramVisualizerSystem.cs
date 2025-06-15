@@ -9,18 +9,26 @@ public sealed class HologramVisualizerSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
 
-    private readonly ProtoId<ShaderPrototype> _shader = "Holographic"; // Goobstation - Start
+    private readonly ProtoId<ShaderPrototype> _shaderId = "Holographic"; // Goobstation - Start
+    private ShaderPrototype? _shaderProto;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<HologramVisualsComponent, ComponentInit>(OnComponentInit);
+        SubscribeLocalEvent<HologramVisualsComponent, ComponentShutdown>(OnComponentShutdown);
     }
 
     private void OnComponentInit(EntityUid uid, HologramVisualsComponent component, ComponentInit args)
     {
         if (TryComp<SpriteComponent>(uid, out var sprite))
-            sprite.PostShader = _protoMan.Index(_shader).InstanceUnique(); // Goobstation - End
+            sprite.PostShader = (_shaderProto ??= _protoMan.Index(_shaderId)).InstanceUnique();
     }
+
+    private void OnComponentShutdown(EntityUid uid, HologramVisualsComponent component, ComponentShutdown args)
+    {
+        if (TryComp<SpriteComponent>(uid, out var sprite))
+            sprite.PostShader = null;
+    } // Goobstation - End
 }

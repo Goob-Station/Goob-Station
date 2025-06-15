@@ -2,6 +2,7 @@ light_mode unshaded;
 
 uniform highp float hue;
 uniform highp float textureHeight;
+uniform highp float pixel_scale = 12.0;
 
 //
 // Description : Array and textureless GLSL 2D/3D/4D simplex
@@ -227,7 +228,7 @@ void fragment()
     // Scanlines
     const highp float LINE_SCROLL_SPEED = 0.12;
 
-    highp float uv_noise = snoise(vec3(UV * 100.0, TIME));
+    highp float uv_noise = snoise(vec3(UV * pixel_scale * 3.0, TIME));
     highp float Y = UV.y + uv_noise * 0.1;
     highp float MX = 4.0;
     highp float MY = textureHeight / MX / 4.0;
@@ -246,14 +247,13 @@ void fragment()
 
 
     // Noise
-    const highp float noise_scale = 32.0;
     const highp float noise_limit = 4.0;
     const highp float noise_rate = 1.4;
     const highp float noise_density = 0.0;
 
     highp float noise_hue = hue - 0.2 * pingpong((TIME_OFFSET1 + TIME) * 0.21);
 
-    highp vec2 noise_coord = floor(UV * noise_scale);
+    highp vec2 noise_coord = floor(UV * pixel_scale);
     highp float noise_result = snoise(vec3(noise_coord, (TIME_OFFSET2 + TIME) * noise_rate));
 
     highp vec3 noise3 = hsv2rgb(vec3(noise_hue, 1.0, noise_result));
