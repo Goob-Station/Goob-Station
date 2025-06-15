@@ -10973,3 +10973,9 @@ Entries:
       message: Fixed flipped gas filters being effectively flipped.
   id: 1208
   time: '2025-06-15T04:40:05.0000000+00:00'
+- author: vrilly
+  changes:
+    - type: Fix
+      message: mail access
+  id: 1209
+  time: '2025-06-15T04:44:39.0000000+00:00'
