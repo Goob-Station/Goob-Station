@@ -11071,3 +11071,11 @@ Entries:
         hammers.
   id: 1221
   time: '2025-06-15T06:12:27.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Tweak
+      message: >-
+        Heads of Staff (Command Staff) can be converted. No longer shall we
+        kill, when we can truly take over the station as one.
+  id: 1222
+  time: '2025-06-15T06:22:38.0000000+00:00'
