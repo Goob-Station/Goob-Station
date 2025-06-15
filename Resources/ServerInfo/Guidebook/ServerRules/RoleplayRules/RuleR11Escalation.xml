@@ -28,6 +28,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
   Security can immediately escalate to non-lethal force if it is necessary to arrest someone.
 
+  Security may escalate to using lethals in arresting someone if their non-lethal options are disarmed. It is on the other party for taking away your non-lethal options.
+
   People using or brandishing Syndicate items can typically be presumed to have lethal intent. Someone with lethal intent can typically be immediately escalated against at a lethal level, a notable exception is if you have the tools to safely detain them.
 
   ## Escalation Involving Animals
