@@ -4,6 +4,8 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
+# SPDX-FileCopyrightText: 2025 NotActuallyMarty <martynashagriefer@gmail.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 #
@@ -40,10 +42,10 @@
     sealUpPopup: sealable-clothing-seal-up-gauntlets
     sealDownPopup: sealable-clothing-seal-down-gauntlets
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       gloves:
       - state: equipped-HAND-sealed
-        shader: unshaded
 
 - type: entity
   parent: ClothingHandsBase
@@ -76,7 +78,8 @@
     sealUpPopup: sealable-clothing-seal-up-gauntlets
     sealDownPopup: sealable-clothing-seal-down-gauntlets
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       gloves:
       - state: equipped-HAND-sealed
 
@@ -111,7 +114,8 @@
     sealUpPopup: sealable-clothing-seal-up-gauntlets
     sealDownPopup: sealable-clothing-seal-down-gauntlets
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       gloves:
       - state: equipped-HAND-sealed
   - type: Armor
@@ -153,7 +157,8 @@
     sealUpPopup: sealable-clothing-seal-up-gauntlets
     sealDownPopup: sealable-clothing-seal-down-gauntlets
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       gloves:
       - state: equipped-HAND-sealed
   - type: Armor
@@ -196,9 +201,12 @@
     sealUpPopup: sealable-clothing-seal-up-gauntlets
     sealDownPopup: sealable-clothing-seal-down-gauntlets
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       gloves:
       - state: equipped-HAND-sealed
+      gloves-resomi:
+      - state: equipped-HAND-sealed-resomi
   - type: Armor
     modifiers:
       coefficients:
@@ -239,9 +247,12 @@
     sealUpPopup: sealable-clothing-seal-up-gauntlets
     sealDownPopup: sealable-clothing-seal-down-gauntlets
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       gloves:
       - state: equipped-HAND-sealed
+      gloves-resomi:
+      - state: equipped-HAND-sealed-resomi
   - type: Armor
     modifiers:
       coefficients:
@@ -283,7 +294,8 @@
     sealUpPopup: sealable-clothing-seal-up-gauntlets
     sealDownPopup: sealable-clothing-seal-down-gauntlets
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       gloves:
       - state: equipped-HAND-sealed
   - type: Armor
@@ -313,6 +325,11 @@
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
     slots: [ gloves ]
+    clothingVisuals:
+        hands:
+        - state: equipped-HAND
+        hands-resomi:
+        - state: equipped-HAND-resomi
   - type: DamageOnInteractProtection
     damageProtection:
       flatReductions:
@@ -326,9 +343,12 @@
     sealUpPopup: sealable-clothing-seal-up-gauntlets
     sealDownPopup: sealable-clothing-seal-down-gauntlets
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       gloves:
       - state: equipped-HAND-sealed
+      gloves-resomi:
+      - state: equipped-HAND-sealed-resomi
   - type: Armor
     modifiers:
       coefficients:

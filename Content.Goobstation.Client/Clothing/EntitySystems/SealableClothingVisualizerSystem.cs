@@ -3,6 +3,8 @@
 // SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 // SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
@@ -13,6 +15,7 @@ using Content.Client.Clothing;
 using Content.Goobstation.Client.Clothing.Components;
 using Content.Goobstation.Shared.Clothing;
 using Content.Shared.Clothing;
+using Content.Shared.Inventory;
 using Content.Shared.Item;
 using Robust.Client.GameObjects;
 
@@ -50,8 +53,13 @@ public sealed class SealableClothingVisualizerSystem : VisualizerSystem<Sealable
             || !isSealed)
             return;
 
-        if (!comp.VisualLayers.TryGetValue(args.Slot, out var layers))
+        if (!comp.ClothingVisuals.TryGetValue(args.Slot, out var layers))
             return;
+        // attempt to get species specific data || if none found will use generic data instead
+        if (TryComp(args.Equipee, out InventoryComponent? inventory) &&
+            inventory.SpeciesId != null &&
+            comp.ClothingVisuals.TryGetValue($"{args.Slot}-{inventory.SpeciesId}", out var speciesLayers))
+            layers = speciesLayers;
 
         var i = 0;
         foreach (var layer in layers)
