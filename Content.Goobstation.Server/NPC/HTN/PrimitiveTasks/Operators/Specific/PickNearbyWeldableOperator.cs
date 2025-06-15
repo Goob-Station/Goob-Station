@@ -27,7 +27,8 @@ public sealed partial class PickNearbyWeldableOperator : HTNOperator
     private PathfindingSystem _pathfinding = default!;
     private TagSystem _tagSystem = default!;
 
-    [DataField] public string RangeKey = NPCBlackboard.WeldbotWeldRange;
+    [DataField]
+    public string RangeKey = NPCBlackboard.WeldbotWeldRange;
 
     /// <summary>
     /// Target entity to weld
