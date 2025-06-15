@@ -28,7 +28,8 @@ public sealed partial class PickNearbyServicableHydroponicsTrayOperator : HTNOpe
     /// <summary>
     /// Determines how close the bot needs to be to service a tray
     /// </summary>
-    [DataField] public string RangeKey = NPCBlackboard.PlantbotServiceRange;
+    [DataField]
+    public string RangeKey = NPCBlackboard.PlantbotServiceRange;
 
     /// <summary>
     /// Target entity to service
