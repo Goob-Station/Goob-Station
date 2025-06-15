@@ -11149,3 +11149,11 @@ Entries:
         will accept either.
   id: 1225
   time: '2025-06-15T06:42:38.0000000+00:00'
+- author: IrisTheAmped
+  changes:
+    - type: Tweak
+      message: >-
+        Zed bites are still incredibly lethal but you have a higher chance of
+        making it to med before turning.
+  id: 1226
+  time: '2025-06-15T06:49:14.0000000+00:00'
