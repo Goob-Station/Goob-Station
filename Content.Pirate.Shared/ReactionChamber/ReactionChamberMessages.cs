@@ -11,7 +11,7 @@ namespace Content.Pirate.Shared.ReactionChamber.Components;
 [NetSerializable]
 public sealed class ReactionChamberTempChangeMessage : BoundUserInterfaceMessage
 {
-    public float Temp;
+    public float Temp { get; set; }
     public ReactionChamberTempChangeMessage(float temp)
     {
         Temp = temp;
@@ -21,7 +21,7 @@ public sealed class ReactionChamberTempChangeMessage : BoundUserInterfaceMessage
 [NetSerializable]
 public sealed class ReactionChamberActiveChangeMessage : BoundUserInterfaceMessage
 {
-    public bool Active;
+    public bool Active { get; set; }
     public ReactionChamberActiveChangeMessage(bool active)
     {
         Active = active;
@@ -31,12 +31,12 @@ public sealed class ReactionChamberActiveChangeMessage : BoundUserInterfaceMessa
 [NetSerializable]
 public sealed class BeakerInfo
 {
-    public string? Name;
-    public FixedPoint2? Volume;
-    public FixedPoint2? MaxVolume;
-    public List<ReagentQuantity>? Reagents;
-    public FixedPoint2? Temp;
-    public FixedPoint2? SpinBoxTemp;
+    public string? Name { get; set; }
+    public FixedPoint2? Volume { get; set; }
+    public FixedPoint2? MaxVolume { get; set; }
+    public List<ReagentQuantity>? Reagents { get; set; }
+    public FixedPoint2? Temp { get; set; }
+    public FixedPoint2? SpinBoxTemp { get; set; }
     public BeakerInfo(string? name = null, FixedPoint2? volume = null, FixedPoint2? maxVolume = null, List<ReagentQuantity>? reagents = null, FixedPoint2? temp = null, FixedPoint2? spinBoxTemp = null)
     {
         Name = name;

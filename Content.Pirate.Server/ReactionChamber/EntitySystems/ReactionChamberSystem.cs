@@ -19,6 +19,7 @@ namespace Content.Pirate.Server.ReactionChamber.EntitySystems;
 
 public sealed partial class ReactionChamberSystem : EntitySystem
 {
+    const float ReactionChamberTreshold = 0.005f;
     [Dependency] readonly IPrototypeManager PrototypeManager = default!;
     [Dependency] readonly UserInterfaceSystem _userInterfaceSystem = default!;
     [Dependency] readonly ItemSlotsSystem _itemSlotsSystem = default!;
@@ -52,6 +53,8 @@ public sealed partial class ReactionChamberSystem : EntitySystem
                 foreach (var (_, soln) in _solutionContainerSystem.EnumerateSolutions(beaker.Value)) // add temp to all solutions
                 {
                     var (_, solnComp) = soln;
+                    if (comp.SolnHeatCapacity == 0)
+                        comp.SolnHeatCapacity = 0.1f;
                     comp.SolnHeatCapacity = solnComp.Solution.GetHeatCapacity(PrototypeManager); // used to get real capacity, and therefore real soln temp
                     var solnTemp = solnComp.Solution.GetThermalEnergy(PrototypeManager) / comp.SolnHeatCapacity;
                     var deltaT = comp.Temp - solnTemp;
@@ -60,9 +63,9 @@ public sealed partial class ReactionChamberSystem : EntitySystem
                     {
                         _solutionContainerSystem.AddThermalEnergy(soln, (float) comp.DeltaJ);
                         comp.IsAllTempRight = false;
-                        var t = new ReactionChamberTempChangeMessage(solnComp.Solution.GetHeatCapacity(PrototypeManager));
+                        var t = new ReactionChamberTempChangeMessage(solnTemp);
                         UpdateUiState(new Entity<ReactionChamberComponent>(uid, comp), ref t);
-                        if (Math.Abs(comp.DeltaJ) <= 0.005)
+                        if (Math.Abs(comp.DeltaJ) <= ReactionChamberTreshold)
                         {
                             _solutionContainerSystem.SetTemperature(soln, comp.Temp); // optymizacija included :)
                             comp.IsAllTempRight = true;
