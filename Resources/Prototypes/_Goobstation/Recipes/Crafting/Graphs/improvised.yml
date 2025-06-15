@@ -1,0 +1,1089 @@
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 LuciferEOS <stepanteliatnik2022@gmail.com>
+# SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# hex nut
+- type: constructionGraph
+  id: HexNutDoubleGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: HexNutStack
+      completed:
+      - !type:SetStackCount
+        amount: 2
+      steps:
+      - material: Steel
+        amount: 1
+  - node: HexNutStack
+    entity: MaterialHexNutSingle
+
+# screw
+
+- type: constructionGraph
+  id: ScrewGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: ScrewStack
+      completed:
+      - !type:SetStackCount
+        amount: 2
+      steps:
+      - material: Steel
+        amount: 1
+  - node: ScrewStack
+    entity: MaterialScrewSingle
+
+# heated steel
+
+- type: constructionGraph
+  id: HeatedSteelGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: heated steel
+      steps:
+      - minTemperature: 3143 # boiling point of steel, actually just to make heating steel longer
+  - node: heated steel
+    entity: MaterialHeatedSteel
+
+# contra bag
+# graph made by a program that mades graphs easier to make so lets hope it works
+# total mats: steel: 7, plastic: 5, cable: 10
+- type: constructionGraph
+  id: ContrabandSatchelGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: mid
+      steps:
+      - material: Steel
+        amount: 5
+        doAfter: 5
+      - material: Plastic
+        amount: 3
+        doAfter: 5
+  - node: mid
+    entity: ContrabandBagUnfinished
+    edges:
+    - to: final
+      steps:
+      - tool: Welding
+        doAfter: 5
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: Cable
+        amount: 10
+        doAfter: 2
+      - tool: Cutting
+        doAfter: 0.5
+      - tool: Cutting
+        doAfter: 0.5
+      - tool: Cutting
+        doAfter: 0.5
+  - node: final
+    entity: ContrabandBag
+
+# stupidly over complicated makeshift defib craft:
+# total mats: steel: 22, Cable: 12, power cell, 4 cloth
+- type: constructionGraph
+  id: MakeshiftDefibGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: screwing
+      steps:
+      - material: Steel
+        amount: 10
+        doAfter: 5
+      - material: Cable
+        amount: 2
+        doAfter: 5
+  - node: screwing
+    entity: MakeshiftDefibUnfinished
+    edges:
+    - to: final
+      steps:
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 0.5
+      - tool: Screwing
+        doAfter: 0.5
+      - material: HexNut
+        amount: 2
+        doAfter: 2
+      - tool: Anchoring
+        doAfter: 0.5
+      - tool: Anchoring
+        doAfter: 0.5
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 0.5
+      - tool: Screwing
+        doAfter: 0.5
+      - material: HexNut
+        amount: 2
+        doAfter: 2
+      - tool: Anchoring
+        doAfter: 0.5
+      - tool: Anchoring
+        doAfter: 0.5
+      - material: Cable
+        amount: 8
+        doAfter: 4
+      - tool: Cutting
+        doAfter: 3
+      - tool: Welding
+        doAfter: 5
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Screw
+        amount: 4
+        doAfter: 4
+      - tool: Screwing
+        doAfter: 0.5
+      - tool: Screwing
+        doAfter: 0.5
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - material: Cable
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 5
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Cloth
+        amount: 4
+        doAfter: 3
+      - material: Screw
+        amount: 8
+        doAfter: 4
+      - tool: Screwing
+        doAfter: 0.5
+      - tool: Screwing
+        doAfter: 0.5
+      - tool: Screwing
+        doAfter: 0.5
+      - tool: Screwing
+        doAfter: 0.5
+  - node: final
+    entity: MakeshiftDefib
+
+# tide flipper zero
+# currently not in use
+# total mats: remote signaller: 1, multitool: 1, steel: 2, cable: 8, id: 2
+- type: constructionGraph
+  id: TideFlipperZeroGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: screwing
+      steps:
+      - tag: Payload
+        name: remote signaller
+        icon:
+          sprite: Objects/Devices/signaller.rsi
+          state: signaller
+        doAfter: 5
+      - tag: Multitool
+        name: multitool
+        icon:
+          sprite: Objects/Tools/multitool.rsi
+          state: icon
+        doAfter: 5
+  - node: screwing
+    entity: TideFlipperZeroUnfinished
+    edges:
+    - to: final
+      steps:
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 0.5
+      - tool: Screwing
+        doAfter: 0.5
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 0.5
+      - tool: Screwing
+        doAfter: 0.5
+      - material: Cable
+        amount: 8
+        doAfter: 4
+      - tool: Cutting
+        doAfter: 0.5
+      - tool: Cutting
+        doAfter: 0.5
+      - component: IdCard
+        doAfter: 2
+        name: id card
+        icon:
+          sprite: Objects/Misc/id_cards.rsi
+          state: idpassenger
+      - tool: Pulsing
+        doAfter: 8
+      - component: IdCard # go rob someone for this
+        doAfter: 2
+        name: id card
+        icon:
+          sprite: Objects/Misc/id_cards.rsi
+          state: idpassenger
+      - tool: Pulsing
+        doAfter: 8
+      - tool: Welding
+        doAfter: 4
+      - tool: Hammering
+        doAfter: 1
+  - node: final
+    edges: []
+    entity: TideFlipperZero
+
+# metal baseball bat
+# total mats: Wood: 5, Heated steel: 12, Steel: 2
+- type: constructionGraph
+  id: MetalBaseballBatGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: Metaling
+      steps:
+      - material: WoodPlank
+        amount: 5
+        doAfter: 5
+  - node: Metaling
+    entity: WoodenHandleBat
+    edges:
+    - to: final
+      steps:
+      - material: HeatedSteel
+        amount: 5
+        doAfter: 4
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 0.5
+      - tool: Screwing
+        doAfter: 0.5
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 0.5
+      - tool: Screwing
+        doAfter: 0.5
+      - material: HeatedSteel
+        amount: 5
+        doAfter: 4
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: HeatedSteel
+        amount: 2
+        doAfter: 2
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+  - node: final
+    entity: MetalBaseballBat
+
+# makeshift hammer
+# total mats: wood: 2, steel: 3
+- type: constructionGraph
+  id: HammerConstructionGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: mid
+      steps:
+      - material: WoodPlank
+        amount: 2
+        doAfter: 5
+  - node: mid
+    entity: WoodenHandleHammer
+    edges:
+    - to: final
+      steps:
+      - material: Screw
+        amount: 1
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 0.5
+      - material: Screw
+        amount: 1
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 0.5
+      - material: Steel
+        amount: 2
+        doAfter: 2
+  - node: final
+    entity: MeleeHammer
+
+# makeshift jammer
+# total mats: Remote signaller: 1, multitool: 1, cable: 8, enc key: 1
+- type: constructionGraph
+  id: MakeshiftJammerGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: mid
+      steps:
+      - tag: Payload
+        name: remote signaller
+        icon:
+          sprite: Objects/Devices/signaller.rsi
+          state: signaller
+        doAfter: 10
+      - tag: Multitool
+        name: multitool
+        icon:
+          sprite: Objects/Tools/multitool.rsi
+          state: icon
+        doAfter: 5
+  - node: mid
+    entity: MakeshiftJammerUnfinished
+    edges:
+    - to: final
+      steps:
+      - material: Cable
+        amount: 8
+        doAfter: 4
+      - tool: Cutting
+        doAfter: 0.5
+      - tool: Cutting
+        doAfter: 0.5
+      - tool: Pulsing
+        doAfter: 4
+      - component: EncryptionKey
+        doAfter: 5
+        name: encryption key
+        icon:
+          sprite: Objects/Devices/encryption_keys.rsi
+          state: crypt_gray
+      - tool: Screwing
+        doAfter: 2
+  - node: final
+    entity: MakeshiftJammer
+
+# makeshift id
+# total mats: plastic 4, cable: 8, steel: 4
+- type: constructionGraph
+  id: MakeshiftIDCardGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: mid
+      steps:
+      - material: Plastic
+        amount: 4
+        doAfter: 5
+  - node: mid
+    entity: IDCardTideUnfinished
+    edges:
+    - to: final
+      steps:
+      - tool: Hammering
+        doAfter: 1
+      - material: Cable
+        amount: 4
+        doAfter: 4
+      - tool: Cutting
+        doAfter: 0.5
+      - tool: Cutting
+        doAfter: 0.5
+      - material: Cable
+        amount: 4
+        doAfter: 4
+      - tool: Cutting
+        doAfter: 0.5
+      - tool: Cutting
+        doAfter: 0.5
+      - tool: Hammering
+        doAfter: 1
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 4
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 0.5
+      - tool: Screwing
+        doAfter: 0.5
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 0.5
+      - tool: Screwing
+        doAfter: 0.5
+  - node: final
+    entity: IDCardTide
+
+# grey toolbox
+# total mats: Heated steeel: 4, steel: 4
+- type: constructionGraph
+  id: MakeshiftToolboxGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: mid
+      steps:
+      - material: Steel
+        amount: 3
+        doAfter: 5
+  - node: mid
+    entity: ToolboxGreyUnfinished
+    edges:
+    - to: final
+      steps:
+      - material: HeatedSteel
+        amount: 2
+        doAfter: 2
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: HeatedSteel
+        amount: 2
+        doAfter: 2
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 0.5
+      - tool: Screwing
+        doAfter: 0.5
+  - node: final
+    entity: ToolboxGrey
+
+- type: constructionGraph
+  id: MakeshiftFlare
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: flare
+      steps:
+      - tag: Paper
+        name: paper
+        icon:
+          sprite: Objects/Misc/bureaucracy.rsi
+          state: paper
+      - tag: Paper
+        name: paper
+        icon:
+          sprite: Objects/Misc/bureaucracy.rsi
+          state: paper
+      - tag: Paper
+        name: paper
+        icon:
+          sprite: Objects/Misc/bureaucracy.rsi
+          state: paper # amount doesnt work with non-stack items
+      - tag: Matchstick
+        name: match stick
+        icon:
+          sprite: Objects/Tools/matches.rsi
+          state: match_unlit
+      - tag: Matchstick
+        name: match stick
+        icon:
+          sprite: Objects/Tools/matches.rsi
+          state: match_unlit
+      - tag: Matchstick
+        name: match stick
+        icon:
+          sprite: Objects/Tools/matches.rsi
+          state: match_unlit
+      - tag: Matchstick
+        name: match stick
+        icon:
+          sprite: Objects/Tools/matches.rsi
+          state: match_unlit
+        doAfter: 5
+  - node: flare
+    entity: Flare
+
+- type: constructionGraph
+  id: MakeshiftJetpackGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: mid
+      steps:
+      - component: GasTank
+        name: gas tank
+        icon:
+          sprite: Objects/Tanks/oxygen.rsi
+          state: icon
+      - component: GasTank
+        name: gas tank
+        icon:
+          sprite: Objects/Tanks/oxygen.rsi
+          state: icon
+      - material: Cable
+        amount: 10
+        doAfter: 8
+  - node: mid
+    entity: MakeshiftJetpackUnfinished
+    edges:
+    - to: final
+      steps:
+      - tool: Cutting
+        doAfter: 0.5
+      - tool: Cutting
+        doAfter: 0.5
+      - tag: FireExtinguisher
+        name: fire extunguisher
+        icon:
+          sprite: Objects/Misc/fire_extinguisher.rsi
+          state: fire_extinguisher_open
+        doAfter: 5
+      - material: Cable
+        amount: 5
+        doAfter: 3
+      - tool: Cutting
+        doAfter: 0.5
+      - tool: Cutting
+        doAfter: 0.5
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 0.5
+      - tool: Screwing
+        doAfter: 0.5
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 0.5
+      - tool: Screwing
+        doAfter: 0.5
+  - node: final
+    entity: MakeshiftJetpack
+# clothing
+
+# heavy boots
+# total mats: Steel: 7, Heated steel: 10
+- type: constructionGraph
+  id: HeavyBootsGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: mid
+      steps:
+      - material: Steel
+        amount: 3
+        doAfter: 5
+  - node: mid
+    entity: ScrapBoots
+    edges:
+    - to: final
+      steps:
+      - tool: Welding
+        doAfter: 4
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: HeatedSteel
+        amount: 5
+        doAfter: 2
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: HeatedSteel
+        amount: 5
+        doAfter: 2
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 0.5
+      - tool: Screwing
+        doAfter: 0.5
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 0.5
+      - tool: Screwing
+        doAfter: 0.5
+      - tool: Hammering
+        doAfter: 1
+  - node: final
+    entity: ClothingShoesHeavyBoots
+    edges: []
+
+
+# helmet
+# total mats: steel: 6, cable: 4. glass: 4, Heated steel: 20 (20 heated steel != 20 steel)
+- type: constructionGraph
+  id: MakeshiftHelmetGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: mid
+      steps:
+      - material: Steel
+        amount: 5
+        doAfter: 5
+  - node: mid
+    entity: ScrapHelmet
+    edges:
+    - to: final
+      steps:
+      - material: HeatedSteel
+        amount: 5
+        doAfter: 4
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: HeatedSteel
+        amount: 5
+        doAfter: 4
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: HeatedSteel
+        amount: 5
+        doAfter: 4
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Cable
+        amount: 4
+        doAfter: 4
+      - tool: Cutting
+        doAfter: 0.5
+      - tool: Cutting
+        doAfter: 0.5
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 0.5
+      - tool: Screwing
+        doAfter: 0.5
+      - material: Glass
+        amount: 4
+        doAfter: 4
+      - tool: Welding
+        doAfter: 4
+      - material: HeatedSteel
+        amount: 5
+        doAfter: 2
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+  - node: final
+    entity: ClothingHeadMakeshiftHelmet
+    edges: []
+
+
+# light vest
+# total mats: Steel: 13, Cable: 16, Heated steel: 20
+- type: constructionGraph
+  id: MakeshiftLightVestGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: mid
+      steps:
+      - material: Steel
+        amount: 5
+        doAfter: 5
+  - node: mid
+    entity: ScrapLightVest
+    edges:
+    - to: heavy vest
+      steps:
+      - material: HeatedSteel
+        amount: 5
+        doAfter: 4
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 0.5
+      - tool: Screwing
+        doAfter: 0.5
+      - tool: Welding
+        doAfter: 4
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: HeatedSteel
+        amount: 5
+        doAfter: 2
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: HeatedSteel
+        amount: 5
+        doAfter: 2
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Cable
+        amount: 8
+        doAfter: 8
+      - tool: Cutting
+        doAfter: 0.5
+      - tool: Cutting
+        doAfter: 0.5
+      - material: Cable
+        amount: 8
+        doAfter: 8
+      - tool: Cutting
+        doAfter: 0.5
+      - tool: Cutting
+        doAfter: 0.5
+      - material: HeatedSteel
+        amount: 5
+        doAfter: 2
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 0.5
+      - tool: Screwing
+        doAfter: 0.5
+      - material: HeatedSteel
+        amount: 5
+        doAfter: 2
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 0.5
+      - tool: Screwing
+        doAfter: 0.5
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 0.5
+      - tool: Screwing
+        doAfter: 0.5
+      - tool: Hammering
+        doAfter: 2
+  - node: heavy vest
+    entity: ClothingOuterArmorMakeshiftVestLight
+    edges:
+    - to: final
+      steps:
+      - material: HeatedSteel
+        amount: 5
+        doAfter: 2
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: HeatedSteel
+        amount: 5
+        doAfter: 2
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 0.5
+      - tool: Screwing
+        doAfter: 0.5
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 0.5
+      - tool: Screwing
+        doAfter: 0.5
+      - material: Plasteel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 4
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - tool: Welding
+        doAfter: 4
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Plasteel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 4
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - tool: Welding
+        doAfter: 4
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+  - node: final
+    entity: ClothingOuterArmorMakeshiftVestHeavy
+
+# heavy vest
+# total mats: Steel: 9, Plasteel: 8, Cable: 16, Heated steel: 25
+#- type: constructionGraph
+#  id: MakeshiftHeavyVestGraph
+#  start: mid
+#  graph:
+#  - node: mid
+#    entity: ClothingOuterArmorMakeshiftVestLight
+#    edges:
+#    - to: final
+#      steps:
+#      - material: HeatedSteel
+#        amount: 5
+#        doAfter: 2
+#      - tool: Hammering
+#        doAfter: 1
+#      - tool: Hammering
+#        doAfter: 1
+#      - material: HeatedSteel
+#        amount: 5
+#        doAfter: 2
+#      - tool: Hammering
+#        doAfter: 1
+#      - tool: Hammering
+#        doAfter: 1
+#      - material: Screw
+#        amount: 2
+#        doAfter: 2
+#      - tool: Screwing
+#        doAfter: 1
+#      - tool: Screwing
+#        doAfter: 1
+#      - material: Screw
+#        amount: 2
+#        doAfter: 2
+#      - tool: Screwing
+#        doAfter: 1
+#      - tool: Screwing
+#        doAfter: 1
+#      - material: Plasteel
+#        amount: 2
+#        doAfter: 2
+#      - tool: Welding
+#        doAfter: 4
+#      - tool: Hammering
+#        doAfter: 1
+#      - tool: Hammering
+#        doAfter: 1
+#      - tool: Welding
+#        doAfter: 4
+#      - tool: Hammering
+#        doAfter: 1
+#      - tool: Hammering
+#        doAfter: 1
+#      - material: Plasteel
+#        amount: 2
+#        doAfter: 2
+#      - tool: Welding
+#        doAfter: 4
+#      - tool: Hammering
+#        doAfter: 1
+#      - tool: Hammering
+#        doAfter: 1
+#      - tool: Welding
+#        doAfter: 4
+#      - tool: Hammering
+#        doAfter: 1
+#      - tool: Hammering
+#        doAfter: 1
+#  - node: final
+#    entity: ClothingOuterArmorMakeshiftVestHeavy
+#    edges: []
+
+# structures
+
+#oven
+- type: constructionGraph
+  id: MakeshiftOvenEmptyGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: mid
+      steps:
+      - tag: VendingMachine
+        name: any vending machine
+        icon:
+          sprite: Structures/Machines/VendingMachines/cigs.rsi
+          state: 'off'
+        doAfter: 16 # youre literally using a vending machine
+  - node: mid
+    entity: MakeshiftSmithingOvenIncomplete
+    edges:
+    - to: Wood1
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 4
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 4
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 0.5
+      - tool: Screwing
+        doAfter: 0.5
+      - material: Cable
+        amount: 8
+        doAfter: 4
+      - tool: Cutting
+        doAfter: 0.5
+      - tool: Cutting
+        doAfter: 0.5
+      - material: Cable
+        amount: 8
+        doAfter: 3
+      - tool: Cutting
+        doAfter: 0.5
+      - tool: Cutting
+        doAfter: 0.5
+  - node: Wood1
+    entity: MakeshiftSmithingOvenEmpty
+    edges:
+    - to: mid
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 5
+      - !type:DeleteEntity { }
+      steps:
+      - tool: Welding
+        doAfter: 6
+    - to: Wood
+      steps:
+      - material: WoodPlank
+        amount: 5
+        doAfter: 6
+  - node: refill
+    entity: MakeshiftSmithingOvenEmpty
+    edges:
+    - to: Wood
+      steps:
+      - tool: Prying # change to shoveling when there would be a shovel craft
+        doAfter: 1
+      - material: WoodPlank
+        amount: 5
+        doAfter: 6
+  - node: Wood
+    entity: MakeshiftSmithingOvenWood
+    edges:
+    - to: lit
+      steps:
+      - tool: Welding
+        doAfter: 0.2
+  - node: lit
+    entity: MakeshiftSmithingOvenLit

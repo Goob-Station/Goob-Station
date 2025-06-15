@@ -299,9 +299,11 @@ uplink-undetermined-bundle-desc = This crate comes with three random bundles and
 uplink-energy-pickaxe-name = Energy Pickaxe
 uplink-energy-pickaxe-desc = A holographic mining tool with blades comprised of hard light that also serves a deadly melee weapon. Rock and stone!
 
+uplink-diy-book-name = DIY book
+uplink-diy-book-desc = An old book that can teach you how to make makeshift armor, weapons, and other disruption tools.
+
 uplink-tcminer-name = Telecrystal miner
 uplink-tcminer-desc = Contains a flatpack with telecrystal miner, A very loud machine that uses bluespace blockchain technology to generate telecrystals every 10 seconds when powered. Requires 10kW of energy and a connection to the primary station's grid. Multitool not included.
 
 uplink-bloodred-casette-name = Bloodred Casette Player
 uplink-bloodred-casette-desc = Provided by the most egotistical fashion designers of Cybersun, a portable music player!
-
