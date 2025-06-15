@@ -11227,3 +11227,9 @@ Entries:
       message: Removed non admin/owner plushies.
   id: 1233
   time: '2025-06-15T07:27:55.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Syndicate bomb timer is now 60s.
+  id: 1234
+  time: '2025-06-15T07:33:13.0000000+00:00'
