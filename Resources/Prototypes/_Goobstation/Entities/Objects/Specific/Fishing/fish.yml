@@ -1,11 +1,13 @@
+# SPDX-FileCopyrightText: 2025 Evige <jussi.heikkila1@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
   id: BaseFish
-  parent: BaseItem
+  parent: [SimpleMobBase, BaseItem]
   abstract: true
   name: fish
   description: Water-born creature from the infinite sea... Or toilet.
@@ -14,6 +16,36 @@
     difficulty: 0.029
   - type: StaticPrice
     price: 250
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      1: Critical
+      5: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 0.1
+    baseSprintSpeed: 0.1
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    damageCap: 20
+    damage:
+      types:
+        Asphyxiation: 1
+  - type: Respirator
+    damage:
+      types:
+        Asphyxiation: 1.0
+    damageRecovery:
+      types:
+        Asphyxiation: 0
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatFish
+      amount: 2
+  - type: Bloodstream
+    bloodMaxVolume: 20
+    bloodReagent: Blood
+  - type: ZombieImmune
 
 - type: entity
   id: BaseFishRare
@@ -134,6 +166,9 @@
     state: clown
   - type: Item
     sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+  - type: Bloodstream
+    bloodMaxVolume: 20
+    bloodReagent: Laughter
 
 - type: entity
   id: FishNukeDisk
@@ -242,6 +277,9 @@
     state: tropical
   - type: Item
     sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+  - type: Bloodstream
+    bloodMaxVolume: 10
+    bloodReagent: Laughter
 
 - type: entity
   id: FishIan
