@@ -11013,3 +11013,9 @@ Entries:
       message: Added nightvision to headslugs.
   id: 1214
   time: '2025-06-15T05:48:16.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Fire no longer instakills moths
+  id: 1215
+  time: '2025-06-15T06:00:39.0000000+00:00'
