@@ -8,9 +8,6 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Common.Cyberdeck.Components;
 
-/// <remarks>
-/// This won't work if assigned by hand. Use CyberDeckSystem instead.
-/// </remarks>>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class CyberdeckUserComponent : Component
 {

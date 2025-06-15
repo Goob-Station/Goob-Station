@@ -26,6 +26,8 @@ public sealed class CyberdeckOverlay : Overlay
     {
         IoCManager.InjectDependencies(this);
         _shader = _prototypeManager.Index<ShaderPrototype>("GradientCircleMask").InstanceUnique();
+
+        ZIndex = -1; // Before StationAiOverlay
     }
 
     protected override void Draw(in OverlayDrawArgs args)

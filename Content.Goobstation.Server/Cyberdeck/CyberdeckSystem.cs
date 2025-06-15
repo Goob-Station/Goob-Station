@@ -92,8 +92,8 @@ public sealed class CyberdeckSystem : SharedCyberdeckSystem
         if (!ChargesQuery.TryComp(ent.Comp.ProviderEntity, out var chargesComp))
             return;
 
-        var charges = chargesComp.Charges;
-        var severity = (short) Math.Clamp(charges.Int(), 0, 8);
+        var charges = chargesComp.LastCharges;
+        var severity = (short) Math.Clamp(charges, 0, 8);
         _alerts.ShowAlert(ent.Owner, ent.Comp.AlertId, severity);
     }
 }

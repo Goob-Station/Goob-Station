@@ -144,7 +144,7 @@ public abstract class SharedChargesSystem : EntitySystem
         action.Comp1.LastCharges = Math.Clamp(action.Comp1.LastCharges + addCharges, 0, action.Comp1.MaxCharges);
         Dirty(action.Owner, action.Comp1);
 
-        RaiseLocalEvent(uid, new ChargesChangedEvent(comp.Charges, lastCharges)); // Goob edit
+        RaiseLocalEvent(action.Owner, new ChargesChangedEvent(action.Comp1.LastCharges, lastCharges)); // Goob edit
     }
 
     public bool TryUseCharge(Entity<LimitedChargesComponent?> entity)

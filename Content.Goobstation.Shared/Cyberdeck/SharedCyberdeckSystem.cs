@@ -7,7 +7,6 @@ using System.Linq;
 using Content.Goobstation.Common.Access;
 using Content.Goobstation.Common.Cyberdeck.Components;
 using Content.Goobstation.Common.Interaction;
-using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Access.Components;
 using Content.Shared.Actions;
 using Content.Shared.Bed.Cryostorage;
@@ -42,6 +41,7 @@ namespace Content.Goobstation.Shared.Cyberdeck;
 
 public abstract class SharedCyberdeckSystem : EntitySystem
 {
+    [Dependency] protected readonly ISharedPlayerManager PlayerMan = default!;
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
     [Dependency] protected readonly SharedTransformSystem Xform = default!;
     [Dependency] private readonly SharedChargesSystem _charges = default!;
@@ -75,7 +75,6 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         SubscribeLocalEvent<CyberdeckHackableComponent, CyberdeckHackDoAfterEvent>(OnHacked);
 
         SubscribeLocalEvent<CyberdeckProjectionComponent, GetVerbsEvent<Verb>>(OnProjectionVerbs);
-        SubscribeLocalEvent<CyberdeckProjectionComponent, ComponentShutdown>(OnProjectionShutdown);
 
         SubscribeLocalEvent<CyberdeckUserComponent, CyberdeckHackActionEvent>(OnStartHacking);
         SubscribeLocalEvent<CyberdeckUserComponent, CyberdeckVisionEvent>(OnCyberVisionUsed);
@@ -104,7 +103,7 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         return UseCharges(user, hackable.Cost);
     }
 
-    private bool UseCharges(EntityUid user, FixedPoint2 amount, EntityUid? target = null)
+    private bool UseCharges(EntityUid user, int amount, EntityUid? target = null)
     {
         if (!UserQuery.TryComp(user, out var cyberDeck))
             return false;
@@ -115,22 +114,22 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         if (!CheckCharges(user, cyberDeck.ProviderEntity.Value, amount, target))
             return false;
 
-        _charges.UseCharges(cyberDeck.ProviderEntity.Value, amount);
+        _charges.TryUseCharges(cyberDeck.ProviderEntity.Value, amount);
         return true;
     }
 
-    private bool CheckCharges(EntityUid user, EntityUid provider, FixedPoint2 amount, EntityUid? target = null)
+    private bool CheckCharges(EntityUid user, EntityUid provider, int amount, EntityUid? target = null)
     {
         if (!ChargesQuery.TryComp(provider, out var chargesComp))
-            return false;
+            return true; // Provider doesn't have charges, so we shouldn't care about them
 
-        if (!_charges.HasInsufficientCharges(provider, amount))
-            return true;
+        if (_charges.TryUseCharges(provider, amount))
+            return true; // Everything is alright
 
         // Tell user that he doesn't have enough charges
         string message;
-        var charges = chargesComp.Charges;
-        var chargesForm = (amount - charges).Int();
+        var charges = chargesComp.LastCharges;
+        var chargesForm = amount - charges;
 
         // SHUT UP C# I HATE BRACES!!!!!!!!!
         // ReSharper disable once EnforceIfStatementBraces
@@ -143,9 +142,7 @@ public abstract class SharedCyberdeckSystem : EntitySystem
             message = Loc.GetString("cyberdeck-insufficient-charges",
                 ("amount", chargesForm));
 
-        if (_net.IsServer)
-            Popup.PopupEntity(message, user, user, PopupType.Medium);
-
+        Popup.PopupClient(message, user, user, PopupType.Medium);
         return false;
     }
 
@@ -161,9 +158,6 @@ public abstract class SharedCyberdeckSystem : EntitySystem
             Impact = LogImpact.High,
         });
     }
-
-    private void OnProjectionShutdown(Entity<CyberdeckProjectionComponent> ent, ref ComponentShutdown args)
-        => DetachFromProjection(ent.Comp.RemoteEntity);
 
     private void OnStartHacking(EntityUid uid, CyberdeckUserComponent component, CyberdeckHackActionEvent args)
     {
@@ -445,7 +439,7 @@ public abstract class SharedCyberdeckSystem : EntitySystem
     /// <summary>
     /// Detaches player from a projection forcefully, and sends an existing projection to Nullspace.
     /// </summary>
-    private void DetachFromProjection(Entity<CyberdeckUserComponent> user)
+    protected void DetachFromProjection(Entity<CyberdeckUserComponent> user)
     {
         if (user.Comp.ProjectionEntity == null || !user.Comp.InProjection)
             return;
@@ -477,6 +471,7 @@ public abstract class SharedCyberdeckSystem : EntitySystem
             _pvsOverride.AddSessionOverride(projection, actorComp.PlayerSession);
 
         // This probably is a dirty solution, but surprisingly you can't send entities to Nullspace...
+        // So i'll just steal an already existing pause map instead of shitspamming with a new one.
         _cryostorage.EnsurePausedMap();
         if (_cryostorage.PausedMap == null)
         {
@@ -485,13 +480,14 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         }
 
         Xform.SetParent(projection, _cryostorage.PausedMap.Value);
+        Dirty(user.Owner, user.Comp);
     }
 
     /// <summary>
     /// Detaches player from a projection forcefully, and sends an existing projection to Nullspace.
     /// This specific overload lets you put in a nullable EntityUid.
     /// </summary>
-    private void DetachFromProjection(Entity<CyberdeckUserComponent?>? user)
+    protected void DetachFromProjection(Entity<CyberdeckUserComponent?>? user)
     {
         if (user == null)
             return;
