@@ -32,6 +32,7 @@
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
 // SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
@@ -40,24 +41,16 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Chat.Systems;
-using Content.Server.CombatMode.Disarm;
 using Content.Server.Movement.Systems;
-using Content.Shared.Actions.Events;
-using Content.Shared.Administration.Components;
-using Content.Shared.CombatMode;
 using Content.Shared.Damage.Events;
 using Content.Shared.Damage.Systems;
-using Content.Shared.Database;
 using Content.Shared.Effects;
 using Content.Shared.Hands.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Speech.Components;
-using Content.Shared.StatusEffect;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
-using Robust.Shared.Audio;
-using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
 using System.Linq;
@@ -76,49 +69,23 @@ namespace Content.Server.Weapons.Melee;
 
 public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly DamageExamineSystem _damageExamine = default!;
     [Dependency] private readonly LagCompensationSystem _lag = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
     [Dependency] private readonly ContestsSystem _contests = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!; // Goob - Shove Rework
     [Dependency] private readonly INetConfigurationManager _config = default!; // Goob - Shove Rework
     [Dependency] private readonly SharedTransformSystem _transform = default!; // Goob - Shove Rework
 
-    //Goob - Shove
-    private float _shoveRange;
-    private float _shoveSpeed;
-    private float _shoveMass;
-    //Goob - Shove
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<MeleeSpeechComponent, MeleeHitEvent>(OnSpeechHit);
         SubscribeLocalEvent<MeleeWeaponComponent, DamageExamineEvent>(OnMeleeExamineDamage);
-        Subs.CVar(_config, GoobCVars.ShoveRange, SetShoveRange, true);
-        Subs.CVar(_config, GoobCVars.ShoveSpeed, SetShoveSpeed, true);
-        Subs.CVar(_config, GoobCVars.ShoveMassFactor, SetShoveMass, true);
     }
 
-    // Goobstation - Shove
-    private void SetShoveRange(float value)
-    {
-        _shoveRange = value;
-    }
-
-    private void SetShoveSpeed(float value)
-    {
-        _shoveSpeed = value;
-    }
-
-    private void SetShoveMass(float value)
-    {
-        _shoveMass = value;
-    }
-    //Goob - Shove
 
     private void OnMeleeExamineDamage(EntityUid uid, MeleeWeaponComponent component, ref DamageExamineEvent args)
     {
@@ -133,7 +100,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         _damageExamine.AddDamageExamine(args.Message, Damageable.ApplyUniversalAllModifiers(damageSpec), Loc.GetString("damage-melee"));
 
         // Goobstation - partial armor penetration
-        var ap = component.ResistanceBypass ? 100 : (int)Math.Round(component.ArmorPenetration * 100);
+        var ap = component.ResistanceBypass ? 100 : (int)Math.Round(damageSpec.ArmorPenetration * 100);
         if (ap == 0)
             return;
 
@@ -170,113 +137,6 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         return true;
     }
 
-    protected override bool DoDisarm(EntityUid user,
-        DisarmAttackEvent ev,
-        EntityUid meleeUid,
-        MeleeWeaponComponent component,
-        ICommonSession? session) // Goobstation - Shove Rework
-    {
-        if (!base.DoDisarm(user, ev, meleeUid, component, session))
-            return false;
-
-        var target = GetEntity(ev.Target!.Value);
-
-        EntityUid? inTargetHand = null;
-
-        if (!TryComp<CombatModeComponent>(user, out var combatMode))
-            return false;
-
-        PhysicalShove(user, target);
-        Interaction.DoContactInteraction(user, target);
-
-        if (_mobState.IsIncapacitated(target))
-            return true;
-
-        if (!TryComp<PhysicsComponent>(target, out var targetPhysicsComponent))
-            return false;
-
-        if (!TryComp<HandsComponent>(target, out var targetHandsComponent))
-        {
-            if (!TryComp<StatusEffectsComponent>(target, out var status) ||
-                !status.AllowedEffects.Contains("KnockedDown"))
-            {
-                return true;
-            }
-        }
-
-        if (targetHandsComponent?.ActiveHand is { IsEmpty: false })
-        {
-            inTargetHand = targetHandsComponent.ActiveHand.HeldEntity!.Value;
-        }
-
-        Interaction.DoContactInteraction(user, target);
-
-        var comboEv = new ComboAttackPerformedEvent(user, target, meleeUid, ComboAttackType.Disarm);
-        RaiseLocalEvent(user, comboEv);
-
-        var attemptEvent = new DisarmAttemptEvent(target, user, inTargetHand);
-        if (inTargetHand != null)
-        {
-            RaiseLocalEvent(inTargetHand.Value, attemptEvent);
-        }
-
-        RaiseLocalEvent(target, attemptEvent);
-
-        if (attemptEvent.Cancelled)
-            return true;
-
-        var chance = CalculateDisarmChance(user, target, inTargetHand, combatMode);
-
-        _audio.PlayPvs(combatMode.DisarmSuccessSound,
-            user,
-            AudioParams.Default.WithVariation(0.025f).WithVolume(5f));
-        AdminLogger.Add(LogType.DisarmedAction,
-            $"{ToPrettyString(user):user} used disarm on {ToPrettyString(target):target}");
-
-        var staminaDamage = CalculateShoveStaminaDamage(user, target);
-
-        var eventArgs = new DisarmedEvent
-        {
-            Target = target, Source = user, DisarmProbability = chance, StaminaDamage = staminaDamage,
-        };
-        RaiseLocalEvent(target, eventArgs);
-
-        if (!eventArgs.Handled)
-        {
-            ShoveOrDisarmPopup(false);
-            return true;
-        }
-
-        ShoveOrDisarmPopup(true);
-        _audio.PlayPvs(combatMode.DisarmSuccessSound,
-            user,
-            AudioParams.Default.WithVariation(0.025f).WithVolume(5f));
-        AdminLogger.Add(LogType.DisarmedAction,
-            $"{ToPrettyString(user):user} used a shove on {ToPrettyString(target):target}");
-
-        return true;
-
-        // Goob - Shove Rework edit (moved to function)
-        void ShoveOrDisarmPopup(bool disarm)
-        {
-            var filterOther = Filter.PvsExcept(user, entityManager: EntityManager);
-            var msgPrefix = "disarm-action-";
-
-            if (!disarm)
-                msgPrefix = "disarm-action-shove-";
-
-            var msgOther = Loc.GetString(
-                msgPrefix + "popup-message-other-clients",
-                ("performerName", Identity.Entity(user, EntityManager)),
-                ("targetName", Identity.Entity(target, EntityManager)));
-
-            var msgUser = Loc.GetString(msgPrefix + "popup-message-cursor", ("targetName", Identity.Entity(target, EntityManager)));
-
-            PopupSystem.PopupEntity(msgOther, user, filterOther, true);
-            PopupSystem.PopupEntity(msgUser, target, user);
-        }
-    }
-
     protected override bool InRange(EntityUid user, EntityUid target, float range, ICommonSession? session)
     {
         EntityCoordinates targetCoordinates;
@@ -291,67 +151,11 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         return Interaction.InRangeUnobstructed(user, target, range);
     }
 
-    private void PhysicalShove(EntityUid user, EntityUid target)
-    {
-        var force = _shoveRange * _contests.MassContest(user, target, rangeFactor: _shoveMass);
-
-        var userPos = _transform.ToMapCoordinates(user.ToCoordinates()).Position;
-        var targetPos = _transform.ToMapCoordinates(target.ToCoordinates()).Position;
-        var pushVector = (targetPos - userPos).Normalized() * force;
-
-        var animated = false;
-        var throwInAir = false;
-
-        if (HasComp<ItemComponent>(target)) // Throw items instead of shoving
-        {
-            animated = true;
-            throwInAir = true;
-        }
-
-        _throwing.TryThrow(target, pushVector, force * _shoveSpeed, animated: animated, throwInAir: throwInAir);
-    }
 
     protected override void DoDamageEffect(List<EntityUid> targets, EntityUid? user, TransformComponent targetXform)
     {
         var filter = Filter.Pvs(targetXform.Coordinates, entityMan: EntityManager).RemoveWhereAttachedEntity(o => o == user);
         _color.RaiseEffect(Color.Red, targets, filter);
-    }
-
-    private float CalculateDisarmChance(EntityUid disarmer, EntityUid disarmed, EntityUid? inTargetHand, CombatModeComponent disarmerComp)
-    {
-        if (HasComp<DisarmProneComponent>(disarmer))
-            return 1.0f;
-
-        if (HasComp<DisarmProneComponent>(disarmed))
-            return 0.0f;
-
-        var chance = 1 - disarmerComp.BaseDisarmFailChance;
-
-        // Goob - Shove Rework disarm based on health & stamina
-        chance *= Math.Clamp(
-            _contests.StaminaContest(disarmer, disarmed)
-            * _contests.HealthContest(disarmer, disarmed),
-            0f,
-            1f);
-
-        if (inTargetHand != null && TryComp<DisarmMalusComponent>(inTargetHand, out var malus))
-            chance *= 1 - malus.Malus; // Goob - Shove Rework edit
-
-        if (TryComp<ShovingComponent>(disarmer, out var shoving))
-            chance *= 1 + shoving.DisarmBonus; // Goob - Shove Rework edit
-
-        return chance;
-
-    }
-
-    // Goob - Shove Rework shove stamina damage based on mass
-    private float CalculateShoveStaminaDamage(EntityUid disarmer, EntityUid disarmed)
-    {
-        var baseStaminaDamage = TryComp<ShovingComponent>(disarmer, out var shoving) ? shoving.StaminaDamage : ShovingComponent.DefaultStaminaDamage;
-
-        return
-            baseStaminaDamage
-            * _contests.MassContest(disarmer, disarmed, false, 4f);
     }
 
     public override void DoLunge(EntityUid user, EntityUid weapon, Angle angle, Vector2 localPos, string? animation, Angle spriteRotation, bool flipAnimation, bool predicted = true)

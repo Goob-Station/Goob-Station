@@ -447,18 +447,6 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<bool> AdminOverlayShowJob =
         CVarDef.Create("ui.admin_overlay_show_job", true, CVar.CLIENTONLY | CVar.ARCHIVE);
 
-    /// <summary>
-    /// If true, the admin overlay will show their antag.
-    /// </summary>
-    public static readonly CVarDef<bool> AdminOverlayShowAntag =
-        CVarDef.Create("ui.admin_overlay_show_antag", true, CVar.CLIENTONLY | CVar.ARCHIVE);
-
-    /// <summary>
-    /// If true, the admin overlay will show their role type.
-    /// </summary>
-    public static readonly CVarDef<bool> AdminOverlayShowRoleType =
-        CVarDef.Create("ui.admin_overlay_show_role_type", true, CVar.CLIENTONLY | CVar.ARCHIVE);
-
     #endregion
 
     #region Misc

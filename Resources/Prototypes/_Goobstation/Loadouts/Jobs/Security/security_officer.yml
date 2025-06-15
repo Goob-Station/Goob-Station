@@ -5,7 +5,9 @@
 # SPDX-FileCopyrightText: 2025 Jarl <140098675+JarlElbowses@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Jarl <elliotacline@gmail.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -15,22 +17,12 @@
     belt: ClothingBeltCorporateJudoFilled
 
 - type: loadout
-  id: WinterCoatSecArmored
-  equipment:
-    outerClothing: ClothingOuterWinterSecArmored
-
-- type: loadout
   id: WinterCoatSeniorSecArmored
   effects:
   - !type:GroupLoadoutEffect
     proto: SeniorOfficer
   equipment:
     outerClothing: ClothingOuterWinterSeniorSecArmored
-
-- type: loadout
-  id: WinterCombatBoots
-  equipment:
-    shoes: ClothingShoesWinterCombatBoots
 
 - type: loadout
   id: ClothingNeckCWPSec
@@ -47,3 +39,21 @@
     proto: SeniorOfficer
   equipment:
     outerClothing: ClothingOuterVestWebSec
+
+- type: loadout
+  id: SecurityMeleeKnife
+  storage:
+    back:
+    - CombatKnife
+
+- type: loadout
+  id: SecurityMeleePolyBaton
+  storage:
+    back:
+    - PolymerBaton
+
+- type: loadout
+  id: SecurityMeleeSpear
+  storage:
+    back:
+    - SpearTelescopic

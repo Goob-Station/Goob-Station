@@ -334,7 +334,7 @@ public sealed class BodySetupTest
         await using var pair = await PoolManager.GetServerClient(new PoolSettings
         {
             Dirty = true,
-            Connected = true,
+            Connected = false,
             InLobby = false,
         });
 
