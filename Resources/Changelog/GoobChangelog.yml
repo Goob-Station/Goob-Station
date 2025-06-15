@@ -11019,3 +11019,11 @@ Entries:
       message: Fire no longer instakills moths
   id: 1215
   time: '2025-06-15T06:00:39.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Clarify how contraband works for sec / command in guidebook
+    - type: Tweak
+      message: Restrict warden items to warden
+  id: 1216
+  time: '2025-06-15T06:02:23.0000000+00:00'
