@@ -227,8 +227,12 @@
   # Goobstation
   - type: Tag
     tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
     - ReptilianEmotes
-  
+
 - type: entity
   parent: BaseSpeciesDummy
   id: MobReptilianDummy

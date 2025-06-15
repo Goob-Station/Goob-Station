@@ -131,6 +131,8 @@
       effects: # TODO: when magic is around - make a milk transformation to a skeleton monster
       - !type:HealthChange
         scaleByQuantity: true
+        ignoreBlockers: true
+        splitDamage: SplitEnsureAll
         damage:
           groups:
             Burn: -4 # healing obviously up to discussion # Shitmed value
