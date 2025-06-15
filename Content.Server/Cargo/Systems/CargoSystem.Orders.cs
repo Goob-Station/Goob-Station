@@ -21,7 +21,6 @@
 // SPDX-FileCopyrightText: 2024 EmoGarbage404 <retron404@gmail.com>
 // SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
 // SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Fildrance <fildrance@gmail.com>
 // SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Flesh <62557990+PolterTzi@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Hrosts <35345601+Hrosts@users.noreply.github.com>
@@ -40,7 +39,6 @@
 // SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 MureixloI <132683811+MureixloI@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 NakataRin <45946146+NakataRin@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 OrangeMoronage9622 <whyteterry0092@gmail.com>
 // SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
 // SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
@@ -86,10 +84,16 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
 // SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 TemporalOroboros <TemporalOroboros@gmail.com>
 // SPDX-FileCopyrightText: 2025 amogus <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
@@ -101,6 +105,7 @@
 
 using System.Diagnostics.CodeAnalysis;
 using Content.Goobstation.Common.Pirates;
+using Content.Goobstation.Shared.Cargo;
 using Content.Server.Cargo.Components;
 using Content.Server.Station.Components;
 using Content.Shared.Cargo;
@@ -127,6 +132,19 @@ namespace Content.Server.Cargo.Systems
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
         [Dependency] private readonly EmagSystem _emag = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
+
+        /// <summary>
+        /// How much time to wait (in seconds) before increasing bank accounts balance.
+        /// </summary>
+        private const int Delay = 10;
+
+        //Goob Edit - Simple Order Events
+        private Dictionary<int, NetEntity> _requesters = new();
+
+        /// <summary>
+        /// Keeps track of how much time has elapsed since last balance increase.
+        /// </summary>
+        private float _timer;
 
         private void InitializeConsole()
         {
@@ -430,7 +448,12 @@ namespace Content.Server.Cargo.Systems
             if (!component.AllowedGroups.Contains(product.Group))
                 return;
 
-            var data = GetOrderData(args, product, GenerateOrderId(orderDatabase));
+            // Goob Edit Start - Simple Order Events
+            var orderId = GenerateOrderId(orderDatabase);
+            _requesters[orderId] = GetNetEntity(player);
+
+            var data = GetOrderData(args, product, orderId);
+            // Goob Edit End
 
             if (!TryAddOrder(stationUid.Value, component.Account, data, orderDatabase))
             {
@@ -638,6 +661,15 @@ namespace Content.Server.Cargo.Systems
         {
             // Create the item itself
             var item = Spawn(order.ProductId, spawn);
+
+            // Goob Edit - Simple Order Events - Start
+            if (!_requesters.TryGetValue(order.OrderId, out var requester))
+                return false;
+
+            var ev = new CargoOrderApprovedEvent(item, order.ProductId, requester);
+            RaiseLocalEvent(item, ev, true);
+
+            // Goob Edit - Simple Order Events - End
 
             // Ensure the item doesn't start anchored
             _transformSystem.Unanchor(item, Transform(item));

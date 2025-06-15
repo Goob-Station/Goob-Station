@@ -1,0 +1,65 @@
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Goobstation.Shared.Mercenary;
+using Content.Server.Mind;
+using Content.Server.Roles;
+using Content.Server.Antag;
+using Content.Server.Ghost.Roles.Components;
+using Robust.Server.Player;
+
+namespace Content.Goobstation.Server.Mercenary;
+
+public sealed partial class MercenarySystem : EntitySystem
+{
+    [Dependency] private readonly MindSystem _mind = default!;
+    [Dependency] private readonly RoleSystem _roles = default!;
+    [Dependency] private readonly AntagSelectionSystem _antag = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
+    private ISawmill _sawmill = null!;
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        InitializeOrder();
+
+        SubscribeLocalEvent<MercenaryRequesterComponent, TakeGhostRoleEvent>(OnPlayerAttached);
+
+        _sawmill = Logger.GetSawmill("mercenary-system");
+    }
+
+    private void OnPlayerAttached(Entity<MercenaryRequesterComponent> merc, ref TakeGhostRoleEvent args)
+    {
+        if (merc.Comp.Requester is not { } requester
+            || TerminatingOrDeleted(requester))
+        {
+            _sawmill.Error($"Could not resolve requester entity : {merc.Comp.Requester}");
+            return;
+        }
+
+        AddMercenaryRole(merc, requester);
+    }
+
+    private void AddMercenaryRole(Entity<MercenaryRequesterComponent> merc, EntityUid requester)
+    {
+        if (!_mind.TryGetMind(merc, out var mindId, out var mind))
+            return;
+
+        _roles.MindAddRole(mindId, merc.Comp.MindRole.Id);
+
+        var briefing = Loc.GetString("mercenary-briefing", ("employer", Name(requester)));
+
+        if (_roles.MindHasRole<MercenaryRoleComponent>(mindId, out var mindrole))
+            AddComp(mindrole.Value, new RoleBriefingComponent { Briefing = briefing }, true);
+
+        if (_player.TryGetSessionById(mind.UserId, out var session)
+            || merc.Comp.BriefingSent)
+            return;
+
+        _antag.SendBriefing(session, briefing, Color.Red, null);
+        merc.Comp.BriefingSent = true;
+    }
+}
