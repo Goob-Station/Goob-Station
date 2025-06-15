@@ -53,7 +53,10 @@ public sealed partial class FindLinkedMachineOperator : HTNOperator
             || _entManager.Deleted(fillbot.LinkedSinkEntity))
             return (false, null);
 
-        var path = await _pathfinding.GetPath(owner, fillbot.LinkedSinkEntity.Value, SharedInteractionSystem.InteractionRange - 0.5f, cancelToken);
+        var path = await _pathfinding.GetPath(owner,
+            fillbot.LinkedSinkEntity.Value,
+            SharedInteractionSystem.InteractionRange - 0.5f,
+            cancelToken);
 
         if (path.Result == PathResult.NoPath)
             return (false, null);
