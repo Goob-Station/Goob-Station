@@ -11197,3 +11197,9 @@ Entries:
         pray. The waltz begins.
   id: 1230
   time: '2025-06-15T07:20:24.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: Blueshield officers can now choose armored ushanka in the loadout.
+  id: 1231
+  time: '2025-06-15T07:22:38.0000000+00:00'
