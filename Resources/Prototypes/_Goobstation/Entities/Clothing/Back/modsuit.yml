@@ -316,7 +316,7 @@
             - PowerCell
 
 - type: entity
-  parent: [ClothingModsuitStandard, BaseCommandContraband] # BaseGrandTheftContraband
+  parent: [ClothingModsuitStandard, BaseCommandContraband, BaseGrandTheftContraband]
   id: ClothingModsuitResearchDirector
   name: RD's minerva hardsuit control unit
   description: A  modular hardsuit control module unit for withstanding another shuttlebomb.
@@ -338,11 +338,11 @@
     clothingVisuals:
       back:
       - state: equipped-BACKPACK-sealed
-#  - type: StealTarget
-#    stealGroup: ClothingOuterHardsuitRd
-#  - type: Tag
-#    tags:
-#      - HighRiskItem
+  - type: StealTarget
+    stealGroup: ClothingOuterHardsuitRd
+  - type: Tag
+    tags:
+      - HighRiskItem
 
 - type: entity
   parent: ClothingModsuitResearchDirector
