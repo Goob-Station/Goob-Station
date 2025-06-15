@@ -10993,3 +10993,9 @@ Entries:
         Expedition boards. It's been forever.
   id: 1211
   time: '2025-06-15T05:12:48.0000000+00:00'
+- author: IrisTheAmped
+  changes:
+    - type: Tweak
+      message: Appraisal tools removed from Lathes and added to Cargo Fab.
+  id: 1212
+  time: '2025-06-15T05:13:21.0000000+00:00'
