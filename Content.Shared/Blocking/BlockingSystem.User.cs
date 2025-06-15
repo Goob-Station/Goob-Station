@@ -102,7 +102,7 @@ public sealed partial class BlockingSystem
         }
 
         args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage,
-            DamageSpecifier.PenetrateArmor(modifier, args.OriginalDamage.ArmorPenetration)); // Goob edit
+            DamageSpecifier.PenetrateArmor(modifier, args.Damage.ArmorPenetration)); // Goob edit
     }
 
     private void OnEntityTerminating(EntityUid uid, BlockingUserComponent component, ref EntityTerminatingEvent args)

@@ -56,7 +56,7 @@ public abstract class SharedSpellbladeSystem : EntitySystem
     private void OnDamageModify(Entity<ShieldedComponent> ent, ref DamageModifyEvent args)
     {
         args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage,
-            DamageSpecifier.PenetrateArmor(ent.Comp.Resistances, args.OriginalDamage.ArmorPenetration));
+            DamageSpecifier.PenetrateArmor(ent.Comp.Resistances, args.Damage.ArmorPenetration));
     }
 
     private void OnBeforeStatusEffect(Entity<ShieldedComponent> ent, ref BeforeStatusEffectAddedEvent args)

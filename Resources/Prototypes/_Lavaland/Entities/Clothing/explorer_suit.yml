@@ -51,7 +51,7 @@
       coefficients:
         Blunt: 0.6
         Slash: 0.6
-        Piercing: 0.6
+        Piercing: 0.65
         Heat: 0.6
         Caustic: 0.6
   - type: ExplosionResistance
@@ -68,6 +68,7 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 1.5
     knockdownTimeDelta: -1.5
+  - type: PressureArmorChange
   - type: Tag
     tags:
     - ExplorerSuit
@@ -103,11 +104,12 @@
     - Head
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.6
-        Heat: 0.6
-        Caustic: 0.6
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.7
+        Heat: 0.65
+        Caustic: 0.65
+  - type: PressureArmorChange
 
 - type: entity
   parent: LavalandEquipmentExplorerSuit
@@ -121,7 +123,7 @@
       coefficients:
         Blunt: 0.5
         Slash: 0.5
-        Piercing: 0.55
+        Piercing: 0.6
         Heat: 0.5
         Caustic: 0.5
   - type: ExplosionResistance
@@ -155,11 +157,11 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.55
-        Heat: 0.5
-        Caustic: 0.5
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.65
+        Heat: 0.55
+        Caustic: 0.55
 
 - type: entity
   parent: LavalandEquipmentExplorerSuit
@@ -179,7 +181,7 @@
       coefficients:
         Blunt: 0.4
         Slash: 0.4
-        Piercing: 0.5
+        Piercing: 0.55
         Heat: 0.4
         Caustic: 0.4
   - type: ExplosionResistance
@@ -207,11 +209,11 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.4
-        Slash: 0.4
-        Piercing: 0.5
-        Heat: 0.4
-        Caustic: 0.4
+        Blunt: 0.45
+        Slash: 0.45
+        Piercing: 0.6
+        Heat: 0.45
+        Caustic: 0.45
 
 - type: entity
   parent: LavalandEquipmentExplorerSuit
@@ -231,7 +233,7 @@
       coefficients:
         Blunt: 0.3
         Slash: 0.3
-        Piercing: 0.45
+        Piercing: 0.5
         Heat: 0.3
         Caustic: 0.3
   - type: ExplosionResistance
@@ -259,8 +261,8 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.3
-        Slash: 0.3
-        Piercing: 0.45
-        Heat: 0.3
-        Caustic: 0.3
+        Blunt: 0.35
+        Slash: 0.35
+        Piercing: 0.55
+        Heat: 0.35
+        Caustic: 0.35
