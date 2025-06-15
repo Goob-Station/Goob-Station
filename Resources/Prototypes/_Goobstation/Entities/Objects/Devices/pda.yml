@@ -10,6 +10,7 @@
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 crasg <109207982+Scruq445@users.noreply.github.com>
@@ -247,3 +248,36 @@
   components:
   - type: Pda
     id: NukieAgentIDCard
+
+- type: entity
+  parent: NavyCaptainPDA
+  id: HighCommandPDA
+  name: high commander PDA
+  description: An ordinary syndicate PDA, adorned with gilded symbols. It's owner is clearly of a higher standing.
+  components:
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-highcommand
+  - type: PdaBorderColor
+    borderColor: "#891417"
+  - type: Pda
+    id: HighCommandIDCard
+    penSlot:
+      startingItem: CyberPen
+      whitelist:
+        tags:
+        - Write
+  - type: Icon
+    sprite: _Goobstation/Objects/Devices/pda.rsi
+    state: pda-highcommand
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/pda.rsi
+    state: pda-highcommand
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+    - NotekeeperCartridge
+    - NanoTaskCartridge
+    - NanoChatCartridge # DeltaV
