@@ -1,0 +1,38 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: Desktop
+  parent: BaseStructure
+  name: desktop computer
+  description: The screen says to hold for the OS to update. Though the progress bar never seems to move.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/desktop.rsi
+    state: desktop
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+  - type: AmbientSound
+    volume: -6
+    range: 3
+    sound:
+      path: /Audio/_Goobstation/Machines/computerboot_pc.ogg
+  - type: PointLight
+    radius: 3
+    energy: 2
+    color: "#2789CD"
+

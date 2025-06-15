@@ -1,0 +1,15 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: quill
+  parent: BaseItem
+  name: quill
+  description: Looks fancy, but you have no clue how to use this thing!
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Objects/Misc/quill.rsi
+    state: quill
+    drawdepth: Items

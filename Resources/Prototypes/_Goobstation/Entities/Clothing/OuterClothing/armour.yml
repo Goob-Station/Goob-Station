@@ -46,8 +46,8 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 2
     knockdownTimeDelta: -2
-  - type: StaminaDamageResistance # Goobstation
-    coefficient: 0.7
+  - type: StaminaResistance # Goobstation
+    damageCoefficient: 0.7
 
 # Durathread plated vest
 - type: entity
@@ -74,8 +74,8 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 2
     knockdownTimeDelta: -2
-  - type: StaminaDamageResistance # Goobstation
-    coefficient: 0.7
+  - type: StaminaResistance # Goobstation
+    damageCoefficient: 0.7
 
 # Helldiver
 - type: entity
@@ -117,17 +117,65 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/OuterClothing/Armor/web_vest_hos.rsi
 
+# Captain
+- type: entity
+  parent: [ ClothingOuterArmorCaptainCarapace, ClothingOuterStorageBase ]
+  id: ClothingOuterCapJacket
+  name: captain's armored jacket
+  description: An extremely expensive jacket with extra durathread protection at the chest.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Armor/captain_jacket.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Armor/captain_jacket.rsi
+  - type: Item
+    size: Normal
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.35
+        Slash: 0.35
+        Piercing: 0.45
+        Heat: 0.35
+        Caustic: 0.6
+
+- type: entity
+  parent: [ ClothingOuterArmorCaptainCarapace, ClothingOuterWinterCoatToggleable ]
+  id: ClothingOuterWinterCapArmored
+  name: captain's fancy winter coat
+  description: An ornate winter coat with a ballistic plate made for the station's finest.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/cap_armored_winter_coat.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/cap_armored_winter_coat.rsi
+  - type: Item
+    size: Normal
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.5
+        Heat: 0.4
+        Caustic: 0.65
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHatHoodWinterCapFancy
+
 # Blueshield Armour Vest
 - type: entity
   parent: [ BaseCentcommContraband, ClothingOuterArmorCaptainCarapace ]
   id: ClothingBlueshieldArmourVest
   name: blueshield's security armour
-  description: An armoured vest with the badge of the blueshield.
+  description: An armoured vest with the badge of the blueshield. Utilizes bluespace technology to be more compact.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Armor/bso_armour.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Armor/bso_armour.rsi
+  - type: Item
+    size: Normal
 
 - type: entity
   parent: ClothingBlueshieldArmourVest
@@ -139,8 +187,6 @@
     sprite: _Goobstation/Clothing/OuterClothing/Armor/blueshield_jacket.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/OuterClothing/Armor/blueshield_jacket.rsi
-  - type: Item
-    size: Normal
 
 - type: entity
   parent: ClothingBlueshieldArmourVest
@@ -152,8 +198,20 @@
     sprite: _Goobstation/Clothing/OuterClothing/Armor/blueshield_cowboy_jacket.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/OuterClothing/Armor/blueshield_cowboy_jacket.rsi
-  - type: Item
-    size: Normal
+
+- type: entity
+  parent: [ BaseCentcommContraband, ClothingOuterWinterCapArmored ]
+  id: ClothingOuterWinterBlueshield
+  name: blueshield's armored winter coat
+  description: A blue winter coat reinforced with kevlar in the chest area.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/bso_winter_coat.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/bso_winter_coat.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHatHoodWinterBso
 
 # CentralCommand
 
@@ -181,8 +239,8 @@
   - type: ModifyDelayedKnockdown
     delayDelta: 3
     knockdownTimeDelta: -3
-  - type: StaminaDamageResistance
-    coefficient: 0.5
+  - type: StaminaResistance
+    damageCoefficient: 0.5
   - type: StripMenuInvisible # No peeking!
   - type: TemperatureProtection
     heatingCoefficient: 0.8 # Blame it on bluespace.
@@ -242,7 +300,7 @@
   description: What began as a simple cosplay cloak was illegally reinforced with armored plates, transforming it into a functional piece of armor. Looks like it's even capable of protecting the user from the lack of pressure in space.
   components:
   - type: Sprite
-    sprite: _Goobstation/Heretic/void_cloak.rsi
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/void_cloak.rsi
     layers:
     - state: icon
       map: [ "base" ]
@@ -272,8 +330,8 @@
   - type: ModifyDelayedKnockdown
     delayDelta: 2.5
     knockdownTimeDelta: -2.5
-  - type: StaminaDamageResistance
-    coefficient: 0.55
+  - type: StaminaResistance
+    damageCoefficient: 0.55
   - type: PressureProtection
     lowPressureMultiplier: 1000
   # Intentionally no temperature or high pressure protection

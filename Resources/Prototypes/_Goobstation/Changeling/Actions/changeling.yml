@@ -134,7 +134,7 @@
 - type: entity
   id: ActionEnterStasis
   name: Enter regenerative stasis
-  description: Fake your death and start regenerating. Drains all your chemicals. Consumes biomass.
+  description: Fake your death and start regenerating. Cost free.
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
@@ -152,7 +152,7 @@
 - type: entity
   id: ActionExitStasis
   name: Exit stasis
-  description: Rise from the dead with full health. Costs 60 chemicals.
+  description: Rise from the dead with full health. Costs 30 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
@@ -164,7 +164,7 @@
       state: stasis_exit
     event: !type:ExitStasisEvent {}
   - type: ChangelingAction
-    chemicalCost: 60
+    chemicalCost: 30
     useInLesserForm: true
     useInLastResort: true
 

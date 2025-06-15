@@ -105,8 +105,13 @@
 # SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 RedMush1 <axmetvaliev1@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 SeamLesss <kai.julian.watson@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 War Pigeon <54217755+minus1over12@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 starch <starchpersonal@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -119,7 +124,12 @@
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/hypospray.rsi
-    state: hypo
+    layers:
+      - state: hypo
+        map: ["enum.SolutionContainerLayers.Base"]
+      - state: hypo_fill1
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: false
   - type: Item
     sprite: Objects/Specific/Medical/hypospray.rsi
   - type: SolutionContainerManager
@@ -141,6 +151,11 @@
     - HighRiskItem
   - type: StealTarget
     stealGroup: Hypospray
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 6
+    fillBaseName: hypo_fill
+    solutionName: hypospray
 
 - type: entity
   name: gorlex hypospray
@@ -150,7 +165,12 @@
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/syndihypo.rsi
-    state: hypo
+    layers:
+      - state: hypo
+        map: ["enum.SolutionContainerLayers.Base"]
+      - state: hypo_fill1
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: false
   - type: Item
     sprite: Objects/Specific/Medical/syndihypo.rsi
   - type: SolutionContainerManager
@@ -165,6 +185,11 @@
     onlyAffectsMobs: false
   - type: UseDelay
     delay: 0.5
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 4
+    fillBaseName: hypo_fill
+    solutionName: hypospray
 
 - type: entity
   name: borghypo
@@ -330,7 +355,7 @@
   name: brute auto-injector
   parent: ChemicalMedipen
   id: BruteAutoInjector
-  description: A rapid dose of bicaridine, salicylic acid, and tranexamic acid, intended for combat applications. Usage of multiple highly recommended against. # goobstation
+  description: A rapid dose of bicaridine, salicylic acid, tranexamic acid, and tramadol, intended for combat applications. Usage of multiple highly recommended against. # goobstation
   components:
   - type: Item
     inhandVisuals:
@@ -355,19 +380,21 @@
     emptySpriteName: bicpen_empty
   - type: Hypospray
     solutionName: pen
-    transferAmount: 20
+    transferAmount: 25 # Goobstation
     onlyAffectsMobs: false
     injectOnly: true
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 20
+        maxVol: 25
         reagents:
         - ReagentId: SalicylicAcid # goobstation
           Quantity: 10
         - ReagentId: Bicaridine # goobstation
           Quantity: 5
         - ReagentId: TranexamicAcid
+          Quantity: 5
+        - ReagentId: Tramadol # goobstation
           Quantity: 5
   - type: Tag
     tags: []
@@ -376,7 +403,7 @@
   name: burn auto-injector
   parent: ChemicalMedipen
   id: BurnAutoInjector
-  description: A rapid dose of oxandrolone and leporazine, intended for combat applications. # goobstation
+  description: A rapid dose of oxandrolone, leporazine, and tramadol, intended for combat applications. # goobstation
   components:
   - type: Item
     inhandVisuals:
@@ -401,18 +428,20 @@
     emptySpriteName: dermpen_empty
   - type: Hypospray
     solutionName: pen
-    transferAmount: 20
+    transferAmount: 25 # Goobstation
     onlyAffectsMobs: false
     injectOnly: true
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 20
+        maxVol: 25
         reagents:
         - ReagentId: Oxandrolone # Goobstation
           Quantity: 10
         - ReagentId: Leporazine
           Quantity: 10
+        - ReagentId: Tramadol # goobstation
+          Quantity: 5
   - type: Tag
     tags: []
 
@@ -666,10 +695,10 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 30
+        maxVol: 10 # Goobstation edit
         reagents:
         - ReagentId: Stimulants
-          Quantity: 30
+          Quantity: 10 # Goobstation edit
   - type: SolutionContainerVisuals
     maxFillLevels: 1
     changeColor: false
@@ -712,10 +741,10 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 15
+        maxVol: 5 # Goobstation edit
         reagents:
         - ReagentId: Stimulants
-          Quantity: 15
+          Quantity: 5 # Goobstation edit
   - type: SolutionContainerVisuals
     maxFillLevels: 1
     changeColor: false
