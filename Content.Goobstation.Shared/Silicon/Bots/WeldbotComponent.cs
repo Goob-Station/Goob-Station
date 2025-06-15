@@ -22,11 +22,11 @@ public sealed partial class WeldbotComponent : Component
     [DataField]
     public SoundSpecifier WeldSound = new SoundPathSpecifier("/Audio/Items/welder2.ogg");
 
-        [DataField]
-        public SoundSpecifier EmagSparkSound = new SoundCollectionSpecifier("sparks")
-        {
-            Params = AudioParams.Default.WithVolume(8f)
-        };
+    [DataField]
+    public SoundSpecifier EmagSparkSound = new SoundCollectionSpecifier("sparks")
+    {
+        Params = AudioParams.Default.WithVolume(8f)
+    };
 
     public bool IsEmagged = false;
 }
