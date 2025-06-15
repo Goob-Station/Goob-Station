@@ -11291,3 +11291,9 @@ Entries:
       message: 'Gave Bagels Brigmed a makeover '
   id: 1240
   time: '2025-06-15T07:45:19.0000000+00:00'
+- author: vrilly
+  changes:
+    - type: Add
+      message: More lizard emotes
+  id: 1241
+  time: '2025-06-15T07:46:29.0000000+00:00'
