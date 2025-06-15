@@ -20,6 +20,7 @@ using Content.Shared.Actions;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Random;
+using Robust.Server.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
@@ -34,6 +35,7 @@ public sealed class SpellsGrantSystem : EntitySystem
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly ObjectivesSystem _objectives = default!;
     [Dependency] private readonly TargetObjectiveSystem _target = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
 
     public override void Initialize()
     {
@@ -136,7 +138,10 @@ public sealed class SpellsGrantSystem : EntitySystem
         comp.Granted = true;
 
         if (comp.AntagProfile != null)
-            _antag.ForceMakeAntag<SpellsGrantComponent>(args.Mind.Comp.Session, comp.AntagProfile);
+        {
+            _player.TryGetSessionById(args.Mind.Comp.UserId, out var session);
+            _antag.ForceMakeAntag<SpellsGrantComponent>(session, comp.AntagProfile);
+        }
 
         var container = EnsureComp<ActionsContainerComponent>(args.Mind.Owner);
 

@@ -1,15 +1,18 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Standard Combat Hardsuits
 - type: entity
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitCombatStandard
-  name: combat hardsuit
-  description: A purpose-built combat suit designed to protect its user against all manner of enemy combatants in low pressure environments.
+  name: combat voidsuit
+  description: A purpose-built combat voidsuit designed to protect its user against all manner of enemy combatants in low pressure environments.
   components:
   - type: Sprite
     sprite: _DV/Clothing/OuterClothing/Hardsuits/Combat/standard.rsi
@@ -43,8 +46,8 @@
     clothingPrototypes: #goobstation change
       head: ClothingHeadHelmetHardsuitCombatStandard
   - type: AllowSuitStorage
-  - type: StaminaDamageResistance # Goobstation
-    coefficient: 0.6
+  - type: StaminaResistance # Goobstation
+    damageCoefficient: 0.6
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 3
     knockdownTimeDelta: -3
@@ -52,8 +55,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitCombatStandard,BaseCommandContraband]
   id: ClothingOuterHardsuitCombatOfficer
-  name: security combat hardsuit
-  description: A purpose-built combat suit designed to protect its user against all manner of enemy combatants in low pressure environments. This one has station security markings.
+  name: security combat voidsuit
+  description: A purpose-built combat voidsuit designed to protect its user against all manner of enemy combatants in low pressure environments. This one has station security markings.
   components:
   - type: Sprite
     sprite: _DV/Clothing/OuterClothing/Hardsuits/Combat/officer.rsi
@@ -67,8 +70,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase,BaseCommandContraband]
   id: ClothingOuterHardsuitCombatMedical
-  name: medical combat hardsuit
-  description: A purpose-built combat suit designed to allow its user greater mobility for superior support of friendly units in active combat zones.
+  name: medical combat voidsuit
+  description: A purpose-built combat voidsuit designed to allow its user greater mobility for superior support of friendly units in active combat zones.
   components:
   - type: Sprite
     sprite: _DV/Clothing/OuterClothing/Hardsuits/Combat/medical.rsi
@@ -102,8 +105,8 @@
     clothingPrototypes: #goobstation change
       head: ClothingHeadHelmetHardsuitCombatMedical
   - type: AllowSuitStorage
-  - type: StaminaDamageResistance # Goobstation
-    coefficient: 0.6
+  - type: StaminaResistance # Goobstation
+    damageCoefficient: 0.6
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 3
     knockdownTimeDelta: -3
@@ -112,8 +115,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase,BaseCommandContraband]
   id: ClothingOuterHardsuitCombatRiot
-  name: riot combat hardsuit
-  description: A purpose-built combat suit designed for crowd control against armed combatants in low pressure environments.
+  name: riot combat voidsuit
+  description: A purpose-built combat voidsuit designed for crowd control against armed combatants in low pressure environments.
   components:
   - type: Sprite
     sprite: _DV/Clothing/OuterClothing/Hardsuits/Combat/riot.rsi
@@ -147,7 +150,7 @@
     clothingPrototypes: #goobstation change
       head: ClothingHeadHelmetHardsuitCombatRiot
   - type: AllowSuitStorage
-  - type: StaminaDamageResistance # Goobstation
-    coefficient: 0.5
+  - type: StaminaResistance # Goobstation
+    damageCoefficient: 0.5
   - type: ModifyDelayedKnockdown # Goobstation
     cancel: true

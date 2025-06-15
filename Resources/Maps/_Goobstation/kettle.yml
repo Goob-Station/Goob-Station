@@ -122610,59 +122610,6 @@ entities:
     - type: Transform
       pos: 27.437817,6.556802
       parent: 2
-- proto: PlushieBlackburn
-  entities:
-  - uid: 18531
-    components:
-    - type: Transform
-      pos: 6.586996,-53.53296
-      parent: 2
-  - uid: 18532
-    components:
-    - type: Transform
-      pos: 6.510607,-55.538277
-      parent: 2
-  - uid: 18533
-    components:
-    - type: Transform
-      pos: 20.477848,-102.41634
-      parent: 2
-- proto: PlushieBlackburnKobliska
-  entities:
-  - uid: 18534
-    components:
-    - type: Transform
-      pos: 4.4950023,-53.337082
-      parent: 2
-  - uid: 18535
-    components:
-    - type: Transform
-      pos: 4.20207,-51.599762
-      parent: 2
-- proto: PlushieBlackburnMatryoskya
-  entities:
-  - uid: 18536
-    components:
-    - type: Transform
-      pos: 18.399445,-108.58758
-      parent: 2
-- proto: PlushieDesislavaBlackburn
-  entities:
-  - uid: 18537
-    components:
-    - type: Transform
-      pos: 5.7187304,-53.730427
-      parent: 2
-  - uid: 18538
-    components:
-    - type: Transform
-      pos: 5.7117863,-55.571987
-      parent: 2
-  - uid: 18539
-    components:
-    - type: Transform
-      pos: 5.6911626,-52.29599
-      parent: 2
 - proto: PlushieDiona
   entities:
   - uid: 18540
@@ -143728,7 +143675,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraGeneral
       nameSet: True
-      id: Blackburn tank factory
+      id: Abandoned tank factory
 - proto: SurveillanceCameraMedical
   entities:
   - uid: 22002

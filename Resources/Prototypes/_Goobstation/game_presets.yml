@@ -182,7 +182,7 @@
     - combatdynamic
   name: guide-title
   description: guide-description
-  showInVote: true
+  showInVote: false
   minPlayers: 25
   rules:
     - CombatDynamic

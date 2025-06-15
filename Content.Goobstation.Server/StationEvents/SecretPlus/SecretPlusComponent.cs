@@ -24,13 +24,13 @@ public sealed partial class SecretPlusComponent : Component
     ///   Minimum interval between events
     /// </summary>
     [DataField]
-    public TimeSpan EventIntervalMin = TimeSpan.FromMinutes(1.5);
+    public TimeSpan EventIntervalMin;
 
     /// <summary>
     ///   Maximum interval between events
     /// </summary>
     [DataField]
-    public TimeSpan EventIntervalMax = TimeSpan.FromMinutes(5);
+    public TimeSpan EventIntervalMax;
 
     /// <summary>
     ///   The current chaos score
@@ -44,25 +44,25 @@ public sealed partial class SecretPlusComponent : Component
     /// The minimum amount of chaos worth of roundstart antags to generate at the start, per player.
     /// </summary>
     [DataField]
-    public float MinStartingChaos = 10;
+    public float MinStartingChaos;
 
     /// <summary>
     /// The maximum amount of chaos worth of roundstart antags to generate at the start, per player.
     /// </summary>
     [DataField]
-    public float MaxStartingChaos = 20;
+    public float MaxStartingChaos;
 
     /// <summary>
     ///   How much to change chaos per second per living person
     /// </summary>
     [DataField]
-    public float LivingChaosChange = -0.014f;
+    public float LivingChaosChange;
 
     /// <summary>
     ///   How much to change chaos per second per dead person
     /// </summary>
     [DataField]
-    public float DeadChaosChange = 0.03f;
+    public float DeadChaosChange;
 
     /// <summary>
     ///   How much to offset chaos of events away from 0 when picking events
@@ -103,6 +103,12 @@ public sealed partial class SecretPlusComponent : Component
     public bool IgnoreTimings = false;
 
     /// <summary>
+    /// Whether to ignore incompatible roundstart antags. Also permits several of one antag.
+    /// </summary>
+    [DataField]
+    public bool IgnoreIncompatible = false;
+
+    /// <summary>
     ///   All the event types that are disallowed to run in the current rule
     /// </summary>
     [DataField]
@@ -112,6 +118,18 @@ public sealed partial class SecretPlusComponent : Component
     ///   Cache for currently runnable events.
     [ViewVariables]
     public List<SelectedEvent> SelectedEvents = new();
+
+    /// <summary>
+    /// Weight table for primary roundstart antags.
+    /// </summary>
+    [DataField]
+    public ProtoId<WeightedRandomPrototype> PrimaryAntagsWeightTable = "SecretPlusPrimary";
+
+    /// <summary>
+    ///   Makes the primary antag gamerule be less likely to be skipped due to lacking chaos budget.
+    /// </summary>
+    [DataField]
+    public float PrimaryAntagChaosBias = 2f;
 
     /// <summary>
     /// Weight table for roundstart antags.

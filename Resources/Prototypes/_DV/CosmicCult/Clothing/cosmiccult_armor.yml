@@ -39,6 +39,7 @@
         Heat: 0.5
         Radiation: 0.5
         Caustic: 0.5
+        Holy: 1.25
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9

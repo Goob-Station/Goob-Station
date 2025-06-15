@@ -1,6 +1,8 @@
 # SPDX-FileCopyrightText: 2025 CliveOcelot <165305605+Orion-416@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -9,8 +11,8 @@
 - type: entity
   parent: [ ClothingModsuitStandard, BaseCentcommContraband ]
   id: ClothingModsuitInquisitory
-  name: Inquisitory modsuit control
-  description: The main controller for a Inquisitory modsuit.
+  name: Inquisitory hardsuit control unit # Goob edit
+  description: The main controller for a Inquisitory hardsuit. # Goob edit
   components:
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/inquisitory.rsi
@@ -39,8 +41,8 @@
 - type: entity
   parent: ClothingModsuitGauntletsStandard
   id: ClothingModsuitGauntletsInquisitory
-  name: Inquisitory modsuit gauntlets
-  description: A pair of gauntlets made for the Inquisitory modsuit.
+  name: Inquisitory hardsuit gauntlets # Goob edit
+  description: A pair of gauntlets made for the Inquisitory hardsuit. # Goob edit
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -53,8 +55,8 @@
 - type: entity
   parent: [ClothingModsuitHelmetStandard, ShowSecurityIcons]
   id: ClothingModsuitHelmetInquisitory
-  name: Inquisitory modsuit helmet
-  description: A state-of-the-art helmet designed by NanoTrasen for the Inquisitory modsuit. It includes a built-in HUD.
+  name: Inquisitory hardsuit helmet # Goob edit
+  description: A state-of-the-art helmet designed by NanoTrasen for the Inquisitory hardsuit. It includes a built-in HUD. # Goob edit
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -95,8 +97,8 @@
 - type: entity
   parent: ClothingModsuitChestplateStandard
   id: ClothingModsuitChestplateInquisitory
-  name: Inquisitory modsuit chestplate
-  description: A state of the art chestplate designed by NanoTrasen for the Inquisitory Modsuit. It incorporates powered servos to reduce the equipment load.
+  name: Inquisitory hardsuit chestplate # Goob edit
+  description: A state of the art chestplate designed by NanoTrasen for the Inquisitory hardsuit. It incorporates powered servos to reduce the equipment load. # Goob edit
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -123,16 +125,16 @@
       visualLayers:
         outerClothing:
           - state: equipped-OUTERCLOTHING-sealed
-    - type: StaminaDamageResistance
-      coefficient: 0.5 # 50%
+    - type: StaminaResistance
+      damageCoefficient: 0.5 # 50%
     - type: FireProtection
       reduction: 0.9
 
 - type: entity
   parent: ClothingModsuitBootsStandard
   id: ClothingModsuitBootsInquisitory
-  name: Inquisitory modsuit boots
-  description: A state-of-the-art pair of magboots for the Inquisitory modsuit.
+  name: Inquisitory hardsuit boots # Goob edit
+  description: A state-of-the-art pair of magboots for the Inquisitory hardsuit. # Goob edit
   categories: [HideSpawnMenu]
   components:
     - type: Appearance

@@ -2,6 +2,8 @@
 # SPDX-FileCopyrightText: 2024 a_person <40855173+a-person5660@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
@@ -67,3 +69,33 @@
     state: bsokit-ipc
   - type: Item
     heldPrefix: bsokit-ipc
+
+- type: entity
+  name: combat medical kit
+  description: Contains most medicines you need to recover from injuries and illnesses, all in a convenient pill form.
+  parent: Medkit
+  id: MedkitCombatBlue
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Objects/Specific/Medical/firstaidkits.rsi
+    state: blackbluekit
+  - type: Item
+    sprite: /Textures/_Goobstation/Objects/Specific/Medical/firstaidkits.rsi
+    heldPrefix: blackbluekit
+    size: Normal
+
+- type: entity
+  name: combat medical kit
+  description: For the IPCs among us.
+  parent: Medkit
+  id: MedkitCombatPurple
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Objects/Specific/Medical/firstaidkits.rsi
+    state: blackpurplekit
+  - type: Item
+    sprite: /Textures/_Goobstation/Objects/Specific/Medical/firstaidkits.rsi
+    heldPrefix: blackpurplekit
+    size: Normal
+  - type: Storage
+    defaultStorageOrientation: Vertical

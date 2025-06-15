@@ -126,6 +126,8 @@
 # SPDX-FileCopyrightText: 2025 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
@@ -167,6 +169,8 @@
     - id: SpiderSpawn
     - id: VentClog
     - id: TidemindDevelop # Goobstation - Tidemind
+    - id: MothroachSpawn # DeltaV
+    - id: XenoVents # DeltaV
 
 - type: entityTable
   id: BasicAntagEventsTable
@@ -340,8 +344,8 @@
   id: DragonSpawn
   components:
   - type: StationEvent
-    weight: 2
-    earliestStart: 75
+    weight: 3
+    earliestStart: 45
     reoccurrenceDelay: 20
     minimumPlayers: 60
     duration: null
@@ -684,15 +688,13 @@
     eventType: HostilesSpawn # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: 240
+    chaosScore: 360
   - type: VentCrittersRule
-    entries:
-    - id: MobAdultSlimesBlueAngry
-      prob: 0.02
-    - id: MobAdultSlimesGreenAngry
-      prob: 0.02
-    - id: MobAdultSlimesYellowAngry
-      prob: 0.02
+    table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
+      children:
+      - id: MobAdultSlimesBlueAngry
+      - id: MobAdultSlimesGreenAngry
+      - id: MobAdultSlimesYellowAngry
 
 - type: entity
   id: SnakeSpawn
@@ -712,15 +714,13 @@
     eventType: HostilesSpawn # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: 240
+    chaosScore: 360
   - type: VentCrittersRule
-    entries:
-    - id: MobPurpleSnake
-      prob: 0.02
-    - id: MobSmallPurpleSnake
-      prob: 0.02
-    - id: MobCobraSpace
-      prob: 0.02
+    table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
+      children:
+      - id: MobPurpleSnake
+      - id: MobSmallPurpleSnake
+      - id: MobCobraSpace
 
 - type: entity
   id: SpiderSpawn
@@ -740,11 +740,10 @@
     eventType: HostilesSpawn # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: 240
+    chaosScore: 360
   - type: VentCrittersRule
-    entries:
-    - id: MobGiantSpiderAngry
-      prob: 0.05
+    table: # DeltaV: EntityTable instead of spawn entries
+      id: MobGiantSpiderAngry
 
 - type: entity
   id: SpiderClownSpawn
@@ -764,12 +763,11 @@
     eventType: HostilesSpawn # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: 240
+    chaosScore: 360
   - type: VentCrittersRule
-    playerRatio: 35 # DeltaV: Clown spiders are very robust
-    entries:
-    - id: MobClownSpider
-      prob: 0.05
+    playerRatio: 20 # DeltaV: Clown spiders are very robust
+    table: # DeltaV: EntityTable instead of spawn entries
+      id: MobClownSpider
 
 - type: entity
   id: ZombieOutbreak

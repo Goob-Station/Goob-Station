@@ -2,6 +2,8 @@
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
@@ -40,6 +42,34 @@
   id: MedkitBSOIPCFilled
   suffix: Filled
   parent: MedkitBSOIPC
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingEyesGlassesMeson
+    - id: WelderIndustrial
+    - id: CableApcStack
+    - id: PowerCellHigh
+
+- type: entity
+  id: MedkitCombatBlueFilled
+  suffix: Filled, Pills
+  parent: MedkitCombatBlue
+  components:
+  - type: StorageFill
+    contents:
+    - id: PillCanisterBicaridine
+    - id: PillCanisterDermaline
+    - id: PillCanisterTricordrazine
+    - id: PillCanisterTramadol
+    - id: PillCanisterIron
+    - id: PillCanisterDexalin
+    - id: PillCanisterDylovene
+    - id: PillCanisterHyronalin
+
+- type: entity
+  id: MedkitCombatPurpleFilled
+  suffix: Filled, IPC
+  parent: MedkitCombatPurple
   components:
   - type: StorageFill
     contents:

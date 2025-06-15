@@ -4,8 +4,11 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -107,7 +110,6 @@
     antagPrototype: GenericTeamAntagonist
 
 # This should be used (or inherited) for team antags that are summoned or converted in large quantities, and are "secondary" to other antags
-# TODO: sort weight
 - type: entity
   parent: MindRoleGhostRoleTeamAntagonist
   id: MindRoleGhostRoleTeamAntagonistFlock
@@ -142,6 +144,7 @@
   - type: MindRole
     antagPrototype: SubvertedSilicon
     roleType: SiliconAntagonist
+    subtype: role-subtype-subverted
   - type: SubvertedSiliconRole
 
 # Dragon
@@ -153,6 +156,7 @@
   - type: MindRole
     antagPrototype: Dragon
     roleType: TeamAntagonist
+    subtype: role-subtype-dragon
     exclusiveAntag: true
   - type: DragonRole
   - type: RoleBriefing
@@ -166,6 +170,7 @@
   components:
   - type: MindRole
     antagPrototype: SpaceNinja
+    subtype: role-subtype-ninja
     exclusiveAntag: true
   - type: NinjaRole
 
@@ -177,7 +182,7 @@
   components:
   - type: MindRole
     antagPrototype: ParadoxClone
-    roleType: SoloAntagonist
+    subtype: role-subtype-paradox-clone
   - type: ParadoxCloneRole
 
 # Nukies
@@ -188,6 +193,7 @@
   components:
   - type: MindRole
     roleType: TeamAntagonist
+    subtype: role-subtype-nukie
     exclusiveAntag: true
     antagPrototype: Nukeops
   - type: NukeopsRole
@@ -218,6 +224,7 @@
     antagPrototype: HeadRev
     exclusiveAntag: true
     roleType: TeamAntagonist
+    subtype: role-subtype-head-revolutionary
   - type: RevolutionaryRole
 
 - type: entity
@@ -227,6 +234,7 @@
   components:
   - type: MindRole
     antagPrototype: Rev
+    subtype: role-subtype-revolutionary
 
 # Thief
 - type: entity
@@ -236,6 +244,7 @@
   components:
   - type: MindRole
     antagPrototype: Thief
+    subtype: role-subtype-thief
   - type: ThiefRole
 
 # Traitors
@@ -247,6 +256,7 @@
   - type: MindRole
     antagPrototype: Traitor
     exclusiveAntag: true
+    subtype: role-subtype-traitor
   - type: TraitorRole
 
 - type: entity
@@ -263,8 +273,9 @@
   name: Syndicate Reinforcement Role
   components:
   - type: MindRole
-    roleType: TeamAntagonist
-    antagPrototype: GenericTeamAntagonist
+    roleType: Familiar
+    subtype: role-subtype-traitor-reinforcement
+
 
 # Zombie Squad
 - type: entity
@@ -276,6 +287,7 @@
     antagPrototype: InitialInfected
     exclusiveAntag: true
     roleType: TeamAntagonist
+    subtype: role-subtype-initial-infected
   - type: InitialInfectedRole
 
 - type: entity
@@ -286,41 +298,5 @@
   - type: MindRole
     antagPrototype: Zombie
     exclusiveAntag: true
-    roleType: TeamAntagonist
+    subtype: role-subtype-zombie
   - type: ZombieRole
-
-# goob edit - antags
-- type: entity
-  parent: BaseMindRoleAntag
-  id: MindRoleChangeling
-  name: Changeling Role
-  components:
-  - type: MindRole
-    antagPrototype: Changeling
-    exclusiveAntag: true
-    roleType: SoloAntagonist
-  - type: ChangelingRole
-
-- type: entity
-  parent: BaseMindRoleAntag
-  id: MindRoleHeretic
-  name: Heretic Role
-  components:
-  - type: MindRole
-    antagPrototype: Heretic
-    exclusiveAntag: true
-    roleType: SoloAntagonist
-  - type: HereticRole
-
-- type: entity
-  parent: BaseMindRoleAntag
-  id: MindRoleBrainwashed
-  name: Brainwashed Role
-  components:
-  - type: MindRole
-    antagPrototype: Mindcontrolled
-    exclusiveAntag: true
-    roleType: Familiar
-  - type: MindcontrolledRole
-
-# goob edit end

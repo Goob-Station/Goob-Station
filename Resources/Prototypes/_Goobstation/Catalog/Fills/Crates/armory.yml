@@ -1,13 +1,15 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
   id: CrateArmoryCombatHardsuit
   parent: [ CrateWeaponSecure, BaseSecurityContraband ]
-  name: Combat hardsuit crate
-  description: Contains an advanced security hardsuit. Requires Armory access to open.
+  name: Combat voidsuit crate
+  description: Contains an advanced security voidsuit. Requires Armory access to open.
   components:
   - type: StorageFill
     contents:
@@ -17,8 +19,8 @@
 - type: entity
   id: CrateArmoryCombatMedicalHardsuit
   parent: [ CrateWeaponSecure, BaseSecurityContraband ]
-  name: Combat medical hardsuit crate
-  description:  Contains an advanced medical security hardsuit, less defence but much less cumbersome. Requires Armory access to open.
+  name: Combat medical voidsuit crate
+  description:  Contains an advanced medical security voidsuit, less defence but much less cumbersome. Requires Armory access to open.
   components:
   - type: StorageFill
     contents:
@@ -28,8 +30,8 @@
 - type: entity
   id: CrateArmoryCombatRiotHardsuit
   parent: [ CrateWeaponSecure, BaseSecurityContraband ]
-  name: Riot hardsuit crate
-  description: Contains an advanced riot security hardsuit, very high defence but much also very cumbersome. Requires Armory access to open.
+  name: Riot voidsuit crate
+  description: Contains an advanced riot security voidsuit, very high defence but much also very cumbersome. Requires Armory access to open.
   components:
   - type: StorageFill
     contents:

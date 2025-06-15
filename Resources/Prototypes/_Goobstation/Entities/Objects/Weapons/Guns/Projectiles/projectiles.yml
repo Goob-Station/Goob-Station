@@ -114,10 +114,10 @@
   name: bullet (.50 anti-materiel)
   components:
   - type: Projectile
-    armorPenetration: 0.5
     damage:
       types:
         Piercing: 35
+      armorPenetration: 0.5
     penetrationThreshold: 50
 
 - type: entity
@@ -352,7 +352,7 @@
     impactEffect: BulletImpactEffectDisabler
     damage:
       types:
-        Ion: 10
+        Ion: 15
     soundHit:
       collection: WeakHit
     forceSound: true

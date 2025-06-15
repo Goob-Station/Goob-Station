@@ -1,0 +1,85 @@
+# SPDX-FileCopyrightText: 2025 Arraydeess <arraygitbash@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseItem
+  id: BalloonPackage
+  name: balloon package
+  description: A package containing one random balloon.
+  components: 
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/balloon_package.rsi
+    state: icon
+  - type: Item
+    size: Tiny
+  - type: SpawnItemsOnUse
+    items:
+    - id: redBalloon
+      orGroup: BalloonRandom
+    - id: blueBalloon
+      orGroup: BalloonRandom
+    - id: greenBalloon
+      orGroup: BalloonRandom
+    - id: yellowBalloon
+      orGroup: BalloonRandom
+    - id: pinkBalloon
+      orGroup: BalloonRandom
+    - id: whiteBalloon
+      orGroup: BalloonRandom # higher tier balloons are rarer
+      prob: 0.4
+    - id: blackBalloon
+      orGroup: BalloonRandom
+      prob: 0.4
+    - id: steelBalloon
+      orGroup: BalloonRandom
+      prob: 0.33
+    - id: zebraBalloon
+      orGroup: BalloonRandom
+      prob: 0.33
+    - id: rainbowBalloon
+      orGroup: BalloonRandom
+      prob: 0.2
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+   
+   
+- type: entity
+  name: balloon package box
+  parent: BoxCardboard
+  id: BoxBalloonPackage
+  description: A box full of soon to be balloons.
+  components:
+  - type: StorageFill
+    contents:
+      - id: BalloonPackage
+        amount: 9
+  - type: Sprite
+    sprite: _Goobstation/Objects/Storage/boxes.rsi
+    
+    
+- type: entity
+  id: CrateBalloonPackage
+  parent: CratePlastic
+  name: balloon popper's package
+  description: A crate containing 2 full balloon boxes and some additional popping equipment.
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxBalloonPackage
+      amount: 2
+    - id: ClothingOuterSuitMonkey
+      amount: 1
+    - id: BoxDarts
+      amount: 1
+    - id: MonkeyCube
+      prob: 0.7
+    - id: ClothingOuterSuitMonkey   # Extra
+      amount: 1
+      prob: 0.4
+    - id: BoxDarts
+      amount: 1
+      prob: 0.4
+    - id: MonkeyCube
+      prob: 0.4

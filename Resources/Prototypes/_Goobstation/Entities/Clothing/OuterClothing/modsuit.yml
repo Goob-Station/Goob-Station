@@ -1,13 +1,16 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 #
@@ -16,7 +19,7 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateStandard
-  name: standard modsuit chestplate
+  name: standard hardsuit chestplate
   description: A special modular suit spaceproof cover designed for compact folding inside modular suit control.
   categories: [ HideSpawnMenu ]
   components:
@@ -44,8 +47,8 @@
       outerClothing:
       - state: equipped-OUTERCLOTHING-sealed
         shader: unshaded
-  - type: StaminaDamageResistance
-    coefficient: 0.9
+  - type: StaminaResistance
+    damageCoefficient: 0.9
   - type: Armor
     coverage:
     - Chest
@@ -86,7 +89,7 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateSecurity
-  name: soldat MODsuit chestplate
+  name: soldat hardsuit chestplate
   description: A robust modular suit cover with ceramic inserts for extra protection.
   categories: [ HideSpawnMenu ]
   components:
@@ -118,8 +121,8 @@
   - type: ModifyDelayedKnockdown
     delayDelta: 2.5
     knockdownTimeDelta: -2.5
-  - type: StaminaDamageResistance
-    coefficient: 0.7
+  - type: StaminaResistance
+    damageCoefficient: 0.7
   - type: Armor
     traumaDeductions:
       Dismemberment: 0.3
@@ -161,7 +164,7 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateHeadOfSecurity
-  name: bulwark modsuit chestplate
+  name: bulwark hardsuit chestplate
   description: A robust modular suit cover with EXTRA ceramic inserts for slightly more protection.
   categories: [ HideSpawnMenu ]
   components:
@@ -179,8 +182,8 @@
     unequipSound: /Audio/Mecha/mechmove03.ogg
     slots: [ outerClothing ]
   - type: ClothingSpeedModifier
-    walkModifier: 0.8
-    sprintModifier: 0.8
+    walkModifier: 0.80
+    sprintModifier: 0.80
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-chestplate
     sealDownPopup: sealable-clothing-seal-down-chestplate
@@ -193,8 +196,8 @@
   - type: ModifyDelayedKnockdown
     delayDelta: 3
     knockdownTimeDelta: -3
-  - type: StaminaDamageResistance
-    coefficient: 0.7
+  - type: StaminaResistance
+    damageCoefficient: 0.7
   - type: Armor
     traumaDeductions:
       Dismemberment: 0.3
@@ -234,6 +237,7 @@
       Epinephrine: 10
       Bicaridine: 10
       TranexamicAcid: 5
+      Tramadol: 5
   - type: HideClothingLayerClothing
     hiddenSlots:
     - jumpsuit
@@ -241,7 +245,7 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateParamedic
-  name: sanitater modsuit chestplate
+  name: sanitater hardsuit chestplate
   description: A white and blue-ish-grey steel plate for keeping out the harsh void of space and the occasional bullet.
   categories: [ HideSpawnMenu ]
   components:
@@ -305,8 +309,8 @@
   - type: ModifyDelayedKnockdown
     delayDelta: 1
     knockdownTimeDelta: -1
-  - type: StaminaDamageResistance
-    coefficient: 0.9
+  - type: StaminaResistance
+    damageCoefficient: 0.9
   - type: FireProtection
     reduction: 0.5
   - type: HideClothingLayerClothing
@@ -316,7 +320,7 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateEngineer
-  name: sapper modsuit chestplate
+  name: sapper hardsuit chestplate
   description: A tough armor plate to defend against harsh atmospheric conditions and shockwaves.
   categories: [ HideSpawnMenu ]
   components:
@@ -381,8 +385,8 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 1
     knockdownTimeDelta: -1
-  - type: StaminaDamageResistance
-    coefficient: 0.9
+  - type: StaminaResistance
+    damageCoefficient: 0.9
   - type: FireProtection
     reduction: 0.7
   - type: HideClothingLayerClothing
@@ -392,7 +396,7 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateAtmostech
-  name: aeolus modsuit chestplate
+  name: aeolus hardsuit chestplate
   description: A fire-proof armor plate to defend against harsh atmospheric conditions.
   categories: [ HideSpawnMenu ]
   components:
@@ -455,8 +459,8 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 1
     knockdownTimeDelta: -1
-  - type: StaminaDamageResistance
-    coefficient: 0.9
+  - type: StaminaResistance
+    damageCoefficient: 0.9
   - type: FireProtection
     reduction: 0.75
   - type: HideClothingLayerClothing
@@ -466,7 +470,7 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateResearchDirector
-  name: minerva modsuit chestplate
+  name: minerva hardsuit chestplate
   description: A bulky bomb and bat proof chunk of steel.
   categories: [ HideSpawnMenu ]
   components:
@@ -513,13 +517,13 @@
     - Other
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.7
-        Piercing: 0.8
-        Heat: 0.3
-        Shock: 0.8
-        Caustic: 0.5
-        Radiation: 0.1
+        Blunt: 0.55
+        Slash: 0.75
+        Piercing: 0.85
+        Heat: 0.25
+        Shock: 0.75
+        Caustic: 0.25
+        Radiation: 0.01
   - type: ComponentToggler
     components:
     - type: PressureProtection
@@ -531,18 +535,19 @@
   - type: ModifyDelayedKnockdown
     delayDelta: 3
     knockdownTimeDelta: -3
-  - type: StaminaDamageResistance
-    coefficient: 0.5
+  - type: StaminaResistance
+    damageCoefficient: 0.5
   - type: FireProtection
-    reduction: 0.7
+    reduction: 0.5
   - type: HideClothingLayerClothing
     hiddenSlots:
     - jumpsuit
+  - type: GroupExamine
 
 - type: entity
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateCaptain
-  name: magnate modsuit chestplate
+  name: magnate hardsuit chestplate
   description: This shit is made out of DIAMONDS, man, this armor was forged with GEMS.
   categories: [ HideSpawnMenu ]
   components:
@@ -607,8 +612,8 @@
   - type: ModifyDelayedKnockdown
     delayDelta: 3
     knockdownTimeDelta: -3
-  - type: StaminaDamageResistance
-    coefficient: 0.6
+  - type: StaminaResistance
+    damageCoefficient: 0.6
   - type: FireProtection
     reduction: 0.5
   - type: HideClothingLayerClothing

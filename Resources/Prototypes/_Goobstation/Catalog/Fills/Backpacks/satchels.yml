@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
@@ -9,6 +10,7 @@
 - type: entity
   parent: ClothingBackpackSatchelLeather
   id: ClothingBackpackSatchelLeatherFilledNavyOfficer
+  suffix: Filled, Navy Officer
   components:
   - type: StorageFill
     contents:
@@ -21,6 +23,7 @@
 - type: entity
   parent: ClothingBackpackSatchelLeather
   id: ClothingBackpackSatchelLeatherFilledSpecOps
+  suffix: Filled, Spec Ops
   components:
   - type: StorageFill
     contents:
@@ -35,6 +38,7 @@
 - type: entity
   parent: ClothingBackpackChameleon
   id: ClothingBackpackChameleonFilledUndercover
+  suffix: Filled, Undercover
   components:
   - type: StorageFill
     contents:
@@ -48,6 +52,7 @@
 - type: entity
   parent: ClothingBackpackSatchelLeather
   id: ClothingBackpackSatchelLeatherFilledInspector
+  suffix: Filled, Inspector
   components:
   - type: StorageFill
     contents:

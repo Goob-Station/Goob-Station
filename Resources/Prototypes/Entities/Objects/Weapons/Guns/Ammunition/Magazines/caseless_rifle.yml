@@ -123,6 +123,7 @@
   id: MagazinePistolCaselessRifle
   name: "pistol magazine (9.5mm HP)" # Goob edit
   parent: BaseMagazinePistolCaselessRifle
+  description: 10-round magazine for the Cobra pistol. Intended to hold general-purpose kinetic ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeCaselessRifle
@@ -143,6 +144,7 @@
   id: MagazinePistolCaselessRiflePractice
   name: "pistol magazine (9.5mm practice)" # Goob edit
   parent: BaseMagazinePistolCaselessRifle
+  description: 10-round magazine for the Cobra pistol. Intended to hold non-harmful chalk ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeCaselessRiflePractice

@@ -43,6 +43,7 @@
 # SPDX-FileCopyrightText: 2025 ColonicAcid <claudiomota1990@googlemail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 RedBookcase <crazykid1590@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
@@ -374,7 +375,6 @@
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/bonesetter.rsi
     state: bonesetter
   - type: Item
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/bonesetter.rsi
   - type: BoneSetter
   - type: SurgeryTool
     startSound:
@@ -400,7 +400,6 @@
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/stitches.rsi
     state: stitches
   - type: Item
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/stitches.rsi
   - type: SurgeryTool
     startSound:
       path: /Audio/_Shitmed/Medical/Surgery/saw.ogg # TODO: SOUND
@@ -419,6 +418,7 @@
     state: e-scalpel-on
   - type: Item
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-scalpel.rsi
+    heldPrefix: scalpel
   - type: SurgeryTool
     startSound:
       path: /Audio/_Shitmed/Medical/Surgery/scalpel1.ogg
@@ -433,6 +433,10 @@
       Steel: 150
       Glass: 37
       Gold: 37
+  - type: Scalpel
+    speed: 2
+  - type: BoneSaw
+    speed: 2
   - type: ItemSwitch
     showLabel: true
     state: scalpel
@@ -479,6 +483,7 @@
     state: adv-retractor-on
   - type: Item
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/adv-retractor.rsi
+    heldPrefix: retractor
   - type: SurgeryTool
     startSound:
       path: /Audio/_Shitmed/Medical/Surgery/retractor1.ogg
@@ -493,6 +498,8 @@
       Steel: 150
       Glass: 37
       Silver: 37
+  - type: Retractor
+    speed: 2
   - type: ItemSwitch
     showLabel: true
     state: retractor
@@ -540,6 +547,7 @@
     state: e-cautery-on
   - type: Item
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-cautery.rsi
+    heldPrefix: cautery
   - type: SurgeryTool
     startSound:
       path: /Audio/_Shitmed/Medical/Surgery/cautery1.ogg
@@ -554,6 +562,8 @@
       Steel: 150
       Glass: 37
       Plasma: 37
+  - type: Cautery
+    speed: 2
   - type: ItemSwitch
     showLabel: true
     state: cautery
@@ -596,7 +606,7 @@
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-bone-gel.rsi
     state: e-bone-gel-on
   - type: Item
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-bone-gel.rsi
+    heldPrefix: bonegel
   - type: SurgeryTool
     startSound:
       path: /Audio/_Shitmed/Medical/Surgery/bone_setter.ogg
@@ -611,12 +621,14 @@
       Steel: 150
       Glass: 37
       Plasma: 37
+  - type: BoneGel # should be unlimited when the actual bone gel becomes limited
+    speed: 2
   - type: ItemSwitch
     showLabel: true
-    state: bone gel
+    state: bonegel
     states:
-      bone gel: !type:ItemSwitchState
-        verb: bonegel
+      bonegel: !type:ItemSwitchState
+        verb: bone gel
         sprite:
           sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-bone-gel.rsi
           state: e-bone-gel
@@ -630,9 +642,9 @@
             volume: -5
 
       bonesetter: !type:ItemSwitchState
-        verb: bonesetter
+        verb: bone setter
         sprite:
-          sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-bone-gel.rsi # placeholder
+          sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-bone-gel.rsi
           state: e-bone-gel-on
         components:
         - type: BoneSetter

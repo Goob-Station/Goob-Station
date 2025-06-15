@@ -1781,33 +1781,12 @@ entities:
     - type: Transform
       pos: 5.7824163,3.117793
       parent: 2
-- proto: PlushieBlackburn
-  entities:
-  - uid: 223
-    components:
-    - type: Transform
-      pos: 7.4444375,5.6425996
-      parent: 2
-- proto: PlushieBlackburnMatryoskya
-  entities:
-  - uid: 224
-    components:
-    - type: Transform
-      pos: 7.777771,5.569683
-      parent: 2
 - proto: PlushieCarp
   entities:
   - uid: 226
     components:
     - type: Transform
       pos: 5.8761663,3.633418
-      parent: 2
-- proto: PlushieDesislavaBlackburn
-  entities:
-  - uid: 227
-    components:
-    - type: Transform
-      pos: 7.527771,4.8300996
       parent: 2
 - proto: PlushieDiona
   entities:

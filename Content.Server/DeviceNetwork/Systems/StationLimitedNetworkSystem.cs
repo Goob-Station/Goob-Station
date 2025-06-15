@@ -6,6 +6,7 @@
 
 using Content.Server.DeviceNetwork.Components;
 using Content.Server.Station.Systems;
+using Content.Shared.DeviceNetwork.Events;
 using JetBrains.Annotations;
 
 namespace Content.Server.DeviceNetwork.Systems

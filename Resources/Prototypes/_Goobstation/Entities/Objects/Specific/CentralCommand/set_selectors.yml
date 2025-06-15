@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 CliveOcelot <165305605+Orion-416@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
@@ -27,24 +28,9 @@
     - BSORevolverSet
     - BSOCQCSet
     - BSOChesterSet
-    - BSOSyringeSet
-    maxSelectedSets: 2
-
-- type: entity
-  id: BlueshieldUndeterminedHardsuit
-  name: blueshield hardsuit pack
-  description: A small box utilizing bluespace technology to drop in a loadout directly to you. Choose wisely.
-  parent: [ BaseItem, BaseSetSelector, BaseCentcommContraband ]
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Security/blueshieldundetermined.rsi
-    state: icon-alt
-  - type: SetSelector
-    possibleSets:
     - BSOHardsuitLightSet
-#    - BSOHardsuitHeavySet
     - BSOModsuitSet
-    maxSelectedSets: 1
+    maxSelectedSets: 2
 
 # ERT
 

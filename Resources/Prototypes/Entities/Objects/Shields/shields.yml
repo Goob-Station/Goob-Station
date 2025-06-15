@@ -114,10 +114,14 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 DieselMohawk <173439801+DieselMohawk@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -182,6 +186,8 @@
                   max: 2
     - type: StaticPrice
       price: 100
+    - type: DisarmMalus # Goobstation
+      malus: 1
 
 #Security Shields
 
@@ -233,10 +239,10 @@
   description: A shield built for protecting against ballistics, but not much else.
   components:
     - type: Sprite
-      sprite: Objects/Weapons/Melee/shields.rsi
-      state: riot_bullet-icon
+      sprite: _Goobstation/Objects/Shields/riotbulletshield.rsi # Goobstation
+      state: ballistic-icon
     - type: Item
-      heldPrefix: riot_bullet
+      heldPrefix: ballistic
     - type: Blocking
       passiveBlockModifier:
         coefficients:
@@ -516,7 +522,7 @@
     - type: ComponentToggler
       components:
       - type: DisarmMalus
-        malus: 0.6
+        malus: 1 # Goob edit
     - type: Sprite
       sprite: Objects/Weapons/Melee/e_shield.rsi
       layers:
@@ -559,7 +565,7 @@
           Blunt: 1.0
           Slash: 0.9
           Piercing: 0.85
-          Heat: 0.5 # WD EDIT
+          Heat: 0.6
       activeBlockModifier:
         coefficients:
           Blunt: 1.2
@@ -576,12 +582,14 @@
       price: 350
       # WD EDIT START
     - type: Battery
-      maxCharge: 20
-      startingCharge: 20
+      maxCharge: 35
+      startingCharge: 35
     - type: BatterySelfRecharger
       autoRecharge: true
-      autoRechargeRate: 2
+      autoRechargeRate: 3
     - type: RechargeableBlocking
+      dischargedRechargeRate: 2
+      chargedRechargeRate: 3
       # WD EDIT END
 
 - type: entity
@@ -616,29 +624,30 @@
     - type: ComponentToggler
       components:
       - type: DisarmMalus
-        malus: 0.6
+        malus: 1 # Goob edit
     - type: ItemToggleSize
       activatedSize: Huge
     - type: Sprite
       sprite: Objects/Weapons/Melee/teleriot_shield.rsi
       layers:
         - state: teleriot-icon
-        - state: teleriot-on
-          visible: false
-          map: [ "shield" ]
+          map: [ "enum.ItemToggleVisuals.Layer" ] # Goob - commented
+        #- state: teleriot-on
+        #  visible: false
+        #  map: [ "shield" ]
     - type: Item
       size: Small
       sprite: Objects/Weapons/Melee/teleriot_shield.rsi
       heldPrefix: teleriot
     - type: UseDelay
       delay: 0.5
-    - type: ToggleableLightVisuals
-      spriteLayer: shield
-      inhandVisuals:
-        left:
-          - state: inhand-left-shield
-        right:
-          - state: inhand-right-shield
+    #- type: ToggleableLightVisuals # Goob - commented
+    #  spriteLayer: shield
+    #  inhandVisuals:
+    #    left:
+    #      - state: inhand-left-shield
+    #    right:
+    #      - state: inhand-right-shield
     - type: Appearance
     - type: Destructible
       thresholds:
@@ -667,3 +676,12 @@
                   max: 2
     - type: StaticPrice
       price: 250
+    - type: ItemToggleVisuals # Goob
+      heldPrefixOn: shield
+      heldPrefixOff: teleriot
+    - type: GenericVisualizer # Goob
+      visuals:
+        enum.ItemToggleVisuals.State:
+          enum.ItemToggleVisuals.Layer:
+            True: { state: teleriot-on }
+            False: { state: teleriot-icon }

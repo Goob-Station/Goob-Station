@@ -8,6 +8,8 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Jarl <140098675+JarlElbowses@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Jarl <elliotacline@gmail.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
@@ -78,6 +80,7 @@
   - BlueshieldOfficerHeadSwatHelmet
   - BlueshieldOfficerBeret
   - BlueshieldOfficerHeadCowboy
+  - BlueshieldOfficerGoidaHelmet
 
 - type: loadoutGroup
   id: BlueshieldOfficerBackpack
@@ -195,6 +198,7 @@
   minLimit: 0
   loadouts:
   - Bodycam # Goobstation - Body cameras
+  - ClothingNeckCWPSec
 
 #honkops
 
@@ -283,3 +287,13 @@
   - BrigmedicSatchel
   - BrigmedicDuffel
   - BrigmedicMessenger
+
+# Security
+
+- type: loadoutGroup
+  id: SecurityMelee
+  name: loadout-group-security-melee
+  loadouts:
+  - SecurityMeleeKnife
+  - SecurityMeleePolyBaton
+  - SecurityMeleeSpear

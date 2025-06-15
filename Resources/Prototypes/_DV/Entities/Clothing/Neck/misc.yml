@@ -1,0 +1,15 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Jarl <elliotacline@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: [ClothingNeckBase, BaseSecurityContraband]
+  id: ClothingNeckCWPSec
+  name: senior officer's poncho
+  description: A cold weather poncho, advertised as a masterpiece of environmental protection. Results may vary.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Neck/cwpsec.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Neck/cwpsec.rsi

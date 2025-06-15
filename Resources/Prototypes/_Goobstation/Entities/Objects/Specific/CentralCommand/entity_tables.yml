@@ -1,0 +1,16 @@
+# SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entityTable
+  id: ChesterRandomAmmoTable
+  table: !type:GroupSelector
+    rolls: !type:ConstantNumberSelector
+      value: 2
+    children:
+    - id: MagazineBoxShotgunHighCaliberFlash
+    - id: MagazineBoxShotgunHighCaliberEnsnaring
+    - id: MagazineBoxShotgunHighCaliberEMP
+    - id: MagazineBoxShotgunHighCaliber
+      weight: 2

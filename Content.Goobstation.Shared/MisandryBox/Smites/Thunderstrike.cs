@@ -51,7 +51,7 @@ public sealed class ThunderstrikeSystem : EntitySystem
         }
     }
 
-    // efcc gon get u alaye...
+    // efcc go get u alaye...
     public void Smite(EntityUid mumu, bool kill = true, TransformComponent? transform = null)
     {
         if (!Resolve(mumu, ref transform))

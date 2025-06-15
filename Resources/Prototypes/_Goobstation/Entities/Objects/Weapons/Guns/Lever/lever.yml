@@ -47,7 +47,7 @@
           tags:
           - ShellShotgunHeavy
   - type: Gun
-    fireRate: 0.80
+    fireRate: 0.65
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/batrifle.ogg
   - type: ChamberMagazineAmmoProvider
@@ -67,6 +67,7 @@
       path: /Audio/Weapons/Guns/Bolt/lever_bolt_opened.ogg
       params:
         volume: -3
+  - type: GunRequiresWield
   - type: MagazineVisuals
     magState: mag
     steps: 1

@@ -1,0 +1,138 @@
+# SPDX-FileCopyrightText: 2023 Darkie <darksaiyanis@gmail.com>
+# SPDX-FileCopyrightText: 2023 I.K <45953835+notquitehadouken@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 IlyaElDunaev <154531074+IlyaElDunaev@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 kxv <136233650+kxvvv@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 notquitehadouken <1isthisameme>
+# SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 EmoGarbage404 <retron404@gmail.com>
+# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: DT-3 "Atrocity"
+  parent: [BaseItem, BaseCentcommContraband]
+  id: BlueshieldMace
+  description: Crush all those who oppose your leaders. Functions as a stun baton in its powered state.
+  components:
+  - type: Tag
+    tags:
+    - Stunbaton
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/blueshield_mace.rsi
+    layers:
+    - state: icon-off
+      map: [ "enum.ToggleVisuals.Layer" ]
+  - type: ItemToggle
+    soundActivate:
+      collection: sparks
+      params:
+        variation: 0.250
+    soundDeactivate:
+      collection: sparks
+      params:
+        variation: 0.250
+    soundFailToActivate:
+      path: /Audio/Machines/button.ogg
+      params:
+        variation: 0.250
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+      types:
+        Heat: 1
+  - type: Stunbaton
+    energyPerUse: 40
+    lightAttackEnergyMultiplier: 2
+  - type: MeleeWeapon
+    angle: 0
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 13 # Unlucky number
+        Slash: 7 # Lucky number
+    bluntStaminaDamageFactor: 2 # 26 damage, 4 hit stamcrit
+    animation: WeaponArcThrust
+    soundHit:
+      path: /Audio/_Goobstation/Weapons/Effects/metalcrush.ogg
+  - type: StaminaDamageOnHit
+    damage: 40
+    overtime: 40
+    lightAttackDamageMultiplier: 2
+    lightAttackOvertimeDamageMultiplier: 0.5
+    sound: /Audio/Weapons/egloves.ogg
+  - type: StaminaDamageOnCollide
+    damage: 15
+    overtime: 40
+    sound: /Audio/Weapons/egloves.ogg
+  - type: LandAtCursor
+  - type: Battery
+    maxCharge: 600
+    startingCharge: 600
+  - type: UseDelay
+  - type: Item
+    heldPrefix: off
+    size: Normal
+  - type: DisarmMalus
+    malus: 0.225
+  - type: DelayedKnockdownOnHit
+    useDelay: stunbaton
+  - type: UseDelayBlockMelee
+    delays:
+    - stunbaton
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: {state: icon}
+          False: {state: icon-off}
+  - type: StaticPrice
+    price: 1000
+
+- type: entity
+  name: combat injector
+  parent: [BaseItem, BaseCentcommContraband]
+  id: CombatInjector
+  description: Injects stored chemicals on hit, has a low capacity due to its sturdy design.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/blueshield_knife.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 5
+  - type: Injector
+    delay: 1
+    maxTransferAmount: 5
+    minTransferAmount: 3
+    injectOnly: false
+  - type: MeleeChemicalInjector
+    transferAmount: 5
+    solution: injector
+    pierceArmor: true
+  - type: MeleeWeapon
+    angle: 0
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Piercing: 5
+    animation: WeaponArcThrust
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg

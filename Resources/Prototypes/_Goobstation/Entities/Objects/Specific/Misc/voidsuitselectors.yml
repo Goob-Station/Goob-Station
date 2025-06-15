@@ -78,3 +78,18 @@
     possibleSets:
     - VoidsuitSelectorCaptainVoidsuit
     - VoidsuitSelectorCaptainHardsuit
+
+#Research Director RD suits
+- type: entity
+  id: UndeterminedVoidsuitRD
+  name: research director suit selector
+  description: A small remote utilizing bluespace technology to drop in a voidsuit or hardsuit of your choosing.
+  parent: [ BaseItem, BaseSetSelector, BaseCommandContraband ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/unique_teleporters.rsi
+    state: standard
+  - type: SetSelector
+    possibleSets:
+    - VoidsuitSelectorRDVoidsuit
+    - VoidsuitSelectorRDHardsuit

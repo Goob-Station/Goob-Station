@@ -1,5 +1,5 @@
 - type: entity
-  parent: [BaseGuidebook, BaseMagicContraband]
+  parent: [BaseGuidebook, BaseMagicalContraband]
   id: GuidebookCodexUmbra
   suffix: guidebook
   name: Codex Umbra

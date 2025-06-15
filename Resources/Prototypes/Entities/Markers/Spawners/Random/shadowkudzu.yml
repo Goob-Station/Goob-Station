@@ -5,6 +5,7 @@
 
 - type: entity
   id: ShadowKudzuLootSpawner
+  name: shadow kudzu loot spawner
   parent: MarkerBase
   components:
     - type: Sprite
@@ -28,4 +29,4 @@
       rareChance: 0.05
       rarePrototypes:
         - MobCatShadow
-        - ArtifactFragment
+        - ArtifactFragment1

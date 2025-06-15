@@ -34,6 +34,7 @@
 # SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
@@ -43,6 +44,7 @@
 # SPDX-FileCopyrightText: 2025 Velcroboy <107660393+IamVelcroboy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Velcroboy <107660393+iamvelcroboy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 boxxie79 <88395316+boxxie79@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # DO NOT ADD MORE, USE UNIFORM DYING
@@ -55,6 +57,7 @@
     ClothingBackpackSatchelLeather: 2
     ClothingBackpackMessenger: 5 # Frontier
     ClothingRandomSpawner: 8
+    ClothingUniformRandomShorts: 4
     ClothingHeadHatBeret: 4
     ClothingHeadBandBlack: 2
     ClothingHeadBandBlue: 2
@@ -140,6 +143,8 @@
     ClothingHandsGlovesColorOrange: 2
     ClothingHandsGlovesColorPurple: 2
     ClothingEyesGlassesCheapSunglasses: 3
+    ClothingUniformJumpskirtDressOpenShoulder: 1 # Goobstation
+    ClothingShoesSandals: 1 # Goobstation
     # DO NOT ADD MORE, USE UNIFORM DYING
   contrabandInventory:
     ClothingMaskNeckGaiter: 2
@@ -152,4 +157,5 @@
     ToyFigurinePassenger: 1
     ToyFigurineGreytider: 1
     ClothingBackpackSatchelSmugglerUnanchored: 1
+    ClothingHeadHatSolidHeadband: 2
   # DO NOT ADD MORE, USE UNIFORM DYING

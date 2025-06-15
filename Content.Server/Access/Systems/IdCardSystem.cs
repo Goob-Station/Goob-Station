@@ -5,7 +5,7 @@
 // SPDX-FileCopyrightText: 2021 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2022 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2022 Fishfish458 <47410468+Fishfish458@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Júlio César Ueti <52474532+Mirino97@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 J�lio C�sar Ueti <52474532+Mirino97@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
 // SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
@@ -33,6 +33,7 @@
 
 using System.Linq;
 using Content.Server.Administration.Logs;
+using Content.Server.Chat.Systems;
 using Content.Server.Kitchen.Components;
 using Content.Server.Popups;
 using Content.Shared.Access;
@@ -52,6 +53,7 @@ public sealed class IdCardSystem : SharedIdCardSystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly MicrowaveSystem _microwave = default!;
 
     public override void Initialize()
@@ -135,6 +137,24 @@ public sealed class IdCardSystem : SharedIdCardSystem
             _adminLogger.Add(LogType.Action, LogImpact.High,
                     $"{ToPrettyString(args.Microwave)} added {random.ID} access to {ToPrettyString(uid):entity}");
 
+        }
+    }
+
+    public override void ExpireId(Entity<ExpireIdCardComponent> ent)
+    {
+        if (ent.Comp.Expired)
+            return;
+
+        base.ExpireId(ent);
+
+        if (ent.Comp.ExpireMessage != null)
+        {
+            _chat.TrySendInGameICMessage(
+                ent,
+                Loc.GetString(ent.Comp.ExpireMessage),
+                Shared.Chat.InGameICChatType.Speak,
+                ChatTransmitRange.Normal,
+                true);
         }
     }
 }

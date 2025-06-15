@@ -2,6 +2,8 @@
 // SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
@@ -125,6 +127,7 @@ public sealed partial class EventHereticFleshSurgery : EntityTargetActionEvent {
 public sealed partial class HereticVoidBlastEvent : InstantActionEvent { }
 public sealed partial class HereticVoidBlinkEvent : WorldTargetActionEvent { }
 public sealed partial class HereticVoidPullEvent : InstantActionEvent { }
+public sealed partial class HereticVoidVisionEvent : EntityEventArgs { } // done only via void's ascension
 
 // blade (+ upgrades)
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticCuttingEdgeEvent : EntityEventArgs { }

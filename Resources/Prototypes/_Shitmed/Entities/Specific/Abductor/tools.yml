@@ -206,6 +206,7 @@
       path: /Audio/Items/multitool_drop.ogg
   - type: Item
     size: Small
+    heldPrefix: link
   - type: PhysicalComposition
     materialComposition:
       Steel: 100
@@ -218,8 +219,8 @@
     layers:
       - state: abductor
   - type: Clothing
-    sprite: _Shitmed/Objects/Specific/Abductor/multitool.rsi
     quickEquip: false
+    equippedPrefix: link
     slots:
     - Belt
   - type: GuideHelp
@@ -238,6 +239,11 @@
       - Multitool
       - DoorElectronicsConfigurator
       - ShowWires
+  - type: Tool
+    qualities:
+      - Pulsing
+  - type: NetworkConfigurator
+    showLabel: false
   - type: ItemSwitch
     state: link
     states:
@@ -265,7 +271,7 @@
           state: override-abductor
         components:
         - type: LimitedCharges
-          charges: 0
+          maxCharges: 0
         - type: AutoRecharge
           rechargeDuration: 15
         - type: Emag

@@ -374,22 +374,9 @@
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
-  id: ClothingBackpackDuffelSyndicateRaidBundle
-  name: syndicate raid suit bundle
-  description: "Contains the Syndicate's durable raid armor suit."
-  components:
-  - type: StorageFill
-    contents:
-      - id: ClothingOuterArmorRaid
-      - id: ClothingHeadHelmetRaid
-      - id: ClothingMaskGasSyndicate
-      - id: ClothingHandsGlovesCombat
-
-- type: entity
-  parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateHardsuitBundle
-  name: syndicate hardsuit bundle
-  description: "Contains the Syndicate's signature blood red hardsuit."
+  name: syndicate voidsuit bundle
+  description: "Contains the Syndicate's signature blood red voidsuit."
   components:
   - type: StorageFill
     contents:
@@ -402,8 +389,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateEliteHardsuitBundle
-  name: syndicate elite hardsuit bundle
-  description: "Contains the Syndicate's elite hardsuit, which comes with some more stuff in it."
+  name: syndicate elite voidsuit bundle
+  description: "Contains the Syndicate's elite voidsuit, which comes with some more stuff in it."
   components:
   - type: StorageFill
     contents:
@@ -416,8 +403,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateHardsuitExtrasBundle
-  name: syndicate hardsuit extras bundle
-  description: "Contains stuff that you will absolutely want to have when purchasing a hardsuit."
+  name: syndicate voidsuit extras bundle
+  description: "Contains stuff that you will absolutely want to have when purchasing a voidsuit."
   components:
   - type: StorageFill
     contents:

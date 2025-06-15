@@ -16,15 +16,12 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.DeviceNetwork;
-using Content.Shared.Emag.Components;
 using Content.Shared.Movement.Components;
 using Content.Shared.Popups;
 using Content.Shared.Robotics;
 using Content.Shared.Silicons.Borgs.Components;
-using Content.Server.DeviceNetwork;
-using Content.Server.DeviceNetwork.Components;
-using Content.Server.DeviceNetwork.Systems;
-using Content.Server.Explosion.Components;
+using Content.Shared.DeviceNetwork.Components;
+using Content.Shared.DeviceNetwork.Events;
 using Content.Shared.Emag.Systems;
 using Robust.Shared.Utility;
 using Content.Server._Imp.Drone; //Goobstation drone

@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-4.0",
-    "copyright": "BeeRobynn, plyush, bellcatsu , George Gimme, and Ahti, plushie_samantha by SolsticeOfTheWinter, Abductor by Shy Bandit, plushie_jvne by Jvne",
+    "copyright": "BeeRobynn, George Gimme, and Ahti, Abductor by Shy Bandit, plushie_jvne by Jvne, plushie_samantha by SolsticeOfTheWinter, fern by Bobbble",
     "size": {
         "x": 32,
         "y": 32
@@ -13,8 +13,11 @@
         {
             "name": "plushie_durk"
         },
-		{
+        {
             "name": "plushie_jvne"
+        },
+        {
+            "name": "plushie_fern"
         },
 		{
             "name": "plushiejvne-inhand-left",
@@ -24,7 +27,7 @@
             "name": "plushiejvne-inhand-right",
             "directions": 4
         },
-		{
+        {
             "name": "plushie_samantha"
         },
 		{
@@ -40,25 +43,7 @@
             "directions": 4
         },
         {
-            "name": "plushie_blackburn"
-        },
-        {
-            "name": "plushie_matryoskya"
-        },
-        {
-            "name": "plushie_kobliska"
-        },
-        {
             "name": "plushie_abductor"
-        },
-        {
-            "name": "plushie_desislava",
-            "delays": [
-                [
-                    0.5,
-                    0.25
-                ]
-            ]
         },
         {
             "name": "bingleing"
