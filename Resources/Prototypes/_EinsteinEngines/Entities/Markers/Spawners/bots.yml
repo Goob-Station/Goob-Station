@@ -1,0 +1,13 @@
+- type: entity
+  name: plantbot spawner
+  id: SpawnMobPlantbot
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _EinsteinEngines/Mobs/Silicon/Bots/plantbot.rsi
+        state: plantbot
+  - type: ConditionalSpawner
+    prototypes:
+      - MobPlantbot
