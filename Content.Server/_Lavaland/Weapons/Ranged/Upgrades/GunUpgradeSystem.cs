@@ -76,16 +76,12 @@ public sealed class GunUpgradeSystem : SharedGunUpgradeSystem
     private void OnPressureUpgradeInserted(Entity<GunUpgradePressureComponent> ent, ref EntGotInsertedIntoContainerMessage args)
     {
         if (TryComp<PressureDamageChangeComponent>(args.Container.Owner, out var pdc))
-        {
             pdc.Enabled = false;
-        }
     }
 
     private void OnPressureUpgradeRemoved(Entity<GunUpgradePressureComponent> ent, ref EntGotRemovedFromContainerMessage args)
     {
         if (TryComp<PressureDamageChangeComponent>(args.Container.Owner, out var pdc))
-        {
             pdc.Enabled = true;
-        }
     }
 }

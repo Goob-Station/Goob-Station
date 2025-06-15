@@ -64,7 +64,9 @@ public sealed class PressureEfficiencyChangeSystem : EntitySystem
 
     private void OnGetDamage(Entity<PressureDamageChangeComponent> ent, ref GetMeleeDamageEvent args)
     {
-        if (!ApplyModifier(ent) || !ent.Comp.ApplyToMelee || !ent.Comp.Enabled)
+        if (!ApplyModifier(ent)
+            || !ent.Comp.ApplyToMelee
+            || !ent.Comp.Enabled)
             return;
 
         args.Damage *= ent.Comp.AppliedModifier;
@@ -72,7 +74,9 @@ public sealed class PressureEfficiencyChangeSystem : EntitySystem
 
     private void OnGunShot(Entity<PressureDamageChangeComponent> ent, ref GunShotEvent args)
     {
-        if (!ApplyModifier(ent) || !ent.Comp.ApplyToProjectiles || !ent.Comp.Enabled)
+        if (!ApplyModifier(ent)
+            || !ent.Comp.ApplyToProjectiles
+            || !ent.Comp.Enabled)
             return;
 
         foreach (var (uid, _) in args.Ammo)
