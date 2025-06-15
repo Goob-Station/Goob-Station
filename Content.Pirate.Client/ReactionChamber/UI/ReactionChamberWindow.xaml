@@ -15,7 +15,8 @@
             </PanelContainer.PanelOverride>
             <BoxContainer
                 Margin="5"
-                Orientation="Vertical">
+                Orientation="Vertical"
+                Align="Center">
                 <BoxContainer>
                     <Label Text="Бажана температура(Кельвіни): "></Label>
                     <FloatSpinBox Name="TempField"
@@ -32,12 +33,12 @@
                 <PanelContainer.PanelOverride>
                     <gfx:StyleBoxFlat BackgroundColor="#404046"></gfx:StyleBoxFlat>
                 </PanelContainer.PanelOverride>
-                <Button SetSize="120 35"
+                <TextureButton SetSize="64 64"
                         ToggleMode="True"
                         Pressed="False"
-                        Text="Увімкнути"
                         Name="ActiveButton"
-                        Margin="75 3 0 0"></Button>
+                        Margin="75 3 0 0">
+                </TextureButton>
             </PanelContainer>
         </PanelContainer>
         <BoxContainer Margin="0 20 0 0"

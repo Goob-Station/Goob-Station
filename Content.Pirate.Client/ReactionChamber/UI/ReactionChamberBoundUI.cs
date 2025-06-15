@@ -17,8 +17,9 @@ public sealed class ReactionChamberBoundUI : BoundUserInterface
     public ReactionChamberBoundUI(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
         _window = new ReactionChamberWindow();
-        var activeButton = _window.FindControl<Button>("ActiveButton");
+        var activeButton = _window.FindControl<TextureButton>("ActiveButton");
         activeButton.OnButtonDown += _ => onActiveBtnPressed(!_window.Active);
+        activeButton.TexturePath = _window.Active ? "/Textures/_Pirate/UserInterface/Buttons/switch.rsi/switch_on.png" : "/Textures/_Pirate/UserInterface/Buttons/switch.rsi/switch_off.png";
         var tempField = _window.FindControl<FloatSpinBox>("TempField");
         tempField.OnValueChanged += _ => onTempFieldEntered(_window.FindControl<FloatSpinBox>("TempField").Value);
     }

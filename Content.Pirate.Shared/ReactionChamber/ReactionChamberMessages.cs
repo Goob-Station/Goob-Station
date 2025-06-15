@@ -53,10 +53,11 @@ public sealed class ReactionChamberBoundUIState : BoundUserInterfaceState
 {
     public readonly NetEntity? Beaker;
     public readonly BeakerInfo? BeakerInfo;
-
-    public ReactionChamberBoundUIState(NetEntity? beaker = null, BeakerInfo? beakerInfo = null)
+    public bool Active { get; set; }
+    public ReactionChamberBoundUIState(NetEntity? beaker = null, BeakerInfo? beakerInfo = null, bool active = false)
     {
         Beaker = beaker;
         BeakerInfo = beakerInfo;
+        Active = active;
     }
 }
