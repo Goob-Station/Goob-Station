@@ -11176,3 +11176,15 @@ Entries:
       message: You can no longer FTL ghost bar.
   id: 1228
   time: '2025-06-15T06:54:48.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: >-
+        Traitor salvagers can now buy pressure modkits that disable pressure
+        penalties on PKAs.
+    - type: Tweak
+      message: >-
+        PKAs only deal full damage between 20 and 50 kpa instead of just below
+        50 now. 1984.
+  id: 1229
+  time: '2025-06-15T07:15:51.0000000+00:00'
