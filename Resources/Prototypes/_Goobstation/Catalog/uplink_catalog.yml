@@ -712,6 +712,20 @@
     whitelist:
     - Engineering
 
+- type: listing
+  id: UplinkPKAUpgradePressure
+  name: uplink-pressure-modkit-name
+  description: uplink-pressure-modkit-desc
+  productEntity: PKAUpgradePressure
+  cost:
+    Telecrystal: 30
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - SalvageSpecialist
+
 # chemicals
 
 - type: listing
