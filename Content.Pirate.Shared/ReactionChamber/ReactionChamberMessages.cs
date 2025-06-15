@@ -11,7 +11,7 @@ namespace Content.Pirate.Shared.ReactionChamber.Components;
 [NetSerializable]
 public sealed class ReactionChamberTempChangeMessage : BoundUserInterfaceMessage
 {
-    public float Temp { get; set; }
+    public readonly float Temp;
     public ReactionChamberTempChangeMessage(float temp)
     {
         Temp = temp;
@@ -21,7 +21,7 @@ public sealed class ReactionChamberTempChangeMessage : BoundUserInterfaceMessage
 [NetSerializable]
 public sealed class ReactionChamberActiveChangeMessage : BoundUserInterfaceMessage
 {
-    public bool Active { get; set; }
+    public readonly bool Active;
     public ReactionChamberActiveChangeMessage(bool active)
     {
         Active = active;
@@ -53,7 +53,7 @@ public sealed class ReactionChamberBoundUIState : BoundUserInterfaceState
 {
     public readonly NetEntity? Beaker;
     public readonly BeakerInfo? BeakerInfo;
-    public bool Active { get; set; }
+    public readonly bool Active;
     public ReactionChamberBoundUIState(NetEntity? beaker = null, BeakerInfo? beakerInfo = null, bool active = false)
     {
         Beaker = beaker;

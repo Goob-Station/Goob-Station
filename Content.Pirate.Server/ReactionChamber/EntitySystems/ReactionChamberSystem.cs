@@ -56,9 +56,9 @@ public sealed partial class ReactionChamberSystem : EntitySystem
                 foreach (var (_, soln) in _solutionContainerSystem.EnumerateSolutions(beaker.Value)) // add temp to all solutions
                 {
                     var (_, solnComp) = soln;
+                    comp.SolnHeatCapacity = solnComp.Solution.GetHeatCapacity(PrototypeManager); // used to get real capacity, and therefore real soln temp
                     if (comp.SolnHeatCapacity == 0)
                         comp.SolnHeatCapacity = 0.1f;
-                    comp.SolnHeatCapacity = solnComp.Solution.GetHeatCapacity(PrototypeManager); // used to get real capacity, and therefore real soln temp
                     var solnTemp = solnComp.Solution.GetThermalEnergy(PrototypeManager) / comp.SolnHeatCapacity;
                     var deltaT = comp.Temp - solnTemp;
                     UpdateDeltaJ(uid, deltaT, frameTime, comp);
