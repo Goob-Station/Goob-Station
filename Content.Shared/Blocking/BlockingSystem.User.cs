@@ -14,6 +14,7 @@
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 //
@@ -102,7 +103,7 @@ public sealed partial class BlockingSystem
         }
 
         args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage,
-            DamageSpecifier.PenetrateArmor(modifier, args.OriginalDamage.ArmorPenetration)); // Goob edit
+            DamageSpecifier.PenetrateArmor(modifier, args.Damage.ArmorPenetration)); // Goob edit
     }
 
     private void OnEntityTerminating(EntityUid uid, BlockingUserComponent component, ref EntityTerminatingEvent args)
