@@ -565,7 +565,7 @@
 
 #Warden's Hardsuit
 - type: entity
-  parent: [ClothingOuterHardsuitBase, BaseSecurityContraband]
+  parent: [ClothingOuterHardsuitBase, BaseWardenContraband]
   id: ClothingOuterHardsuitWarden
   name: warden's voidsuit # Goob edit
   description: A specialized riot suit geared to combat low pressure environments.

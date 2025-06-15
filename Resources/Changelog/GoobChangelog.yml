@@ -10999,3 +10999,31 @@ Entries:
       message: Appraisal tools removed from Lathes and added to Cargo Fab.
   id: 1212
   time: '2025-06-15T05:13:21.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Tweak
+      message: >-
+        Reflective vest can no longer be abused to completely circumvent AI
+        turrets. 
+  id: 1213
+  time: '2025-06-15T05:40:36.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: Added nightvision to headslugs.
+  id: 1214
+  time: '2025-06-15T05:48:16.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Fire no longer instakills moths
+  id: 1215
+  time: '2025-06-15T06:00:39.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Clarify how contraband works for sec / command in guidebook
+    - type: Tweak
+      message: Restrict warden items to warden
+  id: 1216
+  time: '2025-06-15T06:02:23.0000000+00:00'
