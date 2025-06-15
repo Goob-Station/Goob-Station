@@ -11007,3 +11007,9 @@ Entries:
         turrets. 
   id: 1213
   time: '2025-06-15T05:40:36.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: Added nightvision to headslugs.
+  id: 1214
+  time: '2025-06-15T05:48:16.0000000+00:00'
