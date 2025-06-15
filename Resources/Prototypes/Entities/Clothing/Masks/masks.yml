@@ -335,7 +335,10 @@
     - PetWearable
     - WhitelistChameleon
     - BreathMask  # Goobstation - For survial boxes
-
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 50
+      Plastic: 50
 
 - type: entity
   parent: ClothingMaskBreathMedical
