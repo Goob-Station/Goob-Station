@@ -22,9 +22,7 @@ public sealed class MiscSignallerSystem : EntitySystem
         SubscribeLocalEvent<MiscSignallerComponent, TriggerEvent>(OnTrigger);
     }
     private void OnInit(EntityUid uid, MiscSignallerComponent component, ComponentInit args)
-    {
-        _link.EnsureSourcePorts(uid, component.Port);
-    }
+        => _link.EnsureSourcePorts(uid, component.Port);
 
     private void OnTrigger(EntityUid uid, MiscSignallerComponent component, TriggerEvent args)
     {
