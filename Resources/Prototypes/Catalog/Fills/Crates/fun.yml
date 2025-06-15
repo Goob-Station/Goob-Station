@@ -172,10 +172,7 @@
     - id: PlushieHampter
     - id: PlushieMoth
     - id: PlushieArachind
-#    - id: PlushieSamantha # Corvax Goob
     - id: PlushiePenguin
-
-
 
 - type: entity
   id: CrateFunPlushie
