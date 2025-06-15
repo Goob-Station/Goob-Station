@@ -11269,3 +11269,9 @@ Entries:
         is lost
   id: 1237
   time: '2025-06-15T07:42:45.0000000+00:00'
+- author: cheetah1984
+  changes:
+    - type: Tweak
+      message: Sentient artifact activation cooldown (5 -> 1 minutes)
+  id: 1238
+  time: '2025-06-15T07:43:34.0000000+00:00'
