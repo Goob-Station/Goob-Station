@@ -340,6 +340,9 @@
   id: MagazineMagnumLeverRifle
 
 - type: Tag
+  id: MagazineNailgun
+
+- type: Tag
   id: MagazineShotgunHeavy
 
 - type: Tag
@@ -404,6 +407,12 @@
 
 - type: Tag
   id: Muzzle
+
+- type: Tag
+  id: Nail
+
+- type: Tag
+  id: Nailgun
 
 - type: Tag
   id: NonLethalGrenade
