@@ -68,8 +68,7 @@ public sealed partial class WeakToHolyComponent : Component
     {
         DamageDict =
         {
-            ["Holy"] = -0.09
-        }
+            ["Holy"] = -0.06,
+        },
     };
-
 }
