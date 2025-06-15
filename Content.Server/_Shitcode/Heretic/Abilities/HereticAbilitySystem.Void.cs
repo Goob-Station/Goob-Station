@@ -16,13 +16,15 @@
 using Content.Goobstation.Shared.Atmos.Components;
 using Content.Goobstation.Shared.Body.Components;
 using Content.Goobstation.Shared.Temperature.Components;
+using Content.Server.Atmos.Components;
 using Content.Server.Heretic.Components.PathSpecific;
 using Content.Server.Magic;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Prototypes;
 using Content.Shared.Heretic;
+using Content.Shared.Movement.Components;
+using Content.Shared.Slippery;
 using Robust.Shared.Audio;
 using Robust.Shared.Physics.Components;
 using System.Linq;
@@ -48,8 +50,20 @@ public sealed partial class HereticAbilitySystem
     }
     private void OnAscensionVoid(Entity<HereticComponent> ent, ref HereticAscensionVoidEvent args)
     {
+        EnsureComp<SpecialHighTempImmunityComponent>(ent);
         EnsureComp<SpecialPressureImmunityComponent>(ent);
         EnsureComp<AristocratComponent>(ent);
+
+        EnsureComp<MovementIgnoreGravityComponent>(ent);
+        EnsureComp<NoSlipComponent>(ent); // :godo:
+
+        // fire immunity
+        var flam = EnsureComp<FlammableComponent>(ent);
+        flam.Damage = new(); // reset damage dict
+
+        // the hunt begins
+        var voidVision = new HereticVoidVisionEvent();
+        RaiseLocalEvent(ent, voidVision);
     }
 
     private void OnVoidBlast(Entity<HereticComponent> ent, ref HereticVoidBlastEvent args)
