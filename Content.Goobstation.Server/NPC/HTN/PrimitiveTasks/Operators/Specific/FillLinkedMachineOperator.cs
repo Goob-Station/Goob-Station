@@ -6,13 +6,13 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Shared.Silicon.Bots;
-using Content.Server.Disposal.Unit.Components;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.HTN.PrimitiveTasks;
 using Content.Shared.Body.Part;
 using Content.Shared.DeviceLinking;
-using Content.Shared.Disposal;
+using Content.Shared.Disposal.Components;
+using Content.Shared.Disposal.Unit;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Materials;
@@ -75,7 +75,7 @@ public sealed partial class FillLinkedMachineOperator : HTNOperator
             && _sharedMaterialStorage.TryInsertMaterialEntity(owner, heldItem.Value, fillbot.LinkedSinkEntity!.Value))
             return HTNOperatorStatus.Finished;
 
-        else if (disposalUnit is not null)
+        if (disposalUnit is not null)
         {
             _sharedDisposalUnitSystem.DoInsertDisposalUnit(fillbot.LinkedSinkEntity!.Value, heldItem.Value, owner);
             return HTNOperatorStatus.Finished;
