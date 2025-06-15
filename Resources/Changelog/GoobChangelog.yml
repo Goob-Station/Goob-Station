@@ -11041,3 +11041,15 @@ Entries:
       message: Tone down insane salv armor values
   id: 1218
   time: '2025-06-15T06:06:55.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Tweak
+      message: >-
+        Atlas Supermatter containment got a minor facelift as well as having its
+        access restricted to Atmos and CE
+    - type: Tweak
+      message: >-
+        Atlas Brig has had a minor facelift to make Bridmed larger and add
+        Criminal Records Computer at the cost of one secway.
+  id: 1219
+  time: '2025-06-15T06:09:31.0000000+00:00'
