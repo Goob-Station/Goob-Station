@@ -11157,3 +11157,14 @@ Entries:
         making it to med before turning.
   id: 1226
   time: '2025-06-15T06:49:14.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Tweak
+      message: >-
+        A major rework has been given to Oasis. The bar, kitchen, and zoo have
+        all been moved towards the center; Salvage has been made public, and
+        maintenance areas have been expanded, with the most notable of which
+        being a transit area to and from evac into where the shooting range used
+        to be. Further feedback always appreciated.
+  id: 1227
+  time: '2025-06-15T06:54:01.0000000+00:00'
