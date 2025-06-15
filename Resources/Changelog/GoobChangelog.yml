@@ -10965,3 +10965,117 @@ Entries:
         healed per minute)
   id: 1207
   time: '2025-06-14T21:16:24.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Inline gas filters now ignore input pipe pressure.
+    - type: Fix
+      message: Fixed flipped gas filters being effectively flipped.
+  id: 1208
+  time: '2025-06-15T04:40:05.0000000+00:00'
+- author: vrilly
+  changes:
+    - type: Fix
+      message: mail access
+  id: 1209
+  time: '2025-06-15T04:44:39.0000000+00:00'
+- author: IrisTheAmped
+  changes:
+    - type: Fix
+      message: Vox and Shadowkin no longer overheat or chill constantly.
+  id: 1210
+  time: '2025-06-15T04:59:27.0000000+00:00'
+- author: IrisTheAmped
+  changes:
+    - type: Fix
+      message: >-
+        Thieves have finally got with the times and no longer try to steal
+        Expedition boards. It's been forever.
+  id: 1211
+  time: '2025-06-15T05:12:48.0000000+00:00'
+- author: IrisTheAmped
+  changes:
+    - type: Tweak
+      message: Appraisal tools removed from Lathes and added to Cargo Fab.
+  id: 1212
+  time: '2025-06-15T05:13:21.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Tweak
+      message: >-
+        Reflective vest can no longer be abused to completely circumvent AI
+        turrets. 
+  id: 1213
+  time: '2025-06-15T05:40:36.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: Added nightvision to headslugs.
+  id: 1214
+  time: '2025-06-15T05:48:16.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Fire no longer instakills moths
+  id: 1215
+  time: '2025-06-15T06:00:39.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Clarify how contraband works for sec / command in guidebook
+    - type: Tweak
+      message: Restrict warden items to warden
+  id: 1216
+  time: '2025-06-15T06:02:23.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: 'Heretic summons now have AI, and walk at a normal speed. '
+    - type: Tweak
+      message: Fleshstalkers immune to flashes.
+  id: 1217
+  time: '2025-06-15T06:06:20.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Tone down insane salv armor values
+  id: 1218
+  time: '2025-06-15T06:06:55.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Tweak
+      message: >-
+        Atlas Supermatter containment got a minor facelift as well as having its
+        access restricted to Atmos and CE
+    - type: Tweak
+      message: >-
+        Atlas Brig has had a minor facelift to make Bridmed larger and add
+        Criminal Records Computer at the cost of one secway.
+  id: 1219
+  time: '2025-06-15T06:09:31.0000000+00:00'
+- author: Evige
+  changes:
+    - type: Add
+      message: Fished fish now produce meat when butchered!
+  id: 1220
+  time: '2025-06-15T06:11:09.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: Engineers now have new nail gun!
+    - type: Tweak
+      message: You can now examine damage of walls.
+    - type: Tweak
+      message: >-
+        Engineers now do double hit with a nail and a hammer instead of just two
+        hammers.
+  id: 1221
+  time: '2025-06-15T06:12:27.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Tweak
+      message: >-
+        Heads of Staff (Command Staff) can be converted. No longer shall we
+        kill, when we can truly take over the station as one.
+  id: 1222
+  time: '2025-06-15T06:22:38.0000000+00:00'
