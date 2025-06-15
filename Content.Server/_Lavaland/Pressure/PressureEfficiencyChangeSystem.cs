@@ -24,6 +24,7 @@
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared._Lavaland.Weapons.Ranged.Events;
 using Content.Shared.Armor;
+using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Inventory;
@@ -36,6 +37,7 @@ namespace Content.Server._Lavaland.Pressure;
 public sealed class PressureEfficiencyChangeSystem : EntitySystem
 {
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
+    [Dependency] private readonly SharedBodySystem _body = default!;
 
     public override void Initialize()
     {
@@ -116,12 +118,17 @@ public sealed class PressureEfficiencyChangeSystem : EntitySystem
     private void OnArmorRelayDamageModify(Entity<PressureArmorChangeComponent> ent, ref InventoryRelayedEvent<DamageModifyEvent> args)
     {
         var pressure = _atmos.GetTileMixture((ent.Owner, Transform(ent)))?.Pressure ?? 0f;
-        if ((pressure >= ent.Comp.LowerBound
-             && pressure <= ent.Comp.UpperBound) == ent.Comp.ApplyWhenInRange)
-        {
-            args.Args.Damage.ArmorPenetration += ent.Comp.ExtraPenetrationModifier;
-        }
+        if ((pressure >= ent.Comp.LowerBound && pressure <= ent.Comp.UpperBound) != ent.Comp.ApplyWhenInRange
+            || args.Args.TargetPart == null
+            || !TryComp<ArmorComponent>(ent, out var armor))
+            return;
 
+        var (partType, _) = _body.ConvertTargetBodyPart(args.Args.TargetPart); // Woundmed stuff
+        var coverage = armor.ArmorCoverage;
+        if (!coverage.Contains(partType))
+            return;
+
+        args.Args.Damage.ArmorPenetration += ent.Comp.ExtraPenetrationModifier;
     }
 
     private void ExamineHelper(double min, double max, double modifier, string localeKey, ref ExaminedEvent args)

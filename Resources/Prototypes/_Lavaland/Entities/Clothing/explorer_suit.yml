@@ -65,9 +65,8 @@
   - type: Construction
     graph: ExplorerSuit
     node: start
-  - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 1.5
-    knockdownTimeDelta: -1.5
+  - type: FireProtection
+    reduction: 0.4
   - type: PressureArmorChange
   - type: Tag
     tags:
@@ -128,6 +127,8 @@
         Caustic: 0.5
   - type: ExplosionResistance
     damageCoefficient: 0.5
+  - type: FireProtection
+    reduction: 0.5
   - type: Sprite
     sprite: _Lavaland/Equipment/explorer_suit.rsi
     state: reinforced1-icon
@@ -186,6 +187,8 @@
         Caustic: 0.4
   - type: ExplosionResistance
     damageCoefficient: 0.4
+  - type: FireProtection
+    reduction: 0.6
   - type: ToggleableClothing
     clothingPrototypes:
       head: LavalandEquipmentExplorerHoodReinforced2
@@ -238,6 +241,8 @@
         Caustic: 0.3
   - type: ExplosionResistance
     damageCoefficient: 0.3
+  - type: FireProtection
+    reduction: 0.7
   - type: ToggleableClothing
     clothingPrototypes:
       head: LavalandEquipmentExplorerHoodReinforced3
