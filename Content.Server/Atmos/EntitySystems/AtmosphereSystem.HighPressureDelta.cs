@@ -26,8 +26,9 @@
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 TemporalOroboros <TemporalOroboros@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -88,11 +89,15 @@ namespace Content.Server.Atmos.EntitySystems
                     _physics.SetBodyStatus(uid, body, BodyStatus.OnGround);
                 }
 
-                if (TryComp<FixturesComponent>(uid, out var fixtures))
+                if (TryComp<FixturesComponent>(uid, out var fixtures)
+                    && TryComp<MovedByPressureComponent>(uid, out var component))
                 {
                     foreach (var (id, fixture) in fixtures.Fixtures)
                     {
-                        _physics.AddCollisionMask(uid, id, fixture, (int) CollisionGroup.TableLayer, manager: fixtures);
+                        if (component.TableLayerRemoved.Contains(id))
+                        {
+                            _physics.AddCollisionMask(uid, id, fixture, (int)CollisionGroup.TableLayer, manager: fixtures);
+                        }
                     }
                 }
             }
@@ -101,6 +106,29 @@ namespace Content.Server.Atmos.EntitySystems
             {
                 _activePressures.Remove(comp);
             }
+        }
+
+        private void AddMobMovedByPressure(EntityUid uid, MovedByPressureComponent component, PhysicsComponent body)
+        {
+            if (!TryComp<FixturesComponent>(uid, out var fixtures))
+                return;
+
+            _physics.SetBodyStatus(uid, body, BodyStatus.InAir);
+
+            foreach (var (id, fixture) in fixtures.Fixtures)
+            {
+                // Mark fixtures that have TableLayer removed
+                if ((fixture.CollisionMask & (int)CollisionGroup.TableLayer) != 0)
+                {
+                    component.TableLayerRemoved.Add(id);
+                    _physics.RemoveCollisionMask(uid, id, fixture, (int)CollisionGroup.TableLayer, manager: fixtures);
+                }
+            }
+            // TODO: Make them dynamic type? Ehh but they still want movement so uhh make it non-predicted like weightless?
+            // idk it's hard.
+
+            component.Accumulator = 0f;
+            _activePressures.Add((uid, component));
         }
 
         private void HighPressureMovements(Entity<GridAtmosphereComponent> gridAtmosphere, TileAtmosphere tile, EntityQuery<PhysicsComponent> bodies, EntityQuery<TransformComponent> xforms, EntityQuery<MovedByPressureComponent> pressureQuery, EntityQuery<MetaDataComponent> metas)
@@ -239,26 +267,25 @@ namespace Content.Server.Atmos.EntitySystems
                 var moveForce = pressureDifference * MathF.Max(physics.InvMass, SpaceWindMaximumCalculatedInverseMass);
                 if (HasComp<HumanoidAppearanceComponent>(ent))
                     moveForce *= HumanoidThrowMultiplier;
+                if (moveForce > physics.Mass)
+                {
+                    // Grid-rotation adjusted direction
+                    var dirVec = (direction.ToAngle() + gridWorldRotation).ToWorldVec();
+                    moveForce *= MathF.Max(physics.InvMass, SpaceWindMaximumCalculatedInverseMass);
 
-                // mass check nuked since it no longer TryThrow-s at low forces
+                    //TODO Consider replacing throw target with proper trigonometry angles.
+                    if (throwTarget != EntityCoordinates.Invalid)
+                    {
+                        var pos = throwTarget.ToMap(EntityManager, _transformSystem).Position - xform.WorldPosition + dirVec;
+                        _throwing.TryThrow(uid, pos.Normalized() * MathF.Min(moveForce, SpaceWindMaxVelocity), moveForce);
+                    }
+                    else
+                    {
+                        _throwing.TryThrow(uid, dirVec.Normalized() * MathF.Min(moveForce, SpaceWindMaxVelocity), moveForce);
+                    }
 
-                // Grid-rotation adjusted direction
-                var dirVec = (direction.ToAngle() + gridWorldRotation).ToWorldVec();
-                var throwVec = (throwTarget != EntityCoordinates.Invalid ?
-                    throwTarget.ToMap(EntityManager, _transformSystem).Position - xform.WorldPosition + dirVec
-                    : dirVec).Normalized();
-
-                moveForce *= MathF.Max(physics.InvMass, SpaceWindMaximumCalculatedInverseMass);
-                var actVel = MathF.Min(moveForce, SpaceWindMaxVelocity);
-
-                //TODO Consider replacing throw target with proper trigonometry angles.
-                if (actVel < SpaceWindThrowVelocity)
-                    // don't destroy bar by throwing glasses 1mm
-                    _physics.ApplyLinearImpulse(uid, throwVec * actVel * physics.Mass, body: physics);
-                else
-                    _throwing.TryThrow(uid, throwVec * actVel, moveForce);
-
-                component.LastHighPressureMovementAirCycle = cycle;
+                    component.LastHighPressureMovementAirCycle = cycle;
+                }
             }
         }
     }
