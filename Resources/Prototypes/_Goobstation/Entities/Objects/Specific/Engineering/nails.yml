@@ -40,7 +40,7 @@
     damage:
       types:
         Piercing: 5
-      armorPenetration: -0.75 # Very shitty against armor
+      armorPenetration: -1.75 # Very shitty against armor. Pro tip: target unarmored body parts
   - type: Fixtures
     fixtures:
       fix1:
