@@ -530,7 +530,6 @@ public sealed partial class ChangelingSystem
             return;
         }
 
-        PlayMeatySound(uid, comp);
     }
     private void OnToggleShield(EntityUid uid, ChangelingIdentityComponent comp, ref ToggleOrganicShieldEvent args)
     {
