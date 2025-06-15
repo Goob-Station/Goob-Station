@@ -5,6 +5,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
@@ -41,6 +42,7 @@
   rules:
     - Changeling
     - SubGamemodesRule
+    - HereticCompatible
     - BasicStationEventScheduler
     #- MeteorSwarmScheduler Goobstation - nuh uh
     - BasicRoundstartVariation
@@ -57,6 +59,7 @@
   rules:
     - CalmLing
     - CalmTraitor
+    - SubGamemodesRule
     - BasicStationEventScheduler
     #- MeteorSwarmScheduler Goobstation - nuh uh
     - BasicRoundstartVariation
@@ -74,6 +77,7 @@
   rules:
     - Calmops
     - CalmTraitor
+    - SubGamemodesRule
     - BasicStationEventScheduler
     #- MeteorSwarmScheduler Goobstation - nuh uh
     - BasicRoundstartVariation
@@ -90,6 +94,7 @@
   rules:
     - Calmops
     - CalmLing
+    - SubGamemodesRule
     - BasicStationEventScheduler
     #- MeteorSwarmScheduler Goobstation - nuh uh
     - BasicRoundstartVariation
@@ -107,6 +112,7 @@
   rules:
     - CalmRevs
     - CalmTraitor
+    - SubGamemodesRule
     - BasicStationEventScheduler
     #- MeteorSwarmScheduler Goobstation - nuh uh
     - LavalandStormScheduler # Lavaland Change
@@ -122,6 +128,7 @@
   rules:
     - CalmRevs
     - CalmLing
+    - SubGamemodesRule
     - BasicStationEventScheduler
     #- MeteorSwarmScheduler Goobstation - nuh uh
     - BasicRoundstartVariation
@@ -141,6 +148,7 @@
   - AntagStationEventScheduler
   - BasicRoundstartVariation
   - SubGamemodesRule
+  - HereticCompatible
   - LavalandStormScheduler # Lavaland Change
 
 - type: gamePreset
@@ -166,12 +174,13 @@
     - calmdynamic
   name: sleeper-title
   description: sleeper-description
-  showInVote: true
+  showInVote: false
   minPlayers: 5
   rules:
     - CalmDynamic
     - LavalandStormScheduler
     - SubGamemodesRule
+    - HereticCompatible
     - RareIonStormScheduler
     - SpaceTrafficControlFriendlyEventScheduler
 
@@ -188,6 +197,7 @@
     - CombatDynamic
     - LavalandStormScheduler
     - SubGamemodesRule
+    - HereticCompatible
     - IonStormScheduler
     - SpaceTrafficControlEventScheduler
 
@@ -199,7 +209,7 @@
     - turbulence
   name: secretplus-low-title
   description: secretplus-low-description
-  showInVote: true
+  showInVote: false
   rules:
     - SecretPlusLow
     - LavalandStormScheduler
@@ -212,7 +222,7 @@
     - entropy
   name: secretplus-mid-title
   description: secretplus-mid-description
-  showInVote: true
+  showInVote: false
   rules:
     - SecretPlusMid
     - LavalandStormScheduler
@@ -228,4 +238,50 @@
   showInVote: false # 1984
   rules:
     - SecretPlusHigh
+    - LavalandStormScheduler
+
+- type: gamePreset
+  id: cult
+  name: cult-gamemode-title
+  description: cult-gamemode-description
+  showInVote: false
+  rules:
+    - CosmicCult
+    - BasicStationEventScheduler
+    - BasicRoundstartVariation
+    - LavalandStormScheduler
+
+- type: gamePreset
+  id: CultLing
+  name: cultLings-gamemode-title
+  description: cult-gamemode-description
+  showInVote: false
+  rules:
+    - CosmicCult
+    - CalmLing
+    - BasicStationEventScheduler
+    - BasicRoundstartVariation
+    - LavalandStormScheduler
+
+- type: gamePreset
+  id: CultTraitor
+  name: cultTraitors-gamemode-title
+  description: cult-gamemode-description
+  showInVote: false
+  rules:
+    - CosmicCult
+    - CalmTraitor
+    - BasicStationEventScheduler
+    - BasicRoundstartVariation
+    - LavalandStormScheduler
+
+- type: gamePreset
+  id: Heretics
+  name: Heretics-gamemode-title
+  description: Heretics-gamemode-description
+  showInVote: false
+  rules:
+    - ManyHeretics
+    - BasicStationEventScheduler
+    - BasicRoundstartVariation
     - LavalandStormScheduler
