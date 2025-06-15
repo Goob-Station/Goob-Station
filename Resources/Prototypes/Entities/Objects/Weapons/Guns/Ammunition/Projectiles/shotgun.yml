@@ -118,6 +118,7 @@
     damage:
       types:
         Piercing: 40 # Goobstation - Don't really have to cycle them here, so a moderate nerf over 13 makes sense... not 28 damage what the actual fuck was that?
+        Structural: 25 # Hi i made this do structural too on goob
 
 - type: entity
   id: PelletShotgunBeanbag
@@ -148,6 +149,7 @@
     damage:
       types:
         Piercing: 10
+        Structural: 6 # Hi i made this do structural too on goob, 3 shots to do 108 structural over 6 pellets
 
 - type: entity
   id: PelletShotgunSpread

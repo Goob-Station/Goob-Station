@@ -26,6 +26,8 @@
     damage:
       types:
         Piercing: 15
+        Structural: 10
+
 
 - type: entity
   id: HighCaliberPelletShotgunSpread
@@ -134,6 +136,7 @@
     damage:
       types:
         Piercing: 65
+        Structural: 50
 
 - type: entity
   id: BulletSlugEnsnaring
