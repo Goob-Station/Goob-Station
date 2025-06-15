@@ -1,0 +1,154 @@
+- type: entity
+  id: RadioLeadIntern
+  parent: BaseItem
+  name: lead intern summoning radio
+  description: A NT-approved radio that can summon a lead intern with special coins.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Tools/executive_briefcase.rsi
+    state: icon_alt
+  - type: Item
+    size: Huge
+  - type: GhostRole
+    name: ghost-role-lead-intern-name
+    description: ghost-role-intern-desc
+    rules: ghost-role-lead-intern-rules
+  - type: GhostRoleMobSpawner
+    prototype: LeadIntern
+
+# Lead Intern
+- type: entity
+  id: LeadIntern
+  parent: MobHuman
+  name: Lead Intern
+  suffix: Human
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+  - type: Loadout
+    prototypes: [LeadInternGear]
+
+# Basic Intern Coin
+- type: entity
+  id: InternCoin
+  parent: BaseItem
+  name: intern summoning coin
+  description: Toss to summon an intern.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/coins.rsi
+    state: coin_gold
+  - type: GhostRole
+    name: ghost-role-intern-name
+    description: ghost-role-intern-desc
+    rules: ghost-role-intern-rules
+  - type: GhostRoleMobSpawner
+    prototype: NTIntern
+
+# Nerd Intern Coin
+- type: entity
+  id: NerdInternCoin
+  parent: BaseItem
+  name: nerd intern summoning coin
+  description: Toss to summon a nerd intern.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/coins.rsi
+    state: coin_silver
+  - type: GhostRole
+    name: ghost-role-nerd-intern-name
+    description: ghost-role-intern-desc
+    rules: ghost-role-intern-rules
+  - type: GhostRoleMobSpawner
+    prototype: NTNerdIntern
+
+# Basic NT Intern
+- type: entity
+  id: NTIntern
+  parent: MobHuman
+  name: NT Intern
+  suffix: Human
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+  - type: Loadout
+    prototypes: [NTInternGear]
+
+# NT Nerd Intern
+- type: entity
+  id: NTNerdIntern
+  parent: MobHuman
+  name: NT Nerd Intern
+  suffix: Human
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+  - type: Loadout
+    prototypes: [NTNerdInternGear]
+
+# NT Nerd Intern Gear
+- type: startingGear
+  id: NTNerdInternGear
+  equipment:
+    eyes: ClothingEyesGlassesJamjar
+    jumpsuit: ClothingUniformJumpsuitCentcomOfficer
+    gloves: ClothingHandsGlovesColorYellowBudget
+    shoes: ClothingShoesBootsWork
+    back: ClothingBackpackCentcomm
+    ears: ClothingHeadsetGrey
+    id: PassengerIDCard # let NTR give them access on bridge lol, im too lazy to make a new ID just for interns
+    pocket1: WeaponLaserCellRevolver
+    pocket2: PowerCellHigh
+  inhand:
+    - MedkitAdvancedFilled
+    - ToolboxElectricalFilled
+  storage:
+    back:
+    - ClothingShoesSlippers
+    - BoxSurvivalSlotsMedical
+    - Stunbaton
+
+# Lead Intern Gear
+- type: startingGear
+  id: LeadInternGear
+  equipment:
+    eyes: ClothingEyesGlassesSunglasses
+    head: ClothingHeadHatGreensoft
+    jumpsuit: ClothingUniformJumpsuitCentcomOfficer
+    outerClothing: ClothingOuterArmorBasic
+    gloves: ClothingHandsGlovesColorBlack
+    shoes: ClothingShoesLeather
+    back: ClothingBackpackCentcomm
+    ears: ClothingHeadsetGrey
+    id: PassengerIDCard
+    pocket1: DrinkEnergyDrinkCan
+    pocket2: TelescopicBaton
+  inhand:
+    - WeaponLaserCarbine
+  storage:
+    back:
+    - NerdInternCoin
+    - InternCoin
+    - InternCoin
+    - BoxSurvivalSlotsMedical
+
+# NT Intern Gear
+- type: startingGear
+  id: NTInternGear
+  equipment:
+    eyes: ClothingEyesGlassesSunglasses
+    jumpsuit: ClothingUniformJumpsuitCentcomOfficer
+    gloves: ClothingHandsGlovesColorBlack
+    shoes: ClothingShoesLeather
+    back: ClothingBackpackCentcomm
+    ears: ClothingHeadsetGrey
+    id: PassengerIDCard
+    pocket1: DrinkEnergyDrinkCan
+    pocket2: WeaponDisabler
+  inhand:
+    - WeaponLaserCarbine
+  storage:
+    back:
+    - Vape # interns ammiright?
+    - BoxSurvivalSlotsMedical
+    - Stunbaton
