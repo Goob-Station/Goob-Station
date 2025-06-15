@@ -10965,3 +10965,37 @@ Entries:
         healed per minute)
   id: 1207
   time: '2025-06-14T21:16:24.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Inline gas filters now ignore input pipe pressure.
+    - type: Fix
+      message: Fixed flipped gas filters being effectively flipped.
+  id: 1208
+  time: '2025-06-15T04:40:05.0000000+00:00'
+- author: vrilly
+  changes:
+    - type: Fix
+      message: mail access
+  id: 1209
+  time: '2025-06-15T04:44:39.0000000+00:00'
+- author: IrisTheAmped
+  changes:
+    - type: Fix
+      message: Vox and Shadowkin no longer overheat or chill constantly.
+  id: 1210
+  time: '2025-06-15T04:59:27.0000000+00:00'
+- author: IrisTheAmped
+  changes:
+    - type: Fix
+      message: >-
+        Thieves have finally got with the times and no longer try to steal
+        Expedition boards. It's been forever.
+  id: 1211
+  time: '2025-06-15T05:12:48.0000000+00:00'
+- author: IrisTheAmped
+  changes:
+    - type: Tweak
+      message: Appraisal tools removed from Lathes and added to Cargo Fab.
+  id: 1212
+  time: '2025-06-15T05:13:21.0000000+00:00'
