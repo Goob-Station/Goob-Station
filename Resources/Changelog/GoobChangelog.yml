@@ -11176,3 +11176,54 @@ Entries:
       message: You can no longer FTL ghost bar.
   id: 1228
   time: '2025-06-15T06:54:48.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: >-
+        Traitor salvagers can now buy pressure modkits that disable pressure
+        penalties on PKAs.
+    - type: Tweak
+      message: >-
+        PKAs only deal full damage between 20 and 50 kpa instead of just below
+        50 now. 1984.
+  id: 1229
+  time: '2025-06-15T07:15:51.0000000+00:00'
+- author: the_biggestbruh
+  changes:
+    - type: Tweak
+      message: >-
+        Heretic path of Void ascension has received a mini-rework. Board the
+        windows, weld the doors, huddle close together for warmth, hide and
+        pray. The waltz begins.
+  id: 1230
+  time: '2025-06-15T07:20:24.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: Blueshield officers can now choose armored ushanka in the loadout.
+  id: 1231
+  time: '2025-06-15T07:22:38.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Add
+      message: office chairs to saltern
+    - type: Add
+      message: public lavaland to saltern
+    - type: Add
+      message: CC office to saltern
+    - type: Add
+      message: holopads to saltern
+    - type: Add
+      message: brigmed infrastructure to saltern
+    - type: Remove
+      message: public laths on saltern
+    - type: Tweak
+      message: AI sat on saltern
+  id: 1232
+  time: '2025-06-15T07:26:03.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Remove
+      message: Removed non admin/owner plushies.
+  id: 1233
+  time: '2025-06-15T07:27:55.0000000+00:00'
