@@ -1,0 +1,16 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Moony33 <ultimoprmo@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: cookingRecipe
+  id: CookMargheritaPizza
+  name: RecipeMargheritaPizza
+  input:
+    - id: FoodDoughFlat
+    - id: FoodTomato
+      amount: 4
+    - id: FoodCheeseSlice
+  output: FoodPizzaMargherita
+  requiredMachine: Oven
+  requiredTime: 5.0
