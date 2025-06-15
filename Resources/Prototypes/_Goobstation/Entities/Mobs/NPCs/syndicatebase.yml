@@ -1,0 +1,149 @@
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: syndicate guard
+  parent: BaseMobHuman
+  id: MobSyndicateGuardMeleeT1
+  suffix: meleeT1
+  components:
+    - type: RandomHumanoidAppearance
+    - type: NpcFactionMember
+      factions:
+        - Syndicate
+    - type: Loadout
+      prototypes:
+        - SyndicateGuardMeleeTier1
+    - type: InputMover
+    - type: MobMover
+    - type: HTN
+      rootTask:
+        task: SimpleHumanoidHostileCompound
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        100: Dead
+    - type: AutoImplant
+      implants:
+      - DeathAcidifierImplant
+      - SpaceProofImplant
+
+- type: entity
+  name: syndicate guard
+  parent: BaseMobHuman
+  id: MobSyndicateGuardMeleeT2
+  suffix: meleeT2
+  components:
+    - type: RandomHumanoidAppearance
+    - type: NpcFactionMember
+      factions:
+        - Syndicate
+    - type: Loadout
+      prototypes:
+        - SyndicateGuardMeleeTier2
+    - type: InputMover
+    - type: MobMover
+    - type: HTN
+      rootTask:
+        task: SimpleHumanoidHostileCompound
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        100: Dead
+    - type: AutoImplant
+      implants:
+      - DeathAcidifierImplant
+      - SpaceProofImplant
+
+- type: entity
+  name: syndicate guard
+  parent: BaseMobHuman
+  id: MobSyndicateGuardRangedT1
+  suffix: rangedT1
+  components:
+    - type: RandomHumanoidAppearance
+    - type: NpcFactionMember
+      factions:
+        - Syndicate
+    - type: Loadout
+      prototypes:
+        - SyndicateGuardRangedTier1
+    - type: InputMover
+    - type: MobMover
+    - type: HTN
+      rootTask:
+        task: SimpleHumanoidHostileCompound
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        100: Dead
+    - type: AutoImplant
+      implants:
+      - DeathAcidifierImplant
+      - SpaceProofImplant
+
+- type: entity
+  name: syndicate guard
+  parent: BaseMobHuman
+  id: MobSyndicateGuardRangedT2
+  suffix: rangedT2
+  components:
+    - type: RandomHumanoidAppearance
+    - type: NpcFactionMember
+      factions:
+        - Syndicate
+    - type: Loadout
+      prototypes:
+        - SyndicateGuardRangedTier2
+    - type: InputMover
+    - type: MobMover
+    - type: HTN
+      rootTask:
+        task: SimpleHumanoidHostileCompound
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        100: Dead
+    - type: AutoImplant
+      implants:
+      - DeathAcidifierImplant
+      - SpaceProofImplant
+
+- type: entity
+  name: syndicate outpost overseer
+  parent: BaseMobHuman
+  id: SyndicateOverseer
+  suffix: ghostrole
+  components:
+    - type: GhostTakeoverAvailable
+    - type: GhostRole
+      name: ghost-role-information-overseer-name
+      description: ghost-role-information-overseer-description
+      rules: ghost-role-information-overseer-rules
+      mindRoles:
+      - MindRoleGhostRoleTeamAntagonist
+      raffle:
+        settings: short
+    - type: RandomHumanoidAppearance
+    - type: RandomMetadata
+    - type: NpcFactionMember
+      factions:
+        - Syndicate
+    - type: Loadout
+      prototypes:
+        - SyndicateOverseer
+    - type: InputMover
+    - type: MobMover
+    - type: HTN
+      rootTask:
+        task: SimpleHumanoidHostileCompound
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        100: Dead
+    - type: AutoImplant
+      implants:
+      - DeathAcidifierImplant
+      - SpaceProofImplant
