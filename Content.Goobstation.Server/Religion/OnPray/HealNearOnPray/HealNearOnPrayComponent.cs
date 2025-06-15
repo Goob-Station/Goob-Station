@@ -26,6 +26,12 @@ public sealed partial class HealNearOnPrayComponent : Component
     public SoundSpecifier HealSoundPath = new SoundPathSpecifier("/Audio/Effects/holy.ogg");
 
     /// <summary>
+    /// Which sound to play on damage.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier SizzleSoundPath = new SoundPathSpecifier("/Audio/Effects/lightburn.ogg");
+
+    /// <summary>
     /// Which effect to display on heal.
     /// </summary>
     [DataField]
