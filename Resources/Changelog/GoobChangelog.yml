@@ -11281,3 +11281,13 @@ Entries:
       message: BSO now has an objective to protect one random command member
   id: 1239
   time: '2025-06-15T07:44:45.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Tweak
+      message: >-
+        Changed the SM containment's doors and windows for fresh models direct
+        from Centcomm
+    - type: Tweak
+      message: 'Gave Bagels Brigmed a makeover '
+  id: 1240
+  time: '2025-06-15T07:45:19.0000000+00:00'
