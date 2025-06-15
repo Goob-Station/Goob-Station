@@ -122,9 +122,9 @@
     damageCoefficient: 0.75
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: [ClothingHeadBase, BaseCentcommContraband]
   id: ClothingHeadHatBeretBlueshield
-  name: blueshield officer's beret
+  name: blueshield's armored beret
   description: A durable beret woven out of durathread. Provides protection, too.
   components:
   - type: Sprite
@@ -156,20 +156,9 @@
     damageCoefficient: 0.75
 
 - type: entity
-  parent: ClothingHeadBase
-  id: ClothingHeadMailCarrier
-  name: mail carrier's hat
-  description: Smells like a good pension.
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Hats/mailman.rsi
-  - type: Clothing
-    sprite: _Goobstation/Clothing/Head/Hats/mailman.rsi
-
-- type: entity
-  parent: ClothingHeadBase
+  parent: [ClothingHeadBase, BaseCentcommContraband]
   id: ClothingHeadHatCowboyBlueshield
-  name: blueshield cowboy hat
+  name: blueshield's armored cowboy hat
   description: Sheriff's back in town, kids.
   components:
   - type: Sprite
@@ -199,6 +188,61 @@
         Caustic: 0.75
   - type: ExplosionResistance
     damageCoefficient: 0.75
+
+- type: entity
+  parent: [ClothingHeadBase, BaseFoldable, BaseCentcommContraband]
+  id: ClothingHeadHatUshankaBlueshield
+  name: blueshield's armored ushanka
+  description: Perfect for saving heads in Siberia, da?
+  components:
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hats/blueshield_ushanka.rsi
+  - type: Appearance
+  #- type: AddAccentClothing # 1984
+  #  accent: RussianAccent
+  - type: Foldable
+    canFoldInsideContainer: true
+  - type: FoldableClothing
+    foldedEquippedPrefix: up
+    foldedHeldPrefix: up
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hats/blueshield_ushanka.rsi
+    layers:
+    - state: icon
+      map: [ "unfoldedLayer" ]
+    - state: icon-up
+      map: ["foldedLayer"]
+      visible: false
+  - type: Armor
+    coverage:
+    - Head
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.3
+        Heat: 0.3
+        Radiation: 0.75
+        Caustic: 0.75
+  - type: ExplosionResistance
+    damageCoefficient: 0.75
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadMailCarrier
+  name: mail carrier's hat
+  description: Smells like a good pension.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hats/mailman.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hats/mailman.rsi
 
 - type: entity
   parent: ClothingHeadHeadHatBaseFlippable
