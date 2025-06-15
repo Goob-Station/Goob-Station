@@ -180,6 +180,11 @@
   id: FloorTileItemDarkOffset
   result: FloorTileItemDarkOffset
 
+- type: latheRecipe
+  parent: BaseDarkTileRecipe
+  id: FloorTileItemDarkSquiggly
+  result: FloorTileItemDarkSquiggly
+
 # White steel tiles
 - type: latheRecipe
   parent: BaseWhiteTileRecipe
