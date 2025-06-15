@@ -10,15 +10,16 @@
   id: TCminer
   name: telecrystal miner
   parent: [BaseMachinePowered, BaseSyndicateContraband]
-  description: A very loud machine that uses bluespace blockchain technology to generate telecrystals every 10 seconds when powered.
+  description: A very loud machine that uses bluespace blockchain technology to generate telecrystals every 30 seconds when powered.
   components:
   - type: ApcPowerReceiver
-    powerLoad: 10000
+    powerLoad: 20000
   - type: TelecrystalMiner
-    required: 60 # breakeven
+    announceAt: 40
+    locationAt: 100 # breakeven
   - type: ItemMiner
-    interval: 10
-    amount: 1
+    interval: 30
+    amount: 5
     proto: Telecrystal1
     itemSlotId: tc_slot
   - type: Sprite

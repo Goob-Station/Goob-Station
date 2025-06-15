@@ -13,7 +13,7 @@
 - type: entity
   parent: [Clothing, ContentsExplosionResistanceBase]
   id: ClothingModsuitStandard
-  name: standard modsuit hardsuit unit
+  name: standard hardsuit control unit
   description: A special modular suit contol unit containing all necessary modular hardsuit parts.
   components:
   - type: Appearance
