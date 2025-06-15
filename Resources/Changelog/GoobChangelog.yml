@@ -11203,3 +11203,21 @@ Entries:
       message: Blueshield officers can now choose armored ushanka in the loadout.
   id: 1231
   time: '2025-06-15T07:22:38.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Add
+      message: office chairs to saltern
+    - type: Add
+      message: public lavaland to saltern
+    - type: Add
+      message: CC office to saltern
+    - type: Add
+      message: holopads to saltern
+    - type: Add
+      message: brigmed infrastructure to saltern
+    - type: Remove
+      message: public laths on saltern
+    - type: Tweak
+      message: AI sat on saltern
+  id: 1232
+  time: '2025-06-15T07:26:03.0000000+00:00'
