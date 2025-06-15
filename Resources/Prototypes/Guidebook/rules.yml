@@ -62,24 +62,6 @@
   text: "/ServerInfo/Guidebook/ServerRules/UA/RuleU6Sandbox.xml"
 
 - type: guideEntry
-  id: SpaceLaw
-  name: guide-entry-rules-sl
-  priority: 7
-  text: "/ServerInfo/Guidebook/ServerRules/SpaceLaw/SpaceLaw.xml"
-  children:
-  - SpaceLawScope
-  - SpaceLawPrinciples
-  - SpaceLawApplication
-  - SpaceLawEnemies
-  - SpaceLawForce
-  - SpaceLawCases
-  - SpaceLawCrimeList
-  - SpaceLawControlledSubstances
-  - SpaceLawRestrictedGear
-  - SpaceLawRestrictedWeapons
-  - SpaceLawPermissions
-
-- type: guideEntry
   id: SpaceLawScope
   name: guide-entry-rules-sl-scope
   priority: 1
