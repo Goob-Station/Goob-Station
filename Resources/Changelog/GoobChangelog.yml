@@ -10999,3 +10999,11 @@ Entries:
       message: Appraisal tools removed from Lathes and added to Cargo Fab.
   id: 1212
   time: '2025-06-15T05:13:21.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Tweak
+      message: >-
+        Reflective vest can no longer be abused to completely circumvent AI
+        turrets. 
+  id: 1213
+  time: '2025-06-15T05:40:36.0000000+00:00'
