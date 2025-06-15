@@ -11027,3 +11027,11 @@ Entries:
       message: Restrict warden items to warden
   id: 1216
   time: '2025-06-15T06:02:23.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: 'Heretic summons now have AI, and walk at a normal speed. '
+    - type: Tweak
+      message: Fleshstalkers immune to flashes.
+  id: 1217
+  time: '2025-06-15T06:06:20.0000000+00:00'
