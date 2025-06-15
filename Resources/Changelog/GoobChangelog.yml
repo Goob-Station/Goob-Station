@@ -11097,3 +11097,41 @@ Entries:
       message: Rosary can no longer target through walls.
   id: 1223
   time: '2025-06-15T06:29:32.0000000+00:00'
+- author: SaffronFennec
+  changes:
+    - type: Tweak
+      message: >-
+        Entropy now takes 5 seconds to siphon and has a 15s CD from 2 and 10
+        respectively. To compensate, the damage delay is longer.
+    - type: Tweak
+      message: The cult now is balanced around less members [50 > 40% of the crew]
+    - type: Tweak
+      message: Some prices for powers have been changed slightly.
+    - type: Tweak
+      message: Cult Leader votes are now 120 seconds long from 30.
+    - type: Tweak
+      message: >-
+        Cult Blades and Lances deal less asphyx damage, but more brute, and have
+        further reduced damage unwielded.
+    - type: Tweak
+      message: >-
+        Cult Scythes are worse at making death hallways, having faster
+        projectiles and a slower firerate, but are better at regular combat,
+        hitting much faster and having a higher reflect chance [20 > 35%]
+    - type: Tweak
+      message: >-
+        Null Glare has been completely rebalanced, being a 4-tile, 0.5s stun at
+        the cost of a weaker flash and 30s cooldown.
+    - type: Tweak
+      message: >-
+        Shunt has been nerfed, needing a second to stun from half a second, and
+        has a reduced effect. [22s > 15s stun]. Maybe distract the target and
+        cuff them / lure them closer to the monument?
+    - type: Fix
+      message: >-
+        Astral Nova actually deals near-intended damage. Apparently collision
+        makes it hit 3-*6* times, not the 2-3 delta-V expected. it has been
+        "nerfed" to compensate. [6-12s stun, 39-72 AP damage > 2.4-4.8s stun,
+        15-30 AP damage]
+  id: 1224
+  time: '2025-06-15T06:34:07.0000000+00:00'
