@@ -9,7 +9,7 @@
   sprite: /Textures/_Goobstation/Interface/Radial/RPD/inlineFilter.png
   mode: ConstructObject
   prototype: GasFilterInline
-  cost: 1
+  cost: 2
   delay: 0
   collisionMask: Impassable
   rotation: User
