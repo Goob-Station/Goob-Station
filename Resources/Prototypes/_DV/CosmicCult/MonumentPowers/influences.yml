@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SaffronFennec <firefoxwolf2020@protonmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -34,7 +35,7 @@
   id: InfluenceShuntSubjectivity
   name: influence-name-shunt
   influenceType: influence-type-active
-  cost: 3
+  cost: 4
   description: influence-description-shunt
   icon:
     sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
@@ -46,7 +47,7 @@
   id: InfluenceForceIngress
   name: influence-name-ingress
   influenceType: influence-type-active
-  cost: 3
+  cost: 2
   description: influence-description-ingress
   icon:
     sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
@@ -70,7 +71,7 @@
   id: InfluenceAstralNova
   name: influence-name-nova
   influenceType: influence-type-active
-  cost: 5
+  cost: 6
   description: influence-description-nova
   icon:
     sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
@@ -99,7 +100,7 @@
   id: InfluenceUnboundStep
   name: influence-name-step
   influenceType: influence-type-passive
-  cost: 3
+  cost: 4
   description: influence-description-step
   icon:
     sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
@@ -112,7 +113,7 @@
   id: InfluenceAstralStride
   name: influence-name-stride
   influenceType: influence-type-passive
-  cost: 7
+  cost: 6
   description: influence-description-stride
   icon:
     sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
