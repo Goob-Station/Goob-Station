@@ -131,8 +131,8 @@
       methods: [ Touch ]
       effects: # TODO: when magic is around - make a milk transformation to a skeleton monster
       - !type:HealthChange
-        scaleByQuantity: true
-        ignoreBlockers: true
+        scaleByQuantity: true # Woundmed
+        ignoreBlockers: true # What do broken bones even mean in the context of a skeleton?.. # Woundmed
         splitDamage: SplitEnsureAll
         damage:
           groups:
