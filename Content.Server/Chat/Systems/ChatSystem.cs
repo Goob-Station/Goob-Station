@@ -374,7 +374,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         {
             if (TryProccessCollectiveMindMessage(source, message, out var modMessage, out var channel))
             {
-                if (TryComp<CollectiveMindComponent>(source, out var comp) && comp.RespectAccents)
+                if (collective != null && collective.RespectAccents)
                 {
                     modMessage = TransformSpeech(source, modMessage);
                 }
