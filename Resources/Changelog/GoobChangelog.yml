@@ -11275,3 +11275,9 @@ Entries:
       message: Sentient artifact activation cooldown (5 -> 1 minutes)
   id: 1238
   time: '2025-06-15T07:43:34.0000000+00:00'
+- author: misandrie
+  changes:
+    - type: Add
+      message: BSO now has an objective to protect one random command member
+  id: 1239
+  time: '2025-06-15T07:44:45.0000000+00:00'
