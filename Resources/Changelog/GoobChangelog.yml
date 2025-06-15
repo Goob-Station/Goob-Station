@@ -11079,3 +11079,21 @@ Entries:
         kill, when we can truly take over the station as one.
   id: 1222
   time: '2025-06-15T06:22:38.0000000+00:00'
+- author: Rubin
+  changes:
+    - type: Tweak
+      message: Rosary healing & damage have been reduced.
+    - type: Tweak
+      message: Antag passive holy healing has been reduced.
+    - type: Fix
+      message: >-
+        Cosmic Cult sometimes not taking holy damage when wearing/holding evil
+        equipment.
+    - type: Fix
+      message: Rosary healing is properly divided between limbs.
+    - type: Fix
+      message: Rosary can no longer heal silicon nor the dead.
+    - type: Fix
+      message: Rosary can no longer target through walls.
+  id: 1223
+  time: '2025-06-15T06:29:32.0000000+00:00'
