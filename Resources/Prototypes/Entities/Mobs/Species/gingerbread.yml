@@ -8,6 +8,7 @@
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
@@ -58,14 +59,14 @@
       methods: [ Touch ]
       effects:
       - !type:WashCreamPieReaction
-    - reagents: [ Water ]
+    - reagents: [ Milk ] #goob
       methods: [ Touch ]
       effects:
       - !type:HealthChange
         scaleByQuantity: true
         damage:
           types:
-            Heat: 0.3
+            Heat: 3 #goob
       - !type:PopupMessage
         type: Local
         visualType: Large
@@ -96,7 +97,17 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
-
+  - type: FlavorProfile #goob
+    flavors:
+    - sweet
+  - type: Food
+    requireDead: true
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 100 #goob
 
 - type: entity
   parent: BaseSpeciesDummy
