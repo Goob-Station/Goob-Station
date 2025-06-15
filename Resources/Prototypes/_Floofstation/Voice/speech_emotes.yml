@@ -10,7 +10,7 @@
   id: Yip
   name: chat-emote-name-yip
   category: Vocal
-  icon: Mobs/Animals/kobold.rsi/full.png
+  icon: { sprite: Mobs/Animals/kobold.rsi, state: full }
   chatMessages: [ "chat-emote-msg-yip" ]
   whitelist:
     tags:
