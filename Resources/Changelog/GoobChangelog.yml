@@ -11035,3 +11035,9 @@ Entries:
       message: Fleshstalkers immune to flashes.
   id: 1217
   time: '2025-06-15T06:06:20.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Tone down insane salv armor values
+  id: 1218
+  time: '2025-06-15T06:06:55.0000000+00:00'
