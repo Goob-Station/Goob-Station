@@ -85,6 +85,7 @@
     - CanPilot
     - FootstepSound
     - DoorBumpOpener
+    - AnomalyHost
     - FelinidEmotes
   #- type: FootPrints # WD EDIT
   - type: Consciousness

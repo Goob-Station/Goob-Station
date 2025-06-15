@@ -139,6 +139,7 @@
     - CanPilot
     - FootstepSound
     - DoorBumpOpener
+    - AnomalyHost
     - VulpEmotes
 
 - type: entity
