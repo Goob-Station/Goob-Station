@@ -19,6 +19,7 @@
 # SPDX-FileCopyrightText: 2025 GreenArg7 <GreenArc12@outlook.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 LuciferEOS <stepanteliatnik2022@gmail.com>
 # SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 LuciferMkshelter <stepanteliatnik2022@gmail.com>
@@ -319,6 +320,10 @@
 - type: Tag
   id: Liver
 
+# tag roundstart rules that should be run alone
+- type: Tag
+  id: LoneRunRule
+
 - type: Tag
   id: Lungs
 
@@ -333,6 +338,9 @@
 
 - type: Tag
   id: MagazineMagnumLeverRifle
+
+- type: Tag
+  id: MagazineNailgun
 
 - type: Tag
   id: MagazineShotgunHeavy
@@ -399,6 +407,12 @@
 
 - type: Tag
   id: Muzzle
+
+- type: Tag
+  id: Nail
+
+- type: Tag
+  id: Nailgun
 
 - type: Tag
   id: NonLethalGrenade

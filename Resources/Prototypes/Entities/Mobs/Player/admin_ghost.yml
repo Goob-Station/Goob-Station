@@ -129,10 +129,10 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Luna "YuNii" Henrich <yuniivrc+github@proton.me>
 # SPDX-FileCopyrightText: 2025 Myra <vasilis@pikachu.systems>
-# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 # SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ScarKy0 <scarky0@onet.eu>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
@@ -165,7 +165,7 @@
   - type: Hands
   - type: ComplexInteraction
   - type: Puller
-    needsHands: false # Goobstation - admin ghosts no longer need a free hand to pull
+    needsHands: false
   - type: CombatMode
   - type: Physics
     ignorePaused: true
@@ -220,7 +220,6 @@
   - type: RadarConsole
     followEntity: true
   - type: CargoOrderConsole
-  - type: BankClient
   - type: CrewMonitoringConsole
   - type: GeneralStationRecordConsole
     canDeleteEntries: true
@@ -244,6 +243,8 @@
     prototypes: [ MobAghostGear ]
   - type: BypassInteractionChecks
   - type: SupermatterImmune # Goobstation
+  - type: Speech # Goobstation
+    speechVerb: HolierThanThou
   - type: Eye
     visMask:
       - Ghost
