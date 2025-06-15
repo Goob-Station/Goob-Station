@@ -21,7 +21,7 @@ public sealed class ProjectileDamageWhitelistSystem : EntitySystem
 
     private void OnProjectileHit(Entity<ProjectileDamageWhitelistComponent> ent, ref ProjectileHitEvent args)
     {
-        if (!_whitelist.IsWhitelistFailOrNull(ent.Comp.Whitelist, args.Target))
+        if (_whitelist.IsWhitelistPass(ent.Comp.Whitelist, args.Target))
             _damageable.TryChangeDamage(args.Target, ent.Comp.Damage, ent.Comp.IgnoreResistances);
     }
 }
