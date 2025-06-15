@@ -89,6 +89,7 @@
 // SPDX-FileCopyrightText: 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
+// SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
@@ -176,6 +177,7 @@ namespace Content.IntegrationTests.Tests
             "/Maps/_Goobstation/bagel.yml",
             "/Maps/_Goobstation/barratry.yml",
             "/Maps/_Goobstation/cluster.yml",
+            "/Maps/_Goobstation/amber.yml",
             "/Maps/_Goobstation/kettle.yml",
             "/Maps/_Goobstation/lambda.yml",
             "/Maps/_Goobstation/leonid.yml",
@@ -223,11 +225,12 @@ namespace Content.IntegrationTests.Tests
             "Submarine", // Goobstation - add Submarine
             "Lambda", // Goobstation - add Lambda
             "Leonid", // Goobstation - add Leonid
-            //"Amber", // NO AMBER DHH
+            "Amber", 
             "Gate", // Goobstation - goob changes
             "Lavatest", // Lavaland Change
             "Loop",
             "Delta", // Goobstation - add Delta
+            "dm01-entryway",
             "Chloris", // Goobstation
         };
 
