@@ -30,7 +30,6 @@
         settings: default
     - type: GhostTakeoverAvailable
     - type: AntagImmune
-    - type: Hologram
     - type: MovementIgnoreGravity
     - type: RequireProjectileTarget
       active: True

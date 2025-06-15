@@ -4,6 +4,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Shared.CloneProjector.Clone;
+using Content.Shared.Nyanotrasen.Holograms;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Events;
@@ -17,10 +18,15 @@ public abstract class SharedCloneProjectorSystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<HolographicCloneComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<HolographicCloneComponent, MeleeHitEvent>(OnMeleeHit);
         SubscribeLocalEvent<HolographicCloneComponent, ShotAttemptedEvent>(OnShotAttempted);
     }
 
+    private void OnStartup(Entity<HolographicCloneComponent> clone, ref ComponentStartup args)
+    {
+        EnsureComp<HologramVisualsComponent>(clone);
+    }
     private void OnMeleeHit(Entity<HolographicCloneComponent> clone, ref MeleeHitEvent args)
     {
         if (!args.IsHit
