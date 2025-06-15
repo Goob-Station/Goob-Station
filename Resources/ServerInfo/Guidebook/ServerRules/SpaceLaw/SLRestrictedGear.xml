@@ -44,7 +44,7 @@
 <Box>
   <GuideEntityEmbed Entity="Telecrystal1" Caption="Телекристали"/>
 
-  <GuideEntityEmbed Entity="BaseUplinkRadio40TC" Caption="Аплінк"/>
+  <GuideEntityEmbed Entity="BaseUplinkRadio50TC" Caption="Аплінк"/>
 </Box>
 <Box>
   <GuideEntityEmbed Entity="Emag" Caption="Технології взлому доступів"/>
