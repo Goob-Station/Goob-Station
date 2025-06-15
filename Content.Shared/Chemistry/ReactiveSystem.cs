@@ -75,6 +75,10 @@ public sealed class ReactiveSystem : EntitySystem
         if (reactive is { IsReactionsUnlimited: false, RemainingReactions: <= 0 }) // Goobstation
             return;
 
+        // custom event for bypassing reactivecomponent stuff
+        var ev = new ReactionEntityEvent(method, proto, reagentQuantity, source);
+        RaiseLocalEvent(uid, ref ev);
+
         // If we have a source solution, use the reagent quantity we have left. Otherwise, use the reaction volume specified.
         var args = new EntityEffectReagentArgs(uid, EntityManager, null, source, source?.GetReagentQuantity(reagentQuantity.Reagent) ?? reagentQuantity.Quantity, proto, method, 1f);
 
@@ -166,3 +170,11 @@ Injection,
 Ingestion,
 Eyes,
 }
+
+[ByRefEvent]
+public readonly record struct ReactionEntityEvent(
+    ReactionMethod Method,
+    ReagentPrototype Reagent,
+    ReagentQuantity ReagentQuantity,
+    Solution? Source
+);

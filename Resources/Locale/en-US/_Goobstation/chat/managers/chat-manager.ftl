@@ -31,3 +31,13 @@ chat-speech-verb-VoiceModulator-2 = buzzes
 chat-speech-verb-VoiceModulator-3 = drones
 chat-speech-verb-VoiceModulator-4 = hums
 chat-speech-verb-VoiceModulator-5 = crackles
+
+chat-speech-verb-name-holier-than-thou = Holier Than Thou
+chat-speech-verb-holier-than-thou-1 = commands
+chat-speech-verb-holier-than-thou-2 = lectures
+chat-speech-verb-holier-than-thou-3 = articulates
+chat-speech-verb-holier-than-thou-4 = proclaims
+chat-speech-verb-holier-than-thou-5 = announces
+chat-speech-verb-holier-than-thou-6 = recites
+chat-speech-verb-holier-than-thou-7 = declares
+chat-speech-verb-holier-than-thou-8 = pronounces
