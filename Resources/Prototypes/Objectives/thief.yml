@@ -77,7 +77,6 @@
 # SPDX-FileCopyrightText: 2024 reverie collection <revsys413@gmail.com>
 # SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 stroopwafel <j.o.luijkx@student.tudelft.nl>
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
@@ -87,6 +86,9 @@
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2024 Эдуард <36124833+Ertanic@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
+# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -342,16 +344,16 @@
   - type: Objective
     difficulty: 1
 
-- type: entity                                      #Cargo subgroup
-  parent: BaseThiefStealObjective
-  id: ExpeditionsCircuitboardStealObjective
-  components:
-  - type: NotJobRequirement
-    job: SalvageSpecialist
-  - type: StealCondition
-    stealGroup: SalvageExpeditionsComputerCircuitboard
-  - type: Objective
-    difficulty: 0.7
+#- type: entity                                      #Cargo subgroup
+#  parent: BaseThiefStealObjective
+#  id: ExpeditionsCircuitboardStealObjective
+#  components:
+#  - type: NotJobRequirement                          Goob edit - Removed due to Lavaland
+#    job: SalvageSpecialist
+#  - type: StealCondition
+#    stealGroup: SalvageExpeditionsComputerCircuitboard
+#  - type: Objective
+#    difficulty: 0.7
 
 - type: entity
   parent: BaseThiefStealObjective
