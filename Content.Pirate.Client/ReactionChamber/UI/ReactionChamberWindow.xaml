@@ -33,12 +33,14 @@
                 <PanelContainer.PanelOverride>
                     <gfx:StyleBoxFlat BackgroundColor="#404046"></gfx:StyleBoxFlat>
                 </PanelContainer.PanelOverride>
-                <TextureButton SetSize="64 64"
+
+                <TextureButton SetSize="44 44"
                         ToggleMode="True"
                         Pressed="False"
                         Name="ActiveButton"
                         Margin="75 3 0 0">
                 </TextureButton>
+
             </PanelContainer>
         </PanelContainer>
         <BoxContainer Margin="0 20 0 0"
