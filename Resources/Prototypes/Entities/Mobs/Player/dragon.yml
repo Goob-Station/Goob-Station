@@ -305,6 +305,11 @@
     damageModifierSet: Dragon
   - type: Puller
     needsHands: false
+  - type: RandomMetadata
+    nameSegments:
+    - NamesDragon
+    - NamesDragonTitle
+    nameFormat: name-format-dragon
   - type: NightVision # Goobstation - Nigthvision
     color: "#808080"
     activateSound: null
@@ -313,6 +318,12 @@
   - type: CombatPower # Goobstation
     factor: 4 # times more dangerous than a crew-member
   - type: Fauna # Lavaland Change
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 2.5 # fast because dragon strong
+    useSound:
+      path: /Audio/Items/crowbar.ogg
 
 - type: entity
   parent: BaseMobDragon
