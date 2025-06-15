@@ -70,7 +70,8 @@ public sealed class MultiHandedItemSystem : EntitySystem
     // everything below is Goobstation
     private void OnComponentStartup(Entity<MultiHandedItemComponent> ent, ref ComponentStartup args)
     {
-        if (!_container.TryGetContainingContainer((ent, null, null), out var container)
+        if (_timing.ApplyingState
+            || !_container.TryGetContainingContainer((ent, null, null), out var container)
             || !HasComp<HandsComponent>(container.Owner))
             return;
 
@@ -100,7 +101,8 @@ public sealed class MultiHandedItemSystem : EntitySystem
         // Method exists for that but it calls an event on deleting the virtual item hence forces the item to drop
         foreach (var hand in _hands.EnumerateHands(Transform(ent).ParentUid))
         {
-            if (!TryComp(hand.HeldEntity, out VirtualItemComponent? virt)
+            if (_timing.InPrediction
+                || !TryComp(hand.HeldEntity, out VirtualItemComponent? virt)
                 || virt.BlockingEntity != ent.Owner)
                 continue;
 
