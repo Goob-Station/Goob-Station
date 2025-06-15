@@ -65,8 +65,12 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Soup-Byte07 <135303377+Soup-Byte07@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Soup-Byte07 <soupbyte30@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tim <timfalken@hotmail.com>
+// SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -96,6 +100,7 @@ using Content.Shared.Power;
 using Content.Shared.ReagentSpeed;
 using Content.Shared.Research.Components;
 using Content.Shared.Research.Prototypes;
+using Content.Goobstation.Shared.Lathe; // Goobstation
 using JetBrains.Annotations;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
@@ -144,6 +149,7 @@ namespace Content.Server.Lathe
 
             SubscribeLocalEvent<LatheComponent, LatheQueueRecipeMessage>(OnLatheQueueRecipeMessage);
             SubscribeLocalEvent<LatheComponent, LatheSyncRequestMessage>(OnLatheSyncRequestMessage);
+            SubscribeLocalEvent<LatheComponent, LatheQueueResetMessage>(OnLatheQueueResetMessage); // Goobstation
 
             SubscribeLocalEvent<LatheComponent, BeforeActivatableUIOpenEvent>((u, c, _) => UpdateUserInterfaceState(u, c));
             SubscribeLocalEvent<LatheComponent, MaterialAmountChangedEvent>(OnMaterialAmountChanged);
@@ -334,6 +340,7 @@ namespace Content.Server.Lathe
             }
         }
 
+
         public void UpdateUserInterfaceState(EntityUid uid, LatheComponent? component = null)
         {
             if (!Resolve(uid, ref component))
@@ -448,6 +455,37 @@ namespace Content.Server.Lathe
                 _chatSystem.TrySendInGameICMessage(uid, Loc.GetString("lathe-technology-recipes-update-message", ("count", recipesCount)), InGameICChatType.Speak, hideChat: true);
             // Goobstation - Lathe message on recipes update - End
         }
+
+
+        // Goobstation - Lathe Queue Reset
+        private void OnLatheQueueResetMessage(EntityUid uid, LatheComponent component, LatheQueueResetMessage args)
+        {
+            if (component.Queue.Count > 0)
+            {
+                var allMaterials = component.Queue.SelectMany(q => q.Materials);
+                var totalMaterials = new Dictionary<string, int>();
+
+                foreach (var (mat, amount) in allMaterials)
+                {
+                    if(!totalMaterials.ContainsKey(mat)) 
+                        totalMaterials[mat] = 0;
+                    totalMaterials[mat] += amount;
+                }
+
+                if(_materialStorage.CanChangeMaterialAmount(uid, totalMaterials))
+                {
+                    foreach (var (mat, amount) in totalMaterials)
+                    {
+                        _materialStorage.TryChangeMaterialAmount(uid, mat, amount);
+                    }
+                    component.Queue.Clear();
+                } else {
+                    _popup.PopupEntity(Loc.GetString("lathe-queue-reset-material-overflow"), uid);
+                }
+            }
+            UpdateUserInterfaceState(uid, component);
+        }
+        // Goobstation - Lathe Queue Reset
 
         private void OnResearchRegistrationChanged(EntityUid uid, LatheComponent component, ref ResearchRegistrationChangedEvent args)
         {
