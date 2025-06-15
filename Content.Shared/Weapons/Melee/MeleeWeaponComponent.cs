@@ -25,6 +25,7 @@
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 // SPDX-FileCopyrightText: 2025 vanx <61917534+Vaaankas@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -230,9 +231,6 @@ public sealed partial class MeleeWeaponComponent : Component
     // Goobstation
     [DataField, AutoNetworkedField]
     public bool CanWideSwing = true;
-
-    [DataField, AutoNetworkedField]
-    public float ArmorPenetration;
 }
 
 /// <summary>

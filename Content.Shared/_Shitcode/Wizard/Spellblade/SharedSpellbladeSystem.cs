@@ -4,6 +4,7 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -55,7 +56,7 @@ public abstract class SharedSpellbladeSystem : EntitySystem
     private void OnDamageModify(Entity<ShieldedComponent> ent, ref DamageModifyEvent args)
     {
         args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage,
-            DamageSpecifier.PenetrateArmor(ent.Comp.Resistances, args.ArmorPenetration));
+            DamageSpecifier.PenetrateArmor(ent.Comp.Resistances, args.OriginalDamage.ArmorPenetration));
     }
 
     private void OnBeforeStatusEffect(Entity<ShieldedComponent> ent, ref BeforeStatusEffectAddedEvent args)

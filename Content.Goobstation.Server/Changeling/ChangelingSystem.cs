@@ -254,28 +254,21 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     }
     public void Cycle(EntityUid uid, ChangelingIdentityComponent comp)
     {
-        UpdateChemicals(uid, comp);
+        UpdateChemicals(uid, comp, manualAdjust: false);
         UpdateAbilities(uid, comp);
     }
 
-    private void UpdateChemicals(EntityUid uid, ChangelingIdentityComponent comp, float? amount = null)
+    private void UpdateChemicals(EntityUid uid, ChangelingIdentityComponent comp, float? amount = null, bool manualAdjust = true)
     {
-        var chemicals = comp.Chemicals;
-        // either amount or regen
-
-        if (!CheckFireStatus(uid)) // if on fire, reduce total chemicals restored to a 1/4 //
-        {
-            chemicals += (amount ?? 1 + comp.BonusChemicalRegen) * comp.ChemicalRegenMultiplier;
-        }
+        if (manualAdjust)
+            AdjustChemicals(uid, comp, amount ?? 1);
         else
-        {
-            chemicals += (amount ?? 1 + comp.BonusChemicalRegen) * comp.ChemicalRegenMultiplier * 0.25f;
-        }
+            RegenerateChemicals(uid, comp, amount ?? 1);
 
-        comp.Chemicals = Math.Clamp(chemicals, 0, comp.MaxChemicals);
         Dirty(uid, comp);
         _alerts.ShowAlert(uid, "ChangelingChemicals");
     }
+
     private void UpdateAbilities(EntityUid uid, ChangelingIdentityComponent comp)
     {
         _speed.RefreshMovementSpeedModifiers(uid);
@@ -290,6 +283,32 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         if (comp.IsInStasis && comp.StasisTime > 0f)
             comp.StasisTime -= 1f;
 
+    }
+
+    private void RegenerateChemicals(EntityUid uid, ChangelingIdentityComponent comp, float amount) // this happens passively
+    {
+        var chemicals = comp.Chemicals;
+
+        if (CheckFireStatus(uid)) // if on fire, reduce total chemicals restored to a 1/4 //
+        {
+            chemicals += (amount + comp.BonusChemicalRegen) * comp.ChemicalRegenMultiplier * 0.25f;
+            comp.Chemicals = Math.Clamp(chemicals, 0, comp.MaxChemicals);
+            return;
+        }
+
+        chemicals += (amount + comp.BonusChemicalRegen) * comp.ChemicalRegenMultiplier;
+        comp.Chemicals = Math.Clamp(chemicals, 0, comp.MaxChemicals);
+        return;
+
+    }
+
+    private void AdjustChemicals(EntityUid uid, ChangelingIdentityComponent comp, float amount) // this happens via abilities and such
+    {
+        var chemicals = comp.Chemicals;
+
+        chemicals += amount;
+        comp.Chemicals = Math.Clamp(chemicals, 0, comp.MaxChemicals);
+        return;
     }
 
     #region Helper Methods
@@ -859,7 +878,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         }
         else
         {
-            ent.Comp.Chemicals = ent.Comp.MaxChemicals; // only by admin rejuv, for testing and whatevs
+            UpdateChemicals(ent, ent.Comp, ent.Comp.MaxChemicals); // only by admin rejuv, for testing and whatevs
             _popup.PopupEntity(Loc.GetString("changeling-rejuvenate"), ent, ent); // woah...
         }
     }
