@@ -11261,3 +11261,11 @@ Entries:
         tails) and protects the user's identity.
   id: 1236
   time: '2025-06-15T07:41:12.0000000+00:00'
+- author: Super7522
+  changes:
+    - type: Add
+      message: >-
+        New Shipment of Holy Supplies, for those Cultists rounds when the Bible
+        is lost
+  id: 1237
+  time: '2025-06-15T07:42:45.0000000+00:00'
