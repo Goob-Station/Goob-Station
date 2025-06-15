@@ -320,6 +320,10 @@
 - type: Tag
   id: Liver
 
+# tag roundstart rules that should be run alone
+- type: Tag
+  id: LoneRunRule
+
 - type: Tag
   id: Lungs
 
