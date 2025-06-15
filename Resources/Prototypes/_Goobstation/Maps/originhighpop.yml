@@ -24,7 +24,12 @@
 # SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
 # SPDX-FileCopyrightText: 2024 terezi <147006836+terezi-station@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -52,14 +57,14 @@
             NanotrasenRepresentative: [ 1, 1 ]
             BlueshieldOfficer: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
-            Bartender: [ 3, 3 ]
+            Bartender: [ 4, 4 ]
             Botanist: [ 5, 5 ]
             Chef: [ 4, 4 ]
-            Janitor: [ 6, 6 ]
+            Janitor: [ 7, 7 ]
             Chaplain: [ 1, 1 ]
-            Librarian: [ 2, 2 ]
-            ServiceWorker: [ 4, 4 ]
-            Reporter: [ 3, 3 ]
+            Librarian: [ 4, 4 ]
+            ServiceWorker: [ 6, 6 ]
+            Reporter: [ 4, 4 ]
             #engineering
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 5, 5 ]
