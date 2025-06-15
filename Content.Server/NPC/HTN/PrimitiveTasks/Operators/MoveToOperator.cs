@@ -3,6 +3,8 @@
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
