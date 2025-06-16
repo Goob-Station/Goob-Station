@@ -387,8 +387,13 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
 
     private void OnWearerStateChanged(Entity<WearingCloneProjectorComponent> wearer, ref MobStateChangedEvent args)
     {
-        if (args.NewMobState == MobState.Dead
-            && wearer.Comp.ConnectedProjector is { } projector)
-            TryInsertClone(projector);
+        if (args.NewMobState != MobState.Dead
+            || wearer.Comp.ConnectedProjector is not { } projector
+            || projector.Comp.CloneUid is not { } clone)
+            return;
+
+        CleanClone(clone, true);
+        TryInsertClone(projector);
+
     }
 }
