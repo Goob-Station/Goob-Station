@@ -1,14 +1,3 @@
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Numerics;
 using Content.Goobstation.Common.Physics;
 using Robust.Client.GameObjects;
@@ -19,10 +8,6 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Client.Physics;
 
-/// <summary>
-/// Goobstation edit: this was completely rewritten to support multiple joints.
-/// Replace only if this overlay will work even better on wizcode, or it will just have too many uses in wizcode and be too annoying to support
-/// </summary>
 public sealed class ComplexJointVisualsOverlay : Overlay
 {
     public override OverlaySpace Space => OverlaySpace.WorldSpaceEntities;
