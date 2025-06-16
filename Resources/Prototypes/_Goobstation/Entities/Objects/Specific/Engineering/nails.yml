@@ -17,12 +17,12 @@
   - type: ProjectileDamageWhitelist
     damage:
       types:
-        Blunt: -8
-        Slash: -8
-        Piercing: -8
-        Heat: -8
-        Shock: -8
-        Structural: -8
+        Blunt: -6
+        Slash: -6
+        Piercing: -6
+        Heat: -6
+        Shock: -6
+        Structural: -6
     ignoreResistances: true
     whitelist:
       tags:
@@ -40,7 +40,7 @@
     damage:
       types:
         Piercing: 5
-      armorPenetration: -1.75 # Very shitty against armor. Pro tip: target unarmored body parts
+      armorPenetration: -2 # Very shitty against armor. Pro tip: target unarmored body parts
   - type: Fixtures
     fixtures:
       fix1:
@@ -76,6 +76,7 @@
       whitelist:
         components:
         - EngineeringStaff
+  - type: ProjectileForceTarget # 1984
 
 - type: entity
   name: nail (armor-piercing)
@@ -93,12 +94,12 @@
   - type: ProjectileDamageWhitelist
     damage: # Slightly worse for repairs
       types:
-        Blunt: -6
-        Slash: -6
-        Piercing: -6
-        Heat: -6
-        Shock: -6
-        Structural: -6
+        Blunt: -4
+        Slash: -4
+        Piercing: -4
+        Heat: -4
+        Shock: -4
+        Structural: -4
 
 - type: entity
   parent: BaseItem
@@ -111,7 +112,7 @@
       tags:
       - Nail
     proto: Nail
-    capacity: 100
+    capacity: 60
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container

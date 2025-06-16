@@ -72,6 +72,7 @@ using Content.Shared.Camera;
 using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared._Shitmed.Targeting; // Shitmed
 using Content.Shared.Projectiles;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
@@ -112,7 +113,13 @@ public sealed class ProjectileSystem : SharedProjectileSystem
             return;
         }
 
-        var ev = new ProjectileHitEvent(component.Damage * _damageableSystem.UniversalProjectileDamageModifier, target, component.Shooter);
+        // Shitmed start
+        var targetPart = TargetBodyPart.Chest;
+        if (component.Shooter != null && TryComp<TargetingComponent>(component.Shooter.Value, out var targeting))
+            targetPart = targeting.Target;
+        // Shitmed end
+
+        var ev = new ProjectileHitEvent(component.Damage * _damageableSystem.UniversalProjectileDamageModifier, target, component.Shooter, targetPart); // Shitmed change
         RaiseLocalEvent(uid, ref ev);
 
         var otherName = ToPrettyString(target);
@@ -122,7 +129,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
             damageRequired -= damageableComponent.TotalDamage;
             damageRequired = FixedPoint2.Max(damageRequired, FixedPoint2.Zero);
         }
-        var modifiedDamage = _damageableSystem.TryChangeDamage(target, ev.Damage, component.IgnoreResistances, damageable: damageableComponent, origin: component.Shooter); // Goob edit
+        var modifiedDamage = _damageableSystem.TryChangeDamage(target, ev.Damage, component.IgnoreResistances, damageable: damageableComponent, origin: component.Shooter, targetPart: ev.TargetPart); // Goob and Shitmed edit
         var deleted = Deleted(target);
 
         if (modifiedDamage is not null && EntityManager.EntityExists(component.Shooter))

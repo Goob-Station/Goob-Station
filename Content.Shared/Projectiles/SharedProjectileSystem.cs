@@ -33,6 +33,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
+using Content.Shared._Shitmed.Targeting; // Shitmed
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.DoAfter;
@@ -307,4 +308,4 @@ public record struct ProjectileReflectAttemptEvent(EntityUid ProjUid, Projectile
 /// Raised when a projectile hits an entity
 /// </summary>
 [ByRefEvent]
-public record struct ProjectileHitEvent(DamageSpecifier Damage, EntityUid Target, EntityUid? Shooter = null);
+public record struct ProjectileHitEvent(DamageSpecifier Damage, EntityUid Target, EntityUid? Shooter = null, TargetBodyPart? TargetPart = TargetBodyPart.Chest); // Shitmed change
