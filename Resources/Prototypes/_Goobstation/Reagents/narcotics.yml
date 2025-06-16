@@ -384,7 +384,6 @@
   id: OleoresinCapsaicin
   name: reagent-name-oleoresin-capsaicin
   group: Narcotics
-  slippery: true
   desc: reagent-desc-oleoresin-capsaicin
   physicalDesc: reagent-physical-desc-reflective
   flavor: sharp
