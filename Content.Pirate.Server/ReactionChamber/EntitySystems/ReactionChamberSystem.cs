@@ -16,6 +16,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.GameObjects;
 using Robust.Shared.IoC;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 
 namespace Content.Pirate.Server.ReactionChamber.EntitySystems;
 
@@ -24,6 +25,7 @@ public sealed partial class ReactionChamberSystem : EntitySystem
     const float ReactionChamberTreshold = 0.005f;
     [Dependency] readonly IPrototypeManager PrototypeManager = default!;
     [Dependency] readonly UserInterfaceSystem _userInterfaceSystem = default!;
+    [Dependency] readonly IGameTiming _timing = default!;
     [Dependency] readonly ItemSlotsSystem _itemSlotsSystem = default!;
     [Dependency] readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
     [Dependency] readonly AppearanceSystem _appearance = default!;
@@ -67,7 +69,11 @@ public sealed partial class ReactionChamberSystem : EntitySystem
                         _solutionContainerSystem.AddThermalEnergy(soln, (float) comp.DeltaJ);
                         comp.IsAllTempRight = false;
                         var t = new ReactionChamberTempChangeMessage(solnTemp);
-                        UpdateUiState(new Entity<ReactionChamberComponent>(uid, comp), ref t);
+                        if (_timing.CurTime.TotalSeconds - comp.LastTempUpdate >= comp.UIRefreshRate)
+                        {
+                            UpdateUiState(new Entity<ReactionChamberComponent>(uid, comp), ref t);
+                            comp.LastTempUpdate = _timing.CurTime.TotalSeconds;
+                        }
                         if (Math.Abs(comp.DeltaJ) <= ReactionChamberTreshold)
                         {
                             _solutionContainerSystem.SetTemperature(soln, comp.Temp); // optymizacija included :)

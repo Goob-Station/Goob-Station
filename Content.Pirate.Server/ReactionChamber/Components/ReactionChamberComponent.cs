@@ -16,6 +16,12 @@ public sealed partial class ReactionChamberComponent : Component
     [DataField] public float MaxTemp = 742.15f;
 
     /// <summary>
+    /// Refresh rate of the solution temp indicator in seconds.
+    /// </summary>
+    [DataField] public double UIRefreshRate = 2d;
+    public double LastTempUpdate = 0d;
+
+    /// <summary>
     /// Actual solutions heat capacity.
     /// </summary>
     public float SolnHeatCapacity = 0f;
