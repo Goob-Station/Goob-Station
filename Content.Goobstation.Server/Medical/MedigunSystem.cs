@@ -4,6 +4,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Physics;
 using Content.Goobstation.Shared.Medical;
 using Content.Goobstation.Shared.Medical.Components;
 using Content.Server.Body.Systems;
@@ -17,7 +18,6 @@ using Content.Shared.Damage;
 using Content.Shared.Interaction;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
-using Content.Shared.Physics;
 using Content.Shared.Timing;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
@@ -208,8 +208,8 @@ public sealed class MedigunSystem : SharedMedigunSystem
         Dirty(uid, comp);
 
         // Joint visuals
-        var beam = EnsureComp<JointVisualsComponent>(uid);
-        var visuals = new JointVisualsData(comp.UberActivated ? comp.UberBeamSprite : comp.BeamSprite, Color.White);
+        var beam = EnsureComp<ComplexJointVisualsComponent>(uid);
+        var visuals = new ComplexJointVisualsData(comp.UberActivated ? comp.UberBeamSprite : comp.BeamSprite, Color.White);
         beam.Data.Add(GetNetEntity(target), visuals);
         Dirty(uid, beam);
 
@@ -276,7 +276,7 @@ public sealed class MedigunSystem : SharedMedigunSystem
         _action.RemoveAction(comp.UberAction);
         Dirty(ent);
 
-        var visuals = EnsureComp<JointVisualsComponent>(ent);
+        var visuals = EnsureComp<ComplexJointVisualsComponent>(ent);
 
         foreach (var (_, data) in visuals.Data)
             data.Sprite = ent.Comp.UberBeamSprite;
@@ -306,7 +306,7 @@ public sealed class MedigunSystem : SharedMedigunSystem
         comp.UberEndTime = null;
         Dirty(ent);
 
-        var visuals = EnsureComp<JointVisualsComponent>(ent);
+        var visuals = EnsureComp<ComplexJointVisualsComponent>(ent);
 
         foreach (var (_, data) in visuals.Data)
             data.Sprite = ent.Comp.BeamSprite;
@@ -343,7 +343,7 @@ public sealed class MedigunSystem : SharedMedigunSystem
         comp.HealedEntities.Clear();
         comp.IsActive = false;
         comp.ParentEntity = null;
-        RemComp<JointVisualsComponent>(ent);
+        RemComp<ComplexJointVisualsComponent>(ent);
 
         if (comp.ParentEntity != null)
             UpdateAlert(comp.ParentEntity.Value, ent);

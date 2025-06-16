@@ -44,7 +44,7 @@ public sealed partial class GrapplingGunComponent : Component
 
     [DataField, ViewVariables]
     public SpriteSpecifier RopeSprite =
-        new SpriteSpecifier.Rsi(new ResPath("/Textures/Objects/Weapons/Guns/Launchers/grappling_gun.rsi"), "rope");
+        new SpriteSpecifier.Rsi(new ResPath("Objects/Weapons/Guns/Launchers/grappling_gun.rsi"), "rope");
 
     public EntityUid? Stream;
 }
