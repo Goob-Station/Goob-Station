@@ -69,3 +69,5 @@
         Plastic: 50
         Glass: 25
         Gold: 50
+    - type: StaticPrice
+      price: 55
