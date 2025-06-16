@@ -285,7 +285,7 @@
       components:
       - RoboticsConsole
   - type: WiresPanel
-    openingTool: Prying
+    openingTool: Screwing
   - type: ActivatableUIRequiresPanel
   - type: NameIdentifier
     group: Silicon
