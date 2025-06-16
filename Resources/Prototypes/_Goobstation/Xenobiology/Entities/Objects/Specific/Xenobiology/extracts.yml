@@ -43,19 +43,19 @@
     oneUnitReaction: true
     reactions:
     - reagents: [ Water ]
-      methods: [ Injection ]
+      methods: [ Touch, Injection ]
       effects:
       - !type:AdjustReagent
         reagent: Epinephrine
         amount: 100
     - reagents: [ Plasma ]
-      methods: [ Injection ]
+      methods: [ Touch, Injection ]
       effects:
       - !type:CreateEntityReactionEffect
         entity: MobXenoSlime
         number: 1
     - reagents: [ Blood ]
-      methods: [ Injection ]
+      methods: [ Touch, Injection ]
       effects:
       - !type:CreateEntityReactionEffect
         entity: MonkeyCube
@@ -74,18 +74,12 @@
     - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
       color: "#ff9f1a"
-  - type: Flammable
-    fireSpread: true
-    alwaysCombustible: true
-    damage:
-      types:
-        Heat: 1
   - type: Reactive
     isReactionsUnlimited: false
     oneUnitReaction: true
     reactions:
     - reagents: [ Water ]
-      methods: [ Injection ]
+      methods: [ Touch, Injection ]
       effects:
       - !type:AreaReactionEffect
         duration: 10
@@ -93,14 +87,11 @@
         sound:
           path: /Audio/Effects/smoke.ogg
     - reagents: [ Plasma ]
-      methods: [ Injection ]
-      effects: #this is supposed to occur after 5 seconds.
-      - !type:CreateGas
-        gas: Plasma
-        multiplier: 25
-      - !type:Ignite
+      methods: [ Touch, Injection ]
+      effects: #this should be changed to ignite all nearby
+      - !type:IgniteNearby
     - reagents: [ Blood ]
-      methods: [ Injection ]
+      methods: [ Touch, Injection ]
       effects:
       - !type:AdjustReagent
         reagent: CapsaicinOil
@@ -123,19 +114,19 @@
     oneUnitReaction: true
     reactions:
     - reagents: [ Water ]
-      methods: [ Injection ]
+      methods: [ Touch, Injection ]
       effects:
-      - !type:CreateGas
-        gas: Plasma
-        multiplier: 25
+      - !type:CreateEntityReactionEffect
+        entity: ArtifactFragment1
+        number: 3 #Ideally this should be a random number between 0 & 5
     - reagents: [ Plasma ]
-      methods: [ Injection ]
+      methods: [ Touch, Injection ]
       effects:
       - !type:CreateEntityReactionEffect
         entity: PurpleExtractJelly
         number: 1
     - reagents: [ Blood ]
-      methods: [ Injection ]
+      methods: [ Touch, Injection ]
       effects:
       - !type:AdjustReagent
         reagent: Omnizine
@@ -158,7 +149,7 @@
     oneUnitReaction: true
     reactions:
     - reagents: [ Water ]
-      methods: [ Injection ]
+      methods: [ Touch, Injection ]
       effects:
       - !type:AreaReactionEffect
         duration: 10
@@ -166,13 +157,13 @@
         sound:
           path: /Audio/Effects/extinguish.ogg
     - reagents: [ Plasma ]
-      methods: [ Injection ]
+      methods: [ Touch, Injection ]
       effects:
       - !type:AdjustReagent
         reagent: FrostOil
         amount: 100
     - reagents: [ Blood ]
-      methods: [ Injection ]
+      methods: [ Touch, Injection ]
       effects:
       - !type:CreateEntityReactionEffect
         entity: BlueExtractJelly
@@ -196,7 +187,7 @@
     oneUnitReaction: true
     reactions:
     - reagents: [ Water ]
-      methods: [ Injection ]
+      methods: [ Touch, Injection ]
       effects:
       - !type:CreateEntityReactionEffect
         entity: SheetGlass1
@@ -205,7 +196,7 @@
         entity: SheetRGlass1
         number: 5
     - reagents: [ Plasma ]
-      methods: [ Injection ]
+      methods: [ Touch, Injection ]
       effects:
       - !type:CreateEntityReactionEffect
         entity: SheetSteel1
@@ -214,7 +205,7 @@
         entity: SheetPlasteel1
         number: 5
     - reagents: [ Blood ]
-      methods: [ Injection ]
+      methods: [ Touch, Injection ]
       effects:
       - !type:AdjustReagent
         reagent: WeldingFuel
@@ -234,6 +225,29 @@
     - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
       color: "#ffff1a"
+  - type: Reactive
+    isReactionsUnlimited: false
+    oneUnitReaction: true
+    reactions:
+    - reagents: [ Water ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:ExplosionReactionEffect
+        explosionType: Electrical
+        maxIntensity: 1050
+        intensitySlope: 4
+        intensityPerUnit: 70
+        totalIntensity: 1050
+    - reagents: [ Plasma ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:CreateEntityReactionEffect
+        entity: PowerCellHyper #This should be it's own item, EMP Resistant 5000 capacity or equivelant.
+        number: 1
+    - reagents: [ Blood ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:EmpReactionEffect
   - type: SlimeExtract
 
 - type: entity
@@ -247,6 +261,28 @@
     - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
       color: "#8e0ff0"
+  - type: Reactive
+    isReactionsUnlimited: false
+    oneUnitReaction: true
+    reactions:
+    - reagents: [ Water ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:CreateEntityReactionEffect
+        entity: SheetPlastic10
+        number: 2
+    - reagents: [ Plasma ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:CreateEntityReactionEffect
+        entity: SheetPlasma1
+        number: 3
+    - reagents: [ Blood ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:CreateGas
+        gas: Plasma
+        multiplier: 35
   - type: SlimeExtract
 
 - type: entity
@@ -260,6 +296,28 @@
     - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
       color: "#1e8cfa"
+  - type: Reactive
+    isReactionsUnlimited: false
+    oneUnitReaction: true
+    reactions:
+    - reagents: [ Water ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:CreateEntityReactionEffect
+        entity: DarkBlueExtractJelly
+        number: 1
+    - reagents: [ Plasma ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:CreateGas #Should be 5 seconds after?
+        gas: Frezon
+        multiplier: 25
+    - reagents: [ Blood ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:AdjustReagent
+        reagent: Leporazine
+        amount: 100
   - type: SlimeExtract
 
 - type: entity
@@ -274,6 +332,30 @@
       state: core
       color: "#c4c4c4"
       shader: XenoMetallic
+  - type: Reactive
+    isReactionsUnlimited: false
+    oneUnitReaction: true
+    reactions:
+    - reagents: [ Water ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:AreaReactionEffect
+        duration: 10
+        prototypeId: AluminiumMetalFoam
+        sound:
+          path: /Audio/Effects/extinguish.ogg
+    - reagents: [ Plasma ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:CreateEntityReactionEffect
+        entity: IngotSilver1
+        number: 2
+    - reagents: [ Blood ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:CreateEntityReactionEffect
+        entity: TreasureCoinSilver #This should be "Goop Balls" but I havent made the proto yet, see github project.
+        number: 3
   - type: SlimeExtract
 
 # Tier 2.5
