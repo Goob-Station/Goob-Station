@@ -209,9 +209,8 @@ public sealed class MedigunSystem : SharedMedigunSystem
 
         // Joint visuals
         var beam = EnsureComp<JointVisualsComponent>(uid);
-        var netTarget = GetNetEntity(target);
-        var visuals = new JointVisualsData(comp.UberActivated ? comp.UberBeamSprite : comp.BeamSprite);
-        beam.Data.Add(netTarget, visuals);
+        var visuals = new JointVisualsData(comp.UberActivated ? comp.UberBeamSprite : comp.BeamSprite, Color.White);
+        beam.Data.Add(GetNetEntity(target), visuals);
         Dirty(uid, beam);
 
         // Target's component

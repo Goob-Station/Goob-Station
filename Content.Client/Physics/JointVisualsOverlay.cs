@@ -54,6 +54,7 @@ public sealed class JointVisualsOverlay : Overlay
         var xformQuery = _entManager.GetEntityQuery<TransformComponent>();
         var query = _entManager.EntityQueryEnumerator<JointVisualsComponent, TransformComponent>();
         handle.UseShader(_unshadedShader);
+        var curTime = _timing.RealTime;
         while (query.MoveNext(out var uid, out var beam, out var xform))
         {
             var coords = _transform.GetMapCoordinates(uid, xform);
@@ -71,7 +72,7 @@ public sealed class JointVisualsOverlay : Overlay
 
                 var dir = targetCoords.Position - coords.Position;
                 var length = dir.Length();
-                var texture = _sprite.GetFrame(data.Sprite, _timing.CurTime);
+                var texture = _sprite.GetFrame(data.Sprite, curTime);
                 var textureSize = texture.Size;
                 var realY = textureSize.Y / EyeManager.PixelsPerMeter;
                 var realX = textureSize.X / EyeManager.PixelsPerMeter;
