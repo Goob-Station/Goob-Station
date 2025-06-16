@@ -18,7 +18,7 @@ public sealed partial class ReactionChamberComponent : Component
     /// <summary>
     /// Refresh rate of the solution temp indicator in seconds.
     /// </summary>
-    [DataField] public double UIRefreshRate = 2d;
+    public double UIRefreshRate = 2d;
     public double LastTempUpdate = 0d;
 
     /// <summary>
