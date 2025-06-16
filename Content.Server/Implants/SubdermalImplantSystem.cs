@@ -3,7 +3,7 @@
 // SPDX-FileCopyrightText: 2023 DrSmugleaf <drsmugleaf@gmail.com>
 // SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
 // SPDX-FileCopyrightText: 2023 Mr0maks <mr.maks0443@gmail.com>
-// SPDX-FileCopyrightText: 2023 Tomás Alves <tomasalves35@gmail.com>
+// SPDX-FileCopyrightText: 2023 Tom�s Alves <tomasalves35@gmail.com>
 // SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>

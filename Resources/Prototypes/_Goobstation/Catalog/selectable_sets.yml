@@ -549,3 +549,25 @@
     state: control
   content:
   - ClothingModsuitCaptainPowerCell
+
+# Research Director RD
+
+- type: selectableSet
+  id: VoidsuitSelectorRDVoidsuit
+  name: selectable-set-research-director-voidsuit-name
+  description: selectable-set-research-director-voidsuit-desc
+  sprite:
+    sprite: Clothing/OuterClothing/Hardsuits/rd.rsi
+    state: icon
+  content:
+  - ClothingOuterHardsuitRd
+
+- type: selectableSet
+  id: VoidsuitSelectorRDHardsuit
+  name: selectable-set-research-director-modsuit-name
+  description: selectable-set-research-director-modsuit-desc
+  sprite:
+    sprite: _Goobstation/Clothing/Back/Modsuits/researchdirector.rsi
+    state: control
+  content:
+  - ClothingModsuitResearchDirectorPowerCell

@@ -8,7 +8,7 @@
   id: MultiWand
   name: wizard wand
   description: Apparently a wand used by the wizard.
-  parent: [BaseItem, BaseMagicContraband]
+  parent: [BaseItem, BaseMagicalContraband]
   suffix: DO NOT MAP
   categories: [ DoNotMap ]
   components:
