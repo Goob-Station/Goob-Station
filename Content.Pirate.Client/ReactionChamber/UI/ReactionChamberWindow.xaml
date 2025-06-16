@@ -1,0 +1,92 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+               xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+               Resizable="False"
+               Title="Камера Реакцій">
+    <BoxContainer Orientation="Vertical"
+                  MinSize="720 350"
+                  VerticalAlignment="Top">
+        <PanelContainer>
+            <PanelContainer.PanelOverride>
+                <gfx:StyleBoxFlat BackgroundColor="#1b1b1e"
+                                  BorderColor="#404046"
+                                  BorderThickness="1.5"></gfx:StyleBoxFlat>
+            </PanelContainer.PanelOverride>
+            <BoxContainer
+                Margin="5"
+                Orientation="Vertical"
+                Align="Center">
+                <BoxContainer>
+                    <Label Text="Бажана температура(Кельвіни): "></Label>
+                    <FloatSpinBox Name="TempField"
+                                  Orientation="Horizontal"
+                                  SetSize="200 35"
+                                  Margin="10 0 0 0">
+                    </FloatSpinBox>
+                </BoxContainer>
+
+            </BoxContainer>
+            <PanelContainer SetWidth="2"
+                            HorizontalAlignment="Center"
+                            Margin="420 0.5 0 0">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#404046"></gfx:StyleBoxFlat>
+                </PanelContainer.PanelOverride>
+
+                <TextureButton SetSize="44 44"
+                        ToggleMode="True"
+                        Pressed="False"
+                        Name="ActiveButton"
+                        Margin="75 3 0 0">
+                </TextureButton>
+
+            </PanelContainer>
+        </PanelContainer>
+        <BoxContainer Margin="0 20 0 0"
+                      SetWidth="720">
+            <BoxContainer Orientation="Vertical"
+                          VerticalAlignment="Center">
+                <SpriteView Name="Sprite"
+                            SetSize="160 160"
+                            Scale="5 5"
+                            HorizontalAlignment="Left"></SpriteView>
+                <BoxContainer Name="ContainerInfo"
+                              Orientation="Vertical"
+                              HorizontalAlignment="Center"></BoxContainer>
+            </BoxContainer>
+            <PanelContainer HorizontalAlignment="Right"
+                            SetSize="560 260">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#1b1b1e"
+                                      BorderColor="#404046"
+                                      BorderThickness="1.5"></gfx:StyleBoxFlat>
+                </PanelContainer.PanelOverride>
+                <BoxContainer SetHeight="60"
+                              Orientation="Horizontal"
+                              VerticalAlignment="Top">
+                    <Label Margin="5 0 0 0"
+                           Text="Температура розчину(К): "></Label>
+                    <Label Name="TemperatureLabel"></Label>
+                </BoxContainer>
+                <PanelContainer SetHeight="2"
+                                Margin="0 60 0 0"
+                                VerticalAlignment="Top">
+                    <PanelContainer.PanelOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="#1b1b1e"
+                                          BorderColor="#404046"
+                                          BorderThickness="1.5"></gfx:StyleBoxFlat>
+                    </PanelContainer.PanelOverride>
+                </PanelContainer>
+                <ScrollContainer SetHeight="190"
+                                 Margin="5 70 5 0">
+                    <BoxContainer Name="ReagentsContainer"
+                                  Orientation="Vertical">
+                    </BoxContainer>
+
+                </ScrollContainer>
+
+            </PanelContainer>
+        </BoxContainer>
+    </BoxContainer>
+</DefaultWindow>
