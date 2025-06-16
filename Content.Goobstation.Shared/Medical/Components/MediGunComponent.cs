@@ -157,9 +157,3 @@ public sealed partial class MediGunComponent : Component
     [DataField, AutoNetworkedField]
     public Color UberLineColor = Color.OrangeRed;
 }
-
-[Serializable, NetSerializable]
-public sealed partial class MedigunBeamEvent : BaseContinuousBeamEvent
-{
-    public DamageSpecifier? Healing;
-}

@@ -114,7 +114,8 @@ public sealed class MedigunSystem : SharedMedigunSystem
                 false,
                 damageable,
                 medigun.ParentEntity,
-                targetPart: TargetBodyPart.All);
+                targetPart: TargetBodyPart.All,
+                ignoreBlockers: true);
 
             _bloodstreamSystem.TryModifyBleedAmount(target.Value, medigun.BleedingModifier);
 

@@ -26,6 +26,11 @@ public abstract class SharedContinuousBeamSystem : EntitySystem
         _xformQuery = GetEntityQuery<TransformComponent>();
     }
 
+    public void ConnectEntities()
+    {
+
+    }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
