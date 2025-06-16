@@ -11313,3 +11313,15 @@ Entries:
       message: Vulps and shadowkins can now host anomalies.
   id: 1243
   time: '2025-06-15T19:43:36.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Fix
+      message: Polymorphs no longer spawn urists
+  id: 1244
+  time: '2025-06-16T09:11:35.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Fix
+      message: Traitors should get their uplinks now
+  id: 1245
+  time: '2025-06-16T13:16:56.0000000+00:00'
