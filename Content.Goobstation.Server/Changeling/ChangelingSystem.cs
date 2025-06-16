@@ -25,6 +25,7 @@
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 the biggest bruh <199992874+thebiggestbruh@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
 //
@@ -549,6 +550,8 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
                 newArmor.Add(armor);
             }
 
+            _audio.PlayPvs(comp.ArmourSound, uid, AudioParams.Default);
+
             comp.ActiveArmor = newArmor;
             comp.ChemicalRegenMultiplier -= 0.25f; // base chem regen slowed by a flat 25%
             return true;
@@ -558,6 +561,8 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             // Unequip armor
             foreach (var armor in comp.ActiveArmor)
                 QueueDel(armor);
+
+            _audio.PlayPvs(comp.ArmourStripSound, uid, AudioParams.Default);
 
             comp.ActiveArmor = null!;
             comp.ChemicalRegenMultiplier += 0.25f; // chem regen debuff removed
