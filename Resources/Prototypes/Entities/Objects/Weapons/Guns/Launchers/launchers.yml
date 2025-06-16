@@ -152,6 +152,7 @@
     containers:
       ballistic-ammo: !type:Container
         ents: []
+  - type: CanTakeAim # PIRATE
 
 - type: entity
   name: china lake
