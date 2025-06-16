@@ -4,8 +4,8 @@ meta:
   engineVersion: 255.0.0
   forkId: ""
   forkVersion: ""
-  time: 06/16/2025 14:49:32
-  entityCount: 26871
+  time: 06/16/2025 15:02:04
+  entityCount: 26880
 maps:
 - 1
 grids:
@@ -6207,7 +6207,7 @@ entities:
             0: 65278
           -4,8:
             0: 45404
-            5: 128
+            3: 128
           -3,5:
             0: 61440
             1: 128
@@ -6500,15 +6500,15 @@ entities:
             1: 3584
           12,-8:
             1: 8738
-            3: 34944
+            4: 34944
           12,-7:
             1: 226
             0: 57344
           12,-9:
             1: 57589
           13,-8:
-            3: 13104
-            4: 34944
+            4: 13104
+            5: 34944
           13,-7:
             1: 240
             0: 61440
@@ -6521,7 +6521,7 @@ entities:
           13,-4:
             0: 62327
           14,-8:
-            4: 13104
+            5: 13104
             0: 34944
           14,-7:
             1: 240
@@ -6554,7 +6554,7 @@ entities:
           16,-6:
             0: 15
             1: 8928
-            7: 32768
+            6: 32768
           13,-3:
             0: 62719
           13,-2:
@@ -7324,34 +7324,34 @@ entities:
             1: 257
           16,-4:
             1: 8738
-            6: 136
-            7: 32768
+            7: 136
+            6: 32768
           16,-3:
             1: 8738
-            7: 32904
+            6: 32904
           16,-2:
             1: 57890
-            7: 136
+            6: 136
           16,-5:
             1: 8738
-            6: 32768
-            7: 136
+            7: 32768
+            6: 136
           17,-4:
-            6: 51
-            7: 12288
+            7: 51
+            6: 12288
             0: 2176
             1: 32768
           17,-3:
-            7: 12339
+            6: 12339
             1: 34952
           17,-2:
-            7: 51
+            6: 51
             1: 55432
             0: 8192
           17,-5:
-            6: 12288
+            7: 12288
             0: 34816
-            7: 51
+            6: 51
             1: 136
           18,-4:
             0: 3975
@@ -7394,7 +7394,7 @@ entities:
           17,-6:
             0: 15
             1: 35024
-            7: 12288
+            6: 12288
           17,-9:
             0: 65535
           18,-8:
@@ -7774,7 +7774,7 @@ entities:
           3,-16:
             1: 3745
           3,-14:
-            7: 3822
+            6: 3822
             0: 16384
           4,-15:
             0: 53070
@@ -8453,44 +8453,6 @@ entities:
           - 0
           - 0
         - volume: 2500
-          temperature: 293.15
-          moles:
-          - 0
-          - 6666.982
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.15
-          moles:
-          - 6666.982
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
           temperature: 293.14975
           moles:
           - 20.078888
@@ -8513,9 +8475,28 @@ entities:
           temperature: 293.15
           moles:
           - 0
-          - 0
-          - 0
           - 6666.982
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 6666.982
+          - 0
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -8535,6 +8516,25 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 0
+          - 0
+          - 0
+          - 6666.982
           - 0
           - 0
           - 0
@@ -33976,10 +33976,50 @@ entities:
     - type: Transform
       pos: -11.5,20.5
       parent: 2
+  - uid: 19539
+    components:
+    - type: Transform
+      pos: 0.5,-44.5
+      parent: 2
+  - uid: 19568
+    components:
+    - type: Transform
+      pos: 0.5,-42.5
+      parent: 2
+  - uid: 19746
+    components:
+    - type: Transform
+      pos: 1.5,-42.5
+      parent: 2
+  - uid: 19753
+    components:
+    - type: Transform
+      pos: 0.5,-43.5
+      parent: 2
   - uid: 19766
     components:
     - type: Transform
       pos: -43.5,27.5
+      parent: 2
+  - uid: 19900
+    components:
+    - type: Transform
+      pos: 66.5,33.5
+      parent: 2
+  - uid: 19901
+    components:
+    - type: Transform
+      pos: 66.5,34.5
+      parent: 2
+  - uid: 19902
+    components:
+    - type: Transform
+      pos: 66.5,35.5
+      parent: 2
+  - uid: 19903
+    components:
+    - type: Transform
+      pos: 66.5,36.5
       parent: 2
   - uid: 21307
     components:
@@ -62242,12 +62282,6 @@ entities:
     - type: Transform
       pos: -5.5,4.5
       parent: 2
-  - uid: 9912
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -18.5,0.5
-      parent: 2
   - uid: 9913
     components:
     - type: Transform
@@ -62288,6 +62322,12 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 107.5,-4.5
+      parent: 2
+  - uid: 11527
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -16.5,-3.5
       parent: 2
 - proto: ComputerCriminalRecords
   entities:
@@ -62355,6 +62395,14 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 37.5,-30.5
+      parent: 2
+- proto: ComputerFundingAllocation
+  entities:
+  - uid: 9912
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -18.5,0.5
       parent: 2
 - proto: ComputerId
   entities:
@@ -71941,11 +71989,6 @@ entities:
       parent: 2
 - proto: filingCabinet
   entities:
-  - uid: 11527
-    components:
-    - type: Transform
-      pos: -16.5,-3.5
-      parent: 2
   - uid: 11528
     components:
     - type: Transform
@@ -127237,6 +127280,12 @@ entities:
       parent: 2
     - type: ApcPowerReceiver
       powerLoad: 0
+  - uid: 19762
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 66.5,36.5
+      parent: 2
   - uid: 27252
     components:
     - type: Transform
@@ -165572,6 +165621,14 @@ entities:
     - type: Transform
       pos: -3.5,1.5
       parent: 2
+    - type: DeviceLinkSource
+      lastSignals:
+        DoorStatus: True
+    - type: Door
+      secondsUntilStateChange: -193.84056
+      state: Opening
+    - type: Airlock
+      autoClose: False
   - uid: 26161
     components:
     - type: Transform
