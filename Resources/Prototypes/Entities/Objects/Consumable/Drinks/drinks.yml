@@ -370,6 +370,22 @@
 
 - type: entity
   parent: DrinkGlass
+  id: DrinkAlienBrainHemorrhage
+  suffix: alien brain hemorrhage
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: AlienBrainHemorrhage
+          Quantity: 30
+  - type: Icon
+    sprite: Objects/Consumable/Drinks/alienbrainhemorrhage.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
   id: DrinkAlliesCocktail
   suffix: allies cocktail
   components:
@@ -690,6 +706,22 @@
 
 - type: entity
   parent: DrinkGlass
+  id: DrinkBronxGlass
+  suffix: bronx
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Bronx
+          Quantity: 30
+  - type: Icon
+    sprite: Objects/Consumable/Drinks/bronx.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
   id: BudgetInsulsDrinkGlass
   suffix: budget insuls
   components:
@@ -844,6 +876,22 @@
 
 - type: entity
   parent: DrinkGlass
+  id: DrinkCrushDepthGlass
+  suffix: crush depth
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: CrushDepth
+          Quantity: 30
+  - type: Icon
+    sprite: Objects/Consumable/Drinks/crushdepth.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
   id: DrinkCubaLibreGlass
   suffix: cuba libre
   components:
@@ -856,6 +904,22 @@
           Quantity: 30
   - type: Icon
     sprite: Objects/Consumable/Drinks/cubalibreglass.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkDarkandStormyGlass
+  suffix: dark and stormy
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: DarkandStormy
+          Quantity: 30
+  - type: Icon
+    sprite: Objects/Consumable/Drinks/dark&stormy.rsi
     state: icon
 
 - type: entity
@@ -952,6 +1016,38 @@
           Quantity: 30
   - type: Icon
     sprite: Objects/Consumable/Drinks/dr_gibb_glass.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkEggnog
+  suffix: eggnog
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Eggnog
+          Quantity: 30
+  - type: Icon
+    sprite: Objects/Consumable/Drinks/eggnogglass.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkElectricSharkGlass
+  suffix: electric shark
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ElectricShark
+          Quantity: 30
+  - type: Icon
+    sprite: Objects/Consumable/Drinks/electricshark.rsi
     state: icon
 
 - type: entity
@@ -1360,6 +1456,54 @@
 
 - type: entity
   parent: DrinkGlass
+  id: DrinkJackRoseGlass
+  suffix: jack rose
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: JackRose
+          Quantity: 30
+  - type: Icon
+    sprite: Objects/Consumable/Drinks/jackrose.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkJungleBirdGlass
+  suffix: jungle bird
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: JungleBird
+          Quantity: 30
+  - type: Icon
+    sprite: Objects/Consumable/Drinks/junglebird.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkKalimotxoGlass
+  suffix: kalimotxo
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Kalimotxo
+          Quantity: 30
+  - type: Icon
+    sprite: Objects/Consumable/Drinks/kalimotxo.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
   id: DrinkKiraSpecial
   suffix: kira special
   components:
@@ -1373,6 +1517,7 @@
   - type: Icon
     sprite: Objects/Consumable/Drinks/kiraspecial.rsi
     state: icon
+
 
 - type: entity
   parent: DrinkGlass
@@ -1574,6 +1719,22 @@
 
 - type: entity
   parent: DrinkGlass
+  id: DrinkMonkeyBusinessGlass
+  suffix: monkey business
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MonkeyBusiness
+          Quantity: 30
+  - type: Icon
+    sprite: Objects/Consumable/Drinks/monkeybusiness.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
   id: DrinkNeurotoxinGlass
   suffix: neurotoxin
   components:
@@ -1746,6 +1907,22 @@
           Quantity: 30
   - type: Icon
     sprite: Objects/Consumable/Drinks/glass_light_yellow.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkRadlerGlass
+  suffix: radler
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Radler
+          Quantity: 30
+  - type: Icon
+    sprite: Objects/Consumable/Drinks/radler.rsi
     state: icon
 
 - type: entity
@@ -2228,6 +2405,22 @@
 
 - type: entity
   parent: DrinkGlass
+  id: DrinkTortugaGlass
+  suffix: tortuga
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Tortuga
+          Quantity: 30
+  - type: Icon
+    sprite: Objects/Consumable/Drinks/tortuga.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
   id: DrinkToxinsSpecialGlass
   suffix: toxins special
   components:
@@ -2240,6 +2433,22 @@
           Quantity: 30
   - type: Icon
     sprite: Objects/Consumable/Drinks/toxinsspecialglass.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkVampiroGlass
+  suffix: vampiro
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Vampiro
+          Quantity: 30
+  - type: Icon
+    sprite: Objects/Consumable/Drinks/vampiro.rsi
     state: icon
 
 - type: entity
