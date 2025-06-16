@@ -1,0 +1,8 @@
+- type: alert
+  id: OnSightAlert
+  category: Aiming
+  icons:
+    - sprite: _Pirate/Interface/Alerts/aiming.rsi
+      state: icon
+  name: "Ти на мушці!"
+  description: "Ти під прицілом. Якщо ти ворухнешся - тебе застрелять!"
