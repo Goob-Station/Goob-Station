@@ -12,13 +12,13 @@
     startAnnouncement: station-event-xeno-vent-start-announcement
     startAudio:
       path: /Audio/Announcements/aliens.ogg
-    earliestStart: 45
+    earliestStart: 20
     minimumPlayers: 20
-    weight: 1
+    weight: 3
     duration: 30
     eventType: HostilesSpawn
   - type: GameRule
-    chaosScore: 360
+    chaosScore: 300
  #- type: PrecognitionResult
  #  message: psionic-power-precognition-xeno-vents-result-message
   - type: VentCrittersRule
@@ -52,7 +52,7 @@
     duration: 30
     eventType: Neutral
   - type: GameRule
-    chaosScore: 80
+    chaosScore: 40
  #- type: PrecognitionResult
  #  message: psionic-power-precognition-mothroach-spawn-result-message
   - type: VentCrittersRule

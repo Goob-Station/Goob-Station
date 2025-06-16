@@ -67,7 +67,7 @@ namespace Content.Server.StationEvents
 
                 if (eventScheduler.TimeUntilNextEvent > 0)
                 {
-                    eventScheduler.TimeUntilNextEvent -= frameTime;
+                    eventScheduler.TimeUntilNextEvent -= frameTime * _event.EventSpeedup; // Goobstation
                     continue;
                 }
 

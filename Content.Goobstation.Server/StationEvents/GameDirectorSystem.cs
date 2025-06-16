@@ -255,7 +255,7 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
         // This is the first event, add an automatic delay
         if (scheduler.TimeNextEvent == TimeSpan.Zero)
         {
-            var minimumTimeUntilFirstEvent = _configManager.GetCVar(GoobCVars.MinimumTimeUntilFirstEvent);
+            var minimumTimeUntilFirstEvent = _configManager.GetCVar(GoobCVars.MinimumTimeUntilFirstEvent) / _event.EventSpeedup;
             scheduler.TimeNextEvent = _timing.CurTime + TimeSpan.FromSeconds(minimumTimeUntilFirstEvent);
             LogMessage($"Started, first event in {minimumTimeUntilFirstEvent} seconds");
             return;
@@ -280,7 +280,7 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
         {
             EventsRunTotal.WithLabels(chosenEvent.PossibleEvent.StationEvent).Inc();
             // 2 - 6 minutes until the next event is considered, can vary per beat
-            scheduler.TimeNextEvent = currTime + TimeSpan.FromSeconds(_random.NextFloat(beat.EventDelayMin, beat.EventDelayMax));
+            scheduler.TimeNextEvent = currTime + TimeSpan.FromSeconds(_random.NextFloat(beat.EventDelayMin, beat.EventDelayMax) / _event.EventSpeedup);
         }
         else
         {
@@ -388,6 +388,8 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
             }
         }
 
+        count.Players += _event.PlayerCountBias;
+
         return count;
     }
 
@@ -405,7 +407,7 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
             count++;
         }
 
-        return count;
+        return count + _event.PlayerCountBias;
     }
 
     /// <summary>
@@ -449,7 +451,7 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
         {
             var beatName = scheduler.RemainingBeats[0];
             var beat = _prototypeManager.Index<StoryBeatPrototype>(beatName);
-            var secsInBeat = (curTime - scheduler.BeatStart).TotalSeconds;
+            var secsInBeat = (curTime - scheduler.BeatStart).TotalSeconds / _event.EventSpeedup;
 
             if (secsInBeat > beat.MaxSecs)
             {

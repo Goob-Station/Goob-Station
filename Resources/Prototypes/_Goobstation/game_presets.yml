@@ -229,3 +229,16 @@
   rules:
     - SecretPlusHigh
     - LavalandStormScheduler
+
+- type: gamePreset
+  id: SurvivalPlusMid
+  alias:
+    - survivalplus
+    - newsurvival
+    - survivalnew
+  name: survivalplus-title
+  description: survivalplus-description
+  showInVote: true
+  rules:
+    - SecretPlusRampingMid
+    - LavalandStormScheduler
