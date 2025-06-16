@@ -1,0 +1,5 @@
+- type: randomHumanoidSettings
+  id: Mercenary
+  components:
+    - type: Loadout
+      prototypes: [ MercenaryGear ]
