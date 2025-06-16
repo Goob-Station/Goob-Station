@@ -18,7 +18,7 @@
   startingGear: BrigmedicGear
   icon: "JobIconBrigmedic"
   supervisors: job-supervisors-hos
-  canBeAntag: false
+  canBeAntag: true # Don't invalidate medical by being a "safe" doctor
   goobcoins: 35
   access: # intentionally no medical access, not even hos has it, ask chemists instead of silently stealing meds
   - Security
