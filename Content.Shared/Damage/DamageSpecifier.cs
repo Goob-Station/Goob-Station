@@ -408,7 +408,7 @@ namespace Content.Shared.Damage
 
         public static DamageSpecifier operator /(DamageSpecifier damageSpec, FixedPoint2 factor)
         {
-            DamageSpecifier newDamage = new(damageSpec); // Goob edit
+            DamageSpecifier newDamage = new(damageSpec.ArmorPenetration); // Goob edit
             foreach (var entry in damageSpec.DamageDict)
             {
                 newDamage.DamageDict.Add(entry.Key, entry.Value / factor);
