@@ -11233,3 +11233,83 @@ Entries:
       message: Syndicate bomb timer is now 60s.
   id: 1234
   time: '2025-06-15T07:33:13.0000000+00:00'
+- author: Chloris
+  changes:
+    - type: Add
+      message: Chloris
+  id: 1235
+  time: '2025-06-15T07:37:55.0000000+00:00'
+- author: the_biggestbruh
+  changes:
+    - type: Add
+      message: >-
+        Chitinous armour plays an animation and unique sound when being
+        equipped. 
+    - type: Tweak
+      message: >-
+        Chitinous armour has had its physical protection reduced (65% -> 45%)
+        and explosive protection reduced (50% -> 10%)
+    - type: Tweak
+      message: Chitinous armour helmet now stops ingestion.
+    - type: Tweak
+      message: >-
+        Chitinous armour now prevents dismemberment, and has more protection
+        against bone damage.
+    - type: Tweak
+      message: >-
+        Chitinous armour now hides physical features (except for things like
+        tails) and protects the user's identity.
+  id: 1236
+  time: '2025-06-15T07:41:12.0000000+00:00'
+- author: Super7522
+  changes:
+    - type: Add
+      message: >-
+        New Shipment of Holy Supplies, for those Cultists rounds when the Bible
+        is lost
+  id: 1237
+  time: '2025-06-15T07:42:45.0000000+00:00'
+- author: cheetah1984
+  changes:
+    - type: Tweak
+      message: Sentient artifact activation cooldown (5 -> 1 minutes)
+  id: 1238
+  time: '2025-06-15T07:43:34.0000000+00:00'
+- author: misandrie
+  changes:
+    - type: Add
+      message: BSO now has an objective to protect one random command member
+  id: 1239
+  time: '2025-06-15T07:44:45.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Tweak
+      message: >-
+        Changed the SM containment's doors and windows for fresh models direct
+        from Centcomm
+    - type: Tweak
+      message: 'Gave Bagels Brigmed a makeover '
+  id: 1240
+  time: '2025-06-15T07:45:19.0000000+00:00'
+- author: vrilly
+  changes:
+    - type: Add
+      message: More lizard emotes
+  id: 1241
+  time: '2025-06-15T07:46:29.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: Security got new melee toys to play with.
+  id: 1242
+  time: '2025-06-15T08:15:54.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Fix
+      message: Skeletons are now correctly healed by milk.
+    - type: Fix
+      message: Lizards can now open doors, pilot shuttles etc.
+    - type: Fix
+      message: Vulps and shadowkins can now host anomalies.
+  id: 1243
+  time: '2025-06-15T19:43:36.0000000+00:00'
