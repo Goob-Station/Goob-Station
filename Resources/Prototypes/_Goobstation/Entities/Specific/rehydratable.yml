@@ -1,0 +1,11 @@
+- type: entity
+  parent: DehydratedSpaceCarp
+  id: DehydratedHolocarp
+  name: dehydrated holocarp
+  description: Looks like a plush toy holocarp, but just add water and it becomes a real-life holocarp!
+  components:
+  - type: Sprite
+    state: holoplush
+  - type: Rehydratable
+    possibleSpawns:
+    - MobCarpHolo

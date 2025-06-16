@@ -127,6 +127,8 @@
     - SyndicateFluclearSet
     - SyndicateFriendshipSet
     - SyndicateCarpSet
+    - SyndicateSusSet
+    - SyndicateBuilderSet
     setsToSelect: 3
     spawnedStoragePrototype: CrateSyndicate
     spawnedStorageContainer: entity_storage
