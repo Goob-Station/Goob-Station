@@ -39,7 +39,7 @@
     onlyCollideWhenShot: true
     damage:
       types:
-        Piercing: 3
+        Piercing: 2
       armorPenetration: -1.75 # Very shitty against armor. Pro tip: target unarmored body parts
   - type: Fixtures
     fixtures:
