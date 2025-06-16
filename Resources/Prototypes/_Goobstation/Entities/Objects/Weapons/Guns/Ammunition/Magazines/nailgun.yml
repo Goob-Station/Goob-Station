@@ -17,7 +17,7 @@
     whitelist:
       tags:
       - Nail
-    capacity: 50
+    capacity: 40
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
