@@ -220,7 +220,10 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
                 return false;
 
             // Give traitors their codewords and uplink code to keep in their character info menu
-            code = EnsureComp<RingerUplinkComponent>(pda.Value).Code;
+            EnsureComp<RingerUplinkComponent>(pda.Value);
+            var ev = new GenerateUplinkCodeEvent();
+            RaiseLocalEvent(pda.Value, ref ev);
+            code = Comp<RingerUplinkComponent>(pda.Value).Code;
         }
 
         _antag.SendBriefing(traitor, GenerateBriefing(component.Codewords, code, issuer), Color.Crimson, component.GreetSoundNotification);
