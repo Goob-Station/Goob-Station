@@ -23,4 +23,4 @@ chat-emote-msg-spin = spins!
 chat-emote-msg-jump = jumps!
 chat-emote-msg-tweak = starts tweaking!
 chat-emote-msg-flex = flexes its muscles.
-chat-emote-msg-yip = Yips!
+chat-emote-msg-yip = yips!

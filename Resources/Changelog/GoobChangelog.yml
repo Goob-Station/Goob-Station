@@ -11303,3 +11303,13 @@ Entries:
       message: Security got new melee toys to play with.
   id: 1242
   time: '2025-06-15T08:15:54.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Fix
+      message: Skeletons are now correctly healed by milk.
+    - type: Fix
+      message: Lizards can now open doors, pilot shuttles etc.
+    - type: Fix
+      message: Vulps and shadowkins can now host anomalies.
+  id: 1243
+  time: '2025-06-15T19:43:36.0000000+00:00'
