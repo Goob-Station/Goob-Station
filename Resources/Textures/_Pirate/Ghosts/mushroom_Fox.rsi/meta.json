@@ -1,0 +1,15 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "made by mushroom_Fox",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "animated",
+            "directions": 4
+        }
+    ]
+}

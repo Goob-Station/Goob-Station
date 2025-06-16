@@ -1,0 +1,26 @@
+{
+    "version": 1,
+      "license": "CC-BY-SA-3.0",
+      "copyright": "made by ImperiaArtSempai",
+    "size": {
+      "x": 100,
+      "y": 100
+    },
+    "states": [
+        {
+          "name": "animated",
+          "delays": [
+            [
+              0.1,
+              0.1,
+              0.1,
+              0.1,
+              0.1,
+              0.1,
+              0.1,
+              0.1
+            ]
+          ]
+        }
+      ]
+  }
