@@ -2,7 +2,7 @@
 
 using Robust.Shared.IoC;
 
-namespace Content.Goobstation.Client.IoC;
+namespace Content.Pirate.Client.IoC;
 
 internal static class ContentPirateClientIoC
 {
