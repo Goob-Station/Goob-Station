@@ -5,6 +5,7 @@
 // SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 SaffronFennec <firefoxwolf2020@protonmail.com>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
@@ -51,13 +52,13 @@ public sealed class DCCVars
     /// How much of the crew the cult is aiming to convert for a tier 3 monument.
     /// </summary>
     public static readonly CVarDef<int> CosmicCultTargetConversionPercent =
-        CVarDef.Create("cosmiccult.target_conversion_percent", 50, CVar.SERVER);
+        CVarDef.Create("cosmiccult.target_conversion_percent", 40, CVar.SERVER);
 
     /// <summary>
     /// How long the timer for the cult's stewardship vote lasts.
     /// </summary>
     public static readonly CVarDef<int> CosmicCultStewardVoteTimer =
-        CVarDef.Create("cosmiccult.steward_vote_timer", 30, CVar.SERVER);
+        CVarDef.Create("cosmiccult.steward_vote_timer", 120, CVar.SERVER);
 
     /// <summary>
     /// The delay between the monument getting upgraded to tier 2 and the crew learning of that fact. the monument cannot be upgraded again in this time.
