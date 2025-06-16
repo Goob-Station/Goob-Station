@@ -59,14 +59,20 @@ public sealed partial class ReactionChamberSystem : EntitySystem
                 {
                     var (_, solnComp) = soln;
                     comp.SolnHeatCapacity = solnComp.Solution.GetHeatCapacity(PrototypeManager); // used to get real capacity, and therefore real soln temp
+                    if (comp.HeatCapacity == 0)
+                        comp.HeatCapacity = 0.1f;
                     if (comp.SolnHeatCapacity == 0)
-                        comp.SolnHeatCapacity = 0.1f;
+                    {
+                        Log.Warning($"[{uid}] Solution heat capacity is zero – skipping temperature adjustment.");
+                        continue;
+                    }
                     var solnTemp = solnComp.Solution.GetThermalEnergy(PrototypeManager) / comp.SolnHeatCapacity;
                     var deltaT = comp.Temp - solnTemp;
                     UpdateDeltaJ(uid, deltaT, frameTime, comp);
                     if (solnTemp != comp.Temp)
                     {
-                        _solutionContainerSystem.AddThermalEnergy(soln, (float) comp.DeltaJ);
+                        _solutionContainerSystem.AddThermalEnergy(soln, comp.DeltaJ);
+                        solnTemp = solnComp.Solution.GetThermalEnergy(PrototypeManager) / comp.SolnHeatCapacity;
                         comp.IsAllTempRight = false;
                         var t = new ReactionChamberTempChangeMessage(solnTemp);
                         if (_timing.CurTime.TotalSeconds - comp.LastTempUpdate >= comp.UIRefreshRate)
@@ -125,7 +131,7 @@ public sealed partial class ReactionChamberSystem : EntitySystem
         var beakerInfo = new BeakerInfo();
         FixedPoint2? temp = null;
         FixedPoint2? spinBoxTemp = null;
-        var beaker = _itemSlotsSystem.GetItemOrNull(ent, "beakerSlot");
+        var beaker = _itemSlotsSystem.GetItemOrNull(ent.Owner, "beakerSlot");
         // List<string>? solutions = new List<string>();
         // List<FixedPoint2>? solutionVolumes = new List<FixedPoint2>();
         if (beaker is { Valid: true })
