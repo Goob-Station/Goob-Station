@@ -251,7 +251,6 @@
         - id: ClothingNeckCloakEnby
         - id: ClothingNeckCloakPan
       - id: ToySkeleton
-      - id: PlushieSamantha # Goobstation
       - id: Basketball
       - id: Football
       - id: BalloonNT
@@ -294,8 +293,10 @@
         - id: ClothingNeckLesbianPin
         - id: ClothingNeckNonBinaryPin
         - id: ClothingNeckPansexualPin
+        - id: ClothingNeckPluralPin
         - id: ClothingNeckOmnisexualPin
         - id: ClothingNeckGenderqueerPin
+        - id: ClothingNeckGenderfluidPin
         - id: ClothingNeckTransPin
         - id: ClothingNeckAutismPin
     # Rare Group

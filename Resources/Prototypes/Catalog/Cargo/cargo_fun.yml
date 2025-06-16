@@ -33,12 +33,14 @@
 # SPDX-FileCopyrightText: 2024 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Evige <jussi.heikkila1@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 HawkeyeBlade <hawkeyewarframexd@gmail.com>
 # SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SpaceLizard <the.justice.league.of.canada@gmail.com>
 # SPDX-FileCopyrightText: 2025 TeenSarlacc <46608342+TeenSarlacc@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TeenSarlacc <baddiepro123@gmail.com>
+# SPDX-FileCopyrightText: 2025 grub <unalterableness@gmail.com>
 # SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -159,6 +161,16 @@
     sprite: Objects/Fun/toys.rsi
     state: plushie_lizard
   product: CrateFunLizardPlushieBulk
+  cost: 500
+  category: cargoproduct-category-name-fun
+  group: market
+  
+- type: cargoProduct
+  id: FunSharkPlushies
+  icon:
+    sprite: Objects/Fun/sharkplush.rsi
+    state: blue
+  product: CrateFunSharkPlushieBulk
   cost: 500
   category: cargoproduct-category-name-fun
   group: market
@@ -395,11 +407,11 @@
   group: market
 
 - type: cargoProduct
-  id: FunCrewPlushies # Self insert crate :-)
+  id: FunDiscoBeachBall
   icon:
-    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
-    state: plushie_knott
-  product: CrateFunSelfInsertPlushie
+    sprite: Objects/Fun/toys.rsi
+    state: beachball
+  product: CrateFunDiscoBeachBall
   cost: 1000
   category: cargoproduct-category-name-fun
   group: market
