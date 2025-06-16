@@ -269,6 +269,9 @@ uplink-helmet-swat-desc = Robust helmet that offers good protection and also sup
 uplink-reverse-bear-trap-name = Reverse Bear Trap
 uplink-reverse-bear-trap-desc = An ingenious execution device worn on (or forced onto) the head. Arming it starts a configurable timer (30-120 seconds) mounted on the bear trap. When it goes off, the trap's jaws will violently open, instantly killing anyone wearing it by tearing their jaws in half. To arm, attack someone with it while they're not wearing headgear.
 
+uplink-belt-rig-name = Grenadier Belt
+uplink-belt-rig-desc = A specialised belt rig to hold so many grenades that your arm gets tired from throwing them all. Can also store a sidearm and magazines for it.
+
 # Deception
 
 uplink-clothing-explosive-gloves-name = Explosive Insulated Gloves
