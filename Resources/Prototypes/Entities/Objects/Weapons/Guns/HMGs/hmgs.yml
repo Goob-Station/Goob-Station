@@ -109,6 +109,7 @@
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: StaticPrice
     price: 500
+  - type: CanTakeAim # PIRATE
   # No chamber because HMG may want its own
 
 - type: entity
