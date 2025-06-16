@@ -546,7 +546,13 @@ public sealed partial class ChangelingSystem
 
         comp.IsInHorrorForm = true;
 
-        var childUid = _polymorph.PolymorphEntity(uid, "PolymorphAbomination");
+        var newUid = TransformEntity(uid, protoId: "MobChangelingShamblingAbomination", comp: comp);
+        if (newUid == null)
+        {
+            comp.IsInHorrorForm = false;
+            //comp.Chemicals += Comp<ChangelingActionComponent>(args.Action).ChemicalCost;
+            return;
+        }
 
         var loc = Loc.GetString("changeling-transform-others", ("user", Identity.Entity((EntityUid) uid, EntityManager)));
         _popup.PopupEntity(loc, (EntityUid) uid, PopupType.LargeCaution);

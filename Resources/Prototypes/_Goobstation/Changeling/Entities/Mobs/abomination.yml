@@ -22,8 +22,8 @@
     bleedReductionAmount: 2
   - type: CombatMode
   - type: MovementSpeedModifier
-    baseWalkSpeed: 3
-    baseSprintSpeed: 3
+    baseWalkSpeed: 2
+    baseSprintSpeed: 2
   - type: InputMover
   - type: Reactive
     groups:
@@ -35,8 +35,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      1200: Critical
-      1600: Dead
+      600: Critical
+      800: Dead
   - type: MeleeWeapon
     altDisarm: false
     soundHit:
@@ -47,6 +47,7 @@
       types:
         Slash: 20
         Blunt: 10
+        Genetic: 5
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: NoSlip
@@ -108,4 +109,4 @@
     threshold: 12
   - type: Damageable
     damageContainer: Biological
-    damageModifierSet: Diona # It would be redundant to create a new modifier when this works perfectly fine
+    damageModifierSet: Diona # Temporary
