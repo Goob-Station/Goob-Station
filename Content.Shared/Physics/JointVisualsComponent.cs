@@ -5,33 +5,37 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Numerics;
 using Robust.Shared.GameStates;
+using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Physics;
 
 /// <summary>
 /// Just draws a generic line between this entity and the target.
+/// Goobstation rework: now supports multiple joints
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class JointVisualsComponent : Component
 {
-    [ViewVariables(VVAccess.ReadWrite), DataField("sprite", required: true), AutoNetworkedField]
-    public SpriteSpecifier Sprite = default!;
+    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    public Dictionary<NetEntity, JointVisualsData> Data = new(); // Target -> Data (no more than 1 beam per target)
+}
 
-    [ViewVariables(VVAccess.ReadWrite), DataField("target"), AutoNetworkedField]
-    public NetEntity? Target;
+[Serializable, NetSerializable, DataDefinition]
+public sealed partial class JointVisualsData(
+    SpriteSpecifier sprite,
+    Color color)
+{
+    public JointVisualsData() : this(SpriteSpecifier.Invalid, Color.White) { }
 
-    /// <summary>
-    /// Offset from Body A.
-    /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField("offsetA"), AutoNetworkedField]
-    public Vector2 OffsetA;
+    public JointVisualsData(SpriteSpecifier sprite) : this(sprite, Color.White) { }
 
-    /// <summary>
-    /// Offset from Body B.
-    /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField("offsetB"), AutoNetworkedField]
-    public Vector2 OffsetB;
+    [DataField]
+    public SpriteSpecifier Sprite = sprite;
+
+    [DataField]
+    public Color Color = color;
+
+    // TODO: add support for joint offsets
 }

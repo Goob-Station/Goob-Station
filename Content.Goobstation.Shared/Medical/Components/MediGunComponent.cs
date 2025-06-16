@@ -10,8 +10,6 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
-using Robust.Shared.Serialization;
-using Content.Goobstation.Common.ContinuousBeam;
 
 namespace Content.Goobstation.Shared.Medical.Components;
 

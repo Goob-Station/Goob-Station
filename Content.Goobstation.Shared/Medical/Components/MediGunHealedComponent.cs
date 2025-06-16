@@ -17,12 +17,6 @@ public sealed partial class MediGunHealedComponent : Component
     public EntityUid Source;
 
     /// <summary>
-    /// Entity meant for medical beam visuals.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public EntityUid? DummyEntity;
-
-    /// <summary>
     /// Color that will be used on target entity when healing is active.
     /// </summary>
     [DataField, AutoNetworkedField]

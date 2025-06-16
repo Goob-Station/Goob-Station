@@ -134,10 +134,8 @@ public sealed class FishingSystem : SharedFishingSystem
 
         // Rope visuals
         var visuals = EnsureComp<JointVisualsComponent>(fishFloat);
-        visuals.Sprite = component.RopeSprite;
-        visuals.OffsetA = component.RopeLureOffset;
-        visuals.OffsetB = component.RopeUserOffset;
-        visuals.Target = GetNetEntity(uid);
+        var visualsData = new JointVisualsData(component.RopeSprite);
+        visuals.Data.Add(GetNetEntity(uid), visualsData);
     }
 
     protected override void ThrowFishReward(EntProtoId fishId, EntityUid fishSpot, EntityUid target)

@@ -4,18 +4,16 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Numerics;
 using Content.Goobstation.Shared.Medical;
 using Content.Goobstation.Shared.Medical.Components;
-using Content.Goobstation.Common.ContinuousBeam;
 using Content.Server.Body.Systems;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Power.EntitySystems;
+using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Actions;
 using Content.Shared.Alert;
 using Content.Shared.Damage;
-using Content.Server.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
@@ -23,8 +21,9 @@ using Content.Shared.Physics;
 using Content.Shared.Timing;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Map;
 using Robust.Shared.Timing;
+
+// ReSharper disable EnforceForeachStatementBraces
 namespace Content.Goobstation.Server.Medical;
 
 // TODO: Move this to Shared when battery systems will be predicted
@@ -42,7 +41,6 @@ public sealed class MedigunSystem : SharedMedigunSystem
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly ItemToggleSystem _toggle = default!;
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
-    [Dependency] private readonly ExamineSystem _examine = default!;
 
     private EntityQuery<DamageableComponent> _damageableQuery;
 
@@ -56,87 +54,6 @@ public sealed class MedigunSystem : SharedMedigunSystem
         SubscribeLocalEvent<MediGunComponent, MediGunUberActivateActionEvent>(OnUber);
         SubscribeLocalEvent<MediGunComponent, EntParentChangedMessage>(OnParentChanged);
         SubscribeLocalEvent<MediGunComponent, ItemToggledEvent>(OnToggled);
-        SubscribeLocalEvent<ContinuousBeamComponent, MedigunBeamEvent>(OnBeamTick);
-    }
-
-    private void OnBeamTick(Entity<ContinuousBeamComponent> ent, ref MedigunBeamEvent args)
-    {
-        if (!TryGetEntity(args.User, out var user) || ent.Owner != user.Value)
-            return;
-
-        args.Handled = true;
-
-        if (!TryGetEntity(args.Target, out var target) || !TryComp(target.Value, out TransformComponent? targetXform) ||
-            !targetXform.Coordinates.IsValid(EntityManager))
-        {
-            BreakBeam(args.Target);
-            return;
-        }
-
-        var coords = _xform.GetMapCoordinates(user.Value);
-        var targetCoords = _xform.GetMapCoordinates(target.Value, targetXform);
-
-        if (coords.MapId != targetCoords.MapId)
-        {
-            BreakBeam(args.Target);
-            return;
-        }
-
-        if (!TryComp<MediGunComponent>(user.Value, out var medigun))
-        {
-            BreakBeam(args.Target);
-            return;
-        }
-
-        // Check if target is in range and not occluded
-        if ((coords.Position - targetCoords.Position).Length() > medigun.MaxRange ||
-            !_examine.InRangeUnOccluded(user.Value, target.Value))
-        {
-            BreakBeam(args.Target);
-            return;
-        }
-
-        // Apply healing based on medigun settings
-        var healing = medigun.UberActivated ? medigun.UberHealing : medigun.Healing;
-
-        if (args.Healing != null)
-            healing = args.Healing;
-
-        // Apply healing to target
-        if (_damageableQuery.TryComp(target.Value, out var damageable))
-        {
-            var originalDamage = damageable.TotalDamage;
-
-            _damage.TryChangeDamage(
-                target.Value,
-                healing,
-                true,
-                false,
-                damageable,
-                medigun.ParentEntity,
-                targetPart: TargetBodyPart.All,
-                ignoreBlockers: true);
-
-            _bloodstreamSystem.TryModifyBleedAmount(target.Value, medigun.BleedingModifier);
-
-            var afterDamage = damageable.TotalDamage;
-            var healedAmount = originalDamage - afterDamage;
-
-            // Track uber points if healing was successful
-            if (!medigun.UberActivated)
-                medigun.UberPoints += healedAmount.Float();
-        }
-
-        return;
-
-        void BreakBeam(NetEntity netTarget)
-        {
-            ent.Comp.Data.Remove(netTarget);
-            if (ent.Comp.Data.Count == 0)
-                RemCompDeferred(ent.Owner, ent.Comp);
-            else
-                Dirty(ent);
-        }
     }
 
     public override void Update(float frameTime)
@@ -217,9 +134,11 @@ public sealed class MedigunSystem : SharedMedigunSystem
             false,
             damageable,
             ent.Comp.ParentEntity,
-            false,
             partMultiplier: 1.0f,
-            targetPart: TargetBodyPart.All);
+            targetPart: TargetBodyPart.All,
+            ignoreBlockers: true,
+            splitDamage: SplitDamageBehavior.SplitEnsureAll,
+            canMiss: false);
 
         _bloodstreamSystem.TryModifyBleedAmount(healed, comp.BleedingModifier);
 
@@ -281,38 +200,26 @@ public sealed class MedigunSystem : SharedMedigunSystem
 
         _audio.PlayPvs(comp.SoundOnTarget, uid);
 
+        // Medigun component
         comp.HealedEntities.Add(target);
         comp.IsActive = true;
         comp.ParentEntity = args.User;
         comp.NextTick = _timing.CurTime + TimeSpan.FromSeconds(comp.Frequency);
         Dirty(uid, comp);
 
-        // This is used for beam visuals.
-        var dummyBeamVisual = Spawn("TetherEntity", new EntityCoordinates(target, Vector2.Zero));
+        // Joint visuals
+        var beam = EnsureComp<JointVisualsComponent>(uid);
+        var netTarget = GetNetEntity(target);
+        var visuals = new JointVisualsData(comp.UberActivated ? comp.UberBeamSprite : comp.BeamSprite);
+        beam.Data.Add(netTarget, visuals);
+        Dirty(uid, beam);
 
+        // Target's component
         var mediGunned = EnsureComp<MediGunHealedComponent>(target);
-        mediGunned.DummyEntity = dummyBeamVisual;
         mediGunned.Source = uid;
         mediGunned.LineColor = comp.UberActivated ? comp.UberLineColor : comp.DefaultLineColor;
         Dirty(target, mediGunned);
 
-        // Add continuous beam component
-        var beam = EnsureComp<ContinuousBeamComponent>(args.User);
-        var netTarget = GetNetEntity(target);
-        beam.Data.Remove(netTarget);
-
-        // Use appropriate healing based on uber status
-        var healing = comp.UberActivated ? comp.UberHealing : comp.Healing;
-
-        beam.Data.Add(netTarget,
-            new ContinuousBeamData(
-            comp.UberActivated ? comp.UberBeamSprite : comp.BeamSprite,
-            comp.Frequency * 2, // Slightly longer than update frequency
-            comp.Frequency,
-            comp.MaxRange * comp.MaxRange,
-            comp.UberActivated ? comp.UberLineColor : comp.DefaultLineColor,
-            new MedigunBeamEvent { Healing = healing }));
-        Dirty(args.User, beam);
         UpdateAlert(target, ent);
         _useDelay.TryResetDelay(uid);
         args.Handled = true;
@@ -371,7 +278,10 @@ public sealed class MedigunSystem : SharedMedigunSystem
         Dirty(ent);
 
         var visuals = EnsureComp<JointVisualsComponent>(ent);
-        visuals.Sprite = comp.UberBeamSprite;
+
+        foreach (var (_, data) in visuals.Data)
+            data.Sprite = ent.Comp.UberBeamSprite;
+
         Dirty(ent, visuals);
 
         // Update beam for each target
@@ -383,22 +293,7 @@ public sealed class MedigunSystem : SharedMedigunSystem
             healComp.LineColor = comp.UberLineColor;
             Dirty(healed, healComp);
 
-            // Update continuous beam if exists
-            if (TryComp<ContinuousBeamComponent>(comp.ParentEntity, out var beam))
-            {
-                var netTarget = GetNetEntity(healed);
-                if (beam.Data.TryGetValue(netTarget, out var data))
-                {
-                    beam.Data[netTarget] = new ContinuousBeamData(
-                        comp.UberBeamSprite,
-                        data.Lifetime,
-                        data.TickInterval,
-                        data.MaxDistanceSquared,
-                        comp.UberLineColor,
-                        new MedigunBeamEvent { Healing = comp.UberHealing });
-                    Dirty(comp.ParentEntity.Value, beam);
-                }
-            }
+
         }
     }
 
@@ -413,7 +308,10 @@ public sealed class MedigunSystem : SharedMedigunSystem
         Dirty(ent);
 
         var visuals = EnsureComp<JointVisualsComponent>(ent);
-        visuals.Sprite = comp.BeamSprite;
+
+        foreach (var (_, data) in visuals.Data)
+            data.Sprite = ent.Comp.BeamSprite;
+
         Dirty(ent, visuals);
 
         foreach (var healed in comp.HealedEntities)
@@ -438,8 +336,6 @@ public sealed class MedigunSystem : SharedMedigunSystem
             if (!TryComp<MediGunHealedComponent>(healed, out var mediGunned))
                 return;
 
-            QueueDel(mediGunned.DummyEntity);
-            mediGunned.DummyEntity = null;
             RemComp(healed, mediGunned);
         }
 
@@ -466,7 +362,6 @@ public sealed class MedigunSystem : SharedMedigunSystem
         if (!TryComp<MediGunHealedComponent>(toRemove, out var mediGunned))
             return;
 
-        QueueDel(mediGunned.DummyEntity);
         RemComp(toRemove, mediGunned);
         comp.HealedEntities.Remove(toRemove);
     }
