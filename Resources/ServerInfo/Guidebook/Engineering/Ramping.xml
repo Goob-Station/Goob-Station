@@ -6,22 +6,22 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Ramping
-  Contrary to what one might expect from a video game electrical simulation, power is not instantly provided upon request.
+  # Нарощування
+  Всупереч тому, що можна було б очікувати від симуляції електрики у відеогрі, енергія не надається миттєво за запитом.
 
-  Generators and batteries take time to ramp up to match the draw imposed on them, which leads to brownouts when there are large changes in current draw all at once; for example, when batteries run out.
+  Генераторам та батареям потрібен час, щоб наростити потужність, щоб відповідати навантаженню, що на них покладається, що призводить до відключень, коли відбуваються великі зміни в споживанні струму одночасно; наприклад, коли розряджаються батареї.
 
-  Observe the following example:
-  - Say you have a generator that outputs 100 kW of power.
-  - If you have a device that draws 50 kW of power, the generator will output 50 kW of power to match the grid's demand to its supply.
-  - If you then turn on a device that draws another 50 kW of power, the generator will take time to ramp up to 100 kW of power. It will not provide this power instantly.
-  - During this time, devices will not recieve the power they need, and the grid will experience a temporary brownout.
-  - After some seconds have passed, the generator will have ramped up to 100 kW of power, and the brownout will end. All devices are now satisfied with the power they are receiving.
+  Розглянемо наступний приклад:
+  - Скажімо, у вас є генератор, який видає 100 кВт потужності.
+  - Якщо у вас є пристрій, який споживає 50 кВт потужності, генератор видаватиме 50 кВт потужності, щоб відповідати попиту мережі.
+  - Якщо ви потім увімкнете пристрій, який споживає ще 50 кВт потужності, генератору знадобиться час, щоб наростити потужність до 100 кВт. Він не надасть цю потужність миттєво.
+  - Протягом цього часу пристрої не отримуватимуть необхідної потужності, і в мережі виникне тимчасове відключення.
+  - Через кілька секунд генератор наростить потужність до 100 кВт, і відключення закінчиться. Тепер усі пристрої задоволені отримуваною потужністю.
 
-  During a shift, this is most commonly observed when a generator runs out of fuel and suddenly stops producing power.
-  Suddenly the grid is hit with a large deficit of power (as supply has fallen below demand), and all devices will experience a brownout until SMESes or other generators can ramp up to match the new demand.
+  Протягом зміни це найчастіше спостерігається, коли у генератора закінчується паливо і він раптово припиняє виробляти енергію.
+  Раптово мережа стикається з великим дефіцитом потужності (оскільки пропозиція впала нижче попиту), і всі пристрої зазнають відключення, доки SMES або інші генератори не зможуть наростити потужність, щоб відповідати новому попиту.
 
-  This can also happen when a large power consuming device or department is reconnected to the grid.
-  The sudden increase in power draw will cause a brownout until the generators can ramp up to match the new demand.
+  Це також може статися, коли до мережі підключається великий споживач енергії або відділ.
+  Раптове збільшення споживання енергії спричинить відключення, доки генератори не зможуть наростити потужність, щоб відповідати новому попиту.
 
 </Document>

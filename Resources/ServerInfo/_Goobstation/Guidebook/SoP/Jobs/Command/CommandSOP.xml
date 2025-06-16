@@ -6,26 +6,26 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-# Command Department SOP
-These are the list of SOPs that Command Personnel should follow. These are, as stated before, [bold]not checklists[/bold] and should be treated as guidelines.
+# СОП Командного Відділу
+Це перелік СОП, яких повинен дотримуватися командний склад. Як вже зазначалося, це [bold]не контрольні списки[/bold] і їх слід розглядати як керівні принципи.
 
-Below are the list of guidelines [bold]all of Command should follow[/bold]:
+Нижче наведено перелік керівних принципів, яких [bold]повинні дотримуватися всі члени командування[/bold]:
 
-1. The Command Personnel, excluding Head of Security, should not act as Security. Their job is to maintain their own Departments and assist the station.
+1. Командний склад, за винятком голови служби безпеки, не повинен виконувати функції служби безпеки. Їхня робота полягає в підтримці своїх відділів та допомозі станції.
 
-2. The Command Personnel may defend themselves and perform arrests as needed in self-defense, but may not try, place times, or perform any other Security activities except hand-off arrested personnel to Security.
+2. Командний склад може захищати себе та проводити арешти за необхідності в рамках самооборони, але не може судити, призначати терміни або виконувати будь-які інші дії служби безпеки, крім передачі заарештованих осіб службі безпеки.
 
-3. The Command Personnel may not, under any circumstances, promote station personnel to Central Command VIP Positions ([color=#1b67a5][bold]Nanotrasen Representative[/bold][/color] and [color=#1b67a5][bold]Blueshield Officer[/bold][/color]) without authorization from Central Command.
+3. Командний склад за жодних обставин не може підвищувати персонал станції на посади VIP-персон Центрального Командування ([color=#1b67a5][bold]Представника Нанотрейзен[/bold][/color] та [color=#1b67a5][bold]Офіцера Синєщита[/bold][/color]) без дозволу Центрального Командування.
 
-The following jobs have entries in this Department, the Chain of Command being linked at the top, the Central Command VIP being separated in terms of Chain of Command, the Captain being the top of Chain of Command, and all Heads of Staff on equal footing:
-- [textlink="Chain of Command" link="Succession"]
-- [textlink="Nanotrasen Representative" link="NanotrasenRep SOP"]
-- [textlink="Blueshield Officer" link="BlueshieldOfficer SOP"]
-- [textlink="Head of Personnel" link="HeadOfPersonnel SOP"]
-- [textlink="Head of Security" link="HeadOfSecurity SOP"]
-- [textlink="Research Director" link="ResearchDirector SOP"]
-- [textlink="Chief Medical Officer" link="ChiefMedicalOfficer SOP"]
-- [textlink="Chief Engineer" link="ChiefEngineer SOP"]
-- [textlink="Quartermaster" link="Quartermaster SOP"]
+Наступні посади мають записи в цьому відділі, ланцюг командування пов'язаний вгорі, VIP-персони Центрального Командування відокремлені з точки зору ланцюга командування, капітан є вершиною ланцюга командування, а всі голови відділів знаходяться на рівних умовах:
+- [textlink="Ланцюг Командування" link="Succession"]
+- [textlink="Представник Нанотрейзен" link="NanotrasenRep SOP"]
+- [textlink="Офіцер Синєщита" link="BlueshieldOfficer SOP"]
+- [textlink="Голова персоналу" link="HeadOfPersonnel SOP"]
+- [textlink="Голова служби безпеки" link="HeadOfSecurity SOP"]
+- [textlink="Директор з досліджень" link="ResearchDirector SOP"]
+- [textlink="Головний лікар" link="ChiefMedicalOfficer SOP"]
+- [textlink="Головний інженер" link="ChiefEngineer SOP"]
+- [textlink="Квартирмейстер" link="Quartermaster SOP"]
 
 </Document>

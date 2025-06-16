@@ -7,14 +7,14 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Gasses
-  Gasses are a critical part of the station's operation.
-  You may know them as the stuff you breathe, but they are also used in many other ways.
+  # Гази
+  Гази є критично важливою частиною роботи станції.
+  Ви можете знати їх як те, чим ви дихаєте, але вони також використовуються багатьма іншими способами.
 
-  Gasses have certain properties that make them useful for different tasks.
-  Atmospherics can also synthesize exotic gasses from other gasses, which can be used for special purposes.
+  Гази мають певні властивості, які роблять їх корисними для різних завдань.
+  Атмосферний відділ також може синтезувати екзотичні гази з інших газів, які можна використовувати для спеціальних цілей.
 
-  ## Oxygen
+  ## Кисень
   <Box>
     <GuideEntityEmbed Entity="OxygenCanister" Caption=""/>
     <GuideEntityEmbed Entity="OxygenTank" Caption=""/>
@@ -23,12 +23,12 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="EmergencyOxygenTank" Caption=""/>
   </Box>
 
-  A common gas, used by most species on the station to breathe.
+  Поширений газ, який використовується більшістю видів на станції для дихання.
 
-  Oxygen is an oxidizer, which means it supports combustion.
-  This makes it both useful when fusing gasses in a burn chamber, and dangerous when mixed with flammable gasses.
+  Кисень є окислювачем, що означає, що він підтримує горіння.
+  Це робить його корисним при зливанні газів у камері згоряння та небезпечним при змішуванні з легкозаймистими газами.
 
-  ## Nitrogen
+  ## Азот
   <Box>
     <GuideEntityEmbed Entity="NitrogenCanister" Caption=""/>
     <GuideEntityEmbed Entity="NitrogenTank" Caption=""/>
@@ -37,119 +37,119 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="EmergencyNitrogenTank" Caption=""/>
   </Box>
 
-  An inert gas, used in part with oxygen to create a breathable atmosphere.
+  Інертний газ, що використовується разом з киснем для створення дихаючої атмосфери.
 
-  Nitrogen is very stable and comprises most of a standard breathable atmosphere.
+  Азот дуже стабільний і становить більшу частину стандартної дихаючої атмосфери.
 
-  Some species like Slimes breathe nitrogen, with the Vox species requiring strictly nitrogen to breathe.
+  Деякі види, такі як слимаки, дихають азотом, а вид Вокс вимагає для дихання виключно азот.
 
-  ## Air Mix
+  ## Повітряна суміш
   <Box>
     <GuideEntityEmbed Entity="AirCanister" Caption=""/>
     <GuideEntityEmbed Entity="AirTank" Caption=""/>
   </Box>
 
-  A mixture of gasses that is breathable to most species on the station.
-  It consists of 21% oxygen and 79% nitrogen.
+  Суміш газів, яка є дихаючою для більшості видів на станції.
+  Вона складається з 21% кисню та 79% азоту.
 
 
-  ## Carbon Dioxide
+  ## Вуглекислий газ
   <Box>
     <GuideEntityEmbed Entity="CarbonDioxideCanister" Caption=""/>
   </Box>
 
-  A waste gas produced by most species on the station. A common byproduct of combustion.
+  Відпрацьований газ, що виробляється більшістю видів на станції. Поширений побічний продукт горіння.
 
-  Despite seeming useless, some departments use it in their line of work.
+  Незважаючи на те, що він здається марним, деякі відділи використовують його у своїй роботі.
 
-  ## Water Vapor
+  ## Водяна пара
   <Box>
     <GuideEntityEmbed Entity="WaterVaporCanister" Caption=""/>
   </Box>
-  A common gas, produced by the burning of plasma and other processes.
+  Поширений газ, що утворюється при спалюванні плазми та інших процесах.
 
-  Water vapor has a good specific heat capacity compared to other gasses, making it useful for moving heat around.
+  Водяна пара має хорошу питому теплоємність порівняно з іншими газами, що робить її корисною для переміщення тепла.
 
-  ## Plasma
+  ## Плазма
   <Box>
     <GuideEntityEmbed Entity="PlasmaCanister" Caption=""/>
   </Box>
-  A highly flammable gas that is used in many processes on the station.
+  Дуже легкозаймистий газ, який використовується в багатьох процесах на станції.
 
-  Engineering uses this gas to generate power and create exotic gasses.
+  Інженерний відділ використовує цей газ для виробництва енергії та створення екзотичних газів.
 
-  Burning it generates a lot of heat, as well as gas byproducts such as carbon dioxide, water vapor, and tritium, depending on the efficiency of the burn.
+  Його спалювання генерує багато тепла, а також побічні продукти у вигляді газів, таких як вуглекислий газ, водяна пара та тритій, залежно від ефективності згоряння.
 
-  Plasma gas also has a good specific heat capacity, making it useful for moving heat around.
+  Плазмовий газ також має хорошу питому теплоємність, що робить його корисним для переміщення тепла.
 
-  ## Tritium
+  ## Тритій
   <Box>
     <GuideEntityEmbed Entity="TritiumCanister" Caption=""/>
   </Box>
-  An extremely flammable radioactive gas that is used in the creation of frezon.
+  Надзвичайно легкозаймистий радіоактивний газ, який використовується для створення фрезону.
 
-  It can be made by burning 1% Plasma and 96% or more Oxygen in the Burn Chamber (Ideal ratio is 3% Plasma to 97% Oxygen). You can extract this gas through scrubbers.
+  Його можна отримати, спалюючи 1% плазми та 96% або більше кисню в камері згоряння (ідеальне співвідношення - 3% плазми до 97% кисню). Ви можете видобути цей газ за допомогою скруберів.
 
-  It can be used to create frezon gas in a complicated mixing process.
+  Його можна використовувати для створення фрезонового газу в складному процесі змішування.
 
-  ## Pluoxium
+  ## Плуоксій
   <Box>
     <GuideEntityEmbed Entity="PluoxiumCanister" Caption=""/>
   </Box>
-  Pluoxium is a non-reactive Oxygen substitute that delivers eight times as much O2 to the bloodstream, with as little 3 kPa minimum pressure required for internals.
+  Плуоксій - це нереактивний замінник кисню, який доставляє у вісім разів більше O2 в кров, при мінімальному тиску всього 3 кПа, необхідному для внутрішніх органів.
 
-  Pluoxium may be created by exposing O2, CO2 and Tritium together in an exothermic reaction between 50 K and 273 K. Furthermore, Pluoxium is also created by the Supermatter, when Oxygen and CO2 are present.
+  Плуоксій можна створити, піддавши O2, CO2 та тритій разом екзотермічній реакції при температурі від 50 K до 273 K. Крім того, плуоксій також створюється суперматерією, коли присутні кисень та CO2.
 
-  ## Frezon
+  ## Фрезон
   <Box>
     <GuideEntityEmbed Entity="FrezonCanister" Caption=""/>
   </Box>
 
-  A highly sought after gas, due to the difficulty in creating it and its many properties.
+  Дуже затребуваний газ через складність його створення та численні властивості.
 
-  It has an extremely high specific heat capacity, making it excellent for moving large amounts of heat around.
+  Він має надзвичайно високу питому теплоємність, що робить його чудовим для переміщення великої кількості тепла.
 
-  Frezon can combine in the air with nitrogen to create nitrous oxide, alongside cooling down the air significantly to below freezing temperatures.
+  Фрезон може поєднуватися в повітрі з азотом, утворюючи закис азоту, а також значно охолоджуючи повітря до температур нижче нуля.
 
-  Frezon is very complicated to create, requiring a mix of tritium, oxygen, and nitrogen, all tuned precisely to create the gas.
-  If you're looking to create this gas yourself, here's what you need to know:
-  - Frezon is produced by the combination of oxygen, tritium, and nitrogen.
-  - Tritium and oxygen are mixed at a ratio of around 1:8.
-  - Nitrogen is required as a catalyst for the reaction. The amount of nitrogen consumed is dependent on the efficiency of the reaction.
-  - The frezon reaction only occurs at cryogenic temperatures, below 73.15 K. The efficency of the reaction (how much frezon is produced) is dependent on the temperature. The closer to 73.15 K, the more frezon is produced, and the less nitrogen is consumed.
+  Фрезон дуже складно створити, для цього потрібна суміш тритію, кисню та азоту, точно налаштована для створення газу.
+  Якщо ви хочете створити цей газ самостійно, ось що вам потрібно знати:
+  - Фрезон утворюється при поєднанні кисню, тритію та азоту.
+  - Тритій та кисень змішуються у співвідношенні приблизно 1:8.
+  - Азот необхідний як каталізатор реакції. Кількість споживаного азоту залежить від ефективності реакції.
+  - Реакція фрезону відбувається лише при кріогенних температурах, нижче 73.15 K. Ефективність реакції (скільки фрезону утворюється) залежить від температури. Чим ближче до 73.15 K, тим більше фрезону утворюється і тим менше споживається азоту.
 
-  Remember, atmospherics is all about experimentation and process optimization. Try it until you get it right!
+  Пам'ятайте, атмосферний контроль - це все про експерименти та оптимізацію процесів. Пробуйте, доки не вийде!
 
-  ## Nitrous Oxide
+  ## Закис азоту
   <Box>
     <GuideEntityEmbed Entity="NitrousOxideCanister" Caption=""/>
     <GuideEntityEmbed Entity="EmergencyFunnyOxygenTank" Caption=""/>
   </Box>
-  A recreational and waste gas, produced by slimes and the combination of frezon and nitrogen.
+  Рекреаційний та відпрацьований газ, що виробляється слимаками та поєднанням фрезону та азоту.
 
   ## BZ
   <Box>
     <GuideEntityEmbed Entity="BZCanister" Caption=""/>
   </Box>
-  BZ gas is a potent hallucinogenic, as well as a sleeping agent for slimes. It's made from Plasma and Nitroux Oxide. It is toxic to breathe and causes respiratory irritation and coughing. BZ sees frequent use as an ingredient in more complex gas reactions.
+  Газ BZ є потужним галюциногеном, а також снодійним для слимаків. Він виготовляється з плазми та закису азоту. Він токсичний для дихання і викликає подразнення дихальних шляхів та кашель. BZ часто використовується як інгредієнт у більш складних газових реакціях.
 
-  ## Healium
+  ## Гелій
   <Box>
     <GuideEntityEmbed Entity="HealiumCanister" Caption=""/>
   </Box>
-  Healium is a red gas, formed by BZ and Frezon in cold environments, which acts as a strong sleeping agent, while healing burns, bruises, and toxin damage. Excessive use will lead to inebriation.
+  Гелій - це червоний газ, що утворюється з BZ та фрезону в холодних умовах, який діє як сильний снодійний засіб, одночасно загоюючи опіки, синці та пошкодження від токсинів. Надмірне вживання призведе до сп'яніння.
 
-  ## Ammonia
+  ## Аміак
   <Box>
     <GuideEntityEmbed Entity="AmmoniaCanister" Caption=""/>
   </Box>
-  A gas produced by the decomposition of bodies. Can be condensed to create ammonia, which can be used to make space cleaner.
+  Газ, що утворюється при розкладанні тіл. Може бути сконденсований для створення аміаку, який можна використовувати для очищення космосу.
 
-  ## Nitrium
+  ## Нітрій
   <Box>
     <GuideEntityEmbed Entity="NitriumCanister" Caption=""/>
   </Box>
-  Made from Tritium, Nitrogen and BZ, Nitrium is a gaseous stimulant that when inhaled can enhance speed and endurance. At lower concentrations Nitrium will increase your top running speed while healthy and unimpaired. Additionally, at slightly higher concentrations, breathing Nitrium will prevent drowsiness. At high concentrations breathing it will begin to shut down a person's lungs, causing asphyxiation.
-  Nitrium degrades into nitrogen and water vapor on contact with room temperature oxygen. This reaction can produce a good deal of heat, making the station uncomfortably warm in the event of a leak.
+  Виготовлений з тритію, азоту та BZ, нітрій є газоподібним стимулятором, який при вдиханні може підвищити швидкість та витривалість. При низьких концентраціях нітрій збільшить вашу максимальну швидкість бігу, поки ви здорові та не маєте пошкоджень. Крім того, при трохи вищих концентраціях дихання нітрієм запобігатиме сонливості. При високих концентраціях дихання ним почне відключати легені людини, викликаючи задуху.
+  Нітрій розкладається на азот та водяну пару при контакті з киснем кімнатної температури. Ця реакція може виробляти значну кількість тепла, роблячи станцію некомфортно теплою у разі витоку.
 
 </Document>

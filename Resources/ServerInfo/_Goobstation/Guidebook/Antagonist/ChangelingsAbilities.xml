@@ -6,290 +6,290 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Starting Abilities
+  # Початкові здібності
 
-  ## Absorb DNA
+  ## Поглинання ДНК
   <Box>
-    [color=#999999][italic]0 Chems[italic][/color]
+    [color=#999999][italic]0 хімікатів[italic][/color]
   </Box>
 
-  - Allows you to slowly and noisily absorb a dead, crit, cuffed or hard-grabbed crewmate. This adds their DNA to your pool, gives you 2 evolution points, and refills your biomass.
-  - If another changeling is absorbed, you instead get half of their total evolution points and half of their max chemicals.
-  - Target must be in a HARD grab to use this ability.
-  - Can be used in lesser form.
-  - Cannot be used while on fire.
+  - Дозволяє повільно і шумно поглинати мертвого, в критичному стані, закутого в наручники або міцно схопленого члена екіпажу. Це додає його ДНК до вашого пулу, дає вам 2 очки еволюції та поповнює вашу біомасу.
+  - Якщо поглинуто іншого підміниша, ви натомість отримуєте половину його загальних очок еволюції та половину його максимальних хімікатів.
+  - Ціль повинна бути в МІЦНОМУ захваті, щоб використовувати цю здатність.
+  - Можна використовувати в меншій формі.
+  - Не можна використовувати у вогні.
 
-  ## Extract DNA Sting
+  ## Жало для вилучення ДНК
 
   <Box>
-    [color=#999999][italic]25 Chems[italic][/color]
+    [color=#999999][italic]25 хімікатів[italic][/color]
   </Box>
 
-  - Adds the stung player's DNA to your pool.
-  - Can be used while cuffed or in lesser form.
+  - Додає ДНК ужаленого гравця до вашого пулу.
+  - Можна використовувати в наручниках або в меншій формі.
 
-  ## Cycle DNA
+  ## Цикл ДНК
   <Box>
-    [color=#999999][italic]0 Chems[italic][/color]
+    [color=#999999][italic]0 хімікатів[italic][/color]
   </Box>
 
-  - Changes the active DNA used for transform.
-  - Can be used while cuffed or in lesser form.
+  - Змінює активну ДНК, що використовується для трансформації.
+  - Можна використовувати в наручниках або в меншій формі.
 
-  ## Transform
+  ## Трансформація
   <Box>
-    [color=#999999][italic]5 Chems[italic][/color]
+    [color=#999999][italic]5 хімікатів[italic][/color]
   </Box>
 
-  - Transforms you to have the exact name and voice of your currently active DNA, consumes the DNA.
-  - Can be used while cuffed or in lesser form.
+  - Перетворює вас, щоб мати точне ім'я та голос вашої поточної активної ДНК, споживає ДНК.
+  - Можна використовувати в наручниках або в меншій формі.
 
-  ## Enter Regenerative Statis
+  ## Вхід у регенеративний стазис
   <Box>
-    [color=#999999][italic]0 chems[italic][/color]
+    [color=#999999][italic]0 хімікатів[italic][/color]
   </Box>
 
-  - Changeling instantly dies, and the exit stasis ability is unlocked.
-  - Can be used while cuffed or in lesser form.
-  - Can be used while on fire.
+  - Підміниш миттєво помирає, і розблоковується здатність виходу зі стазису.
+  - Можна використовувати в наручниках або в меншій формі.
+  - Можна використовувати у вогні.
 
-  ## Exit Regenerative Statis
+  ## Вихід з регенеративного стазису
   <Box>
-    [color=#999999][italic]30 Chems[italic][/color]
+    [color=#999999][italic]30 хімікатів[italic][/color]
   </Box>
 
-  - Changeling instantly revives, all health is fully recovered.
-  - Can be used while cuffed or in lesser form.
-  - Can be used while on fire.
-  - Can only be used after a set duration. This scales with damage taken prior to stasis, up to 180 seconds.
+  - Підміниш миттєво оживає, все здоров'я повністю відновлюється.
+  - Можна використовувати в наручниках або в меншій формі.
+  - Можна використовувати у вогні.
+  - Можна використовувати лише через певний проміжок часу. Це залежить від шкоди, отриманої до стазису, до 180 секунд.
 
-  # Combat Abilities
+  # Бойові здібності
 
-  ## Dissonant Shriek
+  ## Дисонансний крик
   <Box>
-    [color=#999999][italic] 2 Evolution Points / 30 Chems / 1 Absorbed Organic [italic][/color]
+    [color=#999999][italic] 2 очки еволюції / 30 хімікатів / 1 поглинутий органік [italic][/color]
   </Box>
 
-  - Changeling emits an EMP blast, disabling borgs, IPCs, suit coordinates, and other electronic equipment.
-  - Can be used while cuffed or in lesser form.
-  - Can be used while on fire.
+  - Підміниш випускає ЕМІ-вибух, відключаючи боргів, IPC, координати костюмів та інше електронне обладнання.
+  - Можна використовувати в наручниках або в меншій формі.
+  - Можна використовувати у вогні.
 
-  ## Resonant Shriek
+  ## Резонансний крик
   <Box>
-    [color=#999999][italic] 2 Evolution Points / 30 Chems / 1 Absorbed Organic [italic][/color]
+    [color=#999999][italic] 2 очки еволюції / 30 хімікатів / 1 поглинутий органік [italic][/color]
   </Box>
-  - Screeches, blinding anyone in the nearby area without flash protection, breaks nearby lights as well.
-  - Can be used while cuffed or in lesser form.
-  - Can be used while on fire.
+  - Кричить, засліплюючи будь-кого в найближчій зоні без захисту від спалахів, також розбиває найближчі ліхтарі.
+  - Можна використовувати в наручниках або в меншій формі.
+  - Можна використовувати у вогні.
 
-  ## Organic Shield
+  ## Органічний щит
   <Box>
-    [color=#999999][italic] 2 Evolution Points / 20 Chems / 1 Absorbed Organic [italic][/color]
+    [color=#999999][italic] 2 очки еволюції / 20 хімікатів / 1 поглинутий органік [italic][/color]
   </Box>
 
-  - Grows one of its arms into a robust shield, absorbs 50% of incoming damage until destroyed.
+  - Вирощує одну зі своїх рук у міцний щит, поглинає 50% вхідної шкоди до знищення.
 
-  ## Strained Muscles
+  ## Напружені м'язи
   <Box>
-    [color=#999999][italic] 2 Evolution Points / 0 Chems [italic][/color]
+    [color=#999999][italic] 2 очки еволюції / 0 хімікатів [italic][/color]
   </Box>
-  - Speeds the changeling up greatly, but deals heavy stamina damage over time to self. Toggles on and off.
-  - Can be used while cuffed or in lesser form.
-  - Can be used while on fire
+  - Значно прискорює підміниша, але завдає великої шкоди витривалості з часом. Вмикається та вимикається.
+  - Можна використовувати в наручниках або в меншій формі.
+  - Можна використовувати у вогні
 
-  ## Bone Shard
+  ## Кістяний уламок
   <Box>
-    [color=#999999][italic] 3 Evolution Points / 15 Chems [italic][/color]
+    [color=#999999][italic] 3 очки еволюції / 15 хімікатів [italic][/color]
   </Box>
-  - Changeling forms a bone shard throwing weapon that hardstuns in two hits, shards dissolve after a short while.
+  - Підміниш створює кістяний уламок для метання, який сильно приголомшує за два удари, уламки розчиняються через короткий час.
 
-  ## Dart Gun
+  ## Дротикова рушниця
   <Box>
-    [color=#999999][italic] 3 Evolution Points / 15 Chems [italic][/color]
+    [color=#999999][italic] 3 очки еволюції / 15 хімікатів [italic][/color]
   </Box>
-  - Changeling forms an arm into a dart gun. Dart gun fires any of the lings evolved stings, costs 1/3 the stings cost in chems per shot.
-  - Can shoot and select darts while on fire (if in use/toggled)
+  - Підміниш перетворює руку на дротикову рушницю. Дротикова рушниця стріляє будь-якими еволюціонованими жалами підміниша, вартість 1/3 вартості жал у хімікатах за постріл.
+  - Може стріляти та вибирати дротики у вогні (якщо використовується/увімкнено)
 
-  ## Arm Blade
+  ## Лезо руки
   <Box>
-    [color=#999999][italic] 4 Evolution Points / 15 Chems [italic][/color]
+    [color=#999999][italic] 4 очки еволюції / 15 хімікатів [italic][/color]
   </Box>
-  - Changeling forms an arm into a blade. Deals heavy limb damage on light attack when targeting a limb.
+  - Підміниш перетворює руку на лезо. Завдає великої шкоди кінцівкам при легкому ударі по кінцівці.
 
-  ## Arm Claw
+  ## Кіготь руки
   <Box>
-    [color=#999999][italic] 4 Evolution Points / 15 Chems [italic][/color]
+    [color=#999999][italic] 4 очки еволюції / 15 хімікатів [italic][/color]
   </Box>
-  - Changeling forms an arm into a claw. Claws can grab organisms and prevent them from moving. Claw cannot be used to attack while grabbing.
+  - Підміниш перетворює руку на кіготь. Кігті можуть хапати організми і не давати їм рухатися. Кіготь не можна використовувати для атаки під час захоплення.
 
-  ## Arm Hammer
+  ## Молот руки
   <Box>
-    [color=#999999][italic] 4 Evolution Points / 15 Chems [italic][/color]
+    [color=#999999][italic] 4 очки еволюції / 15 хімікатів [italic][/color]
   </Box>
-  - Changeling forms an arm into a hammer. Deals blunt damage, knocks down, and flings targets on light attack.
+  - Підміниш перетворює руку на молот. Завдає тупої шкоди, збиває з ніг і відкидає цілі при легкому ударі.
 
-  ## Chitinous Armor
+  ## Хітинова броня
   <Box>
-    [color=#999999][italic] 4 Evolution Points / 25 Chems / 2 Absorbed Organics [italic][/color]
+    [color=#999999][italic] 4 очки еволюції / 25 хімікатів / 2 поглинутих органіка [italic][/color]
   </Box>
-  - Changeling forms body into a mass of armor, only usable when outerwear and head slots are empty.
-  - Armor slows ling by 15 percent
-  - Armor reduces all damage by 50 percent
-  - Head armor reduces brute and burn damages by 10 percent
-  - Has decent protection against fires
-  - Slows down chem regen rate by 25%.
+  - Підміниш перетворює тіло на масу броні, можна використовувати лише коли слоти верхнього одягу та голови порожні.
+  - Броня сповільнює підміниша на 15 відсотків
+  - Броня зменшує всю шкоду на 50 відсотків
+  - Головна броня зменшує грубу та опікову шкоду на 10 відсотків
+  - Має пристойний захист від вогню
+  - Сповільнює швидкість регенерації хімікатів на 25%.
 
-  # Stings Abilities
+  # Здібності жал
 
-  ## Blind Sting
+  ## Сліпуче жало
   <Box>
-    [color=#999999][italic] 2 Evolution Points / 20 Chems [italic][/color]
+    [color=#999999][italic] 2 очки еволюції / 20 хімікатів [italic][/color]
   </Box>
-  - Changeling injects organic with 2 units of blind toxin, blinding the target for 12 seconds.
-  - Can be used while cuffed or in lesser form.
-  - Does not work on Yowies.
-  - Can stack with itself.
+  - Підміниш вводить органіку 2 одиниці сліпучого токсину, засліплюючи ціль на 12 секунд.
+  - Можна використовувати в наручниках або в меншій формі.
+  - Не діє на Йові.
+  - Може складатися з собою.
 
-  ## Cryogenic Sting
+  ## Кріогенне жало
   <Box>
-    [color=#999999][italic] 2 Evolution Points / 20 Chems [italic][/color]
+    [color=#999999][italic] 2 очки еволюції / 20 хімікатів [italic][/color]
   </Box>
-  - Changeling injects organic with 10 units of fresium, dropping their temperature to 0 degrees Celsius in most cases.
-  - Cold organics move far slower.
-  - Can be used while cuffed or in lesser form.
-  - Can stack with itself.
+  - Підміниш вводить органіку 10 одиниць фрезіуму, знижуючи їх температуру до 0 градусів за Цельсієм у більшості випадків.
+  - Холодні органіки рухаються набагато повільніше.
+  - Можна використовувати в наручниках або в меншій формі.
+  - Може складатися з собою.
 
-  ## Mute Sting
+  ## Німе жало
   <Box>
-    [color=#999999][italic] 2 Evolution Points / 20 Chems [italic][/color]
+    [color=#999999][italic] 2 очки еволюції / 20 хімікатів [italic][/color]
   </Box>
-  - Changeling injects organic with 2 units of mute toxin, muting the target for 40 seconds.
-  - Can be used while cuffed or in lesser form.
-  - Can stack with itself.
-  - Does not work on Yowies.
+  - Підміниш вводить органіку 2 одиниці німого токсину, змушуючи ціль мовчати протягом 40 секунд.
+  - Можна використовувати в наручниках або в меншій формі.
+  - Може складатися з собою.
+  - Не діє на Йові.
 
-  ## Lethargic Sting
+  ## Летаргічне жало
   <Box>
-    [color=#999999][italic] 3 Evolution Points / 30 Chems [italic][/color]
+    [color=#999999][italic] 3 очки еволюції / 30 хімікатів [italic][/color]
   </Box>
-  - Changeling injects organic with 5 units of impredrezene and tirizene, causing numerous effects.
-  - Slows target by 35%
-  - Deals 20 poison damage
-  - Deals 15 stamina damage per second for ten seconds
-  - Can be used while cuffed or in lesser form.
-  - Can stack with itself.
-  - Does not work on Yowies.
+  - Підміниш вводить органіку 5 одиниць імпредрезену та тіризену, викликаючи численні ефекти.
+  - Сповільнює ціль на 35%
+  - Завдає 20 шкоди отрутою
+  - Завдає 15 шкоди витривалості в секунду протягом десяти секунд
+  - Можна використовувати в наручниках або в меншій формі.
+  - Може складатися з собою.
+  - Не діє на Йові.
 
-  ## False Armblade Sting
+  ## Фальшиве жало-лезо
   <Box>
-    [color=#999999][italic] 4 Evolution Points / 50 Chems [italic][/color]
+    [color=#999999][italic] 4 очки еволюції / 50 хімікатів [italic][/color]
   </Box>
-  - Changeling injects organic with some of its genome, forcing the organic to grow a temporary useless armblade.
-  - Can be used while cuffed or in lesser form.
-  - Lasts roughly 60 seconds.
+  - Підміниш вводить органіку частину свого геному, змушуючи органіку виростити тимчасове марне лезо руки.
+  - Можна використовувати в наручниках або в меншій формі.
+  - Триває приблизно 60 секунд.
 
-  # Utility Abilities
+  # Утилітарні здібності
 
-  ## Anatomic Panacea
+  ## Анатомічна панацея
   <Box>
-    [color=#999999][italic] 2 Evolution Points / 30 Chems [italic][/color]
+    [color=#999999][italic] 2 очки еволюції / 30 хімікатів [italic][/color]
   </Box>
-  - Produces 10 units of Ling Panacea within the changeling.
-  - Heals 60 genetic, radiation and poison damage.
-  - Cures disabilities (permanent blindness, narcolepsy, leg paralysis ect)
-  - Can be used while cuffed or in lesser form.
+  - Виробляє 10 одиниць панацеї підміниша всередині підміниша.
+  - Лікує 60 генетичної, радіаційної та отруйної шкоди.
+  - Лікує інвалідність (постійна сліпота, нарколепсія, параліч ніг тощо)
+  - Можна використовувати в наручниках або в меншій формі.
 
-  ## Last Resort
+  ## Останній засіб
   <Box>
-    [color=#999999][italic] 2 Evolution Points / 20 Chems [italic][/color]
+    [color=#999999][italic] 2 очки еволюції / 20 хімікатів [italic][/color]
   </Box>
-  - Explodes the changelings current body and turns them into a headslug.
-  - Headslugs are extremely fast, can ventcrawl, and can crawl under doors.
-  - It can be used while cuffed but cannot be used in lesser form.
-  - Headslugs can infect a non-hollow corpse to turn into a lesser form changeling after a short timer.
-  - If the infected body is destroyed, the headslug will not revive, and will be forever lost.
-  - Can be activated while on fire.
+  - Підриває поточне тіло підміниша і перетворює його на головного слимака.
+  - Головні слимаки надзвичайно швидкі, можуть повзати по вентиляції та під дверима.
+  - Можна використовувати в наручниках, але не в меншій формі.
+  - Головні слимаки можуть заразити не порожній труп, щоб перетворитися на меншу форму підміниша через короткий час.
+  - Якщо заражене тіло буде знищено, головний слимак не відродиться і буде втрачений назавжди.
+  - Можна активувати у вогні.
 
-  ## Lesser Form
+  ## Менша форма
   <Box>
-    [color=#999999][italic] 2 Evolution Points / 20 Chems [italic][/color]
+    [color=#999999][italic] 2 очки еволюції / 20 хімікатів [italic][/color]
   </Box>
-  - Changeling turns into a monkey.
-  - Uncuffs changeling.
-  - Money can ventcrawl, but loses some abilities that the ling would otherwise have.
+  - Підміниш перетворюється на мавпу.
+  - Знімає наручники з підміниша.
+  - Мавпа може повзати по вентиляції, але втрачає деякі здібності, які мав би підміниш.
 
-  ## Absorb Biomatter
+  ## Поглинання біоматерії
   <Box>
-    [color=#999999][italic] 3 Evolution Points [italic][/color]
+    [color=#999999][italic] 3 очки еволюції [italic][/color]
   </Box>
-  - Consuming meat products restores the changelings chemical stores.
+  - Споживання м'ясних продуктів відновлює запаси хімікатів підміниша.
 
-  ## Augmented Eyesight
+  ## Покращений зір
   <Box>
-    [color=#999999][italic] 4 Evolution Points / 0 Chems [italic][/color]
+    [color=#999999][italic] 4 очки еволюції / 0 хімікатів [italic][/color]
   </Box>
-  - Changeling can toggle eyesight between flash resistant and thermal vision.
-  - While using thermal vision, flashes stun the changeling for twice as long.
-  - Thermal vision also provides changeling with night vision.
-  - Can be used while cuffed or in lesser form.
+  - Підміниш може перемикати зір між стійкістю до спалахів та тепловим баченням.
+  - При використанні теплового бачення спалахи приголомшують підміниша вдвічі довше.
+  - Теплове бачення також забезпечує підмінишу нічне бачення.
+  - Можна використовувати в наручниках або в меншій формі.
 
-  ## Biodegrade
+  ## Біодеградація
   <Box>
-    [color=#999999][italic] 4 Evolution Points / 30 Chems [italic][/color]
+    [color=#999999][italic] 4 очки еволюції / 30 хімікатів [italic][/color]
   </Box>
-  - Burns cuffs off the changeling.
-  - Uncuffs changeling.
-  - Splashes anyone grabbing changeling with acid, doing slight caustic damage, blinding them and knocking them down.
-  - Can be used while cuffed or in lesser form.
-  - Can be used while on fire.
+  - Спалює наручники з підміниша.
+  - Знімає наручники з підміниша.
+  - Обливає будь-кого, хто хапає підміниша, кислотою, завдаючи невеликої їдкої шкоди, засліплюючи та збиваючи з ніг.
+  - Можна використовувати в наручниках або в меншій формі.
+  - Можна використовувати у вогні.
 
-  ## Chameleon Skin
+  ## Шкіра хамелеона
   <Box>
-    [color=#999999][italic] 4 Evolution Points / 20 Chems [italic][/color]
+    [color=#999999][italic] 4 очки еволюції / 20 хімікатів [italic][/color]
   </Box>
-  - Changeling gains invisibility.
-  - Invisibility increases while standing still.
-  - Invisibility rapidly decreases while moving.
-  - Can be used while cuffed.
-  - Slows down chem regen rate by 25%.
+  - Підміниш отримує невидимість.
+  - Невидимість збільшується, коли стоїш на місці.
+  - Невидимість швидко зменшується під час руху.
+  - Можна використовувати в наручниках.
+  - Сповільнює швидкість регенерації хімікатів на 25%.
 
-  ## Adrenaline Reserves
+  ## Запаси адреналіну
   <Box>
-    [color=#999999][italic] 4 Evolution Points / 25 Chems [italic][/color]
+    [color=#999999][italic] 4 очки еволюції / 25 хімікатів [italic][/color]
   </Box>
-  - Changeling produces 5 units of Changeling Adrenaline.
-  - Deals 6.75 poison damage to changeling upon immediate second use.
-  - Removes stuns, knockdown times, and makes you impervious to most forms of fatigue.
-  - Can be used while cuffed or in lesser form.
-  - Can be used while on fire.
+  - Підміниш виробляє 5 одиниць адреналіну підміниша.
+  - Завдає 6.75 шкоди отрутою підмінишу при негайному повторному використанні.
+  - Знімає приголомшення, час нокдауну та робить вас невразливим до більшості форм втоми.
+  - Можна використовувати в наручниках або в меншій формі.
+  - Можна використовувати у вогні.
 
-  ## Hivemind Access
+  ## Доступ до колективного розуму
   <Box>
-    [color=#999999][italic] 4 Evolution Points [italic][/color]
+    [color=#999999][italic] 4 очки еволюції [italic][/color]
   </Box>
-  - Shows a symbol above all changelings with this ability.
-  - Togglable on and off.
-  - Grants access to the hivemind channel - :g
+  - Показує символ над усіма підмінишами з цією здатністю.
+  - Вмикається та вимикається.
+  - Надає доступ до каналу колективного розуму - :g
 
-  ## Void Adaption
+  ## Адаптація до вакууму
   <Box>
-    [color=#999999][italic] 4 Evolution Points / 0 Chems / 2 Absorbed Organics [italic][/color]
+    [color=#999999][italic] 4 очки еволюції / 0 хімікатів / 2 поглинутих органіка [italic][/color]
   </Box>
-  - Renders you immune to barotrauma (spacing) damage if active.
-  - Immune to freezing temperatures and its effects if active.
-  - Does not protect from cold damage.
-  - Changeling no longer needs to breathe if active.
-  - Slows down chem regen rate by 25%.
+  - Робить вас невразливим до шкоди від баротравми (космосу), якщо активна.
+  - Невразливий до низьких температур та їх наслідків, якщо активна.
+  - Не захищає від шкоди холодом.
+  - Підмінишу більше не потрібно дихати, якщо активна.
+  - Сповільнює швидкість регенерації хімікатів на 25%.
 
-  ## Fleshmend
+  ## Зцілення плоті
   <Box>
-    [color=#999999][italic] 5 Evolution Points / 35 Chems [italic][/color]
+    [color=#999999][italic] 5 очок еволюції / 35 хімікатів [italic][/color]
   </Box>
-  - Changeling produces 5 units of changeling fleshmenders.
-  - Reduces bleed by 8 every unit.
-  - Restores 20 blood level per unit.
-  - Heals 70 of each brute damage.
-  - Heals 30 of each burn damage.
-  - Usable while in critical condition.
-  - Can be used while cuffed or in lesser form.
+  - Підміниш виробляє 5 одиниць зцілювачів плоті підміниша.
+  - Зменшує кровотечу на 8 за кожну одиницю.
+  - Відновлює 20 рівнів крові за одиницю.
+  - Лікує 70 кожної грубої шкоди.
+  - Лікує 30 кожної опікової шкоди.
+  - Можна використовувати в критичному стані.
+  - Можна використовувати в наручниках або в меншій формі.
 </Document>

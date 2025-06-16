@@ -1,19 +1,19 @@
 <Document>
-# Chaplain
-There's something about the vast infinity of space that turns men to prayer... Especially if they get thrown into it without a space suit.
+# Капелан
+Є щось у безмежній нескінченності космосу, що навертає людей до молитви... Особливо, якщо їх викидають у нього без скафандра.
 
 
-As a chaplain, you would ideally proselytize whatever crazy religion you've made up for that round over your headset. However, besides your office, the hellish crematorium next to your office, and the rarely used morgue, you have no access.
+Як капелан, в ідеалі ви б проповідували будь-яку божевільну релігію, яку ви вигадали для цього раунду, через свою гарнітуру. Однак, окрім вашого офісу, пекельного крематорію поруч з вашим офісом та рідко використовуваного моргу, у вас немає доступу.
 
   <Box>
     <GuideEntityEmbed Entity="Bible"/>
     <GuideEntityEmbed Entity="Nullrod"/>
   </Box>
 
-## Religions:
-You are free to propagate any present day religions you know of, or even invent one of your own! Just make sure it doesn't go against NanoTrasen and its values, or you may well end up in the brig.
+## Релігії:
+Ви вільні поширювати будь-які сучасні релігії, які ви знаєте, або навіть винайти свою власну! Просто переконайтеся, що це не суперечить NanoTrasen та її цінностям, інакше ви можете опинитися в карцері.
 
-If you don't already have one, build an altar and find an offering to place on-top:
+Якщо у вас ще немає, побудуйте вівтар і знайдіть підношення, щоб покласти на нього:
 
   <Box>
     <GuideEntityEmbed Entity="AltarBananium"/>
@@ -32,39 +32,39 @@ If you don't already have one, build an altar and find an offering to place on-t
     <GuideEntityEmbed Entity="AltarToolbox"/>
   </Box>
 
-These altars can be constructed by placing the following offerings atop your base convert altar:
+Ці вівтарі можна побудувати, поклавши наступні підношення на ваш базовий вівтар навернення:
 
-- Bananium Altar: 1 x Bananium
-- Chaos Altar: 1 x Plasma
-- Druid Altar: 1 x Wooden Plank
-- Fanged Altar: 1 x Raw Meat
-- Heaven Altar: 1 x Templar Helmet
-- Maints Altar: 1 x Budget Insulated Gloves
-- Nanotrasen Altar: 1 x Plasteel
-- Space-Christian Altar: 1 x Nun Hood
-- Technology Altar: 1 x Capacitor
-- Toolbox Altar: 1 x Toolbox
+- Бананієвий вівтар: 1 x Бананій
+- Вівтар Хаосу: 1 x Плазма
+- Вівтар Друїда: 1 x Дерев'яна дошка
+- Ікластий вівтар: 1 x Сире м'ясо
+- Небесний вівтар: 1 x Шолом тамплієра
+- Вівтар обслуговування: 1 x Бюджетні ізольовані рукавички
+- Вівтар NanoTrasen: 1 x Пласталь
+- Космічно-християнський вівтар: 1 x Капюшон черниці
+- Технологічний вівтар: 1 x Конденсатор
+- Вівтар з інструментами: 1 x Ящик з інструментами
 
-## Holy Artefacts
+## Святі артефакти
 
-### Crusader Armour
-A dated suit of plate armour that was previously used as part of a holy crusade. Provides decent armour. Wearing this armour will slightly slow your movement speed.
+### Броня хрестоносця
+Застарілий комплект латної броні, який раніше використовувався в рамках священного хрестового походу. Забезпечує пристойний захист. Носіння цієї броні трохи сповільнить вашу швидкість руху.
 
-### Null Rod
-The obsidian rod will be your defense against the forces of evil. [color=blue][bold] Having it in your hands will make you completely immune to the effects of magic. [/bold][/color]
+### Нуль-стрижень
+Обсидіановий стрижень буде вашим захистом від сил зла. [color=blue][bold] Тримаючи його в руках, ви станете повністю невразливими до ефектів магії. [/bold][/color]
 
-You can transform it into a holy weapon of choice by placing it on an altar!
+Ви можете перетворити його на святу зброю за вашим вибором, поклавши його на вівтар!
 
-## Duties
+## Обов'язки
 
-- Church Services: Give sermons and sing hymns.
-- Proselytizing: Most crew members are godless heathens, show them god's love.
-- Burial Services: Security or Medical may require someone, or something... to be cremated, familiarise yourself with your Chapel so you can make things quick!
-- [bold] Metaphysical Investigation: Most crew aren't aware of the threats posed by the unholy, be on the look out for anything suspicious. [/bold]
+- Церковні служби: Проводьте проповіді та співайте гімни.
+- Прозелітизм: Більшість членів екіпажу — безбожні язичники, покажіть їм божу любов.
+- Похоронні служби: Служба безпеки або медичний відділ можуть вимагати, щоб когось або щось... кремували, ознайомтеся зі своєю каплицею, щоб ви могли все зробити швидко!
+- [bold] Метафізичне розслідування: Більшість членів екіпажу не знають про загрози, що походять від нечестивих, будьте напоготові до всього підозрілого. [/bold]
 
-### Metaphysical Threats
-As Chaplain you are the first line of defence against metaphysical threats, [bold] ready your Null Rod - the time is now. [/bold]
+### Метафізичні загрози
+Як капелан, ви є першою лінією оборони проти метафізичних загроз, [bold] готуйте свій Нуль-стрижень - час настав. [/bold]
 
-[color=red][bold] Use of excessive force against targets which you cannot confirm are metaphysical threats may land you in trouble with the law, use caution and investigate carefully. [/bold][/color]
-  
+[color=red][bold] Використання надмірної сили проти цілей, які ви не можете підтвердити як метафізичні загрози, може призвести до проблем із законом, будьте обережні та ретельно розслідуйте. [/bold][/color]
+
 </Document>

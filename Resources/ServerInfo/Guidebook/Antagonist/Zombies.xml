@@ -8,48 +8,48 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Zombies
-  
+  # Зомбі
+
   <Box>
-    [color=#999999][italic]"They're coming to get you, Barbara!"[/italic][/color]
+    [color=#999999][italic]"Вони йдуть за тобою, Барбаро!"[/italic][/color]
   </Box>
   <Box>
     <GuideEntityEmbed Entity="SignBiohazard" Caption=""/>
   </Box>
 
-  Zombies are conversion antagonists that infect all beings that they bite with [color=#7e916e]Romerol[/color], a deadly, contagious virus that can easily spread if not contained.
+  Зомбі - це антагоністи-перетворювачі, які заражають усіх істот, яких кусають, [color=#7e916e]Ромеролом[/color], смертельним, заразним вірусом, який може легко поширитися, якщо його не стримати.
 
   <Box>
     <GuideReagentEmbed Reagent="Romerol"></GuideReagentEmbed>
   </Box>
 
-  ## Inital Infected
-  You are patient zero. You have [color=#7e916e]Romerol[/color] coursing through your veins and you have a grand desire to share it with every single flesh being you see.
+  ## Початково інфікований
+  Ви - нульовий пацієнт. У ваших жилах тече [color=#7e916e]Ромерол[/color], і у вас є велике бажання поділитися ним з кожною живою істотою, яку ви бачите.
 
-  Upon learning of your infection, [italic]all bets are off[/italic]. You have only so much time before you turn, and you want to [bold]maximize your chances of taking over the station.[/bold]
-  Use this time to prepare weapons, gear, and traps. [italic]Space Law means nothing to you now.[/italic]
+  Дізнавшись про свою інфекцію, [italic]всі ставки зроблені[/italic]. У вас є лише певний час, перш ніж ви перетворитеся, і ви хочете [bold]максимізувати свої шанси на захоплення станції.[/bold]
+  Використовуйте цей час для підготовки зброї, спорядження та пасток. [italic]Космічний закон для вас тепер нічого не означає.[/italic]
 
-  ## Transmission
-  Zombies only know how to shamble, bite and throw themselves against barricades. Their bite [bold]may not always transmit [color=#7e916e]Romerol[/color][/bold] through heavy layers of clothing, but it'll definitely hurt.
+  ## Передача
+  Зомбі вміють лише плентатися, кусатися і кидатися на барикади. Їхній укус [bold]не завжди може передати [color=#7e916e]Ромерол[/color][/bold] через товсті шари одягу, але він точно буде болючим.
 
-  The undead can also chomp on a crit or dead body to [bold]instantly convert[/bold] it to a zombie.
+  Нежить також може гризти критично пораненого або мертвого, щоб [bold]миттєво перетворити[/bold] його на зомбі.
 
-  ## Zombie Attributes
-  A zombie can be identified by dark green skin, red eyes, slow movement, rotting smell, and lack of motor functions. They'll drop their headset and gloves upon turning, and cuffs don't work against their vicious bite.
+  ## Атрибути зомбі
+  Зомбі можна впізнати за темно-зеленою шкірою, червоними очима, повільним рухом, запахом гнилі та відсутністю рухових функцій. Вони втрачають гарнітуру та рукавички при перетворенні, а наручники не діють проти їхнього лютого укусу.
 
-  Zombies are known for their [bold]resilience to slashes, bruises, poison and cold.[/bold] They can survive in a vacuum and do not require food, water, air, or sleep. The undead do, however, [italic]take increased burn and shock damage.[/italic]
+  Зомбі відомі своєю [bold]стійкістю до порізів, ударів, отрути та холоду.[/bold] Вони можуть вижити у вакуумі і не потребують їжі, води, повітря чи сну. Однак нежить [italic]отримує підвищену шкоду від опіків та електричного струму.[/italic]
 
-  ## Survival
-  When the infection sweeps and [color=#cb0000]Security[/color] falls, it's up to the [bold]survivors[/bold] to try and make it to Central Command.
+  ## Виживання
+  Коли інфекція поширюється і [color=#cb0000]Служба безпеки[/color] падає, [bold]вижилим[/bold] доводиться намагатися дістатися до Центрального Командування.
 
-  [bold]Constructing barricades[/bold] around departments or [bold]bolting doors[/bold] can buy enough time to make weapons, save lives or make a plan.
+  [bold]Спорудження барикад[/bold] навколо відділів або [bold]блокування дверей[/bold] може виграти достатньо часу, щоб виготовити зброю, врятувати життя або скласти план.
 
-  Remember that when it really hits the fan, [italic]you've gotta do what you gotta do[/italic], as long as it's not at the expense of fellow survivors. Scavenge what you need from those who haven't made it.
+  Пам'ятайте, що коли все стає дуже погано, [italic]ви повинні робити те, що повинні[/italic], якщо це не за рахунок інших вижилих. Збирайте все необхідне у тих, хто не вижив.
 
-  ## Cure
-  [bold]Those who are already undead can only be cured by [color=red]death.[/color][/bold]
+  ## Ліки
+  [bold]Тих, хто вже став нежиттю, можна вилікувати лише [color=red]смертю.[/color][/bold]
 
-  If you're infected but not zombified yet, using [color=#86caf7]Ambuzol[/color] will cure you but won't prevent re-infection. [color=#1274b5]Ambuzol Plus[/color] will cure and prevent re-infection only while alive.
+  Якщо ви інфіковані, але ще не зомбовані, використання [color=#86caf7]Амбузолу[/color] вилікує вас, але не запобіжить повторному зараженню. [color=#1274b5]Амбузол Плюс[/color] вилікує і запобіжить повторному зараженню лише за життя.
 
   <Box>
     <GuideReagentEmbed Reagent="Ambuzol"></GuideReagentEmbed>

@@ -6,19 +6,19 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Signal Valve
-  The signal valve is a valve that can be controlled via [textlink="signals." link="Networking"]
+  # Сигнальний клапан
+  Сигнальний клапан - це клапан, яким можна керувати за допомогою [textlink="сигналів." link="Networking"]
   <Box>
     <GuideEntityEmbed Entity="SignalControlledValve"/>
   </Box>
 
-  The signal valve is similar to the manual valve. Gas can flow unrestricted in both directions and it can be operated manually.
+  Сигнальний клапан схожий на ручний клапан. Газ може безперешкодно текти в обох напрямках, і ним можна керувати вручну.
 
-  The signal valve has 3 [textlink="signal" link="Networking"] inputs, which can open, close, or toggle the valve.
+  Сигнальний клапан має 3 [textlink="сигнальні" link="Networking"] входи, які можуть відкривати, закривати або перемикати клапан.
 
-  Signal valves can be used in a variety of applications, for example:
-  - Remote control of valves in hazardous areas or areas inaccessible to crew
-  - Convenient control over a valve in a hard-to-reach area
-  - Automation with other [textlink="signal-enabled" link="Networking"] machines and equipment such as [textlink="air alarms" link="AirAlarms"] and remote signalers
+  Сигнальні клапани можна використовувати в різних сферах, наприклад:
+  - Дистанційне керування клапанами в небезпечних або недоступних для екіпажу зонах
+  - Зручне керування клапаном у важкодоступному місці
+  - Автоматизація з іншими [textlink="сигнальними" link="Networking"] машинами та обладнанням, такими як [textlink="повітряні тривоги" link="AirAlarms"] та дистанційні сигналізатори
 
 </Document>

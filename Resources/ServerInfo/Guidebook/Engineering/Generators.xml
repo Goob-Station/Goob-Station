@@ -6,20 +6,20 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Generators
-  Generators are devices that produce power for the station. They vary in size and power output, and each has its own unique quirks and requirements.
+  # Генератори
+  Генератори - це пристрої, які виробляють енергію для станції. Вони розрізняються за розміром та вихідною потужністю, і кожен має свої унікальні особливості та вимоги.
 
-  Engineers are intended to setup low-tier generators like Solar Arrays and the AME at the start of the shift, to give enough time to setup higher-tier generators like the Singularity Engine for sustained power for the rest of the shift.
+  Інженери повинні налаштовувати генератори низького рівня, такі як сонячні батареї та АМЕ, на початку зміни, щоб дати достатньо часу для налаштування генераторів вищого рівня, таких як двигун на сингулярності, для стабільного живлення до кінця зміни.
 
   <Box>
     <GuideEntityEmbed Entity="SingularityGenerator" Caption=""/>
     <GuideEntityEmbed Entity="TeslaGenerator" Caption=""/>
   </Box>
   <Box>
-    ## Singularity and Tesla Engine
+    ## Двигун на сингулярності та Тесла
   </Box>
   <Box>
-    [color=#999999][italic]Devices capable of infinite energy — and destructive potential[italic][/color]
+    [color=#999999][italic]Пристрої, здатні до нескінченної енергії — і руйнівного потенціалу[italic][/color]
   </Box>
 
   <Box>
@@ -27,10 +27,10 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="AmePartFlatpack" Caption=""/>
   </Box>
   <Box>
-    ## Antimatter Engine
+    ## Антиматерійний двигун
   </Box>
   <Box>
-    [color=#999999][italic]Short-term support generator for the station[italic][/color]
+    [color=#999999][italic]Короткостроковий допоміжний генератор для станції[italic][/color]
   </Box>
 
   <Box>
@@ -39,10 +39,10 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="TegCirculator" Caption="" Margin="0"/>
   </Box>
   <Box>
-    ## Thermo-electric Generator
+    ## Термоелектричний генератор
   </Box>
   <Box>
-    [color=#999999][italic]Advanced atmospherics generator that harnesses the energy of gasses[italic][/color]
+    [color=#999999][italic]Просунутий атмосферний генератор, що використовує енергію газів[italic][/color]
   </Box>
 
   <Box>
@@ -51,10 +51,10 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="SolarPanel" Caption=""/>
   </Box>
   <Box>
-    ## Solar Panels
+    ## Сонячні панелі
   </Box>
   <Box>
-    [color=#999999][italic]Low-maintenance passive power source[italic][/color]
+    [color=#999999][italic]Пасивне джерело живлення з низьким рівнем обслуговування[italic][/color]
   </Box>
 
 
@@ -64,19 +64,19 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="PortableGeneratorSuperPacman" Caption="" />
   </Box>
   <Box>
-    ## Portable Generators
+    ## Портативні генератори
   </Box>
   <Box>
-    [color=#999999][italic]Portable generators for crew use and emergency power[italic][/color]
+    [color=#999999][italic]Портативні генератори для використання екіпажем та аварійного живлення[italic][/color]
   </Box>
 
   <Box>
     <GuideEntityEmbed Entity="GeneratorRTG" Caption="" />
   </Box>
   <Box>
-    ## Radioisotope Thermoelectric Generator
+    ## Радіоізотопний термоелектричний генератор
   </Box>
   <Box>
-    [color=#999999][italic]Zero-maintenance passive power source[italic][/color]
+    [color=#999999][italic]Пасивне джерело живлення без обслуговування[italic][/color]
   </Box>
 </Document>

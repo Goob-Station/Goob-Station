@@ -6,62 +6,62 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Inspecting Power
-  Engineers can inspect a power network to see useful statistics about it.
-  This can help engineers diagnose power issues and find root causes to problems.
+  # Перевірка живлення
+  Інженери можуть перевіряти мережу живлення, щоб побачити корисну статистику про неї.
+  Це може допомогти інженерам діагностувати проблеми з живленням та знаходити першопричини проблем.
 
-  ## Power Monitoring Computer
-  The Power Monitoring Computer is a device that can be used to inspect all the power networks on the station.
+  ## Комп'ютер моніторингу живлення
+  Комп'ютер моніторингу живлення - це пристрій, який можна використовувати для перевірки всіх мереж живлення на станції.
 
   <Box>
     <GuideEntityEmbed Entity="ComputerPowerMonitoring"/>
   </Box>
 
-  The Power Monitoring Computer has two major sections, a station map and the power statistics.
+  Комп'ютер моніторингу живлення має два основні розділи: карту станції та статистику живлення.
 
-  The station map shows:
-  - The station layout, with [color=green]low[/color], [color=yellow]medium[/color], and [color=orange]high[/color] [textlink="voltage networks" link="VoltageNetworks"] highlighted.
-  - [textlink="All APCs, SMES, and substations." link="VoltageNetworks"]
-  - All power [textlink="producers" link="Generators"] connected to the station (note that they don't have to be connected to a power network to be shown).
+  Карта станції показує:
+  - Схему станції з виділеними [color=green]низьковольтними[/color], [color=yellow]середньовольтними[/color] та [color=orange]високовольтними[/color] [textlink="мережами напруги" link="VoltageNetworks"].
+  - [textlink="Усі АРС, SMES та підстанції." link="VoltageNetworks"]
+  - Усі [textlink="виробники" link="Generators"] енергії, підключені до станції (зауважте, що вони не обов'язково повинні бути підключені до мережі живлення, щоб бути показаними).
 
-  The power statistics show:
-  - The total [textlink="generator" link="Generators"] output, which is what the generators are currently producing to match grid demand.
-  - The total [textlink="battery" link="PowerStorage"] usage, which is the amount of power being drawn from batteries. Grids completely powered by generators will show low battery usage.
-  - The total network loads, which is the amount of power being requested by the station.
+  Статистика живлення показує:
+  - Загальну потужність [textlink="генератора" link="Generators"], тобто те, що генератори наразі виробляють для задоволення попиту мережі.
+  - Загальне використання [textlink="батареї" link="PowerStorage"], тобто кількість енергії, що споживається від батарей. Мережі, повністю живлені від генераторів, показуватимуть низьке використання батарей.
+  - Загальне навантаження мережі, тобто кількість енергії, що запитується станцією.
 
-  In an ideal situation, the total generator output should match the total network load, and the total battery usage should be low.
-  Using these three statistics, engineers can get an accurate picture of the station's power situation.
-  For example:
-  - If the total generator output is lower than the total network load, the station is in a power deficit.
-  - If the total battery usage is high, the station is drawing power from batteries to make up the difference.
-  - If it is zero with the generator load below the total network load, then the station is actively in a brownout, as the batteries are fully discharged.
-  - If the total generator output is higher than the total network load, the SMESes are charging.
+  В ідеальній ситуації загальна потужність генератора повинна відповідати загальному навантаженню мережі, а загальне використання батареї повинно бути низьким.
+  Використовуючи ці три статистичні дані, інженери можуть отримати точне уявлення про ситуацію з живленням на станції.
+  Наприклад:
+  - Якщо загальна потужність генератора нижча за загальне навантаження мережі, станція перебуває в дефіциті енергії.
+  - Якщо загальне використання батареї високе, станція споживає енергію від батарей, щоб компенсувати різницю.
+  - Якщо воно дорівнює нулю, а навантаження генератора нижче загального навантаження мережі, то станція активно перебуває в стані відключення, оскільки батареї повністю розряджені.
+  - Якщо загальна потужність генератора вища за загальне навантаження мережі, SMES заряджаються.
 
-  ## Device Tabs
-  The Power Monitoring Computer has tabs for each device category on the station.
-  Navigating these power tabs will show the power statistics for each device category.
-  For example:
-  - Clicking on a source will show what that source is supplying the power to, and how much power it is supplying. It will also highlight the devices that are connected to that source.
-  - Clicking on an SMES, Substation, or APC will show the two power grids it is connected to, how much power it is receiving, and how much power it is distributing, as well as the exact devices that are making an exchange with the target device.
+  ## Вкладки пристроїв
+  Комп'ютер моніторингу живлення має вкладки для кожної категорії пристроїв на станції.
+  Перехід по цих вкладках живлення покаже статистику живлення для кожної категорії пристроїв.
+  Наприклад:
+  - Натискання на джерело покаже, куди це джерело подає живлення та скільки енергії воно подає. Це також виділить пристрої, підключені до цього джерела.
+  - Натискання на SMES, підстанцію або АРС покаже дві мережі живлення, до яких він підключений, скільки енергії він отримує та скільки енергії він розподіляє, а також точні пристрої, які здійснюють обмін з цільовим пристроєм.
 
-  ## Inspecting via Multitool
-  The Multitool can be used to inspect power cables to see their power statistics.
+  ## Перевірка за допомогою мультитула
+  Мультитул можна використовувати для перевірки кабелів живлення, щоб побачити їхню статистику живлення.
 
   <Box>
     <GuideEntityEmbed Entity="Multitool"/>
   </Box>
 
-  When you click on a cable with the Multitool, it will show the cable's power statistics. This includes:
-  - The current supply, which is the amount of power the source is providing.
-  - The current supply from batteries, which is the amount of power being drawn from batteries.
-  - The theoretical supply, which is the maximum amount of power the source could provide if demanded.
-  - The ideal consumption, which is the current demand on the cable.
-  - The input storage, which is the capacity of batteries that are currently charging.
-  - The output storage, which is the capacity of batteries that are currently discharging.
+  Коли ви натискаєте на кабель мультитулом, він покаже статистику живлення кабелю. Це включає:
+  - Поточне постачання, тобто кількість енергії, що надається джерелом.
+  - Поточне постачання від батарей, тобто кількість енергії, що споживається від батарей.
+  - Теоретичне постачання, тобто максимальна кількість енергії, яку джерело могло б надати за потреби.
+  - Ідеальне споживання, тобто поточний попит на кабель.
+  - Вхідне сховище, тобто ємність батарей, які наразі заряджаються.
+  - Вихідне сховище, тобто ємність батарей, які наразі розряджаються.
 
-  Note that this information is relevant only to the voltage network you inspected.
-  A [color=green]low voltage[/color] cable (which likely only services a few rooms) will not show the same statistics as a [color=orange]high voltage[/color] cable (which services the entire station).
+  Зауважте, що ця інформація стосується лише тієї мережі напруги, яку ви перевірили.
+  Кабель [color=green]низької напруги[/color] (який, ймовірно, обслуговує лише кілька кімнат) не покаже тієї ж статистики, що й кабель [color=orange]високої напруги[/color] (який обслуговує всю станцію).
 
-  This is useful information to keep in mind, as it can help you troubleshoot why "this room is powered, but this one isn't!"
+  Це корисна інформація, яку слід пам'ятати, оскільки вона може допомогти вам усунути несправності, чому "ця кімната живиться, а ця ні!"
 
 </Document>

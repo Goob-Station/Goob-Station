@@ -6,48 +6,48 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-# Chain of Command
-This is the ideal list for passing down the Captain role in command. There are several factors to take into respect here, but this boils down to a simple list.
+# Ланцюг командування
+Це ідеальний список для передачі ролі капітана в командуванні. Тут слід враховувати кілька факторів, але все зводиться до простого списку.
 
-[bullet/][color=#1b67a5]Blueshield Officer[/color] (BSO) and [color=#1b67a5]Nanotrasen Representative[/color] (NTR) should never hold a position of command on this station.
+[bullet/][color=#1b67a5]Офіцер Blueshield[/color] (BSO) та [color=#1b67a5]Представник Nanotrasen[/color] (NTR) ніколи не повинні обіймати командні посади на цій станції.
 
-[bullet/]This list can be deviated from for special circumstances, with the vote resting on Command to do so.
+[bullet/]Від цього списку можна відхилятися за особливих обставин, при цьому рішення про це приймає командування шляхом голосування.
 
-[bullet/][color=#1b67a5]Nanotrasen Representative[/color], if one is present, should assist in this process and guide the new Captain.
+[bullet/][color=#1b67a5]Представник Nanotrasen[/color], якщо такий є, повинен допомагати в цьому процесі та направляти нового капітана.
 
-[bullet/]When choosing the succeeding Captain, they should be marked on their ID as [color=#1b67a5]Acting Captain[/color] (following the same promotion procedures).
+[bullet/]При виборі наступного капітана, він повинен бути позначений у своєму посвідченні як [color=#1b67a5]Виконуючий обов'язки капітана[/color] (з дотриманням тих самих процедур підвищення).
 
 <Box>~</Box>
-<Box>[bold][color=#1b67a5][head=1]Command Succession[/head][/color][/bold]</Box>
-<Box>Captain</Box>
-<Box>Head of Personnel (HoP)</Box>
-<Box>Head of Security (HoS)</Box>
-<Box>Warden</Box>
-<Box>Research Director (RD)</Box>
-<Box>Chief Medical Officer (CMO)</Box>
-<Box>Chief Engineer (CE)</Box>
-<Box>Quartermaster (QM)</Box>
-<Box>Security Officer</Box>
+<Box>[bold][color=#1b67a5][head=1]Порядок спадкоємності командування[/head][/color][/bold]</Box>
+<Box>Капітан</Box>
+<Box>Голова персоналу (HoP)</Box>
+<Box>Голова служби безпеки (HoS)</Box>
+<Box>Начальник в'язниці</Box>
+<Box>Директор з досліджень (RD)</Box>
+<Box>Головний лікар (CMO)</Box>
+<Box>Головний інженер (CE)</Box>
+<Box>Квартирмейстер (QM)</Box>
+<Box>Офіцер служби безпеки</Box>
 <Box>~</Box>
 
-## Succession Decision Process
-The new Acting Captain should follow the same responsibilities and uphold the same duties as a normal Captain would. These can be found in the Captain SOP.
-The succession list is shown from [bold]top to bottom[/bold] and should be followed as such.
+## Процес прийняття рішення про спадкоємність
+Новий виконуючий обов'язки капітана повинен виконувати ті ж самі обов'язки, що й звичайний капітан. Їх можна знайти в СОП капітана.
+Список спадкоємності наведено [bold]зверху вниз[/bold] і його слід дотримуватися саме в такому порядку.
 
-If it is deemed necessary, or by wish of the Head of Staff that is being chosen, the next person in the succession may be skipped.
+Якщо це буде визнано за необхідне, або за бажанням голови персоналу, якого обирають, наступна особа в порядку спадкоємності може бути пропущена.
 
-[bullet/]For choices where the Head of Staff is deemed necessary to skip by others, it should be put to a vote by successors (barring Security Officers).
+[bullet/]У випадках, коли інші вважають за необхідне пропустити голову персоналу, це питання має бути винесене на голосування наступників (за винятком офіцерів служби безпеки).
 
-[bullet/]For choices where the Head of Staff chooses to not accept the title, they should have a valid reason for doing so and justify it if necessary.
+[bullet/]У випадках, коли голова персоналу вирішує не приймати звання, він повинен мати вагому причину для цього і, за необхідності, обґрунтувати її.
 
-## Choosing Security Officers
-When choosing Security Officers for Command Succession, it should be put to a vote by all those included if there is no [color=#1b67a5]Nanotrasen Representative[/color].
+## Вибір офіцерів служби безпеки
+При виборі офіцерів служби безпеки для спадкоємності командування, питання має бути винесене на голосування всіх причетних, якщо немає [color=#1b67a5]Представника Nanotrasen[/color].
 
-When voting, it should be held as fast as possible. If a tie happens while voting, seniority should prevail.
+Голосування має проводитися якомога швидше. Якщо під час голосування виникає нічия, перевагу має старшинство.
 
-## Procedure for Acquiring Access
-If at all possible, damage to station and Captain Quarter's should be minimized while acquiring accesses to ID during Command Succession procedures.
+## Процедура отримання доступу
+Якщо це можливо, пошкодження станції та каюти капітана слід мінімізувати під час отримання доступу до посвідчень під час процедур спадкоємності командування.
 
-AI should follow these procedures and assist in this process. If AI is not available, engineers should be utilized in opening the doors and ensuring they are properly secured when finished.
+ШІ повинен дотримуватися цих процедур і допомагати в цьому процесі. Якщо ШІ недоступний, для відкриття дверей та забезпечення їх належного закриття після завершення слід залучати інженерів.
 
 </Document>

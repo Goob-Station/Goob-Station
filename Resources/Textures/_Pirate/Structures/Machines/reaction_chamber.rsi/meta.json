@@ -1,0 +1,17 @@
+{
+    "version": 1,
+    "license": "CC0-1.0",
+    "copyright": "Created by EmoGarbage, reshaded by Checkraze, resized and edited to wall version by sTiKyt",
+    "size": {
+      "x": 32,
+      "y": 32
+    },
+    "states": [
+      {
+        "name": "base"
+      },
+      {
+        "name": "filled"
+      }
+    ]
+  }

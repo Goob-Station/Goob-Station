@@ -9,7 +9,7 @@ namespace Content.Pirate.Server.Pacification.Managers
     public sealed class PacifyManager
     {
         private static readonly Dictionary<string, (string UserName, DateTime ExpirationDate)> _pacifiedPlayers = new();
-        private static readonly string FilePath = Path.Combine("data", "gs_pacify_list.json");
+        private static readonly string FilePath = Path.Combine("data", "pacify_list.json");
         private static bool _isDataLoaded = false;
 
         public PacifyManager()

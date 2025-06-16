@@ -1306,3 +1306,323 @@
   sprite:
     sprite: Effects/crayondecals.rsi
     state: z
+
+- type: decal
+  id: а
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: Effects/crayondecals.rsi
+    state: а
+
+- type: decal
+  id: б
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: Effects/crayondecals.rsi
+    state: б
+
+- type: decal
+  id: в
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: Effects/crayondecals.rsi
+    state: в
+
+- type: decal
+  id: г
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: Effects/crayondecals.rsi
+    state: г
+
+- type: decal
+  id: д
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: Effects/crayondecals.rsi
+    state: д
+
+- type: decal
+  id: е
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: Effects/crayondecals.rsi
+    state: е
+
+- type: decal
+  id: є
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: Effects/crayondecals.rsi
+    state: є
+
+- type: decal
+  id: ж
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: Effects/crayondecals.rsi
+    state: ж
+
+- type: decal
+  id: з
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: Effects/crayondecals.rsi
+    state: з
+
+- type: decal
+  id: и
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: Effects/crayondecals.rsi
+    state: и
+
+- type: decal
+  id: і
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: Effects/crayondecals.rsi
+    state: і
+
+- type: decal
+  id: ї
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: Effects/crayondecals.rsi
+    state: ї
+
+- type: decal
+  id: й
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: Effects/crayondecals.rsi
+    state: й
+
+- type: decal
+  id: к
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: Effects/crayondecals.rsi
+    state: к
+
+- type: decal
+  id: л
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: Effects/crayondecals.rsi
+    state: л
+
+- type: decal
+  id: м
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: Effects/crayondecals.rsi
+    state: м
+
+- type: decal
+  id: н
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: Effects/crayondecals.rsi
+    state: н
+
+- type: decal
+  id: о
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: Effects/crayondecals.rsi
+    state: о
+
+- type: decal
+  id: п
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: Effects/crayondecals.rsi
+    state: п
+
+- type: decal
+  id: р
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: Effects/crayondecals.rsi
+    state: р
+
+- type: decal
+  id: с
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: Effects/crayondecals.rsi
+    state: с
+
+- type: decal
+  id: т
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: Effects/crayondecals.rsi
+    state: т
+
+- type: decal
+  id: у
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: Effects/crayondecals.rsi
+    state: у
+
+- type: decal
+  id: ф
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: Effects/crayondecals.rsi
+    state: ф
+
+- type: decal
+  id: х
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: Effects/crayondecals.rsi
+    state: х
+
+- type: decal
+  id: ц
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: Effects/crayondecals.rsi
+    state: ц
+
+- type: decal
+  id: ч
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: Effects/crayondecals.rsi
+    state: ч
+
+- type: decal
+  id: ш
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: Effects/crayondecals.rsi
+    state: ш
+
+- type: decal
+  id: щ
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: Effects/crayondecals.rsi
+    state: щ
+
+- type: decal
+  id: ь
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: Effects/crayondecals.rsi
+    state: ь
+
+- type: decal
+  id: ю
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: Effects/crayondecals.rsi
+    state: ю
+
+- type: decal
+  id: я
+  tags: ["crayon", "crayon-2-alphanum"]
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite:
+    sprite: Effects/crayondecals.rsi
+    state: я

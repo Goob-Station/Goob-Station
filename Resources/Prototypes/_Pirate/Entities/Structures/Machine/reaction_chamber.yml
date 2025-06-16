@@ -1,0 +1,40 @@
+- type: entity
+  id: ReactionChamberChemistry
+  name: "Камера для реакцій"
+  description: "Чудо хімічних технологій. Дозволяє встановлювати бажану температуру вашої субстанції."
+  suffix: Chemistry
+  parent: BaseMachinePowered
+  components:
+    - type: Appearance
+    - type: Sprite
+      sprite: /Textures/_Pirate/Structures/Machines/reaction_chamber.rsi
+      state: base
+    - type: GenericVisualizer
+      visuals:
+        enum.ReactionChamberVisuals.HasItem:
+          enum.ReactionChamberLayers.Base:
+            True: { state: "filled" }
+            False: { state: "base" }
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape: !type:PhysShapeAabb
+            bounds: "-0.14,-0.35,0.1,0.35"
+          density: 190
+          mask:
+            - MachineMask
+          layer:
+            - MachineLayer
+    - type: UserInterface
+      interfaces:
+        enum.ReactionChamberUiKey.Key:
+          type: ReactionChamberBoundUI
+    - type: ActivatableUI
+      key: enum.ReactionChamberUiKey.Key
+    - type: ItemSlots
+      slots:
+        beakerSlot:
+          whitelist:
+            components:
+              - FitsInDispenser
+    - type: ReactionChamber

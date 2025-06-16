@@ -6,9 +6,9 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Fire and Gas Control
-  Unfortunately, [textlink="fires" link="Fires"], [textlink="spacing" link="Spacing"], and other [textlink="atmospheric upsets" link="AtmosphericUpsets"] are a common occurrence on the station.
-  These upsets can quickly spread throughout the station and make the atmosphere uninhabitable for the crew.
+  # Контроль пожежі та газу
+  На жаль, [textlink="пожежі" link="Fires"], [textlink="розгерметизація" link="Spacing"] та інші [textlink="атмосферні порушення" link="AtmosphericUpsets"] є звичайним явищем на станції.
+  Ці порушення можуть швидко поширюватися по всій станції та робити атмосферу непридатною для життя екіпажу.
 
   <Box>
     <GuideEntityEmbed Entity="Firelock"/>
@@ -17,33 +17,33 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="FireAlarm"/>
   </Box>
 
-  To combat this, stations have a variety of devices to help prevent these upsets from spreading.
+  Для боротьби з цим на станціях є різноманітні пристрої, що допомагають запобігти поширенню цих порушень.
 
-  ## Firelocks
-  Firelocks are a simple and effective way to prevent fires from spreading throughout the station.
+  ## Протипожежні шлюзи
+  Протипожежні шлюзи - це простий та ефективний спосіб запобігання поширенню пожеж по всій станції.
 
-  Based on conditions sensed by the firelock, or through instruction from a connected [textlink="air" link="AirAlarms"] or fire alarm, they can close off sections of the station to prevent the spread of dangerous conditions.
+  На основі умов, що визначаються протипожежним шлюзом, або за інструкцією від підключеної [textlink="повітряної" link="AirAlarms"] або пожежної тривоги, вони можуть перекривати секції станції для запобігання поширенню небезпечних умов.
 
-  ## Station Sectioning
-  Firelocks are intentionally placed in key areas to divide the station into sections. Open spaces like hallways or promenades are divided into smaller sections. This prevents the spread of dangerous conditions to the entire station through connected rooms, hallways, and other open spaces.
+  ## Секціонування станції
+  Протипожежні шлюзи навмисно розміщуються в ключових місцях для поділу станції на секції. Відкриті простори, такі як коридори або променади, поділяються на менші секції. Це запобігає поширенню небезпечних умов на всю станцію через з'єднані кімнати, коридори та інші відкриті простори.
 
-  ## Basic Operation
-  When not connected to an [textlink="air alarm" link="AirAlarms"] or fire alarm, firelocks will function based on the conditions they sense. Firelocks will drop (close) if:
-  - The temperature between the two sides of the firelock is different by [color=orange][protodata="Firelock" comp="Firelock" member="TemperatureThreshold"/] K[/color] or more.
-  - The pressure between the two sides of the firelock is different by [color=orange][protodata="Firelock" comp="Firelock" member="PressureThreshold"/] kPa[/color] or more.
+  ## Основна робота
+  Коли протипожежні шлюзи не підключені до [textlink="повітряної тривоги" link="AirAlarms"] або пожежної тривоги, вони функціонують на основі умов, які вони відчувають. Протипожежні шлюзи опустяться (закриються), якщо:
+  - Різниця температур між двома сторонами протипожежного шлюзу становить [color=orange][protodata="Firelock" comp="Firelock" member="TemperatureThreshold"/] K[/color] або більше.
+  - Різниця тисків між двома сторонами протипожежного шлюзу становить [color=orange][protodata="Firelock" comp="Firelock" member="PressureThreshold"/] кПа[/color] або більше.
 
-  If these conditions continue, the firelock will enter lockout mode. Firelocks in lockout mode will have [color=red]red[/color] lights and cannot be pried open by hand. They can only be opened by people with Engineering access or by using a crowbar.
+  Якщо ці умови зберігаються, протипожежний шлюз перейде в режим блокування. Протипожежні шлюзи в режимі блокування матимуть [color=red]червоні[/color] вогні і їх не можна буде відкрити вручну. Їх можуть відкрити лише особи з доступом до інженерного відділу або за допомогою лома.
 
-  Firelocks in lockout mode cannot be opened by using Engineering access if they are unpowered. Only a crowbar can open an unpowered firelock in lockout mode.
+  Протипожежні шлюзи в режимі блокування не можна відкрити за допомогою доступу до інженерного відділу, якщо вони знеструмлені. Лише лом може відкрити знеструмлений протипожежний шлюз у режимі блокування.
 
-  If the conditions between the two sides of the firelock return to within acceptable differences, the firelock will disable lockout mode, and can be opened by anyone.
-  Note that this only means that the conditions are the same on both sides of the firelock, not that they are safe.
+  Якщо умови між двома сторонами протипожежного шлюзу повернуться до прийнятних значень, протипожежний шлюз вимкне режим блокування, і його зможе відкрити будь-хто.
+  Зауважте, що це означає лише те, що умови однакові по обидва боки протипожежного шлюзу, а не те, що вони безпечні.
 
-  A common example of this is a firelock that has released due to both sides being exposed to space.
+  Поширеним прикладом цього є протипожежний шлюз, який відкрився через те, що обидві сторони були піддані впливу космосу.
 
-  ## Connecting to Air and Fire Alarms
-  Firelocks can be connected to [textlink="air alarms" link="AirAlarms"] and fire alarms to receive instructions on when to drop.
-  Firelocks use the [textlink="List system" link="Networking"], and you can connect these devices using a multitool or network configurator.
+  ## Підключення до повітряної та пожежної тривоги
+  Протипожежні шлюзи можна підключити до [textlink="повітряних тривог" link="AirAlarms"] та пожежних тривог, щоб отримувати інструкції про те, коли опускатися.
+  Протипожежні шлюзи використовують [textlink="систему списків" link="Networking"], і ви можете підключити ці пристрої за допомогою мультитула або мережевого конфігуратора.
 
   <Box>
     <GuideEntityEmbed Entity="Firelock" Caption=""/>
@@ -53,32 +53,32 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="AirAlarm" Caption=""/>
   </Box>
 
-  Each firelock has its own unique address. The process for connecting air vents, scrubbers, and sensors to air alarms is very similar.
+  Кожен протипожежний шлюз має свою унікальну адресу. Процес підключення вентиляційних отворів, скруберів та датчиків до повітряних тривог дуже схожий.
 
-  ## Operation Under Air Alarms
-  When connected to an air alarm, firelocks will also drop under the command of the connected [textlink="air alarm" link="AirAlarms"].
+  ## Робота під час повітряної тривоги
+  При підключенні до повітряної тривоги протипожежні шлюзи також будуть опускатися за командою підключеної [textlink="повітряної тривоги" link="AirAlarms"].
 
-  Firelocks will drop if the air alarm reaches a [color=red]Danger[/color] alert state. Firelocks will remain dropped until the air alarm returns to a [color=green]Green[/color] alert state.
+  Протипожежні шлюзи опустяться, якщо повітряна тривога досягне стану тривоги [color=red]Небезпека[/color]. Протипожежні шлюзи залишатимуться опущеними, доки повітряна тривога не повернеться до стану тривоги [color=green]Зелений[/color].
 
-  Firelocks that are in lockout mode will not raise even if the air alarm returns to a [color=green]Green[/color] alert state. Even if the pressure difference is resolved, the firelock will remain dropped until the air alarm re-sends a green alert state.
+  Протипожежні шлюзи, що перебувають у режимі блокування, не піднімуться, навіть якщо повітряна тривога повернеться до стану [color=green]Зелений[/color]. Навіть якщо різниця тисків буде усунена, протипожежний шлюз залишатиметься опущеним, доки повітряна тривога не надішле повторно зелений сигнал тривоги.
 
-  ## Operation Under Fire Alarms
-  When connected to a fire alarm, firelocks will drop if the fire alarm is triggered. Firelocks will remain dropped until the fire alarm is reset.
+  ## Робота під час пожежної тривоги
+  При підключенні до пожежної тривоги протипожежні шлюзи опустяться, якщо спрацює пожежна тривога. Протипожежні шлюзи залишатимуться опущеними, доки пожежну тривогу не буде скинуто.
 
-  ## Fire Alarms
-  Fire alarms are devices that can be used to centrally control all connected firelocks.
+  ## Пожежні тривоги
+  Пожежні тривоги - це пристрої, які можна використовувати для централізованого керування всіма підключеними протипожежними шлюзами.
 
   <Box>
     <GuideEntityEmbed Entity="FireAlarm"/>
   </Box>
 
-  Devices with sensors can be [textlink="linked" link="Networking"] to fire alarms, which will trigger the fire alarm if the sensor enters the [color=red]Danger[/color] temperature threshold as defined by its sensors.
+  Пристрої з датчиками можна [textlink="підключити" link="Networking"] до пожежних тривог, що спрацює пожежну тривогу, якщо датчик увійде в поріг температури [color=red]Небезпека[/color], як визначено його датчиками.
 
-  When the fire alarm is triggered, all connected firelocks will be overridden with a [color=red]Danger[/color] alert state and will drop.
+  Коли спрацьовує пожежна тривога, всі підключені протипожежні шлюзи будуть перекриті станом тривоги [color=red]Небезпека[/color] і опустяться.
 
-  The alarm will automatically clear itself when the sensor returns to a [color=green]Normal[/color] temperature threshold.
+  Тривога автоматично скинеться, коли датчик повернеться до порогу температури [color=green]Нормальний[/color].
 
-  You can trigger and reset a fire alarm manually by interacting with it.
+  Ви можете спрацювати та скинути пожежну тривогу вручну, взаємодіючи з нею.
 
-  This can be used to quickly drop firelocks in a room manually, or to raise them after an upset has been resolved.
+  Це можна використовувати для швидкого опускання протипожежних шлюзів у кімнаті вручну або для їх підняття після усунення несправності.
 </Document>

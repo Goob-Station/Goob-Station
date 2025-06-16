@@ -6,41 +6,41 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-# Bingle
+# Бінгл
 
-A bingle is a disgusting fungus that rapidly grows and takes over stations. Very weak on its own, their strength is in numbers.
+Бінгл — це огидний гриб, який швидко росте і захоплює станції. Дуже слабкий сам по собі, його сила в кількості.
 
   <Box>
-    <GuideEntityEmbed Entity="MobBingle" Caption="Bingle"/>
-	  <GuideEntityEmbed Entity="BinglePit" Caption="Bingle Pit"/>
+    <GuideEntityEmbed Entity="MobBingle" Caption="Бінгл"/>
+	  <GuideEntityEmbed Entity="BinglePit" Caption="Яма бінглів"/>
   </Box>
 
-A bingle is a midround antagonist that spawns alone, but can quickly grow in numbers
+Бінгл — це антагоніст середини раунду, який з'являється один, але може швидко рости в кількості.
 
-## Playing As A Bingle
+## Гра за Бінгла
 
-- The most difficult part of a bingle pit's development is the beginning, when it is very weak. As the first bingle you should prioritize dragging as many items to the pit as fast as you can.
-Bingles are very strong in melee combat, stunning in a few hits. Try to take out any lone witnesses before they can call out the pits location.
+- Найскладніша частина розвитку ями бінглів — це початок, коли вона дуже слабка. Як перший бінгл, ви повинні пріоритетно перетягувати якомога більше предметів до ями якомога швидше.
+Бінгли дуже сильні в ближньому бою, приголомшуючи за кілька ударів. Намагайтеся усунути будь-яких самотніх свідків, перш ніж вони зможуть повідомити місцезнаходження ями.
 
-- Once there are a few bingles, you should focus on dragging items in, as well as protecting the pit. If it breaks, you wont be able to make any more bingles and the colony will die out.
+- Коли з'явиться кілька бінглів, ви повинні зосередитися на перетягуванні предметів, а також на захисті ями. Якщо вона зламається, ви не зможете створювати більше бінглів, і колонія вимре.
 
-- The bingle pit is the home of bingles, when several items are drug into it and fall down a new bingle is made. After quite a large number of items are drug into it, bingles are upgraded into armored bingles, which have far more health than the normal ones. The bingle pit also grows to larger than before, allowing for corpses to be dropped into the pit.
+- Яма бінглів — це дім бінглів, коли в неї кидають кілька предметів і вони падають, створюється новий бінгл. Після того, як в неї кинуть досить велику кількість предметів, бінгли перетворюються на броньованих бінглів, які мають набагато більше здоров'я, ніж звичайні. Яма бінглів також росте до більших розмірів, дозволяючи кидати в неї трупи.
 
-## Playing Against Bingles
+## Гра проти Бінглів
 
-The most best way to play against bingles is to avoid melee combat. Instead; Use ranged weapons to deal with them and thin their numbers from afar.
+Найкращий спосіб грати проти бінглів — уникати ближнього бою. Замість цього; використовуйте далекобійну зброю, щоб розправлятися з ними і зменшувати їхню кількість здалеку.
   <Box>
     <GuideEntityEmbed Entity="WeaponRifleLecter"/>
 	  <GuideEntityEmbed Entity="WeaponLaserCarbine"/>
   </Box>
-The bingle pit itself can only be damaged by melee weapons and explosives. When attacking the pit directly be careful to avoid falling into it, as you can do so even while alive. It is typically best to deal with the bingles themselves before attacking the pit.
+Саму яму бінглів можна пошкодити лише зброєю ближнього бою та вибухівкою. Атакуючи яму безпосередньо, будьте обережні, щоб не впасти в неї, оскільки це можна зробити навіть живим. Зазвичай краще розібратися з самими бінглами, перш ніж атакувати яму.
 
-If a bingle infestation is growing out of hand, consider shutting down gravity, bingles cannot drop items into a pit without gravity and therefor cannot multiply.
+Якщо зараження бінглами виходить з-під контролю, подумайте про відключення гравітації, бінгли не можуть кидати предмети в яму без гравітації і, отже, не можуть розмножуватися.
 
   <Box>
     <GuideEntityEmbed Entity="GravityGenerator"/>
   </Box>
 
-All items (and people) lost to the pit will be spat out when destroyed!
+Усі предмети (і люди), втрачені в ямі, будуть виплюнуті при її знищенні!
 
 </Document>

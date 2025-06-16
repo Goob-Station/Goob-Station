@@ -6,25 +6,25 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Spacing
-  Spacing is the most common form of atmospheric upset that can occur on the station.
+  # Розгерметизація
+  Розгерметизація є найпоширенішою формою атмосферного порушення, яке може статися на станції.
 
-  While the damage that caused the spacing is often time-consuming to [textlink="fix" link="ExpandingRepairingStation"], the actual spacing problem can be quickly resolved by simply repressurizing the area.
+  Хоча усунення пошкоджень, що спричинили розгерметизацію, часто займає багато часу [textlink="для виправлення" link="ExpandingRepairingStation"], саму проблему розгерметизації можна швидко вирішити, просто відновивши тиск у зоні.
 
-  Fixing spacing generally follows two simple steps:
+  Усунення розгерметизації зазвичай складається з двох простих кроків:
 
-  1. Identify the area that has been spaced and [textlink="seal the hole." link="ExpandingRepairingStation"]
+  1. Визначте зону, яка була розгерметизована, і [textlink="залатайте пробоїну." link="ExpandingRepairingStation"]
 
-  - If you're having trouble finding the hole, you can carefully listen for the flow of air rushing by you, if air is currently leaking to space.
-  - Look for any holes underneath girders that may be hard to see.
+  - Якщо у вас виникають проблеми з пошуком пробоїни, ви можете уважно прислухатися до потоку повітря, що проноситься повз вас, якщо повітря наразі витікає в космос.
+  - Шукайте будь-які отвори під балками, які може бути важко побачити.
 
-  2. Repressurize the area.
+  2. Відновіть тиск у зоні.
 
-  - [textlink="Air vents" link="AirVent"] enter pressure lockout in order not to lose more air to spacing, so you'll need to override the vents to repressurize the area. You can do this by setting the connected [textlink="air alarm" link="AirAlarms"] to fill, or by using a screwdriver on a vent to manually override it temporarily.
+  - [textlink="Вентиляційні отвори" link="AirVent"] переходять у режим блокування тиску, щоб не втрачати більше повітря через розгерметизацію, тому вам потрібно буде перевизначити налаштування вентиляційних отворів, щоб відновити тиск у зоні. Ви можете зробити це, встановивши підключену [textlink="повітряну сигналізацію" link="AirAlarms"] на заповнення, або за допомогою викрутки на вентиляційному отворі, щоб тимчасово перевизначити його вручну.
 
-  ## Things to Avoid
-  - Keep in mind that while you have an infinite supply of [textlink="mined gas" link="GasMiningAndStorage"], it is not quick enough to fill up multiple rooms at once. Setting [textlink="air alarms" link="AirAlarms"] to fill first [italic]before[/italic] fixing the root problem will often lead to wasted time and gas.
+  ## Чого слід уникати
+  - Майте на увазі, що хоча у вас є нескінченний запас [textlink="видобутого газу" link="GasMiningAndStorage"], його недостатньо, щоб заповнити кілька кімнат одночасно. Встановлення [textlink="повітряних сигналізацій" link="AirAlarms"] на заповнення [italic]перед[/italic] усуненням основної проблеми часто призводить до марної трати часу та газу.
 
-  - Leaving [textlink="air alarms" link="AirAlarms"] on the Fill mode unsupervised may lead to overpressuring a room, which can potentially harm crew if it gets out of hand.
+  - Залишення [textlink="повітряних сигналізацій" link="AirAlarms"] у режимі заповнення без нагляду може призвести до надлишкового тиску в кімнаті, що може потенційно зашкодити екіпажу, якщо ситуація вийде з-під контролю.
 
 </Document>

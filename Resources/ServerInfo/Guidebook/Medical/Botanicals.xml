@@ -7,9 +7,9 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-# Botanicals
+# Ботанічні препарати
 
-Botany and Chemistry can often work together to produce better medicine (or recreational cocktails). It may be worthwhile to give them the fertilizers they need, and request some medicinal plants in return.
+Ботаніка та хімія часто можуть працювати разом для виробництва кращих ліків (або рекреаційних коктейлів). Може бути доцільно дати їм необхідні добрива та попросити натомість деякі лікарські рослини.
 
 <Box>
 <GuideEntityEmbed Entity="FoodGalaxythistle"/>

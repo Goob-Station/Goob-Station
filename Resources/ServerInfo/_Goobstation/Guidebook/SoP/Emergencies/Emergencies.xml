@@ -7,19 +7,19 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-# Emergency Procedures
-This is the list of procedures that should (ideally) be followed in certain circumstances. This is a variety of emergencies and levels of hostiliy/threat to the station.
+# Надзвичайні процедури
+Це перелік процедур, яких слід (в ідеалі) дотримуватися за певних обставин. Це різноманітні надзвичайні ситуації та рівні ворожості/загрози для станції.
 
-Command and Security should utilize this section to differentiate the danger level for this station and choose appropriate reactions.
+Командування та служба безпеки повинні використовувати цей розділ для розрізнення рівня небезпеки для цієї станції та вибору відповідних реакцій.
 
-The following emergencies are underneath this folder:
-- [textlink="Confirmed Revolutions" link="ConfirmedRevs SOP"]
-- [textlink="Containment Failures (Tesla/Singularity)" link="ContainmentFail SOP"]
-- [textlink="Fire/Gas Spills" link="FireGasSpill SOP"]
-- [textlink="Meteor Storms" link="MeteorStorm SOP"]
-- [textlink="Supermatter Delamination" link="SMDelam SOP"]
-- [textlink="War Declaration" link="WarDeclaration SOP"]
-- [textlink="Zombie Outbreak" link="Zombie SOP"]
-- [textlink="Emergency Response Team" link="EmergencyResponseTeam SOP"]
+Наступні надзвичайні ситуації знаходяться в цій папці:
+- [textlink="Підтверджені революції" link="ConfirmedRevs SOP"]
+- [textlink="Збої в утриманні (Тесла/Сингулярність)" link="ContainmentFail SOP"]
+- [textlink="Пожежі/розливи газу" link="FireGasSpill SOP"]
+- [textlink="Метеоритні дощі" link="MeteorStorm SOP"]
+- [textlink="Розшарування суперматерії" link="SMDelam SOP"]
+- [textlink="Оголошення війни" link="WarDeclaration SOP"]
+- [textlink="Спалах зомбі" link="Zombie SOP"]
+- [textlink="Група реагування на надзвичайні ситуації" link="EmergencyResponseTeam SOP"]
 
 </Document>

@@ -6,67 +6,67 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Air Alarms
-  The Air Alarm is a device that enables central monitoring and control over all relevant Atmos devices linked to it.
+  # Повітряні тривоги
+  Повітряна тривога - це пристрій, який забезпечує централізований моніторинг та контроль над усіма відповідними пристроями Atmos, пов'язаними з ним.
 
   <Box>
     <GuideEntityEmbed Entity="AirAlarm"/>
   </Box>
 
-  Using the Air Alarm, Atmos can quickly and efficiently manage the atmosphere in a given area.
+  Використовуючи повітряну тривогу, Atmos може швидко та ефективно керувати атмосферою в певній зоні.
 
-  A room will often have an Air Alarm mounted on the wall, for quick control over multiple devices in that room.
+  У кімнаті часто встановлюється повітряна тривога на стіні для швидкого керування кількома пристроями в цій кімнаті.
 
-  You can see how to link devices in the [textlink="Link" link="Networking"] guide.
+  Ви можете побачити, як підключати пристрої, у посібнику [textlink="Підключення" link="Networking"].
 
-  ## User Interface
-  Interacting with an Air Alarm will bring up a menu with 3 sections:
-  - Top: The current status of the air alarm. This includes the current pressure and temperature of the area the air alarm is monitoring.
-  - Middle: Lists of linked [textlink="Air Vents" link="AirVent"] and [textlink="Air Scrubbers" link="AirScrubber"], as well as all sensors reporting back to the air alarm.
-  - Bottom: Buttons to control air alarm operating modes, as well as the ability to toggle the automatic changing of modes.
+  ## Інтерфейс користувача
+  Взаємодія з повітряною тривогою відкриє меню з 3 розділами:
+  - Вгорі: Поточний стан повітряної тривоги. Це включає поточний тиск і температуру в зоні, яку контролює повітряна тривога.
+  - Посередині: Списки пов'язаних [textlink="Вентиляційних отворів" link="AirVent"] та [textlink="Очищувачів повітря" link="AirScrubber"], а також усі датчики, що звітують повітряній тривозі.
+  - Внизу: Кнопки для керування режимами роботи повітряної тривоги, а також можливість перемикання автоматичної зміни режимів.
 
-  ## Alarm Status
-  Air alarms quickly communicate the status of the area they are monitoring through the color of the light on the device:
-  - [color=green]Normal[/color]: The area is safe to breathe in.
-  - [color=yellow]Warning[/color]: The area is starting to deviate from the desired atmosphere, and is becoming unsafe.
-  - [color=red]Danger[/color]: The area is no longer safe, internals and/or hardsuits are required.
+  ## Статус тривоги
+  Повітряні тривоги швидко повідомляють про стан зони, яку вони контролюють, за допомогою кольору світла на пристрої:
+  - [color=green]Нормальний[/color]: У зоні безпечно дихати.
+  - [color=yellow]Попередження[/color]: Зона починає відхилятися від бажаної атмосфери і стає небезпечною.
+  - [color=red]Небезпека[/color]: Зона більше не є безпечною, потрібні внутрішні органи та/або скафандри.
 
-  Air alarms will automatically drop (close) linked [textlink="firelocks" link="FireAndGasControl"] when the [color=Red]Danger[/color] status is reached.
-  These [textlink="firelocks" link="FireAndGasControl"] will automatically raise (open) when the status returns to [color=green]Normal[/color].
+  Повітряні тривоги автоматично опускають (закривають) пов'язані [textlink="вогневі заслінки" link="FireAndGasControl"], коли досягається статус [color=Red]Небезпека[/color].
+  Ці [textlink="вогневі заслінки" link="FireAndGasControl"] автоматично піднімаються (відкриваються), коли статус повертається до [color=green]Нормальний[/color].
 
-  Air alarms have [textlink="signal" link="Networking"] outputs for each of the three statuses, which can be used to trigger other [textlink="signal" link="Networking"] devices when the status changes.
+  Повітряні тривоги мають [textlink="сигнальні" link="Networking"] виходи для кожного з трьох статусів, які можна використовувати для запуску інших [textlink="сигнальних" link="Networking"] пристроїв при зміні статусу.
 
-  ## Sensors
-  All [textlink="Air Vents" link="AirVent"] and [textlink="Air Scrubbers" link="AirScrubber"] have a built-in sensor, which reports back to the air alarm.
-  These sensors can be adjusted in the [bold]Sensors[/bold] tab of the air alarm menu.
+  ## Датчики
+  Усі [textlink="Вентиляційні отвори" link="AirVent"] та [textlink="Очищувачі повітря" link="AirScrubber"] мають вбудований датчик, який звітує повітряній тривозі.
+  Ці датчики можна налаштувати на вкладці [bold]Датчики[/bold] меню повітряної тривоги.
 
-  An air alarm's status is directly determined by the thresholds on each sensor.
-  If a sensor reports a pressure, temperature, or gas composition outside the set thresholds, the air alarm will change its status accordingly.
+  Статус повітряної тривоги безпосередньо визначається порогами на кожному датчику.
+  Якщо датчик повідомляє про тиск, температуру або склад газу за межами встановлених порогів, повітряна тривога відповідно змінить свій статус.
 
-  These thresholds can be adjusted and disabled as needed.
-  For example, if you are monitoring a room that naturally has a low temperature (such as a freezer) or a high temperature (such as a burn chamber), you can adjust the temperature thresholds to match the expected values.
+  Ці пороги можна регулювати та вимикати за потреби.
+  Наприклад, якщо ви контролюєте кімнату, яка природно має низьку температуру (наприклад, морозильну камеру) або високу температуру (наприклад, камеру згоряння), ви можете налаштувати температурні пороги відповідно до очікуваних значень.
 
-  An air sensor can also be constructed and [textlink="linked" link="Networking"] to an air alarm.
+  Датчик повітря також можна сконструювати та [textlink="підключити" link="Networking"] до повітряної тривоги.
 
   <Box>
     <GuideEntityEmbed Entity="AirSensor"/>
   </Box>
 
-  This is useful for monitoring areas that you don't have an air vent or scrubber in already.
+  Це корисно для моніторингу зон, де у вас ще немає вентиляційного отвору або скрубера.
 
-  ## Operating Modes
-  To control connected devices quickly, air alarms feature operating modes, which quickly changes the behavior of all linked devices to achieve a desired effect.
-  - None: Disables all devices linked to the air alarm.
-  - Filtering: [textlink="Air Vents" link="AirVent"] will be enabled with their external bound set to standard atmospheric pressure. [textlink="Air Scrubbers" link="AirScrubber"] will be enabled and scrub all waste gasses normally.
-  - Filtering (Wide): Same as Filtering, but all linked [textlink="Air Scrubbers" link="AirScrubber"] will enable their WideNet mode.
-  - Fill: [textlink="Air Vents" link="AirVent"] will be enabled with their external bound set to max pressure, [color=orange][protodata="GasVentPump" comp="GasVentPump" member="MaxPressure"/] kPa[/color]. [textlink="Air Scrubbers" link="AirScrubber"] will be disabled.
-  - Panic: [textlink="Air Vents" link="AirVent"] will be disabled, and [textlink="Air Scrubbers" link="AirScrubber"] will be set to siphon mode.
+  ## Режими роботи
+  Для швидкого керування підключеними пристроями повітряні тривоги мають режими роботи, які швидко змінюють поведінку всіх пов'язаних пристроїв для досягнення бажаного ефекту.
+  - Немає: Вимикає всі пристрої, пов'язані з повітряною тривогою.
+  - Фільтрація: [textlink="Вентиляційні отвори" link="AirVent"] будуть увімкнені з їхньою зовнішньою межею, встановленою на стандартний атмосферний тиск. [textlink="Очищувачі повітря" link="AirScrubber"] будуть увімкнені та нормально очищатимуть усі відпрацьовані гази.
+  - Фільтрація (широка): Те саме, що й фільтрація, але всі пов'язані [textlink="Очищувачі повітря" link="AirScrubber"] увімкнуть режим WideNet.
+  - Заповнення: [textlink="Вентиляційні отвори" link="AirVent"] будуть увімкнені з їхньою зовнішньою межею, встановленою на максимальний тиск, [color=orange][protodata="GasVentPump" comp="GasVentPump" member="MaxPressure"/] кПа[/color]. [textlink="Очищувачі повітря" link="AirScrubber"] будуть вимкнені.
+  - Паніка: [textlink="Вентиляційні отвори" link="AirVent"] будуть вимкнені, а [textlink="Очищувачі повітря" link="AirScrubber"] будуть переведені в режим сифону.
 
-  Air alarms will automatically switch between the Filtering and Filtering (Wide) modes based on the current status of the area they are monitoring.
-  - If the area reaches [color=red]Danger[/color] status or above, the air alarm will switch to Filtering (Wide) mode.
-  - If the area reaches [color=green]Normal[/color] or [color=yellow]Warning[/color] status, the air alarm will switch to Filtering mode.
+  Повітряні тривоги автоматично перемикаються між режимами фільтрації та фільтрації (широкої) залежно від поточного стану зони, яку вони контролюють.
+  - Якщо зона досягає статусу [color=red]Небезпека[/color] або вище, повітряна тривога переключиться в режим фільтрації (широкої).
+  - Якщо зона досягає статусу [color=green]Нормальний[/color] або [color=yellow]Попередження[/color], повітряна тривога переключиться в режим фільтрації.
 
-  This behavior can be disabled by toggling the "Auto" box in the bottom section of the air alarm menu.
+  Цю поведінку можна вимкнути, перемкнувши прапорець "Авто" в нижній частині меню повітряної тривоги.
 
-  Relevant tips on how to fix [textlink="spacing" link="Spacing"] and [textlink="fires" link="Fires"] can be found in the relevant guides.
+  Відповідні поради щодо усунення [textlink="розгерметизації" link="Spacing"] та [textlink="пожеж" link="Fires"] можна знайти у відповідних посібниках.
 </Document>

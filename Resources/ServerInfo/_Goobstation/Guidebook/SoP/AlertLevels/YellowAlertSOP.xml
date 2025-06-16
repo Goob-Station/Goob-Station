@@ -6,32 +6,32 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Station Alert - Yellow
+  # Тривога на станції - Жовта
 
   <Box>
-    [italic]Called by: Anyone with Command-Level Access at a working Communications Console.[/italic]
+    [italic]Викликається: будь-ким з доступом на рівні командування на робочій консолі зв'язку.[/italic]
   </Box>
 
 
-  [bold]Conditions:[/bold]
-  There is an atmospheric threat aboard the station such as mass hull breaches, spacing, or high temperatures that make the station uninhabitable without an EVA suit.
+  [bold]Умови:[/bold]
+  На борту станції існує атмосферна загроза, така як масові пробоїни в корпусі, розгерметизація або високі температури, що роблять станцію непридатною для життя без костюма EVA.
 
-  [bold]Security:[/bold]
+  [bold]Безпека:[/bold]
 
-  You should ensure EVA suits are properly distributed around the station while maintaining vigilance.
+  Ви повинні забезпечити належний розподіл костюмів EVA по станції, зберігаючи при цьому пильність.
 
-  [bold]Secure Areas:[/bold]
+  [bold]Безпечні зони:[/bold]
 
-  EVA Storage, Tech Storage, Gravity Generator, Engineering Secure Storage, AI Upload, Vault, Gateway, anywhere else requiring command level access that does not get regularly used.
+  Сховище EVA, технічне сховище, генератор гравітації, інженерне безпечне сховище, завантаження ШІ, сховище, шлюз, будь-де ще, що вимагає доступу на рівні командування, яке не використовується регулярно.
 
-  It is recommended that all Secure Areas be bolted down unless their use is necessary;
+  Рекомендується, щоб усі безпечні зони були заблоковані, якщо їх використання не є необхідним;
 
-  [bold]General Crew:[/bold]
+  [bold]Загальний екіпаж:[/bold]
 
-  All personnel are highly recommended to maximize their Suit Sensors;
+  Усьому персоналу настійно рекомендується максимально використовувати свої датчики костюмів;
 
-  Personnel are to report any suspicious activity to the nearest member of Security, or use their PDA or headsets if required;
+  Персонал повинен повідомляти про будь-яку підозрілу активність найближчому співробітнику служби безпеки або використовувати свій КПК чи гарнітуру, якщо це необхідно;
 
-  Personnel are highly encouraged to either get into a safe area or find emergency EVA suits as well as a source of oxygen/nitrogen as required.
+  Персоналу настійно рекомендується або знайти безпечне місце, або знайти аварійні костюми EVA, а також джерело кисню/азоту за потребою.
 
 </Document>

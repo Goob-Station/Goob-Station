@@ -14,28 +14,28 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Antimatter Engine (AME)
-  The Antimatter Engine is a short-term support generator for the station, providing a sizable chunk of power for a limited time.
+  # Антиматеріальний двигун (АМД)
+  Антиматеріальний двигун - це короткочасний генератор підтримки для станції, що забезпечує значну частину енергії протягом обмеженого часу.
 
-  It's mainly used to assist engineers in starting up bigger engines like the [textlink="Singularity Engine" link="SingularityEngine"] or [textlink="Tesla Engine" link="TeslaEngine"], by supplementing the station's [textlink="batteries" link="PowerStorage"] with partial power to extend their runtime.
+  Він в основному використовується для допомоги інженерам у запуску більших двигунів, таких як [textlink="Сингулярний двигун" link="SingularityEngine"] або [textlink="Двигун Тесли" link="TeslaEngine"], доповнюючи [textlink="батареї" link="PowerStorage"] станції частковою потужністю для продовження їхнього часу роботи.
 
-  ## Construction
-  <Box>Required parts:</Box>
+  ## Будівництво
+  <Box>Необхідні частини:</Box>
   <Box>
   <GuideEntityEmbed Entity="AmeController"/>
   <GuideEntityEmbed Entity="AmePartFlatpack"/>
   <GuideEntityEmbed Entity="AmeJar"/>
   </Box>
 
-  The AME Controller is the part of the AME that outputs power to the station's grid through an [textlink="HV connection" link="VoltageNetworks"].
-  Because of this, you'll want to start your AME construction with the controller on top of an [color=orange]HV wire[/color].
+  Контролер АМД - це частина АМД, яка видає енергію в мережу станції через [textlink="з'єднання ВН" link="VoltageNetworks"].
+  Через це ви захочете почати будівництво АМД з контролера на [color=orange]дроті ВН[/color].
 
-  Most stations have exposed [color=orange]HV wiring[/color] or designated spots to wrench an AME controller, so that it connects to the grid.
+  Більшість станцій мають відкриту [color=orange]проводку ВН[/color] або спеціально відведені місця для встановлення контролера АМД, щоб він підключався до мережі.
 
-  AME shielding is the physical structure that makes the antimatter engine. It's made by converting AME flatpacks into shielding using a multitool.
+  Екранування АМД - це фізична структура, яка утворює антиматеріальний двигун. Воно виготовляється шляхом перетворення плоских пакетів АМД в екранування за допомогою мультитула.
 
-  To construct an AME, start putting down a 3x3 or larger square of AME flatpacks in preparation for construction, making sure to maximize the number of "center" pieces that are surrounded on all eight sides.
-  The greater amount of center pieces, the more cores your AME will have, and the more power it will be able to output safely.
+  Щоб побудувати АМД, почніть викладати квадрат 3x3 або більший з плоских пакетів АМД для підготовки до будівництва, переконавшись, що максимальна кількість "центральних" частин оточена з усіх восьми сторін.
+  Чим більша кількість центральних частин, тим більше ядер матиме ваш АМД, і тим більше енергії він зможе безпечно видавати.
 
   <Box>
     <GuideEntityEmbed Entity="AmePartFlatpack" Caption=""/>
@@ -53,7 +53,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="AmePartFlatpack" Caption=""/>
   </Box>
 
-  Once this is done, you can use a multitool to convert each AME flatpack into shielding, which should form a finished AME configuration.
+  Після цього ви можете використовувати мультитул для перетворення кожного плоского пакета АМД в екранування, що повинно утворити готову конфігурацію АМД.
 
   <GuideEntityEmbed Entity="AmeController" Caption=""/>
   <Box>
@@ -72,20 +72,20 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="AmeShielding" Caption="" Margin="0"/>
   </Box>
   <Box>
-    [color=#999999][italic]An example of a one core setup[italic][/color]
+    [color=#999999][italic]Приклад налаштування з одним ядром[italic][/color]
   </Box>
 
-  ## Operation
-  To start the AME, insert a fuel jar into the AME controller, and set the safe injection rate.
+  ## Робота
+  Щоб запустити АМД, вставте паливний бак у контролер АМД і встановіть безпечну швидкість впорскування.
 
-  The safe injection rate is the point where the AME can safely run without overheating, while maximizing power output.
+  Безпечна швидкість впорскування - це точка, в якій АМД може безпечно працювати без перегріву, максимізуючи вихідну потужність.
 
-  This rate is always twice the core count.
+  Ця швидкість завжди вдвічі перевищує кількість ядер.
 
-  For example, an AME with one core will have a safe injection rate of 2. With two cores, the safe injection rate would be 4, and so on.
+  Наприклад, АМД з одним ядром матиме безпечну швидкість впорскування 2. З двома ядрами безпечна швидкість впорскування буде 4, і так далі.
 
-  Any more than this ratio will eventually result in the engine [color=#ff0000]overheating[/color] and, shortly afterwards, [color=#ff0000]exploding[/color].
+  Будь-яке перевищення цього співвідношення врешті-решт призведе до [color=#ff0000]перегріву[/color] двигуна і, незабаром після цього, до [color=#ff0000]вибуху[/color].
 
-  The AME controller will [textlink="report" link="InspectingPower"] on both the amount of power it is providing to the grid, and the theoretical maximum power it could provide if demanded.
+  Контролер АМД буде [textlink="звітувати" link="InspectingPower"] як про кількість енергії, яку він надає мережі, так і про теоретичну максимальну потужність, яку він міг би надати за потреби.
 
 </Document>

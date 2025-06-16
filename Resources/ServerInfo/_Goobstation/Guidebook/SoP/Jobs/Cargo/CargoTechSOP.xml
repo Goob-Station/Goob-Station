@@ -6,32 +6,32 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-# Cargo Technician SOP
-This is the list of procedures, responsibilities, and duties of the [color=#846326]Cargo Technician[/color] of this station.
+# СОП вантажного техніка
+Це перелік процедур, обов'язків та повноважень [color=#846326]вантажного техніка[/color] цієї станції.
 
-1. Cargo Technicians must ensure that every approved order is delivered within 15 minutes of having been placed and approved.
+1. Вантажні техніки повинні забезпечити доставку кожного затвердженого замовлення протягом 15 хвилин після його розміщення та затвердження.
 
-2. Cargo Technicians are not permitted to handle restricted crates (crates for Security/Command).
+2. Вантажним технікам не дозволяється працювати з обмеженими ящиками (ящики для служби безпеки/командування).
 
-3. Cargo Technicians are not permitted to order items for sole personal use with the supply department account without express consent from the Quartermaster.
-<Box>Exception is made if there are more than [bold]7,500 spesos[/bold] available and no outstanding orders. Cargo Technicians may not deplete the entire department account balance for this.</Box>
+3. Вантажним технікам не дозволяється замовляти товари для особистого користування з рахунку відділу постачання без явної згоди квартирмейстера.
+<Box>Виняток робиться, якщо є більше [bold]7500 спесо[/bold] і немає невиконаних замовлень. Вантажні техніки не можуть вичерпати весь баланс рахунку відділу для цього.</Box>
 
-4. Cargo Technicians are not permitted to order non-essential items using the supply account (such as cats, or clothing) without express consent from the Quartermaster.
+4. Вантажним технікам не дозволяється замовляти несуттєві товари з рахунку постачання (наприклад, котів або одяг) без явної згоди квартирмейстера.
 
-5. Cargo Technicians are not permitted to force and/or break open locked crates.
-<Box>Exception is made for Abandoned Crates found by Salvaging.</Box>
+5. Вантажним технікам не дозволяється силою та/або зламувати замкнені ящики.
+<Box>Виняток робиться для покинутих ящиків, знайдених під час утилізації.</Box>
 
-6. Cargo Technicians are not permitted to authorize non-departmental orders (such as a Medical Doctor asking for Insulated Gloves) without express permission from the Quartermaster.
+6. Вантажним технікам не дозволяється авторизувати замовлення, що не належать до відділу (наприклад, лікар, який просить ізольовані рукавички), без явної згоди квартирмейстера.
 
-7. Cargo Technicians are to ensure and verify that the personnel ordering in the request form is a crew member and is correct identification and shows the correct reason in the request.
+7. Вантажні техніки повинні переконатися та перевірити, що персонал, який замовляє у формі запиту, є членом екіпажу, має правильну ідентифікацію та вказує правильну причину в запиті.
 
-8. Cargo Technicians must ensure at least one copy of every Order Form (ie, the forms produced by the Requests Console) is kept inside Cargo until the order is finished.
+8. Вантажні техніки повинні забезпечити, щоб принаймні одна копія кожної форми замовлення (тобто форм, створених консоллю запитів) зберігалася у вантажному відділі до завершення замовлення.
 
-9. Cargo Technicians must send back all crates that have been ordered, with accompanying manifest on the crate.
+9. Вантажні техніки повинні відправляти назад усі замовлені ящики з супровідним маніфестом на ящику.
 
-10. Cargo Technicians are not permitted to ask for spesos in exchange for legal cargo crate orders or autolathe requests from crew members.
+10. Вантажним технікам не дозволяється просити спесо в обмін на легальні замовлення вантажних ящиків або запити на автолат від членів екіпажу.
 
-11. Cargo Technicians are not permitted to trade items and/or favors in exchange for items with regular personnel without express consent from the Quartermaster.
+11. Вантажним технікам не дозволяється обмінювати товари та/або послуги в обмін на товари зі звичайним персоналом без явної згоди квартирмейстера.
 
-12. Cargo Technicians are not to keep any illegal items that are flushed down Disposals, and must deliver them to Security.
+12. Вантажні техніки не повинні зберігати будь-які незаконні предмети, які змиваються в сміттєпроводи, і повинні доставляти їх до служби безпеки.
 </Document>

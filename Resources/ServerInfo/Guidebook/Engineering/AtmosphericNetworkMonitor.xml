@@ -6,49 +6,49 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Atmospheric Network Monitor
-  The Atmospheric Network Monitor is a computer that shows information on monitored [textlink="pipe networks" link="PipeNetworks"] across the station.
+  # Монітор атмосферної мережі
+  Монітор атмосферної мережі - це комп'ютер, який показує інформацію про контрольовані [textlink="трубопровідні мережі" link="PipeNetworks"] по всій станції.
 
   <Box>
     <GuideEntityEmbed Entity="ComputerAtmosMonitoring"/>
   </Box>
 
-  It is a useful tool for quickly gauging the tempreature, pressure, and gas composition of station [textlink="pipe networks" link="PipeNetworks"], as well as how they spread throughout the station.
+  Це корисний інструмент для швидкого вимірювання температури, тиску та складу газів у [textlink="трубопровідних мережах" link="PipeNetworks"] станції, а також для відстеження їх поширення по станції.
 
-  ## Listed Networks
-  The Atmospheric Network Monitor displays a list of all monitored [textlink="pipe networks" link="PipeNetworks"] on the station.
+  ## Перераховані мережі
+  Монітор атмосферної мережі відображає список усіх контрольованих [textlink="трубопровідних мереж" link="PipeNetworks"] на станції.
 
-  Each network is color-coded and named based on the name and color of the Gas Pipe Sensor that is monitoring it.
-  To change the name or color of a network, you can rename it with a labeler, or change the color using a spray painter.
+  Кожна мережа має свій колір та назву, що відповідають назві та кольору датчика газової труби, який її контролює.
+  Щоб змінити назву або колір мережі, ви можете перейменувати її за допомогою маркувальника або змінити колір за допомогою розпилювача фарби.
 
-  Clicking on a network will show detailed information about the network, as well as highlighting the network on the station map.
+  Натискання на мережу покаже детальну інформацію про неї, а також підсвітить мережу на карті станції.
 
-  This information includes the molar amount of the gas in the entire network, as well as the composition of the gas in the network.
-  This can prove extremely useful for monitoring important networks like the Distro pipenet, which can not function correctly if below certain pressures.
+  Ця інформація включає молярну кількість газу в усій мережі, а також склад газу в мережі.
+  Це може бути надзвичайно корисним для моніторингу важливих мереж, таких як розподільча мережа, яка не може функціонувати належним чином при тиску нижче певного рівня.
 
-  ## Station Map
-  The Atmospheric Network Monitor displays the location of all [textlink="pipe networks" link="PipeNetworks"] on the station map, as well as any pipe-based devices.
-  Note that the pipe network doesn't need to have an attached Gas Pipe Sensor to be visible on the map.
+  ## Карта станції
+  Монітор атмосферної мережі відображає розташування всіх [textlink="трубопровідних мереж" link="PipeNetworks"] на карті станції, а також будь-яких пристроїв на основі труб.
+  Зауважте, що для видимості на карті трубопровідній мережі не обов'язково мати підключений датчик газової труби.
 
-  These devices are colored on the map based on their color on the station, which can help identify seperate [textlink="pipe networks" link="PipeNetworks"], and the devices that are connected to them.
+  Ці пристрої пофарбовані на карті відповідно до їхнього кольору на станції, що допомагає ідентифікувати окремі [textlink="трубопровідні мережі" link="PipeNetworks"] та підключені до них пристрої.
 
-  Pipe based devices are grouped together on the map's legend based on their function:
-  - A [bold]Network Opening[/bold] is a device that connects a pipe network to the station's atmosphere. Think [textlink="Air Vents" link="AirVents"], [textlink="Passive Vents" link="PassiveVent"], and [textlink="Air Injectors" link="AirInjector"].
-  - An [bold]Air Scrubber[/bold] is just an [textlink="Air Scrubber" link="AirScrubber"].
-  - A [bold]Flow Regulator[/bold] is a device that controls the flow of gas through a pipe network. Think [textlink="Gas Pumps" link="Pumps"], [textlink="Gas Valves" link="Valves"], and [textlink="Gas Mixers/Filters" link="MixingAndFiltering"]. The arrow on the device indicates the direction of gas flow. This also often determines where a pipe network is seperated or split.
-  - A [bold]Thermoregulator[/bold] is any device that does something to the temperature of the gas in a pipe network. Think [textlink="Thermomachines" link="Thermomachines"], [textlink="Radiators" link="Radiators"], and even Medical Cryopods.
+  Пристрої на основі труб згруповані в легенді карти за їх функціями:
+  - [bold]Мережевий отвір[/bold] - це пристрій, який з'єднує трубопровідну мережу з атмосферою станції. Наприклад, [textlink="Вентиляційні отвори" link="AirVents"], [textlink="Пасивні вентиляційні отвори" link="PassiveVent"] та [textlink="Повітряні інжектори" link="AirInjector"].
+  - [bold]Повітряний скрубер[/bold] - це просто [textlink="Повітряний скрубер" link="AirScrubber"].
+  - [bold]Регулятор потоку[/bold] - це пристрій, який контролює потік газу через трубопровідну мережу. Наприклад, [textlink="Газові насоси" link="Pumps"], [textlink="Газові клапани" link="Valves"] та [textlink="Газові змішувачі/фільтри" link="MixingAndFiltering"]. Стрілка на пристрої вказує напрямок потоку газу. Це також часто визначає, де трубопровідна мережа розділена або розгалужена.
+  - [bold]Терморегулятор[/bold] - це будь-який пристрій, який впливає на температуру газу в трубопровідній мережі. Наприклад, [textlink="Термомашини" link="Thermomachines"], [textlink="Радіатори" link="Radiators"] і навіть медичні кріокапсули.
 
-  ## Gas Pipe Sensors
-  Atmospheric Network Monitors collect data on [textlink="pipe networks" link="PipeNetworks"] through Gas Pipe Sensors.
+  ## Датчики газових труб
+  Монітори атмосферної мережі збирають дані про [textlink="трубопровідні мережі" link="PipeNetworks"] за допомогою датчиків газових труб.
 
   <Box>
     <GuideEntityEmbed Entity="GasPipeSensor"/>
   </Box>
 
-  By default, the station should have gas pipe sensors on all major [textlink="pipe networks" link="PipeNetworks"]. Examples include the Distro and Waste networks.
+  За замовчуванням на станції повинні бути встановлені датчики газових труб на всіх основних [textlink="трубопровідних мережах" link="PipeNetworks"]. Прикладами є розподільча та відпрацьована мережі.
 
-  If you wish to monitor a new network, you can construct a gas pipe sensor and it will automatically be visible on the Atmospheric Network Monitor.
-  Make sure you construct the sensor on the pipe network you want to monitor.
-  [textlink="Pipe networks" link="PipeNetworks"] can easily be seperated by a simple Gas Pump or Valve, which can cause the sensor to report data on a completely different network.
+  Якщо ви хочете контролювати нову мережу, ви можете встановити датчик газової труби, і він автоматично стане видимим на моніторі атмосферної мережі.
+  Переконайтеся, що ви встановлюєте датчик на тій трубопровідній мережі, яку хочете контролювати.
+  [textlink="Трубопровідні мережі" link="PipeNetworks"] можна легко розділити простим газовим насосом або клапаном, що може призвести до того, що датчик буде повідомляти дані про зовсім іншу мережу.
 
 </Document>

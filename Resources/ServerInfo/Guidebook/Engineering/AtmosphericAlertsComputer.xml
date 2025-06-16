@@ -6,32 +6,32 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Atmospheric Alerts Computer
-  The Atmospheric Alerts Computer is a computer that shows information on all air alarms and fire alarms across the station.
+  # Комп'ютер атмосферних сповіщень
+  Комп'ютер атмосферних сповіщень - це комп'ютер, який показує інформацію про всі повітряні та пожежні тривоги на станції.
 
   <Box>
     <GuideEntityEmbed Entity="ComputerAlert"/>
   </Box>
 
-  It is a useful tool for quickly identifying areas that require attention.
+  Це корисний інструмент для швидкого виявлення зон, що потребують уваги.
 
-  The Atmospheric Alerts Computer is often found in Atmospherics, and is used by Atmospherics Technicians to monitor atmospheres across the entire station.
-  However, it is also a good indicator for general engineers to gauge station damage.
+  Комп'ютер атмосферних сповіщень часто знаходиться в Атмосферіці і використовується техніками з атмосферики для моніторингу атмосфери на всій станції.
+  Однак це також хороший індикатор для загальних інженерів для оцінки пошкоджень станції.
 
-  The computer displays lists of Air Alarms in [color=orange]Warning[/color] and [color=red]Danger[/color] levels. Additionally, the computer displays the location of all air alarms, color-coded based on their current status.
+  Комп'ютер відображає списки повітряних тривог на рівнях [color=orange]Попередження[/color] та [color=red]Небезпека[/color]. Крім того, комп'ютер відображає розташування всіх повітряних тривог, позначених кольором залежно від їхнього поточного стану.
 
-  Air alarms with the normal status are hidden by default.
-  You can toggle the visibility of normal air alarms by adjusting the filters at the bottom of the interface.
+  Повітряні тривоги зі звичайним статусом приховані за замовчуванням.
+  Ви можете перемкнути видимість звичайних повітряних тривог, налаштувавши фільтри внизу інтерфейсу.
 
-  The map draws a box around the area that the air alarm is monitoring, which can help identify the area that is in danger.
-  This box will change color based on the status of the air alarm.
+  Карта малює рамку навколо зони, яку контролює повітряна тривога, що може допомогти визначити зону, яка знаходиться в небезпеці.
+  Ця рамка змінюватиме колір залежно від стану повітряної тривоги.
 
-  If an Air Alarm is unpowered, it is shown as greyed out on the list and on the map.
+  Якщо повітряна тривога не живиться, вона відображається сірим кольором у списку та на карті.
 
-  Clicking on an air alarm on the list or on the map will show detailed information about the atmosphere in that area, which can help gauge the type of emergency that is occurring.
+  Натискання на повітряну тривогу в списку або на карті покаже детальну інформацію про атмосферу в цій зоні, що може допомогти оцінити тип надзвичайної ситуації, що відбувається.
 
-  A list of triggered [textlink="fire alarms" link="FireAndGasControl"] is also displayed on the Atmospheric Alerts Computer in a separate tab, which can be used to quickly identify areas that might be on fire.
+  Список спрацьованих [textlink="пожежних тривог" link="FireAndGasControl"] також відображається на комп'ютері атмосферних сповіщень в окремій вкладці, що може бути використано для швидкого виявлення зон, які можуть горіти.
 
-  You can silence specific alarms (such as alarms that monitor burn chambers and freezers) by clicking on the alarm in the list and pressing the "Silence alerts" button.
-  This will hide the alarm from the list, but it will still be visible on the map.
+  Ви можете вимкнути певні тривоги (наприклад, тривоги, що контролюють камери згоряння та морозильні камери), натиснувши на тривогу в списку та натиснувши кнопку "Вимкнути сповіщення".
+  Це приховає тривогу зі списку, але вона все одно буде видима на карті.
 </Document>

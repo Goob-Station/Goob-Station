@@ -1,0 +1,67 @@
+﻿<Document>
+  # Космічне право: Незаконні предмети (Контрабанда)
+  Любий легальний предмет який може бути використаний для повторного злочину, при тому не є доступний для легкого отримання за допомогою публічних вендоматів, інструментами для використання обовязків, або базовою потребою, можуть бути конфісковані службою безпеки, аби ускладнити рецедив. Діє на розсуд служби безпеки, не обовязковий пункт.
+
+  ## Контрабанда класу C
+
+<Box>
+  <GuideEntityEmbed Entity="PhoneInstrumentSyndicate" Caption="Телефон синдикату"/>
+
+  <GuideEntityEmbed Entity="SyndicatePersonalAI" Caption="Синдикатські ШІ"/>
+</Box>
+<Box>
+  <GuideEntityEmbed Entity="RubberStampSyndicate" Caption="Штамп синдикату"/>
+
+  <GuideEntityEmbed Entity="ClothingEyesHudSyndicate" Caption="Синд козирок, секхуд"/>
+</Box>
+<Box>
+  <GuideEntityEmbed Entity="CyberPen" Caption="Ручка Кіберсан"/>
+
+  <GuideEntityEmbed Entity="StealthBox" Caption="Стелс коробка"/>
+</Box>
+<Box>
+  <GuideEntityEmbed Entity="ThievingGloves" Caption="Рукавички крадія"/>
+</Box>
+  ## Контрабанда класу A
+<Box>
+  <GuideEntityEmbed Entity="ClothingOuterHardsuitSyndicate" Caption="Бойові скафандри"/>
+
+  <GuideEntityEmbed Entity="ChameleonProjector" Caption="Проектор хамелеон"/>
+</Box>
+<Box>
+  <GuideEntityEmbed Entity="ClothingBackpackChameleon" Caption="Спорядження хамелеон"/>
+
+  <GuideEntityEmbed Entity="RadioJammer" Caption="Технології глушіння сигналу"/>
+</Box>
+<Box>
+  <GuideEntityEmbed Entity="EncryptionKeyBinarySyndicate" Caption="Канал синдикату"/>
+
+  IFF технології
+</Box>
+
+  ## Контрабанда класу S
+
+<Box>
+  <GuideEntityEmbed Entity="Telecrystal1" Caption="Телекристали"/>
+
+  <GuideEntityEmbed Entity="BaseUplinkRadio50TC" Caption="Аплінк"/>
+</Box>
+<Box>
+  <GuideEntityEmbed Entity="Emag" Caption="Технології взлому доступів"/>
+
+  <GuideEntityEmbed Entity="HoloparasiteInjector" Caption="Не законні імпланти"/>
+</Box>
+<Box>
+  <GuideEntityEmbed Entity="SleepingCarpScroll" Caption="Сувій бойових мистецтв школи коропу"/>
+
+  <GuideEntityEmbed Entity="Hypopen" Caption="Ворожі гіпотехнології"/>
+</Box>
+<Box>
+  <GuideEntityEmbed Entity="DimensionPot" Caption="Розмірний горщик"/>
+
+  <GuideEntityEmbed Entity="RitualDagger" Caption="Ритуальні або бойові речі божеств"/>
+</Box>
+<Box>
+  <GuideEntityEmbed Entity="BorgModuleSyndicateWeapon" Caption="Не законний модуль боргу: Зброя"/> / <GuideEntityEmbed Entity="BorgModuleMartyr" Caption="Не законний модуль боргу: Мученик"/>
+</Box>
+</Document>

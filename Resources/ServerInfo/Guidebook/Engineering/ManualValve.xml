@@ -6,17 +6,17 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Manual Valve
-  The manual valve is as simple as it gets.
-  Allows or blocks the flow of gasses depending on if it's open or closed.
+  # Ручний клапан
+  Ручний клапан - це найпростіший пристрій.
+  Дозволяє або блокує потік газів залежно від того, відкритий він чи закритий.
   <Box>
     <GuideEntityEmbed Entity="GasValve"/>
   </Box>
 
-  Gas can freely flow between both sides with no restrictions.
+  Газ може вільно протікати між обома сторонами без обмежень.
 
-  Manual valves are used in a variety of applications, for example:
-  - Allowing or blocking the bypass of a recyclernet, to space waste gas directly
-  - Connecting or isolating heaters/coolers from the station's distro
+  Ручні клапани використовуються в різних сферах застосування, наприклад:
+  - Дозволяють або блокують обхід мережі переробки, щоб безпосередньо виводити відпрацьовані гази в космос
+  - Підключають або ізолюють нагрівачі/охолоджувачі від розподільної мережі станції
 
 </Document>

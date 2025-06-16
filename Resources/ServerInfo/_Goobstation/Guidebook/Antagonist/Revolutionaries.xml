@@ -12,60 +12,60 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Revolutionaries
+  # Революціонери
 
   <Box>
-    [color=#999999][italic]"Viva la revolución!!"[/italic][/color]
+    [color=#999999][italic]«Хай живе революція!!»[/italic][/color]
   </Box>
   <Box>
     <GuideEntityEmbed Entity="PosterContrabandRevolt" Caption=""/>
   </Box>
 
-  Revolutionaries are conversion antagonists sponsored by the [color=#ff0000]Syndicate[/color] who are tasked with taking control of the station. They have no fancy gimmicks or cheap tricks, they only have a cause and strength in numbers.
+  Революціонери — це антагоністи-вербувальники, спонсоровані [color=#ff0000]Синдикатом[/color], яким доручено взяти під контроль станцію. У них немає вигадливих трюків чи дешевих хитрощів, у них є лише справа та сила в кількості.
 
-  ## Objectives
-  You must cuff, kill, convert, or exile all of the [textlink="Command staff" link="Command"] on station in no particular order.
+  ## Цілі
+  Ви повинні закувати в наручники, вбити, навернути або вигнати весь [textlink="командний склад" link="Command"] на станції в будь-якому порядку.
 
-  Your objective is not to destroy the station, but [italic]take it over[/italic], so try to minimize damage where possible.
+  Ваша мета — не знищити станцію, а [italic]захопити її[/italic], тому намагайтеся мінімізувати збитки, де це можливо.
 
-  [bold]The revolution will fail[/bold] if all of the [bold][color=#5e9cff]Head Revolutionaries[/color][/bold] die or all their hypnotic abilities will be disabled with MindShield implant, and all [color=red]Revolutionaries[/color] will de-convert if this happens.
+  [bold]Революція провалиться[/bold], якщо всі [bold][color=#5e9cff]головні революціонери[/color][/bold] загинуть або всі їхні гіпнотичні здібності будуть відключені імплантатом MindShield, і всі [color=red]революціонери[/color] будуть деконвертовані, якщо це станеться.
 
-  ## Headrevs & Conversion
-  [bold][color=#5e9cff]Head Revolutionaries[/color][/bold] are chosen at the start of the shift and begin with a [color=#a4885c]Revolutionary Manifesto[/color] and a [color=cyan]syndicate encryption key[/color].
+  ## Головні революціонери та вербування
+  [bold][color=#5e9cff]Головні революціонери[/color][/bold] обираються на початку зміни і починають з [color=#a4885c]Революційного маніфесту[/color] та [color=cyan]ключа шифрування синдикату[/color].
 
   <Box>
     <GuideEntityEmbed Entity="RevolutionaryManifesto"/>
     <GuideEntityEmbed Entity="EncryptionKeySyndie"/>
   </Box>
 
-  You can convert crew members to your side by taking any [color=#a4885c]Revolutionary Manifesto[/color] and using it on someone.
-  Beware! A [color=#a4885c]MindShield Implant[/color] will prevent the implanted person from being converted into a revolutionary. Assume all of [color=#a4885c]Security[/color] and [color=#a4885c]Command[/color] are implanted already. These will:
-  - Prevent the implanted person from being converted into a [color=red]Revolutionary[/color]
-  - De-convert Revolutionaries, and will make them no longer loyal to your cause
-  - Visibly change appearance upon being implanted into a [bold][color=#5e9cff]Head Revolutionary[/color][/bold], giving away his cover and disabling your convert ability
+  Ви можете навернути членів екіпажу на свій бік, взявши будь-який [color=#a4885c]Революційний маніфест[/color] і використавши його на комусь.
+  Обережно! [color=#a4885c]Імплантат MindShield[/color] не дозволить імплантованій особі стати революціонером. Припустіть, що вся [color=#a4885c]служба безпеки[/color] та [color=#a4885c]командування[/color] вже імплантовані. Це:
+  - Не дозволить імплантованій особі стати [color=red]революціонером[/color]
+  - Деконвертує революціонерів і зробить їх більше не вірними вашій справі
+  - Видимо змінить зовнішній вигляд після імплантації [bold][color=#5e9cff]головному революціонеру[/color][/bold], видавши його прикриття та відключивши вашу здатність до вербування
 
-  Assume all of [color=#cb0000]Security[/color] and [color=#1b67a5]Command[/color] are implanted with mindshields already.
+  Припустіть, що вся [color=#cb0000]служба безпеки[/color] та [color=#1b67a5]командування[/color] вже імплантовані з MindShield.
 
   <Box>
     <GuideEntityEmbed Entity="MindShieldImplanter"/>
   </Box>
 
-  ## Fight against MindShield
+  ## Боротьба з MindShield
 
-  MindShield implant can be ejected from your target by using empty [color = cyan]implanter[/color] that can be made on [color = yellow]medical techfab[/color] that can be found in medical department.
+  Імплантат MindShield можна витягти з вашої цілі за допомогою порожнього [color=cyan]імплантера[/color], який можна виготовити на [color=yellow]медичному техфабі[/color], що знаходиться у медичному відділі.
 
-  When implant ejected your can convert your target, including command and security.
+  Коли імплантат витягнуто, ви можете навернути свою ціль, включаючи командування та службу безпеки.
 
-  If your convert ability was disabled by [color=cyan]mindshield implant[/color] you just need to remove mindshield implant to turn on your ability back.
+  Якщо ваша здатність до вербування була відключена [color=cyan]імплантатом MindShield[/color], вам просто потрібно видалити імплантат MindShield, щоб знову увімкнути вашу здатність.
 
   <Box>
     <GuideEntityEmbed Entity="Implanter"/>
     <GuideEntityEmbed Entity="MedicalTechFab"/>
   </Box>
 
-  ## Revolutionary
-  A [bold][color=red]Revolutionary[/color][/bold] is a crew member that has been converted by a [bold][color=#5e9cff]Head Revolutionary[/color][/bold].
+  ## Революціонер
+  [bold][color=red]Революціонер[/color][/bold] — це член екіпажу, який був навернений [bold][color=#5e9cff]головним революціонером[/color][/bold].
 
-  [bold][color=red]Revolutionaries[/color] can't convert people themselves,[/bold] but they're more than capable of doing dirty work and carrying out orders.
+  [bold][color=red]Революціонери[/color] не можуть самі вербувати людей,[/bold] але вони більш ніж здатні виконувати брудну роботу та виконувати накази.
 
 </Document>

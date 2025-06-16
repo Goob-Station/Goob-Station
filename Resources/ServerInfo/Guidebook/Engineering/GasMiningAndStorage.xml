@@ -6,35 +6,35 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Gas Mining and Storage
-  Gasses are often permanently used. Whether they are lost to [textlink="space" link="Spacing"] or used in a burn chamber, the station needs to be able to produce more gas to replace what is lost.
-  It also needs to store this gas in a safe and efficient manner.
+  # Видобуток та зберігання газу
+  Гази часто використовуються постійно. Незалежно від того, чи вони втрачаються в [textlink="космосі" link="Spacing"] або використовуються в камері згоряння, станція повинна мати можливість виробляти більше газу, щоб замінити втрачений.
+  Вона також повинна зберігати цей газ безпечним та ефективним способом.
 
-  ## Gas Miners
-  Gas miners are used to replenish the station's gas supply. They are found in the gas storage tanks in Atmospherics.
+  ## Газові добувачі
+  Газові добувачі використовуються для поповнення запасів газу на станції. Вони знаходяться в газових сховищах в атмосферному відділі.
 
   <Box>
     <GuideEntityEmbed Entity="GasMinerOxygenStation"/>
     <GuideEntityEmbed Entity="GasMinerNitrogenStation"/>
   </Box>
 
-  Gas miners constantly produce room temperature gas and push it into the exposed atmosphere. They require no power to function, and never stop working unless they have reached the defined [bold]cutoff pressure[/bold].
+  Газові добувачі постійно виробляють газ кімнатної температури і виштовхують його у відкриту атмосферу. Вони не потребують енергії для функціонування і ніколи не припиняють працювати, доки не досягнуть визначеного [bold]граничного тиску[/bold].
 
-  You can see more information about the gas miners by inspecting them using [color=yellow][bold][keybind="ExamineEntity"][/bold][/color].
-  Try inspecting the gas miners presented above.
+  Ви можете побачити більше інформації про газові добувачі, оглянувши їх за допомогою [color=yellow][bold][keybind="ExamineEntity"][/bold][/color].
+  Спробуйте оглянути представлені вище газові добувачі.
 
-  Gas miners come in tiers, with the larger versions having a higher pressure cutoff than the smaller versions.
+  Газові добувачі бувають різних рівнів, причому більші версії мають вищий граничний тиск, ніж менші.
 
   <Box>
-    <GuideEntityEmbed Entity="GasMinerNitrogen" Caption="300 kPa"/>
-    <GuideEntityEmbed Entity="GasMinerNitrogenStation" Caption="1000 kPa"/>
-    <GuideEntityEmbed Entity="GasMinerNitrogenStationLarge" Caption="4500 kPa"/>
+    <GuideEntityEmbed Entity="GasMinerNitrogen" Caption="300 кПа"/>
+    <GuideEntityEmbed Entity="GasMinerNitrogenStation" Caption="1000 кПа"/>
+    <GuideEntityEmbed Entity="GasMinerNitrogenStationLarge" Caption="4500 кПа"/>
   </Box>
 
-  If gas miners are ever unanchored from the station, they can be reanchored using a regular wrench.
+  Якщо газові добувачі коли-небудь відкріплюються від станції, їх можна знову закріпити за допомогою звичайного гайкового ключа.
 
-  ## Gas Storage
-  Gas storage tanks are used to store gas produced by the gas miners, and to make it available to other processes. They are found in Atmospherics.
+  ## Зберігання газу
+  Газові сховища використовуються для зберігання газу, виробленого газовими добувачами, та для його надання іншим процесам. Вони знаходяться в атмосферному відділі.
 
   <Box>
     <GuideEntityEmbed Entity="WallReinforced" Rotation="0" Caption="" Margin="0"/>
@@ -59,15 +59,15 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   </Box>
 
   <Box>
-    [color=#999999][italic]An example of a small gas holding tank[italic][/color]
+    [color=#999999][italic]Приклад невеликого газового резервуара[italic][/color]
   </Box>
 
-  Various atmos processes insert and remove gasses from the gas storage tanks.
-  For example:
-  - The gas miner provides fresh gasses to the gas storage tanks, if there is room.
-  - The recyclernet injects reclaimed gasses into the gas storage tanks for reuse.
-  - Setups like the distronet and burn chamber remove gasses from the gas storage tanks.
+  Різні атмосферні процеси вводять та видаляють гази з газових сховищ.
+  Наприклад:
+  - Газовий добувач подає свіжі гази в газові сховища, якщо є місце.
+  - Мережа переробки вводить регенеровані гази в газові сховища для повторного використання.
+  - Установки, такі як розподільна мережа та камера згоряння, видаляють гази з газових сховищ.
 
-  Gas storage tanks are designed to be able to be measured using a [textlink="Gas Analyzer" link="AtmosTools"].
-  Because the outflow vent is a [textlink="passive vent" link="PassiveVent"], you can use a [textlink="gas analyzer" link="AtmosTools"] to measure the gas content of the [textlink="pump's" link="Pumps"] input, which is drawing from the gas storage tank.
+  Газові сховища розроблені таким чином, щоб їх можна було виміряти за допомогою [textlink="газоаналізатора" link="AtmosTools"].
+  Оскільки вихідний отвір є [textlink="пасивним отвором" link="PassiveVent"], ви можете використовувати [textlink="газоаналізатор" link="AtmosTools"] для вимірювання вмісту газу на вході [textlink="насоса" link="Pumps"], який забирає газ з газового сховища.
 </Document>

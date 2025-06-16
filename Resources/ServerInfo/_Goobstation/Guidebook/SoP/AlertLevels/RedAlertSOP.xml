@@ -6,40 +6,40 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Station Alert - Red
+  # Тривога на станції - Червона
 
   <Box>
-    [italic]Called by: Anyone with Command-Level Access at a working Communications Console.[/italic]
+    [italic]Викликається: будь-ким з доступом на рівні командування на робочій консолі зв'язку.[/italic]
   </Box>
 
-  [bold]Conditions:[/bold]
+  [bold]Умови:[/bold]
 
-  There is a confirmed, hostile threat on-board the station or nearby in space. This threat should pose recognizable danger to the station and/or crew at large.
+  На борту станції або поблизу в космосі є підтверджена ворожа загроза. Ця загроза повинна становити впізнавану небезпеку для станції та/або екіпажу в цілому.
 
-  [bold]Security:[/bold]
+  [bold]Безпека:[/bold]
 
-  Security personnel should read Security SOP for armament, armory and safety procedures;
+  Персонал служби безпеки повинен ознайомитися з СОП служби безпеки щодо озброєння, збройової та процедур безпеки;
 
-  Random searches are fully permitted and recommended. Security personnel may detain any personnel refusing a random search in order to conduct said search;
+  Вибіркові обшуки повністю дозволені та рекомендовані. Персонал служби безпеки може затримувати будь-якого співробітника, який відмовляється від вибіркового обшуку, для проведення зазначеного обшуку;
 
-  Security personnel are to cooperate fully with any Central Command Staff (such as Emergency Response Teams) in order to eliminate the threat to the station.
+  Персонал служби безпеки повинен повністю співпрацювати з будь-яким персоналом Центрального командування (наприклад, з групами реагування на надзвичайні ситуації), щоб усунути загрозу для станції.
 
-  [bold]Secure Areas:[/bold]
+  [bold]Безпечні зони:[/bold]
 
-  EVA Storage, Tech Storage, Gravity Generator, Engineering Secure Storage, AI Upload, Vault, anywhere else requiring command level access that does not get regularly used.
+  Сховище EVA, технічне сховище, генератор гравітації, інженерне безпечне сховище, завантаження ШІ, сховище, будь-де ще, що вимагає доступу на рівні командування, яке не використовується регулярно.
 
-  There are no restrictions on bolting Secure Areas. Secure Areas may be left bolted or unbolted at the discretion of Command personnel;
+  Немає обмежень на блокування безпечних зон. Безпечні зони можуть бути залишені заблокованими або незаблокованими на розсуд персоналу командування;
 
-  [bold]General Crew:[/bold]
+  [bold]Загальний екіпаж:[/bold]
 
-  All personnel are required to maximize their Suit Sensors;
+  Весь персонал зобов'язаний максимізувати свої датчики костюмів;
 
-  Unless their job demands it, personnel are forbidden from entering maintenance tunnels. Personnel in violation of this order may be charged with trespassing;
+  Якщо це не вимагається їхньою роботою, персоналу заборонено входити в технічні тунелі. Персонал, який порушує цей наказ, може бути звинувачений у незаконному проникненні;
 
-  Visitors to the station (anyone with Civilian-level access) are to remain inside the Bar, Library or Dormitories for the duration of Code Red;
+  Відвідувачі станції (будь-хто з доступом на цивільному рівні) повинні залишатися в барі, бібліотеці або гуртожитках протягом усього часу дії червоного коду;
 
-  Personnel are to follow the instructions of Security staff, so long as they are within the bounds of Space Law and are not acting against the general well-being of the station and its crew. Failure to do so may lead to their arrest for Creating a Workplace Hazard.
+  Персонал повинен виконувати вказівки персоналу служби безпеки, доки вони перебувають у межах космічного права і не діють проти загального добробуту станції та її екіпажу. Невиконання цього може призвести до їхнього арешту за створення небезпеки на робочому місці.
 
-  Crewmembers in maintenance without proper reason or authorization may be detained for trespassing.
+  Члени екіпажу в технічному обслуговуванні без належної причини або дозволу можуть бути затримані за незаконне проникнення.
 
 </Document>

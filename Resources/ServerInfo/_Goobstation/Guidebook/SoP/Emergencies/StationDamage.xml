@@ -6,17 +6,17 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-# Structural Damage Procedures
-In the event of massive structural damage to the station, Command should set the alert to [color=#c8a404]Yellow Alert[/color] and notify Engineering of the location of the damage.
+# Процедури при структурних пошкодженнях
+У разі масивних структурних пошкоджень станції, командування повинно встановити тривогу на [color=#c8a404]Жовту тривогу[/color] та повідомити інженерний відділ про місце пошкодження.
 
-1. Engineering personnel should be allowed access to the damage site (in the event of the location being in a different department and inaccessible).
+1. Інженерному персоналу слід надати доступ до місця пошкодження (у разі, якщо місцезнаходження знаходиться в іншому відділі та є недоступним).
 
-2. Engineering should be given priority for materials to rebuild the section for a safe state.
+2. Інженерному відділу слід надати пріоритет у матеріалах для відновлення секції до безпечного стану.
 
-3. Engineering should repressurize the area to prevent pressure lockout.
+3. Інженерний відділ повинен відновити тиск у зоні, щоб запобігти блокуванню тиску.
 
-4. All secure areas that are affected should be completely sealed off and returned to a secure state, confirmed by Security/Command.
+4. Усі постраждалі безпечні зони повинні бути повністю загерметизовані та повернуті до безпечного стану, що підтверджено службою безпеки/командуванням.
 
-5. Once all damage has been dealt with, Engineering is to give the all clear with confirmation from Command, and the alert should be set to a safe alert.
+5. Після усунення всіх пошкоджень, інженерний відділ повинен дати сигнал про відбій з підтвердженням від командування, а тривога повинна бути встановлена на безпечний рівень.
 
 </Document>

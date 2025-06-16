@@ -6,20 +6,20 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Atmospheric Upsets
-  Atmospheric upsets are deviations from the normal atmospheric conditions that should be maintained on the station.
+  # Атмосферні порушення
+  Атмосферні порушення - це відхилення від нормальних атмосферних умов, які повинні підтримуватися на станції.
 
-  These upsets can be caused by a variety of factors, such as [textlink="fires" link="Fires"], [textlink="spacing" link="Spacing"], or other events that can quickly spread throughout the station and make the atmosphere uninhabitable for the crew.
+  Ці порушення можуть бути викликані різними факторами, такими як [textlink="пожежі" link="Fires"], [textlink="розгерметизація" link="Spacing"] або інші події, які можуть швидко поширитися по станції та зробити атмосферу непридатною для життя екіпажу.
 
-  For reference, the normal atmospheric conditions on the station are 101.3 kPa of pressure and 293.15 K (20°C) of temperature.
-  The standard station mix is also 78% nitrogen, 22% oxygen.
+  Для довідки, нормальні атмосферні умови на станції - це тиск 101,3 кПа і температура 293,15 К (20°C).
+  Стандартна суміш станції також складається з 78% азоту та 22% кисню.
 
-  ## Damage Control
-  For all atmospheric emergencies, it's important to act quickly to prevent the spread of dangerous conditions, and to contain the spread as much as possible.
+  ## Контроль пошкоджень
+  При всіх атмосферних надзвичайних ситуаціях важливо діяти швидко, щоб запобігти поширенню небезпечних умов і максимально стримати поширення.
 
-  Opening [textlink="firelocks" link="FireAndGasControl"] to the exposed area will often lead to you having to fix [italic]two[/italic] problems instead of one.
+  Відкриття [textlink="вогневих заслінок" link="FireAndGasControl"] до відкритої зони часто призведе до того, що вам доведеться вирішувати [italic]дві[/italic] проблеми замість однієї.
 
-  Be sure to use your [textlink="holofan projector" link="AtmosTools"] to prevent the spread of dangerous conditions between [textlink="firelock buffers" link="FireAndGasControl"].
+  Обов'язково використовуйте свій [textlink="проектор голофана" link="AtmosTools"], щоб запобігти поширенню небезпечних умов між [textlink="буферами вогневих заслінок" link="FireAndGasControl"].
 
   <Box>
     <GuideEntityEmbed Entity="HolofanProjector"/>

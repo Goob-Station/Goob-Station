@@ -6,42 +6,42 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-    # Station Alert - Green
+    # Тривога на станції - Зелена
 
     <Box>
-        [italic]Called by: Anyone with Command-Level Access at a working Communications Console.[/italic]
+        [italic]Викликається: будь-ким з доступом на рівні командування на робочій консолі зв'язку.[/italic]
     </Box>
 
-    [bold]Conditions:[/bold]
+    [bold]Умови:[/bold]
 
-    Default Alert Code at the start of the shift. Do not change unless a threat is suspected/confirmed;
+    Стандартний код тривоги на початку зміни. Не змінюйте, якщо не підозрюється/підтверджено загрозу;
 
-    [bold]OR[/bold]
+    [bold]АБО[/bold]
 
-    All confirmed/suspected threats to the station and/or crew have been handled, or simply vanished on their own. It is recommended that, after 15+ minutes on Code Blue without any hostile activity, Code Green be called;
+    Усі підтверджені/підозрювані загрози для станції та/або екіпажу були усунені або просто зникли самі по собі. Рекомендується, щоб після 15+ хвилин на синьому коді без будь-якої ворожої активності було оголошено зелений код;
 
-    [bold]Security:[/bold]
+    [bold]Безпека:[/bold]
 
-    All weapons must be holstered or kept in pockets/suit storage slots unless absolutely required;
+    Вся зброя повинна бути в кобурі або зберігатися в кишенях/слотах для зберігання костюмів, якщо це не є абсолютно необхідним;
 
-    Random searches are not permitted without express permission by either the Head of Security or Captain. However, searches are still permitted if there is reasonable suspicion of a crime.
+    Вибіркові обшуки не дозволені без явного дозволу начальника служби безпеки або капітана. Однак обшуки все ще дозволені, якщо є обґрунтована підозра у скоєнні злочину.
 
-    [bold]Secure Areas:[/bold]
+    [bold]Безпечні зони:[/bold]
 
-    EVA Storage, Tech Storage, Gravity Generator, Engineering Secure Storage, AI Upload, Vault, Gateway, anywhere else requiring command level access that does not get regularly used.
+    Сховище EVA, технічне сховище, генератор гравітації, інженерне безпечне сховище, завантаження ШІ, сховище, шлюз, будь-де ще, що вимагає доступу на рівні командування, яке не використовується регулярно.
 
-    Secure areas such as EVA are to be left unbolted and ready to be used for their intended purposes.
+    Безпечні зони, такі як EVA, повинні бути залишені незаблокованими та готовими до використання за призначенням.
 
-    Exceptions are below;
+    Винятки наведено нижче;
 
-    The Vault is not to be opened unless repairs are required, gold is required for Research and Development (in case Mining fails to deliver) or a critical item needs to be hidden in the safe.
+    Сховище не можна відкривати, якщо не потрібен ремонт, золото не потрібне для досліджень і розробок (на випадок, якщо видобуток не вдасться) або критичний предмет не потрібно ховати в сейфі.
 
-    Searches of a person or department need to have a signed and stamped warrant by the Captain or HoP.
+    Обшуки особи або відділу повинні мати підписаний та завірений печаткою ордер від капітана або HoP.
 
-    [bold]General Crew:[/bold]
+    [bold]Загальний екіпаж:[/bold]
 
-    While not required, it is recommended that the crew activate and maximize their Suit Sensors, due to the potential for workplace accidents;
+    Хоча це не є обов'язковим, рекомендується, щоб екіпаж активував та максимізував свої датчики костюмів через потенційну можливість нещасних випадків на робочому місці;
 
-    Free transit through the station is permitted for the crew, excluding Secure Areas.
+    Вільний проїзд через станцію дозволений для екіпажу, за винятком безпечних зон.
 
 </Document>

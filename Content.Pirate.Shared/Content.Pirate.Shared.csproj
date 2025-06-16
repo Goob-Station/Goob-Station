@@ -17,8 +17,12 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Content.Shared\Content.Shared.csproj" />
-      <ProjectReference Include="..\RobustToolbox\Robust.Shared\Robust.Shared.csproj" Private="false" />
+      <ProjectReference Include="..\Content.Shared\Content.Shared.csproj">
+        <Private>false</Private>
+      </ProjectReference>
+      <ProjectReference Include="..\RobustToolbox\Robust.Shared\Robust.Shared.csproj">
+        <Private>false</Private>
+      </ProjectReference>
     </ItemGroup>
 
     <ItemGroup>

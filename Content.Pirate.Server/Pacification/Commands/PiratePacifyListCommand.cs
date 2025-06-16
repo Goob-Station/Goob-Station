@@ -21,7 +21,8 @@ namespace Content.Pirate.Server.Pacification.Commands
             {
                 foreach (var entry in list)
                 {
-                    shell.WriteLine($"Гравець: {entry.UserName} (ID: {entry.UserId}), Дата закінчення: {entry.ExpirationDate}");
+                    shell.WriteLine(
+                        $"Гравець: {entry.UserName} (ID: {entry.UserId}), Дата закінчення: {entry.ExpirationDate}");
                 }
             }
             else

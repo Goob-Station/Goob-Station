@@ -7,9 +7,9 @@ SPDX-License-Identifier: MIT
 
 <Document>
 
-# Biological
+# Біологічні
 
-These reagents include chemicals that you can get from certain materials and from living things. To get the other chemicals you have to use machines like the electrolyzer and the centrifuge.
+Ці реагенти включають хімічні речовини, які можна отримати з певних матеріалів та живих істот. Щоб отримати інші хімічні речовини, потрібно використовувати такі машини, як електролізер та центрифуга.
 
 <GuideReagentGroupEmbed Group="Biological"/>
 

@@ -6,16 +6,16 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-# Medical Department SOP
-These are the list of SOPs that Medical Personnel should follow. These are, as stated before, [bold]not checklists[/bold] and should be treated as guidelines.
+# СОП Медичного відділу
+Це перелік СОП, яких повинен дотримуватися медичний персонал. Як вже зазначалося, це [bold]не контрольні списки[/bold] і їх слід розглядати як керівні принципи.
 
-For purposes of condensing entries, [color=#42636d][bold]Medical Doctor[/bold][/color], [color=#42636d][bold]Medical Intern[/bold][/color], [color=#42636d][bold]Paramedic[/bold][/color] are combined.
+Для стислості записів, [color=#42636d][bold]Лікар[/bold][/color], [color=#42636d][bold]Інтерн[/bold][/color], [color=#42636d][bold]Парамедик[/bold][/color] об'єднані.
 
-The following jobs have entries in this Department, the [color=#1b67a5][bold]Chief Medical Officer[/bold][/color] being the Head of Staff:
-- [textlink="Chief Medical Officer" link="ChiefMedicalOfficer SOP"]
-- [textlink="Chemist" link="Chemist SOP"]
-- [textlink="Paramedic" link="DoctorIntern SOP"]
-- [textlink="Medical Doctor" link="DoctorIntern SOP"]
-- [textlink="Medical Intern" link="DoctorIntern SOP"]
+Наступні посади мають записи в цьому відділі, з [color=#1b67a5][bold]Головним лікарем[/bold][/color] на чолі:
+- [textlink="Головний лікар" link="ChiefMedicalOfficer SOP"]
+- [textlink="Хімік" link="Chemist SOP"]
+- [textlink="Парамедик" link="DoctorIntern SOP"]
+- [textlink="Лікар" link="DoctorIntern SOP"]
+- [textlink="Інтерн" link="DoctorIntern SOP"]
 
 </Document>

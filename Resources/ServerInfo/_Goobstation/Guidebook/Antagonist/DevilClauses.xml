@@ -1,216 +1,216 @@
 <Document>
-  ## Mortality
+  ## Смертність
   <Box>
-    [color=#999999][italic]-135 Weight[/italic][/color]
+    [color=#999999][italic]-135 Вага[/italic][/color]
   </Box>
 
-  - Grants the target an unlimited amount of self revives.
+  - Надає цілі необмежену кількість самовідроджень.
 
-  ## Weakness
+  ## Слабкість
   <Box>
-    [color=#999999][italic]-35 Weight[/italic][/color]
+    [color=#999999][italic]-35 Вага[/italic][/color]
   </Box>
 
-  - Cuts all damage the contractee takes in half.
-  - Increases holy damage taken.
+  - Зменшує всю шкоду, яку отримує контрагент, вдвічі.
+  - Збільшує отриману святу шкоду.
 
-  ## Fear of Death
+  ## Страх смерті
   <Box>
-    [color=#999999][italic]-25 Weight[/italic][/color]
+    [color=#999999][italic]-25 Вага[/italic][/color]
   </Box>
 
-  - Makes the contractee have no critical state. You stand, or you die.
+  - Робить так, що у контрагента немає критичного стану. Ви стоїте, або ви помираєте.
 
-  ## Death
+  ## Смерть
   <Box>
-    [color=#999999][italic]-25 Weight[/italic][/color]
+    [color=#999999][italic]-25 Вага[/italic][/color]
   </Box>
 
-  - Allows the contractee to revive themselves exactly once on death.
-  - Default on every contract.
+  - Дозволяє контрагенту відродитися рівно один раз після смерті.
+  - За замовчуванням у кожному контракті.
 
-  ## Shadows
+  ## Тіні
   <Box>
-    [color=#999999][italic]-25 Weight[/italic][/color]
+    [color=#999999][italic]-25 Вага[/italic][/color]
   </Box>
 
-  - Makes the contractee invisible.
+  - Робить контрагента невидимим.
 
-  ## Brokeness
+  ## Злидні
   <Box>
-    [color=#999999][italic]-20 Weight[/italic][/color]
+    [color=#999999][italic]-20 Вага[/italic][/color]
   </Box>
 
-  - Grants the contractee a pair of sick fucking jays, signed by Micheal Jordan himself.
+  - Надає контрагенту пару крутих кросівок, підписаних самим Майклом Джорданом.
 
-  ## Chance
+  ## Шанс
   <Box>
-    [color=#999999][italic]-20 Weight[/italic][/color]
+    [color=#999999][italic]-20 Вага[/italic][/color]
   </Box>
 
-  - Grants the contractee a completely random clause. Want to try your luck?
+  - Надає контрагенту абсолютно випадковий пункт. Хочете спробувати удачу?
 
-  ## Fear of Fire
+  ## Страх вогню
   <Box>
-    [color=#999999][italic]-20 Weight[/italic][/color]
+    [color=#999999][italic]-20 Вага[/italic][/color]
   </Box>
 
-  - Makes the contractee immune to fire, and immune to being lit on fire.
+  - Робить контрагента невразливим до вогню та до підпалу.
 
-  ## Fear of Light
+  ## Страх світла
   <Box>
-    [color=#999999][italic]-15 Weight[/italic][/color]
+    [color=#999999][italic]-15 Вага[/italic][/color]
   </Box>
 
-  - Makes the contractee immune to flashes.
+  - Робить контрагента невразливим до спалахів.
 
 
-  ## Fear of Electricity
+  ## Страх електрики
   <Box>
-    [color=#999999][italic]-15 Weight[/italic][/color]
+    [color=#999999][italic]-15 Вага[/italic][/color]
   </Box>
 
-  - Makes the contractee immune to electrical shocks.
+  - Робить контрагента невразливим до електричних ударів.
 
-  ## Gluttony
+  ## Ненажерливість
   <Box>
-    [color=#999999][italic]-10 Weight[/italic][/color]
+    [color=#999999][italic]-10 Вага[/italic][/color]
   </Box>
 
-  - Makes the contractee not need food or water.
+  - Робить так, що контрагенту не потрібна їжа або вода.
 
-  ## Fear of Drowning
+  ## Страх утоплення
   <Box>
-    [color=#999999][italic]-10 Weight[/italic][/color]
+    [color=#999999][italic]-10 Вага[/italic][/color]
   </Box>
 
-  - Disables the contractees need to breathe.
+  - Вимикає потребу контрагента дихати.
 
-  ## Fear of Crushing
+  ## Страх розчавлення
   <Box>
-    [color=#999999][italic]-10 Weight[/italic][/color]
+    [color=#999999][italic]-10 Вага[/italic][/color]
   </Box>
 
-  - Makes the contractee immune to pressure damage.
+  - Робить контрагента невразливим до шкоди від тиску.
 
-  ## Fear of Freezing
+  ## Страх замерзання
   <Box>
-    [color=#999999][italic]-10 Weight[/italic][/color]
+    [color=#999999][italic]-10 Вага[/italic][/color]
   </Box>
 
-  - Makes the contractee immune to low temperatures.
+  - Робить контрагента невразливим до низьких температур.
 
-  ## Greed
+  ## Жадібність
   <Box>
-    [color=#999999][italic]-10 Weight[/italic][/color]
+    [color=#999999][italic]-10 Вага[/italic][/color]
   </Box>
 
-  - Grants the target a ton of cash-money.
+  - Надає цілі купу грошей.
 
-  ## Pain
+  ## Біль
   <Box>
-    [color=#999999][italic]-5 Weight[/italic][/color]
+    [color=#999999][italic]-5 Вага[/italic][/color]
   </Box>
 
-  - Makes the contractee feel no pain, and suffer no negatives from pain.
+  - Робить так, що контрагент не відчуває болю і не страждає від негативних наслідків болю.
 
-  ## Inner Peace
+  ## Внутрішній спокій
   <Box>
-    [color=#999999][italic]5 Weight[/italic][/color]
+    [color=#999999][italic]5 Вага[/italic][/color]
   </Box>
 
-  - Grants the target peace. Everlasting.
+  - Надає цілі спокій. Вічний.
 
-  ## Voice
+  ## Голос
   <Box>
-    [color=#999999][italic]20 Weight[/italic][/color]
+    [color=#999999][italic]20 Вага[/italic][/color]
   </Box>
 
-  - Permanently mutes the contractee.
+  - Назавжди позбавляє контрагента голосу.
 
-  ## Soul Ownership
+  ## Власність душі
   <Box>
-    [color=#999999][italic]25 Weight[/italic][/color]
+    [color=#999999][italic]25 Вага[/italic][/color]
   </Box>
 
-  - Transfers ownership of a soul to the contractor.
-  - Default on every contract.
+  - Передає право власності на душу контрактору.
+  - За замовчуванням у кожному контракті.
 
-  ## Humanity
+  ## Людство
   <Box>
-    [color=#999999][italic]25 Weight[/italic][/color]
+    [color=#999999][italic]25 Вага[/italic][/color]
   </Box>
 
-  - Turns the contractee into a frog.
+  - Перетворює контрагента на жабу.
 
-  ## Strength
+  ## Сила
   <Box>
-    [color=#999999][italic]30 Weight[/italic][/color]
+    [color=#999999][italic]30 Вага[/italic][/color]
   </Box>
 
-  - Makes the contractee take double damage.
+  - Робить так, що контрагент отримує подвійну шкоду.
 
-  ## Coherence
+  ## Зв'язність
   <Box>
-    [color=#999999][italic]30 Weight[/italic][/color]
+    [color=#999999][italic]30 Вага[/italic][/color]
   </Box>
 
-  - Makes the contractee clumsy and messes up their speech.
+  - Робить контрагента незграбним і псує його мову.
 
-  ## A hand
+  ## Рука
   <Box>
-    [color=#999999][italic]30 Weight[/italic][/color]
+    [color=#999999][italic]30 Вага[/italic][/color]
   </Box>
 
-  - Immediately severs one of the contractees hands.
+  - Негайно відрубує одну з рук контрагента.
 
-  ## A leg
+  ## Нога
   <Box>
-    [color=#999999][italic]30 Weight[/italic][/color]
+    [color=#999999][italic]30 Вага[/italic][/color]
   </Box>
 
-  - Immediately severs one of the contractees legs.
+  - Негайно відрубує одну з ніг контрагента.
 
-  ## Awake
+  ## Неспання
   <Box>
-    [color=#999999][italic]40 Weight[/italic][/color]
+    [color=#999999][italic]40 Вага[/italic][/color]
   </Box>
 
-  - Turns the target narcoleptic.
+  - Робить ціль нарколептиком.
 
-  ## Legs
+  ## Ноги
   <Box>
-    [color=#999999][italic]40 Weight[/italic][/color]
+    [color=#999999][italic]40 Вага[/italic][/color]
   </Box>
 
-  - Permanently paralyzes both of the contractees legs.
+  - Назавжди паралізує обидві ноги контрагента.
 
-  ## An organ
+  ## Орган
   <Box>
-    [color=#999999][italic]45 Weight[/italic][/color]
+    [color=#999999][italic]45 Вага[/italic][/color]
   </Box>
 
-  - Dumps one of the contractees organs on the ground.
-  - This is most likely the heart.
+  - Викидає один з органів контрагента на землю.
+  - Швидше за все, це серце.
 
-  ## Sight
+  ## Зір
   <Box>
-    [color=#999999][italic]60 Weight[/italic][/color]
+    [color=#999999][italic]60 Вага[/italic][/color]
   </Box>
 
-  - Permanently blinds the contractee.
+  - Назавжди засліплює контрагента.
 
-  ## Will to fight
+  ## Воля до боротьби
   <Box>
-    [color=#999999][italic]60 Weight[/italic][/color]
+    [color=#999999][italic]60 Вага[/italic][/color]
   </Box>
 
-  - Permanently pacifies the contractee.
+  - Назавжди робить контрагента пацифістом.
 
-  ## Time
+  ## Час
   <Box>
-    [color=#999999][italic]150 Weight[/italic][/color]
+    [color=#999999][italic]150 Вага[/italic][/color]
   </Box>
 
-  - Kills the contractee after five minutes.
+  - Вбиває контрагента через п'ять хвилин.
 </Document>

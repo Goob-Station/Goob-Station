@@ -1,0 +1,9 @@
+- type: entity
+  id: MarkerSpecialforce
+  name: special forces spawn marker
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - state: ai

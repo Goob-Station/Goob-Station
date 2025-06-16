@@ -6,16 +6,16 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-# Fire/Gas Spill Procedures
-In the event of a fire or gas spill (namely anything considered station-wide dangerous), Command should set the alert to [color=#c8a404]Yellow Alert[/color] until Engineering personnel can deal with the problem.
-<Box>This is namely for massive gas spills, such as Plasma, Tritium, N2O, and anything that damages the station.</Box>
+# Процедури при пожежі/розливі газу
+У разі пожежі або розливу газу (а саме, всього, що вважається небезпечним для всієї станції), командування повинно встановити тривогу на [color=#c8a404]Жовту тривогу[/color], доки інженерний персонал не зможе вирішити проблему.
+<Box>Це стосується, зокрема, масивних розливів газу, таких як плазма, тритій, N2O та всього, що пошкоджує станцію.</Box>
 
-1. If there is a plasma/tritium flood with no ignition, all personnel should vacate the area and turn off flammable sources until Engineering can scrub/vent the gas out of the area.
+1. Якщо є затоплення плазмою/тритієм без займання, весь персонал повинен покинути територію та вимкнути легкозаймисті джерела, доки інженерний відділ не зможе очистити/вентилювати газ з території.
 
-2. If there is an ignited plasma/tritium flood, all personnel should vacate the area and maintain safe distance while Engineering scrubs/vents the area and balances the temperature to a safe, optimal level.
+2. Якщо є займання плазми/тритію, весь персонал повинен покинути територію та дотримуватися безпечної відстані, поки інженерний відділ очищає/вентилює територію та балансує температуру до безпечного, оптимального рівня.
 
-3. If there is a deadly/harmful gas spill (non-plasma/tritium), such as N2O or any other gas, Engineering should scrub the area and ensure all affected personnel are vacated from the area.
+3. Якщо є розлив смертельного/шкідливого газу (не плазми/тритію), такого як N2O або будь-якого іншого газу, інженерний відділ повинен очистити територію та забезпечити евакуацію всього постраждалого персоналу з території.
 
-4. Once the fire/gas is dealt with and the area affected is returned to optimal conditions, Engineering should give the all clear and Command should return to a safe alert level.
+4. Після того, як пожежу/газ буде ліквідовано, а постраждала територія повернеться до оптимальних умов, інженерний відділ повинен дати сигнал про відбій, а командування повинно повернутися до безпечного рівня тривоги.
 
 </Document>

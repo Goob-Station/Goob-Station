@@ -10,15 +10,15 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Airlock Upgrades
-  It is not uncommon for plucky individuals to try and bypass an airlock by meddling with its internal wiring.
+  # Оновлення шлюзів
+  Нерідко сміливі особистості намагаються обійти шлюз, втручаючись у його внутрішню проводку.
 
-  Fortunately, certain countermeasures can be installed into airlocks to inconvenience any would-be trespassers.
+  На щастя, в шлюзи можна встановити певні контрзаходи, щоб створити незручності будь-яким потенційним зловмисникам.
 
-  ## Medium security airlocks
-  The most basic form of intrusion deterrence is to install a secured steel plating that will prevent access to internal wiring of the airlock.
+  ## Шлюзи середнього рівня безпеки
+  Найпростіший спосіб запобігання вторгненню - це встановлення захищеної сталевої пластини, яка запобігатиме доступу до внутрішньої проводки шлюзу.
 
-  To upgrade a basic airlock to a medium security airlock, you will require the following materials:
+  Щоб оновити базовий шлюз до шлюзу середнього рівня безпеки, вам знадобляться такі матеріали:
   <Box HorizontalAlignment="Stretch">
 	  <Box>
 		  <GuideEntityEmbed Entity="SheetSteel" Caption="2 steel sheets"/>
@@ -31,16 +31,16 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 	  </Box>
   </Box>
 
-  To upgrade a basic airlock:
-  -	Use the screwdriver to open the airlock maintenance panel.
-  -	Add the steel sheets to the airlock.
-  -	Weld the steel sheets into place.
-  -	Close the maintenance panel using the screwdriver.
+  Щоб оновити базовий шлюз:
+  -	Використовуйте викрутку, щоб відкрити панель обслуговування шлюзу.
+  -	Додайте сталеві листи до шлюзу.
+  -	Приваріть сталеві листи на місце.
+  -	Закрийте панель обслуговування за допомогою викрутки.
 
-  ## High security airlocks
-  For airlocks leading to the more sensitive areas of the space station, the use of stronger deterrents are advised. High security airlocks have improved armor plating to protect its internal wiring.
+  ## Шлюзи високого рівня безпеки
+  Для шлюзів, що ведуть до більш чутливих зон космічної станції, рекомендується використовувати сильніші засоби стримування. Шлюзи високого рівня безпеки мають покращену броньовану обшивку для захисту внутрішньої проводки.
 
-  To upgrade a medium security airlock to a high security airlock, you will require the following materials:
+  Щоб оновити шлюз середнього рівня безпеки до шлюзу високого рівня безпеки, вам знадобляться такі матеріали:
   <Box HorizontalAlignment="Stretch">
 	  <Box>
 		  <GuideEntityEmbed Entity="SheetPlasteel" Caption="2 plasteel sheets"/>
@@ -53,16 +53,16 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 	  </Box>
   </Box>
 
-  To upgrade a medium security airlock:
-  - Use the screwdriver to open the airlock maintenance panel.
-  - Add the plasteel sheets to the airlock.
-  - Weld the plasteel sheets into place.
-  - Close the maintenance panel using the screwdriver.
+  Щоб оновити шлюз середнього рівня безпеки:
+  - Використовуйте викрутку, щоб відкрити панель обслуговування шлюзу.
+  - Додайте пластикові листи до шлюзу.
+  - Приваріть пластикові листи на місце.
+  - Закрийте панель обслуговування за допомогою викрутки.
 
-  ## Maximum security airlocks
-  You can optionally upgrade a high security airlock to a maximum security airlock. Maximum security airlocks possess an additional layer of electrified wire mesh on top of its other protections, which can shock any unauthorized personnel attempting to tamper with the airlock.
+  ## Шлюзи максимального рівня безпеки
+  Ви можете за бажанням оновити шлюз високого рівня безпеки до шлюзу максимального рівня безпеки. Шлюзи максимального рівня безпеки мають додатковий шар електрифікованої дротяної сітки поверх інших засобів захисту, яка може вразити струмом будь-якого неавторизованого персоналу, який намагається втрутитися в роботу шлюзу.
 
-  To upgrade a high security airlock to a maximum security airlock, you will require the following materials:
+  Щоб оновити шлюз високого рівня безпеки до шлюзу максимального рівня безпеки, вам знадобляться такі матеріали:
   <Box HorizontalAlignment="Stretch">
 	  <Box>
 		  <GuideEntityEmbed Entity="SheetPlasteel" Caption="2 plasteel sheets"/>
@@ -78,10 +78,10 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 	  </Box>
   </Box>
 
-  To upgrade a high security airlock:
-  -	Use the screwdriver to open the airlock maintenance panel.
-  -	Add the plasteel sheets to the airlock.
-  -	Weld the plasteel sheets into place.
-  - Add the metal rods to the airlock.
-  -	Close the maintenance panel using the screwdriver.
+  Щоб оновити шлюз високого рівня безпеки:
+  -	Використовуйте викрутку, щоб відкрити панель обслуговування шлюзу.
+  -	Додайте пластикові листи до шлюзу.
+  -	Приваріть пластикові листи на місце.
+  - Додайте металеві стрижні до шлюзу.
+  -	Закрийте панель обслуговування за допомогою викрутки.
 </Document>

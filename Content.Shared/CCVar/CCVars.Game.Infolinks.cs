@@ -63,4 +63,10 @@ public sealed partial class CCVars
     /// </summary>
     public static readonly CVarDef<string> InfoLinksTelegram =
         CVarDef.Create("infolinks.telegram", "", CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    /// URL that the support button will open.
+    /// </summary>
+    public static readonly CVarDef<string> SupportUrl =
+        CVarDef.Create("support.url", "", CVar.REPLICATED);
 }
