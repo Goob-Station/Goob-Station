@@ -1763,6 +1763,8 @@
         Burn: 3
     clumsySound:
       path: /Audio/Animals/monkey_scream.ogg
+  - type: RandomEmotes
+    weights: MonkeyEmotes
 
 - type: entity
   name: monkey
