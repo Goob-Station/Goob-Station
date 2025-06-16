@@ -275,7 +275,6 @@
     penetrateDamage: 75
     damagePenalty: 0.2
   - type: CyberdeckHackable # Goobstation - Cyberdeck
-    cost: 2
   placement:
     mode: SnapgridCenter
 

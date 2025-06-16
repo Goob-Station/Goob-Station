@@ -26,6 +26,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Cyberdeck.Components;
 using Content.Shared.Actions.Events;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
@@ -187,6 +188,7 @@ public abstract partial class SharedStationAiSystem
     {
         if (!args.CanComplexInteract
             || !HasComp<StationAiHeldComponent>(args.User)
+            && !HasComp<CyberdeckUserComponent>(args.User)
             || !args.CanInteract)
         {
             return;
@@ -254,6 +256,8 @@ public abstract class BaseStationAiAction
 {
     [field:NonSerialized]
     public EntityUid User { get; set; }
+
+    public bool Cancelled; // Goob edit - make it cancellable
 }
 
 // No idea if there's a better way to do this.

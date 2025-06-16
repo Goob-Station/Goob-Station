@@ -15,19 +15,14 @@ using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
-using Content.Shared.Doors.Components;
-using Content.Shared.Doors.Systems;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
-using Content.Shared.Jittering;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Power.EntitySystems;
-using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Silicons.StationAi;
-using Content.Shared.Stunnable;
 using Content.Shared.Verbs;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -50,12 +45,9 @@ public abstract class SharedCyberdeckSystem : EntitySystem
     [Dependency] private readonly SharedCryostorageSystem _cryostorage = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedDoorSystem _door = default!;
     [Dependency] private readonly SharedEyeSystem _eye = default!;
-    [Dependency] private readonly SharedJitteringSystem _jitter = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedMoverController _mover = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly INetManager _net = default!;
 
@@ -80,9 +72,12 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         SubscribeLocalEvent<CyberdeckUserComponent, ComponentStartup>(OnUserInit);
         SubscribeLocalEvent<CyberdeckUserComponent, ComponentShutdown>(OnUserShutdown);
 
-        SubscribeLocalEvent<AirlockComponent, CyberdeckHackDeviceEvent>(OnAirlockHacked);
         SubscribeLocalEvent<AccessReaderComponent, CyberdeckHackDeviceEvent>(OnAccessHacked);
-        SubscribeLocalEvent<BorgChassisComponent, CyberdeckHackDeviceEvent>(OnBorgHacked);
+
+        SubscribeLocalEvent<CyberdeckHackableComponent, StationAiLightEvent>(OnLightAiHacked, before: new []{typeof(SharedStationAiSystem)});
+        SubscribeLocalEvent<CyberdeckHackableComponent, StationAiBoltEvent>(OnAirlockBolt, before: new []{typeof(SharedStationAiSystem)});
+        SubscribeLocalEvent<CyberdeckHackableComponent, StationAiEmergencyAccessEvent>(OnAirlockEmergencyAccess, before: new []{typeof(SharedStationAiSystem)});
+        SubscribeLocalEvent<CyberdeckHackableComponent, StationAiElectrifiedEvent>(OnElectrified, before: new []{typeof(SharedStationAiSystem)});
 
         HandsQuery = GetEntityQuery<HandsComponent>();
         ContainerQuery = GetEntityQuery<ContainerManagerComponent>();
@@ -294,20 +289,34 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         }
     }
 
-    private void OnAirlockHacked(Entity<AirlockComponent> ent, ref CyberdeckHackDeviceEvent args)
-        => _door.StartOpening(ent.Owner, user: args.User);
-
     private void OnAccessHacked(Entity<AccessReaderComponent> ent, ref CyberdeckHackDeviceEvent args)
     {
         var ignore = EnsureComp<IgnoreAccessComponent>(ent);
         ignore.Ignore.Add(args.User);
     }
 
-    private void OnBorgHacked(Entity<BorgChassisComponent> ent, ref CyberdeckHackDeviceEvent args)
+    private void OnAirlockBolt(EntityUid ent, CyberdeckHackableComponent component, StationAiBoltEvent args)
     {
-        // TODO this probably shouldn't be hardcoded, but I don't know where to put this.
-        _stun.TryParalyze(ent.Owner, TimeSpan.FromSeconds(8), true);
-        _jitter.DoJitter(ent.Owner, TimeSpan.FromSeconds(8), true);
+        if (UserQuery.HasComp(args.User))
+            args.Cancelled = !TryHackDevice(args.User, ent);
+    }
+
+    private void OnAirlockEmergencyAccess(EntityUid ent, CyberdeckHackableComponent component, StationAiEmergencyAccessEvent args)
+    {
+        if (UserQuery.HasComp(args.User))
+            args.Cancelled = !TryHackDevice(args.User, ent);
+    }
+
+    private void OnElectrified(EntityUid ent, CyberdeckHackableComponent component, StationAiElectrifiedEvent args)
+    {
+        if (UserQuery.HasComp(args.User))
+            args.Cancelled = !TryHackDevice(args.User, ent);
+    }
+
+    private void OnLightAiHacked(EntityUid ent, CyberdeckHackableComponent component, StationAiLightEvent args)
+    {
+        if (UserQuery.HasComp(args.User))
+            args.Cancelled = !TryHackDevice(args.User, ent);
     }
 
     private void OnCyberVisionUsed(Entity<CyberdeckUserComponent> ent, ref CyberdeckVisionEvent args)
@@ -364,7 +373,7 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         {
             if (_net.IsClient)
                 return;
-            
+
             var newProjection = Spawn(user.Comp.ProjectionEntityId, MapCoordinates.Nullspace);
             SetPaused(newProjection, true);
             var projectionComp = EnsureComp<CyberdeckProjectionComponent>(newProjection);

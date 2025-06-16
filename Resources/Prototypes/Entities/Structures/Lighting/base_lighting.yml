@@ -216,7 +216,6 @@
   - type: Penetratable # Goobstation - Better snipers
     penetrateDamage: 10
   - type: CyberdeckHackable # Goobstation - Cyberdeck
-    cost: 1
   placement:
     mode: SnapgridCenter
     snap:

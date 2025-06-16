@@ -20,6 +20,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Cyberdeck.Components;
 using Content.Shared.Light.Components;
 using Robust.Shared.Serialization;
 
