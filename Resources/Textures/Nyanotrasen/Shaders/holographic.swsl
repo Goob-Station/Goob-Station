@@ -217,51 +217,41 @@ void fragment()
     const highp float TIME_OFFSET2 = 517.43;
     const highp float TIME_OFFSET3 = 1298.67;
 
-    highp vec4 product = zTexture(UV);
+    highp float wrapped_hue = fract(hue);
+    highp vec4 product = texture(TEXTURE, UV);
 
-    // Colorize
+    // Colorize with wrapped hue
     highp vec3 hsv = rgb2hsv(product.rgb);
-    hsv.x = hue;
+    hsv.x = wrapped_hue;
     product.rgb = hsv2rgb(hsv);
-
 
     // Scanlines
     const highp float LINE_SCROLL_SPEED = 0.12;
-
     highp float uv_noise = snoise(vec3(UV * pixel_scale * 3.0, TIME));
     highp float Y = UV.y + uv_noise * 0.1;
     highp float MX = 4.0;
     highp float MY = textureHeight / MX / 4.0;
 
-    highp float lines =
-        (
-        mod(TIME * LINE_SCROLL_SPEED + Y, 1.0 / MX)
-        )
-        * MX
-        ;
-
+    highp float lines = mod(TIME * LINE_SCROLL_SPEED + Y, 1.0 / MX) * MX;
     lines = floor(lines * MY) / MY;
-    highp vec3 line3 = hsv2rgb(vec3(hue, 0.9, 2.0 * lines));
 
+    highp vec3 line3 = hsv2rgb(vec3(wrapped_hue, 0.9, min(2.0 * lines, 1.0)));
     product.xyz = blendScreen(product.xyz, line3, 0.33);
 
-
-    // Noise
-    const highp float noise_limit = 4.0;
+    // Noise effect
     const highp float noise_rate = 1.4;
-    const highp float noise_density = 0.0;
-
-    highp float noise_hue = hue - 0.2 * pingpong((TIME_OFFSET1 + TIME) * 0.21);
+    highp float noise_hue = fract(wrapped_hue - 0.2 * pingpong((TIME_OFFSET1 + TIME) * 0.21));
 
     highp vec2 noise_coord = floor(UV * pixel_scale);
     highp float noise_result = snoise(vec3(noise_coord, (TIME_OFFSET2 + TIME) * noise_rate));
 
-    highp vec3 noise3 = hsv2rgb(vec3(noise_hue, 1.0, noise_result));
+    highp float noise_value = max(noise_result, 0.0);
+    highp vec3 noise3 = hsv2rgb(vec3(noise_hue, 1.0, noise_value));
     product.xyz = blendOverlay(product.xyz, noise3, noise_result < 0.3 ? 0.0 : 0.5);
 
-
-    // Alpha
+    // Alpha modulation
     product.w *= 0.9 - 0.4 * pingpong((TIME_OFFSET3 + TIME) * 0.36);
 
+    product.rgb = clamp(product.rgb, 0.0, 1.0);
     COLOR = product;
 }

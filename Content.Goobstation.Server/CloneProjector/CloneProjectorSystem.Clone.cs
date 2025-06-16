@@ -21,7 +21,7 @@ public partial class CloneProjectorSystem
     {
         SubscribeLocalEvent<HolographicCloneComponent, MapInitEvent>(OnInit);
 
-        SubscribeLocalEvent<HolographicCloneComponent, MobStateChangedEvent>(OnMobStateChanged);
+        SubscribeLocalEvent<HolographicCloneComponent, MobStateChangedEvent>(OnCloneStateChanged);
         SubscribeLocalEvent<HolographicCloneComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<HolographicCloneComponent, EmpPulseEvent>(OnEmpPulse);
     }
@@ -40,7 +40,7 @@ public partial class CloneProjectorSystem
             Dirty(part.Id, woundable);
         }
     }
-    private void OnMobStateChanged(Entity<HolographicCloneComponent> clone, ref MobStateChangedEvent args)
+    private void OnCloneStateChanged(Entity<HolographicCloneComponent> clone, ref MobStateChangedEvent args)
     {
         if (!_mobState.IsIncapacitated(clone)
             || clone.Comp.HostProjector is not { } projector)

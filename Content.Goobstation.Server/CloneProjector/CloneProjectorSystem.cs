@@ -19,6 +19,7 @@ using Content.Shared.Interaction.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Mind;
+using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Storage;
@@ -69,6 +70,8 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
         SubscribeLocalEvent<CloneProjectorComponent, GotUnequippedEvent>(OnUnequipped);
 
         SubscribeLocalEvent<CloneProjectorComponent, CloneProjectorActivatedEvent>(OnProjectorActivated);
+
+        SubscribeLocalEvent<WearingCloneProjectorComponent, MobStateChangedEvent>(OnWearerStateChanged);
 
         InitializeClone();
 
@@ -123,6 +126,8 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
         TryGenerateClone(projector, args.User);
 
         _stun.TryParalyze(args.User, projector.Comp.StunDuration, true);
+
+        EnsureComp<WearingCloneProjectorComponent>(args.User).ConnectedProjector = projector;
     }
 
     private void OnUnequipped(Entity<CloneProjectorComponent> projector, ref GotUnequippedEvent args)
@@ -134,6 +139,8 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
         _popup.PopupEntity(popup, args.Equipee, args.Equipee);
 
         _stun.TryParalyze(args.Equipee, projector.Comp.StunDuration, true);
+
+        RemComp<WearingCloneProjectorComponent>(args.Equipee);
     }
 
 
@@ -225,6 +232,7 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
         _damageable.SetDamageModifierSetId(clone, projector.Comp.CloneDamageModifierSet);
 
         _meta.SetEntityName(clone, Identity.Name(performer, EntityManager) + " " + Loc.GetString(projector.Comp.NameSuffix));
+        projector.Comp.CloneUid = clone;
 
         if (!TryEquipItems(projector))
         {
@@ -232,7 +240,6 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
             return false;
         }
 
-        projector.Comp.CloneUid = clone;
         Dirty(clone, projector.Comp);
         return true;
     }
@@ -376,5 +383,12 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
             _physics.ApplyAngularImpulse(pocketItem, ThrowingSystem.ThrowAngularImpulse);
         }
 
+    }
+
+    private void OnWearerStateChanged(Entity<WearingCloneProjectorComponent> wearer, ref MobStateChangedEvent args)
+    {
+        if (args.NewMobState == MobState.Dead
+            && wearer.Comp.ConnectedProjector is { } projector)
+            TryInsertClone(projector);
     }
 }

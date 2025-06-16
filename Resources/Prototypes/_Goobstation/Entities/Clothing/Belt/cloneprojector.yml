@@ -32,11 +32,23 @@
     - type: AntagImmune
     - type: MovementIgnoreGravity
     - type: RequireProjectileTarget
-      active: True
+    - type: NoSlip
+    - type: ZombieImmune
+    - type: TypingIndicator
+      proto: robot
+    - type: Speech
+      speechVerb: Robotic
+      speechSounds: Borg
+    - type: Vocal
+      sounds:
+        Unsexed: UnisexSilicon
+    - type: DamagedSiliconAccent
+    - type: UnblockableSpeech
+    - type: ProtectedFromStepTriggers
     - type: MobThresholds
       thresholds:
         0: Alive
-        30: Dead
+        42: Dead # The Answer to the Ultimate Question of Life, the Universe, and Everything
     - type: StatusEffects
       allowed:
       - Stun
@@ -47,7 +59,8 @@
     - type: Tag
       tags:
       - CanPilot
-      - FootstepSound
+      - DoorBumpOpener
+      - Unimplantable
     removedComponents:
     - type: Deathgasp
     - type: HealthExaminable
