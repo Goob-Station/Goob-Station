@@ -1,3 +1,6 @@
+using Lidgren.Network;
+using static Content.Goobstation.Server.Voice.VoiceChatServerManager;
+
 namespace Content.Goobstation.Server.Voice;
 
 /// <summary>
@@ -6,4 +9,5 @@ namespace Content.Goobstation.Server.Voice;
 public interface IVoiceChatServerManager : IDisposable
 {
     void Update();
+    Dictionary<NetConnection, VoiceClientData> Clients { get; }
 }

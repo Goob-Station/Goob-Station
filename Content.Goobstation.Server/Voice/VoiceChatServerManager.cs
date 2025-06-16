@@ -34,7 +34,7 @@ public sealed class VoiceChatServerManager : IVoiceChatServerManager, IPostInjec
     private int _port;
     private string _appIdentifier = "SS14VoiceChat";
 
-    private readonly Dictionary<NetConnection, VoiceClientData> _clients = new();
+    public Dictionary<NetConnection, VoiceClientData> Clients { get; } = new();
 
     private const int SampleRate = 48000;
     private const int Channels = 1; // Mono
@@ -119,12 +119,12 @@ public sealed class VoiceChatServerManager : IVoiceChatServerManager, IPostInjec
 
         _sawmill.Info("Stopping voice server...");
 
-        var connectionsToDisconnect = new List<NetConnection>(_clients.Keys);
+        var connectionsToDisconnect = new List<NetConnection>(Clients.Keys);
         foreach (var conn in connectionsToDisconnect)
         {
             conn.Disconnect("Server shutting down.");
         }
-        _clients.Clear();
+        Clients.Clear();
 
         _server.Shutdown("Server shutting down.");
         _server = null;
@@ -245,7 +245,7 @@ public sealed class VoiceChatServerManager : IVoiceChatServerManager, IPostInjec
     /// </summary>
     private void HandleClientConnected(NetConnection connection)
     {
-        if (_clients.ContainsKey(connection))
+        if (Clients.ContainsKey(connection))
         {
             _sawmill.Warning($"Received Connected status for already tracked client {connection.RemoteEndPoint.Address}. Ignoring.");
             return;
@@ -283,7 +283,7 @@ public sealed class VoiceChatServerManager : IVoiceChatServerManager, IPostInjec
 
         var clientData = new VoiceClientData(connection, entityUid, SampleRate, Channels);
 
-        if (!_clients.TryAdd(connection, clientData))
+        if (!Clients.TryAdd(connection, clientData))
         {
             _sawmill.Warning($"Failed to add voice client {connection.RemoteEndPoint.Address} to dictionary, already exists? Disconnecting.");
             clientData.Dispose();
@@ -296,11 +296,11 @@ public sealed class VoiceChatServerManager : IVoiceChatServerManager, IPostInjec
     /// </summary>
     private void HandleClientDisconnected(NetConnection connection, string reason)
     {
-        if (_clients.TryGetValue(connection, out var clientData))
+        if (Clients.TryGetValue(connection, out var clientData))
         {
             _sawmill.Info($"Voice client {connection.RemoteEndPoint.Address} (Player Entity: {clientData.PlayerEntity}) disconnected. Reason: {reason}");
             clientData.Dispose();
-            _clients.Remove(connection);
+            Clients.Remove(connection);
         }
         else
         {
@@ -319,7 +319,7 @@ public sealed class VoiceChatServerManager : IVoiceChatServerManager, IPostInjec
             return;
         }
 
-        if (!_clients.TryGetValue(msg.SenderConnection, out var clientData))
+        if (!Clients.TryGetValue(msg.SenderConnection, out var clientData))
         {
             _sawmill.Warning($"Received voice data from unknown connection: {msg.SenderConnection.RemoteEndPoint.Address}. Discarding.");
             return;
@@ -426,12 +426,12 @@ public sealed class VoiceChatServerManager : IVoiceChatServerManager, IPostInjec
 
             var playerEndpoint = playerSession.Channel.RemoteEndPoint.Address;
 
-            foreach (var conn in _clients.Keys.ToList())
+            foreach (var conn in Clients.Keys.ToList())
             {
                 if (conn.RemoteEndPoint.Address.Equals(playerEndpoint))
                 {
                     connectionToDrop = conn;
-                    dataToDrop = _clients[conn];
+                    dataToDrop = Clients[conn];
                     break;
                 }
             }
@@ -461,10 +461,10 @@ public sealed class VoiceChatServerManager : IVoiceChatServerManager, IPostInjec
     /// <summary>
     /// Helper class to store state associated with a connected voice client.
     /// </summary>
-    private sealed class VoiceClientData : IDisposable
+    public sealed class VoiceClientData : IDisposable
     {
         public NetConnection Connection { get; }
-        public EntityUid PlayerEntity { get; }
+        public EntityUid PlayerEntity { get; set; }
         public OpusDecoder? Decoder { get; private set; }
 
         private short[] _pcmBuffer;
