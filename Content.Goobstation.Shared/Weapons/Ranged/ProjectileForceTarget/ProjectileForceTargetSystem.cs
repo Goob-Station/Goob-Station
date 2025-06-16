@@ -20,6 +20,7 @@ public sealed class ProjectileForceTargetSystem : EntitySystem
         if (ent.Comp.Part != null)
             args.TargetPart = ent.Comp.Part;
 
-        args.CanMiss = !ent.Comp.MakeUnableToMiss;
+        if (ent.Comp.MakeUnableToMiss)
+            args.CanMiss = false;
     }
 }
