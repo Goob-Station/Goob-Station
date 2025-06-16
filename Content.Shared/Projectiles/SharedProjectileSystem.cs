@@ -308,4 +308,4 @@ public record struct ProjectileReflectAttemptEvent(EntityUid ProjUid, Projectile
 /// Raised when a projectile hits an entity
 /// </summary>
 [ByRefEvent]
-public record struct ProjectileHitEvent(DamageSpecifier Damage, EntityUid Target, EntityUid? Shooter = null, TargetBodyPart? TargetPart = TargetBodyPart.Chest); // Shitmed change
+public record struct ProjectileHitEvent(DamageSpecifier Damage, EntityUid Target, EntityUid? Shooter = null, TargetBodyPart? TargetPart = TargetBodyPart.Chest, bool CanMiss = true); // Shitmed change

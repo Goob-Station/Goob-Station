@@ -10,6 +10,11 @@ public sealed class ProjectileForceTargetSystem : EntitySystem
         SubscribeLocalEvent<ProjectileForceTargetComponent, ProjectileHitEvent>(OnProjectileHit);
     }
 
-    private void OnProjectileHit(Entity<ProjectileForceTargetComponent> ent, ref ProjectileHitEvent args) =>
-        args.TargetPart = ent.Comp.Part;
+    private void OnProjectileHit(Entity<ProjectileForceTargetComponent> ent, ref ProjectileHitEvent args)
+    {
+        if (ent.Comp.Part != null)
+            args.TargetPart = ent.Comp.Part;
+
+        args.CanMiss = !ent.Comp.MakeUnableToMiss;
+    }
 }
