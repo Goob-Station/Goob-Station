@@ -33,3 +33,4 @@ construction-graph-tag-mail-capsule = mail capsule
 construction-graph-tag-glass-bottle = glass bottle
 construction-graph-tag-explorer-suit = explorer suit
 construction-graph-tag-meat = meat
+construction-graph-tag-book = book
