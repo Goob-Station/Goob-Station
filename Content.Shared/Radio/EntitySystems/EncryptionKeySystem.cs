@@ -45,8 +45,6 @@ namespace Content.Shared.Radio.EntitySystems;
 public sealed partial class EncryptionKeySystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedToolSystem _tool = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
@@ -79,13 +77,7 @@ public sealed partial class EncryptionKeySystem : EntitySystem
             _hands.PickupOrDrop(args.User, ent, dropNear: true);
         }
 
-        if (!_timing.IsFirstTimePredicted)
-            return;
-
-        // TODO add predicted pop-up overrides.
-        if (_net.IsServer)
-            _popup.PopupEntity(Loc.GetString("encryption-keys-all-extracted"), uid, args.User);
-
+        _popup.PopupPredicted(Loc.GetString("encryption-keys-all-extracted"), uid, args.User);
         _audio.PlayPredicted(component.KeyExtractionSound, uid, args.User);
     }
 

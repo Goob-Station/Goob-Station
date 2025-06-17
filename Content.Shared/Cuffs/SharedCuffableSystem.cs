@@ -497,7 +497,8 @@ namespace Content.Shared.Cuffs
                     _popup.PopupClient(Loc.GetString("handcuff-component-cuff-interrupt-message",
                         ("targetName", Identity.Name(target, EntityManager, user))), user, user);
                     _popup.PopupClient(Loc.GetString("handcuff-component-cuff-interrupt-other-message",
-                        ("otherName", Identity.Name(user, EntityManager, target))), target, target);
+                        ("otherName", Identity.Name(user, EntityManager, target)),
+                        ("otherEnt", user)), target, target);
                 }
             }
         }
@@ -860,8 +861,8 @@ namespace Content.Shared.Cuffs
             // if combat mode is on, shove the person.
             if (_combatMode.IsInCombatMode(user) && target != user && user != null)
             {
-                var eventArgs = new DisarmedEvent { Target = target, Source = user.Value, DisarmProbability = 1 };
-                RaiseLocalEvent(target, eventArgs);
+                var eventArgs = new DisarmedEvent(target, user.Value, 1f);
+                RaiseLocalEvent(target, ref eventArgs);
                 shoved = true;
             }
 

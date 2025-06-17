@@ -6,6 +6,7 @@
 # SPDX-FileCopyrightText: 2020 Paul Ritter <ritter.paul1@googlemail.com>
 # SPDX-FileCopyrightText: 2020 Swept <jamesurquhartwebb@gmail.com>
 # SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2020 py01 <pyronetics01@gmail.com>
 # SPDX-FileCopyrightText: 2021 DmitriyRubetskoy <75271456+DmitriyRubetskoy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
@@ -56,7 +57,6 @@
 # SPDX-FileCopyrightText: 2024 21Melkuu <79728504+21Melkuu@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 DenisShvalov <115770678+DenisShvalov@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 DieselMohawk <gavin.drinka@gmail.com>
@@ -96,7 +96,6 @@
 # SPDX-FileCopyrightText: 2024 Saphire Lattice <lattice@saphi.re>
 # SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Spessmann <156740760+Spessmann@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 # SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
@@ -128,13 +127,16 @@
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 August Sun <45527070+august-sun@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 John <35928781+sporkyz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 OneZerooo0 <172208291+OneZerooo0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 august-sun <45527070+august.sun@users.noreply.github.com>
@@ -177,6 +179,9 @@
         - JawsOfLife
         - GPS
         - WeldingMask
+        - Hammer # Goobstation
+        - Nailgun # Goobstation
+        - MagazineNailgun # Goobstation
       components:
         - StationMap
         - SprayPainter
@@ -257,6 +262,9 @@
         - HolofanProjector
         - Multitool
         - AppraisalTool
+        - Hammer # Goobstation
+        - Nailgun # Goobstation
+        - MagazineNailgun # Goobstation
       components:
         - StationMap
         - SprayPainter
@@ -642,6 +650,7 @@
         - BolaEnergy # Goobstation
         - EnergySpeedloader # Goobstation
         - MilitaryPowerCell # Goobstation
+        - HandGrenade
       components:
         - Stunbaton
         - FlashOnTrigger
