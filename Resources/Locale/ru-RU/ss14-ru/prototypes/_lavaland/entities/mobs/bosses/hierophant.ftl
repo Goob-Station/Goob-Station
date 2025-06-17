@@ -1,10 +1,10 @@
-ent-LavalandBossHierophant = hierophant
-    .desc = A massive metal club that hangs in the air as though waiting. It'll make you dance to its beat.
-ent-LavalandHierophantSquare = hierophant square
-    .suffix = DO NOT MAP
+ent-LavalandBossHierophant = Иерофант
+    .desc = Массивная металлический посох, который висит в воздухе, словно ожидая своего часа. Он заставит вас танцевать под ЕГО ритм.
+ent-LavalandHierophantSquare = квадрат
+    .suffix = НЕ МАППИТЬ
     .desc = { "" }
 ent-LavalandHierophantDamageField = { "" }
     .desc = { "" }
-ent-LavalandHierophantChaser = hierophant chaser
-    .suffix = DO NOT MAP
+ent-LavalandHierophantChaser = след
+    .suffix = НЕ МАППИТЬ
     .desc = { "" }

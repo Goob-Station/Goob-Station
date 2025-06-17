@@ -1,4 +1,4 @@
 ent-BaseComputerDocking = { ent-BaseComputer }
     .desc = { ent-BaseComputer.desc }
-ent-ComputerShuttleMiningLavaland = mining shuttle console
-    .desc = Used to pilot the mining shuttle to and from the mining base.
+ent-ComputerShuttleMiningLavaland = консоль управления шахтёрским шаттлом
+    .desc = Используется для управления шахтерским шаттлом, доставляющим его на шахтерскую базу и обратно.
