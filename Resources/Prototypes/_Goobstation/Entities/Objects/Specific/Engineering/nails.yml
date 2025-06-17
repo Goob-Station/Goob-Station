@@ -40,8 +40,8 @@
     onlyCollideWhenShot: true
     damage:
       types:
-        Piercing: 5
-      armorPenetration: -2 # Very shitty against armor. Pro tip: target unarmored body parts
+        Piercing: 3
+      armorPenetration: -1 # Very shitty against armor. Pro tip: target unarmored body parts
   - type: Fixtures
     fixtures:
       fix1:
@@ -94,14 +94,14 @@
         Piercing: 4
       armorPenetration: 0.75
   - type: ProjectileDamageWhitelist
-    damage: # Slightly worse for repairs
+    damage: # Worse for repairs
       types:
-        Blunt: -4
-        Slash: -4
-        Piercing: -4
-        Heat: -4
-        Shock: -4
-        Structural: -4
+        Blunt: -3
+        Slash: -3
+        Piercing: -3
+        Heat: -3
+        Shock: -3
+        Structural: -3
 
 - type: entity
   parent: BaseItem
