@@ -1,7 +1,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Server.Body.Systems;
-using Content.Server.Standing;
+using Content.Shared._White.Standing;
 using Content.Shared.Charges.Systems;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Interaction.Events;
@@ -25,9 +25,9 @@ public sealed class ExperimentalTeleporterSystem : EntitySystem
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly ContainerSystem _containerSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly LayingDownSystem _layingDown = default!;
     [Dependency] private readonly SharedChargesSystem _charges = default!;
     [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly TelefragSystem _telefrag = default!;
 
     public override void Initialize()
     {
@@ -77,10 +77,10 @@ public sealed class ExperimentalTeleporterSystem : EntitySystem
     {
         PlaySoundAndEffects(component, coords, oldCoords);
 
-        _layingDown.LieDownInRange(uid, coords);
+        _telefrag.DoTelefrag(uid, coords, TimeSpan.Zero);
         _transform.SetCoordinates(uid, coords);
 
-        _charges.UseCharge(teleporterUid);
+        _charges.TryUseCharge(teleporterUid);
     }
 
     private void PlaySoundAndEffects(ExperimentalTeleporterComponent component, EntityCoordinates coords, EntityCoordinates oldCoords)
