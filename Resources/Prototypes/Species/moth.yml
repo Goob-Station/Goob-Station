@@ -63,7 +63,7 @@
       points: 1
       required: false
     HeadTop:
-      points: 6
+      points: 1
       required: true
       defaultMarkings: [ MothAntennasDefault ]
     HeadSide:
