@@ -329,6 +329,16 @@
   categories:
   - UplinkWeaponry
 
+- type: listing
+  id: UplinkEstocBundle
+  name: uplink-estoc-name # goob
+  description: uplink-estoc-desc # goob
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/estoc.rsi, state: icon }
+  productEntity: WeaponRifleEstoc # goob
+  cost:
+    Telecrystal: 50 # goob
+  categories:
+  - UplinkWeaponry
 
 - type: listing
   id: UplinkBulldog #goob
@@ -698,6 +708,17 @@
   productEntity: MagazineBoxLightRifle
   cost:
     Telecrystal: 9 # goob
+  categories:
+  - UplinkAmmo
+
+# For the Estoc
+- type: listing
+  id: UplinkEstocAmmo
+  name: uplink-estoc-ammo-name
+  description: uplink-estoc-ammo-desc
+  productEntity: MagazineRifle
+  cost:
+    Telecrystal: 5 # goob - on par with c20
   categories:
   - UplinkAmmo
 
