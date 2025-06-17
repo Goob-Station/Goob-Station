@@ -9,7 +9,7 @@ public sealed partial class TransitionText
     {
         return MathF.Abs(left - right) >= treshold;
     }
-    public static List<float> GetLinearFloatTransitionEnumerator(float startValue, float targetValue, float duration, float deltaT)
+    public static List<float> GetLinearFloatTransitionValuesList(float startValue, float targetValue, float duration, float deltaT)
     {
         if (duration == 0) return new([targetValue]);
         List<float> transitionList = new();

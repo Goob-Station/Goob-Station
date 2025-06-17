@@ -93,7 +93,7 @@ public sealed partial class ReactionChamberWindow : DefaultWindow
         base.FrameUpdate(args);
         if (LastSolnTemp == SolnTemp) return;
 
-        TempLabelValues ??= TransitionText.GetLinearFloatTransitionEnumerator(LastSolnTemp, SolnTemp, TempTransitionDuration, args.DeltaSeconds);
+        TempLabelValues ??= TransitionText.GetLinearFloatTransitionValuesList(LastSolnTemp, SolnTemp, TempTransitionDuration, args.DeltaSeconds);
         if (!(TempLabelValues.Count <= 0))
         {
             TemperatureLabel.Text = $"{TempLabelValues[0]}";
