@@ -339,6 +339,45 @@
     chemicalCost: 0
     useInLesserForm: true
 
+- type: entity
+  id: ActionHorrificScream
+  name: Horrific Scream
+  description: Disorient people with a high-chance of making them drop whatever they are holding, and break lights.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 10
+    itemIconStyle: NoItem
+    checkCanInteract: false
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: horrific_scream
+    event: !type:HorrificScreamEvent {}
+  - type: ChangelingAction
+    chemicalCost: 0
+    useInLesserForm: false
+    useInHorrorForm: true
+
+- type: entity
+  id: ActionToggleHorrorForm
+  name: Horror Form
+  description: Become something much more powerful.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    useDelay: 1
+    itemIconStyle: BigAction
+    checkCanInteract: false
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: horror_form
+    event: !type:ActionHorrorFormEvent {}
+  - type: ChangelingAction
+    chemicalCost: 0
+    requireAbsorbed: 0 # change to 4 once done testing
+    useInLesserForm: false
+
 # stings
 - type: entity
   id: ActionStingBlind

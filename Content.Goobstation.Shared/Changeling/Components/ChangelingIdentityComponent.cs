@@ -82,6 +82,8 @@ public sealed partial class ChangelingIdentityComponent : Component
 
     public bool IsInLastResort = false;
 
+    public bool IsInHorrorForm = false;
+
     public bool ChameleonActive = false;
 
     public bool VoidAdaptActive = false;

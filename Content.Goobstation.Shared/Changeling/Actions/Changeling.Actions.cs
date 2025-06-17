@@ -32,6 +32,8 @@ public sealed partial class ChangelingActionComponent : Component
 
     [DataField] public bool UseInLesserForm = false;
 
+    [DataField] public bool UseInHorrorForm = false;
+
     [DataField] public float RequireAbsorbed = 0;
 }
 
@@ -60,6 +62,8 @@ public sealed partial class ToggleOrganicShieldEvent : InstantActionEvent { }
 public sealed partial class ShriekDissonantEvent : InstantActionEvent { }
 public sealed partial class ShriekResonantEvent : InstantActionEvent { }
 public sealed partial class ToggleStrainedMusclesEvent : InstantActionEvent { }
+public sealed partial class ActionHorrorFormEvent : InstantActionEvent { }
+public sealed partial class HorrificScreamEvent : InstantActionEvent { }
 
 #endregion
 

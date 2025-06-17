@@ -156,6 +156,20 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
+- type: listing
+  id: EvolutionMenuHorrorForm
+  name: evolutionmenu-combat-horrorform-name
+  description: evolutionmenu-combat-horrorform-desc
+  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: horror_form }
+  productAction: ActionToggleHorrorForm
+  cost:
+    EvolutionPoint: 4
+  categories:
+  - ChangelingAbilityCombat
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
 #- type: listing
 #  id: EvolutionMenuCombatSpiders
 #  name: evolutionmenu-combat-spiders-name

@@ -1,0 +1,106 @@
+# Changeling horror form
+- type: entity
+  parent: [SimpleSpaceMobBase]
+  id: MobChangelingShamblingAbomination
+  name: shambling abomination
+  description: A horrific creature who was only pretending to be crew.
+  suffix: DO NOT MAP
+  categories: [ DoNotMap ]
+  components:
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+  - type: Bloodstream
+    bloodReagent: BloodChangeling
+    bloodMaxVolume: 1800
+    bleedReductionAmount: 2
+  - type: CombatMode
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 2
+  - type: InputMover
+  - type: Reactive
+    groups:
+      Flammable: [Touch]
+  - type: MobState
+    allowedStates:
+      - Alive
+      - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      600: Critical
+      800: Dead
+  - type: MeleeWeapon
+    altDisarm: false
+    soundHit:
+        path: /Audio/Weapons/Xeno/alien_claw_flesh1.ogg
+    angle: 0
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 20
+        Blunt: 10
+        Genetic: 5
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: NoSlip
+  - type: FlashImmunity
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: /Textures/_Goobstation/Changeling/abomination.rsi
+    noRot: true
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: alive
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: alive
+      Dead:
+        Base: dead
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: KinematicController
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.50
+        density: 250
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Puller
+    needsHands: false
+  - type: InteractionPopup
+    successChance: 1
+    interactSuccessString: touching-sucess-abomination
+    interactSuccessSound: /Audio/Weapons/Xeno/alien_claw_flesh2.ogg
+    messagePerceivedByOthers: touching-sucess-abomination-others
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepThud
+  - type: Devourer
+    foodPreference: Humanoid
+    shouldStoreDevoured: true
+    chemical: Ichor
+    healRate: 50.0
+    whitelist:
+      components:
+      - MobState
+  - type: Metabolizer
+    solutionOnBody: false
+    updateInterval: 0.25
+    metabolizerTypes: [ Dragon ]
+    groups:
+    - id: Medicine
+  - type: IgniteOnHeatDamage
+    fireStacks: 1
+    threshold: 12
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Diona # Temporary

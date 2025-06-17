@@ -7,3 +7,8 @@
   license: "CC-BY-SA-3.0"
   copyright: "made by thebiggestbruh using samples from /Organs and /Bone"
   source: "https://github.com/Goob-Station/Goob-Station/tree/master/Resources/Audio/_Shitmed/ReBELL"
+
+- files: ["armour_transform.ogg", "sound_voice_creepyshriek.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation 13."
+  source: "https://github.com/goonstation/goonstation"

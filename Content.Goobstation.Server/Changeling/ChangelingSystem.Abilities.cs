@@ -68,6 +68,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Shared._Shitmed.Targeting; // Shitmed Change
 using Content.Shared.Rejuvenate;
+using Robust.Shared.Audio;
 
 namespace Content.Goobstation.Server.Changeling;
 
@@ -98,6 +99,8 @@ public sealed partial class ChangelingSystem
         SubscribeLocalEvent<ChangelingIdentityComponent, ShriekDissonantEvent>(OnShriekDissonant);
         SubscribeLocalEvent<ChangelingIdentityComponent, ShriekResonantEvent>(OnShriekResonant);
         SubscribeLocalEvent<ChangelingIdentityComponent, ToggleStrainedMusclesEvent>(OnToggleStrainedMuscles);
+        SubscribeLocalEvent<ChangelingIdentityComponent, HorrificScreamEvent>(OnScreamHorrific);
+        SubscribeLocalEvent<ChangelingIdentityComponent, ActionHorrorFormEvent>(OnHorrorForm);
 
         SubscribeLocalEvent<ChangelingIdentityComponent, StingReagentEvent>(OnStingReagent);
         SubscribeLocalEvent<ChangelingIdentityComponent, StingTransformEvent>(OnStingTransform);
@@ -591,6 +594,46 @@ public sealed partial class ChangelingSystem
 
         PlayMeatySound(uid, comp);
         _speed.RefreshMovementSpeedModifiers(uid);
+    }
+
+    private void OnScreamHorrific(EntityUid uid, ChangelingIdentityComponent comp, ref HorrificScreamEvent args)
+    {
+        if (!TryUseAbility(uid, comp, args, fireAffected: false))
+            return;
+
+        DoScreech(uid, comp); // screenshake
+        TryScreechStun(uid, comp); // the actual thing
+
+        var power = comp.ShriekPower;
+        var lights = GetEntityQuery<PoweredLightComponent>();
+        var lookup = _lookup.GetEntitiesInRange(uid, power);
+
+        foreach (var ent in lookup)
+            if (lights.HasComponent(ent))
+                _light.TryDestroyBulb(ent);
+    }
+
+    private void OnHorrorForm(EntityUid uid, ChangelingIdentityComponent comp, ref ActionHorrorFormEvent args)
+    {
+        if (!TryUseAbility(uid, comp, args))
+            return;
+
+        comp.IsInHorrorForm = true;
+
+        var newUid = TransformEntity(uid, protoId: "MobChangelingShamblingAbomination", comp: comp);
+        if (newUid == null)
+        {
+            comp.IsInHorrorForm = false;
+            //comp.Chemicals += Comp<ChangelingActionComponent>(args.Action).ChemicalCost;
+            return;
+        }
+
+        var loc = Loc.GetString("changeling-transform-others", ("user", Identity.Entity((EntityUid) uid, EntityManager)));
+        _popup.PopupEntity(loc, (EntityUid) uid, PopupType.LargeCaution);
+
+        _actions.AddAction((EntityUid) newUid, "ActionHorrificScream");
+
+        _audio.PlayPvs(new SoundPathSpecifier("/Audio/_Goobstation/Changeling/Effects/sound_voice_creepyshriek.ogg"), uid, AudioParams.Default.WithVolume(2f));
     }
 
     #endregion
