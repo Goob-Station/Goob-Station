@@ -414,13 +414,10 @@
   - type: Fiber
     fiberColor: fibers-black
 
-# Insulated Gloves (Yellow Gloves)
-# Currently can not be greyscaled without looking like shit.
-- type: entity
-  parent: [ClothingHandsBase, BaseEngineeringContraband]
-  id: ClothingHandsGlovesColorYellow
-  name: insulated gloves
-  description: These gloves will protect the wearer from electric shocks.
+- type: entity # Goobstation
+  parent: [ClothingHandsBase]
+  id: ClothingHandsGlovesColorYellowBase
+  abstract: true
   components:
   - type: FingerprintMask
   - type: Sprite
@@ -443,9 +440,17 @@
         Piercing: 0.95
         Shock: 0.75
 
+# Insulated Gloves (Yellow Gloves)
+# Currently can not be greyscaled without looking like shit.
+- type: entity
+  parent: [ClothingHandsGlovesColorYellowBase, BaseEngineeringContraband] # Goob
+  id: ClothingHandsGlovesColorYellow
+  name: insulated gloves
+  description: These gloves will protect the wearer from electric shocks.
+
 # Budget Insulated Gloves
 - type: entity
-  parent: ClothingHandsGlovesColorYellow
+  parent: ClothingHandsGlovesColorYellowBase # Goob
   id: ClothingHandsGlovesColorYellowBudget
   name: budget insulated gloves
   description: These gloves are cheap knockoffs of the coveted ones - no way this can end badly.
