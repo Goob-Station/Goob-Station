@@ -1,2 +1,2 @@
-ent-NFEnergyPickaxe = energy pickaxe
-    .desc = A holographic mining tool with blades comprised of hard light that also serves a deadly melee weapon. Rock and stone!
+ent-NFEnergyPickaxe = энергетическая кирка
+    .desc = Голографический инструмент для добычи полезных ископаемых с лезвиями, состоящими из твердого света, который также служит смертоносным оружием ближнего боя. Скалы и камни!

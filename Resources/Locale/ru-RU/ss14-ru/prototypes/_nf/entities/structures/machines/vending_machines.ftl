@@ -1,2 +1,2 @@
-ent-VendingMachineSyndieContraband = ContraVend
-    .desc = Wanted across multiple sectors!
+ent-VendingMachineSyndieContraband = КонтраВенд
+    .desc = Ищется во многих секторах!
