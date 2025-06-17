@@ -1,10 +1,10 @@
 ent-MindRoleWizard = Роль Волшебника
-.desc = { ent-BaseMindRoleAntag.desc }
+    .desc = { ent-BaseMindRoleAntag.desc }
 ent-MindRoleApprentice = Роль Ученика
-.desc = { ent-BaseMindRoleAntag.desc }
+    .desc = { ent-BaseMindRoleAntag.desc }
 ent-SpawnPointWizard = { ent-BaseAntagSpawner }
-.desc = { ent-BaseAntagSpawner.desc }
+    .desc = { ent-BaseAntagSpawner.desc }
 ent-SpawnPointMarkerWizard = волшебник
-.desc = { ent-MarkerBase.desc }
+    .desc = { ent-MarkerBase.desc }
 ent-BaseStationWizardTarget = { "" }
-.desc = { "" }
+    .desc = { "" }
