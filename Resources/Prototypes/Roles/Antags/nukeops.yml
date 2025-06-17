@@ -121,7 +121,7 @@
     time: 36000 # 10h Goobstation
   - !type:RoleTimeRequirement
     role: JobChemist
-    time: 18000 # 5h Goobstation
+    time: 72000 # 20h Goobstation
   guides: [ NuclearOperatives ]
 
 - type: antag
