@@ -1,3 +1,4 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
@@ -23,6 +24,7 @@ using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Timing; // Shitmed Change
+using Content.Shared._Shitmed.Damage; // Shitmed Change
 namespace Content.Goobstation.Shared.Religion;
 
 public sealed class WeakToHolySystem : EntitySystem
@@ -134,8 +136,8 @@ public sealed class WeakToHolySystem : EntitySystem
         base.Update(frameTime);
 
         // Holy damage healing.
-        var query = EntityQueryEnumerator<BodyComponent, WeakToHolyComponent>();
-        while (query.MoveNext(out var uid, out var body, out var weakToHoly))
+        var query = EntityQueryEnumerator<WeakToHolyComponent, BodyComponent>();
+        while (query.MoveNext(out var uid, out var weakToHoly, out var body))
         {
             if (!TryComp<DamageableComponent>(uid, out var damageable))
                 return;
@@ -148,12 +150,12 @@ public sealed class WeakToHolySystem : EntitySystem
             // Rune healing.
             if (weakToHoly.NextSpecialHealTick <= _timing.CurTime && weakToHoly.IsColliding)
             {
-                _damageableSystem.TryChangeDamage(uid, weakToHoly.HealAmount, ignoreBlockers: true, targetPart: TargetBodyPart.All);
+                _damageableSystem.TryChangeDamage(uid, weakToHoly.HealAmount, ignoreBlockers: true, targetPart: TargetBodyPart.All, splitDamage: SplitDamageBehavior.SplitEnsureAll);
                 weakToHoly.NextSpecialHealTick = _timing.CurTime + weakToHoly.HealTickDelay;
             }
 
             // Passive healing.
-            _damageableSystem.TryChangeDamage(uid, weakToHoly.PassiveAmount, ignoreBlockers: true, targetPart: TargetBodyPart.All, splitDamage: false);
+            _damageableSystem.TryChangeDamage(uid, weakToHoly.PassiveAmount, ignoreBlockers: true, targetPart: TargetBodyPart.All, splitDamage: SplitDamageBehavior.SplitEnsureAll);
             weakToHoly.NextPassiveHealTick = _timing.CurTime + weakToHoly.HealTickDelay;
         }
     }

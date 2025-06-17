@@ -802,7 +802,7 @@
   description: uplink-combat-medkit-desc
   productEntity: MedkitCombatFilled
   cost:
-    Telecrystal: 25 # goob
+    Telecrystal: 15 # goob
   categories:
   - UplinkChemicals
 

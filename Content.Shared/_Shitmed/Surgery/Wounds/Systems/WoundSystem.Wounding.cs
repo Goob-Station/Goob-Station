@@ -809,7 +809,9 @@ public sealed partial class WoundSystem
 
                 foreach (var wound in GetWoundableWounds(parentWoundableEntity))
                 {
-                    if (!TryComp<BleedInflicterComponent>(wound, out var bleeds))
+                    if (!TryComp<BleedInflicterComponent>(wound, out var bleeds)
+                        || !TryComp<WoundableComponent>(parentWoundableEntity, out var parentWoundable)
+                        || !parentWoundable.CanBleed)
                         continue;
 
                     // Bleeding :3
@@ -844,19 +846,18 @@ public sealed partial class WoundSystem
 
         if (woundableComp.DamageOnAmputate != null
             && _body.TryGetRootPart(bodyPart.Body.Value, out var rootPart))
-        {
-            var target = _body.GetTargetBodyPart(rootPart);
-
-            if (target != null)
-                _damageable.TryChangeDamage(bodyPart.Body.Value, woundableComp.DamageOnAmputate, targetPart: target);
-        }
+            _damageable.TryChangeDamage(bodyPart.Body.Value,
+                woundableComp.DamageOnAmputate,
+                targetPart: _body.GetTargetBodyPart(rootPart));
 
         foreach (var wound in GetWoundableWounds(woundableEntity, woundableComp))
             TransferWoundDamage(parentWoundableEntity, woundableEntity, wound);
 
         foreach (var wound in GetWoundableWounds(parentWoundableEntity))
         {
-            if (!TryComp<BleedInflicterComponent>(wound, out var bleeds))
+            if (!TryComp<BleedInflicterComponent>(wound, out var bleeds)
+                || !TryComp<WoundableComponent>(parentWoundableEntity, out var parentWoundable)
+                || !parentWoundable.CanBleed)
                 continue;
 
             bleeds.ScalingLimit += 6;
@@ -887,7 +888,8 @@ public sealed partial class WoundSystem
     /// <param name="woundableComp">Woundable component of woundableEntity.</param>
     public void AmputateWoundableSafely(EntityUid parentWoundableEntity,
         EntityUid woundableEntity,
-        WoundableComponent? woundableComp = null)
+        WoundableComponent? woundableComp = null,
+        bool amputateChildrenSafely = false)
     {
         if (!Resolve(woundableEntity, ref woundableComp)
             || !woundableComp.CanRemove)
@@ -929,7 +931,7 @@ public sealed partial class WoundSystem
             new WoundVisualizerGroupData(GetWoundableWounds(woundableEntity).Select(ent => GetNetEntity(ent)).ToList()));
 
         // Still does the funny popping, if the children are critted. for the funny :3
-        DestroyWoundableChildren(woundableEntity, woundableComp);
+        DestroyWoundableChildren(woundableEntity, woundableComp, amputateChildrenSafely);
         _body.DetachPart(parentWoundableEntity, bodyPartId.Remove(0, 15), woundableEntity);
         _trauma.UpdateBodyBoneAlert(woundableEntity);
     }
@@ -1040,7 +1042,7 @@ public sealed partial class WoundSystem
 
         if (bodyPart.Body.HasValue)
         {
-            var rootPart = Comp<BodyComponent>(bodyPart.Body.Value).RootContainer.ContainedEntity;
+            var rootPart = Comp<BodyComponent>(bodyPart.Body.Value)?.RootContainer?.ContainedEntity;
             if (rootPart.HasValue)
             {
                 bodySeverity =
@@ -1319,7 +1321,9 @@ public sealed partial class WoundSystem
                && woundPrototype.TryGetComponent<WoundComponent>(out _, _factory);
     }
 
-    private void DestroyWoundableChildren(EntityUid woundableEntity, WoundableComponent? woundableComp = null)
+    private void DestroyWoundableChildren(EntityUid woundableEntity,
+        WoundableComponent? woundableComp = null,
+        bool amputateChildrenSafely = false)
     {
         if (!Resolve(woundableEntity, ref woundableComp, false))
             return;
@@ -1327,13 +1331,16 @@ public sealed partial class WoundSystem
         foreach (var child in woundableComp.ChildWoundables)
         {
             var childWoundable = Comp<WoundableComponent>(child);
-            if (childWoundable.WoundableSeverity is WoundableSeverity.Critical)
+            if (childWoundable.WoundableSeverity is WoundableSeverity.Mangled)
             {
                 DestroyWoundable(woundableEntity, child, childWoundable);
                 continue;
             }
 
-            AmputateWoundable(woundableEntity, child, childWoundable);
+            if (amputateChildrenSafely)
+                AmputateWoundableSafely(woundableEntity, child, childWoundable, amputateChildrenSafely);
+            else
+                AmputateWoundable(woundableEntity, child, childWoundable);
         }
     }
 
@@ -1389,7 +1396,7 @@ public sealed partial class WoundSystem
 
                 if (damage >= woundable.IntegrityCap)
                 {
-                    nearestSeverity = WoundableSeverity.Critical;
+                    nearestSeverity = WoundableSeverity.Mangled;
                     break;
                 }
 

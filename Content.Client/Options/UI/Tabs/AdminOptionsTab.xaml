@@ -15,6 +15,8 @@
                 <ui:OptionDropDown Name="DropDownOverlayAntagSymbol" Title="{Loc 'ui-options-admin-overlay-antag-symbol'}" />
                 <CheckBox Name="EnableOverlayPlaytimeCheckBox" Text="{Loc 'ui-options-admin-enable-overlay-playtime'}" />
                 <CheckBox Name="EnableOverlayStartingJobCheckBox" Text="{Loc 'ui-options-admin-enable-overlay-starting-job'}" />
+                <CheckBox Name="EnableOverlayUsernameCheckBox" Text="{Loc 'ui-options-enable-overlay-user-name'}" />
+                <CheckBox Name="EnableOverlayCharacterNameCheckBox" Text="{Loc 'ui-options-enable-overlay-character-name'}" />
                 <ui:OptionSlider Name="OverlayMergeDistanceSlider"  Title="{Loc 'ui-options-admin-overlay-merge-distance'}"/>
                 <ui:OptionSlider Name="OverlayGhostFadeSlider"  Title="{Loc 'ui-options-admin-overlay-ghost-fade-distance'}"/>
                 <ui:OptionSlider Name="OverlayGhostHideSlider"  Title="{Loc 'ui-options-admin-overlay-ghost-hide-distance'}"/>

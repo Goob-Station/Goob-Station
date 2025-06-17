@@ -263,7 +263,7 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
     private void OnDamageChanged(Entity<IdCardConsoleComponent> entity, ref DamageChangedEvent args)
     {
         if (TryDropAndThrowIds(entity.AsNullable()))
-            _chat.TrySendInGameICMessage(entity, Loc.GetString("id-card-console-damaged"), InGameICChatType.Speak, true);
+            _chat.TrySendInGameICMessage(entity, Loc.GetString("id-card-console-damaged"), Shared.Chat.InGameICChatType.Speak, true);
     }
 
     #region PublicAPI
