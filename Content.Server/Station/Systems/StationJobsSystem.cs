@@ -89,7 +89,7 @@ using System.Linq;
 using Content.Server.GameTicking;
 using Content.Server.Station.Components;
 using Content.Shared.CCVar;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.GameTicking;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;

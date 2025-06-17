@@ -27,7 +27,7 @@ knowledge-path-blade-s1-desc =
     Our great ancestors forged swords and practiced sparring on the eve of great battles.
 
     Follow the path of blades.
-    Transmute 2 knives into a sundered blade.
+    Transmute 2 knives into a sundered blade. Limit of four at a time.
 
 knowledge-path-blade-s2-name = Grasp of the Blade
 knowledge-path-blade-s2-desc =
@@ -60,7 +60,7 @@ knowledge-path-blade-s6-name = Stance of the Torn Champion
 knowledge-path-blade-s6-desc =
     In time, it was he who stood alone among the bodies of his former comrades, awash in blood, none of it his own. He was without rival, equal, or purpose.
 
-    Grants immunity to having your limbs dismembered, as well ass resistance to bloodloss and damage slowdown.
+    Grants immunity to having your limbs dismembered, as well as resistance to bloodloss and damage slowdown.
     Additionally, when damaged below 50% of your maximum health, you gain increased resistance to gaining wounds and resistance to batons.
 
 knowledge-path-blade-s7-name = Empowered Blades
@@ -85,5 +85,5 @@ knowledge-path-blade-s9-desc =
     When completed, you will be surrounded in a constant, regenerating orbit of blades.
     These blades will protect you from all attacks, but are consumed on use.
     Your Furious Steel spell will also have a shorter cooldown.
-    Additionally, you become a master of combat, gaining the ability to waltz over slippery surfaces and shrug off stuns.
+    Additionally, you become a master of combat, gaining the ability to waltz over slippery surfaces.
     Your Sundered Blades will deal bonus damage and heal you on attack for a portion of the damage dealt.

@@ -10,7 +10,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Points;
 using JetBrains.Annotations;
 using Robust.Server.GameStates;
@@ -36,7 +36,7 @@ public sealed class PointSystem : SharedPointSystem
 
     private void OnStartup(EntityUid uid, PointManagerComponent component, ComponentStartup args)
     {
-        _pvsOverride.AddGlobalOverride(GetNetEntity(uid));
+        _pvsOverride.AddGlobalOverride(uid);
     }
 
     /// <summary>

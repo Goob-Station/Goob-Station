@@ -44,6 +44,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Armor;
+using Content.Shared.Atmos;
 using Content.Shared.Chat;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Hypospray.Events;
@@ -66,6 +67,7 @@ using Content.Shared.Strip.Components;
 using Content.Shared.Temperature;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Ranged.Events;
+using Content.Shared.Zombies;
 
 namespace Content.Shared.Inventory;
 
@@ -89,13 +91,16 @@ public partial class InventorySystem
         SubscribeLocalEvent<InventoryComponent, SelfBeforeGunShotEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, SelfBeforeClimbEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, CoefficientQueryEvent>(RelayInventoryEvent);
+        SubscribeLocalEvent<InventoryComponent, ZombificationResistanceQueryEvent>(RelayInventoryEvent);
 
         // by-ref events
+        SubscribeLocalEvent<InventoryComponent, BeforeStaminaDamageEvent>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, GetExplosionResistanceEvent>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, IsWeightlessEvent>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, GetSpeedModifierContactCapEvent>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, GetSlowedOverSlipperyModifierEvent>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, ModifySlowOnDamageSpeedEvent>(RefRelayInventoryEvent);
+        SubscribeLocalEvent<InventoryComponent, ExtinguishEvent>(RefRelayInventoryEvent);
 
         // Eye/vision events
         SubscribeLocalEvent<InventoryComponent, CanSeeAttemptEvent>(RelayInventoryEvent);
@@ -115,6 +120,8 @@ public partial class InventorySystem
 
 
         SubscribeLocalEvent<InventoryComponent, GetVerbsEvent<EquipmentVerb>>(OnGetEquipmentVerbs);
+        SubscribeLocalEvent<InventoryComponent, GetVerbsEvent<InnateVerb>>(OnGetInnateVerbs);
+
     }
 
     protected void RefRelayInventoryEvent<T>(EntityUid uid, InventoryComponent component, ref T args) where T : IInventoryRelayEvent
@@ -166,6 +173,17 @@ public partial class InventorySystem
         {
             if (!_strippable.IsStripHidden(slotDef, args.User) || args.User == uid)
                 RaiseLocalEvent(item, ev);
+        }
+    }
+
+    private void OnGetInnateVerbs(EntityUid uid, InventoryComponent component, GetVerbsEvent<InnateVerb> args)
+    {
+        // Automatically relay stripping related verbs to all equipped clothing.
+        var ev = new InventoryRelayedEvent<GetVerbsEvent<InnateVerb>>(args);
+        var enumerator = new InventorySlotEnumerator(component, SlotFlags.WITHOUT_POCKET);
+        while (enumerator.NextItem(out var item))
+        {
+            RaiseLocalEvent(item, ev);
         }
     }
 

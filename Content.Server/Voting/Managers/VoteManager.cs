@@ -22,8 +22,11 @@
 // SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 AftrLite <61218133+AftrLite@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -37,6 +40,7 @@ using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
 using Content.Server.Maps;
+using Content.Shared._DV.CosmicCult.Components; // DeltaV - Cosmic Cult
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
@@ -482,6 +486,12 @@ namespace Content.Server.Voting.Managers
                     return false;
             }
 
+            // Begin DeltaV - Cosmic Cult
+            if (eligibility == VoterEligibility.CosmicCult)
+                if (!_entityManager.HasComponent<CosmicCultComponent>(player.AttachedEntity))
+                    return false;
+            // End DeltaV - Cosmic Cult
+
             return true;
         }
 
@@ -579,7 +589,8 @@ namespace Content.Server.Voting.Managers
             All,
             Ghost, // Player needs to be a ghost
             GhostMinimumPlaytime, // Player needs to be a ghost, with a minimum playtime and deathtime as defined by votekick CCvars.
-            MinimumPlaytime //Player needs to have a minimum playtime and deathtime as defined by votekick CCvars.
+            MinimumPlaytime, //Player needs to have a minimum playtime and deathtime as defined by votekick CCvars.
+            CosmicCult, // DeltaV - Player needs to be a cosmic cultist. Used by the cosmic cult gamemode.
         }
 
         #endregion

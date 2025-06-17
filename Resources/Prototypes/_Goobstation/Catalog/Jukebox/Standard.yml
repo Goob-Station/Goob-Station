@@ -19,6 +19,7 @@
 # SPDX-FileCopyrightText: 2025 Emisse <99158783+Emisse@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Golinth <amh2023@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 GoobBot[bot] <923088+GoobBot[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
@@ -85,6 +86,7 @@
 # SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 metalgearsloth <comedian_vs_clown@hotmail.com>
 # SPDX-FileCopyrightText: 2025 onesch <118821520+onesch@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 psykana <36602558+psykana@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 shibe <95730644+shibechef@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 sirionaut <sirionaut@gmail.com>
@@ -272,3 +274,9 @@
   name: Jonathan Coulton - The Future Soon
   path:
     path: /Audio/Lobby/the_future_soon.ogg
+
+- type: jukebox
+  id: running_in
+  name: Q/\ntum - Running In (feat Z.W.E.I.)
+  path:
+    path: /Audio/_Goobstation/Music/running_in.ogg

@@ -2,6 +2,8 @@
 // SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
@@ -14,8 +16,9 @@
 using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Inventory;
+using Content.Shared.StatusEffect;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
@@ -87,6 +90,15 @@ public sealed partial class EventHereticOpenStore : InstantActionEvent { }
 public sealed partial class EventHereticMansusGrasp : InstantActionEvent { }
 public sealed partial class EventHereticLivingHeart : InstantActionEvent { } // opens ui
 
+public sealed partial class EventHereticShadowCloak : InstantActionEvent
+{
+    [DataField]
+    public ProtoId<StatusEffectPrototype> Status = "ShadowCloak";
+
+    [DataField]
+    public TimeSpan Lifetime = TimeSpan.FromSeconds(180);
+}
+
 // living heart
 [Serializable, NetSerializable] public sealed partial class EventHereticLivingHeartActivate : BoundUserInterfaceMessage // triggers the logic
 {
@@ -115,6 +127,7 @@ public sealed partial class EventHereticFleshSurgery : EntityTargetActionEvent {
 public sealed partial class HereticVoidBlastEvent : InstantActionEvent { }
 public sealed partial class HereticVoidBlinkEvent : WorldTargetActionEvent { }
 public sealed partial class HereticVoidPullEvent : InstantActionEvent { }
+public sealed partial class HereticVoidVisionEvent : EntityEventArgs { } // done only via void's ascension
 
 // blade (+ upgrades)
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticCuttingEdgeEvent : EntityEventArgs { }
@@ -201,6 +214,8 @@ public sealed partial class EventHereticAggressiveSpread : InstantActionEvent
 }
 
 // side
+public sealed partial class EventHereticIceSpear : InstantActionEvent;
+
 public sealed partial class EventHereticCleave : WorldTargetActionEvent
 {
     [DataField]
@@ -224,6 +239,15 @@ public sealed partial class EventHereticCleave : WorldTargetActionEvent
 
     [DataField]
     public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/blood3.ogg");
+}
+
+public sealed partial class EventHereticRustCharge : WorldTargetActionEvent
+{
+    [DataField]
+    public float Distance = 10f;
+
+    [DataField]
+    public float Speed = 10f;
 }
 
 // ascensions

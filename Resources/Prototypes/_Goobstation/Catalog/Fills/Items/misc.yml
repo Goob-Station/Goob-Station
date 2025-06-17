@@ -41,3 +41,10 @@
     - id: BoxAmnestizineCartridge
     - id: TelescopicBatonAdvanced
     - id: HyperFlash
+
+
+- type: entity
+  id: ClothingShoesBootsJackAdvancedFilled
+  parent:
+  - ClothingShoesBootsJackAdvanced
+  - ClothingShoesBootsSecFilled

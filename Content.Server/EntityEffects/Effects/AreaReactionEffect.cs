@@ -10,7 +10,7 @@ using Content.Shared.Audio;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Database;
 using Content.Shared.EntityEffects;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Maps;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
@@ -91,7 +91,7 @@ public sealed partial class AreaReactionEffect : EntityEffect
             smoke.StartSmoke(ent, splitSolution, _duration, spreadAmount);
 
             var audio = reagentArgs.EntityManager.System<SharedAudioSystem>();
-            audio.PlayPvs(_sound, reagentArgs.TargetEntity, AudioHelpers.WithVariation(0.125f));
+            audio.PlayPvs(_sound, reagentArgs.TargetEntity, AudioParams.Default.WithVariation(0.25f));
             return;
         }
 

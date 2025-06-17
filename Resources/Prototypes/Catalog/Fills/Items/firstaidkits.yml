@@ -116,6 +116,7 @@
       - id: RegenerativeMesh
       - id: Bloodpack
         amount: 2
+      - id: Tourniquet # Shitmed Change
 
 - type: entity
   id: MedkitCombatFilled

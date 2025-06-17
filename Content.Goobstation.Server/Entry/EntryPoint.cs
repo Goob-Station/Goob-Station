@@ -6,6 +6,7 @@
 
 using Content.Goobstation.Server.IoC;
 using Content.Goobstation.Server.Voice;
+using Content.Goobstation.Common.JoinQueue;
 using Robust.Shared.ContentPack;
 using Robust.Shared.IoC;
 using Robust.Shared.Timing;
@@ -25,6 +26,8 @@ public sealed class EntryPoint : GameServer
         IoCManager.BuildGraph();
 
         _voiceManager = IoCManager.Resolve<IVoiceChatServerManager>();
+        
+        IoCManager.Resolve<IJoinQueueManager>().Initialize();
     }
 
     public override void PostInit()

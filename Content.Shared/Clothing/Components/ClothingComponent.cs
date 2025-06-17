@@ -12,12 +12,16 @@
 // SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 paige404 <59348003+paige404@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.DoAfter;
 using Content.Shared.Inventory;
@@ -30,9 +34,8 @@ namespace Content.Shared.Clothing.Components;
 /// <summary>
 ///     This handles entities which can be equipped.
 /// </summary>
-[NetworkedComponent]
-[RegisterComponent]
-[Access(typeof(ClothingSystem), typeof(InventorySystem))]
+//[Access(typeof(ClothingSystem), typeof(InventorySystem))] - Fuck yo access - Goob
+[RegisterComponent, NetworkedComponent]
 public sealed partial class ClothingComponent : Component
 {
     [DataField("clothingVisuals")]
@@ -48,9 +51,16 @@ public sealed partial class ClothingComponent : Component
     [DataField("quickEquip")]
     public bool QuickEquip = true;
 
+    /// <summary>
+    /// The slots in which the clothing is considered "worn" or "equipped". E.g., putting shoes in your pockets does not
+    /// equip them as far as clothing related events are concerned.
+    /// </summary>
+    /// <remarks>
+    /// Note that this may be a combination of different slot flags, not a singular bit.
+    /// </remarks>
     [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("slots", required: true)]
-    [Access(typeof(ClothingSystem), typeof(InventorySystem), Other = AccessPermissions.ReadExecute)]
+    [DataField(required: true)]
+    // [Access(typeof(ClothingSystem), typeof(InventorySystem), Other = AccessPermissions.ReadExecute)] // Goobstation - FUCK YOUR ACCESS! WE GOIDA IN THIS BITCH
     public SlotFlags Slots = SlotFlags.NONE;
 
     [ViewVariables(VVAccess.ReadWrite)]
@@ -80,9 +90,25 @@ public sealed partial class ClothingComponent : Component
     public string? RsiPath;
 
     /// <summary>
-    /// Name of the inventory slot the clothing is in.
+    /// Name of the inventory slot the clothing is currently in.
+    /// Note that this being non-null does not mean the clothing is considered "worn" or "equipped" unless the slot
+    /// satisfies the <see cref="Slots"/> flags.
     /// </summary>
+    [DataField]
     public string? InSlot;
+    // TODO CLOTHING
+    // Maybe keep this null unless its in a valid slot?
+    // To lazy to figure out ATM if that would break anything.
+    // And when doing this, combine InSlot and InSlotFlag, as it'd be a breaking change for downstreams anyway
+
+    /// <summary>
+    /// Slot flags of the slot the clothing is currently in. See also <see cref="InSlot"/>.
+    /// </summary>
+    [DataField]
+    public SlotFlags? InSlotFlag;
+    // TODO CLOTHING
+    // Maybe keep this null unless its in a valid slot?
+    // And when doing this, combine InSlot and InSlotFlag, as it'd be a breaking change for downstreams anyway
 
     [Access(typeof(ClothingSystem), typeof(InventorySystem), Other = AccessPermissions.ReadWrite)]
     [DataField, ViewVariables(VVAccess.ReadWrite)]

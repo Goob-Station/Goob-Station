@@ -87,6 +87,8 @@
 // SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -155,7 +157,7 @@ public sealed partial class PowerCellSystem : SharedPowerCellSystem
         }
 
         var frac = args.Charge / args.MaxCharge;
-        var level = (byte)ContentHelpers.RoundToNearestLevels(frac, 1, PowerCellComponent.PowerCellVisualsLevels);
+        var level = (byte)ContentHelpers.RoundToNearestLevels(frac, 1, component.PowerCellVisualsLevels); // Goob edit
         _sharedAppearanceSystem.SetData(uid, PowerCellVisuals.ChargeLevel, level);
 
         // If this power cell is inside a cell-slot, inform that entity that the power has changed (for updating visuals n such).

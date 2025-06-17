@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 DrSmugleaf <drsmugleaf@gmail.com>
@@ -9,6 +10,7 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ichaie <167008606+Ichaie@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 // SPDX-FileCopyrightText: 2025 JORJ949 <159719201+JORJ949@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 MortalBaguette <169563638+MortalBaguette@users.noreply.github.com>
@@ -18,6 +20,7 @@
 // SPDX-FileCopyrightText: 2025 PuroSlavKing <103608145+PuroSlavKing@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 // SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
@@ -174,13 +177,6 @@ public sealed partial class GoobCVars
 
     #endregion PlayerListener
 
-    #region Surgery
-
-    public static readonly CVarDef<bool> CanOperateOnSelf =
-        CVarDef.Create("surgery.can_operate_on_self", true, CVar.SERVERONLY);
-
-    #endregion
-
     #region Discord AHelp Reply System
 
     /// <summary>
@@ -292,11 +288,22 @@ public sealed partial class GoobCVars
 
     #region Game Director
 
+    // also used by secret+
     public static readonly CVarDef<float> MinimumTimeUntilFirstEvent =
         CVarDef.Create("gamedirector.minimumtimeuntilfirstevent", 300f, CVar.SERVERONLY);
 
     public static readonly CVarDef<int> GameDirectorDebugPlayerCount =
         CVarDef.Create("gamedirector.debug_player_count", 80, CVar.SERVERONLY);
+
+    #endregion
+
+    #region Secret+
+
+    /// <summary>
+    /// Makes secret+ consider the server to have this many extra living players, for debug.
+    /// </summary>
+    public static readonly CVarDef<int> SecretPlusPlayerBias =
+        CVarDef.Create("secretplus.debug_player_bias", 0, CVar.SERVERONLY);
 
     #endregion
 
@@ -456,6 +463,43 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<bool> VoiceChatHearSelf =
         CVarDef.Create("voice.hear_self", false, CVar.CLIENTONLY | CVar.ARCHIVE, "Whether to hear audio from your own entity.");
 
+    #region Queue
+
+    /// <summary>
+    ///     Controls if the connections queue is enabled
+    ///     If enabled plyaers will be added to a queue instead of being kicked after SoftMaxPlayers is reached
+    /// </summary>
+    public static readonly CVarDef<bool> QueueEnabled =
+        CVarDef.Create("queue.enabled", false, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     If enabled patrons will be sent to the front of the queue.
+    /// </summary>
+    public static readonly CVarDef<bool> PatreonSkip =
+        CVarDef.Create("queue.patreon_skip", true, CVar.SERVERONLY);
+
+    #endregion
+
+    #region Admin Overlay
+
+    /// <summary>
+    /// If true, the admin overlay will show the characters name.
+    /// </summary>
+    public static readonly CVarDef<bool> AdminOverlayShowCharacterName =
+        CVarDef.Create("ui.admin_overlay_show_character_name", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// If true, the admin overlay will show their username.
+    /// </summary>
+    public static readonly CVarDef<bool> AdminOverlayShowUserName =
+        CVarDef.Create("ui.admin_overlay_show_user_name", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// If true, the admin overlay will show their job.
+    /// </summary>
+    public static readonly CVarDef<bool> AdminOverlayShowJob =
+        CVarDef.Create("ui.admin_overlay_show_job", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
     #endregion
 
     #region Misc
@@ -465,6 +509,98 @@ public sealed partial class GoobCVars
     /// </summary>
     public static readonly CVarDef<bool> DetailedExamine =
         CVarDef.Create("misc.detailed_examine", true, CVar.CLIENT | CVar.ARCHIVE | CVar.REPLICATED);
+
+    /// <summary>
+    /// Fire damage
+    /// </summary>
+    public static readonly CVarDef<int> FireStackHeat =
+        CVarDef.Create("misc.fire_stack_heat", 1500, CVar.SERVER);
+
+    /// <summary>
+    /// Set to true to enable the dynamic hostname system.
+    /// </summary>
+    public static readonly CVarDef<bool> UseDynamicHostname =
+        CVarDef.Create("hub.use_dynamic_hostname", false, CVar.SERVERONLY);
+
+    #endregion
+
+    #region Shuttle CVars
+
+    /// <summary>
+    /// The maximum speed a shuttle can reach with thrusters
+    /// </summary>
+    public static readonly CVarDef<float> MaxShuttleSpeed =
+        CVarDef.Create("shuttle.max_speed", 60f, CVar.SERVERONLY);
+
+    #region Grid impacts
+
+    /// <summary>
+    /// Minimum impact inertia to trigger special shuttle impact behaviors when impacting slower than MinimumImpactVelocity.
+    /// </summary>
+    public static readonly CVarDef<float> MinimumImpactInertia =
+        CVarDef.Create("shuttle.impact.minimum_inertia", 5f * 50f, CVar.SERVERONLY); // 100tile grid (cargo shuttle) going at 5 m/
+
+    /// <summary>
+    /// Minimum velocity difference between 2 bodies for a shuttle impact to be guaranteed to trigger any special behaviors like damage.
+    /// </summary>
+    public static readonly CVarDef<float> MinimumImpactVelocity =
+        CVarDef.Create("shuttle.impact.minimum_velocity", 15f, CVar.SERVERONLY); // needed so that random space debris can be rammed
+
+    /// <summary>
+    /// Multiplier of Kinetic energy required to dismantle a single tile in relation to its mass
+    /// </summary>
+    public static readonly CVarDef<float> TileBreakEnergyMultiplier =
+        CVarDef.Create("shuttle.impact.tile_break_energy", 3000f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Multiplier of damage done to entities on colliding areas
+    /// </summary>
+    public static readonly CVarDef<float> ImpactDamageMultiplier =
+        CVarDef.Create("shuttle.impact.damage_multiplier", 0.00005f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Multiplier of additional structural damage to do
+    /// </summary>
+    public static readonly CVarDef<float> ImpactStructuralDamage =
+        CVarDef.Create("shuttle.impact.structural_damage", 5f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Kinetic energy required to spawn sparks
+    /// </summary>
+    public static readonly CVarDef<float> SparkEnergy =
+        CVarDef.Create("shuttle.impact.spark_energy", 5000000f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Area to consider for impact calculations
+    /// </summary>
+    public static readonly CVarDef<float> ImpactRadius =
+        CVarDef.Create("shuttle.impact.radius", 4f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Affects slowdown on impact
+    /// </summary>
+    public static readonly CVarDef<float> ImpactSlowdown =
+        CVarDef.Create("shuttle.impact.slowdown", 0.8f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Minimum velocity change from impact to throw entities on-grid
+    /// </summary>
+    public static readonly CVarDef<float> ImpactMinThrowVelocity =
+        CVarDef.Create("shuttle.impact.min_throw_velocity", 1f, CVar.SERVERONLY); // due to how it works this is about 16 m/s for cargo shuttle
+
+    /// <summary>
+    /// Affects how much damage reduction to give to grids with higher mass
+    /// </summary>
+    public static readonly CVarDef<float> ImpactMassBias =
+        CVarDef.Create("shuttle.impact.mass_bias", 0.65f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// How much should total grid inertia affect our collision damage
+    /// </summary>
+    public static readonly CVarDef<float> ImpactInertiaScaling =
+        CVarDef.Create("shuttle.impact.inertia_scaling", 0.5f, CVar.SERVERONLY);
+
+    #endregion
 
     #endregion
 }

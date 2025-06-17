@@ -20,12 +20,19 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   - Sacrificing crew members your dark patrons hunger for.
   - Automatically getting one knowledge point every 20 minutes.
 
+  ## The Chaplain
+  A powerful foe indeed, try to steer clear of the Chaplain as their Null Rod and it's variants will deal holy damage to you while you're wielding heretical equipment!
+
+  Heretics can heal holy damage a few ways:
+  - Standing on a transmutation rune.
+  - Drinking from the Eldritch Flask.
+
   ## Eldritch Influences
   <Box>
     <GuideEntityEmbed Entity="EldritchInfluence" Caption=""/>
   </Box>
   Influences are the easy way to gain power points. Whenever there are Heretics aboard Space Station 14, influences will randomly spawn across the station.
-  They are not visible to the naked eye of a crew member, hovewer they [bold]will[/bold] become visible after harvesting, aside from suddenly changing colors.
+  They are not visible to the naked eye of a crew member, however they [bold]will[/bold] become visible after harvesting, aside from suddenly changing colors.
   Tip: When using [color=green]Codex Cicatrix[/color] on an influence you will harvest it faster and get twice as much knowledge points from it, but it will be a dead giveaway to anyone nearby that you're a heretic.
   <Box>
     <GuideEntityEmbed Entity="EldritchInfluenceSpent" Caption="Harvested influence. Notice the glow."/>
@@ -43,8 +50,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   - One target will be a member of security.
   - Other targets will be completely random crewmembers.
 
-  Sacrificing a Head of Staff or member of security will reward you 3 knowledge points, sacrificing any other crewmember will reward 2.
-  You can sacrifice non-target Head of Staff or security member, but it will only reward you 1 knowledge point. You cannot sacrifice regular non-target crewmembers.
+  Sacrificing a Head of Staff or member of security will reward you 3 knowledge points, sacrificing any other crewmember will reward 2. You cannot sacrifice regular non-target crewmembers.
 
   Follow your [color=red]Living Heart[/color] to your target of choice and incapacitate them through any means necessary. If your target's in critical condition or dead they're ready to sacrifice.
   Drag them over a transmutation rune and invoke the [color=yellow]Heartbeat of the Mansus[/color] to sacrifice them.
@@ -69,7 +75,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
   ## Focus is Necessary
   To cast more advanced spells, you must focus by wearing an [color=orange]Amber Focus[/color].
-  You can acquire Ambes Focus using the eponymous ritual.
+  You can acquire Amber Focus using the eponymous ritual.
   Some more powerful heretical equipment also functions as a focus - namely, the Ominous Armor from the Armorer's Ritual (when the hood is flipped up).
   [color=yellow]Ascension[/color] disables the need for a focus.
 
@@ -80,6 +86,9 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   - \[ [color=red]Living Heart[/color] \] - Allows you to pinpoint your targets. Plays an audible heartbeat sound, so use it carefully.
   - \[ [color=red]Relentless Heartbeat[/color] \] - Allows you to transmute a heart, a pen and paper to reroll your target selection, in case you've run out of bodies or want a different approach.
   - \[ [color=red]Codex Cicatrix[/color] \] - Allows you to transmute a book, any pen, and any piece of meat or non-silicon organ to create a Codex Cicatrix. The Codex Cicatrix can be used when draining influences to gain additional knowledge, but comes at greater risk of being noticed. It can also be used to draw and remove transmutation runes easier, and as a spell focus in a pinch.
+  - \[ [color=red]Cloak of Shadow[/color] \] - A spell, which will conceal your identity in an obvious purple smoke, making you move faster but interact slower. Requires a focus to cast.
+  - \[ [color=red]Feast of Owls[/color] \] - Allows you to perform a ritual that grants you 5 knowledge points but locks you out of ascension. A small sacrifice to gain power quickly. There are no refunds.
+  - \[ [color=red]Reminiscence[/color] \] - Heretic blades are limited. You can only create up to 2-4 blades depending on your path by performing stage 2 blade creation ritual. Reminiscence ritual allows you to transmute a chair to recall your lost blade that you have previously created to the transmutation rune.
 
   ## Tips
   - On Ashen Path, always carry a fire extinguisher or a bottle of water with you! While you can spew out fireballs, you are not immune to them until you ascend!
@@ -89,4 +98,6 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   - Monkeys and other animals make for great, usually non-suspicious sources of organs or corpses for your heretical rituals.
   - Most summoned ghouls will drop the components used to create them on death. While having them to die is not ideal, you can easily grab the parts and summon another.
   - [color=yellow]Eldritch Flask[/color], a stage 3 side path knowledge acts like a cryostasis beaker and has a total capacity of 100 units, meaning you can create deadly mixes that are easily triggered.
+  - Rusted tiles cause vomiting and other negative effects to organics standing on them and deal massive damage to silicons. It is highly advised to stay away from rust if you are not a heretic, ghoul or summoned creature. On the other hand, you can always take advantage of the rust as heretic, no matter what path you choose.
+  - [color=yellow]Eldritch Essence[/color], contained in eldritch flask is able to rust tiles upon splashing on them. Contrariwise, [color=yellow]Space Cola[/color] clears tile rusting, which is useful for crew when fighting Rusted Path heretic.
 </Document>

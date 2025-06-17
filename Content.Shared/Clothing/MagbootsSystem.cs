@@ -71,6 +71,8 @@
 // SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -89,12 +91,10 @@ namespace Content.Shared.Clothing;
 public sealed class SharedMagbootsSystem : EntitySystem
 {
     [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly ClothingSystem _clothing = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly ItemToggleSystem _toggle = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedGravitySystem _gravity = default!;
-    [Dependency] private readonly SharedItemSystem _item = default!;
 
     public override void Initialize()
     {
@@ -117,10 +117,6 @@ public sealed class SharedMagbootsSystem : EntitySystem
         {
             UpdateMagbootEffects(container.Owner, ent, args.Activated);
         }
-
-        var prefix = args.Activated ? "on" : null;
-        _item.SetHeldPrefix(ent, prefix);
-        _clothing.SetEquippedPrefix(ent, prefix);
     }
 
     private void OnGotUnequipped(Entity<MagbootsComponent> ent, ref ClothingGotUnequippedEvent args)

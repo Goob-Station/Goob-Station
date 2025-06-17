@@ -93,6 +93,8 @@
   - type: Penetratable # Goobstation - Better snipers
     penetrateDamage: 50
     damagePenalty: 0.1
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WindowCosmicCult
 
 - type: entity
   id: WindowReinforcedDirectional

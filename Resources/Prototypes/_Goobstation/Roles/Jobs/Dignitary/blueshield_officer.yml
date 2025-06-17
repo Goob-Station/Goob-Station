@@ -71,6 +71,11 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
+      - type: Condemned
+        soulOwnedNotDevil: true
+  - !type:AddObjectiveSpecial
+    objectives:
+    - BlueshieldRandomCommandAliveObjective
 
 - type: startingGear
   id: BlueshieldOfficerGear

@@ -8,7 +8,7 @@
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Examine;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Nutrition.Components;
 
 namespace Content.Shared.Nutrition.EntitySystems;

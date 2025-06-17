@@ -179,16 +179,11 @@ public sealed class ReflectSystem : EntitySystem
     public bool TryReflectProjectile(EntityUid user, EntityUid reflector, EntityUid projectile, ProjectileComponent? projectileComp = null, ReflectComponent? reflect = null) // Goob edit
     {
         if (!Resolve(reflector, ref reflect, false) ||
-            !_toggle.IsActivated(reflector) ||
             !reflect.InRightPlace ||
             !TryComp<ReflectiveComponent>(projectile, out var reflective) ||
-            // Goob edit start
-            !((reflect.Reflects & reflective.Reflective) != 0x0 &&
-                _random.Prob(reflect.ReflectProb) ||
-                reflective.Reflective != ReflectType.None &&
-                (reflect.Reflects & reflective.Reflective) == 0x0 &&
-                _random.Prob(reflect.OtherTypeReflectProb)) ||
-            // Goob edit end
+            (reflect.Reflects & reflective.Reflective) == 0x0 ||
+            !_toggle.IsActivated(reflector) ||
+            !_random.Prob(reflect.ReflectProb) ||
             !TryComp<PhysicsComponent>(projectile, out var physics))
         {
             return false;
@@ -208,13 +203,9 @@ public sealed class ReflectSystem : EntitySystem
         var newRot = rotation.RotateVec(locRot.ToVec());
         _transform.SetLocalRotation(projectile, newRot.ToAngle());
 
-        if (_netManager.IsServer)
-        {
-            if (TryComp(projectile, out HomingProjectileComponent? homing)) // Goobstation
-                RemCompDeferred(projectile, homing);
-            _popup.PopupEntity(Loc.GetString("reflect-shot"), user);
-            _audio.PlayPvs(reflect.SoundOnReflect, user, AudioHelpers.WithVariation(0.05f, _random));
-        }
+        if (TryComp(projectile, out HomingProjectileComponent? homing)) // Goobstation
+            RemCompDeferred(projectile, homing);
+        PlayAudioAndPopup(reflect, user);
 
         if (Resolve(projectile, ref projectileComp, false))
         {
@@ -222,7 +213,7 @@ public sealed class ReflectSystem : EntitySystem
             if (reflect.DamageOnReflectModifier != 0)
             {
                 _damageable.TryChangeDamage(reflector, projectileComp.Damage * reflect.DamageOnReflectModifier,
-                    projectileComp.IgnoreResistances, origin: projectileComp.Shooter, armorPenetration: projectileComp.ArmorPenetration);
+                    projectileComp.IgnoreResistances, origin: projectileComp.Shooter);
             }
             // WD EDIT END
 
@@ -242,7 +233,7 @@ public sealed class ReflectSystem : EntitySystem
 
     private void OnReflectHitscan(EntityUid uid, ReflectComponent component, ref HitScanReflectAttemptEvent args)
     {
-        if (args.Reflected) // Goob edit
+        if (args.Reflected)
         {
             return;
         }
@@ -254,36 +245,39 @@ public sealed class ReflectSystem : EntitySystem
         }
     }
 
-    public bool TryReflectHitscan( // Goobstation
+    private void PlayAudioAndPopup(ReflectComponent reflect, EntityUid user)
+    {
+        // Can probably be changed for prediction
+        if (_netManager.IsServer)
+        {
+            _popup.PopupEntity(Loc.GetString("reflect-shot"), user);
+            _audio.PlayPvs(reflect.SoundOnReflect, user);
+        }
+    }
+
+    public bool TryReflectHitscan(
         EntityUid user,
         EntityUid reflector,
         EntityUid? shooter,
         EntityUid shotSource,
         Vector2 direction,
-        ReflectType reflective, // Goobstation
+        ReflectType hitscanReflectType,
         DamageSpecifier? damage, // WD EDIT
         [NotNullWhen(true)] out Vector2? newDirection)
     {
         if (!TryComp<ReflectComponent>(reflector, out var reflect) ||
+            (reflect.Reflects & hitscanReflectType) == 0x0 ||
             !_toggle.IsActivated(reflector) ||
             !reflect.InRightPlace ||
             // Goob edit start
-            !((reflect.Reflects & reflective) != 0x0 &&
-                _random.Prob(reflect.ReflectProb) ||
-                reflective != ReflectType.None &&
-                (reflect.Reflects & reflective) == 0x0 &&
-                _random.Prob(reflect.OtherTypeReflectProb)))
+            !((reflect.Reflects & hitscanReflectType) != 0x0 && _random.Prob(reflect.ReflectProb)))
             // Goob edit end
         {
             newDirection = null;
             return false;
         }
 
-        if (_netManager.IsServer)
-        {
-            _popup.PopupEntity(Loc.GetString("reflect-shot"), user);
-            _audio.PlayPvs(reflect.SoundOnReflect, user, AudioHelpers.WithVariation(0.05f, _random));
-        }
+        PlayAudioAndPopup(reflect, user);
 
         // WD EDIT START
         if (reflect.DamageOnReflectModifier != 0 && damage != null)

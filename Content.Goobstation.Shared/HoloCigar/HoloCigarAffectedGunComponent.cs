@@ -1,5 +1,7 @@
 // SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -18,11 +20,17 @@ public sealed partial class HoloCigarAffectedGunComponent : Component
     public bool WasOriginallyMultishot = false;
 
     [ViewVariables]
-    public bool GunRequieredWield;
+    public float OriginalMissChance;
 
     [ViewVariables]
-    public float OriginalSpreadModifier = 1.5f;
+    public float OriginalSpreadModifier;
 
     [ViewVariables]
-    public bool GunWasWieldable;
+    public float OriginalSpreadAddition;
+
+    [ViewVariables]
+    public float OriginalHandDamageAmount;
+
+    [ViewVariables]
+    public float OriginalStaminaDamage;
 }

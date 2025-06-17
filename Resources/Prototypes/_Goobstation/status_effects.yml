@@ -51,3 +51,8 @@
 - type: statusEffect
   id: BlockProtectiveBladeShoot
   alwaysAllowed: true
+
+- type: statusEffect
+  id: ShadowCloak
+  alert: ShadowCloak
+  alwaysAllowed: true

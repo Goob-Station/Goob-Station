@@ -1,0 +1,11 @@
+- type: localizedDataset
+  id: ascended_titles
+  values:
+    prefix: dv-ascended-title-
+    count: 4
+
+- type: localizedDataset
+  id: ascended_names
+  values:
+    prefix: dv-ascended-name-
+    count: 16

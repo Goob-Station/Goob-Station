@@ -6,7 +6,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.RCD.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -21,7 +21,7 @@ public sealed partial class RCDDeconstructableComponent : Component
     /// Number of charges consumed when the deconstruction is completed
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public FixedPoint2 Cost = 1;
+    public int Cost = 1;
 
     /// <summary>
     /// The length of the deconstruction-

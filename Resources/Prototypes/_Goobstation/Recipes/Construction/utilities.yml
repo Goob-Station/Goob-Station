@@ -1,6 +1,8 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -17,3 +19,20 @@
   icon:
     sprite: _Goobstation/Structures/Piping/disposal.rsi
     state: conpipe-blocker
+
+- type: construction
+  id: GasFilterInline
+  name: inline gas filter
+  description: Filters gases from a pipenet without splitting it in two.
+  graph: GasTrinary
+  startNode: start
+  targetNode: inline_filter
+  category: construction-category-utilities
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  icon:
+    sprite: _Goobstation/Structures/Piping/inlinegasfilter.rsi
+    state: gasFilter
+  conditions:
+  - !type:NoUnstackableInTile
+

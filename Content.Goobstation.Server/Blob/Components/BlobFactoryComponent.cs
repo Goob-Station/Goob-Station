@@ -2,6 +2,8 @@
 // SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
 // SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
@@ -15,9 +17,6 @@ namespace Content.Goobstation.Server.Blob.Components;
 [RegisterComponent]
 public sealed partial class BlobFactoryComponent : Component
 {
-    [ViewVariables(VVAccess.ReadOnly)]
-    public float SpawnedCount = 0;
-
     [DataField("spawnLimit"), ViewVariables(VVAccess.ReadWrite)]
     public float SpawnLimit = 3;
 
