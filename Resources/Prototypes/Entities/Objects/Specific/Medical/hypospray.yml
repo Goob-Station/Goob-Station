@@ -107,6 +107,7 @@
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 RedMush1 <axmetvaliev1@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 SeamLesss <kai.julian.watson@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
@@ -679,10 +680,10 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 30
+        maxVol: 10 # Goobstation edit
         reagents:
         - ReagentId: Stimulants
-          Quantity: 30
+          Quantity: 10 # Goobstation edit
   - type: SolutionContainerVisuals
     maxFillLevels: 1
     changeColor: false
@@ -723,10 +724,10 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 15
+        maxVol: 5 # Goobstation edit
         reagents:
         - ReagentId: Stimulants
-          Quantity: 15
+          Quantity: 5 # Goobstation edit
   - type: SolutionContainerVisuals
     maxFillLevels: 1
     changeColor: false

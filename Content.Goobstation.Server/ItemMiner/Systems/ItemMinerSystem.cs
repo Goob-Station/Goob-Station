@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -60,7 +61,7 @@ public sealed class ItemMinerSystem : EntitySystem
             }
 
             if (TerminatingOrDeleted(miner.AudioUid) && miner.MiningSound != null)
-                miner.AudioUid = _audio.PlayPvs(miner.MiningSound, uid, audioParams: miner.MiningSound.Params.WithLoop(true))?.Entity;
+                miner.AudioUid = _audio.PlayPvs(miner.MiningSound, uid)?.Entity;
 
             if (miner.NextAt < _timing.CurTime)
             {
