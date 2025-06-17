@@ -123,6 +123,18 @@
   icon: { sprite:  Structures/Power/Generation/Singularity/emitter.rsi, state: emitter2 } # Goobstation
   result: EmitterCircuitboard
 
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory ]
+  id: RadiationCollectorCircuitBoard
+  icon: { sprite:  Structures/Power/Generation/Singularity/collector.rsi, state: ca_on } # Goobstation
+  result: RadiationCollectorCircuitBoard
+
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory ]
+  id: TeslaCoilCircuitboard
+  icon: { sprite:  Structures/Power/Generation/Tesla/coil.rsi, state: coil } # Goobstation
+  result: TeslaCoilCircuitboard
+
 # Atmos
 - type: latheRecipe
   parent: [ BaseGoldCircuitboardRecipe, BaseEngineeringMachineRecipeCategory ]
