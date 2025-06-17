@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Alonne427",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "animated",
+      "directions": 1,
+      "delays": [
+        [ 0.6, 0.6 ]
+      ]
+    }
+  ]
+}

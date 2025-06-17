@@ -112,6 +112,7 @@
   - type: StaticPrice
     price: 500
   - type: Multishot # Goobstation
+  - type: CanTakeAim # PIRATE
 
 - type: entity
   name: Deckard

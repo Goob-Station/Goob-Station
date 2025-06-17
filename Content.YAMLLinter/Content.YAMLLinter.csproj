@@ -21,6 +21,9 @@ SPDX-License-Identifier: MIT
       <ProjectReference Include="..\Content.Client\Content.Client.csproj" />
       <ProjectReference Include="..\Content.Server\Content.Server.csproj" />
       <ProjectReference Include="..\Content.Shared\Content.Shared.csproj" />
+      <ProjectReference Include="..\Content.Pirate.Shared\Content.Pirate.Shared.csproj" />
+      <ProjectReference Include="..\Content.Pirate.Client\Content.Pirate.Client.csproj" />
+      <ProjectReference Include="..\Content.Pirate.Server\Content.Pirate.Server.csproj" />
       <ProjectReference Include="..\Content.IntegrationTests\Content.IntegrationTests.csproj" />
       <ProjectReference Include="..\RobustToolbox\Robust.Client\Robust.Client.csproj" />
       <ProjectReference Include="..\RobustToolbox\Robust.Server\Robust.Server.csproj" />

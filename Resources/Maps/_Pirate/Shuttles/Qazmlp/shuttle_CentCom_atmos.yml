@@ -321,7 +321,7 @@ entities:
     - type: Transform
       pos: 1.5,-5.5
       parent: 2
-- proto: AirlockCentralCommandGlass
+- proto: AirlockGlass
   entities:
   - uid: 188
     components:
@@ -333,7 +333,7 @@ entities:
     - type: Transform
       pos: 3.5,2.5
       parent: 2
-- proto: AirlockCentralCommandGlassLocked
+- proto: AirlockExternalLocked
   entities:
   - uid: 187
     components:
@@ -388,7 +388,7 @@ entities:
     - type: Transform
       pos: 3.5,5.5
       parent: 2
-- proto: BedsheetCentcom
+- proto: BedsheetWhite
   entities:
   - uid: 215
     components:
@@ -462,14 +462,14 @@ entities:
     - type: Transform
       pos: -0.6995424,8.231369
       parent: 2
-- proto: BoxFolderCentCom
+- proto: BoxFolderBase
   entities:
   - uid: 282
     components:
     - type: Transform
       pos: 2.2848325,8.669326
       parent: 2
-- proto: BoxFolderCentComClipboard
+- proto: BoxFolderClipboard
   entities:
   - uid: 237
     components:

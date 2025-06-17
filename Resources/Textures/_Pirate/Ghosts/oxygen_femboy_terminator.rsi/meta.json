@@ -1,0 +1,15 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "made by oxygen_femboy_terminator",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "animated",
+            "directions": 4
+        }
+    ]
+}

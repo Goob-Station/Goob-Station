@@ -1,0 +1,10 @@
+- type: startingGear
+  id: MercenaryGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorGrey
+    back: ClothingBackpack
+    shoes: ClothingShoesBootsCombat
+    head: ClothingHeadHelmetBasic
+    gloves: ClothingHandsGlovesCombat
+    ears: ClothingHeadsetSecurity
+    belt: ClothingBeltSecurityFilled
