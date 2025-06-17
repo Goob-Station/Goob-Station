@@ -23,7 +23,7 @@
         - to: solarassembly
           steps:
             - tag: CapacitorStockPart
-              name: a capacitor
+              name: construction-graph-tag-capacitor
               icon:
                 sprite: Objects/Misc/stock_parts.rsi
                 state: capacitor
