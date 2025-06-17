@@ -1,0 +1,596 @@
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity # Making a base item with allow for creating more variants easier. Probably.
+  parent: BaseItem
+  id: BaseNullrod
+  abstract: true
+  components:
+  - type: DivineIntervention
+  - type: AlternatePrayable
+  - type: Sprite
+    sprite: _ShitChap/Objects/Weapons/Nullrod/nullrod.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: Reflect
+    reflectProb: 1
+    reflects:
+    - Magic
+  - type: DisarmMalus
+    malus: 0
+  - type: Tag
+    tags:
+    - Nullrod
+
+- type: entity
+  name: Null Rod
+  parent: BaseNullrod
+  id: Nullrod
+  description: The old classic. Does nothing special, really.
+  components:
+  - type: MeleeWeapon
+    heavyStaminaCost: 2.5
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 10
+        Holy: 10
+    soundHit:
+      collection: MetalThud
+  - type: Nullrod
+    DamageOnUntrainedUse:
+      types:
+        Heat: 20
+    UntrainedUseString: nullrod-untrained-usage-popup
+  - type: Tag
+    tags:
+    - Nullrod
+
+- type: entity
+  name: holy claymore
+  parent: BaseNullrod
+  id: HolyClaymore
+  description: A weapon fit for a crusade! A sword capable of stealing life from evil-doers.
+  components:
+  - type: Item
+    size: Large
+  - type: Nullrod
+    DamageOnUntrainedUse:
+      types:
+        Slash: 20
+    UntrainedUseString: nullrod-holyclaymore-untrained-usage-popup
+  - type: Gun
+    soundGunshot: /Audio/Effects/radpulse7.ogg
+    fireRate: 0.5
+    useKey: false
+  - type: GunRequiresWield
+  - type: OniAllowedGun
+  - type: MeleeWeapon
+    animationRotation: -45
+    wideAnimationRotation: -135
+    attackRate: 0.8
+    damage:
+      types:
+        Slash: 13
+        Holy: 10
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Wieldable
+  - type: DamageBoostOnMarker
+    boost:
+      types:
+        Holy: 15
+  - type: LeechOnMarker
+    leech:
+      groups:
+        Brute: -20
+        Airloss: -10
+  - type: Clothing
+    sprite: _ShitChap/Objects/Weapons/Nullrod/holyclaymore.rsi
+    slots:
+    - back
+  - type: Sprite
+    sprite: _ShitChap/Objects/Weapons/Nullrod/holyclaymore.rsi # Todo - Give this proper wielded sprites.
+  - type: AmmoCounter
+  - type: UseDelayOnShoot
+  - type: UseDelay
+    delay: 3.5
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 3.4
+    rechargeSound:
+      path: /Audio/Magic/Cults/ClockCult/steam_whoosh.ogg
+  - type: BasicEntityAmmoProvider
+    proto: HolyBulletCharge
+    capacity: 1
+    count: 1
+  - type: SentienceTarget
+    flavorKind: station-event-random-sentience-flavor-inanimate
+    weight: 0.50
+  - type: MedievalAccent
+  - type: Sharp
+  - type: Execution # OFF WITH HIS HEAD!!
+    doAfterDuration: 3.0
+  - type: Scalpel
+    speed: 0.25
+  - type: BoneSaw # You can't tell me this isn't hilarious.
+    speed: 0.6 # Chaplain preforming surgery with a COMICALLY LARGE CLAYMORE
+  - type: Tag
+    tags:
+    - HolyClaymore
+
+- type: entity
+  name: rosary
+  description: Using these to pray near someone will heal them. They are surrounded by a holy aura.
+  parent: BaseNullrod
+  id: Rosary
+  components:
+  - type: Sprite
+    sprite: _ShitChap/Objects/Weapons/Nullrod/rosary.rsi
+    state: icon
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Effects/weak_hit1.ogg
+    damage:
+      types:
+        Blunt: 3
+        Holy: 10
+  - type: HeldSpeedModifier # HOLY.. AURA!
+    walkModifier: 1.15
+    sprintModifier: 1.15
+  - type: Item
+    size: Small
+    sprite: _ShitChap/Objects/Weapons/Nullrod/rosary.rsi
+  - type: Clothing
+    slots:
+    - Belt
+  - type: Nullrod
+    DamageOnUntrainedUse:
+      types:
+        Blunt: 20
+    UntrainedUseString: nullrod-rosary-untrained-usage-popup
+  - type: AlternatePrayable
+    repeatPrayer: true
+  - type: HealNearOnPray # These numbers look high but WoundMed...
+    healing:
+      groups:
+        Brute: -22.5
+      types:
+        Heat: -7.5
+        Cold: -7.5
+        Shock: -7.5
+    damage:
+      types:
+        Holy: 20
+  - type: Tag
+    tags:
+    - Rosary
+
+- type: entity
+  parent: BaseNullrod
+  id: GodHand
+  name: Hand of God
+  description: A holy, fiery gift from the gods. You won't drop this one.
+  suffix: Unremoveable
+  components:
+  - type: Item
+    size: Ginormous
+    sprite: _ShitChap/Objects/Weapons/Nullrod/godhand.rsi
+  - type: Sprite
+    sprite: _ShitChap/Objects/Weapons/Nullrod/godhand.rsi
+    state: icon
+  - type: MeleeWeapon
+    canWideSwing: false
+    attackRate: 0.7
+    damage:
+      types:
+        Heat: 10
+        Slash: 4
+        Holy: 10
+    soundHit:
+      path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
+  - type: GrabbingItem
+  - type: IgniteOnMeleeHit # emphasis on FLAMING GIFT!!
+    fireStacks: 0.25
+  - type: Cautery
+    speed: 0.3
+  - type: Tool
+    qualities:
+    - Prying
+  - type: Unremoveable
+  - type: Nullrod
+    DamageOnUntrainedUse:
+      types:
+        Burn: 40
+    UntrainedUseString: nullrod-godhand-untrained-usage-popup
+  - type: Execution # It's not sharp per se, but who's against executing heretics with a giant flaming hand from god?
+    doAfterDuration: 4.0
+  - type: Tag
+    tags:
+    - GodHand
+
+- type: entity
+  parent: BaseNullrod
+  id: ArrythmicKnife
+  name: arrythmic knife
+  description: They say fear is the true mind killer, but stabbing them in the head works too. Slows you down and speeds you up randomly.
+  components:
+  - type: Nullrod
+    DamageOnUntrainedUse:
+      types:
+        Slash: 20
+    UntrainedUseString: nullrod-arrythmicknife-untrained-usage-popup
+  - type: Item
+    size: Huge
+    sprite: _ShitChap/Objects/Weapons/Nullrod/arrythmic.rsi
+  - type: Sprite
+    sprite: _ShitChap/Objects/Weapons/Nullrod/arrythmic.rsi
+    state: icon
+  - type: MeleeWeapon
+    animationRotation: -45 # WWDP
+    wideAnimationRotation: -135
+    attackRate: 1.5
+    damage:
+      types:
+        Slash: 9
+        Holy: 10
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: ItemRandomizeMovementspeed
+    whitelist:
+      components:
+      - BibleUser
+  - type: Sharp
+  - type: Execution
+    doAfterDuration: 4.0
+  - type: Scalpel # Why? Because it's funny. That's why.
+    speed: 0.5
+  - type: BoneSaw
+    speed: 0.5
+  - type: Tag
+    tags:
+    - ArrythmicKnife
+
+- type: entity
+  parent: BaseNullrod
+  id: MonkStaff
+  name: monk's staff
+  description: A long, tall staff made of polished wood. Traditionally used in ancient old-Earth martial arts, now used to harass the clown. #this should be able to parry eventually.
+  components:
+  - type: Nullrod
+    DamageOnUntrainedUse:
+      types:
+        Blunt: 20
+    UntrainedUseString: nullrod-monkstaff-untrained-usage-popup
+  - type: Item
+    size: Huge
+    sprite: _ShitChap/Objects/Weapons/Nullrod/monkstaff.rsi
+  - type: Sprite
+    sprite: _ShitChap/Objects/Weapons/Nullrod/monkstaff.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 3
+    damage:
+      types:
+        Holy: 6
+        Blunt: 2.5
+    soundHit:
+      collection: BoxingHit
+  - type: StaminaDamageOnHit
+    damage: 10
+  - type: Wieldable
+  - type: Tag
+    tags:
+    - MonkStaff
+
+- type: entity
+  name: Atheist's Fedora
+  parent: BaseNullrod
+  id: AtheistFedora
+  description: The brim of the hat is as sharp as your wit. Throwing it at someone would hurt almost as much as disproving the existence of God.
+  components:
+  - type: Nullrod # Note - These are damages, not damage types. Specify blunt or something not brute.
+    DamageOnUntrainedUse:
+      types:
+        Slash: 20
+    UntrainedUseString: nullrod-atheistfedora-untrained-usage-popup
+  - type: LandAtCursor
+  - type: Boomerang
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 12
+        Holy: 12
+  - type: MeleeWeapon
+    attackRate: 1.5
+    damage:
+      types:
+        Slash: 5
+        Holy: 10
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    size: Small
+    storedRotation: -90
+    sprite: _ShitChap/Objects/Weapons/Nullrod/atheist.rsi
+  - type: Sprite
+    sprite: _ShitChap/Objects/Weapons/Nullrod/atheist.rsi
+    state: icon
+  - type: Clothing
+    slots:
+    - HEAD
+    sprite: _ShitChap/Objects/Weapons/Nullrod/atheist.rsi
+  - type: Sharp
+  - type: Scalpel
+    speed: 0.5
+  - type: Tag
+    tags:
+    - AthiestsFedora
+
+- type: entity
+  name: Honkmother's Maw
+  parent: BaseNullrod
+  id: HonkmotherMaw
+  description: a-HEAD of you lies a path most hilarious.
+  components:
+  - type: Item
+    size: Huge
+    sprite: _ShitChap/Objects/Weapons/Nullrod/honkmother.rsi
+  - type: Sprite
+    sprite: _ShitChap/Objects/Weapons/Nullrod/honkmother.rsi
+    state: icon
+  - type: Nullrod # Note - These are damages, not damage types. Specify blunt or something not brute.
+    DamageOnUntrainedUse:
+      types:
+        Radiation: 20
+    UntrainedUseString: nullrod-honkmother-untrained-usage-popup
+  - type: MeleeWeapon
+    attackRate: 0.8
+    damage:
+      types:
+        Holy: 10
+        Blunt: 12
+    soundHit:
+      collection: RubberHammer
+      params:
+        variation: 0.03
+        volume: 3
+  - type: KnockdownOnHit
+    duration: 0.2
+    dropHeldItemsBehavior: NoDrop
+  - type: UseDelay
+    delay: 3
+  - type: UseDelayBlockKnockdown
+    knockdownSound: /Audio/Items/bikehorn.ogg
+    doCustom: true
+  - type: Tag
+    tags:
+    - HonkmotherMaw
+
+- type: entity
+  parent: BaseNullrod
+  id: UristHand
+  name: Grey Emperor's Glove
+  description: The tide beckons.
+  suffix: Unremoveable
+  components:
+  - type: PointLight
+    radius: 4
+    energy: 1
+  - type: Item
+    size: Ginormous
+    sprite: _ShitChap/Objects/Weapons/Nullrod/uristhand.rsi
+  - type: Sprite
+    sprite: _ShitChap/Objects/Weapons/Nullrod/uristhand.rsi
+    state: icon
+  - type: UseDelay
+    delay: 0
+  - type: Tool
+    qualities:
+    - Screwing
+    speedModifier: 1.2
+    useSound: /Audio/Items/drill_use.ogg
+  - type: ToolTileCompatible
+  - type: Prying
+    enabled: false
+  - type: MultipleTool
+    statusShowBehavior: true
+    entries:
+    - behavior: Screwing
+      sprite:
+        sprite: _ShitChap/Objects/Weapons/Nullrod/uristhand.rsi
+        state: icon
+      useSound:
+        path: /Audio/Items/drill_use.ogg
+      changeSound:
+        path: /Audio/Items/change_drill.ogg
+    - behavior: Prying
+      sprite:
+        sprite: _ShitChap/Objects/Weapons/Nullrod/uristhand.rsi
+        state: icon
+      useSound:
+        path: /Audio/Items/jaws_pry.ogg
+      changeSound:
+        path: /Audio/Items/change_drill.ogg
+    - behavior: Anchoring
+      sprite:
+        sprite: _ShitChap/Objects/Weapons/Nullrod/uristhand.rsi
+        state: icon
+      useSound:
+        path: /Audio/Items/ratchet.ogg
+      changeSound:
+        path: /Audio/Items/change_drill.ogg
+    - behavior: Cutting
+      sprite:
+        sprite: _ShitChap/Objects/Weapons/Nullrod/uristhand.rsi
+        state: icon
+      useSound:
+        path: /Audio/Items/jaws_cut.ogg
+      changeSound:
+        path: /Audio/Items/change_drill.ogg
+    - behavior: Pulsing
+      sprite:
+        sprite: _ShitChap/Objects/Weapons/Nullrod/uristhand.rsi
+        state: icon
+      changeSound:
+        path: /Audio/Items/change_drill.ogg
+  - type: MeleeWeapon
+    canWideSwing: false
+    attackRate: 0.9
+    damage:
+      types:
+        Holy: 14
+        Blunt: 9
+    soundHit:
+      path: /Audio/Weapons/smash.ogg
+  - type: Unremoveable
+  - type: Nullrod
+    DamageOnUntrainedUse:
+      types:
+        Blunt: 50
+    UntrainedUseString: nullrod-uristhand-untrained-usage-popup
+  - type: MeleeThrowOnHit
+    distance: 1
+  - type: Tag
+    tags:
+    - UristHand
+    - Multitool
+  - type: HeldGrantComponent
+    components:
+    - type: Insulated
+
+- type: entity
+  name: his holy chainsaw
+  parent: BaseNullrod
+  id: HolyChainsaw
+  description: And because it's fuckin' FUN! AHAHA! AHAHAHA! AHAH-AAAAAAAA-MEN!
+  suffix: Unremoveable
+  components:
+  - type: Wieldable
+    wieldSound: !type:SoundPathSpecifier
+      path: /Audio/Weapons/chainsawwield.ogg
+      params:
+        volume: 1
+  - type: MeleeRequiresWield
+    fumbleOnAttempt: true
+  - type: Nullrod
+    DamageOnUntrainedUse:
+      types:
+        Slash: 50
+    UntrainedUseString: nullrod-chainsaw-untrained-usage-popup
+  - type: Unremoveable
+  - type: Sharp
+  - type: Sprite
+    sprite: _ShitChap/Objects/Weapons/Nullrod/divinechainsaw.rsi
+    state: icon
+  - type: MeleeWeapon
+    heavyStaminaCost: 15
+    autoAttack: true
+    angle: 0
+    animationRotation: 90
+    wideAnimationRotation: 90
+    attackRate: 4
+    damage:
+      types:
+        Blunt: 2
+        Slash: 3
+        Structural: 20
+        Holy: 6
+    soundHit:
+      path: /Audio/Weapons/chainsaw.ogg
+      params:
+        volume: -3
+  - type: Item
+    size: Ginormous
+    sprite: _ShitChap/Objects/Weapons/Nullrod/divinechainsaw.rsi
+  - type: BoneSaw # Shitmed
+    speed: 0.65
+  - type: SurgeryTool # Shitmed
+    startSound:
+      path: /Audio/Weapons/chainsawwield.ogg
+    endSound:
+      path: /Audio/Weapons/chainsaw.ogg
+
+# Casul & Jackal
+- type: entity
+  name: casul
+  parent: BaseItem
+  id: WeaponPistolCasul
+  description: The first of two huge pistols, capable of firing regenerating silver bullets. Incapable of firing without its sister gun.
+  components:
+  - type: Nullrod
+    DamageOnUntrainedUse:
+      types:
+        Heat: 20
+    UntrainedUseString: nullrod-pistol-untrained-usage-popup
+  - type: Sprite
+    sprite: _ShitChap/Objects/Weapons/Nullrod/casul.rsi
+    state: icon
+  - type: Clothing
+    sprite: _ShitChap/Objects/Weapons/Nullrod/casul.rsi # Bweh!
+    quickEquip: false
+    slots:
+    - suitStorage
+    - Belt
+  - type: OniAllowedGun
+  - type: Gun
+    minAngle: 1
+    maxAngle: 5
+    angleIncrease: 1
+    angleDecay: 4
+    fireRate: 6
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/mk58.ogg
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+  - type: BasicEntityAmmoProvider
+    proto: BulletPistolSilver
+    capacity: 7
+    count: 7
+  - type: AmmoCounter
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Multishot
+    spreadMultiplier: 1.25
+  - type: Tag
+    tags:
+    - WeaponPistolCasul
+    - Sidearm
+  - type: RequiresDualWield
+    whitelist:
+      tags:
+      - WeaponPistolJackal
+  - type: ReloadOnPray
+  - type: AlternatePrayable # needs this, since it ain't parented of nullrod.
+    prayDoAfterDuration: 3.5
+
+- type: entity
+  name: jackal
+  parent: WeaponPistolCasul
+  id: WeaponPistolJackal
+  description: The second of two huge pistols, capable of firing regenerating silver bullets. Incapable of firing without its sister gun.
+  components:
+  - type: Sprite
+    sprite: _ShitChap/Objects/Weapons/Nullrod/jackal.rsi
+    state: icon
+  - type: Clothing
+    sprite: _ShitChap/Objects/Weapons/Nullrod/jackal.rsi
+  - type: Tag
+    tags:
+    - WeaponPistolJackal
+    - Sidearm
+  - type: RequiresDualWield
+    whitelist:
+      tags:
+      - WeaponPistolCasul

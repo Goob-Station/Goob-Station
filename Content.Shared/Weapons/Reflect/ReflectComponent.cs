@@ -68,6 +68,9 @@
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -87,7 +90,7 @@ public sealed partial class ReflectComponent : Component
     /// <summary>
     /// What we reflect.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField("reflects")]
+    [ViewVariables(VVAccess.ReadWrite), DataField]
     public ReflectType Reflects = ReflectType.Energy | ReflectType.NonEnergy;
 
     /// <summary>
@@ -112,22 +115,14 @@ public sealed partial class ReflectComponent : Component
     /// <summary>
     /// Probability for a projectile to be reflected.
     /// </summary>
-    [DataField("reflectProb"), ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public float ReflectProb = 0.25f;
 
-    [DataField("spread"), ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public Angle Spread = Angle.FromDegrees(45);
 
-    [DataField("soundOnReflect")]
-    public SoundSpecifier? SoundOnReflect = new SoundPathSpecifier("/Audio/Weapons/Guns/Hits/laser_sear_wall.ogg");
-
-    /// <summary>
-    /// Goobstation
-    /// If not null determines probability for a projectile to be reflected
-    /// for other type of projectile (energy / non energy).
-    /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
-    public float OtherTypeReflectProb;
+    [DataField]
+    public SoundSpecifier? SoundOnReflect = new SoundPathSpecifier("/Audio/Weapons/Guns/Hits/laser_sear_wall.ogg", AudioParams.Default.WithVariation(0.05f));
 
     // WD START
     [DataField, AutoNetworkedField]
@@ -141,4 +136,5 @@ public enum ReflectType : byte
     None = 0,
     NonEnergy = 1 << 0,
     Energy = 1 << 1,
+    Magic = 1 << 2,
 }

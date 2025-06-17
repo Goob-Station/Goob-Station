@@ -8,6 +8,10 @@
 // SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tim <timfalken@hotmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -25,6 +29,7 @@ using Content.Shared.Damage;
 using Robust.Shared.Prototypes;
 using Content.Server.Emoting.Systems;
 using Content.Server.Speech.EntitySystems;
+using Content.Shared.Chat;
 using Content.Shared.Cluwne;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.NameModifier.EntitySystems;
@@ -90,7 +95,7 @@ public sealed class CluwneSystem : EntitySystem
 
         _nameMod.RefreshNameModifiers(uid);
 
-        SetOutfitCommand.SetOutfit(uid, "CluwneGear", EntityManager);
+        SetOutfitCommand.SetOutfit(uid, "CluwneGear", false, EntityManager); // Goobstation
     }
 
     /// <summary>

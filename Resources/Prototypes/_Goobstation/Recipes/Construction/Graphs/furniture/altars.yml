@@ -1,0 +1,239 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 ImHoks <142083149+ImHoks@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+#MISSING SATANA
+
+- type: constructionGraph
+  id: AltarsGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: AltarConvertNode
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      steps:
+      - material: Steel
+        amount: 3
+        doAfter: 3
+      - material: Cloth
+        amount: 1
+        doAfter: 1
+  #Base Altar
+  - node: AltarConvertNode
+    entity: AltarConvert
+    edges:
+    - to: start #Deconstructing Base Altar
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 3
+      - !type:SpawnPrototype
+        prototype: MaterialCloth1
+        amount: 1
+      - !type:DeleteEntity {}
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      steps:
+      - tool: Prying
+        doAfter: 3
+    - to: BananiumAltarNode
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      steps:
+      - material: Bananium
+        amount: 1
+        doAfter: 3
+    - to: ChaosAltarNode
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      steps:
+      - material: Plasma
+        amount: 1
+        doAfter: 3
+    - to: DruidAltarNode
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      steps:
+      - material: WoodPlank
+        amount: 1
+        doAfter: 3
+    - to: FangedAltarNode
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      steps:
+      - tag: Meat
+        doAfter: 3
+    - to: HeavenAltarNode
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      steps:
+      - tag: TemplarHelmet
+        doAfter: 3
+    - to: MaintsAltarNode
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      steps:
+      - tag: BudgetInsuls
+        doAfter: 3
+    - to: NanotrasenAltarNode
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      steps:
+      - material: Plasteel
+        amount: 1
+        doAfter: 3
+    - to: SpaceChristianAltarNode
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      steps:
+      - tag: NunHood
+        doAfter: 3
+    - to: TechnologyAltarNode
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      steps:
+      - tag: CapacitorStockPart
+        doAfter: 3
+    - to: ToolAltarNode
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      steps:
+      - tag: Toolbox
+        doAfter: 3
+  #Nullrod Altars
+  - node: BananiumAltarNode
+    entity: AltarBananium
+    edges:
+    - to: AltarConvertNode
+      completed:
+      - !type:SpawnPrototype
+        prototype: MaterialBananium1
+        amount: 1
+      steps:
+      - tool: Prying
+        doAfter: 1
+
+  - node: ChaosAltarNode
+    entity: AltarChaos
+    edges:
+    - to: AltarConvertNode
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetPlasma1
+        amount: 1
+      steps:
+      - tool: Prying
+        doAfter: 1
+
+  - node: DruidAltarNode
+    entity: AltarDruid
+    edges:
+    - to: AltarConvertNode
+      completed:
+      - !type:SpawnPrototype
+        prototype: MaterialWoodPlank1
+        amount: 1
+      steps:
+      - tool: Prying
+        doAfter: 1
+
+  - node: FangedAltarNode
+    entity: AltarFangs
+    edges:
+    - to: AltarConvertNode
+      completed:
+      - !type:SpawnPrototype
+        prototype: FoodMeatFish
+        amount: 1
+      steps:
+      - tool: Prying
+        doAfter: 1
+
+  - node: HeavenAltarNode
+    entity: AltarHeaven
+    edges:
+    - to: AltarConvertNode
+      completed:
+      - !type:SpawnPrototype
+        prototype: ClothingHeadHelmetTemplar
+        amount: 1
+      steps:
+      - tool: Prying
+        doAfter: 1
+
+  - node: MaintsAltarNode
+    entity: AltarConvertMaint
+    edges:
+    - to: AltarConvertNode
+      completed:
+      - !type:SpawnPrototype
+        prototype: ClothingHandsGlovesColorYellowBudget
+        amount: 1
+      steps:
+      - tool: Prying
+        doAfter: 1
+
+  - node: NanotrasenAltarNode
+    entity: AltarNanotrasen
+    edges:
+    - to: AltarConvertNode
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetPlasteel1
+        amount: 1
+      steps:
+      - tool: Prying
+        doAfter: 1
+
+  - node: SpaceChristianAltarNode
+    entity: AltarSpaceChristian
+    edges:
+    - to: AltarConvertNode
+      completed:
+      - !type:SpawnPrototype
+        prototype: ClothingHeadHatHoodNunHood
+        amount: 1
+      steps:
+      - tool: Prying
+        doAfter: 1
+
+  - node: TechnologyAltarNode
+    entity: AltarTechnology
+    edges:
+    - to: AltarConvertNode
+      completed:
+      - !type:SpawnPrototype
+        prototype: CapacitorStockPart
+        amount: 1
+      steps:
+      - tool: Prying
+        doAfter: 1
+
+  - node: ToolAltarNode
+    entity: AltarToolbox
+    edges:
+    - to: AltarConvertNode
+      completed:
+      - !type:SpawnPrototype
+        prototype: ToolboxEmergency
+        amount: 1
+      steps:
+      - tool: Prying
+        doAfter: 1

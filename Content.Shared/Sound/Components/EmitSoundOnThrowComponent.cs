@@ -5,8 +5,8 @@
 // SPDX-FileCopyrightText: 2020 Fouin <jfouin2@protonmail.com>
 // SPDX-FileCopyrightText: 2020 Memory <58238103+FL-OZ@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2020 Swept <jamesurquhartwebb@gmail.com>
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <zddm@outlook.es>
+// SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <zddm@outlook.es>
 // SPDX-FileCopyrightText: 2020 chairbender <kwhipke1@gmail.com>
 // SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
 // SPDX-FileCopyrightText: 2021 Galactic Chimp <63882831+GalacticChimp@users.noreply.github.com>
@@ -31,6 +31,4 @@ namespace Content.Shared.Sound.Components;
 /// Simple sound emitter that emits sound on ThrowEvent
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-public sealed partial class EmitSoundOnThrowComponent : BaseEmitSoundComponent
-{
-}
+public sealed partial class EmitSoundOnThrowComponent : BaseEmitSoundComponent;

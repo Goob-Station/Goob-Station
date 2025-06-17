@@ -267,33 +267,6 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
         _color.RaiseEffect(Color.Red, targets, Filter.Local());
     }
 
-    protected override bool DoDisarm(EntityUid user, DisarmAttackEvent ev, EntityUid meleeUid, MeleeWeaponComponent component, ICommonSession? session)
-    {
-        if (!base.DoDisarm(user, ev, meleeUid, component, session))
-            return false;
-
-        if (!TryComp<CombatModeComponent>(user, out var combatMode) ||
-            combatMode.CanDisarm == false) // WWDP
-        {
-            return false;
-        }
-
-        var target = GetEntity(ev.Target);
-
-        // They need to either have hands...
-        if (!HasComp<HandsComponent>(target!.Value))
-        {
-            // or just be able to be shoved over.
-            if (TryComp<StatusEffectsComponent>(target, out var status) && status.AllowedEffects.Contains("KnockedDown"))
-                return true;
-
-            if (Timing.IsFirstTimePredicted && HasComp<MobStateComponent>(target.Value))
-                PopupSystem.PopupEntity(Loc.GetString("disarm-action-disarmable", ("targetName", target.Value)), target.Value);
-        }
-
-        return true;
-    }
-
     /// <summary>
     /// Raises a heavy attack event with the relevant attacked entities.
     /// This is to avoid lag effecting the client's perspective too much.

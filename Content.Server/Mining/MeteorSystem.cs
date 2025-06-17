@@ -7,7 +7,7 @@ using Content.Server.Administration.Logs;
 using Content.Server.Destructible;
 using Content.Shared.Damage;
 using Content.Shared.Database;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Mobs.Systems;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
@@ -40,7 +40,7 @@ public sealed class MeteorSystem : EntitySystem
         {
             threshold = mobThreshold.Value;
             if (HasComp<ActorComponent>(args.OtherEntity))
-                _adminLog.Add(LogType.Action, LogImpact.Extreme, $"{ToPrettyString(args.OtherEntity):player} was struck by meteor {ToPrettyString(uid):ent} and killed instantly.");
+                _adminLog.Add(LogType.Action, LogImpact.High, $"{ToPrettyString(args.OtherEntity):player} was struck by meteor {ToPrettyString(uid):ent} and killed instantly.");
         }
         else if (_destructible.TryGetDestroyedAt(args.OtherEntity, out var destroyThreshold))
         {

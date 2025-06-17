@@ -16,7 +16,7 @@ bible-heal-success-none-others = {CAPITALIZE(THE($user))} hits {THE($target)} wi
 
 bible-heal-fail-self = You hit {THE($target)} with {THE($bible)}, and it lands with a sad thwack, dazing {OBJECT($target)}!
 bible-heal-fail-others = {CAPITALIZE(THE($user))} hits {THE($target)} with {THE($bible)}, and it lands with a sad thack, dazing {OBJECT($target)}!
-bible-sizzle = The book sizzles in your hands!
+bible-sizzle = The {THE($bible)} sizzles in your hands!
 
 bible-summon-verb = Summon familiar
 bible-summon-verb-desc = Summon a familiar that will aid you and gain humanlike intelligence once inhabited by a soul.

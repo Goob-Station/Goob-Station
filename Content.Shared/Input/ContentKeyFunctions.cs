@@ -186,7 +186,8 @@ namespace Content.Shared.Input
 
         // Shitmed Change Start
         public static readonly BoundKeyFunction TargetHead = "TargetHead";
-        public static readonly BoundKeyFunction TargetTorso = "TargetTorso";
+        public static readonly BoundKeyFunction TargetChest = "TargetChest";
+        public static readonly BoundKeyFunction TargetGroin = "TargetGroin";
         public static readonly BoundKeyFunction TargetLeftArm = "TargetLeftArm";
         public static readonly BoundKeyFunction TargetLeftHand = "TargetLeftHand";
         public static readonly BoundKeyFunction TargetRightArm = "TargetRightArm";
@@ -224,7 +225,6 @@ namespace Content.Shared.Input
         public static readonly BoundKeyFunction Hotbar7 = "Hotbar7";
         public static readonly BoundKeyFunction Hotbar8 = "Hotbar8";
         public static readonly BoundKeyFunction Hotbar9 = "Hotbar9";
-        // Goobstation - Extra hotbar hotkeys
         public static readonly BoundKeyFunction HotbarShift0 = "HotbarShift0";
         public static readonly BoundKeyFunction HotbarShift1 = "HotbarShift1";
         public static readonly BoundKeyFunction HotbarShift2 = "HotbarShift2";

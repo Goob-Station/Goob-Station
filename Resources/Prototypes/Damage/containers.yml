@@ -9,6 +9,8 @@
 # SPDX-FileCopyrightText: 2024 Tonydatguy <154929293+Tonydatguy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 #
@@ -22,11 +24,22 @@
     - Toxin
     - Airloss
     - Genetic
+  supportedTypes: # Goobstation
+    - Holy
 
 - type: damageContainer
   id: Inorganic
   supportedGroups:
     - Brute
+  supportedTypes:
+    - Heat
+    - Shock
+
+- type: damageContainer
+  id: InorganicMetaphysical
+  supportedGroups:
+    - Brute
+    - Metaphysical
   supportedTypes:
     - Heat
     - Shock
@@ -44,7 +57,7 @@
   id: Silicon
   supportedGroups:
     - Brute
-    - Electronic #Goobstation
+    - Electronic # Goobstation
   supportedTypes:
     - Heat
     - Shock
@@ -88,4 +101,5 @@
   - Toxin
   - Airloss
   - Genetic
-  - Metaphysical
+  supportedTypes: # Goobstation
+  - Holy

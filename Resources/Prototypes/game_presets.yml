@@ -103,6 +103,7 @@
     - BlobGameMode
     - LoneAbductorSpawn
     # - KesslerSyndromeScheduler Goobstation - nuh uh
+    - Wizard
     - RampingStationEventScheduler
     - Changeling # Goobstation - changeling playtest
     - SpaceTrafficControlEventScheduler
@@ -128,6 +129,7 @@
     - Heretic
     - BlobGameMode
     - LoneAbductorSpawn
+    - Wizard
     - BasicStationEventScheduler
 #    - KesslerSyndromeScheduler
 #    - MeteorSwarmMildScheduler # Goob Edit
@@ -226,13 +228,14 @@
   description: traitor-description
   showInVote: false
   rules:
-    - Traitor
-    - SubGamemodesRule
-    - BasicStationEventScheduler
-  #  - MeteorSwarmScheduler Goobstation - nuh uh
-    - SpaceTrafficControlEventScheduler
-    - BasicRoundstartVariation
-    - LavalandStormScheduler # Lavaland Change
+  - DummyNonAntagChance
+  - Traitor
+  - SubGamemodesRule
+  - BasicStationEventScheduler
+  #- MeteorSwarmScheduler Goobstation - nuh uh
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
+  - LavalandStormScheduler # Lavaland Change
 
 - type: gamePreset
   id: Deathmatch
@@ -255,13 +258,14 @@
   description: nukeops-description
   showInVote: false
   rules:
-    - Nukeops
-    - SubGamemodesRule
-    - BasicStationEventScheduler
+  - Nukeops
+  - DummyNonAntagChance
+  - SubGamemodesRule
+  - BasicStationEventScheduler
   #  - MeteorSwarmScheduler Goobstation - nuh uh
-    - SpaceTrafficControlEventScheduler
-    - BasicRoundstartVariation
-    - LavalandStormScheduler # Lavaland Change
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
+  - LavalandStormScheduler # Lavaland Change
 
 - type: gamePreset
   id: Revolutionary
@@ -273,13 +277,14 @@
   description: rev-description
   showInVote: false
   rules:
-    - Revolutionary
-    - SubGamemodesRule
-    - BasicStationEventScheduler
+  - DummyNonAntagChance  
+  - Revolutionary
+  - SubGamemodesRule
+  - BasicStationEventScheduler
   #  - MeteorSwarmScheduler Goobstation - nuh uh
-    - SpaceTrafficControlEventScheduler
-    - BasicRoundstartVariation
-    - LavalandStormScheduler # Lavaland Change
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
+  - LavalandStormScheduler # Lavaland Change
 
 - type: gamePreset
   id: Zombie

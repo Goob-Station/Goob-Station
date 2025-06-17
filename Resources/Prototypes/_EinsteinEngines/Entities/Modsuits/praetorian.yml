@@ -1,0 +1,176 @@
+# SPDX-FileCopyrightText: 2025 CliveOcelot <165305605+Orion-416@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 Shy Bandit <92641277+rotundfan@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# The Modsuit Itself, This is just a bso modsuit
+- type: entity
+  parent: [ ClothingModsuitStandard, BaseCentcommContraband ]
+  id: ClothingModsuitPraetorian
+  name: Praetorian hardsuit control unit # Goob edit
+  description: The main controller for a Praetorian hardsuit. # Goob edit
+  components:
+    - type: Sprite
+      sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/praetorian.rsi
+    - type: ToggleableClothing
+      clothingPrototypes:
+        head: ClothingModsuitHelmetPraetorian
+        gloves: ClothingModsuitGauntletsPraetorian
+        outerClothing: ClothingModsuitChestplatePraetorian
+        shoes: ClothingModsuitBootsPraetorian
+    - type: ItemSlots
+      slots:
+        cell_slot:
+          name: power-cell-slot-component-slot-name-default
+          startingItem: PowerCellHyper
+          whitelist:
+            components:
+              - PowerCell
+    - type: SealableClothingVisuals
+      visualLayers:
+        back:
+          - state: equipped-BACKPACK-sealed
+    - type: Storage
+      grid:
+      - 0,0,1,3
+      - 3,0,6,3
+      - 8,0,9,3
+
+- type: entity
+  parent: ClothingModsuitGauntletsStandard
+  id: ClothingModsuitGauntletsPraetorian
+  name: Praetorian hardsuit gauntlets # Goob edit
+  description: A pair of gauntlets made for the Praetorian hardsuit. # Goob edit
+  categories: [HideSpawnMenu]
+  components:
+    - type: Sprite
+      sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/praetorian.rsi
+    - type: SealableClothingVisuals
+      visualLayers:
+        gloves:
+          - state: equipped-HAND-sealed
+          - state: equipped-HAND-sealed-unshaded
+            shader: unshaded
+
+- type: entity
+  parent: ClothingModsuitHelmetStandard
+  id: ClothingModsuitHelmetPraetorian
+  name: Praetorian hardsuit helmet # Goob edit
+  description: A state-of-the-art helmet designed by NanoTrasen for the Praetorian hardsuit. # Goob edit
+  categories: [HideSpawnMenu]
+  components:
+    - type: Sprite
+      sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/praetorian.rsi
+    - type: PressureProtection
+      highPressureMultiplier: 0.05
+      lowPressureMultiplier: 1000
+    - type: Armor
+      traumaDeductions:
+        Dismemberment: 0.3
+        OrganDamage: 0.3
+        BoneDamage: 0.3
+        VeinsDamage: 0
+        NerveDamage: 0
+      modifiers:
+        coefficients:
+          Blunt: 0.55
+          Slash: 0.55
+          Piercing: 0.5
+          Radiation: 0.5
+          Heat: 0.5
+          Caustic: 0.5
+    - type: FlashImmunity # Goobstation
+    - type: FlashSoundSuppression # Goobstation
+    - type: PointLight
+      color: "#4d7ae3"
+    - type: SealableClothingVisuals
+      visualLayers:
+        head:
+          - state: equipped-HEAD-sealed
+          - state: equipped-HEAD-sealed-unshaded
+            shader: unshaded
+
+- type: entity
+  parent: ClothingModsuitChestplateStandard
+  id: ClothingModsuitChestplatePraetorian
+  name: Praetorian hardsuit chestplate # Goob edit
+  description: A state of the art chestplate designed by NanoTrasen for the Praetorian hardsuit. It incorporates powered servos to reduce the equipment load. # Goob edit
+  categories: [HideSpawnMenu]
+  components:
+    - type: Sprite
+      sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/praetorian.rsi
+    - type: ClothingSpeedModifier
+      walkModifier: 0.75
+      sprintModifier: 0.75
+    - type: Armor
+      traumaDeductions:
+        Dismemberment: 0.3
+        OrganDamage: 0.3
+        BoneDamage: 0.3
+        VeinsDamage: 0
+        NerveDamage: 0
+      modifiers:
+        coefficients:
+          Blunt: 0.5
+          Slash: 0.5
+          Piercing: 0.45
+          Radiation: 0.5
+          Heat: 0.45
+          Caustic: 0.5
+    - type: SealableClothingVisuals
+      visualLayers:
+        outerClothing:
+          - state: equipped-OUTERCLOTHING-sealed
+    - type: ModifyDelayedKnockdown
+      delayDelta: 2
+      knockdownTimeDelta: -2
+    - type: PressureProtection
+      highPressureMultiplier: 0.05
+      lowPressureMultiplier: 1000
+    - type: ExplosionResistance
+      damageCoefficient: 0.45
+
+- type: entity
+  parent: ClothingModsuitBootsStandard
+  id: ClothingModsuitBootsPraetorian
+  name: Praetorian hardsuit boots # Goob edit
+  description: A state-of-the-art pair of magboots for the Praetorian hardsuit. # Goob edit
+  categories: [HideSpawnMenu]
+  components:
+    - type: Appearance
+    - type: Sprite
+      sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/praetorian.rsi
+    - type: Tag
+      tags:
+        - WhitelistChameleon
+    - type: SealableClothingVisuals
+      visualLayers:
+        shoes:
+          - state: equipped-FEET-sealed
+    - type: ItemToggle
+    - type: ToggleClothing
+      action: ActionToggleMagboots
+    - type: ComponentToggler
+      components:
+      - type: NoSlip
+    - type: Magboots
+      enabledPrefix: null
+    - type: ClothingSpeedModifier
+      walkModifier: 0.95
+      sprintModifier: 0.9
+
+- type: entity
+  id: SuitStoragePraetorian
+  parent: SuitStorageBase
+  suffix: Praetorian Modsuit
+  components:
+    - type: StorageFill
+      contents:
+        - id: OxygenTankFilled
+        - id: ClothingModsuitPraetorian
+        - id: ClothingMaskBreath

@@ -25,8 +25,9 @@
 
 knowledge-path-side-knowledge-name = Ritual of Knowledge
 knowledge-path-side-knowledge-desc =
-    You learn a special ritual that requires 4 different items, from various organs to candles and stun batons.
-    Performing this ritual grants you 4 knowledge points and resets the items needed.
+    Everything can be a key to unlocking the secrets behind the Gates. I must be wary and wise.
+
+    You learn a special, one-time-only ritual that requires 4 different items. Performing this ritual instantly grants you 5 knowledge points.
 
 ## stage 3
 knowledge-path-side-s3-armor-name = Armorer’s Ritual
@@ -57,6 +58,12 @@ knowledge-path-side-s3-void-cloak-desc =
     Allows you to transmute a glass shard, a bedsheet, and any winter coat to create a Void Cloak.
     While the hood is down, the cloak functions as a focus and provides low pressure protection, and while the hood is up, the cloak is completely invisible.
     It also provide decent armor and has pockets which can hold one of your blades, various ritual components (such as organs), and small heretical trinkets.
+
+knowledge-path-side-s3-ice-spear-name = Mysteries of Creation
+knowledge-path-side-s3-ice-spear-desc =
+    Artifacts linked to the Winter Dawn exude unnatural stillness. Time slows around them. Fires choke. Thoughts become brittle. Proximity breeds hallucinations of endless white fields, a sky with no sun, and a voice that speaks only in cracking ice.
+
+    Grants you Mysteries of Creation, a spell that allows you to summon the Glacier Spear at will. This magical spear chills victims upon hit, but more importantly, it shatters upon throwing, dealing a significant amount of damage and temporarily freezing the target into an ice cube. If the spear is destroyed, activating this ability will create a new one, otherwise it will summon the existing spear into your hand.
 
 ## stage 6
 knowledge-path-side-s6-rustwalker-name = Rusted Ritual
@@ -104,6 +111,12 @@ knowledge-path-side-s8-cleave-desc =
     At first I didn't understand these instruments of war, but the Priest told me to use them regardless. Soon, he said, I would know them well.
 
     Grants you Cleave, an area-of-effect targeted spell that causes heavy bleeding and blood loss to anyone afflicted.
+
+knowledge-path-side-s8-rust-charge-name = Rust Charge
+knowledge-path-side-s8-rust-charge-desc =
+    The hills sparkled now, as I neared them my mind began to wander. I quickly regained my resolve and pushed forward, this last leg would be the most treacherous.
+
+    Grants you Rust Charge, a targeted action that can only be cast on a rusted tile. It charges you forward, destroying any rusted objects you come into contact with, it will also deal high damage to others and rust around you during the charge.
 
 ## stage 9
 knowledge-path-side-s9-coin-name = Eldritch Coin

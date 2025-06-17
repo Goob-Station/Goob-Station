@@ -25,7 +25,7 @@
 
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Chemistry.Components.SolutionManager;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Tools.Components;
 using Robust.Server.GameObjects;
 

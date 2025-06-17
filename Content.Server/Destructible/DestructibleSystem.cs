@@ -41,13 +41,15 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.Destructible;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using JetBrains.Annotations;
 using Robust.Server.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Linq;
+using Content.Shared.Humanoid;
+using Robust.Shared.Player;
 
 namespace Content.Server.Destructible
 {
@@ -82,15 +84,20 @@ namespace Content.Server.Destructible
         /// </summary>
         public void Execute(EntityUid uid, DestructibleComponent component, DamageChangedEvent args)
         {
+            component.IsBroken = false;
+
             foreach (var threshold in component.Thresholds)
             {
                 if (threshold.Reached(args.Damageable, this))
                 {
                     RaiseLocalEvent(uid, new DamageThresholdReached(component, threshold), true);
 
+                    var logImpact = LogImpact.Low;
                     // Convert behaviors into string for logs
                     var triggeredBehaviors = string.Join(", ", threshold.Behaviors.Select(b =>
                     {
+                        if (logImpact <= b.Impact)
+                            logImpact = b.Impact;
                         if (b is DoActsBehavior doActsBehavior)
                         {
                             return $"{b.GetType().Name}:{doActsBehavior.Acts.ToString()}";
@@ -98,18 +105,30 @@ namespace Content.Server.Destructible
                         return b.GetType().Name;
                     }));
 
+                    // If it doesn't have a humanoid component, it's probably not particularly notable?
+                    if (logImpact > LogImpact.Medium && !HasComp<HumanoidAppearanceComponent>(uid))
+                        logImpact = LogImpact.Medium;
+
                     if (args.Origin != null)
                     {
-                        _adminLogger.Add(LogType.Damaged, LogImpact.Medium,
+                        _adminLogger.Add(LogType.Damaged,
+                            logImpact,
                             $"{ToPrettyString(args.Origin.Value):actor} caused {ToPrettyString(uid):subject} to trigger [{triggeredBehaviors}]");
                     }
                     else
                     {
-                        _adminLogger.Add(LogType.Damaged, LogImpact.Medium,
+                        _adminLogger.Add(LogType.Damaged,
+                            logImpact,
                             $"Unknown damage source caused {ToPrettyString(uid):subject} to trigger [{triggeredBehaviors}]");
                     }
 
                     threshold.Execute(uid, this, EntityManager, args.Origin);
+                }
+
+                if (threshold.OldTriggered)
+                {
+                    component.IsBroken |= threshold.Behaviors.Any(b => b is DoActsBehavior doActsBehavior &&
+                        (doActsBehavior.HasAct(ThresholdActs.Breakage) || doActsBehavior.HasAct(ThresholdActs.Destruction)));
                 }
 
                 // if destruction behavior (or some other deletion effect) occurred, don't run other triggers.

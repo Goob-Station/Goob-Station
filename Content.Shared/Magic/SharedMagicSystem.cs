@@ -59,7 +59,6 @@
 // SPDX-FileCopyrightText: 2024 foboscheshir <156405958+foboscheshir@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
@@ -75,19 +74,30 @@
 // SPDX-FileCopyrightText: 2025 ActiveMammmoth <kmcsmooth@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.Changeling;
+using Content.Goobstation.Common.Religion;
 using Content.Shared._Goobstation.Wizard;
 using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared._Goobstation.Wizard.Chuuni;
 using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
+using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Actions;
 using Content.Shared.Body.Components;
@@ -96,7 +106,7 @@ using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Damage;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Ghost;
 using Content.Shared.Gibbing.Events;
 using Content.Shared.Hands.Components;
@@ -162,6 +172,7 @@ public abstract class SharedMagicSystem : EntitySystem
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!; // Goobstation
@@ -182,6 +193,7 @@ public abstract class SharedMagicSystem : EntitySystem
         SubscribeLocalEvent<ChargeSpellEvent>(OnChargeSpell);
         SubscribeLocalEvent<RandomGlobalSpawnSpellEvent>(OnRandomGlobalSpawnSpell);
         SubscribeLocalEvent<MindSwapSpellEvent>(OnMindSwapSpell);
+
 
         // Spell wishlist
         //  A wishlish of spells that I'd like to implement or planning on implementing in a future PR
@@ -326,6 +338,14 @@ public abstract class SharedMagicSystem : EntitySystem
         var ev = new BeforeCastSpellEvent(performer);
         RaiseLocalEvent(spell, ref ev);
         return !ev.Cancelled;
+    }
+
+    private bool IsTouchSpellDenied(EntityUid target) // Goob edit
+    {
+        var ev = new BeforeCastTouchSpellEvent(target);
+        RaiseLocalEvent(target, ev, true);
+
+        return ev.Cancelled;
     }
 
     #region Spells
@@ -488,17 +508,17 @@ public abstract class SharedMagicSystem : EntitySystem
         var toCoords = ev.Coords.Value; // Goob edit
 
         // If applicable, this ensures the projectile is parented to grid on spawn, instead of the map.
-        var fromMap = fromCoords.ToMap(EntityManager, _transform);
+        var fromMap = _transform.ToMapCoordinates(fromCoords);
         var spawnCoords = _mapManager.TryFindGridAt(fromMap, out var gridUid, out _)
-            ? fromCoords.WithEntityId(gridUid, EntityManager)
+            ? _transform.WithEntityId(fromCoords, gridUid)
             : new(_mapManager.GetMapEntityId(fromMap.MapId), fromMap.Position);
 
         var userVelocity = _physics.GetMapLinearVelocity(spawnCoords); // Goob edit
 
         var ent = Spawn(ev.Prototype, spawnCoords);
-        var direction = toCoords.ToMapPos(EntityManager, _transform) -
-                        spawnCoords.ToMapPos(EntityManager, _transform);
-        _gunSystem.ShootProjectile(ent, direction, userVelocity, ev.Performer, ev.Performer);
+        var direction = _transform.ToMapCoordinates(toCoords).Position -
+                        _transform.ToMapCoordinates(spawnCoords).Position;
+        _gunSystem.ShootProjectile(ent, direction, userVelocity, ev.Performer, ev.Performer, ev.Speed); // Goob edit
 
         if (ev.Entity != null) // Goobstation
             _gunSystem.SetTarget(ent, ev.Entity.Value, out _);
@@ -511,6 +531,14 @@ public abstract class SharedMagicSystem : EntitySystem
     {
         if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
+
+        if (IsTouchSpellDenied(ev.Target))
+        {
+            if (ev.DoSpeech)
+                Speak(ev);
+            ev.Handled = true;
+            return;
+        }
 
         ev.Handled = true;
         if (ev.DoSpeech)
@@ -594,6 +622,13 @@ public abstract class SharedMagicSystem : EntitySystem
     {
         if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
+
+        if (IsTouchSpellDenied(ev.Target))
+        {
+            Speak(ev);
+            ev.Handled = true;
+            return;
+        }
 
         ev.Handled = true;
         Speak(ev);
@@ -708,6 +743,13 @@ public abstract class SharedMagicSystem : EntitySystem
     {
         if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
+
+        if (IsTouchSpellDenied(ev.Target)) // Goobstation
+        {
+            Speak(ev);
+            ev.Handled = true;
+            return;
+        }
 
         // Goobstation start
         if (_mobState.IsIncapacitated(ev.Target) || HasComp<ZombieComponent>(ev.Target))
@@ -920,8 +962,8 @@ public abstract class SharedMagicSystem : EntitySystem
                     -invocationEv.ToHeal,
                     true,
                     false,
-                    canSever: false,
-                    targetPart: TargetBodyPart.All);
+                    targetPart: TargetBodyPart.All,
+                    splitDamage: SplitDamageBehavior.SplitEnsureAll); // Shitmed Change
             }
         }
 

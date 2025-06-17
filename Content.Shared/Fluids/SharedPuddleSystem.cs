@@ -17,7 +17,7 @@ using Content.Shared.Chemistry.Reagent;
 using Content.Shared.DoAfter;
 using Content.Shared.DragDrop;
 using Content.Shared.Examine;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Fluids.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.StepTrigger.Components;
@@ -118,7 +118,7 @@ public abstract partial class SharedPuddleSystem : EntitySystem
             {
                 if (CanFullyEvaporate(solution))
                     args.PushMarkup(Loc.GetString("puddle-component-examine-evaporating"));
-                else if (solution.GetTotalPrototypeQuantity(EvaporationReagents) > FixedPoint2.Zero)
+                else if (solution.GetTotalPrototypeQuantity(GetEvaporatingReagents(solution)) > FixedPoint2.Zero)
                     args.PushMarkup(Loc.GetString("puddle-component-examine-evaporating-partial"));
                 else
                     args.PushMarkup(Loc.GetString("puddle-component-examine-evaporating-no"));

@@ -167,7 +167,6 @@
       - PosterLegitJustAWeekAway
       - PosterLegitSecWatch
       - PosterLegitVacation
-      - PosterLegitPeriodicTable
       - PosterLegitRenault
       - PosterLegitNTTGC
       - PosterLegitSafetyMothDelam
@@ -197,4 +196,5 @@
       - PosterContrabandGoobChuckler # Goobstation
       - PosterContrabandGoobYakub # Goobstation
       - PosterLegitOppenhopper
+      - PosterLegitTyrone
     chance: 1

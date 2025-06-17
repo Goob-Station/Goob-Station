@@ -24,7 +24,8 @@
   sprites:
     Head: MobMothHead
     Snout: MobHumanoidAnyMarking
-    Chest: MobMothTorso
+    Chest: MobMothChest
+    Groin: MobMothGroin
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
@@ -100,22 +101,40 @@
     state: head_f
 
 - type: humanoidBaseSprite
-  id: MobMothTorso
+  id: MobMothChest
   baseSprite:
     sprite: Mobs/Species/Moth/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobMothTorsoMale
+  id: MobMothChestMale
   baseSprite:
     sprite: Mobs/Species/Moth/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobMothTorsoFemale
+  id: MobMothChestFemale
   baseSprite:
     sprite: Mobs/Species/Moth/parts.rsi
-    state: torso_f
+    state: chest_f
+
+- type: humanoidBaseSprite
+  id: MobMothGroin
+  baseSprite:
+    sprite: Mobs/Species/Moth/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobMothGroinMale
+  baseSprite:
+    sprite: Mobs/Species/Moth/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobMothGroinFemale
+  baseSprite:
+    sprite: Mobs/Species/Moth/parts.rsi
+    state: groin_f
 
 - type: humanoidBaseSprite
   id: MobMothLLeg

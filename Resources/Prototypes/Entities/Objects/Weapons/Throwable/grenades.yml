@@ -7,7 +7,7 @@
 # SPDX-FileCopyrightText: 2020 Metal Gear Sloth <metalgearsloth@gmail.com>
 # SPDX-FileCopyrightText: 2020 Paul Ritter <ritter.paul1@googlemail.com>
 # SPDX-FileCopyrightText: 2020 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2020 py01 <pyronetics01@gmail.com>
 # SPDX-FileCopyrightText: 2021 BulletGrade <66234359+BulletGrade@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2021 Galactic Chimp <GalacticChimpanzee@gmail.com>
@@ -110,10 +110,17 @@
 # SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -134,7 +141,7 @@
     slots:
     - Belt
   - type: OnUseTimerTrigger
-    delay: 3.5
+    delay: 3
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -157,6 +164,7 @@
   - type: Tag # Goobstation
     tags:
     - Grenade
+    - HandGrenade
 
 - type: entity
   name: explosive grenade
@@ -206,6 +214,7 @@
   - type: Flashbang # Goobstation
   - type: Tag
     tags:
+    - HandGrenade
     - GrenadeFlashBang
 
 - type: entity
@@ -330,9 +339,9 @@
           path: /Audio/Effects/Grenades/Supermatter/supermatter_loop.ogg
       - type: GravityWell
         maxRange: 8
-        baseRadialAcceleration: 145
-        baseTangentialAcceleration: 5
-        gravPulsePeriod: 0.01
+        baseRadialAcceleration: 8
+        baseTangentialAcceleration: .5
+        gravPulsePeriod: 0.02
       - type: SingularityDistortion
         intensity: 150
         falloffPower: 1.5
@@ -440,6 +449,9 @@
       map: [ "enum.ConstructionVisuals.Layer" ]
   - type: Item
     size: Small
+  - type: Tag
+    tags:
+    - HandGrenade
   - type: PayloadCase
   - type: Construction
     graph: ModularGrenadeGraph
@@ -499,7 +511,7 @@
     sprite: Objects/Weapons/Grenades/holyhandgrenade.rsi
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: Default # same as macrobomb
+    explosionType: Holy # Shitchap
     totalIntensity: 3500
     intensitySlope: 15
     maxIntensity: 70
@@ -569,13 +581,15 @@
   parent: [ BaseEngineeringContraband, SmokeGrenade ]
   id: MetalFoamGrenade
   name: metal foam grenade
-  description: An emergency tool used for patching up holes. Almost as good as real walls.
+  description: An emergency tool used for patching breaches with special quick-set metal foam. Almost as good as real walls.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/metalfoam.rsi
+  - type: OnUseTimerTrigger
+    delay: 1.5
   - type: SmokeOnTrigger
-    duration: 10
-    spreadAmount: 13
+    duration: 2
+    spreadAmount: 5
     smokePrototype: AluminiumMetalFoam
   - type: StaticPrice
     price: 350
@@ -609,6 +623,8 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/syndgrenade.rsi
+  - type: OnUseTimerTrigger
+    delay: 5
   - type: SoundOnTrigger
     sound:
       path: /Audio/Effects/Emotes/parp1.ogg

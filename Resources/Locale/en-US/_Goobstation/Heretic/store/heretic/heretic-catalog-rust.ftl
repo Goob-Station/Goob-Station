@@ -27,7 +27,7 @@ knowledge-path-rust-s1-desc =
     "Let me tell you a story", said the Blacksmith, as he gazed deep into his rusty blade.
 
     Opens up the Path of Rust to you.
-    Allows you to transmute a knife with any trash item into a Rusty Blade.
+    Allows you to transmute a knife with any trash item into a Rusty Blade. Limit of two at a time.
 
 knowledge-path-rust-s2-name = Grasp of Rust
 knowledge-path-rust-s2-desc =
