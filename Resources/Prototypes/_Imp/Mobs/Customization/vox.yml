@@ -5,6 +5,11 @@
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Vox ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+      fallbackColor: "#666666"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Vox/chest.rsi
     state: claw
@@ -103,6 +108,11 @@
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [ Vox ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+      fallbackColor: "#666666"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Vox/head.rsi
     state: bigslashleft
@@ -112,6 +122,11 @@
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [ Vox ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+      fallbackColor: "#666666"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Vox/head.rsi
     state: bigslashright
@@ -121,6 +136,11 @@
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [ Vox ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+      fallbackColor: "#666666"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Vox/head.rsi
     state: roadrashleft
@@ -130,6 +150,11 @@
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [ Vox ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+      fallbackColor: "#666666"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Vox/head.rsi
     state: roadrashright
@@ -139,6 +164,11 @@
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [ Vox ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+      fallbackColor: "#666666"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Vox/head.rsi
     state: slashleft
@@ -148,6 +178,11 @@
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [ Vox ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+      fallbackColor: "#666666"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Vox/head.rsi
     state: slashright
@@ -374,6 +409,11 @@
   bodyPart: LHand
   markingCategory: Arms
   speciesRestriction: [ Vox ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#E4E4E4"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Vox/lhand.rsi
     state: prosthetic
@@ -398,6 +438,11 @@
   bodyPart: RHand
   markingCategory: Arms
   speciesRestriction: [ Vox ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#E4E4E4"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Vox/rhand.rsi
     state: prosthetic
@@ -626,6 +671,8 @@
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Vox ]
+  forcedColoring: true
+  followSkinColor: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/Vox/tail.rsi
     state: colorable
@@ -635,6 +682,8 @@
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Vox ]
+  forcedColoring: true
+  followSkinColor: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/Vox/tail.rsi
     state: balled
@@ -720,6 +769,8 @@
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Vox ]
+  forcedColoring: true
+  followSkinColor: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/Vox/tail.rsi
     state: split

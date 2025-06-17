@@ -45,6 +45,11 @@
   bodyPart: Snout
   markingCategory: Overlay
   speciesRestriction: [ Reptilian ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Reptilian/snout.rsi
     state: fangs
@@ -71,7 +76,13 @@
   id: LizardSnoutpiercings
   bodyPart: Snout
   markingCategory: Overlay
+  forcedColoring: true
   speciesRestriction: [ Reptilian ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Reptilian/snout.rsi
     state: piercings1
@@ -79,6 +90,7 @@
 - type: marking
   id: LizardSnoutTall
   bodyPart: Snout
+  forcedColoring: true
   markingCategory: Snout
   speciesRestriction: [ Reptilian ]
   sprites:

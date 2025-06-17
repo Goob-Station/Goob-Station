@@ -16,6 +16,11 @@
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
     state: cuthere
@@ -25,6 +30,11 @@
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
     state: heavy1
@@ -38,6 +48,11 @@
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#ffc833"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
     state: necklace
@@ -84,6 +99,11 @@
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Human, Dwarf, Reptilian ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#E4E4E4"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
     state: prostheticshoulderleft
@@ -93,6 +113,11 @@
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Human, Dwarf, Reptilian ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#E4E4E4"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
     state: prostheticshoulderright
@@ -102,6 +127,11 @@
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#3894C5"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
     state: anchor
@@ -111,6 +141,11 @@
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#ffffff"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
     state: code1
@@ -120,6 +155,11 @@
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#ffffff"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
     state: code2
@@ -129,6 +169,11 @@
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#ffffff"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
     state: code3
@@ -149,6 +194,11 @@
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Human, Dwarf, SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
     state: nanotrasen
@@ -167,6 +217,11 @@
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#379d0e"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
     state: vines
@@ -176,6 +231,12 @@
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Human, Dwarf ]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFE5D6"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
     state: vitiligo
@@ -185,6 +246,12 @@
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Human, Dwarf ]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFE5D6"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
     state: vitiligospots
@@ -223,6 +290,11 @@
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/head.rsi
     state: heavy1
@@ -270,6 +342,12 @@
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [ Human, Dwarf ]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFE5D6"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/head.rsi
     state: vitiligojaw
@@ -279,6 +357,12 @@
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [ Human, Dwarf ]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFE5D6"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/head.rsi
     state: vitiligoleft
@@ -288,6 +372,12 @@
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [ Human, Dwarf ]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFE5D6"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/head.rsi
     state: vitiligoright
@@ -299,6 +389,11 @@
   bodyPart: Snout
   markingCategory: Snout
   speciesRestriction: [ Human, Dwarf ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#ffc833"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/snout.rsi
     state: septum
@@ -312,6 +407,11 @@
   bodyPart: RArm
   markingCategory: Arms
   speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/rarm.rsi
     state: doll
@@ -321,6 +421,11 @@
   bodyPart: RArm
   markingCategory: Arms
   speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/rarm.rsi
     state: heavy1
@@ -332,6 +437,11 @@
   bodyPart: RArm
   markingCategory: Arms
   speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#E4E4E4"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/rarm.rsi
     state: prosthetic
@@ -350,6 +460,13 @@
   bodyPart: RArm
   markingCategory: Arms
   speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson]
+  followSkinColor: false
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#ffffff"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/rarm.rsi
     state: code4
@@ -359,6 +476,13 @@
   bodyPart: RArm
   markingCategory: Arms
   speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson]
+  followSkinColor: false
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#ffffff"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/rarm.rsi
     state: code5
@@ -368,6 +492,13 @@
   bodyPart: RArm
   markingCategory: Arms
   speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson]
+  followSkinColor: false
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#ff254c"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/rarm.rsi
     state: heart
@@ -377,6 +508,12 @@
   bodyPart: RArm
   markingCategory: Arms
   speciesRestriction: [ Human, Dwarf ]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFE5D6"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/rarm.rsi
     state: vitiligo
@@ -388,6 +525,11 @@
   bodyPart: LArm
   markingCategory: Arms
   speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/larm.rsi
     state: doll
@@ -397,6 +539,11 @@
   bodyPart: LArm
   markingCategory: Arms
   speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/larm.rsi
     state: heavy1
@@ -408,6 +555,11 @@
   bodyPart: LArm
   markingCategory: Arms
   speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#E4E4E4"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/larm.rsi
     state: prosthetic
@@ -426,6 +578,13 @@
   bodyPart: LArm
   markingCategory: Arms
   speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson]
+  followSkinColor: false
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#ff254c"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/larm.rsi
     state: heart
@@ -435,6 +594,12 @@
   bodyPart: LArm
   markingCategory: Arms
   speciesRestriction: [ Human, Dwarf ]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFE5D6"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/larm.rsi
     state: vitiligo
@@ -446,6 +611,11 @@
   bodyPart: RLeg
   markingCategory: Legs
   speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/rleg.rsi
     state: doll
@@ -455,6 +625,11 @@
   bodyPart: RLeg
   markingCategory: Legs
   speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/rleg.rsi
     state: heavy1
@@ -466,6 +641,11 @@
   bodyPart: RLeg
   markingCategory: Legs
   speciesRestriction: [ Human, Arachnid, Dwarf, SlimePerson]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#E4E4E4"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/rleg.rsi
     state: prosthetic
@@ -484,6 +664,12 @@
   bodyPart: RLeg
   markingCategory: Legs
   speciesRestriction: [ Human, Dwarf ]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFE5D6"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/rleg.rsi
     state: vitiligo
@@ -495,6 +681,11 @@
   bodyPart: LLeg
   markingCategory: Legs
   speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/lleg.rsi
     state: doll
@@ -504,6 +695,11 @@
   bodyPart: LLeg
   markingCategory: Legs
   speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/lleg.rsi
     state: heavy1
@@ -515,6 +711,11 @@
   bodyPart: LLeg
   markingCategory: Legs
   speciesRestriction: [ Human, Arachnid, Dwarf, SlimePerson]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#E4E4E4"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/lleg.rsi
     state: prosthetic
@@ -533,6 +734,12 @@
   bodyPart: LLeg
   markingCategory: Legs
   speciesRestriction: [ Human, Dwarf ]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFE5D6"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/lleg.rsi
     state: vitiligo
@@ -544,6 +751,11 @@
   bodyPart: LFoot
   markingCategory: Legs
   speciesRestriction: [ Human, Arachnid, Dwarf, SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/lfoot.rsi
     state: doll
@@ -553,6 +765,11 @@
   bodyPart: LFoot
   markingCategory: Legs
   speciesRestriction: [ Human, Arachnid, Dwarf, SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/lfoot.rsi
     state: heavy1
@@ -564,6 +781,11 @@
   bodyPart: LFoot
   markingCategory: Legs
   speciesRestriction: [ Human, Arachnid, Dwarf, SlimePerson]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#E4E4E4"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/lfoot.rsi
     state: prosthetic
@@ -575,6 +797,11 @@
   bodyPart: RFoot
   markingCategory: Legs
   speciesRestriction: [ Human, Arachnid, Dwarf, SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/rfoot.rsi
     state: doll
@@ -584,6 +811,11 @@
   bodyPart: RFoot
   markingCategory: Legs
   speciesRestriction: [ Human, Arachnid, Dwarf, SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/rfoot.rsi
     state: heavy1
@@ -595,6 +827,11 @@
   bodyPart: RFoot
   markingCategory: Legs
   speciesRestriction: [ Human, Arachnid, Dwarf, SlimePerson]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#E4E4E4"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/rfoot.rsi
     state: prosthetic
@@ -606,6 +843,11 @@
   bodyPart: LHand
   markingCategory: Arms
   speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#ffc833"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/lhand.rsi
     state: bracelet
@@ -615,6 +857,11 @@
   bodyPart: LHand
   markingCategory: Arms
   speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/lhand.rsi
     state: doll
@@ -624,6 +871,11 @@
   bodyPart: LHand
   markingCategory: Arms
   speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/lhand.rsi
     state: heavy1
@@ -635,6 +887,11 @@
   bodyPart: LHand
   markingCategory: Arms
   speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#E4E4E4"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/lhand.rsi
     state: prosthetic
@@ -644,6 +901,11 @@
   bodyPart: LHand
   markingCategory: Arms
   speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#ffc833"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/lhand.rsi
     state: rings1
@@ -664,6 +926,12 @@
   bodyPart: LHand
   markingCategory: Arms
   speciesRestriction: [ Human, Dwarf ]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFE5D6"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/lhand.rsi
     state: vitiligo
@@ -675,6 +943,11 @@
   bodyPart: RHand
   markingCategory: Arms
   speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#ffc833"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/rhand.rsi
     state: bracelet
@@ -684,6 +957,11 @@
   bodyPart: RHand
   markingCategory: Arms
   speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/rhand.rsi
     state: doll
@@ -693,6 +971,11 @@
   bodyPart: RHand
   markingCategory: Arms
   speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/rhand.rsi
     state: heavy1
@@ -704,6 +987,11 @@
   bodyPart: RHand
   markingCategory: Arms
   speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#E4E4E4"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/rhand.rsi
     state: prosthetic
@@ -713,6 +1001,11 @@
   bodyPart: RHand
   markingCategory: Arms
   speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#ffc833"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/rhand.rsi
     state: rings1
@@ -733,6 +1026,12 @@
   bodyPart: RHand
   markingCategory: Arms
   speciesRestriction: [ Human, Dwarf ]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFE5D6"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/rhand.rsi
     state: vitiligo
@@ -976,6 +1275,11 @@
   bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [ Human, Dwarf, SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#ffc833"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/headtop.rsi
     state: earrings1
@@ -987,6 +1291,11 @@
   bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [ Human, Dwarf, SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#ffc833"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/headtop.rsi
     state: earringsdrop1
@@ -998,6 +1307,11 @@
   bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [ Human, Dwarf, SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#ffc833"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/headtop.rsi
     state: earringsweights1

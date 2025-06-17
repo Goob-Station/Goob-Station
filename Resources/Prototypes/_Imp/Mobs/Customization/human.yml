@@ -39,6 +39,7 @@
   bodyPart: HeadTop
   markingCategory: Head
   speciesRestriction: [ Human ]
+  forcedColoring: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/Human/headtop.rsi
     state: fly

@@ -14,6 +14,11 @@
   bodyPart: Chest
   markingCategory: Overlay
   speciesRestriction: [ Dwarf ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Dwarf/chest.rsi
     state: constellation
@@ -24,6 +29,11 @@
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Dwarf ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Dwarf/chest.rsi
     state: markbear
@@ -34,6 +44,11 @@
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Dwarf ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Dwarf/chest.rsi
     state: markcobra
@@ -44,6 +59,11 @@
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Dwarf ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Dwarf/chest.rsi
     state: markspider
@@ -53,6 +73,11 @@
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Dwarf ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Dwarf/chest.rsi
     state: shootingstar
@@ -74,6 +99,11 @@
   bodyPart: Head
   markingCategory: Overlay
   speciesRestriction: [ Dwarf ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Dwarf/head.rsi
     state: constellation
@@ -100,6 +130,11 @@
   bodyPart: RArm
   markingCategory: Overlay
   speciesRestriction: [ Dwarf ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Dwarf/rarm.rsi
     state: constellation
@@ -120,6 +155,11 @@
   bodyPart: LArm
   markingCategory: Overlay
   speciesRestriction: [ Dwarf ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Dwarf/larm.rsi
     state: constellation
@@ -131,6 +171,11 @@
   bodyPart: RLeg
   markingCategory: Overlay
   speciesRestriction: [ Dwarf ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Dwarf/rleg.rsi
     state: constellation
@@ -142,6 +187,11 @@
   bodyPart: LLeg
   markingCategory: Overlay
   speciesRestriction: [ Dwarf ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Dwarf/lleg.rsi
     state: constellation
@@ -166,6 +216,11 @@
   bodyPart: LFoot
   markingCategory: Overlay
   speciesRestriction: [ Dwarf ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Dwarf/lfoot.rsi
     state: constellation
@@ -177,6 +232,11 @@
   bodyPart: RFoot
   markingCategory: Overlay
   speciesRestriction: [ Dwarf ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Dwarf/rfoot.rsi
     state: constellation
@@ -188,6 +248,11 @@
   bodyPart: LHand
   markingCategory: Overlay
   speciesRestriction: [ Dwarf ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Dwarf/lhand.rsi
     state: constellation
@@ -197,6 +262,11 @@
   bodyPart: LHand
   markingCategory: Arms
   speciesRestriction: [ Dwarf ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Dwarf/lhand.rsi
     state: markkangaroo
@@ -208,6 +278,11 @@
   bodyPart: RHand
   markingCategory: Overlay
   speciesRestriction: [ Dwarf ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Dwarf/rhand.rsi
     state: constellation
@@ -217,6 +292,11 @@
   bodyPart: RHand
   markingCategory: Arms
   speciesRestriction: [ Dwarf ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
   sprites:
   - sprite: _Impstation/Mobs/Customization/Dwarf/rhand.rsi
     state: markkangaroo

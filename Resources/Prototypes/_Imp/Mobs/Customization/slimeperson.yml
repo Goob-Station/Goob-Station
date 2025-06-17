@@ -25,6 +25,11 @@
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#F8F8F8"
   sprites:
   - sprite: _Impstation/Mobs/Customization/SlimePerson/chest.rsi
     state: bone
@@ -34,6 +39,11 @@
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ SlimePerson ]
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
   sprites:
   - sprite: _Impstation/Mobs/Customization/SlimePerson/chest.rsi
     state: core
@@ -43,6 +53,11 @@
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ SlimePerson ]
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
   sprites:
   - sprite: _Impstation/Mobs/Customization/SlimePerson/chest.rsi
     state: core
@@ -53,6 +68,7 @@
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ SlimePerson ]
+  followSkinColor: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/SlimePerson/chest.rsi
     state: lungs
@@ -87,6 +103,11 @@
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [ SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#F8F8F8"
   sprites:
   - sprite: _Impstation/Mobs/Customization/SlimePerson/head.rsi
     state: bone
@@ -96,6 +117,8 @@
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [ SlimePerson ]
+  forcedColoring: true
+  followSkinColor: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/SlimePerson/head.rsi
     state: nose
@@ -105,6 +128,7 @@
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [ SlimePerson ]
+  followSkinColor: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/SlimePerson/head.rsi
     state: mouth
@@ -114,6 +138,7 @@
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [ SlimePerson ]
+  followSkinColor: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/SlimePerson/head.rsi
     state: brain
@@ -127,6 +152,11 @@
   bodyPart: Eyes
   markingCategory: Head
   speciesRestriction: [ SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+        negative: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/SlimePerson/eyes.rsi
     state: glow
@@ -137,6 +167,11 @@
   bodyPart: Eyes
   markingCategory: Head
   speciesRestriction: [ SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+        negative: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/SlimePerson/eyes.rsi
     state: droopy
@@ -146,6 +181,11 @@
   bodyPart: Eyes
   markingCategory: Head
   speciesRestriction: [ SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+        negative: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/SlimePerson/eyes.rsi
     state: droopyglow
@@ -156,6 +196,11 @@
   bodyPart: Eyes
   markingCategory: Head
   speciesRestriction: [ SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+        negative: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/SlimePerson/eyes.rsi
     state: cyclops
@@ -165,6 +210,11 @@
   bodyPart: Eyes
   markingCategory: Head
   speciesRestriction: [ SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+        negative: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/SlimePerson/eyes.rsi
     state: cyclopsglow
@@ -177,6 +227,11 @@
   bodyPart: RArm
   markingCategory: Arms
   speciesRestriction: [ SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#F8F8F8"
   sprites:
   - sprite: _Impstation/Mobs/Customization/SlimePerson/rarm.rsi
     state: bone
@@ -188,6 +243,11 @@
   bodyPart: LArm
   markingCategory: Arms
   speciesRestriction: [ SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#F8F8F8"
   sprites:
   - sprite: _Impstation/Mobs/Customization/SlimePerson/larm.rsi
     state: bone
@@ -199,6 +259,11 @@
   bodyPart: RLeg
   markingCategory: Legs
   speciesRestriction: [ SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#F8F8F8"
   sprites:
   - sprite: _Impstation/Mobs/Customization/SlimePerson/rleg.rsi
     state: bone
@@ -210,6 +275,11 @@
   bodyPart: LLeg
   markingCategory: Legs
   speciesRestriction: [ SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#F8F8F8"
   sprites:
   - sprite: _Impstation/Mobs/Customization/SlimePerson/lleg.rsi
     state: bone
@@ -225,6 +295,11 @@
   bodyPart: LFoot
   markingCategory: Legs
   speciesRestriction: [ SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#F8F8F8"
   sprites:
   - sprite: _Impstation/Mobs/Customization/SlimePerson/lfoot.rsi
     state: bone
@@ -236,6 +311,11 @@
   bodyPart: RFoot
   markingCategory: Legs
   speciesRestriction: [ SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#F8F8F8"
   sprites:
   - sprite: _Impstation/Mobs/Customization/SlimePerson/rfoot.rsi
     state: bone
@@ -247,6 +327,11 @@
   bodyPart: LHand
   markingCategory: Arms
   speciesRestriction: [ SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#F8F8F8"
   sprites:
   - sprite: _Impstation/Mobs/Customization/SlimePerson/lhand.rsi
     state: bone
@@ -258,6 +343,11 @@
   bodyPart: RHand
   markingCategory: Arms
   speciesRestriction: [ SlimePerson ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#F8F8F8"
   sprites:
   - sprite: _Impstation/Mobs/Customization/SlimePerson/rhand.rsi
     state: bone
