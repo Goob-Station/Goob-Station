@@ -15,7 +15,7 @@
 
 - type: entity
   id: BlueshieldUndeterminedWeapon
-  name: blueshield weaponry pack
+  name: blueshield sets pack
   description: A small box utilizing bluespace technology to drop in a loadout directly to you. Choose wisely.
   parent: [ BaseItem, BaseSetSelector, BaseCentcommContraband ]
   components:
@@ -28,6 +28,7 @@
     - BSORevolverSet
     - BSOCQCSet
     - BSOChesterSet
+    - BSOSyringeSet
     maxSelectedSets: 2
 
 
