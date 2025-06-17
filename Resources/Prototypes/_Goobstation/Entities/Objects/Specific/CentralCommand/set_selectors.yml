@@ -28,6 +28,20 @@
     - BSORevolverSet
     - BSOCQCSet
     - BSOChesterSet
+    maxSelectedSets: 2
+
+
+- type: entity
+  id: BlueshieldUndeterminedHardsuit
+  name: blueshield hardsuit pack
+  description: A small box utilizing bluespace technology to drop in a loadout directly to you. Choose wisely.
+  parent: [ BaseItem, BaseSetSelector, BaseCentcommContraband ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Security/blueshieldundetermined.rsi
+    state: icon-alt
+  - type: SetSelector
+    possibleSets:
     - BSOHardsuitLightSet
     - BSOModsuitSet
     maxSelectedSets: 2
