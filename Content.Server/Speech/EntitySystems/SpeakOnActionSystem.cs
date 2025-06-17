@@ -9,6 +9,8 @@ using Content.Shared._Goobstation.Wizard.Chuuni;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Magic.Components;
 using Content.Shared.Damage;
+using Content.Shared.Chat;
+using Content.Shared._Shitmed.Damage;
 
 
 namespace Content.Server.Speech.EntitySystems;
@@ -53,7 +55,7 @@ public sealed class SpeakOnActionSystem : SharedSpeakOnActionSystem
                     true,
                     false,
                     targetPart: TargetBodyPart.All,
-                    splitDamage: false); // Shitmed Change
+                    splitDamage: SplitDamageBehavior.SplitEnsureAll); // Shitmed Change
             }
         }
 
