@@ -1,25 +1,4 @@
 ﻿Entries:
-- author: K-Dynamic
-  changes:
-  - message: Syndicate commander hardsuit now slows movement by 10%.
-    type: Tweak
-  id: 8170
-  time: '2025-04-14T05:37:51.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/35805
-- author: YoungThugSS14
-  changes:
-  - message: Binoculars can now be worn on the neck.
-    type: Tweak
-  id: 8171
-  time: '2025-04-14T06:34:20.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/35759
-- author: K-Dynamic
-  changes:
-  - message: Drawings from blue and green crayons now match their colours.
-    type: Tweak
-  id: 8172
-  time: '2025-04-14T08:58:42.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/36532
 - author: PJB3005
   changes:
   - message: Fire extinguishers can now extinguish things like candles and cigarettes.
@@ -3912,3 +3891,25 @@
   id: 8682
   time: '2025-06-16T22:47:31.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/38123
+- author: kosticia
+  changes:
+  - message: Hyposprays are now predicted.
+    type: Tweak
+  id: 8683
+  time: '2025-06-17T00:08:09.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/38046
+- author: august-sun
+  changes:
+  - message: Added the Estoc DMR, a burst-fire marksman rifle with an optic. Available
+      for syndicate operatives at 18 TC.
+    type: Add
+  id: 8684
+  time: '2025-06-17T00:20:08.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/38122
+- author: Citrea-Lingua
+  changes:
+  - message: Handheld artifact containers can now properly store handheld artifacts.
+    type: Fix
+  id: 8685
+  time: '2025-06-17T08:53:28.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/38383
