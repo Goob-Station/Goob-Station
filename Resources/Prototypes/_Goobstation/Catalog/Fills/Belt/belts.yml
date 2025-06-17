@@ -239,6 +239,7 @@
   - type: StorageFill
     contents:
     - id: EnergySpeedloaderLethal
+    - id: EnergySpeedloaderLethal
     - id: EnergySpeedloaderDisabler
 
 - type: entity
