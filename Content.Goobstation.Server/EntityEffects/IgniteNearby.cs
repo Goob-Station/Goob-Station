@@ -19,8 +19,6 @@ namespace Content.Goobstation.Server.EntityEffects;
 public sealed partial class IgniteNearby : EntityEffect
 {
 
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-
     [DataField]
     public float Range = 7;
 
@@ -33,10 +31,11 @@ public sealed partial class IgniteNearby : EntityEffect
 
     public override void Effect(EntityEffectBaseArgs args)
     {
+        var lookupSys = args.EntityManager.System<EntityLookupSystem>();
         var flamSys = args.EntityManager.System<FlammableSystem>();
         if (args is EntityEffectReagentArgs reagentArgs)
         {
-            var lookup = _lookup.GetEntitiesInRange(args.TargetEntity, Range);
+            var lookup = lookupSys.GetEntitiesInRange(args.TargetEntity, Range);
             var flammableEntities = lookup
                 .Where(entity =>
                     entity != null && args.EntityManager.TryGetComponent(entity, out FlammableComponent? flammable))
