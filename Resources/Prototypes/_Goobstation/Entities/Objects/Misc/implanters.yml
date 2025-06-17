@@ -199,6 +199,14 @@
   - type: Implanter
     implant: KravMagaImplant
 
+- type: entity
+  id: BinaryImplanter
+  name: binary decoder implanter
+  parent: BaseImplantOnlyImplanterSyndi
+  components:
+  - type: Implanter
+    implant: BinaryImplant
+
 # Admeme
 
 - type: entity

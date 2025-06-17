@@ -198,7 +198,7 @@
   - ToolboxSyndicateFilled
   - ClothingUniformJumpsuitAtmosSyndie
   - ClothingEyesGlassesOutlawGlasses
-  - EncryptionKeyBinarySyndicate
+  - BinaryImplanter
 
 - type: selectableSet
   id: SyndicateDeswordSet

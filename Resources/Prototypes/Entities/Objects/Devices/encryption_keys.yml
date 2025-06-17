@@ -311,7 +311,6 @@
   description: An encryption key that translates binary signals used by silicons.
   components:
   # Goobstation - replaced with collective mind
-  # wyci
   #- type: EncryptionKey
   #  channels:
   #  - Binary
@@ -328,7 +327,6 @@
   description: A syndicate encryption key that translates binary signals used by silicons.
   components:
   # Goobstation - replaced with collective mind
-  # wyci
   #- type: EncryptionKey
   #  channels:
   #  - Binary

@@ -144,6 +144,16 @@
   components:
   - type: StypticStimulatorImplant
 
+- type: entity
+  parent: BaseSubdermalImplant
+  id: BinaryImplant
+  name: binary decoder implant
+  description: This implant allows the user to access Binary and communicate with silicons (use +b).
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ImplantGrantCollectiveMind
+    collectiveMind: Binary
+
 # Admeme
 
 - type: entity
