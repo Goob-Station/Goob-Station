@@ -7,7 +7,7 @@
 - type: entity
   name: nail
   parent: BaseItem
-  description: A tiny metal stick. It is probably used to fix walls.
+  description: A tiny metal stick. It is probably used to fix walls together with a hammer.
   id: Nail
   components:
   - type: Sprite
@@ -15,38 +15,26 @@
     state: icon
   - type: Item
     size: Tiny
-  - type: ProjectileDamageWhitelist
-    damage:
-      types:
-        Blunt: -6
-        Slash: -6
-        Piercing: -6
-        Heat: -6
-        Shock: -6
-        Structural: -6
-    ignoreResistances: true
-    whitelist:
-      tags:
-      - Wall # TODO: more types of nails for different structures
-  - type: MeleeWeapon
-    canHeavyAttack: false # How can you swing a nail
-    damage:
-      types:
-        Piercing: 12
-    animation: WeaponArcThrust
-    soundHit:
-      path: /Audio/Weapons/pierce.ogg
   - type: Projectile
+    deleteOnCollide: false
     onlyCollideWhenShot: true
     damage:
       types:
-        Piercing: 3
-      armorPenetration: -1 # Very shitty against armor. Pro tip: target unarmored body parts
+        Piercing: 2
+  - type: Reflective
+    reflective:
+    - NonEnergy
+  - type: EmbeddableProjectile
+    offset: "0, 0.2"
+    minimumSpeed: 1
+    removalTime: 0.1
+    embedOnThrow: true
+    sound: /Audio/Weapons/pierce.ogg
   - type: Fixtures
     fixtures:
       fix1:
         shape: !type:PhysShapeCircle
-          radius: 0.2
+          radius: 0.1
         density: 5
         mask:
         - ItemMask
@@ -55,30 +43,37 @@
       projectile:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.1,-0.3,0.1,0.3"
+          bounds: "-0.1,-0.2,0.1,0.2"
         hard: false
         mask:
         - Impassable
         - BulletImpassable
-  - type: CartridgeAmmo # Total goida. This is needed to examine the damage. TODO: just make bullets themselves examinable
-    proto: Nail
-    deleteOnSpawn: true
+  - type: ThrowingAngle
+    angle: 0
+  - type: Ammo
     muzzleFlash: null
+  - type: Nail
+    damage:
+      types:
+        Piercing: 10
+      armorPenetration: -0.25
+    damageToWhitelisted:
+      types:
+        Blunt: -10
+        Slash: -10
+        Piercing: -10
+        Heat: -10
+        Shock: -10
+        Structural: -10
+    whitelist:
+      tags:
+      - Wall
+  - type: ProjectileForceTarget # 1984
+    part: Chest
   - type: Tag
     tags:
     - Nail
     - Trash
-  - type: Multihit # You hit with the nail first and then with the hammer, makes sense right?
-    multihitWhitelist:
-      tags:
-      - Hammer
-    conditions:
-    - !type:MultihitUserWhitelistEvent
-      whitelist:
-        components:
-        - EngineeringStaff
-  - type: ProjectileForceTarget # 1984
-    part: Chest
 
 - type: entity
   name: nail (armor-piercing)
@@ -86,22 +81,20 @@
   description: A heavy nail designed to pierce through hard surfaces. Looks just like a regular nail, until it suddenly kills you.
   id: NailArmorPiercing
   components:
-  - type: CartridgeAmmo
-    proto: NailArmorPiercing
-  - type: Projectile
+  - type: Nail
     damage:
       types:
-        Piercing: 4
+        Piercing: 8
       armorPenetration: 0.75
-  - type: ProjectileDamageWhitelist
-    damage: # Worse for repairs
+    damageToWhitelisted:
       types:
-        Blunt: -3
-        Slash: -3
-        Piercing: -3
-        Heat: -3
-        Shock: -3
-        Structural: -3
+        Blunt: -6
+        Slash: -6
+        Piercing: -6
+        Heat: -6
+        Shock: -6
+        Structural: -6
+    autoHammerIntoNonWhitelisted: true
 
 - type: entity
   parent: BaseItem

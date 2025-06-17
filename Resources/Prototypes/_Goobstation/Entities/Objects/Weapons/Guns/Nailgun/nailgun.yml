@@ -30,9 +30,9 @@
     - Belt
     - suitStorage
   - type: AmmoCounter
+  - type: Nailgun
   - type: Gun
-    projectileSpeed: 30
-    fireRate: 12
+    fireRate: 6
     selectedMode: FullAuto
     availableModes:
     - FullAuto

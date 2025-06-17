@@ -33,6 +33,8 @@
         Structural: 10
   - type: Item
     size: Large
+  - type: Hammer # Goobstation - it's a hammer.
+    damageMultiplier: 1.5
 
 - type: entity
   id: Mjollnir
@@ -77,6 +79,8 @@
   - type: Item
     size: Ginormous
   - type: Boomerang # Goobstation
+  - type: Hammer # Goobstation - it's a hammer.
+    damageMultiplier: 2
 
 - type: entity
   id: SingularityHammer
@@ -118,3 +122,5 @@
         Structural: 15
   - type: Item
     size: Ginormous
+  - type: Hammer # Goobstation - it's a hammer.
+    damageMultiplier: 2

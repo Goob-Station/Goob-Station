@@ -704,7 +704,7 @@
   description: uplink-magazine-nailgun-desc
   productEntity: MagazineNailgunArmorPiercing
   cost:
-    Telecrystal: 2
+    Telecrystal: 3
   categories:
   - UplinkJob
   conditions:
