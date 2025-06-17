@@ -7,7 +7,7 @@
     state: ansible_crystal
   discipline: Experimental
   tier: 3
-  cost: 30000
+  cost: 7500
   recipeUnlocks:
   - MachineBluespaceHarvesterCircuitboard
   position: -5,-2
