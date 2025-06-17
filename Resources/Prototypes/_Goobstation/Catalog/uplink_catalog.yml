@@ -1,5 +1,4 @@
 # SPDX-FileCopyrightText: 2024 CMDR-Piboy314 <92357316+CMDR-Piboy314@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2024 NULL882 <gost6865@yandex.ru>
 # SPDX-FileCopyrightText: 2024 Piras314 <92357316+Piras314@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Preston Smith <92108534+thetolbean@users.noreply.github.com>
@@ -26,6 +25,7 @@
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
 # SPDX-FileCopyrightText: 2025 LuciferEOS <stepanteliatnik2022@gmail.com>
 # SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
@@ -50,6 +50,7 @@
 # SPDX-FileCopyrightText: 2025 terminatorbo <kovalevb059@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
+
 # Disruption
 
 - type: listing
@@ -285,9 +286,12 @@
   description: uplink-tcminer-desc
   productEntity: TCminerFlatpack
   cost:
-    Telecrystal: 60
+    Telecrystal: 100
   categories:
     - UplinkDisruption
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
 
 # Weaponry
 
@@ -693,6 +697,34 @@
   - !type:BuyerDepartmentCondition
     whitelist:
     - Medical
+
+- type: listing
+  id: UplinkMagazineNailgun
+  name: uplink-magazine-nailgun-name
+  description: uplink-magazine-nailgun-desc
+  productEntity: MagazineNailgunArmorPiercing
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerDepartmentCondition
+    whitelist:
+    - Engineering
+
+- type: listing
+  id: UplinkPKAUpgradePressure
+  name: uplink-pressure-modkit-name
+  description: uplink-pressure-modkit-desc
+  productEntity: PKAUpgradePressure
+  cost:
+    Telecrystal: 30
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - SalvageSpecialist
 
 # chemicals
 
@@ -1246,6 +1278,38 @@
     Telecrystal: 50  # Goob Bundle, get 8 pizza bombs and 7 regular pizzas. Bundle + Pizza boxes not telling the dangerous ones justifies the discount.
   categories:
   - UplinkExplosives
+
+- type: listing
+  id: UplinkM172
+  name: uplink-M172LAW-name
+  description: uplink-M172LAW-desc
+  productEntity: WeaponLauncherRocketDisposable
+  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Launchers/m172.rsi, state: icon }
+  cost:
+    Telecrystal: 6 # Basically a worse C4 but ranged
+  categories:
+  - UplinkExplosives
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkRPOA
+  name: uplink-RPOA-name
+  description: uplink-RPOA-desc
+  productEntity: WeaponLauncherRocketDisposableThermobaric
+  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Launchers/shmel.rsi, state: icon }
+  cost:
+    Telecrystal: 6 # one and a half incendiary grenades, takes up the same space as three
+  categories:
+  - UplinkExplosives
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
 
 # Misc
 - type: listing
