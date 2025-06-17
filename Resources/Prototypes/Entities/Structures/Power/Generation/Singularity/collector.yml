@@ -96,8 +96,6 @@
         powerGenerationEfficiency: 1
         reactantBreakdownRate: 0.0001
   - type: RadiationReceiver
-  - type: LightningTarget
-    lightningExplode: false
   - type: PowerSupplier
   - type: Anchorable
   - type: Rotatable
@@ -112,7 +110,6 @@
   - type: ItemSlots
     slots:
       gas_tank:
-        startingItem: PlasmaTank
         whitelist:
           components:
           - GasTank
@@ -130,6 +127,8 @@
       - RadFull
   - type: UseDelay
     delay: 1
+  - type: LightningTarget
+    lightningExplode: false
   - type: Machine # Goobstation - making tesla coils and radiation collectors craftable
     board: RadiationCollectorCircuitboard
 
