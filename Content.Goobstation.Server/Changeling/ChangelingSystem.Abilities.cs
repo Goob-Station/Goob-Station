@@ -51,6 +51,7 @@ using Content.Shared.Stealth.Components;
 using Content.Shared.Store.Components;
 using Content.Shared.Tag;
 using Content.Shared.Traits.Assorted;
+using Prometheus.DotNetRuntime.Metrics.Producers.Util;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -81,6 +82,7 @@ public sealed partial class ChangelingSystem
         SubscribeLocalEvent<ChangelingIdentityComponent, ToggleOrganicShieldEvent>(OnToggleShield);
         SubscribeLocalEvent<ChangelingIdentityComponent, ShriekDissonantEvent>(OnShriekDissonant);
         SubscribeLocalEvent<ChangelingIdentityComponent, ShriekResonantEvent>(OnShriekResonant);
+        SubscribeLocalEvent<ChangelingIdentityComponent, ShriekResonantEvent>(OnScreamHorrific);
         SubscribeLocalEvent<ChangelingIdentityComponent, ToggleStrainedMusclesEvent>(OnToggleStrainedMuscles);
         SubscribeLocalEvent<ChangelingIdentityComponent, ActionHorrorFormEvent>(OnHorrorForm);
 
@@ -515,6 +517,25 @@ public sealed partial class ChangelingSystem
             if (lights.HasComponent(ent))
                 _light.TryDestroyBulb(ent);
     }
+
+    private void OnScreamHorrific(EntityUid uid, ChangelingIdentityComponent comp, ref HorrificScreamEvent args)
+    {
+        if (!TryUseAbility(uid, comp, args))
+            return;
+
+        DoScreech(uid, comp);
+
+        var power = comp.ShriekPower * 2;
+        var duration = power * 2f * 1000f;
+        _flash.FlashArea(uid, uid, power, duration);
+
+        var lookup = _lookup.GetEntitiesInRange(uid, power);
+        var lights = GetEntityQuery<PoweredLightComponent>();
+
+        foreach (var ent in lookup)
+            if (lights.HasComponent(ent))
+                _light.TryDestroyBulb(ent);
+    }
     private void OnToggleStrainedMuscles(EntityUid uid, ChangelingIdentityComponent comp, ref ToggleStrainedMusclesEvent args)
     {
         if (!TryUseAbility(uid, comp, args))
@@ -556,6 +577,9 @@ public sealed partial class ChangelingSystem
 
         var loc = Loc.GetString("changeling-transform-others", ("user", Identity.Entity((EntityUid) uid, EntityManager)));
         _popup.PopupEntity(loc, (EntityUid) uid, PopupType.LargeCaution);
+
+        _actions.AddAction((EntityUid) newUid, "ActionLayEgg");
+
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/_Goobstation/Changeling/Effects/sound_voice_creepyshriek.ogg"), uid, AudioParams.Default.WithVolume(2f));
     }
     #endregion

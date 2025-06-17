@@ -317,8 +317,26 @@
   - type: ChangelingAction
     chemicalCost: 30
     useInLesserForm: true
-    useInHorrorForm: true
     requireAbsorbed: 1
+
+- type: entity
+  id: ActionHorrificScream
+  name: Horrific Scream
+  description: Disorient people with a high-chance of making them drop whatever they are holding, and break lights.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 10
+    itemIconStyle: NoItem
+    checkCanInteract: false
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: horrific_scream
+    event: !type:HorrificScreamEvent {}
+  - type: ChangelingAction
+    chemicalCost: 0
+    useInLesserForm: false
+    useInHorrorForm: true
 
 - type: entity
   id: ActionToggleStrainedMuscles

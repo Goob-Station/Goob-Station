@@ -59,6 +59,7 @@ public sealed partial class ToggleChitinousArmorEvent : InstantActionEvent { }
 public sealed partial class ToggleOrganicShieldEvent : InstantActionEvent { }
 public sealed partial class ShriekDissonantEvent : InstantActionEvent { }
 public sealed partial class ShriekResonantEvent : InstantActionEvent { }
+public sealed partial class HorrificScreamEvent : InstantActionEvent { }
 public sealed partial class ToggleStrainedMusclesEvent : InstantActionEvent { }
 public sealed partial class ActionHorrorFormEvent : InstantActionEvent { }
 

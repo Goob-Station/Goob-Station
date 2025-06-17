@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken and edited from Paradise Station wiki https://paradisestation.org/wiki/index.php/Changeling , sting_transform and sting_armblade retextures made by whateverusername0, absorb_biomatter made by Ilya246 using elements from absorb_dna and chitinous_armor. dartgun, claw and hammer taken from baystation12 at https://github.com/Baystation12/Baystation12 at commit 869b8c5383f45d3ca64ccc17a80609f794bc64db and resprited by Aviu.",
+    "copyright": "Taken and edited from Paradise Station wiki https://paradisestation.org/wiki/index.php/Changeling , sting_transform and sting_armblade retextures made by whateverusername0, absorb_biomatter made by Ilya246 using elements from absorb_dna and chitinous_armor. dartgun, claw and hammer taken from baystation12 at https://github.com/Baystation12/Baystation12 at commit 869b8c5383f45d3ca64ccc17a80609f794bc64db and resprited by Aviu. Horrific scream taken from Goonstation 13, original creator Studenterhue.",
     "size": {
         "x": 32,
         "y": 32
@@ -63,6 +63,9 @@
         },
         {
             "name": "shriek_resonant"
+        },
+        {
+            "name": "horrific_scream"
         },
         {
             "name": "space_adaptation"
