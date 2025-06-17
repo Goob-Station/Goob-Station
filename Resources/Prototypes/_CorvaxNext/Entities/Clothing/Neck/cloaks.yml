@@ -1,0 +1,39 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCaptainWide
+  name: captain wide overcoat
+  description: Wide captain's greatcoat. It doesn't seem to fit you, but it will do as a cape on your shoulders.
+  components:
+    - type: Sprite
+      sprite: _CorvaxNext/Clothing/Neck/Cloaks/wide_captain_cloak.rsi
+    - type: StealTarget
+      stealGroup: HeadCloak
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakRoyalCaptain
+  name: royal captain cloak
+  description: The king in the palace, the king in the palace.
+  components:
+    - type: Sprite
+      sprite: _CorvaxNext/Clothing/Neck/Cloaks/royal_captain.rsi
+    - type: StealTarget
+      stealGroup: HeadCloak
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakSyndicateAdmiral
+  name: Syndicate Admiral cloak
+  description: Red cloak sewn with a gold cloth.
+  components:
+    - type: Sprite
+      sprite: _CorvaxNext/Clothing/Neck/Cloaks/syndicate_admiral.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckWhiteMantleCaptain
+  name: white captain mantle
+  description: Captain mantle, with white down.
+  components:
+    - type: Sprite
+      sprite: _CorvaxNext/Clothing/Neck/Cloaks/white_captain_mantle.rsi

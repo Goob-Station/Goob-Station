@@ -1,0 +1,15 @@
+- type: entity
+  parent: ClothingHeadHatHoodWinterBase
+  id: ClothingHeadHatHoodWinterPilot
+  categories: [ HideSpawnMenu ]
+  name: pilot coat hood
+  components:
+  - type: Sprite
+    sprite: _CorvaxNext/Clothing/Head/Hoods/Coat/hoodpilot.rsi
+  - type: Clothing
+    sprite: _CorvaxNext/Clothing/Head/Hoods/Coat/hoodpilot.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Heat: 0.8
+        Cold: 0.8

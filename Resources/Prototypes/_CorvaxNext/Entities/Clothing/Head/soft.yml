@@ -1,0 +1,16 @@
+
+- type: entity
+  parent: ClothingHeadHeadHatBaseFlippable
+  id: ClothingHeadHatWardenHelper
+  name: warden cap
+  description: Еhe perfect cap for aspiring wardens.
+  components:
+  - type: Sprite
+    sprite: _CorvaxNext/Clothing/Head/Hats/Soft/wardsoft.rsi
+  - type: Clothing
+    sprite: _CorvaxNext/Clothing/Head/Hats/Soft/wardsoft.rsi
+
+- type: entity
+  parent: [ClothingHeadHeadHatBaseFlipped, ClothingHeadHatWardenHelper]
+  id: ClothingHeadHatWardenHelperFlipped
+  name: warden cap
