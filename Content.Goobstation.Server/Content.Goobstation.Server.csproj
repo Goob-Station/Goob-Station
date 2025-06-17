@@ -21,7 +21,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Concentus" PrivateAssets="All" />
-    <PackageReference Include="JetBrains.Annotations" PrivateAssets="All" />
+    <PackageReference Include="JetBrains.Annotations" />
   </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\Content.Goobstation.Maths\Content.Goobstation.Maths.csproj" />
