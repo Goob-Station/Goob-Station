@@ -7,7 +7,7 @@ public sealed partial class TransitionText
 {
     public static bool DizzyEqualsF(float left, float right, float treshold = float.Epsilon)
     {
-        return (left - right >= 0) ? MathF.Abs(left - right) >= treshold : MathF.Abs(right - left) >= treshold;
+        return MathF.Abs(left - right) >= treshold;
     }
     public static List<float> GetLinearFloatTransitionValuesList(float startValue, float targetValue, float duration, float deltaT)
     {
@@ -18,7 +18,7 @@ public sealed partial class TransitionText
         double growth = delta / duration * deltaT; // How much to add each iteration
         if (growth == 0)
             return new([targetValue]);
-        while (DizzyEqualsF(targetValue, newValue, (float) growth))
+        while (DizzyEqualsF(targetValue, newValue, MathF.Abs((float) growth)))
         {
             newValue += (float) growth;
             transitionList.Add(MathF.Round(newValue, 2));

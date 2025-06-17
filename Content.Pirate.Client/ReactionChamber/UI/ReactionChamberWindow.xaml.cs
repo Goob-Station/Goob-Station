@@ -25,7 +25,7 @@ public sealed partial class ReactionChamberWindow : DefaultWindow
     // [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     public bool Active;
     public float Temp;
-    private const float TempTransitionDuration = 2f;
+    private const float TempTransitionDuration = 1f;
     private float LastSolnTemp = 0;
     private List<float>? TempLabelValues = null;
     public float SolnTemp;
