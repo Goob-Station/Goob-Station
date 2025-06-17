@@ -17,6 +17,5 @@
   - type: ExperimentalTeleporter
   - type: LimitedCharges
     maxCharges: 4
-    charges: 4
   - type: AutoRecharge
     rechargeDuration: 10
