@@ -1,0 +1,15 @@
+# Tier 3
+- type: technology
+  id: BluespaceMining
+  name: research-technology-bluespace-mining
+  icon:
+    sprite: Objects/Misc/stock_parts.rsi
+    state: ansible_crystal
+  discipline: Experimental
+  tier: 3
+  cost: 30000
+  recipeUnlocks:
+  - MachineBluespaceHarvesterCircuitboard
+  position: -5,-2
+  technologyPrerequisites:
+    - BluespaceTheory
