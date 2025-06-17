@@ -26,3 +26,73 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 2
     fillBaseName: packet-solid-
+
+- type: entity
+  name: block of American cheese
+  parent: FoodBakingBase
+  id: FoodAmericanCheeseBlock
+  description: Yeehaw, a block of the American dream and hatred of health! Slice it for your buddies.. or just eat the entire block for yourself, you weirdo. 
+  components:
+  - type: FlavorProfile
+    flavors:
+      - creamy
+      - cheesy
+    ignoreReagents:
+      - Nutriment
+      - GastroToxin
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/american_cheese.rsi
+    state: cheese_block
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 16
+        - ReagentId: GastroToxin
+          Quantity: 4
+  - type: SliceableFood
+    count: 4
+    slice: FoodAmericanCheeseSlice
+  - type: Tag
+    tags:
+    - Trash # Intentional :godo:
+
+
+- type: entity
+  name: American cheese slice
+  parent: FoodBakingBase
+  id: FoodAmericanCheeseSlice
+  description: Highly questionable amalgamation of cheddar, fillers and the American spirit. NanoTrasen's healthcare does not cover incidents regarding the consumption of this item.  
+  components:
+  - type: FlavorProfile
+    flavors:
+      - creamy
+      - cheesy
+    ignoreReagents:
+      - Nutriment
+      - GastroToxin
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/american_cheese.rsi
+    state: cheese_slice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 6
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 4
+        - ReagentId: HeartbreakerToxin
+          Quantity: 1
+  - type: Tag
+    tags:
+    - Trash # Intentional :godo:
+    - Slice
+  - type: FoodSequenceElement
+    sprite:
+      sprite: _Goobstation/Objects/Consumable/Food/american_cheese.rsi
+      state: cheese_slice_burger
+    entries:
+      burger:
+        name: food-sequence-content-cheese

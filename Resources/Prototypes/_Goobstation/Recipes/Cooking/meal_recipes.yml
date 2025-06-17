@@ -12,3 +12,12 @@
     Paper: 1
   reagents:
     Sugar: 5
+
+- type: microwaveMealRecipe
+  id: RecipeAmericanCheeseBlock
+  name: american cheese recipe
+  result: FoodAmericanCheeseBlock
+  time: 5
+  solids:
+    FoodCheese: 1
+    FoodBadRecipe: 1 # Ideally would like it to be Plastic, but gets transformed to FoodBadRecipe anyways.
