@@ -26,8 +26,8 @@ public sealed partial class ReactionChamberWindow : DefaultWindow
     public bool Active;
     public float Temp;
     private const float TempTransitionDuration = 1f;
-    private float LastSolnTemp = 0;
-    private List<float>? TempLabelValues = null;
+    private float _lastSolnTemp = 0;
+    private List<float>? _tempLabelValues = null;
     public float SolnTemp;
     public ReactionChamberWindow()
     {
@@ -82,7 +82,7 @@ public sealed partial class ReactionChamberWindow : DefaultWindow
                 if (state.BeakerInfo.Temp is not null)
                     SolnTemp = (float) state.BeakerInfo.Temp.Value;
                 else
-                    SolnTemp = LastSolnTemp;
+                    SolnTemp = _lastSolnTemp;
             }
         }
         UpdateActiveButtonUI(state.Active);
@@ -91,18 +91,18 @@ public sealed partial class ReactionChamberWindow : DefaultWindow
     protected override void FrameUpdate(FrameEventArgs args)
     {
         base.FrameUpdate(args);
-        if (LastSolnTemp == SolnTemp) return;
+        if (_lastSolnTemp == SolnTemp) return;
 
-        TempLabelValues ??= TransitionText.GetLinearFloatTransitionValuesList(LastSolnTemp, SolnTemp, TempTransitionDuration, args.DeltaSeconds);
-        if (!(TempLabelValues.Count <= 0))
+        _tempLabelValues ??= TransitionText.GetLinearFloatTransitionValuesList(_lastSolnTemp, SolnTemp, TempTransitionDuration, args.DeltaSeconds);
+        if (!(_tempLabelValues.Count <= 0))
         {
-            TemperatureLabel.Text = $"{TempLabelValues[0]}";
-            TempLabelValues.RemoveAt(0);
+            TemperatureLabel.Text = $"{_tempLabelValues[0]}";
+            _tempLabelValues.RemoveAt(0);
         }
         else
         {
-            TempLabelValues = null;
-            LastSolnTemp = SolnTemp;
+            _tempLabelValues = null;
+            _lastSolnTemp = SolnTemp;
         }
     }
 
