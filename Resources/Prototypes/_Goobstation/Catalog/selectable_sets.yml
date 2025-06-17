@@ -341,8 +341,8 @@
   - WeaponLeverChester
   - MagazineShotgunLeverRifleEmpty
   - MagazineShotgunLeverRifleEmpty
-  - MagazineBoxShotgunHighCaliberEmp
-  - MagazineBoxShotgunHighCaliberEnsnare
+  - MagazineBoxShotgunHighCaliberEMP
+  - MagazineBoxShotgunHighCaliberEnsnaring
 #  tables:
 #  - ChesterRandomAmmoTable
 
