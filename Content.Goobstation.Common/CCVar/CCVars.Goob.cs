@@ -417,7 +417,7 @@ public sealed partial class GoobCVars
     /// Controls whether the Lidgren voice chat server is enabled and running.
     /// </summary>
     public static readonly CVarDef<bool> VoiceChatEnabled =
-        CVarDef.Create("voice.enabled", true, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE, "Is the voice chat server enabled?");
+        CVarDef.Create("voice.enabled", false, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE, "Is the voice chat server enabled?");
 
     /// <summary>
     /// The UDP port the Lidgren voice chat server will listen on.
@@ -464,6 +464,8 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<bool> VoiceChatHearSelf =
         CVarDef.Create("voice.hear_self", false, CVar.CLIENTONLY | CVar.ARCHIVE, "Whether to hear audio from your own entity.");
 
+    #endregion
+    
     #region Queue
 
     /// <summary>
