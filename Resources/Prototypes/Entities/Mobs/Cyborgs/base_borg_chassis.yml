@@ -285,7 +285,7 @@
       components:
       - RoboticsConsole
   - type: WiresPanel
-    openingTool: Screwing
+    openingTool: Screwing #Goob Edit
   - type: ActivatableUIRequiresPanel
   - type: NameIdentifier
     group: Silicon
