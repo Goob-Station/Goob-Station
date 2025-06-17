@@ -1,0 +1,21 @@
+- type: entity
+  parent: ClothingNeckMantleHOS
+  id: ClothingNeckMantleHOSShoulder
+  name: head of security's shoulder mantle
+  description: Shootouts with nukies are just another Tuesday for this HoS. This mantle is a symbol of commitment to the station.
+  components:
+  - type: Sprite
+    sprite: Clothing/Neck/mantles/hosmantle_shoulder.rsi
+  - type: Clothing
+    sprite: Clothing/Neck/mantles/hosmantle_shoulder.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckMantleERTLeader
+  name: ERT leader's mantle
+  description: Extraordinary decorative drape over the shoulders.
+  components:
+    - type: Sprite
+      sprite: Corvax/Clothing/Neck/Mantles/ERTmantle.rsi
+    - type: Clothing
+      sprite: Corvax/Clothing/Neck/Mantles/ERTmantle.rsi

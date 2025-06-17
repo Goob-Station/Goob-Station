@@ -1,0 +1,53 @@
+- type: playTimeTracker
+  id: JobIAA
+
+- type: playTimeTracker
+  id: JobPilot
+
+- type: playTimeTracker
+  id: JobEvent1
+  
+- type: playTimeTracker
+  id: JobEvent2
+  
+- type: playTimeTracker
+  id: JobEvent3
+  
+- type: playTimeTracker
+  id: JobEvent4
+  
+- type: playTimeTracker
+  id: JobEvent5
+
+- type: playTimeTracker
+  id: JobEvent6
+  
+- type: playTimeTracker
+  id: JobEvent7
+  
+- type: playTimeTracker
+  id: JobEvent8
+  
+- type: playTimeTracker
+  id: JobEvent9
+  
+- type: playTimeTracker
+  id: JobEvent10
+
+- type: playTimeTracker
+  id: JobEvent11
+
+- type: playTimeTracker
+  id: JobEvent12
+  
+- type: playTimeTracker
+  id: JobEvent13
+  
+- type: playTimeTracker
+  id: JobEvent14
+  
+- type: playTimeTracker
+  id: JobEvent15
+  
+- type: playTimeTracker
+  id: JobEvent16
