@@ -45,7 +45,7 @@
     possibleSets:
     - BSOHardsuitLightSet
     - BSOModsuitSet
-    maxSelectedSets: 2
+    maxSelectedSets: 1
 
 # ERT
 
