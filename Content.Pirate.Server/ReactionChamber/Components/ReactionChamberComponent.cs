@@ -27,4 +27,5 @@ public sealed partial class ReactionChamberComponent : Component
     public float SolnHeatCapacity = 0f;
     public float DeltaJ = 0f;
     public bool IsAllTempRight = false;
+
 }
