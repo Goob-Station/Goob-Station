@@ -1090,7 +1090,7 @@ entities:
     - type: Transform
       pos: 2.3576994,-0.37889528
       parent: 2
-- proto: FaxMachineCentcom
+- proto: FaxMachineBase
   entities:
   - uid: 219
     components:
@@ -1389,7 +1389,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -1.5,3.5
       parent: 2
-- proto: PenCentcom
+- proto: Pen
   entities:
   - uid: 226
     components:
@@ -1458,7 +1458,7 @@ entities:
     - type: Transform
       pos: 1.5,-3.5
       parent: 2
-- proto: RubberStampCentcom
+- proto: RubberStampApproved
   entities:
   - uid: 238
     components:
@@ -1705,7 +1705,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 4.5,8.5
       parent: 2
-- proto: VendingMachineCentDrobe
+- proto: VendingMachineClothing
   entities:
   - uid: 212
     components:
