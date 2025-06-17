@@ -1,68 +1,11 @@
-# SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
-# SPDX-FileCopyrightText: 2021 E F R <602406+Efruit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Elijahrane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Mith-randalf <84274729+Mith-randalf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-# SPDX-FileCopyrightText: 2021 buletsponge <96000213+buletsponge@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 wrexbe <81056464+wrexbe@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Morbo <14136326+Morb0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Myctai <108953437+Myctai@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 TaralGit <76408146+TaralGit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 TimrodDX <timrod@gmail.com>
-# SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
-# SPDX-FileCopyrightText: 2022 and_a <and_a@DESKTOP-RJENGIR>
-# SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
-# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 moonheart08 <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Eoin Mcloughlin <helloworld@eoinrul.es>
-# SPDX-FileCopyrightText: 2023 Jackrost <jackrost@mail.ru>
-# SPDX-FileCopyrightText: 2023 JoeHammad1844 <130668733+JoeHammad1844@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
-# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Aexxie <codyfox.077@gmail.com>
-# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 K-Dynamic <20566341+K-Dynamic@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2024 RatherUncreative <RatherUncreativeName@proton.me>
-# SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 scrivoy <179060466+scrivoy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
-# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
-# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-# SPDX-FileCopyrightText: 2025 Thesia <lindner.thorben@gmx.de>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 meta:
   format: 7
   category: Map
   engineVersion: 255.0.0
   forkId: ""
   forkVersion: ""
-  time: 06/16/2025 15:02:04
-  entityCount: 26880
+  time: 06/17/2025 08:53:37
+  entityCount: 26881
 maps:
 - 1
 grids:
@@ -2760,10 +2703,6 @@ entities:
           decals:
             73: 1,4
             74: 0,4
-            574: -10,25
-            575: -11,25
-            576: -13,25
-            577: -14,25
             656: 1,28
             793: 12,36
             794: 11,36
@@ -3463,10 +3402,6 @@ entities:
             color: '#52B4E996'
             id: QuarterTileOverlayGreyscale
           decals:
-            525: -19,25
-            526: -18,25
-            527: -16,25
-            528: -20,25
             1094: -22,-36
             1162: -22,-48
             1172: -23,-42
@@ -3486,6 +3421,12 @@ entities:
             2836: -4,-31
             2837: -4,-32
             2838: -4,-33
+            3770: -16,46
+            3771: -15,46
+            3772: -14,46
+            3773: -13,46
+            3780: -16,44
+            3781: -16,45
         - node:
             color: '#9FED582B'
             id: QuarterTileOverlayGreyscale
@@ -3697,6 +3638,36 @@ entities:
             817: 3,32
             882: -4,11
             883: -5,11
+            3731: 0,34
+            3732: -1,34
+            3733: -2,36
+            3734: -10,36
+            3735: -13,42
+            3736: -13,41
+            3737: -13,40
+            3738: -13,39
+            3739: -13,38
+            3740: -13,37
+            3741: -13,36
+            3742: -13,35
+            3760: -5,33
+            3761: -5,34
+            3768: -11,42
+            3769: -12,42
+            3782: -20,25
+            3783: -19,25
+            3784: -18,25
+            3785: -17,25
+            3786: -16,25
+            3787: -15,25
+            3788: -14,25
+            3789: -13,25
+            3790: -12,25
+            3791: -11,25
+            3792: -10,25
+            3793: -9,25
+            3794: -8,25
+            3795: -7,25
         - node:
             color: '#EFE54193'
             id: QuarterTileOverlayGreyscale
@@ -3752,6 +3723,12 @@ entities:
             2605: -11,-22
             2606: -12,-22
             2621: -6,-26
+            3774: -13,46
+            3775: -13,45
+            3776: -13,44
+            3777: -14,44
+            3778: -15,44
+            3779: -16,44
         - node:
             color: '#9FED5896'
             id: QuarterTileOverlayGreyscale180
@@ -3945,6 +3922,29 @@ entities:
             888: -2,13
             889: -2,12
             1777: 2,-73
+            3743: -13,35
+            3744: -12,35
+            3745: -11,35
+            3746: -10,35
+            3747: -9,35
+            3748: -8,35
+            3749: -7,35
+            3750: -6,35
+            3751: -5,33
+            3752: -4,33
+            3753: -3,33
+            3754: -2,33
+            3755: -1,33
+            3756: 2,33
+            3757: 2,34
+            3758: -2,35
+            3759: -2,36
+            3762: -11,37
+            3763: -11,38
+            3764: -11,39
+            3765: -11,40
+            3766: -11,41
+            3767: -11,42
         - node:
             color: '#EFD57C47'
             id: QuarterTileOverlayGreyscale180
@@ -5406,10 +5406,6 @@ entities:
             color: '#FFFFFFFF'
             id: WarnLineW
           decals:
-            672: -10,25
-            673: -11,25
-            674: -13,25
-            675: -14,25
             759: 18,47
             760: 17,47
             761: 16,47
@@ -6279,7 +6275,8 @@ entities:
           -2,6:
             0: 45567
           -2,7:
-            0: 48059
+            0: 46011
+            4: 2048
           -2,8:
             0: 63731
           -1,5:
@@ -6557,15 +6554,15 @@ entities:
             1: 3584
           12,-8:
             1: 8738
-            4: 34944
+            5: 34944
           12,-7:
             1: 226
             0: 57344
           12,-9:
             1: 57589
           13,-8:
-            4: 13104
-            5: 34944
+            5: 13104
+            6: 34944
           13,-7:
             1: 240
             0: 61440
@@ -6578,7 +6575,7 @@ entities:
           13,-4:
             0: 62327
           14,-8:
-            5: 13104
+            6: 13104
             0: 34944
           14,-7:
             1: 240
@@ -6611,7 +6608,7 @@ entities:
           16,-6:
             0: 15
             1: 8928
-            6: 32768
+            7: 32768
           13,-3:
             0: 62719
           13,-2:
@@ -7381,34 +7378,34 @@ entities:
             1: 257
           16,-4:
             1: 8738
-            7: 136
-            6: 32768
+            8: 136
+            7: 32768
           16,-3:
             1: 8738
-            6: 32904
+            7: 32904
           16,-2:
             1: 57890
-            6: 136
+            7: 136
           16,-5:
             1: 8738
-            7: 32768
-            6: 136
+            8: 32768
+            7: 136
           17,-4:
-            7: 51
-            6: 12288
+            8: 51
+            7: 12288
             0: 2176
             1: 32768
           17,-3:
-            6: 12339
+            7: 12339
             1: 34952
           17,-2:
-            6: 51
+            7: 51
             1: 55432
             0: 8192
           17,-5:
-            7: 12288
+            8: 12288
             0: 34816
-            6: 51
+            7: 51
             1: 136
           18,-4:
             0: 3975
@@ -7451,7 +7448,7 @@ entities:
           17,-6:
             0: 15
             1: 35024
-            6: 12288
+            7: 12288
           17,-9:
             0: 65535
           18,-8:
@@ -7831,7 +7828,7 @@ entities:
           3,-16:
             1: 3745
           3,-14:
-            6: 3822
+            7: 3822
             0: 16384
           4,-15:
             0: 53070
@@ -8514,6 +8511,25 @@ entities:
           moles:
           - 20.078888
           - 75.53487
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 23.61947
+          - 88.8542
           - 0
           - 0
           - 0
@@ -12298,13 +12314,6 @@ entities:
       parent: 2
 - proto: AirlockMaintRnDLocked
   entities:
-  - uid: 496
-    components:
-    - type: MetaData
-      name: Genetics
-    - type: Transform
-      pos: 3.5,-47.5
-      parent: 2
   - uid: 497
     components:
     - type: Transform
@@ -12584,6 +12593,11 @@ entities:
       parent: 2
 - proto: AirlockScienceLocked
   entities:
+  - uid: 496
+    components:
+    - type: Transform
+      pos: 3.5,-47.5
+      parent: 2
   - uid: 551
     components:
     - type: Transform
@@ -34686,11 +34700,6 @@ entities:
     components:
     - type: Transform
       pos: 69.5,36.5
-      parent: 2
-  - uid: 2024
-    components:
-    - type: Transform
-      pos: 66.5,36.5
       parent: 2
   - uid: 2159
     components:
@@ -60900,6 +60909,13 @@ entities:
     components:
     - type: Transform
       pos: -33.490707,14.741043
+      parent: 2
+- proto: ClothingHeadHatCentcomcap
+  entities:
+  - uid: 2024
+    components:
+    - type: Transform
+      pos: -18.693172,6.0862703
       parent: 2
 - proto: ClothingHeadHatChickenhead
   entities:
@@ -118986,14 +119002,25 @@ entities:
     - type: Transform
       pos: -4.5,30.5
       parent: 2
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 19905
+        paper_label: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
     - type: EntityStorage
       air:
         volume: 200
         immutable: False
         temperature: 293.1495
         moles:
-        - 3.848459
-        - 14.477538
+        - 2.053867
+        - 7.7264524
         - 0
         - 0
         - 0
@@ -133020,6 +133047,38 @@ entities:
       parent: 2
 - proto: RemoteSignaller
   entities:
+  - uid: 19905
+    components:
+    - type: Transform
+      parent: 18086
+    - type: DeviceLinkSource
+      linkedPorts:
+        20525:
+        - - Pressed
+          - Toggle
+        20526:
+        - - Pressed
+          - Toggle
+        42:
+        - - Pressed
+          - Toggle
+        20523:
+        - - Pressed
+          - Toggle
+        20530:
+        - - Pressed
+          - Toggle
+        20527:
+        - - Pressed
+          - Toggle
+        20531:
+        - - Pressed
+          - Toggle
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+      canCollide: False
+    - type: InsideEntityStorage
   - uid: 20365
     components:
     - type: Transform
@@ -165682,7 +165741,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -193.84056
+      secondsUntilStateChange: -728.4135
       state: Opening
     - type: Airlock
       autoClose: False
