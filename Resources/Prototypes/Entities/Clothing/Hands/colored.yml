@@ -417,7 +417,7 @@
     fiberColor: fibers-black
 
 - type: entity # Goobstation
-  parent: [ClothingHandsBase]
+  parent: ClothingHandsBase
   id: ClothingHandsGlovesColorYellowBase
   abstract: true
   components:
