@@ -107,6 +107,8 @@
   - type: ContainerContainer
     containers:
       gas_tank: !type:ContainerSlot {}
+      machine_board: !type:Container
+      machine_parts: !type:Container
   - type: ItemSlots
     slots:
       gas_tank:
