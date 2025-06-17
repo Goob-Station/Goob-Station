@@ -1,0 +1,21 @@
+- type: entity
+  id: ClothingEyesGlassesSunglassesStyle
+  parent: ClothingEyesGlassesSunglasses
+  components:
+  - type: ClothingGrantComponent
+    component:
+    - type: StyleCounter
+  - type: Construction
+    graph: GlassesSunglassesStyle
+    node: start
+
+- type: entity
+  id: ClothingEyesGlassesSecurityStyle
+  parent: ClothingEyesGlassesSecurity
+  components:
+  - type: ClothingGrantComponent
+    component:
+    - type: StyleCounter
+  - type: Construction
+    graph: GlassesSunglassesSecurityStyle
+    node: start

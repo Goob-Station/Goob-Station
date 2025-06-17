@@ -70,7 +70,7 @@ public sealed class MeleeDashSystem : EntitySystem
         var ev = new LightAttackEvent(GetNetEntity(args.OtherEntity),
             GetNetEntity(comp.Weapon.Value),
             GetNetCoordinates(Transform(args.OtherEntity).Coordinates));
-        _melee.DoLightAttack(uid, ev, comp.Weapon.Value, melee, actor.PlayerSession);
+        _melee.DoLightAttack(uid, ev, comp.Weapon.Value, melee, actor.PlayerSession, new List<EntityUid>()); // Goida edit
     }
 
     private void OnLand(Entity<DashingComponent> ent, ref LandEvent args)

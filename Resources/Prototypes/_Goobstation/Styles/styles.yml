@@ -1,0 +1,62 @@
+- type: styleRank
+  id: F
+  text: "FLUKIE"
+  color: "#808080"
+  pointsRequired: 0
+  multiplier: 0.5
+
+- type: styleRank
+  id: D
+  text: "DULL"
+  color: "#A9A9A9"
+  pointsRequired: 200
+  multiplier: 1.0
+
+- type: styleRank
+  id: C
+  text: "CASUAL"
+  color: "#00FF00"
+  pointsRequired: 400
+  multiplier: 1.25
+
+- type: styleRank
+  id: B
+  text: "BRUTAL"
+  color: "#0000FF"
+  pointsRequired: 600
+  multiplier: 1.5
+
+- type: styleRank
+  id: A
+  text: "ANARCHIC"
+  color: "#FF00FF"
+  pointsRequired: 800
+  multiplier: 2.0
+
+- type: styleRank
+  id: S
+  text: "SLAYER"
+  color: "#FF0000"
+  pointsRequired: 1000
+  multiplier: 3.0
+
+- type: styleRank
+  id: SS
+  text: "SSADISTIC"
+  color: "#FF4500"
+  pointsRequired: 1200
+  multiplier: 4.0
+
+- type: styleRank
+  id: SSS
+  text: "SSSHITER"
+  color: "#8B0000"
+  pointsRequired: 1500
+  multiplier: 6.0
+
+- type: styleRank
+  id: R
+  text: "ROBUST"
+  color: "#F3B355"
+  pointsRequired: 2000
+  multiplier: 8.0

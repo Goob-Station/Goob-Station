@@ -50,6 +50,7 @@
 
   contrabandInventory: # Goobstation
     ClothingOuterDavidsJacket: 1
+    ClothingEyesGlassesSunglassesStyle: 2
 
   emaggedInventory:
     ClothingNeckScarfStripedSyndieGreen: 3

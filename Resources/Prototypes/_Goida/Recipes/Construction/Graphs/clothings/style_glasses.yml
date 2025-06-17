@@ -1,0 +1,57 @@
+- type: constructionGraph
+  id: GlassesSunglassesStyle
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: glassesStyle
+      steps:
+      - tag: Sunglasses
+        name: sun glasses
+        icon:
+          sprite: Clothing/Eyes/Glasses/sunglasses.rsi
+          state: icon
+        doAfter: 5
+      - tag: SmallAIChip
+        name: a super-compact AI chip
+        icon:
+          sprite: Objects/Misc/potatoai_chip.rsi
+          state: icon
+        doAfter: 5
+      - material: Cable
+        amount: 5
+        doAfter: 5
+  - node: glassesStyle
+    entity: ClothingEyesGlassesSunglassesStyle
+
+- type: constructionGraph
+  id: GlassesSunglassesSecurityStyle
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: glassesStyleSecurity
+      steps:
+      - tag: Sunglasses
+        name: sun glasses
+        icon:
+          sprite: Clothing/Eyes/Glasses/sunglasses.rsi
+          state: icon
+        doAfter: 5
+      - tag: SmallAIChip
+        name: a super-compact AI chip
+        icon:
+          sprite: Objects/Misc/potatoai_chip.rsi
+          state: icon
+        doAfter: 5
+      - material: Cable
+        amount: 10
+        doAfter: 5
+      - tag: HudSecurity
+        name: security hud
+        icon:
+          sprite: Clothing/Eyes/Hud/sec.rsi
+          state: icon
+        doAfter: 5
+  - node: glassesStyleSecurity
+    entity: ClothingEyesGlassesSecurityStyle

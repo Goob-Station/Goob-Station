@@ -1,0 +1,21 @@
+- type: construction
+  name: style glasses
+  id: ClothingEyesGlassesSunglassesStyle
+  graph: GlassesSunglassesStyle
+  startNode: start
+  targetNode: glassesStyle
+  category: construction-category-clothing
+  description: A pair of sunglasses, modified to have a built-in style meter.
+  icon: { sprite: Clothing/Eyes/Glasses/sunglasses.rsi, state: icon }
+  objectType: Item
+
+- type: construction
+  name: style security glasses
+  id: ClothingEyesGlassesSunglassesSecurityStyle
+  graph: GlassesSunglassesSecurityStyle
+  startNode: start
+  targetNode: glassesStyleSecurity
+  category: construction-category-clothing
+  description: A pair of security sunglasses, modified to have a built-in style meter.
+  icon: { sprite: Clothing/Eyes/Glasses/secglasses.rsi, state: icon }
+  objectType: Item
