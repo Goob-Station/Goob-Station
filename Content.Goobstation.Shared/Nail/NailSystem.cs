@@ -61,8 +61,8 @@ public sealed class NailSystem : EntitySystem
     // Try to automatically hammer the nail shot from a nailgun if requirements are met
     private void OnNailEmbed(Entity<NailComponent> ent, ref EmbedEvent args)
     {
-        if (!ent.Comp.AutoHammerIntoNonWhitelisted &&
-            !_whitelist.IsWhitelistPass(ent.Comp.Whitelist, args.Embedded)
+        if (!ent.Comp.AutoHammerIntoNonWhitelisted
+            && !_whitelist.IsWhitelistPass(ent.Comp.Whitelist, args.Embedded)
             || !ent.Comp.ShotFromNailgun)
             return;
 

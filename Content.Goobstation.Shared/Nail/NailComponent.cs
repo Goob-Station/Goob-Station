@@ -5,7 +5,7 @@ using Robust.Shared.GameStates;
 
 namespace Content.Goobstation.Shared.Nail;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class NailComponent : Component
 {
     [DataField]
@@ -23,6 +23,6 @@ public sealed partial class NailComponent : Component
     [DataField]
     public TargetBodyPart? ForceBodyPart = TargetBodyPart.Chest;
 
-    [ViewVariables(VVAccess.ReadOnly)]
+    [DataField, AutoNetworkedField]
     public bool ShotFromNailgun;
 }
