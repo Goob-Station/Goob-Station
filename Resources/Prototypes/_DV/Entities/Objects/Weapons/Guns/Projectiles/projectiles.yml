@@ -121,6 +121,6 @@
     damage:
       types:
         Blunt: 3
-        Heat: 15
+        Heat: 12
     soundHit:
       collection: MeatLaserImpact
