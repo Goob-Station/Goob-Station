@@ -1,0 +1,5 @@
+- type: alertCategory
+  id: Counter
+
+- type: alertCategory
+  id: Aiming
