@@ -348,7 +348,7 @@
 
 - type: selectableSet
   id: BSOSyringeSet
-  name: selectable-set-blueshied-syringe-name
+  name: selectable-set-blueshield-syringe-name
   description: selectable-set-blueshield-syringe-description
   sprite:
     sprite: _Goobstation/Objects/Weapons/Melee/blueshield_knife.rsi
