@@ -341,9 +341,10 @@
   - WeaponLeverChester
   - MagazineShotgunLeverRifleEmpty
   - MagazineShotgunLeverRifleEmpty
-  - MagazineBoxShotgunHighCaliber
-  tables:
-  - ChesterRandomAmmoTable
+  - MagazineBoxShotgunHighCaliberEmp
+  - MagazineBoxShotgunHighCaliberEnsnare
+#  tables:
+#  - ChesterRandomAmmoTable
 
 # Blueshield hardsuits
 
