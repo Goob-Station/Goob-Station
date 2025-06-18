@@ -46,7 +46,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 20
+        maxVol: 24
         reagents:
         - ReagentId: Nutriment
           Quantity: 16
@@ -79,11 +79,11 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 6
+        maxVol: 7
         reagents:
         - ReagentId: Nutriment
           Quantity: 4
-        - ReagentId: HeartbreakerToxin
+        - ReagentId: GastroToxin
           Quantity: 1
   - type: Tag
     tags:
