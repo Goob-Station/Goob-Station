@@ -10,6 +10,7 @@ using Content.Goobstation.Common.Interaction;
 using Content.Shared.Access.Components;
 using Content.Shared.Actions;
 using Content.Shared.Bed.Cryostorage;
+using Content.Shared.Body.Organ;
 using Content.Shared.Body.Systems;
 using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;
@@ -38,7 +39,7 @@ public abstract class SharedCyberdeckSystem : EntitySystem
     [Dependency] protected readonly ISharedPlayerManager PlayerMan = default!;
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
     [Dependency] protected readonly SharedTransformSystem Xform = default!;
-    [Dependency] private readonly SharedChargesSystem _charges = default!;
+    [Dependency] protected readonly SharedChargesSystem Charges = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
@@ -51,20 +52,19 @@ public abstract class SharedCyberdeckSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly INetManager _net = default!;
 
-    protected EntityQuery<HandsComponent> HandsQuery;
-    protected EntityQuery<ContainerManagerComponent> ContainerQuery;
-    protected EntityQuery<LimitedChargesComponent> ChargesQuery;
-
-    protected EntityQuery<CyberdeckHackableComponent> HackQuery;
-    protected EntityQuery<CyberdeckUserComponent> UserQuery;
+    private EntityQuery<HandsComponent> _handsQuery;
+    private EntityQuery<ContainerManagerComponent> _containerQuery;
+    private EntityQuery<LimitedChargesComponent> _chargesQuery;
+    private EntityQuery<CyberdeckHackableComponent> _hackQuery;
+    private EntityQuery<CyberdeckUserComponent> _userQuery;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<CyberdeckHackableComponent, CyberdeckHackDoAfterEvent>(OnHacked);
-
         SubscribeLocalEvent<CyberdeckProjectionComponent, GetVerbsEvent<Verb>>(OnProjectionVerbs);
+        SubscribeLocalEvent<CyberdeckSourceComponent, ChargesChangedEvent>(OnChargesChanged);
 
         SubscribeLocalEvent<CyberdeckUserComponent, CyberdeckHackActionEvent>(OnStartHacking);
         SubscribeLocalEvent<CyberdeckUserComponent, CyberdeckVisionEvent>(OnCyberVisionUsed);
@@ -79,26 +79,58 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         SubscribeLocalEvent<CyberdeckHackableComponent, StationAiEmergencyAccessEvent>(OnAirlockEmergencyAccess, before: new []{typeof(SharedStationAiSystem)});
         SubscribeLocalEvent<CyberdeckHackableComponent, StationAiElectrifiedEvent>(OnElectrified, before: new []{typeof(SharedStationAiSystem)});
 
-        HandsQuery = GetEntityQuery<HandsComponent>();
-        ContainerQuery = GetEntityQuery<ContainerManagerComponent>();
-        ChargesQuery = GetEntityQuery<LimitedChargesComponent>();
+        _handsQuery = GetEntityQuery<HandsComponent>();
+        _containerQuery = GetEntityQuery<ContainerManagerComponent>();
+        _chargesQuery = GetEntityQuery<LimitedChargesComponent>();
+        _hackQuery = GetEntityQuery<CyberdeckHackableComponent>();
+        _userQuery = GetEntityQuery<CyberdeckUserComponent>();
+    }
 
-        HackQuery = GetEntityQuery<CyberdeckHackableComponent>();
-        UserQuery = GetEntityQuery<CyberdeckUserComponent>();
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        if (!_timing.IsFirstTimePredicted)
+            return;
+
+        // Because AutoRechargeComponent doesn't have any loops, we have to update everything by ourselves.
+        // Another total optimization L.
+        var query = EntityQueryEnumerator<CyberdeckSourceComponent, AutoRechargeComponent, LimitedChargesComponent>();
+        while (query.MoveNext(out var uid, out var sourceComp, out var rechargeComp, out var chargesComp))
+        {
+            // To stay in sync, we need to start updating this after the first charge is used.
+            if (sourceComp.Accumulator == null)
+                continue;
+
+            sourceComp.Accumulator -= frameTime;
+
+            if (sourceComp.Accumulator > 0)
+                continue;
+
+            // Update charges amount by removing and adding back one charge.
+            Charges.AddCharges((uid, chargesComp, rechargeComp), -1);
+            Charges.AddCharges((uid, chargesComp, rechargeComp), 1);
+
+            sourceComp.Accumulator = (float) rechargeComp.RechargeDuration.TotalSeconds;
+        }
     }
 
     private bool TryHackDevice(EntityUid user, EntityUid device)
     {
-        if (!HackQuery.TryComp(device, out var hackable)
+        if (!_hackQuery.TryComp(device, out var hackable)
             || !_power.IsPowered(device))
             return false;
 
         return UseCharges(user, hackable.Cost);
     }
 
+    /// <summary>
+    /// Checks and then uses some cyberdeck charges. If cyberdeck provider entity is null,
+    /// will just ignore charges and always return true.
+    /// </summary>
     private bool UseCharges(EntityUid user, int amount, EntityUid? target = null)
     {
-        if (!UserQuery.TryComp(user, out var cyberDeck))
+        if (!_userQuery.TryComp(user, out var cyberDeck))
             return false;
 
         if (cyberDeck.ProviderEntity == null)
@@ -107,17 +139,21 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         if (!CheckCharges(user, cyberDeck.ProviderEntity.Value, amount, target))
             return false;
 
-        _charges.TryUseCharges(cyberDeck.ProviderEntity.Value, amount);
+        Charges.TryUseCharges(cyberDeck.ProviderEntity.Value, amount);
         return true;
     }
 
+    /// <summary>
+    /// Checks if the user has enough charges to use ability or hack something
+    /// using cyberdeck charges, also handles all related popups.
+    /// </summary>
     private bool CheckCharges(EntityUid user, EntityUid provider, int amount, EntityUid? target = null)
     {
-        if (!ChargesQuery.TryComp(provider, out var chargesComp))
+        if (!_chargesQuery.TryComp(provider, out var chargesComp))
             return true; // Provider doesn't have charges, so we shouldn't care about them
 
-        if (_charges.TryUseCharges(provider, amount))
-            return true; // Everything is alright
+        if (Charges.HasCharges((provider, chargesComp), amount))
+            return true;
 
         // Tell user that he doesn't have enough charges
         string message;
@@ -162,13 +198,13 @@ public abstract class SharedCyberdeckSystem : EntitySystem
 
         // Starting with most specific cases, moving to most common ones for code safety
         // Prioritize containers over hands, because we want to be able to hack IPCs and borgs
-        if (ContainerQuery.TryComp(args.Target, out var containerComp))
+        if (_containerQuery.TryComp(args.Target, out var containerComp))
         {
             // If it's a container, find anything hackable and hack it.
             // No, I won't stack loops inside an if statement, because birds will start migrating to such Nested code.
             foreach (var container in _container.GetAllContainers(args.Target, containerComp))
             {
-                var containerTarget = container.ContainedEntities.FirstOrNull(HackQuery.HasComp);
+                var containerTarget = container.ContainedEntities.FirstOrNull(_hackQuery.HasComp);
                 if (containerTarget == null)
                     continue;
 
@@ -176,12 +212,12 @@ public abstract class SharedCyberdeckSystem : EntitySystem
             }
         }
 
-        if (HandsQuery.TryComp(args.Target, out var handsComp) && target == null)
+        if (_handsQuery.TryComp(args.Target, out var handsComp) && target == null)
         {
             // Check all hands for something that can be hacked
             foreach (var item in _hands.EnumerateHeld(args.Target, handsComp))
             {
-                if (!HackQuery.HasComp(item))
+                if (!_hackQuery.HasComp(item))
                     continue;
 
                 target = item;
@@ -189,11 +225,11 @@ public abstract class SharedCyberdeckSystem : EntitySystem
             }
         }
 
-        if (HackQuery.HasComp(args.Target))
+        if (_hackQuery.HasComp(args.Target))
             target = args.Target;
 
         // To be safe we get the component itself only here.
-        if (!HackQuery.TryComp(target, out var hackable))
+        if (!_hackQuery.TryComp(target, out var hackable))
             return;
 
         // Make a popup and return if not enough charges
@@ -242,7 +278,6 @@ public abstract class SharedCyberdeckSystem : EntitySystem
 
         _actions.AddAction(uid, ref component.HackAction, component.HackActionId);
         _actions.AddAction(uid, ref component.VisionAction, component.VisionActionId);
-        UpdateAlert((uid, component));
 
         // Find the cyberdeck source by hand. TODO: Maybe make a BodyOrganRelayEvent and subscribe to it?
         var evil = _body.GetBodyOrgans(uid).Where(x => HasComp<CyberdeckSourceComponent>(x.Id)).FirstOrNull();
@@ -250,6 +285,7 @@ public abstract class SharedCyberdeckSystem : EntitySystem
             return;
 
         component.ProviderEntity = evil.Value.Id;
+        UpdateAlert((uid, component));
     }
 
     private void OnUserShutdown(Entity<CyberdeckUserComponent> ent, ref ComponentShutdown args)
@@ -257,9 +293,11 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         var (uid, component) = ent;
 
         _actions.RemoveAction(uid, component.HackAction);
-        _actions.RemoveAction(uid, component.VisionAction);
-        _actions.RemoveAction(uid, component.ReturnAction);
-
+        if (component.VisionAction != null)
+            _actions.RemoveAction(uid, component.VisionAction);
+        if (component.ReturnAction != null)
+            _actions.RemoveAction(uid, component.ReturnAction);
+        
         UpdateAlert(ent, true);
 
         DetachFromProjection(ent);
@@ -281,12 +319,23 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         // Oops. Compensate charges if we failed
         if (ev.Refund)
         {
-            if (!UserQuery.TryComp(args.User, out var userComp)
+            if (!_userQuery.TryComp(args.User, out var userComp)
                 || userComp.ProviderEntity == null)
                 return;
 
-            _charges.AddCharges(userComp.ProviderEntity.Value, ent.Comp.Cost);
+            Charges.AddCharges(userComp.ProviderEntity.Value, ent.Comp.Cost);
         }
+    }
+
+    private void OnChargesChanged(Entity<CyberdeckSourceComponent> ent, ref ChargesChangedEvent args)
+    {
+        if (!TryComp(ent.Owner, out OrganComponent? organ)
+            || !_userQuery.TryComp(organ.Body, out var userComp))
+            return;
+
+        var user = organ.Body.Value;
+        ent.Comp.Accumulator = 0f;
+        UpdateAlert((user, userComp));
     }
 
     private void OnAccessHacked(Entity<AccessReaderComponent> ent, ref CyberdeckHackDeviceEvent args)
@@ -297,25 +346,25 @@ public abstract class SharedCyberdeckSystem : EntitySystem
 
     private void OnAirlockBolt(EntityUid ent, CyberdeckHackableComponent component, StationAiBoltEvent args)
     {
-        if (UserQuery.HasComp(args.User))
+        if (_userQuery.HasComp(args.User))
             args.Cancelled = !TryHackDevice(args.User, ent);
     }
 
     private void OnAirlockEmergencyAccess(EntityUid ent, CyberdeckHackableComponent component, StationAiEmergencyAccessEvent args)
     {
-        if (UserQuery.HasComp(args.User))
+        if (_userQuery.HasComp(args.User))
             args.Cancelled = !TryHackDevice(args.User, ent);
     }
 
     private void OnElectrified(EntityUid ent, CyberdeckHackableComponent component, StationAiElectrifiedEvent args)
     {
-        if (UserQuery.HasComp(args.User))
+        if (_userQuery.HasComp(args.User))
             args.Cancelled = !TryHackDevice(args.User, ent);
     }
 
     private void OnLightAiHacked(EntityUid ent, CyberdeckHackableComponent component, StationAiLightEvent args)
     {
-        if (UserQuery.HasComp(args.User))
+        if (_userQuery.HasComp(args.User))
             args.Cancelled = !TryHackDevice(args.User, ent);
     }
 

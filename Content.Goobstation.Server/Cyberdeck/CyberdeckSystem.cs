@@ -11,8 +11,6 @@ using Content.Server.Light.EntitySystems;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Alert;
-using Content.Shared.Body.Organ;
-using Content.Shared.Charges.Systems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Popups;
 
@@ -33,19 +31,6 @@ public sealed class CyberdeckSystem : SharedCyberdeckSystem
 
         SubscribeLocalEvent<PoweredLightComponent, CyberdeckHackDeviceEvent>(OnLightHacked);
         SubscribeLocalEvent<BatteryComponent, CyberdeckHackDeviceEvent>(OnBatteryHacked);
-
-        SubscribeLocalEvent<CyberdeckSourceComponent, ChargesChangedEvent>(OnChargesChanged);
-    }
-
-    private void OnChargesChanged(Entity<CyberdeckSourceComponent> ent, ref ChargesChangedEvent args)
-    {
-        if (!TryComp(ent.Owner, out OrganComponent? organ)
-            || !UserQuery.TryComp(organ.Body, out var userComp))
-            return;
-
-        var user = organ.Body.Value;
-        var charges = (short) Math.Clamp(args.CurrentCharges.Int(), 0, 8);
-        _alerts.ShowAlert(user, userComp.AlertId, charges);
     }
 
     private void OnBatteryHacked(Entity<BatteryComponent> ent, ref CyberdeckHackDeviceEvent args)
@@ -83,16 +68,13 @@ public sealed class CyberdeckSystem : SharedCyberdeckSystem
     /// <inheritdoc/>
     protected override void UpdateAlert(Entity<CyberdeckUserComponent> ent, bool doClear = false)
     {
-        if (doClear)
+        if (doClear || ent.Comp.ProviderEntity == null)
         {
             _alerts.ClearAlert(ent.Owner, ent.Comp.AlertId);
             return;
         }
 
-        if (!ChargesQuery.TryComp(ent.Comp.ProviderEntity, out var chargesComp))
-            return;
-
-        var charges = chargesComp.LastCharges;
+        var charges = Charges.GetCurrentCharges(ent.Comp.ProviderEntity.Value);
         var severity = (short) Math.Clamp(charges, 0, 8);
         _alerts.ShowAlert(ent.Owner, ent.Comp.AlertId, severity);
     }

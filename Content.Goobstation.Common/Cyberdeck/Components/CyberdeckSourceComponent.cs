@@ -8,4 +8,11 @@ using Robust.Shared.GameStates;
 namespace Content.Goobstation.Common.Cyberdeck.Components;
 
 [RegisterComponent, NetworkedComponent]
-public sealed partial class CyberdeckSourceComponent : Component;
+public sealed partial class CyberdeckSourceComponent : Component
+{
+    /// <summary>
+    /// Timer that updates charges based on AutoRechargeComponent.
+    /// </summary>
+    [ViewVariables]
+    public float? Accumulator;
+}

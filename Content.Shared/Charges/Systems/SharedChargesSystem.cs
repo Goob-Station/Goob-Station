@@ -22,7 +22,6 @@ using Content.Shared.Charges.Components;
 using Content.Shared.Examine;
 using JetBrains.Annotations;
 using Robust.Shared.Timing;
-using Content.Goobstation.Maths.FixedPoint;
 
 namespace Content.Shared.Charges.Systems;
 
@@ -261,10 +260,10 @@ public abstract class SharedChargesSystem : EntitySystem
 // Goob edit start
 public sealed class ChargesChangedEvent : EntityEventArgs
 {
-    public readonly FixedPoint2 CurrentCharges;
-    public readonly FixedPoint2 LastCharges;
+    public readonly int CurrentCharges;
+    public readonly int LastCharges;
 
-    public ChargesChangedEvent(FixedPoint2 current, FixedPoint2 last)
+    public ChargesChangedEvent(int current, int last)
     {
         CurrentCharges = current;
         LastCharges = last;
