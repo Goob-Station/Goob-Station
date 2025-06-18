@@ -88,7 +88,7 @@
           path: /Audio/Effects/smoke.ogg
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
-      effects: #this should be changed to ignite all nearby
+      effects:
       - !type:IgniteNearby
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
@@ -118,7 +118,7 @@
       effects:
       - !type:CreateEntityReactionEffect
         entity: ArtifactFragment1
-        number: 3 #Ideally this should be a random number between 0 & 5
+        number: 3 #Ideally this should be a random number between 0 & 5?
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
