@@ -34,7 +34,7 @@ namespace Content.Goobstation.Shared.Style
 
             // starwars intro wannabe
             SubscribeLocalEvent<StyleCounterComponent, MeleeAttackEvent>(OnMeleeAttack);
-            SubscribeLocalEvent<StyleCounterComponent, DamageChangedEvent>(OnDamageDealt);
+            SubscribeLocalEvent<StyleCounterComponent, DamageChangedEvent>(OnDamageTaken);
             SubscribeLocalEvent<StyleProjectileComponent, ProjectileHitEvent>(OnProjectileHit);
             SubscribeLocalEvent<StyleCounterComponent, SlipAttemptEvent>(OnSlipAttempt);
             SubscribeLocalEvent<StyleCounterComponent, UserShotAmmoEvent>(OnGunShot);
@@ -69,7 +69,7 @@ namespace Content.Goobstation.Shared.Style
                 return;
             component.CurrentPoints -= 100;
             RaiseLocalEvent(uid, new UpdateStyleEvent());
-            _styleSystem.AddStyleEvent(uid, "-STUN DAMAGE", component, Color.Purple);
+            _styleSystem.AddStyleEvent(uid, "-STAMINA DAMAGE", component, Color.Purple);
         }
 
         private void OnSkillIssue(EntityUid uid, StyleCounterComponent component, DisarmedEvent args)
@@ -153,7 +153,7 @@ namespace Content.Goobstation.Shared.Style
             _styleSystem.AddStyleEvent(uid, "+MELEE HIT", styleComp, Color.LightGreen);
         }
 
-        private void OnDamageDealt(EntityUid uid, StyleCounterComponent styleComp, DamageChangedEvent args)
+        private void OnDamageTaken(EntityUid uid, StyleCounterComponent styleComp, DamageChangedEvent args)
         {
             if (!_gameTiming.IsFirstTimePredicted
                 || args.DamageDelta == null)

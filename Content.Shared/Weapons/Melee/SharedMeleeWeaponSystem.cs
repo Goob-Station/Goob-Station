@@ -562,7 +562,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                     return false;
                 break;
             default:
-                if (!weapon.CanHeavyAttack) // Goidastation
+                if (!weapon.CanHeavyAttack) // Goobstation
                     return false;
 
                 if (!Blocker.CanAttack(user, weapon: (weaponUid, weapon)))
@@ -605,7 +605,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         // Attack confirmed
         for (var i = 0; i < swings; i++)
         {
-            EntProtoId animation;// goida edit
+            EntProtoId animation; // Goobstation - Edit
             var spriteRotation = weapon.AnimationRotation;
 
             switch (attack)
@@ -617,8 +617,8 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                     if (!DoDisarm(user, disarm, weaponUid, weapon, session)) // Goob edit
                         return false;
 
-                    animation = weapon.DisarmAnimation;// goida edit
-                    DoLungeAnimation(user, weaponUid, weapon.Angle, TransformSystem.ToMapCoordinates(GetCoordinates(attack.Coordinates)), weapon.Range, animation, spriteRotation, weapon.FlipAnimation); // Goida edit
+                    animation = weapon.DisarmAnimation; // WWDP
+                    DoLungeAnimation(user, weaponUid, weapon.Angle, TransformSystem.ToMapCoordinates(GetCoordinates(attack.Coordinates)), weapon.Range, animation, spriteRotation, weapon.FlipAnimation); // Goobstation - Edit
                     break;
                 case HeavyAttackEvent heavy:
                     if (!DoHeavyAttack(user, heavy, weaponUid, weapon, session, hitEntities)) // Goida edit
@@ -626,7 +626,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
                     animation = weapon.WideAnimation;
                     spriteRotation = weapon.WideAnimationRotation;
-                    DoLungeAnimation(user, weaponUid, weapon.Angle, TransformSystem.ToMapCoordinates(GetCoordinates(attack.Coordinates)), weapon.Range, animation, spriteRotation, weapon.FlipAnimation); // Goida edit
+                    DoLungeAnimation(user, weaponUid, weapon.Angle, TransformSystem.ToMapCoordinates(GetCoordinates(attack.Coordinates)), weapon.Range, animation, spriteRotation, weapon.FlipAnimation); // Goobstation - Edit
                     break;
                 default:
                     throw new NotImplementedException();
