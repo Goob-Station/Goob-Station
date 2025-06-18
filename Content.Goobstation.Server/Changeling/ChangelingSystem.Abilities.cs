@@ -202,8 +202,7 @@ public sealed partial class ChangelingSystem
             bonusEvolutionPoints += targetComp.TotalEvolutionPoints / 2;
             bonusChangelingAbsorbs += targetComp.TotalChangelingsAbsorbed + 1;
         }
-        else if (!HasComp<ChangelingIdentityComponent>(target)
-            && !HasComp<PartialAbsorbableComponent>(target))
+        else if (!HasComp<PartialAbsorbableComponent>(target))
         {
             popup = Loc.GetString("changeling-absorb-end-self");
             bonusChemicals += 10;
