@@ -97,18 +97,12 @@ public sealed class CluwneSystem : EntitySystem
             EnsureComp<AutoEmoteComponent>(ent.Owner);
             _autoEmote.AddEmote(ent.Owner, ent.Comp.AutoEmoteId);
         }
-        
+
         EnsureComp<ClumsyComponent>(ent.Owner);
 
         var transformMessage = Loc.GetString(ent.Comp.TransformMessage, ("target", ent.Owner));
 
-        _popupSystem.PopupEntity(transformMessage, ent.Owner, PopupType.LargeCaution);
-        _audio.PlayPvs(ent.Comp.SpawnSound, ent.Owner);
-
-        _nameMod.RefreshNameModifiers(ent.Owner);
-
-
-        _outfitSystem.SetOutfit(ent.Owner, ent.Comp.OutfitId, unremovable: true);
+        _outfitSystem.SetOutfit(uid, "CluwneGear");
     }
 
     /// <summary>
