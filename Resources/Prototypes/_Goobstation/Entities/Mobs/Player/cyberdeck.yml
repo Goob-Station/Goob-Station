@@ -13,8 +13,12 @@
   description: The cyberdeck's viewer.
   categories: [ HideSpawnMenu, DoNotMap ]
   components:
-  - type: LagCompensation
-  - type: NoFTL
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Silicon/cyberdeck.rsi
+    layers:
+    - state: hack_camera
+      shader: unshaded
+      map: ["base"]
   - type: Eye
     pvsScale: 1.5
     visMask:
@@ -22,9 +26,6 @@
     - StationAiNetwork # Goobstation
   - type: Visibility
     layer: 64
-  - type: Sprite
-    sprite: _Goobstation/Mobs/Silicon/cyberdeck.rsi
-    layers:
-    - state: hack_camera
-      shader: unshaded
-      map: ["base"]
+  - type: LagCompensation
+  - type: StationAiWhitelist
+  - type: NoFTL

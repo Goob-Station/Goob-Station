@@ -6,6 +6,7 @@
 using Content.Goobstation.Common.Cyberdeck.Components;
 using Content.Goobstation.Shared.Cyberdeck;
 using Robust.Client.Graphics;
+using Robust.Client.Player;
 using Robust.Shared.Player;
 
 namespace Content.Goobstation.Client.Cyberdeck;
@@ -13,6 +14,7 @@ namespace Content.Goobstation.Client.Cyberdeck;
 public sealed class CyberdeckSystem : SharedCyberdeckSystem
 {
     [Dependency] private readonly IOverlayManager _overlayManager = default!;
+    [Dependency] private readonly IPlayerManager _playerMan = default!;
 
     private CyberdeckOverlay _overlay = default!;
     private EntityQuery<CyberdeckOverlayComponent> _users;
@@ -43,7 +45,7 @@ public sealed class CyberdeckSystem : SharedCyberdeckSystem
 
     private void OnStartup(Entity<CyberdeckOverlayComponent> ent, ref ComponentStartup args)
     {
-        if (!_users.HasComp(PlayerMan.LocalEntity))
+        if (!_users.HasComp(_playerMan.LocalEntity))
             return;
 
         _overlayManager.AddOverlay(_overlay);
@@ -51,7 +53,7 @@ public sealed class CyberdeckSystem : SharedCyberdeckSystem
 
     private void OnShutdown(Entity<CyberdeckOverlayComponent> ent, ref ComponentShutdown args)
     {
-        if (!_users.HasComp(PlayerMan.LocalEntity))
+        if (!_users.HasComp(_playerMan.LocalEntity))
             return;
 
         _overlayManager.RemoveOverlay(_overlay);

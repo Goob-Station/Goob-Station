@@ -9,6 +9,10 @@ using Robust.Shared.Serialization;
 
 namespace Content.Goobstation.Shared.Cyberdeck;
 
+/// <summary>
+/// This handles finding the real target that the player want to hack,
+/// and then starts a DoAfter if succeeded.
+/// </summary>
 public sealed partial class CyberdeckHackActionEvent : EntityTargetActionEvent;
 
 /// <summary>

@@ -43,6 +43,7 @@ public sealed partial class AiInteractWireAction : ComponentWireAction<StationAi
 
     public override bool Cut(EntityUid user, Wire wire, StationAiWhitelistComponent component)
     {
+        EntityManager.RemoveComponent<Content.Goobstation.Common.Access.IgnoreAccessComponent>(component.Owner); // Goobstation - Cyberdeck
         return EntityManager.System<SharedStationAiSystem>()
             .SetWhitelistEnabled((component.Owner, component), false, announce: true);
     }

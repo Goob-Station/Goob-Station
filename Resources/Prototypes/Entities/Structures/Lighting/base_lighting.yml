@@ -215,7 +215,6 @@
           collection: GlassBreak
   - type: Penetratable # Goobstation - Better snipers
     penetrateDamage: 10
-  - type: CyberdeckHackable # Goobstation - Cyberdeck
   placement:
     mode: SnapgridCenter
     snap:
@@ -265,6 +264,8 @@
       types:
         Heat: 2
     popupText: powered-light-component-burn-hand
+  - type: CyberdeckHackable # Goobstation - Cyberdeck
+    delay: 0.8
 
 - type: entity
   id: Poweredlight

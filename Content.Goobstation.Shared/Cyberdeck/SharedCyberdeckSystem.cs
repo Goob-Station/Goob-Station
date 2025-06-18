@@ -7,6 +7,7 @@ using System.Linq;
 using Content.Goobstation.Common.Access;
 using Content.Goobstation.Common.Cyberdeck.Components;
 using Content.Goobstation.Common.Interaction;
+using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Access.Components;
 using Content.Shared.Actions;
 using Content.Shared.Bed.Cryostorage;
@@ -29,14 +30,12 @@ using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
-using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.Cyberdeck;
 
 public abstract class SharedCyberdeckSystem : EntitySystem
 {
-    [Dependency] protected readonly ISharedPlayerManager PlayerMan = default!;
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
     [Dependency] protected readonly SharedTransformSystem Xform = default!;
     [Dependency] protected readonly SharedChargesSystem Charges = default!;
@@ -49,7 +48,6 @@ public abstract class SharedCyberdeckSystem : EntitySystem
     [Dependency] private readonly SharedEyeSystem _eye = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedMoverController _mover = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly INetManager _net = default!;
 
     private EntityQuery<HandsComponent> _handsQuery;
@@ -62,22 +60,22 @@ public abstract class SharedCyberdeckSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<CyberdeckHackableComponent, CyberdeckHackDoAfterEvent>(OnHacked);
-        SubscribeLocalEvent<CyberdeckProjectionComponent, GetVerbsEvent<Verb>>(OnProjectionVerbs);
+        SubscribeLocalEvent<CyberdeckUserComponent, ComponentStartup>(OnUserInit);
+        SubscribeLocalEvent<CyberdeckUserComponent, ComponentShutdown>(OnUserShutdown);
+        SubscribeLocalEvent<CyberdeckProjectionComponent, GetVerbsEvent<AlternativeVerb>>(OnProjectionVerbs);
+
         SubscribeLocalEvent<CyberdeckSourceComponent, ChargesChangedEvent>(OnChargesChanged);
 
         SubscribeLocalEvent<CyberdeckUserComponent, CyberdeckHackActionEvent>(OnStartHacking);
-        SubscribeLocalEvent<CyberdeckUserComponent, CyberdeckVisionEvent>(OnCyberVisionUsed);
-        SubscribeLocalEvent<CyberdeckUserComponent, CyberdeckVisionReturnEvent>(OnCyberVisionReturn);
-        SubscribeLocalEvent<CyberdeckUserComponent, ComponentStartup>(OnUserInit);
-        SubscribeLocalEvent<CyberdeckUserComponent, ComponentShutdown>(OnUserShutdown);
-
+        SubscribeLocalEvent<CyberdeckHackableComponent, CyberdeckHackDoAfterEvent>(OnHacked);
         SubscribeLocalEvent<AccessReaderComponent, CyberdeckHackDeviceEvent>(OnAccessHacked);
-
         SubscribeLocalEvent<CyberdeckHackableComponent, StationAiLightEvent>(OnLightAiHacked, before: new []{typeof(SharedStationAiSystem)});
         SubscribeLocalEvent<CyberdeckHackableComponent, StationAiBoltEvent>(OnAirlockBolt, before: new []{typeof(SharedStationAiSystem)});
         SubscribeLocalEvent<CyberdeckHackableComponent, StationAiEmergencyAccessEvent>(OnAirlockEmergencyAccess, before: new []{typeof(SharedStationAiSystem)});
         SubscribeLocalEvent<CyberdeckHackableComponent, StationAiElectrifiedEvent>(OnElectrified, before: new []{typeof(SharedStationAiSystem)});
+
+        SubscribeLocalEvent<CyberdeckUserComponent, CyberdeckVisionEvent>(OnCyberVisionUsed);
+        SubscribeLocalEvent<CyberdeckUserComponent, CyberdeckVisionReturnEvent>(OnCyberVisionReturn);
 
         _handsQuery = GetEntityQuery<HandsComponent>();
         _containerQuery = GetEntityQuery<ContainerManagerComponent>();
@@ -86,34 +84,61 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         _userQuery = GetEntityQuery<CyberdeckUserComponent>();
     }
 
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
+    #region Basic User Handling
 
-        if (!_timing.IsFirstTimePredicted)
+    private void OnUserInit(Entity<CyberdeckUserComponent> ent, ref ComponentStartup args)
+    {
+        var (uid, component) = ent;
+
+        _actions.AddAction(uid, ref component.HackAction, component.HackActionId);
+        _actions.AddAction(uid, ref component.VisionAction, component.VisionActionId);
+
+        // Find the cyberdeck source by hand. TODO: Maybe make a BodyOrganRelayEvent and subscribe to it?
+        var evil = _body.GetBodyOrgans(uid).Where(x => HasComp<CyberdeckSourceComponent>(x.Id)).FirstOrNull();
+        if (evil == null)
             return;
 
-        // Because AutoRechargeComponent doesn't have any loops, we have to update everything by ourselves.
-        // Another total optimization L.
-        var query = EntityQueryEnumerator<CyberdeckSourceComponent, AutoRechargeComponent, LimitedChargesComponent>();
-        while (query.MoveNext(out var uid, out var sourceComp, out var rechargeComp, out var chargesComp))
-        {
-            // To stay in sync, we need to start updating this after the first charge is used.
-            if (sourceComp.Accumulator == null)
-                continue;
-
-            sourceComp.Accumulator -= frameTime;
-
-            if (sourceComp.Accumulator > 0)
-                continue;
-
-            // Update charges amount by removing and adding back one charge.
-            Charges.AddCharges((uid, chargesComp, rechargeComp), -1);
-            Charges.AddCharges((uid, chargesComp, rechargeComp), 1);
-
-            sourceComp.Accumulator = (float) rechargeComp.RechargeDuration.TotalSeconds;
-        }
+        component.ProviderEntity = evil.Value.Id;
+        UpdateAlert((uid, component));
     }
+
+    private void OnUserShutdown(Entity<CyberdeckUserComponent> ent, ref ComponentShutdown args)
+    {
+        var (uid, component) = ent;
+
+        UpdateAlert(ent, true);
+        DetachFromProjection(ent);
+
+        _actions.RemoveAction(uid, component.HackAction);
+        _actions.RemoveAction(uid, component.VisionAction);
+        _actions.RemoveAction(uid, component.ReturnAction);
+
+        PredictedQueueDel(ent.Comp.ProjectionEntity);
+    }
+
+    private void OnProjectionVerbs(Entity<CyberdeckProjectionComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
+    {
+        if (!HasComp<StationAiHeldComponent>(args.User))
+            return;
+
+        args.Verbs.Add(new AlternativeVerb
+        {
+            Text = Loc.GetString("cyberdeck-station-ai-smite-verb"),
+            Act = () =>
+            {
+                if (!_userQuery.TryComp(ent.Comp.RemoteEntity, out var userComp))
+                    return;
+
+                DetachFromProjection((ent.Comp.RemoteEntity.Value, userComp));
+                Popup.PopupClient("cyberdeck-player-get-hacked", ent.Comp.RemoteEntity.Value, ent.Comp.RemoteEntity, PopupType.LargeCaution);
+            },
+            Impact = LogImpact.High,
+        });
+    }
+
+    #endregion
+
+    #region Charges Handling
 
     private bool TryHackDevice(EntityUid user, EntityUid device)
     {
@@ -175,22 +200,25 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         return false;
     }
 
-    private void OnProjectionVerbs(Entity<CyberdeckProjectionComponent> ent, ref GetVerbsEvent<Verb> args)
+    private void OnChargesChanged(Entity<CyberdeckSourceComponent> ent, ref ChargesChangedEvent args)
     {
-        if (!HasComp<StationAiHeldComponent>(args.User))
+        if (!TryComp(ent.Owner, out OrganComponent? organ)
+            || !_userQuery.TryComp(organ.Body, out var userComp))
             return;
 
-        args.Verbs.Add(new AlternativeVerb
-        {
-            Text = Loc.GetString("cyberdeck-station-ai-smite-verb"),
-            Act = () => { DetachFromProjection(ent.Comp.RemoteEntity); },
-            Impact = LogImpact.High,
-        });
+        var user = organ.Body.Value;
+        ent.Comp.Accumulator = 0f;
+        UpdateAlert((user, userComp));
     }
 
-    private void OnStartHacking(EntityUid uid, CyberdeckUserComponent component, CyberdeckHackActionEvent args)
+    #endregion
+
+    #region Hacking Handling
+
+    private void OnStartHacking(Entity<CyberdeckUserComponent> ent, ref CyberdeckHackActionEvent args)
     {
-        if (args.Handled || args.Target == uid || !_timing.IsFirstTimePredicted)
+        var (uid, component) = ent;
+        if (args.Handled || args.Target == uid)
             return;
 
         args.Handled = true;
@@ -209,6 +237,7 @@ public abstract class SharedCyberdeckSystem : EntitySystem
                     continue;
 
                 target = containerTarget.Value;
+                break;
             }
         }
 
@@ -237,10 +266,15 @@ public abstract class SharedCyberdeckSystem : EntitySystem
             && !CheckCharges(uid, component.ProviderEntity.Value, hackable.Cost, target))
             return;
 
+        // Balancing shitcode that prevents you from hacking IPCs in 2 seconds.
+        var penaltyTime = TimeSpan.Zero;
+        if (HasComp<SiliconComponent>(target))
+            penaltyTime = TimeSpan.FromSeconds(8);
+
         var ev = new DoAfterArgs(
             EntityManager,
             uid,
-            hackable.HackingTime,
+            hackable.HackingTime + penaltyTime,
             new CyberdeckHackDoAfterEvent(),
             target,
             target,
@@ -260,48 +294,15 @@ public abstract class SharedCyberdeckSystem : EntitySystem
 
         _doAfter.TryStartDoAfter(ev);
 
-        if (_net.IsClient)
-            return; // Im too lazy to fix popups.
-
         var message = Loc.GetString("cyberdeck-start-hacking", ("target", Identity.Entity(target.Value, EntityManager, uid)));
-        Popup.PopupEntity(message, uid, uid);
+        Popup.PopupClient(message, uid, uid);
 
-        // Also alert the target if it's a player.
+        // Also alert the target if it's a player (or player targeted a silicon).
         // They can't do anything about it. They will just look at this message and cry.
-        if (HasComp<ActorComponent>(target))
+        if (HasComp<ActorComponent>(target)
+            || HasComp<ActorComponent>(args.Target)
+            && HasComp<SiliconComponent>(args.Target))
             Popup.PopupEntity(Loc.GetString("cyberdeck-player-get-hacked"), target.Value, target.Value, PopupType.LargeCaution);
-    }
-
-    private void OnUserInit(Entity<CyberdeckUserComponent> ent, ref ComponentStartup args)
-    {
-        var (uid, component) = ent;
-
-        _actions.AddAction(uid, ref component.HackAction, component.HackActionId);
-        _actions.AddAction(uid, ref component.VisionAction, component.VisionActionId);
-
-        // Find the cyberdeck source by hand. TODO: Maybe make a BodyOrganRelayEvent and subscribe to it?
-        var evil = _body.GetBodyOrgans(uid).Where(x => HasComp<CyberdeckSourceComponent>(x.Id)).FirstOrNull();
-        if (evil == null)
-            return;
-
-        component.ProviderEntity = evil.Value.Id;
-        UpdateAlert((uid, component));
-    }
-
-    private void OnUserShutdown(Entity<CyberdeckUserComponent> ent, ref ComponentShutdown args)
-    {
-        var (uid, component) = ent;
-
-        _actions.RemoveAction(uid, component.HackAction);
-        _actions.RemoveAction(uid, component.VisionAction);
-        _actions.RemoveAction(uid, component.ReturnAction);
-
-        UpdateAlert(ent, true);
-
-        DetachFromProjection(ent);
-
-        // We don't need a projection anymore as component related to it is deleted.
-        PredictedQueueDel(ent.Comp.ProjectionEntity);
     }
 
     private void OnHacked(Entity<CyberdeckHackableComponent> ent, ref CyberdeckHackDoAfterEvent args)
@@ -325,69 +326,33 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         }
     }
 
-    private void OnChargesChanged(Entity<CyberdeckSourceComponent> ent, ref ChargesChangedEvent args)
-    {
-        if (!TryComp(ent.Owner, out OrganComponent? organ)
-            || !_userQuery.TryComp(organ.Body, out var userComp))
-            return;
-
-        var user = organ.Body.Value;
-        ent.Comp.Accumulator = 0f;
-        UpdateAlert((user, userComp));
-    }
-
     private void OnAccessHacked(Entity<AccessReaderComponent> ent, ref CyberdeckHackDeviceEvent args)
     {
         var ignore = EnsureComp<IgnoreAccessComponent>(ent);
         ignore.Ignore.Add(args.User);
     }
 
-    private void OnAirlockBolt(EntityUid ent, CyberdeckHackableComponent component, StationAiBoltEvent args)
+    private void HandleAiHacking<T>(EntityUid target, ref T args) where T : BaseStationAiAction
     {
         if (_userQuery.HasComp(args.User))
-            args.Cancelled = !TryHackDevice(args.User, ent);
+            args.Cancelled = !TryHackDevice(args.User, target);
     }
+
+    private void OnAirlockBolt(EntityUid ent, CyberdeckHackableComponent component, StationAiBoltEvent args)
+        => HandleAiHacking(ent, ref args);
 
     private void OnAirlockEmergencyAccess(EntityUid ent, CyberdeckHackableComponent component, StationAiEmergencyAccessEvent args)
-    {
-        if (_userQuery.HasComp(args.User))
-            args.Cancelled = !TryHackDevice(args.User, ent);
-    }
+        => HandleAiHacking(ent, ref args);
 
     private void OnElectrified(EntityUid ent, CyberdeckHackableComponent component, StationAiElectrifiedEvent args)
-    {
-        if (_userQuery.HasComp(args.User))
-            args.Cancelled = !TryHackDevice(args.User, ent);
-    }
+        => HandleAiHacking(ent, ref args);
 
     private void OnLightAiHacked(EntityUid ent, CyberdeckHackableComponent component, StationAiLightEvent args)
-    {
-        if (_userQuery.HasComp(args.User))
-            args.Cancelled = !TryHackDevice(args.User, ent);
-    }
+        => HandleAiHacking(ent, ref args);
 
-    private void OnCyberVisionUsed(Entity<CyberdeckUserComponent> ent, ref CyberdeckVisionEvent args)
-    {
-        if (args.Handled)
-            return;
+    #endregion
 
-        var (uid, comp) = ent;
-
-        if (!UseCharges(uid, comp.CyberVisionAbilityCost))
-            return;
-
-        AttachToProjection(ent);
-        args.Handled = true;
-    }
-
-    private void OnCyberVisionReturn(Entity<CyberdeckUserComponent> ent, ref CyberdeckVisionReturnEvent args)
-    {
-        if (args.Handled)
-            return;
-
-        DetachFromProjection(ent);
-        args.Handled = true;
-    }
+    #region Projection Handling
 
     /// <summary>
     /// Attaches a player to projection if it already exists,
@@ -409,8 +374,9 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         user.Comp.VisionAction = null; // Shitcode to prevent errors
 
         // Now everything becomes tricky.
-        // At this point there are 3 possible scenarios:
-        // 1. Projection entity is already stored in nullspace, and we know that it exist
+        // To make everything work smoothly enough, we need to store the projection entity somewhere.
+        // That means that there are 3 possible scenarios:
+        // 1. Projection entity is already stored on a paused map, and we know that it exist
         // 2. Same as 1 but we for some reason think that it's deleted
         // 3. Projection entity doesn't exist
 
@@ -469,7 +435,7 @@ public abstract class SharedCyberdeckSystem : EntitySystem
     /// <summary>
     /// Detaches player from a projection forcefully, and sends an existing projection to Nullspace.
     /// </summary>
-    protected void DetachFromProjection(Entity<CyberdeckUserComponent> user)
+    private void DetachFromProjection(Entity<CyberdeckUserComponent> user)
     {
         if (user.Comp.ProjectionEntity == null || !user.Comp.InProjection)
             return;
@@ -500,7 +466,8 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         var projection = user.Comp.ProjectionEntity.Value;
 
         // This probably is a dirty solution, but surprisingly you can't send entities to Nullspace...
-        // So i'll just steal an already existing pause map instead of shitspamming with a new one.
+        // So I'll just steal an already existing paused map instead of shitspamming with a new one.
+        // TODO: Make a universal paused map to store things on
         _cryostorage.EnsurePausedMap();
         if (_cryostorage.PausedMap == null)
         {
@@ -512,22 +479,30 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         Dirty(user.Owner, user.Comp);
     }
 
-    /// <summary>
-    /// Detaches player from a projection forcefully, and sends an existing projection to Nullspace.
-    /// This specific overload lets you put in a nullable EntityUid.
-    /// </summary>
-    private void DetachFromProjection(Entity<CyberdeckUserComponent?>? user)
+    private void OnCyberVisionUsed(Entity<CyberdeckUserComponent> ent, ref CyberdeckVisionEvent args)
     {
-        if (user == null)
+        if (args.Handled)
             return;
 
-        var userEnt = user.Value;
+        var (uid, comp) = ent;
 
-        if (!Resolve(userEnt.Owner, ref userEnt.Comp))
+        if (!UseCharges(uid, comp.CyberVisionAbilityCost))
             return;
 
-        DetachFromProjection((userEnt.Owner, userEnt.Comp));
+        AttachToProjection(ent);
+        args.Handled = true;
     }
+
+    private void OnCyberVisionReturn(Entity<CyberdeckUserComponent> ent, ref CyberdeckVisionReturnEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        DetachFromProjection(ent);
+        args.Handled = true;
+    }
+
+    #endregion
 
     /// <summary>
     /// Updates an alert, counting how many charges player currently has.

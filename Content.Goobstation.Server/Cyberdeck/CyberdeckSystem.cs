@@ -5,52 +5,99 @@
 
 using Content.Goobstation.Common.Cyberdeck.Components;
 using Content.Goobstation.Shared.Cyberdeck;
+using Content.Server.Atmos.Monitor.Components;
+using Content.Server.Atmos.Monitor.Systems;
 using Content.Server.Emp;
+using Content.Server.Explosion.EntitySystems;
 using Content.Server.Light.Components;
 using Content.Server.Light.EntitySystems;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
+using Content.Server.VendingMachines;
 using Content.Shared.Alert;
+using Content.Shared.Atmos.Monitor.Components;
+using Content.Shared.Charges.Components;
+using Content.Shared.DeviceNetwork.Components;
+using Content.Shared.Explosion.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Popups;
+using Content.Shared.VendingMachines;
+using Robust.Shared.Physics.Components;
 
 namespace Content.Goobstation.Server.Cyberdeck;
-
 
 public sealed class CyberdeckSystem : SharedCyberdeckSystem
 {
     // Imagine a world where all of these systems are predicted...
-    [Dependency] private readonly PoweredLightSystem _light = default!;
-    [Dependency] private readonly EmpSystem _emp = default!;
-    [Dependency] private readonly BatterySystem _battery = default!;
+    [Dependency] private readonly AirAlarmSystem _airAlarm = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
+    [Dependency] private readonly ApcSystem _apcSystem = default!;
+    [Dependency] private readonly BatterySystem _battery = default!;
+    [Dependency] private readonly EmpSystem _emp = default!;
+    [Dependency] private readonly ExplosionSystem _explosion = default!;
+    [Dependency] private readonly PoweredLightSystem _light = default!;
+    [Dependency] private readonly VendingMachineSystem _vending = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<PoweredLightComponent, CyberdeckHackDeviceEvent>(OnLightHacked);
+        SubscribeLocalEvent<AirAlarmComponent, CyberdeckHackDeviceEvent>(OnAirAlarmHacked);
+        SubscribeLocalEvent<ApcComponent, CyberdeckHackDeviceEvent>(OnApcHacked);
         SubscribeLocalEvent<BatteryComponent, CyberdeckHackDeviceEvent>(OnBatteryHacked);
+        SubscribeLocalEvent<PoweredLightComponent, CyberdeckHackDeviceEvent>(OnLightHacked);
+        SubscribeLocalEvent<PowerNetworkBatteryComponent, CyberdeckHackDeviceEvent>(OnPowerNetworkHacked);
+        SubscribeLocalEvent<VendingMachineComponent, CyberdeckHackDeviceEvent>(OnVendingHacked);
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        // Because AutoRechargeComponent doesn't have any loops, we have to update everything by ourselves.
+        // Another total optimization L.
+        var query = EntityQueryEnumerator<CyberdeckSourceComponent, AutoRechargeComponent, LimitedChargesComponent>();
+        while (query.MoveNext(out var uid, out var sourceComp, out var rechargeComp, out var chargesComp))
+        {
+            // To stay in sync, we need to start updating this after the first charge is used.
+            if (sourceComp.Accumulator == null)
+                continue;
+
+            sourceComp.Accumulator -= frameTime;
+
+            if (sourceComp.Accumulator > 0)
+                continue;
+
+            // Update charges amount by removing and adding back one charge.
+            Charges.AddCharges((uid, chargesComp, rechargeComp), -1);
+            Charges.AddCharges((uid, chargesComp, rechargeComp), 1);
+
+            sourceComp.Accumulator = (float) rechargeComp.RechargeDuration.TotalSeconds;
+        }
     }
 
     private void OnBatteryHacked(Entity<BatteryComponent> ent, ref CyberdeckHackDeviceEvent args)
     {
-        // TODO: this mostly works just with items, and can't process high-power structures properly.
-        // Im bad at math so if you're going to make something like Substations cyberdeck-hackable, please change this code first.
-
-        var mapPos = Xform.GetMapCoordinates(ent.Owner);
-        var percentage = ent.Comp.CurrentCharge / ent.Comp.MaxCharge;
-        var radius = percentage * 2.5f;
-        var duration = percentage * 10;
-
-        if (percentage < 0.1f)
+        // Less than 150W does nothing, just silently drains all remaining battery
+        if (ent.Comp.CurrentCharge < 150f)
         {
-            // Less than 10% does nothing, just silently drains all remaining battery
             _battery.SetCharge(ent.Owner, 0f, ent.Comp);
             return;
         }
 
-        // bazillions IPCs must die
+        var mass = 50.0f; // This is probably something wall-mount if it doesn't have any physics
+        if (TryComp(ent.Owner, out PhysicsComponent? physics))
+            mass = physics.FixturesMass;
+
+        var mapPos = Xform.GetMapCoordinates(ent.Owner);
+        var percentage = ent.Comp.CurrentCharge / ent.Comp.MaxCharge;
+
+        // A power-cell is 5 kg and SMES is ~150, so at 100% charge
+        // a powercell will hit ~1.1 tile radius, and a SMES ~6.1.
+        var radius = percentage * MathF.Sqrt(mass) / 2;
+        var duration = percentage * 10; // 0-10 seconds
+
+        // bazillions IPC must die
         _emp.EmpPulse(mapPos, radius, ent.Comp.CurrentCharge, duration);
 
         // Validhunt must spread
@@ -60,10 +107,29 @@ public sealed class CyberdeckSystem : SharedCyberdeckSystem
         Popup.PopupEntity(message, ent.Owner, PopupType.Large);
     }
 
-    private void OnLightHacked(Entity<PoweredLightComponent> ent, ref CyberdeckHackDeviceEvent args)
+    private void OnAirAlarmHacked(Entity<AirAlarmComponent> ent, ref CyberdeckHackDeviceEvent args)
     {
-        args.Refund = !_light.TryDestroyBulb(ent.Owner, ent.Comp);
+        var addr = string.Empty;
+        if (TryComp<DeviceNetworkComponent>(ent.Owner, out var netConn))
+            addr = netConn.Address;
+
+        _airAlarm.SetMode(ent.Owner, addr, AirAlarmMode.Panic, false, ent.Comp);
     }
+
+    private void OnApcHacked(Entity<ApcComponent> ent, ref CyberdeckHackDeviceEvent args)
+        => _apcSystem.ApcToggleBreaker(ent.Owner, ent.Comp);
+
+    private void OnLightHacked(Entity<PoweredLightComponent> ent, ref CyberdeckHackDeviceEvent args)
+        => args.Refund = !_light.TryDestroyBulb(ent.Owner, ent.Comp);
+
+    private void OnPowerNetworkHacked(Entity<PowerNetworkBatteryComponent> ent, ref CyberdeckHackDeviceEvent args)
+    {
+        if (TryComp(ent.Owner, out ExplosiveComponent? explosive))
+            _explosion.TriggerExplosive(ent.Owner, explosive, user: args.User);
+    }
+
+    private void OnVendingHacked(Entity<VendingMachineComponent> ent, ref CyberdeckHackDeviceEvent args)
+        => _vending.EjectRandom(ent.Owner, true, true, ent.Comp);
 
     /// <inheritdoc/>
     protected override void UpdateAlert(Entity<CyberdeckUserComponent> ent, bool doClear = false)

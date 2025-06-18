@@ -17,6 +17,6 @@ public sealed partial class CyberdeckHackableComponent : Component
     [DataField, AutoNetworkedField]
     public int Cost = 1;
 
-    [DataField, AutoNetworkedField]
-    public TimeSpan HackingTime = TimeSpan.FromSeconds(3);
+    [DataField("delay"), AutoNetworkedField]
+    public TimeSpan HackingTime = TimeSpan.FromSeconds(2);
 }
