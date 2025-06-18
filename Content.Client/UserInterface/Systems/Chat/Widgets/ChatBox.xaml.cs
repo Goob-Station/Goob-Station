@@ -48,8 +48,11 @@ namespace Content.Client.UserInterface.Systems.Chat.Widgets;
 [Virtual]
 public partial class ChatBox : UIWidget
 {
+    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private readonly ILogManager _log = default!;
+
+    private readonly ISawmill _sawmill;
     private readonly ChatUIController _controller;
-    private readonly IEntityManager _entManager;
     private readonly IConfigurationManager _cfg; // WD EDIT
     private readonly ILocalizationManager _loc; // WD EDIT
 
@@ -65,8 +68,8 @@ public partial class ChatBox : UIWidget
     public ChatBox()
     {
         RobustXamlLoader.Load(this);
+        _sawmill = _log.GetSawmill("chat");
         _loc = IoCManager.Resolve<ILocalizationManager>();
-        _entManager = IoCManager.Resolve<IEntityManager>();
 
         ChatInput.Input.OnTextEntered += OnTextEntered;
         ChatInput.Input.OnKeyBindDown += OnInputKeyBindDown;
@@ -97,7 +100,7 @@ public partial class ChatBox : UIWidget
 
     private void OnMessageAdded(ChatMessage msg)
     {
-        Logger.DebugS("chat", $"{msg.Channel}: {msg.Message}");
+        _sawmill.Debug($"{msg.Channel}: {msg.Message}");
         if (!ChatInput.FilterButton.Popup.IsActive(msg.Channel))
         {
             return;
