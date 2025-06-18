@@ -140,4 +140,4 @@
   - type: StorageFill
     contents:
       - id: StimpackMini
-        amount: 6
+        amount: 8 # Goob
