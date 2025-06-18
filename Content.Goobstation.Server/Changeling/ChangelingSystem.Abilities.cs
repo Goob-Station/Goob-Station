@@ -184,7 +184,7 @@ public sealed partial class ChangelingSystem
         PlayMeatySound(args.User, comp);
 
         var dmg = new DamageSpecifier(_proto.Index(AbsorbedDamageGroup), 200);
-        _damage.TryChangeDamage(target, dmg, false, false, targetPart: TargetBodyPart.All); // Shitmed Change
+        _damage.TryChangeDamage(target, dmg, true, false, targetPart: TargetBodyPart.All); // Shitmed Change
         _blood.ChangeBloodReagent(target, "FerrochromicAcid");
         _blood.SpillAllSolutions(target);
 
@@ -195,24 +195,35 @@ public sealed partial class ChangelingSystem
         var bonusChemicals = 0f;
         var bonusEvolutionPoints = 0f;
         var bonusChangelingAbsorbs = 0;
+
         if (TryComp<ChangelingIdentityComponent>(target, out var targetComp))
         {
             bonusChemicals += targetComp.MaxChemicals / 2;
             bonusEvolutionPoints += targetComp.TotalEvolutionPoints / 2;
             bonusChangelingAbsorbs += targetComp.TotalChangelingsAbsorbed + 1;
         }
-        else
+        else if (!HasComp<ChangelingIdentityComponent>(target)
+            && !HasComp<PartialAbsorbableComponent>(target))
         {
             popup = Loc.GetString("changeling-absorb-end-self");
             bonusChemicals += 10;
             bonusEvolutionPoints += 2;
         }
+        else
+            popup = Loc.GetString("changeling-absorb-end-partial");
 
         comp.TotalEvolutionPoints += bonusEvolutionPoints;
 
-        TryStealDNA(uid, target, comp, true);
-        comp.TotalAbsorbedEntities++;
-        comp.TotalChangelingsAbsorbed += bonusChangelingAbsorbs;
+        bool objBool = true;
+        if (!HasComp<PartialAbsorbableComponent>(target))
+        {
+            comp.TotalAbsorbedEntities++;
+            comp.TotalChangelingsAbsorbed += bonusChangelingAbsorbs;
+        }
+        else
+            objBool = false;
+
+        TryStealDNA(uid, target, comp, objBool);
 
         _popup.PopupEntity(popup, args.User, args.User);
         comp.MaxChemicals += bonusChemicals;
@@ -225,7 +236,8 @@ public sealed partial class ChangelingSystem
 
         if (_mind.TryGetMind(uid, out var mindId, out var mind))
         {
-            if (_mind.TryGetObjectiveComp<AbsorbConditionComponent>(mindId, out var absorbObj, mind))
+            if (_mind.TryGetObjectiveComp<AbsorbConditionComponent>(mindId, out var absorbObj, mind)
+                && !HasComp<PartialAbsorbableComponent>(target))
                 absorbObj.Absorbed += 1;
 
             if (_mind.TryGetObjectiveComp<AbsorbChangelingConditionComponent>(mindId, out var lingAbsorbObj, mind)
@@ -315,8 +327,13 @@ public sealed partial class ChangelingSystem
         if (!TrySting(uid, comp, args, true))
             return;
 
+        bool objBool = true;
         var target = args.Target;
-        if (!TryStealDNA(uid, target, comp, true))
+
+        if (HasComp<PartialAbsorbableComponent>(target))
+            objBool = false;
+
+        if (!TryStealDNA(uid, target, comp, objBool))
         {
             _popup.PopupEntity(Loc.GetString("changeling-sting-extract-fail"), uid, uid);
             // royal cashback
