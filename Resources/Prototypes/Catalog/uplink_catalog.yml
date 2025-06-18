@@ -838,7 +838,7 @@
   description: uplink-stimkit-desc
   productEntity: StimkitFilled
   cost:
-    Telecrystal: 35 # goob
+    Telecrystal: 40 # goob
   categories:
   - UplinkChemicals
 
