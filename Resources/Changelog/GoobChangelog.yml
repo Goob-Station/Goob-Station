@@ -11176,3 +11176,178 @@ Entries:
       message: You can no longer FTL ghost bar.
   id: 1228
   time: '2025-06-15T06:54:48.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: >-
+        Traitor salvagers can now buy pressure modkits that disable pressure
+        penalties on PKAs.
+    - type: Tweak
+      message: >-
+        PKAs only deal full damage between 20 and 50 kpa instead of just below
+        50 now. 1984.
+  id: 1229
+  time: '2025-06-15T07:15:51.0000000+00:00'
+- author: the_biggestbruh
+  changes:
+    - type: Tweak
+      message: >-
+        Heretic path of Void ascension has received a mini-rework. Board the
+        windows, weld the doors, huddle close together for warmth, hide and
+        pray. The waltz begins.
+  id: 1230
+  time: '2025-06-15T07:20:24.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: Blueshield officers can now choose armored ushanka in the loadout.
+  id: 1231
+  time: '2025-06-15T07:22:38.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Add
+      message: office chairs to saltern
+    - type: Add
+      message: public lavaland to saltern
+    - type: Add
+      message: CC office to saltern
+    - type: Add
+      message: holopads to saltern
+    - type: Add
+      message: brigmed infrastructure to saltern
+    - type: Remove
+      message: public laths on saltern
+    - type: Tweak
+      message: AI sat on saltern
+  id: 1232
+  time: '2025-06-15T07:26:03.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Remove
+      message: Removed non admin/owner plushies.
+  id: 1233
+  time: '2025-06-15T07:27:55.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Syndicate bomb timer is now 60s.
+  id: 1234
+  time: '2025-06-15T07:33:13.0000000+00:00'
+- author: Chloris
+  changes:
+    - type: Add
+      message: Chloris
+  id: 1235
+  time: '2025-06-15T07:37:55.0000000+00:00'
+- author: the_biggestbruh
+  changes:
+    - type: Add
+      message: >-
+        Chitinous armour plays an animation and unique sound when being
+        equipped. 
+    - type: Tweak
+      message: >-
+        Chitinous armour has had its physical protection reduced (65% -> 45%)
+        and explosive protection reduced (50% -> 10%)
+    - type: Tweak
+      message: Chitinous armour helmet now stops ingestion.
+    - type: Tweak
+      message: >-
+        Chitinous armour now prevents dismemberment, and has more protection
+        against bone damage.
+    - type: Tweak
+      message: >-
+        Chitinous armour now hides physical features (except for things like
+        tails) and protects the user's identity.
+  id: 1236
+  time: '2025-06-15T07:41:12.0000000+00:00'
+- author: Super7522
+  changes:
+    - type: Add
+      message: >-
+        New Shipment of Holy Supplies, for those Cultists rounds when the Bible
+        is lost
+  id: 1237
+  time: '2025-06-15T07:42:45.0000000+00:00'
+- author: cheetah1984
+  changes:
+    - type: Tweak
+      message: Sentient artifact activation cooldown (5 -> 1 minutes)
+  id: 1238
+  time: '2025-06-15T07:43:34.0000000+00:00'
+- author: misandrie
+  changes:
+    - type: Add
+      message: BSO now has an objective to protect one random command member
+  id: 1239
+  time: '2025-06-15T07:44:45.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Tweak
+      message: >-
+        Changed the SM containment's doors and windows for fresh models direct
+        from Centcomm
+    - type: Tweak
+      message: 'Gave Bagels Brigmed a makeover '
+  id: 1240
+  time: '2025-06-15T07:45:19.0000000+00:00'
+- author: vrilly
+  changes:
+    - type: Add
+      message: More lizard emotes
+  id: 1241
+  time: '2025-06-15T07:46:29.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: Security got new melee toys to play with.
+  id: 1242
+  time: '2025-06-15T08:15:54.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Fix
+      message: Skeletons are now correctly healed by milk.
+    - type: Fix
+      message: Lizards can now open doors, pilot shuttles etc.
+    - type: Fix
+      message: Vulps and shadowkins can now host anomalies.
+  id: 1243
+  time: '2025-06-15T19:43:36.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Fix
+      message: Polymorphs no longer spawn urists
+  id: 1244
+  time: '2025-06-16T09:11:35.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Fix
+      message: Traitors should get their uplinks now
+  id: 1245
+  time: '2025-06-16T13:16:56.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: Proximity voicechat, check discord announcements for more details.
+  id: 1246
+  time: '2025-06-17T00:58:34.0000000+00:00'
+- author: IAmForcedIntoMakingClLongerThanActualChanges
+  changes:
+    - type: Fix
+      message: Abductor multitool can now recharge again.
+    - type: Tweak
+      message: Abductor multitool now recharges even in multitool mode.
+    - type: Tweak
+      message: Abductor multitool cooldown increased to 20 from 15.
+    - type: Fix
+      message: Security can again choose winter jackboots in the loadout.
+    - type: Remove
+      message: Removed duplicate tools from syndicate surgery duffel bag.
+    - type: Fix
+      message: >-
+        Hyperzine description in the uplink now correctly describes its
+        duration.
+    - type: Tweak
+      message: Camera bug now costs 12 TC.
+  id: 1247
+  time: '2025-06-18T02:04:30.0000000+00:00'

@@ -80,6 +80,9 @@ uplink-dart-gun-desc = This gun applies inside chemicals to its regenerating dar
 uplink-magazine-nailgun-name = Nail Gun Magazine (AP)
 uplink-magazine-nailgun-desc = Almost like a normal magazine for your nail gun. The only difference is that this one is armor-piercing.
 
+uplink-pressure-modkit-name = Pressure Modkit
+uplink-pressure-modkit-desc = This illegal modkit takes 30 capacity of your proto-kinetic accelerator and overclocks it to deal full damage even in unsuitable pressure.
+
 # Weapons
 
 uplink-contractor-baton-name = Contractor Baton
@@ -265,6 +268,9 @@ uplink-helmet-swat-desc = Robust helmet that offers good protection and also sup
 
 uplink-reverse-bear-trap-name = Reverse Bear Trap
 uplink-reverse-bear-trap-desc = An ingenious execution device worn on (or forced onto) the head. Arming it starts a configurable timer (30-120 seconds) mounted on the bear trap. When it goes off, the trap's jaws will violently open, instantly killing anyone wearing it by tearing their jaws in half. To arm, attack someone with it while they're not wearing headgear.
+
+uplink-belt-rig-name = Grenadier Belt
+uplink-belt-rig-desc = A specialised belt rig to hold so many grenades that your arm gets tired from throwing them all. Can also store a sidearm and magazines for it.
 
 # Deception
 
