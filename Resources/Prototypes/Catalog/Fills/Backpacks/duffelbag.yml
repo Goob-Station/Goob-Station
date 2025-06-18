@@ -156,17 +156,15 @@
   - type: StorageFill
     contents: # goob edited
       - id: DefibrillatorSyndicate
-      - id: SawAdvanced
-      - id: EnergyCautery
-      - id: AdvancedRetractor
       - id: ScalpelAdvanced
+      - id: SawAdvanced
       - id: Drill
+      - id: AdvancedRetractor
+      - id: EnergyCautery
       - id: AdvancedBoneGel
       - id: ClothingHandsGlovesNitrile
       - id: EmergencyRollerBedSpawnFolded
-      - id: ClothingMaskSterile # Goobstation
-      - id: BoneGel # Shitmed Change
-      - id: MedicalStitches # Shitmed Change
+      - id: ClothingMaskSterile
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
