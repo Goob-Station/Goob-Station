@@ -293,11 +293,9 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         var (uid, component) = ent;
 
         _actions.RemoveAction(uid, component.HackAction);
-        if (component.VisionAction != null)
-            _actions.RemoveAction(uid, component.VisionAction);
-        if (component.ReturnAction != null)
-            _actions.RemoveAction(uid, component.ReturnAction);
-        
+        _actions.RemoveAction(uid, component.VisionAction);
+        _actions.RemoveAction(uid, component.ReturnAction);
+
         UpdateAlert(ent, true);
 
         DetachFromProjection(ent);
@@ -408,6 +406,7 @@ public abstract class SharedCyberdeckSystem : EntitySystem
 
         _actions.AddAction(user.Owner, ref user.Comp.ReturnAction, user.Comp.ReturnActionId);
         _actions.RemoveAction(user.Owner, user.Comp.VisionAction);
+        user.Comp.VisionAction = null; // Shitcode to prevent errors
 
         // Now everything becomes tricky.
         // At this point there are 3 possible scenarios:
@@ -481,6 +480,7 @@ public abstract class SharedCyberdeckSystem : EntitySystem
 
         _actions.AddAction(user, ref user.Comp.VisionAction, user.Comp.VisionActionId);
         _actions.RemoveAction(user, user.Comp.ReturnAction);
+        user.Comp.ReturnAction = null; // Shitcode to prevent errors
 
         if (TryComp(user, out EyeComponent? eyeComp))
         {
