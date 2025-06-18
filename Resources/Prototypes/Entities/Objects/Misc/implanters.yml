@@ -91,6 +91,7 @@
       - MindcontrolImplant
       - KravMagaImplant
       - NutrimentPumpImplant
+      - SmokeImplant
       # - StypticStimulatorImplant # Uncomment if given to traitors, currently it's DS only implant
       - BinaryImplant
       deimplantFailureDamage:
