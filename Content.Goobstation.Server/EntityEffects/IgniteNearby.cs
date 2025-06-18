@@ -3,6 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Diagnostics;
 using System.Linq;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
@@ -21,6 +22,9 @@ public sealed partial class IgniteNearby : EntityEffect
 
     [DataField]
     public float Range = 7;
+
+    [DataField]
+    public float FireStacks = 2;
 
     public override bool ShouldLog => true;
 
@@ -44,7 +48,7 @@ public sealed partial class IgniteNearby : EntityEffect
 
             foreach (var (ent, flammable) in flammableEntities)
             {
-                flamSys.Ignite(ent, args.TargetEntity, flammable: flammable);
+                flamSys.AdjustFireStacks(ent, FireStacks, flammable, true);
             }
         }
     }
