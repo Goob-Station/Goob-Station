@@ -237,7 +237,6 @@
         maxIntensity: 1050
         intensitySlope: 4
         intensityPerUnit: 70
-        totalIntensity: 1050
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
