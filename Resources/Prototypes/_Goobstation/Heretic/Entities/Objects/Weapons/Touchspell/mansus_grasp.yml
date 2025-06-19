@@ -59,6 +59,8 @@
     speed: 0.75
   - type: Tending
     speed: 0.75
+  - type: Stitches
+    speed: 0.75
   # Saw and scalpel surgery qualities are on heretic blades
 
 - type: entity
