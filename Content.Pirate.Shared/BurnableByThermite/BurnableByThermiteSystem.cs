@@ -54,23 +54,26 @@ public sealed class SharedBurnableByThermiteSystem : EntitySystem
             }
             if (thermiteReagent.Quantity >= structureThermiteSolution.MaxVolume)
             {
-
-                _solutionSystem.TryAddReagent(structureThermiteSolutionEntity.Value, thermiteReagent, out var transferedAmount);
-                if (transferedAmount == 0)
-                {
-                    _popupSystem.PopupClient(Loc.GetString("thermite-on-structure-full"), args.User, args.User, PopupType.Medium);
-                    return;
-                }
-                else
-                {
-                    _popupSystem.PopupClient(Loc.GetString("thermite-on-structure-success"), args.User, args.User, PopupType.MediumCaution);
-                    _solutionSystem.RemoveReagent(solutionEntity, "Thermite", transferedAmount);
-                    _appearanceSystem.SetData(structure, BurnableByThermiteVisuals.CoveredInThermite, true);
-                    return;
-                }
+                TransferReagent(structureThermiteSolutionEntity.Value, thermiteReagent, solutionEntity, structure, args.User);
             }
         }
 
     }
 
+    public void TransferReagent(Entity<SolutionComponent> to, ReagentQuantity reagent, Entity<SolutionComponent> from, EntityUid structure, EntityUid user)
+    {
+        _solutionSystem.TryAddReagent(to, reagent, out var transferedAmount);
+        if (transferedAmount == 0)
+        {
+            _popupSystem.PopupClient(Loc.GetString("thermite-on-structure-full"), user, user, PopupType.Medium);
+            return;
+        }
+        else
+        {
+            _popupSystem.PopupClient(Loc.GetString("thermite-on-structure-success"), user, user, PopupType.MediumCaution);
+            _solutionSystem.RemoveReagent(from, "Thermite", transferedAmount);
+            _appearanceSystem.SetData(structure, BurnableByThermiteVisuals.CoveredInThermite, true);
+            return;
+        }
+    }
 }
