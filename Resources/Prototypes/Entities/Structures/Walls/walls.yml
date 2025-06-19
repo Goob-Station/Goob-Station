@@ -204,7 +204,7 @@
     layers:
       - state: covered_in_thermite
         sprite: Structures/Walls/solid.rsi
-        map: ["enum.BurnableByThermiteLayers.Puddle": 4]
+        map: ["enum.BurnableByThermiteLayers.Puddle"]
         drawdepth: Overdoors
         visible: false
         zIndex: 100
