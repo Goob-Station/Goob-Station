@@ -858,6 +858,8 @@
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: StaminaResistance # Goobstation uncommented
     damageCoefficient: 0.45
   - type: Armor
     traumaDeductions:
@@ -889,8 +891,6 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 3
     knockdownTimeDelta: -3
-  - type: StaminaResistance # Goobstation
-    damageCoefficient: 0.45
   - type: StaticPrice
     price: 5000
 
@@ -939,6 +939,8 @@
     damageCoefficient: 0.2
   - type: FireProtection
     reduction: 0.8
+  - type: StaminaResistance # Goobstation uncommented
+    damageCoefficient: 0.55
   - type: Armor
     traumaDeductions:
       Dismemberment: 0.5
@@ -966,8 +968,6 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 3
     knockdownTimeDelta: -3
-  - type: StaminaResistance # Goobstation
-    damageCoefficient: 0.55
 
 #Syndicate Commander Hardsuit
 - type: entity
@@ -984,7 +984,9 @@
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.4
+    damageCoefficient: 0.5
+  - type: StaminaResistance # Goobstation uncommented
+    damageCoefficient: 0.35
   - type: Armor
     traumaDeductions:
       Dismemberment: 0.6
@@ -1010,8 +1012,6 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 3
     knockdownTimeDelta: -3
-  - type: StaminaResistance # Goobstation
-    damageCoefficient: 0.35
 
 #Cybersun Juggernaut Hardsuit
 - type: entity
@@ -1029,6 +1029,8 @@
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
     damageCoefficient: 0.3
+  - type: StaminaResistance # Goobstation uncommented
+    damageCoefficient: 0.8
   - type: Armor
     traumaDeductions: # prevents traumas at all (kinda)
       Dismemberment: 1
@@ -1054,8 +1056,6 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 1
     knockdownTimeDelta: -1
-  - type: StaminaResistance # Goobstation
-    damageCoefficient: 0.8
   - type: Tag
     tags:
     - MonkeyWearable
