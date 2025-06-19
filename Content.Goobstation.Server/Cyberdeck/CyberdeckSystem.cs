@@ -85,15 +85,18 @@ public sealed class CyberdeckSystem : SharedCyberdeckSystem
             return;
         }
 
-        var mass = 50.0f; // This is probably something wall-mount if it doesn't have any physics
+        var mass = 60.0f; // This is probably something wall-mount if it doesn't have any physics
         if (TryComp(ent.Owner, out PhysicsComponent? physics))
             mass = physics.FixturesMass;
 
+        // Safety measure from YAMLmaxxers
+        mass = Math.Min(mass, 1000f);
+
         var mapPos = Xform.GetMapCoordinates(ent.Owner);
-        var percentage = ent.Comp.CurrentCharge / ent.Comp.MaxCharge;
+        var percentage = ent.Comp.CurrentCharge / Math.Max(ent.Comp.MaxCharge, 1f);
 
         // A power-cell is 5 kg and SMES is ~150, so at 100% charge
-        // a powercell will hit ~1.1 tile radius, and a SMES ~6.1.
+        // a powercell will hit ~1.1 tile radius, SMES ~6.1, and an extreme case is ~16 tiles.
         var radius = percentage * MathF.Sqrt(mass) / 2;
         var duration = percentage * 10; // 0-10 seconds
 

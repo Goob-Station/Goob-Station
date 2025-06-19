@@ -55,6 +55,7 @@ public abstract class SharedCyberdeckSystem : EntitySystem
     private EntityQuery<LimitedChargesComponent> _chargesQuery;
     private EntityQuery<CyberdeckHackableComponent> _hackQuery;
     private EntityQuery<CyberdeckUserComponent> _userQuery;
+    private EntityQuery<CyberdeckSourceComponent> _sourceQuery;
 
     public override void Initialize()
     {
@@ -82,6 +83,7 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         _chargesQuery = GetEntityQuery<LimitedChargesComponent>();
         _hackQuery = GetEntityQuery<CyberdeckHackableComponent>();
         _userQuery = GetEntityQuery<CyberdeckUserComponent>();
+        _sourceQuery = GetEntityQuery<CyberdeckSourceComponent>();
     }
 
     #region Basic User Handling
@@ -94,7 +96,7 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         _actions.AddAction(uid, ref component.VisionAction, component.VisionActionId);
 
         // Find the cyberdeck source by hand. TODO: Maybe make a BodyOrganRelayEvent and subscribe to it?
-        var evil = _body.GetBodyOrgans(uid).Where(x => HasComp<CyberdeckSourceComponent>(x.Id)).FirstOrNull();
+        var evil = _body.GetBodyOrgans(uid).Where(x => _sourceQuery.HasComp(x.Id)).FirstOrNull();
         if (evil == null)
             return;
 

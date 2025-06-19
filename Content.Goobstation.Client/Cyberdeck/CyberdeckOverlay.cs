@@ -22,12 +22,15 @@ public sealed class CyberdeckOverlay : Overlay
 
     private readonly ShaderInstance _shader;
 
+    private const float PulseRate = 3f;
+    private const float Level = 0.7f;
+
     public CyberdeckOverlay()
     {
         IoCManager.InjectDependencies(this);
         _shader = _prototypeManager.Index<ShaderPrototype>("GradientCircleMask").InstanceUnique();
 
-        ZIndex = -1; // Before StationAiOverlay
+        ZIndex = 1;
     }
 
     protected override void Draw(in OverlayDrawArgs args)
@@ -44,16 +47,15 @@ public sealed class CyberdeckOverlay : Overlay
 
         var time = (float) _timing.RealTime.TotalSeconds;
 
-        var pulseRate = 3f;
-        var adjustedTime = time * pulseRate;
-        var level = 0.5f;
+
+        var adjustedTime = time * PulseRate;
         float outerMaxLevel = 2.0f * distance;
         float outerMinLevel = 0.8f * distance;
         float innerMaxLevel = 0.6f * distance;
         float innerMinLevel = 0.2f * distance;
 
-        var outerRadius = outerMaxLevel - level * (outerMaxLevel - outerMinLevel);
-        var innerRadius = innerMaxLevel - level * (innerMaxLevel - innerMinLevel);
+        var outerRadius = outerMaxLevel - Level * (outerMaxLevel - outerMinLevel);
+        var innerRadius = innerMaxLevel - Level * (innerMaxLevel - innerMinLevel);
 
         var pulse = MathF.Max(0f, MathF.Sin(adjustedTime));
 
