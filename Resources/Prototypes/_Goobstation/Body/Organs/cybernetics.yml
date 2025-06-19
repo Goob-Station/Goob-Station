@@ -7,14 +7,13 @@
   parent: BaseCyberneticEyes
   id: OrganCyberdeckEyes
   name: cyberdeck eyes
-  description: A pair of cybernetic eyes that enhance your vision, and protect you from eye damage.
+  description: A pair of cybernetic eyes with integrated hacking programs, that gives its user new abilities.
   components:
   - type: CyberdeckSource
   - type: LimitedCharges
     maxCharges: 8
-    lastCharges: 0
   - type: AutoRecharge
-    rechargeDuration: 10
+    rechargeDuration: 15
   - type: Organ
     intCap: 21
     integrity: 21

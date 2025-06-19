@@ -127,3 +127,6 @@
   - type: Wires
     boardName: wires-board-name-computer
     layoutId: ComputerAi
+  - type: CyberdeckHackable # Goobstation - Cyberdeck
+    cost: 2
+    delay: 6
