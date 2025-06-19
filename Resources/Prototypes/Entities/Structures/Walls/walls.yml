@@ -201,6 +201,13 @@
   - type: IsRoof
   - type: Sprite
     drawdepth: Walls
+    layers:
+      - state: covered_in_thermite
+        sprite: Structures/Walls/solid.rsi
+        map: ["enum.BurnableByThermiteLayers.Puddle"]
+        drawdepth: Overdoors
+        visible: false
+        zIndex: 100
   - type: Icon
     state: full
   - type: PlacementReplacement
@@ -230,7 +237,16 @@
     penetrateDamage: 50
     damagePenalty: 0.1
   - type: SunShadowCast
-  - type: BurnableByThermite # PIRATE
+  # PIRATE START
+  - type: BurnableByThermite
+  - type: GenericVisualizer
+    visuals:
+      enum.BurnableByThermiteVisuals.CoveredInThermite:
+        enum.BurnableByThermiteLayers.Puddle:
+          True: {visible: true }
+          False: { visible: false }
+  - type: Appearance
+  # PIRATE END
 
 - type: entity
   parent: BaseWall

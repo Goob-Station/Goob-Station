@@ -17,6 +17,7 @@ public sealed class SharedBurnableByThermiteSystem : EntitySystem
 {
     [Dependency] private readonly SharedSolutionContainerSystem _solutionSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
 
     public override void Initialize()
     {
@@ -64,6 +65,7 @@ public sealed class SharedBurnableByThermiteSystem : EntitySystem
                 {
                     _popupSystem.PopupClient(Loc.GetString("thermite-on-structure-success"), args.User, args.User, PopupType.MediumCaution);
                     _solutionSystem.RemoveReagent(solutionEntity, "Thermite", transferedAmount);
+                    _appearanceSystem.SetData(structure, BurnableByThermiteVisuals.CoveredInThermite, true);
                     return;
                 }
             }
