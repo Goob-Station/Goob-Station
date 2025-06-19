@@ -213,14 +213,12 @@ public sealed partial class ChangelingSystem
 
         comp.TotalEvolutionPoints += bonusEvolutionPoints;
 
-        bool objBool = true;
-        if (!HasComp<PartialAbsorbableComponent>(target))
+        var objBool = !HasComp<PartialAbsorbableComponent>(target);
+        if (objBool)
         {
             comp.TotalAbsorbedEntities++;
             comp.TotalChangelingsAbsorbed += bonusChangelingAbsorbs;
         }
-        else
-            objBool = false;
 
         TryStealDNA(uid, target, comp, objBool);
 
@@ -326,11 +324,8 @@ public sealed partial class ChangelingSystem
         if (!TrySting(uid, comp, args, true))
             return;
 
-        bool objBool = true;
         var target = args.Target;
-
-        if (HasComp<PartialAbsorbableComponent>(target))
-            objBool = false;
+        var objBool = !HasComp<PartialAbsorbableComponent>(target);
 
         if (!TryStealDNA(uid, target, comp, objBool))
         {
