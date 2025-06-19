@@ -230,6 +230,7 @@
     penetrateDamage: 50
     damagePenalty: 0.1
   - type: SunShadowCast
+  - type: BurnableByThermite # PIRATE
 
 - type: entity
   parent: BaseWall
