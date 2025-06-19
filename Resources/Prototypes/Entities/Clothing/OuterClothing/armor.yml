@@ -253,8 +253,8 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 2.5
     knockdownTimeDelta: -2.5
-  - type: StaminaDamageResistance # Goobstation
-    coefficient: 0.6
+  - type: ExplosionResistance # Goobstation
+    damageCoefficient: 0.6
   - type: ItemSlots # Goobstation
     slots:
       item:
@@ -290,7 +290,7 @@
         Slash: 0.8
         Piercing: 0.3
         Heat: 0.8
-  - type: ExplosionResistance
+  - type: ExplosionResistance # Goobstation
     damageCoefficient: 0.8
   - type: ItemSlots # Goobstation
     slots:
