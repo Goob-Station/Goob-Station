@@ -25,6 +25,7 @@
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+// SPDX-FileCopyrightText: 2025 the biggest bruh <199992874+thebiggestbruh@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
 //
@@ -145,7 +146,7 @@ public sealed partial class ChangelingSystem
             _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-nograb"), uid, uid);
             return;
         }
-        if (CheckFireStatus(uid)) // checks if the target is on fire
+        if (CheckFireStatus(target)) // checks if the target is on fire
         {
             _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-onfire"), uid, uid);
             return;
@@ -357,7 +358,7 @@ public sealed partial class ChangelingSystem
             return;
         }
 
-        if (!TryUseAbility(uid, comp, args, null, false)) // ignores fires
+        if (!TryUseAbility(uid, comp, args, fireAffected: false))
             return;
 
         if (_mobState.IsAlive(uid))
@@ -371,7 +372,7 @@ public sealed partial class ChangelingSystem
         var lowestTime = comp.DefaultStasisTime;
         var highestTime = comp.CatastrophicStasisTime;
 
-        /// tell the changeling how bad they screwed up
+        // tell the changeling how bad they screwed up
         if (currentTime == lowestTime)
             _popup.PopupEntity(Loc.GetString("changeling-stasis-enter"), uid, uid);
         else if (currentTime > lowestTime && currentTime < highestTime)
@@ -402,7 +403,7 @@ public sealed partial class ChangelingSystem
             return;
         }
 
-        if (!TryUseAbility(uid, comp, args, null, false)) // ignores fires
+        if (!TryUseAbility(uid, comp, args, fireAffected: false))
             return;
 
         if (!TryComp<DamageableComponent>(uid, out var damageable))
@@ -530,7 +531,6 @@ public sealed partial class ChangelingSystem
             return;
         }
 
-        PlayMeatySound(uid, comp);
     }
     private void OnToggleShield(EntityUid uid, ChangelingIdentityComponent comp, ref ToggleOrganicShieldEvent args)
     {
@@ -544,7 +544,7 @@ public sealed partial class ChangelingSystem
     }
     private void OnShriekDissonant(EntityUid uid, ChangelingIdentityComponent comp, ref ShriekDissonantEvent args)
     {
-        if (!TryUseAbility(uid, comp, args, null, false)) // ignores fire
+        if (!TryUseAbility(uid, comp, args, fireAffected: false))
             return;
 
         DoScreech(uid, comp);
@@ -555,7 +555,7 @@ public sealed partial class ChangelingSystem
     }
     private void OnShriekResonant(EntityUid uid, ChangelingIdentityComponent comp, ref ShriekResonantEvent args)
     {
-        if (!TryUseAbility(uid, comp, args, null, false)) // ignores fire
+        if (!TryUseAbility(uid, comp, args, fireAffected: false))
             return;
 
         DoScreech(uid, comp); // screenshake
@@ -571,7 +571,7 @@ public sealed partial class ChangelingSystem
     }
     private void OnToggleStrainedMuscles(EntityUid uid, ChangelingIdentityComponent comp, ref ToggleStrainedMusclesEvent args)
     {
-        if (!TryUseAbility(uid, comp, args, null, false)) // ignores fire
+        if (!TryUseAbility(uid, comp, args, fireAffected: false))
             return;
 
         ToggleStrainedMuscles(uid, comp);
@@ -697,7 +697,7 @@ public sealed partial class ChangelingSystem
     }
     public void OnBiodegrade(EntityUid uid, ChangelingIdentityComponent comp, ref ActionBiodegradeEvent args)
     {
-        if (!TryUseAbility(uid, comp, args, null, false)) // ignores fire
+        if (!TryUseAbility(uid, comp, args, fireAffected: false))
             return;
 
         if (TryComp<CuffableComponent>(uid, out var cuffs) && cuffs.Container.ContainedEntities.Count > 0)
@@ -788,7 +788,7 @@ public sealed partial class ChangelingSystem
     }
     public void OnAdrenalineReserves(EntityUid uid, ChangelingIdentityComponent comp, ref ActionAdrenalineReservesEvent args)
     {
-        if (!TryUseAbility(uid, comp, args, null, false)) // ignores fire
+        if (!TryUseAbility(uid, comp, args, fireAffected: false))
             return;
 
         var stam = EnsureComp<StaminaComponent>(uid);
@@ -822,7 +822,7 @@ public sealed partial class ChangelingSystem
     }
     public void OnLastResort(EntityUid uid, ChangelingIdentityComponent comp, ref ActionLastResortEvent args)
     {
-        if (!TryUseAbility(uid, comp, args, null, false)) // ignores fire
+        if (!TryUseAbility(uid, comp, args, fireAffected: false))
             return;
 
         comp.IsInLastResort = true;
@@ -870,7 +870,7 @@ public sealed partial class ChangelingSystem
     public ProtoId<CollectiveMindPrototype> HivemindProto = "Lingmind";
     public void OnHivemindAccess(EntityUid uid, ChangelingIdentityComponent comp, ref ActionHivemindAccessEvent args)
     {
-        if (!TryUseAbility(uid, comp, args, null, false)) // ignores fire
+        if (!TryUseAbility(uid, comp, args, fireAffected: false))
             return;
 
         if (HasComp<HivemindComponent>(uid))

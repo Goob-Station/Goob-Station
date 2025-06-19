@@ -146,6 +146,7 @@ using Content.Shared.Timing;
 using Content.Shared.Toggleable;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Hands;
 using Robust.Server.Audio;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
@@ -200,6 +201,7 @@ namespace Content.Server.Atmos.EntitySystems
             SubscribeLocalEvent<FlammableComponent, TileFireEvent>(OnTileFire);
             SubscribeLocalEvent<FlammableComponent, RejuvenateEvent>(OnRejuvenate);
             SubscribeLocalEvent<FlammableComponent, ResistFireAlertEvent>(OnResistFireAlert);
+            Subs.SubscribeWithRelay<FlammableComponent, ExtinguishEvent>(OnExtinguishEvent);
 
             SubscribeLocalEvent<IgniteOnCollideComponent, StartCollideEvent>(IgniteOnCollide);
             SubscribeLocalEvent<IgniteOnCollideComponent, LandEvent>(OnIgniteLand);
@@ -211,6 +213,14 @@ namespace Content.Server.Atmos.EntitySystems
             SubscribeLocalEvent<IgniteOnHeatDamageComponent, DamageChangedEvent>(OnDamageChanged);
 
             Subs.CVar(_cfg, GoobCVars.FireStackHeat, value => _addHeatFirestack = value, true);
+        }
+
+        private void OnExtinguishEvent(Entity<FlammableComponent> ent, ref ExtinguishEvent args)
+        {
+            // You know I'm really not sure if having AdjustFireStacks *after* Extinguish,
+            // but I'm just moving this code, not questioning it.
+            Extinguish(ent, ent.Comp);
+            AdjustFireStacks(ent, args.FireStacksAdjustment, ent.Comp);
         }
 
         private void OnMeleeHit(EntityUid uid, IgniteOnMeleeHitComponent component, MeleeHitEvent args)
@@ -444,6 +454,9 @@ namespace Content.Server.Atmos.EntitySystems
 
             _ignitionSourceSystem.SetIgnited(uid, false);
 
+            var extinguished = new ExtinguishedEvent();
+            RaiseLocalEvent(uid, ref extinguished);
+
             UpdateAppearance(uid, flammable);
         }
 
@@ -465,6 +478,9 @@ namespace Content.Server.Atmos.EntitySystems
                 else
                     _adminLogger.Add(LogType.Flammable, $"{ToPrettyString(uid):target} set on fire by {ToPrettyString(ignitionSource):actor}");
                 flammable.OnFire = true;
+
+                var extinguished = new IgnitedEvent();
+                RaiseLocalEvent(uid, ref extinguished);
             }
 
             UpdateAppearance(uid, flammable);

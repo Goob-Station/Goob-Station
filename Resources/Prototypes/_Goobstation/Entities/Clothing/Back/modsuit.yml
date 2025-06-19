@@ -13,7 +13,7 @@
 - type: entity
   parent: [Clothing, ContentsExplosionResistanceBase]
   id: ClothingModsuitStandard
-  name: standard modsuit hardsuit unit
+  name: standard hardsuit control unit
   description: A special modular suit contol unit containing all necessary modular hardsuit parts.
   components:
   - type: Appearance
@@ -277,7 +277,7 @@
             - PowerCell
 
 - type: entity
-  parent: [ClothingModsuitStandard, BaseCommandContraband] # BaseGrandTheftContraband
+  parent: [ClothingModsuitStandard, BaseCommandContraband, BaseGrandTheftContraband]
   id: ClothingModsuitResearchDirector
   name: RD's minerva hardsuit control unit
   description: A  modular hardsuit control module unit for withstanding another shuttlebomb.
@@ -294,11 +294,11 @@
   - type: Construction
     graph: Modsuit
     node: rd
-#  - type: StealTarget
-#    stealGroup: ClothingOuterHardsuitRd
-#  - type: Tag
-#    tags:
-#      - HighRiskItem
+  - type: StealTarget
+    stealGroup: ClothingOuterHardsuitRd
+  - type: Tag
+    tags:
+      - HighRiskItem
 
 - type: entity
   parent: ClothingModsuitResearchDirector

@@ -76,6 +76,13 @@ uplink-beenades-desc = A non-explosive grenade full of... bees?! NOT THE BEES!!!
 
 uplink-dart-gun-name = Dart Gun
 uplink-dart-gun-desc = This gun applies inside chemicals to its regenerating dart supply, allowing to distantly heal allies or to commit war crimes by poisoning foes.
+
+uplink-magazine-nailgun-name = Nail Gun Magazine (AP)
+uplink-magazine-nailgun-desc = Almost like a normal magazine for your nail gun. The only difference is that this one is armor-piercing.
+
+uplink-pressure-modkit-name = Pressure Modkit
+uplink-pressure-modkit-desc = This illegal modkit takes 30 capacity of your proto-kinetic accelerator and overclocks it to deal full damage even in unsuitable pressure.
+
 # Weapons
 
 uplink-contractor-baton-name = Contractor Baton
@@ -196,6 +203,12 @@ uplink-high-caliber-shotgun-box-sarin-desc = 16 shells of 8 Gauge sarin shells f
 uplink-sarin-gas-grenade-name = Sarin Gas Grenade
 uplink-sarin-gas-grenade-desc = A brutal neurotoxin gas that stuns, blinds, and poisons anybody unlucky enough to catch a whiff aswell as burning anyone not in a voidsuit, leaving them writhing on the floor begging to be finished off
 
+uplink-M172LAW-name = M172 Light Anti-structure Weapon
+uplink-M172LAW-desc = A single shot disposable rocket launcher for taking out singular walls/machines with minimal collateral damage. can be stored in your backpack conveniently.
+
+uplink-RPOA-name = RPO-A 'Shmel'
+uplink-RPOA-desc = A single shot disposable thermobaric rocket launcher, which lights hostiles and hostages on fire in a wide radius. can be stored in your backpack.
+
 # Mechs
 
 uplink-mech-teleporter-heavy-name = Heavy Mech teleporter
@@ -218,6 +231,12 @@ uplink-advanced-combat-medipen-desc = An advanced single-use medipen containing 
 uplink-syringe-pistol-name = Syringe Pistol
 uplink-syringe-pistol-desc = A gun that takes syringes as ammunition, and injects their contents to its victims. Injects faster than normal syringe guns and can fit in pockets.
 
+uplink-combat-medkit-pills-name = Combat Medical Kit (Pills)
+uplink-combat-medkit-pills-desc = Contains most medicines you need to recover from injuries and illnesses, all in a convenient pill form.
+
+uplink-combat-medkit-ipc-name = Combat Medical Kit (IPC)
+uplink-combat-medkit-ipc-desc = Contains everything you need to heal an IPC; includes LV wire, industrial welder, a high capacity cell and meson goggles.
+
 # Implants
 
 uplink-smoke-implant-name = Smoke Implant
@@ -239,7 +258,7 @@ uplink-autosurgeon-mantis-blade-desc = Modifies the user's arm to include the Ma
 uplink-autosurgeon-sandevistan-name = Sandevistan Autosurgeon
 uplink-autosurgeon-sandevistan-desc = Replaces the user's heart with Sandevistan, a synthetic organ that drastically increases the user's speed at the cost of their endurance. Requires too much fine tuning for a human to provide, comes with a one-use autosurgeon for installation.
 
-uplink-davids-jacket-name = edgerunner jacket
+uplink-davids-jacket-name = Edgerunner Jacket
 uplink-davids-jacket-desc = A jacket for those particularly interested in improving their bodies, just like you.
 
 # Wearables
@@ -247,8 +266,11 @@ uplink-davids-jacket-desc = A jacket for those particularly interested in improv
 uplink-helmet-swat-name = Syndicate SWAT Helmet
 uplink-helmet-swat-desc = Robust helmet that offers good protection and also suppresses flashbang sounds to some extent.
 
-uplink-reverse-bear-trap-name = Reverse bear trap
+uplink-reverse-bear-trap-name = Reverse Bear Trap
 uplink-reverse-bear-trap-desc = An ingenious execution device worn on (or forced onto) the head. Arming it starts a configurable timer (30-120 seconds) mounted on the bear trap. When it goes off, the trap's jaws will violently open, instantly killing anyone wearing it by tearing their jaws in half. To arm, attack someone with it while they're not wearing headgear.
+
+uplink-belt-rig-name = Grenadier Belt
+uplink-belt-rig-desc = A specialised belt rig to hold so many grenades that your arm gets tired from throwing them all. Can also store a sidearm and magazines for it.
 
 # Deception
 
@@ -257,7 +279,7 @@ uplink-clothing-explosive-gloves-desc = Gloves that look just like normal insula
 
 # Disruption
 
-uplink-syndicate-weapon-module-advanced-name = advanced weapons module
+uplink-syndicate-weapon-module-advanced-name = Advanced Weapons Module
 uplink-syndicate-weapon-module-advanced-desc = Upgrades a cyborg with an energy sword and an anaconda pistol.
 
 # Martial Arts
