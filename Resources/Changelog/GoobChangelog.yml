@@ -11303,3 +11303,63 @@ Entries:
       message: Security got new melee toys to play with.
   id: 1242
   time: '2025-06-15T08:15:54.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Fix
+      message: Skeletons are now correctly healed by milk.
+    - type: Fix
+      message: Lizards can now open doors, pilot shuttles etc.
+    - type: Fix
+      message: Vulps and shadowkins can now host anomalies.
+  id: 1243
+  time: '2025-06-15T19:43:36.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Fix
+      message: Polymorphs no longer spawn urists
+  id: 1244
+  time: '2025-06-16T09:11:35.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Fix
+      message: Traitors should get their uplinks now
+  id: 1245
+  time: '2025-06-16T13:16:56.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: Proximity voicechat, check discord announcements for more details.
+  id: 1246
+  time: '2025-06-17T00:58:34.0000000+00:00'
+- author: IAmForcedIntoMakingClLongerThanActualChanges
+  changes:
+    - type: Fix
+      message: Abductor multitool can now recharge again.
+    - type: Tweak
+      message: Abductor multitool now recharges even in multitool mode.
+    - type: Tweak
+      message: Abductor multitool cooldown increased to 20 from 15.
+    - type: Fix
+      message: Security can again choose winter jackboots in the loadout.
+    - type: Remove
+      message: Removed duplicate tools from syndicate surgery duffel bag.
+    - type: Fix
+      message: >-
+        Hyperzine description in the uplink now correctly describes its
+        duration.
+    - type: Tweak
+      message: Camera bug now costs 12 TC.
+  id: 1247
+  time: '2025-06-18T02:04:30.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Tweak
+      message: You may now have a chance to survive getting attacked with a nailgun
+  id: 1248
+  time: '2025-06-18T17:48:40.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Double-energy sword is now undisarmable and deals slightly more damage.
+  id: 1249
+  time: '2025-06-19T07:12:23.0000000+00:00'

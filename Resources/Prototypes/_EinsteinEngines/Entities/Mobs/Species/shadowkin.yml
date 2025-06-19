@@ -208,6 +208,7 @@
       - CanPilot
       - FootstepSound
       - DoorBumpOpener
+      - AnomalyHost
       - ShadowkinEmotes
       - FlashVulnerable # Can't protect against flashes
 
