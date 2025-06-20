@@ -1,5 +1,8 @@
+using System.Collections.Generic;
+using System.Collections.Immutable;
 using Content.Client.Resources;
 using Content.Client.Stylesheets;
+using Content.Pirate.Client.UserInterface.TransitionText;
 using Content.Pirate.Shared.ReactionChamber;
 using Content.Pirate.Shared.ReactionChamber.Components;
 using Content.Shared.Chemistry.Reagent;
@@ -11,6 +14,7 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Shared.IoC;
 using Robust.Shared.Localization;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 
 
 namespace Content.Pirate.Client.ReactionChamber.UI;
@@ -19,9 +23,12 @@ namespace Content.Pirate.Client.ReactionChamber.UI;
 public sealed partial class ReactionChamberWindow : DefaultWindow
 {
     // [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IResourceCache _resourceCache = default!;
     public bool Active;
     public float Temp;
+    private const float TempTransitionDuration = 1f;
+    private float _lastSolnTemp = 0;
+    private List<float>? _tempLabelValues = null;
+    public float SolnTemp;
     public ReactionChamberWindow()
     {
         RobustXamlLoader.Load(this);
@@ -48,7 +55,6 @@ public sealed partial class ReactionChamberWindow : DefaultWindow
 
             ContainerInfo.AddChild(beakerNameLabel);
             ContainerInfo.AddChild(beakerVolLabel);
-
             if (state.BeakerInfo.Reagents is not null)
             {
                 foreach (var (reagent, quantity) in state.BeakerInfo.Reagents)
@@ -73,11 +79,33 @@ public sealed partial class ReactionChamberWindow : DefaultWindow
                     }
                     });
                 }
-                TemperatureLabel.Text = $"{state.BeakerInfo.Temp}";
+                if (state.BeakerInfo.Temp is not null)
+                    SolnTemp = (float) state.BeakerInfo.Temp.Value;
+                else
+                    SolnTemp = _lastSolnTemp;
             }
         }
         UpdateActiveButtonUI(state.Active);
     }
+
+    protected override void FrameUpdate(FrameEventArgs args)
+    {
+        base.FrameUpdate(args);
+        if (_lastSolnTemp == SolnTemp) return;
+
+        _tempLabelValues ??= TransitionText.GetLinearFloatTransitionValuesList(_lastSolnTemp, SolnTemp, TempTransitionDuration, args.DeltaSeconds);
+        if (!(_tempLabelValues.Count <= 0))
+        {
+            TemperatureLabel.Text = $"{_tempLabelValues[0]}";
+            _tempLabelValues.RemoveAt(0);
+        }
+        else
+        {
+            _tempLabelValues = null;
+            _lastSolnTemp = SolnTemp;
+        }
+    }
+
     public void SetTemp(float temp)
     {
         Temp = temp;

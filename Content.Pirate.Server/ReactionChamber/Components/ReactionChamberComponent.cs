@@ -18,7 +18,7 @@ public sealed partial class ReactionChamberComponent : Component
     /// <summary>
     /// Refresh rate of the solution temp indicator in seconds.
     /// </summary>
-    public double UIRefreshRate = 2d;
+    public double UIRefreshRate = 4d;
     public double LastTempUpdate = 0d;
 
     /// <summary>
@@ -27,4 +27,5 @@ public sealed partial class ReactionChamberComponent : Component
     public float SolnHeatCapacity = 0f;
     public float DeltaJ = 0f;
     public bool IsAllTempRight = false;
+
 }
