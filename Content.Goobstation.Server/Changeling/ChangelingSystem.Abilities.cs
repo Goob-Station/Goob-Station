@@ -869,7 +869,7 @@ public sealed partial class ChangelingSystem
         }
 
         _explosionSystem.QueueExplosion(
-            (EntityUid) newUid, 
+            (EntityUid) newUid,
             typeId: "Default",
             totalIntensity: 1,
             slope: 4,
