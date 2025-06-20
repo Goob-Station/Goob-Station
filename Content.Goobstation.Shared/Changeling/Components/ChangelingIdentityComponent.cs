@@ -147,8 +147,18 @@ public sealed partial class ChangelingIdentityComponent : Component
     public TimeSpan UpdateTimer = TimeSpan.Zero;
     public float UpdateCooldown = 1f;
 
+    /// <summary>
+    ///     All of the DNA that the changeling had extracted in their lifetime.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
+    public List<TransformData> AbsorbedHistory = new();
+
+    /// <summary>
+    ///     The DNA that the changeling has stored up.
+    /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
     public List<TransformData> AbsorbedDNA = new();
+
     /// <summary>
     ///     Index of <see cref="AbsorbedDNA"/>. Used for switching forms.
     /// </summary>

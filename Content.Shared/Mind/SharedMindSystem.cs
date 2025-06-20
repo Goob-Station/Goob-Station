@@ -53,6 +53,7 @@
 
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Goobstation.Common.Changeling; // Goobstation
 using Content.Shared._EinsteinEngines.Silicon.Components; // Goobstation
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
@@ -652,7 +653,8 @@ public abstract partial class SharedMindSystem : EntitySystem
     /// <summary>
     /// Returns a list of every living humanoid player's minds, except for a single one which is exluded.
     /// </summary>
-    public HashSet<Entity<MindComponent>> GetAliveHumans(EntityUid? exclude = null, bool excludeSilicon = false)
+    public HashSet<Entity<MindComponent>> GetAliveHumans(EntityUid? exclude = null,
+        bool excludeSilicon = false, bool excludeChangeling = false) // Goob edit - exclude certain groups of entities
     {
         var allHumans = new HashSet<Entity<MindComponent>>();
         // HumanoidAppearanceComponent is used to prevent mice, pAIs, etc from being chosen
@@ -666,6 +668,10 @@ public abstract partial class SharedMindSystem : EntitySystem
 
             // Goobstation: Skip IPCs from selections
             if (excludeSilicon && HasComp<SiliconComponent>(uid))
+                continue;
+
+            // Goobstation: Skip changelings from selections
+            if (excludeChangeling && HasComp<ChangelingComponent>(uid))
                 continue;
 
             allHumans.Add(new Entity<MindComponent>(mind, mindComp));

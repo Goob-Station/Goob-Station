@@ -17,4 +17,7 @@ public sealed partial class PickRandomPersonComponent : Component
 {
     [DataField]
     public bool NeedsOrganic; // Goobstation: Only pick non-silicon players.
+
+    [DataField]
+    public bool ExcludeChangeling; // Goobstation: Determine if you can get changelings as an objective
 }

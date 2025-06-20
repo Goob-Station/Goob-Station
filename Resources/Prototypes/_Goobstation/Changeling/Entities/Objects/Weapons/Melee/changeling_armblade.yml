@@ -55,6 +55,7 @@
   parent: ArmBladeChangeling
   id: FakeArmBladeChangeling
   components:
+  - type: ChangelingFakeWeapon
   - type: MeleeWeapon
     damage:
       types:
