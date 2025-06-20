@@ -483,7 +483,7 @@ uplink-stimpack-name = Hyperzine Injector
 uplink-stimpack-desc = The legendary chemical produced by Donk Co. for the Syndicate. Injecting yourself with this will increase your run speed and let you recover from stuns faster for 40 seconds.
 
 uplink-stimkit-name = Hyperzine Injector Kit
-uplink-stimkit-desc = A medkit containing 6 hyperzine microinjectors, which each inject you with enough hyperzine to last for 20 seconds.
+uplink-stimkit-desc = A medkit containing 8 hyperzine microinjectors, which each inject you with enough hyperzine to last for 20 seconds.
 
 uplink-syndicate-segway-crate-name = Syndicate Segway
 uplink-syndicate-segway-crate-desc = Be an enemy of the corporation, in style!
