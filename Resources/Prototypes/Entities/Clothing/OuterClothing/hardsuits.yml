@@ -828,8 +828,8 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 2.5
     knockdownTimeDelta: -2.5
-  - type: StaminaDamageResistance # Goobstation
-    coefficient: 0.5
+  - type: StaminaResistance # Goobstation
+    damageCoefficient: 0.5
   - type: ItemSlots
     slots:
       item:
