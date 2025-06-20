@@ -73,6 +73,13 @@ evolutionmenu-combat-strainedmuscles-desc =
     While active, you will take steadily increments of stamina damage and eventually pass out.
     Cost-free.
 
+evolutionmenu-combat-horrorform-name = Horror Form
+evolutionmenu-combat-horrorform-desc =
+    Shed your disguise and become a terrifying creature that hungers for flesh.
+    Become much more resilient, gain a more powerful shriek, constant passive regeneration and a devastating attack, at the cost of speed and being unable to use most of your other abilities.
+    WARNING: Requires you to absorb at least 4 organics to use the ability.
+    Passively drains absorbed DNA while transformed, reverting you to your base form if unable to keep up, and stunning you in the process.
+
 # sting
 
 evolutionmenu-sting-blind-name = Blind Sting

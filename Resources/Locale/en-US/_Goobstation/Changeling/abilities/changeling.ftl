@@ -12,6 +12,7 @@
 changeling-biomass-deficit = Not enough biomass!
 changeling-chemicals-deficit = Not enough chemicals!
 changeling-action-fail-lesserform = Can't use it while in lesser form!
+changeling-action-fail-horrorform = Can't use it while in horror form!
 
 changeling-action-fail-absorbed = Need to absorb {$number} more organisms to use it!
 changeling-absorb-start = {CAPITALIZE(THE($user))} starts absorbing {CAPITALIZE(THE($target))}'s DNA!
@@ -86,3 +87,7 @@ changeling-lastresort-activate = CURRENT BODY WILL BE LOST! Use it again to conf
 changeling-onfire = Our cells writhe with agony, failing to perform the action!
 
 changeling-rejuvenate = An strange energy pulses through our body, rejuvenating our cells and restoring our chemicals!
+
+changeling-horrorform-enter = You feel your flesh twisting and tearing as you unleash your true form.
+changeling-horrorform-enter-fail = Can't transform into your true form!
+changeling-horrorform-exit = Your flesh mends itself together as you go back into hiding.

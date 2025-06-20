@@ -11,6 +11,7 @@
 // SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Marcus F <marcus2008stoke@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
@@ -31,6 +32,8 @@ public sealed partial class ChangelingActionComponent : Component
     [DataField] public bool UseInLastResort = false;
 
     [DataField] public bool UseInLesserForm = false;
+
+    [DataField] public bool UseInHorrorForm = false;
 
     [DataField] public float RequireAbsorbed = 0;
 }
@@ -60,6 +63,8 @@ public sealed partial class ToggleOrganicShieldEvent : InstantActionEvent { }
 public sealed partial class ShriekDissonantEvent : InstantActionEvent { }
 public sealed partial class ShriekResonantEvent : InstantActionEvent { }
 public sealed partial class ToggleStrainedMusclesEvent : InstantActionEvent { }
+public sealed partial class ActionHorrorFormEvent : InstantActionEvent { }
+public sealed partial class HorrificScreamEvent : InstantActionEvent { }
 
 #endregion
 
