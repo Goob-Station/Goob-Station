@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
@@ -209,6 +210,33 @@ public sealed class SpellsSystem : SharedSpellsSystem
         }
 
         _smoke.StartSmoke(ent, new Solution("ThickSmoke", 50), ev.Duration, ev.SpreadAmount, smoke);
+    }
+
+    protected override void SpawnMimeSmoke(MimeSmokeSpellEvent ev)
+    {
+        base.SpawnMimeSmoke(ev);
+
+        var xform = Transform(ev.Performer);
+        var mapCoords = TransformSystem.GetMapCoordinates(ev.Performer, xform);
+
+        if (!MapManager.TryFindGridAt(mapCoords, out var gridUid, out var grid) ||
+            !Map.TryGetTileRef(gridUid, grid, xform.Coordinates, out var tileRef) ||
+            tileRef.Tile.IsEmpty)
+            return;
+
+        if (_spreader.RequiresFloorToSpread(ev.Proto.ToString()) && tileRef.Tile.IsSpace())
+            return;
+
+        var coords = Map.MapToGrid(gridUid, mapCoords);
+        var ent = Spawn(ev.Proto, coords.SnapToGrid());
+        if (!TryComp<SmokeComponent>(ent, out var smoke))
+        {
+            Log.Error($"Smoke prototype {ev.Proto} was missing SmokeComponent");
+            Del(ent);
+            return;
+        }
+
+        _smoke.StartSmoke(ent, new Solution("MimeSmoke", 50), ev.Duration, ev.SpreadAmount, smoke);
     }
 
     protected override void Repulse(RepulseEvent ev)

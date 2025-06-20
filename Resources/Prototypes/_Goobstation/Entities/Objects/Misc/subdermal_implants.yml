@@ -5,6 +5,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Baptr0b0t <152836416+Baptr0b0t@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
@@ -225,3 +226,17 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: SpaceNinjaImplant
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: SyndicateMimeSmokeImplant
+  name: silent but deadly implant
+  description: This implants allows the user to release a choking smoke.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    implantAction: ActionMimeSmoke
+  - type: Tag
+    tags:
+    - SubdermalImplant
+    - HideContextMenu

@@ -1,7 +1,10 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
@@ -334,3 +337,47 @@
           shouldHave: false
         probability: 0.05
         paralyzeTime: 2
+
+- type: reagent
+  id: MimeSmoke
+  name: reagent-name-mime-smoke
+  desc: reagent-desc-mime-smoke
+  color: "#0b8019"
+  physicalDesc: reagent-physical-desc-thick
+  metabolisms:
+    Poison:
+      effects:
+      - !type:Emote
+        conditions:
+        - !type:HasComponentCondition
+          components:
+            - MimePowers
+          guidebookComponentName: reagent-comp-condition-mime
+          invert: true
+        emote: Cough
+        showInChat: true
+        probability: 0.4
+      - !type:DropItemsEntityEffect
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        - !type:HasComponentCondition
+          components:
+            - MimePowers
+          guidebookComponentName: reagent-comp-condition-mime
+          invert: true
+        probability: 0.2
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        - !type:HasComponentCondition
+          components:
+            - MimePowers
+          guidebookComponentName: reagent-comp-condition-mime
+          invert: true
+        damage:
+          types:
+            Poison: 0.5

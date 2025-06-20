@@ -1,4 +1,6 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 #
@@ -31,6 +33,21 @@
       throughWalls: false
   - type: SwapSpell
     allowSecondaryTarget: false
+
+- type: entity
+  id: ActionMimeSmoke
+  name: Silent But Deadly
+  description: Spawns a cloud of choking "smoke" at your location.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 30
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Actions/mimesmoke.rsi
+      state: icon
+    event: !type:MimeSmokeSpellEvent
 
 - type: entity
   id: ActionNaniteMend
