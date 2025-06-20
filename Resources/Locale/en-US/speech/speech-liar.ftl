@@ -26,6 +26,8 @@ liar-word-replacement-6 = yep
 liar-word-7 = sure
 liar-word-replacement-7 = nah
 
+# goob start
+
 liar-word-8 = was
 liar-word-replacement-8 = wasn't
 
@@ -71,42 +73,35 @@ liar-word-replacement-21 = can
 liar-word-22 = should
 liar-word-replacement-22 = shouldn't
 
-liar-word-23 = do
+liar-word-23 = "do"
 liar-word-replacement-23 = don't
 
 liar-word-24 = don't
 liar-word-replacement-24 = do
 
-liar-word-25 = does
-liar-word-replacement-25 = doesn't
+liar-word-25 = ye
+liar-word-25-2 = ya
+liar-word-replacement-25 = na
 
-liar-word-26 = did
-liar-word-replacement-26 = didn't
+liar-word-26 = na
+liar-word-replacement-26 = ye
 
-liar-word-27 = didn't
-liar-word-replacement-27 = did
+liar-word-27 = yuh
+liar-word-replacement-27 = nuh
 
-liar-word-28 = ye
-liar-word-28-2 = ya
-liar-word-replacement-28 = na
+liar-word-28 = nuh
+liar-word-replacement-28 = yuh
 
-liar-word-29 = na
-liar-word-replacement-29 = ye
+liar-word-29 = love
+liar-word-replacement-29 = hate
 
-liar-word-30 = yuh
-liar-word-replacement-30 = nuh
+liar-word-30 = hate
+liar-word-replacement-30 = love
 
-liar-word-31 = nuh
-liar-word-replacement-31 = yuh
+liar-word-31 = good
+liar-word-replacement-31 = bad
 
-liar-word-32 = love
-liar-word-replacement-32 = hate
+liar-word-32 = bad
+liar-word-replacement-32 = good
 
-liar-word-33 = hate
-liar-word-replacement-33 = love
-
-liar-word-34 = good
-liar-word-replacement-34 = bad
-
-liar-word-35 = bad
-liar-word-replacement-35 = good
+# goob end
