@@ -2,10 +2,8 @@ using Content.Server.Administration;
 using Content.Server.Chat.Managers;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
-using Robust.Shared.IoC;
-using Robust.Shared.Maths;
 
-namespace Content.Server._Pirate.Administration.Commands
+namespace Content.Pirate.Server.Administration.Commands
 {
     [AdminCommand(AdminFlags.Admin)]
     public sealed class AnnounceConsoleCommand : IConsoleCommand

@@ -6,14 +6,17 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Pirate.Server.Pacification.Managers;
 using Robust.Shared.IoC;
 
-namespace Content.Pirate.Client.IoC;
+namespace Content.Pirate.Server.IoC;
 
-internal static class ContentPirateClientIoC
+internal static class ServerPirateContentIoC
 {
     internal static void Register()
     {
-        var collection = IoCManager.Instance!;
+        var instance = IoCManager.Instance!;
+
+        instance.Register<PacifyManager>();
     }
 }

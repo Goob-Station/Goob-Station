@@ -11,6 +11,7 @@ public sealed partial class SharedOnSightSystem : EntitySystem
 {
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -18,11 +19,13 @@ public sealed partial class SharedOnSightSystem : EntitySystem
         SubscribeLocalEvent<OnSightComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<OnSightComponent, OnAimerShootingEvent>(OnAimerShooting);
     }
+
     private void OnStartup(EntityUid uid, OnSightComponent component, ComponentStartup args)
     {
         if (_proto.TryIndex<AlertPrototype>("OnSightAlert", out var alertProto))
             _alerts.ShowAlert(uid, alertProto);
     }
+
     private void OnMove(EntityUid uid, OnSightComponent component, ref MoveEvent args)
     {
         if (TryComp<PullableComponent>(uid, out var pullComp) && pullComp.BeingPulled && pullComp.Puller != null)
@@ -33,6 +36,7 @@ public sealed partial class SharedOnSightSystem : EntitySystem
                     return;
             }
         }
+
         if (_proto.TryIndex<AlertPrototype>("OnSightAlert", out var alertProto))
             _alerts.ClearAlert(uid, alertProto);
         foreach (var entity in component.AimedAtWith.ToArray())
@@ -40,8 +44,10 @@ public sealed partial class SharedOnSightSystem : EntitySystem
             var ev = new OnAimingTargetMoveEvent(uid);
             RaiseLocalEvent(entity, ev);
         }
+
         RemComp<OnSightComponent>(uid);
     }
+
     public void OnAimerShooting(EntityUid uid, OnSightComponent component, OnAimerShootingEvent args)
     {
         foreach (var entity in component.AimedAtWith.ToArray())
@@ -52,6 +58,7 @@ public sealed partial class SharedOnSightSystem : EntitySystem
                 break;
             }
         }
+
         foreach (var entity in component.AimedAtBy.ToArray())
         {
             if (entity == args.User)
@@ -60,6 +67,7 @@ public sealed partial class SharedOnSightSystem : EntitySystem
                 break;
             }
         }
+
         if (component.AimedAtWith.Count == 0 || component.AimedAtBy.Count == 0)
         {
             if (_proto.TryIndex<AlertPrototype>("OnSightAlert", out var alertProto))

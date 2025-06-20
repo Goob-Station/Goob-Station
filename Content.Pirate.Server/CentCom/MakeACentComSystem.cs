@@ -6,23 +6,22 @@ using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Mind;
 using Content.Shared.Players;
 using Content.Shared.Shuttles.Components;
-using Robust.Server.GameObjects;
 using Robust.Server.Player;
+using Robust.Shared.EntitySerialization;
+using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
-using Robust.Shared.GameObjects;
-using Robust.Shared.IoC;
-using Robust.Shared.EntitySerialization;
-using Robust.Shared.EntitySerialization.Systems;
-using Robust.Shared.Serialization.Manager.Attributes;
 
-namespace Content.Server._Pirate.CentCom
+namespace Content.Pirate.Server.CentCom
 {
     public sealed class MakeACentComSystem : EntitySystem
     {
         private const string ShuttlePath = "Maps/_Pirate/Shuttles/Qazmlp/shuttle_CentCom_atmos.yml";
-        [ValidatePrototypeId<RandomHumanoidSettingsPrototype>] private const string Official = "CentcomOfficial";
+
+        [ValidatePrototypeId<RandomHumanoidSettingsPrototype>]
+        private const string Official = "CentcomOfficial";
+
         [ValidatePrototypeId<EntityPrototype>] private const string Disk = "CoordinatesDisk";
         [Dependency] private readonly IEntityManager _entManager = default!;
         [Dependency] private readonly MapLoaderSystem _map = default!;
