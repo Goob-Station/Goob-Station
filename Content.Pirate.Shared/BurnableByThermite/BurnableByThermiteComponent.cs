@@ -12,7 +12,7 @@ public sealed partial class BurnableByThermiteComponent : Component
     /// <summary>
     /// Time it takes to burn through the structure since full ignition. In seconds.
     /// </summary>
-    [DataField] public float BurnTime = 15f;
+    [DataField] public float BurnTime = 20f;
     /// <summary>
     /// Time it takes to fully ignite thermite. In seconds.
     /// </summary>

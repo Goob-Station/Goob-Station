@@ -16,7 +16,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Pirate.Shared.BurnableByThermite;
 
-public sealed class SharedBurnableByThermiteSystem : EntitySystem
+public sealed partial class SharedBurnableByThermiteSystem : EntitySystem
 {
     [Dependency] private readonly SharedSolutionContainerSystem _solutionSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
@@ -87,6 +87,8 @@ public sealed class SharedBurnableByThermiteSystem : EntitySystem
         ent.Comp.Ignited = true;
         ent.Comp.IgnitionStartTime = (float) _gameTiming.CurTime.TotalSeconds;
         ent.Comp.ThermiteSolutionComponent.Solution.RemoveAllSolution();
+
+
     }
 
     public void OnInteractWithBeaker(EntityUid structure, BurnableByThermiteComponent component, EntityUid beaker, InteractUsingEvent args, SolutionContainerManagerComponent beakerSolutionContainerComponent)
