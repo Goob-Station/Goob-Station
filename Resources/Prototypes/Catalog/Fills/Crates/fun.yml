@@ -603,3 +603,22 @@
     contents:
     - id: DiscoBeachBall
       amount: 1
+
+- type: entity
+  name: hydrated scurret
+  description: Wait, what?
+  id: CrateFunScurret
+  parent: CratePlastic
+  components:
+  - type: StorageFill
+    contents:
+    - id: MobEmotionalSupportScurret # How? Why?
+    - id: DrinkVodkaBottleFull
+    - id: DrinkWhiskeyBottleFull
+    - id: DrinkTequilaBottleFull # ...that explains it.
+    - id: DrinkShotGlass
+      amount: 2
+    - id: Spear # self defence
+    - id: ClothingHeadHatHardhatYellow
+    - id: ClothingNeckMantleQM
+    - id: ClothingHeadsetCargo
