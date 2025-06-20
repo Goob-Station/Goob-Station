@@ -1,4 +1,3 @@
-using Content.Server._Pirate.MakeATraitor;
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
 using Content.Shared.Administration;
@@ -58,14 +57,5 @@ namespace Content.Server._Pirate.CentCom.Commands
             EntityManager.System<MakeACentComSystem>().MakeAnOfficial(target.Value);
         }
 
-        public CompletionResult GetCompletion(IConsoleShell shell, string[] args)
-        {
-            return args.Length switch
-            {
-                2 => CompletionResult.FromHintOptions(Enum.GetNames<MakeATraitorSystem.TraitorType>(),
-                    "Тип зрадника"),
-                _ => CompletionResult.Empty
-            };
-        }
     }
 }

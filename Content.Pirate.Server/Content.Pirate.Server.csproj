@@ -1,5 +1,6 @@
 <!--
-SPDX-FileCopyrightText: 2024 Your Name or Alias <your-email@example.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 
 SPDX-License-Identifier: AGPL-3.0-or-later
 -->
@@ -17,27 +18,16 @@ SPDX-License-Identifier: AGPL-3.0-or-later
       <WarningsAsErrors>nullable</WarningsAsErrors>
       <Nullable>enable</Nullable>
       <ServerGarbageCollection>true</ServerGarbageCollection>
-      <RootNamespace>Content.Pirate.Server</RootNamespace>
     </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="JetBrains.Annotations" PrivateAssets="All" />
   </ItemGroup>
     <ItemGroup>
-      <ProjectReference Include="..\Content.Pirate.Shared\Content.Pirate.Shared.csproj">
-        <Private>false</Private>
-      </ProjectReference>
-      <ProjectReference Include="..\Content.Server\Content.Server.csproj">
-        <Private>false</Private>
-      </ProjectReference>
-      <ProjectReference Include="..\Content.Shared\Content.Shared.csproj">
-        <Private>false</Private>
-      </ProjectReference>
-      <ProjectReference Include="..\RobustToolbox\Robust.Shared\Robust.Shared.csproj">
-        <Private>false</Private>
-      </ProjectReference>
-      <ProjectReference Include="..\Content.Goobstation.Server\Content.Goobstation.Server.csproj">
-        <Private>false</Private>
-      </ProjectReference>
+      <ProjectReference Include="..\Content.Goobstation.Shared\Content.Goobstation.Shared.csproj" />
+      <ProjectReference Include="..\Content.Goobstation.Server\Content.Goobstation.Server.csproj" />
+      <ProjectReference Include="..\Content.Pirate.Shared\Content.Pirate.Shared.csproj" />
+      <ProjectReference Include="..\Content.Server\Content.Server.csproj" />
+      <ProjectReference Include="..\RobustToolbox\Robust.Shared\Robust.Shared.csproj" />
     </ItemGroup>
 
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />

@@ -1,4 +1,3 @@
-using Content.Server._Pirate.MakeATraitor;
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
 using Content.Shared.Administration;
