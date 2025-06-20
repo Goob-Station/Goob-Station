@@ -244,14 +244,20 @@
     visuals:
       enum.BurnableByThermiteVisuals.CoveredInThermite:
         enum.BurnableByThermiteLayers.Puddle:
-          True: {visible: true  }
+          True: { visible: true, state: covered_in_thermite }
+          False: { visible: false }
+      enum.BurnableByThermiteVisuals.OnFireStart:
+        enum.BurnableByThermiteLayers.Puddle:
+          True: { visible: true, state: thermite_reaction_start }
+          False: { visible: false }
+      enum.BurnableByThermiteVisuals.OnFireFull:
+        enum.BurnableByThermiteLayers.Puddle:
+          True: { visible: true, state: thermite_reaction_full }
           False: { visible: false }
   - type: Appearance
   - type: AddSpriteLayerAfter
-    sprite: Structures/Walls/solid.rsi
-    state: covered_in_thermite
+    sprite: _Pirate/burnable_by_thermite.rsi
     layerIndex: enum.BurnableByThermiteLayers.Puddle
-    visible: false
   # PIRATE END
 
 - type: entity

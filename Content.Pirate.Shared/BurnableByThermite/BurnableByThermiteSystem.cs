@@ -1,17 +1,11 @@
-using System.Diagnostics;
-using System.Linq;
-using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
-using Content.Shared.Damage;
 using Content.Shared.Destructible;
-using Content.Shared.HealthExaminable;
 using Content.Shared.IgnitionSource;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
-using Content.Shared.Tag;
 using Robust.Shared.Timing;
 
 namespace Content.Pirate.Shared.BurnableByThermite;
@@ -54,6 +48,7 @@ public sealed partial class SharedBurnableByThermiteSystem : EntitySystem
     }
     public void OnUpdateBurning(EntityUid uid, BurnableByThermiteComponent component, float deltaT)
     {
+        SetSpriteData(uid, BurnableByThermiteVisuals.OnFireFull, false);
         if (_gameTiming.CurTime.TotalSeconds - component.BurningStartTime >= component.BurnTime)
         {
             component.Burning = false;
@@ -83,12 +78,11 @@ public sealed partial class SharedBurnableByThermiteSystem : EntitySystem
         if (ent.Comp.Ignited || ent.Comp.Burning) return;
         if (ent.Comp.ThermiteSolutionComponent is null) return;
         if (ent.Comp.ThermiteSolutionComponent.Solution.TryGetReagentQuantity(new("Thermite", null), out var thermiteQuantity) && thermiteQuantity == 0) return;
+        SetSpriteData(ent.Owner, BurnableByThermiteVisuals.OnFireStart, true);
         _popupSystem.PopupClient(Loc.GetString("thermite-on-structure-ignited"), args.User, args.User, PopupType.MediumCaution);
         ent.Comp.Ignited = true;
         ent.Comp.IgnitionStartTime = (float) _gameTiming.CurTime.TotalSeconds;
         ent.Comp.ThermiteSolutionComponent.Solution.RemoveAllSolution();
-
-
     }
 
     public void OnInteractWithBeaker(EntityUid structure, BurnableByThermiteComponent component, EntityUid beaker, InteractUsingEvent args, SolutionContainerManagerComponent beakerSolutionContainerComponent)
@@ -131,8 +125,22 @@ public sealed partial class SharedBurnableByThermiteSystem : EntitySystem
         {
             _popupSystem.PopupClient(Loc.GetString("thermite-on-structure-success"), user, user, PopupType.MediumCaution);
             _solutionSystem.RemoveReagent(from, "Thermite", transferedAmount);
-            _appearanceSystem.SetData(structure, BurnableByThermiteVisuals.CoveredInThermite, true);
+            SetSpriteData(structure, BurnableByThermiteVisuals.CoveredInThermite, true);
             return;
         }
+    }
+    public void SetSpriteData(EntityUid uid, Enum visuals, bool state, bool disableOthers = true)
+    {
+        if (_appearanceSystem.TryGetData<bool>(uid, visuals, out var currentState))
+        {
+            if (currentState == state) return;
+        }
+        if (disableOthers)
+        {
+            _appearanceSystem.SetData(uid, BurnableByThermiteVisuals.CoveredInThermite, false);
+            _appearanceSystem.SetData(uid, BurnableByThermiteVisuals.OnFireStart, false);
+            _appearanceSystem.SetData(uid, BurnableByThermiteVisuals.OnFireFull, false);
+        }
+        _appearanceSystem.SetData(uid, visuals, state);
     }
 }
