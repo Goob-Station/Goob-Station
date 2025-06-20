@@ -18,8 +18,31 @@
   id: CorporateJudoMoves
   combos:
   - JudoThrow
-  - JudoEyepoke
   - JudoArmbar
+  - JudoDiscombobulate # Due to supercode this needs to be below Armbar, otherwise it takes priority
+  - JudoWheelThrow
+  - JudoEyePoke # Same here, must be below WheelThrow
+  #- JudoGoldenBlast
+
+- type: combo
+  id: JudoDiscombobulate
+  name: Discombobulate
+  martialArtsForm: CorporateJudo
+  attacks:
+  - Disarm
+  - Grab
+  event: !type:JudoDiscombobulatePerformedEvent
+  staminaDamage: 5
+
+- type: combo
+  id: JudoEyePoke
+  name: Eye Poke
+  martialArtsForm: CorporateJudo
+  attacks:
+  - Disarm
+  - Harm
+  event: !type:JudoEyePokePerformedEvent
+  extraDamage: 5
 
 - type: combo
   id: JudoThrow
@@ -29,8 +52,10 @@
   - Grab
   - Disarm
   event: !type:JudoThrowPerformedEvent
-  staminaDamage: 30
-  paralyzeTime: 3
+  paralyzeTime: 7
+  staminaDamage: 15
+  dropHeldItemsBehavior: NoDrop
+  canDoWhileProne: false
 
 - type: combo
   id: JudoArmbar
@@ -41,14 +66,38 @@
   - Disarm
   - Grab
   event: !type:JudoArmbarPerformedEvent
-  staminaDamage: 70
+  paralyzeTime: 5
+  staminaDamage: 25
+  dropHeldItemsBehavior: AlwaysDrop
 
 - type: combo
-  id: JudoEyepoke
-  name: Eyepoke
+  id: JudoWheelThrow
+  name: Wheel Throw
   martialArtsForm: CorporateJudo
   attacks:
+  - Grab
   - Disarm
   - Harm
-  event: !type:JudoEyePokePerformedEvent
-  extraDamage: 5
+  event: !type:JudoWheelThrowPerformedEvent
+  staminaDamage: 100
+
+# Conflicts with armbar + hugs don't seem to count?, to be implemented later
+#- type: combo
+#  id: JudoGoldenBlast
+#  name: Golden Blast
+#  martialArtsForm: CorporateJudo
+#  attacks:
+#  - Hug
+#  - Disarm
+#  - Hug
+#  - Grab
+#  - Disarm
+#  - Disarm
+#  - Grab
+#  - Hug
+#  - Disarm
+#  - Disarm
+#  - Grab
+#  - Hug
+#  event: !type:JudoGoldenBlastPerformedEvent
+#  paralyzeTime: 30
