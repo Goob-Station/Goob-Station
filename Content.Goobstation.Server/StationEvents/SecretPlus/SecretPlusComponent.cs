@@ -65,6 +65,31 @@ public sealed partial class SecretPlusComponent : Component
     public float DeadChaosChange;
 
     /// <summary>
+    ///   Chaos change multiplier we're using
+    /// </summary>
+    [ViewVariables]
+    public float ChaosChangeVariation = 1f;
+
+    /// <summary>
+    ///   Minimum multiplier of chaos-over-time to generate at the start
+    /// </summary>
+    [DataField]
+    public float ChaosChangeVariationMin = 1f;
+
+    /// <summary>
+    ///   Maximum multiplier of chaos-over-time to generate at the start
+    /// </summary>
+    [DataField]
+    public float ChaosChangeVariationMax = 1f;
+
+    /// <summary>
+    ///   How much to bias the chaos change variation multiplier towards generating closer to 1
+    ///   Higher values mean more bias, values below 1 mean bias away from 1
+    /// </summary>
+    [DataField]
+    public float ChaosChangeVariationExponent = 2f;
+
+    /// <summary>
     ///   How much to offset chaos of events away from 0 when picking events
     ///   Higher values make low-chaos events have more equal chances to be picked
     /// </summary>
