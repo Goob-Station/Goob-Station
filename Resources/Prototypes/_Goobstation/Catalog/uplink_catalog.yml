@@ -854,6 +854,17 @@
     - UplinkImplants
 
 - type: listing
+  id: UplinkBinaryImplant
+  name: uplink-binary-implant-name
+  description: uplink-binary-implant-desc
+  icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: ai_label }
+  productEntity: BinaryImplant
+  cost:
+    Telecrystal: 5 # goob
+  categories:
+  - UplinkImplants
+
+- type: listing
   id: UplinkAutosurgeonRightMantisBlade
   name: uplink-autosurgeon-right-mantis-blade-name
   description: uplink-autosurgeon-mantis-blade-desc
