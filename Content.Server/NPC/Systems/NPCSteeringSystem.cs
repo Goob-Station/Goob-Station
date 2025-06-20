@@ -48,6 +48,9 @@
 // SPDX-FileCopyrightText: 2024 stellar-novas <stellar_novas@riseup.net>
 // SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -395,6 +398,8 @@ public sealed partial class NPCSteeringSystem : SharedNPCSteeringSystem
         var offsetRot = -_mover.GetParentGridAngle(mover);
         _modifierQuery.TryGetComponent(uid, out var modifier);
         var moveSpeed = GetSprintSpeed(uid, modifier);
+        var acceleration = GetAcceleration((uid, modifier, xform, null)); // Goobstation
+        var friction = GetFriction((uid, modifier, xform, null)); // Goobstation
         var body = _physicsQuery.GetComponent(uid);
         var dangerPoints = steering.DangerPoints;
         dangerPoints.Clear();
@@ -408,8 +413,9 @@ public sealed partial class NPCSteeringSystem : SharedNPCSteeringSystem
         RaiseLocalEvent(uid, ref ev);
         // If seek has arrived at the target node for example then immediately re-steer.
         var forceSteer = true;
+        var moveMultiplier = 1f; // Goobstation
 
-        if (steering.CanSeek && !TrySeek(uid, mover, steering, body, xform, offsetRot, moveSpeed, interest, frameTime, ref forceSteer))
+        if (steering.CanSeek && !TrySeek(uid, mover, steering, body, xform, offsetRot, moveSpeed, acceleration, friction, interest, frameTime, ref forceSteer, ref moveMultiplier)) // Goobstation
         {
             SetDirection(uid, mover, steering, Vector2.Zero);
             return;
@@ -456,7 +462,7 @@ public sealed partial class NPCSteeringSystem : SharedNPCSteeringSystem
 
         if (desiredDirection != -1)
         {
-            resultDirection = new Angle(desiredDirection * InterestRadians).ToVec();
+            resultDirection = new Angle(desiredDirection * InterestRadians).ToVec() * moveMultiplier; // Goobstation
         }
 
         steering.LastSteerDirection = resultDirection;
@@ -552,6 +558,29 @@ public sealed partial class NPCSteeringSystem : SharedNPCSteeringSystem
 
         return modifier.CurrentSprintSpeed;
     }
+
+    // <Goobstation>
+    private float GetAcceleration(Entity<MovementSpeedModifierComponent?, TransformComponent?, PhysicsComponent?> ent)
+    {
+        var weightless = _gravity.IsWeightless(ent, ent.Comp3, ent.Comp2);
+
+        if (!Resolve(ent, ref ent.Comp1, false))
+            return weightless ? MovementSpeedModifierComponent.DefaultWeightlessAcceleration : MovementSpeedModifierComponent.DefaultAcceleration;
+
+        return weightless ? ent.Comp1.WeightlessAcceleration : ent.Comp1.Acceleration;
+    }
+
+    // TODO: make this upstream's problem since friction as-is is kinda scuffed to get properly
+    private float GetFriction(Entity<MovementSpeedModifierComponent?, TransformComponent?, PhysicsComponent?> ent)
+    {
+        var weightless = _gravity.IsWeightless(ent, ent.Comp3, ent.Comp2);
+
+        if (!Resolve(ent, ref ent.Comp1, false))
+            return weightless ? MovementSpeedModifierComponent.DefaultWeightlessFriction : MovementSpeedModifierComponent.DefaultFriction;
+
+        return weightless ? ent.Comp1.WeightlessFriction : ent.Comp1.Friction;
+    }
+    // </Goobstation>
 
     // Tile Movement Functions
     /// <summary>
