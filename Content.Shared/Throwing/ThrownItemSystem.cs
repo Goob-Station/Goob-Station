@@ -28,7 +28,7 @@
 // SPDX-FileCopyrightText: 2021 mirrorcult <notzombiedude@gmail.com>
 // SPDX-FileCopyrightText: 2021 scrato <Mickaello2003@gmx.de>
 // SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Júlio César Ueti <52474532+Mirino97@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 J�lio C�sar Ueti <52474532+Mirino97@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
 // SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <gradientvera@outlook.com>
 // SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>

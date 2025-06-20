@@ -209,7 +209,6 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         if (IsTouchSpellDenied(ev.Target))
         {
-            _magic.Speak(ev);
             ev.Handled = true;
             return;
         }
@@ -222,7 +221,6 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         EnsureComp<CluwneComponent>(ev.Target);
 
-        _magic.Speak(ev);
         ev.Handled = true;
     }
 
@@ -233,7 +231,6 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         if (IsTouchSpellDenied(ev.Target))
         {
-            _magic.Speak(ev);
             ev.Handled = true;
             return;
         }
@@ -252,7 +249,6 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         SetGear(ev.Target, ev.Gear, !targetWizard);
 
-        _magic.Speak(ev);
         ev.Handled = true;
     }
 
@@ -263,7 +259,6 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         if (IsTouchSpellDenied(ev.Target))
         {
-            _magic.Speak(ev);
             ev.Handled = true;
             return;
         }
@@ -282,7 +277,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         else
             _statusEffects.TryAddStatusEffect<MutedComponent>(ev.Target, "Muted", ev.WizardMuteDuration, true, status);
 
-        _magic.Speak(ev);
         ev.Handled = true;
     }
 
@@ -328,7 +322,6 @@ public abstract class SharedSpellsSystem : EntitySystem
             return;
         }
 
-        _magic.Speak(ev);
         ev.Handled = true;
     }
 
@@ -339,7 +332,6 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         Emp(ev);
 
-        _magic.Speak(ev);
         ev.Handled = true;
     }
 
@@ -350,7 +342,6 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         SpawnSmoke(ev);
 
-        _magic.Speak(ev);
         ev.Handled = true;
     }
 
@@ -361,7 +352,6 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         Repulse(ev);
 
-        _magic.Speak(ev);
         ev.Handled = true;
     }
 
@@ -376,7 +366,6 @@ public abstract class SharedSpellsSystem : EntitySystem
             EnsureComp<PreventCollideComponent>(effect).Uid = ev.Performer; // Just in case
         }
 
-        _magic.Speak(ev);
         ev.Handled = true;
     }
 
@@ -436,7 +425,6 @@ public abstract class SharedSpellsSystem : EntitySystem
                 Stun.KnockdownOrStun(target, ev.KnockdownTime / range, true, status);
         }
 
-        _magic.Speak(ev);
         ev.Handled = true;
     }
 
@@ -447,7 +435,6 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         if (IsTouchSpellDenied(ev.Target))
         {
-            _magic.Speak(ev);
             ev.Handled = true;
             return;
         }
@@ -479,7 +466,6 @@ public abstract class SharedSpellsSystem : EntitySystem
                 Spawn(ev.Effect.Value, Transform(ev.Target).Coordinates);
         }
 
-        _magic.Speak(ev);
         ev.Handled = true;
     }
 
@@ -585,7 +571,6 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         EnsureComp<HulkComponent>(ev.Performer).Duration = ev.Duration;
 
-        _magic.Speak(ev);
         ev.Handled = true;
     }
 
@@ -598,7 +583,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         {
             _teslaBlast.CancelDoAfter(ev.Performer, casting);
 
-            _magic.Speak(ev);
             ev.Handled = true;
             return;
         }
@@ -613,7 +597,6 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         if (IsTouchSpellDenied(ev.Target))
         {
-            _magic.Speak(ev);
             ev.Handled = true;
             return;
         }
@@ -626,7 +609,6 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         _teslaBlast.ShootLightning(ev.Performer, ev.Target, ev.Proto, ev.Damage);
 
-        _magic.Speak(ev);
         ev.Handled = true;
     }
 
@@ -653,7 +635,6 @@ public abstract class SharedSpellsSystem : EntitySystem
                 ev.Coords == null ? null : TransformSystem.ToMapCoordinates(ev.Coords.Value));
         }
 
-        _magic.Speak(ev);
         ev.Handled = true;
     }
 
@@ -672,7 +653,6 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         spellCardsAction.PurpleCard = !spellCardsAction.PurpleCard;
 
-        _magic.Speak(ev);
         ev.Handled = true;
         if (_net.IsClient)
             return;
@@ -695,7 +675,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (SpawnItemInHands(ev.Performer, ev.Proto, ev.Action) == null)
             return;
 
-        _magic.Speak(ev);
         ev.Handled = true;
     }
 
@@ -712,7 +691,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         comp.Caster = ev.Performer;
         Dirty(gun.Value, comp);
 
-        _magic.Speak(ev);
         ev.Handled = true;
     }
 
@@ -723,7 +701,6 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         if (IsTouchSpellDenied(ev.Target))
         {
-            _magic.Speak(ev);
             ev.Handled = true;
             return;
         }
@@ -765,7 +742,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         // This should transform into animal noise
         Speak(ev.Target, "!");
 
-        _magic.Speak(ev);
         ev.Handled = true;
     }
 
@@ -776,7 +752,6 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         if (IsTouchSpellDenied(ev.Target))
         {
-            _magic.Speak(ev);
             ev.Handled = true;
             return;
         }
@@ -790,7 +765,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (!ScreamForMe(ev))
             return;
 
-        _magic.Speak(ev);
         ev.Handled = true;
     }
 
@@ -855,7 +829,6 @@ public abstract class SharedSpellsSystem : EntitySystem
             return;
         }
 
-        _magic.Speak(ev);
         ev.Handled = true;
 
         if (_net.IsClient)
@@ -899,7 +872,6 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         if (_net.IsClient)
         {
-            _magic.Speak(ev);
             ev.Handled = true;
             return;
         }
@@ -953,7 +925,6 @@ public abstract class SharedSpellsSystem : EntitySystem
             Dirty(trap, trapComp);
         }
 
-        _magic.Speak(ev);
         ev.Handled = true;
     }
 
@@ -964,7 +935,6 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         SpawnMobs(ev);
 
-        _magic.Speak(ev);
         ev.Handled = true;
     }
 
@@ -975,7 +945,6 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         SpawnMonkeys(ev);
 
-        _magic.Speak(ev);
         ev.Handled = true;
     }
 
@@ -1012,7 +981,6 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         AddComp<SanguineStrikeComponent>(item);
 
-        _magic.Speak(ev);
         ev.Handled = true;
     }
 
@@ -1043,7 +1011,6 @@ public abstract class SharedSpellsSystem : EntitySystem
             Tag.HasTag(hat.Value, ev.WizardHatTag))
             QueueDel(hat.Value);
 
-        _magic.Speak(ev);
         ev.Handled = true;
     }
 
@@ -1054,7 +1021,6 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         if (IsTouchSpellDenied(ev.Target))
         {
-            _magic.Speak(ev);
             ev.Handled = true;
             return;
         }
@@ -1089,7 +1055,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (_net.IsServer)
             RaiseNetworkEvent(new StopTargetingEvent(), ev.Performer); // Just in case
 
-        _magic.Speak(ev);
         ev.Handled = true;
     }
 
@@ -1117,7 +1082,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (!_threshold.TryGetThresholdForState(ev.Performer, MobState.Dead, out var dead, thresholds))
             return;
 
-        _magic.Speak(ev);
         ev.Handled = true;
 
         var targetHealth = dead.Value - ev.MaxHealthReduction;
@@ -1183,7 +1147,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
-        _magic.Speak(ev);
         ev.Handled = true;
 
         var raysEv = new ChargeSpellRaysEffectEvent(GetNetEntity(ev.Performer));
@@ -1223,7 +1186,6 @@ public abstract class SharedSpellsSystem : EntitySystem
             {
                 PopupCharged(uid, ev.Performer, false);
                 _popup.PopupEntity(Loc.GetString("spell-charge-spells-charged-pulled"), uid, uid, PopupType.Medium);
-                _magic.Speak(ev);
                 ev.Handled = true;
                 return true;
             }
@@ -1239,8 +1201,6 @@ public abstract class SharedSpellsSystem : EntitySystem
             return;
 
         Blink(ev);
-
-        _magic.Speak(ev);
         ev.Handled = true;
     }
 
@@ -1251,7 +1211,6 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         if (IsTouchSpellDenied(ev.Target))
         {
-            _magic.Speak(ev);
             ev.Handled = true;
             return;
         }
@@ -1261,7 +1220,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         else
             EnsureComp<HierophantBeatComponent>(ev.Target);
 
-        _magic.Speak(ev);
         ev.Handled = true;
     }
 
@@ -1272,7 +1230,6 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         if (IsTouchSpellDenied(ev.Target))
         {
-            _magic.Speak(ev);
             ev.Handled = true;
             return;
         }
@@ -1282,7 +1239,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         else
             EnsureComp<CurseOfByondComponent>(ev.Target);
 
-        _magic.Speak(ev);
         ev.Handled = true;
     }
 

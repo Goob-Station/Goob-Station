@@ -19,7 +19,9 @@
         Slash: 20
         Cold: 10
   - type: Item
-    sprite: _Goobstation/Objects/Weapons/Melee/cryokatana.rsi
+    storedSprite:
+      state: storage
+      sprite: Objects/Weapons/Melee/energykatana_storage_64x.rsi #Done in 64x64 because it looks way too puny in 32x32
   - type: Clothing
     sprite: _Goobstation/Objects/Weapons/Melee/cryokatana.rsi
     slots:

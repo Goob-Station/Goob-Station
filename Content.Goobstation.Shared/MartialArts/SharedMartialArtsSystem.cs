@@ -57,7 +57,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
     [Dependency] private readonly PullingSystem _pulling = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly StaminaSystem _stamina = default!;
+    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly GrabThrownSystem _grabThrowing = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;

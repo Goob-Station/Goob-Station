@@ -22,6 +22,9 @@
 // SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 Dora <27211909+catdotjs@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
+// SPDX-FileCopyrightText: 2025 abadaba695 <spacestation13thingy@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -143,7 +146,10 @@ namespace Content.Client.Chemistry.UI
                 ("1", ChemMasterReagentAmount.U1, StyleBase.ButtonOpenBoth),
                 ("5", ChemMasterReagentAmount.U5, StyleBase.ButtonOpenBoth),
                 ("10", ChemMasterReagentAmount.U10, StyleBase.ButtonOpenBoth),
+                ("15", ChemMasterReagentAmount.U15, StyleBase.ButtonOpenBoth),
+                ("20", ChemMasterReagentAmount.U20, StyleBase.ButtonOpenBoth),
                 ("25", ChemMasterReagentAmount.U25, StyleBase.ButtonOpenBoth),
+                ("30", ChemMasterReagentAmount.U30, StyleBase.ButtonOpenBoth),
                 ("50", ChemMasterReagentAmount.U50, StyleBase.ButtonOpenBoth),
                 ("100", ChemMasterReagentAmount.U100, StyleBase.ButtonOpenBoth),
                 (Loc.GetString("chem-master-window-buffer-all-amount"), ChemMasterReagentAmount.All, StyleBase.ButtonOpenLeft),

@@ -5,6 +5,8 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Verm <32827189+Vermidia@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -54,7 +56,7 @@ public sealed class HyposprayStatusControl : Control
         PrevMaxVolume = solution.MaxVolume;
         PrevOnlyAffectsMobs = _parent.Comp.OnlyAffectsMobs;
 
-        var modeStringLocalized = Loc.GetString(_parent.Comp.OnlyAffectsMobs switch
+        var modeStringLocalized = Loc.GetString((_parent.Comp.OnlyAffectsMobs && _parent.Comp.CanContainerDraw) switch
         {
             false => "hypospray-all-mode-text",
             true => "hypospray-mobs-only-mode-text",

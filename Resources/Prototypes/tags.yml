@@ -308,6 +308,9 @@
   id: BodyBag
 
 - type: Tag
+  id: Boll
+
+- type: Tag
   id: Book
 
 - type: Tag
@@ -605,6 +608,9 @@
 
 - type: Tag
   id: CrayonYellow
+
+- type: Tag
+  id: Creamsicle
 
 - type: Tag
   id: Crowbar
@@ -1172,6 +1178,9 @@
   id: Pancake
 
 - type: Tag
+  id: ParcelWrapBlacklist
+
+- type: Tag
   id: Payload # for grenade/bomb crafting
 
 - type: Tag
@@ -1561,6 +1570,9 @@
 - type: Tag
   id: VoiceTrigger
 
+- type: Tag # Eating fix tag
+  id: VoxFood
+
 - type: Tag
   id: Wall
 
@@ -1632,5 +1644,20 @@
 
 - type: Tag
   id: WriteIgnoreStamps
+
+- type: Tag
+  id: XenoborgModuleEngi
+
+- type: Tag
+  id: XenoborgModuleGeneric
+
+- type: Tag
+  id: XenoborgModuleHeavy
+
+- type: Tag
+  id: XenoborgModuleScout
+
+- type: Tag
+  id: XenoborgModuleStealth
 
 # ALPHABETICAL

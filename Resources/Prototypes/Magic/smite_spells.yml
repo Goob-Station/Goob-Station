@@ -28,7 +28,8 @@
       sprite: _Goobstation/Wizard/actions.rsi # Goob edit
       state: gib
     event: !type:SmiteSpellEvent
-      speech: action-speech-spell-smite
+  - type: SpeakOnAction
+    sentence: action-speech-spell-smite
   - type: Magic # Goobstation
     requiresClothes: true
     requiresSpeech: true

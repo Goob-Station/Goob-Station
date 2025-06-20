@@ -16,16 +16,16 @@
         - to: end
           steps:
             - tag: GasMaskFullDefault
-              name: gas mask
+              name: construction-graph-tag-gas-mask
               icon:
                 sprite: Clothing/Mask/gas.rsi
                 state: icon
 
             - tag: VoiceTrigger
+              name: construction-graph-tag-voice-trigger
               icon:
                 sprite: Objects/Devices/voice.rsi
                 state: voice
-              name: Voice Trigger
 
             - material: Cable
               amount: 5

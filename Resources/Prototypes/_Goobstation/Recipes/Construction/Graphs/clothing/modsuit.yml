@@ -18,7 +18,7 @@
     - to: shell-core
       steps:
       - tag: ModsuitCore
-        name: MOD core
+        name: construction-graph-tag-mod-core
         store: core-container
         completed:
         - !type:PlaySound
@@ -46,7 +46,7 @@
     - to: shell-helmet
       steps:
       - tag: ModsuitHelmet
-        name: MOD helmet
+        name: construction-graph-tag-mod-helmet
         doAfter: 1
         completed:
         - !type:PlaySound
@@ -59,7 +59,7 @@
     - to: shell-chestplate
       steps:
       - tag: ModsuitChestplate
-        name: MOD chestplate
+        name: construction-graph-tag-mod-chestplate
         doAfter: 1
         completed:
         - !type:PlaySound
@@ -72,7 +72,7 @@
     - to: shell-gauntlets
       steps:
       - tag: ModsuitGauntlets
-        name: MOD gauntlets
+        name: construction-graph-tag-mod-gauntlets
         doAfter: 1
         completed:
         - !type:PlaySound
@@ -85,7 +85,7 @@
     - to: shell-boots
       steps:
       - tag: ModsuitBoots
-        name: MOD boots
+        name: construction-graph-tag-mod-boots
         doAfter: 1
         completed:
         - !type:PlaySound
@@ -110,7 +110,7 @@
     - to: standard
       steps:
         - tag: ModsuitPlatingExternal
-          name: any MOD plating
+          name: construction-graph-tag-mod-plating
           doAfter: 1
           completed:
           - !type:PlaySound

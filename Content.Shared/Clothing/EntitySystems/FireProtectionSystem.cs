@@ -34,7 +34,7 @@ public sealed class FireProtectionSystem : EntitySystem
 
     private void OnArmorExamine(Entity<FireProtectionComponent> ent, ref ArmorExamineEvent args)
     {
-        var value = MathF.Round((ent.Comp.Reduction) * 100, 1); // Goob edit - this was wrong
+        var value = MathF.Round(ent.Comp.Reduction * 100, 1);
 
         if (value == 0)
             return;

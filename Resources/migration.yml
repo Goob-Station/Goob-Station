@@ -863,6 +863,12 @@ VendingMachineRestockSalvageEquipment: null
 ComputerSalvageExpedition: ComputerShuttleMiningLavaland
 SalvageExpeditionsComputerCircuitboard: LavalandShuttleConsoleCircuitboard
 
+# 2025-01-06
+BorgModuleRadiationDetection: null
+BorgModuleGPS: null
+BorgModuleLightReplacer: BorgModuleCustodial
+BorgModuleAdvancedTreatment: null
+
 # 2025-01-27
 FoodCondimentPacketFrostoil: FoodCondimentPacketColdsauce
 
@@ -872,6 +878,10 @@ WeaponSubMachineGunVectorRubber: null
 
 # 2025-02-11
 WallShuttleInterior: WallShuttle
+
+# 2025-02-18
+PosterContrabandLustyExomorph: PosterContrabandRealExomorph
+PosterContrabandBustyBackdoorExoBabes6: PosterContrabandRouny
 
 # 2025-02-20
 MagazineBoxAntiMaterielBig: null
@@ -919,6 +929,16 @@ MediumXenoArtifact: ComplexXenoArtifact
 SimpleXenoArtifactItem: ComplexXenoArtifactItem
 MediumXenoArtifactItem: ComplexXenoArtifactItem
 VariedXenoArtifactItem: ComplexXenoArtifactItem
+
+# 2025-04-19
+ClothingOuterHardsuitSyndicate: ClothingOuterEVASuitSyndicate
+ClothingOuterHardsuitSyndicateDurathread: ClothingOuterEVASuitSyndicate
+AirlockMaintCommonLocked: AirlockMaintLocked
+AirlockMaintIntLocked: AirlockMaintLocked
+
+# 2025-04-26
+ComputerCargoShuttle: ComputerShuttleCargo
+CargoShuttleComputerCircuitboard: CargoShuttleConsoleCircuitboard
 
 # 2025-05-09 Goobstation
 ClothingBackpackCentcom: ClothingBackpackCentcomm
