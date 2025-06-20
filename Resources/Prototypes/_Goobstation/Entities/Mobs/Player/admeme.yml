@@ -32,6 +32,8 @@
   - type: GhostTakeoverAvailable
   - type: MindShield
   - type: AntagImmune
+  - type: Speech
+    speechVerb: HolierThanThou
   - type: GhostRole
     requirements:
     - !type:DepartmentTimeRequirement
@@ -55,7 +57,7 @@
     nameSegments:
     - NamesMilitaryFirstLeader
     - NamesMilitaryLast
-    nameFormat: name-format-standard 
+    nameFormat: name-format-standard
   - type: RandomHumanoidSpawner
     settings: NavyOfficer
 
@@ -79,7 +81,7 @@
     nameSegments:
     - NamesMilitaryFirstLeader
     - NamesMilitaryLast
-    nameFormat: name-format-standard 
+    nameFormat: name-format-standard
 
 # Navy Captain
 
@@ -119,7 +121,7 @@
     nameSegments:
     - NamesMilitaryFirstHighRank
     - NamesMilitaryLast
-    nameFormat: name-format-standard 
+    nameFormat: name-format-standard
 
 # Navy Undercover Officer
 
@@ -135,7 +137,7 @@
     nameSegments:
     - NamesMilitaryFirstLeader
     - NamesMilitaryLast
-    nameFormat: name-format-standard 
+    nameFormat: name-format-standard
   - type: RandomHumanoidSpawner
     settings: NavyOfficerUndercover
 
@@ -159,8 +161,8 @@
     nameSegments:
     - NamesMilitaryFirstLeader
     - NamesMilitaryLast
-    nameFormat: name-format-standard 
-    
+    nameFormat: name-format-standard
+
 # Special Operations Officer
 
 - type: entity
@@ -175,7 +177,7 @@
     nameSegments:
     - NamesMilitaryFirstHighRank
     - NamesMilitaryLast
-    nameFormat: name-format-standard 
+    nameFormat: name-format-standard
   - type: RandomHumanoidSpawner
     settings: SpecialOperationsOfficer
 
@@ -199,7 +201,7 @@
     nameSegments:
     - NamesMilitaryFirstHighRank
     - NamesMilitaryLast
-    nameFormat: name-format-standard 
+    nameFormat: name-format-standard
 
 # Diplomat
 
@@ -215,7 +217,7 @@
     nameSegments:
     - NamesMilitaryFirstPolitical
     - NamesLast
-    nameFormat: name-format-standard 
+    nameFormat: name-format-standard
   - type: RandomHumanoidSpawner
     settings: DiplomatGear
 
@@ -239,7 +241,7 @@
     nameSegments:
     - NamesMilitaryFirstPolitical
     - NamesLast
-    nameFormat: name-format-standard 
+    nameFormat: name-format-standard
 
 # Inspector
 
@@ -255,7 +257,7 @@
     nameSegments:
     - NamesFirstInspector
     - NamesLast
-    nameFormat: name-format-standard 
+    nameFormat: name-format-standard
   - type: RandomHumanoidSpawner
     settings: InspectorGear
 
@@ -279,7 +281,7 @@
     nameSegments:
     - NamesFirstInspector
     - NamesLast
-    nameFormat: name-format-standard 
+    nameFormat: name-format-standard
 
 ## Other Shit
 
@@ -307,7 +309,7 @@
     nameSegments:
     - NamesMilitaryFirstLeader
     - NamesMilitaryLast
-    nameFormat: name-format-standard 
+    nameFormat: name-format-standard
 
 # HECU
 
@@ -323,7 +325,7 @@
     nameSegments:
     - NamesMilitaryFirst
     - NamesMilitaryLast
-    nameFormat: name-format-standard 
+    nameFormat: name-format-standard
   - type: RandomHumanoidSpawner
     settings: HecuSoldier
 

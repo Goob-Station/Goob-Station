@@ -1,0 +1,56 @@
+# SPDX-FileCopyrightText: 2025 GMWQ <garethquaile@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: BaseMagazineNailgun
+  parent: BaseItem
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - MagazineNailgun
+  - type: BallisticAmmoProvider
+    proto: Nail
+    mayTransfer: true
+    whitelist:
+      tags:
+      - Nail
+    capacity: 40
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/nail_mag.rsi
+    layers:
+    - state: mag-5
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 6
+    zeroVisible: true
+  - type: Appearance
+
+- type: entity
+  id: MagazineNailgun
+  parent: [ BaseMagazineNailgun, BaseEngineeringContraband ]
+  name: nailgun magazine
+
+- type: entity
+  id: MagazineNailgunEmpty
+  parent: [ BaseMagazineNailgun, BaseEngineeringContraband ]
+  name: nailgun magazine (any)
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+
+- type: entity
+  id: MagazineNailgunArmorPiercing
+  parent: [ BaseMagazineNailgun, BaseSyndicateContraband ]
+  name: nailgun magazine (armor-piercing)
+  components:
+  - type: BallisticAmmoProvider
+    proto: NailArmorPiercing

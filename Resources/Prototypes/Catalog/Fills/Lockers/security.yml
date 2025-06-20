@@ -67,6 +67,7 @@
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Zokkie <6126135+Zokkie@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
@@ -222,7 +223,8 @@
       - id: ClothingHeadHatDetGadget
       - id: ClothingNeckTieDet
       - id: ClothingOuterVestDetective
-      - id: ClothingOuterCoatDetective
+      - id: ClothingOuterCoatDetectiveLoadout
+      - id: FlippoEngravedLighter
       - id: FlashlightSeclite
       - id: ForensicScanner
       - id: LogProbeCartridge
@@ -235,6 +237,7 @@
       - id: BoxEvidenceMarkers
       - id: HandLabeler
       - id: BoxTapeRecorder # DeltaV
+      - id: Betty # Goobstation
 
 - type: entity
   id: ClosetBombFilled
