@@ -8,6 +8,7 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
@@ -34,4 +35,11 @@
   name: steal-target-groups-rapid-syringe-gun
   sprite:
     sprite: _Goobstation/Objects/Weapons/Guns/Cannons/rapid_syringe_gun.rsi
+    state: icon
+
+- type: stealTargetGroup
+  id: ClothingBeltGeminiHoloProjector
+  name: steal-target-groups-gemini-projector
+  sprite:
+    sprite: _Goobstation/Clothing/Belt/geminiprojector.rsi
     state: icon
