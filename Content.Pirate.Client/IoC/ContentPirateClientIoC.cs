@@ -15,6 +15,5 @@ internal static class ContentPirateClientIoC
     internal static void Register()
     {
         var collection = IoCManager.Instance!;
-
     }
 }

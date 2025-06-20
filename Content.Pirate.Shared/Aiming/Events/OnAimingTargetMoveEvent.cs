@@ -13,5 +13,4 @@ public sealed class OnAimingTargetMoveEvent : EntityEventArgs
     {
         Target = target;
     }
-
 }

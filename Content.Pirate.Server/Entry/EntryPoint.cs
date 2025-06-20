@@ -19,6 +19,5 @@ public sealed class EntryPoint : GameServer
         ServerPirateContentIoC.Register();
 
         IoCManager.BuildGraph();
-
     }
 }

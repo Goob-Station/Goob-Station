@@ -17,7 +17,8 @@ public sealed class BwoinkFromConsoleSystem : EntitySystem
 
     public void SendBwoink(string adminName, ICommonSession session, string message)
     {
-        var bwonkEvent = new SharedBwoinkSystem.BwoinkTextMessage(session.UserId, SystemUserId,
+        var bwonkEvent = new SharedBwoinkSystem.BwoinkTextMessage(session.UserId,
+            SystemUserId,
             $"[color=purple]{adminName}[/color]: {message}");
         var admins = _adminManager.ActiveAdmins
             .Where(p => _adminManager.GetAdminData(p)?.HasFlag(AdminFlags.Adminhelp) ?? false)
@@ -33,6 +34,5 @@ public sealed class BwoinkFromConsoleSystem : EntitySystem
         {
             RaiseNetworkEvent(bwonkEvent, session.Channel);
         }
-
     }
 }

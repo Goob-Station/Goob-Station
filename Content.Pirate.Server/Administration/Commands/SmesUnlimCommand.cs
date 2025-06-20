@@ -1,13 +1,10 @@
 using Content.Server.Administration;
 using Content.Server.Administration.Components;
-using Content.Server.Chat.Managers;
 using Content.Server.Power.Components;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
-using Robust.Shared.GameObjects;
-using Robust.Shared.IoC;
 
-namespace Content.Server._Pirate.Administration.Commands
+namespace Content.Pirate.Server.Administration.Commands
 {
     [AdminCommand(AdminFlags.Admin)]
     public sealed class SmesUnlimCommand : IConsoleCommand
@@ -19,7 +16,8 @@ namespace Content.Server._Pirate.Administration.Commands
         public void Execute(IConsoleShell shell, string argStr, string[] args)
         {
             var entityManager = IoCManager.Resolve<IEntityManager>();
-            var query = entityManager.EntityQueryEnumerator<StationInfiniteBatteryTargetComponent, BatteryComponent, MetaDataComponent>();
+            var query = entityManager
+                .EntityQueryEnumerator<StationInfiniteBatteryTargetComponent, BatteryComponent, MetaDataComponent>();
             while (query.MoveNext(out var uid, out _, out var battery, out var metadata))
             {
                 if (metadata.EntityPrototype is not { ID: "SMESBasic", })

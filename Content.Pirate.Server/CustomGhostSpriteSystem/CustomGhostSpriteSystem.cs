@@ -24,7 +24,7 @@ public sealed class CustomGhostSpriteSystem : EntitySystem
 
     private void OnShit(EntityUid uid, GhostComponent component, PlayerAttachedEvent args)
     {
-        if(!_playerManager.TryGetSessionByEntity(uid, out var session))
+        if (!_playerManager.TryGetSessionByEntity(uid, out var session))
             return;
 
         TrySetCustomSprite(uid, session.Name);
@@ -39,11 +39,15 @@ public sealed class CustomGhostSpriteSystem : EntitySystem
         {
             if (string.Equals(customGhostPrototype.Ckey, ckey, StringComparison.CurrentCultureIgnoreCase))
             {
-                _appearanceSystem.SetData(ghostUid, CustomGhostAppearance.Sprite, customGhostPrototype.CustomSpritePath.ToString());
+                _appearanceSystem.SetData(ghostUid,
+                    CustomGhostAppearance.Sprite,
+                    customGhostPrototype.CustomSpritePath.ToString());
 
-                if(customGhostPrototype.AlphaOverride > 0)
+                if (customGhostPrototype.AlphaOverride > 0)
                 {
-                    _appearanceSystem.SetData(ghostUid, CustomGhostAppearance.AlphaOverride, customGhostPrototype.AlphaOverride);
+                    _appearanceSystem.SetData(ghostUid,
+                        CustomGhostAppearance.AlphaOverride,
+                        customGhostPrototype.AlphaOverride);
                 }
 
                 if (customGhostPrototype.GhostName != string.Empty)
@@ -60,7 +64,6 @@ public sealed class CustomGhostSpriteSystem : EntitySystem
 
                 return;
             }
-
         }
     }
 }
