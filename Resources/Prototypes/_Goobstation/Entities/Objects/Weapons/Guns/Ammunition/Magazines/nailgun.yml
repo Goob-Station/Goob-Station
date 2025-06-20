@@ -1,4 +1,6 @@
+# SPDX-FileCopyrightText: 2025 GMWQ <garethquaile@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -17,7 +19,7 @@
     whitelist:
       tags:
       - Nail
-    capacity: 50
+    capacity: 40
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
