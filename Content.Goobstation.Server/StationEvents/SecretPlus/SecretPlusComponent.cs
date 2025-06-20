@@ -65,6 +65,31 @@ public sealed partial class SecretPlusComponent : Component
     public float DeadChaosChange;
 
     /// <summary>
+    ///   Chaos change multiplier we're using
+    /// </summary>
+    [ViewVariables]
+    public float ChaosChangeVariation = 1f;
+
+    /// <summary>
+    ///   Minimum multiplier of chaos-over-time to generate at the start
+    /// </summary>
+    [DataField]
+    public float ChaosChangeVariationMin = 1f;
+
+    /// <summary>
+    ///   Maximum multiplier of chaos-over-time to generate at the start
+    /// </summary>
+    [DataField]
+    public float ChaosChangeVariationMax = 1f;
+
+    /// <summary>
+    ///   How much to bias the chaos change variation multiplier towards generating closer to 1
+    ///   Higher values mean more bias, values below 1 mean bias away from 1
+    /// </summary>
+    [DataField]
+    public float ChaosChangeVariationExponent = 2f;
+
+    /// <summary>
     ///   How much to offset chaos of events away from 0 when picking events
     ///   Higher values make low-chaos events have more equal chances to be picked
     /// </summary>
@@ -75,20 +100,28 @@ public sealed partial class SecretPlusComponent : Component
     ///   Higher values make high-chaos events more uncommon.
     /// </summary>
     [DataField]
-    public float ChaosExponent = 1.2f;
+    public float ChaosExponent = 1.1f;
 
     /// <summary>
     ///   Lower values make the game director be more picky with events.
     /// </summary>
     [DataField]
-    public float ChaosMatching = 2f;
+    public float ChaosMatching = 1.8f;
 
     /// <summary>
     ///   "Base" chaos value to use for event weighting.
     ///   Matters for how much having negative weight affects probability.
     /// </summary>
     [DataField]
-    public float ChaosThreshold = 10f;
+    public float ChaosThreshold = 20f;
+
+    /// <summary>
+    ///   How much to ramp itself up per second.
+    ///   Turns the scheduler into essentially the survival gamemode.
+    ///   Linearly scales chaos point generation, event frequency, and reduces reoccurence delays.
+    /// </summary>
+    [DataField]
+    public float SpeedRamping = 0f;
 
     /// <summary>
     /// Does this round start with antags at all?

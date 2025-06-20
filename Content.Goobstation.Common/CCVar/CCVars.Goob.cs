@@ -287,6 +287,22 @@ public sealed partial class GoobCVars
 
     #endregion
 
+    #region Station Events
+
+    /// <summary>
+    /// Makes station event schedulers behave as if time is sped up by this much.
+    /// Supported for secret, secret+, and game director.
+    /// </summary>
+    public static readonly CVarDef<float> StationEventSpeedup =
+        CVarDef.Create("stationevents.debug_speedup", 1f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Makes station event schedulers consider the server to have this many extra living players.
+    /// Supported for secret+ and game director.
+    /// </summary>
+    public static readonly CVarDef<int> StationEventPlayerBias =
+        CVarDef.Create("stationevents.debug_player_bias", 0, CVar.SERVERONLY);
+
     #region Game Director
 
     // also used by secret+
@@ -297,14 +313,6 @@ public sealed partial class GoobCVars
         CVarDef.Create("gamedirector.debug_player_count", 80, CVar.SERVERONLY);
 
     #endregion
-
-    #region Secret+
-
-    /// <summary>
-    /// Makes secret+ consider the server to have this many extra living players, for debug.
-    /// </summary>
-    public static readonly CVarDef<int> SecretPlusPlayerBias =
-        CVarDef.Create("secretplus.debug_player_bias", 0, CVar.SERVERONLY);
 
     #endregion
 
