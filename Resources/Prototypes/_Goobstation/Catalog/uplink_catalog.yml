@@ -584,6 +584,7 @@
 
 - type: listing
   id: UplinkClothingShoesBootsMoonSyndie
+  icon: { sprite: /Textures/_Goobstation/Clothing/Shoes/Boots/moonboots-syndicate.rsi, state: icon }
   name: uplink-clothing-shoes-boots-moon-syndie-name
   description: uplink-clothing-shoes-boots-moon-syndie-desc
   productEntity: ClothingShoesBootsMoonSyndie
