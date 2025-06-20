@@ -272,6 +272,9 @@ uplink-reverse-bear-trap-desc = An ingenious execution device worn on (or forced
 uplink-belt-rig-name = Grenadier Belt
 uplink-belt-rig-desc = A specialised belt rig to hold so many grenades that your arm gets tired from throwing them all. Can also store a sidearm and magazines for it.
 
+uplink-clothing-shoes-boots-moon-syndie-name = Blood-red Moonboots
+uplink-clothing-shoes-boots-moon-syndie-desc = A pair of hi-tech boots that make you float like you're in zero gravity. Additionally, they have jetpack functionality and come fueled, but don't last for long.
+
 # Deception
 
 uplink-clothing-explosive-gloves-name = Explosive Insulated Gloves

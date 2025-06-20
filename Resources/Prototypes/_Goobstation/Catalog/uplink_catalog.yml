@@ -581,6 +581,21 @@
   categories:
   - UplinkWearables
 
+- type: listing
+  id: UplinkClothingShoesBootsMoonSyndie
+  name: uplink-clothing-shoes-boots-moon-syndie-name
+  description: uplink-clothing-shoes-boots-moon-syndie-desc
+  productEntity: ClothingShoesBootsMoonSyndie
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 5
+    #guessing the discount price relative to bloodred magboots i dont play goob
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkWearables
+
+
 # Job specific
 - type: listing
   id: UplinkPieCannon
