@@ -1,0 +1,125 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: medical beam gun
+  parent: BaseItem
+  description: Delivers volatile medical nanites in a focused beam. Don't cross the beams!
+  suffix: Unlimited
+  id: MedicalBeamGun
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/medigun.rsi
+    layers:
+    - state: icon
+    - state: active_gun
+      map: [ "enum.ToggleVisuals.Layer" ]
+      visible: false
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Medical/medigun.rsi
+    size: Large
+  - type: MediGun
+    healing:
+      types:
+        Blunt: -2
+        Slash: -2
+        Piercing: -2
+        Heat: -2
+    uberHealing:
+      types:
+        Blunt: -4
+        Slash: -4
+        Piercing: -4
+        Heat: -4
+    soundOnTarget:
+      path: /Audio/_Goobstation/Weapons/Effects/energy_reload.ogg
+      params:
+        volume: 6
+  - type: ItemToggle
+    predictable: false
+    soundActivate:
+      path: /Audio/_Goobstation/Weapons/Effects/energy_alarm.ogg
+      params:
+        volume: 6
+    soundDeactivate:
+      path: /Audio/_Goobstation/Weapons/Effects/energy_error.ogg
+      params:
+        volume: 6
+    soundFailToActivate:
+      path: /Audio/_Goobstation/Weapons/Effects/energy_error.ogg
+      params:
+        volume: 6
+  - type: UseDelay
+    delay: 1.0
+  # Visuals
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+     enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: { visible: true}
+          False: { visible: false}
+
+- type: entity
+  parent: MedicalBeamGun
+  suffix: Battery
+  id: MedicalBeamGunBattery
+  components:
+  - type: Battery
+    maxCharge: 20
+    startingCharge: 20
+  - type: RechargeableBlocking
+    chargedRechargeRate: 0
+    dischargedRechargeRate: 1
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 0
+
+- type: entity
+  name: syndicate medical beam gun
+  suffix: Syndicate, Unlimited
+  parent: [ MedicalBeamGun, BaseSyndicateContraband ]
+  description: Delivers volatile medical nanites in a focused beam. Don't cross the beams!
+  id: MedicalBeamGunSyndicate
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/syndicate_medigun.rsi
+    #layers:
+    #- state: icon
+    #- state: active_gun
+    #  map: [ "enum.ToggleVisuals.Layer" ]
+    #  visible: false
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Medical/syndicate_medigun.rsi
+    size: Normal
+  - type: MediGun
+    healing:
+      types:
+        Blunt: -2.5
+        Slash: -2.5
+        Piercing: -2.5
+        Heat: -2.5
+    uberHealing:
+      types:
+        Blunt: -6
+        Slash: -6
+        Piercing: -6
+        Heat: -6
+
+- type: entity
+  parent: MedicalBeamGunSyndicate
+  suffix: Battery, Syndicate
+  id: MedicalBeamGunSyndicateBattery
+  components:
+  # Less overall battery, faster recharging
+  - type: Battery
+    maxCharge: 15
+    startingCharge: 15
+  - type: RechargeableBlocking
+    chargedRechargeRate: 0
+    dischargedRechargeRate: 1.5
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 0
