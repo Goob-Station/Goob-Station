@@ -27,13 +27,13 @@ This means they remain at liberty to contribute their work anywhere they please.
 
 ## Code license
 
-The project as a whole is licensed under the terms of the [AGPLv3](/LICENSE-AGPLv3.txt) and must be followed regardless of parent licenses.
+The project as a whole is licensed under the terms of the [AGPLv3](/LICENSES/AGPL-3.0-or-later.txt) and must be followed regardless of parent licenses.
 
 Distribution must comply with AGPLv3 terms for the work as a whole. Additionally:
 
 For MIT-licensed components: Preserve original MIT license notices and attribution as required by MIT terms, but the AGPLv3 governs redistribution and modification rights for the combined work.
 
-- Code created by contributors of specific downstreams are under their own namespaced directory within Coremod.
+- Code created by contributors of specific downstreams is under its own namespaced directory within Coremod.
 
 - Code created by contributors of Goobstation are under their own Goobmod, commented within Coremod files, namespaced within Coremod, or new files added to coremod (unless otherwise namespaced).
 

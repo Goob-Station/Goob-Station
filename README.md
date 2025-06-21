@@ -29,7 +29,7 @@ We are not currently accepting translations of the game on our main repository. 
 
 ## License
 
-This codebase contains code under multiple licenses. All new contributions are licensed under AGPL-3.0-or-later. Some code is sublicensed from upstream MIT sources. See LEGAL.md for detailed license information by component. You can review the complete texts of these licenses in the LICENSES/ directory.
+This codebase contains code under multiple licenses. All new contributions are licensed under [AGPL-3.0-or-later](/LICENSES/AGPL-3.0-or-later.txt). Some code is sublicensed from upstream MIT sources. See LEGAL.md for detailed license information by component. You can review the complete texts of these licenses in the LICENSES/ directory.
 
 By contributing to this project, you agree that your contributions will be licensed under AGPL-3.0-or-later and that you retain copyright to your work as specified in LEGAL.md.
 
