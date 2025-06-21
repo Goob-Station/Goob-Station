@@ -11351,3 +11351,15 @@ Entries:
       message: Camera bug now costs 12 TC.
   id: 1247
   time: '2025-06-18T02:04:30.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Tweak
+      message: You may now have a chance to survive getting attacked with a nailgun
+  id: 1248
+  time: '2025-06-18T17:48:40.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Double-energy sword is now undisarmable and deals slightly more damage.
+  id: 1249
+  time: '2025-06-19T07:12:23.0000000+00:00'
