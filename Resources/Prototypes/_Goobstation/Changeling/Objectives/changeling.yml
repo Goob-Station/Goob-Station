@@ -9,6 +9,7 @@
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -101,6 +102,7 @@
     title: objective-condition-escape-identity-title
   - type: PickRandomPerson
     needsOrganic: true # Don't pick IPCs.
+    excludeChangeling: true # if they swap identities its a guarantee fail
 
 - type: entity
   parent: [BaseChangelingSyndicateObjective, BaseStealObjective]
