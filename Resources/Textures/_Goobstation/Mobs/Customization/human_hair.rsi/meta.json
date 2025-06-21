@@ -4,7 +4,7 @@
       "x": 32,
       "y": 32
     },
-    "copyright": "Sprited by Bloomyex and implemented by RobynTheWarcrime, FrizzyBraid by Renee - https://discord.com/channels/1202734573247795300/1288192265319223387/1288887697917607936",
+    "copyright": "Sprited by Bloomyex and implemented by RobynTheWarcrime, FrizzyBraid by Renee - https://discord.com/channels/1202734573247795300/1288192265319223387/1288887697917607936, JohnOakman",
     "license": "CC-BY-SA-3.0",
     "states": [
       {
@@ -141,6 +141,10 @@
       },
 	   {
         "name": "spikehawk",
+        "directions": 4
+      },
+	   {
+        "name": "jinx",
         "directions": 4
       }
     ]
