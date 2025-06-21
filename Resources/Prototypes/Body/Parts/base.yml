@@ -27,6 +27,7 @@
   - type: Damageable
     damageContainer: Inorganic # Shitmed Change
   - type: BodyPart
+    partComposition: Inorganic
   - type: SurgeryTool # Shitmed Change
     startSound:
       path: /Audio/_Shitmed/Medical/Surgery/organ1.ogg
@@ -95,11 +96,11 @@
     occupiedLayer: Chest
     damageOverlayGroups:
       Brute:
-        sprite: Mobs/Effects/brute_damage.rsi
+        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
         color: "#FF0000"
       Burn:
-        sprite: Mobs/Effects/burn_damage.rsi
-    bleedingOverlay: Mobs/Effects/bleeding_damage.rsi
+        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
+    bleedingOverlay: _Shitmed/Mobs/Effects/bleeding_damage.rsi
   - type: ConsciousnessRequired
     identifier: "chest"
     causesDeath: true
@@ -153,11 +154,11 @@
     occupiedLayer: Groin
     damageOverlayGroups:
       Brute:
-        sprite: Mobs/Effects/brute_damage.rsi
+        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
         color: "#FF0000"
       Burn:
-        sprite: Mobs/Effects/burn_damage.rsi
-    bleedingOverlay: Mobs/Effects/bleeding_damage.rsi
+        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
+    bleedingOverlay: _Shitmed/Mobs/Effects/bleeding_damage.rsi
   - type: ConsciousnessRequired
     identifier: "groin"
     causesDeath: false
@@ -213,11 +214,11 @@
     occupiedLayer: Head
     damageOverlayGroups:
       Brute:
-        sprite: Mobs/Effects/brute_damage.rsi
+        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
         color: "#FF0000"
       Burn:
-        sprite: Mobs/Effects/burn_damage.rsi
-    bleedingOverlay: Mobs/Effects/bleeding_damage.rsi
+        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
+    bleedingOverlay: _Shitmed/Mobs/Effects/bleeding_damage.rsi
   - type: ConsciousnessRequired
     identifier: "head"
     causesDeath: true
@@ -251,11 +252,11 @@
     occupiedLayer: LArm
     damageOverlayGroups:
       Brute:
-        sprite: Mobs/Effects/brute_damage.rsi
+        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
         color: "#FF0000"
       Burn:
-        sprite: Mobs/Effects/burn_damage.rsi
-    bleedingOverlay: Mobs/Effects/bleeding_damage.rsi
+        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
+    bleedingOverlay: _Shitmed/Mobs/Effects/bleeding_damage.rsi
   - type: Woundable
     integrity: 65
     integrityCap: 65
@@ -288,11 +289,11 @@
     occupiedLayer: RArm
     damageOverlayGroups:
       Brute:
-        sprite: Mobs/Effects/brute_damage.rsi
+        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
         color: "#FF0000"
       Burn:
-        sprite: Mobs/Effects/burn_damage.rsi
-    bleedingOverlay: Mobs/Effects/bleeding_damage.rsi
+        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
+    bleedingOverlay: _Shitmed/Mobs/Effects/bleeding_damage.rsi
   - type: Woundable
     integrity: 65
     integrityCap: 65
@@ -321,10 +322,10 @@
     occupiedLayer: LHand
     damageOverlayGroups:
       Brute:
-        sprite: Mobs/Effects/brute_damage.rsi
+        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
         color: "#FF0000"
       Burn:
-        sprite: Mobs/Effects/burn_damage.rsi
+        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
     bleedingOverlay: null
   - type: Woundable
     integrity: 50
@@ -363,10 +364,10 @@
     occupiedLayer: RHand
     damageOverlayGroups:
       Brute:
-        sprite: Mobs/Effects/brute_damage.rsi
+        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
         color: "#FF0000"
       Burn:
-        sprite: Mobs/Effects/burn_damage.rsi
+        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
     bleedingOverlay: null
 
 - type: entity
@@ -392,11 +393,11 @@
     occupiedLayer: LLeg
     damageOverlayGroups:
       Brute:
-        sprite: Mobs/Effects/brute_damage.rsi
+        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
         color: "#FF0000"
       Burn:
-        sprite: Mobs/Effects/burn_damage.rsi
-    bleedingOverlay: Mobs/Effects/bleeding_damage.rsi
+        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
+    bleedingOverlay: _Shitmed/Mobs/Effects/bleeding_damage.rsi
   - type: Woundable
     integrity: 65
     integrityCap: 65
@@ -430,11 +431,11 @@
     occupiedLayer: RLeg
     damageOverlayGroups:
       Brute:
-        sprite: Mobs/Effects/brute_damage.rsi
+        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
         color: "#FF0000"
       Burn:
-        sprite: Mobs/Effects/burn_damage.rsi
-    bleedingOverlay: Mobs/Effects/bleeding_damage.rsi
+        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
+    bleedingOverlay: _Shitmed/Mobs/Effects/bleeding_damage.rsi
   - type: Woundable
     integrity: 65
     integrityCap: 65
@@ -463,10 +464,10 @@
     occupiedLayer: LFoot
     damageOverlayGroups:
       Brute:
-        sprite: Mobs/Effects/brute_damage.rsi
+        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
         color: "#FF0000"
       Burn:
-        sprite: Mobs/Effects/burn_damage.rsi
+        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
     bleedingOverlay: null
   - type: Woundable
     integrity: 50
@@ -496,10 +497,10 @@
     occupiedLayer: RFoot
     damageOverlayGroups:
       Brute:
-        sprite: Mobs/Effects/brute_damage.rsi
+        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
         color: "#FF0000"
       Burn:
-        sprite: Mobs/Effects/burn_damage.rsi
+        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
     bleedingOverlay: null
   - type: Woundable
     integrity: 50

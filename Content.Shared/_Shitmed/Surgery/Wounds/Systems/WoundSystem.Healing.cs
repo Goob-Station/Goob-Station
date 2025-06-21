@@ -23,21 +23,6 @@ namespace Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 
 public partial class WoundSystem
 {
-    private record struct IntegrityJob : IParallelRobustJob
-    {
-        private readonly WoundSystem _self;
-        private readonly Entity<WoundableComponent> _ent;
-        public WoundSystem System { get; init; }
-        public Entity<WoundableComponent> Owner { get; init; }
-        public List<Entity<WoundComponent>> WoundsToHeal { get; init; }
-        public FixedPoint2 HealAmount { get; init; }
-        public void Execute(int index)
-        {
-            System.ApplyWoundSeverity(WoundsToHeal[index],
-                System.ApplyHealingRateMultipliers(WoundsToHeal[index], Owner, HealAmount, Owner));
-        }
-    }
-
     #region Public API
 
     public bool TryHaltAllBleeding(EntityUid woundable, WoundableComponent? component = null, bool force = false)
@@ -143,7 +128,7 @@ public partial class WoundSystem
         foreach (var wound in GetWoundableWounds(woundable, component))
         {
             if (!TryComp<BleedInflicterComponent>(wound, out var bleeds)
-            || !bleeds.IsBleeding)
+                || !bleeds.IsBleeding)
                 continue;
 
             if (modifiedBleed > bleeds.BleedingAmount)
@@ -158,6 +143,8 @@ public partial class WoundSystem
                 bleeds.BleedingAmountRaw -= modifiedBleed;
                 modifiedBleed = 0;
             }
+
+            Dirty(wound, bleeds);
         }
         return modifiedBleed != -bleedStopAbility;
     }

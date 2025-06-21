@@ -24,6 +24,8 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -111,17 +113,17 @@
   id: SpaceLube
   name: reagent-name-space-lube
   desc: reagent-desc-space-lube
-  slippery: true
+  slipData:
+    requiredSlipSpeed: 0.1 # Goobstation - no crawling to avoid it
+    superSlippery: true
+  sticksToSkin: false # Goobstation
   physicalDesc: reagent-physical-desc-shiny
   flavor: funny
   color: "#77b58e"
   recognizable: true
   boilingPoint: 290.0 # Glycerin
   meltingPoint: 18.2
-  tileReactions:
-    - !type:SpillTileReaction
-      requiredSlipSpeed: 1
-      superSlippery: true
+  friction: 0.0
 
 - type: reagent
   id: SpaceGlue
@@ -132,9 +134,9 @@
   color: "#ffffff"
   boilingPoint: 250.0
   meltingPoint: 380.0
-  viscosity: 0.5
   tileReactions:
-    - !type:SpillTileReaction
+  - !type:SpillTileReaction
+  viscosity: 0.5
   reactiveEffects:
     Acidic:
       methods: [ Touch ]

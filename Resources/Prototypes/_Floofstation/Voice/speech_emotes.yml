@@ -1,0 +1,25 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Tom <t.jans@student.fontys.nl>
+# SPDX-FileCopyrightText: 2025 Vrilly <tnjans@outlook.de>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: emote
+  id: Yip
+  name: chat-emote-name-yip
+  category: Vocal
+  icon: { sprite: Mobs/Animals/kobold.rsi, state: full }
+  chatMessages: [ "chat-emote-msg-yip" ]
+  whitelist:
+    tags:
+    - ReptilianEmotes
+  blacklist:
+    components:
+      - BorgChassis
+  chatTriggers:
+  - yip
+  - yips

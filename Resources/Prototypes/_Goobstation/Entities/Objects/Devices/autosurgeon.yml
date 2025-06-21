@@ -1,0 +1,105 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseStructure
+  id: BaseAutosurgeon
+  description: A single-use autosurgeon for replacing or upgrading your parts with cybernetic implants. Rip that station apart and make it a part of you.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/autosurgeon.rsi
+    state: icon
+    noRot: true
+  - type: Item
+    size: Huge
+  - type: AutoSurgeon
+  - type: ItemToggle
+    onUse: false
+  - type: DoAfter
+  - type: Physics
+    bodyType: Dynamic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.05"
+        density: 190
+        mask:
+        - TableMask
+  - type: Strap
+    position: Down
+    rotation: -90
+    buckleOffset: 0.05,-0.15
+  - type: Transform
+    anchored: false
+    noRot: true
+  - type: Anchorable
+  - type: Pullable
+
+- type: entity
+  parent: [BaseAutosurgeon, BaseSyndicateContraband]
+  id: BaseAutosurgeonSyndicate
+  abstract: true
+  components:
+  - type: Sprite
+    state: icon-syndie
+
+# CREW (currently not used, use for testing purposes admeme etc.)
+
+- type: entity
+  parent: BaseAutosurgeon
+  id: AutosurgeonRightSpeedLeg
+  name: autosurgeon (right S.P.E.E.D leg)
+  components:
+  - type: AutoSurgeon
+    targetBodyPart: Groin
+    newPartProto: SpeedRightLeg
+
+- type: entity
+  parent: BaseAutosurgeon
+  id: AutosurgeonLeftSpeedLeg
+  name: autosurgeon (left S.P.E.E.D leg)
+  components:
+  - type: AutoSurgeon
+    targetBodyPart: Groin
+    newPartProto: SpeedLeftLeg
+
+# SYNDICATE
+
+- type: entity
+  parent: BaseAutosurgeonSyndicate
+  id: AutosurgeonRightMantisBlade
+  name: syndicate autosurgeon (right mantis blade)
+  components:
+  - type: AutoSurgeon
+    targetBodyPart: Arm
+    targetBodyPartSymmetry: Right
+    componentsToPart:
+    - type: MantisBladeArm
+      actionProto: ActionToggleRightMantisBlade
+
+- type: entity
+  parent: BaseAutosurgeonSyndicate
+  id: AutosurgeonLeftMantisBlade
+  name: syndicate autosurgeon (left mantis blade)
+  components:
+  - type: AutoSurgeon
+    targetBodyPart: Arm
+    targetBodyPartSymmetry: Left
+    componentsToPart:
+    - type: MantisBladeArm
+      actionProto: ActionToggleLeftMantisBlade
+
+- type: entity
+  parent: BaseAutosurgeonSyndicate
+  id: AutosurgeonSandevistan
+  name: syndicate autosurgeon (sandevistan)
+  components:
+  - type: AutoSurgeon
+    targetBodyPart: Chest
+    targetOrgan: Skibidi
+    newPartProto: OrganHeartSandevistan

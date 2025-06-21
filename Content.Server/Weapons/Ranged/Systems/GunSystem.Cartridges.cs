@@ -110,7 +110,7 @@ public sealed partial class GunSystem
 
         var p = (ProjectileComponent) projectile.Component;
 
-        return p.IgnoreResistances ? 100 : (int)Math.Round(p.ArmorPenetration * 100);
+        return p.IgnoreResistances ? 100 : (int)Math.Round(p.Damage.ArmorPenetration * 100);
     }
     // Goobstation end
 }

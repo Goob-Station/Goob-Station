@@ -55,8 +55,11 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <killerqueen1777@gmail.com>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 RedMush1 <axmetvaliev1@gmail.com>
 # SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SeamLesss <kai.julian.watson@gmail.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 #
@@ -102,8 +105,14 @@
         Caustic: -5 #Was 5 per type & 1.5 caustic, Buffed due to limb damage changes (Goobstation)
     healingBeginSound:
       path: "/Audio/Items/Medical/ointment_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
     healingEndSound:
       path: "/Audio/Items/Medical/ointment_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
   - type: Stack
     stackType: Ointment
     count: 15 #Was 10, Buffed due to limb damage changes (Goobstation)
@@ -158,8 +167,14 @@
         Caustic: -15 #Was 10 per type, Buffed due to limb damage changes (Goobstation)
     healingBeginSound:
       path: "/Audio/Items/Medical/ointment_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
     healingEndSound:
       path: "/Audio/Items/Medical/ointment_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
   - type: Stack
     stackType: RegenerativeMesh
     count: 15 #Was 10, Buffed due to limb damage changes (Goobstation)
@@ -202,8 +217,14 @@
         Brute: -30 # was 5 (-15 Brute) for each, Buffed due to limb damage changes (Goobstation)
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
     healingEndSound:
       path: "/Audio/Items/Medical/brutepack_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
   - type: Stack
     stackType: Brutepack
     count: 15 #Was 10, Buffed due to limb damage changes (Goobstation)
@@ -257,8 +278,14 @@
     bloodlossModifier: -10 # a suture should stop ongoing bleeding
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
     healingEndSound:
       path: "/Audio/Items/Medical/brutepack_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
   - type: Stack
     stackType: MedicatedSuture
     count: 15 #Was 10, Buffed due to surgery changes (Goobstation)
@@ -302,8 +329,14 @@
     ModifyBloodLevel: -30 #used to restore 5% blood per use, now restores about 10% blood per use on standard Buffed due to Limb Damage Changes (Goobstation)
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
     healingEndSound:
       path: "/Audio/Items/Medical/brutepack_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
   - type: Stack
     stackType: Bloodpack
     count: 15 #Was 10, Buffed due to limb damage changes (Goobstation)
@@ -345,6 +378,7 @@
     - type: Tag
       tags:
         - SecBeltEquip
+        - Tourniquet #Goobstation
     - type: Sprite
       state: tourniquet
     - type: Healing
@@ -359,8 +393,14 @@
       delay: 0.5
       healingBeginSound:
         path: "/Audio/Items/Medical/brutepack_begin.ogg"
+        params:
+          volume: 1.0
+          variation: 0.125
       healingEndSound:
         path: "/Audio/Items/Medical/brutepack_end.ogg"
+        params:
+          volume: 1.0
+          variation: 0.125
 
 - type: entity
   name: roll of gauze
@@ -389,8 +429,14 @@
     bloodlossModifier: -10
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
     healingEndSound:
       path: "/Audio/Items/Medical/brutepack_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
   - type: Stack
     stackType: Gauze
     count: 15 #Was 10, Buffed due to limb damage changes (Goobstation)
@@ -455,8 +501,14 @@
     selfHealPenaltyMultiplier: 0
     healingBeginSound:
       path: "/Audio/Items/Medical/ointment_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
     healingEndSound:
       path: "/Audio/Items/Medical/ointment_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
 
 # Pills
 - type: entity
@@ -483,14 +535,14 @@
   name: pill canister
   parent: PillCanister
   id: PillCanisterDexalin
-  suffix: Dexalin 10u, 7
+  suffix: Dexalin 10u, 15 # Goobstation
   components:
   - type: Label
     currentLabel: dexalin 10u
   - type: StorageFill
     contents:
     - id: PillDexalin
-      amount: 7
+      amount: 15 # Goobstation
 
 - type: entity
   name: pill
@@ -516,14 +568,14 @@
   name: pill canister
   parent: PillCanister
   id: PillCanisterDylovene
-  suffix: Dylovene 10u, 5
+  suffix: Dylovene 10u, 15 # Goobstation
   components:
   - type: Label
     currentLabel: dylovene 10u
   - type: StorageFill
     contents:
     - id: PillDylovene
-      amount: 5
+      amount: 15 # Goobstation
 
 - type: entity
   name: pill
@@ -549,14 +601,14 @@
   name: pill canister
   parent: PillCanister
   id: PillCanisterHyronalin
-  suffix: Hyronalin 10u, 5
+  suffix: Hyronalin 10u, 15 # Goobstation
   components:
   - type: Label
     currentLabel: hyronalin 10u
   - type: StorageFill
     contents:
     - id: PillHyronalin
-      amount: 5
+      amount: 15 # Goobstation
 
 - type: entity
   name: pill
@@ -582,14 +634,14 @@
   name: pill canister
   parent: PillCanister
   id: PillCanisterPotassiumIodide
-  suffix: Potassium iodide 10u, 5
+  suffix: Potassium iodide 10u, 15 # Goobstation
   components:
   - type: Label
     currentLabel: potassium iodide 10u
   - type: StorageFill
     contents:
     - id: PillPotassiumIodide
-      amount: 5
+      amount: 15 # Goobstation
 
 - type: entity
   name: pill
@@ -635,27 +687,27 @@
   name: pill canister
   parent: PillCanister
   id: PillCanisterIron
-  suffix: Iron 10u, 5
+  suffix: Iron 10u, 15 # Goobstation
   components:
   - type: Label
     currentLabel: iron 10u
   - type: StorageFill
     contents:
     - id: PillIron
-      amount: 5
+      amount: 15 # Goobstation
 
 - type: entity
   name: pill canister
   parent: PillCanister
   id: PillCanisterCopper
-  suffix: Copper 10u, 5
+  suffix: Copper 10u, 15 # Goobstation
   components:
   - type: Label
     currentLabel: copper 10u
   - type: StorageFill
     contents:
     - id: PillCopper
-      amount: 5
+      amount: 15 # Goobstation
 
 - type: entity
   name: pill
@@ -681,14 +733,14 @@
   name: pill canister
   parent: PillCanister
   id: PillCanisterKelotane
-  suffix: Kelotane 10u, 5
+  suffix: Kelotane 10u, 15 # Goobstation
   components:
   - type: Label
     currentLabel: kelotane 10u
   - type: StorageFill
     contents:
     - id: PillKelotane
-      amount: 5
+      amount: 15 # Goobstation
 
 - type: entity
   name: pill
@@ -714,14 +766,14 @@
   name: pill canister
   parent: PillCanister
   id: PillCanisterDermaline
-  suffix: Dermaline 10u, 5
+  suffix: Dermaline 10u, 15 # Goobstation
   components:
   - type: Label
     currentLabel: dermaline 10u
   - type: StorageFill
     contents:
     - id: PillDermaline
-      amount: 5
+      amount: 15 # Goobstation
 
 - type: entity
   name: space mirage
@@ -760,14 +812,14 @@
   name: pill canister
   parent: PillCanister
   id: PillCanisterTricordrazine
-  suffix: Tricordrazine 10u, 5
+  suffix: Tricordrazine 10u, 15 # Goobstation
   components:
   - type: Label
     currentLabel: tricordrazine 10u
   - type: StorageFill
     contents:
     - id: PillTricordrazine
-      amount: 5
+      amount: 15 # Goobstation
 
 - type: entity
   name: pill
@@ -793,14 +845,14 @@
   name: pill canister
   parent: PillCanister
   id: PillCanisterBicaridine
-  suffix: Bicaridine 10u, 5
+  suffix: Bicaridine 10u, 15 # Goobstation
   components:
   - type: Label
     currentLabel: bicaridine 10u
   - type: StorageFill
     contents:
     - id: PillBicaridine
-      amount: 5
+      amount: 15 # Goobstation
 
 - type: entity
   name: pill
@@ -826,14 +878,14 @@
   name: pill canister
   parent: PillCanister
   id: PillCanisterCharcoal
-  suffix: Charcoal 10u, 3
+  suffix: Charcoal 10u, 15 # Goobstation
   components:
   - type: Label
     currentLabel: charcoal 10u
   - type: StorageFill
     contents:
     - id: PillCharcoal
-      amount: 3
+      amount: 15 # Goobstation
 
 - type: entity
   name: romerol pill
@@ -1156,4 +1208,4 @@
         maxVol: 15
         reagents:
         - ReagentId: Stimulants
-          Quantity: 15
+          Quantity: 5 # Goobstation edit

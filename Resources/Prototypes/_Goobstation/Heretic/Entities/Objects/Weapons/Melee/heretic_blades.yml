@@ -9,13 +9,17 @@
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: [ BaseItem, BaseMagicContraband ]
+  parent: [ BaseItem, BaseMagicalContraband ]
   id: HereticBladeBaseNoTeleport
   abstract: true
   name: eldritch blade
@@ -32,11 +36,11 @@
     slots:
     - Belt
   - type: MeleeWeapon
-    armorPenetration: 0.3
     wideAnimationRotation: -125
     damage:
       types:
         Slash: 20
+      armorPenetration: 0.3
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Item

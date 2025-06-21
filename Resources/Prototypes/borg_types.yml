@@ -103,6 +103,7 @@
   - BorgModuleGrapplingGun
   - BorgModuleAppraisal
   - BorgModulePKA # Lavaland
+  - BorgModuleTool
 
   radioChannels:
   - Supply
@@ -192,6 +193,7 @@
     damageContainers:
     - Biological
   - type: Sanitized # Shitmed
+  - type: SurgeryTarget # Shitmed
   - type: SurgeryIgnoreClothing
   - type: SurgerySpeedModifier
     speedModifier: 1.5
