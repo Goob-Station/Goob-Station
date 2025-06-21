@@ -201,14 +201,6 @@
   - type: IsRoof
   - type: Sprite
     drawdepth: Walls
-    # layers:
-    #   - state: covered_in_thermite
-    #     sprite: Structures/Walls/solid.rsi
-    #     map: ["enum.BurnableByThermiteLayers.Puddle"]
-    #     drawdepth: Overdoors
-    #     visible: false
-    #     # Add this line to ensure it draws above the wall
-    #     z-index: 1
   - type: Icon
     state: full
   - type: PlacementReplacement
@@ -244,15 +236,15 @@
     visuals:
       enum.BurnableByThermiteVisuals.CoveredInThermite:
         enum.BurnableByThermiteLayers.Puddle:
-          True: { visible: true, state: covered_in_thermite }
+          True: { state: covered_in_thermite, visible: true }
           False: { visible: false }
       enum.BurnableByThermiteVisuals.OnFireStart:
         enum.BurnableByThermiteLayers.Puddle:
-          True: { visible: true, state: thermite_reaction_start }
+          True: { state: thermite_reaction_start, visible: true }
           False: { visible: false }
       enum.BurnableByThermiteVisuals.OnFireFull:
         enum.BurnableByThermiteLayers.Puddle:
-          True: { visible: true, state: thermite_reaction_full }
+          True: { state: thermite_reaction_full, visible: true }
           False: { visible: false }
   - type: Appearance
   - type: AddSpriteLayerAfter

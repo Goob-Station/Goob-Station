@@ -17,6 +17,7 @@ public sealed partial class SharedBurnableByThermiteSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly SharedDestructibleSystem _destructibleSystem = default!;
+    [Dependency] private readonly SharedPointLightSystem _pointLight = default!;
 
     public override void Initialize()
     {
@@ -30,7 +31,6 @@ public sealed partial class SharedBurnableByThermiteSystem : EntitySystem
         if (TryComp<IgnitionSourceComponent>(args.Used, out var ignitionSourceComponent))
             OnInteractWithLighter(new(uid, component), args, ignitionSourceComponent);
         // TryComp<IgnitionSourceComponent>(args.Used, out var ignitionSourceComponent);
-
     }
 
     public override void Update(float frameTime)
@@ -48,7 +48,7 @@ public sealed partial class SharedBurnableByThermiteSystem : EntitySystem
     }
     public void OnUpdateBurning(EntityUid uid, BurnableByThermiteComponent component, float deltaT)
     {
-        SetSpriteData(uid, BurnableByThermiteVisuals.OnFireFull, false);
+        SetSpriteData(uid, BurnableByThermiteVisuals.OnFireFull, true);
         if (_gameTiming.CurTime.TotalSeconds - component.BurningStartTime >= component.BurnTime)
         {
             component.Burning = false;
@@ -57,11 +57,14 @@ public sealed partial class SharedBurnableByThermiteSystem : EntitySystem
         component.TotalDamageDealt += component.DPS * deltaT;
         if (component.TotalDamageDealt >= component.TotalDamageUntilMelting)
         {
-            component.Burning = false;
-            _destructibleSystem.DestroyEntity(uid);
+            OnEntityBurned(uid, component);
             return;
         }
 
+    }
+    public void OnEntityBurned(EntityUid uid, BurnableByThermiteComponent component)
+    {
+        _destructibleSystem.DestroyEntity(uid);
     }
     public void OnUpdateIgnited(BurnableByThermiteComponent component)
     {
@@ -76,13 +79,33 @@ public sealed partial class SharedBurnableByThermiteSystem : EntitySystem
     {
         if (!ignitionSourceComponent.Ignited) return;
         if (ent.Comp.Ignited || ent.Comp.Burning) return;
-        if (ent.Comp.ThermiteSolutionComponent is null) return;
-        if (ent.Comp.ThermiteSolutionComponent.Solution.TryGetReagentQuantity(new("Thermite", null), out var thermiteQuantity) && thermiteQuantity == 0) return;
+        TryIgniteStructure(ent, args);
+    }
+    public bool TryExtinguishStructure(Entity<BurnableByThermiteComponent> ent, InteractUsingEvent args)
+    {
+        if (!ent.Comp.Ignited && !ent.Comp.Burning) return false;
+        SetSpriteData(ent.Owner, BurnableByThermiteVisuals.OnFireFull, false);
+        SetSpriteData(ent.Owner, BurnableByThermiteVisuals.OnFireStart, false);
+        ent.Comp.Ignited = false;
+        ent.Comp.Burning = false;
+        if (ent.Comp.ThermiteSolutionComponent is null) return true;
+        ent.Comp.ThermiteSolutionComponent.Solution.RemoveAllSolution();
+        return true;
+    }
+
+
+    public bool TryIgniteStructure(Entity<BurnableByThermiteComponent> ent, InteractUsingEvent args)
+    {
+        if (ent.Comp.ThermiteSolutionComponent is null) return false;
+        if (ent.Comp.ThermiteSolutionComponent.Solution.TryGetReagentQuantity(new("Thermite", null), out var thermiteQuantity) && thermiteQuantity == 0) return false;
         SetSpriteData(ent.Owner, BurnableByThermiteVisuals.OnFireStart, true);
+        _pointLight.EnsureLight(ent.Owner);
+        _pointLight.SetColor(ent.Owner, Color.Yellow);
         _popupSystem.PopupClient(Loc.GetString("thermite-on-structure-ignited"), args.User, args.User, PopupType.MediumCaution);
         ent.Comp.Ignited = true;
         ent.Comp.IgnitionStartTime = (float) _gameTiming.CurTime.TotalSeconds;
         ent.Comp.ThermiteSolutionComponent.Solution.RemoveAllSolution();
+        return true;
     }
 
     public void OnInteractWithBeaker(EntityUid structure, BurnableByThermiteComponent component, EntityUid beaker, InteractUsingEvent args, SolutionContainerManagerComponent beakerSolutionContainerComponent)
@@ -129,7 +152,7 @@ public sealed partial class SharedBurnableByThermiteSystem : EntitySystem
             return;
         }
     }
-    public void SetSpriteData(EntityUid uid, Enum visuals, bool state, bool disableOthers = true)
+    public void SetSpriteData(EntityUid uid, Enum visuals, bool state, bool disableOthers = false)
     {
         if (_appearanceSystem.TryGetData<bool>(uid, visuals, out var currentState))
         {

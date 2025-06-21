@@ -1,5 +1,6 @@
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Chemistry.Components;
+using Robust.Shared.Audio;
 
 namespace Content.Pirate.Shared.BurnableByThermite;
 
@@ -16,12 +17,14 @@ public sealed partial class BurnableByThermiteComponent : Component
     /// <summary>
     /// Time it takes to fully ignite thermite. In seconds.
     /// </summary>
-    [DataField] public float IgnitionTime = 1f;
+    [DataField] public float IgnitionTime = 2f;
     /// <summary>
     /// Damage per second dealt to the structure while burning.
     /// </summary>
-    [DataField] public FixedPoint2 DPS = 10f;
-    [DataField] public FixedPoint2 TotalDamageUntilMelting = 150f;
+    [DataField] public FixedPoint2 DPS = 12f;
+    [DataField] public FixedPoint2 TotalDamageUntilMelting = 200f;
+    [DataField] public SoundSpecifier BurningSound = new SoundPathSpecifier("/Audio/Effects/burning.ogg");
+
     [ViewVariables(VVAccess.ReadOnly)] public FixedPoint2 TotalDamageDealt = 0f;
 
     /// <summary>
