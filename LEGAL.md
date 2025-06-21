@@ -37,10 +37,10 @@ For MIT-licensed components: Preserve original MIT license notices and attributi
 
 - Code created by contributors of Goobstation are under their own Goobmod, commented within Coremod files, namespaced within Coremod, or new files added to coremod (unless otherwise namespaced).
 
-- Upstream code from [Space Station 14](https://github.com/space-wizards/space-station-14) was taken under [the MIT license](/LICENSE-MIT.txt).
+- Upstream code from [Space Station 14](https://github.com/space-wizards/space-station-14) was taken under [the MIT license](/LICESNSES/MIT.txt).
   Any code not in a specific Namespace or commented as such is sublicensed as a block as MIT plus AGPLv3 from the Space Wizards Federation.
 
-- Code taken from [the Starlight project](https://github.com/ss14Starlight/space-station-14) in the `_Starlight` namespace was taken under [their custom MIT-like license](/LICENSE-Starlight.txt) and is distributed under AGPLv3.
+- Code taken from [the Starlight project](https://github.com/ss14Starlight/space-station-14) in the `_Starlight` namespace was taken under [their custom MIT-like license](/LICENSES/LICENSE-Starlight.txt) and is distributed under AGPLv3.
 
 Assets have distinct licenses in `attributions.yml` and `meta.json` files which must be followed individually.
 
