@@ -32,8 +32,11 @@ public sealed partial class BossMusicPrototype : IPrototype
 {
     [IdDataField] public string ID { get; } = string.Empty;
 
-    [DataField("fade")]
+    [DataField]
     public bool FadeIn;
+
+    [DataField]
+    public bool FadeOut;
 
     [DataField(required: true)]
     public SoundSpecifier Sound = default!;

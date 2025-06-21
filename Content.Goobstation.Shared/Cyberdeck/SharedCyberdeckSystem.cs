@@ -8,6 +8,7 @@ using Content.Goobstation.Common.Access;
 using Content.Goobstation.Common.Cyberdeck.Components;
 using Content.Goobstation.Common.Interaction;
 using Content.Shared._EinsteinEngines.Silicon.Components;
+using Content.Shared._Lavaland.Audio;
 using Content.Shared.Access.Components;
 using Content.Shared.Actions;
 using Content.Shared.Bed.Cryostorage;
@@ -26,6 +27,7 @@ using Content.Shared.Popups;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.Verbs;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
@@ -40,14 +42,16 @@ public abstract class SharedCyberdeckSystem : EntitySystem
     [Dependency] protected readonly SharedTransformSystem Xform = default!;
     [Dependency] protected readonly SharedChargesSystem Charges = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private readonly SharedBossMusicSystem _bossMusic = default!;
     [Dependency] private readonly SharedCryostorageSystem _cryostorage = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedEyeSystem _eye = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedMoverController _mover = default!;
+    [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
     [Dependency] private readonly INetManager _net = default!;
 
     private EntityQuery<HandsComponent> _handsQuery;
@@ -120,7 +124,8 @@ public abstract class SharedCyberdeckSystem : EntitySystem
 
     private void OnProjectionVerbs(Entity<CyberdeckProjectionComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
     {
-        if (!HasComp<StationAiHeldComponent>(args.User))
+        var user = args.User;
+        if (!HasComp<StationAiHeldComponent>(user))
             return;
 
         args.Verbs.Add(new AlternativeVerb
@@ -131,8 +136,12 @@ public abstract class SharedCyberdeckSystem : EntitySystem
                 if (!_userQuery.TryComp(ent.Comp.RemoteEntity, out var userComp))
                     return;
 
+                var sound = ent.Comp.CounterHackSound;
                 DetachFromProjection((ent.Comp.RemoteEntity.Value, userComp));
+
                 Popup.PopupClient("cyberdeck-player-get-hacked", ent.Comp.RemoteEntity.Value, ent.Comp.RemoteEntity, PopupType.LargeCaution);
+                _audio.PlayLocal(sound, ent.Owner, ent.Owner);
+                _audio.PlayLocal(sound, user, user);
             },
             Impact = LogImpact.High,
         });
@@ -294,22 +303,39 @@ public abstract class SharedCyberdeckSystem : EntitySystem
             ColorOverride = Color.Aquamarine,
         };
 
-        _doAfter.TryStartDoAfter(ev);
+        if (!_doAfter.TryStartDoAfter(ev))
+            return;
 
         var message = Loc.GetString("cyberdeck-start-hacking", ("target", Identity.Entity(target.Value, EntityManager, uid)));
         Popup.PopupClient(message, uid, uid);
+        _audio.PlayLocal(component.UserHackingSound, uid, uid);
 
         // Also alert the target if it's a player (or player targeted a silicon).
         // They can't do anything about it. They will just look at this message and cry.
-        if (HasComp<ActorComponent>(target)
-            || HasComp<ActorComponent>(args.Target)
-            && HasComp<SiliconComponent>(args.Target))
-            Popup.PopupEntity(Loc.GetString("cyberdeck-player-get-hacked"), target.Value, target.Value, PopupType.LargeCaution);
+        if (HasComp<ActorComponent>(target))
+        {
+            _audio.PlayGlobal(component.VictimHackedSound, target.Value);
+            Popup.PopupEntity(Loc.GetString("cyberdeck-player-get-hacked"),
+                target.Value,
+                target.Value,
+                PopupType.LargeCaution);
+        }
+        if (HasComp<ActorComponent>(args.Target) && HasComp<SiliconComponent>(args.Target))
+        {
+            _audio.PlayGlobal(component.VictimHackedSound, args.Target);
+            Popup.PopupEntity(Loc.GetString("cyberdeck-player-get-hacked"),
+                target.Value,
+                target.Value,
+                PopupType.LargeCaution);
+        }
     }
 
     private void OnHacked(Entity<CyberdeckHackableComponent> ent, ref CyberdeckHackDoAfterEvent args)
     {
-        if (!TryHackDevice(args.User, ent.Owner))
+        if (args.Cancelled
+            || args.Handled
+            || ent.Owner != args.Target
+            || !TryHackDevice(args.User, ent.Owner))
             return;
 
         // This evil hacking events chain is required to handle charges properly if target has multiple components.
@@ -366,7 +392,7 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         if (user.Comp.InProjection)
             return;
 
-        // At first we just add visuals & actions, because they're easily predicted
+        // At first, we just add visuals & actions, because they're easily predicted
         EnsureComp<StationAiOverlayComponent>(user.Owner);
         EnsureComp<CyberdeckOverlayComponent>(user.Owner);
         EnsureComp<NoNormalInteractionComponent>(user.Owner);
@@ -374,6 +400,9 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         _actions.AddAction(user.Owner, ref user.Comp.ReturnAction, user.Comp.ReturnActionId);
         _actions.RemoveAction(user.Owner, user.Comp.VisionAction);
         user.Comp.VisionAction = null; // Shitcode to prevent errors
+
+        _audio.PlayLocal(user.Comp.DiveStartSound, user.Owner, user.Owner);
+        _bossMusic.StartBossMusic(user.Comp.DiveMusicId, user.Owner); // Ambient loop
 
         // Now everything becomes tricky.
         // To make everything work smoothly enough, we need to store the projection entity somewhere.
@@ -449,6 +478,9 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         _actions.AddAction(user, ref user.Comp.VisionAction, user.Comp.VisionActionId);
         _actions.RemoveAction(user, user.Comp.ReturnAction);
         user.Comp.ReturnAction = null; // Shitcode to prevent errors
+
+        _audio.PlayLocal(user.Comp.DiveExitSound, user.Owner, user.Owner);
+        _bossMusic.EndAllMusic(user.Owner);
 
         if (TryComp(user, out EyeComponent? eyeComp))
         {

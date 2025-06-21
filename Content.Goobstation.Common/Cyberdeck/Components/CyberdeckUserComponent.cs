@@ -3,6 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -40,7 +41,32 @@ public sealed partial class CyberdeckUserComponent : Component
     public string AlertId = "CyberdeckCharges";
 
     [DataField]
+    public string DiveMusicId = "CyberdeckDiveLoop";
+
+    [DataField]
     public int CyberVisionAbilityCost = 6;
+
+    [DataField]
+    public SoundSpecifier DiveStartSound =
+        new SoundPathSpecifier("/Audio/_Goobstation/Effects/Cyberdeck/dive_intro.ogg", AudioParams.Default.WithVolume(6f));
+
+    [DataField]
+    public SoundSpecifier DiveExitSound =
+        new SoundPathSpecifier("/Audio/_Goobstation/Effects/Cyberdeck/dive_exit.ogg", AudioParams.Default.WithVolume(6f));
+
+    /// <summary>
+    /// Sound that is played for the user when they hack something.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier UserHackingSound =
+        new SoundPathSpecifier("/Audio/_Goobstation/Effects/Cyberdeck/hack_user.ogg", AudioParams.Default.WithVolume(6f));
+
+    /// <summary>
+    /// Sound that is played for the victim of cyberdeck hacking.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier VictimHackedSound =
+        new SoundPathSpecifier("/Audio/_Goobstation/Effects/Cyberdeck/hack_victim.ogg", AudioParams.Default.WithVolume(6f));
 
     [DataField]
     public EntProtoId ProjectionEntityId = "CyberdeckProjection";
