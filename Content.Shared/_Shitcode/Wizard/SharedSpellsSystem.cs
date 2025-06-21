@@ -141,6 +141,7 @@ public abstract class SharedSpellsSystem : EntitySystem
     [Dependency] private   readonly SharedWizardTeleportSystem _teleport = default!;
     [Dependency] private   readonly PullingSystem _pulling = default!;
     [Dependency] private   readonly MobThresholdSystem _threshold = default!;
+    [Dependency] private   readonly TurfSystem _turf = default!;
 
     #endregion
 
@@ -891,7 +892,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         {
             var (coords, tile) = data;
 
-            if (tile.IsSpace())
+            if (_turf.IsSpace(tile))
                 return false;
 
             var trapQuery = GetEntityQuery<WizardTrapComponent>();
