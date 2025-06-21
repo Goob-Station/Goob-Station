@@ -109,6 +109,14 @@
   id: Handcuffs
   parent: [BaseItem, BaseSecurityCommandContraband]
   components:
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/other/Handcuffs/pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/other/Handcuffs/drop.ogg
+  # Goobstation edit end
   - type: Item
     size: Small
     storedRotation: 90
