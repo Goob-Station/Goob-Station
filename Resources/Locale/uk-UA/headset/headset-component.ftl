@@ -19,3 +19,6 @@ chat-radio-freelance = Позаштатний
 # not headset but whatever
 chat-radio-handheld = Портативний
 chat-radio-binary = Двійковий
+
+chat-radio-xenoborg = Ксеноборг
+chat-radio-mothership = Матка

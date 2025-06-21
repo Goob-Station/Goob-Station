@@ -21,3 +21,5 @@ name-format-ert = {$part0} {$part1}
 name-format-book = {$part0} {$part1}
 
 name-format-nuclear-operation = {$part0} {$part1}
+
+name-format-dragon = {$part0} {$part1}

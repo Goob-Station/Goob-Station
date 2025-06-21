@@ -43,3 +43,46 @@ artifact-trigger-hint-examine = Вивчення
 
 artifact-effect-hint-psionic = Ноосферні бурі
 artifact-trigger-hint-medical = Терапевтичні хімікати
+xenoarch-trigger-tip-music = Гармонійні звукові вібрації
+xenoarch-trigger-tip-heat = Газ високої температури
+xenoarch-trigger-tip-cold = Газ низької температури
+xenoarch-trigger-tip-no-oxygen = Безкисневе середовище
+xenoarch-trigger-tip-water = Вода
+xenoarch-trigger-tip-co2 = Вуглекислий газ
+xenoarch-trigger-tip-plasma = Нетверда плазма
+xenoarch-trigger-tip-tritium = Тритій
+xenoarch-trigger-tip-ammonia = Аміак
+xenoarch-trigger-tip-n2o = Закис азоту
+xenoarch-trigger-tip-frezon = Фрезон
+xenoarch-trigger-tip-radiation = Радіація
+xenoarch-trigger-tip-brute-damage = Фізична шкода
+xenoarch-trigger-tip-interaction = Фізична взаємодія
+xenoarch-trigger-tip-wrenching = Затягування
+xenoarch-trigger-tip-prying = Підважування
+xenoarch-trigger-tip-screwing = Закручування
+xenoarch-trigger-tip-pulsing = Пульсація
+xenoarch-trigger-tip-pressure-low = Низький тиск
+xenoarch-trigger-tip-pressure-high = Високий тиск
+xenoarch-trigger-tip-examine = Ретельний огляд
+xenoarch-trigger-tip-timer = Регулярна самоактивація
+xenoarch-trigger-tip-blood = Кров
+xenoarch-trigger-tip-throw = Кидання
+xenoarch-trigger-tip-death = Смерть
+xenoarch-trigger-tip-magnet = Магнітні хвилі
+
+## Goob stuff
+xenoarch-trigger-tip-bz = БЗ
+xenoarch-trigger-tip-nitrium = Нітрій
+xenoarch-trigger-tip-healium = Хілій
+xenoarch-trigger-tip-pluoxium = Плуоксій
+
+### Description hints
+xenoarch-trigger-examine-wrenching = Навколо обертається якась незакріплена деталь.
+xenoarch-trigger-examine-prying = З поверхні виступає панель.
+xenoarch-trigger-examine-screwing = Є піднята секція з невеликим заглибленням.
+xenoarch-trigger-examine-pulsing = Відкритий діод виступає з поверхні артефакту.
+xenoarch-trigger-examine-timer = Різьблення та подряпини покривають поверхню... Ледве можна розрізнити число: [italic]{$time}[/italic]
+
+### Effects hints
+xenoarch-effect-puddle = Створює калюжу з наступних реагентів: {$reagent}
+xenoarch-effect-foam = Створює піну з наступних реагентів: {$reagent}

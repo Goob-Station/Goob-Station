@@ -23,3 +23,5 @@ contraband-examinable-verb-message = Перевірити законність �
 
 contraband-department-plural = {$department}
 contraband-job-plural = {MAKEPLURAL($job)}
+
+contraband-examine-text-Magical = [color=#b337b3]Цей предмет є надзвичайно нелегальною магічною контрабандою![/color]

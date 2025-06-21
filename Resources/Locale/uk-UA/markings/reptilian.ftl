@@ -112,3 +112,7 @@ marking-LizardTailLTigerAnimated = Хвіст ящірки (світло-тиг�
 marking-LizardTailDTigerAnimated = Хвіст ящірки (темні тигрові смуги) (анімований)
 marking-LizardHornsDemonic-horns_demonic = Роги ящера (демонічні)
 marking-LizardHornsDemonic = Роги ящера (демонічні)
+marking-LizardTailAquatic-tail_aquatic = Хвіст Ящера (Водний)
+marking-LizardTailAquatic = Хвіст Ящера (Водний)
+marking-LizardChestFin-body_fin = Плавник Ящера
+marking-LizardChestFin = Плавник Ящера

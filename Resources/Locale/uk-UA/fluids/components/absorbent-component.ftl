@@ -6,3 +6,4 @@ mopping-system-no-water = { THE($used) } не має води!
 
 mopping-system-full = { THE($used) } повний!
 mopping-system-empty = { THE($used) } порожній!
+mopping-system-no-hands = У вас немає рук!

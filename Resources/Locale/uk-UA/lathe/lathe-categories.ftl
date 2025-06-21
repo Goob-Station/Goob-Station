@@ -21,3 +21,19 @@ lathe-category-command = Командування
 lathe-category-hats = Капелюхи
 lathe-category-jumpsuits = Комбінезони
 lathe-category-neck = Нашийні аксесуари
+lathe-category-clothing = Одяг
+lathe-category-machines = Машини
+lathe-category-computers = Комп'ютери
+lathe-category-engineering = Інженерія
+lathe-category-general = Загальне
+lathe-category-medical = Медицина
+lathe-category-research = Дослідження
+lathe-category-security = Безпека
+lathe-category-service = Сервіс
+lathe-category-supply = Постачання
+
+# Наука
+lathe-category-boxes = Ящики
+lathe-category-magazines = Магазини
+
+# Уніформа

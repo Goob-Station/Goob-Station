@@ -7,3 +7,4 @@ gun-upgrade-examine-text-reload = Містить покращення [color=#bb
 gun-upgrade-examine-text-light = Містить покращення [color=#bbf134][bold]світла.[/bold][/color]
 gun-upgrade-examine-text-vampirism = Містить покращення [color=crimson][bold]вампіризму.[/bold][/color]
 gun-upgrade-examine-text-capacity-cost = Вимагає {$value} ємності.
+gun-upgrade-examine-text-pressure = Містить нелегальне покращення [color=orangered][bold]тиску[/bold][/color].

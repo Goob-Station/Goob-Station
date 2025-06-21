@@ -32,3 +32,5 @@ lathe-menu-recipe-count = { $count ->
     [few] {$count} Рецепти
     *[other] {$count} Рецептів
 }
+lathe-menu-queue-reset-title = Скинути чергу
+lathe-menu-queue-reset-material-overflow = Ви помічаєте, що автолат заповнений.

@@ -40,3 +40,7 @@ marking-TattooTribal1-tattoo_tribal1 = Племінне татуювання
 marking-TattooTribal1 = Племінне татуювання
 marking-BuffChest_buff = Накачаний
 marking-BuffChest = Накачаний
+marking-TattooEyeMothRight-tattoo_eye_moth_r = Праве Око
+marking-TattooEyeMothRight = Праве Око
+marking-TattooEyeMothLeft-tattoo_eye_moth_l = Ліве Око
+marking-TattooEyeMothLeft = Ліве Око

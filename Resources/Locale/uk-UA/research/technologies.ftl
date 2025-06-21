@@ -105,3 +105,4 @@ research-technology-shrapnel-munitions = Шрапнельні Боєприпас
 research-technology-laser-sentry-turrets = Технологія Лазерних Турелей-Охоронців
 research-technology-positronic-interfacing = Позитронне Сполучення
 research-technology-special-means = Особливі засоби
+research-technology-bluespace-time-manipulation = Маніпуляція часом у блюспейсі

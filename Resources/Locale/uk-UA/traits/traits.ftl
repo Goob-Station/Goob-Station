@@ -30,8 +30,8 @@ trait-archaic-accent-desc = Ви розмовляєте мовою яку біл
 trait-accentless-name = Без акценту
 trait-accentless-desc = У вас немає акценту, який зазвичай притаманний вашому виду
 
-trait-wheelchair-bound-name = На візку
-trait-wheelchair-bound-desc = Ви не можете пересуватись без візку. Візок у вас буде.
+trait-wheelchair-bound-name = Прикутий до візка
+trait-wheelchair-bound-desc = Ви не можете пересуватися без свого інвалідного візка. Візок включено.
 
 trait-frontal-lisp-name = Шепелявість
 trait-frontal-lisp-desc = Ви тросески сепелявите

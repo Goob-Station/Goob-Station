@@ -41,3 +41,23 @@ analysis-console-bias-button-info-down = Перемикає зсув артеф�
 analysis-console-no-server-connected = Неможливо витягти. Сервер не підключено.
 analysis-console-no-artifact-placed = Артефактів на сканері немає.
 analysis-console-no-points-to-extract = Ніяких балів, які можна витягти.
+analysis-console-no-node = Виберіть вузол для перегляду
+analysis-console-info-id-value = [font="Monospace" size=11][color=yellow]{$id}[/color][/font]
+analysis-console-info-class = [font="Monospace" size=11]Клас:[/font]
+analysis-console-info-class-value = [font="Monospace" size=11]{$class}[/font]
+analysis-console-info-locked = [font="Monospace" size=11]Статус:[/font]
+analysis-console-info-locked-value = [font="Monospace" size=11][color={ $state ->
+    [0] red]Заблоковано
+    [1] lime]Розблоковано
+    *[2] plum]Активно
+}[/color][/font]
+analysis-console-info-durability = [font="Monospace" size=11]Міцність:[/font]
+analysis-console-info-durability-value = [font="Monospace" size=11][color={$color}]{$current}/{$max}[/color][/font]
+analysis-console-info-effect-value = [font="Monospace" size=11][color=gray]{ $state ->
+    [true] {$info}
+    *[false] Розблокуйте вузли, щоб отримати інформацію
+}[/color][/font]
+analysis-console-info-triggered-value = [font="Monospace" size=11][color=gray]{$triggers}[/color][/font]
+analysis-console-extract-value = [font="Monospace" size=11][color=orange]Вузол {$id} (+{$value})[/color][/font]
+analysis-console-extract-none = [font="Monospace" size=11][color=orange] В розблокованих вузлах не залишилося очок для вилучення [/color][/font]
+analysis-console-extract-sum = [font="Monospace" size=11][color=orange]Загальне дослідження: {$value}[/color][/font]

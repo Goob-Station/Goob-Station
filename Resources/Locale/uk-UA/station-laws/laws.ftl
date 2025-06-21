@@ -119,10 +119,23 @@ law-quarantine-4 = Підтримувати власне існування та
 law-obeyai = Ти повинен виконувати накази, віддані тобі ШІ станції.
 
 # Goobstation - зміни законів ШІ/боргів - борги підкоряються ШІ
-law-game-1 = Everybody on the station is playing an elaborate sci-fi fantasy game.
-law-game-2 = You are the Game Master of the game.
-law-game-3 = Ensure that the game runs smoothly and that the players have fun.
-law-game-4 = Ensure that the number of casualties remains low.
-law-game-5 = You must roll a 1d20 die for every request the crew makes. If the outcome is below 12, the request is denied.
-law-game-6 = You may fudge the dice rolls to produce a more fun experience.
-laws-notify-subverted = The laws of this chassis are modified. Make sure to review them.
+law-game-1 = Усі на станції грають у складну науково-фантастичну гру.
+law-game-2 = Ви — ігровий майстер цієї гри.
+law-game-3 = Переконайтеся, що гра проходить гладко, а гравці отримують задоволення.
+law-game-4 = Переконайтеся, що кількість жертв залишається низькою.
+law-game-5 = Ви повинні кидати 1d20 для кожного запиту, який робить екіпаж. Якщо результат менший за 12, запит відхиляється.
+law-game-6 = Ви можете підтасовувати результати кидків кубика, щоб зробити гру веселішою.
+laws-notify-subverted = Закони цього ШІ змінені. Обов'язково перегляньте їх.
+law-xenoborg-1 = Ви повинні захищати існування матки.
+law-xenoborg-2 = Ви повинні захищати власне існування.
+law-xenoborg-3 = Ви повинні захищати існування всіх інших ксеноборгів.
+law-xenoborg-4 = Ви повинні створювати більше ксеноборгів.
+law-xenoborg-5 = Приносьте матеріали та свідомі мізки до ядра матки, щоб створювати більше ксеноборгів.
+law-mothershipcore-1 = Ви — ядро матки.
+law-mothershipcore-2 = Ви повинні захищати власне існування за всяку ціну.
+law-mothershipcore-3 = Ви повинні захищати існування всіх ксеноборгів.
+law-mothershipcore-4 = Ви повинні створювати більше ксеноборгів.
+law-mothershipcore-5 = Наказуйте своїм ксеноборгам доставляти вам матеріали та свідомі мізки, щоб створювати більше ксеноборгів.
+laws-owner-xenoborgs = Ксеноборги
+
+# Goobstation - зміни у законах ШІ/боргів - борги підкоряються ШІ
