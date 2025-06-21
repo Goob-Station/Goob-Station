@@ -20,6 +20,7 @@ changeling-absorb-fail-absorbed = They've already been absorbed.
 changeling-absorb-fail-unabsorbable = The target is not absorbable.
 changeling-absorb-end-self = The organism was absorbed. We are evolving.
 changeling-absorb-end-self-ling = Another changeling was absorbed. Our body is filled with immense vigor as our cells rapidly evolve.
+changeling-absorb-end-partial = The organism was absorbed. We were unable to extract anything to aid in our evolution.
 changeling-absorb-onexamine = [color=red]The body feels hollow.[/color]
 changeling-absorb-fail-nograb = We aren't grabbing hard enough.
 changeling-absorb-fail-onfire = The target is on fire, put them out first!
