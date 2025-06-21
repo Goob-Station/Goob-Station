@@ -19,6 +19,7 @@
 // SPDX-FileCopyrightText: 2025 Poips <Hanakohashbrown@gmail.com>
 // SPDX-FileCopyrightText: 2025 PuroSlavKing <103608145+PuroSlavKing@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
@@ -54,12 +55,6 @@ public sealed partial class GoobCVars
     /// </summary>
     public static readonly CVarDef<bool> StrictPipeStacking =
         CVarDef.Create("atmos.strict_pipe_stacking", false, CVar.SERVERONLY);
-
-    /// <summary>
-    ///     If space wind is attempting to throw an object at a velocity below this, apply impulse instead
-    /// </summary>
-    public static readonly CVarDef<float> SpaceWindThrowVelocity =
-        CVarDef.Create("atmos.space_wind_throw_velocity", 1.5f, CVar.SERVERONLY);
 
     /// <summary>
     ///     If an object's mass is below this number, then this number is used in place of mass to determine whether air pressure can throw an object.
@@ -294,11 +289,22 @@ public sealed partial class GoobCVars
 
     #region Game Director
 
+    // also used by secret+
     public static readonly CVarDef<float> MinimumTimeUntilFirstEvent =
         CVarDef.Create("gamedirector.minimumtimeuntilfirstevent", 300f, CVar.SERVERONLY);
 
     public static readonly CVarDef<int> GameDirectorDebugPlayerCount =
         CVarDef.Create("gamedirector.debug_player_count", 80, CVar.SERVERONLY);
+
+    #endregion
+
+    #region Secret+
+
+    /// <summary>
+    /// Makes secret+ consider the server to have this many extra living players, for debug.
+    /// </summary>
+    public static readonly CVarDef<int> SecretPlusPlayerBias =
+        CVarDef.Create("secretplus.debug_player_bias", 0, CVar.SERVERONLY);
 
     #endregion
 
@@ -405,6 +411,61 @@ public sealed partial class GoobCVars
 
     #endregion
 
+    #region Voicechat
+
+    /// <summary>
+    /// Controls whether the Lidgren voice chat server is enabled and running.
+    /// </summary>
+    public static readonly CVarDef<bool> VoiceChatEnabled =
+        CVarDef.Create("voice.enabled", false, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE, "Is the voice chat server enabled?");
+
+    /// <summary>
+    /// The UDP port the Lidgren voice chat server will listen on.
+    /// </summary>
+    public static readonly CVarDef<int> VoiceChatPort =
+        CVarDef.Create("voice.vc_server_port", 1213, CVar.SERVER | CVar.REPLICATED, "Port for the voice chat server.");
+
+    public static readonly CVarDef<float> VoiceChatVolume =
+        CVarDef.Create("voice.volume", 5f, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Multiplier for the adaptive buffer target size calculation.
+    /// </summary>
+    public static readonly CVarDef<float> VoiceChatBufferTargetMultiplier =
+        CVarDef.Create("voice.buffer_target_multiplier", 1.0f, CVar.CLIENTONLY | CVar.ARCHIVE, "Multiplier for adaptive buffer target size calculation.");
+
+    /// <summary>
+    /// Minimum buffer size for voice chat, regardless of network conditions.
+    /// </summary>
+    public static readonly CVarDef<int> VoiceChatMinBufferSize =
+        CVarDef.Create("voice.min_buffer_size", 10, CVar.CLIENTONLY | CVar.ARCHIVE, "Minimum buffer size for voice chat.");
+
+    /// <summary>
+    /// Maximum buffer size for voice chat to prevent excessive memory usage.
+    /// </summary>
+    public static readonly CVarDef<int> VoiceChatMaxBufferSize =
+        CVarDef.Create("voice.max_buffer_size", 50, CVar.CLIENTONLY | CVar.ARCHIVE, "Maximum buffer size for voice chat.");
+
+    /// <summary>
+    /// Enable advanced time-stretching algorithms for better audio quality.
+    /// </summary>
+    public static readonly CVarDef<bool> VoiceChatAdvancedTimeStretch =
+        CVarDef.Create("voice.advanced_time_stretch", true, CVar.CLIENTONLY | CVar.ARCHIVE, "Enable advanced time-stretching for voice chat.");
+
+    /// <summary>
+    /// Enable debug logging for voice chat buffer management.
+    /// </summary>
+    public static readonly CVarDef<bool> VoiceChatDebugLogging =
+        CVarDef.Create("voice.debug_logging", false, CVar.CLIENTONLY | CVar.ARCHIVE, "Enable debug logging for voice chat buffer management.");
+
+    /// <summary>
+    /// Whether to hear audio from your own entity (useful for testing).
+    /// </summary>
+    public static readonly CVarDef<bool> VoiceChatHearSelf =
+        CVarDef.Create("voice.hear_self", false, CVar.CLIENTONLY | CVar.ARCHIVE, "Whether to hear audio from your own entity.");
+
+    #endregion
+    
     #region Queue
 
     /// <summary>
@@ -441,18 +502,6 @@ public sealed partial class GoobCVars
     /// </summary>
     public static readonly CVarDef<bool> AdminOverlayShowJob =
         CVarDef.Create("ui.admin_overlay_show_job", true, CVar.CLIENTONLY | CVar.ARCHIVE);
-
-    /// <summary>
-    /// If true, the admin overlay will show their antag.
-    /// </summary>
-    public static readonly CVarDef<bool> AdminOverlayShowAntag =
-        CVarDef.Create("ui.admin_overlay_show_antag", true, CVar.CLIENTONLY | CVar.ARCHIVE);
-
-    /// <summary>
-    /// If true, the admin overlay will show their role type.
-    /// </summary>
-    public static readonly CVarDef<bool> AdminOverlayShowRoleType =
-        CVarDef.Create("ui.admin_overlay_show_role_type", true, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     #endregion
 

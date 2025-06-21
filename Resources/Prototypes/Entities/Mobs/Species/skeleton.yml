@@ -33,6 +33,7 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
@@ -130,7 +131,9 @@
       methods: [ Touch ]
       effects: # TODO: when magic is around - make a milk transformation to a skeleton monster
       - !type:HealthChange
-        scaleByQuantity: true
+        scaleByQuantity: true # Woundmed
+        ignoreBlockers: true # What do broken bones even mean in the context of a skeleton?.. # Woundmed
+        splitDamage: SplitEnsureAll
         damage:
           groups:
             Burn: -4 # healing obviously up to discussion # Shitmed value
