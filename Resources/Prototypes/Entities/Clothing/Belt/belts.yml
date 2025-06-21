@@ -662,6 +662,7 @@
         - DoorRemote
         - Whistle
         - BalloonPopper
+        - ScatteringGrenade # goobstation
   - type: ItemMapper
     mapLayers:
       flashbang:

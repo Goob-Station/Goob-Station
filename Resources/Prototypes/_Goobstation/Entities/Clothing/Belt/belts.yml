@@ -124,6 +124,7 @@
       - DoorRemote
       - Whistle
       - BalloonPopper
+      - ScatteringGrenade
 
 - type: entity
   parent: [ ChemBag, BaseSyndicateContraband ]
