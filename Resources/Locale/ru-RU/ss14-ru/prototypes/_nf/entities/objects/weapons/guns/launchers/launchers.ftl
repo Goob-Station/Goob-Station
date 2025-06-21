@@ -1,2 +1,2 @@
-ent-WeaponMailLake = mail RPDS
-    .desc = Rap(b?)id Parcel Delivery System
+ent-WeaponMailLake = почтовый БСДП
+    .desc = Быстрая система доставки посылок

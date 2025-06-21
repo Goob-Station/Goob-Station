@@ -1,2 +1,2 @@
-ent-Wonderprod = wonderprod
-    .desc = Universal tool of the abductor agent.
+ent-Wonderprod = дубинка
+    .desc = Универсальный инструмент агента-похитителя.

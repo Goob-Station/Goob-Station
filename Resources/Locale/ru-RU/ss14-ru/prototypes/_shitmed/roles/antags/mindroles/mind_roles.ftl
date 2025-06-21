@@ -1,8 +1,8 @@
-ent-MindRoleLoneAbductor = Lone Abductor Role
+ent-MindRoleLoneAbductor = Роль одиночного похитителя
     .desc = { ent-BaseMindRoleAntag.desc }
-ent-MindRoleAbductorAgent = Lone Abductor Role
+ent-MindRoleAbductorAgent = Роль агента похитителей
     .desc = { ent-BaseMindRoleAntag.desc }
-ent-MindRoleAbductorScientist = Lone Abductor Role
+ent-MindRoleAbductorScientist = Роль учёного похитителей
     .desc = { ent-BaseMindRoleAntag.desc }
-ent-MindRoleAbductorVictim = Abductee Role
+ent-MindRoleAbductorVictim = Роль похищенного
     .desc = { ent-BaseMindRoleAntag.desc }

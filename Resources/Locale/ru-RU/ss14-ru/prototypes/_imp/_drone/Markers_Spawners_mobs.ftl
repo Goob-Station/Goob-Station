@@ -1,2 +1,2 @@
-ent-SpawnMobDrone = Drone Spawner
+ent-SpawnMobDrone = Спавнер Дрон
     .desc = { ent-MarkerBase.desc }

@@ -1,4 +1,4 @@
-ent-WallHierophantArena = hierophant wall
+ent-WallHierophantArena = стена Иерофанта
     .desc = { ent-BaseWall.desc }
-ent-WallHierophantArenaTemporary = hierophant field
-    .desc = Keeps the salvager in and... Why are you looking at this in a middle of a fight? You have nothing to do?!
+ent-WallHierophantArenaTemporary = поле Иерофанта
+    .desc = Держит шахтёров внутри, а... Почему ты смотришь на это в разгар драки? Тебе нечего делать?!

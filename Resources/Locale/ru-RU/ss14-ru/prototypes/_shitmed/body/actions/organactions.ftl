@@ -1,2 +1,2 @@
-ent-ActionGoliathTentacleCrew = [color=red]Tentacle Slam[/color]
-    .desc = Use your tentacles to grab and stun a target player!
+ent-ActionGoliathTentacleCrew = [color=red]Удар щупальцами[/color]
+    .desc = Используйте свои щупальца, чтобы схватить и оглушить свою цель!

@@ -1,6 +1,6 @@
-ent-ClothingNeckClassicPonchoWeb = classic web poncho
-    .desc = All of the charm of the desert highlands as imagined by the glands of a spider. It agreeably sticky!
-ent-ClothingNeckPonchoWeb = web poncho
-    .desc = It is like you were trapped in a cocoon and they added holes for your extremities. You are born again into fashion.
-ent-ClothingNeckCloakWeb = web cloak
-    .desc = This dapper cloak surely identifies you as a friend of spider kind. Surely.
+ent-ClothingNeckClassicPonchoWeb = классическое пончо из паутины
+    .desc = Все очарование пустынного высокогорья в том виде, в каком его представляют железы паука. Оно липкое!
+ent-ClothingNeckPonchoWeb = пончо из паутины
+    .desc = Это похоже на то, как если бы вас заперли в коконе и добавили отверстия для конечностей. Вы снова в моде.
+ent-ClothingNeckCloakWeb = паутинный плащ
+    .desc = Этот щегольской плащ, несомненно, идентифицирует вас как друга пауков. Конечно.

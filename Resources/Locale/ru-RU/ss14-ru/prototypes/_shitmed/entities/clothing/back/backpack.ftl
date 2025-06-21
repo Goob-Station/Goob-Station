@@ -1,2 +1,2 @@
-ent-ClothingBackpackAbductor = alien backpack
-    .desc = An ordinary backpack woven from a durable fiber.
+ent-ClothingBackpackAbductor = инопланетная сумка
+    .desc = Обычный рюкзак, сотканный из прочного волокна.

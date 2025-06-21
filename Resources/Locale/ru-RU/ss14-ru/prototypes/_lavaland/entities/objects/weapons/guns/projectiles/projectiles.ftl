@@ -1,4 +1,4 @@
-ent-RapidBulletKinetic = rapid kinetic bolt
+ent-RapidBulletKinetic = снаряд
     .desc = { ent-BulletKinetic.desc }
 ent-WeakBulletKinetic = { ent-BulletKinetic }
     .desc = { ent-BulletKinetic.desc }
