@@ -4,6 +4,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Damage;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
@@ -93,10 +94,16 @@ public sealed partial class MediGunComponent : Component
     public DamageSpecifier UberHealing = new();
 
     /// <summary>
-    /// How many bleeding we stop every tick
+    /// How much blood target restores every healing tick.
     /// </summary>
-    [DataField]
-    public float BleedingModifier = -1.0f;
+    [DataField("bleedingAmount")]
+    public FixedPoint2 BleedingAmountModifier = 3;
+
+    /// <summary>
+    /// How much pain is being modified for the target.
+    /// </summary>
+    [DataField("painAmount")]
+    public FixedPoint2 PainAmountModifier = -1f;
 
     /// <summary>
     /// Tick frequency in seconds
@@ -120,14 +127,14 @@ public sealed partial class MediGunComponent : Component
     /// Charge that is removed from the battery every healing tick for one entity.
     /// </summary>
     [DataField]
-    public float BatteryWithdraw = 10f;
+    public float BatteryWithdraw = 0.5f;
 
     /// <summary>
     /// Charge that is removed from the battery every
     /// healing tick for one entity While uber mode is active.
     /// </summary>
     [DataField]
-    public float UberBatteryWithdraw = 15f;
+    public float UberBatteryWithdraw; // If not 0 it can be a bit annoying
 
     [DataField, ViewVariables]
     public SpriteSpecifier BeamSprite =
@@ -135,7 +142,7 @@ public sealed partial class MediGunComponent : Component
 
     [DataField, ViewVariables]
     public SpriteSpecifier UberBeamSprite =
-        new SpriteSpecifier.Rsi(new ResPath("/Textures/_Goobstation/Objects/Specific/Medical/medigun.rsi"), "beam_uber");
+        new SpriteSpecifier.Rsi(new ResPath("/Textures/_Goobstation/Objects/Specific/Medical/medigun.rsi"), "beam");
 
     /// <summary>
     /// The noise this medigun makes when it has targeted something.

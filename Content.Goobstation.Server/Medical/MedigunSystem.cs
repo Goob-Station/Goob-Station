@@ -9,11 +9,16 @@ using Content.Goobstation.Shared.Medical;
 using Content.Goobstation.Shared.Medical.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Explosion.EntitySystems;
+using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Shared._Shitmed.Damage;
+using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
+using Content.Shared._Shitmed.Medical.Surgery.Pain.Systems;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Actions;
 using Content.Shared.Alert;
+using Content.Shared.Body.Part;
+using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Interaction;
 using Content.Shared.Item.ItemToggle;
@@ -22,6 +27,7 @@ using Content.Shared.Timing;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 // ReSharper disable EnforceForeachStatementBraces
 namespace Content.Goobstation.Server.Medical;
@@ -33,21 +39,26 @@ public sealed class MedigunSystem : SharedMedigunSystem
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly SharedActionsSystem _action = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly AlertsSystem _alert = default!;
-    [Dependency] private readonly ExplosionSystem _explosion = default!;
     [Dependency] private readonly BatterySystem _battery = default!;
     [Dependency] private readonly BloodstreamSystem _bloodstreamSystem = default!;
+    [Dependency] private readonly ConsciousnessSystem _consciousness = default!; // Shitmed Change
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private readonly ExplosionSystem _explosion = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly ItemToggleSystem _toggle = default!;
+    [Dependency] private readonly PainSystem _pain = default!; // Shitmed Change
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
 
+    private EntityQuery<BatteryComponent> _batteryQuery;
     private EntityQuery<DamageableComponent> _damageableQuery;
 
     public override void Initialize()
     {
         base.Initialize();
 
+        _batteryQuery = GetEntityQuery<BatteryComponent>();
         _damageableQuery = GetEntityQuery<DamageableComponent>();
 
         SubscribeLocalEvent<MediGunComponent, AfterInteractEvent>(OnActivate);
@@ -96,6 +107,8 @@ public sealed class MedigunSystem : SharedMedigunSystem
         }
     }
 
+    private const string PainModifierIdentifier = "PainSuppressant";
+
     /// <summary>
     /// Returns false if target had failed to be healed.
     /// </summary>
@@ -113,9 +126,10 @@ public sealed class MedigunSystem : SharedMedigunSystem
             return false;
 
         var batteryToWithdraw = comp.UberActivated ? comp.UberBatteryWithdraw: comp.BatteryWithdraw;
-        if (!_battery.TryUseCharge(ent, batteryToWithdraw))
+        if (_batteryQuery.TryComp(ent.Owner, out var batteryComp)
+            && !_battery.TryUseCharge(ent, batteryToWithdraw, batteryComp))
         {
-            _battery.SetCharge(ent, 0f); // because it works wonky
+            _battery.SetCharge(ent, 0f, batteryComp); // Trigger recharging & cooldown
             return false;
         }
 
@@ -123,7 +137,6 @@ public sealed class MedigunSystem : SharedMedigunSystem
         if (!_damageableQuery.TryComp(healed, out var damageable))
             return false;
 
-        // If we're under an uber, heal like it's activated
         var healing = comp.UberActivated ? comp.UberHealing : comp.Healing;
         var originalDamage = damageable.TotalDamage;
 
@@ -140,7 +153,7 @@ public sealed class MedigunSystem : SharedMedigunSystem
             splitDamage: SplitDamageBehavior.SplitEnsureAll,
             canMiss: false);
 
-        _bloodstreamSystem.TryModifyBleedAmount(healed, comp.BleedingModifier);
+        _bloodstreamSystem.TryModifyBloodLevel(healed, comp.BleedingAmountModifier);
 
         var afterDamage = damageable.TotalDamage;
         var healedAmount = originalDamage - afterDamage;
@@ -150,6 +163,20 @@ public sealed class MedigunSystem : SharedMedigunSystem
 
         if (comp.ParentEntity != null)
             UpdateAlert(comp.ParentEntity.Value, ent);
+
+        // PainSystem also adds pain modifiers to coders who are trying to use it. Literally 0 convenience APIs!!!
+        if (!_consciousness.TryGetNerveSystem(healed, out var nerveSys))
+            return true;
+
+        var bodyPart = _body.GetBodyChildrenOfType(healed, BodyPartType.Head).FirstOrNull();
+
+        if (bodyPart == null)
+            return true;
+
+        if (!_pain.TryGetPainModifier(nerveSys.Value, bodyPart.Value.Id, PainModifierIdentifier, out var modifier))
+            _pain.TryAddPainModifier(nerveSys.Value, bodyPart.Value.Id, PainModifierIdentifier, ent.Comp.PainAmountModifier, time: TimeSpan.FromSeconds(1.5f));
+        else
+            _pain.TryChangePainModifier(nerveSys.Value, bodyPart.Value.Id, PainModifierIdentifier, modifier.Value.Change + ent.Comp.PainAmountModifier, time: TimeSpan.FromSeconds(1.5f));
 
         return true;
     }
@@ -209,7 +236,9 @@ public sealed class MedigunSystem : SharedMedigunSystem
 
         // Joint visuals
         var beam = EnsureComp<ComplexJointVisualsComponent>(uid);
-        var visuals = new ComplexJointVisualsData(comp.UberActivated ? comp.UberBeamSprite : comp.BeamSprite, Color.White);
+        var sprite = comp.UberActivated ? comp.UberBeamSprite : comp.BeamSprite;
+        var color = comp.UberActivated ? comp.UberLineColor : comp.DefaultLineColor;
+        var visuals = new ComplexJointVisualsData(sprite, color);
         beam.Data.Add(GetNetEntity(target), visuals);
         Dirty(uid, beam);
 
@@ -279,7 +308,10 @@ public sealed class MedigunSystem : SharedMedigunSystem
         var visuals = EnsureComp<ComplexJointVisualsComponent>(ent);
 
         foreach (var (_, data) in visuals.Data)
+        {
             data.Sprite = ent.Comp.UberBeamSprite;
+            data.Color = ent.Comp.UberLineColor;
+        }
 
         Dirty(ent, visuals);
 
@@ -309,7 +341,10 @@ public sealed class MedigunSystem : SharedMedigunSystem
         var visuals = EnsureComp<ComplexJointVisualsComponent>(ent);
 
         foreach (var (_, data) in visuals.Data)
+        {
             data.Sprite = ent.Comp.BeamSprite;
+            data.Color = ent.Comp.DefaultLineColor;
+        }
 
         Dirty(ent, visuals);
 

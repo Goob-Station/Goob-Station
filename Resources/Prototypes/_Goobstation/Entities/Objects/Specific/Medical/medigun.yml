@@ -7,6 +7,7 @@
   name: medical beam gun
   parent: BaseItem
   description: Delivers volatile medical nanites in a focused beam. Don't cross the beams!
+  suffix: Unlimited
   id: MedicalBeamGun
   components:
   - type: Sprite
@@ -18,15 +19,14 @@
       visible: false
   - type: Item
     sprite: _Goobstation/Objects/Specific/Medical/medigun.rsi
+    size: Large
   - type: MediGun
-    batteryWithdraw: 0.5 # 40 seconds
-    uberBatteryWithdraw: 0.5
     healing:
       types:
-        Blunt: -1.5
-        Slash: -1.5
-        Piercing: -1.5
-        Heat: -1.5
+        Blunt: -2
+        Slash: -2
+        Piercing: -2
+        Heat: -2
     uberHealing:
       types:
         Blunt: -4
@@ -51,15 +51,6 @@
       path: /Audio/_Goobstation/Weapons/Effects/energy_error.ogg
       params:
         volume: 6
-  - type: Battery
-    maxCharge: 20
-    startingCharge: 20
-  - type: RechargeableBlocking
-    chargedRechargeRate: 0
-    dischargedRechargeRate: 1
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 0
   - type: UseDelay
     delay: 1.0
   # Visuals
@@ -72,36 +63,56 @@
           False: { visible: false}
 
 - type: entity
-  name: medical beam gun
-  suffix: Syndicate
+  parent: MedicalBeamGun
+  suffix: Battery
+  id: MedicalBeamGunBattery
+  components:
+  - type: Battery
+    maxCharge: 20
+    startingCharge: 20
+  - type: RechargeableBlocking
+    chargedRechargeRate: 0
+    dischargedRechargeRate: 1
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 0
+
+- type: entity
+  name: syndicate medical beam gun
+  suffix: Syndicate, Unlimited
   parent: [ MedicalBeamGun, BaseSyndicateContraband ]
   description: Delivers volatile medical nanites in a focused beam. Don't cross the beams!
   id: MedicalBeamGunSyndicate
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Medical/syndicate_medigun.rsi
-    layers:
-    - state: icon
-    - state: active_gun
-      map: [ "enum.ToggleVisuals.Layer" ]
-      visible: false
+    #layers:
+    #- state: icon
+    #- state: active_gun
+    #  map: [ "enum.ToggleVisuals.Layer" ]
+    #  visible: false
   - type: Item
     sprite: _Goobstation/Objects/Specific/Medical/syndicate_medigun.rsi
+    size: Normal
   - type: MediGun
-    batteryWithdraw: 0.5 # 40 seconds
-    uberBatteryWithdraw: 0.7
     healing:
       types:
-        Blunt: -2
-        Slash: -2
-        Piercing: -2
-        Heat: -2
+        Blunt: -2.5
+        Slash: -2.5
+        Piercing: -2.5
+        Heat: -2.5
     uberHealing:
       types:
-        Blunt: -5
-        Slash: -5
-        Piercing: -5
-        Heat: -5
+        Blunt: -6
+        Slash: -6
+        Piercing: -6
+        Heat: -6
+
+- type: entity
+  parent: MedicalBeamGunSyndicate
+  suffix: Battery, Syndicate
+  id: MedicalBeamGunSyndicateBattery
+  components:
   # Less overall battery, faster recharging
   - type: Battery
     maxCharge: 15
@@ -109,3 +120,6 @@
   - type: RechargeableBlocking
     chargedRechargeRate: 0
     dischargedRechargeRate: 1.5
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 0
