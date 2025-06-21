@@ -23,7 +23,8 @@ public sealed partial class BurnableByThermiteComponent : Component
     /// </summary>
     [DataField] public FixedPoint2 DPS = 12f;
     [DataField] public FixedPoint2 TotalDamageUntilMelting = 200f;
-    [DataField] public SoundSpecifier BurningSound = new SoundPathSpecifier("/Audio/Effects/burning.ogg");
+    [DataField] public SoundSpecifier BurningSound = new SoundPathSpecifier("/Audio/_Pirate/Effects/thermite_burning.ogg");
+    public EntityUid? BurningSoundStream = null;
 
     [ViewVariables(VVAccess.ReadOnly)] public FixedPoint2 TotalDamageDealt = 0f;
 
