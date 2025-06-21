@@ -13,6 +13,7 @@
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 2DSiggy <siggymaxwell@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
@@ -580,6 +581,22 @@
     Telecrystal: 23 # novelty item for rp
   categories:
   - UplinkWearables
+
+- type: listing
+  id: UplinkClothingShoesBootsMoonSyndie
+  icon: { sprite: /Textures/_Goobstation/Clothing/Shoes/Boots/moonboots-syndicate.rsi, state: icon }
+  name: uplink-clothing-shoes-boots-moon-syndie-name
+  description: uplink-clothing-shoes-boots-moon-syndie-desc
+  productEntity: ClothingShoesBootsMoonSyndie
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 5
+    #guessing the discount price relative to bloodred magboots i dont play goob
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkWearables
+
 
 # Job specific
 - type: listing
