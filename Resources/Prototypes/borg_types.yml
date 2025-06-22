@@ -32,7 +32,8 @@
 
   defaultModules:
   - BorgModuleTool
-
+  - BorgModuleArtifact
+  - BorgModuleAnomaly
   radioChannels:
   - Science
 
@@ -99,11 +100,11 @@
     - BorgModuleCargo
 
   defaultModules:
+  - BorgModuleTool
   - BorgModuleMining
-  - BorgModuleGrapplingGun
+  - BorgModuleTraversal
   - BorgModuleAppraisal
   - BorgModulePKA # Lavaland
-  - BorgModuleTool
 
   radioChannels:
   - Supply
@@ -140,8 +141,9 @@
     - BorgModuleJanitor
 
   defaultModules:
-  - BorgModuleLightReplacer
+  - BorgModuleTool
   - BorgModuleCleaning
+  - BorgModuleCustodial
 
   radioChannels:
   - Science
@@ -175,10 +177,12 @@
     - BorgModuleMedical
 
   defaultModules:
-  - BorgModuleTreatment
+  - BorgModuleTool
+  - BorgModuleChemical
+  - BorgModuleTopicals
+  - BorgModuleRescue
+  - BorgModuleSurgery
   - BorgModuleLollypop # Goobstation
-  - BorgModuleSurgery # Goobstation
-  - BorgModuleDefibrillator # Goobstation
 
   radioChannels:
   - Science
@@ -230,9 +234,12 @@
     - BorgModuleService
 
   defaultModules:
+  - BorgModuleTool
   - BorgModuleMusique
   - BorgModuleService
   - BorgModuleClowning
+  - BorgModuleGardening
+  - BorgModuleHarvesting
   - BorgModuleLollypop # Goobstation
 
   radioChannels:
