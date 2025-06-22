@@ -11471,3 +11471,19 @@ Entries:
       message: Carp Plushies now gib me till I "make something fun".
   id: 1263
   time: '2025-06-22T04:46:42.0000000+00:00'
+- author: IrisTheAmped
+  changes:
+    - type: Add
+      message: Readded Syringe Kit, heal mains rejoice.
+    - type: Tweak
+      message: BSO kits have been unmerged.
+    - type: Tweak
+      message: >-
+        Chester no longer has randomed ammo but only guaranteed utility ammo.
+        Friendly reminder printing lethals roundstart is powergaming.
+    - type: Tweak
+      message: >-
+        Revolver has regained a speedloader but deals a bit less now, back to
+        skill-swapping barrages to do good damage.
+  id: 1264
+  time: '2025-06-22T04:51:39.0000000+00:00'
