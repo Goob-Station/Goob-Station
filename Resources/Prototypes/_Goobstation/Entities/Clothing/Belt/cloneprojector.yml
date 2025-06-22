@@ -106,6 +106,8 @@
     - type: Absorbable
     - type: Fingerprint
     - type: Perishable
+    - type: Hunger
+    - type: Thirst
     - type: FootprintOwner
 
 - type: entity
