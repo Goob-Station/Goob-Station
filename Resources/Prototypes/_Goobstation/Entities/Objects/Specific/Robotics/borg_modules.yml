@@ -70,46 +70,24 @@
     icon: { sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi, state: icon }
 
 - type: entity
-  id: BorgModuleSyndicateMedicalAdvanced
-  parent: [ BaseBorgModule, BaseProviderBorgModule, BaseSyndicateContraband ]
-  name: advanced medical cyborg module
+  id: BorgModuleSyndicateMedical
+  parent: [ BaseBorgModuleSyndicateAssault, BaseProviderBorgModule, BaseSyndicateContraband ]
+  name: syndicate medical cyborg module
   components:
   - type: Sprite
     layers:
     - state: syndicate
     - state: icon-syndicate
   - type: ItemBorgModule
-    moduleId: SyndicateMedicalAdvanced #???
+    moduleId: SyndicateMedical
     items:
-    - DefibrillatorSyndicate
-    - SyndiHypo
-    - BluespaceBeaker # b - balanced.
-    - LargeBeaker
-    - LargeBeaker
-    - BorgDropper
-  - type: BorgModuleIcon
-    icon: { sprite: /Textures/_Goobstation/Interface/Actions/Borg-actions.rsi, state: syndicate-medical-module }
-
-
-- type: entity
-  id: BorgModuleSyndicateSurgery
-  parent: [ BaseBorgModule, BaseProviderBorgModule, BaseSyndicateContraband ]
-  name: syndicate surgery cyborg module
-  components:
-  - type: Sprite
-    layers:
-    - state: syndicate
-    - state: icon-syndicate
-  - type: ItemBorgModule
-    moduleId: SyndicateMedicalSurgery #???
-    items:
-    - HandheldHealthAnalyzerUnpowered
     - OmnimedToolSyndie
     - MedicalBeamGunSyndicate
+    - DefibrillatorSyndicate # TODO: make an unpowered version
   - type: BorgModuleIcon
     icon: { sprite: /Textures/_Goobstation/Interface/Actions/Borg-actions.rsi, state: syndicate-surgery-module }
   - type: DroppableBorgModule
-    moduleId: BorgModuleSyndicateSurgery
+    moduleId: SyndicateMedical
     items:
     - id: OrganHumanBrain
       whitelist:
@@ -117,3 +95,35 @@
         - BodyPart
         tags:
         - Organ
+
+- type: entity
+  id: BorgModuleSyndicateChemicals
+  parent: [ BaseBorgModuleSyndicateAssault, BaseProviderBorgModule, BaseSyndicateContraband ]
+  name: syndicate chemical cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-syndicate
+  - type: ItemBorgModule
+    moduleId: SyndicateChemicals
+    items:
+    - SyndiHypo
+    - DartGun
+  - type: DroppableBorgModule
+    moduleId: SyndicateChemicals
+    items:
+    - id: BluespaceBeaker # B - balanced
+      whitelist:
+        components:
+        - FitsInDispenser
+    - id: LargeBeaker
+      whitelist:
+        components:
+        - FitsInDispenser
+    - id: LargeBeaker
+      whitelist:
+        components:
+        - FitsInDispenser
+  - type: BorgModuleIcon
+    icon: { sprite: /Textures/_Goobstation/Interface/Actions/Borg-actions.rsi, state: syndicate-medical-module }

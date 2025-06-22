@@ -85,11 +85,10 @@
       borg_brain:
       - PositronicBrain
       borg_module:
-#      - BorgModuleTool
-      - BorgModuleSyndicateMedicalAdvanced
       - BorgModuleOperative
-      - BorgModuleFireExtinguisher
-      - BorgModuleSyndicateSurgery
+      - BorgModuleTopicals
+      - BorgModuleSyndicateMedical
+      - BorgModuleSyndicateChemicals
   - type: ItemSlots
     slots:
       cell_slot:
@@ -101,4 +100,3 @@
   - type: SurgeryIgnoreClothing
   - type: SurgerySpeedModifier
     speedModifier: 1.5
-
