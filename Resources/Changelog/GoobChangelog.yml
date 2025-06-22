@@ -11457,3 +11457,11 @@ Entries:
       message: Engineering can actually make spesos with surplus power.
   id: 1261
   time: '2025-06-22T04:45:58.0000000+00:00'
+- author: IrisTheAmped
+  changes:
+    - type: Tweak
+      message: >-
+        Antimov is now cheaper for both Nukies and Traitors. Beware the rising
+        threats of AI.
+  id: 1262
+  time: '2025-06-22T04:46:21.0000000+00:00'
