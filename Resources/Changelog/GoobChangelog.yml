@@ -11533,3 +11533,11 @@ Entries:
         clothing.
   id: 1270
   time: '2025-06-22T05:01:47.0000000+00:00'
+- author: vorpuscl
+  changes:
+    - type: Fix
+      message: >-
+        Casul no longer creates a transparent black box around the player when
+        held in the left hand.
+  id: 1271
+  time: '2025-06-22T05:08:11.0000000+00:00'
