@@ -1,4 +1,4 @@
-chat-sign-tajaran-language-message-wrap = [italic][BubbleHeader][Name]{$entityName}[/Name][/BubbleHeader] [BubbleContent]{$verb} [font=""{$fontType}"" size={$fontSize}][color={$color}]{$message}[/color] [/font][/italic][/BubbleContent]
+chat-sign-tajaran-language-message-wrap = [italic][BubbleHeader][Name]{$entityName}[/Name][/BubbleHeader] [BubbleContent]{$verb} [font="{$fontType}" size={$fontSize}][color={$color}]{$message}[/color] [/font][/italic][/BubbleContent]
 chat-sign-tajaran-language-whisper-wrap = [italic][BubbleHeader][Name]{$entityName}[/Name][/BubbleHeader] [BubbleContent]тихо {$verb} [font='{$fontType}' size={$fontSize}][color={$color}]{$message}[/color][/font][/italic][/BubbleContent]
 chat-speech-verb-sign-nalrasan-1 = ворушить хвостом
 chat-speech-verb-sign-nalrasan-2 = коротко ворушить хвостом

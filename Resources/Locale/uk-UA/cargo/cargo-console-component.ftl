@@ -54,7 +54,7 @@ cargo-console-unlock-approved-order-broadcast = [bold]{$productName} x{$orderAmo
 
 cargo-console-cooldown-count = Неможливо замовити більше одного {$product} за раз.
 cargo-console-cooldown-active = Замовлення на {$product} неможливо розмістити ще протягом {$timeCount} {$timeUnits}.
-cargo-console-menu-account-name-format = [bold][color={$color}]{$name}[/color][/bold] [font=""Monospace""]\[{$code}\][/font]
+cargo-console-menu-account-name-format = [bold][color={$color}]{$name}[/color][/bold] [font="Monospace"]\[{$code}\][/font]
 cargo-console-menu-tab-title-orders = Замовлення
 cargo-console-menu-tab-title-funds = Перекази
 cargo-console-menu-account-action-transfer-limit = [bold]Ліміт переказу:[/bold] ${$limit}

@@ -300,7 +300,7 @@ reagent-name-tequila-sunrise = текіла санрайз
 reagent-desc-tequila-sunrise = Текіла та апельсиновий сік. Дуже схоже на "Викрутку", тільки по-мексиканськи.
 
 reagent-name-three-mile-island = Айс-ті "Тримильний острів"
-reagent-desc-three-mile-island = ""Створено для жінки, достатньо міцний для чоловіка.""
+reagent-desc-three-mile-island = "Створено для жінки, достатньо міцний для чоловіка."
 
 reagent-name-toxins-special = спешл токсинів
 reagent-desc-toxins-special = Ця штука ГОРИТЬ! ВИКЛИКАЙТЕ КЛЯТИЙ ШАТТЛ!
