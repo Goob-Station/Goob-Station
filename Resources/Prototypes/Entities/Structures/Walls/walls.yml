@@ -250,6 +250,8 @@
   - type: AddSpriteLayerAfter
     sprite: _Pirate/burnable_by_thermite.rsi
     layerIndex: enum.BurnableByThermiteLayers.Puddle
+  - type: UseDelay
+    delay: 3
   # PIRATE END
 
 - type: entity

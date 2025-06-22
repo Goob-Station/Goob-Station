@@ -1,12 +1,18 @@
 using Content.Pirate.Shared.BurnableByThermite;
+using Content.Pirate.Shared.BurnableByThermite.Events;
 using Content.Server.Destructible;
+using Content.Server.DoAfter;
+using Content.Server.Fluids.EntitySystems;
 using Content.Server.Popups;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
+using Content.Shared.DoAfter;
+using Content.Shared.Fluids;
 using Content.Shared.IgnitionSource;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
+using Content.Shared.Timing;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Timing;
@@ -22,20 +28,26 @@ public sealed partial class BurnableByThermiteSystem : SharedBurnableByThermiteS
     [Dependency] private readonly DestructibleSystem _destructibleSystem = default!;
     [Dependency] private readonly PointLightSystem _pointLight = default!;
     [Dependency] private readonly AudioSystem _audioSystem = default!;
+    [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
+    [Dependency] private readonly AbsorbentSystem _absorbentSystem = default!;
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<BurnableByThermiteComponent, InteractUsingEvent>(OnInteract);
+        SubscribeLocalEvent<BurnableByThermiteComponent, BurnableByThermiteBeakerDoAfterEvent>(OnBeakerDoAfter);
     }
 
     // Interaction Handling
     public void OnInteract(EntityUid uid, BurnableByThermiteComponent component, InteractUsingEvent args)
     {
-        if (TryComp<SolutionContainerManagerComponent>(args.Used, out var beakerSolutionContainerComponent))
-            OnInteractWithBeaker(uid, component, args.Used, args, beakerSolutionContainerComponent);
         if (TryComp<IgnitionSourceComponent>(args.Used, out var ignitionSourceComponent))
             OnInteractWithLighter(new(uid, component), args, ignitionSourceComponent);
+        else if (TryComp<AbsorbentComponent>(args.Used, out var absorbentComponent))
+            OnInteractWithMop(uid, component, absorbentComponent, args);
+        else if (TryComp<SolutionContainerManagerComponent>(args.Used, out var beakerSolutionContainerComponent))
+            OnInteractWithBeaker(uid, args, beakerSolutionContainerComponent);
+
         // TryComp<IgnitionSourceComponent>(args.Used, out var ignitionSourceComponent);
     }
     public void OnInteractWithLighter(Entity<BurnableByThermiteComponent> ent, InteractUsingEvent args, IgnitionSourceComponent ignitionSourceComponent)
@@ -44,12 +56,23 @@ public sealed partial class BurnableByThermiteSystem : SharedBurnableByThermiteS
         if (ent.Comp.Ignited || ent.Comp.Burning) return;
         TryIgniteStructure(ent, args);
     }
-    public void OnInteractWithBeaker(EntityUid structure, BurnableByThermiteComponent component, EntityUid beaker, InteractUsingEvent args, SolutionContainerManagerComponent beakerSolutionContainerComponent)
+    public void OnInteractWithBeaker(EntityUid structure, InteractUsingEvent args, SolutionContainerManagerComponent beakerSolutionContainerComponent)
     {
         if (beakerSolutionContainerComponent.Containers is null) return;
         if (beakerSolutionContainerComponent.Containers.Count == 0) return;
 
-        foreach (var (_, solutionEntity) in _solutionSystem.EnumerateSolutions(beaker))
+        var doAfterArgs = new DoAfterArgs(EntityManager, args.User, 3f, new BurnableByThermiteBeakerDoAfterEvent(), structure, args.Target, args.Used)
+        {
+            BreakOnMove = true,
+            NeedHand = true,
+        };
+
+        _doAfterSystem.TryStartDoAfter(doAfterArgs);
+    }
+    public void OnBeakerDoAfter(EntityUid uid, BurnableByThermiteComponent component, BurnableByThermiteBeakerDoAfterEvent args)
+    {
+        if (!TryComp<SolutionContainerManagerComponent>(args.Used, out var beakerSolutionContainerComponent)) return;
+        foreach (var (_, solutionEntity) in _solutionSystem.EnumerateSolutions(new(args.Used.Value, beakerSolutionContainerComponent)))
         {
             if (!solutionEntity.Comp.Solution.TryGetReagent(new ReagentId("Thermite", null), out var thermiteReagent))
                 continue;
@@ -63,10 +86,19 @@ public sealed partial class BurnableByThermiteSystem : SharedBurnableByThermiteS
                 component.CoveredInThermite = true;
                 _popupSystem.PopupEntity(Loc.GetString("thermite-on-structure-success"), args.User, args.User, PopupType.MediumCaution);
                 _solutionSystem.RemoveReagent(solutionEntity, "Thermite", component.ThermiteAmout);
-                SetSpriteData(structure, BurnableByThermiteVisuals.CoveredInThermite, true);
+                SetSpriteData(uid, BurnableByThermiteVisuals.CoveredInThermite, true);
             }
         }
-
+    }
+    public void OnInteractWithMop(EntityUid uid, BurnableByThermiteComponent component, AbsorbentComponent absorbentComponent, InteractUsingEvent args)
+    {
+        if (!component.CoveredInThermite) return;
+        if (component.Ignited || component.Burning) return;
+        if (absorbentComponent.PickupAmount < component.ThermiteAmout) return;
+        component.CoveredInThermite = false;
+        SetSpriteData(uid, BurnableByThermiteVisuals.CoveredInThermite, false);
+        _popupSystem.PopupEntity(Loc.GetString("thermite-on-structure-cleaned"), uid, uid, PopupType.Medium);
+        _absorbentSystem.Mop(args.User, uid, args.Used, absorbentComponent);
     }
 
     // Update
