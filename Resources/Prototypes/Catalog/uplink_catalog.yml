@@ -849,7 +849,7 @@
   description: uplink-cigarettes-desc
   productEntity: CigPackSyndicate
   cost:
-    Telecrystal: 10 # goob
+    Telecrystal: 5 # goob
   categories:
   - UplinkChemicals
 
@@ -1677,14 +1677,14 @@
   categories:
   - UplinkWearables
 
-
+# TODO: Revert back to normal thieving gloves when clothes dyeing is added
 - type: listing
   id: UplinkgClothingThievingGloves
-  name: uplink-clothing-thieving-gloves-name
-  description: uplink-clothing-thieving-gloves-desc
-  productEntity: ThievingGloves
+  name: uplink-clothing-chameleon-thieving-gloves-name
+  description: uplink-clothing-chameleon-thieving-gloves-desc
+  productEntity: ClothingHandsChameleonThief
   cost:
-    Telecrystal: 30 # goob
+    Telecrystal: 30
   categories:
   - UplinkWearables
 

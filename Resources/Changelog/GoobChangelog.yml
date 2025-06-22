@@ -11363,3 +11363,13 @@ Entries:
       message: Double-energy sword is now undisarmable and deals slightly more damage.
   id: 1249
   time: '2025-06-19T07:12:23.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Add
+      message: 'Updated base game to 11/05 release '
+    - type: Tweak
+      message: QFW is slightly more difficult to research
+    - type: Fix
+      message: Voxes have ammonia blood when gibbed, as they should
+  id: 1250
+  time: '2025-06-22T03:47:43.0000000+00:00'
