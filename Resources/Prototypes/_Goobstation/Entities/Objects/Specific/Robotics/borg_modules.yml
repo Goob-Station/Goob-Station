@@ -85,7 +85,6 @@
     - LargeBeaker
     - LargeBeaker
     - BorgDropper
-#   - todo: Add a medgun here when its going to be added by rouden
   - type: BorgModuleIcon
     icon: { sprite: /Textures/_Goobstation/Interface/Actions/Borg-actions.rsi, state: syndicate-medical-module }
 
@@ -104,5 +103,15 @@
     items:
     - HandheldHealthAnalyzerUnpowered
     - OmnimedToolSyndie
+    - MedicalBeamGunSyndicate
   - type: BorgModuleIcon
     icon: { sprite: /Textures/_Goobstation/Interface/Actions/Borg-actions.rsi, state: syndicate-surgery-module }
+  - type: DroppableBorgModule
+    moduleId: BorgModuleSyndicateSurgery
+    items:
+    - id: OrganHumanBrain
+      whitelist:
+        components:
+        - BodyPart
+        tags:
+        - Organ
