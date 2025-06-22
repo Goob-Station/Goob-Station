@@ -11541,3 +11541,9 @@ Entries:
         held in the left hand.
   id: 1271
   time: '2025-06-22T05:08:11.0000000+00:00'
+- author: freturt
+  changes:
+    - type: Add
+      message: Added clustergrenades to secoff belt's whitelist!
+  id: 1272
+  time: '2025-06-22T05:09:28.0000000+00:00'
