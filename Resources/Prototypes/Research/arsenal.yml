@@ -54,6 +54,9 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
 # SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
@@ -131,10 +134,11 @@
   - WeaponTemperatureGun # Goobstation
   - WeaponMechCombatFiredartLaser # Goobstation
   - WeaponEnergyIonRifle # Goobstation - CR second energy bolt update(and ion)
+  - PowerCellIonRevolver # Goobstation
   # Goobstation R&D Console rework start
   position: 4,0
   technologyPrerequisites:
-  - WeaponPlasmaRifleTech
+  - WeaponLaserCellRevolverTech
   # Goobstation R&D Console rework end
 
 - type: technology
@@ -201,7 +205,6 @@
   - HoloprojectorSecurity
   - WeaponDisablerSMG
   # Goobstation R&D Console rework start
-  - Terminus
   position: 3,3
   technologyPrerequisites:
   - NonlethalAmmunition
@@ -256,6 +259,9 @@
   recipeUnlocks:
   - WeaponXrayCannon
   - HoloprojectorSecurityAdvanced # Goobstation
+  - PowerCellXrayRevolver # Goobstation
+  - PowerCellXraySMG # Goobstation
+  - PowerCellXraySniper # Goobstation
   # Goobstation R&D Console rework start
   technologyPrerequisites:
   - WeaponizedLaserManipulation
@@ -301,6 +307,9 @@
   - PortableRecharger
   - WeaponMechCombatImmolationGun # Goobstation
   - EnergyMagRifleOverchargeLethal # Goobstation - CR second energy bolt update(and ion)
+  - PowerCellOverchargedRevolver # Goobstation
+  - PowerCellOverchargedSMG # Goobstation
+  - PowerCellOverchargedSniper # Goobstation
   # Goobstation R&D Console rework start
   position: 6,0
   technologyPrerequisites:
