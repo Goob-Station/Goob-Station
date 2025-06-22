@@ -73,6 +73,38 @@
   description: alerts-curse-of-byond-desc
 
 - type: alert
+  id: MedigunUberBattery
+  icons:
+  - sprite: /Textures/_Goobstation/Interface/Alerts/medigun.rsi
+    state: battery0
+  - sprite: /Textures/_Goobstation/Interface/Alerts/medigun.rsi
+    state: battery1
+  - sprite: /Textures/_Goobstation/Interface/Alerts/medigun.rsi
+    state: battery2
+  - sprite: /Textures/_Goobstation/Interface/Alerts/medigun.rsi
+    state: battery3
+  - sprite: /Textures/_Goobstation/Interface/Alerts/medigun.rsi
+    state: battery4
+  - sprite: /Textures/_Goobstation/Interface/Alerts/medigun.rsi
+    state: battery5
+  - sprite: /Textures/_Goobstation/Interface/Alerts/medigun.rsi
+    state: battery6
+  - sprite: /Textures/_Goobstation/Interface/Alerts/medigun.rsi
+    state: battery7
+  - sprite: /Textures/_Goobstation/Interface/Alerts/medigun.rsi
+    state: battery8
+  - sprite: /Textures/_Goobstation/Interface/Alerts/medigun.rsi
+    state: battery9
+  - sprite: /Textures/_Goobstation/Interface/Alerts/medigun.rsi
+    state: battery10
+  - sprite: /Textures/_Goobstation/Interface/Alerts/medigun.rsi
+    state: ubercharge
+  name: alerts-medigun-uber-name
+  description: alerts-medigun-uber-desc
+  minSeverity: 0
+  maxSeverity: 11
+
+- type: alert
   id: CyberdeckCharges
   icons:
   - sprite: /Textures/_Goobstation/Interface/Alerts/charges.rsi
