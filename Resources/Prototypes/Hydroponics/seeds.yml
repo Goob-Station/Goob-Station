@@ -2089,3 +2089,27 @@
       Min: 1
       Max: 2
       PotencyDivisor: 40
+
+- type: seed
+  id: moneyTree
+  name: seeds-money-tree-name
+  noun: seeds-noun-seeds
+  displayName: seeds-money-tree-display-name
+  plantRsi: _Goobstation/Objects/Specific/Hydroponics/money_tree.rsi
+  packetPrototype: MoneyTreeSeeds
+  productPrototypes:
+    - SpaceCash10
+  harvestRepeat: Repeat
+  lifespan: 60
+  maturation: 6
+  production: 6
+  yield: 3
+  potency: 5
+  growthStages: 4
+  waterConsumption: 0.60
+  nutrientConsumption: 0.60
+  chemicals:
+    Fiber:
+      Min: 1
+      Max: 2
+      PotencyDivisor: 50
