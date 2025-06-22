@@ -49,6 +49,11 @@ public sealed partial class ChangelingIdentityComponent : Component
     [DataField("shriekPower")]
     public float ShriekPower = 2.5f;
 
+    [DataField("armorTransform")]
+    public SoundSpecifier ArmourSound = new SoundPathSpecifier("/Audio/_Goobstation/Changeling/Effects/armour_transform.ogg");
+    [DataField("armorStrip")]
+    public SoundSpecifier ArmourStripSound = new SoundPathSpecifier("/Audio/_Goobstation/Changeling/Effects/armour_strip.ogg");
+
     public readonly List<EntProtoId> BaseChangelingActions = new()
     {
         "ActionEvolutionMenu",

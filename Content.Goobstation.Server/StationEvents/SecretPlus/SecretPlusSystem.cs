@@ -148,7 +148,9 @@ public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
         if (selectedRules == null)
             return;
 
-        if(!_event.TryBuildLimitedEvents(selectedRules.ScheduledGameRules, out var possibleEvents, scheduler.IgnoreTimings))
+        if(!_event.TryBuildLimitedEvents(selectedRules.ScheduledGameRules,
+            _event.AvailableEvents(scheduler.IgnoreTimings, scheduler.IgnoreTimings ? int.MaxValue : null, scheduler.IgnoreTimings ? TimeSpan.MaxValue : null),
+            out var possibleEvents))
             return;
 
         foreach (var entry in possibleEvents)

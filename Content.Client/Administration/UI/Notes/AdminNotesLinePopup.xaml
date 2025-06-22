@@ -11,7 +11,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Popup xmlns="https://spacestation14.io"
-       xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client">
+       xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+       xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls">
     <PanelContainer>
         <PanelContainer.PanelOverride>
             <gfx:StyleBoxFlat BorderThickness="2" BorderColor="#18181B" BackgroundColor="#25252a"/>
@@ -31,7 +32,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
             <BoxContainer Orientation="Horizontal">
                 <Button Name="EditButton" Text="{Loc admin-notes-edit}"/>
                 <Control HorizontalExpand="True"/>
-                <Button Name="DeleteButton" Text="{Loc admin-notes-delete}" HorizontalAlignment="Right"/>
+                <controls:ConfirmButton Name="DeleteButton" Text="{Loc admin-notes-delete}" ConfirmationText="{Loc 'admin-player-actions-confirm'}" HorizontalAlignment="Right"/>
             </BoxContainer>
         </BoxContainer>
     </PanelContainer>
