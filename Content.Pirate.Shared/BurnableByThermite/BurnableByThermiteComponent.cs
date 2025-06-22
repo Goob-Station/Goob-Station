@@ -1,5 +1,4 @@
 using Content.Goobstation.Maths.FixedPoint;
-using Content.Shared.Chemistry.Components;
 using Robust.Shared.Audio;
 
 namespace Content.Pirate.Shared.BurnableByThermite;
@@ -11,7 +10,7 @@ namespace Content.Pirate.Shared.BurnableByThermite;
 public sealed partial class BurnableByThermiteComponent : Component
 {
     /// <summary>
-    /// Minimal time that thermite will burn. Burning won't stop even if <see cref="TotalDamageDealt" is larger that <see cref="TotalDamageUntilMelting"/>
+    /// Minimal time that thermite will burn. Burning won't stop even if <see cref="TotalDamageDealt"/> is larger that <see cref="TotalDamageUntilMelting"/>
     /// In seconds.
     /// </summary>
     [DataField] public float BurnTime = 25f;
@@ -28,7 +27,7 @@ public sealed partial class BurnableByThermiteComponent : Component
     /// <summary>
     /// The amount of thermite needed to cover the structure. In units.
     /// </summary>
-    [DataField] public float ThermiteAmout = 10f;
+    [DataField] public float ThermiteAmount = 10f;
     public EntityUid? BurningSoundStream = null;
 
     [ViewVariables(VVAccess.ReadOnly)] public FixedPoint2 TotalDamageDealt = 0f;

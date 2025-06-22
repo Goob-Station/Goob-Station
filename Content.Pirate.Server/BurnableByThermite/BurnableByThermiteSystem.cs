@@ -12,7 +12,6 @@ using Content.Shared.Fluids;
 using Content.Shared.IgnitionSource;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
-using Content.Shared.Timing;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Timing;
@@ -30,6 +29,8 @@ public sealed partial class BurnableByThermiteSystem : SharedBurnableByThermiteS
     [Dependency] private readonly AudioSystem _audioSystem = default!;
     [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly AbsorbentSystem _absorbentSystem = default!;
+
+    private const string ThermiteReagentId = "Thermite";
 
     public override void Initialize()
     {
@@ -75,9 +76,9 @@ public sealed partial class BurnableByThermiteSystem : SharedBurnableByThermiteS
         if (!TryComp<SolutionContainerManagerComponent>(args.Used, out var beakerSolutionContainerComponent)) return;
         foreach (var (_, solutionEntity) in _solutionSystem.EnumerateSolutions(new(args.Used.Value, beakerSolutionContainerComponent)))
         {
-            if (!solutionEntity.Comp.Solution.TryGetReagent(new ReagentId("Thermite", null), out var thermiteReagent))
+            if (!solutionEntity.Comp.Solution.TryGetReagent(new ReagentId(ThermiteReagentId, null), out var thermiteReagent))
                 continue;
-            if (thermiteReagent.Quantity < component.ThermiteAmout)
+            if (thermiteReagent.Quantity < component.ThermiteAmount)
             {
 
                 _popupSystem.PopupEntity(Loc.GetString("thermite-on-structure-not-enough"), args.User, args.User, PopupType.Small);
@@ -87,7 +88,7 @@ public sealed partial class BurnableByThermiteSystem : SharedBurnableByThermiteS
             {
                 component.CoveredInThermite = true;
                 _popupSystem.PopupEntity(Loc.GetString("thermite-on-structure-success"), args.User, args.User, PopupType.MediumCaution);
-                _solutionSystem.RemoveReagent(solutionEntity, "Thermite", component.ThermiteAmout);
+                _solutionSystem.RemoveReagent(solutionEntity, ThermiteReagentId, component.ThermiteAmount);
                 SetSpriteData(uid, BurnableByThermiteVisuals.CoveredInThermite, true);
             }
         }
@@ -96,7 +97,7 @@ public sealed partial class BurnableByThermiteSystem : SharedBurnableByThermiteS
     {
         if (!component.CoveredInThermite) return;
         if (component.Ignited || component.Burning) return;
-        if (absorbentComponent.PickupAmount < component.ThermiteAmout) return;
+        if (absorbentComponent.PickupAmount < component.ThermiteAmount) return;
         component.CoveredInThermite = false;
         _popupSystem.PopupEntity(Loc.GetString("thermite-on-structure-cleaned"), uid, uid, PopupType.Medium);
         SetSpriteData(uid, BurnableByThermiteVisuals.CoveredInThermite, false);

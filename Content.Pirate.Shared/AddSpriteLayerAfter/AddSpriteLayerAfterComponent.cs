@@ -1,6 +1,4 @@
-using System.ComponentModel.DataAnnotations;
-
-namespace Content.Pirate.Client.AddSpriteLayerAfter;
+namespace Content.Pirate.Shared.AddSpriteLayerAfter;
 
 /// <summary>
 /// Adds a layer to a sprite on
