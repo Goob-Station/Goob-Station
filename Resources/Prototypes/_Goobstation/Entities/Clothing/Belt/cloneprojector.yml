@@ -145,9 +145,6 @@
     restrictRangedWeapons: false
     addedComponents:
     - type: MobThresholds
-      allowedStates:
-      - Alive
-      - Dead
       thresholds:
         0: Alive
         350: Dead # This ain't your mothers clone projector.
