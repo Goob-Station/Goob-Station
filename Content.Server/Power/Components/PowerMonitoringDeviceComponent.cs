@@ -6,6 +6,7 @@
 using Content.Server.NodeContainer;
 using Content.Server.NodeContainer.NodeGroups;
 using Content.Server.Power.EntitySystems;
+using Content.Shared.NodeContainer;
 using Content.Shared.Power;
 
 namespace Content.Server.Power.Components;
