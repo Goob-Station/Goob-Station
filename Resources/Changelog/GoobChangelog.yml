@@ -11519,3 +11519,9 @@ Entries:
       message: Changeling absorb should ignore resistances now
   id: 1268
   time: '2025-06-22T05:01:03.0000000+00:00'
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Lisp accent slightly more comprehensible
+  id: 1269
+  time: '2025-06-22T05:01:30.0000000+00:00'
