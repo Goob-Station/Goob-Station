@@ -11437,3 +11437,9 @@ Entries:
       message: Derelict assault borg should now spawn.
   id: 1258
   time: '2025-06-22T04:38:41.0000000+00:00'
+- author: nnif1
+  changes:
+    - type: Tweak
+      message: 'Borg maint panel using a screwdriver to open and close once again '
+  id: 1259
+  time: '2025-06-22T04:39:07.0000000+00:00'
