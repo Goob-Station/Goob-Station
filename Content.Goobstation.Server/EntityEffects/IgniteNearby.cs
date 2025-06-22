@@ -35,20 +35,18 @@ public sealed partial class IgniteNearby : EntityEffect
 
     public override void Effect(EntityEffectBaseArgs args)
     {
+        if (args is not EntityEffectReagentArgs reagentArgs)
+            return;
+
+        var entityManager = args.EntityManager;
         var lookupSys = args.EntityManager.System<EntityLookupSystem>();
         var flamSys = args.EntityManager.System<FlammableSystem>();
-        if (args is EntityEffectReagentArgs reagentArgs)
-        {
-            var lookup = lookupSys.GetEntitiesInRange(args.TargetEntity, Range);
-            var flammableEntities = lookup
-                .Where(entity =>
-                    entity != null && args.EntityManager.TryGetComponent(entity, out FlammableComponent? flammable))
-                .Select(entity => (entity, args.EntityManager.GetComponent<FlammableComponent>(entity)))
-                .ToHashSet();
 
-            foreach (var (ent, flammable) in flammableEntities)
+        foreach (var entity in lookupSys.GetEntitiesInRange(args.TargetEntity, Range))
+        {
+            if (entityManager.TryGetComponent(entity, out FlammableComponent? flammable))
             {
-                flamSys.AdjustFireStacks(ent, FireStacks, flammable, true);
+                flamSys.AdjustFireStacks(entity, FireStacks, flammable, true);
             }
         }
     }
