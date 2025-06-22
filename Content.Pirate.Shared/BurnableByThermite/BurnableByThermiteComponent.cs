@@ -22,7 +22,7 @@ public sealed partial class BurnableByThermiteComponent : Component
     /// <summary>
     /// Damage per second dealt to the structure while burning.
     /// </summary>
-    [DataField] public FixedPoint2 DPS = 12f;
+    [DataField] public FixedPoint2 DPS = 10f;
     [DataField] public FixedPoint2 TotalDamageUntilMelting = 200f;
     [DataField] public SoundSpecifier BurningSound = new SoundPathSpecifier("/Audio/_Pirate/Effects/thermite_burning.ogg");
     /// <summary>

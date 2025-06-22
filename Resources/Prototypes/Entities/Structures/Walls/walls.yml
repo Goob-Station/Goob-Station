@@ -875,6 +875,8 @@
   id: WallReinforced
   name: reinforced wall
   components:
+  - type: BurnableByThermite # PIRATE
+    totalDamageUntilMelting: 1000 # PIRATE
   - type: Sprite
     sprite: Structures/Walls/solid.rsi
   - type: Icon

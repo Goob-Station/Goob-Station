@@ -61,7 +61,7 @@ public sealed partial class BurnableByThermiteSystem : SharedBurnableByThermiteS
         if (beakerSolutionContainerComponent.Containers is null) return;
         if (beakerSolutionContainerComponent.Containers.Count == 0) return;
 
-        var doAfterArgs = new DoAfterArgs(EntityManager, args.User, 3f, new BurnableByThermiteBeakerDoAfterEvent(), structure, args.Target, args.Used)
+        var doAfterArgs = new DoAfterArgs(EntityManager, args.User, 5f, new BurnableByThermiteBeakerDoAfterEvent(), structure, args.Target, args.Used)
         {
             BreakOnMove = true,
             NeedHand = true,
@@ -71,6 +71,7 @@ public sealed partial class BurnableByThermiteSystem : SharedBurnableByThermiteS
     }
     public void OnBeakerDoAfter(EntityUid uid, BurnableByThermiteComponent component, BurnableByThermiteBeakerDoAfterEvent args)
     {
+        if (args.Cancelled == true) return;
         if (!TryComp<SolutionContainerManagerComponent>(args.Used, out var beakerSolutionContainerComponent)) return;
         foreach (var (_, solutionEntity) in _solutionSystem.EnumerateSolutions(new(args.Used.Value, beakerSolutionContainerComponent)))
         {
@@ -78,6 +79,7 @@ public sealed partial class BurnableByThermiteSystem : SharedBurnableByThermiteS
                 continue;
             if (thermiteReagent.Quantity < component.ThermiteAmout)
             {
+
                 _popupSystem.PopupEntity(Loc.GetString("thermite-on-structure-not-enough"), args.User, args.User, PopupType.Small);
                 continue;
             }
@@ -96,8 +98,8 @@ public sealed partial class BurnableByThermiteSystem : SharedBurnableByThermiteS
         if (component.Ignited || component.Burning) return;
         if (absorbentComponent.PickupAmount < component.ThermiteAmout) return;
         component.CoveredInThermite = false;
-        SetSpriteData(uid, BurnableByThermiteVisuals.CoveredInThermite, false);
         _popupSystem.PopupEntity(Loc.GetString("thermite-on-structure-cleaned"), uid, uid, PopupType.Medium);
+        SetSpriteData(uid, BurnableByThermiteVisuals.CoveredInThermite, false);
         _absorbentSystem.Mop(args.User, uid, args.Used, absorbentComponent);
     }
 
@@ -193,7 +195,7 @@ public sealed partial class BurnableByThermiteSystem : SharedBurnableByThermiteS
     public bool TryExtinguishStructure(Entity<BurnableByThermiteComponent> ent)
     {
         if (!ent.Comp.Ignited && !ent.Comp.Burning) return false;
-        SetSpriteData(ent.Owner, BurnableByThermiteVisuals.CoveredInThermite, false, true);
+        SetSpriteData(ent.Owner, BurnableByThermiteVisuals.CoveredInThermite, false);
         ent.Comp.Ignited = false;
         ent.Comp.Burning = false;
         SetLightningState(ent.Owner, false);
