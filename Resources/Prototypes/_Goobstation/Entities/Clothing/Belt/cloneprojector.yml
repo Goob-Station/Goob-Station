@@ -130,3 +130,34 @@
     tags:
       - HighRiskItem
       - ClothingBeltGeminiHoloProjector
+
+- type: entity
+  parent: [ ClothingBeltBaseCloneProjector, BaseCentcommContraband ]
+  id: ClothingBeltMonozygoticHoloProjector
+  name: ax-48 "monozygotic" holo-projector rig
+  description: An custom made, experimental variant of the ax-32, retrofitted for use by Central Command. The name "C. Ward" is small text on the front.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Belt/geminiprojector.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Belt/geminiprojector.rsi
+  - type: StealTarget
+    stealGroup: ClothingBeltGeminiHoloProjector
+  - type: CloneProjector
+    nameSuffix: monozygotic-projector-clone-name-suffix
+    stunOnDestroyed: false
+    restrictRangedWeapons: false
+    addedComponents:
+    - type: MobThresholds
+      allowedStates:
+      - Alive
+      - Dead
+      thresholds:
+        0: Alive
+        350: Dead # This ain't your mothers clone projector.
+    clonedItemBlacklist:
+      components:
+      - CloneProjector
+    clonedItemWhitelist:
+      components:
+      - Clothing

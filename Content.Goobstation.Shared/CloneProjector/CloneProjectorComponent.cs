@@ -36,6 +36,18 @@ public sealed partial class CloneProjectorComponent : Component
     [DataField]
     public TimeSpan StunDuration = TimeSpan.FromSeconds(8);
 
+    /// <summary>
+    /// Should the host be stunned when the clone is destroyed?
+    /// </summary>
+    [DataField]
+    public bool StunOnDestroyed = true;
+
+    /// <summary>
+    /// Should the clone be prevented from using ranged weapons?
+    /// </summary>
+    [DataField]
+    public bool RestrictRangedWeapons = true;
+
     [DataField]
     public ComponentRegistry? AddedComponents;
 

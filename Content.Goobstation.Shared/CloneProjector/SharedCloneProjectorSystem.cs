@@ -46,6 +46,10 @@ public abstract class SharedCloneProjectorSystem : EntitySystem
 
     private void OnShotAttempted(Entity<HolographicCloneComponent> ent, ref ShotAttemptedEvent args)
     {
+        if (ent.Comp.HostProjector is not { } hostProjector
+            || !hostProjector.Comp.RestrictRangedWeapons)
+            return;
+
         _popupSystem.PopupClient(Loc.GetString("gun-disabled"), ent, ent);
         args.Cancel();
     }
