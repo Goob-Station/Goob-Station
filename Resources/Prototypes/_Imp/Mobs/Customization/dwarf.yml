@@ -142,15 +142,6 @@
 # LArm
 
 - type: marking
-  id: DwarfArmHair
-  bodyPart: LArm
-  markingCategory: Arms
-  speciesRestriction: [ Dwarf ]
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Dwarf/larm.rsi
-    state: hair
-
-- type: marking
   id: DwarfConstellationLArm
   bodyPart: LArm
   markingCategory: Overlay
@@ -198,15 +189,6 @@
   - sprite: _Impstation/Mobs/Customization/Dwarf/lleg.rsi
     state: constellation
   shader: unshaded
-
-- type: marking
-  id: DwarfLegHair
-  bodyPart: LLeg
-  markingCategory: Legs
-  speciesRestriction: [ Dwarf ]
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Dwarf/lleg.rsi
-    state: hair
 
 # UndergarmentBottom
 
