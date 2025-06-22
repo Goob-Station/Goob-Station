@@ -1,0 +1,5 @@
+- type: sourcePort
+  id: FillItems # Used by Fillbot
+  name: signal-port-name-fillitems
+  description: signal-port-description-fillitems
+  defaultLinks: [ FillbotAnyItem ]
