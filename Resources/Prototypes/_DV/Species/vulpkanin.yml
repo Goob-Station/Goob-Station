@@ -58,13 +58,13 @@
       required: true
       defaultMarkings: [ VulpTail ]
     Head:
-      points: 1
+      points: 5
       required: false
     Legs:
-      points: 1
+      points: 8
       required: false
     Arms:
-      points: 1
+      points: 8
       required: false
     Snout:
       points: 1
