@@ -55,6 +55,7 @@
     - id: OmnimedTool
     - id: HandheldCrewMonitorBSO
     - id: BlueshieldUndeterminedWeapon
+    - id: BlueshieldUndeterminedHardsuit # how did you forget to add it?
 
 - type: entity
   id: LockerBlueshieldOfficerFilled
