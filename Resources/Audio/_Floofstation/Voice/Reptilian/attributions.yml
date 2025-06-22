@@ -1,0 +1,15 @@
+# SPDX-FileCopyrightText: 2024 Fansana <fansana95@googlemail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Vrilly <tnjans@outlook.de>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- files: ["yip.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "Original sound added by https://github.com/NopemanMcHalt"
+  source: "https://github.com/SPLURT-Station/S.P.L.U.R.T-Station-13/blob/master/modular_splurt/sound/voice/yip.ogg"
+
+- files: ["hiss.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "Original sound added by https://github.com/Delams-The-SM modified by Memeji_Dankiri"
+  source: "https://github.com/SPLURT-Station/S.P.L.U.R.T-Station-13/blob/master/modular_citadel/sound/voice/hiss.ogg"
