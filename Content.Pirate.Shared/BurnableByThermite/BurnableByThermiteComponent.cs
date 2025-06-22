@@ -14,11 +14,11 @@ public sealed partial class BurnableByThermiteComponent : Component
     /// Minimal time that thermite will burn. Burning won't stop even if <see cref="TotalDamageDealt" is larger that <see cref="TotalDamageUntilMelting"/>
     /// In seconds.
     /// </summary>
-    [DataField] public float BurnTime = 20f;
+    [DataField] public float BurnTime = 25f;
     /// <summary>
     /// Time it takes to fully ignite thermite. In seconds.
     /// </summary>
-    [DataField] public float IgnitionTime = 2f;
+    [DataField] public float IgnitionTime = 5f;
     /// <summary>
     /// Damage per second dealt to the structure while burning.
     /// </summary>

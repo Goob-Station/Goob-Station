@@ -1,12 +1,14 @@
 using Content.Pirate.Shared.BurnableByThermite;
+using Content.Server.Destructible;
+using Content.Server.Popups;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
-using Content.Shared.Destructible;
 using Content.Shared.IgnitionSource;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Robust.Server.Audio;
+using Robust.Server.GameObjects;
 using Robust.Shared.Timing;
 
 namespace Content.Pirate.Server.BurnableByThermite;
@@ -14,11 +16,11 @@ namespace Content.Pirate.Server.BurnableByThermite;
 public sealed partial class BurnableByThermiteSystem : SharedBurnableByThermiteSystem
 {
     [Dependency] private readonly SharedSolutionContainerSystem _solutionSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
+    [Dependency] private readonly PopupSystem _popupSystem = default!;
+    [Dependency] private readonly AppearanceSystem _appearanceSystem = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly SharedDestructibleSystem _destructibleSystem = default!;
-    [Dependency] private readonly SharedPointLightSystem _pointLight = default!;
+    [Dependency] private readonly DestructibleSystem _destructibleSystem = default!;
+    [Dependency] private readonly PointLightSystem _pointLight = default!;
     [Dependency] private readonly AudioSystem _audioSystem = default!;
 
     public override void Initialize()
@@ -53,13 +55,13 @@ public sealed partial class BurnableByThermiteSystem : SharedBurnableByThermiteS
                 continue;
             if (thermiteReagent.Quantity < component.ThermiteAmout)
             {
-                _popupSystem.PopupClient(Loc.GetString("thermite-on-structure-not-enough"), args.User, args.User, PopupType.Small);
+                _popupSystem.PopupEntity(Loc.GetString("thermite-on-structure-not-enough"), args.User, args.User, PopupType.Small);
                 continue;
             }
             else
             {
                 component.CoveredInThermite = true;
-                _popupSystem.PopupClient(Loc.GetString("thermite-on-structure-success"), args.User, args.User, PopupType.MediumCaution);
+                _popupSystem.PopupEntity(Loc.GetString("thermite-on-structure-success"), args.User, args.User, PopupType.MediumCaution);
                 _solutionSystem.RemoveReagent(solutionEntity, "Thermite", component.ThermiteAmout);
                 SetSpriteData(structure, BurnableByThermiteVisuals.CoveredInThermite, true);
             }
@@ -75,7 +77,7 @@ public sealed partial class BurnableByThermiteSystem : SharedBurnableByThermiteS
         while (query.MoveNext(out var uid, out var component))
         {
             if (!component.Ignited && !component.Burning) continue;
-            if (component.Ignited) OnUpdateIgnited(component);
+            if (component.Ignited) OnUpdateIgnited(uid, component);
             if (component.Burning) OnUpdateBurning(uid, component);
         }
     }
@@ -97,12 +99,14 @@ public sealed partial class BurnableByThermiteSystem : SharedBurnableByThermiteS
             return;
         }
     }
-    public void OnUpdateIgnited(BurnableByThermiteComponent component)
+    public void OnUpdateIgnited(EntityUid uid, BurnableByThermiteComponent component)
     {
         if (_gameTiming.CurTime.TotalSeconds - component.IgnitionStartTime >= component.IgnitionTime)
         {
             component.Ignited = false;
             component.Burning = true;
+            SetLightningState(uid, true, 3f);
+            component.BurningSound.Params.AddVolume(2f);
             component.BurningStartTime = (float) _gameTiming.CurTime.TotalSeconds;
         }
     }
@@ -123,12 +127,13 @@ public sealed partial class BurnableByThermiteSystem : SharedBurnableByThermiteS
     }
     public bool TryPlayBurningSound(EntityUid uid, BurnableByThermiteComponent component)
     {
-        StopPlayingBurningSound(uid, component);
+        StopPlayingBurningSound(component);
         var resolvedSound = _audioSystem.ResolveSound(component.BurningSound);
+
         component.BurningSoundStream = _audioSystem.PlayPvs(resolvedSound, uid)?.Entity;
         return true;
     }
-    public void StopPlayingBurningSound(EntityUid uid, BurnableByThermiteComponent component)
+    public void StopPlayingBurningSound(BurnableByThermiteComponent component)
     {
         if (_audioSystem.IsPlaying(component.BurningSoundStream))
             component.BurningSoundStream = _audioSystem.Stop(component.BurningSoundStream);
@@ -150,7 +155,7 @@ public sealed partial class BurnableByThermiteSystem : SharedBurnableByThermiteS
     // Secondary Structure
     public void OnEntityBurned(EntityUid uid, BurnableByThermiteComponent component)
     {
-        StopPlayingBurningSound(uid, component);
+        StopPlayingBurningSound(component);
         _destructibleSystem.DestroyEntity(uid);
     }
     public bool TryExtinguishStructure(Entity<BurnableByThermiteComponent> ent)
@@ -160,14 +165,14 @@ public sealed partial class BurnableByThermiteSystem : SharedBurnableByThermiteS
         ent.Comp.Ignited = false;
         ent.Comp.Burning = false;
         SetLightningState(ent.Owner, false);
-        StopPlayingBurningSound(ent.Owner, ent.Comp);
+        StopPlayingBurningSound(ent.Comp);
         return true;
     }
     public bool TryIgniteStructure(Entity<BurnableByThermiteComponent> ent, InteractUsingEvent args)
     {
         if (!ent.Comp.CoveredInThermite) return false;
         SetSpriteData(ent.Owner, BurnableByThermiteVisuals.OnFireStart, true);
-        _popupSystem.PopupClient(Loc.GetString("thermite-on-structure-ignited"), args.User, args.User, PopupType.MediumCaution);
+        _popupSystem.PopupEntity(Loc.GetString("thermite-on-structure-ignited"), args.User, args.User, PopupType.MediumCaution);
         ent.Comp.Ignited = true;
         SetLightningState(ent.Owner, true, 1f);
         TryPlayBurningSound(ent.Owner, ent.Comp);
