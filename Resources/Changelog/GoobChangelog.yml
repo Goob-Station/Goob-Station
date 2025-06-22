@@ -11421,3 +11421,19 @@ Entries:
         been implemented in it's place.
   id: 1257
   time: '2025-06-22T04:35:52.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: 'Added survival+: play it by voting the new Descent gamemode.'
+    - type: Tweak
+      message: Secret+ should now pick events less randomly.
+    - type: Tweak
+      message: Renamed secret+ gamemodes to be more clear.
+    - type: Tweak
+      message: >-
+        Secret+ now may randomly infrequently decide for the shift to be calm or
+        less calm.
+    - type: Fix
+      message: Derelict assault borg should now spawn.
+  id: 1258
+  time: '2025-06-22T04:38:41.0000000+00:00'
