@@ -34,6 +34,7 @@
     - type: RequireProjectileTarget
     - type: NoSlip
     - type: ZombieImmune
+    - type: CrematoriumImmune
     - type: TypingIndicator
       proto: robot
     - type: Speech
@@ -42,7 +43,6 @@
     - type: Vocal
       sounds:
         Unsexed: UnisexSilicon
-    - type: DamagedSiliconAccent
     - type: UnblockableSpeech
     - type: ProtectedFromStepTriggers
     - type: MobThresholds
@@ -62,6 +62,7 @@
       - DoorBumpOpener
       - Unimplantable
     removedComponents:
+    - type: Destructible
     - type: Deathgasp
     - type: HealthExaminable
       examinableTypes:
