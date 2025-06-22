@@ -11,7 +11,8 @@ namespace Content.Pirate.Shared.BurnableByThermite;
 public sealed partial class BurnableByThermiteComponent : Component
 {
     /// <summary>
-    /// Time it takes to burn through the structure since full ignition. In seconds.
+    /// Minimal time that thermite will burn. Burning won't stop even if <see cref="TotalDamageDealt" is larger that <see cref="TotalDamageUntilMelting"/>
+    /// In seconds.
     /// </summary>
     [DataField] public float BurnTime = 20f;
     /// <summary>
@@ -24,6 +25,10 @@ public sealed partial class BurnableByThermiteComponent : Component
     [DataField] public FixedPoint2 DPS = 12f;
     [DataField] public FixedPoint2 TotalDamageUntilMelting = 200f;
     [DataField] public SoundSpecifier BurningSound = new SoundPathSpecifier("/Audio/_Pirate/Effects/thermite_burning.ogg");
+    /// <summary>
+    /// The amount of thermite needed to cover the structure. In units.
+    /// </summary>
+    [DataField] public float ThermiteAmout = 10f;
     public EntityUid? BurningSoundStream = null;
 
     [ViewVariables(VVAccess.ReadOnly)] public FixedPoint2 TotalDamageDealt = 0f;
@@ -32,7 +37,7 @@ public sealed partial class BurnableByThermiteComponent : Component
     /// Represents the solution in structure that contains the thermite.
     /// Used to check if covered in thermite when trying to ignite.
     /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)] public SolutionComponent? ThermiteSolutionComponent;
+    [ViewVariables(VVAccess.ReadOnly)] public bool CoveredInThermite = false;
     /// <summary>
     /// Indicates if structure is ignited, but not fully burning yet.
     /// </summary>
@@ -42,6 +47,6 @@ public sealed partial class BurnableByThermiteComponent : Component
     /// </summary>
     public bool Burning = false;
 
-    public float IgnitionStartTime;
-    public float BurningStartTime;
+    public double IgnitionStartTime;
+    public double BurningStartTime;
 }
