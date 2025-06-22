@@ -11449,3 +11449,11 @@ Entries:
       message: Flatpacks instead of boards for ordering computers and funding computer
   id: 1260
   time: '2025-06-22T04:42:22.0000000+00:00'
+- author: IrisTheAmped
+  changes:
+    - type: Tweak
+      message: 'Power Transmission Laser now creates 6.67x as much spesos. '
+    - type: Fix
+      message: Engineering can actually make spesos with surplus power.
+  id: 1261
+  time: '2025-06-22T04:45:58.0000000+00:00'
