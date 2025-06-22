@@ -1,14 +1,9 @@
-using Content.Server._Pirate.MakeATraitor;
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
-using Robust.Shared.GameObjects;
-using Robust.Shared.IoC;
-using Robust.Shared.Localization;
-using System;
 
-namespace Content.Server._Pirate.CentCom.Commands
+namespace Content.Pirate.Server.CentCom.Commands
 {
     [AdminCommand(AdminFlags.Admin)]
     public sealed class MakeACentCom : IConsoleCommand
@@ -56,16 +51,6 @@ namespace Content.Server._Pirate.CentCom.Commands
             }
 
             EntityManager.System<MakeACentComSystem>().MakeAnOfficial(target.Value);
-        }
-
-        public CompletionResult GetCompletion(IConsoleShell shell, string[] args)
-        {
-            return args.Length switch
-            {
-                2 => CompletionResult.FromHintOptions(Enum.GetNames<MakeATraitorSystem.TraitorType>(),
-                    "Тип зрадника"),
-                _ => CompletionResult.Empty
-            };
         }
     }
 }

@@ -3,12 +3,8 @@ using Content.Server.Administration.Logs;
 using Content.Shared.Administration;
 using Content.Shared.Ghost;
 using Robust.Shared.Console;
-using Robust.Shared.GameObjects;
-using Robust.Shared.IoC;
-using Robust.Shared.Localization;
-using System;
 
-namespace Content.Server._Pirate.MakeATraitor.Commands
+namespace Content.Pirate.Server.MakeATraitor.Commands
 {
     [AdminCommand(AdminFlags.Admin)]
     public sealed class MakeATraitorCommand : IConsoleCommand

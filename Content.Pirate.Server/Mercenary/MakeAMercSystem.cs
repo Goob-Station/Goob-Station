@@ -2,28 +2,26 @@ using Content.Server.Ghost.Roles.Components;
 using Content.Server.Humanoid.Systems;
 using Content.Server.RandomMetadata;
 using Content.Server.RoundEnd;
-using Content.Shared.Directions;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Mind;
 using Content.Shared.Players;
 using Content.Shared.Shuttles.Components;
-using Robust.Server.GameObjects;
 using Robust.Server.Player;
+using Robust.Shared.EntitySerialization;
+using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
-using Robust.Shared.GameObjects;
-using Robust.Shared.IoC;
-using Robust.Shared.EntitySerialization;
-using Robust.Shared.EntitySerialization.Systems;
-using Robust.Shared.Serialization.Manager.Attributes;
 
-namespace Content.Server._Pirate.Mercenary
+namespace Content.Pirate.Server.Mercenary
 {
     public sealed class MakeAMercSystem : EntitySystem
     {
         private const string MapPath = "Maps/_Pirate/Shuttles/Qazmlp/st_merc.yml";
-        [ValidatePrototypeId<RandomHumanoidSettingsPrototype>] private const string SpawnerPrototypeId = "Mercenary";
+
+        [ValidatePrototypeId<RandomHumanoidSettingsPrototype>]
+        private const string SpawnerPrototypeId = "Mercenary";
+
         [ValidatePrototypeId<EntityPrototype>] private const string Disk = "CoordinatesDisk";
         [Dependency] private readonly IEntityManager _entManager = default!;
         [Dependency] private readonly MapLoaderSystem _map = default!;

@@ -21,7 +21,7 @@ SPDX-License-Identifier: MIT
 ## Вузли артефактів
 <Box>
 <GuideEntityEmbed Entity="ComplexXenoArtifact" Caption=""/>
-<GuideEntityEmbed Entity="SimpleXenoArtifactItem" Caption=""/>
+<GuideEntityEmbed Entity="ComplexXenoArtifactItem" Caption=""/>
 </Box>
 Артефакти складаються з випадково згенерованого дерева вузлів. Ці вузли мають "[color=#a4885c]глибину[/color]", що представляє небезпеку вузла, та кількість інших вузлів, з'єднаних з ним, що називається "[color=#a4885c]ребрами[/color]".
 

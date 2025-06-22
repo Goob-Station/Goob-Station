@@ -1,15 +1,10 @@
 using Content.Server._Goobstation.Wizard.Components;
 using Content.Server.Antag;
-using Content.Server.GameTicking.Rules;
 using Content.Server.GameTicking.Rules.Components;
-using Content.Shared.Humanoid;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Robust.Shared.GameObjects;
-using Robust.Shared.IoC;
-using Robust.Shared.Serialization.Manager.Attributes;
 
-namespace Content.Server._Pirate.MakeATraitor
+namespace Content.Pirate.Server.MakeATraitor
 {
     public sealed class MakeATraitorSystem : EntitySystem
     {
@@ -83,7 +78,8 @@ namespace Content.Server._Pirate.MakeATraitor
 
         private void MakeBlob(EntityUid target)
         {
-            EnsureComp<Content.Goobstation.Common.Blob.BlobCarrierComponent>(target).HasMind = HasComp<ActorComponent>(target);
+            EnsureComp<Content.Goobstation.Common.Blob.BlobCarrierComponent>(target).HasMind =
+                HasComp<ActorComponent>(target);
         }
 
         private void MakeTraitor(ICommonSession? target)
@@ -99,12 +95,13 @@ namespace Content.Server._Pirate.MakeATraitor
         private void MakeRevolutionary(ICommonSession? target)
         {
             _antag.ForceMakeAntag<RevolutionaryRuleComponent>(target, DefaultRevsRule);
-
         }
 
         private void MakeChangeling(ICommonSession? target)
         {
-            _antag.ForceMakeAntag<Content.Goobstation.Server.Changeling.GameTicking.Rules.ChangelingRuleComponent>(target, DefaultChangelingRule);
+            _antag.ForceMakeAntag<Content.Goobstation.Server.Changeling.GameTicking.Rules.ChangelingRuleComponent>(
+                target,
+                DefaultChangelingRule);
         }
 
         private void MakeHeretic(ICommonSession? target)

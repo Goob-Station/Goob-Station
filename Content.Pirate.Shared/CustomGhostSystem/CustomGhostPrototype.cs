@@ -22,14 +22,13 @@ public sealed partial class CustomGhostPrototype : IPrototype
     public ResPath CustomSpritePath { get; set; } = default!;
 
     [DataField("alpha")]
-    public float AlphaOverride { get; set;  } = -1;
+    public float AlphaOverride { get; set; } = -1;
 
     [DataField("ghostName")]
     public string GhostName = string.Empty;
 
     [DataField("ghostDescription")]
     public string GhostDescription = string.Empty;
-
 }
 
 [Serializable, NetSerializable]

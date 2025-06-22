@@ -26,7 +26,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   </Box>
   <Box>
   <GuideEntityEmbed Entity="MobHuman" Caption="Людина"/>
-  <GuideEntityEmbed Entity="MobIPCDummy" Caption="IPC"/>
+  <GuideEntityEmbed Entity="MobIPCDummy" Caption="ІПШ"/>
   <GuideEntityEmbed Entity="MobMoth" Caption="Людина-міль"/>
   <GuideEntityEmbed Entity="MobOni" Caption="Оні"/>
   <GuideEntityEmbed Entity="MobReptilian" Caption="Рептилоїд"/>

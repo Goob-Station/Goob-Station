@@ -168,7 +168,7 @@ public sealed class SurgerySystem : SharedSurgerySystem
         if (HasComp<ForcedSleepingComponent>(args.Body))
             return;
 
-        _chat.TryEmoteWithChat(args.Body, ent.Comp.Emote);
+        _chat.TryEmoteWithChat(args.Body, ent.Comp.Emote, voluntary: false);
     }
     private void OnStepSpawnComplete(Entity<SurgeryStepSpawnEffectComponent> ent, ref SurgeryStepEvent args) =>
         SpawnAtPosition(ent.Comp.Entity, Transform(args.Body).Coordinates);

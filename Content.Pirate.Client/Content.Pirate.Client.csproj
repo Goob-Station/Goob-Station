@@ -1,5 +1,6 @@
 <!--
-SPDX-FileCopyrightText: 2024 Your Name or Alias <your-email@example.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 
 SPDX-License-Identifier: AGPL-3.0-or-later
 -->
@@ -16,7 +17,6 @@ SPDX-License-Identifier: AGPL-3.0-or-later
       <Nullable>enable</Nullable>
       <Configurations>Debug;Release;Tools;DebugOpt</Configurations>
       <Platforms>AnyCPU</Platforms>
-      <RootNamespace>Content.Pirate.Client</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -24,12 +24,10 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Content.Client\Content.Client.csproj">
-        <Private>false</Private>
-      </ProjectReference>
-      <ProjectReference Include="..\Content.Pirate.Shared\Content.Pirate.Shared.csproj">
-        <Private>false</Private>
-      </ProjectReference>
+      <ProjectReference Include="..\Content.Client\Content.Client.csproj" />
+      <ProjectReference Include="..\Content.Goobstation.Shared\Content.Goobstation.Shared.csproj" />
+      <ProjectReference Include="..\Content.Goobstation.Client\Content.Goobstation.Client.csproj" />
+      <ProjectReference Include="..\Content.Pirate.Shared\Content.Pirate.Shared.csproj" />
       <ProjectReference Include="..\RobustToolbox\Robust.Client\Robust.Client.csproj" Private="false" />
       <ProjectReference Include="..\RobustToolbox\Robust.Shared\Robust.Shared.csproj" Private="false" />
     </ItemGroup>

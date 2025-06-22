@@ -1,5 +1,6 @@
 <!--
-SPDX-FileCopyrightText: 2024 Your Name or Alias <your-email@example.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 
 SPDX-License-Identifier: AGPL-3.0-or-later
 -->
@@ -7,27 +8,25 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-      <TargetFramework>$(TargetFramework)</TargetFramework>
+      <TargetFramework>net9.0</TargetFramework>
       <LangVersion>12</LangVersion>
       <IsPackable>false</IsPackable>
       <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+      <OutputPath>..\bin\Content.Shared\</OutputPath>
       <WarningsAsErrors>nullable</WarningsAsErrors>
       <Nullable>enable</Nullable>
-      <RootNamespace>Content.Pirate.Shared</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Content.Shared\Content.Shared.csproj">
-        <Private>false</Private>
-      </ProjectReference>
-      <ProjectReference Include="..\RobustToolbox\Robust.Shared\Robust.Shared.csproj">
-        <Private>false</Private>
-      </ProjectReference>
+      <ProjectReference Include="..\Content.Goobstation.Shared\Content.Goobstation.Shared.csproj" />
+      <ProjectReference Include="..\Content.Shared\Content.Shared.csproj" />
+      <ProjectReference Include="..\RobustToolbox\Robust.Shared\Robust.Shared.csproj" Private="false" />
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="JetBrains.Annotations" PrivateAssets="All" />
+      <PackageReference Include="JetBrains.Annotations" />
     </ItemGroup>
+
 
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
   <Import Project="..\RobustToolbox\MSBuild\Robust.CompNetworkGenerator.targets" />

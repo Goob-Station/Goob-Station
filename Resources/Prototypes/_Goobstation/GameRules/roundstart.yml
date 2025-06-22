@@ -34,7 +34,7 @@
   - type: ChangelingRule
   - type: GameRule
     minPlayers: 15
-    chaosScore: 600
+    chaosScore: 800
   - type: AntagRandomObjectives
     sets:
     - groups: ChangelingObjectiveGroups
@@ -210,7 +210,7 @@
   components:
   - type: BlobRule
   - type: GameRule
-    chaosScore: 900
+    chaosScore: 1000
 
 - type: entity
   id: BlobGameMode
@@ -220,7 +220,7 @@
   - type: BlobRule
   - type: GameRule
     minPlayers: 15
-    chaosScore: 900
+    chaosScore: 1000
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn
     definitions:
@@ -254,7 +254,7 @@
       Medical: 200
     eventType: HostilesSpawn
   - type: GameRule
-    chaosScore: 900
+    chaosScore: 1000
   - type: BlobSpawnRule
     carrierBlobProtos:
     - SpawnPointGhostBlobRat
@@ -342,7 +342,7 @@
   components:
   - type: DevilRule
   - type: GameRule
-    chaosScore: 250 # low since they tend to revive people and stuff
+    chaosScore: 350 # low since they tend to revive people and stuff
     minPlayers: 15
   - type: AntagObjectives
     objectives:

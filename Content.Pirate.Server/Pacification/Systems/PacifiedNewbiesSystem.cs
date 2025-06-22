@@ -12,13 +12,14 @@ namespace Content.Pirate.Server.Pacification.Systems
     {
         [Dependency] private readonly PlayTimeTrackingManager _playTimeTracking = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
-        private static readonly PacifyManager _pacifyManager = new();
+        [Dependency] private readonly PacifyManager _pacifyManager = default!;
 
         public override void Initialize()
         {
             base.Initialize();
-
+# if !DEBUG
             SubscribeLocalEvent<PlayerAttachedEvent>(OnPlayerAttached);
+# endif
         }
 
         private void OnPlayerAttached(PlayerAttachedEvent ev)
