@@ -11373,3 +11373,9 @@ Entries:
       message: Voxes have ammonia blood when gibbed, as they should
   id: 1250
   time: '2025-06-22T03:47:43.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: His Grace is here. Treat him with respect.
+  id: 1251
+  time: '2025-06-22T04:11:23.0000000+00:00'
