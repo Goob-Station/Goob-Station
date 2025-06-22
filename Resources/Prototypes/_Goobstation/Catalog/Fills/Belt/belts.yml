@@ -7,6 +7,7 @@
 # SPDX-FileCopyrightText: 2025 GMWQ <garethquaile@gmail.com>
 # SPDX-FileCopyrightText: 2025 Gareth Quaile <garethquaile@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
 # SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
@@ -238,6 +239,7 @@
       - WeaponEnergyRevolver
   - type: StorageFill
     contents:
+    - id: EnergySpeedloaderLethal
     - id: EnergySpeedloaderLethal
     - id: EnergySpeedloaderDisabler
 

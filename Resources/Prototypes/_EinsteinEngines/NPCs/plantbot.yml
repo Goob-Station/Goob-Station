@@ -1,0 +1,38 @@
+- type: htnCompound
+  id: PlantbotCompound
+  branches:
+    - tasks:
+        - !type:HTNCompoundTask
+          task: ServiceNearbyPlantsCompound
+    - tasks:
+        - !type:HTNCompoundTask
+          task: IdleCompound
+
+- type: htnCompound
+  id: ServiceNearbyPlantsCompound
+  branches:
+    - tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:PickNearbyServicableHydroponicsTrayOperator
+            targetKey: PlantTarget
+            targetMoveKey: TargetCoordinates
+
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            pathfindInPlanning: false
+
+        - !type:HTNPrimitiveTask
+          operator: !type:SetFloatOperator
+            targetKey: IdleTime
+            amount: 3
+
+        - !type:HTNPrimitiveTask
+          operator: !type:WaitOperator
+            key: IdleTime
+          preconditions:
+            - !type:KeyExistsPrecondition
+              key: IdleTime
+
+        - !type:HTNPrimitiveTask
+          operator: !type:PlantbotServiceOperator
+            targetKey: PlantTarget

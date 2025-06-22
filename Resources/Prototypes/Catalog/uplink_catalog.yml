@@ -152,6 +152,7 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
 # SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Minemoder5000 <minemoder50000@gmail.com>
 # SPDX-FileCopyrightText: 2025 Preston Smith <92108534+thetolbean@users.noreply.github.com>
@@ -838,7 +839,7 @@
   description: uplink-stimkit-desc
   productEntity: StimkitFilled
   cost:
-    Telecrystal: 30 # goob
+    Telecrystal: 40 # goob
   categories:
   - UplinkChemicals
 
@@ -849,7 +850,7 @@
   description: uplink-cigarettes-desc
   productEntity: CigPackSyndicate
   cost:
-    Telecrystal: 10 # goob
+    Telecrystal: 5 # goob
   categories:
   - UplinkChemicals
 
@@ -926,7 +927,6 @@
       - ContravendUplink
 
 # Goobstation - replaced with collective mind
-# WYCI
 #- type: listing
 #  id: UplinkBinaryTranslatorKey
 #  name: uplink-binary-translator-key-name
@@ -1151,7 +1151,7 @@
   description: uplink-antimov-law-desc
   productEntity: AntimovCircuitBoard
   cost:
-    Telecrystal: 70 # goob
+    Telecrystal: 50 # goob x2
   categories:
   - UplinkDisruption
   conditions:
@@ -1166,7 +1166,7 @@
   description: uplink-antimov-law-desc
   productEntity: AntimovCircuitBoard
   cost:
-    Telecrystal: 120 # goob
+    Telecrystal: 50 # goob x2
   categories:
   - UplinkDisruption
   conditions:
@@ -1677,14 +1677,14 @@
   categories:
   - UplinkWearables
 
-
+# TODO: Revert back to normal thieving gloves when clothes dyeing is added
 - type: listing
   id: UplinkgClothingThievingGloves
-  name: uplink-clothing-thieving-gloves-name
-  description: uplink-clothing-thieving-gloves-desc
-  productEntity: ThievingGloves
+  name: uplink-clothing-chameleon-thieving-gloves-name
+  description: uplink-clothing-chameleon-thieving-gloves-desc
+  productEntity: ClothingHandsChameleonThief
   cost:
-    Telecrystal: 30 # goob
+    Telecrystal: 30
   categories:
   - UplinkWearables
 
