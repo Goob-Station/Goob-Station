@@ -1,0 +1,1 @@
+lawbringer-phrase = Я - ЗАКОН

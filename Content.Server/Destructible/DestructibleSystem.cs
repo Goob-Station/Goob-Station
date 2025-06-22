@@ -113,13 +113,13 @@ namespace Content.Server.Destructible
                     {
                         _adminLogger.Add(LogType.Damaged,
                             logImpact,
-                            $"{ToPrettyString(args.Origin.Value):actor} caused {ToPrettyString(uid):subject} to trigger [{triggeredBehaviors}]");
+                            $"{ToPrettyString(args.Origin.Value):actor} змусив {ToPrettyString(uid):subject} спрацювати [{triggeredBehaviors}]");
                     }
                     else
                     {
                         _adminLogger.Add(LogType.Damaged,
                             logImpact,
-                            $"Unknown damage source caused {ToPrettyString(uid):subject} to trigger [{triggeredBehaviors}]");
+                            $"Невідоме джерело пошкодження змусило {ToPrettyString(uid):subject} спрацювати [{triggeredBehaviors}]");
                     }
 
                     threshold.Execute(uid, this, EntityManager, args.Origin);

@@ -133,17 +133,17 @@ namespace Content.Server.Verbs
             var verbText = $"{verb.Category?.Text} {verb.Text}".Trim();
 
             // lets not frame people, eh?
-            var executionText = forced ? "was forced to execute" : "executed";
+            var executionText = forced ? "було змушено виконати" : "виконав";
 
             if (holding == null)
             {
                 _adminLogger.Add(LogType.Verb, verb.Impact,
-                        $"{ToPrettyString(user):user} {executionText} the [{verbText:verb}] verb targeting {ToPrettyString(target):target}");
+                        $"{ToPrettyString(user):user} {executionText} [{verbText:verb}] дію націлену на {ToPrettyString(target):target}");
             }
             else
             {
                 _adminLogger.Add(LogType.Verb, verb.Impact,
-                       $"{ToPrettyString(user):user} {executionText} the [{verbText:verb}] verb targeting {ToPrettyString(target):target} while holding {ToPrettyString(holding.Value):held}");
+                       $"{ToPrettyString(user):user} {executionText} [{verbText:verb}] дію націлену на {ToPrettyString(target):target} поки тримає {ToPrettyString(holding.Value):held}");
             }
         }
     }

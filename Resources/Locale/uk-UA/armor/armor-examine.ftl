@@ -1,23 +1,22 @@
 # Armor examines
 armor-examinable-verb-text = Броня
-armor-examinable-verb-message = Роздивитись захисти броні.
+armor-examinable-verb-message = Роздивитись захист броні.
 armor-examine = Воно забезпечує наступний захист:
 armor-coefficient-value = - Шкоду від [color=yellow]{$type}[/color] зменшено на [color=lightblue]{$value}%[/color].
 armor-reduction-value = - Шкоду від [color=yellow]{$type}[/color] зменшено на [color=lightblue]{$value}[/color].
 
-armor-damage-type-blunt = Ударівів
-armor-damage-type-slash = Порізівів
-armor-damage-type-piercing = Проникаючих
+armor-damage-type-blunt = Ударів
+armor-damage-type-slash = Порізів
+armor-damage-type-piercing = Проколів
 armor-damage-type-heat = Теплової
 armor-damage-type-radiation = Радіаційної
 armor-damage-type-caustic = Їдкої
 armor-damage-type-bloodloss = Крововтрати
 armor-damage-type-asphyxiation = Асфіксії
-armor-damage-type-cellular = Клітинних пошкоджень
-armor-damage-type-cold = Холодуу
+armor-damage-type-cellular = Клітинної
+armor-damage-type-cold = Холоду
 armor-damage-type-poison = Отрути
-armor-damage-type-shock = Шокуу
-armor-damage-type-structural = Структурних пошкоджень
+armor-damage-type-shock = Шоку
+armor-damage-type-structural = Структурної
 
-armor-examine-stamina = - [color=cyan]Витривалість[/color] пошкодження зменшено на [color=lightblue]{$num}%[/color].
-armor-damage-type-holy = Свята
+armor-damage-type-holy = Святої

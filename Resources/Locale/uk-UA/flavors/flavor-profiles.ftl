@@ -344,3 +344,16 @@ flavor-complex-bacchus-blessing = наче цегляна стіна
 
 ### Саме такий на смак пілк. Я навіть не жартую. Хоча, можливо, я був трохи п'яний
 flavor-hew = наче хрускіт
+flavor-complex-crush-depth = як у Безодні Хадала
+flavor-complex-electric-shark = як Тиждень акул у тропіках
+flavor-complex-tortuga = як солодкий чай
+flavor-complex-jack-rose = як свідчення
+flavor-complex-jungle-bird = ніби ви у тропічному воль'єрі
+flavor-complex-kalimotxo = як вишукана кола з алкоголем
+flavor-complex-vampiro = фруктовий, пікантний та гострий
+flavor-complex-bronx = як злегка солодкий, алкогольний фрукт
+flavor-complex-monkey-business = наче мавпування
+flavor-complex-alien-brain-hemorrhage = як позаземна травма
+flavor-complex-eggnog = як розтоплений заварний крем
+flavor-complex-dark-and-stormy = як імбирний ель з ромом
+flavor-complex-radler = як лимонад з алкоголем

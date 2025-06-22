@@ -30,3 +30,5 @@ forensics-dna-unknown = невідома ДНК
 forensics-verb-text = Видалити докази
 forensics-verb-message = Видалити відбитки пальців та залишки ДНК з об'єкта!
 forensics-cleaning-cannot-clean = На {THE($target)} немає нічого, що можна було б очистити!
+forensic-pad-no-access-due = Неможливо отримати доступ до відбитка пальця через {THE($entity)}.
+forensic-pad-no-access = Неможливо отримати доступ до відбитка пальця.

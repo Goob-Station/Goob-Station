@@ -3,4 +3,4 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-getting-pulled-popup = { CAPITALIZE(THE($puller)) } begins pulling you.
+getting-pulled-popup = { CAPITALIZE(THE($puller)) } починає тягнути вас.

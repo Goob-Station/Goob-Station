@@ -14,7 +14,7 @@ chat-manager-admin-ooc-chat-disabled-message = Адмінське OOC вимкн
 
 chat-manager-max-message-length-exceeded-message = Ваше повідомлення перевищило ліміт у {$limit} символів
 chat-manager-no-headset-on-message = У вас немає гарнітури!
-chat-manager-no-radio-key = Ви вибрано радіо канал!
+chat-manager-no-radio-key = Не вказано ключ радіо!
 chat-manager-no-such-channel = Немає такого каналу '{$key}'!
 chat-manager-whisper-headset-on-message = По радіо не можна шепотіти!
 
@@ -24,8 +24,8 @@ chat-manager-sender-announcement-wrap-message = [font size=14][bold]Оголош
 chat-manager-entity-say-wrap-message = [BubbleHeader][bold][Name]{$entityName}[/Name][/bold][/BubbleHeader] {$verb}: [font={$fontType} size={$fontSize}]"[BubbleContent]{$message}[/BubbleContent]"[/font]
 chat-manager-entity-say-bold-wrap-message = [BubbleHeader][bold][Name]{$entityName}[/Name][/bold][/BubbleHeader] {$verb}: [font={$fontType} size={$fontSize}]"[BubbleContent][bold]{$message}[/bold][/BubbleContent]"[/font]
 
-chat-manager-entity-whisper-wrap-message = [BubbleHeader][Name][font size=10][color={$color}][bold]{$language}[/bold][/color][/font][font size=11][italic]{$entityName}[/Name][/BubbleHeader] шепоче, [font="{$fontType}"][color={$color}][italic]"[BubbleContent][font="{$fontType}"][color={$color}][italic]{$message}[/italic][/color][/font][/BubbleContent]"[/italic][/color][/font][/italic][/font]
-chat-manager-entity-whisper-unknown-wrap-message = [BubbleHeader][font size=10][color={$color}][bold]{$language}[/bold][/color][/font][font size=11][italic]Хтось[/BubbleHeader] шепоче, [font="{$fontType}"][color={$color}][italic]"[BubbleContent][font="{$fontType}"][color={$color}][italic]{$message}[/italic][/color][/font][/BubbleContent]"[/italic][/color][/font][/italic][/font]
+chat-manager-entity-whisper-wrap-message = [font size=11][italic][BubbleHeader][Name]{$entityName}[/Name][/BubbleHeader] шепоче: "[BubbleContent]{$message}[/BubbleContent]"[/italic][/font]
+chat-manager-entity-whisper-unknown-wrap-message = [font size=11][italic][BubbleHeader]Хтось[/BubbleHeader] шепоче: "[BubbleContent]{$message}[/BubbleContent]"[/italic][/font]
 
 # THE() тут не використовується, тому що сутність та її ім'я технічно можна роз'єднати, якщо передати nameOverride...
 chat-manager-entity-me-wrap-message = [italic]{ PROPER($entity) ->
@@ -48,7 +48,7 @@ chat-manager-dead-channel-name = МЕРТВІ
 chat-manager-admin-channel-name = АДМІН
 
 chat-manager-rate-limited = Ви надсилаєте повідомлення надто швидко!
-chat-manager-rate-limit-admin-announcement = Гравець { $player } перевищив ліміт повідомлень на секунду. Слідкуйте за ним, якщо це трапляється часто.
+chat-manager-rate-limit-admin-announcement = Попередження про ліміт повідомлень: { $player }
 
 ## Speech verbs for chat
 
@@ -125,8 +125,6 @@ chat-speech-verb-ghost-4 = бурмоче
 chat-speech-verb-electricity-1 = потріскує
 chat-speech-verb-electricity-2 = дзижчить
 chat-speech-verb-electricity-3 = верещить
-
-#PIRATE START
 chat-manager-empathy-channel-name = ЕМПАТІЯ
 
 chat-speech-verb-name-goblin = Гоблін
@@ -134,12 +132,12 @@ chat-speech-verb-name-goblin = Гоблін
 chat-speech-verb-name-none = Ні
 chat-speech-verb-name-default = За замовчуванням
 chat-speech-verb-name-exclamation = Вигукнув
-chat-speech-verb-name-exclamation-strong = Крик!
-chat-speech-verb-name-question = Просимо
+chat-speech-verb-name-exclamation-strong = Крик
+chat-speech-verb-name-question = Питання
 chat-speech-verb-name-stutter = Заїкання
 chat-speech-verb-name-mumble = Бурмотіння
 chat-speech-verb-name-arachnid = Павукоподібний
-chat-speech-verb-name-moth = Метелик
+chat-speech-verb-name-moth = Міль
 chat-speech-verb-name-slime = Слиз
 chat-speech-verb-name-plant = Діона
 chat-speech-verb-name-robotic = Робот
@@ -155,14 +153,8 @@ chat-speech-verb-name-cluwne = Клюн
 chat-speech-verb-name-parrot = Папуга
 chat-speech-verb-name-ghost = Привид
 chat-speech-verb-name-electricity = Електрика
-chat-speech-verb-name-oni = Оні
-chat-speech-verb-oni-1 = бурчить
-chat-speech-verb-oni-2 = висвистує
-chat-speech-verb-oni-3 = викрикує
-chat-speech-verb-oni-4 = гуркоче
-chat-speech-verb-marish = Марс.
+chat-speech-verb-marish = Марсіанський
 
-#ПІРАТСЬКИЙ СТАРТ
 
 chat-manager-send-empathy-chat-wrap-message = {$source}: {$message}
 chat-manager-send-cult-chat-wrap-message = [bold]\[{ $channelName }\] [BubbleHeader]{ $player }[/BubbleHeader]:[/bold] [BubbleContent]{ $message }[/BubbleContent]
@@ -170,10 +162,10 @@ chat-manager-cult-channel-name = Культ Крові
 
 chat-manager-language-prefix = ({ $language }){" "}
 
-chat-speech-verb-skeleton-4 = клацання
-chat-speech-verb-skeleton-5 = тріщини
+chat-speech-verb-skeleton-4 = Клацання
+chat-speech-verb-skeleton-5 = Тріск
 chat-speech-verb-name-supermatter = Надматерія
-chat-speech-verb-supermatter = стани
+chat-speech-verb-supermatter = Стани
 
 chat-speech-verb-Psychomantic-1 = резонує
 chat-speech-verb-Psychomantic-2 = проєктує

@@ -1,2 +1,9 @@
 node-scan-popup = Ідентифікатор вузла {$id}
 node-scan-tooltip = Сканувати артефакт
+node-scan-no-data = Не знайдено даних про активний вузол
+node-scan-display-title = Сканер вузлів
+node-scanner-artifact-scanned-time = Артефакт востаннє скановано о {$time}
+node-scanner-artifact-state-ready = Артефакт готовий до взаємодії
+node-scanner-artifact-state-unlocking = Артефакт резонує з вашими діями
+node-scanner-artifact-state-cooldown = Артефакт відпочиває
+node-scanner-artifact-scanned-time-none = Проскануйте артефакт, щоб побачити поточний стан

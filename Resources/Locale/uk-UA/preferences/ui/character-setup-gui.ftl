@@ -8,8 +8,8 @@ character-setup-gui-create-new-character-button-tooltip = Дозволено м�
 character-setup-gui-character-picker-button-delete-button = Видалити
 character-setup-gui-character-picker-button-confirm-delete-button = Підтвердити
 
-character-setup-gui-character-setup-adminremarks-button = Admin Remarks
-character-setup-gui-save-panel-title = Unsaved character changes
-character-setup-gui-save-panel-save = Save
-character-setup-gui-save-panel-nosave = Don't save
-character-setup-gui-save-panel-cancel = Cancel
+character-setup-gui-character-setup-adminremarks-button = Адмінські замітки
+character-setup-gui-save-panel-title = Незбережені зміни персонажа
+character-setup-gui-save-panel-save = Зберегти
+character-setup-gui-save-panel-nosave = Не зберігати
+character-setup-gui-save-panel-cancel = Скасувати
