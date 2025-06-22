@@ -138,6 +138,7 @@
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Vrilly <tnjans@outlook.de>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
@@ -282,8 +283,8 @@
     - id: DoorRemoteService
     - id: HoPIDCard
     - id: IDComputerCircuitboard
-    - id: FundingAllocationComputerCircuitboard
-    - id: CargoRequestServiceComputerCircuitboard
+    - id: ComputerFundingAllocationFlatpack # Goobstation
+    - id: ComputerCargoRequestServiceFlatpack # Goobstation
     - id: RubberStampApproved
     - id: RubberStampDenied
     - id: RubberStampHop
@@ -383,7 +384,7 @@
     # - id: HandheldCrewMonitor # Goobstation - in webbing
     - id: Hypospray
     - id: MedicalTechFabCircuitboard
-    - id: CargoRequestMedicalComputerCircuitboard
+    - id: ComputerCargoRequestMedicalFlatpack # Goobstation
     - id: MedkitFilled
     - id: RubberStampCMO
     # Goobstation Start
@@ -450,7 +451,7 @@
     - id: HandTeleporter
     #- id: ProtolatheMachineCircuitboard # Goobstation - Science Techfab
     - id: ResearchComputerCircuitboard
-    - id: CargoRequestScienceComputerCircuitboard
+    - id: ComputerCargoRequestScienceFlatpack # Goobstation
     - id: RubberStampRd
     # - id: EncryptionKeyBinary # goobstation - readd the cool binary channel access. fuck you. # Goobstation - WYCI + malf ai major
     - id: AnomalyLocator # GoobStation - adding anomaly locator to the RD locker to reduce the amount of anoms that crit
@@ -517,7 +518,7 @@
     - id: RubberStampHos
     - id: SecurityTechFabCircuitboard
     #- id: WeaponDisabler # Goobstation (Disablers in belts)
-    - id: CargoRequestSecurityComputerCircuitboard
+    - id: ComputerCargoRequestSecurityFlatpack # Goobstation
     - id: WantedListCartridge
     - id: DrinkHosFlask
     - id: ClothingBeltSheathHeadOfSecurityFilled # Goobstation - security revamp
