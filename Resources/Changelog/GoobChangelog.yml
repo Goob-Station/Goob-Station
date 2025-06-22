@@ -11413,3 +11413,11 @@ Entries:
         Holo-Projector
   id: 1256
   time: '2025-06-22T04:34:41.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Add
+      message: >-
+        Added Broomsticks in the AutoDrobe. The final shatter for cosplay has
+        been implemented in it's place.
+  id: 1257
+  time: '2025-06-22T04:35:52.0000000+00:00'
