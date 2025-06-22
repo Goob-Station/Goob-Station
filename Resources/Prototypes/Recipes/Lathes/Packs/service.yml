@@ -78,9 +78,3 @@
   - JukeboxCircuitBoard
   - DawInstrumentMachineCircuitboard
   - SheetifierMachineCircuitboard # Goobstation - Moved from ScienceBoards
-
-- type: latheRecipePack
-  id: ServiceTools
-  recipes:
-  - PlantAnalyzer # Frontier
-  - PlantBagOfHolding # DeltaV
