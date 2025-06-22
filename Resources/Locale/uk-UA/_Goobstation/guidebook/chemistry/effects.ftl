@@ -4,8 +4,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-reagent-effect-guidebook-deal-stamina-damage =
-    { $chance ->
+reagent-effect-guidebook-deal-stamina-damage = { $chance ->
         [1] { $deltasign ->
                 [1] Завдає
                 *[-1] Лікує

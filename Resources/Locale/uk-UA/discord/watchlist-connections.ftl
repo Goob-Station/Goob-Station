@@ -4,8 +4,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-discord-watchlist-connection-header =
-    { $players ->
+discord-watchlist-connection-header = { $players ->
         [one] {$players} гравець у списку спостереження під'єднався
         *[other] {$players} гравців у списку спостереження під'єдналися
     } до {$serverName}

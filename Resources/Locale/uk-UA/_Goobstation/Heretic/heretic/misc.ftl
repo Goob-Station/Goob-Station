@@ -12,7 +12,7 @@ heretic-influence-start = Висмоктування впливу...
 heretic-ritualrune-examine = Поточний обраний ритуал: [color=yellow]{$rit}[/color]
 
 heretic-knowledge-gain = Ви дещо дізналися
-heretic-knowledge-loss = Ви дещо забули..
+heretic-knowledge-loss = Ви дещо забули
 
 heretic-clothing-component-fail = Неможливо це вдягнути!
 

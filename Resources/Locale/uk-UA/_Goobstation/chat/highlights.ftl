@@ -16,9 +16,9 @@ highlights-nanotrasen-representative = Представник Nanotrasen, Пре
 highlights-blueshield-officer = Офіцер Синього Щита, Синій Щит, "BSO", Місток, Командування
 
 # Безпека
-highlights-detective = Детектив, "Дет", СБ, Бриг, "Сек", "Закон"
-highlights-security-cadet = Кадет, Офіцер, СБ, Бриг, "Сек", "Закон"
-highlights-security-officer = Офіцер СБ, Офіцер, СБ, Бриг, "Сек", "Закон"
+highlights-detective = Детектив, "Дет", СБ, Бриг, "Сек", "Закон", Дек
+highlights-security-cadet = Кадет, Офіцер, СБ, Бриг, "Сек", "Закон", Безпека
+highlights-security-officer = Офіцер СБ, Офіцер, СБ, "Сек", "Закон", Бриг
 highlights-warden = Наглядач, "Варден", СБ, Бриг, "Сек", "Закон", "Перма", Пермабриг
 highlights-brigmedic = Бригмедик, Бригмед, СБ, Бриг, "Сек", "Закон", Лікар, "Медик"
 

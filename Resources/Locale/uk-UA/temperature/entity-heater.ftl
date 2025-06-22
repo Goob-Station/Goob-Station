@@ -1,5 +1,4 @@
--entity-heater-setting-name =
-    { $setting ->
+-entity-heater-setting-name = { $setting ->
         [off] вимк
         [low] низький
         [medium] середній
