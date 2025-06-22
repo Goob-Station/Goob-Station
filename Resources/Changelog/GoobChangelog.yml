@@ -11503,3 +11503,9 @@ Entries:
       message: Smoke implant can now be removed.
   id: 1266
   time: '2025-06-22T04:58:56.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Hyperzine injector kit now costs 40 TC and comes with 8 injectors.
+  id: 1267
+  time: '2025-06-22T04:59:38.0000000+00:00'
