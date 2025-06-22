@@ -11495,3 +11495,11 @@ Entries:
         works like a multi-use bluespace crystal but may also gib the user.
   id: 1265
   time: '2025-06-22T04:57:17.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: Returned syndicate binary encryption key in the form of an implant.
+    - type: Fix
+      message: Smoke implant can now be removed.
+  id: 1266
+  time: '2025-06-22T04:58:56.0000000+00:00'
