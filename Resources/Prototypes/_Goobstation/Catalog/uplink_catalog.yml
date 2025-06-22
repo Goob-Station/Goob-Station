@@ -1306,7 +1306,7 @@
   name:  uplink-reinforcement-radio-cyborg-saboteur-name
   description: uplink-reinforcement-radio-cyborg-saboteur-desc
   productEntity: ReinforcementRadioSyndicateCyborgSaboteur
-  icon: { sprite: _Goobstation\Actions\actions_borg.rsi, state: old-radio-borg-saboteur }
+  icon: { sprite: /Textures/_Goobstation/Actions/actions_borg.rsi, state: old-radio-borg-saboteur }
   cost:
     Telecrystal: 150
   categories:

@@ -227,6 +227,9 @@ uplink-mech-teleporter-assault-desc = Contains a lightly armored Cybersun mech w
 
 uplink-medborg-name = Syndicate Medical Cyborg
 uplink-medborg-desc = An advanced medical cyborg, capable of keeping the team alive. Comes with an avanced syndicate medical module, syndicate modules, tools, and a fire extinguisher.
+
+uplink-reinforcement-radio-cyborg-saboteur-name = Syndicate Saboteur Cyborg
+uplink-reinforcement-radio-cyborg-saboteur-desc = A stealthy saboteur cyborg disguised as an innocent engineering model. Perfect for infiltration, sabotage, and subtle destruction—until it's time to strike.
 # Chemicals
 
 uplink-lollypop-bundle-name = Donk Co. Lollypop Box

@@ -68,7 +68,7 @@
     icon: { sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi, state: icon }
 
 - type: entity
-  id: BorgModuleSyndicateMedicalAvanced
+  id: BorgModuleSyndicateMedicalAdvanced
   parent: [ BaseBorgModule, BaseProviderBorgModule, BaseSyndicateContraband ]
   name: advanced medical cyborg module
   components:
@@ -87,7 +87,7 @@
     - BorgDropper
 #   - todo: Add a medgun here when its going to be added by rouden
   - type: BorgModuleIcon
-    icon: { sprite: _Goobstation\Interface\Actions\Borg-actions.rsi, state: syndicate-medical-module }
+    icon: { sprite: /Textures/_Goobstation/Interface/Actions/Borg-actions.rsi, state: syndicate-medical-module }
 
 
 - type: entity
@@ -105,4 +105,4 @@
     - HandheldHealthAnalyzerUnpowered
     - OmnimedToolSyndie
   - type: BorgModuleIcon
-    icon: { sprite: _Goobstation\Interface\Actions\Borg-actions.rsi, state: syndicate-surgery-module }
+    icon: { sprite: /Textures/_Goobstation/Interface/Actions/Borg-actions.rsi, state: syndicate-surgery-module }
