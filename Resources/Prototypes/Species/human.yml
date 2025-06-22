@@ -74,19 +74,19 @@
       points: 2
       required: false
     HeadTop:
-      points: 6
+      points: 8
       required: false
     HeadSide:
-      points: 6
+      points: 8
       required: false
     Chest:
-      points: 6
+      points: 10
       required: false
     Legs:
-      points: 6
+      points: 10
       required: false
     Arms:
-      points: 6
+      points: 10
       required: false
 
 - type: humanoidBaseSprite

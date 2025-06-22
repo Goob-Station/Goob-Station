@@ -67,19 +67,19 @@
       required: true
       defaultMarkings: [ MothAntennasDefault ]
     HeadSide:
-      points: 6
+      points: 8
       required: false
     Head:
-      points: 6
+      points: 8
       required: false
     Chest:
-      points: 6
+      points: 8
       required: false
     Legs:
-      points: 6
+      points: 10
       required: false
     Arms:
-      points: 6
+      points: 10
       required: false
 
 - type: humanoidBaseSprite
