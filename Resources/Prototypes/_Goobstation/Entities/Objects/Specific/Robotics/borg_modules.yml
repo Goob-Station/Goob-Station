@@ -71,7 +71,7 @@
 
 - type: entity
   id: BorgModuleSyndicateMedical
-  parent: [ BaseBorgModule, BaseProviderBorgModule, BaseSyndicateContraband ]
+  parent: [ BaseBorgModuleSyndicateAssault, BaseProviderBorgModule, BaseSyndicateContraband ]
   name: syndicate medical cyborg module
   components:
   - type: Sprite
@@ -98,7 +98,7 @@
 
 - type: entity
   id: BorgModuleSyndicateChemicals
-  parent: [ BaseBorgModule, BaseProviderBorgModule, BaseSyndicateContraband ]
+  parent: [ BaseBorgModuleSyndicateAssault, BaseProviderBorgModule, BaseSyndicateContraband ]
   name: syndicate chemical cyborg module
   components:
   - type: Sprite
