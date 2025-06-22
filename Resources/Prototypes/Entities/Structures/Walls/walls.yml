@@ -188,70 +188,73 @@
     snap:
       - Wall
   components:
-    - type: RangedDamageSound
-      soundGroups:
-        Brute:
-          collection: MetalBulletImpact
-      soundTypes:
-        Heat:
-          collection: MetalLaserImpact
-    - type: Tag
-      tags:
-        - Wall
-    - type: IsRoof
-    - type: Sprite
-      drawdepth: Walls
-    - type: Icon
-      state: full
-    - type: PlacementReplacement
-      key: walls
-    - type: Damageable
-      damageContainer: StructuralInorganic
-      damageModifierSet: StructuralMetallic
-    - type: Physics
-      bodyType: Static
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape: !type:PhysShapeAabb
-            bounds: "-0.5,-0.5,0.5,0.5"
-          mask:
-            - FullTileMask
-          layer:
-            - WallLayer
-          density: 1000
-    - type: Occluder
-    - type: Airtight
-    - type: StaticPrice
-      price: 75
-    - type: BlockWeather
-    - type: Penetratable # Goobstation - Better snipers
-      penetrateDamage: 50
-      damagePenalty: 0.1
-    - type: ExaminableDamage
-      messages: WindowMessages
-    # PIRATE START
-    - type: BurnableByThermite
-    - type: GenericVisualizer
-      visuals:
-        enum.BurnableByThermiteVisuals.CoveredInThermite:
-          enum.BurnableByThermiteLayers.Puddle:
-            True: { state: covered_in_thermite, visible: true }
-            False: { visible: false }
-        enum.BurnableByThermiteVisuals.OnFireStart:
-          enum.BurnableByThermiteLayers.Puddle:
-            True: { state: thermite_reaction_start, visible: true }
-            False: { visible: false }
-        enum.BurnableByThermiteVisuals.OnFireFull:
-          enum.BurnableByThermiteLayers.Puddle:
-            True: { state: thermite_reaction_full, visible: true }
-            False: { visible: false }
-    - type: Appearance
-    - type: AddSpriteLayerAfter
-      sprite: _Pirate/burnable_by_thermite.rsi
-      layerIndex: enum.BurnableByThermiteLayers.Puddle
-    - type: UseDelay
-      delay: 3
+  - type: RangedDamageSound
+    soundGroups:
+      Brute:
+        collection:
+          MetalBulletImpact
+    soundTypes:
+      Heat:
+        collection:
+          MetalLaserImpact
+  - type: Tag
+    tags:
+    - Wall
+  - type: IsRoof
+  - type: Sprite
+    drawdepth: Walls
+  - type: Icon
+    state: full
+  - type: PlacementReplacement
+    key: walls
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 1000
+  - type: Occluder
+  - type: Airtight
+  - type: StaticPrice
+    price: 75
+  - type: BlockWeather
+  - type: Penetratable # Goobstation - Better snipers
+    penetrateDamage: 50
+    damagePenalty: 0.1
+  - type: ExaminableDamage
+    messages: WindowMessages
+  # PIRATE START
+  - type: BurnableByThermite
+  - type: GenericVisualizer
+    visuals:
+      enum.BurnableByThermiteVisuals.CoveredInThermite:
+        enum.BurnableByThermiteLayers.Puddle:
+          True: { state: covered_in_thermite, visible: true }
+          False: { visible: false }
+      enum.BurnableByThermiteVisuals.OnFireStart:
+        enum.BurnableByThermiteLayers.Puddle:
+          True: { state: thermite_reaction_start, visible: true }
+          False: { visible: false }
+      enum.BurnableByThermiteVisuals.OnFireFull:
+        enum.BurnableByThermiteLayers.Puddle:
+          True: { state: thermite_reaction_full, visible: true }
+          False: { visible: false }
+  - type: Appearance
+  - type: AddSpriteLayerAfter
+    sprite: _Pirate/burnable_by_thermite.rsi
+    layerIndex: enum.BurnableByThermiteLayers.Puddle
+  - type: UseDelay
+    delay: 3
   # PIRATE END
 
 - type: entity
