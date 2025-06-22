@@ -1,7 +1,6 @@
 using Content.Shared.Actions;
-using Content.Shared._Goobstation.Silicons.Borgs;
 
-namespace Content.Shared._Goobstation.Silicons.Borgs;
+namespace Content.Goobstation.Shared.Silicons.Borgs;
 
 /// <summary>
 /// Manages Borg disguises, such as the Syndicate Saboteur's chameleon projector.
@@ -15,8 +14,8 @@ public abstract class SharedBorgDisguiseSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<BorgDisguiseComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<BorgDisguiseComponent, ComponentShutdown>(OnCompRemove);
+        SubscribeLocalEvent<Goobstation.Shared.Silicons.Borgs.BorgDisguiseComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<Goobstation.Shared.Silicons.Borgs.BorgDisguiseComponent, ComponentShutdown>(OnCompRemove);
     }
 
     /// <summary>
@@ -24,7 +23,7 @@ public abstract class SharedBorgDisguiseSystem : EntitySystem
     /// </summary>
     /// <param name="uid">The entity to swap</param>
     /// <param name="comp">The component to use for getting the disguise state and description.</param>
-    protected void UpdateSharedAppearance(EntityUid uid, BorgDisguiseComponent comp)
+    protected void UpdateSharedAppearance(EntityUid uid, Goobstation.Shared.Silicons.Borgs.BorgDisguiseComponent comp)
     {
         if (TryPrototype(uid, out var entityPrototype))
         {
@@ -37,7 +36,7 @@ public abstract class SharedBorgDisguiseSystem : EntitySystem
     /// <summary>
     /// Gives the action to disguise
     /// </summary>
-    private void OnMapInit(EntityUid uid, BorgDisguiseComponent comp, MapInitEvent args)
+    private void OnMapInit(EntityUid uid, Goobstation.Shared.Silicons.Borgs.BorgDisguiseComponent comp, MapInitEvent args)
     {
         _actionsSystem.AddAction(uid, ref comp.ActionEntity, comp.Action);
     }
@@ -45,7 +44,7 @@ public abstract class SharedBorgDisguiseSystem : EntitySystem
     /// <summary>
     /// Takes away the action to disguise from the entity.
     /// </summary>
-    private void OnCompRemove(EntityUid uid, BorgDisguiseComponent comp, ComponentShutdown args)
+    private void OnCompRemove(EntityUid uid, Goobstation.Shared.Silicons.Borgs.BorgDisguiseComponent comp, ComponentShutdown args)
     {
         _actionsSystem.RemoveAction(uid, comp.ActionEntity);
     }

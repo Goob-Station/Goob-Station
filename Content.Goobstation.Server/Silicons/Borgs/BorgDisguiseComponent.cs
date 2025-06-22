@@ -1,9 +1,9 @@
+using Content.Goobstation.Shared.Silicons.Borgs;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Mobs;
-using Content.Shared._Goobstation.Silicons.Borgs;
 using Robust.Server.GameObjects;
 
-namespace Content.Server._Goobstation.Silicons.Borgs;
+namespace Content.Goobstation.Server.Silicons.Borgs;
 
 public sealed class BorgDisguiseSystem : SharedBorgDisguiseSystem
 {
@@ -13,9 +13,9 @@ public sealed class BorgDisguiseSystem : SharedBorgDisguiseSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<BorgDisguiseComponent, BorgDisguiseToggleActionEvent>(OnDisguiseToggle);
-        SubscribeLocalEvent<BorgDisguiseComponent, ItemToggledEvent>(OnToggled);
-        SubscribeLocalEvent<BorgDisguiseComponent, MobStateChangedEvent>(OnMobStateChanged);
+        SubscribeLocalEvent<Shared.Silicons.Borgs.BorgDisguiseComponent, Shared.Silicons.Borgs.BorgDisguiseToggleActionEvent>(OnDisguiseToggle);
+        SubscribeLocalEvent<Shared.Silicons.Borgs.BorgDisguiseComponent, ItemToggledEvent>(OnToggled);
+        SubscribeLocalEvent<Shared.Silicons.Borgs.BorgDisguiseComponent, MobStateChangedEvent>(OnMobStateChanged);
     }
 
     /// <summary>
@@ -24,7 +24,7 @@ public sealed class BorgDisguiseSystem : SharedBorgDisguiseSystem
     /// <param name="uid">The entity to toggle the disguise of.</param>
     /// <param name="comp">The disguise component of the entity.</param>
     /// <param name="args"></param>
-    private void OnDisguiseToggle(EntityUid uid, BorgDisguiseComponent comp, BorgDisguiseToggleActionEvent args)
+    private void OnDisguiseToggle(EntityUid uid, Shared.Silicons.Borgs.BorgDisguiseComponent comp, Shared.Silicons.Borgs.BorgDisguiseToggleActionEvent args)
     {
         if (args.Handled)
             return;
@@ -39,7 +39,7 @@ public sealed class BorgDisguiseSystem : SharedBorgDisguiseSystem
     /// </summary>
     /// <param name="uid">The entity having their disguise disabled.</param>
     /// <param name="comp">The disguise component being disabled.</param>
-    private void DisableDisguise(EntityUid uid, BorgDisguiseComponent comp)
+    private void DisableDisguise(EntityUid uid, Shared.Silicons.Borgs.BorgDisguiseComponent comp)
     {
         comp.Disguised = false;
         Dirty(uid, comp);
@@ -52,7 +52,7 @@ public sealed class BorgDisguiseSystem : SharedBorgDisguiseSystem
     /// <param name="uid">The entity to check</param>
     /// <param name="comp">The disguise component.</param>
     /// <param name="args">State change event.</param>
-    private void OnToggled(EntityUid uid, BorgDisguiseComponent comp, ref ItemToggledEvent args)
+    private void OnToggled(EntityUid uid, Shared.Silicons.Borgs.BorgDisguiseComponent comp, ref ItemToggledEvent args)
     {
         if (!args.Activated)
         {
@@ -66,7 +66,7 @@ public sealed class BorgDisguiseSystem : SharedBorgDisguiseSystem
     /// <param name="uid">The entity to check</param>
     /// <param name="component">The disguise component.</param>
     /// <param name="args">State change event.</param>
-    private void OnMobStateChanged(EntityUid uid, BorgDisguiseComponent component, MobStateChangedEvent args)
+    private void OnMobStateChanged(EntityUid uid, Shared.Silicons.Borgs.BorgDisguiseComponent component, MobStateChangedEvent args)
     {
         if (args.NewMobState != MobState.Alive)
         {
@@ -79,7 +79,7 @@ public sealed class BorgDisguiseSystem : SharedBorgDisguiseSystem
     /// </summary>
     /// <param name="uid">The entity to update.</param>
     /// <param name="comp">The component holding the disguise data.</param>
-    private void UpdateApperance(EntityUid uid, BorgDisguiseComponent comp)
+    private void UpdateApperance(EntityUid uid, Shared.Silicons.Borgs.BorgDisguiseComponent comp)
     {
         if (TryPrototype(uid, out var entityPrototype))
         {

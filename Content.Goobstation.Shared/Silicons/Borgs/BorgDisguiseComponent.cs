@@ -1,8 +1,9 @@
+
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Goobstation.Silicons.Borgs;
+namespace Content.Goobstation.Shared.Silicons.Borgs;
 
 /// <summary>
 /// Enables a borg to disguise as another borg. This holds data about the disguise needed.

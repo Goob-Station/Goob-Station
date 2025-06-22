@@ -1,9 +1,9 @@
-using Content.Shared._Goobstation.Silicons.Borgs;
-using Content.Shared.Silicons.Borgs.Components;
 using Content.Client.Silicons.Borgs;
+using Content.Goobstation.Shared.Silicons.Borgs;
+using Content.Shared.Silicons.Borgs.Components;
 using Robust.Client.GameObjects;
 
-namespace Content.Client._Goobstation.Silicons.Borgs;
+namespace Content.Goobstation.Client.Silicons.Borgs;
 
 public sealed class BorgDisguiseSystem : SharedBorgDisguiseSystem
 {
@@ -16,8 +16,8 @@ public sealed class BorgDisguiseSystem : SharedBorgDisguiseSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<BorgDisguiseComponent, BorgDisguiseToggleActionEvent>(OnDisguiseToggle);
-        SubscribeLocalEvent<BorgDisguiseComponent, AppearanceChangeEvent>(OnBorgAppearanceChanged);
+        SubscribeLocalEvent<Shared.Silicons.Borgs.BorgDisguiseComponent, Shared.Silicons.Borgs.BorgDisguiseToggleActionEvent>(OnDisguiseToggle);
+        SubscribeLocalEvent<Shared.Silicons.Borgs.BorgDisguiseComponent, AppearanceChangeEvent>(OnBorgAppearanceChanged);
     }
 
     /// <summary>
@@ -26,7 +26,7 @@ public sealed class BorgDisguiseSystem : SharedBorgDisguiseSystem
     /// <param name="uid">The entity to toggle the disguise of.</param>
     /// <param name="comp">The disguise component of the entity.</param>
     /// <param name="args"></param>
-    private void OnDisguiseToggle(EntityUid uid, BorgDisguiseComponent comp, BorgDisguiseToggleActionEvent args)
+    private void OnDisguiseToggle(EntityUid uid, Shared.Silicons.Borgs.BorgDisguiseComponent comp, Shared.Silicons.Borgs.BorgDisguiseToggleActionEvent args)
     {
         UpdateAppearance(uid, comp);
         args.Handled = true;
@@ -38,7 +38,7 @@ public sealed class BorgDisguiseSystem : SharedBorgDisguiseSystem
     /// <param name="uid">The entity updated.</param>
     /// <param name="comp">The disguise component of the updated entity.</param>
     /// <param name="args"></param>
-    private void OnBorgAppearanceChanged(EntityUid uid, BorgDisguiseComponent comp, ref AppearanceChangeEvent args)
+    private void OnBorgAppearanceChanged(EntityUid uid, Shared.Silicons.Borgs.BorgDisguiseComponent comp, ref AppearanceChangeEvent args)
     {
         if (args.Sprite == null)
             return;
@@ -50,7 +50,7 @@ public sealed class BorgDisguiseSystem : SharedBorgDisguiseSystem
     /// </summary>
     /// <param name="uid">The entity to update.</param>
     /// <param name="comp">The component holding the disguise data.</param>
-    private void UpdateAppearance(EntityUid uid, BorgDisguiseComponent comp)
+    private void UpdateAppearance(EntityUid uid, Shared.Silicons.Borgs.BorgDisguiseComponent comp)
     {
         AppearanceComponent? appearance = null;
         SpriteComponent? sprite = null;

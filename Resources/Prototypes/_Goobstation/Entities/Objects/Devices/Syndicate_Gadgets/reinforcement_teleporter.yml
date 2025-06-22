@@ -41,12 +41,9 @@
       rules: ghost-role-information-silicon-rules
       raffle:
         settings: default
-      requirements: # Goobstation - ghost roles requirements
+      requirements:
       - !type:OverallPlaytimeRequirement
         time: 18000 #5 hours
-      - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 7200 # 2h
     - type: GhostRoleMobSpawner
       prototype: PlayerBorgSyndicateMedical
 
