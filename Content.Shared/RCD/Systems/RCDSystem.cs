@@ -604,7 +604,7 @@ public sealed class RCDSystem : EntitySystem
         {
             case RcdMode.ConstructTile:
                 _mapSystem.SetTile(gridUid, mapGrid, position, new Tile(_tileDefMan[prototype.Prototype].TileId));
-                _adminLogger.Add(LogType.RCD, LogImpact.High, $"{ToPrettyString(user):user} used RCD to set grid: {gridUid} {position} to {prototype.Prototype}");
+                _adminLogger.Add(LogType.RCD, LogImpact.High, $"{ToPrettyString(user):user} використав RCD, щоб встановити на сітці: {gridUid} {position} {prototype.Prototype}");
                 break;
 
             case RcdMode.ConstructObject:
@@ -628,7 +628,7 @@ public sealed class RCDSystem : EntitySystem
                         break;
                 }
 
-                _adminLogger.Add(LogType.RCD, LogImpact.High, $"{ToPrettyString(user):user} used RCD to spawn {ToPrettyString(ent)} at {position} on grid {gridUid}");
+                _adminLogger.Add(LogType.RCD, LogImpact.High, $"{ToPrettyString(user):user} використав RCD, щоб створити {ToPrettyString(ent)} в {position} на сітці {gridUid}");
                 break;
 
             case RcdMode.Deconstruct:
@@ -638,12 +638,12 @@ public sealed class RCDSystem : EntitySystem
                     // Deconstruct tile (either converts the tile to lattice, or removes lattice)
                     var tileDef = (tile.Tile.GetContentTileDefinition().ID != "Lattice") ? new Tile(_tileDefMan["Lattice"].TileId) : Tile.Empty;
                     _mapSystem.SetTile(gridUid, mapGrid, position, tileDef);
-                    _adminLogger.Add(LogType.RCD, LogImpact.High, $"{ToPrettyString(user):user} used RCD to set grid: {gridUid} tile: {position} open to space");
+                    _adminLogger.Add(LogType.RCD, LogImpact.High, $"{ToPrettyString(user):user} використав RCD, щоб встановити на сітці: {gridUid} плитку: {position} відкритою до космосу");
                 }
                 else
                 {
                     // Deconstruct object
-                    _adminLogger.Add(LogType.RCD, LogImpact.High, $"{ToPrettyString(user):user} used RCD to delete {ToPrettyString(target):target}");
+                    _adminLogger.Add(LogType.RCD, LogImpact.High, $"{ToPrettyString(user):user} використав RCD, щоб видалити {ToPrettyString(target):target}");
                     QueueDel(target);
                 }
 

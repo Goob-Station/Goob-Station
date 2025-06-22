@@ -455,7 +455,7 @@ internal sealed partial class ChatManager : IChatManager
     {
         if (!_adminManager.IsAdmin(player))
         {
-            _adminLogger.Add(LogType.Chat, LogImpact.Extreme, $"{player:Player} attempted to send admin message but was not admin");
+            _adminLogger.Add(LogType.Chat, LogImpact.Extreme, $"{player:Player} спробував надіслати повідомлення адміністратора, не будучи ним");
             return;
         }
 

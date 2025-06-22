@@ -1,5 +1,5 @@
 delete-verb-get-data-text = Видалити
-edit-solutions-verb-get-data-text = Редагувати Рішення
+edit-solutions-verb-get-data-text = Редагувати рідини
 explode-verb-get-data-text = Підірвати
 ahelp-verb-get-data-text = Повідомлення
 admin-verbs-admin-logs-entity = Логи Сутності

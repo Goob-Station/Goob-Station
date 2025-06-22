@@ -391,7 +391,7 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
         if (user == null)
         {
             _adminLogger.Add(LogType.Explosion, LogImpact.High,
-                $"{ToPrettyString(uid):entity} exploded ({typeId}) at Pos:{(posFound ? $"{gridPos:coordinates}" : "[Grid or Map not found]")} with intensity {totalIntensity} slope {slope}");
+                $"{ToPrettyString(uid):entity} вибухнув ({typeId}) у Pos:{(posFound ? $"{gridPos:coordinates}" : "[Grid or Map not found]")} з інтенсивністю {totalIntensity} та спадом {slope}");
         }
         else
         {
@@ -400,7 +400,7 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
                 ? LogImpact.Extreme
                 : LogImpact.High;
             _adminLogger.Add(LogType.Explosion, logImpact,
-                $"{ToPrettyString(user.Value):user} caused {ToPrettyString(uid):entity} to explode ({typeId}) at Pos:{(posFound ? $"{gridPos:coordinates}" : "[Grid or Map not found]")} with intensity {totalIntensity} slope {slope}");
+                $"{ToPrettyString(user.Value):user} спричинив вибух {ToPrettyString(uid):entity} ({typeId}) у Pos:{(posFound ? $"{gridPos:coordinates}" : "[Grid or Map not found]")} з інтенсивністю {totalIntensity} та спадом {slope}");
         }
     }
 
@@ -428,7 +428,7 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
         }
 
         if (addLog) // dont log if already created a separate, more detailed, log.
-            _adminLogger.Add(LogType.Explosion, LogImpact.High, $"Explosion ({typeId}) spawned at {epicenter:coordinates} with intensity {totalIntensity} slope {slope}");
+            _adminLogger.Add(LogType.Explosion, LogImpact.High, $"Вибух ({typeId}) створено в {epicenter:coordinates} з інтенсивністю {totalIntensity} та спадом {slope}");
 
         // try to combine explosions on the same tile if they are the same type
         foreach (var queued in _queuedExplosions)

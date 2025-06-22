@@ -298,7 +298,7 @@ public sealed class DefusableSystem : SharedDefusableSystem
             TryDefuseBomb(wire.Owner, comp);
 
             _adminLogger.Add(LogType.Explosion, LogImpact.High,
-                $"{ToPrettyString(user):user} has defused {ToPrettyString(wire.Owner):entity}!");
+                $"{ToPrettyString(user):user} знешкодив {ToPrettyString(wire.Owner):entity}!");
         }
 
         return true;
