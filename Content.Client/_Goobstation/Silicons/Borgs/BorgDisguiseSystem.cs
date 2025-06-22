@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 LuciferMkshelter <stepanteliatnik2022@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared._Goobstation.Silicons.Borgs;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Client.Silicons.Borgs;
