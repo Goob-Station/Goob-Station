@@ -49,9 +49,9 @@
   priority: 5
 
 - type: lavalandGridRuin
-  id: OwOLab
+  id: Ratvar
   name: lavaland-ruin-laboratory
-  path: /Maps/_Lavaland/Lavaland/ruin_felenid_lab.yml
+  path: /Maps/_Lavaland/Lavaland/ruin_ratvar.yml
   priority: 6
 
 - type: lavalandGridRuin
