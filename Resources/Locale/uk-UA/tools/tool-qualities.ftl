@@ -34,7 +34,5 @@ tool-quality-rolling-tool-name = Качалка
 tool-quality-digging-name = Копати
 tool-quality-digging-tool-name = Лопата
 
-tool-quality-axing-name = Рубання
-tool-quality-axing-tool-name = Пожежна сокира
 tool-quality-ignition-name = Запалювання
 tool-quality-ignition-tool-name = Сірник

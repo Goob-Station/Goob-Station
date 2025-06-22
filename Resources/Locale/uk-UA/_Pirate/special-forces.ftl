@@ -1,8 +1,8 @@
-spec-forces-system-ertcall-annonce = Ми отримали повідомлення про виклик загону швидкого реагування. Очікуйте на прибуття. Слава НТ!
-spec-forces-system-ertcall-title = Спецпризначенець НТ
-spec-forces-system-CBURN-title = Спецпризначенець НТ
-spec-forces-system-CBURN-annonce = Ми отримали повідомлення про біологічну загрозу на станції. Очікуйте прибуття CBURN. Слава НТ!
+spec-forces-system-ertcall-annonce = Ми отримали запит на Загін Швидкого Реагування. Очікуйте на їхнє прибуття. Слава Нанотрейзен!
+spec-forces-system-ertcall-title = Спецпідрозділи Нанотрейзен
+spec-forces-system-CBURN-title = Спецпідрозділи Нанотрейзен
+spec-forces-system-CBURN-annonce = Ми отримали повідомлення про біологічну загрозу на станції. Очікуйте на прибуття команди ХБРЯ. Слава Нанотрейзен!
 
-spec-forces-system-ERT = ({ $who }) викливав ERT ({ $time })!
-spec-forces-system-CBURN = ({ $who }) викликав CBURN ({ $time })!
-spec-forces-system-DeathSquad = ({ $who }) викликав deathsquad ({ $time })!
+spec-forces-system-ERT = ({$who}) викликав ЗШР о ({$time})!
+spec-forces-system-CBURN = ({$who}) викликав ХБРЯ о ({$time})!
+spec-forces-system-DeathSquad = ({$who}) викликав Загін Смерті о ({$time})!

@@ -18,15 +18,13 @@ role-type-silicon-color = #6495ed
 role-type-silicon-antagonist-color = #c832e6
 
 # В ідеалі, назви підтипів мають бути короткими
-
-# В ідеалі, назви підтипів мають бути короткими
 role-subtype-traitor = Зрадник
 role-subtype-thief = Злодій
 role-subtype-ninja = Ніндзя
 role-subtype-nukie = Оперативник
 role-subtype-traitor-reinforcement = Підкріплення
-role-subtype-revolutionary = Революціонер
-role-subtype-head-revolutionary = Голова революції
+role-subtype-revolutionary = Рев
+role-subtype-head-revolutionary = Гол. Рев
 role-subtype-initial-infected = Заражений
 role-subtype-zombie = Зомбі
 role-subtype-dragon = Дракон

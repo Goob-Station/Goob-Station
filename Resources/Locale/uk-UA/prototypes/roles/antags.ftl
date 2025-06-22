@@ -1,5 +1,5 @@
-roles-antag-syndicate-agent-name = Агент Синдикату
-roles-antag-syndicate-agent-objective = Виконай свої цілі, не будучи спійманими.
+roles-antag-syndicate-agent-name = Зрадник
+roles-antag-syndicate-agent-objective = Виконайте свої завдання і залишайтеся непоміченим.
 
 roles-antag-initial-infected-name = Перший інфікований
 roles-antag-initial-infected-objective = Як тільки ви обернетесь, заразіть якомога більше інших членів екіпажу.
@@ -13,7 +13,7 @@ roles-antag-suspicion-innocent-objective = Виявити і ліквідува�
 roles-antag-suspicion-suspect-name = Підозрюваний
 roles-antag-suspicion-suspect-objective = Вбий невинних.
 
-roles-antag-nuclear-operative-commander-name = Командувач ядерних сил
+roles-antag-nuclear-operative-commander-name = Командир ядерних оперативників
 roles-antag-nuclear-operative-commander-objective = Очольте свою команду та знищить станцію.
 
 roles-antag-nuclear-operative-agent-name = Агент ядерних оперативників
@@ -22,26 +22,20 @@ roles-antag-nuclear-operative-agent-objective = Як і для стандарт�
 roles-antag-nuclear-operative-name = Ядерний оперативник
 roles-antag-nuclear-operative-objective = Знайдіть ядерний диск і підірвіть станцію.
 
-roles-antag-subverted-silicon-name = Зіпсована мікросхема
+roles-antag-subverted-silicon-name = Підкорений силікон
 roles-antag-subverted-silicon-objective = Дотримуйтесь нових законів і завдавайте шкоди станції.
 
 roles-antag-space-ninja-name = Космічний ніндзя
-roles-antag-space-ninja-objective = Використовуйте свою скритність, щоб диверсувати станцію, користуючись електричними проводами.
+roles-antag-space-ninja-objective = Використовуйте свою скритність, щоб саботувати станцію, поїдаючи електропроводку.
 
 roles-antag-thief-name = Злодій
-roles-antag-thief-objective = Додайте деяку власність NT до своєї особистої колекції без застосування насильства.
-
-roles-antag-space-mage-name = Чаклун
-roles-antag-space-mage-objective = Використовуй чари для власних забаганок. Розвесели себе.
-
-roles-antag-terminator-name = Термінатор
-roles-antag-terminator-objective = Убийте ціль будь-якою ціною, від цього залежить майбутнє
+roles-antag-thief-objective = Поповніть свою особисту колекцію власністю NT, не вдаючись до насильства.
 
 roles-antag-syndicate-agent-sleeper-name = Сплячий агент синдикату
 roles-antag-syndicate-agent-sleeper-objective = Форма синдикативного агента, який може активуватися в будь-який момент посеред зміни.
 roles-antag-dragon-name = Космічний Дракон
 roles-antag-dragon-objective = Створіть армію коропів, щоб захопити цей квадрант.
-roles-antag-generic-solo-antagonist-name = Соло Антагоніст
+roles-antag-generic-solo-antagonist-name = Одиночний Антагоніст
 roles-antag-generic-free-agent-name = Вільний Агент
 roles-antag-generic-team-antagonist-name = Командний Антагоніст
 roles-antag-generic-silicon-antagonist-name = Кремнієвий Антагоніст

@@ -90,7 +90,7 @@ ui-options-hud-layout = Схема HUD:
 ## Controls menu
 
 ui-options-binds-reset-all = Скинути ВСІ сполучення клавіш
-ui-options-binds-explanation = Нажміть, щоб змінити кнопку, ПКМ - щоб очистити
+ui-options-binds-explanation = Натисніть, щоб змінити кнопку, ПКМ - щоб очистити
 ui-options-unbound = Вільний
 ui-options-bind-reset = Скинути
 ui-options-key-prompt = Натисніть клавішу...
@@ -271,7 +271,6 @@ ui-options-announcer-disable-multiple-sounds-tooltip = Деякі оголоше
 ui-options-hotkey-default-walk = Ходити за замовчуванням
 ui-options-no-filters = Вимкнути расові візуальні фільтри
 ui-options-function-look-up = Подивіться вгору/Цільтеся
-ui-options-function-auto-get-up = Автоматично вставати після падіння
 ui-options-function-hold-look-up = Утримуйте клавішу, щоб прицілитися
 
 ui-options-vp-vertical-fit = Вертикальне кріплення оглядового вікна
@@ -282,11 +281,11 @@ ui-options-function-toggle-crawling-under = Перемикач повзання 
 ui-options-function-toggle-round-end-summary-window = Перемикання круглого кінцевого вікна підсумків
 ui-options-header-targeting = Прицілювання
 ui-options-function-target-head = Ціль - голова
-ui-options-function-target-torso = Ціль - торс
-ui-options-function-target-left-arm = Ціль - ліва рука
-ui-options-function-target-right-arm = Ціль - права рука
-ui-options-function-target-left-leg = Ціль - ліва нога
-ui-options-function-target-right-leg = Ціль - права нога
+ui-options-function-target-torso = Ціль - груди
+ui-options-function-target-left-arm = Ціль: ліва рука
+ui-options-function-target-right-arm = Ціль: права рука
+ui-options-function-target-left-leg = Ціль: ліва нога
+ui-options-function-target-right-leg = Ціль: права нога
 
 ui-options-chatstack = Автоматично об'єднувати однакові повідомлення чату
 ui-options-chatstack-off = Вимкнено
@@ -302,7 +301,6 @@ ui-options-mood-visual-effects = Увімкніть візуальні ефек�
 
 ui-options-function-smart-equip-back = Автоматично екіпірувати в слот спини
 ui-options-binds-search = Пошук
-ui-options-log-in-chat = Записувати дії в чат
 ui-options-tab-accessibility = Доступність
 ui-options-tab-admin = Адмін
 ui-options-value-percent = { TOSTRING($value, "P0") }
@@ -348,11 +346,11 @@ ui-options-speech-bubble-background-opacity = Непрозорість фону 
 
 ## Зміна Shitmed
 ui-options-function-target-chest = Ціль: груди
-ui-options-function-target-groin = Ціль: пах
-ui-options-function-target-left-hand = Ціль: ліва рука
-ui-options-function-target-right-hand = Ціль: права рука
-ui-options-function-target-left-foot = Ціль: ліва нога
-ui-options-function-target-right-foot = Ціль: права нога
+ui-options-function-target-groin = Ціль: пахвина
+ui-options-function-target-left-hand = Ціль: ліва кисть
+ui-options-function-target-right-hand = Ціль: права кисть
+ui-options-function-target-left-foot = Ціль: ліва стопа
+ui-options-function-target-right-foot = Ціль: права стопа
 ui-options-admin-player-panel = Список гравців в меню адміна
 ui-options-admin-playerlist-separate-symbols = Показувати окремі символи для кожного типу ролі антагоніста
 ui-options-admin-playerlist-character-color = Розфарбовувати імена персонажів-антагоністів

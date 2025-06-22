@@ -56,9 +56,11 @@ chatsan-word-20 = лох
 chatsan-replacement-20 = вайло
 
 chatsan-word-21 = хуйло
+chatsan-replacement-21 = наволоч
 chatsan-word-22 = єблан
+chatsan-replacement-22 = наволоч
 chatsan-word-23 = гандон
-chatsan-replacement-please = наволоч
+chatsan-replacement-23 = наволоч
 
 chatsan-word-24 = лошара
 chatsan-replacement-24 = невдаха
@@ -106,8 +108,9 @@ chatsan-word-38 = на хуй
 chatsan-replacement-38 = під три чорти
 
 chatsan-word-39 = хєр
+chatsan-replacement-39 = фігня
 chatsan-word-40 = хєрня
-chatsan-replacement-etcetera = фігня
+chatsan-replacement-40 = фігня
 
 chatsan-word-41 = дебіл
 chatsan-replacement-41 = пришелепкуватий
@@ -120,15 +123,15 @@ chatsan-replacement-43 = з'їж снікерс
 
 chatsan-word-44 = tbf
 chatsan-replacement-44 = чесно кажучи
-chatsan-word-45 = дд
+chatsan-word-45 = дякую
 chatsan-replacement-45 = дуже дякую
-chatsan-word-46 = дв
+chatsan-word-46 = дуже вдячний
 chatsan-replacement-46 = щиро дякую
-chatsan-word-47 = бб
+chatsan-word-47 = бувай
 chatsan-replacement-47 = побачимось
-chatsan-word-48 = пз
+chatsan-word-48 = зз
 chatsan-replacement-48 = прямо зараз
-chatsan-word-49 = дм
+chatsan-word-49 = д.м
 chatsan-replacement-49 = на даний момент
 chatsan-word-50 = кб
 chatsan-replacement-50 = клянусь богом
@@ -136,9 +139,9 @@ chatsan-word-51 = швидко
 chatsan-replacement-51 = дуже швидко
 chatsan-word-52 = нх
 chatsan-replacement-52 = не хвилюйся
-chatsan-word-53 = дт
+chatsan-word-53 = де ти?
 chatsan-replacement-53 = де ти
-chatsan-word-54 = тн
+chatsan-word-54 = тчн
 chatsan-replacement-54 = точно
 chatsan-word-55 = нбб
 chatsan-replacement-55 = не буду брехати
@@ -152,19 +155,17 @@ chatsan-word-59 = мп
 chatsan-replacement-59 = моя провина
 chatsan-word-60 = іх
 chatsan-replacement-60 = ісусе христе
-chatsan-word-61 = вй
+chatsan-word-61 = вж іду
 chatsan-replacement-61 = вже йду
-chatsan-word-62 = вд
+chatsan-word-62 = в дорозі
 chatsan-replacement-62 = в дорозі
 chatsan-word-63 = тз
 chatsan-replacement-63 = ти знаєш
 chatsan-word-64 = квс
 chatsan-replacement-64 = клянуся всім на світі
-chatsan-word-65 = мп
-chatsan-replacement-65 = мені пофіг
 chatsan-word-66 = щс
 chatsan-replacement-66 = щось
-chatsan-word-67 = вд
+chatsan-word-67 = вс г
 chatsan-replacement-67 = все добре
 
 # goob start
@@ -174,6 +175,4 @@ chatsan-word-69 = мцб
 chatsan-replacement-69 = мене це бісить
 chatsan-word-70 = зсп
 chatsan-replacement-70 = закрий свою пащеку
-chatsan-word-71 = нмб
-chatsan-replacement-71 = не можу брехати
 # goob end

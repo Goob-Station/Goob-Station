@@ -5,7 +5,7 @@ cargo-console-menu-account-name-none-text = Немає
 cargo-console-menu-shuttle-name-label = Ім'я шатла:{" "}
 cargo-console-menu-shuttle-name-none-text = Немає
 cargo-console-menu-points-label = Космобаксів:{" "}
-cargo-console-menu-points-amount = {$amount}$
+cargo-console-menu-points-amount = ${$amount}
 cargo-console-menu-shuttle-status-label = Статус шатлу:{" "}
 cargo-console-menu-shuttle-status-away-text = Відлетів
 cargo-console-menu-order-capacity-label = Обсяг замовлення:{" "}
@@ -32,11 +32,14 @@ cargo-console-unfulfilled = Не вистачає місця для викона
 cargo-console-trade-station = Відправлено до {$destination}
 
 cargo-console-paper-print-name = Замовлення #{$orderNumber}
-cargo-console-paper-print-text = Замовлення: #{$orderNumber}
-    Предмет: {$itemName}
-    Замовлено: {$requester}
-    Причина: {$reason}
-    Затверджено: {$approver}
+cargo-console-paper-print-text = [head=2]Замовлення #{$orderNumber}[/head]
+    {"[bold]Предмет:[/bold]"} {$itemName} (x{$orderQuantity})
+    {"[bold]Замовлено:[/bold]"} {$requester}
+
+    {"[head=3]Інформація про замовлення[/head]"}
+    {"[bold]Платник[/bold]:"} {$account} [font="Monospace"]\[{$accountcode}\][/font]
+    {"[bold]Затверджено:[/bold]"} {$approver}
+    {"[bold]Причина:[/bold]"} {$reason}
 
 # Cargo shuttle console
 cargo-shuttle-console-menu-title = Консоль вантажного шаттла
@@ -51,7 +54,7 @@ cargo-console-unlock-approved-order-broadcast = [bold]{$productName} x{$orderAmo
 
 cargo-console-cooldown-count = Неможливо замовити більше одного {$product} за раз.
 cargo-console-cooldown-active = Замовлення на {$product} неможливо розмістити ще протягом {$timeCount} {$timeUnits}.
-cargo-console-menu-account-name-format = [bold][color={$color}]{$name}[/color][/bold] [font="Monospace"]\[{$code}\][/font]
+cargo-console-menu-account-name-format = [bold][color={$color}]{$name}[/color][/bold] [font=""Monospace""]\[{$code}\][/font]
 cargo-console-menu-tab-title-orders = Замовлення
 cargo-console-menu-tab-title-funds = Перекази
 cargo-console-menu-account-action-transfer-limit = [bold]Ліміт переказу:[/bold] ${$limit}
