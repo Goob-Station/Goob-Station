@@ -11379,3 +11379,11 @@ Entries:
       message: His Grace is here. Treat him with respect.
   id: 1251
   time: '2025-06-22T04:11:23.0000000+00:00'
+- author: Rouden, Timfa2112
+  changes:
+    - type: Add
+      message: >-
+        Ported Minebot, Welderbot, Plantbot and Fillbot from EinsteinEngines.
+        You can craft them in the craft menu.
+  id: 1252
+  time: '2025-06-22T04:12:03.0000000+00:00'
