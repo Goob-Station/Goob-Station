@@ -4,3 +4,4 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 voice-modulator-name-change-window = Зміна імені модулятора голосу
+voice-Modulator-name-change-window = Зміна назви голосового модулятора 
