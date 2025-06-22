@@ -11525,3 +11525,11 @@ Entries:
       message: Lisp accent slightly more comprehensible
   id: 1269
   time: '2025-06-22T05:01:30.0000000+00:00'
+- author: vorpuscl
+  changes:
+    - type: Fix
+      message: >-
+        The lower half of the shadowkin sprite now properly appears underneath
+        clothing.
+  id: 1270
+  time: '2025-06-22T05:01:47.0000000+00:00'
