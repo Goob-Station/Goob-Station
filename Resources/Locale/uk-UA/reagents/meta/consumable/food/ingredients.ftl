@@ -22,16 +22,16 @@ reagent-desc-oats = Використовується для різноманіт
 reagent-name-enzyme = універсальний фермент
 reagent-desc-enzyme = Використовується для приготування різноманітних страв.
 
-reagent-name-egg = Варене яйце
+reagent-name-egg = варене яйце
 reagent-desc-egg = Приготований курячий ембріон, смакота.
 
-reagent-name-raw-egg = Сире яйце
+reagent-name-raw-egg = сире яйце
 reagent-desc-raw-egg = Використовується для випічки.
 
 reagent-name-sugar = цукор
 reagent-desc-sugar = Смачний космічний цукор!
 
-reagent-name-blackpepper = Чорний перець
+reagent-name-blackpepper = чорний перець
 reagent-desc-blackpepper = Часто використовується для приправлення їжі або щоб змусити людей чхати.
 
 reagent-name-vinegar = оцет
@@ -40,10 +40,10 @@ reagent-desc-vinegar = Часто використовується для при
 reagent-name-rice = рис
 reagent-desc-rice = Тверді, маленькі білі зерна.
 
-reagent-name-oil-olive = Оливкова олія
+reagent-name-oil-olive = оливкова олія
 reagent-desc-oil-olive = В'язка та ароматна.
 
-reagent-name-oil = Олія
+reagent-name-oil = олія
 reagent-desc-oil = Використовується кухарями для приготування їжі.
 
 reagent-name-capsaicin-oil = Капсаїцинова олія

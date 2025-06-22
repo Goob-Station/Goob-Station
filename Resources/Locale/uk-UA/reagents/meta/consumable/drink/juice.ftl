@@ -24,7 +24,7 @@ reagent-desc-juice-blue-pumpkin = Сік синього гарбуза. Пахн
 reagent-name-juice-bungo = сік бунго
 reagent-desc-juice-bungo = Сік плоду бунго. Екзотика!
 
-reagent-name-juice-berry-poison = Отруйний ягідний сік
+reagent-name-juice-berry-poison = отруйний ягідний сік
 reagent-desc-juice-berry-poison = Напрочуд смачний сік, змішаний з різних видів дуже смертоносних і токсичних ягід.
 
 reagent-name-juice-carrot = морквяний сік

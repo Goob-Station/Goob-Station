@@ -176,3 +176,11 @@ chatsan-replacement-69 = мене це бісить
 chatsan-word-70 = зсп
 chatsan-replacement-70 = закрий свою пащеку
 # goob end
+
+chatsan-replacement-please = будь ласка
+chatsan-replacement-etcetera = тощо
+chatsan-word-65 = пох
+chatsan-replacement-65 = мені начхати
+chatsan-word-71 = нбм
+chatsan-replacement-71 = не можу брехати
+# кінець goob

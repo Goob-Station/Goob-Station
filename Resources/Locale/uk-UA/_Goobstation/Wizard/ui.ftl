@@ -14,3 +14,7 @@ store-refund-window-nothing-to-refund = Немає чого повертати.
 store-category-spellbook-summons = Прикликання
 store-category-spellbook-special = Особливі
 store-category-spellbook-bundles = Набори
+
+store-caregory-spellbook-summons = Заклинання
+store-caregory-spellbook-special = Спеціальні
+store-caregory-spellbook-bundles = Набори

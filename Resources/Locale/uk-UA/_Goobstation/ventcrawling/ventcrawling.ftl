@@ -4,5 +4,5 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 ventcrawling-enter-pipe-network = Увійти в мережу труб
-ventcrawling-block-enter-reson-equiptment = Ваше спорядження заважає вам увійти до мережі труб.
-ventcrawling-block-enter-reson-hand = Потрібні вільні руки, щоб увійти до мережі труб.
+ventcrawling-block-enter-reson-equiptment = ваше спорядження заважає вам увійти до мережі труб
+ventcrawling-block-enter-reson-hand = потрібні вільні руки, щоб увійти до мережі труб

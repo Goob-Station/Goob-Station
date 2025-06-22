@@ -152,7 +152,7 @@ reagent-desc-puncturase = Шипучий хімікат, що допомагає
 reagent-name-bruizine = бруізин
 reagent-desc-bruizine = Спочатку розроблений як ліки від кашлю, виявилося, що цей хімікат надзвичайно ефективний для лікування тупих травм.
 
-reagent-name-holywater = Свята вода
+reagent-name-holywater = свята вода
 reagent-desc-holywater = Найчистіша і найпрозоріша з вод, прямо з рук божих, відома тим, що магічним чином загоює рани.
 
 reagent-name-pyrazine = піразин
@@ -176,7 +176,7 @@ reagent-desc-mannitol = Ефективно відновлює пошкоджен
 reagent-name-psicodine = псикодин
 reagent-desc-psicodine = Пригнічує тривогу та інші форми психічного розладу. Передозування викликає галюцинації та незначні пошкодження токсинами.
 
-reagent-name-potassium-iodide = Йодид калію
+reagent-name-potassium-iodide = йодид калію
 reagent-desc-potassium-iodide = Зменшує шкідливі ефекти радіації на 90%. Тільки для профілактичного використання.
 
 reagent-name-haloperidol = галоперидол

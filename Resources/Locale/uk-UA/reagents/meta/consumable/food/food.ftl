@@ -21,11 +21,11 @@ reagent-desc-vitamin = Міститься у здоровій, повноцін�
 reagent-name-protein = протеїн
 reagent-desc-protein = Міститься в певних стравах, корисний для здоров'я організму.
 
-reagent-name-cocoapowder = Какао-порошок
+reagent-name-cocoapowder = какао-порошок
 reagent-desc-cocoapowder = З найкращих сортів какао-бобів
 
-reagent-name-butter = Масло
+reagent-name-butter = масло
 reagent-desc-butter = Ви можете в це повірити!
 
-reagent-name-pumpkin-flesh = Гарбузова м'якоть
+reagent-name-pumpkin-flesh = гарбузова м'якоть
 reagent-desc-pumpkin-flesh = М'ясисті, солодкі залишки гарбуза.

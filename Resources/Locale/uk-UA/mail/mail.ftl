@@ -1,7 +1,0 @@
-
-
-# Mailnow
-
-
-# Mailtestbulk
-

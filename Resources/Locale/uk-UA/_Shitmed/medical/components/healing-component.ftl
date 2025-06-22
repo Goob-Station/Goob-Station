@@ -1,7 +1,7 @@
 medical-item-cant-use-rebell = Ви не можете допомогти { $target }. У нього/неї занадто сильна кровотеча...
 cant-heal-damage-container-rebell = Ви не можете допомогти { $target } за допомогою { $used }
 rebell-medical-item-stop-bleeding-fully = Ви повністю зупинили кровотечу.
-rebell-medical-item-stop-bleeding-partially = Ви частково зупинили кровотечу.
+rebell-medical-item-stop-bleeding-partially = Ви частково зупинили кровотечу
 does-not-exist-rebell = Частина тіла відсутня.
 puts-on-a-tourniquet = { CAPITALIZE($user) } накладає джгут на { $part }.
 takes-off-a-tourniquet = { CAPITALIZE($user) } знімає джгут з { $part }.

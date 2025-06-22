@@ -16,13 +16,13 @@ reagent-name-aluminium = алюміній
 reagent-desc-aluminium = Сріблястий, м'який, немагнітний і пластичний метал.
 
 reagent-name-ash = попіл
-reagent-desc-ash = Світло-сірий порошкоподібний залишок.
+reagent-desc-ash = Світло-сірий порошкоподібний залишок
 
 reagent-name-carbon = вуглець
 reagent-desc-carbon = Чорна, кристалічна тверда речовина.
 
 reagent-name-charcoal = деревне вугілля
-reagent-desc-charcoal = Чорна, пориста тверда речовина.
+reagent-desc-charcoal = Чорна, пориста тверда речовина
 
 reagent-name-chlorine = хлор
 reagent-desc-chlorine = Жовто-зелений газ, токсичний для людини.

@@ -84,3 +84,5 @@ names-rodentia-last-dataset-84 = Злодійкуватий
 names-rodentia-last-dataset-85 = Сміттєїд
 names-rodentia-last-dataset-86 = Тунелебудівник
 names-rodentia-last-dataset-87 = Сіпаючий-вусами
+
+names-rodentia-last-dataset-51 = Ненажерливий

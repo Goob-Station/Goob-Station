@@ -17,7 +17,7 @@ accent-cheese-words-6 = не погоджуюсь
 accent-cheese-words-replace-6 = не по-брі-годжуюсь
 
 accent-cheese-words-7 = привіт
-accent-cheese-words-replace-7 = Сирно вас бачити?
+accent-cheese-words-replace-7 = сирно вас бачити?
 
 accent-cheese-words-8 = чудово
 accent-cheese-words-replace-8 = натерто
@@ -38,7 +38,7 @@ accent-cheese-words-13 = синій
 accent-cheese-words-replace-13 = бле
 
 accent-cheese-words-14 = привіт
-accent-cheese-words-replace-14 = Сирно вас бачити?
+accent-cheese-words-replace-14 = сирно вас бачити?
 
 accent-cheese-words-15 = до побачення
 accent-cheese-words-replace-15 = гауда-бачення

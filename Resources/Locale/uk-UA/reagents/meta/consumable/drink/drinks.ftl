@@ -57,7 +57,7 @@ reagent-desc-arnold-palmer = А тепер дивіться на цей удар
 reagent-name-milk = молоко
 reagent-desc-milk = Непрозора біла рідина, що виробляється молочними залозами ссавців.
 
-reagent-name-milk-goat = Козяче молоко
+reagent-name-milk-goat = козяче молоко
 reagent-desc-milk-goat = Непрозора біла рідина, що виробляється козою. Високий вміст маслянки.
 
 reagent-name-milk-oat = вівсяне молоко
@@ -108,5 +108,5 @@ reagent-desc-pilk = Нудотна суміш молока та коли.
 reagent-name-posca = поска
 reagent-desc-posca = Напій бідних воїнів із забутої епохи.
 
-reagent-name-mopwata = Швабровода
+reagent-name-mopwata = швабровода
 reagent-desc-mopwata = Брудна, застояна вода зі швабри.

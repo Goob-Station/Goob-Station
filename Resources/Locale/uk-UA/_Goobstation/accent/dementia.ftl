@@ -12,7 +12,7 @@ accent-dementia-prefix-4 = Кхм,
 accent-dementia-prefix-5 = Кха,
 
 accent-dementia-suffix-1 = , чекайте, про що я знову говорив?
-accent-dementia-suffix-2 = , чи щось таке..
+accent-dementia-suffix-2 = , чи щось таке.
 accent-dementia-suffix-3 = , ти... чекай, хто ти знову?
 accent-dementia-suffix-4 = , я думаю.
 accent-dementia-suffix-5 = . О, до речі, ви не бачили моїх таблеток?

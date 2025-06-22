@@ -3,4 +3,4 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-ingestion-blocker-block-smoke-examine = Ця маска має вбудовані бойові фільтри, що блокують вдихання диму, навіть при вимкнених внутрішніх системах.
+ingestion-blocker-block-smoke-examine = Ця маска має вбудовані бойові фільтри, що блокують вдихання диму, навіть при вимкнених внутрішніх системах

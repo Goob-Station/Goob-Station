@@ -26,3 +26,5 @@ genpop-locker-ui-button-done = Готово
 genpop-locker-action-end-early = Завершити термін достроково
 genpop-locker-action-clear-id = Очистити ID
 genpop-locker-action-reset-sentence = Скинути термін ({NATURALFIXED($percent, 0)}% відбуто)
+
+genpop-locket-ui-button-done = Готово

@@ -6,7 +6,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-goobstation-medicalpatch-bounty-desc = У нас тут надзвичайна медична ситуація. Надішліть кілька пластирів, щоб допомогти нам.
+goobstation-medicalpatch-bounty-desc = У нас тут надзвичайна медична ситуація. Надішліть кілька пластирів, щоб допомогти нам
 goobstation-medicalpatch-bounty-name = Медичні пластирі
 
 goobstation-medicalpatch-sticy-trystick = Почато накладання пластиру

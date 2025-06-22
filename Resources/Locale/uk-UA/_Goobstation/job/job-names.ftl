@@ -29,9 +29,9 @@ job-name-highcommander = Верховний Командувач
 # Half Life
 
 job-name-hecu = Оперативник HECU
-job-name-governmentman = G-Man
+job-name-governmentman = G-мен
 
-# Misc
+# Різне
 
 job-name-conquest = Завойовник
 job-name-mercenarycaptain = Капітан Найманців

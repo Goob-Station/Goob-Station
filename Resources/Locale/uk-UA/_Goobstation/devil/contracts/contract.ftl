@@ -1,5 +1,5 @@
-devil-contract-contractee = Контрагент
-devil-contract-contractor = Підрядник
+devil-contract-contractee = контрагент
+devil-contract-contractor = підрядник
 
 devil-contract-early-sign-failed = Підрядник повинен чекати, поки контрагент підпише першим!
 devil-contract-no-soul-sign-failed = У вас немає душі для продажу!

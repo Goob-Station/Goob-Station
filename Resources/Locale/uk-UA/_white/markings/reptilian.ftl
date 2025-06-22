@@ -66,9 +66,9 @@ marking-LizardChestSpinesLongWithoutTail = Ящір, груди, шипи (до�
 marking-LizardChestSpinesLongWithoutTail-spines_long = Шипи
 
 marking-LizardChestSpinesLongMembrane = Ящір, груди, шипи (довгі, перетинка)
-marking-LizardChestSpinesLongMembrane-spines_longmembrane = Шипи
+marking-LizardChestSpinesLongMembrane-spines_longmembrane = шипи
 marking-LizardChestSpinesLongMembraneWithoutTail = Ящір, груди, шипи (довгі, перетинка, без хвоста)
-marking-LizardChestSpinesLongMembraneWithoutTail-spines_longmembrane = Шипи
+marking-LizardChestSpinesLongMembraneWithoutTail-spines_longmembrane = шипи
 
 marking-LizardChestSpinesShort = Ящір, груди, шипи (короткі)
 marking-LizardChestSpinesShort-spines_short = Шипи

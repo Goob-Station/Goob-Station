@@ -72,7 +72,7 @@ gs-balanceui-shop-token-antag = Жетон антагоніста високог
 gs-balanceui-shop-token-admin-abuse = Жетон зловживання адміна
 gs-balanceui-shop-token-hat = Жетон капелюха
 
-gs-balanceui-shop-buy-token-antag-desc = Дозволяє стати будь-яким антагоністом (окрім чарівників).
+gs-balanceui-shop-buy-token-antag-desc = Дозволяє стати будь-яким антагоністом (окрім чарівників)
 gs-balanceui-shop-buy-token-admin-abuse-desc = Дозволяє вам попросити адміна зловживати своїми повноваженнями проти вас. Адмінам рекомендується не стримуватися.
 gs-balanceui-shop-buy-token-hat-desc = Адмін видасть вам випадковий капелюх.
 

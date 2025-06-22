@@ -39,7 +39,7 @@ selectable-set-thief-smuggler-name = Набір «Контрабандист»
 selectable-set-thief-smuggler-description = Усім злодіям потрібне місце, де можна сховати свої товари в темряві.
     Не забудьте прив'язати свій фултон.
     Включає: маяк фултона, 10 фултонів, 3 димові гранати,
-    та невидимий ящик для зберігання цінної здобичі.
+    та невидимий ящик для зберігання цінної здобичі
 
 selectable-set-syndicate-spy-name = Набір «Шпигун»
 selectable-set-syndicate-spy-description = Виконуйте свої завдання тихо за допомогою цієї добірки предметів для скритності.
@@ -87,43 +87,43 @@ selectable-set-syndicate-friendship-description = Дружба — це магі
 
 selectable-set-syndicate-carp-name = Набір «Карп»
 selectable-set-syndicate-carp-description = Грр! Рррр! Грр... Грроу?! КОВАБУНГА!
-    Містить: Сплячого Карпа, 10 зневоднених карпів та ключ шифрування Синдикату.
+    Містить: Сплячого Карпа, 10 зневоднених карпів та ключ шифрування Синдикату
 
-selectable-set-blueshield-shield-name = Набір «Синій щит»
+selectable-set-blueshield-shield-name = набір «Синій щит»
 selectable-set-blueshield-shield-description = Знакова тезка цих солдатів.
     Включає: великий щит та налаштований електрошокер DT-4 Atrocity.
 
-selectable-set-blueshield-revolver-name = Набір «Револьвер»
+selectable-set-blueshield-revolver-name = набір «Револьвер»
 selectable-set-blueshield-revolver-description = Закінчення боєприпасів — найгірше, що може статися в перестрілці.
     Включає: енергетичний револьвер EG-4, здатний стріляти болтами за допомогою
     перезаряджуваних швидкісних заряджачів, як летальними, так і ні, та плечову кобуру.
 
-selectable-set-blueshield-cqc-name = Набір «Ближній бій»
+selectable-set-blueshield-cqc-name = набір «Ближній бій»
 selectable-set-blueshield-cqc-description = Іноді доводиться бруднити руки.
     Включає: книгу, здатну навчити користувача
     просунутому ближньому бою.
 
-selectable-set-blueshield-chester-name = Набір «Честер»
+selectable-set-blueshield-chester-name = набір «Честер»
 selectable-set-blueshield-chester-description = Готові до полювання?
     Включає: дробовик 8-го калібру, «Честер». Запасні набої,
     альтернативні набої, запасні магазини.
 
-selectable-set-blueshield-syringe-name = Набір «Медик»
+selectable-set-blueshield-syringe-name = набір «Медик»
 selectable-set-blueshield-syringe-description = Ідеально підходить для лікування союзників або отруєння ворогів у скрутну хвилину.
-    Включає: бойовий інжектор та кілька флаконів з ліками.
+    Включає: бойовий інжектор та кілька флаконів з ліками
 
-selectable-set-blueshield-hardsuit-light-name = Броньований скафандр
+selectable-set-blueshield-hardsuit-light-name = броньований скафандр
 selectable-set-blueshield-hardsuit-light-description = Броньований скафандр, що забезпечує більшу швидкість за рахунок захисту.
 
-selectable-set-blueshield-modsuit-name = Скафандр «Синій щит»
-selectable-set-blueshield-modsuit-description = Спеціальний скафандр, що дозволяє більше налаштувань, за рахунок потреби в енергії.
+selectable-set-blueshield-modsuit-name = скафандр «Синій щит»
+selectable-set-blueshield-modsuit-description = Спеціальний скафандр, що дозволяє більше налаштувань, за рахунок потреби в енергії
 
-selectable-set-ert-ballistic-name = Набір «Балістика»
+selectable-set-ert-ballistic-name = набір «Балістика»
 selectable-set-ert-ballistic-description = Надійні, ефективні та компактні. Енні вас прикриє.
     Включає: Гвинтівку калібру .30, "Енні".
     Запасні магазини до неї та N1984.
 
-selectable-set-ert-pulse-name = Набір «Імпульс»
+selectable-set-ert-pulse-name = набір «Імпульс»
 selectable-set-ert-pulse-description = Закінчення боєприпасів — найгірше, що може статися
     в перестрілці.
     Включає: Модифікований імпульсний карабін.
@@ -152,7 +152,7 @@ selectable-set-headofsecurity-voidsuit-desc = Легкий скафандр, з 
 
 selectable-set-headofsecurity-modsuit-name = Скафандр ГСБ «Бастіон»
 selectable-set-headofsecurity-modsuit-desc = Модульний скафандр з дорогою пластитановою бронею для використання головою служби безпеки.
-    Оснащений бортовим внутрішньовенним інжектором стимуляторів, керованим ШІ.
+    Оснащений бортовим внутрішньовенним інжектором стимуляторів, керованим ШІ
 
 selectable-set-engineering-voidsuit-name = Інженерний скафандр
 selectable-set-engineering-voidsuit-desc = Легкий скафандр для ремонту низької інтенсивності навколо станції

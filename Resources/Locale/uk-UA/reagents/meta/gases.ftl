@@ -31,7 +31,7 @@ reagent-desc-nitrous-oxide = Знаєте, як усе здається сміш
 reagent-name-frezon = фрезон
 reagent-desc-frezon = Дуже ефективний холодоагент... і галюциноген.
 
-reagent-name-bz = БЗ
+reagent-name-bz = бз
 reagent-desc-bz = Потужний галюциноген, який також вводить слаймів у стазис.
 
 reagent-name-healium = хіліум

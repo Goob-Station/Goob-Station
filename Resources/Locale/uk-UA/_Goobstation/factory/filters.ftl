@@ -1,5 +1,5 @@
 automation-filter-examine-empty = [color=red]Цей фільтр ще не налаштовано.[/color]
-automation-filter-examine-string = Цей фільтр встановлено на "{$name}"
+automation-filter-examine-string = Цей фільтр встановлено на '{$name}'
 stack-filter-examine = Цей фільтр встановлено на мінімум [color=green]{$size}[/color] предметів у стосі.
 combined-filter-examine = Цей фільтр встановлено на [color=green]{$gate}[/color] порівняння зі своїми входами.
 pressure-filter-examine = Цей фільтр встановлено на тиск від [color=green]{$min}[/color] кПа до [color=green]{$max}[/color] кПа.
