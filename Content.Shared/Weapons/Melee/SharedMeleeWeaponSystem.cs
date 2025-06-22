@@ -99,6 +99,7 @@
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
@@ -189,10 +190,10 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     [Dependency] private   readonly SharedPhysicsSystem _physics = default!;
     [Dependency] protected readonly SharedPopupSystem PopupSystem = default!;
     [Dependency] protected readonly SharedTransformSystem TransformSystem = default!;
-    [Dependency] private   readonly StaminaSystem _stamina = default!;
     [Dependency] private   readonly ContestsSystem _contests = default!;
     [Dependency] private   readonly ThrowingSystem _throwing = default!;
     [Dependency] private   readonly INetConfigurationManager _config = default!;
+    [Dependency] private   readonly SharedStaminaSystem _stamina = default!;
 
     //Goob - Shove
     private float _shoveRange;
@@ -612,7 +613,8 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                     DoLightAttack(user, light, weaponUid, weapon, session);
                     break;
                 case DisarmAttackEvent disarm:
-                    DoDisarm(user, disarm, weaponUid, weapon, session); // Goob edit
+                    if (!DoDisarm(user, disarm, weaponUid, weapon, session)) // Goob edit
+                        return false;
 
                     animation = weapon.DisarmAnimation; // WWDP
                     DoLungeAnimation(user, weaponUid, weapon.Angle, TransformSystem.ToMapCoordinates(GetCoordinates(attack.Coordinates)), weapon.Range, animation, spriteRotation, weapon.FlipAnimation); // Goobstation - Edit
@@ -1046,11 +1048,21 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         ICommonSession? session) // Goobstation - Shove Rework
     {
 
-        var target = GetEntity(ev.Target!.Value);
+        if (!ev.Target.HasValue)
+            return false;
+
+        var target = GetEntity(ev.Target.Value);
+
+        if (Deleted(target)
+            || user == target)
+            return false;
 
         EntityUid? inTargetHand = null;
 
         if (!TryComp<CombatModeComponent>(user, out var combatMode))
+            return false;
+
+        if (!InRange(user, target, component.Range, session))
             return false;
 
         PhysicalShove(user, target);
@@ -1094,8 +1106,8 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
         var chance = CalculateDisarmChance(user, target, inTargetHand, combatMode);
 
-        _audio.PlayPvs(combatMode.DisarmSuccessSound,
-            user,
+        _audio.PlayPredicted(combatMode.DisarmSuccessSound,
+            user, user,
             AudioParams.Default.WithVariation(0.025f).WithVolume(5f));
         AdminLogger.Add(LogType.DisarmedAction,
             $"{ToPrettyString(user):user} used disarm on {ToPrettyString(target):target}");
@@ -1115,11 +1127,6 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         }
 
         ShoveOrDisarmPopup(true);
-        _audio.PlayPvs(combatMode.DisarmSuccessSound,
-            user,
-            AudioParams.Default.WithVariation(0.025f).WithVolume(5f));
-        AdminLogger.Add(LogType.DisarmedAction,
-            $"{ToPrettyString(user):user} used a shove on {ToPrettyString(target):target}");
 
         return true;
 
@@ -1139,8 +1146,8 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
             var msgUser = Loc.GetString(msgPrefix + "popup-message-cursor", ("targetName", Identity.Entity(target, EntityManager)));
 
-            PopupSystem.PopupEntity(msgOther, user, filterOther, true);
-            PopupSystem.PopupEntity(msgUser, target, user);
+            PopupSystem.PopupPredicted(msgOther, target, null, filterOther, false);
+            PopupSystem.PopupClient(msgUser, user);
         }
     }
 
