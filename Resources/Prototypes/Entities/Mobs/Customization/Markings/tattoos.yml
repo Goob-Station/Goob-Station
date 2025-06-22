@@ -198,7 +198,7 @@
   - sprite: Mobs/Customization/scars.rsi
     state: buff
     
-  - type: marking
+- type: marking
   id: TattooEyeMothRight
   bodyPart: Eyes
   markingCategory: Overlay
@@ -226,7 +226,7 @@
   - sprite: Mobs/Customization/tattoos.rsi
     state: tattoo_eye_moth_l
   
-  - type: marking
+- type: marking
   id: TattooEyeRightGlowy
   bodyPart: Eyes
   markingCategory: Head
