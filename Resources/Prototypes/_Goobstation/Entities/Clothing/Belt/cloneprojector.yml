@@ -46,10 +46,11 @@
         Unsexed: UnisexSilicon
     - type: UnblockableSpeech
     - type: ProtectedFromStepTriggers
-    - type: MobThresholds
+    - type: MobState
       allowedStates:
       - Alive
       - Dead
+    - type: MobThresholds
       thresholds:
         0: Alive
         42: Dead # The Answer to the Ultimate Question of Life, the Universe, and Everything
