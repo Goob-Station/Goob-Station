@@ -6,7 +6,7 @@
   id: ChestBackstabbed
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Dwarf, Reptilian, SlimePerson ]
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
     state: backstabbed
@@ -15,7 +15,7 @@
   id: ChestCutHere
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   coloring:
     default:
       type:
@@ -29,7 +29,7 @@
   id: ChestHeavyTattoos
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   coloring:
     default:
       type:
@@ -47,7 +47,7 @@
   id: ChestNecklace
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   coloring:
     default:
       type:
@@ -61,7 +61,7 @@
   id: ChestStar
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Arachnid, Dwarf, Gray, Reptilian, SlimePerson]
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
     state: star
@@ -70,7 +70,7 @@
   id: ChestTwistingLeft
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Dwarf, Reptilian, SlimePerson]
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
     state: twistingleft
@@ -79,7 +79,7 @@
   id: ChestTwistingRight
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Dwarf, Reptilian, SlimePerson]
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
     state: twistingright
@@ -88,7 +88,7 @@
   id: HumanoidAbs
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   followSkinColor: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
@@ -98,7 +98,7 @@
   id: ProstheticShoulderL
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Dwarf, Reptilian ]
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   coloring:
     default:
       type:
@@ -112,7 +112,7 @@
   id: ProstheticShoulderR
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Dwarf, Reptilian ]
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   coloring:
     default:
       type:
@@ -126,7 +126,7 @@
   id: TattooAnchor
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson]
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   coloring:
     default:
       type:
@@ -140,7 +140,7 @@
   id: TattooCode1
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson]
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   coloring:
     default:
       type:
@@ -154,7 +154,7 @@
   id: TattooCode2
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson]
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   coloring:
     default:
       type:
@@ -168,7 +168,7 @@
   id: TattooCode3
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson]
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   coloring:
     default:
       type:
@@ -182,7 +182,7 @@
   id: TattooDragon
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson]
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
     state: dragontattoo1
@@ -193,7 +193,7 @@
   id: TattooNanotrasenChest
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Dwarf, SlimePerson ]
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   coloring:
     default:
       type:
@@ -207,7 +207,7 @@
   id: TorsoIncision
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson]
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
     state: incision
@@ -216,7 +216,7 @@
   id: TattooVinesHumanoid
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   coloring:
     default:
       type:
@@ -289,7 +289,7 @@
   id: HeadHeavyTattoos
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
+  speciesRestriction: [Human, Dwarf, Oni, SlimePerson, Arachnid, Tajaran, Rodentia]
   coloring:
     default:
       type:
@@ -305,7 +305,7 @@
   id: HeadTwisting
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [ Human, Dwarf, SlimePerson ]
+  speciesRestriction: [Human, Dwarf, Oni, SlimePerson, Arachnid, Tajaran, Rodentia]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/head.rsi
     state: twisting
@@ -314,7 +314,7 @@
   id: HeadTwistingFlipped
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [ Human, Dwarf, SlimePerson ]
+  speciesRestriction: [Human, Dwarf, Oni, SlimePerson, Arachnid, Tajaran, Rodentia]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/head.rsi
     state: twistingflipped
@@ -323,7 +323,7 @@
   id: HumanoidEyebags
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [ Human, Dwarf, Reptilian, SlimePerson ]
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/head.rsi
     state: eyebags
@@ -332,7 +332,7 @@
   id: SmileScars
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [ Human, Dwarf, SlimePerson ]
+  speciesRestriction: [Human, Dwarf, Oni, SlimePerson, Arachnid, Tajaran, Rodentia]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/head.rsi
     state: smile
@@ -524,7 +524,7 @@
   id: ArmDollJointsTattooLeft
   bodyPart: LArm
   markingCategory: Arms
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   coloring:
     default:
       type:
@@ -538,7 +538,7 @@
   id: ArmHeavyTattoosLeft
   bodyPart: LArm
   markingCategory: Arms
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   coloring:
     default:
       type:
@@ -554,7 +554,7 @@
   id: ArmProstheticLeft
   bodyPart: LArm
   markingCategory: Arms
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson]
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   coloring:
     default:
       type:
@@ -568,7 +568,7 @@
   id: ArmTwistingLeft
   bodyPart: LArm
   markingCategory: Arms
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson]
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/larm.rsi
     state: twisting
@@ -577,7 +577,7 @@
   id: TattooHeartL
   bodyPart: LArm
   markingCategory: Arms
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson]
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   followSkinColor: false
   forcedColoring: false
   coloring:
@@ -610,7 +610,7 @@
   id: LegDollJointsTattooRight
   bodyPart: RLeg
   markingCategory: Legs
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
+  speciesRestriction: [Human, Dwarf, Oni, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   coloring:
     default:
       type:
@@ -624,7 +624,7 @@
   id: LegHeavyTattoosRight
   bodyPart: RLeg
   markingCategory: Legs
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
+  speciesRestriction: [Human, Dwarf, Oni, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   coloring:
     default:
       type:
@@ -640,7 +640,7 @@
   id: LegProstheticRight
   bodyPart: RLeg
   markingCategory: Legs
-  speciesRestriction: [ Human, Arachnid, Dwarf, SlimePerson]
+  speciesRestriction: [Human, Dwarf, Oni, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   coloring:
     default:
       type:
@@ -654,7 +654,7 @@
   id: LegTwistingRight
   bodyPart: RLeg
   markingCategory: Legs
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson]
+  speciesRestriction: [Human, Dwarf, Oni, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/rleg.rsi
     state: twisting
@@ -680,7 +680,7 @@
   id: LegDollJointsTattooLeft
   bodyPart: LLeg
   markingCategory: Legs
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   coloring:
     default:
       type:
@@ -694,7 +694,7 @@
   id: LegHeavyTattoosLeft
   bodyPart: LLeg
   markingCategory: Legs
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   coloring:
     default:
       type:
@@ -710,7 +710,7 @@
   id: LegProstheticLeft
   bodyPart: LLeg
   markingCategory: Legs
-  speciesRestriction: [ Human, Arachnid, Dwarf, SlimePerson]
+  speciesRestriction: [Human, Dwarf, Oni, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   coloring:
     default:
       type:
@@ -724,7 +724,7 @@
   id: LegTwistingLeft
   bodyPart: LLeg
   markingCategory: Legs
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson]
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/lleg.rsi
     state: twisting
@@ -750,7 +750,7 @@
   id: FootDollJointsTattooLeft
   bodyPart: LFoot
   markingCategory: Legs
-  speciesRestriction: [ Human, Arachnid, Dwarf, SlimePerson ]
+  speciesRestriction: [Human, Dwarf, Oni, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   coloring:
     default:
       type:
@@ -764,7 +764,7 @@
   id: FootHeavyTattoosLeft
   bodyPart: LFoot
   markingCategory: Legs
-  speciesRestriction: [ Human, Arachnid, Dwarf, SlimePerson ]
+  speciesRestriction: [Human, Dwarf, Oni, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   coloring:
     default:
       type:
@@ -780,7 +780,7 @@
   id: FootProstheticLeft
   bodyPart: LFoot
   markingCategory: Legs
-  speciesRestriction: [ Human, Arachnid, Dwarf, SlimePerson]
+  speciesRestriction: [Human, Dwarf, Oni, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   coloring:
     default:
       type:
@@ -796,7 +796,7 @@
   id: FootDollJointsTattooRight
   bodyPart: RFoot
   markingCategory: Legs
-  speciesRestriction: [ Human, Arachnid, Dwarf, SlimePerson ]
+  speciesRestriction: [Human, Dwarf, Oni, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   coloring:
     default:
       type:
@@ -810,7 +810,7 @@
   id: FootHeavyTattoosRight
   bodyPart: RFoot
   markingCategory: Legs
-  speciesRestriction: [ Human, Arachnid, Dwarf, SlimePerson ]
+  speciesRestriction: [Human, Dwarf, Oni, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   coloring:
     default:
       type:
@@ -826,7 +826,7 @@
   id: FootProstheticRight
   bodyPart: RFoot
   markingCategory: Legs
-  speciesRestriction: [ Human, Arachnid, Dwarf, SlimePerson]
+  speciesRestriction: [Human, Dwarf, Oni, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   coloring:
     default:
       type:
@@ -842,7 +842,7 @@
   id: HandBraceletLeft
   bodyPart: LHand
   markingCategory: Arms
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   coloring:
     default:
       type:
@@ -856,7 +856,7 @@
   id: HandDollJointsTattooLeft
   bodyPart: LHand
   markingCategory: Arms
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   coloring:
     default:
       type:
@@ -870,7 +870,7 @@
   id: HandHeavyTattoosLeft
   bodyPart: LHand
   markingCategory: Arms
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   coloring:
     default:
       type:
@@ -886,7 +886,7 @@
   id: HandProstheticLeft
   bodyPart: LHand
   markingCategory: Arms
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson]
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   coloring:
     default:
       type:
@@ -900,7 +900,7 @@
   id: HandRingsLeft
   bodyPart: LHand
   markingCategory: Arms
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   coloring:
     default:
       type:
@@ -916,7 +916,7 @@
   id: HandTwistingLeft
   bodyPart: LHand
   markingCategory: Arms
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson]
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/lhand.rsi
     state: twisting
@@ -942,7 +942,7 @@
   id: HandBraceletRight
   bodyPart: RHand
   markingCategory: Arms
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   coloring:
     default:
       type:
@@ -956,7 +956,7 @@
   id: HandDollJointsTattooRight
   bodyPart: RHand
   markingCategory: Arms
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   coloring:
     default:
       type:
@@ -970,7 +970,7 @@
   id: HandHeavyTattoosRight
   bodyPart: RHand
   markingCategory: Arms
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   coloring:
     default:
       type:
@@ -986,7 +986,7 @@
   id: HandProstheticRight
   bodyPart: RHand
   markingCategory: Arms
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson]
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   coloring:
     default:
       type:
@@ -1000,7 +1000,7 @@
   id: HandRingsRight
   bodyPart: RHand
   markingCategory: Arms
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   coloring:
     default:
       type:
@@ -1016,7 +1016,7 @@
   id: HandTwistingRight
   bodyPart: RHand
   markingCategory: Arms
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson]
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/rhand.rsi
     state: twisting
@@ -1274,7 +1274,7 @@
   id: HeadEarrings
   bodyPart: HeadSide
   markingCategory: HeadSide
-  speciesRestriction: [ Human, Dwarf, SlimePerson ]
+  speciesRestriction: [Human, Dwarf, Oni, SlimePerson, Tajaran, Vulpkanin, Rodentia]
   coloring:
     default:
       type:
@@ -1290,7 +1290,7 @@
   id: HeadEarringsDrop
   bodyPart: HeadSide
   markingCategory: HeadSide
-  speciesRestriction: [ Human, Dwarf, SlimePerson ]
+  speciesRestriction: [Human, Dwarf, Oni, SlimePerson, Tajaran, Vulpkanin, Rodentia]
   coloring:
     default:
       type:
@@ -1306,7 +1306,7 @@
   id: HeadEarringsWeights
   bodyPart: HeadSide
   markingCategory: HeadSide
-  speciesRestriction: [ Human, Dwarf, SlimePerson ]
+  speciesRestriction: [Human, Dwarf, Oni, SlimePerson, Tajaran, Vulpkanin, Rodentia]
   coloring:
     default:
       type:

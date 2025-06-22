@@ -30,6 +30,7 @@
     Groin: MobArachnidGroin
     Hair: MobHumanoidAnyMarking # imp, arachnid hair arachnid hair!
     HeadTop: MobHumanoidAnyMarking
+    Eyes: MobArachnidEyes
     HeadSide: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
     LArm: MobArachnidLArm
