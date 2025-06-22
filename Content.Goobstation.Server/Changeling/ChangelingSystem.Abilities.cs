@@ -31,6 +31,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Goobstation.Common.Changeling;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Server.Changeling.Objectives.Components;
@@ -639,19 +640,11 @@ public sealed partial class ChangelingSystem
         if (TryComp<HandsComponent>(target, out var handComp)
             && handsValid)
         {
-            var weaponCount = 0;
-
-            foreach (var hand in handComp.Hands.Values)
-            {
-                if (hand.HeldEntity != null
-                    && HasComp<ChangelingFakeWeaponComponent>(hand.HeldEntity.Value))
-                {
-                    weaponCount++;
-                }
-            }
+            var weaponCount = handComp.Hands.Values.Count(
+                hand => hand.HeldEntity != null
+                && HasComp<ChangelingFakeWeaponComponent>(hand.HeldEntity.Value));
 
             handsValid = (weaponCount <= 1);
-
         }
 
         if (!handsValid)
