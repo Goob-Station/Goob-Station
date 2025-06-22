@@ -369,7 +369,6 @@ public sealed partial class WoundSystem
                 where @group.DamageTypes.Contains(woundId)
                 select @group).FirstOrDefault(),
             woundable);
-        Logger.Debug($"Try induce wound result: {wound}");
         return wound;
     }
 
@@ -729,14 +728,12 @@ public sealed partial class WoundSystem
 
         if (bodyPart.Body == null)
         {
-            Logger.Debug($"Destroying woundable's organs due to null body.");
             DropWoundableOrgans(woundableEntity, woundableComp);
             if (_net.IsServer && !IsClientSide(woundableEntity))
                 QueueDel(woundableEntity);
         }
         else
         {
-            Logger.Debug($"Destroying woundable with non null body.");
             var body = bodyPart.Body.Value;
             var key = bodyPart.ToHumanoidLayers();
             if (key == null)
@@ -762,7 +759,6 @@ public sealed partial class WoundSystem
 
             if (TryInduceWound(parentWoundableEntity, "Blunt", 0f, out var woundInduced))
             {
-                Logger.Debug($"Checking body part {ToPrettyString(woundableEntity)} with {bodyPart.PartType} and {bodyPart.Symmetry}");
                 var traumaInflicter = EnsureComp<TraumaInflicterComponent>(woundInduced.Value.Owner);
 
                 _trauma.AddTrauma(
@@ -859,14 +855,12 @@ public sealed partial class WoundSystem
             || _timing.ApplyingState)
             return;
 
-        Logger.Debug($"Starting initial checks on woundable amputation.");
 
         var bodyPart = Comp<BodyPartComponent>(parentWoundableEntity);
         if (bodyPart.Body is not { } body
             || !woundableComp.CanRemove)
             return;
 
-        Logger.Debug($"Initial checks passed on woundable amputation.");
         _audio.PlayPvs(woundableComp.WoundableDelimbedSound, bodyPart.Body.Value);
 
         if (woundableComp.DamageOnAmputate != null

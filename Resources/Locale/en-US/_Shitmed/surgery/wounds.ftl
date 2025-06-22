@@ -1,19 +1,15 @@
-inspect-wound-Bleeding-minor = is minorly bleeding
+inspect-wound-minor = injured
+inspect-wound-moderate = hurt
+inspect-wound-severe = badly damaged 
+inspect-wound-critical = mangled
+inspect-wound-loss = completely mangled
+
+inspect-wound-Bleeding-minor = is bleeding a little
 inspect-wound-Bleeding-moderate = is bleeding
 inspect-wound-Bleeding-severe = is bleeding profusely
-inspect-wound-Brute-minor = looks bruised
-inspect-wound-Brute-moderate = looks battered
-inspect-wound-Brute-severe = looks mangled
-inspect-wound-Burn-minor = looks red
-inspect-wound-Burn-moderate = has blisters all over
-inspect-wound-Burn-severe = skin is peeling away
-
-self-inspect-wound-Bleeding-minor = is minorly bleeding
-self-inspect-wound-Bleeding-moderate = is bleeding
-self-inspect-wound-Bleeding-severe = is bleeding profusely
-self-inspect-wound-Brute-minor = looks bruised, and feels sore
-self-inspect-wound-Brute-moderate = looks battered
-self-inspect-wound-Brute-severe = looks completely mangled
-self-inspect-wound-Burn-minor = burns a little
-self-inspect-wound-Burn-moderate = has some painful blisters
-self-inspect-wound-Burn-severe = has skin peeling away from it
+inspect-wound-Brute-minor = bruised
+inspect-wound-Brute-moderate = battered
+inspect-wound-Brute-severe = heavily bruised
+inspect-wound-Burn-minor = red
+inspect-wound-Burn-moderate = blistering
+inspect-wound-Burn-severe = charred

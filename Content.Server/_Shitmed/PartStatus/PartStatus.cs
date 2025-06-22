@@ -13,7 +13,7 @@ public sealed class PartStatus(
     BodyPartType partType,
     BodyPartSymmetry partSymmetry,
     string partName,
-    WoundableSeverity partSverity,
+    WoundableSeverity partSeverity,
     Dictionary<string, WoundSeverity> damageSeverities,
     BoneSeverity boneSeverity,
     bool bleeding)
@@ -24,7 +24,7 @@ public sealed class PartStatus(
 
     public string PartName = partName;
 
-    public WoundableSeverity PartSeverity = partSverity;
+    public WoundableSeverity PartSeverity = partSeverity;
 
     public Dictionary<string, WoundSeverity> DamageSeverities = damageSeverities;
 

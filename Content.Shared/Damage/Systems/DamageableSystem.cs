@@ -533,7 +533,6 @@ namespace Content.Shared.Damage
                 // For positive damage, we need to check if we've hit the cap
                 if (value > 0)
                 {
-                    Logger.Debug($"Adding damage to {ToPrettyString(uid)}'s delta {type} - {value}");
                     // Delta ignores this stuff since we need it for effects.
                     delta.DamageDict[type] = value;
 
@@ -541,7 +540,6 @@ namespace Content.Shared.Damage
                     if (!isWoundable
                         || remainingCap is null)
                     {
-                        Logger.Debug("Not a woundable or has noc ap, adding to dict.");
                         dict[type] = oldValue + value;
                         continue;
                     }
@@ -550,7 +548,6 @@ namespace Content.Shared.Damage
                     if (remainingCap.Value <= 0)
                         continue;
 
-                    Logger.Debug($"Cap still has value, applying damage {FixedPoint2.Min(value, remainingCap.Value)}, new value {FixedPoint2.Max(FixedPoint2.Zero, oldValue + FixedPoint2.Min(value, remainingCap.Value))}");
                     // Calculate how much of this damage type we can apply
                     var damageToApply = FixedPoint2.Min(value, remainingCap.Value);
                     var newValue = FixedPoint2.Max(FixedPoint2.Zero, oldValue + damageToApply);

@@ -245,7 +245,7 @@ public sealed class HealingSystem : EntitySystem
         if (targetedBodyPart == null
             || !TryComp(targetedBodyPart.Value.Id, out DamageableComponent? damageable))
         {
-            _popupSystem.PopupEntity(Loc.GetString("does-not-exist-rebell"), target, user, PopupType.MediumCaution);
+            _popupSystem.PopupEntity(Loc.GetString("missing-body-part"), target, user, PopupType.MediumCaution);
             return false;
         }
 

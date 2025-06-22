@@ -59,6 +59,11 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
+// Shitmed Change
+using Content.Shared._Shitmed.Damage;
+using Content.Shared._Shitmed.Targeting;
+
+
 namespace Content.Server.Zombies
 {
     public sealed partial class ZombieSystem : SharedZombieSystem
@@ -161,7 +166,13 @@ namespace Content.Server.Zombies
                     ? comp.CritDamageMultiplier
                     : 1f;
 
-                _damageable.TryChangeDamage(uid, comp.Damage * multiplier, true, false, damage);
+                _damageable.TryChangeDamage(uid,
+                    comp.Damage * multiplier,
+                    true,
+                    false,
+                    damage,
+                    targetPart: TargetBodyPart.All, // Shitmed Change
+                    splitDamage: SplitDamageBehavior.SplitEnsureAll); // Shitmed Change
             }
 
             // Heal the zombified
@@ -182,7 +193,14 @@ namespace Content.Server.Zombies
                     : 1f;
 
                 // Gradual healing for living zombies.
-                _damageable.TryChangeDamage(uid, comp.PassiveHealing * multiplier, true, false, damage);
+                _damageable.TryChangeDamage(uid,
+                    comp.PassiveHealing * multiplier,
+                    true,
+                    false,
+                    damage,
+                    ignoreBlockers: true, // Shitmed Change
+                    targetPart: TargetBodyPart.All, // Shitmed Change
+                    splitDamage: SplitDamageBehavior.SplitEnsureAll); // Shitmed Change
             }
         }
 

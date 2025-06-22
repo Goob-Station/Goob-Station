@@ -177,6 +177,5 @@ public sealed partial class PainSystem : EntitySystem
             nerve.ParentedNerveSystem = uid;
             Dirty(bodyPart.Id, nerve); // ヾ(≧▽≦*)o
         }
-        Logger.Debug("Checking the shit in system nerves vro");
     }
 }

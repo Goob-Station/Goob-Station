@@ -26,6 +26,7 @@ using Content.Server.Hands.Systems;
 using Content.Server.Magic;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Store.Systems;
+using Content.Shared._Shitmed.Damage;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
@@ -443,7 +444,8 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
                     damageable,
                     null,
                     false,
-                    targetPart: TargetBodyPart.All);
+                    targetPart: TargetBodyPart.All,
+                    splitDamage: SplitDamageBehavior.SplitEnsureAll);
             }
 
             if (bloodQuery.TryComp(uid, out var blood))
