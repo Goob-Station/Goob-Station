@@ -11509,3 +11509,13 @@ Entries:
       message: Hyperzine injector kit now costs 40 TC and comes with 8 injectors.
   id: 1267
   time: '2025-06-22T04:59:38.0000000+00:00'
+- author: the_biggestbruh
+  changes:
+    - type: Tweak
+      message: >-
+        Changelings will no longer gain evolution points or objective progress
+        from absorbing (or DNA stinging) unidentified corpses and the like.
+    - type: Tweak
+      message: Changeling absorb should ignore resistances now
+  id: 1268
+  time: '2025-06-22T05:01:03.0000000+00:00'
