@@ -7,6 +7,7 @@ using System.Linq;
 using Content.Goobstation.Shared.CloneProjector;
 using Content.Goobstation.Shared.CloneProjector.Clone;
 using Content.Server.Emp;
+using Content.Server.Ghost.Roles.Components;
 using Content.Shared._DV.Carrying;
 using Content.Shared.Actions;
 using Content.Shared.Containers.ItemSlots;
@@ -239,6 +240,11 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
             _sawmill.Error($"Failed to equip items for holographic clone of {ToPrettyString(clone)}");
             return false;
         }
+
+        var roleComp = EnsureComp<GhostRoleComponent>(clone);
+        roleComp.RoleName = Loc.GetString(projector.Comp.GhostRoleName);
+        roleComp.RoleDescription = Loc.GetString(projector.Comp.GhostRoleDescription);
+        roleComp.RoleRules = Loc.GetString(projector.Comp.GhostRoleRules);
 
         Dirty(clone, projector.Comp);
         return true;

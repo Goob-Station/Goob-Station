@@ -91,6 +91,15 @@ public sealed partial class CloneProjectorComponent : Component
     [DataField]
     public LocId UnequippedMessage = "gemini-projector-removed";
 
+    [DataField]
+    public LocId GhostRoleName = "ghost-role-information-gemini-clone-name";
+
+    [DataField]
+    public LocId GhostRoleDescription = "ghost-role-information-gemini-clone-description";
+
+    [DataField]
+    public LocId GhostRoleRules = "ghost-role-information-familiar-rules";
+
     /// <summary>
     /// How much the strip time should be increased by.
     /// </summary>

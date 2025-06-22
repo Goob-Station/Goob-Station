@@ -21,17 +21,10 @@
     size: Large
   - type: CloneProjector
     addedComponents:
-    - type: GhostRole
-      name: ghost-role-information-gemini-clone-name
-      description: ghost-role-information-gemini-clone-description
-      rules: ghost-role-information-familiar-rules
-      mindRoles:
-      - MindRoleGhostRoleFamiliar
-      raffle:
-        settings: default
     - type: GhostTakeoverAvailable
     - type: AntagImmune
     - type: MovementIgnoreGravity
+    - type: SpecialPressureImmunity
     - type: RequireProjectileTarget
     - type: NoSlip
     - type: ZombieImmune
