@@ -8,6 +8,7 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Diona/chest.rsi
     state: firefly
+  shader: unshaded
 
 
 - type: marking
@@ -45,6 +46,7 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Diona/chest.rsi
     state: mycena
+  shader: unshaded
 
 
 - type: marking
@@ -77,6 +79,7 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Diona/head.rsi
     state: bigfirefly
+  shader: unshaded
 
 - type: marking
   id: DionaPollenDust
@@ -95,6 +98,7 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Diona/head.rsi
     state: jack
+  shader: unshaded
 
 - type: marking
   id: MycenaHead
@@ -113,6 +117,7 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Diona/head.rsi
     state: mycena
+  shader: unshaded
 
 
 - type: marking

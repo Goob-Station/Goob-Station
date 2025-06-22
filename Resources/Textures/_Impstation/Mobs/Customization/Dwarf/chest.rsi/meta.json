@@ -8,10 +8,6 @@
     },
     "states": [
         {
-            "name": "chesthair",
-            "directions": 4
-        },
-        {
             "name": "constellation",
             "directions": 4,
             "delays": [

@@ -61,6 +61,7 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/SlimePerson/chest.rsi
     state: core
+  shader: unshaded
 
 
 - type: marking
@@ -87,6 +88,7 @@
     state: fadingstars2
   - sprite: _Impstation/Mobs/Customization/SlimePerson/head.rsi
     state: fadingstars3
+  shader: unshaded
 
 
 - type: marking
@@ -189,6 +191,7 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/SlimePerson/eyes.rsi
     state: droopyglow
+  shader: unshaded
 
 
 - type: marking
@@ -218,6 +221,7 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/SlimePerson/eyes.rsi
     state: cyclopsglow
+  shader: unshaded
 
 
 # RArm

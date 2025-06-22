@@ -84,6 +84,7 @@
     state: jumper3
   - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
     state: jumper4
+    shader: unshaded
 
 
 - type: marking
@@ -115,6 +116,7 @@
     state: round3
   - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
     state: round4
+  shader: unshaded
 
 
 - type: marking
@@ -140,6 +142,7 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
     state: glow
+  shader: unshaded
 
 # RArm
 

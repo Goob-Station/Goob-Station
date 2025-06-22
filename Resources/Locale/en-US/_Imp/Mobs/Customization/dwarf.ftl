@@ -1,8 +1,5 @@
 ﻿# Chest
 
-marking-DwarfChestHair = Chest Hair
-marking-DwarfChestHair-chesthair = Chest Hair
-
 marking-DwarfConstellationChest = Chest Constellation
 marking-DwarfConstellationChest-constellation = Chest Constellation
 
@@ -40,8 +37,6 @@ marking-DwarfConstellationRArm-constellation = Arm Constellation (Right)
 
 # LArm
 
-marking-DwarfArmHair = Arm Hair
-marking-DwarfArmHair-hair = Arm Hair
 
 marking-DwarfConstellationLArm = Arm Constellation (Left)
 marking-DwarfConstellationLArm-constellation = Arm Constellation (Left)
@@ -56,8 +51,6 @@ marking-DwarfConstellationRLeg-constellation = Leg Constellation (Right)
 marking-DwarfConstellationLLeg = Leg Constellation (Left)
 marking-DwarfConstellationLLeg-constellation = Leg Constellation (Left)
 
-marking-DwarfLegHair = Leg Hair
-marking-DwarfLegHair-hair = Leg Hair
 
 # UndergarmentBottom
 
@@ -88,10 +81,6 @@ marking-DwarfConstellationRHand-constellation = Hand Constellation (Right)
 
 marking-DwarfMarkKangarooRHand = Mark of the Kangaroo (Right)
 marking-DwarfMarkKangarooRHand-markkangaroo = Mark of the Kangaroo (Right)
-
-# FacialHair
-
-# Hair
 
 # HeadSide
 

@@ -45,3 +45,9 @@ marking-TattooTribal1 = Tribal Tattoo
 
 marking-BuffChest_buff = Buff
 marking-BuffChest = Buff
+
+marking-TattooEyeRightGlowy-tattoo_eye_r_glowy = Glowing Right Eye
+marking-TattooEyeRightGlowy = Glowing Right Eye
+
+marking-TattooEyeLeftGlowy-tattoo_eye_l_glowy = Glowing Left Eye
+marking-TattooEyeLeftGlowy = Glowing Left Eye
