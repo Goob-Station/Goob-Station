@@ -11393,3 +11393,9 @@ Entries:
       message: 'Added Syndicate Disabler! Find it in your uplink. '
   id: 1253
   time: '2025-06-22T04:25:11.0000000+00:00'
+- author: CerberusWolfie, Atrophus
+  changes:
+    - type: Add
+      message: Added Cosmic Cult Metashield. Check Roleplay Rules 4!
+  id: 1254
+  time: '2025-06-22T04:26:45.0000000+00:00'
