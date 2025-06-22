@@ -4,6 +4,7 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Weide <64257676+Lyacs@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
@@ -127,6 +128,8 @@
     - SyndicateFluclearSet
     - SyndicateFriendshipSet
     - SyndicateCarpSet
+    - SyndicateSusSet
+    - SyndicateBuilderSet
     setsToSelect: 3
     spawnedStoragePrototype: CrateSyndicate
     spawnedStorageContainer: entity_storage

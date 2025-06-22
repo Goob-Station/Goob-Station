@@ -10,8 +10,10 @@
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
@@ -305,7 +307,7 @@
     - state: icon
       map: [ "base" ]
   - type: Clothing
-    sprite: _Goobstation/Heretic/void_cloak.rsi
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/void_cloak.rsi
   - type: Armor
     coverage:
     - Chest
@@ -322,16 +324,16 @@
         Piercing: 0.5
         Heat: 0.7
   - type: ExplosionResistance
-    damageCoefficient: 0.8
+    damageCoefficient: 0.7
   - type: ToggleableClothing
     stripDelay: null
     clothingPrototypes:
       head: ClothingHeadHatHoodCloakSith
   - type: ModifyDelayedKnockdown
-    delayDelta: 2.5
-    knockdownTimeDelta: -2.5
+    delayDelta: 3
+    knockdownTimeDelta: -3
   - type: StaminaResistance
-    damageCoefficient: 0.55
+    damageCoefficient: 0.5
   - type: PressureProtection
     lowPressureMultiplier: 1000
   # Intentionally no temperature or high pressure protection
