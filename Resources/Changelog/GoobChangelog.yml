@@ -11547,3 +11547,9 @@ Entries:
       message: Added clustergrenades to secoff belt's whitelist!
   id: 1272
   time: '2025-06-22T05:09:28.0000000+00:00'
+- author: JohnOakman
+  changes:
+    - type: Add
+      message: 'New human haircut: Jinx'
+  id: 1273
+  time: '2025-06-22T05:10:25.0000000+00:00'
