@@ -46,9 +46,14 @@
     - type: UnblockableSpeech
     - type: ProtectedFromStepTriggers
     - type: MobThresholds
+      allowedStates:
+      - Alive
+      - Dead
       thresholds:
         0: Alive
         42: Dead # The Answer to the Ultimate Question of Life, the Universe, and Everything
+    - type: Damageable
+      damageContainer: SiliconRadiation
     - type: StatusEffects
       allowed:
       - Stun
