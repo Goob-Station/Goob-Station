@@ -129,24 +129,6 @@
   position: 0,2
 
 - type: technology
-  id: RoboticCleanliness
-  name: research-technology-robotic-cleanliness
-  icon:
-    sprite: Mobs/Silicon/chassis.rsi
-    state: janitor
-  discipline: CivilianServices
-  tier: 1
-  cost: 5000
-  recipeUnlocks:
-  - BorgModuleAdvancedCleaning
-  # Goobstation R&D Console rework start
-  position: -1,4
-  technologyPrerequisites:
-  - AdvancedEntertainment
-  - BasicRobotics
-  # Goobstation R&D Console rework end
-
-- type: technology
   id: MeatManipulation
   name: research-technology-meat-manipulation
   icon:
@@ -209,6 +191,25 @@
   - AccessibilityTech
   # Goobstation R&D Console rework end
 
+- type: technology # Merge with other T2 medical research if possible!
+  id: MechanizedTreatment
+  name: research-technology-mechanized-treatment
+  icon:
+    sprite: Mobs/Silicon/chassis.rsi
+    state: medical
+  discipline: CivilianServices
+  tier: 2
+  cost: 5000
+  recipeUnlocks:
+  - BorgModuleAdvancedChemical
+  # Goobstation R&D Console rework start
+  position: -1, 4
+  technologyPrerequisites:
+  - AdvancedEntertainment
+  - BasicRobotics
+  # Goobstation R&D Console rework end
+
+
 - type: technology
   id: AdvancedCleaning
   name: research-technology-advanced-cleaning
@@ -221,10 +222,11 @@
   recipeUnlocks:
   - AdvMopItem
   - MegaSprayBottle
+  - BorgModuleAdvancedCleaning
   # Goobstation R&D Console rework start
-  position: -1,5
+  position: -1,6
   technologyPrerequisites:
-  - RoboticCleanliness
+  - MechanizedTreatment
   # Goobstation R&D Console rework end
 
 - type: technology
@@ -247,9 +249,9 @@
   - HonkerTargetingElectronics
   - MechEquipmentHorn
   # Goobstation R&D Console rework start
-  position: 0,5
+  position: 0,6
   technologyPrerequisites:
-  - CritterMechs
+  - PushHorn
   - RipleyAPLU
   # Goobstation R&D Console rework end
 
@@ -266,7 +268,7 @@
   - WeaponSprayNozzle
   - ClothingBackpackWaterTank
   # Goobstation R&D Console rework start
-  position: -1,6
+  position: -1,7
   technologyPrerequisites:
   - AdvancedCleaning
   # Goobstation R&D Console rework end
@@ -289,6 +291,23 @@
   - FauxAstroTiles
   # Goobstation R&D Console rework end
 
+- type: technology
+  id: PushHorn
+  name: research-technology-clowning-utilities
+  icon:
+    sprite: Objects/Fun/push_horn.rsi
+    state: icon
+  discipline: CivilianServices
+  tier: 2
+  cost: 4000
+  recipeUnlocks:
+  - PushHorn
+  # Goobstation R&D Console rework start
+  position: 0,5
+  technologyPrerequisites:
+  - CritterMechs
+  # Goobstation R&D Console rework end
+
 # Tier 3
 
 - type: technology
@@ -306,6 +325,7 @@
   position: 1,9
   technologyPrerequisites:
   - BluespaceCargoTransport
+  - HighEndSurgery
   # Goobstation R&D Console rework end
 
 - type: technology
