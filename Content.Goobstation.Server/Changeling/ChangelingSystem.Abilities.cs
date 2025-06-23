@@ -31,16 +31,20 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
+using Content.Goobstation.Common.Changeling;
+using Content.Goobstation.Maths.FixedPoint;
+using Content.Goobstation.Server.Changeling.Objectives.Components;
 using Content.Goobstation.Shared.Atmos.Components;
 using Content.Goobstation.Shared.Body.Components;
-using Content.Goobstation.Common.Changeling;
-using Content.Goobstation.Server.Changeling.Objectives.Components;
 using Content.Goobstation.Shared.Changeling.Actions;
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.Temperature.Components;
 using Content.Server.Light.Components;
 using Content.Server.Nutrition.Components;
 using Content.Shared._Goobstation.Weapons.AmmoSelector;
+using Content.Shared._Starlight.CollectiveMind;
+using Content.Shared._Shitmed.Targeting; // Shitmed Change
 using Content.Shared.Actions;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
@@ -52,22 +56,20 @@ using Content.Shared.Damage.Prototypes;
 using Content.Shared.DoAfter;
 using Content.Shared.Ensnaring;
 using Content.Shared.Ensnaring.Components;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Eye.Blinding.Components;
+using Content.Shared.Humanoid;
+using Content.Shared.Hands.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Popups;
-using Content.Shared._Starlight.CollectiveMind;
+using Content.Shared.Rejuvenate;
 using Content.Shared.Stealth.Components;
 using Content.Shared.Store.Components;
-using Content.Shared.Tag;
-using Content.Shared.Traits.Assorted;
 using Content.Shared.StatusEffect;
-using Content.Shared.Eye.Blinding.Components;
+using Content.Shared.Traits.Assorted;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Content.Shared._Shitmed.Targeting; // Shitmed Change
-using Content.Shared.Rejuvenate;
 
 namespace Content.Goobstation.Server.Changeling;
 
@@ -184,35 +186,48 @@ public sealed partial class ChangelingSystem
         PlayMeatySound(args.User, comp);
 
         var dmg = new DamageSpecifier(_proto.Index(AbsorbedDamageGroup), 200);
-        _damage.TryChangeDamage(target, dmg, false, false, targetPart: TargetBodyPart.All); // Shitmed Change
+        _damage.TryChangeDamage(target, dmg, true, false, targetPart: TargetBodyPart.All); // Shitmed Change
         _blood.ChangeBloodReagent(target, "FerrochromicAcid");
         _blood.SpillAllSolutions(target);
 
         EnsureComp<AbsorbedComponent>(target);
         EnsureComp<UnrevivableComponent>(target);
 
-        var popup = Loc.GetString("changeling-absorb-end-self-ling");
+        var popup = string.Empty;
         var bonusChemicals = 0f;
         var bonusEvolutionPoints = 0f;
         var bonusChangelingAbsorbs = 0;
+
         if (TryComp<ChangelingIdentityComponent>(target, out var targetComp))
         {
+            popup = Loc.GetString("changeling-absorb-end-self-ling");
             bonusChemicals += targetComp.MaxChemicals / 2;
             bonusEvolutionPoints += targetComp.TotalEvolutionPoints / 2;
             bonusChangelingAbsorbs += targetComp.TotalChangelingsAbsorbed + 1;
+
+            if (!TryComp<HumanoidAppearanceComponent>(target, out var targetForm)
+                || targetForm.Species == "Monkey") // if they are a headslug or in monkey form
+                popup = Loc.GetString("changeling-absorb-end-self-ling-incompatible");
         }
-        else
+        else if (!HasComp<PartialAbsorbableComponent>(target))
         {
             popup = Loc.GetString("changeling-absorb-end-self");
             bonusChemicals += 10;
             bonusEvolutionPoints += 2;
         }
+        else
+            popup = Loc.GetString("changeling-absorb-end-partial");
 
         comp.TotalEvolutionPoints += bonusEvolutionPoints;
 
-        TryStealDNA(uid, target, comp, true);
-        comp.TotalAbsorbedEntities++;
-        comp.TotalChangelingsAbsorbed += bonusChangelingAbsorbs;
+        var objBool = !HasComp<PartialAbsorbableComponent>(target);
+        if (objBool)
+        {
+            comp.TotalAbsorbedEntities++;
+            comp.TotalChangelingsAbsorbed += bonusChangelingAbsorbs;
+        }
+
+        TryStealDNA(uid, target, comp, objBool);
 
         _popup.PopupEntity(popup, args.User, args.User);
         comp.MaxChemicals += bonusChemicals;
@@ -225,7 +240,8 @@ public sealed partial class ChangelingSystem
 
         if (_mind.TryGetMind(uid, out var mindId, out var mind))
         {
-            if (_mind.TryGetObjectiveComp<AbsorbConditionComponent>(mindId, out var absorbObj, mind))
+            if (_mind.TryGetObjectiveComp<AbsorbConditionComponent>(mindId, out var absorbObj, mind)
+                && !HasComp<PartialAbsorbableComponent>(target))
                 absorbObj.Absorbed += 1;
 
             if (_mind.TryGetObjectiveComp<AbsorbChangelingConditionComponent>(mindId, out var lingAbsorbObj, mind)
@@ -316,9 +332,10 @@ public sealed partial class ChangelingSystem
             return;
 
         var target = args.Target;
-        if (!TryStealDNA(uid, target, comp, true))
+        var objBool = !HasComp<PartialAbsorbableComponent>(target);
+
+        if (!TryStealDNA(uid, target, comp, objBool))
         {
-            _popup.PopupEntity(Loc.GetString("changeling-sting-extract-fail"), uid, uid);
             // royal cashback
             comp.Chemicals += Comp<ChangelingActionComponent>(args.Action).ChemicalCost;
         }
@@ -617,11 +634,24 @@ public sealed partial class ChangelingSystem
 
         var target = args.Target;
         var fakeArmblade = EntityManager.SpawnEntity(FakeArmbladePrototype, Transform(target).Coordinates);
-        if (!_hands.TryPickupAnyHand(target, fakeArmblade))
+
+        var handsValid = _hands.TryForcePickupAnyHand(target, fakeArmblade);
+
+        if (TryComp<HandsComponent>(target, out var handComp)
+            && handsValid)
+        {
+            var weaponCount = handComp.Hands.Values.Count(
+                hand => hand.HeldEntity != null
+                && HasComp<ChangelingFakeWeaponComponent>(hand.HeldEntity.Value));
+
+            handsValid = (weaponCount <= 1);
+        }
+
+        if (!handsValid)
         {
             QueueDel(fakeArmblade);
             comp.Chemicals += Comp<ChangelingActionComponent>(args.Action).ChemicalCost;
-            _popup.PopupEntity(Loc.GetString("changeling-sting-fail-simplemob"), uid, uid);
+            _popup.PopupEntity(Loc.GetString("changeling-sting-fail-fakeweapon"), uid, uid);
             return;
         }
 
@@ -865,6 +895,9 @@ public sealed partial class ChangelingSystem
             comp.Chemicals += Comp<ChangelingActionComponent>(args.Action).ChemicalCost;
             return;
         }
+
+        EnsureComp<AbsorbableComponent>((EntityUid) newUid); // allow other changelings to absorb them (monkeys dont have this by default)
+
         PlayMeatySound((EntityUid) newUid, comp);
     }
     public ProtoId<CollectiveMindPrototype> HivemindProto = "Lingmind";
