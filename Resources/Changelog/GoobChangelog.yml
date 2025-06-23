@@ -11559,3 +11559,25 @@ Entries:
       message: Added medical beam gun. Nukeops Agent can buy it once for 100 TC.
   id: 1274
   time: '2025-06-22T07:26:24.0000000+00:00'
+- author: IrisTheAmped, Dummy
+  changes:
+    - type: Add
+      message: Added a plush for the most handsomest of Head Game Admins; Nigel.
+  id: 1275
+  time: '2025-06-23T15:40:11.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: >-
+        The RDs Gemini clone can no longer be gibbed, cremated, or generally
+        burst into organs.
+    - type: Fix
+      message: The RDs Gemini clone no longer has a fucked accent.
+    - type: Tweak
+      message: >-
+        You can now view the status and remaining health of your gemini by
+        inspecting the rig,
+    - type: Tweak
+      message: Geminis are now immune to pressure damage fully,
+  id: 1276
+  time: '2025-06-23T16:22:05.0000000+00:00'
