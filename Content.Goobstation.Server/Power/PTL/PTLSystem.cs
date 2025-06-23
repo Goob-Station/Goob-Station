@@ -158,7 +158,7 @@ public sealed partial class PTLSystem : EntitySystem
 
         if (_tag.HasTag(held, _tagScrewdriver))
         {
-            var delay = ent.Comp.ShootDelay + 1;
+            var delay = ent.Comp.ShootDelay + ent.Comp.ShootDelayIncrement;
             if (delay > ent.Comp.ShootDelayThreshold.Max)
                 delay = ent.Comp.ShootDelayThreshold.Min;
             ent.Comp.ShootDelay = delay;
