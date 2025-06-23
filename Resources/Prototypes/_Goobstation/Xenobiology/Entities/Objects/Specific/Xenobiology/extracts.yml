@@ -450,15 +450,11 @@
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
-      - !type:CreateGas
-        gas: Oxygen
-        multiplier: 65
+      - !type:OxygenateNearby
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
-      - !type:AdjustReagent
-        reagent: Fresium #I don't wanna do it, I don't wanna code stabilizing tile atmos temperature within x range
-        amount: 100
+      - !type:ChangeTempNearby #this needs work
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
