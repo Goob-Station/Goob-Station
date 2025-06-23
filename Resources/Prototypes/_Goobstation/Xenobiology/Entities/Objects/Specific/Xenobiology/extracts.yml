@@ -90,6 +90,7 @@
       methods: [ Touch, Injection ]
       effects:
       - !type:IgniteNearby
+      - !type:FlashReactionEffect
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
@@ -371,6 +372,28 @@
       state: core
       color: "#f0f8ff"
       shader: XenoBluespace
+  - type: Reactive
+    isReactionsUnlimited: false
+    oneUnitReaction: true
+    reactions:
+    - reagents: [ Water ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:CreateEntityReactionEffect
+        entity: BluespaceExtractJelly
+        number: 1
+    - reagents: [ Plasma ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:CreateEntityReactionEffect
+        entity: MaterialBSCrystal1
+        number: 1
+    - reagents: [ Blood ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:CreateEntityReactionEffect
+        entity: FloorTileItemArcadeBlue #This should be "Bluespace Floor Tiles" These speed up individuals whilst walking on them
+        number: 25
   - type: SlimeExtract
 
 - type: entity
@@ -385,6 +408,28 @@
       state: core
       color: "#704214"
       shader: XenoSepia
+  - type: Reactive
+    isReactionsUnlimited: false
+    oneUnitReaction: true
+    reactions:
+    - reagents: [ Water ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:AdjustReagent
+        reagent: Tilenol
+        amount: 100
+    - reagents: [ Plasma ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:CreateEntityReactionEffect
+        entity: XenoExtractChronofield #This should happen after 5 seconds...
+        number: 1
+    - reagents: [ Blood ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:CreateEntityReactionEffect
+        entity: FloorTileItemArcadeRed #This should be "Sepia Floor Tiles" These slow down individuals whilst walking on them
+        number: 25
   - type: SlimeExtract
 
 - type: entity
@@ -398,12 +443,34 @@
     - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
       color: "#2A52BE"
+  - type: Reactive
+    isReactionsUnlimited: false
+    oneUnitReaction: true
+    reactions:
+    - reagents: [ Water ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:CreateGas
+        gas: Oxygen
+        multiplier: 65
+    - reagents: [ Plasma ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:AdjustReagent
+        reagent: Fresium #I don't wanna do it, I don't wanna code stabilizing tile atmos temperature within x range
+        amount: 100
+    - reagents: [ Blood ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:CreateEntityReactionEffect
+        entity: CeruleanExtractJelly
+        number: 1
   - type: SlimeExtract
 
 - type: entity
   id: PyriteSlimeExtract
   parent: BaseSlimeExtract
-  name: pyrite slime extract
+  name: pyrite slime extract #these reactions will be deeply evil.
   description:
   components:
   - type: Sprite
