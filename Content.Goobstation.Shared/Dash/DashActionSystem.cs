@@ -7,7 +7,6 @@
 using Content.Goobstation.Shared.Emoting;
 using Content.Shared.Actions;
 using Content.Shared.Gravity;
-using Content.Shared.Magic.Events;
 using Content.Shared.Movement.Components;
 using Content.Shared.Throwing;
 
@@ -55,12 +54,6 @@ public sealed class DashActionSystem : EntitySystem
         {
             emotes.Emote = args.Emote;
             Dirty(args.Performer, emotes);
-        }
-
-        if (args.Speech != null)
-        {
-            var ev = new SpeakSpellEvent(args.Performer, args.Speech);
-            RaiseLocalEvent(ref ev);
         }
     }
 
