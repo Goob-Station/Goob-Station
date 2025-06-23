@@ -751,7 +751,7 @@
 #  parent: SurgeryStepBase
 #  id: SurgeryStepWingReconstruction
 #  name: Start wing reconstruction
-  #  components:
+#  components:
 #  - type: SurgeryStep
 #    duration: 6 # On TG success chance is lower, so here the surgery slower
 #    tool:
