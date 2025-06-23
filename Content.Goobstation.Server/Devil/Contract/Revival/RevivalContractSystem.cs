@@ -5,6 +5,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Shared.Devil;
+using Content.Goobstation.Shared.Devil.Condemned;
 using Content.Goobstation.Shared.Devil.UI;
 using Content.Server.Administration.Systems;
 using Content.Server.Mind;
@@ -13,6 +14,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Robust.Server.GameObjects;
+using Robust.Server.Player;
 
 namespace Content.Goobstation.Server.Devil.Contract.Revival;
 public sealed partial class PendingRevivalContractSystem : EntitySystem
@@ -22,6 +24,7 @@ public sealed partial class PendingRevivalContractSystem : EntitySystem
     [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
     [Dependency] private readonly DevilContractSystem _contract = default!;
     [Dependency] private readonly MindSystem _mind = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
 
     public override void Initialize()
     {
@@ -33,7 +36,7 @@ public sealed partial class PendingRevivalContractSystem : EntitySystem
 
     private void AfterInteract(Entity<RevivalContractComponent> ent, ref AfterInteractEvent args)
     {
-        if (args.Target is not { Valid: true } target
+        if (args.Target is not { } target
             || !TryComp<MobStateComponent>(target, out var mobState)
             || mobState.CurrentState != MobState.Dead)
             return;
@@ -53,7 +56,7 @@ public sealed partial class PendingRevivalContractSystem : EntitySystem
         }
 
         // You can't offer two deals at once.
-        if (HasComp<PendingRevivalContractComponent>(ghost))
+        if (HasComp<PendingRevivalContractComponent>(ghost) || HasComp<CondemnedComponent>(target))
         {
             var failedPopup = Loc.GetString("revival-contract-use-failed");
             _popupSystem.PopupEntity(failedPopup, args.User, args.User);
@@ -82,8 +85,10 @@ public sealed partial class PendingRevivalContractSystem : EntitySystem
         if (!_userInterface.HasUi(target, RevivalContractUiKey.Key))
             return false;
 
-        if (_mind.TryGetMind(target, out _, out var mindComp) && mindComp.Session is { } session)
-            _userInterface.OpenUi(target, RevivalContractUiKey.Key, session);
+        if (_mind.TryGetMind(target, out _, out var mindComp) &&
+            _player.TryGetSessionById(mindComp.UserId, out var session) &&
+            session is { } insession)
+            _userInterface.OpenUi(target, RevivalContractUiKey.Key, insession);
 
         return true;
     }

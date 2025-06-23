@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server._DV.CosmicCult.Components;
 using Content.Server.Actions;
 using Content.Server.Administration.Logs;
@@ -98,6 +104,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly VisibilitySystem _visibility = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
     private ISawmill _sawmill = default!;
     private TimeSpan _t3RevealDelay = default!;
     private TimeSpan _t2RevealDelay = default!;
@@ -612,7 +619,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         radio.Channels.Add("CosmicRadio");
         transmitter.Channels.Add("CosmicRadio");
 
-        if (_mind.TryGetSession(mindId, out var session))
+        if (_player.TryGetSessionById(mind.UserId, out var session))
         {
             _euiMan.OpenEui(new CosmicRoundStartEui(), session);
         }
@@ -678,8 +685,10 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             EnsureComp<RoleBriefingComponent>(cosmicRole.Value.Owner);
             Comp<RoleBriefingComponent>(cosmicRole.Value.Owner).Briefing = Loc.GetString("objective-cosmiccult-charactermenu");
         }
+        if (!_player.TryGetSessionById(mind.UserId, out var session))
+            return;
 
-        _antag.SendBriefing(mind.Session, Loc.GetString("cosmiccult-role-conversion-fluff"), Color.FromHex("#4cabb3"), _briefingSound);
+        _antag.SendBriefing(session, Loc.GetString("cosmiccult-role-conversion-fluff"), Color.FromHex("#4cabb3"), _briefingSound);
         _antag.SendBriefing(uid, Loc.GetString("cosmiccult-role-short-briefing"), Color.FromHex("#cae8e8"), null);
 
         var cultComp = EnsureComp<CosmicCultComponent>(uid);
@@ -690,12 +699,6 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
         if (cosmicGamerule.CurrentTier == 3)
         {
-        // Goobstation Change - Shitchap
-            if (!HasComp<WeakToHolyComponent>(uid))
-                EnsureComp<WeakToHolyComponent>(uid).AlwaysTakeHoly = true;
-            else
-                cultComp.WasWeakToHoly = true;
-
             cultComp.EntropyBudget = 48; // pity balance
             cultComp.Respiration = false;
 
@@ -708,6 +711,12 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         }
         else if (cosmicGamerule.CurrentTier == 2)
         {
+            // Goobstation Change - Shitchap
+            if (!HasComp<WeakToHolyComponent>(uid))
+                EnsureComp<WeakToHolyComponent>(uid).AlwaysTakeHoly = true;
+            else
+                cultComp.WasWeakToHoly = true;
+
             cultComp.EntropyBudget = 26; // pity balance
 
             foreach (var influenceProto in _protoMan.EnumeratePrototypes<InfluencePrototype>().Where(influenceProto => influenceProto.Tier == 2))
@@ -725,8 +734,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         _mind.TryAddObjective(mindId, mind, "CosmicMonumentObjective");
         _mind.TryAddObjective(mindId, mind, "CosmicEntropyObjective");
 
-        if (_mind.TryGetSession(mindId, out var session))
-            _euiMan.OpenEui(new CosmicConvertedEui(), session);
+        _euiMan.OpenEui(new CosmicConvertedEui(), session);
 
         RemComp<BibleUserComponent>(uid);
 
@@ -778,7 +786,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         if (TryComp(uid, out EyeComponent? eyeComp))
             _eye.SetVisibilityMask(uid, eyeComp.VisibilityMask & (int) ~VisibilityFlags.CosmicCultMonument);
 
-        if (_mind.TryGetSession(mindId, out var session))
+        if (_player.TryGetSessionById(mindComp.UserId, out var session))
             _euiMan.OpenEui(new CosmicDeconvertedEui(), session);
 
         _eye.SetVisibilityMask(uid, 1);

@@ -1,6 +1,17 @@
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 CliveOcelot <165305605+Orion-416@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
+# SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+# SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -157,16 +168,19 @@
   name: selectable-set-syndicate-implants-name
   description: selectable-set-syndicate-implants-description
   sprite:
-    sprite: Objects/Specific/Medical/syndi_implanter.rsi
-    state: implanter0
+    sprite: _Goobstation/Clothing/OuterClothing/Coats/david_jacket.rsi
+    state: icon
   content:
   - RadioImplanter
-  - BoxHoloparasite
   - EmpImplanter
   - ScramImplanter
   - FreedomImplanter
   - SmokeImplanter
   - KravMagaImplanter
+  - ClothingOuterDavidsJacketValid
+  - AutosurgeonRightMantisBlade
+  - AutosurgeonLeftMantisBlade
+  - AutosurgeonSandevistan
 
 - type: selectableSet
   id: SyndicateHackerSet
@@ -184,7 +198,7 @@
   - ToolboxSyndicateFilled
   - ClothingUniformJumpsuitAtmosSyndie
   - ClothingEyesGlassesOutlawGlasses
-  - EncryptionKeyBinarySyndicate
+  - BinaryImplanter
 
 - type: selectableSet
   id: SyndicateDeswordSet
@@ -209,17 +223,11 @@
     sprite: Objects/Weapons/Grenades/syndgrenade.rsi
     state: icon
   content:
+  - ClothingBeltMilitaryRigGrenadierFilled
+  - ClothingBackpackSyndicateFilledGrenadier
+  - ClothingOuterSuitBomb
+  - ClothingHeadHelmetBombSuit
   - EncryptionKeySyndie
-  - SyndieMiniBomb
-  - ExGrenade
-  - GrenadeIncendiary
-  - GrenadeShrapnel
-  - EmpGrenade
-  - SupermatterGrenade
-  - WhiteholeGrenade
-  - SmokeGrenade
-  - GrenadeFlashBang
-  - C4
 
 - type: selectableSet
   id: SyndicateFluclearSet
@@ -238,8 +246,8 @@
   - JetpackBlackFilled
   - ClothingBackpackDuffelSyndicateHardsuitBundle
   - ClothingUniformJumpsuitOperative
-  - SyndiPDA
-  - ClothingEyesHudSyndicate
+  - SyndiPDANukie
+  - ClothingEyesNightVisionGogglesNukie
   - ClothingShoesBootsCombatFilled
   - ClothingBeltMilitaryWebbing
 
@@ -254,10 +262,15 @@
     - EncryptionKeySyndie
     - EncryptionKeySyndie
     - EncryptionKeySyndie
+    - EncryptionKeySyndie
+    - EncryptionKeySyndie
     - ContractorBaton
     - Handcuffs
     - MindcontrolImplanter
     - MindcontrolImplanter
+    - MindcontrolImplanter
+    - MindcontrolImplanter
+    - WeaponSniperMosin
     - WeaponSniperMosin
     - WeaponSniperMosin
     - WeaponSniperMosin
@@ -304,7 +317,7 @@
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/erevolver.rsi
     state: icon
   content:
-    - ClothingBeltHolsterFilledBlueshield # Pistol, 1+2 lethal speedloaders and 2 disabler speedloaders
+    - ClothingBeltHolsterFilledBlueshield # Pistol, 1+2 lethal speedloaders and 1 disabler speedloader
 
 - type: selectableSet
   id: BSOCQCSet
@@ -324,13 +337,14 @@
     sprite: _Goobstation/Objects/Weapons/Guns/Lever/chester.rsi
     state: base
   content:
-    - MagazineShotgunLeverRifleEmpty
-    - MagazineShotgunLeverRifleEmpty
-    - MagazineBoxShotgunHighCaliber
-    - MagazineBoxShotgunHighCaliberFlash
-    - MagazineBoxShotgunHighCaliberEnsnaring
-    - MagazineBoxShotgunHighCaliberEMP
-    - WeaponLeverChester
+  # Guaranteed items
+  - WeaponLeverChester
+  - MagazineShotgunLeverRifleEmpty
+  - MagazineShotgunLeverRifleEmpty
+  - MagazineBoxShotgunHighCaliberEMP
+  - MagazineBoxShotgunHighCaliberEnsnaring
+#  tables:
+#  - ChesterRandomAmmoTable
 
 - type: selectableSet
   id: BSOSyringeSet
@@ -355,14 +369,14 @@
     - ClothingOuterHardsuitBlueshieldLight
 
 - type: selectableSet
-  id: BSOHardsuitHeavySet
-  name: selectable-set-blueshield-hardsuit-heavy-name
-  description: selectable-set-blueshield-hardsuit-heavy-description
+  id: BSOModsuitSet
+  name: selectable-set-blueshield-modsuit-name
+  description: selectable-set-blueshield-modsuit-description
   sprite:
-    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/bso.rsi
-    state: icon
+    sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/praetorian.rsi
+    state: control
   content:
-    - ClothingOuterHardsuitBlueshieldHeavy
+    - ClothingModsuitPraetorian
 
 # ERT
 
@@ -395,6 +409,93 @@
     - EnergySpeedloaderPulse
     - EnergySpeedloaderPulse
     - EnergySpeedloaderDisabler
+
+## voidsuit selectors
+
+# paramedic
+- type: selectableSet
+  id: VoidsuitSelectorParamedicVoidsuit
+  name: selectable-set-paramedic-voidsuit-name
+  description: selectable-set-paramedic-voidsuit-desc
+  sprite:
+    sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
+    state: icon
+  content:
+  - ClothingOuterHardsuitVoidParamed
+
+- type: selectableSet
+  id: VoidsuitSelectorParamedicHardsuit
+  name: selectable-set-paramedic-modsuit-name
+  description: selectable-set-paramedic-modsuit-desc
+  sprite:
+    sprite: _Goobstation/Clothing/Back/Modsuits/paramedic.rsi
+    state: control
+  content:
+  - ClothingModsuitParamedicPowerCell
+
+# security
+- type: selectableSet
+  id: VoidsuitSelectorSecurityVoidsuit
+  name: selectable-set-security-voidsuit-name
+  description: selectable-set-security-voidsuit-desc
+  sprite:
+    sprite: _Goobstation/Clothing/OuterClothing/Voidsuits/security.rsi
+    state: icon
+  content:
+  - ClothingOuterVoidsuitSecurity
+
+- type: selectableSet
+  id: VoidsuitSelectorSecurityHardsuit
+  name: selectable-set-security-modsuit-name
+  description: selectable-set-security-modsuit-desc
+  sprite:
+    sprite: _Goobstation/Clothing/Back/Modsuits/security.rsi
+    state: control
+  content:
+  - ClothingModsuitSecurityPowerCell
+
+# head of security
+- type: selectableSet
+  id: VoidsuitSelectorHeadOfSecurityVoidsuit
+  name: selectable-set-headofsecurity-voidsuit-name
+  description: selectable-set-headofsecurity-voidsuit-desc
+  sprite:
+    sprite: Clothing/OuterClothing/Hardsuits/security-red.rsi
+    state: icon
+  content:
+  - ClothingOuterHardsuitSecurityRed
+
+- type: selectableSet
+  id: VoidsuitSelectorHeadOfSecurityHardsuit
+  name: selectable-set-headofsecurity-modsuit-name
+  description: selectable-set-headofsecurity-modsuit-desc
+  sprite:
+    sprite: _Goobstation/Clothing/Back/Modsuits/headofsecurity.rsi
+    state: control
+  content:
+  - ClothingModsuitHeadOfSecurityPowerCell
+
+# engineer
+
+- type: selectableSet
+  id: VoidsuitSelectorEngineerVoidsuit
+  name: selectable-set-engineering-voidsuit-name
+  description: selectable-set-engineering-voidsuit-desc
+  sprite:
+    sprite: Clothing/OuterClothing/Hardsuits/engineering.rsi
+    state: icon
+  content:
+  - ClothingOuterHardsuitEngineering
+
+- type: selectableSet
+  id: VoidsuitSelectorEngineerHardsuit
+  name: selectable-set-engineering-modsuit-name
+  description: selectable-set-engineering-modsuit-desc
+  sprite:
+    sprite: _Goobstation/Clothing/Back/Modsuits/engineer.rsi
+    state: control
+  content:
+  - ClothingModsuitEngineerPowerCell
 
 # Head Of Security
 
@@ -437,3 +538,47 @@
     state: icon
   content:
   - WeaponHeadOfSecurityRifle
+
+# Captain
+
+- type: selectableSet
+  id: VoidsuitSelectorCaptainVoidsuit
+  name: selectable-set-captain-voidsuit-name
+  description: selectable-set-captain-voidsuit-desc
+  sprite:
+    sprite: Clothing/OuterClothing/Hardsuits/capspace.rsi
+    state: icon
+  content:
+  - ClothingOuterHardsuitCap
+
+- type: selectableSet
+  id: VoidsuitSelectorCaptainHardsuit
+  name: selectable-set-captain-modsuit-name
+  description: selectable-set-captain-modsuit-desc
+  sprite:
+    sprite: _Goobstation/Clothing/Back/Modsuits/captain.rsi
+    state: control
+  content:
+  - ClothingModsuitCaptainPowerCell
+
+# Research Director RD
+
+- type: selectableSet
+  id: VoidsuitSelectorRDVoidsuit
+  name: selectable-set-research-director-voidsuit-name
+  description: selectable-set-research-director-voidsuit-desc
+  sprite:
+    sprite: Clothing/OuterClothing/Hardsuits/rd.rsi
+    state: icon
+  content:
+  - ClothingOuterHardsuitRd
+
+- type: selectableSet
+  id: VoidsuitSelectorRDHardsuit
+  name: selectable-set-research-director-modsuit-name
+  description: selectable-set-research-director-modsuit-desc
+  sprite:
+    sprite: _Goobstation/Clothing/Back/Modsuits/researchdirector.rsi
+    state: control
+  content:
+  - ClothingModsuitResearchDirectorPowerCell

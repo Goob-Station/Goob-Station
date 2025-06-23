@@ -84,12 +84,16 @@
 // SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
 // SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Kayzel <43700376+KayzelW@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 // SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Trest <144359854+trest100@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Zachary Higgs <compgeek223@gmail.com>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -97,6 +101,7 @@
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 kurokoTurbo <92106367+kurokoTurbo@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
 //
@@ -123,6 +128,17 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using TimedDespawnComponent = Robust.Shared.Spawners.TimedDespawnComponent;
+
+// Shitmed Change
+using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared._Shitmed.Body;
+using Content.Shared._Shitmed.Damage;
+using Content.Shared._Shitmed.Targeting;
+using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
+using Content.Shared.Body.Components;
+using Content.Server.Destructible;
+using Content.Server.Destructible.Thresholds.Triggers;
+using System.Linq;
 
 namespace Content.Server.Explosion.EntitySystems;
 
@@ -168,13 +184,10 @@ public sealed partial class ExplosionSystem
 
     private List<EntityUid> _anchored = new();
 
-    private void OnMapChanged(MapChangedEvent ev)
+    private void OnMapRemoved(MapRemovedEvent ev)
     {
         // If a map was deleted, check the explosion currently being processed belongs to that map.
-        if (ev.Created)
-            return;
-
-        if (_activeExplosion?.Epicenter.MapId != ev.Map)
+        if (_activeExplosion?.Epicenter.MapId != ev.MapId)
             return;
 
         QueueDel(_activeExplosion.VisualEnt);
@@ -250,7 +263,7 @@ public sealed partial class ExplosionSystem
             }
 #if EXCEPTION_TOLERANCE
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 // Ensure the system does not get stuck in an error-loop.
                 if (_activeExplosion != null)
@@ -565,8 +578,8 @@ public sealed partial class ExplosionSystem
                 }
 
                 // TODO EXPLOSIONS turn explosions into entities, and pass the the entity in as the damage origin.
-                _damageableSystem.TryChangeDamage(entity, damage * _damageableSystem.UniversalExplosionDamageModifier, ignoreResistances: true, partMultiplier: 0.3f); // Shitmed: Temp change, nerf explosion delimbing
-
+                if (!WouldTriggerDestructibleThreshold(entity, damage, cause))
+                    _damageableSystem.TryChangeDamage(entity, damage, ignoreResistances: true, targetPart: TargetBodyPart.All, splitDamage: SplitDamageBehavior.Split); // Shitmed Change
             }
         }
 
@@ -586,7 +599,7 @@ public sealed partial class ExplosionSystem
             && throwForce > 0
             && !EntityManager.IsQueuedForDeletion(uid)
             && _physicsQuery.TryGetComponent(uid, out var physics)
-            && physics.BodyType == BodyType.Dynamic)
+            && physics.BodyType == Robust.Shared.Physics.BodyType.Dynamic) // Shitmed Change
         {
             var pos = _transformSystem.GetWorldPosition(xform);
             var dir = pos - epicenter.Position;
@@ -645,6 +658,48 @@ public sealed partial class ExplosionSystem
             return;
 
         damagedTiles.Add((tileRef.GridIndices, new Tile(tileDef.TileId)));
+    }
+
+    // Shitmed Change: This is basically a private implementation handling a "prediction" of
+    // whether or not the explosion would trigger damage thresholds on a Woundmed entity.
+    // TODO: If it works well over time, move to an event.
+    private bool WouldTriggerDestructibleThreshold(EntityUid uid, DamageSpecifier incomingDamage, EntityUid? cause)
+    {
+        if (!TryComp<DestructibleComponent>(uid, out var destructible)
+            || !TryComp<DamageableComponent>(uid, out var damageable)
+            || !TryComp<BodyComponent>(uid, out var body)
+            || body.BodyType == Shared._Shitmed.Body.BodyType.Simple)
+            return false;
+
+        foreach (var threshold in destructible.Thresholds)
+        {
+            // Skip if already triggered and triggers only once
+            if (threshold.Triggered && threshold.TriggersOnce)
+                continue;
+
+            // Check if this threshold uses a damage type trigger
+            if (threshold.Trigger is not DamageTypeTrigger damageTypeTrigger)
+                continue;
+
+            // Get current damage for this damage type
+            var currentDamage = damageable.Damage.DamageDict.TryGetValue(damageTypeTrigger.DamageType, out var current)
+                ? current
+                : FixedPoint2.Zero;
+
+            // Get incoming damage for this damage type
+            var additionalDamage = incomingDamage.DamageDict.TryGetValue(damageTypeTrigger.DamageType, out var incoming)
+                ? incoming
+                : FixedPoint2.Zero;
+
+            // Check if combined damage would exceed threshold
+            if (currentDamage + additionalDamage >= damageTypeTrigger.Damage)
+            {
+                threshold.Execute(uid, _destructibleSystem, EntityManager, cause);
+                return true;
+            }
+        }
+
+        return false;
     }
 }
 
@@ -819,7 +874,7 @@ sealed class Explosion
 
         if (spaceData != null)
         {
-            var mapUid = mapMan.GetMapEntityId(epicenter.MapId);
+            var mapUid = mapSystem.GetMap(epicenter.MapId);
 
             _explosionData.Add(new()
             {

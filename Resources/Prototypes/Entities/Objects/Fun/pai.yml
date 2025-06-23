@@ -102,6 +102,8 @@
 # SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -120,6 +122,13 @@
     program: 2
   - type: UserInterface
     interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+        requireInputValidation: false
+      # available in pai shop
+      enum.RadarConsoleUiKey.Key:
+        type: RadarConsoleBoundUserInterface
+        requireInputValidation: false
       enum.InstrumentUiKey.Key:
         type: InstrumentBoundUserInterface
         requireInputValidation: false
@@ -153,15 +162,30 @@
     stopSearchVerbPopup: pai-system-stopped-searching
   - type: Examiner
   - type: IntrinsicRadioReceiver
-  - type: IntrinsicRadioTransmitter
-    channels:
-    - Binary
+  #- type: IntrinsicRadioTransmitter
+  #  channels:
+  #  - Binary # Goobstation - replaced with collective mind
   - type: ActiveRadio
     channels:
-    - Binary
+    # - Binary # Goobstation - replaced with collective mind
     - Common
+  # Goobstation
+  - type: CollectiveMind
+    defaultChannel: Binary
+    channels:
+    - Binary
   - type: DoAfter
   - type: Actions
+  - type: Store
+    categories:
+    - PAIAbilities
+    currencyWhitelist:
+    - SiliconMemory
+    balance:
+      SiliconMemory: 30
+  - type: RadarConsole
+    maxRange: 256
+    followEntity: true
   - type: TypingIndicator
     proto: robot
   - type: Speech
@@ -188,6 +212,7 @@
     whitelist:
       components:
         - SecretStash
+        - WrappedParcel
 
 - type: entity
   parent: [ PersonalAI, BaseSyndicateContraband]
@@ -257,6 +282,30 @@
     node: potatoai
 
 - type: entity
+  id: ActionPAIOpenShop
+  name: Software Catalog
+  description: Install new software to assist your owner.
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    checkConsciousness: false
+    icon: Interface/Actions/shop.png
+    event: !type:PAIShopActionEvent
+
+- type: entity
+  id: ActionPAIMassScanner
+  name: Mass Scanner
+  description: View a mass scanner interface.
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    checkConsciousness: false
+    icon: { sprite: Interface/Actions/actions_ai.rsi, state: mass_scanner }
+    itemIconStyle: NoItem
+    event: !type:OpenUiActionEvent
+        key: enum.RadarConsoleUiKey.Key
+
+- type: entity
   id: ActionPAIPlayMidi
   name: Play MIDI
   description: Open your portable MIDI interface to soothe your owner.
@@ -265,6 +314,7 @@
     checkCanInteract: false
     checkConsciousness: false
     icon: Interface/Actions/pai-midi.png
+    itemIconStyle: NoItem
     event: !type:OpenUiActionEvent
       key: enum.InstrumentUiKey.Key
 
@@ -277,5 +327,6 @@
       checkCanInteract: false
       checkConsciousness: false
       icon: { sprite: Interface/Actions/pai-map.rsi, state: icon }
+      itemIconStyle: NoItem
       event: !type:OpenUiActionEvent
         key: enum.StationMapUiKey.Key

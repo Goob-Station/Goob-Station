@@ -4,13 +4,15 @@
 # SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Timemaster99 <57200767+Timemaster99@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 VMSolidus <evilexecutive@gmail.com>
-# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GNUtopia <93669372+GNUtopia@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -26,11 +28,32 @@
     sprite: _DV/Mobs/Species/Harpy/parts.rsi
   - type: BodyPart
     species: Harpy
+  - type: Damageable # Shitmed
+    damageModifierSet: Harpy
 
 - type: entity
-  parent: [ PartHarpyBase, BaseTorso ]
-  id: TorsoHarpy
-  name: "harpy torso"
+  parent: [ PartHarpyBase, BaseChest ]
+  id: ChestHarpy
+  name: "harpy chest"
+  components:
+  - type: Sprite
+    sprite: _DV/Mobs/Species/Harpy/parts.rsi
+    state: "chest_m"
+  - type: Icon
+    sprite: _DV/Mobs/Species/Harpy/parts.rsi
+    state: "chest_m"
+
+- type: entity
+  parent: [ PartHarpyBase, BaseGroin ]
+  id: GroinHarpy
+  name: "harpy groin"
+  components:
+  - type: Sprite
+    sprite: _DV/Mobs/Species/Harpy/parts.rsi
+    state: "groin_m"
+  - type: Icon
+    sprite: _DV/Mobs/Species/Harpy/parts.rsi
+    state: "groin_m"
 
 - type: entity
   parent: [ PartHarpyBase, BaseHead ]
@@ -53,6 +76,7 @@
       isLayerAnimated: true
       layer: "/Textures/_EinsteinEngines/Mobs/Customization/Harpy/harpy_wings.rsi"
       animationKey: "Flap"
+      speedModifier: 1.25 # combines with harpy weightless modifier to make 1.4x speed, same as before
 
 - type: entity
   parent: [ PartHarpyBase, BaseLeftHand ]

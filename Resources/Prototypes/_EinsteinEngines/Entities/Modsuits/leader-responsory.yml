@@ -1,0 +1,184 @@
+# SPDX-FileCopyrightText: 2025 CliveOcelot <165305605+Orion-416@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# The Modsuit Itself, This is just a ERT modsuit
+- type: entity
+  parent: [ ClothingModsuitStandard, BaseCentcommContraband ]
+  id: ClothingModsuitResponsoryLeader
+  name: Leader Responsory hardsuit control unit # Goob edit
+  description: The main controller for a Leader Responsory hardsuit. # Goob edit
+  components:
+    - type: ClothingSpeedModifier
+      walkModifier: 1
+      sprintModifier: 1
+    - type: Sprite
+      sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/leader-responsory.rsi
+    - type: ToggleableClothing
+      clothingPrototypes:
+        head: ClothingModsuitHelmetResponsoryLeader
+        gloves: ClothingModsuitGauntletsResponsoryLeader
+        outerClothing: ClothingModsuitChestplateResponsoryLeader
+        shoes: ClothingModsuitBootsResponsoryLeader
+    - type: ItemSlots
+      slots:
+        cell_slot:
+          name: power-cell-slot-component-slot-name-default
+          startingItem: PowerCellMicroreactor # Since this is used by ERT they shouldnt need to stop to recharge.
+          whitelist:
+            components:
+              - PowerCell
+    - type: Storage
+      grid:
+        - 0,0,10,3
+    - type: SealableClothingVisuals
+      visualLayers:
+        back:
+        - state: equipped-BACKPACK-sealed
+
+- type: entity
+  parent: ClothingModsuitGauntletsStandard
+  id: ClothingModsuitGauntletsResponsoryLeader
+  name: Leader Responsory hardsuit gauntlets # Goob edit
+  description: A pair of gauntlets made for the Leader Responsory hardsuit. # Goob edit
+  categories: [HideSpawnMenu]
+  components:
+    - type: Sprite
+      sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/leader-responsory.rsi
+    - type: SealableClothingVisuals
+      visualLayers:
+        gloves:
+          - state: equipped-HAND-sealed
+          - state: equipped-HAND-sealed-unshaded
+            shader: unshaded
+
+- type: entity
+  parent: [ClothingModsuitHelmetStandard, ShowSecurityIcons]
+  id: ClothingModsuitHelmetResponsoryLeader
+  name: Leader Responsory hardsuit helmet # Goob edit
+  description: A state-of-the-art helmet designed by NanoTrasen for the Leader Responsory hardsuit. It includes a built-in HUD. # Goob edit
+  categories: [HideSpawnMenu]
+  components:
+    - type: Sprite
+      sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/leader-responsory.rsi
+    - type: PressureProtection
+      highPressureMultiplier: 0.08
+      lowPressureMultiplier: 1000
+    - type: Armor
+      traumaDeductions:
+        Dismemberment: 0.6
+        OrganDamage: 0.6
+        BoneDamage: 0.6
+        VeinsDamage: 0
+        NerveDamage: 0
+      modifiers:
+        coefficients:
+          Blunt: 0.4
+          Slash: 0.4
+          Piercing: 0.35
+          Heat: 0.5
+          Radiation: 0.2
+          Caustic: 0.4
+    - type: FlashImmunity # Goobstation
+    - type: FlashSoundSuppression # Goobstation
+      protectionRange: 0
+    - type: EyeProtection
+    - type: ShowHealthBars
+      damageContainers:
+        - Biological
+        - Inorganic
+        - Silicon
+    - type: PointLight
+      color: "#FFDF00"
+    - type: SealableClothingVisuals
+      visualLayers:
+        head:
+          - state: equipped-HEAD-sealed
+          - state: equipped-HEAD-sealed-unshaded
+            shader: unshaded
+
+- type: entity
+  parent: ClothingModsuitChestplateStandard
+  id: ClothingModsuitChestplateResponsoryLeader
+  name: Leader Responsory hardsuit chestplate # Goob edit
+  description: A state of the art chestplate designed by NanoTrasen for the Leader Responsory hardsuit. It incorporates powered servos to reduce the equipment load. # Goob edit
+  categories: [HideSpawnMenu]
+  components:
+    - type: Sprite
+      sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/leader-responsory.rsi
+    - type: ClothingSpeedModifier
+      walkModifier: 1
+      sprintModifier: 1
+    - type: Armor
+      traumaDeductions:
+        Dismemberment: 0.6
+        OrganDamage: 0.6
+        BoneDamage: 0.6
+        VeinsDamage: 0
+        NerveDamage: 0
+      modifiers:
+        coefficients:
+          Blunt: 0.35
+          Slash: 0.35
+          Piercing: 0.3
+          Heat: 0.45
+          Radiation: 0.2
+          Caustic: 0.4
+    - type: ExplosionResistance
+      damageCoefficient: 0.4
+    - type: SealableClothingVisuals
+      visualLayers:
+        outerClothing:
+          - state: equipped-OUTERCLOTHING-sealed
+    - type: StaminaResistance
+      damageCoefficient: 0.35
+    - type: FireProtection
+      reduction: 1
+    - type: ClothingGrantComponent
+      component:
+        - type: SupermatterImmune
+
+- type: entity
+  parent: ClothingModsuitBootsStandard
+  id: ClothingModsuitBootsResponsoryLeader
+  name: Leader Responsory hardsuit boots # Goob edit
+  description: A state-of-the-art pair of magboots for the Leader Responsory hardsuit. So long as the suit is powered, these will not slow the wearer down. # Goob edit
+  categories: [HideSpawnMenu]
+  components:
+    - type: Appearance
+    - type: Sprite
+      sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/leader-responsory.rsi
+    - type: Tag
+      tags:
+        - WhitelistChameleon
+    - type: SealableClothingVisuals
+      visualLayers:
+        shoes:
+          - state: equipped-FEET-sealed
+    - type: ItemToggle
+    - type: ToggleClothing
+      action: ActionToggleMagboots
+    - type: ComponentToggler
+      components:
+      - type: NoSlip
+    - type: Magboots
+      enabledPrefix: null
+    - type: ClothingSpeedModifier
+      walkModifier: 1
+      sprintModifier: 1
+
+- type: entity
+  id: SuitStorageResponsoryLeader
+  parent: SuitStorageBase
+  suffix: Leader Responsory Modsuit
+  components:
+    - type: StorageFill
+      contents:
+        - id: OxygenTankFilled
+        - id: ClothingModsuitResponsoryLeader
+        - id: ClothingMaskBreath

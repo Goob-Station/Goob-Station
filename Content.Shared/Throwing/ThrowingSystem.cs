@@ -10,16 +10,17 @@
 // SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
 // SPDX-FileCopyrightText: 2024 Zealith-Gamer <61980908+Zealith-Gamer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 ActiveMammmoth <140334666+ActiveMammmoth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 ActiveMammmoth <kmcsmooth@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Eagle <lincoln.mcqueen@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 vanx <61917534+Vaaankas@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -46,16 +47,14 @@ public sealed class ThrowingSystem : EntitySystem
 {
     public const float ThrowAngularImpulse = 5f;
 
-    /// <summary>
-    /// Speed cap on rotation in case of click-spam.
-    /// </summary>
-    public const float ThrowAngularCap = 3f * MathF.PI;
-
     public const float PushbackDefault = 2f;
 
     public const float FlyTimePercentage = 0.8f;
 
+    private const float TileFrictionMod = 1.5f;
+
     private float _frictionModifier;
+    private float _airDamping;
 
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly SharedGravitySystem _gravity = default!;
@@ -71,6 +70,7 @@ public sealed class ThrowingSystem : EntitySystem
         base.Initialize();
 
         Subs.CVar(_configManager, CCVars.TileFrictionModifier, value => _frictionModifier = value, true);
+        Subs.CVar(_configManager, CCVars.AirFriction, value => _airDamping = value, true);
     }
 
     public void TryThrow(
@@ -191,7 +191,7 @@ public sealed class ThrowingSystem : EntitySystem
         };
 
         // if not given, get the default friction value for distance calculation
-        var tileFriction = friction ?? _frictionModifier * TileFrictionController.DefaultFriction;
+        var tileFriction = friction ?? _frictionModifier * TileFrictionMod;
 
         if (tileFriction == 0f)
             compensateFriction = false; // cannot calculate this if there is no friction
@@ -234,6 +234,7 @@ public sealed class ThrowingSystem : EntitySystem
         // else let the item land on the cursor and from where it slides a little further.
         // This is an exact formula we get from exponentially decaying velocity after landing.
         // If someone changes how tile friction works at some point, this will have to be adjusted.
+        // This doesn't actually compensate for air friction, but it's low enough it shouldn't matter.
         var throwSpeed = compensateFriction ? direction.Length() / (flyTime + 1 / tileFriction) : baseThrowSpeed;
         var impulseVector = direction.Normalized() * throwSpeed * physics.Mass;
         _physics.ApplyLinearImpulse(uid, impulseVector, body: physics);
