@@ -8,7 +8,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 heretic-influence-start = Истощение влияния...
-heretic-ritualrune-examine = Текущий выбранный ритуал: \[color=yellow]{ \$rit }\[/color]
+heretic-ritualrune-examine = Текущий выбранный ритуал: [color=yellow]{$rit}[/color]
 heretic-knowledge-gain = Вы узнали что-то новое
 heretic-knowledge-loss = Вы что-то забыли
 heretic-clothing-component-fail = Невозможно надеть это!

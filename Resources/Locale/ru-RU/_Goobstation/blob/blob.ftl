@@ -10,30 +10,6 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-ent-SpawnPointGhostBlob = Генератор блоба
-    .suffix = DEBUG, Генератор роли-призрака
-    .desc = { ent-MarkerBase.desc }
-ent-MobBlobPod = Капсула блоба
-    .desc = Обычный боец-блоб.
-ent-MobBlobBlobbernaut = Блоббернаут
-    .desc = Элитный боец-блоб.
-ent-BaseBlob = базовый блоб.
-    .desc = { "" }
-ent-NormalBlobTile = Обычная плитка блоба
-    .desc = Обычная часть блоба, необходимая для создания более продвинутых плиток.
-ent-CoreBlobTile = Ядро блоба
-    .desc = Самый важный орган блоба. При уничтожении ядра инфекция прекратится.
-ent-FactoryBlobTile = Фабрика блоба
-    .desc = Со временем порождает капсулы блоба и блоббернаутов.
-ent-ResourceBlobTile = Ресурсный блоб
-    .desc = Производит ресурсы для блоба.
-ent-NodeBlobTile = Узловая плитка блоба
-    .desc = Мини-версия ядра, позволяющая размещать специальные плитки блоба вокруг себя.
-ent-StrongBlobTile = Усиленная плитка блоба
-    .desc = Усиленная версия обычной плитки. Не пропускает воздух и защищает от грубого урона.
-ent-ReflectiveBlobTile = Отражающая плитка блоба
-    .desc = Отражает лазеры, но хуже защищает от грубого урона.
-    .desc = { "" }
 objective-issuer-blob = Блоб
 ghost-role-information-blobbernaut-name = Блоббернаут
 ghost-role-information-blobbernaut-description = Вы — блоббернаут. Вы должны защищать ядро блоба. Используйте + или +e в чате, чтобы говорить в Blobmind.

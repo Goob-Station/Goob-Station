@@ -6,4 +6,3 @@
 advertisement-miningdrobe-1 = Защищает вас от любой мегафауны!
 advertisement-miningdrobe-2 = Комфорт в каждом взмахе кирки!
 advertisement-miningdrobe-3 = Получите свою одежду, не рвущуюся в использовании, прямо здесь!!!
-

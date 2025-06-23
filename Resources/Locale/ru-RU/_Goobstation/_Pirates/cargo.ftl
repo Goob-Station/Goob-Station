@@ -6,4 +6,3 @@
 
 pirates-ransom-irs-name = Налоговые обязательства
 pirates-ransom-irs-desc = Уплатите { $num } кредитов налогов.
-

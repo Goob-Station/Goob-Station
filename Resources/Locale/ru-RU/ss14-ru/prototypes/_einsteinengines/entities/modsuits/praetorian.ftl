@@ -1,18 +1,13 @@
 ent-ClothingModsuitPraetorian = Контроллер модсьюта преторианца
     .desc = Основной контроллер модсьюта преторианца.
-
 ent-ClothingModsuitGauntletsPraetorian = Рукавицы модсьюта преторианца
     .desc = Пара рукавиц, сделанных для модсьюта преторианца.
-
 ent-ClothingModsuitHelmetPraetorian = Шлем модсьюта преторианца
     .desc = Передовой шлем, разработанный NanoTrasen для модсьюта преторианца.
-
 ent-ClothingModsuitChestplatePraetorian = Нагрудник модсьюта преторианца
     .desc = Передовой нагрудник, разработанный NanoTrasen для модсьюта преторианца. Оснащён сервоприводами для снижения нагрузки.
-
 ent-ClothingModsuitBootsPraetorian = Ботинки модсьюта преторианца
     .desc = Передовая пара магобуви для модсьюта преторианца.
-
 ent-SuitStoragePraetorian = { ent-SuitStorageBase }
     .suffix = Модсьют преторианца
     .desc = { ent-SuitStorageBase.desc }

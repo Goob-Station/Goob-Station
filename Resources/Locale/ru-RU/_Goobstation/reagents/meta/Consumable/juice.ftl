@@ -4,4 +4,4 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-reagent-desc-juice-cherry = Лучший красный вкус.
+reagent-desc-juice-cherry = Вкусный вишнёвый сок, сладкий и терпкий.

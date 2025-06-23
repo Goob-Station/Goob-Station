@@ -49,7 +49,6 @@ ghost-role-information-inspector-name = Инспектор Центрально�
 ghost-role-information-inspector-description = Проверяй имущество станции и экипаж. Вероятно, погибнешь в ужасной аварии, и на тебя вызовут отряд смерти.
 ghost-role-information-sentient-shark-name = Разумный Акулёнок
 
-
 # Half Life
 
 ghost-role-information-Gman-name = Джи-Мэн
@@ -79,4 +78,3 @@ ghost-role-information-bingle-name-token = Бингл (Токен)
 blob-carrier-role-name-token = Носитель Блоба (Токен)
 abductor-lone-ghost-role-name-token = Одинокий Похититель (Токен)
 roles-wizard-name-token = Волшебник (Токен)
-

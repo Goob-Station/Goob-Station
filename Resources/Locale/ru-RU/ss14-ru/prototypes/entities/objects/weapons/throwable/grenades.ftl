@@ -13,10 +13,8 @@ ent-SyndieMiniBomb = минибомба
 # Corvax-HiddenDesc-End
 ent-SelfDestructSeq = Самоуничтожение
     .desc = Уйти на своих условиях!
-ent-SupermatterGrenade = supermatter grenade
-    .desc = Grenade that simulates delamination of the supermatter engine, pulling things in a heap and exploding after some time.
-ent-SingularityGrenade = граната сингулярности
-    .desc = Граната, которая имитирует силу сингулярности, собирая вещи в кучу.
+ent-SupermatterGrenade = граната суперматерии
+    .desc = Граната, имитирующая взрыв суперматерии, сбивающая предметы в кучу и взрывающаяся через некоторое время.
 ent-WhiteholeGrenade = граната белой дыры
     .desc = Граната, которая некоторое время отталкивает всё вокруг.
 ent-NuclearGrenade = критическая масса

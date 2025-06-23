@@ -1,4 +1,4 @@
-ent-MindRoleWizard = Роль Волшебника
+ent-MindRoleWizard = Роль призрак
     .desc = { ent-BaseMindRoleAntag.desc }
 ent-MindRoleApprentice = Роль Ученика
     .desc = { ent-BaseMindRoleAntag.desc }

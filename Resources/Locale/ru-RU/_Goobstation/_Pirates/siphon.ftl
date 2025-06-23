@@ -15,4 +15,3 @@ pirate-siphon-activate-2 = ВЕСЬ СЕКТОР БУДЕТ ПРИВЕДЕН В 
 pirate-siphon-nosignal = Сигналов не обнаружено.
 pirate-siphon-weaksignal = Обнаружен слабый сигнал. Подойдите к источнику сигнала.
 console-block-something = Что-то мешает нормальной работе консоли.
-

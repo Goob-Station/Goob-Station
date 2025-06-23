@@ -44,7 +44,6 @@ back-examine-selfaware = - [bold]{ $item }[/bold] на вашей спине.
 gloves-examine-selfaware = - [bold]{ $item }[/bold] на ваших руках.
 belt-examine-selfaware = - [bold]{ $item }[/bold] на вашем поясе.
 shoes-examine-selfaware = - [bold]{ $item }[/bold] на ваших ногах.
-id-card-examine-full-selfaware = - Ваш ID: [bold]{ $nameAndJob }[/bold].
 
 # Selfaware examine
 

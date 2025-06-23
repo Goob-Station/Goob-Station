@@ -12,4 +12,3 @@ ent-ClothingEyesThermalVisionGogglesSyndie = очки теплового вид�
 ent-ClothingEyesThermalVisionGogglesNukie = { ent-ClothingEyesThermalVisionGogglesSyndie }
     .suffix = нюкеры
     .desc = { ent-ClothingEyesThermalVisionGogglesSyndie.desc }
-

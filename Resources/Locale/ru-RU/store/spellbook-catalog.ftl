@@ -3,16 +3,9 @@ spellbook-fireball-name = Огненный шар
 spellbook-fireball-desc = Пусть большинство членов экипажа взорвутся от ярости, когда увидят летящий в них огненный шар!
 spellbook-blink-name = Прыжок
 spellbook-blink-desc = Не моргайте, иначе вы не заметите, как телепортируетесь.
-spellbook-voidapplause-name = Хлопок пустоты
-spellbook-voidapplause-desc = Поменяйтесь местами с целью, разве вам не захотелось потанцевать буги?
 spellbook-force-wall-name = Силовой барьер
 spellbook-polymoprh-spider-name = Spider Polymoprh
 spellbook-force-wall-desc = Создайте три стены чистой энергии, через которые вы можете пройти, а другие - нет.
-spellbook-repulse-name = Импульс
-spellbook-repulse-desc = Прикажите всем уйти с вашего пути или оттолкните их от себя.
-spellbook-smoke-name = Дым
-spellbook-smoke-desc = Очевидно, создаёт облако дыма.
-spellbook-polymorph-spider-name = Полиморф-паук
 spellbook-polymorph-spider-desc = Превращает вас в паука!
 spellbook-polymorph-rod-name = Полиморф-жезл
 spellbook-polymorph-rod-desc = Превратитесь в неподвижный жезл с ограниченной возможностью передвижения.
@@ -26,16 +19,6 @@ spellbook-ethereal-jaunt-name = Эфирная прогулка
 spellbook-ethereal-jaunt-description = Перейдите на Эфирный план чтобы ускользнуть от врагов!
 spellbook-mind-swap-name = Обмен разумом
 spellbook-mind-swap-description = Обменяйтесь телами с другим человеком!
-spellbook-animate-name = Оживление
-spellbook-animate-description = Оживите неодушевлённый предмет!
-spellbook-smite-name = Кара
-spellbook-smite-desc = Не любите кого-то? РАЗОРВИТЕ его на кусочки! Необходимо иметь шляпу и робу волшебника.
-spellbook-cluwne-name = Проклятие клувня
-spellbook-cluwne-desc = Для случаев, когда вы кого-то по настоящему ненавидите и кары недостаточно. Необходимо иметь шляпу и робу волшебника.
-spellbook-slip-name = Скользкая дорожка
-spellbook-slip-desc = Изучите древние приёмы уборщиков и прокляните вашу цель, чтобы та была скользкой. Необходимо иметь шляпу и робу волшебника.
-spellbook-item-recall-name = Отозвать предмет
-spellbook-item-recall-description = Пометьте удерживаемый предмет и призывайте его обратно в любое время по щелчку пальцев.
 
 # Equipment
 

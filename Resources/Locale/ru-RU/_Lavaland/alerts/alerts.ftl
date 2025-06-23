@@ -5,4 +5,3 @@
 
 alerts-hierophantbeat-name = Ритм Иерофанта
 alerts-hierophantbeat-desc = Загадочная потусторонняя мелодия влияет на вашу подвижность.
-

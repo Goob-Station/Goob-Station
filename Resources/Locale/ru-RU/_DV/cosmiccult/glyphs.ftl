@@ -4,21 +4,15 @@ cult-glyph-conditions-not-met = Нет подходящих целей в зон
 cult-glyph-too-many-targets = Слишком много целей на глифе!
 cult-glyph-target-mindshield = Разумный щит препятствует влиянию глифа!
 cult-glyph-target-chaplain = Искра божественной силы не даёт глифу проявить влияние!
-
 cult-glyph-name-knowledge = Завет Знаний
 cult-glyph-description-knowledge = Знания. Пробуждает искру неизгладимого понимания. Способен обратить большинство.
-
 cult-glyph-name-projection = Завет Проекции
 cult-glyph-description-projection = Проекция. Позволяет временно вознестись в астральной форме и шпионить за окружающими.
-
 cult-glyph-name-warding = Причастие Ограждения
 cult-glyph-description-warding = Ограждение. Преобразует защитную одежду в энтропийные одеяния.
-
 cult-glyph-name-blades = Причастие Клинков
 cult-glyph-description-blades = Клинки. Преобразует и усиливает острые предметы в смертоносное оружие.
-
 cult-glyph-name-cessation = Пробуждение Прекращения
 cult-glyph-description-cessation = Прекращение. Преобразует переносной атмосферный фильтр в Пустотный Шпиль.
-
 cult-glyph-name-truth = Пробуждение Истины
 cult-glyph-description-truth = Истина. Пробуждает чистую, неизгладимую истину. Способен обратить абсолютно любого.

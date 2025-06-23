@@ -22,4 +22,3 @@ marking-HairResomiPointy = Резоми: Заострённые
 marking-HairResomiTwies = Резоми: Скрутки
 marking-HairResomiUpright = Резоми: Стоячие
 marking-HairResomiLong = Резоми: Длинные
-

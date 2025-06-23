@@ -6,5 +6,5 @@ ent-PKAUpgradeRange = улучшение ПКА (дальность)
     .desc = { ent-BasePKAUpgrade.desc }
 ent-PKAUpgradeFireRate = улучшение ПКА (скорострельность)
     .desc = { ent-BasePKAUpgrade.desc }
-ent-PKAUpgradeLight =улучшение ПКА (свет)
+ent-PKAUpgradeLight = улучшение ПКА (свет)
     .desc = { ent-BasePKAUpgrade.desc }

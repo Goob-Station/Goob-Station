@@ -5,4 +5,3 @@
 
 gas-pipe-sensor-sm-hot-loop = SM горячий контур
 gas-pipe-sensor-sm-cold-loop = SM холодный контур
-

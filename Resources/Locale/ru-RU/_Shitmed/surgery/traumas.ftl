@@ -7,4 +7,3 @@ inspect-trauma-BoneDamage = Похоже, вывихнуто.
 popup-trauma-OrganDamage-Damaged = В вашем { $part } что-то не так...
 popup-trauma-OrganDamage-Destroyed = Вы чувствуете очень резкую боль в { $part }!
 self-inspect-trauma-OrganDamage = Ваш { $part } напряжён, дышать больно.
-

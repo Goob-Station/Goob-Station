@@ -1,18 +1,13 @@
 ent-ClothingModsuitCorporate = Контроллер корпоративного модсьюта
     .desc = Основной контроллер корпоративного модсьюта.
-
 ent-ClothingModsuitGauntletsCorporate = Рукавицы корпоративного модсьюта
     .desc = Пара рукавиц, созданных для корпоративного модсьюта.
-
 ent-ClothingModsuitHelmetCorporate = Шлем корпоративного модсьюта
     .desc = Передовой шлем, разработанный NanoTrasen для корпоративного модсьюта. Оснащён встроенным HUD.
-
 ent-ClothingModsuitChestplateCorporate = Нагрудник корпоративного модсьюта
     .desc = Передовой нагрудник, разработанный NanoTrasen для корпоративного модсьюта. Оснащён сервоприводами для снижения нагрузки.
-
 ent-ClothingModsuitBootsCorporate = Ботинки корпоративного модсьюта
     .desc = Передовая пара магобуви для корпоративного модсьюта. Пока костюм питается энергией, эти ботинки не замедляют владельца.
-
 ent-SuitStorageCorporate = { ent-SuitStorageBase }
     .suffix = Корпоративный модсьют
     .desc = { ent-SuitStorageBase.desc }

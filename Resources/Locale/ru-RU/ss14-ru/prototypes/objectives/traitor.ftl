@@ -8,8 +8,8 @@ ent-EscapeShuttleObjective = Улететь на Центком живым и с
     .desc = Один из наших агентов под прикрытием допросит вас по прибытии. Не дайте себя арестовать.
 ent-DieObjective = Умереть славной смертью.
     .desc = Умрите.
-ent-HijackShuttleObjective = Hijack emergency shuttle
-    .desc = Leave on the shuttle free and clear of the loyal Nanotrasen crew on board. Use ANY methods available to you. Syndicate agents, Nanotrasen enemies, and handcuffed hostages may remain alive on the shuttle. Ignore assistance from anyone other than a support agent.
+ent-HijackShuttleObjective = Завладейте эвакуационным шаттлом
+    .desc = Улетите на шаттле свободным и без лояльного экипажа Nanotrasen на борту. Используйте ЛЮБЫЕ доступные вам методы. Агенты Синдиката, враги Nanotrasen и заложники в наручниках могут оставаться на шаттле живыми. Игнорируйте помощь от кого-либо, кроме агента поддержки.
 ent-KillRandomPersonObjective = { ent-BaseTraitorObjective }
     .desc = Сделайте это, как посчитаете нужным. Только убедитесь, что цель не улетит на Центком.
 ent-KillRandomHeadObjective = { ent-BaseTraitorObjective }
@@ -21,8 +21,6 @@ ent-RandomTraitorProgressObjective = { ent-BaseTraitorSocialObjective }
 ent-BaseCMOStealObjective = { ent-BaseTraitorStealObjective }
     .desc = { ent-BaseTraitorStealObjective.desc }
 ent-CMOHyposprayStealObjective = { ent-BaseCMOStealObjective }
-    .desc = { ent-BaseCMOStealObjective.desc }
-ent-CMOCrewMonitorStealObjective = { ent-BaseCMOStealObjective }
     .desc = { ent-BaseCMOStealObjective.desc }
 ent-BaseRDStealObjective = { ent-BaseTraitorStealObjective }
     .desc = { ent-BaseTraitorStealObjective.desc }
@@ -52,7 +50,3 @@ ent-NukeDiskStealObjective = { ent-BaseCaptainObjective }
     .desc = { ent-BaseCaptainObjective.desc }
 ent-CaptainGunStealObjective = { ent-BaseCaptainObjective }
     .desc = { ent-BaseCaptainObjective.desc }
-
-# ent-NukeDiskStealObjective = { ent-BaseCaptainObjective }
-#     .desc = { ent-BaseCaptainObjective.desc }
-

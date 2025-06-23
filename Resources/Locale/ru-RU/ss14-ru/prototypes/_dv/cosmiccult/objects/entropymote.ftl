@@ -1,23 +1,18 @@
 ent-MaterialCosmicCultEntropy = частица энтропии
     .desc = Затвердевшая частица энтропийной сущности. На ощупь вызывает онемение.
     .suffix = Полная
-
 ent-MaterialCosmicCultEntropy1 = { ent-MaterialCosmicCultEntropy }
     .suffix = Одна
     .desc = { ent-MaterialCosmicCultEntropy.desc }
-
 ent-MaterialCosmicCultEntropy2 = { ent-MaterialCosmicCultEntropy }
     .suffix = Две
     .desc = { ent-MaterialCosmicCultEntropy.desc }
-
 ent-MaterialCosmicCultEntropy3 = { ent-MaterialCosmicCultEntropy }
     .suffix = Три
     .desc = { ent-MaterialCosmicCultEntropy.desc }
-
 ent-MaterialCosmicCultEntropy4 = { ent-MaterialCosmicCultEntropy }
     .suffix = Четыре
     .desc = { ent-MaterialCosmicCultEntropy.desc }
-
 ent-MaterialCosmicCultEntropy5 = { ent-MaterialCosmicCultEntropy }
     .suffix = Пять
     .desc = { ent-MaterialCosmicCultEntropy.desc }

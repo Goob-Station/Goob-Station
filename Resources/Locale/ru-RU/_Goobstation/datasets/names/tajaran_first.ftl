@@ -1,4 +1,3 @@
-
 names-tajaran-first-dataset-1 = Аран
 names-tajaran-first-dataset-2 = Арар
 names-tajaran-first-dataset-3 = Арат

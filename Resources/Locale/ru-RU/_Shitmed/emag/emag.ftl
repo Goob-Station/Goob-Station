@@ -6,4 +6,3 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 emag-attempt-failed = { THE($tool) } похоже ни на что не повлиял...
-

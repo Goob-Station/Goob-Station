@@ -7,12 +7,9 @@
 
 goobstation-clarke-bounty-desc = Местная горнодобывающая колония в секторе Сол нуждается в дополнительных мехах. Пришлите нам Кларка.
 goobstation-clarke-bounty-name = Кларк
-
 goobstation-durand-bounty-desc = Силы Транквилити Асшуранс требуют усиления обороны на передовой. Мы запрашиваем Дюранда.
 goobstation-durand-bounty-name = Дюранд
-
 goobstation-ripley-bounty-desc = Компания Hephaestus Industries ищет запасные мехи для использования на своих рудниках. Пришлите нам РИПЛИ МКII.
 goobstation-ripley-bounty-name = РИПЛИ МКII
-
 goobstation-gygax-bounty-desc = Силы Транквилити Асшуранс хотят усилить свои миротворческие отряды, мы запрашиваем Гигакса.
 goobstation-gygax-bounty-name = Гигакс

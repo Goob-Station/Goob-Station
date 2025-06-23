@@ -20,4 +20,3 @@ ent-LeftFootResomi = левая стопа резоми
     .desc = { ent-LeftFootHuman.desc }
 ent-RightFootResomi = правая стопа резоми
     .desc = { ent-RightFootHuman.desc }
-
