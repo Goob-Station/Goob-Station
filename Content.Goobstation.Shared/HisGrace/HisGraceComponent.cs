@@ -82,6 +82,13 @@ public sealed partial class HisGraceComponent : Component
     public float SpeedAddition = 0.2f;
 
     /// <summary>
+    /// How much the speed addition will be multiplied for each subsequent level?
+    /// E.G : 0.2 - 0.4 - 0.8
+    /// </summary>
+    [DataField]
+    public float SpeedIncrementMultiplier = 2f;
+
+    /// <summary>
     /// How many entities do you need to consume to ascend?
     /// </summary>
     [DataField]
