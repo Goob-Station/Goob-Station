@@ -46,13 +46,6 @@
     sprite: Mobs/Species/Skeleton/parts.rsi
   - type: Icon
     sprite: Mobs/Species/Skeleton/parts.rsi
-  - type: Destructible # Shitmed Change: Let blunt weapons break bones
-    thresholds:
-    - trigger: !type:DamageTypeTrigger
-        damageType: Blunt
-        damage: 110
-      behaviors:
-      - !type:GibPartBehavior
   - type: BodyPart
     species: Skeleton # Shitmed Change
   - type: StaticPrice

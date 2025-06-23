@@ -8,6 +8,7 @@
 
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Goobstation.Common.Changeling;
 using Content.Shared._Shitmed.CCVar;
 using Content.Shared._Shitmed.DoAfter;
 using Content.Shared._Shitmed.Medical.Surgery.Pain.Components;
@@ -33,7 +34,6 @@ using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
-
 namespace Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 
 public sealed partial class WoundSystem
@@ -50,7 +50,7 @@ public sealed partial class WoundSystem
         SubscribeLocalEvent<WoundComponent, EntGotRemovedFromContainerMessage>(OnWoundRemoved);
         SubscribeLocalEvent<WoundableComponent, AttemptEntityContentsGibEvent>(OnWoundableContentsGibAttempt);
         SubscribeLocalEvent<WoundComponent, WoundSeverityChangedEvent>(OnWoundSeverityChanged);
-        SubscribeLocalEvent<WoundableComponent, WoundableSeverityChangedEvent>(OnWoundableSeverityChanged);
+        SubscribeLocalEvent<WoundComponent, WoundSeverityPointChangedEvent>(OnWoundSeverityPointChanged);
         SubscribeLocalEvent<WoundableComponent, BeforeDamageChangedEvent>(DudeItsJustLikeMatrix);
         SubscribeLocalEvent<WoundableComponent, WoundHealAttemptOnWoundableEvent>(HealWoundsOnWoundableAttempt);
         SubscribeLocalEvent<WoundableComponent, DamageChangedEvent>(OnDamageChanged);
@@ -148,31 +148,6 @@ public sealed partial class WoundSystem
             _trauma.UpdateBodyBoneAlert(body);
     }
 
-    private void OnWoundableSeverityChanged(EntityUid uid, WoundableComponent component, WoundableSeverityChangedEvent args)
-    {
-        if (TerminatingOrDeleted(uid)
-            || args.NewSeverity != WoundableSeverity.Mangled
-            || component.Bone.ContainedEntities.FirstOrNull() is { } bone
-            && TryComp(bone, out BoneComponent? boneComp)
-            && boneComp.BoneSeverity != BoneSeverity.Broken)
-            return;
-
-        if (IsWoundableRoot(uid, component))
-        {
-            DestroyWoundable(uid, uid, component);
-            // We can call DestroyWoundable instead of ProcessBodyPartLoss, because the body will be gibbed, and we may not process body part loss.
-        }
-        else
-        {
-            // it will be destroyed.
-            if (component.ParentWoundable != null
-                && Comp<BodyPartComponent>(uid).Body != null)
-                DestroyWoundable(component.ParentWoundable.Value, uid, component);
-            else
-                DestroyWoundable(uid, uid, component);
-        }
-    }
-
     private void OnWoundableContentsGibAttempt(EntityUid uid, WoundableComponent comp, ref AttemptEntityContentsGibEvent args)
     {
         if (args.ExcludedContainers == null)
@@ -244,6 +219,36 @@ public sealed partial class WoundSystem
 
         TryMakeScar(wound, out _, woundComponent);
         RemoveWound(wound, woundComponent);
+    }
+
+    private void OnWoundSeverityPointChanged(EntityUid uid, WoundComponent component, WoundSeverityPointChangedEvent args)
+    {
+        var delta = args.Overflow ?? args.NewSeverity - args.OldSeverity;
+
+        if (TerminatingOrDeleted(uid)
+            || TerminatingOrDeleted(component.HoldingWoundable)
+            || !TryComp<TraumaInflicterComponent>(uid, out var traumaInflicter)
+            || !TryComp<WoundableComponent>(component.HoldingWoundable, out var woundable)
+            || woundable.WoundableSeverity != WoundableSeverity.Mangled
+            || !TryComp<BodyPartComponent>(component.HoldingWoundable, out var bodyPart))
+            return;
+
+        if (bodyPart.Body is not null
+            && (delta < traumaInflicter.SeverityThreshold * _cfg.GetCVar(SurgeryCVars.DestroySeverityMultiplier)
+                || woundable.Bone.ContainedEntities.FirstOrNull() is not { } bone
+                || !TryComp(bone, out BoneComponent? boneComp)
+                || boneComp.BoneSeverity != BoneSeverity.Broken))
+            return;
+
+        if (!IsWoundableRoot(component.HoldingWoundable, woundable) // We need to add a check because the root woundable is set to the bodypart itself on removal (why wulf?????)
+            || bodyPart.Body is null)
+        {
+            if (woundable.ParentWoundable != null
+                && bodyPart.Body != null)
+                DestroyWoundable(woundable.ParentWoundable.Value, component.HoldingWoundable, woundable);
+            else
+                DestroyWoundable(component.HoldingWoundable, component.HoldingWoundable, woundable);
+        }
     }
 
     private void OnDamageChanged(EntityUid uid, WoundableComponent component, ref DamageChangedEvent args)
@@ -740,7 +745,6 @@ public sealed partial class WoundSystem
                 return;
 
             // if wounds amount somehow changes it triggers an enumeration error. owch
-            woundableComp.AllowWounds = false;
             woundableComp.WoundableSeverity = WoundableSeverity.Severed;
 
             if (TryComp<TargetingComponent>(body, out var targeting))
@@ -864,7 +868,8 @@ public sealed partial class WoundSystem
         _audio.PlayPvs(woundableComp.WoundableDelimbedSound, bodyPart.Body.Value);
 
         if (woundableComp.DamageOnAmputate != null
-            && _body.TryGetRootPart(bodyPart.Body.Value, out var rootPart))
+            && _body.TryGetRootPart(bodyPart.Body.Value, out var rootPart)
+            && !HasComp<ChangelingComponent>(bodyPart.Body.Value)) // Shitcod Alert!!!!
             _damageable.TryChangeDamage(bodyPart.Body.Value,
                 woundableComp.DamageOnAmputate,
                 targetPart: _body.GetTargetBodyPart(rootPart));
