@@ -137,9 +137,9 @@
     # Interface
     - type: BatteryInterface
       minChargeRate: 5000
-      maxChargeRate: 150000
+      maxChargeRate: 300000 # Goobstation - SMES buff
       minSupply: 5000
-      maxSupply: 150000
+      maxSupply: 300000 # Goobstation - SMES buff
     - type: UserInterface
       interfaces:
         enum.BatteryUiKey.Key:
