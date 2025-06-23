@@ -17,7 +17,7 @@
       sprite: Interface/Actions/actions_ai.rsi
       state: ai_core
     event: !type:ReturnMindIntoAiEvent
-    
+
 - type: entity
   id: ActionOpenRemoteDevicesMenu
   name: Open list of remote devices
@@ -30,5 +30,5 @@
     itemIconStyle: BigAction
     event: !type:ToggleRemoteDevicesScreenEvent
     icon:
-      sprite: Mobs/Silicon/chassis.rsi
-      state: robot
+      sprite: Interface/Actions/actions_ai.rsi
+      state: borg_control
