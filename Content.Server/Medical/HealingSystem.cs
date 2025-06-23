@@ -68,6 +68,8 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Stacks;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Random;
+using Robust.Shared.Audio;
 
 // Shitmed Change
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;

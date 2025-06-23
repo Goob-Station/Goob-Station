@@ -28,7 +28,7 @@ public sealed partial class StaminaDamageThreshold : EntityEffectCondition
     {
         if (args.EntityManager.TryGetComponent(args.TargetEntity, out StaminaComponent? stamina))
         {
-            var total = args.EntityManager.System<StaminaSystem>().GetStaminaDamage(args.TargetEntity, stamina);
+            var total = args.EntityManager.System<SharedStaminaSystem>().GetStaminaDamage(args.TargetEntity, stamina);
             if (total > Min && total < Max)
                 return true;
         }
