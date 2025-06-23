@@ -26,7 +26,10 @@
 - type: lavalandRuinPool
   id: Lavaland
   gridRuins:
-    SyndicateBase: 1
+    # Corvax-Goob-start
+    #SyndicateBase: 1
+    CorvaxSyndicateBase: 1
+    # Corvax-Goob-end
     HierophantArena: 1
     RougeAI: 1
     BiodomeBeach: 2
