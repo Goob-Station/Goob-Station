@@ -1,3 +1,9 @@
+clone-projector-examined-status = { $cloneStatus ->
+[true] The clone is currently active.
+*[false] The clone is currently inactive.
+}
+clone-projector-examined-health = {$cloneHealth}% Integrity
+
 gemini-projector-clone-created = A swarm of nanites appears from {$user}'s projector.
 gemini-projector-clone-retrieved = The {$target} dematerializes.
 

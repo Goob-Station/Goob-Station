@@ -20,6 +20,9 @@
     sprite: _Goobstation/Clothing/Belt/geminiprojector.rsi
     size: Large
   - type: CloneProjector
+    damageOnDestroyed:
+      groups:
+        Brute: 10
     addedComponents:
     - type: GhostTakeoverAvailable
     - type: AntagImmune

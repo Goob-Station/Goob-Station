@@ -5,6 +5,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Shared.CloneProjector;
 using Content.Goobstation.Shared.CloneProjector.Clone;
 using Content.Server.Emp;
@@ -13,6 +14,7 @@ using Content.Shared._DV.Carrying;
 using Content.Shared.Actions;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
+using Content.Shared.Examine;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Holopad;
 using Content.Shared.Humanoid;
@@ -22,6 +24,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Mind;
 using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Storage;
@@ -59,6 +62,7 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private readonly CarryingSystem _carrying = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private readonly MobThresholdSystem _thresholds = default!;
 
     private ISawmill _sawmill = default!;
     public override void Initialize()
@@ -66,6 +70,8 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
         base.Initialize();
 
         SubscribeLocalEvent<CloneProjectorComponent, MapInitEvent>(OnInit);
+
+        SubscribeLocalEvent<CloneProjectorComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<CloneProjectorComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs);
 
         SubscribeLocalEvent<CloneProjectorComponent, GetItemActionsEvent>(OnEquipped);
@@ -80,9 +86,24 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
         _sawmill = Logger.GetSawmill("clone-projector");
     }
 
-    private void OnInit(Entity<CloneProjectorComponent> projector, ref MapInitEvent args)
-    {
+    private void OnInit(Entity<CloneProjectorComponent> projector, ref MapInitEvent args) =>
         projector.Comp.CloneContainer = _container.EnsureContainer<Container>(projector.Owner, "CloneContainer");
+
+    private void OnExamined(Entity<CloneProjectorComponent> projector, ref ExaminedEvent args)
+    {
+        if (!args.IsInDetailsRange)
+            return;
+
+        var status = Loc.GetString("clone-projector-examined-status", ("cloneStatus", projector.Comp.CloneUid != null));
+        args.PushMarkup(status);
+
+        if (!TryComp<DamageableComponent>(projector.Comp.CloneUid, out var damageable)
+            || !_thresholds.TryGetDeadThreshold(projector.Comp.CloneUid.Value, out var deathThreshold))
+            return;
+
+        var remainingHealth = deathThreshold - damageable.TotalDamage;
+        var health = Loc.GetString("clone-projector-examined-health", ("cloneHealth", remainingHealth / deathThreshold * 100 ));
+        args.PushMarkup(health);
     }
 
     private void OnGetVerbs(Entity<CloneProjectorComponent> projector, ref GetVerbsEvent<AlternativeVerb> args)
@@ -95,7 +116,11 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
 
         AlternativeVerb regenerateVerb = new()
         {
-            Act = () => { TryGenerateClone(projector, host, true); },
+            Act = () =>
+            {
+                TryGenerateClone(projector, host, true);
+                DoCooldown(projector);
+            },
             Text = Loc.GetString("gemini-projector-regenerate-verb"),
             Message = Loc.GetString("gemini-projector-regenerate-verb-text"),
             Icon = new SpriteSpecifier.Rsi(new("Mobs/Silicon/station_ai.rsi"), "default"),
@@ -104,7 +129,11 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
 
         AlternativeVerb rebootVerb = new()
         {
-            Act = () => { TryGenerateClone(projector, host, true, true); },
+            Act = () =>
+            {
+                TryGenerateClone(projector, host, true, true);
+                DoCooldown(projector);
+            },
             Text = Loc.GetString("gemini-projector-reboot-verb"),
             Message = Loc.GetString("gemini-projector-reboot-verb-text"),
             Icon = new SpriteSpecifier.Rsi(new("_Goobstation/Actions/modsuit.rsi"), "activate"),
@@ -180,6 +209,18 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
         TryDeployClone(projector);
         _popup.PopupEntity(cloneGeneratedPopup, args.Performer, PopupType.Medium);
         args.Handled = true;
+    }
+
+    private void OnWearerStateChanged(Entity<WearingCloneProjectorComponent> wearer, ref MobStateChangedEvent args)
+    {
+        if (args.NewMobState != MobState.Dead
+            || wearer.Comp.ConnectedProjector is not { } projector
+            || projector.Comp.CloneUid is not { } clone)
+            return;
+
+        CleanClone(clone, true);
+        TryInsertClone(projector);
+
     }
     private bool TryGenerateClone(Entity<CloneProjectorComponent> projector, EntityUid performer, bool force = false, bool removeMind = false)
     {
@@ -271,15 +312,8 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
             return false;
         }
 
-        if (doCooldown
-            && projector.Comp.ActionEntity is { } actionEntity
-            && TryComp<InstantActionComponent>(actionEntity, out var actionComp))
-        {
-            actionComp.Cooldown = (_timing.CurTime, _timing.CurTime + projector.Comp.DestroyedCooldown);
-
-            _actions.UpdateAction(actionEntity, actionComp);
-            Dirty(actionEntity, actionComp);
-        }
+        if (doCooldown)
+            DoCooldown(projector);
 
         Dirty(clone, projector.Comp);
         return true;
@@ -370,7 +404,8 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
             if (slot.ContainedEntity is not { } item)
                 continue;
 
-            if (TryComp<StorageComponent>(item, out var storageComponent))
+            if (HasComp<UnremoveableComponent>(item)
+                && TryComp<StorageComponent>(item, out var storageComponent))
             {
                 foreach (var storedItem in _container.EmptyContainer(storageComponent.Container))
                     _physics.ApplyAngularImpulse(storedItem, ThrowingSystem.ThrowAngularImpulse);
@@ -392,15 +427,15 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
 
     }
 
-    private void OnWearerStateChanged(Entity<WearingCloneProjectorComponent> wearer, ref MobStateChangedEvent args)
+    private void DoCooldown(Entity<CloneProjectorComponent> projector)
     {
-        if (args.NewMobState != MobState.Dead
-            || wearer.Comp.ConnectedProjector is not { } projector
-            || projector.Comp.CloneUid is not { } clone)
+        if (projector.Comp.ActionEntity is not { } actionEntity
+            || !TryComp<InstantActionComponent>(actionEntity, out var actionComp))
             return;
 
-        CleanClone(clone, true);
-        TryInsertClone(projector);
+        actionComp.Cooldown = (_timing.CurTime, _timing.CurTime + projector.Comp.DestroyedCooldown);
 
+        _actions.UpdateAction(actionEntity, actionComp);
+        Dirty(actionEntity, actionComp);
     }
 }

@@ -4,6 +4,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Inventory;
 using Content.Shared.Whitelist;
@@ -42,6 +43,12 @@ public sealed partial class CloneProjectorComponent : Component
     /// </summary>
     [DataField]
     public bool StunOnDestroyed = true;
+
+    /// <summary>
+    ///  How much damage does the host take when the clone is destroyed?
+    /// </summary>
+    [DataField]
+    public DamageSpecifier DamageOnDestroyed = new();
 
     /// <summary>
     /// Should the clone be prevented from using ranged weapons?

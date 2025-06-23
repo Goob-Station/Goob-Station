@@ -7,6 +7,7 @@
 using Content.Goobstation.Shared.CloneProjector.Clone;
 using Content.Server.Emp;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Body.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Mobs;
@@ -56,8 +57,11 @@ public partial class CloneProjectorSystem
         var destroyedPopup = Loc.GetString("gemini-projector-clone-destroyed");
         _popup.PopupEntity(destroyedPopup, host, host, PopupType.LargeCaution);
 
-        if (projector.Comp.StunOnDestroyed)
-            _stun.TryParalyze(host, projector.Comp.StunDuration, true);
+        if (!projector.Comp.StunOnDestroyed)
+            return;
+
+        _stun.TryParalyze(host, projector.Comp.StunDuration, true);
+        _damageable.TryChangeDamage(host, projector.Comp.DamageOnDestroyed, true, targetPart: TargetBodyPart.Groin);
     }
     private void OnExamined(Entity<HolographicCloneComponent> clone, ref ExaminedEvent args)
     {
