@@ -32,7 +32,6 @@ public sealed class FlightSystem : SharedFlightSystem
             || !_entityManager.TryGetComponent(uid, out FlightComponent? flight))
             return;
 
-
         int? targetLayer = null;
         if (flight.IsLayerAnimated && flight.Layer is not null)
         {

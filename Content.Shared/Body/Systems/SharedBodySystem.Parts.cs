@@ -989,7 +989,7 @@ public partial class SharedBodySystem
     {
         partType = slot switch
         {
-            "innerclothing" or "outerclothing" => BodyPartType.Torso,
+            "innerclothing" or "outerclothing" => BodyPartType.Chest,
             "gloves" => BodyPartType.Hand,
             "shoes" => BodyPartType.Foot,
             "eyes" or "ears" or "head" or "mask" => BodyPartType.Head,

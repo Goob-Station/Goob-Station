@@ -31,7 +31,7 @@ public abstract class SharedFlightSystem : EntitySystem
 
         SubscribeLocalEvent<FlightComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<FlightComponent, ComponentShutdown>(OnShutdown);
-        SubscribeLocalEvent<FlightComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMoveSpeed);
+        SubscribeLocalEvent<FlightComponent, RefreshWeightlessModifiersEvent>(OnRefreshWeightlessMoveSpeed);
     }
 
     #region Core Functions
@@ -54,7 +54,7 @@ public abstract class SharedFlightSystem : EntitySystem
         _actionsSystem.SetToggled(component.ToggleActionEntity, component.On);
         RaiseNetworkEvent(new FlightEvent(GetNetEntity(uid), component.On, component.IsAnimated));
         _staminaSystem.ToggleStaminaDrain(uid, component.StaminaDrainRate, active, false);
-        _movementSpeed.RefreshMovementSpeedModifiers(uid);
+        _movementSpeed.RefreshWeightlessModifiers(uid);
         UpdateHands(uid, active);
         Dirty(uid, component);
     }
@@ -102,12 +102,12 @@ public abstract class SharedFlightSystem : EntitySystem
         _virtualItem.DeleteInHandsMatching(uid, uid);
     }
 
-    private void OnRefreshMoveSpeed(EntityUid uid, FlightComponent component, RefreshMovementSpeedModifiersEvent args)
+    private void OnRefreshWeightlessMoveSpeed(EntityUid uid, FlightComponent component, ref RefreshWeightlessModifiersEvent args)
     {
         if (!component.On)
             return;
 
-        args.ModifySpeed(component.SpeedModifier, component.SpeedModifier);
+        args.ModifyAcceleration(component.SpeedModifier);
     }
 
     #endregion

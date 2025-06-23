@@ -20,14 +20,6 @@
     {
         "name": "equipped-OUTERCLOTHING-sealed",
         "directions": 4
-    },
-    {
-        "name": "equipped-OUTERCLOTHING-harpy",
-        "directions": 4
-    },
-    {
-        "name": "equipped-OUTERCLOTHING-sealed-harpy",
-        "directions": 4
     }
   ]
 }

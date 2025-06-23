@@ -198,12 +198,10 @@ public sealed class ToggleableClothingSystem : EntitySystem
     /// </summary>
     private void OnToggleableUnequipAttempt(Entity<ToggleableClothingComponent> toggleable, ref BeingUnequippedAttemptEvent args)
     {
-        var comp = toggleable.Comp;
-
-        if (!comp.BlockUnequipWhenAttached)
+        if (!toggleable.Comp.BlockUnequipWhenAttached)
             return;
 
-        if (GetAttachedToggleStatus(args.Unequipee, toggleable, true) == ToggleableClothingAttachedStatus.NoneToggled)
+        if (GetAttachedToggleStatus(args.UnEquipTarget, toggleable, true) == ToggleableClothingAttachedStatus.NoneToggled)
             return;
 
         _popupSystem.PopupClient(Loc.GetString("toggleable-clothing-remove-all-attached-first"), args.Unequipee, args.Unequipee);
@@ -554,7 +552,6 @@ public sealed class ToggleableClothingSystem : EntitySystem
 
         foreach (var attached in attachedClothings)
         {
-            Logger.Debug($"CheckCanEquip: {attached.Key} {attached.Value}, {CheckEquipped(user, attached.Key, attached.Value).ToString()}");
             if (container.Contains(attached.Key)
                 && unequipping
                 || CheckEquipped(user, attached.Key, attached.Value) < EquipAbility.MissingSlot)
