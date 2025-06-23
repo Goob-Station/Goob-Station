@@ -1139,7 +1139,7 @@
     account: Engineering
     announcementChannel: Engineering
     removeLimitAccess: [ "ChiefEngineer" ]
-    slipPrinter: true
+    slipPrinter: false # goob
   - type: ActiveRadio
     channels:
     - Engineering
@@ -1172,7 +1172,7 @@
     account: Medical
     announcementChannel: Medical
     removeLimitAccess: [ "ChiefMedicalOfficer" ]
-    slipPrinter: true
+    slipPrinter: false # goob
   - type: ActiveRadio
     channels:
     - Medical
@@ -1205,7 +1205,7 @@
     account: Science
     announcementChannel: Science
     removeLimitAccess: [ "ResearchDirector" ]
-    slipPrinter: true
+    slipPrinter: false # goob
   - type: ActiveRadio
     channels:
     - Science
@@ -1238,7 +1238,7 @@
     account: Security
     announcementChannel: Security
     removeLimitAccess: [ "HeadOfSecurity" ]
-    slipPrinter: true
+    slipPrinter: false # goob
   - type: ActiveRadio
     channels:
     - Security
@@ -1271,7 +1271,7 @@
     account: Service
     announcementChannel: Service
     removeLimitAccess: [ "HeadOfPersonnel" ]
-    slipPrinter: true
+    slipPrinter: false # goob
   - type: ActiveRadio
     channels:
     - Service
