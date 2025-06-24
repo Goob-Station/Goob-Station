@@ -20,6 +20,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
       <ServerGarbageCollection>true</ServerGarbageCollection>
     </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Concentus" />
     <PackageReference Include="JetBrains.Annotations" PrivateAssets="All" />
   </ItemGroup>
     <ItemGroup>

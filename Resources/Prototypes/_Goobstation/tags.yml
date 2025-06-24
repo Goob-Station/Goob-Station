@@ -33,6 +33,8 @@
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Tom <t.jans@student.fontys.nl>
+# SPDX-FileCopyrightText: 2025 Vrilly <tnjans@outlook.de>
 # SPDX-FileCopyrightText: 2025 absurd-shaman <165011607+absurd-shaman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 crasg <109207982+Scruq445@users.noreply.github.com>
@@ -106,6 +108,9 @@
 
 - type: Tag
   id: Chair
+
+- type: Tag
+  id: ClothingBeltGeminiHoloProjector
 
 - type: Tag
   id: Clarke
@@ -267,6 +272,9 @@
   id: Hammer
 
 - type: Tag
+  id: HardHat
+
+- type: Tag
   id: HandheldCrewMonitor
 
 - type: Tag
@@ -294,10 +302,16 @@
   id: HonkmotherMaw
 
 - type: Tag
+  id: HydroponicsToolClippers
+
+- type: Tag
   id: IgnoreBindSoul
 
 - type: Tag
   id: IgnoreImmovableRod
+
+- type: Tag
+  id: ItemPickaxe
 
 - type: Tag
   id: IndustrialMech
@@ -338,6 +352,9 @@
 
 - type: Tag
   id: MagazineMagnumLeverRifle
+
+- type: Tag
+  id: MagazineNailgun
 
 - type: Tag
   id: MagazineShotgunHeavy
@@ -406,6 +423,12 @@
   id: Muzzle
 
 - type: Tag
+  id: Nail
+
+- type: Tag
+  id: Nailgun
+
+- type: Tag
   id: NonLethalGrenade
 
 - type: Tag
@@ -433,6 +456,9 @@
   id: Poppy
 
 - type: Tag
+  id: ReptilianEmotes
+
+- type: Tag
   id: RipleyMKIIUpgradeKit
 
 - type: Tag
@@ -455,6 +481,9 @@
 
 - type: Tag
   id: ShowWizardIcons
+
+- type: Tag
+  id: SiliconMob
 
 - type: Tag
   id: SnapPop
@@ -541,6 +570,9 @@
   id: WaterTank
 
 - type: Tag
+  id: WeaponDisabler
+
+- type: Tag
   id: WeaponPistolDualetta
 
 - type: Tag
@@ -551,6 +583,9 @@
 
 - type: Tag
   id: WeaponPistolJackal
+
+- type: Tag
+  id: WeldingTool
 
 - type: Tag
   id: WinterCoat
