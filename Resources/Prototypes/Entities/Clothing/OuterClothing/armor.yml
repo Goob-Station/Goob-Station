@@ -346,8 +346,8 @@
         Caustic: 0.3
   - type: ExplosionResistance
     damageCoefficient: 0.35
-  - type: StaminaResistance # Goobstation uncommented
-    damageCoefficient: 0.4
+  - type: StaminaResistance # do not add these to other equipment or mobs, we don't want to microbalance these everywhere
+    damageCoefficient: 0.4 # Goob edit
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9

@@ -899,8 +899,8 @@
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
     damageCoefficient: 0.5
-  - type: StaminaResistance # Goobstation uncommented
-    damageCoefficient: 0.45
+  - type: StaminaResistance # do not add these to other equipment or mobs, we don't want to microbalance these everywhere
+    damageCoefficient: 0.45 # Goob edit
   - type: Armor
     traumaDeductions:
       Dismemberment: 0.5
@@ -980,8 +980,8 @@
     damageCoefficient: 0.2
   - type: FireProtection
     reduction: 0.8
-  - type: StaminaResistance # Goobstation uncommented
-    damageCoefficient: 0.55
+  - type: StaminaResistance # do not add these to other equipment or mobs, we don't want to microbalance these everywhere
+    damageCoefficient: 0.55 # Goob edit
   - type: Armor
     traumaDeductions:
       Dismemberment: 0.5
@@ -1024,8 +1024,8 @@
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
     damageCoefficient: 0.5
-  - type: StaminaResistance # Goobstation uncommented
-    damageCoefficient: 0.35
+  - type: StaminaResistance # do not add these to other equipment or mobs, we don't want to microbalance these everywhere
+    damageCoefficient: 0.35 # Goob edit
   - type: Armor
     traumaDeductions:
       Dismemberment: 0.6
