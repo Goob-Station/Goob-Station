@@ -103,7 +103,7 @@ selectable-set-syndicate-friendship-description =
     Contains: a contractor baton and handcuffs for you, 4 mindcontrol implanters
     and Mosin rifles for your friends, and 5 syndicate encryption keys for you all.
 
-selectable-set-syndicate-carp-name = Carpmaxxing Bundle
+selectable-set-syndicate-carp-name = Carp Bundle
 selectable-set-syndicate-carp-description =
     Grr! Rrrr! Grr... Grrow?! KOWABUNGA!
     Contains: a scroll of the Way of The Sleeping Carp, 10 dehydrated carp
