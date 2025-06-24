@@ -75,7 +75,6 @@
 # SPDX-FileCopyrightText: 2024 MisterMecky <mrmecky@hotmail.com>
 # SPDX-FileCopyrightText: 2024 Moomoobeef <62638182+Moomoobeef@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 NakataRin <45946146+NakataRin@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Nim <128169402+Nimfar11@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
 # SPDX-FileCopyrightText: 2024 Partmedia <kevinz5000@gmail.com>
@@ -131,6 +130,7 @@
 # SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
 # SPDX-FileCopyrightText: 2025 JORJ949 <159719201+JORJ949@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Martynas6ha4 <martynashagriefer@gmail.com>
+# SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 RatherUncreative <RatherUncreativeName@proton.me>
 # SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
@@ -138,6 +138,7 @@
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Vrilly <tnjans@outlook.de>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
@@ -152,7 +153,6 @@
     - id: CargoBountyComputerCircuitboard
     - id: CargoRequestComputerCircuitboard
     - id: CargoSaleComputerCircuitboard
-    - id: CargoShuttleComputerCircuitboard
     - id: CargoShuttleConsoleCircuitboard
     - id: SalvageMagnetMachineCircuitboard
     - id: CigPackGreen
@@ -200,6 +200,10 @@
     - id: SpaceCash1000
     - id: WeaponDisabler
     - id: ClothingEyesGlassesCommand
+    - id: HeadSkeleton # A skull to accompany your skeleton crew
+      conditions:
+      - !type:PlayerCountCondition
+        max: 15
 
 # No laser table + Laser table
 - type: entityTable
@@ -279,6 +283,8 @@
     - id: DoorRemoteService
     - id: HoPIDCard
     - id: IDComputerCircuitboard
+    - id: ComputerFundingAllocationFlatpack # Goobstation
+    - id: ComputerCargoRequestServiceFlatpack # Goobstation
     - id: RubberStampApproved
     - id: RubberStampDenied
     - id: RubberStampHop
@@ -310,15 +316,19 @@
     - id: ClothingHandsGlovesColorYellow
     - id: ClothingHeadsetAltEngineering
     - id: DoorRemoteEngineering
+    - id: CargoRequestEngineeringComputerCircuitboard
     - id: RCD
     - id: RCDAmmo
     - id: RubberStampCE
+    # Goobstation V
     - id: BaseHandheldStationMapPowerCe
-    - id: EngineeringTechFabCircuitboard # Goobstation - Engineering Techfab
+    - id: EngineeringTechFabCircuitboard
     - id: CartridgeRocketSingularityBuster
     - id: CartridgeRocketSingularityBuster
     - id: WeaponLauncherSingularityBuster
-    - id: MachinePowerTransmissionLaserFlatpack # Goobstation - Engi printing money pr
+    - id: MachinePowerTransmissionLaserFlatpack
+    - id: WeaponNailgun
+    - id: MagazineNailgun
 # Hardsuit table, used for suit storage as well
 - type: entityTable
   id: FillChiefEngineerHardsuit
@@ -374,6 +384,7 @@
     # - id: HandheldCrewMonitor # Goobstation - in webbing
     - id: Hypospray
     - id: MedicalTechFabCircuitboard
+    - id: ComputerCargoRequestMedicalFlatpack # Goobstation
     - id: MedkitFilled
     - id: RubberStampCMO
     # Goobstation Start
@@ -440,12 +451,14 @@
     - id: HandTeleporter
     #- id: ProtolatheMachineCircuitboard # Goobstation - Science Techfab
     - id: ResearchComputerCircuitboard
+    - id: ComputerCargoRequestScienceFlatpack # Goobstation
     - id: RubberStampRd
     # - id: EncryptionKeyBinary # goobstation - readd the cool binary channel access. fuck you. # Goobstation - WYCI + malf ai major
     - id: AnomalyLocator # GoobStation - adding anomaly locator to the RD locker to reduce the amount of anoms that crit
     - id: CigarCase
       prob: 0.15 # GoobStation - RD needs cigs for uhh... science...
     - id: ScienceTechFabCircuitboard # Goobstation - Science Techfab
+    - id: ClothingBeltGeminiHoloProjector # Goobstation - Who better to do science with than yourself?
     - id: MMI # Goobstation
 
 # Hardsuit table, used for suit storage as well
@@ -454,7 +467,7 @@
   table: !type:AllSelector
     children:
     - id: ClothingMaskBreath
-    - id: ClothingOuterHardsuitRd
+    - id: UndeterminedVoidsuitRD
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
 
@@ -505,6 +518,7 @@
     - id: RubberStampHos
     - id: SecurityTechFabCircuitboard
     #- id: WeaponDisabler # Goobstation (Disablers in belts)
+    - id: ComputerCargoRequestSecurityFlatpack # Goobstation
     - id: WantedListCartridge
     - id: DrinkHosFlask
     - id: ClothingBeltSheathHeadOfSecurityFilled # Goobstation - security revamp

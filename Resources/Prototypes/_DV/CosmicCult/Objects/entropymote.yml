@@ -85,7 +85,7 @@
 
 - type: stack
   id: Entropy
-  name: mote of entropy
+  name: stack-cosmic-cult-entropy
   icon: { sprite: _DV/CosmicCult/Objects/entropymote.rsi, state: mote }
   spawn: MaterialCosmicCultEntropy1
   maxCount: 6

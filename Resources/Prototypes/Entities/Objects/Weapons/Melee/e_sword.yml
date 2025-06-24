@@ -123,6 +123,7 @@
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 # SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 vanx <61917534+Vaaankas@users.noreply.github.com>
 #
@@ -476,8 +477,8 @@
         variation: 0.250
     activatedDamage:
         types:
-            Slash: 17   #Goob Station rebalance, was originally 12
-            Heat: 17    #Goob Station rebalance, was originally 12
+            Slash: 20   #Goob Station rebalance, was originally 12
+            Heat: 20    #Goob Station rebalance, was originally 12
             Structural: 40 # Goob edit
   - type: ItemToggleActiveSound
     activeSound:
@@ -488,7 +489,7 @@
     components:
     - type: Sharp
     - type: DisarmMalus
-      malus: 0.7
+      malus: 1 # Goobstation value
     - type: Execution
       doAfterDuration: 4.0
   - type: Wieldable
@@ -595,3 +596,12 @@
   components: # could add energy-draining like the L6C
   - type: Wieldable
     freeHandsRequired: 0 # because borg has no off-hand to wield with.  Without this, it will be unable to activate the esword
+
+- type: entity
+  parent: [ EnergyDaggerLoud, BaseXenoborgContraband ]
+  id: EnergyDaggerLoudBlue
+  suffix: blue
+  components:
+  - type: EnergySword
+    colorOptions:
+    - "#2288ff" # can only be blue

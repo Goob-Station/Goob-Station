@@ -91,6 +91,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
@@ -133,6 +134,8 @@
         Slash: 0.9
         Heat: 0.8
     priceMultiplier: 0
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.55
   - type: Food
     requiresSpecialDigestion: true
   - type: SolutionContainerManager
@@ -600,7 +603,7 @@
 
 ################################################################
 - type: entity
-  parent: [ClothingOuterArmorWarden, ClothingOuterWinterCoatToggleable, BaseSecurityContraband]
+  parent: [ClothingOuterArmorWarden, ClothingOuterWinterCoatToggleable, BaseWardenContraband]
   id: ClothingOuterWinterWarden
   name: warden's armored winter coat
   description: A sturdy, utilitarian winter coat designed to protect a warden from any brig-bound threats and hypothermic events.
@@ -659,7 +662,7 @@
 
 ##############################################################
 - type: entity
-  parent: [ClothingOuterWinterWarden, BaseSyndicateContraband]
+  parent: [ BaseSyndicateContraband, ClothingOuterWinterWarden ]
   id: ClothingOuterWinterSyndieCapArmored
   name: syndicate's armored winter coat
   description: "The syndicate's armored winter coat is made of durable fabric, with gilded patterns, and coarse wool."

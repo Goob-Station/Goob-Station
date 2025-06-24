@@ -146022,7 +146022,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraGeneral
       nameSet: True
-      id: Blackburn tank factory
+      id: Abandoned tank factory
 - proto: SurveillanceCameraMedical
   entities:
   - uid: 22002
