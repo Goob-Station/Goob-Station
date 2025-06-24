@@ -21,6 +21,8 @@
   - StationAiIconNotMalf #Goobstation
   - StationAiIconHal9000 #Goobstation
   - StationAiIconNanotrasen #Goobstation
+  - StationAiIconGoon #Goobstation
+  - StationAiIconMatrix #Goobstation
 
 - type: stationAiCustomizationGroup
   id: StationAiHolograms
@@ -34,6 +36,7 @@
   - StationAiHologramDog
   - StationAiHologramQueen #Goobstation
   - StationAiHologramHorror #Goobstation
+  - StationAiHologramPerformer #Goobstation
 
 # Iconography
 - type: stationAiCustomization
