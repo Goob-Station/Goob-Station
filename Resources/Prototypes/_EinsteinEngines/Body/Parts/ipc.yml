@@ -10,6 +10,7 @@
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -24,20 +25,6 @@
     sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
   - type: Icon
     sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
-  - type: Destructible # no ashing trigger
-    thresholds:
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Blunt
-        damage: 110
-      behaviors:
-      - !type:GibPartBehavior { }
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Slash
-        damage: 150
-      behaviors:
-      - !type:GibPartBehavior { }
   - type: Damageable
     damageContainer: SiliconRadiation
     damageModifierSet: IPC
@@ -63,20 +50,6 @@
         id: "posbrain"
       pump:
         id: "pump"
-  - type: Destructible # no ashing trigger
-    thresholds:
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Blunt
-        damage: 400
-      behaviors:
-      - !type:GibPartBehavior { }
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Slash
-        damage: 400
-      behaviors:
-      - !type:GibPartBehavior { }
 
 - type: entity
   parent: [ PartIPCBase, BaseGroinInorganic ]
