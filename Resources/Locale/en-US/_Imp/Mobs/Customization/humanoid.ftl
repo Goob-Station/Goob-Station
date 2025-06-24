@@ -89,7 +89,7 @@ marking-HeadTwisting = Twisted Scar
 marking-HeadTwisting-twisting = Twisted Scar
 
 marking-HeadTwistingFlipped = Twisted Scar, Flipped
-marking-HeadTwisting-twistingflipped = Twisted Scar, Flipped
+marking-HeadTwistingFlipped-twistingflipped = Twisted Scar, Flipped
 
 marking-HumanoidEyebags = Eyebags
 marking-HumanoidEyebags-eyebags = Eyebags

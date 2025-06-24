@@ -83,8 +83,8 @@
 
 - type: marking
   id: FadingStars
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: LLeg
+  markingCategory: Overlay
   speciesRestriction: [ SlimePerson ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/SlimePerson/head.rsi
@@ -98,8 +98,8 @@
 
 - type: marking
   id: fizz
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: LLeg
+  markingCategory: Overlay
   speciesRestriction: [ SlimePerson ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/SlimePerson/head.rsi

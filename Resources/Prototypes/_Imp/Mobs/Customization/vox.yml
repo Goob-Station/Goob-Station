@@ -621,6 +621,8 @@
   bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Vox ]
+  forcedColoring: true
+  followSkinColor: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/Vox/tail.rsi
     state: spots
@@ -729,6 +731,8 @@
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Vox ]
+  forcedColoring: true
+  followSkinColor: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/Vox/tail.rsi
     state: raptor
@@ -738,6 +742,8 @@
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Vox ]
+  forcedColoring: true
+  followSkinColor: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/Vox/tail.rsi
     state: short
@@ -747,6 +753,8 @@
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Vox ]
+  forcedColoring: true
+  followSkinColor: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/Vox/tail.rsi
     state: short2

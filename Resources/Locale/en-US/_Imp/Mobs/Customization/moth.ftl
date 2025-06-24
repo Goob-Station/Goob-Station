@@ -76,8 +76,8 @@ marking-MouthpartsSchistocerca = Mouthparts (Schistocerca)
 
 # Eyes
 
-marking-HeterochromiaMoth = Eyes (Heterophobia)
-marking-HeterochromiaMoth-heterochromia = Heterophobia
+marking-HeterochromiaMoth = Eyes (Heterochromia)
+marking-HeterochromiaMoth-heterochromia = Heterochromia
 
 marking-MothBiggerEyes = Eyes (Large)
 marking-MothBiggerEyes-bigger = Bigger Eyes

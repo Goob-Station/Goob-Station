@@ -82,34 +82,34 @@ marking-VoxBeakSplit-split2 = Bottom
 marking-VoxBeakTipped = Tipped Beak
 marking-VoxBeakTipped-tipped = Tipped Beak
 
-marking-VoxBeak = Default Beak [DO NOT USE]
+marking-VoxBeak = Default Beak
 
 # Eyes
 
 # RArm
 
-marking-SpotsArmR = Spotted Arm R
-marking-SpotsArmR-spots = Spotted Arm R
+marking-SpotsArmR = Spotted Arm Right
+marking-SpotsArmR-spots = Spotted Arm Right
 
 marking-VoxArmsStripesRHand = Stripes (Right Arm)
 marking-VoxArmsStripesRHand-stripes = Stripes (Right Arm)
 
-marking-VoxRArmScales = Arm Scales R
+marking-VoxRArmScales = Arm Scales Right
 
 # LArm
 
-marking-SpotsArmL = Spotted Arm L
-marking-SpotsArmL-spots = Spotted Arm L
+marking-SpotsArmL = Spotted Arm Left
+marking-SpotsArmL-spots = Spotted Arm Left
 
 marking-VoxArmsStripesLHand = Stripes (Left Arm)
 marking-VoxArmsStripesLHand-stripes = Stripes (Left Arm)
 
-marking-VoxLArmScales = Arm Scales L
+marking-VoxLArmScales = Arm Scales Left
 
 # RLeg
 
-marking-FeatheredLegR = Feathered Leg R
-marking-FeatheredLegR-feathered = Feathered Leg R
+marking-FeatheredLegR = Feathered Leg Right
+marking-FeatheredLegR-feathered = Feathered Leg Right
 
 marking-VoxLegGradientRLeg = Solid (Right Leg)
 marking-VoxLegGradientRLeg-gradient = Solid (Right Leg)
@@ -117,12 +117,12 @@ marking-VoxLegGradientRLeg-gradient = Solid (Right Leg)
 marking-VoxLegsStripesRLeg = Stripes (Right)
 marking-VoxLegsStripesRLeg-stripes = Stripes (Right)
 
-marking-VoxRLegScales = Leg Scales R
+marking-VoxRLegScales = Leg Scales Right
 
 # LLeg
 
-marking-FeatheredLegL = Feathered Leg L
-marking-FeatheredLegL-feathered = Feathered Leg L
+marking-FeatheredLegL = Feathered Leg Left
+marking-FeatheredLegL-feathered = Feathered Leg Left
 
 marking-VoxLegGradientLLeg = Solid (Left Leg)
 marking-VoxLegGradientLLeg-gradient = Solid (Left Leg)
@@ -130,21 +130,21 @@ marking-VoxLegGradientLLeg-gradient = Solid (Left Leg)
 marking-VoxLegsStripesLLeg = Stripes (Left)
 marking-VoxLegsStripesLLeg-stripes = Stripes (Left)
 
-marking-VoxLLegScales = Leg Scales L
+marking-VoxLLegScales = Leg Scales Left
 
 # LFoot
 
 marking-VoxFootGradientLFoot = Solid (Left Foot)
 marking-VoxFootGradientLFoot-gradient = Solid (Left Foot)
 
-marking-VoxLFootScales = Foot Scales L
+marking-VoxLFootScales = Foot Scales Left
 
 # RFoot
 
 marking-VoxFootGradientRFoot = Solid (Right Foot)
 marking-VoxFootGradientRFoot-gradient = Solid (Right Foot)
 
-marking-VoxRFootScales = Foot Scales R
+marking-VoxRFootScales = Foot Scales Right
 
 # LHand
 
@@ -156,7 +156,7 @@ marking-VoxHandGradientLHand-gradient3 = Top
 marking-VoxLArmProsthetic = Prosthetic (Left)
 marking-VoxLArmProsthetic-prosthetic = Prosthetic (Left)
 
-marking-VoxLHandScales = Hand Scales L
+marking-VoxLHandScales = Hand Scales Left
 
 # RHand
 
@@ -168,7 +168,7 @@ marking-VoxHandGradientRHand-gradient3 = Top
 marking-VoxRArmProsthetic = Prosthetic (Right)
 marking-VoxRArmProsthetic-prosthetic = Prosthetic (Right)
 
-marking-VoxRHandScales = Hand Scales R
+marking-VoxRHandScales = Hand Scales Right
 
 # FacialHair
 
@@ -291,6 +291,6 @@ marking-VoxTailSplit-split = Twinned
 marking-VoxSunAndMoon = Sun and Moon
 marking-VoxSunAndMoon-sunandmoon = Sun and Moon
 
-marking-VoxTail = Default Tail [DO NOT USE]
+marking-VoxTail = Default Tail
 
 # RArmExtension

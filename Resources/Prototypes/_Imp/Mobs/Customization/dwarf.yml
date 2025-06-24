@@ -9,7 +9,7 @@
   id: DwarfConstellationChest
   bodyPart: Chest
   markingCategory: Overlay
-  speciesRestriction: [ Dwarf ]
+  speciesRestriction: [ Dwarf, Human, Oni ]
   coloring:
     default:
       type:
@@ -25,7 +25,7 @@
   id: DwarfMarkBear
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Dwarf ]
+  speciesRestriction: [ Dwarf, Human, Oni ]
   coloring:
     default:
       type:
@@ -41,7 +41,7 @@
   id: DwarfMarkCobra
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Dwarf ]
+  speciesRestriction: [ Dwarf, Human, Oni ]
   coloring:
     default:
       type:
@@ -57,7 +57,7 @@
   id: DwarfMarkSpider
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Dwarf ]
+  speciesRestriction: [ Dwarf, Human, Oni ]
   coloring:
     default:
       type:
@@ -72,7 +72,7 @@
   id: DwarfTattooShootingStar
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Dwarf ]
+  speciesRestriction: [ Dwarf, Human, Oni ]
   coloring:
     default:
       type:
@@ -89,7 +89,7 @@
   id: DwarfBearCheeks
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [ Dwarf ]
+  speciesRestriction: [ Dwarf, Human, Oni ]
   forcedColoring: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/Dwarf/head.rsi
@@ -100,7 +100,7 @@
   id: DwarfConstellationHead
   bodyPart: Head
   markingCategory: Overlay
-  speciesRestriction: [ Dwarf ]
+  speciesRestriction: [ Dwarf, Human, Oni ]
   coloring:
     default:
       type:
@@ -115,7 +115,7 @@
   id: DwarfHeadGlow
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [ Dwarf ]
+  speciesRestriction: [ Dwarf, Human, Oni ]
   forcedColoring: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/Dwarf/head.rsi
@@ -133,7 +133,7 @@
   id: DwarfConstellationRArm
   bodyPart: RArm
   markingCategory: Overlay
-  speciesRestriction: [ Dwarf ]
+  speciesRestriction: [ Dwarf, Human, Oni ]
   coloring:
     default:
       type:
@@ -150,7 +150,7 @@
   id: DwarfConstellationLArm
   bodyPart: LArm
   markingCategory: Overlay
-  speciesRestriction: [ Dwarf ]
+  speciesRestriction: [ Dwarf, Human, Oni ]
   coloring:
     default:
       type:
@@ -167,7 +167,7 @@
   id: DwarfConstellationRLeg
   bodyPart: RLeg
   markingCategory: Overlay
-  speciesRestriction: [ Dwarf ]
+  speciesRestriction: [ Dwarf, Human, Oni ]
   coloring:
     default:
       type:
@@ -184,7 +184,7 @@
   id: DwarfConstellationLLeg
   bodyPart: LLeg
   markingCategory: Overlay
-  speciesRestriction: [ Dwarf ]
+  speciesRestriction: [ Dwarf, Human, Oni ]
   coloring:
     default:
       type:
@@ -205,7 +205,7 @@
   id: DwarfConstellationLFoot
   bodyPart: LFoot
   markingCategory: Overlay
-  speciesRestriction: [ Dwarf ]
+  speciesRestriction: [ Dwarf, Human, Oni ]
   coloring:
     default:
       type:
@@ -222,7 +222,7 @@
   id: DwarfConstellationRFoot
   bodyPart: RFoot
   markingCategory: Overlay
-  speciesRestriction: [ Dwarf ]
+  speciesRestriction: [ Dwarf, Human, Oni ]
   coloring:
     default:
       type:
@@ -239,7 +239,7 @@
   id: DwarfConstellationLHand
   bodyPart: LHand
   markingCategory: Overlay
-  speciesRestriction: [ Dwarf ]
+  speciesRestriction: [ Dwarf, Human, Oni ]
   coloring:
     default:
       type:
@@ -254,7 +254,7 @@
   id: DwarfMarkKangarooLHand
   bodyPart: LHand
   markingCategory: Arms
-  speciesRestriction: [ Dwarf ]
+  speciesRestriction: [ Dwarf, Human, Oni ]
   coloring:
     default:
       type:
@@ -271,7 +271,7 @@
   id: DwarfConstellationRHand
   bodyPart: RHand
   markingCategory: Overlay
-  speciesRestriction: [ Dwarf ]
+  speciesRestriction: [ Dwarf, Human, Oni ]
   coloring:
     default:
       type:
@@ -286,7 +286,7 @@
   id: DwarfMarkKangarooRHand
   bodyPart: RHand
   markingCategory: Arms
-  speciesRestriction: [ Dwarf ]
+  speciesRestriction: [ Dwarf, Human, Oni ]
   coloring:
     default:
       type:

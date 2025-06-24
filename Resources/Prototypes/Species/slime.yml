@@ -49,7 +49,7 @@
       points: 1
       required: false
     HeadSide:
-      points: 8
+      points: 3
       required: false
     FacialHair:
       points: 1

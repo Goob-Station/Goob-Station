@@ -151,12 +151,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Diona/larm.rsi
     state: mycena
+  shader: unshaded
 
 
 - type: marking
   id: DionaMoonBloom
-  bodyPart: HeadTop
-  markingCategory: HeadTop
+  bodyPart: HeadSide
+  markingCategory: HeadSide
   speciesRestriction: [ Diona ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Diona/headtop.rsi
