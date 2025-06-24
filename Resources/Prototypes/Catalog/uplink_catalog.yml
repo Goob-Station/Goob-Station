@@ -331,12 +331,12 @@
 
 - type: listing
   id: UplinkEstocBundle
-  name: uplink-estoc-name # goob
-  description: uplink-estoc-desc # goob
+  name: uplink-estoc-name # goob unbundle
+  description: uplink-estoc-desc # goob unbundle
   icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/estoc.rsi, state: icon }
-  productEntity: WeaponRifleEstoc # goob
+  productEntity: WeaponRifleEstoc # goob unbundle
   cost:
-    Telecrystal: 50 # goob
+    Telecrystal: 55 # goob
   categories:
   - UplinkWeaponry
 

@@ -340,8 +340,8 @@
           tags:
           - CartridgeRifle
   - type: SpeedModifiedOnWield
-    walkModifier: 0.75
-    sprintModifier: 0.75
+    walkModifier: 0.9 # goob
+    sprintModifier: 0.9 # goob
   - type: CursorOffsetRequiresWield
   - type: EyeCursorOffset
     maxOffset: 2
