@@ -11,7 +11,7 @@ namespace Content.Goobstation.Server.MiscSignaller
     [RegisterComponent]
     public sealed partial class MiscSignallerComponent : Component
     {
-        [DataField("port", customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
+        [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
         public string Port = "Triggered";
        
         [DataField]
