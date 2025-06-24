@@ -53,10 +53,10 @@ public sealed partial class RatKingComponent : Component
     public float HungerPerDomainUse = 50f;
 
     /// <summary>
-    ///     How many moles of ammonia are released after one us of Domain
+    ///     How many moles of ammonia are released after one use of Domain
     /// </summary>
     [DataField("molesAmmoniaPerDomain"), ViewVariables(VVAccess.ReadWrite)]
-    public float MolesAmmoniaPerDomain = 200f;
+    public float MolesAmmoniaPerDomain = 300f;
 
     /// <summary>
     /// The current order that the Rat King assigned.

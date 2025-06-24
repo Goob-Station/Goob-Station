@@ -159,7 +159,7 @@
   - type: VentCrawler # goobstation - Ventcrawl
   - type: CombatMode
   - type: MovementSpeedModifier
-    baseWalkSpeed : 3.00
+    baseWalkSpeed : 4.00
     baseSprintSpeed : 5.00
   - type: InputMover
   - type: MobMover
@@ -215,9 +215,9 @@
     requiredLegs: 1 # TODO: More than 1 leg
   - type: Hunger # probably should be prototyped
     thresholds:
-      Overfed: 200
-      Okay: 150
-      Peckish: 100
+      Overfed: 400
+      Okay: 250
+      Peckish: 125
       Starving: 50
       Dead: 0
     baseDecayRate: 0.01666666666
@@ -290,6 +290,15 @@
     coefficient: 0.5
   - type: CombatPower # Goobstation
     factor: 2
+  - type: PassiveDamage #passive Healing
+    allowedStates:
+    - Alive
+    damage:
+      types:
+        Poison: -0.5
+      groups:
+        Brute: -0.3
+        Burn: -0.3
 
 - type: entity
   id: MobRatKingBuff
@@ -339,8 +348,8 @@
   - type: VentCrawler # goobstation - Ventcrawl
   - type: CombatMode
   - type: MovementSpeedModifier
-    baseWalkSpeed : 3.5
-    baseSprintSpeed : 3.5
+    baseWalkSpeed : 4.0
+    baseSprintSpeed : 4.0
   - type: InputMover
   - type: MobMover
   - type: HTN
@@ -370,7 +379,13 @@
       state: eyes
       shader: unshaded
   - type: Insulated # Goobstation
-
+  - type: PassiveDamage #passive Healing
+    allowedStates:
+    - Alive
+    damage:
+      groups:
+        Brute: -0.1
+        Burn: -0.1
   - type: SpriteMovement
     movementLayers:
       movement:
@@ -475,10 +490,10 @@
 - type: weightedRandomEntity
   id: RatKingLoot
   weights: # DeltaV: Rebalanced for Rodentia rummaging because we don't have Rat King
-    RandomSpawner100: 70 #garbage
-    FoodCheeseSlice: 15 #food
+    RandomSpawner100: 50 #garbage
+    FoodCheeseSlice: 25 #food
     RandomSnacks: 10
-    RandomFoodSingle: 5
+    RandomFoodSingle: 15
 
 - type: entity
   id: ActionRatKingRaiseArmy
@@ -486,7 +501,7 @@
   description: Spend some hunger to summon an allied rat to help defend you.
   components:
   - type: InstantAction
-    useDelay: 4
+    useDelay: 3
     icon:
       sprite: Interface/Actions/actions_rat_king.rsi
       state: ratKingArmy

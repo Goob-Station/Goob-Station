@@ -39,14 +39,14 @@ public sealed partial class RatKingRummageableComponent : Component
     /// </summary>
     [DataField("rummageCooldown"), ViewVariables(VVAccess.ReadWrite)]
     [AutoNetworkedField]
-    public TimeSpan RummageCooldown = TimeSpan.FromMinutes(5);
+    public TimeSpan RummageCooldown = TimeSpan.FromMinutes(1);
 
     /// <summary>
     /// How long it takes to rummage through a rummageable container.
     /// </summary>
     [DataField("rummageDuration"), ViewVariables(VVAccess.ReadWrite)]
     [AutoNetworkedField]
-    public float RummageDuration = 3f;
+    public float RummageDuration = 2f;
 
     /// <summary>
     /// A weighted random entity prototype containing the different loot that rummaging can provide.
