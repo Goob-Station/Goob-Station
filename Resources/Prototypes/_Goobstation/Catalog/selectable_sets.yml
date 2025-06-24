@@ -327,7 +327,8 @@
   - ToolboxElectricalTurret
   - SheetSteel # 30
   - SheetSteel # 60
-  - CableApcStack
+  - SheetPlasteel # 30
+  - SheetPlasteel # 60
   - PowerCellSmall
 
 # Blueshield officer
