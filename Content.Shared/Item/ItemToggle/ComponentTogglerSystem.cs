@@ -38,7 +38,7 @@ public sealed class ComponentTogglerSystem : EntitySystem
 
         if (activate)
         {
-            var target = component.Parent ? Transform(uid).ParentUid : uid.Owner;
+            var target = component.Parent ? Transform(uid).ParentUid : uid;
 
             if (TerminatingOrDeleted(target))
                 return;
