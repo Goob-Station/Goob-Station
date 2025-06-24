@@ -11559,3 +11559,66 @@ Entries:
       message: Added medical beam gun. Nukeops Agent can buy it once for 100 TC.
   id: 1274
   time: '2025-06-22T07:26:24.0000000+00:00'
+- author: IrisTheAmped, Dummy
+  changes:
+    - type: Add
+      message: Added a plush for the most handsomest of Head Game Admins; Nigel.
+  id: 1275
+  time: '2025-06-23T15:40:11.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: >-
+        The RDs Gemini clone can no longer be gibbed, cremated, or generally
+        burst into organs.
+    - type: Fix
+      message: The RDs Gemini clone no longer has a fucked accent.
+    - type: Tweak
+      message: >-
+        You can now view the status and remaining health of your gemini by
+        inspecting the rig,
+    - type: Tweak
+      message: Geminis are now immune to pressure damage fully,
+  id: 1276
+  time: '2025-06-23T16:22:05.0000000+00:00'
+- author: thebiggestbruh
+  changes:
+    - type: Add
+      message: Added a few new text popups for changeling stings.
+    - type: Tweak
+      message: >-
+        Changelings now need to extract UNIQUE genomes for the DNA extraction
+        objective (a person cannot give you objective progress if you had
+        previously extracted their DNA during the round).
+    - type: Tweak
+      message: >-
+        Changelings should no longer roll other changelings as their "escape as
+        x's identity" target (if they swap identities its a guaranteed fail).
+    - type: Tweak
+      message: >-
+        Changelings are now able to absorb headslugs and other changelings who
+        entered lesser (monkey) form.
+    - type: Tweak
+      message: >-
+        Fake armblade sting chem cost reduced to 30 and will now force the
+        target to drop an item in their hand if both are full (provided that the
+        item can actually be dropped in the first place).
+    - type: Tweak
+      message: >-
+        Changeling stings (except for DNA extract) will now be able to work on
+        simplemobs (monkeys, carp, pets ect).
+    - type: Fix
+      message: >-
+        Fake armblade sting should no longer tell you that you can't inject a
+        monkey when the target's hands are full (the fact that nobody pointed
+        this out earlier shows that literally nobody uses it).
+    - type: Fix
+      message: >-
+        Lethargic sting description now correctly display its chem cost of 30
+        (from 25).
+    - type: Fix
+      message: >-
+        Changelings should no longer be able to roll IPCs as their "escape with
+        x's identity" target (again).
+  id: 1277
+  time: '2025-06-23T19:54:40.0000000+00:00'
