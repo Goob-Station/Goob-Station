@@ -58,3 +58,7 @@ device-frequency-prototype-name-turret-control = Управління турел
 
 ## Частоти камер
 device-address-prefix-turret = TRT-
+device-frequency-prototype-name-xenoborg = Ксеноборг
+device-frequency-prototype-name-mothership = Матка
+
+## частоти камер

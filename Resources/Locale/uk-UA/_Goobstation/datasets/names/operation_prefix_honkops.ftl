@@ -1,0 +1,13 @@
+operation-prefix-honkops-dataset-1 = Гудок
+operation-prefix-honkops-dataset-2 = Бонк
+operation-prefix-honkops-dataset-3 = Клоун
+operation-prefix-honkops-dataset-4 = Вбивчий
+operation-prefix-honkops-dataset-5 = Розiграш
+operation-prefix-honkops-dataset-6 = Блазень
+operation-prefix-honkops-dataset-7 = Цирк
+operation-prefix-honkops-dataset-8 = Берсерк
+operation-prefix-honkops-dataset-9 = Дурник
+operation-prefix-honkops-dataset-10 = Хихотун
+operation-prefix-honkops-dataset-11 = Сміхун
+operation-prefix-honkops-dataset-12 = Бум
+operation-prefix-honkops-dataset-13 = Смішний

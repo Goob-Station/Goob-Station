@@ -12,3 +12,4 @@ store-currency-display-stolen-essence = Викрадена есенція
 store-currency-display-experince = ОД
 
 store-currency-display-wizcoin = Візз€оїн™
+store-currency-display-silicon-memory = Пам'ять

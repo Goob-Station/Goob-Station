@@ -10,9 +10,8 @@ metabolizer-type-dwarf = Гном
 metabolizer-type-moth = Міль
 metabolizer-type-arachnid = Павукоподібний
 metabolizer-type-vampiric = Вампірський
-metabolizer-type-liquorlifeline = Алкогольна підтримка життя
+metabolizer-type-liquorlifeline = Алкогольна життєва підтримка
 
-metabolizer-type-shadowkin = Тіневий
 metabolizer-type-plasmaman = Плазмамен
 
 metabolizer-type-goblin = Гоблін

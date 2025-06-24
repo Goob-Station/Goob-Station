@@ -3,4 +3,4 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-comp-self-unremovable-clothing = This cannot be removed without outside help.
+comp-self-unremovable-clothing = Це неможливо зняти без сторонньої допомоги.

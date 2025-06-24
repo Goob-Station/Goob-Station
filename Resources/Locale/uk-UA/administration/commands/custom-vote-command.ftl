@@ -1,1 +1,0 @@
-custom-vote-webhook-name = Проведено спеціальне голосування

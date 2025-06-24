@@ -6,4 +6,3 @@ sleep-examined = [color=lightblue]{CAPITALIZE(SUBJECT($target))} спить.[/co
 wake-other-success = Ви розбудили {THE($target)} тряскою.
 wake-other-failure = Ви трясете {THE($target)}, але {SUBJECT($target)} не прокидається.
 
-popup-sleep-in-bag = {THE($entity)} згортається калачиком і засинає.

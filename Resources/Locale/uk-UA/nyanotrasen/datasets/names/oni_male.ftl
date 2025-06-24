@@ -1,0 +1,17 @@
+names-oni-first-male-dataset-1 = Кійоші
+names-oni-first-male-dataset-2 = Сатоші
+names-oni-first-male-dataset-3 = Теру
+names-oni-first-male-dataset-4 = Хіроші
+names-oni-first-male-dataset-5 = Такаші
+names-oni-first-male-dataset-6 = Ейчі
+names-oni-first-male-dataset-7 = Ейчіро
+names-oni-first-male-dataset-8 = Кьосабуро
+names-oni-first-male-dataset-9 = Цутому
+names-oni-first-male-dataset-10 = Цуйоші
+names-oni-first-male-dataset-11 = Кенші
+names-oni-first-male-dataset-12 = Кендзі
+names-oni-first-male-dataset-13 = Кенічі
+names-oni-first-male-dataset-14 = Сусуму
+names-oni-first-male-dataset-15 = Кьоносуке
+names-oni-first-male-dataset-16 = Суйсей
+names-oni-first-male-dataset-17 = Шутен

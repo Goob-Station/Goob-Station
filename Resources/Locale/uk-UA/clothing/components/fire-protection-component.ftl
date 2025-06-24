@@ -4,4 +4,4 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-fire-protection-reduction-value = - [color=orange]Fire[/color] damage reduced by [color=lightblue]{$value}%[/color].
+fire-protection-reduction-value = - [color=orange]Вогняна[/color] шкода зменшена на [color=lightblue]{$value}%[/color].

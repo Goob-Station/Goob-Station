@@ -239,7 +239,7 @@ public sealed class EventHorizonSystem : SharedEventHorizonSystem
             || _tagSystem.HasTag(morsel, HighRiskItemTag)
             || HasComp<ContainmentFieldGeneratorComponent>(morsel))
         {
-            _adminLogger.Add(LogType.EntityDelete, LogImpact.High, $"{ToPrettyString(morsel):player} entered the event horizon of {ToPrettyString(hungry)} and was deleted");
+            _adminLogger.Add(LogType.EntityDelete, LogImpact.High, $"{ToPrettyString(morsel):player} увійшов у горизонт подій {ToPrettyString(hungry)} і був видалений");
         }
 
         EntityManager.QueueDeleteEntity(morsel);

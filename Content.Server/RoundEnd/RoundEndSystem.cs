@@ -208,11 +208,11 @@ namespace Content.Server.RoundEnd
 
             if (requester != null)
             {
-                _adminLogger.Add(LogType.ShuttleCalled, LogImpact.High, $"Shuttle called by {ToPrettyString(requester.Value):user}");
+                _adminLogger.Add(LogType.ShuttleCalled, LogImpact.High, $"Шаттл викликаний {ToPrettyString(requester.Value):user}");
             }
             else
             {
-                _adminLogger.Add(LogType.ShuttleCalled, LogImpact.High, $"Shuttle called");
+                _adminLogger.Add(LogType.ShuttleCalled, LogImpact.High, $"Шаттл викликаний");
             }
 
             // I originally had these set up here but somehow time gets passed as 0 to Loc so IDEK.
@@ -276,11 +276,11 @@ namespace Content.Server.RoundEnd
 
             if (requester != null)
             {
-                _adminLogger.Add(LogType.ShuttleRecalled, LogImpact.High, $"Shuttle recalled by {ToPrettyString(requester.Value):user}");
+                _adminLogger.Add(LogType.ShuttleRecalled, LogImpact.High, $"Виклик шаттла скасовано {ToPrettyString(requester.Value):user}");
             }
             else
             {
-                _adminLogger.Add(LogType.ShuttleRecalled, LogImpact.High, $"Shuttle recalled");
+                _adminLogger.Add(LogType.ShuttleRecalled, LogImpact.High, $"Виклик шаттла скасовано");
             }
 
             _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("round-end-system-shuttle-recalled-announcement"),

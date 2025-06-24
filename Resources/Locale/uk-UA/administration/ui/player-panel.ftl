@@ -22,3 +22,4 @@ player-panel-delete = Видалити
 player-panel-rejuvenate = Вилікувати
 player-panel-false = Ні
 player-panel-true = Так
+player-panel-follow = Слідувати

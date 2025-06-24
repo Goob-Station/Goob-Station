@@ -404,3 +404,7 @@ reagent-effect-guidebook-plant-phalanximine = { $chance ->
         [1] Відновлює
         *[other] відновити
     } життєздатність рослини, яка стала нежиттєздатною через мутацію
+reagent-effect-guidebook-artifact-unlock = { $chance ->
+        [1] Допомагає
+        *[other] допомогти
+        } розблокувати інопланетний артефакт.
