@@ -8,7 +8,6 @@
 # SPDX-FileCopyrightText: 2025 Gareth Quaile <garethquaile@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Jarl <elliotacline@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
@@ -247,7 +246,7 @@
   - type: Unremoveable
 
 - type: entity
-  parent: [ClothingHandsGlovesColorYellow, BaseEngineeringContraband]
+  parent: ClothingHandsGlovesColorYellow
   id: ClothingHandsGlovesAtmosInsulated
   name: insulated atmos gloves
   description: Like normal insulated gloves, but simply better by virtue of being from the Atmospherics department.
