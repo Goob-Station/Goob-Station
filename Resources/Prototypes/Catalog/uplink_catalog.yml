@@ -1221,7 +1221,7 @@
   description: uplink-starter-kit-desc
   productEntity: ClothingBackpackDuffelSyndicateFilledStarterKit
   cost:
-    Telecrystal: 40
+    Telecrystal: 200
   categories:
   - UplinkDisruption
   conditions:
