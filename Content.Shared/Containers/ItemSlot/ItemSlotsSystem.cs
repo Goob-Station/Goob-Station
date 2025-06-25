@@ -346,7 +346,7 @@ namespace Content.Shared.Containers.ItemSlots
             }
 
             // Drop the held item onto the floor. Return if the user cannot drop.
-            if (_handsSystem.IsHolding(args.User, args.Used) && !_handsSystem.TryDrop(args.User, args.Used, handsComp: hands)) // Goobstation - don't try to drop if not holding
+            if (_handsSystem.IsHolding(args.User, args.Used) && !_handsSystem.TryDrop(args.User, args.Used)) // Goobstation - don't try to drop if not holding
                 return;
 
             slots.Sort(SortEmpty);
@@ -486,17 +486,17 @@ namespace Content.Shared.Containers.ItemSlots
             if (!Resolve(user, ref hands, false))
                 return false;
 
-            if (hands.ActiveHand?.HeldEntity is not { } held)
+            if (!_handsSystem.TryGetActiveItem((uid, hands), out var held))
                 return false;
 
-            if (!CanInsert(uid, held, user, slot))
+            if (!CanInsert(uid, held.Value, user, slot))
                 return false;
 
             // hands.Drop(item) checks CanDrop action blocker
-            if (!_handsSystem.TryDrop(user, hands.ActiveHand))
+            if (!_handsSystem.TryDrop(user, hands.ActiveHandId!))
                 return false;
 
-            Insert(uid, slot, held, user, excludeUserAudio: excludeUserAudio);
+            Insert(uid, slot, held.Value, user, excludeUserAudio: excludeUserAudio);
             return true;
         }
 
@@ -519,16 +519,14 @@ namespace Content.Shared.Containers.ItemSlots
             if (!Resolve(ent, ref ent.Comp, false))
                 return false;
 
-            TryComp(user, out HandsComponent? handsComp);
-
             if (!TryGetAvailableSlot(ent,
                     item,
-                    user == null ? null : (user.Value, handsComp),
+                    user,
                     out var itemSlot,
                     emptyOnly: true))
                 return false;
 
-            if (user != null && !_handsSystem.TryDrop(user.Value, item, handsComp: handsComp))
+            if (user != null && !_handsSystem.TryDrop(user.Value, item))
                 return false;
 
             Insert(ent, itemSlot, item, user, excludeUserAudio: excludeUserAudio);
@@ -557,7 +555,7 @@ namespace Content.Shared.Containers.ItemSlots
                 && Resolve(user, ref user.Comp)
                 && _handsSystem.IsHolding(user, item))
             {
-                if (!_handsSystem.CanDrop(user, item, user.Comp))
+                if (!_handsSystem.CanDrop(user, item))
                     return false;
             }
 

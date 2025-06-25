@@ -598,6 +598,7 @@ namespace Content.Server.Construction
 
             if (!_actionBlocker.CanInteract(user, null)
                 || (senderSession != null && entWith == null)) // Goobstation
+                || !EntityManager.TryGetComponent(user, out HandsComponent? hands) || _handsSystem.GetActiveItem((user, hands)) == null)
             {
                 Cleanup();
                 return false;
@@ -620,7 +621,10 @@ namespace Content.Server.Construction
             if(edge == null)
                 throw new InvalidDataException($"Can't find edge from starting node to the next node in pathfinding! Recipe: {prototypeName}");
 
-            if (senderSession != null) // Goobstation - don't check this for constructor machine
+            var valid = false;
+
+            if (_handsSystem.GetActiveItem((user, hands)) is not {Valid: true} holding
+                && senderSession != null) // Goobstation - don't check this for constructor machine
             {
                 var valid = false;
 

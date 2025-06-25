@@ -910,7 +910,7 @@ public sealed partial class AdminVerbSystem
         }
         else if (TryComp<HandsComponent>(target, out var hands))
         {
-            foreach (var held in _handsSystem.EnumerateHeld(target, hands))
+            foreach (var held in _handsSystem.EnumerateHeld((target, hands)))
             {
                 if (HasComp<AccessComponent>(held))
                 {

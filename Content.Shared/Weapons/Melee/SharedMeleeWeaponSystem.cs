@@ -137,6 +137,7 @@ using Content.Shared.Database;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Hands.EntitySystems; // Shitmed Change
 using Content.Shared.Interaction;
@@ -181,6 +182,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     [Dependency] protected readonly ISharedAdminLogManager AdminLogger = default!;
     [Dependency] protected readonly ActionBlockerSystem Blocker = default!;
     [Dependency] protected readonly DamageableSystem Damageable = default!;
+    [Dependency] private   readonly SharedHandsSystem _hands = default!;
     [Dependency] private   readonly InventorySystem _inventory = default!;
     [Dependency] private   readonly MeleeSoundSystem _meleeSound = default!;
     [Dependency] protected readonly MobStateSystem MobState = default!;
@@ -449,15 +451,14 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         }
 
         // Use inhands entity if we got one.
-        if (EntityManager.TryGetComponent(entity, out HandsComponent? hands) &&
-            hands.ActiveHandEntity is { } held)
+        if (_hands.TryGetActiveItem(entity, out var held))
         {
             // Make sure the entity is a weapon AND it doesn't need
             // to be equipped to be used (E.g boxing gloves).
             if (EntityManager.TryGetComponent(held, out melee) &&
                 !melee.MustBeEquippedToUse)
             {
-                weaponUid = held;
+                weaponUid = held.Value;
                 return true;
             }
 
@@ -1097,9 +1098,16 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             }
         }
 
-        if (targetHandsComponent?.ActiveHand is { IsEmpty: false })
+        if (!InRange(user, target.Value, component.Range, session))
         {
-            inTargetHand = targetHandsComponent.ActiveHand.HeldEntity!.Value;
+            return false;
+        }
+
+        EntityUid? inTargetHand = null;
+
+        if (_hands.TryGetActiveItem(target.Value, out var activeHeldEntity))
+        {
+            inTargetHand = activeHeldEntity.Value;
         }
 
         var attemptEvent = new DisarmAttemptEvent(target, user, inTargetHand);
