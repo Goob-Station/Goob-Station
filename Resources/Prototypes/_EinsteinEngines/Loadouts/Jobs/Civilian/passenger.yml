@@ -1,0 +1,4 @@
+- type: loadout
+  id: OldNeckWrap
+  equipment:
+    neck: ClothingNeckOldClothWrap
