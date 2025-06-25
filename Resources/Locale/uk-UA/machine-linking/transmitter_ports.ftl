@@ -69,5 +69,3 @@ signal-port-description-power-discharging = Цей порт викликаєть
 
 signal-port-name-dockstatus = Стан дока
 signal-port-description-dockstatus = Цей порт викликається зі значенням HIGH, коли він пристикований, і LOW, коли він відстикований.
-signal-port-name-fillitems = Предмети Філлбота
-signal-port-description-fillitems = Предмети, підібрані Філлботом.

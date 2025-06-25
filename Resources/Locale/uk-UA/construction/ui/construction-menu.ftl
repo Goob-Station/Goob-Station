@@ -7,3 +7,4 @@ construction-menu-eraser-mode = Режим зтирання
 construction-menu-craft = Крафт
 
 construction-menu-grid-view = Вигляд сітки
+construction-menu-search = Пошук

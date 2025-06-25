@@ -197,3 +197,5 @@ marking-HumanHairClassicLong3 = Класичне довге волосся 3
 marking-HumanHairLongBow = Довгий лук
 marking-HumanHairPulato = Пулато
 marking-HumanHairShaped = У формі
+
+marking-HumanHairBAlt = Зачіска Джинкс

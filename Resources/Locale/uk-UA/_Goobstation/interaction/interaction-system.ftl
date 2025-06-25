@@ -5,3 +5,6 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 use-on-station-only-not-on-station = Ви повинні бути на станції, щоб використовувати це.
+
+petting-failure-huborg = Ви простягаєте руку, щоб погладити {THE($target)}, але {POSS-ADJ($target)} огидний вигляд змушує вас передумати.
+petting-success-huborg = Ви гладите {THE($target)} по {POSS-ADJ($target)} жахливій... голові?

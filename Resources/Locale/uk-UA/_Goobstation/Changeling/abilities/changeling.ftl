@@ -86,3 +86,10 @@ changeling-lastresort-activate = ПОТОЧНЕ ТІЛО БУДЕ ВТРАЧЕН
 changeling-onfire = Наші клітини корчаться в агонії, не в змозі виконати дію!
 
 changeling-rejuvenate = Дивна енергія пульсує нашим тілом, омолоджуючи наші клітини та відновлюючи наші хімікати!
+
+changeling-absorb-end-self-ling-incompatible = Іншого перевертня поглинуто. Однак, його поточна форма не дозволила нам витягти його послідовність ДНК.
+changeling-absorb-end-partial = Організм був поглинутий. Ми не змогли витягти нічого, що допомогло б у нашій еволюції.
+changeling-sting-fail-fakeweapon = Вони не зможуть підтримувати фальшиву зброю.
+changeling-sting-fail-hollow = Ми не можемо вжалити порожнистий організм.
+changeling-sting-extract-fail-duplicate = Ми вже витягували цю ДНК у минулому.
+changeling-sting-extract-fail-lesser = Ми не можемо витягти ДНК з меншої істоти!

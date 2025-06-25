@@ -9,3 +9,5 @@
 steal-target-groups-cargo-supermatter-sliver = уламок суперматерії
 steal-target-groups-weapon-lawbringer = ДТ-12 "Законник"
 steal-target-groups-rapid-syringe-gun = швидкісний шприцемет
+
+steal-target-groups-gemini-projector = голо-проекторна установка ax-32 "джеміні

@@ -93,3 +93,6 @@ ghost-role-information-bingle-name-token = Бінгл (Жетон)
 blob-carrier-role-name-token = Носій Блоба (Жетон)
 abductor-lone-ghost-role-name-token = Самотній Викрадач (Жетон)
 roles-wizard-name-token = Чарівник (Жетон)
+
+ghost-role-information-huborg-name = Уріст МакБорг
+ghost-role-information-huborg-description = Ви — огидна потвора кіборга.

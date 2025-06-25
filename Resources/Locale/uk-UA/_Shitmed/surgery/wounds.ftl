@@ -17,3 +17,9 @@ self-inspect-wound-Brute-severe = виглядає повністю поніве
 self-inspect-wound-Burn-minor = трохи пече
 self-inspect-wound-Burn-moderate = має кілька болючих пухирів
 self-inspect-wound-Burn-severe = шкіра злазить
+
+inspect-wound-minor = поранений
+inspect-wound-moderate = ушкоджений
+inspect-wound-severe = сильно пошкоджений
+inspect-wound-critical = понівечений
+inspect-wound-loss = повністю понівечений

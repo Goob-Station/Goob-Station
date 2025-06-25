@@ -19,3 +19,6 @@ prayer-verbs-rub = Прошепотіти
 prayer-chat-notify-lamp = ЛАМПА
 prayer-popup-notify-lamp-sent = Ваші думки, здається, відлунюють...
 prayer-popup-notify-pray-ui-message = Повідомлення
+prayer-verbs-worship = Поклонятися
+prayer-chat-notify-monolith = МОНОЛІТ
+prayer-popup-notify-monolith-sent = Нічого не відбувається. Громоподібно...
