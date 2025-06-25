@@ -117,6 +117,7 @@
   - type: ContentEye
   - type: CameraRecoil
   - type: MindContainer
+  - type: TTS # CorvaxGoob-TTS
   - type: MovementSpeedModifier
   - type: RequireProjectileTarget
     active: False

@@ -341,6 +341,13 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnName("skin_color")
                         .HasColumnType("text");
 
+                    // CorvaxGoob-TTS-Start
+                    b.Property<string>("Voice")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("voice");
+                    // CorvaxGoob-TTS-End
+
                     b.Property<int>("Slot")
                         .HasColumnName("slot")
                         .HasColumnType("integer");

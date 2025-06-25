@@ -29,6 +29,8 @@
   - type: Muted
   - type: TypingIndicator
     proto: robot
+  - type: TTS # CorvaxGoob-TTS
+    voice: Meepo
   - type: Actions
   - type: MobState
     allowedStates:
@@ -51,3 +53,5 @@
     sprite: Objects/Fun/mrdips.rsi
     layers:
     - state: icon
+  - type: TTS # CorvaxGoob-TTS
+    voice: Zibb
