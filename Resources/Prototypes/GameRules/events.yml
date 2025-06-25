@@ -468,6 +468,11 @@
     objectiveBlacklist:
       tags:
       - ParadoxCloneObjectiveBlacklist
+    targetBlacklist: # Goobstation
+      components:
+      - BorgBrain # No copying the AI or borgs.
+      - AntagImmune # No copying people who are immune to antags. (Gemini Hologram, Ghost bar, etcetera.)
+
   - type: AntagObjectives
     objectives:
     - ParadoxCloneKillObjective

@@ -1,4 +1,6 @@
+using System.Linq;
 using Content.Server.Antag;
+using Content.Server.Antag.Components;
 using Content.Server.Cloning;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Medical.SuitSensors;
@@ -7,6 +9,7 @@ using Content.Shared.GameTicking.Components;
 using Content.Shared.Gibbing.Components;
 using Content.Shared.Medical.SuitSensor;
 using Content.Shared.Mind;
+using Content.Shared.Whitelist;
 using Robust.Shared.Random;
 
 namespace Content.Server.GameTicking.Rules;
@@ -18,6 +21,7 @@ public sealed class ParadoxCloneRuleSystem : GameRuleSystem<ParadoxCloneRuleComp
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly CloningSystem _cloning = default!;
     [Dependency] private readonly SuitSensorSystem _sensor = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!; // Goobstation
 
     public override void Initialize()
     {
@@ -33,6 +37,8 @@ public sealed class ParadoxCloneRuleSystem : GameRuleSystem<ParadoxCloneRuleComp
 
         // check if we got enough potential cloning targets, otherwise cancel the gamerule so that the ghost role does not show up
         var allHumans = _mind.GetAliveHumans();
+        foreach (var human in allHumans.Where(human => _whitelist.IsBlacklistPass(component.TargetBlacklist, human))) // Goobstation
+            allHumans.Remove(human);
 
         if (allHumans.Count == 0)
         {
@@ -60,6 +66,7 @@ public sealed class ParadoxCloneRuleSystem : GameRuleSystem<ParadoxCloneRuleComp
         {
             // get possible targets
             var allAliveHumanoids = _mind.GetAliveHumans();
+            allAliveHumanoids.RemoveWhere(t => _whitelist.IsBlacklistPass(ent.Comp.TargetBlacklist, t)); // Goobstation
 
             // we already checked when starting the gamerule, but someone might have died since then.
             if (allAliveHumanoids.Count == 0)

@@ -72,6 +72,7 @@ using Content.Shared.Revolutionary;
 using Content.Server.Communications;
 using System.Linq;
 using Content.Goobstation.Shared.Revolutionary;
+using Content.Server.Antag.Components;
 using Content.Server.Chat.Systems;
 using Content.Shared._EinsteinEngines.Revolutionary;
 using Robust.Shared.Player;
@@ -229,7 +230,8 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
             !_mobState.IsAlive(ev.Target) ||
             HasComp<ZombieComponent>(ev.Target) ||
             HasComp<HereticComponent>(ev.Target) ||
-            HasComp<ChangelingComponent>(ev.Target)) // goob edit - no more ling or heretic revs
+            HasComp<ChangelingComponent>(ev.Target) || // goob edit - no more ling or heretic revs
+            HasComp<AntagImmuneComponent>(ev.Target)) // Antag immune MEANS antag immune.
         {
             if(ev.User != null)
                 _popup.PopupEntity("The conversion failed!", ev.User.Value, ev.User.Value);

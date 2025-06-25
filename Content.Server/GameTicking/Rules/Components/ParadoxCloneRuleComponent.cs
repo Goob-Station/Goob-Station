@@ -47,4 +47,10 @@ public sealed partial class ParadoxCloneRuleComponent : Component
     /// </summary>
     [DataField]
     public EntityWhitelist? ObjectiveBlacklist;
+
+    /// <summary>
+    /// If an entity has one of these components, it cannot have a paradox clone. - Goobstation.
+    /// </summary>
+    [DataField]
+    public EntityWhitelist? TargetBlacklist;
 }
