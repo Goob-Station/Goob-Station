@@ -92,7 +92,7 @@
 
 - type: gameMap
   id: Loop
-  mapName: 'Станція Петля'
+  mapName: 'Петля'
   mapPath: /Maps/_Goobstation/loop.yml
   minPlayers: 35
   maxPlayers: 70

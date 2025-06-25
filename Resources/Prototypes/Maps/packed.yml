@@ -33,7 +33,7 @@
 
 - type: gameMap
   id: Packed
-  mapName: 'Запакований'
+  mapName: 'Пакед'
   mapPath: /Maps/_Goobstation/packed.yml # Goobstation
   minPlayers: 7
   maxPlayers: 35
@@ -42,7 +42,7 @@
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Запакований {1}'
+          mapNameTemplate: '{0} Пакед {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: 'VG'

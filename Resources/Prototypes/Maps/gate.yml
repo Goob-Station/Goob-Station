@@ -79,7 +79,7 @@
 
 - type: gameMap
   id: Gate
-  mapName: 'Станція Ворота'
+  mapName: 'Гейт'
   mapPath: /Maps/_Goobstation/gate.yml
   minPlayers: 55
   stations:
@@ -87,7 +87,7 @@
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Станція Ворота {1}'
+          mapNameTemplate: '{0} Станція Гейт {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: 'ED'

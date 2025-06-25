@@ -7,7 +7,7 @@
 
 - type: gameMap
   id: MeteorArena
-  mapName: Арена Метеорів
+  mapName: Метеор Арена
   mapPath: /Maps/Nonstations/meteor-arena.yml
   minPlayers: 0
   stations:
@@ -15,7 +15,7 @@
       stationProto: StandardStationArena
       components:
         - type: StationNameSetup
-          mapNameTemplate: "Арена Метеорів"
+          mapNameTemplate: "Метеор Арена"
         - type: StationJobs
           availableJobs:
             Passenger: [ -1, -1 ]
