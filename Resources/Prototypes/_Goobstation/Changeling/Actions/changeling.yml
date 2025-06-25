@@ -393,7 +393,7 @@
 - type: entity
   id: ActionStingLethargic
   name: Lethargic Sting
-  description: Silently inject a cocktail of anesthetics into the target. Costs 25 chemicals.
+  description: Silently inject a cocktail of anesthetics into the target. Costs 30 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
@@ -443,7 +443,7 @@
 - type: entity
   id: ActionStingFakeArmblade
   name: Fake Armblade Sting
-  description: Silently sting your target, making them grow a dull armblade for a short time. Costs 50 chemicals.
+  description: Silently sting your target, making them grow a dull armblade for a short time. Costs 30 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
@@ -459,7 +459,7 @@
       state: sting_armblade
     event: !type:StingFakeArmbladeEvent {}
   - type: ChangelingAction
-    chemicalCost: 50
+    chemicalCost: 30
     useInLesserForm: true
 
 - type: entity
