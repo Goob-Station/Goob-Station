@@ -32,7 +32,7 @@ public sealed partial class PTLComponent : Component
     [DataField] public DamageSpecifier BaseBeamDamage;
 
     /// <summary>
-    ///     Amount of power required to start emitting radiation and blinding people that come nearby
+    ///     The factor that power (in MJ) is multiplied by to calculate radiation and blinding.
     /// </summary>
-    [DataField] public double PowerEvilThreshold = 50; // compares to a value in MJ
+    [DataField] public double EvilMultiplier = 0.1;
 }

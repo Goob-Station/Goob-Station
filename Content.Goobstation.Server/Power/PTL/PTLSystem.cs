@@ -143,15 +143,12 @@ public sealed partial class PTLSystem : EntitySystem
         }
 
         // EVIL behavior......
-        if (charge >= ent.Comp1.PowerEvilThreshold)
-        {
-            var evil = (float) (charge / ent.Comp1.PowerEvilThreshold);
+        var evil = (float) (charge * ent.Comp1.EvilMultiplier);
 
-            if (TryComp<RadiationSourceComponent>(ent, out var rad))
-                rad.Intensity = evil;
+        if (TryComp<RadiationSourceComponent>(ent, out var rad))
+            rad.Intensity = evil;
 
-            _flash.FlashArea((ent, null), ent, evil, evil);
-        }
+        _flash.FlashArea((ent, null), ent, evil/2, evil/2);
 
         ent.Comp1.SpesosHeld += spesos;
     }
