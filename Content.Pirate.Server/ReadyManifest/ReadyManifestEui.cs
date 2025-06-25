@@ -1,5 +1,6 @@
+using Content.Pirate.Server.ReadyManifest;
+using Content.Pirate.Shared.ReadyManifest;
 using Content.Server.EUI;
-using Content.Shared.ReadyManifest;
 
 namespace Content.Server.ReadyManifest;
 

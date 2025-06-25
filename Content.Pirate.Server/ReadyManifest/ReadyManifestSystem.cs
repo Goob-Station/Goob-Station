@@ -11,6 +11,7 @@ using Content.Pirate.Shared.ReadyManifest;
 using Content.Server.GameTicking;
 using Content.Server.Preferences.Managers;
 using Content.Server.GameTicking.Events;
+using Content.Server.ReadyManifest;
 
 namespace Content.Pirate.Server.ReadyManifest;
 

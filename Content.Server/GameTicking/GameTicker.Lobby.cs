@@ -241,6 +241,7 @@ namespace Content.Server.GameTicking
             var status = ready ? PlayerGameStatus.ReadyToPlay : PlayerGameStatus.NotReadyToPlay;
             _playerGameStatuses[player.UserId] = ready ? PlayerGameStatus.ReadyToPlay : PlayerGameStatus.NotReadyToPlay;
             RaiseNetworkEvent(GetStatusMsg(player), player.Channel);
+            RaiseLocalEvent(new PlayerToggleReadyEvent(player)); // PIRATE
             // update server info to reflect new ready count
             UpdateInfoText();
         }
@@ -251,4 +252,15 @@ namespace Content.Server.GameTicking
         public bool UserHasJoinedGame(NetUserId userId)
             => PlayerGameStatuses.TryGetValue(userId, out var status) && status == PlayerGameStatus.JoinedGame;
     }
+    // PIRATE V
+    public sealed class PlayerToggleReadyEvent : EntityEventArgs
+    {
+        public readonly ICommonSession PlayerSession;
+
+        public PlayerToggleReadyEvent(ICommonSession playerSession)
+        {
+            PlayerSession = playerSession;
+        }
+    }
+    // PIRATE ^
 }
