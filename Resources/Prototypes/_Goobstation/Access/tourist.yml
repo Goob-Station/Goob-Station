@@ -1,0 +1,3 @@
+- type: accessLevel
+  id: Tourist
+  name: id-card-access-level-tourist

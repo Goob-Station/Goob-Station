@@ -1,0 +1,30 @@
+- type: job
+  id: Tourist
+  name: job-name-tourist
+  description: job-description-visitor
+  playTimeTracker: JobTourist
+  startingGear: TouristGear
+  icon: "JobIconVisitor"
+  supervisors: job-supervisors-everyone
+  goobcoins: 5
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 54000 #15 hrs
+  access:
+  - Tourist
+
+- type: startingGear
+  id: TouristGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHawaiBlack
+    eyes: ClothingEyesGlassesCheapSunglasses
+    shoes: ClothingShoesTourist
+    head: ClothingHeadHatStrawHat
+    id: VisitorPDA
+    belt: ClothingBeltStorageWaistbag
+    ears: ClothingHeadsetGrey
+  storage:
+   back:
+    SpaceCash:
+       min: 1000
+       max: 3000
