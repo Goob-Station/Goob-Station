@@ -8,9 +8,9 @@
 - type: dataset
   id: UplinkDiscountFluff
   values:
-  - "No refunds, no questions asked."
-  - "May contain flammable elements, proceed with caution."
-  - "We've got too much of this laying around on our shelves."
-  - "You'd do us a huge favor if you help in getting rid of this."
-  - "For ages 2 and higher."
-  - "Buy one for yourself and one for your friend!"
+  - "Без повернень, без зайвих запитань."
+  - "Може містити легкозаймисті елементи, будьте обережні."
+  - "У нас цього забагато на полицях."
+  - "Ви зробите нам велику послугу, якщо допоможете позбутися цього."
+  - "Для віку від 2 років."
+  - "Купуйте один для себе та один для друга!"

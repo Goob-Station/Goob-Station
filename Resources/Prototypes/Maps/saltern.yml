@@ -31,7 +31,7 @@
 
 - type: gameMap
   id: Saltern
-  mapName: 'Saltern'
+  mapName: 'Солеварня'
   mapPath: /Maps/_Goobstation/saltern.yml # Goobstation - use custom saltern
   minPlayers: 0
   maxPlayers: 35
@@ -41,7 +41,7 @@
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Saltern {1}'
+          mapNameTemplate: '{0} Солеварня {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'

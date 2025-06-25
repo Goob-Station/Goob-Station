@@ -21,7 +21,7 @@
 
 - type: gameMap
   id: Lavatest
-  mapName: Lavaland Playtest
+  mapName: Лаваленд Тест
   mapPath: /Maps/_Lavaland/lavaland_playtest.yml
   minPlayers: 0
   stations:
@@ -29,7 +29,7 @@
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: "LavaTest"
+          mapNameTemplate: "ЛаваТест"
         - type: StationJobs
           availableJobs:
             Quartermaster: [ 1, 1 ]

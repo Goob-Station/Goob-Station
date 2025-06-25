@@ -25,7 +25,7 @@
 
 - type: gameMap
   id: Reach
-  mapName: 'Reach'
+  mapName: 'Рич'
   mapPath: /Maps/_Goobstation/reach.yml
   minPlayers: 0
   maxPlayers: 10
@@ -34,7 +34,7 @@
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Reach Transport {1}'
+          mapNameTemplate: '{0} Рич Транспорт {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: 'SC'

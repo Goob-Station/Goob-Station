@@ -83,7 +83,7 @@
 
 - type: gameMap
   id: Lambda
-  mapName: 'Lambda'
+  mapName: 'Лямбда'
   mapPath: /Maps/_Goobstation/lambda.yml
   minPlayers: 35
   maxPlayers: 70
@@ -93,7 +93,7 @@
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Lambda Station {1}'
+          mapNameTemplate: '{0} Станція Лямбда {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: 'TG'

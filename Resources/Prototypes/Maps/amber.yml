@@ -30,7 +30,7 @@
 
 - type: gameMap
   id: Amber
-  mapName: 'Amber'
+  mapName: 'Ембер'
   mapPath: /Maps/_Goobstation/amber.yml
   minPlayers: 7
   maxPlayers: 50
@@ -39,7 +39,7 @@
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Amber Station {1}'
+          mapNameTemplate: '{0} Станція Ембер {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14-SB'

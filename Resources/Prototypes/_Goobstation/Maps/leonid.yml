@@ -40,7 +40,7 @@
 
 - type: gameMap
   id: Leonid
-  mapName: 'Leonid Station'
+  mapName: 'Станція Леонід'
   mapPath: /Maps/_Goobstation/leonid.yml
   minPlayers: 35
   stations:
@@ -48,7 +48,7 @@
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Leonid Station {1}'
+          mapNameTemplate: '{0} Станція Леонід {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: 'B'

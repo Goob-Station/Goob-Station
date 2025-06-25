@@ -7,7 +7,7 @@
 
 - type: gameMap
   id: MeteorArena
-  mapName: Meteor Arena
+  mapName: Арена Метеорів
   mapPath: /Maps/Nonstations/meteor-arena.yml
   minPlayers: 0
   stations:
@@ -15,13 +15,13 @@
       stationProto: StandardStationArena
       components:
         - type: StationNameSetup
-          mapNameTemplate: "Meteor Arena"
+          mapNameTemplate: "Арена Метеорів"
         - type: StationJobs
           availableJobs:
             Passenger: [ -1, -1 ]
 - type: gameMap
   id: dm01-entryway
-  mapName: DM01 Entryway
+  mapName: DM01 Вхід
   mapPath: /Maps/Nonstations/dm01-entryway.yml
   minPlayers: 0
   stations:
@@ -29,7 +29,7 @@
       stationProto: StandardStationArena
       components:
         - type: StationNameSetup
-          mapNameTemplate: "DM01 Entryway"
+          mapNameTemplate: "DM01 Вхід"
         - type: StationJobs
           availableJobs:
             Passenger: [ -1, -1 ]

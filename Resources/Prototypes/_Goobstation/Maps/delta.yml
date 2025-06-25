@@ -6,7 +6,7 @@
 
 - type: gameMap
   id: Delta
-  mapName: 'Delta Station'
+  mapName: 'Станція Дельта'
   mapPath: /Maps/_Goobstation/delta.yml
   minPlayers: 55
   stations:
@@ -14,7 +14,7 @@
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Delta {1}'
+          mapNameTemplate: '{0} Дельта {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: 'TG'
