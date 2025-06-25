@@ -84,6 +84,12 @@ public sealed class SurgeryCVars : CVars
     public static readonly CVarDef<float> OrganTraumaRunSpeedSlowdown =
         CVarDef.Create("traumas.organ_run_speed_slowdown", 0.6f, CVar.SERVER | CVar.REPLICATED);
 
+    /// <summary>
+    /// How much damage needs to happen in a single attack to destroy a part?
+    /// </summary>
+    public static readonly CVarDef<float> DestroySeverityMultiplier =
+        CVarDef.Create("traumas.destroy_severity_multiplier", 4f, CVar.SERVER | CVar.REPLICATED);
+
     #endregion
 
     #region Bleeding CVars
