@@ -86,7 +86,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   Замовлення доставляються на станцію через орбітальну [color=cyan]Торгову станцію[/color] і транспортуються на головну станцію [color=cyan]Вантажним шатлом[/color]. Шатл не літає сам, тому його потрібно пілотувати або в шатлі, або дистанційно.
 
   <Box>
-    <GuideEntityEmbed Entity="ComputerCargoShuttle"/>
+    <GuideEntityEmbed Entity="ComputerShuttleCargo"/>
   </Box>
 
   Щоб керувати шатлом, вам спочатку потрібно знайти [color=cyan]Консоль вантажного шатла[/color]. Одна знаходиться у Вантажному відсіку, а інша - всередині Вантажного шатла.
