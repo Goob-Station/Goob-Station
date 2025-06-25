@@ -56,3 +56,5 @@ marking-HumanHairStyledCurls = Стилізовані кучері
 marking-HumanHairUnkemptScientist = Неохайний вчений
 marking-HumanHairWispy = Тонкі пасма
 marking-HumanHairSpikeHawk = Колючий ірокез
+
+marking-HumanHairJinx = Джинкс

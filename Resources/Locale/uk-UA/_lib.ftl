@@ -1,7 +1,7 @@
 ### Special messages used by internal localizer stuff.
 
 # Used internally by the PRESSURE() function.
-zzzz-fmt-pressure = { TOSTRING($divided, "G4") } { $places ->
+zzzz-fmt-pressure = { TOSTRING($divided, "F1") } { $places ->
     [0] кПа
     [1] МПа
     [2] ГПа
@@ -11,7 +11,7 @@ zzzz-fmt-pressure = { TOSTRING($divided, "G4") } { $places ->
 }
 
 # Used internally by the POWERWATTS() function.
-zzzz-fmt-power-watts = { TOSTRING($divided, "G4") } { $places ->
+zzzz-fmt-power-watts = { TOSTRING($divided, "F1") } { $places ->
     [0] Вт
     [1] кВт
     [2] МВт
@@ -23,7 +23,7 @@ zzzz-fmt-power-watts = { TOSTRING($divided, "G4") } { $places ->
 # Used internally by the POWERJOULES() function.
 # Reminder: 1 joule = 1 watt for 1 second (multiply watts by seconds to get joules).
 # Therefore 1 kilowatt-hour is equal to 3,600,000 joules (3.6MJ)
-zzzz-fmt-power-joules = { TOSTRING($divided, "G4") } { $places ->
+zzzz-fmt-power-joules = { TOSTRING($divided, "F1") } { $places ->
     [0] Дж
     [1] КДж
     [2] МДж
@@ -33,3 +33,13 @@ zzzz-fmt-power-joules = { TOSTRING($divided, "G4") } { $places ->
 }
 
 zzzz-fmt-playtime = {$hours}г {$minutes}хв
+zzzz-fmt-energy-watt-hours = { TOSTRING($divided, "F1") } { $places ->
+    [0] Вт·год
+    [1] кВт·год
+    [2] МВт·год
+    [3] ГВт·год
+    [4] ТВТ·год
+    *[5] ???
+}
+
+# Використовується всередині функції PLAYTIME().

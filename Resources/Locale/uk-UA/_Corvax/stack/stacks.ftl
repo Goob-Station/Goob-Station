@@ -1,0 +1,17 @@
+stack-black-wood-tile = чорна дерев'яна плитка
+stack-dark-wood-tile = темна дерев'яна плитка
+stack-light-wood-tile = світла дерев'яна плитка
+stack-red-wood-tile = червона дерев'яна плитка
+stack-black-large-wood-tile = велика чорна дерев'яна плитка
+stack-dark-large-wood-tile = велика темна дерев'яна плитка
+stack-light-large-wood-tile = велика світла дерев'яна плитка
+stack-red-large-wood-tile = велика червона дерев'яна плитка
+stack-black-parquet-wood-tile = чорна дерев'яна паркетна плитка
+stack-dark-parquet-wood-tile = темна дерев'яна паркетна плитка
+stack-light-parquet-wood-tile = світла дерев'яна паркетна плитка
+stack-red-parquet-wood-tile = червона дерев'яна паркетна плитка
+stack-chess-wood-tile = дерев'яна шахова плитка
+stack-black-chess-wood-tile = чорна дерев'яна шахова плитка
+stack-dark-chess-wood-tile = темна дерев'яна шахова плитка
+stack-light-chess-wood-tile = світла дерев'яна шахова плитка
+stack-red-chess-wood-tile = червона дерев'яна шахова плитка

@@ -88,3 +88,14 @@ cargo-funding-alloc-console-label-save-fail = [bold]Невірний розпо�
     [1] +
     *[-1] -
 }{$val}%)[/color]
+
+cargo-acquisition-slip-body = [head=3]Деталі активу[/head]
+    {"[bold]Продукт:[/bold]"} {$product}
+    {"[bold]Опис:[/bold]"} {$description}
+    {"[bold]Ціна за одиницю:[/bold"}] ${$unit}
+    {"[bold]Кількість:[/bold]"} {$amount}
+    {"[bold]Вартість:[/bold]"} ${$cost}
+
+    {"[head=3]Деталі покупки[/head]"}
+    {"[bold]Замовник:[/bold]"} {$orderer}
+    {"[bold]Причина:[/bold]"} {$reason}

@@ -57,3 +57,6 @@ materials-raw-sulfur = сира сірка
 materials-raw-copper = необроблена мідь
 materials-raw-tungsten = сирий вольфрам
 materials-raw-diamond = необроблений діамант
+materials-cotton = бавовна
+
+# Руди

@@ -217,9 +217,6 @@ ghost-role-information-BreadDog-name = ХлібоПес
 ghost-role-information-BreadDog-description = Ви улюблена дитина шеф-кухаря. Ти живий хлібо-собака.
 ghost-role-information-BreadDog-rules = Ти їстівний пес із хліба. Ваше завдання - знайти своє місце в цьому світі, де все хоче вас з'їсти.
 
-ghost-role-information-Shiva-name = Бодька
-ghost-role-information-Shiva-description = Бодя, перший захисник станції. Допомагати начальнику служби безпеки в роботі
-ghost-role-information-Shiva-rules = Захистіть співробітників служби безпеки та екіпаж від небезпеки. Залишайтеся з персоналом охорони або біля відділу охорони, намагайтеся вивести злочинців з ладу, але не вбивайте їх, якщо ситуація дозволяє це зробити. Будьте босом павуків.
 
 ghost-role-information-exterminator-name = Знищувач
 ghost-role-information-exterminator-description = Вас відправили назад у часі, щоб знищити ціль, яка має велике значення для майбутнього.
@@ -267,13 +264,9 @@ ghost-role-information-snailspeed-name = Равлик
 ghost-role-information-snailspeed-description = Маленький равлик з равликовими рушіями.
 ghost-role-information-snoth-name = Слимак
 ghost-role-information-snoth-description = Маленький слимачок, який не проти трохи простору. Просто залишайся в сітці!
-ghost-role-information-shiva-name = Бодька
-ghost-role-information-shiva-description = Перший захисник станції. Бос всіх павуків.
 ghost-role-information-ifrit-rules = Дух вогню, що походить з Геєни, тебе покликав містифікатор. Слідуй за ними і не створюй жодних проблем, поки вони не скажуть тобі про це.
 ghost-role-information-ifrit-wizard-name = Іфріт (Виклик чарівника)
 ghost-role-information-ifrit-wizard-description = Слухай свого господаря. Не відволікайся на пошкодження. Бий людей сильно.
-ghost-role-information-minebot-name = Майнбот
-ghost-role-information-minebot-description = Допомагати шахтарям у їхній роботі.
 ghost-role-information-freeagent-rules = Ти - [color=yellow][bold]Вільний Агент[/bold][/color]. Ти вільний діяти як антагоніст або не-антагоніст.
                                          Ти не пам'ятаєш нічого зі свого попереднього життя і нічого, що дізнався як привид.
                                          Тобі дозволено пам'ятати загальні знання про гру, наприклад, як готувати, як використовувати предмети тощо.
