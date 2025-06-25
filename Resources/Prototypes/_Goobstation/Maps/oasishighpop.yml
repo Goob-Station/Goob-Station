@@ -32,7 +32,7 @@
 
 - type: gameMap
   id: OasisHighPop
-  mapName: 'Oasis'
+  mapName: 'Оазис'
   mapPath: /Maps/_Goobstation/oasis.yml
   minPlayers: 85
   stations:
@@ -40,7 +40,7 @@
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Oasis {1}'
+          mapNameTemplate: '{0} Оазис {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: 'B'

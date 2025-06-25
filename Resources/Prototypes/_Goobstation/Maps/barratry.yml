@@ -84,7 +84,7 @@
 
 - type: gameMap
   id: Barratry
-  mapName: 'Barratry'
+  mapName: 'Баратрія'
   mapPath: /Maps/_Goobstation/barratry.yml
   minPlayers: 30
   maxPlayers: 60
@@ -93,7 +93,7 @@
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Barratry {1}'
+          mapNameTemplate: '{0} Баратрія {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'

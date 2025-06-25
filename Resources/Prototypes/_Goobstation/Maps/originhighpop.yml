@@ -30,7 +30,7 @@
 
 - type: gameMap
   id: OriginHighPop
-  mapName: 'Origin'
+  mapName: 'Оріждин'
   mapPath: /Maps/_Goobstation/origin.yml
   minPlayers: 85
   stations:
@@ -38,7 +38,7 @@
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Origin {1}'
+          mapNameTemplate: '{0} Оріждин {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'

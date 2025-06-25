@@ -9,7 +9,7 @@
 
 - type: gameMap
   id: Submarine
-  mapName: 'Submarine'
+  mapName: 'Підводний човен'
   mapPath: /Maps/_Goobstation/submarine.yml
   minPlayers: 60
   stations:
@@ -17,7 +17,7 @@
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Submarine {1}'
+          mapNameTemplate: '{0} Підводний човен {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: 'DV'

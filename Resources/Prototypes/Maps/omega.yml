@@ -31,7 +31,7 @@
 
 - type: gameMap
   id: Omega
-  mapName: 'Omega'
+  mapName: 'Омега'
   mapPath: /Maps/_Goobstation/omega.yml # Goobstation
   minPlayers: 7
   maxPlayers: 35
@@ -40,7 +40,7 @@
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Omega Station {1}'
+          mapNameTemplate: '{0} Станція Омега {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: 'TG'

@@ -95,7 +95,7 @@
 
 - type: gameMap
   id: Europa
-  mapName: 'Europa'
+  mapName: 'Європа'
   mapPath: /Maps/_Goobstation/europa.yml
   maxRandomOffset: 0
   randomRotation: false
@@ -108,7 +108,7 @@
         - type: StationBiome
           biome: Snow
         - type: StationNameSetup
-          mapNameTemplate: '{0} Europa {1}'
+          mapNameTemplate: '{0} Європа {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
