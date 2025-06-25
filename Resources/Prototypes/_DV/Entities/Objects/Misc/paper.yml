@@ -22,7 +22,7 @@
       map: ["enum.PaperVisualLayers.Stamp"]
       visible: false
   - type: PaperVisuals
-    headerImagePath: "/Textures/DeltaV/Interface/Paper/paper_heading_warrant.svg.200dpi.png"
+    headerImagePath: "/Textures/_DV/Interface/Paper/paper_heading_warrant.svg.200dpi.png"
     headerMargin: 0.0, 0.0, 10.0, 16.0
     backgroundImagePath: "/Textures/Interface/Paper/paper_background_default.svg.96dpi.png"
     backgroundModulate: "#e0bc99"

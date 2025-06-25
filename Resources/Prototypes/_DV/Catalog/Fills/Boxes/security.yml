@@ -12,7 +12,7 @@
   - type: Sprite
     layers:
     - state: box_security
-    - sprite: DeltaV/Objects/Storage/boxes.rsi
+    - sprite: _DV/Objects/Storage/boxes.rsi
       state: recorder
   - type: StorageFill
     contents:
