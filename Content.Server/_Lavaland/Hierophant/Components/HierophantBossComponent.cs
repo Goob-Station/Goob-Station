@@ -7,6 +7,7 @@
 // SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -19,11 +20,26 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Server._Lavaland.Mobs;
+namespace Content.Server._Lavaland.Hierophant.Components;
 
-/// <summary>
-/// Marker component that used for weapons.
-/// If weapon has this component, Megafauna can drop special loot.
-/// </summary>
-[RegisterComponent]
-public sealed partial class MegafaunaWeaponLooterComponent : Component;
+[RegisterComponent, AutoGenerateComponentPause]
+public sealed partial class HierophantBossComponent : Component
+{
+    /// <summary>
+    /// Connected field generator, will try to teleport here when it's inactive.
+    /// </summary>
+    [ViewVariables]
+    public EntityUid? ConnectedFieldGenerator;
+
+    /// <summary>
+    /// How long it takes for a hierophant tile to make damage.
+    /// </summary>
+    [DataField]
+    public float TileDamageDelay = 0.6f;
+
+    [DataField]
+    public TimeSpan ArenaReturnDelay = TimeSpan.FromSeconds(10f);
+
+    [ViewVariables, AutoPausedField]
+    public TimeSpan? ArenaReturnTime;
+}

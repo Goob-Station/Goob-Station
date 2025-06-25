@@ -32,8 +32,6 @@
   - type: Sprite
     sprite: _Lavaland/Structures/Specific/hierophant_telepad.rsi
     state: hierophant_tele_on # TODO hierophant visuals
-  - type: HierophantFieldGenerator
-    radius: 11
   - type: PointLight
     radius: 20.0
     energy: 3.5

@@ -38,6 +38,7 @@ public sealed partial class HierophantClubItemComponent : Component
 
     [DataField]
     public EntProtoId ToggleTileMovementActionId = "ActionHierophantTileMovement";
+
     [DataField]
     public EntityUid? CreateCrossActionEntity;
 
@@ -57,7 +58,10 @@ public sealed partial class HierophantClubItemComponent : Component
     public EntProtoId TeleportMarkerPrototype = "LavalandHierophantClubTeleportMarker";
 
     [DataField]
-    public float CrossRange = 5f;
+    public EntProtoId HierophantDamageTileId = "LavalandHierophantSquare";
+
+    [DataField]
+    public int CrossRange = 5;
 
     [DataField]
     public SoundSpecifier DamageSound = new SoundPathSpecifier("/Audio/_Lavaland/Mobs/Bosses/hiero_blast.ogg");

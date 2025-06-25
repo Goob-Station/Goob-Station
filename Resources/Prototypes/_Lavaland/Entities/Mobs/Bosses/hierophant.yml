@@ -81,13 +81,30 @@
     tags:
     - CannotSuicide
   - type: NoSlip
-  - type: HierophantBoss # boss specific component. defines pattern/scripted attacks and other stuff
-  - type: Megafauna
-    loot: LavalandHierophantClub
-  - type: DamageSquareImmunity
-    isImmune: true
-  - type: Aggressive # also required component for aggro checking
-    forgiveRange: 20.0
   - type: BossMusic
     soundId: Hierophant
   - type: Fauna
+  - type: DamageSquareImmunity
+    isImmune: true
+  - type: HierophantBoss
+  - type: MegafaunaDrop
+    loot: LavalandHierophantClub
+  - type: MegafaunaAi
+  - type: MegafaunaFieldGenerator
+    radius: 11
+  - type: AggressiveMegafaunaAi
+  - type: PhasesMegafaunaAi
+    actionsData:
+      1:
+      - !type:HierophantBlinkAction
+      - !type:HierophantChasersAction
+      - !type:HierophantCrossAction
+      - !type:HierophantSquareAction
+      2:
+      - !type:HierophantFinalAttackAction
+      - !type:HierophantChasersAction
+    phaseThresholds:
+      0:    1
+      2000: 2
+  - type: Aggressive
+    forgiveRange: 20

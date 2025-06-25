@@ -7,7 +7,6 @@
 // SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -20,42 +19,37 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.Mobs;
-using Content.Shared.Weapons.Melee.Events;
+namespace Content.Server._Lavaland.Megafauna;
 
-namespace Content.Server._Lavaland.Mobs;
+/// <summary>
+/// Raised when boss is fully defeated.
+/// </summary>
+public sealed class MegafaunaKilledEvent : EntityEventArgs;
 
-public sealed class MegafaunaSystem : EntitySystem
-{
-    public override void Initialize()
-    {
-        base.Initialize();
+/// <summary>
+/// Raised when boss starts proceeding it's logic.
+/// </summary>
+public sealed class MegafaunaStartupEvent : EntityEventArgs;
 
-        SubscribeLocalEvent<MegafaunaComponent, AttackedEvent>(OnAttacked);
-        SubscribeLocalEvent<MegafaunaComponent, MobStateChangedEvent>(OnDeath);
-    }
+/// <summary>
+/// Raised when boss doesn't die but for any reason deactivates.
+/// </summary>
+public sealed class MegafaunaShutdownEvent : EntityEventArgs;
 
-    public void OnAttacked(EntityUid uid, MegafaunaComponent comp, ref AttackedEvent args)
-    {
-        if (!HasComp<MegafaunaWeaponLooterComponent>(args.Used))
-            comp.CrusherOnly = false; // it's over...
-    }
+/// <summary>
+/// Event that is raised on some aggressor target, for Complex megafauna AI
+/// to analyze and change its attacks weights to adjust to player's skills or power.
+/// It's like simple neural network, but you hardcode its connections by yourself.
+/// </summary>
+[ByRefEvent]
+public record struct MegafaunaComplexCheckEvent(
+    // Treat this thing like a neural network, so remember 3 things:
+    // 1. Everything should be in Float type in 0-1 range
+    // 2. Specify only player's data
+    // 3. Sort everything in alphabetical order
 
-    public void OnDeath(EntityUid uid, MegafaunaComponent comp, ref MobStateChangedEvent args)
-    {
-        var coords = Transform(uid).Coordinates;
-
-        RaiseLocalEvent(uid, new MegafaunaKilledEvent());
-
-        if (comp.CrusherOnly && comp.CrusherLoot != null)
-        {
-            Spawn(comp.CrusherLoot, coords);
-        }
-        else if (comp.Loot != null)
-        {
-            Spawn(comp.Loot, coords);
-        }
-
-        QueueDel(uid);
-    }
-}
+    float TargetHp, // Percent of HP until crit, equals to 1 if already in crit and 0 on full health
+    float TargetArmor, // Average resistance against megafaunas types of damage
+    float TargetDistance, // Distance in 0-10 tiles range (percent)
+    float WeaponType // Currently held weapon: 0 if melee, 1 if ranged
+    );

@@ -8,7 +8,7 @@ using Content.Shared.Alert;
 using Content.Shared.Movement.Systems;
 using Content.Shared._vg.TileMovement;
 
-namespace Content.Server._Lavaland.Mobs;
+namespace Content.Server._Lavaland.Movement;
 
 public sealed class HierophantBeatSystem : EntitySystem
 {
