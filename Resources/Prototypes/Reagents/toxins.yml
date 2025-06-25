@@ -131,13 +131,12 @@
           shouldHave: false
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
-      - !type:GenericStatusEffect
+      - !type:ModifyStatusEffect
         conditions:
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
-        key: Drowsiness
-        component: Drowsiness
+        effectProto: StatusEffectDrowsiness
         time: 4
         type: Add
         refresh: false
