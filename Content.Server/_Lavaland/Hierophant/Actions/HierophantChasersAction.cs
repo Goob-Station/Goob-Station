@@ -1,4 +1,8 @@
-﻿using Content.Server._Lavaland.Aggression;
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Server._Lavaland.Aggression;
 using Content.Server._Lavaland.Megafauna;
 using Content.Server._Lavaland.Megafauna.Components;
 using Robust.Shared.Prototypes;

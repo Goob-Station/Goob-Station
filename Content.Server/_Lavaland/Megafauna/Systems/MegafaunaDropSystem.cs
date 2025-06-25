@@ -1,4 +1,8 @@
-﻿using Content.Server._Lavaland.Megafauna.Components;
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Server._Lavaland.Megafauna.Components;
 using Content.Server._Lavaland.Weapons;
 using Content.Shared.Mobs;
 using Content.Shared.Weapons.Melee.Events;

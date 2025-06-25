@@ -1,4 +1,8 @@
-﻿using System.Diagnostics.CodeAnalysis;
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server._Lavaland.Megafauna.Components;
 using Content.Shared.Random.Helpers;
