@@ -501,6 +501,7 @@
     - ParamedHypo
     - CartridgeAtropine
     - CartridgeAtropine
+    - MedicalBeamGunBattery
 
 - type: startingGear
   id: ERTMedicalGearEVA
@@ -527,6 +528,7 @@
     - ParamedHypo
     - CartridgeAtropine
     - CartridgeAtropine
+    - MedicalBeamGunBattery
 
 # Janitor
 - type: job
