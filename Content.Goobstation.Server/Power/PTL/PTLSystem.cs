@@ -73,7 +73,14 @@ public sealed partial class PTLSystem : EntitySystem
 
         while (eqe.MoveNext(out var uid, out var ptl))
         {
-            if (!ptl.Active) continue;
+            if (_time.CurTime > ptl.RadDecayTimer)
+            {
+                ptl.RadDecayTimer = _time.CurTime + TimeSpan.FromSeconds(1);
+                DecayRad((uid, ptl));
+            }
+
+            if (!ptl.Active)
+                continue;
 
             if (_time.CurTime > ptl.NextShotAt)
             {
@@ -81,6 +88,13 @@ public sealed partial class PTLSystem : EntitySystem
                 Tick((uid, ptl));
             }
         }
+    }
+
+    private void DecayRad(Entity<PTLComponent> ent)
+    {
+        if (TryComp<RadiationSourceComponent>(ent, out var rad)
+            && rad.Intensity > 0)
+            rad.Intensity -= rad.Intensity * 0.2f + .1f;
     }
 
     private void Tick(Entity<PTLComponent> ent)
@@ -101,7 +115,8 @@ public sealed partial class PTLSystem : EntitySystem
         // some random formula i found in bounty thread i popped it into desmos i think it looks good
         var spesos = (int) (charge * 1000 / (Math.Log(charge * 5) + 1));
 
-        if (charge <= 0 || !double.IsFinite(spesos) || spesos < 0) return;
+        if (charge <= 0 || !double.IsFinite(spesos) || spesos < 0)
+            return;
 
         // scale damage from energy
         if (TryComp<HitscanBatteryAmmoProviderComponent>(ent, out var hitscan))

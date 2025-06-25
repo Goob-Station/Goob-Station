@@ -27,6 +27,7 @@ public sealed partial class PTLComponent : Component
     [DataField, AutoNetworkedField] public MinMax ShootDelayThreshold = new MinMax(10, 60);
     [DataField, AutoNetworkedField] public bool ReversedFiring = false;
     [ViewVariables(VVAccess.ReadOnly)] public TimeSpan NextShotAt = TimeSpan.Zero;
+    [ViewVariables(VVAccess.ReadOnly)] public TimeSpan RadDecayTimer = TimeSpan.Zero;
 
     [DataField] public DamageSpecifier BaseBeamDamage;
 
