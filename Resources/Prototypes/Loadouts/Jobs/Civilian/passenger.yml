@@ -150,6 +150,11 @@
   equipment:
     neck: ClothingNeckMantle
 
+- type: startingGear
+  id: OldNeckWrap
+  equipment:
+    neck: ClothingNeckOldClothWrap
+
 # Back
 - type: loadout
   id: CommonBackpack

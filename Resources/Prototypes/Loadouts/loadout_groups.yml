@@ -418,6 +418,7 @@
   minLimit: 0
   loadouts:
   - Mantle
+  - OldNeckWrap
 
 - type: loadoutGroup
   id: PassengerOuterClothing
