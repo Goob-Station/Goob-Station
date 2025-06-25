@@ -297,3 +297,40 @@
   - SecurityMeleeKnife
   - SecurityMeleePolyBaton
   - SecurityMeleeSpear
+
+# Tourist
+
+- type: loadoutGroup
+  id: TouristHead
+  name: loadout-group-tourist-head
+  loadouts:
+  - ClothingHeadHatStrawHat
+  - ClothingHeadHatRedsoft
+  - ClothingHeadHatBluesoft
+  - ClothingHeadHatBlacksoft
+  - ClothingHeadHatGreensoft
+  - ClothingHeadHatPurplesoft
+  - ClothingHeadHatOrangesoft
+  - ClothingHeadHatWhitesoft
+  
+- type: loadoutGroup
+  id: TouristJumpsuit
+  name: loadout-group-tourist-jumpsuit
+  loadouts:
+  - ClothingUniformJumpsuitHawaiBlack
+  - ClothingUniformJumpsuitHawaiBlue
+  - ClothingUniformJumpsuitHawaiYellow
+  - ClothingUniformJumpsuitHawaiRed
+
+- type: loadoutGroup
+  id: TouristShoes
+  name: loadout-group-tourist-shoes
+  loadouts:
+  - ClothingShoesTourist
+  - ClothingShoesSandals
+
+- type: loadoutGroup
+  id: TouristBelt
+  name: loadout-group-tourist-belt
+  loadouts:
+  - ClothingBeltStorageWaistbag

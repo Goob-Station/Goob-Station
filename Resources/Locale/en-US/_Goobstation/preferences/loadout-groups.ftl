@@ -51,3 +51,8 @@ loadout-group-brigmedic-outer = Brigmedic outer clothing
 loadout-group-brigmedic-backpack = Brigmedic backpack
 
 loadout-group-security-melee = Security melee weapon
+
+loadout-group-tourist-head = Tourist head
+loadout-group-tourist-jumpsuit = Tourist jumpsuit
+loadout-group-tourist-shoes = Tourist shoes
+loadout-group-tourist-belt = Tourist belt

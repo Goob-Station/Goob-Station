@@ -126,6 +126,18 @@
       - state: passenger
 
 - type: entity
+  id: SpawnPointTourist
+  parent: SpawnPointJobBase
+  name: tourist
+  components:
+  - type: SpawnPoint
+    job_id: Tourist
+  - type: Sprite
+    layers:
+      - state: green
+      - state: tourist
+
+- type: entity
   id: SpawnPointTechnicalAssistant
   parent: SpawnPointJobBase
   name: technical assistant

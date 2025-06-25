@@ -154,3 +154,16 @@
   - Trinkets
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
+
+- type: roleLoadout
+  id: JobTourist
+  groups:
+  - TouristHead
+  - TouristJumpsuit
+  - TouristShoes
+  - TouristBelt
+  - CommonBackpack
+  - Glasses
+  - Trinkets
+  - Survival
+  - GroupSpeciesBreathTool
