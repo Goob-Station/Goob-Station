@@ -9,6 +9,7 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Shared._CorvaxGoob.TTS;
 using Content.Shared.DisplacementMap;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
@@ -58,6 +59,14 @@ public sealed partial class HumanoidAppearanceComponent : Component
     /// </summary>
     [DataField(required: true), AutoNetworkedField]
     public ProtoId<SpeciesPrototype> Species { get; set; }
+
+    // CorvaxGoob-TTS-Start
+    /// <summary>
+    ///     Current voice. Used for correct cloning.
+    /// </summary>
+    [DataField("voice")]
+    public ProtoId<TTSVoicePrototype> Voice { get; set; } = SharedHumanoidAppearanceSystem.DefaultVoice;
+    // CorvaxGoob-TTS-End
 
     /// <summary>
     ///     The initial profile and base layers to apply to this humanoid.
