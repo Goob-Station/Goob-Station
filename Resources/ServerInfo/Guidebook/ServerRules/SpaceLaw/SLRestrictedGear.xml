@@ -24,7 +24,7 @@
 </Box>
   ## Контрабанда класу A
 <Box>
-  <GuideEntityEmbed Entity="ClothingOuterHardsuitSyndicate" Caption="Бойові скафандри"/>
+  <GuideEntityEmbed Entity="ClothingOuterEVASuitSyndicate" Caption="Бойові скафандри"/>
 
   <GuideEntityEmbed Entity="ChameleonProjector" Caption="Проектор хамелеон"/>
 </Box>

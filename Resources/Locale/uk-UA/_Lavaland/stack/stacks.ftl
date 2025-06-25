@@ -1,0 +1,9 @@
+stack-unprocessed-gold-ore = необроблена золота руда
+stack-unprocessed-diamond-ore = необроблена алмазна руда
+stack-unprocessed-steel-ore = необроблена сталева руда
+stack-unprocessed-plasma-ore = необроблена плазмова руда
+stack-unprocessed-silver-ore = необроблена срібна руда
+stack-unprocessed-quartz-ore = необроблена кварцова руда
+stack-unprocessed-uranium-ore = необроблена уранова руда
+stack-unprocessed-bananium-ore = необроблена бананієва руда
+stack-unprocessed-coal = необроблене вугілля

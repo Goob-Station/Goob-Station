@@ -4,8 +4,8 @@ general-station-record-console-empty-state = Не знайдено записі�
 general-station-record-console-no-record-found = Жодного знайденого запису за запитом.
 
 general-station-record-console-record-age = Вік: {$age}
-general-station-record-console-record-title = Робота: {$job}
-general-station-record-console-record-species = Раса: {$species}
+general-station-record-console-record-title = Посада: {$job}
+general-station-record-console-record-species = Вид: {$species}
 general-station-record-console-record-gender = Гендер: {$gender}
 general-station-record-console-record-fingerprint = Відбитки Пальців: {$fingerprint}
 general-station-record-console-record-dna = ДНК: {$dna}
@@ -18,3 +18,5 @@ general-station-record-console-search-records = Пошук
 general-station-record-console-reset-filters = Скинути
 
 general-station-record-console-delete = Видалити
+general-station-record-job-filter = Посада
+general-station-record-species-filter = Вид

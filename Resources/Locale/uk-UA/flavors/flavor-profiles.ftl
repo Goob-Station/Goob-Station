@@ -322,7 +322,7 @@ flavor-base-strange = дивний
 flavor-base-chewy = жувальний
 
 # Складні смаки. Додайте сюди смак, коли вам потрібно щось більш
-# конкретне.
+# конкретне
 flavor-complex-blue-pumpkin = наче ковток води з басейну
 flavor-complex-lemon-lime-cranberry-soda = наче Різдво
 flavor-complex-gin = наче ферментоване зерно з ягодами ялівцю
@@ -357,3 +357,7 @@ flavor-complex-alien-brain-hemorrhage = як позаземна травма
 flavor-complex-eggnog = як розтоплений заварний крем
 flavor-complex-dark-and-stormy = як імбирний ель з ромом
 flavor-complex-radler = як лимонад з алкоголем
+flavor-base-trashy = сміттєвий
+
+# Складні смаки. Додайте смак сюди, якщо хочете щось більш
+# конкретне.

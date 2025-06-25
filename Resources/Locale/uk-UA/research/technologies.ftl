@@ -104,3 +104,5 @@ research-technology-laser-sentry-turrets = Технологія Лазерних
 research-technology-positronic-interfacing = Позитронне Сполучення
 research-technology-special-means = Особливі засоби
 research-technology-bluespace-time-manipulation = Маніпуляція часом у блюспейсі
+
+research-technology-clowning-utilities = Клоунські утиліти

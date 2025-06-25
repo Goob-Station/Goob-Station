@@ -136,3 +136,39 @@ food-sequence-content-anomaly-berry = аномальна ягода
 
 # БУРГЕРИ
 food-sequence-burger-content-anomaly-berry = аном
+food-sequence-cotton-burger-gen = {$content}бургер
+food-sequence-cotton-burger-content-cotton-bol = бавовняний
+food-sequence-cotton-burger-content-pyrotton-bol = піро
+food-sequence-cotton-burger-content-plushie-throngler = тронґл
+food-sequence-cotton-burger-content-plushie-ghost = моторошний
+food-sequence-cotton-burger-content-plushie-revenant = страшніший
+food-sequence-cotton-burger-content-plushie-bee = бжжж
+food-sequence-cotton-burger-content-plushie-hamptr = хемпт
+food-sequence-cotton-burger-content-plushie-nukie = нюкі
+food-sequence-cotton-burger-content-plushie-rouny = рауні
+food-sequence-cotton-burger-content-plushie-lamp = ламповий
+food-sequence-cotton-burger-content-plushie-arachnid = павучий
+food-sequence-cotton-burger-content-plushie-lizard = вех
+food-sequence-cotton-burger-content-plushie-experiment = експериментальний
+food-sequence-cotton-burger-content-plushie-spacelizard = космо
+food-sequence-cotton-burger-content-plushie-lizard-inversed = хев
+food-sequence-cotton-burger-content-plushie-diona = діон
+food-sequence-cotton-burger-content-plushie-shark = шонк
+food-sequence-cotton-burger-content-plushie-ratvar = ратваріанський
+food-sequence-cotton-burger-content-plushie-narsie = нар'
+food-sequence-cotton-burger-content-plushie-carp = карповий
+food-sequence-cotton-burger-content-plushie-magicarp = магі
+food-sequence-cotton-burger-content-plushie-holocarp = голо
+food-sequence-cotton-burger-content-plushie-slime = слизовий
+food-sequence-cotton-burger-content-plushie-snake = змій
+food-sequence-cotton-burger-content-plushie-mouse = мишачий
+food-sequence-cotton-burger-content-plushie-vox = скрі
+food-sequence-cotton-burger-content-plushie-atmosian = атмос
+food-sequence-cotton-burger-content-plushie-xeno = ксено
+food-sequence-cotton-burger-content-plushie-penguin = пенг
+food-sequence-cotton-burger-content-plushie-human = урістмк
+food-sequence-cotton-burger-content-plushie-moth = пухнастий
+food-sequence-cotton-burger-content-plushie-ian = коргі
+food-sequence-cotton-burger-content-among-pequeno = сус
+
+# ТАКО

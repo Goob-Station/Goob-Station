@@ -17,3 +17,4 @@ changelog-tab-title-Pirate = Наші зміни
 
 
 changelog-version-unknown = Невідома версія
+changelog-tab-title-Maps = Мапи

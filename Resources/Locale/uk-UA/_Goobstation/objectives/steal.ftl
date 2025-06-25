@@ -11,3 +11,5 @@ objective-condition-steal-smsliver-title = Відріжте уламок від 
 objective-condition-steal-smsliver-description = Використовуйте будь-який ріжучий інструмент, що є під рукою. Рекомендується скальпель. Також не помріть від радіаційного отруєння.
 
 steal-target-groups-battery = Елемент живлення
+
+objective-condition-steal-gemini-projector-description = Якщо директор з досліджень його використовує, вам доведеться вирвати його з його хребта. Ми рекомендуємо вам зробити диверсію і знешкодити його.

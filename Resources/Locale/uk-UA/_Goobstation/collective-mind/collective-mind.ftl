@@ -13,3 +13,5 @@ collective-mind-binary = Бінарний код
 collective-mind-mousemind = Писклявий розум
 collective-mind-dronemind = Розум дрона
 collective-mind-empathy = Емпатія
+
+collective-mind-bingle = Бінглрозум
