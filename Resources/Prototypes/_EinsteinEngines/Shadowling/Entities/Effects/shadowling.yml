@@ -1,0 +1,206 @@
+- type: entity
+  id: ShadowlingGlareEffect
+  name: shadowling glare effect
+  components:
+  - type: TimedDespawn
+    lifetime: 0.35
+  - type: Transform
+    noRot: true
+  - type: Sprite
+    noRot: false
+    sprite: _EinsteinEngines/Shadowling/Effects/glare.rsi
+    state: glare
+    netsync: false
+    drawdepth: Effects
+  - type: PointLight
+    color: "#e3432a"
+    radius: 7
+    energy: 2
+  - type: LightFade
+    duration: 0.34
+
+- type: entity
+  id: ShadowlingShadowWalkInEffect
+  name: shadowling shadow walk in effect
+  components:
+  - type: TimedDespawn
+    lifetime: 0.5
+  - type: Transform
+    noRot: true
+  - type: Sprite
+    noRot: true
+    sprite: _EinsteinEngines/Shadowling/Effects/shadow_walk.rsi
+    state: shadow_walk_in
+    netsync: false
+    drawdepth: Effects
+  - type: PointLight
+    color: "#8A9A5B"
+    radius: 1.13
+    energy: 2
+
+- type: entity
+  id: ShadowlingShadowWalkOutEffect
+  name: shadowling shadow walk out effect
+  components:
+  - type: TimedDespawn
+    lifetime: 0.5
+  - type: Transform
+    noRot: true
+  - type: Sprite
+    noRot: true
+    sprite: _EinsteinEngines/Shadowling/Effects/shadow_walk.rsi
+    state: shadow_walk_out
+    netsync: false
+    drawdepth: Effects
+  - type: PointLight
+    color: "#8A9A5B"
+    radius: 1.13
+    energy: 2
+
+- type: entity
+  id: ShadowlingCollectiveMindEffect
+  name: shadowling collective mind effect
+  components:
+  - type: TimedDespawn
+    lifetime: 0.35
+  - type: Transform
+    noRot: true
+  - type: Sprite
+    noRot: true
+    sprite: _EinsteinEngines/Shadowling/Effects/collective_mind.rsi
+    state: collective_mind
+    netsync: false
+    drawdepth: Effects
+  - type: PointLight
+    color: "#e3432a"
+    radius: 1.13
+    energy: 5
+  - type: LightFade
+    duration: 0.34
+
+- type: entity
+  id: ShadowlingRapidRehatchEffect
+  name: shadowling rapid rehatch effect
+  components:
+  - type: TimedDespawn
+    lifetime: 0.85
+  - type: Transform
+    noRot: true
+  - type: Sprite
+    noRot: true
+    sprite: _EinsteinEngines/Shadowling/Effects/rapid_rehatch.rsi
+    state: rapid_rehatch
+    netsync: false
+    drawdepth: Effects
+  - type: PointLight
+    color: "#FBCEB1"
+    radius: 1.13
+    energy: 70
+  - type: LightFade
+    duration: 0.7
+
+- type: entity
+  id: ShadowlingIcyVeinsEffect
+  name: shadowling icy veins effect
+  components:
+  - type: TimedDespawn
+    lifetime: 0.85
+  - type: Transform
+    noRot: true
+  - type: Sprite
+    noRot: true
+    sprite: _EinsteinEngines/Shadowling/Effects/icy_veins.rsi
+    state: icy_veins
+    netsync: false
+    drawdepth: Effects
+  - type: PointLight
+    color: "#00FFFF"
+    radius: 8
+    energy: 10
+  - type: LightFade
+    duration: 0.7
+
+- type: entity
+  id: ShadowlingNullChargeEffect
+  name: shadowling null charge effect
+  components:
+  - type: TimedDespawn
+    lifetime: 0.85
+  - type: Transform
+    noRot: true
+  - type: Sprite
+    noRot: true
+    sprite: _EinsteinEngines/Shadowling/Effects/null_charge.rsi
+    state: null_charge
+    netsync: false
+    drawdepth: Effects
+  - type: PointLight
+    color: "#FBCEB1"
+    radius: 1.13
+    energy: 70
+  - type: LightFade
+    duration: 0.7
+
+- type: entity
+  id: ShadowlingSonicScreechEffect
+  name: shadowling sonic screech effect
+  components:
+  - type: TimedDespawn
+    lifetime: 1.2
+  - type: Transform
+    noRot: true
+  - type: Sprite
+    noRot: true
+    sprite: _EinsteinEngines/Shadowling/Effects/sonic_screech.rsi
+    state: sonic_screech
+    netsync: false
+    drawdepth: Effects
+  - type: PointLight
+    color: "#C70039"
+    radius: 10
+    energy: 8
+  - type: LightFade
+    duration: 0.7
+
+
+- type: entity
+  id: ShadowlingBlackRecuperationEffect # plays on Thralls
+  name: shadowling black recuperation effect
+  components:
+  - type: TimedDespawn
+    lifetime: 0.85
+  - type: Transform
+    noRot: true
+  - type: Sprite
+    noRot: true
+    sprite: _EinsteinEngines/Shadowling/Effects/black_recuperation.rsi
+    state: black_recuperation
+    netsync: false
+    drawdepth: Effects
+  - type: PointLight
+    color: "#880808"
+    radius: 1.13
+    energy: 70
+  - type: LightFade
+    duration: 0.7
+
+- type: entity
+  id: ShadowlingAscendingEffect
+  name: shadowling ascending effect
+  components:
+  - type: TimedDespawn
+    lifetime: 8.02
+  - type: Transform
+    noRot: true
+  - type: Sprite
+    noRot: true
+    sprite: _EinsteinEngines/Shadowling/Effects/ascension.rsi
+    state: ascension
+    netsync: false
+    drawdepth: Effects
+  - type: PointLight
+    color: "#ffd22b"
+    radius: 1.13
+    energy: 10
+  - type: LightFade
+    duration: 8.0

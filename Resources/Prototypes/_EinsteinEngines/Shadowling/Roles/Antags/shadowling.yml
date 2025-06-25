@@ -1,0 +1,13 @@
+- type: antag
+  id: Shadowling
+  name: roles-antag-shadowling-name
+  antagonist: true
+  setPreference: true
+  objective: roles-antag-shadowling-description
+
+- type: antag
+  id: Thrall
+  name: roles-antag-thrall-name
+  antagonist: true
+  setPreference: false
+  objective: roles-antag-thrall-description

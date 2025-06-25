@@ -1,0 +1,17 @@
+- type: alert
+  id: ShadowlingLight
+  icons:
+  - sprite: /Textures/_EinsteinEngines/Shadowling/shadowling_light_identifier.rsi
+    state: 0
+  alertViewEntity: AlertShadowlingLightSpriteView
+  name: alerts-shadowling-light-name
+  description: alerts-shadowling-light-desc
+
+- type: entity
+  id: AlertShadowlingLightSpriteView
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: /Textures/_EinsteinEngines/Shadowling/shadowling_light_identifier.rsi
+    layers:
+    - map: [ "enum.AlertVisualLayers.Base" ]

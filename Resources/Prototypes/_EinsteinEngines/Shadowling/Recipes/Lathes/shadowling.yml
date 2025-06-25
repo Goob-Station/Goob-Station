@@ -1,0 +1,9 @@
+- type: latheRecipe
+  id: AntiMindControlDevice
+  result: AntiMindControlDevice
+  completetime: 5
+  materials:
+    Glass: 100
+    Plastic: 200
+    Steel: 100
+    Lead: 100

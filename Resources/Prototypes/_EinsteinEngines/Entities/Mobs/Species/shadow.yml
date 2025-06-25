@@ -1,0 +1,86 @@
+# used for nightmares and lesser shadowlings
+- type: entity
+  save: false
+  name: Urist McShadowkin
+  parent: BaseMobSpeciesOrganic
+  id: MobShadowBase
+  components:
+  - type: NightVision
+    color: "#BF40BF"
+    activateSound: null
+    deactivateSound: null
+  - type: ThermalVision
+    color: "#BF40BF"
+    activateSound: null
+    deactivateSound: null
+  - type: Flashable
+    durationMultiplier: 1.5
+  - type: Absorbable # idk why
+  - type: Psionic
+    removable: false
+    roller: false
+  - type: HumanoidAppearance
+    species: Shadow
+  - type: Fingerprint
+  - type: Blindable
+  - type: FireVisuals
+    alternateState: Standing
+  - type: Damageable
+    damageContainer: Biological
+  - type: Body
+    prototype: Shadow
+    requiredLegs: 2
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+  - type: MeleeWeapon
+    soundHit:
+      collection: FirePunch
+    animation: WeaponArcShadowClaw
+    damage:
+      types:
+        Slash: 4
+        Piercing: 1
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#5D3FD3"
+      Burn:
+        sprite: Mobs/Effects/burn_damage.rsi
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    damageCap: 40
+    damage:
+      types:
+        Heat: -0.14
+      groups:
+        Brute: -0.14
+  - type: Targeting
+  - type: SurgeryTarget
+  - type: Bloodstream
+    bloodReagent: FluorosulfuricAcid
+  - type: LanguageSpeaker
+    currentLanguage: Shadowmind
+  - type: LanguageKnowledge
+    speaks:
+    - Shadowmind
+    - TauCetiBasic
+    understands:
+    - TauCetiBasic
+  - type: PressureImmunity
+
+- type: entity
+  parent: BaseSpeciesDummy
+  id: MobShadowDummy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HumanoidAppearance
+    species: Shadow
+
+- type: entity
+  parent: MobShadowBase
+  id: MobShadow

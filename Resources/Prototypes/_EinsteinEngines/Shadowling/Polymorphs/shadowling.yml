@@ -1,0 +1,40 @@
+- type: polymorph
+  id: ShadowlingPolymorph
+  configuration:
+    entity: MobShadowlingBase
+    forced: true
+    transferName: true
+    transferHumanoidAppearance: false
+    allowRepeatedMorphs: true
+    revertOnDeath: false
+    revertOnCrit: false
+    copiedComponents:
+      - Shadowling
+
+- type: polymorph
+  id: ShadowlingAscendantPolymorph
+  configuration:
+    entity: BaseMobShadowlingAscendant
+    forced: true
+    transferName: true
+    transferHumanoidAppearance: false
+    allowRepeatedMorphs: true
+    revertOnCrit: false
+    revertOnDeath: false
+    copiedComponents:
+      - Shadowling
+
+# used for lesser
+- type: polymorph
+  id: ShadowPolymorph
+  configuration:
+    entity: MobShadowBase
+    forced: true
+    transferName: true
+    transferHumanoidAppearance: false
+    allowRepeatedMorphs: true
+    revertOnCrit: false
+    revertOnDeath: false
+    inventory: Transfer
+    copiedComponents:
+      - Thrall

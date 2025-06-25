@@ -1,0 +1,88 @@
+- type: entity
+  save: false
+  name: Urist McSling
+  parent: BaseMobSpeciesOrganic
+  id: MobShadowlingBase
+  components:
+  - type: PsionicInsulation
+  - type: NightVision
+    color: "#BF40BF"
+    activateSound: null
+    deactivateSound: null
+  - type: ThermalVision
+    color: "#BF40BF"
+    activateSound: null
+    deactivateSound: null
+  - type: Flashable
+    durationMultiplier: 1.5
+  - type: Absorbable # idk why
+  - type: Psionic
+    removable: false
+    roller: false
+  - type: HumanoidAppearance
+    species: Shadowling
+  - type: Fingerprint
+  - type: Blindable
+  - type: TypingIndicator
+    proto: alien
+  - type: FireVisuals
+    alternateState: Standing
+  - type: Damageable
+    damageContainer: Biological
+  - type: Body
+    prototype: Shadowling
+    requiredLegs: 2
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+  - type: MeleeWeapon
+    soundHit:
+      collection: FirePunch
+    animation: WeaponArcShadowClaw
+    damage:
+      types:
+        Slash: 4
+        Piercing: 1
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#5D3FD3"
+      Burn:
+        sprite: Mobs/Effects/burn_damage.rsi
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    damageCap: 40
+    damage:
+      types:
+        Heat: -0.14
+      groups:
+        Brute: -0.14
+  - type: Targeting
+  - type: SurgeryTarget
+  - type: Bloodstream
+    bloodReagent: FluorosulfuricAcid
+  - type: LanguageSpeaker
+    currentLanguage: Shadowmind
+  - type: LanguageKnowledge
+    speaks:
+    - Shadowmind
+    - TauCetiBasic
+    understands:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseSpeciesDummy
+  id: MobShadowlingDummy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HumanoidAppearance
+    species: Shadowling
+
+# for yaml linter
+- type: entity
+  parent: MobShadowlingBase
+  id: MobShadowling

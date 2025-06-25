@@ -1,0 +1,13 @@
+- type: entity
+  id: ActionLightEater
+  name: Light Eater
+  description: Ash or disable every light that you hit with your arm blade.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 2
+    itemIconStyle: NoItem
+    icon:
+      sprite: _EinsteinEngines/Nightmare/nightmare_abilities.rsi
+      state: light_eater
+    event: !type:ToggleLightEaterEvent {}

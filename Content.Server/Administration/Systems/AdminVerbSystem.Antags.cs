@@ -322,5 +322,22 @@ public sealed partial class AdminVerbSystem
         };
         args.Verbs.Add(cosmiccult);
         // End DeltaV Additions
+
+        // Einstein Engines - Shadowlings
+        Verb shadowling = new()
+        {
+            Text = Loc.GetString("admin-verb-text-make-shadowling"),
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(
+                new("/Textures/_EinsteinEngines/Shadowling/shadowling_abilities.rsi"),
+                "engage_hatch"),
+            Act = () =>
+            {
+                _antag.ForceMakeAntag<ShadowlingRuleComponent>(targetPlayer, "Shadowling");
+            },
+            Impact = LogImpact.High,
+            Message = Loc.GetString("admin-verb-make-shadowling"),
+        };
+        args.Verbs.Add(shadowling);
     }
 }

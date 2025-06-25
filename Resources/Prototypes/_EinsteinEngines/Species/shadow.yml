@@ -1,0 +1,123 @@
+- type: species
+  id: Shadow
+  name: species-name-Shadow
+  roundStart: false
+  prototype: MobShadow
+  sprites: MobShadowSprites
+  markingLimits: MobHumanMarkingLimits
+  dollPrototype: MobShadowDummy
+  skinColoration: HumanToned
+
+- type: speciesBaseSprites
+  id: MobShadowSprites
+  sprites:
+    Head: MobShadowHead
+    Face: MobHumanoidAnyMarking
+    HeadTop: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
+    Hair: MobHumanoidAnyMarking
+    FacialHair: MobHumanoidAnyMarking
+    Snout: MobHumanoidAnyMarking
+    Chest: MobShadowTorso
+    Underwear: MobHumanoidAnyMarking
+    Undershirt: MobHumanoidAnyMarking
+    Eyes: MobShadowEyes
+    LArm: MobShadowLArm
+    RArm: MobShadowRArm
+    LHand: MobShadowLHand
+    RHand: MobShadowRHand
+    LLeg: MobShadowLLeg
+    RLeg: MobShadowRLeg
+    Tail: MobHumanoidAnyMarking
+    LFoot: MobShadowLFoot
+    RFoot: MobShadowRFoot
+
+- type: humanoidBaseSprite
+  id: MobShadowEyes
+  baseSprite:
+    sprite: Mobs/Customization/eyes.rsi
+    state: eyes
+
+- type: humanoidBaseSprite
+  id: MobShadowHead
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Shadow/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobShadowHeadMale
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Shadow/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobShadowHeadFemale
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Shadow/parts.rsi
+    state: head_f
+
+- type: humanoidBaseSprite
+  id: MobShadowTorso
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Shadow/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobShadowTorsoMale
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Shadow/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobShadowTorsoFemale
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Shadow/parts.rsi
+    state: torso_f
+
+- type: humanoidBaseSprite
+  id: MobShadowLLeg
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Shadow/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobShadowLArm
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Shadow/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobShadowLHand
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Shadow/parts.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobShadowLFoot
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Shadow/parts.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobShadowRLeg
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Shadow/parts.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobShadowRArm
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Shadow/parts.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobShadowRHand
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Shadow/parts.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobShadowRFoot
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Shadow/parts.rsi
+    state: r_foot
