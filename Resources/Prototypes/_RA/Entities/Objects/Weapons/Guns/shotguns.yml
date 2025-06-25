@@ -1,0 +1,28 @@
+
+- type: entity
+  name: "'Patton' combat shotgun"
+  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSecurityContraband]
+  id: WeaponShotgunCombatPatton
+  description: An old design with a beefier shell intended to repel boarding parties. A variant of a certain PMC group's own, the Patton has been lovingly cared for. '8 GAUGE' and the Red Astra logo are stamped on the barrel.
+  components:
+  - type: Item
+    size: Large
+  - type: Sprite
+    sprite: _RA/Objects/Weapons/Guns/Shotguns/patton.rsi
+  - type: Clothing
+    sprite: _RA/Objects/Weapons/Guns/Shotguns/patton.rsi
+  - type: GunRequiresWield # remove when inaccuracy on spreads is fixed
+  - type: Gun
+    fireRate: 1
+  - type: Tag
+    tags:
+    - WeaponShotgunKammerer
+  - type: BallisticAmmoProvider # WYCI internal magazine weapon with bolt
+    whitelist:
+      tags:
+      - ShellShotgunHeavy
+    capacity: 5
+    proto: ShellShotgunHighCaliber
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/ltrifle_cock.ogg
+    autoCycle: false

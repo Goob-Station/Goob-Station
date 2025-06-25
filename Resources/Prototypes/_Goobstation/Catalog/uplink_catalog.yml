@@ -1105,7 +1105,7 @@
   description: uplink-cartridge-G8-demolishing-desc
   productEntity:  CartridgeG8Demolishing
   cost:
-    Telecrystal: 6 # 12% cheaper than the bundle, coherency with china
+    Telecrystal: 7 # 12% cheaper than the bundle, coherency with china
   categories:
   - UplinkAmmo
 
@@ -1115,7 +1115,17 @@
   description: uplink-cartridge-G8-hypercharged-desc
   productEntity: CartridgeG8Hypercharged
   cost:
-    Telecrystal: 6 # 12% cheaper than the bundle, coherency with china
+    Telecrystal: 7 # 12% cheaper than the bundle, coherency with china
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: UplinkCartridgeG8Rending
+  name: uplink-cartridge-G8-rending-name
+  description: uplink-cartridge-G8-rending-desc
+  productEntity: CartridgeG8Rending
+  cost:
+    Telecrystal: 7 # 12% cheaper than the bundle, coherency with china
   categories:
   - UplinkAmmo
 

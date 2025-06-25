@@ -156,7 +156,7 @@
     - id: GasLeak
 #    - id: GreytideVirus
     - id: IonStorm # its calm like 90% of the time smh
-    - id: KudzuGrowth
+#    - id: KudzuGrowth
     - id: MassHallucinations
 #    - id: MimicVendorRule
     - id: MouseMigration
@@ -578,24 +578,24 @@
     chaosScore: 80 # most of the time scrubbers just clean it
   - type: GasLeakRule
 
-- type: entity
-  id: KudzuGrowth
-  parent: BaseStationEventLongDelay
-  components:
-  - type: StationEvent
-    earliestStart: 30
-    minimumPlayers: 1
-    weight: 7
-    duration: 240
-    chaos:
-      Hostile: 20
-      Friend: 20
-      Medical: 100
-    eventType: Maintenance # Goobstation
-  # Goobstation
-  - type: GameRule
-    chaosScore: 40
-  - type: KudzuGrowthRule
+#- type: entity
+#  id: KudzuGrowth
+#  parent: BaseStationEventLongDelay
+#  components:
+#  - type: StationEvent
+#    earliestStart: 30
+#    minimumPlayers: 1
+#    weight: 7
+#    duration: 240
+#    chaos:
+#      Hostile: 20
+#      Friend: 20
+#      Medical: 100
+#    eventType: Maintenance # Goobstation
+#  # Goobstation
+#  - type: GameRule
+#    chaosScore: 40
+#  - type: KudzuGrowthRule
 
 #- type: entity
 #  id: PowerGridCheck

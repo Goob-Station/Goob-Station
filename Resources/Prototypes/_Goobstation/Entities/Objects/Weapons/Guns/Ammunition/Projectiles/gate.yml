@@ -50,3 +50,19 @@
   - type: AnchorOnTrigger
   - type: SpawnOnDespawn
     prototype: EnergyVortex
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  id: BulletG8Rending
+  name: bullet (G8 rending "The Chains of Hades")
+  components:
+  - type: Sprite
+    layers:
+    - state: piercing
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 70
+        Blunt: 40

@@ -128,6 +128,8 @@
     contents:
     - id: WeaponSniperHE1SG8 # 1 cartridge inside
     - id: CartridgeG8Demolishing
-      amount: 9
+      amount: 5
     - id: CartridgeG8Hypercharged
-      amount: 9
+      amount: 5
+    - id: CartridgeG8Rending
+      amount: 8
