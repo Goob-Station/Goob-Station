@@ -10,8 +10,6 @@
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 54000 #15 hrs
-  access:
-  - Tourist
 
 - type: startingGear
   id: TouristGear

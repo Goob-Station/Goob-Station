@@ -303,34 +303,36 @@
 - type: loadoutGroup
   id: TouristHead
   name: loadout-group-tourist-head
+  minLimit: 0
   loadouts:
-  - ClothingHeadHatStrawHat
-  - ClothingHeadHatRedsoft
-  - ClothingHeadHatBluesoft
-  - ClothingHeadHatBlacksoft
-  - ClothingHeadHatGreensoft
-  - ClothingHeadHatPurplesoft
-  - ClothingHeadHatOrangesoft
-  - ClothingHeadHatWhitesoft
+    - StrawHat
+    - RedCap
+    - BlueCap
+    - GreenCap
+    - BlackCap
+    - WhiteCap
+    - PurpleCap
+    - OrangeCap
   
 - type: loadoutGroup
   id: TouristJumpsuit
   name: loadout-group-tourist-jumpsuit
   loadouts:
-  - ClothingUniformJumpsuitHawaiBlack
-  - ClothingUniformJumpsuitHawaiBlue
-  - ClothingUniformJumpsuitHawaiYellow
-  - ClothingUniformJumpsuitHawaiRed
+    - HawaiBlack
+    - HawaiBlue
+    - HawaiYellow
+    - HawaiRed
 
 - type: loadoutGroup
   id: TouristShoes
   name: loadout-group-tourist-shoes
   loadouts:
-  - ClothingShoesTourist
-  - ClothingShoesSandals
+  - TouristShoes
+  - Sandals
 
 - type: loadoutGroup
   id: TouristBelt
+  minLimit: 0
   name: loadout-group-tourist-belt
   loadouts:
-  - ClothingBeltStorageWaistbag
+  - Waistbag

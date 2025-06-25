@@ -1,0 +1,82 @@
+
+#Head
+
+- type: loadout
+  id: StrawHat
+  equipment:
+    head: ClothingHeadHatStrawHat
+
+- type: loadout
+  id: RedCap
+  equipment:
+    head: ClothingHeadHatRedsoft
+
+- type: loadout
+  id: BlueCap
+  equipment:
+    head: ClothingHeadHatBluesoft
+
+- type: loadout
+  id: GreenCap
+  equipment:
+    head: ClothingHeadHatGreensoft
+
+- type: loadout
+  id: BlackCap
+  equipment:
+    head: ClothingHeadHatBlacksoft
+
+- type: loadout
+  id: WhiteCap
+  equipment:
+    head: ClothingHeadHatWhitesoft
+
+- type: loadout
+  id: PurpleCap
+  equipment:
+    head: ClothingHeadHatPurplesoft
+
+- type: loadout
+  id: OrangeCap
+  equipment:
+    head: ClothingHeadHatOrangesoft
+
+
+# Jumpsuits
+
+- type: loadout
+  id: HawaiBlack
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHawaiBlack
+
+- type: loadout
+  id: HawaiBlue
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHawaiBlue
+
+- type: loadout
+  id: HawaiYellow
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHawaiYellow
+
+- type: loadout
+  id: HawaiRed
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHawaiRed
+
+# Belt
+- type: loadout
+  id: Waistbag
+  equipment:
+    belt: ClothingBeltStorageWaistbag
+
+# shoes
+- type: loadout
+  id: TouristShoes
+  equipment:
+    shoes: ClothingShoesTourist
+
+- type: loadout
+  id: Sandals
+  equipment:
+    shoes: ClothingShoesSandals
