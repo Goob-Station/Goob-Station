@@ -1095,11 +1095,10 @@
         time: 14
       - !type:EvenHealthChange
         damage:
-          groups:
-            Burn: -3
-            Toxin: -3
-            Airloss: -3
-            Brute: -3 # Was 2, Buffed due to limb damage changes(GoobStation)
+          Burn: -3
+          Toxin: -3
+          Airloss: -3
+          Brute: -3 # Was 2, Buffed due to limb damage changes(GoobStation)
 
 - type: reagent
   id: Ultravasculine
