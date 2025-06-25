@@ -82,6 +82,8 @@ job-name-ertjanitor = ERT Janitor
 job-name-boxer = Boxer
 job-name-zookeeper = Zookeeper
 job-name-visitor = Visitor
+## goob + tiders got killed + bring back tiders
+job-name-tourist = Tourist
 
 # unused jobs
 # these are required for the agent ID job icon tooltips

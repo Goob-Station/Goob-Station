@@ -610,6 +610,21 @@
 
 - type: entity
   parent: IDCardStandard
+  id: TouristIDCard
+  name: tourist ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idvisitor
+  - type: IdCard
+    jobTitle: job-title-tourist
+    jobIcon: JobIconVisitor
+  - type: PresetIdCard # GOOB
+    job: Tourist
+
+- type: entity
+  parent: IDCardStandard
   id: BrigmedicIDCard
   name: brigmedic ID card
   components:
