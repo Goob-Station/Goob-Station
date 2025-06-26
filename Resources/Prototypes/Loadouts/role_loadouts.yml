@@ -114,7 +114,7 @@
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
-# Command
+# Command real
 - type: roleLoadout
   id: JobCaptain
   groups:
@@ -127,6 +127,15 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  - PassengerJumpsuit
+  - CommonBackpack
+  - PassengerNeck
+  - PassengerHat
+  - PassengerFace
+  - PassengerGloves
+  - PassengerOuterClothing
+  - PassengerShoes
+  - PassengerBelt
 
 - type: roleLoadout
   id: JobHeadOfPersonnel
@@ -141,6 +150,15 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  - PassengerJumpsuit
+  - CommonBackpack
+  - PassengerNeck
+  - PassengerHat
+  - PassengerFace
+  - PassengerGloves
+  - PassengerOuterClothing
+  - PassengerShoes
+  - PassengerBelt
 
 # Silicons
 - type: roleLoadout
@@ -160,11 +178,13 @@
   - GroupTankHarness
   - PassengerJumpsuit
   - CommonBackpack
+  - PassengerHat
   - PassengerNeck
   - PassengerFace
   - PassengerGloves
   - PassengerOuterClothing
   - PassengerShoes
+  - PassengerBelt
   - Glasses
   - Survival
   - Trinkets
@@ -182,6 +202,14 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  - PassengerJumpsuit
+  - PassengerNeck
+  - PassengerHat
+  - PassengerFace
+  - PassengerGloves
+  - PassengerOuterClothing
+  - PassengerShoes
+  - PassengerBelt
 
 - type: roleLoadout
   id: JobServiceWorker
@@ -193,6 +221,14 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  - PassengerJumpsuit
+  - PassengerNeck
+  - PassengerHat
+  - PassengerFace
+  - PassengerGloves
+  - PassengerOuterClothing
+  - PassengerShoes
+  - PassengerBelt
 
 - type: roleLoadout
   id: JobChef
@@ -207,6 +243,14 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  - PassengerJumpsuit
+  - PassengerNeck
+  - PassengerHat
+  - PassengerFace
+  - PassengerGloves
+  - PassengerOuterClothing
+  - PassengerShoes
+  - PassengerBelt
 
 - type: roleLoadout
   id: JobLibrarian
@@ -218,6 +262,14 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  - PassengerJumpsuit
+  - PassengerNeck
+  - PassengerHat
+  - PassengerFace
+  - PassengerGloves
+  - PassengerOuterClothing
+  - PassengerShoes
+  - PassengerBelt
 
 - type: roleLoadout
   id: JobLawyer
@@ -230,6 +282,14 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  - PassengerJumpsuit
+  - PassengerNeck
+  - PassengerHat
+  - PassengerFace
+  - PassengerGloves
+  - PassengerOuterClothing
+  - PassengerShoes
+  - PassengerBelt
 
 - type: roleLoadout
   id: JobChaplain
@@ -245,6 +305,14 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  - PassengerJumpsuit
+  - PassengerNeck
+  - PassengerHat
+  - PassengerFace
+  - PassengerGloves
+  - PassengerOuterClothing
+  - PassengerShoes
+  - PassengerBelt
 
 - type: roleLoadout
   id: JobJanitor
@@ -260,6 +328,14 @@
   - Trinkets
   - JanitorPlunger
   - GroupSpeciesBreathTool
+  - PassengerJumpsuit
+  - PassengerNeck
+  - PassengerHat
+  - PassengerFace
+  - PassengerGloves
+  - PassengerOuterClothing
+  - PassengerShoes
+  - PassengerBelt
 
 - type: roleLoadout
   id: JobBotanist
@@ -273,6 +349,14 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  - PassengerJumpsuit
+  - PassengerNeck
+  - PassengerHat
+  - PassengerFace
+  - PassengerGloves
+  - PassengerOuterClothing
+  - PassengerShoes
+  - PassengerBelt
 
 - type: roleLoadout
   id: JobClown
@@ -287,6 +371,14 @@
   - Glasses
   - SurvivalClown
   - Trinkets
+  - PassengerJumpsuit
+  - PassengerNeck
+  - PassengerHat
+  - PassengerFace
+  - PassengerGloves
+  - PassengerOuterClothing
+  - PassengerShoes
+  - PassengerBelt
 
 - type: roleLoadout
   id: JobMime
@@ -302,6 +394,14 @@
   - Glasses
   - SurvivalMime
   - Trinkets
+  - PassengerJumpsuit
+  - PassengerNeck
+  - PassengerHat
+  - PassengerFace
+  - PassengerGloves
+  - PassengerOuterClothing
+  - PassengerShoes
+  - PassengerBelt
 
 - type: roleLoadout
   id: JobMusician
@@ -315,6 +415,14 @@
   - Trinkets
   - Instruments
   - GroupSpeciesBreathTool
+  - PassengerJumpsuit
+  - PassengerNeck
+  - PassengerHat
+  - PassengerFace
+  - PassengerGloves
+  - PassengerOuterClothing
+  - PassengerShoes
+  - PassengerBelt
 
 # Cargo
 - type: roleLoadout
@@ -331,6 +439,15 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  - PassengerJumpsuit
+  - CommonBackpack
+  - PassengerNeck
+  - PassengerHat
+  - PassengerFace
+  - PassengerGloves
+  - PassengerOuterClothing
+  - PassengerShoes
+  - PassengerBelt
 
 - type: roleLoadout
   id: JobCargoTechnician
@@ -345,6 +462,15 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  - PassengerJumpsuit
+  - CommonBackpack
+  - PassengerNeck
+  - PassengerHat
+  - PassengerFace
+  - PassengerGloves
+  - PassengerOuterClothing
+  - PassengerShoes
+  - PassengerBelt
 
 - type: roleLoadout
   id: JobSalvageSpecialist
@@ -358,6 +484,15 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  - PassengerJumpsuit
+  - CommonBackpack
+  - PassengerNeck
+  - PassengerHat
+  - PassengerFace
+  - PassengerGloves
+  - PassengerOuterClothing
+  - PassengerShoes
+  - PassengerBelt
 
 # Engineering
 - type: roleLoadout
@@ -373,6 +508,14 @@
   - SurvivalExtended
   - Trinkets
   - GroupSpeciesBreathTool
+  - PassengerJumpsuit
+  - CommonBackpack
+  - PassengerNeck
+  - PassengerHat
+  - PassengerFace
+  - PassengerGloves
+  - PassengerOuterClothing
+  - PassengerShoes
 
 - type: roleLoadout
   id: JobTechnicalAssistant
@@ -383,6 +526,15 @@
   - SurvivalExtended
   - Trinkets
   - GroupSpeciesBreathTool
+  - PassengerJumpsuit
+  - CommonBackpack
+  - PassengerNeck
+  - PassengerHat
+  - PassengerFace
+  - PassengerGloves
+  - PassengerOuterClothing
+  - PassengerShoes
+  - PassengerBelt
 
 - type: roleLoadout
   id: JobStationEngineer
@@ -397,6 +549,15 @@
   - SurvivalExtended
   - Trinkets
   - GroupSpeciesBreathTool
+  - PassengerJumpsuit
+  - CommonBackpack
+  - PassengerNeck
+  - PassengerHat
+  - PassengerFace
+  - PassengerGloves
+  - PassengerOuterClothing
+  - PassengerShoes
+  - PassengerBelt
 
 - type: roleLoadout
   id: JobAtmosphericTechnician
@@ -410,6 +571,15 @@
   - SurvivalExtended
   - Trinkets
   - GroupSpeciesBreathTool
+  - PassengerJumpsuit
+  - CommonBackpack
+  - PassengerNeck
+  - PassengerHat
+  - PassengerFace
+  - PassengerGloves
+  - PassengerOuterClothing
+  - PassengerShoes
+  - PassengerBelt
 
 # Science
 - type: roleLoadout
@@ -427,6 +597,15 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  - PassengerJumpsuit
+  - CommonBackpack
+  - PassengerNeck
+  - PassengerHat
+  - PassengerFace
+  - PassengerGloves
+  - PassengerOuterClothing
+  - PassengerShoes
+  - PassengerBelt
 
 - type: roleLoadout
   id: JobScientist
@@ -444,6 +623,15 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  - PassengerJumpsuit
+  - CommonBackpack
+  - PassengerNeck
+  - PassengerHat
+  - PassengerFace
+  - PassengerGloves
+  - PassengerOuterClothing
+  - PassengerShoes
+  - PassengerBelt
 
 - type: roleLoadout
   id: JobResearchAssistant
@@ -455,6 +643,15 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  - PassengerJumpsuit
+  - CommonBackpack
+  - PassengerNeck
+  - PassengerHat
+  - PassengerFace
+  - PassengerGloves
+  - PassengerOuterClothing
+  - PassengerShoes
+  - PassengerBelt
 
 # Security
 - type: roleLoadout
@@ -472,6 +669,14 @@
   - Trinkets
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
+  - PassengerJumpsuit
+  - CommonBackpack
+  - PassengerNeck
+  - PassengerHat
+  - PassengerFace
+  - PassengerGloves
+  - PassengerOuterClothing
+  - PassengerShoes
 
 - type: roleLoadout
   id: JobWarden
@@ -488,6 +693,14 @@
   - Trinkets
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
+  - PassengerJumpsuit
+  - CommonBackpack
+  - PassengerNeck
+  - PassengerHat
+  - PassengerFace
+  - PassengerGloves
+  - PassengerOuterClothing
+  - PassengerShoes
 
 - type: roleLoadout
   id: JobSecurityOfficer
@@ -505,6 +718,14 @@
   - Trinkets
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
+  - PassengerJumpsuit
+  - CommonBackpack
+  - PassengerNeck
+  - PassengerHat
+  - PassengerFace
+  - PassengerGloves
+  - PassengerOuterClothing
+  - PassengerShoes
 
 - type: roleLoadout
   id: JobDetective
@@ -519,6 +740,15 @@
   - Trinkets
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
+  - PassengerJumpsuit
+  - CommonBackpack
+  - PassengerNeck
+  - PassengerHat
+  - PassengerFace
+  - PassengerGloves
+  - PassengerOuterClothing
+  - PassengerShoes
+  - PassengerBelt
 
 - type: roleLoadout
   id: JobSecurityCadet
@@ -531,6 +761,14 @@
   - SecurityOuterClothing # Goobstation - Why not.
   - Trinkets
   - GroupSpeciesBreathToolSecurity
+  - PassengerJumpsuit
+  - CommonBackpack
+  - PassengerNeck
+  - PassengerHat
+  - PassengerFace
+  - PassengerGloves
+  - PassengerOuterClothing
+  - PassengerShoes
 
 # Medical
 - type: roleLoadout
@@ -549,6 +787,14 @@
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
+  - PassengerJumpsuit
+  - CommonBackpack
+  - PassengerNeck
+  - PassengerHat
+  - PassengerFace
+  - PassengerGloves
+  - PassengerOuterClothing
+  - PassengerShoes
 
 - type: roleLoadout
   id: JobMedicalDoctor
@@ -566,6 +812,14 @@
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
+  - PassengerJumpsuit
+  - CommonBackpack
+  - PassengerNeck
+  - PassengerHat
+  - PassengerFace
+  - PassengerGloves
+  - PassengerOuterClothing
+  - PassengerShoes
 
 - type: roleLoadout
   id: JobMedicalIntern
@@ -577,6 +831,14 @@
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
+  - PassengerJumpsuit
+  - CommonBackpack
+  - PassengerNeck
+  - PassengerHat
+  - PassengerFace
+  - PassengerGloves
+  - PassengerOuterClothing
+  - PassengerShoes
 
 - type: roleLoadout
   id: JobChemist
@@ -592,6 +854,14 @@
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
+  - PassengerJumpsuit
+  - CommonBackpack
+  - PassengerNeck
+  - PassengerHat
+  - PassengerFace
+  - PassengerGloves
+  - PassengerOuterClothing
+  - PassengerShoes
 
 - type: roleLoadout
   id: JobParamedic
@@ -608,6 +878,14 @@
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
+  - PassengerJumpsuit
+  - CommonBackpack
+  - PassengerNeck
+  - PassengerHat
+  - PassengerFace
+  - PassengerGloves
+  - PassengerOuterClothing
+  - PassengerShoes
 
 # Wildcards
 - type: roleLoadout
@@ -619,6 +897,14 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  - PassengerJumpsuit
+  - PassengerNeck
+  - PassengerHat
+  - PassengerFace
+  - PassengerGloves
+  - PassengerOuterClothing
+  - PassengerShoes
+  - PassengerBelt
 
 - type: roleLoadout
   id: JobReporter
@@ -631,6 +917,14 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  - PassengerJumpsuit
+  - PassengerNeck
+  - PassengerHat
+  - PassengerFace
+  - PassengerGloves
+  - PassengerOuterClothing
+  - PassengerShoes
+  - PassengerBelt
 
 
 - type: roleLoadout
@@ -643,6 +937,15 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  - PassengerJumpsuit
+  - CommonBackpack
+  - PassengerNeck
+  - PassengerHat
+  - PassengerFace
+  - PassengerGloves
+  - PassengerOuterClothing
+  - PassengerShoes
+  - PassengerBelt
 
 - type: roleLoadout
   id: JobBoxer
@@ -655,6 +958,14 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  - PassengerJumpsuit
+  - PassengerNeck
+  - PassengerHat
+  - PassengerFace
+  - PassengerGloves
+  - PassengerOuterClothing
+  - PassengerShoes
+  - PassengerBelt
 
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs
 # They will be used without player configuration, thus they will only ever apply what is forced by MinLimit

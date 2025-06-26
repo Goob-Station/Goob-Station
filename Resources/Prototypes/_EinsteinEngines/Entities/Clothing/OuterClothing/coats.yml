@@ -1,0 +1,21 @@
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterCoatVictorian
+  name: black victorian coat
+  description: A fancy Victorian-style coat.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Coats/victorian_coat.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Coats/victorian_coat.rsi
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterCoatVictorianRed
+  name: red victorian coat
+  description: A fancy Victorian-style coat in a red hue.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Coats/victorian_coat_red.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Coats/victorian_coat_red.rsi

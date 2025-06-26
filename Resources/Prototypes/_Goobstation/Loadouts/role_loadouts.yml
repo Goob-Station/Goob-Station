@@ -101,6 +101,15 @@
   - Trinkets
   - GroupSpeciesBreathTool
   - Survival
+  - PassengerJumpsuit
+  - CommonBackpack
+  - PassengerNeck
+  - PassengerHat
+  - PassengerFace
+  - PassengerGloves
+  - PassengerOuterClothing
+  - PassengerShoes
+  - PassengerBelt
 
 - type: roleLoadout
   id: JobBlueshieldOfficer
@@ -115,6 +124,14 @@
   - Trinkets
   - GroupSpeciesBreathTool
   - SurvivalSecurity
+  - PassengerJumpsuit
+  - CommonBackpack
+  - PassengerNeck
+  - PassengerHat
+  - PassengerFace
+  - PassengerGloves
+  - PassengerOuterClothing
+  - PassengerShoes
 
 - type: roleLoadout
   id: JobNanotrasenCareerTrainer

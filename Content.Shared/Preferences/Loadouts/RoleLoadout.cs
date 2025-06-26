@@ -72,6 +72,7 @@
 
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared.Inventory;
 using Robust.Shared.Collections;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -280,6 +281,7 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
 
         var collection = IoCManager.Instance!;
         var roleProto = protoManager.Index(Role);
+        var exclusiveWith = new List<SlotFlags>();
 
         for (var i = roleProto.Groups.Count - 1; i >= 0; i--)
         {
@@ -292,6 +294,7 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
                 continue;
 
             var loadouts = new List<Loadout>();
+
             SelectedLoadouts[group] = loadouts;
 
             if (groupProto.MinLimit > 0)
@@ -302,6 +305,14 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
                     // Reached the limit, time to stop
                     if (loadouts.Count >= groupProto.MinLimit)
                         break;
+
+                    if (groupProto.ExclusiveWith is { } exclusive)
+                    {
+                        if (exclusiveWith.Contains(exclusive))
+                            break;
+
+                        exclusiveWith.Add(exclusive);
+                    }
 
                     if (!protoManager.TryIndex(protoId, out var loadoutProto))
                         continue;

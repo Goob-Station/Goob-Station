@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from World Server at commit https://github.com/GeneriedJenelle/The-World-Server-Redux/commit/0b700fbc6ee14c5a2b171e0739fea5a8aaaf5f4f, modified by Skubman (github: angelofallars)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "equipped-BACKPACK",
+      "directions": 4
+    },
+    {
+      "name": "flipped-equipped-BACKPACK",
+      "directions": 4
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    }
+  ]
+}
