@@ -283,11 +283,12 @@
     Telecrystal: 30 # goob
   categories:
   - UplinkWeaponry
-  conditions:
-    - !type:StoreWhitelistCondition
-      blacklist:
-        tags:
-          - NukeOpsUplink
+ # Goobstation - no
+ #conditions:
+ #  - !type:StoreWhitelistCondition
+ #    blacklist:
+ #      tags:
+ #        - NukeOpsUplink
 
 
 - type: listing
@@ -553,7 +554,7 @@
   description: uplink-exploding-syndicate-bomb-desc
   productEntity: SyndicateBomb
   cost:
-    Telecrystal: 52 # goob
+    Telecrystal: 52 # goob 
   categories:
     - UplinkExplosives
   restockTime: 1800
@@ -569,7 +570,7 @@
   description: uplink-exploding-syndicate-bomb-desc
   productEntity: SyndicateBomb
   cost:
-    Telecrystal: 26 # goob - cheap explosive for nukies
+    Telecrystal: 25 # goob - cheap explosive for nukies
   categories:
     - UplinkExplosives
   conditions:
@@ -1759,7 +1760,7 @@
   name: uplink-syndie-raid-name
   description: uplink-syndie-raid-desc
   icon: { sprite: /Textures/Clothing/OuterClothing/Armor/syndie-raid.rsi, state: icon }
-  productEntity: ClothingBackpackDuffelSyndicateRaidBundle
+  productEntity: ClothingBackpackSyndicateRaidBundle
   cost:
     Telecrystal: 50 # goob
   categories:

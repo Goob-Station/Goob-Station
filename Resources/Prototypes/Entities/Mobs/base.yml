@@ -117,11 +117,12 @@
   - type: ContentEye
   - type: CameraRecoil
   - type: MindContainer
+  - type: TTS # CorvaxGoob-TTS
   - type: MovementSpeedModifier
   - type: RequireProjectileTarget
     active: False
   - type: AnimatedEmotes
-  - type: Fart
+#  - type: Fart - Corvax Goob
   - type: CollectiveMind # Goobstation - Starlight collective mind port
   - type: Penetratable # Goobstation - Better snipers
     penetrateDamage: 15 # Kill million mices

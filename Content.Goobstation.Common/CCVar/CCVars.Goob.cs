@@ -56,12 +56,6 @@ public sealed partial class GoobCVars
         CVarDef.Create("atmos.strict_pipe_stacking", false, CVar.SERVERONLY);
 
     /// <summary>
-    ///     If space wind is attempting to throw an object at a velocity below this, apply impulse instead
-    /// </summary>
-    public static readonly CVarDef<float> SpaceWindThrowVelocity =
-        CVarDef.Create("atmos.space_wind_throw_velocity", 1.5f, CVar.SERVERONLY);
-
-    /// <summary>
     ///     If an object's mass is below this number, then this number is used in place of mass to determine whether air pressure can throw an object.
     ///     This has nothing to do with throwing force, only acting as a way of reducing the odds of tiny 5 gram objects from being yeeted by people's breath
     /// </summary>
@@ -294,11 +288,22 @@ public sealed partial class GoobCVars
 
     #region Game Director
 
+    // also used by secret+
     public static readonly CVarDef<float> MinimumTimeUntilFirstEvent =
         CVarDef.Create("gamedirector.minimumtimeuntilfirstevent", 300f, CVar.SERVERONLY);
 
     public static readonly CVarDef<int> GameDirectorDebugPlayerCount =
         CVarDef.Create("gamedirector.debug_player_count", 80, CVar.SERVERONLY);
+
+    #endregion
+
+    #region Secret+
+
+    /// <summary>
+    /// Makes secret+ consider the server to have this many extra living players, for debug.
+    /// </summary>
+    public static readonly CVarDef<int> SecretPlusPlayerBias =
+        CVarDef.Create("secretplus.debug_player_bias", 0, CVar.SERVERONLY);
 
     #endregion
 
@@ -441,18 +446,6 @@ public sealed partial class GoobCVars
     /// </summary>
     public static readonly CVarDef<bool> AdminOverlayShowJob =
         CVarDef.Create("ui.admin_overlay_show_job", true, CVar.CLIENTONLY | CVar.ARCHIVE);
-
-    /// <summary>
-    /// If true, the admin overlay will show their antag.
-    /// </summary>
-    public static readonly CVarDef<bool> AdminOverlayShowAntag =
-        CVarDef.Create("ui.admin_overlay_show_antag", true, CVar.CLIENTONLY | CVar.ARCHIVE);
-
-    /// <summary>
-    /// If true, the admin overlay will show their role type.
-    /// </summary>
-    public static readonly CVarDef<bool> AdminOverlayShowRoleType =
-        CVarDef.Create("ui.admin_overlay_show_role_type", true, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     #endregion
 

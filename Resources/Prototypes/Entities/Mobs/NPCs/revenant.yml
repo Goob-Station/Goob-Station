@@ -115,6 +115,8 @@
     sprite: Mobs/Ghosts/revenant.rsi
     layers:
     - state: active
+  - type: TTS # CorvaxGoob-TTS
+    voice: Kelthuzad
   - type: StatusEffects
     allowed:
     - Stun

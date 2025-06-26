@@ -114,7 +114,8 @@ namespace Content.Server.Database.Migrations.Postgres
                     eye_color = table.Column<string>(nullable: false),
                     skin_color = table.Column<string>(nullable: false),
                     pref_unavailable = table.Column<int>(nullable: false),
-                    preference_id = table.Column<int>(nullable: false)
+                    preference_id = table.Column<int>(nullable: false),
+                    voice = table.Column<string>(nullable: false) // CorvaxGoob-TTS
                 },
                 constraints: table =>
                 {

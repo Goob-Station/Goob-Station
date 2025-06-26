@@ -52,35 +52,6 @@
       rarePrototypes:
         - FoamBlade
         - PlushieGhost
-        - PlushieBenny
-        - PlushieCairo
-        - PlushiePash
-        - PlushieDelta
-        - PlushieRaki
-        - PlushieTina
-        - PlushieKnott
-        - PlushieZlorb
-        - PlushieTiderMoth
-        - PlushieCommandHuman
-        - PlushieRanork
-        - PlushieWehWinter
-        - PlushieHaleigh
-        - PlushieStoop
-        - PlushieAhti
-        - PlushieSparkle
-        - PlushieGrub
-        - PlushieFern
-        - PlushieHexadecimal
-        - PlushieFlint
-        - PlushiePistachio
-        - PlushieSeesTheStars
-        - PlushieDumbLizard
-        - PlushieSqueaks
-        - PlushieHaato
-        - PlushieTinyLane
-        - PlushieChewsTheShoes
-
-
       rareChance: 0.03
       prototypes:
         - PlushieBee
@@ -104,8 +75,9 @@
         - PlushieDiona
         - PlushieArachind
         - PlushieBingle # Goobstation
-        - PlushieSamantha # Goobstation
-        - PlushieJvne # Goobstation
+#        - PlushieSamantha # Corvax Goob
+#        - PlushieJvne # Corvax Goob
+#        - PlushieFern # Corvax Goob
         - PlushieAbductor # Goobstation
       chance: 0.5
       offset: 0.2
