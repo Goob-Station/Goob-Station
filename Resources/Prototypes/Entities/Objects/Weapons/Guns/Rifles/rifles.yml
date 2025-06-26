@@ -321,7 +321,7 @@
     burstFireRate: 14
   - type: GunWieldBonus
     minAngle: -28
-    maxAngle: -33 # goob
+    maxAngle: -35 # goob
   - type: ItemSlots
     slots:
       gun_magazine:
