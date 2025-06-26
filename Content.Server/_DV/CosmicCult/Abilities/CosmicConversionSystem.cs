@@ -58,12 +58,13 @@ public sealed class CosmicConversionSystem : EntitySystem
 
         foreach (var target in possibleTargets)
         {
-            if (_mobState.IsDead(target))
+            //Goobstation: Death is inevitable. It comes for us all.
+            /*if (_mobState.IsDead(target))
             {
                 _popup.PopupEntity(Loc.GetString("cult-glyph-target-dead"), uid, args.User);
                 args.Cancel();
-            }
-            else if (HasComp<BibleUserComponent>(target))
+            }*/ 
+            if (HasComp<BibleUserComponent>(target))
             {
                 _popup.PopupEntity(Loc.GetString("cult-glyph-target-chaplain"), uid, args.User);
                 args.Cancel();
