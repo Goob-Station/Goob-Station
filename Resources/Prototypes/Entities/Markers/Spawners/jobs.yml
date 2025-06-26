@@ -135,7 +135,7 @@
   - type: Sprite # GOOB
     layers:
       - state: green
-      - state: tourist
+      - state: passenger
 
 - type: entity
   id: SpawnPointTechnicalAssistant

@@ -14,12 +14,7 @@
 - type: startingGear
   id: TouristGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitHawaiBlack
-    eyes: ClothingEyesGlassesCheapSunglasses
-    shoes: ClothingShoesTourist
-    head: ClothingHeadHatStrawHat
     id: VisitorPDA
-    belt: ClothingBeltStorageWaistbag
     ears: ClothingHeadsetGrey
   inhand:
     - DrinkMartiniGlass
