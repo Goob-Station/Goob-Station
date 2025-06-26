@@ -289,6 +289,8 @@
 - type: loadoutGroup
   id: CaptainJumpsuit
   name: loadout-group-captain-jumpsuit
+  minLimit: 1
+  exclusiveWith: INNERCLOTHING # Goobstation
   loadouts:
   - CaptainJumpsuit
   - CaptainJumpskirt
@@ -308,6 +310,7 @@
 - type: loadoutGroup
   id: CaptainBackpack
   name: loadout-group-captain-backpack
+  exclusiveWith: BACK # Goobstation
   loadouts:
   - CaptainBackpack
   - CaptainSatchel
@@ -317,6 +320,7 @@
 - type: loadoutGroup
   id: CaptainOuterClothing
   name: loadout-group-captain-outerclothing
+  minLimit: 0
   loadouts:
   - CaptainOuterClothing
   - CaptainWintercoat
@@ -332,6 +336,8 @@
 - type: loadoutGroup
   id: HoPJumpsuit
   name: loadout-group-hop-jumpsuit
+  minLimit: 1
+  exclusiveWith: INNERCLOTHING # Goobstation
   loadouts:
   - HoPJumpsuit
   - HoPJumpskirt
@@ -348,6 +354,7 @@
 - type: loadoutGroup
   id: HoPBackpack
   name: loadout-group-hop-backpack
+  exclusiveWith: BACK # Goobstation
   loadouts:
   - CommonBackpack
   - CommonSatchel
@@ -366,11 +373,81 @@
 - type: loadoutGroup
   id: PassengerJumpsuit
   name: loadout-group-passenger-jumpsuit
+  minLimit: 1
+  exclusiveWith: INNERCLOTHING # Goobstation
   loadouts:
   - GreyJumpsuit
   - GreyJumpskirt
   - AncientJumpsuit
   - RainbowJumpsuit
+  - AssymetricDress
+  - EveningDress
+  - MidiDress
+  - TeaDress
+  - SlevelessDress
+  - LongSleeveDress
+  - BlackNGoldDress
+  - TangoDress
+  - CheonsamGreenDress
+  - CheonsamPurpleDress
+  - CheonsamRedDress
+  - CheonsamWhiteDress
+  - BlueSundress
+  - ClubDress
+  - CovetDress
+  - FlamencoDress
+  - FireDress
+  - OrangeDress
+  - YellowDress
+  - FlowergirlDress
+  - FluffyDress
+  - FormalRedDress
+  - GothicDress
+  - OutfitKimono
+  - LacyGownDress
+  - LongLongDress
+  - FlaredDressOutfit
+  - QipaoOutfit
+  - QipaoOutfitSlim
+  - RedSweptDressOutfit
+  - GymBraOutfit
+  - PuffyDressOutfit
+  - SailorDress
+  - StripedDress
+  - SundressOutfit
+  - SundressOutfitWhite
+  - VictorianBlackDress
+  - VictorianRedDress
+  - YellowSwoopDress
+  - NekoArcCurse
+  - GeishaOutfit
+  - ClothingCostumeBunnySuitOutfit # I'm not at fault if some players take this as a ticket to be weird. # Yes it is. Its absolutely your fault. - Solstice
+  - ClothingCostumeMioSkirtOutfit
+  - ClothingCostumeNaotaOutfit
+  - ClothingUniformRatOutfit
+  - ClothingUniformDressRedOutfit
+  - ClothingUniformSwimsuitBlueOutfit
+  - ClothingUniformKendoHakamaOutfit
+  - ClothingUniformMartialGiOutfit
+  - ClothingKimonoBlueOutfit
+  - ClothingKimonoPinkOutfit
+  - ClothingKimonoPurpleOutfit
+  - ClothingKimonoSkyOutfit
+  - ClothingKimonoGreenOutfit
+  - UniformSchoolgirlDuskOutfit
+  - UniformSchoolgirlBlazerTanOutfit
+  - ClothingUniformSchoolGakuranBlackOutfit
+  - ClothingUniformMNKOfficeSkirtOutfit
+  - ClothingUniformMNKUnderGarmentOutfit
+  - ClothingUniformMNKGymBraOutfit
+  - ClothingUniformMNKDressBlackOutfit
+  - ClothingUniformMNKBlackOverallsOutfit
+  - ClothingUniformMNKBlackShoulderOutfit
+  - ClothingUniformMNKTracksuitBlackOutfit
+  - JumpsuitTShirtJeans
+  - JumpsuitTShirtJeansGray
+  - JumpsuitTShirtJeansKhaki
+  - JumpsuitTShirtJeansPeach
  # goob changes start
   - GreyMJ
   - BlackMJ
@@ -390,6 +467,13 @@
  # goob changes end
 
 - type: loadoutGroup
+  id: PassengerHat
+  name: loadout-group-passenger-hat
+  minLimit: 0
+  loadouts:
+  - HeadbandBlack
+
+- type: loadoutGroup
   id: PassengerFace
   name: loadout-group-passenger-mask
   minLimit: 0
@@ -406,11 +490,14 @@
 - type: loadoutGroup
   id: CommonBackpack
   name: loadout-group-backpack
+  exclusiveWith: BACK # Goobstation
   loadouts:
   - CommonBackpack
   - CommonSatchel
   - CommonDuffel
   - CommonMessenger # Frontier
+  - ClothingPurse
+  - LeatherSatchel
 
 - type: loadoutGroup
   id: PassengerNeck
@@ -418,6 +505,7 @@
   minLimit: 0
   loadouts:
   - Mantle
+  - FurWrap
 
 - type: loadoutGroup
   id: PassengerOuterClothing
@@ -425,10 +513,22 @@
   minLimit: 0
   loadouts:
   - PassengerWintercoat
+  - PassengerRedVictorianCoat
+  - PassengerBlackVictorianCoat
+  - LettermanJacketBlue
+  - LettermanJacketRed
+
+- type: loadoutGroup
+  id: PassengerBelt
+  name: loadout-group-passenger-belt
+  minLimit: 0
+  loadouts:
+  - WaistLeatherBag
 
 - type: loadoutGroup
   id: PassengerShoes
   name: loadout-group-passenger-shoes
+  minLimit: 0
   loadouts:
   - BlackShoes
   - WinterBoots
@@ -444,11 +544,14 @@
 - type: loadoutGroup
   id: BartenderJumpsuit
   name: loadout-group-bartender-jumpsuit
+  minLimit: 1
+  exclusiveWith: INNERCLOTHING # Goobstation
   loadouts:
   - BartenderJumpsuit
   - BartenderJumpskirt
   - BartenderJumpsuitPurple
   - ServiceMJ # goob
+  - WaitressUniform
 
 - type: loadoutGroup
   id: BartenderOuterClothing
@@ -476,6 +579,8 @@
 - type: loadoutGroup
   id: ChefJumpsuit
   name: loadout-group-chef-jumpsuit
+  minLimit: 1
+  exclusiveWith: INNERCLOTHING # Goobstation
   loadouts:
   - ChefJumpsuit
   - ChefJumpskirt
@@ -493,6 +598,8 @@
 - type: loadoutGroup
   id: LibrarianJumpsuit
   name: loadout-group-librarian-jumpsuit
+  minLimit: 1
+  exclusiveWith: INNERCLOTHING # Goobstation
   loadouts:
   - LibrarianJumpsuit
   - LibrarianJumpskirt
@@ -503,6 +610,8 @@
 - type: loadoutGroup
   id: LawyerJumpsuit
   name: loadout-group-lawyer-jumpsuit
+  minLimit: 1
+  exclusiveWith: INNERCLOTHING # Goobstation
   loadouts:
   - LawyerJumpsuit
   - LawyerJumpskirt
@@ -544,6 +653,8 @@
 - type: loadoutGroup
   id: ChaplainJumpsuit
   name: loadout-group-chaplain-jumpsuit
+  minLimit: 1
+  exclusiveWith: INNERCLOTHING # Goobstation
   loadouts:
   - ChaplainJumpsuit
   - ChaplainJumpskirt
@@ -578,10 +689,13 @@
 - type: loadoutGroup
   id: JanitorJumpsuit
   name: loadout-group-janitor-jumpsuit
+  minLimit: 1
+  exclusiveWith: INNERCLOTHING # Goobstation
   loadouts:
   - JanitorJumpsuit
   - JanitorJumpskirt
   - ServiceMJ # goob
+  - MaidOutfitJanitor
 
 - type: loadoutGroup
   id: JanitorGloves
@@ -618,6 +732,8 @@
 - type: loadoutGroup
   id: BotanistJumpsuit
   name: loadout-group-botanist-jumpsuit
+  minLimit: 1
+  exclusiveWith: INNERCLOTHING # Goobstation
   loadouts:
   - BotanistJumpsuit
   - BotanistJumpskirt
@@ -628,6 +744,7 @@
 - type: loadoutGroup
   id: BotanistBackpack
   name: loadout-group-botanist-backpack
+  exclusiveWith: BACK # Goobstation
   loadouts:
   - BotanistBackpack
   - BotanistSatchel
@@ -653,6 +770,8 @@
 - type: loadoutGroup
   id: ClownJumpsuit
   name: loadout-group-clown-jumpsuit
+  minLimit: 1
+  exclusiveWith: INNERCLOTHING # Goobstation
   loadouts:
   - ClownSuit
   - ClownSkirt
@@ -662,6 +781,7 @@
 - type: loadoutGroup
   id: ClownBackpack
   name: loadout-group-clown-backpack
+  exclusiveWith: BACK # Goobstation
   loadouts:
   - ClownBackpack
   - ClownSatchel
@@ -679,6 +799,7 @@
 - type: loadoutGroup
   id: ClownShoes
   name: loadout-group-clown-shoes
+  minLimit: 0
   loadouts:
   - ClownShoes
   - JesterShoes
@@ -705,6 +826,7 @@
 - type: loadoutGroup
   id: MimeMask
   name: loadout-group-mime-mask
+  minLimit: 0
   loadouts:
   - MimeMask
   - MimeMaskSad
@@ -713,6 +835,8 @@
 - type: loadoutGroup
   id: MimeJumpsuit
   name: loadout-group-mime-jumpsuit
+  minLimit: 1
+  exclusiveWith: INNERCLOTHING # Goobstation
   loadouts:
   - MimeJumpsuit
   - MimeJumpskirt
@@ -720,6 +844,7 @@
 - type: loadoutGroup
   id: MimeBackpack
   name: loadout-group-mime-backpack
+  exclusiveWith: BACK # Goobstation
   loadouts:
   - MimeBackpack
   - MimeSatchel
@@ -736,6 +861,7 @@
 - type: loadoutGroup
   id: MimeBelt
   name: loadout-group-mime-belt
+  minLimit: 0
   loadouts:
   - MimeSuspendersRed
   - MimeSuspendersBlack
@@ -753,6 +879,8 @@
 - type: loadoutGroup
   id: MusicianJumpsuit
   name: loadout-group-musician-jumpsuit
+  minLimit: 1
+  exclusiveWith: INNERCLOTHING # Goobstation
   loadouts:
   - MusicianJumpsuit
   - MusicianJumpskirt
@@ -812,6 +940,8 @@
 - type: loadoutGroup
   id: QuartermasterJumpsuit
   name: loadout-group-quartermaster-jumpsuit
+  minLimit: 1
+  exclusiveWith: INNERCLOTHING # Goobstation
   loadouts:
   - QuartermasterJumpsuit
   - QuartermasterJumpskirt
@@ -838,6 +968,7 @@
 - type: loadoutGroup
   id: QuartermasterShoes
   name: loadout-group-quartermaster-shoes
+  minLimit: 0
   loadouts:
   - BrownShoes
   - CargoWinterBoots
@@ -853,6 +984,8 @@
 - type: loadoutGroup
   id: CargoTechnicianJumpsuit
   name: loadout-group-cargo-technician-jumpsuit
+  minLimit: 1
+  exclusiveWith: INNERCLOTHING # Goobstation
   loadouts:
   - CargoTechnicianJumpsuit
   - CargoTechnicianJumpskirt
@@ -863,6 +996,7 @@
 - type: loadoutGroup
   id: CargoTechnicianBackpack
   name: loadout-group-cargo-technician-backpack
+  exclusiveWith: BACK # Goobstation
   loadouts:
   - CargoTechnicianBackpack
   - CargoTechnicianSatchel
@@ -880,6 +1014,7 @@
 - type: loadoutGroup
   id: CargoTechnicianShoes
   name: loadout-group-cargo-technician-shoes
+  minLimit: 0
   loadouts:
   - BlackShoes
   - CargoWinterBoots
@@ -887,6 +1022,7 @@
 - type: loadoutGroup
   id: SalvageSpecialistBackpack
   name: loadout-group-salvage-specialist-backpack
+  exclusiveWith: BACK # Goobstation
   loadouts:
   - SalvageSpecialistBackpack
   - SalvageSpecialistSatchel
@@ -903,6 +1039,7 @@
 - type: loadoutGroup
   id: SalvageSpecialistShoes
   name: loadout-group-salvage-specialist-shoes
+  minLimit: 0
   loadouts:
   - SalvageBoots
   - CargoWinterBoots
@@ -919,6 +1056,8 @@
 - type: loadoutGroup
   id: ChiefEngineerJumpsuit
   name: loadout-group-chief-engineer-jumpsuit
+  minLimit: 1
+  exclusiveWith: INNERCLOTHING # Goobstation
   loadouts:
   - ChiefEngineerJumpsuit
   - ChiefEngineerJumpskirt
@@ -944,6 +1083,7 @@
 - type: loadoutGroup
   id: ChiefEngineerShoes
   name: loadout-group-chief-engineer-shoes
+  minLimit: 0
   loadouts:
   - BrownShoes
   - EngineeringWinterBoots
@@ -951,6 +1091,8 @@
 - type: loadoutGroup
   id: TechnicalAssistantJumpsuit
   name: loadout-group-technical-assistant-jumpsuit
+  minLimit: 1
+  exclusiveWith: INNERCLOTHING # Goobstation
   loadouts:
   - YellowJumpsuit
   - YellowJumpskirt
@@ -969,6 +1111,8 @@
 - type: loadoutGroup
   id: StationEngineerJumpsuit
   name: loadout-group-station-engineer-jumpsuit
+  minLimit: 1
+  exclusiveWith: INNERCLOTHING # Goobstation
   loadouts:
   - StationEngineerJumpsuit
   - StationEngineerJumpskirt
@@ -980,6 +1124,7 @@
 - type: loadoutGroup
   id: StationEngineerBackpack
   name: loadout-group-station-engineer-backpack
+  exclusiveWith: BACK # Goobstation
   loadouts:
   - StationEngineerBackpack
   - StationEngineerSatchel
@@ -997,6 +1142,7 @@
 - type: loadoutGroup
   id: StationEngineerShoes
   name: loadout-group-station-engineer-shoes
+  minLimit: 0
   loadouts:
   - WorkBoots
   - EngineeringWinterBoots
@@ -1018,6 +1164,8 @@
 - type: loadoutGroup
   id: AtmosphericTechnicianJumpsuit
   name: loadout-group-atmospheric-technician-jumpsuit
+  minLimit: 1
+  exclusiveWith: INNERCLOTHING # Goobstation
   loadouts:
   - AtmosphericTechnicianJumpsuit
   - AtmosphericTechnicianJumpskirt
@@ -1036,6 +1184,7 @@
 - type: loadoutGroup
   id: AtmosphericTechnicianBackpack
   name: loadout-group-atmospheric-technician-backpack
+  exclusiveWith: BACK # Goobstation
   loadouts:
   - AtmosphericTechnicianBackpack
   - AtmosphericTechnicianSatchel
@@ -1045,6 +1194,7 @@
 - type: loadoutGroup
   id: AtmosphericTechnicianShoes
   name: loadout-group-atmospheric-technician-shoes
+  minLimit: 0
   loadouts:
   - WhiteShoes
   - EngineeringWinterBoots
@@ -1078,6 +1228,8 @@
 - type: loadoutGroup
   id: ResearchDirectorJumpsuit
   name: loadout-group-research-director-jumpsuit
+  minLimit: 1
+  exclusiveWith: INNERCLOTHING # Goobstation
   loadouts:
   - ResearchDirectorJumpsuit
   - ResearchDirectorJumpskirt
@@ -1094,6 +1246,7 @@
 - type: loadoutGroup
   id: ResearchDirectorShoes
   name: loadout-group-research-director-shoes
+  minLimit: 0
   loadouts:
   - BrownShoes
   - ScienceWinterBoots
@@ -1117,6 +1270,8 @@
 - type: loadoutGroup
   id: ScientistJumpsuit
   name: loadout-group-scientist-jumpsuit
+  minLimit: 1
+  exclusiveWith: INNERCLOTHING # Goobstation
   loadouts:
   - ScientistJumpsuit
   - ScientistJumpskirt
@@ -1129,6 +1284,7 @@
 - type: loadoutGroup
   id: ScientistBackpack
   name: loadout-group-scientist-backpack
+  exclusiveWith: BACK # Goobstation
   loadouts:
   - ScientistBackpack
   - ScientistSatchel
@@ -1150,6 +1306,7 @@
 - type: loadoutGroup
   id: ScientistShoes
   name: loadout-group-scientist-shoes
+  minLimit: 0
   loadouts:
   - WhiteShoes
   - BlackShoes
@@ -1174,6 +1331,8 @@
 - type: loadoutGroup
   id: ResearchAssistantJumpsuit
   name: loadout-group-research-assistant-jumpsuit
+  minLimit: 1
+  exclusiveWith: INNERCLOTHING # Goobstation
   loadouts:
   - WhiteJumpsuit
   - WhiteJumpskirt
@@ -1192,6 +1351,8 @@
 - type: loadoutGroup
   id: HeadofSecurityJumpsuit
   name: loadout-group-head-of-security-jumpsuit
+  minLimit: 1
+  exclusiveWith: INNERCLOTHING # Goobstation
   loadouts:
   - HeadofSecurityJumpsuit
   - HeadofSecurityJumpskirt
@@ -1212,6 +1373,7 @@
 - type: loadoutGroup
   id: HeadofSecurityOuterClothing
   name: loadout-group-head-of-security-outerclothing
+  minLimit: 0
   loadouts:
   - HeadofSecurityCoat
   - HeadofSecurityWinterCoat
@@ -1229,6 +1391,8 @@
 - type: loadoutGroup
   id: WardenJumpsuit
   name: loadout-group-warden-jumpsuit
+  minLimit: 1
+  exclusiveWith: INNERCLOTHING # Goobstation
   loadouts:
   - WardenJumpsuit
   - WardenJumpskirt
@@ -1236,6 +1400,7 @@
 - type: loadoutGroup
   id: WardenOuterClothing
   name: loadout-group-warden-outerclothing
+  minLimit: 0
   loadouts:
   - WardenCoat
   - WardenArmoredWinterCoat
@@ -1254,11 +1419,14 @@
 - type: loadoutGroup
   id: SecurityJumpsuit
   name: loadout-group-security-jumpsuit
+  minLimit: 1
+  exclusiveWith: INNERCLOTHING # Goobstation
   loadouts:
   - SecurityJumpsuit
   - SecurityJumpskirt
   - SecurityJumpsuitGrey
   - SecurityJumpskirtGrey
+  - SecuritySummerJumpsuit
   - SeniorOfficerJumpsuit
   - SeniorOfficerJumpskirt
   - TrooperUniform
@@ -1266,6 +1434,7 @@
 - type: loadoutGroup
   id: SecurityBackpack
   name: loadout-group-security-backpack
+  exclusiveWith: BACK # Goobstation
   loadouts:
   - SecurityBackpack
   - SecuritySatchel
@@ -1275,6 +1444,7 @@
 - type: loadoutGroup
   id: SecurityBelt
   name: loadout-group-security-belt
+  minLimit: 0
   loadouts:
   - SecurityBelt
   - SecurityWebbing
@@ -1283,6 +1453,7 @@
 - type: loadoutGroup
   id: SecurityOuterClothing
   name: loadout-group-security-outerclothing
+  minLimit: 0
   loadouts:
   - ArmorVest
   - ArmorVestSlim
@@ -1292,6 +1463,7 @@
 - type: loadoutGroup
   id: SecurityShoes
   name: loadout-group-security-shoes
+  minLimit: 0
   loadouts:
   - JackBoots
   - CombatBoots # Goobstation
@@ -1323,6 +1495,8 @@
 - type: loadoutGroup
   id: DetectiveJumpsuit
   name: loadout-group-detective-jumpsuit
+  minLimit: 1
+  exclusiveWith: INNERCLOTHING # Goobstation
   loadouts:
   - DetectiveJumpsuit
   - DetectiveJumpskirt
@@ -1332,6 +1506,7 @@
 - type: loadoutGroup
   id: DetectiveOuterClothing
   name: loadout-group-detective-outerclothing
+  minLimit: 0
   loadouts:
   - DetectiveArmorVest
   - DetectiveCoat
@@ -1340,6 +1515,8 @@
 - type: loadoutGroup
   id: SecurityCadetJumpsuit
   name: loadout-group-security-cadet-jumpsuit
+  minLimit: 1
+  exclusiveWith: INNERCLOTHING # Goobstation
   loadouts:
   - RedJumpsuit
   - RedJumpskirt
@@ -1374,6 +1551,8 @@
 - type: loadoutGroup
   id: ChiefMedicalOfficerJumpsuit
   name: loadout-group-chief-medical-officer-jumpsuit
+  minLimit: 1
+  exclusiveWith: INNERCLOTHING # Goobstation
   loadouts:
   - ChiefMedicalOfficerJumpsuit
   - ChiefMedicalOfficerJumpskirt
@@ -1400,6 +1579,7 @@
 - type: loadoutGroup
   id: ChiefMedicalOfficerShoes
   name: loadout-group-chief-medical-officer-shoes
+  minLimit: 0
   loadouts:
   - BrownShoes
   - MedicalWinterBoots
@@ -1420,6 +1600,8 @@
 - type: loadoutGroup
   id: MedicalDoctorJumpsuit
   name: loadout-group-medical-doctor-jumpsuit
+  minLimit: 1
+  exclusiveWith: INNERCLOTHING # Goobstation
   loadouts:
   - MedicalDoctorJumpsuit
   - MedicalDoctorJumpskirt
@@ -1429,6 +1611,7 @@
   - MedicalGreenScrubs
   - MedicalPurpleScrubs
   - MedicMJ # goob
+  - NurseOutfit
 
 - type: loadoutGroup
   id: MedicalDoctorOuterClothing
@@ -1442,6 +1625,7 @@
 - type: loadoutGroup
   id: MedicalBackpack
   name: loadout-group-medical-doctor-backpack
+  exclusiveWith: BACK # Goobstation
   loadouts:
   - MedicalDoctorBackpack
   - MedicalDoctorSatchel
@@ -1451,6 +1635,7 @@
 - type: loadoutGroup
   id: MedicalShoes
   name: loadout-group-medical-doctor-shoes
+  minLimit: 0
   loadouts:
   - WhiteShoes
   - MedicalWinterBoots
@@ -1480,6 +1665,8 @@
 - type: loadoutGroup
   id: MedicalInternJumpsuit
   name: loadout-group-medical-intern-jumpsuit
+  minLimit: 1
+  exclusiveWith: INNERCLOTHING # Goobstation
   loadouts:
   - WhiteJumpsuit
   - WhiteJumpskirt
@@ -1488,6 +1675,8 @@
 - type: loadoutGroup
   id: ChemistJumpsuit
   name: loadout-group-chemist-jumpsuit
+  minLimit: 1
+  exclusiveWith: INNERCLOTHING # Goobstation
   loadouts:
   - ChemistJumpsuit
   - ChemistJumpskirt
@@ -1508,6 +1697,7 @@
 - type: loadoutGroup
   id: ChemistBackpack
   name: loadout-group-chemist-backpack
+  exclusiveWith: BACK # Goobstation
   loadouts:
   - ChemistBackpack
   - ChemistSatchel
@@ -1525,6 +1715,8 @@
 - type: loadoutGroup
   id: ParamedicJumpsuit
   name: loadout-group-paramedic-jumpsuit
+  minLimit: 1
+  exclusiveWith: INNERCLOTHING # Goobstation
   loadouts:
   - ParamedicJumpsuit
   - ParamedicJumpskirt
@@ -1545,6 +1737,7 @@
 - type: loadoutGroup
   id: ParamedicShoes
   name: loadout-group-paramedic-shoes
+  minLimit: 0
   loadouts:
   - BlueShoes
   - WhiteShoes
@@ -1575,6 +1768,8 @@
 - type: loadoutGroup
   id: ReporterJumpsuit
   name: loadout-group-reporter-jumpsuit
+  minLimit: 1
+  exclusiveWith: INNERCLOTHING # Goobstation
   loadouts:
   - ReporterJumpsuit
   - JournalistJumpsuit
@@ -1583,6 +1778,8 @@
 - type: loadoutGroup
   id: PsychologistJumpsuit
   name: loadout-group-psychologist-jumpsuit
+  minLimit: 1
+  exclusiveWith: INNERCLOTHING # Goobstation
   loadouts:
   - PsychologistJumpsuit
   - PsychologistJumpskirt
@@ -1590,6 +1787,8 @@
 - type: loadoutGroup
   id: BoxerJumpsuit
   name: loadout-group-boxer-jumpsuit
+  minLimit: 1
+  exclusiveWith: INNERCLOTHING # Goobstation
   loadouts:
   - BoxerShorts
   - BoxerShortsWithTop
@@ -1597,6 +1796,7 @@
 - type: loadoutGroup
   id: BoxerGloves
   name: loadout-group-boxer-gloves
+  minLimit: 0
   loadouts:
   - RedBoxingGloves
   - BlueBoxingGloves

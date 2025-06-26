@@ -394,6 +394,9 @@ public partial class TraumaSystem
             TraumaType.BoneDamage,
             bodyPart.PartType);
 
+        if (deduction == 1)
+            return false;
+
         // We do complete random to get the chance for trauma to happen,
         // We combine multiple parameters and do some math, to get the chance.
         // Even if we get 0.1 damage there's still a chance for injury to be applied, but with the extremely low chance.
@@ -430,6 +433,8 @@ public partial class TraumaSystem
             TraumaType.NerveDamage,
             bodyPart.PartType);
 
+        if (deduction == 1)
+            return false;
         // literally dismemberment chance, but lower by default
         var chance =
             FixedPoint2.Clamp(
@@ -464,6 +469,8 @@ public partial class TraumaSystem
             TraumaType.OrganDamage,
             bodyPart.PartType);
 
+        if (deduction == 1)
+            return false;
         // organ damage is like, very deadly, but not yet
         // so like, like, yeah, we don't want a disabler to induce some EVIL ASS organ damage with a 0,000001% chance and ruin your round
         // Very unlikely to happen if your woundables are in a good condition
@@ -502,6 +509,9 @@ public partial class TraumaSystem
             Comp<WoundComponent>(woundInflicter).WoundSeverityPoint,
             TraumaType.Dismemberment,
             bodyPart.PartType);
+
+        if (deduction == 1)
+            return false;
 
         var bonePenalty = FixedPoint2.New(0.1);
 
@@ -723,8 +733,9 @@ public partial class TraumaSystem
                     break;
 
                 case TraumaType.Dismemberment:
+                    Logger.Debug("Attempting to trigger dismemberment");
                     if (!_wound.IsWoundableRoot(target)
-                        && _wound.TryInduceWound(targetChosen.Value, "Blunt", 10f, out var woundInduced))
+                        && _wound.TryInduceWound(targetChosen.Value, "Blunt", 0f, out var woundInduced)) // We need this to add the trauma into.
                     {
                         AddTrauma(
                             targetChosen.Value,
@@ -735,6 +746,7 @@ public partial class TraumaSystem
                             (bodyPart.PartType, bodyPart.Symmetry));
 
                         _wound.AmputateWoundable(targetChosen.Value, target, target);
+                        Logger.Debug($"Amputating woundable.");
                     }
                     break;
             }

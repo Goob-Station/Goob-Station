@@ -112,6 +112,11 @@
   equipment:
     neck: ClothingNeckScarfStripedCentcom
 
+- type: loadout
+  id: ClothingCloakBoatNT
+  equipment:
+    neck: ClothingNeckCloakBoat
+
 # Backpacks
 - type: loadout
   id: NanotrasenRepresentativeBackpack
@@ -149,11 +154,6 @@
   id: NanotrasenRepresentativeClipboard
   equipment:
     belt: BoxFolderCentComClipboard
-
-- type: loadout
-  id: NanotrasenRepresentativeWaistbag
-  equipment:
-    belt: ClothingBeltStorageWaistbag
 
 # Shoes
 - type: loadout
