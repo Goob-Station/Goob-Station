@@ -696,7 +696,7 @@ public sealed class PullingSystem : EntitySystem
             return false;
         }
 
-        if (!TryComp<PhysicsComponent>(pullableUid, out var physics)) // Goobstation
+        if (!TryComp<PhysicsComponent>(pullableUid, out var physics))
         {
             return false;
         }
