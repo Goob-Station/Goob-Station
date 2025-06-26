@@ -34,7 +34,7 @@
   - type: ChangelingRule
   - type: GameRule
     minPlayers: 15
-    chaosScore: 800
+    chaosScore: 1000
   - type: AntagRandomObjectives
     sets:
     - groups: ChangelingObjectiveGroups
@@ -50,8 +50,8 @@
     agentName: changeling-roundend-name
     definitions:
     - prefRoles: [ Changeling ]
-      max: 4
-      playerRatio: 12
+      max: 6
+      playerRatio: 15
       jobBlacklist: [ Chaplain ] # GOOBSTATION
       lateJoinAdditional: true
       mindRoles:
@@ -66,13 +66,13 @@
   components:
   - type: GameRule
     minPlayers: 30
-    chaosScore: 700
+    chaosScore: 450
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ Traitor ]
       max: 3
-      playerRatio: 15
+      playerRatio: 30
       blacklist:
         components:
         - AntagImmune
@@ -90,14 +90,14 @@
   components:
   - type: GameRule
     minPlayers: 30
-    chaosScore: 450
+    chaosScore: 600
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn
     agentName: changeling-roundend-name
     definitions:
     - prefRoles: [ Changeling ]
-      max: 2
-      playerRatio: 15
+      max: 3
+      playerRatio: 30
       lateJoinAdditional: true
       mindRoles:
       - MindRoleTraitor
@@ -342,7 +342,7 @@
   components:
   - type: DevilRule
   - type: GameRule
-    chaosScore: 350 # low since they tend to revive people and stuff
+    chaosScore: 200 # low since they tend to revive people and stuff
     minPlayers: 15
   - type: AntagObjectives
     objectives:
