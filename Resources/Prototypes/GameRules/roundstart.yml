@@ -228,7 +228,7 @@
   - type: AntagSelection
   # Goobstation
   - type: GameRule
-    chaosScore: 1200
+    chaosScore: 1500
   - type: AntagLoadProfileRule
     speciesOverride: Human
     speciesOverrideBlacklist:
@@ -317,7 +317,7 @@
   - type: TraitorRule
   # Goobstation
   - type: GameRule
-    chaosScore: 900
+    chaosScore: 800
   # TODO: codewords in yml
   # TODO: uplink in yml
   - type: AntagSelection
@@ -360,8 +360,8 @@
     selectionTime: IntraPlayerSpawn # Goobstation
     definitions:
     - prefRoles: [ Traitor ]
-      max: 8
-      playerRatio: 10
+      max: 6
+      playerRatio: 15
       blacklist:
         components:
         - AntagImmune
@@ -376,14 +376,14 @@
   components:
   - type: GameRule
     minPlayers: 15
-    chaosScore: 1000 # Goobstation
+    chaosScore: 1200 # Goobstation
   - type: RevolutionaryRule
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn # Goobstation
     definitions:
     - prefRoles: [ HeadRev ]
-      max: 3
-      playerRatio: 15
+      max: 4
+      playerRatio: 20
       briefing:
         text: head-rev-role-greeting
         color: CornflowerBlue
