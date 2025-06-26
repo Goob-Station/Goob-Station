@@ -923,221 +923,311 @@
       board: [ DoorElectronicsMaintenance ]
 
 - type: entity
-  parent: AirlockSalvageLocked
+  parent: AirlockMaint
   id: AirlockMaintSalvageLocked
+  suffix: Salvage, Locked
   components:
-  - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSalvage ]
 
 - type: entity
-  parent: AirlockCargoLocked
+  parent: AirlockMaint
   id: AirlockMaintCargoLocked
+  suffix: Cargo, Locked
   components:
-  - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCargo ]
 
 - type: entity
-  parent: AirlockCommandLocked
+  parent: AirlockMaint
   id: AirlockMaintCommandLocked
+  suffix: Command, Locked
   components:
-  - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCommand ]
 
 - type: entity
-  parent: AirlockEngineeringLocked
+  parent: AirlockMaint
+  id: AirlockMaintCommonLocked
+  suffix: Common, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMaintenance ]
+
+- type: entity
+  parent: AirlockMaint
   id: AirlockMaintEngiLocked
+  suffix: Engineering, Locked
   components:
-  - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsEngineering ]
 
 - type: entity
-  parent: AirlockAtmosphericsLocked
+  parent: AirlockMaint
   id: AirlockMaintAtmoLocked
+  suffix: Atmospherics, Locked
   components:
-  - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAtmospherics ]
 
 - type: entity
-  parent: AirlockBarLocked
+  parent: AirlockMaintServiceLocked
   id: AirlockMaintBarLocked
+  suffix: Bar, Locked
   components:
-  - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsBar ]
 
 - type: entity
-  parent: AirlockBarKitchenLocked
+  parent: AirlockMaintServiceLocked
   id: AirlockMaintBarKitchenLocked
+  suffix: Bar&Kitchen, Locked
   components:
-  - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsBarKitchen ]
 
 - type: entity
-  parent: AirlockChapelLocked
+  parent: AirlockMaintServiceLocked
   id: AirlockMaintChapelLocked
+  suffix: Chapel, Locked
   components:
-  - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsChapel ]
 
 - type: entity
-  parent: AirlockHydroponicsLocked
+  parent: AirlockMaintServiceLocked
   id: AirlockMaintHydroLocked
+  suffix: Hydroponics, Locked
   components:
-  - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsHydroponics ]
 
 - type: entity
-  parent: AirlockJanitorLocked
+  parent: AirlockMaintServiceLocked
   id: AirlockMaintJanitorLocked
+  suffix: Janitor, Locked
   components:
-  - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsJanitor ]
 
 - type: entity
-  parent: AirlockLawyerLocked
+  parent: AirlockMaintServiceLocked
   id: AirlockMaintLawyerLocked
+  suffix: Lawyer, Locked
   components:
-  - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsLawyer ]
 
 - type: entity
-  parent: AirlockServiceLocked
+  parent: AirlockMaint
   id: AirlockMaintServiceLocked
+  suffix: Service, Locked
   components:
-  - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsService ]
+  - type: Wires
+    layoutId: AirlockService
 
 - type: entity
-  parent: AirlockTheatreLocked
+  parent: AirlockMaintServiceLocked
   id: AirlockMaintTheatreLocked
+  suffix: Theatre, Locked
   components:
-  - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsTheatre ]
 
 - type: entity
-  parent: AirlockServiceTheatreLocked
+  parent: AirlockMaintServiceLocked
   id: AirlockMaintServiceTheatreLocked
+  suffix: Service, Theatre, Locked
   components:
-  - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsServiceTheatre ]
 
 - type: entity
-  parent: AirlockKitchenLocked
+  parent: AirlockMaintServiceLocked
   id: AirlockMaintKitchenLocked
+  suffix: Kitchen, Locked
   components:
-  - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsKitchen ]
 
 - type: entity
-  parent: AirlockFreezerKitchenHydroLocked
+  parent: AirlockMaintServiceLocked
   id: AirlockMaintKitchenHydroLocked
+  suffix: Kitchen/Hydroponics, Locked
   components:
-  - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsKitchenHydroponics ]
 
 - type: entity
-  parent: AirlockMedicalLocked
+  parent: AirlockMaint
+  id: AirlockMaintIntLocked
+  suffix: Interior, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMaintenance ]
+
+- type: entity
+  parent: AirlockMaint
   id: AirlockMaintMedLocked
+  suffix: Medical, Locked
   components:
-  - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMedical ]
+  - type: Wires
+    layoutId: AirlockMedical
 
 - type: entity
-  parent: AirlockMedicalMorgueLocked
+  parent: AirlockMaintMedLocked
   id: AirlockMedicalMorgueMaintLocked
+  suffix: Morgue, Locked
   components:
-  - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMorgue ]
 
 - type: entity
-  parent: AirlockChemistryLocked
+  parent: AirlockMaintMedLocked
   id: AirlockMaintChemLocked
+  suffix: Chemistry, Locked
   components:
-  - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsChemistry ]
 
 - type: entity
-  parent: AirlockScienceLocked
+  parent: AirlockMaint
   id: AirlockMaintRnDLocked
+  suffix: Science, Locked
   components:
-  - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsResearch ]
+  - type: Wires
+    layoutId: AirlockScience
 
 - type: entity
-  parent: AirlockMedicalScienceLocked
+  parent: AirlockMaintRnDLocked
   id: AirlockMaintRnDMedLocked
+  suffix: Medical/Science, Locked
   components:
-  - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMedicalResearch ]
 
 - type: entity
-  parent: AirlockSecurityLocked
+  parent: AirlockMaint
   id: AirlockMaintSecLocked
+  suffix: Security, Locked
   components:
-  - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSecurity ]
+  - type: Wires
+    layoutId: AirlockSecurity
 
 - type: entity
-  parent: AirlockDetectiveLocked
+  parent: AirlockMaintSecLocked
   id: AirlockMaintDetectiveLocked
+  suffix: Detective, Locked
   components:
-  - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsDetective ]
 
 - type: entity
-  parent: AirlockHeadOfPersonnelLocked
+  parent: AirlockMaintCommandLocked
   id: AirlockMaintHOPLocked
+  suffix: HeadOfPersonnel, Locked
   components:
-  - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsHeadOfPersonnel ]
 
 - type: entity
-  parent: AirlockCaptainLocked
+  parent: AirlockMaintCommandLocked
   id: AirlockMaintCaptainLocked
+  suffix: Captain, Locked
   components:
-  - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCaptain ]
 
 - type: entity
-  parent: AirlockChiefEngineerLocked
+  parent: AirlockMaintCommandLocked
   id: AirlockMaintChiefEngineerLocked
+  suffix: ChiefEngineer, Locked
   components:
-  - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsChiefEngineer ]
 
 - type: entity
-  parent: AirlockChiefMedicalOfficerLocked
+  parent: AirlockMaintCommandLocked
   id: AirlockMaintChiefMedicalOfficerLocked
+  suffix: ChiefMedicalOfficer, Locked
   components:
-  - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsChiefMedicalOfficer ]
 
 - type: entity
-  parent: AirlockHeadOfSecurityLocked
+  parent: AirlockMaintCommandLocked
   id: AirlockMaintHeadOfSecurityLocked
+  suffix: HeadOfSecurity, Locked
   components:
-  - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsHeadOfSecurity ]
 
 - type: entity
-  parent: AirlockResearchDirectorLocked
+  parent: AirlockMaintCommandLocked
   id: AirlockMaintResearchDirectorLocked
+  suffix: ResearchDirector, Locked
   components:
-  - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsResearchDirector ]
 
 - type: entity
-  parent: AirlockQuartermasterLocked
+  parent: AirlockMaintCommandLocked
   id: AirlockMaintQuartermasterLocked
+  suffix: Quartermaster, Locked
   components:
-  - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsQuartermaster ]
 
 - type: entity
-  parent: AirlockArmoryLocked
+  parent: AirlockMaint
   id: AirlockMaintArmoryLocked
+  suffix: Armory, Locked
   components:
-  - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsArmory ]
+  - type: Wires
+    layoutId: AirlockArmory
 
 - type: entity
   parent: AirlockSyndicate

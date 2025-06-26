@@ -34,35 +34,35 @@
         icon:
           sprite: Objects/Storage/Happyhonk/mime.rsi
           state: box
-        name: construction-graph-tag-mime-meal
+        name: mime edition happy honk meal
       - tag: MimeBelt
         icon:
             sprite: Clothing/Belt/suspenders_red.rsi
             state: icon
-        name: construction-graph-tag-suspenders
+        name: suspenders
         doAfter: 2
       - tag: ProximitySensor
         icon:
           sprite: Objects/Misc/proximity_sensor.rsi
           state: icon
-        name: construction-graph-tag-proximity-sensor
+        name: proximity sensor
       - tag: BorgHead
         icon:
           sprite: Objects/Specific/Robotics/cyborg_parts.rsi
           state: borg_head
-        name: construction-graph-tag-borg-head
+        name: borg head
         doAfter: 2
       - tag: BorgArm
         icon:
           sprite: Mobs/Silicon/drone.rsi
           state: l_hand
-        name: construction-graph-tag-borg-arm
+        name: borg arm
         doAfter: 2
       - tag: BorgArm
         icon:
           sprite: Mobs/Silicon/drone.rsi
           state: l_hand
-        name: construction-graph-tag-borg-arm
+        name: borg arm
         doAfter: 2
   - node: bot
     entity: MobMimeBot

@@ -36,7 +36,6 @@
   description: That's an instrument.
   components:
   - type: Sprite
-    state: icon
   - type: Instrument
   - type: ActivatableUI
     inHandsOnly: false # Goobstation

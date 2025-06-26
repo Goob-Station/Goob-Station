@@ -86,26 +86,6 @@
 
 - type: entity
   parent: BaseHandheldInstrument
-  id: BaseStringInstrument
-  abstract: true
-  components:
-  - type: Tag
-    tags:
-    - StringInstrument
-
-- type: entity
-  parent: BaseStringInstrument
-  id: BaseStringInstrumentClothing
-  abstract: true
-  components:
-  - type: Clothing
-    quickEquip: false
-    slots:
-    - back
-    - suitStorage
-
-- type: entity
-  parent: BaseStringInstrumentClothing
   id: ElectricGuitarInstrument
   name: electric guitar
   description: Now this makes you feel like a rock star!
@@ -119,9 +99,22 @@
       "Muted": {28: 0}
   - type: Sprite
     sprite: Objects/Fun/Instruments/eguitar.rsi
+    state: icon
+  - type: Item
+    size: Normal
+    sprite: Objects/Fun/Instruments/eguitar.rsi
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - back
+    - suitStorage
+    sprite: Objects/Fun/Instruments/eguitar.rsi
+  - type: Tag
+    tags:
+    - StringInstrument
 
 - type: entity
-  parent: BaseStringInstrumentClothing
+  parent: BaseHandheldInstrument
   id: BassGuitarInstrument
   name: bass guitar
   description: You feel really cool holding this. Shame you're the only one that thinks that.
@@ -136,9 +129,22 @@
       "Slap (XTra Funky)": {37: 0}
   - type: Sprite
     sprite: Objects/Fun/Instruments/bassguitar.rsi
+    state: icon
+  - type: Item
+    size: Normal
+    sprite: Objects/Fun/Instruments/bassguitar.rsi
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - back
+    - suitStorage
+    sprite: Objects/Fun/Instruments/bassguitar.rsi
+  - type: Tag
+    tags:
+    - StringInstrument
 
 - type: entity
-  parent: BaseStringInstrumentClothing
+  parent: BaseHandheldInstrument
   id: RockGuitarInstrument
   name: rock guitar
   description: What an axe!
@@ -152,25 +158,41 @@
       "Harmonics": {31: 0}
   - type: Sprite
     sprite: Objects/Fun/Instruments/rockguitar.rsi
+    state: icon
   - type: MeleeWeapon
-    wideAnimationRotation: 45
+    soundHit:
+      path: /Audio/Weapons/guitarsmash.ogg
+    attackRate: .8
     animationRotation: -45 # WWDP
+    wideAnimationRotation: 45
     damage:
       types:
         Blunt: 6
-        Shock: 2
+        Shock: 1
     bluntStaminaDamageFactor: 1.5
     heavyStaminaCost: 15
     angle: 90 # WWDP
   - type: Wieldable
-  - type: IncreaseDamageOnWield #they don't call it an axe for nothing
+  - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 4
-        Shock: 2
+        Blunt: 2
+        Shock: 1
+  - type: Item
+    size: Normal
+    sprite: Objects/Fun/Instruments/rockguitar.rsi
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - back
+    - suitStorage
+    sprite: Objects/Fun/Instruments/rockguitar.rsi
+  - type: Tag
+    tags:
+    - StringInstrument
 
 - type: entity
-  parent: BaseStringInstrumentClothing
+  parent: BaseHandheldInstrument
   id: AcousticGuitarInstrument
   name: acoustic guitar
   description: Anyway, here's Wonderwall.
@@ -182,6 +204,19 @@
       "Nylon": {24: 0}
       "Steel": {25: 0}
   - type: Sprite
+    sprite: Objects/Fun/Instruments/guitar.rsi
+    state: icon
+  - type: Tag
+    tags:
+    - StringInstrument
+  - type: Item
+    sprite: Objects/Fun/Instruments/guitar.rsi
+    size: Normal
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - back
+    - suitStorage
     sprite: Objects/Fun/Instruments/guitar.rsi
   - type: Wieldable
   - type: Damageable # Smash it! Does 20 damage a hit, but breaks after 1 hit.
@@ -219,7 +254,7 @@
         Blunt: 15
 
 - type: entity
-  parent: BaseStringInstrument
+  parent: BaseHandheldInstrument
   id: GuitarlessFretsInstrument
   name: guitarless frets
   description: Who even needs a body?
@@ -229,9 +264,10 @@
     program: 120
   - type: Sprite
     sprite: Objects/Fun/Instruments/guitarlessfrets.rsi
+    state: icon
 
 - type: entity
-  parent: BaseStringInstrumentClothing
+  parent: BaseHandheldInstrument
   id: BanjoInstrument
   name: banjo
   components:
@@ -239,9 +275,22 @@
     program: 105
   - type: Sprite
     sprite: Objects/Fun/Instruments/banjo.rsi
+    state: icon
+  - type: Item
+    size: Normal
+    sprite: Objects/Fun/Instruments/banjo.rsi
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - back
+    - suitStorage
+    sprite: Objects/Fun/Instruments/banjo.rsi
+  - type: Tag
+    tags:
+    - StringInstrument
 
 - type: entity
-  parent: BaseStringInstrument
+  parent: BaseHandheldInstrument
   id: ViolinInstrument
   name: violin
   description: The favorite of musical virtuosos and bluegrass bands.
@@ -254,9 +303,16 @@
       "Bluegrass": {110: 0}
   - type: Sprite
     sprite: Objects/Fun/Instruments/violin.rsi
+    state: icon
+  - type: Item
+    size: Normal
+    sprite: Objects/Fun/Instruments/violin.rsi
+  - type: Tag
+    tags:
+    - StringInstrument
 
 - type: entity
-  parent: BaseStringInstrument
+  parent: BaseHandheldInstrument
   id: ViolaInstrument
   name: viola
   description: Like a violin, but worse.
@@ -265,9 +321,16 @@
     program: 41
   - type: Sprite
     sprite: Objects/Fun/Instruments/viola.rsi
+    state: icon
+  - type: Item
+    size: Normal
+    sprite: Objects/Fun/Instruments/viola.rsi
+  - type: Tag
+    tags:
+    - StringInstrument
 
 - type: entity
-  parent: BaseStringInstrument
+  parent: BaseHandheldInstrument
   id: CelloInstrument
   name: cello
   description: The nerds call these violoncellos.
@@ -276,7 +339,12 @@
     program: 42
   - type: Sprite
     sprite: Objects/Fun/Instruments/cello.rsi
+    state: icon
   - type: Item
     size: Large
     shape:
     - 0,0,1,3
+    sprite: Objects/Fun/Instruments/cello.rsi
+  - type: Tag
+    tags:
+    - StringInstrument

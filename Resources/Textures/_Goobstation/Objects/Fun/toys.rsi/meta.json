@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-4.0",
-    "copyright": "BeeRobynn, George Gimme, and Ahti, Abductor by Shy Bandit, plushie_jvne by Jvne, plushie_samantha by SolsticeOfTheWinter, fern by Bobbble, plushie_nigel by SS14:gorgan_freemen/Discord:Dummy",
+    "copyright": "BeeRobynn, George Gimme, and Ahti, Abductor by Shy Bandit, plushie_jvne by Jvne, plushie_samantha by SolsticeOfTheWinter, fern by Bobbble",
     "size": {
         "x": 32,
         "y": 32
@@ -18,9 +18,6 @@
         },
         {
             "name": "plushie_fern"
-        },
-        {
-            "name": "plushie_nigel"
         },
 		{
             "name": "plushiejvne-inhand-left",

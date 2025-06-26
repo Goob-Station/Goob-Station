@@ -63,7 +63,7 @@
         reagents:
         - ReagentId: Fat
           Quantity: 3
-        - ReagentId: AmmoniaBlood
+        - ReagentId: Blood
           Quantity: 10
 
 - type: entity

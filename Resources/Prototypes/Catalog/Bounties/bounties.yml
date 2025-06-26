@@ -584,8 +584,7 @@
       - Cake
       - Pie
       - Bread
-      - Pistachios
-      - Creamsicle
+      - Pistachios  
 
 - type: cargoBounty
   id: BountyVegetable

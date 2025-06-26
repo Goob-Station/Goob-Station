@@ -93,7 +93,7 @@ public abstract partial class SharedGunSystem
             component.Shots--;
         }
 
-        TakeCharge((uid, component));
+        TakeCharge(uid, component);
         UpdateBatteryAppearance(uid, component);
         Dirty(uid, component);
     }
@@ -107,9 +107,9 @@ public abstract partial class SharedGunSystem
     /// <summary>
     /// Update the battery (server-only) whenever fired.
     /// </summary>
-    protected virtual void TakeCharge(Entity<BatteryAmmoProviderComponent> entity)
+    protected virtual void TakeCharge(EntityUid uid, BatteryAmmoProviderComponent component)
     {
-        UpdateAmmoCount(entity, prediction: false);
+        UpdateAmmoCount(uid, prediction: false);
     }
 
     protected void UpdateBatteryAppearance(EntityUid uid, BatteryAmmoProviderComponent component)

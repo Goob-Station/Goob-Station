@@ -28,14 +28,14 @@
         store: part-container
 
       - component: Flash
-        name: construction-graph-component-flash
+        name: flash
         store: part-container
         icon:
           sprite: Objects/Weapons/Melee/flash.rsi
           state: flash
 
       - component: Flash
-        name: construction-graph-component-second-flash
+        name: second flash
         store: part-container
         icon:
           sprite: Objects/Weapons/Melee/flash.rsi

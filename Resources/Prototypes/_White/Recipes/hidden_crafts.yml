@@ -14,6 +14,5 @@
       - to: desword
         steps:
           - tag: EnergySword
-            name: construction-graph-tag-energy-sword
   - node: desword
     entity: EnergySwordDouble

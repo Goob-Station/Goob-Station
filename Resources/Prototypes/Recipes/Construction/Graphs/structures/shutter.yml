@@ -66,7 +66,7 @@
               anchored: true
           steps:
             - component: DoorElectronics
-              name: construction-graph-component-door-electronics-circuit-board
+              name: door electronics
               icon:
                 sprite: "Objects/Misc/module.rsi"
                 state: "door_electronics"

@@ -131,7 +131,6 @@
   - type: Tag
     tags:
       - FoodSnack
-      - VoxFood
   - type: Sprite
     sprite: Objects/Consumable/Food/snacks.rsi
   - type: SolutionContainerManager
@@ -597,6 +596,7 @@
     sound:
       path: /Audio/Effects/unwrap.ogg
 
+
 - type: entity
   id: FoodSnackMREBrownieOpen
   parent: FoodSnackBase
@@ -619,9 +619,6 @@
           Quantity: 10
         - ReagentId: Theobromine
           Quantity: 3
-  - type: Tag
-    tags:
-    - VoxFood
 
 # Trash
 
@@ -647,15 +644,6 @@
   - type: SpaceGarbage
   - type: StaticPrice
     price: 0
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: ToxinTrash
-          Quantity: 5
-  - type: Food
-    requiresSpecialDigestion: true
 
 - type: entity
   categories: [ HideSpawnMenu ]

@@ -1042,7 +1042,6 @@
       tags:
       - Raw
       - Wooden
-      - Boll
   - type: Lathe
     idleState: base_machine
     runningState: base_machine_processing

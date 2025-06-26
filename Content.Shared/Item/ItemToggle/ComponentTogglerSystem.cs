@@ -37,9 +37,6 @@ public sealed class ComponentTogglerSystem : EntitySystem
 
         var target = component.Parent ? Transform(uid).ParentUid : uid;
 
-        if (TerminatingOrDeleted(target))
-            return;
-
         if (activate)
             EntityManager.AddComponents(target, component.Components);
         else

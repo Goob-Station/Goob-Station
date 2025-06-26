@@ -179,15 +179,6 @@
     Glass: 100
 
 - type: latheRecipe
-  id: PushHorn
-  result: PushHorn
-  completetime: 5
-  materials:
-    Steel: 500
-    Plastic: 500
-    Plasma: 200
-
-- type: latheRecipe
   parent: BaseToolRecipe
   id: NodeScanner
   result: NodeScanner
@@ -277,11 +268,6 @@
   parent: BaseFauxTileRecipe
   id: FauxTileAstroAsteroidSand
   result: FloorTileItemAstroAsteroidSand
-
-- type: latheRecipe
-  parent: BaseFauxTileRecipe
-  id: FauxTileAstroAsteroidSandBorderless
-  result: FloorTileItemAstroAsteroidSandBorderless
 
 - type: latheRecipe
   id: FloorGreenCircuit

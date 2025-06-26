@@ -53,7 +53,7 @@
           steps:
             - tag: DoorElectronics
               store: board
-              name: construction-graph-tag-door-electronics-circuit-board
+              name: door electronics
               icon:
                 sprite: "Objects/Misc/module.rsi"
                 state: "door_electronics"

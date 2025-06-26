@@ -25,14 +25,6 @@
   equipment:
     neck: ClothingNeckCloakMiner
 
-- type: loadout
-  id: SalvageCloak
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: MasterMiner
-  equipment:
-    neck: ClothingNeckSalvager
-
 - type: startingGear
   id: LostFrontierProspectorSuit
   equipment:

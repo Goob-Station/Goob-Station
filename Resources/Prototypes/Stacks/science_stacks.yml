@@ -8,25 +8,25 @@
 
 - type: stack
   id: ArtifactFragment
-  name: stack-artifact-fragment
+  name: artifact fragment
   spawn: ArtifactFragment1
   maxCount: 30
 
 - type: stack
   id: Capacitor
-  name: stack-capacitor
+  name: capacitor
   icon: { sprite: /Textures/Objects/Misc/stock_parts.rsi, state: capacitor }
   spawn: CapacitorStockPart
   maxCount: 10
 
 - type: stack
   id: Manipulator
-  name: stack-micro-manipulator
+  name: micro manipulator
   spawn: MicroManipulatorStockPart
   maxCount: 10
 
 - type: stack
   id: MatterBin
-  name: stack-matter-bin
+  name: matter bin
   spawn: MatterBinStockPart
   maxCount: 10

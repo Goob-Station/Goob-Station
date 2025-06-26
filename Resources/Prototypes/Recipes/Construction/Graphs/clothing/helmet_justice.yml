@@ -12,7 +12,7 @@
     - to: helmet
       steps:
       - tag: SecurityHelmet
-        name: construction-graph-tag-security-helmet
+        name: security helmet
         icon:
           sprite: Clothing/Head/Helmets/security.rsi
           state: icon
@@ -21,7 +21,7 @@
       - material: Glass
         amount: 1
       - tag: LightBulb
-        name: construction-graph-tag-light-bulb
+        name: light bulb
         icon:
           sprite: Objects/Power/light_bulb.rsi
           state: normal

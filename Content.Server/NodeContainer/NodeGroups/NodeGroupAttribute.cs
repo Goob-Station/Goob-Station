@@ -12,7 +12,6 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Shared.NodeContainer.NodeGroups;
 using JetBrains.Annotations;
 
 namespace Content.Server.NodeContainer.NodeGroups

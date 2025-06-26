@@ -1,6 +1,5 @@
 {
-  "version": 1,
-  "copyright": "https://github.com/discordia-space/CEV-Eris/raw/f7aa28fd4b4d0386c3393d829681ebca526f1d2d/icons/obj/drinks.dmi, icon, icon_empty, & icon_open modified from waterbottle.rsi by Prole0 (GitHub)",
+  "copyright": "https://github.com/discordia-space/CEV-Eris/raw/f7aa28fd4b4d0386c3393d829681ebca526f1d2d/icons/obj/drinks.dmi",
   "license": "CC-BY-SA-3.0",
   "size":
   {
@@ -16,22 +15,19 @@
       "name": "icon_open"
     },
     {
-      "name": "icon_empty"
+      "name": "icon-1"
     },
     {
-      "name": "fill-1"
+      "name": "icon-2"
     },
     {
-      "name": "fill-2"
+      "name": "icon-3"
     },
     {
-      "name": "fill-3"
+      "name": "icon-4"
     },
     {
-      "name": "fill-4"
-    },
-    {
-      "name": "fill-5"
+      "name": "icon-5"
     },
     {
       "name": "inhand-left",
@@ -57,5 +53,6 @@
       "name": "inhand-right-fill-2",
       "directions": 4
     }
-  ]
+  ],
+  "version": 1
 }

@@ -12,7 +12,7 @@
 # Stack
 - type: stack
   id: Fulton
-  name: stack-fulton
+  name: fulton
   icon:
     sprite: /Textures/Objects/Tools/fulton.rsi
     state: extraction_pack

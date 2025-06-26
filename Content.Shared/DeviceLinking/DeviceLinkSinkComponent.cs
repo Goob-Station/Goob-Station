@@ -40,8 +40,6 @@
 
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Set;
-using Robust.Shared.Timing;
 
 namespace Content.Shared.DeviceLinking;
 
@@ -64,20 +62,11 @@ public sealed partial class DeviceLinkSinkComponent : Component
     public HashSet<EntityUid> LinkedSources = new();
 
     /// <summary>
-    /// The tick <see cref="InvokeCounter"/> was set at. Used to calculate the real value for the current tick.
+    /// Counts the amount of times a sink has been invoked for severing the link if this counter gets to high
+    /// The counter is counted down by one every tick if it's higher than 0
+    /// This is for preventing infinite loops
     /// </summary>
-    [Access(typeof(SharedDeviceLinkSystem), Other = AccessPermissions.None)]
-    public GameTick InvokeCounterTick;
-
-    /// <summary>
-    /// Counter used to throttle device invocations to avoid infinite loops.
-    /// </summary>
-    /// <remarks>
-    /// This is stored relative to <see cref="InvokeCounterTick"/>. For reading the real value,
-    /// <see cref="SharedDeviceLinkSystem.GetEffectiveInvokeCounter"/> should be used.
-    /// </remarks>
     [DataField]
-    [Access(typeof(SharedDeviceLinkSystem), Other = AccessPermissions.None)]
     public int InvokeCounter;
 
     /// <summary>

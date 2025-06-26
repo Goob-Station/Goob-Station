@@ -40,7 +40,7 @@
   - type: Instrument
     program: 122
   - type: Item
-    size: Small
+    size: Normal
 
 - type: entity
   parent: BaseHandheldInstrument
@@ -131,8 +131,10 @@
     program: 127
   - type: Sprite
     sprite: Objects/Fun/Instruments/gunpet.rsi
+    state: icon
   - type: Item
     size: Small
+    sprite: Objects/Fun/Instruments/gunpet.rsi
     storedRotation: -90
   - type: Tag
     tags:
@@ -150,13 +152,16 @@
     bank: 1
   - type: Sprite
     sprite: Objects/Fun/Instruments/bike_horn.rsi
+    state: icon
   - type: Tag
     tags:
     - BrassInstrument #Go figure.
   - type: Item
+    sprite: Objects/Fun/Instruments/bike_horn.rsi
     size: Small
     storedRotation: -90
   - type: Clothing
+    sprite: Objects/Fun/Instruments/bike_horn.rsi
     slots: [Belt]
     quickEquip: false
 
@@ -167,6 +172,7 @@
   description: A direct line to the Honkmother. Seems to always go to voicemail.
   components:
   - type: Sprite
+    sprite: Objects/Fun/Instruments/otherinstruments.rsi
     state: banana_phone
   - type: EmitSoundOnLand
     sound:

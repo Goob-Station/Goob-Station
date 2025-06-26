@@ -53,8 +53,6 @@ namespace Content.Server.Power.EntitySystems
             SubscribeLocalEvent<BatteryComponent, RejuvenateEvent>(OnBatteryRejuvenate);
             SubscribeLocalEvent<BatteryComponent, PriceCalculationEvent>(CalculateBatteryPrice);
             SubscribeLocalEvent<BatteryComponent, EmpPulseEvent>(OnEmpPulse);
-            SubscribeLocalEvent<BatteryComponent, ChangeChargeEvent>(OnChangeCharge);
-            SubscribeLocalEvent<BatteryComponent, GetChargeEvent>(OnGetCharge);
 
             SubscribeLocalEvent<NetworkBatteryPreSync>(PreSync);
             SubscribeLocalEvent<NetworkBatteryPostSync>(PostSync);
@@ -149,26 +147,21 @@ namespace Content.Server.Power.EntitySystems
             TrySetChargeCooldown(uid);
         }
 
-        private void OnChangeCharge(Entity<BatteryComponent> entity, ref ChangeChargeEvent args)
-        {
-            if (args.ResidualValue == 0)
-                return;
-
-            args.ResidualValue -= ChangeCharge(entity, args.ResidualValue);
-        }
-
-        private void OnGetCharge(Entity<BatteryComponent> entity, ref GetChargeEvent args)
-        {
-            args.CurrentCharge += entity.Comp.CurrentCharge;
-            args.MaxCharge += entity.Comp.MaxCharge;
-        }
-
         public float UseCharge(EntityUid uid, float value, BatteryComponent? battery = null)
         {
-            if (value <= 0 || !Resolve(uid, ref battery) || battery.CurrentCharge == 0)
+            if (value <= 0 ||  !Resolve(uid, ref battery) || battery.CurrentCharge == 0)
                 return 0;
 
-            return ChangeCharge(uid, -value, battery);
+            var newValue = Math.Clamp(0, battery.CurrentCharge - value, battery.MaxCharge);
+            var delta = newValue - battery.CurrentCharge;
+            battery.CurrentCharge = newValue;
+
+            // Apply a cooldown to the entity's self recharge if needed.
+            TrySetChargeCooldown(uid);
+
+            var ev = new ChargeChangedEvent(battery.CurrentCharge, battery.MaxCharge);
+            RaiseLocalEvent(uid, ref ev);
+            return delta;
         }
 
         public void SetMaxCharge(EntityUid uid, float value, BatteryComponent? battery = null)
@@ -202,26 +195,6 @@ namespace Content.Server.Power.EntitySystems
             var ev = new ChargeChangedEvent(battery.CurrentCharge, battery.MaxCharge);
             RaiseLocalEvent(uid, ref ev);
         }
-
-        /// <summary>
-        /// Changes the current battery charge by some value
-        /// </summary>
-        public float ChangeCharge(EntityUid uid, float value, BatteryComponent? battery = null)
-        {
-            if (!Resolve(uid, ref battery))
-                return 0;
-
-            var newValue = Math.Clamp(0, battery.CurrentCharge + value, battery.MaxCharge);
-            var delta = newValue - battery.CurrentCharge;
-            battery.CurrentCharge = newValue;
-
-            TrySetChargeCooldown(uid);
-
-            var ev = new ChargeChangedEvent(battery.CurrentCharge, battery.MaxCharge);
-            RaiseLocalEvent(uid, ref ev);
-            return delta;
-        }
-
         /// <summary>
         /// Checks if the entity has a self recharge and puts it on cooldown if applicable.
         /// </summary>

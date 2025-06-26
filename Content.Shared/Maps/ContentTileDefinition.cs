@@ -124,10 +124,7 @@ namespace Content.Shared.Maps
         /// </summary>
         [DataField("barestepSounds")] public SoundSpecifier? BarestepSounds { get; private set; } = new SoundCollectionSpecifier("BarestepHard");
 
-        /// <summary>
-        /// Base friction modifier for this tile.
-        /// </summary>
-        [DataField("friction")] public float Friction { get; set; } = 1f;
+        [DataField("friction")] public float Friction { get; set; } = 0.2f;
 
         [DataField("variants")] public byte Variants { get; set; } = 1;
 
@@ -155,6 +152,12 @@ namespace Content.Shared.Maps
         /// </summary>
         [DataField("mobFriction")]
         public float? MobFriction { get; private set; }
+
+        /// <summary>
+        ///     No-input friction override for mob mover in <see cref="SharedMoverController"/>
+        /// </summary>
+        [DataField("mobFrictionNoInput")]
+        public float? MobFrictionNoInput { get; private set; }
 
         /// <summary>
         ///     Accel override for mob mover in <see cref="SharedMoverController"/>

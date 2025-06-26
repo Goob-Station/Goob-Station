@@ -33,7 +33,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.Inventory;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Preferences.Loadouts;
@@ -73,10 +72,4 @@ public sealed partial class LoadoutGroupPrototype : IPrototype
 
     [DataField(required: true)]
     public List<ProtoId<LoadoutPrototype>> Loadouts = new();
-
-    /// <summary>
-    /// If another item with these slotflags is attempted to be equippped, cancel. - Goobstation
-    /// </summary>
-    [DataField]
-    public SlotFlags? ExclusiveWith;
 }

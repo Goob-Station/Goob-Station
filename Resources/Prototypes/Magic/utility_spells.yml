@@ -21,6 +21,7 @@
       sprite: _Goobstation/Wizard/actions.rsi # Goob edit
       state: charge # Goob edit
     event: !type:ChargeMagicEvent # Goob edit
+      speech: action-speech-spell-charge # Goob edit
   - type: Sprite # Goobstation - for apprentices
     sprite: _Goobstation/Wizard/actions.rsi
     state: charge
@@ -33,5 +34,3 @@
       3: ActionChargeIII
       4: ActionChargeIV
       5: ActionChargeV
-  - type: SpeakOnAction
-    sentence: action-speech-spell-charge

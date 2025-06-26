@@ -105,6 +105,7 @@
   recipeUnlocks:
   - RadarConsoleCircuitboard
 #  - HandHeldMassScanner - Removed by Lavaland
+  - BorgModuleGPS
   # Goobstation R&D Console rework start
   position: 0,-3
   technologyPrerequisites:
@@ -315,8 +316,9 @@
     - OreBagOfHolding
     - MiningDrillDiamond
     - AdvancedMineralScannerEmpty
-    - BorgModuleAdvancedMining
     - MechEquipmentDrillDiamond # Goobstation
+    - BorgModuleAdvancedMining # Goobstation
+    - MechEquipmentDrillDiamond
   # Goobstation R&D Console rework start
   position: 0,-6
   technologyPrerequisites:

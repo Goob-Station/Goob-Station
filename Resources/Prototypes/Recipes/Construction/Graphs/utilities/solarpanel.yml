@@ -23,7 +23,7 @@
         - to: solarassembly
           steps:
             - tag: CapacitorStockPart
-              name: construction-graph-tag-capacitor
+              name: a capacitor
               icon:
                 sprite: Objects/Misc/stock_parts.rsi
                 state: capacitor
@@ -40,7 +40,7 @@
         - to: solarassembly
           steps:
             - tag: SolarAssemblyFlatpack
-              name: construction-graph-tag-solar-assembly-parts
+              name: solar assembly parts
               icon:
                 sprite: Objects/Devices/flatpack.rsi
                 state: solar-assembly-part
@@ -90,7 +90,7 @@
             - !type:EntityAnchored
           steps:
             - tag: SolarTrackerElectronics
-              name: construction-graph-tag-solar-tracker-electronics
+              name: solar tracker electronics
               icon:
                 sprite: Objects/Misc/module.rsi
                 state: engineering

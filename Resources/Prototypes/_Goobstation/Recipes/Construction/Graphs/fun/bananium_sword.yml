@@ -14,7 +14,7 @@
         - to: bananiumSword
           steps:
             - tag: ToySword
-              name: construction-graph-tag-toy-sword
+              name: toy sword
               icon:
                 sprite: Objects/Weapons/Melee/e_sword.rsi
                 state: e_sword

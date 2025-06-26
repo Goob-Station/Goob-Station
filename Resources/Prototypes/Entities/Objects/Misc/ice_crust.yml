@@ -59,5 +59,3 @@
       coldDamage: {}
       coldDamageThreshold: 0
     - type: FrictionContacts
-    - type: TileFrictionModifier
-      modifier: 0.05

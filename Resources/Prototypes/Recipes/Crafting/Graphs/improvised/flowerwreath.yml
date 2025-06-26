@@ -14,17 +14,17 @@
         - to: flowerwreath
           steps:
             - tag: Flower
-              name: construction-graph-tag-flower
+              name: flower
               icon:
                 sprite: Objects/Specific/Hydroponics/poppy.rsi
                 state: produce
             - tag: Flower
-              name: construction-graph-tag-flower
+              name: flower
               icon:
                 sprite: Objects/Specific/Hydroponics/poppy.rsi
                 state: produce
             - tag: Ambrosia
-              name: construction-graph-tag-ambrosia
+              name: ambrosia
               icon:
                 sprite: Objects/Specific/Hydroponics/ambrosia_vulgaris.rsi
                 state: produce

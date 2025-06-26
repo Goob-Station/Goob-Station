@@ -20,7 +20,6 @@
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
-# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 grub <unalterableness@gmail.com>
 # SPDX-FileCopyrightText: 2025 plyush <121322002+toasterpm87@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
@@ -463,34 +462,3 @@
   - type: EmitSoundOnTrigger
     sound:
       path: /Audio/_Goobstation/Wizard/charge.ogg
-
-- type: entity
-  parent: BasePlushie
-  id: PlushieNigel
-  name: handsome plushie
-  description: Smells like greatness, and a distinct smell of adalamin brand perfume?
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Fun/toys.rsi
-    state: plushie_nigel
-  - type: EmitSoundOnUse
-    sound:
-      path: /Audio/Effects/adminhelp.ogg
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/Effects/adminhelp.ogg
-  - type: EmitSoundOnActivate
-    sound:
-      path: /Audio/Effects/adminhelp.ogg
-  - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/Effects/adminhelp.ogg
-  - type: EmitSoundOnCollide
-    sound:
-      path: /Audio/Effects/adminhelp.ogg
-  - type: MeleeWeapon
-    damage:
-      types:
-        Blunt: 0
-    soundHit:
-      path: /Audio/Effects/adminhelp.ogg

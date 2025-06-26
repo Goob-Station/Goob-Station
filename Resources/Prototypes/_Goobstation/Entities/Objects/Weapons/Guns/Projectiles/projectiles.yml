@@ -15,8 +15,6 @@
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Tim <timfalken@hotmail.com>
-# SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
@@ -310,7 +308,7 @@
 
 
 - type: entity
-  name: disabler bolt
+  name : disabler bolt
   id: BulletEnergyGunDisabler
   parent: BulletDisabler
   categories: [ HideSpawnMenu ]
@@ -355,23 +353,6 @@
     damage:
       types:
         Ion: 15
-    soundHit:
-      collection: WeakHit
-    forceSound: true
-
-- type: entity
-  name: disabler bolt
-  id: BulletSyndicateDisabler
-  parent: BulletDisabler
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: StaminaDamageOnCollide
-    damage: 27
-  - type: Projectile
-    impactEffect: BulletImpactEffectDisabler
-    damage:
-      types:
-        Ion: 5
     soundHit:
       collection: WeakHit
     forceSound: true

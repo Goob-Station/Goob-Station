@@ -123,43 +123,48 @@ public sealed class MoverController : SharedMoverController
         return true;
     }
 
-    private HashSet<EntityUid> _moverAdded = new();
-    private List<Entity<InputMoverComponent>> _movers = new();
-
-    private void InsertMover(Entity<InputMoverComponent> source)
-    {
-        if (TryComp(source, out MovementRelayTargetComponent? relay))
-        {
-            if (TryComp(relay.Source, out InputMoverComponent? relayMover))
-            {
-                InsertMover((relay.Source, relayMover));
-            }
-        }
-
-        // Already added
-        if (!_moverAdded.Add(source.Owner))
-            return;
-
-        _movers.Add(source);
-    }
-
     public override void UpdateBeforeSolve(bool prediction, float frameTime)
     {
         base.UpdateBeforeSolve(prediction, frameTime);
 
-        _moverAdded.Clear();
-        _movers.Clear();
         var inputQueryEnumerator = AllEntityQuery<InputMoverComponent>();
 
-        // Need to order mob movement so that movers don't run before their relays.
         while (inputQueryEnumerator.MoveNext(out var uid, out var mover))
         {
-            InsertMover((uid, mover));
-        }
+            var physicsUid = uid;
 
-        foreach (var mover in _movers)
-        {
-            HandleMobMovement(mover, frameTime);
+            if (RelayQuery.HasComponent(uid))
+                continue;
+
+            if (!XformQuery.TryGetComponent(uid, out var xform))
+            {
+                continue;
+            }
+
+            PhysicsComponent? body;
+            var xformMover = xform;
+
+            if (mover.ToParent && RelayQuery.HasComponent(xform.ParentUid))
+            {
+                if (!PhysicsQuery.TryGetComponent(xform.ParentUid, out body) ||
+                    !XformQuery.TryGetComponent(xform.ParentUid, out xformMover))
+                {
+                    continue;
+                }
+
+                physicsUid = xform.ParentUid;
+            }
+            else if (!PhysicsQuery.TryGetComponent(uid, out body))
+            {
+                continue;
+            }
+
+            HandleMobMovement(uid,
+                mover,
+                physicsUid,
+                body,
+                xformMover,
+                frameTime);
         }
 
         HandleShuttleMovement(frameTime);
