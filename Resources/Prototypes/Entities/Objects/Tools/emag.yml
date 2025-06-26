@@ -25,10 +25,10 @@
   components:
   - type: Emag
   - type: Sprite
-    sprite: Objects/Tools/emag.rsi
+    sprite: _Goobstation/Objects/Tools/cryptographic_sequencer.rsi
     state: icon
   - type: Item
-    sprite: Objects/Tools/emag.rsi
+    sprite: _Goobstation/Objects/Tools/cryptographic_sequencer.rsi
     storedRotation: -90
   - type: Tag # Goobstation
     tags:

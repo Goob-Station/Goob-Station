@@ -16,10 +16,10 @@
   - type: Emag
     emagType: Access
   - type: Sprite
-    sprite: Objects/Tools/access_breaker.rsi
+    sprite: _Goobstation/Objects/Tools/authentication_disruptor.rsi
     state: icon
   - type: Item
-    sprite: Objects/Tools/access_breaker.rsi
+    sprite: _Goobstation/Objects/Tools/authentication_disruptor.rsi
   - type: Tag # Goobstation
     tags:
     - Hacking
