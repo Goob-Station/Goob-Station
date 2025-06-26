@@ -199,8 +199,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateFilledRifle
-  name: Estoc DMR bundle
-  description: "For medium-range sharpshooting, the Estoc DMR. Bundled with three magazines."
+  name: Estoc bundle # goob
+  description: "For medium-range sharpshooting, the Estoc. Bundled with three magazines." # goob
   components:
   - type: StorageFill
     contents:
