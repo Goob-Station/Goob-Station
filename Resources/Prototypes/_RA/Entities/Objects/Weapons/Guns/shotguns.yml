@@ -13,7 +13,7 @@
     sprite: _RA/Objects/Weapons/Guns/Shotguns/patton.rsi
   - type: GunRequiresWield # remove when inaccuracy on spreads is fixed
   - type: Gun
-    fireRate: 1
+    fireRate: 0.85
   - type: Tag
     tags:
     - WeaponShotgunKammerer
@@ -21,7 +21,7 @@
     whitelist:
       tags:
       - ShellShotgunHeavy
-    capacity: 5
+    capacity: 4
     proto: ShellShotgunHighCaliber
     soundRack:
       path: /Audio/Weapons/Guns/Cock/ltrifle_cock.ogg

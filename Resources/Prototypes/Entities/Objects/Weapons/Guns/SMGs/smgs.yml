@@ -217,10 +217,10 @@
       minAngle: -19
       maxAngle: -16
     - type: Gun
-      minAngle: 21
+      minAngle: 27
       maxAngle: 32
       fireRate: 6
-      burstFireRate: 12
+      burstFireRate: 10
       soundGunshot:
         path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
       availableModes:
@@ -228,7 +228,7 @@
       #- FullAuto # Goobstation - start
       #- SemiAuto
       selectedMode: Burst
-      shotsPerBurst: 5
+      shotsPerBurst: 3
       burstCooldown: 0.75 # Goobstation - end
     - type: ItemSlots
       slots:
@@ -286,8 +286,8 @@
   - type: ChamberMagazineAmmoProvider
     boltClosed: null
   - type: Gun # Goobstation - I am the one who nerfs the WT.
-    minAngle: 2
-    maxAngle: 16
+    minAngle: 5
+    maxAngle: 19
     fireRate: 5
     burstFireRate: 8
     angleIncrease: 3

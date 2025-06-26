@@ -168,6 +168,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Keycards
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -181,6 +182,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Keycards
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -192,6 +194,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Keycards
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -206,6 +209,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Keycards
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -217,6 +221,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Keycards
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -229,6 +234,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Keycards
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -244,6 +250,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Keycards
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -258,6 +265,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Keycards
   - JanitorPlunger
   - GroupSpeciesBreathTool
 
@@ -272,6 +280,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Keycards
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -287,6 +296,7 @@
   - Glasses
   - SurvivalClown
   - Trinkets
+  - Keycards
 
 - type: roleLoadout
   id: JobMime
@@ -302,6 +312,7 @@
   - Glasses
   - SurvivalMime
   - Trinkets
+  - Keycards
 
 - type: roleLoadout
   id: JobMusician
@@ -313,6 +324,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Keycards
   - Instruments
   - GroupSpeciesBreathTool
 
@@ -344,6 +356,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Keycards
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -357,6 +370,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Keycards
   - GroupSpeciesBreathTool
 
 # Engineering
@@ -382,6 +396,7 @@
   - StationEngineerBackpack
   - SurvivalExtended
   - Trinkets
+  - Keycards
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -396,6 +411,7 @@
   - StationEngineerID
   - SurvivalExtended
   - Trinkets
+  - Keycards
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -409,6 +425,7 @@
   - AtmosphericTechnicianShoes
   - SurvivalExtended
   - Trinkets
+  - Keycards
   - GroupSpeciesBreathTool
 
 # Science
@@ -443,6 +460,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Keycards
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -454,6 +472,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Keycards
   - GroupSpeciesBreathTool
 
 # Security
@@ -486,6 +505,7 @@
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
+  - Keycards
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
 
@@ -503,6 +523,7 @@
   - SecurityBelt
   - SurvivalSecurity
   - Trinkets
+  - Keycards
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
 
@@ -517,6 +538,7 @@
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
+  - Keycards
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
 
@@ -530,6 +552,7 @@
   - SecurityNeck
   - SecurityOuterClothing # Goobstation - Why not.
   - Trinkets
+  - Keycards
   - GroupSpeciesBreathToolSecurity
 
 # Medical
@@ -565,6 +588,7 @@
   - MedicalEyewear
   - SurvivalMedical
   - Trinkets
+  - Keycards
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
@@ -576,6 +600,7 @@
   - MedicalEyewear
   - SurvivalMedical
   - Trinkets
+  - Keycards
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
@@ -591,6 +616,7 @@
   - MedicalShoes
   - SurvivalMedical
   - Trinkets
+  - Keycards
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
@@ -607,6 +633,7 @@
   - MedicalEyewear
   - SurvivalMedical
   - Trinkets
+  - Keycards
   - GroupSpeciesBreathToolMedical
 
 # Wildcards
@@ -618,6 +645,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Keycards
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -630,6 +658,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Keycards
   - GroupSpeciesBreathTool
 
 
@@ -642,6 +671,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Keycards
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -654,6 +684,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Keycards
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -667,6 +698,7 @@
   - MercenaryShoes
   - Survival
   - Trinkets
+  - Keycards
   - GroupSpeciesBreathTool
 
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs

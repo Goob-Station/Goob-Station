@@ -83,7 +83,7 @@
   - type: StorageFill
     contents:
       - id: FlashlightSeclite
-      - id: WeaponEnergyShotgun
+      #- id: WeaponEnergyShotgun
       #- id: WeaponDisabler #Goobstation (Disablers in belts)
       - id: ClothingBeltSecurityFilled
       - id: ClothingHandsGlovesKravMaga # Goobstation - Martial Arts
@@ -119,7 +119,7 @@
   - type: StorageFill
     contents:
       - id: FlashlightSeclite
-      - id: WeaponEnergyShotgun # Goobstation
+      #- id: WeaponEnergyShotgun # Goobstation
       #- id: WeaponDisabler #Goobstation (Disablers in belts)
       - id: ClothingBeltSecurityFilled
       - id: ClothingHandsGlovesKravMaga # Goobstation - Martial Arts

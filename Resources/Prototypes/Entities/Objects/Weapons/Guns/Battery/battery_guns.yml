@@ -427,6 +427,7 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
   - type: Gun
+    fireRate: 1.25
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto

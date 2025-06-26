@@ -1072,6 +1072,7 @@
   name: loadout-group-research-director-neck
   minLimit: 0
   loadouts:
+  - ResearchDirectorGreatcloak
   - ResearchDirectorMantle
   - ResearchDirectorCloak
 
@@ -1697,3 +1698,23 @@
   loadouts:
   - MercenaryRig
   - MercenaryHolster
+
+- type: loadoutGroup
+  id: Keycards
+  name: loadout-group-keycard
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - Card1A
+  - Card1B
+  - Card2A
+  - Card2B
+  - Card3A
+  - Card3B
+  - Card4A
+  - Card4B
+  - Card5A
+  - Card5B
+  - Card6A
+  - Card6B
+  - Card7A

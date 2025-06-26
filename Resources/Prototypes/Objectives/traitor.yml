@@ -284,9 +284,22 @@
 
 ## warden
 
+#- type: entity
+#  parent: BaseTraitorStealObjective
+#  id: EnergyShotgunStealObjective
+#  components:
+#  - type: Objective
+#    # Warden will have this on them a lot of the time so..
+#    difficulty: 3
+#  - type: NotJobRequirement
+#    job: Warden # Goob edit
+#  - type: StealCondition
+#    stealGroup: WeaponEnergyShotgun
+#    owner: job-name-warden # Goob edit
+
 - type: entity
   parent: BaseTraitorStealObjective
-  id: EnergyShotgunStealObjective
+  id: PattonStealObjective # RA
   components:
   - type: Objective
     # Warden will have this on them a lot of the time so..
@@ -294,7 +307,7 @@
   - type: NotJobRequirement
     job: Warden # Goob edit
   - type: StealCondition
-    stealGroup: WeaponEnergyShotgun
+    stealGroup: WeaponShotgunCombatPatton
     owner: job-name-warden # Goob edit
 
 ## ce

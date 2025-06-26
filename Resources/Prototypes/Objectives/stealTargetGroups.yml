@@ -121,11 +121,18 @@
     sprite: Objects/Misc/nukedisk.rsi
     state: icon
 
+#- type: stealTargetGroup
+#  id: WeaponEnergyShotgun
+#  name: steal-target-groups-weapon-energy-shot-gun
+#  sprite:
+#    sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi
+#    state: base
+
 - type: stealTargetGroup
-  id: WeaponEnergyShotgun
-  name: steal-target-groups-weapon-energy-shot-gun
+  id: WeaponShotgunCombatPatton # RA
+  name: steal-target-groups-weapon-patton
   sprite:
-    sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi
+    sprite: _RA/Objects/Weapons/Guns/Shotguns/patton.rsi
     state: base
 
 # Thief Collection
