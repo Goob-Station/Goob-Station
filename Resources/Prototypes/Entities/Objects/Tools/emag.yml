@@ -25,10 +25,10 @@
   components:
   - type: Emag
   - type: Sprite
-    sprite: _Goobstation/Objects/Tools/cryptographic_sequencer.rsi
+    sprite: _Goobstation/Objects/Tools/cryptographic_sequencer.rsi # Goob edit - TG Sprite Port
     state: icon
   - type: Item
-    sprite: _Goobstation/Objects/Tools/cryptographic_sequencer.rsi
+    sprite: _Goobstation/Objects/Tools/cryptographic_sequencer.rsi # Goob edit - TG Sprite Port
     storedRotation: -90
   - type: Tag # Goobstation
     tags:
