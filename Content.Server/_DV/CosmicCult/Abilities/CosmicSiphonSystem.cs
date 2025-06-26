@@ -68,12 +68,12 @@ public sealed class CosmicSiphonSystem : EntitySystem
 
         var doargs = new DoAfterArgs(EntityManager, uid, uid.Comp.CosmicSiphonDelay, new EventCosmicSiphonDoAfter(), uid, args.Target)
         {
-            DistanceThreshold = 2f,
+            DistanceThreshold = 2.5f,
             Hidden = true,
-            BreakOnHandChange = true,
-            BreakOnDamage = true,
+            BreakOnHandChange = false,
+            BreakOnDamage = false,
             BreakOnMove = true,
-            BreakOnDropItem = true,
+            BreakOnDropItem = false,
         };
         args.Handled = true;
         _doAfter.TryStartDoAfter(doargs);
@@ -113,13 +113,13 @@ public sealed class CosmicSiphonSystem : EntitySystem
             _cultRule.IncrementCultObjectiveEntropy(uid);
         }
 
-        if (uid.Comp.CosmicEmpowered) // if you're empowered there's a 50% chance to flicker lights on siphon
+        if (uid.Comp.CosmicEmpowered) // if you're empowered there's a 25% chance to flicker lights on siphon
         {
             _lights.Clear();
             _lookup.GetEntitiesInRange<PoweredLightComponent>(Transform(uid).Coordinates, 5, _lights, LookupFlags.StaticSundries);
             foreach (var light in _lights) // static range of 5. because.
             {
-                if (!_random.Prob(0.5f))
+                if (!_random.Prob(0.25f))
                     continue;
 
                 _ghost.DoGhostBooEvent(light);
