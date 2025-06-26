@@ -85,10 +85,10 @@ public sealed partial class WoundableComponent : Component
     public FixedPoint2 HealAbility = 0.03;
 
     /// <summary>
-    /// Whether the woundable is bleeding.
+    /// How much the woundable is bleeding.
     /// </summary>
     [ViewVariables]
-    public bool IsBleeding = false;
+    public FixedPoint2 Bleeds = FixedPoint2.Zero;
 
     /// <summary>
     /// How much bleeds will the woundable treat per tick
@@ -101,6 +101,24 @@ public sealed partial class WoundableComponent : Component
     /// </summary>
     [ViewVariables, DataField]
     public FixedPoint2 BleedsThreshold = 3.5f;
+
+    /// <summary>
+    /// At which amount of damage the woundable will stop healing.
+    /// </summary>
+    [DataField]
+    public FixedPoint2 DamageThreshold = 45;
+
+    /// <summary>
+    /// Can the woundable heal damage?
+    /// </summary>
+    [ViewVariables]
+    public bool CanHealDamage => WoundableIntegrity != IntegrityCap && WoundableIntegrity > DamageThreshold;
+
+    /// <summary>
+    /// Can the woundable heal bleeds?
+    /// </summary>
+    [ViewVariables]
+    public bool CanHealBleeds => Bleeds > 0 && Bleeds < BleedsThreshold;
 
     /// <summary>
     /// Multipliers of severity applied to this wound.
@@ -139,13 +157,19 @@ public sealed partial class WoundableComponent : Component
     /// <summary>
     /// Whether this woundable can be removed from a body..
     /// </summary>
-    [ViewVariables]
+    [DataField]
     public bool CanRemove = true;
+
+    /// <summary>
+    /// Whether this woundable can bleed or not..
+    /// </summary>
+    [DataField]
+    public bool CanBleed = true;
 
     /// <summary>
     /// Whether this woundable's bone is exposed
     /// </summary>
-    [ViewVariables]
+    [DataField]
     public bool IsBoneExposed = false;
 
     /// <summary>
@@ -171,6 +195,7 @@ public sealed class WoundableComponentState : ComponentState
 
     public FixedPoint2 WoundableIntegrity;
     public FixedPoint2 HealAbility;
+    public FixedPoint2 Bleeds;
 
     public Dictionary<NetEntity, WoundableSeverityMultiplier> SeverityMultipliers = new();
     public Dictionary<NetEntity, WoundableHealingMultiplier> HealingMultipliers = new();
