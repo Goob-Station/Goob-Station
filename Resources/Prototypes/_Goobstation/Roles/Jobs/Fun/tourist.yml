@@ -4,9 +4,9 @@
   description: job-description-visitor
   playTimeTracker: JobTourist
   startingGear: TouristGear
-  icon: "JobIconVisitor"
+  icon: "JobIconTourist"
   supervisors: job-supervisors-everyone
-  goobcoins: 5
+  goobcoins: 3
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 54000 #15 hrs
@@ -21,6 +21,8 @@
     id: VisitorPDA
     belt: ClothingBeltStorageWaistbag
     ears: ClothingHeadsetGrey
+  inhand:
+    DrinkMartiniGlass
   storage:
    back:
     SpaceCash:

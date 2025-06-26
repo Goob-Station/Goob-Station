@@ -534,6 +534,14 @@
 
 - type: jobIcon
   parent: JobIcon
+  id: JobIconTourist
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Tourist
+  jobName: job-name-tourist
+
+- type: jobIcon
+  parent: JobIcon
   id: JobIconAdmin
   icon:
     sprite: /Textures/Interface/Misc/job_icons.rsi
