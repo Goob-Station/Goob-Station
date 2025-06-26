@@ -17,3 +17,6 @@ reagent-desc-blackpowder = A primitive yet powerful explosive. Explodes when hea
 
 reagent-name-cryostylane = cryostylane
 reagent-desc-cryostylane = A useful chemical, consumes oxygen or iodine to cool down the solution it's in.
+
+reagent-name-potassium-sulfate = potassium sulfate
+reagent-desc-potassium-sulfate = Potassium in a water-soluble form, providing both potassium and sulfur. Used primarily as a fertilizer for plants.
