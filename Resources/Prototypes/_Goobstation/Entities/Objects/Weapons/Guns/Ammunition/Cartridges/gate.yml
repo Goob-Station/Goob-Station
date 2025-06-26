@@ -40,3 +40,12 @@
     sprite: Objects/Weapons/Guns/Ammunition/Casings/anomalous_casing.rsi
   - type: CartridgeAmmo
     proto: BulletG8Hypercharged
+
+- type: entity
+  parent: BaseCartridgeG8
+  id: CartridgeG8Rending
+  name: cartridge (G8 rending)
+  description: Shoots "The Chains of Hades" bullet, obliterating anything in it's path. Designed to expand on impact and thus it lacks penetrative power.
+  components:
+  - type: CartridgeAmmo
+    proto: BulletG8Rending

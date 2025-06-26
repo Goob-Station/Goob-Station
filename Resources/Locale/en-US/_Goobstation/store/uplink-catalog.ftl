@@ -121,7 +121,7 @@ uplink-combat-shotgun-name = 'Bojevic' Combat shotgun
 uplink-combat-shotgun-desc = A beefy pump-action shotgun chambered in 8 gauge, with a 5 round magazine tube.
 
 uplink-he1sg8-bundle-name = HE1S-G8 Bundle
-uplink-he1sg8-bundle-desc = High Energy One-Shell rifle bundle. Comes with 10 demolishing and 9 hypercharged Gauss-8 cartridges for some extra funny.
+uplink-he1sg8-bundle-desc = High Energy One-Shell rifle bundle. Comes with 6 demolishing rounds, 8 rending rounds, and 5 hypercharged Gauss-8 cartridges for some extra funny.
 
 # Ammo
 
