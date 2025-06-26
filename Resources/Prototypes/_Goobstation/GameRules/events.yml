@@ -29,6 +29,8 @@
   parent: BaseGameRule
   id: DerelictCyborgSyndicateSpawn
   components:
+  - type: GameRule
+    chaosScore: 150
   - type: StationEvent
     weight: 6 # Rare, but not AS rare
     earliestStart: 15
