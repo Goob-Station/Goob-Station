@@ -284,6 +284,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
   - Stackable Crimes: Crimes are to be considered 'stackable' in the sense that if you charge someone with two or more different crimes, you should combine the times you would give them for each crime.
 
+  [bold]Tourists without a job assignment are considered to be committing Secure Trespass if they enter any restricted area not covered by their access level. Occasional exceptions may apply for public medical zones such as waiting rooms or the lobby.[/bold]
+
   [bold]Any total brig time that adds up to above 10 minutes will be shortened to meet this limit.[/bold]
 
   [bold]Perma may be given to exceptionally problematic crewmembers within reason, even if the maximum crime does not allow for perma.[/bold]
@@ -812,7 +814,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        TTo enter a secured area without permission
+        To enter a secured area without permission
       </Box>
     </ColorBox>
     <ColorBox>
