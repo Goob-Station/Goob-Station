@@ -29,7 +29,7 @@
 - type: loadout
   id: WhiteCap
   equipment:
-    head: ClothingHeadHatWhitesoft
+    head: ClothingHeadHatMimesoft
 
 - type: loadout
   id: PurpleCap

@@ -79,6 +79,9 @@
         - Sheet
         - RawMaterial
         - Ingot
+  - type: Access
+    tags:
+    - Maintenance
 
 - type: entity
   id: CargoTechFab
@@ -140,6 +143,9 @@
         - Sheet
         - RawMaterial
         - Ingot
+  - type: Access
+    tags:
+    - Maintenance
 
 - type: entity
   id: ScienceTechFab
@@ -219,6 +225,7 @@
         - RawMaterial
         - Ingot
 
+
 - type: entity
   id: ServiceTechFab
   parent: [BaseLatheLube, BaseSiloUtilizer]
@@ -272,3 +279,6 @@
         - Sheet
         - RawMaterial
         - Ingot
+  - type: Access
+    tags:
+    - Maintenance

@@ -767,6 +767,9 @@
         - Sheet
         - RawMaterial
         - Ingot
+  - type: Access # goob
+    tags:
+    - Maintenance
 
 - type: entity
   id: AmmoTechFab
@@ -806,6 +809,9 @@
           - Sheet
           - RawMaterial
           - Ingot
+    - type: Access #goob
+      tags:
+      - Maintenance
 
 - type: entity
   id: MedicalTechFab
@@ -863,6 +869,9 @@
     - SyndicateCatridgesStatic
   - type: StealTarget
     stealGroup: MedicalTechFabCircuitboard
+  - type: Access #goob
+    tags:
+    - Maintenance
 
 - type: entity
   parent: BaseLathe

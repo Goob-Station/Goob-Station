@@ -132,7 +132,7 @@
   components:
   - type: SpawnPoint
     job_id: Tourist
-  - type: Sprite
+  - type: Sprite # GOOB
     layers:
       - state: green
       - state: tourist
