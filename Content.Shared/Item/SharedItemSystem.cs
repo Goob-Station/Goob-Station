@@ -349,7 +349,7 @@ public abstract class SharedItemSystem : EntitySystem
                 // Set the deactivated size to the default item's size before it gets changed.
                 itemToggleSize.DeactivatedSize ??= item.Size;
                 Dirty(uid, itemToggleSize);
-                SetSize(uid, (ProtoId<ItemSizePrototype>) itemToggleSize.ActivatedSize, item);
+                SetSize(uid, (ProtoId<ItemSizePrototype>)itemToggleSize.ActivatedSize, item);
             }
         }
         else
@@ -361,35 +361,47 @@ public abstract class SharedItemSystem : EntitySystem
 
             if (itemToggleSize.DeactivatedSize != null)
             {
-                SetSize(uid, (ProtoId<ItemSizePrototype>) itemToggleSize.DeactivatedSize, item);
+                SetSize(uid, (ProtoId<ItemSizePrototype>)itemToggleSize.DeactivatedSize, item);
             }
         }
 
-        if (Container.TryGetContainingContainer((uid, null, null), out var container)) // Goobstation - reinsert item in storage because size changed
+        if (Container.TryGetContainingContainer((uid, null, null), out var container) &&
+            !_handsSystem.IsHolding(container.Owner, uid)) // Funkystation - Don't move items in hands.
         {
-            if (TryComp(container.Owner, out StorageComponent? storage))
+            // Funkystation - Check if the item is in a pocket.
+            var wasInPocket = false;
+            if (_inventory.TryGetContainerSlotEnumerator(container.Owner, out var enumerator, SlotFlags.POCKET))
             {
-                _transform.AttachToGridOrMap(uid);
-                if (!_storage.Insert(container.Owner, uid, out _, null, storage, false))
-                    _handsSystem.PickupOrDrop(args.User, uid, animate: false);
-            }
-            else if (TryComp(container.Owner, out InventoryComponent? inventory))
-            {
-                var fitsInPockets = GetSizePrototype(item.Size) <= GetSizePrototype(InventorySystem.PocketableItemSize);
-                if (!fitsInPockets)
+                while (enumerator.NextItem(out var slotItem, out var slot))
                 {
-                    var enumerator = _inventory.GetSlotEnumerator(container.Owner, SlotFlags.POCKET);
-                    while (enumerator.NextItem(out var slotItem))
+                    if (slotItem == uid)
                     {
-                        if (slotItem != uid)
-                            continue;
+                        // Funkystation - We found it in a pocket.
+                        wasInPocket = true;
 
-                        _transform.AttachToGridOrMap(uid);
-                        _handsSystem.PickupOrDrop(args.User, uid, animate: false);
+                        if (!_inventory.CanEquip(container.Owner, uid, slot.Name, out var _, slot))
+                        {
+                            // Funkystation - It no longer fits, so try to hand it to whoever toggled it.
+                            _transform.AttachToGridOrMap(uid);
+                            _handsSystem.PickupOrDrop(args.User, uid, animate: true);
+                        }
                         break;
                     }
                 }
             }
+
+            if (!wasInPocket && TryComp(container.Owner,
+                out StorageComponent? storage)) // Goobstation - reinsert item in storage because size changed
+            {
+                _transform.AttachToGridOrMap(uid);
+                if (!_storage.Insert(container.Owner, uid, out _, null, storage, false))
+                {
+                    // Funkystation - It didn't fit, so try to hand it to whoever toggled it.
+                    _handsSystem.PickupOrDrop(args.User, uid, animate: false);
+                }
+            }
         }
+
+        Dirty(uid, item);
     }
 }
