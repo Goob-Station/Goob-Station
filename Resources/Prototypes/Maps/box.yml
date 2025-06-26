@@ -88,7 +88,7 @@
 
 - type: gameMap
   id: Box
-  mapName: 'Box Station'
+  mapName: 'Бокс'
   mapPath: /Maps/_Goobstation/box.yml # Goobstation
   minPlayers: 30 # Goobstation return minPlayers requirement for maps
   maxPlayers: 85 # Goobstation - Limit mappool to highpop versions of maps only
@@ -97,7 +97,7 @@
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Box Station {1}'
+          mapNameTemplate: '{0} Станція Бокс {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: 'TG'

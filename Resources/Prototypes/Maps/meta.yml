@@ -84,7 +84,7 @@
 
 - type: gameMap
   id: Meta
-  mapName: 'Meta Station'
+  mapName: 'Мета'
   mapPath: /Maps/_Goobstation/meta.yml # Goobstation
   minPlayers: 30 # Goobstation return minPlayers requirement for maps
   maxPlayers: 85 # Goobstation - Limit mappool to highpop versions of maps only
@@ -93,7 +93,7 @@
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Meta Station {1}'
+          mapNameTemplate: '{0} Станція Мета {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: 'TG'

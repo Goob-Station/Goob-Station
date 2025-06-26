@@ -36,7 +36,7 @@
 
 - type: gameMap
   id: FlandHighPop
-  mapName: 'Fland Installation'
+  mapName: 'Установка Фланд'
   mapPath: /Maps/_Goobstation/fland.yml
   minPlayers: 85
   stations:
@@ -44,7 +44,7 @@
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Fland Installation {1}'
+          mapNameTemplate: '{0} Установка Фланд {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: 'B'

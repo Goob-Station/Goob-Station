@@ -95,7 +95,7 @@
 
 - type: gameMap
   id: Train
-  mapName: 'Train'
+  mapName: 'Потяг'
   mapPath: /Maps/_Goobstation/train.yml
   maxRandomOffset: 0
   randomRotation: false
@@ -106,7 +106,7 @@
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Train "Sentipode" {0}-{1}'
+          mapNameTemplate: 'Потяг "Sentipode" {0}-{1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: 'ED'

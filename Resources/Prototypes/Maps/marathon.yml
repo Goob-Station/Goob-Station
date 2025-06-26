@@ -35,7 +35,7 @@
 
 - type: gameMap
   id: Marathon
-  mapName: 'Marathon Station'
+  mapName: 'Марафон'
   mapPath: /Maps/_Goobstation/marathon.yml # Goobstation
   minPlayers: 35
   maxPlayers: 70
@@ -44,7 +44,7 @@
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Marathon Station {1}'
+          mapNameTemplate: '{0} Станція Марафон {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'

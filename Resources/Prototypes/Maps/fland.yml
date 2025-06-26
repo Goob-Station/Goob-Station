@@ -43,7 +43,7 @@
 
 - type: gameMap
   id: Fland
-  mapName: 'Fland Installation'
+  mapName: 'Фланд'
   mapPath: /Maps/_Goobstation/fland.yml # Goobstation - SM
   minPlayers: 40 # Goobstation return minPlayers requirement for maps
   maxPlayers: 85 # Goobstation - Limit mappool to highpop versions of maps only
@@ -52,7 +52,7 @@
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Fland Installation {1}'
+          mapNameTemplate: '{0} Фланд {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: 'B'
