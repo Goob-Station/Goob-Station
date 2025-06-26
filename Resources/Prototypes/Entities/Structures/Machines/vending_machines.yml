@@ -1802,7 +1802,7 @@
     - MiningCrusher
     - MiningExtraction
     #- MiningResonator
-    #- MiningSurvival
+    - MiningSurvival
     #- MiningDrone
     - MiningConscription
   - type: Wires # DeltaV: Use shop vendor wires layout
