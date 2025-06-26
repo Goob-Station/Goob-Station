@@ -1587,6 +1587,8 @@
   - type: Rotatable
     rotateWhileAnchored: false
     rotateWhilePulling: true
+  - type: AccessReader
+    access: [["Maintenance"]] # goobstation
 
 - type: entity
   parent: VendingMachine
@@ -1668,6 +1670,8 @@
   - type: Rotatable
     rotateWhileAnchored: false
     rotateWhilePulling: true
+  - type: AccessReader
+    access: [["Maintenance"]] # goobstation
   - type: Tag
     tags:
     - DroneUsable # Goobstation

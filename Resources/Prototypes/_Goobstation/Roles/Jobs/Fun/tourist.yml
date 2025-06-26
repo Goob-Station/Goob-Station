@@ -22,9 +22,7 @@
     belt: ClothingBeltStorageWaistbag
     ears: ClothingHeadsetGrey
   inhand:
-    DrinkMartiniGlass
+    - DrinkMartiniGlass
   storage:
-   back:
-    SpaceCash:
-       min: 1000
-       max: 3000
+    back:
+      - SpaceCash2500

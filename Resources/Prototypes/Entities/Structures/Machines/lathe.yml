@@ -767,10 +767,9 @@
         - Sheet
         - RawMaterial
         - Ingot
-  - type: Access # goob
-    tags:
-    - Maintenance
-
+  - type: AccessReader
+    access: [["Maintenance"]] # goobstation
+    
 - type: entity
   id: AmmoTechFab
   parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
@@ -809,9 +808,8 @@
           - Sheet
           - RawMaterial
           - Ingot
-    - type: Access #goob
-      tags:
-      - Maintenance
+    - type: AccessReader
+      access: [["Maintenance"]] # goobstation
 
 - type: entity
   id: MedicalTechFab
@@ -869,9 +867,8 @@
     - SyndicateCatridgesStatic
   - type: StealTarget
     stealGroup: MedicalTechFabCircuitboard
-  - type: Access #goob
-    tags:
-    - Maintenance
+  - type: AccessReader
+    access: [["Maintenance"]] # goobstation
 
 - type: entity
   parent: BaseLathe
