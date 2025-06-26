@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
 using Content.Server.Body.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
@@ -55,12 +61,11 @@ public sealed class TourniquetSystem : EntitySystem
 
     private bool TryTourniquet(EntityUid target, EntityUid user, EntityUid tourniquetEnt, TourniquetComponent tourniquet)
     {
-        if (!TryComp<TargetingComponent>(user, out var targeting))
+        if (!TryComp<TargetingComponent>(user, out var targeting)
+            || !HasComp<BodyComponent>(user)
+            || !HasComp<ConsciousnessComponent>(user)) // To prevent people from tourniqueting simple mobs
             return false;
 
-        // To prevent people from tourniqueting simple mobs
-        if (!HasComp<BodyComponent>(target) || !HasComp<ConsciousnessComponent>(target))
-            return false;
 
         var (partType, _) = _body.ConvertTargetBodyPart(targeting.Target);
         if (tourniquet.BlockedBodyParts.Contains(partType))
@@ -69,11 +74,17 @@ public sealed class TourniquetSystem : EntitySystem
             return false;
         }
 
-        _popup.PopupEntity(Loc.GetString("puts-on-a-tourniquet", ("user", user), ("target", target)), target, PopupType.Medium);
+        _popup.PopupEntity(Loc.GetString("puts-on-a-tourniquet", ("user", user), ("part", partType)), target, PopupType.Medium);
         _audio.PlayPvs(tourniquet.TourniquetPutOnSound, target, AudioParams.Default.WithVariation(0.125f).WithVolume(1f));
 
         var doAfterEventArgs =
-            new DoAfterArgs(EntityManager, user, tourniquet.Delay, new TourniquetDoAfterEvent(), target, target: target, used: tourniquetEnt)
+            new DoAfterArgs(EntityManager,
+                user,
+                tourniquet.Delay,
+                new TourniquetDoAfterEvent(),
+                target,
+                target: target,
+                used: tourniquetEnt)
             {
                 BreakOnDamage = true,
                 NeedHand = true,
@@ -87,7 +98,11 @@ public sealed class TourniquetSystem : EntitySystem
 
     private void TakeOffTourniquet(EntityUid target, EntityUid user, EntityUid tourniquetEnt, TourniquetComponent tourniquet)
     {
-        _popup.PopupEntity(Loc.GetString("takes-off-a-tourniquet", ("user", user), ("part", tourniquet.BodyPartTorniqueted!)), target, PopupType.Medium);
+        _popup.PopupEntity(Loc.GetString("takes-off-a-tourniquet",
+            ("user", user),
+            ("part", tourniquet.BodyPartTorniqueted!)),
+            target,
+            PopupType.Medium);
         _audio.PlayPvs(tourniquet.TourniquetPutOffSound, target, AudioParams.Default.WithVariation(0.125f).WithVolume(1f));
 
         var doAfterEventArgs =
@@ -113,7 +128,9 @@ public sealed class TourniquetSystem : EntitySystem
 
     private void OnTourniquetAfterInteract(Entity<TourniquetComponent> ent, ref AfterInteractEvent args)
     {
-        if (args.Handled || !args.CanReach || args.Target == null)
+        if (args.Handled
+            || !args.CanReach
+            || args.Target == null)
             return;
 
         if (TryTourniquet(args.Target.Value, args.User, ent, ent))
@@ -150,18 +167,20 @@ public sealed class TourniquetSystem : EntitySystem
                 if (!bodyPart.Component.Children
                         .Any(bodyPartSlot =>
                             bodyPartSlot.Value.Type == partType && bodyPartSlot.Value.Symmetry == symmetry))
+                    continue;
+
                 tourniquetable = bodyPart.Id;
                 break;
             }
 
             if (tourniquetable == EntityUid.Invalid)
             {
-                _popup.PopupEntity(Loc.GetString("does-not-exist-rebell"), ent, args.User, PopupType.MediumCaution);
+                _popup.PopupEntity(Loc.GetString("missing-body-part"), ent, args.User, PopupType.MediumCaution);
                 return;
             }
 
             var tourniquetableWounds = new List<Entity<WoundComponent, TourniquetableComponent>>();
-            
+
             foreach (var woundEnt in _wound.GetWoundableWounds(tourniquetable))
             {
                 if (!TryComp<TourniquetableComponent>(woundEnt, out var tourniquetableComp))
@@ -171,9 +190,10 @@ public sealed class TourniquetSystem : EntitySystem
                     tourniquetableWounds.Add((woundEnt.Owner, woundEnt.Comp, tourniquetableComp));
             }
 
-            if (tourniquetableWounds.Count <= 0 || !_container.Insert(args.Used.Value, container))
+            if (tourniquetableWounds.Count <= 0
+               || !_container.Insert(args.Used.Value, container))
             {
-                _popup.PopupEntity(Loc.GetString("cant-tourniquet"), ent, PopupType.Medium);
+                _popup.PopupEntity(Loc.GetString("no-wounds-tourniquet"), ent, PopupType.Medium);
                 return;
             }
 
