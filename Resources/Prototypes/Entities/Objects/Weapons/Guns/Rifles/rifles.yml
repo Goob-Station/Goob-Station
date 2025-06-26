@@ -292,10 +292,10 @@
   - type: Appearance
 
 - type: entity
-  name: Estoc DMR
+  name: Estoc # goob
   parent: [BaseWeaponRifle, BaseSyndicateContraband]
   id: WeaponRifleEstoc
-  description: A designated marksman rifle, favored for medium-to-long range engagements. Uses .20 rifle ammo.
+  description: A designated assault rifle with a scope, favored for medium-to-long range engagements. Uses .20 rifle ammo. # goob
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Rifles/estoc.rsi
@@ -319,7 +319,7 @@
     burstFireRate: 14
   - type: GunWieldBonus
     minAngle: -28
-    maxAngle: -25
+    maxAngle: -33 # goob
   - type: ItemSlots
     slots:
       gun_magazine:

@@ -330,7 +330,7 @@
   - UplinkWeaponry
 
 - type: listing
-  id: UplinkEstocBundle
+  id: UplinkEstoc # goob unbundle
   name: uplink-estoc-name # goob unbundle
   description: uplink-estoc-desc # goob unbundle
   icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/estoc.rsi, state: icon }

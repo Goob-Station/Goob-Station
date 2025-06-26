@@ -112,8 +112,8 @@ uplink-l6-saw-desc = More dakka: The iconic L6 light machine gun.
 uplink-m90-name = M-90
 uplink-m90-desc = An M-90 combat rifle.
 
-uplink-estoc-name = Estoc DMR
-uplink-estoc-desc = A designated marksman rifle, fitted with a mid-range optic for longer-range combat.
+uplink-estoc-name = Estoc
+uplink-estoc-desc = A designated assault rifle, fitted with a mid-range optic for longer-range combat.
 
 uplink-syndicate-disabler-name = Syndicate Disabler
 uplink-syndicate-disabler-desc = An advanced disabler built from a reverse-engineered Nanotrasen prototype. While it lacks a bit of stopping power, it makes up for it with a recharging cell.
