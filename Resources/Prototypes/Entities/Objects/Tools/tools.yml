@@ -590,7 +590,7 @@
   id: RCDRecharging
   parent: RCD
   name: experimental RCD
-  description: Cyborg-mounted Rapid Construction Device which creates compressed matter on the fly using an internal fabricator.
+  description: A bluespace-enhanced rapid construction device that passively generates its own compressed matter.
   suffix: AutoRecharge
   components:
   - type: LimitedCharges

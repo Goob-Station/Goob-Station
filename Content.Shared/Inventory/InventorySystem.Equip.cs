@@ -648,7 +648,7 @@ public abstract partial class InventorySystem
         RaiseLocalEvent(itemUid, itemAttemptEvent, true);
         if (itemAttemptEvent.Cancelled)
         {
-            reason = itemAttemptEvent.Reason ?? reason;
+            reason = attemptEvent.Reason ?? reason;
             return false;
         }
 

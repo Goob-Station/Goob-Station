@@ -7,7 +7,7 @@
         - to: revolutionaryManifesto
           steps:
             - tag: Book
-              name: construction-graph-tag-book
+              name: book
               icon:
                 sprite: Objects/Misc/books.rsi
                 state: cover_base

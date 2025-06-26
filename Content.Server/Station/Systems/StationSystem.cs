@@ -125,7 +125,7 @@ namespace Content.Server.Station.Systems;
 /// For jobs, look at StationJobSystem. For spawning, look at StationSpawningSystem.
 /// </summary>
 [PublicAPI]
-public sealed partial class StationSystem : SharedStationSystem
+public sealed class StationSystem : EntitySystem
 {
     [Dependency] private readonly ILogManager _logManager = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
@@ -146,8 +146,6 @@ public sealed partial class StationSystem : SharedStationSystem
     /// <inheritdoc/>
     public override void Initialize()
     {
-        base.Initialize();
-
         _sawmill = _logManager.GetSawmill("station");
 
         _gridQuery = GetEntityQuery<MapGridComponent>();
@@ -159,9 +157,6 @@ public sealed partial class StationSystem : SharedStationSystem
         SubscribeLocalEvent<StationDataComponent, ComponentShutdown>(OnStationDeleted);
         SubscribeLocalEvent<StationMemberComponent, ComponentShutdown>(OnStationGridDeleted);
         SubscribeLocalEvent<StationMemberComponent, PostGridSplitEvent>(OnStationSplitEvent);
-
-        SubscribeLocalEvent<StationGridAddedEvent>(OnStationGridAdded);
-        SubscribeLocalEvent<StationGridRemovedEvent>(OnStationGridRemoved);
 
         _player.PlayerStatusChanged += OnPlayerStatusChanged;
     }
@@ -193,18 +188,6 @@ public sealed partial class StationSystem : SharedStationSystem
         }
     }
 
-    private void UpdateTrackersOnGrid(EntityUid gridId, EntityUid? station)
-    {
-        var query = EntityQueryEnumerator<StationTrackerComponent, TransformComponent>();
-        while (query.MoveNext(out var uid, out var tracker, out var xform))
-        {
-            if (xform.GridUid == gridId)
-            {
-                SetStation((uid, tracker), station);
-            }
-        }
-    }
-
     #region Event handlers
 
     private void OnStationAdd(EntityUid uid, StationDataComponent component, ComponentStartup args)
@@ -222,9 +205,6 @@ public sealed partial class StationSystem : SharedStationSystem
         foreach (var grid in component.Grids)
         {
             RemComp<StationMemberComponent>(grid);
-
-            // If the station gets deleted, we raise the event for every grid that was a part of it
-            RaiseLocalEvent(new StationGridRemovedEvent(grid, uid));
         }
 
         RaiseNetworkEvent(new StationsUpdatedEvent(GetStationNames()), Filter.Broadcast());
@@ -275,18 +255,6 @@ public sealed partial class StationSystem : SharedStationSystem
         {
             QueueDel(station);
         }
-    }
-
-    private void OnStationGridAdded(StationGridAddedEvent ev)
-    {
-        // When a grid is added to a station, update all trackers on that grid
-        UpdateTrackersOnGrid(ev.GridId, ev.Station);
-    }
-
-    private void OnStationGridRemoved(StationGridRemovedEvent ev)
-    {
-        // When a grid is removed from a station, update all trackers on that grid to null
-        UpdateTrackersOnGrid(ev.GridId, null);
     }
 
     #endregion Event handlers
@@ -483,7 +451,7 @@ public sealed partial class StationSystem : SharedStationSystem
         stationMember.Station = station;
         stationData.Grids.Add(mapGrid);
 
-        RaiseLocalEvent(station, new StationGridAddedEvent(mapGrid, station, false), true);
+        RaiseLocalEvent(station, new StationGridAddedEvent(mapGrid, false), true);
 
         _sawmill.Info($"Adding grid {mapGrid} to station {Name(station)} ({station})");
     }
@@ -506,7 +474,7 @@ public sealed partial class StationSystem : SharedStationSystem
         RemComp<StationMemberComponent>(mapGrid);
         stationData.Grids.Remove(mapGrid);
 
-        RaiseLocalEvent(station, new StationGridRemovedEvent(mapGrid, station), true);
+        RaiseLocalEvent(station, new StationGridRemovedEvent(mapGrid), true);
         _sawmill.Info($"Removing grid {mapGrid} from station {Name(station)} ({station})");
     }
 
@@ -700,20 +668,14 @@ public sealed class StationGridAddedEvent : EntityEventArgs
     public EntityUid GridId;
 
     /// <summary>
-    /// EntityUid of the station this grid was added to.
-    /// </summary>
-    public EntityUid Station;
-
-    /// <summary>
     /// Indicates that the event was fired during station setup,
     /// so that it can be ignored if StationInitializedEvent was already handled.
     /// </summary>
     public bool IsSetup;
 
-    public StationGridAddedEvent(EntityUid gridId, EntityUid station, bool isSetup)
+    public StationGridAddedEvent(EntityUid gridId, bool isSetup)
     {
         GridId = gridId;
-        Station = station;
         IsSetup = isSetup;
     }
 }
@@ -729,15 +691,9 @@ public sealed class StationGridRemovedEvent : EntityEventArgs
     /// </summary>
     public EntityUid GridId;
 
-    /// <summary>
-    /// EntityUid of the station this grid was added to.
-    /// </summary>
-    public EntityUid Station;
-
-    public StationGridRemovedEvent(EntityUid gridId, EntityUid station)
+    public StationGridRemovedEvent(EntityUid gridId)
     {
         GridId = gridId;
-        Station = station;
     }
 }
 

@@ -141,5 +141,8 @@
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: security
+  - type: Tag
+    tags:
+    - ContrabandDetectorCircuitboard
   - type: StaticPrice
     price: 25

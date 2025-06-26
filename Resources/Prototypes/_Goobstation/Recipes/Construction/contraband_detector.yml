@@ -9,8 +9,13 @@
 
 - type: construction
   id: ContrabandDetector
+  name: contraband detector
+  description: A security device that scans for contraband items.
   graph: ContrabandDetector
   category: construction-category-machines
+  icon:
+    sprite: _Goobstation/Structures/Machines/contraband_detector.rsi
+    state: frame
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false

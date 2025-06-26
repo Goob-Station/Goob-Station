@@ -183,7 +183,7 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
     baseSprintSpeed: 5
-    baseWeightlessModifier: 1.5
+    weightlessModifier: 1.5
   - type: RandomSprite
     available:
     - enum.DamageStateVisualLayers.Base:
@@ -283,7 +283,7 @@
     foodPreference: Humanoid
     shouldStoreDevoured: true
     chemical: Ichor
-    healRate: 7.5
+    healRate: 15.0
     whitelist:
       components:
       - MobState

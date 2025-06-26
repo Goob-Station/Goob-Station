@@ -7,9 +7,7 @@
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Martynas6ha4 <martynashagriefer@gmail.com>
-# SPDX-FileCopyrightText: 2025 Vrilly <tnjans@outlook.de>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
-# SPDX-FileCopyrightText: 2025 john git <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -95,48 +93,3 @@
   components:
   - type: Flatpack
     entity: MachinePowerTransmissionLaser
-
-- type: entity
-  parent: BaseFlatpack
-  id: ComputerFundingAllocationFlatpack
-  name: funding allocation computer flatpack
-  description: A flatpack used for constructing a funding allocation computer
-  components:
-  - type: Flatpack
-    entity: ComputerFundingAllocation
-
-- type: entity
-  parent: BaseFlatpack
-  id: ComputerCargoRequestServiceFlatpack
-  name: service request computer flatpack
-  description: A flatpack used for constructing a service request computer
-  components:
-  - type: Flatpack
-    entity: ComputerCargoOrdersService
-
-- type: entity
-  parent: BaseFlatpack
-  id: ComputerCargoRequestMedicalFlatpack
-  name: medical request computer flatpack
-  description: A flatpack used for constructing a medical request computer
-  components:
-  - type: Flatpack
-    entity: ComputerCargoOrdersMedical
-
-- type: entity
-  parent: BaseFlatpack
-  id: ComputerCargoRequestScienceFlatpack
-  name: science request computer flatpack
-  description: A flatpack used for constructing a science request computer
-  components:
-  - type: Flatpack
-    entity: ComputerCargoOrdersScience
-
-- type: entity
-  parent: BaseFlatpack
-  id: ComputerCargoRequestSecurityFlatpack
-  name: security request computer flatpack
-  description: A flatpack used for constructing a security request computer
-  components:
-  - type: Flatpack
-    entity: ComputerCargoOrdersSecurity

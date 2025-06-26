@@ -105,7 +105,6 @@ using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Random;
 using Content.Shared.Verbs;
 using Robust.Shared.Utility;
-using Content.Shared.Hands.Components;
 
 namespace Content.Server.Forensics
 {
@@ -119,7 +118,7 @@ namespace Content.Server.Forensics
 
         public override void Initialize()
         {
-            SubscribeLocalEvent<HandsComponent, ContactInteractionEvent>(OnInteract);
+            SubscribeLocalEvent<FingerprintComponent, ContactInteractionEvent>(OnInteract);
             SubscribeLocalEvent<FingerprintComponent, MapInitEvent>(OnFingerprintInit, after: new[] { typeof(BloodstreamSystem) });
             // The solution entities are spawned on MapInit as well, so we have to wait for that to be able to set the DNA in the bloodstream correctly without ResolveSolution failing
             SubscribeLocalEvent<DnaComponent, MapInitEvent>(OnDNAInit, after: new[] { typeof(BloodstreamSystem) });
@@ -147,7 +146,7 @@ namespace Content.Server.Forensics
             }
         }
 
-        private void OnInteract(EntityUid uid, HandsComponent component, ContactInteractionEvent args)
+        private void OnInteract(EntityUid uid, FingerprintComponent component, ContactInteractionEvent args)
         {
             ApplyEvidence(uid, args.Other);
         }

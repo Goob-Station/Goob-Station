@@ -154,11 +154,6 @@
     jumpsuit: ClothingUniformJumpskirtSecGrey
 
 - type: loadout
-  id: SecuritySummerJumpsuit
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitSecSummer
-
-- type: loadout
   id: TrooperUniform
   equipment:
     jumpsuit: ClothingUniformSecurityTrooper
@@ -236,7 +231,7 @@
 - type: loadout
   id: SecurityWinterBoots
   equipment:
-    shoes: ClothingShoesWinterCombatBoots # Goobstation
+    shoes: ClothingShoesBootsWinterSec # Goobstation
 
 # PDA
 - type: loadout

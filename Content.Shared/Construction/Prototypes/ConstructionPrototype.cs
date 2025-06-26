@@ -34,6 +34,8 @@
 using Content.Shared.Construction.Conditions;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Utility;
 
 namespace Content.Shared.Construction.Prototypes;
 
@@ -45,57 +47,65 @@ public sealed partial class ConstructionPrototype : IPrototype
     /// <summary>
     ///     Hide from the construction list
     /// </summary>
-    [DataField]
+    [DataField("hide")]
     public bool Hide = false;
 
     /// <summary>
     ///     Friendly name displayed in the construction GUI.
     /// </summary>
     [DataField("name")]
-    public LocId? SetName;
-
-    public string? Name;
+    public string Name = string.Empty;
 
     /// <summary>
     ///     "Useful" description displayed in the construction GUI.
     /// </summary>
     [DataField("description")]
-    public LocId? SetDescription;
-
-    public string? Description;
+    public string Description = string.Empty;
 
     /// <summary>
     ///     The <see cref="ConstructionGraphPrototype"/> this construction will be using.
     /// </summary>
-    [DataField(required: true)]
-    public ProtoId<ConstructionGraphPrototype> Graph { get; private set; } = string.Empty;
+    [DataField("graph", customTypeSerializer: typeof(PrototypeIdSerializer<ConstructionGraphPrototype>), required: true)]
+    public string Graph = string.Empty;
 
     /// <summary>
     ///     The target <see cref="ConstructionGraphNode"/> this construction will guide the user to.
     /// </summary>
-    [DataField(required: true)]
-    public string TargetNode { get; private set; } = default!;
+    [DataField("targetNode")]
+    public string TargetNode = string.Empty;
 
     /// <summary>
     ///     The starting <see cref="ConstructionGraphNode"/> this construction will start at.
     /// </summary>
-    [DataField(required: true)]
-    public string StartNode { get; private set; } = default!;
+    [DataField("startNode")]
+    public string StartNode = string.Empty;
+
+    /// <summary>
+    ///     Texture path inside the construction GUI.
+    /// </summary>
+    [DataField("icon")]
+    public SpriteSpecifier Icon = SpriteSpecifier.Invalid;
+
+    /// <summary>
+    ///     Texture paths used for the construction ghost.
+    /// </summary>
+    [DataField("layers")]
+    private List<SpriteSpecifier>? _layers;
 
     /// <summary>
     ///     If you can start building or complete steps on impassable terrain.
     /// </summary>
-    [DataField]
+    [DataField("canBuildInImpassable")]
     public bool CanBuildInImpassable { get; private set; }
 
     /// <summary>
     /// If not null, then this is used to check if the entity trying to construct this is whitelisted.
     /// If they're not whitelisted, hide the item.
     /// </summary>
-    [DataField]
-    public EntityWhitelist? EntityWhitelist { get; private set; }
+    [DataField("entityWhitelist")]
+    public EntityWhitelist? EntityWhitelist = null;
 
-    [DataField] public string Category { get; private set; } = string.Empty;
+    [DataField("category")] public string Category { get; private set; } = "";
 
     [DataField("objectType")] public ConstructionType Type { get; private set; } = ConstructionType.Structure;
 
@@ -103,22 +113,23 @@ public sealed partial class ConstructionPrototype : IPrototype
     [IdDataField]
     public string ID { get; private set; } = default!;
 
-    [DataField]
+    [DataField("placementMode")]
     public string PlacementMode = "PlaceFree";
 
     /// <summary>
     ///     Whether this construction can be constructed rotated or not.
     /// </summary>
-    [DataField]
+    [DataField("canRotate")]
     public bool CanRotate = true;
 
     /// <summary>
     ///     Construction to replace this construction with when the current one is 'flipped'
     /// </summary>
-    [DataField]
-    public ProtoId<ConstructionPrototype>? Mirror { get; private set; }
+    [DataField("mirror", customTypeSerializer: typeof(PrototypeIdSerializer<ConstructionPrototype>))]
+    public string? Mirror;
 
     public IReadOnlyList<IConstructionCondition> Conditions => _conditions;
+    public IReadOnlyList<SpriteSpecifier> Layers => _layers ?? new List<SpriteSpecifier> { Icon };
 }
 
 public enum ConstructionType

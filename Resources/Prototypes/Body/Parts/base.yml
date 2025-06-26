@@ -22,12 +22,6 @@
   id: BasePartInorganic
   name: "body part"
   components:
-  - type: Sprite
-    sprite: Mobs/Species/Human/parts.rsi
-    enableOverrideDir: true
-    overrideDir: North
-  - type: ThrowingAngle # We add this so that throwing things doesn't make them freak the fuck out by automatically deciding directions.
-    angle: 90
   - type: Icon
     sprite: Mobs/Species/Human/parts.rsi
   - type: Damageable

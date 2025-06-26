@@ -88,6 +88,5 @@
     checkCanInteract: true
     event: !type:ProjectileSpellEvent
       prototype: ProjectileWaveRust
+      speech: heretic-speech-rust-wave
       speed: 2.8
-  - type: SpeakOnAction
-    sentence: heretic-speech-rust-wave

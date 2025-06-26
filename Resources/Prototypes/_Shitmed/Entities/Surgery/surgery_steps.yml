@@ -1,17 +1,16 @@
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Janet Blackquill <uhhadd@gmail.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  abstract: true
   id: SurgeryStepBase
+  abstract: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: SurgeryStep
 
@@ -19,6 +18,7 @@
   parent: SurgeryStepBase
   id: SurgeryStepOpenIncisionScalpel
   name: Cut with a scalpel
+  categories: [ HideSpawnMenu ]
   components:
   - type: SurgeryStep
     tool:
@@ -44,6 +44,7 @@
   parent: SurgeryStepBase
   id: SurgeryStepClampBleeders
   name: Clamp the bleeders
+  categories: [ HideSpawnMenu ]
   components:
   - type: SurgeryStep
     tool:
@@ -62,6 +63,7 @@
   parent: SurgeryStepBase
   id: SurgeryStepCloseBloodOutputs
   name: Stitch up destroyed tissues
+  categories: [ HideSpawnMenu ]
   components:
   - type: SurgeryStep
     tool:
@@ -82,6 +84,7 @@
   parent: SurgeryStepBase
   id: SurgeryStepRetractSkin
   name: Retract the skin
+  categories: [ HideSpawnMenu ]
   components:
   - type: SurgeryStep
     tool:
@@ -97,6 +100,7 @@
   parent: SurgeryStepBase
   id: SurgeryStepRemoveSeveredSkin
   name: Remove the dead skin
+  categories: [ HideSpawnMenu ]
   components:
   - type: SurgeryStep
     tool:
@@ -116,6 +120,7 @@
   parent: SurgeryStepBase
   id: SurgeryStepSawBones
   name: Saw through bones
+  categories: [ HideSpawnMenu ]
   components:
   - type: SurgeryStep
     tool:
@@ -136,6 +141,7 @@
   parent: SurgeryStepBase
   id: SurgeryStepRemoveLeftoverBones
   name: Clear up bone leftovers
+  categories: [ HideSpawnMenu ]
   components:
   - type: SurgeryStep
     tool:
@@ -151,6 +157,7 @@
   parent: SurgeryStepBase
   id: SurgeryStepMendBones
   name: Mend bones
+  categories: [ HideSpawnMenu ]
   components:
   - type: SurgeryStep
     tool:
@@ -173,6 +180,7 @@
   parent: SurgeryStepBase
   id: SurgeryStepHealOrgans
   name: Heal Organs
+  categories: [ HideSpawnMenu ]
   components:
   - type: SurgeryStep
     tool:
@@ -195,6 +203,7 @@
   parent: SurgeryStepBase
   id: SurgeryStepPriseOpenBones
   name: Prise the bones open
+  categories: [ HideSpawnMenu ]
   components:
   - type: SurgeryStep
     tool:
@@ -210,6 +219,7 @@
 #  parent: SurgeryStepBase
 #  id: SurgeryStepCutLarvaRoots
 #  name: Cut larva roots
+#  categories: [ HideSpawnMenu ]
 #  components:
 #  - type: SurgeryStep
 #    skill: 2
@@ -225,6 +235,7 @@
 #  parent: SurgeryStepBase
 #  id: SurgeryStepRemoveLarva
 #  name: Remove larva
+#  categories: [ HideSpawnMenu ]
 #  components:
 #  - type: SurgeryStep
 #    skill: 2
@@ -243,6 +254,7 @@
   parent: SurgeryStepBase
   id: SurgeryStepCloseBones
   name: Close bones
+  categories: [ HideSpawnMenu ]
   components:
   - type: SurgeryStep
     tool:
@@ -258,6 +270,7 @@
   parent: SurgeryStepBase
   id: SurgeryStepMendRibcage
   name: Mend ribcage
+  categories: [ HideSpawnMenu ]
   components:
   - type: SurgeryStep
     tool:
@@ -273,6 +286,7 @@
   parent: SurgeryStepBase
   id: SurgeryStepCloseIncision
   name: Close incision
+  categories: [ HideSpawnMenu ]
   components:
   - type: SurgeryStep
     tool:
@@ -304,6 +318,7 @@
   parent: SurgeryStepBase
   id: SurgeryStepInsertFeature
   name: Insert part
+  categories: [ HideSpawnMenu ]
   components:
   - type: SurgeryStep
     tool:
@@ -318,6 +333,7 @@
   parent: SurgeryStepBase
   id: SurgeryStepSealWounds
   name: Seal wounds
+  categories: [ HideSpawnMenu ]
   components:
   - type: SurgeryStep
     tool:
@@ -348,6 +364,7 @@
   parent: SurgeryStepBase
   id: SurgeryStepSawFeature
   name: Saw through bones
+  categories: [ HideSpawnMenu ]
   components:
   - type: SurgeryStep
     tool:
@@ -368,6 +385,7 @@
   parent: SurgeryStepBase
   id: SurgeryStepClampInternalBleeders
   name: Clamp internal bleeders
+  categories: [ HideSpawnMenu ]
   components:
   - type: SurgeryStep
     tool:
@@ -388,6 +406,7 @@
   parent: SurgeryStepBase
   id: SurgeryStepRemoveFeature
   name: Amputate part
+  categories: [ HideSpawnMenu ]
   components:
   - type: SurgeryStep
     tool:
@@ -415,6 +434,7 @@
   parent: SurgeryStepBase
   id: SurgeryStepCarefulIncisionScalpel
   name: Make a careful incision
+  categories: [ HideSpawnMenu ]
   components:
   - type: SurgeryStep
     tool:
@@ -434,6 +454,7 @@
   parent: SurgeryStepBase
   id: SurgeryStepRepairBruteTissue
   name: Repair damaged tissue
+  categories: [ HideSpawnMenu ]
   components:
   - type: SurgeryStep
     tool:
@@ -445,13 +466,14 @@
   - type: SurgeryTendWoundsEffect
     damage:
       groups:
-        Brute: -15
+        Brute: -5
   - type: SurgeryRepeatableStep
 
 - type: entity
   parent: SurgeryStepBase
   id: SurgeryStepRepairBurnTissue
   name: Repair burnt tissue
+  categories: [ HideSpawnMenu ]
   components:
   - type: SurgeryStep
     tool:
@@ -464,13 +486,14 @@
     mainGroup: Burn
     damage:
       groups:
-        Burn: -20
+        Burn: -5
   - type: SurgeryRepeatableStep
 
 - type: entity
   parent: SurgeryStepBase
   id: SurgeryStepSealTendWound
   name: Seal the wound
+  categories: [ HideSpawnMenu ]
   components:
   - type: SurgeryStep
     tool:
@@ -495,6 +518,7 @@
   parent: SurgeryStepBase
   id: SurgeryStepSealDismembermentWound
   name: Stitch up the dismemberment wound
+  categories: [ HideSpawnMenu ]
   components:
   - type: SurgeryStep
     tool:
@@ -519,6 +543,7 @@
   parent: SurgeryStepBase
   id: SurgeryStepInsertItem
   name: Insert item into cavity
+  categories: [ HideSpawnMenu ]
   components:
   - type: SurgeryStep
     duration: 4
@@ -537,6 +562,7 @@
   parent: SurgeryStepBase
   id: SurgeryStepRemoveItem
   name: Remove item from cavity
+  categories: [ HideSpawnMenu ]
   components:
   - type: SurgeryStep
     duration: 4
@@ -557,6 +583,7 @@
   parent: SurgeryStepBase
   id: SurgeryStepRemoveOrgan
   name: Remove organ
+  categories: [ HideSpawnMenu ]
   components:
   - type: SurgeryStep
     tool:
@@ -576,6 +603,7 @@
   parent: SurgeryStepBase
   id: SurgeryStepInsertOrgan
   name: Add organ
+  categories: [ HideSpawnMenu ]
   components:
   - type: SurgeryStep
     tool:
@@ -595,6 +623,7 @@
   parent: SurgeryStepBase
   id: SurgeryStepOpenOrganSlot
   name: Carve out a cavity
+  categories: [ HideSpawnMenu ]
   components:
   - type: SurgeryStep
     tool:
@@ -610,6 +639,7 @@
   parent: SurgeryStepInsertOrgan
   id: SurgeryStepInsertLungs
   name: Add lungs
+  categories: [ HideSpawnMenu ]
   components:
   - type: SurgeryDamageChangeEffect
     damage:
@@ -623,6 +653,7 @@
   parent: SurgeryStepInsertOrgan
   id: SurgeryStepInsertLiver
   name: Add liver
+  categories: [ HideSpawnMenu ]
   components:
   - type: SurgeryDamageChangeEffect
     damage:
@@ -636,11 +667,13 @@
   parent: SurgeryStepInsertOrgan
   id: SurgeryStepInsertEyes
   name: Add eyes
+  categories: [ HideSpawnMenu ]
 
 - type: entity
   parent: SurgeryStepInsertOrgan
   id: SurgeryStepInsertHeart
   name: Add heart
+  categories: [ HideSpawnMenu ]
   components:
   - type: SurgerySpecialDamageChangeEffect
     damageType: Rot
@@ -651,11 +684,13 @@
   parent: SurgeryStepInsertOrgan
   id: SurgeryStepInsertStomach
   name: Add stomach
+  categories: [ HideSpawnMenu ]
 
 - type: entity
   parent: SurgeryStepBase
   id: SurgeryStepSealOrganWound
   name: Seal wounds
+  categories: [ HideSpawnMenu ]
   components:
   - type: SurgeryStep
     tool:
@@ -684,6 +719,7 @@
 #  parent: SurgeryStepBase
 #  id: SurgeryStepAddFelinidEars
 #  name: Add cat ears
+#  categories: [ HideSpawnMenu ]
 #  components:
 #  - type: SurgeryStep
 #    tool:
@@ -704,6 +740,7 @@
 #  parent: SurgeryStepBase
 #  id: SurgeryStepAddFelinidTail
 #  name: Add cat tail
+#  categories: [ HideSpawnMenu ]
 #  components:
 #  - type: SurgeryStep
 #    tool:
@@ -722,6 +759,7 @@
 #  parent: SurgeryStepBase
 #  id: SurgeryStepRemoveFelinidEars
 #  name: Remove cat ears
+#  categories: [ HideSpawnMenu ]
 #  components:
 #  - type: SurgeryStep
 #    tool:
@@ -737,6 +775,7 @@
 #  parent: SurgeryStepBase
 #  id: SurgeryStepRemoveFelinidTail
 #  name: Remove cat tail
+#  categories: [ HideSpawnMenu ]
 #  components:
 #  - type: SurgeryStep
 #    tool:
@@ -752,6 +791,7 @@
 #  parent: SurgeryStepBase
 #  id: SurgeryStepWingReconstruction
 #  name: Start wing reconstruction
+#  categories: [ HideSpawnMenu ]
 #  components:
 #  - type: SurgeryStep
 #    duration: 6 # On TG success chance is lower, so here the surgery slower

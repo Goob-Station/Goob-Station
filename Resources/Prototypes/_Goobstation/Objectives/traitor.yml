@@ -11,7 +11,6 @@
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
@@ -103,16 +102,3 @@
     stealGroup: RapidSyringeGun
   - type: Objective
     difficulty: 3 # Slightly more than normal as it does not fit into storage implant
-
-- type: entity
-  parent: BaseRDStealObjective
-  id: GeminiProjectorStealObjective
-  components:
-  - type: NotJobRequirement
-    job: ResearchDirector
-  - type: StealCondition
-    stealGroup: ClothingBeltGeminiHoloProjector
-    descriptionText: objective-condition-steal-gemini-projector-description
-  - type: Objective
-    # This bad boy is LITERALLY directly screwed into the RDs spinal cord. Good luck!
-    difficulty: 3.5
