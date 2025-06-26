@@ -43,7 +43,7 @@
 - type: loadoutGroup
   id: NanotrasenRepresentativeBackpack
   name: loadout-group-ntr-backpack
-  minLimit: 0
+  exclusiveWith: BACK
   loadouts:
   - NanotrasenRepresentativeBackpack
   - NanotrasenRepresentativeSatchel
@@ -53,7 +53,7 @@
 - type: loadoutGroup
   id: NanotrasenRepresentativeJumpsuit
   name: loadout-group-ntr-jumpsuit
-  minLimit: 0
+  exclusiveWith: INNERCLOTHING
   loadouts:
   - NanotrasenRepresentativeJumpsuit
   - NanotrasenRepresentativeJumpskirt
@@ -88,7 +88,7 @@
 - type: loadoutGroup
   id: BlueshieldOfficerBackpack
   name: loadout-group-bso-backpack
-  minLimit: 0
+  exclusiveWith: BACK
   loadouts:
   - BlueshieldOfficerBackpack
   - BlueshieldOfficerSatchel
@@ -98,7 +98,7 @@
 - type: loadoutGroup
   id: BlueshieldOfficerJumpsuit
   name: loadout-group-bso-jumpsuit
-  minLimit: 0
+  exclusiveWith: INNERCLOTHING
   loadouts:
   - BlueshieldOfficerInnerBlueshieldSuit
   - BlueshieldOfficerInnerBlueshieldSkirt
@@ -150,6 +150,7 @@
 - type: loadoutGroup
   id: NanotrasenTrainerBackpack
   name: loadout-group-nct-backpack
+  exclusiveWith: BACK
   loadouts:
   - NanotrasenTrainerSatchel
   - NanotrasenTrainerBackpack
@@ -158,6 +159,7 @@
 - type: loadoutGroup
   id: NanotrasenTrainerJumpsuit
   name: loadout-group-nct-jumpsuit
+  exclusiveWith: INNERCLOTHING
   loadouts:
   - NanotrasenTrainerJumpsuit
   - NanotrasenTrainerJumpskirt
@@ -263,6 +265,7 @@
 - type: loadoutGroup
   id: BrigmedicJumpsuit
   name: loadout-group-brigmedic-jumpsuit
+  exclusiveWith: INNERCLOTHING
   loadouts:
   - BrigmedicJumpsuit
   - BrigmedicJumpskirt
@@ -290,6 +293,7 @@
 - type: loadoutGroup
   id: BrigmedicBackpack
   name: loadout-group-brigmedic-backpack
+  exclusiveWith: BACK
   loadouts:
   - BrigmedicBackpack
   - BrigmedicSatchel
