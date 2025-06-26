@@ -66,7 +66,8 @@ public sealed class ParadoxCloneRuleSystem : GameRuleSystem<ParadoxCloneRuleComp
         {
             // get possible targets
             var allAliveHumanoids = _mind.GetAliveHumans();
-            allAliveHumanoids.RemoveWhere(t => _whitelist.IsBlacklistPass(ent.Comp.TargetBlacklist, t)); // Goobstation
+            foreach (var human in allAliveHumanoids.Where(human => _whitelist.IsBlacklistPass(ent.Comp.TargetBlacklist, human))) // Goobstation
+                allAliveHumanoids.Remove(human);
 
             // we already checked when starting the gamerule, but someone might have died since then.
             if (allAliveHumanoids.Count == 0)
