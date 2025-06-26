@@ -1,0 +1,218 @@
+- type: entity
+  name: polymer baton
+  parent: [BaseItem, BaseSecurityContraband]
+  id: PolymerBaton
+  description: A lightweight, durable baton made from advanced polymers. Delivers less-than-lethal force for compliance and control.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/polybaton.rsi
+    state: icon
+    scale: 0.9, 0.9
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Melee/polybaton.rsi
+    quickEquip: false
+    slots:
+      - belt
+  - type: MeleeWeapon
+    animationRotation: -180
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 12
+    soundHit:
+      path: /Audio/_Goobstation/Weapons/Baton/woodhit.ogg
+  - type: StaminaDamageOnHit
+    damage: 15
+  - type: MeleeThrowOnHit
+    distance: 1
+    speed: 5
+  - type: Item
+    size: Normal
+    storedRotation: -75
+    shape:
+    - 0,0,1,2
+  - type: Tag
+    tags:
+    - SecBeltEquip
+
+- type: entity
+  id: SpearTelescopic
+  parent: [BaseItem, BaseSecurityContraband]
+  name: telescopic spear
+  description: A compact, throwable spear with a retractable shaft. Designed for both melee and ranged use.
+  components:
+  - type: Item
+    size: Normal
+    storedRotation: 45
+    heldPrefix: off
+    shape:
+      - 0,0,3,0
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/telespear.rsi
+    layers:
+      - state: icon-off
+        map: [ "enum.ItemToggleVisuals.Layer" ]
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Melee/telespear.rsi
+    slots:
+      - Back
+      - suitStorage
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PolygonShape
+          vertices:
+            - -0.08,-0.06
+            - -0.06,-0.08
+            - 0.40,0.30
+            - 0.30,0.40
+        density: 20
+        mask:
+          - ItemMask
+        restitution: 0.3
+        friction: 0.2
+  - type: EmbeddableProjectile # This is goofy, but I can't make it toggleable because it tries
+    offset: -0.15,0.0 # to unstick from owned entity on component shutdown and drops out of hand
+  - type: LandAtCursor
+  - type: ThrowingAngle
+    angle: 225
+  - type: ItemToggle
+    onActivate: false
+    wieldToggle: false
+    soundActivate:
+      path: /Audio/Weapons/telescopicon.ogg
+    soundDeactivate:
+      path: /Audio/Weapons/telescopicoff.ogg
+  - type: ComponentToggler
+    components:
+      - type: Sharp
+      - type: DisarmMalus
+        malus: 0.6
+      - type: Wieldable
+        unwieldOnUse: false
+        applyNewPrefixOnShutdown: true
+        newPrefixOnShutdown: off
+      - type: DamageOtherOnHit
+        damage:
+          types:
+            Piercing: 36
+  - type: ItemToggleSize
+    activatedSize: Ginormous
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnHit:
+      path: /Audio/Weapons/bladeslice.ogg
+    activatedDamage:
+      types:
+        Piercing: 18
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Piercing: 6
+  - type: MeleeWeapon
+    canWideSwing: false
+    range: 2.2
+    animationRotation: -135
+    attackRate: 0.8
+    damage:
+      types:
+        Blunt: 5
+        Piercing: 5
+    soundHit:
+      collection: MetalThud
+  - type: Appearance
+  - type: ItemToggleVisuals
+  - type: GenericVisualizer
+    visuals:
+      enum.ItemToggleVisuals.State:
+        enum.ItemToggleVisuals.Layer:
+          True: { state: icon }
+          False: { state: icon-off }
+  - type: Tag
+    tags:
+    - SecBeltEquip
+
+- type: entity
+  id: Betty
+  parent: [BaseItem, BaseSecurityContraband]
+  name: Betty
+  description: An old intricate souvenir made from tough hyper-woven durathread repurposed for riot combat.
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Objects/Weapons/Melee/betty.rsi
+      state: icon
+    - type: DisarmMalus
+      malus: 0.5
+    - type: UseDelay
+      delay: 10
+    - type: Item
+      heldPrefix: off
+      sprite: _Goobstation/Objects/Weapons/Melee/betty.rsi
+      shape:
+      - 0,0,2,0
+      storedRotation: 45
+    - type: Sharp
+    - type: MeleeWeapon
+      animationRotation: 225
+      wideAnimationRotation: -135
+      attackRate: 0.8
+      damage:
+        types:
+          Slash: 18
+      soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+    - type: ItemSwitch
+      state: off
+      states:
+        off: !type:ItemSwitchState
+          sprite:
+            sprite: _Goobstation/Objects/Weapons/Melee/betty.rsi
+            state: icon
+          components:
+            - type: Item
+              sprite: _Goobstation/Objects/Weapons/Melee/betty.rsi
+              shape:
+              - 0,0,2,0
+              storedRotation: 45
+            - type: Sharp
+            - type: MeleeWeapon
+              animationRotation: 225
+              wideAnimationRotation: -135
+              attackRate: 0.8
+              damage:
+                types:
+                  Slash: 18
+              soundHit:
+                path: /Audio/Weapons/bladeslice.ogg
+          soundStateActivate:
+            path: /Audio/_Goobstation/Misc/umbrella.ogg
+        on: !type:ItemSwitchState
+          sprite:
+            sprite: _Goobstation/Objects/Weapons/Melee/betty.rsi
+            state: icon-on
+          components:
+            - type: HeldSpeedModifier
+              walkModifier: 0.5
+              sprintModifier: 0.5
+            - type: MeleeWeapon
+              mustBeEquippedToUse: true # This thing shouldn't be able to attack at all but setting attackRate to 0 breaks stuff
+              damage:
+                types:
+                  Blunt: 30
+              soundHit:
+                collection: TrayHit
+            - type: MeleeThrowOnHit
+              throwWhileOnDelay: true
+              distance: 3
+            - type: KnockdownOnHit
+            - type: MultiHandedItem
+            - type: StaminaDamageOnHit
+              damage: 75
+            - type: Item
+              size: Ginormous
+              sprite: _Goobstation/Objects/Weapons/Melee/betty.rsi
+              heldPrefix: on
+              storedRotation: -45
+            - type: CounterattackWeapon
+              setItemSwitch: off
+          soundStateActivate:
+            path: /Audio/_Goobstation/Misc/umbrella.ogg

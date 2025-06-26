@@ -63,6 +63,8 @@
   - 6A
   - 6B
   - 7A
+  - GenpopEnter
+  - GenpopLeave
 
 - type: accessLevel
   id: 1A
@@ -114,4 +116,3 @@
 
 - type: accessLevel
   id: 7A
-  name: id-card-access-level-7A

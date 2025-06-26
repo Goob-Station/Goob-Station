@@ -1,0 +1,4 @@
+- type: sinkPort
+  id: FillbotAnyItem # used by Fillbot
+  name: signal-port-name-fill-any-item
+  description: signal-port-description-fill-any-item

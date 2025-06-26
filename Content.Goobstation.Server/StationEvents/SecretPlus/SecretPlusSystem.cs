@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -10,6 +11,7 @@ using Content.Goobstation.Server.StationEvents.Components;
 using Content.Goobstation.Shared.StationEvents;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
+using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
 using Content.Server.StationEvents;
 using Content.Server.StationEvents.Components;
@@ -61,25 +63,33 @@ public sealed class PlayerCount
 [UsedImplicitly]
 public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly EventManagerSystem _event = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IComponentFactory _factory = default!;
+    [Dependency] private readonly IChatManager _chat = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly ILogManager _log = default!;
-    [Dependency] private readonly IChatManager _chat = default!;
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly IConfigurationManager _configManager = default!;
+    [Dependency] private readonly GameTicker _ticker = default!;
+
+    // cvars
+    private float _minimumTimeUntilFirstEvent;
 
     private ISawmill _sawmill = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-        _sawmill = _log.GetSawmill("game_rule");
+
+        _sawmill = _log.GetSawmill("secret_plus");
+
         SubscribeLocalEvent<SecretPlusComponent, EntityUnpausedEvent>(OnUnpaused);
+
+        Subs.CVar(_cfg, GoobCVars.MinimumTimeUntilFirstEvent, value => _minimumTimeUntilFirstEvent = value, true);
     }
 
     private void OnUnpaused(EntityUid uid, SecretPlusComponent component, ref EntityUnpausedEvent args)
@@ -92,6 +102,13 @@ public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
         var totalPlayers = GetTotalPlayerCount(_playerManager.Sessions);
         // set up starting chaos score
         scheduler.ChaosScore = -_random.NextFloat(scheduler.MinStartingChaos * totalPlayers, scheduler.MaxStartingChaos * totalPlayers);
+
+        // roll midroundchaos generation variation
+        var roll = _random.NextFloat();
+        roll = MathF.Pow(roll, scheduler.ChaosChangeVariationExponent);
+        // 50% chance to bias to either higher chaos or lower chaos
+        scheduler.ChaosChangeVariation = 1f + roll * ((_random.Prob(0.5f) ? scheduler.ChaosChangeVariationMin : scheduler.ChaosChangeVariationMax) - 1f);
+        LogMessage($"Using chaos change multiplier of {scheduler.ChaosChangeVariation}");
 
         TrySpawnRoundstartAntags(scheduler); // Roundstart antags need to be selected in the lobby
         if(TryComp<SelectedGameRulesComponent>(uid, out var selectedRules))
@@ -115,19 +132,21 @@ public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
         {
             SelectFromAllEvents(scheduler, count);
         }
-        LogMessage($"All possible events added");
     }
 
     private void SelectFromAllEvents(SecretPlusComponent scheduler, PlayerCount count)
     {
         foreach (var proto in GameTicker.GetAllGameRulePrototypes())
         {
-            if (!proto.TryGetComponent<GameRuleComponent>(out var gameRule, _factory) ||
-                !proto.TryGetComponent<StationEventComponent>(out var stationEvent, _factory)
+            if (!proto.TryGetComponent<GameRuleComponent>(out var gameRule, _factory)
+                || !proto.TryGetComponent<StationEventComponent>(out var stationEvent, _factory)
             )
                 continue;
 
-            if (scheduler.DisallowedEvents.Contains(stationEvent.EventType) || (!scheduler.IgnoreTimings && !_event.CanRun(proto, stationEvent, count.Players, _timing.CurTime)))
+            if (scheduler.DisallowedEvents.Contains(stationEvent.EventType)
+                || (!scheduler.IgnoreTimings
+                    && !_event.CanRun(proto, stationEvent, count.Players, _ticker.RoundDuration(), 1f / GetRamping(scheduler)))
+            )
                 continue;
 
             scheduler.SelectedEvents.Add(new SelectedEvent(proto, gameRule, stationEvent));
@@ -139,7 +158,12 @@ public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
         if (selectedRules == null)
             return;
 
-        if(!_event.TryBuildLimitedEvents(selectedRules.ScheduledGameRules, out var possibleEvents, scheduler.IgnoreTimings))
+        var available = _event.AvailableEvents(scheduler.IgnoreTimings,
+                            scheduler.IgnoreTimings ? int.MaxValue : null,
+                            scheduler.IgnoreTimings ? TimeSpan.MaxValue : null,
+                            1f / GetRamping(scheduler));
+
+        if (!_event.TryBuildLimitedEvents(selectedRules.ScheduledGameRules, available, out var possibleEvents))
             return;
 
         foreach (var entry in possibleEvents)
@@ -149,7 +173,7 @@ public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
             if (!proto.TryGetComponent<GameRuleComponent>(out var gameRule, _factory))
                 continue;
 
-            if (scheduler.DisallowedEvents.Contains(stationEvent.EventType) || (!scheduler.IgnoreTimings && !_event.CanRun(proto, stationEvent, count.Players, _timing.CurTime)))
+            if (scheduler.DisallowedEvents.Contains(stationEvent.EventType))
                 continue;
 
             scheduler.SelectedEvents.Add(new SelectedEvent(proto, gameRule, stationEvent));
@@ -162,9 +186,12 @@ public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
     protected override void ActiveTick(EntityUid uid, SecretPlusComponent scheduler, GameRuleComponent gameRule, float frameTime)
     {
         var count = CountActivePlayers();
+        var ramp = GetRamping(scheduler);
+        var speedup = _event.EventSpeedup;
+        var mult = scheduler.ChaosChangeVariation;
 
-        scheduler.ChaosScore += count.Players * scheduler.LivingChaosChange * frameTime;
-        scheduler.ChaosScore += count.Ghosts * scheduler.DeadChaosChange * frameTime;
+        scheduler.ChaosScore += count.Players * scheduler.LivingChaosChange * frameTime * ramp * speedup * mult;
+        scheduler.ChaosScore += count.Ghosts * scheduler.DeadChaosChange * frameTime * speedup * mult;
 
         var currTime = _timing.CurTime;
         if (currTime < scheduler.TimeNextEvent)
@@ -173,15 +200,16 @@ public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
         // This is the first event, add an automatic delay
         if (scheduler.TimeNextEvent == TimeSpan.Zero)
         {
-            var minimumTimeUntilFirstEvent = _configManager.GetCVar(GoobCVars.MinimumTimeUntilFirstEvent);
-            scheduler.TimeNextEvent = _timing.CurTime + TimeSpan.FromSeconds(minimumTimeUntilFirstEvent);
-            LogMessage($"Started, first event in {minimumTimeUntilFirstEvent} seconds");
+            var time = _minimumTimeUntilFirstEvent / speedup;
+            scheduler.TimeNextEvent = _timing.CurTime + TimeSpan.FromSeconds(time);
+            LogMessage($"Started, first event in {time} seconds");
             return;
         }
 
-        TimeSpan amt = TimeSpan.FromSeconds(_random.NextDouble(scheduler.EventIntervalMin.TotalSeconds, scheduler.EventIntervalMax.TotalSeconds));
+        TimeSpan amt = TimeSpan.FromSeconds(_random.NextDouble(scheduler.EventIntervalMin.TotalSeconds, scheduler.EventIntervalMax.TotalSeconds) / ramp / speedup);
         scheduler.TimeNextEvent = currTime + amt;
-        LogMessage($"Chaos score: {scheduler.ChaosScore}, Next event at: {scheduler.TimeNextEvent}");
+                                                                          // generally more useful than curTime
+        LogMessage($"Chaos score: {scheduler.ChaosScore}, Next event at: {_ticker.RoundDuration() + amt} (ramping {ramp})");
 
         if(TryComp<SelectedGameRulesComponent>(uid, out var selectedRules))
             SetupEvents(scheduler, count, selectedRules);
@@ -192,13 +220,16 @@ public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
         if (selectedEvent != null)
         {
             _event.RunNamedEvent(selectedEvent.Proto.ID);
-            scheduler.ChaosScore += selectedEvent.RuleComp.ChaosScore;
+            // nullcheck done in ChooseEvent
+            scheduler.ChaosScore += selectedEvent.RuleComp.ChaosScore!.Value;
         }
         else {
             LogMessage($"No runnable events");
         }
 
     }
+
+    private ProtoId<TagPrototype> _loneSpawnTag = "LoneRunRule";
 
     /// <summary>
     /// Tries to spawn roundstart antags at the beginning of the round.
@@ -208,20 +239,16 @@ public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
         if (scheduler.NoRoundstartAntags)
             return;
 
-        // Spawn antags based on SecretPlusComponent
         var primaryWeightList = _prototypeManager.Index(scheduler.PrimaryAntagsWeightTable);
         var weightList = _prototypeManager.Index(scheduler.RoundStartAntagsWeightTable);
 
-#if DEBUG
-        var count = _configManager.GetCVar(GoobCVars.GameDirectorDebugPlayerCount);
-#else
         var count = GetTotalPlayerCount(_playerManager.Sessions);
-#endif
+
         LogMessage($"Trying to run roundstart rules, total player count: {count}", false);
 
         var weights = weightList.Weights.ToDictionary();
         var primaryWeights = primaryWeightList.Weights.ToDictionary();
-        int maxIters = 50, i = 0;
+        int maxIters = 50, i = 0; // in case something dumb is tried
         while (scheduler.ChaosScore < 0 && i < maxIters)
         {
             i++;
@@ -229,19 +256,43 @@ public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
             // on first iter pick a primary antag
             var pick = _random.Pick(i == 1 ? primaryWeights : weights);
 
-            // on lowpop this may still go no likey even for the ptimary antag pick and pick thief or something, intended
+            // on lowpop this may still go no likey even for the primary antag pick and pick thief or something, intended
             GameRuleComponent? ruleComp = null;
-            if (_prototypeManager.TryIndex(pick, out var entProto) &&
-                entProto.TryGetComponent<GameRuleComponent>(out ruleComp, _factory) &&
-                _random.Prob(1 - -scheduler.ChaosScore / ruleComp.ChaosScore)) // have a chance to re-pick if we have low chaos budget left compared to this
+            if (!_prototypeManager.TryIndex(pick, out var entProto)
+                || !entProto.TryGetComponent<GameRuleComponent>(out ruleComp, _factory)
+            )
                 continue;
 
-            weights.Remove(pick);
-            if (_prototypeManager.TryIndex(pick, out IncompatibleGameModesPrototype? incompModes))
-                weights = weights.Where(w => !incompModes.Modes.Contains(w.Key)).ToDictionary();
+            if (ruleComp.ChaosScore == null)
+            {
+                Log.Error($"Tried running roundstart event {entProto.ID}, but chaos score was null");
+                continue;
+            }
+                             // negative
+            var pickProb = (-scheduler.ChaosScore) / ruleComp.ChaosScore.Value;
+            if (i == 1)
+                pickProb *= scheduler.PrimaryAntagChaosBias;
+            pickProb = MathF.Min(1f, pickProb); // to shut up debug
+            if (!_random.Prob(pickProb)) // have a chance to re-pick if we have low chaos budget left compared to this
+                continue;
+
+            // for admeme presets
+            if (!scheduler.IgnoreIncompatible)
+            {
+                weights.Remove(pick);
+
+                if (_prototypeManager.TryIndex(pick, out IncompatibleGameModesPrototype? incompModes))
+                    weights = weights.Where(w => !incompModes.Modes.Contains(w.Key)).ToDictionary();
+            }
 
             IndexAndStartGameMode(pick, entProto, ruleComp);
-            if (weights.Count == 0)
+
+            if (weights.Count == 0
+                || (!scheduler.IgnoreIncompatible
+                    && entProto.TryGetComponent<TagComponent>(out var tagComp, _factory)
+                    && _tag.HasTag(tagComp, _loneSpawnTag)
+                )
+            )
                 return;
         }
 
@@ -249,15 +300,15 @@ public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
 
         void IndexAndStartGameMode(string pick, EntityPrototype? pickProto, GameRuleComponent? ruleComp)
         {
-            if(pickProto == null ||
-               ruleComp == null ||
-               ruleComp.MinPlayers > count)
-            {
+            if(pickProto == null
+               || ruleComp == null
+               || ruleComp.MinPlayers > count
+            )
                 return;
-            }
+
             LogMessage($"Roundstart rule chosen: {pick}");
             GameTicker.AddGameRule(pick);
-            scheduler.ChaosScore += ruleComp.ChaosScore;
+            scheduler.ChaosScore += ruleComp.ChaosScore!.Value;
         }
     }
 
@@ -282,6 +333,8 @@ public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
             }
         }
 
+        count.Players += _event.PlayerCountBias;
+
         return count;
     }
 
@@ -299,7 +352,13 @@ public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
             count++;
         }
 
-        return count;
+        return count + _event.PlayerCountBias;
+    }
+
+    public float GetRamping(SecretPlusComponent scheduler)
+    {
+        var curTime = _ticker.RoundDuration();
+        return 1f + (float)curTime.TotalSeconds * scheduler.SpeedRamping * _event.EventSpeedup;
     }
 
     /// <summary>
@@ -314,14 +373,21 @@ public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
         {
             if (ev.EvComp == null)
                 continue;
-            var weight = ev.RuleComp.ChaosScore;
+
+            if (ev.RuleComp.ChaosScore == null)
+            {
+                Log.Error($"Tried running event {ev.Proto.ID}, but chaos score was null");
+                continue;
+            }
+
+            var weight = ev.RuleComp.ChaosScore.Value;
             bool negative = weight < 0f;
             weight = MathF.Abs(weight);
             weight = MathF.Pow(weight, scheduler.ChaosExponent);
             if (negative) weight = -weight;
             weight += scheduler.ChaosOffset; // offset negative-chaos events upwards too else they never happen
             weight += weight < 0f ? -scheduler.ChaosThreshold : scheduler.ChaosThreshold; // make sure it's not in (-1, 1) to not get absurdly low event probabilities
-            var delta = ChaosDelta(-scheduler.ChaosScore, weight, scheduler.ChaosMatching, scheduler.ChaosThreshold);
+            var delta = ChaosDelta(-scheduler.ChaosScore, weight, scheduler.ChaosMatching, scheduler.ChaosThreshold * scheduler.ChaosThreshold);
             weights[ev] = ev.EvComp.Weight / (delta + 1f);
         }
 
