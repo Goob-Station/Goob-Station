@@ -13,8 +13,8 @@
 - type: entity
   parent: ClothingHeadHelmetRaid
   id: ClothingHeadHelmetHelldiver
-  name: salvage NT-01 tactical helmet
-  description: This armor is the NanoTrasen standard issue, made from the same titanium alloy as the Goliath hull.
+  name: "тактичний шолом NT-01"
+  description: "Ця броня є стандартною для NanoTrasen, виготовлена з того ж титанового сплаву, що й корпус \"Голіафа\"."
   components:
   - type: BreathMask
   - type: Sprite
@@ -33,8 +33,8 @@
 - type: entity
   parent: ClothingHeadHelmetHardsuitBasic
   id: ClothingHeadHelmetHEV
-  name: H.E.V helmet
-  description: Not included in a set with crowbar, long jump module and gravity manipulation device.
+  name: "шолом H.E.V"
+  description: "Не входить до комплекту з ломом, модулем довгого стрибка та пристроєм маніпуляції гравітацією."
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Helmets/hev.rsi
@@ -64,8 +64,8 @@
 - type: entity
   parent: [ ClothingHeadBase, BaseMajorContraband ]
   id: ReverseBearTrap
-  name: reverse bear trap
-  description: A horrifying set of shut metal jaws, rigged to a kitchen timer and secured by padlock to a head-mounted clamp. To apply, hit someone with it
+  name: "зворотний ведмежий капкан"
+  description: "Жахливий набір закритих металевих щелеп, підключених до кухонного таймера і закріплених навісним замком на затискачі, що кріпиться на голову. Щоб застосувати, вдарте ним когось"
   components:
   - type: ReverseBearTrap
     countdownDuration: 60
@@ -87,8 +87,8 @@
 - type: entity
   parent: [ ClothingHeadBase, BaseSyndicateContraband ]
   id: ClothingHeadHatHoodCloakSith
-  name: dark lord hood
-  description: What began as a simple cosplay hood was illegally reinforced with armored plates, transforming it into a functional piece of armor. Looks like it's even capable of protecting the user from the lack of pressure in space.
+  name: "капюшон темного лорда"
+  description: "Те, що починалося як простий косплей-капюшон, було незаконно посилено броньованими пластинами, перетворивши його на функціональний елемент броні. Схоже, він навіть здатний захистити користувача від відсутності тиску в космосі."
   components:
   - type: Sprite
     sprite: Clothing/Head/Hoods/voidcloak.rsi

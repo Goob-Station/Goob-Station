@@ -68,10 +68,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: BaseWeaponSniper
+  name: "BaseWeaponSniper"
   parent: BaseItem
   id: BaseWeaponSniper
-  description: A rooty tooty point and shooty.
+  description: "Корінцевий зубастий і пагонистий."
   abstract: true
   components:
   - type: Sprite
@@ -119,10 +119,10 @@
 
 # Goobstation - Start - I decided to put it here, because it changes Hristov.
 - type: entity
-  name: BaseMagazineSniper
+  name: "БазовийСнайперськийМагазин"
   parent: [BaseItem, BaseGunWieldable]
   id: BaseWeaponSniperMagazine
-  description: A rooty tooty point and shooty.
+  description: "Корінцевий зубастий і пагонистий."
   abstract: true
   components:
   - type: Sprite
@@ -181,10 +181,10 @@
 # Goobstation - End
 
 - type: entity
-  name: Kardashev-Mosin
+  name: "Кардашев-Мосін"
   parent: [BaseWeaponSniper, BaseGunWieldable, BaseMajorContraband]
   id: WeaponSniperMosin
-  description: A true relic, the Kardashev-Mosin has served in nearly every armed conflict since its creation 670 years ago. The bolt-action design of the rifle remains virtually identical to its original design, whether used for hunting, sniping, or endless trench warfare. Loads 10 rounds of .30 rifle.
+  description: "Справжня реліквія, Кардашев-Мосін служив майже в кожному збройному конфлікті з моменту свого створення 670 років тому. Конструкція гвинтівки з ковзним затвором залишається практично ідентичною до свого початкового дизайну, чи то для полювання, снайперської стрільби, чи для нескінченної окопної війни. Заряджається 10 патронами калібру .30."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
@@ -209,10 +209,10 @@
   - type: MeleeRequiresWield # Goob edit end
 
 - type: entity
-  name: Hristov
+  name: "Христов"
   parent: [BaseWeaponSniperMagazine, BaseGunWieldable, BaseSyndicateContraband]
   id: WeaponSniperHristov
-  description: A portable anti-materiel rifle. Fires armor piercing 14.5mm shells. Uses .60 anti-materiel ammo.
+  description: "Портативна протитанкова гвинтівка. Стріляє бронебійними 14,5 мм снарядами. Використовує боєприпаси калібру .60."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Snipers/heavy_sniper.rsi
@@ -242,10 +242,10 @@
     pvsIncrease: 0.8 # Goobstation - Sniper rifles buff
 
 - type: entity
-  name: musket
+  name: "мушкет"
   parent: [ BaseWeaponSniper, BaseGunWieldable, BaseMajorContraband ]
   id: Musket
-  description: This should've been in a museum long before you were born. Uses .60 anti-materiel ammo.
+  description: "Це мало бути в музеї задовго до вашого народження. Використовує набої .60 калібру."
   components:
   - type: Sharp
   - type: Item
@@ -280,10 +280,10 @@
   #   path: /Audio/Weapons/bladeslice.ogg
 
 - type: entity
-  name: flintlock pistol
+  name: "крем'яний пістолет"
   parent: [BaseWeaponSniper, BaseMajorContraband]
   id: WeaponPistolFlintlock
-  description: A pirate's companion. Yarrr! Uses .45 magnum ammo.
+  description: "Супутник пірата. Йо-хо-хо! Використовує патрони .45 magnum."
   components:
   - type: Gun
     minAngle: 0

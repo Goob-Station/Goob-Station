@@ -58,8 +58,8 @@
 - type: entity
   id: FirelockFrame
   parent: BaseStructureDynamic
-  name: firelock frame
-  description: That is a firelock frame.
+  name: "рама вогневого шлюзу"
+  description: "Це рама вогневого шлюзу"
   components:
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Standard/firelock.rsi

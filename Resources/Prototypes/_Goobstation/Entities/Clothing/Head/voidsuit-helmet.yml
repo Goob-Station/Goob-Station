@@ -17,8 +17,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitChronolegioneer
-  name: futuristic helmet
-  description: The helmet of the fighters of the future, designed for special timeflow operations
+  name: "футуристичний шолом"
+  description: "Шолом бійців майбутнього, призначений для спеціальних операцій у часопросторі"
   components:
   - type: BreathMask
   - type: Sprite
@@ -61,8 +61,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitBlueshield
-  name: blueshield voidsuit helmet
-  description: The helmet of the captain's bodyguard's voidsuit.
+  name: "шолом скафандра синього щита"
+  description: "Шолом скафандра охоронця капітана."
   components:
   - type: BreathMask
   - type: Sprite
@@ -101,8 +101,8 @@
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitCybersunStealth
   suffix: stealth
-  name: cybersun stealth voidsuit helmet
-  description: A helmet with photo-reactive plating for stealth operations.
+  name: "шолом стелс-скафандра Cybersun"
+  description: "Шолом з фотореактивним покриттям для стелс-операцій."
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hardsuits/cybersunstealth.rsi
@@ -141,8 +141,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitDreadnought
-  name: cybersun Dreadnought suit helmet
-  description: A helmet, looking at this you wonder if there anyone alive.
+  name: "шолом костюма \"Дредноут\" від Cybersun"
+  description: "Шолом, дивлячись на який, ви дивуєтеся, чи є хтось живий."
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hardsuits/dreadnought.rsi
@@ -177,8 +177,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetVoidsuitSecurity
-  name: security voidsuit helmet
-  description: A well-built faceplate attached to the security voidsuit.
+  name: "шолом космічного костюма служби безпеки"
+  description: "Добре сконструйована лицьова панель, прикріплена до космічного костюма служби безпеки."
   components:
   - type: BreathMask
   - type: Sprite
@@ -214,8 +214,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitHeadOfSecurityExperimental
-  name: head of security's advanced voidsuit helmet
-  description: Security voidsuit helmet with the latest top secret NT-HUD software. This one seems more durable than stand issue helmets.
+  name: "покращений шолом космічного костюма голови служби безпеки"
+  description: "Шолом космічного костюма служби безпеки з найновішим секретним програмним забезпеченням NT-HUD. Цей здається міцнішим за стандартні шоломи."
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hardsuits/hos-expi.rsi

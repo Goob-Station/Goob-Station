@@ -18,8 +18,8 @@
 - type: entity
   parent: ClothingMaskGasERT
   id: ClothingMaskGasChrono
-  name: futuristic gasmask
-  description: A futuristic gas mask of unknown design with an unimaginable number of filtration systems
+  name: "футуристичний протигаз"
+  description: "Футуристичний протигаз невідомої конструкції з неймовірною кількістю систем фільтрації"
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Mask/chronolegioneer.rsi
@@ -41,8 +41,8 @@
 
 - type: entity
   id: ActionHailer
-  name: Hail
-  description: Audibly hail nearby crew, useful for giving quick orders.
+  name: "Оповістити"
+  description: "Гучно оповістити найближчий екіпаж, корисно для швидких наказів."
   components:
   - type: InstantAction
     icon: { sprite: Clothing/Mask/gassecurity.rsi, state: icon }
@@ -51,7 +51,7 @@
 - type: entity
   parent: ClothingMaskClown
   id: ClothingMaskClownUnremoveable
-  name: unremoveable banana clown wig and mask
+  name: "незнімна бананова перука та маска клоуна"
   components:
   - type: Unremoveable
   - type: FlashImmunity
@@ -61,8 +61,8 @@
   parent: [ClothingMaskBase, BaseMinorContraband]
   id: ClothingMaskGasVoiceCraftable
   suffix: Voice Mask, Craftable
-  name: Voice Modulator Mask
-  description: A poorly constructed voice modulator made of a gasmask and voice trigger.
+  name: "Маска з модулятором голосу"
+  description: "Погано сконструйований модулятор голосу, зроблений з протигаза та голосового тригера."
   components:
     - type: Sprite
       sprite: Clothing/Mask/gas.rsi
@@ -90,8 +90,8 @@
 - type: entity
   parent: ClothingMaskGas
   id: ClothingMaskGasHalf
-  name: half gas mask
-  description: A gas mask... only the half of it.
+  name: "половинний протигаз"
+  description: "Протигаз... тільки його половина."
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Mask/gashalf.rsi

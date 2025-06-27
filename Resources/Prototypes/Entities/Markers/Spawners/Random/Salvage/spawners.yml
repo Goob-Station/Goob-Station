@@ -60,7 +60,7 @@
 - type: entity
   parent: MarkerBase
   id: SalvageSpawnerScrapCommon
-  name: Salvage Scrap Spawner
+  name: "Точка появи звичайного брухту"
   suffix: Common, 50%
   components:
   - type: Sprite
@@ -121,7 +121,7 @@
 - type: entity
   parent: MarkerBase
   id: SalvageSpawnerScrapValuable
-  name: Salvage Scrap Spawner
+  name: "Точка появи звичайного брухту"
   suffix: Valuable, 50%
   components:
   - type: Sprite
@@ -197,7 +197,7 @@
 - type: entity
   parent: MarkerBase
   id: SalvageSpawnerTreasure
-  name: Salvage Treasure Spawner
+  name: "Точка появи скарбів"
   suffix: Common, 75%
   components:
   - type: Sprite
@@ -267,7 +267,7 @@
 - type: entity
   parent: MarkerBase
   id: SalvageSpawnerTreasureValuable
-  name: Salvage Treasure Spawner
+  name: "Точка появи скарбів"
   suffix: Valuable, 75%
   components:
   - type: Sprite
@@ -326,7 +326,7 @@
 - type: entity
   parent: MarkerBase
   id: SalvageSpawnerEquipment
-  name: Salvage Equipment Spawner
+  name: "Точка появи обладнання"
   suffix: Common, 75%
   components:
   - type: Sprite
@@ -391,7 +391,7 @@
 - type: entity
   parent: MarkerBase
   id: SalvageSpawnerEquipmentValuable
-  name: Salvage Equipment Spawner
+  name: "Точка появи обладнання"
   suffix: Valuable, 75%
   components:
   - type: Sprite
@@ -406,7 +406,7 @@
       prob: 0.75
 
 - type: entity
-  name: Salvage Canister Spawner
+  name: "спавнер каністр утилізаторів"
   id: SalvageCanisterSpawner
   parent: MarkerBase
   components:
@@ -466,7 +466,7 @@
 - type: entity
   parent: MarkerBase
   id: SalvageSpawnerMobMagnet
-  name: Salvage Magnet Mob Spawner
+  name: "Спавнер мобів для утилізаційного магніту"
   suffix: 50%
   components:
   - type: Sprite
@@ -502,7 +502,7 @@
 - type: entity
   parent: MarkerBase
   id: SalvageSpawnerStructuresVarious
-  name: Space Debris Structure Spawner
+  name: "Спавнер структур космічного сміття"
   components:
   - type: Sprite
     layers:
@@ -538,7 +538,7 @@
 - type: entity
   parent: MarkerBase
   id: SalvageSpawnerMobShark
-  name: Salvage Sharkminnow Spawner
+  name: "Спавнер утилізаційних акул-гольянів"
   components:
   - type: Sprite
     layers:
@@ -556,7 +556,7 @@
 - type: entity
   parent: MarkerBase
   id: SalvageSpawnerMobMiningAsteroid
-  name: Mining Asteroid Mob Spawner
+  name: "Точка появи мобів на гірничому астероїді"
   components:
   - type: Sprite
     layers:

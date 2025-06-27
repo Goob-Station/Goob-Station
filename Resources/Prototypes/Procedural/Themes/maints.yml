@@ -166,7 +166,7 @@
 - type: entity
   parent: BaseRoomMarker
   id: MaintsRoomMarker
-  name: Maints interior marker
+  name: "маркер інтер'єру технічного тунелю"
   components:
   - type: RoomFill
     clearExisting: false

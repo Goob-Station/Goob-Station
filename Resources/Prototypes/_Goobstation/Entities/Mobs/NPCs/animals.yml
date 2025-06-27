@@ -20,7 +20,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: gondola
+  name: "гондола"
   parent:
     - MobRespirator
     - MobAtmosStandard
@@ -28,7 +28,7 @@
     - MobBloodstream
     - MobFlammable
   id: MobGondola
-  description: Having no hands he embodies the Taoist principle of wu-wei (non-action) while his smiling facial expression shows his utter and complete acceptance of the world as it is.
+  description: "Не маючи рук, він втілює даоський принцип у-вей (недіяння), а його усміхнений вираз обличчя демонструє його повне і абсолютне прийняття світу таким, яким він є."
   components:
   - type: Hunger
     thresholds:
@@ -138,10 +138,10 @@
   - type: Perishable
 
 - type: entity
-  name: syndiroach
+  name: "синді-тарган"
   id: MobMothSyndy
   parent: MobMothroach
-  description: Explosive moth.
+  description: "Вибуховий мофф."
   components:
   - type: Sprite
     sprite: _Goobstation/Mobs/Animals/syndiroach.rsi
@@ -172,11 +172,11 @@
     - Syndicate
 
 - type: entity
-  name: syndie bee
+  name: "синді бі"
   suffix: Angry, syndicate
   parent: [ MobAngryBee ]
   id: MobSyndieAngryBee
-  description: How nice a bee. Oh no, it looks angry and wants my pizza.
+  description: "Яка гарна бджілка. О ні, вона виглядає сердитою і хоче мою піцу."
   components:
   - type: NpcFactionMember
     factions:
@@ -203,10 +203,10 @@
         3
 
 - type: entity
-  name: lootbug
+  name: "лутбаг"
   id: MobLootbug
   parent: SimpleMobBase
-  description: It eats metal, maybe it's eaten something of value?
+  description: "Він їсть метал, можливо, він з'їв щось цінне?"
   components:
   - type: Sprite
     drawdepth: SmallMobs
@@ -267,10 +267,10 @@
   - type: VentCrawler # goobstation - Ventcrawl
 
 - type: entity
-  name: space carp
+  name: "космічний короп"
   id: MobCarpSentient
   parent: [ SimpleSpaceMobBase, FlyingMobBase, MobCombat ]
-  description: It's a space carp. Used to be a person.
+  description: "Це космічний короп. Раніше був людиною."
   components:
   - type: InputMover
   - type: MobMover
@@ -363,10 +363,10 @@
 
 
 - type: entity
-  name: strange mouse
+  name: "дивна миша"
   parent: MobMouse
   id: MobMouseSentient
-  description: Squeak! Used to be a person!
+  description: "Піск! Раніше була людиною!"
   components:
   - type: MobThresholds
     thresholds:
@@ -390,10 +390,10 @@
         Piercing: 5
 
 - type: entity
-  name: homunculus
+  name: "гомункул"
   id: MobHomunculus
   parent: SimpleMobBase
-  description: What a wretched beast...
+  description: "Яке жалюгідне створіння..."
   components:
   - type: Sprite
     drawdepth: SmallMobs
@@ -460,7 +460,7 @@
 - type: entity
   parent: MobMouse
   id: MouseMenace
-  name: menace
+  name: "загроза"
   components:
   - type: EnchantFill
     enchants:
@@ -469,10 +469,10 @@
       EnchantSharpness: 5 # hit hard ye
 
 - type: entity
-  name: Clown Ian
+  name: "Клоун Ієн"
   parent: MobCorgiIan
   id: MobCorgiIanClown
-  description: Honkmother's favorite corgi.
+  description: "Улюблений коргі Хонкматері."
   components:
     - type: Sprite
       drawdepth: Mobs

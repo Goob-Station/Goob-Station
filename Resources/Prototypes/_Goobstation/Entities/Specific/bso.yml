@@ -13,8 +13,8 @@
 - type: entity
   parent: [BaseItem, BaseCentcommContraband]
   id: BSOManual
-  name: Nanotrasen CQC Manual
-  description: A small, blue manual. There are drawn instructions of tactical hand-to-hand combat.
+  name: "Посібник з рукопашного бою Nanotrasen"
+  description: "Невелика синя інструкція. Містить ілюстровані інструкції з тактичного рукопашного бою."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/cqc_manual.rsi
@@ -29,8 +29,8 @@
 - type: entity
   parent: [BaseItem, BaseCentcommContraband]
   id: HandheldCrewMonitorBSO
-  name: handheld command monitor
-  description: A handheld crew monitor modified for blueshield officer's needs. Designed to inject a tracking device into command personnel and alarm you about them being in danger. Works on a built-in microreactor cell.
+  name: "портативний монітор командування"
+  description: "Портативний монітор екіпажу, модифікований для потреб офіцера \"синього щита\". Призначений для введення пристрою відстеження командному персоналу та сповіщення про їхню небезпеку. Працює на вбудованій мікрореакторній комірці."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Security/bso_monitor.rsi

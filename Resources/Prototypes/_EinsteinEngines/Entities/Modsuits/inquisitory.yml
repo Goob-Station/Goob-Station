@@ -11,8 +11,8 @@
 - type: entity
   parent: [ ClothingModsuitStandard, BaseCentcommContraband ]
   id: ClothingModsuitInquisitory
-  name: Inquisitory hardsuit control unit # Goob edit
-  description: The main controller for a Inquisitory hardsuit. # Goob edit
+  name: "блок керування інквізиторським скафандром" # Goob edit
+  description: "Основний контролер для інквізиторського скафандра." # Goob edit
   components:
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/inquisitory.rsi
@@ -41,8 +41,8 @@
 - type: entity
   parent: ClothingModsuitGauntletsStandard
   id: ClothingModsuitGauntletsInquisitory
-  name: Inquisitory hardsuit gauntlets # Goob edit
-  description: A pair of gauntlets made for the Inquisitory hardsuit. # Goob edit
+  name: "інквізиторські рукавиці від скафандру" # Goob edit
+  description: "Пара рукавиць, створених для інквізиторського скафандра." # Goob edit
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -55,8 +55,8 @@
 - type: entity
   parent: [ClothingModsuitHelmetStandard, ShowSecurityIcons]
   id: ClothingModsuitHelmetInquisitory
-  name: Inquisitory hardsuit helmet # Goob edit
-  description: A state-of-the-art helmet designed by NanoTrasen for the Inquisitory hardsuit. It includes a built-in HUD. # Goob edit
+  name: "інквізиторський шолом від скафандру" # Goob edit
+  description: "Сучасний шолом, розроблений NanoTrasen для інквізиторського скафандра. Має вбудований HUD." # Goob edit
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -97,8 +97,8 @@
 - type: entity
   parent: ClothingModsuitChestplateStandard
   id: ClothingModsuitChestplateInquisitory
-  name: Inquisitory hardsuit chestplate # Goob edit
-  description: A state of the art chestplate designed by NanoTrasen for the Inquisitory hardsuit. It incorporates powered servos to reduce the equipment load. # Goob edit
+  name: "інквізиторський нагрудник від скафандру" # Goob edit
+  description: "Сучасний нагрудник, розроблений NanoTrasen для інквізиторського скафандра. Він включає силові сервоприводи для зменшення навантаження від обладнання." # Goob edit
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -133,8 +133,8 @@
 - type: entity
   parent: ClothingModsuitBootsStandard
   id: ClothingModsuitBootsInquisitory
-  name: Inquisitory hardsuit boots # Goob edit
-  description: A state-of-the-art pair of magboots for the Inquisitory hardsuit. # Goob edit
+  name: "інквізиторські черевики від скафандру" # Goob edit
+  description: "Сучасна пара магнітних черевиків для інквізиторського скафандра." # Goob edit
   categories: [HideSpawnMenu]
   components:
     - type: Appearance

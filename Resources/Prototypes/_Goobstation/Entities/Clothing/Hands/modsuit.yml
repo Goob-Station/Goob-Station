@@ -12,8 +12,8 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingModsuitGauntletsStandard
-  name: standard hardsuit gauntlets
-  description: Special modular suit gloves that protect wearer from electric shock.
+  name: "стандартні рукавиці від скафандру"
+  description: "Спеціальні рукавиці для модульного костюма, що захищають власника від ураження електричним струмом."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -48,8 +48,8 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingModsuitGauntletsSecurity
-  name: soldat hardsuit gauntlets
-  description: Robust modular suit gloves for gripping perps and guns tight.
+  name: "рукавиці солдата від скафандру"
+  description: "Міцні модульні рукавиці, щоб міцно тримати злочинців та зброю."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -83,8 +83,8 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingModsuitGauntletsParamedic
-  name: sanitater hardsuit gauntlets
-  description: Black and white modular suit gloves for gripping percs and patients tight.
+  name: "рукавиці санітара від скафандру"
+  description: "Чорно-білі модульні рукавиці, щоб міцно тримати перкоцет та пацієнтів."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -124,8 +124,8 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingModsuitGauntletsHeadOfSecurity
-  name: bulwark hardsuit gauntlets
-  description: Robust modular suit gloves for gripping perps and guns tight. Insulated.
+  name: "рукавиці оплоту від скафандру"
+  description: "Міцні модульні рукавиці, щоб міцно тримати злочинців та зброю. Ізольовані."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -167,8 +167,8 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingModsuitGauntletsEngineer
-  name: sapper hardsuit gauntlets
-  description: Oil stained modular suit gloves for easily pushing buttons on an RCD.
+  name: "рукавиці сапера від скафандру"
+  description: "Замаслені модульні рукавиці для легкого натискання кнопок на RCD."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -210,8 +210,8 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingModsuitGauntletsAtmostech
-  name: aeolus hardsuit gauntlets
-  description: Asbestos-lined modular suit gloves for easily pushing buttons on an RPD.
+  name: "рукавиці Еола від скафандру"
+  description: "Азбестові модульні рукавиці для легкого натискання кнопок на RPD."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -254,8 +254,8 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingModsuitGauntletsResearchDirector
-  name: minerva hardsuit gauntlets
-  description: For keeping your digits at 10 after the artifact goes thermonuclear on you.
+  name: "рукавиці Мінерви від скафандру"
+  description: "Щоб зберегти всі ваші десять пальців після того, як артефакт вибухне термоядерним вибухом."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -297,8 +297,8 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingModsuitGauntletsCaptain
-  name: magnate hardsuit gauntlets
-  description: Has specialised grooves and cuts for holding dat fukn diiisskk easier.
+  name: "рукавиці магната від скафандру"
+  description: "Мають спеціальні канавки та вирізи, щоб легше тримати цей чортовий диск."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance

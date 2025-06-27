@@ -11,8 +11,8 @@
 - type: entity
   parent: [ ClothingModsuitStandard, BaseCentcommContraband ]
   id: ClothingModsuitApocryphal
-  name: Apocryphal hardsuit control unit # Goob edit
-  description: The main controller for a Apocryphal hardsuit. # Goob edit
+  name: "блок керування апокрифічним скафандром" # Goob edit
+  description: "Основний контролер для апокрифічного скафандра." # Goob edit
   components:
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/apocryphal.rsi
@@ -43,8 +43,8 @@
 - type: entity
   parent: ClothingModsuitGauntletsStandard
   id: ClothingModsuitGauntletsApocryphal
-  name: Apocryphal hardsuit gauntlets # Goob edit
-  description: A pair of gauntlets made for the Apocryphal hardsuit. # Goob edit
+  name: "апокрифічні рукавиці від скафандру" # Goob edit
+  description: "Пара рукавиць, створених для апокрифічного скафандра." # Goob edit
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -59,8 +59,8 @@
 - type: entity
   parent: [ClothingModsuitHelmetStandard, ShowSecurityIcons]
   id: ClothingModsuitHelmetApocryphal
-  name: Apocryphal hardsuit helmet # Goob edit
-  description: A state-of-the-art helmet designed by NanoTrasen for the Apocryphal hardsuit. It includes a built-in HUD. # Goob edit
+  name: "апокрифічний шолом від скафандру" # Goob edit
+  description: "Сучасний шолом, розроблений NanoTrasen для апокрифічного скафандра. Має вбудований HUD." # Goob edit
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -107,8 +107,8 @@
 - type: entity
   parent: ClothingModsuitChestplateStandard
   id: ClothingModsuitChestplateApocryphal
-  name: Apocryphal hardsuit chestplate # Goob edit
-  description: A state of the art chestplate designed by NanoTrasen for the Apocryphal Modsuit. It incorporates powered servos to reduce the equipment load.
+  name: "апокрифічний нагрудник від скафандру" # Goob edit
+  description: "Сучасний нагрудник, розроблений NanoTrasen для апокрифічного скафандра. Він включає силові сервоприводи для зменшення навантаження від обладнання."
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -150,8 +150,8 @@
 - type: entity
   parent: ClothingModsuitBootsStandard
   id: ClothingModsuitBootsApocryphal
-  name: Apocryphal hardsuit boots # Goob edit
-  description: A state-of-the-art pair of magboots for the Apocryphal modsuit. So long as the suit is powered, these will not slow the wearer down.
+  name: "апокрифічні черевики від скафандру" # Goob edit
+  description: "Сучасна пара магнітних черевиків для апокрифічного модульного костюма. Поки костюм живиться, вони не сповільнюватимуть власника."
   categories: [HideSpawnMenu]
   components:
     - type: Appearance

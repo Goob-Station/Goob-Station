@@ -47,7 +47,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerNavyOfficer
-  name: Navy Officer
+  name: "Офіцер флоту"
   suffix: CentComm
   components:
   - type: Sprite
@@ -87,7 +87,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerNavyCaptain
-  name: Navy Captain
+  name: "Капітан флоту"
   suffix: ADMIN ONLY, DO FUCKING NOT
   components:
   - type: Sprite
@@ -127,7 +127,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerNavyOfficerUndercover
-  name: Undercover Navy Officer
+  name: "Офіцер флоту під прикриттям"
   suffix: CentComm
   components:
   - type: Sprite
@@ -167,7 +167,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerSpecialOperationsOfficers
-  name: Special Operations Officer
+  name: "Офіцер спецоперацій"
   suffix: CentComm
   components:
   - type: Sprite
@@ -207,7 +207,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerDiplomat
-  name: Diplomat
+  name: "Дипломат"
   suffix: CentComm
   components:
   - type: Sprite
@@ -247,7 +247,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerInspector
-  name: Inspector
+  name: "Інспектор"
   suffix: CentComm
   components:
   - type: Sprite
@@ -289,7 +289,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerChronolegioneer
-  name: chrono legionnaire
+  name: "хронолегіонер"
   components:
   - type: Sprite
     sprite: Mobs/Species/Human/parts.rsi
@@ -315,7 +315,7 @@
 
 - type: entity
   id: RandomHumanoidHECUSpawner
-  name: HECU Operative
+  name: "Оперативник HECU"
   suffix: ERTRole
   components:
   - type: Sprite
@@ -353,7 +353,7 @@
 
 - type: entity
   id: TheGmanSpawer
-  name: The G-Man
+  name: "Джи-мен"
   suffix: Admeme
   components:
   - type: Sprite
@@ -405,7 +405,7 @@
 
 - type: entity
   id: ConquestSpawner
-  name: Conquest
+  name: "Завоювання"
   suffix: Admeme
   components:
   - type: Sprite

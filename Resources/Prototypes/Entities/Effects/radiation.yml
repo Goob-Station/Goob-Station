@@ -13,10 +13,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: shimmering anomaly
+  name: "мерехтлива аномалія"
   id: RadiationPulse
   categories: [ HideSpawnMenu ]
-  description: Looking at this anomaly makes you feel strange, like something is pushing at your eyes.
+  description: "Дивлячись на цю аномалію, відчуваєш себе дивно, ніби щось тисне на очі."
   components:
   - type: RadiationSource
     intensity: 5

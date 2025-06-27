@@ -19,8 +19,8 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateStandard
-  name: standard hardsuit chestplate
-  description: A special modular suit spaceproof cover designed for compact folding inside modular suit control.
+  name: "стандартний нагрудник від скафандру"
+  description: "Спеціальне герметичне покриття для модульного костюма, розроблене для компактного складання всередині блоку керування модульним костюмом."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -89,8 +89,8 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateSecurity
-  name: soldat hardsuit chestplate
-  description: A robust modular suit cover with ceramic inserts for extra protection.
+  name: "нагрудник солдата від скафандру"
+  description: "Міцний модульний нагрудник з керамічними вставками для додаткового захисту."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -164,8 +164,8 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateHeadOfSecurity
-  name: bulwark hardsuit chestplate
-  description: A robust modular suit cover with EXTRA ceramic inserts for slightly more protection.
+  name: "нагрудник оплоту від скафандру"
+  description: "Міцний модульний нагрудник з ДОДАТКОВИМИ керамічними вставками для трохи більшого захисту."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -245,8 +245,8 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateParamedic
-  name: sanitater hardsuit chestplate
-  description: A white and blue-ish-grey steel plate for keeping out the harsh void of space and the occasional bullet.
+  name: "нагрудник санітара від скафандру"
+  description: "Біло-синювато-сіра сталева пластина для захисту від суворого космосу та випадкової кулі."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -320,8 +320,8 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateEngineer
-  name: sapper hardsuit chestplate
-  description: A tough armor plate to defend against harsh atmospheric conditions and shockwaves.
+  name: "нагрудник сапера від скафандру"
+  description: "Міцна броньована пластина для захисту від суворих атмосферних умов та ударних хвиль."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -396,8 +396,8 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateAtmostech
-  name: aeolus hardsuit chestplate
-  description: A fire-proof armor plate to defend against harsh atmospheric conditions.
+  name: "нагрудник Еола від скафандру"
+  description: "Вогнетривка броньована пластина для захисту від суворих атмосферних умов."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -470,8 +470,8 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateResearchDirector
-  name: minerva hardsuit chestplate
-  description: A bulky bomb and bat proof chunk of steel.
+  name: "нагрудник Мінерви від скафандру"
+  description: "Громіздкий шматок сталі, стійкий до бомб та бит."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -547,8 +547,8 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateCaptain
-  name: magnate hardsuit chestplate
-  description: This shit is made out of DIAMONDS, man, this armor was forged with GEMS.
+  name: "нагрудник магната від скафандру"
+  description: "Це лайно зроблене з ДІАМАНТІВ, чувак, ця броня викувана з КОШТОВНИХ КАМЕНІВ."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance

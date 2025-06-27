@@ -6,8 +6,8 @@
 - type: entity
   parent: BoxCardboard
   id: BoxTapeRecorder
-  name: tape recorder box
-  description: A box with colorful cassette tapes and a tape recorder.
+  name: "коробка з магнітофоном"
+  description: "Коробка з різнокольоровими касетами та магнітофоном."
   components:
   - type: Sprite
     layers:

@@ -17,7 +17,7 @@
 - type: entity
   parent: BaseSign
   id: PlaqueAtmos
-  name: atmos plaque
+  name: "атмосферна табличка"
   components:
   - type: WallMount
   - type: Physics
