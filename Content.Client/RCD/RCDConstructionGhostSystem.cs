@@ -12,7 +12,6 @@ using Content.Shared.Input;
 using Content.Shared.Interaction;
 using Content.Shared.RCD;
 using Content.Shared.RCD.Components;
-using Content.Shared.RCD.Systems;
 using Robust.Client.Placement;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
@@ -23,14 +22,18 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client.RCD;
 
+/// <summary>
+/// System for handling structure ghost placement in places where RCD can create objects.
+/// </summary>
 public sealed class RCDConstructionGhostSystem : EntitySystem
 {
+    private const string PlacementMode = nameof(AlignRCDConstruction);
+
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IPlacementManager _placementManager = default!;
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
     [Dependency] private readonly HandsSystem _hands = default!;
-
-    private string _placementMode = typeof(AlignRCDConstruction).Name;
+    
     private Direction _placementDirection = default;
     private bool _useMirrorPrototype = false;
     public event EventHandler? FlipConstructionPrototype;
@@ -99,8 +102,7 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
         if (_playerManager.LocalSession?.AttachedEntity is not { } player)
             return;
 
-        if (!_hands.TryGetActiveItem(player, out var heldEntity))
-            return;
+        var heldEntity = _hands.GetActiveItem(player);
 
         if (!TryComp<RCDComponent>(heldEntity, out var rcd))
         {
@@ -133,8 +135,8 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
         // Create a new placer
         var newObjInfo = new PlacementInformation
         {
-            MobUid = uid,
-            PlacementOption = _placementMode,
+            MobUid = heldEntity.Value,
+            PlacementOption = PlacementMode,
             EntityType = prototype,
             Range = (int) Math.Ceiling(SharedInteractionSystem.InteractionRange),
             IsTile = (mode == RcdMode.ConstructTile),
