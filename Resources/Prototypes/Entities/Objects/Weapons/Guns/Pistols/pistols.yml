@@ -368,5 +368,3 @@
         whitelist:
           tags:
             - CartridgeMagnum
-  - type: Multishot #Goob
-    spreadMultiplier: 30

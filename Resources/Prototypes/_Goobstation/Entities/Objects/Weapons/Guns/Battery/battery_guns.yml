@@ -403,7 +403,7 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: EnergyMagRifleLethal
+        startingItem: null
         insertSound: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/revolver_magout.ogg
         whitelist:
