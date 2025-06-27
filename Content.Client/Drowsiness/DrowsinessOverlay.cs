@@ -13,7 +13,6 @@
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Drowsiness;
 using Content.Shared.StatusEffectNew;
-using Content.Shared.StatusEffectNew.Components;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
@@ -35,8 +34,6 @@ public sealed class DrowsinessOverlay : Overlay
     public override bool RequestScreenTexture => true;
     private readonly ShaderInstance _drowsinessShader;
 
-    private EntityQuery<StatusEffectComponent> _statusQuery;
-
     public float CurrentPower = 0.0f;
 
     private const float PowerDivisor = 250.0f;
@@ -46,9 +43,9 @@ public sealed class DrowsinessOverlay : Overlay
     public DrowsinessOverlay()
     {
         IoCManager.InjectDependencies(this);
+
         _statusEffects = _sysMan.GetEntitySystem<SharedStatusEffectsSystem>();
 
-        _statusQuery = _entityManager.GetEntityQuery<StatusEffectComponent>();
         _drowsinessShader = _prototypeManager.Index<ShaderPrototype>("Drowsiness").InstanceUnique();
     }
 
@@ -59,22 +56,11 @@ public sealed class DrowsinessOverlay : Overlay
         if (playerEntity == null)
             return;
 
-        if (!_statusEffects.TryEffectsWithComp<DrowsinessStatusEffectComponent>(playerEntity, out var drowsinessEffects))
+        if (!_statusEffects.TryGetEffectsEndTimeWithComp<DrowsinessStatusEffectComponent>(playerEntity, out var endTime))
             return;
 
-        TimeSpan? remainingTime = TimeSpan.Zero;
-        foreach (var (_, _, statusEffectComp) in drowsinessEffects)
-        {
-            if (statusEffectComp.EndEffectTime > remainingTime)
-                remainingTime = statusEffectComp.EndEffectTime;
-        }
-
-        if (remainingTime is null)
-            return;
-
-        var curTime = _timing.CurTime;
-        var timeLeft = (float)(remainingTime - curTime).Value.TotalSeconds;
-
+        endTime ??= TimeSpan.MaxValue;
+        var timeLeft = (float)(endTime - _timing.CurTime).Value.TotalSeconds;
         CurrentPower += 8f * (0.5f * timeLeft - CurrentPower) * args.DeltaSeconds / (timeLeft + 1);
     }
 
