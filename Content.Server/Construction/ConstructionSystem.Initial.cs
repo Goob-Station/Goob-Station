@@ -637,7 +637,7 @@ namespace Content.Server.Construction
                     switch (step)
                     {
                         case EntityInsertConstructionGraphStep entityInsert:
-                            if (entityInsert.EntityValid(holding, EntityManager, factory))
+                            if (entityInsert.EntityValid(holding, EntityManager, Factory))
                                 valid = true;
                             break;
                         case ToolConstructionGraphStep _:

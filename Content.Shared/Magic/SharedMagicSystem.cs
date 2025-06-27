@@ -907,7 +907,7 @@ public abstract class SharedMagicSystem : EntitySystem
         if (aHasComp && bHasComp)
             return;
 
-        var comp = _compFact.GetComponent(type);
+        var comp = Factory.GetComponent(type);
         if (aHasComp)
         {
             AddComp(b, comp);

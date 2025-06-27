@@ -167,7 +167,7 @@ namespace Content.Shared.StatusEffect
 
             // If we already have this component, overwrite it, since new component could have diffrent data
             EntityManager.AddComponent(uid, component, true);
-            status.ActiveEffects[key].RelevantComponent = _componentFactory.GetComponentName(component.GetType());
+            status.ActiveEffects[key].RelevantComponent = Factory.GetComponentName(component.GetType());
 
             return true;
         }
