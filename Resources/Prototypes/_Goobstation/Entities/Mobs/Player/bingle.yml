@@ -203,6 +203,9 @@
   - type: StaminaDamageOnHit # Goida
     damage: 0
     overtime: 0
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2.5
+    baseSprintSpeed : 4.5
 
 - type: entity
   id: BongleUpgraded
