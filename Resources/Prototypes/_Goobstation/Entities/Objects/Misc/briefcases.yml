@@ -10,10 +10,10 @@
   description: Yup. Totally not suspicious.
   components:
   - type: Sprite
-    sprite: _Goobstation\Objects\Storage\conspicuous_case.rsi
+    sprite: _Goobstation/Objects/Storage/conspicuous_case.rsi
     state: icon
   - type: Item
-    sprite: _Goobstation\Objects\Storage\conspicuous_case.rsi
+    sprite: _Goobstation/Objects/Storage/conspicuous_case.rsi
   - type: MeleeWeapon
     damage:
       types:
