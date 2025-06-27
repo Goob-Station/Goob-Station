@@ -168,3 +168,58 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: BingleUpgraded
+
+- type: entity
+  name: bongle
+  id: MobBongle
+  parent: MobBingle
+  description: bongle
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Mobs/Bingle/bongle.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: alive
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      300: Dead
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+    angle: 0
+    wideAnimationRotation: 0
+    animation: WeaponArcSlash
+    damage:
+      types:
+        Blunt: 20
+        Structural: 50
+    bluntStaminaDamageFactor: 0.0
+  - type: NightVision
+    color: "#a63535"
+    activateSound: null
+    deactivateSound: null
+  - type: StaminaDamageOnHit # Goida
+    damage: 0
+    overtime: 0
+
+- type: entity
+  id: BongleUpgraded
+  parent: MobBongle
+  suffix: Upgraded
+  components:
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+    angle: 0
+    wideAnimationRotation: 0
+    animation: WeaponArcSlash
+    damage:
+      types:
+        Blunt: 30
+        Structural: 75
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      400: Dead

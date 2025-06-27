@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Alive sprites by George Gimme",
+  "size": {
+        "x": 32,
+        "y": 32
+  },
+  "states": [
+    {
+        "name": "alive",
+        "directions": 4
+    },
+    {
+        "name": "icon"
+    }
+  ]
+}
