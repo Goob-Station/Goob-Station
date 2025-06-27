@@ -182,15 +182,15 @@
 
 ## warden
 
-- type: entity
-  parent: ChangelingStealObjective
-  id: LingEnergyShotgunStealObjective
-  components:
-  - type: NotJobRequirement
-    job: Warden # Goob edit
-  - type: StealCondition
-    stealGroup: WeaponEnergyShotgun
-    owner: job-name-warden # Goob edit
+#- type: entity
+#  parent: ChangelingStealObjective
+#  id: LingEnergyShotgunStealObjective
+#  components:
+#  - type: NotJobRequirement
+#    job: Warden # Goob edit
+#  - type: StealCondition
+#    stealGroup: WeaponEnergyShotgun
+#    owner: job-name-warden # Goob edit
 
 ## ce
 

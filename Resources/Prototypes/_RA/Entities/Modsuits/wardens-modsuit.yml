@@ -108,7 +108,7 @@
         outerClothing:
           - state: equipped-OUTERCLOTHING-sealed
     - type: StaminaResistance
-      coefficient: 0.6 # 40%
+      damageCoefficient: 0.6 # 40%
 
 
 - type: entity
