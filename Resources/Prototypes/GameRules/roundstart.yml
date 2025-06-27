@@ -363,7 +363,7 @@
     definitions:
     - prefRoles: [ Traitor ]
       max: 6
-      playerRatio: 15
+      playerRatio: 12 
       blacklist:
         components:
         - AntagImmune
