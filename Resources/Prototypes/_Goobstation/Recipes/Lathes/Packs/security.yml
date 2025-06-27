@@ -41,7 +41,7 @@
   - SpearTelescopic
 
 - type: latheRecipePack
-  id: SecurityWeaponsNonEmaggableStaticGoob # At some point Terminus should be mapped and not printable, at least without research.
+  id: SecurityWeaponsNonEmaggableStaticGoob # TODO: remove terminus printing after security surplus crates are mapped everywhere
   recipes:
   - Terminus
 
