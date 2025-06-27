@@ -27,4 +27,7 @@ reagent-name-nevcottapowder = nevcotta powder
 reagent-desc-nevcottapowder = A highly toxic powder created from grinding the bark of the nevcotta tree. Used in the creation of a classified chemical.
 
 reagent-name-nitric-acid = nitric acid
-reagent-desc-nitric acid = A corrosive chemical used in the production of explosives.
+reagent-desc-nitric-acid = A corrosive chemical used in the production of explosives.
+
+reagent-name-formaldehyde = formaldehyde
+reagent-desc-formaldehyde = A toxic chemical used in preserving corpses and manufacturing explosives.

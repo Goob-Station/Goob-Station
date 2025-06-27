@@ -384,3 +384,28 @@
       - !type:Emote
         emote: Scream
         probability: 0.2
+
+- type: reagent
+  id: formaldehyde
+  name: reagent-name-formaldehyde
+  group: Toxins
+  desc: reagent-desc-formaldehyde
+  flavor: bitter
+  color: "#FAFAFA"
+  physicalDesc: reagent-physical-desc-opaque
+  plantMetabolism:
+  - !type:PlantAdjustToxins
+    amount: 10
+  - !type:PlantAdjustHealth
+    amount: -5
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
+        damage:
+          types:
+            Poison: 2

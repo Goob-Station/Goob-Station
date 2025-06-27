@@ -15,3 +15,15 @@
       amount: 1
   products:
     BlackPowder: 3
+
+- type: reaction
+  id: Methanol
+  reactants:
+    Methane:
+      amount: 1
+    Water:
+      amount: 1
+    Oxygen:
+      amount: 1
+  products:
+    Methanol: 3

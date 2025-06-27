@@ -117,3 +117,17 @@
   products:
     Methane: 1
     Water: 2
+
+- type: reaction
+  id: Methane
+  reactants:
+    CarbonDioxide:
+      amount: 1
+    Hydrogen:
+      amount: 4
+    Aluminium:
+      amount: 1
+      catalyst: true
+  products:
+    Methane: 1
+    Water: 2

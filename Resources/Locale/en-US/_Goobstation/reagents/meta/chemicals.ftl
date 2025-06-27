@@ -29,3 +29,6 @@ reagent-desc-sodium-acetate = A white, odorless, water-soluble salt that results
 
 reagent-name-methane = methane
 reagent-desc-methane = A colorless, odorless, and flammable gas, being the simplest alkane. Do not breath.
+
+reagent-name-methanol = methanol
+reagent-desc-methanol = A colorless, odorless, and flammable liquid similar to ethanol however, it is extra toxic.
