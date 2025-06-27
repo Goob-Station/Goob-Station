@@ -101,7 +101,7 @@
       playerRatio: 30
       lateJoinAdditional: true
       mindRoles:
-      - MindRoleTraitor
+      - MindRoleChangeling
   - type: Tag
     tags:
       - CalmAntag
