@@ -31,7 +31,7 @@
     - HeadSide
 
 - type: entity
-  parent: ClothingHeadHelmetHardsuitBasic
+  parent: ClothingHeadHelmetBase
   id: ClothingHeadHelmetHEV
   name: H.E.V helmet
   description: Not included in a set with crowbar, long jump module and gravity manipulation device.

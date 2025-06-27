@@ -162,7 +162,7 @@
   save: false
   abstract: true
   parent: BaseMob
-  id: MobSiliconRobotic
+  id: MobRobotic
   components:
   - type: LagCompensation
   - type: Reactive

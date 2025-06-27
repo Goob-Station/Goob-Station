@@ -580,8 +580,8 @@
       collection: IPCWhirrs
       params:
         variation: 0
-    Scream: # Goobstation - Cyborg Scream
-      path: /Audio/_Goobstation/Voice/Cyborg/borgscream.ogg
+    #Scream: # Goobstation - Cyborg Scream
+    #  path: /Audio/_Goobstation/Voice/Cyborg/borgscream.ogg
 
 - type: emoteSounds
   id: UnisexSiliconSyndicate
@@ -604,8 +604,8 @@
       path: /Audio/Items/bikehorn.ogg
     Ping:
       path: /Audio/Effects/Cargo/ping.ogg
-    Scream: # Goobstation - Cyborg Scream
-      path: /Audio/_Goobstation/Voice/Cyborg/borgscream.ogg
+    #Scream: # Goobstation - Cyborg Scream
+    #  path: /Audio/_Goobstation/Voice/Cyborg/borgscream.ogg
 
 - type: emoteSounds
   id: UnisexSiliconXenoborg
