@@ -119,6 +119,8 @@ public sealed class CosmicSiphonSystem : EntitySystem
         {
             _lights.Clear();
             _lookup.GetEntitiesInRange<PoweredLightComponent>(Transform(uid).Coordinates, 5, _lights, LookupFlags.StaticSundries);
+            uid.Comp.EntropyStored += uid.Comp.CosmicSiphonQuantity;
+            uid.Comp.EntropyBudget += uid.Comp.CosmicSiphonQuantity;
             foreach (var light in _lights) // static range of 5. because.
             {
                 if (!_random.Prob(0.25f))

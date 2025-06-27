@@ -32,7 +32,6 @@ public sealed partial class CosmicEntropyDegenSystem : EntitySystem
 
     private void OnInit(EntityUid uid, CosmicEntropyDebuffComponent comp, ref ComponentStartup args)
     {
-        _damageable.TryChangeDamage(uid, comp.Degen, true, false);
         comp.CheckTimer = _timing.CurTime + comp.CheckWait;
     }
 
