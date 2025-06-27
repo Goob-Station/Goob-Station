@@ -289,6 +289,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   - Fleshmend's effects will temporarily cease while on fire.
   - Heals 10 overall brute damage per tick (100 in total).
   - Heals 5 overall burn damage per tick (50 in total).
+  - Heals 2 asphyxiation damage per tick (20 in total).
   - Reduces bleeding severity by 2.5 per tick (25 in total).
   - Restores roughly 3.5% blood level per tick (35% in total).
   - Usable while in critical condition.

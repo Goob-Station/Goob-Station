@@ -33,7 +33,7 @@ public sealed partial class FleshmendComponent : Component
     public float BurnHeal = -5f;
 
     [DataField]
-    public float AsphyxHeal = -5f;
+    public float AsphyxHeal = -2f;
 
     [DataField]
     public float BleedingAdjust = -2.5f;
