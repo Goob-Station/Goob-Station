@@ -37,3 +37,183 @@
     contents:
       - id: ClothingOuterHardsuitCombatRiot
         amount: 1
+
+- type: entity
+  parent: [ CrateWeaponSecure, BaseSecurityContraband ]
+  id: CrateArmoryWeaponsRandom
+  name: security surplus crate
+  suffix: 1 per secoff
+  description: Contains various weaponry and equipment from Nanotrasen warehouses, hopefully enough to gear one officer. Requires Armory access to open.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: RandomArmoryGear
+        rolls: !type:RangeNumberSelector
+          range: 4, 6
+
+- type: entityTable
+  id: RandomCrewBallisticWeapon
+  table: !type:GroupSelector
+    children:
+    - !type:AllSelector
+      weight: 20 # Filler
+      children:
+      - id: WeaponPistolMk58
+      - id: MagazinePistol
+      - id: MagazinePistol
+    - id: Terminus # Treated as ballistics
+      weight: 12 # Slightly more common as it's unique and essential for oni
+    - !type:AllSelector
+      weight: 10
+      children:
+      - id: WeaponRifleLecter
+      - id: MagazineRifle
+      - id: MagazineRifle
+    - !type:AllSelector
+      weight: 10
+      children:
+      - id: WeaponSubMachineGunDrozd
+      - id: MagazinePistolSubMachineGun
+      - id: MagazinePistolSubMachineGun
+    - !type:AllSelector
+      weight: 10
+      children:
+      - id: WeaponSubMachineGunWt550
+      - id: MagazinePistolSubMachineGunTopMounted
+      - id: MagazinePistolSubMachineGunTopMounted
+    - !type:AllSelector
+      weight: 10
+      children:
+      - id: WeaponShotgunAntelope
+      - id: MagazineShotgun
+      - id: MagazineShotgun
+    - !type:AllSelector
+      weight: 10
+      children:
+      - id: WeaponShotgunEnforcer
+      - id: BoxLethalshot
+    - !type:AllSelector
+      weight: 10
+      children:
+      - id: WeaponShotgunKammerer
+      - id: BoxLethalshot
+    - !type:AllSelector
+      weight: 4
+      children:
+      - id: WeaponRevolverDeckard
+      - id: SpeedLoaderMagnum
+      - id: SpeedLoaderMagnum
+    - !type:AllSelector
+      weight: 2 # This thing is OP, but you can't print more mags so it's somewhat balanced
+      children:
+      - id: WeaponRifleAk
+      - id: MagazineLightRifle
+      - id: MagazineLightRifle
+    - !type:AllSelector
+      weight: 2 # Same as above but you can print boxes at least, so only 1 mag
+      children:
+      - id: WeaponPistolN1984
+      - id: MagazineMagnum
+
+- type: entityTable
+  id: RandomWeakLaserWeapon
+  table: !type:GroupSelector
+    children:
+    - id: WeaponLaserCarbine
+    - !type:AllSelector
+      children:
+      - id: WeaponLaserCellRevolver # EG-1 Taro
+      - id: PowerCellIRRevolver
+      - id: PowerCellIRRevolver
+
+- type: entityTable
+  id: RandomGoodLaserWeapon
+  table: !type:GroupSelector
+    children:
+    - id: WeaponLaserCannon
+    - id: WeaponXrayCannon
+    - !type:AllSelector
+      children:
+      - id: WeaponEnergyRifle # CR-2
+      - id: EnergyMagRifleLethal
+      - id: EnergyMagRifleLethal
+      - id: EnergyMagRifleLethal
+    - !type:AllSelector
+      children:
+      - id: WeaponLaserCellSMG # ER-5
+      - id: PowerCellIRSMG
+      - id: PowerCellIRSMG
+      - id: PowerCellIRSMG
+
+- type: entityTable
+  id: RandomArmoryUtilityWeapon
+  table: !type:GroupSelector
+    children:
+    - id: WeaponDisabler
+      weight: 24
+    - !type:AllSelector
+      weight: 18
+      children:
+      - id: WeaponShotgunDoubleBarreled
+      - id: BoxBeanbag
+    - id: WeaponTemperatureGun
+      weight: 18
+    - id: WeaponEnergyIonRifle
+      weight: 18
+    - !type:AllSelector
+      weight: 12
+      children:
+      - id: Truncheon
+      - id: TelescopicShield
+    - !type:AllSelector
+      weight: 10
+      children:
+      - id: WeaponLauncherNonLethal
+      - id: BoxGrenadesBaton
+      - id: BoxGrenadesFlash
+      - id: BoxGrenadesTeargas
+
+- type: entityTable
+  id: RandomArmoryWeapon
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      weight: 40 # Filler
+      tableId: RandomArmoryUtilityWeapon
+    - !type:NestedSelector
+      weight: 24 # Filler
+      tableId: RandomWeakLaserWeapon
+    - !type:NestedSelector
+      weight: 20 # There are fillers inside so it's relatively high
+      tableId: RandomCrewBallisticWeapon
+    - !type:NestedSelector
+      weight: 16
+      tableId: RandomGoodLaserWeapon
+
+- type: entityTable
+  id: RandomArmoryArmor
+  table: !type:GroupSelector
+    children:
+    - id: UndeterminedVoidsuitSecurity
+      weight: 34
+    - id: ClothingOuterArmorBulletproof
+      weight: 28
+    - !type:AllSelector
+      weight: 22
+      children:
+      - id: ClothingOuterArmorRiot
+      - id: ClothingHeadHelmetRiot
+    - id: ClothingOuterArmorReflective
+      weight: 16
+
+- type: entityTable
+  id: RandomArmoryGear
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      weight: 65 # 65%
+      tableId: RandomArmoryWeapon
+    - !type:NestedSelector
+      weight: 35
+      tableId: RandomArmoryArmor
