@@ -36,7 +36,7 @@
   group: Pyrotechnic
   desc: reagent-desc-methanol
   flavor: flavor-complex-alcohol
-  physicalDesc: reagent-physical-desc-grainy
+  physicalDesc: reagent-physical-desc-pungent
   color: "#c4f5ff"
   reactiveEffects:
   Flammable:
@@ -54,4 +54,33 @@
           shouldHave: false
         damage:
           types: # methanol is bad for your health
+            Poison: 3
+
+- type: reagent
+  id: Hexamine
+  name: reagent-name-hexamine
+  group: Pyrotechnic
+  desc: reagent-desc-hexamine
+  flavor: sweet
+  physicalDesc: reagent-physical-desc-crystalline
+  color: white
+
+- type: reagent
+  id: Cyclonite
+  name: reagent-name-cyclonite
+  group: Pyrotechnic
+  desc: reagent-desc-cyclonite
+  flavor: nothing
+  physicalDesc: reagent-physical-desc-crystalline
+  color: "#e0c009"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        damage:
+          types: # do not eat C4
             Poison: 3

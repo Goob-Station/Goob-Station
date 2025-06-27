@@ -29,3 +29,23 @@
       amount: 1
   products:
     Methanol: 3
+
+- type: reaction
+  id: Hexamine
+  reactants:
+    Formaldehyde:
+      amount: 3
+    Ammonia:
+      amount: 2
+  products:
+    Hexamine: 3
+
+- type: reaction
+  id: Cyclonite
+  reactants:
+    Hexamine:
+      amount: 1
+    Nitric Acid:
+      amount: 1
+  products:
+    Cyclonite: 1

@@ -102,3 +102,18 @@
   products:
     NitricAcid: 2
     PotassiumSulfate: 1
+
+- type: reaction
+  id: Formaldehyde
+  minTemp: 357
+  reactants:
+    Methanol:
+      amount: 1
+    Oxygen:
+      amount: 1
+    Silver:
+      amount: 1
+      catalyst: true
+  products:
+    NitricAcid: 2
+    PotassiumSulfate: 1

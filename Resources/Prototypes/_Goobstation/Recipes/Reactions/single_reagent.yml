@@ -38,3 +38,20 @@
       intensityPerUnit: 2 # this is scary
       intensitySlope: 2.5 # spreads out a lot
       maxTotalIntensity: 400 # Caps out at 200 black powder, can't have bluespace beakers take out a whole department
+
+- type: reaction
+  id: CycloniteExplosion
+  minTemp: 576 #todo: make the reaction require another explosion to detonate it.
+  impact: High
+  priority: 20
+  reactants:
+    Cyclonite:
+      amount: 1
+  effects:
+    - !type:ExplosionReactionEffect
+      explosionType: DemolitionCharge #Better at breaking walls and stuff
+      maxIntensity: 200
+      intensityPerUnit: 5 # RDX's RH factor is 1.6 of tnt
+      intensitySlope: 20 # more controlled explosion
+      maxTotalIntensity: 800
+      canCreateVacuum: false #c4 doesn't space

@@ -32,3 +32,6 @@ reagent-desc-methane = A colorless, odorless, and flammable gas, being the simpl
 
 reagent-name-methanol = methanol
 reagent-desc-methanol = A colorless, odorless, and flammable liquid similar to ethanol however, it is extra toxic.
+
+reagent-name-hexamine = hexamine
+reagent-desc-hexamine = A white crystalline solid that smells fishy. Used in making explosives.
