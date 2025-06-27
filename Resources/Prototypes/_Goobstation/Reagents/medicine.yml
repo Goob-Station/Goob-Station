@@ -122,39 +122,6 @@
           locale: reagent-effect-guidebook-remove-legsstartparalyzed
 
 - type: reagent
-  id: LingFleshmend
-  name: reagent-name-fleshmend
-  group: Medicine
-  desc: reagent-desc-fleshmend
-  physicalDesc: reagent-physical-desc-ling
-  flavor: clean
-  color: "#ff0000"
-  worksOnTheDead: true
-  metabolisms:
-    Medicine:
-      metabolismRate: 0.5
-      effects:
-        - !type:ModifyBloodLevel
-          amount: 10
-        - !type:ModifyBleedAmount
-          amount: -4
-        - !type:HealthChange
-          damage:
-            types:
-              Heat: -3.0
-              Cold: -3.0
-              Shock: -3.0
-              Caustic: -3.0
-              Asphyxiation: -2
-              Blunt: -7
-              Piercing: -7
-              Slash: -7
-        - !type:PopupMessage
-            type: Local
-            messages: [ "reagent-popup-fleshmend" ]
-            probability: 0.2
-
-- type: reagent
   id: LingAdrenaline
   name: reagent-name-lingdrenaline
   group: Medicine

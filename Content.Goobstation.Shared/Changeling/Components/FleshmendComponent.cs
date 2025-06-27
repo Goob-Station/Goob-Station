@@ -1,0 +1,43 @@
+using Robust.Shared.Audio;
+using Robust.Shared.GameStates;
+
+namespace Content.Goobstation.Shared.Changeling.Components;
+
+/// <summary>
+///     Component responsible for Fleshmend's passive effects.
+/// </summary>
+[RegisterComponent, NetworkedComponent]
+public sealed partial class FleshmendComponent : Component
+{
+    /// <summary>
+    ///     Delay between healing ticks.
+    /// </summary>
+    public TimeSpan UpdateTimer = default!;
+    public TimeSpan UpdateDelay = TimeSpan.FromSeconds(1);
+
+    public EntityUid? SoundSource; // used to stop the passive sound (if it exists)
+
+    [DataField]
+    public SoundSpecifier? PassiveSound = new SoundPathSpecifier("/Audio/_Goobstation/Changeling/Effects/fleshmend_sfx.ogg");
+
+    [DataField]
+    public bool DoVisualEffect = true;
+
+    [DataField]
+    public bool IgnoreFire = false; // for whatever reason
+
+    [DataField]
+    public float BruteHeal = -10f;
+
+    [DataField]
+    public float BurnHeal = -5f;
+
+    [DataField]
+    public float AsphyxHeal = -5f;
+
+    [DataField]
+    public float BleedingAdjust = -2.5f;
+
+    [DataField]
+    public float BloodLevelAdjust = 10f;
+}

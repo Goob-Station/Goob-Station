@@ -23,6 +23,14 @@
   name: alerts-changeling-biomass-name
   description: alerts-changeling-biomass-desc
 
+- type: alert
+  id: Fleshmend
+  icons:
+  - sprite: /Textures/_Goobstation/Changeling/changeling_abilities.rsi
+    state: fleshmend_status
+  name: alerts-changeling-fleshmend-name
+  description: alerts-changeling-fleshmend-desc
+
 - type: entity
   id: AlertChangelingChemicalsSpriteView
   categories: [ HideSpawnMenu ]
