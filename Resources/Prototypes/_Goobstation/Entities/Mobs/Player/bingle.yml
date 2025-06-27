@@ -226,3 +226,11 @@
     thresholds:
       0: Alive
       400: Dead
+
+- type: entity
+  id: BonglePrime
+  parent: MobBongle
+  suffix: Prime
+  components:
+  - type: Bingle
+    prime: true
