@@ -402,7 +402,7 @@
   id: UplinkWeaponSMGTommyGun
   name: uplink-weapon-tommy-gun-name
   description: uplink-weapon-tommy-gun-desc
-  icon: { sprite: /Textures/_Goobstation\Objects\Storage\conspicuous_case.rsi, state: icon }
+  icon: { sprite: /Textures/_Goobstation/Objects/Storage/conspicuous_case.rsi, state: icon }
   productEntity: BriefcaseSyndieTommyGunFilled
   cost:
     Telecrystal: 85 # Cheaper sidegrade to the L6.
