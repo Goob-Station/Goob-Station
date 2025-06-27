@@ -31,6 +31,23 @@
       - id: ClothingShoesBootsLaceup
 
 - type: entity
+  id: BriefcaseSyndieTommyGunFilled
+  parent: BriefcaseSyndieConspicuous
+  suffix: Syndicate, Tommy Gun
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,6,3
+  - type: StorageFill
+    contents:
+    - id: WeaponSubMachineGunTommyGun
+    - id: MagazinePistolSubMachineGunDrum
+    - id: SyndicateBusinessCard
+
+- type: entity
   id: BriefcaseCentcomm
   parent: BriefcaseBrown
   suffix: Admeme, DO NOT MAP

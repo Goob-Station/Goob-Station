@@ -94,6 +94,9 @@ uplink-contractor-baton-desc = A compact, specialised baton assigned to Syndicat
 uplink-weapon-burner-name = Burner Heavy Rifle
 uplink-weapon-burner-desc = The Burner Heavy Rifle, an excellent breaching and suppression weapon.
 
+uplink-weapon-tommy-gun-name = Tommy Gun
+uplink-weapon-tommy-gun-desc = The Don sends his regards.
+
 uplink-weapon-heavy-shotgun-name = NZ CSG-242 Heavy Shotgun
 uplink-weapon-heavy-shotgun-desc = Merciless heavy explosive weapon. The recoil when firing it is so extreme that it can knock you off your feet.
 
@@ -158,6 +161,9 @@ uplink-pistol-magazine-caseless-saphe-desc = 10 rounds of 9.5mm caseless magnum 
 
 uplink-l6-box-name = Magazine Box (.30 rifle)
 uplink-l6-box-desc = Magazine box with 100 catridges. Compatible with the L6 SAW.
+
+uplink-smg-drum-name = SMG drum (.35 SMG)
+uplink-smg-drum-desc = A drum loaded with .35 SMG rounds. Holds 65 shots.
 
 uplink-shotgun-magazine-name = Shotgun Drum (12 gauge pellet)
 uplink-shotgun-magazine-desc = Shotgun drum with 8 pellet shells. Compatible with the Bulldog.

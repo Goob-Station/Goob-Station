@@ -67,3 +67,63 @@
     - oni-cannot-shoot-guns-1
     - oni-cannot-shoot-guns-2
     - oni-cannot-shoot-guns-3
+
+# The idea here is a nice 'side grade' to the L6.
+- type: entity
+  name: tommy gun
+  parent: [BaseWeaponSubMachineGun, BaseSyndicateContraband]
+  id: WeaponSubMachineGunTommyGun
+  description: An earlier design from Waffle Corp, the tommy gun is an amazing way to turn any target into swiss-cheese. Though it stores less ammo and packs less of a punch than the l6, it's just as capable of sending someones regards. Feeds from .35 SMG drums.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/SMGs/tommygun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Guns/SMGs/tommygun.rsi
+  - type: Wieldable
+    unwieldOnUse: false
+  - type: GunWieldBonus
+    minAngle: -19
+    maxAngle: -16
+  - type: Gun
+    minAngle: 21
+    maxAngle: 37
+    fireRate: 10
+    burstFireRate: 12
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
+    availableModes:
+    - Burst
+    - FullAuto
+    - SemiAuto
+    selectedMode: FullAuto
+    shotsPerBurst: 3
+    burstCooldown: 1
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistolSubMachineGunDrum
+        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazinePistolSubMachineGunDrum
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgePistol
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgePistol
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance

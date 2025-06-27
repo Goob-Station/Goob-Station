@@ -399,6 +399,17 @@
   - UplinkWeaponry
 
 - type: listing
+  id: UplinkWeaponSMGTommyGun
+  name: uplink-weapon-tommy-gun-name
+  description: uplink-weapon-tommy-gun-desc
+  icon: { sprite: /Textures/_Goobstation\Objects\Storage\conspicuous_case.rsi, state: icon }
+  productEntity: BriefcaseSyndieTommyGunFilled
+  cost:
+    Telecrystal: 85 # Cheaper sidegrade to the L6.
+  categories:
+  - UplinkWeaponry
+
+- type: listing
   id: UplinkWeaponRifleBurner
   name: uplink-weapon-burner-name
   description: uplink-weapon-burner-desc
@@ -1051,6 +1062,17 @@
   productEntity: MagazineLightRifleBox
   cost:
     Telecrystal: 20
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: MagazinePistolSubMachineGunDrum
+  name: uplink-smg-drum-name
+  description: uplink-smg-drum-desc
+  icon: { sprite: /Textures/_Goobstation\Objects\Weapons\Guns\Ammunition\Magazine\smg_drum_magazine.rsi, state: base }
+  productEntity: MagazinePistolSubMachineGunDrum
+  cost:
+    Telecrystal: 10
   categories:
   - UplinkAmmo
 
