@@ -343,7 +343,6 @@
   physicalDesc: reagent-physical-desc-fuming
   flavor: acid
   color: "#FAFAFA"
-  recognizable: true
   boilingPoint: 83
   meltingPoint: -42
   plantMetabolism:

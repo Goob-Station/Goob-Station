@@ -12,3 +12,38 @@
   physicalDesc: reagent-physical-desc-cold
   flavor: cold
   color: "#488bff" # potentially something more once we get reactions with things in air
+
+- type: reagent
+  id: SodiumBicarbonate
+  name: reagent-name-sodium-bicarbonate
+  desc: reagent-desc-sodium-bicarbonate
+  physicalDesc: reagent-physical-desc-powdery
+  color: white
+
+- type: reagent
+  id: SodiumAcetate
+  name: reagent-name-sodium-acetate
+  desc: reagent-desc-sodium-acetate
+  physicalDesc: reagent-physical-desc-powdery
+  color: white
+  flavor: salty
+  boilingPoint: 881.4
+  meltingPoint: 324
+
+- type: reagent
+  id: Methane
+  name: reagent-name-methane
+  desc: reagent-desc-methane
+  physicalDesc: reagent-physical-desc-gaseous
+  flavor: bitter
+  color: "#c4f5ff"
+  boilingPoint: -161.5
+  meltingPoint: -182.5
+    metabolisms:
+    Poison:
+      metabolismRate: 0.5
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Asphyxiation: 1.5

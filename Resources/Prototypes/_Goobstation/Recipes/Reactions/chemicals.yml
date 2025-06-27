@@ -63,3 +63,57 @@
     - !type:AdjustSolutionThermalEnergyEffect
       delta: -200
       scaled: true
+
+- type: reaction
+  id: SodiumBicarbonate
+  reactants:
+    SodiumCarbonate:
+      amount: 1
+    Water:
+      amount: 1
+    Carbon:
+      amount: 1
+    Oxygen:
+      amount: 2
+  products:
+    SodiumBicarbondate: 2
+
+- type: reaction
+  id: SodiumBicarbonate
+  reactants:
+    SodiumCarbonate:
+      amount: 1
+    Water:
+      amount: 1
+    Carbon:
+      amount: 1
+    Oxygen:
+      amount: 2
+  products:
+    SodiumBicarbondate: 2
+
+- type: reaction
+  id: SodiumAcetate
+  reactants:
+    SodiumBicarbonate:
+      amount: 1
+    Vinegar:
+      amount: 1
+  products:
+    SodiumAcetate: 1
+    CarbonDioxide: 1
+    Water: 1
+
+- type: reaction
+  id: Methane
+  reactants:
+    CarbonDioxide:
+      amount: 1
+    Hydrogen:
+      amount: 4
+    Aluminium:
+      amount: 1
+      catalyst: true
+  products:
+    Methane: 1
+    Water: 2

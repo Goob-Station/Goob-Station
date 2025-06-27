@@ -26,4 +26,30 @@
           shouldHave: false
         damage:
           types: # black powder is bad for your health.
-            Poison: 0.1 # 2 damage/u
+            Poison: 0.1 # 2 damage per unit
+
+- type: reagent
+  id: Methanol
+  name: reagent-name-methanol
+  group: Pyrotechnic
+  desc: reagent-desc-methanol
+  flavor: flavor-complex-alcohol
+  physicalDesc: reagent-physical-desc-grainy
+  color: "#c4f5ff"
+  reactiveEffects:
+  Flammable:
+    methods: [ Touch ]
+    effects:
+      - !type:FlammableReaction
+  metabolisms:
+    Poison:
+      metabolismRate: 0.5
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        damage:
+          types: # methanol is bad for your health
+            Poison: 3
