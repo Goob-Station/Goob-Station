@@ -18,6 +18,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
 using Content.Server.Atmos.Rotting;
+using Content.Server.Administration.Systems;
 
 namespace Content.Server._DV.CosmicCult.Abilities;
 
@@ -31,6 +32,7 @@ public sealed class CosmicConversionSystem : EntitySystem
     [Dependency] private readonly SharedCosmicCultSystem _cosmicCult = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly RottingSystem _rotting = default!;
+    [Dependency] private readonly RejuvenateSystem _rejuvenateSystem = default!;
 
     public override void Initialize()
     {
@@ -61,13 +63,7 @@ public sealed class CosmicConversionSystem : EntitySystem
 
         foreach (var target in possibleTargets)
         {
-            //Goobstation: Death is inevitable. It comes for us all.
-            /*if (_mobState.IsDead(target))
-            {
-                _popup.PopupEntity(Loc.GetString("cult-glyph-target-dead"), uid, args.User);
-                args.Cancel();
-            }*/
-            if (_rotting.IsRotten(target))
+            if (_rotting.IsRotten(target)) //Goobstation: Prevents using space corpses.
             {
                 _popup.PopupEntity(Loc.GetString("cult-glyph-target-rotting"), uid, args.User);
                 args.Cancel();
@@ -85,10 +81,9 @@ public sealed class CosmicConversionSystem : EntitySystem
             else
             {
                 _stun.TryStun(target, TimeSpan.FromSeconds(4f), false);
-                _damageable.TryChangeDamage(target, uid.Comp.ConversionHeal);
+                _rejuvenateSystem.PerformRejuvenate(target); //Goobstation: No one likes being brought into the antag gang dead, now do we?
                 _cultRule.CosmicConversion(uid, target);
                 var finaleQuery = EntityQueryEnumerator<CosmicFinaleComponent>(); // Enumerator for The Monument's Finale
-
                 while (finaleQuery.MoveNext(out var monument, out var comp)
                     && comp.CurrentState == FinaleState.ActiveBuffer)
                 {
