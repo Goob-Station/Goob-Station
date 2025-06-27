@@ -45,8 +45,8 @@
   product: CrateFunRedCaviar
   cost: 1000
   group: market
-  
-  
+
+
 - type: cargoProduct
   id: FunBalloonPack
   icon:
@@ -54,5 +54,15 @@
     state: red
   product: CrateBalloonPackage
   cost: 1700
+  category: cargoproduct-category-name-fun
+  group: market
+
+- type: cargoProduct
+  id: FunCrayonMagic
+  icon:
+    sprite: Objects/Fun/crayons.rsi
+    state: box
+  product: CrayonMagic
+  cost: 5000
   category: cargoproduct-category-name-fun
   group: market
