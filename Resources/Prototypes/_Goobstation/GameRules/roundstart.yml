@@ -52,7 +52,7 @@
     definitions:
     - prefRoles: [ Changeling ]
       max: 6
-      playerRatio: 15
+      playerRatio: 12
       jobBlacklist: [ Chaplain ] # GOOBSTATION
       lateJoinAdditional: true
       mindRoles:
@@ -73,7 +73,7 @@
     definitions:
     - prefRoles: [ Traitor ]
       max: 3
-      playerRatio: 30
+      playerRatio: 25
       blacklist:
         components:
         - AntagImmune
@@ -98,7 +98,7 @@
     definitions:
     - prefRoles: [ Changeling ]
       max: 3
-      playerRatio: 30
+      playerRatio: 25
       lateJoinAdditional: true
       mindRoles:
       - MindRoleChangeling
@@ -266,6 +266,8 @@
   parent: BaseNukeopsRule
   id: Honkops
   components:
+  - type: GameRule
+    chaosScore: 1000
   - type: RandomMetadata # this generates the random operation name cuz it's cool.
     nameSegments:
     - OperationPrefixHonkops
