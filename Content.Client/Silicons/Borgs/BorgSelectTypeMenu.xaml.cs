@@ -31,10 +31,7 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
 
     private BorgTypePrototype? _selectedBorgType;
 
-    public event Action<ProtoId<BorgTypePrototype>>? ConfirmedBorgType;
-    // Goobstation: Customizable borgs sprites
-    public event Action<ProtoId<BorgSubtypePrototype>>? ConfirmedBorgSubtype;
-
+    public event Action<ProtoId<BorgTypePrototype>, ProtoId<BorgSubtypePrototype>>? ConfirmedBorgType;
     [ValidatePrototypeId<GuideEntryPrototype>]
     private static readonly List<ProtoId<GuideEntryPrototype>> GuidebookEntries = new() { "Cyborgs", "Robotics" };
 
@@ -88,16 +85,12 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
 
     private void ConfirmButtonPressed(BaseButton.ButtonEventArgs obj)
     {
-        if (_selectedBorgType == null)
+        if (_selectedBorgType == null ||
+            SubtypeSelection.SelectedBorgSubtype == null ||
+            SubtypeSelection.SelectedBorgSubtype.ParentBorgType != _selectedBorgType)
             return;
 
-        ConfirmedBorgType?.Invoke(_selectedBorgType);
-
-        // Goobstation: Customizable borgs sprites
-        if (SubtypeSelection.SelectedBorgSubtype == null || SubtypeSelection.SelectedBorgSubtype.ParentBorgType != _selectedBorgType)
-            return;
-
-        ConfirmedBorgSubtype?.Invoke(SubtypeSelection.SelectedBorgSubtype);
+        ConfirmedBorgType?.Invoke(_selectedBorgType, SubtypeSelection.SelectedBorgSubtype);
     }
 
     private static string PrototypeName(BorgTypePrototype prototype)
