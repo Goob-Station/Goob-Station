@@ -85,12 +85,13 @@
   icon: "JobIconPassenger"
   supervisors: job-supervisors-everyone
   goobcoins: 0 #Goob content
-  requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 36000 #10 hrs
-      inverted: true # get a job you bum  
-#  access:
-#  - Maintenance
+  special:
+  - !type:PlaytimeDegrade # MisandryBox - tider main syndrome
+    since: 600
+    until: 60000
+    disarmMalus: true
+  access:
+  - Maintenance
 
 - type: startingGear
   id: PassengerGear
