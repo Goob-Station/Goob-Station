@@ -885,3 +885,4 @@ public sealed class GhostRoles : IConsoleCommand
             shell.WriteLine("You can only open the ghost roles UI on a client.");
     }
 }
+

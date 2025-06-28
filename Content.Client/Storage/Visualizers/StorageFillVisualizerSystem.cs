@@ -25,3 +25,4 @@ public sealed class StorageFillVisualizerSystem : VisualizerSystem<StorageFillVi
         SpriteSystem.LayerSetRsiState((uid, args.Sprite), StorageFillLayers.Fill, state);
     }
 }
+

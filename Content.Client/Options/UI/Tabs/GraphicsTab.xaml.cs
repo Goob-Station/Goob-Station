@@ -288,3 +288,4 @@ public sealed partial class GraphicsTab : Control
         }
     }
 }
+

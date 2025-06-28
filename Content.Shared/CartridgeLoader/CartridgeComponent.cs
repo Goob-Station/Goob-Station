@@ -36,3 +36,4 @@ public enum InstallationStatus
     Installed,
     Readonly
 }
+

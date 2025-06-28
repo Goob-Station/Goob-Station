@@ -17,3 +17,4 @@ public sealed partial class RatAccentComponent : AnimalAccentComponent
         "accent-words-rat-3",
     };
 }
+

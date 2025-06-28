@@ -15,3 +15,4 @@ public sealed class RequestNPCSteeringDebugEvent : EntityEventArgs
 {
     public bool Enabled;
 }
+

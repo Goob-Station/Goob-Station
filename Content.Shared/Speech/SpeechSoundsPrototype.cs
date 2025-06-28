@@ -34,3 +34,4 @@ namespace Content.Shared.Speech
         public SoundSpecifier ExclaimSound { get; set; } = new SoundPathSpecifier("/Audio/Voice/Talk/speak_2_exclaim.ogg");
     }
 }
+

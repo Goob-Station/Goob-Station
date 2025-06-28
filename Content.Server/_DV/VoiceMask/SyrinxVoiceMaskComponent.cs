@@ -31,3 +31,4 @@ public sealed partial class SyrinxVoiceMaskComponent : Component
     public ProtoId<SpeechVerbPrototype>? SpeechVerb;
 }
 */
+

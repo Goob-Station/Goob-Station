@@ -87,3 +87,4 @@ public enum StorageVisualLayers : byte
     Base,
     Door
 }
+

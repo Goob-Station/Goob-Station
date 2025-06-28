@@ -92,3 +92,4 @@ public sealed class ElectrocutionHUDVisualizerSystem : VisualizerSystem<Electroc
         _sprite.LayerSetVisible((uid, args.Sprite), ElectrifiedLayers.HUD, electrified && HasComp<ShowElectrocutionHUDComponent>(player));
     }
 }
+

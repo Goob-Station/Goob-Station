@@ -11,3 +11,4 @@ namespace Content.Shared._Goobstation.Wizard.HighFrequencyBlade;
 public sealed partial class RandomRotationComponent : Component
 {
 }
+

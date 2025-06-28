@@ -118,3 +118,4 @@ public sealed class SelfEquipOnlySystem : EntitySystem
         args.Cancel();
     }
 }
+

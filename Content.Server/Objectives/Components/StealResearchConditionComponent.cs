@@ -20,3 +20,4 @@ public sealed partial class StealResearchConditionComponent : Component
     [DataField("downloadedNodes"), ViewVariables(VVAccess.ReadWrite)]
     public HashSet<string> DownloadedNodes = new();
 }
+

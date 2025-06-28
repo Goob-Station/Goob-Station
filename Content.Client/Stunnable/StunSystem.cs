@@ -12,3 +12,4 @@ namespace Content.Client.Stunnable
 
     }
 }
+

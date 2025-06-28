@@ -40,3 +40,4 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 5
+

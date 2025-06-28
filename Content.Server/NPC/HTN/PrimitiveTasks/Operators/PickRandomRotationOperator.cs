@@ -28,3 +28,4 @@ public sealed partial class PickRandomRotationOperator : HTNOperator
         });
     }
 }
+

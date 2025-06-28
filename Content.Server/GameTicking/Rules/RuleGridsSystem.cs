@@ -80,3 +80,4 @@ public sealed class RuleGridsSystem : GameRuleSystem<RuleGridsComponent>
 /// </summary>
 [ByRefEvent]
 public record struct RuleLoadedGridsEvent(MapId Map, IReadOnlyList<EntityUid> Grids);
+

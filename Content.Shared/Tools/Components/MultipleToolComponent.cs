@@ -49,3 +49,4 @@ public sealed partial class MultipleToolComponent : Component
     [DataField]
     public bool StatusShowBehavior = true;
 }
+

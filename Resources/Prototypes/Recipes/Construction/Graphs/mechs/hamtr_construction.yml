@@ -130,3 +130,4 @@
     actions:
     - !type:BuildMech
       mechPrototype: MechHamtr
+

@@ -61,3 +61,4 @@ public sealed partial class SliceableFoodComponent : Component
     [DataField]
     public float SpawnOffset = 0.5f;
 }
+

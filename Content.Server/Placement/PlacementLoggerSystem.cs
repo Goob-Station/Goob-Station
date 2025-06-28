@@ -64,3 +64,4 @@ public sealed class PlacementLoggerSystem : EntitySystem
                 $"Placement system set tile {_tileDefinitionManager[ev.TileType].Name} at {ev.Coordinates}");
     }
 }
+

@@ -137,3 +137,4 @@ public abstract class SharedHandLabelerSystem : EntitySystem
             $"{ToPrettyString(args.Actor):user} set {ToPrettyString(uid):labeler} to apply label \"{handLabeler.AssignedLabel}\"");
     }
 }
+

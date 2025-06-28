@@ -20,3 +20,4 @@ public sealed partial class RecyclerVisualsComponent : Component
     [DataField]
     public string BaseKey = "grinder-o";
 }
+

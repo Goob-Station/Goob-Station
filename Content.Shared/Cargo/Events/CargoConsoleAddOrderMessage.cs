@@ -29,3 +29,4 @@ public sealed class CargoConsoleAddOrderMessage : BoundUserInterfaceMessage
         Amount = amount;
     }
 }
+

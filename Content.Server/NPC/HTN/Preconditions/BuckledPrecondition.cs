@@ -33,3 +33,4 @@ public sealed partial class BuckledPrecondition : HTNPrecondition
                !IsBuckled && !_buckle.IsBuckled(owner);
     }
 }
+

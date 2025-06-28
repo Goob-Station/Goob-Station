@@ -40,3 +40,4 @@ namespace Content.Server.Light.Components
         [ViewVariables] public float StateExpiryTime = default;
     }
 }
+

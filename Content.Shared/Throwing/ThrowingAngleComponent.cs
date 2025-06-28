@@ -22,3 +22,4 @@ public sealed partial class ThrowingAngleComponent : Component
     [ViewVariables(VVAccess.ReadWrite), DataField("angle"), AutoNetworkedField]
     public Angle Angle;
 }
+

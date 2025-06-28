@@ -47,3 +47,4 @@ public sealed partial class XAETelepathicComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public float Range = 10f;
 }
+

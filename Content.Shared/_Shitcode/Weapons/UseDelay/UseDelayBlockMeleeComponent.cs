@@ -17,3 +17,4 @@ public sealed partial class UseDelayBlockMeleeComponent : Component
     [DataField]
     public List<string> Delays = new(){"default"};
 }
+

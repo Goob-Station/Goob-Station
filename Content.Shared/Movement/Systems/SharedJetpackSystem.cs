@@ -306,3 +306,4 @@ public enum JetpackVisuals : byte
 {
     Enabled,
 }
+

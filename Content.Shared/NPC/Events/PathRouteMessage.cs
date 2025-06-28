@@ -22,3 +22,4 @@ public sealed class PathRouteMessage : EntityEventArgs
         Costs = costs;
     }
 }
+

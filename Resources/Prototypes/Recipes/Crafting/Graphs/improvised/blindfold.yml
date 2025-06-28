@@ -18,3 +18,4 @@
           doAfter: 10
     - node: blindfold
       entity: ClothingEyesBlindfold
+

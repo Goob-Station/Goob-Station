@@ -28,3 +28,4 @@ public sealed class CargoShuttleConsoleBoundUserInterfaceState : BoundUserInterf
         Orders = orders;
     }
 }
+

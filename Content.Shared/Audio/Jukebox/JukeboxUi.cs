@@ -15,3 +15,4 @@ public enum JukeboxUiKey : byte
 {
     Key,
 }
+

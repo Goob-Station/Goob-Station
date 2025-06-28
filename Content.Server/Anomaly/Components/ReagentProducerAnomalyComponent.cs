@@ -110,3 +110,4 @@ public sealed partial class ReagentProducerAnomalyComponent : Component
     [ViewVariables]
     public Entity<SolutionComponent>? Solution = null;
 }
+

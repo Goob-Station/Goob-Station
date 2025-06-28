@@ -26,3 +26,4 @@ public sealed partial class ActiveTimerTriggerComponent : Component
 
     [DataField] public SoundSpecifier? BeepSound;
 }
+

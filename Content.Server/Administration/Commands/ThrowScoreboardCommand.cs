@@ -32,3 +32,4 @@ public sealed class ThrowScoreboardCommand : IConsoleCommand
         _e.System<GameTicker>().ShowRoundEndScoreboard();
     }
 }
+

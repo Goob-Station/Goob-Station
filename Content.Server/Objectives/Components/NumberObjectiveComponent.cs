@@ -45,3 +45,4 @@ public sealed partial class NumberObjectiveComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public string? Description;
 }
+

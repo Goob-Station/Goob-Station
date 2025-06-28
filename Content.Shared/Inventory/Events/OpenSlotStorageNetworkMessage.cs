@@ -19,3 +19,4 @@ public sealed class OpenSlotStorageNetworkMessage : EntityEventArgs
         Slot = slot;
     }
 }
+

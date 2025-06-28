@@ -36,3 +36,4 @@ public sealed partial class AutoEmoteComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public TimeSpan NextEmoteTime = TimeSpan.MaxValue;
 }
+

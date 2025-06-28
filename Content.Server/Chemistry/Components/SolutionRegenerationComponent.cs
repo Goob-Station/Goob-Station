@@ -56,3 +56,4 @@ public sealed partial class SolutionRegenerationComponent : Component
     [AutoPausedField]
     public TimeSpan NextRegenTime = TimeSpan.FromSeconds(0);
 }
+

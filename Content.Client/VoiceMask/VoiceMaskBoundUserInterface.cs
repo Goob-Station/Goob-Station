@@ -62,3 +62,4 @@ public sealed class VoiceMaskBoundUserInterface : BoundUserInterface
         _window?.Close();
     }
 }
+

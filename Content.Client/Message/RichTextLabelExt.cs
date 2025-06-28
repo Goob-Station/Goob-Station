@@ -41,3 +41,4 @@ public static class RichTextLabelExt
         return label;
     }
 }
+

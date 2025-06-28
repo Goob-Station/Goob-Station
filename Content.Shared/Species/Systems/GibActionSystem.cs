@@ -64,3 +64,4 @@ public sealed partial class GibActionSystem : EntitySystem
 
     public sealed partial class GibActionEvent : InstantActionEvent { } 
 }
+

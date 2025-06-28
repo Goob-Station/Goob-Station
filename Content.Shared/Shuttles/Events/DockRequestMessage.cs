@@ -17,3 +17,4 @@ public sealed class DockRequestMessage : BoundUserInterfaceMessage
 
     public NetEntity TargetDockEntity;
 }
+

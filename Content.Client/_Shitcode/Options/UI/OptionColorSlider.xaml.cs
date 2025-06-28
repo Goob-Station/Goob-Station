@@ -37,3 +37,4 @@ public sealed partial class OptionColorSlider : Control
         set => ExampleLabel.Text = value;
     }
 }
+

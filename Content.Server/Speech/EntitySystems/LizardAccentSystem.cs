@@ -41,3 +41,4 @@ public sealed class LizardAccentSystem : EntitySystem
         args.Message = message;
     }
 }
+

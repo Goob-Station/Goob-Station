@@ -145,3 +145,4 @@ public sealed partial class StealConditionComponent : Component
     [DataField(required: true)]
     public LocId DescriptionMultiplyText;
 }
+

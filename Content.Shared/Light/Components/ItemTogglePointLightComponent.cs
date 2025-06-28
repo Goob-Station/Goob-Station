@@ -51,3 +51,4 @@ public sealed partial class ItemTogglePointLightComponent : Component
 {
 
 }
+

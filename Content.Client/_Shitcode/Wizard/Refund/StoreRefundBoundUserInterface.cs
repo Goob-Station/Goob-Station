@@ -53,3 +53,4 @@ public sealed class StoreRefundBoundUserInterface : BoundUserInterface
         SendMessage(new StoreRefundListingMessage(listingUid));
     }
 }
+

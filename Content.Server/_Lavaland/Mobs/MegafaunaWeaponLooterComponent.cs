@@ -27,3 +27,4 @@ namespace Content.Server._Lavaland.Mobs;
 /// </summary>
 [RegisterComponent]
 public sealed partial class MegafaunaWeaponLooterComponent : Component;
+

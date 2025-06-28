@@ -12,3 +12,4 @@ namespace Content.Server.Chemistry.Components;
 /// </summary>
 [RegisterComponent]
 public sealed partial class SolutionInjectOnEmbedComponent : BaseSolutionInjectOnEventComponent { }
+

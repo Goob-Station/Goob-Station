@@ -63,3 +63,4 @@ public sealed partial class AlertLevelComponent : Component
         }
     }
 }
+

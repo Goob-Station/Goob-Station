@@ -36,3 +36,4 @@ public sealed class SharedRMCPatron(string name, string tier)
     public readonly string Name = name;
     public readonly string Tier = tier;
 }
+

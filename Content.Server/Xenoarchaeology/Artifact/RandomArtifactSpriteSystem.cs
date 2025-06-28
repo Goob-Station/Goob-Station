@@ -75,3 +75,4 @@ public sealed class RandomArtifactSpriteSystem : EntitySystem
         ent.Comp.ActivationStart = _time.CurTime;
     }
 }
+

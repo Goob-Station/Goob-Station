@@ -24,3 +24,4 @@ namespace Content.Server.DeviceNetwork.Components
         public bool AllowNonStationPackets = false;
     }
 }
+

@@ -40,3 +40,4 @@ public sealed partial class ProjectileVampirismComponent : Component
     [DataField]
     public DamageSpecifier DamageOnHit = new();
 }
+

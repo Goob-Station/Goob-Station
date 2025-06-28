@@ -18,3 +18,4 @@ public sealed class GetClothingStunModifierEvent : EntityEventArgs
     public EntityUid Target;
     public float Modifier;
 }
+

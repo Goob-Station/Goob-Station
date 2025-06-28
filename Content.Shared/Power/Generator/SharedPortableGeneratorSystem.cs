@@ -40,3 +40,4 @@ public sealed partial class AutoGeneratorStartedEvent
 {
     public bool Started = false;
 }
+

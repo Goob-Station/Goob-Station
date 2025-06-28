@@ -37,3 +37,4 @@ public sealed partial class CanWieldPrecondition : HTNPrecondition
         return !beforeWieldEv.Cancelled ^ Invert;
     }
 }
+

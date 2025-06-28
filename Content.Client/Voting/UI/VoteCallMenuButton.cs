@@ -52,3 +52,4 @@ namespace Content.Client.Voting.UI
         }
     }
 }
+

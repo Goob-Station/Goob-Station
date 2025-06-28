@@ -39,3 +39,4 @@ public sealed class TargetBeforeClimbEvent : BeforeClimbEvent
 {
     public TargetBeforeClimbEvent(EntityUid gettingPutOntable, EntityUid puttingOnTable, Entity<ClimbableComponent> beingClimbedOn) : base(gettingPutOntable, puttingOnTable, beingClimbedOn) { }
 }
+

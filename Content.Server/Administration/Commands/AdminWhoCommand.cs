@@ -74,3 +74,4 @@ public sealed class AdminWhoCommand : IConsoleCommand
         shell.WriteLine(sb.ToString());
     }
 }
+

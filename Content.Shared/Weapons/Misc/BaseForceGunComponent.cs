@@ -61,3 +61,4 @@ public abstract partial class BaseForceGunComponent : Component
 
     public EntityUid? Stream;
 }
+

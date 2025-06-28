@@ -157,3 +157,4 @@ public sealed partial class SpawnExplosionWindow : DefaultWindow
         _conHost.ExecuteCommand(cmd);
     }
 }
+

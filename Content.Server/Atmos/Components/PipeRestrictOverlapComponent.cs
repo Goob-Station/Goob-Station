@@ -13,3 +13,4 @@ namespace Content.Server.Atmos.Components;
 /// </summary>
 [RegisterComponent, Access(typeof(PipeRestrictOverlapSystem))]
 public sealed partial class PipeRestrictOverlapComponent : Component;
+

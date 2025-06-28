@@ -109,3 +109,4 @@ public sealed partial class HereticRitualRuneRadialMenu : RadialMenu
         public ProtoId<HereticRitualPrototype> ProtoId { get; set; }
     }
 }
+

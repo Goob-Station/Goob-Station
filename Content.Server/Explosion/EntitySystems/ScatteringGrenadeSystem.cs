@@ -125,3 +125,4 @@ public sealed class ScatteringGrenadeSystem : SharedScatteringGrenadeSystem
         return false;
     }
 }
+

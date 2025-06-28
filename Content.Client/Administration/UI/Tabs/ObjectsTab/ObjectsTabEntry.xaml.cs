@@ -107,3 +107,4 @@ public sealed partial class ObjectsTabEntry : PanelContainer
         DeleteButton.OnPressed += _ => OnDelete?.Invoke(nent);
     }
 }
+

@@ -102,3 +102,4 @@ public sealed partial class DamageOnAttackedProtectionComponent : Component, ICl
     [DataField]
     public SlotFlags Slots { get; set; } = SlotFlags.WITHOUT_POCKET;
 }
+

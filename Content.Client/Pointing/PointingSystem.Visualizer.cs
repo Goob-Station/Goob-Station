@@ -70,3 +70,4 @@ public sealed partial class PointingSystem : SharedPointingSystem
         _animationPlayer.Play(uid, animation, animationKey);
     }
 }
+

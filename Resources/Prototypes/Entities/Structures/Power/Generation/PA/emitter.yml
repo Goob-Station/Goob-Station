@@ -88,3 +88,4 @@
     sprite: Structures/Power/Generation/PA/emitter_starboard.rsi
   - type: Construction
     graph: ParticleAcceleratorEmitterStarboard
+

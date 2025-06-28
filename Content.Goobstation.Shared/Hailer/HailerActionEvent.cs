@@ -14,3 +14,4 @@ public sealed partial class HailerActionEvent : InstantActionEvent
 {
 
 };
+

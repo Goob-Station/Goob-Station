@@ -16,3 +16,4 @@ namespace Content.Shared.Item.ItemToggle.Components;
 public sealed partial class ItemToggleHotComponent : Component
 {
 }
+

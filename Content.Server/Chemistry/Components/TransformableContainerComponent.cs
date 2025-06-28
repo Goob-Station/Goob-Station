@@ -60,3 +60,4 @@ public sealed partial class TransformableContainerComponent : Component
     [DataField("transformed")]
     public bool Transformed;
 }
+

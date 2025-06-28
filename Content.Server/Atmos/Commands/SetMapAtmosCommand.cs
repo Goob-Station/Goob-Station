@@ -99,3 +99,4 @@ public sealed class AddMapAtmosCommand : LocalizedCommands
         return CompletionResult.FromHint(Loc.GetString($"{_cmd}-hint-gas" , ("gas", gas.ToString())));
     }
 }
+

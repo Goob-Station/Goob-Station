@@ -79,3 +79,4 @@ public sealed class PlayBoxEffectMessage : EntityEventArgs
         Mover = mover;
     }
 }
+

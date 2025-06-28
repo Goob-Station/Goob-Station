@@ -201,3 +201,4 @@ public sealed class StaticFieldValidationTest
         private static readonly ProtoId<TagPrototype>[] Tag = [string.Empty, "StaticFieldTestTag", string.Empty];
     }
 }
+

@@ -21,3 +21,4 @@ public sealed partial class SurveillanceCameraSpeakerComponent : Component
 
     public TimeSpan LastSoundPlayed = TimeSpan.Zero;
 }
+

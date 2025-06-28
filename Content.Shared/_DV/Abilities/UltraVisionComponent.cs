@@ -16,3 +16,4 @@ namespace Content.Shared.Abilities;
 
 public sealed partial class UltraVisionComponent : Component
 {}
+

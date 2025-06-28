@@ -57,3 +57,4 @@ public sealed partial class StoryGeneratorSystem : EntitySystem
         return true;
     }
 }
+

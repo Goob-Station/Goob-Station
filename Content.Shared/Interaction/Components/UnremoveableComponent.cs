@@ -22,3 +22,4 @@ namespace Content.Shared.Interaction.Components
         public bool DeleteOnDrop = true;
     }
 }
+

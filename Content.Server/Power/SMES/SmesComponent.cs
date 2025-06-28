@@ -59,3 +59,4 @@ public sealed partial class SmesComponent : Component
     [ViewVariables]
     public ChargeState ChargeState = ChargeState.Still;
 }
+

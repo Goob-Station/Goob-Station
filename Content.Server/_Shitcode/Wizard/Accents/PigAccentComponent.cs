@@ -18,3 +18,4 @@ public sealed partial class PigAccentComponent : AnimalAccentComponent
         "accent-words-pig-4",
     };
 }
+

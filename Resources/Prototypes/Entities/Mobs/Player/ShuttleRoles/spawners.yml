@@ -1048,3 +1048,4 @@
   - type: RandomSpawner
     prototypes:
     - RandomHumanoidCossack
+

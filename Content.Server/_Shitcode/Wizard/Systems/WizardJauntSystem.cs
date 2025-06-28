@@ -82,3 +82,4 @@ public sealed class WizardJauntSystem : EntitySystem
         Dirty(startEffect, trail);
     }
 }
+

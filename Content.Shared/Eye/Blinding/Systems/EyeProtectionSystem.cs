@@ -76,3 +76,4 @@ namespace Content.Shared.Eye.Blinding.Systems
         }
     }
 }
+

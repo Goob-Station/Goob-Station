@@ -88,3 +88,4 @@ public sealed partial class NavMapBeaconWindow : FancyWindow
         TryEnableApplyButton();
     }
 }
+

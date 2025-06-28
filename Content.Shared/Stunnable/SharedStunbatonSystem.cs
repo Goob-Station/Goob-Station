@@ -14,3 +14,4 @@ public abstract class SharedStunbatonSystem : EntitySystem
         base.Initialize();
     }
 }
+

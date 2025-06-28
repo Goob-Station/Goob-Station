@@ -1169,3 +1169,4 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
         public Queue<SpeechBubbleData> MessageQueue { get; } = new();
     }
 }
+

@@ -44,3 +44,4 @@ public sealed class EscapeShuttleConditionSystem : EntitySystem
         return _emergencyShuttle.IsTargetEscaping(mind.OwnedEntity.Value) ? 1f : 0f;
     }
 }
+

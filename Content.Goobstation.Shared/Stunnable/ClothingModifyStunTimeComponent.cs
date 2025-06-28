@@ -15,3 +15,4 @@ public sealed partial class ClothingModifyStunTimeComponent : Component
     [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
     public float Modifier = 1f;
 }
+

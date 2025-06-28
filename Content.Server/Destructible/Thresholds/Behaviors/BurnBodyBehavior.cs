@@ -40,3 +40,4 @@ public sealed partial class BurnBodyBehavior : IThresholdBehavior
         system.EntityManager.QueueDeleteEntity(bodyId);
     }
 }
+

@@ -84,3 +84,4 @@ namespace Content.Server.Atmos.Components
         public AtmosDirection AirBlockedDirection => (AtmosDirection)CurrentAirBlockedDirection;
     }
 }
+

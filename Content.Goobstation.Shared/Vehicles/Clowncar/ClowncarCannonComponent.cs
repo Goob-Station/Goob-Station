@@ -18,3 +18,4 @@ namespace Content.Goobstation.Shared.Vehicles.Clowncar;
 public sealed partial class ClowncarCannonComponent : Component
 {
 }
+

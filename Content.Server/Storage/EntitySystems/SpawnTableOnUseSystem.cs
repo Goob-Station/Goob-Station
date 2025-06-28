@@ -51,3 +51,4 @@ public sealed class SpawnTableOnUseSystem : EntitySystem
         args.Handled = true;
     }
 }
+

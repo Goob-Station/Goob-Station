@@ -144,3 +144,4 @@ public sealed partial class LoadoutWindow : FancyWindow
         }
     }
 }
+

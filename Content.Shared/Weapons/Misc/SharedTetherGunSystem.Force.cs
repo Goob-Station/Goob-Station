@@ -62,3 +62,4 @@ public abstract partial class SharedTetherGunSystem
         return component.Tethered != null;
     }
 }
+

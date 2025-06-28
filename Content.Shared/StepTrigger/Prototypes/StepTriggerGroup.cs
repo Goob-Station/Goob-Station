@@ -79,3 +79,4 @@ public sealed partial class StepTriggerGroup
         return IsValid(component.Whitelist);
     }
 }
+

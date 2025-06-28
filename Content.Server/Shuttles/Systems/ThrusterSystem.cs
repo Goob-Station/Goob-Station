@@ -660,3 +660,4 @@ public sealed class ThrusterSystem : EntitySystem
         return (int)Math.Log2((int)flag);
     }
 }
+

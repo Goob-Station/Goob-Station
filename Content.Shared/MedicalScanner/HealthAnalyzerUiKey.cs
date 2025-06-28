@@ -12,3 +12,4 @@ public enum HealthAnalyzerUiKey : byte
 {
     Key
 }
+

@@ -85,3 +85,4 @@ public sealed partial class FlashReactionEffect : EntityEffect
         pointLightSystem.SetRadius(uid, MathF.Max(1.1f, range), pointLightComp);
     }
 }
+

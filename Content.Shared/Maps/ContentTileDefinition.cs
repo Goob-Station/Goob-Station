@@ -188,3 +188,4 @@ namespace Content.Shared.Maps
         public float TileRipResistance = 125f;
     }
 }
+

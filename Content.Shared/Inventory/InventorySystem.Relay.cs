@@ -236,3 +236,4 @@ public interface IInventoryRelayEvent // this needs to get moved to common...
     /// </remarks>
     public SlotFlags TargetSlots { get; }
 }
+

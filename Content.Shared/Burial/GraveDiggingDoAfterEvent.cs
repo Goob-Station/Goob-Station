@@ -12,3 +12,4 @@ namespace Content.Shared.Burial;
 public sealed partial class GraveDiggingDoAfterEvent : SimpleDoAfterEvent
 {
 }
+

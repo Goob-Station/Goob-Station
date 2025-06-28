@@ -25,3 +25,4 @@ namespace Content.Shared.Smoking
         Burnt,
     }
 }
+

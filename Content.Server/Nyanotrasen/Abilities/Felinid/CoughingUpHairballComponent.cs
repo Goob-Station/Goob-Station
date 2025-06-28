@@ -14,3 +14,4 @@ public sealed partial class CoughingUpHairballComponent : Component
     [DataField("coughUpTime")]
     public TimeSpan CoughUpTime = TimeSpan.FromSeconds(2.15); // length of hairball.ogg
 }
+

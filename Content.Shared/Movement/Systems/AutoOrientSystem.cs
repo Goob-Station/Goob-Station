@@ -54,3 +54,4 @@ public sealed class AutoOrientSystem : EntitySystem
         }
     }
 }
+

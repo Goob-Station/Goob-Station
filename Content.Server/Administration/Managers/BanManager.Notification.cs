@@ -104,3 +104,4 @@ public sealed partial class BanManager
         public int? ServerId { get; init; }
     }
 }
+

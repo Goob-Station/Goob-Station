@@ -22,3 +22,4 @@ public sealed partial class OnMapGridRule : RulesRule
         return !Inverted;
     }
 }
+

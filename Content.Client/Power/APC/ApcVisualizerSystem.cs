@@ -114,3 +114,4 @@ public enum ApcVisualLayers : byte
     /// </summary>
     ChargeState,
 }
+

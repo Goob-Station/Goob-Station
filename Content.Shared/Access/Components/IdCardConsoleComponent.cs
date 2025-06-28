@@ -130,3 +130,4 @@ public sealed partial class IdCardConsoleComponent : Component
         Key,
     }
 }
+

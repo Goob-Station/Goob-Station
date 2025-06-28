@@ -13,3 +13,4 @@ public sealed class TrayScannerSystem : SharedTrayScannerSystem
 {
 
 }
+

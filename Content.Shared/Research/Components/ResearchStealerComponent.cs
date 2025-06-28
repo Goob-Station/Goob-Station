@@ -34,3 +34,4 @@ public sealed partial class ResearchStealerComponent : Component
     [DataField]
     public int MaxToSteal = 8;
 }
+

@@ -42,3 +42,4 @@ public sealed class LaserPointerSystem : SharedLaserPointerSystem
         }
     }
 }
+

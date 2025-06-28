@@ -206,3 +206,4 @@ namespace Content.YAMLLinter
         }
     }
 }
+

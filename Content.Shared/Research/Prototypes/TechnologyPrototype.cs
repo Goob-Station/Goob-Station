@@ -119,3 +119,4 @@ public partial record struct GenericUnlock()
     [DataField]
     public string UnlockDescription = string.Empty;
 }
+

@@ -12,3 +12,4 @@ namespace Content.Shared.Electrocution;
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ShowElectrocutionHUDComponent : Component;
+

@@ -15,3 +15,4 @@ namespace Content.Shared.Interaction.Components;
 public sealed partial class NoRotateOnInteractComponent : Component
 {
 }
+

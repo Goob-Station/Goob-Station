@@ -35,3 +35,4 @@ public sealed class IntrinsicRadioKeySystem : EntitySystem
         channels.UnionWith(keyHolderComp.Channels);
     }
 }
+

@@ -65,3 +65,4 @@ public sealed class ChangelingGunSystem : EntitySystem
         Dirty(parent, ling);
     }
 }
+

@@ -12,3 +12,4 @@ namespace Content.Server.Clothing;
 public sealed class ServerClothingSystem : ClothingSystem
 {
 }
+

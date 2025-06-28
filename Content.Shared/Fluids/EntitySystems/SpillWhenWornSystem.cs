@@ -94,3 +94,4 @@ public sealed class SpillWhenWornSystem : EntitySystem
         args.Cancelled = true;
     }
 }
+

@@ -42,3 +42,4 @@ public sealed partial class ZombieRuleComponent : Component
     // goob edit
     public bool StartAnnounced = false;
 }
+

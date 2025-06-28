@@ -39,3 +39,4 @@ public enum JukeType : byte
     /// </summary>
     AdjacentTile
 }
+

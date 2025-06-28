@@ -57,3 +57,4 @@ public sealed partial class SwapToFreeHandOperator : HTNOperator
         return HTNOperatorStatus.Finished;
     }
 }
+

@@ -62,3 +62,4 @@ public sealed class ScoopableSolutionSystem : EntitySystem
         return true;
     }
 }
+

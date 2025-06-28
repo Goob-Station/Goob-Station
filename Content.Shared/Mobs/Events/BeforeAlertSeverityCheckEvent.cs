@@ -19,3 +19,4 @@ public sealed class BeforeAlertSeverityCheckEvent(ProtoId<AlertPrototype> curren
     public ProtoId<AlertPrototype> CurrentAlert = currentAlert;
     public short Severity = severity;
 }
+

@@ -164,3 +164,4 @@ public enum HungerThreshold : byte
     Starving = 1 << 0,
     Dead = 0,
 }
+

@@ -152,3 +152,4 @@ public sealed class MeleeDashSystem : EntitySystem
         Dirty(user, emotes);
     }
 }
+

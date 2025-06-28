@@ -26,3 +26,4 @@ public sealed partial class PreloadedGridPrototype : IPrototype
     [DataField]
     public int Copies = 1;
 }
+

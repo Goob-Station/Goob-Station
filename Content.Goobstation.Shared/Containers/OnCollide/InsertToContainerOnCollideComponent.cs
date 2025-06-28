@@ -42,3 +42,4 @@ public sealed partial class InsertToContainerOnCollideComponent : Component
     [DataField("blacklistedEntities")]
     public EntityWhitelist? BlacklistedEntities;
 }
+

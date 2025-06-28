@@ -23,3 +23,4 @@ public class SharedAdminLogManager : ISharedAdminLogManager
         // noop
     }
 }
+

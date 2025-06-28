@@ -55,3 +55,4 @@ public sealed partial class CartridgeLoaderComponent : Component
     [DataField(required: true)]
     public Enum UiKey = default!;
 }
+

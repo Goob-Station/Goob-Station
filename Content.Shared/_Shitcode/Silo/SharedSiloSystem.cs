@@ -120,3 +120,4 @@ public abstract class SharedSiloSystem : EntitySystem
         return (utilizer.Silo.Value, storage);
     }
 }
+

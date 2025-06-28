@@ -15,3 +15,4 @@ public sealed partial class LagCompensationComponent : Component
     [ViewVariables]
     public readonly Queue<ValueTuple<TimeSpan, EntityCoordinates, Angle>> Positions = new();
 }
+

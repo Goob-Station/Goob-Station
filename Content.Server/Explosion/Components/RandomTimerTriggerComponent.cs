@@ -25,3 +25,4 @@ public sealed partial class RandomTimerTriggerComponent : Component
     [DataField]
     public float Max;
 }
+

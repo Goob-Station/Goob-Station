@@ -81,3 +81,4 @@ namespace Content.Server.Shuttles.Components
         public float DampingModifier;
     }
 }
+

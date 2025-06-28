@@ -33,3 +33,4 @@ public record struct AtmosPipeColorChangedEvent(Color color)
 {
     public Color Color = color;
 }
+

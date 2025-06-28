@@ -21,3 +21,4 @@ public readonly record struct OnIrradiatedEvent(float FrameTime, float RadsPerSe
 
     public float TotalRads => RadsPerSecond * FrameTime;
 }
+

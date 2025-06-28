@@ -18,3 +18,4 @@ public sealed class KnockdownOnHitSuccessEvent(List<EntityUid> knockedDown) : En
 {
     public List<EntityUid> KnockedDown = knockedDown;
 }
+

@@ -32,3 +32,4 @@ namespace Content.Server.Singularity.Components
         public float EnergyFactor = 1f;
     }
 }
+

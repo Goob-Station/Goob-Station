@@ -18,3 +18,4 @@ public sealed partial class AmbientSoundTreeComponent : Component, IComponentTre
 {
     public DynamicTree<ComponentTreeEntry<AmbientSoundComponent>> Tree { get; set; } = default!;
 }
+

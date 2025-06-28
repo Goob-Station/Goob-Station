@@ -80,3 +80,4 @@ public sealed class DragonRuleSystem : GameRuleSystem<DragonRuleComponent>
         return briefing;
     }
 }
+

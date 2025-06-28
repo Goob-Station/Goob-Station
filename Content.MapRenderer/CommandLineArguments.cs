@@ -128,3 +128,4 @@ public enum OutputFormat
     png,
     webp
 }
+

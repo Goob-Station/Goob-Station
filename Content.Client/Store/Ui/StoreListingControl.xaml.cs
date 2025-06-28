@@ -103,3 +103,4 @@ public sealed partial class StoreListingControl : Control
         StoreItemBuyButton.Disabled = !CanBuy();
     }
 }
+

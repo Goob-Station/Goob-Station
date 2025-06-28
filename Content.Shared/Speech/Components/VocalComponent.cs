@@ -64,3 +64,4 @@ public sealed partial class VocalComponent : Component
     [AutoNetworkedField]
     public EmoteSoundsPrototype? EmoteSounds = null;
 }
+

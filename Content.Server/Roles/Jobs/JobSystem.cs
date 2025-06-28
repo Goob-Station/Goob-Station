@@ -79,3 +79,4 @@ public sealed class JobSystem : SharedJobSystem
         _roles.MindAddJobRole(mindId, null, false, jobPrototypeId);
     }
 }
+

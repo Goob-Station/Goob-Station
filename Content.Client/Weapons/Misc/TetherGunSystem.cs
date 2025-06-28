@@ -133,3 +133,4 @@ public sealed class TetherGunSystem : SharedTetherGunSystem
         _sprite.SetColor((uid, sprite), Color.White);
     }
 }
+

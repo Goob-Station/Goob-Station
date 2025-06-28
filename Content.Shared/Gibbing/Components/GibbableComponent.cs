@@ -38,3 +38,4 @@ public sealed partial class GibbableComponent : Component
     [DataField, AutoNetworkedField]
     public float GibScatterRange = 0.3f;
 }
+

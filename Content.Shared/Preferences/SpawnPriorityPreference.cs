@@ -20,3 +20,4 @@ namespace Content.Shared.Preferences
         Cryosleep = 2,
     }
 }
+

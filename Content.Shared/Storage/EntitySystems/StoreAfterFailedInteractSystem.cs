@@ -24,3 +24,4 @@ public sealed class StoreAfterFailedInteractSystem : EntitySystem
         _storage.PlayerInsertHeldEntity(args.Storage, args.Player);
     }
 }
+

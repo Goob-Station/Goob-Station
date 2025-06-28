@@ -21,3 +21,4 @@ public sealed class SalvageExpeditionComponentState : ComponentState
 {
     public ExpeditionStage Stage;
 }
+

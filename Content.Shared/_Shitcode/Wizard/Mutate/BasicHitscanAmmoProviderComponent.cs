@@ -18,3 +18,4 @@ public sealed partial class BasicHitscanAmmoProviderComponent : AmmoProviderComp
     [ViewVariables(VVAccess.ReadWrite), DataField(required: true), AutoNetworkedField]
     public ProtoId<HitscanPrototype> Proto;
 }
+

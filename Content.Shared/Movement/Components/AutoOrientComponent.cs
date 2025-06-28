@@ -17,3 +17,4 @@ public sealed partial class AutoOrientComponent : Component
     [DataField, AutoNetworkedField, AutoPausedField]
     public TimeSpan? NextChange;
 }
+

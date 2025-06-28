@@ -63,3 +63,4 @@ public sealed partial class GunSystem
         RaiseLocalEvent(uid, ref cycledEvent);
     }
 }
+

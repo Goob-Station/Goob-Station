@@ -86,3 +86,4 @@ public sealed class FlipOnHitSystem : SharedFlipOnHitSystem
         _animationSystem.Play(user, animation, FlippingComponent.AnimationKey);
     }
 }
+

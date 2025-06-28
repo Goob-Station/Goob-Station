@@ -23,3 +23,4 @@ public sealed partial class SalvageMagnetComponent : Component
     [DataField]
     public float LateralOffset = 16f;
 }
+

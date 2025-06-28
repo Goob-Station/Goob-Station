@@ -18,3 +18,4 @@ namespace Content.Server.Power.Components
     public sealed partial class ExaminableBatteryComponent : Component
     {}
 }
+

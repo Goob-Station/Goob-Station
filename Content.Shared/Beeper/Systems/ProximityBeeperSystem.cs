@@ -40,3 +40,4 @@ public sealed class ProximityBeeperSystem : EntitySystem
         _beeper.SetMute(owner, args.Target == null);
     }
 }
+

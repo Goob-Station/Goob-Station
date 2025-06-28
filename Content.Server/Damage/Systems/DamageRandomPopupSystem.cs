@@ -30,3 +30,4 @@ public sealed class DamageRandomPopupSystem : EntitySystem
         _popupSystem.PopupEntity(Loc.GetString(_random.Pick(component.Popups)), uid);
     }
 }
+

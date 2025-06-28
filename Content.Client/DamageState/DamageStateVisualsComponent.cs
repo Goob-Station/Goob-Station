@@ -26,3 +26,4 @@ public enum DamageStateVisualLayers : byte
     Base,
     BaseUnshaded,
 }
+

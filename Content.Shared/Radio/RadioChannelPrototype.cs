@@ -48,3 +48,4 @@ public sealed partial class RadioChannelPrototype : IPrototype
     [DataField("longRange"), ViewVariables]
     public bool LongRange = false;
 }
+

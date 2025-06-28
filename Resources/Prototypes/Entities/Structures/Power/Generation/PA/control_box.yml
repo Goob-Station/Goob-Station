@@ -63,3 +63,4 @@
       sprite: Structures/Power/Generation/PA/control_box.rsi
     - type: Construction
       graph: ParticleAcceleratorControlBox
+

@@ -458,3 +458,4 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
         return HashCode.Combine(Role, SelectedLoadouts, Points);
     }
 }
+

@@ -40,3 +40,4 @@ public sealed partial class NoUnstackableInTile : IConstructionCondition
         };
     }
 }
+

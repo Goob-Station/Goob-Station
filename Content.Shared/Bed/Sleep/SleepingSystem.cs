@@ -397,3 +397,4 @@ public sealed partial class WakeActionEvent : InstantActionEvent;
 /// </summary>
 [ByRefEvent]
 public record struct SleepStateChangedEvent(bool FellAsleep);
+

@@ -21,3 +21,4 @@ namespace Content.Server.Cloning.Components
         public EntityUid Parent;
     }
 }
+

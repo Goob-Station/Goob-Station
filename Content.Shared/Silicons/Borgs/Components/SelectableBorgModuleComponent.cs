@@ -41,3 +41,4 @@ public readonly record struct BorgModuleSelectedEvent(EntityUid Chassis);
 /// </summary>
 [ByRefEvent]
 public readonly record struct BorgModuleUnselectedEvent(EntityUid Chassis);
+

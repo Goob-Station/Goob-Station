@@ -20,3 +20,4 @@ public sealed class NavBoundUserInterfaceState : BoundUserInterfaceState
         State = state;
     }
 }
+

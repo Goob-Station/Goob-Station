@@ -82,3 +82,4 @@ public sealed class RenameCommand : LocalizedEntityCommands
         return false;
     }
 }
+

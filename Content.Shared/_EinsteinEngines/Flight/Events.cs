@@ -31,3 +31,4 @@ public sealed class FlightEvent : EntityEventArgs
         IsAnimated = isAnimated;
     }
 }
+

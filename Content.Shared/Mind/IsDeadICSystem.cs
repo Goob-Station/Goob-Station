@@ -25,3 +25,4 @@ public sealed class IsDeadICSystem : EntitySystem
         args.Dead = component.Dead; // Goob edit
     }
 }
+

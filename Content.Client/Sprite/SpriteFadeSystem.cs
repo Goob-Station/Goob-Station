@@ -191,3 +191,4 @@ public sealed class SpriteFadeSystem : EntitySystem
         _comps.Clear();
     }
 }
+

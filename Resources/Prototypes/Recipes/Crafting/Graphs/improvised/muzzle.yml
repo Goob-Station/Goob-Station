@@ -21,3 +21,4 @@
           doAfter: 10
     - node: muzzle
       entity: ClothingMaskMuzzle
+

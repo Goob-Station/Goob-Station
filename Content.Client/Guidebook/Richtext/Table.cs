@@ -30,3 +30,4 @@ public sealed class Table : TableContainer, IDocumentTag
         return true;
     }
 }
+

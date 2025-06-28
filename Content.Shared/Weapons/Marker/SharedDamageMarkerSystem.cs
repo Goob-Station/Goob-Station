@@ -131,3 +131,4 @@ public abstract class SharedDamageMarkerSystem : EntitySystem
         }
     }
 }
+

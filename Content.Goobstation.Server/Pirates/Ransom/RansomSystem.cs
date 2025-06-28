@@ -37,3 +37,4 @@ public sealed partial class RansomSystem : EntitySystem
         }
     }
 }
+

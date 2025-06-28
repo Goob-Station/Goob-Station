@@ -38,3 +38,4 @@ public enum LinkedEntityVisuals : byte
 {
     HasAnyLinks
 }
+

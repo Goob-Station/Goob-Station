@@ -30,3 +30,4 @@ public abstract partial class UIFragment
     public abstract void UpdateState(BoundUserInterfaceState state);
 
 }
+

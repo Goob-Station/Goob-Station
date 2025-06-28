@@ -76,3 +76,4 @@ public sealed partial class CrewManifestUiFragment : BoxContainer
         CrewManifestListing.AddCrewManifestEntries(entries);
     }
 }
+

@@ -142,3 +142,4 @@ public sealed class MappingManager : IPostInjectInit
         _saveStream = stream;
     }
 }
+

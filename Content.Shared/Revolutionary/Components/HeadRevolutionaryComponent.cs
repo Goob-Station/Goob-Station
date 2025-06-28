@@ -111,3 +111,4 @@ public sealed partial class HeadRevolutionaryComponent : Component
     [DataField]
     public bool ConvertAbilityEnabled = true;
 }
+

@@ -34,3 +34,4 @@
   - type: ThrowingAngle
     angularVelocity: true # spins
   - type: ThrowableBlocked # Goobstation
+

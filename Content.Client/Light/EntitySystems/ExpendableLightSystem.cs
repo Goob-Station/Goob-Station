@@ -102,3 +102,4 @@ public sealed class ExpendableLightSystem : VisualizerSystem<ExpendableLightComp
         }
     }
 }
+

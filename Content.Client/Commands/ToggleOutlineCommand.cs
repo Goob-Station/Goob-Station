@@ -34,3 +34,4 @@ public sealed class ToggleOutlineCommand : LocalizedCommands
         shell.WriteLine(LocalizationManager.GetString($"cmd-{Command}-notify", ("state", _configurationManager.GetCVar(cvar))));
     }
 }
+

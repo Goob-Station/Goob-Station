@@ -91,3 +91,4 @@ namespace Content.Shared.Research.Components
         }
     }
 }
+

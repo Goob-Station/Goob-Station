@@ -25,3 +25,4 @@ public sealed partial class LatheHeatProducingComponent : Component
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan NextSecond;
 }
+

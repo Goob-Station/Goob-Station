@@ -43,3 +43,4 @@ public sealed class CableVisualizerSystem : EntitySystem
             _sprite.LayerSetRsiState((uid, args.Sprite), 1, $"{component.ExtraLayerPrefix}{(int)mask}");
     }
 }
+

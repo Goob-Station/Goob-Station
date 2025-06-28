@@ -29,3 +29,4 @@ public sealed partial class MousetrapComponent : Component
     [DataField("massBalance")]
     public int MassBalance = 10;
 }
+

@@ -115,3 +115,4 @@ public sealed class StoreBoundUserInterface : BoundUserInterface
         _menu.UpdateListing(filteredListings.ToList());
     }
 }
+

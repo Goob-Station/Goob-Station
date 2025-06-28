@@ -143,3 +143,4 @@ public abstract partial class InteractionTest
         return new(meta.EntityPrototype.ID, 1) { Converted = true };
     }
 }
+

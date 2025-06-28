@@ -40,3 +40,4 @@ public sealed class ItemSwitchStatusControl : PollingItemStatusControl<ItemSwitc
 
     public record struct Data(string State);
 }
+

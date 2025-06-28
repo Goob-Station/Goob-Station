@@ -82,3 +82,4 @@ public sealed class ActivatableUIRequiresPowerSystem : SharedActivatableUIRequir
             _activatableUI.CloseAll(uid);
     }
 }
+

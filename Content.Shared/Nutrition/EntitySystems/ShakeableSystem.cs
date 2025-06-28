@@ -158,3 +158,4 @@ public record struct AttemptShakeEvent()
 public sealed partial class ShakeDoAfterEvent : SimpleDoAfterEvent
 {
 }
+

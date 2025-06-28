@@ -12,3 +12,4 @@ public sealed record SharedServerUnban(
     string? UnbanningAdmin,
     DateTime UnbanTime
 );
+

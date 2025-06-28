@@ -81,3 +81,4 @@ public sealed class BanListCommand : LocalizedCommands
         return CompletionResult.FromHintOptions(options, Loc.GetString("cmd-banlist-hint"));
     }
 }
+

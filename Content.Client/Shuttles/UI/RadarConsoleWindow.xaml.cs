@@ -27,3 +27,4 @@ public sealed partial class RadarConsoleWindow : FancyWindow,
         RadarScreen.UpdateState(scc);
     }
 }
+

@@ -46,3 +46,4 @@ public sealed partial class DragInsertContainerComponent : Component
 public sealed partial class InsertOnDragDoAfterEvent : SimpleDoAfterEvent
 {
 }
+

@@ -503,3 +503,4 @@ namespace Content.Client.Parallax
         }
     }
 }
+

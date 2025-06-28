@@ -80,3 +80,4 @@ public sealed class GhostVisibilitySystem : SharedGhostVisibilitySystem
         return !component.CanGhostInteract;
     }
 }
+

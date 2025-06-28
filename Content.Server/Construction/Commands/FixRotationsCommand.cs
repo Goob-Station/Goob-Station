@@ -132,3 +132,4 @@ public sealed class FixRotationsCommand : IConsoleCommand
         shell.WriteLine($"Changed {changed} entities. If things seem wrong, reconnect.");
     }
 }
+

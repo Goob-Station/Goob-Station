@@ -45,3 +45,4 @@ public sealed partial class LavalandDungeonRuinPrototype : IPrototype
     [DataField(required: true)]
     public int Priority = int.MinValue;
 }
+

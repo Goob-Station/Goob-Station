@@ -46,3 +46,4 @@ public sealed partial class AttemptElectrocute : IGraphAction
         electrified.Enabled = currentValue;
     }
 }
+

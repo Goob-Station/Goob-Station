@@ -31,3 +31,4 @@ namespace Content.Server.Destructible.Thresholds.Behaviors
         void Execute(EntityUid owner, DestructibleSystem system, EntityUid? cause = null);
     }
 }
+

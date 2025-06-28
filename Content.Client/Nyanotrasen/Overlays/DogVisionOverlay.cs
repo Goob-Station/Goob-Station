@@ -55,3 +55,4 @@ public sealed partial class DogVisionOverlay : Overlay
         worldHandle.UseShader(null); // important - as of writing, construction overlay breaks without this
     }
 }
+

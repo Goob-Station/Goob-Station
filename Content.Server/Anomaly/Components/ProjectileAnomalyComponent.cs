@@ -43,3 +43,4 @@ public sealed partial class ProjectileAnomalyComponent : Component
     [DataField("projectileRange"), ViewVariables(VVAccess.ReadWrite)]
     public float ProjectileRange = 50f;
 }
+

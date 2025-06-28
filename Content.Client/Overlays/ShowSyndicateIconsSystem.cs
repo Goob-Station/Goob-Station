@@ -106,3 +106,4 @@ public sealed class ShowSyndicateIconsSystem : EquipmentHudSystem<ShowSyndicateI
             ev.StatusIcons.Add(iconPrototype);
     }
 }
+

@@ -53,3 +53,4 @@ public sealed partial class ModifyBleedAmount : EntityEffect
         }
     }
 }
+

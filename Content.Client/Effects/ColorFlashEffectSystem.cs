@@ -186,3 +186,4 @@ public sealed class ColorFlashEffectSystem : SharedColorFlashEffectSystem
 /// </summary>
 [ByRefEvent]
 public record struct GetFlashEffectTargetEvent(EntityUid Target);
+

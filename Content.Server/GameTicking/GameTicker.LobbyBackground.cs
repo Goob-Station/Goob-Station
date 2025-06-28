@@ -47,3 +47,4 @@ public sealed partial class GameTicker
         LobbyBackground = _lobbyBackgrounds!.Any() ? _robustRandom.Pick(_lobbyBackgrounds!) : null;
     }
 }
+

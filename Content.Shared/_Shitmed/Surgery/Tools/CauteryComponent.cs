@@ -17,3 +17,4 @@ public sealed partial class CauteryComponent : Component, ISurgeryToolComponent
     [DataField, AutoNetworkedField]
     public float Speed { get; set; } = 1f;
 }
+

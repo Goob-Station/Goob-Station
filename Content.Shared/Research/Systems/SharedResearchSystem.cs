@@ -347,3 +347,4 @@ public abstract class SharedResearchSystem : EntitySystem
         RaiseLocalEvent(uid, ref ev);
     }
 }
+

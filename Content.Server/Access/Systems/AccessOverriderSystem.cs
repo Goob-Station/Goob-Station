@@ -286,3 +286,4 @@ public sealed class AccessOverriderSystem : SharedAccessOverriderSystem
         return privilegedId != null && _accessReader.IsAllowed(privilegedId.Value, uid, accessReader);
     }
 }
+

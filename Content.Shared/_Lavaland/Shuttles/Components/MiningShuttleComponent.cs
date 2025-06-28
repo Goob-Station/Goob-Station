@@ -29,3 +29,4 @@ namespace Content.Shared._Lavaland.Shuttles.Components;
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class MiningShuttleComponent : Component;
+

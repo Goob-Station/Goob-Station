@@ -26,3 +26,4 @@ public sealed partial class MobReplacementRuleComponent : Component
     [DataField]
     public float Chance = 0.004f;
 }
+

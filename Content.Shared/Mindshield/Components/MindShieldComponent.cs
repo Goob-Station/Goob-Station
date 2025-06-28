@@ -100,3 +100,4 @@ public sealed partial class MindShieldComponent : Component
     [DataField, AutoNetworkedField]
     public bool Broken = false;
 }
+

@@ -10,3 +10,4 @@ namespace Content.Shared.Weapons.Ranged.Events;
 /// </summary>
 [ByRefEvent]
 public readonly record struct GunCycledEvent;
+

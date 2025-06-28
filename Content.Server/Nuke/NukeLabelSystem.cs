@@ -29,3 +29,4 @@ public sealed class NukeLabelSystem : EntitySystem
         _metaData.SetEntityName(uid, $"{meta.EntityName} ({label})", meta);
     }
 }
+

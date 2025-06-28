@@ -20,3 +20,4 @@ public sealed partial class DormNotifierMarkerComponent : Component
     [DataField]
     public float ProximityRadius = 1;
 }
+

@@ -38,3 +38,4 @@ public abstract class SharedStasisBlinkProviderSystem : EntitySystem
         args.AddAction(ref comp.BlinkActionEntity, comp.BlinkAction);
     }
 }
+

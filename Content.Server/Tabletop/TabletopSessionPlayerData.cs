@@ -15,3 +15,4 @@ namespace Content.Server.Tabletop
         public EntityUid Camera { get; set; }
     }
 }
+

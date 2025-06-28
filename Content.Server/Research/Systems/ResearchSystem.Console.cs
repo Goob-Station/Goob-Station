@@ -185,3 +185,4 @@ public sealed partial class ResearchSystem
 }
 
 public sealed partial class ResearchConsoleUnlockEvent : CancellableEntityEventArgs { }
+

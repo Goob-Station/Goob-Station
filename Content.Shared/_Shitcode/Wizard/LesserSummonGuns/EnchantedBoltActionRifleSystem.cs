@@ -135,3 +135,4 @@ public sealed class EnchantedBoltActionRifleSystem : EntitySystem
             _useDelay.ResetAllDelays((uid, delay));
     }
 }
+

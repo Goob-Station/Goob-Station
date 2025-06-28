@@ -242,3 +242,4 @@ public sealed class CardHandSystem : EntitySystem
         return worldEntity;
     }
 }
+

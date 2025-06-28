@@ -245,3 +245,4 @@ public sealed class NPCJukeSystem : EntitySystem
         }
     }
 }
+

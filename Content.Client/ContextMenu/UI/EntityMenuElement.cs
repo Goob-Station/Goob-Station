@@ -134,3 +134,4 @@ namespace Content.Client.ContextMenu.UI
         EntityUid? IEntityControl.UiEntity => Entity;
     }
 }
+

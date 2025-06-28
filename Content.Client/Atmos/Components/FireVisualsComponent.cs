@@ -47,3 +47,4 @@ public sealed partial class FireVisualsComponent : Component
     /// </summary>
     public EntityUid? LightEntity;
 }
+

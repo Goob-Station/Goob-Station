@@ -35,3 +35,4 @@ public sealed class SurveillanceCameraVisualsSystem : EntitySystem
         _sprite.LayerSetRsiState((uid, args.Sprite), layer, state);
     }
 }
+

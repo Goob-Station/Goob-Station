@@ -107,3 +107,4 @@ public sealed class BackEquipSystem : EntitySystem
         _hands.TryPickup(uid, slotItem, handsComp: hands);
     }
 }
+

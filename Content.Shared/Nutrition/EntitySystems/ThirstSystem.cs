@@ -327,3 +327,4 @@ public sealed class ThirstSystem : EntitySystem
         }
     }
 }
+

@@ -34,3 +34,4 @@ public partial struct MinMax
         return random.Next(Min, Max + 1);
     }
 }
+

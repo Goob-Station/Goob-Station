@@ -40,3 +40,4 @@ public sealed class EnvelopeSystem : VisualizerSystem<EnvelopeComponent>
         Torn
     }
 }
+

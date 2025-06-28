@@ -12,3 +12,4 @@ public sealed class Relationships
     [JsonPropertyName("currently_entitled_tiers")]
     public CurrentlyEntitledTiers CurrentlyEntitledTiers = default!;
 }
+

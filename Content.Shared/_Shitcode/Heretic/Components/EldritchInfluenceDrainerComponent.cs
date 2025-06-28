@@ -21,3 +21,4 @@ public sealed partial class EldritchInfluenceDrainerComponent : Component
     [DataField]
     public bool Hidden;
 }
+

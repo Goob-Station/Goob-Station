@@ -36,3 +36,4 @@ public sealed partial class StationAiHolderComponent : Component
     [DataField]
     public ItemSlot Slot = new();
 }
+

@@ -63,3 +63,4 @@ public sealed partial class SpaceNinjaComponent : Component
     [DataField]
     public ProtoId<AlertPrototype> SuitPowerAlert = "SuitPower";
 }
+

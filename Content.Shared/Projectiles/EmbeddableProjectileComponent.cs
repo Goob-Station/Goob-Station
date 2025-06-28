@@ -62,3 +62,4 @@ public sealed partial class EmbeddableProjectileComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid? EmbeddedIntoUid;
 }
+

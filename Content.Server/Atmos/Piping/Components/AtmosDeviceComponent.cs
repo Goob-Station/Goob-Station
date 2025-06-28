@@ -82,3 +82,4 @@ public readonly struct AtmosDeviceUpdateEvent(float dt, Entity<GridAtmosphereCom
     /// </summary>
     public readonly Entity<MapAtmosphereComponent?>? Map = map;
 }
+

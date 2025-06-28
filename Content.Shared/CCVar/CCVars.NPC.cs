@@ -19,3 +19,4 @@ public sealed partial class CCVars
     /// </summary>
     public static readonly CVarDef<bool> NPCPathfinding = CVarDef.Create("npc.pathfinding", true);
 }
+

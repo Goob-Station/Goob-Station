@@ -12,3 +12,4 @@ namespace Content.Server.Body.Components;
 /// </summary>
 [ByRefEvent]
 public readonly record struct BeingGibbedEvent(HashSet<EntityUid> GibbedParts);
+

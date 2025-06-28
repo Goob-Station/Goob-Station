@@ -18,3 +18,4 @@ namespace Content.Server.Containers
         public HashSet<string> Containers { get; set; } = new();
     }
 }
+

@@ -57,3 +57,4 @@ public sealed class GuidSerializer : ITypeSerializer<Guid, ValueDataNode>,  ITyp
         return source;
     }
 }
+

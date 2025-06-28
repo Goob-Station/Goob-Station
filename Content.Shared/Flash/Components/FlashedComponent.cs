@@ -14,3 +14,4 @@ namespace Content.Shared.Flash.Components;
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class FlashedComponent : Component { }
+

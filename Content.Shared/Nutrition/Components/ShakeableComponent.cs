@@ -53,3 +53,4 @@ public sealed partial class ShakeableComponent : Component
     [DataField]
     public SoundSpecifier ShakeSound = new SoundPathSpecifier("/Audio/Items/soda_shake.ogg");
 }
+

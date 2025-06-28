@@ -87,3 +87,4 @@ namespace Content.Shared.StatusEffect
         }
     }
 }
+

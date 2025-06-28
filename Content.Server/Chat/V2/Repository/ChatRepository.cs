@@ -200,3 +200,4 @@ public sealed class ChatRepositorySystem : EntitySystem
         _playerMessages.Clear();
     }
 }
+

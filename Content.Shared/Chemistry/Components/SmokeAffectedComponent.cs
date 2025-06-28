@@ -29,3 +29,4 @@ public sealed partial class SmokeAffectedComponent : Component
     [DataField]
     public EntityUid SmokeEntity;
 }
+

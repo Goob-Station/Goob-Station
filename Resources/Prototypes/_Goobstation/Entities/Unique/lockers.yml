@@ -20,3 +20,4 @@
   - type: ConditionalSpawner
     prototypes:
     - UniqueMarkerBlueshieldLocker
+

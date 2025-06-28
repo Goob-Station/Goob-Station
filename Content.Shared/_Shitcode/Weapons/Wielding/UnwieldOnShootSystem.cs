@@ -28,3 +28,4 @@ public sealed class UnwieldOnShootSystem : EntitySystem
             _wieldable.TryUnwield(uid, wieldable, args.User);
     }
 }
+

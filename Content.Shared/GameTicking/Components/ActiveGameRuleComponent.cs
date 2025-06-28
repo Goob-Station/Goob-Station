@@ -18,3 +18,4 @@ namespace Content.Shared.GameTicking.Components;
 /// </summary>
 [RegisterComponent, NetworkedComponent] // Goob edit
 public sealed partial class ActiveGameRuleComponent : Component;
+

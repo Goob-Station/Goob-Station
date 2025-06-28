@@ -17,3 +17,4 @@ public enum SealableClothingVisuals : byte
 {
     Sealed
 }
+

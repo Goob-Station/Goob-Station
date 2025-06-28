@@ -178,3 +178,4 @@ public sealed partial class AlertsUI : UIWidget
         AlertPressed?.Invoke(this, control.Alert.ID);
     }
 }
+

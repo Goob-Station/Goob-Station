@@ -108,3 +108,4 @@ public abstract partial class SharedSalvageSystem
         }
     }
 }
+

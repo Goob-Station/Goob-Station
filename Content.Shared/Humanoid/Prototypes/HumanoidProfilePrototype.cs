@@ -22,3 +22,4 @@ public sealed partial class HumanoidProfilePrototype : IPrototype
     [DataField("profile")]
     public HumanoidCharacterProfile Profile { get; private set; } = new();
 }
+

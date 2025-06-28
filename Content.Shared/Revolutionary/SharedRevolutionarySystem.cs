@@ -123,3 +123,4 @@ public abstract class SharedRevolutionarySystem : EntitySystem
         headRev.Comp.ConvertAbilityEnabled = toggle;
     }
 }
+

@@ -23,3 +23,4 @@ public enum VoidCloakVisuals : byte
 {
     Transparent,
 }
+

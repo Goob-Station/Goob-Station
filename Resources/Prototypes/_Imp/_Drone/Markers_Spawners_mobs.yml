@@ -19,3 +19,4 @@
   - type: ConditionalSpawner
     prototypes:
     - Drone
+

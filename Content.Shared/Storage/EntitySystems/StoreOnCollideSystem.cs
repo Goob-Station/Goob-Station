@@ -128,3 +128,4 @@ internal sealed class StoreOnCollideSystem : EntitySystem
             _lock.Lock(storageEnt, storageEnt);
     }
 }
+

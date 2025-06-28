@@ -15,3 +15,4 @@ namespace Content.Client.Singularity.Systems;
 /// </summary>
 public sealed class SingularityGeneratorSystem : SharedSingularityGeneratorSystem
 {}
+

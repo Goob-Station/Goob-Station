@@ -22,3 +22,4 @@ public sealed partial class CastingTeslaBlastComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public Entity<AudioComponent>? Sound;
 }
+

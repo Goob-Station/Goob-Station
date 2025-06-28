@@ -85,3 +85,4 @@
       - MindContainer
     event: !type:HierophantClubToggleTileMovementEvent
     useDelay: 60
+

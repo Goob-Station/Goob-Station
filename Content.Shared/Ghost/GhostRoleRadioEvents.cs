@@ -25,3 +25,4 @@ public enum GhostRoleRadioUiKey : byte
 {
     Key
 }
+

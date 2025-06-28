@@ -56,3 +56,4 @@ public sealed class BeforeActivatableUIOpenEvent : EntityEventArgs
 public sealed class ActivatableUIPlayerChangedEvent : EntityEventArgs
 {
 }
+

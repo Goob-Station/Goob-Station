@@ -182,3 +182,4 @@ public sealed class WizardMirrorSystem : SharedWizardMirrorSystem
         Dirty(target, humanoid);
     }
 }
+

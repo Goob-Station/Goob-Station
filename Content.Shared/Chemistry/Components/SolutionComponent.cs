@@ -27,3 +27,4 @@ public sealed partial class SolutionComponent : Component
     [DataField, AutoNetworkedField]
     public Solution Solution = new();
 }
+

@@ -99,3 +99,4 @@ public sealed class EntityTableSystem : EntitySystem
         return table.GetSpawns(rand, EntityManager, _prototypeManager);
     }
 }
+

@@ -30,3 +30,4 @@ public sealed class PillSystem : EntitySystem
         _sprite.LayerSetRsiState(layer, $"pill{component.PillType + 1}");
     }
 }
+

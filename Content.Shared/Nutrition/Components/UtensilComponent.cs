@@ -76,3 +76,4 @@ namespace Content.Shared.Nutrition.Components
         Knife = 1 << 2
     }
 }
+

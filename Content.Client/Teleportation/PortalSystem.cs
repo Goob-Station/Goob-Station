@@ -10,3 +10,4 @@ namespace Content.Client.Teleportation;
 public sealed class PortalSystem : SharedPortalSystem
 {
 }
+

@@ -46,3 +46,4 @@ public sealed partial class PlantDestroySeeds : EntityEffect
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys) =>
         Loc.GetString("reagent-effect-guidebook-plant-seeds-remove", ("chance", Probability));
 }
+

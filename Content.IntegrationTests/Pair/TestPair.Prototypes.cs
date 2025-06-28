@@ -67,3 +67,4 @@ public sealed partial class TestPair
         return _loadedPrototypes.TryGetValue(kind, out var ids) && ids.Contains(id);
     }
 }
+

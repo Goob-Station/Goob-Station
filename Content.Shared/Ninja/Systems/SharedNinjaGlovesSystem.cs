@@ -141,3 +141,4 @@ public abstract class SharedNinjaGlovesSystem : EntitySystem
             && _interaction.InRangeUnobstructed(uid, target);
     }
 }
+

@@ -17,3 +17,4 @@ public partial class VentCrawlerJunctionComponent : Component
     /// </summary>
     [DataField("degrees")] public List<Angle> Degrees = new();
 }
+

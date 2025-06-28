@@ -43,3 +43,4 @@ public sealed class PowerChargeBoundUserInterface : BoundUserInterface
         _window?.UpdateState(chargeState);
     }
 }
+

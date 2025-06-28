@@ -20,3 +20,4 @@ public record struct GetFootstepSoundEvent(EntityUid User)
     /// </summary>
     public SoundSpecifier? Sound;
 }
+

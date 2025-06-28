@@ -31,3 +31,4 @@ namespace Content.Server.Engineering.Components
         public bool RemoveOnInteract = false;
     }
 }
+

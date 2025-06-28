@@ -18,3 +18,4 @@ public sealed partial class StackPriceComponent : Component
     [DataField("price", required: true)]
     public double Price;
 }
+

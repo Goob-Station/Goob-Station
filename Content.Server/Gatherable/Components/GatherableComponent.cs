@@ -61,3 +61,4 @@ public sealed partial class GatherableComponent : Component
     [DataField]
     public bool IsGathered = false;
 }
+

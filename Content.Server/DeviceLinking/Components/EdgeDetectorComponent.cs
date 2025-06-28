@@ -40,3 +40,4 @@ public sealed partial class EdgeDetectorComponent : Component
     [DataField]
     public SignalState State = SignalState.Low;
 }
+

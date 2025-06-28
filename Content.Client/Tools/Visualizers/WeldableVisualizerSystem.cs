@@ -25,3 +25,4 @@ public sealed class WeldableVisualizerSystem : VisualizerSystem<WeldableComponen
         }
     }
 }
+

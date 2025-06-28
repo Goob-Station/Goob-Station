@@ -30,3 +30,4 @@ namespace Content.Server.Pointing.Components
         public bool Rogue;
     }
 }
+

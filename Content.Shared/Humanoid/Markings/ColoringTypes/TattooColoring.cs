@@ -24,3 +24,4 @@ public sealed partial class TattooColoring : LayerColoringType
         return Color.FromHsv(newColor);
     }
 }
+

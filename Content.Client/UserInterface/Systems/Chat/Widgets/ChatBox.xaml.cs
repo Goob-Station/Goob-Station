@@ -290,3 +290,4 @@ public partial class ChatBox : UIWidget
     }
     // Goobstation - end
 }
+

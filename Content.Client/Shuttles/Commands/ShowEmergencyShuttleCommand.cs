@@ -21,3 +21,4 @@ public sealed class ShowEmergencyShuttleCommand : IConsoleCommand
         shell.WriteLine($"Set emergency shuttle debug to {tstalker.EnableShuttlePosition}");
     }
 }
+

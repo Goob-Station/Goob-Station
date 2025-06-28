@@ -19,3 +19,4 @@ public record struct SurgeryCanPerformStepEvent(
     StepInvalidReason Invalid = StepInvalidReason.None,
     Dictionary<EntityUid, float>? ValidTools = null
 ) : IInventoryRelayEvent;
+

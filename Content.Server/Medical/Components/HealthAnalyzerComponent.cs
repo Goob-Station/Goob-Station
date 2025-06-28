@@ -99,3 +99,4 @@ public sealed partial class HealthAnalyzerComponent : Component
     [DataField]
     public HealthAnalyzerMode CurrentMode = HealthAnalyzerMode.Body;
 }
+

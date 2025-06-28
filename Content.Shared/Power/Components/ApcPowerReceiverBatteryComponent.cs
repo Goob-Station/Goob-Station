@@ -54,3 +54,4 @@ public sealed partial class ApcPowerReceiverBatteryComponent : Component
 /// </summary>
 [ByRefEvent]
 public readonly record struct ApcPowerReceiverBatteryChangedEvent(bool Enabled);
+

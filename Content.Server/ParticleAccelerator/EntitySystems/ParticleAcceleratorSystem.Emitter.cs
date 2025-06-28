@@ -72,3 +72,4 @@ public sealed partial class ParticleAcceleratorSystem
         _appearanceSystem.SetData(emitted, ParticleAcceleratorVisuals.VisualState, strength);
     }
 }
+

@@ -42,3 +42,4 @@ public sealed class CargoShuttleConsoleBoundUserInterface : BoundUserInterface
         _menu?.SetOrders(EntMan.System<SpriteSystem>(), _protoManager, cargoState.Orders);
     }
 }
+

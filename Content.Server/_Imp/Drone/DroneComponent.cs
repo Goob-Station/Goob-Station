@@ -29,3 +29,4 @@ namespace Content.Server._Imp.Drone
         public EntityWhitelist? Blacklist;
     }
 }
+

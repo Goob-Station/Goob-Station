@@ -336,3 +336,4 @@ public sealed class GravityWellSystem : SharedGravityWellSystem
 
     #endregion Getters/Setters
 }
+

@@ -43,3 +43,4 @@ public sealed class SouthernAccentSystem : EntitySystem
         args.Message = message;
     }
 };
+

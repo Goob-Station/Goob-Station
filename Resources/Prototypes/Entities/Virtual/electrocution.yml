@@ -60,3 +60,4 @@
   - type: PowerConsumer
     voltage: Apc
     drawRate: 50000
+

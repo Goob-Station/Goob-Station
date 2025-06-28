@@ -51,3 +51,4 @@ namespace Content.Shared.Preferences
         }
     }
 }
+

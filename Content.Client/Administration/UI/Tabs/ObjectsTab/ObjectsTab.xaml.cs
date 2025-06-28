@@ -301,3 +301,4 @@ public sealed partial class ObjectsTab : Control
 
 public record ObjectsListData((string Name, NetEntity Entity) Info, string FilteringString, Color BackgroundColor)
     : ListData;
+

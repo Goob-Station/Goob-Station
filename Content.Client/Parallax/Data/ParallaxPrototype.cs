@@ -37,3 +37,4 @@ public sealed partial class ParallaxPrototype : IPrototype
     [DataField("layersLQUseHQ")]
     public bool LayersLQUseHQ { get; private set; } = true;
 }
+

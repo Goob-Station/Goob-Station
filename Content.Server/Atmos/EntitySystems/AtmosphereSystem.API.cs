@@ -340,3 +340,4 @@ public partial class AtmosphereSystem
     [ByRefEvent] private record struct IsHotspotActiveMethodEvent
         (EntityUid Grid, Vector2i Tile, bool Result = false, bool Handled = false);
 }
+

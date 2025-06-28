@@ -72,3 +72,4 @@ public sealed partial class DamageMarkerOnCollideComponent : Component
     [DataField]
     public bool OnlyWorkOnFauna = false;
 }
+

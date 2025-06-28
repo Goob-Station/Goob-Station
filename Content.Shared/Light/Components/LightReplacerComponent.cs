@@ -53,3 +53,4 @@ public sealed partial class LightReplacerComponent : Component
     [DataField("contents")]
     public List<EntitySpawnEntry> Contents = new();
 }
+

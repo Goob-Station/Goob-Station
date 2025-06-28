@@ -28,3 +28,4 @@ public sealed partial class GatheringProjectileComponent : Component
     [DataField]
     public float Probability = 1f;
 }
+

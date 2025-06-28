@@ -28,3 +28,4 @@ public abstract partial class SharedAtmosAlertsComputerSystem : EntitySystem
         Dirty(uid, component);
     }
 }
+

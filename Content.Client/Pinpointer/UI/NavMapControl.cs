@@ -773,3 +773,4 @@ public struct NavMapBlip
         Scale = scale;
     }
 }
+

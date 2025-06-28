@@ -247,3 +247,4 @@ public sealed class ApcSystem : EntitySystem
 
 [ByRefEvent]
 public record struct ApcToggleMainBreakerAttemptEvent(bool Cancelled);
+

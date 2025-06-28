@@ -40,3 +40,4 @@ public sealed class FrontalLispSystem : EntitySystem
         args.Message = message;
     }
 }
+

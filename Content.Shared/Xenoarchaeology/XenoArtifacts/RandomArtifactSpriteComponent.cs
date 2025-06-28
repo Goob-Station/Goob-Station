@@ -24,3 +24,4 @@ public sealed partial class RandomArtifactSpriteComponent : Component
 
     public TimeSpan? ActivationStart;
 }
+

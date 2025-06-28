@@ -38,3 +38,4 @@ public sealed partial class VaporVisualsComponent : Component
     /// </summary>
     public Animation VaporFlick = default!;
 }
+

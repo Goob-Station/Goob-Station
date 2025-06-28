@@ -9,3 +9,4 @@ public enum BodyBagVisualLayers : byte
 {
     Label,
 }
+

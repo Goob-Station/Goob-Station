@@ -94,3 +94,4 @@ public sealed partial class NukeOperativeComponent : Component
     [DataField("syndStatusIcon", customTypeSerializer: typeof(PrototypeIdSerializer<FactionIconPrototype>))]
     public string SyndStatusIcon = "SyndicateFaction";
 }
+

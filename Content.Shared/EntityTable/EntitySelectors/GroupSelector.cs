@@ -105,3 +105,4 @@ public sealed partial class GroupSelector : EntityTableSelector
         return pick.GetSpawns(rand, entMan, proto);
     }
 }
+

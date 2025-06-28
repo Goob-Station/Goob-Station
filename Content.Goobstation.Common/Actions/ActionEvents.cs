@@ -16,3 +16,4 @@ public sealed class LoadActionsEvent(NetEntity entity) : EntityEventArgs
 {
     public NetEntity Entity = entity;
 }
+

@@ -51,3 +51,4 @@ public sealed partial class ReformComponent : Component
     [DataField(required: true)]
     public EntProtoId ReformPrototype { get; private set; }
 }
+

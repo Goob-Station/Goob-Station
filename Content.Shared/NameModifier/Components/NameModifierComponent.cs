@@ -23,3 +23,4 @@ public sealed partial class NameModifierComponent : Component
     [DataField, AutoNetworkedField]
     public string BaseName = string.Empty;
 }
+

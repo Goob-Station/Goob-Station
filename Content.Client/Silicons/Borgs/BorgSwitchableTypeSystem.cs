@@ -85,3 +85,4 @@ public sealed class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeSystem
         base.UpdateEntityAppearance(entity, prototype);
     }
 }
+

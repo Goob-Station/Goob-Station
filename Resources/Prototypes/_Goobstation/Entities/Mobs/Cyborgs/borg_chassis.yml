@@ -112,3 +112,4 @@
       role: JobBorg
       time: 3600 #1 hour
   - type: GhostTakeoverAvailable
+

@@ -47,3 +47,4 @@ public sealed partial class PatronPerksWindow : DefaultWindow
         RobustXamlLoader.Load(this);
     }
 }
+

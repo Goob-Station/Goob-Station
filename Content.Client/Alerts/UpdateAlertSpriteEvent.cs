@@ -24,3 +24,4 @@ public record struct UpdateAlertSpriteEvent
         Alert = alert;
     }
 }
+

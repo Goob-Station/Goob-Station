@@ -52,3 +52,4 @@ public sealed class MechSystem : SharedMechSystem
         _sprite.SetDrawDepth((uid, args.Sprite), (int)drawDepth);
     }
 }
+

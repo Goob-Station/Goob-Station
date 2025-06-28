@@ -25,3 +25,4 @@ public sealed partial class WashCreamPieReaction : EntityEffect
         args.EntityManager.System<CreamPieSystem>().SetCreamPied(args.TargetEntity, creamPied, false);
     }
 }
+

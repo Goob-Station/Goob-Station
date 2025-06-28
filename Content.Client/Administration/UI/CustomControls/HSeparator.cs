@@ -30,3 +30,4 @@ public sealed class HSeparator : Control
 
     public HSeparator() : this(SeparatorColor) { }
 }
+

@@ -12,3 +12,4 @@
     icon: Structures/Specific/anomaly.rsi/anom1.png
     event: !type:ActionAnomalyPulseEvent
     useDelay: 30
+

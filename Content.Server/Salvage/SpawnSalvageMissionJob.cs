@@ -366,3 +366,4 @@ public sealed class SpawnSalvageMissionJob : Job<bool>
         }
     }
 }
+

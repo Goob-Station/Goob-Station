@@ -73,3 +73,4 @@ public sealed class DebugPathfindingCommand : LocalizedCommands
         return CompletionResult.FromOptions(options);
     }
 }
+

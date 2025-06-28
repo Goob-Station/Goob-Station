@@ -12,3 +12,4 @@ namespace Content.Shared.Plunger;
 public sealed partial class PlungerDoAfterEvent : SimpleDoAfterEvent
 {
 }
+

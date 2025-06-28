@@ -156,3 +156,4 @@ public sealed class AutoInternalsTests
       prototypes: [InternalsDummyGear]
 ";
 }
+

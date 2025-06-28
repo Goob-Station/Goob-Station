@@ -20,3 +20,4 @@ public sealed partial class SpeakOnTriggerComponent : Component
     [DataField(required: true)]
     public ProtoId<LocalizedDatasetPrototype> Pack = string.Empty;
 }
+

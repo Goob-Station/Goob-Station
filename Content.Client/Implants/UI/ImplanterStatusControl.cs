@@ -78,3 +78,4 @@ public sealed class ImplanterStatusControl : Control
         }
     }
 }
+

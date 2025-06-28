@@ -47,3 +47,4 @@ public sealed partial class LinkAccountWindow : DefaultWindow
         RobustXamlLoader.Load(this);
     }
 }
+

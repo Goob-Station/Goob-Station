@@ -90,3 +90,4 @@ public sealed class RandomSpriteSystem : SharedRandomSpriteSystem
         }
     }
 }
+

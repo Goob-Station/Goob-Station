@@ -18,3 +18,4 @@ public sealed partial class SpawnSlimesComponent : SpawnEntityEffectComponent
 
     public override bool IsFriendly { get; set; } = true;
 }
+

@@ -112,3 +112,4 @@ public sealed class SiliconChargeStateUpdateEvent : EntityEventArgs
         ChargePercent = chargePercent;
     }
 }
+

@@ -26,3 +26,4 @@ namespace Content.Shared.Nutrition.Components
         Creamed,
     }
 }
+

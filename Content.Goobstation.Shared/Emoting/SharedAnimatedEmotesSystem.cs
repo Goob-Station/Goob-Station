@@ -25,3 +25,4 @@ public abstract class SharedAnimatedEmotesSystem : EntitySystem
         args.State = new AnimatedEmotesComponentState(ent.Comp.Emote);
     }
 }
+

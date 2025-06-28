@@ -258,3 +258,4 @@ public sealed partial class FaxPrintout
         Locked = locked;
     }
 }
+

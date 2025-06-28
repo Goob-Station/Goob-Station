@@ -43,3 +43,4 @@ public sealed class GhostColorSystem : EntitySystem
         }
     }
 }
+

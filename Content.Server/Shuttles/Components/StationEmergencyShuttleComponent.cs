@@ -30,3 +30,4 @@ public sealed partial class StationEmergencyShuttleComponent : Component
     [DataField("emergencyShuttlePath", customTypeSerializer: typeof(ResPathSerializer))]
     public ResPath EmergencyShuttlePath { get; set; } = new("/Maps/Shuttles/emergency.yml");
 }
+

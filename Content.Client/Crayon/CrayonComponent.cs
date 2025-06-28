@@ -26,3 +26,4 @@ namespace Content.Client.Crayon
         [ViewVariables] public int Capacity { get; set; }
     }
 }
+

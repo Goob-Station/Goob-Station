@@ -31,3 +31,4 @@ public sealed partial class BiomeEntityLayer : IBiomeWorldLayer
     [DataField("entities", required: true, customTypeSerializer: typeof(PrototypeIdListSerializer<EntityPrototype>))]
     public List<string> Entities = new();
 }
+

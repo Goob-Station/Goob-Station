@@ -15,3 +15,4 @@ public sealed partial class TriggerBehavior : IThresholdBehavior
         system.TriggerSystem.Trigger(owner, cause);
     }
 }
+

@@ -27,3 +27,4 @@
         damage:
           types: # black powder is bad for your health.
             Poison: 0.1 # 2 damage/u
+

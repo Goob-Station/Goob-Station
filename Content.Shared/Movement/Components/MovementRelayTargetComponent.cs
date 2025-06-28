@@ -19,3 +19,4 @@ public sealed partial class MovementRelayTargetComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid Source;
 }
+

@@ -34,3 +34,4 @@ public sealed partial class EquipOperator : HTNOperator
         return HTNOperatorStatus.Failed;
     }
 }
+

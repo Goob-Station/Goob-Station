@@ -23,3 +23,4 @@ public sealed partial class LockingWhitelistComponent : Component
     [DataField]
     public EntityWhitelist? Blacklist;
 }
+

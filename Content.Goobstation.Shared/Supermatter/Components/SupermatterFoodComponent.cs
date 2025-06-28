@@ -20,3 +20,4 @@ public sealed partial class SupermatterFoodComponent : Component
     [DataField("energy")]
     public int Energy { get; set; } = 1;
 }
+

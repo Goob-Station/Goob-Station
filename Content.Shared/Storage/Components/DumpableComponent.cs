@@ -46,3 +46,4 @@ public sealed partial class DumpableComponent : Component
     [DataField("multiplier"), AutoNetworkedField]
     public float Multiplier = 1.0f;
 }
+

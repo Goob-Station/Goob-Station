@@ -53,3 +53,4 @@ public sealed partial class BandMenu : DefaultWindow
         }
     }
 }
+

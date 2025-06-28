@@ -37,3 +37,4 @@ public enum ChemicalPayloadFilledSlots : byte
     Right = 1 << 1,
     Both = Left | Right,
 }
+

@@ -18,3 +18,4 @@ public sealed class RegexCensor(Regex censorInstruction) : IChatCensor
         return !string.Equals(input, output);
     }
 }
+

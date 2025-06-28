@@ -53,3 +53,4 @@ public sealed partial class StackPrototype : IPrototype
     [DataField]
     public int? MaxCount { get; private set; }
 }
+

@@ -51,3 +51,4 @@ namespace Content.Server.Atmos.Piping.Trinary.Components
         public float InletTwoConcentration = 0.5f;
     }
 }
+

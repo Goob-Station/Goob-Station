@@ -27,3 +27,4 @@ namespace Content.Shared.Damage.Prototypes
         public string ID { get; private set; } = default!;
     }
 }
+

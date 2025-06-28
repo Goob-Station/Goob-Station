@@ -126,3 +126,4 @@ namespace Content.Server.Power.Components
         public PowerState.Battery NetworkBattery { get; } = new();
     }
 }
+

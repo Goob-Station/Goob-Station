@@ -47,3 +47,4 @@ public sealed class CrewManifestEui : BaseEui
         _crewManifest.CloseEui(_station, Player, Owner);
     }
 }
+

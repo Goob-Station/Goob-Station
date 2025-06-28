@@ -37,3 +37,4 @@ public sealed partial class CanEscapeInventoryComponent : Component
     [DataField]
     public EntityUid? EscapeCancelAction;
 }
+

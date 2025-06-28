@@ -126,3 +126,4 @@ public enum ConstructionType
     Structure,
     Item,
 }
+

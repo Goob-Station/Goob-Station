@@ -65,3 +65,4 @@ public sealed partial class SealableSystem : EntitySystem
         return comp.Sealed;
     }
 }
+

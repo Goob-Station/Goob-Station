@@ -24,3 +24,4 @@
   parent: BaseGameRule
   components:
   - type: LavalandStormSchedulerRule
+

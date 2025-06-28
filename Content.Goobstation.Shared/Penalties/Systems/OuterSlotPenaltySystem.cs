@@ -58,3 +58,4 @@ public sealed partial class OuterSlotPenaltySystem : EntitySystem
             args.ModifySpeed(comp.EquippedSpeedMultiplier);
     }
 }
+

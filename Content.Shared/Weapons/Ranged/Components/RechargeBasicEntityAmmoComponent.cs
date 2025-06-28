@@ -38,3 +38,4 @@ public sealed partial class RechargeBasicEntityAmmoComponent : Component
     [DataField, AutoNetworkedField]
     public bool ShowExamineText = true;
 }
+

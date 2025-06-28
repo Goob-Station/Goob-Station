@@ -33,3 +33,4 @@ public enum ShieldedKey : byte
 {
     Key,
 }
+

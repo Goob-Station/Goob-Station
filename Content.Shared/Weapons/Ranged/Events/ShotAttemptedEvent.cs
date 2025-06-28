@@ -48,3 +48,4 @@ public record struct ShotAttemptedEvent
         Cancelled = false;
     }
 }
+

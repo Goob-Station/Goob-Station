@@ -12,3 +12,4 @@ namespace Content.Shared.Clothing.Components;
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class AntiGravityClothingComponent : Component;
+

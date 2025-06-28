@@ -519,3 +519,4 @@ public sealed class InventoryUIController : UIController, IOnStateEntered<Gamepl
             UpdateHover(_lastHovered);
     }
 }
+

@@ -115,3 +115,4 @@ public sealed class EntityWorldTargetActionComponentState(
     public EntityWhitelist? Whitelist = component.Whitelist;
     public bool CanTargetSelf = component.CanTargetSelf;
 }
+

@@ -42,3 +42,4 @@ public sealed partial class ObserveWarningWindow : DefaultWindow
         NevermindButton.OnPressed += _ => { this.Close(); };
     }
 }
+

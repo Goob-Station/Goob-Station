@@ -280,3 +280,4 @@ public sealed partial class PowerWireAction : BaseWireAction
         SetPower(wire.Owner, false);
     }
 }
+

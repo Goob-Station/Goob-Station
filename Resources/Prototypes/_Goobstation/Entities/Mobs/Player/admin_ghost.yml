@@ -15,3 +15,4 @@
     keywords: [ "AI", "console", "interface" ]
     priority: -8
     event: !type:ToggleIntrinsicUIEvent { key: enum.StationMapUiKey.Key }
+

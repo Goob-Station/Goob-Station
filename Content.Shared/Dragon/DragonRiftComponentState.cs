@@ -12,3 +12,4 @@ public sealed class DragonRiftComponentState : ComponentState
 {
     public DragonRiftState State;
 }
+

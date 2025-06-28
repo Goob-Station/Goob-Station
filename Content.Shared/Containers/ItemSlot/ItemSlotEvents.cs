@@ -39,3 +39,4 @@ public sealed class ItemSlotButtonPressedEvent : BoundUserInterfaceMessage
         TryInsert = tryInsert;
     }
 }
+

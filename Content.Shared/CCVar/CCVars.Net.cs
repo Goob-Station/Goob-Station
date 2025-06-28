@@ -18,3 +18,4 @@ public sealed partial class CCVars
     public static readonly CVarDef<int> GasOverlayThresholds =
         CVarDef.Create("net.gasoverlaythresholds", 20);
 }
+

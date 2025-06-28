@@ -104,3 +104,4 @@ public sealed class PaperRandomStorySystem : EntitySystem
         _paper.SetContent((paperStory.Owner, paper), story);
     }
 }
+

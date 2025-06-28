@@ -14,3 +14,4 @@ namespace Content.Client.IoC
         public Action? ClientBeforeIoC { get; set; }
     }
 }
+

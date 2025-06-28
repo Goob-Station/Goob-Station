@@ -31,3 +31,4 @@ public sealed partial class WireDoAfterEvent : DoAfterEvent
 
     public override DoAfterEvent Clone() => this;
 }
+

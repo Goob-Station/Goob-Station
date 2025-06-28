@@ -19,3 +19,4 @@ public sealed partial class ObserverRoleComponent : BaseMindRoleComponent
 {
     public string Name => Loc.GetString("observer-role-name");
 }
+

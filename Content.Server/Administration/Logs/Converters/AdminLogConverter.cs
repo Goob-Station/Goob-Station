@@ -29,3 +29,4 @@ public abstract class AdminLogConverter<T> : JsonConverter<T>, IAdminLogConverte
 
     public abstract override void Write(Utf8JsonWriter writer, T value, JsonSerializerOptions options);
 }
+

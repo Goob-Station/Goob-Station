@@ -76,3 +76,4 @@ public sealed class LaserPointerOverlay : Overlay
         return a >= b ? (b, a) : (a, b);
     }
 }
+

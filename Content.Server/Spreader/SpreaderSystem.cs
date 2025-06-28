@@ -366,3 +366,4 @@ public sealed class SpreaderSystem : EntitySystem
         return _prototype.Index(spreaderComp.Id).PreventSpreadOnSpaced;
     }
 }
+

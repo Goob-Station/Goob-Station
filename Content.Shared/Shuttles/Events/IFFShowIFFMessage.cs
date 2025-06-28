@@ -15,3 +15,4 @@ public sealed class IFFShowIFFMessage : BoundUserInterfaceMessage
 {
     public bool Show;
 }
+

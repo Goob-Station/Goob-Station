@@ -88,3 +88,4 @@ public abstract class SharedBlinkSystem : EntitySystem
             _telefrag.DoTelefrag(user, xform.Coordinates, blink.KnockdownTime, blink.KnockdownRadius, autoStandUp: true);
     }
 }
+

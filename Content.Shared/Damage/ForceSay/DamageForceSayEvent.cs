@@ -16,3 +16,4 @@ public sealed class DamageForceSayEvent : EntityEventArgs
 {
     public string? Suffix;
 }
+

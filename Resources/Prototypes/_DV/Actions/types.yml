@@ -44,3 +44,4 @@
       sprite: Structures/Furniture/Tables/generic.rsi
       state: full
     event: !type:ToggleCrawlingStateEvent
+

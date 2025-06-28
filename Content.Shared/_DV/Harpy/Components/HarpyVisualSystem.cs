@@ -24,3 +24,4 @@ namespace Content.Shared._DV.Harpy.Components
         False,
     }
 }
+

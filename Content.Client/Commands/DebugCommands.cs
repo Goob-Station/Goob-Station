@@ -71,3 +71,4 @@ internal sealed class NotifyCommand : LocalizedCommands
         _entitySystemManager.GetEntitySystem<PopupSystem>().PopupCursor(message);
     }
 }
+

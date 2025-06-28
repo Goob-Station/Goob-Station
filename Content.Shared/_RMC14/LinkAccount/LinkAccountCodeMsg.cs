@@ -51,3 +51,4 @@ public sealed class LinkAccountCodeMsg : NetMessage
         buffer.Write(Code);
     }
 }
+

@@ -86,3 +86,4 @@ public enum SwitchableVoltage : byte
     MV,
     LV
 }
+

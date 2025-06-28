@@ -58,3 +58,4 @@ public sealed class ChemicalPayloadSystem : EntitySystem
         _itemSlotsSystem.RemoveItemSlot(uid, payload.BeakerSlotB);
     }
 }
+

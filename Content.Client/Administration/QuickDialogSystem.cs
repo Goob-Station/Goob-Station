@@ -45,3 +45,4 @@ public sealed class QuickDialogSystem : EntitySystem
         };
     }
 }
+

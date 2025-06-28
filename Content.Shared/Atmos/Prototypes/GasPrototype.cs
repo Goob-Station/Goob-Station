@@ -111,3 +111,4 @@ namespace Content.Shared.Atmos.Prototypes
         public float PricePerMole { get; set; } = 0;
     }
 }
+

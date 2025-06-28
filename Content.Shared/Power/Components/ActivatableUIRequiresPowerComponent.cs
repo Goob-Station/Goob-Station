@@ -11,3 +11,4 @@ namespace Content.Shared.Power.Components;
 public sealed partial class ActivatableUIRequiresPowerComponent : Component
 {
 }
+

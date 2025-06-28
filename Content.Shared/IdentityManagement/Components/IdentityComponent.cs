@@ -78,3 +78,4 @@ public sealed class IdentityRepresentation
             : $"{AgeString} {PresumedJob} {genderString}";
     }
 }
+

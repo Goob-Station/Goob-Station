@@ -20,3 +20,4 @@ public sealed class UpdateCanMoveEvent : CancellableEntityEventArgs
 
     public EntityUid Uid { get; }
 }
+

@@ -16,3 +16,4 @@ public sealed partial class StunTrapComponent : Component
     [DataField]
     public int Damage = 30;
 }
+

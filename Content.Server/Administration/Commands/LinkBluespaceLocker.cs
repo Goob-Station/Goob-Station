@@ -74,3 +74,4 @@ public sealed class LinkBluespaceLocker : IConsoleCommand
         }
     }
 }
+

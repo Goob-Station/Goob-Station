@@ -218,3 +218,4 @@ public sealed class ChangeCvarCommand : IConsoleCommand
         return CompletionResult.FromHint($"<{type.Name}>");
     }
 }
+

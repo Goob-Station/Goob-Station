@@ -19,3 +19,4 @@ public struct GetAmmoCountEvent
     public int Count;
     public int Capacity;
 }
+

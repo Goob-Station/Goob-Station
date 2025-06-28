@@ -41,3 +41,4 @@ public sealed partial class ActionGunComponent : Component
 /// Action event for <see cref="ActionGunComponent"/> to shoot at a position.
 /// </summary>
 public sealed partial class ActionGunShootEvent : WorldTargetActionEvent;
+

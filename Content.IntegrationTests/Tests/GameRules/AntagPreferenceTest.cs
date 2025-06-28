@@ -84,3 +84,4 @@ public sealed class AntagPreferenceTest
         await pair.CleanReturnAsync();
     }
 }
+

@@ -48,3 +48,4 @@ public sealed class RoleRequirementSystem : EntitySystem
         args.Cancelled = true;
     }
 }
+

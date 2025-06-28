@@ -59,3 +59,4 @@
   icon: { sprite: /Textures/Objects/Materials/Sheets/glass.rsi, state: cglass }
   spawn: SheetClockworkGlass1
   maxCount: 30
+

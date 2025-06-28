@@ -33,3 +33,4 @@ public sealed class GhostKickUserOnTriggerSystem : EntitySystem
         args.Handled = true;
     }
 }
+

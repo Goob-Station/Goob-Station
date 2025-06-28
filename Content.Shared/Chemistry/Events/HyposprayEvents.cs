@@ -42,3 +42,4 @@ public sealed class TargetBeforeHyposprayInjectsEvent : BeforeHyposprayInjectsTa
 {
     public TargetBeforeHyposprayInjectsEvent(EntityUid user, EntityUid hypospray, EntityUid target) : base(user, hypospray, target) { }
 }
+

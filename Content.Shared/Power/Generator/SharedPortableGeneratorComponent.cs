@@ -152,3 +152,4 @@ public enum GeneratorVisuals : byte
     /// </summary>
     Running,
 }
+

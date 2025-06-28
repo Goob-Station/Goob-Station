@@ -49,3 +49,4 @@ public static class HandHelpers
     /// </summary>
     public static IEnumerable<string> GetFreeHandNames(this HandsComponent component) => GetFreeHands(component).Select(hand => hand.Name);
 }
+

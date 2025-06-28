@@ -39,3 +39,4 @@ public sealed partial class TempAffectingAnomalyComponent : Component
     [DataField("hotspotExposeVolume")]
     public float HotspotExposeVolume = 50;
 }
+

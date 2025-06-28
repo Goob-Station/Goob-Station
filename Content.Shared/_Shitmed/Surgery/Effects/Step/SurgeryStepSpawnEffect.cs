@@ -15,3 +15,4 @@ public sealed partial class SurgeryStepSpawnEffectComponent : Component
     [DataField(required: true), AutoNetworkedField]
     public EntProtoId Entity;
 }
+

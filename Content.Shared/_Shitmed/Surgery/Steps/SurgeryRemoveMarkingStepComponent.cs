@@ -33,3 +33,4 @@ public sealed partial class SurgeryRemoveMarkingStepComponent : Component
     [DataField]
     public EntProtoId? ItemSpawn = default!;
 }
+

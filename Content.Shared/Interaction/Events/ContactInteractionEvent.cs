@@ -20,3 +20,4 @@ public sealed class ContactInteractionEvent : HandledEntityEventArgs
         Other = other;
     }
 }
+

@@ -24,3 +24,4 @@ namespace Content.Server.Roles;
 public sealed partial class NinjaRoleComponent : BaseMindRoleComponent
 {
 }
+

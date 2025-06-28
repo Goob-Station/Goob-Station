@@ -19,3 +19,4 @@ public sealed partial class PryUnpoweredComponent : Component
     [DataField]
     public float PryModifier = 0.1f;
 }
+

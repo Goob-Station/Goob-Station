@@ -36,3 +36,4 @@ public sealed class GetEyeOffsetRelayedEvent : EntityEventArgs, IInventoryRelayE
 
     public Vector2 Offset;
 }
+

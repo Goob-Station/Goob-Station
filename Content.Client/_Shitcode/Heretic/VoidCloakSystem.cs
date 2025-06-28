@@ -13,3 +13,4 @@ namespace Content.Client._Shitcode.Heretic;
 public sealed class VoidCloakSystem : SharedVoidCloakSystem
 {
 }
+

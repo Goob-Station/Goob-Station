@@ -39,3 +39,4 @@ public sealed partial class RotatingLightComponent : Component
     [ViewVariables, AutoNetworkedField]
     public bool Enabled = true;
 }
+

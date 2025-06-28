@@ -18,3 +18,4 @@ public sealed partial class MarkingContainerComponent : Component
     public string Marking = default!;
 
 }
+

@@ -43,3 +43,4 @@ public sealed partial class IntellicardComponent : Component
     [ViewVariables]
     public TimeSpan NextWarningAllowed = TimeSpan.Zero;
 }
+

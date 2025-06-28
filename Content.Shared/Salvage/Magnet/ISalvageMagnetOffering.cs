@@ -29,3 +29,4 @@ public interface ISalvageMagnetOffering
     /// </summary>
     public uint Cost { get; }
 }
+

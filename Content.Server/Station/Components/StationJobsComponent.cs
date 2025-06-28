@@ -92,3 +92,4 @@ public sealed partial class StationJobsComponent : Component
     [DataField("availableJobs", required: true)]
     public Dictionary<ProtoId<JobPrototype>, int[]> SetupAvailableJobs = default!;
 }
+

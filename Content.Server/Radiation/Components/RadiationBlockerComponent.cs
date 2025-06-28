@@ -33,3 +33,4 @@ public sealed partial class RadiationBlockerComponent : Component
     /// </summary>
     public (EntityUid Grid, Vector2i Tile)? CurrentPosition;
 }
+

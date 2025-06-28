@@ -110,3 +110,4 @@ public sealed partial class NewsWriterMenu : FancyWindow
         CreateButtonPressed?.Invoke();
     }
 }
+

@@ -46,3 +46,4 @@ public sealed partial class Polymorph : EntityEffect
         polySystem.PolymorphEntity(uid, PolymorphPrototype);
     }
 }
+

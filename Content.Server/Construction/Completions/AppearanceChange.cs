@@ -46,3 +46,4 @@ public sealed partial class AppearanceChange : IGraphAction
             entityManager.System<AppearanceSystem>().SetData(uid, Key, nodeName, appearance);
     }
 }
+

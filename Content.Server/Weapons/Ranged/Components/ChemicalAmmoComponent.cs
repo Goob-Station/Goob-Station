@@ -30,3 +30,4 @@ namespace Content.Server.Weapons.Ranged.Components
         public string SolutionName { get; set; } = DefaultSolutionName;
     }
 }
+

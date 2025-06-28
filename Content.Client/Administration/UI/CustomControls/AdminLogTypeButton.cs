@@ -23,3 +23,4 @@ public sealed class AdminLogTypeButton : Button
 
     public LogType Type { get; }
 }
+

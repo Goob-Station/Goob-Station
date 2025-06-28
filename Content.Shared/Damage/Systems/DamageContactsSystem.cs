@@ -117,3 +117,4 @@ public sealed class DamageContactsSystem : EntitySystem
         damagedByContact.Damage = component.Damage;
     }
 }
+

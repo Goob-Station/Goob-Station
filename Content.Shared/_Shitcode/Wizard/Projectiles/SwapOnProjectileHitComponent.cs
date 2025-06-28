@@ -27,3 +27,4 @@ public sealed partial class SwapOnProjectileHitComponent : Component
     [DataField]
     public bool DeleteProjectileOnSwap;
 }
+

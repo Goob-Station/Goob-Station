@@ -164,3 +164,4 @@ public sealed class CraftingTests : InteractionTest
         Assert.That(SEntMan.Deleted(shard));
     }
 }
+

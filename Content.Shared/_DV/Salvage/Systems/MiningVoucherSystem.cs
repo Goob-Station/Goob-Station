@@ -118,3 +118,4 @@ public sealed class MiningVoucherSystem : EntitySystem
         QueueDel(voucher);
     }
 }
+

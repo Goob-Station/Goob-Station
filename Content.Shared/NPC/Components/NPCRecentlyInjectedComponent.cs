@@ -24,3 +24,4 @@ namespace Content.Shared.NPC.Components
         public TimeSpan RemoveTime = TimeSpan.FromMinutes(1);
     }
 }
+

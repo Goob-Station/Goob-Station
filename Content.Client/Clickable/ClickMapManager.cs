@@ -226,3 +226,4 @@ namespace Content.Client.Clickable
         public bool IsOccluding(RSI rsi, RSI.StateId state, RsiDirection dir, int frame, Vector2i pos);
     }
 }
+

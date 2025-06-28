@@ -137,3 +137,4 @@ public sealed partial class DoAfterAttemptEvent<TEvent> : CancellableEntityEvent
         Event = @event;
     }
 }
+

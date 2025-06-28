@@ -32,3 +32,4 @@ public sealed class MindSystem : SharedMindSystem
             UserMinds[component.UserId.Value] = uid;
     }
 }
+

@@ -13,3 +13,4 @@ public sealed partial class SurgeryTraumaPresentConditionComponent : Component
     [DataField]
     public bool Inverted = false;
 }
+

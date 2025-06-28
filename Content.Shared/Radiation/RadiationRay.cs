@@ -80,3 +80,4 @@ public readonly record struct DebugRadiationRay(
 {
     public bool ReachedDestination => Rads > 0;
 }
+

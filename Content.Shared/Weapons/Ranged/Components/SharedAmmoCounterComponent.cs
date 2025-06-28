@@ -18,3 +18,4 @@ namespace Content.Shared.Weapons.Ranged.Components;
 /// </summary>
 [NetworkedComponent]
 public abstract partial class SharedAmmoCounterComponent : Component {}
+

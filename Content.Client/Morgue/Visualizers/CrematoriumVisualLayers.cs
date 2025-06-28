@@ -10,3 +10,4 @@ public enum CrematoriumVisualLayers : byte
     LightBurning,
     LightContent
 }
+

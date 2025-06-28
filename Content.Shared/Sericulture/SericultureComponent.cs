@@ -70,3 +70,4 @@ public sealed partial class SericultureComponent : Component
     [AutoNetworkedField]
     public HungerThreshold MinHungerThreshold = HungerThreshold.Okay;
 }
+

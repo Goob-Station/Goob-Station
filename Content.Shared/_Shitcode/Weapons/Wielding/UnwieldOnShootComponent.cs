@@ -13,3 +13,4 @@ namespace Content.Shared._Goobstation.Weapons.Wielding;
 public sealed partial class UnwieldOnShootComponent : Component
 {
 }
+

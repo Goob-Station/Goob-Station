@@ -49,3 +49,4 @@ public sealed partial class ArcadeOverflowWireAction : BaseToggleWireAction
         return StatusLightState.Off;
     }
 }
+

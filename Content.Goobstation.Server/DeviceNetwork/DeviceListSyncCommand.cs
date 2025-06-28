@@ -51,3 +51,4 @@ public sealed class DeviceListSyncCommand : LocalizedCommands
         shell.WriteLine($"Successfully synchronized {updatedDevices} devices.");
     }
 }
+

@@ -27,3 +27,4 @@ public enum StasisBedVisualLayers : byte
 {
     IsOn,
 }
+

@@ -9,3 +9,4 @@ public enum ReinforcedWallVisualLayers : byte
 {
     Deconstruction,
 }
+

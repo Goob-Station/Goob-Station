@@ -52,3 +52,4 @@ public sealed class OhioAccentSystem : EntitySystem
         args.Message = message;
     }
 };
+

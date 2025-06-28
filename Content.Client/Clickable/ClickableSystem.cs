@@ -253,3 +253,4 @@ public sealed class ClickableSystem : EntitySystem
         return boundsForDir.Contains(modLocalPos);
     }
 }
+

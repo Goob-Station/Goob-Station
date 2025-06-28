@@ -31,3 +31,4 @@ public sealed partial class ActiveMicrowaveComponent : Component
     [ViewVariables]
     public (FoodRecipePrototype?, int) PortionedRecipe;
 }
+

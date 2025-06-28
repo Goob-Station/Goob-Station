@@ -59,3 +59,4 @@
       state: state_laws
     event: !type:ToggleLawsScreenEvent
     useDelay: 0.5
+

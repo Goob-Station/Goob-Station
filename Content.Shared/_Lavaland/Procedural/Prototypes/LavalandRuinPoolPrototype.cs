@@ -55,3 +55,4 @@ public sealed partial class LavalandRuinPoolPrototype : IPrototype
     [DataField]
     public Dictionary<ProtoId<LavalandDungeonRuinPrototype>, ushort> DungeonRuins = new();
 }
+

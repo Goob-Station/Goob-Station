@@ -14,3 +14,4 @@ namespace Content.Server.Explosion.Components;
 public sealed partial class TriggerWhenEmptyComponent : Component
 {
 }
+

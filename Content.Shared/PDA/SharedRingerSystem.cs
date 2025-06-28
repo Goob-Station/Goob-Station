@@ -300,3 +300,4 @@ public enum Note : byte
     G,
     Gsharp
 }
+

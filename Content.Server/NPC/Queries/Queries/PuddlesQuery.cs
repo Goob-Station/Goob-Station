@@ -10,3 +10,4 @@ public sealed partial class PuddlesQuery : UtilityQuery
 {
 
 }
+

@@ -51,3 +51,4 @@ public sealed class EntityStringRepresentationConverter : AdminLogConverter<Enti
         writer.WriteEndObject();
     }
 }
+

@@ -30,3 +30,4 @@ public sealed partial class ExaminableDamagePrototype : IPrototype
     [DataField("messages")]
     public string[] Messages = {};
 }
+

@@ -14,3 +14,4 @@ public sealed partial class SalvageShuttleComponent : Component
 {
 
 }
+

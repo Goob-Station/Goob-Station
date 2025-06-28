@@ -15,3 +15,4 @@ namespace Content.Shared.Swab;
 public sealed partial class BotanySwabDoAfterEvent : SimpleDoAfterEvent
 {
 }
+

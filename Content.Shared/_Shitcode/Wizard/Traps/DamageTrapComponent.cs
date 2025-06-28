@@ -19,3 +19,4 @@ public sealed partial class DamageTrapComponent : Component
     [DataField]
     public EntProtoId? SpawnedEntity;
 }
+

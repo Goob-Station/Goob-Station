@@ -273,3 +273,4 @@ internal sealed class FakeIPIntelApi(Func<HttpResponseMessage> response) : IIPIn
         return Task.FromResult(response());
     }
 }
+

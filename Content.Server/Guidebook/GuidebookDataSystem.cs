@@ -114,3 +114,4 @@ public sealed class GuidebookDataSystem : EntitySystem
         GatherData(ref _cachedData);
     }
 }
+

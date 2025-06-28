@@ -29,3 +29,4 @@ public sealed partial class BlockChargeUserComponent : Component
     [ViewVariables]
     public EntityUid BlockingWeapon;
 }
+

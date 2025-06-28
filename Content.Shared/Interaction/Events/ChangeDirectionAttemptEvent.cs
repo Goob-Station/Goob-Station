@@ -18,3 +18,4 @@ public sealed class ChangeDirectionAttemptEvent : CancellableEntityEventArgs
 
     public EntityUid Uid { get; }
 }
+

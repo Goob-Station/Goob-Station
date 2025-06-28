@@ -190,3 +190,4 @@ namespace Content.Shared.Friction
         }
     }
 }
+

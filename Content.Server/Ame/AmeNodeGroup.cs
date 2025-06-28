@@ -224,3 +224,4 @@ public sealed class AmeNodeGroup : BaseNodeGroup
         _entMan.System<ExplosionSystem>().TriggerExplosive(MasterController.Value, radius: radius, delete: false);
     }
 }
+

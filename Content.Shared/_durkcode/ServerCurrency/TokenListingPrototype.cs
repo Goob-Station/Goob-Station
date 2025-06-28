@@ -30,3 +30,4 @@ public sealed class TokenListingPrototype : IPrototype
     [DataField("adminNote", required: true)]
     public string AdminNote { get; private set; } = string.Empty;
 }
+

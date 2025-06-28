@@ -62,3 +62,4 @@ public sealed partial class DockObject : PanelContainer
         DockedLabel.Text = value;
     }
 }
+

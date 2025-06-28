@@ -21,3 +21,4 @@ public sealed partial class TargetHealthCon : UtilityConsideration
     [DataField("targetState")]
     public MobState TargetState = MobState.Invalid;
 }
+

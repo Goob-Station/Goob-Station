@@ -42,3 +42,4 @@
   components:
   - type: GhostRoleMobSpawner
     prototype: MobBinglePrime
+

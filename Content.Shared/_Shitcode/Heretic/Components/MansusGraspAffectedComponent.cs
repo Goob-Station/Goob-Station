@@ -14,3 +14,4 @@ namespace Content.Shared._Goobstation.Heretic.Components;
 public sealed partial class MansusGraspAffectedComponent : Component
 {
 }
+

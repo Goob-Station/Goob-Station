@@ -424,3 +424,4 @@ namespace Content.Client.Light.Components
         }
     }
 }
+

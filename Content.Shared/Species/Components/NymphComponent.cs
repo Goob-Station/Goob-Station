@@ -27,3 +27,4 @@ public sealed partial class NymphComponent : Component
     [DataField]
     public bool TransferMind = false;
 }
+

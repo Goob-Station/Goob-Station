@@ -28,3 +28,4 @@ public sealed partial class CorePoweredThrowerComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public Vector2 StabilityPerThrow = new(0.1f, 0.2f);
 }
+

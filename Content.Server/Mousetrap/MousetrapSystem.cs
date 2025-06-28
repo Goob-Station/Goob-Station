@@ -91,3 +91,4 @@ public sealed class MousetrapSystem : EntitySystem
             mousetrap.IsActive ? MousetrapVisuals.Armed : MousetrapVisuals.Unarmed, appearance);
     }
 }
+

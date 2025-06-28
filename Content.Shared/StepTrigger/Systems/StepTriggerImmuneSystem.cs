@@ -36,3 +36,4 @@ public sealed class StepTriggerImmuneSystem : EntitySystem
         args.PushMarkup(Loc.GetString("clothing-required-step-trigger-examine"));
     }
 }
+

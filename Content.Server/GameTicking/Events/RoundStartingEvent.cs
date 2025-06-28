@@ -20,3 +20,4 @@ public sealed class RoundStartingEvent : EntityEventArgs
 
     public int Id { get; }
 }
+

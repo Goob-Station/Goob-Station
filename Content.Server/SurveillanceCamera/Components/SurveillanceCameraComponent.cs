@@ -55,3 +55,4 @@ public sealed partial class SurveillanceCameraComponent : Component
     [DataField("setupAvailableNetworks", customTypeSerializer:typeof(PrototypeIdListSerializer<DeviceFrequencyPrototype>))]
     public List<string> AvailableNetworks { get; private set; } = new();
 }
+

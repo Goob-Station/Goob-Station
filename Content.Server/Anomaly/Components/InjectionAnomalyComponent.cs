@@ -51,3 +51,4 @@ public sealed partial class InjectionAnomalyComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public string Solution { get; set; } = "default";
 }
+

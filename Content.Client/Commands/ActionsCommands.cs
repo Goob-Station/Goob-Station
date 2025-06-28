@@ -137,3 +137,4 @@ public sealed class LoadActionsCommand : LocalizedCommands
         }
     }
 }
+

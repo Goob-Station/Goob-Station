@@ -37,3 +37,4 @@ public sealed class VentCrawlingSystem : EntitySystem
         _subFloorHideSystem.ShowVentPipe = playerVentCrawlerComponent.InTube;
     }
 }
+

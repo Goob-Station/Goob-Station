@@ -114,3 +114,4 @@ public sealed class TargetingSystem : SharedTargetingSystem
         TargetChange?.Invoke(target);
     }
 }
+

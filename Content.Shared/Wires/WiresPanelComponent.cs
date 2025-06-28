@@ -80,3 +80,4 @@ public record struct AttemptChangePanelEvent(bool Open, EntityUid? User, bool Ca
 /// </summary>
 [ByRefEvent]
 public readonly record struct PanelChangedEvent(bool Open);
+

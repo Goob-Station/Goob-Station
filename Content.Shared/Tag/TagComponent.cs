@@ -25,3 +25,4 @@ public sealed partial class TagComponent : Component
     [DataField, ViewVariables, AutoNetworkedField]
     public HashSet<ProtoId<TagPrototype>> Tags = new();
 }
+

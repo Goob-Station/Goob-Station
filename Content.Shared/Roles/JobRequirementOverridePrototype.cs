@@ -23,3 +23,4 @@ public sealed partial class JobRequirementOverridePrototype : IPrototype
     [DataField]
     public Dictionary<ProtoId<AntagPrototype>, HashSet<JobRequirement>> Antags = new ();
 }
+

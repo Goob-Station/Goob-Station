@@ -88,3 +88,4 @@ public sealed partial class OpenableComponent : Component
     [DataField]
     public SoundSpecifier? CloseSound;
 }
+

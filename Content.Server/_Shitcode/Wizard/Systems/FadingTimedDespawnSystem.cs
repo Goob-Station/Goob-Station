@@ -16,3 +16,4 @@ public sealed class FadingTimedDespawnSystem : SharedFadingTimedDespawnSystem
         return true;
     }
 }
+

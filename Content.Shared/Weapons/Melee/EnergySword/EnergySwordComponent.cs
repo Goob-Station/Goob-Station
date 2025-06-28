@@ -43,3 +43,4 @@ public sealed partial class EnergySwordComponent : Component
     [DataField]
     public float CycleRate = 1f;
 }
+

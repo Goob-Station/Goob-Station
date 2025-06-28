@@ -117,3 +117,4 @@ public abstract class SharedHandheldLightSystem : EntitySystem
     public abstract bool TurnOff(Entity<HandheldLightComponent> ent, bool makeNoise = true);
     public abstract bool TurnOn(EntityUid user, Entity<HandheldLightComponent> uid);
 }
+

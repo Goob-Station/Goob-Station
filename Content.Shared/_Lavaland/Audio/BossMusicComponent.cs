@@ -29,3 +29,4 @@ public sealed partial class BossMusicComponent : Component
     [AutoNetworkedField]
     [DataField] public ProtoId<BossMusicPrototype> SoundId;
 }
+

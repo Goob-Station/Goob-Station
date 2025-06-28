@@ -187,3 +187,4 @@ public sealed partial class FlatpackCreatorMenu : FancyWindow
         return msg.ToMarkup();
     }
 }
+

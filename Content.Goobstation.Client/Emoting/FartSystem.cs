@@ -33,3 +33,4 @@ public sealed partial class FartSystem : SharedFartSystem
             RaiseLocalEvent(uid, emote.Event);
     }
 }
+

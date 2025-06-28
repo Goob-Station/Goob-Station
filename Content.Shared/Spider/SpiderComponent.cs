@@ -30,3 +30,4 @@ public sealed partial class SpiderComponent : Component
 }
 
 public sealed partial class SpiderWebActionEvent : InstantActionEvent { }
+

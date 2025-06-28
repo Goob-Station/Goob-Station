@@ -44,3 +44,4 @@ public sealed partial class GunSystem
         _sprite.RemoveLayer((uid, sprite), AmmoVisualLayers.Tip, false);
     }
 }
+

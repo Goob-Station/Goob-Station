@@ -706,3 +706,4 @@ namespace Content.Server.Voting.Managers
         #endregion
     }
 }
+

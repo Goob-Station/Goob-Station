@@ -27,3 +27,4 @@ public enum NotekeeperUiAction
     Add,
     Remove
 }
+

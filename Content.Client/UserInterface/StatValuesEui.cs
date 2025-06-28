@@ -33,3 +33,4 @@ public sealed class StatValuesEui : BaseEui
         _window.UpdateValues(eui.Headers, eui.Values);
     }
 }
+

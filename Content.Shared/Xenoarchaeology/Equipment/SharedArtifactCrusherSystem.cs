@@ -92,3 +92,4 @@ public abstract class SharedArtifactCrusherSystem : EntitySystem
         Dirty(ent, ent.Comp);
     }
 }
+

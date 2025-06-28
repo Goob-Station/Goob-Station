@@ -32,3 +32,4 @@ public sealed partial class ShuffleParticlesAnomalyComponent : Component
     [DataField]
     public float Prob = 0.5f;
 }
+

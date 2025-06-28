@@ -66,3 +66,4 @@ public sealed class CodeConditionSystem : EntitySystem
         SetCompleted(obj.Value, completed);
     }
 }
+

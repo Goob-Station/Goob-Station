@@ -86,3 +86,4 @@ public sealed class PoolTestLogHandler : ILogHandler
         ActiveContext = context;
     }
 }
+

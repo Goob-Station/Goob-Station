@@ -14,3 +14,4 @@ namespace Content.Shared.Damage.Events;
 /// </summary>
 [ByRefEvent]
 public record struct StaminaDamageOnHitAttemptEvent(bool LightAttack, bool Cancelled); // Goob edit
+

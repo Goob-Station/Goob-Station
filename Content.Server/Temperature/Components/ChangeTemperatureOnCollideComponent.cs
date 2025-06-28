@@ -27,3 +27,4 @@ public sealed partial class ChangeTemperatureOnCollideComponent : Component
     [DataField]
     public bool IgnoreHeatResistance = true;
 }
+

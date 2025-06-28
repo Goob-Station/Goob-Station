@@ -187,3 +187,4 @@ namespace Content.Client.IoC
         }
     }
 }
+

@@ -32,3 +32,4 @@ public abstract class SharedCommsHackerSystem : EntitySystem
 /// </summary>
 [Serializable, NetSerializable]
 public sealed partial class TerrorDoAfterEvent : SimpleDoAfterEvent { }
+

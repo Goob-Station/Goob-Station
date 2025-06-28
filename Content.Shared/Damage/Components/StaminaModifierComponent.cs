@@ -24,3 +24,4 @@ public sealed partial class StaminaModifierComponent : Component
     [ViewVariables(VVAccess.ReadWrite), DataField("modifier"), AutoNetworkedField]
     public float Modifier = 2f;
 }
+

@@ -170,3 +170,4 @@ public sealed class UnpoweredFlashlightSystem : EntitySystem
         RaiseLocalEvent(ent, new LightToggleEvent(value));
     }
 }
+

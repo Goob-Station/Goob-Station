@@ -25,3 +25,4 @@ public sealed partial class ObjectiveConditionsControl : BoxContainer
         RobustXamlLoader.Load(this);
     }
 }
+

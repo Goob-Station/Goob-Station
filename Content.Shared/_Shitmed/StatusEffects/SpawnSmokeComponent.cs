@@ -17,3 +17,4 @@ public sealed partial class SpawnSmokeComponent : SpawnEntityEffectComponent
     public override string EntityPrototype { get; set; } = "AdminInstantEffectSmoke10";
     public override bool AttachToParent { get; set; } = true;
 }
+

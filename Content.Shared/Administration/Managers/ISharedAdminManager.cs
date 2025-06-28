@@ -100,3 +100,4 @@ public interface ISharedAdminManager
         return GetAdminData(session, includeDeAdmin) != null;
     }
 }
+

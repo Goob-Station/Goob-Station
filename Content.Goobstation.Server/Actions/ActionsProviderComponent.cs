@@ -16,3 +16,4 @@ public sealed partial class ActionsProviderComponent : Component
 {
     [DataField] public List<EntProtoId> Actions = new();
 }
+

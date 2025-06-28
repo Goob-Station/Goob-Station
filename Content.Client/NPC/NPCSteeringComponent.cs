@@ -20,3 +20,4 @@ public sealed partial class NPCSteeringComponent : Component
     public float[] InterestMap = Array.Empty<float>();
     public List<Vector2> DangerPoints = new();
 }
+

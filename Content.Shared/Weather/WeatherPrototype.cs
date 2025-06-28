@@ -30,3 +30,4 @@ public sealed partial class WeatherPrototype : IPrototype
     [ViewVariables(VVAccess.ReadWrite), DataField("sound")]
     public SoundSpecifier? Sound;
 }
+

@@ -19,3 +19,4 @@ public enum ResearchAvailability : byte
     PrereqsMet,
     Unavailable
 }
+

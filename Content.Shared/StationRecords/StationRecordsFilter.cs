@@ -49,3 +49,4 @@ public enum StationRecordFilterType : byte
     Prints,
     DNA,
 }
+

@@ -28,3 +28,4 @@ public sealed partial class HungryPrecondition : HTNPrecondition
         return _entManager.TryGetComponent<HungerComponent>(owner, out var hunger) ? hunger.CurrentThreshold <= MinHungerState : false;
     }
 }
+

@@ -16,3 +16,4 @@
   - type: EntityStorage
     closeSound:
       path: /Audio/Effects/teleport_arrival.ogg
+

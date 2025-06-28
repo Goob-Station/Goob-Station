@@ -223,3 +223,4 @@
   components:
   - type: ApcPowerReceiver
     powerDisabled: false
+

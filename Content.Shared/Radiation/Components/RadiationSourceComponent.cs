@@ -34,3 +34,4 @@ public sealed partial class RadiationSourceComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public bool Enabled = true;
 }
+

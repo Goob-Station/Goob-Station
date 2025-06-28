@@ -31,3 +31,4 @@ public sealed partial class MixingCategoryPrototype : IPrototype
     [DataField(required: true)]
     public SpriteSpecifier Icon = default!;
 }
+

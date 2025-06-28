@@ -273,3 +273,4 @@
       - state: equipped-BELT
       - state: cover-equipped-BELT
         color: "#968000"
+

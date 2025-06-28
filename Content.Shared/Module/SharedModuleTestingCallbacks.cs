@@ -17,3 +17,4 @@ namespace Content.Shared.Module
         public Action SharedBeforeIoC { get; set; } = default!;
     }
 }
+

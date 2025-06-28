@@ -132,3 +132,4 @@ public sealed class MechSoundboardUiState : BoundUserInterfaceState
 {
     public List<string> Sounds = new();
 }
+

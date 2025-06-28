@@ -55,3 +55,4 @@ public sealed partial class TechnologyDiskComponent : Component
     [DataField]
     public ProtoId<WeightedRandomPrototype> TierWeightPrototype = "TechDiskTierWeights";
 }
+

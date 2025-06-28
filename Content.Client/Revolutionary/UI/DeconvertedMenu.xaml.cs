@@ -20,3 +20,4 @@ public sealed partial class DeconvertedMenu : FancyWindow
         ConfirmButton.OnPressed += _ => Close();
     }
 }
+

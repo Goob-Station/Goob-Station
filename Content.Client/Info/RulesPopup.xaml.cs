@@ -72,3 +72,4 @@ public sealed partial class RulesPopup : Control
         }
     }
 }
+

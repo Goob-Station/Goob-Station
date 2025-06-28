@@ -47,3 +47,4 @@ public sealed partial class LogProbeUi : UIFragment
         _fragment?.UpdateState(logProbeUiState); // DeltaV - just take the state
     }
 }
+

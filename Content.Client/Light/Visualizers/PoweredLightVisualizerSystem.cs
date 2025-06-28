@@ -148,3 +148,4 @@ public sealed class PoweredLightVisualizerSystem : VisualizerSystem<PoweredLight
         return blinkingAnim;
     }
 }
+

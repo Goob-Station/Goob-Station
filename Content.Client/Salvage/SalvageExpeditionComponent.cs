@@ -13,3 +13,4 @@ public sealed partial class SalvageExpeditionComponent : SharedSalvageExpedition
 {
 
 }
+

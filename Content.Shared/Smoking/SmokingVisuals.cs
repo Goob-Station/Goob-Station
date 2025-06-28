@@ -21,3 +21,4 @@ namespace Content.Shared.Smoking
         Smoking,
     }
 }
+

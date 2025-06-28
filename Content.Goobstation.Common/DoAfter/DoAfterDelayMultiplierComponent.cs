@@ -17,3 +17,4 @@ public sealed partial class DoAfterDelayMultiplierComponent : Component
     [DataField]
     public float Multiplier = 1f;
 }
+

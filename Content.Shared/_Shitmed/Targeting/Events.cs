@@ -31,3 +31,4 @@ public sealed class TargetIntegrityChangeEvent : EntityEventArgs
         RefreshUi = refreshUi;
     }
 }
+

@@ -117,3 +117,4 @@
               doAfter: 1
     - node: mask
       entity: ClothingMaskClownBanana
+

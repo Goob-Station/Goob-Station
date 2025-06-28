@@ -39,3 +39,4 @@ public sealed class BlindfoldSystem : EntitySystem
         _blindableSystem.UpdateIsBlind(args.Equipee);
     }
 }
+

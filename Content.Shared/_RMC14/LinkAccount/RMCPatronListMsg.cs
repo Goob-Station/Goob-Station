@@ -60,3 +60,4 @@ public sealed class RMCPatronListMsg : NetMessage
         }
     }
 }
+

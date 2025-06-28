@@ -28,3 +28,4 @@ public abstract class SharedInstrumentSystem : EntitySystem
         Dirty(uid, component);
     }
 }
+

@@ -65,3 +65,4 @@ public abstract class SharedMouseRotatorSystem : EntitySystem
         Dirty(ent, rotator);
     }
 }
+

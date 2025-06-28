@@ -152,3 +152,4 @@ public sealed partial class PickSurgeryWindow : FancyWindow
         SubmitButton.Disabled = _part == null || _surgeryId == null;
     }
 }
+

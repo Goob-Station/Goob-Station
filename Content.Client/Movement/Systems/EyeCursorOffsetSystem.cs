@@ -101,3 +101,4 @@ public sealed partial class EyeCursorOffsetSystem : EntitySystem
         return component.CurrentPosition;
     }
 }
+

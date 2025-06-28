@@ -127,3 +127,4 @@ public sealed class ToggleableClothingUiMessage : BoundUserInterfaceMessage
         AttachedClothingUid = attachedClothingUid;
     }
 }
+

@@ -40,3 +40,4 @@ public sealed class SuppressArtifactContainerSystem : EntitySystem
         _xenoArtifact.SetSuppressed((args.Entity, artifact), false);
     }
 }
+

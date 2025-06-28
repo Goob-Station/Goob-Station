@@ -85,3 +85,4 @@ public sealed partial class DoorTimingWireAction : ComponentWireAction<AirlockCo
         Key
     }
 }
+

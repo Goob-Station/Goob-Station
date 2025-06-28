@@ -99,3 +99,4 @@
     - id: AnomalyTrapRock
     - id: AnomalyTrapSanta # Make more common in December
       weight: 0.4
+

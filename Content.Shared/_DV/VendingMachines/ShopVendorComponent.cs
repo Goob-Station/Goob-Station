@@ -115,3 +115,4 @@ public sealed partial class ShopVendorComponent : Component
 
     #endregion
 }
+

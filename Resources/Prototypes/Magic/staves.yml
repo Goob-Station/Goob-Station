@@ -86,3 +86,4 @@
     event: !type:ChangeComponentsSpellEvent
       toAdd:
       - type: RgbLightController
+

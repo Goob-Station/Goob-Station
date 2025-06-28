@@ -25,3 +25,4 @@ public sealed partial class EyeProtectionComponent : Component
     [AutoNetworkedField]
     public TimeSpan ProtectionTime = TimeSpan.FromSeconds(10);
 }
+

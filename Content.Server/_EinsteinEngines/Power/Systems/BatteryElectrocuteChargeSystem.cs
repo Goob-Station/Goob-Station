@@ -41,3 +41,4 @@ public sealed class BatteryElectrocuteChargeSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("battery-electrocute-charge"), uid, uid);
     }
 }
+

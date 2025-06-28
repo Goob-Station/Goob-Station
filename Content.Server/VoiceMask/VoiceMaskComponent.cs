@@ -54,3 +54,4 @@ public sealed partial class VoiceMaskComponent : Component
     [DataField]
     public bool EnableAction = true; //Goobstation
 }
+

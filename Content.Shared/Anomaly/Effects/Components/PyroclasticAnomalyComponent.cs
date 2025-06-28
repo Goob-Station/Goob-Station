@@ -16,3 +16,4 @@ public sealed partial class PyroclasticAnomalyComponent : Component
     [DataField("maximumIgnitionRadius")]
     public float MaximumIgnitionRadius = 5f;
 }
+

@@ -19,3 +19,4 @@ public sealed partial class GrantTargetObjectiveOnGhostTakeoverComponent : Compo
     [DataField(required: true)]
     public EntProtoId Objective;
 }
+

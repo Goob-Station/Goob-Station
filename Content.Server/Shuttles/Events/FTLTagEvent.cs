@@ -10,3 +10,4 @@ namespace Content.Server.Shuttles.Events;
 /// </summary>
 [ByRefEvent]
 public record struct FTLTagEvent(bool Handled, string? Tag);
+

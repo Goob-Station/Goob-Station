@@ -61,3 +61,4 @@ public sealed partial class NearbyEntitiesRule : RulesRule
         return !Inverted;
     }
 }
+

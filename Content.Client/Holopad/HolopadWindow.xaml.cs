@@ -347,3 +347,4 @@ public sealed partial class HolopadWindow : FancyWindow
         return x.Value.CompareTo(y.Value);
     }
 }
+

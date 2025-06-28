@@ -56,3 +56,4 @@ public enum WeaponVisualLayers : byte
     FlightOff,
     FlightOn
 }
+

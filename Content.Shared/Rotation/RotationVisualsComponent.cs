@@ -46,3 +46,4 @@ public enum RotationState
     /// </summary>
     Horizontal,
 }
+

@@ -91,3 +91,4 @@ public sealed class ChameleonClothingSystem : SharedChameleonClothingSystem
             _identity.QueueIdentityUpdate(component.User.Value);
     }
 }
+

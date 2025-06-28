@@ -13,3 +13,4 @@ namespace Content.Server.Item;
 public sealed class ItemSystem : SharedItemSystem
 {
 }
+

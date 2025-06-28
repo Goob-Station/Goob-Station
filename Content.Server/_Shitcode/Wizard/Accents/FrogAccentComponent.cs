@@ -31,3 +31,4 @@ public sealed partial class FrogAccentComponent : AnimalAccentComponent
 
     public override float AltNoiseProbability => 0.05f;
 }
+

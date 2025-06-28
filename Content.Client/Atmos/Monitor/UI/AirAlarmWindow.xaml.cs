@@ -250,3 +250,4 @@ public sealed partial class AirAlarmWindow : FancyWindow
 
 
 }
+

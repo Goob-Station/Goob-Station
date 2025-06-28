@@ -25,3 +25,4 @@ public sealed partial class SpawnOnOverloadComponent : Component
     [DataField("spawnedPrototype", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string Prototype = "PuddleSparkle";
 }
+

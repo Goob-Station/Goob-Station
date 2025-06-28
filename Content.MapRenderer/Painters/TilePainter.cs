@@ -141,3 +141,4 @@ namespace Content.MapRenderer.Painters
         }
     }
 }
+

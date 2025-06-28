@@ -29,3 +29,4 @@ public sealed class VotingSystem : EntitySystem
         RaiseNetworkEvent(new VotePlayerListRequestEvent());
     }
 }
+

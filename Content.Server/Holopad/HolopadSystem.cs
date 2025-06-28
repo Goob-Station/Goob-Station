@@ -800,3 +800,4 @@ public sealed class HolopadSystem : SharedHolopadSystem
             _ambientSoundSystem.SetAmbience(entity, isEnabled, ambientSound);
     }
 }
+

@@ -19,3 +19,4 @@ public readonly struct GraphTransformArgs
         EntityManager = entityManager;
     }
 }
+

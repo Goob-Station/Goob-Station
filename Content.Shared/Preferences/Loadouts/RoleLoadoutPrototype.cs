@@ -70,3 +70,4 @@ public sealed partial class RoleLoadoutPrototype : IPrototype
     [DataField]
     public int? Points;
 }
+

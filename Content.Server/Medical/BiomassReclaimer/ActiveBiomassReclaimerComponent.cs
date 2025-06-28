@@ -11,3 +11,4 @@ namespace Content.Server.Medical.BiomassReclaimer
     public sealed partial class ActiveBiomassReclaimerComponent : Component
     {}
 }
+

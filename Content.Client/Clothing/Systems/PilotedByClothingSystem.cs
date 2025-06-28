@@ -50,3 +50,4 @@ public sealed partial class PilotedByClothingSystem : EntitySystem
         args.BlockPrediction = true;
     }
 }
+

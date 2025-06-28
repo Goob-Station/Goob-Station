@@ -43,3 +43,4 @@
       - state: equipped-BACKPACK
   - type: StaticPrice # Goobstation
     price: 30000
+

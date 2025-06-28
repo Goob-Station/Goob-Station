@@ -28,3 +28,4 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
             return;
     }
 }
+

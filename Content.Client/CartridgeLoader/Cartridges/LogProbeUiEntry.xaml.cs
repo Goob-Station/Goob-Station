@@ -20,3 +20,4 @@ public sealed partial class LogProbeUiEntry : BoxContainer
         AccessorLabel.Text = accessorText;
     }
 }
+

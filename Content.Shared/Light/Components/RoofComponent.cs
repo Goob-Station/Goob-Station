@@ -25,3 +25,4 @@ public sealed partial class RoofComponent : Component
     [DataField, AutoNetworkedField]
     public Dictionary<Vector2i, ulong> Data = new();
 }
+

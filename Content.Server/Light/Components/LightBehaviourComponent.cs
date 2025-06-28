@@ -22,3 +22,4 @@ namespace Content.Server.Light.Components
 
     }
 }
+

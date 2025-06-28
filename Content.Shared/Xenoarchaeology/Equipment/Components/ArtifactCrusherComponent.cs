@@ -121,3 +121,4 @@ public enum ArtifactCrusherVisuals : byte
 {
     Crushing
 }
+

@@ -85,3 +85,4 @@ public sealed partial class ParrotAccentSystem : EntitySystem
         return Loc.GetString(_random.Pick(entity.Comp.Squawks));
     }
 }
+

@@ -33,3 +33,4 @@ public enum BlockBehavior : byte
     Damage,
     Destroy,
 }
+

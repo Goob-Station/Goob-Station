@@ -37,3 +37,4 @@ namespace Content.Shared.Preferences
         }
     }
 }
+

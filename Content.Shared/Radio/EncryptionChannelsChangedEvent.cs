@@ -16,3 +16,4 @@ public sealed class EncryptionChannelsChangedEvent : EntityEventArgs
         Component = component;
     }
 }
+

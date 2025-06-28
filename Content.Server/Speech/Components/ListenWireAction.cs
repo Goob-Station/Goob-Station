@@ -97,3 +97,4 @@ public sealed partial class ListenWireAction : BaseToggleWireAction
         base.Pulse(user, wire);
     }
 }
+

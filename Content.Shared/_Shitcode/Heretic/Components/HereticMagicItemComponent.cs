@@ -16,3 +16,4 @@ public sealed partial class HereticMagicItemComponent : Component
 {
 
 }
+

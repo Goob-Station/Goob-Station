@@ -47,3 +47,4 @@ public sealed class EntityStorageSystem : SharedEntityStorageSystem
         return component != null;
     }
 }
+

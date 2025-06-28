@@ -22,3 +22,4 @@ public sealed class HandheldGpsSystem : EntitySystem
         Subs.ItemStatus<HandheldGPSComponent>(ent => new HandheldGpsStatusControl(ent));
     }
 }
+

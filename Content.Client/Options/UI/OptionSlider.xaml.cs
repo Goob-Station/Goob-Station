@@ -69,3 +69,4 @@ public sealed partial class OptionSlider : Control
         set => NameLabel.Text = value;
     }
 }
+

@@ -18,3 +18,4 @@ namespace Content.Client.MedicalScanner;
 public sealed partial class MedicalScannerComponent : SharedMedicalScannerComponent
 {
 }
+

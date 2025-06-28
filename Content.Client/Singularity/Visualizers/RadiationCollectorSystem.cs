@@ -114,3 +114,4 @@ public enum RadiationCollectorVisualLayers : byte
 {
     Main
 }
+

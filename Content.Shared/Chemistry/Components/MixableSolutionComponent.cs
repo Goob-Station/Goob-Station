@@ -16,3 +16,4 @@ public sealed partial class MixableSolutionComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public string Solution = "default";
 }
+

@@ -45,3 +45,4 @@ public sealed class WeaponAttachmentSystem : SharedWeaponAttachmentSystem
         sprite.LayerSetVisible(WeaponVisualLayers.FlightOn, component.LightAttached && component.LightOn);
     }
 }
+

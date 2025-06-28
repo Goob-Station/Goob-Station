@@ -163,3 +163,4 @@ namespace Content.Client.Singularity
         }
     }
 }
+

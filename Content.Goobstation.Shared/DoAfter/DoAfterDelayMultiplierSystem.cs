@@ -39,3 +39,4 @@ public sealed class DoAfterDelayMultiplierSystem : EntitySystem
         args.Multiplier *= ent.Comp.Multiplier;
     }
 }
+

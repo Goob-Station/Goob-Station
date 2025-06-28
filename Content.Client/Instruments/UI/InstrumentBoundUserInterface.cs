@@ -132,3 +132,4 @@ namespace Content.Client.Instruments.UI
         }
     }
 }
+

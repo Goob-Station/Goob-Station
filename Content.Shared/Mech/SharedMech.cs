@@ -66,3 +66,4 @@ public sealed partial class MechOpenUiEvent : InstantActionEvent
 public sealed partial class MechEjectPilotEvent : InstantActionEvent
 {
 }
+

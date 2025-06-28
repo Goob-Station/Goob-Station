@@ -27,3 +27,4 @@ public sealed class ClientPriceGunSystem : SharedPriceGunSystem
         return true;
     }
 }
+

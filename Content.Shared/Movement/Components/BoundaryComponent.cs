@@ -16,3 +16,4 @@ public sealed partial class BoundaryComponent : Component
     [DataField, AutoNetworkedField]
     public float Offset = 2f;
 }
+

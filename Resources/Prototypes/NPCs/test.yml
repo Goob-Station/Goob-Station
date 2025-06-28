@@ -26,3 +26,4 @@
   - type: HTN
     rootTask:
       task: MoveToPathfindPointCompound
+

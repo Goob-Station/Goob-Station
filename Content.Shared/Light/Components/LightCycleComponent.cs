@@ -60,3 +60,4 @@ public sealed partial class LightCycleComponent : Component
     [DataField, AutoNetworkedField]
     public Color MaxLevel = new Color(2f, 2f, 5f);
 }
+

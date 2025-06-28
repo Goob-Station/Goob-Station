@@ -31,3 +31,4 @@ public sealed partial class JauntComponent : Component
     // TODO: Enter & Exit Times and Whitelist when Actions are reworked and can support it
     // TODO: Cooldown pausing when Actions can support it
 }
+

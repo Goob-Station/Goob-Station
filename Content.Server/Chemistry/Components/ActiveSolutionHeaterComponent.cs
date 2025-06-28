@@ -11,3 +11,4 @@ namespace Content.Server.Chemistry.Components;
 public sealed partial class ActiveSolutionHeaterComponent : Component
 {
 }
+

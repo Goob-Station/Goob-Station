@@ -39,3 +39,4 @@ public sealed partial class MiningPointsComponent : Component
     [DataField, AutoNetworkedField]
     public uint Points;
 }
+

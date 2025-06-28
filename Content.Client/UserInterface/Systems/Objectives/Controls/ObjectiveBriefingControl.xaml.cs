@@ -25,3 +25,4 @@ public sealed partial class ObjectiveBriefingControl : BoxContainer
         RobustXamlLoader.Load(this);
     }
 }
+

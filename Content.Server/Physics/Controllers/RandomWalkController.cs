@@ -107,3 +107,4 @@ internal sealed class RandomWalkController : VirtualController
             comp.NextStepTime = _timing.CurTime + TimeSpan.FromSeconds(_random.NextDouble(comp.MinStepCooldown.TotalSeconds, comp.MaxStepCooldown.TotalSeconds));
     }
 }
+

@@ -14,3 +14,4 @@ public sealed partial class SurgerySpeedModifierComponent : Component
     [DataField]
     public float SpeedModifier = 1.5f;
 }
+

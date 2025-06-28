@@ -16,3 +16,4 @@ public sealed class IncompatibleGameModesPrototype : IPrototype
     [DataField(required: true)]
     public HashSet<string> Modes = new();
 }
+

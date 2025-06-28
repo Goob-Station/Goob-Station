@@ -101,3 +101,4 @@ public abstract class SharedVoidCloakSystem : EntitySystem
     {
     }
 }
+

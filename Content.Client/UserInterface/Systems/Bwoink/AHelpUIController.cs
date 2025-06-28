@@ -609,3 +609,4 @@ public sealed class UserAHelpUIHandler : IAHelpUIHandler
         _chatPanel = null;
     }
 }
+

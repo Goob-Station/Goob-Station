@@ -91,3 +91,4 @@ public sealed class BlockGameBoundUserInterface : BoundUserInterface
         _menu?.Dispose();
     }
 }
+

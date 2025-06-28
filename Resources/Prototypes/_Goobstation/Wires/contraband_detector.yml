@@ -12,3 +12,4 @@
   - !type:PowerWireAction
   - !type:ContrabandDetectorBadChanceWireAction
   - !type:ContrabandDetectorFakeScanWireAction
+

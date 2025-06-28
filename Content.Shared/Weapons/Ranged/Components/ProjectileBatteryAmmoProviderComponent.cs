@@ -21,3 +21,4 @@ public sealed partial class ProjectileBatteryAmmoProviderComponent : BatteryAmmo
     [ViewVariables(VVAccess.ReadWrite), DataField("proto", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string Prototype = default!;
 }
+

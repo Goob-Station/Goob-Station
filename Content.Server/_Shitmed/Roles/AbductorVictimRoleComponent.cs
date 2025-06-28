@@ -13,3 +13,4 @@ namespace Content.Server.Roles;
 /// </summary>
 [RegisterComponent]
 public sealed partial class AbductorVictimRoleComponent : BaseMindRoleComponent;
+

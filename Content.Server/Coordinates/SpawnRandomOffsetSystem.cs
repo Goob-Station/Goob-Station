@@ -28,3 +28,4 @@ public sealed class SpawnRandomOffsetSystem : EntitySystem
         EntityManager.RemoveComponentDeferred(uid, component);
     }
 }
+

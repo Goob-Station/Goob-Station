@@ -23,3 +23,4 @@ public sealed partial class RandomSpawnRuleComponent : Component
     [DataField("prototype", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string Prototype = string.Empty;
 }
+

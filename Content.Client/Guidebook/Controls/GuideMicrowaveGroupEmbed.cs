@@ -62,3 +62,4 @@ public sealed partial class GuideMicrowaveGroupEmbed : BoxContainer, IDocumentTa
         }
     }
 }
+

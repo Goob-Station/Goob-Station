@@ -75,3 +75,4 @@ namespace Content.Server.Voting.Managers
         void Update();
     }
 }
+

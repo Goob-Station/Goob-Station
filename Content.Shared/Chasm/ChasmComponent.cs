@@ -21,3 +21,4 @@ public sealed partial class ChasmComponent : Component
     [DataField("fallingSound")]
     public SoundSpecifier FallingSound = new SoundPathSpecifier("/Audio/Effects/falling.ogg");
 }
+

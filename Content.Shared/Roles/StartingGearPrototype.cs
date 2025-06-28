@@ -154,3 +154,4 @@ public interface IEquipmentLoadout
         return Equipment.TryGetValue(slot, out var equipment) ? equipment : string.Empty;
     }
 }
+

@@ -12,3 +12,4 @@ namespace Content.Client._Shitcode.Wizard.Systems;
 public sealed class TeslaBlastSystem : SharedTeslaBlastSystem
 {
 }
+

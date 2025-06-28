@@ -49,3 +49,4 @@
     interfaces:
       enum.WizardMirrorUiKey.Key:
         type: WizardMirrorBoundUserInterface
+

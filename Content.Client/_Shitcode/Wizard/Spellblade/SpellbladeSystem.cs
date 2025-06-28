@@ -47,3 +47,4 @@ public sealed class SpellbladeSystem : SharedSpellbladeSystem
         sprite.LayerMapSet(ShieldedKey.Key, layer);
     }
 }
+

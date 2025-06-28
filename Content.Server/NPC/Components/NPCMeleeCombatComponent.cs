@@ -86,3 +86,4 @@ public enum CombatStatus : byte
     /// </summary>
     Normal,
 }
+

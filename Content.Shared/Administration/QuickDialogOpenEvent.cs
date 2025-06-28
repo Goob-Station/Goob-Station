@@ -141,3 +141,4 @@ public enum QuickDialogEntryType
     /// </summary>
     LongText,
 }
+

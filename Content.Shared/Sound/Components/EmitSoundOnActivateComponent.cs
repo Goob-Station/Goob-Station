@@ -32,3 +32,4 @@ public sealed partial class EmitSoundOnActivateComponent : BaseEmitSoundComponen
     [DataField]
     public bool Handle = true;
 }
+

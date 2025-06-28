@@ -21,3 +21,4 @@ public sealed partial class KillOnOverheatComponent : Component
     [DataField]
     public LocId OverheatPopup = "ipc-overheat-popup";
 }
+

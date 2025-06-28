@@ -35,3 +35,4 @@ public sealed class GrabbingItemSystem : EntitySystem
         _pulling.TryStartPull(args.User, hitEntity, grabStageOverride: ent.Comp.GrabStageOverride, escapeAttemptModifier: ent.Comp.EscapeAttemptModifier);
     }
 }
+

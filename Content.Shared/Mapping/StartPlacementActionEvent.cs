@@ -21,3 +21,4 @@ public sealed partial class StartPlacementActionEvent : InstantActionEvent
     [DataField("eraser")]
     public bool Eraser;
 }
+

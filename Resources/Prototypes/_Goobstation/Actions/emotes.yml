@@ -79,3 +79,4 @@
   - jumps.
   - jumps!
   event: !type:AnimationJumpEmoteEvent
+

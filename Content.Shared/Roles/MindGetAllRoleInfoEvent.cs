@@ -28,3 +28,4 @@ public readonly record struct MindGetAllRoleInfoEvent(List<RoleInfo> Roles);
 /// <param name="PlayTimeTrackerId">The <see cref="PlayTimeTrackerPrototype"/> id associated with the role.</param>
 /// <param name="Prototype">The prototype ID of the role</param>
 public readonly record struct RoleInfo(string Name, bool Antagonist, string? PlayTimeTrackerId, string Prototype);
+

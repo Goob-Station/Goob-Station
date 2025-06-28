@@ -76,3 +76,4 @@ public sealed partial class NitriumMovespeedModifier : EntityEffect
         status.Dirty();
     }
 }
+

@@ -44,3 +44,4 @@ public sealed class PlanetLightSystem : EntitySystem
         _overlayMan.RemoveOverlay<AfterLightTargetOverlay>();
     }
 }
+

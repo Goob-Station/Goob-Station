@@ -115,3 +115,4 @@
       - !type:SpawnPrototype
         prototype: CableApcStack1
         amount: 2
+

@@ -34,3 +34,4 @@
       interfaces:
         enum.PowerMonitoringConsoleUiKey.Key:
           type: PowerMonitoringConsoleBoundUserInterface
+

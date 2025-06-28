@@ -19,3 +19,4 @@
     - !type:DepartmentTimeRequirement
       department: Command
       time: 3600 # 1 hour
+

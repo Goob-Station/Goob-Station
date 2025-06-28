@@ -53,3 +53,4 @@ public sealed class GeneratorSignalControlSystem: EntitySystem
         }
     }
 }
+

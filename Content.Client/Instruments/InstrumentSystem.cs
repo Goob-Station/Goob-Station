@@ -478,3 +478,4 @@ public sealed class InstrumentSystem : SharedInstrumentSystem
         }
     }
 }
+

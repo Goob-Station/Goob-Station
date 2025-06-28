@@ -94,3 +94,4 @@
   parent: [DefibrillatorCabinetFilled, DefibrillatorCabinetOpen]
   id: DefibrillatorCabinetFilledOpen
   suffix: Filled, Open
+

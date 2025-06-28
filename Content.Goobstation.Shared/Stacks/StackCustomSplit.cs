@@ -18,3 +18,4 @@ public sealed class StackCustomSplitAmountMessage : BoundUserInterfaceMessage
         Amount = amount;
     }
 }
+

@@ -184,3 +184,4 @@ public sealed class AirAlarmUpdateAlarmThresholdMessage : BoundUserInterfaceMess
         Gas = gas;
     }
 }
+

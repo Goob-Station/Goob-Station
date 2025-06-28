@@ -23,3 +23,4 @@ public sealed class InstrumentBandResponseBuiMessage : BoundUserInterfaceMessage
         Nearby = nearby;
     }
 }
+

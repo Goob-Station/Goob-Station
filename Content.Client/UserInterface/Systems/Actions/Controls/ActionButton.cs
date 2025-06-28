@@ -483,3 +483,4 @@ public sealed class ActionButton : Control, IEntityControl
 
     EntityUid? IEntityControl.UiEntity => ActionId;
 }
+

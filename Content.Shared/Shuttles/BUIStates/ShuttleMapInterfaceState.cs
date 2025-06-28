@@ -43,3 +43,4 @@ public sealed class ShuttleMapInterfaceState
         Exclusions = exclusions;
     }
 }
+

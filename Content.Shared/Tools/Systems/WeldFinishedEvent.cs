@@ -18,3 +18,4 @@ namespace Content.Shared.Tools.Systems;
 public sealed partial class WeldFinishedEvent : SimpleDoAfterEvent
 {
 }
+

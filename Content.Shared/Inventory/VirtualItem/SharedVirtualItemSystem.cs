@@ -268,3 +268,4 @@ public abstract class SharedVirtualItemSystem : EntitySystem
         PredictedQueueDel(item.Owner);
     }
 }
+

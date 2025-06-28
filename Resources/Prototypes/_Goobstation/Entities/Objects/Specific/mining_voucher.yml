@@ -34,3 +34,4 @@
     vendorWhitelist: # it's the only mining points vendor :)
      components:
      - PointsVendor
+

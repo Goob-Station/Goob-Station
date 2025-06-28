@@ -34,3 +34,4 @@
       state: select-type
     event: !type:BorgToggleSelectTypeEvent
     useDelay: 0.5
+

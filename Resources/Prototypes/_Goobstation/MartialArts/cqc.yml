@@ -74,3 +74,4 @@
   event: !type:CqcConsecutivePerformedEvent
   extraDamage: 10
   staminaDamage: 70
+

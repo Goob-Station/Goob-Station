@@ -105,3 +105,4 @@ public sealed partial class ProjectileSpreadComponent : Component
     [DataField]
     public int Count = 1;
 }
+

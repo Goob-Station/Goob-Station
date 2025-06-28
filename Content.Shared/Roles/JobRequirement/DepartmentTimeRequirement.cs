@@ -160,3 +160,4 @@ public sealed partial class DepartmentTimeRequirement : JobRequirement
         return true;
     }
 }
+

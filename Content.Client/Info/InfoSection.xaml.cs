@@ -32,3 +32,4 @@ public sealed partial class InfoSection : BoxContainer
             Content.SetMessage(text);
     }
 }
+

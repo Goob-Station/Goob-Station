@@ -67,3 +67,4 @@ public sealed partial class SharedRestrictSystem : EntitySystem
         }
     }
 }
+

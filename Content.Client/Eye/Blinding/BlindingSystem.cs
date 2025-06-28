@@ -72,3 +72,4 @@ public sealed class BlindingSystem : EntitySystem
         _lightManager.Enabled = true;
     }
 }
+

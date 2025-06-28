@@ -79,3 +79,4 @@ public sealed class CrewManifestEntry
 [Serializable, NetSerializable]
 public sealed class CrewManifestOpenUiMessage : BoundUserInterfaceMessage
 {}
+

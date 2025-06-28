@@ -26,3 +26,4 @@ public sealed partial class SalvageFactionPrototype : IPrototype
     [ViewVariables(VVAccess.ReadWrite), DataField("configs")]
     public Dictionary<string, string> Configs = new();
 }
+

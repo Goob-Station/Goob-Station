@@ -12,3 +12,4 @@ public abstract class SharedDrowsinessSystem : EntitySystem
     [ValidatePrototypeId<StatusEffectPrototype>]
     public const string DrowsinessKey = "Drowsiness";
 }
+

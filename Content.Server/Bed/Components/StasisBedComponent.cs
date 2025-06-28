@@ -48,3 +48,4 @@ namespace Content.Server.Bed.Components
         public float Multiplier = 10f;
     }
 }
+

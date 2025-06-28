@@ -54,3 +54,4 @@ public sealed class LightningArcShooterSystem : EntitySystem
         _lightning.ShootRandomLightnings(uid, component.ShootRange, arcs, component.LightningPrototype, component.ArcDepth);
     }
 }
+

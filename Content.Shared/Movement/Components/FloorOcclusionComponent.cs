@@ -20,3 +20,4 @@ public sealed partial class FloorOcclusionComponent : Component
     [DataField, AutoNetworkedField]
     public List<EntityUid> Colliding = new();
 }
+

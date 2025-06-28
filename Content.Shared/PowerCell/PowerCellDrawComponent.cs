@@ -104,3 +104,4 @@ public sealed partial class PowerCellDrawComponent : Component
     [DataField]
     public TimeSpan Delay = TimeSpan.FromSeconds(1);
 }
+

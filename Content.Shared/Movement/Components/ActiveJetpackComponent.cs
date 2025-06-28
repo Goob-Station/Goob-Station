@@ -26,3 +26,4 @@ public sealed partial class ActiveJetpackComponent : Component
 
     public TimeSpan TargetTime = TimeSpan.Zero;
 }
+

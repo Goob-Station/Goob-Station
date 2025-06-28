@@ -12,3 +12,4 @@ namespace Content.Server.Speech.Components;
 [Access(typeof(SouthernAccentSystem))]
 public sealed partial class SouthernAccentComponent : Component
 { }
+

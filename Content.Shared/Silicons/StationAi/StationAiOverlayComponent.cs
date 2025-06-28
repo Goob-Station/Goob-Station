@@ -21,3 +21,4 @@ public sealed partial class StationAiOverlayComponent : Component
     [DataField, AutoNetworkedField]
     public bool AllowCrossGrid;
 }
+

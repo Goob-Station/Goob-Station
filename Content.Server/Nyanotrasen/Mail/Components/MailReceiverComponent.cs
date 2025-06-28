@@ -9,3 +9,4 @@ namespace Content.Server.Mail.Components
     public sealed partial class MailReceiverComponent : Component
     {}
 }
+

@@ -98,3 +98,4 @@ public interface IChatEvent
         get;
     }
 }
+

@@ -60,3 +60,4 @@ public sealed partial class PacifiedComponent : Component
     [DataField]
     public ProtoId<AlertPrototype> PacifiedAlert = "Pacified";
 }
+

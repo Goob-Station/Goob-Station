@@ -572,3 +572,4 @@ namespace Content.Client.IconSmoothing
         }
     }
 }
+

@@ -54,3 +54,4 @@ public sealed class AnimateSpellSystem : EntitySystem
 
 [ByRefEvent]
 public readonly record struct AnimateSpellEvent;
+

@@ -64,3 +64,4 @@ namespace Content.Client.Disposal.Tube
         }
     }
 }
+

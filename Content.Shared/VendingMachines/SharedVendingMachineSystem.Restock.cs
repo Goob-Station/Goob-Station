@@ -159,3 +159,4 @@ public abstract partial class SharedVendingMachineSystem
         Audio.PlayPredicted(component.SoundRestockStart, uid, args.User);
     }
 }
+

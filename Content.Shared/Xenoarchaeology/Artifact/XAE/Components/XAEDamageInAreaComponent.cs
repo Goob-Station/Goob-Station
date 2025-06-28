@@ -46,3 +46,4 @@ public sealed partial class XAEDamageInAreaComponent : Component
     [DataField, AutoNetworkedField]
     public bool IgnoreResistances;
 }
+

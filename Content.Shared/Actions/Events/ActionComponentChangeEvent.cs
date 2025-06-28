@@ -66,3 +66,4 @@ public record struct AttemptRelayActionComponentChangeEvent
 {
     public EntityUid? Target;
 }
+

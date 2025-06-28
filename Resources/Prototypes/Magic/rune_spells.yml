@@ -62,3 +62,4 @@
       state: spell_default
     event: !type:InstantSpawnSpellEvent
       prototype: StunRune
+

@@ -22,3 +22,4 @@ namespace Content.Server.Explosion.Components
         public string Port = "Timer";
     }
 }
+

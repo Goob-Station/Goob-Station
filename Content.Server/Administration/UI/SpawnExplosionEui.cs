@@ -54,3 +54,4 @@ public sealed class SpawnExplosionEui : BaseEui
         SendMessage(new SpawnExplosionEuiMsg.PreviewData(explosion, request.IntensitySlope, request.TotalIntensity));
     }
 }
+

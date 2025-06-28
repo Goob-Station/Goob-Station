@@ -70,3 +70,4 @@ namespace Content.Shared.Interaction.Events
         public readonly EntityUid? Target = target;
     }
 }
+

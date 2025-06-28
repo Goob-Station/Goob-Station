@@ -71,3 +71,4 @@ namespace Content.Shared.Storage.Components
         public List<string> LayerStates = new();
     }
 }
+

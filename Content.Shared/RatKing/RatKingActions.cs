@@ -26,3 +26,4 @@ public sealed partial class RatKingOrderActionEvent : InstantActionEvent
     [DataField("type")]
     public RatKingOrderType Type;
 }
+

@@ -43,3 +43,4 @@ public sealed partial class ChameleonDisguiseComponent : Component
     [DataField, AutoNetworkedField]
     public EntProtoId? SourceProto;
 }
+

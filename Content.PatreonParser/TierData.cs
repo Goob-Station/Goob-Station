@@ -15,3 +15,4 @@ public sealed class TierData
     [JsonPropertyName("type")]
     public string Type = default!;
 }
+

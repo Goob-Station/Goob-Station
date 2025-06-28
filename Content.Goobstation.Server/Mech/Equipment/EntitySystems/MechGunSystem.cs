@@ -81,3 +81,4 @@ public sealed class MechGunSystem : EntitySystem
 
 [ByRefEvent]
 public record struct CheckMechWeaponBatteryEvent(BatteryComponent Battery, bool Cancelled = false);
+

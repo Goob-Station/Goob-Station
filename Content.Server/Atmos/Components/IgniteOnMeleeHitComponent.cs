@@ -16,3 +16,4 @@ public sealed partial class IgniteOnMeleeHitComponent : Component
     [DataField]
     public float FireStacks { get; set; }
 }
+

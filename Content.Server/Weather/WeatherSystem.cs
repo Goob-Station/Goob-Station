@@ -152,3 +152,4 @@ public sealed class WeatherSystem : SharedWeatherSystem
         return CompletionResult.FromHintOptions(b, Loc.GetString("cmd-weather-hint"));
     }
 }
+

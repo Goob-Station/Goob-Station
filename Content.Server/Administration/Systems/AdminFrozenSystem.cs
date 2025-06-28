@@ -20,3 +20,4 @@ public sealed class AdminFrozenSystem : SharedAdminFrozenSystem
         Dirty(uid, comp);
     }
 }
+

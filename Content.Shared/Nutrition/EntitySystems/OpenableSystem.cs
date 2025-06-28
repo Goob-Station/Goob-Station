@@ -290,3 +290,4 @@ public record struct OpenableClosedEvent(EntityUid? User = null);
 /// </summary>
 [ByRefEvent]
 public record struct OpenableOpenAttemptEvent(EntityUid? User, bool Cancelled = false);
+

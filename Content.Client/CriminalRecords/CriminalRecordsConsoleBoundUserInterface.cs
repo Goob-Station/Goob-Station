@@ -90,3 +90,4 @@ public sealed class CriminalRecordsConsoleBoundUserInterface : BoundUserInterfac
         _historyWindow?.Close();
     }
 }
+

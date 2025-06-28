@@ -34,3 +34,4 @@ namespace Content.Client.FlavorText
         }
     }
 }
+

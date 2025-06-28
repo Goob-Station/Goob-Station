@@ -18,3 +18,4 @@ public sealed partial class AnchorOnTriggerComponent : Component
     [DataField("removeOnTrigger")]
     public bool RemoveOnTrigger = true;
 }
+

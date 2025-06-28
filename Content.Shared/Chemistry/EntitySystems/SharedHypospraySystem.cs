@@ -66,3 +66,4 @@ public abstract class SharedHypospraySystem : EntitySystem
         Dirty(entity);
     }
 }
+

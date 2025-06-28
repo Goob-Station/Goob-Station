@@ -12,3 +12,4 @@ namespace Content.Server.Explosion.Components;
 /// </summary>
 [RegisterComponent]
 public sealed partial class TriggerOnActivateComponent : Component { }
+

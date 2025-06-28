@@ -27,3 +27,4 @@ public sealed partial class CCVars
     public static readonly CVarDef<string>
         AutosaveDirectory = CVarDef.Create("mapping.autosave_dir", "Autosaves", CVar.SERVERONLY);
 }
+

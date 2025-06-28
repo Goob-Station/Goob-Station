@@ -61,3 +61,4 @@ public abstract class SharedIdentitySystem : EntitySystem
 /// </summary>
 [ByRefEvent]
 public record struct IdentityChangedEvent(EntityUid CharacterEntity, EntityUid IdentityEntity);
+

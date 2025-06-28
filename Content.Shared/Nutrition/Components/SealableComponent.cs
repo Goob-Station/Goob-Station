@@ -35,3 +35,4 @@ public sealed partial class SealableComponent : Component
     [DataField]
     public LocId ExamineTextUnsealed = "drink-component-on-examine-is-unsealed";
 }
+

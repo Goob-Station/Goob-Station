@@ -17,3 +17,4 @@ namespace Content.Server.Administration.Logs.Converters;
 public sealed class AdminLogConverterAttribute : Attribute
 {
 }
+

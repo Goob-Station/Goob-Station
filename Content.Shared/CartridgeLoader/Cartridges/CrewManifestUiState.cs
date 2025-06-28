@@ -21,3 +21,4 @@ public sealed class CrewManifestUiState : BoundUserInterfaceState
         Entries = entries;
     }
 }
+

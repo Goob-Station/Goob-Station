@@ -13,3 +13,4 @@ namespace Content.Shared.Drugs;
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class SeeingRainbowsComponent : Component { }
+

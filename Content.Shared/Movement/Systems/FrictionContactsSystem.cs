@@ -152,3 +152,4 @@ public sealed class FrictionContactsSystem : EntitySystem
         _toUpdate.Add(uid);
     }
 }
+

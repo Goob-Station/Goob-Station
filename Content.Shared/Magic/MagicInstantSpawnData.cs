@@ -29,3 +29,4 @@ public sealed partial class TargetInFront : MagicInstantSpawnData
 /// Spawns 1 tile in front of caster
 /// </summary>
 public sealed partial class TargetInFrontSingle : MagicInstantSpawnData;
+

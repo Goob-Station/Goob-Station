@@ -21,3 +21,4 @@ public sealed partial class NoiseDistanceDunGen : IDunGenLayer
     [DataField(required: true)]
     public List<NoiseDunGenLayer> Layers = new();
 }
+

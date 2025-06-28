@@ -46,3 +46,4 @@ public sealed class BluespaceArtifactRule : StationEventSystem<BluespaceArtifact
         }
     }
 }
+

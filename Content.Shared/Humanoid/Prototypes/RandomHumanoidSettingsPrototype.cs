@@ -55,3 +55,4 @@ public sealed partial class RandomHumanoidSettingsPrototype : IPrototype, IInher
     [AlwaysPushInheritance]
     public ComponentRegistry? Components { get; private set; }
 }
+

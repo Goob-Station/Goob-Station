@@ -150,3 +150,4 @@ public sealed partial class EscapeOperator : HTNOperator, IHtnConditionalShutdow
         return status;
     }
 }
+

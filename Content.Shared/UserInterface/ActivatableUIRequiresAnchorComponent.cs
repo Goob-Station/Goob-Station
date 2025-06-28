@@ -16,3 +16,4 @@ public sealed partial class ActivatableUIRequiresAnchorComponent : Component
     [DataField]
     public LocId? Popup = "ui-needs-anchor";
 }
+

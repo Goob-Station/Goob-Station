@@ -193,3 +193,4 @@ public sealed partial class MindTests
         await pair.CleanReturnAsync();
     }
 }
+

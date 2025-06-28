@@ -110,3 +110,4 @@ public sealed partial class RevolutionEnemyComponent : Component
 
     public override bool SessionSpecific => true;
 }
+

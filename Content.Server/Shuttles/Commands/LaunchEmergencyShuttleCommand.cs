@@ -28,3 +28,4 @@ public sealed class LaunchEmergencyShuttleCommand : IConsoleCommand
         system.EarlyLaunch();
     }
 }
+

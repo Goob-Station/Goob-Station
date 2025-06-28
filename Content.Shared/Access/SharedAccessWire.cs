@@ -27,3 +27,4 @@ public enum LogWireActionKey : byte
     Pulsed,
     PulseCancel
 }
+

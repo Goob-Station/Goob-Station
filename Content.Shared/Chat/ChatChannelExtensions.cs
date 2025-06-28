@@ -31,3 +31,4 @@ public static class ChatChannelExtensions
         };
     }
 }
+

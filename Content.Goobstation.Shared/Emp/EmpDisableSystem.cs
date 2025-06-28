@@ -36,3 +36,4 @@ public sealed class EmpDisableSystem : EntitySystem
             ("item", Identity.Entity(ent.Owner, EntityManager)));
     }
 }
+

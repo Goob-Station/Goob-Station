@@ -33,3 +33,4 @@ public static class AdminMessageEuiMsg
         public bool Permanent { get; } = permanent;
     }
 }
+

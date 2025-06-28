@@ -41,3 +41,4 @@ public sealed partial class UnpoweredFlashlightComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public ProtoId<ColorPalettePrototype> EmaggedColorsPrototype = "Emagged";
 }
+

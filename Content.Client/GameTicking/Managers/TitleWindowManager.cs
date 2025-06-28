@@ -66,3 +66,4 @@ public sealed class TitleWindowManager
         OnHostnameChange(_cfg.GetCVar(CVars.GameHostName));
     }
 }
+

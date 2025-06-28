@@ -33,3 +33,4 @@ public sealed partial class FactionExceptionComponent : Component
     [DataField]
     public HashSet<EntityUid> Hostiles = new();
 }
+

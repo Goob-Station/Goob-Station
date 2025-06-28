@@ -62,3 +62,4 @@ public partial class SharedGravityGeneratorComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public string CoreActivatedState = "activated";
 }
+

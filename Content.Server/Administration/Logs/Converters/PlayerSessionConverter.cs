@@ -54,3 +54,4 @@ public readonly struct SerializablePlayer
         Player = player;
     }
 }
+

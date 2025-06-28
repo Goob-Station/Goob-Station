@@ -14,3 +14,4 @@ namespace Content.Shared.Exchanger;
 public sealed partial class ExchangerDoAfterEvent : SimpleDoAfterEvent
 {
 }
+

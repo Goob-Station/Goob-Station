@@ -21,3 +21,4 @@ public sealed partial class PassiveDampeningComponent : Component
     [DataField]
     public float AngularDampening = 0.2f;
 }
+

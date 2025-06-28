@@ -33,3 +33,4 @@ public sealed partial class OrePrototype : IPrototype
     [DataField]
     public SpriteSpecifier? OreSprite;
 }
+

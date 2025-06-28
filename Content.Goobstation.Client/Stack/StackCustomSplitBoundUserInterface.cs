@@ -46,3 +46,4 @@ namespace Content.Goobstation.Client.Stack
         }
     }
 }
+

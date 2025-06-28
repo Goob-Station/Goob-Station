@@ -123,3 +123,4 @@ public sealed class BlobbernautSystem : SharedBlobbernautSystem
         return _damageableSystem.TryChangeDamage(ent, dmg);
     }
 }
+

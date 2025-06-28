@@ -61,3 +61,4 @@ public sealed class RandomSystem : EntitySystem
         throw new InvalidOperationException();
     }
 }
+

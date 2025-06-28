@@ -209,3 +209,4 @@ namespace Content.Server.Light.Components
         public TimeSpan UnarmedHitStun = TimeSpan.FromSeconds(5);
     }
 }
+

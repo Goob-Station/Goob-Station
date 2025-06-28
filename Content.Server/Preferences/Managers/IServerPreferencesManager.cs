@@ -46,3 +46,4 @@ namespace Content.Server.Preferences.Managers
         Task SetConstructionFavorites(NetUserId userId, List<ProtoId<ConstructionPrototype>> favorites);
     }
 }
+

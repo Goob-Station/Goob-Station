@@ -28,3 +28,4 @@ public sealed partial class BlobSpawnRuleComponent : Component
     [ViewVariables(VVAccess.ReadOnly), DataField("maxCarrierBlob")]
     public int MaxCarrierBlob = 2;
 }
+

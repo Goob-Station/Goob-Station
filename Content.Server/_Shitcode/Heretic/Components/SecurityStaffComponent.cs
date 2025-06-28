@@ -11,3 +11,4 @@ namespace Content.Server.Heretic.Components;
 public sealed partial class SecurityStaffComponent : Component
 {
 }
+

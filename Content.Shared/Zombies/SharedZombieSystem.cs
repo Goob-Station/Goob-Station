@@ -51,3 +51,4 @@ public abstract class SharedZombieSystem : EntitySystem
         args.AddModifier("zombie-name-prefix");
     }
 }
+

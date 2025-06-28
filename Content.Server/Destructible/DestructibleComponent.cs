@@ -36,3 +36,4 @@ namespace Content.Server.Destructible
         public bool IsBroken = false;
     }
 }
+

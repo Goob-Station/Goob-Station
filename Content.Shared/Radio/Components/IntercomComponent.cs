@@ -36,3 +36,4 @@ public sealed partial class IntercomComponent : Component
     [DataField, AutoNetworkedField]
     public List<ProtoId<RadioChannelPrototype>> SupportedChannels = new();
 }
+

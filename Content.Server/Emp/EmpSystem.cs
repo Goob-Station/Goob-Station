@@ -169,3 +169,4 @@ public record struct EmpPulseEvent(float EnergyConsumption, bool Affected, bool 
 
 [ByRefEvent]
 public record struct EmpDisabledRemoved();
+

@@ -88,3 +88,4 @@ namespace Content.Shared.Nutrition.EntitySystems
         protected virtual void CreamedEntity(EntityUid uid, CreamPiedComponent creamPied, ThrowHitByEvent args) {}
     }
 }
+

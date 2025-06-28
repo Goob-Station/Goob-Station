@@ -29,3 +29,4 @@ public sealed partial class PirateAccentComponent : Component
         "accent-pirate-prefix-4",
     };
 }
+

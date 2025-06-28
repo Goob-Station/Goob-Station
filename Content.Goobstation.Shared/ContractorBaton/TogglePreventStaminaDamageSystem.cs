@@ -30,3 +30,4 @@ public sealed class TogglePreventStaminaDamageSystem : EntitySystem
             args.Cancelled = true;
     }
 }
+

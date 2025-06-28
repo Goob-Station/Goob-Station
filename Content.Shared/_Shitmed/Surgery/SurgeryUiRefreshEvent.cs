@@ -17,3 +17,4 @@ public sealed class SurgeryUiRefreshEvent : EntityEventArgs
         Uid = uid;
     }
 }
+

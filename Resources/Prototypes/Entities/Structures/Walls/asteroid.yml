@@ -2646,3 +2646,4 @@
         - state: rock_salt
           map: [ "enum.MiningScannerVisualLayers.Overlay" ]
           visible: false # Lavaland Change
+

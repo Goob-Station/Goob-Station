@@ -97,3 +97,4 @@ namespace Content.Server.Voting
         void Cancel();
     }
 }
+

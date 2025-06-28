@@ -18,3 +18,4 @@ public sealed partial class ChemicalFuelGeneratorDirectSourceComponent : Compone
     [DataField("solution", required: true), ViewVariables(VVAccess.ReadWrite)]
     public string Solution = default!;
 }
+

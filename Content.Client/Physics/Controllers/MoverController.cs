@@ -148,3 +148,4 @@ public sealed class MoverController : SharedMoverController
             _alerts.ClearAlert(entity, WalkingAlert);
     }
 }
+

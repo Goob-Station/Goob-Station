@@ -18,3 +18,4 @@ public sealed class DelayedKnockdownAttemptEvent : CancellableEntityEventArgs, I
 
     public float KnockdownTimeDelta = 0f;
 }
+

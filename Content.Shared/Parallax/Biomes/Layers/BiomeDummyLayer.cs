@@ -22,3 +22,4 @@ public sealed partial class BiomeDummyLayer : IBiomeLayer
     public float Threshold { get; }
     public bool Invert { get; }
 }
+

@@ -130,3 +130,4 @@ public sealed class FlavorProfileModificationEvent : EntityEventArgs
     public EntityUid User { get; }
     public HashSet<string> Flavors { get; }
 }
+

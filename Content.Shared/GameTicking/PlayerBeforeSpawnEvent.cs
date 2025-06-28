@@ -36,3 +36,4 @@ public sealed class PlayerBeforeSpawnEvent : HandledEntityEventArgs
         Station = station;
     }
 }
+

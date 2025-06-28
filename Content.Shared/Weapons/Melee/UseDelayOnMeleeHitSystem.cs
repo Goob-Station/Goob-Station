@@ -45,3 +45,4 @@ public sealed class UseDelayOnMeleeHitSystem : EntitySystem
         _delay.TryResetDelay((uid, useDelay), checkDelayed: true);
     }
 }
+

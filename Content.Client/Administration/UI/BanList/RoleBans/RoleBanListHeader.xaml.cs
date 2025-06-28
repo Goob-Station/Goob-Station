@@ -19,3 +19,4 @@ public sealed partial class RoleBanListHeader : ContainerButton
         RobustXamlLoader.Load(this);
     }
 }
+

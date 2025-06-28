@@ -51,3 +51,4 @@ public sealed partial class GasPowerReceiverComponent : Component
     [DataField("powered"), ViewVariables(VVAccess.ReadWrite)]
     public bool Powered = true;
 }
+

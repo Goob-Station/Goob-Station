@@ -30,3 +30,4 @@ public sealed partial class XAETemperatureComponent : Component
     [DataField("affectAdjacent")]
     public bool AffectAdjacentTiles = true;
 }
+

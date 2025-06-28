@@ -57,3 +57,4 @@ public sealed class BlobSpecialGetPulseEvent : EntityEventArgs;
 /// Event
 /// </summary>
 public sealed class BlobNodePulseEvent : EntityEventArgs;
+

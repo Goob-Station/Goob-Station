@@ -28,3 +28,4 @@ public sealed partial class CategoryColoring : LayerColoringType
         return outColor;
     }
 }
+

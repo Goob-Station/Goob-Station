@@ -15,3 +15,4 @@ namespace Content.Shared.Speech.Muting
 
     }
 }
+

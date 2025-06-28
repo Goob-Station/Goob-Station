@@ -79,3 +79,4 @@ public sealed class FancyResearchConsoleBoundUserInterface : BoundUserInterface
             _consoleMenu.UpdateInformationPanel(castState.Points);
     }
 }
+

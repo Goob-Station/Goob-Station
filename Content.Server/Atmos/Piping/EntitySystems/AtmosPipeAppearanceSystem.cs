@@ -85,3 +85,4 @@ public sealed class AtmosPipeAppearanceSystem : EntitySystem
         _appearance.SetData(uid, PipeVisuals.VisualState, netConnectedDirections, appearance);
     }
 }
+

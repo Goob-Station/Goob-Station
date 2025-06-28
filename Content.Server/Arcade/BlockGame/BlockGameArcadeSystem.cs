@@ -158,3 +158,4 @@ public sealed class BlockGameArcadeSystem : EntitySystem
         component.Game.ProcessInput(msg.PlayerAction);
     }
 }
+

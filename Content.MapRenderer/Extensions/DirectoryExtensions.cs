@@ -36,3 +36,4 @@ namespace Content.MapRenderer.Extensions
         }
     }
 }
+

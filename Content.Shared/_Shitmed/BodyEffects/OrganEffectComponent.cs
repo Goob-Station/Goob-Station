@@ -30,3 +30,4 @@ public sealed partial class OrganEffectComponent : Component
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan NextUpdate = TimeSpan.Zero;
 }
+

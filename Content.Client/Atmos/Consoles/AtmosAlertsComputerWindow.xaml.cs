@@ -592,3 +592,4 @@ public sealed partial class AtmosAlertsComputerWindow : FancyWindow
         return output;
     }
 }
+

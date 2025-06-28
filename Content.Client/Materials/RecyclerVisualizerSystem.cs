@@ -30,3 +30,4 @@ public sealed class RecyclerVisualizerSystem : VisualizerSystem<RecyclerVisualsC
         SpriteSystem.LayerSetRsiState((uid, args.Sprite), layer, state);
     }
 }
+

@@ -201,3 +201,4 @@ public sealed partial class RatKingRummageDoAfterEvent : SimpleDoAfterEvent
 {
 
 }
+

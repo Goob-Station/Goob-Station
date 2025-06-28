@@ -29,3 +29,4 @@ public sealed partial class DumpableSolutionComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public bool Unlimited = false;
 }
+

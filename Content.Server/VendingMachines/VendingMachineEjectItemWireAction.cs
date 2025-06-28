@@ -51,3 +51,4 @@ public sealed partial class VendingMachineEjectItemWireAction : ComponentWireAct
         _vendingMachineSystem.EjectRandom(wire.Owner, true, vendComponent: vending);
     }
 }
+

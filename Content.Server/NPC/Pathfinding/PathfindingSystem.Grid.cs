@@ -845,3 +845,4 @@ public sealed partial class PathfindingSystem
         polyB.Neighbors.Add(polyA);
     }
 }
+

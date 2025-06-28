@@ -51,3 +51,4 @@ public sealed partial class CashComponent : Component
 {
 
 }
+

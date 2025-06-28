@@ -11,3 +11,4 @@ namespace Content.Shared.PowerCell;
 /// </summary>
 [ByRefEvent]
 public readonly record struct PowerCellSlotEmptyEvent;
+

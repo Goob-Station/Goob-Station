@@ -42,3 +42,4 @@ public sealed partial class CoordinatesInRangePrecondition : HTNPrecondition
         return _transformSystem.InRange(coordinates, target, blackboard.GetValueOrDefault<float>(RangeKey, _entManager));
     }
 }
+

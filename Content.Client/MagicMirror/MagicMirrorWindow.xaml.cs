@@ -54,3 +54,4 @@ public sealed partial class MagicMirrorWindow : DefaultWindow
         }
     }
 }
+

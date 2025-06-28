@@ -19,3 +19,4 @@ public sealed partial class TransmutationRuneScriberComponent : Component
     [DataField]
     public EntProtoId RuneDrawingEntity = "HereticRuneRitualDrawAnimationCicatrix";
 }
+

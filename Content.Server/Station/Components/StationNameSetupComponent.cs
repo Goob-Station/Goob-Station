@@ -31,3 +31,4 @@ public sealed partial class StationNameSetupComponent : Component
     [DataField("nameGenerator")]
     public StationNameGenerator? NameGenerator { get; private set; }
 }
+

@@ -54,3 +54,4 @@ public sealed class RestrictedMeleeSystem : EntitySystem
         args.Cancelled = true;
     }
 }
+

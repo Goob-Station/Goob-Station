@@ -15,3 +15,4 @@ namespace Content.Server.Atmos.Piping.Unary.Components
         public string InletName = "pipe";
     }
 }
+

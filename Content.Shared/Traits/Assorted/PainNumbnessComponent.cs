@@ -19,3 +19,4 @@ public sealed partial class PainNumbnessComponent : Component
     [DataField]
     public ProtoId<LocalizedDatasetPrototype> ForceSayNumbDataset = "ForceSayNumbDataset";
 }
+

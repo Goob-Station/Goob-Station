@@ -63,3 +63,4 @@ public sealed class BeforeShowTypingIndicatorEvent : IInventoryRelayEvent
         return _overrideIndicator;
     }
 }
+

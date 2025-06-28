@@ -209,3 +209,4 @@ public sealed class EscapeInventorySystem : EntitySystem
         component.EscapeCancelAction = null;
     }
 }
+

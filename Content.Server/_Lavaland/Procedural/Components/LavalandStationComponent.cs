@@ -26,3 +26,4 @@ namespace Content.Server._Lavaland.Procedural.Components;
 /// </summary>
 [RegisterComponent]
 public sealed partial class LavalandStationComponent : Component;
+

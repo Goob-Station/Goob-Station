@@ -73,3 +73,4 @@ public sealed partial class ItemToggleMeleeWeaponComponent : Component
     [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
     public bool DeactivatedSecret = false;
 }
+

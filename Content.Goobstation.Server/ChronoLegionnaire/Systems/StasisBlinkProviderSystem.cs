@@ -11,3 +11,4 @@ namespace Content.Goobstation.Server.ChronoLegionnaire.Systems;
 public sealed class StasisBlinkProviderSystem : SharedStasisBlinkProviderSystem
 {
 }
+

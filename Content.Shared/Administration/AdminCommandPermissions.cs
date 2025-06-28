@@ -87,3 +87,4 @@ public sealed class AdminCommandPermissions
         return false;
     }
 }
+

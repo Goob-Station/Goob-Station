@@ -106,3 +106,4 @@ namespace Content.Server.Repairable
     public readonly record struct RepairedEvent(Entity<RepairableComponent> Ent, EntityUid User);
 
 }
+

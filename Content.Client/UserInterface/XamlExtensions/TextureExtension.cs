@@ -34,3 +34,4 @@ public sealed class TexExtension
         return _resourceCache.GetTexture(Path);
     }
 }
+

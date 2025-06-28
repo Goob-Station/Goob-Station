@@ -12,3 +12,4 @@ namespace Content.Goobstation.Shared.Emag;
 
 [Serializable, NetSerializable]
 public sealed partial class EmergencyShuttleConsoleEmagDoAfterEvent : SimpleDoAfterEvent;
+

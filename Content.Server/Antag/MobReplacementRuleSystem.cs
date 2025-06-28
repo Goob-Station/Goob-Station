@@ -44,3 +44,4 @@ public sealed class MobReplacementRuleSystem : GameRuleSystem<MobReplacementRule
         }
     }
 }
+

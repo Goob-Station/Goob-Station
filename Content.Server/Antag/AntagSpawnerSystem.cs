@@ -25,3 +25,4 @@ public sealed class AntagSpawnerSystem : EntitySystem
         args.Entity = Spawn(ent.Comp.Prototype);
     }
 }
+

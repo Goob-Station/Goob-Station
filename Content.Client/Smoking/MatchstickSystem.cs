@@ -14,3 +14,4 @@ namespace Content.Client.Smoking;
 public sealed class MatchstickSystem : SharedMatchstickSystem;
 
 // Shitmed Change End
+

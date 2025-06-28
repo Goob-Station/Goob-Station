@@ -16,3 +16,4 @@ public sealed partial class ExteriorDunGen : IDunGenLayer
     [DataField(required: true)]
     public ProtoId<DungeonConfigPrototype> Proto;
 }
+

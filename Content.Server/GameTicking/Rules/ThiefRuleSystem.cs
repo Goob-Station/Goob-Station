@@ -68,3 +68,4 @@ public sealed class ThiefRuleSystem : GameRuleSystem<ThiefRuleComponent>
         return briefing;
     }
 }
+

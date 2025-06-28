@@ -12,3 +12,4 @@ namespace Content.Server.Mail;
 public sealed partial class StationMailRouterComponent : Component
 {
 }
+

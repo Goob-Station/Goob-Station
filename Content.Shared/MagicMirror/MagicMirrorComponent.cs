@@ -61,3 +61,4 @@ public sealed partial class MagicMirrorComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public SoundSpecifier? ChangeHairSound = new SoundPathSpecifier("/Audio/Items/scissors.ogg");
 }
+

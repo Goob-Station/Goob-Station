@@ -430,3 +430,4 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
         return result;
     }
 }
+

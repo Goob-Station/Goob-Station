@@ -17,3 +17,4 @@ public sealed partial class PointingArrowAngeringComponent : Component
     [DataField("remainingAnger")]
     public int RemainingAnger = 5;
 }
+

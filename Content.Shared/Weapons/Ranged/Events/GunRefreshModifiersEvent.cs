@@ -33,3 +33,4 @@ public record struct GunRefreshModifiersEvent(
     float BurstCooldown, // Goobstation
     EntityUid? User // GoobStation change - User for NoWieldNeeded
 );
+

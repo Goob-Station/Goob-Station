@@ -35,3 +35,4 @@ public sealed partial class HideLayerClothingComponent : Component
     [DataField]
     public bool HideOnToggle = false;
 }
+

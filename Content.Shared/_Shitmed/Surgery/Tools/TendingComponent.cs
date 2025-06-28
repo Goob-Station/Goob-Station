@@ -20,3 +20,4 @@ public sealed partial class TendingComponent : Component, ISurgeryToolComponent
     [DataField]
     public float Speed { get; set; } = 1f;
 }
+

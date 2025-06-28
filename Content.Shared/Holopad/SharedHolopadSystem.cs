@@ -46,3 +46,4 @@ public abstract class SharedHolopadSystem : EntitySystem
         return entity.Comp.ControlLockoutStartTime + TimeSpan.FromSeconds(entity.Comp.ControlLockoutCoolDown) - _timing.CurTime;
     }
 }
+

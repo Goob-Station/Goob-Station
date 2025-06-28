@@ -215,3 +215,4 @@ public sealed class VendingMachineSystem : SharedVendingMachineSystem
         _sprite.LayerSetVisible(sprite.AsNullable(), actualLayer, false);
     }
 }
+

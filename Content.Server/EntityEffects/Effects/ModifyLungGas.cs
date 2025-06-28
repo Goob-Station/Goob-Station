@@ -52,3 +52,4 @@ public sealed partial class ModifyLungGas : EntityEffect
         }
     }
 }
+

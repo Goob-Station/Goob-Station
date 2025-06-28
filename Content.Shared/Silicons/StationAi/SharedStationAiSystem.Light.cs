@@ -48,3 +48,4 @@ public sealed class StationAiLightEvent : BaseStationAiAction
 {
     public bool Enabled;
 }
+

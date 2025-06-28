@@ -34,3 +34,4 @@
     state: command
   - type: MachineBoard
     prototype: WeaponEnergyTurretAI
+

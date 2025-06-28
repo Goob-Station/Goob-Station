@@ -38,3 +38,4 @@ public sealed partial class Hunger : EntityEffectCondition
             ("min", Min));
     }
 }
+

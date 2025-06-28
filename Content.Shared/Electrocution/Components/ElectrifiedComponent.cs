@@ -164,3 +164,4 @@ public sealed partial class ElectrifiedComponent : Component
     [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
     public EntityUid? IgnoredEntity;
 }
+

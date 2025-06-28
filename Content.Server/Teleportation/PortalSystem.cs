@@ -29,3 +29,4 @@ public sealed class PortalSystem : SharedPortalSystem
             _adminLogger.Add(LogType.Teleport, LogImpact.Low, $"{ToPrettyString(subject):player} teleported via {ToPrettyString(portal)} from {source} to {target}");
     }
 }
+

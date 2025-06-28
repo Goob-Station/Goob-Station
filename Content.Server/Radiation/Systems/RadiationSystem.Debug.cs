@@ -114,3 +114,4 @@ public sealed class RadiationViewCommand : IConsoleCommand
         entityManager.System<RadiationSystem>().ToggleDebugView(session);
     }
 }
+

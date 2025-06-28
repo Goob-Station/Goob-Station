@@ -27,3 +27,4 @@ namespace Content.Goobstation.Shared.Clothing.Components
         public TimeSpan NextTickTime = TimeSpan.Zero;
     }
 }
+

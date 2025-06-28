@@ -40,3 +40,4 @@ public sealed partial class StationAiVisionComponent : Component
     [DataField, AutoNetworkedField]
     public float Range = 7.5f;
 }
+

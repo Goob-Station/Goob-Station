@@ -40,3 +40,4 @@ public sealed partial class PowerGridCheckRuleComponent : Component
     public float UpdateRate => 1.0f / NumberPerSecond;
     public float FrameTimeAccumulator = 0.0f;
 }
+

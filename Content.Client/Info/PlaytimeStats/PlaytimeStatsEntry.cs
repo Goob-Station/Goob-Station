@@ -37,3 +37,4 @@ public sealed partial class PlaytimeStatsEntry : ContainerButton
 
     public string? RoleText => RoleLabel.Text;
 }
+

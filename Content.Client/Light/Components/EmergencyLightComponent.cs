@@ -21,3 +21,4 @@ namespace Content.Client.Light.Components;
 public sealed partial class EmergencyLightComponent : SharedEmergencyLightComponent
 {
 }
+

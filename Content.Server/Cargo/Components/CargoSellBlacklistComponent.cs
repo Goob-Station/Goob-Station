@@ -13,3 +13,4 @@ namespace Content.Server.Cargo.Components;
 public sealed partial class CargoSellBlacklistComponent : Component
 {
 }
+

@@ -20,3 +20,4 @@ public sealed partial class StasisGunComponent : Component
     [DataField]
     public string ReturningSlot = "belt";
 }
+

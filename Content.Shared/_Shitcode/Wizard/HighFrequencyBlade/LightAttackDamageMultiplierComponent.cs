@@ -19,3 +19,4 @@ public sealed partial class LightAttackDamageMultiplierComponent : Component
     [DataField]
     public SoundSpecifier? ExtraSound;
 }
+

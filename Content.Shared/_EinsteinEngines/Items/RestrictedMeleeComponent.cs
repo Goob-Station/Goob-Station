@@ -34,3 +34,4 @@ public sealed partial class RestrictedMeleeComponent : Component
     [DataField]
     public SoundSpecifier FallSound = new SoundPathSpecifier("/Audio/Effects/slip.ogg");
 }
+

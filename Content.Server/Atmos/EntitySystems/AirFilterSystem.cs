@@ -119,3 +119,4 @@ public sealed class AirFilterSystem : EntitySystem
 /// </summary>
 [ByRefEvent]
 public record struct GetFilterAirEvent(GasMixture? Air = null);
+

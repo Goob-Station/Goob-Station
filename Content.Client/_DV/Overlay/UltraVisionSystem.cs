@@ -68,3 +68,4 @@ public sealed partial class UltraVisionSystem : EntitySystem
             _overlayMan.AddOverlay(_overlay);
     }
 }
+

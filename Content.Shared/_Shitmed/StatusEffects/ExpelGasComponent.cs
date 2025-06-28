@@ -29,3 +29,4 @@ public sealed partial class ExpelGasComponent : Component
         Gas.Nitrium, ///tg/ gases
     };
 }
+

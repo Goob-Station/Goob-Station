@@ -45,3 +45,4 @@ public sealed class ExaminableHungerSystem : EntitySystem
         args.PushMarkup(msg);
     }
 }
+

@@ -23,3 +23,4 @@ public sealed partial class AutoTraitorComponent : Component
     [DataField]
     public EntProtoId Profile = "Traitor";
 }
+

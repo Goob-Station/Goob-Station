@@ -45,3 +45,4 @@ public sealed partial class SuperBonkComponent : Component
     [DataField]
     public bool StopWhenDead = true;
 }
+

@@ -77,3 +77,4 @@ public sealed partial class GhostRoleEntryButtons : BoxContainer
         }
     }
 }
+

@@ -32,3 +32,4 @@ public readonly struct GraphNodeEntityArgs
         EntityManager = entityManager;
     }
 }
+

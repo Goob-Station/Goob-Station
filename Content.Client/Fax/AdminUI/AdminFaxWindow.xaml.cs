@@ -110,3 +110,4 @@ public sealed partial class AdminFaxWindow : DefaultWindow
         OnMessageSend?.Invoke((faxEntity.Value, title, from, message, stamp, stampColor, locked));
     }
 }
+

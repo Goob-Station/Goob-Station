@@ -9,3 +9,4 @@ namespace Content.Server._EinsteinEngines.Silicon.EncryptionHolderRequiresLock;
 public sealed partial class EncryptionHolderRequiresLockComponent : Component
 {
 }
+

@@ -55,3 +55,4 @@ public sealed partial class SkeletonAccentSystem : EntitySystem
         args.Message = Accentuate(args.Message, component);
     }
 }
+

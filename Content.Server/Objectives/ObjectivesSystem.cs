@@ -387,3 +387,4 @@ public record struct ObjectivesTextGetInfoEvent(List<(EntityUid, string)> Minds,
 /// </summary>
 [ByRefEvent]
 public record struct ObjectivesTextPrependEvent(string Text);
+

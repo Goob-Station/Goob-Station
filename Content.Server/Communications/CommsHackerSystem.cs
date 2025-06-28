@@ -103,3 +103,4 @@ public sealed class CommsHackerSystem : SharedCommsHackerSystem
 /// </remarks>
 [ByRefEvent]
 public record struct ThreatCalledInEvent(EntityUid Used, EntityUid Target);
+

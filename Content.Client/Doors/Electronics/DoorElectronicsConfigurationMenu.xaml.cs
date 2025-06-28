@@ -46,3 +46,4 @@ public sealed partial class DoorElectronicsConfigurationMenu : FancyWindow
         _buttonsList.UpdateState(state.AccessList);
     }
 }
+

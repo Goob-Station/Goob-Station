@@ -32,3 +32,4 @@ public sealed partial class ResistLockerComponent : Component
     [ViewVariables]
     public bool IsResisting = false;
 }
+

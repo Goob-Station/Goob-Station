@@ -34,3 +34,4 @@ public sealed class NPCEui : BaseEui
         _window = null;
     }
 }
+

@@ -152,3 +152,4 @@ public sealed class MenuButton : ContainerButton
         UpdateChildColors();
     }
 }
+

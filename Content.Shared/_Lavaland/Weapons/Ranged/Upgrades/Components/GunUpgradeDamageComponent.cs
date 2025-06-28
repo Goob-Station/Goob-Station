@@ -40,3 +40,4 @@ public sealed partial class GunUpgradeDamageComponent : Component
     [DataField]
     public float PelletModifier = 1f;
 }
+

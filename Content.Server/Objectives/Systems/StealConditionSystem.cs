@@ -287,3 +287,4 @@ public sealed class StealConditionSystem : EntitySystem
         return TryComp<StackComponent>(entity, out var stack) ? stack.Count : 1;
     }
 }
+

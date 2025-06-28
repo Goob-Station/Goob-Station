@@ -247,3 +247,4 @@ public abstract class BaseActionComponentState : ComponentState
         Sound = component.Sound;
     }
 }
+

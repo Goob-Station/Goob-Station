@@ -119,3 +119,4 @@ public sealed class StrippableTest : InteractionTest
         Assert.That(userInterface.Actors.Count > 0);
     }
 }
+

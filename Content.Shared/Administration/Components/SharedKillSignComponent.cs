@@ -15,3 +15,4 @@ public abstract partial class SharedKillSignComponent : Component
 {
 
 }
+

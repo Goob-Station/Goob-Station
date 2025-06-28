@@ -18,3 +18,4 @@ namespace Content.Server._Goobstation.Objectives.Components;
 public sealed partial class PickRandomTraitorComponent : Component
 {
 }
+

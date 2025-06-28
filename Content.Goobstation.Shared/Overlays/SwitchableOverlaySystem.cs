@@ -200,3 +200,4 @@ public abstract class SwitchableOverlaySystem<TComp, TEvent> : EntitySystem // t
 
 [ByRefEvent]
 public record struct SwitchableOverlayToggledEvent(EntityUid User, bool Activated);
+

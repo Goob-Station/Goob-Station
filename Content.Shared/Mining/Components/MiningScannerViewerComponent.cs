@@ -39,3 +39,4 @@ public sealed partial class MiningScannerViewerComponent : Component
     [DataField]
     public bool QueueRemoval;
 }
+

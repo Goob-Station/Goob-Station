@@ -78,3 +78,4 @@ public sealed partial class EntityStorageComponent : SharedEntityStorageComponen
     [DataField("air")]
     public GasMixture Air { get; set; } = new (200);
 }
+

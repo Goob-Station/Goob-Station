@@ -15,3 +15,4 @@ public sealed class Root
     [JsonPropertyName("included")]
     public List<Included> Included = default!;
 }
+

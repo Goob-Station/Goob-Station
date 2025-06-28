@@ -25,3 +25,4 @@ public sealed class SmokeVisualizerSystem : VisualizerSystem<SmokeVisualsCompone
         SpriteSystem.SetColor((uid, args.Sprite), color);
     }
 }
+

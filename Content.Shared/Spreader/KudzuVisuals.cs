@@ -15,3 +15,4 @@ public enum KudzuVisuals : byte
     GrowthLevel,
     Variant
 }
+

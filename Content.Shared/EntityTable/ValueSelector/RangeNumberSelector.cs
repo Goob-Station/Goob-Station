@@ -99,3 +99,4 @@ public sealed partial class RangeNumberSelector : NumberSelector
         return rand.Next(Range.X, Range.Y + 1);
     }
 }
+

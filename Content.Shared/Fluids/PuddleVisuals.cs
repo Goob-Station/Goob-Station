@@ -17,3 +17,4 @@ namespace Content.Shared.Fluids
         SolutionColor,
     }
 }
+

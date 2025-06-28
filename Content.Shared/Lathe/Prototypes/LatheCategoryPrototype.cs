@@ -25,3 +25,4 @@ public sealed partial class LatheCategoryPrototype : IPrototype
     [DataField]
     public LocId Name;
 }
+

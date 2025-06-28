@@ -252,3 +252,4 @@ public sealed partial class TriggerSystem
 
     public static VerbCategory TimerOptions = new("verb-categories-timer", "/Textures/Interface/VerbIcons/clock.svg.192dpi.png");
 }
+

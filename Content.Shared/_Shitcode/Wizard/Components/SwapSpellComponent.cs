@@ -19,3 +19,4 @@ public sealed partial class SwapSpellComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid? SecondaryTarget;
 }
+

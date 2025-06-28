@@ -25,3 +25,4 @@ public sealed partial class RandomPlantMutationListPrototype : IPrototype
     [DataField("mutations", required: true, serverOnly: true)]
     public List<RandomPlantMutation> mutations = new();
 }
+

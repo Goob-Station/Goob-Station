@@ -108,3 +108,4 @@ public enum RadioJammerVisuals : byte
     ChargeLevel,
     LEDOn
 }
+

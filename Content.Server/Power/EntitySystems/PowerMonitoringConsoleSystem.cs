@@ -1037,3 +1037,4 @@ internal sealed partial class PowerMonitoringConsoleSystem : SharedPowerMonitori
         public float? BatteryLevel { get; set; }
     }
 }
+

@@ -17,3 +17,4 @@ public sealed partial class CleansForensicsComponent : Component
     [DataField]
     public float CleanDelay = 12.0f;
 }
+

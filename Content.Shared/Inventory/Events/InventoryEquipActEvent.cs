@@ -32,3 +32,4 @@ public sealed class InventoryEquipActEvent : EntityEventArgs
         Force = force;
     }
 }
+

@@ -25,3 +25,4 @@ namespace Content.Shared.Pulling.Events
         public EntityUid Pulled { get; }
     }
 }
+

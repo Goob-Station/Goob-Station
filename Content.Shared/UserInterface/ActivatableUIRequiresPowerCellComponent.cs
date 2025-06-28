@@ -18,3 +18,4 @@ public sealed partial class ActivatableUIRequiresPowerCellComponent : Component
 {
 
 }
+

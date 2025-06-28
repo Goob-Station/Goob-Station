@@ -29,3 +29,4 @@ public sealed partial class PuddleMessVariationPassComponent : Component
     [DataField(required: true)]
     public ProtoId<WeightedRandomFillSolutionPrototype> RandomPuddleSolutionFill = default!;
 }
+

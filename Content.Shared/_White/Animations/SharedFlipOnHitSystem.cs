@@ -50,3 +50,4 @@ public sealed class FlipOnHitEvent(NetEntity user) : EntityEventArgs
 {
     public NetEntity User = user;
 }
+

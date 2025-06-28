@@ -33,3 +33,4 @@ public sealed class RedialUserOnTriggerSystem : EntitySystem
         args.Handled = true;
     }
 }
+

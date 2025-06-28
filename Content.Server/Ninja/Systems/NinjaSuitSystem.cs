@@ -176,3 +176,4 @@ public sealed class NinjaSuitSystem : SharedNinjaSuitSystem
         _emp.EmpPulse(coords, comp.EmpRange, comp.EmpConsumption, comp.EmpDuration);
     }
 }
+

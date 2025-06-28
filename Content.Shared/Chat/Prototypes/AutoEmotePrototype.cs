@@ -47,3 +47,4 @@ public sealed partial class AutoEmotePrototype : IPrototype
     [DataField("hiddenFromChatWindow")]
     public bool HiddenFromChatWindow = false;
 }
+

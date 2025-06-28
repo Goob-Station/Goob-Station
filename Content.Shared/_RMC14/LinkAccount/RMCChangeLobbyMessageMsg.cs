@@ -56,3 +56,4 @@ public sealed class RMCChangeLobbyMessageMsg : NetMessage
         buffer.Write(Text);
     }
 }
+

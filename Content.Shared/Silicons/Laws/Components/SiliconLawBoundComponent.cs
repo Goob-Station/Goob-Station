@@ -83,3 +83,4 @@ public sealed class SiliconLawBuiState : BoundUserInterfaceState
         RadioChannels = radioChannels;
     }
 }
+

@@ -25,3 +25,4 @@ namespace Content.Shared.Roles
         public abstract void AfterEquip(EntityUid mob);
     }
 }
+

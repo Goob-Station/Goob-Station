@@ -111,3 +111,4 @@ public sealed class ChasingWalkSystem : VirtualController
         _physics.SetBodyStatus(uid, physics, BodyStatus.InAir); //If this is not done, from the explosion up close, the tesla will "Fall" to the ground, and almost stop moving.
     }
 }
+

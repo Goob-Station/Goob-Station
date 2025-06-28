@@ -69,3 +69,4 @@ public interface ILinkClickHandler
 {
     public void HandleClick(string link);
 }
+

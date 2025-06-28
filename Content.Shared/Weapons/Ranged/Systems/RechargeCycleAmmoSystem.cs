@@ -39,3 +39,4 @@ public sealed class RechargeCycleAmmoSystem : EntitySystem
         args.Handled = true;
     }
 }
+

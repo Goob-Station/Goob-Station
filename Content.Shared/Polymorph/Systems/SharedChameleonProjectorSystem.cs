@@ -333,3 +333,4 @@ public sealed partial class DisguiseToggleNoRotEvent : InstantActionEvent
 public sealed partial class DisguiseToggleAnchoredEvent : InstantActionEvent
 {
 }
+

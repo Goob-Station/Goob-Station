@@ -12,3 +12,4 @@ public enum EnsnareableVisuals : byte
 {
     IsEnsnared
 }
+

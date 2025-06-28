@@ -22,3 +22,4 @@ namespace Content.Server.Body.Components
         public bool Active = true;
     }
 }
+

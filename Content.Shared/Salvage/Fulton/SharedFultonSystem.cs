@@ -290,3 +290,4 @@ public abstract partial class SharedFultonSystem : EntitySystem
         public NetCoordinates Coordinates;
     }
 }
+

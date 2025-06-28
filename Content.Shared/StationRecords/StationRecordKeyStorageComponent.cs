@@ -30,3 +30,4 @@ public sealed class StationRecordKeyStorageComponentState : ComponentState
         Key = key;
     }
 }
+

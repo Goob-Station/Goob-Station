@@ -17,3 +17,4 @@ public sealed partial class NPCPathfindPointComponent : Component
     // [ViewVariables(VVAccess.ReadWrite), DataField("nextPoint")]
     // public EntityUid? NextPoint;
 }
+

@@ -262,3 +262,4 @@ public sealed class BurialSystem : EntitySystem
         StartDigging(uid, args.Entity, null, component);
     }
 }
+

@@ -83,3 +83,4 @@ public record struct CriminalHistoryAddedEvent(CrimeHistory History);
 
 [ByRefEvent]
 public record struct CriminalHistoryRemovedEvent(CrimeHistory History);
+

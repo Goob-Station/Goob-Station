@@ -32,3 +32,4 @@ public sealed class EntitySpawnVariationPassSystem : VariationPassSystem<EntityS
         }
     }
 }
+

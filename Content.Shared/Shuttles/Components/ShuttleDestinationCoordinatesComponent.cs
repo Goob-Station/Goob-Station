@@ -20,3 +20,4 @@ public sealed partial class ShuttleDestinationCoordinatesComponent : Component
     [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
     public EntityUid? Destination;
 }
+

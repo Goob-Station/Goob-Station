@@ -385,3 +385,4 @@ public sealed partial class NPCBlackboard : IEnumerable<KeyValuePair<string, obj
         return GetEnumerator();
     }
 }
+

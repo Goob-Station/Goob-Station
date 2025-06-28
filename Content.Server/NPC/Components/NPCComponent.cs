@@ -17,3 +17,4 @@ public abstract partial class NPCComponent : SharedNPCComponent
     [DataField("blackboard", customTypeSerializer: typeof(NPCBlackboardSerializer))]
     public NPCBlackboard Blackboard = new();
 }
+

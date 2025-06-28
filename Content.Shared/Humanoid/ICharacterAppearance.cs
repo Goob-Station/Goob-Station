@@ -16,3 +16,4 @@ namespace Content.Shared.Humanoid
         bool MemberwiseEquals(ICharacterAppearance other);
     }
 }
+

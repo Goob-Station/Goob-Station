@@ -48,3 +48,4 @@ public sealed class RoboticsConsoleBoundUserInterface : BoundUserInterface
         _window.UpdateState(cast);
     }
 }
+

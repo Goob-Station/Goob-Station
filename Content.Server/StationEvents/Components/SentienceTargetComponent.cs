@@ -20,3 +20,4 @@ public sealed partial class SentienceTargetComponent : Component
     [DataField]
     public float Weight = 1.0f;
 }
+

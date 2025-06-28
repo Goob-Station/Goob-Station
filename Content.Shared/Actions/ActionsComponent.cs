@@ -56,3 +56,4 @@ public enum ItemActionIconStyle : byte
     /// </summary>
     NoItem
 }
+

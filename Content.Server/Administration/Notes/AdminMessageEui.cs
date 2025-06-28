@@ -70,3 +70,4 @@ public sealed class AdminMessageEui : BaseEui
         }
     }
 }
+

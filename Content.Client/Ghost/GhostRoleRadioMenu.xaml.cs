@@ -180,3 +180,4 @@ public sealed class GhostRoleRadioMenuButton : RadialMenuTextureButtonWithSector
 {
     public ProtoId<GhostRolePrototype> ProtoId { get; set; }
 }
+

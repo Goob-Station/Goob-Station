@@ -16,3 +16,4 @@ public sealed partial class SlowedOverSlipperyComponent : Component
     [DataField(required: true), AutoNetworkedField]
     public float SlowdownModifier = 1f;
 }
+

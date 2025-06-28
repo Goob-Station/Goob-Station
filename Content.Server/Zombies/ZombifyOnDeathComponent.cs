@@ -16,3 +16,4 @@ namespace Content.Server.Zombies
         //this is not the component you are looking for
     }
 }
+

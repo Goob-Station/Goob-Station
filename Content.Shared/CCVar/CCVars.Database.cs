@@ -80,3 +80,4 @@ public sealed partial class CCVars
     public static readonly CVarDef<bool> DatabaseSynchronous =
         CVarDef.Create("database.sync", false, CVar.SERVERONLY);
 }
+

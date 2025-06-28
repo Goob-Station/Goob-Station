@@ -229,3 +229,4 @@ public sealed class GatewayGeneratorSystem : EntitySystem
         }
     }
 }
+

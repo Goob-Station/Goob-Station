@@ -23,3 +23,4 @@ public sealed class DroppedEvent : HandledEntityEventArgs
         User = user;
     }
 }
+

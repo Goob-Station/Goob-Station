@@ -95,3 +95,4 @@ namespace Content.Shared.Kitchen.Components
     }
 
 }
+

@@ -108,3 +108,4 @@ public sealed class HijackShuttleConditionSystem : EntitySystem
         return agentOnShuttle;
     }
 }
+

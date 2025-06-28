@@ -50,3 +50,4 @@ namespace Content.Server.Atmos
         public HighPressureEvent(float pressure) : base(pressure) { }
     }
 }
+

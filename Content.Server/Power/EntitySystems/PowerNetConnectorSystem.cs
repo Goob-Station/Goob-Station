@@ -69,3 +69,4 @@ public sealed class PowerNetConnectorSystem : EntitySystem
         }
     }
 }
+

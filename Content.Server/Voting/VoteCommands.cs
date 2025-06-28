@@ -297,3 +297,4 @@ namespace Content.Server.Voting
         }
     }
 }
+

@@ -17,3 +17,4 @@ public readonly record struct NPCSteeringEvent(
     TransformComponent Transform,
     Vector2 WorldPosition,
     Angle OffsetRotation);
+

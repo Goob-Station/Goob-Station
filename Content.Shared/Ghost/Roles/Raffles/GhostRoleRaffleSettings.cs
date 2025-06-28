@@ -33,3 +33,4 @@ public sealed partial class GhostRoleRaffleSettings
     [DataField(required: true)]
     public uint MaxDuration { get; set; }
 }
+

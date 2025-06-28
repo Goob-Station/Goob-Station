@@ -18,3 +18,4 @@ namespace Content.Server.Roles;
 public sealed partial class SubvertedSiliconRoleComponent : BaseMindRoleComponent
 {
 }
+

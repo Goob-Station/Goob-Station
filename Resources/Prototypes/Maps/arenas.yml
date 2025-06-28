@@ -33,3 +33,4 @@
         - type: StationJobs
           availableJobs:
             Passenger: [ -1, -1 ]
+

@@ -23,3 +23,4 @@ public sealed class AlwaysHotSystem : EntitySystem
         args.IsHot = true;
     }
 }
+

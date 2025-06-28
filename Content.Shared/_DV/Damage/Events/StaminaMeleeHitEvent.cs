@@ -41,3 +41,4 @@ public sealed class StaminaMeleeHitEvent : HandledEntityEventArgs
         HitList = hitList;
     }
 }
+

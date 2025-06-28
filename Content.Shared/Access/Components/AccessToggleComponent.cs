@@ -15,3 +15,4 @@ namespace Content.Shared.Access.Components;
 /// </summary>
 [RegisterComponent, NetworkedComponent, Access(typeof(AccessToggleSystem))]
 public sealed partial class AccessToggleComponent : Component;
+

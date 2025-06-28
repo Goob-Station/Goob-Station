@@ -50,3 +50,4 @@ public sealed class ToolshedVisualizeEui : BaseEui
         _window.OpenCentered();
     }
 }
+

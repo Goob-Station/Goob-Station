@@ -26,3 +26,4 @@ public sealed partial class ItemSlotsRequirePanelComponent : Component
     [DataField]
     public Dictionary<string, bool> Slots = new();
 }
+

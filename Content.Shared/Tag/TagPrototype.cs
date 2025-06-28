@@ -28,3 +28,4 @@ public sealed partial class TagPrototype : IPrototype
     [IdDataField, ViewVariables]
     public string ID { get; private set; } = string.Empty;
 }
+

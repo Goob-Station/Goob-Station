@@ -138,3 +138,4 @@ public sealed class StatusIconOverlay : Overlay
         }
     }
 }
+

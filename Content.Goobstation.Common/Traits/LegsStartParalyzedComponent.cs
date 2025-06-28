@@ -17,3 +17,4 @@ namespace Content.Goobstation.Common.Traits;
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class LegsStartParalyzedComponent : Component;
+

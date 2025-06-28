@@ -22,3 +22,4 @@ public sealed class BanListEuiState : EuiStateBase
     public List<SharedServerBan> Bans { get; }
     public List<SharedServerRoleBan> RoleBans { get; }
 }
+

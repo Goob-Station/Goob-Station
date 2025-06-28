@@ -29,3 +29,4 @@ public sealed partial class DeathgaspComponent : Component
     [DataField]
     public bool NeedsCritical = true;
 }
+

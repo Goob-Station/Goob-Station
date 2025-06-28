@@ -37,3 +37,4 @@ public enum MiningVoucherUiKey : byte
 {
     Key
 }
+

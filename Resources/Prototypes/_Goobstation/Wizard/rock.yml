@@ -12,3 +12,4 @@
   - type: FadingTimedDespawn
     lifetime: 20
     fadeOutTime: 4
+

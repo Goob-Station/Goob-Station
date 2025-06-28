@@ -20,3 +20,4 @@ public sealed partial class RadiationGridResistanceComponent : Component
     /// </summary>
     public readonly Dictionary<Vector2i, float> ResistancePerTile = new();
 }
+

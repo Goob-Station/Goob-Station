@@ -25,3 +25,4 @@ public sealed partial class SpawnSolutionOnDamageComponent : Component
     [DataField]
     public float Probability = 0.5f;
 }
+

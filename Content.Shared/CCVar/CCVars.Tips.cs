@@ -43,3 +43,4 @@ public sealed partial class CCVars
     public static readonly CVarDef<float> TipsTippyChance =
         CVarDef.Create("tips.tippy_chance", 0.01f);
 }
+

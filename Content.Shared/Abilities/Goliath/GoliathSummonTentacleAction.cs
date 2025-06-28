@@ -34,3 +34,4 @@ public sealed partial class GoliathSummonTentacleAction : EntityWorldTargetActio
     [DataField]
     public int ExtraSpawns = 3;
 };
+

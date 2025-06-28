@@ -17,3 +17,4 @@ public interface IMapObject
     /// </summary>
     bool HideButton { get; }
 }
+

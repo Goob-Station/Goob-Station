@@ -41,3 +41,4 @@ public sealed partial class PoweredLightVariationPassComponent : Component
     [DataField]
     public EntProtoId AgedLightTubePrototype = "LightTubeOld";
 }
+

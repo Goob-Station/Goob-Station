@@ -94,3 +94,4 @@ public sealed class FoldableClothingSystem : EntitySystem
         }
     }
 }
+

@@ -20,3 +20,4 @@ public sealed class AmbientOverlayCommand : IConsoleCommand
         shell.WriteLine($"Ambient sound overlay set to {system.OverlayEnabled}");
     }
 }
+

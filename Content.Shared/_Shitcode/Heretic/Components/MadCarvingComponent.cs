@@ -22,3 +22,4 @@ public sealed partial class MadCarvingComponent : Component
     [DataField]
     public TimeSpan BlindnessTime = TimeSpan.FromSeconds(10);
 }
+

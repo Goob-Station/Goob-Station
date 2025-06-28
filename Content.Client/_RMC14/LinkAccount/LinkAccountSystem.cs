@@ -44,3 +44,4 @@ public sealed class LinkAccountSystem : EntitySystem
         LobbyMessageReceived?.Invoke(ev);
     }
 }
+

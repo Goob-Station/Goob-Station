@@ -108,3 +108,4 @@ public sealed class NPCBlackboardSerializer : ITypeReader<NPCBlackboard, Mapping
         }
     }
 }
+

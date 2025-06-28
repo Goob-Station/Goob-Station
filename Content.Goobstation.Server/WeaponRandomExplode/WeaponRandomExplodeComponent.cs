@@ -21,3 +21,4 @@ public sealed partial class WeaponRandomExplodeComponent : Component
     [DataField, AutoNetworkedField]
     public float multiplyByCharge;
 }
+

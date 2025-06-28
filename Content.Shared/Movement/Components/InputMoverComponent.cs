@@ -93,3 +93,4 @@ namespace Content.Shared.Movement.Components
         public bool CanMove;
     }
 }
+

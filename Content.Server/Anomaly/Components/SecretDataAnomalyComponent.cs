@@ -49,3 +49,4 @@ public enum AnomalySecretData : byte
     Behavior,
     Default
 }
+

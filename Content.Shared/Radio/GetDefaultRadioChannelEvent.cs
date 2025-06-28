@@ -18,3 +18,4 @@ public sealed class GetDefaultRadioChannelEvent : EntityEventArgs, IInventoryRel
 
     public SlotFlags TargetSlots => ~SlotFlags.POCKET;
 }
+

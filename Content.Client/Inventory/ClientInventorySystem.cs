@@ -335,3 +335,4 @@ namespace Content.Client.Inventory
         );
     }
 }
+

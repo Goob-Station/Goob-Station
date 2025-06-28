@@ -57,3 +57,4 @@ namespace Content.Server.Damage.Components
         public DamageSpecifier Damage = default!;
     }
 }
+

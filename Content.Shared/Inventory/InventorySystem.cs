@@ -28,3 +28,4 @@ public partial class InventorySystem
         ShutdownSlots();
     }
 }
+

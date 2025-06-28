@@ -42,3 +42,4 @@ public sealed class AutoTraitorSystem : EntitySystem
         _antag.ForceMakeAntag<AutoTraitorComponent>(session, comp.Profile);
     }
 }
+

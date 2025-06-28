@@ -26,3 +26,4 @@ public sealed partial class CrewManifestViewerComponent : Component
     [DataField(required: true)]
     public Enum OwnerKey { get; private set; } = default!;
 }
+

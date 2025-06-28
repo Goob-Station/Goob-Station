@@ -157,3 +157,4 @@ public sealed partial class ShuttleConsoleWindow : FancyWindow,
         DockContainer.UpdateState(coordinates?.EntityId, cState.DockState);
     }
 }
+

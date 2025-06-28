@@ -154,3 +154,4 @@ public sealed class RMCPatronRoundEndNTShoutout
     [StringLength(100), Required]
     public string Name { get; set; } = default!;
 }
+

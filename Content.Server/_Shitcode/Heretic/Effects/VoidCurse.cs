@@ -24,3 +24,4 @@ public sealed partial class VoidCurse : EntityEffect
         args.EntityManager.System<VoidCurseSystem>().DoCurse(args.TargetEntity);
     }
 }
+

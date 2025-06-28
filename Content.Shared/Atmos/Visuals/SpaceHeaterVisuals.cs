@@ -30,3 +30,4 @@ public enum SpaceHeaterState : byte
     Heating,
     Cooling,
 }
+

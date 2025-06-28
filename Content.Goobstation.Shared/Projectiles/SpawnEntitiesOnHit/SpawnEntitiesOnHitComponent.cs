@@ -43,3 +43,4 @@ public sealed partial class SpawnEntitiesOnHitComponent : Component
     [DataField]
     public List<EntProtoId> CollideIgnoreEntities = new();
 }
+

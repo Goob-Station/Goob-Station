@@ -29,3 +29,4 @@ public sealed partial class EmergencyShuttleConsoleComponent : Component
     [DataField]
     public TimeSpan EmagTime = TimeSpan.FromSeconds(10);
 }
+

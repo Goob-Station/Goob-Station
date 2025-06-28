@@ -16,3 +16,4 @@ namespace Content.Server.Station.Events;
 /// </summary>
 [ByRefEvent]
 public readonly record struct StationPostInitEvent(Entity<StationDataComponent> Station);
+

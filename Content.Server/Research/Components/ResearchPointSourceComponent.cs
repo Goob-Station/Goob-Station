@@ -36,3 +36,4 @@ public sealed partial class ResearchPointSourceComponent : Component
     [DataField("active"), ViewVariables(VVAccess.ReadWrite)]
     public bool Active;
 }
+

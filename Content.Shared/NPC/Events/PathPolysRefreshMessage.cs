@@ -18,3 +18,4 @@ public sealed class PathPolysRefreshMessage : EntityEventArgs
     /// </summary>
     public Dictionary<Vector2i, List<DebugPathPoly>> Polys = new();
 }
+

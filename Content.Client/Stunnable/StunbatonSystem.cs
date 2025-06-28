@@ -10,3 +10,4 @@ namespace Content.Client.Stunnable;
 public sealed class StunbatonSystem : SharedStunbatonSystem
 {
 }
+

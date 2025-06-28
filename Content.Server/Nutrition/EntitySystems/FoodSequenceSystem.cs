@@ -302,3 +302,4 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
         }
     }
 }
+

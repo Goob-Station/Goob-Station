@@ -298,3 +298,4 @@ public sealed class EmergencyLightSystem : SharedEmergencyLightSystem
         _ambient.SetAmbience(entity.Owner, true);
     }
 }
+

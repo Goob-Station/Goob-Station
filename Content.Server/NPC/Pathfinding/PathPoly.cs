@@ -77,3 +77,4 @@ public sealed class PathPoly : IEquatable<PathPoly>
         return HashCode.Combine(GraphUid, ChunkOrigin, TileIndex, Box);
     }
 }
+

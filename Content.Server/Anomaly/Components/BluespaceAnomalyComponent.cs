@@ -43,3 +43,4 @@ public sealed partial class BluespaceAnomalyComponent : Component
     [DataField("teleportSound"), ViewVariables(VVAccess.ReadWrite)]
     public SoundSpecifier TeleportSound = new SoundPathSpecifier("/Audio/Effects/teleport_arrival.ogg");
 }
+

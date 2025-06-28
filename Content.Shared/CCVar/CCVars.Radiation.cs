@@ -36,3 +36,4 @@ public sealed partial class CCVars
     public static readonly CVarDef<float> RadiationGridcastMaxDistance =
         CVarDef.Create("radiation.gridcast.max_distance", 100f, CVar.SERVERONLY);
 }
+

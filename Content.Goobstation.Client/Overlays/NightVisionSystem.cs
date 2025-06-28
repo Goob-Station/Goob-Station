@@ -109,3 +109,4 @@ public sealed class NightVisionSystem : EquipmentHudSystem<NightVisionComponent>
             overlay.IsActive = nvComp == null;
     }
 }
+

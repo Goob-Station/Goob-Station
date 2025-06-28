@@ -85,3 +85,4 @@ public sealed partial class ActivePirateRuleSystem : GameRuleSystem<ActivePirate
         return true;
     }
 }
+

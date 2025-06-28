@@ -15,3 +15,4 @@ public enum MousetrapVisuals : byte
     Armed,
     Unarmed
 }
+

@@ -26,3 +26,4 @@ public partial interface IBiomeLayer
     /// </summary>
     public bool Invert { get; }
 }
+

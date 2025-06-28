@@ -33,3 +33,4 @@ public static class SharedResearchSystemExtensions
         return (int) Math.Clamp(percentage, 0, 100);
     }
 }
+

@@ -19,3 +19,4 @@ public abstract class SharedActivatableUIRequiresPowerSystem : EntitySystem
 
     protected abstract void OnActivate(Entity<ActivatableUIRequiresPowerComponent> ent, ref ActivatableUIOpenAttemptEvent args);
 }
+

@@ -14,3 +14,4 @@ namespace Content.Client.Animations;
 public sealed partial class EntityPickupAnimationComponent : Component
 {
 }
+

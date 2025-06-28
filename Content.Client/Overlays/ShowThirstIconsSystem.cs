@@ -38,3 +38,4 @@ public sealed class ShowThirstIconsSystem : EquipmentHudSystem<ShowThirstIconsCo
             ev.StatusIcons.Add(iconPrototype);
     }
 }
+

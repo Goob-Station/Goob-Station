@@ -29,3 +29,4 @@ public enum WeaponArcAnimation : byte
     Thrust,
     Slash,
 }
+

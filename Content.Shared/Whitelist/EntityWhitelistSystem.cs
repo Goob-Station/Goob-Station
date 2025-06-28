@@ -206,3 +206,4 @@ public sealed class EntityWhitelistSystem : EntitySystem
         return list;
     }
 }
+

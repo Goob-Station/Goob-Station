@@ -193,3 +193,4 @@ namespace Content.Shared.Gravity
         SlotFlags IInventoryRelayEvent.TargetSlots => ~SlotFlags.POCKET;
     }
 }
+

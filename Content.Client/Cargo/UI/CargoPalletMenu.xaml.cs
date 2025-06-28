@@ -50,3 +50,4 @@ public sealed partial class CargoPalletMenu : FancyWindow
         AppraiseRequested?.Invoke();
     }
 }
+

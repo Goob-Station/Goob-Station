@@ -58,3 +58,4 @@ public sealed class WeaponAttachmentSystem : SharedWeaponAttachmentSystem
         Dirty(uid, component);
     }
 }
+

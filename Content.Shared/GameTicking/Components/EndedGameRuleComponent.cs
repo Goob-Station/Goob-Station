@@ -14,3 +14,4 @@ namespace Content.Shared.GameTicking.Components;
 /// </summary>
 [RegisterComponent]
 public sealed partial class EndedGameRuleComponent : Component;
+

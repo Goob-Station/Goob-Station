@@ -450,3 +450,4 @@
         hard: false
   - type: HomingProjectile
     homingSpeed: null
+

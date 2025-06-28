@@ -22,3 +22,4 @@ namespace Content.Server.Atmos.Piping.Binary.Components
         public GasMixture Buffer { get; } = new();
     }
 }
+

@@ -50,3 +50,4 @@ public sealed class AggressorRemovedEvent : EntityEventArgs
         Aggressor = removed;
     }
 }
+

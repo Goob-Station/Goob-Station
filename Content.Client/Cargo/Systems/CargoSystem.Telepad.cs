@@ -114,3 +114,4 @@ public sealed partial class CargoSystem
         Beam = 1,
     }
 }
+

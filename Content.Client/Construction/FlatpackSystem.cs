@@ -53,3 +53,4 @@ public sealed class FlatpackSystem : SharedFlatpackSystem
             _sprite.LayerSetColor((ent.Owner, args.Sprite), FlatpackVisualLayers.Overlay, color.Value);
     }
 }
+

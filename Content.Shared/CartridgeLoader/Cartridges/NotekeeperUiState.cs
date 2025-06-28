@@ -18,3 +18,4 @@ public sealed class NotekeeperUiState : BoundUserInterfaceState
         Notes = notes;
     }
 }
+

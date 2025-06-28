@@ -18,3 +18,4 @@ public sealed class ReplayConGroup : IClientConGroupImplementation
     public bool CanScript() => true;
     public bool CanViewVar() => true;
 }
+

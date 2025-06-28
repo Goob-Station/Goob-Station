@@ -48,3 +48,4 @@ public sealed class RotateEyesCommand : IConsoleCommand
         shell.WriteLine(Loc.GetString("rotateeyes-command-count", ("count", count)));
     }
 }
+

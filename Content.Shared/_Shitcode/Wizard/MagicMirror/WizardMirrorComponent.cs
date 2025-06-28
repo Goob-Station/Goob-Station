@@ -20,3 +20,4 @@ public sealed partial class WizardMirrorComponent : Component
     [DataField(required: true)]
     public HashSet<ProtoId<SpeciesPrototype>> AllowedSpecies = new();
 }
+

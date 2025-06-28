@@ -36,3 +36,4 @@ public sealed partial class ExplosiveShockComponent : Component
     [DataField]
     public TimeSpan ExplosionDelay = TimeSpan.FromSeconds(1);
 }
+

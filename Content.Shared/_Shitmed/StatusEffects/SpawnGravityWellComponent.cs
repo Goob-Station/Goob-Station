@@ -17,3 +17,4 @@ public sealed partial class SpawnGravityWellComponent : SpawnEntityEffectCompone
     public override string EntityPrototype { get; set; } = "AdminInstantEffectGravityWell";
     public override bool AttachToParent { get; set; } = true;
 }
+

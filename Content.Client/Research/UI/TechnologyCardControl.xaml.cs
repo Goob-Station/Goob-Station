@@ -43,3 +43,4 @@ public sealed partial class TechnologyCardControl : Control
         ResearchButton.OnPressed += _ => OnPressed?.Invoke();
     }
 }
+

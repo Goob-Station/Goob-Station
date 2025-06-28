@@ -58,3 +58,4 @@ public sealed partial class RottingComponent : Component
         }
     };
 }
+

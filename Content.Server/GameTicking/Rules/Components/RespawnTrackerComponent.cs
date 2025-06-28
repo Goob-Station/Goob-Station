@@ -41,3 +41,4 @@ public sealed partial class RespawnTrackerComponent : Component
     [DataField]
     public bool DeleteBody = true;
 }
+

@@ -37,3 +37,4 @@ public sealed partial class ModifyWearerNameSystem : EntitySystem
         args.Args.AddModifier(entity.Comp.LocId, entity.Comp.Priority);
     }
 }
+

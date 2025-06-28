@@ -42,3 +42,4 @@ public sealed partial class BasicStationEventSchedulerComponent : Component
     [DataField(required: true)]
     public EntityTableSelector ScheduledGameRules = default!;
 }
+

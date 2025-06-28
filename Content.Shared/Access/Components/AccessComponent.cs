@@ -79,3 +79,4 @@ public record struct GetAccessTagsEvent(HashSet<ProtoId<AccessLevelPrototype>> T
         Tags.UnionWith(groupPrototype.Tags);
     }
 }
+

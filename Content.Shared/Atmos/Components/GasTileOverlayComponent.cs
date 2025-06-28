@@ -78,3 +78,4 @@ public sealed class GasTileOverlayDeltaState(
         return new GasTileOverlayState(chunks);
     }
 }
+

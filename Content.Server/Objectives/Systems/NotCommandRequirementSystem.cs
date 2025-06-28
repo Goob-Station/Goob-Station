@@ -36,3 +36,4 @@ public sealed class NotCommandRequirementSystem : EntitySystem
             args.Cancelled = true;
     }
 }
+

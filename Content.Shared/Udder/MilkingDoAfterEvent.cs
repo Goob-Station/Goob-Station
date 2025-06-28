@@ -14,3 +14,4 @@ namespace Content.Shared.Udder;
 public sealed partial class MilkingDoAfterEvent : SimpleDoAfterEvent
 {
 }
+

@@ -16,3 +16,4 @@ public sealed partial class TargetedProjectileComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid? Target; // Goob edit - if null it hits everything
 }
+

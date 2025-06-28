@@ -23,3 +23,4 @@ public sealed partial class LayerChangeOnWeldComponent : Component
     [ViewVariables]
     public CollisionGroup WeldedLayer = CollisionGroup.WallLayer;
 }
+

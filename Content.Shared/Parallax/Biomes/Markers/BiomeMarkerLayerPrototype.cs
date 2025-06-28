@@ -58,3 +58,4 @@ public sealed partial class BiomeMarkerLayerPrototype : IBiomeMarkerLayer
     [DataField("size")]
     public int Size { get; private set; } = 128;
 }
+

@@ -79,3 +79,4 @@ namespace Content.Shared.Chat
         Console = ChatChannel.Unspecified
     }
 }
+

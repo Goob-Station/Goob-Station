@@ -51,3 +51,4 @@ public sealed partial class TimeTransferEntry : BoxContainer
         return GroupCheckbox.Pressed;
     }
 }
+

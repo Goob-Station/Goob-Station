@@ -37,3 +37,4 @@ public sealed class ShowHungerIconsSystem : EquipmentHudSystem<ShowHungerIconsCo
             ev.StatusIcons.Add(iconPrototype);
     }
 }
+

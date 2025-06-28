@@ -18,3 +18,4 @@ public enum DropHeldItemsBehavior : byte
     DropIfStanding,
     AlwaysDrop
 }
+

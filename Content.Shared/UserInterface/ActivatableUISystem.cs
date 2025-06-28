@@ -347,3 +347,4 @@ public sealed partial class ActivatableUISystem : EntitySystem
             CloseAll(ent, ent);
     }
 }
+

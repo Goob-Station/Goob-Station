@@ -309,3 +309,4 @@ public enum StatusIconLayer : byte
     Base,
     Mod,
 }
+

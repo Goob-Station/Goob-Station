@@ -21,3 +21,4 @@ public sealed partial class SurgeryDoAfterEvent : SimpleDoAfterEvent
         Step = step;
     }
 }
+

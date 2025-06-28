@@ -36,3 +36,4 @@ public sealed partial class PopupBehavior : IThresholdBehavior
         popup.PopupCoordinates(Loc.GetString(Popup), coords, PopupType);
     }
 }
+

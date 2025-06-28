@@ -114,3 +114,4 @@ public sealed class ExplosionOverlaySystem : EntitySystem
         _overlayMan.RemoveOverlay<ExplosionOverlay>();
     }
 }
+

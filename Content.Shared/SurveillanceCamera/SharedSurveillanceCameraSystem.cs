@@ -26,3 +26,4 @@ public enum SurveillanceCameraVisuals : byte
     Xray,
     Emp
 }
+

@@ -57,3 +57,4 @@ public sealed partial class HotbarGui : UIWidget
         StatusPanelRight.Visible = right;
     }
 }
+

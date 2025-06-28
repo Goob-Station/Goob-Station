@@ -366,3 +366,4 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
         _sawmill = _logManager.GetSawmill(SawmillId);
     }
 }
+

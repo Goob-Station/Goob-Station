@@ -175,3 +175,4 @@ internal sealed class BuckleSystem : SharedBuckleSystem
         _rotationVisualizerSystem.AnimateSpriteRotation(uid, args.Sprite, rotVisuals.HorizontalRotation, 0.125f);
     }
 }
+

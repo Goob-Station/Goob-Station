@@ -23,3 +23,4 @@ public sealed partial class ObjectiveLimitComponent : Component
     [DataField(required: true), ViewVariables(VVAccess.ReadWrite)]
     public uint Limit;
 }
+

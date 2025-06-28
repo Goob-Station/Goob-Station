@@ -106,3 +106,4 @@ public sealed class WireLayoutTest
         return new Entity<T>(ent, comp);
     }
 }
+

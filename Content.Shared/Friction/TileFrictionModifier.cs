@@ -31,3 +31,4 @@ public sealed partial class TileFrictionModifierComponent : Component
     [DataField("modifier"), AutoNetworkedField]
     public float Modifier;
 }
+

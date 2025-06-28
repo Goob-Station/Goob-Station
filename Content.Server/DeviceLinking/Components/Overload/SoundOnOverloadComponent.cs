@@ -30,3 +30,4 @@ public sealed partial class SoundOnOverloadComponent : Component
     [DataField("volumeModifier")]
     public float VolumeModifier;
 }
+

@@ -31,3 +31,4 @@ public sealed class EncryptionHolderRequiresLockSystem : EntitySystem
         _encryptionKeySystem.UpdateChannels(uid, keyHolder);
     }
 }
+

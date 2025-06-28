@@ -53,3 +53,4 @@ public sealed partial class BlindableComponent : Component
     [Access(Other = AccessPermissions.ReadWriteExecute)]
     public bool GraceFrame = false;
 }
+

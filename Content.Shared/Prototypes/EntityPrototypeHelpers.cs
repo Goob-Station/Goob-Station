@@ -46,3 +46,4 @@ namespace Content.Shared.Prototypes
         }
     }
 }
+

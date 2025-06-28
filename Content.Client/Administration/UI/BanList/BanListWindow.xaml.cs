@@ -63,3 +63,4 @@ public sealed partial class BanListWindow : DefaultWindow
         Title = Loc.GetString("ban-list-title", ("player", playerName));
     }
 }
+

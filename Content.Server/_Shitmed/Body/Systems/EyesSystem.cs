@@ -98,3 +98,4 @@ namespace Content.Server._Shitmed.Body.Systems
         }
     }
 }
+

@@ -14,3 +14,4 @@ public abstract class SharedEmpSystem : EntitySystem
 
     protected const string EmpDisabledEffectPrototype = "EffectEmpDisabled";
 }
+

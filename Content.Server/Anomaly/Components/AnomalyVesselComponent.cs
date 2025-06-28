@@ -58,3 +58,4 @@ public sealed partial class AnomalyVesselComponent : Component
     [DataField("beepSound")]
     public SoundSpecifier BeepSound = new SoundPathSpecifier("/Audio/Machines/vessel_warning.ogg");
 }
+

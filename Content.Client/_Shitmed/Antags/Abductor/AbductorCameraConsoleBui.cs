@@ -134,3 +134,4 @@ public sealed class AbductorCameraConsoleBui : BoundUserInterface
             _window?.Dispose();
     }
 }
+

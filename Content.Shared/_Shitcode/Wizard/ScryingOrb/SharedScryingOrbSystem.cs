@@ -32,3 +32,4 @@ public abstract class SharedScryingOrbSystem : EntitySystem
         return false;
     }
 }
+

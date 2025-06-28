@@ -36,3 +36,4 @@ public sealed partial class PseudoItemComponent : Component
     [DataField]
     public EntityUid? SleepAction;
 }
+

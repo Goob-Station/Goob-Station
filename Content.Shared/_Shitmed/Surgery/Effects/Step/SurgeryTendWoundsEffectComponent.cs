@@ -25,3 +25,4 @@ public sealed partial class SurgeryTendWoundsEffectComponent : Component
     [DataField, AutoNetworkedField]
     public float HealMultiplier = 0.07f;
 }
+

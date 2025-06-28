@@ -149,3 +149,4 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
             _audioSystem.PlayPvs("/Audio/_Shitmed/Misc/alien_teleport.ogg", effectEnt);
     }
 }
+

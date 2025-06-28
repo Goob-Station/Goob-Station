@@ -58,3 +58,4 @@ public sealed class RevenantSystem : EntitySystem
         _sprite.LayerSetRsiState(args.SpriteViewEnt.AsNullable(), RevenantVisualLayers.Digit3, $"{essence % 10}");
     }
 }
+

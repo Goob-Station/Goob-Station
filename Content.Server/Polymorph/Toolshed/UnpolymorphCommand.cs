@@ -34,3 +34,4 @@ public sealed class UnpolymorphCommand : ToolshedCommand
     public IEnumerable<EntityUid> Unpolymorph([PipedArgument] IEnumerable<EntityUid> input)
         => input.Select(Unpolymorph).Where(x => x is not null).Select(x => (EntityUid)x!);
 }
+

@@ -29,3 +29,4 @@ public sealed partial class MaxTimeRestartRuleComponent : Component
 
     public CancellationTokenSource TimerCancel = new();
 }
+

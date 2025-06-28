@@ -20,3 +20,4 @@ public sealed partial class GridPreloaderComponent : Component
     [DataField]
     public Dictionary<ProtoId<PreloadedGridPrototype>, List<EntityUid>> PreloadedGrids = new();
 }
+

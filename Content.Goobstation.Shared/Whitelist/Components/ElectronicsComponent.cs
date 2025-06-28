@@ -15,3 +15,4 @@ namespace Content.Goobstation.Shared.Whitelist.Components;
 /// </summary>
 [RegisterComponent]
 public sealed partial class ElectronicsComponent : Component;
+

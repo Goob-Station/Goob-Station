@@ -123,3 +123,4 @@ namespace Content.Shared.Cargo.Prototypes
         public ProtoId<CargoMarketPrototype> Group { get; private set; } = "market";
     }
 }
+

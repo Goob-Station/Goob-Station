@@ -29,3 +29,4 @@ public partial record struct TileSpawnSettingsEntry()
 
     public AnomalySpawnSettings Settings { get; set; } = new();
 }
+

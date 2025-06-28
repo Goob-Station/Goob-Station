@@ -29,3 +29,4 @@ public sealed class TestMapData
     public EntityUid CGridUid { get; set; }
     public EntityCoordinates CGridCoords { get; set; }
 }
+

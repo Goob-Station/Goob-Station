@@ -25,3 +25,4 @@ public sealed partial class EmaggedComponent : Component
     [DataField, AutoNetworkedField]
     public EmagType EmagType = EmagType.None;
 }
+

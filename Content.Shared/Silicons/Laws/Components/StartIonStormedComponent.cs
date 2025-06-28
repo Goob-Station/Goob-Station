@@ -20,3 +20,4 @@ public sealed partial class StartIonStormedComponent : Component
     [DataField]
     public int IonStormAmount = 1;
 }
+

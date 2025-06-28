@@ -66,3 +66,4 @@ public sealed class HotPotatoSystem : SharedHotPotatoSystem
         Dirty(uid, comp);
     }
 }
+

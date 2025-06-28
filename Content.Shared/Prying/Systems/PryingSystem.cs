@@ -267,3 +267,4 @@ public sealed class PryingSystem : EntitySystem
 
 [Serializable, NetSerializable]
 public sealed partial class DoorPryDoAfterEvent : SimpleDoAfterEvent;
+

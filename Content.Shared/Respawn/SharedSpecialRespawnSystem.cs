@@ -9,3 +9,4 @@ public abstract class SharedSpecialRespawnSystem : EntitySystem
 {
 
 }
+

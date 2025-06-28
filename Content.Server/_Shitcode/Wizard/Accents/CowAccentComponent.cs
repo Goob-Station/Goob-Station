@@ -17,3 +17,4 @@ public sealed partial class CowAccentComponent : AnimalAccentComponent
         "accent-words-cow-3",
     };
 }
+

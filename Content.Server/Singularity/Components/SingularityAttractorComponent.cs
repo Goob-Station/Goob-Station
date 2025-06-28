@@ -34,3 +34,4 @@ public sealed partial class SingularityAttractorComponent : Component
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan LastPulseTime = default!;
 }
+

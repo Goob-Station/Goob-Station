@@ -69,3 +69,4 @@ public sealed class AntiRotOnBuckleSystem : EntitySystem
         component.Enabled = !component.RequiresPower || args.Powered;
     }
 }
+

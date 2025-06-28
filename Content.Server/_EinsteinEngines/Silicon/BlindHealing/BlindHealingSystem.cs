@@ -101,3 +101,4 @@ public sealed class BlindHealingSystem : SharedBlindHealingSystem
             component.DoAfterDelay * component.SelfHealPenalty);
     }
 }
+

@@ -11,3 +11,4 @@
   - type: RedialUserOnTrigger
     address: ss14s://beta.goobstation.com
   - type: DeleteOnTrigger
+

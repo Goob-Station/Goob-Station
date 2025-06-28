@@ -116,3 +116,4 @@ public sealed partial class PowerSensorComponent : Component
     [DataField]
     public bool DischargingState;
 }
+

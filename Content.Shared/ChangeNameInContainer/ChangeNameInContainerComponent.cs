@@ -22,3 +22,4 @@ public sealed partial class ChangeVoiceInContainerComponent : Component
     [DataField]
     public EntityWhitelist? Whitelist;
 }
+

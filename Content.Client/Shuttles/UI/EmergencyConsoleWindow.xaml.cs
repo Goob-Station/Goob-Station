@@ -98,3 +98,4 @@ public sealed partial class EmergencyConsoleWindow : FancyWindow,
         }
     }
 }
+

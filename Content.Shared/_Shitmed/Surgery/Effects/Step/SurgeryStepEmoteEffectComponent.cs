@@ -15,3 +15,4 @@ public sealed partial class SurgeryStepEmoteEffectComponent : Component
     [DataField, AutoNetworkedField]
     public ProtoId<EmotePrototype> Emote = "Scream";
 }
+

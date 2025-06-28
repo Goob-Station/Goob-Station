@@ -24,3 +24,4 @@ public sealed partial class AtmosAlarmableVisualsComponent : Component
     [DataField("setOnDepowered")]
     public Dictionary<string, string>? SetOnDepowered;
 }
+

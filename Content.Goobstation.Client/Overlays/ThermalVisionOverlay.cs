@@ -166,3 +166,4 @@ public record struct ThermalVisionRenderEntry(
     Entity<SpriteComponent, TransformComponent> Ent,
     MapId? Map,
     Angle EyeRot);
+

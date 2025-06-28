@@ -23,3 +23,4 @@ public sealed partial class TriggerOnTimedCollideComponent : Component
     [ViewVariables]
     public readonly Dictionary<EntityUid, float> Colliding = new();
 }
+

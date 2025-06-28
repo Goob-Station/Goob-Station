@@ -304,3 +304,4 @@ public sealed class StatValuesCommand : IConsoleCommand
         return state;
     }
 }
+

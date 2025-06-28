@@ -19,3 +19,4 @@ public sealed partial class ChangelingReagentStingComponent : Component
     [DataField]
     public ProtoId<SelectableAmmoPrototype>? DartGunAmmo;
 }
+

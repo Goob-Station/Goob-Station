@@ -538,3 +538,4 @@ public sealed partial class BanPanel : DefaultWindow
         }
     }
 }
+

@@ -43,3 +43,4 @@ public sealed class SwapOnProjectileHitSystem : EntitySystem
             Del(uid);
     }
 }
+

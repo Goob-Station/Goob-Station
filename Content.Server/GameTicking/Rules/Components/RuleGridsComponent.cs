@@ -33,3 +33,4 @@ public sealed partial class RuleGridsComponent : Component
     [DataField]
     public EntityWhitelist? SpawnerWhitelist;
 }
+

@@ -325,3 +325,4 @@ public sealed class SecretStashSystem : EntitySystem
 
     #endregion
 }
+

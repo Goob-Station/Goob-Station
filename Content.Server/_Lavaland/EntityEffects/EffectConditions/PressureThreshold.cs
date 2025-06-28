@@ -57,3 +57,4 @@ public sealed partial class PressureThreshold : EntityEffectCondition
             ("max", Max));
     }
 }
+

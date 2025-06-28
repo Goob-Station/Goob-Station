@@ -302,3 +302,4 @@ public sealed class ReplayMainScreen : State
         _selectWindow.OpenCentered();
     }
 }
+

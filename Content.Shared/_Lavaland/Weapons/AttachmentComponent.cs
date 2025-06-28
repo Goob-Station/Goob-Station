@@ -26,3 +26,4 @@ namespace Content.Shared._Lavaland.Weapons;
 /// </summary>
 public abstract partial class AttachmentComponent : Component
 { }
+

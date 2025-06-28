@@ -24,3 +24,4 @@ public sealed partial class MaterialStorageMagnetPickupComponent : Component
     [ViewVariables(VVAccess.ReadWrite), DataField("magnetEnabled")]
     public bool MagnetEnabled = false;
 }
+

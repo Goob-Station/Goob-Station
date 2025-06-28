@@ -24,3 +24,4 @@ public sealed partial class LoadoutEffectGroupPrototype : IPrototype
     [DataField(required: true)]
     public List<LoadoutEffect> Effects = new();
 }
+

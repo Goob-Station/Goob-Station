@@ -107,3 +107,4 @@ public sealed partial class FancyTechnologyInfoPanel : Control
     }
 
 }
+

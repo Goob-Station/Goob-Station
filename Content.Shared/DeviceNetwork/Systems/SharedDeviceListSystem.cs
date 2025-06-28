@@ -46,3 +46,4 @@ public enum DeviceListUpdateResult : byte
     TooManyDevices,
     UpdateOk
 }
+

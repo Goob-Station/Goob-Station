@@ -15,3 +15,4 @@ public sealed partial class WizardRuleComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public EntityUid? TargetStation;
 }
+

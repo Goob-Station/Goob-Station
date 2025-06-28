@@ -45,3 +45,4 @@ public sealed class ChangelogUIController : UIController
         }
     }
 }
+

@@ -15,3 +15,4 @@ namespace Content.Shared.Movement.Components;
 public sealed partial class CanMoveInAirComponent : Component
 {
 }
+

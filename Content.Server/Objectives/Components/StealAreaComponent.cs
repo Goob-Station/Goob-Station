@@ -96,3 +96,4 @@ public sealed partial class StealAreaComponent : Component
     [DataField]
     public HashSet<EntityUid> Owners = new();
 }
+

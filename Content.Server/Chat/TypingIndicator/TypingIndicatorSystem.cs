@@ -16,3 +16,4 @@ namespace Content.Server.Chat.TypingIndicator;
 public sealed class TypingIndicatorSystem : SharedTypingIndicatorSystem
 {
 }
+

@@ -19,3 +19,4 @@ public sealed partial class FTLExclusionComponent : Component
     [DataField(required: true)]
     public float Range = 32f;
 }
+

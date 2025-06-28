@@ -17,3 +17,4 @@ public sealed class BeforeForceSayEvent(ProtoId<LocalizedDatasetPrototype> prefi
 {
     public ProtoId<LocalizedDatasetPrototype> Prefix = prefixDataset;
 }
+

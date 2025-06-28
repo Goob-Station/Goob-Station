@@ -82,3 +82,4 @@ public sealed partial class MovespeedModifier : EntityEffect
         entityManager.Dirty(uid, status);
     }
 }
+

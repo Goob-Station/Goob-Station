@@ -34,3 +34,4 @@ public sealed partial class NetProbeUi : UIFragment
         _fragment?.UpdateState(netProbeUiState.ProbedDevices);
     }
 }
+

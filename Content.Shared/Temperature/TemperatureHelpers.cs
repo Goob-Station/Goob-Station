@@ -47,3 +47,4 @@ namespace Content.Shared.Temperature
         }
     }
 }
+

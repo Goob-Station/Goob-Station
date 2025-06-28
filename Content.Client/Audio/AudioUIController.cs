@@ -111,3 +111,4 @@ public sealed class AudioUIController : UIController
         return resource;
     }
 }
+

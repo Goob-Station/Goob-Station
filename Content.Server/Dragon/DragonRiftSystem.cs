@@ -140,3 +140,4 @@ public sealed class DragonRiftSystem : EntitySystem
         _dragon.RiftDestroyed(comp.Dragon.Value, dragon);
     }
 }
+

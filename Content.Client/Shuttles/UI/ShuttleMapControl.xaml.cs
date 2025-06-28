@@ -624,3 +624,4 @@ public sealed partial class ShuttleMapControl : BaseShuttleControl
         }
     }
 }
+

@@ -13,3 +13,4 @@ namespace Content.Goobstation.Shared.Toggle;
 public sealed partial class ItemToggleColorComponent : Component
 {
 }
+

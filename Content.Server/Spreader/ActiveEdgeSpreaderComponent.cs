@@ -15,3 +15,4 @@ namespace Content.Server.Spreader;
 public sealed partial class ActiveEdgeSpreaderComponent : Component
 {
 }
+

@@ -60,3 +60,4 @@ public sealed partial class EmitSoundOnUIOpenComponent : BaseEmitSoundComponent
     [DataField]
     public EntityWhitelist Blacklist = new();
 }
+

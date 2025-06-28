@@ -70,3 +70,4 @@ namespace Content.Server.Medical
         #endregion
     }
 }
+

@@ -20,3 +20,4 @@ public sealed partial class ColorPalettePrototype : IPrototype
     [DataField("name")] public string Name { get; private set; } = null!;
     [DataField("colors")] public Dictionary<string, Color> Colors { get; private set; } = null!;
 }
+

@@ -25,3 +25,4 @@ public sealed partial class StruckByLightningComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public float Lifetime = 4f;
 }
+

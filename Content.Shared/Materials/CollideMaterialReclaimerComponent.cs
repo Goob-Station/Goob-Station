@@ -20,3 +20,4 @@ public sealed partial class CollideMaterialReclaimerComponent : Component
     [DataField("fixtureId")]
     public string FixtureId = "brrt";
 }
+

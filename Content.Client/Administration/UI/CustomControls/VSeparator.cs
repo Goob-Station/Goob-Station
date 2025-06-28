@@ -32,3 +32,4 @@ public sealed class VSeparator : PanelContainer
 
     public VSeparator() : this(SeparatorColor) { }
 }
+

@@ -109,3 +109,4 @@
       interfaces:
         enum.DoorElectronicsConfigurationUiKey.Key:
           type: DoorElectronicsBoundUserInterface
+

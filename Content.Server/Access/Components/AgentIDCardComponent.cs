@@ -85,3 +85,4 @@ namespace Content.Server.Access.Components;
 /// </summary>
 [RegisterComponent]
 public sealed partial class AgentIDCardComponent : Component { }
+

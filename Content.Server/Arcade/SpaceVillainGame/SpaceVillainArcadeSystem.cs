@@ -156,3 +156,4 @@ public sealed partial class SpaceVillainArcadeSystem : EntitySystem
         _uiSystem.CloseUi(uid, SharedSpaceVillainArcadeComponent.SpaceVillainArcadeUiKey.Key);
     }
 }
+

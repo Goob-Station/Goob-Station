@@ -27,3 +27,4 @@ public abstract class SharedRadarConsoleSystem : EntitySystem
         UpdateState(uid, component);
     }
 }
+

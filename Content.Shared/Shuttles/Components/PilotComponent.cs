@@ -123,3 +123,4 @@ namespace Content.Shared.Shuttles.Components
 
     public sealed partial class StopPilotingAlertEvent : BaseAlertEvent;
 }
+

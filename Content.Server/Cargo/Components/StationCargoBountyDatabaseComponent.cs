@@ -71,3 +71,4 @@ public sealed partial class StationCargoBountyDatabaseComponent : Component
     [DataField]
     public TimeSpan SkipDelay = TimeSpan.FromMinutes(15);
 }
+

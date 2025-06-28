@@ -56,3 +56,4 @@ public sealed partial class VendingMachineRestockComponent : Component
 public sealed partial class RestockDoAfterEvent : SimpleDoAfterEvent
 {
 }
+

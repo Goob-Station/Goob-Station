@@ -27,3 +27,4 @@ public sealed partial class KeyBoolEqualsPrecondition : HTNPrecondition
         return Value == value;
     }
 }
+

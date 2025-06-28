@@ -47,3 +47,4 @@ public sealed partial class LoadMapRuleComponent : Component
     [DataField]
     public ProtoId<PreloadedGridPrototype>? PreloadedGrid;
 }
+

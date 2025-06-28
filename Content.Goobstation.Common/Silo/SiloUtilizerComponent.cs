@@ -19,3 +19,4 @@ public sealed partial class SiloUtilizerComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid? Silo;
 }
+

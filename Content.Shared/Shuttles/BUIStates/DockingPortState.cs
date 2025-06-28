@@ -23,3 +23,4 @@ public sealed class DockingPortState
 
     public NetEntity? GridDockedWith;
 }
+

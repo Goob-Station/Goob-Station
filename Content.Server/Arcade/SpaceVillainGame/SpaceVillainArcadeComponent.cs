@@ -121,3 +121,4 @@ public sealed partial class SpaceVillainArcadeComponent : SharedSpaceVillainArca
     [ViewVariables(VVAccess.ReadWrite)]
     public int RewardAmount = 0;
 }
+

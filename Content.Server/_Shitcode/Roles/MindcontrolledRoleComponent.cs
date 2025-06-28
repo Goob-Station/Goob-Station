@@ -19,3 +19,4 @@ public sealed partial class MindcontrolledRoleComponent : BaseMindRoleComponent
 {
     [DataField] public EntityUid? MasterUid = null;
 }
+

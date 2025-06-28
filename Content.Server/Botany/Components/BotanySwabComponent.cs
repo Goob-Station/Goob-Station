@@ -24,3 +24,4 @@ namespace Content.Server.Botany
         public SeedData? SeedData;
     }
 }
+

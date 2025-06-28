@@ -32,3 +32,4 @@ public sealed class BlobSmokeSystem : EntitySystem
         }
     }
 }
+

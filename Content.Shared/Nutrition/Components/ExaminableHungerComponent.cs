@@ -35,3 +35,4 @@ public sealed partial class ExaminableHungerComponent : Component
     /// </summary>
     public LocId NoHungerDescription = "examinable-hunger-component-examine-none";
 }
+

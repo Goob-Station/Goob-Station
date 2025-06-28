@@ -66,3 +66,4 @@ public sealed class HelpProgressConditionSystem : EntitySystem
         return completion;
     }
 }
+

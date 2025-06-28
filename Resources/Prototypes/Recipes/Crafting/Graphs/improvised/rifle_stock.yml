@@ -16,3 +16,4 @@
         doAfter: 4
   - node: riflestock
     entity: RifleStock
+

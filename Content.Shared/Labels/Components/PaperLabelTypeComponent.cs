@@ -22,3 +22,4 @@ public sealed partial class PaperLabelTypeComponent : Component
     [DataField]
     public string PaperType = "Paper";
 }
+

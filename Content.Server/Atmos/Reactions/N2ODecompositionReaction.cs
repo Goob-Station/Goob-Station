@@ -36,3 +36,4 @@ public sealed partial class N2ODecompositionReaction : IGasReactionEffect
         return ReactionResult.Reacting;
     }
 }
+

@@ -359,3 +359,4 @@
             max: 5
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+

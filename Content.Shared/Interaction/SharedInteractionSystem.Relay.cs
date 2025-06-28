@@ -20,3 +20,4 @@ public abstract partial class SharedInteractionSystem
         Dirty(uid, component);
     }
 }
+

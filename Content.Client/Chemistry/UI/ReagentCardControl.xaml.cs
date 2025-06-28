@@ -36,3 +36,4 @@ public sealed partial class ReagentCardControl : Control
         EjectButton.OnPressed += args => OnEjectButtonPressed?.Invoke(StorageLocation);
     }
 }
+

@@ -48,3 +48,4 @@ public sealed class BanPanelEui : BaseEui
         BanPanel.Dispose();
     }
 }
+

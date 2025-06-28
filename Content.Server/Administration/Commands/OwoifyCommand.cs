@@ -57,3 +57,4 @@ public sealed class OwoifyCommand : IConsoleCommand
         metaDataSys.SetEntityDescription(eUid.Value, owoSys.Accentuate(meta.EntityDescription), meta);
     }
 }
+

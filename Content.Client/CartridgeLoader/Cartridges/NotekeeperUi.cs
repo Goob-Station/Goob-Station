@@ -44,3 +44,4 @@ public sealed partial class NotekeeperUi : UIFragment
         userInterface.SendMessage(message);
     }
 }
+

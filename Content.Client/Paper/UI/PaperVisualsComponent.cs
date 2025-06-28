@@ -197,3 +197,4 @@ public sealed partial class PaperVisualsComponent : Component
     [DataField("maxWritableArea")]
     public Vector2? MaxWritableArea = null;
 }
+

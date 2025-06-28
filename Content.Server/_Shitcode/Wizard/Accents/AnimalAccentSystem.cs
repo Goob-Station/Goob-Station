@@ -45,3 +45,4 @@ public sealed class AnimalAccentSystem : EntitySystem
         args.Message = Loc.GetString(_random.Pick(comp.AnimalNoises));
     }
 }
+

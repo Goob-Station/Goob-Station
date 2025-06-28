@@ -38,3 +38,4 @@ namespace Content.Shared.Preferences
         ICharacterProfile Validated(ICommonSession session, IDependencyCollection collection);
     }
 }
+

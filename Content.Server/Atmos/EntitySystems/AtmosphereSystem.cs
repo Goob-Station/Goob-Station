@@ -163,3 +163,4 @@ public sealed partial class AtmosphereSystem : SharedAtmosphereSystem
         _burntDecals = _protoMan.EnumeratePrototypes<DecalPrototype>().Where(x => x.Tags.Contains("burnt")).Select(x => x.ID).ToArray();
     }
 }
+

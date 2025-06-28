@@ -43,3 +43,4 @@ public sealed partial class OreVeinComponent : Component
     [DataField]
     public ProtoId<OrePrototype>? CurrentOre;
 }
+

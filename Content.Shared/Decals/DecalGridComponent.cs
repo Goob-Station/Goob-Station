@@ -121,3 +121,4 @@ namespace Content.Shared.Decals
         }
     }
 }
+

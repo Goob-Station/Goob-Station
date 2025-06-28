@@ -46,3 +46,4 @@ public sealed class VoidCloakSystem : SharedVoidCloakSystem
             RemCompDeferred<PressureProtectionComponent>(cloak);
     }
 }
+
