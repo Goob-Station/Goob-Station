@@ -79,7 +79,6 @@
 // SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 marbow <152051971+marboww@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
 // SPDX-FileCopyrightText: 2024 mhamster <81412348+mhamsterr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 neutrino <67447925+neutrino-laser@users.noreply.github.com>
@@ -90,6 +89,10 @@
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
+// SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -127,10 +130,11 @@ namespace Content.Client.Examine
         [Dependency] private readonly VerbSystem _verbSystem = default!;
         [Dependency] private readonly SpriteSystem _sprite = default!;
 
+        private List<Verb> _verbList = new();
+
         public const string StyleClassEntityTooltip = "entity-tooltip";
 
         private EntityUid _examinedEntity;
-        private EntityUid _lastExaminedEntity;
         private Popup? _examineTooltipOpen;
         private ScreenCoordinates _popupPos;
         private CancellationTokenSource? _requestCancelTokenSource;
@@ -253,13 +257,13 @@ namespace Content.Client.Examine
             var entity = GetEntity(ev.EntityUid);
 
             OpenTooltip(player.Value, entity, ev.CenterAtCursor, ev.OpenAtOldTooltip, ev.KnowTarget);
-            UpdateTooltipInfo(player.Value, entity, ev.Message, ev.Verbs);
+            UpdateTooltipInfo(player.Value, entity, ev.Message, ev.Verbs, getVerbs: false);
         }
 
         public override void SendExamineTooltip(EntityUid player, EntityUid target, FormattedMessage message, bool getVerbs, bool centerAtCursor)
         {
-            OpenTooltip(player, target, centerAtCursor, false);
-            UpdateTooltipInfo(player, target, message);
+            OpenTooltip(player, target, centerAtCursor);
+            UpdateTooltipInfo(player, target, message, getVerbs: getVerbs);
         }
 
         /// <summary>
@@ -354,7 +358,7 @@ namespace Content.Client.Examine
         /// <summary>
         ///     Fills the examine tooltip with a message and buttons if applicable.
         /// </summary>
-        public void UpdateTooltipInfo(EntityUid player, EntityUid target, FormattedMessage message, List<Verb>? verbs=null)
+        public void UpdateTooltipInfo(EntityUid player, EntityUid target, FormattedMessage message, List<Verb>? verbs=null, bool getVerbs = true)
         {
             var vBox = _examineTooltipOpen?.GetChild(0).GetChild(0);
             if (vBox == null)
@@ -378,9 +382,29 @@ namespace Content.Client.Examine
                 break;
             }
 
-            verbs ??= new List<Verb>();
             var totalVerbs = _verbSystem.GetLocalVerbs(target, player, typeof(ExamineVerb));
-            totalVerbs.UnionWith(verbs);
+
+            // We still need client-exclusive verbs even when the server sends its data in so if that's the case
+            // we remove any non-client-exclusive verbs.
+            if (!getVerbs)
+            {
+                _verbList.AddRange(totalVerbs);
+
+                foreach (var verb in _verbList)
+                {
+                    if (!verb.ClientExclusive)
+                    {
+                        totalVerbs.Remove(verb);
+                    }
+                }
+
+                _verbList.Clear();
+            }
+
+            if (verbs != null)
+            {
+                totalVerbs.UnionWith(verbs);
+            }
 
             AddVerbsToTooltip(totalVerbs);
         }
@@ -489,15 +513,14 @@ namespace Content.Client.Examine
             if (!IsClientSide(entity))
             {
                 // Ask server for extra examine info.
-                if (entity != _lastExaminedEntity)
+                unchecked
+                {
                     _idCounter += 1;
-                if (_idCounter == int.MaxValue)
-                    _idCounter = 0;
+                }
                 RaiseNetworkEvent(new ExamineSystemMessages.RequestExamineInfoMessage(GetNetEntity(entity), _idCounter, true));
             }
 
             RaiseLocalEvent(entity, new ClientExaminedEvent(entity, playerEnt.Value));
-            _lastExaminedEntity = entity;
         }
 
         private void CloseTooltip()

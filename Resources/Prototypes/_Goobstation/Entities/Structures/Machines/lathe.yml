@@ -4,6 +4,7 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
 # SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 # SPDX-FileCopyrightText: 2025 Speebro <100388782+Speebr0@users.noreply.github.com>
@@ -11,6 +12,7 @@
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Zayyaan <terraspark4941@gmail.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -50,6 +52,7 @@
     - LightsStatic
     - PowerCellsStatic
     - ElectronicsStatic
+    - NailgunStatic
     dynamicPacks:
     - AdvancedTools
     - AtmosTools
@@ -67,6 +70,8 @@
     - UpgradeKits
     - SuitHEV
   - type: EmagLatheRecipes
+    emagStaticPacks:
+    - NailgunEvilStatic
     emagDynamicPacks:
     - SecurityBoards # TF2 reference, go build fucking turrets
     - MiningBoards
@@ -108,6 +113,7 @@
     - CablesStatic
     - PowerCellsStatic
     - MiningToolsStatic
+    - CargoStatic
     dynamicPacks:
     - AdvancedTools
     - Mining

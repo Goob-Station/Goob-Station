@@ -117,8 +117,10 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -237,10 +239,10 @@
   description: A shield built for protecting against ballistics, but not much else.
   components:
     - type: Sprite
-      sprite: Objects/Weapons/Melee/shields.rsi
-      state: riot_bullet-icon
+      sprite: _Goobstation/Objects/Shields/riotbulletshield.rsi # Goobstation
+      state: ballistic-icon
     - type: Item
-      heldPrefix: riot_bullet
+      heldPrefix: ballistic
     - type: Blocking
       passiveBlockModifier:
         coefficients:
@@ -629,22 +631,23 @@
       sprite: Objects/Weapons/Melee/teleriot_shield.rsi
       layers:
         - state: teleriot-icon
-        - state: teleriot-on
-          visible: false
-          map: [ "shield" ]
+          map: [ "enum.ItemToggleVisuals.Layer" ] # Goob - commented
+        #- state: teleriot-on
+        #  visible: false
+        #  map: [ "shield" ]
     - type: Item
       size: Small
       sprite: Objects/Weapons/Melee/teleriot_shield.rsi
       heldPrefix: teleriot
     - type: UseDelay
       delay: 0.5
-    - type: ToggleableLightVisuals
-      spriteLayer: shield
-      inhandVisuals:
-        left:
-          - state: inhand-left-shield
-        right:
-          - state: inhand-right-shield
+    #- type: ToggleableLightVisuals # Goob - commented
+    #  spriteLayer: shield
+    #  inhandVisuals:
+    #    left:
+    #      - state: inhand-left-shield
+    #    right:
+    #      - state: inhand-right-shield
     - type: Appearance
     - type: Destructible
       thresholds:
@@ -673,3 +676,12 @@
                   max: 2
     - type: StaticPrice
       price: 250
+    - type: ItemToggleVisuals # Goob
+      heldPrefixOn: shield
+      heldPrefixOff: teleriot
+    - type: GenericVisualizer # Goob
+      visuals:
+        enum.ItemToggleVisuals.State:
+          enum.ItemToggleVisuals.Layer:
+            True: { state: teleriot-on }
+            False: { state: teleriot-icon }

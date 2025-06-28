@@ -32,6 +32,7 @@
 // SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
 // SPDX-FileCopyrightText: 2025 Kayzel <43700376+KayzelW@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 // SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
@@ -68,6 +69,8 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Stacks;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Random;
+using Robust.Shared.Audio;
 
 // Shitmed Change
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
@@ -245,7 +248,7 @@ public sealed class HealingSystem : EntitySystem
         if (targetedBodyPart == null
             || !TryComp(targetedBodyPart.Value.Id, out DamageableComponent? damageable))
         {
-            _popupSystem.PopupEntity(Loc.GetString("does-not-exist-rebell"), target, user, PopupType.MediumCaution);
+            _popupSystem.PopupEntity(Loc.GetString("missing-body-part"), target, user, PopupType.MediumCaution);
             return false;
         }
 

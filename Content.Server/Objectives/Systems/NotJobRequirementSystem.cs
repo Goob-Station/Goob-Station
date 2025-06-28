@@ -34,8 +34,14 @@ public sealed class NotJobRequirementSystem : EntitySystem
 
         _jobs.MindTryGetJob(args.MindId, out var proto);
 
-        // if player has no job then don't care
-        if (proto is not null && proto.ID == comp.Job)
+        if (proto is null)
+            return;
+
+
+        // MisandryBox - JobObjectives
+        var hasJob = proto.ID == comp.Job;
+
+        if (comp.Inverted ? !hasJob : hasJob)
             args.Cancelled = true;
     }
 }

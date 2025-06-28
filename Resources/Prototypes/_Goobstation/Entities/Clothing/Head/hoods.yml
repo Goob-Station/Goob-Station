@@ -39,17 +39,11 @@
 
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
-  id: ClothingHeadHatHoodWinterSecarmored
+  id: ClothingHeadHatHoodWinterCapFancy
   categories: [ HideSpawnMenu ]
-  name: security winter coat hood
+  name: captain's fancy winter coat hood
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Hoods/secvestcoathead.rsi
+    sprite: _Goobstation/Clothing/Head/Hoods/cap_winter_hood.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Head/Hoods/secvestcoathead.rsi
-
-- type: entity
-  parent: ClothingHeadHatHoodWinterSecarmored #totally not bloat
-  id: ClothingHeadHatHoodWinterSecSeniorarmored
-  categories: [ HideSpawnMenu ]
-  name: senior security winter coat hood
+    sprite: _Goobstation/Clothing/Head/Hoods/cap_winter_hood.rsi
