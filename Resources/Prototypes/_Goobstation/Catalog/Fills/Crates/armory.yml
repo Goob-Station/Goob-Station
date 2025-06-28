@@ -8,7 +8,7 @@
 - type: entity
   id: CrateArmoryCombatHardsuit
   parent: [ CrateWeaponSecure, BaseSecurityContraband ]
-  name: Combat voidsuit crate
+  name: combat voidsuit crate
   description: Contains an advanced security voidsuit. Requires Armory access to open.
   components:
   - type: StorageFill
@@ -19,7 +19,7 @@
 - type: entity
   id: CrateArmoryCombatMedicalHardsuit
   parent: [ CrateWeaponSecure, BaseSecurityContraband ]
-  name: Combat medical voidsuit crate
+  name: combat medical voidsuit crate
   description:  Contains an advanced medical security voidsuit, less defence but much less cumbersome. Requires Armory access to open.
   components:
   - type: StorageFill
@@ -30,7 +30,7 @@
 - type: entity
   id: CrateArmoryCombatRiotHardsuit
   parent: [ CrateWeaponSecure, BaseSecurityContraband ]
-  name: Riot voidsuit crate
+  name: riot voidsuit crate
   description: Contains an advanced riot security voidsuit, very high defence but much also very cumbersome. Requires Armory access to open.
   components:
   - type: StorageFill
@@ -196,24 +196,24 @@
   table: !type:GroupSelector
     children:
     - id: UndeterminedVoidsuitSecurity
-      weight: 34
+      weight: 40
     - id: ClothingOuterArmorBulletproof
-      weight: 28
+      weight: 30
     - !type:AllSelector
-      weight: 22
+      weight: 20
       children:
       - id: ClothingOuterArmorRiot
       - id: ClothingHeadHelmetRiot
     - id: ClothingOuterArmorReflective
-      weight: 16
+      weight: 10
 
 - type: entityTable
   id: RandomArmoryGear
   table: !type:GroupSelector
     children:
     - !type:NestedSelector
-      weight: 65 # 65%
+      weight: 72
       tableId: RandomArmoryWeapon
     - !type:NestedSelector
-      weight: 35
+      weight: 28
       tableId: RandomArmoryArmor
