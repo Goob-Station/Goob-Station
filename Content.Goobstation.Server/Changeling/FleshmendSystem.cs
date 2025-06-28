@@ -92,9 +92,15 @@ public sealed partial class FleshmendSystem : EntitySystem
         }
     }
 
-    public readonly ProtoId<DamageGroupPrototype> BruteDamageGroup = "Brute";
-    public readonly ProtoId<DamageGroupPrototype> BurnDamageGroup = "Burn";
     private void Cycle(Entity<FleshmendComponent> ent)
+    {
+        if (!TryFlammableChecks(ent))
+            return;
+
+        DoFleshmend(ent);
+    }
+
+    private bool TryFlammableChecks(Entity<FleshmendComponent> ent)
     {
         if (TryComp<FlammableComponent>(ent, out var flam)
             && flam.OnFire
@@ -106,7 +112,7 @@ public sealed partial class FleshmendSystem : EntitySystem
             if (ent.Comp.PassiveSound != null)
                 StopFleshmendSound(ent);
 
-            return;
+            return false;
         }
         else
         {
@@ -116,8 +122,15 @@ public sealed partial class FleshmendSystem : EntitySystem
             if (ent.Comp.PassiveSound != null
                 && ent.Comp.SoundSource == null)
                 DoFleshmendSound(ent);
-        }
 
+            return true;
+        }
+    }
+
+    public readonly ProtoId<DamageGroupPrototype> BruteDamageGroup = "Brute";
+    public readonly ProtoId<DamageGroupPrototype> BurnDamageGroup = "Burn";
+    private void DoFleshmend(Entity<FleshmendComponent> ent)
+    {
         // the dmg groups
         var bruteTypes = _proto.Index(BruteDamageGroup);
         var burnTypes = _proto.Index(BurnDamageGroup);
