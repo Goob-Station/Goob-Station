@@ -92,8 +92,8 @@ public sealed partial class FleshmendSystem : EntitySystem
         }
     }
 
-    public ProtoId<DamageGroupPrototype> BruteDamageGroup = "Brute";
-    public ProtoId<DamageGroupPrototype> BurnDamageGroup = "Burn";
+    public readonly ProtoId<DamageGroupPrototype> BruteDamageGroup = "Brute";
+    public readonly ProtoId<DamageGroupPrototype> BurnDamageGroup = "Burn";
     private void Cycle(Entity<FleshmendComponent> ent)
     {
         if (TryComp<FlammableComponent>(ent, out var flam)
