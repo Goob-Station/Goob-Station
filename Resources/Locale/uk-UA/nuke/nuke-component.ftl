@@ -1,6 +1,6 @@
 nuke-component-cant-anchor-floor = Анкерні болти не можуть зафіксуватися у підлозі!
 nuke-component-announcement-sender = Ядерна боєголовка
-nuke-component-announcement-armed = Увага! Механізм самознищення станції було увімкнено {$position}. {$time} секунд до детонації. Якщо це було зроблено помилково, механізм може бути розміновано.
+nuke-component-announcement-armed = Увага! Механізм самознищення станції було увімкнено {$location}. {$time} секунд до детонації. Якщо це було зроблено помилково, механізм може бути розміновано.
 nuke-component-announcement-unarmed = Самознищення станції припинено! Гарного дня!
 nuke-component-announcement-send-codes = Увага! Коди самознищення надіслано на факси керівництва станції.
 nuke-component-doafter-warning = Ви починаєте возитися з дротами та ручками, щоб розмінувати ядерний заряд. Це може зайняти деякий час.

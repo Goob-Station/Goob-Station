@@ -12,7 +12,7 @@
   components:
   - type: CosmicCultRule
   - type: GameRule
-    minPlayers: 25
+    minPlayers: 8
     chaosScore: 1200
     delay:
       min: 60

@@ -20,7 +20,7 @@
   components:
   - type: HereticRule
   - type: GameRule
-    minPlayers: 15
+    minPlayers: 5
     chaosScore: 800
   - type: AntagObjectives
     objectives:
@@ -51,7 +51,7 @@
   components:
   - type: HereticRule
   - type: GameRule
-    minPlayers: 15
+    minPlayers: 8
   - type: AntagObjectives
     objectives:
     - HereticKnowledgeObjective
