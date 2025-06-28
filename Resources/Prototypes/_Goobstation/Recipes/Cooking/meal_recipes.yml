@@ -16,9 +16,9 @@
     Sugar: 5
 
 - type: microwaveMealRecipe
-  id: RecipeAmericanCheeseBlock
-  name: american cheese recipe
-  result: FoodAmericanCheeseBlock
+  id: RecipeFreedomCheeseBlock
+  name: freedom cheese recipe
+  result: FoodFreedomCheeseBlock
   time: 5
   solids:
     FoodCheese: 1

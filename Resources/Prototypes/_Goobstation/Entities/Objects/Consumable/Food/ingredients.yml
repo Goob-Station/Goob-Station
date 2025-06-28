@@ -30,10 +30,10 @@
     fillBaseName: packet-solid-
 
 - type: entity
-  name: block of American cheese
+  name: block of freedom cheese
   parent: FoodBakingBase
-  id: FoodAmericanCheeseBlock
-  description: Yeehaw, a block of the American dream and hatred of health! Slice it for your buddies.. or just eat the entire block for yourself, you weirdo. 
+  id: FoodFreedomCheeseBlock
+  description: A solid block of artery-clogging cheese based on an questionable old world recipe. Slice it for your buddies.. or just eat the entire block for yourself, you weirdo. 
   components:
   - type: FlavorProfile
     flavors:
@@ -43,7 +43,7 @@
       - Nutriment
       - GastroToxin
   - type: Sprite
-    sprite: _Goobstation/Objects/Consumable/Food/american_cheese.rsi
+    sprite: _Goobstation/Objects/Consumable/Food/freedom_cheese.rsi
     state: cheese_block
   - type: SolutionContainerManager
     solutions:
@@ -56,17 +56,17 @@
           Quantity: 4
   - type: SliceableFood
     count: 4
-    slice: FoodAmericanCheeseSlice
+    slice: FoodFreedomCheeseSlice
   - type: Tag
     tags:
     - Trash # Intentional :godo:
 
 
 - type: entity
-  name: American cheese slice
+  name: freedom cheese slice
   parent: FoodBakingBase
-  id: FoodAmericanCheeseSlice
-  description: Highly questionable amalgamation of cheddar, fillers and the American spirit. NanoTrasen's healthcare does not cover incidents regarding the consumption of this item.  
+  id: FoodFreedomCheeseSlice
+  description: Highly questionable amalgamation of cheddar, fillers and the spirit of freedom. NanoTrasen's healthcare does not cover incidents regarding the consumption of this item.  
   components:
   - type: FlavorProfile
     flavors:
@@ -76,7 +76,7 @@
       - Nutriment
       - GastroToxin
   - type: Sprite
-    sprite: _Goobstation/Objects/Consumable/Food/american_cheese.rsi
+    sprite: _Goobstation/Objects/Consumable/Food/freedom_cheese.rsi
     state: cheese_slice
   - type: SolutionContainerManager
     solutions:
@@ -93,7 +93,7 @@
     - Slice
   - type: FoodSequenceElement
     sprite:
-      sprite: _Goobstation/Objects/Consumable/Food/american_cheese.rsi
+      sprite: _Goobstation/Objects/Consumable/Food/freedom_cheese.rsi
       state: cheese_slice_burger
     entries:
       burger:
