@@ -92,12 +92,12 @@
   - type: Machine
     board: SuitStorageHEVCircuitboard
 
-- type: entity
-  id: SuitStorageHEVFilled
-  parent: SuitStorageHEV
-  suffix: Filled
-  components:
-  - type: ContainerFill
-    containers:
-      ItemCabinet:
-      - ClothingOuterSuitHEV
+#  - type: entity
+#    id: SuitStorageHEVFilled
+#    parent: SuitStorageHEV
+#    suffix: Filled
+#    components:
+#    - type: ContainerFill
+#      containers:
+#        ItemCabinet:
+#        - ClothingOuterSuitHEV
