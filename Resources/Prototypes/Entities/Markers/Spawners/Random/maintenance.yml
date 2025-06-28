@@ -259,6 +259,7 @@
       - id: RubberChicken
       - id: FoodSnackLollypopWrappedMysteryNeutral # Goobstation - Lollypops!
       - id: RevolutionaryManifesto # Einstein Engines - Revolutionary Manifesto
+      - id: CrayonMagic
       # Cult
       - !type:AllSelector
         children:

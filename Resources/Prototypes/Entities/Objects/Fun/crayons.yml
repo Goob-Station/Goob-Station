@@ -120,6 +120,7 @@
     - Crayon
     - Recyclable
     - Trash
+    - CrayonRainbow
 
 - type: entity
   parent: Crayon

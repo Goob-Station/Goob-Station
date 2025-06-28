@@ -1,0 +1,17 @@
+- type: entity
+  parent: CrayonRainbow
+  id: CrayonMagic
+  name: magic crayon
+  description: Specially blended with bluespace crystals and certified non-toxic.
+  components:
+  - type: Crayon
+    capacity: 2147483647 # int.MaxValue, the crayon never ends....
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nothing
+          Quantity: 100
+  - type: Construction
+    graph: CrayonMagic
+    node: crayonmagic

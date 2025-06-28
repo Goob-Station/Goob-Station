@@ -10,3 +10,14 @@
   targetNode: toygrenade
   category: construction-category-misc
   objectType: Item
+
+- type: construction
+  name: magic crayon
+  id: CrayonMagic
+  graph: CrayonMagic
+  startNode: start
+  targetNode: crayonmagic
+  category: construction-category-misc
+  description: Specially blended with bluespace crystals and certified non-toxic.
+  icon: { sprite: Objects/Fun/crayons.rsi, state: rainbow }
+  objectType: Item

@@ -25,3 +25,71 @@
               doAfter: 1
     - node: toygrenade
       entity: GrenadeToy
+
+- type: constructionGraph
+  id: CrayonMagic
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: crayonmagic
+          steps:
+            - tag: CrayonRainbow
+              name: rainbow crayon
+              icon:
+                sprite: Objects/Fun/crayons.rsi
+                state: rainbow
+              doAfter: 1
+            - material: BSCrystal
+              amount: 1
+              doAfter: 1
+            - tag: CrayonPurple
+              name: purple crayon
+              icon:
+                sprite: Objects/Fun/crayons.rsi
+                state: purple
+              doAfter: 1
+            - tag: CrayonOrange
+              name: orange crayon
+              icon:
+                sprite: Objects/Fun/crayons.rsi
+                state: orange
+              doAfter: 1
+            - tag: CrayonYellow
+              name: yellow crayon
+              icon:
+                sprite: Objects/Fun/crayons.rsi
+                state: yellow
+              doAfter: 1
+            - tag: CrayonRed
+              name: red crayon
+              icon:
+                sprite: Objects/Fun/crayons.rsi
+                state: red
+              doAfter: 1
+            - tag: CrayonBlue
+              name: blue crayon
+              icon:
+                sprite: Objects/Fun/crayons.rsi
+                state: blue
+              doAfter: 1
+            - tag: CrayonGreen
+              name: green crayon
+              icon:
+                sprite: Objects/Fun/crayons.rsi
+                state: green
+              doAfter: 1
+            - tag: CrayonBlack
+              name: black crayon
+              icon:
+                sprite: Objects/Fun/crayons.rsi
+                state: black
+              doAfter: 1
+            - tag: CrayonWhite
+              name: white crayon
+              icon:
+                sprite: Objects/Fun/crayons.rsi
+                state: white
+              doAfter: 1
+    - node: crayonmagic
+      entity: CrayonMagic
