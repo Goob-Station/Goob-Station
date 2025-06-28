@@ -183,7 +183,6 @@
         - MobMask
         layer:
         - MobLayer
-    locPrefix: silicon
   - type: MovedByPressure
   - type: Physics
     bodyType: KinematicController # Same for all inheritors
@@ -293,9 +292,9 @@
   - type: Tag
     tags:
     - DoorBumpOpener
-    - SiliconEmotes
     - Bot
     - Unimplantable
+    - SiliconMob
   - type: Body
     bodyType: Simple
     prototype: Bot

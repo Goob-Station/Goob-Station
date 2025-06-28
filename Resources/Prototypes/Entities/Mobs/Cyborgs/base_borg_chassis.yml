@@ -601,15 +601,18 @@
   - type: SiliconLawProvider
     laws: XenoborgLawset # custom laws here
     subverted: true
+  - type: IntrinsicRadioReceiver # Goob - moved binary to CM
+  - type: CollectiveMind
+    defaultChannel: Binary
+    channels:
+    - Binary
   - type: IntrinsicRadioTransmitter # can only use binary and xenoborg channel
     channels:
     - Xenoborg
-    - Binary
   - type: ActiveRadio # but can hear the mothership channel
     channels:
     - Mothership
     - Xenoborg
-    - Binary
   - type: Repairable
     doAfterDelay: 13 # 25% more HP, so 30% more time to heal
   - type: BorgChassis
