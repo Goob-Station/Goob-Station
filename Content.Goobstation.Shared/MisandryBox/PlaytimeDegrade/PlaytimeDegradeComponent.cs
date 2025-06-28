@@ -1,4 +1,8 @@
-﻿using Content.Goobstation.Maths.FixedPoint;
+// SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
+//
+// SPDX-License-Identifier: MIT
+
+using Content.Goobstation.Maths.FixedPoint;
 
 namespace Content.Goobstation.Shared.MisandryBox.PlaytimeDegrade;
 

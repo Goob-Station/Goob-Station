@@ -1,4 +1,8 @@
-﻿using System.Diagnostics;
+// SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
+//
+// SPDX-License-Identifier: MIT
+
+using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Goobstation.Maths.FixedPoint;

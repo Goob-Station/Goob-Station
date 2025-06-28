@@ -1,4 +1,8 @@
-﻿using Content.Shared.CombatMode;
+// SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
+//
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.CombatMode;
 using Content.Shared.Roles;
 
 namespace Content.Goobstation.Shared.MisandryBox.PlaytimeDegrade;
