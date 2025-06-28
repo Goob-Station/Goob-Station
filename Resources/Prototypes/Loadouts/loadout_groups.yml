@@ -380,6 +380,7 @@
   - GreyJumpskirt
   - AncientJumpsuit
   - RainbowJumpsuit
+  # Goobstation Loadout Rework Start
   - AssymetricDress
   - EveningDress
   - MidiDress
@@ -448,6 +449,7 @@
   - JumpsuitTShirtJeansGray
   - JumpsuitTShirtJeansKhaki
   - JumpsuitTShirtJeansPeach
+ # Goobstation Loadout Rework End
  # goob changes start
   - GreyMJ
   - BlackMJ
@@ -475,7 +477,7 @@
 
 - type: loadoutGroup
   id: PassengerFace
-  name: loadout-group-passenger-mask
+  name: loadout-group-passenger-mask 
   minLimit: 0
   loadouts:
   - PassengerFace
@@ -496,8 +498,10 @@
   - CommonSatchel
   - CommonDuffel
   - CommonMessenger # Frontier
+  # Goobstation Loadout Rework Start
   - ClothingPurse
   - LeatherSatchel
+  # Goobstation Loadout Rework End
 
 - type: loadoutGroup
   id: PassengerNeck
@@ -505,7 +509,9 @@
   minLimit: 0
   loadouts:
   - Mantle
+  # Goobstation Loadout Rework Start
   - FurWrap
+  # Goobstation Loadout Rework Start
 
 - type: loadoutGroup
   id: PassengerOuterClothing
@@ -513,13 +519,15 @@
   minLimit: 0
   loadouts:
   - PassengerWintercoat
+  # Goobstation Loadout Rework Start
   - PassengerRedVictorianCoat
   - PassengerBlackVictorianCoat
   - LettermanJacketBlue
   - LettermanJacketRed
+  # Goobstation Loadout Rework End
 
 - type: loadoutGroup
-  id: PassengerBelt
+  id: PassengerBelt # Goobstation Loadout Rework Addition
   name: loadout-group-passenger-belt
   minLimit: 0
   loadouts:
@@ -551,7 +559,7 @@
   - BartenderJumpskirt
   - BartenderJumpsuitPurple
   - ServiceMJ # goob
-  - WaitressUniform
+  - WaitressUniform # Goobstation Loadout Rework Addition
 
 - type: loadoutGroup
   id: BartenderOuterClothing
@@ -695,7 +703,7 @@
   - JanitorJumpsuit
   - JanitorJumpskirt
   - ServiceMJ # goob
-  - MaidOutfitJanitor
+  - MaidOutfitJanitor # Goobstation Loadout Rework Addition
 
 - type: loadoutGroup
   id: JanitorGloves
@@ -1426,10 +1434,10 @@
   - SecurityJumpskirt
   - SecurityJumpsuitGrey
   - SecurityJumpskirtGrey
-  - SecuritySummerJumpsuit
   - SeniorOfficerJumpsuit
   - SeniorOfficerJumpskirt
   - TrooperUniform
+  - SecuritySummerJumpsuit # Goobstation Loadout Rework Addition - DV
 
 - type: loadoutGroup
   id: SecurityBackpack
@@ -1611,7 +1619,7 @@
   - MedicalGreenScrubs
   - MedicalPurpleScrubs
   - MedicMJ # goob
-  - NurseOutfit
+  - NurseOutfit # Goobstation Loadout Rework Addition 
 
 - type: loadoutGroup
   id: MedicalDoctorOuterClothing
