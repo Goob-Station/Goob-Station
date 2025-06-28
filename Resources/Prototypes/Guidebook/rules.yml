@@ -40,6 +40,7 @@
   priority: 30
   text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC0.xml"
   children:
+  - Admins
   - RuleC1
   - RuleC2
   - RuleC3
@@ -53,105 +54,97 @@
   - RuleC11
   - RuleC12
   - RuleC13
-  - RuleC14
+
+- type: guideEntry
+  id: Admins
+  name: guide-entry-rules-c0
+  ruleEntry: true
+  priority: 1
+  text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC0Admins.xml"
 
 - type: guideEntry
   id: RuleC1
   name: guide-entry-rules-c1
   ruleEntry: true
-  priority: 1
-  text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC1Admins.xml"
+  priority: 2
+  text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC1DMAD.xml"
 
 - type: guideEntry
   id: RuleC2
   name: guide-entry-rules-c2
   ruleEntry: true
-  priority: 2
-  text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC2DBAD.xml"
+  priority: 3
+  text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC2ICKOCK.xml"
 
 - type: guideEntry
   id: RuleC3
   name: guide-entry-rules-c3
   ruleEntry: true
-  priority: 3
-  text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC3NoHate.xml"
+  priority: 4
+  text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC3Roleplay.xml"
 
 - type: guideEntry
   id: RuleC4
   name: guide-entry-rules-c4
   ruleEntry: true
-  priority: 4
-  text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC4NoERP.xml"
+  priority: 5
+  text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC4Antags.xml"
 
 - type: guideEntry
   id: RuleC5
   name: guide-entry-rules-c5
   ruleEntry: true
-  priority: 5
-  text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC5Metacomms.xml"
+  priority: 6
+  text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC5Vitals.xml"
 
 - type: guideEntry
   id: RuleC6
   name: guide-entry-rules-c6
   ruleEntry: true
-  priority: 6
+  priority: 7
   text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC6BanEvasion.xml"
 
 - type: guideEntry
   id: RuleC7
   name: guide-entry-rules-c7
   ruleEntry: true
-  priority: 7
+  priority: 8
   text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC7EnglishOnly.xml"
 
 - type: guideEntry
   id: RuleC8
   name: guide-entry-rules-c8
   ruleEntry: true
-  priority: 8
-  text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC8Exploits.xml"
+  priority: 9
+  text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC8ERP.xml"
 
 - type: guideEntry
   id: RuleC9
   name: guide-entry-rules-c9
   ruleEntry: true
-  priority: 9
-  text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC9Multikey.xml"
+  priority: 10
+  text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC9Age.xml"
 
 - type: guideEntry
   id: RuleC10
   name: guide-entry-rules-c10
   ruleEntry: true
-  priority: 10
-  text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC10AHelp.xml"
+  priority: 11
+  text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC10GitGud.xml"
 
 - type: guideEntry
   id: RuleC11
   name: guide-entry-rules-c11
   ruleEntry: true
-  priority: 11
-  text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC11AhelpThreats.xml"
+  priority: 12
+  text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC11Bigotry.xml"
 
 - type: guideEntry
   id: RuleC12
   name: guide-entry-rules-c12
   ruleEntry: true
-  priority: 12
-  text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC12MinAge.xml"
-
-- type: guideEntry
-  id: RuleC13
-  name: guide-entry-rules-c13
-  ruleEntry: true
   priority: 13
   text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC13CharacterNames.xml"
-
-- type: guideEntry
-  id: RuleC14
-  name: guide-entry-rules-c14
-  ruleEntry: true
-  priority: 14
-  text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC14ICinOOC.xml"
 
 - type: guideEntry
   id: RoleplayRules
