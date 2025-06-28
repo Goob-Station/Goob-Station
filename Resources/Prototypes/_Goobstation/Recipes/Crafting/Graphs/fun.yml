@@ -43,7 +43,7 @@
                 state: rainbow
               doAfter: 1
             - material: BSCrystal
-              amount: 2
+              amount: 1
               doAfter: 1
             - tag: CrayonPurple
               name: purple crayon
