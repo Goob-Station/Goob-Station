@@ -126,33 +126,32 @@ public sealed partial class FleshmendSystem : EntitySystem
         if (!TryComp<DamageableComponent>(ent, out var damage))
             return;
 
-        var bruteMult = 1 +
+        var bruteDiv =
             bruteTypes.DamageTypes.Count(type =>
             damage.Damage.DamageDict.GetValueOrDefault(type)
-            == FixedPoint2.Zero);
+            != FixedPoint2.Zero);
 
-        var burnMult = 1 +
+        var burnDiv =
             burnTypes.DamageTypes.Count(type =>
             damage.Damage.DamageDict.GetValueOrDefault(type)
-            == FixedPoint2.Zero);
+            != FixedPoint2.Zero);
 
-        var bruteHealAmount = ent.Comp.BruteHeal * bruteMult;
-        var burnHealAmount = ent.Comp.BurnHeal * burnMult;
+        var bruteHealAmount = ent.Comp.BruteHeal / bruteDiv;
+        var burnHealAmount = ent.Comp.BurnHeal / burnDiv;
         //
 
-        // the damage spec & damage specs for groups
-        var bruteHeal = new DamageSpecifier(bruteTypes, bruteHealAmount);
-        var burnHeal = new DamageSpecifier(burnTypes, burnHealAmount);
+        var healSpec = new DamageSpecifier();
 
-        var specific = new DamageSpecifier();
-        specific.DamageDict.Add("Asphyxiation", ent.Comp.AsphyxHeal);
+        foreach (var brute in bruteTypes.DamageTypes)
+            healSpec.DamageDict.Add(brute, bruteHealAmount);
 
-        // the groups (has to use several "TryChangeDamage"s unfortunately)
-        _dmg.TryChangeDamage(ent, bruteHeal, true, false, targetPart: TargetBodyPart.All, splitDamage: SplitDamageBehavior.SplitEnsureAllOrganic);
-        _dmg.TryChangeDamage(ent, burnHeal, true, false, targetPart: TargetBodyPart.All, splitDamage: SplitDamageBehavior.SplitEnsureAllOrganic);
+        foreach (var burn in burnTypes.DamageTypes)
+            healSpec.DamageDict.Add(burn, burnHealAmount);
 
-        // specific damage types
-        _dmg.TryChangeDamage(ent, specific, true, false, targetPart: TargetBodyPart.All, splitDamage: SplitDamageBehavior.SplitEnsureAllOrganic);
+        healSpec.DamageDict.Add("Asphyxiation", ent.Comp.AsphyxHeal);
+
+        // heal the damage
+        _dmg.TryChangeDamage(ent, healSpec, true, false, targetPart: TargetBodyPart.All, splitDamage: SplitDamageBehavior.SplitEnsureAllOrganic);
 
         // heal bleeding and restore blood
         _bloodstream.TryModifyBleedAmount(ent, ent.Comp.BleedingAdjust);
