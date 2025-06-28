@@ -10,9 +10,13 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 BuffOrphan <horsepuncher3@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 HorsePuncher <horsepuncher3@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Terraspark4941 <terraspark4941@gmail.com>
+# SPDX-FileCopyrightText: 2025 Zayyaan <terraspark4941@gmail.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -21,7 +25,7 @@
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterSuitHEV
   name: H.E.V suit
-  description: A full-body hazmat suit designed to protect its wearer from radiation, energy discarges, blunt-force trauma and disintergration during the handling of hazardous material.
+  description: A full-body hazmat suit designed to protect its wearer from radiation, energy discharges, blunt-force trauma and disintegration during the handling of hazardous material.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Suits/hev.rsi
