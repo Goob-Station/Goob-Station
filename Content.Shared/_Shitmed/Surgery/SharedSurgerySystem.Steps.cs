@@ -15,6 +15,7 @@
 // SPDX-FileCopyrightText: 2025 kurokoTurbo <92106367+kurokoTurbo@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 pacable <77161122+pxc1984@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 pacable <igor.mamaev1@gmail.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
