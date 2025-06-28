@@ -82,7 +82,8 @@ namespace Content.IntegrationTests.Tests.Chemistry
                         Assert.That(reactant.Amount, Is.EqualTo(quantity));
 #pragma warning restore NUnit2045
                     }
-
+                    // Goobstation - this part of the test disallows many interesting temperature dependent chemical reactions
+                    /*
                     //Get all possible reactions with the current reagents
                     var possibleReactions = prototypeManager.EnumeratePrototypes<ReactionPrototype>()
                         .Where(x => x.Reactants.All(id => solution.Contents.Any(s => s.Reagent.Prototype == id.Key)))
@@ -105,7 +106,7 @@ namespace Content.IntegrationTests.Tests.Chemistry
                             Assert.Fail($"The {possibleReaction.ID} reaction may occur before {reactionPrototype.ID} when freezing.");
                         }
                     }
-
+                    */
                     //Now safe set the temperature and mix the reagents
                     solutionContainerSystem.SetTemperature(solutionEnt.Value, reactionPrototype.MinimumTemperature);
 
