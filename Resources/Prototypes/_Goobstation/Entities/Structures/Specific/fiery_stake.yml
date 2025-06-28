@@ -8,8 +8,8 @@
 - type: entity
   id: FieryStake
   parent: BaseStructure
-  name: "вогняний стовп"
-  description: "Але Бог доводить свою любов до нас у цьому... Коли ми ще були грішниками, Христос помер за нас!"
+  name: fiery stake
+  description: But God demonstrates his own love for us in this... While we were still sinners, Christ died for us!
   components:
   - type: Sprite
     noRot: true

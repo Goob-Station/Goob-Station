@@ -26,8 +26,8 @@
 - type: entity
   id: Cigarette
   parent: BaseCigar
-  name: "цигарка"
-  description: "Рулон тютюну та нікотину."
+  name: cigarette
+  description: A roll of tobacco and nicotine.
   components:
   - type: Sprite
     sprite: Objects/Consumable/Smokeables/Cigarettes/cigarette.rsi
@@ -52,9 +52,9 @@
 - type: entity
   id: SoakedCigarette
   parent: BaseCigar
-  name: "цигарка"
+  name: cigarette
   suffix: Soaked
-  description: "Рулон тютюну та нікотину, просочений якоюсь хімічною речовиною."
+  description: A roll of tobacco and nicotine soaked in some chemical.
   components:
   - type: Sprite
     sprite: Objects/Consumable/Smokeables/Cigarettes/cigarette.rsi
@@ -97,7 +97,7 @@
   id: CigaretteSyndicate
   suffix: syndicate
   parent: Cigarette
-  name: "цигарка"
+  name: cigarette
   components:
   - type: SolutionContainerManager
     solutions:
@@ -112,7 +112,7 @@
 - type: entity
   id: CigaretteOmnizine
   parent: SoakedCigarette
-  name: "Вибух Смаку Води з Хот-Догів"
+  name: Hot Dog Water Flavor Explosion
   components:
   - type: SolutionContainerManager
     solutions:
@@ -127,7 +127,7 @@
 - type: entity
   id: CigaretteIron
   parent: SoakedCigarette
-  name: "Іржаво-Помаранчевий Баха Блест"
+  name: Rusty Orange Baja Blast
   components:
   - type: SolutionContainerManager
     solutions:
@@ -142,7 +142,7 @@
 - type: entity
   id: CigaretteTricordrazine
   parent: SoakedCigarette
-  name: "Лакриця в Асорті"
+  name: Licorice Allsorts
   components:
   - type: SolutionContainerManager
     solutions:
@@ -157,7 +157,7 @@
 - type: entity
   id: CigaretteDylovene
   parent: SoakedCigarette
-  name: "Розчинник для пісуарних таблеток"
+  name: Urinal Cake Dissolver
   components:
   - type: SolutionContainerManager
     solutions:
@@ -172,7 +172,7 @@
 - type: entity
   id: CigaretteDermaline
   parent: SoakedCigarette
-  name: "Алое-Арахісове Асорті"
+  name: Aloe Peanut Butter Medley
   components:
   - type: SolutionContainerManager
     solutions:
@@ -187,7 +187,7 @@
 - type: entity
   id: CigaretteArithrazine
   parent: SoakedCigarette
-  name: "Римський Трубний Завод"
+  name: Roman Pipe Works
   components:
   - type: SolutionContainerManager
     solutions:
@@ -202,7 +202,7 @@
 - type: entity
   id: CigaretteIpecac
   parent: SoakedCigarette
-  name: "Бабусин Різдвяний Фруктовий Пиріг"
+  name: Grandma's Christmas Fruitcake
   components:
   - type: SolutionContainerManager
     solutions:
@@ -217,7 +217,7 @@
 - type: entity
   id: CigaretteBicaridine
   parent: SoakedCigarette
-  name: "Сигарети Вет Дог Енхенсд"
+  name: Wet Dog Enhanced Cigarette
   components:
   - type: SolutionContainerManager
     solutions:
@@ -232,7 +232,7 @@
 - type: entity
   id: CigaretteDexalin
   parent: SoakedCigarette
-  name: "Мускус Рокі Маунтен"
+  name: Rocky Mountain Musk
   components:
   - type: SolutionContainerManager
     solutions:
@@ -247,7 +247,7 @@
 - type: entity
   id: CigarettePax
   parent: SoakedCigarette
-  name: "Шведський Експрес"
+  name: Switzerland Express
   components:
   - type: SolutionContainerManager
     solutions:
@@ -262,7 +262,7 @@
 - type: entity
   id: CigaretteBbqSauce
   parent: SoakedCigarette
-  name: "Пряний деревний аромат"
+  name: Spicy Wood Aroma
   components:
   - type: SolutionContainerManager
     solutions:
@@ -277,7 +277,7 @@
 - type: entity
   id: CigaretteBlackPepper
   parent: SoakedCigarette
-  name: "Інгліш Спайс"
+  name: English Spice
   components:
   - type: SolutionContainerManager
     solutions:
@@ -292,7 +292,7 @@
 - type: entity
   id: CigaretteCapsaicinOil
   parent: SoakedCigarette
-  name: "Чілі-Пі"
+  name: Chilly P
   components:
   - type: SolutionContainerManager
     solutions:
@@ -307,7 +307,7 @@
 - type: entity
   id: CigaretteBread
   parent: SoakedCigarette
-  name: "Подвійно Підсмажена"
+  name: Double Toasted
   components:
   - type: SolutionContainerManager
     solutions:
@@ -320,7 +320,7 @@
 - type: entity
   id: CigaretteMilk
   parent: SoakedCigarette
-  name: "Молочний Екстракт"
+  name: Bovine Extract
   components:
   - type: SolutionContainerManager
     solutions:
@@ -335,7 +335,7 @@
 - type: entity
   id: CigaretteBanana
   parent: SoakedCigarette
-  name: "Додатковий Бонус за Клоунаду"
+  name: Clown Adjancency Bonus
   components:
   - type: SolutionContainerManager
     solutions:
@@ -350,7 +350,7 @@
 - type: entity
   id: CigaretteSpaceDrugs
   parent: SoakedCigarette
-  name: "Зірковий Час 80-х"
+  name: 80's Power Hour
   components:
   - type: SolutionContainerManager
     solutions:
@@ -365,7 +365,7 @@
 - type: entity
   id: CigaretteMuteToxin
   parent: SoakedCigarette
-  name: "Змішані пастилки"
+  name: Mixed Lozenges
   components:
   - type: SolutionContainerManager
     solutions:
@@ -380,7 +380,7 @@
 - type: entity
   id: CigaretteMold
   parent: SoakedCigarette
-  name: "Досвід Знизу Раковини"
+  name: Beneath The Sink Experience
   components:
   - type: SolutionContainerManager
     solutions:
@@ -395,7 +395,7 @@
 - type: entity
   id: CigaretteLicoxide
   parent: SoakedCigarette
-  name: "Пробудження"
+  name: Wake Up Call
   components:
   - type: SolutionContainerManager
     solutions:
@@ -410,7 +410,7 @@
 - type: entity
   id: CigaretteWeldingFuel
   parent: SoakedCigarette
-  name: "Плазмовий Соус"
+  name: Plasma Sauce
   components:
   - type: SolutionContainerManager
     solutions:
@@ -425,7 +425,7 @@
 - type: entity
   id: CigaretteTHC
   parent: SoakedCigarette
-  name: "Роман у Стилі Хіпі"
+  name: Hippy Romance Novel
   components:
   - type: SolutionContainerManager
     solutions:

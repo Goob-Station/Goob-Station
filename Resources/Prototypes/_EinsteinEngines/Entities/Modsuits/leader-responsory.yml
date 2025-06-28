@@ -11,8 +11,8 @@
 - type: entity
   parent: [ ClothingModsuitStandard, BaseCentcommContraband ]
   id: ClothingModsuitResponsoryLeader
-  name: "блок керування лідерським скафандром швидкого реагування" # Goob edit
-  description: "Основний контролер для лідерського скафандра швидкого реагування." # Goob edit
+  name: Leader Responsory hardsuit control unit # Goob edit
+  description: The main controller for a Leader Responsory hardsuit. # Goob edit
   components:
     - type: ClothingSpeedModifier
       walkModifier: 1
@@ -44,8 +44,8 @@
 - type: entity
   parent: ClothingModsuitGauntletsStandard
   id: ClothingModsuitGauntletsResponsoryLeader
-  name: "лідерські рукавиці від скафандру швидкого реагування" # Goob edit
-  description: "Пара рукавиць, створених для лідерського скафандра швидкого реагування." # Goob edit
+  name: Leader Responsory hardsuit gauntlets # Goob edit
+  description: A pair of gauntlets made for the Leader Responsory hardsuit. # Goob edit
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -60,8 +60,8 @@
 - type: entity
   parent: [ClothingModsuitHelmetStandard, ShowSecurityIcons]
   id: ClothingModsuitHelmetResponsoryLeader
-  name: "лідерський шолом від скафандру швидкого реагування" # Goob edit
-  description: "Сучасний шолом, розроблений NanoTrasen для лідерського скафандра швидкого реагування. Має вбудований HUD." # Goob edit
+  name: Leader Responsory hardsuit helmet # Goob edit
+  description: A state-of-the-art helmet designed by NanoTrasen for the Leader Responsory hardsuit. It includes a built-in HUD. # Goob edit
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -105,8 +105,8 @@
 - type: entity
   parent: ClothingModsuitChestplateStandard
   id: ClothingModsuitChestplateResponsoryLeader
-  name: "лідерський нагрудник від скафандру швидкого реагування" # Goob edit
-  description: "Сучасний нагрудник, розроблений NanoTrasen для лідерського скафандра швидкого реагування. Він включає силові сервоприводи для зменшення навантаження від обладнання." # Goob edit
+  name: Leader Responsory hardsuit chestplate # Goob edit
+  description: A state of the art chestplate designed by NanoTrasen for the Leader Responsory hardsuit. It incorporates powered servos to reduce the equipment load. # Goob edit
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -146,8 +146,8 @@
 - type: entity
   parent: ClothingModsuitBootsStandard
   id: ClothingModsuitBootsResponsoryLeader
-  name: "лідерські черевики від скафандру швидкого реагування" # Goob edit
-  description: "Сучасна пара магнітних черевиків для лідерського скафандра швидкого реагування. Поки костюм живиться, вони не сповільнюватимуть власника." # Goob edit
+  name: Leader Responsory hardsuit boots # Goob edit
+  description: A state-of-the-art pair of magboots for the Leader Responsory hardsuit. So long as the suit is powered, these will not slow the wearer down. # Goob edit
   categories: [HideSpawnMenu]
   components:
     - type: Appearance

@@ -39,7 +39,7 @@
   abstract: true
   parent: BaseItem
   id: OreBase
-  description: "Шматок необробленої руди."
+  description: A piece of unrefined ore.
   components:
   - type: Sprite
     sprite: Objects/Materials/ore.rsi
@@ -64,7 +64,7 @@
 - type: entity
   parent: OreBase
   id: GoldOre
-  name: "золота руда"
+  name: gold ore
   suffix: Full
   components:
   - type: Stack
@@ -102,7 +102,7 @@
 - type: entity
   parent: OreBase
   id: DiamondOre
-  name: "алмазна руда"
+  name: diamond ore
   suffix: Full
   components:
   - type: Stack
@@ -140,7 +140,7 @@
 - type: entity
   parent: OreBase
   id: SteelOre
-  name: "залізна руда"
+  name: iron ore
   suffix: Full
   components:
   - type: Stack
@@ -178,7 +178,7 @@
 - type: entity
   parent: OreBase
   id: PlasmaOre
-  name: "плазмова руда"
+  name: plasma ore
   suffix: Full
   components:
   - type: Stack
@@ -221,7 +221,7 @@
 - type: entity
   parent: OreBase
   id: SilverOre
-  name: "срібна руда"
+  name: silver ore
   suffix: Full
   components:
   - type: Stack
@@ -259,7 +259,7 @@
 - type: entity
   parent: OreBase
   id: SpaceQuartz
-  name: "космічний кварц"
+  name: space quartz
   suffix: Full
   components:
   - type: Stack
@@ -297,7 +297,7 @@
 - type: entity
   parent: OreBase
   id: UraniumOre
-  name: "уранова руда"
+  name: uranium ore
   suffix: Full
   components:
   - type: Stack
@@ -343,7 +343,7 @@
 - type: entity
   parent: OreBase
   id: BananiumOre
-  name: "бананіумна руда"
+  name: bananium ore
   suffix: Full
   components:
   - type: Stack
@@ -390,7 +390,7 @@
 - type: entity
   parent: OreBase
   id: Coal
-  name: "вугілля"
+  name: coal
   suffix: Full
   components:
   - type: Stack
@@ -460,7 +460,7 @@
 - type: entity
   parent: OreBase
   id: SaltOre
-  name: "сіль"
+  name: salt
   suffix: Full
   components:
   - type: Stack

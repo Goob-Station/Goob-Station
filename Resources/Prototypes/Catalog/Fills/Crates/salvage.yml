@@ -38,8 +38,8 @@
 
 - type: entity
   id: CrateSalvageEquipment
-  name: "ящик утилізаційного обладнання"
-  description: "Для сміливців."
+  name: "salvage equipment crate"
+  description: For the daring.
   suffix: Filled
   parent: CrateGenericSteel
   components:
@@ -131,8 +131,8 @@
 - type: entity
   parent: CrateGenericSteel
   id: CratePartsT3
-  name: "ящик з деталями 3-го рівня"
-  description: "Містить 5 випадкових деталей 3-го рівня для модернізації машин."
+  name: tier 3 parts crate
+  description: Contains 5 random tier 3 parts for upgrading machines.
   # TODO add contents.
   #components:
   #- type: StorageFill
@@ -143,8 +143,8 @@
 - type: entity
   parent: CrateGenericSteel
   id: CratePartsT3T4
-  name: "ящик з деталями 3-го/4-го рівня"
-  description: "Містить 5 випадкових деталей 3 або 4 рівня для модернізації машин."
+  name: tier 3/4 parts crate
+  description: Contains 5 random tier 3 or 4 parts for upgrading machines.
   # TODO add contents.
   #components:
   # type: StorageFill
@@ -155,8 +155,8 @@
 - type: entity
   parent: CrateGenericSteel
   id: CratePartsT4
-  name: "ящик з деталями 4-го рівня"
-  description: "Містить 5 випадкових деталей 4-го рівня для модернізації машин."
+  name: tier 4 parts crate
+  description: Contains 5 random tier 4 parts for upgrading machines.
   # TODO add contents.
   #components:
   #- type: StorageFill

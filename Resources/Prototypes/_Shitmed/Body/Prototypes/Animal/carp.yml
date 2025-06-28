@@ -8,7 +8,7 @@
 
 - type: body
   id: Carp
-  name: "короп"
+  name: carp
   root: chest
   slots:
     chest:

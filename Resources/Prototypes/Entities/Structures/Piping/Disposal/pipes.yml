@@ -164,7 +164,7 @@
 - type: entity
   id: DisposalHolder
   categories: [ HideSpawnMenu ]
-  name: "утримувач майна"
+  name: disposal holder
   components:
   - type: DisposalHolder
   - type: ContainerContainer
@@ -176,8 +176,8 @@
 - type: entity
   id: DisposalPipeBroken
   parent: DisposalPipeBase
-  name: "зламана труба утилізації"
-  description: "ЗВТ (здорова велика труба)."
+  name: broken disposal pipe
+  description: A BBP (big broken pipe).
   components:
   - type: Sprite
     layers:
@@ -190,8 +190,8 @@
 - type: entity
   id: DisposalPipe
   parent: DisposalPipeBase
-  name: "каналізаційна труба"
-  description: "Величезний сегмент труби, що використовується для побудови систем утилізації."
+  name: disposal pipe segment
+  description: A huge pipe segment used for constructing disposal systems.
   components:
   - type: Sprite
     layers:
@@ -218,8 +218,8 @@
 - type: entity
   id: DisposalTagger
   parent: DisposalPipeBase
-  name: "маркувальник утилізації"
-  description: "Труба, яка тегує сутності для маршрутизації."
+  name: disposal pipe tagger
+  description: A pipe that tags entities for routing.
   components:
   - type: Sprite
     layers:
@@ -252,8 +252,8 @@
 - type: entity
   id: DisposalTrunk
   parent: DisposalPipeBase
-  name: "сміттєвий бак"
-  description: "Трубна магістраль, що використовується як точка входу для систем утилізації."
+  name: disposal trunk
+  description: A pipe trunk used as an entry point for disposal systems.
   components:
   - type: Sprite
     layers:
@@ -288,8 +288,8 @@
 - type: entity
   id: DisposalRouter
   parent: DisposalPipeBase
-  name: "утилізаційний маршрутизатор"
-  description: "Тристоронній маршрутизатор. Сутності з відповідними тегами перенаправляються в сторону."
+  name: disposal router
+  description: A three-way router. Entities with matching tags get routed to the side via configurable filters.
   components:
   - type: Sprite
     layers:
@@ -335,7 +335,7 @@
 
 - type: entity
   id: DisposalRouterFlipped
-  description: "Тристоронній маршрутизатор. Сутності з відповідними тегами перенаправляються в сторону."
+  description: A three-way router. Entities with matching tags get routed to the side.
   parent: DisposalRouter
   suffix: flipped
   components:
@@ -377,8 +377,8 @@
 - type: entity
   id: DisposalJunction
   parent: DisposalPipeBase
-  name: "утилізаційний вузол"
-  description: "Тристоронній перехрестя. Стрілка вказує, куди виходять елементи."
+  name: disposal junction
+  description: A three-way junction. The arrow indicates where items exit.
   components:
   - type: Sprite
     layers:
@@ -419,7 +419,7 @@
 
 - type: entity
   id: DisposalJunctionFlipped
-  description: "Тристоронній перехрестя. Стрілка вказує, куди виходять елементи."
+  description: A three-way junction. The arrow indicates where items exit.
   parent: DisposalJunction
   suffix: flipped
   components:
@@ -462,8 +462,8 @@
 - type: entity
   id: DisposalYJunction
   parent: DisposalPipeBase
-  name: "утилізація Y-образного переходу"
-  description: "Тристороння розв'язка з ще однією точкою виходу."
+  name: disposal y-junction
+  description: A three-way junction with another exit point.
   components:
   - type: Sprite
     layers:
@@ -502,8 +502,8 @@
 - type: entity
   id: DisposalXJunction
   parent: DisposalPipeBase
-  name: "утилізаційний х-подібний перехід"
-  description: "Чотиристоронній перехід. Стрілка вказує, куди виходять предмети."
+  name: disposal x-junction
+  description: A four-way junction. The arrow indicates where items exit.
   components:
   - type: Sprite
     layers:
@@ -544,8 +544,8 @@
 - type: entity
   id: DisposalBend
   parent: DisposalPipeBase
-  name: "утилізаційний вигин"
-  description: "Трубка, зігнута під кутом 90 градусів."
+  name: disposal bend
+  description: A tube bent at a 90 degree angle.
   components:
   - type: Sprite
     layers:
@@ -580,8 +580,8 @@
 - type: entity
   parent: DisposalJunction
   id: DisposalSignalRouter
-  name: "маршрутизатор сигналу утилізації"
-  description: "Тристоронній маршрутизатор, керований сигналом."
+  name: disposal signal router
+  description: A signal-controlled three-way router.
   components:
   - type: Sprite
     layers:

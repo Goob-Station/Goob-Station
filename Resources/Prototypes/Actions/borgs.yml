@@ -10,8 +10,8 @@
 
 - type: entity
   id: ActionViewLaws
-  name: "Переглянути закони"
-  description: "Ознайомтеся з законами, яких ви повинні дотримуватися."
+  name: View Laws
+  description: View the laws that you must follow.
   components:
   - type: InstantAction
     checkCanInteract: false
@@ -25,7 +25,7 @@
 
 - type: entity
   id: ActionSelectBorgType
-  name: "Обрати Тип Кіборга"
+  name: Select Cyborg Type
   components:
   - type: InstantAction
     itemIconStyle: NoItem

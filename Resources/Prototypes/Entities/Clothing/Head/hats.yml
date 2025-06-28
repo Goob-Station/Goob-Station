@@ -156,8 +156,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBeaverHat
-  name: "боброва шапка"
-  description: "Панове?"
+  name: beaver hat
+  description: 'Gentlemen?'
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/beaver_hat.rsi
@@ -167,8 +167,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBeret
-  name: "берет"
-  description: "Берет - улюблений головний убір художників."
+  name: beret
+  description: A beret, an artists favorite headwear.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/beret.rsi
@@ -186,8 +186,8 @@
 - type: entity
   parent: ClothingHeadHatBeret
   id: ClothingHeadHatBeretFrench
-  name: "французький берет"
-  description: "Французький берет, \"vive la France\"."
+  name: french beret
+  description: A French beret, "vive la France".
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/beret_french.rsi
@@ -203,8 +203,8 @@
 - type: entity
   parent: ClothingHeadHatBeret
   id: ClothingHeadHatBeretSecurity
-  name: "берет служби безпеки"
-  description: "Стильний варіант одягу для співробітників служби безпеки."
+  name: security beret
+  description: A stylish clothing option for security officers.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/beret_security.rsi
@@ -234,8 +234,8 @@
 - type: entity
   parent: ClothingHeadHatBeret
   id: ClothingHeadHatSecurityTrooper
-  name: "капелюх десантника"
-  description: "Капелюх для десантників Нанотрейзен, зазвичай йде в комплекті з футляром, але ви його загубили."
+  name: trooper hat
+  description: A campaign hat for the Nanotrasen Troopers, comes with a case too, but you lost it.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/security_trooper_hat.rsi
@@ -264,8 +264,8 @@
 - type: entity
   parent: ClothingHeadHatBeret
   id: ClothingHeadHatCasa
-  name: "каса"
-  description: "Капелюх у формі конуса."
+  name: casa
+  description: Cone-shaped hat.
   components:
     - type: Sprite
       sprite: Clothing/Head/Hats/casa.rsi
@@ -275,8 +275,8 @@
 - type: entity
   parent: ClothingHeadHatBeret
   id: ClothingHeadHatBeretRND
-  name: "берет наукового відділу"
-  description: "Берет для справжніх науковців."
+  name: scientific beret
+  description: A beret for real scientists.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/beret_rnd.rsi
@@ -295,8 +295,8 @@
 - type: entity
   parent: ClothingHeadHatBeretRND
   id: ClothingHeadHatBeretEngineering
-  name: "берет інженерного відділу"
-  description: "Берет з інженерною символікою. Для інженерів, які більше схильні до стилю, ніж до безпеки."
+  name: engineering beret
+  description: A beret with the engineering insignia emblazoned on it. For engineers that are more inclined towards style than safety.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/beret_engineering.rsi
@@ -311,8 +311,8 @@
 - type: entity
   parent: ClothingHeadHatBeretRND
   id: ClothingHeadHatBeretQM
-  name: "берет квартирмейстера"
-  description: "Берет з емблемою вантажного відділу. Для квартирмейстерів, які більше схильні до стилю."
+  name: quartermaster's beret
+  description: A beret with the cargo's insignia emblazoned on it. For quartermasters that are more inclined towards style.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/beret_qm.rsi
@@ -327,8 +327,8 @@
 - type: entity
   parent: [ClothingHeadHatBeretRND, BaseSecurityCommandContraband] # Goob edit
   id: ClothingHeadHatBeretHoS
-  name: "берет голови безпеки"
-  description: "Чорний берет з емблемою командирського звання. Для офіцерів, які більше схильні до стилю, ніж до безпеки."
+  name: head of security's beret
+  description: A black beret with a commander's rank emblem. For officers that are more inclined towards style than safety.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/beret_hos.rsi
@@ -358,8 +358,8 @@
 - type: entity
   parent: [ClothingHeadHatBeretRND, BaseSecurityContraband] # Goob edit
   id: ClothingHeadHatBeretWarden
-  name: "берет начальника охорони"
-  description: "Корпоративний синій берет з емблемою начальника охорони. Для офіцерів, які більше схильні до стилю, ніж до безпеки."
+  name: warden's beret
+  description: A corporate blue beret with a warden's rank emblem. For officers that are more inclined towards style than safety.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/beret_warden.rsi
@@ -384,8 +384,8 @@
 - type: entity
   parent: ClothingHeadHatBeret
   id: ClothingHeadHatBeretSeniorPhysician
-  name: "берет лікаря"
-  description: "Медики, одягнені в кольори медицини та хімії, є гордістю цього відділення!"
+  name: physician beret
+  description: Donning the colours of medical and chemistry, physicians are the pride of this department!
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/beret_physician.rsi
@@ -395,8 +395,8 @@
 - type: entity
   parent: [ClothingHeadHatBeret, BaseSecurityContraband] # Goob edit
   id: ClothingHeadHatBeretBrigmedic
-  name: "берет брігмедика"
-  description: "Білий берет, схожий на кремовий пиріг на голові."
+  name: brigmedical beret
+  description: White beret, looks like a cream pie on the head.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/beret_brigmedic.rsi
@@ -421,8 +421,8 @@
 - type: entity
   parent: [ ClothingHeadBase ]
   id: ClothingHeadHatBeretMerc
-  name: "берет найманця"
-  description: "Оливковий берет, на значку зображений шакал на скелі."
+  name: mercenary beret
+  description: Olive beret, the badge depicts a jackal on a rock.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/beret_merc.rsi
@@ -432,8 +432,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretCommand
-  name: "командний берет"
-  description: "Берет з емблемою командування. Має ауру авторитету."
+  name: command beret
+  description: A beret with a Command insignia emblazoned on it. It has an aura of authority.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/beret_command.rsi
@@ -448,8 +448,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBowlerHat
-  name: "капелюх-котелок"
-  description: "Стильна шапка-котелок."
+  name: bowler hat
+  description: Stylish bowler hat.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/bowler_hat.rsi
@@ -459,8 +459,8 @@
 - type: entity
   parent: [ ClothingHeadHatBeretRND, BaseCommandContraband ]
   id: ClothingHeadHatCaptain
-  name: "каска капітана"
-  description: "Добре бути королем."
+  name: captain's hardhat
+  description: It's good being the king.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/captain.rsi
@@ -490,8 +490,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatCardborg
-  name: "шолом кардборга"
-  description: "Капелюх з коробки."
+  name: cardborg helmet
+  description: A hat made out of a box.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/cardborg_h.rsi
@@ -505,8 +505,8 @@
 - type: entity
   parent: [ ClothingHeadBase, BaseCentcommContraband ]
   id: ClothingHeadHatCentcom
-  name: "капелюх бренду ЦентКом"
-  description: "Добре бути імператором."
+  name: CentComm brand hat
+  description: "It's good to be the emperor."
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/centcom.rsi
@@ -531,8 +531,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatChef
-  name: "кухарський ковпак"
-  description: "Це шапочка, яку використовують кухарі, щоб волосся не потрапляло на їжу. Судячи з того, що залишилося на столі, вони не працюють."
+  name: chef's hat
+  description: "It's a hat used by chefs to keep hair out of your food. Judging by the food in the mess, they don't work."
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/chefhat.rsi
@@ -561,8 +561,8 @@
 - type: entity
   parent: [ ClothingHeadBase, BaseSecurityContraband ] # Goob edit
   id: ClothingHeadHatFedoraBrown
-  name: "коричнева федора"
-  description: "Коричневий капелюх."
+  name: brown fedora
+  description: It's a brown fedora.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/brownfedora.rsi
@@ -592,8 +592,8 @@
 - type: entity
   parent: [ ClothingHeadBase, BaseSecurityContraband ] # Goob edit
   id: ClothingHeadHatFedoraGrey
-  name: "сіра федора"
-  description: "Сірий капелюх."
+  name: grey fedora
+  description: It's a grey fedora.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/greyfedora.rsi
@@ -618,8 +618,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatFez
-  name: "феска"
-  description: "Червона феска."
+  name: fez
+  description: A red fez.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/fez.rsi
@@ -629,8 +629,8 @@
 - type: entity
   parent: [ClothingHeadBase, BaseCommandContraband]
   id: ClothingHeadHatHopcap
-  name: "капелюх голови персоналу"
-  description: "Велична, стильна кепка для керівника персоналу."
+  name: head of personnel's cap
+  description: A grand, stylish head of personnel's cap.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/hopcap.rsi
@@ -645,8 +645,8 @@
 - type: entity
   parent: [ClothingHeadBase, BaseCommandContraband]
   id: ClothingHeadHatHoshat
-  name: "кашкет голови служби безпеки"
-  description: "Міцний стандартний кашкет голови служби безпеки. Щоб показати офіцерам, хто тут головний."
+  name: head of security cap
+  description: The robust standard-issue cap of the Head of Security. For showing the officers who's in charge.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/hoshat.rsi
@@ -676,8 +676,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatOutlawHat
-  name: "капелюх злочинця"
-  description: "Капелюх, в якому ви виглядаєте так, ніби носите пістолет з насічкою, під номером один і ще дев'ятнадцять."
+  name: outlaw's hat
+  description: A hat that makes you look like you carry a notched pistol, numbered one and nineteen more.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/outlawhat.rsi
@@ -687,8 +687,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatWitch1
-  name: "капелюх відьми"
-  description: "Відьомський капелюх." # Goob edit
+  name: witch hat
+  description: Strange-looking hat-wear. Makes you want to cast fireballs. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/witchhat.rsi
@@ -698,8 +698,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatPaper
-  name: "паперовий капелюх"
-  description: "Капелюх з паперу."
+  name: paper hat
+  description: A hat made of paper.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/paper.rsi
@@ -709,8 +709,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatPirate
-  name: "піратський капелюх"
-  description: "Йо-хо-хо і пляшку рому!"
+  name: pirate hat
+  description: 'Yo ho ho and a bottle of rum!'
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/pirate.rsi
@@ -720,8 +720,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatPlaguedoctor
-  name: "капелюх чумного лікаря"
-  description: "Колись їх використовували чумні лікарі."
+  name: plague doctor hat
+  description: These were once used by plague doctors.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/plaguedoctor.rsi
@@ -740,8 +740,8 @@
 - type: entity
   parent: ClothingHeadBase # Goob edit
   id: ClothingHeadHatRedwizard
-  name: "червоний капелюх чарівника"
-  description: "Дивно виглядає червоний капелюх, який, безсумнівно, належить справжньому магічному користувачеві."
+  name: red wizard hat
+  description: Strange-looking red hat-wear that most certainly belongs to a real magic user.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/redwizard.rsi
@@ -751,8 +751,8 @@
 - type: entity
   parent: [ClothingHeadBase, BaseFoldable]
   id: ClothingHeadHatSantahat
-  name: "шапка Санти"
-  description: "Святкова шапка, яку носить Санта Клаус. Тепер зі складною бородою."
+  name: santa hat
+  description: A festive hat worn by Santa Claus. Now with a foldable beard.
   components:
   - type: Clothing
     sprite: Clothing/Head/Hats/santahat.rsi
@@ -775,8 +775,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatSombrero
-  name: "сомбреро"
-  description: "Ідеально для Космічної Мексики,¿si?"
+  name: sombrero
+  description: "Perfectly for Space Mexico, si?"
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/sombrero.rsi
@@ -788,8 +788,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatSurgcapBlue
-  name: "хірургічна шапочка"
-  description: "Синя шапочка, яку хірурги одягають під час операцій. Не дає їхньому волоссю лоскотати ваші внутрішні органи."
+  name: surgical cap
+  description: A blue cap surgeons wear during operations. Keeps their hair from tickling your internal organs.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/surgcap_blue.rsi
@@ -804,8 +804,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatSurgcapGreen
-  name: "хірургічна шапочка"
-  description: "Зелена шапочка, яку носять хірурги під час операцій. Не дає їхньому волоссю лоскотати внутрішні органи."
+  name: surgical cap
+  description: A green cap surgeons wear during operations. Keeps their hair from tickling your internal organs.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/surgcap_green.rsi
@@ -815,8 +815,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatSurgcapPurple
-  name: "хірургічна шапочка"
-  description: "Фіолетова шапочка, яку хірурги одягають під час операцій. Не дає їхньому волоссю лоскотати ваші внутрішні органи."
+  name: surgical cap
+  description: A purple cap surgeons wear during operations. Keeps their hair from tickling your internal organs.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/surgcap_purple.rsi
@@ -826,8 +826,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatTophat
-  name: "капелюх-циліндр"
-  description: "Стильний чорний капелюх. У ньому виглядатимеш елігантно."
+  name: tophat
+  description: A stylish black tophat.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/tophat.rsi
@@ -842,8 +842,8 @@
 - type: entity
   parent: [ClothingHeadBase, BaseFoldable]
   id: ClothingHeadHatUshanka
-  name: "ушанка"
-  description: "Ідеально підходить для зими в Сибіру, так? Видно що робили це без смаку на моду.."
+  name: ushanka
+  description: "Perfect for winter in Siberia, da?"
   components:
   - type: Clothing
     sprite: Clothing/Head/Hats/ushanka.rsi
@@ -867,8 +867,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatCanadaBeanie
-  name: "шапка-біні"
-  description: "Червона, біла та затишна. Випромінює домашнє тепло, якщо ваш дім виявиться прохолодним і повним кав'ярень."
+  name: beanie
+  description: Red, white and snug. It radiates a homely feeling, if your home happens to be chilly and filled with coffeehouses.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/beanie.rsi
@@ -905,8 +905,8 @@
 - type: entity
   parent: ClothingHeadBase # Goob edit
   id: ClothingHeadHatVioletwizard
-  name: "фіолетовий капелюх чарівника"
-  description: "Дивний на вигляд фіолетовий капелюх, який, безсумнівно, належить справжньому магічному користувачеві."
+  name: violet wizard hat
+  description: "Strange-looking violet hat-wear that most certainly belongs to a real magic user."
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/violetwizard.rsi
@@ -916,8 +916,8 @@
 - type: entity
   parent: [ClothingHeadBase, BaseSecurityContraband] # Goob edit
   id: ClothingHeadHatWarden
-  name: "кашкет наглядача"
-  description: "Кашкет поліцейського. Цей кашкет підкреслює, що ви - ЗАКОН"
+  name: warden's cap
+  description: A police officer's Hat. This hat emphasizes that you are THE LAW
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/warden.rsi
@@ -944,8 +944,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatWitch
-  name: "капелюх відьми"
-  description: "Відьомський капелюх." # Goob edit
+  name: witch hat
+  description: Strange-looking hat-wear. Makes you want to cast fireballs. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/witch.rsi
@@ -962,8 +962,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatWizardFake
-  name: "фальшивий капелюх чарівника"
-  description: "На ньому блискітками написано ЧАРРІВНИК. Поставляється з крутою бородою."
+  name: fake wizard hat
+  description: It has WIZZARD written across it in sequins. Comes with a cool beard.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/wizard_fake.rsi
@@ -986,8 +986,8 @@
 - type: entity
   parent: ClothingHeadBase # Goob edit
   id: ClothingHeadHatWizard
-  name: "капелюх чарівника"
-  description: "Дивний на вигляд синій капелюх, який, безсумнівно, належить могутньому магічному користувачеві."
+  name: wizard hat
+  description: Strange-looking blue hat-wear that most certainly belongs to a powerful magic user.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/wizardhat.rsi
@@ -1002,8 +1002,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatXmasCrown
-  name: "різдвяна корона"
-  description: "Щасливого Різдва!"
+  name: xmas crown
+  description: 'Happy Christmas!'
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/xmascrown.rsi
@@ -1013,8 +1013,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatTrucker
-  name: "капелюх далекобійника"
-  description: "У колишньому Чакса, тепер цей капелюх твій."
+  name: trucker hat
+  description: Formerly Chucks, this hat is yours now.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/truckershat.rsi
@@ -1024,8 +1024,8 @@
 - type: entity
   parent: [ ClothingHeadBase, BaseSyndicateContraband ]
   id: ClothingHeadPyjamaSyndicateBlack
-  name: "синдикатська чорна піжамна шапка"
-  description: "Для того, щоб зігріти твою зрадницьку голову."
+  name: syndicate black pyjama hat
+  description: For keeping that traitor head of yours warm.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/pyjamasyndicateblack.rsi
@@ -1035,8 +1035,8 @@
 - type: entity
   parent: [ ClothingHeadBase, BaseSyndicateContraband ]
   id: ClothingHeadPyjamaSyndicatePink
-  name: "синдикатська рожева піжамна шапка"
-  description: "Для того, щоб зігріти твою зрадницьку голову."
+  name: syndicate pink pyjama hat
+  description: For keeping that traitor head of yours warm.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/pyjamasyndicatepink.rsi
@@ -1046,8 +1046,8 @@
 - type: entity
   parent: [ ClothingHeadBase, BaseSyndicateContraband ]
   id: ClothingHeadPyjamaSyndicateRed
-  name: "синдикатська червона піжамна шапка"
-  description: "Для того, щоб зігріти твою зрадницьку голову."
+  name: syndicate red pyjama hat
+  description: For keeping that traitor head of yours warm.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/pyjamasyndicatered.rsi
@@ -1057,8 +1057,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadPaperSack
-  name: "паперова маска"
-  description: "Паперовий мішок з грубими отворами для очей. Корисний для приховування своєї ідентичності.. або потворності."
+  name: papersack hat
+  description: A paper sack with crude holes cut out for eyes. Useful for hiding one's identity or ugliness.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/papersack.rsi
@@ -1069,8 +1069,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadPaperSackSmile
-  name: "усміхнена паперова маска"
-  description: "Паперовий мішок з грубими отворами для очей і намальованою посмішкою спереду. Зовсім не моторошно."
+  name: smiling papersack hat
+  description: A paper sack with crude holes cut out for eyes and a sketchy smile drawn on the front. Not creepy at all.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/papersacksmile.rsi
@@ -1081,8 +1081,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadFishCap
-  name: "рибальська шапка"
-  description: "Жінки бояться мене. Риби бояться мене. Чоловіки відвертають від мене очі. Коли я йду, жоден звір не наважується вимовити ані звуку в моїй присутності. Я самотній на цій безплідній землі."
+  name: fishing cap
+  description: Women fear me. Fish fear me. Men turn their eyes away from me. As I walk no beast dares make a sound in my presence. I am alone on this barren Earth.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/fishcap.rsi
@@ -1092,8 +1092,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadWehcellentCap
-  name: "wehcellent кепка"
-  description: "Це була сітчаста кепка! Тайдери носять їх постійно! Ззаду є отвори для вентиляції, щоб забезпечити перехресний вітерець і все таке!"
+  name: wehcellent cap
+  description: It was a net hat! Tiders wear them all the time! It's got airholes in the back to keep a cross-breeze going and everything!
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/wehcellentcap.rsi
@@ -1103,8 +1103,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadNurseHat
-  name: "шапочка медсестри"
-  description: "Чомусь я відчуваю, що не повинен покидати це місце."
+  name: nurse hat
+  description: Somehow I feel I'm not supposed to leave this place.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/nursehat.rsi
@@ -1119,8 +1119,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadRastaHat
-  name: "раста капелюх"
-  description: "Прямо біля пляжу, хлопче."
+  name: rasta hat
+  description: Right near da beach, boyee.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/rasta.rsi
@@ -1130,8 +1130,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadSafari
-  name: "капелюх-сафарі"
-  description: "Захищає очі від сонця. Робить вас мішенню для місцевих."
+  name: safari hat
+  description: Keeps the sun out of your eyes. Makes you a target for the locals.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/safarihat.rsi
@@ -1141,8 +1141,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatJester
-  name: "блазнівський капелюх"
-  description: "Капелюх з дзвіночками, щоб додати костюму веселості."
+  name: jester hat
+  description: A hat with bells, to add some merriness to the suit.
   components:
     - type: Sprite
       sprite: Clothing/Head/Hats/jester.rsi
@@ -1161,8 +1161,8 @@
 - type: entity
   parent: [ ClothingHeadHatBeretRND, BaseCommandContraband ]
   id: ClothingHeadHatBeretCmo
-  name: "берет головного лікаря"
-  description: "Бірюзовий берет з хрестом спереду. Його вигляд заспокоює і дає зрозуміти, що ти вилікуєшся."
+  name: chief medical officer's beret
+  description: Turquoise beret with a cross on the front. The sight of it calms you down and makes it clear that you will be cured.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/beret_cmo.rsi
@@ -1177,8 +1177,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatPirateTricord
-  name: "піратський капелюх"
-  description: "Йо-хо-хо і пляшку рому!"
+  name: pirate hat
+  description: 'Yo ho ho and a bottle of rum!'
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/piratetricord.rsi
@@ -1188,8 +1188,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatWatermelon
-  name: "кавуновий шолом"
-  description: "Недбало розрізану половинку кавуна, випотрошену зсередини, носити як шолом. Це може пом'якшити удар по голові."
+  name: watermelon helmet
+  description: A carelessly cut half of a watermelon, gutted from the inside, to be worn as a helmet. It can soften the blow to the head.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/melon.rsi
@@ -1205,8 +1205,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatHolyWatermelon
-  name: "кавуновий ореол"
-  description: "Святі небеса."
+  name: watermelon halo
+  description: Holy moly.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/holyhatmelon.rsi
@@ -1224,8 +1224,8 @@
 - type: entity
   parent: [ClothingHeadBase, BaseSyndicateContraband]
   id: ClothingHeadHatSyndie
-  name: "капелюх синдикату"
-  description: "Сувенірний капелюх від \"Syndieland\", їх виробництво вже закрито."
+  name: syndicate hat
+  description: A souvenir hat from "Syndieland", their production has already been closed.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/syndiecap.rsi
@@ -1235,8 +1235,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatSyndieMAA
-  name: "капелюх майстра зброї"
-  description: "Капелюх майстра зброї, виглядає страхітливо, сумніваюся, що вам сподобається спілкуватися з його власником..."
+  name: master at arms hat
+  description: Master at arms hat, looks intimidating, I doubt that you will like to communicate with its owner...
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/syndiecap_maa.rsi
@@ -1246,8 +1246,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatTacticalMaidHeadband
-  name: "тактична пов'язка для покоївки"
-  description: "Червона пов'язка на голові - не уявляйте себе Рембо і не беріть до рук кілька кулеметів."
+  name: tactical maid headband
+  description: "A red headband - don't imagine yourself a Rambo and don't pick up a few machine guns."
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/tacticalmaidheadband.rsi
@@ -1257,8 +1257,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatHetmanHat
-  name: "гетьманська шапка"
-  description: "Із Запорозької Січі з любов'ю."
+  name: hetman hat
+  description: From the Zaporozhian Sich with love.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/hetman_hat.rsi
@@ -1268,8 +1268,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatMagician
-  name: "капелюх фокусника"
-  description: "Капелюх фокусника."
+  name: magician's tophat
+  description: "A magician's tophat."
   components:
   - type: Icon
     sprite: Clothing/Head/Hats/magician.rsi
@@ -1302,8 +1302,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatCapcap
-  name: "кеп-кеп"
-  description: "Велика, стильна капітанська кепка."
+  name: cap cap
+  description: A grand, stylish captain cap.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/capcap.rsi
@@ -1339,8 +1339,8 @@
 - type: entity
   parent: [ ClothingHeadBase, BaseCentcommContraband ]
   id: ClothingHeadHatCentcomcap
-  name: "кепка ЦентКому"
-  description: "Екстравагантна, вишукана кепка Центрального Командира."
+  name: CentComm cap
+  description: An extravagant, fancy Central Commander cap.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/comcap.rsi
@@ -1372,8 +1372,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatGladiator
-  name: "шолом гладіатора"
-  description: "Захищає голову від суворого попелястого вітру та іграшкових списів."
+  name: gladiator helmet
+  description: Protects the head from harsh ash winds and toy spears.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/gladiator.rsi
@@ -1383,8 +1383,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatPartyRed
-  name: "червоний капелюх для вечірок"
-  description: "Поділіться радістю!"
+  name: red party hat
+  description: Spread a joy!
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/party_red.rsi
@@ -1399,7 +1399,7 @@
 - type: entity
   parent: ClothingHeadHatPartyRed
   id: ClothingHeadHatPartyYellow
-  name: "жовтий капелюх для вечірок"
+  name: yellow party hat
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/party_yellow.rsi
@@ -1409,7 +1409,7 @@
 - type: entity
   parent: ClothingHeadHatPartyRed
   id: ClothingHeadHatPartyGreen
-  name: "зелений капелюх для вечірок"
+  name: green party hat
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/party_green.rsi
@@ -1419,7 +1419,7 @@
 - type: entity
   parent: ClothingHeadHatPartyRed
   id: ClothingHeadHatPartyBlue
-  name: "синій капелюх для вечірок"
+  name: blue party hat
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/party_blue.rsi
@@ -1429,8 +1429,8 @@
 - type: entity
   parent: ClothingHeadHatPartyRed
   id: ClothingHeadHatPartyWaterCup
-  name: "капелюх для вечірки з чашкою для води"
-  description: "Не так повноцінно, як ви сподівалися..."
+  name: water cup party hat
+  description: Not as fulfilling as you had hoped...
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/party_water_cup.rsi
@@ -1440,8 +1440,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatGreyFlatcap
-  name: "сірий кашкет"
-  description: "Модний як для робітничого класу, так і для старого Дженкінса."
+  name: grey flatcap
+  description: Fashionable for both the working class and old man Jenkins.
   components:
   - type: Tag
     tags:
@@ -1454,8 +1454,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBrownFlatcap
-  name: "коричневий кашкет"
-  description: "Дурний клоун! Ти виставив мене в поганому світлі!"
+  name: brown flatcap
+  description: Stupid clown! You made me look bad!
   components:
   - type: Tag
     tags:
@@ -1468,8 +1468,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatCowboyBrown
-  name: "коричневий ковбойський капелюх"
-  description: "Цей капелюх замалий для нас обох."
+  name: brown cowboy hat
+  description: This hat ain't big enough for the both of us.
   components:
     - type: Sprite
       sprite: Clothing/Head/Hats/cowboyhatbrown.rsi
@@ -1482,7 +1482,7 @@
 - type: entity
   parent: ClothingHeadHatCowboyBrown
   id: ClothingHeadHatCowboyBlack
-  name: "чорний ковбойський капелюх"
+  name: black cowboy hat
   components:
     - type: Sprite
       sprite: Clothing/Head/Hats/cowboyhatblack.rsi
@@ -1492,7 +1492,7 @@
 - type: entity
   parent: ClothingHeadHatCowboyBrown
   id: ClothingHeadHatCowboyGrey
-  name: "сірий ковбойський капелюх"
+  name: grey cowboy hat
   components:
     - type: Sprite
       sprite: Clothing/Head/Hats/cowboyhatgrey.rsi
@@ -1502,7 +1502,7 @@
 - type: entity
   parent: ClothingHeadHatCowboyBrown
   id: ClothingHeadHatCowboyRed
-  name: "червоний ковбойський капелюх"
+  name: red cowboy hat
   components:
     - type: Sprite
       sprite: Clothing/Head/Hats/cowboyhatred.rsi
@@ -1512,7 +1512,7 @@
 - type: entity
   parent: ClothingHeadHatCowboyBrown
   id: ClothingHeadHatCowboyWhite
-  name: "білий ковбойський капелюх"
+  name: white cowboy hat
   components:
     - type: Sprite
       sprite: Clothing/Head/Hats/cowboyhatwhite.rsi
@@ -1522,7 +1522,7 @@
 - type: entity
   parent: ClothingHeadHatCowboyBrown
   id: ClothingHeadHatCowboyBountyHunter
-  name: "ковбойський капелюх мисливця за головами"
+  name: bounty hunter cowboy hat
   components:
     - type: Sprite
       sprite: Clothing/Head/Hats/cowboyhatbountyhunter.rsi
@@ -1532,8 +1532,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatStrawHat
-  name: "солом'яний капелюх"
-  description: "Модний капелюх для спекотних днів! Не рекомендується носити біля вогню."
+  name: straw hat
+  description: A fancy hat for hot days! Not recommended to wear near fires.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/straw_hat.rsi
@@ -1576,8 +1576,8 @@
 - type: entity
   parent: ClothingHeadHatBeret
   id: ClothingHeadHatBeretMedic
-  name: "берет лікаря"
-  description: "Білий берет, який заохочує бути чистим."
+  name: medical beret
+  description: White beret that encourages you to be clean.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/beret_medic.rsi
@@ -1587,8 +1587,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatSolidHeadband
-  name: "суцільна пов'язка на голову"
-  description: "Ви почуватиметеся Невидимим, одягнувши її! (ВІДМОВА ВІД ВІДПОВІДАЛЬНОСТІ: НАСПРАВДІ НЕ РОБИТЬ ВЛАСНИКА НЕВИДИМИМ)"
+  name: solid headband
+  description: "You'll feel like you're Invisible while wearing this! (DISCLAIMER: DOES NOT ACTUALLY MAKE THE WEARER INVISIBLE)"
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/solidheadband.rsi

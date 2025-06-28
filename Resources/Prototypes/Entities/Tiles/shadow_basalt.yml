@@ -8,8 +8,8 @@
 
 - type: entity
   id: ShadowBasaltOne
-  name: "тіньовий камінь"
-  description: "Сяючі тріщини в реальності. Напевно, це нормально."
+  name: shadowstone
+  description: Glowing cracks in reality. It's probably fine.
   placement:
     mode: SnapgridCenter
   components:

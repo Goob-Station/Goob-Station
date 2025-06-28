@@ -55,9 +55,9 @@
           - AutoinjectorCartridge
 
 - type: entity
-  name: "автоінжектор картриджів безпеки"
+  name: security cartridge autoinjector
   parent: [ BaseCartridgeAutoinjector , BaseSecurityContraband ]
-  description: "Використовується для швидкого введення ліків. Використовує картриджі, що друкуються на техфабі служби безпеки."
+  description: Used for rapid administration of medicine. Uses cartridges printable at the security techfab.
   id: SecHypo
   components:
   - type: Sprite
@@ -70,9 +70,9 @@
     delay: 45 # up this later if its too low
 
 - type: entity
-  name: "медичний автоінжектор картриджів"
+  name: medical cartridge autoinjector
   parent: [ BaseCartridgeAutoinjector , BaseMedicalContraband ]
-  description: "Використовується для швидкого введення ліків. Використовує картриджі, що друкуються на медичному техфабі."
+  description: Used for rapid administration of medicine. Uses cartridges printable at the medical techfab.
   id: ParamedHypo
   components:
   - type: Sprite
@@ -83,11 +83,11 @@
         visible: false
 
 - type: entity # This ones weird.
-  name: "гіпоспрей з амнезіном"
+  name: amnestic spray
   parent: [BaseItem, BaseCentcommContraband]
   id: AmnestizineHypospray
   suffix: DO NOT MAP
-  description: "Спеціалізований інжектор з картриджами, призначений для персоналу Центрального Командування. В основному використовується для введення амнезійних препаратів."
+  description: A specialized cartridge injector intended for Central Command personnel. Primarily used to inject amnestics.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Medical/amnestic_hypo.rsi
@@ -123,9 +123,9 @@
 # Autoinjector Cartridges
 
 - type: entity
-  name: "картридж для автоінжектора"
+  name: autoinjector cartridge
   parent: BaseItem
-  description: "Використовується в картриджному автоінжекторі."
+  description: Used in a cartridge autoinjector.
   id: BaseAutoinjectorCartridge
   abstract: true
   components:
@@ -146,9 +146,9 @@
       - AutoinjectorCartridge
 
 - type: entity
-  name: "картридж для автоінжектора з адреналіном"
+  name: adrenaline autoinjector cartridge
   parent: [ BaseSecurityMedicalContraband , BaseAutoinjectorCartridge ]
-  description: "Містить 7u адреналіну та 3u транексамової кислоти, використовується в картриджному автоінжекторі."
+  description: Contains 7u of epinephrine and 3u of tranexamic acid, used in a cartridge autoinjector.
   id: CartridgeEpinephrine
   components:
   - type: Sprite
@@ -167,9 +167,9 @@
         Quantity: 3 # Fully stops bleeding
 
 - type: entity
-  name: "картридж для автоінжектора при втраті повітря"
+  name: airloss autoinjector cartridge
   parent: [ BaseSecurityMedicalContraband , BaseAutoinjectorCartridge ]
-  description: "Містить 7u фізіологічного розчину та 3u дексаліну плюс, використовується в картриджному автоінжекторі."
+  description: Contains 7u of saline and 3u of dexalin plus, used in a cartridge autoinjector.
   id: CartridgeSaline
   components:
   - type: Sprite
@@ -188,9 +188,9 @@
         Quantity: 3
 
 - type: entity
-  name: "картридж для автоінжектора від грубої сили"
+  name: brute autoinjector cartridge
   parent: [ BaseSecurityMedicalContraband , BaseAutoinjectorCartridge ]
-  description: "Містить 4u бікардину, 3u бозаїду, 2u саліцилової кислоти та 1u транексамової кислоти, використовується в картриджному автоінжекторі."
+  description: Contains 4u of bicaridine, 3u of bozaide, 2u of salicylic acid and 1u of tranexamic acid, used in a cartridge autoinjector.
   id: CartridgeBicaridine
   components:
   - type: Sprite
@@ -214,9 +214,9 @@
   # Finely tuned mix, heals up to 98 total brute split between 3 types, equivalent of 3.23 brute packs
 
 - type: entity
-  name: "картридж для автоінжектора від опіків"
+  name: burn autoinjector cartridge
   parent: [ BaseSecurityMedicalContraband , BaseAutoinjectorCartridge ]
-  description: "Містить 4u келотану, 3u дермаліну, 2u оксандролону та 1u сигінату, використовується в картриджному автоінжекторі."
+  description: Contains 4u of kelotane, 3u of dermaline, 2u of oxandrolone and 1u of sigynate, used in a cartridge autoinjector.
   id: CartridgeDermaline
   components:
   - type: Sprite
@@ -240,9 +240,9 @@
   # Finely tuned mix, heals up to 114 total burn split between 4 types, twice as good for heat/cold/shock than for caustic, equivalent of 3.25 ointments
 
 - type: entity
-  name: "екстрений картридж для автоінжектора"
+  name: emergency autoinjector cartridge
   parent: [ BaseSecurityMedicalContraband , BaseAutoinjectorCartridge ]
-  description: "Містить 10u атропіну, використовується в картриджному автоінжекторі."
+  description: Contains 10u of atropine, used in a cartridge autoinjector.
   id: CartridgeAtropine
   components:
   - type: Sprite
@@ -259,9 +259,9 @@
         Quantity: 10
 
 - type: entity
-  name: "картридж для автоінжектора від проколів"
+  name: piercing autoinjector cartridge
   parent: [ BaseSyndicateContraband , BaseAutoinjectorCartridge ]
-  description: "Містить 10u пунктурази, використовується в картриджному автоінжекторі."
+  description: Contains 10u of puncturase, used in a cartridge autoinjector.
   id: CartridgePuncturase
   components:
   - type: Sprite
@@ -278,9 +278,9 @@
         Quantity: 10
 
 - type: entity
-  name: "стимулюючий картридж для автоінжектора"
+  name: stimulant autoinjector cartridge
   parent: [ BaseSyndicateContraband , BaseAutoinjectorCartridge ]
-  description: "Містить 10u ефедрину, використовується в картриджному автоінжекторі."
+  description: Contains 10u of ephedrine, used in a cartridge autoinjector.
   id: CartridgeEphedrine
   components:
   - type: Sprite
@@ -297,9 +297,9 @@
         Quantity: 10
 
 - type: entity
-  name: "седативний картридж для автоінжектора"
+  name: sedative autoinjector cartridge
   parent: [ BaseSyndicateContraband , BaseAutoinjectorCartridge ]
-  description: "Містить 4u тиризену, 3u імпедрезину та 3u галоперидолу, використовується в картриджному автоінжекторі."
+  description: Contains 4u of tirizene, 3u of impedrezene and 3u of haloperidol, used in a cartridge autoinjector.
   id: CartridgeTirizene
   components:
   - type: Sprite
@@ -322,9 +322,9 @@
 # Q - Why is this edible?
 # A - Because the dispenser reminded me of a pez dispenser, and it'd be funny if you could eat them.
 - type: entity
-  name: "картридж для автоінжектора з амнезіном"
+  name: amnestic autoinjector cartridge
   parent: [ BaseCentcommContraband , BaseAutoinjectorCartridge, EdibleBase ]
-  description: "Містить 10 одиниць димтреметик-нейрамінцилової кислоти, використовується в картриджному автоінжекторі."
+  description: Contains 10u of dimtremethic-neuramincyl acid, used in a cartridge autoinjector.
   id: CartridgeAmnestic
   components:
   - type: Sprite
@@ -365,11 +365,11 @@
 # Medipens
 
 - type: entity
-  name: "футуристична медична ручка"
+  name: futuristic medipen
   parent: ChemicalMedipen
   id: StasiziumAutoInjector
   suffix: DO NOT MAP
-  description: "Доза лікарських речовин з майбутнього, яка може підняти на ноги навіть мертвих."
+  description: A dose of medicinal substances from the future that can raise even the dead to their feet.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Medical/stasipen.rsi
@@ -394,11 +394,11 @@
     tags: []
 
 - type: entity
-  name: "вдосконалений стимулятор Центкому"
+  name: centcomm advanced stimulant
   parent: [ChemicalMedipen, BaseCentcommContraband]
   id: CentcommStimpack
   suffix: DO NOT MAP
-  description: "Згідно з дослідженням, профінансованим Nanotrasen, він не викликає залежності."
+  description: According to a Nanotrasen funded study, it has zero addictive properties.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Medical/medipen.rsi
@@ -427,11 +427,11 @@
     tags: []
 
 - type: entity
-  name: "медипен з амбузолом"
+  name: biohazard medipen
   parent: ChemicalMedipen
   id: AmbuzolMedipen
   suffix: DO NOT MAP
-  description: "Безпечний та ефективний спосіб лікування інфекцій. Не запобігає повторному зараженню."
+  description: A safe and effective way to treat infections. Does not prevent re-infection.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Medical/medipen.rsi
@@ -456,11 +456,11 @@
     - EmergencyMedipen
 
 - type: entity
-  name: "вдосконалений медипен з амбузолом плюс"
+  name: advanced biohazard medipen
   parent: ChemicalMedipen
   id: AmbuzolPlusMedipen
   suffix: DO NOT MAP
-  description: "Безпечніший та надзвичайно ефективний спосіб лікування будь-яких інфекцій. Запобігає повторному зараженню."
+  description: A safer and extremely effective way to treat any infections. Prevents re-infection.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Medical/medipen.rsi
@@ -487,9 +487,9 @@
 # Actual hyposprays
 
 - type: entity
-  name: "гіпоспрей Центкому"
+  name: centcomm hypospray
   parent: [BaseItem, BaseCentcommContraband]
-  description: "Зарезервовано для найкращих лікарів Nanotrasen. Використовує експериментальну технологію блюспейс."
+  description: Reserved for Nanotrasen's top doctors. It utilizes experimental bluespace technology.
   id: CentCommHypo
   components:
   - type: Sprite

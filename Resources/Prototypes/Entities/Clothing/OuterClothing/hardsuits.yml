@@ -234,8 +234,8 @@
 - type: entity
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitBasic
-  name: "базовий скафандр" # Goob edit
-  description: "Базовий, універсальний скафандр, що захищає власника від жахів життя в космосі. Краще, ніж не мати скафандра взагалі." # Goob edit
+  name: basic voidsuit # Goob edit
+  description: A basic, universal voidsuit that protects the wearer against the horrors of life in space. Beats not having a hardsuit, at least. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/basic.rsi
@@ -262,8 +262,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseEngineeringContraband]
   id: ClothingOuterHardsuitAtmos
-  name: "атмосферний скафандр" # Goob edit
-  description: "Спеціальний костюм, що захищає від небезпечних середовищ з низьким тиском. Має тепловий захист."
+  name: atmos voidsuit # Goob edit
+  description: A special suit that protects against hazardous, low pressure environments. Has thermal shielding.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/atmospherics.rsi
@@ -299,8 +299,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseEngineeringContraband]
   id: ClothingOuterHardsuitEngineering
-  name: "інженерний скафандр"
-  description: "Спеціальний скафандр, що захищає від небезпечних середовищ з низьким тиском. Має радіаційний захист."
+  name: engineering voidsuit
+  description: A special voidsuit that protects against hazardous, low pressure environments. Has radiation shielding.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/engineering.rsi
@@ -330,8 +330,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseCargoContraband]
   id: ClothingOuterHardsuitSpatio
-  name: "скафандр спейсіонавта" # Goob edit
-  description: "Легкий скафандр, призначений для промислових робіт у відкритому космосі в умовах невагомості." # Goob edit
+  name: spationaut voidsuit # Goob edit
+  description: A lightweight voidsuit designed for industrial EVA in zero gravity. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/spatio.rsi
@@ -370,8 +370,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseCargoContraband]
   id: ClothingOuterHardsuitSalvage
-  name: "шахтарський скафандр" # Goob edit
-  description: "Спеціальний костюм, що захищає від небезпечних середовищ з низьким тиском. Має посилену обшивку для зіткнень з дикою природою."
+  name: mining voidsuit # Goob edit
+  description: A special suit that protects against hazardous, low pressure environments. Has reinforced plating for wildlife encounters.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/salvage.rsi
@@ -408,8 +408,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseCargoContraband]
   id: ClothingOuterHardsuitGoliath
-  name: "скафандр голіафа" # Goob edit
-  description: "Легкий скафандр, прикрашений клаптями товстої, хітинової шкіри голіафа." # Goob edit
+  name: goliath voidsuit # Goob edit
+  description: A lightweight voidsuit, adorned with a patchwork of thick, chitinous goliath hide. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/goliath.rsi
@@ -449,8 +449,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseCargoContraband]
   id: ClothingOuterHardsuitMaxim
-  name: "скафандр утилізатора \"Максим" # Goob edit
-  description: "Вогонь. Спека. Ці речі створюють чудову зброю, а також чудових утилізаторів."
+  name: salvager maxim voidsuit # Goob edit
+  description: Fire. Heat. These things forge great weapons, they also forge great salvagers.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/maxim.rsi
@@ -494,8 +494,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseSecurityContraband]
   id: ClothingOuterHardsuitSecurity
-  name: "скафандр служби безпеки"
-  description: "Спеціальний костюм, який захищає від небезпечних середовищ з низьким тиском. Має додатковий шар броні."
+  name: security hardsuit
+  description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/security.rsi
@@ -537,8 +537,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseSecurityContraband]
   id: ClothingOuterHardsuitBrigmedic
-  name: "скафандр тюремного медика" # Goob edit
-  description: "Спеціальний скафандр ангела-охоронця в'язниці. Це медична версія скафандра служби безпеки." # Goob edit
+  name: brigmedic voidsuit # Goob edit
+  description: Special voidsuit of the guardian angel of the brig. It is the medical version of the security voidsuit. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/brigmedic.rsi
@@ -575,8 +575,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseWardenContraband]
   id: ClothingOuterHardsuitWarden
-  name: "скафандр начальника охорони" # Goob edit
-  description: "Спеціалізований костюм для боротьби з заворушеннями, пристосований до умов низького тиску."
+  name: warden's voidsuit # Goob edit
+  description: A specialized riot suit geared to combat low pressure environments.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/security-warden.rsi
@@ -618,8 +618,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseCommandContraband]
   id: ClothingOuterHardsuitCap
-  name: "парадний скафандр капітана" # Goob edit
-  description: "Формальний і злегка броньований скафандр, створений для капітана станції." # Goob edit
+  name: captain's parade voidsuit # Goob edit
+  description: A formal and slightly armored voidsuit, made for the station's captain. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/capspace.rsi
@@ -662,8 +662,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseCommandContraband]
   id: ClothingOuterHardsuitEngineeringWhite
-  name: "скафандр головного інженера" # Goob edit
-  description: "Спеціальний скафандр, що захищає від небезпечних середовищ з низьким тиском, виготовлений для головного інженера станції." # Goob edit
+  name: chief engineer's voidsuit # Goob edit
+  description: A special voidsuit that protects against hazardous, low pressure environments, made for the chief engineer of the station. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/engineering-white.rsi
@@ -707,8 +707,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseCommandContraband]
   id: ClothingOuterHardsuitMedical
-  name: "скафандр головного лікаря" # Goob edit
-  description: "Спеціальний костюм, що захищає від небезпечних середовищ з низьким тиском. Виготовлений з легких матеріалів для полегшення рухів." # Goob edit
+  name: chief medical officer's voidsuit # Goob edit
+  description: A special suit that protects against hazardous, low pressure environments. Built with lightweight materials for easier movement. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/medical.rsi
@@ -739,8 +739,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseGrandTheftContraband]
   id: ClothingOuterHardsuitRd
-  name: "експериментальний дослідницький скафандр" # Goob edit
-  description: "Спеціальний костюм, який захищає від небезпечних середовищ з низьким тиском. Має додатковий шар броні."
+  name: experimental research voidsuit # Goob edit
+  description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/rd.rsi
@@ -790,8 +790,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseCommandContraband]
   id: ClothingOuterHardsuitSecurityRed
-  name: "скафандр голови служби безпеки"
-  description: "Легший і більш захищений, ніж стандартний скафандр служби безпеки, але не набагато."
+  name: head of security's voidsuit
+  description: Lighter and more protective than the standard security voidsuit, but not by much.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/security-red.rsi
@@ -834,8 +834,8 @@
 - type: entity
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitLuxury #DO NOT MAP - https://github.com/space-wizards/space-station-14/pull/19738#issuecomment-1703486738
-  name: "елітний шахтарський скафандр" # Goob edit
-  description: "Відремонтований шахтарський скафандр, виконаний у кольорах квартирмейстера. Графенова підкладка забезпечує менший захист, але в ньому набагато легше рухатися." # Goob edit
+  name: luxury mining voidsuit # Goob edit
+  description: A refurbished mining voidsuit, fashioned after the Quartermaster's colors. Graphene lining provides less protection, but is much easier to move. # Goob edit
   categories: [ DoNotMap ]
   components:
   - type: Sprite
@@ -873,8 +873,8 @@
 - type: entity
   parent: [ ClothingOuterHardsuitBase, BaseSyndicateContraband ]
   id: ClothingOuterHardsuitSyndie
-  name: "криваво-червоний скафандр" # Goob edit
-  description: "Важкоброньований скафандр, призначений для роботи в спеціальних операціях. Власність рейдерів Горлекс."
+  name: blood-red voidsuit # Goob edit
+  description: A heavily armored voidsuit designed for work in special operations. Property of Gorlex Marauders.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/syndicate.rsi
@@ -924,8 +924,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitSyndie, BaseSyndicateContraband]
   id: ClothingOuterHardsuitSyndieMedic
-  name: "криваво-червоний медичний скафандр" # Goob edit
-  description: "Важкоброньований та маневрений просунутий скафандр, спеціально розроблений для польових медичних операцій."
+  name: blood-red medic voidsuit # Goob edit
+  description: A heavily armored and agile advanced voidsuit specifically designed for field medic operations.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/syndiemedic.rsi
@@ -948,8 +948,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseSyndicateContraband]
   id: ClothingOuterHardsuitSyndieElite
-  name: "елітний скафандр синдикату" # Goob edit
-  description: "Елітна версія криваво-червоного скафандра з покращеною мобільністю та вогнестійкістю. Власність рейдерів Горлекс." # Goob edit
+  name: syndicate elite voidsuit # Goob edit
+  description: An elite version of the blood-red voidsuit, with improved mobility and fireproofing. Property of Gorlex Marauders. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/syndieelite.rsi
@@ -999,8 +999,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseSyndicateContraband]
   id: ClothingOuterHardsuitSyndieCommander
-  name: "скафандр командира синдикату" # Goob edit
-  description: "Посилена версія криваво-червоного скафандра, спеціально створена для командира оперативного загону синдикату. Має значно покращену броню для смертельних перестрілок на передовій." # Goob edit
+  name: syndicate commander voidsuit # Goob edit
+  description: A bulked up version of the blood-red voidsuit, purpose-built for the commander of a syndicate operative squad. Has significantly improved armor for those deadly front-lines firefights. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/syndiecommander.rsi
@@ -1043,8 +1043,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseSyndicateContraband]
   id: ClothingOuterHardsuitJuggernaut
-  name: "скафандр джаггернаута cybersun"
-  description: "Костюм, виготовлений найсучаснішим відділом досліджень та розробок компанії Cybersun, щоб бути надзвичайно стійким до зовнішніх впливів."
+  name: cybersun juggernaut suit
+  description: A suit made by the cutting edge R&D department at cybersun to be hyper resilient.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/cybersun.rsi
@@ -1090,8 +1090,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, ClothingOuterWizardBaseArmor, BaseMagicalContraband] # Goob edit
   id: ClothingOuterHardsuitWizard
-  name: "скафандр чарівника" # Goob edit
-  description: "Дивний костюм, інкрустований дорогоцінними каменями, що випромінює магічну енергію."
+  name: wizard voidsuit # Goob edit
+  description: A bizarre gem-encrusted suit that radiates magical energies.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/wizard.rsi
@@ -1137,8 +1137,8 @@
 - type: entity
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitLing
-  name: "органічний скафандр"
-  description: "Космічна біомаса зі стійкої до тиску та температури тканини."
+  name: organic space suit
+  description: A spaceworthy biomass of pressure and temperature resistant tissue.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/lingspacesuit.rsi
@@ -1173,9 +1173,9 @@
 - type: entity
   parent: [ ClothingOuterHardsuitBase, BaseMajorContraband ]
   id:  ClothingOuterHardsuitPirateEVA
-  name: "скафандр для глибокого космосу"
+  name: deep space EVA suit
   suffix: Pirate
-  description: "Важкий скафандр, який забезпечує базовий захист від холодних суворих реалій відкритого космосу."
+  description: A heavy space suit that provides some basic protection from the cold harsh realities of deep space.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/pirateeva.rsi
@@ -1212,8 +1212,8 @@
 - type: entity
   parent: [ ClothingOuterHardsuitBase, BaseMajorContraband ]
   id: ClothingOuterHardsuitPirateCap
-  name: "скафандр капітана піратів" # Goob edit
-  description: "Стародавній броньований скафандр, ідеальний для захисту від космічної цинги та негідників з ящиками для інструментів." # Goob edit
+  name: pirate captain's voidsuit # Goob edit
+  description: An ancient armored voidsuit, perfect for defending against space scurvy and toolbox-wielding scallywags. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/piratecaptain.rsi
@@ -1254,8 +1254,8 @@
 - type: entity
   parent: [ BaseCentcommContraband, ClothingOuterHardsuitSyndieCommander ]
   id: ClothingOuterHardsuitERTLeader
-  name: "скафандр лідера ШРТ" # Goob edit
-  description: "Захисний скафандр, який носить лідер штурмової рятувальної команди." # Goob edit
+  name: ERT leader's voidsuit # Goob edit
+  description: A protective voidsuit worn by the leader of an emergency response team. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertleader.rsi
@@ -1269,8 +1269,8 @@
 - type: entity
   parent: [ BaseCentcommContraband, ClothingOuterHardsuitJuggernaut ]
   id: ClothingOuterHardsuitERTChaplain
-  name: "скафандр капелана ШГР" # Goob edit
-  description: "Захисний скафандр, який носять капелани Штурмової Групи Реагування." # Goob edit
+  name: ERT chaplain's voidsuit # Goob edit
+  description: A protective voidsuit worn by the chaplains of an Emergency Response Team. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertchaplain.rsi #if you change this, please update the humanoid.yml with a better markers sprite.
@@ -1284,8 +1284,8 @@
 - type: entity
   parent: ClothingOuterHardsuitCBURN
   id: ClothingOuterHardsuitERTEngineer
-  name: "скафандр інженера ШРТ" # Goob edit
-  description: "Захисний скафандр, який носять інженери штурмової рятувальної команди." # Goob edit
+  name: ERT engineer's voidsuit # Goob edit
+  description: A protective voidsuit worn by the engineers of an emergency response team. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertengineer.rsi
@@ -1301,8 +1301,8 @@
 - type: entity
   parent: [ BaseCentcommContraband, ClothingOuterHardsuitSyndieMedic ]
   id: ClothingOuterHardsuitERTMedical
-  name: "скафандр медика ШРТ" # Goob edit
-  description: "Захисний скафандр, який носять медики штурмової рятувальної команди." # Goob edit
+  name: ERT medic's voidsuit # Goob edit
+  description: A protective voidsuit worn by the medics of an emergency response team. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertmedical.rsi
@@ -1316,8 +1316,8 @@
 - type: entity
   parent: [ BaseCentcommContraband, ClothingOuterHardsuitSyndie ]
   id: ClothingOuterHardsuitERTSecurity
-  name: "скафандр служби безпеки ШРТ" # Goob edit
-  description: "Захисний скафандр, який носять офіцери служби безпеки штурмової рятувальної команди." # Goob edit
+  name: ERT security's voidsuit # Goob edit
+  description: A protective voidsuit worn by the security officers of an emergency response team. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertsecurity.rsi
@@ -1335,8 +1335,8 @@
 - type: entity
   parent: ClothingOuterHardsuitCBURN
   id: ClothingOuterHardsuitERTJanitor
-  name: "скафандр прибиральника ШРТ" # Goob edit
-  description: "Захисний скафандр, який носять прибиральники штурмової рятувальної команди." # Goob edit
+  name: ERT janitor's voidsuit # Goob edit
+  description: A protective voidsuit worn by the janitors of an emergency response team. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertjanitor.rsi
@@ -1350,8 +1350,8 @@
 - type: entity # Goobstation - Start
   parent: [ BaseCentcommContraband, ClothingOuterHardsuitBase ]
   id: ClothingOuterHardsuitDeathsquad # Todo - This should be a modsuit when those are done.
-  name: "скафандр \"Люцифер\" PI-52" # Goob edit
-  description: "Відомий скафандр, що використовується каральними загонами Центрального Командування, часто демонструється у фільмах НаноТрейзен з метою збільшення набору." # Goob edit
+  name: PI-52 "Lucifer" voidsuit # Goob edit
+  description: A famous voidsuit used by Central Commands death-squadrons, often shown in movies by nanotrasen intended to increase recruitment. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/deathsquad.rsi
@@ -1408,8 +1408,8 @@
 - type: entity
   parent: [ BaseCentcommContraband, ClothingOuterHardsuitBase ]
   id: ClothingOuterHardsuitCBURN
-  name: "екзокостюм CBURN"
-  description: "Легкий, але міцний екзокостюм, який використовується для спеціальних операцій з очищення."
+  name: CBURN exosuit
+  description: A lightweight yet strong exosuit used for special cleanup operations.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/cburn.rsi
@@ -1454,8 +1454,8 @@
 - type: entity
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitClown
-  name: "скафандр клоуна" # Goob edit
-  description: "Спеціально виготовлений скафандр клоуна." # Goob edit
+  name: clown voidsuit # Goob edit
+  description: A custom-made clown voidsuit. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/clown.rsi
@@ -1491,8 +1491,8 @@
 - type: entity
   parent: ClothingOuterHardsuitClown
   id: ClothingOuterHardsuitMime
-  name: "скафандр міма" # Goob edit
-  description: "Спеціально виготовлений скафандр міма." # Goob edit.
+  name: mime voidsuit # Goob edit
+  description: A custom-made mime voidsuit. # Goob edit.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/mime.rsi
@@ -1509,8 +1509,8 @@
 - type: entity
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitSanta
-  name: "скафандр санти" # Goob edit
-  description: "Святковий, веселий скафандр, який захищає веселого дарувальника подарунків під час поїздок на санях у космосі. Надає певний захист від ударів астероїдів." # Goob edit
+  name: Santa's voidsuit # Goob edit
+  description: A festive, cheerful voidsuit that protects the jolly gift-giver while on sleighrides in space. Offers some resistance against asteroid strikes. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/santahardsuit.rsi

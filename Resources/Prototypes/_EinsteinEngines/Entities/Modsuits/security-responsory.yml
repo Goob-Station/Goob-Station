@@ -10,8 +10,8 @@
 - type: entity
   parent: [ ClothingModsuitStandard, BaseCentcommContraband ]
   id: ClothingModsuitResponsorySecurity
-  name: "блок керування скафандром СБ швидкого реагування" # Goob edit
-  description: "Основний контролер для скафандра СБ швидкого реагування." # Goob edit
+  name: Security Responsory hardsuit control unit # Goob edit
+  description: The main controller for a Security Responsory hardsuit. # Goob edit
   components:
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/security-responsory.rsi
@@ -40,8 +40,8 @@
 - type: entity
   parent: ClothingModsuitGauntletsStandard
   id: ClothingModsuitGauntletsResponsorySecurity
-  name: "рукавиці від скафандру СБ швидкого реагування" # Goob edit
-  description: "Пара рукавиць, створених для скафандра СБ швидкого реагування." # Goob edit
+  name: Security Responsory hardsuit gauntlets # Goob edit
+  description: A pair of gauntlets made for the Security Responsory hardsuit. # Goob edit
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -56,8 +56,8 @@
 - type: entity
   parent: [ClothingModsuitHelmetStandard, ShowSecurityIcons]
   id: ClothingModsuitHelmetResponsorySecurity
-  name: "шолом від скафандру СБ швидкого реагування" # Goob edit
-  description: "Сучасний шолом, розроблений NanoTrasen для скафандра СБ швидкого реагування. Має вбудований HUD." # Goob edit
+  name: Security Responsory hardsuit helmet # Goob edit
+  description: A state-of-the-art helmet designed by NanoTrasen for the Security Responsory hardsuit. It includes a built-in HUD. # Goob edit
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -101,8 +101,8 @@
 - type: entity
   parent: ClothingModsuitChestplateStandard
   id: ClothingModsuitChestplateResponsorySecurity
-  name: "нагрудник від скафандру СБ швидкого реагування" # Goob edit
-  description: "Сучасний нагрудник, розроблений NanoTrasen для скафандра СБ швидкого реагування. Він включає силові сервоприводи для зменшення навантаження від обладнання." # Goob edit
+  name: Security Responsory hardsuit chestplate # Goob edit
+  description: A state of the art chestplate designed by NanoTrasen for the Security Responsory hardsuit. It incorporates powered servos to reduce the equipment load. # Goob edit
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -138,8 +138,8 @@
 - type: entity
   parent: ClothingModsuitBootsStandard
   id: ClothingModsuitBootsResponsorySecurity
-  name: "черевики від скафандру СБ швидкого реагування" # Goob edit
-  description: "Сучасна пара магнітних черевиків для скафандра СБ швидкого реагування." # Goob edit
+  name: Security Responsory hardsuit boots # Goob edit
+  description: A state-of-the-art pair of magboots for the Security Responsory hardsuit. # Goob edit
   categories: [HideSpawnMenu]
   components:
     - type: Appearance

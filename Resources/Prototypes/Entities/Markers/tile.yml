@@ -18,7 +18,7 @@
 
 - type: entity
   id: RoofMarker
-  name: "Дах"
+  name: Roof
   suffix: Enabled
   parent: BaseRoofMarker
   components:
@@ -31,7 +31,7 @@
 
 - type: entity
   id: NoRoofMarker
-  name: "Дах"
+  name: Roof
   suffix: Disabled
   parent: BaseRoofMarker
   components:

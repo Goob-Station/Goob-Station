@@ -166,8 +166,8 @@
 - type: entity
   parent: [BaseMob, StripableInventoryBase]
   id: BaseBorgChassis
-  name: "кіборг"
-  description: "Людино-машинний гібрид, який допомагає в роботі станції. Їм подобається, коли їх просять повторювати свої закони знову і знову."
+  name: cyborg
+  description: A man-machine hybrid that assists in station activity. They love being asked to state their laws over and over.
   save: false
   abstract: true
   components:
