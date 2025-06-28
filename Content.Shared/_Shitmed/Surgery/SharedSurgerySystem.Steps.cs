@@ -484,8 +484,11 @@ public abstract partial class SharedSurgerySystem
 
         if (!TryComp(args.Tool, out MarkingContainerComponent? markingComp)
             || !HasComp(args.Tool, organType.Component.GetType())
-            || !bodyAppearance.MarkingSet.Markings.TryGetValue(markingCategory, out var markingList)
-            || markingList.Any(marking => marking.MarkingId.Contains(ent.Comp.MatchString)))
+            || bodyAppearance.MarkingSet.Markings.TryGetValue(markingCategory, out var markingList))
+            return;
+
+        markingList ??= new List<Marking>();
+        if (markingList.Any(marking => marking.MarkingId.Contains(ent.Comp.MatchString)))
             return;
 
         EnsureComp<BodyPartAppearanceComponent>(args.Part);
