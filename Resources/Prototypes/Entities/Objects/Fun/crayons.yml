@@ -120,6 +120,7 @@
     - Crayon
     - Recyclable
     - Trash
+    - CrayonRainbow # goob edit
 
 - type: entity
   parent: Crayon

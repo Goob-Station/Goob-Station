@@ -13,3 +13,14 @@
   description: A weak grenade that might just scare some people.
   icon: { sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi, state: frag }
   objectType: Item
+
+- type: construction
+  name: magic crayon
+  id: CrayonMagic
+  graph: CrayonMagic
+  startNode: start
+  targetNode: crayonmagic
+  category: construction-category-misc
+  description: Specially blended with bluespace crystals and certified non-toxic.
+  icon: { sprite: Objects/Fun/crayons.rsi, state: rainbow }
+  objectType: Item

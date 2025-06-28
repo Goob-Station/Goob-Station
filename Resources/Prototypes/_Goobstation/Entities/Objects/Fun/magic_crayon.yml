@@ -12,3 +12,6 @@
         reagents:
         - ReagentId: Nothing
           Quantity: 100
+  - type: Construction
+    graph: CrayonMagic
+    node: crayonmagic
