@@ -13,7 +13,7 @@ namespace Content.Shared._Shitmed.Medical.Surgery;
 ///     Raised on the step entity and the user after doing a step.
 /// </summary>
 [ByRefEvent]
-public record struct SurgeryStepEvent(EntityUid User, EntityUid Body, EntityUid Part, List<EntityUid> Tools, EntityUid Surgery, EntityUid Step, bool Complete);
+public record struct SurgeryStepEvent(EntityUid User, EntityUid Body, EntityUid Part, EntityUid Tool, EntityUid Surgery, EntityUid Step, bool Complete);
 
 /// <summary>
 /// Raised on the user after failing to do a step for any reason.

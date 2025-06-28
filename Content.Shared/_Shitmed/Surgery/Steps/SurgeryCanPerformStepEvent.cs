@@ -13,7 +13,7 @@ namespace Content.Shared._Shitmed.Medical.Surgery.Steps;
 public record struct SurgeryCanPerformStepEvent(
     EntityUid User,
     EntityUid Body,
-    List<EntityUid> Tools,
+    EntityUid Tool,
     SlotFlags TargetSlots,
     string? Popup = null,
     StepInvalidReason Invalid = StepInvalidReason.None,
