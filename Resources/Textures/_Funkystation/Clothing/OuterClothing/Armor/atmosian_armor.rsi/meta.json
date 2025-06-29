@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tg station at commit https://github.com/tgstation/tgstation/pull/57591.",
+  "copyright": "Modified from tgstation at https://github.com/tgstation/tgstation/commit/d30ac20e6903f693c015e890f5e3d44c2562ba5f and https://github.com/tgstation/tgstation/blob/f0a78409d83c973dcfce303de754a3145ae7c55f/icons/mob/clothing/suits/utility.dmi",
   "size": {
     "x": 32,
     "y": 32
@@ -11,11 +11,7 @@
       "name": "icon"
     },
     {
-      "name": "equipped-HELMET",
-      "directions": 4
-    },
-    {
-      "name": "equipped-HELMET-vox",
+      "name": "equipped-OUTERCLOTHING",
       "directions": 4
     },
     {

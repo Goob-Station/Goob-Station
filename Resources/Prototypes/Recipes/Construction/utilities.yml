@@ -499,27 +499,6 @@
   placementMode: SnapgridCenter
   canBuildInImpassable: false
 
-- type: construction
-  id: HeatPump
-  name: heat pump
-  description: A pump that moves heat from one side to the other.
-  graph: GasBinary
-  startNode: start
-  targetNode: heatpump
-  category: construction-category-utilities
-  placementMode: SnapgridCenter
-  canBuildInImpassable: false
-  icon:
-    sprite: Structures/Piping/Atmospherics/pump.rsi
-    state: pumpHeat
-  layers:
-  - sprite: Structures/Piping/Atmospherics/pipe.rsi
-    state: pipeStraight
-  - sprite: Structures/Piping/Atmospherics/pump.rsi
-    state: pumpHeat
-  conditions:
-    - !type:NoUnstackableInTile
-
 # ATMOS TRINARY
 - type: construction
   id: GasFilter

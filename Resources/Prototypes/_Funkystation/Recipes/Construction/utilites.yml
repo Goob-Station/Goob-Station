@@ -1,0 +1,10 @@
+- type: construction
+  id: HeatPump
+  graph: GasBinary
+  startNode: start
+  targetNode: heatpump
+  category: construction-category-utilities
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:NoUnstackableInTile

@@ -68,23 +68,6 @@
       "directions": 4
     },
     {
-      "name": "hydrogen"
-    },
-    {
-      "name": "hydrogen_2"
-    },
-    {
-      "name": "hydrogen_3"
-    },
-    {
-      "name": "hydrogen-inhand-left",
-      "directions": 4
-    },
-    {
-      "name": "hydrogen-inhand-right",
-      "directions": 4
-    },
-    {
       "name": "iron"
     },
     {
@@ -116,23 +99,6 @@
     },
     {
       "name": "silver-inhand-right",
-      "directions": 4
-    },
-    {
-      "name": "zaukerite"
-    },
-    {
-      "name": "zaukerite_2"
-    },
-    {
-      "name": "zaukerite_3"
-    },
-    {
-      "name": "zaukerite-inhand-left",
-      "directions": 4
-    },
-    {
-      "name": "zaukerite-inhand-right",
       "directions": 4
     }
   ]

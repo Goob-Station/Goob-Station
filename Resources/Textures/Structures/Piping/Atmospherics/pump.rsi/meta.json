@@ -57,10 +57,6 @@
          "name":"pumpVolumeBlocked",
          "directions":4,
          "delays":[ [ 1.0, 1.0 ], [ 1.0, 1.0 ], [ 1.0, 1.0 ], [ 1.0, 1.0 ] ]
-      },
-      {
-         "name":"pumpHeat",
-         "directions":4
       }
    ]
 }
