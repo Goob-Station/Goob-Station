@@ -526,7 +526,7 @@
     - SimpleHostile
   - type: Sprite
     drawdepth: Mobs
-    sprite: /Textures/_Goobstation/Mobs/Animals/brullbar.rsi
+    sprite: _Goobstation/Mobs/Animals/brullbar.rsi
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: brullbar
@@ -550,7 +550,7 @@
       80: Dead
   - type: Butcherable
     spawned:
-    - id: FoodMeatBear
+    - id: FoodMeat
       amount: 3
     - id: AnomalyCoreIce
       amount: 1
@@ -567,7 +567,7 @@
   components:
   - type: Sprite
     drawdepth: Mobs
-    sprite: /Textures/_Goobstation/Mobs/Animals/brullbar.rsi
+    sprite: _Goobstation/Mobs/Animals/brullbar.rsi
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: brullbarking
@@ -586,7 +586,7 @@
     baseSprintSpeed : 6
   - type: Butcherable
     spawned:
-    - id: FoodMeatBear
+    - id: FoodMeat
       amount: 3
     - id: AnomalyCoreIce
       amount: 1
@@ -606,7 +606,7 @@
     - SimpleHostile
   - type: Sprite
     drawdepth: Mobs
-    sprite: /Textures/_Goobstation/Mobs/Animals/brullbar.rsi
+    sprite: _Goobstation/Mobs/Animals/brullbar.rsi
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: bear
@@ -630,3 +630,48 @@
   - type: ReplacementAccent
     accent: genericAggressive
   - type: Fauna # Lavaland Change
+
+- type: entity
+  name: white wolf
+  parent: [ SimpleMobBase, MobCombat ]
+  id: MobWhiteWolf
+  description: Don't try to pet this one.
+  components:
+    - type: HTN
+      rootTask:
+       task: SimpleHostileCompound
+    - type: NpcFactionMember
+      factions:
+      - SimpleHostile
+    - type: Sprite
+      drawdepth: Mobs
+      sprite: _Goobstation/Mobs/Animals/wolf.rsi
+      layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: whitewolf
+    - type: DamageStateVisuals
+      states:
+        Alive:
+          Base: whitewolf
+        Dead:
+          Base: wolfdead
+    - type: MovementSpeedModifier
+      baseWalkSpeed : 3
+      baseSprintSpeed : 6
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        50: Dead
+    - type: MeleeWeapon
+      altDisarm: false
+      angle: 0
+      animation: WeaponArcBite
+      soundHit:
+        path: /Audio/Effects/bite.ogg
+      damage:
+        types:
+          Slash: 10
+    - type: Butcherable
+      spawned:
+      - id: FoodMeat
+        amount: 1

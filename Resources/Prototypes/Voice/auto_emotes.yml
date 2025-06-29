@@ -23,5 +23,5 @@
   id: BrullbarHowl
   emote: Scream
   interval: 5.0 
-  chance: 1
+  chance: 0.5
   withChat: false
