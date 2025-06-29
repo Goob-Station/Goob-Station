@@ -5,9 +5,9 @@
   description: A superb armor made with the toughest and rarest materials available to man.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Armor/metal_hydrogen_armor.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Armor/metal_hydrogen_armor.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Armor/metal_hydrogen_armor.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Armor/metal_hydrogen_armor.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -31,9 +31,9 @@
   description: An atmos fire suit bolstered by the defensive power of metal hydrogen using techniques passed down through generations of atmospheric technicians.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Armor/atmosian_armor.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Armor/atmosian_armor.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Armor/atmosian_armor.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Armor/atmosian_armor.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000

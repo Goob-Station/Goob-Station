@@ -7,20 +7,20 @@ using Content.Server.Administration.Logs;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Piping.Binary.Components;
 using Content.Server.Atmos.Piping.Components;
+using Content.Server.Audio;
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.NodeContainer.Nodes;
-using Content.Server.Power.Components;
+using Content.Server.Power.EntitySystems;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Piping.Binary.Components;
 using Content.Shared.Atmos.Piping.Components;
-using Content.Shared.Audio;
 using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
+using Content.Shared.Power;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 
@@ -30,10 +30,9 @@ namespace Content.Server.Atmos.Piping.Binary.EntitySystems
     public sealed class HeatPumpSystem : EntitySystem
     {
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-        [Dependency] private readonly SharedAmbientSoundSystem _ambientSoundSystem = default!;
-        [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+        [Dependency] private readonly AmbientSoundSystem _ambientSoundSystem = default!;
+        [Dependency] private readonly PowerReceiverSystem _powerReceiverSystem = default!;
         [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
-        [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
         [Dependency] private readonly AtmosphereSystem _atmos = default!;
         [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -47,6 +46,7 @@ namespace Content.Server.Atmos.Piping.Binary.EntitySystems
             SubscribeLocalEvent<HeatPumpComponent, AtmosDeviceUpdateEvent>(OnAtmosUpdate);
             SubscribeLocalEvent<HeatPumpComponent, ExaminedEvent>(OnExamined);
             SubscribeLocalEvent<HeatPumpComponent, AtmosDeviceDisabledEvent>(OnHeatPumpLeaveAtmosphere);
+            SubscribeLocalEvent<HeatPumpComponent, PowerChangedEvent>(OnPowerChanged);
             // Bound UI subscriptions
             SubscribeLocalEvent<HeatPumpComponent, GasHeatPumpChangeTransferRateMessage>(OnTransferRateChangeMessage);
             SubscribeLocalEvent<HeatPumpComponent, GasHeatPumpToggleStatusMessage>(OnToggleStatusMessage);
@@ -69,7 +69,7 @@ namespace Content.Server.Atmos.Piping.Binary.EntitySystems
         private void OnAtmosUpdate(EntityUid uid, HeatPumpComponent pump, AtmosDeviceUpdateEvent args)
         {
             if (!pump.Active ||
-                (TryComp<ApcPowerReceiverComponent>(uid, out var power) && !power.Powered) ||
+                !_powerReceiverSystem.IsPowered(uid) ||
                 !_nodeContainer.TryGetNodes(uid, pump.InletName, pump.OutletName, out PipeNode? inlet, out PipeNode? outlet))
             {
                 _ambientSoundSystem.SetAmbience(uid, false);
@@ -101,6 +101,12 @@ namespace Content.Server.Atmos.Piping.Binary.EntitySystems
 
             _atmos.Merge(airInput, removeInput);
             _atmos.Merge(airOutput, removeOutput);
+        }
+
+        private void OnPowerChanged(Entity<HeatPumpComponent> pump, ref PowerChangedEvent args)
+        {
+            if (!args.Powered)
+                _ambientSoundSystem.SetAmbience(pump.Owner, false);
         }
 
         private void OnActivate(EntityUid uid, HeatPumpComponent pump, ActivateInWorldEvent args)

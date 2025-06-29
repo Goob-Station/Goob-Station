@@ -12,7 +12,7 @@
     - type: ApcPowerReceiver
       powerLoad: 200
     - type: Sprite
-      sprite: Structures/Piping/Atmospherics/pump.rsi
+      sprite: _Funkystation/Structures/Piping/Atmospherics/pump.rsi
       layers:
         - sprite: Structures/Piping/Atmospherics/pipe.rsi
           state: pipeStraight

@@ -16,12 +16,14 @@
     - hydrogen_2
     - hydrogen_3
   - type: Sprite
+    sprite: _Funkystation/Objects/Materials/ingots.rsi
     state: hydrogen_3
     layers:
     - state: hydrogen_3
       map: ["base"]
   - type: Item
-    heldPrefix: metalhydrogen
+    sprite: _Funkystation/Objects/Materials/ingots.rsi
+    heldPrefix: hydrogen
   - type: Appearance
   - type: Extractable
     grindableSolutionName: hydrogen
@@ -75,12 +77,14 @@
     - zaukerite_2
     - zaukerite_3
   - type: Sprite
+    sprite: _Funkystation/Objects/Materials/ingots.rsi
     state: zaukerite_3
     layers:
     - state: zaukerite_3
       map: ["base"]
   - type: Item
-    heldPrefix: metalhydrogen
+    sprite: _Funkystation/Objects/Materials/ingots.rsi
+    heldPrefix: zaukerite
   - type: Appearance
   - type: Extractable
     grindableSolutionName: zaukerite
