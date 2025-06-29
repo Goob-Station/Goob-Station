@@ -305,6 +305,33 @@ namespace Content.Shared.Atmos
             [Gas.AntiNoblium] = Loc.GetString("gas-anti-noblium-abbreviation"), // Assmos - /tg/ gases
         };
 
+        /// <summary>
+        ///     Funkystation - Dictionary of names for <see cref="Gas"/>
+        /// </summary>
+        public static Dictionary<Gas, string> GasNames = new Dictionary<Gas, string>()
+        {
+            [Gas.Ammonia] = Loc.GetString("gases-ammonia"),
+            [Gas.CarbonDioxide] = Loc.GetString("gases-co2"),
+            [Gas.Frezon] = Loc.GetString("gases-frezon"),
+            [Gas.Nitrogen] = Loc.GetString("gases-nitrogen"),
+            [Gas.NitrousOxide] = Loc.GetString("gases-n2o"),
+            [Gas.Oxygen] = Loc.GetString("gases-oxygen"),
+            [Gas.Plasma] = Loc.GetString("gases-plasma"),
+            [Gas.Tritium] = Loc.GetString("gases-tritium"),
+            [Gas.WaterVapor] = Loc.GetString("gases-water-vapor"),
+            [Gas.BZ] = Loc.GetString("gases-bz"),
+            [Gas.Healium] = Loc.GetString("gases-healium"),
+            [Gas.Nitrium] = Loc.GetString("gases-nitrium"),
+            [Gas.Pluoxium] = Loc.GetString("gases-pluoxium"),
+            [Gas.Hydrogen] = Loc.GetString("gases-hydrogen"),
+            [Gas.HyperNoblium] = Loc.GetString("gases-hyper-noblium"),
+            [Gas.ProtoNitrate] = Loc.GetString("gases-proto-nitrate"),
+            [Gas.Zauker] = Loc.GetString("gases-zauker"),
+            [Gas.Halon] = Loc.GetString("gases-halon"),
+            [Gas.Helium] = Loc.GetString("gases-helium"),
+            [Gas.AntiNoblium] = Loc.GetString("gases-anti-noblium"),
+        };
+
         #region Excited Groups
 
         /// <summary>

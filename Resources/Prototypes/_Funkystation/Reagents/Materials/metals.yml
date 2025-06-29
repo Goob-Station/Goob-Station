@@ -1,0 +1,13 @@
+- type: material
+  id: MetalHydrogen
+  stackEntity: MetalHydrogen1
+  name: materials-metal-hydrogen
+  icon: { sprite: Objects/Materials/ingots.rsi, state: hydrogen }
+  price: 2.50 # $250 for 1 unit # Assmos: from 1 to 2.50
+
+- type: material
+  id: Zaukerite
+  stackEntity: Zaukerite1
+  name: materials-zaukerite
+  icon: { sprite: Objects/Materials/ingots.rsi, state: zaukerite }
+  price: 5.00 # $500 for 1 unit

@@ -57,7 +57,10 @@
   id: EngineeringBoardsStatic
   recipes:
   - SpaceHeaterMachineCircuitBoard
+  - ThermomachineFreezerMachineCircuitBoard # Assmos - Moved to staticRecipes from dynamicRecipes
   - ElectrolyzerMachineCircuitboard # Assmos - /tg/ gases
+  - CrystallizerMachineCircuitboard # Assmos - crystallizer
+
 
 ## Dynamic
 
@@ -83,8 +86,6 @@
   - EngineeringBoardsGoob # Goobstation
   id: EngineeringBoards
   recipes:
-  - ThermomachineFreezerMachineCircuitBoard
-  - HellfireFreezerMachineCircuitBoard
   - PortableScrubberMachineCircuitBoard
   - SolarControlComputerCircuitboard
   - SolarTrackerElectronics
@@ -96,3 +97,6 @@
   - TelecomServerCircuitboard
   - SMESAdvancedMachineCircuitboard
   - HolopadMachineCircuitboard
+  - ThermomachineUpgradedFreezerMachineCircuitBoard # Assmos
+  - ThermomachineAdvancedFreezerMachineCircuitBoard # Assmos
+  - HellfireFreezerMachineCircuitBoard # Assmos

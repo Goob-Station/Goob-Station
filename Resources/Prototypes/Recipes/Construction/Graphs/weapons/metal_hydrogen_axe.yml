@@ -1,0 +1,14 @@
+﻿# Assmos - Metal Hydrogen
+- type: constructionGraph
+  id: MetalHydrogenAxeConstruct
+  start: start
+  graph:
+    - node: start
+      edges:
+      - to: icon
+        steps:
+        - material: MetalHydrogen
+          amount: 12
+          doAfter: 10
+    - node: icon
+      entity: MetalHydrogenAxe

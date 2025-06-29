@@ -487,11 +487,11 @@
   description: An advanced machine that cools gas in connected pipes. Has the side effect of chilling the surrounding area. Cold as Hell!
   components:
   - type: Sprite
-    sprite: Structures/Piping/Atmospherics/hellfirethermomachine.rsi
+    sprite: _Funkystation/Structures/Piping/Atmospherics/hellfirethermomachine.rsi # Assmos
   - type: GasThermoMachine
-    minTemperature: 23.15
-    heatCapacity: 40000
-    energyLeakPercentage: 0.15
+    minTemperature: 3.15 # Assmos
+    heatCapacity: 60000 # Assmos
+    energyLeakPercentage: 0.1 # Assmos
   - type: Machine
     board: HellfireFreezerMachineCircuitBoard
 
@@ -502,11 +502,11 @@
   description: An advanced machine that heats gas in connected pipes. Has the side effect of leaking heat into the surrounding area. Hot as Hell!
   components:
   - type: Sprite
-    sprite: Structures/Piping/Atmospherics/hellfirethermomachine.rsi
+    sprite: _Funkystation/Structures/Piping/Atmospherics/hellfirethermomachine.rsi # Assmos
   - type: GasThermoMachine
-    maxTemperature: 1193.15
-    heatCapacity: 40000
-    energyLeakPercentage: 0.15
+    maxTemperature: 1593.15 # Assmos
+    heatCapacity: 60000 # Assmos
+    energyLeakPercentage: 0.1 # Assmos
   - type: Machine
     board: HellfireHeaterMachineCircuitBoard
 
@@ -600,3 +600,63 @@
   - type: GuideHelp
     guides:
     - GasCondensing
+
+# Assmos
+- type: entity
+  parent: GasThermoMachineFreezer
+  id: GasThermoMachineUpgradedFreezer
+  name: upgraded freezer
+  description: An advanced machine that cools gas in connected pipes. This looks like an upgraded model.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Structures/Piping/Atmospherics/upgradedthermomachine.rsi
+  - type: GasThermoMachine
+    minTemperature: 23.15
+    heatCapacity: 20000
+  - type: Machine
+    board: ThermomachineUpgradedFreezerMachineCircuitBoard
+
+# Assmos
+- type: entity
+  parent: GasThermoMachineHeater
+  id: GasThermoMachineUpgradedHeater
+  name: upgraded heater
+  description: An advanced machine that heats gas in connected pipes. This looks like an upgraded model.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Structures/Piping/Atmospherics/upgradedthermomachine.rsi
+  - type: GasThermoMachine
+    maxTemperature: 1193.15
+    heatCapacity: 20000
+  - type: Machine
+    board: ThermomachineUpgradedHeaterMachineCircuitBoard
+
+# Assmos
+- type: entity
+  parent: GasThermoMachineFreezer
+  id: GasThermoMachineAdvancedFreezer
+  name: advanced freezer
+  description: An advanced machine that cools gas in connected pipes. This looks like a particularly advanced model.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Structures/Piping/Atmospherics/advancedthermomachine.rsi
+  - type: GasThermoMachine
+    minTemperature: 13.15
+    heatCapacity: 40000
+  - type: Machine
+    board: ThermomachineAdvancedFreezerMachineCircuitBoard
+
+# Assmos
+- type: entity
+  parent: GasThermoMachineHeater
+  id: GasThermoMachineAdvancedHeater
+  name: advanced heater
+  description: An advanced machine that heats gas in connected pipes. This looks like a particularly advanced model.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Structures/Piping/Atmospherics/advancedthermomachine.rsi
+  - type: GasThermoMachine
+    maxTemperature: 1393.15
+    heatCapacity: 40000
+  - type: Machine
+    board: ThermomachineAdvancedHeaterMachineCircuitBoard

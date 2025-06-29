@@ -1,0 +1,31 @@
+
+# Assmos - Metal Hydrogen
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHelmetMetalHydrogen
+  name: metal hydrogen helmet
+  description: A superb helmet made with the toughest and rarest materials available to man.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Helmets/metal_hydrogen_helmet.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Helmets/metal_hydrogen_helmet.rsi
+  - type: IngestionBlocker
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.96
+        Piercing: 0.96
+        Heat: 0.95
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
+  - type: Construction
+    graph: MetalHydrogenHelmet
+    node: helmet

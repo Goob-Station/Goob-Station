@@ -1,0 +1,92 @@
+﻿- type: entity
+  parent: [BaseStructure, ConstructibleMachine] # Not a BaseMachinePowered since we don't want the anchorable component
+  id: Crystallizer
+  name: crystallizer
+  description: Used to crystallize or solidify gases.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Structures/Machines/crystallizer.rsi
+    drawdepth: Mobs
+    noRot: true
+    offset: 0, 0.5
+    layers:
+      - sprite: Structures/Piping/Atmospherics/pipe.rsi
+        state: pipeStraight #this is so cooked visually but eh
+        offset: 0, -0.5
+        map: [ "enum.PipeVisualLayers.Pipe" ]
+        rotation: 90
+      - state: off
+        map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+      - state: panel
+        map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { state: on }
+          False: { state: off }
+  - type: PipeColorVisuals
+  - type: InteractionOutline
+  - type: Transform
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        density: 200
+        mask:
+          - MachineMask
+        layer:
+          - MachineLayer
+  - type: AtmosDevice
+  - type: Machine
+    board: CrystallizerMachineCircuitboard
+  - type: WiresVisuals
+  - type: WiresPanel
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+        - !type:EmptyAllContainersBehaviour
+        - !type:PlaySoundBehavior
+          sound:
+            collection: WindowShatter
+        - !type:ChangeConstructionNodeBehavior
+          node: machineFrame
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+  - type: ApcPowerReceiver
+    powerLoad: 3000
+  - type: ExtensionCableReceiver
+  - type: NodeContainer
+    nodes:
+      regulator:
+        !type:PipeNode
+        nodeGroupID: Pipe
+        pipeDirection: West
+      inlet:
+        !type:PipeNode
+        nodeGroupID: Pipe
+        pipeDirection: East
+  - type: AtmosMonitoringConsoleDevice
+    navMapBlip: Thermoregulator
+  - type: UserInterface
+    interfaces:
+      enum.CrystallizerUiKey.Key:
+        type: CrystallizerBoundUserInterface
+  - type: ActivatableUI
+    key: enum.CrystallizerUiKey.Key
+    requiresComplex: false
+  - type: PointLight
+    color: "#3a807f"
+    radius: 2
+    energy: 10
+    enabled: false
+  - type: Crystallizer

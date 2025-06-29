@@ -1,0 +1,90 @@
+<controls:FancyWindow
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client">
+    <ScrollContainer
+        Margin="5 5 5 5"
+        ReturnMeasure="True"
+        VerticalExpand="True">
+        <BoxContainer Name="RootContainer" VerticalExpand="True" Orientation="Vertical">
+
+            <Label Text="Controls"/>
+            <PanelContainer StyleClasses="LowDivider"/>
+            <BoxContainer Name="Controls" Margin="0 5" Orientation="Vertical">
+                <BoxContainer Name="PowerControlContainer" Margin="0 5" Orientation="Horizontal">
+                    <Label Text="Power: "/>
+                    <Button Access="Public" Name="ToggleStatusButton"/>
+                </BoxContainer>
+                <BoxContainer Margin="0 5" Orientation="Horizontal">
+                    <Label Text="Recipe: " VerticalAlignment="Top" Margin="0 9"/>
+                    <GridContainer Name="RecipesContainer" HorizontalExpand="True" Columns="3" Margin="0 5 0 0" />
+                </BoxContainer>
+                <BoxContainer Name="GasInputContainer" Margin="0 5" Orientation="Horizontal">
+                    <Label Text="Gas Input (mol/s): "/>
+                    <FloatSpinBox Access="Public" Name="GasInput" Value="0" MinSize="140 20" />
+                </BoxContainer>
+            </BoxContainer>
+
+            <BoxContainer Orientation="Horizontal">
+                <BoxContainer HorizontalExpand="True" Orientation="Vertical">
+                    <Label Text="Progress and Requirements"/>
+                    <PanelContainer StyleClasses="LowDivider"/>
+                    <BoxContainer Name="ProgressAndRequirements" Margin="0 5" Orientation="Vertical">
+                        <BoxContainer Name="ProgressContainer" Margin="0 5" Orientation="Horizontal">
+                            <Label Text="Progress: " MinSize="115 0"/>
+                            <PanelContainer MinSize="320 20" MaxSize="320 20" Margin="4" >
+                                <PanelContainer.PanelOverride>
+                                    <gfx:StyleBoxFlat BackgroundColor="#202025" BorderColor="#FFFFFF" BorderThickness="2" />
+                                </PanelContainer.PanelOverride>
+                                <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                                    <PanelContainer Name="ProgressBarPanel" MinSize="0 18">
+                                        <PanelContainer.PanelOverride>
+                                            <gfx:StyleBoxFlat BackgroundColor="#ffffff" />
+                                        </PanelContainer.PanelOverride>
+                                    </PanelContainer>
+                                </BoxContainer>
+                            </PanelContainer>
+                        </BoxContainer>
+                        
+                        <BoxContainer Name="TemperatureContainer" Margin="0 5" Orientation="Horizontal">
+                            <Label Text="Temperature: " MinSize="115 0"/>
+                            <PanelContainer MinSize="320 20" MaxSize="320 20" Margin="4" >
+                                <PanelContainer.PanelOverride>
+                                    <gfx:StyleBoxFlat BackgroundColor="#202025" BorderColor="#FFFFFF" BorderThickness="2" />
+                                </PanelContainer.PanelOverride>
+                                <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                                    <PanelContainer Name="TemperatureBarPanel" MinSize="0 20">
+                                        <PanelContainer.PanelOverride>
+                                            <gfx:StyleBoxFlat BackgroundColor="#ffffff" />
+                                        </PanelContainer.PanelOverride>
+                                    </PanelContainer>
+                                </BoxContainer>
+                            </PanelContainer>
+                        </BoxContainer>
+                        
+                        <BoxContainer HorizontalExpand="True" Orientation="Horizontal" >
+                            <Label Text="Gases: " VerticalAlignment="Top" MinSize="115 0" />
+                            <BoxContainer Name="GasList" Margin="2 0 2 0" Orientation="Vertical" MinSize="115 120" HorizontalExpand="True" >
+                                
+                            </BoxContainer>
+                        </BoxContainer>
+                    </BoxContainer>
+                </BoxContainer>
+                <BoxContainer HorizontalExpand="True" Orientation="Vertical" >
+                    <Label Text="Recipe" Margin="20 0" />
+                    <PanelContainer StyleClasses="LowDivider"/>
+                    <PanelContainer Name="RecipePanel" MinSize="322 180" Margin="18 5 5 5" >
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="#222222" />
+                        </PanelContainer.PanelOverride>
+                        <BoxContainer Name="RequirementsContainer" Margin="5" Orientation="Vertical" Modulate="#808080">
+                            <Label Text="Please select a recipe" />
+                        </BoxContainer>
+                    </PanelContainer>
+                </BoxContainer>
+            </BoxContainer>
+
+        </BoxContainer>
+    </ScrollContainer>
+</controls:FancyWindow>

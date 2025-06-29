@@ -30,3 +30,58 @@
         doAfter: 1
   - node: helmet
     entity: ClothingHeadHelmetBone
+
+# Assmos - Metal Hydrogen
+- type: constructionGraph
+  id: MetalHydrogenArmor
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: armor
+      steps:
+      - material: MetalHydrogen
+        amount: 10
+        doAfter: 15
+  - node: armor
+    entity: ClothingOuterArmorMetalHydrogen
+
+- type: constructionGraph
+  id: MetalHydrogenHelmet
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: helmet
+      steps:
+      - material: MetalHydrogen
+        amount: 4
+        doAfter: 8
+  - node: helmet
+    entity: ClothingHeadHelmetMetalHydrogen
+
+- type: constructionGraph
+  id: AtmosianArmor
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: armor
+      steps:
+      - tag: MetalHydrogenArmor
+        name: metal hydrogen armor
+        icon:
+          sprite: Clothing/OuterClothing/Armor/metal_hydrogen_armor.rsi
+          state: icon
+        doAfter: 1
+      - tag: AtmosFireSuit
+        name: atmos fire suit
+        icon:
+          sprite: Clothing/OuterClothing/Suits/atmos_firesuit.rsi
+          state: icon
+        doAfter: 15
+      - material: Cable
+        amount: 2
+        doAfter: 1
+  - node: armor
+    entity: ClothingOuterArmorAtmosian

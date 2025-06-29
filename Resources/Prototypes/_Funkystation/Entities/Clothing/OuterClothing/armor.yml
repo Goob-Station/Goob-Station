@@ -1,0 +1,64 @@
+- type: entity
+  parent: ClothingOuterArmorBase
+  id: ClothingOuterArmorMetalHydrogen
+  name: metal hydrogen armor
+  description: A superb armor made with the toughest and rarest materials available to man.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Armor/metal_hydrogen_armor.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Armor/metal_hydrogen_armor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.7
+  - type: ExplosionResistance
+    damageCoefficient: 0.90
+  - type: Construction
+    graph: MetalHydrogenArmor
+    node: armor
+  - type: Tag
+    tags:
+      - MetalHydrogenArmor
+
+- type: entity
+  parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing]
+  id: ClothingOuterArmorAtmosian
+  name: atmosian armor
+  description: An atmos fire suit bolstered by the defensive power of metal hydrogen using techniques passed down through generations of atmospheric technicians.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Armor/atmosian_armor.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Armor/atmosian_armor.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.001
+    coolingCoefficient: 0.001
+  - type: FireProtection
+    reduction: 0.8
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.7
+        Cold: 0.8
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: HeldSpeedModifier
+  - type: GroupExamine
+  - type: ProtectedFromStepTriggers
+    slots: WITHOUT_POCKET
+  - type: ExplosionResistance
+    damageCoefficient: 0.90
+  - type: Construction
+    graph: AtmosianArmor
+    node: armor

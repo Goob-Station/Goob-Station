@@ -1,0 +1,8 @@
+- type: Tag # Assmos - Metal Hydrogen
+  id: AtmosFireSuit
+
+- type: Tag # Assmos - Metal Hydrogen
+  id: MetalHydrogenArmor
+
+- type: Tag
+  id: NoRecharge # Assmos - Crystallizer

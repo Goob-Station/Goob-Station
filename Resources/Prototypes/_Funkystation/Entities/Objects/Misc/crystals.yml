@@ -1,0 +1,105 @@
+- type: entity
+  name: ammonia crystal
+  parent: FoodBase
+  id: AmmoniaCrystal
+  description: A crystal made from ammonia gas. You can see the liquid gases inside.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Grenades/ammoniacrystal.rsi
+    state: icon
+  - type: FlavorProfile
+    flavors:
+      - eggplant
+  - type: StaticPrice
+    price: 35
+  - type: Item
+    size: Small
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Ammonia
+          Quantity: 6
+
+- type: entity
+  name: healium crystal
+  description: A crystal made from healium gas. It's cold to the touch.
+  parent: GrenadeBase
+  id: HealiumCrystal
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Grenades/healiumcrystal.rsi
+  - type: AdjustAirOnTrigger
+    gasAdjustments:
+      healium: 0.8
+    temperature: 293.15
+    range: 8.0
+  - type: SoundOnTrigger
+    sound:
+      path: "/Audio/Effects/spray.ogg"
+  - type: DeleteOnTrigger
+  - type: Appearance
+  - type: StaticPrice
+    price: 500
+  - type: TimerTriggerVisuals
+
+- type: entity
+  name: proto-nitrate crystal
+  description: A crystal made from proto-nitrate gas. You can see the liquid gases inside.
+  parent: GrenadeBase
+  id: ProtoNitrateCrystal
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Grenades/protonitratecrystal.rsi
+  - type: AdjustAirOnTrigger
+    gasAdjustments:
+      nitrogen: 80
+      oxygen: 30
+    range: 5
+  - type: SoundOnTrigger
+    sound:
+      path: "/Audio/Effects/spray.ogg"
+  - type: DeleteOnTrigger
+  - type: Appearance
+  - type: StaticPrice
+    price: 650
+  - type: TimerTriggerVisuals
+
+- type: entity
+  name: nitrous oxide crystal
+  description: A crystal made from nitrous oxide gas. You can see the liquid gases inside.
+  parent: GrenadeBase
+  id: NitrousOxideCrystal
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Grenades/nitrousoxidecrystal.rsi
+  - type: AdjustAirOnTrigger
+    gasAdjustments:
+      nitrousoxide: 20
+    range: 1
+  - type: SoundOnTrigger
+    sound:
+      path: "/Audio/Effects/spray.ogg"
+  - type: DeleteOnTrigger
+  - type: Appearance
+  - type: StaticPrice
+    price: 85
+  - type: TimerTriggerVisuals
+
+- type: entity
+  name: crystal cell
+  description: A non rechargeable cell with a huge power capacity. 
+  id: CrystalCell
+  parent: BasePowerCell
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Power/crystal_cell.rsi
+    layers:
+    - state: crystal_cell
+  - type: Battery
+    maxCharge: 25000
+    startingCharge: 25000
+    pricePerJoule: 0.01
+  - type: Tag
+    tags:
+      - NoRecharge

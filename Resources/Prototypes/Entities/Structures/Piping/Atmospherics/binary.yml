@@ -632,3 +632,59 @@
     - type: Construction
       graph: GasBinary
       node: bendradiator
+
+# Funkystation - heat pump
+- type: entity
+  parent: GasBinaryBase
+  id: HeatPump
+  name: heat pump
+  description: A pump that moves heat from one side to the other.
+  placement:
+    mode: SnapgridCenter
+  components:
+    - type: ExtensionCableReceiver
+    - type: LightningTarget
+      priority: 1
+    - type: ApcPowerReceiver
+      powerLoad: 200
+    - type: Sprite
+      sprite: Structures/Piping/Atmospherics/pump.rsi
+      layers:
+        - sprite: Structures/Piping/Atmospherics/pipe.rsi
+          state: pipeStraight
+          map: [ "enum.PipeVisualLayers.Pipe" ]
+        - state: pumpHeat
+          map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
+    - type: Appearance
+    - type: PipeColorVisuals
+    - type: HeatPump
+    - type: NodeContainer
+      nodes:
+        inlet:
+          !type:PipeNode
+          nodeGroupID: Pipe
+          pipeDirection: North
+          volume: 100
+        outlet:
+          !type:PipeNode
+          nodeGroupID: Pipe
+          pipeDirection: South
+          volume: 100
+    - type: UserInterface
+      interfaces:
+        enum.GasHeatPumpUiKey.Key:
+          type: GasHeatPumpBoundUserInterface
+    - type: Construction
+      graph: GasBinary
+      node: heatpump
+    - type: AmbientSound
+      enabled: false
+      volume: -9
+      range: 5
+      sound:
+        path: /Audio/Ambience/Objects/gas_hiss.ogg
+    - type: AtmosMonitoringConsoleDevice
+      navMapBlip: Thermoregulator
+    - type: GuideHelp
+      guides:
+      - ManualValve

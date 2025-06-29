@@ -100,6 +100,18 @@
   fx: EffectRCDConstruct0
 
 - type: rcd
+  id: HeatPump
+  category: PumpsValves
+  sprite: /Textures/Interface/Radial/RPD/pump_heat.png
+  mode: ConstructObject
+  prototype: HeatPump
+  cost: 1
+  delay: 0 
+  collisionMask: Impassable
+  rotation: User
+  fx: EffectRCDConstruct0
+
+- type: rcd
   id: PressureValve
   category: PumpsValves
   sprite: /Textures/Interface/Radial/RPD/pneumatic_valve.png

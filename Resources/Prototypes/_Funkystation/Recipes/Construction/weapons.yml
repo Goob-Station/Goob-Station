@@ -1,0 +1,10 @@
+- type: construction
+  name: metal hydrogen axe
+  id: MetalHydrogenAxeConstruct
+  graph: MetalHydrogenAxeConstruct
+  startNode: start
+  targetNode: icon
+  category: construction-category-weapons
+  description: A lightweight crowbar with an extreme sharp fire axe head attached. It trades its heft as a weapon by making it easier to carry around when holstered to suits without having to sacrifice your backpack.
+  icon: { sprite: Objects/Weapons/Melee/metal_hydrogen_axe.rsi, state: icon }
+  objectType: Item

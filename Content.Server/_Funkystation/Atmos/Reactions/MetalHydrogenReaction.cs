@@ -6,8 +6,7 @@ using Robust.Shared.Map.Components;
 
 namespace Content.Server.Atmos.Reactions
 {
-    [UsedImplicitly]
-    [DataDefinition]
+    [UsedImplicitly, DataDefinition]
     public sealed partial class MetalHydrogenReaction : IGasReactionEffect
     {
         public ReactionResult React(GasMixture mixture, IGasMixtureHolder? holder, AtmosphereSystem atmosphereSystem, float heatScale)
@@ -26,7 +25,7 @@ namespace Content.Server.Atmos.Reactions
             var temperature = mixture.Temperature;
             var temperatureEfficiency = Math.Min(23.2f / temperature, 1f);
             var rate = pressureEfficiency * temperatureEfficiency * 0.10f;
-            var roll = (float)new Random().NextDouble();
+            var roll = (float) new Random().NextDouble();
 
             if (pressure < 10000f || temperature > 273.2f || roll > rate)
                 return ReactionResult.NoReaction;
@@ -45,7 +44,6 @@ namespace Content.Server.Atmos.Reactions
                 return ReactionResult.NoReaction;
 
             var coords = map.GridTileToLocal(gridId, mapGrid, tileRef.GridIndices);
-
             entityManager.SpawnEntity("MetalHydrogen1", coords);
 
             return ReactionResult.Reacting;

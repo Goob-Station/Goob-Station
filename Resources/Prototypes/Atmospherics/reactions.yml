@@ -116,28 +116,6 @@
   effects:
   - !type:N2ODecompositionReaction {}
 
-- type: gasReaction # Assmos - /tg/ gases
-  id: MetalHydrogenReaction
-  priority: 1
-  maximumTemperature: 273.2
-  minimumRequirements:
-  - 0     # oxygen
-  - 0     # nitrogen
-  - 0     # carbon dioxide
-  - 0     # plasma
-  - 0     # tritium
-  - 0     # vapor
-  - 0     # miasma
-  - 0     # n2o
-  - 0     # frezon
-  - 50    # bz
-  - 0     # healium
-  - 0     # nitrium
-  - 0     # pluox
-  - 300   # hydrogen
-  effects:
-  - !type:MetalHydrogenReaction {}
-
 #- type: gasReaction
 #  id: WaterVaporPuddle
 #  priority: 1
