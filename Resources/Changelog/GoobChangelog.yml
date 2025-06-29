@@ -11313,3 +11313,363 @@ Entries:
       message: Vulps and shadowkins can now host anomalies.
   id: 1243
   time: '2025-06-15T19:43:36.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Fix
+      message: Polymorphs no longer spawn urists
+  id: 1244
+  time: '2025-06-16T09:11:35.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Fix
+      message: Traitors should get their uplinks now
+  id: 1245
+  time: '2025-06-16T13:16:56.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: Proximity voicechat, check discord announcements for more details.
+  id: 1246
+  time: '2025-06-17T00:58:34.0000000+00:00'
+- author: IAmForcedIntoMakingClLongerThanActualChanges
+  changes:
+    - type: Fix
+      message: Abductor multitool can now recharge again.
+    - type: Tweak
+      message: Abductor multitool now recharges even in multitool mode.
+    - type: Tweak
+      message: Abductor multitool cooldown increased to 20 from 15.
+    - type: Fix
+      message: Security can again choose winter jackboots in the loadout.
+    - type: Remove
+      message: Removed duplicate tools from syndicate surgery duffel bag.
+    - type: Fix
+      message: >-
+        Hyperzine description in the uplink now correctly describes its
+        duration.
+    - type: Tweak
+      message: Camera bug now costs 12 TC.
+  id: 1247
+  time: '2025-06-18T02:04:30.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Tweak
+      message: You may now have a chance to survive getting attacked with a nailgun
+  id: 1248
+  time: '2025-06-18T17:48:40.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Double-energy sword is now undisarmable and deals slightly more damage.
+  id: 1249
+  time: '2025-06-19T07:12:23.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Add
+      message: 'Updated base game to 11/05 release '
+    - type: Tweak
+      message: QFW is slightly more difficult to research
+    - type: Fix
+      message: Voxes have ammonia blood when gibbed, as they should
+  id: 1250
+  time: '2025-06-22T03:47:43.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: His Grace is here. Treat him with respect.
+  id: 1251
+  time: '2025-06-22T04:11:23.0000000+00:00'
+- author: Rouden, Timfa2112
+  changes:
+    - type: Add
+      message: >-
+        Ported Minebot, Welderbot, Plantbot and Fillbot from EinsteinEngines.
+        You can craft them in the craft menu.
+  id: 1252
+  time: '2025-06-22T04:12:03.0000000+00:00'
+- author: Timfa2112
+  changes:
+    - type: Add
+      message: 'Added Syndicate Disabler! Find it in your uplink. '
+  id: 1253
+  time: '2025-06-22T04:25:11.0000000+00:00'
+- author: CerberusWolfie, Atrophus
+  changes:
+    - type: Add
+      message: Added Cosmic Cult Metashield. Check Roleplay Rules 4!
+  id: 1254
+  time: '2025-06-22T04:26:45.0000000+00:00'
+- author: IrisTheBingle
+  changes:
+    - type: Add
+      message: Bong bingle "binglemind" bing
+  id: 1255
+  time: '2025-06-22T04:29:04.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: >-
+        Added a new high-risk item for the Research Director: The Gemini
+        Holo-Projector
+  id: 1256
+  time: '2025-06-22T04:34:41.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Add
+      message: >-
+        Added Broomsticks in the AutoDrobe. The final shatter for cosplay has
+        been implemented in it's place.
+  id: 1257
+  time: '2025-06-22T04:35:52.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: 'Added survival+: play it by voting the new Descent gamemode.'
+    - type: Tweak
+      message: Secret+ should now pick events less randomly.
+    - type: Tweak
+      message: Renamed secret+ gamemodes to be more clear.
+    - type: Tweak
+      message: >-
+        Secret+ now may randomly infrequently decide for the shift to be calm or
+        less calm.
+    - type: Fix
+      message: Derelict assault borg should now spawn.
+  id: 1258
+  time: '2025-06-22T04:38:41.0000000+00:00'
+- author: nnif1
+  changes:
+    - type: Tweak
+      message: 'Borg maint panel using a screwdriver to open and close once again '
+  id: 1259
+  time: '2025-06-22T04:39:07.0000000+00:00'
+- author: vrilly
+  changes:
+    - type: Tweak
+      message: Flatpacks instead of boards for ordering computers and funding computer
+  id: 1260
+  time: '2025-06-22T04:42:22.0000000+00:00'
+- author: IrisTheAmped
+  changes:
+    - type: Tweak
+      message: 'Power Transmission Laser now creates 6.67x as much spesos. '
+    - type: Fix
+      message: Engineering can actually make spesos with surplus power.
+  id: 1261
+  time: '2025-06-22T04:45:58.0000000+00:00'
+- author: IrisTheAmped
+  changes:
+    - type: Tweak
+      message: >-
+        Antimov is now cheaper for both Nukies and Traitors. Beware the rising
+        threats of AI.
+  id: 1262
+  time: '2025-06-22T04:46:21.0000000+00:00'
+- author: IrisTheAmped
+  changes:
+    - type: Add
+      message: Carp Plushies now gib me till I "make something fun".
+  id: 1263
+  time: '2025-06-22T04:46:42.0000000+00:00'
+- author: IrisTheAmped
+  changes:
+    - type: Add
+      message: Readded Syringe Kit, heal mains rejoice.
+    - type: Tweak
+      message: BSO kits have been unmerged.
+    - type: Tweak
+      message: >-
+        Chester no longer has randomed ammo but only guaranteed utility ammo.
+        Friendly reminder printing lethals roundstart is powergaming.
+    - type: Tweak
+      message: >-
+        Revolver has regained a speedloader but deals a bit less now, back to
+        skill-swapping barrages to do good damage.
+  id: 1264
+  time: '2025-06-22T04:51:39.0000000+00:00'
+- author: Spatison
+  changes:
+    - type: Add
+      message: >-
+        Traitors can now purchase the experimental syndicate teleporter. It
+        works like a multi-use bluespace crystal but may also gib the user.
+  id: 1265
+  time: '2025-06-22T04:57:17.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: Returned syndicate binary encryption key in the form of an implant.
+    - type: Fix
+      message: Smoke implant can now be removed.
+  id: 1266
+  time: '2025-06-22T04:58:56.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Hyperzine injector kit now costs 40 TC and comes with 8 injectors.
+  id: 1267
+  time: '2025-06-22T04:59:38.0000000+00:00'
+- author: the_biggestbruh
+  changes:
+    - type: Tweak
+      message: >-
+        Changelings will no longer gain evolution points or objective progress
+        from absorbing (or DNA stinging) unidentified corpses and the like.
+    - type: Tweak
+      message: Changeling absorb should ignore resistances now
+  id: 1268
+  time: '2025-06-22T05:01:03.0000000+00:00'
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Lisp accent slightly more comprehensible
+  id: 1269
+  time: '2025-06-22T05:01:30.0000000+00:00'
+- author: vorpuscl
+  changes:
+    - type: Fix
+      message: >-
+        The lower half of the shadowkin sprite now properly appears underneath
+        clothing.
+  id: 1270
+  time: '2025-06-22T05:01:47.0000000+00:00'
+- author: vorpuscl
+  changes:
+    - type: Fix
+      message: >-
+        Casul no longer creates a transparent black box around the player when
+        held in the left hand.
+  id: 1271
+  time: '2025-06-22T05:08:11.0000000+00:00'
+- author: freturt
+  changes:
+    - type: Add
+      message: Added clustergrenades to secoff belt's whitelist!
+  id: 1272
+  time: '2025-06-22T05:09:28.0000000+00:00'
+- author: JohnOakman
+  changes:
+    - type: Add
+      message: 'New human haircut: Jinx'
+  id: 1273
+  time: '2025-06-22T05:10:25.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Add
+      message: Added medical beam gun. Nukeops Agent can buy it once for 100 TC.
+  id: 1274
+  time: '2025-06-22T07:26:24.0000000+00:00'
+- author: IrisTheAmped, Dummy
+  changes:
+    - type: Add
+      message: Added a plush for the most handsomest of Head Game Admins; Nigel.
+  id: 1275
+  time: '2025-06-23T15:40:11.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: >-
+        The RDs Gemini clone can no longer be gibbed, cremated, or generally
+        burst into organs.
+    - type: Fix
+      message: The RDs Gemini clone no longer has a fucked accent.
+    - type: Tweak
+      message: >-
+        You can now view the status and remaining health of your gemini by
+        inspecting the rig,
+    - type: Tweak
+      message: Geminis are now immune to pressure damage fully,
+  id: 1276
+  time: '2025-06-23T16:22:05.0000000+00:00'
+- author: thebiggestbruh
+  changes:
+    - type: Add
+      message: Added a few new text popups for changeling stings.
+    - type: Tweak
+      message: >-
+        Changelings now need to extract UNIQUE genomes for the DNA extraction
+        objective (a person cannot give you objective progress if you had
+        previously extracted their DNA during the round).
+    - type: Tweak
+      message: >-
+        Changelings should no longer roll other changelings as their "escape as
+        x's identity" target (if they swap identities its a guaranteed fail).
+    - type: Tweak
+      message: >-
+        Changelings are now able to absorb headslugs and other changelings who
+        entered lesser (monkey) form.
+    - type: Tweak
+      message: >-
+        Fake armblade sting chem cost reduced to 30 and will now force the
+        target to drop an item in their hand if both are full (provided that the
+        item can actually be dropped in the first place).
+    - type: Tweak
+      message: >-
+        Changeling stings (except for DNA extract) will now be able to work on
+        simplemobs (monkeys, carp, pets ect).
+    - type: Fix
+      message: >-
+        Fake armblade sting should no longer tell you that you can't inject a
+        monkey when the target's hands are full (the fact that nobody pointed
+        this out earlier shows that literally nobody uses it).
+    - type: Fix
+      message: >-
+        Lethargic sting description now correctly display its chem cost of 30
+        (from 25).
+    - type: Fix
+      message: >-
+        Changelings should no longer be able to roll IPCs as their "escape with
+        x's identity" target (again).
+  id: 1277
+  time: '2025-06-23T19:54:40.0000000+00:00'
+- author: Mocho, bucket of wet slop
+  changes:
+    - type: Tweak
+      message: Changelings no longer die upon beheading now.
+    - type: Tweak
+      message: >-
+        Changed the logic in the string builder for the self inspect when
+        clicking the body doll, should have a bit less engrish.
+    - type: Fix
+      message: >-
+        Fixed a bunch of bugs with wound logic, including but not limited to
+        traumas adding wounds with damage that would be unhealable, wounds going
+        over the cap and resulting in permanent pain as you would be unable to
+        reset it, 
+    - type: Fix
+      message: >-
+        Bone break alerts should go away now when removing the parts (you'll
+        likely have a broken chest bone due to current part damage transfer
+        code, needs rewriting).
+    - type: Fix
+      message: >-
+        Fixed shadowkin recreating the solstice incident, and vulp groins
+        looking like they were ripped from a N64 game.
+    - type: Fix
+      message: >-
+        Tourniquets are not healing items now, previously they would remove
+        bleed and shit without actually going on. Slopcode.
+    - type: Fix
+      message: Changed rust healing runes to use same behavior as chems.
+    - type: Fix
+      message: >-
+        Fixed body parts being unbreakable once they were severed. You can now
+        whack at them while delimbed.
+    - type: Fix
+      message: >-
+        Fixed some body parts becoming literally invisible upon getting thrown
+        or changing certain angles, thanks directional sprites.
+    - type: Fix
+      message: >-
+        Fixed that one issue where the health analyzer would display
+        {$targetPart}{$targetSymmetry} instead of proper part info.
+    - type: Fix
+      message: >-
+        Fixed some of the issues with logic on zed regeneration, it wasn't
+        healing their entire bodies.
+    - type: Fix
+      message: Fixed armor trauma deductions of 1 (100%) not actually doing their job.
+    - type: Add
+      message: H̷̟̃Ẻ̷̯L̴̟̇P̵͈͋ ̷̢̕M̸͇̆E̶̟͐ ̴̻̌I̵̓ͅT̷̡̆S̴̱͐ ̶̠̎A̴͙̽L̷̬̾Ǐ̶̹Ṿ̴̇E̴̙͌
+  id: 1278
+  time: '2025-06-24T08:41:41.0000000+00:00'

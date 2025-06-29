@@ -75,8 +75,8 @@ selectable-set-syndicate-hacker-description =
     A bundle with everything you need to hack into and disrupt the Station itself,
     the station AI, its cyborgs and the Security team. HACK THE PLANET!
     Contains: Antimov law circuit, authentication disruptor, EMAG,
-    camera bug, filled toolbox, contortionist suit,
-    cool glasses and both binary and syndicate encryption keys.
+    camera bug, filled toolbox, contortionist suit, cool glasses,
+    binary decoder implanter and a syndicate encryption key.
 
 selectable-set-syndicate-desword-name = Dark Lord Bundle
 selectable-set-syndicate-desword-description =
