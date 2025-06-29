@@ -1,3 +1,4 @@
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Lumminal <81829924+Lumminal@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 //
