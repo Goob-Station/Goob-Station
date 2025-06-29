@@ -112,7 +112,7 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
             || !args.CanComplexInteract
             || projector.Comp.CurrentHost is not { } host
             || args.User != host
-            || CanUseProjector(projector, args.User))
+            || !CanUseProjector(projector, args.User))
             return;
 
         AlternativeVerb regenerateVerb = new()
