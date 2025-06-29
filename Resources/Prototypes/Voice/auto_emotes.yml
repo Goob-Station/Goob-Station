@@ -18,10 +18,10 @@
   chance: 0.5
   withChat: false
 
-# Brullbar
+# Brullbar # TODO put this into goob directory
 - type: autoEmote
   id: BrullbarHowl
-  emote: BruteHowl
-  interval: 1.0
+  emote: Scream
+  interval: 5.0 
   chance: 1
   withChat: false
