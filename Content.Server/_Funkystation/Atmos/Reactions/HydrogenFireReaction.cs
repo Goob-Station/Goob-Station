@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 LaCumbiaDelCoronavirus <90893484+LaCumbiaDelCoronavirus@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 // Assmos - /tg/ gases
 // Essentially the exact same as a tritium fire but without the still TODO radioactivity of a tritium burn.
 

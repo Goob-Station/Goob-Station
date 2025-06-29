@@ -1,4 +1,8 @@
-﻿using JetBrains.Annotations;
+// SPDX-FileCopyrightText: 2025 LaCumbiaDelCoronavirus <90893484+LaCumbiaDelCoronavirus@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 using Content.Shared._Funkystation.Atmos.Components;
 
