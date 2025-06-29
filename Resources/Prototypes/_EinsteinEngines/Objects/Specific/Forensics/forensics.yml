@@ -1,6 +1,5 @@
 - type: entity
   id: ScentTrackEffect
-  noSpawn: true
   components:
   - type: TimedDespawn
     lifetime: 1
