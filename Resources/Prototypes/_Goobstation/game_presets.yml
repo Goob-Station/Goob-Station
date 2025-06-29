@@ -239,7 +239,7 @@
     - survivalnew
   name: survivalplus-title
   description: survivalplus-description
-  showInVot: true
+  showInVote: true
   minPlayers: 30 # Pirate
   rules:
     - SecretPlusRampingMid
