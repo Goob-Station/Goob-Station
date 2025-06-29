@@ -198,7 +198,7 @@
   - ToolboxSyndicateFilled
   - ClothingUniformJumpsuitAtmosSyndie
   - ClothingEyesGlassesOutlawGlasses
-  - EncryptionKeyBinarySyndicate
+  - BinaryImplanter
 
 - type: selectableSet
   id: SyndicateDeswordSet
@@ -317,7 +317,7 @@
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/erevolver.rsi
     state: icon
   content:
-    - ClothingBeltHolsterFilledBlueshield # Pistol, 1+2 lethal speedloaders and 2 disabler speedloaders
+    - ClothingBeltHolsterFilledBlueshield # Pistol, 1+2 lethal speedloaders and 1 disabler speedloader
 
 - type: selectableSet
   id: BSOCQCSet
@@ -341,9 +341,20 @@
   - WeaponLeverChester
   - MagazineShotgunLeverRifleEmpty
   - MagazineShotgunLeverRifleEmpty
-  - MagazineBoxShotgunHighCaliber
-  tables:
-  - ChesterRandomAmmoTable
+  - MagazineBoxShotgunHighCaliberEMP
+  - MagazineBoxShotgunHighCaliberEnsnaring
+#  tables:
+#  - ChesterRandomAmmoTable
+
+- type: selectableSet
+  id: BSOSyringeSet
+  name: selectable-set-blueshield-syringe-name
+  description: selectable-set-blueshield-syringe-description
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Melee/blueshield_knife.rsi
+    state: icon
+  content:
+    - BoxCombatInjector
 
 # Blueshield hardsuits
 
