@@ -111,7 +111,8 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
         if (!args.CanInteract
             || !args.CanComplexInteract
             || projector.Comp.CurrentHost is not { } host
-            || args.User != host)
+            || args.User != host
+            || CanUseProjector(projector, args.User))
             return;
 
         AlternativeVerb regenerateVerb = new()
@@ -177,7 +178,8 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
 
     private void OnProjectorActivated(Entity<CloneProjectorComponent> projector, ref CloneProjectorActivatedEvent args)
     {
-        if (args.Handled)
+        if (args.Handled
+            || !CanUseProjector(projector, args.Performer))
             return;
 
         // Does the clone match the current user?
@@ -437,5 +439,10 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
 
         _actions.UpdateAction(actionEntity, actionComp);
         Dirty(actionEntity, actionComp);
+    }
+
+    private bool CanUseProjector(Entity<CloneProjectorComponent> projector, EntityUid user)
+    {
+        return _whitelist.IsBlacklistFail(projector.Comp.UserBlacklist, user);
     }
 }

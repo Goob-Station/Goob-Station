@@ -32,6 +32,7 @@
     - type: NoSlip
     - type: ZombieImmune
     - type: CrematoriumImmune
+    - type: Uncloneable
     - type: TypingIndicator
       proto: robot
     - type: Speech
@@ -125,6 +126,9 @@
     clonedItemWhitelist:
       components:
       - Clothing
+    userBlacklist:
+      components:
+      - Zombie
   - type: Tag
     tags:
       - HighRiskItem
