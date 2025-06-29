@@ -530,20 +530,6 @@ namespace Content.Shared.Atmos
         /// </summary>
         public const float HyperNobliumProductionEnergy = 2e7f;
 
-        /// <summary>
-        ///     The minimum number of mols at which hyper-noblium stops the reactions in it's mixture,
-        ///         when the mixture is hotter than <see cref="HyperNobliumReactionOppressionMinimumTemperature"/>.
-        /// </summary>
-        public const float HyperNobliumReactionOppressionThreshold = 5f;
-
-        /// <summary>
-        ///     The highest temperature (in Kelvin) before hyper-noblium stops the reactions in it's mixture,
-        ///         when the mixture has at least <see cref="HyperNobliumReactionOppressionThreshold"/>
-        ///         number of mols of hyper-noblium.
-        /// </summary>
-        /// <remarks>Should only apply when not equal to, but higher than mixture temperature.</remarks>
-        public const float HyperNobliumReactionOppressionMinimumTemperature = 5f;
-
 
         // Nitrium
         /// <summary>

@@ -1,7 +1,7 @@
 - type: gasReaction
   id: HyperNobliumReactionSuppression
   priority: -15
-  minimumTemperature: 20 # HyperNobliumReactionOppressionMinimumTemperature
+  minimumTemperature: 20
   minimumRequirements:
   - 0     # oxygen
   - 0     # nitrogen
@@ -17,7 +17,7 @@
   - 0     # nitrium
   - 0     # pluox
   - 0     # hydrogen
-  - 5 # hypernob # HyperNobliumReactionOppressionThreshold
+  - 5 # hypernob
   effects:
   - !type:HyperNobliumOppressionReaction {}
 
