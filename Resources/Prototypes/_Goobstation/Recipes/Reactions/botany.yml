@@ -47,7 +47,7 @@
   reactants:
     Ammonia:
       amount: 1
-    Nitric Acid:
+    NitricAcid:
       amount: 1
   products:
     Ammonium Nitrate: 1

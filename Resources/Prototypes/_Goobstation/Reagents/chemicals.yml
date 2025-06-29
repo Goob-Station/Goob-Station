@@ -16,7 +16,7 @@
   color: "#488bff" # potentially something more once we get reactions with things in air
 
 - type: reagent
-  id: SodiumBicarbonate #Decomposes at 484k therefore no melting point
+  id: SodiumBicarbonate
   name: reagent-name-sodium-bicarbonate
   desc: reagent-desc-sodium-bicarbonate
   physicalDesc: reagent-physical-desc-powdery

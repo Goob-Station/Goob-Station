@@ -116,8 +116,9 @@
       amount: 1
   effects:
     - !type:ExplosionReactionEffect
-      explosionType: Default
-      maxIntensity: 100
-      intensityPerUnit: 9 # HMX's RE factor is 1.7
+      explosionType: HardBomb # very high detonation velocity
+      maxIntensity: 30
+      intensityPerUnit: 3 # Lower because hardbomb
       intensitySlope: 2 # very high detonation velocity
-      maxTotalIntensity: 2500 # very high detonation velocity
+      maxTotalIntensity: 3000 # very high detonation velocity
+      canCreateVacuum: false

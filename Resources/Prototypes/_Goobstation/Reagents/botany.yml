@@ -86,7 +86,7 @@
           type: Plant
 
 - type: reagent
-  id: Ammonium Nitrate
+  id: AmmoniumNitrate
   name: reagent-name-ammonium-nitrate
   group: Botanical
   desc: reagent-desc-ammonium-nitrate
