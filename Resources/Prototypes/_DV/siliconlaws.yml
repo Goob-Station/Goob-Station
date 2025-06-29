@@ -33,3 +33,152 @@
   - CurtainCall3
   - CurtainCall4
   obeysTo: laws-owner-curtaincall
+
+# Delta-V Laws
+# Job-Based LawSets
+
+- type: siliconLaw
+  id: Medical1
+  order: 1
+  lawString: law-medical-1
+
+- type: siliconLaw
+  id: Medical2
+  order: 2
+  lawString: law-medical-2
+
+- type: siliconLaw
+  id: Medical3
+  order: 3
+  lawString: law-medical-3
+
+- type: siliconLaw
+  id: Medical4
+  order: 4
+  lawString: law-medical-4
+
+- type: siliconLaw
+  id: Medical5
+  order: 5
+  lawString: law-medical-5
+
+- type: siliconLawset
+  id: Medical
+  laws:
+  - Medical1
+  - Medical2
+  - Medical3
+  - Medical4
+  - Medical5
+  obeysTo: laws-owner-crew
+
+- type: siliconLaw
+  id: Engineer1
+  order: 1
+  lawString: law-engineer-1
+
+- type: siliconLaw
+  id: Engineer2
+  order: 2
+  lawString: law-engineer-2
+
+- type: siliconLaw
+  id: Engineer3
+  order: 3
+  lawString: law-engineer-3
+
+- type: siliconLaw
+  id: Engineer4
+  order: 4
+  lawString: law-engineer-4
+
+- type: siliconLaw
+  id: Engineer5
+  order: 5
+  lawString: law-engineer-5
+
+- type: siliconLawset
+  id: Engineer
+  laws:
+  - Engineer1
+  - Engineer2
+  - Engineer3
+  - Engineer4
+  - Engineer5
+  obeysTo: laws-owner-station-station
+
+- type: siliconLaw
+  id: Janitor1
+  order: 1
+  lawString: law-janitor-1
+
+- type: siliconLaw
+  id: Janitor2
+  order: 2
+  lawString: law-janitor-2
+
+- type: siliconLaw
+  id: Janitor3
+  order: 3
+  lawString: law-janitor-3
+
+- type: siliconLaw
+  id: Janitor4
+  order: 4
+  lawString: law-janitor-4
+
+- type: siliconLaw
+  id: Janitor5
+  order: 5
+  lawString: law-janitor-5
+
+- type: siliconLawset
+  id: Janitor
+  laws:
+  - Janitor1
+  - Janitor2
+  - Janitor3
+  - Janitor4
+  - Janitor5
+  obeysTo: laws-owner-charge
+
+- type: siliconLaw
+  id: Clown1
+  order: 1
+  lawString: law-clown-1
+
+- type: siliconLaw
+  id: Clown2
+  order: 2
+  lawString: law-clown-2
+
+- type: siliconLaw
+  id: Clown3
+  order: 3
+  lawString: law-clown-3
+
+- type: siliconLaw
+  id: Clown4
+  order: 4
+  lawString: law-clown-4
+
+- type: siliconLaw
+  id: Clown5
+  order: 5
+  lawString: law-clown-5
+
+- type: siliconLaw
+  id: Clown6
+  order: 6
+  lawString: law-clown-6
+
+- type: siliconLawset
+  id: Clown
+  laws:
+  - Clown1
+  - Clown2
+  - Clown3
+  - Clown4
+  - Clown5
+  - Clown6
+  obeysTo: laws-owner-crew
