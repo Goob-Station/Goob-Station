@@ -59,7 +59,7 @@
   - SpaceHeaterMachineCircuitBoard
   - ThermomachineFreezerMachineCircuitBoard # Assmos - Moved to staticRecipes from dynamicRecipes
   - ElectrolyzerMachineCircuitboard # Assmos - /tg/ gases
-  - CrystallizerMachineCircuitboard # Assmos - crystallizer
+  - CrystallizerMachineCircuitboard # Assmos - Crystallizer
 
 
 ## Dynamic

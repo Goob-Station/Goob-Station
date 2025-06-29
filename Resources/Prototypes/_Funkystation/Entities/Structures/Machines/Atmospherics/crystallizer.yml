@@ -1,8 +1,8 @@
-﻿- type: entity
+﻿- type: entity # Crystallizer can only be put in one direction, where regulator is on west and inlet is on east.
   parent: [BaseStructure, ConstructibleMachine] # Not a BaseMachinePowered since we don't want the anchorable component
   id: Crystallizer
   name: crystallizer
-  description: Used to crystallize or solidify gases.
+  description: Used to crystallize or solidify gases. The inlet is on the east side.
   placement:
     mode: SnapgridCenter
   components:
@@ -13,7 +13,7 @@
     offset: 0, 0.5
     layers:
       - sprite: Structures/Piping/Atmospherics/pipe.rsi
-        state: pipeStraight #this is so cooked visually but eh
+        state: pipeStraight # Doesn't display connections, but whatever. Trollface.
         offset: 0, -0.5
         map: [ "enum.PipeVisualLayers.Pipe" ]
         rotation: 90
