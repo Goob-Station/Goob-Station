@@ -38,3 +38,4 @@ public sealed partial class FTLDestinationComponent : Component
     [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
     public bool RequireCoordinateDisk = false;
 }
+

@@ -29,3 +29,4 @@ public sealed partial class SpellbladeEnchantmentPrototype : IPrototype
     [DataField(required: true)]
     public object? Event;
 }
+

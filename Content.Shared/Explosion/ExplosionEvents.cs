@@ -63,3 +63,4 @@ public record struct BeforeExplodeEvent(DamageSpecifier Damage, string Id, List<
     /// </summary>
     public readonly List<EntityUid> Contents = Contents;
 }
+

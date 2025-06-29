@@ -43,3 +43,4 @@ public abstract partial class SharedHandsSystem : EntitySystem
 
     public bool TrySelectEmptyHand(EntityUid uid, HandsComponent? handsComp = null) => TrySelect(uid, null, handsComp);
 }
+

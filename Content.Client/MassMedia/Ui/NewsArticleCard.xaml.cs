@@ -50,3 +50,4 @@ public sealed partial class NewsArticleCard : Control
         DeleteButton.OnPressed += _ => OnDeletePressed?.Invoke();
     }
 }
+

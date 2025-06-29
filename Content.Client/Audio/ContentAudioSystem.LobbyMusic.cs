@@ -290,3 +290,4 @@ public sealed partial class ContentAudioSystem
 /// </summary>
 /// <param name="SoundtrackFilename">Filename of newly set soundtrack, or null if soundtrack playback is stopped.</param>
 public sealed record LobbySoundtrackChangedEvent(string? SoundtrackFilename = null);
+

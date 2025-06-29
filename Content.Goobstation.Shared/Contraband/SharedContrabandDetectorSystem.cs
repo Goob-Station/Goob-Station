@@ -213,3 +213,4 @@ public abstract class SharedContrabandDetectorSystem : EntitySystem
         return false;
     }
 }
+

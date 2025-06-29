@@ -89,3 +89,4 @@ public sealed class DecalPlacerUIController : UIController, IOnStateExited<Gamep
         _window.Close();
     }
 }
+

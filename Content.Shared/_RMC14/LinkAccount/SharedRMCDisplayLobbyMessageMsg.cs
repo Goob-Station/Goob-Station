@@ -37,3 +37,4 @@ public sealed class SharedRMCDisplayLobbyMessageEvent(string message, string use
     public readonly string Message = message;
     public readonly string User = user;
 }
+

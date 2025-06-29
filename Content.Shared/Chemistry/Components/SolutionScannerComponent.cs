@@ -1,13 +1,11 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 MisterMecky <mrmecky@hotmail.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
-// SPDX-License-Identifier: MIT
+using Robust.Shared.GameStates;
 
 namespace Content.Shared.Chemistry.Components;
 
-[RegisterComponent]
-public sealed partial class SolutionScannerComponent : Component
-{
-}
+/// <summary>
+/// Allows an entity to examine reagents inside of containers, puddles and similiar via the examine verb.
+/// Works when added either directly to an entity or to piece of clothing worn by that entity.
+/// </summary>
+[RegisterComponent, NetworkedComponent]
+public sealed partial class SolutionScannerComponent : Component;
+

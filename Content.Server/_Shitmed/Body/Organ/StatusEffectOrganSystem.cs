@@ -37,3 +37,4 @@ public sealed class StatusEffectOrganSystem : EntitySystem
         }
     }
 }
+

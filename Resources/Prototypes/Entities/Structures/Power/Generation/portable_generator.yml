@@ -410,3 +410,4 @@
           behaviors:
             - !type:SolutionExplosionBehavior
               solution: tank
+

@@ -33,3 +33,4 @@ public sealed class MailDeliveryPoolPrototype : IPrototype
     [DataField("departments")]
     public Dictionary<string, Dictionary<string, float>> Departments = new();
 }
+

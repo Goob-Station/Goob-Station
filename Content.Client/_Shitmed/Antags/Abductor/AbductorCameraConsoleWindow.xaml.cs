@@ -14,3 +14,4 @@ public sealed partial class AbductorCameraConsoleWindow : DefaultWindow
 {
     public AbductorCameraConsoleWindow() => RobustXamlLoader.Load(this);
 }
+

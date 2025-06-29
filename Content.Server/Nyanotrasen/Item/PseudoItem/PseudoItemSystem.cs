@@ -86,3 +86,4 @@ public sealed class PseudoItemSystem : SharedPseudoItemSystem
             _popup.PopupEntity(Loc.GetString("popup-sleep-in-bag", ("entity", uid)), uid);
     }
 }
+

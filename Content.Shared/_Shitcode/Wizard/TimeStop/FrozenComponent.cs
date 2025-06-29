@@ -26,3 +26,4 @@ public sealed partial class FrozenComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public bool HadCollisionWake;
 }
+

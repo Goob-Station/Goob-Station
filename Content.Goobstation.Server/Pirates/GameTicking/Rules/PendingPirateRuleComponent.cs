@@ -31,3 +31,4 @@ public sealed partial class PendingPirateRuleComponent : Component
 
     public CargoOrderData? Order;
 }
+

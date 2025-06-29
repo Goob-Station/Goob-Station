@@ -52,3 +52,4 @@ public sealed class BlobTileVisualizerSystem : VisualizerSystem<BlobTileComponen
         UpdateAppearance(uid, component);
     }
 }
+

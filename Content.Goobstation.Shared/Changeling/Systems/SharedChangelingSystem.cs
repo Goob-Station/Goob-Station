@@ -34,3 +34,4 @@ public abstract class SharedChangelingSystem : EntitySystem
 
     protected virtual void UpdateFlashImmunity(EntityUid uid, bool active) { }
 }
+

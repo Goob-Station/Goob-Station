@@ -16,3 +16,4 @@ public sealed partial class RandomTeleportOnProjectileHitComponent : Component
     [DataField]
     public EntityWhitelist Whitelist = new();
 }
+

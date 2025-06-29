@@ -19,3 +19,4 @@ public sealed partial class AlertCategoryPrototype : IPrototype
     [IdDataField]
     public string ID { get; private set; } = default!;
 }
+

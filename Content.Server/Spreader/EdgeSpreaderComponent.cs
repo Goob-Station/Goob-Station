@@ -19,3 +19,4 @@ public sealed partial class EdgeSpreaderComponent : Component
     [DataField(required:true)]
     public ProtoId<EdgeSpreaderPrototype> Id;
 }
+

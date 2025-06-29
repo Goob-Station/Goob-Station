@@ -19,3 +19,4 @@ public sealed partial class CargoSystem : SharedCargoSystem
         InitializeCargoTelepad();
     }
 }
+

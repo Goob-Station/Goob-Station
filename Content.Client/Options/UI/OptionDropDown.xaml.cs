@@ -68,3 +68,4 @@ public sealed partial class OptionDropDown : Control
         set => NameLabel.Text = value;
     }
 }
+

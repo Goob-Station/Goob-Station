@@ -22,3 +22,4 @@ namespace Content.Shared.Mail
         JobIcon,
     }
 }
+

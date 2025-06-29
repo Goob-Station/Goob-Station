@@ -102,3 +102,4 @@ public sealed partial class EntSelector : EntityTableSelector
         }
     }
 }
+

@@ -31,3 +31,4 @@ public sealed partial class DeadStartupButtonComponent : Component
     [DataField("verbPriority"), ViewVariables(VVAccess.ReadWrite)]
     public int VerbPriority = 1;
 }
+

@@ -30,3 +30,4 @@ public sealed class CrewMonitoringState : BoundUserInterfaceState
         Sensors = sensors;
     }
 }
+

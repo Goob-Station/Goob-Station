@@ -89,3 +89,4 @@ public sealed class ToggleCellDrawSystem : EntitySystem
         _toggle.TryDeactivate(ent.Owner);
     }
 }
+

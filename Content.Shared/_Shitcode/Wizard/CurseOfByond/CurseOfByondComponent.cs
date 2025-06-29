@@ -14,3 +14,4 @@ public sealed partial class CurseOfByondComponent : Component
     [DataField]
     public string CurseOfByondAlertKey = "CurseOfByond";
 }
+

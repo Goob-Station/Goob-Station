@@ -19,3 +19,4 @@ public sealed partial class LavalandGridGrantComponent : Component
     [DataField]
     public ComponentRegistry ComponentsToGrant = new();
 }
+

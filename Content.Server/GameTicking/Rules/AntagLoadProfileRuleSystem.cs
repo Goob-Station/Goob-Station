@@ -62,3 +62,4 @@ public sealed class AntagLoadProfileRuleSystem : GameRuleSystem<AntagLoadProfile
         _humanoid.LoadProfile(args.Entity.Value, profile?.WithSpecies(species.ID));
     }
 }
+

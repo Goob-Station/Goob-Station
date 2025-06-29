@@ -16,3 +16,4 @@ namespace Content.Server.DeviceNetwork.Components
     {
     }
 }
+

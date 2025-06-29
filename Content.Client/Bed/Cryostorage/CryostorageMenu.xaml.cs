@@ -57,3 +57,4 @@ public sealed partial class CryostorageMenu : FancyWindow
         EmptyLabel.Visible = data.Count == 0;
     }
 }
+

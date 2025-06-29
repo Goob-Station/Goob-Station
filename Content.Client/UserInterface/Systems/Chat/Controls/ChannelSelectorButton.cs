@@ -109,3 +109,4 @@ public sealed class ChannelSelectorButton : ChatPopupButton<ChannelSelectorPopup
         }
     }
 }
+

@@ -23,3 +23,4 @@ public abstract class SharedRedialManager : IPostInjectInit
 
     }
 }
+

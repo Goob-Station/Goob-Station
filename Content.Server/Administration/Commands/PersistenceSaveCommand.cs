@@ -61,3 +61,4 @@ public sealed class PersistenceSave : IConsoleCommand
         shell.WriteLine(Loc.GetString("cmd-savemap-success"));
     }
 }
+

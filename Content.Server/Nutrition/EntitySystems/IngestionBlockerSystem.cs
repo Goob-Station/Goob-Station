@@ -32,3 +32,4 @@ public sealed class IngestionBlockerSystem : EntitySystem
         ent.Comp.Enabled = !args.Mask.Comp.IsToggled;
     }
 }
+

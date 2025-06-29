@@ -44,3 +44,4 @@ public sealed partial class RepulseAttractComponent : Component
     [DataField, AutoNetworkedField]
     public CollisionGroup CollisionMask = CollisionGroup.GhostImpassable;
 }
+

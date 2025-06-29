@@ -29,3 +29,4 @@ public sealed partial class ChameleonDisguisedComponent : Component
     [DataField]
     public bool WasVisible;
 }
+

@@ -29,3 +29,4 @@ public sealed partial class GunRequiresWieldComponent : Component
     [DataField]
     public LocId? WieldRequiresExamineMessage  = "gunrequireswield-component-examine";
 }
+

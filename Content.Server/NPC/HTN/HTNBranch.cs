@@ -25,3 +25,4 @@ public sealed partial class HTNBranch
     [DataField("tasks", required: true)]
     public List<HTNTask> Tasks = new();
 }
+

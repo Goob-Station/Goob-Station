@@ -89,6 +89,7 @@ using Content.Shared.Movement.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Timing;
 using System.Numerics;
+using Content.Shared.Damage.Components;
 
 // Shitmed Change
 using System.Linq;
@@ -201,6 +202,9 @@ public sealed partial class BodySystem : SharedBodySystem // Shitmed change: mad
             return new HashSet<EntityUid>();
         }
 
+        if (HasComp<GodmodeComponent>(bodyId))
+            return new HashSet<EntityUid>();
+
         var xform = Transform(bodyId);
         if (xform.MapUid is null)
             return new HashSet<EntityUid>();
@@ -278,3 +282,4 @@ public sealed partial class BodySystem : SharedBodySystem // Shitmed change: mad
     }
     // Shitmed Change End
 }
+

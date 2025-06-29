@@ -17,3 +17,4 @@ public sealed partial class SurgeryWindow : DefaultWindow
         RobustXamlLoader.Load(this);
     }
 }
+

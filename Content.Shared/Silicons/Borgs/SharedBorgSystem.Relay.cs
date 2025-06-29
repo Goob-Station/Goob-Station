@@ -41,3 +41,4 @@ public record struct BorgModuleRelayedEvent<TEvent>(TEvent Args)
 {
     public readonly TEvent Args = Args;
 }
+

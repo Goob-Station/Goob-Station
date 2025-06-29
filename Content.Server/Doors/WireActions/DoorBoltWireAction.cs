@@ -57,3 +57,4 @@ public sealed partial class DoorBoltWireAction : ComponentWireAction<DoorBoltCom
             EntityManager.System<DoorSystem>().SetBoltsDown((wire.Owner, door), true);
     }
 }
+

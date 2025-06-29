@@ -207,3 +207,4 @@ public sealed class InteractionPopupSystem : EntitySystem
         ent.Comp.InteractFailureString = str;
     }
 }
+

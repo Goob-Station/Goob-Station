@@ -31,3 +31,4 @@ public abstract partial class SharedPointingArrowComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan EndTime;
 }
+

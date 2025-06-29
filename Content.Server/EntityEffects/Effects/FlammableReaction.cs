@@ -53,3 +53,4 @@ namespace Content.Server.EntityEffects.Effects
         }
     }
 }
+

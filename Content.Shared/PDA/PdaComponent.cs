@@ -89,3 +89,4 @@ namespace Content.Shared.PDA
         [ViewVariables] public Color StationAlertColor = Color.White;
     }
 }
+

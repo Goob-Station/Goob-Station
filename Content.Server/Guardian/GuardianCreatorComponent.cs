@@ -41,3 +41,4 @@ namespace Content.Server.Guardian
         public float InjectionDelay = 5f;
     }
 }
+

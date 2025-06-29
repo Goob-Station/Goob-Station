@@ -16,3 +16,4 @@ public sealed partial class NPCAvoidanceComponent : Component
     [ViewVariables(VVAccess.ReadWrite), DataField("enabled")]
     public bool Enabled = true;
 }
+

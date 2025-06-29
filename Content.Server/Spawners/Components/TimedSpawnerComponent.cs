@@ -70,3 +70,4 @@ public sealed partial class TimedSpawnerComponent : Component, ISerializationHoo
             throw new ArgumentException("MaximumEntitiesSpawned can't be lower than MinimumEntitiesSpawned!");
     }
 }
+

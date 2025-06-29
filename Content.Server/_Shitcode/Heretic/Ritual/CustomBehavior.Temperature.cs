@@ -57,3 +57,4 @@ namespace Content.Server.Heretic.Ritual;
         // do nothing
     }
 }
+

@@ -74,3 +74,4 @@ namespace Content.Server.Medical.Components
         public float CloningFailChanceMultiplier = 1f;
     }
 }
+

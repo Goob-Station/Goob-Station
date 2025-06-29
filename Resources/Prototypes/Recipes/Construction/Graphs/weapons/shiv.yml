@@ -177,3 +177,4 @@
         doAfter: 1
   - node: icon
     entity: UraniumShiv
+

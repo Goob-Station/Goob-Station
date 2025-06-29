@@ -19,3 +19,4 @@ public sealed class AbsorbentSystem : SharedAbsorbentSystem
         Subs.ItemStatus<AbsorbentComponent>(ent => new AbsorbentItemStatus(ent, EntityManager));
     }
 }
+

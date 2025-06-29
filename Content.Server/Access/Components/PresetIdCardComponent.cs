@@ -28,3 +28,4 @@ public sealed partial class PresetIdCardComponent : Component
     [DataField("name")]
     public string? IdName;
 }
+

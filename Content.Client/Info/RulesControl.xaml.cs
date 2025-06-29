@@ -67,3 +67,4 @@ public sealed partial class RulesControl : BoxContainer, ILinkClickHandler
         BackButton.Visible = _priorEntries.Count != 0 && _priorEntries.Peek() != entry.Value;
     }
 }
+

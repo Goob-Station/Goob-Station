@@ -484,3 +484,4 @@ namespace Content.Server.Power.Pow3r
         #endregion
     }
 }
+

@@ -21,3 +21,4 @@ public sealed partial class StationLogisticStatsComponent : Component
     [DataField]
     public MailStats Metrics { get; set; }
 }
+

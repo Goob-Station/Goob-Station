@@ -792,3 +792,4 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
         GoodLuck,
     }
 }
+

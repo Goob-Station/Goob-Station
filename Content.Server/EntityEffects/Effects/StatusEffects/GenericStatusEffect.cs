@@ -82,3 +82,4 @@ public enum StatusEffectMetabolismType
     Remove,
     Set
 }
+

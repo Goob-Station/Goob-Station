@@ -75,3 +75,4 @@ public enum BorgSwitchableTypeUiKey : byte
 {
     SelectBorgType,
 }
+

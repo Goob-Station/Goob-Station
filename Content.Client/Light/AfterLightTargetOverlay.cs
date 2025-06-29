@@ -65,3 +65,4 @@ public sealed class AfterLightTargetOverlay : Overlay
             }, Color.Transparent);
     }
 }
+

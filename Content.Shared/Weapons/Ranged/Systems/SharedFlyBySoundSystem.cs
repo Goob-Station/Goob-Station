@@ -52,3 +52,4 @@ public abstract class SharedFlyBySoundSystem : EntitySystem
         _fixtures.DestroyFixture(uid, FlyByFixture, body: body);
     }
 }
+

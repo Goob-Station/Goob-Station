@@ -34,3 +34,4 @@ public sealed class ShowCriminalRecordIconsSystem : EquipmentHudSystem<ShowCrimi
             ev.StatusIcons.Add(iconPrototype);
     }
 }
+

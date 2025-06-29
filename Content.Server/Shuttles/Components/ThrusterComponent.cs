@@ -88,3 +88,4 @@ namespace Content.Server.Shuttles.Components
         Angular,
     }
 }
+

@@ -21,3 +21,4 @@ namespace Content.Shared.Decals
         public Dictionary<NetEntity, HashSet<Vector2i>> RemovedChunks = new();
     }
 }
+

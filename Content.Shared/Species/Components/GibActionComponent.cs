@@ -33,3 +33,4 @@ public sealed partial class GibActionComponent : Component
     [DataField("popupText")]
     public string PopupText = "diona-gib-action-use";
 }
+

@@ -37,3 +37,4 @@ public sealed partial class DiskConsoleComponent : Component
     [DataField("printSound")]
     public SoundSpecifier PrintSound = new SoundPathSpecifier("/Audio/Machines/printer.ogg");
 }
+

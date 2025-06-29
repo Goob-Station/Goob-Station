@@ -20,3 +20,4 @@ public sealed partial class BlobSmokeColorComponent : Component
     [AutoNetworkedField, ViewVariables]
     public Color Color { get; set; } = Color.White;
 }
+

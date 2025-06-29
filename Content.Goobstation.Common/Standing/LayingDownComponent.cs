@@ -34,3 +34,4 @@ public sealed partial class LayingDownComponent : Component
 public sealed class ChangeLayingDownEvent : CancellableEntityEventArgs;
 
 public sealed class CheckAutoGetUpEvent : EntityEventArgs;
+

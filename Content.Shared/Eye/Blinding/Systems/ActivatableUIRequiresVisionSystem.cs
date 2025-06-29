@@ -60,3 +60,4 @@ public sealed class ActivatableUIRequiresVisionSystem : EntitySystem
         }
     }
 }
+

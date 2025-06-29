@@ -93,3 +93,4 @@ public sealed partial class NestedSelector : EntityTableSelector
         return proto.Index(TableId).Table.GetSpawns(rand, entMan, proto);
     }
 }
+

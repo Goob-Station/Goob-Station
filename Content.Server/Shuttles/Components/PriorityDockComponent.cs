@@ -22,3 +22,4 @@ public sealed partial class PriorityDockComponent : Component
      DataField("tag", customTypeSerializer: typeof(PrototypeIdSerializer<TagPrototype>))]
     public string? Tag;
 }
+

@@ -87,6 +87,11 @@ public sealed partial class RangeNumberSelector : NumberSelector
     [DataField]
     public Vector2i Range = new(1, 1);
 
+    public RangeNumberSelector(Vector2i range)
+    {
+        Range = range;
+    }
+
     public override int Get(System.Random rand)
     {
         // rand.Next() is inclusive on the first number and exclusive on the second number,
@@ -94,3 +99,4 @@ public sealed partial class RangeNumberSelector : NumberSelector
         return rand.Next(Range.X, Range.Y + 1);
     }
 }
+

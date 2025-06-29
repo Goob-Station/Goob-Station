@@ -304,6 +304,7 @@
   - type: Tag
     tags:
     - MolotovConstruction #Goobstation
+    - DrinkBottle
 
 - type: entity
   id: DrinkBottleVisualsOpenable

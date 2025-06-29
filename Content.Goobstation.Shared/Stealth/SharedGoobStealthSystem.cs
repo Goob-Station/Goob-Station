@@ -67,3 +67,4 @@ public sealed class SharedGoobStealthSystem : EntitySystem
     }
 
 }
+

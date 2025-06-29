@@ -85,3 +85,4 @@ internal sealed class UpgradeActionCommand : IConsoleCommand
         }
     }
 }
+

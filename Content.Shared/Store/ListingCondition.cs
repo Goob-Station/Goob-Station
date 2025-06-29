@@ -28,3 +28,4 @@ public abstract partial class ListingCondition
 /// <param name="Listing">The listing itself</param>
 /// <param name="EntityManager">An entitymanager for sane coding</param>
 public readonly record struct ListingConditionArgs(EntityUid Buyer, EntityUid? StoreEntity, ListingData Listing, IEntityManager EntityManager);
+

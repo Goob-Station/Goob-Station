@@ -23,3 +23,4 @@ public sealed class ToggleDecalCommand : IConsoleCommand
         _e.System<DecalSystem>().ToggleOverlay();
     }
 }
+

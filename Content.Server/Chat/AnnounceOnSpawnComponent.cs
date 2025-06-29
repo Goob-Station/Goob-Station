@@ -40,3 +40,4 @@ public sealed partial class AnnounceOnSpawnComponent : Component
     [DataField]
     public Color? Color;
 }
+

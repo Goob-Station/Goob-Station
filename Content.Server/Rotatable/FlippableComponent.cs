@@ -21,3 +21,4 @@ namespace Content.Server.Rotatable
         public string MirrorEntity = default!;
     }
 }
+

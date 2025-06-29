@@ -18,3 +18,4 @@ public sealed partial class ProtectiveBladeComponent : Component
     [DataField] public float Lifetime = 60f;
     [ViewVariables(VVAccess.ReadWrite)] public float Timer = 60f;
 }
+

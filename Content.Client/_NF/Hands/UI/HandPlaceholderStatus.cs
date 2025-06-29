@@ -22,3 +22,4 @@ namespace Content.Client._NF.Hands.UI
         }
     }
 }
+

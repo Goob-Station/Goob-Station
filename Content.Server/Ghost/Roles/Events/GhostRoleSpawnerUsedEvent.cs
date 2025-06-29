@@ -29,3 +29,4 @@ namespace Content.Server.Ghost.Roles.Events
         }
     }
 }
+

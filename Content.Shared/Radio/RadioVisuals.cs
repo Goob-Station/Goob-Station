@@ -20,3 +20,4 @@ public enum RadioDeviceVisualLayers : byte
     Broadcasting,
     Speaker
 }
+

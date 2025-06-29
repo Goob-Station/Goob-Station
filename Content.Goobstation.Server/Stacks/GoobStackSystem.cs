@@ -36,3 +36,4 @@ public sealed class GoobStackSystem : GoobSharedStackSystem
         _stackSystem.UserSplit(uid, user, amount, comp);
     }
 }
+

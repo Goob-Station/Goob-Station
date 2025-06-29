@@ -725,3 +725,4 @@ public sealed class TagSystem : EntitySystem
         DebugTools.Assert(_proto.HasIndex<TagPrototype>(id), $"Unknown tag: {id}");
     }
 }
+

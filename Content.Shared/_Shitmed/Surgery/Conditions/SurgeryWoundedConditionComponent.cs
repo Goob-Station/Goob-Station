@@ -15,3 +15,4 @@ public sealed partial class SurgeryWoundedConditionComponent : Component
     [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<DamageGroupPrototype>)), AutoNetworkedField]
     public string DamageGroup = "Brute";
 }
+

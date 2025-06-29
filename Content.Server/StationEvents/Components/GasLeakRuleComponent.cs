@@ -61,3 +61,4 @@ public sealed partial class GasLeakRuleComponent : Component
     public int MaximumGas = 4000;
     public float SparkChance = 0.05f;
 }
+

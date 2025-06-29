@@ -36,3 +36,4 @@ public sealed partial class DamageBoostOnMarkerComponent : Component
     [DataField]
     public DamageSpecifier? BackstabBoost;
 }
+

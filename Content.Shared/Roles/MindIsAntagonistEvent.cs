@@ -19,3 +19,4 @@ namespace Content.Shared.Roles;
 /// <param name="IsExclusiveAntagonist">Whether or not AntagSelectionSystem should exclude this player from other antag roles</param>
 [ByRefEvent]
 public record struct MindIsAntagonistEvent(bool IsAntagonist, bool IsExclusiveAntagonist);
+

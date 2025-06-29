@@ -18,3 +18,4 @@ public sealed partial class BiomeMarkerLoot : IDungeonLoot
     [DataField("proto", required: true)]
     public ProtoId<BiomeMarkerLayerPrototype> Prototype = new();
 }
+

@@ -65,3 +65,4 @@ public sealed partial class NewsReaderUiFragment : BoxContainer
         NotificationSwitch.Text = Loc.GetString(notificationOn ? "news-read-ui-notification-on" : "news-read-ui-notification-off");
     }
 }
+

@@ -39,3 +39,4 @@ public sealed class StationNameSystem : EntitySystem
             : config.StationNameTemplate;
     }
 }
+

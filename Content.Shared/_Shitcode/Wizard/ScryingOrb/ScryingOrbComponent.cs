@@ -13,3 +13,4 @@ namespace Content.Shared._Goobstation.Wizard.ScryingOrb;
 public sealed partial class ScryingOrbComponent : Component
 {
 }
+

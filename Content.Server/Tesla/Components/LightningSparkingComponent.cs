@@ -33,3 +33,4 @@ public sealed partial class LightningSparkingComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public bool IsSparking;
 }
+

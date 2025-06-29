@@ -57,3 +57,4 @@ public sealed class SalvageSystem : SharedSalvageSystem
         ev.Cancelled = true;
     }
 }
+

@@ -58,3 +58,4 @@ public sealed partial class ChaoticJumpComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public EntProtoId Effect = "EffectEmpPulse";
 }
+

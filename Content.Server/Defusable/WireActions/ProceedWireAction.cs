@@ -44,3 +44,4 @@ public sealed partial class ProceedWireAction : ComponentWireAction<DefusableCom
         EntityManager.System<DefusableSystem>().ProceedWirePulse(user, wire, comp);
     }
 }
+

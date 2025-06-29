@@ -56,3 +56,4 @@ public sealed partial class BinglePitFallingComponent : Component
     /// </summary>
     public BinglePitComponent Pit = new BinglePitComponent();
 }
+

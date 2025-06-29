@@ -36,3 +36,4 @@ public sealed class SingularityLevelChangedEvent : EntityEventArgs
         Singularity = singularity;
     }
 }
+

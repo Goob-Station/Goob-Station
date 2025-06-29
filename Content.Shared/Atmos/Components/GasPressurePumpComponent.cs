@@ -31,3 +31,4 @@ public sealed partial class GasPressurePumpComponent : Component
     [GuidebookData]
     public float MaxTargetPressure = Atmospherics.MaxOutputPressure;
 }
+

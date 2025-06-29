@@ -301,3 +301,4 @@ namespace Content.Client.Inventory
         }
     }
 }
+

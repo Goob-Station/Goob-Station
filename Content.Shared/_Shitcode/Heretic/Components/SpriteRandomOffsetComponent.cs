@@ -32,3 +32,4 @@ public enum OffsetVisuals : byte
 {
     Offset
 }
+

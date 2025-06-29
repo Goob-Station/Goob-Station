@@ -15,3 +15,4 @@ public sealed partial class PowerChargeComponent : SharedPowerChargeComponent
 {
 
 }
+

@@ -39,3 +39,4 @@ public sealed partial class SurgeryAddMarkingStepComponent : Component
     [DataField]
     public ComponentRegistry? Accent;
 }
+

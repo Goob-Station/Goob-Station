@@ -26,3 +26,4 @@ public sealed partial class SpeedModifiedOnWieldComponent : Component
     [DataField, AutoNetworkedField]
     public float WalkModifier = 1f;
 }
+

@@ -51,3 +51,4 @@ public sealed partial class InternalTemperatureComponent : Component
     [DataField(required: true), ViewVariables(VVAccess.ReadWrite)]
     public float Area;
 }
+

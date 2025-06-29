@@ -54,3 +54,4 @@
               doAfter: 1
     - node: clownHardsuit
       entity: ClothingOuterHardsuitClown
+

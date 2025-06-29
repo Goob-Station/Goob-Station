@@ -35,3 +35,4 @@ public sealed record SharedRMCLobbyMessage(string Message)
 {
     public const int CharacterLimit = 40;
 }
+

@@ -17,3 +17,4 @@ public sealed partial class PdaVisualsComponent : Component
 
     public string? AccentVColor;
 }
+

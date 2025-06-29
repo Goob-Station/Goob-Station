@@ -37,3 +37,4 @@ public sealed class AddAccessLogCommand : ToolshedCommand
         AddAccessLog(ctx, input, seconds, accessor);
     }
 }
+

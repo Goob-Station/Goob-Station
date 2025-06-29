@@ -27,3 +27,4 @@ namespace Content.Client.Construction
         [ViewVariables] public ConstructionPrototype? Prototype { get; set; }
     }
 }
+

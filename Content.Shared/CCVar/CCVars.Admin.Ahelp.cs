@@ -42,3 +42,4 @@ public sealed partial class CCVars
     public static readonly CVarDef<bool> AhelpAdminPrefixWebhook =
         CVarDef.Create("ahelp.admin_prefix_webhook", false, CVar.SERVERONLY);
 }
+

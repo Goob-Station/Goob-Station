@@ -174,3 +174,4 @@ public sealed class SpellCardSystem : EntitySystem
         }
     }
 }
+

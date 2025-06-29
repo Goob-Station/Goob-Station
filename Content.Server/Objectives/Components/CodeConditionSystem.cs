@@ -21,3 +21,4 @@ public sealed partial class CodeConditionComponent : Component
     [DataField]
     public bool Completed;
 }
+

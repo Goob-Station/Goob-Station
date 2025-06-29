@@ -89,3 +89,4 @@ public sealed class InventoryDisplay : LayoutContainer
         Children.Clear();
     }
 }
+

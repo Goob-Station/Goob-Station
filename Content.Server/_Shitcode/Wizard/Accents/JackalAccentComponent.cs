@@ -18,3 +18,4 @@ public sealed partial class JackalAccentComponent : AnimalAccentComponent
         "accent-words-jackal-4",
     };
 }
+

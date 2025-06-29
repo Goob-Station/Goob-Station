@@ -17,3 +17,4 @@ public sealed partial class DeployableBarrierComponent : Component
     /// </summary>
     [DataField("fixture", required: true)] public string FixtureId = string.Empty;
 }
+

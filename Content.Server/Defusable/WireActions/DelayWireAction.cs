@@ -44,3 +44,4 @@ public sealed partial class DelayWireAction : ComponentWireAction<DefusableCompo
         EntityManager.System<DefusableSystem>().DelayWirePulse(user, wire, comp);
     }
 }
+

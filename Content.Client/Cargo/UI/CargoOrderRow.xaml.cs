@@ -22,3 +22,4 @@ namespace Content.Client.Cargo.UI
         }
     }
 }
+

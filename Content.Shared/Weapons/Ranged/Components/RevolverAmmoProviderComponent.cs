@@ -61,3 +61,4 @@ public sealed partial class RevolverAmmoProviderComponent : AmmoProviderComponen
     [DataField("soundSpin")]
     public SoundSpecifier? SoundSpin = new SoundPathSpecifier("/Audio/Weapons/Guns/Misc/revolver_spin.ogg");
 }
+

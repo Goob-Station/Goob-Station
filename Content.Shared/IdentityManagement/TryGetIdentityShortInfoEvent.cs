@@ -36,3 +36,4 @@ public sealed class TryGetIdentityShortInfoEvent(EntityUid? whileInteractingWith
     /// </summary>
     public readonly bool RequestForAccessLogging = forLogging;
 }
+

@@ -22,3 +22,4 @@ public sealed partial class TrackUserComponent : Component
     /// </summary>
     public Vector2 Offset = Vector2.Zero;
 }
+

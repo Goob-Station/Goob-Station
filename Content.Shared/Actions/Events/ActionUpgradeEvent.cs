@@ -16,3 +16,4 @@ public sealed class ActionUpgradeEvent : EntityEventArgs
         ActionId = actionId;
     }
 }
+

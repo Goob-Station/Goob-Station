@@ -21,3 +21,4 @@ namespace Content.Server.DeviceLinking.Components
         public TimeSpan TriggerTime;
     }
 }
+

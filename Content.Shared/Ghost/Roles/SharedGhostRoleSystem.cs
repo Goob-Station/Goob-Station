@@ -22,3 +22,4 @@ public sealed class GhostRole
     public string Description { get; set; } = string.Empty;
     public NetEntity Id;
 }
+

@@ -26,3 +26,4 @@ namespace Content.Shared.VendingMachines
         Key,
     }
 }
+

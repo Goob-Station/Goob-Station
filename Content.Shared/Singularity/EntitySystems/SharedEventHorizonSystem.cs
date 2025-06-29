@@ -251,3 +251,4 @@ public abstract class SharedEventHorizonSystem : EntitySystem
 
     #endregion EventHandlers
 }
+

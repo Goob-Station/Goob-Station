@@ -212,6 +212,7 @@
       - !type:SatiateHunger
         factor: 6.0 #Stronger than cookedramen
   footstepSound:
-    collection: FootstepBlood
+    collection: FootstepSlime
     params:
       volume: 6
+

@@ -29,3 +29,4 @@ public sealed partial class CCVars
     public static readonly CVarDef<bool> CritLoocEnabled =
         CVarDef.Create("looc.enabled_crit", false, CVar.NOTIFY | CVar.REPLICATED);
 }
+

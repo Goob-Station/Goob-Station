@@ -109,3 +109,4 @@ public sealed partial class PressurizedSolutionComponent : Component
     [DataField]
     public LocId SprayGroundMessage = "pressurized-solution-spray-ground";
 }
+

@@ -9,3 +9,4 @@ namespace Content.Shared.Construction;
 public sealed partial class MachineDeconstructedEvent : EntityEventArgs
 {
 }
+

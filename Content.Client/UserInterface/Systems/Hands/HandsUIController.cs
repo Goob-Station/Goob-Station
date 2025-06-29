@@ -518,3 +518,4 @@ public sealed class HandsUIController : UIController, IOnStateEntered<GameplaySt
             HandsGui?.UpdatePanelEntityRight(entity);
     }
 }
+

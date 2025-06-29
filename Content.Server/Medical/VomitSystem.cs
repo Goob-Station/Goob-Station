@@ -196,3 +196,4 @@ namespace Content.Server.Medical
         }
     }
 }
+

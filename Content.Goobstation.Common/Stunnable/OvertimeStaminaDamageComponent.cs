@@ -33,3 +33,4 @@ public sealed partial class OvertimeStaminaDamageComponent : Component
     /// <remarks> For example, if the divisor is 5, out entity will get the entire overtime stam damage only after 5 seconds. </remarks>
     [DataField] public float Delta = 5f;
 }
+

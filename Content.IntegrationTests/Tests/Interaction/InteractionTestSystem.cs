@@ -39,3 +39,4 @@ public sealed class InteractionTestSystem : EntitySystem
             Ghosts[ev.GhostId] = ev.Uid.Value;
     }
 }
+

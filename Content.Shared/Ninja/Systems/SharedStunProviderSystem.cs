@@ -26,3 +26,4 @@ public abstract class SharedStunProviderSystem : EntitySystem
         Dirty(ent, ent.Comp);
     }
 }
+

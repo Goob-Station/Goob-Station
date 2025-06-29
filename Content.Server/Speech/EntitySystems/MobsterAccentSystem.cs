@@ -102,3 +102,4 @@ public sealed class MobsterAccentSystem : EntitySystem
         args.Message = Accentuate(args.Message, component);
     }
 }
+

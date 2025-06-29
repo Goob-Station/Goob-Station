@@ -83,3 +83,4 @@ namespace Content.Shared.Speech
         public float SpeechBubbleOffset = 0f;
     }
 }
+

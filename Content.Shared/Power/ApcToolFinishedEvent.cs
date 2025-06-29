@@ -14,3 +14,4 @@ namespace Content.Shared.Power;
 public sealed partial class ApcToolFinishedEvent : SimpleDoAfterEvent
 {
 }
+

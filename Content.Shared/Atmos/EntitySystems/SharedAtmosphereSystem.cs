@@ -51,3 +51,4 @@ namespace Content.Shared.Atmos.EntitySystems
         public IEnumerable<GasPrototype> Gases => GasPrototypes;
     }
 }
+

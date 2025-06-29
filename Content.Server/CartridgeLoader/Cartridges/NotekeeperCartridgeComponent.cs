@@ -16,3 +16,4 @@ public sealed partial class NotekeeperCartridgeComponent : Component
     [DataField("notes")]
     public List<string> Notes = new();
 }
+

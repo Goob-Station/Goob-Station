@@ -367,3 +367,4 @@ namespace Content.Goobstation.Maths.FixedPoint
         }
     }
 }
+

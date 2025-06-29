@@ -28,3 +28,4 @@ public sealed partial class SpellsGrantComponent : Component
     [DataField]
     public EntProtoId? AntagProfile;
 }
+

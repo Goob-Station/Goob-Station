@@ -131,3 +131,4 @@ namespace Content.Server.Ghost.Roles
         }
     }
 }
+

@@ -21,3 +21,4 @@ public enum VaporVisuals
     Color,
     State,
 }
+

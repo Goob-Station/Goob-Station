@@ -29,3 +29,4 @@ public sealed class KravMagaImplantSystem : EntitySystem
             RemComp<KravMagaComponent>(ent);
     }
 }
+

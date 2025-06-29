@@ -11,3 +11,4 @@ namespace Content.Server._DV.Paper;
 /// </summary>
 [ByRefEvent]
 public record struct SignAttemptEvent(EntityUid Paper, EntityUid User, bool Cancelled = false);
+

@@ -16,3 +16,4 @@ public sealed partial class StealDNAConditionComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float DNAStolen = 0f;
 }
+

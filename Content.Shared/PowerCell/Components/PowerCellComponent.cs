@@ -41,3 +41,4 @@ public enum PowerCellSlotVisuals : byte
 {
     Enabled
 }
+

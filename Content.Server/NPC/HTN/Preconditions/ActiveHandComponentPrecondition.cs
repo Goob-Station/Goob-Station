@@ -43,3 +43,4 @@ public sealed partial class ActiveHandComponentPrecondition : HTNPrecondition
         return true;
     }
 }
+

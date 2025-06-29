@@ -56,3 +56,4 @@ public sealed partial class DragonRiftComponent : SharedDragonRiftComponent
     public EntProtoId SpawnPrototypeStrong = "MobSharkDragon";
     // </Goobstation>
 }
+

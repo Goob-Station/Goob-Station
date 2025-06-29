@@ -15,3 +15,4 @@ public sealed class PowerPulseEvent : EntityEventArgs
     public EntityUid? User;
     public EntityUid? Used;
 }
+

@@ -13,3 +13,4 @@ namespace Content.Shared._Shitmed.StatusEffects;
 /// </summary>
 [RegisterComponent]
 public sealed partial class ActivateArtifactEffectComponent : Component;
+

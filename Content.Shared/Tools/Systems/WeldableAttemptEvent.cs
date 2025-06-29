@@ -20,3 +20,4 @@ public sealed class WeldableAttemptEvent : CancellableEntityEventArgs
         Tool = tool;
     }
 }
+

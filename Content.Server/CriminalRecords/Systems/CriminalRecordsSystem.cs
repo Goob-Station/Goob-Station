@@ -190,3 +190,4 @@ public sealed class CriminalRecordsSystem : SharedCriminalRecordsSystem
         _cartridge.UpdateCartridgeUiState(loaderUid, state);
     }
 }
+

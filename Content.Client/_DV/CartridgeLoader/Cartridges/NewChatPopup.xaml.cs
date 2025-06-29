@@ -95,3 +95,4 @@ public sealed partial class NewChatPopup : DefaultWindow
         ValidateInputs();
     }
 }
+

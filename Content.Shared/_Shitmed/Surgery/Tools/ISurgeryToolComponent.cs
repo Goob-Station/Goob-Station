@@ -25,3 +25,4 @@ public interface ISurgeryToolComponent
     [DataField]
     public float Speed { get; set; }
 }
+

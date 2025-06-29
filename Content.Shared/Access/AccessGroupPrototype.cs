@@ -28,3 +28,4 @@ public sealed partial class AccessGroupPrototype : IPrototype
     [DataField("tags", required: true)]
     public HashSet<ProtoId<AccessLevelPrototype>> Tags = default!;
 }
+

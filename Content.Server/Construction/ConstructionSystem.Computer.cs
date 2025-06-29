@@ -110,3 +110,4 @@ public sealed partial class ConstructionSystem
             Log.Warning($"Couldn't insert board {board} to computer {ent}!");
     }
 }
+

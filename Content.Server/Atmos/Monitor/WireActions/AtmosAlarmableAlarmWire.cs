@@ -68,3 +68,4 @@ public sealed partial class AtmosMonitorDeviceNetWire : ComponentWireAction<Atmo
             _atmosAlarmableSystem.ForceAlert(wire.Owner, AtmosAlarmType.Danger, comp);
     }
 }
+

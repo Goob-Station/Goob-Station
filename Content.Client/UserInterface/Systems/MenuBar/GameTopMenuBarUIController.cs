@@ -72,3 +72,4 @@ public sealed class GameTopMenuBarUIController : UIController
         _emotes.LoadButton();
     }
 }
+

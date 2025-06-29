@@ -186,3 +186,4 @@ public sealed class FTLDiskCommand : LocalizedCommands
         return CompletionResult.Empty;
     }
 }
+

@@ -320,3 +320,4 @@ public struct PowerMonitoringConsoleTrackable
         Group = group;
     }
 }
+

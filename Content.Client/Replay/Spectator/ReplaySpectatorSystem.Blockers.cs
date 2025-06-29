@@ -81,3 +81,4 @@ public sealed partial class ReplaySpectatorSystem
         args.Cancelled = true;
     }
 }
+

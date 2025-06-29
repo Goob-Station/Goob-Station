@@ -225,3 +225,4 @@ public abstract class SharedStasisSystem : EntitySystem
         _statusEffects.TryRemoveStatusEffect(args.EntityUid, "Stasis");
     }
 }
+

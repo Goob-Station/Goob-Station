@@ -55,3 +55,4 @@ public sealed class MapTextComponentState : ComponentState
     public int FontSize { get; init;}
     public Vector2 Offset { get; init;}
 }
+

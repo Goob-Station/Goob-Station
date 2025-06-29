@@ -24,3 +24,4 @@ public enum SpawnAnimationVisuals : byte
 {
     Spawned,
 }
+

@@ -11,3 +11,4 @@ namespace Content.Server._Goobstation.Wizard.Teleport;
 public sealed partial class WizardTeleportWarpPointComponent : Component
 {
 }
+

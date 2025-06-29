@@ -124,3 +124,4 @@ public sealed partial class ExplosionResistanceComponent : Component
     [DataField("modifiers", customTypeSerializer: typeof(PrototypeIdDictionarySerializer<float, ExplosionPrototype>))]
     public Dictionary<string, float> Modifiers = new();
 }
+

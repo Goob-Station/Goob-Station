@@ -109,3 +109,4 @@ public sealed partial class JobRequirementLoadoutEffect : LoadoutEffect
             out reason);
     }
 }
+

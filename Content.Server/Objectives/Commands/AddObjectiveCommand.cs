@@ -85,3 +85,4 @@ public sealed class AddObjectiveCommand : LocalizedEntityCommands
             Loc.GetString(Loc.GetString("cmd-add-objective-obj-completion")));
     }
 }
+

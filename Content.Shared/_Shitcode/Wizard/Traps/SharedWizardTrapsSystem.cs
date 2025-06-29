@@ -239,3 +239,4 @@ public sealed class TrapTriggeredEvent(EntityUid victim) : EntityEventArgs
 {
     public EntityUid Victim = victim;
 }
+

@@ -10,3 +10,4 @@ namespace Content.Shared.Singularity.EntitySystems;
 /// </summary>
 public abstract class SharedGravityWellSystem : EntitySystem
 {}
+

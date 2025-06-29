@@ -69,3 +69,4 @@ public sealed partial class HandTeleporterComponent : Component
 public sealed partial class TeleporterDoAfterEvent : SimpleDoAfterEvent
 {
 }
+

@@ -14,3 +14,4 @@ namespace Content.Shared.Resist;
 public sealed partial class EscapeInventoryEvent : SimpleDoAfterEvent
 {
 }
+

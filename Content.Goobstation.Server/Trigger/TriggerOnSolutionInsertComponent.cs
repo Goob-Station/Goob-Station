@@ -25,3 +25,4 @@ public sealed partial class TriggerOnSolutionInsertComponent : Component
     [DataField]
     public float Depth = 1;
 }
+

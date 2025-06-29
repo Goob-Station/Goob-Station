@@ -15,3 +15,4 @@ public sealed class MagnetClaimOfferEvent : BoundUserInterfaceMessage
 {
     public int Index;
 }
+

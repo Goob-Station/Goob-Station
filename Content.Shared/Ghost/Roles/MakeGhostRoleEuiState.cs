@@ -24,3 +24,4 @@ namespace Content.Shared.Ghost.Roles
         public NetEntity Entity { get; }
     }
 }
+

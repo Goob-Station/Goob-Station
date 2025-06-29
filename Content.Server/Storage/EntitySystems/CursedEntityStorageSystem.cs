@@ -63,3 +63,4 @@ public sealed class CursedEntityStorageSystem : EntitySystem
         _audio.PlayPvs(component.CursedSound, uid);
     }
 }
+

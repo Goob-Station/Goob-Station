@@ -21,3 +21,4 @@ public sealed partial class BlockWritingComponent : Component
     [AutoNetworkedField]
     public LocId FailWriteMessage = "paper-component-illiterate";
 }
+

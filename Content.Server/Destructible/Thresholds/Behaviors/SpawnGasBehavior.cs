@@ -26,3 +26,4 @@ public sealed partial class SpawnGasBehavior : IThresholdBehavior
             system.AtmosphereSystem.Merge(air, Gas);
     }
 }
+

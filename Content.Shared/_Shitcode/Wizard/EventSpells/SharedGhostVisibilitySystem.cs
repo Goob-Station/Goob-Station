@@ -26,3 +26,4 @@ public abstract class SharedGhostVisibilitySystem : EntitySystem
         return false;
     }
 }
+

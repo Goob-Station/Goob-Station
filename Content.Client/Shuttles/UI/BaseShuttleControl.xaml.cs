@@ -319,3 +319,4 @@ public sealed class GridDrawData
 
     public GameTick LastBuild;
 }
+

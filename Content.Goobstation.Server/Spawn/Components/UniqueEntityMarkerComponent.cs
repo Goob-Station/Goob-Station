@@ -26,3 +26,4 @@ public sealed partial class UniqueEntityMarkerComponent : Component
     [DataField]
     public bool StationOnly = true;
 }
+

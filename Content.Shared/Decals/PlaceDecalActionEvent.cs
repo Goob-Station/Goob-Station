@@ -28,3 +28,4 @@ public sealed partial class PlaceDecalActionEvent : WorldTargetActionEvent
     [DataField("cleanable")]
     public bool Cleanable;
 }
+

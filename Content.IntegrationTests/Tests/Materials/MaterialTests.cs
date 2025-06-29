@@ -76,3 +76,4 @@ namespace Content.IntegrationTests.Tests.Materials
         }
     }
 }
+

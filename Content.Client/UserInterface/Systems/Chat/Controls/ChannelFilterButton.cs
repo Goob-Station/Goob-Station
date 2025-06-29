@@ -102,3 +102,4 @@ public sealed class ChannelFilterButton : ChatPopupButton<ChannelFilterPopup>
         _chatUIController.UnreadMessageCountsUpdated -= Popup.UpdateUnread;
     }
 }
+

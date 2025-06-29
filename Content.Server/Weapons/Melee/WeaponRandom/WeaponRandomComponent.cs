@@ -32,3 +32,4 @@ internal sealed partial class WeaponRandomComponent : Component
     public SoundSpecifier DamageSound = new SoundPathSpecifier("/Audio/Items/bikehorn.ogg");
 
 }
+

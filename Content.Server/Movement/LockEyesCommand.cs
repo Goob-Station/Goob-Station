@@ -34,3 +34,4 @@ public sealed class LockEyesCommand : IConsoleCommand
         system.CameraRotationLocked = value;
     }
 }
+

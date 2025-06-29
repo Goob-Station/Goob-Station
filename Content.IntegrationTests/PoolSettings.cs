@@ -206,3 +206,4 @@ public sealed class PoolSettings
                && InLobby == nextSettings.InLobby;
     }
 }
+

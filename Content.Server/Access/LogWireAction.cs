@@ -147,3 +147,4 @@ public sealed partial class LogWireAction : ComponentWireAction<AccessReaderComp
         Key
     }
 }
+

@@ -93,3 +93,4 @@ public sealed class SpawnPointSystem : EntitySystem
             args.Station);
     }
 }
+

@@ -39,3 +39,4 @@ public sealed partial class JitteringComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public Vector2 StartOffset = Vector2.Zero;
 }
+

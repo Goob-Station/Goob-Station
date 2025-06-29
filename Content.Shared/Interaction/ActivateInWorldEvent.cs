@@ -71,3 +71,4 @@ public sealed class UserActivateInWorldEvent : HandledEntityEventArgs, ITargeted
         Complex = complex;
     }
 }
+

@@ -24,3 +24,4 @@ public sealed partial class InnerBodyAnomalyInjectorComponent : Component
     [DataField(required: true)]
     public ComponentRegistry InjectionComponents = default!;
 }
+

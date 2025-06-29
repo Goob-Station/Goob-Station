@@ -44,3 +44,4 @@ public sealed class PoolManagerTestEventHandler
         PoolManager.Shutdown();
     }
 }
+

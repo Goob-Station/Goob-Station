@@ -73,3 +73,4 @@ public sealed partial class VentClogRuleComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public int WeakSpread = 3;
 }
+

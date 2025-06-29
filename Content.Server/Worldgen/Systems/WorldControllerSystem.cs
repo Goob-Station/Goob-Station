@@ -286,3 +286,4 @@ public readonly record struct WorldChunkLoadedEvent(EntityUid Chunk, Vector2i Co
 [ByRefEvent]
 [PublicAPI]
 public readonly record struct WorldChunkUnloadedEvent(EntityUid Chunk, Vector2i Coords);
+

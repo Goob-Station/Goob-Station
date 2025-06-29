@@ -17,3 +17,4 @@ namespace Content.Server.Power.Components
         public string Node;
     }
 }
+

@@ -11,3 +11,4 @@
   components:
     - type: OwnedDebris
     - type: LocalityLoader
+

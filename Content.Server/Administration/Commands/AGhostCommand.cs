@@ -149,3 +149,4 @@ public sealed class AGhostCommand : LocalizedCommands
         ghostSystem.SetCanReturnToBody((ghost, comp), canReturn);
     }
 }
+

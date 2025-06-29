@@ -32,3 +32,4 @@ public sealed class CargoPalletConsoleInterfaceState : BoundUserInterfaceState
         Enabled = enabled;
     }
 }
+

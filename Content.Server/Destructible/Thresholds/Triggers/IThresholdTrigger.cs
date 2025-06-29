@@ -26,3 +26,4 @@ namespace Content.Server.Destructible.Thresholds.Triggers
         bool Reached(DamageableComponent damageable, DestructibleSystem system);
     }
 }
+

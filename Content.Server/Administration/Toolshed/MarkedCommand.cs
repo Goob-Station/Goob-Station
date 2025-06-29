@@ -21,3 +21,4 @@ public sealed class MarkedCommand : ToolshedCommand
         return marked ?? Array.Empty<EntityUid>();
     }
 }
+

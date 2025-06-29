@@ -21,3 +21,4 @@ public sealed partial class RansomComponent : Component
 {
 
 }
+

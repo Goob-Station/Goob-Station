@@ -13,3 +13,4 @@ namespace Content.Client.Replay.Spectator;
 public sealed partial class ReplaySpectatorComponent : Component
 {
 }
+

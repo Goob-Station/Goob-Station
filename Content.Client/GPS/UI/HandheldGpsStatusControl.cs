@@ -70,3 +70,4 @@ public sealed class HandheldGpsStatusControl : Control
         _label.SetMarkup(Loc.GetString("handheld-gps-coordinates-title", ("coordinates", posText)));
     }
 }
+

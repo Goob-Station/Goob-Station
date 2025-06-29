@@ -15,3 +15,4 @@ public sealed class GatewayDestinationMessage : EntityEventArgs
 {
     public int Index;
 }
+

@@ -17,3 +17,4 @@ namespace Content.Server.Speech.Components
     {
     }
 }
+

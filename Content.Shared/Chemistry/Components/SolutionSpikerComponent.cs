@@ -46,3 +46,4 @@ public sealed partial class SolutionSpikerComponent : Component
     [DataField]
     public LocId PopupEmpty = "spike-solution-empty-generic";
 }
+

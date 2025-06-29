@@ -30,3 +30,4 @@ public sealed class WeldableTests : InteractionTest
         AssertPrototype(Locker); // Prototype did not change.
     }
 }
+

@@ -44,3 +44,4 @@ public sealed partial class MemoryCellComponent : Component
     [DataField]
     public bool LastOutput;
 }
+

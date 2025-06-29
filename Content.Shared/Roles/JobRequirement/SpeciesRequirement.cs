@@ -132,3 +132,4 @@ public sealed partial class SpeciesRequirement : JobRequirement
         return true;
     }
 }
+

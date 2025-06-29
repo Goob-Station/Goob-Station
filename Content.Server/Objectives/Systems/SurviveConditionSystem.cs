@@ -29,3 +29,4 @@ public sealed class SurviveConditionSystem : EntitySystem
         args.Progress = _mind.IsCharacterDeadIc(args.Mind) ? 0f : 1f;
     }
 }
+

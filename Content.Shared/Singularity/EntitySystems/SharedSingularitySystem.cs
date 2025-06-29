@@ -394,3 +394,4 @@ public abstract class SharedSingularitySystem : EntitySystem
 #endregion EventHandlers
 
 }
+

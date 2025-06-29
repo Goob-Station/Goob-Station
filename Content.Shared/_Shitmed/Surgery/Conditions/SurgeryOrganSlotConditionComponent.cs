@@ -21,3 +21,4 @@ public sealed partial class SurgeryOrganSlotConditionComponent : Component
     [DataField]
     public bool Inverse;
 }
+

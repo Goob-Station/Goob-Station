@@ -204,3 +204,4 @@
   - type: ApcPowerReceiver
   - type: ExtensionCableReceiver
   - type: Anchorable
+

@@ -38,3 +38,4 @@ public sealed partial class CCVars
     public static readonly CVarDef<bool> ConfigPresetDebug =
         CVarDef.Create("config.preset_debug", true, CVar.SERVERONLY);
 }
+

@@ -21,3 +21,4 @@ public struct AlertState
     public bool ShowCooldown;
     public ProtoId<AlertPrototype> Type;
 }
+

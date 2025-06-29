@@ -21,3 +21,4 @@ public sealed class Data
     [JsonPropertyName("relationships")]
     public Relationships Relationships = default!;
 }
+

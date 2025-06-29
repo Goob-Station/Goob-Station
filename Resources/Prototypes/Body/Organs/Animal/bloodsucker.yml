@@ -31,3 +31,4 @@
   components:
   - type: Metabolizer
     metabolizerTypes: [ Bloodsucker ]
+

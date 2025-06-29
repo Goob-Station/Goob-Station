@@ -41,3 +41,4 @@ public sealed class RadarConsoleBoundUserInterface : BoundUserInterface
         _window?.UpdateState(cState.State);
     }
 }
+

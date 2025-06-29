@@ -166,6 +166,8 @@ public sealed partial class AirAlarmWindow : FancyWindow
         {
             UpdateDeviceData(addr, dev);
         }
+        _modes.Visible = !state.PanicWireCut;
+        CModeSelectLocked.Visible = state.PanicWireCut;
     }
 
     public void UpdateModeSelector(AirAlarmMode mode)
@@ -248,3 +250,4 @@ public sealed partial class AirAlarmWindow : FancyWindow
 
 
 }
+

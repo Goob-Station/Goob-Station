@@ -23,3 +23,4 @@ public sealed class Condemnation(EntityUid marker, HashSet<EntityUid> condemned)
     public EntityUid Marker = marker;
     public HashSet<EntityUid> Condemned = condemned;
 }
+

@@ -87,3 +87,4 @@ public sealed class RitualKnowledgeTests
         await pair.CleanReturnAsync();
     }
 }
+

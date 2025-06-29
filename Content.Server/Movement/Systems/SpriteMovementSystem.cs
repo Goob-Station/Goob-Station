@@ -12,3 +12,4 @@ namespace Content.Server.Movement.Systems;
 public sealed class SpriteMovementSystem : SharedSpriteMovementSystem
 {
 }
+

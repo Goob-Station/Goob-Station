@@ -11,3 +11,4 @@ namespace Content.Server._Goobstation.Wizard.Components;
 public sealed partial class EmpImmuneComponent : Component
 {
 }
+

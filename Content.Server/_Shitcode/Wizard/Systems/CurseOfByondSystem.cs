@@ -30,3 +30,4 @@ public sealed class CurseOfByondSystem : EntitySystem
         _alertsSystem.ClearAlert(uid, component.CurseOfByondAlertKey);
     }
 }
+

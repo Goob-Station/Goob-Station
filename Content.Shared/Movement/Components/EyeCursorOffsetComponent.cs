@@ -35,3 +35,4 @@ public abstract partial class SharedEyeCursorOffsetComponent : Component
     [DataField]
     public float PvsIncrease = 0.3f;
 }
+

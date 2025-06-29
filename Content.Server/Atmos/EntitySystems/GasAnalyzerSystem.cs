@@ -316,3 +316,4 @@ public sealed class GasAnalyzerScanEvent : EntityEventArgs
     /// </summary>
     public bool DeviceFlipped;
 }
+

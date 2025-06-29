@@ -63,3 +63,4 @@ public sealed class SetMotdCommand : LocalizedCommands
         return CompletionResult.FromHint(Loc.GetString("cmd-set-motd-hint-cont"));
     }
 }
+

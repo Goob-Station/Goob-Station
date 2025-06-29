@@ -53,3 +53,4 @@ public sealed partial class ParticleAcceleratorPowerWireAction : ComponentWireAc
             paSystem.SwitchOn(wire.Owner, user, controller);
     }
 }
+

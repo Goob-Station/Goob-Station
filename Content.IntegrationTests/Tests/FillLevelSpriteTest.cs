@@ -74,3 +74,4 @@ public sealed class FillLevelSpriteTest
         await pair.CleanReturnAsync();
     }
 }
+

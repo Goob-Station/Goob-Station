@@ -141,3 +141,4 @@ public abstract partial class SharedBuckleSystem : EntitySystem
         InitializeInteraction();
     }
 }
+

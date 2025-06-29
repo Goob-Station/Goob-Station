@@ -33,3 +33,4 @@ public sealed partial class GunUpgradeComponentsComponent : Component
     [DataField]
     public ComponentRegistry Components = new();
 }
+

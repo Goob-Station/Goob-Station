@@ -71,3 +71,4 @@ public sealed class IFFConsoleBoundUserInterface : BoundUserInterface
         }
     }
 }
+

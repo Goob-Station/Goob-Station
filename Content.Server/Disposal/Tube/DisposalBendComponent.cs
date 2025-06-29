@@ -19,3 +19,4 @@ namespace Content.Server.Disposal.Tube;
 public sealed partial class DisposalBendComponent : Component
 {
 }
+

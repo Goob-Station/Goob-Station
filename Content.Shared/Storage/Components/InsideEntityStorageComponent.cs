@@ -16,3 +16,4 @@ public sealed partial class InsideEntityStorageComponent : Component
 {
     public EntityUid Storage;
 }
+

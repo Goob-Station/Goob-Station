@@ -28,3 +28,4 @@ public sealed class HeavyAttackEvent : AttackEvent
         Entities = entities;
     }
 }
+

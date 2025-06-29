@@ -56,3 +56,4 @@ public sealed class GeigerItemControl : Control
         _component.UiUpdateNeeded = false;
     }
 }
+

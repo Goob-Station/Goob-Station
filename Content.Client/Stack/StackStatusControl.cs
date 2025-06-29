@@ -41,3 +41,4 @@ public sealed class StackStatusControl : Control
         _label.SetMarkup(Loc.GetString("comp-stack-status", ("count", _parent.Count)));
     }
 }
+

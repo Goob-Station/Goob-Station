@@ -19,3 +19,4 @@ public abstract partial class SharedPowerChargeComponent : Component
     public LocId WindowTitle { get; set; } = string.Empty;
 
 }
+

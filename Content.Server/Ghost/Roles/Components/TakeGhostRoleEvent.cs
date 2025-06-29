@@ -14,3 +14,4 @@ public record struct TakeGhostRoleEvent(ICommonSession Player)
 {
     public bool TookRole { get; set; }
 }
+

@@ -57,3 +57,4 @@ public sealed partial class RandomPlantMutation
     [DataField]
     public bool Persists = true;
 }
+

@@ -156,3 +156,4 @@ public sealed class RemoveBlacklistCommand : LocalizedCommands
         return CompletionResult.Empty;
     }
 }
+

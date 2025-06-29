@@ -33,3 +33,4 @@ public enum AmmoVisualLayers : byte
     Base,
     Tip,
 }
+

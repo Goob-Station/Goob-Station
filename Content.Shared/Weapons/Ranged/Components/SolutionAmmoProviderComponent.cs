@@ -48,3 +48,4 @@ public sealed partial class SolutionAmmoProviderComponent : Component
     [DataField("proto")]
     public EntProtoId Prototype;
 }
+

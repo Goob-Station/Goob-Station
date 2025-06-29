@@ -99,3 +99,4 @@ public sealed partial class DefibrillatorZapDoAfterEvent : SimpleDoAfterEvent
 {
 
 }
+

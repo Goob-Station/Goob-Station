@@ -19,3 +19,4 @@ namespace Content.Server.Atmos.Monitor.Components;
 public sealed partial class FireAlarmComponent : Component
 {
 }
+

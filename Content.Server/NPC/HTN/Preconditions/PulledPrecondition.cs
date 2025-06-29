@@ -34,3 +34,4 @@ public sealed partial class PulledPrecondition : HTNPrecondition
                !IsPulled && !_pulling.IsPulled(owner);
     }
 }
+

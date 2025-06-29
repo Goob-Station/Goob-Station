@@ -16,3 +16,4 @@ public sealed partial class RuleOnWizardDeathRuleComponent : Component
     [DataField(required: true)]
     public EntProtoId Rule = default!;
 }
+

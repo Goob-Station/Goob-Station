@@ -91,3 +91,4 @@ public sealed partial class StampComponent : Component
     [DataField("sound")]
     public SoundSpecifier? Sound = null;
 }
+

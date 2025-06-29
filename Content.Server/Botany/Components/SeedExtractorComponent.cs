@@ -39,3 +39,4 @@ public sealed partial class SeedExtractorComponent : Component
     [DataField("baseMaxSeeds"), ViewVariables(VVAccess.ReadWrite)]
     public int BaseMaxSeeds = 3;
 }
+

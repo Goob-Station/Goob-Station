@@ -21,3 +21,4 @@ public sealed partial class RecipeTooltip : Control
         RecipeTooltipLabel.SetMarkup(tooltip);
     }
 }
+

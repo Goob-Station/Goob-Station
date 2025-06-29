@@ -54,3 +54,4 @@ public sealed partial class CrawlingUpdatedEvent(bool enabled = false) : EventAr
 {
     public readonly bool Enabled = enabled;
 }
+

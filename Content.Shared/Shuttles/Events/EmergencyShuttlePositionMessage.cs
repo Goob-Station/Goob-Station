@@ -17,3 +17,4 @@ public sealed class EmergencyShuttlePositionMessage : EntityEventArgs
     public NetEntity? StationUid;
     public Box2? Position;
 }
+

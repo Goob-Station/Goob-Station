@@ -44,3 +44,4 @@ public sealed partial class HasComponentOnEquipmentCondition : EntityEffectCondi
         return "TODO";
     }
 }
+

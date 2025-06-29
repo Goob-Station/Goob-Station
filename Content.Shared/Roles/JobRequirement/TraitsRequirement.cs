@@ -140,3 +140,4 @@ public sealed partial class TraitsRequirement : JobRequirement
         return true;
     }
 }
+

@@ -68,3 +68,4 @@ public sealed partial class DogVisionSystem : EntitySystem
             _overlayMan.AddOverlay(_overlay);
     }
 }
+

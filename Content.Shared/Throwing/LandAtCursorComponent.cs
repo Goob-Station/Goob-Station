@@ -16,3 +16,4 @@ namespace Content.Shared.Throwing
     [RegisterComponent, NetworkedComponent]
     public sealed partial class LandAtCursorComponent : Component { }
 }
+

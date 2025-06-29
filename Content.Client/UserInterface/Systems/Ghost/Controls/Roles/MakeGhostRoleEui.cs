@@ -102,3 +102,4 @@ public sealed class MakeGhostRoleEui : BaseEui
         SendMessage(new CloseEuiMessage());
     }
 }
+

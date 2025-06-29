@@ -110,3 +110,4 @@ public sealed class EntityTableTypeSerializer :
         return (EntityTableSelector) serializationManager.Read(type, node, context)!;
     }
 }
+

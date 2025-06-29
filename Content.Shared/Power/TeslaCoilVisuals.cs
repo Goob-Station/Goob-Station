@@ -17,3 +17,4 @@ public enum TeslaCoilVisuals : byte
     Enabled,
     Lightning
 }
+

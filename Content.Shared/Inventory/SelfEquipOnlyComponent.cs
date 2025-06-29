@@ -89,3 +89,4 @@ public sealed partial class SelfEquipOnlyComponent : Component
     [DataField]
     public bool UnequipRequireConscious = true;
 }
+

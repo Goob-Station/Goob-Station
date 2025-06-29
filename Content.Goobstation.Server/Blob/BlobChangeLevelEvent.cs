@@ -14,3 +14,4 @@ public sealed class BlobChangeLevelEvent : EntityEventArgs
     public EntityUid Station;
     public BlobStage Level;
 }
+

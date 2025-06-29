@@ -20,3 +20,4 @@ public sealed partial class DrawableSolutionComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public string Solution = "default";
 }
+

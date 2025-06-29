@@ -19,3 +19,4 @@ public sealed partial class SolutionCartridgeComponent : Component
     [DataField(required: true)]
     public Solution Solution;
 }
+

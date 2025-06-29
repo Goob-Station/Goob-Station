@@ -16,3 +16,4 @@ public sealed partial class EmbeddedContainerComponent : Component
     [DataField, AutoNetworkedField]
     public HashSet<EntityUid> EmbeddedObjects = new();
 }
+

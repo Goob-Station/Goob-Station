@@ -12,3 +12,4 @@ namespace Content.Client._Shitcode.Wizard.Teleport;
 public sealed class WizardTeleportSystem : SharedWizardTeleportSystem
 {
 }
+

@@ -317,3 +317,4 @@ public sealed class StickySystem : EntitySystem
         RaiseLocalEvent(uid, ref ev);
     }
 }
+

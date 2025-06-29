@@ -18,3 +18,4 @@ namespace Content.Server.Nutrition.Components;
 public sealed partial class IgnoreBadFoodComponent : Component
 {
 }
+

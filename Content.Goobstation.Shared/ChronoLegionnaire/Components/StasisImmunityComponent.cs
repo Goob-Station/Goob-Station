@@ -21,3 +21,4 @@ namespace Content.Goobstation.Shared.ChronoLegionnaire.Components
         public bool DependsOnProtection = true;
     }
 }
+

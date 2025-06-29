@@ -25,3 +25,4 @@ public sealed partial class ActiveHandEntityPrecondition : HTNPrecondition
         return activeHand.HeldEntity != null;
     }
 }
+

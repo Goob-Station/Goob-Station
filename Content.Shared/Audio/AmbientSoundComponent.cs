@@ -63,3 +63,4 @@ public sealed class AmbientSoundComponentState : ComponentState
     public float Volume { get; init; }
     public SoundSpecifier Sound { get; init; } = default!;
 }
+

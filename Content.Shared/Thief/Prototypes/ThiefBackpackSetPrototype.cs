@@ -23,3 +23,4 @@ public sealed partial class ThiefBackpackSetPrototype : IPrototype
 
     [DataField] public List<EntProtoId> Content = new();
 }
+

@@ -322,3 +322,4 @@ public sealed class CrewManifestCommand : IConsoleCommand
         return CompletionResult.FromHintOptions(stations, null);
     }
 }
+

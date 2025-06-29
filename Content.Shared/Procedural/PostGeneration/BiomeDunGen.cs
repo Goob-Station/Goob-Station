@@ -25,3 +25,4 @@ public sealed partial class BiomeDunGen : IDunGenLayer
     [DataField]
     public HashSet<ProtoId<ContentTileDefinition>>? TileMask;
 }
+

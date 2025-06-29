@@ -46,3 +46,4 @@ public sealed class FactionClothingSystem : EntitySystem
         _faction.RemoveFaction(args.Equipee, ent.Comp.Faction);
     }
 }
+

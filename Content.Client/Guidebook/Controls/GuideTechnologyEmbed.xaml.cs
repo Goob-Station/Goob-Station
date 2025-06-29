@@ -96,3 +96,4 @@ public sealed partial class GuideTechnologyEmbed : BoxContainer, IDocumentTag, I
         };
     }
 }
+

@@ -55,3 +55,4 @@ public sealed partial class ItemSlotsLockComponent : Component
     [DataField(required: true)]
     public List<string> Slots = new();
 }
+

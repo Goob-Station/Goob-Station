@@ -17,3 +17,4 @@ public sealed partial class ApprenticeComponent : Component
     [DataField]
     public ProtoId<FactionIconPrototype> StatusIcon = "ApprenticeFaction";
 }
+

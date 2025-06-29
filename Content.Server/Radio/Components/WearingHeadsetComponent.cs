@@ -16,3 +16,4 @@ public sealed partial class WearingHeadsetComponent : Component
     [DataField("headset")]
     public EntityUid Headset;
 }
+

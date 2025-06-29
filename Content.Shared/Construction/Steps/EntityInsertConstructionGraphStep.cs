@@ -23,3 +23,4 @@ namespace Content.Shared.Construction.Steps
         public abstract bool EntityValid(EntityUid uid, IEntityManager entityManager, IComponentFactory compFactory);
     }
 }
+

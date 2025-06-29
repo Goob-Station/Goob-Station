@@ -86,3 +86,4 @@ public sealed class RotationVisualizerSystem : SharedRotationVisualsSystem
         _animation.Play((uid, animationComp), animation, animationKey);
     }
 }
+

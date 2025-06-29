@@ -13,3 +13,4 @@ public sealed partial class StationNewsComponent : Component
     [DataField]
     public List<NewsArticle> Articles = new();
 }
+

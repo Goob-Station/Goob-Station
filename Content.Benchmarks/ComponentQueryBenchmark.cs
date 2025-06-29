@@ -34,7 +34,7 @@ namespace Content.Benchmarks;
 [CategoriesColumn]
 public class ComponentQueryBenchmark
 {
-    public const string Map = "Maps/atlas.yml";
+    public const string Map = "Maps/saltern.yml";
 
     private TestPair _pair = default!;
     private IEntityManager _entMan = default!;
@@ -276,3 +276,4 @@ public sealed class QueryBenchSystem : EntitySystem
         args.HashCode = HashCode.Combine(args.HashCode, component.GetHashCode());
     }
 }
+

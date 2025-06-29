@@ -58,3 +58,4 @@ public abstract partial class SharedGravitySystem
 
     protected virtual void ShakeGrid(EntityUid uid, GravityComponent? comp = null) {}
 }
+

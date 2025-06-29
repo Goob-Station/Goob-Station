@@ -1,9 +1,5 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
+using Content.Shared.Maps;
+using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Procedural.DungeonGenerators;
@@ -12,10 +8,6 @@ namespace Content.Shared.Procedural.DungeonGenerators;
 /// Places rooms in pre-selected pack layouts. Chooses rooms from the specified whitelist.
 /// </summary>
 /// <remarks>
-/// DungeonData keys are:
-/// - FallbackTile
-/// - Rooms
-/// </remarks>
 public sealed partial class PrefabDunGen : IDunGenLayer
 {
     /// <summary>
@@ -23,4 +15,10 @@ public sealed partial class PrefabDunGen : IDunGenLayer
     /// </summary>
     [DataField(required: true)]
     public List<ProtoId<DungeonPresetPrototype>> Presets = new();
+
+    [DataField]
+    public EntityWhitelist? RoomWhitelist;
+
+    [DataField]
+    public ProtoId<ContentTileDefinition>? FallbackTile;
 }

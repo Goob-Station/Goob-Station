@@ -22,3 +22,4 @@ public abstract class SharedHotPotatoSystem : EntitySystem
             args.Cancel();
     }
 }
+

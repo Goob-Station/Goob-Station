@@ -18,3 +18,4 @@ public sealed partial class SkeletonAccentComponent : Component
     [DataField("ackChance")]
     public float ackChance = 0.3f; // Funnier if it doesn't happen every single time
 }
+

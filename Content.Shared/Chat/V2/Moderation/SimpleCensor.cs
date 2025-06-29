@@ -343,3 +343,4 @@ public sealed class SimpleCensor : IChatCensor
         return this;
     }
 }
+

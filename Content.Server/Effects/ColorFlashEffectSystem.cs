@@ -15,3 +15,4 @@ public sealed class ColorFlashEffectSystem : SharedColorFlashEffectSystem
         RaiseNetworkEvent(new ColorFlashEffectEvent(color, GetNetEntityList(entities)), filter);
     }
 }
+

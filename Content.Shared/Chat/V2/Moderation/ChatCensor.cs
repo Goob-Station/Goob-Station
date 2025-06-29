@@ -61,3 +61,4 @@ public sealed class ChatCensorFactory
         return notEmpty;
     }
 }
+

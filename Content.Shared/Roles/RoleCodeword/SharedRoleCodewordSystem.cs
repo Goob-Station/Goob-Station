@@ -52,3 +52,4 @@ public abstract class SharedRoleCodewordSystem : EntitySystem
         comp.RoleCodewords[key] = data;
     }
 }
+

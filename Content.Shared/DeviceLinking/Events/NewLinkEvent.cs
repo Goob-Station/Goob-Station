@@ -26,3 +26,4 @@ public sealed class NewLinkEvent : EntityEventArgs
         SinkPort = sinkPort;
     }
 }
+

@@ -61,3 +61,4 @@ public sealed class SiliconLawBoundUserInterface : BoundUserInterface
         _menu?.Update(_owner, msg);
     }
 }
+

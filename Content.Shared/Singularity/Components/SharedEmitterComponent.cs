@@ -138,3 +138,4 @@ public enum EmitterVisualState
     Underpowered,
     Off
 }
+

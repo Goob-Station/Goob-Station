@@ -19,3 +19,4 @@ public sealed partial class SealableClothingVisualsComponent : Component
     [DataField]
     public Dictionary<string, List<PrototypeLayerData>> VisualLayers = new();
 }
+

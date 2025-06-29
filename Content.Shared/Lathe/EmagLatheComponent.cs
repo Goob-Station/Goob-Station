@@ -28,3 +28,4 @@ namespace Content.Shared.Lathe
         public List<ProtoId<LatheRecipePackPrototype>> EmagStaticPacks = new();
     }
 }
+

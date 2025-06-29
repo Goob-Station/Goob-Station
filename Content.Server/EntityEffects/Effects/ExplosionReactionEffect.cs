@@ -84,3 +84,4 @@ public sealed partial class ExplosionReactionEffect : EntityEffect
 			TileBreakScale);
     }
 }
+

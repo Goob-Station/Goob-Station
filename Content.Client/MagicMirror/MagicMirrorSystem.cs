@@ -11,3 +11,4 @@ public sealed class MagicMirrorSystem : SharedMagicMirrorSystem
 {
 
 }
+

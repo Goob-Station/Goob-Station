@@ -30,3 +30,4 @@ namespace Content.Shared.Arcade
         ShowHighscores
     }
 }
+

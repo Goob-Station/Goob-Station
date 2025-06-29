@@ -29,3 +29,4 @@ namespace Content.Shared.Construction
         IEnumerable<ConstructionGuideEntry> GenerateGuideEntry();
     }
 }
+

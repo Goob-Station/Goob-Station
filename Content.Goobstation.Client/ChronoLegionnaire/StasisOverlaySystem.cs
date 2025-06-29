@@ -58,3 +58,4 @@ public sealed class StasisOverlaySystem : EntitySystem
         }
     }
 }
+

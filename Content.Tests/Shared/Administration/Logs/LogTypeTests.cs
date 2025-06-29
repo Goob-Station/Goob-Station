@@ -29,3 +29,4 @@ public sealed class LogTypeTests
         Assert.That(duplicates.Length, Is.Zero, $"{nameof(LogType)} has duplicate values for: " + string.Join(", ", duplicates));
     }
 }
+

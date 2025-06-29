@@ -60,3 +60,4 @@ public sealed class LogSystem : EntitySystem
         args.Handled = true;
     }
 }
+

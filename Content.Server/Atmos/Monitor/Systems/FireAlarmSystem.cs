@@ -106,3 +106,4 @@ public sealed class FireAlarmSystem : EntitySystem
         args.Handled = true;
     }
 }
+

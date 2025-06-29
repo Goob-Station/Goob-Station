@@ -49,3 +49,4 @@ public enum SpellCardVisuals : byte
 {
     State // 0 - not flipped, 1 - flipping, 2 - flipped
 }
+

@@ -53,3 +53,4 @@ namespace Content.Shared.Gravity
         public bool Inherent;
     }
 }
+

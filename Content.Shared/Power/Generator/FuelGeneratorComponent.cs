@@ -69,3 +69,4 @@ public sealed partial class FuelGeneratorComponent : Component
     [DataField]
     public float FuelEfficiencyConstant = 1.3f;
 }
+

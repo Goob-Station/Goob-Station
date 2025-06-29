@@ -61,3 +61,4 @@ public sealed partial class DockingConsoleComponent : Component
     [DataField, AutoNetworkedField]
     public bool HasShuttle;
 }
+

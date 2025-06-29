@@ -173,3 +173,4 @@ public abstract class SharedObjectivesSystem : EntitySystem
         comp.Icon = icon;
     }
 }
+

@@ -29,3 +29,4 @@ public sealed partial class WhistleComponent : Component
     [DataField]
     public float Distance = 0;
 }
+

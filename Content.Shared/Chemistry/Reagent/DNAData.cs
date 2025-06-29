@@ -101,3 +101,4 @@ public sealed partial class DnaData : ReagentData
         return DNA.GetHashCode();
     }
 }
+

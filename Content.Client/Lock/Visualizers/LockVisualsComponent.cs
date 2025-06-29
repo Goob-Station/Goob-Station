@@ -23,3 +23,4 @@ public sealed partial class LockVisualsComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public string? StateUnlocked = "unlocked";
 }
+

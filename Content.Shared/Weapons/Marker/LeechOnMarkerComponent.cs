@@ -20,3 +20,4 @@ public sealed partial class LeechOnMarkerComponent : Component
     [DataField("leech", required: true)]
     public DamageSpecifier Leech = new();
 }
+

@@ -26,3 +26,4 @@ namespace Content.Client.UserInterface.Systems.MenuBar.Widgets
         }
     }
 }
+

@@ -68,3 +68,4 @@ public sealed partial class TargetingControl : UIWidget
     public void SetTargetDollVisible(bool visible) => Visible = visible;
 
 }
+

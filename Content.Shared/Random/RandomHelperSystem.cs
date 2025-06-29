@@ -39,3 +39,4 @@ public sealed class RandomHelperSystem : EntitySystem
         RandomOffset(entity, -value, value);
     }
 }
+

@@ -11,3 +11,4 @@ public sealed class RadarConsoleSystem : SharedRadarConsoleSystem
 {
 
 }
+

@@ -72,3 +72,4 @@ public abstract class SharedBatteryDrainerSystem : EntitySystem
 /// </summary>
 [Serializable, NetSerializable]
 public sealed partial class DrainDoAfterEvent : SimpleDoAfterEvent;
+

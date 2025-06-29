@@ -114,3 +114,4 @@
   id: SmallConstructibleMachine
   components:
     - type: RequireProjectileTarget
+

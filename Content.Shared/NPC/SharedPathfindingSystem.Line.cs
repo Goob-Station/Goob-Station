@@ -94,3 +94,4 @@ public abstract partial class SharedPathfindingSystem
 
     public delegate bool Vector2iCallback(Vector2i index);
 }
+

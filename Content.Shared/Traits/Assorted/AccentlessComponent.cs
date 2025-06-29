@@ -21,3 +21,4 @@ public sealed partial class AccentlessComponent : Component
     [DataField("removes", required: true), ViewVariables(VVAccess.ReadWrite)]
     public ComponentRegistry RemovedAccents = new();
 }
+

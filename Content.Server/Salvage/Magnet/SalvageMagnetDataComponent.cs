@@ -62,3 +62,4 @@ public sealed partial class SalvageMagnetDataComponent : Component
     [DataField]
     public bool Announced;
 }
+

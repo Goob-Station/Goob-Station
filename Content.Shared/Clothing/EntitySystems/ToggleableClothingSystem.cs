@@ -609,3 +609,4 @@ public enum ToggleableClothingAttachedStatus : byte
     PartlyToggled,
     AllToggled
 }
+

@@ -48,3 +48,4 @@ public sealed class GeneralStationRecordConsoleBoundUserInterface : BoundUserInt
         _window?.UpdateState(cast);
     }
 }
+

@@ -148,6 +148,7 @@
   - type: Tag
     tags:
     - ClothMade
+    - Recyclable
     - WhitelistChameleon
     - WinterCoat # Goobstation
   - type: StaticPrice

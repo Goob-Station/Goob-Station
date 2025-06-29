@@ -55,3 +55,4 @@ public abstract class SharedCriminalRecordsHackerSystem : EntitySystem
 public sealed partial class CriminalRecordsHackDoAfterEvent : SimpleDoAfterEvent
 {
 }
+

@@ -115,3 +115,4 @@ public enum SensorDeviceType
 
 [Serializable, NetSerializable]
 public record struct SensorSample(TimeSpan Time, float Value);
+

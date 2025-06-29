@@ -72,3 +72,4 @@ namespace Content.Shared.CombatMode
         public bool ToggleMouseRotator = true;
     }
 }
+

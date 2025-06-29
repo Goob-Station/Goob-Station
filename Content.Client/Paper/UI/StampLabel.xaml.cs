@@ -59,3 +59,4 @@ public sealed partial class StampLabel : Label
         handle.UseShader(null);
     }
 }
+

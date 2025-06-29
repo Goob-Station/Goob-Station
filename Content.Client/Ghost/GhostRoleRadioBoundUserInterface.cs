@@ -102,3 +102,4 @@ public sealed class GhostRoleRadioBoundUserInterface : BoundUserInterface
         SendMessage(new GhostRoleRadioMessage(protoId));
     }
 }
+

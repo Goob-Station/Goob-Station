@@ -41,3 +41,4 @@ namespace Content.Server.Shuttles.Components
         public int PathfindHandle = -1;
     }
 }
+

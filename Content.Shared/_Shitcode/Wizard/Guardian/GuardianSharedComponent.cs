@@ -16,3 +16,4 @@ public sealed partial class GuardianSharedComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid Host;
 }
+

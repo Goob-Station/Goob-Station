@@ -87,3 +87,4 @@ public sealed partial class SingularityGeneratorComponent : Component
     [AutoPausedField]
     public TimeSpan NextFailsafe = TimeSpan.Zero;
 }
+

@@ -41,3 +41,4 @@ public sealed partial class ShopVendorItem : BoxContainer
         CostLabel.Text = cost.ToString();
     }
 }
+

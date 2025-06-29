@@ -178,3 +178,4 @@ public sealed partial class ThresholdControl : BoxContainer
         _enabled.Pressed = !threshold.Ignore;
     }
 }
+

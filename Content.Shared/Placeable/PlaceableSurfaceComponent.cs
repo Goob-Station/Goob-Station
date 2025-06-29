@@ -29,3 +29,4 @@ public sealed partial class PlaceableSurfaceComponent : Component
     [DataField, AutoNetworkedField]
     public Vector2 PositionOffset { get; set; }
 }
+

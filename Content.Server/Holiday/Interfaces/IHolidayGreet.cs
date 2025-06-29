@@ -13,3 +13,4 @@ namespace Content.Server.Holiday.Interfaces
         string Greet(HolidayPrototype holiday);
     }
 }
+

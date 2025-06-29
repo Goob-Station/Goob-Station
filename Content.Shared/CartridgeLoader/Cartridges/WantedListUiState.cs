@@ -14,3 +14,4 @@ public sealed class WantedListUiState(List<WantedRecord> records) : BoundUserInt
 {
     public List<WantedRecord> Records = records;
 }
+

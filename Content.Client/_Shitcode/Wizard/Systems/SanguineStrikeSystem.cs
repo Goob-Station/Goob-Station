@@ -44,3 +44,4 @@ public sealed class SanguineStrikeSystem : SharedSanguineStrikeSystem
         sprite.Color = comp.Color;
     }
 }
+

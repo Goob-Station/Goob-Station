@@ -43,3 +43,4 @@ public sealed partial class BlobCarrierComponent : Component
 
     public EntityUid? TransformToBlob = null;
 }
+

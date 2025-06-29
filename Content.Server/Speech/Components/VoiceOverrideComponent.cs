@@ -38,3 +38,4 @@ public sealed partial class VoiceOverrideComponent : Component
     [DataField]
     public bool Enabled = true;
 }
+

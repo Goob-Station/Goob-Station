@@ -104,3 +104,4 @@ public enum StickyVisuals : byte
 {
     IsStuck
 }
+

@@ -89,3 +89,4 @@ public sealed partial class BuyBeforeCondition : ListingCondition
         return purchasesFound;
     }
 }
+

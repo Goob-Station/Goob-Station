@@ -48,3 +48,4 @@ public sealed class WizardTeleportBoundUserInterface : BoundUserInterface
         SendMessage(new WizardTeleportLocationSelectedMessage(warpUid, name, _action));
     }
 }
+

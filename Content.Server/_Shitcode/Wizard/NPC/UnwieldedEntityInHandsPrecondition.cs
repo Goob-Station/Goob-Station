@@ -27,3 +27,4 @@ public sealed partial class UnwieldedEntityInHandsPrecondition : HTNPrecondition
         return result ^ Invert;
     }
 }
+

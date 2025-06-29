@@ -42,3 +42,4 @@ public sealed partial class StoreWhitelistCondition : ListingCondition
         return true;
     }
 }
+

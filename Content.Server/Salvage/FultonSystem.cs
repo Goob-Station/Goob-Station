@@ -89,3 +89,4 @@ public sealed class FultonSystem : SharedFultonSystem
         RemCompDeferred<FultonedComponent>(uid);
     }
 }
+

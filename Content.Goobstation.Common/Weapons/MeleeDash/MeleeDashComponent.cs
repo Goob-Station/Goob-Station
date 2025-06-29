@@ -37,3 +37,4 @@ public sealed class MeleeDashEvent(NetEntity weapon, Vector2 direction) : Entity
     public readonly NetEntity Weapon = weapon;
     public readonly Vector2 Direction = direction;
 }
+

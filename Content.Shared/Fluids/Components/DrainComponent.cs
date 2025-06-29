@@ -98,3 +98,4 @@ public sealed partial class DrainComponent : Component
     [DataField]
     public SoundSpecifier UnclogSound = new SoundPathSpecifier("/Audio/Effects/Fluids/glug.ogg");
 }
+

@@ -38,3 +38,4 @@ public sealed partial class ActiveMaterialReclaimerComponent : Component
     [DataField("duration"), ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan Duration;
 }
+

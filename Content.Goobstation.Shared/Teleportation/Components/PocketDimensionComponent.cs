@@ -60,3 +60,4 @@ public sealed partial class PocketDimensionComponent : Component
     [DataField]
     public SoundSpecifier ClosePortalSound = new SoundPathSpecifier("/Audio/Machines/button.ogg");
 }
+

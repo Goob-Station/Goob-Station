@@ -477,3 +477,4 @@ public sealed partial class AdminLogManager : SharedAdminLogManager, IAdminLogMa
         return _db.CountAdminLogs(round);
     }
 }
+

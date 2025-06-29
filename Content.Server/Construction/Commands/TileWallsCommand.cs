@@ -43,6 +43,7 @@ public sealed class TileWallsCommand : IConsoleCommand
 
     [ValidatePrototypeId<TagPrototype>]
     public const string WallTag = "Wall";
+    public const string DiagonalTag = "Diagonal";
 
     public void Execute(IConsoleShell shell, string argStr, string[] args)
     {
@@ -103,6 +104,11 @@ public sealed class TileWallsCommand : IConsoleCommand
                 continue;
             }
 
+            if (tagSystem.HasTag(child, DiagonalTag))
+            {
+                continue;
+            }
+
             var childTransform = _entManager.GetComponent<TransformComponent>(child);
 
             if (!childTransform.Anchored)
@@ -126,3 +132,4 @@ public sealed class TileWallsCommand : IConsoleCommand
         shell.WriteLine($"Changed {changed} tiles.");
     }
 }
+

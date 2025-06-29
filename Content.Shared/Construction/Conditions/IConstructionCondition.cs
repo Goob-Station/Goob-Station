@@ -21,3 +21,4 @@ namespace Content.Shared.Construction.Conditions
         bool Condition(EntityUid user, EntityCoordinates location, Direction direction);
     }
 }
+

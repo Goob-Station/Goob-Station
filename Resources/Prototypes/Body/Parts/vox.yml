@@ -134,3 +134,4 @@
   parent: [ PartVoxBase, BaseRightFoot ]
   id: RightFootVox
   name: "right vox foot"
+

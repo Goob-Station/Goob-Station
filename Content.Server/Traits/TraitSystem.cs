@@ -79,3 +79,4 @@ public sealed class TraitSystem : EntitySystem
         }
     }
 }
+

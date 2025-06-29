@@ -45,3 +45,4 @@ public sealed partial class EmoteSoundsPrototype : IPrototype
     [DataField("sounds", customTypeSerializer: typeof(PrototypeIdDictionarySerializer<SoundSpecifier, EmotePrototype>))]
     public Dictionary<string, SoundSpecifier> Sounds = new();
 }
+

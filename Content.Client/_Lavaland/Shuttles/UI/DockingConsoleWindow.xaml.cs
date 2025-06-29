@@ -177,3 +177,4 @@ public sealed partial class DockingConsoleWindow : FancyWindow
         RechargingFtl,
     }
 }
+

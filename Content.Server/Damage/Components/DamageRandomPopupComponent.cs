@@ -16,3 +16,4 @@ public sealed partial class DamageRandomPopupComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public List<LocId> Popups = new();
 }
+

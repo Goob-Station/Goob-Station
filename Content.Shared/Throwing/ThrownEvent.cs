@@ -14,3 +14,4 @@ namespace Content.Shared.Throwing;
 [PublicAPI]
 [ByRefEvent]
 public readonly record struct ThrownEvent(EntityUid? User, EntityUid Thrown);
+

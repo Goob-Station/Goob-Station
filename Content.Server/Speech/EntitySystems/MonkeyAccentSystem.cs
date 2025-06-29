@@ -71,3 +71,4 @@ public sealed class MonkeyAccentSystem : EntitySystem
         args.Message = Accentuate(args.Message);
     }
 }
+

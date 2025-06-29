@@ -114,3 +114,4 @@ public sealed class FaxBoundUi : BoundUserInterface
         _window.UpdateState(cast);
     }
 }
+

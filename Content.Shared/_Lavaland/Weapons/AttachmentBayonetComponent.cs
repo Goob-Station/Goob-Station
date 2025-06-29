@@ -29,3 +29,4 @@ namespace Content.Shared._Lavaland.Weapons;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class AttachmentBayonetComponent : AttachmentComponent
 { }
+

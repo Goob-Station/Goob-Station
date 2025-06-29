@@ -40,3 +40,4 @@ namespace Content.Server.Forensics
         public bool CanDnaBeCleaned = true;
     }
 }
+

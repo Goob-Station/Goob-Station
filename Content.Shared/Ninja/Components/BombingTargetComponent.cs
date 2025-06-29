@@ -11,3 +11,4 @@ namespace Content.Shared.Ninja.Components;
 /// </summary>
 [RegisterComponent]
 public sealed partial class BombingTargetComponent : Component;
+

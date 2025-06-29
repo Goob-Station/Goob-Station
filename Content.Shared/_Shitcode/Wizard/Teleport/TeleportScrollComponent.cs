@@ -49,3 +49,4 @@ public enum WizardTeleportUiKey : byte
 {
     Key
 }
+

@@ -16,3 +16,4 @@ namespace Content.Shared.Payload.Components;
 /// </remarks>
 [RegisterComponent]
 public sealed partial class PayloadCaseComponent : Component { }
+

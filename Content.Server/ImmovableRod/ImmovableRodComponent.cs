@@ -88,3 +88,4 @@ public sealed partial class ImmovableRodComponent : Component
     [DataField]
     public TimeSpan KnockdownTime = TimeSpan.Zero;
 }
+

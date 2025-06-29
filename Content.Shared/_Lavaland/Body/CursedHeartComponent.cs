@@ -38,3 +38,4 @@ public sealed partial class CursedHeartComponent : Component
 }
 
 public sealed partial class PumpHeartActionEvent : InstantActionEvent;
+

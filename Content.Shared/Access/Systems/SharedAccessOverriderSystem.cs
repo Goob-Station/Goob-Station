@@ -56,3 +56,4 @@ namespace Content.Shared.Access.Systems
 
 [ByRefEvent]
 public record struct OnAccessOverriderAccessUpdatedEvent(EntityUid UserUid, bool Handled = false);
+

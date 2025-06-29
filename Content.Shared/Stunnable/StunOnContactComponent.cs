@@ -26,3 +26,4 @@ public sealed partial class StunOnContactComponent : Component
     [DataField]
     public EntityWhitelist Blacklist = new();
 }
+

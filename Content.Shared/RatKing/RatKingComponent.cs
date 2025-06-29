@@ -116,3 +116,4 @@ public enum RatKingOrderType : byte
     CheeseEm,
     Loose
 }
+

@@ -146,3 +146,4 @@ public sealed class PlayerPanelEui : BaseEui
         PlayerPanel.SetButtons();
     }
 }
+

@@ -94,3 +94,4 @@ public abstract class SharedDeviceNetworkJammerSystem : EntitySystem
         Dirty(ent);
     }
 }
+

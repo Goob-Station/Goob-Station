@@ -71,3 +71,4 @@ public sealed partial class AtmosAlarmableComponent : Component
     [DataField("receiveOnly")]
     public bool ReceiveOnly { get; private set; }
 }
+

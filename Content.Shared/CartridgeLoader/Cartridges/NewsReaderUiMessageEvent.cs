@@ -25,3 +25,4 @@ public enum NewsReaderUiAction
     Prev,
     NotificationSwitch
 }
+

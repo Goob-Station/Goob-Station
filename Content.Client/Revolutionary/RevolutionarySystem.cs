@@ -61,3 +61,4 @@ public sealed class RevolutionarySystem : SharedRevolutionarySystem
             args.StatusIcons.Add(iconPrototype);
     }
 }
+

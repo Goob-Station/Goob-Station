@@ -62,6 +62,7 @@
     - BaseStationAlertLevels
     - BaseStationMagnet
     - BaseStationExpeditions
+    - BaseStationSalvageJobs
     - BaseStationSiliconLawCrewsimov
     - BaseStationAllEventsEligible
     - BaseStationNanotrasen
@@ -91,3 +92,4 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Transform
+

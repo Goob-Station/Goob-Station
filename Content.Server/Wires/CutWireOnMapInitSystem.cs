@@ -37,3 +37,4 @@ public sealed partial class CutWireOnMapInitSystem : EntitySystem
         RemCompDeferred(entity, entity.Comp);
     }
 }
+

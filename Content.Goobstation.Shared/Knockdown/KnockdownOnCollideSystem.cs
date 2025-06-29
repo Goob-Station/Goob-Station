@@ -51,3 +51,4 @@ public sealed class KnockdownOnCollideSystem : EntitySystem
         _layingDown.TryLieDown(target, null, null, component.Behavior);
     }
 }
+

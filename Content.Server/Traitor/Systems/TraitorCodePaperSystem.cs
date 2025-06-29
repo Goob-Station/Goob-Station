@@ -168,3 +168,4 @@ public sealed class TraitorCodePaperSystem : EntitySystem
         return !codesMessage.IsEmpty;
     }
 }
+

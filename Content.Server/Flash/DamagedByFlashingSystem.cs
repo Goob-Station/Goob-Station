@@ -26,3 +26,4 @@ public sealed class DamagedByFlashingSystem : EntitySystem
         //and the damage would be inflicted depending on the strength of the flash.
     }
 }
+

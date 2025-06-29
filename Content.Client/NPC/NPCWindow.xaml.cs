@@ -39,3 +39,4 @@ public sealed partial class NPCWindow : FancyWindow
         PathRoutes.OnToggled += args => path.Modes ^= PathfindingDebugMode.Routes;
     }
 }
+

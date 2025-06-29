@@ -33,3 +33,4 @@ namespace Content.Server.Power.Commands
         }
     }
 }
+

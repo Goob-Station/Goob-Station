@@ -28,3 +28,4 @@ namespace Content.Shared._DV.Harpy
         public int? ShutUpDamageThreshold;
     }
 }
+

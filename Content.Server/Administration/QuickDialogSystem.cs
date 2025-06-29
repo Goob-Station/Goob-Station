@@ -191,3 +191,4 @@ public record struct LongString(string String)
         return new(s);
     }
 }
+

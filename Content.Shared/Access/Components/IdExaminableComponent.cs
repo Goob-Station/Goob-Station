@@ -48,3 +48,4 @@ public enum SetWantedVerbMenu : byte
 }
 
 public record struct OpenWantedUiEvent(string Name, EntityUid Target);
+

@@ -16,3 +16,4 @@ public sealed partial class BeingDisposedComponent : Component
     [ViewVariables]
     public EntityUid Holder;
 }
+

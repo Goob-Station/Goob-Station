@@ -20,3 +20,4 @@ public sealed partial class FaxableObjectComponent : Component
     [DataField, AutoNetworkedField]
     public string InsertingState = "inserting";
 }
+

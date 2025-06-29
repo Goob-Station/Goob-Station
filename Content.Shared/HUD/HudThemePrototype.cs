@@ -38,3 +38,4 @@ namespace Content.Shared.HUD
         }
     }
 }
+

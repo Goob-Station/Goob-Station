@@ -27,3 +27,4 @@ public sealed partial class InteractionRelayComponent : Component
     [ViewVariables, AutoNetworkedField]
     public EntityUid? RelayEntity;
 }
+

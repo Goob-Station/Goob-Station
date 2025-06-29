@@ -90,3 +90,4 @@ public sealed partial class ThiefBeaconComponent : Component
     [DataField]
     public SoundSpecifier UnlinkSound = new SoundPathSpecifier("/Audio/Machines/beep.ogg");
 }
+

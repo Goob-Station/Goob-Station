@@ -144,3 +144,4 @@ public sealed class PowerSensorSystem : EntitySystem
         }
     }
 }
+

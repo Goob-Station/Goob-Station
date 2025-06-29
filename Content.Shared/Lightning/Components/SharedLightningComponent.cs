@@ -65,3 +65,4 @@ public abstract partial class SharedLightningComponent : Component
     [DataField("collisionMask")]
     public int CollisionMask = (int) (CollisionGroup.MobMask | CollisionGroup.MachineMask);
 }
+

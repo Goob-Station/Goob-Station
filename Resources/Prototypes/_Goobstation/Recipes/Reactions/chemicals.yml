@@ -63,3 +63,4 @@
     - !type:AdjustSolutionThermalEnergyEffect
       delta: -200
       scaled: true
+

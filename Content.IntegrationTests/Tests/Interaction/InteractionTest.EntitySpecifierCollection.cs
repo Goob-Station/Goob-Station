@@ -142,7 +142,7 @@ public abstract partial class InteractionTest
                 StackComponent? stack = null;
                 await server.WaitPost(() =>
                 {
-                    entProto.TryGetComponent(factory.GetComponentName(typeof(StackComponent)), out stack);
+                    entProto.TryGetComponent(factory.GetComponentName<StackComponent>(), out stack);
                 });
 
                 if (stack == null)
@@ -175,3 +175,4 @@ public abstract partial class InteractionTest
         return collection;
     }
 }
+

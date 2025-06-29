@@ -17,3 +17,4 @@ public sealed class RunWalkSwapSystem : ToggleableSmiteSystem<RunWalkSwapCompone
         (movementSpeed.BaseSprintSpeed, movementSpeed.BaseWalkSpeed) = (movementSpeed.BaseWalkSpeed, movementSpeed.BaseSprintSpeed);
     }
 }
+

@@ -44,3 +44,4 @@ public sealed class HereticRitualRuneBoundUserInterface : BoundUserInterface
         SendMessage(new HereticRitualMessage(protoId));
     }
 }
+

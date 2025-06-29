@@ -89,3 +89,4 @@ public sealed partial class SerializationTest
         [DataField] public List<Enum> Sequence = default!;
     }
 }
+

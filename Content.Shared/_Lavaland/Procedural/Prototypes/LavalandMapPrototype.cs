@@ -92,3 +92,4 @@ public sealed partial class LavalandMapPrototype : IPrototype
 
     #endregion
 }
+

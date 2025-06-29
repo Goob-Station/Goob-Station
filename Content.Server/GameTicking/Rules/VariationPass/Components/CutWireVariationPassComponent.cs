@@ -32,3 +32,4 @@ public sealed partial class CutWireVariationPassComponent : Component
     [DataField]
     public int MaxWiresCut = 10;
 }
+

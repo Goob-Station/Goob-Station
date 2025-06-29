@@ -62,3 +62,4 @@ public sealed partial class BuyerSpeciesCondition : ListingCondition
         return true;
     }
 }
+

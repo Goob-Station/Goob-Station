@@ -30,3 +30,4 @@ namespace Content.Shared.Construction
         public SpriteSpecifier? Icon { get; set; } = null;
     }
 }
+

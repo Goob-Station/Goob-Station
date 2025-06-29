@@ -71,3 +71,4 @@ public sealed partial class DamageMarkerComponent : Component
 ///     I hate having to deal with only serverside for this, but atmos is not predicted lmao.
 /// </remarks>
 public record struct ApplyMarkerBonusEvent(EntityUid Weapon, EntityUid User);
+

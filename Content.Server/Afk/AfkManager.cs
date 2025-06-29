@@ -103,3 +103,4 @@ namespace Content.Server.Afk
         }
     }
 }
+

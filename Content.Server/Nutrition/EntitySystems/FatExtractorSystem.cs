@@ -192,3 +192,4 @@ public sealed class FatExtractorSystem : EntitySystem
         }
     }
 }
+

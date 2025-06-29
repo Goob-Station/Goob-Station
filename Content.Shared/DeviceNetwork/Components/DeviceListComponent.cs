@@ -55,3 +55,4 @@ public sealed partial class DeviceListComponent : Component
     [DataField, Access(typeof(SharedNetworkConfiguratorSystem))]
     public HashSet<EntityUid> Configurators = new();
 }
+

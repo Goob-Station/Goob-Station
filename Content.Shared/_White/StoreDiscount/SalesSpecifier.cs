@@ -45,3 +45,4 @@ public sealed partial class SalesSpecifier
         SalesCategory = salesCategory;
     }
 }
+

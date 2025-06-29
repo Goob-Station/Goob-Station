@@ -36,3 +36,4 @@ public sealed partial class ActiveRadioComponent : Component
     [DataField("globalReceive")]
     public bool GlobalReceive = false;
 }
+

@@ -36,3 +36,4 @@ public sealed class AmeFuelContainerSystem : EntitySystem
             ("capacity", comp.FuelCapacity)));
     }
 }
+

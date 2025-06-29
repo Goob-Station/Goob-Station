@@ -17,3 +17,4 @@ namespace Content.Server.Power.Components
     public sealed partial class ApcElectronicsComponent : Component
     { }
 }
+

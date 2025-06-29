@@ -18,3 +18,4 @@ public enum PortableScrubberVisuals : byte
     IsRunning,
     IsDraining,
 }
+

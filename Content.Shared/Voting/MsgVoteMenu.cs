@@ -27,3 +27,4 @@ public sealed class MsgVoteMenu : NetMessage
 
     public override NetDeliveryMethod DeliveryMethod => NetDeliveryMethod.ReliableUnordered;
 }
+

@@ -25,3 +25,4 @@ public sealed class UseDelayOnShootSystem : EntitySystem
             _delay.TryResetDelay((uid, useDelay));
     }
 }
+

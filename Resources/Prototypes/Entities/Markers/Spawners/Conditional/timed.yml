@@ -92,3 +92,4 @@
     - type: TimedSpawner
       prototypes:
         - MobCockroach
+

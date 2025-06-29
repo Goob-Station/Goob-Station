@@ -26,3 +26,4 @@ public sealed partial class DelayedKnockdownOnHitComponent : Component
     [DataField]
     public string UseDelay = "default";
 }
+

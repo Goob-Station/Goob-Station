@@ -148,3 +148,4 @@ public sealed class MappingManager : IPostInjectInit
 #endif
     }
 }
+

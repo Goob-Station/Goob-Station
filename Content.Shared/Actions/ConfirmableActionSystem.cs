@@ -101,3 +101,4 @@ public sealed class ConfirmableActionSystem : EntitySystem
         Dirty(uid, comp);
     }
 }
+

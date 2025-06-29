@@ -169,3 +169,4 @@ public sealed class DamageOnAttackedSystem : EntitySystem
         Dirty(entity);
     }
 }
+

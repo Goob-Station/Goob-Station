@@ -36,3 +36,4 @@ public sealed partial class NetworkConfiguratorListMenu : FancyWindow
         DeviceList.UpdateState(state.DeviceList, true);
     }
 }
+

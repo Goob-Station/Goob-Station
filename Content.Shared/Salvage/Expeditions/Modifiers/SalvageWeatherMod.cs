@@ -37,3 +37,4 @@ public sealed partial class SalvageWeatherMod : IPrototype, IBiomeSpecificMod
     [DataField("weather", required: true, customTypeSerializer:typeof(PrototypeIdSerializer<WeatherPrototype>))]
     public string WeatherPrototype = string.Empty;
 }
+

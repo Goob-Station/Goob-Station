@@ -351,3 +351,4 @@ public sealed class AdminNotesManager : IAdminNotesManager, IPostInjectInit
         _sawmill = _logManager.GetSawmill(SawmillId);
     }
 }
+

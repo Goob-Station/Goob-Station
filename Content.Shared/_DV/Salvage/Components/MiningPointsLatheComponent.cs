@@ -28,3 +28,4 @@ namespace Content.Shared._DV.Salvage.Components;
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class MiningPointsLatheComponent : Component;
+

@@ -14,3 +14,4 @@ namespace Content.Shared.Anomaly;
 public sealed partial class ScannerDoAfterEvent : SimpleDoAfterEvent
 {
 }
+

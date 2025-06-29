@@ -51,3 +51,4 @@ public sealed partial class ConditionPlayerCount : WhitelistCondition
     [DataField]
     public int MaximumPlayers = int.MaxValue;
 }
+

@@ -33,3 +33,4 @@ public sealed class TrayScanRevealSystem : EntitySystem
         return anchoredEnum.Any(HasComp<TrayScanRevealComponent>);
     }
 }
+

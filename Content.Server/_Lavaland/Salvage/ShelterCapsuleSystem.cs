@@ -114,3 +114,4 @@ public sealed class ShelterCapsuleSystem : SharedShelterCapsuleSystem
         EnsureComp<LavalandMemberComponent>(shelter);
     }
 }
+

@@ -10,3 +10,4 @@ namespace Content.Shared.Electrocution;
 /// </summary>
 [RegisterComponent]
 public sealed partial class ElectrocutionHUDVisualsComponent : Component;
+

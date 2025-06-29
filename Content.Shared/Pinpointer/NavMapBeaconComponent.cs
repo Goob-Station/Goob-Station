@@ -42,3 +42,4 @@ public sealed partial class NavMapBeaconComponent : Component
     [AutoNetworkedField]
     public bool Enabled = true;
 }
+

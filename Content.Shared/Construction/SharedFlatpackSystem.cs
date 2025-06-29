@@ -158,3 +158,4 @@ public abstract class SharedFlatpackSystem : EntitySystem
         return cost;
     }
 }
+

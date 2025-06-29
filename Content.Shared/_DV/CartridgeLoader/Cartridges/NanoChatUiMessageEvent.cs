@@ -179,3 +179,4 @@ public readonly record struct NanoChatRecipientUpdatedEvent(EntityUid CardUid);
 /// </summary>
 [ByRefEvent]
 public readonly record struct NanoChatMessageReceivedEvent(EntityUid CardUid);
+

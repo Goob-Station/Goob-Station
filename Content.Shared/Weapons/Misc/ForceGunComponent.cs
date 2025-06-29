@@ -32,3 +32,4 @@ public sealed partial class ForceGunComponent : BaseForceGunComponent
         Params = AudioParams.Default.WithVolume(5f),
     };
 }
+

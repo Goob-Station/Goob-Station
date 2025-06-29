@@ -27,3 +27,4 @@ public sealed partial class TypingIndicatorComponent : Component
     [DataField("proto")]
     public ProtoId<TypingIndicatorPrototype> TypingIndicatorPrototype = "default";
 }
+

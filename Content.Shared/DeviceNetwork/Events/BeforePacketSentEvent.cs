@@ -33,3 +33,4 @@ public sealed class BeforePacketSentEvent : CancellableEntityEventArgs
         NetworkId = networkId;
     }
 }
+

@@ -23,3 +23,4 @@ public sealed partial class SingletonDeviceNetServerComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public bool Active = true;
 }
+

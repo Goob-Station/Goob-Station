@@ -15,3 +15,4 @@ public sealed partial class BoneSetterComponent : Component, ISurgeryToolCompone
     [DataField]
     public float Speed { get; set; } = 1f;
 }
+

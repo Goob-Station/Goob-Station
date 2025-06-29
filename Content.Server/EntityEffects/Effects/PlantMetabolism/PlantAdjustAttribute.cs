@@ -64,3 +64,4 @@ public abstract partial class PlantAdjustAttribute : EntityEffect
         return Loc.GetString("reagent-effect-guidebook-plant-attribute", ("attribute", Loc.GetString(GuidebookAttributeName)), ("amount", Amount.ToString("0.00")), ("colorName", color), ("chance", Probability));
     }
 }
+

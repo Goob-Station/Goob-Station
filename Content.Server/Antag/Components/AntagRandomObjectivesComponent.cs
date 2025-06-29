@@ -58,3 +58,4 @@ public partial record struct AntagObjectiveSet()
     [DataField]
     public int MaxPicks = 20;
 }
+

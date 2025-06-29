@@ -186,3 +186,4 @@ public delegate bool OnContinueDrag(float frameTime);
 /// should typically just clear the drag shadow.
 /// </summary>
 public delegate void OnEndDrag();
+

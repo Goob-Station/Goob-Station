@@ -270,3 +270,4 @@ public abstract class SharedSprayPainterSystem : EntitySystem
 }
 
 public record struct AirlockStyle(string Name, string? Department);
+

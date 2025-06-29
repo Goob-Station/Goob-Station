@@ -12,3 +12,4 @@ namespace Content.Shared.Light.Components;
 public abstract partial class SharedLightBehaviourComponent : Component
 {
 }
+

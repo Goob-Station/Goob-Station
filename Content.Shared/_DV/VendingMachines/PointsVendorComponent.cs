@@ -28,3 +28,4 @@ namespace Content.Shared._DV.VendingMachines;
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class PointsVendorComponent : Component;
+

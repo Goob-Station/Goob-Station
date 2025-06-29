@@ -33,3 +33,4 @@
       enum.StorageUiKey.Key:
         type: StorageBoundUserInterface
   - type: Dumpable
+

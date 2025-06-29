@@ -25,3 +25,4 @@ public sealed partial class AntiRotOnBuckleComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public bool Enabled = true;
 }
+

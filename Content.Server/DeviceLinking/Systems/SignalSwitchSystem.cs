@@ -63,3 +63,4 @@ public sealed class SignalSwitchSystem : EntitySystem
         args.Handled = true;
     }
 }
+

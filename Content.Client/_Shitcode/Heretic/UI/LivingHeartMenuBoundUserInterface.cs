@@ -41,3 +41,4 @@ public sealed partial class LivingHeartMenuBoundUserInterface : BoundUserInterfa
         base.SendMessage(new EventHereticLivingHeartActivate() { Target = netent });
     }
 }
+

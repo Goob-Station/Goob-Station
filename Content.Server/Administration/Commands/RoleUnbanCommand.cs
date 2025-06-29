@@ -48,3 +48,4 @@ public sealed class RoleUnbanCommand : IConsoleCommand
         };
     }
 }
+

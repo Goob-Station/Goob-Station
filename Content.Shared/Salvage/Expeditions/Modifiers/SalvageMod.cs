@@ -26,3 +26,4 @@ public sealed partial class SalvageMod : IPrototype, ISalvageMod
     [DataField("cost")]
     public float Cost { get; private set; } = 0f;
 }
+

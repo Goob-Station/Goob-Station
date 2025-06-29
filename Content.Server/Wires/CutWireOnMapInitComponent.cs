@@ -13,3 +13,4 @@ namespace Content.Server.Wires;
 public sealed partial class CutWireOnMapInitComponent : Component
 {
 }
+

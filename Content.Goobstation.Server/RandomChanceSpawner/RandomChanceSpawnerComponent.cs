@@ -20,3 +20,4 @@ public sealed partial class RandomChanceSpawnerComponent : Component
     [DataField]
     public Dictionary<EntProtoId, float> ToSpawn = new();
 }
+

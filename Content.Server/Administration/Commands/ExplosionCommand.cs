@@ -219,3 +219,4 @@ public sealed class ExplosionCommand : IConsoleCommand
         sysMan.GetEntitySystem<ExplosionSystem>().QueueExplosion(coords, type.ID, intensity, slope, maxIntensity, null);
     }
 }
+

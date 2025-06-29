@@ -35,3 +35,4 @@ public sealed partial class JukeOperator : HTNOperator, IHtnConditionalShutdown
         _entManager.RemoveComponent<NPCJukeComponent>(blackboard.GetValue<EntityUid>(NPCBlackboard.Owner));
     }
 }
+

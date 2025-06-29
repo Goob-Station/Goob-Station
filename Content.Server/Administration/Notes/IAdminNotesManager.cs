@@ -65,3 +65,4 @@ public interface IAdminNotesManager
     /// </param>
     Task MarkMessageAsSeen(int id, bool dismissedToo);
 }
+

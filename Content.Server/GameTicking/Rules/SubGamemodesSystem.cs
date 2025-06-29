@@ -23,3 +23,4 @@ public sealed class SubGamemodesSystem : GameRuleSystem<SubGamemodesComponent>
         }
     }
 }
+

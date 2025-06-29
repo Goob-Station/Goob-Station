@@ -163,3 +163,4 @@ public sealed partial class SmHalberdExecuteDoAfterEvent(NetEntity? rayEffect) :
 
     public override DoAfterEvent Clone() => this;
 }
+

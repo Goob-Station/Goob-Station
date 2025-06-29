@@ -24,3 +24,4 @@ public sealed partial class GhostRoleRaffleDeciderPrototype : IPrototype
     [DataField("decider", required: true)]
     public IGhostRoleRaffleDecider Decider { get; private set; } = new RngGhostRoleRaffleDecider();
 }
+

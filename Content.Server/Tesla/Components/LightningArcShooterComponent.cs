@@ -61,3 +61,4 @@ public sealed partial class LightningArcShooterComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public EntProtoId LightningPrototype = "Lightning";
 }
+

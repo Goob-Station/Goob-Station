@@ -26,3 +26,4 @@ public struct PathfindingBoundary
         Breadcrumbs = crumbs;
     }
 }
+

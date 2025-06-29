@@ -23,3 +23,4 @@ public sealed partial class DelayedKnockdownComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public bool Refresh = true;
 }
+

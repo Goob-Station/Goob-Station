@@ -45,3 +45,4 @@ public sealed partial class RitualBladeAscendBehavior : RitualSacrificeBehavior
         base.Finalize(args);
     }
 }
+

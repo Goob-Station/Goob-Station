@@ -38,3 +38,4 @@ public sealed class AntagRandomSpawnSystem : GameRuleSystem<AntagRandomSpawnComp
             args.Coordinates.Add(_transform.ToMapCoordinates(ent.Comp.Coords.Value));
     }
 }
+

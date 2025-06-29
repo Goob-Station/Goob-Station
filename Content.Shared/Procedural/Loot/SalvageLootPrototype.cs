@@ -28,3 +28,4 @@ public sealed partial class SalvageLootPrototype : IPrototype
     [DataField("loots")]
     public List<IDungeonLoot> LootRules = new();
 }
+

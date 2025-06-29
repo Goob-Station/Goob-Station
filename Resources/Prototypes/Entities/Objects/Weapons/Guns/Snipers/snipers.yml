@@ -206,6 +206,7 @@
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: MeleeRequiresWield # Goob edit end
+  - type: GunRequiresWield
 
 - type: entity
   name: Hristov
@@ -277,6 +278,7 @@
   # animation: WeaponArcThrust
   # soundHit:
   #   path: /Audio/Weapons/bladeslice.ogg
+  - type: GunRequiresWield
 
 - type: entity
   name: flintlock pistol

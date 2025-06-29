@@ -13,3 +13,4 @@ public sealed partial class TargetInLOSCon : UtilityConsideration
 {
 
 }
+

@@ -37,3 +37,4 @@ public sealed partial class Loadout : IEquatable<Loadout>
         return Prototype.GetHashCode();
     }
 }
+

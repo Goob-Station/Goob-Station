@@ -189,3 +189,4 @@
     sprite: Structures/Specific/Atmospherics/sensor.rsi
     layers:
     - state: gsensor0
+

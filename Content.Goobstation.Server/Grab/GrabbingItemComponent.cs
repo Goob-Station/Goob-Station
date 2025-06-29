@@ -18,3 +18,4 @@ public sealed partial class GrabbingItemComponent : Component
     [DataField]
     public float EscapeAttemptModifier = 2f;
 }
+

@@ -18,3 +18,4 @@ public sealed class BlinkSystem : SharedBlinkSystem
         Subs.ItemStatus<BlinkComponent>(ent => new BlinkStatusControl(ent));
     }
 }
+

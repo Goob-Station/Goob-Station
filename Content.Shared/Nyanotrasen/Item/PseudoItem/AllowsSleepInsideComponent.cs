@@ -12,3 +12,4 @@ namespace Content.Shared.Nyanotrasen.Item.PseudoItem;
 public sealed partial class AllowsSleepInsideComponent : Component
 {
 }
+

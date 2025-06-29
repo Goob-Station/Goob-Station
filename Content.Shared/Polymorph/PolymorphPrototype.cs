@@ -242,3 +242,4 @@ public sealed partial class ComponentTransferData(string component, bool @overri
 
     public ComponentTransferData() : this(string.Empty, true, false) { }
 }
+

@@ -36,3 +36,4 @@ public sealed partial class BluespaceArtifactRuleComponent : Component
         "bluespace-artifact-sighting-7"
     };
 }
+

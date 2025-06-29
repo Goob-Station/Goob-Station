@@ -24,3 +24,4 @@ public sealed partial class MechPilotComponent : Component
     [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public EntityUid Mech;
 }
+

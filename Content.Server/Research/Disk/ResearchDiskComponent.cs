@@ -25,3 +25,4 @@ namespace Content.Server.Research.Disk
         public bool UnlockAllTech = false;
     }
 }
+

@@ -21,3 +21,4 @@ public sealed partial class CCVars
     public static readonly CVarDef<float>
         SalvageExpeditionCooldown = CVarDef.Create("salvage.expedition_cooldown", 780f, CVar.REPLICATED);
 }
+

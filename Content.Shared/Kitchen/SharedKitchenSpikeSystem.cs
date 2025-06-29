@@ -44,3 +44,4 @@ public abstract class SharedKitchenSpikeSystem : EntitySystem
 public sealed partial class SpikeDoAfterEvent : SimpleDoAfterEvent
 {
 }
+

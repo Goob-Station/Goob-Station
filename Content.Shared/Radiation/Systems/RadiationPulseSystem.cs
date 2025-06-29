@@ -36,3 +36,4 @@ public sealed class RadiationPulseSystem : EntitySystem
         }
     }
 }
+

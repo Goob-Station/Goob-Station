@@ -25,3 +25,4 @@ public sealed partial class InstrumentSystem
         Subs.CVar(_cfg, CCVars.MaxMidiLaggedBatches, obj => MaxMidiLaggedBatches = obj, true);
     }
 }
+

@@ -15,3 +15,4 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Transform
+

@@ -64,3 +64,4 @@ public sealed partial class CCVars
             CVarDef.Create("audio.interface_volume", 0.50f, CVar.ARCHIVE | CVar.CLIENTONLY);
 
 }
+

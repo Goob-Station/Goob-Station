@@ -28,3 +28,4 @@ namespace Content.Shared._DV.Salvage;
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class LatheClaimMiningPointsMessage : BoundUserInterfaceMessage;
+

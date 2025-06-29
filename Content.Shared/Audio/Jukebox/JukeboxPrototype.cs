@@ -29,3 +29,4 @@ public sealed partial class JukeboxPrototype : IPrototype
     [DataField(required: true)]
     public SoundPathSpecifier Path = default!;
 }
+

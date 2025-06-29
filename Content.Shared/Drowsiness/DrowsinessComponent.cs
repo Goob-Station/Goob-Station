@@ -31,3 +31,4 @@ public sealed partial class DrowsinessComponent : Component
     [AutoPausedField]
     public TimeSpan NextIncidentTime = TimeSpan.Zero;
 }
+

@@ -32,3 +32,4 @@ public abstract class VariationPassSystem<T> : GameRuleSystem<T>
 
     protected abstract void ApplyVariation(Entity<T> ent, ref StationVariationPassEvent args);
 }
+

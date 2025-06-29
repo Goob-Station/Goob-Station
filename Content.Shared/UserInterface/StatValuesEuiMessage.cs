@@ -22,3 +22,4 @@ public sealed class StatValuesEuiMessage : EuiMessageBase
     public List<string> Headers = new();
     public List<string[]> Values = new();
 }
+

@@ -19,3 +19,4 @@ public sealed partial class ActiveHandFreePrecondition : HTNPrecondition
         return blackboard.TryGetValue<bool>(NPCBlackboard.ActiveHandFree, out var handFree, _entManager) && handFree;
     }
 }
+

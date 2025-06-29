@@ -44,3 +44,4 @@ public sealed class SpellbladeBoundUserInterface : BoundUserInterface
         SendPredictedMessage(new SpellbladeEnchantMessage(protoId));
     }
 }
+

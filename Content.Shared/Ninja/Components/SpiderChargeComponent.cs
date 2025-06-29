@@ -27,3 +27,4 @@ public sealed partial class SpiderChargeComponent : Component
     [DataField]
     public EntityUid? Planter;
 }
+

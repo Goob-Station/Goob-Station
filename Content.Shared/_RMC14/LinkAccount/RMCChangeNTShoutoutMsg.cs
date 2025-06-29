@@ -56,3 +56,4 @@ public sealed class RMCChangeNTShoutoutMsg : NetMessage
         buffer.Write(Name);
     }
 }
+

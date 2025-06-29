@@ -15,3 +15,4 @@ public sealed partial class StorageFillComponent : Component
 {
     [DataField("contents")] public List<EntitySpawnEntry> Contents = new();
 }
+

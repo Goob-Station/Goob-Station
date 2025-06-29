@@ -92,3 +92,4 @@ public sealed partial class EntityTablePrototype : IPrototype
     [DataField(required: true)]
     public EntityTableSelector Table = default!;
 }
+

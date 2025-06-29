@@ -41,3 +41,4 @@ public abstract class SharedHeadsetSystem : EntitySystem
         component.IsEquipped = false;
     }
 }
+

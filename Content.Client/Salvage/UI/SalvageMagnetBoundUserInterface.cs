@@ -182,3 +182,4 @@ public sealed class SalvageMagnetBoundUserInterface : BoundUserInterface
         }
     }
 }
+

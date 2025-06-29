@@ -12,3 +12,4 @@ namespace Content.Shared._Lavaland.Components;
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class UnmannedWeaponryComponent : Component;
+

@@ -27,3 +27,4 @@ public sealed class TransformSpeakerNameEvent : EntityEventArgs, IInventoryRelay
         SpeechVerb = null;
     }
 }
+

@@ -87,3 +87,4 @@ namespace Content.Server.Medical.BiomassReclaimer
         public bool SafetyEnabled = true;
     }
 }
+

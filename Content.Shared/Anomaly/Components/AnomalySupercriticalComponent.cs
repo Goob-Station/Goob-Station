@@ -40,3 +40,4 @@ public sealed partial class AnomalySupercriticalComponent : Component
     [DataField]
     public float MaxScaleAmount = 3;
 }
+

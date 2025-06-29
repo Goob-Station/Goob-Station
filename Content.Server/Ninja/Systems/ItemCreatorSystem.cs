@@ -61,3 +61,4 @@ public sealed class ItemCreatorSystem : SharedItemCreatorSystem
         Dirty(ent, ent.Comp);
     }
 }
+

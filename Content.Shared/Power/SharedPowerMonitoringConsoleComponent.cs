@@ -168,3 +168,4 @@ public enum PowerMonitoringConsoleUiKey
 {
     Key
 }
+

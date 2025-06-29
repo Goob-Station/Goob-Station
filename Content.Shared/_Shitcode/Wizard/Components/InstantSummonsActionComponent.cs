@@ -15,3 +15,4 @@ public sealed partial class InstantSummonsActionComponent : Component
     [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
     public EntityUid? Entity;
 }
+

@@ -15,3 +15,4 @@ public partial class SharedGunSystem
         component.Enabled = status;
     }
 }
+

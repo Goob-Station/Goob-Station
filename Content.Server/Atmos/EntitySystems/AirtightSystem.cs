@@ -182,3 +182,4 @@ namespace Content.Server.Atmos.EntitySystems
     [ByRefEvent]
     public readonly record struct AirtightChanged(EntityUid Entity, AirtightComponent Airtight, bool AirBlockedChanged, (EntityUid Grid, Vector2i Tile) Position);
 }
+

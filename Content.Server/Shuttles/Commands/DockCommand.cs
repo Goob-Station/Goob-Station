@@ -80,3 +80,4 @@ public sealed class DockCommand : IConsoleCommand
         return CompletionResult.Empty;
     }
 }
+

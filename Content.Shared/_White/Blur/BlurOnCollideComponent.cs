@@ -14,3 +14,4 @@ public sealed partial class BlurOnCollideComponent : Component
     [DataField]
     public TimeSpan BlindTime = TimeSpan.Zero;
 }
+

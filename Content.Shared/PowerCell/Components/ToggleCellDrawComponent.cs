@@ -49,3 +49,4 @@ namespace Content.Shared.PowerCell.Components;
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ToggleCellDrawComponent : Component;
+

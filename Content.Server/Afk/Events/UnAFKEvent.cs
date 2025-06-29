@@ -24,3 +24,4 @@ public readonly struct UnAFKEvent
         Session = playerSession;
     }
 }
+

@@ -9,3 +9,4 @@ namespace Content.Client.Devour;
 public sealed class DevourSystem : SharedDevourSystem
 {
 }
+

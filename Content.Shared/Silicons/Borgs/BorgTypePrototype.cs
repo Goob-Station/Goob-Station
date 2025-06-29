@@ -159,3 +159,4 @@ public sealed partial class BorgTypePrototype : IPrototype
     [DataField]
     public SoundSpecifier FootstepCollection { get; set; } = new SoundCollectionSpecifier(DefaultFootsteps);
 }
+

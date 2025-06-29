@@ -17,3 +17,4 @@ namespace Content.Server.Construction.Components
         public string? BoardPrototype;
     }
 }
+

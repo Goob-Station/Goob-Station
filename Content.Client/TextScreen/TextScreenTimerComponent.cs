@@ -25,3 +25,4 @@ public sealed partial class TextScreenTimerComponent : Component
     public TimeSpan Target = TimeSpan.Zero;
     public Dictionary<string, string?> LayerStatesToDraw = new();
 }
+

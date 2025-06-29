@@ -22,6 +22,7 @@ public sealed class StorageFillVisualizerSystem : VisualizerSystem<StorageFillVi
             return;
 
         var state = $"{component.FillBaseName}-{level}";
-        args.Sprite.LayerSetState(StorageFillLayers.Fill, state);
+        SpriteSystem.LayerSetRsiState((uid, args.Sprite), StorageFillLayers.Fill, state);
     }
 }
+

@@ -218,3 +218,4 @@ public abstract partial class SharedGunSystem
         _slots.TryEject(uid, MagazineSlot, null, out var a, excludeUserAudio: true);
     }
 }
+

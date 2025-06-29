@@ -136,3 +136,4 @@
           enum.FlashVisuals.LightLayer:
             True: {visible: true}
             False: {visible: false}
+

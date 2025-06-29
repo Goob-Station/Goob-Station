@@ -220,3 +220,4 @@ namespace Content.Client.Construction.UI
         public sealed record ConstructionMenuListData(ConstructionPrototype Prototype, EntityPrototype TargetPrototype) : ListData;
     }
 }
+

@@ -32,3 +32,4 @@
   - type: ConditionalSpawner
     prototypes:
       - MechHonkerBattery
+

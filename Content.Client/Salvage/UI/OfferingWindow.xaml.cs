@@ -120,3 +120,4 @@ public sealed partial class OfferingWindow : FancyWindow,
         }
     }
 }
+

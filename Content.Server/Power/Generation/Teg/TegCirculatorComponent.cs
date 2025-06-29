@@ -53,3 +53,4 @@ public sealed partial class TegCirculatorComponent : Component
     [DataField("lightColorFast")]
     public Color LightColorFast = Color.FromHex("#AA00FF");
 }
+

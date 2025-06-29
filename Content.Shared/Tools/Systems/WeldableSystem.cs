@@ -166,3 +166,4 @@ public sealed class WeldableSystem : EntitySystem
         Dirty(uid, component);
     }
 }
+

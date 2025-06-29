@@ -124,3 +124,4 @@ public sealed class DashAbilitySystem : EntitySystem
 /// </summary>
 [ByRefEvent]
 public record struct CheckDashEvent(EntityUid User, bool Cancelled = false);
+

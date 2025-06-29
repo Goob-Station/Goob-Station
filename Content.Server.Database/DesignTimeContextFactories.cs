@@ -38,3 +38,4 @@ public sealed class DesignTimeContextFactorySqlite : IDesignTimeDbContextFactory
 }
 
 #endif
+

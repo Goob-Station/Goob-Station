@@ -18,3 +18,4 @@ public readonly struct SpriteMoveEvent
         IsMoving = isMoving;
     }
 }
+

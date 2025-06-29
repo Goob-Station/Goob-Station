@@ -52,3 +52,4 @@ public sealed partial class JobCondition : EntityEffectCondition
         return Loc.GetString("reagent-effect-condition-guidebook-job-condition", ("job", ContentLocalizationManager.FormatListToOr(localizedNames)));
     }
 }
+

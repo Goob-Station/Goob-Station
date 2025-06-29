@@ -154,3 +154,4 @@ public sealed class RespawnRuleSystem : GameRuleSystem<RespawnDeadRuleComponent>
         tracker.Comp.Players.Add(id);
     }
 }
+

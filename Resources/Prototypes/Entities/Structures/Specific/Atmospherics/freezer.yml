@@ -32,3 +32,4 @@
   components:
   - type: AirAlarm
     autoMode: false
+

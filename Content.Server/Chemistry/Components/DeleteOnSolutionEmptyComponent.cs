@@ -18,3 +18,4 @@ namespace Content.Server.Chemistry.Components.DeleteOnSolutionEmptyComponent
         public string Solution = string.Empty;
     }
 }
+

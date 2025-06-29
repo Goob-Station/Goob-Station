@@ -17,3 +17,4 @@ public sealed partial class NullNodeEntity : IGraphNodeEntity
         return null;
     }
 }
+

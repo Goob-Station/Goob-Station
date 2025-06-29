@@ -108,3 +108,4 @@ namespace Content.Client.Screenshot
         void Initialize();
     }
 }
+

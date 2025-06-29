@@ -76,3 +76,4 @@ public abstract partial class BaseMindRoleComponent : Component
 {
 
 }
+

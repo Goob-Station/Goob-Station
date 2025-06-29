@@ -270,3 +270,4 @@ public abstract partial class SharedHandsSystem : EntitySystem
             RaiseLocalEvent(entity, new HandSelectedEvent(uid), false);
     }
 }
+

@@ -31,3 +31,4 @@ public sealed partial class VentCrawlerComponent : Component
 public sealed partial class EnterVentDoAfterEvent : SimpleDoAfterEvent
 {
 }
+

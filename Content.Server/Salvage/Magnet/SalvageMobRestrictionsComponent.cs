@@ -15,3 +15,4 @@ public sealed partial class SalvageMobRestrictionsComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public EntityUid LinkedEntity;
 }
+

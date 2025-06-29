@@ -28,3 +28,4 @@ public sealed partial class AnomalyMetricComponent : Component
     [DataField("dangerCost")]
     public float BaseCost = 10.0f;
 }
+

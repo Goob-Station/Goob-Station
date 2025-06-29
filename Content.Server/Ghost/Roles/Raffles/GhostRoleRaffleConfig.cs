@@ -38,3 +38,4 @@ public sealed partial class GhostRoleRaffleConfig
     [DataField("decider")]
     public ProtoId<GhostRoleRaffleDeciderPrototype> Decider { get; set; } = "default";
 }
+

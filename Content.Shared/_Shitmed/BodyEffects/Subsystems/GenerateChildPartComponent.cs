@@ -21,3 +21,4 @@ public sealed partial class GenerateChildPartComponent : Component
     [DataField]
     public bool Active = false;
 }
+

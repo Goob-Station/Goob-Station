@@ -152,3 +152,4 @@ public sealed class ContainerSpawnPointSystem : EntitySystem
         args.SpawnResult = null;
     }
 }
+

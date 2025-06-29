@@ -40,3 +40,4 @@ public partial struct CodewordsData
         Codewords = codewords;
     }
 }
+

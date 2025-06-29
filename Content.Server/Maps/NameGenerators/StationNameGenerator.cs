@@ -13,3 +13,4 @@ public abstract partial class StationNameGenerator
 {
     public abstract string FormatName(string input);
 }
+

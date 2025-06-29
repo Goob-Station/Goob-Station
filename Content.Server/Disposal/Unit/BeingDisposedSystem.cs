@@ -47,3 +47,4 @@ public sealed class BeingDisposedSystem : EntitySystem
         }
     }
 }
+

@@ -9,3 +9,4 @@ public abstract class SharedRestrictedRangeSystem : EntitySystem
 {
 
 }
+

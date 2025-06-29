@@ -107,3 +107,4 @@ public sealed class LivingHeartMenu : RadialMenu
         public NetEntity NetEntity;
     }
 }
+

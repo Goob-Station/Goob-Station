@@ -20,3 +20,4 @@ namespace Content.Shared.Abilities.Oni
         public float StamDamageMultiplier = 1.25f;
     }
 }
+

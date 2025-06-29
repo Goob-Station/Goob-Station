@@ -35,14 +35,27 @@ public sealed class ComponentTogglerSystem : EntitySystem
         if (!TryComp<ComponentTogglerComponent>(uid, out var component))
             return;
 
-        var target = component.Parent ? Transform(uid).ParentUid : uid;
-
-        if (TerminatingOrDeleted(target))
-            return;
 
         if (activate)
+        {
+            var target = component.Parent ? Transform(uid).ParentUid : uid;
+
+            if (TerminatingOrDeleted(target))
+                return;
+
+            component.Target = target;
+
             EntityManager.AddComponents(target, component.Components);
+        }
         else
-            EntityManager.RemoveComponents(target, component.RemoveComponents ?? component.Components);
+        {
+            if (component.Target == null)
+                return;
+
+            if (TerminatingOrDeleted(component.Target.Value))
+                return;
+
+            EntityManager.RemoveComponents(component.Target.Value, component.RemoveComponents ?? component.Components);
+        }
     }
 }

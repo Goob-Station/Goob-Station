@@ -73,3 +73,4 @@ public sealed class MechAssemblySystem : EntitySystem
         EntityManager.DeleteEntity(uid);
     }
 }
+

@@ -15,3 +15,4 @@ namespace Content.Goobstation.Server.Chemistry.HyposprayBlockNonMobInjection;
 public sealed partial class HyposprayBlockNonMobInjectionComponent : Component
 {
 }
+

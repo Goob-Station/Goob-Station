@@ -18,3 +18,4 @@ public sealed partial class ScaleDataComponent : Component
     [DataField]
     public Vector2 Scale = Vector2.One;
 }
+

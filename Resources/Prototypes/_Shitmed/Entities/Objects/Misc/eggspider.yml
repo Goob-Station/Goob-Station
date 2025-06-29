@@ -23,3 +23,4 @@
   - type: PettableFriend
     successString: petting-success-spider-egg
     failureString: petting-failure-spider-egg
+

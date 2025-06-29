@@ -69,3 +69,4 @@ public sealed class GenerateChildPartSystem : EntitySystem
         Dirty(childPart, childPartComp);
     }
 }
+

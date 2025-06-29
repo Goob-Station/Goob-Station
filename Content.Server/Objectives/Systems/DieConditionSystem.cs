@@ -26,3 +26,4 @@ public sealed class DieConditionSystem : EntitySystem
         args.Progress = _mind.IsCharacterDeadIc(args.Mind) ? 1f : 0f;
     }
 }
+

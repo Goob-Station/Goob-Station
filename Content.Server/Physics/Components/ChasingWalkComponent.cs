@@ -86,3 +86,4 @@ public sealed partial class ChasingWalkComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public EntityUid? ChasingEntity;
 }
+

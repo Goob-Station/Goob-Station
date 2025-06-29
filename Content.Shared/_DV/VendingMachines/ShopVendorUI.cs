@@ -28,3 +28,4 @@ public sealed class ShopVendorPurchaseMessage(int index) : BoundUserInterfaceMes
 {
     public readonly int Index = index;
 }
+

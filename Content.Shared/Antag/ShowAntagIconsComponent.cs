@@ -12,3 +12,4 @@ namespace Content.Shared.Antag;
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ShowAntagIconsComponent: Component;
+

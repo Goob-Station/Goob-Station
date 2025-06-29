@@ -128,3 +128,4 @@ public abstract class SharedBorgSwitchableTypeSystem : EntitySystem
         }
     }
 }
+

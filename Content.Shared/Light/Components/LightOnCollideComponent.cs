@@ -55,3 +55,4 @@ namespace Content.Shared.Light.Components;
 public sealed partial class LightOnCollideComponent : Component
 {
 }
+

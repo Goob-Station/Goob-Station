@@ -15,3 +15,4 @@ public sealed partial class ColorFlashEffectComponent : Component
     [ViewVariables]
     public Color Color = Color.White;
 }
+

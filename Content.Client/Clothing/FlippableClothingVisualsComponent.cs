@@ -19,3 +19,4 @@ public sealed partial class FlippableClothingVisualsComponent : Component
     [DataField]
     public string UnfoldingLayer = "unfoldedLayer";
 }
+

@@ -278,3 +278,4 @@ namespace Content.Client.Voting
         }
     }
 }
+

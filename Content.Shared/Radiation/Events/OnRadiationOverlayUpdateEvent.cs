@@ -84,3 +84,4 @@ public sealed class OnRadiationOverlayResistanceUpdateEvent : EntityEventArgs
         Grids = grids;
     }
 }
+

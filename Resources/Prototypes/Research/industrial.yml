@@ -342,12 +342,12 @@
   # Goobstation R&D Console rework start
   position: 2,-7
   technologyPrerequisites:
-   - PortableFission
+   - OptimizedMicrogalvanism
   # Goobstation R&D Console rework end
 
 - type: technology
-  id: PortableFission
-  name: research-technology-portable-fission
+  id: OptimizedMicrogalvanism
+  name: research-technology-optimized-microgalvanism
   icon:
     sprite: Objects/Power/power_cells.rsi
     state: microreactor
@@ -356,6 +356,7 @@
   cost: 15000 # Goobstation 10000 -> 15000
   recipeUnlocks:
   - PowerCellMicroreactor
+  - PowerCellHyper
   technologyPrerequisites:
   - AdvancedToolsTechnology  # Goobstation R&D Console rework
   - AdvancedPowercells  # Goobstation R&D Console rework

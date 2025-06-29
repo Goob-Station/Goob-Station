@@ -115,3 +115,4 @@ public sealed partial class ExplosiveComponent : Component
     /// </summary>
     public bool Exploded;
 }
+

@@ -57,3 +57,4 @@ public sealed class OreBagSystem : EntitySystem
             _materialStorage.TryInsertMaterialEntity(args.User, entity, args.Target.Value);
     }
 }
+

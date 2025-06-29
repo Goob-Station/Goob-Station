@@ -26,3 +26,4 @@ public sealed class LinkAttemptEvent : CancellableEntityEventArgs
         SinkPort = sinkPort;
     }
 }
+

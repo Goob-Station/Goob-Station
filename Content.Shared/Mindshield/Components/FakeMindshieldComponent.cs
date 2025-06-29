@@ -25,3 +25,4 @@ public sealed partial class FakeMindShieldComponent : Component
     [DataField, AutoNetworkedField]
     public ProtoId<SecurityIconPrototype> MindShieldStatusIcon = "MindShieldIcon";
 }
+

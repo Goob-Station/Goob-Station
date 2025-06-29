@@ -56,3 +56,4 @@ public sealed class AnomalySpawnRule : StationEventSystem<AnomalySpawnRuleCompon
         }
     }
 }
+

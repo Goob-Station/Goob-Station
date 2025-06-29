@@ -51,3 +51,4 @@ namespace Content.Server.EntityEffects.Effects
             => Loc.GetString("reagent-effect-guidebook-satiate-hunger", ("chance", Probability), ("relative", NutritionFactor / DefaultNutritionFactor));
     }
 }
+

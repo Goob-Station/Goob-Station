@@ -30,3 +30,4 @@ public sealed class WizardTrapsSystem : SharedWizardTrapsSystem
         sprite.Color = sprite.Color.WithAlpha((float) alpha);
     }
 }
+

@@ -22,3 +22,4 @@ public sealed partial class SlowedDownComponent : Component
     [ViewVariables, DataField("walkSpeedModifier"), AutoNetworkedField]
     public float WalkSpeedModifier = 0.5f;
 }
+

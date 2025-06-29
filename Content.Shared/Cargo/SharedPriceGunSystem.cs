@@ -60,3 +60,4 @@ public abstract class SharedPriceGunSystem : EntitySystem
     /// </remarks>
     protected abstract bool GetPriceOrBounty(Entity<PriceGunComponent> entity, EntityUid target, EntityUid user);
 }
+

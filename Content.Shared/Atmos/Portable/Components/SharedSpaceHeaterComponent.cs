@@ -93,3 +93,4 @@ public enum SpaceHeaterPowerLevel : byte
     Medium,
     High
 }
+

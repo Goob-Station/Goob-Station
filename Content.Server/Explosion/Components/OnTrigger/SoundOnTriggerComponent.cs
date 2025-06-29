@@ -22,3 +22,4 @@ public sealed partial class SoundOnTriggerComponent : Component
     [DataField("sound")]
     public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/Effects/Grenades/supermatter_start.ogg");
 }
+

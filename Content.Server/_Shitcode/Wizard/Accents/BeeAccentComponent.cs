@@ -18,3 +18,4 @@ public sealed partial class BeeAccentComponent : AnimalAccentComponent
         "accent-words-bee-4",
     };
 }
+

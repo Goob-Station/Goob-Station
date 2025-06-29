@@ -20,3 +20,4 @@ public sealed class EmergencyConsoleBoundUserInterface : ComputerBoundUserInterf
     {
     }
 }
+

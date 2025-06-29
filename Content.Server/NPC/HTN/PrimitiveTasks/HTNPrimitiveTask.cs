@@ -32,3 +32,4 @@ public sealed partial class HTNPrimitiveTask : HTNTask
     /// </summary>
     [DataField("services")] public List<UtilityService> Services = new();
 }
+

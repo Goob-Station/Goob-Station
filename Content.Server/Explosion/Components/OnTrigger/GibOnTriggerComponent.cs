@@ -23,3 +23,4 @@ public sealed partial class GibOnTriggerComponent : Component
     [DataField("deleteItems")]
     public bool DeleteItems = false;
 }
+

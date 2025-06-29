@@ -109,3 +109,4 @@ public sealed class RechargeableBlockingSystem : EntitySystem
                 recharger.AutoRechargeRate = component.ChargedRechargeRate;
     }
 }
+

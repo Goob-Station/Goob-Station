@@ -27,3 +27,4 @@ public abstract partial class HTNPrecondition
     /// </summary>
     public abstract bool IsMet(NPCBlackboard blackboard);
 }
+

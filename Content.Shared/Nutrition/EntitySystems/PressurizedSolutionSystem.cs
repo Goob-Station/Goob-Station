@@ -290,3 +290,4 @@ public record struct AttemptAddFizzinessEvent(Entity<PressurizedSolutionComponen
 {
     public bool Cancelled;
 }
+

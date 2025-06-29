@@ -21,3 +21,4 @@ public sealed partial class CryostorageSlotControl : BoxContainer
         ItemLabel.Text = itemName;
     }
 }
+

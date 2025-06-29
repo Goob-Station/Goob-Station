@@ -29,3 +29,4 @@ public sealed partial class InjectOnHitComponent : Component
 }
 [ByRefEvent]
 public record struct InjectOnHitAttemptEvent(bool Cancelled);
+

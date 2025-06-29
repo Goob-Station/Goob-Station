@@ -187,3 +187,4 @@ public sealed class SetNutrit : LocalizedEntityCommands
         }
     }
 }
+

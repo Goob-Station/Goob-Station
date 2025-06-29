@@ -390,3 +390,4 @@ namespace Content.Server.Singularity.EntitySystems
         }
     }
 }
+

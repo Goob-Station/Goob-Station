@@ -14,3 +14,4 @@ namespace Content.Shared.Sticky;
 public sealed partial class StickyDoAfterEvent : SimpleDoAfterEvent
 {
 }
+

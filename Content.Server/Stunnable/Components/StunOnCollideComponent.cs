@@ -40,3 +40,4 @@ namespace Content.Server.Stunnable.Components
         [DataField("fixture")] public string FixtureID = "projectile";
     }
 }
+

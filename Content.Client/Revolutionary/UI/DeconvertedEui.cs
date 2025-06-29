@@ -29,3 +29,4 @@ public sealed class DeconvertedEui : BaseEui
         _menu.Close();
     }
 }
+

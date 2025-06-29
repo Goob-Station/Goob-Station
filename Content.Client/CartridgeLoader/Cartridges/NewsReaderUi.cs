@@ -57,3 +57,4 @@ public sealed partial class NewsReaderUi : UIFragment
         userInterface.SendMessage(message);
     }
 }
+

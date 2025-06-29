@@ -30,3 +30,4 @@ public record struct CuffsOnHitAttemptEvent(bool Cancelled);
 
 [Serializable, NetSerializable]
 public sealed partial class CuffsOnHitDoAfter : SimpleDoAfterEvent { }
+

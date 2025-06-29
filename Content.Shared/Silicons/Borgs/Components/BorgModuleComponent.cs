@@ -46,3 +46,4 @@ public readonly record struct BorgModuleInstalledEvent(EntityUid ChassisEnt);
 /// <param name="ChassisEnt"></param>
 [ByRefEvent]
 public readonly record struct BorgModuleUninstalledEvent(EntityUid ChassisEnt);
+

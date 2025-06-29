@@ -20,3 +20,4 @@ public sealed partial class MechAirComponent : Component
 
     public const float GasMixVolume = 70f;
 }
+

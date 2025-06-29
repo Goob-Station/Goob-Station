@@ -460,7 +460,7 @@
   - type: Extractable
     grindableSolutionName: food
   - type: DamageOnInteract
-    damage: 
+    damage:
       types:
         Heat: 4
         Caustic: 4
@@ -487,7 +487,7 @@
             volume: -5
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: DamageOnHit 
+  - type: DamageOnHit
     damage:
       types:
         Blunt: 5 # The nettle will "wilt" after 5 hits.
@@ -1632,6 +1632,7 @@
   - type: Tag
     tags:
     - Vegetable
+    - Mushroom
   - type: FoodSequenceElement
     sprite:
       sprite: Objects/Specific/Hydroponics/chanterelle.rsi
@@ -2018,6 +2019,9 @@
         sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-mushroom
+  - type: Tag
+    tags:
+    - Mushroom
 
 - type: entity
   name: ambrosia vulgaris
@@ -2267,6 +2271,9 @@
         sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-mushroom
+  - type: Tag
+    tags:
+    - Mushroom
 
 - type: entity
   name: gatfruit

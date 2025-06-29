@@ -53,3 +53,4 @@ public sealed class RMCChangeGhostColorMsg : NetMessage
         buffer.Write(Color);
     }
 }
+

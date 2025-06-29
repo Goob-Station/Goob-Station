@@ -392,3 +392,4 @@ public sealed class IPIntel
         Errored,
     }
 }
+

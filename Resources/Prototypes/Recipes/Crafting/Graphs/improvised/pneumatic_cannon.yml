@@ -35,3 +35,4 @@
         doAfter: 10
   - node: cannon
     entity: WeaponImprovisedPneumaticCannon
+

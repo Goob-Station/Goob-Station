@@ -77,3 +77,4 @@ public sealed partial class NetworkConfiguratorComponent : Component
     [DataField]
     public bool ShowLabel = true; // Shitmed - Starlight Abductors Change
 }
+

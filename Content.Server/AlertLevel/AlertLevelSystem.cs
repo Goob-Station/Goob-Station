@@ -249,3 +249,4 @@ public sealed class AlertLevelChangedEvent : EntityEventArgs
         AlertLevel = alertLevel;
     }
 }
+

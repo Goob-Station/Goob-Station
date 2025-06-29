@@ -60,3 +60,4 @@ public sealed partial class TileNotBlocked : IConstructionCondition
         };
     }
 }
+

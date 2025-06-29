@@ -26,3 +26,4 @@ internal sealed class ServerAlertsSystem : AlertsSystem
         args.State = new AlertComponentState(new(alerts.Comp.Alerts));
     }
 }
+

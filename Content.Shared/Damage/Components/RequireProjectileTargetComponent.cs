@@ -22,3 +22,4 @@ public sealed partial class RequireProjectileTargetComponent : Component
     [DataField, AutoNetworkedField]
     public bool IgnoreThrow = false;
 }
+

@@ -174,3 +174,4 @@ public sealed class SpaceNinjaSystem : SharedSpaceNinjaSystem
         _codeCondition.SetCompleted(ent.Owner, ent.Comp.SpiderChargeObjective);
     }
 }
+

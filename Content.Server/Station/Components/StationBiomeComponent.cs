@@ -26,3 +26,4 @@ public sealed partial class StationBiomeComponent : Component
     [DataField]
     public Color MapLightColor = Color.Black;
 }
+

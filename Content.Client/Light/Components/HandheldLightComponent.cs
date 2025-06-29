@@ -103,3 +103,4 @@ public sealed class HandheldLightStatus : Control
         }
     }
 }
+

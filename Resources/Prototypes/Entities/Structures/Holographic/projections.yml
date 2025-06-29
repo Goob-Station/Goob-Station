@@ -135,3 +135,4 @@
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
+

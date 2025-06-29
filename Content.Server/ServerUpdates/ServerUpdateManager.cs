@@ -156,3 +156,4 @@ public sealed class ServerUpdateManager : IPostInjectInit
         _sawmill = _logManager.GetSawmill("restart");
     }
 }
+

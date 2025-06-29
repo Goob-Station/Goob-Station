@@ -12,3 +12,4 @@ namespace Content.Client.Chemistry.Containers.EntitySystems;
 public sealed partial class SolutionContainerSystem : SharedSolutionContainerSystem
 {
 }
+

@@ -20,3 +20,4 @@ public sealed class DoorRemoteSystem : SharedDoorRemoteSystem
         Subs.ItemStatus<DoorRemoteComponent>(ent => new DoorRemoteStatusControl(ent));
     }
 }
+

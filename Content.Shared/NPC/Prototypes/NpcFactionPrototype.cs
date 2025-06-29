@@ -37,3 +37,4 @@ public record struct FactionData
     [ViewVariables]
     public HashSet<ProtoId<NpcFactionPrototype>> Hostile;
 }
+

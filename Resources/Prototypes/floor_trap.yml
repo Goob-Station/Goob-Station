@@ -119,3 +119,4 @@
     - type: SpawnOnTrigger
       proto: MobXeno
     - type: DeleteOnTrigger
+

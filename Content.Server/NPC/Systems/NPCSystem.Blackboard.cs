@@ -22,3 +22,4 @@ public sealed partial class NPCSystem
         blackboard.SetValue(key, value);
     }
 }
+

@@ -59,3 +59,4 @@ namespace Content.Client._Shitcode.UserInterface.Systems.Ghost.Controls
     }
 
 }
+

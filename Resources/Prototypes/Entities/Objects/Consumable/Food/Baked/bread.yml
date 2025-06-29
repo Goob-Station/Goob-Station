@@ -129,7 +129,6 @@
   - type: Tag
     tags:
     - Bread
-    - VoxFood
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1141,3 +1140,4 @@
     damage:
       groups:
         Brute: 1
+

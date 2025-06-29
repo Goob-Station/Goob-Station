@@ -11,3 +11,4 @@ public abstract class SharedTriggerSystem : EntitySystem
 {
 	
 }
+

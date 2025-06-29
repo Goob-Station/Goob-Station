@@ -26,3 +26,4 @@ namespace Content.Shared.Preferences
         SpawnAsOverflow,
     }
 }
+

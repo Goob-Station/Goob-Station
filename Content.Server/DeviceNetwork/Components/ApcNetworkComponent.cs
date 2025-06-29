@@ -26,3 +26,4 @@ namespace Content.Server.DeviceNetwork.Components
         [ViewVariables] public Node? ConnectedNode;
     }
 }
+

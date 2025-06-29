@@ -22,3 +22,4 @@ public sealed partial class CCVars
     public static readonly CVarDef<string> WhitelistPrototypeList =
         CVarDef.Create("whitelist.prototype_list", "basicWhitelist", CVar.SERVERONLY);
 }
+

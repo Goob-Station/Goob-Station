@@ -14,3 +14,4 @@ namespace Content.Shared.Kitchen;
 public sealed partial class SharpDoAfterEvent : SimpleDoAfterEvent
 {
 }
+

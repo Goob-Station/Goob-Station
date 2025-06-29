@@ -56,3 +56,4 @@ public sealed class GraphNodeEntitySerializer : ITypeSerializer<IGraphNodeEntity
         return serializationManager.WriteValue(value, alwaysWrite, context, false);
     }
 }
+

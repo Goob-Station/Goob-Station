@@ -197,3 +197,4 @@ public sealed partial class GeneratorWindow : FancyWindow
         return doAfterSystem.TryFindActiveDoAfter<GeneratorStartedEvent>(_entity, out _, out _, out progress);
     }
 }
+

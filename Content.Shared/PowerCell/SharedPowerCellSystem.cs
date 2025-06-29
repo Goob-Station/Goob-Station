@@ -152,3 +152,4 @@ public abstract class SharedPowerCellSystem : EntitySystem
         PowerCellSlotComponent? cell = null,
         EntityUid? user = null);
 }
+

@@ -14,3 +14,4 @@ namespace Content.Server.GameTicking.Rules.VariationPass;
 public sealed class WallReplaceVariationPassSystem : BaseEntityReplaceVariationPassSystem<WallReplacementMarkerComponent, WallReplaceVariationPassComponent>
 {
 }
+

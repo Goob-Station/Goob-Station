@@ -37,3 +37,4 @@ public sealed partial class SalvageBiomeModPrototype : IPrototype, ISalvageMod
     [DataField("biome", required: true, customTypeSerializer:typeof(PrototypeIdSerializer<BiomeTemplatePrototype>))]
     public string? BiomePrototype;
 }
+

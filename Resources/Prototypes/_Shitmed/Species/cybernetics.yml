@@ -50,3 +50,4 @@
   baseSprite:
     sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
     state: "r_foot"
+

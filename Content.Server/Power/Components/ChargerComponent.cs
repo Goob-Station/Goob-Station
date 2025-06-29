@@ -54,3 +54,4 @@ namespace Content.Server.Power.Components
         public bool Portable = false;
     }
 }
+

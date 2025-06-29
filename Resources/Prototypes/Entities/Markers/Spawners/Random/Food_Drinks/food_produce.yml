@@ -222,3 +222,4 @@
       - id: DeathNettle
         amount: !type:RangeNumberSelector
           range: 1, 5
+

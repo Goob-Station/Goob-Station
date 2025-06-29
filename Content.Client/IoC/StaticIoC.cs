@@ -17,3 +17,4 @@ namespace Content.Client.IoC
         public static IResourceCache ResC => IoCManager.Resolve<IResourceCache>();
     }
 }
+

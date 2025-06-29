@@ -37,3 +37,4 @@ public sealed partial class PolymorphableComponent : Component
     [DataField]
     public List<ProtoId<PolymorphPrototype>>? InnatePolymorphs;
 }
+

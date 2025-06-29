@@ -31,3 +31,4 @@ public sealed partial class FTLMapComponent : Component
     [DataField, AutoNetworkedField]
     public bool Beacons;
 }
+

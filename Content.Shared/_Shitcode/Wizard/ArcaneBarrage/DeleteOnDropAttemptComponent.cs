@@ -14,3 +14,4 @@ namespace Content.Shared._Goobstation.Wizard.ArcaneBarrage;
 public sealed partial class DeleteOnDropAttemptComponent : Component
 {
 }
+

@@ -69,3 +69,4 @@ public sealed partial class ChameleonProjectorComponent : Component
     [DataField]
     public EntityUid? Disguised;
 }
+

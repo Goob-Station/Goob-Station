@@ -13,3 +13,4 @@ namespace Content.Shared.Electrocution
     {
     }
 }
+

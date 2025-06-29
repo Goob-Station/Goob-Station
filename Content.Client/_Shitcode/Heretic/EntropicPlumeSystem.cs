@@ -49,3 +49,4 @@ public sealed class EntropicPlumeSystem : SharedEntropicPlumeSystem
         sprite.LayerMapSet(EntropicPlumeKey.Key, layer);
     }
 }
+

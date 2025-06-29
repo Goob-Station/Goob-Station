@@ -27,3 +27,4 @@ public sealed partial class FollowedComponent : Component
     [DataField, AutoNetworkedField]
     public HashSet<EntityUid> Following = new();
 }
+

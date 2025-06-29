@@ -33,3 +33,4 @@ public sealed partial class TypingIndicatorClothingComponent : Component
     [DataField, AutoPausedField]
     public TimeSpan? GotEquippedTime = null;
 }
+

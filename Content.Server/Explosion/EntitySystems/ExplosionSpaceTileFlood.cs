@@ -172,3 +172,4 @@ public sealed class ExplosionSpaceTileFlood : ExplosionTileFlood
         return _gridBlockMap.TryGetValue(tile, out var blocker) ? blocker.UnblockedDirections : AtmosDirection.All;
     }
 }
+

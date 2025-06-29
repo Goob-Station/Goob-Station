@@ -13,3 +13,4 @@ public sealed partial class ClothingSlotFilter : UtilityQueryFilter
     [DataField("slotFlags", required: true)]
     public SlotFlags SlotFlags = SlotFlags.NONE;
 }
+

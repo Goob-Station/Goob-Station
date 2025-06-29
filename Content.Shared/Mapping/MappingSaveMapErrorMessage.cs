@@ -92,3 +92,4 @@ public sealed class MappingSaveMapErrorMessage : NetMessage
     {
     }
 }
+

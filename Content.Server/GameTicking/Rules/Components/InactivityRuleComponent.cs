@@ -29,3 +29,4 @@ public sealed partial class InactivityRuleComponent : Component
 
     public CancellationTokenSource TimerCancel = new();
 }
+

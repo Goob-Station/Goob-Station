@@ -31,3 +31,4 @@ public record struct SalvageOffering : ISalvageMagnetOffering
 
     uint ISalvageMagnetOffering.Cost => 1000; // DeltaV: Station gets next to no benefit from you pulling wrecks, force you to mine first.
 }
+

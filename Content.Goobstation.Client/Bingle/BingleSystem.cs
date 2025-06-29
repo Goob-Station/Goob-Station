@@ -53,3 +53,4 @@ public sealed class BingleSystem : EntitySystem
         sprite.LayerSetVisible(layer, combat.IsInCombatMode);
     }
 }
+

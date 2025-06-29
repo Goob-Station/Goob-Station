@@ -21,3 +21,4 @@ public sealed partial class GrowingKudzuComponent : Component
     [AutoPausedField]
     public TimeSpan NextTick = TimeSpan.Zero;
 }
+

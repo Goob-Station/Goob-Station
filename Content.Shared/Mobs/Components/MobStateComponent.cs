@@ -41,3 +41,4 @@ namespace Content.Shared.Mobs.Components
             };
     }
 }
+

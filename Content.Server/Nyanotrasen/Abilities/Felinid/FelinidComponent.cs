@@ -38,3 +38,4 @@ public sealed partial class FelinidComponent : Component
     [DataField("eatActionTarget")]
     public EntityUid? EatActionTarget = null;
 }
+

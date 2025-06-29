@@ -40,3 +40,4 @@ public sealed partial class CryostorageContainedComponent : Component
     [DataField]
     public NetUserId? UserId;
 }
+

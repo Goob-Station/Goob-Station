@@ -61,3 +61,4 @@ public sealed class FlyBySoundSystem : SharedFlyBySoundSystem
         _audio.PlayPredicted(component.Sound, attachedEnt.Value, attachedEnt.Value);
     }
 }
+

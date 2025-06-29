@@ -21,3 +21,4 @@ public sealed partial class NightVisionComponent : SwitchableVisionOverlayCompon
 }
 
 public sealed partial class ToggleNightVisionEvent : InstantActionEvent;
+

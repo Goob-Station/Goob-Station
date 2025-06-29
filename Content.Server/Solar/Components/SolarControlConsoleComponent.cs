@@ -23,3 +23,4 @@ namespace Content.Server.Solar.Components
     {
     }
 }
+

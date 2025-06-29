@@ -13,3 +13,4 @@ namespace Content.Shared._EinsteinEngines.Abilities.Psionics;
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class TelepathyComponent : Component { }
+

@@ -14,3 +14,4 @@ namespace Content.Shared.Spillable;
 public sealed partial class SpillDoAfterEvent : SimpleDoAfterEvent
 {
 }
+

@@ -33,3 +33,4 @@ public sealed partial class ResourceSiphonComponent : Component
 
     [DataField] public float MaxSignalRange = 250f;
 }
+

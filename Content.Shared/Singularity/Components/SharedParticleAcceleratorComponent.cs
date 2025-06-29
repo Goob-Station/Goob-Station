@@ -139,3 +139,4 @@ namespace Content.Shared.Singularity.Components
         Key
     }
 }
+

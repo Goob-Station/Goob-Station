@@ -373,3 +373,4 @@ public sealed class HungerSystem : EntitySystem
         }
     }
 }
+

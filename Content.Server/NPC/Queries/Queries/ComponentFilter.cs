@@ -16,3 +16,4 @@ public sealed partial class ComponentFilter : UtilityQueryFilter
     [DataField("components", required: true)]
     public ComponentRegistry Components = new();
 }
+

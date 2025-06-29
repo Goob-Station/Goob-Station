@@ -28,3 +28,4 @@ namespace Content.Shared.Shuttles.Components
         Key,
     }
 }
+

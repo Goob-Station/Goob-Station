@@ -71,3 +71,4 @@ public sealed class BibleFartSmiteEvent(NetEntity uid) : EntityEventArgs
 {
     public NetEntity Bible = uid;
 }
+

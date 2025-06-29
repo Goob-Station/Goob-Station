@@ -49,3 +49,4 @@ public sealed class LightFadeSystem : EntitySystem
         _player.Play(uid, animation, FadeTrack);
     }
 }
+

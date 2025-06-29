@@ -34,3 +34,4 @@ public sealed partial class NanoChatCartridgeComponent : Component
     [DataField]
     public ProtoId<RadioChannelPrototype> RadioChannel = "Common";
 }
+

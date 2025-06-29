@@ -44,3 +44,4 @@ public sealed class KeepAliveConditionSystem : EntitySystem
         return _mind.IsCharacterDeadIc(mind) ? 0f : 1f;
     }
 }
+

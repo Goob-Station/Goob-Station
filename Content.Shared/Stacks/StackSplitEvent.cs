@@ -11,3 +11,4 @@ namespace Content.Shared.Stacks;
 /// <param name="NewId">The entity id of the new stack.</param>
 [ByRefEvent]
 public readonly record struct StackSplitEvent(EntityUid NewId);
+

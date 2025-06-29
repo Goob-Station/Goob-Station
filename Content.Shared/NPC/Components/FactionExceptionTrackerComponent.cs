@@ -22,3 +22,4 @@ public sealed partial class FactionExceptionTrackerComponent : Component
     [DataField]
     public HashSet<EntityUid> Entities = new();
 }
+

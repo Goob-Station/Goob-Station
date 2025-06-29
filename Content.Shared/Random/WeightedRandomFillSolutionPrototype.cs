@@ -24,3 +24,4 @@ public sealed partial class WeightedRandomFillSolutionPrototype : IPrototype
     [DataField("fills", required: true)]
     public List<RandomFillSolution> Fills = new();
 }
+

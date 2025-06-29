@@ -23,3 +23,4 @@ public static class PlayTimeTrackingShared
     [ValidatePrototypeId<PlayTimeTrackerPrototype>]
     public const string TrackerAdmin = "Admin";
 }
+

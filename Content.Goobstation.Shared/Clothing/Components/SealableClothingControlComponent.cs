@@ -99,3 +99,4 @@ public sealed partial class SealableClothingControlComponent : Component
     public SoundSpecifier UnsealCompleteSound = new SoundPathSpecifier("/Audio/_Goobstation/Machines/computer_end.ogg");
     #endregion
 }
+

@@ -146,3 +146,4 @@ public sealed partial class CrawlUnderObjectsSystem : SharedCrawlUnderObjectsSys
             args.ModifySpeed(component.SneakSpeedModifier, component.SneakSpeedModifier);
     }
 }
+

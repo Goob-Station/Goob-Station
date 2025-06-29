@@ -17,3 +17,4 @@ public sealed partial class RandomHumanoidAppearanceComponent : Component
     /// </summary>
     [DataField] public string? Hair = null;
 }
+

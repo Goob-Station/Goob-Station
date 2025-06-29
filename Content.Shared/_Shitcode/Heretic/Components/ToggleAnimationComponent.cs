@@ -37,3 +37,4 @@ public enum ToggleAnimationState : byte
     On,
     TogglingOff,
 }
+

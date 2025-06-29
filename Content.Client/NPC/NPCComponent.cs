@@ -13,3 +13,4 @@ public abstract partial class NPCComponent : SharedNPCComponent
 {
 
 }
+

@@ -67,3 +67,4 @@ namespace Content.Shared.Throwing
         public Vector2? OriginalScale = null;
     }
 }
+

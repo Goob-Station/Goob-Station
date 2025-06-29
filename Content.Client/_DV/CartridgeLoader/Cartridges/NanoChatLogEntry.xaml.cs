@@ -25,3 +25,4 @@ public sealed partial class NanoChatLogEntry : BoxContainer
         MessageLabel.Text = message;
     }
 }
+

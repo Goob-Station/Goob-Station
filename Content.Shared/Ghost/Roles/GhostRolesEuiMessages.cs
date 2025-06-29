@@ -123,3 +123,4 @@ namespace Content.Shared.Ghost.Roles
         RaffleJoined
     }
 }
+

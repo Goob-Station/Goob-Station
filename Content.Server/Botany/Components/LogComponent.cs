@@ -32,3 +32,4 @@ public sealed partial class LogComponent : Component
 
     [DataField("spawnCount")] public int SpawnCount = 2;
 }
+

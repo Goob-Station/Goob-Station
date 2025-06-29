@@ -15,3 +15,4 @@ public sealed partial class KnockdownOnCollideComponent : Component
     [DataField]
     public DropHeldItemsBehavior Behavior = DropHeldItemsBehavior.NoDrop;
 }
+

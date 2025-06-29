@@ -20,3 +20,4 @@ public sealed partial class CarriableComponent : Component
     [DataField]
     public int FreeHandsRequired = 2;
 }
+

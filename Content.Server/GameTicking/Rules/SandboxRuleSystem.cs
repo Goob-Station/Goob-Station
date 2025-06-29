@@ -33,3 +33,4 @@ public sealed class SandboxRuleSystem : GameRuleSystem<SandboxRuleComponent>
         _sandbox.IsSandboxEnabled = false;
     }
 }
+

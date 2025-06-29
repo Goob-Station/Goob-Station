@@ -48,3 +48,4 @@ public sealed partial class RadioMicrophoneComponent : Component
     [DataField("unobstructedRequired")]
     public bool UnobstructedRequired = false;
 }
+

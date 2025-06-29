@@ -12,3 +12,4 @@
   components:
   - type: BallisticAmmoProvider
     capacity: 7
+

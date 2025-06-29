@@ -25,3 +25,4 @@
       board: [ DoorElectronicsCentralCommand ]
   - type: AccessReader
     containerAccessProvider: board
+

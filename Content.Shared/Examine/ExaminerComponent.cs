@@ -28,3 +28,4 @@ namespace Content.Shared.Examine
         public bool CheckInRangeUnOccluded = true;
     }
 }
+

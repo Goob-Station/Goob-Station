@@ -20,3 +20,4 @@ public sealed partial class ThrowableBlockerComponent : Component
     [DataField]
     public SoundSpecifier? BlockSound;
 }
+

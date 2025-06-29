@@ -55,3 +55,4 @@ public enum MartialArtsForms
     CloseQuartersCombat,
     SleepingCarp,
 }
+

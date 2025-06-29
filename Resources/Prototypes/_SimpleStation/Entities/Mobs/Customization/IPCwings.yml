@@ -16,3 +16,4 @@
       state: robotic_base # Goobstation: Split coloring options on ipc wings
     - sprite: _SimpleStation/Mobs/Customization/wings96x34.rsi # Goobstation: Split coloring options on ipc wings
       state: robotic_light # Goobstation: Split coloring options on ipc wings
+

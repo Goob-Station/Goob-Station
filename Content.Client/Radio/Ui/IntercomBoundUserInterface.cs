@@ -53,3 +53,4 @@ public sealed class IntercomBoundUserInterface : BoundUserInterface
         _menu?.Update(ent);
     }
 }
+

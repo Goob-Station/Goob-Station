@@ -32,3 +32,4 @@ public sealed class RequiresGridSystem : EntitySystem
         _destructible.DestroyEntity(owner);
     }
 }
+

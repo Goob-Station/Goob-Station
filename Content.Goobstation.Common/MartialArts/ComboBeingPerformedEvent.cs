@@ -18,3 +18,4 @@ public sealed class ComboBeingPerformedEvent(ProtoId<ComboPrototype> protoId) : 
 {
     public ProtoId<ComboPrototype> ProtoId = protoId;
 }
+

@@ -133,3 +133,4 @@ public enum GeigerVisuals : byte
     DangerLevel,
     IsEnabled
 }
+

@@ -362,6 +362,8 @@
         orGroup: GiftPool
       - id: ClothingUniformColorRainbow
         orGroup: GiftPool
+      - id: ClothingUniformJumpskirtColorRainbow
+        orGroup: GiftPool
       - id: ClothingUniformOveralls
         orGroup: GiftPool
       - id: ClothingUniformJumpskirtDetectiveGrey
@@ -491,3 +493,4 @@
     tags:
     - Trash
   - type: SpaceGarbage
+

@@ -59,3 +59,4 @@ public sealed class SpawnOnDespawnSystem : EntitySystem
         entity.Comp.Prototype = prototype;
     }
 }
+

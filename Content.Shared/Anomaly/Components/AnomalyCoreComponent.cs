@@ -56,3 +56,4 @@ public sealed partial class AnomalyCoreComponent : Component
     [AutoNetworkedField]
     public int Charge = 5;
 }
+

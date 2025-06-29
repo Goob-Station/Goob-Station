@@ -40,3 +40,4 @@ public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
         _meleeWeaponSystem.DoLunge(user.Value, user.Value, Angle.Zero, ev.Position, Animation, Angle.Zero, false);
     }
 }
+

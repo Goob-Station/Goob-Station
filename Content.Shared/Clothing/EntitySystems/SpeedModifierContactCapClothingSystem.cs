@@ -23,3 +23,4 @@ public sealed class SpeedModifierContactCapClothingSystem : EntitySystem
         args.Args.SetIfMax(ent.Comp.MaxContactSprintSlowdown, ent.Comp.MaxContactWalkSlowdown);
     }
 }
+

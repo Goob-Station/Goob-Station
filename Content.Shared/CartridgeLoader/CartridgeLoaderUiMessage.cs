@@ -30,3 +30,4 @@ public enum CartridgeUiMessageAction
     Uninstall,
     UIReady
 }
+

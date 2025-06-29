@@ -44,3 +44,4 @@ public sealed class LifeStealOnProjectileHitSystem : EntitySystem
         _sanguine.ParticleEffects(args.Shooter.Value, target, comp.Effect);
     }
 }
+

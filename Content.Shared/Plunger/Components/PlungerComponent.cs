@@ -21,3 +21,4 @@ namespace Content.Shared.Plunger.Components
         public float PlungeDuration = 2f;
     }
 }
+

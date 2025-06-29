@@ -202,3 +202,4 @@ public abstract class SharedAirlockSystem : EntitySystem
         return component.Powered && !DoorSystem.IsBolted(uid);
     }
 }
+

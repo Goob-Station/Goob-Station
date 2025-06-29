@@ -31,3 +31,4 @@ public sealed partial class MachineComponent : Component
     [ViewVariables]
     public Container PartContainer = default!;
 }
+

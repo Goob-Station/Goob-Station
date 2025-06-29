@@ -56,3 +56,4 @@ public sealed class RulesManager
         await _dbManager.SetLastReadRules(message.MsgChannel.UserId, date);
     }
 }
+

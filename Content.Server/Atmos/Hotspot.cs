@@ -38,3 +38,4 @@ namespace Content.Server.Atmos
         public byte State;
     }
 }
+

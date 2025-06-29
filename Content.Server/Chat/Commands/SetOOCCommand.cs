@@ -49,3 +49,4 @@ public sealed class SetOOCCommand : IConsoleCommand
         shell.WriteLine(Loc.GetString(ooc ? "set-ooc-command-ooc-enabled" : "set-ooc-command-ooc-disabled"));
     }
 }
+

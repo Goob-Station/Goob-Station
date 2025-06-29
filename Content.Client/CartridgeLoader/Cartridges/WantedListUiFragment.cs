@@ -241,3 +241,4 @@ public sealed partial class WantedListUiFragment : BoxContainer
 }
 
 internal record StatusListData(WantedRecord Record) : ListData;
+

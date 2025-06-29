@@ -44,3 +44,4 @@ public readonly record struct TilesConsumedByEventHorizonEvent
     /// </summary>
     public readonly EventHorizonComponent EventHorizon = eventHorizon;
 }
+

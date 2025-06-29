@@ -16,3 +16,4 @@ public sealed partial class TimerStartBehavior : IThresholdBehavior
         system.TriggerSystem.StartTimer(owner, cause);
     }
 }
+

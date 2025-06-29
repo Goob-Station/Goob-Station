@@ -57,3 +57,4 @@ public sealed class DementiaAccentSystem : EntitySystem
         args.Message = message;
     }
 };
+

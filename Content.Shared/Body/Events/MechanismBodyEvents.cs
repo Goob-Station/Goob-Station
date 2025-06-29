@@ -36,3 +36,4 @@ public readonly record struct OrganRemovedEvent(EntityUid OldPart);
 /// </summary>
 [ByRefEvent]
 public readonly record struct OrganRemovedFromBodyEvent(EntityUid OldBody, EntityUid OldPart);
+

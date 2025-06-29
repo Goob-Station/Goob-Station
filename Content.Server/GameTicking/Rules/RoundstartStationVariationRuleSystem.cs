@@ -76,3 +76,4 @@ public sealed class RoundstartStationVariationRuleSystem : GameRuleSystem<Rounds
 /// <param name="Station">The new station that was added, and its config & grids.</param>
 [ByRefEvent]
 public readonly record struct StationVariationPassEvent(Entity<StationDataComponent> Station);
+

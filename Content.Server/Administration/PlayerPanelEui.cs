@@ -296,3 +296,4 @@ public sealed class PlayerPanelEui : BaseEui
         StateDirty();
     }
 }
+

@@ -123,3 +123,4 @@ public sealed class ResaveCommand : LocalizedCommands
         shell.WriteLine($"Resaved all maps");
     }
 }
+

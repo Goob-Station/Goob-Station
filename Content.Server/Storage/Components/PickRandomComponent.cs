@@ -36,3 +36,4 @@ public sealed partial class PickRandomComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public LocId EmptyText = "comp-pick-random-empty";
 }
+

@@ -16,3 +16,4 @@ namespace Content.Shared.Interaction.Events
         public EntityUid Used = used;
     }
 }
+

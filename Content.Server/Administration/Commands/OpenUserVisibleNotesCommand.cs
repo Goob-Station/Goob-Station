@@ -44,3 +44,4 @@ public sealed class OpenUserVisibleNotesCommand : IConsoleCommand
         await _notes.OpenUserNotesEui(player);
     }
 }
+

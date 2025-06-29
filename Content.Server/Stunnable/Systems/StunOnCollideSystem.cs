@@ -62,3 +62,4 @@ namespace Content.Server.Stunnable
         }
     }
 }
+

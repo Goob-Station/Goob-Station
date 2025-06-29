@@ -145,3 +145,4 @@ public sealed partial class PlantChangeStat : EntityEffect
         throw new NotImplementedException();
     }
 }
+

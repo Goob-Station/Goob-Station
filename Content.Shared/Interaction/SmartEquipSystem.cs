@@ -231,3 +231,4 @@ public sealed class SmartEquipSystem : EntitySystem
         _hands.TryPickup(uid, slotItem, handsComp: hands);
     }
 }
+

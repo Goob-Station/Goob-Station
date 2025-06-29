@@ -21,3 +21,4 @@ public sealed partial class StealTargetGroupPrototype : IPrototype
     [DataField] public LocId Name { get; private set; } = string.Empty;
     [DataField] public SpriteSpecifier Sprite { get; private set; } = SpriteSpecifier.Invalid;
 }
+

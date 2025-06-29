@@ -26,3 +26,4 @@ namespace Content.Server.Holosign
         public float ChargeUse = 50f;
     }
 }
+

@@ -30,3 +30,4 @@ public abstract class ToggleableSmiteSystem<T> : EntitySystem where T : Componen
 
     public abstract void Set(EntityUid owner);
 }
+

@@ -70,3 +70,4 @@ public sealed class AmbientSoundSystem : SharedAmbientSoundSystem
         SetAmbience(uid, args.Powered);
     }
 }
+

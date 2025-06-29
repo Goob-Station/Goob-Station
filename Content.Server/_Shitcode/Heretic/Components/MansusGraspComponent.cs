@@ -45,3 +45,4 @@ public sealed partial class MansusGraspComponent : Component
     [DataField]
     public LocId Invocation = "heretic-speech-mansusgrasp";
 }
+

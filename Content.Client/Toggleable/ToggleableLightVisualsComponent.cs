@@ -41,3 +41,4 @@ public sealed partial class ToggleableLightVisualsComponent : Component
     [DataField("clothingVisuals")]
     public Dictionary<string, List<PrototypeLayerData>> ClothingVisuals = new();
 }
+

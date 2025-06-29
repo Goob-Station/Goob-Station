@@ -18,3 +18,4 @@ public sealed partial class RatKingServantComponent : Component
     [AutoNetworkedField]
     public EntityUid? King;
 }
+

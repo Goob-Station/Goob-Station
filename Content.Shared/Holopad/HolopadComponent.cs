@@ -136,3 +136,4 @@ public enum HolopadUiKey : byte
     AiActionWindow,
     AiRequestWindow
 }
+

@@ -16,3 +16,4 @@ namespace Content.Goobstation.Shared.MartialArts.Events;
 public sealed partial class KravMagaActionEvent : InstantActionEvent
 {
 }
+

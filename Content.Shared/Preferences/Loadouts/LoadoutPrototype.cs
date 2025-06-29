@@ -123,3 +123,4 @@ public sealed partial class LoadoutPrototype : IPrototype, IEquipmentLoadout
     [DataField]
     public Dictionary<string, List<EntProtoId>> Storage { get; set; } = new();
 }
+

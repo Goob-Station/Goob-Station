@@ -71,3 +71,4 @@ public sealed class ServerRoleBanDef
         Role = role;
     }
 }
+

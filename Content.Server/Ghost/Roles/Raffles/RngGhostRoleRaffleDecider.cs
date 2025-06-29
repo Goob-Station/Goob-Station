@@ -30,3 +30,4 @@ public sealed partial class RngGhostRoleRaffleDecider : IGhostRoleRaffleDecider
         }
     }
 }
+

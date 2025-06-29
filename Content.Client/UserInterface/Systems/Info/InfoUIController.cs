@@ -124,3 +124,4 @@ public sealed class InfoUIController : UIController, IOnStateExited<GameplayStat
         _infoWindow?.OpenCentered();
     }
 }
+

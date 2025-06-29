@@ -381,3 +381,4 @@ namespace Content.Server.VendingMachines
         }
     }
 }
+

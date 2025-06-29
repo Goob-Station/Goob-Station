@@ -104,3 +104,4 @@ public sealed class EnergySwordSystem : EntitySystem
         Dirty(entity);
     }
 }
+

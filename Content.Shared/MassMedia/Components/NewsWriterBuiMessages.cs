@@ -81,3 +81,4 @@ public sealed class NewsWriterSaveDraftMessage : BoundUserInterfaceMessage
 public sealed class NewsWriterRequestDraftMessage : BoundUserInterfaceMessage
 {
 }
+

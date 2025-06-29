@@ -26,3 +26,4 @@
               doAfter: 1
     - node: shoes
       entity: ClothingShoeSlippersDuck
+

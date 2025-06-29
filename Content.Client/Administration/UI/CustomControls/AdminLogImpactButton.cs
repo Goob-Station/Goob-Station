@@ -23,3 +23,4 @@ public sealed class AdminLogImpactButton : Button
 
     public LogImpact Impact { get; }
 }
+

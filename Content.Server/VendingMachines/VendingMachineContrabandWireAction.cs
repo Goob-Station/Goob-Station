@@ -55,3 +55,4 @@ public sealed partial class VendingMachineContrabandWireAction : BaseToggleWireA
         return EntityManager.TryGetComponent(owner, out VendingMachineComponent? vending) && !vending.Contraband;
     }
 }
+

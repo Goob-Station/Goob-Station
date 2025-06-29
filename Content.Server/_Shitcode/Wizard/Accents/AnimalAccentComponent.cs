@@ -18,3 +18,4 @@ public abstract partial class AnimalAccentComponent : Component
     [DataField]
     public virtual float AltNoiseProbability { get; set; }
 }
+

@@ -23,3 +23,4 @@ public sealed class DeleteOnDropAttemptSystem : EntitySystem
         args.PushMarkup(Loc.GetString("delete-on-drop-attempt-comp-examine"));
     }
 }
+

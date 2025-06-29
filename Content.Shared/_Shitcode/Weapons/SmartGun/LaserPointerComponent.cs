@@ -37,3 +37,4 @@ public sealed partial class LaserPointerComponent : Component
     [DataField]
     public TimeSpan MaxDelayBetweenNetworkEvents = TimeSpan.FromSeconds(0.5);
 }
+

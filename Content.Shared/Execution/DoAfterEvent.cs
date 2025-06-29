@@ -13,3 +13,4 @@ namespace Content.Shared.Execution;
 public sealed partial class ExecutionDoAfterEvent : SimpleDoAfterEvent
 {
 }
+

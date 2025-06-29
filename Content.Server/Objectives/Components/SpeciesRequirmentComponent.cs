@@ -20,3 +20,4 @@ public sealed partial class SpeciesRequirementComponent : Component
     [DataField(required: true), ViewVariables(VVAccess.ReadWrite)]
     public List<ProtoId<SpeciesPrototype>> AllowedSpecies = new();
 }
+

@@ -60,3 +60,4 @@ public abstract class SharedSupermatterSystem : EntitySystem
     #endregion Serialization
 
 }
+

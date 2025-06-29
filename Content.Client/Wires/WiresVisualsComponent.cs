@@ -11,3 +11,4 @@ namespace Content.Client.Wires
     {
     }
 }
+

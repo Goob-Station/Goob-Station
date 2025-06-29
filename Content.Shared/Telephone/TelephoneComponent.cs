@@ -232,3 +232,4 @@ public enum TelephoneRange : byte
     Map,        // Can reach any telephone that is on the same map
     Unlimited,  // Can reach any telephone, across any distance
 }
+

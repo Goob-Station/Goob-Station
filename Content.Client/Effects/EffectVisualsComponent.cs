@@ -16,3 +16,4 @@ namespace Content.Client.Effects;
 /// </summary>
 [RegisterComponent]
 public sealed partial class EffectVisualsComponent : Component {}
+

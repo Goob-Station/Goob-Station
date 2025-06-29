@@ -29,3 +29,4 @@ public sealed partial class SpaceSpawnRuleComponent : Component
     [DataField]
     public MapCoordinates? Coords;
 }
+

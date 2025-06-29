@@ -54,3 +54,4 @@ namespace Content.Server.Crayon
         public bool DeleteEmpty = true;
     }
 }
+

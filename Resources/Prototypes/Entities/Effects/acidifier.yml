@@ -30,3 +30,4 @@
         hard: false
   - type: TimedDespawn
     lifetime: 2.4
+

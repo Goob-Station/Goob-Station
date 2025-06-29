@@ -18,3 +18,4 @@ public sealed partial class RechargeableBlockingComponent : Component
     [ViewVariables]
     public bool Discharged;
 }
+

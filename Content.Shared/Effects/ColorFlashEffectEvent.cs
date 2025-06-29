@@ -27,3 +27,4 @@ public sealed class ColorFlashEffectEvent : EntityEventArgs
         Entities = entities;
     }
 }
+

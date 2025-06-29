@@ -43,3 +43,4 @@ public sealed partial class TargetInLOSPrecondition : HTNPrecondition
         return _interaction.InRangeUnobstructed(owner, target, range, collisionGroup);
     }
 }
+

@@ -20,3 +20,4 @@ namespace Content.Shared.Atmos
         FireStacks,
     }
 }
+

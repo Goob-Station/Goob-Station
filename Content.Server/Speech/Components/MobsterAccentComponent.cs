@@ -19,3 +19,4 @@ public sealed partial class MobsterAccentComponent : Component
     [DataField("isBoss")]
     public bool IsBoss = true;
 }
+

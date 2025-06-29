@@ -70,3 +70,4 @@ public sealed class LandMineSystem : EntitySystem
             args.Continue = itemToggle.Activated;
     }
 }
+

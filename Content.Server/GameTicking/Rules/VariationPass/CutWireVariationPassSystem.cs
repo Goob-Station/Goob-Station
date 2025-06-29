@@ -46,3 +46,4 @@ public sealed class CutWireVariationPassSystem : VariationPassSystem<CutWireVari
         }
     }
 }
+

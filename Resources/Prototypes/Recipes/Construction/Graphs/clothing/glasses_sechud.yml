@@ -42,3 +42,4 @@
         - !type:SpawnPrototype
           prototype: ClothingEyesHudSecurity
         - !type:DeleteEntity
+

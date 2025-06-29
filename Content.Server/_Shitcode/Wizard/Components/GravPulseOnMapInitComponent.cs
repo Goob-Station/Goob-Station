@@ -22,3 +22,4 @@ public sealed partial class GravPulseOnMapInitComponent : Component
     [DataField]
     public float BaseTangentialAcceleration;
 }
+

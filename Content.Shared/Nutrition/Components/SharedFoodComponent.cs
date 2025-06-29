@@ -52,3 +52,4 @@ namespace Content.Shared.Nutrition.Components
         public bool RequiresSpecialDigestion;
     }
 }
+

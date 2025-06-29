@@ -110,3 +110,4 @@ public sealed partial class AmeControllerComponent : SharedAmeControllerComponen
     [DataField]
     public TimeSpan CooldownDuration = TimeSpan.FromSeconds(10f);
 }
+

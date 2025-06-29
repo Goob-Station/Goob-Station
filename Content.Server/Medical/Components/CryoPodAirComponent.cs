@@ -21,3 +21,4 @@ public sealed partial class CryoPodAirComponent : Component
     [DataField("gasMixture")]
     public GasMixture Air { get; set; } = new GasMixture(1000f);
 }
+

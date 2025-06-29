@@ -13,3 +13,4 @@ namespace Content.Server.StationEvents.Components;
 public sealed partial class IonStormRuleComponent : Component
 {
 }
+

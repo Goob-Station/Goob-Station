@@ -35,3 +35,4 @@ public sealed class ChannelSelectorItemButton : Button
             Text = Loc.GetString("hud-chatbox-select-name-prefixed", ("name", Text), ("prefix", prefix));
     }
 }
+

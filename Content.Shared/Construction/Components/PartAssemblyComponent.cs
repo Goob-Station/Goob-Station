@@ -49,3 +49,4 @@ public sealed class PartAssemblyPartInsertedEvent
 {
 
 }
+

@@ -60,3 +60,4 @@ public record struct CheckItemCreatorEvent(EntityUid User, bool Cancelled = fals
 /// </summary>
 [ByRefEvent]
 public record struct CreateItemAttemptEvent(EntityUid User, bool Cancelled = false);
+

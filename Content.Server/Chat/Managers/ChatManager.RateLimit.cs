@@ -77,3 +77,4 @@ internal sealed partial class ChatManager
         return _rateLimitManager.CountAction(player, RateLimitKey);
     }
 }
+

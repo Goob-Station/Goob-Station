@@ -13,3 +13,4 @@ public sealed class EmergencyShuttleRepealMessage : BoundUserInterfaceMessage
 {
 
 }
+

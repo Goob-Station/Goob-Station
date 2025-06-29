@@ -11,3 +11,4 @@ namespace Content.Shared.CriminalRecords.Systems;
 /// Station records aren't predicted, just exists for access.
 /// </summary>
 public abstract class SharedCriminalRecordsConsoleSystem : EntitySystem;
+

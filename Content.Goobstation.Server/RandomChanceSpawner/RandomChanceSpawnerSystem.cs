@@ -30,3 +30,4 @@ public sealed partial class RandomChanceSpawnerSystem : EntitySystem
         EntityManager.QueueDeleteEntity(ent);
     }
 }
+

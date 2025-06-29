@@ -56,3 +56,4 @@ public sealed class RequestMouseRotatorRotationEvent : EntityEventArgs
 {
     public Angle Rotation;
 }
+

@@ -37,3 +37,4 @@ public readonly partial record struct CargoBountyData
         Id = $"{bounty.IdPrefix}{uniqueIdentifier:D3}";
     }
 }
+

@@ -94,3 +94,4 @@ public sealed partial class NinjaSuitComponent : Component
 public sealed partial class RecallKatanaEvent : InstantActionEvent;
 
 public sealed partial class NinjaEmpEvent : InstantActionEvent;
+

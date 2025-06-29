@@ -124,3 +124,4 @@ public sealed class RussianAccentSystem : EntitySystem
         args.Message = Accentuate(args.Message);
     }
 }
+

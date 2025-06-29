@@ -82,3 +82,4 @@ public enum PowerChargePowerStatus : byte
     Charging,
     FullyCharged
 }
+

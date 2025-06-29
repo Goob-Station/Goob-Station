@@ -62,3 +62,4 @@ public sealed class XAETelepathicSystem : BaseXAESystem<XAETelepathicComponent>
         }
     }
 }
+

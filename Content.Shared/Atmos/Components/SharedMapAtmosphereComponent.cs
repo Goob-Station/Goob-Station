@@ -26,3 +26,4 @@ public sealed class MapAtmosphereComponentState : ComponentState
         Overlay = overlay;
     }
 }
+

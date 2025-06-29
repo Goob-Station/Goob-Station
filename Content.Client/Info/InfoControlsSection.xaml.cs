@@ -19,3 +19,4 @@ public sealed partial class InfoControlsSection : BoxContainer
         RobustXamlLoader.Load(this);
     }
 }
+

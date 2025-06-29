@@ -30,3 +30,4 @@ public sealed partial class MobPriceComponent : Component
     [DataField("deathPenalty")]
     public double DeathPenalty = 0.2f;
 }
+

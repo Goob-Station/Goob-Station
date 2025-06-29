@@ -47,3 +47,4 @@ public sealed partial class ParticleAcceleratorKeyboardWireAction : ComponentWir
         controller.InterfaceDisabled = !controller.InterfaceDisabled;
     }
 }
+

@@ -19,3 +19,4 @@ public abstract class SharedNPCSteeringSystem : EntitySystem
     /// </summary>
     public const float InterestDegrees = 360f / InterestDirections;
 }
+

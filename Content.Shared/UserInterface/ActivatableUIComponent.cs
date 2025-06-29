@@ -118,3 +118,4 @@ namespace Content.Shared.UserInterface
         public EntityUid? CurrentSingleUser;
     }
 }
+

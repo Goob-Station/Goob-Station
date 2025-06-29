@@ -38,3 +38,4 @@ public sealed class AdminLogLabel : RichTextLabel
         OnVisibilityChanged -= VisibilityChanged;
     }
 }
+

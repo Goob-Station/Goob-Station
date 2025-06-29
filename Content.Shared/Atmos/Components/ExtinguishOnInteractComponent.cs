@@ -107,3 +107,4 @@ public sealed partial class ExtinguishOnInteractComponent : Component
 }
 
 public sealed partial class ResistFireAlertEvent : BaseAlertEvent;
+

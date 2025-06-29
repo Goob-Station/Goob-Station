@@ -10,3 +10,4 @@ namespace Content.Server.Shuttles.Events;
 /// </summary>
 [ByRefEvent]
 public record struct FTLRequestEvent(EntityUid MapUid);
+

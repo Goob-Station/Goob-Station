@@ -136,3 +136,4 @@ public sealed class PlanetCommand : IConsoleCommand
         return CompletionResult.Empty;
     }
 }
+

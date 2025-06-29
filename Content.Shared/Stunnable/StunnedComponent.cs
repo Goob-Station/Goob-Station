@@ -17,3 +17,4 @@ namespace Content.Shared.Stunnable;
 public sealed partial class StunnedComponent : Component
 {
 }
+

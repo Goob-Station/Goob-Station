@@ -44,3 +44,4 @@ namespace Content.Shared.Radio.Components;
 public sealed partial class ActiveRadioJammerComponent : Component
 {
 }
+

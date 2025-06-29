@@ -76,3 +76,4 @@ public sealed partial class BountyEntry : BoxContainer
         UpdateSkipButton(args.DeltaSeconds);
     }
 }
+

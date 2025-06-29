@@ -80,3 +80,4 @@ public abstract class BaseEntityReplaceVariationPassSystem<TEntComp, TGameRuleCo
         }
     }
 }
+

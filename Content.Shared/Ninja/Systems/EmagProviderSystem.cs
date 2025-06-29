@@ -74,3 +74,4 @@ public sealed class EmagProviderSystem : EntitySystem
 /// </summary>
 [ByRefEvent]
 public record struct EmaggedSomethingEvent(EntityUid Target);
+

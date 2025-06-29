@@ -64,3 +64,4 @@ public sealed partial class PoweredLightVisualsComponent : Component
 
     #endregion Blinking
 }
+

@@ -24,3 +24,4 @@ public sealed partial class SignalControlledValveComponent : Component
     [DataField("togglePort", customTypeSerializer: typeof(PrototypeIdSerializer<SinkPortPrototype>))]
     public string TogglePort = "Toggle";
 }
+

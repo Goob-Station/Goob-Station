@@ -52,3 +52,4 @@ public sealed partial class UtilityOperator : HTNOperator
         return (true, effects);
     }
 }
+

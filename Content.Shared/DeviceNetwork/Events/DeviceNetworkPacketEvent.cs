@@ -45,3 +45,4 @@ public sealed class DeviceNetworkPacketEvent : EntityEventArgs
         Data = data;
     }
 }
+

@@ -36,3 +36,4 @@ namespace Content.Shared.Singularity.Components
         Deactive = 0
     }
 }
+

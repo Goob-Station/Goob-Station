@@ -16,3 +16,4 @@ public partial interface IBiomeWorldLayer : IBiomeLayer
     /// </summary>
     List<string> AllowedTiles { get; }
 }
+

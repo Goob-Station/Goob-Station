@@ -14,3 +14,4 @@ namespace Content.Client.Chemistry.Visualizers;
 [RegisterComponent]
 [Access(typeof(SmokeVisualizerSystem))]
 public sealed partial class SmokeVisualsComponent : Component {}
+

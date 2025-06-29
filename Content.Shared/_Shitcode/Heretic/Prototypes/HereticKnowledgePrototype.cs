@@ -52,3 +52,4 @@ public sealed partial class HereticKnowledgePrototype : IPrototype
     /// </summary>
     [DataField] public string LocDesc = string.Empty;
 }
+

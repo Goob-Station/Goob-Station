@@ -40,3 +40,4 @@ public sealed partial class HereticObjectiveSystem : EntitySystem
         else args.Progress = 1f;
     }
 }
+

@@ -8,3 +8,4 @@ public sealed class BeforeDisposalFlushEvent : CancellableEntityEventArgs
 {
     public readonly List<string> Tags = new();
 }
+

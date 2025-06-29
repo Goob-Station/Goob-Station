@@ -35,3 +35,4 @@ public partial record struct EntitySpawnSettingsEntry()
 
     public AnomalySpawnSettings Settings { get; set; } = new();
 }
+

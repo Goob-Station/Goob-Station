@@ -83,3 +83,4 @@ namespace Content.Shared.Bed.Cryostorage;
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class CanEnterCryostorageComponent : Component { }
+

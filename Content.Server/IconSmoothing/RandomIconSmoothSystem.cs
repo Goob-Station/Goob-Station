@@ -29,3 +29,4 @@ public sealed partial class RandomIconSmoothSystem : SharedRandomIconSmoothSyste
         _appearance.SetData(ent, RandomIconSmoothState.State, state);
     }
 }
+

@@ -24,3 +24,4 @@ namespace Content.Shared.Atmos.Piping.Unary.Visuals
         Welded,
     }
 }
+

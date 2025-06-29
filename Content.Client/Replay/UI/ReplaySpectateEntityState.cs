@@ -56,3 +56,4 @@ public class ReplaySpectateEntityState : GameplayState
         base.Shutdown();
     }
 }
+

@@ -49,3 +49,4 @@
     count: 10
   - type: RechargeBasicEntityAmmo # Goobstation
     rechargeCooldown: 2
+

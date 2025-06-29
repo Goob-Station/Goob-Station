@@ -24,3 +24,4 @@ public sealed class RandomSpawnRule : StationEventSystem<RandomSpawnRuleComponen
         }
     }
 }
+

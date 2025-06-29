@@ -25,3 +25,4 @@ public sealed partial class SurgeryDamageChangeEffectComponent : Component
     [DataField]
     public bool AffectAll;
 }
+

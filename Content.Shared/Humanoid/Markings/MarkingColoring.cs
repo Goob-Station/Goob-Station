@@ -151,3 +151,4 @@ public abstract partial class LayerColoringType
         return color;
     }
 }
+

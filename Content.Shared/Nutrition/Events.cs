@@ -81,3 +81,4 @@ public record struct SliceFoodEvent();
 public sealed partial class SliceFoodDoAfterEvent : SimpleDoAfterEvent
 {
 }
+

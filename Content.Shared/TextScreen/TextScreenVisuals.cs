@@ -41,3 +41,4 @@ public enum TextScreenVisuals : byte
     /// </summary>
     Color
 }
+

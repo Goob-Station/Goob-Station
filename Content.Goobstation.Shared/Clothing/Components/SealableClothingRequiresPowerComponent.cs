@@ -42,3 +42,4 @@ public sealed partial class SealableClothingRequiresPowerComponent : Component
     [DataField]
     public ProtoId<AlertPrototype> SuitPowerAlert = "ModsuitPower";
 }
+

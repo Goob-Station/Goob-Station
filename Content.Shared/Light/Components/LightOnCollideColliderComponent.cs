@@ -33,3 +33,4 @@ public sealed partial class LightOnCollideColliderComponent : Component
     [DataField]
     public string FixtureId = "lightTrigger";
 }
+

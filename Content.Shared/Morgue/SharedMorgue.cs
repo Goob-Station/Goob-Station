@@ -35,3 +35,4 @@ public enum CrematoriumVisuals : byte
 {
     Burning,
 }
+

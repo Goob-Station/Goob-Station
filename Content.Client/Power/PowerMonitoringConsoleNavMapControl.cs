@@ -315,3 +315,4 @@ public enum PowerMonitoringConsoleLineGroup : byte
     MediumVoltage,
     Apc,
 }
+

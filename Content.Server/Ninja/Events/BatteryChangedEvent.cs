@@ -11,3 +11,4 @@ namespace Content.Server.Ninja.Events;
 /// </summary>
 [ByRefEvent]
 public record struct NinjaBatteryChangedEvent(EntityUid Battery, EntityUid BatteryHolder);
+

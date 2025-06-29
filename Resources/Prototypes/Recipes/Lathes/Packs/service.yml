@@ -28,6 +28,7 @@
   - FoodKebabSkewer
   - LightReplacer
   - SprayBottle
+  - TrashBag
   - LightReplacer
   - MopItem
   - Holoprojector
@@ -72,3 +73,4 @@
   - JukeboxCircuitBoard
   - DawInstrumentMachineCircuitboard
   - SheetifierMachineCircuitboard # Goobstation - Moved from ScienceBoards
+

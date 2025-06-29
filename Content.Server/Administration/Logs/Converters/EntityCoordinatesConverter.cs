@@ -81,3 +81,4 @@ public readonly struct SerializableEntityCoordinates
         MapUid = entityManager.System<SharedTransformSystem>().GetMap(coordinates);
     }
 }
+

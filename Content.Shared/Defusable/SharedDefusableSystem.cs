@@ -37,3 +37,4 @@ public enum DefusableWireStatus
     DelayIndicator,
     ProceedIndicator,
 }
+

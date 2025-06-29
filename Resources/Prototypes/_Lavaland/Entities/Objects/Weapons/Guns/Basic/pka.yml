@@ -157,3 +157,4 @@
     useDelay: 0.5
     icon: { sprite: Objects/Tools/seclite.rsi, state: seclite }
     event: !type:ToggleActionEvent
+

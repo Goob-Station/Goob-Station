@@ -15,3 +15,4 @@ public sealed class UndockRequestMessage : BoundUserInterfaceMessage
 {
     public NetEntity DockEntity;
 }
+

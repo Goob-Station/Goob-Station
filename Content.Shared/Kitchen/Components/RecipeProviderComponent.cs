@@ -17,3 +17,4 @@ public sealed partial class FoodRecipeProviderComponent : Component
     [DataField, ViewVariables]
     public List<ProtoId<FoodRecipePrototype>> ProvidedRecipes = new();
 }
+

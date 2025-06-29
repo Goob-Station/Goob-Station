@@ -26,3 +26,4 @@ public sealed partial class PointingArrowComponent : SharedPointingArrowComponen
 
     public readonly string AnimationKey = "pointingarrow";
 }
+

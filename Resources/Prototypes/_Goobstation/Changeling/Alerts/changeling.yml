@@ -40,3 +40,4 @@
     sprite: /Textures/_Goobstation/Changeling/changeling_biomass.rsi
     layers:
     - map: [ "enum.AlertVisualLayers.Base" ]
+

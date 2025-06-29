@@ -57,3 +57,4 @@ public sealed class PirateAccentSystem : EntitySystem
         args.Message = Accentuate(args.Message, component);
     }
 }
+

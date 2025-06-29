@@ -47,3 +47,4 @@ public abstract class SharedBlobCarrierSystem : EntitySystem
 
     protected abstract void TransformToBlob(Entity<BlobCarrierComponent> ent);
 }
+

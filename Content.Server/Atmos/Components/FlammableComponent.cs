@@ -138,3 +138,4 @@ namespace Content.Server.Atmos.Components
         public ProtoId<AlertPrototype> FireAlert = "Fire";
     }
 }
+

@@ -24,3 +24,4 @@ public sealed partial class DrainableSolutionComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public string Solution = "default";
 }
+

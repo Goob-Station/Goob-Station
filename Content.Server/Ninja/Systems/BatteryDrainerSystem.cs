@@ -121,3 +121,4 @@ public sealed class BatteryDrainerSystem : SharedBatteryDrainerSystem
         return !_battery.IsFull(comp.BatteryUid.Value, battery);
     }
 }
+

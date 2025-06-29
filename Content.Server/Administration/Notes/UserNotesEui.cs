@@ -53,3 +53,4 @@ public sealed class UserNotesEui : BaseEui
         StateDirty();
     }
 }
+

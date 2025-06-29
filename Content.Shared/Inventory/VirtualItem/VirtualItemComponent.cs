@@ -20,3 +20,4 @@ public sealed partial class VirtualItemComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid BlockingEntity;
 }
+

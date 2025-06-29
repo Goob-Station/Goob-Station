@@ -20,3 +20,4 @@
       shader: unshaded
   - type: HomingProjectile
     homingSpeed: 540
+

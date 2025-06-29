@@ -64,3 +64,4 @@ public sealed partial class EyeClosingComponent : Component
     [ViewVariables(VVAccess.ReadOnly), DataField]
     public bool NaturallyCreated;
 }
+

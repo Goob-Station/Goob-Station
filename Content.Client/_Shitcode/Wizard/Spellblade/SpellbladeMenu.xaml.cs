@@ -97,3 +97,4 @@ public sealed class SpellbladeMenuButton : RadialMenuTextureButtonWithSector
 {
     public ProtoId<SpellbladeEnchantmentPrototype> ProtoId { get; set; }
 }
+

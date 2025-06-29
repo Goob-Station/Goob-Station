@@ -17,3 +17,4 @@ public sealed partial class DisplacementData
     [DataField]
     public string? ShaderOverride = "DisplacedStencilDraw";
 }
+

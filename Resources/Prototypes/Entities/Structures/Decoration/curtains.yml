@@ -371,3 +371,4 @@
     node: CurtainsWhiteOpen
   - type: Physics
     canCollide: false
+

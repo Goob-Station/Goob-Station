@@ -99,3 +99,4 @@
   parent: [ExtinguisherCabinetFilled, ExtinguisherCabinetOpen]
   id: ExtinguisherCabinetFilledOpen
   suffix: Filled, Open
+

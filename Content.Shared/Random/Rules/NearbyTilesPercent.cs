@@ -84,3 +84,4 @@ public sealed partial class NearbyTilesPercentRule : RulesRule
         return !Inverted;
     }
 }
+

@@ -216,3 +216,4 @@ public sealed partial class GuideEntityEmbed : BoxContainer, IDocumentTag
         throw new Exception("Invalid Thickness format!");
     }
 }
+

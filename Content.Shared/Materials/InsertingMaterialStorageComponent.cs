@@ -24,3 +24,4 @@ public sealed partial class InsertingMaterialStorageComponent : Component
     [ViewVariables, AutoNetworkedField]
     public Color? MaterialColor;
 }
+

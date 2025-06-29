@@ -58,3 +58,4 @@ public sealed class PressureBar : ProgressBar
             Color.FromHsv(new Vector4(finalHue, saturation, value, alpha));
     }
 }
+

@@ -46,3 +46,4 @@ public abstract class SharedRgbLightControllerSystem : EntitySystem
         Dirty(uid, rgb);
     }
 }
+

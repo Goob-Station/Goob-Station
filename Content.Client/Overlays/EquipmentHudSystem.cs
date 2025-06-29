@@ -131,3 +131,4 @@ public abstract class EquipmentHudSystem<T> : EntitySystem where T : IComponent
             Deactivate();
     }
 }
+

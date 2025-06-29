@@ -130,3 +130,4 @@ public sealed record PlayerRecord(
 public sealed record RoundRecord(int Id, DateTimeOffset? StartDate, ServerRecord Server);
 
 public sealed record ServerRecord(int Id, string Name);
+

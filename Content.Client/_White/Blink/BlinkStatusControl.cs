@@ -39,3 +39,4 @@ public sealed class BlinkStatusControl : PollingItemStatusControl<BlinkStatusCon
         _label.SetMarkup(Loc.GetString(message));
     }
 }
+

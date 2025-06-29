@@ -24,3 +24,4 @@ public sealed partial class RoundAnnouncementPrototype : IPrototype
 
     [DataField("message")] public string? Message;
 }
+

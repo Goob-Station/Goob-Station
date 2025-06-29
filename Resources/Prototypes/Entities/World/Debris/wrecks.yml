@@ -89,3 +89,4 @@
     - type: MapGrid
     - type: BlobFloorPlanBuilder
       floorPlacements: 24
+

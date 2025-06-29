@@ -32,3 +32,4 @@ public sealed partial class NameIdentifierGroupPrototype : IPrototype
     [DataField("minValue")]
     public int MinValue = 0;
 }
+

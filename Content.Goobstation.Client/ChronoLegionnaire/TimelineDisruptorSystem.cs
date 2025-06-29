@@ -11,3 +11,4 @@ namespace Content.Goobstation.Client.ChronoLegionnaire;
 public sealed class TimelineDisruptorSystem : SharedTimelineDisruptorSystem
 {
 }
+

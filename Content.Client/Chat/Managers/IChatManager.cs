@@ -39,3 +39,4 @@ namespace Content.Client.Chat.Managers
         public void UpdatePermissions();
     }
 }
+

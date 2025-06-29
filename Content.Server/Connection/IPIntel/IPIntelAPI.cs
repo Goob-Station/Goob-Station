@@ -44,3 +44,4 @@ public sealed class IPIntelApi : IIPIntelApi
         return _http.Client.GetAsync($"{_baseUrl}/check.php?ip={ip}&contact={_contactEmail}&flags={_flags}");
     }
 }
+

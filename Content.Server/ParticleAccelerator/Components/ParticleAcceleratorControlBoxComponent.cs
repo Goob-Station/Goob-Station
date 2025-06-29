@@ -222,3 +222,4 @@ public sealed partial class ParticleAcceleratorControlBoxComponent : Component
     [ViewVariables]
     public bool CanBeEnabled = true;
 }
+

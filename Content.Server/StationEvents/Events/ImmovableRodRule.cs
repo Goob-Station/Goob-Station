@@ -57,3 +57,4 @@ public sealed class ImmovableRodRule : StationEventSystem<ImmovableRodRuleCompon
         }
     }
 }
+

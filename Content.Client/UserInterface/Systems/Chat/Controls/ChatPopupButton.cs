@@ -73,3 +73,4 @@ public abstract class ChatPopupButton<TPopup> : Button
         _frameLastPopupChanged = _gameTiming.CurFrame;
     }
 }
+

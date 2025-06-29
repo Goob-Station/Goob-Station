@@ -11,3 +11,4 @@ namespace Content.Server.MoMMI
         void SendOOCMessage(string sender, string message);
     }
 }
+

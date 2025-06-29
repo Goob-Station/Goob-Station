@@ -71,3 +71,4 @@ public sealed partial class SpaceVillainGame
         public bool Invincible = false;
     }
 }
+

@@ -29,3 +29,4 @@ public sealed partial class BecomesStationComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public string Id = default!;
 }
+

@@ -15,3 +15,4 @@ public sealed partial class EmotingComponent : Component
     [Access(typeof(EmoteSystem), Friend = AccessPermissions.ReadWrite, Other = AccessPermissions.Read)]
     public bool Enabled = true;
 }
+

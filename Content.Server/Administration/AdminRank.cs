@@ -21,3 +21,4 @@ namespace Content.Server.Administration
         public AdminFlags Flags { get; }
     }
 }
+

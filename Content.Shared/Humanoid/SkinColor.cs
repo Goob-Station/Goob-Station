@@ -337,3 +337,4 @@ public enum HumanoidSkinColor : byte
     NoColor, // Goob #1161
     AnimalFur, // Goob - Tajaran
 }
+

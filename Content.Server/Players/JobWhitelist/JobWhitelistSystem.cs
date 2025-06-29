@@ -87,3 +87,4 @@ public sealed class JobWhitelistSystem : EntitySystem
         _whitelistedJobs = builder.ToImmutable();
     }
 }
+

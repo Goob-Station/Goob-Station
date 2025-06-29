@@ -19,3 +19,4 @@ public sealed partial class FoxAccentComponent : AnimalAccentComponent
         "accent-words-fox-5",
     };
 }
+

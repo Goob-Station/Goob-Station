@@ -27,3 +27,4 @@ public sealed partial class BoomerangComponent : Component
     [DataField, AutoNetworkedField]
     public bool SendBack = false;
 }
+

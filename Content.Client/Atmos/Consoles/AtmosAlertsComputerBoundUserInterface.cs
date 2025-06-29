@@ -55,3 +55,4 @@ public sealed class AtmosAlertsComputerBoundUserInterface : BoundUserInterface
         _menu?.Dispose();
     }
 }
+

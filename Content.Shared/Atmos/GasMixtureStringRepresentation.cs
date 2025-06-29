@@ -20,3 +20,4 @@ public readonly record struct GasMixtureStringRepresentation(float TotalMoles, f
 
     public static implicit operator string(GasMixtureStringRepresentation rep) => rep.ToString();
 }
+

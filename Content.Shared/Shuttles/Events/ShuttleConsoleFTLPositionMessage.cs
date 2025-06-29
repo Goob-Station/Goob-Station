@@ -17,3 +17,4 @@ public sealed class ShuttleConsoleFTLPositionMessage : BoundUserInterfaceMessage
     public MapCoordinates Coordinates;
     public Angle Angle;
 }
+

@@ -23,3 +23,4 @@ public enum AtmosAlarmType : sbyte
     Danger = 3,
     Emagged = 4,
 }
+

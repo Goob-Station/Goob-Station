@@ -17,3 +17,4 @@ namespace Content.Shared.Administration.Events
         public List<PlayerInfo> PlayersInfo = new();
     }
 }
+

@@ -36,3 +36,4 @@ public sealed class ACmdCommand : ToolshedCommand
         return ((IPermissionController) _adminManager).CheckInvokable(command, player, out _);
     }
 }
+

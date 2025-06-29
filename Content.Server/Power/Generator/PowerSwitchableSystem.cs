@@ -130,3 +130,4 @@ public sealed class PowerSwitchableSystem : SharedPowerSwitchableSystem
 /// </summary>
 [ByRefEvent]
 public record struct SwitchPowerCheckEvent(string? DisableMessage = null);
+

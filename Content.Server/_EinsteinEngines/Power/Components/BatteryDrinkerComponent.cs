@@ -34,3 +34,4 @@ public sealed partial class BatteryDrinkerComponent : Component
     [DataField]
     public float DrinkAllMultiplier = 2.5f;
 }
+

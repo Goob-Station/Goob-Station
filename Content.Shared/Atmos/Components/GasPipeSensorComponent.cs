@@ -13,3 +13,4 @@ namespace Content.Shared.Atmos.Components;
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class GasPipeSensorComponent : Component;
+

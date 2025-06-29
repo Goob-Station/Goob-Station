@@ -134,3 +134,4 @@
               prototype: SheetSteel1
               amount: 3
             - !type:DeleteEntity {}
+

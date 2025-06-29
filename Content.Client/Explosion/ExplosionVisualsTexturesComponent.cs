@@ -31,3 +31,4 @@ public sealed partial class ExplosionVisualsTexturesComponent : Component
 
     public Color? FireColor;
 }
+

@@ -11,3 +11,4 @@ public sealed partial class ActiveEmergencyLightComponent : Component
 {
 
 }
+

@@ -64,3 +64,4 @@ public sealed partial class GasProducerAnomalyComponent : Component
     [DataField("tempChange")]
     public float tempChange = 0;
 }
+

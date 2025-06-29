@@ -50,3 +50,4 @@ public sealed class DoorRemoteStatusControl : Control
         _label.SetMarkup(Loc.GetString("door-remote-mode-label", ("modeString", modeStringLocalized)));
     }
 }
+

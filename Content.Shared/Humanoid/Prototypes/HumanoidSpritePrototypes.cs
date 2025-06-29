@@ -79,3 +79,4 @@ public sealed partial class HumanoidSpeciesSpriteLayer : IPrototype
     [DataField("markingsMatchSkin")]
     public bool MarkingsMatchSkin { get; private set; }
 }
+

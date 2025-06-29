@@ -19,3 +19,4 @@ public sealed partial class RelayInputMoverComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid RelayEntity;
 }
+

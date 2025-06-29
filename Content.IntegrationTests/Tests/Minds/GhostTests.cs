@@ -183,3 +183,4 @@ public sealed class GhostTests
     }
 
 }
+

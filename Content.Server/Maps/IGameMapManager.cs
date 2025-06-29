@@ -83,3 +83,4 @@ public interface IGameMapManager
     /// <returns>existence</returns>
     bool CheckMapExists(string gameMap);
 }
+

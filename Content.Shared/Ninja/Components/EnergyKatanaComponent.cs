@@ -17,3 +17,4 @@ namespace Content.Shared.Ninja.Components;
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class EnergyKatanaComponent : Component;
+

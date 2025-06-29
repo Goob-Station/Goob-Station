@@ -25,3 +25,4 @@ namespace Content.Shared.Body.Part
         Right
     }
 }
+

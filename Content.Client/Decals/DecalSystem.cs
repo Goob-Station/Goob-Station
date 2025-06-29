@@ -199,3 +199,4 @@ namespace Content.Client.Decals
         }
     }
 }
+

@@ -11,3 +11,4 @@ public readonly record struct BodyPartAddedEvent(string Slot, Entity<BodyPartCom
 
 [ByRefEvent]
 public readonly record struct BodyPartRemovedEvent(string Slot, Entity<BodyPartComponent> Part);
+

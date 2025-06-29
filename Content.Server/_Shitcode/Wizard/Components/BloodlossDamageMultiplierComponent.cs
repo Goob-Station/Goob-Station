@@ -13,3 +13,4 @@ public sealed partial class BloodlossDamageMultiplierComponent : Component
     [DataField]
     public float Multiplier = 2f;
 }
+

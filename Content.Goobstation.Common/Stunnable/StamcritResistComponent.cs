@@ -20,3 +20,4 @@ public sealed partial class StamcritResistComponent : Component
     /// </summary>
     [DataField] public float Multiplier = 2f;
 }
+

@@ -241,3 +241,4 @@ public sealed class PartStatusExaminedEvent : EntityEventArgs
 
     private record ExamineMessagePart(FormattedMessage Message, int Priority, bool DoNewLine, string? Group);
 }
+

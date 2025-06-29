@@ -67,3 +67,4 @@ public enum ExpendableLightState
     Fading,
     Dead
 }
+

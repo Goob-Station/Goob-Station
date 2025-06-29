@@ -80,7 +80,6 @@
   components:
   - type: StorageFill
     contents:
-      - id: CrowbarRed
       - id: VariantCubeBox
       - id: BoxMousetrap
         amount: 2
@@ -185,3 +184,4 @@
     contents:
       - id: ClothingHeadHelmetJanitorBombSuit
       - id: ClothingOuterSuitJanitorBomb
+

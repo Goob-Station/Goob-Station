@@ -18,3 +18,4 @@ public sealed partial class OpenTriggeredStorageFillComponent : Component
 {
     [DataField("contents")] public List<EntitySpawnEntry> Contents = new();
 }
+

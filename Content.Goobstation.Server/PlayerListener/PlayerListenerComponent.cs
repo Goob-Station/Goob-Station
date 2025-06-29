@@ -17,3 +17,4 @@ public sealed partial class PlayerListenerComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public readonly HashSet<NetUserId> UserIds = [];
 }
+

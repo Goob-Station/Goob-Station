@@ -16,3 +16,4 @@ namespace Content.Shared.StepTrigger.Components;
 public sealed partial class NoShoesSilentFootstepsComponent : Component
 {
 }
+

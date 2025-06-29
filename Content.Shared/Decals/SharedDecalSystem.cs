@@ -168,3 +168,4 @@ namespace Content.Shared.Decals
         }
     }
 }
+

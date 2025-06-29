@@ -32,3 +32,4 @@ public sealed partial class TemporalSlashComponent : Component
     [DataField]
     public SoundSpecifier? HitSound = new SoundPathSpecifier("/Audio/Weapons/bladeslice.ogg");
 }
+

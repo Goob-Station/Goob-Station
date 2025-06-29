@@ -119,3 +119,4 @@ public abstract class SharedSpaceNinjaSystem : EntitySystem
         args.Cancel();
     }
 }
+

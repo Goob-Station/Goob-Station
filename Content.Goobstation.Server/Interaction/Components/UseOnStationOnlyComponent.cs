@@ -14,3 +14,4 @@ namespace Content.Goobstation.Server.Interaction.Components;
 public sealed partial class UseOnStationOnlyComponent : Component
 {
 }
+

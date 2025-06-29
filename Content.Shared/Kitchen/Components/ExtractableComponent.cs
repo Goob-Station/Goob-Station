@@ -20,3 +20,4 @@ public sealed partial class ExtractableComponent : Component
     [DataField("grindableSolutionName")]
     public string? GrindableSolution;
 };
+

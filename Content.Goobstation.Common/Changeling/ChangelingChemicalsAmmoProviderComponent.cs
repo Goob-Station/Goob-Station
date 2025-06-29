@@ -22,3 +22,4 @@ public sealed partial class ChangelingChemicalsAmmoProviderComponent : Component
     [ViewVariables(VVAccess.ReadWrite), DataField(required: true)]
     public EntProtoId Proto;
 }
+

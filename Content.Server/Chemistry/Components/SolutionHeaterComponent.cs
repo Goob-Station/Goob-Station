@@ -18,3 +18,4 @@ public sealed partial class SolutionHeaterComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float HeatPerSecond;
 }
+

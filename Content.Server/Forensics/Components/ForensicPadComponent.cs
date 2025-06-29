@@ -24,3 +24,4 @@ namespace Content.Server.Forensics
         public String Sample = string.Empty;
     }
 }
+

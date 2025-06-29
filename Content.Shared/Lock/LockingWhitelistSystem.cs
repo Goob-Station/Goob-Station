@@ -33,3 +33,4 @@ public sealed class LockingWhitelistSystem : EntitySystem
         args.Cancelled = true;
     }
 }
+

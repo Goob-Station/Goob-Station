@@ -55,3 +55,4 @@ void WipeRelease()
 
     Directory.CreateDirectory("release");
 }
+

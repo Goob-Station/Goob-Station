@@ -46,3 +46,4 @@ public sealed class ImplanterSystem : SharedImplanterSystem
         component.UiUpdateNeeded = true;
     }
 }
+

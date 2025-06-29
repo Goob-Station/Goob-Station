@@ -25,3 +25,4 @@ namespace Content.Shared.Dataset
         [DataField("values")] public IReadOnlyList<string> Values { get; private set; } = new List<string>();
     }
 }
+

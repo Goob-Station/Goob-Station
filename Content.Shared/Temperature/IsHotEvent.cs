@@ -16,3 +16,4 @@ namespace Content.Shared.Temperature
         public bool IsHot { get; set; } = false;
     }
 }
+

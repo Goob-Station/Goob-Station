@@ -154,3 +154,4 @@ public abstract partial class SharedGunSystem
         Dirty(uid, component);
     }
 }
+

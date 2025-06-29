@@ -36,3 +36,4 @@ public sealed partial class SleepEmitSoundComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public LocId PopUp = "sleep-onomatopoeia";
 }
+

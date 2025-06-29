@@ -69,3 +69,4 @@ public sealed class ChangelingEggSystem : EntitySystem
         _bodySystem.GibBody(uid);
     }
 }
+

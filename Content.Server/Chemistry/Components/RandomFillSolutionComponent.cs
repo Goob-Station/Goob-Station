@@ -32,3 +32,4 @@ public sealed partial class RandomFillSolutionComponent : Component
     [DataField("weightedRandomId", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<WeightedRandomFillSolutionPrototype>))]
     public string? WeightedRandomId;
 }
+

@@ -19,3 +19,4 @@ public sealed class EntryPoint : GameShared
         CommonGoobContentIoC.Register();
     }
 }
+

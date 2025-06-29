@@ -24,3 +24,4 @@ public sealed class InputSwapSystem : ToggleableSmiteSystem<InputSwapComponent>
         _move.RefreshMovementSpeedModifiers(ent);
     }
 }
+

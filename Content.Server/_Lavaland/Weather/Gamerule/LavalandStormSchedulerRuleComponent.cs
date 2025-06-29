@@ -36,3 +36,4 @@ public sealed partial class LavalandStormSchedulerRuleComponent : Component
     /// </summary>
     [DataField] public MinMax Delays = new(20 * 60, 40 * 60);
 }
+

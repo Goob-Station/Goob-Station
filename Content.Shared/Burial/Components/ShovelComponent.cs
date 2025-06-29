@@ -16,3 +16,4 @@ public sealed partial class ShovelComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float SpeedModifier = 1f;
 }
+

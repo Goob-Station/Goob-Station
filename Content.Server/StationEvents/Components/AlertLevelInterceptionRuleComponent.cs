@@ -34,3 +34,4 @@ public sealed partial class AlertLevelInterceptionRuleComponent : Component
     [DataField]
     public bool Locked = false;
 }
+

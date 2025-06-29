@@ -99,3 +99,4 @@ public sealed class AmmoSelectorMenuButton : RadialMenuTextureButtonWithSector
 {
     public ProtoId<SelectableAmmoPrototype> ProtoId { get; set; }
 }
+

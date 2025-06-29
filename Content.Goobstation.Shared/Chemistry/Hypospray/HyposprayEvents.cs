@@ -21,3 +21,4 @@ public record struct AfterHyposprayInjectsEvent()
     /// </summary>
     public EntityUid Target;
 }
+

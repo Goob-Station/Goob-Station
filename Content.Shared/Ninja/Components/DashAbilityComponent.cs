@@ -31,3 +31,4 @@ public sealed partial class DashAbilityComponent : Component
 }
 
 public sealed partial class DashEvent : WorldTargetActionEvent;
+

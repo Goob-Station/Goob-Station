@@ -15,3 +15,4 @@ internal static class SharedGoobContentIoC
         var instance = IoCManager.Instance!;
     }
 }
+

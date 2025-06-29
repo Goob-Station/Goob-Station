@@ -38,3 +38,4 @@ public sealed class HandButton : SlotControl
         };
     }
 }
+

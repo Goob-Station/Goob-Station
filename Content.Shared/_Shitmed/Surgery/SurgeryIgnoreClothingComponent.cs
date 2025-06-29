@@ -13,3 +13,4 @@ namespace Content.Shared._Shitmed.Medical.Surgery;
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class SurgeryIgnoreClothingComponent : Component { }
+

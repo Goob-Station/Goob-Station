@@ -23,3 +23,4 @@ public sealed partial class CargoShuttleComponent : Component
      * Still needed for drone console for now.
      */
 }
+

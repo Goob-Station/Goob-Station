@@ -100,3 +100,4 @@ public sealed class ItemCabinetSystem : EntitySystem
             _slots.SetLock(ent, slot, closed, slots);
     }
 }
+

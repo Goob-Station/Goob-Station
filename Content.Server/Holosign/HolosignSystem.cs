@@ -92,3 +92,4 @@ public sealed class HolosignSystem : EntitySystem
         return (int) (battery.MaxCharge / component.ChargeUse);
     }
 }
+

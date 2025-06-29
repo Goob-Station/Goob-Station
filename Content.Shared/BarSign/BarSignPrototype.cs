@@ -36,3 +36,4 @@ public sealed partial class BarSignPrototype : IPrototype
     [DataField]
     public bool Hidden { get; private set; }
 }
+

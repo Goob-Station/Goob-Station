@@ -12,3 +12,4 @@ public enum HTNPlanState : byte
 
     PlanFinished = 1 << 1,
 }
+

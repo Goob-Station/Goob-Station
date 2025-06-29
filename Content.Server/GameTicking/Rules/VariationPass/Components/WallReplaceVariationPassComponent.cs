@@ -10,3 +10,4 @@ namespace Content.Server.GameTicking.Rules.VariationPass.Components;
 public sealed partial class WallReplaceVariationPassComponent : Component
 {
 }
+

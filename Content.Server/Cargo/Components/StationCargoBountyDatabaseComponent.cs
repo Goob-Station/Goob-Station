@@ -9,6 +9,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Cargo;
+using Content.Shared.Cargo.Prototypes;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server.Cargo.Components;
@@ -52,6 +54,12 @@ public sealed partial class StationCargoBountyDatabaseComponent : Component
     public HashSet<string> CheckedBounties = new();
 
     /// <summary>
+    /// The group that bounties are pulled from.
+    /// </summary>
+    [DataField]
+    public ProtoId<CargoBountyGroupPrototype> Group = "StationBounty";
+
+    /// <summary>
     /// The time at which players will be able to skip the next bounty.
     /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
@@ -63,3 +71,4 @@ public sealed partial class StationCargoBountyDatabaseComponent : Component
     [DataField]
     public TimeSpan SkipDelay = TimeSpan.FromMinutes(15);
 }
+

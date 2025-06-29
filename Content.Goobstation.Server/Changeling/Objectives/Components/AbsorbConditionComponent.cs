@@ -16,3 +16,4 @@ public sealed partial class AbsorbConditionComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float Absorbed = 0f;
 }
+

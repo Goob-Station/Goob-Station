@@ -138,3 +138,4 @@ public sealed class ChannelSelectorPopup : Popup
         _chatUIController.SelectableChannelsChanged -= SetChannels;
     }
 }
+

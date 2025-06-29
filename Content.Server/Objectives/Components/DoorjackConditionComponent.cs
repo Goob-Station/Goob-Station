@@ -20,3 +20,4 @@ public sealed partial class DoorjackConditionComponent : Component
     [DataField("doorsJacked"), ViewVariables(VVAccess.ReadWrite)]
     public int DoorsJacked;
 }
+

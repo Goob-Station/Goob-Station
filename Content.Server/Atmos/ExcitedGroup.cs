@@ -27,3 +27,4 @@ namespace Content.Server.Atmos
         [ViewVariables] public int BreakdownCooldown { get; set; } = 0;
     }
 }
+

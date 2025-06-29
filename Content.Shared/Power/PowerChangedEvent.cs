@@ -47,3 +47,4 @@ namespace Content.Shared.Power;
 /// </summary>
 [ByRefEvent]
 public readonly record struct PowerChangedEvent(bool Powered, float ReceivingPower);
+

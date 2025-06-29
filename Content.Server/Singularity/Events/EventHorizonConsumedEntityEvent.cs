@@ -39,3 +39,4 @@ public readonly record struct EventHorizonConsumedEntityEvent
     /// </summary>
     public readonly BaseContainer? Container = container;
 }
+

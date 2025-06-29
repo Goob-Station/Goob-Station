@@ -11,3 +11,4 @@ public record struct GridMapObject : IMapObject
     public bool HideButton { get; init; }
     public EntityUid Entity;
 }
+

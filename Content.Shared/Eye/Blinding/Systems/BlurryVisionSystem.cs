@@ -76,3 +76,4 @@ public sealed class GetBlurEvent : EntityEventArgs, IInventoryRelayEvent
 
     public SlotFlags TargetSlots => SlotFlags.HEAD | SlotFlags.MASK | SlotFlags.EYES;
 }
+

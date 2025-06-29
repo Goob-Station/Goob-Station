@@ -180,3 +180,4 @@ public sealed partial class TeslaBlastDoAfterEvent(
 
     public override DoAfterEvent Clone() => this;
 }
+

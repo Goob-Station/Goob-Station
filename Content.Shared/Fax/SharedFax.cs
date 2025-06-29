@@ -91,3 +91,4 @@ public sealed class FaxDestinationMessage : BoundUserInterfaceMessage
         Address = address;
     }
 }
+

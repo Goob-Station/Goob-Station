@@ -19,3 +19,4 @@ public sealed partial class HorseAccentComponent : AnimalAccentComponent
         "accent-words-horse-5",
     };
 }
+

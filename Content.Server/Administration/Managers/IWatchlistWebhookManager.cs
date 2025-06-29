@@ -26,3 +26,4 @@ public interface IWatchlistWebhookManager
     void Initialize();
     void Update();
 }
+

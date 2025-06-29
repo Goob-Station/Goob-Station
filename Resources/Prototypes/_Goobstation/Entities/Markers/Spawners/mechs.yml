@@ -190,3 +190,4 @@
   - type: ConditionalSpawner
     prototypes:
       - MechMaulerSyndieFilled
+

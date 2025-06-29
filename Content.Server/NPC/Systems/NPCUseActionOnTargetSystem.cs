@@ -105,3 +105,4 @@ public sealed class NPCUseActionOnTargetSystem : EntitySystem
         }
     }
 }
+

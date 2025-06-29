@@ -41,3 +41,4 @@ public sealed partial class SalvageDifficultyPrototype : IPrototype
     [DataField("recommendedPlayers", required: true)]
     public int RecommendedPlayers;
 }
+

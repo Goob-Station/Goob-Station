@@ -77,3 +77,4 @@ public sealed class ResearchConsoleBoundUserInterface : BoundUserInterface
         _consoleMenu?.UpdateInformationPanel(castState);
     }
 }
+

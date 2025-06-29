@@ -62,3 +62,4 @@ public enum MMIVisualLayers : byte
     Brain,
     Base
 }
+

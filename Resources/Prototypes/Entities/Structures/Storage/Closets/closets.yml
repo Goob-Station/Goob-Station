@@ -238,3 +238,4 @@
         bluespaceEffectOnTeleportSource: true
         destroyAfterUses: 2
         destroyType: DeleteComponent
+

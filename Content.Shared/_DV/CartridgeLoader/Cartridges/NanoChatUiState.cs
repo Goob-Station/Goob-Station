@@ -46,3 +46,4 @@ public sealed class NanoChatUiState : BoundUserInterfaceState
         ListNumber = listNumber;
     }
 }
+

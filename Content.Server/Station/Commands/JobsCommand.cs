@@ -113,3 +113,4 @@ public readonly record struct JobSlotRef(string Job, EntityUid Station, StationJ
         return Jobs.TryGetJobSlot(Station, Job, out var slot) && slot is null;
     }
 }
+

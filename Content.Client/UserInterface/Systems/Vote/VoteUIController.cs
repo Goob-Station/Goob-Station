@@ -42,3 +42,4 @@ public sealed class VoteUIController : UIController
         _votes.ClearPopupContainer();
     }
 }
+

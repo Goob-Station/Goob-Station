@@ -11,3 +11,4 @@ namespace Content.Shared._Goobstation.Wizard.Traps;
 public sealed partial class ChillTrapComponent : Component
 {
 }
+

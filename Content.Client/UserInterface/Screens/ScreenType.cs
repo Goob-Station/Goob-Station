@@ -16,3 +16,4 @@ public enum ScreenType
     /// </summary>
     Separated
 }
+

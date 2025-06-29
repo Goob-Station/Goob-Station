@@ -72,3 +72,4 @@
         - type: StationJobs
           availableJobs:
             ChiefEngineer: [ -1, -1 ]
+

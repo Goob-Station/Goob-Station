@@ -22,3 +22,4 @@ public sealed partial class EyeCursorOffsetComponent : SharedEyeCursorOffsetComp
     /// </summary>
     public Vector2 CurrentPosition = Vector2.Zero;
 }
+

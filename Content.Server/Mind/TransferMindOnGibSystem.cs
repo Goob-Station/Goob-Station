@@ -46,3 +46,4 @@ public sealed class TransferMindOnGibSystem : EntitySystem
         _mindSystem.TransferTo(mindId, ent, mind: mind);
     }
 }
+

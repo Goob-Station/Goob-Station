@@ -12,3 +12,4 @@ public enum SolutionHeaterVisuals
 {
     IsOn,
 }
+

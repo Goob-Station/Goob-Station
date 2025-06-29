@@ -61,3 +61,4 @@ public sealed class ToggleAnimationSystem : EntitySystem
             comp.TokenSource.Token);
     }
 }
+

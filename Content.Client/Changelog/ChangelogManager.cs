@@ -232,3 +232,4 @@ namespace Content.Client.Changelog
         }
     }
 }
+

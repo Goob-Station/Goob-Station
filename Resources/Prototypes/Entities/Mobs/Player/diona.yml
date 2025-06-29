@@ -46,3 +46,4 @@
   components:
     - type: IsDeadIC
     - type: RandomHumanoidAppearance 
+

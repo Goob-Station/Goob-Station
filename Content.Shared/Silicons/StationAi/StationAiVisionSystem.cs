@@ -487,3 +487,4 @@ public sealed class StationAiVisionSystem : EntitySystem
         }
     }
 }
+

@@ -87,3 +87,4 @@ public abstract partial class SharedPathfindingSystem : EntitySystem
         }
     }
 }
+

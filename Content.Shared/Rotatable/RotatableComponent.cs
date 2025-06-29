@@ -38,3 +38,4 @@ namespace Content.Shared.Rotatable
         public Angle Increment { get; private set; } = Angle.FromDegrees(90);
     }
 }
+

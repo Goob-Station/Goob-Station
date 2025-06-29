@@ -51,3 +51,4 @@ namespace Content.Server._EinsteinEngines.Silicon.WeldingHealing
         public List<string> DamageContainers;
     }
 }
+

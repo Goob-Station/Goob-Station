@@ -128,3 +128,4 @@ namespace Content.Shared.Cargo
         }
     }
 }
+

@@ -56,3 +56,4 @@ public sealed class LimitedItemGiverSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString(component.ReceivedPopup), uid, args.User);
     }
 }
+

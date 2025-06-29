@@ -15,3 +15,4 @@ public readonly record struct WeldableChangedEvent(bool IsWelded)
 {
     public readonly bool IsWelded = IsWelded;
 }
+

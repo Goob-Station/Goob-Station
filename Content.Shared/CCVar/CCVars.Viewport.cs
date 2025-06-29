@@ -36,3 +36,4 @@ public sealed partial class CCVars
     public static readonly CVarDef<bool> ViewportVerticalFit =
         CVarDef.Create("viewport.vertical_fit", true, CVar.CLIENTONLY | CVar.ARCHIVE);
 }
+

@@ -77,3 +77,4 @@ public sealed class MeleeSpeechBattlecryChangedMessage : BoundUserInterfaceMessa
 }
 
 public sealed partial class MeleeSpeechConfigureActionEvent : InstantActionEvent { }
+

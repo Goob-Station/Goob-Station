@@ -22,3 +22,4 @@ namespace Content.Shared.Construction
         void PerformAction(EntityUid uid, EntityUid? userUid, IEntityManager entityManager);
     }
 }
+

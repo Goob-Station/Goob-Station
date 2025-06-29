@@ -63,3 +63,4 @@ public sealed partial class ItemSizePrototype : IPrototype, IComparable<ItemSize
         return a.Weight >= b.Weight;
     }
 }
+

@@ -38,3 +38,4 @@ public enum ComboAttackType : byte
     Grab,
     Hug,
 }
+

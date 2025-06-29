@@ -18,3 +18,4 @@ public sealed partial class IFFConsoleComponent : Component
     [ViewVariables(VVAccess.ReadWrite), DataField("allowedFlags")]
     public IFFFlags AllowedFlags = IFFFlags.HideLabel;
 }
+

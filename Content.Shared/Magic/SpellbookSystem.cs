@@ -172,3 +172,4 @@ public sealed class SpellbookSystem : EntitySystem
         _doAfter.TryStartDoAfter(doAfterEventArgs);
     }
 }
+

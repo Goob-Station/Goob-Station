@@ -450,3 +450,4 @@ public sealed class StorageUIController : UIController, IOnSystemChanged<Storage
         _menuDragHelper.Update(args.DeltaSeconds);
     }
 }
+

@@ -12,3 +12,4 @@ public sealed partial class BeamComponent : SharedBeamComponent
 {
 
 }
+

@@ -44,3 +44,4 @@ public sealed class StartIonStormedSystem : EntitySystem
         _adminLogger.Add(LogType.Mind, LogImpact.High, $"{ToPrettyString(ent.Owner):silicon} spawned with ion stormed laws: {laws.LoggingString()}");
     }
 }
+

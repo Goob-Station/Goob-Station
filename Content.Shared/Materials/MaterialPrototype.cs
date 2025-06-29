@@ -78,3 +78,4 @@ namespace Content.Shared.Materials
         public double Price = 0;
     }
 }
+

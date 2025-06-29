@@ -49,3 +49,4 @@ public sealed class SprayPainterBoundUserInterface : BoundUserInterface
         SendMessage(new SprayPainterColorPickedMessage(key));
     }
 }
+

@@ -35,3 +35,4 @@ public sealed partial class PirateObjectiveSystem : EntitySystem
         else args.Progress = 1f;
     }
 }
+

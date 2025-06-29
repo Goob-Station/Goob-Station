@@ -162,3 +162,4 @@ public abstract partial class GameRuleSystem<T> : EntitySystem where T : ICompon
         }
     }
 }
+

@@ -148,3 +148,4 @@ public enum ClowncarVisuals : byte
 {
     FireModeEnabled
 }
+

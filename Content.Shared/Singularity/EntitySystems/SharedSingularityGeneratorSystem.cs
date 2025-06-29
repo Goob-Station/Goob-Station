@@ -42,3 +42,4 @@ public abstract class SharedSingularityGeneratorSystem : EntitySystem
         args.Handled = true;
     }
 }
+

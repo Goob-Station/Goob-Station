@@ -54,3 +54,4 @@ public sealed class BoganAccentSystem : EntitySystem
         args.Message = message;
     }
 };
+

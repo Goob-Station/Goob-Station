@@ -44,3 +44,4 @@ public sealed class AmmoSelectorMenuBoundUserInterface : BoundUserInterface
         SendPredictedMessage(new AmmoSelectedMessage(protoId));
     }
 }
+

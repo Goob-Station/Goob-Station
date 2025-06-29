@@ -35,3 +35,4 @@ public sealed partial class CriminalRecordsHackerComponent : Component
     [DataField]
     public LocId Announcement = "ninja-criminal-records-hack-announcement";
 }
+

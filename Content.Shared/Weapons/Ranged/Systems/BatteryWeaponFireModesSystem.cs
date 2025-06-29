@@ -155,3 +155,4 @@ public sealed class BatteryWeaponFireModesSystem : EntitySystem
         }
     }
 }
+

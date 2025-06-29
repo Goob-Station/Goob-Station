@@ -142,3 +142,4 @@ public sealed class ShopVendorSystem : SharedShopVendorSystem
         sprite.LayerSetVisible(actualLayer, false);
     }
 }
+

@@ -55,3 +55,4 @@ public sealed class TetherGunSystem : SharedTetherGunSystem
         _toggle.TryDeactivate(gunUid);
     }
 }
+

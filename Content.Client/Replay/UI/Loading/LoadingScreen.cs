@@ -55,3 +55,4 @@ public class LoadingScreen<TResult> : State
         _screen.Subtext.Text = subtext;
     }
 }
+

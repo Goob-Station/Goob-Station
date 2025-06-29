@@ -18,3 +18,4 @@ public sealed partial class SwappableInstrumentComponent : Component
     [DataField("instrumentList", required: true)]
     public Dictionary<string, (byte, byte)> InstrumentList = new();
 }
+

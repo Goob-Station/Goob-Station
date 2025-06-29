@@ -49,3 +49,4 @@ public sealed class ShowAccessReadersCommand : IConsoleCommand
         shell.WriteLine($"Set access reader debug overlay to true");
     }
 }
+

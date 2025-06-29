@@ -14,3 +14,4 @@ public abstract partial class SharedNPCComponent : Component
 {
 
 }
+

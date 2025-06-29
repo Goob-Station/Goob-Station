@@ -16,3 +16,4 @@ public sealed class EmergencyShuttleRequestPositionMessage : EntityEventArgs
 {
 
 }
+

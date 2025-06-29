@@ -204,3 +204,4 @@ public sealed class SiliconChargeSystem : EntitySystem
         return 0;
     }
 }
+

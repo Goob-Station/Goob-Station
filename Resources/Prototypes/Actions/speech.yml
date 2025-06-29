@@ -15,3 +15,4 @@
     priority: -20
     useDelay: 1
     event: !type:MeleeSpeechConfigureActionEvent
+

@@ -18,3 +18,4 @@ public sealed partial class MultiHandedItemComponent : Component
     [DataField]
     public int HandsNeeded = 2;
 }
+

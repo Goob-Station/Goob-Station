@@ -74,3 +74,4 @@ public sealed class RedialCommand : IConsoleCommand
         };
     }
 }
+

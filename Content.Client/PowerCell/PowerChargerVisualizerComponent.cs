@@ -44,3 +44,4 @@ public sealed partial class PowerChargerVisualsComponent : Component
         [CellChargerStatus.Charged] = "light-charged",
     };
 }
+

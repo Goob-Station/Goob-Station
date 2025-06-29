@@ -10,3 +10,4 @@ namespace Content.Shared.Beeper.Components;
 public sealed partial class ProximityBeeperComponent : Component
 {
 }
+

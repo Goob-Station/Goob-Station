@@ -193,3 +193,4 @@ public enum FieldLevelVisuals : byte
     OneField,
     MultipleFields,
 }
+

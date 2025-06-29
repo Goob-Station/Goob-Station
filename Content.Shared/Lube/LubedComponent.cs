@@ -16,3 +16,4 @@ public sealed partial class LubedComponent : Component
     [DataField("slipStrength"), ViewVariables(VVAccess.ReadWrite)]
     public int SlipStrength;
 }
+

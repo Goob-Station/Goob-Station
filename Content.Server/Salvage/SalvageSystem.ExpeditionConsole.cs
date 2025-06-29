@@ -87,3 +87,4 @@ public sealed partial class SalvageSystem
         _ui.SetUiState(component.Owner, SalvageConsoleUiKey.Expedition, state);
     }
 }
+

@@ -26,3 +26,4 @@ public sealed class RoleplayObjectiveSystem : EntitySystem
         args.Progress = 1f;
     }
 }
+

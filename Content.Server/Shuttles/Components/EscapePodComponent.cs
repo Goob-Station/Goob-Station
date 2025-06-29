@@ -23,3 +23,4 @@ public sealed partial class EscapePodComponent : Component
     [AutoPausedField]
     public TimeSpan? LaunchTime;
 }
+

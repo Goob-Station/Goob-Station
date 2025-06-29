@@ -51,3 +51,4 @@ public sealed partial class HandPlaceholderComponent : Component
     [DataField, AutoNetworkedField]
     public bool Enabled;
 }
+

@@ -21,3 +21,4 @@ public interface ISalvageMod
     /// </summary>
     float Cost { get; }
 }
+

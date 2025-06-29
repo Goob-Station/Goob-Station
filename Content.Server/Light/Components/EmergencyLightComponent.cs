@@ -85,3 +85,4 @@ public sealed class EmergencyLightEvent : EntityEventArgs
         State = state;
     }
 }
+

@@ -73,3 +73,4 @@ public sealed partial class SignalTimerComponent : Component
     [DataField]
     public Double MaxDuration = 3599; // 59m 59s
 }
+

@@ -54,3 +54,4 @@ public sealed class CargoPalletConsoleBoundUserInterface : BoundUserInterface
         _menu?.SetCount(palletState.Count);
     }
 }
+

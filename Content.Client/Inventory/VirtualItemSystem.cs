@@ -19,3 +19,4 @@ public sealed class VirtualItemSystem : SharedVirtualItemSystem
         Subs.ItemStatus<VirtualItemComponent>(_ => new HandVirtualItemStatus());
     }
 }
+

@@ -35,3 +35,4 @@ public sealed partial class SalvageTemperatureMod : IPrototype, IBiomeSpecificMo
     [DataField("temperature")]
     public float Temperature = 293.15f;
 }
+

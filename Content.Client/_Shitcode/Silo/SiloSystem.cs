@@ -13,3 +13,4 @@ namespace Content.Client._Shitcode.Silo;
 public sealed class SiloSystem : SharedSiloSystem
 {
 }
+

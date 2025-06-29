@@ -27,3 +27,4 @@ public sealed partial class ThiefBackpackSet : Control
         SetButton.ModulateSelfOverride = set.Selected ? new Color(40, 84, 35) : new Color(68, 75, 103);
     }
 }
+
