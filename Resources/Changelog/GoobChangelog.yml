@@ -11673,3 +11673,13 @@ Entries:
       message: H̷̟̃Ẻ̷̯L̴̟̇P̵͈͋ ̷̢̕M̸͇̆E̶̟͐ ̴̻̌I̵̓ͅT̷̡̆S̴̱͐ ̶̠̎A̴͙̽L̷̬̾Ǐ̶̹Ṿ̴̇E̴̙͌
   id: 1278
   time: '2025-06-24T08:41:41.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: Modsuits can now use sprites based on species.
+    - type: Fix
+      message: Resomi Tail Markings now layer properly
+    - type: Add
+      message: Resomi look better in Modsuits
+  id: 1279
+  time: '2025-06-29T21:57:12.0000000+00:00'
