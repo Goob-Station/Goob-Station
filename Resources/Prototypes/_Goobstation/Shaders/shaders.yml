@@ -7,3 +7,8 @@
   id: WideColoredScreenBorder
   kind: source
   path: "/Textures/_Goobstation/Shaders/colored_screen_border_wide.swsl"
+
+- type: shader
+  id: Enchant
+  kind: source
+  path: "/Textures/_Goobstation/Shaders/enchant.swsl"

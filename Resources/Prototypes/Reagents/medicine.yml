@@ -49,7 +49,6 @@
 # SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
 # SPDX-FileCopyrightText: 2023 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Ashley Woodiss-Field <ash@DESKTOP-H64M4AI.localdomain>
 # SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 ColesMagnum <98577947+AW-FulCode@users.noreply.github.com>
@@ -75,9 +74,18 @@
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 RedMush1 <88719613+RedMush1@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 RedMush1 <axmetvaliev1@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+# SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -172,6 +180,12 @@
         key: Jitter
         time: 3.0
         type: Remove
+      - !type:GenericStatusEffect
+        key: Drowsiness
+        component: Drowsiness
+        time: 1.5
+        type: Add
+        refresh: false
       - !type:HealthChange
         damage:
           types:
@@ -221,7 +235,7 @@
           types:
             Radiation: -3
           groups:
-            Brute: 1.5
+            Brute: 0.5
 
 - type: reagent
   id: Bicaridine
@@ -234,6 +248,14 @@
   metabolisms:
     Medicine:
       effects:
+      - !type:SuppressPain
+        amount: 1.2
+        time: 30 # it accumulated 1.2 * quantity and then exists for 30 seconds.
+      - !type:AdjustPainFeels
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+        amount: 0.04
       - !type:HealthChange
         damage:
           groups:
@@ -262,6 +284,15 @@
         - !type:ReagentThreshold
           min: 15
       - !type:Drunk
+      - !type:AdjustConsciousness
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        allowNewModifiers: true
+        modifierType: Pain
+        identifier: Suffocation
+        amount: -1.2
+        time: 12
 
 - type: reagent
   id: Cryoxadone
@@ -331,6 +362,14 @@
   metabolisms:
     Medicine:
       effects:
+      - !type:SuppressPain
+        amount: 2
+        time: 7
+      - !type:AdjustPainFeels
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        amount: 0.01
       - !type:HealthChange
         damage:
           types:
@@ -366,6 +405,14 @@
   metabolisms:
     Medicine:
       effects:
+      - !type:SuppressPain
+        amount: 2.4
+        time: 12
+      - !type:AdjustPainFeels
+        conditions:
+        - !type:ReagentThreshold
+          min: 20
+        amount: 0.04
       - !type:HealthChange
         damage:
           types:
@@ -382,6 +429,12 @@
           types:
             Asphyxiation: 3
             Cold: 1
+      - !type:AdjustConsciousness
+        allowNewModifiers: false
+        modifierType: Pain
+        identifier: Suffocation
+        amount: 3.4
+        time: 12
 
 - type: reagent
   id: DexalinPlus
@@ -394,6 +447,14 @@
   metabolisms:
     Medicine:
       effects:
+      - !type:SuppressPain
+        amount: 3.7
+        time: 12
+      - !type:AdjustPainFeels
+        conditions:
+        - !type:ReagentThreshold
+          min: 25
+        amount: 0.1
       - !type:HealthChange
         damage:
           types:
@@ -417,6 +478,18 @@
           types:
             Asphyxiation: 5
             Cold: 3
+      - !type:AdjustConsciousness
+        allowNewModifiers: false
+        modifierType: Pain
+        identifier: Suffocation
+        amount: 6
+        time: 12
+      - !type:AdjustConsciousness
+        allowNewModifiers: true
+        modifierType: Pain
+        identifier: Suffocation
+        amount: -5
+        time: 12
 
 # this ones a doozy
 - type: reagent
@@ -430,6 +503,21 @@
   metabolisms:
     Medicine:
       effects:
+      - !type:SuppressPain
+        conditions:
+        - !type:MobStateCondition
+          mobstate: Critical
+        amount: 5
+        time: 10 # very little because it's supposed to suppress pain while you're in crit
+      - !type:AdjustConsciousness
+        conditions:
+        - !type:MobStateCondition
+          mobstate: Critical
+        allowNewModifiers: false
+        modifierType: Pain
+        identifier: Suffocation
+        amount: 5 # Does not let the entity suffocate while the pain is suppressed
+        time: 10
       - !type:HealthChange
         conditions:
           # they gotta be in crit first
@@ -489,6 +577,15 @@
       - !type:MovespeedModifier # Goob edit
         walkSpeedModifier: 1.1
         sprintSpeedModifier: 1.1
+      - !type:AdjustConsciousness
+        conditions:
+        - !type:ReagentThreshold
+          min: 20
+        allowNewModifiers: false
+        modifierType: Pain
+        identifier: Suffocation
+        amount: -2.4
+        time: 12
 
 - type: reagent
   id: Hyronalin
@@ -556,6 +653,7 @@
   color: "#731024"
   metabolisms:
     Medicine:
+      metabolismRate: 0.1 # Smaller doses stabilize critical people for longer. Gives it a specific usecase as to not be entirely outclassed by dex+
       effects:
       - !type:HealthChange
         conditions:
@@ -564,9 +662,15 @@
           mobstate: Critical
         damage:
           types:
-            Asphyxiation: -5
+            Asphyxiation: -2
       - !type:ModifyBleedAmount
         amount: -0.25
+      - !type:AdjustConsciousness
+        allowNewModifiers: false
+        modifierType: Pain
+        identifier: Suffocation
+        amount: 8
+        time: 20
 
 - type: reagent
   id: Kelotane
@@ -757,6 +861,21 @@
             Asphyxiation: 3.5
       - !type:ModifyBleedAmount
         amount: -0.25
+      - !type:AdjustConsciousness
+        allowNewModifiers: false
+        modifierType: Pain
+        identifier: Suffocation
+        amount: 6
+        time: 12
+      - !type:AdjustConsciousness
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+        allowNewModifiers: true
+        modifierType: Pain
+        identifier: Suffocation
+        amount: 6
+        time: 12
 
 - type: reagent
   id: Ambuzol
@@ -832,6 +951,8 @@
   metabolisms:
     Medicine:
       effects:
+      - !type:AdjustPainFeels
+        amount: 0.05 # heheheh
       - !type:HealthChange
         damage:
           types:
@@ -932,7 +1053,7 @@
       - !type:HealthChange
         conditions:
         - !type:TotalDamage
-          max: 50
+          max: 100 # Goobstation
         damage:
           groups:
             Brute: -1
@@ -969,6 +1090,9 @@
   metabolisms:
     Medicine:
       effects:
+      - !type:SuppressPain
+        amount: 2
+        time: 14
       - !type:HealthChange
         damage:
           groups:
@@ -1259,8 +1383,10 @@
       effects:
       - !type:SatiateThirst
         factor: 3
-    Medicine:
-      effects:
+      - !type:CleanseCult # DeltaV - Cosmic Cult
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
       - !type:HealthChange
         conditions:
         - !type:TotalDamage
@@ -1272,6 +1398,7 @@
             Heat: -0.2
             Shock: -0.2
             Cold: -0.2
+
   reactiveEffects:
     Extinguish:
       methods: [ Touch ]
@@ -1285,7 +1412,7 @@
         ignoreResistances: false
         damage:
           types:
-            Holy: 0.5
+            Holy: 2
   plantMetabolism:
   - !type:PlantAdjustWater
     amount: 1
@@ -1304,6 +1431,9 @@
     Medicine:
       metabolismRate: 0.1 # slow metabolism to not be a godly combat med, its for treating burn victims efficiently
       effects:
+      - !type:SuppressPain
+        amount: 4 # To prevent people from dying while being healed
+        time: 7
       - !type:HealthChange
         damage:
           types:
@@ -1383,7 +1513,7 @@
         conditions:
         - !type:ReagentThreshold
           min: 12
-
+          
 - type: reagent
   id: Opporozidone #Name based of an altered version of the startreck chem "Opporozine"
   name: reagent-name-opporozidone
@@ -1601,7 +1731,7 @@
         amount: -3.0
       - !type:AdjustReagent
         reagent: Stimulants
-        amount: -3.0
+        amount: -1.0 #Goobstation edit
       - !type:AdjustReagent
         reagent: THC
         amount: -3.0

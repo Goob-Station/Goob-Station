@@ -1,0 +1,40 @@
+- type: job
+  id: NanotrasenCareerTrainer
+  name: job-name-nct
+  description: job-description-nct
+  playTimeTracker: JobNanotrasenCareerTrainer
+  goobcoins: 45
+  weight: 20
+  startingGear: NanotrasenCareerTrainerGear
+  icon: "JobIconNanotrasenTrainer"
+  joinNotifyCrew: true
+  supervisors: job-supervisors-ntr-centcom
+  canBeAntag: false
+  whitelisted: true # 1984
+  setPreference: false # 1984 x2
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  - NanotrasenRepresentative
+  - BlueshieldOfficer
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, BluespaceLifelineImplant ]
+#  - !type:AddComponentSpecial # Intentionally not command. I don't want them to ruin rev rounds.
+#    components:
+#    - type: CommandStaff
+
+- type: startingGear
+  id: NanotrasenCareerTrainerGear
+  equipment:
+    id: TrainerPDA
+    ears: ClothingHeadsetAltCentCom
+    eyes: ClothingEyesGlassesCentComm
+    pocket1: WeaponDisabler
+    pocket2: FoodSnackLollypopWrappedCentComm # Come on, it's a trademark at this point.
+  storage:
+    back:
+    - Flash
+    - TelescopicBatonAdvanced
+    - CentralCommandBusinessCard

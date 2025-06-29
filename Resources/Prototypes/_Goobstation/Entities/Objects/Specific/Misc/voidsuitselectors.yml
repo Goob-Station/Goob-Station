@@ -1,0 +1,95 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# paramedic
+- type: entity
+  id: UndeterminedVoidsuitParamedic
+  name: paramedic voidsuit selector
+  description: A small remote utilizing bluespace technology to drop in a voidsuit or hardsuit of your choosing.
+  parent: [ BaseItem, BaseSetSelector, BaseMedicalContraband ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/unique_teleporters.rsi
+    state: standard
+  - type: SetSelector
+    possibleSets:
+    - VoidsuitSelectorParamedicVoidsuit
+    - VoidsuitSelectorParamedicHardsuit
+
+# security
+- type: entity
+  id: UndeterminedVoidsuitSecurity
+  name: security voidsuit selector
+  description: A small remote utilizing bluespace technology to drop in a voidsuit or hardsuit of your choosing.
+  parent: [ BaseItem, BaseSetSelector, BaseSecurityContraband ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/unique_teleporters.rsi
+    state: standard
+  - type: SetSelector
+    possibleSets:
+    - VoidsuitSelectorSecurityVoidsuit
+    - VoidsuitSelectorSecurityHardsuit
+
+# head of security
+- type: entity
+  id: UndeterminedVoidsuitHeadOfSecurity
+  name: head of security voidsuit selector
+  description: A small remote utilizing bluespace technology to drop in a voidsuit or hardsuit of your choosing.
+  parent: [ BaseItem, BaseSetSelector, BaseSecurityContraband ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/unique_teleporters.rsi
+    state: standard
+  - type: SetSelector
+    possibleSets:
+    - VoidsuitSelectorHeadOfSecurityVoidsuit
+    - VoidsuitSelectorHeadOfSecurityHardsuit
+
+# engineer
+- type: entity
+  id: UndeterminedVoidsuitEngineer
+  name: engineer voidsuit selector
+  description: A small remote utilizing bluespace technology to drop in a voidsuit or hardsuit of your choosing.
+  parent: [ BaseItem, BaseSetSelector, BaseSecurityContraband ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/unique_teleporters.rsi
+    state: standard
+  - type: SetSelector
+    possibleSets:
+    - VoidsuitSelectorEngineerVoidsuit
+    - VoidsuitSelectorEngineerHardsuit
+
+# Cappy Suit
+- type: entity
+  id: UndeterminedVoidsuitCaptain
+  name: captain voidsuit selector
+  description: A small remote utilizing bluespace technology to drop in a voidsuit or hardsuit of your choosing.
+  parent: [ BaseItem, BaseSetSelector, BaseCommandContraband ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/unique_teleporters.rsi
+    state: standard
+  - type: SetSelector
+    possibleSets:
+    - VoidsuitSelectorCaptainVoidsuit
+    - VoidsuitSelectorCaptainHardsuit
+
+#Research Director RD suits
+- type: entity
+  id: UndeterminedVoidsuitRD
+  name: research director suit selector
+  description: A small remote utilizing bluespace technology to drop in a voidsuit or hardsuit of your choosing.
+  parent: [ BaseItem, BaseSetSelector, BaseCommandContraband ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/unique_teleporters.rsi
+    state: standard
+  - type: SetSelector
+    possibleSets:
+    - VoidsuitSelectorRDVoidsuit
+    - VoidsuitSelectorRDHardsuit

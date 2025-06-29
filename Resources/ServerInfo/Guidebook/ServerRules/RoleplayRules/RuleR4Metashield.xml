@@ -30,12 +30,12 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
   ## Nuclear Operatives
 
-  The existence of Nuclear Operatives beyond a myth that no one would act on is shielded.
+  Nukies are considered propaganda by Nanotrasen, and crew isn't informed on them at all.
+  Posters seen on-station are ignored and called syndicate propaganda.
 
   The fact that the nuke disk must be protected and could be used by a bad actor to try to destroy the station is not shielded.
 
   The revealing condition for this shield is any of the following:
-  - discovering a blood red hardsuit
   - discovering a nuclear operative's shuttle
   - an operative name
   - a War Ops announcement
@@ -45,7 +45,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
   In the eyes of the public, changelings are an exterminated predatory lifeform and their potential existence on the station is shielded.
   This metashield prohibits players from crew bloodtesting until the metashield is revealed.
-  
+
   Knowledge about the abilities of changelings is not shielded.
 
   The revealing condition for this shield is any of the following:
@@ -58,18 +58,81 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   ## Heretics
 
   To normal people, heretics are generally unknown. Security and Command may be aware that a group of people following a rogue god exists, but it's an absurd reality.
-  This metashield prohibits normal players from knowing what runes or reality fractures are. Security may be suspicious of them. 
+  This metashield prohibits normal players from knowing what runes or reality fractures are. Security may be suspicious of them.
 
   Knowledge about the ability of heretics is not shielded.
 
   The revealing condition for this shield is any of the following:
-  - witnessing a crewmember drawing a rune  
-  - witnessing a crewmember harvesting a reality fracture 
+  - witnessing a crewmember drawing a rune
+  - witnessing a crewmember harvesting a reality fracture
   - witnessing a crewmember using their powers
-   
-  ## Implanted Implants
 
-  Implanted implants are shielded.
+  ## Cosmic Cult
+
+  Like other practicians of forbidden arts, the Cosmic Cult is unknown to the common people.
+  Command is aware of eldritch forces existing, but the metashield prohibits players from knowing what glyphs and reality/malign shifts are.
+  
+  People may be suspicious of them, and the chaplain is aware it is an evil force to be contained.
+
+  The revealing condition for this shield is any of the following:
+  - witnessing a crewmember with the telltale facemask
+  - witnessing a crewmember using a glyph
+  - witnessing a crewmember absorb a malign shift
+  - witnessing a crewmember use a cult-specific ability
+  - witnessing cult gear like entropic swords and armor
+  
+  ## Devils
+
+  To most ordinary people, a Devil is a fake fairy tale made to scare people from talking to strangers.
+  This metashield prohibits players from knowing that a player is a devil from their equipment alone, although they may distrust them as much as they wish.
+
+  Knowledge about the abilities and consequences of a Devil deal are not shielded.
+
+  The revealing condition for this shield is any of the following:
+  - You are a Devil.
+  - You are the Chaplain, a lawyer, or a member of Central Command. (Including BSO and NTR)
+  - You have made a deal with the Devil.
+  - You have witnessed someone make a deal.
+
+  ## Zombies
+
+  Zombies are known galaxy-wide, but not as real-life, instead, as fiction.
+  Nuclear Operatives and Syndicate Agents are aware of Romerol and what it can do, but are prohibited of speaking about it publicly - unless they want their families to die.
+
+  Revealing conditions to the "Zombie" Shield:
+  - You are a Nuclear Operative
+  - You are a Syndicate Agent
+  - You are a Zombie
+  - You have seen Zombies on the station
+
+  ## Infections
+
+  Zombies are known as extinct, they previously ravaged humanity hundreds of years ago in medieval times.
+  A cure was made, and is still held onto by chemists and Chief Medical Officers as a show of how long your family has been in the field.
+
+  Revealing conditions to the "Infections" Shield:
+  - You are a Chemist
+  - You are a Chief Medical Officer
+  - Zombies are announced to be real and station-wide
+
+  ## Deathsquad
+
+  Deathsquad is known to exist - per the posters on the station, but they are not known as a crew killsquad, instead known as an elite team sent into stations to handle extreme threats even the best of ERT Security leaders could handle.
+  The station's Nanotrasen Representative and Blueshield Officer are aware that Deathsquad is a crew killsquad, but are heavily prohibited to mention it, and will be dealt with after, or during, the shift.
+
+  In private conversations, faxes, or phone calls, both BSO & NTR are advised to use the term 'Janitor Squad' to refer to the Deathsquad.
+  Crew can also choose to roleplay as if they've seen deathsquad movies, knowing limited aspects of their gear one would reasonably know watching an action-movie.
+
+  Revealing conditions to the "Deathsquad" Shield:
+  - Code Omicron is called, nuking the station
+  - Code Epsilon is called, terminating contracts
+  - You are the Nanotrasen Representative (NTR)
+  - You are the Blueshield Officer (BSO)
+  - A Central Command Official (Non-NTR/BSO) mentions Deathsquad as a [bold]Killsquad[/bold]
+
+  ## Implanted implants
+
+  Implanted, implants are shielded.
 
   Implanters themselves and un-implanted implants are not shielded. This prohibits implant checking.
 

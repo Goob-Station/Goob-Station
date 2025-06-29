@@ -41,6 +41,11 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Momo <Rsnesrud@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -199,14 +204,10 @@
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/goliathcloak.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
-    clothingPrototypes: 
-      neck: ClothingHeadHatHoodGoliathCloak
-  - type: Armor
-    modifiers:
-     coefficients:
-      Blunt: 0.85
-      Slash: 0.85
-      Piercing: 0.85
+    requiredSlot:
+    - neck
+    clothingPrototypes:
+      head: ClothingHeadHatHoodGoliathCloak
   - type: Construction
     graph: GoliathCloak
     node: cloak
@@ -236,7 +237,7 @@
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/moth.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
-    clothingPrototypes: 
+    clothingPrototypes:
       head: ClothingHeadHatHoodMoth
     requiredSlot:
     - neck
@@ -259,7 +260,7 @@
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/void.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
-    clothingPrototypes: 
+    clothingPrototypes:
       head: ClothingHeadHatHoodVoidCloak
     requiredSlot:
     - neck
@@ -290,6 +291,15 @@
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/aro.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakAroace
+  name: aeropilot's cloak # thank you happyman442 this was the best name idea ever
+  description: Cloak awarded to Nanotrasen's finest pilots on planets with inhabitable atmospheres.
+  components:
+  - type: Sprite
+    sprite: Clothing/Neck/Cloaks/aroace.rsi
 
 - type: entity
   parent: ClothingNeckBase

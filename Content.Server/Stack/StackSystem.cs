@@ -68,7 +68,7 @@ namespace Content.Server.Stack
         /// <summary>
         ///     Try to split this stack into two. Returns a non-null <see cref="Robust.Shared.GameObjects.EntityUid"/> if successful.
         /// </summary>
-        public EntityUid? Split(EntityUid uid, int amount, EntityCoordinates spawnPosition, StackComponent? stack = null)
+        public override EntityUid? Split(EntityUid uid, int amount, EntityCoordinates spawnPosition, StackComponent? stack = null) // Goobstation - override virtual method
         {
             if (!Resolve(uid, ref stack))
                 return null;
@@ -114,7 +114,7 @@ namespace Content.Server.Stack
         public EntityUid Spawn(int amount, StackPrototype prototype, EntityCoordinates spawnPosition)
         {
             // Set the output result parameter to the new stack entity...
-            var entity = Spawn(prototype.Spawn, spawnPosition);
+            var entity = SpawnAtPosition(prototype.Spawn, spawnPosition);
             var stack = Comp<StackComponent>(entity);
 
             // And finally, set the correct amount!

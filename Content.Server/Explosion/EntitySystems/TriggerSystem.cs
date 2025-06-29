@@ -60,8 +60,13 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -81,6 +86,7 @@ using Content.Shared.Explosion.Components;
 using Content.Shared.Explosion.Components.OnTrigger;
 using Content.Shared.Implants.Components;
 using Content.Shared.Interaction;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -90,6 +96,8 @@ using Content.Shared.Slippery;
 using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Trigger;
 using Content.Shared.Weapons.Ranged.Events;
+using Content.Shared.Whitelist;
+using Content.Shared.Projectiles;
 using JetBrains.Annotations;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -117,19 +125,22 @@ namespace Content.Server.Explosion.EntitySystems
         }
     }
 
-    // Goobstation start
-    public sealed class TriggerAttemptEvent : CancellableEntityEventArgs
+    /// <summary>
+    /// Raised before a trigger is activated.
+    /// Goobstation: cancellableEEA instead of w/e abomination was there
+    /// </summary>
+    [ByRefEvent]
+    public sealed class BeforeTriggerEvent : CancellableEntityEventArgs
     {
         public EntityUid Triggered { get; }
         public EntityUid? User { get; }
 
-        public TriggerAttemptEvent(EntityUid triggered, EntityUid? user = null)
+        public BeforeTriggerEvent(EntityUid triggered, EntityUid? user = null)
         {
             Triggered = triggered;
             User = user;
         }
     }
-    // Goobstation end
 
     /// <summary>
     /// Raised when timer trigger becomes active.
@@ -156,6 +167,8 @@ namespace Content.Server.Explosion.EntitySystems
         [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
         [Dependency] private readonly InventorySystem _inventory = default!;
         [Dependency] private readonly ElectrocutionSystem _electrocution = default!;
+        [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+        [Dependency] private readonly EntityManager _entityManager = default!;
 
         public override void Initialize()
         {
@@ -171,6 +184,7 @@ namespace Content.Server.Explosion.EntitySystems
             SubscribeLocalEvent<TriggerOnSpawnComponent, MapInitEvent>(OnSpawnTriggered);
             SubscribeLocalEvent<TriggerOnCollideComponent, StartCollideEvent>(OnTriggerCollide);
             SubscribeLocalEvent<TriggerOnActivateComponent, ActivateInWorldEvent>(OnActivate);
+            SubscribeLocalEvent<TriggerOnUseComponent, UseInHandEvent>(OnUse);
             SubscribeLocalEvent<TriggerImplantActionComponent, ActivateImplantEvent>(OnImplantTrigger);
             SubscribeLocalEvent<TriggerOnStepTriggerComponent, StepTriggeredOffEvent>(OnStepTriggered);
             SubscribeLocalEvent<TriggerOnSlipComponent, SlipEvent>(OnSlipTriggered);
@@ -180,6 +194,7 @@ namespace Content.Server.Explosion.EntitySystems
             SubscribeLocalEvent<SpawnOnTriggerComponent, TriggerEvent>(OnSpawnTrigger);
             SubscribeLocalEvent<DeleteOnTriggerComponent, TriggerEvent>(HandleDeleteTrigger);
             SubscribeLocalEvent<ExplodeOnTriggerComponent, TriggerEvent>(HandleExplodeTrigger);
+            SubscribeLocalEvent<TriggerOnProjectileHitComponent, ProjectileHitEvent>(TriggerOnProjectileHit);
             SubscribeLocalEvent<FlashOnTriggerComponent, TriggerEvent>(HandleFlashTrigger);
             SubscribeLocalEvent<GibOnTriggerComponent, TriggerEvent>(HandleGibTrigger);
 
@@ -187,6 +202,15 @@ namespace Content.Server.Explosion.EntitySystems
             SubscribeLocalEvent<SoundOnTriggerComponent, TriggerEvent>(OnSoundTrigger);
             SubscribeLocalEvent<ShockOnTriggerComponent, TriggerEvent>(HandleShockTrigger);
             SubscribeLocalEvent<RattleComponent, TriggerEvent>(HandleRattleTrigger);
+
+            SubscribeLocalEvent<TriggerWhitelistComponent, BeforeTriggerEvent>(HandleWhitelist);
+        }
+
+        private void HandleWhitelist(Entity<TriggerWhitelistComponent> ent, ref BeforeTriggerEvent args)
+        {
+            // Goobedit
+            if (!_whitelist.CheckBoth(args.User, ent.Comp.Blacklist, ent.Comp.Whitelist))
+                args.Cancel();
         }
 
         private void OnSoundTrigger(EntityUid uid, SoundOnTriggerComponent component, TriggerEvent args)
@@ -233,16 +257,23 @@ namespace Content.Server.Explosion.EntitySystems
                 RemCompDeferred<AnchorOnTriggerComponent>(uid);
         }
 
-        private void OnSpawnTrigger(EntityUid uid, SpawnOnTriggerComponent component, TriggerEvent args)
+        private void OnSpawnTrigger(Entity<SpawnOnTriggerComponent> ent, ref TriggerEvent args)
         {
-            var xform = Transform(uid);
+            var xform = Transform(ent);
 
-            var coords = xform.Coordinates;
+            if (ent.Comp.mapCoords)
+            {
+                var mapCoords = _transformSystem.GetMapCoordinates(ent, xform);
+                Spawn(ent.Comp.Proto, mapCoords);
+            }
+            else
+            {
+                var coords = xform.Coordinates;
+                if (!coords.IsValid(EntityManager))
+                    return;
+                Spawn(ent.Comp.Proto, coords);
 
-            if (!coords.IsValid(EntityManager))
-                return;
-
-            Spawn(component.Proto, coords);
+            }
         }
 
         private void HandleExplodeTrigger(EntityUid uid, ExplodeOnTriggerComponent component, TriggerEvent args)
@@ -312,6 +343,14 @@ namespace Content.Server.Explosion.EntitySystems
                 Trigger(uid, args.OtherEntity);
         }
 
+        //ShitChap - Spell Reflection Functionality
+        private void TriggerOnProjectileHit(Entity<TriggerOnProjectileHitComponent> uid, ref ProjectileHitEvent args)
+        {
+            if (uid.Comp.ExplosiveProjectile)
+                _explosions.TriggerExplosive(uid);
+            Trigger(uid, args.Target);
+        }
+
         private void OnSpawnTriggered(EntityUid uid, TriggerOnSpawnComponent component, MapInitEvent args)
         {
             Trigger(uid);
@@ -323,6 +362,15 @@ namespace Content.Server.Explosion.EntitySystems
                 return;
 
             Trigger(uid, args.User);
+            args.Handled = true;
+        }
+
+        private void OnUse(Entity<TriggerOnUseComponent> ent, ref UseInHandEvent args)
+        {
+            if (args.Handled)
+                return;
+
+            Trigger(ent.Owner, args.User);
             args.Handled = true;
         }
 
@@ -353,12 +401,11 @@ namespace Content.Server.Explosion.EntitySystems
 
         public bool Trigger(EntityUid trigger, EntityUid? user = null)
         {
-            // Goobstation start
-            var attemptEv = new TriggerAttemptEvent(trigger, user);
-            RaiseLocalEvent(trigger, attemptEv, true);
-            if (attemptEv.Cancelled)
+            var beforeTriggerEvent = new BeforeTriggerEvent(trigger, user);
+            RaiseLocalEvent(trigger, ref beforeTriggerEvent);
+            if (beforeTriggerEvent.Cancelled)
                 return false;
-            // Goobstation end
+
             var triggerEvent = new TriggerEvent(trigger, user);
             EntityManager.EventBus.RaiseLocalEvent(trigger, triggerEvent, true);
             return triggerEvent.Handled;

@@ -12,15 +12,19 @@
 // SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 valquaint <57813693+valquaint@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Dataset;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Silicons.Laws;
@@ -179,7 +183,7 @@ public sealed class IonStormSystem : EntitySystem
     }
 
     // for your own sake direct your eyes elsewhere
-    private string GenerateLaw()
+    public string GenerateLaw() // Goob edit: make it public
     {
         // pick all values ahead of time to make the logic cleaner
         var threats = Pick(Threats);
@@ -258,7 +262,7 @@ public sealed class IonStormSystem : EntitySystem
         return _robustRandom.Next(0, 40) switch // Goobstation
         {
             0  => Loc.GetString("ion-storm-law-on-station", ("joined", joined), ("subjects", triple)),
-            1  => Loc.GetString("ion-storm-law-no-shuttle", ("joined", joined), ("subjects", triple)),
+            1  => Loc.GetString("ion-storm-law-call-shuttle", ("joined", joined), ("subjects", triple)),
             2  => Loc.GetString("ion-storm-law-crew-are", ("who", crewAll), ("joined", joined), ("subjects", objectsThreats)),
             3  => Loc.GetString("ion-storm-law-subjects-harmful", ("adjective", adjective), ("subjects", triple)),
             4  => Loc.GetString("ion-storm-law-must-harmful", ("must", must)),

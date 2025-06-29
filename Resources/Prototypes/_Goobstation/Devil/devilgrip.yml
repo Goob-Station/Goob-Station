@@ -1,0 +1,43 @@
+- type: entity
+  id: DevilGrip
+  name: devils grip
+  description: What little fraction of your power remains in this realm, channeled into your hands.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Unremoveable
+  - type: Item
+  - type: UnholyItem
+  - type: DevilGrip
+    blacklist:
+      components:
+      - Puddle
+  - type: Sprite
+    sprite: _Goobstation/Devil/devil_grip.rsi
+    state: icon
+  - type: Appearance
+  - type: PointLight
+    enabled: true
+    radius: 2
+    energy: 1
+    color: "#8B0000"
+  - type: SurgeryTool
+    startSound:
+      path: /Audio/_Goobstation/Heretic/crack2.ogg
+    endSound:
+      path: /Audio/Items/welder.ogg
+  - type: Hemostat
+    speed: 1.5
+  - type: Retractor
+    speed: 1.5
+  - type: Tweezers
+    speed: 1.5
+  - type: Drill
+    speed: 0.75
+  - type: BoneSetter
+    speed: 0.75
+  - type: Cautery
+    speed: 0.75
+  - type: BoneGel
+    speed: 0.75
+  - type: Tending
+    speed: 0.75

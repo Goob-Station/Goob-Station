@@ -164,7 +164,7 @@
     - id: Handcuffs
     - id: HoloprojectorSecurity
     - id: RadioHandheldSecurity
-    - id: WeaponDisabler #Goobstation
+    - id: WeaponDisabler # Goobstation
 
 - type: entity
   id: ClothingBeltSecurityFilled
@@ -246,7 +246,7 @@
     - id: HydroponicsToolMiniHoe
     - id: HydroponicsToolSpade
     - id: HydroponicsToolClippers
-    - id: RobustHarvestChemistryBottle
+    - id: ChemistryBottleRobustHarvest
 
 - type: entity
   id: ClothingBeltSheathFilled
@@ -286,11 +286,11 @@
   components:
   - type: StorageFill
     contents:
-      - id: EpinephrineChemistryBottle
+      - id: ChemistryBottleEpinephrine
         amount: 2
-      - id: EphedrineChemistryBottle
+      - id: ChemistryBottleEphedrine
         amount: 2
-      - id: OmnizineChemistryBottle
+      - id: ChemistryBottleOmnizine
       - id: MedkitCombatFilled
 
 - type: entity
@@ -310,10 +310,14 @@
   parent: ClothingBeltHolster
   suffix: Filled, Inspector # Goobstation
   components:
+  - type: ContainerFill # Goobstation
+    containers:
+      item:
+      - WeaponRevolverInspector
   - type: StorageFill
     contents:
         - id: SpeedLoaderMagnum
-        - id: WeaponRevolverInspector
+        # - id: WeaponRevolverInspector # Goobstation
 
 - type: entity
   id: ClothingBeltChefFilled

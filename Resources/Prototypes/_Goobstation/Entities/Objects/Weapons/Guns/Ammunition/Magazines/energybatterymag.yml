@@ -1,5 +1,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -60,3 +62,17 @@
   - type: ProjectileBatteryAmmoProvider
     proto: RifleBulletEnergyGunIon
     fireCost: 50
+
+- type: entity
+  id: EnergyMagRifleOverchargeLethal
+  parent: [ EnergyRifleMagBase, BaseSecurityContraband ]
+  name: energy rifle magazine (overcharge)
+  description: The power converter on this magazine has been modified to shot even more powerfull bolt in exchanged of more power consumption.
+  components:
+  - type: Sprite
+    layers:
+    - state: erifle_overcharge
+      map: [ "enum.GunVisualLayers.Base" ]
+  - type: ProjectileBatteryAmmoProvider
+    proto: RifleBulletEnergyGunOverchargeLethal
+    fireCost: 66 #15 shot hopefully

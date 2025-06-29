@@ -13,7 +13,7 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
@@ -33,8 +33,8 @@ public sealed partial class EvaporationComponent : Component
     public TimeSpan NextTick = TimeSpan.Zero;
 
     /// <summary>
-    /// How much evaporation occurs every tick.
+    /// Evaporation factor. Multiplied by the evaporating speed of the reagent.
     /// </summary>
     [DataField("evaporationAmount")]
-    public FixedPoint2 EvaporationAmount = FixedPoint2.New(0.3);
+    public FixedPoint2 EvaporationAmount = FixedPoint2.New(1);
 }

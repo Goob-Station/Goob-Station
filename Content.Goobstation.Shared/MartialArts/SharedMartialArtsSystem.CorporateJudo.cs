@@ -1,5 +1,8 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
@@ -12,7 +15,7 @@ using Content.Goobstation.Shared.MartialArts.Events;
 using Content.Shared.Clothing;
 using Content.Shared.Damage;
 using Content.Shared.Eye.Blinding.Components;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.StatusEffect;
 using Content.Shared.Weapons.Melee;
@@ -78,7 +81,7 @@ public partial class SharedMartialArtsSystem
             return;
 
         _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), false);
-        _stamina.TakeStaminaDamage(target, proto.StaminaDamage);
+        _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
@@ -123,8 +126,8 @@ public partial class SharedMartialArtsSystem
                     _hands.TryDrop(target, item.Value);
                 break;
             case true:
-                _stamina.TakeStaminaDamage(target, proto.StaminaDamage);
-                _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), false);
+                _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
+                //_stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), false);
                 break;
         }
 

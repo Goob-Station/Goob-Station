@@ -33,6 +33,9 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                 <CheckBox Name="ShowLoocAboveHeadCheckBox" Text="{Loc 'ui-options-show-looc-on-head'}" />
                 <CheckBox Name="FancySpeechBubblesCheckBox" Text="{Loc 'ui-options-fancy-speech'}" />
                 <CheckBox Name="FancyNameBackgroundsCheckBox" Text="{Loc 'ui-options-fancy-name-background'}" />
+                <CheckBox Name="LogInChatCheckBox" Text="{Loc 'ui-options-log-in-chat'}" /> <!-- WD EDIT -->
+                <CheckBox Name="CoalesceIdenticalMessagesCheckBox" Text="{Loc 'ui-options-coalesce-identical-messages'}" /> <!-- WD EDIT -->
+                <CheckBox Name="DetailedExamineCheckBox" Text="{Loc 'ui-options-detailed-examine'}" /> <!-- Goobstation Change -->
                 <Label Text="{Loc 'ui-options-general-cursor'}"
                        StyleClasses="LabelKeyText"/>
                 <CheckBox Name="ShowHeldItemCheckBox" Text="{Loc 'ui-options-show-held-item'}" />

@@ -23,6 +23,8 @@
 # SPDX-FileCopyrightText: 2024 Kevin Zheng <kevinz5000@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -109,6 +111,18 @@
         whitelist:
           components:
           - GasTank
+  - type: RadCollectorSignal # Goobstation
+  - type: AutomationSlots # Goobstation
+    slots:
+    - !type:AutomatedItemSlot
+      input: AutomationSlotGasTank
+      output: AutomationSlotGasTank
+      slotId: gas_tank
+    - !type:AutomatedPorts
+      sources:
+      - RadEmpty
+      - RadLow
+      - RadFull
   - type: UseDelay
     delay: 1
 

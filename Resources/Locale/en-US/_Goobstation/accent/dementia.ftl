@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2024 BeeRobynn <166929042+BeeRobynn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 accent-dementia-prefix-1 = Now I’m not sure but,
 accent-dementia-prefix-2 = Hey-… shit, I forgot… Oh, right!
 accent-dementia-prefix-3 = What was it again… Ah!

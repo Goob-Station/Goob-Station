@@ -16,6 +16,7 @@
 # SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Fansana <fansana95@googlemail.com>
 # SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 HS <81934438+HolySSSS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
@@ -57,9 +58,14 @@
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Scruq445 <storchdamien@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
+# SPDX-FileCopyrightText: 2025 Vrilly <tnjans@outlook.de>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 crasg <109207982+Scruq445@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # species
@@ -214,6 +220,12 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: DeathGasp
+    # Floof
+    Yip:
+      collection: Yip
+    Hiss:
+      collection: ReptilianHiss
+    # Floof end
 
 - type: emoteSounds
   id: FemaleReptilian
@@ -240,6 +252,12 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
+    # Floof
+    Yip:
+      collection: Yip
+    Hiss:
+      collection: ReptilianHiss
+    # Floof end
 
 - type: emoteSounds
   id: MaleSlime
@@ -333,7 +351,7 @@
   id: UnisexVox
   sounds:
     Scream:
-      path: /Audio/Voice/Vox/shriek1.ogg
+      collection: VoxScreams
     Laugh:
       path: /Audio/Voice/Vox/vox_laugh.ogg
     Honk:
@@ -343,10 +361,33 @@
     Hew:
       collection: Hew
     CatMeow:
-      collection: CatMeows # Goobstation - effect standardization
+      collection: CatMeows #Goob content start
+    Sneeze:
+      path: /Audio/_Goobstation/Voice/Vox/vox_sneeze.ogg
+    Cough:
+      path: /Audio/_Goobstation/Voice/Vox/vox_cough.ogg
+    CatHisses:
+      collection: CatHisses
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    RobotBeep:
+      collection: RobotBeeps
+    Yawn:
+      path: /Audio/_Goobstation/Voice/Vox/vox_yawn.ogg
+    Snore:
+      path: /Audio/_Goobstation/Voice/Vox/vox_snore.ogg
+    Sigh:
+      path: /Audio/_Goobstation/Voice/Vox/vox_sigh.ogg
+    Crying:
+      path: /Audio/_Goobstation/Voice/Vox/vox_cry.ogg
+    Whistle:
+      collection: Whistles
+    Gasp:
+      path: /Audio/_Goobstation/Voice/Vox/vox_gasp.ogg
+    DefaultDeathgasp:
+      path: /Audio/_Goobstation/Voice/Vox/vox_deathgasp.ogg
   params:
     variation: 0.125
-    # We need vox sounds for the other emotes
 
 - type: emoteSounds
   id: UnisexDiona
@@ -537,6 +578,8 @@
       collection: IPCWhirrs
       params:
         variation: 0
+    Scream: # Goobstation - Cyborg Scream
+      path: /Audio/_Goobstation/Voice/Cyborg/borgscream.ogg
 
 - type: emoteSounds
   id: UnisexSiliconSyndicate
@@ -557,6 +600,8 @@
       path: /Audio/Items/bikehorn.ogg
     Ping:
       path: /Audio/Effects/Cargo/ping.ogg
+    Scream: # Goobstation - Cyborg Scream
+      path: /Audio/_Goobstation/Voice/Cyborg/borgscream.ogg
 
 # body emotes
 - type: emoteSounds

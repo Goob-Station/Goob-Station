@@ -1,7 +1,10 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 MJSailor <92106367+kurokoTurbo@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
@@ -11,25 +14,23 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.Atmos;
 using Content.Shared.Damage;
 using Content.Shared.Heretic;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
-using Content.Shared.Mobs.Systems;
-using Content.Shared.Temperature.Components;
 using Content.Server.Atmos.Components;
-using Content.Server.Body.Components;
-using Content.Server.Temperature.Components;
 using Robust.Shared.Map.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 using System.Linq;
 using System.Threading.Tasks;
+using Content.Goobstation.Shared.Body.Components;
+using Content.Goobstation.Shared.Temperature.Components;
+using Content.Goobstation.Shared.Atmos.Components;
 
 namespace Content.Server.Heretic.Abilities;
 
-public sealed partial class HereticAbilitySystem : EntitySystem
+public sealed partial class HereticAbilitySystem
 {
     [Dependency] private readonly MapSystem _map = default!;
     [Dependency] private readonly TransformSystem _xform = default!;
@@ -162,10 +163,10 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
     private void OnAscensionAsh(Entity<HereticComponent> ent, ref HereticAscensionAshEvent args)
     {
-        RemComp<TemperatureComponent>(ent);
-        RemComp<TemperatureSpeedComponent>(ent);
-        RemComp<RespiratorComponent>(ent);
-        RemComp<BarotraumaComponent>(ent);
+        EnsureComp<SpecialLowTempImmunityComponent>(ent);
+        EnsureComp<SpecialHighTempImmunityComponent>(ent);
+        EnsureComp<SpecialBreathingImmunityComponent>(ent);
+        EnsureComp<SpecialPressureImmunityComponent>(ent);
 
         // fire immunity
         var flam = EnsureComp<FlammableComponent>(ent);

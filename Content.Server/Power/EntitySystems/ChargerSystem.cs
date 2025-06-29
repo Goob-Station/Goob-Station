@@ -101,8 +101,10 @@
 // SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 // SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 // SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 pacable <igor.mamaev1@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -194,7 +196,12 @@ internal sealed class ChargerSystem : EntitySystem
             if (!_container.TryGetContainer(uid, charger.SlotId, out var container, containerComp))
                 continue;
 
-            if (charger.Status == CellChargerStatus.Empty || charger.Status == CellChargerStatus.Charged || container.ContainedEntities.Count == 0)
+            // Goobstation start
+            if (container.ContainedEntities.Count == 0)
+                continue;
+            UpdateStatus(uid, charger);
+            // Goobstation end
+            if (charger.Status == CellChargerStatus.Empty || charger.Status == CellChargerStatus.Charged) // Goobstation edit
                 continue;
 
             foreach (var contained in container.ContainedEntities)

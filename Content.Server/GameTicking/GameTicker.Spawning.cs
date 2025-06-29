@@ -89,14 +89,20 @@ using System.Numerics;
 using Content.Server.Administration.Managers;
 using Content.Server.Administration.Systems;
 using Content.Server.GameTicking.Events;
+using Content.Server.Ghost;
 using Content.Server.Spawners.Components;
 using Content.Server.Speech.Components;
 using Content.Server.Station.Components;
+using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
+using Content.Shared.Humanoid;
+using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Mind;
 using Content.Shared.Players;
 using Content.Shared.Preferences;
+using Content.Shared.Random;
+using Content.Shared.Random.Helpers;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Jobs;
 using Robust.Shared.Map;
@@ -183,6 +189,9 @@ namespace Content.Server.GameTicking
                 if (job == null)
                 {
                     var playerSession = _playerManager.GetSessionById(netUser);
+                    var evNoJobs = new NoJobsAvailableSpawningEvent(playerSession); // Used by gamerules to wipe their antag slot, if they got one
+                    RaiseLocalEvent(evNoJobs);
+
                     _chatManager.DispatchServerMessage(playerSession, Loc.GetString("job-not-available-wait-in-lobby"));
                 }
                 else
@@ -261,6 +270,36 @@ namespace Content.Server.GameTicking
                 return;
             }
 
+            string speciesId;
+            if (_randomizeCharacters)
+            {
+                var weightId = _cfg.GetCVar(CCVars.ICRandomSpeciesWeights);
+
+                // If blank, choose a round start species.
+                if (string.IsNullOrEmpty(weightId))
+                {
+                    var roundStart = new List<ProtoId<SpeciesPrototype>>();
+
+                    var speciesPrototypes = _prototypeManager.EnumeratePrototypes<SpeciesPrototype>();
+                    foreach (var proto in speciesPrototypes)
+                    {
+                        if (proto.RoundStart)
+                            roundStart.Add(proto.ID);
+                    }
+
+                    speciesId = roundStart.Count == 0
+                        ? SharedHumanoidAppearanceSystem.DefaultSpecies
+                        : _robustRandom.Pick(roundStart);
+                }
+                else
+                {
+                    var weights = _prototypeManager.Index<WeightedRandomSpeciesPrototype>(weightId);
+                    speciesId = weights.Pick(_robustRandom);
+                }
+
+                character = HumanoidCharacterProfile.RandomWithSpecies(speciesId);
+            }
+
             // We raise this event to allow other systems to handle spawning this player themselves. (e.g. late-join wizard, etc)
             var bev = new PlayerBeforeSpawnEvent(player, character, jobId, lateJoin, station);
             RaiseLocalEvent(bev);
@@ -294,6 +333,9 @@ namespace Content.Server.GameTicking
                     JoinAsObserver(player);
                 }
 
+                var evNoJobs = new NoJobsAvailableSpawningEvent(player); // Used by gamerules to wipe their antag slot, if they got one
+                RaiseLocalEvent(evNoJobs);
+
                 _chatManager.DispatchServerMessage(player,
                     Loc.GetString("game-ticker-player-no-jobs-available-when-joining"));
                 return;
@@ -309,8 +351,6 @@ namespace Content.Server.GameTicking
             _mind.SetUserId(newMind, data.UserId);
 
             var jobPrototype = _prototypeManager.Index<JobPrototype>(jobId);
-            _roles.MindAddJobRole(newMind, silent: silent, jobPrototype:jobId);
-            var jobName = _jobs.MindTryGetJobName(newMind);
 
             _playTimeTrackings.PlayerRolesChanged(player);
 
@@ -319,6 +359,10 @@ namespace Content.Server.GameTicking
             var mob = mobMaybe!.Value;
 
             _mind.TransferTo(newMind, mob);
+            _admin.UpdatePlayerList(player);
+
+            _roles.MindAddJobRole(newMind, silent: silent, jobPrototype:jobId);
+            var jobName = _jobs.MindTryGetJobName(newMind);
             _admin.UpdatePlayerList(player);
 
             if (lateJoin && !silent)
@@ -505,7 +549,7 @@ namespace Content.Server.GameTicking
                 // Ideally engine would just spawn them on grid directly I guess? Right now grid traversal is handling it during
                 // update which means we need to add a hack somewhere around it.
                 var spawn = _robustRandom.Pick(_possiblePositions);
-                var toMap = spawn.ToMap(EntityManager, _transform);
+                var toMap = _transform.ToMapCoordinates(spawn);
 
                 if (_mapManager.TryFindGridAt(toMap, out var gridUid, out _))
                 {

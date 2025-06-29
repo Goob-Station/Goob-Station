@@ -30,7 +30,7 @@
     sprite: Objects/Weapons/Guns/SMGs/wt550.rsi
     state: icon
   product: CrateArmorySMG
-  cost: 6000 # Goobstation # 3k per gun + 2 mags
+  cost: 3000 # Goobstation # Nerfed guns == Nerfed price
   category: cargoproduct-category-name-armory
   group: market
 

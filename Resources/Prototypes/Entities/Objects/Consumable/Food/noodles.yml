@@ -37,7 +37,10 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 20
-
+  - type: Tag
+    tags:
+    - VoxFood
+    
 # Noodles
 
 - type: entity
@@ -76,6 +79,10 @@
   id: FoodNoodlesCopy
   description: You probably shouldn't try this, you always hear people talking about how bad it is...
   components:
+  - type: Food
+    trash:
+    - FoodPlateSmall
+    - FoodPlateSmall
   - type: FlavorProfile
     flavors:
       - copypasta

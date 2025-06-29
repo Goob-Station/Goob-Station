@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 cmd-motd-desc = Prints or sets the Message Of The Day.
 cmd-motd-help = motd [ message... ]
 cmd-get-motd-desc = Prints the Message Of The Day.

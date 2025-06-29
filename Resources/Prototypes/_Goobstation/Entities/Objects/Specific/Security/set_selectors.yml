@@ -1,0 +1,27 @@
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Head Of Security
+
+# If you want to readd this to hos, nerf lawbringer, especially the execute mode
+
+- type: entity
+  id: HeadOfSecurityWeaponUndetermined
+  name: X-00 Series Box
+  description: A small remote utilizing bluespace technology to drop in a weapon from the X-00 series to you. Choose wisely.
+  parent: [ BaseItem, BaseSetSelector, BaseCommandContraband ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Security/hosundetermined.rsi
+    state: icon
+  - type: SetSelector
+    possibleSets:
+    - HosSmgSet
+    - HosRifleSet
+    - HosShotgunSet
+    - HosSniperSet
+    maxSelectedSets: 1

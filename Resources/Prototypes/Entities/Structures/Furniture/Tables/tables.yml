@@ -291,6 +291,8 @@
       types:
         Blunt: 8
     bonkTime: 3
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicTable
 
 - type: entity
   id: TableGlass
@@ -345,6 +347,8 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepTile
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicTable
 
 - type: entity
   id: TableReinforcedGlass
@@ -402,6 +406,8 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepTile
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicTable
 
 - type: entity
   id: TablePlasmaGlass
@@ -459,6 +465,8 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepTile
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicTable
 
 - type: entity
   id: TableBrass
@@ -502,6 +510,8 @@
   - type: Construction
     graph: Table
     node: TableBrass
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicTable
 
 - type: entity
   id: TableWood
@@ -548,9 +558,12 @@
   - type: Tag
     tags:
     - Wooden
+    - Table # goob
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepWood
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicTable
 
 - type: entity
   id: TableCarpet
@@ -591,9 +604,12 @@
   - type: Tag
     tags:
     - Wooden
+    - Table # goob
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepCarpet
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicTable
 
 - type: entity
   id: TableStone
@@ -621,6 +637,8 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepFloor
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicTable
 
 - type: entity
   id: TableWeb
@@ -655,6 +673,8 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepCarpet
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicTable
 
 # Fancy tables
 
@@ -691,9 +711,12 @@
   - type: Tag
     tags:
     - Wooden
+    - Table # goob
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepCarpet
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: CosmicTable
 
 - type: entity
   id: TableFancyBlue
@@ -842,6 +865,7 @@
   - type: Tag
     tags:
       - Debug
+      - Table # goob
   - type: Sprite
     sprite: Structures/Furniture/Tables/debug.rsi
   - type: Icon

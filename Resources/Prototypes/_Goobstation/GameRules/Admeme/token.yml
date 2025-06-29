@@ -1,0 +1,219 @@
+# SPDX-FileCopyrightText: 2025 GMWQ <garethquaile@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# These are the gamerules to spawn antags for tokens.
+- type: entity
+  parent: NinjaSpawn
+  id: TokenNinjaSpawn
+  components:
+  - type: StationEvent
+    isSelectable: false
+  - type: AntagSelection
+    agentName: ninja-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostSpaceNinjaToken
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: SpaceNinjaGear
+      roleLoadout:
+      - RoleSurvivalEVA
+      briefing:
+        text: ninja-role-greeting
+        color: Green
+        sound: /Audio/Misc/ninja_greeting.ogg
+      components:
+      - type: SpaceNinja
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      - type: AutoImplant
+        implants:
+        - DeathAcidifierImplant
+      - type: RandomMetadata
+        nameSegments:
+        - NamesNinjaTitle
+        - NamesNinja
+        nameFormat: name-format-ninja
+      mindRoles:
+      - MindRoleNinja
+
+- type: entity
+  parent: DragonSpawn
+  id: TokenDragonSpawn
+  components:
+  - type: AntagSelection
+    agentName: dragon-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostDragonToken
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindRoles:
+      - MindRoleDragon
+  - type: StationEvent
+    isSelectable: false
+
+- type: entity
+  parent: RevenantSpawn
+  id: TokenRevenantSpawn
+  components:
+  - type: RandomSpawnRule
+    prototype: MobRevenantToken
+  - type: StationEvent
+    isSelectable: false
+
+- type: entity
+  parent: LoneOpsSpawn
+  id: TokenLoneOpsSpawn
+  components:
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: SpawnPointLoneNukeOperativeToken
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: SyndicateLoneOperativeGearFull
+      unequipOldGear: true
+      roleLoadout:
+      - RoleSurvivalNukie
+      components:
+      - type: NukeOperative
+      - type: RandomMetadata
+        nameSegments:
+        - NamesSyndicateNormal
+        nameFormat: name-format-nukie-agent
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      mindRoles:
+      - MindRoleNukeops
+  - type: StationEvent
+    isSelectable: false
+
+- type: entity
+  parent: DerelictCyborgSyndicateSpawn
+  id: TokenDerelictCyborgSyndicateSpawn
+  components:
+  - type: AntagSpawner
+    prototype: PlayerBorgDerelictSyndicateAssaultBattery
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: SpawnPointGhostDerelictCyborgSyndicateToken
+      min: 1
+      max: 1
+      pickPlayer: false
+  - type: StationEvent
+    isSelectable: false
+
+- type: entity
+  parent: BingleSpawn
+  id: TokenBingleSpawn
+  components:
+  - type: RandomSpawnRule
+    prototype: SpawnPointGhostBinglePrimeToken
+  - type: StationEvent
+    isSelectable: false
+
+- type: entity
+  parent: BlobMidround
+  id: TokenBlobMidround
+  components:
+  - type: BlobSpawnRule
+    carrierBlobProtos:
+    - SpawnPointGhostBlobRatToken
+    playersPerCarrierBlob: 30
+    maxCarrierBlob: 1
+  - type: StationEvent
+    isSelectable: false
+  - type: Tag
+    tags:
+    - MidroundAntag
+
+- type: entity
+  parent: LoneAbductorSpawn
+  id: TokenLoneAbductorSpawn
+  components:
+  - type: StationEvent
+    isSelectable: false
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: LoneAbductorSpawnerToken
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: LoneAbductorGear
+      briefing:
+        text: abductor-role-greeting
+        color: Green
+        sound: /Audio/_Shitmed/Misc/abductor.ogg
+      components:
+      - type: Abductor
+      - type: ActionGrant
+        actions:
+        - ActionReturnToShip
+      - type: GhostRole
+        name: abductor-lone-ghost-role-name-token
+        description: ghost-role-information-description-token-generic
+        rules: abductors-ghost-role-rules
+      - type: GhostTakeoverAvailable
+      - type: NpcFactionMember
+        factions:
+        - SimpleHostile
+      - type: RandomMetadata
+        nameSegments:
+        - AbductorScientistPrefix
+        - AbductorNames
+      - type: Tag
+        tags:
+        - Abductor
+        - AbductorScientist
+        - CanPilot
+        - FootstepSound
+        - DoorBumpOpener
+      - type: AbductorScientist
+      - type: SurgeryIgnoreClothing
+      - type: Sanitized
+      - type: SurgerySpeedModifier
+        speedModifier: 1.5
+      mindRoles:
+      - MindRoleLoneAbductor
+
+- type: entity
+  parent: WizardMidround
+  id: TokenWizard
+  components:
+  - type: AntagSelection
+    useCharacterNames: true
+    selectionTime: PostPlayerSpawn
+    definitions:
+    - spawnerPrototype: SpawnPointWizardToken
+      playerRatio: 20
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindRoles:
+      - MindRoleWizard
+      startingGear: WizardGear
+      unequipOldGear: true
+      roleLoadout:
+      - RoleSurvivalEVA
+      components:
+      - type: Wizard
+      - type: RandomMetadata
+        nameSegments:
+        - WizardFirst
+        - WizardLast
+        nameFormat: name-format-standard
+      - type: NpcFactionMember
+        factions:
+        - Wizard
+  - type: Tag
+    tags:
+    - MidroundAntag
+  - type: StationEvent
+    isSelectable: false

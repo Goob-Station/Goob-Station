@@ -4,8 +4,13 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 acatrw <96485972+acatrw@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 acatrw <wispycat07@gmail.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -95,7 +100,6 @@
   components:
   - type: LimitedCharges
     maxCharges: 100
-    charges: 100
   - type: UseDelay
     delay: 0.1
   - type: AutoRecharge
@@ -221,3 +225,17 @@
   - type: Tool
     qualities:
     - Pulsing
+
+
+- type: entity
+  id: RPDRecharging
+  parent: RPD
+  name: experimental RPD
+  description: A bluespace-enhanced rapid piping device that passively generates its own compressed matter.
+  suffix: AutoRecharge
+  components:
+  - type: LimitedCharges
+    maxCharges: 20
+  - type: AutoRecharge
+    rechargeDuration: 10
+

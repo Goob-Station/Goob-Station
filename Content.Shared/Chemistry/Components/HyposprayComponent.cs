@@ -7,7 +7,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.GameStates;
 using Robust.Shared.Audio;
 
@@ -28,11 +28,17 @@ public sealed partial class HyposprayComponent : Component
 
     /// <summary>
     /// Decides whether you can inject everything or just mobs.
-    /// When you can only affect mobs, you're capable of drawing from beakers.
     /// </summary>
     [AutoNetworkedField]
     [DataField(required: true)]
     public bool OnlyAffectsMobs = false;
+
+    /// <summary>
+    /// If this can draw from containers in mob-only mode.
+    /// </summary>
+    [AutoNetworkedField]
+    [DataField]
+    public bool CanContainerDraw = true;
 
     /// <summary>
     /// Whether or not the hypospray is able to draw from containers or if it's a single use

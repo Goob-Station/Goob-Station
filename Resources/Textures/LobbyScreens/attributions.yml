@@ -28,6 +28,7 @@
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -143,6 +144,11 @@
 - files: ["lostpai.webp"]
   license: "CC-BY-SA-3.0"
   copyright: Cattom
+  source: "https://discord.gg/goobstation"
+  
+- files: ["CAPTAINTHERE'SNUKIES.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: Zethine
   source: "https://discord.gg/goobstation"
   
 - files: ["StarGoob.webp"]

@@ -114,10 +114,18 @@
 # SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 xprospero <116504990+xprospero@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Evige <jussi.heikkila1@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
+# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Plyush <121322002+Plyushsune@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 RatherUncreative <RatherUncreativeName@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SpaceLizard <the.justice.league.of.canada@gmail.com>
+# SPDX-FileCopyrightText: 2025 TeenSarlacc <46608342+TeenSarlacc@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 grub <unalterableness@gmail.com>
 # SPDX-FileCopyrightText: 2025 plyush <121322002+toasterpm87@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -133,6 +141,7 @@
     - id: PlushieNuke
     - id: PlushieSlime
     - id: PlushieSnake
+    - id: PlushieExperiment
     - !type:GroupSelector
       children:
       - id: PlushieLizard
@@ -164,16 +173,6 @@
     - id: PlushieMoth
     - id: PlushieArachind
     - id: PlushiePenguin
-    - !type:GroupSelector
-      children:
-      - id: PlushieBlackburn
-        weight: 0.35
-      - id: PlushieBlackburnKobliska
-        weight: 0.25
-      - id: PlushieBlackburnMatryoskya
-        weight: 0.25
-      - id: PlushieDesislavaBlackburn
-        weight: 0.15
 
 - type: entity
   id: CrateFunPlushie
@@ -204,6 +203,26 @@
         - id: PlushieSpaceLizard
           amount: !type:ConstantNumberSelector
             value: 3
+
+- type: entity
+  id: CrateFunSharkPlushieBulk
+  parent: CrateGenericSteel
+  name: bulk soft toy shark crate
+  description: A crate filled with a variety of everyone's favorite finned friend. Rawr!
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: PlushieSharkBlue
+          amount: !type:ConstantNumberSelector
+            value: 2
+        - id: PlushieSharkPink
+          amount: !type:ConstantNumberSelector
+            value: 2
+        - id: PlushieSharkGrey
+          amount: !type:ConstantNumberSelector
+            value: 2
 
 - type: entity
   id: CrateFunInstrumentsVariety
@@ -413,6 +432,21 @@
         amount: 4
 
 - type: entity
+  id: CrateFunFoamGuns
+  parent: CratePlastic
+  name: Foam Force crate
+  description: Contains four Foam Force rifles, some grenades, and extra ammo. It's [REDACTED] or nothing!
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleFoam
+      amount: 4
+    - id: BoxDonkSoftBox
+      amount: 2
+    - id: GrenadeFoamDart
+      amount: 4
+
+- type: entity
   id: CrateFunBoxing
   parent: CrateGenericSteel
   name: boxing crate
@@ -515,3 +549,14 @@
       - id: BoxDarts
         amount: 1
         prob: 0.05
+
+- type: entity
+  id: CrateFunDiscoBeachBall
+  parent: CrateGenericSteel
+  name: disco beach ball crate
+  description: A crate containing a Disco Beach Ball that turns any beach trip into Studio 54.
+  components:
+  - type: StorageFill
+    contents:
+    - id: DiscoBeachBall
+      amount: 1

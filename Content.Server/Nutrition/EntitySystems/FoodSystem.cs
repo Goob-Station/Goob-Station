@@ -122,7 +122,7 @@ using Content.Shared.Body.Organ;
 using Content.Shared.Chemistry;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
@@ -448,6 +448,9 @@ public sealed class FoodSystem : EntitySystem
         RaiseLocalEvent(food, ev);
         if (ev.Cancelled)
             return;
+
+        var afterEvent = new AfterFullyEatenEvent(user);
+        RaiseLocalEvent(food, ref afterEvent);
 
         var dev = new DestructionEventArgs();
         RaiseLocalEvent(food, dev);

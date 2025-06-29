@@ -22,6 +22,10 @@
 # SPDX-FileCopyrightText: 2024 Pissachu <161140558+Pissachu@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Damn Feds <20566341+K-Dynamic@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -45,10 +49,10 @@
           availableJobs:
             #service
             # Goobstation - TODO: add bso and ntr
-            # Goobstation - Me did it, Icepick
+            # Goobstation - Me did it, Icepick - Erm, if you did it, it isn't a todo!!!!
             StationAi: [ 1, 1 ]
-            NanotrasenRepresentative: [ 1, 1 ]
-            BlueshieldOfficer: [ 1, 1 ]
+            NanotrasenRepresentative: [ 1, 1 ] # Goobstation
+            BlueshieldOfficer: [ 1, 1 ] # Goobstation
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 1, 1 ]
@@ -80,6 +84,7 @@
             Detective: [ 1, 1 ]
             SecurityOfficer: [ 4, 4 ]
             SecurityCadet: [ 4, 4 ]
+            Brigmedic: [ 1, 1 ]
             #supply
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 1, 3 ]

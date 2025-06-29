@@ -4,6 +4,7 @@
 #
 # SPDX-License-Identifier: MIT
 
+#Add satanic when ready
 - type: entity
   name: random altar spawner
   id: AltarSpawner
@@ -21,8 +22,12 @@
         - AltarDruid
         - AltarToolbox
         - AltarSpaceChristian
-        - AltarSatana
         - AltarTechnology
+        - AltarConvert
+        - AltarHeaven
+        - AltarFangs
+        - AltarBananium
+        - AltarConvertMaint
       offset: 0.0
 
 - type: entity
@@ -38,14 +43,6 @@
     - type: RandomSpawner
       prototypes:
         - AltarConvert
-        - AltarConvertFestival
-        - AltarConvertMaint
-        - AltarConvertBlue
-        - AltarConvertBurden
-        - AltarConvertOrange
-        - AltarConvertRed
-        - AltarConvertWhite
-        - AltarConvertYellow
       offset: 0.0
 
 - type: entity

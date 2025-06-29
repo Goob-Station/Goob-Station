@@ -70,6 +70,8 @@
 // SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -162,4 +164,24 @@ public sealed partial class StickyComponent : Component
     /// </summary>
     [DataField]
     public SpriteSpecifier VerbIcon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/eject.svg.192dpi.png"));
+
+    // Goobstation start
+    /// <summary>
+    /// Should the stick do-after break on move if the user is the target
+    /// </summary>
+    [DataField]
+    public bool SelfStickBreakOnMove = true;
+
+    /// <summary>
+    /// Should the unstick do-after break on move if the user is the target
+    /// </summary>
+    [DataField]
+    public bool SelfUnstickBreakOnMove = true;
+
+    [DataField]
+    public float SelfStickTimeMultiplier = 1f;
+
+    [DataField]
+    public float SelfUnstickTimeMultiplier = 1f;
+    // Goobstation end
 }

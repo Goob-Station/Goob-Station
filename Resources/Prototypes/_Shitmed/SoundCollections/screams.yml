@@ -1,0 +1,111 @@
+# BRUTAL DEATH RATTLES // REBELL
+- type: soundCollection
+  id: PainRattles
+  files:
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/PainRattles1.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/PainRattles2.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/PainRattles3.ogg
+
+# Pain screams (male)
+- type: soundCollection
+  id: PainScreamsShortMale
+  files:
+    - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/MalePainShort1.ogg
+    - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/MalePainShort2.ogg
+    - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/MalePainShort3.ogg
+    - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/MalePainShort4.ogg
+    - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/MalePainShort5.ogg
+    - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/MalePainShort6.ogg
+    - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/MalePainShort7.ogg
+
+- type: soundCollection
+  id: AgonyScreamsMale
+  files:
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/MaleAgony1.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/MaleAgony2.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/MaleAgony3.ogg
+
+- type: soundCollection
+  id: PainShockScreamsMale
+  files:
+    - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/PainShockMale1.ogg
+    - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/PainShockMale2.ogg
+    - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/PainShockMale3.ogg
+    - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/PainShockMale4.ogg
+
+- type: soundCollection
+  id: CritWhimpersMale
+  files:
+    - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/StillAliveMale1.ogg
+    - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/StillAliveMale2.ogg
+    - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/StillAliveMale3.ogg
+    - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/StillAliveMale4.ogg
+
+- type: soundCollection
+  id: PainShockWhimpersMale
+  files:
+    - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/StillAlivePainedMale1.ogg
+    - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/StillAlivePainedMale2.ogg
+
+# Pain screams (female)
+- type: soundCollection
+  id: PainScreamsShortFemale
+  files:
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/FemalePainShort1.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/FemalePainShort2.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/FemalePainShort3.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/FemalePainShort4.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/FemalePainShort5.ogg
+
+- type: soundCollection
+  id: AgonyScreamsFemale
+  files:
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/FemaleAgony1.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/FemaleAgony2.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/FemaleAgony3.ogg
+
+- type: soundCollection
+  id: PainShockScreamsFemale
+  files:
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/PainShockFemale1.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/PainShockFemale2.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/PainShockFemale3.ogg
+
+- type: soundCollection
+  id: CritWhimpersFemale
+  files:
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/StillAliveFemale1.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/StillAliveFemale2.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/StillAliveFemale3.ogg
+
+- type: soundCollection
+  id: PainShockWhimpersFemale
+  files:
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/StillAlivePainedFemale1.ogg
+
+# Organ damage gaggling
+- type: soundCollection
+  id: OrganDamagePainedMale
+  files:
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/OrganDamagePainedMale1.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/OrganDamagePainedMale2.ogg
+
+- type: soundCollection
+  id: OrganDamageWhimpersMale
+  files:
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/OrganDamageWhimpersMale1.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/OrganDamageWhimpersMale2.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/OrganDamageWhimpersMale3.ogg
+
+- type: soundCollection
+  id: OrganDamagePainedFemale
+  files:
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/OrganDamagePainedFemale1.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/OrganDamagePainedFemale2.ogg
+
+- type: soundCollection
+  id: OrganDamageWhimpersFemale
+  files:
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/OrganDamageWhimpersFemale1.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/OrganDamageWhimpersFemale2.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/OrganDamageWhimpersFemale3.ogg

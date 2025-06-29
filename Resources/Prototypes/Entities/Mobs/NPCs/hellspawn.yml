@@ -84,6 +84,8 @@
     name: ghost-role-information-hellspawn-name
     description: ghost-role-information-hellspawn-description
     rules: ghost-role-information-antagonist-rules
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
     raffle:
       settings: default
   - type: RotationVisuals
@@ -98,6 +100,7 @@
       - SimpleHostile
   - type: Body
     prototype: Animal
+    bodyType: Simple
   - type: Damageable
     damageContainer: BiologicalMetaphysical
     damageModifierSet: HellSpawn

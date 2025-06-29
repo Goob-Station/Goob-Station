@@ -6,6 +6,9 @@
 # SPDX-FileCopyrightText: 2024 Piras314 <92357316+Piras314@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 basic pack <159909786+packmore@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GrownSamoyedDog <61863648+GrownSamoyedDog@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -176,6 +179,7 @@
   - RuleR17
   - RuleR18
   - RuleR19
+  - RuleR20
 
 - type: guideEntry
   id: RuleR1
@@ -322,6 +326,12 @@
   name: guide-entry-rules-r19
   priority: 19
   text: "/ServerInfo/Guidebook/ServerRules/RoleplayRules/RuleR19VH.xml"
+
+- type: guideEntry
+  id: RuleR20
+  name: guide-entry-rules-r20
+  priority: 20
+  text: "/ServerInfo/Guidebook/ServerRules/RoleplayRules/RuleR20NewLifeRule.xml"
 
 - type: guideEntry
   id: SiliconRules

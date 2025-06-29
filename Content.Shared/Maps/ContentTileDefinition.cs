@@ -39,6 +39,8 @@
 // SPDX-FileCopyrightText: 2024 VMSolidus <evilexecutive@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 DoutorWhite <thedoctorwhite@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 //
@@ -100,6 +102,13 @@ namespace Content.Shared.Maps
         [DataField]
         public float DeconstructTimeMultiplier { get; private set; }
 
+        // Goobstation
+        /// <summary>
+        /// Effective mass of this tile for grid impacts.
+        /// </summary>
+        [DataField]
+        public float Mass = 1000f;
+
         /// <remarks>
         /// Legacy AF but nice to have.
         /// </remarks>
@@ -115,7 +124,10 @@ namespace Content.Shared.Maps
         /// </summary>
         [DataField("barestepSounds")] public SoundSpecifier? BarestepSounds { get; private set; } = new SoundCollectionSpecifier("BarestepHard");
 
-        [DataField("friction")] public float Friction { get; set; } = 0.2f;
+        /// <summary>
+        /// Base friction modifier for this tile.
+        /// </summary>
+        [DataField("friction")] public float Friction { get; set; } = 1f;
 
         [DataField("variants")] public byte Variants { get; set; } = 1;
 
@@ -143,12 +155,6 @@ namespace Content.Shared.Maps
         /// </summary>
         [DataField("mobFriction")]
         public float? MobFriction { get; private set; }
-
-        /// <summary>
-        ///     No-input friction override for mob mover in <see cref="SharedMoverController"/>
-        /// </summary>
-        [DataField("mobFrictionNoInput")]
-        public float? MobFrictionNoInput { get; private set; }
 
         /// <summary>
         ///     Accel override for mob mover in <see cref="SharedMoverController"/>

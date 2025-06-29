@@ -75,6 +75,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.DoAfter;
+using Content.Shared.Inventory;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Forensics;
@@ -129,7 +130,7 @@ public record struct TransferDnaEvent()
 }
 
 /// <summary>
-/// An event to generate and act upon new DNA for an entity.
+/// Raised on an entity when its DNA has been changed.
 /// </summary>
 [ByRefEvent]
 public record struct GenerateDnaEvent()
@@ -143,4 +144,17 @@ public record struct GenerateDnaEvent()
     /// The generated DNA.
     /// </summary>
     public required string DNA;
+}
+
+/// <summary>
+/// An event to check if the fingerprint is accessible.
+/// </summary>
+public sealed class TryAccessFingerprintEvent : CancellableEntityEventArgs, IInventoryRelayEvent
+{
+    SlotFlags IInventoryRelayEvent.TargetSlots => SlotFlags.WITHOUT_POCKET;
+
+    /// <summary>
+    ///     Entity that blocked access.
+    /// </summary>
+    public EntityUid? Blocker;
 }

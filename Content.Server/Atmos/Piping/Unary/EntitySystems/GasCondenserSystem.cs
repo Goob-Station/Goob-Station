@@ -19,7 +19,7 @@ using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Atmos;
 using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using JetBrains.Annotations;
 
 namespace Content.Server.Atmos.Piping.Unary.EntitySystems;

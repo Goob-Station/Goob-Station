@@ -53,6 +53,7 @@ using Content.Shared.Mind.Components;
 using Robust.Shared.GameStates;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Mind;
 
@@ -152,10 +153,14 @@ public sealed partial class MindComponent : Component
     public List<EntityUid> MindRoles = new List<EntityUid>();
 
     /// <summary>
-    ///     The session of the player owning this mind.
-    ///     Can be null, in which case the player is currently not logged in.
+    ///     The mind's current antagonist/special role, or lack thereof;
     /// </summary>
-    [ViewVariables, Access(typeof(SharedMindSystem), typeof(SharedGameTicker))]
-    // TODO remove this after moving IPlayerManager functions to shared
-    public ICommonSession? Session { get; set; }
+    [DataField, AutoNetworkedField]
+    public ProtoId<RoleTypePrototype> RoleType = "Neutral";
+
+    /// <summary>
+    ///     The role's subtype, shown only to admins to help with antag categorization
+    /// </summary>
+    [DataField]
+    public LocId? Subtype;
 }

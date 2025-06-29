@@ -13,3 +13,4 @@
     Cold: 0.5
     Heat: 0.8
     Shock: 0.5
+  ignoreArmorPierceFlags: All # Goobstation

@@ -1,0 +1,23 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: randomHumanoidSettings
+  id: VisitorAlien
+  speciesWhitelist: Abductor
+  components:
+    - type: GhostTakeoverAvailable
+    - type: GhostRole
+      name: ghost-role-information-alien-tourist-name
+      description: ghost-role-information-alien-tourist-description
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: default
+    - type: RandomMetadata
+      nameSegments:
+        - AbductorNames
+        - AbductorNames
+    - type: Loadout
+      prototypes: [ VisitorAlien ]
+      roleLoadout: [ RoleSurvivalStandard ]

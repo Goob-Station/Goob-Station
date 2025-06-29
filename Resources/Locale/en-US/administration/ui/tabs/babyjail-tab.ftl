@@ -1,4 +1,12 @@
-﻿admin-ui-baby-jail-window-title = Baby Jail
+# SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Hannah Giovanna Dawson <karakkaraz@gmail.com>
+# SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+admin-ui-baby-jail-window-title = Baby Jail
 
 admin-ui-baby-jail-enabled = Baby Jail Enabled
 admin-ui-baby-jail-disabled = Baby Jail Disabled

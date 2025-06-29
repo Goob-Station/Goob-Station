@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2023 dontbetank <59025279+dontbetank@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 book-text-escalation = When it comes to getting robusted, it's all about strategy. Do it right and you'll be the envy of the station. Do it wrong and the gods themselves may turn against you. Personally, I always aim for the former...
 
         First things first: let the insults fly! This is your chance to really let your opponent know what you think of their ridiculously large shoes and that annoying bike horn.

@@ -42,6 +42,8 @@
 # SPDX-FileCopyrightText: 2024 stellar-novas <stellar_novas@riseup.net>
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Bandit <queenjess521@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
@@ -638,6 +640,13 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 0.5,4.5
+      parent: 1
+- proto: PlushieAbductor
+  entities:
+  - uid: 253
+    components:
+    - type: Transform
+      pos: 1.15,5.25
       parent: 1
 - proto: ClockworkGrille
   entities:

@@ -291,3 +291,46 @@
           shouldHave: false
         amount: 13 # 13 parity
         immediate: false
+
+- type: reagent
+  id: NevcottaPowder
+  name: reagent-name-nevcottapowder
+  group: Toxins
+  desc: reagent-desc-nevcottapowder
+  physicalDesc: reagent-physical-desc-powdery
+  flavor: bitter
+  color: "#FAF9F6"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.05
+      effects:
+      - !type:ChemVomit
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        probability: 0.15
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 2
+            Asphyxiation: 0.25
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+      - !type:GenericStatusEffect
+        key: SeeingRainbows
+        component: SeeingRainbows
+        type: Add
+        time: 20
+        refresh: false
+      - !type:Paralyze
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        probability: 0.05
+        paralyzeTime: 2

@@ -7,6 +7,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Events;
 using Content.Shared.Rejuvenate;
 using Content.Shared.Slippery;
 using Content.Shared.StatusEffect;
@@ -61,9 +62,6 @@ public abstract class SharedGodmodeSystem : EntitySystem
 
         // Rejuv to cover other stuff
         RaiseLocalEvent(uid, new RejuvenateEvent());
-
-        foreach (var (id, _) in _bodySystem.GetBodyChildren(uid)) // Shitmed Change
-            EnableGodmode(id);
     }
 
     public virtual void DisableGodmode(EntityUid uid, GodmodeComponent? godmode = null)
