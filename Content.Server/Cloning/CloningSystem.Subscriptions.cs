@@ -2,6 +2,7 @@ using Content.Server.Forensics;
 using Content.Shared.Cloning.Events;
 using Content.Shared.Clothing.Components;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Forensics.Components;
 using Content.Shared.Labels.Components;
 using Content.Shared.Labels.EntitySystems;
 using Content.Shared.Paper;

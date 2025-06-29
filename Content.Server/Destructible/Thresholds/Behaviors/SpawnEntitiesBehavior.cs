@@ -28,6 +28,7 @@
 using System.Numerics;
 using Content.Server.Forensics;
 using Content.Shared.Destructible.Thresholds;
+using Content.Shared.Forensics.Components;
 using Content.Shared.Prototypes;
 using Content.Shared.Stacks;
 using Robust.Server.GameObjects;
