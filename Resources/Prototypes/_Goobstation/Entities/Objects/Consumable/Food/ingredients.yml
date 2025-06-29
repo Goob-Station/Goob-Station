@@ -33,7 +33,7 @@
   name: block of freedom cheese
   parent: FoodBakingBase
   id: FoodFreedomCheeseBlock
-  description: A solid block of artery-clogging cheese based on an questionable old world recipe. Slice it for your buddies.. or just eat the entire block for yourself, you weirdo. 
+  description: A solid block of artery-clogging cheese based on an questionable old world recipe. Slice it for your buddies.. or just eat the entire block for yourself, you weirdo.
   components:
   - type: FlavorProfile
     flavors:
@@ -66,7 +66,7 @@
   name: freedom cheese slice
   parent: FoodBakingBase
   id: FoodFreedomCheeseSlice
-  description: Highly questionable amalgamation of cheddar, fillers and the spirit of freedom. NanoTrasen's healthcare does not cover incidents regarding the consumption of this item.  
+  description: Highly questionable amalgamation of cheddar, fillers and the spirit of freedom. NanoTrasen's healthcare does not cover incidents regarding the consumption of this item.
   components:
   - type: FlavorProfile
     flavors:
