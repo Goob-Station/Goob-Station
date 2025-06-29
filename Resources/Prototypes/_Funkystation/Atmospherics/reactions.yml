@@ -1,0 +1,360 @@
+- type: gasReaction
+  id: HyperNobliumReactionSuppression
+  priority: -15
+  minimumTemperature: 20 # HyperNobliumReactionOppressionMinimumTemperature
+  minimumRequirements:
+  - 0     # oxygen
+  - 0     # nitrogen
+  - 0     # carbon dioxide
+  - 0     # plasma
+  - 0     # tritium
+  - 0     # vapor
+  - 0     # miasma
+  - 0     # n2o
+  - 0     # frezon
+  - 0     # bz
+  - 0     # healium
+  - 0     # nitrium
+  - 0     # pluox
+  - 0     # hydrogen
+  - 5 # hypernob # HyperNobliumReactionOppressionThreshold
+  effects:
+  - !type:HyperNobliumOppressionReaction {}
+
+- type: gasReaction
+  id: bzProduction
+  priority: 2
+  maximumTemperature: 313.149 # Atmospherics.FireMinimumTemperatureToExist - 60
+  minimumRequirements:
+  - 0     # oxygen
+  - 0     # nitrogen
+  - 0     # carbon dioxide
+  - 10    # plasma
+  - 0     # tritium
+  - 0     # vapor
+  - 0     # miasma
+  - 10    # n2o
+  - 0     # frezon
+  effects:
+  - !type:BZProductionReaction {}
+
+- type: gasReaction
+  id: HealiumProduction
+  priority: 2
+  maximumTemperature: 300.0
+  minimumTemperature: 22.0
+  minimumRequirements:
+  - 0     # oxygen
+  - 0     # nitrogen
+  - 0     # carbon dioxide
+  - 0     # plasma
+  - 0     # tritium
+  - 0     # vapor
+  - 0     # miasma
+  - 0     # n2o
+  - 5     # frezon
+  - 5     # bz
+  effects:
+  - !type:HealiumProductionReaction {}
+
+- type: gasReaction
+  id: NitriumProduction
+  priority: 2
+  minimumTemperature: 1500.0
+  minimumRequirements:
+  - 0     # oxygen
+  - 10    # nitrogen
+  - 0     # carbon dioxide
+  - 0     # plasma
+  - 20    # tritium
+  - 0     # vapor
+  - 0     # miasma
+  - 0     # n2o
+  - 0     # frezon
+  - 5     # bz
+  effects:
+  - !type:NitriumProductionReaction {}
+
+- type: gasReaction
+  id: NitriumDecomposition
+  priority: 2
+  minimumRequirements:
+  - 0.01  # oxygen
+  - 0     # nitrogen
+  - 0     # carbon dioxide
+  - 0     # plasma
+  - 0     # tritium
+  - 0     # vapor
+  - 0     # miasma
+  - 0     # n2o
+  - 0     # frezon
+  - 0     # bz
+  - 0     # healium
+  - 0.01  # nitrium
+  effects:
+  - !type:NitriumDecompositionReaction {}
+
+- type: gasReaction
+  id: PluoxiumProduction
+  priority: 3
+  minimumTemperature: 50.0
+  maximumTemperature: 273.15
+  minimumRequirements:
+  - 0.01  # oxygen
+  - 0     # nitrogen
+  - 0.01  # carbon dioxide
+  - 0     # plasma
+  - 0.01  # tritium
+  - 0     # vapor
+  - 0     # miasma
+  - 0     # n2o
+  - 0     # frezon
+  - 0     # bz
+  - 0     # healium
+  - 0     # nitrium
+  effects:
+  - !type:PluoxiumProductionReaction {}
+
+
+- type: gasReaction
+  id: HydrogenFire
+  priority: -1
+  minimumTemperature: 373.149 # Same as Atmospherics.FireMinimumTemperatureToExist
+  minimumRequirements: # In this case, same as minimum mole count.
+  - 0.01  # oxygen
+  - 0     # nitrogen
+  - 0     # carbon dioxide
+  - 0     # plasma
+  - 0     # tritium
+  - 0     # vapor
+  - 0     # miasma
+  - 0     # n2o
+  - 0     # frezon
+  - 0     # bz
+  - 0     # healium
+  - 0     # nitrium
+  - 0     # pluox
+  - 0.01  # hydrogen
+  effects:
+  - !type:HydrogenFireReaction {}
+
+- type: gasReaction
+  id: HyperNobliumProduction
+  priority: 7
+  minimumTemperature: 2.7
+  maximumTemperature: 24
+  minimumRequirements:
+  - 0     # oxygen
+  - 10    # nitrogen
+  - 0     # carbon dioxide
+  - 0     # plasma
+  - 5     # tritium
+  - 0     # vapor
+  - 0     # miasma
+  - 0     # n2o
+  - 0     # frezon
+  - 0     # bz
+  - 0     # healium
+  - 0     # nitrium
+  - 0     # pluox
+  - 0     # hydrogen
+  effects:
+  - !type:HyperNobliumProductionReaction {}
+
+- type: gasReaction
+  id: HalonOxygenAbsorption
+  priority: -4
+  minimumTemperature: 373.149
+  minimumRequirements:
+  - 0.01  # oxygen
+  - 0     # nitrogen
+  - 0     # carbon dioxide
+  - 0     # plasma
+  - 0     # tritium
+  - 0     # vapor
+  - 0     # miasma
+  - 0     # n2o
+  - 0     # frezon
+  - 0     # bz
+  - 0     # healium
+  - 0     # nitrium
+  - 0     # pluox
+  - 0     # hydrogen
+  - 0     # hypernob
+  - 0     # protonitrate
+  - 0     # zauker
+  - 0.01  # halon
+  - 0     # helium
+  - 0     # antinob
+  effects:
+  - !type:HalonOxygenAbsorptionReaction {}
+
+- type: gasReaction
+  id: ZaukerProduction
+  priority: 9
+  minimumTemperature: 50000
+  maximumTemperature: 75000
+  minimumRequirements:
+  - 0     # oxygen
+  - 0     # nitrogen
+  - 0     # carbon dioxide
+  - 0     # plasma
+  - 0     # tritium
+  - 0     # vapor
+  - 0     # miasma
+  - 0     # n2o
+  - 0     # frezon
+  - 0     # bz
+  - 0     # healium
+  - 0.01  # nitrium
+  - 0     # pluox
+  - 0     # hydrogen
+  - 0.01  # hypernob
+  - 0     # protonitrate
+  - 0     # zauker
+  - 0     # halon
+  - 0     # helium
+  - 0     # antinob
+  effects:
+  - !type:ZaukerProductionReaction {}
+
+- type: gasReaction
+  id: ZaukerDecomposition
+  priority: 10
+  minimumRequirements:
+  - 0     # oxygen
+  - 0.01  # nitrogen
+  - 0     # carbon dioxide
+  - 0     # plasma
+  - 0     # tritium
+  - 0     # vapor
+  - 0     # miasma
+  - 0     # n2o
+  - 0     # frezon
+  - 0     # bz
+  - 0     # healium
+  - 0     # nitrium
+  - 0     # pluox
+  - 0     # hydrogen
+  - 0     # hypernob
+  - 0     # protonitrate
+  - 0.01  # zauker
+  - 0     # halon
+  - 0     # helium
+  - 0     # antinob
+  effects:
+  - !type:ZaukerDecompositionReaction {}
+
+- type: gasReaction
+  id: ProtoNitrateProduction
+  priority: 11
+  minimumTemperature: 5000
+  maximumTemperature: 10000
+  minimumRequirements:
+  - 0     # oxygen
+  - 0     # nitrogen
+  - 0     # carbon dioxide
+  - 0     # plasma
+  - 0     # tritium
+  - 0     # vapor
+  - 0     # miasma
+  - 0     # n2o
+  - 0     # frezon
+  - 0     # bz
+  - 0     # healium
+  - 0     # nitrium
+  - 0.01  # pluox
+  - 0.01  # hydrogen
+  - 0     # hypernob
+  - 0     # protonitrate
+  - 0     # zauker
+  - 0     # halon
+  - 0     # helium
+  - 0     # antinob
+  effects:
+  - !type:ProtoNitrateProductionReaction {}
+
+- type: gasReaction
+  id: ProtoNitrateHydrogenConversion
+  priority: 12
+  minimumRequirements:
+  - 0     # oxygen
+  - 0     # nitrogen
+  - 0     # carbon dioxide
+  - 0     # plasma
+  - 0     # tritium
+  - 0     # vapor
+  - 0     # miasma
+  - 0     # n2o
+  - 0     # frezon
+  - 0     # bz
+  - 0     # healium
+  - 0     # nitrium
+  - 0     # pluox
+  - 150   # hydrogen
+  - 0     # hypernob
+  - 0.01  # protonitrate
+  - 0     # zauker
+  - 0     # halon
+  - 0     # helium
+  - 0     # antinob
+  effects:
+  - !type:ProtoNitrateHydrogenConversionReaction {}
+
+- type: gasReaction
+  id: ProtoNitrateTritiumConversion
+  priority: 13
+  minimumTemperature: 150
+  maximumTemperature: 340
+  minimumRequirements:
+  - 0     # oxygen
+  - 0     # nitrogen
+  - 0     # carbon dioxide
+  - 0     # plasma
+  - 0.01  # tritium
+  - 0     # vapor
+  - 0     # miasma
+  - 0     # n2o
+  - 0     # frezon
+  - 0     # bz
+  - 0     # healium
+  - 0     # nitrium
+  - 0     # pluox
+  - 0     # hydrogen
+  - 0     # hypernob
+  - 0.01  # protonitrate
+  - 0     # zauker
+  - 0     # halon
+  - 0     # helium
+  - 0     # antinob
+  effects:
+  - !type:ProtoNitrateTritiumConversionReaction {}
+
+- type: gasReaction
+  id: ProtoNitrateBZConversionReaction
+  priority: 14
+  minimumTemperature: 260
+  maximumTemperature: 280
+  minimumRequirements:
+  - 0     # oxygen
+  - 0     # nitrogen
+  - 0     # carbon dioxide
+  - 0     # plasma
+  - 0     # tritium
+  - 0     # vapor
+  - 0     # miasma
+  - 0     # n2o
+  - 0     # frezon
+  - 0.01  # bz
+  - 0     # healium
+  - 0     # nitrium
+  - 0     # pluox
+  - 0     # hydrogen
+  - 0     # hypernob
+  - 0.01  # protonitrate
+  - 0     # zauker
+  - 0     # halon
+  - 0     # helium
+  - 0     # antinob
+  effects:
+  - !type:ProtoNitrateBZConversionReaction {}

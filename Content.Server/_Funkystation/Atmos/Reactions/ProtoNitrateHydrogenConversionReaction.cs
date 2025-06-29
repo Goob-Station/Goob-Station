@@ -10,9 +10,6 @@ public sealed partial class ProtoNitrateHydrogenConversionReaction : IGasReactio
 {
     public ReactionResult React(GasMixture mixture, IGasMixtureHolder? holder, AtmosphereSystem atmosphereSystem, float heatScale)
     {
-        if (mixture.Temperature > 20f && mixture.GetMoles(Gas.HyperNoblium) >= 5f)
-            return ReactionResult.NoReaction;
-
         var initPN = mixture.GetMoles(Gas.ProtoNitrate);
         var initH2 = mixture.GetMoles(Gas.Hydrogen);
 

@@ -10,9 +10,6 @@ public sealed partial class HyperNobliumProductionReaction : IGasReactionEffect
 {
     public ReactionResult React(GasMixture mixture, IGasMixtureHolder? holder, AtmosphereSystem atmosphereSystem, float heatScale)
     {
-        if (mixture.Temperature > 20f && mixture.GetMoles(Gas.HyperNoblium) >= 5f)
-            return ReactionResult.NoReaction;
-            
         var initN2 = mixture.GetMoles(Gas.Nitrogen);
         var initTrit = mixture.GetMoles(Gas.Tritium);
         var initBZ = mixture.GetMoles(Gas.BZ);
@@ -28,7 +25,7 @@ public sealed partial class HyperNobliumProductionReaction : IGasReactionEffect
         mixture.AdjustMoles(Gas.Nitrogen, -10f * nobFormed);
         mixture.AdjustMoles(Gas.HyperNoblium, nobFormed);
 
-        var energyReleased = nobFormed * (Atmospherics.HyperNobliumProductionEnergy/Math.Max(initBZ, 1));
+        var energyReleased = nobFormed * (Atmospherics.HyperNobliumProductionEnergy / Math.Max(initBZ, 1));
 
         var heatCap = atmosphereSystem.GetHeatCapacity(mixture, true);
         if (heatCap > Atmospherics.MinimumHeatCapacity)

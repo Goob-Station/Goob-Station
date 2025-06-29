@@ -292,17 +292,17 @@ namespace Content.Shared.Atmos
             [Gas.Plasma] = Loc.GetString("gas-plasma-abbreviation"),
             [Gas.Tritium] = Loc.GetString("gas-tritium-abbreviation"),
             [Gas.WaterVapor] = Loc.GetString("gas-water-vapor-abbreviation"),
-            [Gas.BZ] = Loc.GetString("gas-bz-abbreviation"), // << assmos gas port start
-            [Gas.Healium] = Loc.GetString("gas-healium-abbreviation"),
-            [Gas.Nitrium] = Loc.GetString("gas-nitrium-abbreviation"),
-            [Gas.Pluoxium] = Loc.GetString("gas-pluoxium-abbreviation"),
-            [Gas.Hydrogen] = Loc.GetString("gas-hydrogen-abbreviation"),
-            [Gas.HyperNoblium] = Loc.GetString("gas-hyper-noblium-abbreviation"),
-            [Gas.ProtoNitrate] = Loc.GetString("gas-proto-nitrate-abbreviation"),
-            [Gas.Zauker] = Loc.GetString("gas-zauker-abbreviation"),
-            [Gas.Halon] = Loc.GetString("gas-halon-abbreviation"),
-            [Gas.Helium] = Loc.GetString("gas-helium-abbreviation"),
-            [Gas.AntiNoblium] = Loc.GetString("gas-anti-noblium-abbreviation"), // << assmos gas port end
+            [Gas.BZ] = Loc.GetString("gas-bz-abbreviation"), // Assmos - /tg/ gases
+            [Gas.Healium] = Loc.GetString("gas-healium-abbreviation"), // Assmos - /tg/ gases
+            [Gas.Nitrium] = Loc.GetString("gas-nitrium-abbreviation"), // Assmos - /tg/ gases
+            [Gas.Pluoxium] = Loc.GetString("gas-pluoxium-abbreviation"), // Assmos - /tg/ gases
+            [Gas.Hydrogen] = Loc.GetString("gas-hydrogen-abbreviation"), // Assmos - /tg/ gases
+            [Gas.HyperNoblium] = Loc.GetString("gas-hyper-noblium-abbreviation"), // Assmos - /tg/ gases
+            [Gas.ProtoNitrate] = Loc.GetString("gas-proto-nitrate-abbreviation"), // Assmos - /tg/ gases
+            [Gas.Zauker] = Loc.GetString("gas-zauker-abbreviation"), // Assmos - /tg/ gases
+            [Gas.Halon] = Loc.GetString("gas-halon-abbreviation"), // Assmos - /tg/ gases
+            [Gas.Helium] = Loc.GetString("gas-helium-abbreviation"), // Assmos - /tg/ gases
+            [Gas.AntiNoblium] = Loc.GetString("gas-anti-noblium-abbreviation"), // Assmos - /tg/ gases
         };
 
         #region Excited Groups
@@ -354,11 +354,10 @@ namespace Content.Shared.Atmos
         public const float SuperSaturationEnds = SuperSaturationThreshold / 3;
 
         public const float OxygenBurnRateBase = 1.4f;
-        public const float PlasmaMinimumBurnTemperature = (100f+T0C);
-        public const float PlasmaUpperTemperature = (1370f+T0C);
+        public const float PlasmaMinimumBurnTemperature = (100f + T0C);
+        public const float PlasmaUpperTemperature = (1370f + T0C);
         public const float PlasmaOxygenFullburn = 10f;
         public const float PlasmaBurnRateDelta = 9f;
-        public const float HydrogenBurnRateDelta = 2f; // Assmos - /tg/ gases
 
         /// <summary>
         ///     This is calculated to help prevent singlecap bombs (Overpowered tritium/oxygen single tank bombs)
@@ -410,107 +409,6 @@ namespace Content.Shared.Atmos
         ///     Divisor for Ammonia Oxygen reaction so that it doesn't happen instantaneously.
         /// </summary>
         public const float AmmoniaOxygenReactionRate = 10f;
-
-        /// <summary>
-        ///     The amount of energy 1 mole of BZ forming from N2O and plasma releases.
-        /// </summary>
-        public const float BZFormationEnergy = 80e3f; // Assmos - /tg/ gases
-
-        /// <summary>
-        ///     The amount of energy 1 mol of Healium forming from BZ and frezon releases.
-        /// </summary>
-        public const float HealiumProductionEnergy = 9e3f; // Assmos - /tg/ gases
-
-        /// <summary>
-        ///     The amount of energy 1 mol of Nitrium forming from Tritium, Nitrogen and BZ releases.
-        /// </summary>
-        public const float NitriumProductionEnergy = -100e3f; // Assmos - /tg/ gases
-
-        /// <summary>
-        ///     The amount of energy 1 mol of Nitrium decomposing into nitrogen and water vapor releases.
-        /// </summary>
-        public const float NitriumDecompositionEnergy = 30e3f; // Assmos - /tg/ gases
-
-        /// <summary>
-        ///     The amount of energy 1 mol of Pluoxium forming releases.
-        /// </summary>
-        public const float PluoxiumProductionEnergy = 250; // Assmos - /tg/ gases
-
-        /// <summary>
-        ///     The amount of energy 1 mol of Pluoxium forming releases.
-        /// </summary>
-        public const float MinimumHydrogenOxyburnEnergy = 143000f; // Assmos - /tg/ gases
-
-        public const float HydrogenBurnOxyFactor = 100f; // Assmos - /tg/ gases
-        public const float HydrogenBurnH2Factor = 10f; // Assmos - /tg/ gases
-
-        /// <summary>
-        ///     The amount of energy 1 mol of hyper-noblium forming from tritium and nitrogen releases.
-        /// </summary>
-        public const float HyperNobliumProductionEnergy = 2e7f;
-
-        /// <summary>
-        /// Energy released per mol of BZ consumed during halon formation.
-        /// </summary>
-        public const float HalonProductionEnergy = 91232.1f;
-
-        /// <summary>
-        /// How much energy a mole of halon combusting consumes.
-        /// </summary>
-        public const float HalonCombustionEnergy = -2500f;
-
-        /// <summary>
-        /// The amount of energy half a mole of zauker forming from hypernoblium and nitrium consumes.
-        /// </summary>
-        public const float ZaukerProductionEnergy = 5000f;
-
-        /// <summary>
-        /// The temperature scaling factor for zauker formation. At most this many moles of zauker can form per reaction tick per kelvin.
-        /// </summary>
-        public const float ZaukerTemperatureScale = 5e-6f;
-
-        /// <summary>
-        /// The amount of energy a mole of zauker decomposing in the presence of nitrogen releases.
-        /// </summary>
-        public const float ZaukerDecompositionEnergy = 460f;
-
-        /// <summary>
-        /// The maximum number of moles of zauker that can decompose per reaction tick.
-        /// </summary>
-
-        public const float ZaukerDecompositionMaxRate = 20f;
-
-        /// <summary>
-        /// The amount of energy 2.2 moles of proto-nitrate forming from pluoxium and hydrogen releases.
-        /// </summary>
-        public const float ProtoNitrateProductionEnergy = 650f;
-
-        /// <summary>
-        /// The temperature scaling factor for proto-nitrate formation. At most this many moles of zauker can form per reaction tick per kelvin.
-        /// </summary>
-        public const float ProtoNitrateTemperatureScale = 5e-3f;
-
-        /// <summary>
-        /// The maximum number of moles of hydrogen that can be converted into proto-nitrate in a single reaction tick.
-        /// </summary>
-        public const float ProtoNitrateHydrogenConversionMaxRate = 5f;
-
-        /// <summary>
-        /// The amount of energy converting a mole of hydrogen into half a mole of proto-nitrate consumes.
-        /// </summary>
-        public const float ProtoNitrateHydrogenConversionEnergy = -2500f;
-
-        /// <summary>
-        /// The amount of energy proto-nitrate converting a mole of tritium into hydrogen releases.
-        /// </summary>
-        public const float ProtoNitrateTritiumConversionEnergy = 10000f;
-
-        /// <summary>
-        /// The amount of energy proto-nitrate breaking down a mole of BZ releases.
-        /// </summary>
-        public const float ProtoNitrateBZConversionEnergy = -10000f;
-
-
 
         /// <summary>
         ///     Determines at what pressure the ultra-high pressure red icon is displayed.
@@ -581,6 +479,139 @@ namespace Content.Shared.Atmos
         /// </summary>
         public const float MaxTransferRate = 200;
 
+        #endregion // Assmos
+
+        // Assmos start
+        #region Assmos Constants
+
+        // Hydrogen
+        public const float MinimumHydrogenOxyburnEnergy = 143000f;
+        public const float HydrogenBurnOxyFactor = 100f;
+        public const float HydrogenBurnH2Factor = 10f;
+        public const float HydrogenBurnRateDelta = 2f;
+
+
+        // BZ
+        /// <summary>
+        ///     The amount of energy 1 mole of BZ forming from N2O and plasma releases.
+        /// </summary>
+        public const float BZProductionEnergy = 80e3f;
+
+
+        // Healium
+        /// <summary>
+        ///     The amount of energy 1 mol of Healium forming from BZ and frezon releases.
+        /// </summary>
+        public const float HealiumProductionEnergy = 9e3f;
+
+
+        // Pluoxium
+        /// <summary>
+        ///     The amount of energy 1 mol of Pluoxium forming releases.
+        /// </summary>
+        public const float PluoxiumProductionEnergy = 250;
+
+
+        // Halon
+        /// <summary>
+        ///     Energy released per mol of BZ consumed during halon formation.
+        /// </summary>
+        public const float HalonProductionEnergy = 91232.1f;
+
+        /// <summary>
+        ///     How much energy a mole of halon combusting consumes.
+        /// </summary>
+        public const float HalonCombustionEnergy = -2500f;
+
+
+        // Hyper-noblium
+        /// <summary>
+        ///     The amount of energy 1 mol of hyper-noblium forming from tritium and nitrogen releases.
+        /// </summary>
+        public const float HyperNobliumProductionEnergy = 2e7f;
+
+        /// <summary>
+        ///     The minimum number of mols at which hyper-noblium stops the reactions in it's mixture,
+        ///         when the mixture is hotter than <see cref="HyperNobliumReactionOppressionMinimumTemperature"/>.
+        /// </summary>
+        public const float HyperNobliumReactionOppressionThreshold = 5f;
+
+        /// <summary>
+        ///     The highest temperature (in Kelvin) before hyper-noblium stops the reactions in it's mixture,
+        ///         when the mixture has at least <see cref="HyperNobliumReactionOppressionThreshold"/>
+        ///         number of mols of hyper-noblium.
+        /// </summary>
+        /// <remarks>Should only apply when not equal to, but higher than mixture temperature.</remarks>
+        public const float HyperNobliumReactionOppressionMinimumTemperature = 5f;
+
+
+        // Nitrium
+        /// <summary>
+        ///     The amount of energy 1 mol of Nitrium forming from Tritium, Nitrogen and BZ releases.
+        /// </summary>
+        public const float NitriumProductionEnergy = -100e3f;
+
+        /// <summary>
+        ///     The amount of energy 1 mol of Nitrium decomposing into nitrogen and water vapor releases.
+        /// </summary>
+        public const float NitriumDecompositionEnergy = 30e3f;
+
+
+        // Zauker
+        /// <summary>
+        ///     The amount of energy half a mole of zauker forming from hypernoblium and nitrium consumes.
+        /// </summary>
+        public const float ZaukerProductionEnergy = 5000f;
+
+        /// <summary>
+        ///     The temperature scaling factor for zauker formation. At most this many moles of zauker can form per reaction tick per kelvin.
+        /// </summary>
+        public const float ZaukerTemperatureScale = 5e-6f;
+
+        /// <summary>
+        ///     The amount of energy a mole of zauker decomposing in the presence of nitrogen releases.
+        /// </summary>
+        public const float ZaukerDecompositionEnergy = 460f;
+
+        /// <summary>
+        ///     The maximum number of moles of zauker that can decompose per reaction tick.
+        /// </summary>
+
+        public const float ZaukerDecompositionMaxRate = 20f;
+
+
+        // Proto-nitrate
+        /// <summary>
+        ///     The amount of energy 2.2 moles of proto-nitrate forming from pluoxium and hydrogen releases.
+        /// </summary>
+        public const float ProtoNitrateProductionEnergy = 650f;
+
+        /// <summary>
+        ///     The temperature scaling factor for proto-nitrate formation. At most this many moles of zauker can form per reaction tick per kelvin.
+        /// </summary>
+        public const float ProtoNitrateTemperatureScale = 5e-3f;
+
+        /// <summary>
+        ///     The maximum number of moles of hydrogen that can be converted into proto-nitrate in a single reaction tick.
+        /// </summary>
+        public const float ProtoNitrateHydrogenConversionMaxRate = 5f;
+
+        /// <summary>
+        ///     The amount of energy converting a mole of hydrogen into half a mole of proto-nitrate consumes.
+        /// </summary>
+        public const float ProtoNitrateHydrogenConversionEnergy = -2500f;
+
+        /// <summary>
+        ///     The amount of energy proto-nitrate converting a mole of tritium into hydrogen releases.
+        /// </summary>
+        public const float ProtoNitrateTritiumConversionEnergy = 10000f;
+
+        /// <summary>
+        ///     The amount of energy proto-nitrate breaking down a mole of BZ releases.
+        /// </summary>
+        public const float ProtoNitrateBZConversionEnergy = -10000f;
+
+        // Assmos end
         #endregion
     }
 

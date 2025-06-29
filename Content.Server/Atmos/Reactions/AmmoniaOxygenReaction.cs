@@ -19,16 +19,13 @@ public sealed partial class AmmoniaOxygenReaction : IGasReactionEffect
 {
     public ReactionResult React(GasMixture mixture, IGasMixtureHolder? holder, AtmosphereSystem atmosphereSystem, float heatScale)
     {
-        if (mixture.Temperature > 20f && mixture.GetMoles(Gas.HyperNoblium) >= 5f)
-            return ReactionResult.NoReaction;
-        
         var nAmmonia = mixture.GetMoles(Gas.Ammonia);
         var nOxygen = mixture.GetMoles(Gas.Oxygen);
         var nTotal = mixture.TotalMoles;
 
         // Concentration-dependent reaction rate
-        var fAmmonia = nAmmonia/nTotal;
-        var fOxygen = nOxygen/nTotal;
+        var fAmmonia = nAmmonia / nTotal;
+        var fOxygen = nOxygen / nTotal;
         var rate = MathF.Pow(fAmmonia, 2) * MathF.Pow(fOxygen, 2);
 
         var deltaMoles = nAmmonia / Atmospherics.AmmoniaOxygenReactionRate * 2 * rate;

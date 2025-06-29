@@ -27,20 +27,16 @@ using JetBrains.Annotations;
 
 namespace Content.Server.Atmos.Reactions
 {
-    [UsedImplicitly]
-    [DataDefinition]
+    [DataDefinition, UsedImplicitly]
     public sealed partial class TritiumFireReaction : IGasReactionEffect
     {
         public ReactionResult React(GasMixture mixture, IGasMixtureHolder? holder, AtmosphereSystem atmosphereSystem, float heatScale)
         {
-            if (mixture.Temperature > 20f && mixture.GetMoles(Gas.HyperNoblium) >= 5f)
-                return ReactionResult.NoReaction;
-                
             var energyReleased = 0f;
             var oldHeatCapacity = atmosphereSystem.GetHeatCapacity(mixture, true);
             var temperature = mixture.Temperature;
             var location = holder as TileAtmosphere;
-            mixture.ReactionResults[(byte)GasReaction.Fire] = 0f;
+            mixture.ReactionResults[(byte) GasReaction.Fire] = 0f;
             var burnedFuel = 0f;
             var initialTrit = mixture.GetMoles(Gas.Tritium);
 
@@ -56,9 +52,9 @@ namespace Content.Server.Atmos.Reactions
             else
             {
                 burnedFuel = initialTrit;
-                mixture.SetMoles(Gas.Tritium, mixture.GetMoles(Gas.Tritium ) * (1 - 1 / Atmospherics.TritiumBurnTritFactor));
+                mixture.SetMoles(Gas.Tritium, mixture.GetMoles(Gas.Tritium) * (1 - 1 / Atmospherics.TritiumBurnTritFactor));
                 mixture.AdjustMoles(Gas.Oxygen, -mixture.GetMoles(Gas.Tritium));
-                energyReleased += (Atmospherics.FireHydrogenEnergyReleased * burnedFuel * (Atmospherics.TritiumBurnTritFactor - 1));
+                energyReleased += Atmospherics.FireHydrogenEnergyReleased * burnedFuel * (Atmospherics.TritiumBurnTritFactor - 1);
             }
 
             if (burnedFuel > 0)
@@ -70,7 +66,7 @@ namespace Content.Server.Atmos.Reactions
                 // Conservation of mass is important.
                 mixture.AdjustMoles(Gas.WaterVapor, burnedFuel);
 
-                mixture.ReactionResults[(byte)GasReaction.Fire] += burnedFuel;
+                mixture.ReactionResults[(byte) GasReaction.Fire] += burnedFuel;
             }
 
             energyReleased /= heatScale; // adjust energy to make sure speedup doesn't cause mega temperature rise

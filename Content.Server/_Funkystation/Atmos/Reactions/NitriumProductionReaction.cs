@@ -14,21 +14,18 @@ namespace Content.Server.Atmos.Reactions;
 
 /// <summary>
 ///     Assmos - /tg/ gases
-///     Produces Nitrium by mixing Tritium, Nitrogen and BZ at temperatures above 1500K. 
+///     Produces Nitrium by mixing Tritium, Nitrogen and BZ at temperatures above 1500K.
 /// </summary>
 [UsedImplicitly]
 public sealed partial class NitriumProductionReaction : IGasReactionEffect
 {
     public ReactionResult React(GasMixture mixture, IGasMixtureHolder? holder, AtmosphereSystem atmosphereSystem, float heatScale)
     {
-        if (mixture.Temperature > 20f && mixture.GetMoles(Gas.HyperNoblium) >= 5f)
-            return ReactionResult.NoReaction;
-            
         var initTritium = mixture.GetMoles(Gas.Tritium);
         var initNitrogen = mixture.GetMoles(Gas.Nitrogen);
         var initBZ = mixture.GetMoles(Gas.BZ);
 
-        if (initTritium<20||initNitrogen<10||initBZ<5||mixture.Temperature<1500)
+        if (initTritium < 20 || initNitrogen < 10 || initBZ < 5 || mixture.Temperature < 1500)
             return ReactionResult.NoReaction;
 
         var efficiency = Math.Min(mixture.Temperature / 2984f, Math.Min(initBZ * 20f, Math.Min(initTritium, initNitrogen)));

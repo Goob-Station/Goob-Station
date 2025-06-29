@@ -21,9 +21,6 @@ public sealed partial class NitriumDecompositionReaction : IGasReactionEffect
 {
     public ReactionResult React(GasMixture mixture, IGasMixtureHolder? holder, AtmosphereSystem atmosphereSystem, float heatScale)
     {
-        if (mixture.Temperature > 20f && mixture.GetMoles(Gas.HyperNoblium) >= 5f)
-            return ReactionResult.NoReaction;
-            
         var initNitrium = mixture.GetMoles(Gas.Nitrium);
         var initOxygen = mixture.GetMoles(Gas.Oxygen);
 
