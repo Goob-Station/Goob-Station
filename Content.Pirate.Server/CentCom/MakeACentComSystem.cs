@@ -56,7 +56,11 @@ namespace Content.Pirate.Server.CentCom
             _entManager.Dirty(centCom.Value, centComComponent);
 
             var shuttleMap = _mapManager.CreateMap();
-            var options = MapLoadOptions.Default;
+
+            var options = MapLoadOptions.Default with
+            {
+                DeserializationOptions = DeserializationOptions.Default with {InitializeMaps = true}
+            };
 
             if (!_map.TryLoadGeneric(new ResPath(ShuttlePath), out var result, options))
                 return;
