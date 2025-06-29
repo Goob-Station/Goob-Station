@@ -29,6 +29,7 @@ using Content.Server._White.Blocking;
 using Content.Server.Cargo.Systems;
 using Content.Server.Emp;
 using Content.Server.Power.Components;
+using Content.Shared.Emp; // Goobstation
 using Content.Shared.Examine;
 using Content.Shared.Rejuvenate;
 using JetBrains.Annotations;
@@ -44,6 +45,8 @@ namespace Content.Server.Power.EntitySystems
         [Dependency] private readonly SharedContainerSystem _containers = default!; // WD EDIT
         [Dependency] private readonly IGameTiming Timing = default!;
 
+        private EntityQuery<EmpDisabledComponent> _disabledQuery; // Goobstation
+
         public override void Initialize()
         {
             base.Initialize();
@@ -58,6 +61,8 @@ namespace Content.Server.Power.EntitySystems
 
             SubscribeLocalEvent<NetworkBatteryPreSync>(PreSync);
             SubscribeLocalEvent<NetworkBatteryPostSync>(PostSync);
+
+            _disabledQuery = GetEntityQuery<EmpDisabledComponent>(); // Goobstation
         }
 
         private void OnNetBatteryRejuvenate(EntityUid uid, PowerNetworkBatteryComponent component, RejuvenateEvent args)
@@ -126,6 +131,10 @@ namespace Content.Server.Power.EntitySystems
                     if (comp.NextAutoRecharge > Timing.CurTime)
                         continue;
                 }
+
+                // Goobstation
+                if (comp.CanEmp && _disabledQuery.HasComponent(uid))
+                    continue;
 
                 SetCharge(uid, batt.CurrentCharge + comp.AutoRechargeRate * frameTime, batt);
             }

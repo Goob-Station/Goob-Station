@@ -323,6 +323,8 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 12 # takes 1 minute to charge itself back to full
+    # Goobstation
+    canEmp: true
   - type: HitscanBatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 100
