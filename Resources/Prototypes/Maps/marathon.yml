@@ -37,7 +37,7 @@
   id: Marathon
   mapName: 'Марафон'
   mapPath: /Maps/_Goobstation/marathon.yml # Goobstation
-  minPlayers: 35
+  minPlayers: 25
   maxPlayers: 70
   stations:
     Marathon:

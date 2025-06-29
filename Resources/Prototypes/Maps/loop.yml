@@ -94,7 +94,7 @@
   id: Loop
   mapName: 'Петля'
   mapPath: /Maps/_Goobstation/loop.yml
-  minPlayers: 35
+  minPlayers: 20
   maxPlayers: 70
   stations:
     Loop:
