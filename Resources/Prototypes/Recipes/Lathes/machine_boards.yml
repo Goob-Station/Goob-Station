@@ -136,6 +136,20 @@
   icon: { sprite: Structures/Piping/Atmospherics/hellfirethermomachine.rsi, state: freezerOff } # Goobstation
   result: HellfireFreezerMachineCircuitBoard
 
+# Assmos
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: ThermomachineUpgradedFreezerMachineCircuitBoard
+  icon: { sprite: _Funkystation/Structures/Piping/Atmospherics/upgradedthermomachine.rsi, state: freezerOff } # Goobstation
+  result: ThermomachineUpgradedFreezerMachineCircuitBoard
+
+# Assmos
+- type: latheRecipe
+  parent: BaseSilverCircuitboardRecipe
+  id: ThermomachineAdvancedFreezerMachineCircuitBoard
+  icon: { sprite: _Funkystation/Structures/Piping/Atmospherics/advancedthermomachine.rsi, state: freezerOff } # Goobstation
+  result: ThermomachineAdvancedFreezerMachineCircuitBoard
+
 - type: latheRecipe
   parent: [ BaseGoldCircuitboardRecipe, BaseEngineeringMachineRecipeCategory ]
   id: SpaceHeaterMachineCircuitBoard
@@ -159,6 +173,13 @@
   id: GasRecyclerMachineCircuitboard
   icon: { sprite:  Structures/Machines/gasrecycler.rsi, state: icon } # Goobstation
   result: GasRecyclerMachineCircuitboard
+
+# Assmos - Crystallizer
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: CrystallizerMachineCircuitboard
+  icon: { sprite:  _Funkystation/Structures/Machines/crystallizer.rsi, state: off } # Goobstation
+  result: CrystallizerMachineCircuitboard
 
 # Power
 - type: latheRecipe
