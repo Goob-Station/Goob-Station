@@ -239,7 +239,8 @@
     - survivalnew
   name: survivalplus-title
   description: survivalplus-description
-  showInVote: true
+  showInVot: true
+  minPlayers: 30 # Pirate
   rules:
     - SecretPlusRampingMid
     - LavalandStormScheduler
