@@ -10,15 +10,12 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.RichText;
 using Robust.Shared.Input;
 using Robust.Shared.Utility;
-using Content.Client.UserInterface.ControlExtensions;
 
 namespace Content.Client.Guidebook.RichText;
 
 [UsedImplicitly]
 public sealed class TextLinkTag : IMarkupTag
 {
-    public static Color LinkColor => Color.CornflowerBlue;
-
     public string Name => "textlink";
 
     public Control? Control;
@@ -38,7 +35,7 @@ public sealed class TextLinkTag : IMarkupTag
         label.Text = text;
 
         label.MouseFilter = Control.MouseFilterMode.Stop;
-        label.FontColorOverride = LinkColor;
+        label.FontColorOverride = Color.CornflowerBlue;
         label.DefaultCursorShape = Control.CursorShape.Hand;
 
         label.OnMouseEntered += _ => label.FontColorOverride = Color.LightSkyBlue;
@@ -58,10 +55,17 @@ public sealed class TextLinkTag : IMarkupTag
         if (Control == null)
             return;
 
-        if (Control.TryGetParentHandler<ILinkClickHandler>(out var handler))
+        var current = Control;
+        while (current != null)
+        {
+            current = current.Parent;
+
+            if (current is not ILinkClickHandler handler)
+                continue;
             handler.HandleClick(link);
-        else
-            Logger.Warning("Warning! No valid ILinkClickHandler found.");
+            return;
+        }
+        Logger.Warning($"Warning! No valid ILinkClickHandler found.");
     }
 }
 
