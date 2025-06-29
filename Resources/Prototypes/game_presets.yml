@@ -214,7 +214,7 @@
     - sandbox
   name: sandbox-title
   description: sandbox-description
-  showInVote: false # Not suitable for use without admin intervention, since entity spamming can quickly crash a server
+  showInVote: true # Not suitable for use without admin intervention, since entity spamming can quickly crash a server
   maxPlayers: 5
   rules:
     - Sandbox
@@ -245,7 +245,7 @@
   name: death-match-title
   description: death-match-description
   maxPlayers: 15
-  showInVote: true
+  showInVote: false # Pirate
   supportedMaps: DeathMatchMapPool
   rules:
     - DeathMatch31
@@ -277,7 +277,7 @@
   description: rev-description
   showInVote: false
   rules:
-  - DummyNonAntagChance  
+  - DummyNonAntagChance
   - Revolutionary
   - SubGamemodesRule
   - BasicStationEventScheduler

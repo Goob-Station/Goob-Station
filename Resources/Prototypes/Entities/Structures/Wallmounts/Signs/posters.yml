@@ -311,11 +311,11 @@
 - type: entity
   parent: PosterBase
   id: PosterContrabandCommunistState
-  name: "Communist State"
-  description: "All hail the Communist party!"
+  name: "Fun Police"
+  description: "A poster condemning the station's security forces."
   components:
   - type: Sprite
-    state: poster18_contraband
+    state: poster3_contraband
 
 - type: entity
   parent: PosterBase
