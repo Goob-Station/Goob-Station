@@ -13,10 +13,10 @@
         Slash: 10
         Structural: 8
   - type: Sprite
-    sprite: Objects/Weapons/Melee/metal_hydrogen_axe.rsi
+    sprite: _Funkystation/Objects/Weapons/Melee/metal_hydrogen_axe.rsi
     state: icon
   - type: Clothing
-    sprite: Objects/Weapons/Melee/metal_hydrogen_axe.rsi
+    sprite: _Funkystation/Objects/Weapons/Melee/metal_hydrogen_axe.rsi
     quickEquip: false
     slots:
     - back
