@@ -183,7 +183,7 @@
   name: guide-title
   description: guide-description
   showInVote: false
-  minPlayers: 8
+  minPlayers: 25
   rules:
     - CombatDynamic
     - LavalandStormScheduler

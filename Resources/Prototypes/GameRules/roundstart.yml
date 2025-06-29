@@ -243,7 +243,7 @@
   id: Nukeops
   components:
   - type: GameRule
-    minPlayers: 8
+    minPlayers: 20
   - type: LoadMapRule
     mapPath: /Maps/_Goobstation/Nonstations/nukieplanet.yml # goob edit
   - type: AntagSelection
@@ -334,7 +334,7 @@
     maxDifficulty: 5
 
 # Goobstation - order swapped since admin verbs use .Last() for some reason
-# TODO: Fix that
+# TODO: Fix that 
 - type: entity
   id: TraitorReinforcement
   parent: BaseTraitorRuleNoObjectives # Goobstation
@@ -375,7 +375,7 @@
   parent: BaseGameRule
   components:
   - type: GameRule
-    minPlayers: 8
+    minPlayers: 15
     chaosScore: 1000 # Goobstation
   - type: RevolutionaryRule
   - type: AntagSelection
@@ -463,7 +463,7 @@
   parent: BaseGameRule
   components:
   - type: GameRule
-    minPlayers: 8
+    minPlayers: 20
     delay:
       min: 600
       max: 900
