@@ -1157,6 +1157,30 @@
     Telecrystal: 50 # goob
   categories:
   - UplinkDisruption
+# Goob - Antimov was given the same price for traitors and nukies
+#  conditions:                     
+#  - !type:StoreWhitelistCondition
+#     blacklist:
+#       tags:
+#       - NukeOpsUplink
+
+# Goob - Having two listings with the same price breaks it
+#- type: listing
+#  id: UplinkNukieAntimovCircuitBoard
+#  name: uplink-antimov-law-name
+#  description: uplink-antimov-law-desc
+#  productEntity: AntimovCircuitBoard
+#  cost:
+#    Telecrystal: 50 # goob x2
+#  categories:
+#  - UplinkDisruption
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    whitelist:
+#      tags:
+#      - NukeOpsUplink 
+
+
 
 - type: listing
   id: UplinkSurplusBundle
