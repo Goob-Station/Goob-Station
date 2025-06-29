@@ -63,17 +63,24 @@
 - type: reaction
   id: ANFORunaway #when you make more than 60u per reaction
   impact: High
-  priority: 30
+  priority: 20
   reactants:
     AmmoniumNitrate:
       amount: 42
     WeldingFuel:
       ammount: 21
   effects:
-    - !type:ExplosionReactionEffect
-      explosionType: DemolitionCharge #ANFO is used in mining a lot
-      maxIntensity: 20
-      intensityPerUnit: 1 # you need a lot of it for a large explosion
-      intensitySlope: 2 # more controlled explosion
-      maxTotalIntensity: 5000
-      canCreateVacuum: false
+    - !type:AdjustSolutionThermalEnergyEffect #explodes everything in the beaker
+      delta: 500
+      scaled: true
+
+- type: reaction
+  id: Octogen
+  reactants:
+    AmmoniumNitrate: 1
+    NitricAcid: 1
+    Vinegar: 1
+    AceticAnhydride: 1
+    Hexamine: 1
+  products:
+    Octogen: 2

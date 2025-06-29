@@ -120,3 +120,26 @@
     Methane: 1
     Water: 2
 
+- type: reaction
+  id: CarbonCombustion
+  minTemp: 773
+  reactants:
+    Carbon:
+      amount: 1
+    Oxygen:
+      amount: 1
+  products:
+     CarbonDioxide:
+       amount: 1
+
+- type: reaction
+  id: AceticAnhydride
+  minTemp: 323
+  reactants:
+    Vinegar:
+      amount: 1
+    Ethenone:
+      amount: 1
+  products:
+    AceticAnhydride: 1
+    Water: 1

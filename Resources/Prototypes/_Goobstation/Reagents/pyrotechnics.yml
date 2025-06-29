@@ -104,3 +104,23 @@
         damage:
           types: # Oil is not good
             Poison: 1
+
+- type: reagent
+  id: Octogen
+  name: reagent-name-octogen
+  group: Pyrotechnic
+  desc: reagent-desc-octogen
+  flavor: nothing
+  physicalDesc: reagent-physical-desc-crystalline
+  color: white
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        damage:
+          types: # do not eat C4's bigger brother
+            Poison: 2

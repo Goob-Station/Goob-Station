@@ -49,3 +49,39 @@
         damage:
           types:
             Asphyxiation: 1.5
+
+- type: reagent
+  id: Ethenone
+  name: reagent-name-ethenone
+  desc: reagent-desc-ethenone
+  physicalDesc: reagent-physical-desc-gaseous
+  flavor: bitter
+  color: "#c4f5ff"
+  boilingPoint: -56.1
+  meltingPoint: -150.5
+    metabolisms:
+    Poison:
+      metabolismRate: 0.5
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Caustic: 1
+
+- type: reagent
+  id: AceticAnhydride
+  name: reagent-name-acetic-anhydride
+  desc: reagent-desc-acetic-anhydride
+  physicalDesc: reagent-physical-desc-sour
+  flavor: sour
+  color: tan
+  boilingPoint: 139.8
+  meltingPoint: -73.1
+    metabolisms:
+    Poison:
+      metabolismRate: 0.5
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Caustic: 1
