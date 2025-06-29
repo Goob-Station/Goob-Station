@@ -12,6 +12,6 @@
   source: "https://forums.goobstation.com"
 
 - files: ["Meatzone_Howl.ogg"]
-  license: "CC-BY-NC-SA"
+  license: "CC-BY-SA-3.0"
   copyright: "Taken from Goonstation 13"
   source: "https://github.com/goonstation/goonstation/tree/master/sound"
