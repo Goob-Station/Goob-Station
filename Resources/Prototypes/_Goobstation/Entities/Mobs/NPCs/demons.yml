@@ -1,0 +1,76 @@
+
+- type: entity
+  name: living curse
+  id: MobLivingCurse
+  parent: [ SimpleSpaceMobBase, MobCombat ]
+  description: Exceedingly slow, but is immune to all forms of damage.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Mobs/Demons/curse.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: curse
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: curse
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: Physics
+    bodyType: KinematicController
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.0
+        density: 0
+        mask:
+          - FlyingMobMask
+        layer:
+          - Opaque
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      10: Dead
+  - type: MeleeWeapon
+    altDisarm: false
+    soundHit:
+      path: /Audio/Effects/demon_attack1.ogg
+    damage:
+      types:
+        Caustic: 5
+  - type: Damageable
+    damageContainer: BiologicalAdvancedMetaphysical
+    damageModifierSet: AdvancedSpirit
+  - type: NoSlip
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 1
+    baseSprintSpeed : 1
+  - type: Reflect 
+    reflectProb: 1
+    reflects:
+    - Nonenergy
+    - Energy
+  - type: Butcherable
+    spawned:
+    - id: Ectoplasm
+      amount: 1
+    - id: AnomalyCoreShadow
+      amount: 1
+      prob: 0.2
+  - type: AmbientSound
+    range: 7
+    volume: -5
+    sound:
+      path: /Audio/Ambience/anomaly_scary.ogg
+  - type: PointLight
+    radius: 1.5
+    energy: 12.5
+    color: "#793a80"
+  

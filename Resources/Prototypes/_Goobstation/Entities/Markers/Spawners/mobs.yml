@@ -53,3 +53,17 @@
   - type: ConditionalSpawner
     prototypes:
     - MobWhiteWolf
+
+- type: entity
+  name: Living Curse Spawner
+  id: SpawnMobLivingCurse
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: curse
+      sprite: _Goobstation/Mobs/Demons/curse.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobLivingCurse
