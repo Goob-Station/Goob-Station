@@ -35,3 +35,9 @@ reagent-desc-methanol = A colorless, odorless, and flammable liquid similar to e
 
 reagent-name-hexamine = hexamine
 reagent-desc-hexamine = A white crystalline solid that smells fishy. Used in making explosives.
+
+reagent-name-cyclonite = cyclonite
+reagent-desc-cyclonite = A yellowish crystal that is also known as RDX which is used in plastic explosives. Explodes at 576 Kelvin.
+
+reagent-name-ammonium-nitrate = ammonium nitrate
+reagent-desc-ammonium-nitrate = A white, crystalline solid that is highly soluble in water. It is a potent fertilizer.

@@ -84,3 +84,23 @@
         damage:
           types: # do not eat C4
             Poison: 3
+
+- type: reagent
+  id: AmmoniumNitrateFuelOil
+  name: reagent-name-ammonium-nitrate-fuel-oil
+  group: Pyrotechnic
+  desc: reagent-desc-ammonium-nitrate-fuel-oil
+  flavor: nothing
+  physicalDesc: reagent-physical-desc-odorless
+  color: white
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        damage:
+          types: # Oil is not good
+            Poison: 1

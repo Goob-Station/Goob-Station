@@ -39,3 +39,13 @@
   products:
     Saltpeter: 1
     Water: 1
+
+- type: reaction
+  id: Ammonium Nitrate
+  reactants:
+    Ammonia:
+      amount: 1
+    Nitric Acid:
+      amount: 1
+  products:
+    Ammonium Nitrate: 1

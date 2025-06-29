@@ -49,3 +49,31 @@
       amount: 1
   products:
     Cyclonite: 1
+
+- type: reaction
+  id: AmmoniumNitrateFuelOil
+  reactants:
+    AmmoniumNitrate:
+      amount: 2
+    WeldingFuel:
+      amount: 1
+  products:
+    AmmoniumNitrateFuelOil: 2
+
+- type: reaction
+  id: ANFORunaway #when you make more than 60u per reaction
+  impact: High
+  priority: 30
+  reactants:
+    AmmoniumNitrate:
+      amount: 42
+    WeldingFuel:
+      ammount: 21
+  effects:
+    - !type:ExplosionReactionEffect
+      explosionType: DemolitionCharge #ANFO is used in mining a lot
+      maxIntensity: 20
+      intensityPerUnit: 1 # you need a lot of it for a large explosion
+      intensitySlope: 2 # more controlled explosion
+      maxTotalIntensity: 5000
+      canCreateVacuum: false

@@ -53,7 +53,46 @@
     - !type:ExplosionReactionEffect
       explosionType: DemolitionCharge #Better at breaking walls and stuff
       maxIntensity: 200
-      intensityPerUnit: 5 # RDX's RH factor is 1.6 of tnt
+      intensityPerUnit: 7 # RDX's RE factor is 1.6 of tnt
       intensitySlope: 20 # more controlled explosion
       maxTotalIntensity: 800
       canCreateVacuum: false #c4 doesn't space
+
+- type: reaction
+  id: AmmoniumNitrateDecomposition
+  minTemp: 484
+  reactants:
+    AmmoniumNitrate:
+      amount: 2
+  products:
+    NitrousOxide: 2
+    Oxygen: 1
+    Water: 4
+
+- type: reaction
+  id: SodiumBicarbonateDecomposition
+  minTemp: 324
+  reactants:
+    SodiumBicarbonate:
+      amount: 2
+  products:
+    SodiumCarbonate: 2
+    CarbonDioxide: 1
+    Water: 1
+
+- type: reaction
+  id: ANFOExplosion
+  minTemp: 576 #todo: make the reaction require another explosion to detonate it.
+  impact: High
+  priority: 20
+  reactants:
+    AmmoniumNitrateFuelOil:
+      amount: 1
+  effects:
+    - !type:ExplosionReactionEffect
+      explosionType: DemolitionCharge #ANFO is used in mining
+      maxIntensity: 20
+      intensityPerUnit: 1 # you need a lot of it for a large explosion
+      intensitySlope: 2
+      maxTotalIntensity: 5000 # max explosion requires 5000 units which is A LOT
+      canCreateVacuum: false #less pain for engi

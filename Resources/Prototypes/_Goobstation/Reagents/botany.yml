@@ -84,3 +84,25 @@
         conditions:
         - !type:OrganType
           type: Plant
+
+- type: reagent
+  id: Ammonium Nitrate
+  name: reagent-name-ammonium-nitrate
+  group: Botanical
+  desc: reagent-desc-ammonium-nitrate
+  physicalDesc: reagent-physical-desc-odorless
+  flavor: bitter
+  color: white
+  meltingPoint: 169.6 #Decomposes at 323k
+  plantMetabolism:
+  - !type:PlantAdjustNutrition
+    amount: 1
+  - !type:PlantAdjustHealth
+    amount: 0.5
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Caustic: 1
