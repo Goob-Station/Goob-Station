@@ -11581,3 +11581,95 @@ Entries:
       message: Geminis are now immune to pressure damage fully,
   id: 1276
   time: '2025-06-23T16:22:05.0000000+00:00'
+- author: thebiggestbruh
+  changes:
+    - type: Add
+      message: Added a few new text popups for changeling stings.
+    - type: Tweak
+      message: >-
+        Changelings now need to extract UNIQUE genomes for the DNA extraction
+        objective (a person cannot give you objective progress if you had
+        previously extracted their DNA during the round).
+    - type: Tweak
+      message: >-
+        Changelings should no longer roll other changelings as their "escape as
+        x's identity" target (if they swap identities its a guaranteed fail).
+    - type: Tweak
+      message: >-
+        Changelings are now able to absorb headslugs and other changelings who
+        entered lesser (monkey) form.
+    - type: Tweak
+      message: >-
+        Fake armblade sting chem cost reduced to 30 and will now force the
+        target to drop an item in their hand if both are full (provided that the
+        item can actually be dropped in the first place).
+    - type: Tweak
+      message: >-
+        Changeling stings (except for DNA extract) will now be able to work on
+        simplemobs (monkeys, carp, pets ect).
+    - type: Fix
+      message: >-
+        Fake armblade sting should no longer tell you that you can't inject a
+        monkey when the target's hands are full (the fact that nobody pointed
+        this out earlier shows that literally nobody uses it).
+    - type: Fix
+      message: >-
+        Lethargic sting description now correctly display its chem cost of 30
+        (from 25).
+    - type: Fix
+      message: >-
+        Changelings should no longer be able to roll IPCs as their "escape with
+        x's identity" target (again).
+  id: 1277
+  time: '2025-06-23T19:54:40.0000000+00:00'
+- author: Mocho, bucket of wet slop
+  changes:
+    - type: Tweak
+      message: Changelings no longer die upon beheading now.
+    - type: Tweak
+      message: >-
+        Changed the logic in the string builder for the self inspect when
+        clicking the body doll, should have a bit less engrish.
+    - type: Fix
+      message: >-
+        Fixed a bunch of bugs with wound logic, including but not limited to
+        traumas adding wounds with damage that would be unhealable, wounds going
+        over the cap and resulting in permanent pain as you would be unable to
+        reset it, 
+    - type: Fix
+      message: >-
+        Bone break alerts should go away now when removing the parts (you'll
+        likely have a broken chest bone due to current part damage transfer
+        code, needs rewriting).
+    - type: Fix
+      message: >-
+        Fixed shadowkin recreating the solstice incident, and vulp groins
+        looking like they were ripped from a N64 game.
+    - type: Fix
+      message: >-
+        Tourniquets are not healing items now, previously they would remove
+        bleed and shit without actually going on. Slopcode.
+    - type: Fix
+      message: Changed rust healing runes to use same behavior as chems.
+    - type: Fix
+      message: >-
+        Fixed body parts being unbreakable once they were severed. You can now
+        whack at them while delimbed.
+    - type: Fix
+      message: >-
+        Fixed some body parts becoming literally invisible upon getting thrown
+        or changing certain angles, thanks directional sprites.
+    - type: Fix
+      message: >-
+        Fixed that one issue where the health analyzer would display
+        {$targetPart}{$targetSymmetry} instead of proper part info.
+    - type: Fix
+      message: >-
+        Fixed some of the issues with logic on zed regeneration, it wasn't
+        healing their entire bodies.
+    - type: Fix
+      message: Fixed armor trauma deductions of 1 (100%) not actually doing their job.
+    - type: Add
+      message: H̷̟̃Ẻ̷̯L̴̟̇P̵͈͋ ̷̢̕M̸͇̆E̶̟͐ ̴̻̌I̵̓ͅT̷̡̆S̴̱͐ ̶̠̎A̴͙̽L̷̬̾Ǐ̶̹Ṿ̴̇E̴̙͌
+  id: 1278
+  time: '2025-06-24T08:41:41.0000000+00:00'
