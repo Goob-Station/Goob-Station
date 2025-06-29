@@ -1166,7 +1166,7 @@
   description: uplink-antimov-law-desc
   productEntity: AntimovCircuitBoard
   cost:
-    Telecrystal: 50 # goob x2
+    Telecrystal: 55 # goob x2
   categories:
   - UplinkDisruption
   conditions:
