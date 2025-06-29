@@ -1,6 +1,9 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
 # SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+# SPDX-FileCopyrightText: 2025 vorpuscl <198003781+vorpuscl@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -60,7 +63,7 @@
       sweatHeatRegulation: 2000
       shiveringHeatRegulation: 2000
       normalBodyTemperature: 310.15
-      thermalRegulationTemperatureThreshold: 25
+      thermalRegulationTemperatureThreshold: 2
     - type: Perishable
     - type: FireVisuals
       alternateState: Standing
@@ -128,6 +131,7 @@
       scale: 0.85, 0.85
       layers:
         - map: ["enum.HumanoidVisualLayers.Chest"]
+        - map: ["enum.HumanoidVisualLayers.Groin"]
         - map: ["enum.HumanoidVisualLayers.Head"]
         - map: ["enum.HumanoidVisualLayers.Snout"]
         - map: ["enum.HumanoidVisualLayers.Eyes"]
@@ -206,6 +210,7 @@
       - CanPilot
       - FootstepSound
       - DoorBumpOpener
+      - AnomalyHost
       - ShadowkinEmotes
       - FlashVulnerable # Can't protect against flashes
 
@@ -225,6 +230,7 @@
       scale: 0.85, 0.85 # Small
       layers:
         - map: ["enum.HumanoidVisualLayers.Chest"]
+        - map: ["enum.HumanoidVisualLayers.Groin"]
         - map: ["enum.HumanoidVisualLayers.Head"]
         - map: ["enum.HumanoidVisualLayers.Snout"]
         - map: ["enum.HumanoidVisualLayers.Eyes"]

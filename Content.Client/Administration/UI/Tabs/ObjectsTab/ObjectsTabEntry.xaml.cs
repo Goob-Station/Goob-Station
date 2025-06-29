@@ -90,7 +90,6 @@ public sealed partial class ObjectsTabEntry : PanelContainer
 
     public Action<NetEntity>? OnTeleport;
     public Action<NetEntity>? OnDelete;
-    private readonly Dictionary<Button, ConfirmationData> _confirmations = new();
 
     public ObjectsTabEntry(IClientAdminManager manager, string name, NetEntity nent, StyleBox styleBox)
     {
@@ -105,13 +104,6 @@ public sealed partial class ObjectsTabEntry : PanelContainer
         DeleteButton.Disabled = !manager.CanCommand("delete");
 
         TeleportButton.OnPressed += _ => OnTeleport?.Invoke(nent);
-        DeleteButton.OnPressed += _ =>
-        {
-            if (!AdminUIHelpers.TryConfirm(DeleteButton, _confirmations))
-            {
-                return;
-            }
-            OnDelete?.Invoke(nent);
-        };
+        DeleteButton.OnPressed += _ => OnDelete?.Invoke(nent);
     }
 }

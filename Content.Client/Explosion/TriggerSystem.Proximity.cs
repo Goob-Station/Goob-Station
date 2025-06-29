@@ -4,6 +4,8 @@
 // SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -102,7 +104,7 @@ public sealed partial class TriggerSystem
                 break;
             case ProximityTriggerVisuals.Active:
                 if (_player.HasRunningAnimation(uid, player, AnimKey)) return;
-                _player.Play(uid, player, _flasherAnimation, AnimKey);
+                _player.Play((uid, player), _flasherAnimation, AnimKey);
                 break;
             case ProximityTriggerVisuals.Off:
             default:

@@ -54,13 +54,16 @@
     ClothingEyesHudSecurity: 2
     ClothingEyesEyepatchHudSecurity: 2
     ClothingBeltSecurityWebbing: 5
-    CombatKnife: 3
     Zipties: 12
     RiotShield: 2
     RiotLaserShield: 2
     RiotBulletShield: 2
     RadioHandheldSecurity: 5
-    BolaEnergy: 5 # Goobstation - start
+    CombatKnife: 1 # Goob edit
+    # Goobstation
+    PolymerBaton: 1
+    SpearTelescopic: 1
+    BolaEnergy: 5
     PepperSpray: 3
     SecHypo: 3
     CartridgeEpinephrine: 3

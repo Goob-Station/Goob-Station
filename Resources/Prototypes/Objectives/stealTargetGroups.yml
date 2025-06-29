@@ -26,6 +26,7 @@
 # SPDX-FileCopyrightText: 2024 Эдуард <36124833+Ertanic@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
@@ -120,11 +121,18 @@
     sprite: Objects/Misc/nukedisk.rsi
     state: icon
 
+#- type: stealTargetGroup
+#  id: WeaponEnergyShotgun
+#  name: steal-target-groups-weapon-energy-shot-gun
+#  sprite:
+#    sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi
+#    state: base
+
 - type: stealTargetGroup
-  id: WeaponEnergyShotgun
-  name: steal-target-groups-weapon-energy-shot-gun
+  id: WeaponShotgunCombatPatton # RA
+  name: steal-target-groups-weapon-patton
   sprite:
-    sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi
+    sprite: _RA/Objects/Weapons/Guns/Shotguns/patton.rsi
     state: base
 
 # Thief Collection
@@ -264,12 +272,12 @@
     sprite: Objects/Devices/flatpack.rsi
     state: ame-part
 
-- type: stealTargetGroup
-  id: SalvageExpeditionsComputerCircuitboard
-  name: steal-target-groups-salvage-expeditions-computer-circuitboard
-  sprite:
-    sprite: Objects/Misc/module.rsi
-    state: cpu_supply
+#- type: stealTargetGroup                                Goob edit - Removed because Lavaland
+#  id: SalvageExpeditionsComputerCircuitboard
+#  name: steal-target-groups-salvage-expeditions-computer-circuitboard
+#  sprite:
+#    sprite: Objects/Misc/module.rsi
+#    state: cpu_supply
 
 - type: stealTargetGroup
   id: CargoShuttleConsoleCircuitboard

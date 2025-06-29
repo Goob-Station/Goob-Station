@@ -32,8 +32,8 @@
   - type: AutomatedTimer
   - type: Sticky
     stickDelay: 5
-    stickPopupStart: comp-sticky-start-stick-bomb
-    stickPopupSuccess: comp-sticky-success-stick-bomb
+#    stickPopupStart: comp-sticky-start-stick-bomb
+#    stickPopupSuccess: comp-sticky-success-stick-bomb
     # can only stick it in target area, no reason to unstick
     canUnstick: false
     blacklist: # can't stick it to movable things, even if they are in the target area

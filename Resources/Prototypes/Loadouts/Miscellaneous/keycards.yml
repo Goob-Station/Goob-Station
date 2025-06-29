@@ -1,0 +1,128 @@
+# RA keycards
+- type: loadout
+  id: Card1A
+  storage:
+    back:
+    - DormsCard1A
+
+- type: loadout
+  id: Card1B
+  storage:
+    back:
+    - DormsCard1B
+
+- type: loadout
+  id: Card1C
+  storage:
+    back:
+    - DormsCard1C
+
+- type: loadout
+  id: Card1D
+  storage:
+    back:
+    - DormsCard1D
+
+- type: loadout
+  id: Card2A
+  storage:
+    back:
+    - DormsCard2A
+
+- type: loadout
+  id: Card2B
+  storage:
+    back:
+    - DormsCard2B
+
+- type: loadout
+  id: Card2C
+  storage:
+    back:
+    - DormsCard2C
+
+- type: loadout
+  id: Card2D
+  storage:
+    back:
+    - DormsCard2D
+
+- type: loadout
+  id: Card3A
+  storage:
+    back:
+    - DormsCard3A
+
+- type: loadout
+  id: Card3B
+  storage:
+    back:
+    - DormsCard3B
+
+- type: loadout
+  id: Card3C
+  storage:
+    back:
+    - DormsCard3C
+
+- type: loadout
+  id: Card3D
+  storage:
+    back:
+    - DormsCard3D
+
+- type: loadout
+  id: Card4A
+  storage:
+    back:
+    - DormsCard4A
+
+- type: loadout
+  id: Card4B
+  storage:
+    back:
+    - DormsCard4B
+
+- type: loadout
+  id: Card4C
+  storage:
+    back:
+    - DormsCard4C
+
+- type: loadout
+  id: Card4D
+  storage:
+    back:
+    - DormsCard4D
+
+- type: loadout
+  id: Card5A
+  storage:
+    back:
+    - DormsCard5A
+
+- type: loadout
+  id: Card5B
+  storage:
+    back:
+    - DormsCard5B
+
+- type: loadout
+  id: Card6A
+  storage:
+    back:
+    - DormsCard6A
+
+- type: loadout
+  id: Card6B
+  storage:
+    back:
+    - DormsCard6B
+
+- type: loadout
+  id: Card7A
+  storage:
+    back:
+    - DormsCard7A
+
+

@@ -116,6 +116,14 @@
   - type: AccessReader
     access: [["Service"]]
 
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsServiceTheatre
+  suffix: Service, Theatre, Locked
+  components:
+  - type: AccessReader
+    access: [["Service"], ["Theatre"]]
+
 # Cargo
 - type: entity
   parent: DoorElectronics
@@ -342,6 +350,22 @@
 
 - type: entity
   parent: DoorElectronics
+  id: DoorElectronics1C
+  suffix: 1C, Locked
+  components:
+  - type: AccessReader
+    access: [["1C"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronics1D
+  suffix: 1D, Locked
+  components:
+  - type: AccessReader
+    access: [["1D"]]
+
+- type: entity
+  parent: DoorElectronics
   id: DoorElectronics2A
   suffix: 2A, Locked
   components:
@@ -355,6 +379,22 @@
   components:
   - type: AccessReader
     access: [["2B"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronics2C
+  suffix: 2C, Locked
+  components:
+  - type: AccessReader
+    access: [["2C"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronics2D
+  suffix: 2D, Locked
+  components:
+  - type: AccessReader
+    access: [["2D"]]
 
 - type: entity
   parent: DoorElectronics
@@ -374,6 +414,22 @@
 
 - type: entity
   parent: DoorElectronics
+  id: DoorElectronics3C
+  suffix: 3C, Locked
+  components:
+  - type: AccessReader
+    access: [["3C"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronics3D
+  suffix: 3D, Locked
+  components:
+  - type: AccessReader
+    access: [["3D"]]
+
+- type: entity
+  parent: DoorElectronics
   id: DoorElectronics4A
   suffix: 4A, Locked
   components:
@@ -387,6 +443,22 @@
   components:
   - type: AccessReader
     access: [["4B"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronics4C
+  suffix: 4C, Locked
+  components:
+  - type: AccessReader
+    access: [["4C"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronics4D
+  suffix: 4D, Locked
+  components:
+  - type: AccessReader
+    access: [["4D"]]
 
 - type: entity
   parent: DoorElectronics

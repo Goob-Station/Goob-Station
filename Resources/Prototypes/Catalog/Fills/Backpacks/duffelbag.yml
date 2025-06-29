@@ -156,29 +156,27 @@
   - type: StorageFill
     contents: # goob edited
       - id: DefibrillatorSyndicate
-      - id: SawAdvanced
-      - id: EnergyCautery
-      - id: AdvancedRetractor
       - id: ScalpelAdvanced
+      - id: SawAdvanced
       - id: Drill
+      - id: AdvancedRetractor
+      - id: EnergyCautery
       - id: AdvancedBoneGel
       - id: ClothingHandsGlovesNitrile
       - id: EmergencyRollerBedSpawnFolded
-      - id: ClothingMaskSterile # Goobstation
-      - id: BoneGel # Shitmed Change
-      - id: MedicalStitches # Shitmed Change
+      - id: ClothingMaskSterile
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateFilledShotgun
   name: Bulldog bundle
-  description: "Lean and mean: Contains the popular Bulldog Shotgun and four 12g buckshot drums." #, and a pair of Thermal Imaging Goggles.
+  description: "Lean and mean: Contains the popular Bulldog Shotgun, a 12g slug drum, and four 12g buckshot drums." #, and a pair of Thermal Imaging Goggles.
   components:
   - type: StorageFill
     contents:
       - id: WeaponShotgunBulldog
       - id: MagazineShotgun
-      - id: MagazineShotgun
+        amount: 3
       - id: MagazineShotgunSlug
 #     - id: ThermalImagingGoggles
 
@@ -254,7 +252,7 @@
   parent: ClothingBackpackDuffelSyndicateAmmo
   id: ClothingBackpackDuffelSyndicateAmmoFilled
   name: ammo bundle
-  description: "Reloading! Contains 4 magazines for the C-20r, 4 drums for the Bulldog, 2 ammo boxes for the L6 SAW, and 3 mags for the Burner."
+  description: "Reloading! Contains 4 magazines for the C-20r, 5 drums for the Bulldog, 2 ammo boxes for the L6 SAW, and 3 mags for the Burner."
   components:
   - type: StorageFill
     contents:
@@ -264,6 +262,8 @@
         amount: 3
       - id: MagazineShotgun
         amount: 4
+      - id: MagazineShotgunSlug
+        amount: 1
       - id: MagazineLightRifleBox
         amount: 2
       - id: MagazineHighCaliber # Goobstation - Burner Heavy Assault Rifle
@@ -366,7 +366,7 @@
   - type: StorageFill
     contents:
       - id: ClothingHeadHelmetSyndicate
-      - id: ClothingOuterHardsuitSyndicateDurathread
+      - id: ClothingOuterEVASuitSyndicate
       - id: ClothingMaskGasSyndicate
       - id: ClothingHandsGlovesColorYellowBudget
       - id: DoubleEmergencyOxygenTankFilled
@@ -374,22 +374,9 @@
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
-  id: ClothingBackpackDuffelSyndicateRaidBundle
-  name: syndicate raid suit bundle
-  description: "Contains the Syndicate's durable raid armor suit."
-  components:
-  - type: StorageFill
-    contents:
-      - id: ClothingOuterArmorRaid
-      - id: ClothingHeadHelmetRaid
-      - id: ClothingMaskGasSyndicate
-      - id: ClothingHandsGlovesCombat
-
-- type: entity
-  parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateHardsuitBundle
-  name: syndicate hardsuit bundle
-  description: "Contains the Syndicate's signature blood red hardsuit."
+  name: syndicate voidsuit bundle
+  description: "Contains the Syndicate's signature blood red voidsuit."
   components:
   - type: StorageFill
     contents:
@@ -402,8 +389,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateEliteHardsuitBundle
-  name: syndicate elite hardsuit bundle
-  description: "Contains the Syndicate's elite hardsuit, which comes with some more stuff in it."
+  name: syndicate elite voidsuit bundle
+  description: "Contains the Syndicate's elite voidsuit, which comes with some more stuff in it."
   components:
   - type: StorageFill
     contents:
@@ -416,8 +403,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateHardsuitExtrasBundle
-  name: syndicate hardsuit extras bundle
-  description: "Contains stuff that you will absolutely want to have when purchasing a hardsuit."
+  name: syndicate voidsuit extras bundle
+  description: "Contains stuff that you will absolutely want to have when purchasing a voidsuit."
   components:
   - type: StorageFill
     contents:

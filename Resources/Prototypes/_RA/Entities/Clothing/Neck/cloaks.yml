@@ -1,0 +1,10 @@
+- type: entity
+  parent: [ClothingNeckBase, BaseCommandContraband]
+  id: ClothingNeckGreatCloakRd
+  name: research director's greatcloak
+  description: An ornate high collared great cloak. Try to keep artifexium off.
+  components:
+  - type: Sprite
+    sprite: _RA/Clothing/Neck/Cloaks/rdgreatcloak.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak

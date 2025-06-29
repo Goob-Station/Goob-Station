@@ -52,17 +52,27 @@
   - CentralCommand # RA
   - 1A
   - 1B
+  - 1C
+  - 1D
   - 2A
   - 2B
+  - 2C
+  - 2D
   - 3A
   - 3B
+  - 3C
+  - 3D
   - 4A
   - 4B
+  - 4C
+  - 4D
   - 5A
   - 5B
   - 6A
   - 6B
   - 7A
+  - GenpopEnter
+  - GenpopLeave
 
 - type: accessLevel
   id: 1A
@@ -73,12 +83,29 @@
   name: id-card-access-level-1B
 
 - type: accessLevel
+  id: 1C
+  name: id-card-access-level-1C
+
+- type: accessLevel
+  id: 1D
+  name: id-card-access-level-1D
+
+
+- type: accessLevel
   id: 2A
   name: id-card-access-level-2A
 
 - type: accessLevel
   id: 2B
   name: id-card-access-level-2B
+
+- type: accessLevel
+  id: 2C
+  name: id-card-access-level-2C
+
+- type: accessLevel
+  id: 2D
+  name: id-card-access-level-2D
 
 - type: accessLevel
   id: 3A
@@ -89,12 +116,28 @@
   name: id-card-access-level-3B
 
 - type: accessLevel
+  id: 3C
+  name: id-card-access-level-3C
+
+- type: accessLevel
+  id: 3D
+  name: id-card-access-level-3D
+
+- type: accessLevel
   id: 4A
   name: id-card-access-level-4A
 
 - type: accessLevel
   id: 4B
   name: id-card-access-level-4B
+
+- type: accessLevel
+  id: 4C
+  name: id-card-access-level-4C
+
+- type: accessLevel
+  id: 4D
+  name: id-card-access-level-4D
 
 - type: accessLevel
   id: 5A
@@ -114,4 +157,3 @@
 
 - type: accessLevel
   id: 7A
-  name: id-card-access-level-7A

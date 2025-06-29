@@ -1,4 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Icepick <122653407+Icepicked@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
@@ -6,6 +5,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
@@ -25,6 +25,82 @@
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity # literally BaseWeaponPowerCell cuz we can't get rid of components in children HELL YEA
+  id: BaseWeaponCustomCell
+  parent: BaseItem
+  abstract: true
+  components:
+  - type: Sprite
+  - type: Item
+    size: Huge
+  - type: AmmoCounter
+  - type: Gun
+    fireRate: 2
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+  - type: MagazineAmmoProvider
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: PowerCellSmall
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - PowerCell
+            - PowerCellSmall
+  - type: Appearance
+  - type: StaticPrice
+    price: 500
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+  - type: Cautery # Shitmed
+    speed: 0.9
+  - type: SurgeryTool # Shitmed
+    endSound:
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+  - type: AlwaysHot # Goobstation V
+  - type: MeleeWeapon
+    damage:
+      types:
+       Blunt: 12
+    angle: 0
+    wideAnimationRotation: 90 # -90 if it takes bayonets (hits with muzzle) 90 if not (hits with butt)
+    soundHit:
+      collection: MetalThud # Goobstation ^
+
+- type: entity
+  id: BaseWeaponCustomCellSmall
+  parent: BaseWeaponCustomCell
+  abstract: true
+  components:
+  - type: Item
+    size: Small
+    shape: # Goobstation
+    - 0,0,1,0
+    - 0,1,0,1
+  - type: Tag
+    tags:
+    - Sidearm
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Battery/taser.rsi
+    quickEquip: false
+    slots:
+    - Belt
+  - type: MeleeWeapon # Goobstation V
+    damage:
+      types:
+       Blunt: 8 # pistol whip
+    angle: 0
+    wideAnimationRotation: 90 # -90 if it takes bayonets (hits with muzzle) 90 if not (hits with butt)
+    soundHit:
+      collection: MetalThud # Goobstation ^
 
 - type: entity
   name: miniature energy crossbow
@@ -114,7 +190,7 @@
 
 - type: entity
   name: EG-4 Equalizer
-  parent: [ BaseWeaponPowerCellSmall, BaseCentcommContraband ]
+  parent: [ BaseWeaponCustomCellSmall, BaseCentcommContraband ]
   id: WeaponEnergyRevolver
   description: A highly advanced energy revolver capable of firing various bolts depending on the power cell.
   components:
@@ -240,6 +316,45 @@
     autoRechargeRate: 40
 
 - type: entity
+  name: syndicate disabler
+  parent: [ WeaponDisablerPractice, BaseSyndicateContraband ]
+  id: WeaponDisablerSyndicate
+  description: An advanced disabler built from a reverse-engineered Nanotrasen prototype. While it lacks a bit of stopping power, it makes up for it with a recharging cell.
+  components:
+    - type: Gun
+      fireRate: 3
+      soundGunshot:
+        path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
+    - type: Item
+      size: Small
+      shape:
+      - 0,0,1,0
+      - 1,1,1,1
+    - type: Sprite
+      sprite: _EinsteinEngines/Objects/Weapons/Guns/Battery/syndicate-disabler.rsi
+      layers:
+        - state: base
+          map: ["enum.GunVisualLayers.Base"]
+        - state: mag-unshaded-0
+          map: ["enum.GunVisualLayers.MagUnshaded"]
+          shader: unshaded
+    - type: Clothing
+      sprite: _EinsteinEngines/Objects/Weapons/Guns/Battery/syndicate-disabler.rsi
+      quickEquip: false
+      slots:
+        - suitStorage
+        - Belt
+    - type: ProjectileBatteryAmmoProvider
+      proto: BulletSyndicateDisabler
+      fireCost: 100
+    - type: Multishot
+      spreadMultiplier: 1.25
+      spreadAddition: 10
+    - type: BatterySelfRecharger
+      autoRecharge: true
+      autoRechargeRate: 50
+
+- type: entity
   name: advanced pulse carbine
   parent: WeaponPulseCarbine
   id: WeaponPulseCarbineAdvanced
@@ -254,7 +369,7 @@
 
 - type: entity
   name: CR-2 energy assault rifle
-  parent: [ BaseWeaponPowerCell, BaseGunWieldable, BaseSecurityContraband ]
+  parent: [ BaseWeaponCustomCell, BaseGunWieldable, BaseSecurityContraband ]
   id: WeaponEnergyRifle
   description: An advanced energy rifle capable of firing various bolts depending on the powercell magazine.
   components:
