@@ -13,15 +13,11 @@
   id: MobShadowlingSprites
   sprites:
     Head: MobShadowlingHead
-    Face: MobHumanoidAnyMarking
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
-    Hair: MobHumanoidAnyMarking
-    FacialHair: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
-    Chest: MobShadowlingTorso
-    Underwear: MobHumanoidAnyMarking
-    Undershirt: MobHumanoidAnyMarking
+    Chest: MobShadowlingChest
+    Groin: MobShadowlingGroin
     Eyes: MobShadowlingEyes
     LArm: MobShadowlingLArm
     RArm: MobShadowlingRArm
@@ -58,22 +54,40 @@
     state: head_f
 
 - type: humanoidBaseSprite
-  id: MobShadowlingTorso
+  id: MobShadowlingChest
   baseSprite:
     sprite: _EinsteinEngines/Mobs/Species/Shadowling/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobShadowlingTorsoMale
+  id: MobShadowlingChestMale
   baseSprite:
     sprite: _EinsteinEngines/Mobs/Species/Shadowling/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobShadowlingTorsoFemale
+  id: MobShadowlingChestFemale
   baseSprite:
     sprite: _EinsteinEngines/Mobs/Species/Shadowling/parts.rsi
-    state: torso_f
+    state: chest_f
+
+- type: humanoidBaseSprite
+  id: MobShadowlingGroin
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Shadowling/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobShadowlingGroinMale
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Shadowling/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobShadowlingGroinFemale
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Shadowling/parts.rsi
+    state: groin_f
 
 - type: humanoidBaseSprite
   id: MobShadowlingLLeg

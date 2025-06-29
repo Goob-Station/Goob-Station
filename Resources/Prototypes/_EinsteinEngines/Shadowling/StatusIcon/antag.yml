@@ -7,7 +7,7 @@
     - Shadowling
     - Thrall
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
+    sprite: /Textures/_EinsteinEngines/Interface/Misc/job_icons.rsi
     state: Shadowling
 
 - type: factionIcon
@@ -19,5 +19,5 @@
     - Shadowling
     - Thrall
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
+    sprite: /Textures/_EinsteinEngines/Interface/Misc/job_icons.rsi
     state: Thrall

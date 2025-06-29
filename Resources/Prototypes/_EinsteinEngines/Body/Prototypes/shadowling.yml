@@ -1,28 +1,32 @@
 - type: body
   id: Shadowling
   name: Shadowling
-  root: torso
+  root: chest
   slots:
     head:
       part: HeadShadowling
       connections:
-      - torso
+      - chest
       organs:
         brain: OrganHumanBrain
         eyes: OrganHumanEyes
-    torso:
-      part: TorsoShadowling
+    chest:
+      part: ChestShadowling
       connections:
       - right arm
       - left arm
-      - right leg
-      - left leg
-      - head # Shitmed Change
+      - head
       organs:
         heart: OrganHumanHeart
         lungs: OrganHumanLungs
+    groin:
+      part: GroinShadowling
+      connections:
+      - right leg
+      - left leg
+      organs:
         stomach: OrganHumanStomach
-        liver:  OrganHumanLiver
+        liver: OrganHumanLiver
         kidneys: OrganHumanKidneys
     right arm:
       part: RightArmShadowling

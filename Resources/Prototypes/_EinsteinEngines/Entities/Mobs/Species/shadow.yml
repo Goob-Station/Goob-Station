@@ -1,7 +1,7 @@
 # used for nightmares and lesser shadowlings
 - type: entity
   save: false
-  name: Urist McShadowkin
+  name: Urist McShadow
   parent: BaseMobSpeciesOrganic
   id: MobShadowBase
   components:
@@ -13,12 +13,7 @@
     color: "#BF40BF"
     activateSound: null
     deactivateSound: null
-  - type: Flashable
-    durationMultiplier: 1.5
   - type: Absorbable # idk why
-  - type: Psionic
-    removable: false
-    roller: false
   - type: HumanoidAppearance
     species: Shadow
   - type: Fingerprint
@@ -43,13 +38,6 @@
       types:
         Slash: 4
         Piercing: 1
-  - type: DamageVisuals
-    damageOverlayGroups:
-      Brute:
-        sprite: Mobs/Effects/brute_damage.rsi
-        color: "#5D3FD3"
-      Burn:
-        sprite: Mobs/Effects/burn_damage.rsi
   - type: PassiveDamage
     allowedStates:
     - Alive
@@ -63,14 +51,6 @@
   - type: SurgeryTarget
   - type: Bloodstream
     bloodReagent: FluorosulfuricAcid
-  - type: LanguageSpeaker
-    currentLanguage: Shadowmind
-  - type: LanguageKnowledge
-    speaks:
-    - Shadowmind
-    - TauCetiBasic
-    understands:
-    - TauCetiBasic
   - type: PressureImmunity
 
 - type: entity

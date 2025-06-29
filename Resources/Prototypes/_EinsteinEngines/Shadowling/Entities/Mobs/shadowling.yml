@@ -5,7 +5,6 @@
   suffix: ""
   description: A shadowling ascendant. If you're seeing this, you're probably dead.
   components:
-  - type: PsionicInsulation
   - type: Bloodstream
     bloodMaxVolume: 650
     bloodReagent: FluorosulfuricAcid
@@ -39,9 +38,6 @@
     radius: 2
     softness: 1
     energy: 50
-  - type: Psionic
-    removable: false
-    roller: false
   - type: NightVision
     color: "#BF40BF"
     activateSound: null
@@ -66,10 +62,3 @@
         Base: shadowling_ascend
       Dead:
         Base: asc_dead
-  - type: LanguageSpeaker
-    currentLanguage: Shadowmind
-  - type: LanguageKnowledge
-    speaks:
-    - Shadowmind
-    understands:
-    - TauCetiBasic

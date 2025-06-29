@@ -8,8 +8,9 @@
     allowRepeatedMorphs: true
     revertOnDeath: false
     revertOnCrit: false
-    copiedComponents:
-      - Shadowling
+    componentsToTransfer:
+    - component: Shadowling
+      mirror: true
 
 - type: polymorph
   id: ShadowlingAscendantPolymorph
@@ -21,8 +22,9 @@
     allowRepeatedMorphs: true
     revertOnCrit: false
     revertOnDeath: false
-    copiedComponents:
-      - Shadowling
+    componentsToTransfer:
+    - component: Shadowling
+      mirror: true
 
 # used for lesser
 - type: polymorph
@@ -36,5 +38,6 @@
     revertOnCrit: false
     revertOnDeath: false
     inventory: Transfer
-    copiedComponents:
-      - Thrall
+    componentsToTransfer:
+    - component: Thrall
+      mirror: true

@@ -4,7 +4,6 @@
   parent: BaseMobSpeciesOrganic
   id: MobShadowlingBase
   components:
-  - type: PsionicInsulation
   - type: NightVision
     color: "#BF40BF"
     activateSound: null
@@ -13,12 +12,7 @@
     color: "#BF40BF"
     activateSound: null
     deactivateSound: null
-  - type: Flashable
-    durationMultiplier: 1.5
   - type: Absorbable # idk why
-  - type: Psionic
-    removable: false
-    roller: false
   - type: HumanoidAppearance
     species: Shadowling
   - type: Fingerprint
@@ -37,6 +31,7 @@
     - CanPilot
     - FootstepSound
     - DoorBumpOpener
+    - FlashVulnerable
   - type: MeleeWeapon
     soundHit:
       collection: FirePunch
@@ -45,13 +40,6 @@
       types:
         Slash: 4
         Piercing: 1
-  - type: DamageVisuals
-    damageOverlayGroups:
-      Brute:
-        sprite: Mobs/Effects/brute_damage.rsi
-        color: "#5D3FD3"
-      Burn:
-        sprite: Mobs/Effects/burn_damage.rsi
   - type: PassiveDamage
     allowedStates:
     - Alive
@@ -65,14 +53,6 @@
   - type: SurgeryTarget
   - type: Bloodstream
     bloodReagent: FluorosulfuricAcid
-  - type: LanguageSpeaker
-    currentLanguage: Shadowmind
-  - type: LanguageKnowledge
-    speaks:
-    - Shadowmind
-    - TauCetiBasic
-    understands:
-    - TauCetiBasic
 
 - type: entity
   parent: BaseSpeciesDummy
