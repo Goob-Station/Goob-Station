@@ -250,21 +250,21 @@
   id: RuleR12
   name: guide-entry-rules-r12
   ruleEntry: true
-  priority: 10
+  priority: 12
   text: "/ServerInfo/Guidebook/ServerRules/RoleplayRules/RuleR12Blueshield.xml"
 
 - type: guideEntry
   id: RuleR13
   name: guide-entry-rules-r13
   ruleEntry: true
-  priority: 10
+  priority: 13
   text: "/ServerInfo/Guidebook/ServerRules/RoleplayRules/RuleR13NTR.xml"
 
 - type: guideEntry
   id: RuleR14
   name: guide-entry-rules-r14
   ruleEntry: true
-  priority: 12
+  priority: 14
   text: "/ServerInfo/Guidebook/ServerRules/RoleplayRules/RuleR14NewLifeRule.xml"
 
 - type: guideEntry
