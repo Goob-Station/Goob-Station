@@ -10,6 +10,8 @@
     cultistText: cosmic-examine-text-cultentity
     othersText: cosmic-examine-text-entities
   - type: AntagImmune
+  - type: StaminaResistance
+    damageCoefficient: 0 # No more stunning colossi
   - type: Sprite
     drawdepth: Mobs
     sprite: _DV/CosmicCult/Mobs/colossus.rsi
