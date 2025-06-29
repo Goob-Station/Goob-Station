@@ -121,7 +121,7 @@ namespace Content.Client.Lobby
         protected override Type? LinkedScreenType { get; } = typeof(LobbyGui);
         public LobbyGui? Lobby;
 
-        public static event Action<LobbyGui>? OnLobbyGuiReady;
+        public static event Action<LobbyGui>? OnLobbyGuiReady; // Pirate
 
         protected override void Startup()
         {
@@ -166,7 +166,7 @@ namespace Content.Client.Lobby
 
              _serverCur.BalanceChange += UpdatePlayerBalance; // Goobstation - Goob Coin
 
-            OnLobbyGuiReady?.Invoke(Lobby!);
+            OnLobbyGuiReady?.Invoke(Lobby!); // Pirate
          }
 
         protected override void Shutdown()
