@@ -1707,12 +1707,20 @@
   loadouts:
   - Card1A
   - Card1B
+  - Card1C
+  - Card1D
   - Card2A
   - Card2B
+  - Card2C
+  - Card2D
   - Card3A
   - Card3B
+  - Card3C
+  - Card3D
   - Card4A
   - Card4B
+  - Card4C
+  - Card4D
   - Card5A
   - Card5B
   - Card6A

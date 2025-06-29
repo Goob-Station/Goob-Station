@@ -1319,6 +1319,24 @@
 
 - type: entity
   parent: AirlockDorms
+  id: Airlock1CLocked
+  suffix: 1C, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronics1C ]
+
+- type: entity
+  parent: AirlockDorms
+  id: Airlock1DLocked
+  suffix: 1D, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronics1D ]
+
+- type: entity
+  parent: AirlockDorms
   id: Airlock2ALocked
   suffix: 2A, Locked
   components:
@@ -1334,6 +1352,24 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronics2B ]
+
+- type: entity
+  parent: AirlockDorms
+  id: Airlock2CLocked
+  suffix: 2C, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronics2C ]
+
+- type: entity
+  parent: AirlockDorms
+  id: Airlock2DLocked
+  suffix: 2D, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronics2D ]
 
 - type: entity
   parent: AirlockDorms
@@ -1355,6 +1391,24 @@
 
 - type: entity
   parent: AirlockDorms
+  id: Airlock3CLocked
+  suffix: 3C, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronics3C ]
+
+- type: entity
+  parent: AirlockDorms
+  id: Airlock3DLocked
+  suffix: 3D, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronics3D ]
+
+- type: entity
+  parent: AirlockDorms
   id: Airlock4ALocked
   suffix: 4A, Locked
   components:
@@ -1370,6 +1424,24 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronics4B ]
+
+- type: entity
+  parent: AirlockDorms
+  id: Airlock4CLocked
+  suffix: 4C, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronics4C ]
+
+- type: entity
+  parent: AirlockDorms
+  id: Airlock4DLocked
+  suffix: 4D, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronics4D ]
 
 - type: entity
   parent: AirlockDorms

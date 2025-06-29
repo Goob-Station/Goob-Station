@@ -56,6 +56,32 @@
 
 - type: entity
   parent: DormsCardStandard
+  id: DormsCard1C
+  name: room 1C keycard
+  components:
+  - type: Sprite
+    layers:
+    - state: dorms
+    - state: id1C
+  - type: Access
+    tags:
+    - 1C
+
+- type: entity
+  parent: DormsCardStandard
+  id: DormsCard1D
+  name: room 1D keycard
+  components:
+  - type: Sprite
+    layers:
+    - state: dorms
+    - state: id1D
+  - type: Access
+    tags:
+    - 1D
+
+- type: entity
+  parent: DormsCardStandard
   id: DormsCard2A
   name: room 2A keycard
   components:
@@ -79,6 +105,32 @@
   - type: Access
     tags:
     - 2B
+
+- type: entity
+  parent: DormsCardStandard
+  id: DormsCard2C
+  name: room 2C keycard
+  components:
+  - type: Sprite
+    layers:
+    - state: dorms
+    - state: id2C
+  - type: Access
+    tags:
+    - 2C
+
+- type: entity
+  parent: DormsCardStandard
+  id: DormsCard2D
+  name: room 2D keycard
+  components:
+  - type: Sprite
+    layers:
+    - state: dorms
+    - state: id2D
+  - type: Access
+    tags:
+    - 2D
 
 - type: entity
   parent: DormsCardStandard
@@ -108,6 +160,32 @@
 
 - type: entity
   parent: DormsCardStandard
+  id: DormsCard3C
+  name: room 3C keycard
+  components:
+  - type: Sprite
+    layers:
+    - state: dorms
+    - state: id3C
+  - type: Access
+    tags:
+    - 3C
+
+- type: entity
+  parent: DormsCardStandard
+  id: DormsCard3D
+  name: room 3D keycard
+  components:
+  - type: Sprite
+    layers:
+    - state: dorms
+    - state: id3D
+  - type: Access
+    tags:
+    - 3D
+
+- type: entity
+  parent: DormsCardStandard
   id: DormsCard4A
   name: room 4A keycard
   components:
@@ -131,6 +209,32 @@
   - type: Access
     tags:
     - 4B
+
+- type: entity
+  parent: DormsCardStandard
+  id: DormsCard4C
+  name: room 4C keycard
+  components:
+  - type: Sprite
+    layers:
+    - state: dorms
+    - state: id4C
+  - type: Access
+    tags:
+    - 4C
+
+- type: entity
+  parent: DormsCardStandard
+  id: DormsCard4D
+  name: room 4D keycard
+  components:
+  - type: Sprite
+    layers:
+    - state: dorms
+    - state: id4D
+  - type: Access
+    tags:
+    - 4D
 
 - type: entity
   parent: DormsCardStandard

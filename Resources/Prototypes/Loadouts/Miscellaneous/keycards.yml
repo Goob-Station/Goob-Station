@@ -10,6 +10,19 @@
   storage:
     back:
     - DormsCard1B
+
+- type: loadout
+  id: Card1C
+  storage:
+    back:
+    - DormsCard1C
+
+- type: loadout
+  id: Card1D
+  storage:
+    back:
+    - DormsCard1D
+
 - type: loadout
   id: Card2A
   storage:
@@ -21,6 +34,18 @@
   storage:
     back:
     - DormsCard2B
+
+- type: loadout
+  id: Card2C
+  storage:
+    back:
+    - DormsCard2C
+
+- type: loadout
+  id: Card2D
+  storage:
+    back:
+    - DormsCard2D
 
 - type: loadout
   id: Card3A
@@ -35,6 +60,18 @@
     - DormsCard3B
 
 - type: loadout
+  id: Card3C
+  storage:
+    back:
+    - DormsCard3C
+
+- type: loadout
+  id: Card3D
+  storage:
+    back:
+    - DormsCard3D
+
+- type: loadout
   id: Card4A
   storage:
     back:
@@ -45,6 +82,18 @@
   storage:
     back:
     - DormsCard4B
+
+- type: loadout
+  id: Card4C
+  storage:
+    back:
+    - DormsCard4C
+
+- type: loadout
+  id: Card4D
+  storage:
+    back:
+    - DormsCard4D
 
 - type: loadout
   id: Card5A
