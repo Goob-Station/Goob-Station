@@ -1,0 +1,18 @@
+- type: constructionGraph
+  id: WoodenWand
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: woodenWand
+      steps:
+      - component: AnomalyCore
+        name: anomaly core
+        icon:
+          sprite: Structures/Specific/Anomalies/Cores/gravity_core.rsi
+          state: core
+      - material: WoodPlank
+        amount: 5
+        doAfter: 3
+  - node: woodenWand
+    entity: WeaponWoodenWand
