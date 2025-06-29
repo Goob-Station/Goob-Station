@@ -8,6 +8,8 @@
 // SPDX-FileCopyrightText: 2023 LordEclipse <106132477+LordEclipse@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -28,4 +30,6 @@ public abstract partial class BatteryAmmoProviderComponent : AmmoProviderCompone
 
     [ViewVariables(VVAccess.ReadWrite)]
     public int Capacity;
+
+    [DataField] public bool Examinable = true; // goob edit
 }

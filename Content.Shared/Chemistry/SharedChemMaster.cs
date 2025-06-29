@@ -12,7 +12,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Chemistry.Reagent;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Chemistry
@@ -119,7 +119,10 @@ namespace Content.Shared.Chemistry
         U1 = 1,
         U5 = 5,
         U10 = 10,
+        U15 = 15,
+        U20 = 20,
         U25 = 25,
+        U30 = 30,
         U50 = 50,
         U100 = 100,
         All,

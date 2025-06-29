@@ -1,5 +1,7 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
@@ -14,7 +16,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Client._Shitcode.Heretic;
 
-public sealed partial class VoidCurseSystem : SharedVoidCurseSystem
+public sealed class VoidCurseSystem : SharedVoidCurseSystem
 {
     public override void Initialize()
     {
@@ -41,7 +43,7 @@ public sealed partial class VoidCurseSystem : SharedVoidCurseSystem
                 continue;
 
             var state = _overlayStateNormal;
-            if (comp.Stacks >= comp.MaxStacks / 1.5f)
+            if (comp.Stacks >= comp.MaxStacks)
                 state = _overlayStateMax;
 
             sprite.LayerSetState(layer, state);

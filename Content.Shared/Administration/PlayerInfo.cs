@@ -14,12 +14,16 @@
 // SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Robust.Shared.Network;
 using Robust.Shared.Serialization;
+using Content.Shared.Mind;
 
 namespace Content.Shared.Administration;
 
@@ -30,10 +34,14 @@ public sealed record PlayerInfo(
     string IdentityName,
     string StartingJob,
     bool Antag,
+    RoleTypePrototype RoleProto,
+    LocId? Subtype,
+    int SortWeight,
     NetEntity? NetEntity,
     NetUserId SessionId,
     bool Connected,
     bool ActiveThisRound,
+    bool IsGhost, // Goobstation
     TimeSpan? OverallPlaytime)
 {
     private string? _playtimeString;

@@ -15,16 +15,17 @@
   markingLimits: MobMothMarkingLimits
   dollPrototype: MobMothDummy
   skinColoration: Hues
-  maleFirstNames: names_moth_first_male
-  femaleFirstNames: names_moth_first_female
-  lastNames: names_moth_last
+  maleFirstNames: NamesMothFirstMale
+  femaleFirstNames: NamesMothFirstFemale
+  lastNames: NamesMothLast
 
 - type: speciesBaseSprites
   id: MobMothSprites
   sprites:
     Head: MobMothHead
     Snout: MobHumanoidAnyMarking
-    Chest: MobMothTorso
+    Chest: MobMothChest
+    Groin: MobMothGroin
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
@@ -72,7 +73,7 @@
       points: 1
       required: false
     Chest:
-      points: 1
+      points: 2
       required: false
     Legs:
       points: 2
@@ -100,22 +101,40 @@
     state: head_f
 
 - type: humanoidBaseSprite
-  id: MobMothTorso
+  id: MobMothChest
   baseSprite:
     sprite: Mobs/Species/Moth/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobMothTorsoMale
+  id: MobMothChestMale
   baseSprite:
     sprite: Mobs/Species/Moth/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobMothTorsoFemale
+  id: MobMothChestFemale
   baseSprite:
     sprite: Mobs/Species/Moth/parts.rsi
-    state: torso_f
+    state: chest_f
+
+- type: humanoidBaseSprite
+  id: MobMothGroin
+  baseSprite:
+    sprite: Mobs/Species/Moth/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobMothGroinMale
+  baseSprite:
+    sprite: Mobs/Species/Moth/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobMothGroinFemale
+  baseSprite:
+    sprite: Mobs/Species/Moth/parts.rsi
+    state: groin_f
 
 - type: humanoidBaseSprite
   id: MobMothLLeg

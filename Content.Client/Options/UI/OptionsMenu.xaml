@@ -25,6 +25,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         <tabs:KeyRebindTab Name="KeyRebindTab" />
         <tabs:AudioTab Name="AudioTab" />
         <tabs:AccessibilityTab Name="AccessibilityTab" />
+        <tabs:AdminOptionsTab Name="AdminOptionsTab" />
         <tabs:NetworkTab Name="NetworkTab" />
     </TabContainer>
 </DefaultWindow>

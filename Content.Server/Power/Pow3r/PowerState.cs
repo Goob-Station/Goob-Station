@@ -8,6 +8,8 @@
 // SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -367,6 +369,8 @@ namespace Content.Server.Power.Pow3r
 
             [ViewVariables(VVAccess.ReadWrite)] public float SupplyRampRate = 5000;
             [ViewVariables(VVAccess.ReadWrite)] public float SupplyRampTolerance = 5000;
+            // Goobstation
+            [ViewVariables] public float SupplyRampScaling = 1.2f; // if you want to set this below 1, you're very likely doing something wrong
 
             // == Runtime parameters ==
 

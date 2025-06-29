@@ -13,7 +13,7 @@ using Robust.Shared.Random;
 
 namespace Content.Shared.EntityList;
 
-[Prototype("entityLootTable")]
+[Prototype]
 public sealed partial class EntityLootTablePrototype : IPrototype
 {
     [IdDataField]

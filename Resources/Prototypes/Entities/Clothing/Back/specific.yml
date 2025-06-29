@@ -9,8 +9,11 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 # SPDX-FileCopyrightText: 2025 Terraspark4941 <terraspark4941@gmail.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -98,3 +101,52 @@
       Glass: 250
   - type: StaticPrice #Goobstation - Recycle update
     price: 50
+
+# Assmos - Extinguisher Nozzle
+- type: entity
+  parent: Clothing
+  id: ClothingBackpackFirefighterTank
+  name: firefighter water tank backpack
+  description: A refrigerated water tank backpack that can switch modes to launch ATMOS resin or work as a high pressure extinguisher. 
+  components:
+  - type: Tag
+    tags:
+    - AtmosBackTank
+    - WhitelistChameleon
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/atmosbackpacktank.rsi
+    state: icon
+  - type: Item
+    size: Ginormous
+  - type: Clothing
+    slots: BACK
+    sprite: Clothing/Back/Backpacks/atmosbackpacktank.rsi
+  - type: SolutionAmmoProvider
+    solutionId: tank
+    proto: AtmosResin
+    fireCost: 25
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 1200
+        reagents:
+        - ReagentId: Water
+          Quantity: 1200
+  - type: DrawableSolution
+    solution: tank
+  - type: DrainableSolution
+    solution: tank
+  - type: ExaminableSolution
+    solution: tank
+  - type: ItemSlots
+    slots:
+      nozzle_slot:
+        name: FirefighterNozzle
+        startingItem: FirefighterNozzle
+        whitelist:
+          tags:
+          - Nozzle
+  - type: FirefighterTankRefillable
+  - type: ContainerContainer
+    containers:
+      nozzle_slot: !type:ContainerSlot

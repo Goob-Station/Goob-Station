@@ -1,0 +1,121 @@
+
+ ########### COSMIC CONVERTER, BASE ABSTRACT #############
+
+- type: entity
+  parent: BaseStructure
+  id: CosmicConstructPylon
+  name: Vacuous Chantry
+  description: Lorem Ipsum
+  placement:
+    mode: AlignTileAny
+  components:
+  - type: Fixtures
+    fixtures:
+      MonumentCollider:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.1,-0.2,1.1,0.7"
+        mask:
+        - LargeMobMask
+        layer:
+        - WallLayer
+        density: 1000
+        hard: false
+  - type: SpriteFade
+  - type: Sprite
+    sprite: _DV/CosmicCult/Tileset/cosmicconstructpylon.rsi
+    layers:
+      - state: base
+      - state: base-overlay
+        shader: unshaded
+    offset: 0,1
+    drawdepth: Mobs
+  - type: InteractionOutline
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: PointLight
+    enabled: true
+    castShadows: false
+    radius: 4.5
+    energy: 4
+    color: "#42a4ae"
+  - type: LightBehaviour
+    behaviours:
+     - !type:FadeBehaviour
+       interpolate: Linear
+       minDuration: 3
+       maxDuration: 5
+       startValue: 4.5
+       endValue: 1.5
+       property: Energy
+       enabled: true
+       isLooped: true
+       reverseWhenFinished: true
+  - type: AmbientSound
+    range: 3.5
+    volume: -9
+    sound:
+      path: /Audio/_DV/CosmicCult/god_ambient.ogg
+  - type: CosmicCultExamine
+    cultistText: cosmic-examine-text-forthecult
+  - type: CosmicCorrupting
+    corruptionReduction: 0.01
+    enabled: false
+    floodFillStarting: true
+
+ ########### SPAWN-IN ANIMATION #############
+
+- type: entity
+  id: CosmicConstructPylonSpawnIn
+  name: Vacuous Chantry
+  parent: BaseStructure
+  suffix: Spawn, DO NOT MAP
+  components:
+  - type: Sprite
+    sprite: _DV/CosmicCult/Tileset/cosmicconstructpylon.rsi
+    layers:
+      - state: spawnin
+      - state: spawnin-overlay
+        shader: unshaded
+    offset: 0,1
+    drawdepth: Mobs
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.1,-0.2,1.1,0.7"
+        hard: false
+        mask:
+        - LargeMobMask
+        layer:
+        - WallLayer
+  - type: InteractionOutline
+  - type: Transform
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/_DV/CosmicCult/monument_spawn.ogg
+      params:
+        volume: +8
+        pitch: 0.8
+  - type: TimedDespawn
+    lifetime: 2.4
+  - type: SpawnOnDespawn
+    prototype: CosmicConstructPylon
+  - type: PointLight
+    enabled: true
+    radius: 4.5
+    energy: 4
+    color: "#42a4ae"
+  - type: LightBehaviour
+    behaviours:
+     - !type:FadeBehaviour
+       interpolate: Linear
+       minDuration: 3.8
+       maxDuration: 3.8
+       startValue: 0.5
+       endValue: 4.5
+       property: Energy
+       enabled: true

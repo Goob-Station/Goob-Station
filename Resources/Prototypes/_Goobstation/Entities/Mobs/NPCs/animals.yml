@@ -8,9 +8,14 @@
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2025 grub <unalterableness@gmail.com>
+# SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -120,6 +125,7 @@
       task: IdleCompound
   - type: Body
     prototype: Animal
+    bodyType: Simple
   - type: Climbing
   - type: NameIdentifier
     group: GenericNumber
@@ -151,6 +157,8 @@
     allowMovement: true
     description: ghost-role-information-SyndiRoach-description
     rules: ghost-role-information-SyndiRoach-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
@@ -225,6 +233,8 @@
     name: ghost-role-information-lootbug-name
     description: ghost-role-information-lootbug-description
     rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
   - type: GhostTakeoverAvailable
   - type: Speech
     speechVerb: SmallMob
@@ -340,6 +350,7 @@
       path: /Audio/Effects/bite.ogg
   - type: Body # Shitmed: Special carp organs
     prototype: Carp
+    bodyType: Simple
   - type: SurgeryTarget # Shitmed
   - type: UserInterface # Shitmed
     interfaces:
@@ -445,3 +456,56 @@
         Slash: 10
   - type: Item
     size: Tiny
+
+- type: entity
+  parent: MobMouse
+  id: MouseMenace
+  name: menace
+  components:
+  - type: EnchantFill
+    enchants:
+      EnchantInsulated: 1 # eat ALL the wires
+      EnchantUnbreaking: 3 # very hard to kill
+      EnchantSharpness: 5 # hit hard ye
+
+- type: entity
+  name: Clown Ian
+  parent: MobCorgiIan
+  id: MobCorgiIanClown
+  description: Honkmother's favorite corgi.
+  components:
+    - type: Sprite
+      drawdepth: Mobs
+      sprite: _Goobstation/Mobs/Animals/clown_ian.rsi
+      layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: clown_ian
+    - type: DamageStateVisuals
+      states:
+        Alive:
+          Base: clown_ian
+        Critical:
+          Base: clown_ian_dead
+        Dead:
+          Base: clown_ian_dead
+    - type: Grammar
+      attributes:
+        proper: true
+        gender: male
+    - type: AutoImplant
+      implants:
+      - SadTromboneImplant
+      - BikeHornImplant
+    - type: FootstepModifier
+      footstepSoundCollection:
+        collection: FootstepClown
+    - type: Speech
+      speechVerb: Cluwne
+    - type: Bloodstream
+      bloodMaxVolume: 150
+      bloodReagent: Laughter
+    - type: Clumsy
+    - type: NoSlip
+    - type: Tag
+      tags:
+      - FootstepSound

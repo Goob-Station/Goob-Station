@@ -128,7 +128,7 @@ public abstract class SharedJobSystem : EntitySystem
         if (role is null)
             return false;
 
-        comp = role.Value.Comp;
+        comp = role.Value.Comp1;
 
         return (comp.JobPrototype == prototypeId);
     }
@@ -153,7 +153,7 @@ public abstract class SharedJobSystem : EntitySystem
             return false;
 
         if (_roles.MindHasRole<JobRoleComponent>(mindId.Value, out var role))
-            job = role.Value.Comp.JobPrototype;
+            job = role.Value.Comp1.JobPrototype;
 
         return (job is not null);
     }

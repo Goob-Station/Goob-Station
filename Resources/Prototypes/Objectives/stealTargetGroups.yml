@@ -25,7 +25,14 @@
 # SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Эдуард <36124833+Ertanic@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Traitor single items
@@ -71,6 +78,13 @@
   sprite:
     sprite: Objects/Misc/qm_clipboard.rsi
     state: qm_clipboard
+
+- type: stealTargetGroup
+  id: ClothingHandsKnuckleDustersQM
+  name: steal-target-groups-clothing-hands-knuckledusters-qm
+  sprite:
+    sprite: _Goobstation/Clothing/Hands/Gloves/knuckleduster.rsi # Goobstation
+    state: goldenknuckleduster
 
 - type: stealTargetGroup
   id: FoodMeatCorgi
@@ -251,12 +265,12 @@
     sprite: Objects/Devices/flatpack.rsi
     state: ame-part
 
-- type: stealTargetGroup
-  id: SalvageExpeditionsComputerCircuitboard
-  name: steal-target-groups-salvage-expeditions-computer-circuitboard
-  sprite:
-    sprite: Objects/Misc/module.rsi
-    state: cpu_supply
+#- type: stealTargetGroup                                Goob edit - Removed because Lavaland
+#  id: SalvageExpeditionsComputerCircuitboard
+#  name: steal-target-groups-salvage-expeditions-computer-circuitboard
+#  sprite:
+#    sprite: Objects/Misc/module.rsi
+#    state: cpu_supply
 
 - type: stealTargetGroup
   id: CargoShuttleConsoleCircuitboard

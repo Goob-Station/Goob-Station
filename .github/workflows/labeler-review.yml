@@ -11,10 +11,6 @@ on:
   pull_request_review:
     types: [submitted]
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
   add_label:
     # Change the repository name after you've made sure the team name is correct for your fork!
@@ -29,7 +25,7 @@ jobs:
       with:
         username: ${{ github.actor }}
         team: "maintainers"
-        GITHUB_TOKEN: ${{ secrets.LABELER_PAT }}
+        GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
     - if: ${{ steps.checkUserMember.outputs.isTeamMember == 'true' }}
       uses: actions-ecosystem/action-add-labels@v1
       with:

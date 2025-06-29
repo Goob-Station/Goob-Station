@@ -1,0 +1,20 @@
+<controls:EmotesTabControl
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client._Shitcode.UserActions.Tabs">
+
+    <PanelContainer StyleClasses="BackgroundDark">
+        <ScrollContainer VerticalExpand="True"
+                         HorizontalExpand="True"
+                         Margin="2"
+                         MinHeight="100"
+                         HScrollEnabled="False">
+            <BoxContainer Orientation="Vertical"
+                          HorizontalExpand="True"
+                          Margin="2">
+                <GridContainer Name="EmotesList" Columns="3" HorizontalExpand="True">
+                </GridContainer>
+            </BoxContainer>
+        </ScrollContainer>
+    </PanelContainer>
+
+</controls:EmotesTabControl>

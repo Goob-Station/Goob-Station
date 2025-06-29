@@ -57,7 +57,7 @@
             Botanist: [ 3, 3 ]
             Chef: [ 3, 3 ]
             Janitor: [ 3, 3 ]
-            Chaplain: [ 2, 2 ]
+            Chaplain: [ 1, 1 ]
             Librarian: [ 2, 2 ]
             Lawyer: [ 2, 2 ]
             ServiceWorker: [ 3, 4 ]
@@ -84,6 +84,7 @@
             Detective: [ 1, 1 ]
             SecurityOfficer: [ 7, 7 ]
             SecurityCadet: [ 2, 4 ]
+            Brigmedic: [ 1, 1 ]
             #supply
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 8, 8 ]

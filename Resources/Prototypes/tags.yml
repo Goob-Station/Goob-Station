@@ -146,7 +146,6 @@
 # SPDX-FileCopyrightText: 2024 RiceMar1244 <138547931+RiceMar1244@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Saphire Lattice <lattice@saphi.re>
-# SPDX-FileCopyrightText: 2024 Scruq445 <storchdamien@gmail.com>
 # SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 SlamBamActionman <slambamactionman@gmail.com>
@@ -204,20 +203,27 @@
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 August Sun <45527070+august-sun@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Firewars763 <35506916+Firewars763@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Momo <Rsnesrud@gmail.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Scruq445 <storchdamien@gmail.com>
 # SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Spessmann <156740760+Spessmann@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 # SPDX-FileCopyrightText: 2025 Terraspark4941 <terraspark4941@gmail.com>
 # SPDX-FileCopyrightText: 2025 august-sun <45527070+august.sun@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 crasg <109207982+Scruq445@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 # SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 terminatorbo <kovalevb059@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -237,6 +243,9 @@
 
 - type: Tag
   id: AirSensor
+
+- type: Tag
+  id: AllowBiomeLoading # Entities with this tag will load terrain, even if a ghost.
 
 - type: Tag
   id: AllowGhostShownByEvent
@@ -299,6 +308,9 @@
   id: BodyBag
 
 - type: Tag
+  id: Boll
+
+- type: Tag
   id: Book
 
 - type: Tag
@@ -339,6 +351,9 @@
 
 - type: Tag
   id: BorgModuleMedical
+
+- type: Tag
+  id: BorgModuleScience
 
 - type: Tag
   id: BorgModuleService
@@ -435,36 +450,6 @@
 
 - type: Tag
   id: Carpet
-
-- type: Tag
-  id: CarpetBlack
-
-- type: Tag
-  id: CarpetBlue
-
-- type: Tag
-  id: CarpetCyan
-
-- type: Tag
-  id: CarpetGreen
-
-- type: Tag
-  id: CarpetOrange
-
-- type: Tag
-  id: CarpetPink
-
-- type: Tag
-  id: CarpetPurple
-
-- type: Tag
-  id: CarpetRed
-
-- type: Tag
-  id: CarpetSBlue
-
-- type: Tag
-  id: CarpetWhite
 
 - type: Tag
   id: Carrot
@@ -580,6 +565,9 @@
   id: ComputerTelevisionCircuitboard
 
 - type: Tag
+  id: ContravendUplink
+
+- type: Tag
   id: ConveyorAssembly
 
 - type: Tag
@@ -622,6 +610,9 @@
   id: CrayonYellow
 
 - type: Tag
+  id: Creamsicle
+
+- type: Tag
   id: Crowbar
 
 - type: Tag
@@ -629,6 +620,9 @@
 
 - type: Tag
   id: Cryobeaker
+
+- type: Tag
+  id: CrystalBlack
 
 - type: Tag
   id: CrystalBlue
@@ -647,6 +641,9 @@
 
 - type: Tag
   id: CrystalRed
+
+- type: Tag
+  id: CrystalYellow
 
 - type: Tag
   id: CubanCarp
@@ -835,6 +832,9 @@
   id: GrenadeFlashBang
 
 - type: Tag
+  id: GrimoireGhost
+
+- type: Tag
   id: HudMedical
 
 - type: Tag
@@ -869,6 +869,9 @@
 
 - type: Tag
   id: Handcuffs
+
+- type: Tag
+  id: HandGrenade
 
 - type: Tag
   id: HappyHonk
@@ -1100,9 +1103,6 @@
   id: MimeHappyHonk
 
 - type: Tag
-  id: MindShield
-
-- type: Tag
   id: MindTransferTarget
 
 - type: Tag
@@ -1142,6 +1142,12 @@
   id: NozzleBackTank
 
 - type: Tag
+  id: Nozzle # Assmos - Extinguisher Nozzle
+
+- type: Tag
+  id: AtmosBackTank # Assmos - Extinguisher Nozzle
+
+- type: Tag
   id: Nugget # for chicken nuggets
 
 - type: Tag
@@ -1149,9 +1155,6 @@
 
 - type: Tag
   id: NukeOpsUplink
-
-- type: Tag
-  id: LoneOpsUplink
 
 - type: Tag
   id: Ointment
@@ -1166,10 +1169,16 @@
   id: Packet
 
 - type: Tag
+  id: ParadoxCloneObjectiveBlacklist # objective entities with this tag don't get copied to paradox clones
+
+- type: Tag
   id: Paper
 
 - type: Tag
   id: Pancake
+
+- type: Tag
+  id: ParcelWrapBlacklist
 
 - type: Tag
   id: Payload # for grenade/bomb crafting
@@ -1203,6 +1212,9 @@
 
 - type: Tag
   id: Pipe
+
+- type: Tag
+  id: Pistachios
 
 - type: Tag
   id: Pizza
@@ -1260,6 +1272,9 @@
 
 - type: Tag
   id: Powerdrill
+
+- type: Tag
+  id: PreventAccessLogging
 
 - type: Tag
   id: PrisonUniform
@@ -1369,6 +1384,9 @@
 
 - type: Tag
   id: SignalTrigger
+
+- type: Tag
+  id: SilentStorageUser # used in SharedStorageSystem, so the entity will do all silently
 
 - type: Tag
   id: SkeletonMotorcycleKeys
@@ -1526,6 +1544,12 @@
   id: Truncheon
 
 - type: Tag
+  id: TurretCompatibleWeapon # Used in the construction of sentry turrets
+
+- type: Tag
+  id: TurretControlElectronics # Used in the construction of sentry turret control panels
+
+- type: Tag
   id: Unimplantable
 
 - type: Tag
@@ -1545,6 +1569,9 @@
 
 - type: Tag
   id: VoiceTrigger
+
+- type: Tag # Eating fix tag
+  id: VoxFood
 
 - type: Tag
   id: Wall
@@ -1617,5 +1644,20 @@
 
 - type: Tag
   id: WriteIgnoreStamps
+
+- type: Tag
+  id: XenoborgModuleEngi
+
+- type: Tag
+  id: XenoborgModuleGeneric
+
+- type: Tag
+  id: XenoborgModuleHeavy
+
+- type: Tag
+  id: XenoborgModuleScout
+
+- type: Tag
+  id: XenoborgModuleStealth
 
 # ALPHABETICAL

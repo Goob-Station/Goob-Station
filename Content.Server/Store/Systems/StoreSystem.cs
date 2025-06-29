@@ -24,7 +24,7 @@
 
 using Content.Server.Store.Components;
 using Content.Shared.UserInterface;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Implants.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;

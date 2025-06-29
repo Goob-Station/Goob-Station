@@ -25,6 +25,7 @@ using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared.Atmos;
 using Content.Shared.Chat;
 using Content.Shared.Cloning;
+using Content.Shared.Cloning.Events;
 using Content.Shared.Database;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Humanoid;
@@ -83,18 +84,18 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
 
     private void OnApprenticeClone(Entity<ApprenticeComponent> ent, ref CloningEvent args)
     {
-        EnsureComp<ApprenticeComponent>(args.Target);
-        RemCompDeferred<ApprenticeComponent>(args.Source);
-        _faction.ClearFactions(args.Target, false);
-        _faction.AddFaction(args.Target, Faction);
+        EnsureComp<ApprenticeComponent>(args.CloneUid);
+        RemCompDeferred<ApprenticeComponent>(ent);
+        _faction.ClearFactions(args.CloneUid, false);
+        _faction.AddFaction(args.CloneUid, Faction);
     }
 
     private void OnWizardClone(Entity<WizardComponent> ent, ref CloningEvent args)
     {
-        EnsureComp<WizardComponent>(args.Target);
-        RemCompDeferred<WizardComponent>(args.Source);
-        _faction.ClearFactions(args.Target, false);
-        _faction.AddFaction(args.Target, Faction);
+        EnsureComp<WizardComponent>(args.CloneUid);
+        RemCompDeferred<WizardComponent>(ent);
+        _faction.ClearFactions(args.CloneUid, false);
+        _faction.AddFaction(args.CloneUid, Faction);
     }
 
     public EntityUid? GetTargetMap()

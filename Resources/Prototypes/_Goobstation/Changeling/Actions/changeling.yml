@@ -24,8 +24,14 @@
 # SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Marcus F <marcus2008stoke@gmail.com>
 # SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # abilities
@@ -44,7 +50,6 @@
       state: evolution_menu
     event: !type:OpenEvolutionMenuEvent {}
   - type: ChangelingAction
-    requireBiomass: false
     useInLesserForm: true
     useInLastResort: true
 
@@ -68,7 +73,6 @@
     event: !type:AbsorbDNAEvent {}
   - type: ChangelingAction
     chemicalCost: 25
-    requireBiomass: false
     useInLesserForm: true
 
 - type: entity
@@ -107,7 +111,6 @@
       state: transform_cycle
     event: !type:ChangelingTransformCycleEvent {}
   - type: ChangelingAction
-    requireBiomass: false
     useInLesserForm: true
 
 - type: entity
@@ -131,7 +134,7 @@
 - type: entity
   id: ActionEnterStasis
   name: Enter regenerative stasis
-  description: Fake your death and start regenerating. Drains all your chemicals. Consumes biomass.
+  description: Fake your death and start regenerating. Cost free.
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
@@ -143,14 +146,13 @@
       state: stasis_enter
     event: !type:EnterStasisEvent {}
   - type: ChangelingAction
-    biomassCost: 1
     useInLesserForm: true
     useInLastResort: true
 
 - type: entity
   id: ActionExitStasis
   name: Exit stasis
-  description: Rise from the dead with full health. Costs 60 chemicals.
+  description: Rise from the dead with full health. Costs 30 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
@@ -162,7 +164,7 @@
       state: stasis_exit
     event: !type:ExitStasisEvent {}
   - type: ChangelingAction
-    chemicalCost: 60
+    chemicalCost: 30
     useInLesserForm: true
     useInLastResort: true
 
@@ -391,7 +393,7 @@
 - type: entity
   id: ActionStingLethargic
   name: Lethargic Sting
-  description: Silently inject a cocktail of anesthetics into the target. Costs 25 chemicals.
+  description: Silently inject a cocktail of anesthetics into the target. Costs 30 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
@@ -441,7 +443,7 @@
 - type: entity
   id: ActionStingFakeArmblade
   name: Fake Armblade Sting
-  description: Silently sting your target, making them grow a dull armblade for a short time. Costs 50 chemicals.
+  description: Silently sting your target, making them grow a dull armblade for a short time. Costs 30 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
@@ -457,7 +459,7 @@
       state: sting_armblade
     event: !type:StingFakeArmbladeEvent {}
   - type: ChangelingAction
-    chemicalCost: 50
+    chemicalCost: 30
     useInLesserForm: true
 
 - type: entity
@@ -511,7 +513,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    useDelay: 30
+    useDelay: 20
     checkCanInteract: false
     checkConsciousness: false
     itemIconStyle: NoItem
@@ -575,20 +577,40 @@
     chemicalCost: 20
 
 - type: entity
-  id: ActionEphedrineOverdose
-  name: Ephedrine Overdose
-  description: Inject some stimulants into yourself. Costs 30 chemicals.
+  id: ActionVoidAdapt
+  name: Toggle Void Adaption
+  description: Adapt to the harsh environment of space, removing the need for oxygen or a suit. Cost free.
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    useDelay: 10
+    useDelay: 1
+    checkCanInteract: false
+    checkConsciousness: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: void_adaptation
+    event: !type:ActionVoidAdaptEvent {}
+  - type: ChangelingAction
+    chemicalCost: 0
+    useInLesserForm: true
+    requireAbsorbed: 2
+
+- type: entity
+  id: ActionAdrenalineReserves
+  name: Adrenaline Reserves
+  description: Release powerful adrenaline from your glands. Costs 30 chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 5
     checkCanInteract: false
     checkConsciousness: false
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: epinephrine_overdose
-    event: !type:ActionEphedrineOverdoseEvent {}
+    event: !type:ActionAdrenalineReservesEvent {}
   - type: ChangelingAction
     chemicalCost: 30
     useInLesserForm: true
@@ -600,7 +622,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    useDelay: 30
+    useDelay: 10
     checkCanInteract: false
     checkConsciousness: false
     itemIconStyle: NoItem
@@ -651,22 +673,6 @@
     chemicalCost: 20
 
 - type: entity
-  id: ActionToggleSpacesuit
-  name: Toggle Space Suit
-  description: Make your body space proof. Costs 20 chemicals.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: InstantAction
-    useDelay: 2
-    itemIconStyle: NoItem
-    icon:
-      sprite: _Goobstation/Changeling/changeling_abilities.rsi
-      state: space_adaptation
-    event: !type:ActionSpacesuitEvent {}
-  - type: ChangelingAction
-    chemicalCost: 20
-
-- type: entity
   id: ActionHivemindAccess
   name: Hivemind Access
   description: Tune your chemical receptors for hivemind communication.
@@ -703,6 +709,5 @@
     event: !type:AbsorbBiomatterEvent {}
   - type: ChangelingAction
     chemicalCost: 0
-    requireBiomass: false
     useInLesserForm: true
     useInLastResort: true

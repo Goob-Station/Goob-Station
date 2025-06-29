@@ -33,9 +33,6 @@
     - id: Katana
       orGroup: Sword
       prob: 0.5
-    - id: Claymore
-      orGroup: Sword
-      prob: 0.5
     - id: CaneSheathFilled
       orGroup: Sword
       prob: 0.3

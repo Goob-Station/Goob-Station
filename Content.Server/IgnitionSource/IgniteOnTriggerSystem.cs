@@ -8,6 +8,7 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Server.Explosion.EntitySystems;
+using Content.Shared.IgnitionSource;
 using Content.Shared.Timing;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
@@ -20,7 +21,7 @@ namespace Content.Server.IgnitionSource;
 public sealed class IgniteOnTriggerSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IgnitionSourceSystem _source = default!;
+    [Dependency] private readonly SharedIgnitionSourceSystem _source = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
 

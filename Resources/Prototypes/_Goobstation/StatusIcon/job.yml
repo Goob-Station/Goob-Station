@@ -12,3 +12,11 @@
     sprite: /Textures/_Goobstation/Interface/Misc/job_icons.rsi
     state: lambda
   jobName: job-name-governmentman
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconNanotrasenTrainer
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/job_icons.rsi
+    state: trainer
+  jobName: job-name-nct

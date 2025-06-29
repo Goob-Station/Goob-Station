@@ -55,6 +55,10 @@ jobs:
         cd RobustToolbox
         git fetch --depth=1
 
+
+    - name: Clean
+      run: dotnet clean
+
     - name: Install dependencies
       run: dotnet restore
 
@@ -76,7 +80,7 @@ jobs:
     - name: Publish changelog (Discord)
       run: Tools/actions_changelogs_since_last_run.py
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
         DISCORD_WEBHOOK_URL: ${{ secrets.CHANGELOG_DISCORD_WEBHOOK }}
 
     - name: Publish changelog (RSS)

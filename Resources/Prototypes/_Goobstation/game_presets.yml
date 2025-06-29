@@ -1,13 +1,17 @@
 # SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Fenn <162015305+TooSillyFennec@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
 # SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
+# SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Gareth Quaile <garethquaile@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
@@ -153,10 +157,10 @@
   #  - MeteorSwarmScheduler Goobstation - nuh uh
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
-    - LavalandStormScheduler # Lavaland Change
+    - LavalandStormScheduler
 
 - type: gamePreset
-  id: TheSleeper
+  id: TheGhost
   alias:
     - calm
     - calmdynamic
@@ -166,7 +170,10 @@
   minPlayers: 5
   rules:
     - CalmDynamic
-    - LavalandStormScheduler # Lavaland Change
+    - LavalandStormScheduler
+    - SubGamemodesRule
+    - RareIonStormScheduler
+    - SpaceTrafficControlFriendlyEventScheduler
 
 - type: gamePreset
   id: TheGuide
@@ -175,8 +182,64 @@
     - combatdynamic
   name: guide-title
   description: guide-description
-  showInVote: true
+  showInVote: false
   minPlayers: 25
   rules:
     - CombatDynamic
-    - LavalandStormScheduler # Lavaland Change
+    - LavalandStormScheduler
+    - SubGamemodesRule
+    - IonStormScheduler
+    - SpaceTrafficControlEventScheduler
+
+- type: gamePreset
+  id: SecretPlusLow
+  alias:
+    - secretpluslow
+    - secretpluscalm
+    - turbulence
+  name: secretplus-low-title
+  description: secretplus-low-description
+  showInVote: true
+  rules:
+    - SecretPlusLow
+    - LavalandStormScheduler
+
+- type: gamePreset
+  id: SecretPlusMid
+  alias:
+    - secretplusmid
+    - secretplus
+    - entropy
+  name: secretplus-mid-title
+  description: secretplus-mid-description
+  showInVote: true
+  rules:
+    - SecretPlusMid
+    - LavalandStormScheduler
+
+- type: gamePreset
+  id: SecretPlusAdmeme
+  alias:
+    - secretplusadmeme
+    - secretplusevil
+    - secretplushigh
+    - chaos
+  name: secretplus-admeme-title
+  description: secretplus-admeme-description
+  showInVote: false # 1984
+  rules:
+    - SecretPlusAdmeme
+    - LavalandStormScheduler
+
+- type: gamePreset
+  id: SurvivalPlusMid
+  alias:
+    - survivalplus
+    - newsurvival
+    - survivalnew
+  name: survivalplus-title
+  description: survivalplus-description
+  showInVote: true
+  rules:
+    - SecretPlusRampingMid
+    - LavalandStormScheduler

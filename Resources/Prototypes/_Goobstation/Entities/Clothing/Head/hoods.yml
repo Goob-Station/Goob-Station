@@ -1,0 +1,49 @@
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+# SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatHoodZeusHood
+  categories: [ HideSpawnMenu ]
+  name: zeus hood
+  description: Guaranteed to not fly off when leaping from skyscraper to skyscraper.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hoods/mercer_hood.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hoods/mercer_hood.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: HideLayerClothing
+    slots:
+    - Hair
+
+- type: entity
+  parent: ClothingHeadHatHoodWinterBase
+  id: ClothingHeadHatHoodWinterBso
+  categories: [ HideSpawnMenu ]
+  name: blueshield's winter coat hood
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hoods/bso_winter_hood.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hoods/bso_winter_hood.rsi
+
+- type: entity
+  parent: ClothingHeadHatHoodWinterBase
+  id: ClothingHeadHatHoodWinterCapFancy
+  categories: [ HideSpawnMenu ]
+  name: captain's fancy winter coat hood
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hoods/cap_winter_hood.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hoods/cap_winter_hood.rsi

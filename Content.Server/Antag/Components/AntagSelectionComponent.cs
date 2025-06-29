@@ -40,7 +40,6 @@
 // SPDX-FileCopyrightText: 2024 RiceMar1244 <138547931+RiceMar1244@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Stalen <33173619+stalengd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
@@ -74,7 +73,11 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -97,10 +100,16 @@ namespace Content.Server.Antag.Components;
 public sealed partial class AntagSelectionComponent : Component
 {
     /// <summary>
-    /// Has the primary selection of antagonists finished yet?
+    /// Has the primary assignment of antagonists finished yet?
     /// </summary>
     [DataField]
-    public bool SelectionsComplete;
+    public bool AssignmentComplete;
+
+    /// <summary>
+    /// Has the antagonists been preselected but yet to be fully assigned?
+    /// </summary>
+    [DataField]
+    public bool PreSelectionsComplete;
 
     /// <summary>
     /// The definitions for the antagonists
@@ -109,10 +118,10 @@ public sealed partial class AntagSelectionComponent : Component
     public List<AntagSelectionDefinition> Definitions = new();
 
     /// <summary>
-    /// The minds and original names of the players selected to be antagonists.
+    /// The minds and original names of the players assigned to be antagonists.
     /// </summary>
     [DataField]
-    public List<(EntityUid, string)> SelectedMinds = new();
+    public List<(EntityUid, string)> AssignedMinds = new();
 
     /// <summary>
     /// When the antag selection will occur.
@@ -121,10 +130,16 @@ public sealed partial class AntagSelectionComponent : Component
     public AntagSelectionTime SelectionTime = AntagSelectionTime.PostPlayerSpawn;
 
     /// <summary>
+    /// Cached sessions of antag definitions and selected players. Players in this dict are not guaranteed to have been assigned the role yet.
+    /// </summary>
+    [DataField]
+    public Dictionary<AntagSelectionDefinition, HashSet<ICommonSession>>PreSelectedSessions = new();
+
+    /// <summary>
     /// Cached sessions of players who are chosen. Used so we don't have to rebuild the pool multiple times in a tick.
     /// Is not serialized.
     /// </summary>
-    public HashSet<ICommonSession> SelectedSessions = new();
+    public HashSet<ICommonSession> AssignedSessions = new();
 
     /// <summary>
     /// Locale id for the name of the antag.
@@ -132,6 +147,13 @@ public sealed partial class AntagSelectionComponent : Component
     /// </summary>
     [DataField]
     public LocId? AgentName;
+
+    /// <summary>
+    /// If the player is pre-selected but fails to spawn in (e.g. due to only having antag-immune jobs selected),
+    /// should they be removed from the pre-selection list?
+    /// </summary>
+    [DataField]
+    public bool RemoveUponFailedSpawn = true;
 
     /// <summary>
     /// Goobstation.
@@ -144,6 +166,12 @@ public sealed partial class AntagSelectionComponent : Component
 [DataDefinition]
 public partial struct AntagSelectionDefinition()
 {
+    /// <summary>
+    /// A list of jobs which cannnot roll this antag. | GOOBSTATION
+    /// </summary>
+    [DataField("jobBlacklist")]
+    public List<ProtoId<JobPrototype>>? JobBlacklist;
+
     /// <summary>
     /// A list of antagonist roles that are used for selecting which players will be antagonists.
     /// </summary>

@@ -17,8 +17,8 @@
   dollPrototype: MobVoxDummy
   skinColoration: VoxFeathers
   defaultSkinTone: "#6c741d"
-  maleFirstNames: names_vox
-  femaleFirstNames: names_vox
+  maleFirstNames: NamesVox
+  femaleFirstNames: NamesVox
   naming: First
   sexes:
   - Unsexed
@@ -30,7 +30,8 @@
     Snout: MobHumanoidAnyMarking
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
-    Chest: MobVoxTorso
+    Chest: MobVoxChest
+    Groin: MobVoxGroin
     Eyes: MobVoxEyes
     LArm: MobVoxLArm
     RArm: MobVoxRArm
@@ -68,7 +69,7 @@
       required: true
       defaultMarkings: [ VoxLLegScales, VoxRLegScales, VoxRFootScales, VoxLFootScales ]
     Chest:
-      points: 1
+      points: 2
       required: false
     Tail:
       points: 1
@@ -100,22 +101,40 @@
     state: head
 
 - type: humanoidBaseSprite
-  id: MobVoxTorso
+  id: MobVoxChest
   baseSprite:
     sprite: Mobs/Species/Vox/parts.rsi
-    state: torso
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobVoxTorsoMale
+  id: MobVoxChestMale
   baseSprite:
     sprite: Mobs/Species/Vox/parts.rsi
-    state: torso
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobVoxTorsoFemale
+  id: MobVoxChestFemale
   baseSprite:
     sprite: Mobs/Species/Vox/parts.rsi
-    state: torso
+    state: chest_f
+
+- type: humanoidBaseSprite
+  id: MobVoxGroin
+  baseSprite:
+    sprite: Mobs/Species/Vox/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobVoxGroinMale
+  baseSprite:
+    sprite: Mobs/Species/Vox/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobVoxGroinFemale
+  baseSprite:
+    sprite: Mobs/Species/Vox/parts.rsi
+    state: groin_f
 
 - type: humanoidBaseSprite
   id: MobVoxLLeg

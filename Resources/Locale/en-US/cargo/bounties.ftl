@@ -1,3 +1,18 @@
+# SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Keer-Sar <144283718+Keer-Sar@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 TheWaffleJesus <106146578+TheWaffleJesus@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 icekot8 <93311212+icekot8@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 wafehling <wafehling@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 bounty-item-artifact = Alien artifact
 bounty-item-baseball-bat = Baseball bat
 bounty-item-box-hugs = Box of hugs
@@ -79,7 +94,7 @@ bounty-description-carrot-fries = Night sight can mean life or death! A shipment
 bounty-description-carp = Admiral Pavlov has gone on strike ever since Central Command confiscated her "pet." She is demanding a space carp as a replacement, dead or alive.
 bounty-description-clown-costume = Due to a recent issue at a space carp petting zoo, we've unfortunately lost Bonobobonobo the Clown. Send us a new costume so the kids can see him once more.
 bounty-description-corn = After the recent destruction of Space Ohio, our corn imports are down 80%. Send us some so we can make up for it.
-bounty-description-crayon = Dr Jones' kid ate all our crayons again. Please send us yours.
+bounty-description-crayon = Dr Jones's kid ate all our crayons again. Please send us yours.
 bounty-description-cuban-carp = To celebrate the birth of Castro XXVII, ship one cuban carp to CentComm.
 bounty-description-donk-pocket = Consumer safety recall: Warning. Donk-Pockets manufactured in the past year contain hazardous lizard biomatter. Return units to CentComm immediately.
 bounty-description-donut = CentComm's security forces are facing heavy losses against the Syndicate. Ship donuts to raise morale.

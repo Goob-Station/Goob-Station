@@ -1,4 +1,10 @@
-﻿## Strings for the "grant_connect_bypass" command.
+# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+## Strings for the "grant_connect_bypass" command.
 
 cmd-grant_connect_bypass-desc = Temporarily allow a user to bypass regular connection checks.
 cmd-grant_connect_bypass-help = Usage: grant_connect_bypass <user> [duration minutes]

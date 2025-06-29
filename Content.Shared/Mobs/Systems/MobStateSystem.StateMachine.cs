@@ -7,11 +7,19 @@
 // SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 kurokoTurbo <92106367+kurokoTurbo@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Trest <144359854+trest100@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+// SPDX-FileCopyrightText: 2025 Kayzel <43700376+KayzelW@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Database;
+using Content.Shared.Humanoid;
 using Content.Shared.Mobs.Components;
+using Robust.Shared.Player;
 using Content.Shared._Shitmed.Body.Organ;
 
 namespace Content.Shared.Mobs.Systems;
@@ -126,8 +134,22 @@ public partial class MobStateSystem
         var ev = new MobStateChangedEvent(target, component, oldState, newState, origin);
         OnStateChanged(target, component, oldState, newState);
         RaiseLocalEvent(target, ev, true);
-        _adminLogger.Add(LogType.Damaged, oldState == MobState.Alive ? LogImpact.Low : LogImpact.Medium,
-            $"{ToPrettyString(target):user} state changed from {oldState} to {newState}");
+
+        if (_consciousness.TryGetNerveSystem(target, out var nerveSys))
+        {
+            var ev1 = new MobStateChangedEvent(target, component, oldState, newState, origin);
+            RaiseLocalEvent(nerveSys.Value, ev1, true);
+
+            // to handle consciousness related stuff. sorry
+        }
+
+        if (origin != null
+            && HasComp<ActorComponent>(origin)
+            && HasComp<ActorComponent>(target)
+            && oldState < newState)
+            _adminLogger.Add(LogType.Damaged, LogImpact.High, $"{ToPrettyString(origin):player} caused {ToPrettyString(target):player} state to change from {oldState} to {newState}");
+        else
+            _adminLogger.Add(LogType.Damaged, oldState == MobState.Alive ? LogImpact.Low : LogImpact.Medium, $"{ToPrettyString(target):user} state changed from {oldState} to {newState}");
         Dirty(target, component);
     }
 

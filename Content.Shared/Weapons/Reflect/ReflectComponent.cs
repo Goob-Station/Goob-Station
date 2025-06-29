@@ -68,12 +68,16 @@
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Inventory;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
-using Content.Shared.Inventory;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.Weapons.Reflect;
 
@@ -87,47 +91,45 @@ public sealed partial class ReflectComponent : Component
     /// <summary>
     /// What we reflect.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField("reflects")]
+    [DataField]
     public ReflectType Reflects = ReflectType.Energy | ReflectType.NonEnergy;
 
     /// <summary>
     /// Select in which inventory slots it will reflect.
     /// By default, it will reflect in any inventory position, except pockets.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField]
+    [DataField]
     public SlotFlags SlotFlags = SlotFlags.WITHOUT_POCKET;
 
     /// <summary>
     /// Is it allowed to reflect while being in hands.
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public bool ReflectingInHands = true;
 
     /// <summary>
     /// Can only reflect when placed correctly.
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public bool InRightPlace = true;
 
     /// <summary>
     /// Probability for a projectile to be reflected.
     /// </summary>
-    [DataField("reflectProb"), ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public float ReflectProb = 0.25f;
 
-    [DataField("spread"), ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    /// <summary>
+    /// Probability for a projectile to be reflected.
+    /// </summary>
+    [DataField, AutoNetworkedField]
     public Angle Spread = Angle.FromDegrees(45);
 
-    [DataField("soundOnReflect")]
-    public SoundSpecifier? SoundOnReflect = new SoundPathSpecifier("/Audio/Weapons/Guns/Hits/laser_sear_wall.ogg");
-
     /// <summary>
-    /// Goobstation
-    /// If not null determines probability for a projectile to be reflected
-    /// for other type of projectile (energy / non energy).
+    /// The sound to play when reflecting.
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
-    public float OtherTypeReflectProb;
+    [DataField]
+    public SoundSpecifier? SoundOnReflect = new SoundPathSpecifier("/Audio/Weapons/Guns/Hits/laser_sear_wall.ogg", AudioParams.Default.WithVariation(0.05f));
 
     // WD START
     [DataField, AutoNetworkedField]
@@ -135,10 +137,11 @@ public sealed partial class ReflectComponent : Component
     // WD END
 }
 
-[Flags]
+[Flags, Serializable, NetSerializable]
 public enum ReflectType : byte
 {
     None = 0,
     NonEnergy = 1 << 0,
     Energy = 1 << 1,
+    Magic = 1 << 2,
 }

@@ -1,3 +1,19 @@
+# SPDX-FileCopyrightText: 2023 Mr. 27 <45323883+27alaing@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Benny (TropicalHibi) <24284437+TropicalHibi@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 CMDR-JohnAlex <94056103+CMDR-JohnAlex@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Doctor-Cpu <77215380+Doctor-Cpu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ghagliiarghii <68826635+Ghagliiarghii@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Hmeister-real <118129069+Hmeister-real@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 MerrytheManokit <167581110+MerrytheManokit@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 OrangeMoronage9622 <whyteterry0092@gmail.com>
+# SPDX-FileCopyrightText: 2024 deepdarkdepths <155149356+deepdarkdepths@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 tosatur <63034378+tosatur@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 chatsan-word-1 = omg
 chatsan-replacement-1 = oh my god
 
@@ -189,3 +205,17 @@ chatsan-replacement-66 = something
 
 chatsan-word-67 = allg
 chatsan-replacement-67 = all good
+
+# goob start
+chatsan-word-68 = ts
+chatsan-replacement-68 = this shit
+
+chatsan-word-69 = pmo
+chatsan-replacement-69 = pisses me off
+
+chatsan-word-70 = sybau
+chatsan-replacement-70 = shut your bitch ass up
+
+chatsan-word-71 = icl
+chatsan-replacement-71 = i can't lie
+# goob end

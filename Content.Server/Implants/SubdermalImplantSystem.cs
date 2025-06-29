@@ -3,7 +3,7 @@
 // SPDX-FileCopyrightText: 2023 DrSmugleaf <drsmugleaf@gmail.com>
 // SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
 // SPDX-FileCopyrightText: 2023 Mr0maks <mr.maks0443@gmail.com>
-// SPDX-FileCopyrightText: 2023 Tomás Alves <tomasalves35@gmail.com>
+// SPDX-FileCopyrightText: 2023 Tom�s Alves <tomasalves35@gmail.com>
 // SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
@@ -79,8 +79,12 @@
 // SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 12rabbits <53499656+12rabbits@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
+// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Zachary Higgs <compgeek223@gmail.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 themias <89101928+themias@users.noreply.github.com>
 //
@@ -111,7 +115,12 @@ using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Server.IdentityManagement;
 using Content.Shared.DetailExaminable;
+using Content.Shared.DoAfter;
+using Content.Shared.Ensnaring;
+using Content.Shared.Ensnaring.Components;
 using Content.Shared.Store.Components;
+using Content.Shared.Teleportation;
+using Content.Shared.Stunnable;
 
 namespace Content.Server.Implants;
 
@@ -128,6 +137,10 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly IdentitySystem _identity = default!;
     [Dependency] private readonly TeleportSystem _teleportSys = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+
 
     public override void Initialize()
     {
@@ -163,13 +176,34 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
         _popup.PopupEntity(msg, args.User, args.User);
     }
 
+    // Heavily edited by goobstation to make freedom useful
     private void OnFreedomImplant(EntityUid uid, SubdermalImplantComponent component, UseFreedomImplantEvent args)
     {
-        if (!TryComp<CuffableComponent>(component.ImplantedEntity, out var cuffs) || cuffs.Container.ContainedEntities.Count < 1)
+        if (component.ImplantedEntity == null)
             return;
 
-        _cuffable.Uncuff(component.ImplantedEntity.Value, cuffs.LastAddedCuffs, cuffs.LastAddedCuffs);
-        args.Handled = true;
+        var user = component.ImplantedEntity.Value;
+
+        if (TryComp<CuffableComponent>(user, out var cuffs) && cuffs.Container.ContainedEntities.Count > 0)
+        {
+            _cuffable.Uncuff(user, cuffs.LastAddedCuffs, cuffs.LastAddedCuffs);
+            args.Handled = true;
+        }
+
+        if (TryComp<PullableComponent>(user, out var pullable) && pullable.Puller.HasValue)
+        {
+            _stun.TryParalyze(pullable.Puller.Value, TimeSpan.FromSeconds(args.StunTime), true);
+            args.Handled = true;
+        }
+
+        if (TryComp<EnsnareableComponent>(user, out var ensnareable) && ensnareable.Container.ContainedEntities.Count > 0)
+        {
+            var bola = ensnareable.Container.ContainedEntities[0];
+            // Yes this is dumb, but trust me this is the best way to do this. Bola code is fucking awful.
+            _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, 0, new EnsnareableDoAfterEvent(), user, user, bola));
+            _transform.DropNextTo(bola, user);
+            args.Handled = true;
+        }
     }
 
     private void OnActivateImplantEvent(EntityUid uid, SubdermalImplantComponent component, ActivateImplantEvent args)
@@ -201,18 +235,12 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
             var newProfile = HumanoidCharacterProfile.RandomWithSpecies(humanoid.Species);
             _humanoidAppearance.LoadProfile(ent, newProfile, humanoid);
             _metaData.SetEntityName(ent, newProfile.Name, raiseEvents: false); // raising events would update ID card, station record, etc.
-            if (TryComp<DnaComponent>(ent, out var dna))
-            {
-                dna.DNA = _forensicsSystem.GenerateDNA();
 
-                var ev = new GenerateDnaEvent { Owner = ent, DNA = dna.DNA };
-                RaiseLocalEvent(ent, ref ev);
-            }
-            if (TryComp<FingerprintComponent>(ent, out var fingerprint))
-            {
-                fingerprint.Fingerprint = _forensicsSystem.GenerateFingerprint();
-            }
-            RemComp<DetailExaminableComponent>(ent); // remove MRP+ custom description if one exists 
+            // If the entity has the respecive components, then scramble the dna and fingerprint strings
+            _forensicsSystem.RandomizeDNA(ent);
+            _forensicsSystem.RandomizeFingerprint(ent);
+
+            RemComp<DetailExaminableComponent>(ent); // remove MRP+ custom description if one exists
             _identity.QueueIdentityUpdate(ent); // manually queue identity update since we don't raise the event
             _popup.PopupEntity(Loc.GetString("scramble-implant-activated-popup"), ent, ent);
         }

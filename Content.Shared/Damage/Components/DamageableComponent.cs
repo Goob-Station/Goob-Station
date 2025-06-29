@@ -84,13 +84,16 @@
 // SPDX-FileCopyrightText: 2025 ActiveMammmoth <140334666+ActiveMammmoth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 ActiveMammmoth <kmcsmooth@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Coolsurf6 <coolsurf24@yahoo.com.au>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Damage.Prototypes;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Mobs;
 using Content.Shared.StatusIcon;
 using Robust.Shared.GameStates;
@@ -156,6 +159,13 @@ namespace Content.Shared.Damage
         [DataField("radiationDamageTypes")]
         public List<ProtoId<DamageTypePrototype>> RadiationDamageTypeIDs = new() { "Radiation" };
 
+        /// <summary>
+        ///     Group types that affect the pain overlay.
+        /// </summary>
+        ///     TODO: Add support for adding damage types specifically rather than whole damage groups
+        [DataField]
+        public List<ProtoId<DamageGroupPrototype>> PainDamageGroups = new() { "Brute", "Burn" };
+
         [DataField]
         public Dictionary<MobState, ProtoId<HealthIconPrototype>> HealthIcons = new()
         {
@@ -169,6 +179,9 @@ namespace Content.Shared.Damage
 
         [DataField]
         public FixedPoint2? HealthBarThreshold;
+
+        [ViewVariables]
+        public TimeSpan LastModifiedTime = TimeSpan.Zero;
     }
 
     [Serializable, NetSerializable]

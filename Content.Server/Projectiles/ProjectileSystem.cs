@@ -53,12 +53,17 @@
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+// SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Weapons.Penetration;
 using Content.Server.Administration.Logs;
 using Content.Server.Destructible;
 using Content.Server.Effects;
@@ -66,7 +71,7 @@ using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared.Camera;
 using Content.Shared.Damage;
 using Content.Shared.Database;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Projectiles;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
@@ -117,7 +122,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
             damageRequired -= damageableComponent.TotalDamage;
             damageRequired = FixedPoint2.Max(damageRequired, FixedPoint2.Zero);
         }
-        var modifiedDamage = _damageableSystem.TryChangeDamage(target, ev.Damage, component.IgnoreResistances, damageable: damageableComponent, origin: component.Shooter);
+        var modifiedDamage = _damageableSystem.TryChangeDamage(target, ev.Damage, component.IgnoreResistances, damageable: damageableComponent, origin: component.Shooter); // Goob edit
         var deleted = Deleted(target);
 
         if (modifiedDamage is not null && EntityManager.EntityExists(component.Shooter))
@@ -128,7 +133,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
             }
 
             _adminLogger.Add(LogType.BulletHit,
-                HasComp<ActorComponent>(target) ? LogImpact.Extreme : LogImpact.High,
+                LogImpact.Medium,
                 $"Projectile {ToPrettyString(uid):projectile} shot by {ToPrettyString(component.Shooter!.Value):user} hit {otherName:target} and dealt {modifiedDamage.GetTotal():damage} damage");
         }
 
@@ -150,21 +155,36 @@ public sealed class ProjectileSystem : SharedProjectileSystem
                 if (stopPenetration)
                     component.ProjectileSpent = true;
             }
-
-            // If the object won't be destroyed, it "tanks" the penetration hit.
-            if (modifiedDamage.GetTotal() < damageRequired)
+            // Goobstation - Splits penetration change if target have PenetratableComponent
+            if (!TryComp<PenetratableComponent>(target, out var penetratable))
             {
-                component.ProjectileSpent = true;
-            }
-
-            if (!component.ProjectileSpent)
-            {
-                component.PenetrationAmount += damageRequired;
-                // The projectile has dealt enough damage to be spent.
-                if (component.PenetrationAmount >= component.PenetrationThreshold)
+                // If the object won't be destroyed, it "tanks" the penetration hit.
+                if (modifiedDamage.GetTotal() < damageRequired)
                 {
                     component.ProjectileSpent = true;
                 }
+
+                if (!component.ProjectileSpent)
+                {
+                    component.PenetrationAmount += damageRequired;
+                    // The projectile has dealt enough damage to be spent.
+                    if (component.PenetrationAmount >= component.PenetrationThreshold)
+                    {
+                        component.ProjectileSpent = true;
+                    }
+                }
+            }
+            else
+            {
+                // Goobstation - Here penetration threshold count as "penetration health".
+                // If it's lower than damage than penetation damage entity cause it deletes projectile
+                if (component.PenetrationThreshold < penetratable.PenetrateDamage)
+                {
+                    component.ProjectileSpent = true;
+                }
+
+                component.PenetrationThreshold -= FixedPoint2.New(penetratable.PenetrateDamage);
+                component.Damage *= (1 - penetratable.DamagePenaltyModifier);
             }
         }
         else

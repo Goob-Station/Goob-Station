@@ -11,6 +11,8 @@
 // SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -42,6 +44,14 @@ namespace Content.Server.Power.Components
         {
             get => NetworkSupply.SupplyRampRate;
             set => NetworkSupply.SupplyRampRate = value;
+        }
+
+        // Goobstation
+        [DataField]
+        public float SupplyRampScaling // if you want to set this below 1, you're very likely doing something wrong
+        {
+            get => NetworkSupply.SupplyRampScaling;
+            set => NetworkSupply.SupplyRampScaling = value;
         }
 
         [ViewVariables(VVAccess.ReadWrite)]

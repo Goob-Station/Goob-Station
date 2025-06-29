@@ -11,6 +11,9 @@
       "name": "icon"
     },
     {
+      "name": "icon-evil"
+    },
+    {
       "name": "equipped-OUTERCLOTHING",
       "directions": 4
     }

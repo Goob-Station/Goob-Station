@@ -5,10 +5,31 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 FaDeOkno <logkedr18@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: technology
+  id: Pinpointers
+  name: research-technology-pinpointing
+  icon:
+    sprite: Objects/Devices/pinpointer.rsi
+    state: pinpointer
+  discipline: Experimental
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+  - Pinpointer
+  - PinpointerArtifact
+  - PinpointerAnomaly
+  - PinpointerBorg
+  position: -3,-3
+  technologyPrerequisites:
+  - DeterrenceTechnologies
 
 - type: technology
   id: ModsuitsTech
@@ -44,3 +65,18 @@
   position: -4,-2
   technologyPrerequisites:
   - DeterrenceTechnologies
+
+- type: technology
+  id: ExperimentalScience
+  name: research-technology-experimental-science
+  icon:
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  discipline: Experimental
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+  - ExperimentalCircuitBoard
+  position: -4,0
+  technologyPrerequisites:
+  - AdvancedAnomalyResearch

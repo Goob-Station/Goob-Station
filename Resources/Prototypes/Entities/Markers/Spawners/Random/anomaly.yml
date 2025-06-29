@@ -50,7 +50,7 @@
 
 - type: entity
   id: RandomRockAnomalySpawner
-  name: random anomaly spawner (rock)
+  name: random rock anomaly spawner
   parent: MarkerBase
   components:
   - type: Sprite
@@ -61,7 +61,9 @@
   - type: RandomSpawner
     prototypes:
     - AnomalyRockIron
+    - AnomalyRockCoal
     - AnomalyRockSilver
+    - AnomalyRockGold
     - AnomalyRockQuartz
     - AnomalyRockUranium
     chance: 1
@@ -69,7 +71,7 @@
 
 - type: entity
   id: RandomAnomalyInjectorSpawner
-  name: random anomaly spawner (injector)
+  name: random anomaly injector spawner
   parent: MarkerBase
   components:
   - type: Sprite

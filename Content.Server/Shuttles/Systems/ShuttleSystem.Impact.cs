@@ -39,6 +39,8 @@
 // SPDX-FileCopyrightText: 2024 stellar-novas <stellar_novas@riseup.net>
 // SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -62,7 +64,8 @@ public sealed partial class ShuttleSystem
 
     private void InitializeImpact()
     {
-        SubscribeLocalEvent<ShuttleComponent, StartCollideEvent>(OnShuttleCollide);
+        // Goobstation - replaced by ShuttleImpactSystem.cs, yes i know this is cursed but 1984Toolbox doesn't let me have 2 subscriptions for one event+comp pair
+        //SubscribeLocalEvent<ShuttleComponent, StartCollideEvent>(OnShuttleCollide);
     }
 
     private void OnShuttleCollide(EntityUid uid, ShuttleComponent component, ref StartCollideEvent args)

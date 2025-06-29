@@ -1,3 +1,9 @@
+-- SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+-- SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+-- SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+--
+-- SPDX-License-Identifier: AGPL-3.0-or-later
+
 -- Displacement Map Visualizer
 --
 -- This script will create a little preview window that will test a displacement map.
@@ -71,6 +77,33 @@ local findLayer = function(sprite, name)
     end
 
     return nil
+end
+
+local applyOffset = function(dx, dy)
+    local cel = app.cel
+    local image = cel.image:clone()
+    local sprite = app.editor.sprite
+    local selection = sprite.selection
+    
+    for x = selection.bounds.x, selection.bounds.x + selection.bounds.width - 1 do
+        for y = selection.bounds.y, selection.bounds.y + selection.bounds.height - 1 do
+            local xImg = x - cel.position.x
+            local yImg = y - cel.position.y
+            if xImg >= 0 and xImg < image.width and yImg >= 0 and yImg < image.height then
+                local pixelValue = image:getPixel(xImg, yImg)
+                local color = Color(pixelValue)
+
+                -- Offset R and G channel
+                color.red = math.min(255, math.max(0, color.red + dx))
+                color.green = math.min(255, math.max(0, color.green + dy))
+
+                image:drawPixel(xImg, yImg, app.pixelColor.rgba(color.red, color.green, color.blue, color.alpha))
+            end
+        end
+    end
+    
+    cel.image = image
+    dialog:repaint()
 end
 
 dialog = Dialog{
@@ -160,11 +193,43 @@ dialog:combobox{
 dialog:slider{
     id = "size",
     label = "displacement size",
-    min = 1,
+    min = 127, --We dont support non 127 atm
     max = 127,
     value = 127,
     onchange = function(ev)
         dialog:repaint()
+    end
+}
+
+dialog:button{
+    id = "moveDown",
+    text = "Down",
+    onclick = function(ev)
+        applyOffset(0, -1)
+    end
+}
+
+dialog:button{
+    id = "moveUp",
+    text = "Up",
+    onclick = function(ev)
+        applyOffset(0, 1)
+    end
+}
+
+dialog:button{
+    id = "moveLeft",
+    text = "Left",
+    onclick = function(ev)
+        applyOffset(1, 0)
+    end
+}
+
+dialog:button{
+    id = "moveRight",
+    text = "Right",
+    onclick = function(ev)
+        applyOffset(-1, 0)
     end
 }
 

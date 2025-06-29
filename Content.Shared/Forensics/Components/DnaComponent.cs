@@ -14,5 +14,5 @@ namespace Content.Shared.Forensics.Components;
 public sealed partial class DnaComponent : Component
 {
     [DataField("dna"), AutoNetworkedField]
-    public string DNA = String.Empty;
+    public string? DNA;
 }

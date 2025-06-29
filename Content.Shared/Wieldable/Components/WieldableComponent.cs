@@ -15,6 +15,7 @@
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -24,6 +25,7 @@
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 // SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
 //
@@ -38,7 +40,7 @@ namespace Content.Shared.Wieldable.Components;
 /// <summary>
 ///     Used for objects that can be wielded in two or more hands,
 /// </summary>
-[RegisterComponent, NetworkedComponent, Access(typeof(SharedWieldableSystem)), AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState] // Goobstation edit
 public sealed partial class WieldableComponent : Component
 {
     [DataField("wieldSound")]
@@ -61,7 +63,7 @@ public sealed partial class WieldableComponent : Component
     ///     Whether using the item inhand while wielding causes the item to unwield.
     ///     Unwielding can conflict with other inhand actions.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField] // Goobstation edit
     public bool UnwieldOnUse = true;
 
     /// <summary>
@@ -70,10 +72,18 @@ public sealed partial class WieldableComponent : Component
     [DataField]
     public bool UseDelayOnWield = true;
 
-    [DataField("wieldedInhandPrefix")]
+    [DataField("wieldedInhandPrefix"), AutoNetworkedField] // Goobstation edit
     public string? WieldedInhandPrefix = "wielded";
 
     public string? OldInhandPrefix = null;
+
+    // Goobstation
+    [DataField]
+    public bool ApplyNewPrefixOnShutdown;
+
+    // Goobstation
+    [DataField]
+    public string? NewPrefixOnShutdown;
 }
 
 [Serializable, NetSerializable]

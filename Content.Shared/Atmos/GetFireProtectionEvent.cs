@@ -24,9 +24,15 @@ public sealed class GetFireProtectionEvent : EntityEventArgs, IInventoryRelayEve
     /// </summary>
     public float Multiplier;
 
-    public GetFireProtectionEvent()
+    /// <summary>
+    /// Goobstation - The entity the event was originally raised on.
+    /// </summary>
+    public readonly EntityUid Target;
+
+    public GetFireProtectionEvent(EntityUid target) // Goobstation
     {
         Multiplier = 1f;
+        Target = target; // Goobstation
     }
 
     /// <summary>
@@ -35,5 +41,6 @@ public sealed class GetFireProtectionEvent : EntityEventArgs, IInventoryRelayEve
     public void Reduce(float by)
     {
         Multiplier -= by;
+        Multiplier = MathF.Max(Multiplier, 0f);
     }
 }

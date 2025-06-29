@@ -23,6 +23,11 @@
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 LuciferMkshelter <stepanteliatnik2022@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 terminatorbo <kovalevb059@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -56,6 +61,10 @@
   - type: Currency
     price:
       Telecrystal: 1
+  # Goobstation
+  - type: Tag
+    tags:
+    - Telecrystal
 
 - type: entity
   parent: Telecrystal
@@ -172,7 +181,6 @@
     tags:
     - NukeOpsUplink
     - NukeOpsCommanderUplink
-    
 
 - type: entity
   parent: BaseUplinkRadio
@@ -183,16 +191,3 @@
     balance:
       # Goobstation - Telecrystal rework
       Telecrystal: 999999
-
-- type: entity
-  parent: BaseUplinkRadio
-  id: LoneOpsUplink350TC
-  suffix: LoneOp #LoneOp personal uplink
-  components:
-  - type: Store
-    balance:
-      Telecrystal: 350
-  - type: Tag
-    tags:
-    - NukeOpsUplink
-    - LoneOpsUplink

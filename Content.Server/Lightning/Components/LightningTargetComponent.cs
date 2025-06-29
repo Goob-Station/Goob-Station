@@ -6,7 +6,7 @@
 
 using Content.Server.Tesla.EntitySystems;
 using Content.Shared.Explosion;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Lightning.Components;
@@ -25,7 +25,7 @@ public sealed partial class LightningTargetComponent : Component
     public float HitProbability = 1f;
 
     /// <summary>
-    /// Priority level for selecting a lightning target. 
+    /// Priority level for selecting a lightning target.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public int Priority;

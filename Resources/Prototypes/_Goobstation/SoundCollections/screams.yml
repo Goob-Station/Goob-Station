@@ -1,0 +1,11 @@
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: soundCollection
+  id: VoxScreams
+  files:
+    - /Audio/Voice/Vox/shriek1.ogg
+    - /Audio/_Goobstation/Voice/Vox/scream4.ogg
+    - /Audio/_Goobstation/Voice/Vox/scream3.ogg

@@ -120,8 +120,12 @@
 # SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ignaz "Ian" Kraft <ignaz.k@live.de>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -140,6 +144,8 @@
     - Back
   - type: Item
     size: Huge
+    shape: # Goobstation
+    - 0,0,5,2
   - type: StaticPrice
     price: 500
   - type: ContainerContainer
@@ -165,13 +171,14 @@
     - suitStorage
   - type: AmmoCounter
   - type: Gun
-    fireRate: 0.6 # Goobstation
+    fireRate: 1
     selectedMode: SemiAuto
     availableModes:
       - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
   - type: BallisticAmmoProvider
+    autoCycle: false # Goobstation
     whitelist:
       tags:
         - Grenade
@@ -179,6 +186,46 @@
     proto: GrenadeFrag
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+
+- type: entity
+  parent: [ BaseWeaponLauncher, BaseGunWieldable, BaseMajorContraband ]
+  id: WeaponLauncherHydra
+  name: hydra
+  description: PLOOP... FSSSSSS
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Launchers/hydra_launcher.rsi
+    layers:
+    - state: icon
+      map: [ "enum.GunVisualLayers.Base" ]
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Launchers/hydra_launcher.rsi
+    slots:
+    - Back
+    - suitStorage
+  - type: AmmoCounter
+  - type: Gun
+    fireRate: 1
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+  - type: ContainerContainer
+    containers:
+      revolver-ammo: !type:Container
+  - type: RevolverAmmoProvider
+    whitelist:
+      tags:
+      - Grenade
+    proto: GrenadeCleanade
+    capacity: 6
+    chambers: [ True, True, True, True, True, True ]
+    ammoSlots: [ null, null, null, null, null, null ]
+    soundEject:
+      path: /Audio/Weapons/Guns/MagOut/sfrifle_magout.ogg
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/sfrifle_magin.ogg
 
 - type: entity
   name: RPG-7
@@ -411,6 +458,42 @@
             True: { state: base-unshaded }
             False: { state: base-unshaded-off }
     - type: PacifismAllowedGun
+
+- type: entity
+  parent: [BaseWeaponLauncher, BaseSecurityEngineeringContraband]
+  id: WeaponLauncherSingularityBuster
+  name: singularity buster rocket launcher
+  description: An experimental rocket launcher designed to fire rockets capable of decomposing a singularity or tesla.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Launchers/buster_rocket.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Launchers/buster_rocket.rsi
+    slots:
+    - Back
+  - type: Item
+    shape:
+    - 0,0,5,2
+  - type: MultiHandedItem
+  - type: Gun
+    fireRate: 0.5
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
+  - type: BallisticAmmoProvider
+    autoCycle: false
+    whitelist:
+      tags:
+      - CartridgeRocket
+    proto: CartridgeRocketSingularityBuster
+    capacity: 1
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+  - type: Appearance
+  - type: StaticPrice
+    price: 1000
 
 # Admeme
 - type: entity

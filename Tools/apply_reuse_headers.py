@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 #!/usr/bin/env python3
 # apply_reuse_headers.py - A script to add REUSE headers to C# files
 
@@ -16,7 +19,14 @@ import time
 CUTOFF_COMMIT_HASH = "8270907bdc509a3fb5ecfecde8cc14e5845ede36"
 LICENSE_BEFORE = "MIT"
 LICENSE_AFTER = "AGPL-3.0-or-later"
-FILE_PATTERNS = ["*.xaml", "*.xml"]
+FILE_PATTERNS = ["*.cs", "*.js", "*.ts", "*.jsx", "*.tsx", "*.c", "*.cpp", "*.cc", "*.h", "*.hpp",
+                "*.java", "*.scala", "*.kt", "*.swift", "*.go", "*.rs", "*.dart", "*.groovy", "*.php",
+                "*.yaml", "*.yml", "*.ftl", "*.py", "*.rb", "*.pl", "*.pm", "*.sh", "*.bash", "*.zsh",
+                "*.fish", "*.ps1", "*.r", "*.rmd", "*.jl", "*.tcl", "*.perl", "*.conf", "*.toml",
+                "*.ini", "*.cfg", "*.bat", "*.cmd", "*.vb", "*.vbs", "*.bas", "*.asm", "*.s", "*.lisp",
+                "*.clj", "*.f", "*.f90", "*.m", "*.sql", "*.ada", "*.adb", "*.ads", "*.hs", "*.lhs",
+                "*.lua", "*.xaml", "*.xml", "*.html", "*.htm", "*.svg", "*.css", "*.scss", "*.sass",
+                "*.less", "*.md", "*.markdown", "*.csproj", "*.DotSettings"]
 REPO_PATH = "."
 MAX_WORKERS = os.cpu_count() or 4
 
@@ -24,11 +34,87 @@ MAX_WORKERS = os.cpu_count() or 4
 # Format: {extension: (prefix, suffix)}
 # If suffix is None, it's a single-line comment style
 COMMENT_STYLES = {
+    # C-style single-line comments
     ".cs": ("//", None),
+    ".js": ("//", None),
+    ".ts": ("//", None),
+    ".jsx": ("//", None),
+    ".tsx": ("//", None),
+    ".c": ("//", None),
+    ".cpp": ("//", None),
+    ".cc": ("//", None),
+    ".h": ("//", None),
+    ".hpp": ("//", None),
+    ".java": ("//", None),
+    ".scala": ("//", None),
+    ".kt": ("//", None),
+    ".swift": ("//", None),
+    ".go": ("//", None),
+    ".rs": ("//", None),
+    ".dart": ("//", None),
+    ".groovy": ("//", None),
+    ".php": ("//", None),
+
+    # Hash-style single-line comments
     ".yaml": ("#", None),
     ".yml": ("#", None),
+    ".ftl": ("#", None),
+    ".py": ("#", None),
+    ".rb": ("#", None),
+    ".pl": ("#", None),
+    ".pm": ("#", None),
+    ".sh": ("#", None),
+    ".bash": ("#", None),
+    ".zsh": ("#", None),
+    ".fish": ("#", None),
+    ".ps1": ("#", None),
+    ".r": ("#", None),
+    ".rmd": ("#", None),
+    ".jl": ("#", None),  # Julia
+    ".tcl": ("#", None),
+    ".perl": ("#", None),
+    ".conf": ("#", None),
+    ".toml": ("#", None),
+    ".ini": ("#", None),
+    ".cfg": ("#", None),
+    ".gitignore": ("#", None),
+    ".dockerignore": ("#", None),
+
+    # Other single-line comment styles
+    ".bat": ("REM", None),
+    ".cmd": ("REM", None),
+    ".vb": ("'", None),
+    ".vbs": ("'", None),
+    ".bas": ("'", None),
+    ".asm": (";", None),
+    ".s": (";", None),  # Assembly
+    ".lisp": (";", None),
+    ".clj": (";", None),  # Clojure
+    ".f": ("!", None),   # Fortran
+    ".f90": ("!", None), # Fortran
+    ".m": ("%", None),   # MATLAB/Octave
+    ".sql": ("--", None),
+    ".ada": ("--", None),
+    ".adb": ("--", None),
+    ".ads": ("--", None),
+    ".hs": ("--", None), # Haskell
+    ".lhs": ("--", None),
+    ".lua": ("--", None),
+
+    # Multi-line comment styles
     ".xaml": ("<!--", "-->"),
     ".xml": ("<!--", "-->"),
+    ".html": ("<!--", "-->"),
+    ".htm": ("<!--", "-->"),
+    ".svg": ("<!--", "-->"),
+    ".css": ("/*", "*/"),
+    ".scss": ("/*", "*/"),
+    ".sass": ("/*", "*/"),
+    ".less": ("/*", "*/"),
+    ".md": ("<!--", "-->"),
+    ".markdown": ("<!--", "-->"),
+    ".csproj": ("<!--", "-->"),
+    ".DotSettings": ("<!--", "-->"),
 }
 
 # --- Shared State and Lock ---

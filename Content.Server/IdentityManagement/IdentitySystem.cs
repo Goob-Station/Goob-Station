@@ -14,13 +14,18 @@
 // SPDX-FileCopyrightText: 2025 12rabbits <53499656+12rabbits@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 // SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 vanx <61917534+Vaaankas@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Identity;
 using Content.Server.Access.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.CriminalRecords.Systems;
@@ -50,6 +55,7 @@ public sealed class IdentitySystem : SharedIdentitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
     [Dependency] private readonly CriminalRecordsConsoleSystem _criminalRecordsConsole = default!;
+    [Dependency] private readonly GrammarSystem _grammarSystem = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!; // Goobstation - Update component state on component toggle
 
     private HashSet<EntityUid> _queuedIdentityUpdates = new();
@@ -98,10 +104,20 @@ public sealed class IdentitySystem : SharedIdentitySystem
     /// <summary>
     ///     Queues an identity update to the start of the next tick.
     /// </summary>
-    public void QueueIdentityUpdate(EntityUid uid)
+    public override void QueueIdentityUpdate(EntityUid uid)
     {
         _queuedIdentityUpdates.Add(uid);
     }
+
+    // WWDP simple public API
+    public string GetEntityIdentity(EntityUid uid)
+    {
+        var representation = GetIdentityRepresentation(uid);
+        var name = GetIdentityName(uid, representation);
+
+        return name;
+    }
+    // WWDP edit end
 
     #region Private API
 
@@ -129,7 +145,7 @@ public sealed class IdentitySystem : SharedIdentitySystem
 
             // If presumed name is null and we're using that, we set proper noun to be false ("the old woman")
             if (name != representation.TrueName && representation.PresumedName == null)
-                identityGrammar.ProperNoun = false;
+                _grammarSystem.SetProperNoun((ident, identityGrammar), false);
 
             Dirty(ident, identityGrammar);
         }
@@ -169,8 +185,19 @@ public sealed class IdentitySystem : SharedIdentitySystem
     /// </summary>
     private IdentityRepresentation GetIdentityRepresentation(EntityUid target,
         InventoryComponent? inventory=null,
-        HumanoidAppearanceComponent? appearance=null)
+        HumanoidAppearanceComponent? appearance=null,
+        bool raiseIdentityRepresentationEntityEvent = true)
     {
+        // Goobstation start
+        if (raiseIdentityRepresentationEntityEvent)
+        {
+            var ev = new GetIdentityRepresentationEntityEvent();
+            RaiseLocalEvent(target, ref ev);
+            if (ev.Uid != null)
+                return GetIdentityRepresentation(ev.Uid.Value, raiseIdentityRepresentationEntityEvent: false);
+        }
+        // Goobstation end
+
         int age = 18;
         Gender gender = Gender.Epicene;
         string species = SharedHumanoidAppearanceSystem.DefaultSpecies;

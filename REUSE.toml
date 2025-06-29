@@ -1,0 +1,16 @@
+version = 1
+SPDX-PackageName = "Goob Station"
+SPDX-PackageSupplier = "Aidenkrz <administrator@goobstation.com>"
+SPDX-PackageDownloadLocation = "https://www.goobstation.com"
+
+[[annotations]]
+path = ["Resources/Audio/**", "Resources/Textures/**"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "None"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = ["**.txt", "**.json"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "None"
+SPDX-License-Identifier = "MIT"

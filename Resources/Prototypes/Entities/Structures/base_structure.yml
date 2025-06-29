@@ -17,6 +17,8 @@
 # SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 #
 # SPDX-License-Identifier: MIT
 
@@ -47,6 +49,9 @@
   - type: Tag
     tags:
       - Structure
+  - type: Penetratable # Goobstation - Better snipers
+    penetrateDamage: 25
+    damagePenalty: 0.1
 
 - type: entity
   # This means that it's not anchored on spawn.

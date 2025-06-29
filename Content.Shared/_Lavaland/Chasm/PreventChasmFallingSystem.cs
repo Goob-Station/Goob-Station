@@ -14,6 +14,7 @@
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 // SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
 //
@@ -22,6 +23,7 @@
 using Content.Shared.Chasm;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
+using Content.Shared.Timing;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -36,7 +38,7 @@ public sealed class PreventChasmFallingSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-
+    [Dependency] private readonly UseDelaySystem _delay = default!;
 
     public override void Initialize()
     {
@@ -48,6 +50,9 @@ public sealed class PreventChasmFallingSystem : EntitySystem
 
     private void OnBeforeFall(EntityUid uid, PreventChasmFallingComponent comp, ref BeforeChasmFallingEvent args)
     {
+        if (TryComp<UseDelayComponent>(uid, out var useDelay) && _delay.IsDelayed((uid, useDelay)))
+            return;
+
         args.Cancelled = true;
         var coordsValid = false;
         var coords = Transform(args.Entity).Coordinates;
@@ -59,7 +64,7 @@ public sealed class PreventChasmFallingSystem : EntitySystem
             curAttempts++;
             if (curAttempts > attempts)
                 return; // Just to be safe from stack overflow
-            
+
             var newCoords = new EntityCoordinates(Transform(args.Entity).ParentUid, coords.X + _random.NextFloat(-5f, 5f), coords.Y + _random.NextFloat(-5f, 5f));
             if (!_interaction.InRangeUnobstructed(args.Entity, newCoords, -1f) ||
                 _lookup.GetEntitiesInRange<ChasmComponent>(newCoords, 1f).Count > 0)
@@ -68,8 +73,10 @@ public sealed class PreventChasmFallingSystem : EntitySystem
             _transform.SetCoordinates(args.Entity, newCoords);
             _transform.AttachToGridOrMap(args.Entity, Transform(args.Entity));
             _audio.PlayPvs("/Audio/Items/Mining/fultext_launch.ogg", args.Entity);
-            if (args.Entity != uid)
+            if (args.Entity != uid && comp.DeleteOnUse)
                 QueueDel(uid);
+            else if (useDelay != null)
+                _delay.TryResetDelay((uid, useDelay));
 
             coordsValid = true;
         }

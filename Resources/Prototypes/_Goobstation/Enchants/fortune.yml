@@ -1,0 +1,12 @@
+# Increases ore yield for picks/drills, chance proportional to level
+- type: entity
+  parent: BaseEnchant
+  id: EnchantFortune
+  name: Fortune
+  components:
+  - type: Enchant
+    whitelist:
+      tags:
+      - Pickaxe # Pick / drills / crushers
+    maxLevel: 3
+  - type: FortuneEnchant
