@@ -13,7 +13,7 @@ namespace Content.Goobstation.Server.Atmos.EntitySystems;
 
 /// <summary>
 /// Assmos - Extinguisher Nozzle
-/// Sets atmospheric temperature to 20C and removes all toxins. 
+/// Sets atmospheric temperature to 20C and removes all toxins.
 /// </summary>
 public sealed class AtmosResinDespawnSystem : EntitySystem
 {

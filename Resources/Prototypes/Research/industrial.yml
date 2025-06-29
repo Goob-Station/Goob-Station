@@ -275,6 +275,7 @@
   - HellfireFreezerMachineCircuitBoard
   - PortableScrubberMachineCircuitBoard
   - HolofanProjector
+  - ElectrolyzerMachineCircuitboard # Assmos - /tg/ gases
   technologyPrerequisites:
   - AtmosphericTech
   # Goobstation R&D Console rework start

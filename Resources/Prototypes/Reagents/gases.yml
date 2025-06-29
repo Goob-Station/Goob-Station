@@ -493,7 +493,7 @@
           types:
             Heat: -0.5
             Shock: -0.5
-            Cold: -0.5 
+            Cold: -0.5
             Radiation: -0.5
       - !type:HealthChange
         conditions:
@@ -987,7 +987,7 @@
         damage:
           types:
             Asphyxiation: 15
-      
+
 - type: reagent
   id: Pluoxium
   name: reagent-name-pluoxium
@@ -1073,3 +1073,68 @@
         ratios:
           CarbonDioxide: 1.0
           Pluoxium: -1.0
+
+- type: reagent
+  id: Hyper-Noblium
+  name: reagent-name-hyper-noblium
+  desc: reagent-desc-hyper-noblium
+  physicalDesc: reagent-physical-desc-gaseous
+  flavor: bitter
+  color: "#33cccc"
+
+- type: reagent
+  id: Proto-Nitrate
+  name: reagent-name-proto-nitrate
+  desc: reagent-desc-proto-nitrate
+  physicalDesc: reagent-physical-desc-gaseous
+  flavor: bitter
+  color: "#009933"
+
+- type: reagent
+  id: Zauker
+  name: reagent-name-zauker
+  desc: reagent-desc-zauker
+  physicalDesc: reagent-physical-desc-gaseous
+  flavor: bitter
+  color: "#1c1a1a"
+  metabolisms:
+    Gas:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Zauker
+          min: 0.25
+          max: 10
+        scaleByQuantity: true
+        ignoreResistances: true
+        damage:
+          types:
+            Slash: 6
+            Heat: 2
+            Poison: 2
+            Bloodloss: 1
+
+- type: reagent
+  id: Halon
+  name: reagent-name-halon
+  desc: reagent-desc-halon
+  physicalDesc: reagent-physical-desc-gaseous
+  flavor: bitter
+  color: "#e3574d"
+
+- type: reagent
+  id: Helium
+  name: reagent-name-helium
+  desc: reagent-desc-helium
+  physicalDesc: reagent-physical-desc-gaseous
+  flavor: bitter
+  color: "#005959"
+
+- type: reagent
+  id: Anti-Noblium
+  name: reagent-name-anti-noblium
+  desc: reagent-desc-anti-noblium
+  physicalDesc: reagent-physical-desc-gaseous
+  flavor: bitter
+  color: "#525151"

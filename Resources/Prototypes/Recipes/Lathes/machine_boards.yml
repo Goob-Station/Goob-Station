@@ -536,3 +536,10 @@
   id: HolopadMachineCircuitboard
   icon: { sprite:  Structures/Machines/holopad.rsi, state: base } # Goobstation
   result: HolopadMachineCircuitboard
+
+# Assmos - /tg/ gases
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: ElectrolyzerMachineCircuitboard
+  icon: { sprite:  _Funkystation/Structures/Machines/electrolyzer.rsi, state: electrolyzerOff } # Goobstation
+  result: ElectrolyzerMachineCircuitboard

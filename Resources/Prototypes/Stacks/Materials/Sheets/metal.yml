@@ -31,3 +31,10 @@
   icon: { sprite: /Textures/Objects/Materials/Sheets/metal.rsi, state: brass }
   spawn: SheetBrass1
   maxCount: 30
+
+- type: stack
+  id: MetalHydrogen
+  name: metal hydrogen
+  icon: { sprite: /Textures/Objects/Materials/ingots.rsi, state: hydrogen }
+  spawn: MetalHydrogen1
+  maxCount: 30

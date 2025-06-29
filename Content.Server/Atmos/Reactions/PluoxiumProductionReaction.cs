@@ -21,6 +21,9 @@ public sealed partial class PluoxiumProductionReaction : IGasReactionEffect
 {
     public ReactionResult React(GasMixture mixture, IGasMixtureHolder? holder, AtmosphereSystem atmosphereSystem, float heatScale)
     {
+        if (mixture.Temperature > 20f && mixture.GetMoles(Gas.HyperNoblium) >= 5f)
+            return ReactionResult.NoReaction;
+            
         var initO2 = mixture.GetMoles(Gas.Oxygen);
         var initCO2 = mixture.GetMoles(Gas.CarbonDioxide);
         var initTrit = mixture.GetMoles(Gas.Tritium);
@@ -46,7 +49,7 @@ public sealed partial class PluoxiumProductionReaction : IGasReactionEffect
         mixture.AdjustMoles(Gas.Oxygen, -oxyRemoved);
         mixture.AdjustMoles(Gas.Tritium, -tritRemoved);
         mixture.AdjustMoles(Gas.Pluoxium, pluoxProduced);
-        mixture.AdjustMoles(Gas.WaterVapor, hydroProduced);
+        mixture.AdjustMoles(Gas.Hydrogen, hydroProduced);
 
         var energyReleased = producedAmount * Atmospherics.PluoxiumProductionEnergy;
         var heatCap = atmosphereSystem.GetHeatCapacity(mixture, true);

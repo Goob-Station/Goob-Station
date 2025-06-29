@@ -21,6 +21,9 @@ public sealed partial class NitriumProductionReaction : IGasReactionEffect
 {
     public ReactionResult React(GasMixture mixture, IGasMixtureHolder? holder, AtmosphereSystem atmosphereSystem, float heatScale)
     {
+        if (mixture.Temperature > 20f && mixture.GetMoles(Gas.HyperNoblium) >= 5f)
+            return ReactionResult.NoReaction;
+            
         var initTritium = mixture.GetMoles(Gas.Tritium);
         var initNitrogen = mixture.GetMoles(Gas.Nitrogen);
         var initBZ = mixture.GetMoles(Gas.BZ);

@@ -148,3 +148,64 @@
     state: silver
   - type: Stack
     count: 1
+
+# Assmos - /tg/ gases
+- type: entity
+  parent: IngotBase
+  id: MetalHydrogen
+  name: metal hydrogen
+  suffix: Full
+  components:
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      MetalHydrogen: 100
+  - type: Stack
+    stackType: MetalHydrogen
+    baseLayer: base
+    layerStates:
+    - hydrogen
+    - hydrogen_2
+    - hydrogen_3
+  - type: Sprite
+    state: hydrogen_3
+    layers:
+    - state: hydrogen_3
+      map: ["base"]
+  - type: Item
+    heldPrefix: metalhydrogen
+  - type: Appearance
+  - type: Extractable
+    grindableSolutionName: hydrogen
+  - type: SolutionContainerManager
+    solutions:
+      hydrogen:
+        reagents:
+        - ReagentId: Hydrogen
+          Quantity: 20
+        canReact: false
+
+- type: entity
+  parent: MetalHydrogen
+  id: MetalHydrogen10
+  name: metal hydrogen
+  suffix: 10
+  components:
+  - type: Sprite
+    state: hydrogen
+  - type: Stack
+    stackType: MetalHydrogen
+    count: 10
+
+- type: entity
+  parent: MetalHydrogen
+  id: MetalHydrogen1
+  name: metal hydrogen
+  suffix: Single
+  components:
+  - type: Sprite
+    state: hydrogen
+  - type: Stack
+    stackType: MetalHydrogen
+    count: 1
+# Assmos change end

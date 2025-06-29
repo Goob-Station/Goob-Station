@@ -106,6 +106,13 @@
         Healium: stationNO # Assmos - /tg/ gases
         Nitrium: danger # Assmos - /tg/ gases
         Pluoxium: ignore # Assmos - /tg/ gases
+        Hydrogen: danger # Assmos - /tg/ gases
+        HyperNoblium: stationAmmonia # Assmos - /tg/ gases
+        ProtoNitrate: danger # Assmos - /tg/ gases
+        Zauker: danger # Assmos - /tg/ gases
+        Halon: danger # Assmos - /tg/ gases
+        Helium: stationAmmonia # Assmos - /tg/ gases
+        AntiNoblium: danger # Assmos - /tg/ gases
     - type: Tag
       tags:
         - AirSensor

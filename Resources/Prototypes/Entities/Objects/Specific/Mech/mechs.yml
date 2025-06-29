@@ -54,6 +54,13 @@
     - BZ
     - Healium
     - Nitrium
+    - Hydrogen
+    - HyperNoblium
+    - ProtoNitrate
+    - Zauker
+    - Halon
+    - Helium
+    - AntiNoblium
     #- Helium3 TODO: fusion
     # remove everything except oxygen to maintain oxygen ratio
     overflowGases:
@@ -69,6 +76,13 @@
     - Healium
     - Nitrium
     - Pluoxium
+    - Hydrogen
+    - HyperNoblium
+    - ProtoNitrate
+    - Zauker
+    - Halon
+    - Helium
+    - AntiNoblium
     #- Helium3 TODO: fusion
   - type: AirIntake
   # for intake and filter to work
