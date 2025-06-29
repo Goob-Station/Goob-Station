@@ -9,7 +9,7 @@ using Content.Shared.NPC.Systems;
 
 namespace Content.Goobstation.Shared.Mech;
 
-public sealed class SharedMechSystem : EntitySystem
+public sealed class GoobMechSystem : EntitySystem
 {
     [Dependency] private readonly NpcFactionSystem _faction = default!;
 
