@@ -35,14 +35,10 @@
     - to: armor
       steps:
       - tag: MetalHydrogenArmor
-        icon:
-          sprite: _Funkystation/Clothing/OuterClothing/Armor/metal_hydrogen_armor.rsi
-          state: icon
+        name: construction-graph-tag-metal-hydrogen-armor
         doAfter: 1
       - tag: AtmosFireSuit
-        icon:
-          sprite: Clothing/OuterClothing/Suits/atmos_firesuit.rsi
-          state: icon
+        name: construction-graph-tag-atmos-firesuit
         doAfter: 15
       - material: Cable
         amount: 2

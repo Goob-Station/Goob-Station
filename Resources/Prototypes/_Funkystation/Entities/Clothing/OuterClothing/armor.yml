@@ -22,7 +22,7 @@
     node: armor
   - type: Tag
     tags:
-      - MetalHydrogenArmor
+    - MetalHydrogenArmor
 
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing]

@@ -1,11 +1,11 @@
 - type: stack
   id: MetalHydrogen
-  icon: { sprite: _Funkystation/Objects/Materials/ingots.rsi, state: hydrogen }
+  name: stack-metal-hydrogen
   spawn: MetalHydrogen1
   maxCount: 30
 
 - type: stack
   id: Zaukerite
-  icon: { sprite: _Funkystation/Objects/Materials/ingots.rsi, state: zaukerite }
+  name: stack-zaukerite
   spawn: Zaukerite1
   maxCount: 30
