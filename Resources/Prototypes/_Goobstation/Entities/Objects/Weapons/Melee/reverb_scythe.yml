@@ -1,5 +1,6 @@
 - type: entity
   name: resonant scythe
+  description: The answer seems to be here… But the fruit isnt sweet enough just yet.
   parent: BaseItem
   id: ReverbScythe
   components:
@@ -12,7 +13,7 @@
     attackRate: 1.25
     damage:
       types:
-        Slash: 10
+        Slash: 65
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item

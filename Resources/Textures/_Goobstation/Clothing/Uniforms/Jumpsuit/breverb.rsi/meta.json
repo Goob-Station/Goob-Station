@@ -17,6 +17,14 @@
         {
             "name": "equipped-INNERCLOTHING-vox",
             "directions": 4
+        },
+        {
+            "name": "inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "inhand-right",
+            "directions": 4
         }
     ]
 }

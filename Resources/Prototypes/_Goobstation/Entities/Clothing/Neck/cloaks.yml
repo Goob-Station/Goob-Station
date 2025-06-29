@@ -19,6 +19,7 @@
   parent: ClothingNeckBase
   id: ClothingNeckCloakResonant
   name: resonant cape
+  description: The stage calls for us. We should gladly play along.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Cloaks/breverb.rsi

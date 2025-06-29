@@ -41,6 +41,7 @@
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesResonant
   name: resonant shoes
+  description: Is it not time yet… for the splendid curtain to rise?
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Shoes/Boots/breverb.rsi
