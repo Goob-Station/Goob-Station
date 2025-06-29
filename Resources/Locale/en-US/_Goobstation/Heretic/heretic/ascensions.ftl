@@ -19,7 +19,7 @@ heretic-ascension-blade =
 
 heretic-ascension-lock =
     The Stewards... I hear them, now. My friends in the misted sky.
-    A Labyrinth meant to contain us now broken. Solved. A guiding string lead through.
+    A Labyrinth meant to contain us now broken. Solved. A guiding string led through.
     We cannot be contained. WE CANNOT BE LOCKED AWAY. WITNESS OUR ASCENSION!
 
 heretic-ascension-flesh =
