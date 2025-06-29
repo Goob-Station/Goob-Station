@@ -8,3 +8,8 @@
   license: "CC-BY-3.0"
   copyright: "Created by Aidenkrz"
   source: "https://forums.goobstation.com"
+
+- files: ["Meatzone_Howl.ogg"]
+  license: "CC-BY-NC-SA"
+  copyright: "Taken from Goonstation 13"
+  source: "https://github.com/goonstation/goonstation/tree/master/sound"

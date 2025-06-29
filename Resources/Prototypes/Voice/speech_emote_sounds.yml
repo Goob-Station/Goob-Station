@@ -683,6 +683,16 @@
       variation: 0.125
 
 - type: emoteSounds
+  id: Brullbar
+  sound:
+    path: /Audio/_Goobstation/Animals/Meatzone_Howl.ogg
+    params:
+      variation: 0.125
+      sounds:
+        BrullbarHowl:
+          collection: BruteHowl
+
+- type: emoteSounds
   id: Cerberus
   sound:
     path: /Audio/Animals/cerberus.ogg

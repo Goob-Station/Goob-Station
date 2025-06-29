@@ -509,3 +509,122 @@
     - type: Tag
       tags:
       - FootstepSound
+
+- type: entity
+  name: brullbar
+  id: MobBrullbar
+  parent: [ SimpleSpaceMobBase, MobCombat ]
+  description: It's like a bear, but not as huggable.
+  components:
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: /Textures/_Goobstation/Mobs/Animals/brullbar.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: brullbar
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: brullbar
+      Dead:
+        Base: dead
+  - type: Vocal
+    sounds:
+      Male: Brullbar
+      Female: Brullbar
+      Unsexed: Brullbar
+  - type: AutoEmote
+    emotes:
+    - BrullbarHowl
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      80: Dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatBear
+      amount: 3
+    - id: AnomalyCoreIce
+      amount: 1
+      prob: 0.01
+  - type: ReplacementAccent
+    accent: genericAggressive
+  - type: Fauna # Lavaland Change
+
+- type: entity
+  name: brullbar king
+  id: MobBrullbarKing
+  parent: MobBrullbar
+  description: Looks mean, is mean. You better run.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: /Textures/_Goobstation/Mobs/Animals/brullbar.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: brullbarking
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: brullbarking
+      Dead:
+        Base: kingdead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 4
+    baseSprintSpeed : 6
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatBear
+      amount: 3
+    - id: AnomalyCoreIce
+      amount: 1
+      prob: 0.2
+
+- type: entity
+  name: bear
+  id: MobBearGoon
+  parent: [ SimpleSpaceMobBase, MobCombat ]
+  description: Why are you staring? Never seen a bear before?
+  components:
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: /Textures/_Goobstation/Mobs/Animals/brullbar.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: bear
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: bear
+      Dead:
+        Base: beardead
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 4
+    baseSprintSpeed : 7
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatBear
+      amount: 1
+  - type: ReplacementAccent
+    accent: genericAggressive
+  - type: Fauna # Lavaland Change

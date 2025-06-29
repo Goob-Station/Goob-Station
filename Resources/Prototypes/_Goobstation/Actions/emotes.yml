@@ -79,3 +79,8 @@
   - jumps.
   - jumps!
   event: !type:AnimationJumpEmoteEvent
+
+- type: soundCollection
+  id: BruteHowl
+  files:
+    - /Audio/_Goobstation/Animals/Meatzone_Howl.ogg
