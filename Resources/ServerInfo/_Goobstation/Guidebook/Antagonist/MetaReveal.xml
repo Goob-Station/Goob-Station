@@ -9,22 +9,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Roleplay Rule 4 - Do not metagame, obey the Metashield
-  Something that is "shielded" cannot be known by your character during a round until the "revealing condition" happens. This also means that your character cannot do things based on "shielded" information. Knowing or acting on something that is shielded before the revealing condition is met is referred to as metagaming.
-
-  Revealing conditions reveal the shielded information for the round, not for a specific instance. This means that once a revealing condition is met in a round, the shield no longer applies in any case for the remainder of the round.
-
-  ## Never Revealed IC
-  Some shields are never revealed IC. This means that your character can never act as if they know about that shielded thing.
-
-  The following are shielded:
-  - Current game mode and possible antags during the current game mode.
-  - Events from previous rounds.
-  - Events you experienced as a different character.
-  - All information related to the player of a character rather than the character itself. (See "Metafriending and Metagrudging" below.)
-  - All information gained while dead or a ghost.
-  - All information gained while in critical condition or unconscious.
-  - The fact that a round will end.
+  # Revealing conditions for antags
 
   This does not prevent knowing that a shift will end, but does prohibit things like preparing to kill people at central command when roleplay rules stop being enforced on LRP.
 
@@ -40,9 +25,21 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
   - The chaplain is aware of the existence of heretics, but the chaplain is always spewing nonsense. What do they even mean?
 
+  The revealing condition for this shield is any of the following:
+  - witnessing a crewmember drawing a rune
+  - witnessing a crewmember harvesting a reality fracture
+  - witnessing a crewmember using their powers
+
   ## Cosmic Cult
 
   - The chaplain is saying words again! Why do they hire such weird people?
+
+  The revealing condition for this shield is any of the following:
+  - witnessing a crewmember with the telltale facemask
+  - witnessing a crewmember using a glyph
+  - witnessing a crewmember absorb a malign shift
+  - witnessing a crewmember use a cult-specific ability
+  - witnessing cult gear like entropic swords and armor
 
   ## Devils
 
@@ -50,34 +47,75 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
   Knowledge about the abilities and consequences of a Devil deal are not shielded.
 
+  The revealing condition for this shield is any of the following:
+  - You are a Devil.
+  - You are the Chaplain, a lawyer, or a member of Central Command. (Including BSO and NTR)
+  - You have made a deal with the Devil.
+  - You have witnessed someone make a deal.
+
   ## Zombies
 
   Zombies are known galaxy-wide, but not as real-life, instead, as fiction.
   Nuclear Operatives and Syndicate Agents are aware of Romerol and what it can do, but there's no benefit to revealing it to the crew. People likely won't believe you anyway.
 
+  Revealing conditions to the "Zombie" Shield:
+  - You are a Nuclear Operative
+  - You are a Syndicate Agent
+  - You are a Zombie
+  - You have seen Zombies on the station
+
   ## Infections(Once the zombie virus is proven)
 
   Such infections have been known to be extinct. But luckily advanced medicine has been able to cure the infection. The cure is not known to the public, but it is known to Chemists and Chief Medical Officers. The cure is not known to be a cure for the zombie virus, but it is known to be a cure for an infection that causes people to become zombies.
+
+  Revealing conditions to the "Infections" Shield:
+  - You are a Chemist
+  - You are a Chief Medical Officer
+  - Zombies are announced to be real and station-wide
 
   ## Deathsquad
 
   Deathsquad is a sci-fi trope that is well known in the galaxy, but not as a real thing. It is a myth, a legend, and a story that people tell each other. The Deathsquad is not real, but some will argue that it is.
 
+  Revealing conditions to the "Deathsquad" Shield:
+  - You'll know.
+
   ## Implanted implants
 
   Implants are not shielded by default, but the fact that they are not Nanotrasen (NT) implants is shielded.
 
+  The revealing condition for this shield is any of the following:
+  - discovering a non-NT implanter, used or unused
+  - discovering a non-NT implant box
+  - discovering use of a non-NT implant by anyone
+  - experiencing a situation where absolutely no other explanation is possible
+  - discovering an unlocked uplink
+
   ## Chameleon Items
 
   Chameleon items are shielded.
+
   Being suspicious of an item being fake or stolen is not shielded, but testing items or calling them chameleon is covered by this shield.
+
+  The revealing condition for this shield is any of the following:
+  - seeing someone else cause any chameleon item to change
+  - finding holographic nanomachine fibers
+  - experiencing a situation where absolutely no other explanation is possible
+  - discovering an unlocked uplink
 
   ## Stealth Items
 
   The fact that an item can be something other than what its visual appearance and examine description indicate is shielded.
+
   Security may be aware of tampered items, but they are not aware of the specific item that is tamped. This means that security may not act on the fact that an item is tamped, but they may act on the fact that an item is suspicious.  (Example: Non-NT weapons on a persons is suspicious, how did they get it on station?)
+
   This shield protects stealth items, including protecting them from being tested.
 
+  The revealing condition for this shield is any of the following:
+  - seeing the item behave differently than the expected behavior for the item
+  - seeing the item used for its hidden purpose
+  - experiencing a situation where absolutely no other explanation is possible
+  - discovering an unlocked uplink
 
   ## Metafriending and Metagrudging
   This section provides additional information on a concept that is prohibited by multiple metashield items that are never revealed IC. Giving a person or character preferential treatment based on something that your character should not know is considered metafriending. Treating a person or character negatively based on something that your character should not know is considered metagrudging.
@@ -108,6 +146,4 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   - A character's typical appearance. Though you should keep in mind that multiple characters can share the same name.
   - The fact that the Syndicate have covert items capable of getting items to them, and that these items are known as uplinks.
   - Wizards are not metashielded as the wizards federation is well rumoured about.
-
-  For revealing conditions check out [textlink="Antag revealing conditions" link="Conditions"]
 </Document>
