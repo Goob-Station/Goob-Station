@@ -11,6 +11,7 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Goobstation.Common.Blob;
 using Content.Goobstation.Server.Changeling.GameTicking.Rules;
 using Content.Goobstation.Server.Devil.GameTicking.Rules;
+using Content.Goobstation.Server.Shadowling.Rules;
 using Content.Server.Administration.Managers;
 using Content.Server.Antag;
 using Content.Shared._EinsteinEngines.Silicon.Components;
@@ -80,6 +81,23 @@ public sealed partial class GoobAdminVerbSystem
             Message = Loc.GetString("admin-verb-make-devil"),
         };
         args.Verbs.Add(devilAntag);
+
+        // Einstein Engines - Shadowlings
+        Verb shadowling = new()
+        {
+            Text = Loc.GetString("admin-verb-text-make-shadowling"),
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(
+                new("/Textures/_EinsteinEngines/Shadowling/shadowling_abilities.rsi"),
+                "engage_hatch"),
+            Act = () =>
+            {
+                _antag.ForceMakeAntag<ShadowlingRuleComponent>(targetPlayer, "Shadowling");
+            },
+            Impact = LogImpact.High,
+            Message = Loc.GetString("admin-verb-make-shadowling"),
+        };
+        args.Verbs.Add(shadowling);
     }
 
     public bool AntagVerbAllowed(GetVerbsEvent<Verb> args, [NotNullWhen(true)] out ICommonSession? target)

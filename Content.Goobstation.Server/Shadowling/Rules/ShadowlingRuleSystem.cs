@@ -1,9 +1,11 @@
+using Content.Goobstation.Shared.Shadowling;
+using Content.Goobstation.Shared.Shadowling.Components;
 using Content.Server.Antag;
-using Content.Server.GameTicking.Rules.Components;
+using Content.Server.GameTicking;
+using Content.Server.GameTicking.Rules;
 using Content.Server.Mind;
 using Content.Server.Roles;
 using Content.Server.Zombies;
-using Content.Shared._EE.Shadowling;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Prototypes;
@@ -12,7 +14,7 @@ using Content.Shared.Roles;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.GameTicking.Rules;
+namespace Content.Goobstation.Server.Shadowling.Rules;
 
 public sealed class ShadowlingRuleSystem : GameRuleSystem<ShadowlingRuleComponent>
 {
@@ -22,13 +24,13 @@ public sealed class ShadowlingRuleSystem : GameRuleSystem<ShadowlingRuleComponen
     [Dependency] private readonly MobStateSystem _mob = default!;
     [Dependency] private readonly NpcFactionSystem _npc = default!;
 
-    public readonly SoundSpecifier BriefingSound = new SoundPathSpecifier("/Audio/_EinsteinEngines/Shadowling/shadowling.ogg");
+    private readonly SoundSpecifier _briefingSound = new SoundPathSpecifier("/Audio/_EinsteinEngines/Shadowling/shadowling.ogg");
 
-    [ValidatePrototypeId<EntityPrototype>] EntProtoId _mindRole = "MindRoleShadowling";
+    private readonly EntProtoId _mindRole = "MindRoleShadowling";
 
-    public readonly ProtoId<NpcFactionPrototype> ShadowlingFactionId = "Shadowling";
+    private readonly ProtoId<NpcFactionPrototype> _shadowlingFactionId = "Shadowling";
 
-    public readonly ProtoId<NpcFactionPrototype> NanotrasenFactionId = "NanoTrasen";
+    private readonly ProtoId<NpcFactionPrototype> _nanotrasenFactionId = "NanoTrasen";
 
     public override void Initialize()
     {
@@ -93,16 +95,12 @@ public sealed class ShadowlingRuleSystem : GameRuleSystem<ShadowlingRuleComponen
 
         _role.MindAddRole(mindId, _mindRole.Id, mind, true);
 
-        _npc.RemoveFaction(target, NanotrasenFactionId, false);
-        _npc.AddFaction(target, ShadowlingFactionId);
-
-        TryComp<MetaDataComponent>(target, out var metaData);
-        if (metaData == null)
-            return false;
+        _npc.RemoveFaction(target, _nanotrasenFactionId, false);
+        _npc.AddFaction(target, _shadowlingFactionId);
 
         var briefing = Loc.GetString("shadowling-role-greeting");
 
-        _antag.SendBriefing(target, briefing, Color.MediumPurple, BriefingSound);
+        _antag.SendBriefing(target, briefing, Color.MediumPurple, _briefingSound);
 
         EnsureComp<ShadowlingComponent>(target);
 

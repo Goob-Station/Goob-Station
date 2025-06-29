@@ -1,8 +1,7 @@
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
-
-namespace Content.Shared._EE.Shadowling;
-
+namespace Content.Goobstation.Shared.Shadowling.Components.Abilities.PreAscension;
 
 /// <summary>
 /// This is used for Destroy Engines ability.
@@ -10,7 +9,8 @@ namespace Content.Shared._EE.Shadowling;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ShadowlingDestroyEnginesComponent : Component
 {
-    public string? ActionDestroyEngines = "ActionDestroyEngines";
+    [DataField]
+    public EntProtoId ActionDestroyEngines = "ActionDestroyEngines";
 
     [DataField]
     public TimeSpan DelayTime = TimeSpan.FromMinutes(10);

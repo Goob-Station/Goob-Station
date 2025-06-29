@@ -1,15 +1,14 @@
+using Content.Goobstation.Shared.Shadowling;
+using Content.Goobstation.Shared.Shadowling.Components.Abilities.PreAscension;
 using Content.Server.Actions;
 using Content.Server.Light.Components;
 using Content.Server.Light.EntitySystems;
-using Content.Shared._EE.Shadowling;
 using Content.Shared.Light;
 using Content.Shared.Light.Components;
 using Content.Shared.Light.EntitySystems;
 using Robust.Server.GameObjects;
 
-
-namespace Content.Server._EE.Shadowling;
-
+namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.PreAscension;
 
 /// <summary>
 /// This handles Veil, a re-skinned emp
@@ -52,7 +51,7 @@ public sealed class ShadowlingVeilSystem : EntitySystem
 
         if (TryComp<HandheldLightComponent>(uid, out var handheldLight))
         {
-            _handheld.SetActivated(uid, false, handheldLight, true);
+            _handheld.SetActivated(uid, false, handheldLight);
         }
 
         // mostly for pdas
@@ -60,6 +59,7 @@ public sealed class ShadowlingVeilSystem : EntitySystem
         {
             if (!unpoweredFlashlight.LightOn)
                 return;
+
             _unpowered.TryToggleLight(uid, unpoweredFlashlight.ToggleActionEntity);
         }
     }

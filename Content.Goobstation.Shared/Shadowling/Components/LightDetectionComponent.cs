@@ -1,8 +1,6 @@
 using System.Numerics;
 
-
-namespace Content.Shared._EE.Shadowling.Components;
-
+namespace Content.Goobstation.Shared.Shadowling.Components;
 
 /// <summary>
 /// This is used for detecting if an entity is near a lighted area
@@ -29,5 +27,5 @@ public sealed partial class LightDetectionComponent : Component
     public bool IsUserActive;
 
     [DataField]
-    public Vector2 LastKnownPosition = new Vector2();
+    public Vector2 LastKnownPosition;
 }

@@ -1,13 +1,11 @@
 using Content.Client.Alerts;
 using Content.Client.UserInterface.Systems.Alerts.Controls;
-using Content.Shared._EE.Shadowling.Systems;
-using Content.Shared._EE.Shadowling;
-using Content.Shared._EE.Shadowling.Components;
+using Content.Goobstation.Shared.Shadowling.Components;
+using Content.Goobstation.Shared.Shadowling.Systems;
 using Content.Shared.StatusIcon.Components;
 using Robust.Shared.Prototypes;
 
-namespace Content.Client._EE.Shadowling;
-
+namespace Content.Goobstation.Client.Shadowling;
 
 /// <summary>
 /// This handles status icons for slings and thralls

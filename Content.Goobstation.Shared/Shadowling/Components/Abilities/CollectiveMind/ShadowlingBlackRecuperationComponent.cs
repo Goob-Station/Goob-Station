@@ -1,14 +1,10 @@
 using Content.Shared.Damage;
-using Content.Shared.FixedPoint;
-using Content.Shared.Humanoid.Markings;
 using Content.Shared.Polymorph;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-
-namespace Content.Shared._EE.Shadowling;
-
+namespace Content.Goobstation.Shared.Shadowling.Components.Abilities.CollectiveMind;
 
 /// <summary>
 /// This is used for the Black Recuperation ability.
@@ -23,7 +19,7 @@ public sealed partial class ShadowlingBlackRecuperationComponent : Component
     public TimeSpan Duration = TimeSpan.FromSeconds(5);
 
     [DataField]
-    public string? BlackRecuperationEffect = "ShadowlingBlackRecuperationEffect";
+    public EntProtoId BlackRecuperationEffect = "ShadowlingBlackRecuperationEffect";
 
     [DataField]
     public int LesserShadowlingMaxLimit = 5;
@@ -35,7 +31,7 @@ public sealed partial class ShadowlingBlackRecuperationComponent : Component
     public ProtoId<PolymorphPrototype> LesserShadowlingSpeciesProto = "ShadowPolymorph";
 
     [DataField]
-    public string LesserShadowlingEyes = "LesserShadowlingEyes";
+    public string MarkingId = "LesserShadowlingEyes";
 
     [DataField]
     public SoundSpecifier? BlackRecSound = new SoundPathSpecifier("/Audio/Items/Defib/defib_zap.ogg");
@@ -55,4 +51,3 @@ public sealed partial class ShadowlingBlackRecuperationComponent : Component
     [DataField]
     public float ResistanceRemoveFromLesser = 0.12f;
 }
-

@@ -1,12 +1,9 @@
-using Content.Shared.Language;
 using Content.Shared.StatusIcon;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-
-namespace Content.Shared._EE.Shadowling;
-
+namespace Content.Goobstation.Shared.Shadowling.Components;
 
 /// <summary>
 /// This is used for marking Thralls and storing their icons
@@ -43,8 +40,4 @@ public sealed partial class ThrallComponent : Component
     /// </summary>
     [DataField]
     public EntityUid? Converter;
-
-    [DataField]
-    public ProtoId<LanguagePrototype> SlingLanguageId { get; set; } = "Shadowmind";
-
 }

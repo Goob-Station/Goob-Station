@@ -1,11 +1,11 @@
+using Content.Goobstation.Shared.Shadowling;
+using Content.Goobstation.Shared.Shadowling.Components;
+using Content.Goobstation.Shared.Shadowling.Components.Abilities.Ascension;
 using Content.Server.Actions;
-using Content.Shared._EE.Shadowling;
 using Content.Shared.Gibbing.Events;
 using Content.Server.Body.Systems;
 
-
-namespace Content.Server._EE.Shadowling;
-
+namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.Ascension;
 
 /// <summary>
 /// This handles the Annihilate abiltiy logic.
@@ -29,7 +29,7 @@ public sealed class ShadowlingAnnihilateSystem : EntitySystem
         var target = args.Target;
         if (HasComp<ShadowlingComponent>(target))
             return;
-        
+
         _body.GibBody(target, contents: GibContentsOption.Gib);
 
         _actions.StartUseDelay(args.Action);

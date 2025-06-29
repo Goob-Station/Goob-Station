@@ -1,14 +1,13 @@
+using Content.Goobstation.Shared.Nightmare.Components;
+using Content.Goobstation.Shared.PhaseShift;
+using Content.Goobstation.Shared.Shadowling.Components;
+using Content.Goobstation.Shared.Shadowling.Components.Abilities.Ascension;
 using Content.Server.Actions;
 using Content.Server.Stunnable;
-using Content.Shared._EE.Nightmare.Components;
-using Content.Shared._EE.Shadowling;
-using Content.Shared._EE.Shadowling.Components;
 using Content.Shared.Actions;
 using Content.Shared.Weapons.Reflect;
-using Content.Shared.WhiteDream.BloodCult.Constructs.PhaseShift;
 
-
-namespace Content.Server._EE.Nightmare.Systems;
+namespace Content.Goobstation.Server.Nightmare;
 
 
 /// <summary>
@@ -65,7 +64,7 @@ public sealed class NightmareSystem : EntitySystem
 
         if (TryComp<LesserShadowlingComponent>(uid, out var lesser))
         {
-            _actionsSystem.RemoveAction(uid, lesser.ShadowWalkActionId);
+            _actionsSystem.RemoveAction(uid, lesser.ShadowWalkAction);
         }
 
         if (TryComp<ThrallComponent>(uid, out var thrall) && !HasComp<LesserShadowlingComponent>(uid))

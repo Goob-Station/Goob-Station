@@ -1,10 +1,8 @@
-using Content.Shared.Atmos;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
-
-namespace Content.Shared._EE.Shadowling;
-
+namespace Content.Goobstation.Shared.Shadowling.Components.Abilities.PreAscension;
 
 /// <summary>
 /// This is used for Icy Veins.
@@ -12,7 +10,8 @@ namespace Content.Shared._EE.Shadowling;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ShadowlingIcyVeinsComponent : Component
 {
-    public string? ActionIcyVeins = "ActionIcyVeins";
+    [DataField]
+    public EntProtoId ActionIcyVeins = "ActionIcyVeins";
 
     [DataField]
     public float Range = 6f;
@@ -21,7 +20,7 @@ public sealed partial class ShadowlingIcyVeinsComponent : Component
     public float ParalyzeTime = 1f;
 
     [DataField]
-    public string? IcyVeinsEffect = "ShadowlingIcyVeinsEffect";
+    public EntProtoId IcyVeinsEffect = "ShadowlingIcyVeinsEffect";
 
     [DataField]
     public SoundSpecifier? IcyVeinsSound = new SoundPathSpecifier("/Audio/Effects/ghost2.ogg");

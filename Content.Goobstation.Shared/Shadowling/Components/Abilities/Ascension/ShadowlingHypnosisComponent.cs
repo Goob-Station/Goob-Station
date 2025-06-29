@@ -1,8 +1,7 @@
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
-
-namespace Content.Shared._EE.Shadowling;
-
+namespace Content.Goobstation.Shared.Shadowling.Components.Abilities.Ascension;
 
 /// <summary>
 /// This is used for the Hypnosis ability.
@@ -10,5 +9,6 @@ namespace Content.Shared._EE.Shadowling;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ShadowlingHypnosisComponent : Component
 {
-    public string? HypnosisAction = "ActionHynosis";
+    [DataField]
+    public EntProtoId HypnosisAction = "ActionHynosis";
 }

@@ -1,9 +1,7 @@
-using Content.Shared._EE.Shadowling;
+using Content.Goobstation.Shared.Shadowling.Components;
 using Content.Shared.Storage.Components;
 
-
-namespace Content.Server._EE.Shadowling;
-
+namespace Content.Goobstation.Shared.Shadowling.Systems;
 
 /// <summary>
 /// This handles egg interactions.

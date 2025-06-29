@@ -1,10 +1,7 @@
-using Content.Shared.Announcements.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
 
-
-namespace Content.Shared._EE.Shadowling.Components;
+namespace Content.Goobstation.Shared.Shadowling.Components;
 
 
 /// <summary>

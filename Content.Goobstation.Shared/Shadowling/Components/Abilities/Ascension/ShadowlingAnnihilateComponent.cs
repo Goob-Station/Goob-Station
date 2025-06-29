@@ -1,5 +1,6 @@
-namespace Content.Shared._EE.Shadowling;
+using Robust.Shared.Prototypes;
 
+namespace Content.Goobstation.Shared.Shadowling.Components.Abilities.Ascension;
 
 /// <summary>
 /// This is used for the Annihilate ability.
@@ -7,5 +8,6 @@ namespace Content.Shared._EE.Shadowling;
 [RegisterComponent]
 public sealed partial class ShadowlingAnnihilateComponent : Component
 {
-    public string? AnnihilateAction = "ActionAnnihilate";
+    [DataField]
+    public EntProtoId AnnihilateAction = "ActionAnnihilate";
 }

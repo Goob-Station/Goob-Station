@@ -1,8 +1,6 @@
 using Robust.Shared.GameStates;
 
-
-namespace Content.Shared._EE.Shadowling.Thrall;
-
+namespace Content.Goobstation.Shared.Shadowling.Components.Abilities.Thrall;
 
 /// <summary>
 /// This is used for the Guise Ability.

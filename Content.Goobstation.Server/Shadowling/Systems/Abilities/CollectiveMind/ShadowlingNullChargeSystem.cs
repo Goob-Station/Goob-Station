@@ -1,14 +1,13 @@
+using Content.Goobstation.Shared.Shadowling;
+using Content.Goobstation.Shared.Shadowling.Components.Abilities.CollectiveMind;
 using Content.Server.DoAfter;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
-using Content.Shared._EE.Shadowling;
 using Content.Shared.DoAfter;
 using Content.Shared.Popups;
 using Robust.Server.GameObjects;
 
-
-namespace Content.Server._EE.Shadowling;
-
+namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.CollectiveMind;
 
 /// <summary>
 /// This handles the Null Charge ability.
@@ -89,5 +88,4 @@ public sealed class ShadowlingNullChargeSystem : EntitySystem
         }
         return false;
     }
-
 }

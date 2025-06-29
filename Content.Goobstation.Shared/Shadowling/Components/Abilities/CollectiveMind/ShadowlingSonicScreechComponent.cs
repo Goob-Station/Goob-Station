@@ -1,11 +1,9 @@
-using System.Numerics;
 using Content.Shared.Damage;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
-
-namespace Content.Shared._EE.Shadowling;
-
+namespace Content.Goobstation.Shared.Shadowling.Components.Abilities.CollectiveMind;
 
 /// <summary>
 /// This is used for the Sonic Screech ability.
@@ -35,11 +33,11 @@ public sealed partial class ShadowlingSonicScreechComponent : Component
     public float ScreechKick = 80f;
 
     [DataField]
-    public string ProtoFlash = "EffectScreech";
+    public EntProtoId ProtoFlash = "EffectScreech";
 
     [DataField]
     public SoundSpecifier? ScreechSound = new SoundPathSpecifier("/Audio/_EinsteinEngines/Shadowling/screech.ogg");
 
     [DataField]
-    public string? SonicScreechEffect = "ShadowlingSonicScreechEffect";
+    public EntProtoId SonicScreechEffect = "ShadowlingSonicScreechEffect";
 }

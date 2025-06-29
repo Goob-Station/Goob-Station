@@ -1,13 +1,12 @@
+using Content.Goobstation.Shared.Shadowling;
+using Content.Goobstation.Shared.Shadowling.Components.Abilities.PreAscension;
 using Content.Server.Actions;
 using Content.Server.Chat.Systems;
 using Content.Server.Popups;
 using Content.Server.RoundEnd;
 using Content.Server.Shuttles.Systems;
-using Content.Shared._EE.Shadowling;
 
-
-namespace Content.Server._EE.Shadowling;
-
+namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.PreAscension;
 
 /// <summary>
 /// This handles Destroy Engines ability.
@@ -64,8 +63,8 @@ public sealed class ShadowlingDestroyEnginesSystem : EntitySystem
 
         // add sound
         comp.HasBeenUsed = true;
-        _roundEnd.DelayShuttle(comp.DelayTime);
 
+        _roundEnd.ExpectedCountdownEnd += comp.DelayTime;
         _actions.RemoveAction(args.Performer, args.Action);
     }
 }

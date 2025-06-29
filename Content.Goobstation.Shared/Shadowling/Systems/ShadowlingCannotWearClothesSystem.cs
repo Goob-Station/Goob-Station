@@ -1,12 +1,11 @@
-using Content.Shared._EE.Clothing.Components;
+using Content.Goobstation.Shared.Shadowling.Components;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Popups;
 using Content.Shared.Radio.Components;
 using Content.Shared.Storage;
 
-
-namespace Content.Shared._EE.Clothing.Systems;
+namespace Content.Goobstation.Shared.Shadowling.Systems;
 
 public sealed class ShadowlingCannotWearClothesSystem : EntitySystem
 {

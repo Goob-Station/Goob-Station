@@ -1,8 +1,6 @@
 using Robust.Shared.GameStates;
 
-
-namespace Content.Shared._EE.Shadowling.Components;
-
+namespace Content.Goobstation.Shared.Shadowling.Components;
 
 /// <summary>
 /// This is used after you get anti-mind controlled. It takes a little longer to get thralled again.

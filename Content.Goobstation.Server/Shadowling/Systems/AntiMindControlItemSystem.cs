@@ -1,7 +1,7 @@
+using Content.Goobstation.Shared.Shadowling;
+using Content.Goobstation.Shared.Shadowling.Components;
 using Content.Server.DoAfter;
 using Content.Server.Popups;
-using Content.Shared._EE.Shadowling;
-using Content.Shared._EE.Shadowling.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Humanoid;
@@ -10,9 +10,7 @@ using Content.Shared.Popups;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
 
-
-namespace Content.Server._EE.Shadowling;
-
+namespace Content.Goobstation.Server.Shadowling.Systems;
 
 /// <summary>
 /// This handles the Anti-Mind control item system
@@ -71,7 +69,7 @@ public sealed class AntiMindControlItemSystem : EntitySystem
                 args.User,
                 component.Duration,
                 new AntiMindControlItemDoAfterEvent(),
-                component.Owner,
+                uid,
                 target,
                 args.Used)
         {

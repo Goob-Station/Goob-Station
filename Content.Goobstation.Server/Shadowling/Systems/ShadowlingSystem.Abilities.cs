@@ -1,10 +1,9 @@
+using Content.Goobstation.Shared.Shadowling;
+using Content.Goobstation.Shared.Shadowling.Components;
 using Content.Server.Storage.Components;
-using Content.Shared._EE.Shadowling;
 using Content.Shared.Inventory;
 
-
-namespace Content.Server._EE.Shadowling;
-
+namespace Content.Goobstation.Server.Shadowling.Systems;
 
 /// <summary>
 /// This handles only the Hatching Ability

@@ -1,6 +1,5 @@
 using Content.Shared.Actions;
 
+namespace Content.Goobstation.Shared.Nightmare;
 
-namespace Content.Shared._EE.Nightmare;
-
-public sealed partial class ToggleLightEaterEvent : InstantActionEvent { }
+public sealed partial class ToggleLightEaterEvent : InstantActionEvent;

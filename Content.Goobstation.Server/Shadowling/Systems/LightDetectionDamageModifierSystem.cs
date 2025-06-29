@@ -1,4 +1,4 @@
-using Content.Shared._EE.Shadowling.Components;
+using Content.Goobstation.Shared.Shadowling.Components;
 using Content.Shared.Alert;
 using Content.Shared.Damage;
 using Content.Shared.Mobs.Systems;
@@ -6,9 +6,7 @@ using Robust.Server.Audio;
 using Robust.Shared.Audio;
 using Robust.Shared.Timing;
 
-
-namespace Content.Server._EE.Shadowling;
-
+namespace Content.Goobstation.Server.Shadowling.Systems;
 
 /// <summary>
 /// This handles healing or dealing damage to an entity that is standing on a lighted area.

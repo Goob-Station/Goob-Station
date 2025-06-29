@@ -1,9 +1,4 @@
-using Content.Shared.Store;
-using Robust.Shared.Audio;
-using Robust.Shared.Prototypes;
-
-
-namespace Content.Server.GameTicking.Rules.Components;
+namespace Content.Goobstation.Server.Shadowling.Rules;
 
 [RegisterComponent, Access(typeof(ShadowlingRuleSystem))]
 public sealed partial class ShadowlingRuleComponent : Component

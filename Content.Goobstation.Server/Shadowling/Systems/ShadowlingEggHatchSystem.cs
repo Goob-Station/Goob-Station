@@ -1,16 +1,14 @@
+using Content.Goobstation.Shared.Shadowling.Components;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
 using Content.Server.Storage.Components;
 using Content.Server.Storage.EntitySystems;
-using Content.Shared._EE.Shadowling;
 using Content.Shared.Popups;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
 using Robust.Shared.Timing;
 
-
-namespace Content.Server._EE.Shadowling;
-
+namespace Content.Goobstation.Server.Shadowling.Systems;
 
 /// <summary>
 /// This handles the hatching process

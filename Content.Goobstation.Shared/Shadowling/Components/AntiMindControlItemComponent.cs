@@ -1,7 +1,7 @@
 using Robust.Shared.GameStates;
 
 
-namespace Content.Shared._EE.Shadowling;
+namespace Content.Goobstation.Shared.Shadowling.Components;
 
 
 /// <summary>

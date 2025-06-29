@@ -1,12 +1,10 @@
+using Content.Goobstation.Shared.Shadowling.Components;
+using Content.Goobstation.Shared.Shadowling.Components.Abilities.PreAscension;
 using Content.Server.Actions;
-using Content.Shared._EE.Shadowling;
-using Content.Shared._EE.Shadowling.Components;
 using Content.Shared.Actions;
 using Content.Shared.Alert;
 
-
-namespace Content.Server._EE.Shadowling;
-
+namespace Content.Goobstation.Server.Shadowling.Systems;
 
 /// <summary>
 /// This handles logic for Lesser Shadowlings.
@@ -39,7 +37,7 @@ public sealed class LesserShadowlingSystem : EntitySystem
     {
         _actions.RemoveAction(thrall.ActionGuiseEntity);
 
-        _actions.AddAction(uid, ref component.ShadowWalkActionId, component.ShadowWalkAction, component: comp);
+        _actions.AddAction(uid, ref component.ShadowWalkAction, component.ShadowWalkActionId, component: comp);
         EnsureComp<ShadowlingShadowWalkComponent>(uid);
 
         EnsureComp<LightDetectionComponent>(uid);
@@ -53,7 +51,7 @@ public sealed class LesserShadowlingSystem : EntitySystem
         if (!TryComp(uid, out ActionsComponent? comp))
             return;
 
-        _actions.RemoveAction(uid, component.ShadowWalkActionId, comp);
+        _actions.RemoveAction(uid, component.ShadowWalkAction, comp);
         RemComp<ShadowlingShadowWalkComponent>(uid);
         RemComp<LightDetectionComponent>(uid);
         RemComp<LightDetectionDamageModifierComponent>(uid);

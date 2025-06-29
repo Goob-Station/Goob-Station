@@ -1,15 +1,15 @@
+using Content.Goobstation.Shared.Shadowling;
+using Content.Goobstation.Shared.Shadowling.Components;
+using Content.Goobstation.Shared.Shadowling.Components.Abilities.CollectiveMind;
 using Content.Server.Actions;
 using Content.Server.Popups;
 using Content.Server.Stunnable;
-using Content.Shared._EE.Shadowling;
 using Content.Shared.Actions;
 using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
 using Robust.Server.GameObjects;
 
-
-namespace Content.Server._EE.Shadowling;
-
+namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.CollectiveMind;
 
 /// <summary>
 /// This handles the logic of the Collective Mind ability.
@@ -18,7 +18,6 @@ namespace Content.Server._EE.Shadowling;
 /// </summary>
 public sealed class ShadowlingCollectiveMindSystem : EntitySystem
 {
-    /// <inheritdoc/>
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly PopupSystem _popups = default!;
     [Dependency] private readonly StunSystem _stun = default!;
@@ -72,16 +71,16 @@ public sealed class ShadowlingCollectiveMindSystem : EntitySystem
             }
         }
 
-         if (abiltiesAddedCount > 0)
-         {
-             _popups.PopupEntity(
-                 Loc.GetString("shadowling-collective-mind-success", ("thralls", thrallsRemaining)),
-                 uid,
-                 uid,
-                 PopupType.Medium);
-             var effectEnt = Spawn(comp.CollectiveMindEffect, _transform.GetMapCoordinates(uid));
-             _transform.SetParent(effectEnt, uid);
-         }
+        if (abiltiesAddedCount > 0)
+        {
+            _popups.PopupEntity(
+                Loc.GetString("shadowling-collective-mind-success", ("thralls", thrallsRemaining)),
+                uid,
+                uid,
+                PopupType.Medium);
+            var effectEnt = Spawn(comp.CollectiveMindEffect, _transform.GetMapCoordinates(uid));
+            _transform.SetParent(effectEnt, uid);
+        }
         else
         {
             _popups.PopupEntity(Loc.GetString("shadowling-collective-mind-failure", ("thralls", thrallsRemaining)),

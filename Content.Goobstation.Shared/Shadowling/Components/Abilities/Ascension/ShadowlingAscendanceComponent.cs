@@ -1,15 +1,17 @@
-namespace Content.Shared._EE.Shadowling;
+using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
+namespace Content.Goobstation.Shared.Shadowling.Components.Abilities.Ascension;
 
 /// <summary>
 /// This is used for Ascendance debug
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class ShadowlingAscendanceComponent : Component
 {
     [DataField]
     public TimeSpan Duration = TimeSpan.FromSeconds(20);
 
     [DataField]
-    public string EggProto = "SlingEggAscension";
+    public EntProtoId EggProto = "SlingEggAscension";
 }

@@ -1,7 +1,7 @@
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
-namespace Content.Shared._EE.Shadowling;
-
+namespace Content.Goobstation.Shared.Shadowling.Components.Abilities.CollectiveMind;
 
 /// <summary>
 /// This is used for the Null Charge ability.
@@ -9,7 +9,8 @@ namespace Content.Shared._EE.Shadowling;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ShadowlingNullChargeComponent : Component
 {
-    public string? NullChargeAction = "ActionNullCharge";
+    [DataField]
+    public EntProtoId NullChargeAction = "ActionNullCharge";
 
     [DataField]
     public TimeSpan NullChargeToComplete = TimeSpan.FromSeconds(10);
@@ -18,5 +19,5 @@ public sealed partial class ShadowlingNullChargeComponent : Component
     public float Range = 1f;
 
     [DataField]
-    public string? NullChargeEffect = "ShadowlingNullChargeEffect";
+    public EntProtoId NullChargeEffect = "ShadowlingNullChargeEffect";
 }

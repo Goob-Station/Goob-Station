@@ -1,14 +1,13 @@
+using Content.Goobstation.Shared.Shadowling;
+using Content.Goobstation.Shared.Shadowling.Components.Abilities.CollectiveMind;
 using Content.Server.Actions;
 using Content.Server.Fluids.EntitySystems;
-using Content.Shared._EE.Shadowling;
 using Content.Shared.Chemistry.Components;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 
-
-namespace Content.Server._EE.Shadowling;
-
+namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.CollectiveMind;
 
 /// <summary>
 /// This handles the Blindness Smoke ability logic.

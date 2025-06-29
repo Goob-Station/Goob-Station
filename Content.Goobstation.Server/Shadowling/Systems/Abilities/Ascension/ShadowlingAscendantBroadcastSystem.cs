@@ -1,12 +1,11 @@
+using Content.Goobstation.Shared.Shadowling;
+using Content.Goobstation.Shared.Shadowling.Components.Abilities.Ascension;
 using Content.Server.Administration;
 using Content.Server.Popups;
-using Content.Shared._EE.Shadowling;
 using Content.Shared.Popups;
 using Robust.Shared.Player;
 
-
-namespace Content.Server._EE.Shadowling;
-
+namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.Ascension;
 
 /// <summary>
 /// This handles the Ascendant Broadcast ability.

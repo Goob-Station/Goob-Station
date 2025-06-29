@@ -1,10 +1,9 @@
+using Content.Goobstation.Shared.PhaseShift;
+using Content.Goobstation.Shared.Shadowling;
+using Content.Goobstation.Shared.Shadowling.Components.Abilities.Ascension;
 using Content.Server.Actions;
-using Content.Shared._EE.Shadowling;
-using Content.Shared.WhiteDream.BloodCult.Constructs.PhaseShift;
 
-
-namespace Content.Server._EE.Shadowling;
-
+namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.Ascension;
 
 /// <summary>
 /// This handles the Plane Shift ability.

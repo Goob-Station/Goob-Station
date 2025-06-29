@@ -1,13 +1,11 @@
-using Content.Shared._EE.Shadowling;
+using Content.Goobstation.Shared.Shadowling.Components;
 using Content.Shared.EntityEffects;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.StatusEffect;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 
-
-namespace Content.Server._EE.EntityEffects;
-
+namespace Content.Goobstation.Server.EntityEffects;
 
 /// <summary>
 /// Inflicts blindness on non-shadowlings and non-thralls
@@ -38,5 +36,4 @@ public sealed partial class BlindNonShadowling : EntityEffect
             true,
             statusEffects);
     }
-
 }

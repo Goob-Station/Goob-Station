@@ -1,16 +1,17 @@
+using Content.Goobstation.Shared.Flashbang;
+using Content.Goobstation.Shared.Shadowling;
+using Content.Goobstation.Shared.Shadowling.Components;
+using Content.Goobstation.Shared.Shadowling.Components.Abilities.Ascension;
+using Content.Goobstation.Shared.Shadowling.Components.Abilities.CollectiveMind;
+using Content.Goobstation.Shared.Shadowling.Components.Abilities.PreAscension;
+using Content.Goobstation.Shared.Shadowling.Systems;
 using Content.Server.Actions;
 using Content.Server.Atmos.Components;
 using Content.Server.Humanoid;
-using Content.Server.Language;
 using Content.Server.Objectives.Systems;
 using Content.Server.Popups;
 using Content.Server.Storage.EntitySystems;
 using Content.Server.Stunnable;
-using Content.Shared._EE.Shadowling.Systems;
-using Content.Shared._EE.Shadowling;
-using Content.Shared._EE.Shadowling.Components;
-using Content.Shared._Goobstation.Flashbang;
-using Content.Shared.Abilities.Psionics;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
@@ -27,9 +28,7 @@ using Robust.Server.Audio;
 using Robust.Shared.Audio;
 using Robust.Shared.Random;
 
-
-namespace Content.Server._EE.Shadowling;
-
+namespace Content.Goobstation.Server.Shadowling.Systems;
 
 /// <summary>
 /// This handles the Shadowling's System
@@ -53,12 +52,11 @@ public sealed partial class ShadowlingSystem : SharedShadowlingSystem
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly LanguageSystem _language = default!;
-    [Dependency] private  readonly HumanoidAppearanceSystem _appearance = default!;
+    [Dependency] private readonly HumanoidAppearanceSystem _appearance = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly StunSystem _stun = default!;
-    [Dependency] private  readonly CodeConditionSystem _codeCondition = default!;
+    [Dependency] private readonly CodeConditionSystem _codeCondition = default!;
 
     public override void Initialize()
     {
@@ -122,9 +120,6 @@ public sealed partial class ShadowlingSystem : SharedShadowlingSystem
         if (!TryComp<LightDetectionDamageModifierComponent>(uid, out var lightDet))
             return;
 
-        if (lightDet == null)
-            return;
-
         lightDet.ResistanceModifier += comp.LightResistanceModifier;
     }
 
@@ -133,15 +128,11 @@ public sealed partial class ShadowlingSystem : SharedShadowlingSystem
         if (!TryComp<LightDetectionDamageModifierComponent>(uid, out var lightDet))
             return;
 
-        if (lightDet == null)
-            return;
-
         lightDet.ResistanceModifier -= comp.LightResistanceModifier;
     }
 
     private void OnInit(EntityUid uid, ShadowlingComponent component, ref ComponentInit args)
     {
-        _language.AddLanguage(uid, component.SlingLanguageId);
         if (!TryComp(uid, out ActionsComponent? actions))
             return;
         _actions.AddAction(uid, ref component.ActionHatchEntity, component.ActionHatch, component: actions);
@@ -288,13 +279,6 @@ public sealed partial class ShadowlingSystem : SharedShadowlingSystem
         if (!HasComp<HumanoidAppearanceComponent>(target))
         {
             _popup.PopupEntity(Loc.GetString("shadowling-enthrall-non-humanoid"), uid, uid, PopupType.SmallCaution);
-            return false;
-        }
-
-        // Psionic interaction
-        if (HasComp<PsionicInsulationComponent>(target))
-        {
-            _popup.PopupEntity(Loc.GetString("shadowling-enthrall-psionic-insulated"), uid, uid, PopupType.SmallCaution);
             return false;
         }
 

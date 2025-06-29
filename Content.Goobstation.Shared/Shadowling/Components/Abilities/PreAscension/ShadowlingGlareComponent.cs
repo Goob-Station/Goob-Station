@@ -1,11 +1,7 @@
-using System.Numerics;
-using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-
-namespace Content.Shared._EE.Shadowling;
-
+namespace Content.Goobstation.Shared.Shadowling.Components.Abilities.PreAscension;
 
 /// <summary>
 /// This is used for the Glare Ability
@@ -13,7 +9,8 @@ namespace Content.Shared._EE.Shadowling;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ShadowlingGlareComponent : Component
 {
-    public string? ActionGlare = "ActionGlare";
+    [DataField]
+    public EntProtoId ActionGlare = "ActionGlare";
 
     // <summary>
     // Variable stun time. On distance 1 or lower, it is maximized to 4 seconds of stun (enough to Enthrall),
@@ -63,5 +60,5 @@ public sealed partial class ShadowlingGlareComponent : Component
     public bool ActivateGlareTimer;
 
     [DataField]
-    public string? EffectGlare = "ShadowlingGlareEffect";
+    public EntProtoId EffectGlare = "ShadowlingGlareEffect";
 }

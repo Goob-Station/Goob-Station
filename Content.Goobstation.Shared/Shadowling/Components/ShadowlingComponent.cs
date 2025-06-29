@@ -1,14 +1,12 @@
 using Content.Shared.Alert;
 using Content.Shared.Damage;
-using Content.Shared.Language;
 using Content.Shared.Polymorph;
 using Content.Shared.StatusIcon;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-
-namespace Content.Shared._EE.Shadowling;
+namespace Content.Goobstation.Shared.Shadowling.Components;
 
 // <summary>
 // Handles the main actions of a Shadowling
@@ -123,9 +121,6 @@ public sealed partial class ShadowlingComponent : Component
 
     [DataField]
     public float ModifiedDamage;
-
-    [DataField]
-    public ProtoId<LanguagePrototype> SlingLanguageId { get; set; } = "Shadowmind";
 
     [DataField]
     public bool IsAscending;

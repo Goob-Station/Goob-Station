@@ -1,14 +1,12 @@
+using Content.Goobstation.Shared.Shadowling;
+using Content.Goobstation.Shared.Shadowling.Components;
+using Content.Goobstation.Shared.Shadowling.Components.Abilities.Thrall;
 using Content.Server.Actions;
 using Content.Server.Stealth;
-using Content.Shared._EE.Shadowling;
-using Content.Shared._EE.Shadowling.Components;
-using Content.Shared._EE.Shadowling.Thrall;
 using Content.Shared.Stealth.Components;
 using Robust.Shared.Timing;
 
-
-namespace Content.Server._EE.Shadowling.Thrall;
-
+namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.Thrall;
 
 /// <summary>
 /// This handles the Guise ability logic.

@@ -1,16 +1,24 @@
-using Content.Shared._EE.Shadowling.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
 
+namespace Content.Goobstation.Shared.Shadowling.Components.Abilities.CollectiveMind;
 
-namespace Content.Shared._EE.Shadowling;
+[DataDefinition]
 public sealed partial class ShadowlingActionData
 {
-    [DataField] public int UnlockAtThralls;
-    [DataField] public string ActionPrototype = string.Empty;
-    [DataField] public string ActionComponentName = string.Empty;
-    [DataField] public EntityUid ActionEntity;
+    [DataField]
+    public int UnlockAtThralls;
+
+    [DataField]
+    public string ActionPrototype = string.Empty;
+
+    [DataField]
+    public string ActionComponentName = string.Empty;
+
+    [DataField]
+    public EntityUid ActionEntity;
+
+    [ViewVariables]
     public bool Added = false;
 }
 
@@ -20,7 +28,8 @@ public sealed partial class ShadowlingActionData
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ShadowlingCollectiveMindComponent : Component
 {
-    public string? ActionCollectiveMind = "ActionCollectiveMind";
+    [DataField]
+    public EntProtoId ActionCollectiveMind = "ActionCollectiveMind";
 
     [DataField]
     public List<ShadowlingActionData> Locked = new()
@@ -70,7 +79,7 @@ public sealed partial class ShadowlingCollectiveMindComponent : Component
     };
 
     [DataField]
-    public int AbilitiesAdded = 0;
+    public int AbilitiesAdded;
 
     [DataField]
     public int AmountOfThralls;
@@ -82,5 +91,5 @@ public sealed partial class ShadowlingCollectiveMindComponent : Component
     public float BaseStunTime = 0.5f;
 
     [DataField]
-    public string? CollectiveMindEffect = "ShadowlingCollectiveMindEffect";
+    public EntProtoId CollectiveMindEffect = "ShadowlingCollectiveMindEffect";
 }

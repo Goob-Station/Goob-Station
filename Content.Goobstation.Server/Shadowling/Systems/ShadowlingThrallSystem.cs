@@ -1,17 +1,14 @@
+using Content.Goobstation.Shared.Overlays;
+using Content.Goobstation.Shared.Shadowling.Components;
+using Content.Goobstation.Shared.Shadowling.Components.Abilities.Thrall;
 using Content.Server.Actions;
 using Content.Server.Antag;
-using Content.Server.Language;
 using Content.Server.Mind;
 using Content.Server.Roles;
-using Content.Shared._EE.Shadowling;
-using Content.Shared._EE.Shadowling.Components;
-using Content.Shared._EE.Shadowling.Thrall;
 using Content.Shared.Actions;
 using Content.Shared.Examine;
-using Content.Shared.Overlays.Switchable;
 
-namespace Content.Server._EE.Shadowling;
-
+namespace Content.Goobstation.Server.Shadowling.Systems;
 
 /// <summary>
 /// This handles Thralls antag briefing and abilities
@@ -20,15 +17,16 @@ public sealed class ShadowlingThrallSystem : EntitySystem
 {
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
-    [Dependency] private readonly LanguageSystem _language = default!;
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly RoleSystem _roles = default!;
+    [Dependency] private readonly ShadowlingSystem _shadowling = default!;
+
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<ThrallComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<ThrallComponent, ComponentRemove>(OnRemove);
+        SubscribeLocalEvent<ThrallComponent, ComponentShutdown>(OnRemove);
 
         SubscribeLocalEvent<ThrallComponent, ExaminedEvent>(OnExamined);
     }
@@ -36,19 +34,13 @@ public sealed class ShadowlingThrallSystem : EntitySystem
     private void OnStartup(EntityUid uid, ThrallComponent component, ComponentStartup args)
     {
         // antag stuff
-        if (!_mind.TryGetMind(uid, out var mindId, out var mind))
+        if (!_mind.TryGetMind(uid, out var mindId, out _))
             return;
 
-        if (mindId == default || !_roles.MindHasRole<ShadowlingRoleComponent>(mindId))
-        {
+        if (!_roles.MindHasRole<ShadowlingRoleComponent>(mindId))
             _roles.MindAddRole(mindId, "MindRoleThrall");
-        }
 
-        if (mind?.Session != null)
-            _antag.SendBriefing(uid, Loc.GetString("thrall-role-greeting"), Color.MediumPurple, component.ThrallConverted);
-
-        _language.AddLanguage(uid, component.SlingLanguageId);
-
+        _antag.SendBriefing(uid, Loc.GetString("thrall-role-greeting"), Color.MediumPurple, component.ThrallConverted);
 
         var nightVision = EnsureComp<NightVisionComponent>(uid);
         nightVision.ToggleAction = "ActionThrallDarksight"; // todo: not sure if this is needed, need to test it without it
@@ -56,6 +48,7 @@ public sealed class ShadowlingThrallSystem : EntitySystem
         // Remove the night vision action because thrall darksight does the same thing, so why have 2 actions
         if (nightVision.ToggleActionEntity is null)
             return;
+
         _actions.RemoveAction(nightVision.ToggleActionEntity.Value);
 
         // Add Thrall Abilities
@@ -76,7 +69,7 @@ public sealed class ShadowlingThrallSystem : EntitySystem
             component: actions);
     }
 
-    private void OnRemove(EntityUid uid, ThrallComponent component, ComponentRemove args)
+    private void OnRemove(EntityUid uid, ThrallComponent component, ComponentShutdown args)
     {
         if (_mind.TryGetMind(uid, out var mindId, out _))
             _roles.MindRemoveRole<ShadowlingRoleComponent>(mindId);
@@ -86,19 +79,17 @@ public sealed class ShadowlingThrallSystem : EntitySystem
 
         RemComp<NightVisionComponent>(uid);
         RemComp<ThrallGuiseComponent>(uid);
-
-        if (HasComp<LesserShadowlingComponent>(uid))
-            RemCompDeferred<LesserShadowlingComponent>(uid);
+        RemCompDeferred<LesserShadowlingComponent>(uid);
 
         if (component.Converter == null)
             return;
 
         // Adjust lightning resistance for shadowling
         var shadowling = component.Converter.Value;
-        var shadowlingComp = EntityManager.GetComponent<ShadowlingComponent>(shadowling);
-        var shadowlingSystem = EntityManager.System<ShadowlingSystem>();
+        if (!TryComp<ShadowlingComponent>(shadowling, out var shadowlingComp))
+            return;
 
-        shadowlingSystem.OnThrallRemoved(shadowling, uid, shadowlingComp);
+        _shadowling.OnThrallRemoved(shadowling, uid, shadowlingComp);
     }
 
     private void OnExamined(EntityUid uid, ThrallComponent component, ExaminedEvent args)

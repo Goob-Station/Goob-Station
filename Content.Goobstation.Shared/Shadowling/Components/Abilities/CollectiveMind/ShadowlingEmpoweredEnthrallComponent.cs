@@ -1,8 +1,7 @@
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
-
-namespace Content.Shared._EE.Shadowling;
-
+namespace Content.Goobstation.Shared.Shadowling.Components.Abilities.CollectiveMind;
 
 /// <summary>
 /// This is used for Empowered Enthrall ability.
@@ -10,7 +9,8 @@ namespace Content.Shared._EE.Shadowling;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ShadowlingEmpoweredEnthrallComponent : Component
 {
-    public string? ActionEmpoweredEnthrall = "ActionEmpoweredEnthrall";
+    [DataField]
+    public EntProtoId ActionEmpoweredEnthrall = "ActionEmpoweredEnthrall";
 
     [DataField]
     public TimeSpan EnthrallTime = TimeSpan.FromSeconds(1.2);

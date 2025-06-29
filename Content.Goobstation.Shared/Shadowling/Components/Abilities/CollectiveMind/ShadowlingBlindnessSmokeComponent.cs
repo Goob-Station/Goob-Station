@@ -1,11 +1,9 @@
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-
-namespace Content.Shared._EE.Shadowling;
-
+namespace Content.Goobstation.Shared.Shadowling.Components.Abilities.CollectiveMind;
 
 /// <summary>
 /// This is used for the Blindness Smoke ability.
@@ -13,7 +11,8 @@ namespace Content.Shared._EE.Shadowling;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ShadowlingBlindnessSmokeComponent : Component
 {
-    public string? ActionBlindnessSmoke = "ActionBlindnessSmoke";
+    [DataField]
+    public EntProtoId ActionBlindnessSmoke = "ActionBlindnessSmoke";
 
     [DataField]
     public string Reagent = "ShadowlingToxin"; // innovative name

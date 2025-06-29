@@ -1,13 +1,11 @@
-using Content.Shared._EE.Shadowling.Components;
+using Content.Goobstation.Shared.Shadowling.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Physics;
 using Robust.Server.GameObjects;
 using Robust.Shared.Physics;
 using Robust.Shared.Timing;
 
-
-namespace Content.Server._EE.Shadowling;
-
+namespace Content.Goobstation.Server.Shadowling.Systems;
 
 /// <summary>
 /// This system detects if an entity is standing on light.
@@ -15,7 +13,6 @@ namespace Content.Server._EE.Shadowling;
 /// </summary>
 public sealed class LightDetectionSystem : EntitySystem
 {
-    /// <inheritdoc/>
     [Dependency] private readonly PhysicsSystem _physicsSystem = default!;
     [Dependency] private readonly TransformSystem _transformSystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -84,7 +81,6 @@ public sealed class LightDetectionSystem : EntitySystem
                 distance,
                 point); // todo: remove this once slings get night vision action
 
-
             var hasBeenBlocked = false;
             foreach (var result in rayResults)
             {
@@ -101,6 +97,5 @@ public sealed class LightDetectionSystem : EntitySystem
                 return;
             }
         }
-
     }
 }

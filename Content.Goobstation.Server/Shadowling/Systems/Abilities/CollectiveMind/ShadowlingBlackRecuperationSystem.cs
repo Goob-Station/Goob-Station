@@ -1,3 +1,6 @@
+using Content.Goobstation.Shared.Shadowling;
+using Content.Goobstation.Shared.Shadowling.Components;
+using Content.Goobstation.Shared.Shadowling.Components.Abilities.CollectiveMind;
 using Content.Server.Administration.Systems;
 using Content.Server.Chat.Systems;
 using Content.Server.DoAfter;
@@ -7,9 +10,6 @@ using Content.Server.Humanoid;
 using Content.Server.Mind;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
-using Content.Shared._EE.Shadowling;
-using Content.Shared._EE.Shadowling.Components;
-using Content.Shared.Chat;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Humanoid;
@@ -20,9 +20,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
 
-
-namespace Content.Server._EE.Shadowling;
-
+namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.CollectiveMind;
 
 /// <summary>
 /// This handles the Black Recuperation logic.
@@ -42,7 +40,7 @@ public sealed class ShadowlingBlackRecuperationSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly LightDetectionDamageModifierSystem _modifierLight = default!;
     [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly ChatSystem _chatManager = default!;
+    [Dependency] private readonly ISharedPlayerManager _playerMan = default!;
     [Dependency] private readonly EuiManager _euiManager = default!;
     /// <inheritdoc/>
     public override void Initialize()
@@ -88,16 +86,13 @@ public sealed class ShadowlingBlackRecuperationSystem : EntitySystem
 
         if (!_mobStateSystem.IsAlive(target))
         {
-            ICommonSession? session = null;
-
             if (_mind.TryGetMind(target, out _, out var mind) &&
-                mind.Session is { } playerSession)
+                _playerMan.TryGetSessionById(mind.UserId, out var session))
             {
-                session = playerSession;
                 // notify them they're being revived.
                 if (mind.CurrentEntity != target)
                 {
-                    _euiManager.OpenEui(new ReturnToBodyEui(mind, _mind), session);
+                    _euiManager.OpenEui(new ReturnToBodyEui(mind, _mind, _playerMan), session);
                 }
             }
             else
@@ -136,7 +131,7 @@ public sealed class ShadowlingBlackRecuperationSystem : EntitySystem
             EnsureComp<LesserShadowlingComponent>(newUid.Value);
 
             if (TryComp<HumanoidAppearanceComponent>(newUid.Value, out var human))
-                _humanoidAppearance.AddMarking(newUid.Value, component.LesserShadowlingEyes, Color.Red, true, true, human);
+                _humanoidAppearance.AddMarking(newUid.Value, component.MarkingId, Color.Red, true, true, human);
 
 
             var effectEnt = Spawn(component.BlackRecuperationEffect, _transformSystem.GetMapCoordinates(newUid.Value));

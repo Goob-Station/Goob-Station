@@ -1,8 +1,9 @@
+using Content.Goobstation.Shared.Shadowling;
+using Content.Goobstation.Shared.Shadowling.Components.Abilities.PreAscension;
 using Content.Server.Actions;
 using Content.Server.Administration.Systems;
 using Content.Server.DoAfter;
 using Content.Server.Popups;
-using Content.Shared._EE.Shadowling;
 using Content.Shared.DoAfter;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
@@ -10,9 +11,7 @@ using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 
-
-namespace Content.Server._EE.Shadowling;
-
+namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.PreAscension;
 
 /// <summary>
 /// This handles Rapid Re-Hatch logic. An ability that heals all wounds and status effects.
@@ -38,7 +37,8 @@ public sealed class ShadowlingRapidRehatchSystem : EntitySystem
     {
         var user = args.Performer;
 
-        if (_mobState.IsCritical(user) || _mobState.IsDead(user)) return;
+        if (_mobState.IsCritical(user) || _mobState.IsDead(user))
+            return;
 
         comp.ActionRapidRehatchEntity = args.Action;
 

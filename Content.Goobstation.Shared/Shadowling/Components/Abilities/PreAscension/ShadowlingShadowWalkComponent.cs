@@ -1,9 +1,8 @@
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
-
-namespace Content.Shared._EE.Shadowling;
-
+namespace Content.Goobstation.Shared.Shadowling.Components.Abilities.PreAscension;
 
 /// <summary>
 /// This is used for Shadow Walk ability. Will also be used on Lesser Shadowlings.
@@ -11,7 +10,8 @@ namespace Content.Shared._EE.Shadowling;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ShadowlingShadowWalkComponent : Component
 {
-    public string? ActionShadowWalk = "ActionShadowWalk";
+    [DataField]
+    public EntProtoId ActionShadowWalk = "ActionShadowWalk";
 
     [DataField]
     public bool IsActive;
@@ -32,10 +32,10 @@ public sealed partial class ShadowlingShadowWalkComponent : Component
     public float Timer;
 
     [DataField]
-    public string? ShadowWalkEffectIn = "ShadowlingShadowWalkInEffect";
+    public EntProtoId ShadowWalkEffectIn = "ShadowlingShadowWalkInEffect";
 
     [DataField]
-    public string? ShadowWalkEffectOut = "ShadowlingShadowWalkOutEffect";
+    public EntProtoId ShadowWalkEffectOut = "ShadowlingShadowWalkOutEffect";
 
     [DataField]
     public SoundSpecifier? ShadowWalkSound = new SoundPathSpecifier("/Audio/Effects/bamf.ogg");

@@ -1,9 +1,7 @@
-using Content.Shared._EE.Shadowling.Components;
+using Content.Goobstation.Shared.Shadowling.Components;
 using Content.Shared.Storage.Components;
 
-
-namespace Content.Shared._EE.Shadowling;
-
+namespace Content.Goobstation.Shared.Shadowling.Systems;
 
 /// <summary>
 /// This handles Ascension Egg interactions

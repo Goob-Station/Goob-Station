@@ -1,14 +1,10 @@
-using Content.Client.Flash;
-using Content.Shared._EE.Shadowling;
-using Content.Shared._EE.Shadowling.Components;
+using Content.Goobstation.Shared.Shadowling.Components;
+using Content.Goobstation.Shared.Shadowling.Systems;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
-using Robust.Shared.GameStates;
 using Robust.Shared.Player;
-using Robust.Shared.Timing;
 
-
-namespace Content.Client._EE.Shadowling;
+namespace Content.Goobstation.Client.Shadowling;
 
 public sealed class EnthrallSystem : SharedEnthrallSystem
 {

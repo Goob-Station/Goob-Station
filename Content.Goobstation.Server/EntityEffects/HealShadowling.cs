@@ -1,13 +1,13 @@
-using Content.Shared._EE.Shadowling;
+using Content.Goobstation.Maths.FixedPoint;
+using Content.Goobstation.Shared.Shadowling.Components;
+using Content.Shared._Shitmed.Damage;
 using Content.Shared.Damage;
 using Content.Shared.EntityEffects;
-using Content.Shared.FixedPoint;
 using Content.Shared._Shitmed.Targeting;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._EE.EntityEffects;
-
+namespace Content.Goobstation.Server.EntityEffects;
 
 /// <summary>
 /// HealthChange but unique to Shadowlings and Thralls
@@ -15,7 +15,6 @@ namespace Content.Server._EE.EntityEffects;
 [UsedImplicitly]
 public sealed partial class HealShadowling : EntityEffect
 {
-    /// <inheritdoc/>
     [DataField]
     public DamageSpecifier Damage = default!;
 
@@ -51,6 +50,7 @@ public sealed partial class HealShadowling : EntityEffect
                 interruptsDoAfters: false,
                 targetPart: TargetBodyPart.All,
                 partMultiplier: 0.5f,
-                canSever: false);
+                splitDamage: SplitDamageBehavior.SplitEnsureAll,
+                canMiss: false);
     }
 }

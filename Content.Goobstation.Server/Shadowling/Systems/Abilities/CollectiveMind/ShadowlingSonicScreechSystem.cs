@@ -1,19 +1,19 @@
+using Content.Goobstation.Shared.Shadowling;
+using Content.Goobstation.Shared.Shadowling.Components;
+using Content.Goobstation.Shared.Shadowling.Components.Abilities.CollectiveMind;
 using Content.Server.Actions;
 using Content.Server.Popups;
 using Content.Server.Stunnable;
-using Content.Shared._EE.Shadowling;
+using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Damage;
 using Content.Shared.Humanoid;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
-using Content.Shared.Silicon.Components;
 using Content.Shared.Tag;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 
-
-namespace Content.Server._EE.Shadowling;
-
+namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.CollectiveMind;
 
 /// <summary>
 /// This handles the Sonic Screech ability logic.

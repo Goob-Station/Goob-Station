@@ -1,14 +1,14 @@
+using Content.Goobstation.Shared.Shadowling;
+using Content.Goobstation.Shared.Shadowling.Components.Abilities.PreAscension;
 using Content.Server.Actions;
 using Content.Server.Popups;
 using Content.Server.Stunnable;
-using Content.Shared._EE.Shadowling;
 using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
 using Robust.Server.GameObjects;
 using Robust.Shared.Timing;
 
-namespace Content.Server._EE.Shadowling;
-
+namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.PreAscension;
 
 /// <summary>
 /// This handles the Glare ability

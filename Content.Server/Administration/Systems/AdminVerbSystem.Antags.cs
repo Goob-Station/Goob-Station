@@ -81,7 +81,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Blob;
 using Content.Server._Goobstation.Wizard.Components;
 using Content.Server._DV.CosmicCult.Components; // DeltaV
 using Content.Server.Administration.Commands;
@@ -89,7 +88,6 @@ using Content.Server.Antag;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Zombies;
-using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Administration;
 using Content.Shared.Database;
 using Content.Shared.Humanoid;
@@ -322,22 +320,5 @@ public sealed partial class AdminVerbSystem
         };
         args.Verbs.Add(cosmiccult);
         // End DeltaV Additions
-
-        // Einstein Engines - Shadowlings
-        Verb shadowling = new()
-        {
-            Text = Loc.GetString("admin-verb-text-make-shadowling"),
-            Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(
-                new("/Textures/_EinsteinEngines/Shadowling/shadowling_abilities.rsi"),
-                "engage_hatch"),
-            Act = () =>
-            {
-                _antag.ForceMakeAntag<ShadowlingRuleComponent>(targetPlayer, "Shadowling");
-            },
-            Impact = LogImpact.High,
-            Message = Loc.GetString("admin-verb-make-shadowling"),
-        };
-        args.Verbs.Add(shadowling);
     }
 }

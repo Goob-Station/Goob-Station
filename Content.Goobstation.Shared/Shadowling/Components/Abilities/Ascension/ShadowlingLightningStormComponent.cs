@@ -1,10 +1,9 @@
-namespace Content.Shared._EE.Shadowling;
+using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
+namespace Content.Goobstation.Shared.Shadowling.Components.Abilities.Ascension;
 
-/// <summary>
-/// This is used for...
-/// </summary>
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class ShadowlingLightningStormComponent : Component
 {
     [DataField]
@@ -17,5 +16,5 @@ public sealed partial class ShadowlingLightningStormComponent : Component
     public int BoltCount = 15;
 
     [DataField]
-    public string LightningProto = "HyperchargedLightning";
+    public EntProtoId LightningProto = "HyperchargedLightning";
 }

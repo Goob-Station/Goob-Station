@@ -1,6 +1,7 @@
+using Content.Goobstation.Shared.Shadowling;
+using Content.Goobstation.Shared.Shadowling.Components.Abilities.PreAscension;
 using Content.Server.Actions;
 using Content.Server.Stealth;
-using Content.Shared._EE.Shadowling;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Stealth.Components;
 using Robust.Server.Audio;
@@ -8,9 +9,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Timing;
 
-
-namespace Content.Server._EE.Shadowling;
-
+namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.PreAscension;
 
 /// <summary>
 /// This handles Shadow Walk!

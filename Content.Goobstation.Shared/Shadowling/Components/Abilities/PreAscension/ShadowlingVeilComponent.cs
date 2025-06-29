@@ -1,8 +1,7 @@
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
-
-namespace Content.Shared._EE.Shadowling;
-
+namespace Content.Goobstation.Shared.Shadowling.Components.Abilities.PreAscension;
 
 /// <summary>
 /// This is used for Veil Ability
@@ -10,7 +9,8 @@ namespace Content.Shared._EE.Shadowling;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ShadowlingVeilComponent : Component
 {
-    public string? ActionGlare = "ActionVeil";
+    [DataField]
+    public EntProtoId ActionGlare = "ActionVeil";
 
     [DataField]
     public float Range = 6f;

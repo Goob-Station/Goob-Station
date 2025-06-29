@@ -1,8 +1,7 @@
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
-
-namespace Content.Shared._EE.Nightmare.Components;
-
+namespace Content.Goobstation.Shared.Nightmare.Components;
 
 /// <summary>
 /// This is used for indicating that the user owns this action
@@ -10,9 +9,8 @@ namespace Content.Shared._EE.Nightmare.Components;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class LightEaterUserComponent : Component
 {
-
     [DataField]
-    public string? LightEaterProto = "LightEaterArmBlade";
+    public EntProtoId LightEaterProto = "LightEaterArmBlade";
 
     [DataField]
     public bool Activated;

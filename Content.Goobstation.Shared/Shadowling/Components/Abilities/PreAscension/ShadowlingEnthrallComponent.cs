@@ -1,6 +1,7 @@
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
-namespace Content.Shared._EE.Shadowling;
+namespace Content.Goobstation.Shared.Shadowling.Components.Abilities.PreAscension;
 
 /// <summary>
 /// This is used for the Basic Enthrall Ability
@@ -8,7 +9,8 @@ namespace Content.Shared._EE.Shadowling;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ShadowlingEnthrallComponent : Component
 {
-    public string? ActionEnthrall = "ActionEnthrall";
+    [DataField]
+    public EntProtoId ActionEnthrall = "ActionEnthrall";
 
     [DataField]
     public TimeSpan EnthrallTime = TimeSpan.FromSeconds(5);

@@ -2,9 +2,7 @@ using Content.Shared.Polymorph;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-
-namespace Content.Shared._EE.Nightmare.Components;
-
+namespace Content.Goobstation.Shared.Nightmare.Components;
 
 /// <summary>
 /// This is used for nightmares
@@ -12,10 +10,16 @@ namespace Content.Shared._EE.Nightmare.Components;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class NightmareComponent : Component
 {
-    public string ActionPlaneShift = "ActionPlaneShift";
+    [DataField]
+    public EntProtoId ActionPlaneShift = "ActionPlaneShift";
+
+    [ViewVariables]
     public EntityUid? ActionPlaneShiftEntity;
 
-    public string ActionLightEater = "ActionLightEater";
+    [DataField]
+    public EntProtoId ActionLightEater = "ActionLightEater";
+
+    [ViewVariables]
     public EntityUid? ActionLightEntity;
 
     [DataField]

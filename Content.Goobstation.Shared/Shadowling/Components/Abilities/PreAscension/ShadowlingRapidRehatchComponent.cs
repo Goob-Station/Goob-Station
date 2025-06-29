@@ -1,9 +1,8 @@
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
-
-namespace Content.Shared._EE.Shadowling;
-
+namespace Content.Goobstation.Shared.Shadowling.Components.Abilities.PreAscension;
 
 /// <summary>
 /// This is used for the Rapid Re-Hatch ability
@@ -11,15 +10,17 @@ namespace Content.Shared._EE.Shadowling;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ShadowlingRapidRehatchComponent : Component
 {
-    public string? ActionRapidRehatch = "ActionRapidRehatch";
+    [DataField]
+    public EntProtoId ActionRapidRehatch = "ActionRapidRehatch";
 
+    [ViewVariables]
     public EntityUid? ActionRapidRehatchEntity { get; set; }
 
     [DataField]
     public float DoAfterTime = 4f;
 
     [DataField]
-    public string? RapidRehatchEffect = "ShadowlingRapidRehatchEffect";
+    public EntProtoId RapidRehatchEffect = "ShadowlingRapidRehatchEffect";
 
     [DataField]
     public SoundSpecifier? RapidRehatchSound = new SoundPathSpecifier("/Audio/_EinsteinEngines/Shadowling/rapid_rehatch.ogg");

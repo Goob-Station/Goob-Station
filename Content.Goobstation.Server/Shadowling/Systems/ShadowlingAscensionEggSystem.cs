@@ -1,6 +1,8 @@
+using Content.Goobstation.Shared.Nightmare.Components;
+using Content.Goobstation.Shared.Shadowling.Components;
 using Content.Server.Actions;
 using Content.Server.AlertLevel;
-using Content.Server.Announcements.Systems;
+using Content.Server.Chat.Systems;
 using Content.Server.Light.Components;
 using Content.Server.Light.EntitySystems;
 using Content.Server.Pinpointer;
@@ -8,9 +10,6 @@ using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
 using Content.Server.Station.Systems;
 using Content.Server.Storage.EntitySystems;
-using Content.Shared._EE.Nightmare.Components;
-using Content.Shared._EE.Shadowling;
-using Content.Shared._EE.Shadowling.Components;
 using Content.Shared.Damage.Components;
 using Content.Shared.Destructible;
 using Content.Shared.Examine;
@@ -19,13 +18,10 @@ using Content.Shared.Verbs;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
-using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
-
-namespace Content.Server._EE.Shadowling;
-
+namespace Content.Goobstation.Server.Shadowling.Systems;
 
 /// <summary>
 /// This handles the Ascension Egg system.
@@ -42,10 +38,9 @@ public sealed class ShadowlingAscensionEggSystem : EntitySystem
     [Dependency] private readonly PoweredLightSystem _poweredLight = default!;
     [Dependency] private readonly NavMapSystem _navMap = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly AnnouncerSystem _announcer = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly AlertLevelSystem _alertLevel = default!;
-
+    [Dependency] private readonly ChatSystem _chatSystem = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -172,14 +167,6 @@ public sealed class ShadowlingAscensionEggSystem : EntitySystem
         // Dont take damage during hatching
         EnsureComp<GodmodeComponent>(uid);
 
-        var position = _transform.GetMapCoordinates(uid);
-        var message = Loc.GetString(
-            "shadowling-ascension-message",
-            ("location", FormattedMessage.RemoveMarkupPermissive(_navMap.GetNearestBeaconString(position))));
-        var sender = "Central Command";
-
-        _announcer.SendAnnouncement(_announcer.GetAnnouncementId("alertDelta"), Filter.Broadcast(), message, sender, Color.Red);
-
         _actions.RemoveAction(shadowling.ActionAscendanceEntity);
 
         shadowling.IsAscending = true;
@@ -189,13 +176,19 @@ public sealed class ShadowlingAscensionEggSystem : EntitySystem
         _entityStorage.Insert(uid, eggUid);
 
         _audio.PlayPvs(component.AscensionEnterSound, eggUid, AudioParams.Default.WithVolume(-1f));
+
+        var position = _transform.GetMapCoordinates(uid);
+        var message = Loc.GetString(
+            "shadowling-ascension-message",
+            ("location", FormattedMessage.RemoveMarkupPermissive(_navMap.GetNearestBeaconString(position))));
+
+        _chatSystem.DispatchStationAnnouncement(eggUid, message, "Central Command", false, null, Color.Red);
+
         var stationUid = _station.GetStationInMap(Transform(uid).MapID);
         if (stationUid != null)
-            _alertLevel.SetLevel(stationUid.Value, "delta", false, false, true, true);
+            _alertLevel.SetLevel(stationUid.Value, "delta", true, true, true, true);
 
-        var effectEnt = Spawn(component.ShadowlingInside, _transform.GetMapCoordinates(eggUid));
-        _transform.SetParent(effectEnt, eggUid);
-
+        var effectEnt = Spawn(component.ShadowlingInside, Transform(eggUid).Coordinates);
         component.ShadowlingInsideEntity = effectEnt;
     }
 
@@ -264,7 +257,13 @@ public sealed class ShadowlingAscensionEggSystem : EntitySystem
         }
         var message = Loc.GetString("shadowling-ascended-message");
         var sender = Loc.GetString("shadowling-destroy-engines-sender");
-        _announcer.SendAnnouncement(_announcer.GetAnnouncementId("ShadowlingAscension"), Filter.Broadcast(), message, sender, Color.MediumPurple);
+        _chatSystem.DispatchStationAnnouncement(
+            uid,
+            message,
+            sender,
+            false,
+            new SoundPathSpecifier("/Audio/_EinsteinEngines/Shadowling/ascension.ogg"),
+            Color.Red);
     }
 
     private void DestroyLights()

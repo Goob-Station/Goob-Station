@@ -1,17 +1,15 @@
 using System.Linq;
+using Content.Goobstation.Shared.Nightmare;
+using Content.Goobstation.Shared.Nightmare.Components;
 using Content.Server.Hands.Systems;
 using Content.Server.Light.Components;
 using Content.Server.PowerCell;
-using Content.Shared._EE.Nightmare;
-using Content.Shared._EE.Nightmare.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Light.Components;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Weapons.Melee.Events;
 
-
-namespace Content.Server._EE.Nightmare.Systems;
-
+namespace Content.Goobstation.Server.Nightmare;
 
 /// <summary>
 /// This handles the Light Eater system.
@@ -27,7 +25,6 @@ public sealed class LightEaterSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<LightEaterUserComponent, ToggleLightEaterEvent>(OnToggleLightEater);
-
         SubscribeLocalEvent<LightEaterComponent, MeleeHitEvent>(OnMeleeHit);
     }
 
@@ -38,7 +35,7 @@ public sealed class LightEaterSystem : EntitySystem
         {
             var lightEater = Spawn(component.LightEaterProto, Transform(uid).Coordinates);
             component.LightEaterEntity = lightEater;
-            if (!_handsSystem.TryPickupAnyHand(uid, lightEater, true))
+            if (!_handsSystem.TryPickupAnyHand(uid, lightEater))
             {
                 QueueDel(component.LightEaterEntity);
             }
@@ -83,7 +80,7 @@ public sealed class LightEaterSystem : EntitySystem
 
             if (HasComp<BorgChassisComponent>(target))
             {
-                if (!_powerCellSystem.TryGetBatteryFromSlot(target, out var battery))
+                if (!_powerCellSystem.TryGetBatteryFromSlot(target, out _))
                     continue;
 
                 _powerCellSystem.SetDrawEnabled(target, false);

@@ -1,8 +1,6 @@
 using Robust.Shared.GameStates;
 
-
-namespace Content.Shared._EE.Shadowling.Components;
-
+namespace Content.Goobstation.Shared.Shadowling.Components;
 
 /// <summary>
 /// Marks target as affected by Icy Veins and applies its effects
