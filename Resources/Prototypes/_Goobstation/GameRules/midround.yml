@@ -193,6 +193,15 @@
     tags:
       - MidroundAntag
 
+- type: entity
+  parent: SkeletonMidround
+  id: FunnySkeletonMidround
+  components:
+  - type: StationEvent
+    weight: 0.1
+  - type: RandomEntityStorageSpawnRule
+    prototype: MobSkeletonClosetFunny
+
 # Blob Midround
 - type: entity
   parent: BaseGameRule

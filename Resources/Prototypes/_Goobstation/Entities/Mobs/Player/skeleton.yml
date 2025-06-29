@@ -1,0 +1,39 @@
+- type: entity
+  parent: MobSkeletonCloset
+  id: MobSkeletonClosetFunny
+  suffix: Funny
+  components:
+  - type: Sprite
+    scale: 0.95, 0.75
+  - type: ScaleData
+    scale: 0.95, 0.75
+  - type: Loadout
+    prototypes: [FunnySkeletonGear]
+  - type: AutoImplant
+    implants:
+    - ScramImplant
+    - StopTimeImplant
+  - type: DodgeWideswing # Needs #3082
+    staminaRatio: 1
+  - type: Reflect # Why not
+    reflectProb: 1
+    reflects:
+    - NonEnergy
+    - Energy
+    - Magic
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      1: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1
+      behaviors:
+      - !type:GibBehavior
+        gibContents: Skip

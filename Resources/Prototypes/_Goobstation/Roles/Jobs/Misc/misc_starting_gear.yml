@@ -1,0 +1,6 @@
+- type: startingGear
+  id: FunnySkeletonGear
+  equipment:
+    outerClothing: ClothingOuterWinterColorBlue
+    jumpsuit: ClothingUniformJumpsuitLoungewear
+    shoes: ClothingShoesSlippers
