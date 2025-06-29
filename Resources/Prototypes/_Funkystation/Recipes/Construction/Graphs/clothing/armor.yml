@@ -35,13 +35,11 @@
     - to: armor
       steps:
       - tag: MetalHydrogenArmor
-        name: metal hydrogen armor
         icon:
           sprite: _Funkystation/Clothing/OuterClothing/Armor/metal_hydrogen_armor.rsi
           state: icon
         doAfter: 1
       - tag: AtmosFireSuit
-        name: atmos fire suit
         icon:
           sprite: Clothing/OuterClothing/Suits/atmos_firesuit.rsi
           state: icon
