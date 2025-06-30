@@ -1,0 +1,29 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                     xmlns:controls="using:Content.Client.UserInterface.Controls"
+                     xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                     Title="{Loc ai-cam-warp-ui-menu-title}"
+                     MinSize="355 100"
+                     SetSize="355 415">
+    <BoxContainer Orientation="Vertical"
+                  HorizontalExpand="True"
+                  VerticalExpand="True">
+        <Button Name="RefreshButton" StyleClasses="chatSelectorOptionButton" Text="{Loc ai-camera-ui-menu-refresh}"/>
+        <LineEdit Name="SearchBar" PlaceHolder="Search" HorizontalExpand="True" Margin="0 4" />
+        <PanelContainer VerticalExpand="True" Margin="10 10 10 10">
+            <PanelContainer.PanelOverride>
+                <gfx:StyleBoxFlat BackgroundColor="#1B1B1E"/>
+            </PanelContainer.PanelOverride>
+            <ScrollContainer
+                HScrollEnabled="False"
+                HorizontalExpand="True"
+                VerticalExpand="True">
+                <BoxContainer
+                    Name="CameraWarpsDisplayContainer"
+                    Orientation="Vertical"
+                    VerticalExpand="True"
+                    Margin="10 10 10 0">
+                </BoxContainer>
+            </ScrollContainer>
+        </PanelContainer>
+    </BoxContainer>
+</controls:FancyWindow>
