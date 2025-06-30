@@ -1,5 +1,8 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
+# SPDX-FileCopyrightText: 2025 NotActuallyMarty <martynashagriefer@gmail.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -14,12 +17,12 @@
     layers:
       - state: aprocket
   - type: Projectile
-    armorPenetration: 0.5 # Designed to pierce tanks
     damage:
       types:
         Piercing: 65
         Ion: 100 # fuck borgs
         Structural: 3000 # Anti structure weapon, overkills substations/gens so they dont explode
+      armorPenetration: 0.5 # Designed to pierce tanks
   - type: StaminaDamageOnCollide
     damage: 200 # It's a fucking rocket
   - type: ExplodeOnTrigger

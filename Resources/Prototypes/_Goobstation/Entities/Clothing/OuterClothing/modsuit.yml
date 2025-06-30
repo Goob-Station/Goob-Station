@@ -6,9 +6,13 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
+# SPDX-FileCopyrightText: 2025 NotActuallyMarty <martynashagriefer@gmail.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 #
@@ -41,10 +45,12 @@
     sealUpPopup: sealable-clothing-seal-up-chestplate
     sealDownPopup: sealable-clothing-seal-down-chestplate
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       outerClothing:
       - state: equipped-OUTERCLOTHING-sealed
-        shader: unshaded
+      outerClothing-resomi:
+      - state: equipped-OUTERCLOTHING-sealed-resomi
   - type: StaminaResistance
     damageCoefficient: 0.9
   - type: Armor
@@ -111,9 +117,12 @@
     sealUpPopup: sealable-clothing-seal-up-chestplate
     sealDownPopup: sealable-clothing-seal-down-chestplate
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       outerClothing:
       - state: equipped-OUTERCLOTHING-sealed
+      outerClothing-resomi:
+      - state: equipped-OUTERCLOTHING-sealed-resomi
   - type: ExplosionResistance
     damageCoefficient: 0.4
   - type: ModifyDelayedKnockdown
@@ -186,9 +195,12 @@
     sealUpPopup: sealable-clothing-seal-up-chestplate
     sealDownPopup: sealable-clothing-seal-down-chestplate
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       outerClothing:
       - state: equipped-OUTERCLOTHING-sealed
+      outerClothing-resomi:
+      - state: equipped-OUTERCLOTHING-sealed-resomi
   - type: ExplosionResistance
     damageCoefficient: 0.4
   - type: ModifyDelayedKnockdown
@@ -267,9 +279,12 @@
     sealUpPopup: sealable-clothing-seal-up-chestplate
     sealDownPopup: sealable-clothing-seal-down-chestplate
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       outerClothing:
       - state: equipped-OUTERCLOTHING-sealed
+      outerClothing-resomi:
+      - state: equipped-OUTERCLOTHING-sealed-resomi
   - type: ExplosionResistance
     damageCoefficient: 0.85
   - type: Armor
@@ -342,9 +357,12 @@
     sealUpPopup: sealable-clothing-seal-up-chestplate
     sealDownPopup: sealable-clothing-seal-down-chestplate
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       outerClothing:
       - state: equipped-OUTERCLOTHING-sealed
+      outerClothing-resomi:
+      - state: equipped-OUTERCLOTHING-sealed-resomi
   - type: ExplosionResistance
     damageCoefficient: 0.35
   - type: Armor
@@ -418,9 +436,12 @@
     sealUpPopup: sealable-clothing-seal-up-chestplate
     sealDownPopup: sealable-clothing-seal-down-chestplate
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       outerClothing:
       - state: equipped-OUTERCLOTHING-sealed
+      outerClothing-resomi:
+      - state: equipped-OUTERCLOTHING-sealed-resomi
   - type: ExplosionResistance
     damageCoefficient: 0.45
   - type: Armor
@@ -492,9 +513,12 @@
     sealUpPopup: sealable-clothing-seal-up-chestplate
     sealDownPopup: sealable-clothing-seal-down-chestplate
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       outerClothing:
       - state: equipped-OUTERCLOTHING-sealed
+      outerClothing-resomi:
+      - state: equipped-OUTERCLOTHING-sealed-resomi
   - type: ExplosionResistance
     damageCoefficient: 0.1
   - type: Armor
@@ -515,13 +539,13 @@
     - Other
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.7
-        Piercing: 0.8
-        Heat: 0.3
-        Shock: 0.8
-        Caustic: 0.5
-        Radiation: 0.1
+        Blunt: 0.55
+        Slash: 0.75
+        Piercing: 0.85
+        Heat: 0.25
+        Shock: 0.75
+        Caustic: 0.25
+        Radiation: 0.01
   - type: ComponentToggler
     components:
     - type: PressureProtection
@@ -536,10 +560,11 @@
   - type: StaminaResistance
     damageCoefficient: 0.5
   - type: FireProtection
-    reduction: 0.7
+    reduction: 0.5
   - type: HideClothingLayerClothing
     hiddenSlots:
     - jumpsuit
+  - type: GroupExamine
 
 - type: entity
   parent: ClothingOuterBase
@@ -569,9 +594,12 @@
     sealUpPopup: sealable-clothing-seal-up-chestplate
     sealDownPopup: sealable-clothing-seal-down-chestplate
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       outerClothing:
       - state: equipped-OUTERCLOTHING-sealed
+      outerClothing-resomi:
+      - state: equipped-OUTERCLOTHING-sealed-resomi
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: Armor

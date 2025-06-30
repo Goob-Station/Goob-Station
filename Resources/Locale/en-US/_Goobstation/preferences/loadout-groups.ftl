@@ -49,3 +49,5 @@ loadout-group-brigmedic-jumpsuit = Brigmedic jumpsuit
 loadout-group-brigmedic-head = Brigmedic head
 loadout-group-brigmedic-outer = Brigmedic outer clothing
 loadout-group-brigmedic-backpack = Brigmedic backpack
+
+loadout-group-security-melee = Security melee weapon

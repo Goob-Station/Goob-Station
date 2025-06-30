@@ -36,6 +36,8 @@
 # SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 degradka <69397649+degradka@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -52,6 +54,7 @@
   - type: NpcFactionMember
     factions:
     - NanoTrasen
+  - type: PartialAbsorbable # Goobstation - changelings
 
 - type: entity
   name: salvager
@@ -69,6 +72,7 @@
     - type: HTN
       rootTask:
         task: SimpleHumanoidHostileCompound
+    - type: PartialAbsorbable # Goobstation - changelings
 
 - type: entity
   name: spirate
@@ -87,6 +91,7 @@
   - type: HTN
     rootTask:
       task: SimpleHumanoidHostileCompound
+  - type: PartialAbsorbable # Goobstation - changelings
 
 - type: entity
   name: syndicate footsoldier
@@ -104,6 +109,7 @@
     - type: HTN
       rootTask:
         task: SimpleHumanoidHostileCompound
+    - type: PartialAbsorbable # Goobstation - changelings
 
 - type: entity
   name: syndicate shuttle pilot
@@ -129,6 +135,7 @@
         Blunt: 19
   - type: Inventory
     templateId: corpse
+  - type: PartialAbsorbable # Goobstation - changelings
 
 - type: entity
   parent: MobHuman

@@ -138,6 +138,7 @@
 # SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
 # SPDX-FileCopyrightText: 2025 Michael <107807667+doc-michael@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 NotActuallyMarty <martynashagriefer@gmail.com>
+# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Sparlight <twiksparlight@gmail.com>
@@ -296,7 +297,7 @@
         Piercing: 0.7
         Heat: 0.25
   - type: Reflect
-    reflectProb: 1
+    reflectProb: 0.8
     reflects:
     - Energy
     reflectingInHands: false

@@ -76,6 +76,9 @@
 # SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Senior Time
@@ -212,23 +215,23 @@
 - type: loadout
   id: SecurityOfficerWintercoat
   equipment:
-    outerClothing: ClothingOuterWinterSec
+    outerClothing: ClothingOuterWinterSecArmored # Goobstation
 
 # Shoes
 - type: loadout
   id: CombatBoots
   equipment:
-    shoes: ClothingShoesBootsCombatFilled
+    shoes: ClothingShoesBootsCombat # Goobstation
 
 - type: loadout
   id: JackBoots
   equipment:
-    shoes: ClothingShoesBootsJackFilled
+    shoes: ClothingShoesBootsJack # Goobstation
 
 - type: loadout
   id: SecurityWinterBoots
   equipment:
-    shoes: ClothingShoesBootsWinterSecFilled
+    shoes: ClothingShoesWinterCombatBoots # Goobstation
 
 # PDA
 - type: loadout

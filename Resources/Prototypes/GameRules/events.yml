@@ -126,8 +126,10 @@
 # SPDX-FileCopyrightText: 2025 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
@@ -171,6 +173,7 @@
     - id: TidemindDevelop # Goobstation - Tidemind
     - id: MothroachSpawn # DeltaV
     - id: XenoVents # DeltaV
+    - id: DerelictCyborgSyndicateSpawn # Goobstation - usually calm
 
 - type: entityTable
   id: BasicAntagEventsTable
@@ -505,7 +508,7 @@
     eventType: HostilesSpawn # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: 280
+    chaosScore: 450
   - type: RandomSpawnRule
     prototype: MobRevenant
 
@@ -593,7 +596,7 @@
     eventType: Maintenance # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: 40
+    chaosScore: 80
   - type: KudzuGrowthRule
 
 - type: entity
@@ -688,7 +691,7 @@
     eventType: HostilesSpawn # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: 360
+    chaosScore: 200
   - type: VentCrittersRule
     table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
       children:
@@ -714,7 +717,7 @@
     eventType: HostilesSpawn # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: 360
+    chaosScore: 240
   - type: VentCrittersRule
     table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
       children:
@@ -740,7 +743,7 @@
     eventType: HostilesSpawn # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: 360
+    chaosScore: 240
   - type: VentCrittersRule
     table: # DeltaV: EntityTable instead of spawn entries
       id: MobGiantSpiderAngry
@@ -763,7 +766,7 @@
     eventType: HostilesSpawn # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: 360
+    chaosScore: 240
   - type: VentCrittersRule
     playerRatio: 20 # DeltaV: Clown spiders are very robust
     table: # DeltaV: EntityTable instead of spawn entries
@@ -879,7 +882,7 @@
     eventType: HostilesSpawn # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: 550
+    chaosScore: 500
   - type: AlertLevelInterceptionRule
   - type: AntagSelection
     definitions:

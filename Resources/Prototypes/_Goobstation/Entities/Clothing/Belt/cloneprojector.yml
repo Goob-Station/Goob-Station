@@ -1,0 +1,159 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: ClothingBeltBase
+  id: ClothingBeltBaseCloneProjector
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Belt/geminiprojector.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Belt/geminiprojector.rsi
+    equipDelay: 10
+    unequipDelay: 15 # Unscrewing something from your nervous system is kinda difficult.
+    stripDelay: 20 # Even harder when its someone else. Don't paralyze em!
+  - type: Item
+    sprite: _Goobstation/Clothing/Belt/geminiprojector.rsi
+    size: Large
+  - type: CloneProjector
+    damageOnDestroyed:
+      groups:
+        Brute: 10
+    addedComponents:
+    - type: GhostTakeoverAvailable
+    - type: AntagImmune
+    - type: MovementIgnoreGravity
+    - type: SpecialPressureImmunity
+    - type: RequireProjectileTarget
+    - type: NoSlip
+    - type: ZombieImmune
+    - type: CrematoriumImmune
+    - type: TypingIndicator
+      proto: robot
+    - type: Speech
+      speechVerb: Robotic
+      speechSounds: Borg
+    - type: Vocal
+      sounds:
+        Unsexed: UnisexSilicon
+    - type: UnblockableSpeech
+    - type: ProtectedFromStepTriggers
+    - type: MobState
+      allowedStates:
+      - Alive
+      - Dead
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        42: Dead # The Answer to the Ultimate Question of Life, the Universe, and Everything
+    - type: Damageable
+      damageContainer: SiliconRadiation
+    - type: StatusEffects
+      allowed:
+      - Stun
+      - KnockedDown
+      - SlowedDown
+      - Pacified
+      - Flashed
+    - type: Tag
+      tags:
+      - CanPilot
+      - DoorBumpOpener
+      - Unimplantable
+    removedComponents:
+    - type: Destructible
+    - type: Deathgasp
+    - type: HealthExaminable
+      examinableTypes:
+      - Shock
+    - type: Temperature
+    - type: AtmosExposed
+    - type: MovedByPressure
+    - type: ThermalRegulator
+    - type: Flammable
+      damage:
+        types:
+          burn: 0 # required for whatever reason, go fuck yourself
+    - type: FireVisuals
+    - type: Respirator
+      damage:
+        types:
+          Asphyxiation: 0 # required for whatever reason, go fuck yourself
+      damageRecovery:
+        types:
+          Asphyxiation: 0 # required for whatever reason, go fuck yourself
+    - type: Internals
+    - type: Bloodstream
+      bloodlossDamage:
+        types:
+          Bloodloss:
+            0
+      bloodlossHealDamage:
+        types:
+          Bloodloss:
+            0
+    - type: InjectableSolution
+    - type: SolutionContainerManager
+    - type: Dna
+    - type: Absorbable
+    - type: Fingerprint
+    - type: Perishable
+    - type: Hunger
+    - type: Thirst
+    - type: FootprintOwner
+
+- type: entity
+  parent: [ ClothingBeltBaseCloneProjector, BaseGrandTheftContraband ]
+  id: ClothingBeltGeminiHoloProjector
+  name: ax-32 "gemini" holo-projector rig
+  description: A highly advanced holo-projector rig that interfaces directly with the users spinal cord to generate an exact copy of them. Truly a marvel of Nanotrasen technology.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Belt/geminiprojector.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Belt/geminiprojector.rsi
+  - type: StealTarget
+    stealGroup: ClothingBeltGeminiHoloProjector
+  - type: CloneProjector
+    clonedItemBlacklist:
+      components:
+      - CloneProjector
+    clonedItemWhitelist:
+      components:
+      - Clothing
+  - type: Tag
+    tags:
+      - HighRiskItem
+      - ClothingBeltGeminiHoloProjector
+
+- type: entity
+  parent: [ ClothingBeltBaseCloneProjector, BaseCentcommContraband ]
+  id: ClothingBeltMonozygoticHoloProjector
+  name: ax-48 "monozygotic" holo-projector rig
+  description: An custom made, experimental variant of the ax-32, retrofitted for use by Central Command. The name "C. Ward" is small text on the front.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Belt/geminiprojector.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Belt/geminiprojector.rsi
+  - type: StealTarget
+    stealGroup: ClothingBeltGeminiHoloProjector
+  - type: CloneProjector
+    nameSuffix: monozygotic-projector-clone-name-suffix
+    stunOnDestroyed: false
+    restrictRangedWeapons: false
+    addedComponents:
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        350: Dead # This ain't your mothers clone projector.
+    clonedItemBlacklist:
+      components:
+      - CloneProjector
+    clonedItemWhitelist:
+      components:
+      - Clothing

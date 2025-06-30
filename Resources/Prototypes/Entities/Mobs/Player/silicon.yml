@@ -89,6 +89,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BuffOrphan <horsepuncher3@gmail.com>
 # SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
@@ -98,6 +99,7 @@
 # SPDX-FileCopyrightText: 2025 Killerqu00 <killerqueen1777@gmail.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 lizelive <github@lize.live>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 #
@@ -187,6 +189,13 @@
     - sprite: Mobs/Silicon/station_ai.rsi
       state: default
   - type: ShowJobIcons
+  - type: ShowHealthIcons #Goobstation
+  - type: ShowHealthBars #Goobstation
+    damageContainers:
+    - Silicon
+    - SiliconRadiation
+  - type: ContentEye  #Goobstation
+    maxZoom: 1.44,1.44
 
 - type: entity
   id: AiHeldIntellicard
@@ -238,31 +247,6 @@
         # The alternative is you add a bunch of events trying to override it; we don't even really need the container functionality
         # anyway it's just a quality of life thing.
         showEnts: True
-
-# Boards
-- type: entity
-  id: AsimovCircuitBoard
-  parent: BaseElectronics
-  name: law board (Crewsimov)
-  description: An electronics board containing the Crewsimov lawset.
-  components:
-  - type: Sprite
-    sprite: Objects/Misc/module.rsi
-    state: std_mod
-  - type: SiliconLawProvider
-    laws: Crewsimov
-
-- type: entity
-  id: CorporateCircuitBoard
-  parent: BaseElectronics
-  name: law board (Corporate)
-  description: An electronics board containing the Corporate lawset.
-  components:
-  - type: Sprite
-    sprite: Objects/Misc/module.rsi
-    state: std_mod
-  - type: SiliconLawProvider
-    laws: Corporate
 
 # Items
 - type: entity
@@ -444,6 +428,9 @@
   description: The AI's viewer.
   categories: [ HideSpawnMenu, DoNotMap ]
   components:
+  - type: MovementSpeedModifier # Goobstation
+    baseSprintSpeed: 14
+    baseWalkSpeed: 28
   - type: NoFTL
   - type: WarpPoint
     follow: true
@@ -592,7 +579,6 @@
       borg_module:
         - BorgModuleTool
         - BorgModuleFireExtinguisher
-        - BorgModuleGPS
   - type: ItemSlots
     slots:
       cell_slot:

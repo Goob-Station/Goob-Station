@@ -10,6 +10,7 @@
 # SPDX-FileCopyrightText: 2020 Hugo Laloge <hugo.laloge@gmail.com>
 # SPDX-FileCopyrightText: 2020 Paul Ritter <ritter.paul1@googlemail.com>
 # SPDX-FileCopyrightText: 2020 Peter Wedder <burneddi@gmail.com>
+# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2020 ike709 <ike709@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2020 py01 <60152240+collinlunn@users.noreply.github.com>
@@ -101,7 +102,6 @@
 # SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 PopGamer46 <yt1popgamer@gmail.com>
 # SPDX-FileCopyrightText: 2024 Preston Smith <92108534+thetolbean@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ps3Moira <113228053+ps3moira@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 PursuitInAshes <pursuitinashes@gmail.com>
 # SPDX-FileCopyrightText: 2024 QueerNB <176353696+QueerNB@users.noreply.github.com>
@@ -164,12 +164,14 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ps3Moira <113228053+ps3moira@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 yahay505 <58685802+yahay505@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 yavuz <58685802+yahay505@users.noreply.github.com>
 #
@@ -226,10 +228,13 @@
   - type: StaticPrice
     price: 75
   - type: BlockWeather
-  - type: Penetratable # Goobstation - Better snipers
+  - type: SunShadowCast
+  # Goobstation
+  - type: Penetratable
     penetrateDamage: 50
     damagePenalty: 0.1
-  - type: SunShadowCast
+  - type: ExaminableDamage
+    messages: WindowMessages
 
 - type: entity
   parent: BaseWall

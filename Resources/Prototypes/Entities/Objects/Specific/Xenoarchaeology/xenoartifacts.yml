@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 cheetah1984 <152602630+cheetah1984@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: BaseXenoArtifact
   parent: BaseMob # we use this since it can technically get inhabited
@@ -59,5 +66,5 @@
     icon:
       sprite: Objects/Specific/Xenoarchaeology/xeno_artifacts.rsi
       state: ano29
-    useDelay: 300
+    useDelay: 60
     event: !type:ArtifactSelfActivateEvent

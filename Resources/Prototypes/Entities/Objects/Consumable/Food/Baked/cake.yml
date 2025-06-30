@@ -138,6 +138,7 @@
   - type: Tag
     tags:
     - Cake
+    - VoxFood
   - type: SecretStash
     maxItemSize: "Normal"
     secretStashName: secret-stash-cake

@@ -2,9 +2,13 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tim <timfalken@hotmail.com>
+// SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
+// SPDX-FileCopyrightText: 2025 Tom <t.jans@student.fontys.nl>
+// SPDX-FileCopyrightText: 2025 Vrilly <tnjans@outlook.de>
 // SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 //
@@ -226,7 +230,7 @@ namespace Content.Server.Mail
                     return;
                 }
 
-                if (!_accessSystem.IsAllowed(uid, args.User))
+                if (!_accessSystem.IsAllowed(args.User, uid))
                 {
                     _popupSystem.PopupEntity(Loc.GetString("mail-invalid-access"), uid, args.User);
                     return;
