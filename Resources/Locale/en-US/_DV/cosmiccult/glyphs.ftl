@@ -1,4 +1,5 @@
-cult-glyph-target-dead = The glyph's influence has no effect on the deceased..
+cult-glyph-target-dead = The glyph's influence has no effect on the deceased.
+cult-glyph-target-rotting = The glyph's influence has no effect on the rotting.
 cult-glyph-not-enough-cultists = Not enough cultists present to invoke glyph!
 cult-glyph-conditions-not-met = No suitable targets within range of glyph!
 cult-glyph-too-many-targets = Too many targets present on glyph!
