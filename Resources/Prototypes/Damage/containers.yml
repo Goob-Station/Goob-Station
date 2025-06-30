@@ -108,6 +108,6 @@
 - type: damageContainer
   id: BiologicalAdvancedMetaphysical
   supportedGroups:
-  - Metaphysical
+    - Metaphysical
   supportedTypes: # Goobstation
   - Holy
