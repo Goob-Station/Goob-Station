@@ -1,14 +1,16 @@
 # SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Zayyaan <terraspark4941@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
   id: SuitStorageHEV
   name: H.E.V suit storage unit
-  description: A fancy hi-tech storage unit made for storing H.E.V suit.
-  parent: [ BaseItemCabinetGlass, BaseStructure ]
+  description: A fancy hi-tech storage unit made for storing a H.E.V suit.
+  parent: [ BaseItemCabinetGlass, BaseMachine, ConstructibleMachine ]
   suffix: Empty
   components:
   - type: InteractionOutline
@@ -87,6 +89,8 @@
         ejectSound: /Audio/Machines/machine_switch.ogg
   - type: AccessReader
     access: [["Engineering"]]
+  - type: Machine
+    board: SuitStorageHEVCircuitboard
 
 - type: entity
   id: SuitStorageHEVFilled
