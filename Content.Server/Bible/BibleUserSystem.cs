@@ -78,7 +78,7 @@ namespace Content.Server.Bible
             base.Initialize();
 
             SubscribeLocalEvent<BibleComponent, AfterInteractEvent>(OnAfterInteract);
-            SubscribeLocalEvent<BibleUserComponent, ComponentInit>(viewFracture);
+            SubscribeLocalEvent<BibleUserComponent, ComponentInit>(ViewFracture);
             SubscribeLocalEvent<SummonableComponent, GetVerbsEvent<AlternativeVerb>>(AddSummonVerb);
             SubscribeLocalEvent<SummonableComponent, GetItemActionsEvent>(GetSummonAction);
             SubscribeLocalEvent<SummonableComponent, SummonActionEvent>(OnSummon);
@@ -293,7 +293,7 @@ namespace Content.Server.Bible
             _actionsSystem.RemoveAction(user, component.SummonActionEntity);
         }
 
-        private void viewFracture(Entity<BibleUserComponent> ent, ref ComponentInit args)
+        private void ViewFracture(Entity<BibleUserComponent> ent, ref ComponentInit args)
         {
             if (TryComp<EyeComponent>(ent, out var eye))
             _eye.SetVisibilityMask(ent, eye.VisibilityMask | (int) VisibilityFlags.EldritchInfluenceSpent);
