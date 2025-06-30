@@ -11673,3 +11673,45 @@ Entries:
       message: H̷̟̃Ẻ̷̯L̴̟̇P̵͈͋ ̷̢̕M̸͇̆E̶̟͐ ̴̻̌I̵̓ͅT̷̡̆S̴̱͐ ̶̠̎A̴͙̽L̷̬̾Ǐ̶̹Ṿ̴̇E̴̙͌
   id: 1278
   time: '2025-06-24T08:41:41.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: Modsuits can now use sprites based on species.
+    - type: Fix
+      message: Resomi Tail Markings now layer properly
+    - type: Add
+      message: Resomi look better in Modsuits
+  id: 1279
+  time: '2025-06-29T21:57:12.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Add
+      message: New ruleset for Core and gameplay rules!
+    - type: Tweak
+      message: Revealing conditions have been moved to guidebook - linked in rules.
+  id: 1280
+  time: '2025-06-30T01:10:43.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Explorer suit is back to its former resistances, but they are only half
+        as effective when out of Lavaland pressure.
+  id: 1281
+  time: '2025-06-30T02:28:47.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Reorganized most syndicate undetermined bundles, and even added two new
+        ones.
+  id: 1282
+  time: '2025-06-30T02:40:46.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: >-
+        NPCs should no longer fly off when trying to do anything in 0-gravity,
+        or if idle near space.
+  id: 1283
+  time: '2025-06-30T06:01:52.0000000+00:00'
