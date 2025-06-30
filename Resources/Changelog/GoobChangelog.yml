@@ -11691,3 +11691,11 @@ Entries:
       message: Revealing conditions have been moved to guidebook - linked in rules.
   id: 1280
   time: '2025-06-30T01:10:43.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Explorer suit is back to its former resistances, but they are only half
+        as effective when out of Lavaland pressure.
+  id: 1281
+  time: '2025-06-30T02:28:47.0000000+00:00'
