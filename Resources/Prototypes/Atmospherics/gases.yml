@@ -181,6 +181,90 @@
   molarMass: 32
   color: 7b68ee
   reagent: Pluoxium
-  pricePerMole: 0.1
+  pricePerMole: 0.4
+
+- type: gas
+  id: 13
+  name: gases-hydrogen
+  specificHeat: 15
+  heatCapacityRatio: 1.405
+  molarMass: 32
+  color: fffaf0
+  reagent: Hydrogen
+  pricePerMole: 1.2
+
+- type: gas
+  id: 14
+  name: gases-hyper-noblium
+  specificHeat: 2000
+  heatCapacityRatio: 1.4
+  gasOverlaySprite: /Textures/Effects/atmospherics.rsi
+  gasOverlayState: frezon_old
+  molarMass: 8
+  color: 33cccc
+  reagent: Hyper-Noblium
+  pricePerMole: 5
+
+- type: gas
+  id: 15
+  name: gases-proto-nitrate
+  specificHeat: 30
+  heatCapacityRatio: 1.3
+  gasOverlaySprite: /Textures/Effects/atmospherics.rsi
+  gasOverlayState: proto_nitrate
+  gasMolesVisible: 0.1
+  molarMass: 120
+  color: 009933
+  reagent: Proto-Nitrate
+  pricePerMole: 0.6
+
+- type: gas
+  id: 16
+  name: gases-zauker
+  specificHeat: 350
+  heatCapacityRatio: 1.3
+  gasOverlaySprite: /Textures/Effects/atmospherics.rsi
+  gasOverlayState: zauker
+  gasMolesVisible: 0.1
+  molarMass: 110
+  color: 1c1a1a
+  reagent: Zauker
+  pricePerMole: 6
+
+- type: gas
+  id: 17
+  name: gases-halon
+  specificHeat: 1.4
+  heatCapacityRatio: 1.3
+  gasOverlaySprite: /Textures/Effects/atmospherics.rsi
+  gasOverlayState: halon
+  gasMolesVisible: 0.1
+  molarMass: 150
+  color: e3574d
+  reagent: Halon
+  pricePerMole: 3
+
+- type: gas
+  id: 18
+  name: gases-helium
+  specificHeat: 15
+  heatCapacityRatio: 20
+  molarMass: 4
+  color: 005959
+  reagent: Helium
+  pricePerMole: 0.8
+
+- type: gas
+  id: 19
+  name: gases-anti-noblium
+  specificHeat: 1
+  heatCapacityRatio: 1
+  gasOverlaySprite: /Textures/Effects/atmospherics.rsi
+  gasOverlayState: anti_noblium
+  gasMolesVisible: 0.1
+  molarMass: 200
+  color: 525151
+  reagent: Anti-Noblium
+  pricePerMole: 8
 
 # Assmos - /tg/ gases end

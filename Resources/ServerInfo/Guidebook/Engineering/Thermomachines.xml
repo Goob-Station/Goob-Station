@@ -42,14 +42,22 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   Botany or science will often request these to maintain the temperature of their plants or department.
 
   ## Pipenet Thermomachines (Freezer and Heater)
-  Pipenet thermomachines are more powerful stationary temperature control units that can be used to heat or cool gas in a [textlink="pipenet." link="PipeNetworks"]
+  Pipenet thermomachines are more powerful stationary temperature control units that can be used to heat or cool gas in a [textlink="pipenet." link="PipeNetworks"] They come in three tiers, which can be unlocked by the science department through research.
 
   <Box>
-    <GuideEntityEmbed Entity="GasThermoMachineHeater"/>
-    <GuideEntityEmbed Entity="GasThermoMachineFreezer"/>
+    <GuideEntityEmbed Entity="GasThermoMachineAdvancedHeater" Caption=""/>
+    <GuideEntityEmbed Entity="GasThermoMachineUpgradedHeater" Caption=""/>
+    <GuideEntityEmbed Entity="GasThermoMachineHeater" Caption=""/>
+    <GuideEntityEmbed Entity="GasThermoMachineFreezer" Caption=""/>
+    <GuideEntityEmbed Entity="GasThermoMachineUpgradedFreezer" Caption=""/>
+    <GuideEntityEmbed Entity="GasThermoMachineAdvancedFreezer" Caption=""/>
   </Box>
 
-  They draw [color=orange][protodata="GasThermoMachineFreezer" comp="GasThermoMachine" member="HeatCapacity" format="N0"/] W[/color] of power and can heat or cool gas in a pipenet to as high as [color=orange][protodata="GasThermoMachineFreezer" comp="GasThermoMachine" member="MaxTemperature"/] K[/color] or as low as [color=orange][protodata="GasThermoMachineFreezer" comp="GasThermoMachine" member="MinTemperature"/] K[/color].
+  The basic thermomachine draws [color=orange][protodata="GasThermoMachineFreezer" comp="GasThermoMachine" member="HeatCapacity" format="N0"/] W[/color] of power and can heat or cool gas in a pipenet to as high as [color=orange][protodata="GasThermoMachineHeater" comp="GasThermoMachine" member="MaxTemperature"/] K[/color] or as low as [color=orange][protodata="GasThermoMachineFreezer" comp="GasThermoMachine" member="MinTemperature"/] K[/color].
+
+  The upgraded thermomachine draws [color=orange][protodata="GasThermoMachineUpgradedFreezer" comp="GasThermoMachine" member="HeatCapacity" format="N0"/] W[/color] of power and can heat or cool gas in a pipenet to as high as [color=orange][protodata="GasThermoMachineUpgradedHeater" comp="GasThermoMachine" member="MaxTemperature"/] K[/color] or as low as [color=orange][protodata="GasThermoMachineUpgradedFreezer" comp="GasThermoMachine" member="MinTemperature"/] K[/color]. Upgraded thermomachine boards can be printed after researching Atmospherics.
+  
+  The advanced thermomachine draws [color=orange][protodata="GasThermoMachineAdvancedFreezer" comp="GasThermoMachine" member="HeatCapacity" format="N0"/] W[/color] of power and can heat or cool gas in a pipenet to as high as [color=orange][protodata="GasThermoMachineAdvancedHeater" comp="GasThermoMachine" member="MaxTemperature"/] K[/color] or as low as [color=orange][protodata="GasThermoMachineAdvancedFreezer" comp="GasThermoMachine" member="MinTemperature"/] K[/color]. Advanced thermomachine boards can be printed after researching Advanced Atmospherics.
 
   You can swap the mode of the thermomachine by deconstructing it and using a screwdriver on its circuit board.
   The board can be printed at a circuit imprinter, commonly found in Science.
@@ -66,7 +74,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   </Box>
 
   ## Thermomachines from Hell
-  Science can research more powerful thermomachines, aptly called hellfire heaters and freezers.
+  Science can research even more powerful thermomachines, aptly called hellfire heaters and freezers.
   These machines are much more powerful than their standard counterparts, but they also consume more power.
 
   <Box>
@@ -74,9 +82,11 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="GasThermoMachineHellfireFreezer"/>
   </Box>
 
-  These machines draw [color=orange][protodata="GasThermoMachineHellfireFreezer" comp="GasThermoMachine" member="HeatCapacity" format="N0"/] W[/color] of power and can heat or cool gas in a pipenet to as high as [color=orange][protodata="GasThermoMachineHellfireFreezer" comp="GasThermoMachine" member="MaxTemperature"/] K[/color] or as low as [color=orange][protodata="GasThermoMachineHellfireFreezer" comp="GasThermoMachine" member="MinTemperature"/] K[/color].
+  These machines draw [color=orange][protodata="GasThermoMachineHellfireFreezer" comp="GasThermoMachine" member="HeatCapacity" format="N0"/] W[/color] of power and can heat or cool gas in a pipenet to as high as [color=orange][protodata="GasThermoMachineHellfireHeater" comp="GasThermoMachine" member="MaxTemperature"/] K[/color] or as low as [color=orange][protodata="GasThermoMachineHellfireFreezer" comp="GasThermoMachine" member="MinTemperature"/] K[/color].
 
   However, they also leak [color=orange][protodata="GasThermoMachineHellfireFreezer" comp="GasThermoMachine" member="EnergyLeakPercentage" format="P0"/][/color] of their energy to the surrounding environment, heating or cooling the exposed atmosphere respectively.
   This can be dangerous if not properly managed.
+
+  Hellfire thermomachine boards can be printed after researching Atmospherics Exotech.
 
 </Document>

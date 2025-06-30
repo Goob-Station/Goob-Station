@@ -1,0 +1,15 @@
+{
+   "version":1,
+   "license":"CC-BY-SA-3.0",
+   "copyright":"Taken from https://github.com/tgstation/tgstation/commit/02c09813c6ff36376341b121802efc77f706a622",
+   "size":{
+      "x":32,
+      "y":32
+   },
+   "states":[
+      {
+         "name":"pumpHeat",
+         "directions":4
+      }
+   ]
+}
