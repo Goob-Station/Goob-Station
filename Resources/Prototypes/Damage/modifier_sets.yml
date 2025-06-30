@@ -48,6 +48,7 @@
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
@@ -383,3 +384,18 @@
   id: ManifestedSpirit
   coefficients:
     Holy: 2
+
+- type: damageModifierSet
+  id: AdvancedSpirit
+  coefficients:
+    Blunt: 0.0
+    Slash: 0.0
+    Piercing: 0.0
+    Shock: 0.0
+    Cold: 0.0
+    Poison: 0.0
+    Radiation: 0.0
+    Cellular: 0.0
+    Heat: 0.0
+    Caustic: 0.0
+    Holy: 2.0

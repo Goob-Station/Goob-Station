@@ -1,0 +1,74 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: Brullbar Spawner
+  id: SpawnMobBrullbar
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: brullbar
+      sprite: _Goobstation/Mobs/Animals/brullbar.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobBrullbar
+
+- type: entity
+  name: Brullbar King Spawner
+  id: SpawnMobBrullbarKing
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: brullbarking
+      sprite: _Goobstation/Mobs/Animals/brullbar.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobBrullbarKing
+
+- type: entity
+  name: Bear Spawner
+  id: SpawnMobBearGoon
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: bear
+      sprite: _Goobstation/Mobs/Animals/brullbar.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobBearGoon
+
+- type: entity
+  name: White Wolf Spawner
+  id: SpawnMobWhiteWolf
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: whitewolf
+      sprite: _Goobstation/Mobs/Animals/wolf.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobWhiteWolf
+
+- type: entity
+  name: Living Curse Spawner
+  id: SpawnMobLivingCurse
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: curse
+      sprite: _Goobstation/Mobs/Demons/curse.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobLivingCurse
