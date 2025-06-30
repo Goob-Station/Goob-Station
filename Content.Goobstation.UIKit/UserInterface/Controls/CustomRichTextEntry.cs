@@ -45,7 +45,7 @@ internal struct CustomRichTextEntry
     public float Margin = 64f;
     public float BoxPadding = 8f;
 
-    private readonly Dictionary<int, Control>? _tagControls;
+    public readonly Dictionary<int, Control>? Controls;
 
     public CustomRichTextEntry(
             FormattedMessage message,
@@ -76,8 +76,12 @@ internal struct CustomRichTextEntry
             if (node.Name == ExamineBorderTag.TagName)
                 IsInBox = true;
 
-            if (!tagManager.TryGetMarkupTag(node.Name, _tagsAllowed, out var tag) || !tag.TryGetControl(node, out var control))
+            if (!tagManager.TryGetMarkupTagHandler(node.Name, _tagsAllowed, out var handler) || !handler.TryCreateControl(node, out var control))
                 continue;
+
+            // Markup tag handler instances are shared across controls. We need to ensure that the hanlder doesn't
+            // store state information and return the same control for each rich text entry.
+            DebugTools.Assert(handler.TryCreateControl(node, out var other) && other != control);
 
             parent.Children.Add(control);
             // StaticSprite
@@ -89,7 +93,22 @@ internal struct CustomRichTextEntry
             tagControls.Add(nodeIndex, control);
         }
 
-        _tagControls = tagControls;
+        Controls = tagControls;
+    }
+    // TODO RICH TEXT
+    // Somehow ensure that this **has** to be called when removing rich text from some control.
+    /// <summary>
+    /// Remove all owned controls from their parents.
+    /// </summary>
+    public readonly void RemoveControls()
+    {
+        if (Controls == null)
+            return;
+
+        foreach (var ctrl in Controls.Values)
+        {
+            ctrl.Orphan();
+        }
     }
 
     /// <summary>
@@ -99,7 +118,7 @@ internal struct CustomRichTextEntry
     /// <param name="maxSizeX">The maximum horizontal size of the container of this entry.</param>
     /// <param name="uiScale"></param>
     /// <param name="lineHeightScale"></param>
-    public void Update(MarkupTagManager tagManager, Font defaultFont, float maxSizeX, float uiScale, float lineHeightScale = 1)
+    public CustomRichTextEntry Update(MarkupTagManager tagManager, Font defaultFont, float maxSizeX, float uiScale, float lineHeightScale = 1)
     {
         // This method is gonna suck due to complexity.
         // Bear with me here.
@@ -140,10 +159,10 @@ internal struct CustomRichTextEntry
                     continue;
 
                 if (ProcessMetric(ref this, metrics, out breakLine))
-                    return;
+                    return this;
             }
 
-            if (_tagControls == null || !_tagControls.TryGetValue(nodeIndex, out var control))
+            if (Controls == null || !Controls.TryGetValue(nodeIndex, out var control))
                 continue;
 
             control.Measure(new Vector2(maxSizeX, float.PositiveInfinity));
@@ -156,11 +175,13 @@ internal struct CustomRichTextEntry
                 desiredSize.Y);
 
             if (ProcessMetric(ref this, controlMetrics, out breakLine))
-                return;
+                return this;
         }
 
         Width = wordWrap.FinalizeText(out breakLine);
         CheckLineBreak(ref this, breakLine);
+
+        return this;
 
         bool ProcessRune(ref CustomRichTextEntry src, Rune rune, out int? outBreakLine)
         {
@@ -194,9 +215,9 @@ internal struct CustomRichTextEntry
 
     internal readonly void HideControls()
     {
-        if (_tagControls == null)
+        if (Controls == null)
             return;
-        foreach (var control in _tagControls.Values)
+        foreach (var control in Controls.Values)
         {
             var controlTyped = control as StaticSpriteView;
             if (controlTyped is not null)
@@ -313,7 +334,7 @@ internal struct CustomRichTextEntry
                 globalBreakCounter += 1;
             }
 
-            if (_tagControls == null || !_tagControls.TryGetValue(nodeIndex, out var control))
+            if (Controls == null || !Controls.TryGetValue(nodeIndex, out var control))
                 continue;
 
             // Controls may have been previously hidden via HideControls due to being "out-of frame".
@@ -376,7 +397,7 @@ internal struct CustomRichTextEntry
             return node.Value.StringValue ?? "";
 
         //Skip the node if there is no markup tag for it.
-        if (!tagManager.TryGetMarkupTag(node.Name, _tagsAllowed, out var tag))
+        if (!tagManager.TryGetMarkupTagHandler(node.Name, _tagsAllowed, out var tag))
             return "";
 
         if (!node.Closing)
