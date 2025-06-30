@@ -350,6 +350,9 @@
     Telecrystal: 50
   categories:
   - UplinkWeaponry
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist: []
 
 - type: listing
   id: UplinkSyndicateDisabler
@@ -397,17 +400,9 @@
     Telecrystal: 65 # fire
   categories:
   - UplinkWeaponry
-
-- type: listing
-  id: UplinkWeaponRifleBurner
-  name: uplink-weapon-burner-name
-  description: uplink-weapon-burner-desc
-  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Rifles/burner.rsi, state: icon }
-  productEntity: WeaponRifleBurner
-  cost:
-    Telecrystal: 100 # don't kill me piras
-  categories:
-  - UplinkWeaponry
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist: []
 
 - type: listing
   id: UplinkWeaponShotgunHeavy
@@ -419,6 +414,9 @@
     Telecrystal: 200
   categories:
   - UplinkWeaponry
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist: []
 
 - type: listing
   id: UplinkBowHardlight
@@ -456,6 +454,9 @@
     Telecrystal: 38 # This + esword = 75 TC
   categories:
   - UplinkWeaponry
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist: []
 
 - type: listing
   id: UplinkBulkMosin
@@ -466,37 +467,6 @@
     Telecrystal: 25
   categories:
     - UplinkWeaponry
-
-- type: listing
-  id: UplinkWeaponM7S
-  name: uplink-m7s-name
-  description: uplink-m7s-desc
-  productEntity: WeaponSubMachineGunM7S
-  cost:
-    Telecrystal: 60
-  categories:
-    -  UplinkWeaponry
-
-- type: listing
-  id: UplinkWeaponHE1SG8
-  name: uplink-he1sg8-bundle-name
-  description: uplink-he1sg8-bundle-desc
-  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Snipers/heavensgate.rsi, state: base }
-  productEntity: ClothingBackpackDuffelSyndicateFilledHE1SG8
-  cost:
-    Telecrystal: 130
-  categories:
-    - UplinkWeaponry
-
-- type: listing
-  id: UplinkWeaponCombatShotgun
-  name: uplink-combat-shotgun-name
-  description: uplink-combat-shotgun-desc
-  productEntity: WeaponShotgunCombat
-  cost:
-    Telecrystal: 50
-  categories:
-    -  UplinkWeaponry
 
 # Wearables
 
@@ -1064,6 +1034,9 @@
     Telecrystal: 8
   categories:
   - UplinkAmmo
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist: []
 
 - type: listing
   id: UplinkMagazineHighCaliberExplosive
@@ -1075,6 +1048,9 @@
     Telecrystal: 12
   categories:
   - UplinkAmmo
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist: []
 
 #- type: listing # A box, really? Why not like... mags?
 #  id: UplinkHighCaliberBox
@@ -1097,6 +1073,9 @@
     Telecrystal: 30
   categories:
   - UplinkAmmo
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist: [ ]
 
 - type: listing
   id: UplinkMagazineShotgunHeavySlug
@@ -1108,6 +1087,9 @@
     Telecrystal: 40
   categories:
   - UplinkAmmo
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist: []
 
 # 弾薬
 - type: listing
@@ -1131,6 +1113,9 @@
     Telecrystal: 8 # Much more damage than C20 or M90 (780, 98 dmg per TC), but hollow-point
   categories:
   - UplinkAmmo
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist: [ ]
 
 - type: listing
   id: UplinkHighCapacityMagazinePistol
@@ -1180,80 +1165,6 @@
   categories:
   - UplinkAmmo
 
-- type: listing
-  id: UplinkMagazineM7S
-  name: uplink-m7s-mag-name
-  description: uplink-m7s-mag-desc
-  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/M7S_magazine.rsi, state: icon }
-  productEntity: MagazineLowCaliberM7S
-  cost:
-    Telecrystal: 5 # 105 dmg per TC which seems huge, but you're missing half of your shots
-  categories:
-  - UplinkAmmo
-
-- type: listing
-  id: UplinkCartridgeG8Demolishing
-  name: uplink-cartridge-G8-demolishing-name
-  description: uplink-cartridge-G8-demolishing-desc
-  productEntity:  CartridgeG8Demolishing
-  cost:
-    Telecrystal: 6 # 12% cheaper than the bundle, coherency with china
-  categories:
-  - UplinkAmmo
-
-- type: listing
-  id: UplinkCartridgeG8Hypercharged
-  name: uplink-cartridge-G8-hypercharged-name
-  description: uplink-cartridge-G8-hypercharged-desc
-  productEntity: CartridgeG8Hypercharged
-  cost:
-    Telecrystal: 6 # 12% cheaper than the bundle, coherency with china
-  categories:
-  - UplinkAmmo
-
-- type: listing
-  id: UplinkBox8Gauge
-  name: uplink-high-caliber-shotgun-box-name
-  description: uplink-high-caliber-shotgun-box-desc
-  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi, state: icon-lethal }
-  productEntity: MagazineBoxShotgunHighCaliber
-  cost:
-    Telecrystal: 10
-  categories:
-  - UplinkAmmo
-
-- type: listing
-  id: UplinkBox8GaugeSlug
-  name: uplink-high-caliber-shotgun-box-slug-name
-  description: uplink-high-caliber-shotgun-box-slug-desc
-  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi, state: icon-slug }
-  productEntity: MagazineBoxShotgunSlugHighCaliber
-  cost:
-    Telecrystal: 8
-  categories:
-  - UplinkAmmo
-
-- type: listing
-  id: UplinkBox8GaugeFlash
-  name: uplink-high-caliber-shotgun-box-flash-slug-name
-  description: uplink-high-caliber-shotgun-box-flash-slug-desc
-  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi, state: icon-incendiary }
-  productEntity: MagazineBoxShotgunHighCaliberFlash
-  cost:
-    Telecrystal: 1
-  categories:
-  - UplinkAmmo
-
-- type: listing
-  id: UplinkBox8GaugeSarin
-  name: uplink-high-caliber-shotgun-box-sarin-name
-  description: uplink-high-caliber-shotgun-box-sarin-desc
-  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi, state: icon-sarin }
-  productEntity: MagazineBoxShotgunHighCaliberSarin
-  cost:
-    Telecrystal: 12
-  categories:
-  - UplinkAmmo
 
 # Mechs
 
@@ -1355,22 +1266,6 @@
       tags:
       - NukeOpsUplink
 
-- type: listing
-  id: UplinkRPOA
-  name: uplink-RPOA-name
-  description: uplink-RPOA-desc
-  productEntity: WeaponLauncherRocketDisposableThermobaric
-  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Launchers/shmel.rsi, state: icon }
-  cost:
-    Telecrystal: 6 # one and a half incendiary grenades, takes up the same space as three
-  categories:
-  - UplinkExplosives
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
-
 # Misc
 - type: listing
   id: UplinkDimensionPot
@@ -1429,6 +1324,8 @@
   - !type:BuyerSpeciesCondition
     whitelist:
     - Dwarf # Rock and stone
+  - !type:BuyerJobCondition
+    whitelist: []
 
 - type: listing
   id: UplinkBloodredCasette
