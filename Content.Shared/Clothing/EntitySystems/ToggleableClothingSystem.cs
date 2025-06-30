@@ -419,8 +419,10 @@ public sealed class ToggleableClothingSystem : EntitySystem
         var comp = toggleable.Comp;
         var attachedClothings = comp.ClothingUids;
         var container = comp.Container;
+
         if (!CanToggleClothing(user, toggleable))
             return;
+
         if (GetAttachedToggleStatus(toggleable, comp) == ToggleableClothingAttachedStatus.NoneToggled)
         {
             foreach (var clothing in attachedClothings)
