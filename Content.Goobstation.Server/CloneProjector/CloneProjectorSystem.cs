@@ -11,6 +11,7 @@ using Content.Goobstation.Shared.CloneProjector.Clone;
 using Content.Server.Emp;
 using Content.Server.Ghost.Roles.Components;
 using Content.Shared._DV.Carrying;
+using Content.Shared._EinsteinEngines.Silicon.IPC;
 using Content.Shared.Actions;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
@@ -27,6 +28,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Radio.Components;
 using Content.Shared.Storage;
 using Content.Shared.Strip.Components;
 using Content.Shared.Stunnable;
@@ -63,6 +65,7 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
     [Dependency] private readonly CarryingSystem _carrying = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
     [Dependency] private readonly MobThresholdSystem _thresholds = default!;
+    [Dependency] private readonly InternalEncryptionKeySpawner _encryptionKeySpawner = default!;
 
     private ISawmill _sawmill = default!;
     public override void Initialize()
@@ -112,7 +115,7 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
             || !args.CanComplexInteract
             || projector.Comp.CurrentHost is not { } host
             || args.User != host
-            || CanUseProjector(projector, args.User))
+            || !CanUseProjector(projector, args.User))
             return;
 
         AlternativeVerb regenerateVerb = new()
@@ -378,6 +381,19 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
                 }
             }
 
+        }
+
+        // Spawn keys
+        if (TryComp<EncryptionKeyHolderComponent>(host, out var hostKey)
+            && TryComp<EncryptionKeyHolderComponent>(clone, out var cloneKey))
+        {
+            foreach (var key in hostKey.KeyContainer.ContainedEntities)
+            {
+                if (!TryPrototype(key, out var keyProto))
+                    continue;
+
+                SpawnInContainerOrDrop(keyProto.ID, clone, cloneKey.KeyContainer.ID);
+            }
         }
 
         return true;
