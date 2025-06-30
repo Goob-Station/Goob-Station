@@ -11699,3 +11699,11 @@ Entries:
         as effective when out of Lavaland pressure.
   id: 1281
   time: '2025-06-30T02:28:47.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Reorganized most syndicate undetermined bundles, and even added two new
+        ones.
+  id: 1282
+  time: '2025-06-30T02:40:46.0000000+00:00'
