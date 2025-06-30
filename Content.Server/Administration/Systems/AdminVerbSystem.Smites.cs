@@ -965,36 +965,41 @@ public sealed partial class AdminVerbSystem
         };
         args.Verbs.Add(superSpeed);
 
-        //Bonk
-        var superBonkLiteName = Loc.GetString("admin-smite-super-bonk-lite-name").ToLowerInvariant();
-        Verb superBonkLite = new()
-        {
-            Text = superBonkLiteName,
-            Category = VerbCategory.Smite,
-            Icon = new SpriteSpecifier.Rsi(new("Structures/Furniture/Tables/glass.rsi"), "full"),
-            Act = () =>
-            {
-                _superBonkSystem.StartSuperBonk(args.Target, stopWhenDead: true);
-            },
-            Impact = LogImpact.Extreme,
-            Message = string.Join(": ", superBonkLiteName, Loc.GetString("admin-smite-super-bonk-lite-description"))
-        };
-        args.Verbs.Add(superBonkLite);
 
-        var superBonkName = Loc.GetString("admin-smite-super-bonk-name").ToLowerInvariant();
-        Verb superBonk = new()
+        // Goob edit - Stop shitmins from killing the server
+        if (_adminManager.HasAdminFlag(args.User, AdminFlags.Host))
         {
-            Text = superBonkName,
-            Category = VerbCategory.Smite,
-            Icon = new SpriteSpecifier.Rsi(new("Structures/Furniture/Tables/generic.rsi"), "full"),
-            Act = () =>
+            //Bonk
+            var superBonkLiteName = Loc.GetString("admin-smite-super-bonk-lite-name").ToLowerInvariant();
+            Verb superBonkLite = new()
             {
-                _superBonkSystem.StartSuperBonk(args.Target);
-            },
-            Impact = LogImpact.Extreme,
-            Message = string.Join(": ", superBonkName, Loc.GetString("admin-smite-super-bonk-description"))
-        };
-        args.Verbs.Add(superBonk);
+                Text = superBonkLiteName,
+                Category = VerbCategory.Smite,
+                Icon = new SpriteSpecifier.Rsi(new("Structures/Furniture/Tables/glass.rsi"), "full"),
+                Act = () =>
+                {
+                    _superBonkSystem.StartSuperBonk(args.Target, stopWhenDead: true);
+                },
+                Impact = LogImpact.Extreme,
+                Message = string.Join(": ", superBonkLiteName, Loc.GetString("admin-smite-super-bonk-lite-description"))
+            };
+            args.Verbs.Add(superBonkLite);
+
+            var superBonkName = Loc.GetString("admin-smite-super-bonk-name").ToLowerInvariant();
+            Verb superBonk = new()
+            {
+                Text = superBonkName,
+                Category = VerbCategory.Smite,
+                Icon = new SpriteSpecifier.Rsi(new("Structures/Furniture/Tables/generic.rsi"), "full"),
+                Act = () =>
+                {
+                    _superBonkSystem.StartSuperBonk(args.Target);
+                },
+                Impact = LogImpact.Extreme,
+                Message = string.Join(": ", superBonkName, Loc.GetString("admin-smite-super-bonk-description"))
+            };
+            args.Verbs.Add(superBonk);
+        }
 
         var superslipName = Loc.GetString("admin-smite-super-slip-name").ToLowerInvariant();
         Verb superslip = new()
