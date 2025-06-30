@@ -615,6 +615,7 @@
   weights:
     # its crewsimov by default dont be lame
     Crewsimov: 0.25
+    AsimovLawset: 0.25 # goob edit
     Corporate: 1
     NTDefault: 1
     CommandmentsLawset: 1

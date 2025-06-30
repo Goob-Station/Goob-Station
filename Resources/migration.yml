@@ -979,3 +979,6 @@ PlushieBlackburnKobliska: null
 
 # 2025-06-13 Goobstation
 BroomWitch: Broomstick
+
+# 2025-06-29 Goobstation who knows why crewsimov had asimov as its id before
+AsimovCircuitBoard: CrewsimovCircuitBoard

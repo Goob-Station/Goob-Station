@@ -103,6 +103,20 @@
       tags:
       - NukeOpsUplink
 
+- type: listing
+  id: UplinkAsimovCircuitBoard
+  name: uplink-asimov-law-name
+  description: uplink-asimov-law-desc
+  productEntity: AsimovCircuitBoard
+  cost:
+    Telecrystal: 25
+  categories:
+  - UplinkDisruption
+  conditions:
+  - !type:BuyerSpeciesCondition
+    whitelist:
+    - Human
+
 # Same explosives for nukies, but cheaper
 
 - type: listing

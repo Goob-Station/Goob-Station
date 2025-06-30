@@ -291,6 +291,9 @@ uplink-clothing-explosive-gloves-desc = Gloves that look just like normal insula
 uplink-syndicate-weapon-module-advanced-name = Advanced Weapons Module
 uplink-syndicate-weapon-module-advanced-desc = Upgrades a cyborg with an energy sword and an anaconda pistol.
 
+uplink-asimov-law-name = Asimov Law Circuit Board
+uplink-asimov-law-desc = A lawset that will cause the station AI to serve humans, and only humans. Just like God had made Man, Man had made Silicons.
+
 # Martial Arts
 
 uplink-cqc-name = CQC Manual
