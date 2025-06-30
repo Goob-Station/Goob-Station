@@ -7,7 +7,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: ClothingOuterHardsuitBasic
+  parent: ClothingOuterHardsuitBase
   id: GoobClothingOuterHardsuitSpirate
   name: modified EVA suit
   description: A modified suit to allow space pirates to board shuttles and stations while avoiding the maw of the void. Comes with additional protection and is lighter to move in.
@@ -41,7 +41,7 @@
       head: GoobClothingHeadHelmetHardsuitSpirate
 
 - type: entity
-  parent: ClothingHeadHelmetHardsuitBasic
+  parent: ClothingHeadHelmetBase
   id: GoobClothingHeadHelmetHardsuitSpirate
   name: modified EVA helmet
   description: A modified helmet to allow space pirates to intimidate their customers whilst staying safe from the void. Comes with some additional protection.
