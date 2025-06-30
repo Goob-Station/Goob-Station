@@ -7,3 +7,8 @@
   license: "CC-BY-SA-3.0"
   copyright: "Sound taken from https://www.myinstants.com/en/instant/bad-to-the-bone-riff-10536/ and turned into .ogg by @LuciferEOS"
   source: "https://www.myinstants.com/en/instant/bad-to-the-bone-riff-10536/"
+
+- files: ["gulpexotic.ogg"]
+  license: "CC0"
+  copyright: "Taken from pixabay."
+  source: "https://pixabay.com/sound-effects/gulp-48452/"

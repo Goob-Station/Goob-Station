@@ -68,6 +68,8 @@
         variation: 0.125
     Whirr:
       collection: IPCWhirrs
+    Gulp: # Goob
+      path: /Audio/_Goobstation/Voice/gulpexotic.ogg
       params:
         variation: 0
 
@@ -112,6 +114,8 @@
       collection: Mars
     Wurble:
       collection: Wurble
+    Gulp: # Goob
+      path: /Audio/_Goobstation/Voice/gulpexotic.ogg
 
 - type: emoteSounds
   id: FemaleShadowkin
@@ -154,3 +158,5 @@
       collection: Mars
     Wurble:
       collection: Wurble
+    Gulp: # Goob
+      path: /Audio/_Goobstation/Voice/gulpexotic.ogg

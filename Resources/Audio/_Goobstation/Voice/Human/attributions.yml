@@ -17,3 +17,8 @@
   license: "CC-BY-SA-3.0"
   copyright: "Modified version of parp1.ogg from TV_LING modified by Piras314"
   source: "https://github.com/Piras314"
+
+- files: ["gulp.ogg"]
+  license: "CC0"
+  copyright: "Freesound_community"
+  source: "https://pixabay.com/sound-effects/gulp-male-88413/"

@@ -216,3 +216,19 @@
     - wurbles
     - wurbling
     - wurbled
+
+- type: emote
+  id: Gulp
+  name: chat-emote-name-gulp
+  category: Vocal
+  icon: _Goobstation/Interface/Emotes/gulp.png
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+   components:
+   - BorgChassis
+  chatMessages: ["chat-emote-msg-gulp"]
+  chatTriggers:
+     - gulps
+     - gulp

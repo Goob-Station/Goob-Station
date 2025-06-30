@@ -60,6 +60,8 @@
       collection: Wurble
     Chirp:
       collection: ResomiChirp
+    Gulp: # Goob
+      path: /Audio/_Goobstation/Voice/gulpexotic.ogg
 
 - type: emoteSounds
   id: FemaleAvaliEmote
@@ -104,3 +106,5 @@
       collection: Wurble
     Chirp:
       collection: ResomiChirp
+    Gulp: # Goob
+      path: /Audio/_Goobstation/Voice/gulpexotic.ogg
