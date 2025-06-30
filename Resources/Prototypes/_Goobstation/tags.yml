@@ -351,6 +351,9 @@
   id: MagazineLowCaliberM7S
 
 - type: Tag
+  id: MagazinePistolSubMachineGunDrum
+
+- type: Tag
   id: MagazineMagnumLeverRifle
 
 - type: Tag
